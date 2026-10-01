@@ -32,10 +32,12 @@ test('GSC はページ単位の gsc-page-YYYY-* だけを読み、検索語×ペ
   const { loadQualityProgress } = await import('../scripts/lib/quality-progress.mjs');
   const root = mkdtempSync(join(tmpdir(), 'qp-'));
   const st = join(root, '.claude/state');
-  mkdirSync(join(st, 'metrics/gsc'), { recursive: true });
+  const gsc = join(root, 'data/metrics/gsc');
+  mkdirSync(st, { recursive: true });
+  mkdirSync(gsc, { recursive: true });
   writeFileSync(join(st, 'quality-scores.json'), JSON.stringify({ pages: { a: { weighted: 2.2 } } }));
   writeFileSync(join(st, 'quality-cycle-state.json'), JSON.stringify({ pages: {} }));
-  writeFileSync(join(st, 'metrics/gsc/gsc-page-2026-09-01.json'), JSON.stringify({ rows: [] }));
-  writeFileSync(join(st, 'metrics/gsc/gsc-page-query-2026-09-20.json'), JSON.stringify({ rows: [] }));
+  writeFileSync(join(gsc, 'gsc-page-2026-09-01.json'), JSON.stringify({ rows: [] }));
+  writeFileSync(join(gsc, 'gsc-page-query-2026-09-20.json'), JSON.stringify({ rows: [] }));
   assert.equal(loadQualityProgress(root).gscFile, 'gsc-page-2026-09-01.json');
 });

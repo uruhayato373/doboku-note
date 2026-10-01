@@ -41,8 +41,8 @@ const AMBER = '#d4a017';      // CTA（価格チップ・editorial CTA 色）
 //   アクセント（上部バー・eyebrow）は級 tint 系、価格チップの AMBER は CTA 色として共通維持。
 // ---------------------------------------------------------------------------
 const BG_WIDE = {
-  'civil-1': '.claude/config/ogp/backgrounds/civil-1.png', // 1600×667
-  'civil-2': '.claude/config/ogp/backgrounds/civil-2.png',
+  'civil-1': 'config/ogp/backgrounds/civil-1.png', // 1600×667
+  'civil-2': 'config/ogp/backgrounds/civil-2.png',
 };
 const THEMES = {
   default: { bar: NAVY, eyebrow: NAVY },
@@ -50,7 +50,7 @@ const THEMES = {
   rccm: { bar: '#9c3d1e', eyebrow: '#742d15' }, // --exam-rccm（赤褐色）系。note-cover-tokens.json exams.rccm と同色
 };
 // RCCM は写真マスター未整備のため書類系の既定背景（bg-docs）を使う
-const BG_RCCM = '.claude/config/coconala/assets/bg-docs.png';
+const BG_RCCM = 'content/coconala/assets/bg-docs.png';
 // wide 1600×667 から 4:3（889×667）をどの x から切るか（右端 = 1600-889 = 711）
 const CROP_X = { moshi: 711, kanseitoan: 380, full: 560, premium: 200, tensaku: 100, sakusei: 420 };
 
@@ -384,10 +384,10 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
-const approved = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude/config/coconala-thumb-approved.json'), 'utf8')).images;
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/coconala-thumb-approved.json'), 'utf8')).images;
 const catalog = readCatalog();
 const listings = readListings();
-const DEFAULT_BG = '.claude/config/coconala/assets/bg-civil.png';
+const DEFAULT_BG = 'content/coconala/assets/bg-civil.png';
 const bgOverride = getArg('--bg');
 const only = getArg('--service');
 const targets = only ? [only] : Object.keys(THUMB_COPY);
@@ -395,7 +395,7 @@ for (const id of targets) {
   const svc = catalog[id];
   if (!svc) { console.error('カタログに無い: ' + id); continue; }
   const hasOptions = (listings[id]?.options || []).length > 0;
-  const out = getArg('--out') || `.claude/config/coconala/assets/thumb-${id.replace('coconala-', '')}.png`;
+  const out = getArg('--out') || `content/coconala/assets/thumb-${id.replace('coconala-', '')}.png`;
   if (approved[id]) {
     if (bgOverride) throw new Error(id + ': 承認済み画像は --bg で変更できません。承認原本を更新してください。');
     const source = path.join(ROOT, approved[id].path);

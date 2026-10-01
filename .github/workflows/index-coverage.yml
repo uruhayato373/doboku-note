@@ -1,7 +1,7 @@
 name: Index coverage audit (URL Inspection)
 
 # サイト全 sitemap URL の Google index 状態（送信して登録 / 検出-未登録 等）を
-# URL Inspection API で週次取得し、.claude/state/metrics/url-inspection/ と
+# URL Inspection API で週次取得し、data/metrics/url-inspection/ と
 # index-coverage-history.json（時系列）に commit する。あわせて登録リクエストの順位表
 # （gsc-indexing/priority-latest.*）を作る＝人間が残す作業は「順位表の先頭から 10 件送る」だけ。
 # ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
@@ -102,7 +102,7 @@ jobs:
           tail -8 /tmp/inspect.log
           echo "inspect-url exit code: $rc"
 
-          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          LATEST=$(ls -t data/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
           if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced（checkpoint も残っていない）"; exit 1; fi
           PARTIAL=$(jq -r '.partial // false' "$LATEST")
           COMPLETED=$(jq -r '.completed // (.results|length)' "$LATEST")
@@ -125,7 +125,7 @@ jobs:
 
       - name: Summarize coverage_state (→ job summary)
         run: |
-          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          LATEST=$(ls -t data/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
           if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced"; exit 1; fi
           {
             echo "## Index coverage audit"
@@ -143,8 +143,8 @@ jobs:
       - name: Stage outputs
         run: |
           mkdir -p /tmp/idx
-          cp -r .claude/state/metrics/url-inspection /tmp/idx/ 2>/dev/null || true
-          cp -r .claude/state/metrics/gsc /tmp/idx/ 2>/dev/null || true
+          cp -r data/metrics/url-inspection /tmp/idx/ 2>/dev/null || true
+          cp -r data/metrics/gsc /tmp/idx/ 2>/dev/null || true
 
       - name: Publish to develop (+ append history)
         run: |
@@ -159,14 +159,14 @@ jobs:
           # ソースへ切り替えた時点で bot commit 用フックも同期する。
           npm run pre-commit:install
 
-          mkdir -p .claude/state/metrics/url-inspection .claude/state/metrics/gsc
-          cp -r /tmp/idx/url-inspection/* .claude/state/metrics/url-inspection/ 2>/dev/null || true
-          cp -r /tmp/idx/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
+          mkdir -p data/metrics/url-inspection data/metrics/gsc
+          cp -r /tmp/idx/url-inspection/* data/metrics/url-inspection/ 2>/dev/null || true
+          cp -r /tmp/idx/gsc/* data/metrics/gsc/ 2>/dev/null || true
 
           # develop の現行 history.json に対し、今回 batch を1エントリ追記（冪等: 同 date は skip）。
           # 部分結果（partial=true）は history に積まない: 分母が偽って小さくなり indexed_ratio が
           # 動いてしまう。batch ファイルだけ残して、完全性ゲートで赤にする。
-          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          LATEST=$(ls -t data/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
           if [ "${{ steps.inspect.outputs.partial }}" = "true" ]; then
             echo "partial batch（${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }}）: history には追記しない"
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) PARTIAL ${{ steps.inspect.outputs.completed }}/${{ steps.inspect.outputs.total }} [skip ci]"
@@ -184,7 +184,7 @@ jobs:
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す（history.json へ追記した後・gsc/rank-watch は除外 dir）。
           node scripts/prune-state-snapshots.mjs --commit --family url-inspection,gsc
 
-          git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc .claude/state/metrics/gsc-indexing/priority-latest.json .claude/state/metrics/gsc-indexing/priority-latest.txt
+          git add data/metrics/url-inspection data/metrics/gsc data/metrics/gsc-indexing/priority-latest.json data/metrics/gsc-indexing/priority-latest.txt
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

@@ -34,7 +34,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
 
 // テーマ → basics / past-problems スラッグ対応
 const THEMES = [
-  { theme: 'concrete', label: 'コンクリート工' },
+  { theme: 'concrete', label: 'コンクリート工' }, // qualification-ssot: allow 工種（コンクリート工）の名前で資格名ではない
   { theme: 'earthwork', label: '土工' },
   { theme: 'construction-plan', label: '施工計画' },
   { theme: 'quality-management', label: '品質管理' },

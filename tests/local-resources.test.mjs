@@ -72,8 +72,8 @@ test('quick startup probe remains available while a full audit holds its lock', 
 
 function cleanupFixture(t) {
   const root = fixture(t);
-  for (const dir of ['.claude/config', '.claude/state/assets', '.tmp/scratch']) mkdirSync(join(root, dir), { recursive: true });
-  writeFileSync(join(root, '.claude/config/local-resources.json'), JSON.stringify({ scanTimeoutMs: 10000, cleanup: { scratch: { roots: ['.tmp/scratch'], minAgeDays: 7 } } }));
+  for (const dir of ['config', '.claude/state/assets', '.tmp/scratch']) mkdirSync(join(root, dir), { recursive: true });
+  writeFileSync(join(root, 'config/local-resources.json'), JSON.stringify({ scanTimeoutMs: 10000, cleanup: { scratch: { roots: ['.tmp/scratch'], minAgeDays: 7 } } }));
   for (const name of ['manifest.json', 'drive-manifest.json']) writeFileSync(join(root, '.claude/state/assets', name), '{"entries":{}}');
   assert.equal(spawnSync('git', ['init', '-q'], { cwd: root }).status, 0);
   const age = (Date.now() - 20 * 86400000) / 1000;

@@ -12,7 +12,8 @@
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
 | 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
 | 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
-| 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `.claude/config/note-funnel.json`） |
+| 全記事を横断して引く（URL・ID・状態・価格・所属マガジン） | `.claude/state/note-published.json`（frontmatter と note-magazines.ts から生成。`npm run build-note-catalog`） |
+| 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
 | 価格の競合対比妥当性 | `docs/strategy/09_販売チャネル競合分析.md`（判断記録） |
 
@@ -143,11 +144,11 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 
 | フィールド | 意味 | 値の性質 |
 |---|---|---|
-| `noteMagazine` | **商品（マガジン）への所属ラベル**。`note-magazines.ts` の `id` と対応する | `.claude/config/note-magazine-membership.json` の `labels`/`packs`/`excluded` のどれかに必ず属する商品名（未分類 0 を `check-magazine-membership.mjs` が強制） |
+| `noteMagazine` | **商品（マガジン）への所属ラベル**。`note-magazines.ts` の `id` と対応する | `config/note-magazine-membership.json` の `labels`/`packs`/`excluded` のどれかに必ず属する商品名（未分類 0 を `check-magazine-membership.mjs` が強制） |
 | `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
 
 **noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
-**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・公開記事インデックスの系列表示（`build-note-published-index.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・記事カタログの系列表示（`build-note-published-index.mjs`）。
 
 **書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
 - `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く
@@ -166,7 +167,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 
 ## 関連ツール（パス前提）
 
-- 公開記事インデックス: `node .claude/scripts/build-note-published-index.mjs`（`content/note/{exam}/...` を走査）
+- 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査）
 - 紙用 PDF 変換: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`
 - カバー画像生成: `node scripts/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
 - UTM 付与: `node scripts/add-note-utm.mjs <slug|prefix>`

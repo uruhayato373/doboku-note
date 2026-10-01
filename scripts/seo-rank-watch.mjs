@@ -54,7 +54,7 @@ async function main() {
   }
   if (command === 'discover') {
     const { readdirSync } = await import('node:fs');
-    const dir = '.claude/state/metrics/gsc';
+    const dir = 'data/metrics/gsc';
     const file = readdirSync(join(root, dir)).filter((f) => /^gsc-page-query-.*\.json$/.test(f)).sort().at(-1);
     if (!file) { console.log('No page-query snapshot'); return; }
     const data = readJson(root, `${dir}/${file}`);

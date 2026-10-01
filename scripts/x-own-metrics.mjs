@@ -34,7 +34,7 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const HANDLE = 'doboku373';
-const STATE_DIR = join(ROOT, '.claude/state/x-metrics');
+const STATE_DIR = join(ROOT, 'data/x-metrics');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST = join(STATE_DIR, 'own-posts.json');
 

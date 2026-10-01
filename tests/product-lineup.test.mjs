@@ -13,6 +13,7 @@ import {
   classifyProduct,
   buildLineup,
   cellKeys,
+  withStages,
 } from '../scripts/lib/product-lineup.mjs';
 
 const CONFIG = {
@@ -81,4 +82,12 @@ test('classifySale: 売上の接頭辞を外し、salesRules → rules.note の�
   assert.deepEqual(classifySale(config, 'article:bk-road-r8'), ['b:written']);
   assert.deepEqual(classifySale(config, 'membership:civil-1-lab'), ['c:second']);
   assert.equal(classifySale(config, 'article:unknown'), null);
+});
+
+test('withStages: 試験区分は exam-formats から付け、無い資格は検査で止める', () => {
+  const stages = new Map([['civil-1', [{ id: 'first', label: '一次' }]]]);
+  const config = withStages({ qualifications: [{ id: 'civil-1' }, { id: 'nofmt' }], channels: [], rules: {} }, stages);
+  assert.deepEqual(config.qualifications[0].stages, [{ id: 'first', label: '一次' }]);
+  assert.deepEqual(config.qualifications[1].stages, []);
+  assert.ok(validateLineupConfig(config).some((e) => e.includes('nofmt: 試験区分が無い')));
 });

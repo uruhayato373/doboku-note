@@ -3,7 +3,7 @@
  * check-kdp-category-coverage.mjs
  * ---------------------------------------------------------------------------
  * catalog.json の buildSpec 持ち（＝ /kdp-publish の対象になりうる新刊）の id 接頭辞が、
- * すべて .claude/config/kdp-memo.json defaults.categoryAssign に明示登録されているか検査する。
+ * すべて config/kdp-memo.json defaults.categoryAssign に明示登録されているか検査する。
  *
  * 背景（2026-08-28）: categoryPathFor() は未登録の接頭辞を警告なく既定 track=gijutsushi
  * （カテゴリー「技術士」）へフォールバックする。g-01（コンクリート診断士）提出時に
@@ -32,7 +32,7 @@ console.log(`[check-kdp-category-coverage] ${targets.length} 冊を実検査 / �
 
 if (uncovered.length) {
   console.error(`  未登録（提出すると警告なく既定 gijutsushi[技術士] へ入稿される）: ${uncovered.join(', ')}`)
-  console.error('  .claude/config/kdp-memo.json の defaults.categoryAssign に接頭辞を追加すること')
+  console.error('  config/kdp-memo.json の defaults.categoryAssign に接頭辞を追加すること')
   process.exit(1)
 }
 

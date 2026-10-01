@@ -2,7 +2,7 @@
 /**
  * scout-x-competitors.mjs — X(旧Twitter) 競合の時系列偵察（read-only）
  * ---------------------------------------------------------------------------
- * .claude/config/x-competitors.json の各競合の公開プロフィール統計（フォロワー/総投稿数）と
+ * config/x-competitors.json の各競合の公開プロフィール統計（フォロワー/総投稿数）と
  * 直近投稿（エンゲージ・更新頻度）を **agent-reach の twitter CLI** で取得し、共通 snapshot
  * schema（profile/counts/cadence/platformExtra/drift）へ正規化して時系列に落とす。前回比 drift
  *（フォロワー増減・投稿増・エンゲージ変化）を機械検出する。
@@ -31,8 +31,8 @@ import { todayJst } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, '.claude/config/x-competitors.json');
-const STATE_DIR = join(ROOT, '.claude/state/x-competitors');
+const CONFIG_PATH = join(ROOT, 'config/x-competitors.json');
+const STATE_DIR = join(ROOT, 'data/x-competitors');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'snapshot.json');
 
@@ -248,7 +248,7 @@ function main() {
   if (!PARTIAL) {
     mkdirSync(HISTORY_DIR, { recursive: true });
     writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: .claude/state/x-competitors/history/${todayFile}`);
+    console.log(`\n時系列保存: data/x-competitors/history/${todayFile}`);
   }
   console.log(`最新ポインタ: ${LATEST_PATH}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed}）→ 分析は competitor-analyst --platform x`);

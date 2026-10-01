@@ -1,7 +1,7 @@
 ---
 name: x-campaign-plan
 description: >
-  X の月次投稿計画（.claude/config/x-campaigns/YYYY-MM-*.json）を 1 日 3 本体制（schemaVersion 2）で
+  X の月次投稿計画（config/x-campaigns/YYYY-MM-*.json）を 1 日 3 本体制（schemaVersion 2）で
   起案し、機械ゲートを通してから執筆・週次投入へ引き継ぐ。試験日程・自投稿の反応実測・競合スナップショット・
   商品カタログ（listed / published のみ）を根拠に、資格配分と時間帯スロット A/B/C を決める。
   Use when user says "来月のX計画を作って", "X投稿計画を立てて", "9月分のXを設計", "/x-campaign-plan".
@@ -21,9 +21,9 @@ domain: sns
 | 何を決めるか | 読むファイル |
 |---|---|
 | 本数体制・スロット・凍結ガード | `.claude/knowledge/reference/x-post-policy.md`（§11.2.1 スロット / §11.6 段階復帰 / §5.3 実績訴求） |
-| 資格ごとの季節性（申込・試験日） | `.claude/config/exam-calendar.json` |
-| 何が実際に反応したか | `.claude/state/x-metrics/own-posts.json`（`npm run x-own-metrics -- --report`） |
-| 競合の動き | `.claude/state/x-competitors/snapshot.json`（`npm run scout-x-competitors`・四半期） |
+| 資格ごとの季節性（申込・試験日） | `config/exam-calendar.json` |
+| 何が実際に反応したか | `data/x-metrics/own-posts.json`（`npm run x-own-metrics -- --report`） |
+| 競合の動き | `data/x-competitors/snapshot.json`（`npm run scout-x-competitors`・四半期） |
 | 売れる状態の商品だけ | `src/lib/coconala-services.ts`(`listed`) / `note-magazines.ts`(`published:true`) |
 
 ## 手順
@@ -87,7 +87,7 @@ domain: sns
    投入後は必ず `npm run x-sync-status` で**キュー実在を実照合**する（ローカル JSON が queued でも
    X 側から消えていることがある）。
 
-   原稿と画像だけの依頼では `scheduled` のまま確認へ渡し、`queued` にしない。内部ブラウザの確認は `npm run x-review`（対象期間・計画は `.claude/config/x-review.json`）、原稿・画像照合は `npm run check-x-review -- --local`。既存予約を計画へ含める場合、台帳と本文・日時が一致する投入済みURLのUTM欠落は保持警告として表示し、新しい原稿の検査は緩めない。
+   原稿と画像だけの依頼では `scheduled` のまま確認へ渡し、`queued` にしない。内部ブラウザの確認は `npm run x-review`（対象期間・計画は `config/x-review.json`）、原稿・画像照合は `npm run check-x-review -- --local`。既存予約を計画へ含める場合、台帳と本文・日時が一致する投入済みURLのUTM欠落は保持警告として表示し、新しい原稿の検査は緩めない。
 
 ## 落とし穴
 

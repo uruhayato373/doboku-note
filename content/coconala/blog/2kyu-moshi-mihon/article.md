@@ -11,7 +11,7 @@ tags: [2級土木, 施工管理技士, 予想模試, 学科記述]
 funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
 source:
   - C9 2級模試の生成 markdown 6本（Drive vault の coconala-asset グループ・build-coconala-content-pdf の C9 源）
-  - .claude/config/coconala-listings.json（listings.coconala-2kyu-moshi-pdf.body / listings.coconala-2kyu-full-pdf.body）
+  - config/coconala-listings.json（listings.coconala-2kyu-moshi-pdf.body / listings.coconala-2kyu-full-pdf.body）
   - content/coconala/blog/2kyu-moshi-tsukaikata/article.md
 ---
 

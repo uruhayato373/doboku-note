@@ -1,5 +1,5 @@
 /**
- * annual-roadmap.mjs — 年間ロードマップの設定（.claude/config/annual-roadmap.json・期間と買い場の週数）の読み込み・検証と、
+ * annual-roadmap.mjs — 年間ロードマップの設定（config/annual-roadmap.json・期間と買い場の週数）の読み込み・検証と、
  * 試験カレンダー（exam-calendar.json）を月の横軸に並べる計算。描画は管理画面 /plan/roadmap。
  *
  * 公表済みの日付はそのまま置く。期間の後半（翌年の試験期）でまだ日付が出ていない行事は、
@@ -8,7 +8,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const ROADMAP_PATH = '.claude/config/annual-roadmap.json';
+export const ROADMAP_PATH = 'config/annual-roadmap.json';
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
 
 export function loadRoadmap(root) {

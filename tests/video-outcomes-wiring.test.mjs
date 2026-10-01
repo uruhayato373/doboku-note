@@ -34,11 +34,11 @@ test('fetch-metrics.yml が campaign スナップショットを取得する', (
     'campaign 取得ステップが無い＝管理画面は永久に「未取得」のまま',
   );
   // 供給先ディレクトリが develop へ publish される経路に乗っているか
-  assert.match(wf, /git add[^\n]*\.claude\/state\/metrics\/ga4/, 'ga4 ディレクトリが commit 対象でない');
+  assert.match(wf, /git add[^\n]*data\/metrics\/ga4/, 'ga4 ディレクトリが commit 対象でない');
 });
 
 test('UTM 契約: campaign は packId・source は youtube・content は longform|shorts', () => {
-  const cfg = JSON.parse(read('.claude/config/video-content.json'));
+  const cfg = JSON.parse(read('config/video-content.json'));
   assert.equal(cfg.utm.source, 'youtube');
   assert.equal(cfg.utm.medium, 'video');
   assert.equal(cfg.utm.campaign, '{packId}');

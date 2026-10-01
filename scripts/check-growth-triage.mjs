@@ -42,7 +42,7 @@ function latest(dir, re) {
 }
 
 function main() {
-  const growth = join(ROOT, '.claude/state/metrics/growth');
+  const growth = join(ROOT, 'data/metrics/growth');
   const reviews = join(ROOT, 'docs/reviews/weekly');
   const digestName = latest(growth, /^digest-\d{4}-W\d{2}\.json$/);
   const reviewName = latest(reviews, /^\d{4}-W\d{2}-review\.md$/);

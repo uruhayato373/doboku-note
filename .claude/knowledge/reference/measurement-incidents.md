@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-01 — ココナラの自動ログインが「人の確認が必要」と出たが、CAPTCHA は出ていなかった
+
+- **現象**: `auth-session-refresh --service coconala` が `human_required`（2FA/CAPTCHA 等の人の確認が必要）で止まり、失敗印を残した。
+- **根本原因**: 判定が「送信後の画面に reCAPTCHA の iframe があれば人の確認」だった。ココナラのログイン画面は不可視の reCAPTCHA（`api2/anchor?...&size=invisible`・256×60 で見えている v3 の印）を常に埋め込むので、送信がログイン画面へ戻されただけで human_required になる。本当の拒否理由（ID/PW 不一致か、headless の bot 判定か）は文言を残していなかったので分からない。
+- **検出経緯**: ログイン用プロファイルの閲覧履歴（`Default/History` の visits）で、06:43:21Z に遷移種別 FORM_SUBMIT（0x7）で `/login` へ戻っていた＝送信はされ、ログインが受け付けられなかったと確定した。資格情報を入れずにログイン画面を読むと、入力欄・送信ボタンは見えており、reCAPTCHA の iframe は `size=invisible` だった。
+- **対策**: 判定は不可視の reCAPTCHA を数えず、見えているチェックボックス・画像の問題（bframe）・hCaptcha・Turnstile と確認コード等の文言だけを人の確認にする（`detectChallenge`）。失敗時は送信後の場所・ログイン画面の文言（メールアドレスは伏せる）を失敗印に書き、画面の写しを auth root に残す。ココナラは KDP と同じく手元では画面ありで送る（CI は常に headless）。
+- **教訓**: 「iframe がある」「要素がある」で状態を判定するときは、その要素が成功・失敗の両方の画面に常にあるものでないかを先に確かめる。失敗の分類は理由（表示の文言）を一緒に残さないと、次に人が見ても切り分けられない。
+
 ## 2026-09-28 — 共有作業ツリーの git merge が「could not write index / fatal: stash failed」で失敗し、index.lock が残る
 
 - **現象**: 本体 checkout（複数セッション・Codex・デスクトップアプリが同時に使う）で `git pull` / `git merge` が `error: could not write index` と `fatal: stash failed` で止まり、同日に `.git/index.lock` の残骸が 4 回残った（12:09・14:22・14:53・15:12）。autostash の設定はどこにも無い。
@@ -35,7 +43,7 @@ title: 計測・検証事故の記録
 
 - **現象**: 2026-08-18 以降、対象 22 URL すべてで `field_availability.url_level` / `origin_level` が false のまま。origin レベルにも CrUX が無い＝DN-0158 (3) の状態が継続。
 - **判断**: 対象 URL を母数のあるトップ・ハブページへ絞るかを検討したが、絞り込みは行わない。同一 22 URL で 2026-07-21〜08-17 は origin/URL 両レベルとも供給されていた（2026-08-25 追記の観測表）。母数不足が恒常的な原因なら以前から欠測していたはずで、供給が急に止まった形は Google 側のトラフィック閾値割れではなく CrUX 供給側の障害と整合する。URL リストを絞っても復旧しない可能性が高い。
-- **対策**: `.claude/config/psi-config.json` の `judgment.url_list_review_2026_09_25` に判断根拠を記録。次に origin_level が false のまま 2027-01 を超えたら、GSC Core Web Vitals レポート（PSI API と別経路）で同期間のデータ有無を照合し、URL リスト見直しを再検討する。
+- **対策**: `config/psi-config.json` の `judgment.url_list_review_2026_09_25` に判断根拠を記録。次に origin_level が false のまま 2027-01 を超えたら、GSC Core Web Vitals レポート（PSI API と別経路）で同期間のデータ有無を照合し、URL リスト見直しを再検討する。
 - **恒久ルール**: `check-year-staleness` 等と同様、判定不能な期間に対象を変える前に「以前は取れていたか」を時系列で確認する。母数不足と供給障害は現象が似ていても対策が違う（前者は対象変更が効くが後者は効かない）。
 - **関連**: `npm run psi-audit:check` の `field-coverage` 違反（`fieldAvailabilityLine`/`fieldAvailabilityHint`）が同じ内訳を毎回出力する。週次レビュー Agent C2 はこの機械出力を転記する（DN-0228・下記 2026-09-14 の教訓）。
 
@@ -170,7 +178,7 @@ backlog と実装契約に「Phase 03 で直す対象」と書いた。**誤り�
 
 GA4 のカスタムディメンションは**作成日より前のイベントへ遡及しない**。
 
-- `cta_placement` の作成日 = **2026-07-25**（`.claude/config/ga4-admin-desired-state.json` の `$observed`）
+- `cta_placement` の作成日 = **2026-07-25**（`config/ga4-admin-desired-state.json` の `$observed`）
 - スナップショットの窓 = **2026-07-16 〜 08-12**
 
 窓の始端が作成日より 9 日前で、その 9 日分が `(not set)` になる。仕様どおりで直す対象は無い。
@@ -191,7 +199,7 @@ GA4 のカスタムディメンションは**作成日より前のイベント�
 - 作成日が分からない → **断定しない**
 
 目視に頼らず機械で切り分ける。`report-career-funnel.mjs` の `classifyNotSet()` が
-`pre-registration` / `wiring-gap` / `unknown` を返し、作成日は `.claude/config/career-funnel.json` の
+`pre-registration` / `wiring-gap` / `unknown` を返し、作成日は `config/career-funnel.json` の
 `dimensionRegisteredAt` に置く。実機観測値（`ga4-admin-desired-state.json`）と食い違えばテストが落ちる。
 
 ### 適用した対策
@@ -208,7 +216,7 @@ GA4 のカスタムディメンションは**作成日より前のイベント�
 ### 関連
 
 - 「検査ゼロを PASS と呼ばない」（CLAUDE.md §9）の同型。**ここでは逆に「仕様の空白を実害と読んだ」**
-- `.claude/config/ga4-admin-desired-state.json`（作成日の実機観測値）
+- `config/ga4-admin-desired-state.json`（作成日の実機観測値）
 - [affiliate-operations.md](affiliate-operations.md)「悩み別に CTA 文言を出し分ける」
 
 ## 2026-08-17: NSM 下落は計測不具合ではなく試験日の季節性（4週の持ち越しを決着）
@@ -224,7 +232,7 @@ Must に積み続けた（4 週連続の持ち越し。この間、全施策の�
 
 **季節性で説明がつく。計測の異常ではない。** 根拠は 2 つ。
 
-1. **試験日と一致する**（`.claude/config/exam-calendar.json` で実照合）。2級土木一次 06-07 →
+1. **試験日と一致する**（`config/exam-calendar.json` で実照合）。2級土木一次 06-07 →
    1級土木一次 07-05 → 技術士二次 総監 07-19 / 建設部門 07-20 で山が終わり、次は 1級二次 10-04 まで空く
 2. **売上が同じ形で落ちている**。2026-07 ¥275,140 → 2026-08 ¥39,520（17日時点）。
    しかも 7 月の内訳は建設部門2次が牽引しており、その試験は 07-20 に終わっている
@@ -235,7 +243,7 @@ GSC が逆を向いて見えた件も矛盾しない。**週 26 クリックは 
 
 ### なぜ 4 週かかったか（根本原因）
 
-検証手段に選んだ「前年同期比」が**実行不可能だった**。`.claude/state/metrics/ga4/` の最古は
+検証手段に選んだ「前年同期比」が**実行不可能だった**。`data/metrics/ga4/` の最古は
 2026-05-17 で、2025 年のデータが 1 件も無い。**取れないものを Must に積み続けた**ため、
 毎週「持ち越し」と書くだけの週が 4 回続いた。
 
@@ -250,8 +258,8 @@ GSC が逆を向いて見えた件も矛盾しない。**週 26 クリックは 
 
 ### 関連
 
-- 売上の月次: `.claude/state/sales/sales-log.json`（2026-08-17 に 7 月を実体で差し替え・[sales-tracking.md](sales-tracking.md)）
-- 試験日の真実源: `.claude/config/exam-calendar.json`
+- 売上の月次: `data/sales/sales-log.json`（2026-08-17 に 7 月を実体で差し替え・[sales-tracking.md](sales-tracking.md)）
+- 試験日の真実源: `config/exam-calendar.json`
 
 ## 2026-07-30: 「構造的に必ず赤いゲート」— weekly-review-guard の偽赤（恒久ルール）
 
@@ -314,14 +322,14 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 `check-gsc-ui-due` が「OK: 前回 2026-07-23（2日前）」と緑を返していた。実際のマーカーは
 `downloadedUnits 7 / totalUnits 10` で **3 ユニット分が取れていない**のに `status: "ok"` と記録されていた。
 さらに GA4 UI 経路（`ga4-ui:fetch`）は **一度も走っていない**のに、それを surface する仕組みが無かった
-（`.claude/state/metrics/ga4-ui/` が存在しないだけ＝誰も気づけない）。
+（`data/metrics/ga4-ui/` が存在しないだけ＝誰も気づけない）。
 
 同時に判明した実害:
 
 - **`search-growth:audit` が一度も通っていなかった**。`gsc-ui:fetch && google-console:normalize && search-growth:report`
   の連鎖で、中間の normalize が **引数なし**で呼ばれており `resolveRunDir` が null → 「run ディレクトリが
   見つかりません」で毎回 exit 2 → report まで到達しない。個別実行でしか回っていなかった。
-- **CSV から得た URL 情報が消えた**。`.claude/state/metrics/gsc-ui/*/` は gitignore で、raw CSV は
+- **CSV から得た URL 情報が消えた**。`data/metrics/gsc-ui/*/` は gitignore で、raw CSV は
   **再取得しかできない**（再生成不可）。2026-07-23 の 1,952 行は worktree 消滅と同時に失われ、
   `report-search-growth` はその run の normalized/ しか読まないため別マシンで診断が再現しなくなった。
 - **Playwright プロファイルが実質 Mac 専用だった**。`google-console-browser.mjs` の `PROFILE_ROOT` が
@@ -363,7 +371,7 @@ guard は「先週分のファイルが今あるか」だけを見ていたた�
 | SSOT 整合ゲート | `scripts/check-google-ui-ssot.mjs`（検査ゼロ・runId 不整合・不完全 run を FAIL） |
 | レポートの再現性 | `report-search-growth.mjs` が SSOT を優先読込（`gscUiSource` を md に明記） |
 | プロファイル解決 | `google-console-browser.mjs` の `PROFILE_ROOT_CANDIDATES`（env → `~/doboku-note` → 旧 Mac パス） |
-| GA4 設定の desired state | `.claude/config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
+| GA4 設定の desired state | `config/ga4-admin-desired-state.json` ＋ `scripts/ga4-admin-setup.mjs`（dry-run 既定・`--commit` gate） |
 | GA4 設定のドリフト検知 | `scripts/check-ga4-custom-dimensions.mjs`（blocking 未登録は exit 1） |
 | 合成コマンドの修復 | `normalize` の既定を最新 run に／`search-growth:audit` を部分成功許容＋末尾に SSOT ゲート |
 
@@ -576,7 +584,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 ### 正しいモデル（恒久ルール）
 
-- **計測は CI/CD が供給する**: `fetch-metrics.yml`（毎週金 06:00 JST）が GA4（channel 28d / date / **organic 7d**）+ GSC（全体 / **date 7d**）を取得して `.claude/state/metrics/{ga4,gsc}/` に commit。`psi-audit.yml` が PSI を日次 commit。
+- **計測は CI/CD が供給する**: `fetch-metrics.yml`（毎週金 06:00 JST）が GA4（channel 28d / date / **organic 7d**）+ GSC（全体 / **date 7d**）を取得して `data/metrics/{ga4,gsc}/` に commit。`psi-audit.yml` が PSI を日次 commit。
 - **コミット済みスナップショットを読むのが既定の正規手順**（フォールバックではない）。ローカル creds は設計上不要で、**未設定をブロッカー扱いしない**。
 - **ライブ fetch は creds + 外部到達性が両方ある環境（例: creds 入りの macOS）限定の任意経路**。会社 PC では到達不能なので使わない。
 - スナップショットが 2 週分揃わない等で WoW が出せないときだけ「クリーン WoW は次週から」と注記する。「計測基盤未整備」とは書かない。
@@ -596,7 +604,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 ### 教訓
 
-1. **「計測データが要る」≠「ローカルで API を叩く」**。本プロジェクトの計測は CI/CD 供給で、エージェントは `.claude/state/metrics/` のスナップショットを読むのが正。
+1. **「計測データが要る」≠「ローカルで API を叩く」**。本プロジェクトの計測は CI/CD 供給で、エージェントは `data/metrics/` のスナップショットを読むのが正。
 2. **外部 API を使う作業は、ローカルの到達性を先に疑う**。会社 PC は Google/Meta 等を社内フィルタで遮断する。到達不能を「設定不足/基盤未整備」と誤診しない。
 3. **ドキュメントの framing が誤判断を生む**: 既定手順を「fallback」と書くと、それが主経路の環境で「劣化・未整備」と誤読される。主経路は主経路として書く。
 
@@ -604,7 +612,7 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 - `.github/workflows/fetch-metrics.yml` - 週次 GA4/GSC 取得・commit（計測の本体）
 - `.github/workflows/psi-audit.yml` - 日次 PSI 取得・commit
-- `.claude/state/metrics/{ga4,gsc,psi}/` - 計測スナップショット（エージェントの既定取得元）
+- `data/metrics/{ga4,gsc,psi}/` - 計測スナップショット（エージェントの既定取得元）
 - `.claude/skills/social/publish-ig-bs/SKILL.md` - IG 投稿の現行経路（Business Suite・ローカル GUI）。旧 Graph API/Mac/Actions 経路は 2026-06-17 全廃
 
 ## 2026-05-16〜29: R2 アップロード Unauthorized の握り潰しによる本番画像 404（約2週間サイレント）

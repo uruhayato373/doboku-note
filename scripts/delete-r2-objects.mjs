@@ -76,7 +76,7 @@ const commit = args.includes('--commit');
 const listIdx = args.indexOf('--list');
 const groupIdx = args.indexOf('--from-manifest-group');
 const fromGroup = groupIdx !== -1 ? args[groupIdx + 1] : null;
-const listPath = listIdx !== -1 ? args[listIdx + 1] : (fromGroup ? null : '.claude/config/r2-delete-list.txt');
+const listPath = listIdx !== -1 ? args[listIdx + 1] : (fromGroup ? null : 'config/r2-delete-list.txt');
 const allowUnpreserved = args.includes('--allow-unpreserved');
 
 let keys;

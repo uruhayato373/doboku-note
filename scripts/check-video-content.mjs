@@ -15,7 +15,7 @@
  *   「検査 0 件」を PASS と区別するため、常に検査対象数と実検査数を出力する。
  *   チェッカー自体の健全性は tests/video-content-check.test.mjs（fixture）が npm test で担保する。
  *
- * 真実源: .claude/knowledge/reference/video-content-policy.md §8 ＋ .claude/config/video-content.json
+ * 真実源: .claude/knowledge/reference/video-content-policy.md §8 ＋ config/video-content.json
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';

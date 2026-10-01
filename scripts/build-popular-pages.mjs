@@ -2,7 +2,7 @@
 /**
  * build-popular-pages.mjs
  *
- * 最新の GA4 ページ別スナップショット（.claude/state/metrics/ga4/ga4-page-*.json、
+ * 最新の GA4 ページ別スナップショット（data/metrics/ga4/ga4-page-*.json、
  * CI が `npm run fetch-ga4-data -- --dimension page` で取得・コミット）を読み、
  * 正規公開 URL（および移行期間中の旧 /docs URL）の記事を activeUsers 降順に並べた
  * `src/config/popular-pages.json` を生成する。
@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { slugFromKey } from './lib/url-normalization.mjs';
 
-const GA4_DIR = join(process.cwd(), '.claude', 'state', 'metrics', 'ga4');
+const GA4_DIR = join(process.cwd(), 'data', 'metrics', 'ga4');
 const OUT = join(process.cwd(), 'src', 'config', 'popular-pages.json');
 
 /** 最新の ga4-page-*.json（ファイル名のタイムスタンプ順）を返す。無ければ null。 */

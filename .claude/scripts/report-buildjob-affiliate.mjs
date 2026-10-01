@@ -8,13 +8,13 @@
  * 期間中（〜2026-08-31）は civil 全ページが BuildJob 100% のため、面別クリックの伸びを毎週追える。
  *
  * 入力（最新スナップショットを自動選択・オフライン・ネットワーク不要）:
- *   - .claude/state/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
+ *   - data/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
  *       ※ 面別ラベルは fetch-ga4-cta-clicks --by-label で取得（要 GA4 event_label カスタムディメンション）。
- *   - .claude/state/metrics/ga4/ga4-cta-clicks-*.json           （pagePath × eventName × eventCount・page 別）
- *   - .claude/state/metrics/affiliate/a8-results.json           （A8 成果。`/a8-report` が自動取込）
+ *   - data/metrics/ga4/ga4-cta-clicks-*.json           （pagePath × eventName × eventCount・page 別）
+ *   - data/metrics/affiliate/a8-results.json           （A8 成果。`/a8-report` が自動取込）
  *
  * 出力:
- *   - .claude/state/metrics/affiliate/buildjob-report-latest.md  （面別/ページ別/EPC サマリ）
+ *   - data/metrics/affiliate/buildjob-report-latest.md  （面別/ページ別/EPC サマリ）
  *   - コンソールにサマリ
  *
  * usage: node .claude/scripts/report-buildjob-affiliate.mjs
@@ -28,8 +28,8 @@ import { pickByLabelSnapshot } from "./lib/ga4-snapshot.mjs";
 
 import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
 
-const GA4_DIR = ".claude/state/metrics/ga4";
-const AFF_DIR = ".claude/state/metrics/affiliate";
+const GA4_DIR = "data/metrics/ga4";
+const AFF_DIR = "data/metrics/affiliate";
 
 /** プログラム分類: data-cta-label（面別 trackLabel or CareerAffiliate の service 名）→ プログラム。 */
 const PROGRAM_BY_LABEL = new Map([

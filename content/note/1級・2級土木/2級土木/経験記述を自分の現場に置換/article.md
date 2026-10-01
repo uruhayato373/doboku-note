@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-adapt
 noteUrl: "https://note.com/dobokunote/n/nc60854accc56"
 noteId: "nc60854accc56"
-title: "【2級土木施工管理技士】完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由"
+title: "2級土木 施工経験記述｜完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 完成答案を
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "4手順"
   benefit: "丸写し失格を避けられる"
 ---
-# 【2級土木施工管理技士】完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由
+# 2級土木 施工経験記述｜完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由
 
 ![](img/figure-author-authority-pop.png)
 
@@ -49,7 +49,7 @@ https://coconala.com/services/4418778
 https://coconala.com/services/4418785
 
 <!-- cta:pack-top -->
-想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

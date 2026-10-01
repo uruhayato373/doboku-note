@@ -24,7 +24,7 @@
  *
  *   意図的な価格差（序章 ¥100、エントリー版、級による差など）は allowlist で明示的に
  *   免除する。免除に理由を書かせることで「なぜこの価格差があるか」が記録として残る。
- *   allowlist: .claude/config/note-price-consistency.json
+ *   allowlist: config/note-price-consistency.json
  *
  *   L0 正本の欠落（2026-10-01 追加） — 公開済み（noteUrl/noteId あり）の記事に title が無い・見出し 1 が title と違う・
  *                          有料なのに price が無い。題名・価格の正本は frontmatter で、欠けると
@@ -42,7 +42,7 @@ import { execFileSync } from 'node:child_process';
 
 const ROOT = process.cwd();
 const BASE = 'content/note';
-const CONFIG = '.claude/config/note-price-consistency.json';
+const CONFIG = 'config/note-price-consistency.json';
 
 const argv = process.argv.slice(2);
 const staged = argv.includes('--staged');

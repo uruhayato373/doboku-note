@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // check-cce-essay.mjs — コンクリート主任技士 小論文（テーマ別 note 教材＋出題履歴ブロック）の決定的ゲート。
 //
-// 真実源: .claude/config/cce-essay-history.json（出題履歴・テーマ分類・模範答案の型と字数帯）。
+// 真実源: config/cce-essay-history.json（出題履歴・テーマ分類・模範答案の型と字数帯）。
 // 判定ロジックは scripts/lib/cce-essay.mjs に集約・tests/check-cce-essay.test.mjs で固定。
 //
 // A. テーマ別教材 = content/note/コンクリート主任技士/**/article.md のうち frontmatter に cceEssayTheme を持つ記事
@@ -25,7 +25,7 @@ import { evaluateCceEssay, extractHistoryBlocks, syncHistoryBlock } from './lib/
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 
 const ROOTS = ['content/note/コンクリート主任技士', 'content/site/concrete-chief-engineer'];
-const SSOT = '.claude/config/cce-essay-history.json';
+const SSOT = 'config/cce-essay-history.json';
 const STAGED = process.argv.includes('--staged');
 const FIX = process.argv.includes('--fix');
 const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));

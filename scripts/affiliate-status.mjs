@@ -2,7 +2,7 @@
 /**
  * affiliate-status.mjs — 3 ASP の提携状態を実機と突合する（read-only）
  * ---------------------------------------------------------------------------
- * `.claude/state/ads/affiliate-catalog.json`（自社がどの案件をどの ASP で運用するか）を
+ * `data/ads/affiliate-catalog.json`（自社がどの案件をどの ASP で運用するか）を
  * 実機の提携中/申請中一覧と突合し、**ドリフト**を報告する。
  *
  * 安全弁:
@@ -31,7 +31,7 @@ import {
 
 import { detectFalseNegative } from "./lib/asp-falsenegative-guard.mjs";
 
-const CATALOG = ".claude/state/ads/affiliate-catalog.json";
+const CATALOG = "data/ads/affiliate-catalog.json";
 
 function parseArgs() {
   const a = process.argv.slice(2);

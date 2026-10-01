@@ -107,6 +107,7 @@ const CHECKS = [
   { id: 'admin-ui-debt', npm: 'check-admin-ui-debt', timeout: 30_000, ci: true, note: '管理画面のページごとの生 card クラスとインライン style をラチェット（増えたら落ちる・新規ページは 0）。shadcn 部品へ移したら --update で下げる（DN-0432）' },
   { id: 'shadcn-parity', npm: 'check-shadcn-parity', timeout: 30_000, ci: true, note: '管理画面の UI 部品（components/ui）が shadcn/ui 公式（.claude/config/shadcn-reference・コミット済みの保存物）と同じクラスか。差は shadcn-parity-allow.json に理由付きで登録したものだけ。ページでの Badge/Button/TabsTrigger の大きさの上書きも止める（DN-0432）' },
   { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics）がコミットと一致。MDX 追加時の回し忘れを止める' },
+  { id: 'memory', npm: 'check-memory', timeout: 30_000, ci: true, note: 'エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -134,7 +135,7 @@ const CHECKS = [
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
-  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ .claude/config/video-content.json）' },
+  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ config/video-content.json）' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
 
@@ -218,6 +219,8 @@ const CHECKS = [
   { id: 'rccm-essay', npm: 'check-rccm-essay', timeout: 60_000, ci: true, note: 'RCCM 問題III 模範論文の出題条件（1,200〜1,600 字・指定用語「」4 語以上・問題再現節なし・paidBoundary 実在）。対象 0 件は exit 2＝検査不成立で赤（記事が 1 本も無い状態で緑にしない）' },
   { id: 'cce-essay', npm: 'check-cce-essay', timeout: 60_000, ci: true, note: 'コンクリート主任技士 小論文テーマ別教材の型（SSOT cce-essay-history.json の answerModel＝(1)〜(4)・8立場・字数帯・出題年一致）と、サイト/note の出題履歴ブロックが SSOT の生成結果と一致するか。対象 0 件は exit 2＝検査不成立' },
   { id: 'magazine-membership', npm: 'check-magazine-membership', timeout: 90_000, ci: true, note: 'マガジン収録の三軸（repo実数=frontmatter noteMagazine 集計 ↔ SoT price 件数 ↔ ライブ snapshot）＋軸D=束ね商品の記事key包含（fromMagazines "all"・2026-09-25 まるごとパック68本漏れ）。SoTとライブが同値で古びる事故(2026-08-24 ゼネコン/河川コンサル各2本未収録)は第三軸=repoでしか割れない。ネットワーク非依存(snapshot 読取のみ)' },
+  { id: 'products', npm: 'check-products', timeout: 90_000, ci: true, note: '商品の正本 content/products/（DN-0492）: 型・id・参照先・note-magazines.ts 生成ブロックの一致・収録の意図×コミット済み収録記録。PR の差分だけで決まる（ネットワーク不使用）' },
+  { id: 'product-db-check', cmd: ['npm', 'run', '--silent', 'product:db', '--', '--check'], timeout: 60_000, ci: true, note: '検索用 SQLite（sql.js）が正本・収録記録・販売ログから作れること（週次の集計が使う生成物の完走確認）' },
   { id: 'note-paid-cta', npm: 'check-note-paid-cta', timeout: 90_000, ci: true, note: '有料記事の L2 もくじ CTA が有料境界より前（無料プレビュー内）にあるか。末尾配置は非購入者に不可視' },
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
   { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },
@@ -248,6 +251,7 @@ const CHECKS = [
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
+  { id: 'qualification-ssot', npm: 'check-qualification-ssot', timeout: 60_000, ci: true, note: '資格の名前・並び順が qualification-registry.json だけにあるか。設定の写しと、コードの資格 id→日本語対応表の基準超えを止める（2026-10-02: メニューごとに名前・順がずれた）' },
   { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', timeout: 30_000, ci: true, note: '過去問の年度在庫台帳（past-exam-inventory.json）と Drive 台帳の整合。FAIL は台帳の不整合だけで壁時計に依存しない。WARN（掲載中の未取得・最古年度の消失見込み・Drive 未退避・新年度の掲載見込み）の読み手＝/monthly-review 手順4' },
   { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'year-staleness', npm: 'check-year-staleness', timeout: 60_000, ci: false, note: 'ガイド・keyword 記事の title/seoTitle/description に残る前年度以前の年度表現（DN-0426）。過去問・年度別記事（group past-exam/primary/secondary、r05-essay-* 等の年度スラッグ）は主題なので除外。年度切替（毎年1月）の直後 2 週間だけ ci:true へ上げ、0 件になったら ci:false へ戻す。読み手＝/weekly-review（年度切替直後のみ確認）' },
@@ -308,7 +312,7 @@ const CHECKS = [
   // Git に何を追跡してよいかのラチェット（DN-0111 Phase 1・2026-08-21 追加）。
   // 既存違反（教材ページ画像 868 / base64 SVG 756 等）は baseline で猶予し、増加だけを止める。
   // baseline 更新: npm run check-git-binary-policy -- --update-baseline
-  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: '.claude/state/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
+  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: 'data/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {

@@ -1,7 +1,7 @@
 /**
  * 図版キャンバス標準ガード — figure-*.svg の viewBox が固定キャンバスに一致するか検証する。
  *
- * 真実源: .claude/config/figure-canvas.json（人間向け: .claude/knowledge/reference/figure-canvas-policy.md）
+ * 真実源: config/figure-canvas.json（人間向け: .claude/knowledge/reference/figure-canvas-policy.md）
  *   - figure-N.svg          → feed      viewBox == 400 500 (4:5)
  *   - figure-N--wide.svg    → landscape viewBox == 640 360 (16:9)
  *
@@ -21,7 +21,7 @@ import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS = SITE_CONTENT_ROOT;
-const CONFIG = join(ROOT, ".claude", "config", "figure-canvas.json");
+const CONFIG = join(ROOT, "config", "figure-canvas.json");
 const staged = process.argv.includes("--staged");
 const syncAllowlist = process.argv.includes("--sync-allowlist");
 
@@ -168,7 +168,7 @@ if (errors.length) {
   console.error(
     `\n  修正: viewBox を ${FEED[0]}×${FEED[1]}(figure-N.svg) / ${WIDE[0]}×${WIDE[1]}(figure-N--wide.svg) に。`
   );
-  console.error(`  移行待ちなら .claude/config/figure-canvas.json の guard.migrationAllowlist に追加。`);
+  console.error(`  移行待ちなら config/figure-canvas.json の guard.migrationAllowlist に追加。`);
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
   process.exit(1);
 }

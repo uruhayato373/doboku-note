@@ -128,7 +128,7 @@ jobs:
 
       - name: Run GSC auto review
         if: steps.pre.outputs.has_token == 'true'
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1
+        uses: anthropics/claude-code-action@8ce9314fa9a404564fa7e954cd84f25bcba2b829 # v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -180,7 +180,7 @@ jobs:
 
             - `npm install` / `npm ci` を実行しない。診断はコミット済み JSON の Read/Grep だけで完結する
             - GSC/GA4 API を叩かない・ライブ fetch しない（計測は CI 供給が正）
-            - **`.claude/state/metrics/` 配下の JSON を自分で Read しない**（数千行ある）。診断は必ずサブエージェントにやらせる
+            - **`data/metrics/` 配下の JSON を自分で Read しない**（数千行ある）。診断は必ずサブエージェントにやらせる
             - **`gsc-management.md` を全文 Read しない**（300 行超・成長中）。後述の tail 読みだけを使う
             - **リポジトリ内のファイルを書かない・commit / push もしない**（上記のとおり bash ステップの担当）
             - 実験の start もしない（**推奨まで**。実行判断は人間）
@@ -201,13 +201,13 @@ jobs:
 
             ## Phase 1: 週次 performance 記録
 
-            1. サブエージェント `metrics-analyzer`（sonnet）を**同期で**起動し、`.claude/state/metrics/` の最新 GSC/GA4 JSON と機会ダイジェスト（`growth/digest-*.json`）から改善候補を抽出させる（Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用し、自分で抽出するのは 4/5/6）。**結果はファイルに書かせず本文をテキストで返させる**（`.claude/` は書けないため）。**生の計測 JSON をあなたが開かない**。返ってきたら即座に次へ（ここで turn を終えない）
+            1. サブエージェント `metrics-analyzer`（sonnet）を**同期で**起動し、`data/metrics/` の最新 GSC/GA4 JSON と機会ダイジェスト（`growth/digest-*.json`）から改善候補を抽出させる（Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用し、自分で抽出するのは 4/5/6）。**結果はファイルに書かせず本文をテキストで返させる**（`.claude/` は書けないため）。**生の計測 JSON をあなたが開かない**。返ってきたら即座に次へ（ここで turn を終えない）
             2. 返ってきた内容を `/tmp/improvements.md` に Write する（後続 bash が所定パスへ配置する）
             3. Phase 0-4 で除外すべき候補を落としたうえで、`/tmp/weekly-entry.md` に**追記本文だけ**を Write する（**20 行以内**。上位 3 件まで、残りは「他 N 件 → improvements/{TODAY}.md」と参照で済ませる。問題なしの軸は 1 行で「✓」）。1 行目は必ず `### {TODAY}（週次・自動レビュー）` とし、続けて **観測**（窓とパターン別件数を 1 行）/ **上位候補と推奨**（URL・数値・推奨アクションを最大 3 件）/ **トリアージ待ち**（各候補に対応する機会ダイジェストの `OPP-…` と推奨ルートを 1 行ずつ。処分＝起票・却下・保留は土曜の週次レビューの growth-triage が決める＝判断者を 1 人にする）/ **注記**（自動生成・人間の上書き歓迎）の 4 ブロック
 
             ## Phase 2: coverage 記録（新しい inspection-batch があるときだけ・index-coverage.yml は週次）
 
-            1. **整合ゲート**: `.claude/state/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同じ日付か確かめる。違えば coverage エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
+            1. **整合ゲート**: `data/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同じ日付か確かめる。違えば coverage エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
             2. サブエージェント `gsc-index-auditor`（sonnet）を**同期で**起動し、最新 batch（1,000 件超）と history を診断させる。**batch JSON をあなたが開かない**。**Phase 1 の `/tmp/weekly-entry.md` を書き終えてから**起動すること（週次を人質にしない）
             3. **異常判定**（1 つでも該当なら最終報告を【要確認】にする）: indexed_ratio < 60% / 前回比 −5pt 超の低下 / discovered_not_indexed が sitemap の 20% 超 / hygiene（404+redirect）> 0 / inspected < sitemap_urls / batch の results が空 or 前回比 50% 以上減
             4. `/tmp/monthly-entry.md` に**追記本文だけ**を Write する（**25 行以内**。hygiene URL は代表 3 件＋総数）。1 行目は `### {TODAY}（coverage・自動レビュー）` とし、続けて **観測**（history.json の該当 batch エントリを正として inspected/sitemap/indexed/ratio/前回比/discovered/crawled-not-indexed/hygiene）/ **原因バケット**（権威性・技術・hygiene の auditor 判定を各 1 行）/ **推奨アクション**（本 doc 上部の「判断マトリクス」に沿って 1〜3 行）/ **異常フラグ**（該当項目。なければ「なし」）/ **注記**（自動生成・最終決定は人間）
@@ -238,6 +238,12 @@ jobs:
       # 一律拒否する（エージェントが自分の権限設定を書き換えるのを防ぐ保護・allowlist 不可）。
       # 2026-08-06 の実行が 12 回リトライして全滅した。加えて、追記位置・見出し形式・pathspec
       # commit は決定的に決まるのでモデルに委ねる理由が無い（CLAUDE.md §5）。
+      # 2026-10-02: 事業の正本（config/）と記録（data/）は .claude/ の外へ移したため、claude-code-action の
+      # .claude/** 書き込み拒否の保護が効かない。モデルはリポジトリを書かない約束なので、書いていたらここで止める。
+      - name: Reject direct repository edits by the model
+        run: |
+          git diff --exit-code -- config data src content scripts
+          test -z "$(git ls-files --others --exclude-standard -- config data src content scripts)" || { echo '::error::Unexpected untracked model output'; exit 1; }
       - name: Apply records and commit
         if: steps.pre.outputs.has_token == 'true'
         env:

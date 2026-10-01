@@ -7,7 +7,7 @@ domain: strategy
 
 # Strategy Advisor
 
-判断理由は `docs/strategy/01_プロダクト戦略.md`、重点資格・指標定義は `.claude/config/business-direction.json`、計測・記録契約は `.claude/knowledge/reference/business-review.md` を読む。価格・公開状態・実績を新しい戦略台帳へ複製しない。
+判断理由は `docs/strategy/01_プロダクト戦略.md`、重点資格・指標定義は `config/business-direction.json`、計測・記録契約は `.claude/knowledge/reference/business-review.md` を読む。価格・公開状態・実績を新しい戦略台帳へ複製しない。
 教材・図解の追加候補は `npm run check-content-expansion -- --json` と `.claude/knowledge/reference/content-expansion.md` で確認する。概念名の対応だけ・原典待ち・成果物変更後の再確認を区別し、実装は既存backlogへ接続する。対応表を公開実績や学習効果として数えない。
 
 
@@ -36,4 +36,4 @@ domain: strategy
 
 対象資格、読者の課題、現物で確認した不足、実測と出典・期間、判断、次の変更案、評価指標、次回日を示す。未確認の因果を事実にしない。重点は月次最大3件。データ不足は暫定判断と明記する。
 
-レビューは `.claude/state/metrics/business/` の追記記録、改善状態は既存 `experiments.json`、単発実装はbacklog。週次・月次計画はID参照だけを持つ。同一期間の重複記録、SEOの7日観察違反、未評価実験を閉じて枠を空ける操作を提案しない。履歴の訂正はsupersedesで追記する。
+レビューは `data/metrics/business/` の追記記録、改善状態は既存 `experiments.json`、単発実装はbacklog。週次・月次計画はID参照だけを持つ。同一期間の重複記録、SEOの7日観察違反、未評価実験を閉じて枠を空ける操作を提案しない。履歴の訂正はsupersedesで追記する。

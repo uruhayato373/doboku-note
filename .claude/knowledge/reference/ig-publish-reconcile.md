@@ -6,11 +6,11 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 - 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・read-only）。CI 週次は `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が同じスクリプトを回す。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は使わない（2026-09-23 ユーザー決定）
 - 公開可否ゲート/異常検出: **`ig-publish-auditor`**（Evaluator・`.claude/agents/`）
 - 投稿エンジン: **`publish-ig-bs`**（既存・予約投稿）
-- アカウント SSOT: **`.claude/config/ig-account.json`**
+- アカウント SSOT: **`config/ig-account.json`**
 
 ## 1. アカウント SSOT（混乱の根本原因を断つ）
 
-実 IG アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは `.claude/config/ig-account.json`。`content/sns/instagram/profile.md` は設計理由・変更履歴であり、実値と競合した場合はconfigを正とする。Xは別アカウント `@doboku373`（`.claude/config/x-account.json`）。スクリプトがハンドルを誤ると空振りするため、必ずconfig経由で参照する。
+実 IG アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは `config/ig-account.json`。`content/sns/instagram/profile.md` は設計理由・変更履歴であり、実値と競合した場合はconfigを正とする。Xは別アカウント `@doboku373`（`config/x-account.json`）。スクリプトがハンドルを誤ると空振りするため、必ずconfig経由で参照する。
 
 ## 2. SoT スキーマ（3 種）
 

@@ -3,7 +3,7 @@
  * coconala-research.mjs — ココナラ競合の市場調査（read-only スクレイパー）
  * ---------------------------------------------------------------------------
  * 目的: doboku-note のココナラ商品展開（価格・セグメント・空白の判断）に使う一次データを、
- *   公開検索ページから実測して `.claude/state/coconala/market-research.json` に永続化する。
+ *   公開検索ページから実測して `data/coconala/market-research.json` に永続化する。
  *   WebFetch の要約（概算・LLM 経由）ではなく、DOM から直接取った実数値を SoT にする。
  *
  * スコープの注意（.claude/knowledge/reference/coconala-operations.md §4 と直交）:
@@ -48,7 +48,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
-const OUT_DIR = join(ROOT, '.claude/state/coconala');
+const OUT_DIR = join(ROOT, 'data/coconala');
 const OUT_PATH = join(OUT_DIR, 'market-research.json');
 const SUMMARY_PATH = join(OUT_DIR, 'market-summary.json');
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
@@ -144,7 +144,7 @@ function buildSummary(result) {
     version: 1,
     generatedAt: new Date().toISOString(),
     fetchedAt: result.fetchedAt,
-    source: '.claude/state/coconala/market-research.json',
+    source: 'data/coconala/market-research.json',
     note: 'エージェント参照用の派生 SSOT。生データは source を read。再生成: npm run coconala-research -- --summary-only',
     keywords: (result.queries || []).map((q) => {
       const s = q.services || [];

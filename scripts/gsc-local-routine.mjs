@@ -36,11 +36,11 @@ import {
 const DRY = process.argv.includes("--dry-run");
 const NO_PUSH = process.argv.includes("--no-push");
 const TAG = "[gsc-local]";
-const DIR = ".claude/state/metrics/gsc-indexing";
+const DIR = "data/metrics/gsc-indexing";
 const PRIORITY = `${DIR}/priority-latest.txt`;
 const LATEST = `${DIR}/requests-latest.json`;
 const HISTORY = `${DIR}/history.json`;
-const LEDGER_PATHS = [DIR, ".claude/state/metrics/gsc-ui/last-run.json", ".claude/state/metrics/gsc-ui/ssot"];
+const LEDGER_PATHS = [DIR, "data/metrics/gsc-ui/last-run.json", "data/metrics/gsc-ui/ssot"];
 
 const problems = [];
 const done = [];

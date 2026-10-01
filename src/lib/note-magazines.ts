@@ -47,7 +47,7 @@ export interface NoteMagazine {
    * - ctaPose: マスコットのポーズ。省略時 pointing
    *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
    *
-   * ctaPose の許可値の真実源は `.claude/config/character-poses.json` の `siteCta: true`
+   * ctaPose の許可値の真実源は `config/character-poses.json` の `siteCta: true`
    * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
    * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
    * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
@@ -487,6 +487,39 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
 
+  // <generated:products civil-construction-2> content/products から生成（npm run product -- gen）。手で直さない
+  // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
+  'civil-2-anki-note': {
+    id: 'civil-2-anki-note',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n793523a059e5',
+    title: '2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）',
+    description: '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）で問われる穴埋め頻出語句を、分野別に一問一答へ整理した直前暗記ノート。令和3〜7年度の出題語句から頻出のものを抽出し、一問一答＋赤シート対応の印刷用PDF（A5・現場ポケット携行）を添付。試験直前の総仕上げに特化した最小構成・低価格のエントリー商品。※合格を保証するものではありません。',
+    shortTitle: '2級土木 学科記述 直前暗記ノート',
+    shortDescription: '穴埋め頻出語句の一問一答＋赤シート対応PDF。直前・スキマ詰め込み用の低価格エントリー。',
+    price: '¥580',
+    badge: 'note 限定',
+    ctaCatch: '試験前日、赤シートで詰め込む一問一答',
+    ctaButton: '暗記ノートを見てみる',
+    ctaPose: 'pointing',
+  },
+  // 2級 直前総仕上げパック（2026-09-17 新設・note key md3518107aa97）。1級 civil-1-chokuzen-pack の鏡。
+  // 予想模試3回・直前暗記ノート・出題分析の 3 記事を API 実体確認。単品合計 ¥3,140 → ¥2,480（約21%OFF）。
+  'civil-2-chokuzen-pack': {
+    id: 'civil-2-chokuzen-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md3518107aa97',
+    noteTitle: '2級土木 二次｜直前総仕上げパック',
+    title: '2級土木 二次｜直前総仕上げパック（予想模試3回＋直前暗記ノート＋出題分析）',
+    description: '2級土木施工管理技士 第2次検定（10/25）の直前2週間に絞った3点セット。本試験形式のR8予想模試3回（問題冊子＋解答解説PDF6冊）で実力を確認し、直前暗記ノート（一問一答147問・赤シート対応A5PDF）で穴埋めの抜けを潰し、出題分析・直前重点（過去5年の実績分析＋直前2週間ロードマップ）で優先順位を決める。単品合計¥3,140が¥2,480。経験記述の全模範答案まで欲しい方は二次検定まるごとパックへ。',
+    shortTitle: '2級土木 二次 直前総仕上げパック',
+    shortDescription: '予想模試3回＋直前暗記147問＋出題分析。直前2週間で回し切る3点セット、単品合計¥3,140が¥2,480。',
+    price: '¥2,480（模試3回＋暗記ノート＋出題分析・単品合計¥3,140、約21%OFF）',
+    badge: 'note 限定 直前パック',
+    ctaCatch: '直前2週間は、模試・暗記・分析の3点で回し切る',
+    ctaButton: '直前総仕上げパックを見てみる',
+    ctaPose: 'pointing',
+  },
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/
   // 2026-06-03 note 公開。
@@ -496,17 +529,296 @@ const MAGAZINES_RAW = {
     noteUrl: 'https://note.com/dobokunote/m/m1881a9578027',
     noteTitle: '2級土木 施工経験記述｜工種×テーマ別 完成答案集',
     title: '2級土木 施工経験記述｜工種×テーマ別 完成答案集（安全・品質・工程）',
-    description:
-      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）と令和5年度以前の3項目形式の両方に対応。',
+    description: '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）と令和5年度以前の3項目形式の両方に対応。',
     shortTitle: '2級土木 施工経験記述 完成答案集',
-    shortDescription:
-      '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
+    shortDescription: '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
     price: '¥1,980（3本セット）',
     badge: 'note 限定',
     ctaCatch: '経験記述は「完成答案」を見るのが最短です',
     ctaButton: '完成答案集を見てみる',
     ctaPose: 'pointing',
   },
+  // P2: 2級 二次学科記述 テーマ別 出る順（P1 の2級移植・5本セット）
+  'civil-2-gakka-kijutsu': {
+    id: 'civil-2-gakka-kijutsu',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m9a09a8982734',
+    noteTitle: '2級土木 二次学科記述｜テーマ別 出る順',
+    title: '2級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜9）',
+    description: '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の出題を分野ごとに束ね、出題頻度と出る順、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理。※改変・自作の学習前提。合格を保証するものではありません。',
+    shortTitle: '2級土木 二次学科記述 テーマ別出る順',
+    shortDescription: '問題2〜9をテーマ別に横断再編。出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
+    price: '¥1,980（5本セット）',
+    badge: 'note 限定',
+    ctaCatch: '問題2〜9、5年分の「出る順」で詰める',
+    ctaButton: '出る順を見てみる',
+    ctaPose: 'pointing',
+  },
+  'civil-2-keiken-agri-forest-pack': {
+    id: 'civil-2-keiken-agri-forest-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m24071c117a1e',
+    noteTitle: '2級土木 施工経験記述｜農業土木・林道 8工事',
+    title: '2級土木 施工経験記述｜農業土木・林道 8工事',
+    description: '土地改良・農林事業の工事を請け負う建設会社で働く方向けに、施工経験記述の想定工事を選んだペルソナ別セット。L型水路、山間小河川のかご工護岸、農業用水路のライニング補修、ため池の洪水吐改修、林道の路面・横断排水、圃場整備（区画整理）、PCフリュームによる用排水路更新、農地の暗渠排水の8工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 農業土木・林道 8工事',
+    shortDescription: '農業土木・林道の8工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（8工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-bridge-repair-pack': {
+    id: 'civil-2-keiken-bridge-repair-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mb33e9f68712d',
+    noteTitle: '2級土木 施工経験記述｜橋梁・構造物の補修 7工事',
+    title: '2級土木 施工経験記述｜橋梁・構造物の補修 7工事',
+    description: '市町村の橋梁や構造物の補修・更新を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。床版取替、橋梁耐震補強、下面の断面修復、伸縮装置取替、支承取替、橋面防水・橋面舗装の更新、高欄・地覆の補修と剥落防止の7工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 橋梁・構造物の補修 7工事',
+    shortDescription: '橋梁補修の7工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（7工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-concrete-foundation-pack': {
+    id: 'civil-2-keiken-concrete-foundation-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mb7cb41324739',
+    noteTitle: '2級土木 施工経験記述｜コンクリート構造物・基礎 10工事',
+    title: '2級土木 施工経験記述｜コンクリート構造物・基礎 10工事',
+    description: '擁壁・カルバート・杭など構造物の新設現場を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。RCボックスカルバート、逆T式擁壁、暑中コンクリート、寒中コンクリート、根固めブロックの製作・据付、場所打ち杭（オールケーシング・アースドリル）、PHC杭打込み、橋台の直接基礎、道路ブロック積擁壁の更新の10工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 コンクリート構造物・基礎 10工事',
+    shortDescription: '構造物・基礎の10工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（10工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-earthwork-slope-pack': {
+    id: 'civil-2-keiken-earthwork-slope-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mb1ccc0d85c16',
+    noteTitle: '2級土木 施工経験記述｜土工・造成・法面 10工事',
+    title: '2級土木 施工経験記述｜土工・造成・法面 10工事',
+    description: '盛土・切土・法面など土工中心の現場を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。道路改良盛土、サンドドレーンと段階載荷盛土、セメント改良土盛土、切土法面・地すべり対策、補強土壁、高含水比粘性土盛土、道路の拡幅・線形改良、法面吹付・グラウンドアンカー、切土法面の植生基材吹付、道路法面の小段排水の10工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 土工・造成・法面 10工事',
+    shortDescription: '土工・法面の10工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（10工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-local-road-pack': {
+    id: 'civil-2-keiken-local-road-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m0c3962036eb8',
+    noteTitle: '2級土木 施工経験記述｜市町村道路の維持修繕 12工事',
+    title: '2級土木 施工経験記述｜市町村道路の維持修繕 12工事',
+    description: '市町村道の維持修繕を請け負う地場の建設会社で働く方向けに、施工経験記述の想定工事を選んだペルソナ別セット。側溝更新、歩道切下げ、舗装修繕・区画線、ガードレール、カラー舗装、駐車場舗装、ブロック積擁壁、落石防護柵、法面植生、法面小段排水、歩道バリアフリー化、林道の路面・横断排水の12工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 市町村道路の維持修繕 12工事',
+    shortDescription: '市町村道の12工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（12工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-park-private-pack': {
+    id: 'civil-2-keiken-park-private-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mbb2f9f5640a8',
+    noteTitle: '2級土木 施工経験記述｜公園・公共施設・民間外構 6工事',
+    title: '2級土木 施工経験記述｜公園・公共施設・民間外構 6工事',
+    description: '公園や公共施設、民間の造成・外構の工事を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。通学路の歩道切下げ、路肩カラー舗装、公共施設駐車場舗装、公園の園路・排水施設、小規模宅地造成、商業施設の外構舗装・排水の6工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 公園・公共施設・民間外構 6工事',
+    shortDescription: '施設・外構の6工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（6工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-paving-pack': {
+    id: 'civil-2-keiken-paving-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/me4f3ba651008',
+    noteTitle: '2級土木 施工経験記述｜舗装会社の新設・修繕 9工事',
+    title: '2級土木 施工経験記述｜舗装会社の新設・修繕 9工事',
+    description: '舗装会社で新設・修繕の現場を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。アスファルト舗装新設、打換え、コンクリート舗装版、排水性舗装、路上路盤再生、供用下の交差点改良、市道の部分舗装修繕・区画線、路肩カラー舗装、公共施設駐車場舗装の9工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 舗装会社の新設・修繕 9工事',
+    shortDescription: '舗装の9工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（9工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-port-coast-pack': {
+    id: 'civil-2-keiken-port-coast-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m8614644643c5',
+    noteTitle: '2級土木 施工経験記述｜港湾・漁港・海岸 5工事',
+    title: '2級土木 施工経験記述｜港湾・漁港・海岸 5工事',
+    description: '漁港・海岸の工事を請け負う建設会社で働く方向けに、施工経験記述の想定工事を選んだペルソナ別セット。海岸護岸の消波工、漁港物揚場の補修、小規模防波堤の嵩上げ、海岸堤防の補修、漁港用地の舗装・排水の5工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 港湾・漁港・海岸 5工事',
+    shortDescription: '漁港・海岸の5工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（5工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  'civil-2-keiken-river-disaster-pack': {
+    id: 'civil-2-keiken-river-disaster-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mc702bb8ad034',
+    noteTitle: '2級土木 施工経験記述｜河川・砂防・災害復旧 10工事',
+    title: '2級土木 施工経験記述｜河川・砂防・災害復旧 10工事',
+    description: '河川・砂防・災害復旧の工事を請け負う建設会社で働く方向けに、施工経験記述の想定工事を選んだペルソナ別セット。河川築堤盛土、根固めブロック、護岸ブロック張、樋門・樋管、河道掘削しゅんせつ、床止め・落差工、砂防堰堤、山間小河川のかご工護岸、湾曲部の根固め、洪水被災した管理用通路の復旧の10工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 河川・砂防・災害復旧 10工事',
+    shortDescription: '河川・砂防の10工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（10工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  // 2026-10-01: ペルソナ別パック（河川・砂防・災害復旧 ほか）へ組み替え、note からマガジンを削除（販売0件）。照合用に残す。
+  'civil-2-keiken-river-rural-park-pack': {
+    id: 'civil-2-keiken-river-rural-park-pack',
+    published: false,
+    noteUrl: 'https://note.com/dobokunote/m/m22183b1034b2',
+    retiredAt: '2026-10-01',
+    noteTitle: '2級土木 施工経験記述｜河川・農林・公園 7工事',
+    title: '2級土木 施工経験記述｜河川・農林・公園 7工事',
+    description: '河川・農業土木・林道・公園の小中規模工事から施工経験記述を準備する分野別セット。護岸、根固め、河川通路、農業用水路、ため池、林道、公園園路の7工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 河川・農林・公園 7工事',
+    shortDescription: '河川・農業施設・林道・公園の7工事×5管理。想定工事バンク収録済み記事を再編集。',
+    price: '¥2,480（7工事セット）',
+    badge: 'note 分野別教材',
+  },
+  'civil-2-keiken-water-drainage-pack': {
+    id: 'civil-2-keiken-water-drainage-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m605fc37bee01',
+    noteTitle: '2級土木 施工経験記述｜上下水道・管工事 8工事',
+    title: '2級土木 施工経験記述｜上下水道・管工事 8工事',
+    description: '上下水道・管工事の業者で、管路や排水施設の現場を担当している方向けに、施工経験記述の想定工事を選んだペルソナ別セット。下水道管渠の開削、小口径推進、上水道配水管布設、L型水路、水道枝線の耐震管更新、公共桝・取付管、マンホール内面更生、雨水集水施設の8工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
+    shortTitle: '2級土木 上下水道・管工事 8工事',
+    shortDescription: '管路・排水の8工事×5管理。想定工事バンク収録済み記事を仕事の種類で再編集。',
+    price: '¥2,480（8工事セット）',
+    badge: 'note ペルソナ別教材',
+  },
+  // ----- 2級土木 想定工事バンク（工事軸・5管理フル・買い切りアンカー）(2026-07-01) -----
+  // 原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/
+  // 1級 完全攻略パックの2級移植。中小規模60工事へ拡張、工事軸5管理(3主 品質/安全/工程 ＋ 2備え 施工計画/環境)。
+  // 設計: content/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md
+  // 60工事フル生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)＋無料索引記事00 添付。
+  // 2026-07-02: 36記事+索引を公開。2026-08-20: 24記事を追加し、60工事+索引=61件をAPI確認。価格¥5,480は据え置き。
+  // 価格は 60工事フルの ¥5,480（設計 §6 の ¥5,480〜6,980 レンジ下限）。
+  // 2026-10-01: ペルソナ別パック第2弾向けに12工事（125〜136）を追加し72工事。価格は据え置き。
+  'civil-2-koji-bank': {
+    id: 'civil-2-koji-bank',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m8554e87ca6ec',
+    noteTitle: '2級土木 施工経験記述｜想定工事バンク 5管理フル',
+    title: '2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）',
+    description: '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の想定工事バンク。主要8工種と追加ラインナップの72工事を収録し、自分が経験した工事に近い工種を選べば、その1工事で品質・安全・工程の3管理をまとめて準備できる工事起点の完成答案集。各工事で現行形式（令和6年度〜・各250字）と令和5年度以前の3項目形式の両方に対応したフル答案＋自分の現場への置換ガイド＋減点NG→合格答案の添削例＋採点者視点＋2テーマ必答の組合せ早見表を収録。必出の3管理に加え、制度改定に備えた保険として施工計画・環境対策も同じ工事で用意（この2つは現状の経験記述では未出題）。無料の工事起点索引で自分の現場に近い工事を探せる。現場代理人・主任技術者レベルの独自表現で、改変前提のテンプレート（合格を保証するものではありません）。',
+    shortTitle: '2級土木 施工経験記述 想定工事バンク',
+    shortDescription: '工種を選んで5管理を書き分ける工事起点の完成答案集。想定工事72件・必出3管理＋保険2管理・R6新形式対応。',
+    price: '¥5,480（72工事フル）',
+    badge: 'note 限定',
+    ctaCatch: '自分の工種を選ぶだけで、3管理がそろう',
+    ctaButton: '想定工事バンクを見てみる',
+    ctaPose: 'good-sign',
+  },
+  // 2級 二次まるごとパック（2026-09-17 新設・note key m2d9a069b6f87）。2026-09-20 に
+  // 小規模地域インフラ4工事（12答案＋PDF）を追加し、79記事を API 実体確認。
+  // 2026-10-01: 想定工事バンクの12工事追加に合わせて91記事。
+  // 単品合計 ¥17,540 → ¥8,800。サイト CTA は無料の案内記事（landingUrl）へ着地。
+  'civil-2-niji-marugoto-pack': {
+    id: 'civil-2-niji-marugoto-pack',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m2d9a069b6f87',
+    noteTitle: '2級土木 二次検定まるごとパック',
+    landingUrl: 'https://note.com/dobokunote/n/n89b3048e5d24',
+    title: '2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）',
+    description: '2級土木施工管理技士 第2次検定を、経験記述（問題1）と学科記述（問題2〜9）の両面からまるごと対策する最上位パック。想定工事バンク（72工事×5管理）・過去問模範答案集（R03-R07）・完成答案集・二次学科記述 テーマ別出る順・直前暗記ノート・R8予想模試3回・出題分析に、小規模地域インフラ4工事（品質・安全・工程12答案＋PDF）を加えた8商品を統合。単品合計¥17,540が¥8,800。個別添削や月例予想での伴走が欲しい方は、メンバーシップ「土木セコカン合格ラボ」が別途あります。※改変前提のテンプレートで、合格を保証するものではありません。',
+    shortTitle: '2級土木 二次検定まるごとパック',
+    shortDescription: '経験記述・学科記述の既存7商品に、小規模地域インフラ4工事・12答案を追加。全91記事、単品合計¥17,540が¥8,800。',
+    price: '¥8,800（二次まるごと・単品合計¥17,540）',
+    badge: 'note 限定',
+    ctaCatch: '経験記述も学科記述も、2級二次はこれ1つで',
+    ctaButton: 'まるごとパックの案内を見てみる',
+    ctaPose: 'good-sign',
+  },
+  // 原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
+  // 2級 過去問の年度別模範答案集。2026-06-02 note 公開（R03-R07 各記事 published）。
+  'civil-2-pastexam-essay': {
+    id: 'civil-2-pastexam-essay',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md3aa0f9a37d7',
+    noteTitle: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07）',
+    title: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
+    description: '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（主任技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。選択制（R03-R05）と2テーマ必答（R06-R07）の両方に対応。',
+    shortTitle: '2級土木 施工経験記述 過去問模範答案集',
+    shortDescription: 'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
+    price: '¥2,480（5本セット）',
+    badge: 'note 限定',
+    ctaCatch: '過去5年、実際に出た問題で答案を仕上げる',
+    ctaButton: '過去問の答案を見てみる',
+    ctaPose: 'pointing',
+  },
+  // 2級 二次 出題分析・直前重点（2026-09-17 公開・n4e4f4930cf2e・¥580）。1級 civil-1-r8-bunseki の鏡。
+  // 素材は 2級 テーマ別出る順 5 本の頻度表＋過去問模範答案集 R03-R07（自前集計・後ろ向き分析）。直前パック（civil-2-chokuzen-pack）の構成要素。
+  'civil-2-r8-bunseki': {
+    id: 'civil-2-r8-bunseki',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4e4f4930cf2e',
+    title: '2級土木 二次｜出題分析と直前の重点（過去5年の実績から攻め所を絞る）',
+    description: '2級土木施工管理技士 第2次検定の令和3〜7年度を後ろ向きに分析し、経験記述テーマの出題履歴（工程管理 4 年連続・R06 以降 2 テーマ必答）と学科記述の出る順トップ10論点を横断で整理。10/25 までの直前2週間で「どのテーマを・どの順で・何日かけて」回すかを日割りロードマップに落とした、直前期の優先順位づけ記事。',
+    shortTitle: '2級土木 二次 出題分析・直前重点',
+    shortDescription: '過去5年の出題実績から出る順トップ10論点と直前2週間ロードマップを整理。',
+    price: '¥580',
+    badge: 'note 限定',
+  },
+  'civil-2-r8-mock3-pdf': {
+    id: 'civil-2-r8-mock3-pdf',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n50aefe3ad7da',
+    title: '2級土木 令和8年度 第2次検定｜予想模試3回（施工経験記述＋学科記述・PDF6冊）',
+    description: '2級土木施工管理技士 令和8年度 第2次検定の買い切り直前演習。施工経験記述は品質・安全・工程の3組合せ・12区画の改変前提記述例を収録し、印刷用PDFは本番形式3回分を問題冊子と解答解説に分けた全6冊・51ページ。必須4問＋選択2問、独自配点、自己採点、復習計画まで一体化した自主教材。出題を保証するものではありません。',
+    shortTitle: '2級土木 R8二次 予想模試3回',
+    shortDescription: '施工経験記述3組合せ＋学科記述。本番形式3回・PDF6冊、必須4問＋選択2問を通し演習。',
+    price: '¥1,980（予想模試3回・PDF6冊）',
+    badge: 'R8 直前 PDF教材',
+    ctaCatch: '120分、必須4問＋選択2問を解き切る',
+    ctaButton: '予想模試3回を見てみる',
+    ctaPose: 'pointing',
+  },
+  // 2級土木 テキスト精読ガイド（1級版 civil-1-reading-guide の横展開・既存ガイド再包装）
+  // 全1巻（2026-08-26）。2級は環境保全・建設機械・測量・解体工事の分野別詳細ガイドが未整備のため、
+  // category-curriculum.json の civil-construction-2 が持つ3ブロック（土木一般/施工管理法/法規）
+  // 8分野に絞って1本で構成（1級のような2巻分割はしない）。
+  // 2026-09-16 無料 1 記事として公開（na8e28f954797）。一次後期 10/25 の入口＝一次過去問 PDF（civil-2-takuitsu-pdf）へ送客。
+  'civil-2-reading-guide': {
+    id: 'civil-2-reading-guide',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/na8e28f954797',
+    title: '2級土木 テキスト精読ガイド（全1巻・出題頻度・優先度つき）',
+    description: '2級土木施工管理技士 第1次検定の土木一般・施工管理法・法規の8分野（土工・コンクリート工・基礎工・施工計画・工程管理・品質管理・安全管理・法規）を、出題頻度・優先度つきで整理した精読ガイド。各テーマから doboku-note の詳細解説記事へ直リンク。',
+    shortTitle: '2級土木 精読ガイド',
+    shortDescription: '第1次検定の8分野を出題頻度・優先度で整理。詳細解説への直リンクつき。',
+    badge: 'note 限定',
+    ctaCatch: '何から手をつけるべきか、出題頻度で分かる',
+    ctaButton: '精読ガイドを見てみる',
+    ctaPose: 'pointing',
+  },
+  // 想定工事バンク60件で薄かった地域密着型の4工事を、品質・安全・工程の
+  // 3テーマで横断する単品教材。既存工事との答案重複を避けた12答案を収録。
+  'civil-2-small-infra-4': {
+    id: 'civil-2-small-infra-4',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n697209bf671b',
+    title: '2級土木 施工経験記述｜小規模地域インフラ4工事 品質・安全・工程12答案',
+    description: '2級土木施工管理技士の施工経験記述を、地域の小規模工事から準備する改変前提教材。仕切弁・消火栓付き弁室更新、地域バス停乗降場・上屋基礎更新、排水機場のポンプ基礎・躯体・吐出水路更新、小規模漁港の船揚場・係船環更新の4工事について、品質・安全・工程の12答案を収録。各答案は現行形式の2設問に対応し、置換ガイド、失格・減点確認、印刷用PDFを付ける。機械設備の製作・据付だけの経験には使用しない。',
+    shortTitle: '2級土木 小規模地域インフラ4工事',
+    shortDescription: '弁室・バス停・排水機場土木・漁港施設の4工事×品質・安全・工程。12答案と印刷用PDF。',
+    price: '¥2,480（4工事・12答案・PDF付き）',
+    badge: 'note 限定 教材',
+  },
+  // 択一過去問 PDF 販売（従チャネル・Kindle 択一シリーズの note 展開）。
+  // 実体は A4 印刷用 PDF を有料エリアに添付した単発記事。公開時: noteUrl 埋め + published: true。
+  // 対象本は KDP Select 非加入で提出し、Kindle と note を同時併売する（content/kindle/strategy.md）。
+  'civil-2-takuitsu-pdf': {
+    id: 'civil-2-takuitsu-pdf',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n4963f45bd6f8',
+    title: '2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）',
+    description: '2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
+    price: '¥1,480',
+    badge: 'note 限定 PDF教材',
+  },
+  // </generated:products civil-construction-2>
 
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/
@@ -549,66 +861,6 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
 
-  // 原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
-  // 2級 過去問の年度別模範答案集。2026-06-02 note 公開（R03-R07 各記事 published）。
-  'civil-2-pastexam-essay': {
-    id: 'civil-2-pastexam-essay',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/md3aa0f9a37d7',
-    noteTitle: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07）',
-    title: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
-    description:
-      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（主任技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。選択制（R03-R05）と2テーマ必答（R06-R07）の両方に対応。',
-    shortTitle: '2級土木 施工経験記述 過去問模範答案集',
-    shortDescription:
-      'R03-R07 年度別×各年3工事 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
-    price: '¥2,480（5本セット）',
-    badge: 'note 限定',
-    ctaCatch: '過去5年、実際に出た問題で答案を仕上げる',
-    ctaButton: '過去問の答案を見てみる',
-    ctaPose: 'pointing',
-  },
-
-  // ----- 2級土木 想定工事バンク（工事軸・5管理フル・買い切りアンカー）(2026-07-01) -----
-  // 原稿配置: content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/
-  // 1級 完全攻略パックの2級移植。中小規模60工事へ拡張、工事軸5管理(3主 品質/安全/工程 ＋ 2備え 施工計画/環境)。
-  // 設計: content/note/1級・2級土木/2級土木/2級版-想定工事バンク展開設計.md
-  // 60工事フル生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)＋無料索引記事00 添付。
-  // 2026-07-02: 36記事+索引を公開。2026-08-20: 24記事を追加し、60工事+索引=61件をAPI確認。価格¥5,480は据え置き。
-  // 価格は 60工事フルの ¥5,480（設計 §6 の ¥5,480〜6,980 レンジ下限）。
-  'civil-2-koji-bank': {
-    id: 'civil-2-koji-bank',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m8554e87ca6ec',
-    noteTitle: '2級土木 施工経験記述｜想定工事バンク 5管理フル',
-    title: '2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）',
-    description:
-      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の想定工事バンク。主要8工種と追加ラインナップの60工事を収録し、自分が経験した工事に近い工種を選べば、その1工事で品質・安全・工程の3管理をまとめて準備できる工事起点の完成答案集。各工事で現行形式（令和6年度〜・各250字）と令和5年度以前の3項目形式の両方に対応したフル答案＋自分の現場への置換ガイド＋減点NG→合格答案の添削例＋採点者視点＋2テーマ必答の組合せ早見表を収録。必出の3管理に加え、制度改定に備えた保険として施工計画・環境対策も同じ工事で用意（この2つは現状の経験記述では未出題）。無料の工事起点索引で自分の現場に近い工事を探せる。現場代理人・主任技術者レベルの独自表現で、改変前提のテンプレート（合格を保証するものではありません）。',
-    shortTitle: '2級土木 施工経験記述 想定工事バンク',
-    shortDescription:
-      '工種を選んで5管理を書き分ける工事起点の完成答案集。想定工事60件・必出3管理＋保険2管理・R6新形式対応。',
-    price: '¥5,480（60工事フル）',
-    badge: 'note 限定',
-    ctaCatch: '自分の工種を選ぶだけで、3管理がそろう',
-    ctaButton: '想定工事バンクを見てみる',
-    ctaPose: 'good-sign',
-  },
-
-  // 想定工事バンク60件で薄かった地域密着型の4工事を、品質・安全・工程の
-  // 3テーマで横断する単品教材。既存工事との答案重複を避けた12答案を収録。
-  'civil-2-small-infra-4': {
-    id: 'civil-2-small-infra-4',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n697209bf671b',
-    title: '2級土木 施工経験記述｜小規模地域インフラ4工事 品質・安全・工程12答案',
-    description:
-      '2級土木施工管理技士の施工経験記述を、地域の小規模工事から準備する改変前提教材。仕切弁・消火栓付き弁室更新、地域バス停乗降場・上屋基礎更新、排水機場のポンプ基礎・躯体・吐出水路更新、小規模漁港の船揚場・係船環更新の4工事について、品質・安全・工程の12答案を収録。各答案は現行形式の2設問に対応し、置換ガイド、失格・減点確認、印刷用PDFを付ける。機械設備の製作・据付だけの経験には使用しない。',
-    shortTitle: '2級土木 小規模地域インフラ4工事',
-    shortDescription: '弁室・バス停・排水機場土木・漁港施設の4工事×品質・安全・工程。12答案と印刷用PDF。',
-    price: '¥2,480（4工事・12答案・PDF付き）',
-    badge: 'note 限定 教材',
-  },
-
   // 旧 civil-{1,2}-yosou-essay（未出形式を断定する予想問題集）は 2026-06-02 に退役。
   // 2026-09-01、直前期の「静的な本番演習」だけを買い切り例外として再設計した。
   // 月例更新・添削・追加予想は引き続きメンバーシップ固有価値。下記2商品は公開時点で内容を固定し、
@@ -625,21 +877,6 @@ const MAGAZINES_RAW = {
     price: '¥2,480（予想模試3回・PDF6冊）',
     badge: 'R8 直前 PDF教材',
     ctaCatch: '2時間45分、選択から見直しまで通して試す',
-    ctaButton: '予想模試3回を見てみる',
-    ctaPose: 'pointing',
-  },
-  'civil-2-r8-mock3-pdf': {
-    id: 'civil-2-r8-mock3-pdf',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n50aefe3ad7da',
-    title: '2級土木 令和8年度 第2次検定｜予想模試3回（施工経験記述＋学科記述・PDF6冊）',
-    description:
-      '2級土木施工管理技士 令和8年度 第2次検定の買い切り直前演習。施工経験記述は品質・安全・工程の3組合せ・12区画の改変前提記述例を収録し、印刷用PDFは本番形式3回分を問題冊子と解答解説に分けた全6冊・51ページ。必須4問＋選択2問、独自配点、自己採点、復習計画まで一体化した自主教材。出題を保証するものではありません。',
-    shortTitle: '2級土木 R8二次 予想模試3回',
-    shortDescription: '施工経験記述3組合せ＋学科記述。本番形式3回・PDF6冊、必須4問＋選択2問を通し演習。',
-    price: '¥1,980（予想模試3回・PDF6冊）',
-    badge: 'R8 直前 PDF教材',
-    ctaCatch: '120分、必須4問＋選択2問を解き切る',
     ctaButton: '予想模試3回を見てみる',
     ctaPose: 'pointing',
   },
@@ -745,42 +982,6 @@ const MAGAZINES_RAW = {
     price: '¥3,980（7工事セット）',
     badge: 'note 分野別教材',
   },
-  'civil-2-keiken-local-road-pack': {
-    id: 'civil-2-keiken-local-road-pack',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m0c3962036eb8',
-    noteTitle: '2級土木 施工経験記述｜地域道路・付帯施設 10工事',
-    title: '2級土木 施工経験記述｜地域道路・付帯施設 10工事',
-    description: '市町村道や身近な道路付帯工事から施工経験記述を準備する分野別セット。側溝、歩道、舗装、区画線、防護柵、擁壁、落石防護、法面植生・排水など10工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
-    shortTitle: '2級土木 地域道路・付帯施設 10工事',
-    shortDescription: '生活道路・舗装・防護柵・法面など10工事×5管理。想定工事バンク収録済み記事を再編集。',
-    price: '¥2,480（10工事セット）',
-    badge: 'note 分野別教材',
-  },
-  'civil-2-keiken-water-drainage-pack': {
-    id: 'civil-2-keiken-water-drainage-pack',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m605fc37bee01',
-    noteTitle: '2級土木 施工経験記述｜上下水道・排水 5工事',
-    title: '2級土木 施工経験記述｜上下水道・排水 5工事',
-    description: '上下水道・排水の小中規模工事から施工経験記述を準備する分野別セット。L型水路、水道枝線耐震管、公共桝・取付管、マンホール更生、雨水集水施設の5工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
-    shortTitle: '2級土木 上下水道・排水 5工事',
-    shortDescription: '水路・水道・下水・雨水排水の5工事×5管理。想定工事バンク収録済み記事を再編集。',
-    price: '¥2,480（5工事セット）',
-    badge: 'note 分野別教材',
-  },
-  'civil-2-keiken-river-rural-park-pack': {
-    id: 'civil-2-keiken-river-rural-park-pack',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m22183b1034b2',
-    noteTitle: '2級土木 施工経験記述｜河川・農林・公園 7工事',
-    title: '2級土木 施工経験記述｜河川・農林・公園 7工事',
-    description: '河川・農業土木・林道・公園の小中規模工事から施工経験記述を準備する分野別セット。護岸、根固め、河川通路、農業用水路、ため池、林道、公園園路の7工事×5管理を収録。想定工事バンクと同じ記事のため、同バンク購入者は追加購入不要。',
-    shortTitle: '2級土木 河川・農林・公園 7工事',
-    shortDescription: '河川・農業施設・林道・公園の7工事×5管理。想定工事バンク収録済み記事を再編集。',
-    price: '¥2,480（7工事セット）',
-    badge: 'note 分野別教材',
-  },
 
   // ===== 二次 学科記述（問題2〜11）買い切りライン (2026-07-03 設計登録) =====
   // 既存 civil 買い切りは全て問題1（施工経験記述）。二次配点の約4割を占める学科記述（問題2〜11）と
@@ -812,25 +1013,6 @@ const MAGAZINES_RAW = {
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
     ctaCatch: '問題2〜11、5年分の「出る順」で詰める',
-    ctaButton: '出る順を見てみる',
-    ctaPose: 'pointing',
-  },
-
-  // P2: 2級 二次学科記述 テーマ別 出る順（P1 の2級移植・5本セット）
-  'civil-2-gakka-kijutsu': {
-    id: 'civil-2-gakka-kijutsu',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m9a09a8982734',
-    noteTitle: '2級土木 二次学科記述｜テーマ別 出る順',
-    title: '2級土木 二次学科記述｜テーマ別 出る順 完全攻略（問題2〜9）',
-    description:
-      '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）を、年度別ではなくテーマ別に横断再編した完全攻略集。土工／コンクリート工／安全管理・法規／施工計画・環境／品質管理の5本立てで、令和3〜7年度の出題を分野ごとに束ね、出題頻度と出る順、設問パターン別の解答の型、頻出語句の穴埋めリストを収録。過去問の客観的な頻度分析に基づく後ろ向きの整理。※改変・自作の学習前提。合格を保証するものではありません。',
-    shortTitle: '2級土木 二次学科記述 テーマ別出る順',
-    shortDescription:
-      '問題2〜9をテーマ別に横断再編。出題頻度＋出る順＋解答の型＋頻出語句。5本セット。',
-    price: '¥1,980（5本セット）',
-    badge: 'note 限定',
-    ctaCatch: '問題2〜9、5年分の「出る順」で詰める',
     ctaButton: '出る順を見てみる',
     ctaPose: 'pointing',
   },
@@ -901,39 +1083,6 @@ const MAGAZINES_RAW = {
     ctaPose: 'pointing',
   },
 
-  // 2級 二次 出題分析・直前重点（2026-09-17 公開・n4e4f4930cf2e・¥580）。1級 civil-1-r8-bunseki の鏡。
-  // 素材は 2級 テーマ別出る順 5 本の頻度表＋過去問模範答案集 R03-R07（自前集計・後ろ向き分析）。直前パック（civil-2-chokuzen-pack）の構成要素。
-  'civil-2-r8-bunseki': {
-    id: 'civil-2-r8-bunseki',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n4e4f4930cf2e',
-    title: '2級土木 二次｜出題分析と直前の重点（過去5年の実績から攻め所を絞る）',
-    description:
-      '2級土木施工管理技士 第2次検定の令和3〜7年度を後ろ向きに分析し、経験記述テーマの出題履歴（工程管理 4 年連続・R06 以降 2 テーマ必答）と学科記述の出る順トップ10論点を横断で整理。10/25 までの直前2週間で「どのテーマを・どの順で・何日かけて」回すかを日割りロードマップに落とした、直前期の優先順位づけ記事。',
-    shortTitle: '2級土木 二次 出題分析・直前重点',
-    shortDescription: '過去5年の出題実績から出る順トップ10論点と直前2週間ロードマップを整理。',
-    price: '¥580',
-    badge: 'note 限定',
-  },
-
-  // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
-  'civil-2-anki-note': {
-    id: 'civil-2-anki-note',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n793523a059e5',
-    title: '2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）',
-    description:
-      '2級土木施工管理技士 第2次検定の学科記述（問題2〜9）で問われる穴埋め頻出語句を、分野別に一問一答へ整理した直前暗記ノート。令和3〜7年度の出題語句から頻出のものを抽出し、一問一答＋赤シート対応の印刷用PDF（A5・現場ポケット携行）を添付。試験直前の総仕上げに特化した最小構成・低価格のエントリー商品。※合格を保証するものではありません。',
-    shortTitle: '2級土木 学科記述 直前暗記ノート',
-    shortDescription:
-      '穴埋め頻出語句の一問一答＋赤シート対応PDF。直前・スキマ詰め込み用の低価格エントリー。',
-    price: '¥580',
-    badge: 'note 限定',
-    ctaCatch: '試験前日、赤シートで詰め込む一問一答',
-    ctaButton: '暗記ノートを見てみる',
-    ctaPose: 'pointing',
-  },
-
   // 1級土木 テキスト精読ガイド（総監 tankan-reading-guide の横展開・既存ガイド再包装）
   // 全2巻完成（2026-08-26）。①施工管理・法規編（施工計画・工程管理・品質管理・安全管理・環境保全・法規）
   // ②土木一般・共通工学編（土工・建設機械・コンクリート工・基礎工・測量・解体工事）。
@@ -948,26 +1097,6 @@ const MAGAZINES_RAW = {
       '1級土木施工管理技士 第1次検定の全12分野（施工計画・工程管理・品質管理・安全管理・環境保全・法規・土工・建設機械・コンクリート工・基礎工・測量・解体工事）を、出題頻度・優先度つきで整理した精読ガイド全2巻。各テーマから doboku-note の詳細解説記事へ直リンク。',
     shortTitle: '1級土木 精読ガイド（全2巻）',
     shortDescription: '第1次検定の全12分野を出題頻度・優先度で整理。詳細解説への直リンクつき。',
-    badge: 'note 限定',
-    ctaCatch: '何から手をつけるべきか、出題頻度で分かる',
-    ctaButton: '精読ガイドを見てみる',
-    ctaPose: 'pointing',
-  },
-
-  // 2級土木 テキスト精読ガイド（1級版 civil-1-reading-guide の横展開・既存ガイド再包装）
-  // 全1巻（2026-08-26）。2級は環境保全・建設機械・測量・解体工事の分野別詳細ガイドが未整備のため、
-  // category-curriculum.json の civil-construction-2 が持つ3ブロック（土木一般/施工管理法/法規）
-  // 8分野に絞って1本で構成（1級のような2巻分割はしない）。
-  // 2026-09-16 無料 1 記事として公開（na8e28f954797）。一次後期 10/25 の入口＝一次過去問 PDF（civil-2-takuitsu-pdf）へ送客。
-  'civil-2-reading-guide': {
-    id: 'civil-2-reading-guide',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/na8e28f954797',
-    title: '2級土木 テキスト精読ガイド（全1巻・出題頻度・優先度つき）',
-    description:
-      '2級土木施工管理技士 第1次検定の土木一般・施工管理法・法規の8分野（土工・コンクリート工・基礎工・施工計画・工程管理・品質管理・安全管理・法規）を、出題頻度・優先度つきで整理した精読ガイド。各テーマから doboku-note の詳細解説記事へ直リンク。',
-    shortTitle: '2級土木 精読ガイド',
-    shortDescription: '第1次検定の8分野を出題頻度・優先度で整理。詳細解説への直リンクつき。',
     badge: 'note 限定',
     ctaCatch: '何から手をつけるべきか、出題頻度で分かる',
     ctaButton: '精読ガイドを見てみる',
@@ -998,46 +1127,6 @@ const MAGAZINES_RAW = {
     ctaCatch: '経験記述も学科記述も、二次はこれ1つで',
     ctaButton: 'まるごとパックの案内を見てみる',
     ctaPose: 'good-sign',
-  },
-
-  // 2級 二次まるごとパック（2026-09-17 新設・note key m2d9a069b6f87）。2026-09-20 に
-  // 小規模地域インフラ4工事（12答案＋PDF）を追加し、79記事を API 実体確認。
-  // 単品合計 ¥17,540 → ¥8,800。サイト CTA は無料の案内記事（landingUrl）へ着地。
-  'civil-2-niji-marugoto-pack': {
-    id: 'civil-2-niji-marugoto-pack',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/m2d9a069b6f87',
-    noteTitle: '2級土木 二次検定まるごとパック',
-    landingUrl: 'https://note.com/dobokunote/n/n89b3048e5d24',
-    title: '2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）',
-    description:
-      '2級土木施工管理技士 第2次検定を、経験記述（問題1）と学科記述（問題2〜9）の両面からまるごと対策する最上位パック。想定工事バンク（60工事×5管理）・過去問模範答案集（R03-R07）・完成答案集・二次学科記述 テーマ別出る順・直前暗記ノート・R8予想模試3回・出題分析に、小規模地域インフラ4工事（品質・安全・工程12答案＋PDF）を加えた8商品を統合。単品合計¥17,540が¥8,800。個別添削や月例予想での伴走が欲しい方は、メンバーシップ「土木セコカン合格ラボ」が別途あります。※改変前提のテンプレートで、合格を保証するものではありません。',
-    shortTitle: '2級土木 二次検定まるごとパック',
-    shortDescription: '経験記述・学科記述の既存7商品に、小規模地域インフラ4工事・12答案を追加。全79記事、単品合計¥17,540が¥8,800。',
-    price: '¥8,800（二次まるごと・単品合計¥17,540）',
-    badge: 'note 限定',
-    ctaCatch: '経験記述も学科記述も、2級二次はこれ1つで',
-    ctaButton: 'まるごとパックの案内を見てみる',
-    ctaPose: 'good-sign',
-  },
-
-  // 2級 直前総仕上げパック（2026-09-17 新設・note key md3518107aa97）。1級 civil-1-chokuzen-pack の鏡。
-  // 予想模試3回・直前暗記ノート・出題分析の 3 記事を API 実体確認。単品合計 ¥3,140 → ¥2,480（約21%OFF）。
-  'civil-2-chokuzen-pack': {
-    id: 'civil-2-chokuzen-pack',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/m/md3518107aa97',
-    noteTitle: '2級土木 二次｜直前総仕上げパック',
-    title: '2級土木 二次｜直前総仕上げパック（予想模試3回＋直前暗記ノート＋出題分析）',
-    description:
-      '2級土木施工管理技士 第2次検定（10/25）の直前2週間に絞った3点セット。本試験形式のR8予想模試3回（問題冊子＋解答解説PDF6冊）で実力を確認し、直前暗記ノート（一問一答147問・赤シート対応A5PDF）で穴埋めの抜けを潰し、出題分析・直前重点（過去5年の実績分析＋直前2週間ロードマップ）で優先順位を決める。単品合計¥3,140が¥2,480。経験記述の全模範答案まで欲しい方は二次検定まるごとパックへ。',
-    shortTitle: '2級土木 二次 直前総仕上げパック',
-    shortDescription: '予想模試3回＋直前暗記147問＋出題分析。直前2週間で回し切る3点セット、単品合計¥3,140が¥2,480。',
-    price: '¥2,480（模試3回＋暗記ノート＋出題分析・単品合計¥3,140、約21%OFF）',
-    badge: 'note 限定 直前パック',
-    ctaCatch: '直前2週間は、模試・暗記・分析の3点で回し切る',
-    ctaButton: '直前総仕上げパックを見てみる',
-    ctaPose: 'pointing',
   },
 
   // ----- 1級・2級土木 メンバーシップ「土木セコカン合格ラボ」(2026-06-23 配線) -----
@@ -1415,7 +1504,7 @@ const MAGAZINES_RAW = {
   },
   // 2026-09-30: 令和2年度以降の「1題・約1,000字・行数指定」形式に合わせた作り直し。旧4テーマ×8立場（序論本論結論型）は
   // 本番形式と合わず、施工トラブルは令和では単独テーマで出ていないため、出題系統5つ×共通(2)(4)＋8立場の(3)に再編。
-  // 出題履歴の SSOT は .claude/config/cce-essay-history.json（テーマ id＝記事 frontmatter cceEssayTheme）。
+  // 出題履歴の SSOT は config/cce-essay-history.json（テーマ id＝記事 frontmatter cceEssayTheme）。
   // 原稿: content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/（無料の出題傾向分析＋有料5本）
   'cce-essay-reiwa-pack': {
     id: 'cce-essay-reiwa-pack',
@@ -1666,6 +1755,22 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
+  // 技術士 口頭試験対策（全部門共通・DN-0344）。原稿は content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/。
+  // note 未公開の下書き（published:false・noteUrl 空）。価格は建設部門版と同額の仮置きで、値付けと公開は運営者が決める。
+  // 公開時は examKeyOf（src/lib/exam-brand.ts）が pe-oral-* を解決しないため総監ブランドに落ちる点を先に決めること。
+  'pe-oral-general-guide': {
+    id: 'pe-oral-general-guide',
+    published: false,
+    noteUrl: '',
+    title: '技術士 口頭試験対策（全部門共通）｜令和8年度 改訂コンピテンシー対応の想定問答と部門別の当てはめ例',
+    description:
+      '技術士第二次試験（総合技術監理部門を除く全部門）の口頭試験を、公式の試問事項4つ（マネジメント・評価／コミュニケーション・リーダーシップ／技術者倫理／継続研さん）に沿った想定問答24問と、筆記合格発表から当日までの準備ロードマップで準備する。上下水道・電気電子・農業・機械・建設の当てはめ例、業務内容の詳細720字以内を口頭2分に組み立て直す型、落ちる回答の型付き。想定問答は運営者が独自に作成したもので、実際の出題を再現したものではありません。',
+    shortTitle: '技術士 口頭試験対策（全部門共通）',
+    shortDescription: '試問事項別の想定問答24問＋上下水道・電気電子・農業・機械・建設の当てはめ例。',
+    price: '¥1,980',
+    badge: 'note 限定',
+  },
+
   // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
   // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
   'pe-construction-required-magazine': {
@@ -1877,19 +1982,6 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 合格パック',
   },
 
-  // 択一過去問 PDF 販売（従チャネル・Kindle 択一シリーズの note 展開）。
-  // 実体は A4 印刷用 PDF を有料エリアに添付した単発記事。公開時: noteUrl 埋め + published: true。
-  // 対象本は KDP Select 非加入で提出し、Kindle と note を同時併売する（content/kindle/strategy.md）。
-  'civil-2-takuitsu-pdf': {
-    id: 'civil-2-takuitsu-pdf',
-    published: true,
-    noteUrl: 'https://note.com/dobokunote/n/n4963f45bd6f8',
-    title: '2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）',
-    description:
-      '2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
-    price: '¥1,480',
-    badge: 'note 限定 PDF教材',
-  },
   // 1級版。PDF は生成済み（scripts/kindle-specs/e-02.json → build-takuitsu-pdf）。
   // Kindle A系（A-01〜A-06）が KDP Select 加入 LIVE のため、独占明け（~2026-10-06）に
   // Select を外してから note 公開する（content/kindle/strategy.md）。それまで published: false。

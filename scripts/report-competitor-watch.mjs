@@ -40,10 +40,10 @@ function readJson(rel) {
   }
 }
 
-const snapshot = readJson('.claude/state/coconala/competitors-snapshot.json');
-const research = readJson('.claude/state/coconala/market-research.json');
-const config = readJson('.claude/config/coconala-competitors.json');
-const account = readJson('.claude/config/coconala-account.json');
+const snapshot = readJson('data/coconala/competitors-snapshot.json');
+const research = readJson('data/coconala/market-research.json');
+const config = readJson('config/coconala-competitors.json');
+const account = readJson('config/coconala-account.json');
 if (!snapshot?.competitors || !research?.queries || !config?.competitors) {
   console.error('[report-competitor-watch] 入力の state が読めない（competitors-snapshot / market-research / coconala-competitors）— 検査不成立');
   process.exit(2);
@@ -112,5 +112,5 @@ if (asJson) {
   for (const c of candidates) console.log(`    - ${c.seller}: 販売 ${c.sales}・${c.services} 出品・¥${c.minPrice ?? '—'}〜${c.maxPrice || '—'}（${c.sample}）`);
   console.log(`  売上推定が一部だけ ${partial.length} 社`);
   for (const p of partial) console.log(`    - ${p.label}: 取得 ${p.captured} / 累計 ${p.total}`);
-  console.log('  → 追跡に加えるなら .claude/config/coconala-competitors.json に handle を足す。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合');
+  console.log('  → 追跡に加えるなら config/coconala-competitors.json に handle を足す。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合');
 }

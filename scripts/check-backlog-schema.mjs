@@ -88,7 +88,7 @@ export function validateCards(cards, orphans, opts) {
     // [領域:] は全カード必須（2026-09-26〜。サイドバー・スケジュールと同じ領域で束ねる）。
     if (domainLabels) {
       if (!c.domain) v.push({ rule: 'domain-missing', at: at(c), msg: `「${c.title.slice(0, 40)}」に [領域:] が無い（${[...domainLabels].join(' / ')}）` });
-      else if (!domainLabels.has(c.domain)) v.push({ rule: 'domain', at: at(c), msg: `[領域:${c.domain}] は語彙外（正本: .claude/config/domains.json）` });
+      else if (!domainLabels.has(c.domain)) v.push({ rule: 'domain', at: at(c), msg: `[領域:${c.domain}] は語彙外（正本: config/domains.json）` });
     }
     if (c.when && !parseWhen(c.when)) {
       v.push({ rule: 'when', at: at(c), msg: `[時期:${c.when}] は YYYY-MM か YYYY-MM..YYYY-MM（開始 ≦ 終了）で書く` });

@@ -14,7 +14,7 @@ import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');
-const DRIVE_CONFIG = join(ROOT, '.claude/config/drive-vault.json');
+const DRIVE_CONFIG = join(ROOT, 'config/drive-vault.json');
 const TMP_ROOT = join(ROOT, '.tmp/instagram-video-pack-reels');
 const argv = process.argv.slice(2);
 const commit = argv.includes('--commit');

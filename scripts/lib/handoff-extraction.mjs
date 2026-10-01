@@ -56,9 +56,12 @@ export function findForwardMarkers(content) {
 /**
  * 週次レビュー／計画の「来週への申し送り」「次週への申し送り」節からトップレベルの箇条書き項目を返す。
  * ネストした子行は親項目の本文に連結する（子行に書いた ID も親の居場所として数える）。
+ * sectionRe を渡すとその節（月次の「来月への申し送り」・レビューの「点検と Issue」）を同じ規則で読む。
+ * @param {string} content
+ * @param {RegExp} [sectionRe]
  * @returns {{hasSection:boolean, items:Array<{line:number, text:string, head:string}>}}
  */
-export function extractWeeklyHandoffItems(content) {
+export function extractWeeklyHandoffItems(content, sectionRe = HANDOFF_SECTION_RE) {
   const lines = String(content ?? '').replace(/\r\n/g, '\n').split('\n');
   const items = [];
   let inSection = false;
@@ -70,7 +73,7 @@ export function extractWeeklyHandoffItems(content) {
     if (inFence) return;
     if (/^#{1,2}\s/.test(ln)) {
       cur = null;
-      inSection = HANDOFF_SECTION_RE.test(ln.trim());
+      inSection = sectionRe.test(ln.trim());
       if (inSection) hasSection = true;
       return;
     }

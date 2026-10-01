@@ -28,8 +28,8 @@ import { todayJst } from './lib/jst-date.mjs';
 
 const TAG = '[check-coconala-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SNAP_PATH = join(ROOT, '.claude/state/coconala/analytics-snapshot.json');
-const KPI_PATH = join(ROOT, '.claude/state/coconala/kpi-log.json');
+const SNAP_PATH = join(ROOT, 'data/coconala/analytics-snapshot.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 
 const argMaxAge = process.argv.indexOf('--max-age-days');

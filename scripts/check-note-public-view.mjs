@@ -9,7 +9,7 @@
  *   ブラウザ層は代表ページだけ（2026-09-23 CI 実測: 記事ページを全件開くと note が途中から 403 を返し続け、
  *     間隔を空けても 90 分で終わらなかった。全件は手元で --all-pages）。
  *   代表ページ（--review）: 資格 × 記事の種類ごとに 1 本（公開・更新がいちばん新しいもの）を、note の
- *     ブレイクポイントで区切った帯ごとの画面幅（.claude/config/public-view-breakpoints.json）で開き直し、
+ *     ブレイクポイントで区切った帯ごとの画面幅（config/public-view-breakpoints.json）で開き直し、
  *     同じ数値判定をしたうえで「最初の画面」と「有料エリア直前（無ければ本文末尾）」を撮る。画像は週次
  *     レビューでエージェントが見る（判定には使わない）。あわせて CSS の切り替わり幅を数え直し、設定と
  *     違えば WARN を出す。
@@ -264,7 +264,7 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
     console.log(`  代表ページ: ${reps.length} グループ × ${BP.note.viewports.length} 画面幅（${BP.note.viewports.map((v) => v.width).join('/')}px）を検査・撮影 ${shots} 枚（開けない ${repFail}）`);
     if (bpReport) {
       const { added, removed } = bpReport.drift;
-      if (added.length || removed.length) console.log(`  WARN note の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。.claude/config/public-view-breakpoints.json を見直す`);
+      if (added.length || removed.length) console.log(`  WARN note の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。config/public-view-breakpoints.json を見直す`);
       else console.log(`  切り替わり幅: 設定どおり（${bpReport.measured.join('/')}px）`);
     } else {
       console.log('  WARN 切り替わり幅を数え直せなかった（未確認）');

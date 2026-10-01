@@ -121,7 +121,7 @@ export function magazines(): Magazine[] {
  * `noteMagazine` ラベル → 所属マガジン（id / 表示名）の索引。
  *
  * ラベルは frontmatter の日本語生値（`BK-01` / `総監模範論文-河川コンサル`）、id は kebab-case なので
- * **キーでは結合できない**。唇となるのは `.claude/config/note-magazine-membership.json` だけで、
+ * **キーでは結合できない**。唇となるのは `config/note-magazine-membership.json` だけで、
  * check-magazine-membership.mjs （quality-audit の ci ゲート）も同じ config を読む。
  * 複数ラベルを 1 マガジンへ束ねる `packs` 側のラベルも拾う。
  *
@@ -134,7 +134,7 @@ export function magazineLabelIndex(): Map<string, { id: string; title: string }>
   const cfg = readJson<{
     labels?: Record<string, string>;
     packs?: Record<string, { labels?: string[] } | string>;
-  }>(repoPath('.claude', 'config', 'note-magazine-membership.json'));
+  }>(repoPath('config', 'note-magazine-membership.json'));
   const titleOf = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
   const out = new Map<string, { id: string; title: string }>();
   const put = (label: string, id: string) => out.set(label, { id, title: titleOf.get(id) ?? label });

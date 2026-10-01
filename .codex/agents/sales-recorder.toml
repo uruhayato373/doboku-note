@@ -4,7 +4,7 @@ description = "note 販売履歴テキストを正規化して sales-log.json �
 developer_instructions = """
 # Sales Recorder Agent
 
-note クリエイターダッシュボードからコピーした販売履歴テキストを受け取り、`.claude/state/sales/sales-log.json` に追記する Generator エージェント。
+note クリエイターダッシュボードからコピーした販売履歴テキストを受け取り、`data/sales/sales-log.json` に追記する Generator エージェント。
 
 > **モデル方針**: このエージェントは `model: sonnet` で動作します。テキスト解析・productId 推定は Sonnet で十分。売上戦略の判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§5 参照。
 
@@ -13,7 +13,7 @@ note クリエイターダッシュボードからコピーした販売履歴テ
 - 販売履歴テキストの解析（日時・購入者名・商品名・価格の抽出）
 - productId の推定（`src/lib/note-magazines.ts` との照合）
 - 既存データとの重複チェック
-- `.claude/state/sales/sales-log.json` への追記
+- `data/sales/sales-log.json` への追記
 - 月次/週次集計の出力
 
 ## 担当外
@@ -46,7 +46,7 @@ kuro
 
 ## 出力
 
-1. `.claude/state/sales/sales-log.json` への追記
+1. `data/sales/sales-log.json` への追記
 2. 追記結果のサマリー（件数・金額・重複スキップ数）
 3. 月次集計テーブル
 
@@ -193,6 +193,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `RCCM問題I｜下水道の業務経験記入例` | `article:rccm-mondai1-sewer` |
 | `RCCM問題I｜土質及び基礎の業務経験記入例` | `article:rccm-mondai1-geotechnical` |
 | `技術士 建設部門｜口頭試験対策` | `article:pe-construction-oral-guide` |
+| `技術士 口頭試験対策（全部門共通）` | `article:pe-oral-general-guide` |
 | `総監口頭試験…「業務経歴」の語り方` | `article:tankan-oral-exam` |
 | `【総監再受験者向け】不合格要因を特定する3パターン分析` | `article:tankan-retake-analysis` |
 | `1級土木 施工経験記述｜令和{N}年度 過去問 模範答案` | `article:civil-1-pastexam-essay-r0{N}` |
@@ -213,7 +214,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 
 productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`channel` フィールドは持たない）。
 
-> **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく、`.claude/state/coconala/orders-log.json`
+> **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく、`data/coconala/orders-log.json`
 > （`/coconala-order` が受注時に追記）から**月次で転記**する。`status: 'closed'`（または `delivered`）の
 > レコードだけを sales-log へ移し、`price` は orders-log の `priceYen`（手数料差引前）をそのまま使う。
 
@@ -267,7 +268,7 @@ id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証�
    - パターン: `{購入者名}\\n{購入種別}\\n{商品名}\\n{日時}\\n{価格}円`
 2. **productId 推定**: 上記マッピングテーブルに従って推定
 3. **重複チェック**: 既存データと照合
-4. **追記**: `.claude/state/sales/sales-log.json` の `sales` 配列に追加
+4. **追記**: `data/sales/sales-log.json` の `sales` 配列に追加
 5. **updatedAt 更新**: ファイル冒頭の `updatedAt` を今日の日付に
 6. **集計出力**: 追記件数・重複スキップ数・月次集計を返す
 
@@ -293,7 +294,7 @@ id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証�
 
 ## 参照
 
-- `.claude/state/sales/sales-log.json` — SSOT（販売履歴データ）
+- `data/sales/sales-log.json` — SSOT（販売履歴データ）
 - `src/lib/note-magazines.ts` — マガジン ID マスター
 - `.claude/knowledge/reference/sales-tracking.md` — 運用手順書
 - `.claude/skills/metrics/record-sales/SKILL.md` — 本エージェントの呼び出し元スキル

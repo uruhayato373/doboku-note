@@ -21,7 +21,7 @@
  *   [検証:cmd]         → verify（完了の決定的ゲート）
  *   [起票:YYYY-MM-DD]  → filed（鮮度測定）
  *   [期日:YYYY-MM-DD]  → due（期限）
- *   [領域:商品] 等     → domain（事業の領域。語彙は .claude/config/domains.json の label）
+ *   [領域:商品] 等     → domain（事業の領域。語彙は config/domains.json の label）
  *   [時期:YYYY-MM] / [時期:YYYY-MM..YYYY-MM] → when（やる月。年間ロードマップと今月のカードの正本）
  *   上記以外の最初の token → category（無ければ '未分類'）
  *   `### [ID] タイトル` の先頭 [ID]（ID_PATTERN 合致時のみ）→ id（doboku では任意。

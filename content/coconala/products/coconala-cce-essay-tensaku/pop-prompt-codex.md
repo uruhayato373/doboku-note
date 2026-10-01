@@ -24,8 +24,8 @@ No additional text, no old leftover phrases (no "模範答案", "PDF", "が制�
 確認（NG なら再生成）: 原寸と幅360pxで、6つの文字列が一字違わず入り、切れ・誤字・余計な文字が無い。顔が参照キャラクターと同一人物で、文字に重ならない。
 
 保存と登録:
-1. `.claude/config/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png` に置き、Drive の同フォルダにもコピー。`generation-manifest.json` に key "cce-essay-tensaku"（exam / examSub / line1 / line2 / benefit / scope / action / color:"purple" / prompt / path）を追加
+1. `content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png` に置き、Drive の同フォルダにもコピー。`generation-manifest.json` に key "cce-essay-tensaku"（exam / examSub / line1 / line2 / benefit / scope / action / color:"purple" / prompt / path）を追加
 2. 運営者に見せて承認をもらう（承認前に 3〜4 をしない）
-3. 承認後、`.claude/config/coconala-thumb-approved.json` の coconala-cce-essay-tensaku の path と sha256（`shasum -a 256`）を更新
+3. 承認後、`config/coconala-thumb-approved.json` の coconala-cce-essay-tensaku の path と sha256（`shasum -a 256`）を更新
 4. `node scripts/coconala-edit.mjs --service coconala-cce-essay-tensaku --image pop-20260927/thumb-cce-essay-tensaku.png --replace-image` で確認 → `--commit` で差し替え → `npm run check-coconala-wiring` が exit 0
 5. 変更ファイルだけ git add して develop へ commit

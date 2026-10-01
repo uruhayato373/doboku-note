@@ -72,7 +72,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 - **`utm_source=youtube` 必須**（IG 用 `utm_source=instagram` の混入は禁忌）
 - **`utm_medium=video` に統一**（GA4 標準の「Video」チャネル分類。旧 `description`/`youtube-shorts` は非標準値で GA4 が Unassigned に落とす）。配信形式は `utm_content=shorts` で持つ。真実源＝`.claude/scripts/lib/sns-common/sns-config.mjs` ＋ `docs/marketing/02_チャネル動線設計.md §4`
 - `utm_campaign=exam-pack-<pack-id>` でパック単位の経路追跡
-- 動画パック派生は `utm_campaign={packId}&utm_content=shorts` とし、`.claude/config/youtube-production-disclosure.json` の `authorityNotice`（総監取得者が企画・監修、AIは音声・映像制作補助）を1回だけ含める
+- 動画パック派生は `utm_campaign={packId}&utm_content=shorts` とし、`config/youtube-production-disclosure.json` の `authorityNotice`（総監取得者が企画・監修、AIは音声・映像制作補助）を1回だけ含める
 - API状態は `productionDisclosure=author-led-ai-assisted`、`containsSyntheticMedia=false` とし、AIが内容判断を担ったように見せない
 
 ### タイトル規約（1 問 1 答・重複禁止）

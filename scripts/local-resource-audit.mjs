@@ -9,7 +9,7 @@ import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 export async function run({ argv = [], quiet = false } = {}) {
   const out = createOutput({ quiet });
   const args = argv;
-  const policy = JSON.parse(readFileSync(join(root, '.claude/config/local-resources.json'), 'utf8'));
+  const policy = JSON.parse(readFileSync(join(root, 'config/local-resources.json'), 'utf8'));
   const quick = args.includes('--quick');
   const release = quick ? () => {} : acquireLock(root, 'audit');
   try {

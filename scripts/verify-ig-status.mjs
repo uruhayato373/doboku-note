@@ -14,7 +14,7 @@
 //   いずれも同じ core（scripts/lib/ig-reconcile-core.mjs）で snapshot を書く。プランナー実体確認が要るときは
 //   ローカルで --no-planner 無しに回す。
 //
-// 真実源: アカウントハンドルは .claude/config/ig-account.json（@dobokunotecom）。
+// 真実源: アカウントハンドルは config/ig-account.json（@dobokunotecom）。
 // 前提: Playwright + 共通 auth resolver 配下のログイン済み Instagram プロファイルが必要。
 //   ローカル実行限定（会社 PC のプロキシ下では外部到達不可・[[measurement-incidents]] 参照）。
 //
@@ -47,9 +47,9 @@ const log = (...a) => { if (!JSON_OUT) console.log(...a); };
 
 // ─── アカウント SSOT ───────────────────────────────────────────
 function loadAccount() {
-  const p = join(ROOT, ".claude/config/ig-account.json");
+  const p = join(ROOT, "config/ig-account.json");
   if (!existsSync(p)) {
-    console.error("[verify-ig-status] .claude/config/ig-account.json が見つかりません（アカウント SSOT）");
+    console.error("[verify-ig-status] config/ig-account.json が見つかりません（アカウント SSOT）");
     process.exit(1);
   }
   return JSON.parse(readFileSync(p, "utf8"));

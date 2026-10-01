@@ -39,7 +39,7 @@ import {
 import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 
-const STATE_DIR = ".claude/state/metrics/gsc-ui";
+const STATE_DIR = "data/metrics/gsc-ui";
 
 function parseArgs() {
   const a = process.argv.slice(2);

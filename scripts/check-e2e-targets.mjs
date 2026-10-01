@@ -33,7 +33,7 @@ const OUT = path.join(ROOT, 'out');
 const REDIRECTS = path.join(ROOT, 'public', '_redirects');
 const WORKFLOWS = path.join(ROOT, '.github', 'workflows');
 /** 本番 URL を行単位で持つ設定ファイル。ワークフローと同じ「転送元を測り続ける」事故が起きる。 */
-const URL_LIST_FILES = [path.join(ROOT, '.claude', 'config', 'psi-urls.txt')];
+const URL_LIST_FILES = [path.join(ROOT, 'config', 'psi-urls.txt')];
 
 /** 本番を指す絶対 URL のホスト。ここから後ろのパスを out/ と突合する。 */
 const SITE_HOSTS = ['doboku-note.pages.dev', 'doboku-note.com'];

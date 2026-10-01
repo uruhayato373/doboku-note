@@ -6,10 +6,10 @@ doboku=転職一本へ移植・スリム化）。
 
 ## なぜ必要か
 
-- A8.net は **公開 API が無い**（`.claude/state/metrics/affiliate/a8-results.json` も「月1手入力」）。提携状況の確認・
+- A8.net は **公開 API が無い**（`data/metrics/affiliate/a8-results.json` も「月1手入力」）。提携状況の確認・
   広告コード取得は管理画面の手作業しかなく、Playwright 自動操作が唯一の機械化手段。
 - doboku の提携は当初ドキュメントへ人手で記録していたため、A8 実機とのドリフト（申請したが承認されたか／
-  却下されたか）を人が追えていなかった。現在は `.claude/state/ads/affiliate-catalog.json`（機械可読）が
+  却下されたか）を人が追えていなかった。現在は `data/ads/affiliate-catalog.json`（機械可読）が
   真実源で、`list` と `npm run affiliate:status` が機械照合する。運用 → [affiliate-operations.md](affiliate-operations.md)
 
 ## doboku 固有の設計（stats47 との違い）
@@ -108,7 +108,7 @@ A/B 判断が保留になっていた。ここを自動化した。
 ### 流れ
 
 ```
-npm run a8-ui:fetch      → .claude/state/metrics/affiliate/a8-ui/<runId>/{*.csv, manifest.json}
+npm run a8-ui:fetch      → data/metrics/affiliate/a8-ui/<runId>/{*.csv, manifest.json}
    （a8-report-collector が実行。口座 assert が通らなければ DL しない）
 npm run a8-ui:normalize  → <runId>/normalized/*.json ＋ SSOT へ upsert
    （a8-csv-auditor が PASS/WARN/FAIL を出してから実行）
@@ -173,8 +173,8 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - 正規化: `scripts/normalize-a8-csv.mjs`（`a8-ui:normalize`）／コア `scripts/lib/a8-report-csv.mjs`
 - テスト（node:test・20件）: `tests/a8-report-csv.test.mjs`（`npm test` に含まれる）
 - 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
-- 設定 SoT: `.claude/config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
-- SSOT: `.claude/state/metrics/affiliate/a8-report-log.json`
+- 設定 SoT: `config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
+- SSOT: `data/metrics/affiliate/a8-report-log.json`
   （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝allowlist 抽出 / `monthly`・`daily`＝口座横断 /
   `crossCheck` / `unmapped` / `notAttributable`）＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
 - skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
@@ -223,7 +223,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - テスト（node:test・30件）: `.claude/scripts/ads/__tests__/*.test.mjs`（`npm run test:ads`）
 - 申請上限: `.claude/scripts/ads/check-a8-apply-budget.cjs`
 - curated（係数・blocklist・vertical・上限・`searchKeywords`）: `.claude/scripts/ads/data/a8-curated.json`
-- カタログ（状態機械）: `.claude/state/ads/a8-catalog.json`
+- カタログ（状態機械）: `data/ads/a8-catalog.json`
 - 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
   テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用
 - 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
@@ -234,4 +234,4 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - [playwright-auth-profiles.md](playwright-auth-profiles.md) — 永続プロファイル運用（a8 profile もここに登録）
 - [measurement-incidents.md](measurement-incidents.md) — 会社 PC はプロキシで外部 API 遮断（ローカル自宅端末で実行）
 - [affiliate-operations.md](affiliate-operations.md) — 3 ASP 横断のアフィリ運用 SSOT（方針・配置・整合ゲート）
-- `.claude/state/ads/affiliate-catalog.json` — 提携状態の機械可読な真実源（`list` の突合先）
+- `data/ads/affiliate-catalog.json` — 提携状態の機械可読な真実源（`list` の突合先）

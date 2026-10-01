@@ -42,7 +42,7 @@ export {
   SiteAttributionError,
 };
 
-export const ASP_CONFIG_PATH = ".claude/config/affiliate-asp.json";
+export const ASP_CONFIG_PATH = "config/affiliate-asp.json";
 
 export function loadAspConfig() {
   const cfg = JSON.parse(readFileSync(ASP_CONFIG_PATH, "utf-8"));
@@ -168,9 +168,10 @@ export async function openAsp(asp, { isReady, label = "ASP" } = {}) {
  */
 async function loginInPage(page, service) {
   const { AUTO_LOGIN, submitLoginForm } = await import("./auth-session-refresh.mjs");
-  const { readServiceCredential } = await import("./credential-store.mjs");
+  const { agentSession, readServiceCredential } = await import("./credential-store.mjs");
   const spec = AUTO_LOGIN[service];
   if (!spec) return { tried: false, reason: "自動ログイン非対応" };
+  if (agentSession()) return { tried: false, reason: "エージェント（Claude Code）からの実行では資格情報でログインしない（オーナー・CI が実行する）" };
   const cred = readServiceCredential(service);
   if (!cred) return { tried: false, reason: "資格情報が無い" };
   if (!spec.loggedIn(page.url())) {

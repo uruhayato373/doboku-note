@@ -6,7 +6,7 @@ import { repoPath } from './repo-root';
 /**
  * qualifications.ts — `/strategy/qualifications`（read-only・人が見る画面）の表示モデル。
  *
- * 資格の一覧と展開状態は `.claude/config/qualification-registry.json`、日程は `exam-calendar.json`、
+ * 資格の一覧と展開状態は `config/qualification-registry.json`、日程は `exam-calendar.json`、
  * 受験者数は `exam-stats.json` が正本。ここでは三者を id で結び、画面に要る値だけを短く整形する。
  * 出典・照合記録・未確認の理由は正本と `npm run exam-ssot-status` が持つ（画面には出さない）。
  *
@@ -80,7 +80,7 @@ function shortWindow(w: string): string {
   return m ? `${m[1]}予定` : w;
 }
 
-const readConfig = <T,>(name: string): T => JSON.parse(readFileSync(repoPath('.claude', 'config', name), 'utf8')) as T;
+const readConfig = <T,>(name: string): T => JSON.parse(readFileSync(repoPath('config', name), 'utf8')) as T;
 
 const fmtCount = (r: StatRow | null | undefined) => (r?.examinees != null ? `${r.examinees.toLocaleString('ja-JP')}人` : '—');
 const fmtRate = (r: StatRow | null | undefined) =>
@@ -124,8 +124,7 @@ export function loadQualificationsView(): QualificationsView {
   const registry = readConfig<{ families: Record<string, string>; qualifications: RegistryEntry[] }>('qualification-registry.json');
   const calendar = readConfig<{ exams: Record<string, CalExam> }>('exam-calendar.json');
   const examStats = readConfig<{ exams: Record<string, { latest: Latest | null }>; peSecondaryDivisions: Record<string, { totals?: { excludingCem20?: StatRow } }> }>('exam-stats.json');
-  const lineupConfig = readConfig<unknown>('product-lineup.json');
-  const errors = validateQualificationRegistry({ registry, calendar, examStats, lineupConfig }) as string[];
+  const errors = validateQualificationRegistry({ registry, calendar, examStats }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
 
   const view = (q: RegistryEntry, latest: Latest | null): QualificationView => {

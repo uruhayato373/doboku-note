@@ -9,7 +9,7 @@ import { loadDomains } from '../../../../../../scripts/lib/domains.mjs';
 export const dynamic = 'force-dynamic';
 
 /**
- * /strategy/taxonomy — 事業の分類（役割 → 領域 → 画面の種類）。正本 .claude/config/domains.json を
+ * /strategy/taxonomy — 事業の分類（役割 → 領域 → 画面の種類）。正本 config/domains.json を
  * そのまま表示する（写しを持たない）。考え方は docs/strategy/14_領域モデル.md。
  */
 export default function TaxonomyPage() {

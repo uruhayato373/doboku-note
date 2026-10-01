@@ -1,6 +1,6 @@
 // tests/qualification-registry.test.mjs
 //
-// 資格一覧（qualification-registry.json）と exam-calendar / exam-stats / exam-formats / product-lineup の整合検査。
+// 資格一覧（qualification-registry.json）と exam-calendar / exam-stats / exam-formats の整合検査（商品ラインナップの資格は registry の展開中から作るので照合しない）。
 // 実データが整合していることと、食い違いを検出できることの両方を固定する。
 
 import { test } from 'node:test';
@@ -11,13 +11,12 @@ import { validateQualificationRegistry, activeIds } from '../scripts/lib/qualifi
 
 const read = (p) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 
-test('実データ: registry・exam-calendar・exam-stats・exam-formats・product-lineup が整合している', () => {
+test('実データ: registry・exam-calendar・exam-stats・exam-formats が整合している', () => {
   const errors = validateQualificationRegistry({
-    registry: read('.claude/config/qualification-registry.json'),
-    calendar: read('.claude/config/exam-calendar.json'),
-    examStats: read('.claude/config/exam-stats.json'),
-    formats: read('.claude/config/exam-formats.json'),
-    lineupConfig: read('.claude/config/product-lineup.json'),
+    registry: read('config/qualification-registry.json'),
+    calendar: read('config/exam-calendar.json'),
+    examStats: read('config/exam-stats.json'),
+    formats: read('config/exam-formats.json'),
     refExists: (p) => existsSync(new URL(`../${p}`, import.meta.url)),
   });
   assert.deepEqual(errors, []);
@@ -30,8 +29,8 @@ const base = () => ({
     portfolioStatuses: { active: '', candidate: '', declined: '' },
     families: { f: '' },
     qualifications: [
-      { id: 'a', family: 'f', portfolio: 'active' },
-      { id: 'c', family: 'f', portfolio: 'candidate' },
+      { id: 'a', label: '資格A', family: 'f', portfolio: 'active' },
+      { id: 'c', label: '資格C', family: 'f', portfolio: 'candidate' },
     ],
   },
   calendar: {
@@ -47,7 +46,6 @@ const base = () => ({
       c: { latest: null, note: '未確認', verification: V('agent') },
     },
   },
-  lineupConfig: { qualifications: [{ id: 'a' }] },
 });
 
 test('整合したデータは違反 0', () => {
@@ -79,7 +77,6 @@ test('日程・統計の形と、ラインナップの行と active の一致を
   d.calendar.exams.c = {};
   d.examStats.exams.c = { latest: null };
   d.examStats.exams.a.latest.examinees = '10人';
-  d.lineupConfig.qualifications.push({ id: 'c' });
   const errors = validateQualificationRegistry(d);
   for (const needle of [
     'events.exam は label と YYYY-MM-DD',
@@ -87,7 +84,6 @@ test('日程・統計の形と、ラインナップの行と active の一致を
     'exam-calendar.c: 日程が無いなら note',
     'exam-stats.c: latest が null なら note',
     'latest.examinees は数値か null',
-    'product-lineup の c は registry で active ではない',
   ]) {
     assert.ok(errors.some((e) => e.includes(needle)), needle);
   }
@@ -148,19 +144,18 @@ const formats = () => ({
   },
 });
 
-test('出題形式: 整合したデータは違反 0（展開中は商品ラインナップの区分と一致）', () => {
+test('出題形式: 整合したデータは違反 0', () => {
   const d = { ...base(), formats: formats() };
-  d.lineupConfig = { qualifications: [{ id: 'a', stages: [{ id: 'written' }] }] };
   assert.deepEqual(validateQualificationRegistry(d), []);
 });
 
-test('出題形式: 欠け・語彙外・出典なしの公開・未照合・区分の不一致を検出する', () => {
+test('出題形式: 欠け・語彙外・出典なしの公開・未照合・空の shortLabel を検出する', () => {
   const f = formats();
   delete f.exams.c;
-  f.exams.a.stages.push({ key: 'oral', label: '', types: ['talk'] });
+  f.exams.a.stages.push({ key: 'oral', label: '', shortLabel: '', types: ['talk'] });
   f.exams.a.pastExams = { questions: 'public', answers: 'maybe' };
   f.exams.a.verification = V('agent');
-  const d = { ...base(), formats: f, lineupConfig: { qualifications: [{ id: 'a', stages: [{ id: 'first' }] }] } };
+  const d = { ...base(), formats: f };
   const errors = validateQualificationRegistry(d);
   for (const needle of [
     'exam-formats に registry の c が無い',
@@ -170,8 +165,28 @@ test('出題形式: 欠け・語彙外・出典なしの公開・未照合・区
     'pastExams.answers は',
     'pastExams.source（公開を確かめた公式 URL）が必要',
     'exam-formats.a: 展開中の資格は主担当の原文照合',
-    'product-lineup の区分 first と一致しない',
+    'stages[1].shortLabel は空でない文字列',
   ]) {
+    assert.ok(errors.some((e) => e.includes(needle)), `${needle}\n${errors.join('\n')}`);
+  }
+});
+
+test('資格の名前: label 必須・空の shortLabel・未知のファミリー短名を検出し、名前と並びは registry から引く', async () => {
+  const { qualificationLabel, qualificationShortLabel, orderedQualifications } = await import('../scripts/lib/qualification-registry.mjs');
+  const d = base();
+  d.registry.qualifications[0].shortLabel = 'A';
+  d.registry.familyShortLabels = { f: 'F 共通' };
+  assert.deepEqual(validateQualificationRegistry(d), []);
+  assert.equal(qualificationLabel(d.registry, 'a'), '資格A');
+  assert.equal(qualificationShortLabel(d.registry, 'a'), 'A');
+  assert.equal(qualificationShortLabel(d.registry, 'c'), '資格C');
+  assert.equal(qualificationShortLabel(d.registry, 'f'), 'F 共通');
+  assert.deepEqual(orderedQualifications(d.registry, 'active').map((q) => q.id), ['a']);
+  delete d.registry.qualifications[1].label;
+  d.registry.qualifications[0].shortLabel = '';
+  d.registry.familyShortLabels = { typo: 'x' };
+  const errors = validateQualificationRegistry(d);
+  for (const needle of ['registry.c: label が必要', 'registry.a: shortLabel は空でない文字列', 'familyShortLabels: typo は families に無い']) {
     assert.ok(errors.some((e) => e.includes(needle)), `${needle}\n${errors.join('\n')}`);
   }
 });

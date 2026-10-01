@@ -1,7 +1,7 @@
 /**
  * public-view-browser.mjs — 公開ページの見え方検査（note / YouTube）で共通に使う画面幅まわりの処理。
  *
- * 画面幅は .claude/config/public-view-breakpoints.json（各サービスの CSS を数えた実測）から取る。
+ * 画面幅は config/public-view-breakpoints.json（各サービスの CSS を数えた実測）から取る。
  * 実行のたびに CSS の media query を数え直し、設定に無い主要な切り替わり幅が出たら知らせる
  * （サービス側の変更で撮る幅が古くならないように）。
  */
@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
 export function loadBreakpointConfig() {
-  return JSON.parse(readFileSync(join(ROOT, '.claude/config/public-view-breakpoints.json'), 'utf8'));
+  return JSON.parse(readFileSync(join(ROOT, 'config/public-view-breakpoints.json'), 'utf8'));
 }
 
 /** Playwright の newContext に渡す値（端末の種類ごとに UA・タッチ・倍率を変える）。 */

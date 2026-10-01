@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 過去問の在庫台帳（.claude/config/past-exam-inventory.json）を検査する。
+ * 過去問の在庫台帳（config/past-exam-inventory.json）を検査する。
  *
  * 公式の過去問は「直近 N 年度だけ掲載」が多く、取り逃した年度は二度と手に入らない。
  * 台帳は資格×年度×ファイルの在庫（公式掲載の有無・入手元・取得日）を持ち、PDF 本体は
@@ -21,7 +21,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-vault.mjs';
 
 const NAME = 'check-past-exam-inventory';
-const INVENTORY_PATH = '.claude/config/past-exam-inventory.json';
+const INVENTORY_PATH = 'config/past-exam-inventory.json';
 const DRIVE_GROUP = 'past-exam-source-pdf';
 const OFFICIAL = ['listed', 'removed', 'never', 'unknown'];
 const KINDS = ['question', 'answer']; // 公式の問題と正答・解答例だけ。第三者の解答・解説・模擬試験は教材側（過去問解説/）
@@ -95,8 +95,8 @@ function main() {
   let inventory, formats, calendar, driveCfg, manifest;
   try {
     inventory = JSON.parse(readFileSync(join(REPO_ROOT, INVENTORY_PATH), 'utf8'));
-    formats = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/exam-formats.json'), 'utf8'));
-    calendar = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/exam-calendar.json'), 'utf8'));
+    formats = JSON.parse(readFileSync(join(REPO_ROOT, 'config/exam-formats.json'), 'utf8'));
+    calendar = JSON.parse(readFileSync(join(REPO_ROOT, 'config/exam-calendar.json'), 'utf8'));
     driveCfg = loadDriveConfig();
     manifest = loadDriveManifest();
   } catch (e) {

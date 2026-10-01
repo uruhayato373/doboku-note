@@ -33,8 +33,8 @@ domain: site
 ## 手順
 
 1. **データ確認**
-   - `.claude/state/metrics/url-inspection/` の最新 `inspection-batch-*.json` の日付を確認
-   - `.claude/state/metrics/gsc/index-coverage-history.json` の最新エントリ日付を確認
+   - `data/metrics/url-inspection/` の最新 `inspection-batch-*.json` の日付を確認
+   - `data/metrics/gsc/index-coverage-history.json` の最新エントリ日付を確認
    - 最新 batch が当月でなければ、CI 未実行と判断し `gh workflow run index-coverage.yml` を案内（実行はユーザー判断）
 
 2. **診断（gsc-index-auditor を起動）**

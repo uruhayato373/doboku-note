@@ -57,11 +57,13 @@ import {
   classifyLoginOutcome,
   cronFiresWithin,
   decideSharedImport,
+  detectChallenge,
   keychainServiceNames,
+  maskLoginText,
   sharedStatePath,
   submitLoginForm,
 } from './lib/auth-session-refresh.mjs';
-import { ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
+import { agentSession, ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -145,15 +147,31 @@ function importSharedState(service) {
 }
 
 async function pageSignals(page) {
-  return page.evaluate(() => {
+  const raw = await page.evaluate(() => {
     const visible = (el) => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
     const hasPassword = [...document.querySelectorAll('input[type=password]')].some(visible);
     const text = document.body?.innerText ?? '';
-    const hasChallenge = !!document.querySelector('iframe[src*="recaptcha"], iframe[src*="hcaptcha"], iframe[src*="turnstile"]')
-      || /認証コード|ワンタイム|確認コード|私はロボットではありません|画像認証|2段階認証|文字を入力してください/.test(text);
-    return { hasPassword, hasChallenge };
-  }).catch(() => ({ hasPassword: true, hasChallenge: false }));
+    const frames = [...document.querySelectorAll('iframe')].map((f) => ({ src: f.getAttribute('src') || '', visible: visible(f) }));
+    // 拒否の理由（「メールアドレスまたはパスワードが違います」等）を残すため、エラー表示らしい要素の文言だけを拾う
+    const errorText = [...document.querySelectorAll('[role=alert], [class*=error], [class*=Error], [class*=alert], [class*=flash], [class*=warning]')]
+      .filter(visible).map((el) => el.innerText.trim()).filter(Boolean).join(' / ');
+    return { hasPassword, text, frames, errorText };
+  }).catch(() => null);
+  if (!raw) return { hasPassword: true, hasChallenge: false, errorText: '' };
+  return { hasPassword: raw.hasPassword, hasChallenge: detectChallenge(raw), errorText: maskLoginText(raw.errorText) };
 }
+
+/** 自動ログインが ok にならなかった画面の写し（auth root の metadata・リポジトリの外）。パスワード欄は伏せ字で写る。 */
+function failShotPath(service) {
+  return join(dirname(resolveMetadataPath(service, authOptions)), `${service}.autologin-failed.png`);
+}
+
+/**
+ * エージェント（Claude Code が実行するコマンドは CLAUDECODE=1）からは資格情報でログインしない。
+ * 実行はオーナー・定期実行・CI（2026-10-01: エージェントが自動ログインを走らせて失敗印を付けた）。
+ * credential-store も同じ条件で読まないが、ここで先に止めて「資格情報が無い」と誤って言わない。
+ */
+const AGENT_RUN = !CI_MODE && agentSession();
 
 const submitCredential = submitLoginForm;
 
@@ -165,7 +183,8 @@ async function autoLogin(service, cred, checkUrl) {
     const { chromium } = await import('playwright');
     const context = await chromium.launchPersistentContext(resolveProfileDir(service, authOptions), mergeLeanOptions({
       channel: 'chrome',
-      headless: !spec.headed,
+      // 画面ありは手元の PC だけ（CI のランナーには画面が無く、headed では起動できない）
+      headless: CI_MODE || !spec.headed,
       locale: 'ja-JP',
       timezoneId: 'Asia/Tokyo',
       viewport: { width: 1366, height: 1000 },
@@ -175,17 +194,25 @@ async function autoLogin(service, cred, checkUrl) {
       const page = context.pages()[0] ?? (await context.newPage());
       await page.goto(spec.loginUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await submitCredential(page, spec, cred);
-      let status = classifyLoginOutcome(service, { url: page.url(), ...(await pageSignals(page)) });
+      let signals = await pageSignals(page);
+      let status = classifyLoginOutcome(service, { url: page.url(), ...signals });
       if (status === 'ok' && checkUrl) {
         // 確認先（KDP は Reports）で別途パスワードを求められたら、同じ資格情報で 1 回だけ送る
         await page.goto(checkUrl, { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
         await page.waitForTimeout(3000);
         if ((await pageSignals(page)).hasPassword) {
           await submitCredential(page, spec, cred);
-          status = classifyLoginOutcome(service, { url: page.url(), ...(await pageSignals(page)) });
+          signals = await pageSignals(page);
+          status = classifyLoginOutcome(service, { url: page.url(), ...signals });
         }
       }
-      if (status !== 'ok') return { status };
+      if (status !== 'ok') {
+        // 次に人が見るときに理由が分かるよう、送信後の場所・表示の文言・画面の写しを残す（ID/PW は書かない）
+        const shot = failShotPath(service);
+        await page.screenshot({ path: shot }).catch(() => {});
+        const where = page.url().split('?')[0];
+        return { status, reason: `送信後 ${where}・表示「${signals.errorText || '文言なし'}」・画面 ${shot}` };
+      }
       const statePath = resolveStatePath(service, authOptions);
       if (statePath) {
         await context.storageState({ path: statePath });
@@ -222,6 +249,9 @@ async function refresh(service, entry) {
     if (existsSync(failMark)) {
       return { ...result, status: 'blocked', reason: `前回の自動ログインが失敗したため停止中。確認後に ${failMark} を削除する` };
     }
+    if (AGENT_RUN) {
+      return { ...result, status: 'agent_skipped', reason: 'エージェント（Claude Code）からの実行では資格情報でログインしない。定期実行（17:45）かオーナーが実行する' };
+    }
     const cred = storedCredential(service);
     if (!cred) {
       return { ...result, status: 'no_credential', reason: CI_MODE ? `Secrets（DOBOKU_AUTH_${service.toUpperCase()}_USER / _PASSWORD）が無い` : `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
@@ -232,11 +262,11 @@ async function refresh(service, entry) {
     status = login.status === 'ok' ? await statusAuthService({ repoRoot: REPO_ROOT }, service) : { status: login.status, reason: login.reason };
     if (status.status !== 'authenticated') {
       // 口座不一致・2FA・ID/PW 不通は自動で繰り返さない（アカウントロックと別口座の混入を避ける）
-      mkdirSync(dirname(failMark), { recursive: true });
-      writeFileSync(failMark, `${new Date().toISOString()} ${status.status}\n`, { mode: 0o600 });
       const reason = status.status === 'human_required'
-        ? '2FA/CAPTCHA 等の人の確認が必要（npm run auth:login -- --service ' + service + '）'
+        ? `2FA/CAPTCHA 等の人の確認が必要（npm run auth:login -- --service ${service}）${status.reason ? `・${status.reason}` : ''}`
         : `自動ログイン後も authenticated にならない（${status.reason ?? status.status}）`;
+      mkdirSync(dirname(failMark), { recursive: true });
+      writeFileSync(failMark, `${new Date().toISOString()} ${status.status} ${reason}\n`, { mode: 0o600 });
       return { ...result, status: status.status === 'authenticated' ? 'ok' : status.status, reason };
     }
   }
@@ -294,7 +324,7 @@ async function main() {
     const r = await refresh(service, registry.services[service])
       .catch((e) => ({ service, status: 'error', reason: String(e.message).slice(0, 160) }));
     results.push(r);
-    if (r.status !== 'ok' && !NO_LOGIN && !CI_MODE) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
+    if (r.status !== 'ok' && r.status !== 'agent_skipped' && !NO_LOGIN && !CI_MODE) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
   }
   const all = [...results, ...skipped];
   if (AS_JSON) console.log(JSON.stringify({ dryRun: DRY_RUN, checked: results.length, results: all }, null, 2));

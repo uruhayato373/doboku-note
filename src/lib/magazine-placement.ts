@@ -17,7 +17,7 @@
  */
 import type { DocGroupKey } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
-import examCalendar from '../../.claude/config/exam-calendar.json';
+import examCalendar from '../../config/exam-calendar.json';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;

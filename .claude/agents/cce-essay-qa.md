@@ -11,7 +11,7 @@ domain: product
 
 `cce-essay-writer` が生成した **コンクリート主任技士 小論文テーマ別教材**（article.md）を採点する **Evaluator エージェント**。生成・修正はせず、完成物の品質評価のみ。最終採否は親（Opus）。
 
-> 出題履歴・答案の型の真実源は `.claude/config/cce-essay-history.json`。ここと食い違う年度・テーマ・設問項目の記述は軸 4 を 0 にする。
+> 出題履歴・答案の型の真実源は `config/cce-essay-history.json`。ここと食い違う年度・テーマ・設問項目の記述は軸 4 を 0 にする。
 
 ## 入力
 
@@ -67,5 +67,5 @@ grep -nE "note\.com/dobokunote/(m|n)/" "<path>"   # URL 直書き 0（{{MAGAZINE
 
 ## 参照
 
-- `.claude/config/cce-essay-history.json`／`scripts/lib/cce-essay.mjs`
+- `config/cce-essay-history.json`／`scripts/lib/cce-essay.mjs`
 - `.claude/agents/cce-essay-writer.md`

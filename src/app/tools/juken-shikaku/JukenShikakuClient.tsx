@@ -20,7 +20,7 @@ type Grade = "civil-1" | "civil-2";
 type Exam = "first" | "second";
 
 const FIRST_AGE: Record<Grade, number> = { "civil-1": 19, "civil-2": 17 };
-const GRADE_LABEL: Record<Grade, string> = { "civil-1": "1級", "civil-2": "2級" };
+const GRADE_LABEL: Record<Grade, string> = { "civil-1": "1級", "civil-2": "2級" }; // qualification-ssot: allow 級（1級・2級）の表示で資格名ではない
 
 type Condition = { label: string; years: number; note?: string };
 type Route = { key: string; label: string; conditions: Condition[] };

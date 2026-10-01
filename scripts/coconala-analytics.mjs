@@ -36,7 +36,7 @@
  *   node scripts/coconala-analytics.mjs --no-services    # 全体＋ブログのみ（サービス別を回らない）
  *   node scripts/coconala-analytics.mjs --headless
  *
- * 出力: .claude/state/coconala/analytics-snapshot.json
+ * 出力: data/coconala/analytics-snapshot.json
  * exit: 0=全対象を取得 / 2=1つでも取得失敗（partial・「検査ゼロを PASS と呼ばない」）
  * ---------------------------------------------------------------------------
  */
@@ -57,8 +57,8 @@ const HEADLESS = process.argv.includes('--headless');
 const WITH_SERVICES = !process.argv.includes('--no-services');
 const APPEND_KPI = process.argv.includes('--append-kpi');
 
-const OUT_PATH = join(ROOT, '.claude/state/coconala/analytics-snapshot.json');
-const KPI_PATH = join(ROOT, '.claude/state/coconala/kpi-log.json');
+const OUT_PATH = join(ROOT, 'data/coconala/analytics-snapshot.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
 const BLOG_DIR = join(ROOT, 'content/coconala/blog');
 const OVERVIEW_URL = 'https://coconala.com/mypage/analytics?ref=menu';
 
@@ -329,7 +329,7 @@ async function main() {
     scan: { steps: scan, ok: okScans, total: scan.length },
   };
 
-  mkdirSync(join(ROOT, '.claude/state/coconala'), { recursive: true });
+  mkdirSync(join(ROOT, 'data/coconala'), { recursive: true });
   writeFileSync(OUT_PATH, JSON.stringify(snapshot, null, 2) + '\n');
 
   console.log('');

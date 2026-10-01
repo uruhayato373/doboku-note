@@ -1591,6 +1591,30 @@
       "commit": "7953833d15cd",
       "verification": "npm run audit-sns-landing-cta:ci・e2e 基準画像更新後 CI 緑",
       "note": "PR #774 マージ。SNS リンク先 194 ページ検査で未配線 31→0、audit-sns-landing-cta を ci:true 登録。本番 HTML での位置確認は次回 deploy 後"
+    },
+    {
+      "id": "DN-0492",
+      "at": "2026-10-01",
+      "task": "商品の正本を「1商品1ファイルの JSON」に移す（段階1: 2級土木の note 商品）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5d0b80e892c5",
+      "verification": "npm run check-products",
+      "note": "PR #807 マージ。2級土木 note 商品23件を content/products/note/ へ移行・check-products ci:true（正本23・照合16・違反0）・生成カタログは元と完全一致"
+    },
+    {
+      "id": "DN-0495",
+      "at": "2026-10-02",
+      "task": "コードに残る資格名の直書き（52 件・13 ファイル）を registry から引く形へ返済する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b0293f8ed5e5",
+      "verification": "npm run check-qualification-ssot（設定の写し0・書き込み先の食い違い0・コードの直書き0）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

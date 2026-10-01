@@ -15,7 +15,7 @@
  *   node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764  # cascading 発火で facet/価格 options も露出
  *
  * カテゴリ/価格/ジャンル(facet)の value が coconala 側でリニューアルされたら、この --advance で
- * 現行 options を再取得し、.claude/config/coconala-listings.json の category/genreFacets を是正する。
+ * 現行 options を再取得し、config/coconala-listings.json の category/genreFacets を是正する。
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, writeFileSync } from 'node:fs';

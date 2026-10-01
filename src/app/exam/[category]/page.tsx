@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     return { title: '資格が見つかりません', robots: { index: false, follow: false } };
   }
   return buildPageMetadata({
-    title: definition.label,
+    title: definition.seoTitle ?? definition.label,
     description: definition.description ?? definition.subtitle,
     path: `/exam/${category}`,
   });

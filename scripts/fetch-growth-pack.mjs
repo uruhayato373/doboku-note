@@ -7,7 +7,7 @@
  * 基線を同じ条件で取り、機会ダイジェスト（build-growth-digest）の唯一の入力にする。
  *
  *   GA4: landingPage × sessionSource × channel（sessions / engagedSessions / activeUsers / keyEvents）
- *        pagePath × eventName（eventCount / totalUsers。対象イベントは .claude/config/growth-cycle.json）
+ *        pagePath × eventName（eventCount / totalUsers。対象イベントは config/growth-cycle.json）
  *        いずれも country=Japan・参照スパム除外・全件ページング（lib/ga4-client.mjs）
  *   GSC: page と page×query（週・基線、country=jpn・web・final）
  *
@@ -16,7 +16,7 @@
  *   node scripts/fetch-growth-pack.mjs --week 2026-W38  # 過去週の取り直し（同名ファイルを上書き）
  *   node scripts/fetch-growth-pack.mjs --dry-run        # 取得だけして書かない
  *
- * 出力: .claude/state/metrics/growth/pack-YYYY-Www.json
+ * 出力: data/metrics/growth/pack-YYYY-Www.json
  * exit: 0 全区画取得 / 1 取得失敗あり（取れた区画は書く・失敗は sections[*].error）/
  *       2 検査不成立（認証なし・週が GSC 確定前）
  */
@@ -31,8 +31,8 @@ import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[growth-pack]';
-const OUT_DIR = '.claude/state/metrics/growth';
-const CONFIG = '.claude/config/growth-cycle.json';
+const OUT_DIR = 'data/metrics/growth';
+const CONFIG = 'config/growth-cycle.json';
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);

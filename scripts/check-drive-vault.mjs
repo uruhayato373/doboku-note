@@ -43,7 +43,7 @@ const SAMPLE = 30;
 const NAME = 'check-drive-vault';
 
 /** 走査するローカルの根。ここ以外に退避対象は置かない設計（asset-storage.json / drive-vault.json の regex が指す範囲）。 */
-const SCAN_ROOTS = ['content/', '.tmp/video-render/', 'scripts/kindle-dist/', '.claude/config/coconala/assets/', '.claude/state/ocr-audit/', 'scripts/kindle-published/cover-designs/', '.local/archive/'];
+const SCAN_ROOTS = ['content/', '.tmp/video-render/', 'scripts/kindle-dist/', 'content/coconala/assets/', '.claude/state/ocr-audit/', 'scripts/kindle-published/cover-designs/', '.local/archive/'];
 
 const git = (args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args], { cwd: REPO_ROOT, encoding: 'utf-8', maxBuffer: 512 * 1024 * 1024 });
 

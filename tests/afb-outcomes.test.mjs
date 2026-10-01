@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { afbPeriod, afbRequest, parseAfbOutcomes, collectAfbOutcomes } from '../.claude/scripts/fetch-afb-outcomes.mjs';
 import { SiteAttributionError } from '../scripts/lib/asp-site-guard.mjs';
 
-const config = JSON.parse(readFileSync('.claude/config/affiliate-asp.json', 'utf8'));
+const config = JSON.parse(readFileSync('config/affiliate-asp.json', 'utf8'));
 const now = new Date('2026-09-22T04:00:00Z');
 const period = { start: '2026-08-25', end: '2026-09-21' };
 const request = afbRequest(config, period, 'occurrence', now);

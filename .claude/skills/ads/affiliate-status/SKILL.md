@@ -19,7 +19,7 @@ domain: affiliate
 
 ## 何をするか
 
-`.claude/state/ads/affiliate-catalog.json`（自社がどの案件をどの ASP で運用するか）を
+`data/ads/affiliate-catalog.json`（自社がどの案件をどの ASP で運用するか）を
 各 ASP の提携中/申請中一覧と突合し、ドリフトを出す。
 
 ```bash

@@ -8,7 +8,7 @@ domain: strategy
 
 ## 手順
 
-1. `docs/strategy/01_プロダクト戦略.md`、`.claude/config/business-direction.json`、`.claude/knowledge/reference/business-review.md` を読む。既存の方向性を毎回ゼロから選び直さない。
+1. `docs/strategy/01_プロダクト戦略.md`、`config/business-direction.json`、`.claude/knowledge/reference/business-review.md` を読む。既存の方向性を毎回ゼロから選び直さない。
 2. `npm run business-review -- report --monthly --json` で対象期間・資格別の実測と欠測、過去の目標・レビューを確認する。現値を不明のまま仮置きしない。
 3. NSM候補は「顧客価値」「事業の継続性」「先行性」「測定可能性」「操作可能性」「理解しやすさ」「望ましくない最適化を招かないか」で評価する。図や記事の件数、検索1位だけを成功指標にしない。学習行動の測定範囲・重複排除が未整備なら、既存の自然検索人数を集客指標として保持する。
 4. 集客→学習→販売→受取/費用/時間の役割を確認し、重点資格・読者課題に結び付ける。販売先のPVと購入、サイト送客は別の集計。NPSを合格率貢献と言わない。

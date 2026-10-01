@@ -39,7 +39,7 @@ type NavEntry = Tab | NavTree;
 /** 計画の層の件数（layout が server 側で todoBoard() から数えて渡す）。月間は [時期:] が今月を含むカード数。 */
 export type TodoLayer = { id: string; label: string; count: number };
 
-/** 領域とサイドバーの画面（layout が .claude/config/domains.json から渡す。ここに直書きしない）。 */
+/** 領域とサイドバーの画面（layout が config/domains.json から渡す。ここに直書きしない）。 */
 export type NavDomain = { id: string; label: string; nav: Tab[] };
 
 /**
@@ -113,6 +113,8 @@ type NavProps = {
   todoLayers?: TodoLayer[];
   /** コンテンツ台帳の下に並べる「資格・テーマ別」「チャネル別」の枝（layout が lib/ledger.ts から渡す・DN-0438） */
   ledger?: { themes: { id: string; label: string }[]; channels: { id: string; label: string }[] };
+  /** 商品設計の下に並べる資格（layout が lib/product-design.ts から渡す・note 商品のある資格だけ） */
+  design?: { id: string; label: string }[];
   /** 教材一覧の下に棚ごとに並べる教材（layout が reference-sources.json から渡す） */
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
   /** 領域の名前・並び・画面（layout が domains.json から渡す） */
@@ -120,7 +122,7 @@ type NavProps = {
 };
 
 /** 領域ごとのメニュー。useSearchParams を使うので Nav が Suspense で包む。 */
-function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, materials = [], domains = [] }: NavProps) {
+function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, design = [], materials = [], domains = [] }: NavProps) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
   // スマホ幅の Sheet は画面を移ったら閉じる（公式 Sidebar は開閉を利用側に任せる）。
@@ -161,6 +163,16 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, mat
       { href: '/metrics/business/monthly', label: '月次', match: '/metrics/business/monthly' },
     ],
   });
+  // 商品設計は資格ごとの枝で開く（domains.json の項目はそのまま・各資格のページは /product/design?q=<資格>。1級・2級土木は q=<資格>:<区分> で区分ごとの枝）
+  const designTree = (label: string): NavTree => ({
+    label,
+    tabs: design.map((d) => ({
+      href: `/product/design?q=${encodeURIComponent(d.id)}`,
+      label: d.label,
+      match: '/product/design',
+      query: { q: d.id },
+    })),
+  });
   const materialTrees: NavTree[] = materials.map((m) => ({
     label: m.shelf,
     tabs: m.items.map((it) => ({
@@ -192,6 +204,7 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, mat
                 if (e.match === '/content/ledger') return [e, themeTree, byChannelTree];
                 if (e.match === '/materials') return [e, ...materialTrees];
                 if (e.match === '/metrics/business') return [reviewTree(e.label)];
+                if (e.match === '/product/design') return [designTree(e.label)];
                 return [e];
               })
               .map((entry) =>

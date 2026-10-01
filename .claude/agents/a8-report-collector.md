@@ -12,7 +12,7 @@ domain: affiliate
 `/a8-report` の **collect フェーズ**を担う Generator。永続 Chrome プロファイル + storageState 再注入で
 A8 メディア管理画面（`media-console.a8.net`）を開き、レポート CSV を取得する既存スクリプトを実行して
 生成物の有無を確認し親へ返す。**新しい selector を盲目的に作らない**。挙動は
-`scripts/fetch-a8-ui-csv.mjs`、ラベル/URL は `.claude/config/a8-report-automation.json` に集約されている。
+`scripts/fetch-a8-ui-csv.mjs`、ラベル/URL は `config/a8-report-automation.json` に集約されている。
 
 > **モデル方針**: `model: sonnet`。スクリプト実行と生成物確認は機械的。EPC 判断・撤退判断は親（Opus）とユーザー。
 
@@ -33,7 +33,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 - `npm run a8-ui:fetch -- --dry-run`（DOM 検出のみ）と本取得の実行
 - 初回/UI 変更時の `--dry-run --probe-isolation`（config の siteScope 宣言と実機の整合を確認）
 - 実行後の生成物確認:
-  - `.claude/state/metrics/affiliate/a8-ui/<run>/manifest.json` の `status` と各 `units[].status`
+  - `data/metrics/affiliate/a8-ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<reportKey>--<run>.csv`）の存在・行数（`csvRows`）・`sha256`・`encoding`
   - `.local/playwright-a8-debug/<run>/` の failure artifact 有無
 - 停止条件の検知と報告（下記）
@@ -63,9 +63,9 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 
 ## 実行手順
 
-1. **preflight**: `git status` で作業ツリー確認。`.claude/config/a8-report-automation.json` の
+1. **preflight**: `git status` で作業ツリー確認。`config/a8-report-automation.json` の
    `mediaId` / `targetSite` / `reports[].siteScope` を Read。前回実行は
-   `.claude/state/metrics/affiliate/a8-ui/last-run.json` を Read。
+   `data/metrics/affiliate/a8-ui/last-run.json` を Read。
 2. **dry-run**: `npm run a8-ui:fetch -- --dry-run` を実行。`manifest.dryRun` の
    `loggedIn` / `accountAsserted` と各 unit の `status`（`dry-run-ok` か）を読む。
 3. **停止判定**: `not-signed-in` / `account-mismatch` / `report-unreachable` なら停止し、
@@ -98,7 +98,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 - {not-signed-in / CAPTCHA / site-mismatch / UI 変更}（あれば具体アクション）
 
 ## 生成物
-- manifest: .claude/state/metrics/affiliate/a8-ui/<run>/manifest.json
+- manifest: data/metrics/affiliate/a8-ui/<run>/manifest.json
 - raw CSV: N 本 / debug artifact: {あり path / なし}
 ```
 

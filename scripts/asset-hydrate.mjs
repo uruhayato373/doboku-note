@@ -93,7 +93,7 @@ async function main() {
   console.log('  復元予定容量 MiB : ' + mib(restoreBytes));
   if (!DRY && restoreBytes > maxBytes) throw new Error('Restore exceeds limit: narrow --path or explicitly raise --max-mib');
   const disk = statfsSync(REPO_ROOT);
-  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, '.claude/config/local-resources.json'), 'utf8'));
+  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, 'config/local-resources.json'), 'utf8'));
   const reserveBytes = (process.env.CI ? 1 : resourcePolicy.minFreeDiskGiB) * 1073741824;
   if (!DRY && disk.bavail * disk.bsize < restoreBytes * 2 + reserveBytes) throw new Error('Insufficient free disk for restore');
 

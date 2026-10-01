@@ -3,7 +3,7 @@
 // 金額・ドリフトの妥当性はここでは判定しない（別 channel の担当）。
 //
 // 判定:
-//   .claude/state/metrics/affiliate/afb-outcomes-latest.json
+//   data/metrics/affiliate/afb-outcomes-latest.json
 //     → 無い／observedAt が読めない／10 日超前 は FAIL
 //   ディレクトリ自体が読めない（存在するがアクセス不可）は exit 2（本番異常と検査不成立を分ける）
 //
@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url';
 
 const TAG = '[check-afb-outcomes-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const AFF_DIR = join(ROOT, '.claude/state/metrics/affiliate');
+const AFF_DIR = join(ROOT, 'data/metrics/affiliate');
 const LATEST_FILE = join(AFF_DIR, 'afb-outcomes-latest.json');
 const JSON_OUT = process.argv.includes('--json');
 

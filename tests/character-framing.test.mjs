@@ -9,7 +9,7 @@ import { validateFraming, frameGeometry } from '../scripts/lib/character-frame-g
 import { renderCharacterFrame } from '../scripts/lib/character-framing.mjs';
 import { readCharacterCatalog } from '../scripts/lib/character-catalog.mjs';
 
-const original = JSON.parse(readFileSync(new URL('../.claude/config/character-poses.json', import.meta.url)));
+const original = JSON.parse(readFileSync(new URL('../config/character-poses.json', import.meta.url)));
 async function fixture(t, mutate = () => {}) {
   const root = mkdtempSync(join(tmpdir(), 'character-frame-test-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
@@ -18,9 +18,9 @@ async function fixture(t, mutate = () => {}) {
   const bytes = await sharp({ create: { width: 100, height: 200, channels: 4, background: { r: 10, g: 20, b: 30, alpha: 0.5 } } }).png().toBuffer();
   m.poses[0].framing.source = { width: 100, height: 200, sha256: createHash('sha256').update(bytes).digest('hex') };
   mutate(m);
-  mkdirSync(join(root, '.claude/config'), { recursive: true });
+  mkdirSync(join(root, 'config'), { recursive: true });
   mkdirSync(join(root, m.assetsDir), { recursive: true });
-  writeFileSync(join(root, '.claude/config/character-poses.json'), JSON.stringify(m));
+  writeFileSync(join(root, 'config/character-poses.json'), JSON.stringify(m));
   writeFileSync(join(root, m.assetsDir, 'pointing.png'), bytes);
   return { root, m, bytes };
 }

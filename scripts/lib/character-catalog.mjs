@@ -10,7 +10,7 @@ import { validateFraming } from './character-frame-geometry.mjs';
 /** Catalog entries stay visible when assets are absent on another PC. No remote fetching. */
 export function readCharacterCatalog(root) {
   /** @type {Manifest} */
-  const manifest = JSON.parse(readFileSync(join(root, '.claude/config/character-poses.json'), 'utf8'));
+  const manifest = JSON.parse(readFileSync(join(root, 'config/character-poses.json'), 'utf8'));
   const vocab = manifest.catalog;
   if (manifest.assetsDir !== 'content/sns/_assets/character' || !Array.isArray(manifest.poses) || !manifest.poses.length) {
     throw new Error('キャラクター台帳の素材ルートまたはポーズ一覧が不正です');

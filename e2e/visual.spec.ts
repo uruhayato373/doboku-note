@@ -9,7 +9,7 @@ import { representativeRoutes } from './routes';
  * a11y.spec.ts と同じ代表テンプレ + `/links`（SNS プロフィールからの入口）を
  * desktop・mobile（playwright.config.ts の 2 project）× light/dark で `toHaveScreenshot` に固定する。
  * ビューポート内（fullPage ではない）のみ撮る。フルページだと `/standards/kinki/...` のような
- * 長い記事で1枚 7〜8MB になり、.claude/config/git-binary-policy.json の png 上限 1.5MiB を
+ * 長い記事で1枚 7〜8MB になり、config/git-binary-policy.json の png 上限 1.5MiB を
  * 14/36 枚が超過した（実機確認・2026-09-25）。レイアウト崩れはヘッダー・ナビ・折返し等
  * 上部に出ることが多く、下部まで見たい場合は該当ページだけ個別に追加する。
  *

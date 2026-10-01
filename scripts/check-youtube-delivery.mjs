@@ -6,7 +6,7 @@ import { assessDelivery } from './lib/youtube-delivery-check.mjs';
 
 const args = process.argv.slice(2), option = key => args.includes(key) ? args[args.indexOf(key) + 1] : null;
 try {
-  const config = JSON.parse(readFileSync('.claude/config/youtube-delivery.json'));
+  const config = JSON.parse(readFileSync('config/youtube-delivery.json'));
   let stateBytes, planBytes;
   if (option('--state')) {
     if (!option('--plan')) throw new Error('Offline state requires its frozen plan');

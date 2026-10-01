@@ -23,7 +23,8 @@
  * 検査（双方向）:
  *   1. article*.md を持つ dir の**どのセグメントも** tokens に一致しない＝フォールバックの入口
  *   2. tokens の dir を含む記事 dir が 1 件も無い＝死んだエントリ（リネーム漏れ）
- *   3. label / short / base / deep / accent が欠けていないか（fallback 時に化ける値）
+ *   3. base / deep / accent が欠けていないか（fallback 時に化ける値）。名前は書かず qualification:（registry の資格 id か
+ *      group id）で引く。資格でないキー（common）だけ label / short を持つ（資格名の写しは check-qualification-ssot も止める）
  *
  * 検査ゼロを PASS と呼ばない（CLAUDE.md §9）: 対象 dir 数と実検査数を必ず出力し、
  * 走査結果が 0 件なら「検査不成立」として exit 2 で落とす。
@@ -41,6 +42,7 @@ import { fileURLToPath } from 'node:url';
 // 照合は生成器の実装をそのまま使う。ここで書き直すと 2 実装がドリフトし、
 // ゲートだけが正しく解決できない（civil-1 を civil-1-2 より先に見る特別扱いを取りこぼす）。
 import { resolveExam } from './generate-note-covers.mjs';
+import { isQualificationRef, loadRegistry } from './lib/qualification-registry.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
@@ -48,7 +50,7 @@ const TOKENS = '.claude/knowledge/design-system/note-cover-tokens.json';
 const JSON_OUT = process.argv.includes('--json');
 
 /** 必須フィールド。欠けると fallback 時に undefined が描画へ流れる。 */
-const REQUIRED = ['dir', 'label', 'short', 'base', 'deep', 'accent'];
+const REQUIRED = ['dir', 'base', 'deep', 'accent'];
 
 /** 型別ファイル（article-II1.md 等）も記事として数える。 */
 const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;
@@ -130,9 +132,14 @@ function main() {
     }
   }
 
-  // 3) 必須フィールドの欠落
+  // 3) 必須フィールドの欠落。名前は qualification: で registry から引く（資格でないキーだけ label / short）
+  const registry = loadRegistry(ROOT);
   for (const [slug, v] of exams) {
     const missing = REQUIRED.filter((k) => !v[k]);
+    if (v.qualification) {
+      if (!isQualificationRef(registry, v.qualification)) missing.push(`qualification（${v.qualification} が registry に無い）`);
+      if (v.label || v.short) violations.push({ rule: 'name-copy', at: `${TOKENS} exams.${slug}`, msg: 'qualification: があるのに label / short を持っている（名前は registry から引く）' });
+    } else if (!v.label || !v.short) missing.push('qualification（資格でなければ label / short）');
     if (missing.length) {
       violations.push({
         rule: 'missing-field',
@@ -162,7 +169,7 @@ function main() {
   }
   for (const v of violations) console.error(`  [${v.rule}] ${v.at}  ${v.msg}`);
   console.error(
-    `\n真実源: ${TOKENS}。dir を足したら label / short / base / deep / soft / accent も埋めること。\n` +
+    `\n真実源: ${TOKENS}。dir を足したら qualification（registry の資格 id か group id）と base / deep / soft / accent も埋めること。\n` +
       '色を既存試験と共有する場合（例: 技術士第一次＝総監と同じ濃紺）も、\n' +
       '**省略せず明示的に列挙する** — fallback で偶然そこへ着地する経路を残さないため。\n',
   );

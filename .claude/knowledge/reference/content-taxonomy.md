@@ -17,7 +17,7 @@ title: コンテンツ・タクソノミー（領域 × 資格 × 記事型 × �
 | 分野 section | `src/config/category-curriculum.json` の形がそのまま規則 | 同左 | 執筆者 | `check-category-curriculum` |
 | タグ | 本書 §5 | `src/config/tags.json`（`class` / `canonical` / `aliases`） | 執筆者（§5 の追加条件） | `check-content-taxonomy`（staged は HARD・ci はラチェット） |
 | テーマ topic | 三方向は 05_IA、昇格基準は本書 §6 | `src/config/topics.json` | ユーザー | `check-topic-wiring`・`check-content-taxonomy`（WARN） |
-| 原本 source | class は [reference-sources-policy.md](./reference-sources-policy.md) §1、展開表は本書 §7 | `.claude/config/reference-sources.json` | ユーザー | `check-reference-sources` |
+| 原本 source | class は [reference-sources-policy.md](./reference-sources-policy.md) §1、展開表は本書 §7 | `config/reference-sources.json` | ユーザー | `check-reference-sources` |
 
 runtime は `src/lib/content-taxonomy.ts`（`getCategoryArea` / `getGroupDef` / `isStructuralTag` / `canonicalTag`）を通し、JSON を直読みしない。検査・codemod は `scripts/lib/content-taxonomy.mjs` の純関数を共有する。
 

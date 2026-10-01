@@ -2,9 +2,9 @@
 
 ## 真実源と入口
 
-- 監視対象・選定方針: `.claude/config/seo-watchwords.json`（資格、意図、読者、必要な情報、登録根拠、次の学習行動、query、正規URL、原稿、priority、country、device）。日本 `jpn`・全端末が初期値。query/URL/国/端末を変える場合は別idを作る。
-- 順位履歴: `.claude/state/metrics/gsc/rank-watch/watch-*.json`。GSC生データ・期間・集計・固定条件を追記専用で保存する。既存履歴は修正しない。
-- 改善履歴: `.claude/state/experiments.json` の `kind: seo-rank-watch`。actions/historyは追記専用。別の改善台帳を作らない。
+- 監視対象・選定方針: `config/seo-watchwords.json`（資格、意図、読者、必要な情報、登録根拠、次の学習行動、query、正規URL、原稿、priority、country、device）。日本 `jpn`・全端末が初期値。query/URL/国/端末を変える場合は別idを作る。
+- 順位履歴: `data/metrics/gsc/rank-watch/watch-*.json`。GSC生データ・期間・集計・固定条件を追記専用で保存する。既存履歴は修正しない。
+- 改善履歴: `data/experiments.json` の `kind: seo-rank-watch`。actions/historyは追記専用。別の改善台帳を作らない。
 - 実行・方針レビュー履歴: 同じGSC保存先の `rank-watch/run-*.json`。当時の設定hash・資格別候補・順位の参照先・選定/待機理由・直近の判定を追記する。改善なしの回も記録し、過去ファイルは変更しない。
 - 実装: `scripts/seo-rank-watch.mjs` と `scripts/lib/seo-rank-watch.mjs`。管理画面 `/metrics/seo-watch` は同じ判定関数を読む。
 - スキル入口: `/weekly-improve --rank-watch`（「SEO Rank Watch」もこのモードへルーティング）。本番反映は従来の `/deploy`。
@@ -22,7 +22,7 @@
 
 重点は1級土木・技術士総監・技術士建設部門。各資格に少なくとも1つ、意図を確認した記事候補を持つ。資格名を機械的に付けた記事を増やさず、同義語のために別ページを作らない。アプリ型ツールは関連需要として計測するが、複数ソースから成る改修を記事1件の改善として扱わない。
 
-選定は **受験意図 → 学習上の価値(priority 1が最高) → 試験時期 → 順位・需要の段階 → 直近28日の資格別改善数 → 順位・表示回数**。価値はwatchwordのrationaleとnextStepで説明する。試験時期は `.claude/config/exam-calendar.json` の該当eventを読み、90日以内の試験前を優先する。未発表の次年度日程を補完しない。同条件なら最近の改善が少ない資格を先にし、資格のために無理に候補を作らない。
+選定は **受験意図 → 学習上の価値(priority 1が最高) → 試験時期 → 順位・需要の段階 → 直近28日の資格別改善数 → 順位・表示回数**。価値はwatchwordのrationaleとnextStepで説明する。試験時期は `config/exam-calendar.json` の該当eventを読み、90日以内の試験前を優先する。未発表の次年度日程を補完しない。同条件なら最近の改善が少ない資格を先にし、資格のために無理に候補を作らない。
 
 `mode: monitor` は自動改善しない。資格名の有無だけで意図を決めず、登録時にaudience/need/rationale/nextStep/evidenceを確認する。GSC由来は実際にその語の表示がある保存データを指定する。仮説登録はhypothesisとして需要未確認を明示し、改善前の検索意図・SERP比較を省略しない。
 
@@ -64,7 +64,7 @@
 4. 選定時の設定・台帳・本文hashが変わっていないことを確認し、最大3箇所の小さな記事改善を適用する。noindex・公開状態・資格分類・H1/H2構造の変更を拒否し、MDX検証と既存の観察ロックを通す。本文に関係する索引だけを再生成し、1記事と改善履歴・実行記録をdevelopへ保存する。
 5. 失敗時は別jobが最新developにfailedの実行記録だけを追記し、既存の `automation-failure` Issueへ通知する。失敗途中の未検証本文は保存しない。診断用一時JSONはartifactへ14日保存する。
 
-起動自体が止まった場合も、既存の週次 `check-workflow-health` が検出する。閾値は `.claude/config/workflow-health.json`（最終成功から3日超、または2連続失敗）。
+起動自体が止まった場合も、既存の週次 `check-workflow-health` が検出する。閾値は `config/workflow-health.json`（最終成功から3日超、または2連続失敗）。
 
 GSC鍵は既存 `GOOGLE_SERVICE_ACCOUNT_KEY_JSON` からrunnerの一時領域へ復元し、計測後に削除する。履歴は追記専用で、更新競合はforce pushせず失敗として残す。判定と再改善を別commitにすることで、変更前HEADの観察ロックを守る。
 

@@ -2,7 +2,7 @@
 
 ## 位置づけ
 
-- 2級土木施工管理技術検定 第一次検定（後期）・第二次検定（**2026-10-25**、`.claude/config/exam-calendar.json` `exams.civil-construction-2.events.firstLate` / `events.second` が正）直前の受験者向け
+- 2級土木施工管理技術検定 第一次検定（後期）・第二次検定（**2026-10-25**、`config/exam-calendar.json` `exams.civil-construction-2.events.firstLate` / `events.second` が正）直前の受験者向け
 - 5 枚構成: 導入 → 無料（サイト） → 経験記述 → 学科記述 → 直前演習（直前総仕上げパック）
 - パレット: green（`instagram-carousel-tokens.json` `highlightStories.palettes.08_civil-2`、2級土木の note-cover-tokens 色 `civil-2` と揃える。02_carousel-index の green とは色相を分けた別トーン）
 

@@ -18,7 +18,7 @@ Playwright（永続プロファイル）で X のコンポーザを自動操作�
 
 ## ⚠️ 予約運用は再開（ガード必須・2026-07-07〜）
 
-> **アカウントSSOT**: `.claude/config/x-account.json`。旧アカウント @dobokunotecom が「platform manipulation and spam」で凍結（異議却下）。実因は**同一/類似文面の連続予約というスケジューリング失敗**。運用は新アカウント **@doboku373** で継続中（`disable-model-invocation: true` は維持＝Skill 自動起動はせず、人／明示コマンドで実行する）。
+> **アカウントSSOT**: `config/x-account.json`。旧アカウント @dobokunotecom が「platform manipulation and spam」で凍結（異議却下）。実因は**同一/類似文面の連続予約というスケジューリング失敗**。運用は新アカウント **@doboku373** で継続中（`disable-model-invocation: true` は維持＝Skill 自動起動はせず、人／明示コマンドで実行する）。
 >
 > **現行フロー（2026-07-07 再開）**: 予約は再開したが、凍結実因（連続・重複）を機械的に潰すため **必ず以下のガード付きフローを通す**（真実源 `x-post-policy.md` §11.5）:
 > 1. `x-post-writer` で下書き（文面ユニーク・URL 分散・同一 URL ≤2）

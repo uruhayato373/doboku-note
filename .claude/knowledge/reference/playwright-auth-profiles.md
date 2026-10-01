@@ -31,13 +31,13 @@ PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDriv
 | service | profile | sessionMode | アカウント assert | ci.mode / ci.operations |
 |---|---|---|---|---|
 | `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 | encrypted-state / read+write |
-| `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` | encrypted-state / read+write |
+| `coconala` | `playwright-coconala-profile` | profile | `config/coconala-account.json` | encrypted-state / read+write |
 | `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 | encrypted-state / read+write |
-| `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` | encrypted-state / read+write |
-| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
+| `x` | `playwright-x-profile` | profile | `config/x-account.json` | encrypted-state / read+write |
+| `instagram` | `playwright-ig-bs-profile` | profile | `config/ig-account.json` | encrypted-state / read+write（Meta 利用制限で Graph API 不可＝Playwright 照合・予約投稿） |
 | `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ | encrypted-state / read |
 | `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` | encrypted-state / read+write |
-| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` | none / read |
+| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `config/affiliate-asp.json` | none / read |
 | `afb` | `playwright-afb-profile` | same-process | ASP site guard | encrypted-state / read |
 
 A8 は揮発性 Cookie のため `states/playwright-a8-state.json` の再注入を併用する。afb は保存 state を
@@ -253,7 +253,7 @@ ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチ�
 | export と収集（Mac のみ） | `ci.enabled` の service は暗号化 state を書き出し、`ci.cron` が 24 時間以内なら直後に `login-collectors` を `workflow_dispatch` で起動する |
 | 定期実行の省略 | `ci.skipScheduleIfFresh`（A8 は `a8-ui/last-run.json` が 30 時間以内）なら同じ回の定期実行は `fresh` で skip する（期限切れの state で失敗させない） |
 
-2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する（Mac は通知センター、Windows はタスクバーの通知）。
+2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する（Mac は通知センター、Windows はタスクバーの通知）。印には送信後の場所とログイン画面に出た文言（メールアドレスは伏せる）を書き、画面の写しを `metadata/<service>.autologin-failed.png` に残す。不可視の reCAPTCHA（`size=invisible`・v3 の印）はログイン画面に常にあるので「人の確認」に数えない（2026-10-01: ココナラの送信がログイン画面へ戻されただけで human_required と判定し、拒否の理由を隠した）。ココナラ・KDP は手元では画面ありで送り、CI では常に headless で起動する。
 
 **CI での入り直し（note・ココナラ・2026-10-01／KDP・A8・もしもは同日から試行・DN-0480・DN-0481・DN-0483。afb は取得スクリプトの中でログイン・DN-0484）**: `login-collectors.yml` は restore の結果が authenticated でないとき、`auth-session-refresh.mjs --ci --service <service>` で Secrets（`DOBOKU_AUTH_<SERVICE>_USER` / `_PASSWORD`）の ID/PW を使い 1 回だけ入り直す。許可 service は資格情報の正本（`playwright-auth-profiles.json` の `credential.ciCredential=true`）だけ。成功すれば以降の collector と writeback が動き、新しい state が R2 へ書き戻される。2FA・CAPTCHA では止まり、Issue に restore と re-login の結果が載る。共用 state の取り込み・export・通知は CI ではしない。
 人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。ログは
@@ -268,7 +268,7 @@ security add-generic-password -s doboku-note-auth-note -a <ログインID> -w
 cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass
 ```
 
-note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認が出る。`note-sales-fetch`・`record-net-receipts` はこれを、資格情報（手元は Mac キーチェーン／Windows 資格情報マネージャーの `doboku-note-auth-note`、CI は Secrets `DOBOKU_AUTH_NOTE_USER`／`DOBOKU_AUTH_NOTE_PASSWORD`）で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。エージェントはこの自動入力を走らせない（実行はオーナー・スケジューラ・CI）。
+note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認が出る。`note-sales-fetch`・`record-net-receipts` はこれを、資格情報（手元は Mac キーチェーン／Windows 資格情報マネージャーの `doboku-note-auth-note`、CI は Secrets `DOBOKU_AUTH_NOTE_USER`／`DOBOKU_AUTH_NOTE_PASSWORD`）で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。エージェントはこの自動入力を走らせない（実行はオーナー・スケジューラ・CI）。Claude Code が実行するコマンド（`CLAUDECODE=1`）では `credential-store` が資格情報ストアを読まず、`auth-session-refresh` は `agent_skipped`・note の再確認は ABORT・ASP は未ログインのまま止まる（2026-10-01: エージェントが note の再確認とココナラの自動ログインを走らせた再発防止）。
 
 ## 検証
 

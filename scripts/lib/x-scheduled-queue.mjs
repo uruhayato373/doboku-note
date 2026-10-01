@@ -22,7 +22,7 @@ export function isTweetInQueue(tweet, rows) {
 }
 
 export async function readScheduledQueue({ root = process.cwd(), headless = true } = {}) {
-  const { handle } = JSON.parse(fs.readFileSync(path.join(root, '.claude/config/x-account.json'), 'utf8'));
+  const { handle } = JSON.parse(fs.readFileSync(path.join(root, 'config/x-account.json'), 'utf8'));
   const ctx = await chromium.launchPersistentContext(resolveProfileDir('x', { cwd: root, repoRoot: root }), leanContextOptions({
     headless, channel: 'chrome', viewport: { width: 1280, height: 1000 },
     locale: 'ja-JP', timezoneId: 'Asia/Tokyo', args: ['--disable-blink-features=AutomationControlled'],

@@ -4,7 +4,7 @@
 // ドリフト自体（設定が意図と食い違っているか）はここでは判定しない（別 channel の担当）。
 //
 // 判定:
-//   zone snapshot: .claude/state/metrics/cloudflare/cf-zone-YYYY-MM-DD.json の最新
+//   zone snapshot: data/metrics/cloudflare/cf-zone-YYYY-MM-DD.json の最新
 //     → 無い／3 日超前／counts.daysReturned が 0 以下 は FAIL
 //   config latest: .claude/state/cloudflare/zone-config-latest.json
 //     → 無い／fetchedAt が 10 日超前 は FAIL
@@ -23,7 +23,7 @@ import { fileURLToPath } from 'node:url';
 
 const TAG = '[check-cloudflare-metrics-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ZONE_DIR = join(ROOT, '.claude/state/metrics/cloudflare');
+const ZONE_DIR = join(ROOT, 'data/metrics/cloudflare');
 const ZONE_FILE_RE = /^cf-zone-(\d{4}-\d{2}-\d{2})\.json$/;
 const CONFIG_LATEST = join(ROOT, '.claude/state/cloudflare/zone-config-latest.json');
 const JSON_OUT = process.argv.includes('--json');

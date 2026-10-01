@@ -45,7 +45,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 |---|---|---|---|
 | トップ hero | 2.4:1 | wide | `public/images/hero-home-v2.webp`（現行。`hero-home.webp` はロールバック用に保持） |
 | ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
-| OGP 背景 | 1.9:1 | wide | `.claude/config/ogp/backgrounds/<exam-key>.png` |
+| OGP 背景 | 1.9:1 | wide | `config/ogp/backgrounds/<exam-key>.png` |
 | note カバー | 1.91:1 | 写真プール対象外 | 2026-09-28から背景写真なしの文字優先POP。資格色・コピー・人物の正本は `note-cover-character-v5.md` と `note-cover-tokens.json` |
 | 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
 

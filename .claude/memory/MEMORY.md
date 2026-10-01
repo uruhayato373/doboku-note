@@ -1,163 +1,119 @@
 # Memory Index
 
-必要な項目だけ読むための索引。価格・公開状態・実装仕様は各メモが示す正典と実体で確認する。
+必要な項目だけ読むための索引（1 行 1 記憶）。正本は repo の `.claude/memory`。上限 200 行 / 25KB（`npm run check-memory`）。価格・公開状態・実装仕様は各メモが示す正典で確認する。
 
+## User
+- [運営者資格](user_operator_qualifications.md) — 正本author.ts
 
-## 作業スタイル・運用規律
-- [feedback_skip_confirmations.md](feedback_skip_confirmations.md)
-- [feedback_prevention_over_patching.md](feedback_prevention_over_patching.md)
-- [feedback_gate_zero_coverage_false_pass.md](feedback_gate_zero_coverage_false_pass.md)
-- [feedback_spec_from_measurement_not_catalog.md](feedback_spec_from_measurement_not_catalog.md)
-- [feedback_read_auth_notes_before_ci_proposal.md](feedback_read_auth_notes_before_ci_proposal.md)
-- [feedback_out_of_expertise_needs_independent_qa.md](feedback_out_of_expertise_needs_independent_qa.md)
-- [feedback_platform_only_artifacts_destroyed_by_bulk_ops.md](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md)
-- [feedback_bulk_outward_op_necessity_first.md](feedback_bulk_outward_op_necessity_first.md) — 外向き一括操作はsurfacer件数を作業量にせず「やらないと何が壊れるか」を実測→必須/任意を分ける。元PRの理由はデータで裏取り(2026-09-24 note674本→1本)
-- [feedback_handoff_extract_before_delete.md](feedback_handoff_extract_before_delete.md)
-- [feedback_deploy_discipline.md](feedback_deploy_discipline.md)
-- [feedback_deploy_cadence.md](feedback_deploy_cadence.md)
-- [feedback_deploy_mechanics_parallel_safe.md](feedback_deploy_mechanics_parallel_safe.md)
-- [feedback_multi_session_concurrent_git.md](feedback_multi_session_concurrent_git.md) — 複数セッション並行が常態。push前にorigin/develop..HEAD巻き込み確認、pathspec厳守。feature ブランチは共有ツリーでcheckout -bせずworktree（並行セッションのcommitが載る・2026-09-24）
-- [feedback_shared_index_commit_safety.md](feedback_shared_index_commit_safety.md)
-- [feedback_pr_squash_bundles_unpushed_commits.md](feedback_pr_squash_bundles_unpushed_commits.md)
-- [feedback_parallel_agent_git.md](feedback_parallel_agent_git.md)
-- [feedback_git_add_verify_staged.md](feedback_git_add_verify_staged.md)
-- [feedback_metrics_cicd_supplied.md](feedback_metrics_cicd_supplied.md)
-- [feedback_tool_output_hallucination.md](feedback_tool_output_hallucination.md)
-- [feedback_mdx_component_registration_build_invariant.md](feedback_mdx_component_registration_build_invariant.md)
-- [feedback_mdx_script_frontmatter_safety.md](feedback_mdx_script_frontmatter_safety.md)
+## Feedback
+- [管理画面UI](feedback_admin_ui_for_humans.md) — 人が見る画面、必要値のみ
+- [アフィリ転職のみ](feedback_affiliate_career_only.md) — 講座廃止・同一matピクセル監査
+- [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
+- [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
+- [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit
+- [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
+- [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源
+- [キーワードサイクル](feedback_exam_keyword_cycle_completeness.md) — 全RelatedKeywords処理
+- [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
+- [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外
+- [ゲート偽PASS](feedback_gate_zero_coverage_false_pass.md) — 検査0件の緑・否定の単発判定
+- [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
+- [IGパック記録](feedback_ig_pack_posted_json.md) — posted.json・配色は現物確認
+- [Kindle重複防止](feedback_kindle_dup_prevention.md) — 差替えでASIN維持
+- [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR
+- [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
+- [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
+- [新ツール配線](feedback_new_tool_doc_wiring.md) — doc-sync・handoff抽出
+- [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認
+- [総監スコープ規律](feedback_no_pe_construction_application.md) — 教材外H2禁止・新規作らない
+- [書籍逐語禁止](feedback_no_verbatim_book_reflection.md) — 出典のみ・オリジナル散文
+- [note3点セット](feedback_note_article_three_set_dod.md) — 公開前実検証・偽成功照合
+- [note書式規約](feedback_note_cta_no_price_linkcard.md) — 価格なしカード・短段落
+- [note日本語パス素通り](feedback_note_lint_quotepath_bypass.md) — quotepath=false必須
+- [noteマガジン運営](feedback_note_magazine_cover_display.md) — カバー表示・snapshot・配線
+- [Opus/Sonnet分業](feedback_opus_sonnet_split.md) — 親Opus・子Sonnet・Fable条件
+- [PDFオンデマンド](feedback_pdf_on_demand_only.md) — 必要時のみ・Mac完走
+- [総監過去問折衷案](feedback_pe_pastexam_answer_compromise.md) — 解説圧縮・問題図に答え禁止
+- [ライブ一括操作の罠](feedback_platform_only_artifacts_destroyed_by_bulk_ops.md) — SoT外の添付破壊
+- [再発防止の仕組み化](feedback_prevention_over_patching.md) — 手動ゲートは素通り
+- [X予約偽成功](feedback_publish_x_false_success.md) — キュー実体検証
+- [レビュー申し送り台帳](feedback_review_tasks_to_backlog.md) — DN起票・backlog罠
+- [着手前git同期](feedback_session_start_git_sync.md) — fetch・PR squash巻込み
+- [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
+- [SSOT手書き禁止](feedback_ssot_no_hand_copies_self_verify.md) — 原文照合・仕様は実測
+- [SVG/画像生成の罠](feedback_svg_arrow_marker.md) — 矢印向き・再目視・auto-fit
+- [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
+- [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記
+- [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
+- [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
 
-## GA/計測基盤・CI
-- [feedback_ga_ssr_not_client_gate.md](feedback_ga_ssr_not_client_gate.md)
-- [reference_scheduled_workflow_default_branch.md](reference_scheduled_workflow_default_branch.md)
-- [project_operator_pe_comprehensive_pass.md](project_operator_pe_comprehensive_pass.md)
+## Project
+- [3層・合格者戦略](project_v3_strategy.md) — 運営者は総監合格済・言及ルール
+- [資格展開SSOT](project_qualification_expansion_ssot.md) — 展開判断・行政書士取得決定
+- [NSM・領域・週次](project_nsm.md) — 月受取額NSM・8領域・週次
+- [モデル前提](project_model_assumptions.md) — Opus5.5前提・棚卸し済
+- [分類SSOT](project_content_taxonomy.md) — 領域×資格×型×タグ
+- [GSC/SEO方針](project_gsc_pivot_2026_04.md) — CTA最適化・AdSense・ピラー
+- [収益診断](project_revenue_diagnosis_2026_06.md) — 受取額・note流入元実測
+- [note収益戦略](project_note_revenue_strategy_2026.md) — 価格ラダー・競合・精読スコープ
+- [売れ筋パック](project_pack_lineup_2026_09.md) — 3軸19SKU・EXP-011
+- [アフィリ運用](project_affiliate_mat_ssot.md) — mat SSOT・3ASP・A8
+- [ビルドジョブ](project_buildjob_impressions_campaign.md) — 8/31期限・競合genba
+- [アセット置き場](project_asset_audience_routing.md) — site/ci/human・軽量化
+- [共通仕様書](project_standards_chapters.md) — 344章・ページ画像・E2E
+- [CI暗号化state](project_ci_encrypted_state_login_collectors.md) — CI可否・Obsidian記録
+- [図版SVG規約](project_svg_figure_governance.md) — 5層・4:5キャンバス
+- [OGP・カバー](project_ogp_design_ssot.md) — OGP SSOT・G2色
+- [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
+- [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
+- [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
+- [iOSアプリ](project_ios_app_spec_v1_1.md) — ¥1,800凍結・PWA優先
+- [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
+- [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合
+- [1級一次キー誤り](project_civil1_primary_answer_key_errors.md) — 転記バグ・H29原典
+- [1級図の答え漏れ](project_civil1_figure_answer_leak.md) — 再抽出パイプライン
+- [土木guide展開](project_civil1_textbook_to_guide_expansion.md) — 非公開textbook根拠
+- [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊
+- [土木経験記述note](project_civil1_flagship_pack.md) — 旗艦100工事・字数ゲート
+- [土木会員ラボ](project_civil_membership_design.md) — FLOWを買切りに出さない
+- [二次学科記述](project_civil_niji_gakka_line.md) — 5SKU公開・エディタ罠
+- [ココナラ](project_coconala_full_channel.md) — 20出品・はしご・不在休止
+- [Kindle出版](project_kindle_publishing_launch.md) — 42冊・提出ペース
+- [コンクリ主任技士](project_concrete_chief_engineer.md) — 過去問257問・令和形式小論文
+- [コンクリ診断士](project_concrete_diagnostician.md) — 18記事・権利確認済
+- [総監マガジン構成](project_kettei2026_r8_evergreen.md) — 14ペルソナ7記事標準
+- [R8総監サイクル](project_r8_yosou_full_matrix_2026_07.md) — 84セル・的中の帰属
+- [白書テーマ記事](project_mlit_theme_articles.md) — 合格体験・AI代筆禁止
+- [建設部門(二次)](project_pe_construction_secondary.md) — BK全12公開・入口記事
+- [RCCM展開](project_rccm_launch_2026_09.md) — note5商品・サイト稼働
 
-## note 公開・価格・SoT
-- [feedback_note_article_three_set_dod.md](feedback_note_article_three_set_dod.md)
-- [feedback_note_prepublish_verify_not_proxy.md](feedback_note_prepublish_verify_not_proxy.md)
-- [feedback_note_publish_phantom_id_gate.md](feedback_note_publish_phantom_id_gate.md)
-- [feedback_reflow_alt_text_bug.md](feedback_reflow_alt_text_bug.md)
-- [feedback_note_paragraph_length.md](feedback_note_paragraph_length.md)
-- [feedback_note_link_card.md](feedback_note_link_card.md)
-- [feedback_note_cta_no_price_linkcard.md](feedback_note_cta_no_price_linkcard.md)
-- [feedback_mokuji_index_cta_format.md](feedback_mokuji_index_cta_format.md)
-- [feedback_no_price_in_mdx_body.md](feedback_no_price_in_mdx_body.md)
-- [feedback_note_price_three_layer_drift.md](feedback_note_price_three_layer_drift.md)
-- [例) ... 自治体技術基準担当 https://note.com/dobokunote/m/mf9f281e2cb32](feedback_note_magazine_url_injection.md)
-- [feedback_new_magazine_wiring_gate.md](feedback_new_magazine_wiring_gate.md)
-- [feedback_essay_pack_ssot_adr.md](feedback_essay_pack_ssot_adr.md)
-- [feedback_essay_magazine_meta_yaml_retired.md](feedback_essay_magazine_meta_yaml_retired.md)
-- [feedback_content_deprecation_cross_lineage.md](feedback_content_deprecation_cross_lineage.md)
-- [feedback_sns_docs_url_flat_slug.md](feedback_sns_docs_url_flat_slug.md)
-- [reference_note_selling_structures.md](reference_note_selling_structures.md)
-- [project_note_write_automation.md](project_note_write_automation.md)
-- [project_publish_note_skill.md](project_publish_note_skill.md)
-- [project_paid_note_scope.md](project_paid_note_scope.md)
-- [project_paid_note_pricing.md](project_paid_note_pricing.md)
-
-## 模範論文(総監essay)品質軸
-- [feedback_essay_char_limit.md](feedback_essay_char_limit.md)
-- [feedback_essay_q2_prose.md](feedback_essay_q2_prose.md)
-- [feedback_essay_q3_general_level.md](feedback_essay_q3_general_level.md)
-- [feedback_essay_persona_authentic_seat.md](feedback_essay_persona_authentic_seat.md)
-- [feedback_essay_persona_field_label.md](feedback_essay_persona_field_label.md)
-- [feedback_essay_persona_label.md](feedback_essay_persona_label.md)
-- [feedback_whitepaper_source_check.md](feedback_whitepaper_source_check.md)
-- [project_cem_essay_agent_pair.md](project_cem_essay_agent_pair.md)
-
-## キーワード/過去問ページ品質
-- [feedback_no_pe_construction_application.md](feedback_no_pe_construction_application.md)
-- [feedback_cem_5kanri_scope.md](feedback_cem_5kanri_scope.md)
-- [feedback_tradeoff_structure.md](feedback_tradeoff_structure.md)
-- [feedback_proofread_exam_callout_check.md](feedback_proofread_exam_callout_check.md)
-- [feedback_content_structure.md](feedback_content_structure.md)
-- [feedback_no_redundant_overview_tables.md](feedback_no_redundant_overview_tables.md)
-- [feedback_bold_scope.md](feedback_bold_scope.md)
-- [feedback_article_image_caption.md](feedback_article_image_caption.md)
-- [feedback_exam_pdf_cross_reference.md](feedback_exam_pdf_cross_reference.md)
-- [feedback_pdf_filename_year_verify.md](feedback_pdf_filename_year_verify.md)
-- [feedback_url_verification.md](feedback_url_verification.md)
-- [feedback_url_fabrication_avoid.md](feedback_url_fabrication_avoid.md)
-
-## SVG/OGP/画像・SNS
-- [project_svg_figure_governance.md](project_svg_figure_governance.md)
-- [feedback_svg_visual_qa_before_commit.md](feedback_svg_visual_qa_before_commit.md)
-- [feedback_svg_arrow_marker.md](feedback_svg_arrow_marker.md)
-- [feedback_title_autofit.md](feedback_title_autofit.md)
-- [feedback_ig_keyword_pack_color.md](feedback_ig_keyword_pack_color.md)
-- [feedback_ig_pack_posted_json.md](feedback_ig_pack_posted_json.md)
-- [feedback_x_hashtag_count.md](feedback_x_hashtag_count.md)
-- [feedback_x_base_hashtags.md](feedback_x_base_hashtags.md)
-- [feedback_publish_x_false_success.md](feedback_publish_x_false_success.md)
-- [project_ogp_design_ssot.md](project_ogp_design_ssot.md)
-- [project_ogp_r2_sync_gap.md](project_ogp_r2_sync_gap.md)
-- [project_affiliate_mat_ssot.md](project_affiliate_mat_ssot.md)
-- [project_affiliate_3asp_site_guard.md](project_affiliate_3asp_site_guard.md)
-- [project_sns_v7_pivot.md](project_sns_v7_pivot.md)
-
-## 環境・制約・ツール
-- [reference_note_image_cdn_settle_timeout.md](reference_note_image_cdn_settle_timeout.md)
-- [reference_gh_jq_msys_path_mangling.md](reference_gh_jq_msys_path_mangling.md)
-- [reference_tailwind_transform_broken.md](reference_tailwind_transform_broken.md)
-- [reference_browser_transition_measure_artifact.md](reference_browser_transition_measure_artifact.md)
-- [reference_local_build_io_bound.md](reference_local_build_io_bound.md)
-- [reference_gdrive_binary_limit.md](reference_gdrive_binary_limit.md)
-- [reference_gmail_mcp_only.md](reference_gmail_mcp_only.md)
-- [reference_git_gc_concurrent_commit_corruption.md](reference_git_gc_concurrent_commit_corruption.md)
-- [reference_git_show_ref_path_false_pass.md](reference_git_show_ref_path_false_pass.md)
-- [reference_admin_worktree_turbopack.md](reference_admin_worktree_turbopack.md)
-- [reference_next_dev_single_instance_per_dir.md](reference_next_dev_single_instance_per_dir.md)
-- [reference_bash_heredoc_crlf_broken.md](reference_bash_heredoc_crlf_broken.md)
-- [reference_npm_ci_legacy_peer_deps.md](reference_npm_ci_legacy_peer_deps.md) — npm ciのERESOLVEは.npmrc(PR#601)で解消済み。同期後はrefresh-indexesしないとpre-commitが落ちる
-- [reference_worktree_node_modules_and_crlf_tests.md](reference_worktree_node_modules_and_crlf_tests.md)
-- [project_ig_api_posting_setup.md](project_ig_api_posting_setup.md)
-- [feedback_pdf_on_demand_only.md](feedback_pdf_on_demand_only.md)
-- [project_obsidian_sync_routines.md](project_obsidian_sync_routines.md)
-
-## 案件別メモ（完了は退役検討）
-- [project_buildjob_impressions_campaign.md](project_buildjob_impressions_campaign.md)
-- [project_competitor_genba_career.md](project_competitor_genba_career.md)
-- [project_civil1_h29_corpus_drift.md](project_civil1_h29_corpus_drift.md)
-- [project_civil1_shikou_law_expansion.md](project_civil1_shikou_law_expansion.md)
-- [project_civil_membership_library_pivot.md](project_civil_membership_library_pivot.md)
-- [project_coconala_tensaku_channel.md](project_coconala_tensaku_channel.md)
-- [project_civil1_flagship_pack.md](project_civil1_flagship_pack.md)
-- [project_civil1_ig_pack_campaign.md](project_civil1_ig_pack_campaign.md)
-- [project_civil1_combo_essay.md](project_civil1_combo_essay.md)
-- [project_civil_keiken_note_compat.md](project_civil_keiken_note_compat.md)
-- [project_author_authority_banner.md](project_author_authority_banner.md)
-- [project_civil2_keiken_essay_line.md](project_civil2_keiken_essay_line.md)
-- [project_keiken_charcount_gate.md](project_keiken_charcount_gate.md)
-- [project_setsumon3_policy_bank.md](project_setsumon3_policy_bank.md)
-- [project_pe_construction_note_funnel.md](project_pe_construction_note_funnel.md)
-- [project_persona_donsen_hub.md](project_persona_donsen_hub.md)
-- [project_essay_persona_water_municipality.md](project_essay_persona_water_municipality.md)
-- [project_cross_tradeoff_magazine.md](project_cross_tradeoff_magazine.md)
-- [project_r8_essay_magazine.md](project_r8_essay_magazine.md)
-- [project_note_magazine_cleanup.md](project_note_magazine_cleanup.md)
-- [project_secondary_q1_cta_policy.md](project_secondary_q1_cta_policy.md)
-- [project_note_live_cta_drift.md](project_note_live_cta_drift.md)
-- [project_note_cover_g2.md](project_note_cover_g2.md)
-- [project_svg_illustration_runway.md](project_svg_illustration_runway.md)
-- [project_ios_app_design.md](project_ios_app_design.md)
-- [project_river_design_import.md](project_river_design_import.md)
-- [project_skill_templates.md](project_skill_templates.md)
-- [project_video_content_pipeline.md](project_video_content_pipeline.md)
-
-## 過去案件の参照
-- [project_civil1_textbook_transcription](project_civil1_textbook_transcription.md)
-- [project_pe_construction_bk_magazines](project_pe_construction_bk_magazines.md)
-- [project_note_dir_reorg_by_exam](project_note_dir_reorg_by_exam.md)
-- [project_sales_log](project_sales_log.md)
-- [project_x_multi_exam_agents](project_x_multi_exam_agents.md)
-- [project_x_30days_campaign](project_x_30days_campaign.md)
-- [project_ig_exam_packs_exam_axis](project_ig_exam_packs_exam_axis.md)
-- [project_yt_shorts_quality_campaign](project_yt_shorts_quality_campaign.md)
-- [project_ig_carousel_quality_campaign](project_ig_carousel_quality_campaign.md)
-- [project_cem_youtube_strategy_ssot](project_cem_youtube_strategy_ssot.md)
-- [project_character_assets](project_character_assets.md)
-- [project_pe_first_stage_audit](project_pe_first_stage_audit.md)
-- [project_civil_textbook_cycle](project_civil_textbook_cycle.md)
-- [project_issue29_internal_links](project_issue29_internal_links.md)
-- [project_strategy_docs](project_strategy_docs.md)
-- [project_multi_exam_expansion](project_multi_exam_expansion.md)
-- [project_admin_app_consolidation](project_admin_app_consolidation.md)
+## Reference
+- [note実機反映](reference_note_update_body_gotchas.md) — blockquote脱落・境界・カード不可
+- [note live修復](reference_note_live_audit_gotchas_2026_09.md) — 偽陽性・CDN待ち・一括反映
+- [note公開手順](reference_note_publish_price_field.md) — price必須・会員限定・PDF・バンドル
+- [note照合系](reference_note_status_reconciler.md) — ステータス/再公開ドリフト/タグ
+- [noteカバー](reference_note_cover_v5_rollout.md) — V5差替・live反映の罠
+- [売れる型SSOT](reference_note_selling_structures.md) — 9型＋6部品・誠実ガード
+- [サイトCTA配線](reference_site_magazine_cta_firing.md) — 発火条件・career CTA確認
+- [worktree罠](reference_shared_worktree_autostash_hazard.md) — autostash・hook・Turbopack
+- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源
+- [Win Bash罠](reference_git_show_ref_path_false_pass.md) — git show偽PASS・gh jq
+- [容量・速度](reference_mac_disk_reclaim.md) — check-disk-hygiene・EDRビルド
+- [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延
+- [CI/workflow罠](reference_ci_quality_gate_fixes.md) — quality:audit赤・actionlint・npm ci
+- [CI暗号state](reference_ci_encrypted_state_gotchas.md) — rclone・symlink・redact
+- [品質検査基盤](reference_quality_audit_system.md) — audit・census・旧URL参照
+- [図・OGP資産](reference_figure_provenance_system.md) — audit-figures・孤児OGP・巻込み
+- [過去問結線](reference_new_pastexam_backlink_wiring.md) — exam-keyword-map・YEAR_ORDER
+- [ブラウザ測定罠](reference_browser_transition_measure_artifact.md) — transition・Tailwind transform
+- [GSC診断](reference_gsc_diagnosis_toolkit.md) — 診断スクリプト・UI罠
+- [KDP罠](reference_kdp_price_change_gotchas.md) — 価格改定・svg-JPEG・自動化
+- [Drive vault](reference_book_sources_drive_vault.md) — 移設構造・マウントの罠
+- [スキャンOCR](reference_scanned_pdf_pipeline.md) — pdf-to-mdx --scanned・OCR罠
+- [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
+- [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
+- [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
+- [ココナラ価格](reference_coconala_price_edit_gotchas.md) — 500円刻み・偽成功
+- [IG照合](reference_ig_publish_reconcile.md) — verify-ig-status・--now偽陰性
+- [YouTube予約](reference_youtube_schedule.md) — publishAt・quota・60秒
+- [aidesigner](reference_aidesigner_mcp.md) — クレジット制約・inspire

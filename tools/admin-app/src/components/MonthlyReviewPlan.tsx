@@ -39,10 +39,10 @@ function loadPlan() {
   return monthlyReadiness({
     period,
     today,
-    salesMonths: readJson(root, '.claude/state/sales/sales-log.json')?.months ?? {},
-    trafficFetchedAt: readJson(root, `.claude/state/metrics/note/referrers-${month}.json`)?.fetchedAt ?? null,
+    salesMonths: readJson(root, 'data/sales/sales-log.json')?.months ?? {},
+    trafficFetchedAt: readJson(root, `data/metrics/note/referrers-${month}.json`)?.fetchedAt ?? null,
     cells: report.cells,
-    kdpMonth: readJson(root, '.claude/state/sales/kdp-royalties.json')?.months?.[month] ?? null,
+    kdpMonth: readJson(root, 'data/sales/kdp-royalties.json')?.months?.[month] ?? null,
     gate,
     experiments: report.experiments,
     due: (report.due as { cadence: string; record: string | null }[]).find((x) => x.cadence === 'monthly') ?? null,

@@ -26,7 +26,7 @@ import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM
 
 const TAG = '[fetch-cloudflare-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT_DIR = '.claude/state/metrics/cloudflare';
+const OUT_DIR = 'data/metrics/cloudflare';
 
 /** GraphQL エラーメッセージ（トークンを含み得ない Cloudflare 側の文言）を 200 字へ切る。 */
 const truncateMessage = (message) => String(message ?? '').slice(0, 200);
@@ -111,7 +111,7 @@ async function fetchFirewallEvents(fetchImpl, { graphql, token, zoneTag, date })
  * @param {{fetchImpl:Function, root?:string, now?:() => number, argv?:string[]}} opts
  */
 export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () => Date.now(), argv = [] } = {}) {
-  const config = readJson(root, '.claude/config/cloudflare.json');
+  const config = readJson(root, 'config/cloudflare.json');
   const token = process.env.CLOUDFLARE_ANALYTICS_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
   if (!token) return { exitCode: 1, reason: 'auth-unavailable', message: 'CLOUDFLARE_ANALYTICS_API_TOKEN / CLOUDFLARE_API_TOKEN が無い' };
 

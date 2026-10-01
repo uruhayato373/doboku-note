@@ -6,7 +6,7 @@ import { findRepoRoot } from './repo-root';
 /**
  * competitors.ts — `/strategy/competitors`（競合・人が見る画面）の表示モデル。
  *
- * 正本は scout-coconala-competitors.mjs が書く時系列 `.claude/state/coconala/history/competitors-*.json`。
+ * 正本は scout-coconala-competitors.mjs が書く時系列 `data/coconala/history/competitors-*.json`。
  * 最新の 1 本を今の値、同じセラーが載っている過去の 1 本を比較の基準にする（新規追跡は基準なし）。
  * 値を足さない・推測しない。取得できていない値は null のまま渡す。
  */
@@ -96,7 +96,7 @@ function changesBetween(base: RawCompetitor, now: RawCompetitor): string[] {
 
 export function loadCompetitorView(): CompetitorView {
   const root = findRepoRoot();
-  const dir = join(root, '.claude/state/coconala/history');
+  const dir = join(root, 'data/coconala/history');
   const files = existsSync(dir)
     ? readdirSync(dir)
         .map((f) => ({ f, m: HISTORY_RE.exec(f) }))
@@ -109,7 +109,7 @@ export function loadCompetitorView(): CompetitorView {
     .filter((x): x is { date: string; snap: RawSnapshot } => x.snap !== null);
 
   const registry = readJson<{ qualifications: { id: string; label: string }[] }>(
-    join(root, '.claude/config/qualification-registry.json'),
+    join(root, 'config/qualification-registry.json'),
   );
   const examLabels = Object.fromEntries((registry?.qualifications ?? []).map((q) => [q.id, q.label]));
 
@@ -156,7 +156,7 @@ const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1
 function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   const listed = listedCoconalaServices();
   const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
-  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, '.claude/state/coconala/orders-log.json'));
+  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders-log.json'));
   const orders = Array.isArray(log) ? log : (log?.orders ?? []);
   const recent = baseDate ? orders.filter((o) => o.date >= baseDate) : [];
   const sum = (xs: { priceYen?: number }[]) => xs.reduce((n, o) => n + (o.priceYen ?? 0), 0);

@@ -9,7 +9,7 @@ domain: product
 
 # /audit-note-funnel — note 導線の監査・修復
 
-note 記事・マガジンの**回遊と購入の動線**（資格別 3 層モデル）を定期的に見直し、ドリフトを修復するスキル。真実源は [.claude/knowledge/reference/note-funnel-architecture.md](../../../../.claude/knowledge/reference/note-funnel-architecture.md)、機械可読 config は `.claude/config/note-funnel.json`。
+note 記事・マガジンの**回遊と購入の動線**（資格別 3 層モデル）を定期的に見直し、ドリフトを修復するスキル。真実源は [.claude/knowledge/reference/note-funnel-architecture.md](../../../../.claude/knowledge/reference/note-funnel-architecture.md)、機械可読 config は `config/note-funnel.json`。
 
 ## 3 層モデル（要約）
 
@@ -62,6 +62,6 @@ npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 | `scripts/note-append-cta.mjs`（`npm run note-append-cta`） | 公開済み記事へ CTA を live 反映（D5 修復・Windows 可・通知いいえ） |
 | `scripts/note-append-list-links.mjs`（`npm run note-append-list-links`） | 公開済みもくじの既存 `<ul>` へインラインリンク項目を live 追加（D2 ライブ反映・spec JSON 駆動・insertAdjacentHTML 方式） |
 | `scripts/note-update-partial.mjs`（`npm run note-update-partial`） | 公開済み記事の語句・カード・節順を限定更新（select-all 禁止・PDF 添付不変条件・dry-run は read-only） |
-| `.claude/config/note-funnel.json` | L1/L2 レジストリ・CTA 文面の機械可読 SSOT |
+| `config/note-funnel.json` | L1/L2 レジストリ・CTA 文面の機械可読 SSOT |
 | `publish-note` スキル | 公開・更新（L2 もくじ／記事の live 反映） |
 | `verify-note-magazines` | マガジン URL/価格/公開状態の突合 |

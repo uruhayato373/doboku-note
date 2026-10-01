@@ -12,6 +12,7 @@
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { loadRegistry, qualificationLabel } from "../../scripts/lib/qualification-registry.mjs";
 
 const ROOT = process.cwd();
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
@@ -56,9 +57,10 @@ function main() {
   } ページ`);
   lines.push("");
 
+  // 資格の見出しは registry の正式名（写さない）
+  const registry = loadRegistry(ROOT);
   const sections = [
-    ["pe-comprehensive-management", "技術士総合技術監理部門"],
-    ["civil-construction-1", "1級土木施工管理技士"],
+    ...["pe-comprehensive-management", "civil-construction-1"].map((id) => [id, qualificationLabel(registry, id)]),
     ["other", "その他"],
   ];
 

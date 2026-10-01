@@ -17,7 +17,7 @@ A8.net メディア管理画面（media-console.a8.net）のレポートを CSV 
 「伸ばす/畳む」の意思決定だけ人が持つ。
 
 > **正典は `.claude/knowledge/reference/a8-affiliate-pipeline.md`**（レポート節）。本 skill は手順のみ。
-> ラベル・URL・列名・プログラム写像は `.claude/config/a8-report-automation.json` が SSOT、
+> ラベル・URL・列名・プログラム写像は `config/a8-report-automation.json` が SSOT、
 > 解析ロジックは `scripts/lib/a8-report-csv.mjs`（node:test 済み）が SSOT。
 > 提携申請を回す `/scout-asp` とは別サブシステム（あちらは提携運用・こちらは成果レポート）。
 
@@ -43,8 +43,8 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 ### 1. preflight
 
 - `git branch --show-current` / `git status`
-- `.claude/config/a8-report-automation.json` の `mediaId` / `targetSite` / `reports[].siteScope` を Read
-- 前回実行: `.claude/state/metrics/affiliate/a8-ui/last-run.json`
+- `config/a8-report-automation.json` の `mediaId` / `targetSite` / `reports[].siteScope` を Read
+- 前回実行: `data/metrics/affiliate/a8-ui/last-run.json`
 
 ### 2. collect（`a8-report-collector` エージェント）
 
@@ -66,7 +66,7 @@ npm run a8-ui:fetch -- --dry-run --probe-isolation
 npm run a8-ui:fetch -- --dry-run --probe-period --headed
 ```
 
-出力を見て `.claude/config/a8-report-automation.json` の `a8.periodForm` を人間が確定する。
+出力を見て `config/a8-report-automation.json` の `a8.periodForm` を人間が確定する。
 なぜ要るか: 現在は A8 既定の累計期間しか取れず `a8-results.json` が空＝**EPC の分母が無い**
 （手順は backlog「A8 レポートの期間指定」）。
 
@@ -91,9 +91,9 @@ npm run a8-ui:normalize -- --latest --dry-run   # 差分だけ見る
 npm run a8-ui:normalize -- --latest             # SSOT へ書く
 ```
 
-- `.claude/state/metrics/affiliate/a8-report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
+- `data/metrics/affiliate/a8-report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
   `programPeriod`（allowlist 抽出）/ `monthly`・`daily`（**口座横断**）/ `crossCheck` を upsert
-- `.claude/state/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup。
+- `data/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup。
   **単月 run のときだけ**（A8 の既定期間は年初〜当月の累計なので、通常は `notAttributable` に退避される）
 
 `unmapped` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。
@@ -127,6 +127,6 @@ npm run report-buildjob-affiliate
 ## 参照
 
 - `.claude/knowledge/reference/a8-affiliate-pipeline.md` — A8 運用 SSOT
-- `.claude/config/a8-report-automation.json` — ラベル/URL/列名/写像
+- `config/a8-report-automation.json` — ラベル/URL/列名/写像
 - `scripts/lib/a8-report-csv.mjs` — 解析コア（`tests/a8-report-csv.test.mjs`・`npm test` に含まれる）
 - `.claude/scripts/report-buildjob-affiliate.mjs` — EPC 消費側

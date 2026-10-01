@@ -134,7 +134,7 @@
         "scripts/verify-note-magazines.mjs"
       ],
       "ledger": [
-        ".claude/state/note/magazines-snapshot.json"
+        "data/note/magazines-snapshot.json"
       ]
     },
     "note.attach-file": {
@@ -184,7 +184,7 @@
         "service": "string"
       },
       "inputs": [
-        ".claude/config/coconala-listings.json",
+        "config/coconala-listings.json",
         "content/coconala/products"
       ],
       "commitArgs": [
@@ -194,7 +194,7 @@
         "scripts/check-coconala-analytics.mjs"
       ],
       "ledger": [
-        ".claude/config/coconala-listings.json"
+        "config/coconala-listings.json"
       ]
     },
     "coconala.edit": {
@@ -206,7 +206,7 @@
         "fields": "string?"
       },
       "inputs": [
-        ".claude/config/coconala-listings.json",
+        "config/coconala-listings.json",
         "content/coconala/products"
       ],
       "commitArgs": [
@@ -216,7 +216,7 @@
         "scripts/check-coconala-analytics.mjs"
       ],
       "ledger": [
-        ".claude/config/coconala-listings.json"
+        "config/coconala-listings.json"
       ]
     },
     "kdp.publish": {
@@ -227,7 +227,7 @@
         "id": "string"
       },
       "inputs": [
-        ".claude/config/kdp-memo.json",
+        "config/kdp-memo.json",
         "content/kindle/books/{id}"
       ],
       "commitArgs": [
@@ -235,7 +235,7 @@
       ],
       "verify": [],
       "ledger": [
-        ".claude/config/kdp-memo.json"
+        "config/kdp-memo.json"
       ]
     },
     "x.article-publish": {

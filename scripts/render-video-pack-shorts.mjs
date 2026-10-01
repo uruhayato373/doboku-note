@@ -13,6 +13,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { buildExplanationNode } from './lib/video-explanation.mjs';
+import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
@@ -24,12 +25,10 @@ const H = 1920;
 const HOOK_SECONDS = 4;
 const CTA_SECONDS = 8;
 const FONT_JP = "'NotoSansJP', 'Noto Sans JP'";
-const EXAM_PROFILE = {
-  'civil-construction-1': { short: '1級土木', series: '1級土木施工管理技士' },
-  'civil-construction-2': { short: '2級土木', series: '2級土木施工管理技士' },
-  'concrete-engineer': { short: 'コンクリート技士', series: 'コンクリート技士試験' },
-  'concrete-chief-engineer': { short: 'コンクリート主任技士', series: 'コンクリート主任技士試験' },
-};
+// 対応する試験。名前は registry の短い名前・正式名から引く（写さない）
+const REGISTRY = loadRegistry(ROOT);
+const EXAM_PROFILE = Object.fromEntries(['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer']
+  .map((id) => [id, { short: qualificationShortLabel(REGISTRY, id), series: qualificationLabel(REGISTRY, id) }]));
 
 function chunkJpBalanced(text, maxChars) {
   const chars = [...(text ?? '')];

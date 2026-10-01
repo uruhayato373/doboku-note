@@ -1,0 +1,87 @@
+{
+  "_doc": ".claude/knowledge/reference/coconala-operations.md",
+  "approvedAt": "2026-09-27",
+  "design": "資格名・商品名・総監資格を大きく見せるキャラクター入りPOPデザイン。公開中18商品。",
+  "images": {
+    "coconala-tensaku-set": {
+      "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+      "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+    },
+    "coconala-tensaku-4theme": {
+      "path": "content/coconala/assets/pop-20260927/thumb-tensaku-4theme.png",
+      "sha256": "49ca139dc82c3ff1f6e9a6e343d1adfbc798aeec650463d175f8a3cf35387904"
+    },
+    "coconala-sakusei": {
+      "path": "content/coconala/assets/pop-20260927/thumb-sakusei.png",
+      "sha256": "5773da38c2e3dff7a98ce2dda95fc867b43baa34274db686599067b8e10648ab"
+    },
+    "coconala-sakusei-4theme": {
+      "path": "content/coconala/assets/pop-20260927/thumb-sakusei-4theme.png",
+      "sha256": "1aed7307943a34cdf733396729a0ff031b41a26bdf881f53bb4639406c16ffa1"
+    },
+    "coconala-2kyu-tensaku": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku.png",
+      "sha256": "d54e483430024962e709b8eb18dc0e0661a090ada275abc08a639164fe40a6fc"
+    },
+    "coconala-2kyu-tensaku-3theme": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+      "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+    },
+    "coconala-2kyu-sakusei": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-sakusei.png",
+      "sha256": "3df3fff6cb51a7e7f3750435bdd65720c942b58cf966da44c479b42c6ebb65e2"
+    },
+    "coconala-2kyu-sakusei-3theme": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-sakusei-3theme.png",
+      "sha256": "a6000b446505551bcb8881eb51d59028f917cb6367b4feddddb1d4b72f7b4643"
+    },
+    "coconala-kanseitoan-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-kanseitoan-pdf.png",
+      "sha256": "91f0d88cafcadb3185947191b3a8b2407233b83e8f6ffff2bd82d62280b11b46"
+    },
+    "coconala-2kyu-kanseitoan-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-kanseitoan-pdf.png",
+      "sha256": "97dc06337e81d8900951d001052cfd19167c399c6321f9e64a0f9bd077b7c562"
+    },
+    "coconala-1kyu-moshi-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-1kyu-moshi-pdf.png",
+      "sha256": "adc5e949e83e2a1c19f658265c9925e2aa2082515fbff45014b50b301ebf35ca"
+    },
+    "coconala-2kyu-moshi-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-moshi-pdf.png",
+      "sha256": "9578b8503e227426fd80487261cbce95ea3a75ae3168d1feda72cf9f9cc45b40"
+    },
+    "coconala-1kyu-full-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-1kyu-full-pdf.png",
+      "sha256": "14522d7d27b732179f661413d2a87c3e6ef6cd14e6d75b3a339025d264bf9c40"
+    },
+    "coconala-2kyu-full-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-full-pdf.png",
+      "sha256": "99d218d27d859f90bce5428558985266fef9781abdc436ac5802f1428fb4e1c4"
+    },
+    "coconala-1kyu-premium": {
+      "path": "content/coconala/assets/pop-20260927/thumb-1kyu-premium.png",
+      "sha256": "1ea449139e8a6beb4fd41af34186a183f66b03e07427785536994b7f04032714"
+    },
+    "coconala-civil-keiken-kit": {
+      "path": "content/coconala/assets/pop-20260927/thumb-civil-keiken-kit.png",
+      "sha256": "ca7adc884b24c5c67c34521d6e0f45df870b9a25008fa163b1260805f67db527"
+    },
+    "coconala-cce-essay-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-pdf.png",
+      "sha256": "c9a407d15ff965033ae02e910a38c32c10493ae0904ec76396d01360c6728959"
+    },
+    "coconala-cce-takuitsu-pdf": {
+      "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+      "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+    },
+    "coconala-cce-essay-tensaku": {
+      "path": "content/coconala/assets/pop-20260927/thumb-cce-essay-tensaku.png",
+      "sha256": "0ad039fb31a33e1fc70f1ef07d01d7cc88003210681e4b6995bb72be82833143"
+    },
+    "coconala-cce-full-pdf": {
+      "path": "content/coconala/assets/thumb-cce-full-pdf.png",
+      "sha256": "030b2d46f6f01aaad73ff4dbd3ecf32bd21001ffaf6ad347cb00d45f1ad9eb9c"
+    }
+  }
+}

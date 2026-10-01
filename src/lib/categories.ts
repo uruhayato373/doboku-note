@@ -3,7 +3,12 @@ import { getAreaHubPath, getCategoryArea, type PublicArea } from '@/lib/content-
 
 export type CategoryDef = {
   slug: string;
+  // 資格カテゴリの label は qualification-registry.json の正式名を npm run sync-qualification-names が書く（手で書かない）。
+  // slug が registry の id と違うときは qualification で registry の資格 id か group id を指す
   label: string;
+  qualification?: string;
+  // ページの <title>。資格名と違う検索語に合わせるときだけ（未指定は label）
+  seoTitle?: string;
   subtitle: string;
   // SEO description（50〜160 文字）。未指定時は subtitle にフォールバック。
   // UI の <p> は subtitle、HTML <meta name="description"> は description を使う。

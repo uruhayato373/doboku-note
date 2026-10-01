@@ -10,7 +10,7 @@
 // 「sales mapping の更新もれ」を commit 時に検知して止める。
 //
 // 検査内容:
-//   1. .claude/state/sales/sales-log.json の distinct productId を収集
+//   1. data/sales/sales-log.json の distinct productId を収集
 //   2. src/lib/note-magazines.ts の公開済み単品（/n/）を article:<id> として収集
 //   3. .claude/agents/sales-recorder.md の backtick コードスパンから productId パターンを抽出し
 //      （`{subject}`→任意 slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意）正規表現に変換
@@ -32,7 +32,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
 
-const SALES_LOG = '.claude/state/sales/sales-log.json';
+const SALES_LOG = 'data/sales/sales-log.json';
 const RECORDER = '.claude/agents/sales-recorder.md';
 const NOTE_CATALOG = 'src/lib/note-magazines.ts';
 

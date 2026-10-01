@@ -8,9 +8,9 @@ noteId: "ned33a34bc42f"
 memberTrial: bottom
 notePublishedAt: "2026-07-02"
 noteStatus: published
-title: "2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事60 索引）"
+title: "2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事72 索引）"
 utmCampaign: civil2-koji-bank-index
-coverTitle: ["2級土木 施工経験記述", "想定工事バンク 総合案内", "想定工事60 索引"]
+coverTitle: ["2級土木 施工経験記述", "想定工事バンク 総合案内", "想定工事72 索引"]
 cover:
   variant: crop-safe-v4
   leadIn: "2級土木｜施工経験記述"
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "想定工事"
   benefit: "どのテーマが来ても書ける"
 ---
-# 2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事60 索引）
+# 2級土木 施工経験記述｜想定工事バンク 総合案内（想定工事72 索引）
 
 ![](img/figure-author-authority-pop.png)
 
@@ -29,7 +29,7 @@ cover:
 
 2級土木施工管理技士 第2次検定 問題1（施工経験記述）の想定工事バンクの総合案内です。
 
-想定工事60件を8つの工種グループと追加ラインナップで整理し、それぞれで品質・安全・工程の3管理（＋保険として施工計画・環境）をどう書くかを、現場代理人・主任技術者レベルの完成答案で示します。
+想定工事72件を8つの工種グループと追加ラインナップで整理し、それぞれで品質・安全・工程の3管理（＋保険として施工計画・環境）をどう書くかを、現場代理人・主任技術者レベルの完成答案で示します。
 
 本記事は「工事起点の索引」です。まず自分の現場に近い工事を選び、その工事ページで5管理の書き分けを一望してください。
 
@@ -42,7 +42,7 @@ https://coconala.com/services/4418778
 
 https://coconala.com/services/4418785
 
-本記事は「2級土木 施工経験記述 想定工事バンク」の収録記事です。想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンです。
+本記事は「2級土木 施工経験記述 想定工事バンク」の収録記事です。想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンです。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
@@ -56,7 +56,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 ## 全体をまとめて手に入れる
 
-60工事すべてと工事起点索引を1つにまとめた、想定工事バンクのマガジンです。単品を積み上げるより、主要工種から維持更新・災害復旧・身近な公共工事まで横断して「どのテーマが来ても書ける」1冊にまとまります。
+72工事すべてと工事起点索引を1つにまとめた、想定工事バンクのマガジンです。単品を積み上げるより、主要工種から維持更新・災害復旧・身近な公共工事まで横断して「どのテーマが来ても書ける」1冊にまとまります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 
@@ -167,6 +167,67 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 - [工事123｜林道路面・横断排水補修](https://note.com/dobokunote/n/n4ddb8132683b)
 - [工事124｜公園園路・排水施設整備](https://note.com/dobokunote/n/n8742843d2cde)
 
+## 追加ラインナップ（工事125〜136）
+
+農業土木・橋梁補修・漁港と海岸・民間の造成と外構など、これまで少なかった仕事の工事を12件追加しました。
+
+- [工事125｜圃場整備（区画整理）](https://note.com/dobokunote/n/nbc2accafad85)
+- [工事126｜用排水路更新（PCフリューム）](https://note.com/dobokunote/n/n9a52441996d8)
+- [工事127｜農地暗渠排水](https://note.com/dobokunote/n/na1f2e4d594c6)
+- [工事128｜橋梁支承取替](https://note.com/dobokunote/n/na69a2ea5c73c)
+- [工事129｜橋面防水・橋面舗装更新](https://note.com/dobokunote/n/n1820776d331a)
+- [工事130｜高欄・地覆補修と剥落防止](https://note.com/dobokunote/n/nc66861624675)
+- [工事131｜漁港物揚場補修](https://note.com/dobokunote/n/n77ef7a33f077)
+- [工事132｜小規模防波堤嵩上げ](https://note.com/dobokunote/n/na43a65bb175a)
+- [工事133｜海岸堤防補修](https://note.com/dobokunote/n/nc534990c5c98)
+- [工事134｜漁港用地舗装・排水](https://note.com/dobokunote/n/n8c5fec2edffa)
+- [工事135｜小規模宅地造成](https://note.com/dobokunote/n/ndca7baa73d07)
+- [工事136｜商業施設外構舗装・排水](https://note.com/dobokunote/n/n88c652d01215)
+
+## 仕事の種類で選ぶ
+
+同じ記事を、ふだんの仕事に近い工事だけでまとめたセットもあります。想定工事バンクを購入済みなら追加購入は不要です。
+
+**市町村道路の維持修繕 12工事**
+
+https://note.com/dobokunote/m/m0c3962036eb8
+
+**舗装会社の新設・修繕 9工事**
+
+https://note.com/dobokunote/m/me4f3ba651008
+
+**上下水道・管工事 8工事**
+
+https://note.com/dobokunote/m/m605fc37bee01
+
+**河川・砂防・災害復旧 10工事**
+
+https://note.com/dobokunote/m/mc702bb8ad034
+
+**土工・造成・法面 10工事**
+
+https://note.com/dobokunote/m/mb1ccc0d85c16
+
+**コンクリート構造物・基礎 10工事**
+
+https://note.com/dobokunote/m/mb7cb41324739
+
+**農業土木・林道 8工事**
+
+https://note.com/dobokunote/m/m24071c117a1e
+
+**橋梁・構造物の補修 7工事**
+
+https://note.com/dobokunote/m/mb33e9f68712d
+
+**港湾・漁港・海岸 5工事**
+
+https://note.com/dobokunote/m/m8614644643c5
+
+**公園・公共施設・民間外構 6工事**
+
+https://note.com/dobokunote/m/mbb2f9f5640a8
+
 ## 令和6年度以降の2テーマ必答に備える
 
 令和6年度からは、設問1・設問2で異なる管理項目が問われます（例：設問1で品質、設問2で工程）。同じ1つの想定工事で複数管理を切り分けて用意しておけば、どの組合せが来ても対応できます。各工事ページの末尾に「2テーマ必答（R06+）早見表」を載せているので、主となる3管理（品質・安全・工程）の組合せから準備してください。
@@ -175,7 +236,7 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 
 自分の現場に最も近い1工事を選び、品質・安全・工程の書き分けと置換ガイドで「自分の答案」に仕上げてください。
 
-想定工事60件を一気に押さえたい方は、想定工事バンクのマガジンが最短です。
+想定工事72件を一気に押さえたい方は、想定工事バンクのマガジンが最短です。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

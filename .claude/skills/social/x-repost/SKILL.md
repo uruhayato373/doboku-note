@@ -26,8 +26,8 @@ domain: sns
 | discover（検索・候補収集） | `x-repost-discover.ts` | 不使用 |
 | curate（選別・コメント生成） | サブエージェント `x-repost-curator`（`.claude/agents/`） | Pro/Max 枠 |
 | exec（引用RP 実行） | `x-repost-exec.ts` | 不使用 |
-| 設定 | `.claude/state/x-repost/config.json` | - |
-| 重複防止 | `.claude/state/x-repost/reposted-log.json` | - |
+| 設定 | `config/x-repost.json` | - |
+| 重複防止 | `data/x-repost/reposted-log.json` | - |
 | キルスイッチ | `.claude/state/x-repost/PAUSED`（存在すると exec 中止） | - |
 
 ## 前提（publish-x と同じ）
@@ -41,7 +41,7 @@ domain: sns
 ### 初回セットアップ（必ず 1 回）
 
 ```bash
-# 1. ownHandle を設定（.claude/state/x-repost/config.json を編集）
+# 1. ownHandle を設定（config/x-repost.json を編集）
 # 2. 候補を収集
 npx tsx .claude/skills/social/x-repost/x-repost-discover.ts --interactive
 

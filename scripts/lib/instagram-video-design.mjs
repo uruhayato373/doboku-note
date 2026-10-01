@@ -14,7 +14,7 @@ export const IG_DESIGN = 'bridge-notebook-a-v1';
 export const IG_CTA_NARRATION = 'フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。';
 export function instagramRendererDigest(root, type) {
   const files = ['scripts/lib/instagram-video-design.mjs', 'scripts/lib/video-explanation.mjs',
-    '.claude/config/video-brand.json', '.claude/config/character-poses.json',
+    'config/video-brand.json', 'config/character-poses.json',
     type === 'carousel' ? 'scripts/render-instagram-video-pack-carousels.mjs' : 'scripts/render-instagram-video-pack-reels.mjs'];
   if (type === 'reel') files.push('scripts/lib/video-narration-cache.mjs', 'scripts/lib/video-subtitles.mjs', '.claude/scripts/lib/sns-common/reading-dict.mjs');
   return createHash('sha256').update(Buffer.concat(files.map(p => readFileSync(join(root, p))))).digest('hex');
@@ -26,7 +26,7 @@ const text = (value, style = {}) => box({ fontFamily: FONT, fontWeight: 700, col
 const img = (buffer, style) => ({ type: 'img', props: { src: `data:image/png;base64,${buffer.toString('base64')}`, style } });
 
 export async function instagramLogo(root) {
-  const config = JSON.parse(readFileSync(join(root, '.claude/config/video-brand.json')));
+  const config = JSON.parse(readFileSync(join(root, 'config/video-brand.json')));
   return readVerifiedVideoPng(root, config.logo, config.logo);
 }
 

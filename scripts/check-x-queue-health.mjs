@@ -9,7 +9,7 @@ const root = process.cwd();
 const out = path.join(root, '.tmp/x-queue-health/latest.json');
 let report;
 try {
-  const { handle } = JSON.parse(fs.readFileSync('.claude/config/x-account.json', 'utf8'));
+  const { handle } = JSON.parse(fs.readFileSync('config/x-account.json', 'utf8'));
   const tweets = [], articles = [];
   for (const base of ['content/sns/x/draft', 'content/sns/x/published']) {
     if (!fs.existsSync(base)) continue;

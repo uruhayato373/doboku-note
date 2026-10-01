@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * x-profile-sync.mjs — X の自己紹介（bio）を正本 .claude/config/x-account.json の profile.bio に合わせる。
+ * x-profile-sync.mjs — X の自己紹介（bio）を正本 config/x-account.json の profile.bio に合わせる。
  *
  * - X の Playwright 永続プロファイルで開き、ログイン中のアカウントが x-account.json の handle でなければ ABORT（別アカウントを書き換えない）
  * - 既定は dry-run（実物と正本の差を出すだけ）。`--commit` で編集画面の自己紹介を書き換えて保存し、プロフィールを読み直して一致を確かめる
@@ -18,7 +18,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 const TAG = '[x-profile-sync]';
 const ROOT = process.cwd();
 const COMMIT = process.argv.includes('--commit');
-const account = JSON.parse(readFileSync(join(ROOT, '.claude/config/x-account.json'), 'utf8'));
+const account = JSON.parse(readFileSync(join(ROOT, 'config/x-account.json'), 'utf8'));
 const want = account.profile.bio;
 const limit = account.limits?.bio ?? 160;
 const norm = (s) => String(s ?? '').replace(/\r\n/g, '\n').trim();

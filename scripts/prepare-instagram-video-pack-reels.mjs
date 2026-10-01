@@ -12,27 +12,31 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join, relative } from 'node:path';
 import { parseArgs } from 'node:util';
 
+import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
+
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 const ACCOUNT = 'dobokunotecom';
 // 既存カルーセルの主力帯（12:00 / 19:00）と衝突させず、朝・昼・夜の3本へ分散する。
 const SLOT_TIMES = ['07:30:00', '12:30:00', '21:00:00'];
+// 名前は registry の正式名（写さない）。タグは Instagram 用の語彙でここが正本
+const REGISTRY = loadRegistry(ROOT);
 const EXAMS = {
   'civil-construction-1': {
-    label: '1級土木施工管理技士',
+    label: qualificationLabel(REGISTRY, 'civil-construction-1'),
     tags: ['#1級土木', '#1級土木施工管理技士', '#土木施工管理技士', '#施工経験記述', '#土木技術者', '#現場監督', '#建設業', '#資格取得'],
   },
   'civil-construction-2': {
-    label: '2級土木施工管理技士',
+    label: qualificationLabel(REGISTRY, 'civil-construction-2'),
     tags: ['#2級土木', '#2級土木施工管理技士', '#土木施工管理技士', '#施工経験記述', '#土木技術者', '#現場監督', '#建設業', '#資格取得'],
   },
   'concrete-engineer': {
-    label: 'コンクリート技士',
+    label: qualificationLabel(REGISTRY, 'concrete-engineer'),
     tags: ['#コンクリート技士', '#コンクリート', '#JCI', '#配合設計', '#コンクリート材料', '#コンクリート施工', '#品質管理', '#耐久性', '#建設技術', '#資格取得'],
   },
   'concrete-chief-engineer': {
-    label: 'コンクリート主任技士',
+    label: qualificationLabel(REGISTRY, 'concrete-chief-engineer'),
     tags: ['#コンクリート主任技士', '#コンクリート', '#JCI', '#小論文対策', '#配合設計', '#コンクリート施工', '#品質管理', '#耐久性', '#建設技術', '#資格取得'],
   },
 };

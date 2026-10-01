@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-theme
 noteUrl: "https://note.com/dobokunote/n/n26e51803f01b"
 noteId: "n26e51803f01b"
-title: "【2級土木施工管理技士】施工経験記述は「安全・品質・工程」どれで書くか — 題材選びで半分決まる"
+title: "2級土木 施工経験記述｜「安全・品質・工程」どれで書くか — 題材選びで半分決まる"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "で決まる"
   benefit: "題材選びで差がつく"
 ---
-# 【2級土木施工管理技士】施工経験記述は「安全・品質・工程」どれで書くか — 題材選びで半分決まる
+# 2級土木 施工経験記述｜「安全・品質・工程」どれで書くか — 題材選びで半分決まる
 
 ![](img/figure-author-authority-pop.png)
 
@@ -55,7 +55,7 @@ https://coconala.com/services/4418778
 https://coconala.com/services/4418785
 
 <!-- cta:pack-top -->
-想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

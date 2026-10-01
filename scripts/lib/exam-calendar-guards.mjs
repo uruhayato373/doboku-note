@@ -1,7 +1,7 @@
 /**
  * exam-calendar-guards.mjs — 試験日の誤記を本文から検出する禁止パターン（純粋関数）
  * ---------------------------------------------------------------------------
- * 試験日の SSOT は .claude/config/exam-calendar.json。本文へ写した日付の誤りを
+ * 試験日の SSOT は config/exam-calendar.json。本文へ写した日付の誤りを
  * scripts/check-exam-calendar.mjs がこのパターンで止める（tests/exam-calendar-guards.test.mjs）。
  * ---------------------------------------------------------------------------
  */

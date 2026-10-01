@@ -1,6 +1,6 @@
 # RCCM 2026年度 事実シート（執筆・公開の単一出典）
 
-> 一次出典で照合済みの事実だけを載せる。未確認は「未確認」と書く。記事・note・X・ガイドに数字や日付を書く前に本シートと `.claude/config/exam-calendar.json`（`rccm`）・`exam-stats.json`（`rccm`）を参照する。更新したら `verifiedAt` を直す。
+> 一次出典で照合済みの事実だけを載せる。未確認は「未確認」と書く。記事・note・X・ガイドに数字や日付を書く前に本シートと `config/exam-calendar.json`（`rccm`）・`exam-stats.json`（`rccm`）を参照する。更新したら `verifiedAt` を直す。
 
 verifiedAt: 2026-09-16
 

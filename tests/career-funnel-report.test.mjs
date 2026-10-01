@@ -25,7 +25,7 @@ import {
 } from "../.claude/scripts/report-career-funnel.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const cfg = JSON.parse(readFileSync(join(ROOT, ".claude/config/career-funnel.json"), "utf8"));
+const cfg = JSON.parse(readFileSync(join(ROOT, "config/career-funnel.json"), "utf8"));
 const RULES = cfg.pillarRules;
 
 test("柱分類: 代表 slug が意図した柱に落ちる", () => {
@@ -198,7 +198,7 @@ test("(not set) の切り分け: 作成日が不明なら断定しない", () =>
 });
 
 test("設定のディメンション作成日が GA4 desired state と一致する", () => {
-  const ga4 = JSON.parse(readFileSync(join(ROOT, ".claude/config/ga4-admin-desired-state.json"), "utf8"));
+  const ga4 = JSON.parse(readFileSync(join(ROOT, "config/ga4-admin-desired-state.json"), "utf8"));
   const observed = JSON.stringify(ga4);
   for (const [param, date] of Object.entries(cfg.dimensionRegisteredAt)) {
     assert.ok(observed.includes(param), `${param} が ga4-admin-desired-state.json に無い`);

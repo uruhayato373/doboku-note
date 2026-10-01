@@ -25,7 +25,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
     実機と合っていない。GA4 の数値は Data API（週次 CI）が供給しており UI は照合用バックアップなので
     **blocking ではない**。必要になった時点で config のラベル追加から着手する。
 - 実行後の生成物確認:
-  - `.claude/state/metrics/gsc-ui/<run>/manifest.json` の `status` と各 `units[].status`
+  - `data/metrics/gsc-ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<issue>--<scope>--<run>.csv`）の存在・行数・sha256（manifest 値）
   - `.local/playwright-google-debug/<run>/` の failure artifact 有無
 - 停止条件の検知と報告（下記）
@@ -49,7 +49,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 
 ## 実行手順
 
-1. **preflight**: `git status` で作業ツリー確認。`.claude/config/google-console-automation.json` の property を Read。
+1. **preflight**: `git status` で作業ツリー確認。`config/google-console-automation.json` の property を Read。
 2. **dry-run**: `npm run gsc-ui:fetch -- --dry-run` を実行。manifest.dryRun の property / pageIndexingReachable /
    issues[*].{rowDetected,exportButtonUnique,csvMenuDetected} を読み、検出できたユニットを列挙。
 3. **停止判定**: dry-run が not-signed-in / property-mismatch / unreachable なら停止し、人間アクションを明示して終了。
@@ -64,7 +64,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
    ある面で `okUnits === 0` かつ `zeroUnits > 0` なら `suspiciousScopes` に出る＝UI 変更を疑う。
 6. **exit code を読む**: 0=完全 / 2=不完全（部分成功・全ゼロ）/ 3=未ログイン / 5=property 不一致 /
    6=レポート到達不能。**2 でも取れた分は使える**（親の判断で正規化へ進む）。
-7. **マーカー確認**: `.claude/state/metrics/{gsc-ui,ga4-ui}/last-run.json`（schemaVersion 3）の
+7. **マーカー確認**: `data/metrics/{gsc-ui,ga4-ui}/last-run.json`（schemaVersion 3）の
    `lastAttempt`（今回）と `lastComplete`（最後に完全だった取得）。失敗しても `lastComplete` は
    保持される＝月次サイクルの時計は失敗でリセットされない。
 8. **報告**: 下記フォーマットで親へ返す。debug artifact のパスは出すが中身の Cookie/メールは引用しない。
@@ -98,7 +98,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 - {not-signed-in / 2FA / property-mismatch / UI 変更}（あれば具体アクション）
 
 ## 生成物
-- manifest: .claude/state/metrics/gsc-ui/<run>/manifest.json
+- manifest: data/metrics/gsc-ui/<run>/manifest.json
 - raw CSV: N 本 / debug artifact: {あり path / なし}
 ```
 

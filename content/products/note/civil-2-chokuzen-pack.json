@@ -1,0 +1,34 @@
+{
+  "id": "civil-2-chokuzen-pack",
+  "channel": "note",
+  "qualification": "civil-construction-2",
+  "stage": "second",
+  "series": "cross",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "civil-2-chokuzen-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/md3518107aa97",
+    "noteTitle": "2級土木 二次｜直前総仕上げパック",
+    "title": "2級土木 二次｜直前総仕上げパック（予想模試3回＋直前暗記ノート＋出題分析）",
+    "description": "2級土木施工管理技士 第2次検定（10/25）の直前2週間に絞った3点セット。本試験形式のR8予想模試3回（問題冊子＋解答解説PDF6冊）で実力を確認し、直前暗記ノート（一問一答147問・赤シート対応A5PDF）で穴埋めの抜けを潰し、出題分析・直前重点（過去5年の実績分析＋直前2週間ロードマップ）で優先順位を決める。単品合計¥3,140が¥2,480。経験記述の全模範答案まで欲しい方は二次検定まるごとパックへ。",
+    "shortTitle": "2級土木 二次 直前総仕上げパック",
+    "shortDescription": "予想模試3回＋直前暗記147問＋出題分析。直前2週間で回し切る3点セット、単品合計¥3,140が¥2,480。",
+    "price": "¥2,480（模試3回＋暗記ノート＋出題分析・単品合計¥3,140、約21%OFF）",
+    "badge": "note 限定 直前パック",
+    "ctaCatch": "直前2週間は、模試・暗記・分析の3点で回し切る",
+    "ctaButton": "直前総仕上げパックを見てみる",
+    "ctaPose": "pointing"
+  },
+  "members": [],
+  "includes": [
+    "civil-2-anki-note",
+    "civil-2-r8-bunseki",
+    "civil-2-r8-mock3-pdf"
+  ],
+  "memo": [
+    "2級 直前総仕上げパック（2026-09-17 新設・note key md3518107aa97）。1級 civil-1-chokuzen-pack の鏡。",
+    "予想模試3回・直前暗記ノート・出題分析の 3 記事を API 実体確認。単品合計 ¥3,140 → ¥2,480（約21%OFF）。"
+  ]
+}

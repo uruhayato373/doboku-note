@@ -16,9 +16,9 @@ domain: product
 
 | 何を | どこ |
 |---|---|
-| 出題履歴・テーマ分類・答案の型と字数帯 | `.claude/config/cce-essay-history.json` |
+| 出題履歴・テーマ分類・答案の型と字数帯 | `config/cce-essay-history.json` |
 | 判定（型・字数・出題年一致・履歴ブロック同期） | `scripts/lib/cce-essay.mjs`（CLI `npm run check-cce-essay`） |
-| 出題形式・過去問の公開範囲 | `.claude/config/exam-formats.json` の `concrete-chief-engineer` |
+| 出題形式・過去問の公開範囲 | `config/exam-formats.json` の `concrete-chief-engineer` |
 | 価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（`cce-*`）・`src/lib/coconala-services.ts` |
 
 年度別テーマを記事へ書くときは、手で写さず**出題履歴ブロック**（マーカー `cce-essay-history:start` ～ `end`）を置いて `node scripts/check-cce-essay.mjs --fix` で生成する。サイト MDX は `{/* cce-essay-history:start since=2012 format=table */}`、note は `<!-- cce-essay-history:start since=2020 format=list -->`（note はパイプ表非対応）。

@@ -16,16 +16,16 @@ const config = {
 test('重点資格に限らず振り分け、合計はチャネル合計と一致する', () => {
   const root = mkdtempSync(join(tmpdir(), 'sbq-'));
   const w = (rel, obj) => { mkdirSync(join(root, rel, '..'), { recursive: true }); writeFileSync(join(root, rel), JSON.stringify(obj)); };
-  w('.claude/state/sales/sales-log.json', { sales: [
+  w('data/sales/sales-log.json', { sales: [
     { date: '2026-08-02', productId: 'civil-1-pack', price: 1000 },
     { date: '2026-08-03', productId: 'article:civil-2-bank', price: 500 },
     { date: '2026-08-04', productId: 'membership:civil-lab-annual', price: 300 },
     { date: '2026-08-05', productId: 'zzz-unknown', price: 200 },
     { date: '2026-09-01', productId: 'civil-1-pack', price: 9999 },
   ] });
-  w('.claude/state/coconala/orders-snapshot.json', { orders: [{ soldOn: '2026-08-10', talkroomId: 1, priceYen: 700 }] });
-  w('.claude/state/coconala/orders-log.json', { orders: [{ talkroomId: 1, serviceId: 'coconala-2kyu-tensaku' }] });
-  w('.claude/state/sales/kdp-royalties.json', { months: { '2026-08': { range: { start: '2026-08-01' }, books: [{ bookId: 'A-01', royalty: 50 }, { bookId: 'other-site', royalty: 999 }] } } });
+  w('data/coconala/orders-snapshot.json', { orders: [{ soldOn: '2026-08-10', talkroomId: 1, priceYen: 700 }] });
+  w('data/coconala/orders-log.json', { orders: [{ talkroomId: 1, serviceId: 'coconala-2kyu-tensaku' }] });
+  w('data/sales/kdp-royalties.json', { months: { '2026-08': { range: { start: '2026-08-01' }, books: [{ bookId: 'A-01', royalty: 50 }, { bookId: 'other-site', royalty: 999 }] } } });
   w('scripts/kindle-published/catalog.json', { books: [{ id: 'A-01' }] });
   const rows = salesByQualification(root, { startDate: '2026-08-01', endDate: '2026-08-31' }, config);
   const by = Object.fromEntries(rows.map((r) => [r.id, r.value]));

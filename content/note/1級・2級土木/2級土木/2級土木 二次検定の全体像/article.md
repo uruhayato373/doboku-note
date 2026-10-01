@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-secondary-overview
 noteUrl: https://note.com/dobokunote/n/n27455b88bcd5
 noteId: n27455b88bcd5
-title: "【2級土木施工管理技士】第二次検定は何が問われるか — 全体像と対策の順番"
+title: "2級土木 二次検定｜何が問われるか — 全体像と対策の順番"
 notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木 第二次検定
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "順"
   benefit: "何から手をつけるか分かる"
 ---
-# 【2級土木施工管理技士】第二次検定は何が問われるか — 全体像と対策の順番
+# 2級土木 二次検定｜何が問われるか — 全体像と対策の順番
 
 ![](img/figure-author-authority-pop.png)
 
@@ -53,7 +53,7 @@ https://coconala.com/services/4418778
 https://coconala.com/services/4418785
 
 <!-- cta:pack-top -->
-想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

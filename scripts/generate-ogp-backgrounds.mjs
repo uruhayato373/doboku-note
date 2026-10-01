@@ -2,7 +2,7 @@
  * OGP 背景画像ジェネレータ（資格ごとに共有・AI 生成）。
  *
  * Gemini / Imagen API で「文字なしの落ち着いた抽象背景」を資格ごとに 1 枚生成し、
- *   .claude/config/ogp/backgrounds/<exam-key>.png （1200×630）
+ *   config/ogp/backgrounds/<exam-key>.png （1200×630）
  * に保存する。ogp-create.mjs の resolveBackgroundImage がこのパスを拾い、
  * mono-tag テンプレが背景の上に可読性スクリム + 文字 + テーマ色枠を重ねる。
  *
@@ -31,12 +31,13 @@ import path from 'path';
 import sharp from 'sharp';
 import dotenv from 'dotenv';
 import { createRequire } from 'node:module';
+import { coverExamNames } from './lib/note-character-cover.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = process.cwd();
 // .env.local（GEMINI_API_KEY 等）を読み込む。既存スクリプトの慣習に合わせる。
 dotenv.config({ path: path.join(ROOT, '.env.local') });
-const BACKGROUNDS_DIR = path.join(ROOT, '.claude', 'config', 'ogp', 'backgrounds');
+const BACKGROUNDS_DIR = path.join(ROOT, 'config', 'ogp', 'backgrounds');
 const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
 const W = 1200, H = 630;
@@ -72,7 +73,7 @@ function parseArgs(argv) {
 
 function buildPrompt(exam) {
   const color = coverTokens.exams?.[exam.key]?.base || '#1e3a8a';
-  const label = coverTokens.exams?.[exam.key]?.label || exam.key;
+  const label = coverExamNames(exam.key)?.label || exam.key;
   return [
     `An abstract, professional background image for a blog OGP card about "${label}" (a Japanese civil-engineering certification).`,
     `Motif: ${exam.motif}.`,

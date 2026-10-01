@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-fail
 noteUrl: "https://note.com/dobokunote/n/na5e045a1c6f8"
 noteId: "na5e045a1c6f8"
-title: "【2級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型"
+title: "2級土木 施工経験記述｜落ちる答案の共通点 — 添削する側から見た4つの型"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述で
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "の型"
   benefit: "元発注者の目で分かる"
 ---
-# 【2級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型
+# 2級土木 施工経験記述｜落ちる答案の共通点 — 添削する側から見た4つの型
 
 ![](img/figure-author-authority-pop.png)
 
@@ -59,7 +59,7 @@ https://coconala.com/services/4418778
 https://coconala.com/services/4418785
 
 <!-- cta:pack-top -->
-想定工事60件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
+想定工事72件から自分の工事に近いものを選び、5管理の完成答案を書き分けられるマガジンもあります。
 
 https://note.com/dobokunote/m/m8554e87ca6ec
 

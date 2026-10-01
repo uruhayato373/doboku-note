@@ -6,7 +6,7 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const ARTICLES_ROOT = join(ROOT, 'content', 'site', 'standards-articles');
 const CATALOG_PATH = join(ROOT, 'content', 'site', 'standards-library', 'catalog.json');
-const CONFIG_PATH = join(ROOT, '.claude', 'config', 'standards-structure.json');
+const CONFIG_PATH = join(ROOT, 'config', 'standards-structure.json');
 const OUTPUT_PATH = join(ARTICLES_ROOT, 'comparison.json');
 
 function readJson(path) {

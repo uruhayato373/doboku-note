@@ -14,7 +14,45 @@ import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mj
 import { records } from './business-direction.mjs';
 
 export const CONFIG = '.claude/config/review-wiring.json';
-export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'none'];
+export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'checks', 'none'];
+
+/**
+ * 点検の結果（npm run review-checks が回ごとに書く）の置き場と、レポートで振り分ける節。
+ * 置き場は事業の記録と同じく追記だけ（check-business-direction が既存ファイルの変更・削除を止める）なので、
+ * 取り直すたびに時刻付きのファイルを足し、回ごとに ranAt が最新のものを読む。
+ */
+export const CHECKS_DIR = 'data/metrics/business';
+export const checksFileName = (cadenceId, runKey, ranAt) => `checks-${cadenceId}-${runKey}-${ranAt.replace(/[:.]/g, '-')}.json`;
+const CHECKS_SECTION_RE = /^##\s+点検と Issue\s*$/;
+
+/** その回（runKey 省略時は全回）の点検の結果のうち ranAt が最新のもの。無ければ null。 */
+export function latestChecks(root, cadenceId, runKey = null) {
+  const dir = join(root, CHECKS_DIR);
+  if (!existsSync(dir)) return null;
+  const prefix = runKey ? `checks-${cadenceId}-${runKey}` : `checks-${cadenceId}-`;
+  return readdirSync(dir)
+    .filter((f) => f.endsWith('.json') && (runKey ? f === `${prefix}.json` || f.startsWith(`${prefix}-`) : f.startsWith(prefix)))
+    .map((f) => JSON.parse(readFileSync(join(dir, f), 'utf8')))
+    .filter((r) => r.cadence === cadenceId && (!runKey || r.runKey === runKey))
+    .sort((a, b) => String(b.ranAt).localeCompare(String(a.ranAt)))[0] ?? null;
+}
+
+/**
+ * 点検の結果のうち振り分けが要るもの（失敗・検査不成立の点検と、開いている Issue）と、
+ * レポートの「点検と Issue」節でそれぞれに行き先（振り分け: DN・定常・理由）があるか（純関数）。
+ * 点検はコマンド名、Issue は #番号 を含む箇条書きで照合する。
+ */
+export function checksRouting(result, reportText) {
+  const pending = [
+    ...(result?.checks ?? []).filter((c) => c.state !== 'ok').map((c) => ({ key: c.command, label: `${c.label}（${c.state === 'broken' ? '検査不成立' : '要対応'}）` })),
+    ...(result?.issues ?? []).map((i) => ({ key: `#${i.number}`, label: `#${i.number} ${i.title}` })),
+    ...[...new Set((result?.alerts ?? []).map((a) => a.package))].map((p) => ({ key: `dependabot:${p}`, label: `依存の脆弱性 ${p}` })),
+  ];
+  const { hasSection, items } = extractWeeklyHandoffItems(reportText, CHECKS_SECTION_RE);
+  const mentions = (key, text) => (key.startsWith('#') ? new RegExp(`${key}(?!\\d)`).test(text) : text.includes(key));
+  const unrouted = pending.filter((p) => !items.some((it) => mentions(p.key, it.text) && parseRouting(it.text)));
+  return { hasSection, pending, unrouted };
+}
 
 /** スキル本文が実行するコマンド（npm run の名前はそのまま、node scripts/ 直の実行は「node:」＋スクリプト名）。重複なし・並びは出現順。 */
 export function extractCommands(skillText) {
@@ -47,6 +85,10 @@ export function validateWiring(config) {
     for (const p of c.procedure ?? []) {
       if (!EVIDENCE.includes(p.evidence)) errors.push(`${cadence}: 手順「${p.label}」の evidence「${p.evidence}」は ${EVIDENCE.join('/')} のどれか`);
       if (p.evidence === 'sections' && !(p.sections ?? []).length) errors.push(`${cadence}: 手順「${p.label}」は sections が要る`);
+      if (p.evidence === 'checks' && !(c.checks ?? []).length) errors.push(`${cadence}: 手順「${p.label}」は cadences.${cadence}.checks が要る`);
+    }
+    for (const k of c.checks ?? []) {
+      if (!(c.inputs ?? []).some((i) => i.command === k.command)) errors.push(`${cadence}: 点検 ${k.command} が inputs に無い`);
     }
   }
   return errors;
@@ -152,7 +194,15 @@ const sameSection = (have, want) => have === want || have.startsWith(`${want} `)
  * 各手順について ok（証拠あり）/ partial / missing / manual（証拠が残らない手順）と、その根拠の一文を返す。
  */
 /** @param {string} root @param {string} cadenceId @param {{ reviews?: any[] }} [opts] */
-export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
+/**
+ * 手順ごとの実施の証拠。runKey（週次 YYYY-Www・月次 YYYY-MM）を渡すとその回のレビュー記録とレポートで判定する
+ * （保持方針で消えた古いレポートは git 履歴から読む）。省略時は最新のレポートと最新の記録。
+ * 週次の計測トリアージ・週間計画は「いま」の状態しか持たないので、最新より前の回では確かめない（manual）。
+ * @param {string} root
+ * @param {string} cadenceId
+ * @param {{ reviews?: any[], runKey?: string | null }} [options]
+ */
+export function buildProcedureView(root, cadenceId, { reviews = [], runKey = null } = {}) {
   const config = JSON.parse(readFileSync(join(root, CONFIG), 'utf8'));
   const c = config.cadences[cadenceId];
   if (!c) return null;
@@ -160,13 +210,30 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
 
   const reportDir = join(root, c.report?.dir ?? 'docs/reviews/weekly');
   const reportRe = new RegExp(c.report?.pattern ?? '^\\d{4}-W\\d{2}-review\\.md$');
-  const reportName = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)).sort().at(-1) ?? null : null;
-  const reportText = reportName ? readFileSync(join(reportDir, reportName), 'utf8') : '';
+  const latestReport = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)).sort().at(-1) ?? null : null;
+  let reportName = latestReport;
+  let reportText = reportName ? readFileSync(join(reportDir, reportName), 'utf8') : '';
+  if (runKey) {
+    const name = `${runKey}-review.md`;
+    if (existsSync(join(reportDir, name))) {
+      reportName = name;
+      reportText = readFileSync(join(reportDir, name), 'utf8');
+    } else {
+      const archived = deletedReports(root, c.report?.dir ?? 'docs/reviews/weekly', reportRe);
+      reportName = archived.has(name) ? name : null;
+      reportText = reportName ? archived.get(name) : '';
+    }
+  }
+  const latestKey = latestReport ? runKeyOfReport(latestReport) : null;
+  const pastRun = Boolean(runKey && latestKey && runKey < latestKey);
   const week = reportName?.slice(0, 8) ?? null;
   const have = reportSections(reportText);
   const findSection = (want) => have.find((h) => sameSection(h.title, want));
 
-  const record = reviews.filter((r) => r.cadence === cadenceId).sort((a, b) => String(b.period.endDate).localeCompare(a.period.endDate))[0] ?? null;
+  const record = runKey
+    ? reviews.filter((r) => r.cadence === cadenceId && runKeyOfPeriod(cadenceId, r.period) === runKey)
+      .sort((a, b) => String(b.createdAt ?? b.file).localeCompare(String(a.createdAt ?? a.file)))[0] ?? null
+    : reviews.filter((r) => r.cadence === cadenceId).sort((a, b) => String(b.period.endDate).localeCompare(a.period.endDate))[0] ?? null;
 
   const evidence = {
     reviewRecord: () => (record
@@ -183,7 +250,8 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
       };
     },
     triage: () => {
-      const dir = join(root, '.claude/state/metrics/growth');
+      if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
+      const dir = join(root, 'data/metrics/growth');
       const digestName = existsSync(dir) ? readdirSync(dir).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort().at(-1) : null;
       if (!digestName) return { state: 'missing', note: '計測ダイジェストが無い' };
       const digest = JSON.parse(readFileSync(join(dir, digestName), 'utf8'));
@@ -197,12 +265,14 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
       ? { state: 'ok', note: `${reportName}（${have.length} 節）` }
       : { state: 'missing', note: `${c.report?.dir ?? 'docs/reviews/weekly'} にレポートが無い` }),
     routing: () => {
-      const { hasSection, items } = extractWeeklyHandoffItems(reportText);
-      if (!hasSection) return { state: 'missing', note: '「来週への申し送り」の節が無い' };
+      const title = c.handoffSection ?? '来週への申し送り';
+      const { hasSection, items } = extractWeeklyHandoffItems(reportText, c.handoffSection ? new RegExp(`^##\\s+${c.handoffSection}\\s*$`) : undefined);
+      if (!hasSection) return { state: 'missing', note: `「${title}」の節が無い` };
       const routed = items.filter((it) => parseRouting(it.text)).length;
       return { state: routed === items.length ? 'ok' : 'partial', note: `申し送り ${items.length} 件中 行き先あり ${routed}` };
     },
     weeklyPlan: () => {
+      if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
       const path = join(root, '.claude/todo/weekly.md');
       const head = existsSync(path) ? readFileSync(path, 'utf8').split(/\r?\n/).find((l) => l.startsWith('# ')) ?? '' : '';
       const plan = /(\d{4})-W(\d{2})（(\d{2})\/(\d{2})〜/.exec(head);
@@ -216,6 +286,20 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
       if (labelWeek !== isoWeek) notes.push(`見出しの週番号 ${labelWeek} は ISO では ${isoWeek}`);
       if (expectStart && planStart !== expectStart) notes.push(`レポートの翌週は ${expectStart.slice(5).replace('-', '/')}〜`);
       return { state: expectStart && planStart === expectStart && labelWeek === isoWeek ? 'ok' : 'partial', note: notes.join('・') };
+    },
+    checks: () => {
+      const result = latestChecks(root, cadenceId, runKey);
+      if (!result) return { state: 'missing', note: '点検の結果が無い（npm run review-checks）' };
+      const { hasSection, pending, unrouted } = checksRouting(result, reportText);
+      const ran = result.checks?.length ?? 0;
+      const head = `点検 ${ran} 本・要対応 ${pending.length} 件（Issue ${result.issues?.length ?? 0}・依存の脆弱性 ${result.alerts?.length ?? 0}）`;
+      if (result.issuesError || result.alertsError) return { state: 'partial', note: `${head}・${result.issuesError ? 'Issue' : '依存の脆弱性'}を読めなかった` };
+      if (!pending.length) return { state: 'ok', note: head };
+      if (!hasSection) return { state: 'missing', note: `${head}・「点検と Issue」の節が無い` };
+      return {
+        state: unrouted.length ? 'partial' : 'ok',
+        note: unrouted.length ? `${head}・行き先なし ${unrouted.length}: ${unrouted.map((u) => u.key).join(' ')}` : `${head}・全件に行き先あり`,
+      };
     },
     none: () => ({ state: 'manual', note: '機械で確かめられる証拠が残らない' }),
   };
@@ -282,7 +366,7 @@ function deletedReports(root, dir, re) {
  * 保持方針で削除された古いレポートは git 履歴から読む（reportSource: 'git'）。
  * 最新の回だけに意味がある証拠（計測トリアージ・週間計画）は buildProcedureView が見るので、ここでは扱わない。
  */
-/** @param {string} root @param {string} cadenceId @param {{ reviews?: any[], limit?: number }} [opts] reviews を省くと .claude/state/metrics/business の全記録（同じ期間の書き直しも数える） */
+/** @param {string} root @param {string} cadenceId @param {{ reviews?: any[], limit?: number }} [opts] reviews を省くと data/metrics/business の全記録（同じ期間の書き直しも数える） */
 export function buildRunHistory(root, cadenceId, { reviews = records(root).filter((r) => r.kind === 'review'), limit = 12 } = {}) {
   const config = JSON.parse(readFileSync(join(root, CONFIG), 'utf8'));
   const c = config.cadences[cadenceId];

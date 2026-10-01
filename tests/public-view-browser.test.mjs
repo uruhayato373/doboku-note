@@ -1,5 +1,5 @@
 /**
- * 公開ページの見え方検査の画面幅（.claude/config/public-view-breakpoints.json）と、切り替わり幅の数え方を固定する。
+ * 公開ページの見え方検査の画面幅（config/public-view-breakpoints.json）と、切り替わり幅の数え方を固定する。
  * 「ブレイクポイントごとに撮る」を約束しているので、設定のどの帯にも撮る幅が 1 つあることをテストで保証する。
  */
 import { strict as assert } from 'node:assert';

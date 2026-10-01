@@ -8,7 +8,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 test('staged SVGを実際に検査し、不正寸法と命名を拒否する',()=>{
  const root=mkdtempSync(join(tmpdir(),'dn-canvas-gate-'));
  try{
-  for(const file of ['scripts/check-figure-canvas.mjs','scripts/lib/repository-paths.mjs','.claude/config/figure-canvas.json']){
+  for(const file of ['scripts/check-figure-canvas.mjs','scripts/lib/repository-paths.mjs','config/figure-canvas.json']){
    mkdirSync(dirname(join(root,file)),{recursive:true});copyFileSync(new URL(`../${file}`,import.meta.url),join(root,file));
   }
   execFileSync('git',['init','-q'],{cwd:root});
