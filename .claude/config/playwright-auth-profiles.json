@@ -318,7 +318,8 @@
         "readOnlyScripts": [
           "scripts/fetch-a8-ui-csv.mjs",
           "scripts/normalize-a8-csv.mjs",
-          "scripts/affiliate-status.mjs"
+          "scripts/affiliate-status.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/affiliate-apply.mjs"
@@ -329,12 +330,12 @@
         "storeItem": "doboku-note-auth-a8",
         "sharedStoreItem": "stats47-measurement-a8",
         "autoLogin": true,
-        "ciCredential": false,
+        "ciCredential": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "stats47 と同じ口座。stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする"
+        "policyNote": "stats47 と同じ口座。手元は stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする。2026-10-01 オーナー決定で CI も切れていたら Secrets で 1 回だけ入り直す（試行・DN-0481）"
       }
     },
     "moshimo": {

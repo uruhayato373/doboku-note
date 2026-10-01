@@ -167,6 +167,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0481] A8 の CI 取得で Secrets による入り直しを 10 月の火曜実行で評価し、続けるか戻すかを決める
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+
+**起点**: A8 は揮発性 Cookie で、Mac から渡した暗号化 state が CI の定期収集の時点で切れていた（2026-09-22 run 35670832802・Issue #570）。2026-10-01 にユーザー決定で、A8 も GitHub Secrets（`DOBOKU_AUTH_A8_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` で切れていたときだけ 1 回入り直す形にした。口座は stats47 と共用。
+
+**やること**:
+1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
+2. 10 月の火曜（JST 06:20）の login-collectors の A8 の結果を見る: restore の状態、re-login の結果（ok / login_failed / human_required）、`a8-ui:fetch` の rc、Issue の有無。
+3. stats47 の A8 収集と、手元（Windows・Mac）の A8 のログイン維持が同じ週に止まっていないかを `/ops/auth` と stats47 側で確かめる（ログイン回数が増えてロック・追加確認が出ていないか）。
+4. 取得が続き、共用口座に追加確認が出ていなければ続ける。出るなら `playwright-auth-profiles.json` の a8 を `credential.ciCredential:false` に戻し、ワークフローの Re-login 対象から外して Secrets を削除する。
+
+**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
+
 ### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
 
