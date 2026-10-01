@@ -173,6 +173,7 @@ const NEED_RULES: ReadonlyArray<{ readonly need: CareerNeed; readonly patterns: 
       "age-career",
       "future",
       "guide-career",
+      "fukugyou",
     ],
   },
 ];
