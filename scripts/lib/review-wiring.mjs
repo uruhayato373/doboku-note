@@ -152,7 +152,15 @@ const sameSection = (have, want) => have === want || have.startsWith(`${want} `)
  * 各手順について ok（証拠あり）/ partial / missing / manual（証拠が残らない手順）と、その根拠の一文を返す。
  */
 /** @param {string} root @param {string} cadenceId @param {{ reviews?: any[] }} [opts] */
-export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
+/**
+ * 手順ごとの実施の証拠。runKey（週次 YYYY-Www・月次 YYYY-MM）を渡すとその回のレビュー記録とレポートで判定する
+ * （保持方針で消えた古いレポートは git 履歴から読む）。省略時は最新のレポートと最新の記録。
+ * 週次の計測トリアージ・週間計画は「いま」の状態しか持たないので、最新より前の回では確かめない（manual）。
+ * @param {string} root
+ * @param {string} cadenceId
+ * @param {{ reviews?: any[], runKey?: string | null }} [options]
+ */
+export function buildProcedureView(root, cadenceId, { reviews = [], runKey = null } = {}) {
   const config = JSON.parse(readFileSync(join(root, CONFIG), 'utf8'));
   const c = config.cadences[cadenceId];
   if (!c) return null;
@@ -160,13 +168,30 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
 
   const reportDir = join(root, c.report?.dir ?? 'docs/reviews/weekly');
   const reportRe = new RegExp(c.report?.pattern ?? '^\\d{4}-W\\d{2}-review\\.md$');
-  const reportName = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)).sort().at(-1) ?? null : null;
-  const reportText = reportName ? readFileSync(join(reportDir, reportName), 'utf8') : '';
+  const latestReport = existsSync(reportDir) ? readdirSync(reportDir).filter((f) => reportRe.test(f)).sort().at(-1) ?? null : null;
+  let reportName = latestReport;
+  let reportText = reportName ? readFileSync(join(reportDir, reportName), 'utf8') : '';
+  if (runKey) {
+    const name = `${runKey}-review.md`;
+    if (existsSync(join(reportDir, name))) {
+      reportName = name;
+      reportText = readFileSync(join(reportDir, name), 'utf8');
+    } else {
+      const archived = deletedReports(root, c.report?.dir ?? 'docs/reviews/weekly', reportRe);
+      reportName = archived.has(name) ? name : null;
+      reportText = reportName ? archived.get(name) : '';
+    }
+  }
+  const latestKey = latestReport ? runKeyOfReport(latestReport) : null;
+  const pastRun = Boolean(runKey && latestKey && runKey < latestKey);
   const week = reportName?.slice(0, 8) ?? null;
   const have = reportSections(reportText);
   const findSection = (want) => have.find((h) => sameSection(h.title, want));
 
-  const record = reviews.filter((r) => r.cadence === cadenceId).sort((a, b) => String(b.period.endDate).localeCompare(a.period.endDate))[0] ?? null;
+  const record = runKey
+    ? reviews.filter((r) => r.cadence === cadenceId && runKeyOfPeriod(cadenceId, r.period) === runKey)
+      .sort((a, b) => String(b.createdAt ?? b.file).localeCompare(String(a.createdAt ?? a.file)))[0] ?? null
+    : reviews.filter((r) => r.cadence === cadenceId).sort((a, b) => String(b.period.endDate).localeCompare(a.period.endDate))[0] ?? null;
 
   const evidence = {
     reviewRecord: () => (record
@@ -183,6 +208,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
       };
     },
     triage: () => {
+      if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
       const dir = join(root, '.claude/state/metrics/growth');
       const digestName = existsSync(dir) ? readdirSync(dir).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort().at(-1) : null;
       if (!digestName) return { state: 'missing', note: '計測ダイジェストが無い' };
@@ -203,6 +229,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [] } = {}) {
       return { state: routed === items.length ? 'ok' : 'partial', note: `申し送り ${items.length} 件中 行き先あり ${routed}` };
     },
     weeklyPlan: () => {
+      if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
       const path = join(root, '.claude/todo/weekly.md');
       const head = existsSync(path) ? readFileSync(path, 'utf8').split(/\r?\n/).find((l) => l.startsWith('# ')) ?? '' : '';
       const plan = /(\d{4})-W(\d{2})（(\d{2})\/(\d{2})〜/.exec(head);

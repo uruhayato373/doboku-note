@@ -61,3 +61,36 @@ test('回のキー: 週次は振り返り期間の翌日の週（レポートの
   assert.equal(runKeyOfReport('2026-08-review.md'), '2026-08');
   assert.equal(runKeyOfReport('2026-W39.md'), null);
 });
+
+test('buildProcedureView は runKey の回の記録とレポートで判定し、前の回の「いまの状態」は確かめない', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync, rmSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { buildProcedureView } = await import('../scripts/lib/review-wiring.mjs');
+  const root = mkdtempSync(join(tmpdir(), 'review-wiring-'));
+  try {
+    mkdirSync(join(root, '.claude/config'), { recursive: true });
+    mkdirSync(join(root, 'docs/reviews/monthly'), { recursive: true });
+    mkdirSync(join(root, 'skill'), { recursive: true });
+    writeFileSync(join(root, 'skill/SKILL.md'), '## 出力フォーマット\n\n```markdown\n## 受取額と目標\n```\n');
+    writeFileSync(join(root, '.claude/config/review-wiring.json'), JSON.stringify({ cadences: { monthly: {
+      label: '月次', skill: 'skill/SKILL.md', report: { dir: 'docs/reviews/monthly', pattern: '^\\d{4}-\\d{2}-review\\.md$' },
+      procedure: [{ label: '事業の判断', does: 'x', evidence: 'reviewRecord' }, { label: '保存', does: 'y', evidence: 'reportFile' }],
+    } } }));
+    writeFileSync(join(root, 'docs/reviews/monthly/2026-09-review.md'), '## 受取額と目標\n本文\n');
+    const reviews = [
+      { cadence: 'monthly', period: { startDate: '2026-08-01', endDate: '2026-08-31' }, status: 'provisional', createdAt: '2026-09-20' },
+      { cadence: 'monthly', period: { startDate: '2026-09-01', endDate: '2026-09-30' }, status: 'complete', createdAt: '2026-10-05' },
+    ];
+    const aug = buildProcedureView(root, 'monthly', { reviews, runKey: '2026-08' });
+    assert.deepEqual(aug.steps.map((s) => s.state), ['partial', 'missing']);
+    assert.equal(aug.report, null);
+    const sep = buildProcedureView(root, 'monthly', { reviews, runKey: '2026-09' });
+    assert.deepEqual(sep.steps.map((s) => s.state), ['ok', 'ok']);
+    assert.equal(sep.report.name, '2026-09-review.md');
+    // runKey なしは従来どおり最新のレポートと最新の記録
+    assert.deepEqual(buildProcedureView(root, 'monthly', { reviews }).steps.map((s) => s.state), ['ok', 'ok']);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
