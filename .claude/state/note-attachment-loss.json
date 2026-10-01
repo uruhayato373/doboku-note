@@ -107,6 +107,16 @@
       "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
       "resolvedAt": "2026-08-26",
       "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "nc653f78e53a0",
+      "at": "2026-10-01T05:07:29.916Z",
+      "reason": "--allow-attachment-loss で意図的に破棄",
+      "dropped": [
+        "https://www.mlit.go.jp/tec/constplan/content/001738240.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolution": "誤検知: 本文の出典 URL（…001738240.pdf）を添付カードと誤認した。元から添付は無い（2026-10-01 公開・DN-0461）。検出は URL を除外するよう修正"
     }
   ]
 }
