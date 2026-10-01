@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { execFileSync, spawn } from 'node:child_process';
 
 import { classifyProduct } from '../../../../scripts/lib/product-lineup.mjs';
 import { loadThemes, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
@@ -65,7 +66,7 @@ export interface LedgerView {
   coverCategoryLabel: (id: string | null) => string;
   lineupQualifications: Set<string>;
   blockers: Record<string, { label: string; action: string }>;
-  index: { ok: boolean; generatedAt: string | null; error: string | null; syncCounts: Record<string, number> | null };
+  index: { ok: boolean; generatedAt: string | null; error: string | null; syncCounts: Record<string, number> | null; refreshing: boolean };
   sourceErrors: { channel: string; message: string }[];
 }
 
@@ -108,6 +109,38 @@ export function readApprovedThumbs(): Record<string, { path: string; sha256: str
     return JSON.parse(readFileSync(repoPath('.claude', 'config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
   } catch {
     return {};
+  }
+}
+
+/** 索引の作り直しを裏で始めた時刻。作り直し（30 秒〜4 分）の間に何度開いても二重に起動しない */
+let refreshStartedAt = 0;
+const REFRESH_AGE_MS = 30 * 60_000;
+const REFRESH_COOLDOWN_MS = 10 * 60_000;
+
+/**
+ * 索引が古ければ裏で作り直す（台帳を開いたときに呼ぶ・2026-10-01）。
+ * 古い＝無い／30 分より前に作った／作ったあとに新しいコミットが入った（マージ・pull 直後）。
+ * 画面は待たない。作り直しが終われば次の読み込みで反映される。
+ * Windows で detached にすると子の curl・git がターミナルを開き続けるので detached にしない（PR #779 と同じ理由）。
+ */
+function refreshIndexIfStale(generatedAt: string | null): boolean {
+  if (Date.now() - refreshStartedAt < REFRESH_COOLDOWN_MS) return true;
+  const builtAt = generatedAt ? Date.parse(generatedAt) : 0;
+  let stale = !builtAt || Date.now() - builtAt > REFRESH_AGE_MS;
+  if (!stale) {
+    try {
+      const head = execFileSync('git', ['log', '-1', '--format=%cI'], { cwd: findRepoRoot(), encoding: 'utf8', windowsHide: true, timeout: 10_000 }).trim();
+      stale = Date.parse(head) > builtAt;
+    } catch { /* git が読めなければ時刻だけで判断する */ }
+  }
+  if (!stale) return false;
+  try {
+    const child = spawn(process.execPath, [repoPath('scripts', 'build-content-ledger.mjs')], { cwd: findRepoRoot(), detached: process.platform !== 'win32', stdio: 'ignore', windowsHide: true });
+    child.unref();
+    refreshStartedAt = Date.now();
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -240,7 +273,7 @@ export function loadLedgerView(): LedgerView {
     coverCategoryLabel: (id) => noteCoverCategoryLabel(coverCategories, id) as string,
     lineupQualifications: new Set(config.qualifications.map((q) => q.id)),
     blockers: index?.blockers ?? {},
-    index: { ok: Boolean(index), generatedAt: index?.generatedAt ?? null, error, syncCounts: index?.counts?.sync ?? null },
+    index: { ok: Boolean(index), generatedAt: index?.generatedAt ?? null, error, syncCounts: index?.counts?.sync ?? null, refreshing: refreshIndexIfStale(index?.generatedAt ?? null) },
     sourceErrors,
   };
 }

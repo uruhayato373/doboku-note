@@ -101,8 +101,8 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
         <span>{filtered ? <><strong className="text-foreground">{rows.length}</strong> / {all.length} 件</> : <>{all.length} 件</>}</span>
         {hiddenEnded > 0 && state !== 'ended' ? <span>（<Link href={href(now, { s: 'ended' })}>終了 {hiddenEnded} 件</Link>は隠している）</span> : null}
         {view.index.ok ? (
-          <span title="note の記事の同期状態は索引を作った時点のもの。最新にするには npm run content-ledger（npm run admin の起動時に 6 時間より古ければ裏で作り直す）">
-            · 索引 {jst(view.index.generatedAt)} {indexStale ? <StatusBadge tone="warn">古い</StatusBadge> : null}
+          <span title="note の記事の同期状態は索引を作った時点のもの。この画面を開いたとき、30 分より古いか新しいコミットが入っていれば裏で作り直す（終われば再読み込みで反映）。手で作るなら npm run content-ledger">
+            · 索引 {jst(view.index.generatedAt)} {view.index.refreshing ? <StatusBadge tone="info">作り直し中・数分後に再読み込み</StatusBadge> : indexStale ? <StatusBadge tone="warn">古い</StatusBadge> : null}
           </span>
         ) : (
           <span>· <StatusBadge tone="bad" title={view.index.error ?? undefined}>索引なし</StatusBadge> note の記事は出していない（0 件ではない）。<code>npm run content-ledger</code> で作る</span>
