@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T15:25:42.218Z",
+      "finishedAt": "2026-10-01T15:33:52.068Z",
+      "plan": {
+        "synced": 610,
+        "ready": 284,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md",
+            "parts": [
+              "body",
+              "cover",
+              "title"
+            ]
+          }
+        ],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T15:18:51.276Z",
       "finishedAt": "2026-10-01T15:25:27.175Z",
       "plan": {
