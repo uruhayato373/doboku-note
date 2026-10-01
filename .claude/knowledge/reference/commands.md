@@ -15,7 +15,7 @@ npm run serve             # out/ をローカル配信（既定 3025・`_redirec
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す。:ops で運用アラート区分〔ops:true＝配信・転記の遅れ〕だけ実行＝ops-audit.yml が日次で回し automation-failure Issue channel ops へ。--ci/--report-only/--ops は排他・0 件実行は exit 2）
-npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点）
+npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点 + note 記事カタログ）
 npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/ledger）の索引を作る（.claude/state/content-ledger.json・git 管理外）。記事・出品ごとに前回から変わったものだけ読み直し・照合し直す（原稿は git の中身のハッシュが鍵＝worktree を替えても読み直さない／照合は鍵が変わった・前回ずれ・取得失敗・24 時間経過のものだけ）。初回は約 5 分・以後は 1 分前後。`--refresh` で全件照合・`--no-live` で照合しない。npm run admin の起動時に 6 時間より古ければ裏で作り直す（DN-0438）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）

@@ -1,41 +1,33 @@
 #!/usr/bin/env node
-// content/note/**/article*.md を走査し、frontmatter に noteUrl を持つ公開済み記事の
-// 一覧を .claude/state/note-published.json に集計する。マガジン記事は magazine
-// フィールドを付し、全記事に contentType を付す。
+// content/note/**/article*.md の frontmatter から note 記事カタログを生成し、
+// .claude/state/note-published.json に書く。**読み取り専用の生成物**で、正本は各記事の
+// frontmatter（記事の値）と src/lib/note-magazines.ts（マガジンの値）。手で編集しない。
+//
+// - items       = noteUrl を持つ記事（＝note に出たことがある記事）。消費側は「items にある＝公開済み」と読む
+// - unpublished = noteUrl の無い記事（下書き・未公開在庫）
+// - magazines   = note-magazines.ts のマガジン一覧（id・題名・価格・公開状態・m キー）
+// 記事の magazines は frontmatter の noteMagazine ラベルを note-magazine-membership.json の
+// labels / packs で解いたマガジン id（dir 外収録の extras は記事に紐づかないので含めない）。
 //
 // 使い方:
-//   node .claude/scripts/build-note-published-index.mjs
-//
-// 出力例:
-// {
-//   "version": 1,
-//   "updatedAt": "2026-04-29T12:00:00.000Z",
-//   "items": [
-//     {
-//       "slug": "総監択一式17年分分析",
-//       "noteUrl": "https://note.com/dobokunote/n/n3bcb87efddad",
-//       "noteId": "n3bcb87efddad",
-//       "publishedAt": "2026-04-29",
-//       "pricing": "free",
-//       "series": "総監択一式分析",
-//       "utmCampaign": "90-soukan-analysis",
-//       "title": "..."
-//     }
-//   ]
-// }
+//   node .claude/scripts/build-note-published-index.mjs          # 生成（中身が同じなら書かない）
+//   node .claude/scripts/build-note-published-index.mjs --check  # 検査のみ（書き込みなし）
+// npm run refresh-indexes に含まれ、コミット漏れは check-generated-indexes（CI）が止める。
+// exit 0 = 成功 / 1 = contentType の無い公開記事あり / 2 = 検査不成立（記事 0 件）
 //
 // 他 note 記事を本文中で参照する時は、対象記事 frontmatter の noteUrl を
 // 直書きする運用とする（slug → noteUrl の逆引きは本 JSON で行える）。
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { join, dirname, relative, basename, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { listNoteArticleFiles, normalizeRepoPath } from '../../scripts/lib/note-content-type.mjs';
+import { parseSoT } from '../../scripts/check-magazine-membership.mjs';
+import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..', '..');
-const NOTE_DIR = join(ROOT, 'content/note');
 const OUT_PATH = join(ROOT, '.claude/state/note-published.json');
 
 function extractH1(body) {
@@ -44,60 +36,98 @@ function extractH1(body) {
   return line.replace(/^#\s+/, '').trim();
 }
 
-function toItem(slug, data, content, extra = {}) {
-  return {
-    slug,
-    ...extra,
-    noteUrl: data.noteUrl,
-    noteId: data.noteId || null,
-    // notePublishedAt は未設定や "TBD" 等の不正値があり得るため、
-    // 無効な日付は null にフォールバックして集計をクラッシュさせない。
-    publishedAt: (() => {
-      if (!data.notePublishedAt) return null;
-      const d = new Date(data.notePublishedAt);
-      return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
-    })(),
-    pricing: data.notePricing || null,
-    contentType: data.noteContentType || null,
-    series: data.noteSeries || null,
-    utmCampaign: data.utmCampaign || null,
-    title: extractH1(content),
+// notePublishedAt は未設定や "TBD" 等の不正値があり得るため、
+// 無効な日付は null にフォールバックして集計をクラッシュさせない。
+function toDate(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+}
+
+function toPrice(value) {
+  if (value === undefined || value === null || value === '') return null;
+  const n = Number(String(value).replace(/[¥,円\s]/g, ''));
+  return Number.isFinite(n) ? n : null;
+}
+
+/** noteMagazine ラベル → 収録されるマガジン id（1 ラベル→1 マガジン ＋ そのラベルを束ねるパック） */
+export function magazineResolver(membership) {
+  const labels = membership?.labels ?? {};
+  const packs = membership?.packs ?? {};
+  return (label) => {
+    if (!label) return [];
+    const ids = [];
+    if (labels[label]) ids.push(labels[label]);
+    for (const [id, pack] of Object.entries(packs)) if ((pack.labels ?? []).includes(label) && !ids.includes(id)) ids.push(id);
+    return ids;
   };
 }
 
-function build() {
+/** 1 記事分の行（純関数・テストから使う） */
+export function toItem({ slug, path, data, content, resolveMagazines }) {
+  const parts = slug.split('/');
+  const magazineIndex = parts.indexOf('magazines');
+  const label = data.noteMagazine ? String(data.noteMagazine).trim() : null;
+  return {
+    slug,
+    path,
+    exam: parts[0] || null,
+    ...(magazineIndex >= 0 ? { magazine: parts[magazineIndex + 1] || null } : {}),
+    noteUrl: data.noteUrl || null,
+    noteId: data.noteId || null,
+    status: data.noteStatus || null,
+    publishedAt: toDate(data.notePublishedAt),
+    pricing: data.notePricing || null,
+    price: toPrice(data.price),
+    contentType: data.noteContentType || null,
+    series: data.noteSeries || null,
+    noteMagazine: label,
+    magazines: resolveMagazines(label),
+    utmCampaign: data.utmCampaign || null,
+    title: extractH1(content) ?? (data.title ? String(data.title) : null),
+  };
+}
+
+export function buildCatalog({ root = ROOT, files } = {}) {
+  const noteDir = join(root, 'content/note');
+  const membership = JSON.parse(readFileSync(join(root, '.claude/config/note-magazine-membership.json'), 'utf8'));
+  const resolveMagazines = magazineResolver(membership);
   const items = [];
-  for (const path of listNoteArticleFiles(NOTE_DIR)) {
-    const { data, content } = matter(readFileSync(path, 'utf-8'));
-    if (!data?.noteUrl) continue;
-    const slug = normalizeRepoPath(relative(NOTE_DIR, dirname(path)));
-    const parts = slug.split('/');
-    const magazineIndex = parts.indexOf('magazines');
-    const extra = magazineIndex >= 0 ? { magazine: parts[magazineIndex + 1] || null } : {};
-    items.push(toItem(slug, data, content, extra));
+  const unpublished = [];
+  for (const file of files ?? listNoteArticleFiles(noteDir)) {
+    const { data, content } = matter(readFileSync(file, 'utf-8'));
+    const slug = normalizeRepoPath(relative(noteDir, dirname(file)));
+    const path = normalizeRepoPath(relative(root, file));
+    const item = toItem({ slug, path, data: data ?? {}, content, resolveMagazines });
+    (item.noteUrl ? items : unpublished).push(item);
   }
-  return items.sort((a, b) => a.slug.localeCompare(b.slug, 'ja'));
+  const byPath = (a, b) => a.path.localeCompare(b.path, 'ja');
+  const magazines = Object.values(parseSoT(readFileSync(join(root, 'src/lib/note-magazines.ts'), 'utf8')))
+    .map(({ id, key, title, price, published }) => ({ id, key, title, price, published }))
+    .sort((a, b) => a.id.localeCompare(b.id));
+  return { items: items.sort(byPath), unpublished: unpublished.sort(byPath), magazines };
 }
 
 function main() {
-  const items = build();
-  const out = {
-    version: 2,
-    updatedAt: new Date().toISOString(),
-    items,
-  };
   const checkOnly = process.argv.includes('--check');
-  if (!checkOnly) {
-    mkdirSync(dirname(OUT_PATH), { recursive: true });
-    writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + '\n');
+  const { items, unpublished, magazines } = buildCatalog();
+  const scanned = items.length + unpublished.length;
+  console.log(`[build-note-published-index] 記事 ${scanned} 件を走査 / 公開済み ${items.length} / 未公開 ${unpublished.length} / マガジン ${magazines.length}`);
+  if (scanned === 0) {
+    console.error('  ✗ 検査不成立: content/note に記事が 1 件も見つからない');
+    process.exit(2);
   }
-  console.log(`[build-note-published-index] ${checkOnly ? '検査完了（書き込みなし）' : '完了'}`);
-  console.log(`  公開済み: ${items.length}件`);
-  if (!checkOnly) console.log(`  出力: ${OUT_PATH}`);
-  if (items.some((item) => !item.contentType)) {
-    console.error('  FAIL: contentType のない公開記事があります');
+  if (!checkOnly) {
+    const out = { version: 3, updatedAt: new Date().toISOString(), items, unpublished, magazines };
+    const wrote = writeJsonIfChanged(OUT_PATH, out, { volatileKeys: ['updatedAt'] });
+    console.log(`  ${wrote ? '出力' : '変更なし'}: ${normalizeRepoPath(relative(ROOT, OUT_PATH))}`);
+  }
+  const noType = items.filter((item) => !item.contentType);
+  if (noType.length) {
+    console.error(`  FAIL: contentType のない公開記事が ${noType.length} 件あります`);
+    for (const item of noType.slice(0, 10)) console.error(`    ${item.path}`);
     process.exit(1);
   }
 }
 
-main();
+if (process.argv[1] && basename(process.argv[1].split(sep).join('/')) === 'build-note-published-index.mjs') main();

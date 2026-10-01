@@ -123,7 +123,8 @@ export function parseSoT(source) {
     const desc = block.replace(/price: '[^']*'/, '');
     const mentions = [...desc.matchAll(/[全計]\s?(\d+)\s?記事/g)].map((m) => Number(m[1]));
 
-    out[id] = { id, key, declared, mentions, price, title: /title: '([^']+)'/.exec(block)?.[1] ?? '' };
+    const published = /published: (true|false)/.exec(block)?.[1] === 'true';
+    out[id] = { id, key, declared, mentions, price, published, title: /title: '([^']+)'/.exec(block)?.[1] ?? '' };
   }
   return out;
 }

@@ -310,13 +310,13 @@ utmCampaign: 90-soukan-analysis   # add-note-utm.mjs が消費
 ---
 ```
 
-### 3. 公開済みインデックスを再生成
+### 3. 記事カタログを再生成
 
 ```bash
-node .claude/scripts/build-note-published-index.mjs
+npm run build-note-catalog
 ```
 
-`.claude/state/note-published.json` に集計が出力される。`pricing: paid` を含む将来の有料記事や series まとめページの参照源として利用。
+`.claude/state/note-published.json`（記事カタログ）が frontmatter から作り直される。`note-publish.mjs` は公開時の書き戻しで自動実行し、`npm run refresh-indexes` にも含まれる。コミット漏れは CI の `check-generated-indexes` が止める。
 
 ### 4. doboku-note サイト側に動線追加（任意・記事性質に応じて）
 
@@ -331,7 +331,7 @@ node .claude/scripts/build-note-published-index.mjs
 | `/note-hashtags` | 公開前のハッシュタグ生成 |
 | **`/note-prepublish-review`（本スキル）** | 公開前の **統合品質ゲート** |
 | `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
-| `.claude/scripts/build-note-published-index.mjs` | 公開済み記事インデックス生成 |
+| `.claude/scripts/build-note-published-index.mjs` | 記事カタログ生成（`npm run build-note-catalog`） |
 | `note-link-injector` agent | リンク注入の Generator |
 | `svg-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |
