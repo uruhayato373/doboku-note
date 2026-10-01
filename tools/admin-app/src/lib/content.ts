@@ -77,6 +77,8 @@ export interface Magazine {
   priceNum: number | null;
   /** note-magazines.ts の retiredAt（販売を終えて note から削除した日） */
   retiredAt: string | null;
+  /** note 上のマガジン名（noteTitle）。未設定は null */
+  noteTitle: string | null;
 }
 
 export function magazines(): Magazine[] {
@@ -106,6 +108,7 @@ export function magazines(): Magazine[] {
       shortTitle: pick(/shortTitle:\s*'([^']*)'/),
       badge: pick(/badge:\s*'([^']*)'/),
       retiredAt: pick(/retiredAt:\s*'([^']*)'/),
+      noteTitle: pick(/noteTitle:\s*'((?:[^'\\]|\\.)*)'/)?.replace(/\\(.)/g, '$1') ?? null,
       priceStr,
       priceNum: priceStr
         ? Number((priceStr.match(/¥?\s*([\d,]+)/) || [])[1]?.replace(/,/g, '')) || null

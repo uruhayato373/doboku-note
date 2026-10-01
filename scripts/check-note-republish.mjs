@@ -256,7 +256,7 @@ if (BASELINE) {
 console.log(`[check-note-republish] 公開記事=${synced.length + drift.length + equivalent.length + unknown.length}  synced=${synced.length}  要再公開(本文drift)=${drift.length}  301等価(張り替えだけ)=${equivalent.length}  未初期化=${unknown.length}`);
 if (unjudged.length) console.log(`[check-note-republish]   うち等価を判定できず要再公開に残した=${unjudged.length}（${unjudgedReason}）`);
 console.log(`[check-note-republish] タグ: 公開=${tagSynced.length + tagDrift.length + tagUnknown.length}  synced=${tagSynced.length}  要再公開(タグdrift)=${tagDrift.length}  未初期化=${tagUnknown.length}`);
-console.log(`[check-note-republish] メタ(価格/境界/カバー定義): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(本文画像/PDF/カバー): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
+console.log(`[check-note-republish] メタ(題名/価格/境界): drift=${metaDrift.length}  未初期化=${metaUnknown.length}／アセット(本文画像/PDF/カバー): drift=${assetDrift.length}  未初期化=${assetUnknown.length}`);
 if (drift.length) {
   console.log('\n■ 要再公開（本文が公開時から変更）:');
   for (const f of drift) console.log('  ' + f.replace(/^content\/note\//, '').replace(/\/article\.md$/, ''));

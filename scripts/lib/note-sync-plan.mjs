@@ -30,7 +30,7 @@ export const BLOCKERS = {
   'trial-guard': { label: '会員特典マガジン内の無料記事（公開範囲の指定が要る）', action: '誰でも読めるなら frontmatter に memberTrial: bottom、全文を会員限定にするなら memberTrial: lock を書く' },
   'image-missing': { label: '本文の画像ファイルが手元に無い', action: '画像を記事の img/ に戻す（意図して外すなら本文から画像行を消す）' },
   boundary: { label: '有料境界の基準にする見出しが本文に無い', action: 'frontmatter の paidBoundary に境界の直後に来る H2 の先頭（正規表現）を書く' },
-  meta: { label: '価格・有料/無料の設定が変わった', action: 'node scripts/note-article-price-sweep.mjs で価格を反映してから同期する' },
+  meta: { label: '題名・価格・有料/無料の設定が変わった', action: '価格は node scripts/note-article-price-sweep.mjs で反映してから同期する（題名は同期の note-update-body が frontmatter の title を反映する）' },
 };
 
 function readAborted(root) {

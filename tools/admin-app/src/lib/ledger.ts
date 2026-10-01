@@ -251,6 +251,8 @@ export function loadLedgerView(): LedgerView {
     };
   };
 
+  const skuByNoteId = new Map<string, string>();
+  const articleNoteIds = new Set(rows.map((r) => r.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1]).filter(Boolean));
   const loaders: [string, () => LineupItem[]][] = [
     ['note', loadNoteItems],
     ['coconala', loadCoconalaItems],
@@ -261,11 +263,14 @@ export function loadLedgerView(): LedgerView {
       const got = load();
       if (got.length === 0) sourceErrors.push({ channel, message: '台帳から商品を 1 件も読めなかった' });
       for (const item of got) {
+        // 単品で売る SKU（note-magazines.ts の noteUrl が記事 /n/）は記事の行と同じ商品。記事の行があれば重ねず、売上だけ記事の行へ寄せる
+        const skuNoteId = channel === 'note' ? item.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1] : undefined;
+        if (skuNoteId && articleNoteIds.has(skuNoteId)) { skuByNoteId.set(skuNoteId, item.id); continue; }
         rows.push({
           key: `${channel}-product:${item.id}`,
           channel,
           kind: KIND[channel] ?? '商品',
-          title: item.title,
+          title: item.noteTitle ?? item.title,
           url: item.url,
           themes: productThemes(config, item),
           coverCategory: null,
@@ -286,6 +291,15 @@ export function loadLedgerView(): LedgerView {
     } catch (e) {
       sourceErrors.push({ channel, message: (e as Error).message });
     }
+  }
+
+  for (const r of rows) {
+    const sku = r.kind === '記事' ? skuByNoteId.get(r.url?.match(/\/n\/(n[0-9a-f]+)/)?.[1] ?? '') : undefined;
+    const skuSales = sku ? sales?.byMagazine.get(sku) : undefined;
+    if (!skuSales) continue;
+    r.sales = r.sales
+      ? { count: r.sales.count + skuSales.count, revenue: r.sales.revenue + skuSales.revenue, lastDate: r.sales.lastDate > skuSales.lastDate ? r.sales.lastDate : skuSales.lastDate }
+      : skuSales;
   }
 
   return {

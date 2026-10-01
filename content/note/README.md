@@ -116,14 +116,17 @@ content/note/
 ## frontmatter 必須フィールド
 
 ```yaml
-title: "..."
+title: "..."             # note の題名の正本（公開・更新はこの値を題名にする。見出し 1 は本文に載らない）
 notePricing: free | paid
+price: 1480               # 有料記事のみ・円（無いと公開スクリプトが止まる）
 noteContentType: product | index | learning | career | editorial
 noteSeries: "..."
 noteMagazine: "..."       # マガジン収録記事のみ（単発記事には不要）
 utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
+
+題名と価格の正本は frontmatter の `title` / `price`（2026-10-01 に公開中 886 本を note から書き戻した）。公開済みで欠けていれば `check-note-price-consistency` の L0 が止め、note との食い違いは `check-note-structure` が週次で `TITLE_MISMATCH` / `PRICE_MISMATCH` に出す。マガジンの題名・価格の正本は `src/lib/note-magazines.ts` の `noteTitle` / `price`。
 
 `noteContentType` は記事の役割を示す必須分類。`product` は有料商品・会員商品、`index` は資格別もくじ、`learning` は無料の試験学習記事、`career` は転職・年収・資格活用、`editorial` は一般的な雑談・運営・体験談に使う。価格やマガジン収録とは別軸で、分類の正本は各記事の frontmatter とする。
 

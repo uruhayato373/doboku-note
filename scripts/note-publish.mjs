@@ -79,7 +79,8 @@ const fmField = (k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'
 const notePricing = fmField('notePricing');
 const price = parseInt(fmField('price') || '0', 10);
 let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
-const title = (body.match(/^#\s+(.+)$/m)?.[1] || fmField('coverTitle')).trim();
+// 題名の正本は frontmatter の title（note-update-body も title を反映する）。無ければ本文の見出し 1
+const title = (fmField('title') || body.match(/^#\s+(.+)$/m)?.[1] || fmField('coverTitle')).trim();
 // コメント・H1 を除去（画像は除去せずトークン化して残す＝本文画像の live 反映）
 body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
 // cover / hashtags を type サフィックスで解決（article-II1.md → cover-II1.png / hashtags-II1.txt）
@@ -144,6 +145,8 @@ if (isPaid) {
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
+// isPaid は price > 0 が条件なので、price の無い有料記事は黙って無料で公開されていた。価格の正本は frontmatter の price
+if (notePricing === 'paid' && !(price > 0)) { console.error('ABORT: notePricing: paid なのに frontmatter に price（円）が無い'); process.exit(1); }
 // ガード: markdown 表（note 非対応・生パイプ表示になる）。note-lint のバックストップ。
 // コードフェンス外の行頭パイプを検出したら公開しない（2026-07-04・9記事流出の再発防止）。
 {
@@ -577,6 +580,9 @@ try {
         // noteStatus も書き戻す（draft 取り残しの再発防止）。即時=published / 予約=reserved。
         // 予約の go-live 後分は verify-note-status が published へ是正。
         upd = setFmField(upd, 'noteStatus', statusVal);
+        // 公開した題名を正本として残す（無いと台帳・監査は見出し 1 を推測で使うしかない）
+        // fmField は引用符の中をそのまま読む（エスケープを解かない）ので、" を含む題名は単引用符で書く
+        if (!fmField('title')) upd = setFmField(upd, 'title', title.includes('"') ? `'${title.replace(/'/g, "''")}'` : `"${title}"`);
         writeFileSync(articleAbs, upd);
         console.log('[12] frontmatter 反映:', cleanUrl, publishDate, `status=${statusVal}`);
         // 再公開ドリフト検出用に「公開時点の本文ハッシュ」を記録（in-sync 化）。best-effort。

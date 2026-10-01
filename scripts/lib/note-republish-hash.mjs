@@ -120,16 +120,20 @@ export function recordPublishedTagHash(hashtagsPath) {
 
 // ---- live 影響メタ（frontmatter）ドリフト（metaHashes: {articlePath→hash}） ----
 // 本文 hash は frontmatter を丸ごと落とすため、**note 上の見え方を変えるメタ変更が検知できなかった**。
-// 実際に live を変えるのは次の 3 つ。noteUrl/noteId/notePublishedAt/noteStatus は
+// 実際に live を変えるのは次の 4 つ。noteUrl/noteId/notePublishedAt/noteStatus は
 // 「公開した結果」なので含めない（含めると公開直後に必ず drift になる）。カバーの文言（coverTitle / cover）は
 // カバートラック（coverHashes・下記）が描画入力ごと見るので、ここには入れない（2026-09-29・二重判定の解消）。
 //   price      … 価格（note-article-price-sweep / note-edit）
 //   notePricing… 有料/無料（同上）
 //   paidBoundary … 有料境界の基準 H2（note-update-body --boundary-h2）
-const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary'];
+//   title      … note の題名（note-update-body が frontmatter の title を反映する・2026-10-01 追加）
+export const LIVE_META_KEYS = ['notePricing', 'price', 'paidBoundary', 'title'];
 
-/** frontmatter から live 影響キーだけを抜き出して正規化ハッシュ。cover は複数行ブロックなので行継続も拾う。 */
-export function metaHash(raw) {
+/**
+ * frontmatter から live 影響キーだけを抜き出して正規化ハッシュ。cover は複数行ブロックなので行継続も拾う。
+ * keys は既定で LIVE_META_KEYS。キーを足す前に記録した値と比べる（足す前に in-sync だったか）ときだけ旧キーを渡す。
+ */
+export function metaHash(raw, keys = LIVE_META_KEYS) {
   const m = String(raw).replace(/^\ufeff/, '').match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return createHash('sha256').update('', 'utf8').digest('hex').slice(0, 16);
   const lines = m[1].replace(/\r\n/g, '\n').split('\n');
@@ -137,7 +141,7 @@ export function metaHash(raw) {
   let capturing = false;
   for (const line of lines) {
     const key = (line.match(/^([a-zA-Z0-9_]+):/) || [])[1];
-    if (key) capturing = LIVE_META_KEYS.includes(key);
+    if (key) capturing = keys.includes(key);
     else if (!/^\s/.test(line)) capturing = false; // インデントされていない継続行は別要素
     if (capturing) picked.push(line.replace(/\s+$/, ''));
   }

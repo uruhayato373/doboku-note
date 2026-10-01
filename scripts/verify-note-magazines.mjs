@@ -104,7 +104,7 @@ function fetchMagazineNotes(key) {
   return out;
 }
 
-/** note-magazines.ts（SoT）から id / published / noteUrl / price を抽出。 */
+/** note-magazines.ts（SoT）から id / published / noteUrl / noteTitle / price / retiredAt を抽出。 */
 function parseSoT() {
   const ts = readFileSync(SOT_PATH, 'utf-8');
   const entries = [];
@@ -120,6 +120,7 @@ function parseSoT() {
     const next = indices[i + 1];
     const slice = ts.slice(cur.at, next ? next.at : ts.length);
     const pm = slice.match(/price:\s*'([^']*)'/);
+    const tm = slice.match(/noteTitle:\s*'((?:[^'\\]|\\.)*)'/);
     const keyMatch = cur.noteUrl.match(/\/m\/(m[0-9a-f]+)/);
     entries.push({
       id: cur.id,
@@ -127,6 +128,8 @@ function parseSoT() {
       noteUrl: cur.noteUrl,
       key: keyMatch ? keyMatch[1] : null,
       priceStr: pm ? pm[1] : null,
+      noteTitle: tm ? tm[1].replace(/\\(.)/g, '$1') : null,
+      retired: /retiredAt:\s*'/.test(slice),
     });
   }
   return entries;
@@ -208,7 +211,8 @@ function main() {
     }
   }
   for (const e of sot) {
-    if (e.key && !noteByKey.has(e.key)) {
+    // note から削除して販売を終えたマガジン（retiredAt）は一覧に無いのが正しい
+    if (e.key && !noteByKey.has(e.key) && !e.retired) {
       issues.push(`[非公開化?] SoT ${e.id} の noteUrl(${e.key}) が note 一覧に無い（404/非公開化の疑い）`);
     }
     // noteUrl 空の真偽は noteUrl 文字列そのもので判定する。e.key は「マガジン(/m/…)キー」で、
@@ -225,12 +229,15 @@ function main() {
       if (sp != null && sp !== m.price) {
         issues.push(`[価格ドリフト] ${s.id}: SoT¥${sp} ≠ note¥${m.price}（${m.name}）`);
       }
+      // 題名の正本は noteTitle（title はサイト CTA 用で note と一致させない）
+      if (!s.noteTitle) issues.push(`[題名なし] ${s.id}: noteTitle が無い → note の題名「${m.name}」を noteTitle に書く`);
+      else if (s.noteTitle !== m.name) issues.push(`[題名ドリフト] ${s.id}: SoT「${s.noteTitle}」≠ note「${m.name}」`);
     }
   }
 
   console.log('\n--- 突合結果（note↔note-magazines.ts）---');
   if (issues.length === 0) {
-    console.log('  OK: ズレなし（note公開↔SoT配線↔価格すべて一致）');
+    console.log('  OK: ズレなし（note公開↔SoT配線↔題名↔価格すべて一致）');
   } else {
     for (const i of issues) console.log(`  ${i}`);
   }
