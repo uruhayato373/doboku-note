@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-outline
 noteUrl: "https://note.com/dobokunote/n/nd288c7ac876b"
 noteId: "nd288c7ac876b"
-title: "【2級土木施工管理技士】施工経験記述「工事概要」の書き方 — なぜ概要欄で減点されるのか"
+title: "2級土木 施工経験記述｜「工事概要」の書き方 — なぜ概要欄で減点されるのか"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "で減点"
   benefit: "減点されない書き方がわかる"
 ---
-# 【2級土木施工管理技士】施工経験記述「工事概要」の書き方 — なぜ概要欄で減点されるのか
+# 2級土木 施工経験記述｜「工事概要」の書き方 — なぜ概要欄で減点されるのか
 
 ![](img/figure-author-authority-pop.png)
 

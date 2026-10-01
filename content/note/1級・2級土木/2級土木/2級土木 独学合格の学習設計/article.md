@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-study-design
 noteUrl: https://note.com/dobokunote/n/n0d6a78c48cef
 noteId: n0d6a78c48cef
-title: "【2級土木施工管理技士】働きながら独学で合格する学習設計 — 一次・二次の時間配分"
+title: "2級土木 独学｜働きながら合格する学習設計 — 一次・二次の時間配分"
 notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "型"
   benefit: "働きながらの時間配分が分かる"
 ---
-# 【2級土木施工管理技士】働きながら独学で合格する学習設計 — 一次・二次の時間配分
+# 2級土木 独学｜働きながら合格する学習設計 — 一次・二次の時間配分
 
 ![](img/figure-author-authority-pop.png)
 

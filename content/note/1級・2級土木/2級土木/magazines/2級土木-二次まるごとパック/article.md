@@ -6,7 +6,7 @@ noteMagazine: 2級土木-二次まるごとパック
 noteStatus: published
 notePublishedAt: "2026-09-17"
 noteId: "n89b3048e5d24"
-title: "2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）"
+title: "2級土木 二次検定｜まるごとパック（経験記述＋学科記述＋直前対策）"
 memberTrial: bottom
 noteUrl: "https://note.com/dobokunote/n/n89b3048e5d24"
 utmCampaign: civil2-niji-marugoto
@@ -20,7 +20,7 @@ cover:
   hiSuffix: "セット"
   benefit: "経験記述から直前対策まで揃う"
 ---
-# 2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）
+# 2級土木 二次検定｜まるごとパック（経験記述＋学科記述＋直前対策）
 
 ![](img/figure-author-authority-pop.png)
 

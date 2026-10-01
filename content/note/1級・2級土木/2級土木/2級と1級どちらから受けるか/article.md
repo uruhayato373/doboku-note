@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-vs-1c-order
 noteUrl: "https://note.com/dobokunote/n/n28133dda5888"
 noteId: "n28133dda5888"
-title: "【土木施工管理技士】2級と1級、どちらから受けるべきか — 受験順の判断"
+title: "2級土木 受験順｜2級と1級、どちらから受けるべきか — 判断の基準"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 2級と1級
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "基準"
   benefit: "自分に合う順番が分かる"
 ---
-# 【土木施工管理技士】2級と1級、どちらから受けるべきか — 受験順の判断
+# 2級土木 受験順｜2級と1級、どちらから受けるべきか — 判断の基準
 
 ![](img/figure-author-authority-pop.png)
 
