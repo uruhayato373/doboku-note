@@ -771,10 +771,9 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 1. `git switch develop; git pull` と `npm run pre-commit:install`（pre-commit の内容が変わったため）。
 2. 取り残しの確認: 旧パス `.claude/config/coconala/assets/`・`.claude/state/metrics/gsc-ui/`・`.claude/state/metrics/ga4-ui/`・`.claude/state/metrics/affiliate/a8-ui/` にファイルが残っていないか見る。
 3. 残っていれば新しい置き場へ移す（中身を上書きしない）: ココナラ素材は `content/coconala/assets/`（無ければ `node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'` で Drive から取り戻す）、GSC・GA4 の UI CSV と A8 の生ファイルは `data/metrics/` 配下の同じ相対位置へ。空になった旧ディレクトリは消す。
-4. Mac の定期処理（`note-sync-routine`・`gsc-local-routine`）が使う `.claude/worktrees/` の作業ツリーを develop の先頭へ更新する（古いコミットのままだと旧パスへ書き続ける）。
-5. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
+4. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
 
-**完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている。
+**完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
