@@ -1603,6 +1603,18 @@
       "commit": "5d0b80e892c5",
       "verification": "npm run check-products",
       "note": "PR #807 マージ。2級土木 note 商品23件を content/products/note/ へ移行・check-products ci:true（正本23・照合16・違反0）・生成カタログは元と完全一致"
+    },
+    {
+      "id": "DN-0495",
+      "at": "2026-10-02",
+      "task": "コードに残る資格名の直書き（52 件・13 ファイル）を registry から引く形へ返済する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b0293f8ed5e5",
+      "verification": "npm run check-qualification-ssot（設定の写し0・書き込み先の食い違い0・コードの直書き0）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

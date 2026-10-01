@@ -782,14 +782,6 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
-### [DN-0495] コードに残る資格名の直書き（52 件・13 ファイル）を registry から引く形へ返済する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
-
-**起点**: 2026-10-02、商品設計とコンテンツ台帳のメニューで資格の名前・並び順がずれた。原因は資格名が registry 以外（設定 5 ファイル・コード 13 ファイル）へ写されていたこと。設定の写しは同日に解消し、`npm run check-qualification-ssot`（pre-commit・CI）で新しい写しを止めた。コードの直書きは `.claude/config/qualification-ssot-baseline.json` に既存の負債として固定してあり、管理画面 管理＞正本の検査 に一覧が出る。
-
-ファイルごとに、資格 id → 日本語の対応表を `scripts/lib/qualification-registry.mjs` の `qualificationLabel`／`qualificationShortLabel`（並びは `orderedQualifications`）で引く形へ直し、基準の件数を下げる。動画・SNS の表記（`技術士総監` などのタグ用の別表記）は資格名と別の属性かを先に判断し、別の属性なら registry に項目を足すか、`qualification-ssot-allow.json` 相当の理由を残す。サイト（`src/`）は registry をビルド時に読めるかを確かめてから直す。note-funnel.json の独自グループ id（tankan・civil など）を registry の id で参照する形へ移すかもここで決める。
-
-**完了条件**: `qualification-ssot-baseline.json` の `counts` が空（または理由つきの例外だけ）で、`npm run check-qualification-ssot` が exit 0。
 
 ### [DN-0261] 転職アフィリ第2波の効果を EXP-008 の wave-2 基線で再計測する
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-22] [期日:2026-10-20]
