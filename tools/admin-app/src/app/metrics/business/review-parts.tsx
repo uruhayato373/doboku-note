@@ -82,10 +82,15 @@ export function Stat({ label, value, sub }: { label: string; value: React.ReactN
 }
 
 /** 今回の実施状況（最新の回）。 */
-export function Current({ run, procedure }: { run: Run | undefined; procedure: Procedure }) {
+export function Current({ run, procedure, due }: { run: Run | undefined; procedure: Procedure; due?: Cadence['due'] }) {
   const count = (s: StepState) => procedure.steps.filter((x) => x.state === s).length;
+  // 対象期間がまだ記録されていないとき、最新の回は「前回」。今回は未実施であることを先に出す
+  const pending = due?.due && run?.period?.startDate !== due.period.startDate ? due.period : null;
   return (
-    <Section title="今回の実施状況">
+    <Section
+      title={pending ? '前回の実施状況' : '今回の実施状況'}
+      note={pending ? `今回の対象 ${md(pending.startDate)}〜${md(pending.endDate)} は未実施。実施すると、下の判定と手順チェックリストが今回のものに変わる` : undefined}
+    >
       <Grid min="sm">
         <Stat
           label="振り返り期間"

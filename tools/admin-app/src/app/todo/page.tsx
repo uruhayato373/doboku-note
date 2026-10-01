@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { Facet, FacetHead, FacetShell, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type FacetItem, type Tone } from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { MonthlyReviewPlan } from '@/components/MonthlyReviewPlan';
 import { renderMarkdown } from '@/lib/markdown';
 import { projectRefsByBacklogId } from '@/lib/project';
 import CopyButton from '@/components/CopyButton';
@@ -415,6 +416,7 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
           <div className="md-prose" dangerouslySetInnerHTML={{ __html: renderMarkdown(meta.notes) }} />
         </PanelCard>
       ) : null}
+      {layer === 'monthly' ? <MonthlyReviewPlan /> : null}
 
       {isBacklog ? <FacetShell main={main} rail={rail} /> : main}
     </>
