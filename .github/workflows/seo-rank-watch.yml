@@ -65,7 +65,7 @@ jobs:
         run: test -n "$AGENT_TOKEN" || { echo '::error::Review is due but Claude credential is missing'; exit 1; }
       - name: Research intent and propose a bounded improvement
         if: steps.selection.outputs.agent_needed == 'true'
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1
+        uses: anthropics/claude-code-action@8ce9314fa9a404564fa7e954cd84f25bcba2b829 # v1
         with:
           github_token: ${{ github.token }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
