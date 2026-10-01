@@ -188,6 +188,23 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0492] 商品の正本を「1商品1ファイルの JSON」に移す（段階1: 2級土木の note 商品）
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
+
+**起点**: 2026-10-01 の 2級土木ペルソナパック組み替えで、パック1本を足すのに note-magazines.ts（TS を正規表現で読む・行順の契約あり）・note掲載文.txt・カバー設定・冒頭導線設定（記事別ルール）・product-lineup.json・設計書を手で直した。ペルソナと収録の意図は Markdown にしか無く、取りこぼし（工事109・110）を手で見つけた。ユーザー決定: 正本は Git 上の 1商品1ファイル JSON、SQLite は生成する検索用の写し（D1 と同じスキーマにして将来移せる形）。Windows・Mac・CI で同じに動かす。
+
+**やること（段階1）**:
+1. 判断を `data-storage-decision.md` に追記する（Git JSON 正本＋生成 SQLite、D1 へ移す条件）。古い記述（asset-storage-policy.md の「会社 PC は外部 API 遮断」）を実態に直す。
+2. `content/products/note/<id>.json` の型（schema）と、書き換え CLI `npm run product`（キー順・字下げ・LF をそろえる）を作る。`.gitattributes` に `content/products/**/*.json text eol=lf`。
+3. 2級土木の note 商品（マガジン・パック・単品 SKU）を正本へ移す。層・ペルソナ・収録の意図（工事番号）・主パック・掲載文を持たせる。
+4. 正本から `note-magazines.ts` の該当エントリを生成する（読み手は変えない・同じ入力で同じ出力）。`--check` で生成物が最新かを見る。
+5. `check-products`（型・id 重複・参照先の実在・生成物の最新・収録の意図とコミット済み収録記録の突き合わせ）を quality-audit に ci:true で登録する。
+6. SQLite（sql.js・WASM）の生成 `npm run product:db` を作り、層×売上などを引けることを確かめる。
+
+**完了条件**: 2級土木の note 商品の正本が `content/products/note/` にあり、`check-products` が CI で通り、Windows と Mac で `npm run product` と `product:db` が同じ結果を出す。
+
+**段階2以降（別カードで起票する）**: 導線設定・カバー設定の生成への切り替え／商品設計の画面を SQLite から読む／1級・他資格・ココナラ・Kindle の取り込み／`note-magazines.ts` の読み手を JSON 直読みへ移して生成物をなくす。
+
 ### [DN-0490] 技術士・1級土木の副業と独立のガイドを 1 本書き、検索需要を 8 週で確かめる
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10..2026-12] [種類:制作] [起票:2026-10-01]
 
