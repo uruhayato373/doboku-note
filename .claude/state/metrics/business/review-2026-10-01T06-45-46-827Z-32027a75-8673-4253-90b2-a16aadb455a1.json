@@ -1,0 +1,32 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "monthly",
+  "period": {
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31"
+  },
+  "snapshot": ".claude/state/metrics/business/snapshot-2026-10-01T06-39-29-238Z-ab71ce88-62b1-4892-b49d-e7582978fd65.json",
+  "supersedes": ".claude/state/metrics/business/review-2026-09-20T09-59-53-862Z-f5958db2-443f-4c59-96f1-dbd167d638a4.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "status": "complete",
+  "findings": "受取額 74,218円（note控除後60,629・ココナラ7,800・KDP5,789）。note販売は10/1の取り直しで26件71,640円が表示と一致し確定（資格別 1級土木36,440・建設部門19,900・総監6,380・RCCM 0）。売上は二次検定前の1級土木に集中し季節どおり。サイトからの送客クリック221のうち商品へ解決67で、売上上位商品へのサイトクリックはほぼ0。点検で workflow 赤（cloudflare の解析トークン未設定）・過去問在庫 FAIL 2,112・資格の正本の要対応57件を確認し、開いていた Issue 8件を全件振り分けた。費用・作業時間・ココナラ暦月閲覧・IG・Cloudflare は欠測。",
+  "decision": "8月は目標（10/1適用の月10万円）の適用前なので達成判定をしない。資格別の配分と重点は変えない。点検と Issue の未処理は DN-0485（Cloudflare トークン）・DN-0486（資格の正本の照合）・DN-0487（過去問在庫）・DN-0488（#422 の移管）で持ち、レビューの手順に点検と Issue の全件振り分けを加えた。利益は費用・時間が揃うまで出さない。",
+  "nextAction": "10/2 の note 確定後に9月の売上を取得し、ココナラ9月の控除後額で受取額を記録して9月の月次レビューを行う。EXP-009・EXP-011 を判定する。時期の無い🟢10件を運営者に諮る。ココナラは運営者が auth:login で入り直す。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-010",
+    "EXP-011",
+    "EXP-012"
+  ],
+  "nextReviewDate": "2026-10-03",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-01T06:45:46.827Z",
+  "strategyHash": "b4b76b23797460822a4126aa507b23061e45a77874522d016db00f5fa7a0b3cb"
+}
