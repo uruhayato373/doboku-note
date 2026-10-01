@@ -758,6 +758,8 @@
 
 Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設定一本化の PR を取り込む、(2) `npm run disk-hygiene:install` と `npm run pre-commit:install`、(3) dotfiles の `bin/link.mjs --host mac` で `~/.claude/settings.json`（`cleanupPeriodDays: 7` 入り）と `~/.codex/config.toml` を張る、(4) `node scripts/setup-memory-link.mjs` で `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory` を repo へ向ける（既存の実ディレクトリは `memory.bak-*` に退避される）、(5) `claude mcp remove -s user github filesystem`、(6) DN-0231 の partial clone。
 
+**(4) は 2026-10-02 に実施済み**: Mac は (4) 未実施のまま別リポジトリ `doboku-note-memory` へ SessionStart/End フック（`~/.claude/hooks/sync-memory.sh`）で同期され、repo と 188 件 vs 143 件に分裂していた。統合して `.claude/memory` へリンクし、フックを `~/.claude/settings.json` から外した（スクリプトは `sync-memory.sh.retired-2026-10-02`、元ディレクトリは `memory.bak-*` に退避）。再発は `npm run check-memory`（SessionStart の `--session`）が検出する。残りは (1)(2)(3)(5)(6)。
+
 **完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
 
