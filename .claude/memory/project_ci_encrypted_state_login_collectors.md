@@ -1,11 +1,8 @@
 ---
-name: project-ci-encrypted-state-login-collectors
-description: "暗号化 storageState の hosted CI は coconala/a8/note(traffic) のみ成立（2026-09-21 実測）。google/instagram/kdp/afb/x は不可（セッション失効・ボット挑戦・再認証）。brain は撤退"
-metadata: 
-  node_type: memory
+name: project_ci_encrypted_state_login_collectors
+description: "暗号化 storageState の hosted CI は coconala/a8/note(traffic) のみ成立。google/instagram/kdp/afb/x は不可。IGはGraph API不使用。Obsidian日次記録の実体(obsidian repoのActions)を含む"
+metadata:
   type: project
-  originSessionId: 3d31dc7a-199e-4849-9e8c-9fa9c87e117b
-  modified: 2026-09-21T21:32:02.055Z
 ---
 
 2026-09-21 に 3 PR を起票（#548 API 経路・#549 encrypted-state 基盤・#550 書き込み。#550 は #549 に積む）。ユーザー決定: self-hosted runner ではなく暗号化 state を hosted CI へ、X は投稿も Playwright で頻度ゲート付き、書き込みも CI（承認は dispatch の plan hash / 承認済みキュー）。**Instagram は Meta の利用制限で Graph API トークンを発行できない**ため、照合（verify-ig-status）も予約投稿（publish-ig-bs）も Business Suite セッションの Playwright で CI 化（Graph API 系コードは dispatch 専用で待機）。
@@ -16,8 +13,12 @@ metadata:
 
 **Why:** 計測の欠落（sales/kdp/coconala/A8/GSC UI の freshness 赤）はローカル儀式依存が原因。ログインだけ人が残し、以後の定期取得と承認済み書き込みを機械に渡す。
 
-**How to apply:** 「CI で authenticated が 1 回出た」を成功と呼ばず、**CI 実行後に Mac 側 `auth:status` が authenticated のままか**まで確認する。Google/Meta/Amazon 系は hosted CI に載せない。Mac 側セッションが失効したら `npm run auth:login -- --service <svc>` で回復（google/instagram/kdp は 2026-09-21 に失効中）。書き込み（ops-write / scheduled-publish）は基盤のみで canary 未実施。手順は handoff 2026-09-21。関連 [[reference-ci-encrypted-state-gotchas]]
+**How to apply:** 「CI で authenticated が 1 回出た」を成功と呼ばず、**CI 実行後に Mac 側 `auth:status` が authenticated のままか**まで確認する。Google/Meta/Amazon 系は hosted CI に載せない。Mac 側セッションが失効したら `npm run auth:login -- --service <svc>` で回復（google/instagram/kdp は 2026-09-21 に失効中）。書き込み（ops-write / scheduled-publish）は基盤のみで canary 未実施。手順は handoff 2026-09-21。関連 [[reference_ci_encrypted_state_gotchas]]
 
 **2026-09-22 追記（証拠ベース再監査）**: cron は main に載ったが **event=schedule の実績は 0 件**、緑は全部 `workflow_dispatch`（canary）。「cron 稼働中」は誤り＝正しくは「cron 定義済み・初回 schedule 発火は未実証」。`check-workflow-health` は event を区別せず dispatch 成功が cron 停止を永久にマスクしていた（契約「手動成功による異常隠蔽」）→ PR #569 で `auditSchedule`（event=schedule のみで発火の有無/鮮度を判定）と workflow-health.json の schedule 契約を追加。3 サービスは freshness ゲート（a8-report-due/coconala-analytics/sales-freshness 月次照合 ¥71,640 一致）が緑で記録に接続済み。**stats47 は実 schedule で GSC/ココナラ/afb が pass**しており「google は hosted CI 不可」は未確定（disabled は維持）。段階 4（実 schedule 起動）・5（別日連続 2 回）は翌日以降観測＝handoff 2026-09-22。
 
 **2026-09-23 ユーザー決定: Instagram は Graph API を使わない**（Meta の制限が解けても戻さない）。`fetch-ig-insights` / `ig-graph-publish` は使わず、インサイトは欠測のまま扱う。照合・予約投稿は Playwright 経路のみ。
+
+## 統合: Obsidian 活動記録の実体（旧 obsidian_sync_routines・2026-08-05 実測）
+doboku-note の commit 進捗を Obsidian vault（`uruhayato373/obsidian`・private）へ日次記録する仕組みの**実体は obsidian リポジトリ側の GitHub Actions**（`github-activity-log.yml` 3時間おき＋日曜バックフィル、`weekly-progress.yml`）で、doboku-note 側には何も無いのが正常。認証は obsidian repo の `secrets.GH_PAT`、対象リポは `fetch.js` の `REPOS`（doboku-note・stats47）。旧 Claude Schedule routine 2本（`trig_015qRPqz…`・`trig_019xPxsZ…`）は消滅済み（404）＝「稼働中」と思って新規 routine を足さない。
+- **罠:** GitHub commits API は `sha` 無しだとデフォルトブランチ（main）だけ返す。日々の作業は develop に積むため昇格しない日の活動が静かに0件になる→`REPOS` を `{repo, branches:['main','develop']}` にしてブランチごとに取得しフル SHA で dedupe（obsidian repo `79415aa`）。「記録されていない」と言われたらまず cron 遅延とブランチの取りこぼしを疑う。動作確認 `gh api repos/uruhayato373/obsidian/contents/dairy/$(date +%F).md --jq .content | base64 -d`、手動発火 `gh workflow run github-activity-log.yml --repo uruhayato373/obsidian`。

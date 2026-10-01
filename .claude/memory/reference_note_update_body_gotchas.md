@@ -1,14 +1,10 @@
 ---
-name: note-update-body-gotchas
-description: note実機反映(note-update-body/note-append-cta)の非自明な挙動＝複数行blockquote脱落(lint rule9で予防)・本文画像は自動アップロード対応済(lib/note-images)・バンドル記事の公開設定ページ検出失敗・無料記事は実は通る・ABORTでも下書きは残る・URL見出し化レース(根治済:lib/note-cardify)
-metadata: 
-  node_type: memory
+name: reference_note_update_body_gotchas
+description: "note 公開済み記事のライブ反映（note-update-body / note-append-cta）の非自明な挙動。複数行blockquote脱落・画像自動アップロード・有料記事の[5e]偽陰性・会員記事の試し読みライン・price-sweep境界破壊・タグ確定・URL見出し化・OGPカード削除不可・doboku-note.comカード化失敗"
+metadata:
   type: reference
-  originSessionId: 17865b08-b9bc-4cac-afc3-9cbcda90e942
-  modified: 2026-07-23T05:01:26.396Z
 ---
-
-note 公開済み記事のライブ反映ツール（`scripts/note-update-body.mjs` 全文置換 / `scripts/note-append-cta.mjs` 末尾追記）の実測挙動（2026-07-13）。[[reference_note_card_edit_mode]] [[reference_note_ogp_card_no_delete]] [[reference_note_republish_drift]] と同系統。
+note 公開済み記事のライブ反映ツール（`scripts/note-update-body.mjs` 全文置換 / `scripts/note-append-cta.mjs` 末尾追記）の実測挙動（2026-07-13）。[[reference_note_update_body_gotchas]] [[reference_note_update_body_gotchas]] [[reference_note_status_reconciler]] と同系統。
 
 **8. `[5e] FAIL: 画像欠落(live=0)` は有料記事では系統的な偽陰性（2026-07-22 経験記述系73本再公開で実証）**
 - 有料記事の画像が**有料境界より下（有料領域）**にあると、`assertLiveBody` の公開API `/api/v3/notes/{id}` は**無料プレビュー部分しか返さない**ため `imgLive=0`→`[5e] FAIL` になるが、**実際は正常公開されている**。エディタ側で `[4.4] 確定=N/N`（CDN確定）まで通り `[5c] 更新する` が押せていれば公開は成功。
@@ -64,3 +60,38 @@ note 公開済み記事のライブ反映ツール（`scripts/note-update-body.m
 ## 2026-09-23 追記: 「CDN確定待ちタイムアウト」の一部は画像消失
 - 確定=2/3 等で毎回 1 枚足りない記事は、待ち時間(480〜720s)を伸ばしても通らなかった。タイムアウト時のエディタ内 img を出すと 3 枚挿入のはずが 1 枚しか無かった＝blob 待ちではなく挿入画像が消えている。**待ちを戻して単発で再実行したら 3/3 で通った**（3 本とも）。延長を重ねず単発再実行を先に試す。分類の改修は DN-0273。
 - 冒頭 CTA の部分更新（replaceTopCta/insertTopCta）は CTA 文を h2 にし、直後の見出しを「R」＋カード＋残りに割ることがある（DN-0272）。ライブ走査は「60字超の h2/h3」「1〜2字の段落の直後にカード」で拾える。
+
+---
+
+## OGPカード(figure atom)は自動削除不可
+
+note 編集画面（ProseMirror）の**OGP カード（figure・embedded-service の atom ノード）は自動削除できない**。2026-07-05、2級無料記事の「1級パック→2級バンク」カード差し替えで4方法すべて失敗:
+1. DOM `Range.setStartBefore/EndAfter` + `keyboard.press('Delete')` → atom 残存
+2. `document.execCommand('delete')` → atom 残存
+3. figure を `page.click()` で node-select → `Backspace` → 残存
+4. caret 設置→Shift+click で native 範囲選択→Backspace → **ProseMirror が evaluate 間に data 属性を strip** するため対象ノードを再取得できず失敗
+
+**帰結**: `note-append-cta` は**追加専用**として設計が正しい（[[project_note_write_automation]]）。既存カードの**差し替え（swap）は不可**。対応策:
+- **追加で上書き**: 新カードを append で足す（旧カードは残るが republish で自動消滅＝ソースに旧が無ければ）。live は2カード並ぶ
+- **手動 UI**: note 編集画面で旧カードを人手削除（1本1分）
+- **republish**: `publish-note --update` でソースから再構築（ソースが正なら旧カード消滅）
+
+**関連の罠**: CTA の「イントロ文」を live で type すると**H2 見出しとして描画される**ことがある（目次を汚す）。冒頭カードのイントロは無料域だが H2 化に注意。**記事タイプ 有料→無料 の切替**は 記事タイプ radio が「無料」表示でも API が `is_limited:true` を返す状態がある（published が stale・primary ボタンが「試し読みエリアを設定」＝有料概念）＝自動 toggle は状態が曖昧で危険、手動 UI 推奨。真実源運用は [[project_r8_yosou_full_matrix_2026_07]] / note-funnel-architecture 原則8/9。
+
+---
+
+## リンクカード化: doboku-note.com だけ失敗
+
+note のリンクカード(figure 埋め込み)化（2026-06-30 実機検証で確定）:
+
+- **note.com 内部URL** = 編集画面(`notes/<id>/edit`)でも type で figure +1。`note-append-cta` の CTA カードはこれ。**browser-use のカード成功もこれ**（note内部）。
+- **外部URL一般 = note はカード化する**。実証＝外部 `www.jctc.jp` を編集画面 type で figure +1。→ 「note は外部をカードにしない」「編集/typeでは不可」は**いずれも誤り**（一度そう断定したが撤回）。
+- **doboku-note.com だけカード化失敗**: type/実クリップボード Cmd+V/初見クエリ付きURL どれでも +0、全公開記事のライブ本文でも doboku-note の figure カードは **0個**。これは note の限界ではなく **doboku-note 固有の不具合**。
+
+**切り分け済み（原因ではない）**: クローラUA遮断❌（facebookexternalhit/Twitterbot 等 全ボットUAに 200+og:title+og:image）・og:image到達不可❌（R2 の ogp.png も 200/image/png/80KB、homepage の og-default.png も 200）・URLキャッシュ❌（note 初見のクエリ付きURLも +0）。
+
+**最有力仮説（未確定・要 Cloudflare 確認・断定しない）**: note のカードクローラ（データセンターIP）が doboku-note の **Cloudflare ボット保護（Bot Fight Mode / Super Bot Fight 等）に弾かれ OGP HTML を取得できない**。residential IP の curl は素通りで 200 が返るため気づきにくい。doboku-note は Cloudflare Pages、jctc は Apache（緩い）で挙動差と整合。[[measurement-incidents]] に過去の Cloudflare Bot 事故あり。
+
+**次の一手**: Cloudflare ダッシュボードで Bot 保護がソーシャルクローラ（note/facebookexternalhit/Twitterbot 等）をチャレンジしていないか確認→必要なら許可。**直れば全 doboku-note リンクが note でカード化＋X/Facebook の OGP カードも改善する高価値案件**。
+
+**ツール**: `npm run audit-note-cards`（read-only）。未カード単独URL段落を INT-fixable(note内部)/DN-blocked(doboku-note・Cloudflare疑い)/EXT-fixable(他外部) に分類。2026-06-30=80本中38本に未カード52件（doboku-note 47=DN-blocked / note内部 5=INT-fixable・ただし全て有料記事で paywall 安全フロー必須）。真実源 doc=`.claude/skills/social/publish-note/references/update-mode.md`。関連 [[project_note_revenue_strategy_2026]]。

@@ -1,10 +1,8 @@
 ---
-name: civil1-figure-answer-leak-remediation
-description: 過去問図の写り込み是正＋見切れ再抽出。**重要発見:見切れ図の「要ソース再取得」判定は誤り＝元PDFは大半が実在しフル再抽出可能**。並行workflow5本で計39図再抽出・台帳にsource_pdf/page記録。rescan-need-source 45→6(残は要外部/別原典)。QA教訓＝親の新旧比較目視必須(h29-b劣化版を検出除外)・BSD sed `\|`非対応・textbook図は原典翻案リスク
-metadata: 
-  node_type: memory
+name: project_civil1_figure_answer_leak
+description: "過去問図の写り込み是正＋見切れ再抽出。**重要発見:見切れ図の「要ソース再取得」判定は誤り＝元PDFは大半が実在しフル再抽出可能**。並行workflow5本で計39図再抽出・台帳にsource_pdf/page記録。rescan-need-source 45→6(残は要外部/別原典)。QA教訓＝親の新旧比較目視必須(h29-b劣化版を検出除外)・BSD sed `\\|`非対応・textbook図は原典翻案リスク"
+metadata:
   type: project
-  originSessionId: 8c5fb26b-8a0f-4830-9dd0-a5e0361619d1
 ---
 
 1級土木施工管理技士 primary（過去問1次）の図クロップ多数が、**解答解説資料由来**で図の上下に「したがって，(N)は適当である/でない」と**正答を明示する本文が写り込んでいる＝答え漏らし（image-policy 違反）**。ギャラリー品質問題の実体はこれだった（2026-07-07 発見）。

@@ -1,13 +1,9 @@
 ---
-name: reference-book-sources-drive-vault
-description: 書籍由来の文字起こしソースはpublic repoから外しGoogle Driveへ移設済み（2026-08-27）
-metadata: 
-  node_type: memory
+name: reference_book_sources_drive_vault
+description: "Google Drive vault。書籍文字起こしの移設先と構造・ストリーミングマウントの罠(stat 16MiB・アップロード中ECANCELED)・Drive MCP でバイナリ送信不可"
+metadata:
   type: reference
-  originSessionId: c2e81150-e33b-4758-b238-7a3044a182eb
-  modified: 2026-09-05T00:00:00.000Z
 ---
-
 `content/sources/textbook/**` の文字起こし本文（.md/.html/派生図版）は 2026-08-27 に public repo
 の git 追跡から外し、Google Drive の private vault へ移設した。理由: doboku-note repo は public で、
 書籍の文字起こしをそのまま追跡するのは著作権上のリスクだった。
@@ -40,3 +36,30 @@ doboku-note/
 - 各サブディレクトリの `README.md` だけは git 追跡を継続（案内用）
 - git 履歴には旧コミットの内容がまだ残っている（force-push は複数セッション並行環境で危険なため未実施）
 - 構造の SSOT は [[reference_civil_pdfs]] が併記する asset-storage-policy.md §1-1。土木奥義（基準類696本）は移動せず現位置
+
+---
+
+## アップロード中のマウント読みは ECANCELED
+
+2026-09-05、`drive-vault-sync --verify --deep --cloud`（マウント読み 11,898 件）と `--from-r2 --dedupe-by-sha`
+（既存 PDF 157 本のハッシュ化）が **どちらも `ECANCELED: operation canceled, read` で即死**した。
+原因は Drive クライアントの未送信バックログ（vault 17,984 件のうちクラウドには 8,061 件しか届いていなかった）。
+アップロード中はマウント経由の読みが不安定になる。
+
+**待ち方**: `rclone size doboku-gdrive:doboku-note --json` の `count` と、マウント側の
+`find <vault> -type f -not -name .DS_Store | wc -l` が一致するまで 5 分おきに見る（Monitor で 20〜30 分無変化は
+停滞として通知）。速度は 36〜150 件/分と大きく揺れ、1 万件で 1〜2 時間かかった。
+追いついた直後の照合は 20,078 件すべて 1 発で通った。
+
+**順序**: 読むだけの照合を先に、マウントへ書く同期を後に（書いた瞬間からまた送信が始まり読みが不安定になる）。
+rclone リモート `doboku-gdrive` は drive.readonly スコープなので代替アップロード経路には使えない。
+
+関連: [[project_asset_audience_routing]]
+
+---
+
+## Drive MCP でバイナリをアップロードできない
+
+Drive MCP `create_file` はバイナリに `base64Content` が要るが、filesystem MCP の読み出し上限が約 25K chars のため PNG 等（IG カルーセル 1080×1350 で 57〜152KB＝76K〜203K chars）は context に載せられず送れない。テキストは `textContent` 経由で可（caption.txt 等）。
+
+代替: ①ブラウザで drive.google.com へ手動ドラッグ＆ドロップ ②OAuth スクリプト（`C:\tmp\upload-to-drive.mjs`・gemini-cli の公開 installed-app 資格を流用・drive.file スコープ・REST マルチパート。**client_id/secret の値はリポジトリにも memory にも書かない**＝GitHub push protection が止める）③git 管理のまま Mac 側で使う。確立済み運用: PNG は git commit で保持、caption.txt のみ MCP で Drive へ。

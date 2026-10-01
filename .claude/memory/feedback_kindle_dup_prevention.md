@@ -1,10 +1,8 @@
 ---
-name: kindle-dup-prevention
-description: Kindle修正版アップは既存タイトルへ差し替え(新規作成禁止・ASIN不変)。提出後ASIN即catalog記録
-metadata: 
-  node_type: memory
+name: feedback_kindle_dup_prevention
+description: "Kindle修正版アップは既存タイトルへ差し替え(新規作成禁止・ASIN不変)。提出後ASIN即catalog記録"
+metadata:
   type: feedback
-  originSessionId: 21ecde11-c38e-4453-adeb-e7a2dccec3c3
 ---
 
 KDP出版は完全手作業（専用publishエージェント無し）。**修正版のアップロードは必ず「既存タイトルを開いて原稿ファイルだけ差し替え→再出版」でやる。新規作成は禁止**（ASINを変えない）。
@@ -18,4 +16,4 @@ KDP出版は完全手作業（専用publishエージェント無し）。**修�
 - 不要な重複下書きは KDP で削除（売上ゼロ＝完全削除可）
 - catalog SSOT の突合は KDP 本棚スクショを読んで asin/status を照合するのが確実
 
-関連 [[kindle-publishing-launch]]・[[note-paid-unpublish-blocked]]（有料公開済みは下書き戻し不可だが Kindle 下書きは削除可）
+関連 [[project_kindle_publishing_launch]]・[[feedback_platform_only_artifacts_destroyed_by_bulk_ops]]（有料公開済みは下書き戻し不可だが Kindle 下書きは削除可）

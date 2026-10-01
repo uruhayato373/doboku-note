@@ -1,10 +1,8 @@
 ---
-name: civil1-primary-answer-key-errors
-description: 1級土木 一次過去問(primary)に誤答肢理由欠落＋正答キー転記ミス＋設問/選択肢本文の別問題化けが系統的。**nifty-feynmanワークフローで16本を公式キー0不一致で確定し2026-07-11 develop/mainへ統合、残deferred=h28-a(19)/h29-a(1)/h29-b(4)＝要pre-H30原典・h28-a配列はOCR再検証**。ExamPointは全primaryに系統採用(≈8/本)＝「不使用」は誤り。原典はtouhokugiken/dobokujira公開PDF
-metadata: 
-  node_type: memory
+name: project_civil1_primary_answer_key_errors
+description: "1級土木 一次過去問(primary)の系統的バグ(誤答理由欠落・正答キー転記ミス・設問本文の別問題化け)と是正の現況。pre-H30は再構成バンク。H29原典のスキャン欠落と入手先を含む"
+metadata:
   type: project
-  originSessionId: 5ac6956d-ddc5-44e4-8230-2d6232990e37
 ---
 
 1級土木施工管理技士 一次過去問（`.local/r2/posts/civil-construction-1/primary-*`）に2種の系統的バグ。2026-07-10 の品質採点で検出し r04-a / r05-a を修正（PR/commit 152d69c6e系4本＋採点6113ae8b7）。
@@ -30,6 +28,11 @@ metadata:
 
 **per-record手法（確立・h27-a/h27-b完遂）**: (1)公式問題PDF取得（pre-H30=touhokugiken: `answer/h26/h26-1doboku-a.pdf`・`-b.pdf`、h27同、h28=`answer/h28/1doboku-a.pdf`・`-b.pdf`。**h29学科A/BはJCTC消滅・touhokgiken無し→kakomonn等別ソース要**）(2)`pdftotext -layout`→`【No.N】`＋`⑴⑵⑶⑷`抽出（`.tmp/civil-keys/extract-blocks.py`・`build-ref.py`で正答キー付きクリーン参照`official-clean/{rec}.txt`生成。フッタ雑音/図問題は崩れるので生PDFも要）(3)有害問題の特定=**check-contradict（`❌ but text says CORRECT`＝プレースホルダ＋強弁justificationを検出・No.14型の隠れ別問題も捕捉）＋diff-keys＋placeholder grep`**記述は`＋topic-diff**。自動topic/option類似度はノイズ大で不可(h28-b健全でも誤検出)＝**目視照合必須**(4)図問題は記事図が別物のことあり→**公式PDFページをpdftoppm→Readで確認しmagickでクロップ→webp差替**(h27-b No.3=記事図D19/3800が誤り→公式S1・S2 D16/3700に差替・opt2「頂版下面主鉄筋250mm」は実際8×300=300mmで誤り＝正答2)(5)不確実な図解釈/理由はfabricateせず**kakomonn(過去問ドットコム)等でWebFetch検証**(6)検証=diff-keys=0/check-marks/check-contradict/placeholder0/U+FFFD0/LF→1記事1commit。**進捗(2026-07-10当セッション): pre-H30 4記事完遂**=h27-a(7問・525d69ab4)/h27-b(6問・0278ba609)/h26-b(No.28/29スワップ・203ea3d0a)/h26-a(No.10/11別問題→公式置換・f31db1189)。h27-a No.18とh27-b No.3は公式PDFページをmagickクロップして図を新規作成/差替(記事図が別物だった)。**残2記事**: ①**h29-a/b**（No.38(a)/No.3・12・17・21(b)＋解説破損No.6/57(a)・No.3/28(b)。**JCTC消滅で公式問題PDF未入手→kakomonn(過去問ドットコム)等別ソースで各問の設問/正答を取得してから是正**。記事h29-a No.38は表示key4だが公式key3で相違＝要原典）②**h28-a**（~40/61問が別論点の最重症。公式PDFは`.tmp/civil-keys/h28a.txt`(=touhokugiken `answer/h28/1doboku-a.pdf`)取得済。全別論点スロットを公式問題へ全文置換する大規模作業＝専用セッション推奨。図問題は公式ページをpdftoppm→Read→magickクロップ）。**方法テンプレは上記(1)〜(6)がそのまま適用可**。公式PDFは`.tmp/civil-keys/`(gitignore・touhokgikenから再DL可)、監査ツール=`.claude/state/quality/civil-1-primary-tools/`。
 
-**統合後の現況（2026-07-11・複数セッション統合＋deploy）**: nifty-feynman ワークフローを develop/main へ統合＝**16本(h26-a/b・h27-a/b・h28-b・h30-a/b・r01-a/b・r02-a/b・r03-a/b・r06-a/b・r07-a/b)を公式キー0不一致で確定**（`diff-keys.mjs` で検証）。optimistic-mestorf の civil-2 r06-kouki も統合。**残 deferred 3本24件**=h28-a(19・要official配列OCR再検証＝19件突出はOCR誤りの疑い)/h29-a(1=No.38)/h29-b(4=No.3/12/17/21)＝pre-H30原典PDFが要DL・キー番号だけ書き換えると極性/本文化けと矛盾するので半端修正禁止。個数/組合せの✅/❌記号残り(r07-b No.32/24/35等)はprose整形follow-up（キーは公式一致済）。**訂正**: 「civil primary は ExamPoint/RelatedKeywords 不使用」は誤り＝ExamPointは全primaryファイルに系統採用(≈8/本・A/B全年度)ゆえ削除しない。監査ツール=`.claude/state/quality/civil-1-primary-tools/`、handoff は 2026-07-11 に _archive ごと削除（git 履歴から復元可）、残課題は backlog「civil-1 一次過去問 公式キー deferred 24件」（🟡）。真実源 [[quality-census]]。
+**統合後の現況（2026-07-11・複数セッション統合＋deploy）**: nifty-feynman ワークフローを develop/main へ統合＝**16本(h26-a/b・h27-a/b・h28-b・h30-a/b・r01-a/b・r02-a/b・r03-a/b・r06-a/b・r07-a/b)を公式キー0不一致で確定**（`diff-keys.mjs` で検証）。optimistic-mestorf の civil-2 r06-kouki も統合。**残 deferred 3本24件**=h28-a(19・要official配列OCR再検証＝19件突出はOCR誤りの疑い)/h29-a(1=No.38)/h29-b(4=No.3/12/17/21)＝pre-H30原典PDFが要DL・キー番号だけ書き換えると極性/本文化けと矛盾するので半端修正禁止。個数/組合せの✅/❌記号残り(r07-b No.32/24/35等)はprose整形follow-up（キーは公式一致済）。**訂正**: 「civil primary は ExamPoint/RelatedKeywords 不使用」は誤り＝ExamPointは全primaryファイルに系統採用(≈8/本・A/B全年度)ゆえ削除しない。監査ツール=`.claude/state/quality/civil-1-primary-tools/`、handoff は 2026-07-11 に _archive ごと削除（git 履歴から復元可）、残課題は backlog「civil-1 一次過去問 公式キー deferred 24件」（🟡）。真実源 [[reference_quality_audit_system]]。
 
 2026-09-12 追加（専門土木テキスト執筆中に QA/Writer が検出）: r04-a 問34（RCD の降雨中止 2 mm/h は誤り→1 mm/h）と r06-a 問39（選択肢 4「2 mm/h」を適当とする）が矛盾。どちらの転記が正しいか原典未確認のため、textbook-dam-construction は数値を書かず「有スランプより厳しい」と定性表現にした。修正済みの転記ミス: r03-a 問16 の「実際は 5 % が正しい」注記（10 % が正）・r07-a 問31 の水抜き孔の向き（前面へ下り）・r06-a 問48 の大型機械の留置 2 m（1 m が正）。
+
+## 統合: H29 原典コーパスのスキャン欠落（旧 civil1_h29_corpus_drift・2026-08-03）
+- 原典 `１級土木施工管理第１次試験問題集.pdf`（2021年版・H26〜R2）はリポジトリから削除済みだが git 履歴から復元可: `git show '175945884:_backup/１級土木施工管理第１次試験問題集.pdf' > out.pdf`（58MB・テキスト層なし）。**PDF index 270（＝平成29年度の開始）以降が landscape（5791x4144）に切り替わり、各ページの一部が欠落**（【問題 No.XX】の枠と解説冒頭が消え下部が真っ白）。R2/R元/H30 セクション（270未満）は portrait で完全。印刷ページ番号は連番なので欠落に見えない。PDF index = 印刷ページ + 1。
+- 結果 `primary-h29-a` は60問中26問で選択肢が原典と不一致（No.54 で発覚・欠落区間の問題文が創作された疑い）。H28/H27/H26（同じ landscape 区間）も同疑い（未検証）。
+- **代替入手先: dobokujira.com が年度別の公式問題冊子 PDF（テキスト層あり）を公開**（例 `https://dobokujira.com/wp-content/uploads/2021/05/h29_1dobokuA_gakka_doboku.pdf`・取得は `curl --ssl-no-revoke`）。突合はこちらが速く確実で、H29 の deferred（h29-a No.38・h29-b No.3/12/17/21）にも使える。「解説だけ読んで緑」にしない（[[feedback_gate_zero_coverage_false_pass]]）。

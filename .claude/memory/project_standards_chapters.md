@@ -1,11 +1,8 @@
 ---
-name: standards-chapters
-description: 公的基準を編・章構造の記事として公開する layer2（8文書344章）。canonical=近畿のみ索引。E2E はビルド成果物へ移行
-metadata: 
-  node_type: memory
+name: project_standards_chapters
+description: "公的基準(共通仕様書)を章記事化(8文書344章・canonical=近畿のみ索引)＋1ページ1画像+1テキストへ展開(5,949p・section+版面ページで一意)。E2Eはビルド成果物で回す"
+metadata:
   type: project
-  originSessionId: 1567f238-b104-48b9-8f7b-c4a47cb3604e
-  modified: 2026-08-30T07:32:25.730Z
 ---
 
 2026-08-30 完了・本番反映済み。`/standards/{agency}/{document}/chapters/{編-章}`。
@@ -63,4 +60,9 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 無く type-check で落ち、E2E 本体に一度も到達していなかった）。ci.yml と ogp-supply.yml には
 配線済みでこのワークフローだけ漏れていた。修正して CI で全ステップ緑を確認済み。
 
-関連: [[untrack-ondisk-vs-tracked]] / [[dn0111-repo-slimming]] / [[quality-audit-system]]
+関連: [[reference_quality_audit_system]] / [[project_asset_audience_routing]] / [[reference_quality_audit_system]]
+
+## 統合: 共通仕様書のページ画像化（旧 standards_page_images・2026-09-05）
+- 公的基準（国交省 土木工事共通仕様書）10文書＝9ユニーク・5,949ページを原本 PDF から1ページ=1画像+1テキストへ展開（章記事が `part-NN.md`（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えなかったため）。置き場 `content/sources/standards/{agencyId}/{documentId}/`（ID は standards-library の catalog.json と同体系）。`pages/p0001.jpg`（pdftoppm 270dpi・JPEG q85）と `text/p0001.txt`（pdftotext -layout を \f で分割）。**実体 3.4GB は Drive vault の原本 PDF と同名フォルダ（隣）**、Git には `manifest.json`（per-page sha256）と README のみ（[[project_asset_audience_routing]]）。`npm run build-standards-page-images`（`--manifest-only`）／`check-standards-page-images`（quality:audit 同梱）。
+- 罠: ①**原本の同定はファイル名でなく sha256** ②PDF の通しページと版面ページは一致せず、目次が 1-1..1-77 のあと本文が再び 1-1 から始まる→各ページに `section`（front=目次/body=本文）を持たせ**section+版面ページで一意**（北海道版は目次が無番号で全ページ body）③対象 PDF は全て born-digital（text/ は OCR でなく PDF 自身のテキスト層）。OCR が要るのはスキャン教材（`content/sources/textbook/`）側の別パイプライン。
+- 沖縄版は中国地方整備局版と原本 sha256 一致のため `sameAs: "chugoku/common"` の alias（画像重複生成なし）。companion 62文書（4,500p）は未着手（`--role all` で同じ仕組みが回る）。

@@ -1,13 +1,11 @@
 ---
-name: pe-construction-secondary
-description: "技術士第二次・建設部門の過去問アーカイブ + note商品化戦略（道路・河川・都市計画 3科目合格）"
-metadata: 
-  node_type: memory
+name: project_pe_construction_secondary
+description: "技術士第二次・建設部門: 過去問アーカイブ84p・note商品化戦略(BK-I/01〜11全12マガジン公開済)・入口記事32本・noteファネル・公開時の事故と語彙規約(建設部門)"
+metadata:
   type: project
-  originSessionId: 21d795fa-1ec9-4a51-a920-e8ffb6f4d045
 ---
 
-技術士「第二次試験」建設部門の過去問 **問題文アーカイブ** を新 vertical `pe-construction/` として新設（2026-06-05, develop ブランチ commit 71b46a161）。第一次の建設部門（[[related-keywords-prefix]] とは別系統の `pe-first-stage/rXX-construction`）とは別物。
+技術士「第二次試験」建設部門の過去問 **問題文アーカイブ** を新 vertical `pe-construction/` として新設（2026-06-05, develop ブランチ commit 71b46a161）。第一次の建設部門（[[feedback_sns_docs_url_flat_slug]] とは別系統の `pe-first-stage/rXX-construction`）とは別物。
 
 **構成:** 必須科目I + 選択科目11科目（土質基礎/鋼コン/都市計画/河川砂防海岸/港湾空港/電力土木/道路/鉄道/トンネル/施工計画/建設環境）× 令和元〜令和7年度 = 84ページ。各ページ slug = `pe-construction-{rNN}-{subject}`。記述式のため**問題文のみ**（模範解答は別途・先行アーカイブ）。
 
@@ -66,3 +64,18 @@ metadata:
 - Phase B-0（2026-07 試験後）: BK-I + BK-01 先行2商品から順に投稿 → 実売確認
 
 **How to apply:** 建設部門関連のnote商品や模範解答生成を検討するとき、まず `docs/note/技術士建設部門/noteコンテンツ計画.md` を参照。合格3科目の「合格者訴求」と残8科目の「発注者監修訴求」を混同しない（信頼毀損リスク）。価格は段階構造（BK-I ¥2,480 / 標準 ¥3,480 / 道路 ¥3,980 / 科目パック ¥4,980〜）で `noteコンテンツ計画.md` が SSOT。旧「全商品¥1,980均一」は失効。
+
+## 統合: 現況（2026-06-17〜07-05 時点・旧 bk_magazines_ready / entry_articles / note_funnel）
+- **BK-I＋BK-01〜11 全12マガジンは公開完了**（note-magazines.ts で全 published:true＋noteUrl・magazine-placement 配線済み）。合格科目外8科目（BK-04〜11・120記事）は writer→外部一次情報 factcheck→QA で全 pass（合格科目外のハルシネーション〔テールボイド定義/Jブルークレジット/水技vs電技/環境大臣意見条文 等〕を出典付きで是正）。**残:** BK-I R03/04/06/07 は note 公開済みのため I-1/I-2 両収録への本体差替（note 側実施は未確証）／BK-09/10 の R08-yosou PDF（pdf-spec 追記済み・Windows で生成→`note-attach-pdf`）。価格 SSOT `noteコンテンツ計画.md`（単品¥500→¥780 値上げ済み・ラダーは [[project_note_revenue_strategy_2026]]）。
+- 戦略的背景: 総監が売れて建設部門が売れなかった真因は「動線不足」でなく**検索の入口コンテンツ皆無**→トップオブファネル入口記事32本（サイト16本＝`pe-construction/<slug>/` 全 published・note 無料16本＝2026-07-05 全公開済み）。差別化軸は発注者視点（元自治体土木職・道路/河川/都市計画で合格）。Tier S=必須I 6テーマ・A=勉強法/難易度/業務経歴票/勉強時間・B=必須I解答例/書き分け/答案構成・C=道路/河川海岸/都市計画。
+- note 導線: L2「建設部門もくじ」`n7279ca0d926f`。**B系統6本（「〜の論点キーワード」）はA系統（「〜の論点」答案メソッド型）と内容重複のため意図的に hold**（将来マージ候補）。無料記事は冒頭ハードCTAでなく本文後半「さらに深く学ぶには」節→科目マガジン＋必須I マガジン、末尾 `cta:pe-construction-mokuji`→もくじ（冒頭 pack-top は付けない）。
+- 残: develop→main deploy／tag-dictionary allowlist 外タグ（LOW・非ブロッキング）／相互リンク強化（任意）。
+
+## 統合: 公開時の事故と注意（旧 bk_magazines・2026-06 履歴）
+正典＝noteコンテンツ計画.md・note-magazines.ts・note-api-verification.md・content-channels ルール。過去問の区分別 `article-*.md` と予想のテーマ別記事が混在し、`article.md` だけの走査は選択科目を落とす。字数制限・合格科目・BK番号・価格は複製しない。
+- 公開/マガジン作成が成功しても URL/key 取得だけ失敗することがある→再作成前に実在照合して既存 ID を回収（URL 未記録を未公開と扱わない）。新規マガジンの収録確認が一時的に0件でも欠落と決めつけず照合してから再実行。カバーは記事 eyecatch と別（cover が非 null でも `default_magazine_header` なら既定画像のまま）。「印刷用PDF付き」の本文とライブ添付は別（添付後は有料境界とカード実在を確認・本文更新による添付消失に注意）。PDF 添付は 2026-06-16 に100件で停止した（現在の上限は未確認）。同じ note 認証プロファイルへの書込バッチは直列。
+- 著者の経験・合格科目を創作しない。外部 factcheck が実施できなければ未確認と残す。字数は各答案を実測。必須IのA/B案は設問(2)の最重要課題選択で分岐し、(1)課題と(4)倫理は共有可・各案が単独で読めること・個別字数判定が要点。テーマ別 PDF の見出しアンカー「予想問題」「フル模範解答」は現行原稿と spec の一致を確認。
+- 旧履歴の未確認事項（現在も未完とは断定せず正典・原稿・ライブと突合して残る実作業のみ backlog へ）: BK-07 PDF 残8本／BK-01 道路の noteUrl 未記録と予想の公開・収録・添付・BK-I の価格ドリフト／bare `pe-construction-required` と `pe-construction-required-magazine` の旧重複疑い／道路予想の外部 factcheck／II-1/II-2 のテーマ別分割・防災施工テーマ拡張・電力土木/鉄道予想追加。
+
+## 統合: 語彙規約（旧 pe_construction_expansion・2026-04-15）
+`exam/pe-construction/` の語彙は技術士法の公式部門名に合わせ「**建設部門**」で統一（keyword-rewriter.md に明記）。事実・統計文脈の「建設業」・法定用語（建設業法・特定元方事業者等）・物理的な「建設現場」はそのまま。civil-construction-1 は対象外（建設業法の法定用語が頻出）。

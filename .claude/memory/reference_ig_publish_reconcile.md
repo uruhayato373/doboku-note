@@ -1,12 +1,9 @@
 ---
-name: reference-ig-publish-reconcile
-description: IG公開状態の照合＋未公開予約の継続運用スキル一式（verify-ig-status / ig-reconcile / ig-publish-auditor）と実ハンドル・プランナー読取の罠
-metadata: 
-  node_type: memory
+name: reference_ig_publish_reconcile
+description: "IG公開状態の照合＋未公開予約の継続運用スキル一式（verify-ig-status / ig-reconcile / ig-publish-auditor）と実ハンドル・プランナー読取の罠"
+metadata:
   type: reference
-  originSessionId: ffdcbfc9-a4ad-4cf0-9af2-f7f9d83d62a7
 ---
-
 IG 投稿の「公開済みか照合（現状確認）」と「未公開の予約投稿」を反復運用する仕組みを 2026-06-25 に新設（commit cc621fc23、develop）。手作業でやって手こずった経緯の仕組み化。真実源 → `docs/reference/ig-publish-reconcile.md`。
 
 **構成（verify-note-status の reconciler パターンに倣う）:**
@@ -29,4 +26,4 @@ IG 投稿の「公開済みか照合（現状確認）」と「未公開の予�
 
 **publish-ig-bs は symlink した .local の worktree から実行すると失敗する（重要）**: 2026-06-25、verify-ig-status(headless・実パス) はセッション有効なのに、publish-ig-bs を symlink された `.local` の worktree（doboku-note-ig）から実行すると「ログインが必要」で 300s ハング。原因＝**Chrome が --user-data-dir の symlink パスを実パスと別プロファイル扱い**しログイン状態を拾えない。**解決＝実体 `.local` のあるメイン worktree から実行**（朝の予約が動いたのもメインからだった）。ブラウザ操作は symlink worktree で回さない（commit は symlink worktree でも可＝node_modules symlink だけで足りる）。スタックした browser は `pkill -f playwright-ig-bs-profile` で掃除。
 
-関連: [[reference_note_status_reconciler]]・[[feedback_agent_bash]]・[[feedback_parallel_agent_commit_sweep]]。
+関連: [[reference_note_status_reconciler]]・[[feedback_workflow_orchestration_gotchas]]・[[feedback_multi_session_concurrent_git]]。

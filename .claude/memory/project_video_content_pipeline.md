@@ -1,11 +1,8 @@
 ---
 name: project_video_content_pipeline
-description: DN-0110 動画パック基盤。Phase0-3完了・企画33本・pilot4本qa_passed。残=mp4生成(Mac/VOICEVOX+ffmpeg)とユーザー承認
-metadata: 
-  node_type: memory
+description: "YouTube通常動画を核とする動画パック基盤(DN-0110 Phase0-3完了・企画33本・pilot4本qa_passed、残=mp4生成と承認)。総監YouTube戦略SSOT・Shorts台本品質キャンペーン(完了)を含む"
+metadata:
   type: project
-  originSessionId: 37edd7d1-b4e2-42e0-a481-7e143b8d32ab
-  modified: 2026-08-28T10:57:05.688Z
 ---
 
 YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110）。2026-08-28 に Phase 0〜3 まで実装完了、develop へ push 済み。
@@ -27,3 +24,9 @@ YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110�
 **引き継ぎの注意**: mp4/wav は Git に置かない契約なので、別PCで作った動画は pull しても来ない（公開はレンダリングした側か R2 経由）。状態 `.claude/state/video-content-status.json` は Git 管理なので公開後の更新は commit が要る。
 
 関連: [[feedback_metrics_cicd_supplied]] / [[feedback_gate_zero_coverage_false_pass]] / [[project_admin_app_consolidation]]
+
+## 統合: 総監 YouTube 戦略 SSOT（旧 cem_youtube_strategy_ssot・2026-06-12）
+`docs/project/03_SNS/05_YouTube戦略_技術士総監.md` v1。二層構造＝Tier1 Shorts（稼働中・台帳 `.claude/state/youtube-schedule.json`）／Tier2 通常動画16:9（5ピラー P1択一演習/P2キーワード/P3聞き流し/P4記述式思考系＝note 送客主力/P5体験キャリア）。ポジショニング＝総監特化×合格者×発注者視点×顔出しなしTTS。登録者数は主KPIにしない（送客器評価）。Phase A 残: 16:9テンプレ実装（slide-render.mjs）・競合「技術士 総監 約3〜10分チャンネル」実態調査・台帳 meta.total ドリフト是正・試験日の内部/外部不一致の解消（engineer.or.jp で照合し§6補正）。
+
+## 統合: Shorts 台本品質キャンペーン（旧 yt_shorts_quality_campaign）
+総監キーワード Shorts 139本の storyboard 台本品質改善は完走（2026-05-21・真実源 `.claude/state/sns/quality-campaign-progress.json`）で再開不要。戦略 v7 以降 YT は IG Reels 派生（`ig-reel-create`→`yt-shorts-create --from-reels`）。mp4 化は ffmpeg+VOICEVOX 環境が前提。

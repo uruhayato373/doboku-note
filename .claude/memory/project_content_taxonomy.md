@@ -1,6 +1,6 @@
 ---
-name: content-taxonomy
-description: コンテンツ分類（領域×資格×記事型×テーマ×タグ）の SSOT を 2026-09-11 に文書化・機械化。タグは日本語正規・英語 slug は別名・構造タグは group と矛盾させない。exams: 廃止
+name: project_content_taxonomy
+description: "コンテンツ分類（領域×資格×記事型×テーマ×タグ）の SSOT を 2026-09-11 に文書化・機械化。タグは日本語正規・英語 slug は別名・構造タグは group と矛盾させない。exams: 廃止"
 metadata:
   type: project
 ---

@@ -1,11 +1,9 @@
 ---
-name: mac-disk-reclaim
-description: この Mac の容量はどこに溜まるか。2026-08-30 と 09-10 の実測内訳。09-10 に doboku-note 側を機械化した（check-disk-hygiene＋日次 launchd）
+name: reference_mac_disk_reclaim
+description: "容量・速度の罠。Mac の容量が溜まる場所と掃除手順(check-disk-hygiene)・会社PCローカルビルドはファイル数律速（EDR）"
 metadata:
-  node_type: memory
   type: reference
 ---
-
 2026-09-10 に**機械化した**（→ `.claude/knowledge/reference/disk-hygiene.md`）。`npm run check-disk-hygiene` が
 状態を出し、launchd `com.doboku-note.disk-hygiene` が日次 04:17 に再生成可能なものだけ消す。
 掃除が止まったこと自体も stamp の鮮度で検知する。**手で消す前にまず `npm run check-disk-hygiene`**。
@@ -49,8 +47,35 @@ verify が FAIL のグループは消さない（実際 note-delivery-pdf は 58
 `npm exec`・常駐の Sparkle ヘルパを稼働中と読んで、3 つのガードが掃除を恒久的に止めていた。
 pid で `ps` のフルコマンドと `lsof -a -d cwd` を突き合わせ「そのパスで動いているか」を見る。
 
-**溜まり続けるものは生成元を止める**（[[accumulation-find-the-producer]]）。cover SVG は
+**溜まり続けるものは生成元を止める**（[[feedback_verify_your_excuses]]）。cover SVG は
 generate-note-covers が `--emit-svg` のときだけ `.tmp/` へ出す形に既に直っていて、827 件は
 修正前の残骸だった＝消せば戻らない。逆に直っていなければ消しても翌週には戻る。
 
-関連: [[untrack-ondisk-vs-tracked]] / [[dn0111-repo-slimming]] / [[note-lint-quotepath-bypass]]
+関連: [[reference_quality_audit_system]] / [[project_asset_audience_routing]] / [[feedback_note_lint_quotepath_bypass]]
+
+---
+
+## ローカルビルドはCPUでなくファイル数で決まる（会社PC・Windows）
+
+会社 PC のローカルビルドは **CPU ではなくファイル数**で時間が決まる。`Trend Micro Apex One`（企業EDR）＋ Windows Defender が全ファイル操作を実時間スキャンするため、NVMe SSD にもかかわらず **1 ファイルあたり書込 ~20ms・削除 ~45ms**（本来 1ms 未満）。実測ベンチ（300 小ファイル）:
+
+| 場所 | 書込 | 削除 |
+|---|---|---|
+| リポジトリ内 | 8.7s | 13.4s |
+| `C:/tmp` | 7.1s | 2.1s |
+
+リポジトリ内の削除だけ 6 倍遅いのは **`next dev`（ポート3020）の watcher** が監視しているため。ビルド前に止めると速くなる。
+
+**2026-07-30 の実例**: ビルドが 32.5 分かかっていた。Next.js の自己申告（コンパイル 19.9s＋静的生成 62s）は実時間の 8% にすぎず、残りは全部ファイル I/O だった。原因は `public/pagefind/` に **20 段の再帰的な入れ子**（`pagefind/pagefind/pagefind/…`）が育ち **92,803 個のゴミ**が滞留していたこと。Next は `public/` を毎ビルド `out/` へ全コピーするので `out/` が 108,408 ファイルに膨張し、`rm -rf out` だけで 11 分・`next build` が 18 分になっていた。掃除後は **8.0 分**（`out/` 15,605 ファイル）。
+
+**Why:** ファイル数がそのまま時間に比例する環境なので、生成物の滞留が「なんとなく遅い」として何週間も見逃される。Next.js の自己申告時間を見ていると原因に辿り着けない（実時間の 1 割未満しか説明しない）。
+
+**How to apply:**
+- ビルドが遅いと感じたら、まず **`find out -type f | wc -l` と `find public -type f | wc -l`**。ページ数 ~1,100 に対し `out/` は 15,000 程度が正常。数万なら生成物の滞留を疑う。
+- フェーズ別の実測は `rm -rf out` / `refresh-indexes` / `next build` / `pagefind` / `sitemap` / `rss` を個別に時間計測する（Next の自己申告は当てにしない）。
+- 大量ファイルの削除は Git Bash の `rm -rf` より **PowerShell `Remove-Item -Recurse -Force`** が速い（`rm -rf` は「Directory not empty」で失敗することもある）。
+- `public/` は毎ビルド `out/` へ全コピーされる。生成物を置かない。`public/pagefind/` は dev のローカル検索用に `fragment/` `index/` ＋ ランタイム 12 点（計 ~950）だけが正しい姿。
+- **CI（Linux ランナー）はこの問題と無関係**。`public/pagefind/` は gitignore 済みでコミットされていないため、Cloudflare デプロイのビルド時間は元から正常だった。これはローカル固有の問題。
+- `git log --all --name-only` は `.git` 13GB に対し 21.5 秒。3 プロセスから呼ばれていたのを `git rev-parse --all` の sha256 をキーにディスクキャッシュ化済み（`.claude/scripts/lib/git-dates.mjs`・ヒット時 ~700ms）。
+
+関連: [[feedback_metrics_cicd_supplied]] / [[reference_shared_worktree_autostash_hazard]]

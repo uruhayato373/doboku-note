@@ -1,12 +1,9 @@
 ---
-name: 1-2-pdf
-description: 1級・2級土木の過去問・問題集・テキストPDFの保管場所とファイル構成（docs/textbook配下に移動済み）
-metadata: 
-  node_type: memory
+name: reference_civil_pdfs
+description: "1級・2級土木の過去問・問題集・テキストPDFの保管場所とファイル構成（docs/textbook配下に移動済み）"
+metadata:
   type: reference
-  originSessionId: 61563a2e-d1bb-4fc0-85cc-f183f0879880
 ---
-
 ## 保管場所（2026-06-20 更新）
 
 **`docs/textbook/{資格}/` 配下に集約済み**。旧 `.claude/pdfs/１級土木施工管理技士/` は撤去（現在 `.claude/pdfs/` は `guide.pdf` のみ）。**`.claude/pdfs/` だけ見て「PDF が無い」と早合点しないこと**（2026-06-20、2級図クロップで誤って「ブロック」と判断しかけた）。
@@ -24,4 +21,4 @@ metadata:
 ## 用途
 - MDX コンテンツの図抽出元。手順: `pdftoppm -png -r 200 -f P -l P` でページ画像化 → `magick … -crop WxH+X+Y +repage -fuzz 8% -trim +repage` で図を切り出し → `npm run generate-webp`（quality 80・既存はスキップ=sweep無し）→ `<ArticleImage src="/posts/{cat}/{slug}/img/qN-fig.webp" alt="…" width height />` を「下図」参照行の直後に挿入。
 - コンテンツ照合（`/verify-content`, `/qa-pdf-mdx`）の原本。
-- 図クロップは [[subagent-figure-extraction]] / `civil-exam-figure-extractor` も参照。
+- 図クロップは [[feedback_exam_pdf_cross_reference]] / `civil-exam-figure-extractor` も参照。

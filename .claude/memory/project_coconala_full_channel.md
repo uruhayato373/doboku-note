@@ -1,10 +1,8 @@
 ---
 name: project_coconala_full_channel
-description: ココナラ現況(2026-09-23: 出品20件・季節商品でRCCM/技術士口頭/主任技士へ拡張・PDFは note×1.1 の価格ルール)とPlaywright全自動化の要点。判断の正典は 09 §D7
-metadata: 
-  node_type: memory
+description: "ココナラ(dobokunote)の現況(2026-09-23: 出品20件・PDFはnote×1.1価格)・Playwright全自動化の要点・価格はしご・長期不在プロトコル・市場実測(技術士は見送り)"
+metadata:
   type: project
-  originSessionId: a1c62d15-dacd-41eb-a645-76e5bdac863b
 ---
 
 ココナラ（アカウント dobokunote・profile users/6197366）。
@@ -39,4 +37,12 @@ metadata:
 
 **C系コンテンツPDFの鉄則**: note記事を再利用する際 `strip-note-funnel.mjs` で note URL・CTA・商品誘導文を機械除去→`build-coconala-content-pdf.mjs`が`pdftotext`で **note.com/URL 0件を検証**（外部誘導禁止＝アカウント防衛）。**KDP安全**＝二次経験記述はKindle Selectロック無し・一次過去問PDFはSelect独占中で対象外。代筆はしない（Red Line #2）。
 
-残: 2級版C3/C4は売れ行き次第で横展開（backlog・spec既存）。deploy（/links反映）はユーザー判断。関連 [[reference_note_pdf_product_publish]]・[[feedback_gemini_cost_confirm]]（商品画像はGemini API＝.env.local GEMINI_API_KEY）。
+残: 2級版C3/C4は売れ行き次第で横展開（backlog・spec既存）。deploy（/links反映）はユーザー判断。関連 [[reference_note_publish_price_field]]・[[feedback_no_confirmation]]（商品画像はGemini API＝.env.local GEMINI_API_KEY）。
+
+## 統合: 第3チャネルの判断と運用知見（旧 coconala_tensaku_channel・2026-07-16〜08-06）
+- 2026-07-16 オーナー決定「まずできることをすべて展開して感触を掴む」。**主戦場は合格ラボ（会員）、ココナラは価格アンカー兼感触計測。**実測 `.claude/state/coconala/market-research.json`（`npm run coconala-research`・1,073件）: 土木の添削中央値¥6,500（第2集団¥5,000〜7,000）、首位ちゃんさと技師がレビュー寡占（本人も元公務員土木＝「元公務員」は差別化にならない）、診断セグメントは競合1件で空白。**技術士（126件）は展開見送り＝データが当初仮説を否定**（添削中央値¥3,000・総監は出品8件/実売2件で市場ほぼ無し・売れ筋はサイトが無料公開している内容）。価格是正 S2 ¥8,000→¥6,000。
+- 管理: 運用 SSOT `.claude/knowledge/reference/coconala-operations.md`、カタログ `src/lib/coconala-services.ts`（`status:'listed'`+serviceUrl で /links 導線が自動発火）、`coconala-operator`・`/coconala-order`・`/coconala-status`、ガード `check-coconala-wiring`（pre-commit）・`check-coconala-orders`、売上は `coconala:<serviceId>` 接頭辞、添削工数削減 `/keiken-tensaku`（目標10分/本）。**UI 自動操作の線引き: 出品/修正/価格反映/棚の出し入れ/受注・DM 収集は自動化、トークルームの返信送信だけ運営者。外部誘導禁止**（ココナラ文面に note/サイト URL を書かない・導線は /links→ココナラの一方向）。
+- **はしご再構成（2026-08-05）**: 初受注（C8 模試¥2,500）の直後に購入者が「出題分析とは全く違うのか」と DM→C系単品は外から買い分けできない設計欠陥が露呈。級ごとに模試→模範答案セット（¥5,000/¥4,000）→教材フルパック（¥10,000/¥7,000）＋最上位 C12 プレミアム ¥15,000（教材18冊＋添削2テーマ・週1枠）へ。**価格の天井は実測 ¥10,000**（物量では超えられず、労働を足して初めて上の帯）。廃止5件は archived（片道・解除導線なし）。価格刻みは ¥10,000以下=500円・超=1,000円（端数入力不可）。見積りは相手ユーザー宛（DM からのみ・添付5個上限）。同一顧客が翌々日に見積りで上位購入し計¥10,000＝はしごが機能（記録スキーマに `quote` を追加し価格一致検査を差し替え）。ココナラは同一取引に2つの販売日を出す→突合キーの一覧側（入金日）に合わせる。
+- **長期不在プロトコル**: 購入から48時間以内に連絡しないと自動キャンセルされ PDF も手作業送付→無人で売れる商品は無く、**不在中は全件受付休止が既定**（休暇モードは無い）。`paused` は `pauseReason`（`retired`＝恒久廃止/`absence`＝一時休止）で必ず区別（無いと一括復帰で廃止商品が復活）。復帰 `npm run coconala-pause -- --resume --absence --commit`、**`--all-listed` は使わない**。戻し忘れは `check-coconala-wiring` が `resumeOn` 超過で警告（`scripts/lib/coconala-guards.mjs`・tests 25件）。
+- 計測の教訓: 受注の実体は機械で採る（`npm run coconala-orders`、購入者名・本文は保存しない）／受注一覧だけでは購入前 DM を落とす→DM 一覧も採る（開かない＝既読にしない）／納品予定日の登録だけで「未返信」が false に反転するが48h 期限バナーは残る→`unreplied` で期限判定しない／出品一覧は1ページ10件でページ送り。スクレイパー教訓: 長時間 I/O は逐次永続化、数字を含むテキストに `replace(/\s/g,'')` は禁物、networkidle でなくセレクタ待ち、検証は構造（class）で照合。
+- 未了のユーザー操作（backlog 🔴 起票済み）: 初添削の `tensakuMinutes` 実測→週枠再判断。

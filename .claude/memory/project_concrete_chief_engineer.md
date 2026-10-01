@@ -1,10 +1,8 @@
 ---
-name: project-concrete-chief-engineer
-description: コンクリート主任技師 第4資格vertical。19記事全公開済。2026-07-10にユーザー再スキャン(スキャンした書類14-18.pdf)からライブrescan 17図を完結(14図sharp化差替+3図は書籍抜粋非収録)・main deploy済
-metadata: 
-  node_type: memory
+name: project_concrete_chief_engineer
+description: "コンクリート主任技師 第4資格vertical。19記事全公開済。2026-07-10にユーザー再スキャン(スキャンした書類14-18.pdf)からライブrescan 17図を完結(14図sharp化差替+3図は書籍抜粋非収録)・main deploy済"
+metadata:
   type: project
-  originSessionId: 1257b70d-c2d5-4a35-9568-2d2b6b6734b0
 ---
 
 コンクリート主任技師（日本コンクリート工学会 JCI）を doboku-note の第4資格として追加開始（2026-05-29）。slug=`concrete-chief-engineer`、variant=civil、order=2.5。対象は**主任技師のみ**（技士は将来）。

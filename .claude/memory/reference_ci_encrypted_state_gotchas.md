@@ -1,13 +1,9 @@
 ---
-name: reference-ci-encrypted-state-gotchas
-description: encrypted-state CI 化で踏んだ罠 — rclone の不在キー exit 0 / worktree で npm install すると symlink が実体化 / import 時の profile 解決が CI オフライン検査を落とす / redact が公開鍵を伏せる / zsh の env $VAR / Business Suite の marker は asset_id
-metadata: 
-  node_type: memory
+name: reference_ci_encrypted_state_gotchas
+description: "encrypted-state CI 化で踏んだ罠 — rclone の不在キー exit 0 / worktree で npm install すると symlink が実体化 / import 時の profile 解決が CI オフライン検査を落とす / redact が公開鍵を伏せる / zsh の env $VAR / Business Suite の marker は asset_id"
+metadata:
   type: reference
-  originSessionId: 3d31dc7a-199e-4849-9e8c-9fa9c87e117b
-  modified: 2026-09-21T02:40:40.419Z
 ---
-
 2026-09-21（PR #549/#550）の実測。
 
 - **rclone `cat` / `lsjson` は存在しないキーでも exit 0**（空出力 / `[]`）。S3 互換に見せるアダプタ（`scripts/lib/rclone-s3-adapter.mjs`）は `[]` を NoSuchKey/NotFound に写像しないと `JSON.parse('')` で「Unexpected end of JSON input」になる。CAS（IfMatch）は rclone に無い

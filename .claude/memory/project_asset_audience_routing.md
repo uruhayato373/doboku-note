@@ -1,11 +1,8 @@
 ---
-name: asset-audience-routing
-description: アセット置き場は「誰が使うか」で決める（site→public R2 / ci→private R2 / human→Google Drive vault）。2026-09-05 制定・同日 DN-0169 で移行完了（R2 の人 tier は全撤去）
-metadata: 
-  node_type: memory
+name: project_asset_audience_routing
+description: "アセット置き場は「誰が使うか」で決める(site→public R2/ci→private R2/human→Drive vault)。リポジトリ軽量化(履歴単一commit化・tracked 415MB)・partial clone運用・OGP CI供給を含む"
+metadata:
   type: project
-  originSessionId: 47ac84ba-587e-4670-85ad-86238b6c526a
-  modified: 2026-09-05T09:55:56.391Z
 ---
 
 2026-09-05、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ
@@ -33,9 +30,16 @@ metadata:
 
 嵌まりどころ: Drive の `stat` は cloud-only で 16MiB プレースホルダ（読んで測る）／マウントへ書けた≠クラウドへ上がった
 （rclone md5 で照合）／**Drive クライアントがアップロード中はマウント読みが ECANCELED で落ちる**→ `rclone size` の
-クラウド件数がローカル件数に追いつくまで待つ（[[reference_drive_mount_upload_backlog]]）／`delete-r2-objects
+クラウド件数がローカル件数に追いつくまで待つ（[[reference_book_sources_drive_vault]]）／`delete-r2-objects
 --from-manifest-group` の保全判定は R2 台帳自身では循環するので Drive 台帳の同 sha256 だけを認める（動画レンダー
 1,724 件を未同期のまま消せた穴・同日修正）／pre-commit hook を変えたら `npm run pre-commit:install` しないと
 「導入済みフックが古い」で commit が黙って止まる／自動モードの分類器は R2 削除をサブエージェント経由でも止める
 （ユーザーがモードを切り替えて解除）。
-関連: [[standards-page-images]] [[reference_book_sources_drive_vault]]
+関連: [[project_standards_chapters]] [[reference_book_sources_drive_vault]]
+
+## 統合: リポジトリ軽量化の経緯と恒久ルール（旧 dn0111_repo_slimming / disk_cleanup_textbook_r2_2026_07）
+恒久ルールは `asset-storage-policy.md` に抽出済み。ここは「なぜそうなったか」と罠。
+- 結果（DN-0111・2026-08）: HEAD 4.15→1.14GiB、履歴 11GB→959MB（**単一 commit へ切り詰め**）、さらに git tracked size 1,163→415.4MB（ogp.png 1,166件等を R2 退避）。note カバー SVG は読むコードが無い中間生成物なので保存しない。切り詰め前の履歴は `git bundle --all` を private R2（`archive/git-history/…bundle` 2.59GB）に保全（sha256 照合・6,577 commit 確認済み、台帳 `git-history-bundle`）。GitHub 報告容量は 11.2→0.93GB（古い PR ref は size に計上されない）。書換え作業には `git clone --bare`（`--mirror` は refs/pull/* まで取る）・1 push 2GiB 制限。`.git` は partial clone 化（過去コンテンツの blame/log -p/旧 checkout は origin から lazy-fetch＝要ネット）。
+- **退避すると壊れるもの**: ディスク件数を数える検査は手元だけ緑・CI だけ赤（[[reference_quality_audit_system]]）／約束したのに実体が無いゲートは全件違反／期待値をディスクから作る検査は0件検査の緑／内容ハッシュ方式は全件ドリフト／外部書き込み（note/IG）は実体無しで進むと事故→`ensureLocal()` で fail-closed。manifest に width/height を退避時実測で持たせ、検査は「ローカル実体または台帳の記録」を見る。「ローカルに在る分だけ検査する」形にしない。cover PNG は byte 再現できない（sharp ^0.35.0・827件で9件不一致）ので再生成任せにせず R2 保管。記事日付の真実源は frontmatter。`check-plan-staleness`/`check-backlog-health` は commit 総数で「判定不能」を出す。
+- OGP は CI 供給（`.github/workflows/ogp-supply.yml`）: develop push（`content/site/**/*.mdx`）で不足/陳腐化を検出→生成→R2→manifest。鮮度は manifest の `srcHash`（`sha256({title,ogp.title,ogp.subtitle,template/category/tags}).slice(0,16)`・40文字未満で findSecretsの long-hex 検知回避）。`npm ci` が pre-commit フックを入れるため workflow 内で `doc-meta-index.json` を明示生成するステップが必須。asset-reentry 検知ゲート DN-0156（退避済ファイルの `git add -f` 再追跡を止める）。DN-0157（srcHash が frontmatter.title を追うが実描画は ogp.title 優先＝非効率・本番影響なし）は起票済み。
+- 教材 PDF（`docs/textbook/**/*.pdf` 295本1.6G）は 2026-07-20 に private R2 `doboku-note-archive` の `textbook/` へ退避（手順 `docs/reference/textbook-pdf-archive.md`、rclone remote `doboku-r2`）。その後 audience ルールで Drive vault へ移行済み。`.git` 縮小の in-place partial-clone swap は 2026-07-20 に 10.17GiB→21M（作業ツリー不動・global history rewrite 不使用）。node_modules 不在時は `npm install --legacy-peer-deps`（[[npm-ci-broken-use-legacy-peer-deps]]）。差替えで消えた autostash の画像最適化20ファイルは `~/doboku-note-autostash-backup-2026-07-20.patch`（要否はユーザー判断）。

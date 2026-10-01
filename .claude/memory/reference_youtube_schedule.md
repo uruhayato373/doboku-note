@@ -1,12 +1,9 @@
 ---
-name: youtube-schedule-verify
-description: YouTube予約投稿は実装+認証済。upload.js --schedule で private+publishAt。ログ「unlisted」は表示バグ→videos.listで実査
-metadata: 
-  node_type: memory
+name: reference_youtube_schedule
+description: "YouTube予約投稿は実装+認証済。upload.js --schedule で private+publishAt。ログ「unlisted」は表示バグ→videos.listで実査"
+metadata:
   type: reference
-  originSessionId: 3a8bcc77-c146-4004-8058-7abcadaea60a
 ---
-
 YouTube Data API 予約投稿はこの事業に**実装済み・認証済み**。
 
 - 認証: `.env.local` に `YOUTUBE_CLIENT_ID/SECRET/REFRESH_TOKEN` 3点設定済（scope `youtube.upload`、再認証不要）。`oauth-setup.js` で再取得。client は `…d7j.apps.googleusercontent.com`、GCP project `doboku-note-492906`。

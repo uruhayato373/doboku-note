@@ -1,10 +1,8 @@
 ---
-name: mlit-theme-articles
-description: 国土交通白書R7 × テーマ別トレードオフ × 過去問適用 8記事プロジェクト。合格体験ポジション(v3戦略)の中核資産として2026-07総監2次筆記に向け6週間で展開。
-metadata: 
-  node_type: memory
+name: project_mlit_theme_articles
+description: "国土交通白書R7 × テーマ別トレードオフ × 過去問適用 8記事プロジェクト。合格体験ポジション(v3戦略)の中核資産として2026-07総監2次筆記に向け6週間で展開。"
+metadata:
   type: project
-  originSessionId: 7ebcf81b-fa2f-42b1-916a-2b9fb6fd766c
 ---
 
 # 白書テーマ記事群プロジェクト
@@ -73,15 +71,15 @@ NotebookLM で得た「白書数字 → 5管理間トレードオフ → 解決�
 公開できるのは doboku-note だけ。E-E-A-T の "E"（Experience）の真打ち。
 
 **How to apply**: テーマ記事の本文を充実させる時は、AI 代筆ではなく受験者本人の
-思考プロセスを反映する。MDX 編集前に [[no-new-keyword-pages]] [[hub-strengthening-approach]]
+思考プロセスを反映する。MDX 編集前に [[feedback_no_pe_construction_application]] [[feedback_hub_strengthening_approach]]
 も併せて参照。
 
 ## 関連プロジェクト
 
-- [[project_pillar_architecture]] — PE 5 ピラー hub-spoke 完備、本プロジェクトの構造設計の参考元
+- [[project_gsc_pivot_2026_04]] — PE 5 ピラー hub-spoke 完備、本プロジェクトの構造設計の参考元
 - [[project_essay_pattern_analysis]] — essay-analysis（R07-R04）の思考パターン6型を
   各テーマ記事の「論文4ステップ適用例」で活用
 - [[project_note_a1_rewrite]] — note A-1 「テーマ駆動5管理横串」リライト済み、
   本プロジェクトの note 有料導線先（P-04 / A-1+ / A-2）
-- [[feedback_pe_essay_template_axis]] — 「○○管理軸」固定ではなくテーマ × 5管理 ×
+- [[feedback_essay_char_limit]] — 「○○管理軸」固定ではなくテーマ × 5管理 ×
   専門部門の 3D 構造で設計、本プロジェクトの設計方針の真実源

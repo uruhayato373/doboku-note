@@ -1,10 +1,8 @@
 ---
-name: note-revenue-strategy-2026
-description: 総監×建設部門 note収益化戦略 再設計（価格ラダー・統合リリースカレンダー・LP訴求コピー）2026-06-11 Fable 5 実施
-metadata: 
-  node_type: memory
+name: project_note_revenue_strategy_2026
+description: "note収益化戦略(2026-06価格ラダー・リリースカレンダー)。競合分析(sosou_nino・chansato)と競合パイプライン、精読ガイドのスコープ/価格表記ルールを含む"
+metadata:
   type: project
-  originSessionId: 6483175c-8a6e-4cd1-8414-f38e57c1bd5d
 ---
 
 2026-06-11、Fable 5 を使い技術士総監と建設部門 note 商品の収益化戦略を再設計。成果物は両 noteコンテンツ計画.md に直接書き込み済み（commit 6d86aa556）。
@@ -60,3 +58,14 @@ metadata:
 
 - 総監: 記述式コアパック ¥5,480 / 全記事パック ¥9,800 / R8予想問題集 ¥3,480
 - 建設部門: BK-I ¥2,480 / 科目パック ¥4,980 / BK-01 道路 ¥3,980
+
+## 統合: 競合分析（旧 note_competitive_analysis_2026 / note_competitor_intel_pipeline）
+- 最大競合は sosou_nino（総監メンバーシップ¥9,900/月・約63マガジン・フォロワー約3,740）。価格は現行維持（安売り競争に入らない）。差別化は「発注者視点＋合格体験＋迷わせない導線」（3分で1冊が決まる診断ハブ＝17ペルソナ診断ハブ）。真実源 `docs/strategy/09_販売チャネル競合分析.md`（実価格の真実源は note-magazines.ts）。
+- 競合機械調査パイプライン（2026-07-20）: `npm run scout-note-competitors`（公開API・時系列 `.claude/state/note/history/competitors-YYYY-MM-DD.json`・drift 検出）→`competitor-analyst`（audit-only・09反映パッチを出すだけで09は直接書かない）→`/competitor-review --platform`（親が承認後 Edit）。ハンドル SSOT `.claude/config/note-competitors.json`、他チャネル `.claude/config/{ch}-competitors.json`。稼働は note と coconala（`scout-coconala-competitors.mjs`）。X（凍結リスクで監督必須）・IG は未実装。Brain は 2026-09-26 撤退。四半期90日の期限 surfacer `check-competitor-scan-due`（weekly-review が surface）。有料本文は paywall で取得不可＝タイトル/価格/スキ数/投稿日まで。coconala 知見: profile の出品カードは推薦カルーセルと同一 DOM（他社混入）→販売実績のみ clean、価格は market-research.json 由来。ちゃんさと技師＝note 低価格入口/coconala 高単価本体の2ch階段。白地=学科記述/模試/年度別/2級専業。
+
+## 統合: 精読ガイドのスコープと価格表記（旧 paid_note_scope / paid_note_pricing）
+- 総監テキスト精読ガイド（5管理×記事＋マガジン）のスコープは「キーワードの頻出順体系解説・択一の頻出論点/引っかけ・サイトへの直リンク」。記述式の論述指南（論文骨子・答案構成）は別商品（論文骨子テンプレート A-1）なので販売文言で匂わせない（「論点整理・出題のされ方・優先順位」レベルまで）。
+- 価格を書くときは必ず真実源（`note掲載文.txt`／各 article.md frontmatter `price:`／note-magazines.ts／noteコンテンツ計画.md）を Read してから。記憶・推測で書かない（2026-05-12 に「19%OFF/¥3,980」等の誤数値9記事を修正した前例）。
+
+## 統合: 売れ筋3軸パック展開（旧 pack_lineup は別ファイル）
+→ [[project_pack_lineup_2026_09]] を参照。

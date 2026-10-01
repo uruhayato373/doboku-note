@@ -1,12 +1,9 @@
 ---
-name: affiliate-status-mail-vs-playwright
-description: アフィリ提携状況の確認は mail(Gmail)と Playwright(/affiliate-status)で二経路。各罠と使い分け
-metadata: 
-  node_type: memory
+name: reference_affiliate_status_mail_vs_playwright
+description: "アフィリ提携確認(mail/Playwright二経路)と Gmail MCP の制約。Gmail は MCP のみ・接続先は1アカウント・0件=見えていないだけ"
+metadata:
   type: reference
-  originSessionId: dfc55d86-c73c-4601-af9e-ea828e791fda
 ---
-
 アフィリ提携状況は **Gmail MCP（メール）** と **`/affiliate-status`（Playwright 実機）** の二経路で確認できる。役割と罠:
 
 **Gmail 経路（イベントログ・速報）**
@@ -18,7 +15,7 @@ metadata:
 **Playwright 経路（現在状態スナップショット・サイト帰属 assert 込み）**
 - `npm run affiliate:status`（read-only、`--write` でカタログ反映、`--asp a8|moshimo|afb`）。
 - **3 ASP とも実行はローカル＋ログインは人間**（`openAsp` は未ログイン時 最大10分ブラウザで待つ→ハング）。afb は毎回ログイン、もしも/afb のプロファイルは未保存のことが多い。
-- **セッション切れ時の false-none 事故（2026-08-03 実測）**: A8 保存セッション（7/20）が失効し `re-authentication?messageType=login_required` にリダイレクト。スクリプトはログイン待ちタイムアウト後に**未認証ページを読んで一覧0件→ approved 4件を「実機 none」と誤検出**した。SiteAttributionError は口座IDが取れると通ってしまうので防げない。**取得失敗時に `--write` するとカタログの approved→none を壊す**（read-only 既定に救われた）。→ 実機値を書くのは**ログインして一覧が正しく取れたときだけ**。0件/極端に少ない緑は故障を疑う（[[verify-your-excuses]] と同型）。
+- **セッション切れ時の false-none 事故（2026-08-03 実測）**: A8 保存セッション（7/20）が失効し `re-authentication?messageType=login_required` にリダイレクト。スクリプトはログイン待ちタイムアウト後に**未認証ページを読んで一覧0件→ approved 4件を「実機 none」と誤検出**した。SiteAttributionError は口座IDが取れると通ってしまうので防げない。**取得失敗時に `--write` するとカタログの approved→none を壊す**（read-only 既定に救われた）。→ 実機値を書くのは**ログインして一覧が正しく取れたときだけ**。0件/極端に少ない緑は故障を疑う（[[feedback_verify_your_excuses]] と同型）。
 
 **Playwright MCP で手動照合する時の実務（2026-08-03 実施・全ASP zero-drift 確認）**
 - ログインは各 ASP で人間（別ブラウザなので毎回要る）。ログイン後は agent が読み取れる。
@@ -27,3 +24,32 @@ metadata:
 - afb: 既定 SID `959426`=stats47。**doboku-note SID `984453` へ切替必須**（切替前 stats47 提携37件／切替後 doboku-note は2件だけ＝取り違えると35件誤認）。切替は Chosen（`#top_site_select_chzn`）を実クリック→ doboku-note 項目クリックで**ラベルは変わるが自動 submit されない**（native `select[name=partner_site_id]` に onchange 無し）。**`select.form.submit()` で POST 送信して初めて本文 SID が 984453 に変わる**（リロード〜1分待つ）。判定は本文の `【SID】` と `【PID:N】`。→ 既存 `switchChosenSite` に form.submit フォールバックを足すと堅牢。
 
 使い分け: メール=「いつ何が承認/否認されたか」、Playwright=「今どのサイトで何が提携中か」の確定値。SSOT → `.claude/knowledge/reference/affiliate-operations.md`。
+
+---
+
+## Gmail は MCP コネクタでのみ読める
+
+**Gmail を Playwright で開くことはできない。** ログイン済み永続プロファイル（`.local/playwright-note-profile`）で
+`mail.google.com` を開いても Google の自動化検知で `title=ブロックされました。` が返り、本文は1通も取れない
+（2026-08-17 実測）。プロファイルを足しても解決しない。
+
+**読む経路は Gmail MCP コネクタだけ**（`search_threads` / `get_thread`。ツール名は `mcp__<id>__*` で
+セッションごとに ID が変わるので ToolSearch で引く）。`in:anywhere` + `includeTrash` で迷惑メール・ゴミ箱も入る。
+
+**最大の罠＝接続先は `uruhayato373 の Gmail` の1アカウントのみ。**
+プラットフォームの運用通知は別アドレスに届くことがあり、その場合 MCP では**原理的に**見えない:
+
+- ココナラの取引通知・評価依頼・**運営からの出品取り下げ通知** → `dobokunotecom の Gmail`（出品アカウント登録先）
+  のみ。2026-08-12 の 4テーマ版 取り下げは Gmail 全期間・迷惑メール含めて 0 件で、実体はココナラの**メッセージ**にあった
+
+したがって **MCP の 0 件を「メールが来ていない」と報告しない**（[[feedback_gate_zero_coverage_false_pass]] のメール版）。
+宛先アカウントを先に確かめ、重要通知は**サービス側の実体**（ココナラのメッセージ、
+`npm run coconala-orders`）で確認する。
+
+**公開ツールの範囲**（2026-08-17 実測・Claude Code セッション）: 読み取り（`search_threads`/`get_thread`/
+`get_message`）・ラベル（`create_label`/`label_thread`）・下書き/返信系は使える。**`create_filter` /
+`list_filters` は claude.ai のコネクタ画面には載っているがセッションに公開されていない**（`select:` 指定でも
+解決しない）＝**フィルタ作成は人が Gmail UI でやる**。
+
+リポジトリ側 SSOT: `.claude/knowledge/reference/playwright-auth-profiles.md`「Gmail は Playwright の対象外」、
+`coconala-operations.md` §3-1。
