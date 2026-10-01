@@ -10,7 +10,7 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。 2026-09-21 CI 実測: traffic・添付 live 検査（615 本・67 分）・会員限定検査は成立。note-sales-fetch は購入者一覧のパスワード再確認で ABORT（hosted CI 不可・ローカル儀式に残す）。Mac セッションは CI 利用後も健在。",
+      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。 2026-09-21 CI 実測: traffic・添付 live 検査（615 本・67 分）・会員限定検査は成立。note-sales-fetch は購入者一覧のパスワード再確認で ABORT していたが、2026-10-01 から Secrets の ID/PW で note-reauth が 1 回通す。Mac セッションは CI 利用後も健在。",
       "ci": {
         "mode": "encrypted-state",
         "enabled": true,

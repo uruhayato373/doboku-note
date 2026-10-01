@@ -13,9 +13,11 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * （`sales-summary` は入っている分を正しく足すので緑のまま）。取得と検算を自動化する。
  * 詳細 → .claude/knowledge/reference/sales-tracking.md「取得と検算」
  *
- * **認証は人が通す**（パスワード再確認画面が出たら ABORT して手動ログインを促す。
- * パスワード入力はエージェントの禁止行為）。認証後の Cookie は永続プロファイルに残るため、
- * 一度通せば以後のバッチ実行では再確認は出ない（2026-08-17 実測）。
+ * **パスワード再確認は資格情報で 1 回だけ通す**（scripts/lib/note-reauth.mjs。手元は Mac キーチェーン／
+ * Windows 資格情報マネージャーの doboku-note-auth-note、CI は Secrets DOBOKU_AUTH_NOTE_USER/_PASSWORD）。
+ * 未登録・失敗印あり・通らないときは ABORT して人へ引き継ぐ（--no-auto-reauth で常に人が通す）。
+ * エージェントはこの自動入力を走らせない（パスワード入力はエージェントの禁止行為。実行はオーナー・スケジューラ・CI）。
+ * 認証後の Cookie は永続プロファイルに残るため、一度通せば以後のバッチ実行では再確認は出ない（2026-08-17 実測）。
  *
  * **検算に通らなければ 1 バイトも書かない**: 明細合計と「売上管理」の月次表示額が一致するまで
  * exit 2。一致したら、その月は追記ではなく差し替える（部分手入力への追記は重複を生む）。
@@ -38,7 +40,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  *   メンバーシップ会費は価格が「1,480円 / 月」・接頭辞「メンバーシップ・」が別要素になることがある。
  *   カタログの単品記事（noteUrl が /n/）は `article:<id>`・type=article で書く（sales-tracking.md）。
  *   selector が見つからなければ ABORT して人へ引き継ぐ（fail-closed）。
- *   売上ページはパスワード再確認が要る領域。出たら人が headed ブラウザで通す（Cookie は永続プロファイルに残る）。
+ *   売上ページはパスワード再確認が要る領域。出たら資格情報で 1 回だけ通し、通らなければ人が headed ブラウザで通す。
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
@@ -47,6 +49,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -57,6 +60,7 @@ const NAME = 'note-sales-fetch';
 const argv = process.argv.slice(2);
 const getArg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const NO_AUTO_REAUTH = argv.includes('--no-auto-reauth');
 
 const now = new Date();
 const MONTH_ARG = getArg('--month') || `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
@@ -116,9 +120,16 @@ try {
   await page.goto('https://note.com/sitesettings/purchasers', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(2000);
 
-  if (/password|パスワード/i.test(await page.evaluate(() => document.body.innerText || ''))) {
-    console.error('ABORT: パスワード再確認画面が出ている。認証は人が通す必要がある');
-    console.error('  ブラウザ上でパスワードを入力してから、このスクリプトを再実行すること（Cookie は永続プロファイルに残る）');
+  // パスワード再確認は資格情報で 1 回だけ通す（--no-auto-reauth で従来どおり人が通す）
+  const reauth = NO_AUTO_REAUTH ? { status: 'disabled' } : await passNoteReauth(page, { markPath: noteReauthMarkPath({ cwd: ROOT, repoRoot: ROOT }) });
+  if (reauth.status === 'ok') {
+    console.log('[1b] パスワード再確認を資格情報で通した');
+    await page.goto('https://note.com/sitesettings/purchasers', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await sleep(2000);
+  }
+  if (await isNoteReauthPage(page)) {
+    console.error(`ABORT: パスワード再確認画面が出ている（${describeReauthResult(reauth)}）`);
+    console.error('  人が通すなら、ブラウザ上でパスワードを入力してから再実行する（Cookie は永続プロファイルに残る）');
     await ctx.close();
     process.exit(3);
   }

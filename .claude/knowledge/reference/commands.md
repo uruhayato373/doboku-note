@@ -121,8 +121,8 @@ npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポート�
 npm run kindle-preview -- --id <id[,id]>   # EPUB を 600×800 のページ画像に描画→.tmp/kindle-preview/<id>/（--status ready で一括）。管理画面 /content/kindle/<id> で表紙と並べて目視確認。Kindle 実機の描画とは近似。EPUB を作り直したら再生成（画面が「EPUB が更新されています」と出す）
 npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdoboku-note LIVE全冊（対象月末までに出版した本）のcatalog紐付けを検査（共有口座の他サイト書籍は除外。16日以降=前月確定、28日以降=当月推計。quality:auditのops区分が日次通知）
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→.claude/state/metrics/note/{referrers,articles-pv}-YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
-npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
-npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は人）、KDP は kdp-royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
+npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）。パスワード再確認は資格情報 `doboku-note-auth-note`（CI は Secrets）で 1 回だけ自動で通す。`--no-auto-reauth` で人が通す。失敗印 `metadata/note.reauth-failed` は確認後に人が消す
+npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は資格情報 `doboku-note-auth-note` で 1 回だけ自動・通らなければ人）、KDP は kdp-royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run audit-sns-landing-cta # SNS原稿・X予約のリンク先（転職・practice除く）に note 導線が冒頭側にあるか（ソース静的判定・quality:audit に同梱・DN-0364）
 npm run check-sales-freshness # sales-log.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）

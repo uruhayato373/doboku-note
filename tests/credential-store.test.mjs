@@ -2,11 +2,13 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { Buffer } from 'node:buffer';
 import {
+  ciEnvVarNames,
   credentialStoreSupported,
   hasSecret,
   parseWindowsCredOutput,
   readFirstCredential,
   readSecret,
+  readServiceCredential,
 } from '../scripts/lib/credential-store.mjs';
 import { AUTO_LOGIN, classifyLoginOutcome } from '../scripts/lib/auth-session-refresh.mjs';
 
@@ -49,6 +51,21 @@ test('候補を優先順に読み、最初に取れた項目名を source に入
   };
   assert.equal(readFirstCredential(['first', 'second'], { platform: 'win32', exec }).source, 'second');
   assert.equal(readFirstCredential(['first'], { platform: 'win32', exec }), null);
+});
+
+test('readServiceCredential: CI は許可 service だけ環境変数、手元は doboku-note-auth-<service>', () => {
+  const env = { GITHUB_ACTIONS: 'true', DOBOKU_AUTH_NOTE_USER: 'u', DOBOKU_AUTH_NOTE_PASSWORD: 'p', DOBOKU_AUTH_COCONALA_USER: 'u', DOBOKU_AUTH_COCONALA_PASSWORD: 'p' };
+  assert.deepEqual(readServiceCredential('note', { env }), { user: 'u', password: 'p', source: 'env:DOBOKU_AUTH_NOTE_PASSWORD' });
+  assert.equal(readServiceCredential('coconala', { env }), null);
+  assert.equal(readServiceCredential('note', { env: { GITHUB_ACTIONS: 'true', DOBOKU_AUTH_NOTE_USER: 'u' } }), null);
+  assert.deepEqual(ciEnvVarNames('note'), { user: 'DOBOKU_AUTH_NOTE_USER', password: 'DOBOKU_AUTH_NOTE_PASSWORD' });
+
+  const exec = (_c, _a, opts) => {
+    if (opts.env.DOBOKU_CRED_TARGET === 'doboku-note-auth-note') return b64({ user: 'local', password: 'x' });
+    throw new Error('exit 3');
+  };
+  // 手元では環境変数があっても読まない（資格情報ストアだけ）
+  assert.equal(readServiceCredential('note', { env: { DOBOKU_AUTH_NOTE_USER: 'u', DOBOKU_AUTH_NOTE_PASSWORD: 'p' }, platform: 'win32', exec }).user, 'local');
 });
 
 test('note・ココナラのログイン後判定', () => {

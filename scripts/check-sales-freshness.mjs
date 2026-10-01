@@ -150,7 +150,7 @@ if (isMain) {
   if (r.status === 'FAIL') {
     console.error(`${TAG} ✗ FAIL: ${r.reason}`);
     // 実在しない npm script を案内しない（2026-08-20 修正）。取得は npm run note-sales-fetch
-    // （DN-0018・2026-08-25 実装。認証は人が通す必要があり、検算が一致しなければ書き込まない）。
+    // （DN-0018・2026-08-25 実装。パスワード再確認は資格情報で自動・通らなければ人。検算が一致しなければ書き込まない）。
     console.error('  npm run note-sales-fetch -- --month YYYY-MM --commit で当月を取り直す（検算OKまで書き込まない）');
     console.error('  取得が使えない場合は note ダッシュボードから手作業で取り直し、/record-sales で転記する');
     console.error('  手順と検算の規約 → .claude/knowledge/reference/sales-tracking.md「取得と検算」');
