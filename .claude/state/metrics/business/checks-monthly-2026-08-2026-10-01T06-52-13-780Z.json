@@ -1,0 +1,134 @@
+{
+  "cadence": "monthly",
+  "runKey": "2026-08",
+  "ranAt": "2026-10-01T06:52:13.780Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 2 本が不健全",
+      "seconds": 31
+    },
+    {
+      "command": "check-business-direction",
+      "label": "事業方針の設定と履歴",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[business-direction] PASS: 4資格 / 22指標 / 74履歴。計測 16/80（対象外 30）",
+      "seconds": 2
+    },
+    {
+      "command": "check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 138 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 6
+    },
+    {
+      "command": "check-exam-calendar",
+      "label": "試験日程の整合",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-exam-calendar] OK: 2026-09-26確認済み — 資格 14 件 / 日付 70 件を実照合・未発表の期間 16 件を検査、949 ファイルを走査（禁止パターン 8 種）",
+      "seconds": 5
+    },
+    {
+      "command": "check-past-exam-inventory",
+      "label": "過去問の年度在庫",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-past-exam-inventory] FAIL 2112 件（WARN 0 件）",
+      "seconds": 2
+    }
+  ],
+  "issues": [
+    {
+      "number": 478,
+      "title": "[auto] workflow-health: 重要 workflow が赤いまま/動いていません",
+      "createdAt": "2026-08-31T08:38:00Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 571,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-09-22T01:08:28Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 636,
+      "title": "[auto] cloudflare-metrics: Cloudflare zone analytics 取得失敗（rc=1）",
+      "createdAt": "2026-09-24T23:16:16Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 695,
+      "title": "[auto] growth-triage: 計測ダイジェストが週次レビューで処分・反映されていません",
+      "createdAt": "2026-09-28T08:41:31Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 709,
+      "title": "[auto] cloudflare-config: Cloudflare zone config 取得失敗",
+      "createdAt": "2026-09-29T01:16:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 746,
+      "title": "[auto] auth-state-coconala: login collector coconala: expired / rc=0",
+      "createdAt": "2026-09-30T00:42:12Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 29,
+      "severity": "medium",
+      "package": "uuid",
+      "summary": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+      "createdAt": "2026-08-12T11:56:48Z"
+    },
+    {
+      "number": 79,
+      "severity": "low",
+      "package": "tmp",
+      "summary": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
+      "createdAt": "2026-09-27T11:13:51Z"
+    },
+    {
+      "number": 80,
+      "severity": "high",
+      "package": "tmp",
+      "summary": "tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape",
+      "createdAt": "2026-09-27T11:13:52Z"
+    },
+    {
+      "number": 81,
+      "severity": "high",
+      "package": "extract-zip",
+      "summary": "extract-zip unvalidated symlink path traversal",
+      "createdAt": "2026-09-27T11:13:52Z"
+    },
+    {
+      "number": 82,
+      "severity": "high",
+      "package": "extract-zip",
+      "summary": "extract-zip allows arbitrary file writes through symlink archive entries",
+      "createdAt": "2026-09-27T11:13:52Z"
+    }
+  ]
+}
