@@ -1,6 +1,6 @@
 import { PageHead } from '@/components/ui';
 import { Stack } from '@/components/layout';
-import { Checklist, Current, DueLine, History, Inputs, Outcome, ReviewUnavailable, loadReview } from '../review-parts';
+import { Checklist, Current, DueLine, History, Outcome, ReviewUnavailable, loadReview } from '../review-parts';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,11 +14,10 @@ export default function WeeklyReviewPage() {
         <PageHead title="週次レビュー" />
         <DueLine c={d.cadence} />
       </div>
-      {d.procedure && <Current run={d.runs[0]} procedure={d.procedure} due={d.cadence?.due} />}
+      {d.runs.length > 0 && <Current run={d.runs[0]} due={d.cadence?.due} />}
       {d.procedure && <Checklist procedure={d.procedure} />}
-      <History runs={d.runs} weekly />
+      <History runs={d.runs} />
       {d.cadence && <Outcome c={d.cadence} gate={d.gate} />}
-      {d.cadence && <Inputs c={d.cadence} />}
     </Stack>
   );
 }

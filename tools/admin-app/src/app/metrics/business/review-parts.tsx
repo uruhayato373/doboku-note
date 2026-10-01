@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { PageHead } from '@/components/ui';
 import { Grid, Section, Stack } from '@/components/layout';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
@@ -12,12 +11,8 @@ import { buildProcedureView, buildReviewView, buildRunHistory } from '../../../.
 import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
 
 /**
- * 戦略 ＞ レビューの共通部品。週次（/metrics/business/weekly）と月次（/metrics/business/monthly）のページが使う。
- * 「何をしているか（手順）」と「正しく実施できたか（証拠と履歴）」を管理する。
- * - 手順の正本は .claude/config/review-wiring.json の procedure、判定は scripts/lib/review-wiring.mjs（buildProcedureView・buildRunHistory）
- * - 実施履歴はレビュー記録（.claude/state/metrics/business/review-*.json）とレポート（docs/reviews/{weekly,monthly}/。
- *   保持方針で削除された古い回は git 履歴）を回ごとに突き合わせる
- * - 判断・出力・バックログの関門・見る材料は従来どおり。KPI の値はトップ（/）
+ * 戦略 ＞ レビュー（週次・月次）の共通部品。画面には人が目で確かめる・決めることだけを出す
+ * （手順の正本は review-wiring.json、判定は scripts/lib/review-wiring.mjs。根拠の細目はマウスで出す）。
  */
 type Input = { command: string; label: string };
 type Stage = { stage: string; judge: Input[]; check: Input[] };
@@ -57,10 +52,10 @@ export type Gate = {
 };
 
 const STEP: Record<StepState, { label: string; variant: 'success' | 'warning' | 'destructive' | 'outline' }> = {
-  ok: { label: '証拠あり', variant: 'success' },
+  ok: { label: '済', variant: 'success' },
   partial: { label: '一部', variant: 'warning' },
-  missing: { label: '証拠なし', variant: 'destructive' },
-  manual: { label: '記録が残らない', variant: 'outline' },
+  missing: { label: '未', variant: 'destructive' },
+  manual: { label: '—', variant: 'outline' },
 };
 const VERDICT: Record<Run['verdict'], { label: string; variant: 'success' | 'warning' | 'destructive' }> = {
   ok: { label: '実施できた', variant: 'success' },
@@ -69,60 +64,43 @@ const VERDICT: Record<Run['verdict'], { label: string; variant: 'success' | 'war
 };
 export const md = (d: string) => d.slice(5).replace('-', '/');
 
-export function Stat({ label, value, sub }: { label: string; value: React.ReactNode; sub?: React.ReactNode }) {
+function Stat({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <Card className="gap-1 py-3">
       <CardContent className="flex flex-col gap-1 px-3">
         <span className="text-xs text-muted-foreground">{label}</span>
         <span className="text-lg font-bold">{value}</span>
-        {sub && <span className="text-xs text-muted-foreground">{sub}</span>}
       </CardContent>
     </Card>
   );
 }
 
-/** 今回の実施状況（最新の回）。 */
-export function Current({ run, procedure, due }: { run: Run | undefined; procedure: Procedure; due?: Cadence['due'] }) {
-  const count = (s: StepState) => procedure.steps.filter((x) => x.state === s).length;
-  // 対象期間がまだ記録されていないとき、最新の回は「前回」。今回は未実施であることを先に出す
-  const pending = due?.due && run?.period?.startDate !== due.period.startDate ? due.period : null;
+/** 最新の回の実施状況。対象期間が未記録なら「前回」と出す。 */
+export function Current({ run, due }: { run: Run | undefined; due?: Cadence['due'] }) {
+  const pending = due?.due && run?.period?.startDate !== due.period.startDate;
   return (
-    <Section
-      title={pending ? '前回の実施状況' : '今回の実施状況'}
-      note={pending ? `今回の対象 ${md(pending.startDate)}〜${md(pending.endDate)} は未実施。実施すると、下の判定と手順チェックリストが今回のものに変わる` : undefined}
-    >
+    <Section title={pending ? '前回の実施状況' : '今回の実施状況'}>
       <Grid min="sm">
-        <Stat
-          label="振り返り期間"
-          value={run?.period ? `${md(run.period.startDate)}〜${md(run.period.endDate)}` : '—'}
-          sub={run ? `回 ${run.key}` : undefined}
-        />
-        <Stat
-          label="レビュー記録"
-          value={run?.record ? (run.record.status === 'provisional' ? '暫定' : '確定') : 'なし'}
-          sub={run?.record && run.record.revisions > 1 ? `書き直し ${run.record.revisions} 回` : undefined}
-        />
-        <Stat label="手順の証拠" value={`${count('ok')} / ${procedure.steps.length}`} sub={`一部 ${count('partial')}・なし ${count('missing')}・記録が残らない ${count('manual')}`} />
-        <Stat label="判定" value={run ? <Badge variant={VERDICT[run.verdict].variant}>{VERDICT[run.verdict].label}</Badge> : '—'} sub={procedure.report?.name} />
+        <Stat label="振り返り期間" value={run?.period ? `${md(run.period.startDate)}〜${md(run.period.endDate)}` : '—'} />
+        <Stat label="記録" value={run?.record ? (run.record.status === 'provisional' ? '暫定' : '確定') : 'なし'} />
+        <Stat label="判定" value={run ? <Badge variant={VERDICT[run.verdict].variant}>{VERDICT[run.verdict].label}</Badge> : '—'} />
       </Grid>
     </Section>
   );
 }
 
-/** 手順チェックリスト（何をやるか・何が残れば実施済みか・今回の判定）。 */
+/** 手順（何をやるか）と、それぞれ実施できたか。根拠はマウスで出す。 */
 export function Checklist({ procedure }: { procedure: Procedure }) {
-  const lacking = procedure.sections?.expected.filter((x) => !x.present) ?? [];
   return (
-    <Section title="手順チェックリスト" note="手順の正本は .claude/config/review-wiring.json の procedure。判定は最新のレポート・記録・計測トリアージ・週間計画から機械で出す">
+    <Section title="手順">
       <Card className="py-2">
         <CardContent className="px-2">
           <Table>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-8">#</TableHead>
-                <TableHead>手順</TableHead>
-                <TableHead>判定</TableHead>
-                <TableHead>根拠</TableHead>
+                <TableHead>やること</TableHead>
+                <TableHead className="w-20">実施</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -134,137 +112,75 @@ export function Checklist({ procedure }: { procedure: Procedure }) {
                     <div className="text-xs text-muted-foreground">{s.does}</div>
                   </TableCell>
                   <TableCell className="align-top">
-                    <Badge variant={STEP[s.state].variant}>{STEP[s.state].label}</Badge>
+                    <span title={s.note}><Badge variant={STEP[s.state].variant}>{STEP[s.state].label}</Badge></span>
                   </TableCell>
-                  <TableCell className="align-top text-xs whitespace-normal">{s.note}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </CardContent>
       </Card>
-      {procedure.sections && (
-        <div className="flex flex-wrap items-center gap-1.5 text-xs">
-          <span className="text-muted-foreground">
-            レポートの必須の節 {procedure.sections.expected.length - lacking.length} / {procedure.sections.expected.length}
-            {lacking.length ? '・書かれていない:' : '・すべて書かれている'}
-          </span>
-          {lacking.map((x) => (
-            <Badge key={x.title} variant="warning">{x.title}</Badge>
-          ))}
-        </div>
-      )}
     </Section>
   );
 }
 
-/** 回ごとの実施履歴。 */
-export function History({ runs, weekly }: { runs: Run[]; weekly: boolean }) {
+/** 回ごとの実施結果と決めたこと。 */
+export function History({ runs }: { runs: Run[] }) {
+  if (runs.length === 0) return null;
   return (
-    <Section
-      title="実施履歴"
-      note="レビュー記録とレポートを回ごとに突き合わせる。古いレポートは保持方針で削除されているので git 履歴から読む（「履歴」）。判定は記録が確定・レポートあり・必須の節が全部・申し送りの行き先が全件（週次）で「実施できた」"
-    >
+    <Section title="実施履歴">
       <Card className="py-2">
         <CardContent className="px-2">
-          {runs.length === 0 ? (
-            <p className="m-0 p-2 text-sm text-muted-foreground">まだ実施の記録もレポートも無い</p>
-          ) : (
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>回</TableHead>
-                  <TableHead>振り返り期間</TableHead>
-                  <TableHead>記録</TableHead>
-                  <TableHead>レポート</TableHead>
-                  <TableHead>必須の節</TableHead>
-                  {weekly && <TableHead>申し送りの行き先</TableHead>}
-                  <TableHead>起票</TableHead>
-                  <TableHead>判定</TableHead>
-                  <TableHead>決めたこと</TableHead>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>期間</TableHead>
+                <TableHead>記録</TableHead>
+                <TableHead>判定</TableHead>
+                <TableHead>決めたこと</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {runs.map((r) => (
+                <TableRow key={r.key}>
+                  <TableCell className="text-xs">{r.period ? `${md(r.period.startDate)}〜${md(r.period.endDate)}` : r.key}</TableCell>
+                  <TableCell className="text-xs">{r.record ? (r.record.status === 'provisional' ? '暫定' : '確定') : 'なし'}</TableCell>
+                  <TableCell>
+                    <Badge variant={VERDICT[r.verdict].variant}>{VERDICT[r.verdict].label}</Badge>
+                  </TableCell>
+                  <TableCell className="max-w-[32rem] min-w-[16rem] text-xs whitespace-normal">
+                    <span className="line-clamp-2" title={r.record?.decision}>{r.record?.decision || '—'}</span>
+                  </TableCell>
                 </TableRow>
-              </TableHeader>
-              <TableBody>
-                {runs.map((r) => {
-                  const sectionsOk = r.sections && r.sections.found === r.sections.expected;
-                  return (
-                    <TableRow key={r.key}>
-                      <TableCell className="font-mono text-xs">{r.key}</TableCell>
-                      <TableCell className="text-xs">{r.period ? `${md(r.period.startDate)}〜${md(r.period.endDate)}` : '—'}</TableCell>
-                      <TableCell>
-                        {r.record ? (
-                          <Badge variant={r.record.status === 'provisional' ? 'warning' : 'success'}>
-                            {r.record.status === 'provisional' ? '暫定' : '確定'}
-                            {r.record.revisions > 1 ? ` ×${r.record.revisions}` : ''}
-                          </Badge>
-                        ) : (
-                          <Badge variant="destructive">なし</Badge>
-                        )}
-                      </TableCell>
-                      <TableCell className="text-xs">
-                        {r.report ? (r.reportSource === 'git' ? <span className="text-muted-foreground">あり（履歴）</span> : 'あり') : <Badge variant="destructive">なし</Badge>}
-                      </TableCell>
-                      <TableCell className={`text-xs tabular-nums ${r.sections && !sectionsOk ? 'text-(--warn)' : ''}`}>
-                        {r.sections ? `${r.sections.found} / ${r.sections.expected}` : '—'}
-                      </TableCell>
-                      {weekly && (
-                        <TableCell className="text-xs tabular-nums">
-                          {!r.routing ? '—' : r.routing.total < 0 ? <span className="text-(--warn)">節なし</span> : `${r.routing.routed} / ${r.routing.total}`}
-                        </TableCell>
-                      )}
-                      <TableCell className="text-xs tabular-nums">{r.cards}</TableCell>
-                      <TableCell>
-                        <Badge variant={VERDICT[r.verdict].variant}>{VERDICT[r.verdict].label}</Badge>
-                      </TableCell>
-                      <TableCell className="max-w-[28rem] min-w-[16rem] text-xs whitespace-normal">
-                        <span className="line-clamp-2" title={r.record?.decision}>{r.record?.decision || '—'}</span>
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          )}
+              ))}
+            </TableBody>
+          </Table>
         </CardContent>
       </Card>
     </Section>
   );
 }
 
-function Output({ label, value, href }: { label: string; value: React.ReactNode; href?: string }) {
-  const body = (
-    <>
-      <span className="text-xs text-muted-foreground">{label}</span>
-      <span className="text-2xl font-bold tabular-nums">{value}</span>
-    </>
-  );
+function Count({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="flex flex-col border-l-[3px] border-border py-1 pl-3">
-      {href ? <Link href={href} className="flex flex-col text-inherit no-underline">{body}</Link> : body}
+      <span className="text-xs text-muted-foreground">{label}</span>
+      <span className="text-2xl font-bold tabular-nums">{value}</span>
     </div>
   );
 }
 
-/** 判断と出力（最新のレビュー記録）とバックログの関門。 */
+/** 最新の判断（人が読む）と、人が決めるバックログのカード。 */
 export function Outcome({ c, gate }: { c: Cadence; gate: Gate | null }) {
   return (
-    <Section title="判断と出力">
+    <Section title="判断">
       <Grid min="lg">
         <Card>
-          <CardHeader>
-            <CardTitle>判断</CardTitle>
-            {c.latest && (
-              <CardDescription>
-                {c.latest.period.startDate}〜{c.latest.period.endDate}
-                {c.latest.status === 'provisional' ? '（暫定）' : ''}
-              </CardDescription>
-            )}
-          </CardHeader>
           <CardContent className="flex flex-col gap-3 text-sm leading-relaxed">
             {c.latest ? (
               <>
                 <div>
-                  <div className="text-xs text-muted-foreground">決めたこと</div>
+                  <div className="text-xs text-muted-foreground">決めたこと（{md(c.latest.period.startDate)}〜{md(c.latest.period.endDate)}）</div>
                   <p className="m-0">{c.latest.decision}</p>
                 </div>
                 <div>
@@ -277,103 +193,29 @@ export function Outcome({ c, gate }: { c: Cadence; gate: Gate | null }) {
             )}
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>出力</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-3">
-            <Grid min="sm">
-              <Output label="起票したカード" value={c.cards.length} href={c.cards.length ? '/todo?f=backlog' : undefined} />
-              <Output label="実験" value={c.latest?.experimentIds?.length ?? 0} />
-              {c.weeklyPlan && <Output label="週次計画" value="開く →" href="/todo?f=weekly" />}
-            </Grid>
-            {c.cards.length > 0 && (
-              <ul className="m-0 pl-4 text-xs">
-                {c.cards.map((x) => (
-                  <li key={x.id}>
-                    <Link className="font-mono" href={`/todo?f=backlog&id=${x.id}`}>{x.id}</Link> {x.title}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </CardContent>
-        </Card>
-      </Grid>
-      {gate && (
-        <Card>
-          <CardHeader>
-            <CardTitle>バックログの関門</CardTitle>
-            <CardDescription>{c.id === 'weekly' ? '判断待ちを全件諮る・期日切れ・新規' : '時期なしの🟢・90 日超を月を付けるか削除'}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Grid min="sm">
-              {c.id === 'weekly' ? (
-                <>
-                  <Output label="今決められる判断待ち" value={gate.weekly.decisions.length} href="/todo?f=backlog" />
-                  <Output label="判断の時期が先" value={gate.weekly.decisionsLater.length} />
-                  <Output label="いちばん古い判断待ち" value={gate.weekly.decisions.length ? `${gate.weekly.decisions[0]?.ageDays ?? '—'} 日` : '—'} />
-                  <Output label="期日切れ" value={gate.weekly.overdue.length} />
-                  <Output label="直近 7 日の起票" value={gate.weekly.filedThisWeek.length} />
-                </>
-              ) : (
-                <>
-                  <Output label="時期の無い 🟢" value={gate.monthly.lowWithoutWhen.length} href="/todo?f=backlog" />
-                  <Output label="起票から 90 日超" value={gate.monthly.stale.length} />
-                  <Output label="今月の 🔴🟡" value={gate.monthly.thisMonth} />
-                </>
-              )}
-            </Grid>
-          </CardContent>
-        </Card>
-      )}
-    </Section>
-  );
-}
-
-/** 見る材料（判断に使う入力）と、実行するコマンドの全件。 */
-export function Inputs({ c }: { c: Cadence }) {
-  const checks = c.byStage.reduce((n, s) => n + s.check.length, 0);
-  const drifted = c.drift.missing.length > 0 || c.drift.extra.length > 0;
-  return (
-    <Section title="見る材料" note={`ほかに自動の点検 ${checks} 件（異常があるときだけ見ればよい）`}>
-      <Card>
-        <CardContent className="flex flex-col gap-2.5">
-          {c.byStage.filter((s) => s.judge.length).map((s) => (
-            <div key={s.stage} className="grid grid-cols-[7em_1fr] items-baseline gap-2">
-              <span className="text-xs text-muted-foreground">{s.stage}</span>
-              <div className="flex flex-wrap gap-1.5">
-                {s.judge.map((i) => <Badge key={i.command} variant="outline" className="whitespace-normal">{i.label}</Badge>)}
-              </div>
-            </div>
-          ))}
-          {drifted && <Badge variant="warning">配線の正本とスキルがずれている</Badge>}
-          <details>
-            <summary className="cursor-pointer text-xs text-muted-foreground">実行するコマンドの全件（判断 {c.counts.judge}・点検 {c.counts.check}）</summary>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>段</TableHead>
-                  <TableHead>見るもの</TableHead>
-                  <TableHead>コマンド</TableHead>
-                  <TableHead>役割</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {c.byStage.flatMap((s) =>
-                  [...s.judge.map((i) => ({ ...i, role: '判断' })), ...s.check.map((i) => ({ ...i, role: '点検' }))].map((i, n) => (
-                    <TableRow key={s.stage + i.command}>
-                      <TableCell className="text-xs text-muted-foreground">{n === 0 ? s.stage : ''}</TableCell>
-                      <TableCell className="text-xs">{i.label}</TableCell>
-                      <TableCell className="font-mono text-xs">{i.command.replace(/^node:/, 'node scripts/')}</TableCell>
-                      <TableCell className="text-xs">{i.role === '判断' ? <strong>判断</strong> : <span className="text-muted-foreground">点検</span>}</TableCell>
-                    </TableRow>
-                  )),
+        {gate && (
+          <Card>
+            <CardHeader>
+              <CardTitle>人が決めるカード</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <Grid min="sm">
+                {c.id === 'weekly' ? (
+                  <>
+                    <Count label="判断待ち" value={gate.weekly.decisions.length} />
+                    <Count label="期日切れ" value={gate.weekly.overdue.length} />
+                  </>
+                ) : (
+                  <>
+                    <Count label="時期の無い 🟢" value={gate.monthly.lowWithoutWhen.length} />
+                    <Count label="起票から 90 日超" value={gate.monthly.stale.length} />
+                  </>
                 )}
-              </TableBody>
-            </Table>
-          </details>
-        </CardContent>
-      </Card>
+              </Grid>
+            </CardContent>
+          </Card>
+        )}
+      </Grid>
     </Section>
   );
 }
@@ -415,13 +257,14 @@ export function loadReview(cadenceId: 'weekly' | 'monthly'): ReviewData | null {
   };
 }
 
-/** 最終・次回・未記録の 1 行（各ページの見出しの下）。 */
+/** 次回と未実施の 1 行（見出しの下）。 */
 export function DueLine({ c }: { c: Cadence | undefined }) {
   if (!c) return null;
   return (
-    <p className="m-0 text-xs text-muted-foreground">
-      {c.latest ? `最終 ${md(c.latest.period.startDate)}〜${md(c.latest.period.endDate)}・次回 ${md(c.latest.nextReviewDate)}` : '記録なし'}
-      {c.due?.due && <span className="text-(--warn)">・{md(c.due.period.startDate)}〜{md(c.due.period.endDate)} が未記録</span>}
+    <p className="m-0 text-sm">
+      {c.due?.due
+        ? <Badge variant="warning">{md(c.due.period.startDate)}〜{md(c.due.period.endDate)} は未実施</Badge>
+        : <span className="text-muted-foreground">次回 {c.latest ? md(c.latest.nextReviewDate) : '—'}</span>}
     </p>
   );
 }

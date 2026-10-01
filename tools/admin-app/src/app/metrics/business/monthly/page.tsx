@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { Stack } from '@/components/layout';
-import { Checklist, Current, DueLine, History, Inputs, Outcome, ReviewUnavailable, loadReview } from '../review-parts';
+import { Checklist, Current, DueLine, History, Outcome, ReviewUnavailable, loadReview } from '../review-parts';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,15 +17,12 @@ export default function MonthlyReviewPage() {
       <div className="flex flex-col gap-2">
         <PageHead title="月次レビュー" />
         <DueLine c={d.cadence} />
-        <p className="m-0 text-xs text-muted-foreground">
-          準備（データの確定・人の入力）の進み具合は <Link href="/todo?f=monthly">計画 ＞ 月間</Link>
-        </p>
+        <Link className="text-xs" href="/todo?f=monthly">準備（今月やること）→ 計画 ＞ 月間</Link>
       </div>
-      {d.procedure && <Current run={d.runs[0]} procedure={d.procedure} due={d.cadence?.due} />}
+      {d.runs.length > 0 && <Current run={d.runs[0]} due={d.cadence?.due} />}
       {d.procedure && <Checklist procedure={d.procedure} />}
-      <History runs={d.runs} weekly={false} />
+      <History runs={d.runs} />
       {d.cadence && <Outcome c={d.cadence} gate={d.gate} />}
-      {d.cadence && <Inputs c={d.cadence} />}
     </Stack>
   );
 }
