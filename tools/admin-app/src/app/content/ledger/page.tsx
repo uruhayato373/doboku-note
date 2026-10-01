@@ -21,6 +21,15 @@ export const dynamic = 'force-dynamic';
 type Query = { t?: string; c?: string; s?: string; cv?: string };
 const NO_THEME = '__none';
 const NO_COVER = '__none';
+const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
+
+/** 販売列。note の有料記事・マガジンだけ数える。販売ログを読めないときは 0 件ではなく「?」 */
+function SalesCell({ r, salesOk }: { r: LedgerRow; salesOk: boolean }) {
+  if (r.channel !== 'note' || r.price === '無料') return <>—</>;
+  if (!salesOk) return <StatusBadge tone="bad" title="sales-log.json を読めない">?</StatusBadge>;
+  if (!r.sales) return <span className="text-muted-foreground">0</span>;
+  return <span className="text-foreground" title={`最後に売れた日 ${r.sales.lastDate}`}>{r.sales.count} 件 {yen(r.sales.revenue)}</span>;
+}
 
 function href(q: Query, patch: Partial<Query>): string {
   const params = new URLSearchParams();
@@ -90,7 +99,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
   const filtered = Boolean(theme || channel || state || cover);
   // チャネルで絞ったら列は同じ値だけになるので出さない。note だけは記事とマガジンが混ざるので種類を出す
   const kindCol = !channel ? 'チャネル' : channel === 'note' ? '種類' : null;
-  const colCount = 8 + (kindCol ? 1 : 0);
+  const colCount = 9 + (kindCol ? 1 : 0);
   const indexStale = view.index.generatedAt ? Date.now() - Date.parse(view.index.generatedAt) > 6 * 3_600_000 : false;
   const title = [theme ? (theme === NO_THEME ? '未分類' : view.themeLabel(theme)) : null, channel ? channelLabel.get(channel) : null, cover ? view.coverCategoryLabel(cover === NO_COVER ? null : cover) : null]
     .filter(Boolean).join(' × ');
@@ -107,6 +116,11 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
         ) : (
           <span>· <StatusBadge tone="bad" title={view.index.error ?? undefined}>索引なし</StatusBadge> note の記事は出していない（0 件ではない）。<code>npm run content-ledger</code> で作る</span>
         )}
+        {view.unmatchedSales.length ? (
+          <span title={`販売ログの単品記事のうち、売れた時点の題名で原稿を特定できなかったもの（販売列に入っていない）: ${view.unmatchedSales.map((u) => `${u.id} ${u.count} 件`).join(' / ')}`}>
+            · <StatusBadge tone="warn">記事の販売 {view.unmatchedSales.reduce((a, u) => a + u.count, 0)} 件は原稿に当たらない</StatusBadge>
+          </span>
+        ) : null}
         {tools.map((t) => <Link key={t.href} href={t.href}>{t.label}</Link>)}
         {theme && view.lineupQualifications.has(theme) ? <Link href={`/content/lineup?q=${theme}`}>商品ラインナップ</Link> : null}
       </p>
@@ -124,6 +138,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
             <TableHead className="hidden xl:table-cell">テーマ</TableHead>
             <TableHead className="hidden lg:table-cell" title="note 記事のカバー画像を用途別に管理する分類">カバー分類</TableHead>
             <TableHead>価格</TableHead>
+            <TableHead title="note の販売履歴（.claude/state/sales/sales-log.json）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日">販売</TableHead>
             <TableHead>状態</TableHead>
             <TableHead title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</TableHead>
             <TableHead title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</TableHead>
@@ -137,6 +152,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
               <TableCell className="max-w-[28rem] truncate" title={r.path ?? r.key}>
                 {r.detailHref ? <Link href={r.detailHref}>{r.title}</Link>
                   : r.url ? <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a> : r.title}
+                {r.magazine ? <div className="truncate text-xs text-muted-foreground" title="この記事を収録しているマガジン（原稿の noteMagazine）">収録: {r.magazine}</div> : null}
               </TableCell>
               {kindCol ? (
                 <TableCell className="text-muted-foreground">{channel ? r.kind : `${channelLabel.get(r.channel) ?? r.channel}・${r.kind}`}</TableCell>
@@ -153,6 +169,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
                 {r.price ?? '—'}
                 {r.live?.price.length ? <> <StatusBadge tone="warn" title={r.live.price.join(' / ')}>ずれ</StatusBadge></> : null}
               </TableCell>
+              <TableCell className="whitespace-nowrap"><SalesCell r={r} salesOk={view.salesOk} /></TableCell>
               <TableCell><StatusBadge tone={r.published ? 'good' : 'neutral'}>{r.stageLabel}</StatusBadge></TableCell>
               <TableCell><DriftBadge {...drift(r, 'body', blockerLabel)} /></TableCell>
               <TableCell><DriftBadge {...drift(r, 'cover', blockerLabel)} /></TableCell>

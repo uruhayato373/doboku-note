@@ -53,7 +53,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
-const VERSION = 6; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める　5: 記事区分（noteContentType）を追加　6: note カバー分類を追加
+const VERSION = 7; // 2: 導線の公開照合を追加　3: 導線の種類ごとに照合　4: 記事・出品ごとの鍵（中身のハッシュ）で読み直しを決める　5: 記事区分（noteContentType）を追加　6: note カバー分類を追加　7: 題名を本文の見出し 1 から取り、価格（円）を追加
 const argv = process.argv.slice(2);
 const REFRESH = argv.includes('--refresh') || argv.includes('--refresh-cta');
 const NO_LIVE = argv.includes('--no-live');
@@ -139,20 +139,24 @@ async function build() {
     }
     reread += 1;
     const raw = readFileSync(abs, 'utf8');
-    const fm = matter(raw).data ?? {};
+    const parsed = matter(raw);
+    const fm = parsed.data ?? {};
+    // note の記事タイトルは本文の見出し 1（公開時にそれを題名にする）。frontmatter に title は無いことが多い
+    const h1 = parsed.content.match(/^#\s+(.+?)\s*$/m)?.[1];
     const rel = relative(NOTE_ROOT, abs);
     const theme = classifyNote(themes, rel, fm);
     const coverCategory = classifyNoteCover(coverCategories, rel, fm, theme, theme ? themes.themes.get(theme)?.kind ?? null : null);
     notes.push({
       path,
       key,
-      title: fm.title || rel.split(/[\\/]/).slice(-2, -1)[0] || path,
+      title: fm.title || h1 || rel.split(/[\\/]/).slice(-2, -1)[0] || path,
       contentType: fm.noteContentType || 'unknown',
       theme,
       themeLabel: themeLabel(themes, theme),
       coverCategory,
       coverCategoryLabel: noteCoverCategoryLabel(coverCategories, coverCategory),
       pricing: fm.notePricing || 'unknown',
+      price: Number(fm.price) > 0 ? Number(fm.price) : null,
       magazine: fm.noteMagazine || null,
       noteUrl: fm.noteUrl || null,
       published: Boolean(fm.noteUrl),
