@@ -148,19 +148,19 @@ const formats = () => ({
   },
 });
 
-test('出題形式: 整合したデータは違反 0（展開中は商品ラインナップの区分と一致）', () => {
+test('出題形式: 整合したデータは違反 0', () => {
   const d = { ...base(), formats: formats() };
-  d.lineupConfig = { qualifications: [{ id: 'a', stages: [{ id: 'written' }] }] };
+  d.lineupConfig = { qualifications: [{ id: 'a' }] };
   assert.deepEqual(validateQualificationRegistry(d), []);
 });
 
-test('出題形式: 欠け・語彙外・出典なしの公開・未照合・区分の不一致を検出する', () => {
+test('出題形式: 欠け・語彙外・出典なしの公開・未照合・空の shortLabel を検出する', () => {
   const f = formats();
   delete f.exams.c;
-  f.exams.a.stages.push({ key: 'oral', label: '', types: ['talk'] });
+  f.exams.a.stages.push({ key: 'oral', label: '', shortLabel: '', types: ['talk'] });
   f.exams.a.pastExams = { questions: 'public', answers: 'maybe' };
   f.exams.a.verification = V('agent');
-  const d = { ...base(), formats: f, lineupConfig: { qualifications: [{ id: 'a', stages: [{ id: 'first' }] }] } };
+  const d = { ...base(), formats: f, lineupConfig: { qualifications: [{ id: 'a' }] } };
   const errors = validateQualificationRegistry(d);
   for (const needle of [
     'exam-formats に registry の c が無い',
@@ -170,7 +170,7 @@ test('出題形式: 欠け・語彙外・出典なしの公開・未照合・区
     'pastExams.answers は',
     'pastExams.source（公開を確かめた公式 URL）が必要',
     'exam-formats.a: 展開中の資格は主担当の原文照合',
-    'product-lineup の区分 first と一致しない',
+    'stages[1].shortLabel は空でない文字列',
   ]) {
     assert.ok(errors.some((e) => e.includes(needle)), `${needle}\n${errors.join('\n')}`);
   }

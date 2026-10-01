@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 import matter from 'gray-matter';
-import { buildThemes, classifyNote, loadThemes, themeLabel } from '../scripts/lib/content-theme.mjs';
+import { buildThemes, classifyNote, classifyNoteStage, loadThemes, stageTheme, stageThemeIds, themeLabel, themeShortLabel } from '../scripts/lib/content-theme.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
@@ -82,4 +82,25 @@ test('サイドメニュー用の短い名前（無ければ正式名）', async
   assert.equal(themeShortLabel(c, 'pe-comprehensive-management'), '技術士 総監');
   assert.equal(themeShortLabel(c, 'career'), '転職・キャリア');
   assert.throws(() => buildThemes({ ...cfg, shortLabels: { typo: 'x' } }, registry), /未知のテーマ typo/);
+});
+
+test('splitByStage: 区分つきテーマ・全般・名前・枝の並び', () => {
+  const stages = new Map([['civil-construction-1', [{ id: 'first', label: '第一次検定' }, { id: 'second', label: '第二次検定' }]]]);
+  const c = buildThemes(
+    { ...cfg, shortLabels: { 'civil-construction-1': '1級土木' }, splitByStage: ['civil-construction-1'], stageRules: { note: [{ pattern: '二次|経験記述', stage: 'second' }, { pattern: '一次', stage: 'first' }] } },
+    registry,
+    stages,
+  );
+  assert.equal(classifyNoteStage(c, 'content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md'), 'second');
+  assert.equal(classifyNoteStage(c, 'content\\note\\1級土木\\一次択一-過去問PDF\\article.md'), 'first');
+  assert.equal(classifyNoteStage(c, 'content/note/1級土木/1級土木をAIで勉強する/article.md'), null);
+  assert.equal(stageTheme(c, 'civil-construction-1', ['first']), 'civil-construction-1:first');
+  assert.equal(stageTheme(c, 'civil-construction-1', ['first', 'second']), 'civil-construction-1:common');
+  assert.equal(stageTheme(c, 'civil-construction-1', []), 'civil-construction-1:common');
+  assert.equal(stageTheme(c, 'pe-comprehensive-management', ['written']), 'pe-comprehensive-management');
+  assert.equal(themeLabel(c, 'civil-construction-1:second'), '1級土木施工管理技士 第二次検定');
+  assert.equal(themeShortLabel(c, 'civil-construction-1:common'), '1級土木 全般');
+  assert.deepEqual(stageThemeIds(c, 'civil-construction-1'), ['civil-construction-1:first', 'civil-construction-1:second', 'civil-construction-1:common']);
+  assert.throws(() => buildThemes({ ...cfg, splitByStage: ['civil-construction-1'] }, registry, new Map()), /区分が無い/);
+  assert.throws(() => buildThemes({ ...cfg, stageRules: { note: [{ pattern: 'x', stage: 'oral' }] } }, registry, stages), /未知の区分 oral/);
 });

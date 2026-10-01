@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 import {
   buildLineup,
+  loadLineupConfig,
   validateLineupConfig,
 } from '../../../../scripts/lib/product-lineup.mjs';
 import {
@@ -14,13 +15,13 @@ import { readCatalog as readCoconalaCatalog } from '../../../../scripts/lib/coco
 import { loadKindleCatalog, coverMediaUrl } from '../../../../scripts/lib/kindle-catalog.mjs';
 
 import { magazines } from './content';
-import { repoPath } from './repo-root';
+import { findRepoRoot, repoPath } from './repo-root';
 
 /**
  * lineup.ts — `/content/lineup`（read-only）の表示モデル。
  *
  * 商品を「資格 × 試験区分 × チャネル」のマトリクスへ並べる。分類ルールの SSOT は
- * `.claude/config/product-lineup.json`、判定は `scripts/lib/product-lineup.mjs`、
+ * `.claude/config/product-lineup.json`（試験区分は exam-formats.json）、判定は `scripts/lib/product-lineup.mjs`、
  * 状態の語彙は `scripts/lib/content-lifecycle.mjs` を使い、ここでは各チャネルの既存台帳を
  * 読んで item へ正規化するだけ。台帳は書き換えない。試験日・受験者数は資格一覧（/strategy/qualifications）が扱う。
  * 読めなかったチャネルは 0 件ではなく `sourceErrors` に出す（CLAUDE.md §9）。
@@ -151,7 +152,7 @@ export function loadKindleItems(): LineupItem[] {
 }
 
 export function loadLineupView(): LineupView {
-  const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as LineupConfig;
+  const config = loadLineupConfig(findRepoRoot()) as LineupConfig;
   const configErrors = validateLineupConfig(config) as string[];
   const sourceErrors: LineupView['sourceErrors'] = [];
   const items: LineupItem[] = [];

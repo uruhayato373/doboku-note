@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "verifiedAt": "2026-09-26",
-  "policy": "出題形式（区分ごとの答案の形式）と過去問の公開範囲の SSOT（手元の取得状況・年度在庫は past-exam-inventory.json）。資格 id は qualification-registry.json と同じで、全資格が必要（npm run check-exam-calendar が id の一致・語彙・照合記録・展開中の区分と product-lineup の区分の一致を検査）。展開の判断（npm run qualification-market・管理画面 展開の判断）が「自分で答案を組み立てる区分（経験記述・論文）」の受験者数と売上を並べるのに使う。展開中の資格は主担当が公式原文を読んで照合する（checkedBy: self）。記事・note に出題形式を書くときもここを参照し、記憶から写さない。",
+  "policy": "出題形式（区分ごとの答案の形式）と過去問の公開範囲の SSOT（手元の取得状況・年度在庫は past-exam-inventory.json）。資格 id は qualification-registry.json と同じで、全資格が必要（npm run check-exam-calendar が id の一致・語彙・照合記録・展開中の資格に区分があることを検査）。展開の判断（npm run qualification-market・管理画面 展開の判断）が「自分で答案を組み立てる区分（経験記述・論文）」の受験者数と売上を並べるのに使う。展開中の資格は主担当が公式原文を読んで照合する（checkedBy: self）。記事・note に出題形式を書くときもここを参照し、記憶から写さない。 試験区分（stages の key・label）はここが唯一の正本で、商品ラインナップ（product-lineup.json）と管理画面の区分別メニューはここから読む。shortLabel は画面の短い表示名（無ければ label）。",
   "formatTypes": {
     "mcq": "択一",
     "written": "記述",
@@ -64,6 +64,7 @@
         {
           "key": "first",
           "label": "第一次検定（前期・後期）",
+          "shortLabel": "第一次検定",
           "types": [
             "mcq"
           ],
@@ -123,6 +124,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "第二次 筆記",
           "types": [
             "written",
             "essay"
@@ -132,6 +134,7 @@
         {
           "key": "oral",
           "label": "口頭試験",
+          "shortLabel": "第二次 口頭",
           "types": [
             "oral",
             "experience"
@@ -158,6 +161,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "第二次 筆記",
           "types": [
             "mcq",
             "essay",
@@ -168,6 +172,7 @@
         {
           "key": "oral",
           "label": "口頭試験",
+          "shortLabel": "第二次 口頭",
           "types": [
             "oral",
             "experience"
@@ -194,6 +199,7 @@
         {
           "key": "written",
           "label": "試験A・試験B(1日でCBT実施)",
+          "shortLabel": "筆記",
           "types": [
             "experience",
             "mcq",
@@ -223,6 +229,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "筆記",
           "types": [
             "mcq"
           ],
@@ -248,6 +255,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "筆記",
           "types": [
             "mcq",
             "essay"
@@ -274,6 +282,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "筆記",
           "types": [
             "mcq",
             "essay"
@@ -337,6 +346,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "第二次 筆記",
           "types": [
             "written",
             "essay"
@@ -346,6 +356,7 @@
         {
           "key": "oral",
           "label": "口頭試験",
+          "shortLabel": "第二次 口頭",
           "types": [
             "oral",
             "experience"
@@ -957,6 +968,7 @@
         {
           "key": "written",
           "label": "資格試験（一般試験・応用試験を同日）",
+          "shortLabel": "資格試験",
           "types": [
             "mcq",
             "written",
@@ -984,6 +996,7 @@
         {
           "key": "written",
           "label": "資格試験（一般試験・応用試験を同日）",
+          "shortLabel": "資格試験",
           "types": [
             "mcq",
             "written",
@@ -1117,6 +1130,7 @@
         {
           "key": "written",
           "label": "筆記試験（午前・午後）",
+          "shortLabel": "筆記",
           "types": [
             "mcq",
             "written"
@@ -1143,6 +1157,7 @@
         {
           "key": "written",
           "label": "筆記試験",
+          "shortLabel": "筆記",
           "types": [
             "mcq"
           ],

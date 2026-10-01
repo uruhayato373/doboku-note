@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
 
 import { classifyProduct } from '../../../../scripts/lib/product-lineup.mjs';
-import { loadThemes, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
+import { classifyNoteStage, loadThemes, stageTheme, stageThemeIds, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
 import { loadNoteCoverCategories, noteCoverCategoryLabel } from '../../../../scripts/lib/note-cover-category.mjs';
 import { loadCoconalaItems, loadKindleItems, loadNoteItems, type LineupItem } from './lineup';
 import { findRepoRoot, repoPath } from './repo-root';
@@ -67,6 +67,8 @@ export interface LedgerView {
   channels: { id: string; label: string }[];
   themeLabel: (id: string | null) => string;
   themeShortLabel: (id: string | null) => string;
+  /** 区分に分けた資格の枝の並び（区分の順＋全般）。分けない資格は [資格] */
+  themeOrder: (id: string) => string[];
   coverCategories: { id: string; label: string; description: string; styleHint: string }[];
   coverCategoryLabel: (id: string | null) => string;
   lineupQualifications: Set<string>;
@@ -170,10 +172,17 @@ function readNoteIndex(): { index: NoteIndex | null; error: string | null } {
   }
 }
 
-/** 商品の資格（product-lineup のマス「資格:試験区分」の資格部分）。 */
-function productThemes(config: LineupConfig, item: LineupItem): string[] {
+type ThemeCtx = ReturnType<typeof loadThemes>;
+
+/** 商品のテーマ（product-lineup のマス「資格:試験区分」の資格部分。区分に分ける資格は区分つき）。 */
+function productThemes(config: LineupConfig, themes: ThemeCtx, item: LineupItem): string[] {
   const cells = (classifyProduct(config.rules?.[item.channel], item.id) as string[] | null) ?? [];
-  return [...new Set(cells.map((c) => c.split(':')[0]))];
+  const stagesByQ = new Map<string, string[]>();
+  for (const c of cells) {
+    const [q, st] = c.split(':');
+    stagesByQ.set(q, [...(stagesByQ.get(q) ?? []), st]);
+  }
+  return [...stagesByQ].map(([q, st]) => stageTheme(themes, q, st) as string);
 }
 
 export function loadLedgerView(): LedgerView {
@@ -193,7 +202,7 @@ export function loadLedgerView(): LedgerView {
       kind: '記事',
       title: n.title,
       url: n.noteUrl,
-      themes: n.theme ? [n.theme] : [],
+      themes: n.theme ? [stageTheme(themes, n.theme, [classifyNoteStage(themes, n.path)].filter(Boolean)) as string] : [],
       coverCategory: n.coverCategory ?? null,
       price: notePriceLabel(n.pricing, n.price),
       sales: articleSales?.byTitle.get(salesTitleKey(n.title)) ?? null,
@@ -272,7 +281,7 @@ export function loadLedgerView(): LedgerView {
           kind: KIND[channel] ?? '商品',
           title: item.noteTitle ?? item.title,
           url: item.url,
-          themes: productThemes(config, item),
+          themes: productThemes(config, themes, item),
           coverCategory: null,
           price: item.price,
           sales: channel === 'note' ? sales?.byMagazine.get(item.id) ?? null : null,
@@ -307,6 +316,7 @@ export function loadLedgerView(): LedgerView {
     channels: config.channels.filter((c) => c.id !== 'app'),
     themeLabel: (id) => themeLabel(themes, id) as string,
     themeShortLabel: (id) => themeShortLabel(themes, id) as string,
+    themeOrder: (id) => stageThemeIds(themes, id.split(':')[0]) as string[],
     coverCategories: [...coverCategories.categories.values()] as LedgerView['coverCategories'],
     coverCategoryLabel: (id) => noteCoverCategoryLabel(coverCategories, id) as string,
     lineupQualifications: new Set(config.qualifications.map((q) => q.id)),
@@ -329,9 +339,16 @@ export function ledgerNav(): { themes: { id: string; label: string }[]; channels
       channelCount.set(r.channel, (channelCount.get(r.channel) ?? 0) + 1);
     }
     return {
-      themes: [...themeCount.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .map(([id]) => ({ id, label: view.themeShortLabel(id) })),
+      // 区分に分けた資格（1級土木 第一次検定・第二次検定・全般）は資格の合計件数で並べ、枝は区分の順に続ける
+      themes: (() => {
+        const base = (id: string) => id.split(':')[0];
+        const baseCount = new Map<string, number>();
+        for (const [id, n] of themeCount) baseCount.set(base(id), (baseCount.get(base(id)) ?? 0) + n);
+        const pos = (id: string) => view.themeOrder(id).indexOf(id);
+        return [...themeCount.keys()]
+          .sort((a, b) => (baseCount.get(base(b)) ?? 0) - (baseCount.get(base(a)) ?? 0) || base(a).localeCompare(base(b)) || pos(a) - pos(b))
+          .map((id) => ({ id, label: view.themeShortLabel(id) }));
+      })(),
       channels: view.channels.filter((c) => (channelCount.get(c.id) ?? 0) > 0),
     };
   } catch {

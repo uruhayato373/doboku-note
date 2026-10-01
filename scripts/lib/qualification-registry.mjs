@@ -73,14 +73,13 @@ const PAST_EXAM_KEYS = ['questions', 'answers'];
 
 /**
  * 出題形式（exam-formats.json）: 区分ごとの形式と過去問の公開範囲。語彙はファイル冒頭の formatTypes・stageKeys・
- * pastExamLevels。展開中の資格は区分が商品ラインナップ（product-lineup.json）の区分と一致すること
- * （区分ごとの売上と形式を同じ行に並べるため）。
+ * pastExamLevels。stages は試験区分の唯一の正本で、商品ラインナップ（product-lineup.mjs）もここから区分を読む
+ * （以前は product-lineup.json にも区分を写して一致を検査していた）。
  */
-function checkFormats(formats, ids, active, lineupConfig, errors) {
+function checkFormats(formats, ids, active, errors) {
   const types = new Set(Object.keys(formats.formatTypes ?? {}));
   const stageKeys = new Set(Object.keys(formats.stageKeys ?? {}));
   const levels = new Set(Object.keys(formats.pastExamLevels ?? {}));
-  const lineupStages = new Map((lineupConfig?.qualifications ?? []).filter((q) => Array.isArray(q.stages)).map((q) => [q.id, q.stages.map((s) => s.id)]));
   for (const id of ids) if (!formats.exams?.[id]) errors.push(`exam-formats に registry の ${id} が無い`);
   for (const [id, f] of Object.entries(formats.exams ?? {})) {
     const where = `exam-formats.${id}`;
@@ -92,6 +91,7 @@ function checkFormats(formats, ids, active, lineupConfig, errors) {
       if (keys.includes(s.key)) errors.push(`${where}.stages[${i}].key ${s.key} が重複`);
       keys.push(s.key);
       if (typeof s.label !== 'string' || !s.label) errors.push(`${where}.stages[${i}].label が必要`);
+      if (s.shortLabel !== undefined && (typeof s.shortLabel !== 'string' || !s.shortLabel)) errors.push(`${where}.stages[${i}].shortLabel は空でない文字列`);
       if (!Array.isArray(s.types) || s.types.length === 0) errors.push(`${where}.stages[${i}].types が空`);
       for (const t of s.types ?? []) if (!types.has(t)) errors.push(`${where}.stages[${i}].types の ${t} は formatTypes に無い`);
     }
@@ -101,10 +101,6 @@ function checkFormats(formats, ids, active, lineupConfig, errors) {
     const claimsPublic = PAST_EXAM_KEYS.some((k) => ['public', 'partial'].includes(f.pastExams?.[k]));
     if (claimsPublic && !/^https?:\/\//.test(f.pastExams?.source ?? '')) errors.push(`${where}.pastExams.source（公開を確かめた公式 URL）が必要`);
     checkVerification(where, f.verification, active.has(id), errors);
-    if (active.has(id) && lineupStages.has(id)) {
-      const want = lineupStages.get(id);
-      if (want.join(',') !== keys.join(',')) errors.push(`${where}: 展開中の資格の区分 ${keys.join(',')} が product-lineup の区分 ${want.join(',')} と一致しない`);
-    }
   }
 }
 
@@ -176,7 +172,7 @@ export function validateQualificationRegistry({ registry, calendar, examStats, f
     }
   }
 
-  if (formats) checkFormats(formats, ids, active, lineupConfig, errors);
+  if (formats) checkFormats(formats, ids, active, errors);
 
   // 商品ラインナップの行は展開中の資格そのもの。候補を載せない・展開中を落とさない。
   if (lineupConfig) {

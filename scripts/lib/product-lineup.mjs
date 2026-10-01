@@ -1,7 +1,8 @@
 /**
  * product-lineup.mjs — 商品を「資格 × 試験区分 × チャネル」のマスへ写す（純粋関数＋config 読み込み）
  * ---------------------------------------------------------------------------
- * 分類ルールの SSOT は `.claude/config/product-lineup.json`。各チャネルの商品台帳は
+ * 分類ルールの SSOT は `.claude/config/product-lineup.json`。試験区分はそこに書かず、
+ * `.claude/config/exam-formats.json`（lib/exam-stages.mjs）から読んで qualifications[].stages に付ける。各チャネルの商品台帳は
  * 呼び出し側（admin `lib/lineup.ts`）が既存ローダーで読み、ここへ正規化済みの item を渡す。
  * どのルールにも当たらない商品は `unclassified` に残し、黙って落とさない（CLAUDE.md §9）。
  * ---------------------------------------------------------------------------
@@ -10,11 +11,19 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { loadExamStages } from './exam-stages.mjs';
+
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const LINEUP_CONFIG_PATH = join(ROOT, '.claude/config/product-lineup.json');
 
-export function loadLineupConfig() {
-  return JSON.parse(readFileSync(LINEUP_CONFIG_PATH, 'utf8'));
+/** product-lineup.json を読み、各資格に exam-formats.json の試験区分（stages）を付けて返す */
+export function loadLineupConfig(root = ROOT) {
+  return withStages(JSON.parse(readFileSync(join(root, '.claude/config/product-lineup.json'), 'utf8')), loadExamStages(root));
+}
+
+/** config の各資格に区分を付ける（区分の無い資格は stages: [] になり validateLineupConfig が止める） */
+export function withStages(config, stagesById) {
+  return { ...config, qualifications: config.qualifications.map((q) => ({ ...q, stages: stagesById.get(q.id) ?? [] })) };
 }
 
 /** config 内の全マスのキー（`資格id:区分id`）。 */
@@ -29,6 +38,7 @@ export function cellKeys(config) {
  */
 export function validateLineupConfig(config) {
   const errors = [];
+  for (const q of config.qualifications) if (!q.stages?.length) errors.push(`${q.id}: 試験区分が無い（exam-formats.json の stages）`);
   const keys = cellKeys(config);
   const known = new Set(keys);
   if (known.size !== keys.length) errors.push('qualifications に重複したマスがある');

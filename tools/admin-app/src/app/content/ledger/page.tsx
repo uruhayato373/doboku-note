@@ -122,7 +122,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
           </span>
         ) : null}
         {tools.map((t) => <Link key={t.href} href={t.href}>{t.label}</Link>)}
-        {theme && view.lineupQualifications.has(theme) ? <Link href={`/content/lineup?q=${theme}`}>商品ラインナップ</Link> : null}
+        {theme && view.lineupQualifications.has(theme.split(':')[0]) ? <Link href={`/content/lineup?q=${theme.split(':')[0]}`}>商品ラインナップ</Link> : null}
       </p>
       {view.sourceErrors.map((e) => (
         <p key={e.channel} className="m-0 text-sm text-muted-foreground">
