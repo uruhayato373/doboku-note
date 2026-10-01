@@ -167,6 +167,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+
+**起点**: 2026-10-01 にユーザー決定で、KDP も GitHub Secrets（`DOBOKU_AUTH_KDP_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` の KDP を `enabled:true` に戻して試すことにした。9/21 は CI の state 復元で Amazon が端末変更として再認証を求め、手元のセッションまで切れたため `enabled:false` にしていた。今回は CI の「Re-login with Secrets」と各 PC の毎日のログイン維持（17:45）で入り直せる形にしてある。
+
+**やること**:
+1. main へ deploy されたことを確かめる（scheduled は main 版で動く）。
+2. 10/16・10/28（JST 06:40）の login-collectors の KDP の結果を見る: restore の状態、re-login の結果（ok / human_required / login_failed）、`kdp-report` の rc、Issue の有無。
+3. 同じ日の手元（Windows・Mac）の KDP のログイン維持の結果を管理画面 `/ops/auth` で見る（CI のせいで手元が切れていないか）。
+4. 2 回とも取得できていれば続ける。2 段階認証で止まる・手元が毎回切れるなら、`playwright-auth-profiles.json` の kdp を `ci.enabled:false`・`credential.ciCredential:false` に戻し、Secrets を削除する。
+
+**完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
+
 ### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-01]
 
