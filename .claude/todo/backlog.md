@@ -21,17 +21,17 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0461] コンクリート主任技士 小論文の一本化の仕上げ: PR をマージし、ココナラ K3 を出品して旧 K1/K2 を休止する
+### [DN-0461] コンクリート主任技士 小論文の一本化の仕上げ: 本番反映を確かめ、ココナラ K3 を出品して旧 K1/K2 を休止する
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31] [進行中]
 
-**起点**: 2026-10-01 のユーザー決定で、主任技士の小論文を令和形式テーマ別へ一本化した。note 側は同日に完了済み（新版6本とマガジン m97a0049a10de ¥3,980 を公開、まるごとパックを ¥4,980・10記事へ組み替え、旧版の記事38本・マガジン14誌を削除）。旧版の実売は生コン工場2本・¥1,960 だけ。本試験は 2026-11-29。
+**起点**: 2026-10-01 のユーザー決定で、主任技士の小論文を令和形式テーマ別へ一本化した。同日に note 側（新版6本とマガジン m97a0049a10de ¥3,980、まるごとパック ¥4,980・10記事、旧版の記事38本・マガジン14誌の削除）と develop 側（PR #790 #786 #794 #795）は完了。本試験は 2026-11-29。
 
 **やること**:
-1. PR #790（SoT・サイト guide-essay・magazine-placement・旧版原稿の片付け・lint-ja の Windows 修正）と PR #786（note-delete-note の一覧スクロール・note-magazine-delete）をマージする。#790 は deploy 後にサイト guide-essay の HTML で新マガジンの CTA が出ることを確かめる。
+1. 次の本番 deploy の後、サイト `/exam/concrete-chief-engineer/guide/essay` の HTML に `cce-essay-reiwa-pack` の CTA が出ることを確かめる。
 2. ココナラ K3（完全パック＝令和形式6冊＋択一3冊・¥8,000）の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。公開後に旧 K1/K2 を `node scripts/coconala-pause.mjs --service coconala-cce-essay-pdf,coconala-cce-takuitsu-pdf --commit` で受付休止する。
 3. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする。
 
-**完了条件**: PR #790・#786 がマージ済みで、サイト guide-essay のビルド後 HTML に `cce-essay-reiwa-pack` の CTA が出ている。ココナラ K3 が listed、K1/K2 が paused。`check-magazine-membership`・`check-coconala-wiring` が exit 0。
+**完了条件**: 本番の guide-essay に新マガジンの CTA が出ている。ココナラ K3 が listed、K1/K2 が paused。`check-coconala-wiring` が exit 0。
 
 ### [DN-0477] note メンバーシップから完全に撤退する: 会員0人を確認し、会員専用マガジンとプランを削除する
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-15]
