@@ -127,10 +127,10 @@
       "accountConfigPath": null,
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
-      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。",
+      "notes": "専用 account config JSON は無し。 2026-09-21 実測: CI 復元で Amazon サインイン画面へ redirect（端末変更で再認証要求）、Mac 側セッションも失効。hosted CI 不可のため enabled:false。 2026-10-01: Secrets（DOBOKU_AUTH_KDP_USER/_PASSWORD）で CI でも入り直す形で enabled:true に戻して試行（DN-0480 で評価・不成立なら enabled:false に戻す）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": false,
         "operations": [
           "read",
@@ -142,7 +142,8 @@
           "amazon.com"
         ],
         "readOnlyScripts": [
-          "scripts/kdp-report.mjs"
+          "scripts/kdp-report.mjs",
+          "scripts/auth-session-refresh.mjs"
         ],
         "writeScripts": [
           "scripts/kdp-publish.mjs"
@@ -152,12 +153,12 @@
         "label": "Amazon KDP",
         "storeItem": "doboku-note-auth-kdp",
         "autoLogin": true,
-        "ciCredential": false,
+        "ciCredential": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。CI は端末変更で再認証を求められるため使わない"
+        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。2026-10-01 オーナー決定で CI も試行（Secrets で入り直し・評価は DN-0480）。9/21 は CI の state 復元で手元のセッションも切れた"
       }
     },
     "x": {
