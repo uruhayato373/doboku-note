@@ -88,8 +88,24 @@ function runWindowsCred(name, exec, probe) {
   });
 }
 
-/** 1 つの項目名を読む。登録なし・読めない・未対応 OS はすべて null。 */
-export function readSecret(name, { platform = process.platform, exec = execFileSync } = {}) {
+/**
+ * エージェント（Claude Code が実行するコマンドには CLAUDECODE=1 が付く）からの実行か。
+ * 資格情報での入力はオーナー・定期実行・CI が行い、エージェントは走らせない（2026-10-01: エージェントが
+ * note の再確認とココナラの自動ログインを走らせ、ココナラに失敗印を付けた）。
+ */
+export function agentSession(env = process.env) {
+  return env.CLAUDECODE === '1';
+}
+
+let agentNoticeShown = false;
+
+/** 1 つの項目名を読む。登録なし・読めない・未対応 OS・エージェントからの実行はすべて null。 */
+export function readSecret(name, { platform = process.platform, exec = execFileSync, env = process.env } = {}) {
+  if (agentSession(env)) {
+    if (!agentNoticeShown) console.error('[credential-store] エージェント（Claude Code）からの実行では資格情報ストアを読まない。資格情報での入力はオーナー・定期実行・CI が行う');
+    agentNoticeShown = true;
+    return null;
+  }
   if (platform === 'darwin') return readMacKeychain(name, exec);
   if (platform === 'win32') {
     try { return parseWindowsCredOutput(runWindowsCred(name, exec, false)); } catch { return null; }
@@ -158,7 +174,7 @@ export function readServiceCredential(service, { env = process.env, platform = p
     const password = env[names.password];
     return user && password ? { user, password, source: `env:${names.password}` } : null;
   }
-  return readFirstCredential([`doboku-note-auth-${service}`], { platform, exec });
+  return readFirstCredential([`doboku-note-auth-${service}`], { platform, exec, env });
 }
 
 /** Windows の `cmdkey /list` の出力に項目名があるか（表示言語に依らず `target=<名前>` で照合する）。 */

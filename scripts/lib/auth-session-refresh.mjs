@@ -67,6 +67,8 @@ export const AUTO_LOGIN = Object.freeze({
     submit: 'form[action*="/general/login/partner"] input[type=submit]:visible',
     loggedIn: (url) => /afi-b\.com\//.test(url) && !/requiredlogin|\/login/.test(url),
   },
+  // ログイン画面は不可視の reCAPTCHA（v3・size=invisible）を常に埋め込む。2026-10-01 の headless での送信は
+  // ログイン画面へ戻された（拒否の文言は未記録）ため、KDP と同じく画面ありで送る（CI では headless のまま）。
   coconala: {
     shared: false,
     loginUrl: 'https://coconala.com/login',
@@ -74,6 +76,7 @@ export const AUTO_LOGIN = Object.freeze({
     password: '#UserLoginPassword',
     remember: '#loginEmailSave',
     submit: 'form[action*="/login"] button[type=submit]',
+    headed: true,
     loggedIn: (url) => /^https:\/\/coconala\.com\//.test(url) && !/\/login|\/signup/.test(url),
   },
 });
@@ -97,6 +100,27 @@ export function sharedStatePath(service, env = process.env, home = homedir()) {
 
 // 後方互換: テストと既存の呼び出し元のため credential-store から再輸出する。
 export { parseKeychainAccount } from './credential-store.mjs';
+
+const CHALLENGE_TEXT = /認証コード|ワンタイム|確認コード|私はロボットではありません|画像認証|2段階認証|文字を入力してください/;
+
+/**
+ * ログイン送信後の画面に人の確認（CAPTCHA・2FA）が出ているか（純関数）。frames はページの iframe（src・見えるか）。
+ * 不可視の reCAPTCHA（size=invisible の anchor。v3 の印）はログイン画面に常にあるので数えない
+ * （2026-10-01 ココナラ: 送信が拒まれてログイン画面へ戻っただけで human_required と判定し、原因を隠した）。
+ * 数えるのは、見えている reCAPTCHA のチェックボックス・画像の問題（bframe）・hCaptcha・Turnstile と、確認コード等の文言。
+ */
+export function detectChallenge({ frames = [], text = '' } = {}) {
+  const challengeFrame = frames.some(({ src = '', visible }) => visible && (
+    (/recaptcha/.test(src) && (/\/bframe/.test(src) || (/\/anchor/.test(src) && !/[?&]size=invisible/.test(src))))
+    || /hcaptcha\.com|challenges\.cloudflare\.com|turnstile/.test(src)
+  ));
+  return challengeFrame || CHALLENGE_TEXT.test(text);
+}
+
+/** ログイン画面に出た文言を記録用に整える（メールアドレスは伏せる・200 字まで）。 */
+export function maskLoginText(text) {
+  return String(text ?? '').replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g, '<メール>').replace(/\s+/g, ' ').trim().slice(0, 200);
+}
 
 /** ログイン送信後の画面を ok / human_required / login_failed に分ける。 */
 export function classifyLoginOutcome(service, { url, hasPassword, hasChallenge }) {
