@@ -167,18 +167,45 @@ export function cmdkeyListHas(output, name) {
   return new RegExp(`target=${escaped}\\s*$`, 'mi').test(String(output ?? ''));
 }
 
+/** `cmdkey /list` の出力から項目のユーザー名（ログイン ID）を読む。英語 `User:`・日本語 `ユーザー:` の両方。 */
+export function cmdkeyListUser(output, name) {
+  const lines = String(output ?? '').split(/\r?\n/);
+  const at = lines.findIndex((l) => cmdkeyListHas(l, name));
+  if (at < 0) return null;
+  for (let i = at + 1; i < lines.length && lines[i].trim() !== ''; i++) {
+    const m = /^\s*(?:User|ユーザー)\s*:\s*(.+?)\s*$/.exec(lines[i]);
+    if (m) return m[1];
+  }
+  return null;
+}
+
 /**
- * 項目名ごとに登録の有無だけを返す（パスワードは取り出さない）。管理画面の一覧用。
- * Windows は `cmdkey /list` を 1 回だけ呼ぶ。対応外の OS は null（不明）。
+ * 項目名ごとに登録の有無とログイン ID を返す（パスワードは取り出さない）。管理画面の一覧用。
+ * Windows は `cmdkey /list`（UTF-8）を 1 回だけ、Mac は `security find-generic-password -s`（-w なし）を項目ごとに呼ぶ。
+ * 対応外の OS は present=null（不明）。ID は公開リポジトリに書かず、OS の資格情報ストアを正本にする。
  */
-export function presentSecrets(names, { platform = process.platform, exec = execFileSync } = {}) {
+export function storedAccounts(names, { platform = process.platform, exec = execFileSync } = {}) {
+  const unknown = Object.fromEntries(names.map((n) => [n, { present: null, user: null }]));
   if (platform === 'win32') {
     let out = '';
-    try { out = exec('cmdkey', ['/list'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], windowsHide: true }); } catch { return Object.fromEntries(names.map((n) => [n, null])); }
-    return Object.fromEntries(names.map((n) => [n, cmdkeyListHas(out, n)]));
+    // 既定のコードページ（日本語環境は CP932）だと Node で文字化けするので、UTF-8 に切り替えてから呼ぶ
+    try { out = exec('cmd', ['/d', '/s', '/c', 'chcp 65001 >nul & cmdkey /list'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], windowsHide: true }); } catch { return unknown; }
+    return Object.fromEntries(names.map((n) => [n, { present: cmdkeyListHas(out, n), user: cmdkeyListUser(out, n) }]));
   }
-  if (platform === 'darwin') return Object.fromEntries(names.map((n) => [n, hasSecret(n, { platform, exec })]));
-  return Object.fromEntries(names.map((n) => [n, null]));
+  if (platform === 'darwin') {
+    return Object.fromEntries(names.map((n) => {
+      try {
+        const attrs = exec('security', ['find-generic-password', '-s', n], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+        return [n, { present: true, user: parseKeychainAccount(attrs) }];
+      } catch { return [n, { present: false, user: null }]; }
+    }));
+  }
+  return unknown;
+}
+
+/** 項目名ごとに登録の有無だけを返す（storedAccounts の present）。 */
+export function presentSecrets(names, options = {}) {
+  return Object.fromEntries(Object.entries(storedAccounts(names, options)).map(([n, v]) => [n, v.present]));
 }
 
 /** この OS で資格情報ストアを使えるか。 */

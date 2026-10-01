@@ -64,7 +64,7 @@ export default function AuthCredentialsPage() {
             <TableRow>
               <TableHead>サービス</TableHead>
               <TableHead title="切れたときに資格情報で自動で入り直すか（正本の autoLogin）">自動ログイン</TableHead>
-              <TableHead title="この PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）">この PC の資格情報</TableHead>
+              <TableHead title="この PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）。下はそこに入っているログイン ID">この PC の資格情報・ID</TableHead>
               <TableHead title="GitHub Secrets DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD（正本の ciCredential）">CI</TableHead>
               <TableHead title="ログイン維持ログの最新結果（この PC）">最新の維持結果</TableHead>
               <TableHead>方針</TableHead>
@@ -80,9 +80,10 @@ export default function AuthCredentialsPage() {
                 <TableCell>{r.autoLogin ? <StatusBadge tone="info">自動</StatusBadge> : <StatusBadge tone="neutral">人が入る</StatusBadge>}</TableCell>
                 <TableCell>
                   {presence(r.storePresent)}
+                  {r.storeUser && <div className="mt-1 text-xs">{r.storeUser}</div>}
                   {r.sharedStoreItem && (
                     <div className="mt-1 text-xs text-muted-foreground">
-                      共用 <code>{r.sharedStoreItem}</code> {r.sharedPresent === null ? '?' : r.sharedPresent ? 'あり' : 'なし'}
+                      共用 <code>{r.sharedStoreItem}</code> {r.sharedPresent === null ? '?' : r.sharedPresent ? `あり${r.sharedUser ? `（${r.sharedUser}）` : ''}` : 'なし'}
                     </div>
                   )}
                 </TableCell>
@@ -116,7 +117,7 @@ export default function AuthCredentialsPage() {
               </p>
             )}
             <p className="m-0 text-sm text-muted-foreground">
-              見えるのはこの PC の登録だけ。もう一方の PC（Mac / Windows）はその PC で管理画面を開いて確かめる。
+              ログイン ID の正本は各 PC の資格情報ストア（このリポジトリは公開なので ID を書かない）。見えるのはこの PC の登録だけ。もう一方の PC（Mac / Windows）はその PC で管理画面を開いて確かめる。
             </p>
           </Stack>
         </PanelCard>

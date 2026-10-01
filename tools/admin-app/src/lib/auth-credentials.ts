@@ -3,7 +3,7 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { findRepoRoot } from './repo-root';
-import { ciEnvCredentialServices, ciEnvVarNames, loadCredentialRegistry, presentSecrets } from '../../../../scripts/lib/credential-store.mjs';
+import { ciEnvCredentialServices, ciEnvVarNames, loadCredentialRegistry, storedAccounts } from '../../../../scripts/lib/credential-store.mjs';
 import { resolveMetadataPath } from '../../../../scripts/lib/playwright-auth-profile.mjs';
 
 /** 資格情報の正本の 1 行（.claude/config/playwright-auth-profiles.json の services.<id>.credential）。 */
@@ -22,6 +22,9 @@ export type CredentialRow = CredentialPolicy & {
   /** この PC の OS 資格情報ストアに項目があるか（null＝この OS では確かめられない） */
   storePresent: boolean | null;
   sharedPresent: boolean | null;
+  /** この PC の資格情報ストアに入っているログイン ID（パスワードは読まない） */
+  storeUser: string | null;
+  sharedUser: string | null;
   /** GitHub Secrets（ciCredential の service だけ）。null＝一覧を取れなかった */
   ciUser: string | null | undefined;
   ciPassword: string | null | undefined;
@@ -99,7 +102,7 @@ export function authCredentialsView(): AuthCredentialsView {
   const policies = loadCredentialRegistry(registryPath) as CredentialPolicy[];
   const ciServices = ciEnvCredentialServices(policies) as string[];
   const names = policies.flatMap((p) => [p.storeItem, ...(p.sharedStoreItem ? [p.sharedStoreItem] : [])]);
-  const present = presentSecrets(names) as Record<string, boolean | null>;
+  const accounts = storedAccounts(names) as Record<string, { present: boolean | null; user: string | null }>;
   const secrets = githubSecrets(root);
   const log = logPath();
   const refresh = lastRefreshByService(log);
@@ -112,8 +115,10 @@ export function authCredentialsView(): AuthCredentialsView {
     const secret = (name: string) => (secrets.error ? null : secrets.map.get(name));
     return {
       ...p,
-      storePresent: present[p.storeItem] ?? null,
-      sharedPresent: p.sharedStoreItem ? present[p.sharedStoreItem] ?? null : null,
+      storePresent: accounts[p.storeItem]?.present ?? null,
+      sharedPresent: p.sharedStoreItem ? accounts[p.sharedStoreItem]?.present ?? null : null,
+      storeUser: accounts[p.storeItem]?.user ?? null,
+      sharedUser: p.sharedStoreItem ? accounts[p.sharedStoreItem]?.user ?? null : null,
       ciUser: env ? secret(env.user) : undefined,
       ciPassword: env ? secret(env.password) : undefined,
       failMarks,
