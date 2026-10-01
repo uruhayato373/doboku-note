@@ -1,6 +1,39 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T15:07:56.814Z",
+      "finishedAt": "2026-10-01T15:18:35.829Z",
+      "plan": {
+        "synced": 610,
+        "ready": 284,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 1,
+        "updated": [],
+        "failed": [
+          {
+            "path": "content/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md",
+            "parts": [
+              "body",
+              "cover",
+              "title"
+            ],
+            "reason": "[4.4] ABORT: 挿入した画像がエディタに無い（1 枚消失・保存すると live で欠落）→ 待ちを伸ばさず単発で再実行"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T15:01:05.767Z",
       "finishedAt": "2026-10-01T15:07:42.927Z",
       "plan": {
