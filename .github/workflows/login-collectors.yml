@@ -229,7 +229,10 @@ jobs:
           day=$(date -u +%d)
           if [ "$((10#$day))" -le 14 ]; then
             npm run note-sales-fetch -- --month "$(date -u -d 'last month' +%Y-%m)" --commit
-            c=$?; [ "$c" -ne 0 ] && rc=$c
+            c=$?
+            # exit 8 = 前月がまだ集計中（note は毎月 2 日に確定）。失敗ではないので rc に載せない
+            if [ "$c" -eq 8 ]; then echo "::notice::note の前月売上は集計中（2 日に確定）。次回の実行で取り直す"; c=0; fi
+            [ "$c" -ne 0 ] && rc=$c
           fi
           npm run note-sales-fetch -- --month "$(date -u +%Y-%m)" --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c

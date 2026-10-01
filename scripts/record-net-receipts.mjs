@@ -17,7 +17,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, parseNoteSalesDetail } from './lib/net-receipts.mjs';
+import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 
 const TAG = '[record-net-receipts]';
@@ -54,7 +54,10 @@ async function fetchNote(month) {
     const text = await page.evaluate(() => document.body.innerText || '');
     const [y, m] = month.split('-').map(Number);
     if (!text.includes(`${y}年${m}月の売上詳細`)) throw new Error(`「${y}年${m}月の売上詳細」が見つからない（URL・DOM の変更を疑う）`);
-    return parseNoteSalesDetail(text);
+    const detail = parseNoteSalesDetail(text);
+    // 確定前（翌月 2 日まで）の月別詳細は明細だけで、合計・手数料控除後売上が出ない
+    if (detail.net == null) throw new Error(`手数料控除後売上が表示されていない。${noteSalesPendingMessage(month)}（確定後も出ないなら URL・DOM の変更を疑う）`);
+    return detail;
   } finally {
     await ctx.close();
   }

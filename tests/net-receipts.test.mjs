@@ -3,7 +3,18 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd } from '../scripts/lib/net-receipts.mjs';
+import {
+  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd,
+  isNoteSalesAggregating, noteSalesFinalizeDate, noteSalesPendingMessage,
+} from '../scripts/lib/net-receipts.mjs';
+
+test('note の前月売上は翌月 2 日に確定し、集計中の文言を見分ける（2026-10-01 実画面）', () => {
+  assert.equal(noteSalesFinalizeDate('2026-09'), '2026-10-02');
+  assert.equal(noteSalesFinalizeDate('2026-12'), '2027-01-02');
+  assert.equal(isNoteSalesAggregating('未振込の売上\n集計中\nただいま前月の売上を集計中です。売上は毎月2日に確定します。'), true);
+  assert.equal(isNoteSalesAggregating('処理済みの売上\n2026年8月\t2026年9月末予定\t¥71,640'), false);
+  assert.match(noteSalesPendingMessage('2026-09'), /2026-10-02 以降/);
+});
 
 test('note の売上詳細から売上・手数料・手数料控除後売上を読む（2026-08 の実ページ）', () => {
   const text = '2026年8月の売上詳細\n合計\n売上\n¥71,640\n手数料\n¥-11,011\n手数料控除後売上\n¥60,629\n手数料領収書';

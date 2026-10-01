@@ -21,6 +21,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  *
  * **検算に通らなければ 1 バイトも書かない**: 明細合計と「売上管理」の月次表示額が一致するまで
  * exit 2。一致したら、その月は追記ではなく差し替える（部分手入力への追記は重複を生む）。
+ * 前月の売上が note 側でまだ集計中（翌月 2 日に確定）なら exit 8（PENDING・書き込みなし）で止める。
  *
  * productId 解決は scripts/lib/sales-normalize.mjs（純関数・テスト済み）に委譲する。
  * マガジンは src/lib/note-magazines.ts の title/shortTitle と一致すれば解決、
@@ -50,6 +51,7 @@ import { fileURLToPath } from 'node:url';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
+import { isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -216,6 +218,12 @@ try {
     return row ? row[1] : null;
   }, { year: Number(YEAR), month: Number(MONTH) });
   if (!dashboardTotalText) {
+    // 前月は翌月 2 日の確定まで処理済みの表に行が無い。これは DOM の変化ではないので別の終了コードで止める
+    if (isNoteSalesAggregating(await page.evaluate(() => document.body.innerText || ''))) {
+      console.error(`PENDING: ${noteSalesPendingMessage(MONTH_ARG)}。1 バイトも書き込まない`);
+      await ctx.close();
+      process.exit(8);
+    }
     console.error('ABORT: 売上管理ページから月次総額を読めなかった（selector 要校正）');
     await ctx.close();
     process.exit(7);
