@@ -183,7 +183,7 @@ function main() {
     process.exit(violations.length ? 1 : 0);
   }
   if (violations.length === 0) {
-    console.log('[check-information-architecture] ✓ 4 領域モデルへの逆戻りなし');
+    console.log('[check-information-architecture] ✓ 置き場のモデルへの逆戻りなし');
     process.exit(0);
   }
   for (const v of violations.slice(0, 40)) console.error(`  [${v.rule}] ${v.file}\n      ${v.msg}`);
