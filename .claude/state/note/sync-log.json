@@ -1,6 +1,36 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T14:37:21.172Z",
+      "finishedAt": "2026-10-01T14:45:37.597Z",
+      "plan": {
+        "synced": 606,
+        "ready": 288,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/土木もくじ/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T12:38:03.688Z",
       "finishedAt": "2026-10-01T14:37:06.785Z",
       "plan": {
