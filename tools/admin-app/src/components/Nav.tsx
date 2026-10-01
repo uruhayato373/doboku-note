@@ -163,7 +163,7 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, des
       { href: '/metrics/business/monthly', label: '月次', match: '/metrics/business/monthly' },
     ],
   });
-  // 商品設計は資格ごとの枝で開く（domains.json の項目はそのまま・各資格のページは /product/design?q=<資格>）
+  // 商品設計は資格ごとの枝で開く（domains.json の項目はそのまま・各資格のページは /product/design?q=<資格>。1級・2級土木は q=<資格>:<区分> で区分ごとの枝）
   const designTree = (label: string): NavTree => ({
     label,
     tabs: design.map((d) => ({

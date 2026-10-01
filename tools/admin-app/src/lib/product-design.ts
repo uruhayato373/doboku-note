@@ -88,13 +88,25 @@ const short = (title: string) => title.replace(/^\S+\s+/, '');
 /** a が b を丸ごと含み、b より多い */
 const strictlyContains = (a: Set<string>, b: Set<string>) => b.size > 0 && a.size > b.size && [...b].every((k) => a.has(k));
 
+/**
+ * 試験区分ごとに別ページ（サイドバーの別の枝）に分ける資格。技術士が一次・部門別に分かれているのに合わせる。
+ * 枝の id は「資格:区分」（例 civil-construction-1:first）、表示名は短い資格名＋区分（例「1級土木 第一次検定」）。
+ */
+const SPLIT_BY_STAGE = new Map([
+  ['civil-construction-1', '1級土木'],
+  ['civil-construction-2', '2級土木'],
+]);
+
 /** 商品を持つ資格（サイドバーの枝） */
 export function designQualifications(): { id: string; label: string }[] {
   try {
     const view = loadLineupView();
     const seen = new Map<string, string>();
     for (const r of view.rows) {
-      if ((r.byChannel.note ?? []).some((i) => !i.ended)) seen.set(r.qualificationId, r.qualificationLabel);
+      if (!(r.byChannel.note ?? []).some((i) => !i.ended)) continue;
+      const prefix = SPLIT_BY_STAGE.get(r.qualificationId);
+      if (prefix) seen.set(`${r.qualificationId}:${r.stageId}`, `${prefix} ${r.stageLabel}`);
+      else seen.set(r.qualificationId, r.qualificationLabel);
     }
     return [...seen.entries()].map(([id, label]) => ({ id, label }));
   } catch {
@@ -117,7 +129,8 @@ export function loadDesignView(q: string | null): DesignView {
   const catalog = new Map(magazines().map((m) => [m.id, m]));
 
   const stages: DesignStage[] = [];
-  for (const row of lineup.rows.filter((r) => r.qualificationId === qualificationId)) {
+  const [baseId, onlyStage] = qualificationId.split(':');
+  for (const row of lineup.rows.filter((r) => r.qualificationId === baseId && (!onlyStage || r.stageId === onlyStage))) {
     const items = (row.byChannel.note ?? []).filter((i: LineupItem) => !i.ended);
     if (items.length === 0) continue;
     const mags: (DesignMagazine & { set: Set<string> })[] = [];
