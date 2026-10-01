@@ -36,6 +36,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   node scripts/note-delete-note.mjs --list-drafts                    # 下書きを列挙（read-only）
  *   node scripts/note-delete-note.mjs --note <noteKey>                 # 公開記事 PROBE
  *   node scripts/note-delete-note.mjs --note <noteKey> --commit        # 公開記事を削除
+ *   node scripts/note-delete-note.mjs --notes <k1,k2,...> --commit      # 公開記事を順に削除（1 回の起動で）
+ *   公開記事の一覧は無限スクロールなので、カードが見つかるまで下へ読み進める（古い記事は先頭ページに無い）。
  *   node scripts/note-delete-note.mjs --draft '<タイトルの一部>' [--date '2026年8月22日 19:24']
  *   node scripts/note-delete-note.mjs --draft '…' --date '…' --commit  # 下書きを削除
  * ---------------------------------------------------------------------------
@@ -51,12 +53,14 @@ const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
-const KEY = getArg('--note');
+// --notes k1,k2,... は 1 回のブラウザ起動で順に削除する（旧版の一括撤去用・2026-10-01）
+const KEYS = (getArg('--notes') || getArg('--note') || '').split(',').map((k) => k.trim()).filter(Boolean);
+const KEY = KEYS[0] || null;
 const DRAFT = getArg('--draft');
 const DRAFT_DATE = getArg('--date');
 const LIST_DRAFTS = argv.includes('--list-drafts');
 const COMMIT = argv.includes('--commit');
-if (!LIST_DRAFTS && !DRAFT && (!KEY || !/^n[a-z0-9]+$/.test(KEY))) {
+if (!LIST_DRAFTS && !DRAFT && (!KEYS.length || !KEYS.every((k) => /^n[a-z0-9]+$/.test(k)))) {
   console.error('--note <noteKey>（公開記事） / --draft <タイトルの一部>（下書き） / --list-drafts のいずれかが要る');
   console.error('  下書きは一覧に a[href] を持たないので key では引けない（--list-drafts で実物を見てから --draft で指す）');
   process.exit(1);
@@ -292,10 +296,12 @@ try {
     await ctx.close(); process.exit(0);
   }
 
-  // 2-b. 公開記事は key の a[href] から最寄りカードを引く（下書きにはリンクが無いのでこの経路は使えない）
-  const found = await page.evaluate((key) => {
-    const link = Array.from(document.querySelectorAll('a[href]')).find((a) => a.getAttribute('href').includes(key));
-    if (!link) return { ok: false, reason: 'key を含む記事カードが見つからない（ページ内に無い可能性）' };
+  // 2-b. 公開記事は key の a[href] から最寄りカードを引く（下書きにはリンクが無いのでこの経路は使えない）。
+  //      一覧は無限スクロールで、古い記事は先頭ページに無い（2026-10-01: 8 月公開の記事で「見つからない」）。
+  //      見つかるまで下へ読み進め、宣言件数まで読んでも無ければ「無い」と判断する。
+  const findCard = (key) => page.evaluate((k) => {
+    const link = Array.from(document.querySelectorAll('a[href]')).find((a) => a.getAttribute('href').includes(k));
+    if (!link) return { ok: false, reason: 'key を含む記事カードが見つからない' };
     let card = link; for (let i = 0; i < 6 && card.parentElement; i++) { card = card.parentElement; if (card.querySelector('button,[role=button],[aria-haspopup]')) break; }
     const btns = Array.from(card.querySelectorAll('button,[role=button],[aria-haspopup]'));
     const menuBtn = btns.find((b) => /メニュー|・・・|\.\.\.|その他|操作/.test(b.getAttribute('aria-label') || b.innerText || '')) || btns[btns.length - 1];
@@ -303,29 +309,61 @@ try {
     menuBtn.scrollIntoView({ block: 'center' });
     const r = menuBtn.getBoundingClientRect();
     return { ok: true, title: (card.innerText || '').replace(/\n+/g, ' ').slice(0, 60), x: r.left + r.width / 2, y: r.top + r.height / 2 };
-  }, KEY);
-  if (!found.ok) { console.error('ABORT: ' + found.reason); await page.screenshot({ path: join(ROOT, '.tmp/note-delete-probe.png') }).catch(() => {}); await ctx.close(); process.exit(3); }
-  console.log('[2] 対象カード:', JSON.stringify(found.title));
-  await page.mouse.click(found.x, found.y); await sleep(2000);
-  const items = await page.evaluate(() => Array.from(document.querySelectorAll('button,[role=menuitem],a,li,span')).map((e) => (e.innerText || '').trim()).filter((t) => t && t.length < 16 && /削除|編集|下書き|複製|共有/.test(t)).slice(0, 12));
-  console.log('[2] メニュー項目:', JSON.stringify(items));
+  }, key);
+  const linkCount = () => page.evaluate(() => document.querySelectorAll('a[href*="/n/n"]').length);
 
-  if (!COMMIT) { console.log('\nPROBE のみ（--commit で削除）。対象:', found.title); await ctx.close(); process.exit(0); }
+  async function scrollToCard(key) {
+    let found = await findCard(key);
+    let stall = 0; let prev = await linkCount();
+    for (let i = 0; i < 200 && !found.ok; i += 1) {
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await sleep(1500);
+      found = await findCard(key);
+      const now = await linkCount();
+      if (now === prev) { stall += 1; if (stall >= 8) break; } else { stall = 0; prev = now; }
+    }
+    return found;
+  }
 
-  // 3. 削除 → 確認ダイアログ「削除する」
-  const del = page.getByRole('button', { name: /削除/ }).or(page.getByRole('menuitem', { name: /削除/ })).or(page.getByText('削除', { exact: true }));
-  if (!(await del.count())) { console.error('ABORT: メニューに「削除」未検出'); await ctx.close(); process.exit(4); }
-  await del.first().click({ timeout: 6000 }); await sleep(1800);
-  await page.screenshot({ path: join(ROOT, '.tmp/note-delete-confirm.png') }).catch(() => {});
-  let confirmed = false;
-  for (const name of ['削除する', '削除', 'はい', 'OK']) { const b = page.getByRole('button', { name, exact: true }); if (await b.count()) { try { await b.last().click({ timeout: 5000 }); confirmed = true; console.log('[3] 確認:', name); break; } catch {} } }
-  if (!confirmed) { console.error('ABORT: 確認ダイアログの削除ボタン未検出'); await ctx.close(); process.exit(5); }
-  await sleep(4000);
+  const results = [];
+  for (const key of KEYS) {
+    console.log(`\n=== ${key} ===`);
+    await page.goto('https://note.com/notes', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await sleep(6000);
+    const found = await scrollToCard(key);
+    if (!found.ok) {
+      console.error('ABORT: ' + found.reason + `（読み込んだリンク ${await linkCount()} 件）`);
+      await page.screenshot({ path: join(ROOT, '.tmp/note-delete-probe.png') }).catch(() => {});
+      results.push({ key, status: 'not-found' });
+      if (KEYS.length === 1) { await ctx.close(); process.exit(3); }
+      continue;
+    }
+    console.log('[2] 対象カード:', JSON.stringify(found.title));
+    await page.mouse.click(found.x, found.y); await sleep(2000);
+    const items = await page.evaluate(() => Array.from(document.querySelectorAll('button,[role=menuitem],a,li,span')).map((e) => (e.innerText || '').trim()).filter((t) => t && t.length < 16 && /削除|編集|下書き|複製|共有/.test(t)).slice(0, 12));
+    console.log('[2] メニュー項目:', JSON.stringify(items));
 
-  // 4. 実体検証（note API で消滅）
-  await sleep(2000);
-  const stillExists = liveExists(KEY);
-  console.log(`[4] 削除後 note API 実在: ${stillExists ? 'まだ存在（要手動確認）' : '消滅 ✓'}`);
-  if (stillExists) { console.error('WARN: API 上まだ存在。反映ラグの可能性。数分後に再確認を。'); await ctx.close(); process.exit(6); }
-  console.log('RESULT: deleted', KEY, JSON.stringify(found.title));
+    if (!COMMIT) { console.log('PROBE のみ（--commit で削除）。対象:', found.title); results.push({ key, status: 'probe' }); continue; }
+
+    // 3. 削除 → 確認ダイアログ「削除する」
+    const del = page.getByRole('button', { name: /削除/ }).or(page.getByRole('menuitem', { name: /削除/ })).or(page.getByText('削除', { exact: true }));
+    if (!(await del.count())) { console.error('ABORT: メニューに「削除」未検出'); results.push({ key, status: 'no-delete-menu' }); break; }
+    await del.first().click({ timeout: 6000 }); await sleep(1800);
+    await page.screenshot({ path: join(ROOT, '.tmp/note-delete-confirm.png') }).catch(() => {});
+    let confirmed = false;
+    for (const name of ['削除する', '削除', 'はい', 'OK']) { const b = page.getByRole('button', { name, exact: true }); if (await b.count()) { try { await b.last().click({ timeout: 5000 }); confirmed = true; console.log('[3] 確認:', name); break; } catch {} } }
+    if (!confirmed) { console.error('ABORT: 確認ダイアログの削除ボタン未検出'); results.push({ key, status: 'no-confirm' }); break; }
+    await sleep(6000);
+
+    // 4. 実体検証（note API で消滅）
+    const stillExists = liveExists(key);
+    console.log(`[4] 削除後 note API 実在: ${stillExists ? 'まだ存在（要手動確認）' : '消滅 ✓'}`);
+    results.push({ key, status: stillExists ? 'still-exists' : 'deleted', title: found.title });
+    if (stillExists) console.error('WARN: API 上まだ存在。反映ラグの可能性。数分後に再確認を。');
+    else console.log('RESULT: deleted', key, JSON.stringify(found.title));
+  }
+  const n = (st) => results.filter((r) => r.status === st).length;
+  console.log(`\n[summary] 対象 ${KEYS.length} 件 / 処理 ${results.length} 件 / 削除 ${n('deleted')} / 未確認 ${n('still-exists')} / 見つからない ${n('not-found')} / probe ${n('probe')}`);
+  for (const r of results) if (r.status !== 'deleted' && r.status !== 'probe') console.log(`  ${r.status}	${r.key}`);
+  if (results.length < KEYS.length || results.some((r) => !['deleted', 'probe'].includes(r.status))) process.exitCode = 6;
 } finally { await ctx.close(); }
