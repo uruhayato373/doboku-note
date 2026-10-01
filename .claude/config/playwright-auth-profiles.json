@@ -353,17 +353,22 @@
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": null,
+      "notes": "2026-10-01: CI 取得を新設（affiliate-status --asp moshimo --write・提携状況）。state は Mac の auth-session-refresh --export が渡す（DN-0483）。",
       "ci": {
-        "mode": "none",
-        "enabled": false,
+        "mode": "encrypted-state",
+        "enabled": true,
         "canary": false,
         "operations": [
           "read"
         ],
-        "cron": null,
-        "stateDomains": [],
-        "readOnlyScripts": [],
+        "cron": "40 21 * * 0",
+        "stateDomains": [
+          "moshimo.com"
+        ],
+        "readOnlyScripts": [
+          "scripts/affiliate-status.mjs",
+          "scripts/auth-session-refresh.mjs"
+        ],
         "writeScripts": []
       },
       "credential": {
@@ -371,13 +376,13 @@
         "storeItem": "doboku-note-auth-moshimo",
         "sharedStoreItem": "stats47-measurement-moshimo",
         "autoLogin": true,
-        "ciCredential": false,
+        "ciCredential": true,
         "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。CI での取得は未整備で、新設して試す（DN-0483）"
+        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）。CI は毎週日曜（JST 月 06:40）に提携状況を取得し、state が切れていれば Secrets で 1 回だけ入り直す（2026-10-01 試行・DN-0483）"
       }
     },
     "afb": {
@@ -388,10 +393,10 @@
       "accountConfigPath": ".claude/config/affiliate-asp.json",
       "sessionMode": "same-process",
       "interactiveLoginRequired": true,
-      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。",
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。 2026-09-21: URL を affiliate-asp.json（baseUrl+homePath / readyPath）に合わせた。判定はテキストでなく #top_site_select の DOM（readyMarker）。 2026-09-21 実測: CI 復元で requiredlogin へ redirect（sessionPersistsAcrossProcesses:false のとおり別プロセスでは持ち出せない）。hosted CI 不可のため enabled:false。提携/成果の機械取得は Gmail 通知経路（未実装）が代替候補。 2026-10-01: 取得スクリプト（openAsp）が同じプロセスで Secrets / 資格情報ストアの ID/PW でログインする形で enabled:true に戻して試行（DN-0484）。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": false,
+        "enabled": true,
         "canary": false,
         "operations": [
           "read"
@@ -409,14 +414,14 @@
       "credential": {
         "label": "afb",
         "storeItem": "doboku-note-auth-afb",
-        "autoLogin": false,
-        "ciCredential": false,
+        "autoLogin": true,
+        "ciCredential": true,
         "ciStored": true,
         "machines": [
           "windows",
           "mac"
         ],
-        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、CI は取得スクリプト自身がログインする形で試す（DN-0484）。手元の自動ログインはセレクタ確認後"
+        "policyNote": "ログイン状態を別プロセスへ持ち出せないため、毎日のログイン維持では入らず、取得スクリプト自身が資格情報で 1 回だけログインする（手元・CI とも・2026-10-01 試行・DN-0484）。既定サイトは stats47 なので取得前にサイトを切り替える"
       }
     }
   },
