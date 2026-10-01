@@ -762,6 +762,24 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
+### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
+
+**起点**: 2026-10-02、Mac の記憶が別リポジトリ `doboku-note-memory` へフック同期されたまま repo と分裂していた（DN-0233 (4)）。Windows は 09-14 に junction 済みのはずだが、同じフックや実ディレクトリが残っていないかは未確認。**着手条件**: `check-memory` を入れる PR（feature/memory-guard）が develop にマージ済み。
+
+Windows の PowerShell で repo 直下から順に:
+1. `git switch develop; git pull` で記憶の統合と `scripts/check-memory.mjs` を取り込む。
+2. `node scripts/check-memory.mjs --local` で現状を見る。exit 0 なら 6 へ。
+3. 「実ディレクトリ」と出たら、中身を先に救う: `$m="$env:USERPROFILE\.claude\projects\<key>\memory"`（`<key>` は repo の絶対パスの英数字以外を `-` にしたもの。例 `C--Users-<名前>-doboku-note`）。`Compare-Object (ls $m -Name) (ls .claude\memory -Name)` で `<=` 側（Windows にだけある記憶）を `.claude\memory` へコピーする。同名で中身が違うものは上書きせず別名で残し、`MEMORY.md` に 1 行ずつ足して `npm run check-memory` が通ってから develop へコミット・push する。
+4. `node scripts/setup-memory-link.mjs` を実行する（実ディレクトリは `memory.bak-*` に退避され、junction が張られる。管理者権限は不要）。
+5. 「別同期フック」と出たら、`$env:USERPROFILE\.claude\settings.json` の `hooks` から `sync-memory` を呼ぶ SessionStart/SessionEnd を消し、`$env:USERPROFILE\.claude\hooks\sync-memory.*` を `.retired-2026-10-02` 付きに改名する。dotfiles の `claude/` に同じフックがあればそちらも消す（dotfiles から張り直すと復活する）。
+6. `npm run pre-commit:install`（pre-commit に記憶のゲートが加わったため。**Mac も同じくマージ後に 1 回**）。
+7. `node scripts/check-memory.mjs --local` が exit 0、`(Get-Item $m).LinkType` が `Junction` で `Target` が repo の `.claude\memory`。
+
+**運用の約束**: 記憶はファイルが repo 内にあるだけで、コミット・push しないと他の PC に届かない。記憶を書いた作業のコミットに `.claude/memory` を含める（記憶だけの develop push は CI を走らせない）。
+
+**完了条件**: Windows で 7 が成立し、Mac と Windows の `MEMORY.md` が同じコミットを指す。
+
 
 
 ### [DN-0261] 転職アフィリ第2波の効果を EXP-008 の wave-2 基線で再計測する
