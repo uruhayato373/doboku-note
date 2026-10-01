@@ -70,6 +70,7 @@ GA4 起点の改善サイクル設計のため `fetch-metrics.yml` と周辺ス�
   GSC のブラウザ作業は runner ではなく Mac の launchd（`gsc-local`）で回し、API で済む sitemap 送信は CI に置いた。
 - 追記（同日・成立側の限界）: note は traffic・添付 live 検査（615 本・67 分）・会員限定検査が CI で成立し Mac も健在だが、
   **`note-sales-fetch`（購入者一覧）は「パスワード再確認画面」で ABORT**（機微ページの端末別再認証・人が通す以外に無い）。
+  2026-10-01 追記: オーナー決定で note の ID/PW だけ Secrets に持たせ、`scripts/lib/note-reauth.mjs` が CI でも再確認を 1 回通す形に変えた。
   a8 は 3 レポートが成立、`period-daily` だけ headless で期間入力欄が見つからない。いずれも CI の対象から外し、ローカル儀式に残す。
 - 教訓: 「CI で 1 回 authenticated が出た」を成功と呼ばない。**CI 実行後に Mac 側 `auth:status` が authenticated のままか**まで見て初めて
   そのサービスは hosted CI 可と判定する（canary 手順の必須確認項目）。診断は `ci-restore` の `diag`（URL・タイトル・本文先頭・スクリーンショット）。

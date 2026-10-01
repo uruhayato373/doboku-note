@@ -210,16 +210,28 @@ jobs:
       # live 検査で job timeout に当たった時点で run ごと cancel され、取得済みの traffic/sales も捨てられる
       # （2026-09-21 run 35600808577: 8 月の流入 820 記事を取った後に [280/615] で cancel）。
       # note-sales-fetch（購入者一覧 /sitesettings/purchasers）は note が機微ページとして**端末ごとにパスワード再確認**を求め、
-      # CI の新規コンテキストでは必ず「パスワード再確認画面」で ABORT する（2026-09-21 run 35606437507）。人が通す以外に無いので
-      # 売上取得はローカル儀式（check-sales-freshness が催促）に残し、CI は traffic（アクセス状況）だけを取る。
-      - name: "note: traffic"
+      # CI の新規コンテキストでは必ず「パスワード再確認画面」で止まる（2026-09-21 run 35606437507）。2026-10-01 オーナー決定で
+      # note だけ ID/PW を Secrets（DOBOKU_AUTH_NOTE_USER / _PASSWORD）に持たせ、scripts/lib/note-reauth.mjs が 1 回だけ通す。
+      # Secrets はこの step の env にだけ渡す。未登録なら売上は exit 3（再確認で停止）になり rc に載る（沈黙しない）。
+      # 前月は 14 日まで取り直す（月初は前月の明細と月次表示が揃うまで検算が合わない）。当月は毎回差し替える。
+      - name: "note: traffic + sales"
         id: collect_note
         if: matrix.service == 'note' && steps.restore.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
+        env:
+          DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
+          DOBOKU_AUTH_NOTE_PASSWORD: ${{ secrets.DOBOKU_AUTH_NOTE_PASSWORD }}
         run: |
           set +e
           rc=0
           npm run note-traffic-fetch -- --commit
+          c=$?; [ "$c" -ne 0 ] && rc=$c
+          day=$(date -u +%d)
+          if [ "$((10#$day))" -le 14 ]; then
+            npm run note-sales-fetch -- --month "$(date -u -d 'last month' +%Y-%m)" --commit
+            c=$?; [ "$c" -ne 0 ] && rc=$c
+          fi
+          npm run note-sales-fetch -- --month "$(date -u +%Y-%m)" --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 

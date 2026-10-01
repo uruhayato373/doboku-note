@@ -3,6 +3,7 @@
  *
  * Mac = キーチェーン（`security`）、Windows = 資格情報マネージャー（Win32 CredRead を PowerShell 5.1 から呼ぶ。
  * 追加モジュール不要）。CI などそれ以外の OS では常に null（CI はパスワードを持たず、暗号化 state だけを使う）。
+ * 例外は readServiceCredential の CI_ENV_CREDENTIAL_SERVICES（note のパスワード再確認だけ・GitHub Secrets）。
  * 同じ項目名を両 OS で使うので、呼び出し側は OS を意識しない。stats47 の
  * `.claude/scripts/measurement/credential-store.mjs` と同じ読み口（項目名の接頭辞だけが違う）。
  *
@@ -114,6 +115,33 @@ export function readFirstCredential(names, options = {}) {
     if (cred) return { ...cred, source: name };
   }
   return null;
+}
+
+/**
+ * CI（GitHub Actions）で ID/PW を環境変数から読んでよい service。CI は原則パスワードを持たないが、
+ * note の売上ページは端末ごとのパスワード再確認があり、暗号化 state だけでは通れない（2026-09-21 run 35606437507）。
+ * 2026-10-01 オーナー決定で note だけ GitHub Secrets（DOBOKU_AUTH_NOTE_USER / _PASSWORD）に持たせる。
+ */
+export const CI_ENV_CREDENTIAL_SERVICES = Object.freeze(['note']);
+
+export function ciEnvVarNames(service) {
+  const key = String(service).toUpperCase().replace(/[^A-Z0-9]/g, '_');
+  return { user: `DOBOKU_AUTH_${key}_USER`, password: `DOBOKU_AUTH_${key}_PASSWORD` };
+}
+
+/**
+ * service の ID/PW を読む。GitHub Actions では許可 service だけ環境変数から、手元の PC では
+ * 資格情報ストアの doboku-note-auth-<service> から読む。どちらも無ければ null。
+ */
+export function readServiceCredential(service, { env = process.env, platform = process.platform, exec = execFileSync } = {}) {
+  if (env.GITHUB_ACTIONS === 'true') {
+    if (!CI_ENV_CREDENTIAL_SERVICES.includes(service)) return null;
+    const names = ciEnvVarNames(service);
+    const user = env[names.user];
+    const password = env[names.password];
+    return user && password ? { user, password, source: `env:${names.password}` } : null;
+  }
+  return readFirstCredential([`doboku-note-auth-${service}`], { platform, exec });
 }
 
 /** この OS で資格情報ストアを使えるか。 */

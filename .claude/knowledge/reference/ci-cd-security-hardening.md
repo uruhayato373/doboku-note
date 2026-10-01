@@ -95,6 +95,7 @@ gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or
 ### 新Secret
 
 - `DOBOKU_AUTH_AGE_IDENTITY` — age秘密identity。`login-collectors.yml`がCIでstorageStateを復号するために読む。Mac側は`auth root/age/identity.txt`に置き、同期しない。
+- `DOBOKU_AUTH_NOTE_USER` / `DOBOKU_AUTH_NOTE_PASSWORD` — note の ID/PW（2026-10-01 オーナー決定・CI がパスワードを持つ唯一の例外）。売上ページの端末別パスワード再確認を `scripts/lib/note-reauth.mjs` が 1 回だけ通すために、`login-collectors.yml` の「note: traffic + sales」step の env にだけ渡す。読み口は `scripts/lib/credential-store.mjs` の `readServiceCredential`（許可 service は `CI_ENV_CREDENTIAL_SERVICES`）。漏えい時は note のパスワードを変え、Secrets と各 PC の資格情報ストアを更新する。
 
 ### R2オブジェクト
 

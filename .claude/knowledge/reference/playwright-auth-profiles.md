@@ -262,7 +262,7 @@ security add-generic-password -s doboku-note-auth-note -a <ログインID> -w
 cmdkey /generic:doboku-note-auth-note /user:<ログインID> /pass
 ```
 
-note は購入者一覧を開くと端末ごとにパスワード再確認が出る。これは自動ログインの対象外で、`note-sales-fetch` は従来どおり人が通す。
+note は購入者一覧・売上管理を開くと端末ごとにパスワード再確認が出る。`note-sales-fetch`・`record-net-receipts` はこれを、資格情報（手元は Mac キーチェーン／Windows 資格情報マネージャーの `doboku-note-auth-note`、CI は Secrets `DOBOKU_AUTH_NOTE_USER`／`DOBOKU_AUTH_NOTE_PASSWORD`）で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。エージェントはこの自動入力を走らせない（実行はオーナー・スケジューラ・CI）。
 
 ## 検証
 

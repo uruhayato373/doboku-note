@@ -64,7 +64,7 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 取得は Playwright の read-only で行う（`npm run note-sales-fetch -- --month YYYY-MM [--commit]`・
 2026-08-25 実装・DN-0018）。ただし note の「売上管理」`/sitesettings/salesmanage` と
 「販売履歴」`/sitesettings/purchasers` は `note.com/dashboard/*` へ遷移して**パスワード再確認**を要求するため、
-**認証は人が通す**（パスワード入力はエージェントの禁止行為。パスワード再確認画面を検出したら ABORT する）。
+再確認は資格情報（手元は Mac キーチェーン／Windows 資格情報マネージャーの `doboku-note-auth-note`、CI は Secrets `DOBOKU_AUTH_NOTE_USER`／`DOBOKU_AUTH_NOTE_PASSWORD`）で `scripts/lib/note-reauth.mjs` が 1 回だけ通す（2026-10-01）。未登録・失敗印 `metadata/note.reauth-failed` あり・通らないときは ABORT して人が通す。エージェントはこの自動入力を走らせない（実行はオーナー・スケジューラ・CI）。
 認証後の Cookie は永続プロファイル `.local/playwright-note-profile` に残り、**別プロセスで起動し直しても
 再確認は出なかった**（2026-08-17 実測）。有効期間は note 側のポリシーなので延ばせない。
 
@@ -72,8 +72,8 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 > 販売履歴の `<select>`（0=年/1=月）と「もっとみる」は文書どおりだった。売上管理ページには `<select>` が無く、
 > 当月は「今月の売上 … 総額 ¥N」、過去月は「処理済みの売上」表の行から読む（旧実装は説明文の
 > 「1,000円以上」を拾って必ず不一致だった）。メンバーシップ会費は価格「1,480円 / 月」・接頭辞
-> 「メンバーシップ・」が別要素に分かれる。売上ページは**パスワード再確認**が要る領域で、出たら人が
-> headed ブラウザで通す（Cookie は永続プロファイルに残る。入力はエージェント禁止）。セレクタが
+> 「メンバーシップ・」が別要素に分かれる。売上ページは**パスワード再確認**が要る領域で、2026-10-01 以降は資格情報で
+> 1 回だけ自動で通し、通らなければ人が headed ブラウザで通す（Cookie は永続プロファイルに残る）。セレクタが
 > 見つからなければ fail-closed で ABORT する設計は据え置き。
 
 - 月フィルタは `<select>`（0=年 / 1=月 / 2=並び順 / 3=種別）、明細は**「もっとみる」を尽きるまでクリック**する。
@@ -113,7 +113,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば sales-log.json を確認・修正
 
-毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales-log 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
+毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales-log 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（CI の login-collectors も毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
 
 ### 4. 商品別CTAとの期間効率
 
