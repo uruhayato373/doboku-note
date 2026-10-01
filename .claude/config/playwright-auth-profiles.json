@@ -53,6 +53,17 @@
           "scripts/note-swap-author-banner.mjs",
           "scripts/note-reanchor-boundary.mjs"
         ]
+      },
+      "credential": {
+        "label": "note",
+        "storeItem": "doboku-note-auth-note",
+        "autoLogin": true,
+        "ciCredential": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "手元はログイン維持と売上ページのパスワード再確認、CI は state 切れの入り直しと再確認（2026-10-01）"
       }
     },
     "coconala": {
@@ -95,6 +106,17 @@
           "scripts/coconala-blog-delete-draft.mjs",
           "scripts/coconala-rate-buyer.mjs"
         ]
+      },
+      "credential": {
+        "label": "ココナラ",
+        "storeItem": "doboku-note-auth-coconala",
+        "autoLogin": true,
+        "ciCredential": true,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "手元はログイン維持、CI は state 切れの入り直し（2026-10-01）"
       }
     },
     "kdp": {
@@ -125,6 +147,17 @@
         "writeScripts": [
           "scripts/kdp-publish.mjs"
         ]
+      },
+      "credential": {
+        "label": "Amazon KDP",
+        "storeItem": "doboku-note-auth-kdp",
+        "autoLogin": true,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "Amazon は 2 段階認証・CAPTCHA で止まる（突破しない）。CI は端末変更で再認証を求められるため使わない"
       }
     },
     "x": {
@@ -161,6 +194,17 @@
           "scripts/x-article-publish.mjs",
           "scripts/x-thread-replies.mjs"
         ]
+      },
+      "credential": {
+        "label": "X",
+        "storeItem": "doboku-note-auth-x",
+        "autoLogin": false,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "凍結・利用制限の危険が大きいので、切れたら人が npm run auth:login で入り直す（DN-0362）。資格情報は人のログイン用に保管する"
       }
     },
     "instagram": {
@@ -191,6 +235,17 @@
         "writeScripts": [
           ".claude/skills/social/publish-ig-bs/publish-ig-bs.ts"
         ]
+      },
+      "credential": {
+        "label": "Instagram",
+        "storeItem": "doboku-note-auth-instagram",
+        "autoLogin": false,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "凍結・利用制限の危険が大きいので、切れたら人が npm run auth:login で入り直す（DN-0362）。資格情報は人のログイン用に保管する"
       }
     },
     "google": {
@@ -219,6 +274,17 @@
           "scripts/fetch-ga4-ui-csv.mjs"
         ],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "Google（GSC・GA4）",
+        "storeItem": "doboku-note-auth-google",
+        "autoLogin": false,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "Google は 2 段階認証が前提で自動ログインしない。切れたら人が npm run auth:login で入り直す"
       }
     },
     "a8": {
@@ -256,6 +322,18 @@
         "writeScripts": [
           "scripts/affiliate-apply.mjs"
         ]
+      },
+      "credential": {
+        "label": "A8.net",
+        "storeItem": "doboku-note-auth-a8",
+        "sharedStoreItem": "stats47-measurement-a8",
+        "autoLogin": true,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "stats47 と同じ口座。stats47 の state を先に取り込み、無ければ自分の項目、それも無ければ stats47 の項目でログインする"
       }
     },
     "moshimo": {
@@ -278,6 +356,18 @@
         "stateDomains": [],
         "readOnlyScripts": [],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "もしもアフィリエイト",
+        "storeItem": "doboku-note-auth-moshimo",
+        "sharedStoreItem": "stats47-measurement-moshimo",
+        "autoLogin": true,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "stats47 と同じ口座（A8 と同じ扱い）"
       }
     },
     "afb": {
@@ -305,6 +395,17 @@
           "scripts/affiliate-status.mjs"
         ],
         "writeScripts": []
+      },
+      "credential": {
+        "label": "afb",
+        "storeItem": "doboku-note-auth-afb",
+        "autoLogin": false,
+        "ciCredential": false,
+        "machines": [
+          "windows",
+          "mac"
+        ],
+        "policyNote": "ログイン画面のセレクタが未確認で自動ログイン未対応。state を別プロセスで復元できないことがある"
       }
     }
   },
@@ -314,5 +415,17 @@
     "bucket": "private",
     "keyPrefix": "auth-state/",
     "identityEnv": "DOBOKU_AUTH_AGE_IDENTITY"
+  },
+  "credentialPolicy": {
+    "_comment": "ログインが必要な全サービスの資格情報の正本。各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に storeItem を登録し、読み口は scripts/lib/credential-store.mjs だけ。ciCredential=true の service だけ GitHub Secrets（DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD）を持つ。autoLogin=true の service だけ scripts/lib/auth-session-refresh.mjs の AUTO_LOGIN にセレクタを持つ（tests/auth-credential-ssot.test.mjs が照合）。状態の確認は管理画面 /ops/auth。",
+    "register": {
+      "mac": "security add-generic-password -s <storeItem> -a <ログインID> -w",
+      "windows": "cmdkey /generic:<storeItem> /user:<ログインID> /pass",
+      "ci": "gh secret set DOBOKU_AUTH_<SERVICE>_USER / DOBOKU_AUTH_<SERVICE>_PASSWORD --repo uruhayato373/doboku-note"
+    },
+    "refreshTask": {
+      "mac": "launchd com.doboku-note.auth-session-refresh（毎日 17:45・npm run auth-refresh:install）",
+      "windows": "タスクスケジューラ \\doboku-note\\auth-session-refresh（毎日 17:45・npm run auth-refresh:install）"
+    }
   }
 }
