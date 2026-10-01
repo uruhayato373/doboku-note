@@ -1,0 +1,35 @@
+---
+name: civil1-primary-answer-key-errors
+description: 1級土木 一次過去問(primary)に誤答肢理由欠落＋正答キー転記ミス＋設問/選択肢本文の別問題化けが系統的。**nifty-feynmanワークフローで16本を公式キー0不一致で確定し2026-07-11 develop/mainへ統合、残deferred=h28-a(19)/h29-a(1)/h29-b(4)＝要pre-H30原典・h28-a配列はOCR再検証**。ExamPointは全primaryに系統採用(≈8/本)＝「不使用」は誤り。原典はtouhokugiken/dobokujira公開PDF
+metadata: 
+  node_type: memory
+  type: project
+  originSessionId: 5ac6956d-ddc5-44e4-8230-2d6232990e37
+---
+
+1級土木施工管理技士 一次過去問（`.local/r2/posts/civil-construction-1/primary-*`）に2種の系統的バグ。2026-07-10 の品質採点で検出し r04-a / r05-a を修正（PR/commit 152d69c6e系4本＋採点6113ae8b7）。
+
+**バグ1（主）**: 各設問の `<details>` 内で正答肢1つしか解説がなく、誤答肢3つの正誤理由が丸ごと欠落。過去問の折衷案構造では各選択肢に正誤理由(✅/❌)が必須。r04-a/r05-a 各61問=計122問×4肢を `past-exam-rewriter` で補完（全問4マークに整合）。
+
+**バグ2（派生・重要）**: 誤答肢を検証したら**正答キー/設問極性の転記ミスが多発**。2記事で5件 = 約4%。official照合で是正:
+- r04-a No.36: 設問が「適当なもの」と転記(正しくは「適当でないもの」)→✅/❌全反転。サイドパイルは天端でなく脚部工法
+- r04-a No.52: 作業主任者、正答1→2(土止め支保工は高さ基準なく選任必要)
+- r04-a No.59: 騒音規制法、正答1→2(電動機動力の空気圧縮機は特定建設作業非該当)
+- r05-a No.24: 砂防堰堤、正答2→1(パイピングに水抜き暗渠は逆効果)
+- r05-a No.46: 上水道配水管、正答2→3(近接間隔0.2m→0.3m)
+
+**照合手順**: kakomonn の question id は `base + 問番号`。R05は id=74716+No（No.24→74740実測）、R04は id=67670+No（R04 No.46→67716実測）。WebFetch で正答＋解説取得。労安法/騒音規制法は施行令別表を一次確認。
+
+**バグ3（新・最重大／2026-07-10）**: 転記ミスは正答キーに留まらず**設問文＋全選択肢の本文そのものが別問題に化けている**ケースがある。h27-a/h28-a の No.61(港則法)を原典照合したら、正答番号は正しい(H27=2/H28=1)のに**設問文と4肢すべてが原典と別物**だった（初回是正 4781e1b1b は未マージ枝 claude/determined-mcnulty-3803c2 に孤立→2026-07-10 別セッションが独立に原典再照合し develop へ直接是正 caa017b1a/9a929ede4/7b8792964。両者の設問・4肢本文は完全一致＝相互検証成立。ただし mcnulty 版解説の h27 肢3「法第9条」は誤りで、e-Gov 照合により**第8条=係留等の制限（第9条は移動命令）**が正＝develop 版が正しい。mcnulty 枝の fix は取り込み不要・docs 2コミットのみ未回収）。例: h27-a は原典「船舶の入出港及び停泊」なのに転記は工事許可肢を混入、h28-a は原典「危険物を運搬…港長に届け出(誤り肢)」を「危険物の積込…許可」に化けさせ単一正答が崩壊していた。**答えが合っていても本文を疑え**。
+
+**原典入手経路（pre-H30 はローカルに無い）**: `docs/textbook/１級土木施工管理技士/過去問/` は H30〜R07 のみ。H26〜H29 のA/B原本と公式正答肢表は **touhokugiken.com** が無料公開: 問題=`https://www.touhokugiken.com/answer/{h27|h28…}/…-1doboku-a.pdf`（H27は`h27-1doboku-a.pdf`、H28は`1doboku-a.pdf`と命名ゆれ）、正答=`…-kaitou.pdf`（画像テーブル＝pdftoppmでPNG化しReadで目視）。索引=`/answer.html`。WebFetchはPDFバイナリを読めないので**保存された tool-results PDF を pdftotext -layout で直読み**する。touhokugiken の `/text/index.html` は 404 化（2026-07-10 確認）。**代替の検証済み入手源=dobokujira.com**（全国建設研修センター許諾明記・curl 直DL可）: `https://dobokujira.com/wp-content/uploads/2021/05/{h27|h28}_1doboku{A|B}_gakka_doboku.pdf`。ローカル `docs/textbook/１級土木施工管理技士/問題集/`（地域開発研究所・H26〜R02収録）も解説＋正解の裏取りに使えるが、**スキャン上端欠けで設問本文が欠落するページあり**（H27/H28のNo.61がまさに欠落＝設問全文は dobokujira 原典で取得）。港則法条文の許可/届出はe-Gov(SPA不可)より **hourei.net/LawPlayer** の静的ミラーで条番号確認(第4条=届出/7条1項=修繕係船は「その旨」届出・停泊場所は港長指定/22条4項=危険物運搬許可/31条=工事許可/34条=竹木材許可)。
+
+**バグ2の全数調査（2026-07-10・別セッション）**: バグ2は氷山の一角だった。**全22本(H26〜R07のA/B, R04/R05除く)の全キーを JCTC 公式正答肢と突合→81件の誤キー**（誤キー転記＋設問極性反転）。内部矛盾を出さない「見えない誤キー」も多数。分布=7本突合0件(h28-b/h30-a/b/r01-a/b/r02-a/b＝キー健全でパイプライン検証)、r03-a(11)/r07-a(10)/r07-b(9)/r06-a(8)/r06-b(6)/r03-b(5)/h29-b(4)…、**h28-a は19件と突出→OCR再検証待ち**。図問題は画像を開いて判定必須(選択肢説明が図と逆のことも=r07-a No.25)。**6記事是正済＝計49件**: r07-a(857c79186)/r03-a(e409fc677)/r07-b(dd22a206d)/r06-a(bca13514d)/r06-b(74714cd82)/r03-b(b425f9885)。**残32件7記事=h29-b(4)/h27-a(3)/h26-a(2)/h26-b(2)/h27-b(1)/h29-a(1)＋h28-a(19,要OCR再検証)＝全てpre-H30で公式問題PDFがローカルに無い(touhokugiken.com公開・正答肢はdoboku-torisetsuの画像テーブルをpdftoppm→Read OCR)**。**重大教訓**: workorderのstem極性は化けた記事側を読むので信用不可＝公式PDFで極性・選択肢本文を照合必須(r03-a No.20隠れ極性反転)。本文化け(bug3)はキー誤りと絡む(r06-a/r03-b多数=締め直す→緩め/常時湛水速い→常時滞水遅い/外圧大→小/設問Eの遅延日数化け等)→公式へ忠実復元。図問題は必ず画像Read(r06-b No.3配筋径・No.6/r03-b No.6ネットワークEST計算・r03-b No.3 L型擁壁引張筋)。公式キーデータ=`.claude/state/quality/civil-1-primary-official-keys.json`、監査ツール=`.claude/state/quality/civil-1-primary-tools/`、残手順・一覧=旧handoff（2026-07-11 に _archive ごと削除・git 履歴 `docs/handoffs/_archive/2026-07-10-civil1-primary-official-key-verification.md` から復元可）。手順の生きたSSOTは exam-content-policy.md Part 2＋backlog「civil-1 一次過去問 公式キー deferred 24件」。公式正答肢は doboku-torisetsu の `{H26..R7}_kaitou.pdf`(=JCTC再掲)から入手(pdftotext、H26-29は画像でpdftoppm→Read)。
+
+**根本再判明（2026-07-10・別セッション）＝pre-H30は「再構成バンク」**: H26〜H29の全official.jsonキーはJCTC公式正答表と完全一致（画像正答表をpdftoppm→Read再OCRで検証済＝official.jsonは信頼可）。**だが記事の問題文は逐語の公式過去問ではなく再構成/言い換えバンク**だった。3種の破損が混在: ①別論点スロット（そのスロットに全く別の問題が入る。h28-a約40/61問・h26-a/b各10数問・h27-a No.53/58/61等）②解説プレースホルダ破損（`**記述は適当である ❌**`＝pre-H30に約48件）③キー/極性誤り。**逐語化には全380問再転記が必要**（当初「32キー反転」の6-10倍）。ユーザー判断で方針=**「有害な誤りのみ一掃」**（別論点は公式問題へ全文置換／解説破損は補完／キー誤りは是正／妥当な言い換え問題は残す。全逐語再転記はしない）。**当初「32キー反転」計画は誤り**＝別論点にキー反転すると自己整合していた問題が壊れる。**h28-b等「キー0件」の記事も選択肢は非逐語**（妥当な言い換え・正答は正しい＝残す）。
+
+**per-record手法（確立・h27-a/h27-b完遂）**: (1)公式問題PDF取得（pre-H30=touhokugiken: `answer/h26/h26-1doboku-a.pdf`・`-b.pdf`、h27同、h28=`answer/h28/1doboku-a.pdf`・`-b.pdf`。**h29学科A/BはJCTC消滅・touhokgiken無し→kakomonn等別ソース要**）(2)`pdftotext -layout`→`【No.N】`＋`⑴⑵⑶⑷`抽出（`.tmp/civil-keys/extract-blocks.py`・`build-ref.py`で正答キー付きクリーン参照`official-clean/{rec}.txt`生成。フッタ雑音/図問題は崩れるので生PDFも要）(3)有害問題の特定=**check-contradict（`❌ but text says CORRECT`＝プレースホルダ＋強弁justificationを検出・No.14型の隠れ別問題も捕捉）＋diff-keys＋placeholder grep`**記述は`＋topic-diff**。自動topic/option類似度はノイズ大で不可(h28-b健全でも誤検出)＝**目視照合必須**(4)図問題は記事図が別物のことあり→**公式PDFページをpdftoppm→Readで確認しmagickでクロップ→webp差替**(h27-b No.3=記事図D19/3800が誤り→公式S1・S2 D16/3700に差替・opt2「頂版下面主鉄筋250mm」は実際8×300=300mmで誤り＝正答2)(5)不確実な図解釈/理由はfabricateせず**kakomonn(過去問ドットコム)等でWebFetch検証**(6)検証=diff-keys=0/check-marks/check-contradict/placeholder0/U+FFFD0/LF→1記事1commit。**進捗(2026-07-10当セッション): pre-H30 4記事完遂**=h27-a(7問・525d69ab4)/h27-b(6問・0278ba609)/h26-b(No.28/29スワップ・203ea3d0a)/h26-a(No.10/11別問題→公式置換・f31db1189)。h27-a No.18とh27-b No.3は公式PDFページをmagickクロップして図を新規作成/差替(記事図が別物だった)。**残2記事**: ①**h29-a/b**（No.38(a)/No.3・12・17・21(b)＋解説破損No.6/57(a)・No.3/28(b)。**JCTC消滅で公式問題PDF未入手→kakomonn(過去問ドットコム)等別ソースで各問の設問/正答を取得してから是正**。記事h29-a No.38は表示key4だが公式key3で相違＝要原典）②**h28-a**（~40/61問が別論点の最重症。公式PDFは`.tmp/civil-keys/h28a.txt`(=touhokugiken `answer/h28/1doboku-a.pdf`)取得済。全別論点スロットを公式問題へ全文置換する大規模作業＝専用セッション推奨。図問題は公式ページをpdftoppm→Read→magickクロップ）。**方法テンプレは上記(1)〜(6)がそのまま適用可**。公式PDFは`.tmp/civil-keys/`(gitignore・touhokgikenから再DL可)、監査ツール=`.claude/state/quality/civil-1-primary-tools/`。
+
+**統合後の現況（2026-07-11・複数セッション統合＋deploy）**: nifty-feynman ワークフローを develop/main へ統合＝**16本(h26-a/b・h27-a/b・h28-b・h30-a/b・r01-a/b・r02-a/b・r03-a/b・r06-a/b・r07-a/b)を公式キー0不一致で確定**（`diff-keys.mjs` で検証）。optimistic-mestorf の civil-2 r06-kouki も統合。**残 deferred 3本24件**=h28-a(19・要official配列OCR再検証＝19件突出はOCR誤りの疑い)/h29-a(1=No.38)/h29-b(4=No.3/12/17/21)＝pre-H30原典PDFが要DL・キー番号だけ書き換えると極性/本文化けと矛盾するので半端修正禁止。個数/組合せの✅/❌記号残り(r07-b No.32/24/35等)はprose整形follow-up（キーは公式一致済）。**訂正**: 「civil primary は ExamPoint/RelatedKeywords 不使用」は誤り＝ExamPointは全primaryファイルに系統採用(≈8/本・A/B全年度)ゆえ削除しない。監査ツール=`.claude/state/quality/civil-1-primary-tools/`、handoff は 2026-07-11 に _archive ごと削除（git 履歴から復元可）、残課題は backlog「civil-1 一次過去問 公式キー deferred 24件」（🟡）。真実源 [[quality-census]]。
+
+2026-09-12 追加（専門土木テキスト執筆中に QA/Writer が検出）: r04-a 問34（RCD の降雨中止 2 mm/h は誤り→1 mm/h）と r06-a 問39（選択肢 4「2 mm/h」を適当とする）が矛盾。どちらの転記が正しいか原典未確認のため、textbook-dam-construction は数値を書かず「有スランプより厳しい」と定性表現にした。修正済みの転記ミス: r03-a 問16 の「実際は 5 % が正しい」注記（10 % が正）・r07-a 問31 の水抜き孔の向き（前面へ下り）・r06-a 問48 の大型機械の留置 2 m（1 m が正）。
