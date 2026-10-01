@@ -153,6 +153,14 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, mat
       query: { c: c.id, t: '' },
     })),
   };
+  // レビューは週次・月次を別ページにし、折りたたみの枝で選ぶ（domains.json の項目はそのまま・href は旧 URL で両方へ転送する）
+  const reviewTree = (label: string): NavTree => ({
+    label,
+    tabs: [
+      { href: '/metrics/business/weekly', label: '週次', match: '/metrics/business/weekly' },
+      { href: '/metrics/business/monthly', label: '月次', match: '/metrics/business/monthly' },
+    ],
+  });
   const materialTrees: NavTree[] = materials.map((m) => ({
     label: m.shelf,
     tabs: m.items.map((it) => ({
@@ -183,6 +191,7 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, mat
                 if (isTree(e)) return [e];
                 if (e.match === '/content/ledger') return [e, themeTree, byChannelTree];
                 if (e.match === '/materials') return [e, ...materialTrees];
+                if (e.match === '/metrics/business') return [reviewTree(e.label)];
                 return [e];
               })
               .map((entry) =>

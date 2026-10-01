@@ -27,7 +27,7 @@ export default function SalesPage() {
       <Stack>
       <PanelCard title="月次売上推移" description={`真実源 ${source ?? '—'} · 最終更新 ${updatedAt ?? '—'}`}>
         <Stack gap="sm">
-        <p className="m-0 text-sm">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business?cadence=monthly">レビュー</Link> で管理します。</p>
+        <p className="m-0 text-sm">台帳に登録された販売額です。手数料控除後の受取や利益ではありません。目標と資格別の判断は <Link href="/metrics/business/monthly">月次レビュー</Link> で管理します。</p>
         <BarChart bars={bars} />
         </Stack>
       </PanelCard>
