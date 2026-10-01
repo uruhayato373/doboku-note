@@ -11,6 +11,10 @@
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --file=<single.svg>
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
  *
+ * .claude/state/svg-audit.json へ書くのは全件走査（--path 既定・--file なし・--severity=ALL）のときだけ。
+ * --file / --path / --severity を付けた部分実行は所見を標準出力へ全件出すだけ — 1 枚の確認で全体の監査結果を
+ * 上書きしない（2026-09-30 に .tmp の図 1 枚の結果で 627 件分の state が消えた）。
+ *
  * exit 1 の条件（--fail-on とは独立に常時適用。CLAUDE.md §9「検査ゼロを PASS と呼ばない」）:
  *   - --path / --file のマッチが 0 件（走査不成立。所見なしではない）
  *   - 読めない/壊れた SVG が 1 件以上（未検査。所見 0 と混同しない）
@@ -20,9 +24,11 @@ import { writeFileSync, existsSync, mkdirSync } from "fs";
 import { globSync } from "glob";
 import { auditSvgFile } from "./detect.mjs";
 
+const DEFAULT_PATH = "content/site/**/img/*.svg";
+
 function parseArgs(argv) {
   const args = {
-    path: "content/site/**/img/*.svg",
+    path: DEFAULT_PATH,
     file: null,
     severity: "ALL",
     failOn: null,
@@ -113,9 +119,13 @@ function main() {
     exam_crops: examCrops,
   };
 
-  if (!existsSync(".claude/state")) mkdirSync(".claude/state", { recursive: true });
+  // svg-gallery / build-svg-catalog / 図版エージェントは state を全件の監査結果として読む。部分実行では書かない。
+  const isFullScan = !args.file && args.path === DEFAULT_PATH && args.severity === "ALL";
   const outPath = ".claude/state/svg-audit.json";
-  writeFileSync(outPath, JSON.stringify(out, null, 2));
+  if (isFullScan) {
+    if (!existsSync(".claude/state")) mkdirSync(".claude/state", { recursive: true });
+    writeFileSync(outPath, JSON.stringify(out, null, 2));
+  }
 
   console.log(`audit-svg:`);
   console.log(`  scanned: ${summary.scanned_files} file(s)（うち過去問クロップ ${summary.exam_crops_high_only} 件は HIGH のみ）`);
@@ -125,7 +135,13 @@ function main() {
   for (const [p, n] of Object.entries(byPattern)) {
     console.log(`    ${p}: ${n}`);
   }
-  console.log(`  report: ${outPath}`);
+  console.log(isFullScan ? `  report: ${outPath}` : `  report: 部分実行のため ${outPath} は更新しない`);
+  // 部分実行は state に残らないので、所見をここで全件出す
+  if (!isFullScan) {
+    for (const f of allFindings) {
+      console.log(`  ${f.severity} ${f.pattern} ${f.file}${f.line ? `:${f.line}` : ""}${f.text ? ` 「${f.text}」` : ""} — ${f.detail}`);
+    }
+  }
 
   // 未検査（読めなかった SVG）が 1 件でもあれば緑にしない — 所見 0 と検査不成立は別物。
   if (parseErrors.length > 0) {
