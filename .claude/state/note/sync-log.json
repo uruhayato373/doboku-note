@@ -1,6 +1,29 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T16:30:03.409Z",
+      "finishedAt": "2026-10-01T16:36:46.052Z",
+      "plan": {
+        "synced": 611,
+        "ready": 283,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T16:23:05.897Z",
       "finishedAt": "2026-10-01T16:29:49.941Z",
       "plan": {
@@ -264,29 +287,6 @@
             "reason": "[4.4] ABORT: 挿入した画像がエディタに無い（1 枚消失・保存すると live で欠落）→ 待ちを伸ばさず単発で再実行"
           }
         ]
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T15:01:05.767Z",
-      "finishedAt": "2026-10-01T15:07:42.927Z",
-      "plan": {
-        "synced": 610,
-        "ready": 284,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
       },
       "magazines": {
         "attempted": 0,
