@@ -16,6 +16,17 @@ export function noteSalesFinalizeDate(month) {
   return new Date(Date.UTC(y, m, 2)).toISOString().slice(0, 10);
 }
 
+/** day（JST の YYYY-MM-DD）の時点で、note の month の売上・アクセスが確定しているか。 */
+export function isNoteMonthFinalized(month, day) {
+  return typeof day === 'string' && day >= noteSalesFinalizeDate(month);
+}
+
+/** 期間（startDate〜endDate）にかかる月のうち、day の時点で note がまだ確定していない月と確定日。 */
+export function noteMonthsPendingFinalization(period, day) {
+  const months = [...new Set([period.startDate.slice(0, 7), period.endDate.slice(0, 7)])];
+  return months.filter((month) => !isNoteMonthFinalized(month, day)).map((month) => ({ source: 'note', month, finalizeDate: noteSalesFinalizeDate(month) }));
+}
+
 /** 売上管理の本文が「前月の売上を集計中」か。 */
 export function isNoteSalesAggregating(text) {
   return /前月の売上を集計中/.test(String(text ?? ''));

@@ -51,7 +51,8 @@ import { fileURLToPath } from 'node:url';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
-import { isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
+import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
+import { jst } from './lib/business-direction.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -272,6 +273,10 @@ try {
   const removed = (log.sales || []).length - kept.length;
   log.sales = [...kept, ...entries.map(({ date, productId, title, type, price }) => ({ date, productId, title, type, price }))];
   log.updatedAt = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  // 月ごとの取得記録。finalized=true は note の確定日（翌月 2 日）以降に月次表示と検算一致したもの。
+  // 事業レビュー・実験計測はこれが true の月だけを確定値として扱う（確定前の値を完了と呼ばない）
+  const fetchedDay = jst(now);
+  log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized: isNoteMonthFinalized(MONTH_ARG, fetchedDay) } };
   writeFileSync(SALES_LOG, JSON.stringify(log, null, 2) + '\n');
   console.log(`[6] sales-log.json を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
 

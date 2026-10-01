@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope } from '../scripts/lib/experiment-measure.mjs';
+import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from '../scripts/lib/experiment-measure.mjs';
 import { judgeExperiment } from '../scripts/lib/experiment-due.mjs';
 
 const spec = (over = {}) => ({ specVersion: 1, metric: 'gsc.clicks', scope: { pagePrefix: '/exam/rccm/' }, preDays: 28, postDays: 28, lagDays: 3, direction: 'increase', minEffect: 0.1, minVolume: 20, ...over });
@@ -60,10 +60,20 @@ test('measurements are idempotent per spec and post window, and a final one make
   assert.equal(alreadyMeasured(e, specHash(s), { endDate: '2026-09-28' }), false);
   e.measurements.push({ source: 'auto', specHash: specHash(s), post: { endDate: '2026-09-28' }, complete: false, metric: 'gsc.clicks', verdictHint: 'in-progress' });
   assert.equal(alreadyMeasured(e, specHash(s), { endDate: '2026-09-28' }), true);
+  // 途中の計測しか無い窓は、確定になったときだけ測り直す
+  assert.equal(alreadyMeasured(e, specHash(s), { endDate: '2026-09-28' }, true), false);
   const now = Date.parse('2026-09-20T00:00:00+09:00');
   assert.ok(!judgeExperiment(e, now).reasons.some((r) => r.kind === 'VERDICT_DUE'), '途中経過では裁定を求めない');
   e.measurements.push({ source: 'auto', specHash: specHash(s), post: { endDate: '2026-10-01' }, complete: true, metric: 'gsc.clicks', pre: { value: 10 }, post: { value: 20 }, verdictHint: 'improved' });
   const j = judgeExperiment(e, now);
   assert.ok(j.reasons.some((r) => r.kind === 'VERDICT_DUE' && /improved/.test(r.detail)));
   assert.match(j.review, /close EXP-9/);
+});
+
+test('a sales window is final only when every month was fetched after note finalization', () => {
+  const pre = { startDate: '2026-08-20', endDate: '2026-09-16' }, post = { startDate: '2026-09-17', endDate: '2026-10-14' };
+  assert.equal(salesWindowFinalized({ '2026-08': { finalized: true }, '2026-09': { finalized: true } }, pre, post), false, 'October is not final');
+  assert.equal(salesWindowFinalized({ '2026-08': { finalized: true }, '2026-09': { finalized: true }, '2026-10': { finalized: true } }, pre, post), true);
+  assert.equal(salesWindowFinalized({ '2026-08': { finalized: true }, '2026-09': { finalized: false }, '2026-10': { finalized: true } }, pre, post), false);
+  assert.equal(salesWindowFinalized(undefined, pre, post), false);
 });
