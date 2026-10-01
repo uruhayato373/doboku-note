@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: c1-essay-adapt
 noteUrl: "https://note.com/dobokunote/n/nd88d5ec77f2d"
 noteId: "nd88d5ec77f2d"
+title: "【1級土木施工管理技士】完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 完成答案を

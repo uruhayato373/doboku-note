@@ -8,6 +8,7 @@ subject: power-civil
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n925da9ad94e0"
 noteId: "n925da9ad94e0"
+title: "技術士 建設部門｜電力土木 R8予想 選択科目II-1 予想問題＋模範解答"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

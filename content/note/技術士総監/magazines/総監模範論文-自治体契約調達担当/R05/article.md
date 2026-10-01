@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-procurement-muni-r05
 noteUrl: https://note.com/dobokunote/n/n845a47ddaa83
 noteId: n845a47ddaa83
+title: "令和5年度 総監記述式 模範論文｜自治体 契約・調達担当版（SWOT・戦略立案）"
 notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体契約調達担当
 price: 500

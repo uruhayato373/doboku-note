@@ -6,6 +6,7 @@ utmCampaign: cce-anki-note
 noteStatus: published
 notePublishedAt: "2026-09-17"
 noteId: "n25197277c5a9"
+title: "コンクリート主任技士｜四肢択一 直前暗記ノート（一問一答157問・8分野の数値と定義）"
 noteUrl: "https://note.com/dobokunote/n/n25197277c5a9"
 price: 980
 paidBoundary: "コンクリートの性質"

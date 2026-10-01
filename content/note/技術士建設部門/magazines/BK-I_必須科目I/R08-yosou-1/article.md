@@ -9,6 +9,7 @@ forecast: true
 theme: 担い手確保と建設DX・生産性革命
 noteUrl: "https://note.com/dobokunote/n/n6b2feea921ee"
 noteId: "n6b2feea921ee"
+title: "技術士 建設部門｜必須科目I R8予想① 担い手確保 × 建設DX・生産性革命（模範解答）"
 notePublishedAt: "2026-06-12"
 price: 780
 coverTitle: "技術士 建設部門｜必須科目I R8予想① 担い手×建設DX 模範解答"

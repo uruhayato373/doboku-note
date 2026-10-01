@@ -6,6 +6,7 @@ noteContentType: product
 noteMagazine: 2級土木-想定工事バンク
 noteUrl: "https://note.com/dobokunote/n/ne828fbb9f47f"
 noteId: "ne828fbb9f47f"
+title: "2級土木 施工経験記述｜プレキャストL型水路布設工事 5管理フルカバー"
 notePublishedAt: "2026-08-20"
 noteStatus: published
 utmCampaign: civil2-koji-bank-koji108

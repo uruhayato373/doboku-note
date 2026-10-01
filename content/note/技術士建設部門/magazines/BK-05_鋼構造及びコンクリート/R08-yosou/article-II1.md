@@ -8,6 +8,7 @@ subject: steel-concrete
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/nc5339dfd9d2e"
 noteId: "nc5339dfd9d2e"
+title: "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-1 予想問題＋模範解答"
 notePublishedAt: "2026-06-16"
 price: 780
 theme: "鋼材の疲労設計／溶接継手／中性化・塩害／プレストレストコンクリート"

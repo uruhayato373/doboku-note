@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n93924bcacec3"
 noteId: "n93924bcacec3"
+title: "【技術士 建設部門】インフラ老朽化・維持管理を論文の論点にする（予防保全・アセットマネジメント）"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-infra-roukyuuka-iji

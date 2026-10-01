@@ -6,6 +6,7 @@ utmCampaign: essay-water-muni-r08-5
 noteMagazine: 総監模範論文-自治体上水道担当
 noteUrl: "https://note.com/dobokunote/n/nd7d6ade980dc"
 noteId: "nd7d6ade980dc"
+title: "令和8年度 総監記述式 模範論文｜自治体 上水道担当版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

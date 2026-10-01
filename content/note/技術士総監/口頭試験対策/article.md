@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n8ab5e6bc2970"
+title: "総監口頭試験20分で落ちない「業務経歴」の語り方｜5管理で再構成する実演例と想定質問対策"
 utmCampaign: tankan-koutou-taisaku
 noteUrl: "https://note.com/dobokunote/n/n8ab5e6bc2970"
 notePricing: paid

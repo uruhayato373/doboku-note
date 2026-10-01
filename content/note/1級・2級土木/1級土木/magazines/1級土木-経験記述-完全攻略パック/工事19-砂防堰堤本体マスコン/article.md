@@ -10,6 +10,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "砂防堰堤 本体マスコン", "5管理 完成答案"]
 noteUrl: "https://note.com/dobokunote/n/n012233737721"
 noteId: "n012233737721"
+title: "1級土木 施工経験記述｜砂防堰堤 本体コンクリート（マスコン）5管理 完成答案"
 notePublishedAt: "2026-06-30"
 cover:
   variant: crop-safe-v4

@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: c1-essay-fail
 noteUrl: "https://note.com/dobokunote/n/nfea4a39cf108"
 noteId: "nfea4a39cf108"
+title: "【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 施工経験記述で

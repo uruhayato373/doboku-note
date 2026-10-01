@@ -6,6 +6,7 @@ paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n6ddec1db901b
 noteId: n6ddec1db901b
+title: "経済安全保障・サプライチェーン強靱化｜設問(3)国家施策バンク"
 notePublishedAt: 2026-06-01
 cover:
   variant: crop-safe-v4

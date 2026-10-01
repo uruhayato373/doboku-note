@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n9376aac312df"
 noteId: "n9376aac312df"
+title: "総監受験は「投資」としてペイするか — 2026年最新数値で計算するコスト vs リターン完全シート"
 noteSeries: 民間技術者受験
 noteContentType: learning
 utmCampaign: 95-roi-calculator

@@ -5,6 +5,7 @@ noteStatus: published
 utmCampaign: tankan-takuitsu-reiwa-pdf
 notePublishedAt: "2026-07-11"
 noteId: "nb5ebacb3e6c0"
+title: "技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度 全280問・全選択肢解説）"
 noteUrl: "https://note.com/dobokunote/n/nb5ebacb3e6c0"
 price: 980
 paidBoundary: "PDF のダウンロードと使い方"

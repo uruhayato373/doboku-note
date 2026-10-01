@@ -9,6 +9,7 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-08-05"
 noteId: "n66570efb6d23"
+title: "今週のお題｜安全管理 — 供用中・近接施工での公衆（第三者）災害の防止"
 noteUrl: "https://note.com/dobokunote/n/n66570efb6d23"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-safety

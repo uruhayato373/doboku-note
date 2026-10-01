@@ -7,6 +7,7 @@ subject: power-civil
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n1984e17eeb54"
 noteId: "n1984e17eeb54"
+title: "技術士 建設部門｜電力土木 R06 選択科目II-1 模範解答（全4設問）"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R06 選択科目II-1 模範解答"

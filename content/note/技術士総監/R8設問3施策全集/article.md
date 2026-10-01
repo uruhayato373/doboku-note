@@ -6,6 +6,7 @@ noteContentType: learning
 utmCampaign: r8-s3-zenshu
 notePublishedAt: "2026-07-19"
 noteId: "nce1ea1317eab"
+title: "令和8年度 総監 記述式 設問(3) 国家施策 全集｜地方創生・全18アウトプット対応【無料】"
 noteUrl: "https://note.com/dobokunote/n/nce1ea1317eab"
 cover:
   variant: crop-safe-v4

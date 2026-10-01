@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: pe-construction-oral
 notePublishedAt: "2026-09-19"
 noteId: "n5bc0bcde96ac"
+title: "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ"
 noteUrl: "https://note.com/dobokunote/n/n5bc0bcde96ac"
 price: 1980
 noteStatus: published

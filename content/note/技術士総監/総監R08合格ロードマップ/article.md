@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: profile-fixed-roadmap
 noteUrl: https://note.com/dobokunote/n/n3d73729e6cc7
 noteId: n3d73729e6cc7
+title: "【はじめての方へ】技術士総監・R08 合格のための note ロードマップ"
 notePublishedAt: 2026-05-26
 coverTitle:
   - 【はじめての方へ】

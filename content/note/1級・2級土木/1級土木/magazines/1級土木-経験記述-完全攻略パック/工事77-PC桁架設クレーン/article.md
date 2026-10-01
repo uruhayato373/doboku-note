@@ -8,6 +8,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "PC桁架設（クレーン）", "5管理 完成答案"]
 noteUrl: "https://note.com/dobokunote/n/n9250e3f2aa37"
 noteId: "n9250e3f2aa37"
+title: "1級土木 施工経験記述｜PC桁架設（クレーン一括架設）5管理 完成答案"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理

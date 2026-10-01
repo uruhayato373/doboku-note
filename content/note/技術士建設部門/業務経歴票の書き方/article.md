@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/na4f084f1ad6d"
 noteId: "na4f084f1ad6d"
+title: "【技術士 建設部門】二次試験 業務経歴票の書き方｜「業務内容の詳細」720字の作り方"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-gyoumu-keireki-hyou

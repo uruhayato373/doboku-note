@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-water-muni-r04
 noteUrl: https://note.com/dobokunote/n/n94b74263adf5
 noteId: n94b74263adf5
+title: "令和4年度 総監記述式 模範論文｜上水道担当版（DX推進）"
 notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体上水道担当
 price: 500

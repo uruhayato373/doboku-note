@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: cd-essay-b-frost
 noteUrl: "https://note.com/dobokunote/n/n6a498accc1a9"
 noteId: "n6a498accc1a9"
+title: "コンクリート診断士 記述式 問題B 模範答案｜寒冷地の凍害"
 notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
 noteStatus: published

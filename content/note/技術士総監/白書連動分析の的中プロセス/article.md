@@ -7,6 +7,7 @@ noteUrl: "https://note.com/dobokunote/n/n021d95a51f24"
 utmCampaign: r8-hit-process
 notePublishedAt: "2026-07-19"
 noteId: "n021d95a51f24"
+title: "R8総監「地方創生」はなぜ事前に押さえられたか — 白書連動分析のプロセスを全公開【無料】"
 coverTitle:
   - R8「地方創生」的中
   - 白書連動分析のプロセス公開

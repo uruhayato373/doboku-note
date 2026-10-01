@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n70ec506e7be6"
 noteId: "n70ec506e7be6"
+title: "【技術士 建設部門】防災・減災／国土強靱化 必須科目I 論点キーワード"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-bosai-keyword

@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-river-muni-r04
 noteUrl: https://note.com/dobokunote/n/n5803667f9cbb
 noteId: n5803667f9cbb
+title: "令和4年度 総監記述式 模範論文｜自治体 河川担当版（DX推進）"
 notePublishedAt: 2026-06-09
 noteMagazine: 総監模範論文-自治体河川担当
 price: 500

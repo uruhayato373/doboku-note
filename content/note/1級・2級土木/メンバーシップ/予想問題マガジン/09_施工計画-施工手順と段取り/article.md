@@ -6,6 +6,7 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-22"
 noteId: "ne3cf6dac882f"
+title: "今週のお題｜施工計画 — 施工手順・段取り・資源配分で工事を円滑に進める"
 noteUrl: "https://note.com/dobokunote/n/ne3cf6dac882f"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-plan-procedure

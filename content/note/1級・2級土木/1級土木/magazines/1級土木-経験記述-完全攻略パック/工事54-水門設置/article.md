@@ -10,6 +10,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "水門設置工事", "5管理 完成答案"]
 noteUrl: "https://note.com/dobokunote/n/n7f8c31699672"
 noteId: "n7f8c31699672"
+title: "1級土木 施工経験記述｜水門設置工事（5管理 完成答案）"
 notePublishedAt: "2026-06-30"
 cover:
   variant: crop-safe-v4

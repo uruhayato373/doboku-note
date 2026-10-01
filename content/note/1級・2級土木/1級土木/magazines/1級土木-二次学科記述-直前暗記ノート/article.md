@@ -4,6 +4,7 @@ noteContentType: product
 noteStatus: published
 notePublishedAt: "2026-07-04"
 noteId: "na84b001e827e"
+title: "1級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）"
 noteUrl: "https://note.com/dobokunote/n/na84b001e827e"
 utmCampaign: civil1-gakka-anki
 price: 980

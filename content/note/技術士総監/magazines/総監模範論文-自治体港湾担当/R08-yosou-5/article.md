@@ -6,6 +6,7 @@ utmCampaign: essay-port-muni-r08-5
 noteMagazine: 総監模範論文-自治体港湾担当
 noteUrl: "https://note.com/dobokunote/n/n75a5e4f49842"
 noteId: "n75a5e4f49842"
+title: "令和8年度 総監記述式 模範論文｜自治体 港湾担当版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

@@ -6,6 +6,7 @@ paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n702de2881929
 noteId: n702de2881929
+title: "インフラ老朽化・維持管理｜設問(3)国家施策バンク"
 notePublishedAt: 2026-06-01
 cover:
   variant: crop-safe-v4

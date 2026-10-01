@@ -6,6 +6,7 @@ paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
 noteUrl: "https://note.com/dobokunote/n/nd21e8797275a"
 noteId: "nd21e8797275a"
+title: "AI技術の活用と成果品の品質向上｜RCCM 問題III 管理技術力 模範論文（2026年度）"
 notePublishedAt: "2026-09-15"
 noteStatus: published
 utmCampaign: rccm-2026

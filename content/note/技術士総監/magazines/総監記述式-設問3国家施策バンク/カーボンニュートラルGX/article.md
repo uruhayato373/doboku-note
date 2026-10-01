@@ -6,6 +6,7 @@ paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nf6695c5741c8
 noteId: nf6695c5741c8
+title: "カーボンニュートラル・GX｜設問(3)国家施策バンク"
 notePublishedAt: 2026-06-01
 cover:
   variant: crop-safe-v4

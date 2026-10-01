@@ -2,6 +2,7 @@
 notePublishedAt: "2026-07-23"
 noteUrl: "https://note.com/dobokunote/n/n6461ec60bd03"
 noteId: "n6461ec60bd03"
+title: "地方自治体土木職が総監を取るコスト計算 — 受験料補助・自己啓発支援・課長級昇進加点を織り込む"
 notePricing: free
 noteSeries: 戦略・コスト分析
 noteContentType: learning

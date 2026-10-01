@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-information
 noteUrl: "https://note.com/dobokunote/n/nc9a3d01b8129"
 noteId: "nc9a3d01b8129"
+title: "情報管理 × 他4管理｜トレードオフ構造と総監的解決策"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "情報管理 × 他4管理"]
 price: 780

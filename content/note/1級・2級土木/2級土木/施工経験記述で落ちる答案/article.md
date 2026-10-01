@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-fail
 noteUrl: "https://note.com/dobokunote/n/na5e045a1c6f8"
 noteId: "na5e045a1c6f8"
+title: "【2級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述で

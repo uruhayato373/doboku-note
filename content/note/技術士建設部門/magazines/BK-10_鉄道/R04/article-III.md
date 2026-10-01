@@ -7,6 +7,7 @@ subject: railway
 exam_type: III
 noteUrl: "https://note.com/dobokunote/n/n0de486cd01cf"
 noteId: "n0de486cd01cf"
+title: "技術士 建設部門｜鉄道 R04 選択科目III 模範解答（III-1・III-2）"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R04 選択科目III 模範解答"

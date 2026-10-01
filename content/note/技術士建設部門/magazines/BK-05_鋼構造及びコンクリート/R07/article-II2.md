@@ -7,6 +7,7 @@ subject: steel-concrete
 exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/nbab2d4603691"
 noteId: "nbab2d4603691"
+title: "技術士 建設部門｜鋼構造及びコンクリート R07 選択科目II-2 模範解答（II-2-1・II-2-2）"
 notePublishedAt: "2026-06-16"
 price: 780
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R07 選択科目II-2 模範解答"

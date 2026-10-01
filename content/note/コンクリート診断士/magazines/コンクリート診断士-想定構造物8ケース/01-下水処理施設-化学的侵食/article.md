@@ -6,6 +6,7 @@ utmCampaign: cd-case-sewer-chemical
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "nb50fc8e878e8"
+title: "コンクリート診断士 記述式 問題B｜下水処理施設の硫酸劣化"
 noteUrl: "https://note.com/dobokunote/n/nb50fc8e878e8"
 noteStatus: published
 published: false

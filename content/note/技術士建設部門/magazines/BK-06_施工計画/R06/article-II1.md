@@ -7,6 +7,7 @@ subject: construction-planning
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n54b982bc44e4"
 noteId: "n54b982bc44e4"
+title: "技術士 建設部門｜施工計画、施工設備及び積算 R06 選択科目II-1 模範解答（全4設問）"
 notePublishedAt: "2026-06-16"
 price: 780
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R06 選択科目II-1 模範解答"

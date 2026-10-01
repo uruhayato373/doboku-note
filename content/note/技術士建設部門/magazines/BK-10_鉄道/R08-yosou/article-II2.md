@@ -8,6 +8,7 @@ subject: railway
 exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/ncf693e43a180"
 noteId: "ncf693e43a180"
+title: "技術士 建設部門｜鉄道 R8予想 選択科目II-2 予想問題＋模範解答"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

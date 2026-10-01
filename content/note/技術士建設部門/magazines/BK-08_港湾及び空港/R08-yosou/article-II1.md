@@ -8,6 +8,7 @@ subject: port-airport
 exam_type: II-1
 noteUrl: "https://note.com/dobokunote/n/n6ea0a86911f4"
 noteId: "n6ea0a86911f4"
+title: "技術士 建設部門｜港湾及び空港 R8予想 選択科目II-1 予想問題＋模範解答"
 notePublishedAt: "2026-06-17"
 price: 780
 theme: "混成防波堤の安定照査・矢板式係船岸・浚渫工法選定・空港コンクリート舗装PCN"

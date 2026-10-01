@@ -8,6 +8,7 @@ noteStatus: published
 coverTitle: ["1級土木 施工経験記述", "電線共同溝整備（無電柱化）", "5管理 完成答案"]
 noteUrl: "https://note.com/dobokunote/n/n8977d8654f1f"
 noteId: "n8977d8654f1f"
+title: "1級土木 施工経験記述｜電線共同溝整備（無電柱化）5管理 完成答案"
 notePublishedAt: "2026-06-30"
 price: 1980
 paidBoundary: 品質管理

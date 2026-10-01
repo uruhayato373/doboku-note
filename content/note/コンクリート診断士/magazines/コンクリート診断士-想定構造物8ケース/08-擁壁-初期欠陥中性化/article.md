@@ -6,6 +6,7 @@ utmCampaign: cd-case-retaining-initial-defect
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n6e5ca4e6933c"
+title: "コンクリート診断士 記述式 問題B｜RC擁壁の豆板・コールドジョイントと中性化"
 noteUrl: "https://note.com/dobokunote/n/n6e5ca4e6933c"
 noteStatus: published
 published: false

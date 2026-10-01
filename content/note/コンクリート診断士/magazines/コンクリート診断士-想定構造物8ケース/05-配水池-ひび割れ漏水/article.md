@@ -6,6 +6,7 @@ utmCampaign: cd-case-reservoir-leakage
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "ncc5f3f67f326"
+title: "コンクリート診断士 記述式 問題B｜RC配水池のひび割れ・漏水"
 noteUrl: "https://note.com/dobokunote/n/ncc5f3f67f326"
 noteStatus: published
 published: false

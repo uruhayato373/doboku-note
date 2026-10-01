@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-ai-governance
 noteUrl: https://note.com/dobokunote/n/nb4e6f088f0e8
 noteId: nb4e6f088f0e8
+title: "令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス"
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "AI社会と情報ガバナンス"]
 price: 780

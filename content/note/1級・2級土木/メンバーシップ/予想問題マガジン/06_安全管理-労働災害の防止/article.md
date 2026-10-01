@@ -7,6 +7,7 @@ noteContentType: product
 noteMagazine: 経験記述-週次お題ラボ
 notePublishedAt: "2026-09-15"
 noteId: "n81850411ecb7"
+title: "今週のお題｜安全管理 — 墜落・重機・崩壊による労働災害の防止"
 noteUrl: "https://note.com/dobokunote/n/n81850411ecb7"
 memberTrial: bottom
 utmCampaign: civil-membership-odai-safety-labor

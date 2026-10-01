@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/na5c037797084"
 noteId: "na5c037797084"
+title: "【技術士 建設部門】カーボンニュートラル・GXを必須科目Iの論点にどう落とすか"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-carbon-neutral

@@ -6,6 +6,7 @@ utmCampaign: pe1-anki-note
 noteStatus: published
 notePublishedAt: "2026-09-17"
 noteId: "n7b4f17a09d3f"
+title: "技術士 第一次試験｜直前暗記ノート（一問一答156問・基礎科目・適性科目・専門科目 建設部門）"
 noteUrl: "https://note.com/dobokunote/n/n7b4f17a09d3f"
 price: 980
 paidBoundary: "適性科目｜技術士法と倫理"

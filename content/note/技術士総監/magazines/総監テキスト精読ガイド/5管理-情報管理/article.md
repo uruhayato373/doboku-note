@@ -6,6 +6,8 @@ noteContentType: product
 utmCampaign: 99-information-management
 noteUrl: https://note.com/dobokunote/n/n9f48dd4d895a
 noteId: "n9f48dd4d895a"
+title: "情報管理｜総監キーワード精読ガイド｜択一・記述で直結する全論点"
+price: 500
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4

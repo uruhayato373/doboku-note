@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-adapt
 noteUrl: "https://note.com/dobokunote/n/nc60854accc56"
 noteId: "nc60854accc56"
+title: "【2級土木施工管理技士】完成答案を「自分の現場」に置き換える手順 — 丸写しが失格になる理由"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 完成答案を

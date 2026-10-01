@@ -1,6 +1,7 @@
 ---
 notePublishedAt: "2026-07-23"
 noteId: "n5d0292fa4f1f"
+title: "総監記述式で差がつく「5管理統合」の書き方｜令和7年度「少子高齢化」を題材に合格答案の構造を解剖"
 utmCampaign: tankan-kijutsu-kakikata
 noteUrl: "https://note.com/dobokunote/n/n5d0292fa4f1f"
 notePricing: paid

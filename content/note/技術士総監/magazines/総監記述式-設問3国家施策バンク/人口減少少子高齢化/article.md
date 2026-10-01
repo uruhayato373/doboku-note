@@ -6,6 +6,7 @@ paidBoundary: "国家施策オプション"
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n6ebf5d6e340b
 noteId: n6ebf5d6e340b
+title: "人口減少・少子高齢化｜設問(3)国家施策バンク"
 notePublishedAt: 2026-06-01
 cover:
   variant: crop-safe-v4

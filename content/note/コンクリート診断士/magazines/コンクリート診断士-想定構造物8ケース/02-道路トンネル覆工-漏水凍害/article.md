@@ -6,6 +6,7 @@ utmCampaign: cd-case-tunnel-leakage
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n5cdc4ad1d3e5"
+title: "コンクリート診断士 記述式 問題B｜道路トンネル覆工の漏水・凍害"
 noteUrl: "https://note.com/dobokunote/n/n5cdc4ad1d3e5"
 noteStatus: published
 published: false

@@ -7,6 +7,7 @@ subject: railway
 exam_type: II-2
 noteUrl: "https://note.com/dobokunote/n/n03caa00cb71e"
 noteId: "n03caa00cb71e"
+title: "技術士 建設部門｜鉄道 R06 選択科目II-2 模範解答（II-2-1・II-2-2 全選択肢収録）"
 notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R06 選択科目II-2 模範解答"

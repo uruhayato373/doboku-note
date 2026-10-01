@@ -7,6 +7,7 @@ memberTrial: bottom
 utmCampaign: civil-membership-gakka-safety
 notePublishedAt: "2026-09-05"
 noteId: "n0743446e701a"
+title: "学科記述予想｜安全管理 — 型枠支保工・足場・土止め支保工・建設機械"
 noteUrl: "https://note.com/dobokunote/n/n0743446e701a"
 coverTitle: ["学科記述予想｜安全管理", "型枠支保工・足場・土止め"]
 cover:

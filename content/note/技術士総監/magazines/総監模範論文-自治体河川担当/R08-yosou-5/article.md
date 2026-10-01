@@ -5,6 +5,7 @@ noteContentType: product
 utmCampaign: essay-river-muni-r08-5
 noteUrl: "https://note.com/dobokunote/n/ne2b980c6ca13"
 noteId: "ne2b980c6ca13"
+title: "令和8年度 総監記述式 模範論文｜自治体 河川担当版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 noteMagazine: 総監模範論文-自治体河川担当

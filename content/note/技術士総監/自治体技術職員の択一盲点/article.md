@@ -9,6 +9,7 @@ coverTitle:
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nb2acfecc2df7
 noteId: nb2acfecc2df7
+title: "【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ"
 cover:
   variant: crop-safe-v4
   leadIn: "総監 択一式｜盲点"

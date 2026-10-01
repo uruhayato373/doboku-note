@@ -6,6 +6,7 @@ utmCampaign: essay-river-consultant-r08-yosou-5
 noteMagazine: 総監模範論文-河川コンサル
 noteUrl: "https://note.com/dobokunote/n/n75f2c90096e5"
 noteId: "n75f2c90096e5"
+title: "令和8年度 総監記述式 模範論文｜河川コンサル版（生成AI・情報ガバナンス／R8予想⑤）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

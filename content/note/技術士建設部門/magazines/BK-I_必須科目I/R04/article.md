@@ -7,6 +7,7 @@ subject: required
 exam_type: I
 noteUrl: "https://note.com/dobokunote/n/n8d72cf82ca72"
 noteId: "n8d72cf82ca72"
+title: "技術士 建設部門｜必須科目I R04 模範解答"
 notePublishedAt: "2026-06-20"
 price: 780
 coverTitle: "技術士 建設部門｜必須科目I R04 模範解答"

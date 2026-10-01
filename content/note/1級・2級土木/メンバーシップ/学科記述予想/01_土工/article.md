@@ -7,6 +7,7 @@ memberTrial: bottom
 utmCampaign: civil-membership-gakka-earthwork
 notePublishedAt: "2026-08-25"
 noteId: "n018e626cf66f"
+title: "学科記述予想｜土工 — 盛土の締固め・軟弱地盤対策・法面保護"
 noteUrl: "https://note.com/dobokunote/n/n018e626cf66f"
 coverTitle: ["学科記述予想｜土工", "盛土の施工と軟弱地盤対策"]
 cover:

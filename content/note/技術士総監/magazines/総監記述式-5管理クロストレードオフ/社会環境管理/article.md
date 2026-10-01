@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-social
 noteUrl: "https://note.com/dobokunote/n/ne5ad458ebd84"
 noteId: "ne5ad458ebd84"
+title: "社会環境管理 × 他4管理｜トレードオフ構造と総監的解決策"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "社会環境管理 × 他4管理"]
 price: 780

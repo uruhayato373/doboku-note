@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: 99-tradeoff-thinking
 noteUrl: https://note.com/dobokunote/n/n1b325d339f59
 noteId: n1b325d339f59
+title: "総監の合否を分ける「トレードオフ思考」完全ガイド｜5管理間の対立構造を見抜き、論文の核に据える"
 notePublishedAt: "2026-06-01"
 noteStatus: published
 cover:

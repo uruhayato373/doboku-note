@@ -6,6 +6,7 @@ utmCampaign: essay-standards-muni-r08-yosou-6
 noteMagazine: 総監模範論文-自治体技術基準担当
 noteUrl: "https://note.com/dobokunote/n/nb75d37aa54b9"
 noteId: "nb75d37aa54b9"
+title: "令和8年度 総監記述式 模範論文｜自治体 技術基準担当版（経済安保・供給網強靱化／R8予想⑥）"
 notePublishedAt: "2026-07-12"
 noteStatus: published
 price: 780

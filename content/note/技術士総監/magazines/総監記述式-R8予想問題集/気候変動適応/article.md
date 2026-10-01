@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-climate-adaptation
 noteUrl: https://note.com/dobokunote/n/n05314b15b375
 noteId: n05314b15b375
+title: "令和8年度 総監記述式 R8予想問題｜気候変動適応 × グリーンインフラ"
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "気候変動適応"]
 price: 780

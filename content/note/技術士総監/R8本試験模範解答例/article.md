@@ -6,6 +6,7 @@ noteContentType: learning
 utmCampaign: r8-i2-model-answer
 notePublishedAt: "2026-07-19"
 noteId: "nfe8bc37ce88e"
+title: "令和8年度 総監 記述式 模範解答例｜地方創生（必須科目I-2）"
 noteUrl: "https://note.com/dobokunote/n/nfe8bc37ce88e"
 cover:
   variant: crop-safe-v4

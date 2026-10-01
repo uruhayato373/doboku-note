@@ -5,6 +5,7 @@ noteStatus: published
 utmCampaign: civil1-ichiji-takuitsu-pdf
 notePublishedAt: "2026-07-23"
 noteId: "n155093f42183"
+title: "1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）"
 noteUrl: "https://note.com/dobokunote/n/n155093f42183"
 price: 1980
 paidBoundary: "PDF のダウンロードと使い方"

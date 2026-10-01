@@ -6,6 +6,8 @@ noteContentType: product
 utmCampaign: 99-safety-management
 noteUrl: https://note.com/dobokunote/n/nb68184641be8
 noteId: "nb68184641be8"
+title: "安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+price: 500
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4

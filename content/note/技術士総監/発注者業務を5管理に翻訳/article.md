@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/nd34fa843e977
 noteId: nd34fa843e977
+title: "【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる"
 noteSeries: 公務員受験
 noteContentType: learning
 utmCampaign: 97-translate-5mgmt

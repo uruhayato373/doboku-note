@@ -10,6 +10,7 @@ noteStatus: published
 notePublishedAt: 2026-05-21
 noteUrl: https://note.com/dobokunote/n/n14c71f3b4d72
 noteId: n14c71f3b4d72
+title: "【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す"
 cover:
   variant: crop-safe-v4
   leadIn: "総監 択一式｜学習法"

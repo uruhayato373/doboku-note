@@ -6,6 +6,7 @@ paidBoundary: "模範論文"
 noteMagazine: RCCM問題III-2026模範論文集
 noteUrl: "https://note.com/dobokunote/n/nf3fd06886cf0"
 noteId: "nf3fd06886cf0"
+title: "地方公共団体のインフラの老朽化に対するインフラマネジメントのあり方｜RCCM 問題III 管理技術力 模範論文（2026年度）"
 notePublishedAt: "2026-09-15"
 noteStatus: published
 utmCampaign: rccm-2026

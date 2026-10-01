@@ -3,6 +3,7 @@ notePricing: free
 noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/nb4ad5a7957a0"
 noteId: "nb4ad5a7957a0"
+title: "【技術士 建設部門】担い手確保・生産性向上・DX 必須科目I 論点キーワード"
 noteSeries: 技術士建設部門-無料入口
 noteContentType: learning
 utmCampaign: pe-construction-ninaite-keyword

@@ -6,6 +6,8 @@ noteContentType: product
 utmCampaign: 99-human-resource-management
 noteUrl: https://note.com/dobokunote/n/nb010cafe207b
 noteId: "nb010cafe207b"
+title: "人的資源管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+price: 500
 noteMagazine: 総監テキスト精読ガイド
 cover:
   variant: crop-safe-v4

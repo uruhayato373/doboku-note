@@ -6,6 +6,7 @@ noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-safety
 noteUrl: "https://note.com/dobokunote/n/n771c1f2357f0"
 noteId: "n771c1f2357f0"
+title: "安全管理 × 他4管理｜トレードオフ構造と総監的解決策"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "安全管理 × 他4管理"]
 price: 780

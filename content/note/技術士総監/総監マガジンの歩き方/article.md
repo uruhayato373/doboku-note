@@ -5,6 +5,7 @@ noteContentType: learning
 utmCampaign: 99-magazine-guide
 notePublishedAt: "2026-07-02"
 noteId: "nc874692256bb"
+title: "総監マガジンの歩き方｜3つの質問で「あなたに必要な1冊」が3分で決まる案内図"
 noteUrl: "https://note.com/dobokunote/n/nc874692256bb"
 noteStatus: published
 cover:
