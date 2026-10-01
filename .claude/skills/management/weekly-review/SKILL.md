@@ -477,22 +477,23 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
 
-#### automation-failure Issue の消化（1 行・親が直接確認）
+#### 点検と Issue（全件に行き先・親が直接確認）
 
-open な `automation-failure` Issue を毎週読む。**Issue は起票されても閉じられなければ意味が無い**——
+開いている Issue（`automation-failure` ほか全ラベル）と週次の点検を毎週読む。**Issue は起票されても閉じられなければ意味が無い**——
 #457 は 2026-08-07 から 17 日 open のまま誰も見ておらず、しかも dedup 仕様で以後の同 channel の
-失敗はすべてこの Issue へのコメント追記に埋没していた（2026-08-24 実査）。**通知チャネル自体が
-消化されていなければ、CI の赤を Issue にしても同じことが起きる**。
+失敗はすべてこの Issue へのコメント追記に埋没していた（2026-08-24 実査）。2026-10-01 にも #478 workflow-health（8/31〜）・
+#455 security bump（8/6〜）が 1 か月開いたままだった。**通知チャネル自体が消化されていなければ、CI の赤を Issue にしても同じことが起きる**。
 
 ```bash
-gh issue list --label automation-failure --state open --json number,title,createdAt \n  --template '{{range .}}#{{.number}} {{slice .createdAt 0 10}} {{.title}}{{"
-"}}{{end}}'
+npm run review-checks -- --cadence weekly --run YYYY-Www --write
 ```
 
-レビューには次の 1 行で書く:
+（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `.claude/state/metrics/business/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
+レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
+`- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
 
-- **自動化の失敗**: open N 件（最古 M 日前）。channel 別に「未復旧なら原因を 1 行」。
-  **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。復旧した Issue は起票元 workflow の次の
+- **自動化の失敗**: channel 別に「未復旧なら原因を 1 行」。
+  **7 日以上 open のものは DN カードへ起票する**（放置＝チャネルが死ぬ）。復旧した Issue は起票元 workflow の次の
   成功で `report-automation-failure.mjs --resolve` が自動クローズする（2026-09-18 から。それ以前は人手クローズで
   open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
   ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
@@ -710,6 +711,10 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 ## その他パフォーマンス（必要に応じて）
 
 ページ別 PV・内部リンク導線・リファラーなど、NSM 以外で注目すべき指標があれば記録。
+
+## 点検と Issue
+- check-workflow-health: … → 振り分け: DN-xxxx
+- #NNN … → 振り分け: 定常（理由）
 
 ## 課題・ブロッカー
 1. ...

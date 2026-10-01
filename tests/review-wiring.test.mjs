@@ -94,3 +94,17 @@ test('buildProcedureView は runKey の回の記録とレポートで判定し�
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('点検と Issue: 失敗した点検と開いている Issue の全件に行き先があるかを数える', async () => {
+  const { checksRouting } = await import('../scripts/lib/review-wiring.mjs');
+  const result = {
+    checks: [{ command: 'check-workflow-health', label: 'workflow', state: 'fail' }, { command: 'check-backlog-health', label: 'backlog', state: 'ok' }, { command: 'check-exam-calendar', label: 'exam', state: 'broken' }],
+    issues: [{ number: 478, title: 'workflow-health' }, { number: 47, title: 'x' }],
+    alerts: [{ number: 80, package: 'tmp', severity: 'high' }, { number: 79, package: 'tmp', severity: 'low' }, { number: 29, package: 'uuid', severity: 'medium' }],
+  };
+  const report = '## 点検と Issue\n- check-workflow-health: 4 本 → 振り分け: DN-0490\n- #478 同上 → 振り分け: DN-0490\n- #47 古い → 振り分け: 定常（復旧済みで閉じた）\n- check-exam-calendar: 打ち切り\n- dependabot:tmp high・low → 振り分け: DN-0491\n## 来月への申し送り\n- #4780 → 振り分け: DN-0001\n- dependabot:uuid → 振り分け: DN-0001\n';
+  const r = checksRouting(result, report);
+  assert.equal(r.pending.length, 6);
+  assert.deepEqual(r.unrouted.map((u) => u.key), ['check-exam-calendar', 'dependabot:uuid']);
+  assert.equal(checksRouting(result, '## 別\n').hasSection, false);
+});
