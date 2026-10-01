@@ -8,6 +8,7 @@ notePublishedAt: "2026-09-04"
 noteId: "n5395599af1f8"
 noteUrl: "https://note.com/dobokunote/n/n5395599af1f8"
 noteStatus: published
+memberTrial: bottom
 utmCampaign: cce-marugoto
 price: 4980
 coverTitle:
