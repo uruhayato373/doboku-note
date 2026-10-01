@@ -41,6 +41,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join, dirname, basename, resolve, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
@@ -593,6 +594,10 @@ try {
         recordPublishedAssetHash(relative(ROOT, articleAbs));
         // タグも公開時に適用済み（Phase 10）→ タグハッシュも in-sync 化（本文とは別トラック）。
         if (tags.length && tagsFile && recordPublishedTagHash(relative(ROOT, tagsFile))) console.log('[12c] 再公開タグハッシュ記録');
+        // 記事カタログ（.claude/state/note-published.json）も作り直す。回し忘れると次の CI の
+        // check-generated-indexes が赤くなる。best-effort（失敗しても公開結果は変えない）。
+        const cat = spawnSync(process.execPath, [join(ROOT, '.claude/scripts/build-note-published-index.mjs')], { cwd: ROOT, encoding: 'utf8' });
+        console.log(`[12d] 記事カタログ再生成 ${cat.status === 0 ? 'OK' : `skip（exit ${cat.status}）→ npm run build-note-catalog`}`);
       }
     } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
   };
