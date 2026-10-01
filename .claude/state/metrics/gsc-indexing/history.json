@@ -429,6 +429,49 @@
         "/exam/civil-construction-1/guide/quit-public-engineer",
         "/exam/civil-construction-1/guide/salary-by-role"
       ]
+    },
+    {
+      "runId": "2026-10-01T01-30-10Z",
+      "collectedAt": "2026-10-01T01:30:10.758Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 15,
+      "accepted": 10,
+      "alreadyIndexed": 5,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/civil-construction-2/guide/quit-or-stay",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/civil-construction-1/guide/salary-up",
+        "/exam/civil-construction-1/guide/women",
+        "/exam/civil-construction-1/textbook/coast-port",
+        "/exam/civil-construction-1/textbook/dam-construction",
+        "/exam/civil-construction-1/textbook/railway-underground",
+        "/exam/civil-construction-1/textbook/sabo-landslide",
+        "/exam/civil-construction-1/textbook/steel-structures",
+        "/exam/civil-construction-1/textbook/tunnel-natm",
+        "/exam/civil-construction-1/textbook/water-sewer"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-2/guide/quit-or-stay",
+        "/exam/civil-construction-1/guide/salary-up",
+        "/exam/civil-construction-1/guide/women",
+        "/exam/civil-construction-1/textbook/coast-port",
+        "/exam/civil-construction-1/textbook/dam-construction",
+        "/exam/civil-construction-1/textbook/railway-underground",
+        "/exam/civil-construction-1/textbook/sabo-landslide",
+        "/exam/civil-construction-1/textbook/steel-structures",
+        "/exam/civil-construction-1/textbook/tunnel-natm",
+        "/exam/civil-construction-1/textbook/water-sewer"
+      ]
     }
   ]
 }
