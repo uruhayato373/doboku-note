@@ -14,7 +14,7 @@ export default function WeeklyReviewPage() {
         <PageHead title="週次レビュー" />
         <DueLine c={d.cadence} />
       </div>
-      {d.procedure && <Current run={d.runs[0]} procedure={d.procedure} />}
+      {d.procedure && <Current run={d.runs[0]} procedure={d.procedure} due={d.cadence?.due} />}
       {d.procedure && <Checklist procedure={d.procedure} />}
       <History runs={d.runs} weekly />
       {d.cadence && <Outcome c={d.cadence} gate={d.gate} />}
