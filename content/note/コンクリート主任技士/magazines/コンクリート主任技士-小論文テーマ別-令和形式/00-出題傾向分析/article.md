@@ -8,6 +8,7 @@ noteUrl: "https://note.com/dobokunote/n/n39ce3c33eaa8"
 noteId: "n39ce3c33eaa8"
 notePublishedAt: "2026-10-01"
 noteStatus: published
+memberTrial: bottom
 utmCampaign: cce-essay-trend-reiwa
 coverTitle: "主任技士 小論文｜令和の出題傾向と答え方"
 cover:
