@@ -54,9 +54,11 @@ test('候補を優先順に読み、最初に取れた項目名を source に入
 });
 
 test('readServiceCredential: CI は許可 service だけ環境変数、手元は doboku-note-auth-<service>', () => {
-  const env = { GITHUB_ACTIONS: 'true', DOBOKU_AUTH_NOTE_USER: 'u', DOBOKU_AUTH_NOTE_PASSWORD: 'p', DOBOKU_AUTH_COCONALA_USER: 'u', DOBOKU_AUTH_COCONALA_PASSWORD: 'p' };
+  const env = { GITHUB_ACTIONS: 'true', DOBOKU_AUTH_NOTE_USER: 'u', DOBOKU_AUTH_NOTE_PASSWORD: 'p', DOBOKU_AUTH_COCONALA_USER: 'u', DOBOKU_AUTH_COCONALA_PASSWORD: 'p', DOBOKU_AUTH_KDP_USER: 'u', DOBOKU_AUTH_KDP_PASSWORD: 'p' };
   assert.deepEqual(readServiceCredential('note', { env }), { user: 'u', password: 'p', source: 'env:DOBOKU_AUTH_NOTE_PASSWORD' });
-  assert.equal(readServiceCredential('coconala', { env }), null);
+  assert.deepEqual(readServiceCredential('coconala', { env }), { user: 'u', password: 'p', source: 'env:DOBOKU_AUTH_COCONALA_PASSWORD' });
+  // 許可していない service は Secrets があっても読まない
+  assert.equal(readServiceCredential('kdp', { env }), null);
   assert.equal(readServiceCredential('note', { env: { GITHUB_ACTIONS: 'true', DOBOKU_AUTH_NOTE_USER: 'u' } }), null);
   assert.deepEqual(ciEnvVarNames('note'), { user: 'DOBOKU_AUTH_NOTE_USER', password: 'DOBOKU_AUTH_NOTE_PASSWORD' });
 

@@ -32,8 +32,13 @@
  *   A8・もしもは stats47 の項目（stats47-measurement-a8 / -moshimo）があればそれを使う。
  *   doboku-note だけ別にするなら doboku-note-auth-a8 / -moshimo を登録する（こちらが優先）
  *
+ * CI（--ci・GitHub Actions 専用）: login-collectors で暗号化 state が切れていたときだけ、Secrets の ID/PW
+ *   （credential-store の CI_ENV_CREDENTIAL_SERVICES に載る service だけ）で 1 回ログインし直して state を保存する。
+ *   共用 state の取り込み・export・dispatch・通知はしない。2026-10-01 オーナー決定（note・ココナラ）。
+ *
  * 使い方:
  *   node scripts/auth-session-refresh.mjs [--service a8,moshimo,kdp] [--export] [--dispatch-due] [--dry-run|--no-login] [--json]
+ *   node scripts/auth-session-refresh.mjs --ci --service coconala --json
  *   --service を省くと、資格情報の出どころ（共用 state か資格情報ストア）がある service だけを回す
  *   --dry-run: 取り込み判定と status だけ（取り込みの書き込み・ログイン・export・dispatch はしない）
  *   --no-login: 共用 state の取り込みと status まで（資格情報ストアでのログインはしない）
@@ -55,7 +60,7 @@ import {
   keychainServiceNames,
   sharedStatePath,
 } from './lib/auth-session-refresh.mjs';
-import { credentialStoreSupported, hasSecret, readFirstCredential } from './lib/credential-store.mjs';
+import { CI_ENV_CREDENTIAL_SERVICES, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -73,14 +78,16 @@ const opt = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1
 const DRY_RUN = argv.includes('--dry-run');
 const NO_LOGIN = DRY_RUN || argv.includes('--no-login');
 const IS_MAC = process.platform === 'darwin';
+const CI_MODE = argv.includes('--ci');
 // CI への受け渡しは Mac から一方向（Windows からは書き出さない。DN-0362）
 const DO_EXPORT = argv.includes('--export') && !DRY_RUN && IS_MAC;
 const DISPATCH_DUE = argv.includes('--dispatch-due') && !DRY_RUN && IS_MAC;
 const AS_JSON = argv.includes('--json');
-const authOptions = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, env: process.env, isCI: false };
+const authOptions = { cwd: REPO_ROOT, repoRoot: REPO_ROOT, env: process.env, isCI: CI_MODE };
 
 function storedCredential(service) {
-  return readFirstCredential(keychainServiceNames(service));
+  // CI は Secrets（環境変数）から、手元は資格情報ストアから読む。どちらも credential-store だけが読み口
+  return CI_MODE ? readServiceCredential(service) : readFirstCredential(keychainServiceNames(service));
 }
 
 function hasStoredCredential(service) {
@@ -217,7 +224,7 @@ function dispatchCollector(service) {
 async function refresh(service, entry) {
   const result = { service };
   const failMark = failMarkPath(service);
-  result.sharedImport = importSharedState(service);
+  result.sharedImport = CI_MODE ? null : importSharedState(service);
 
   let status = await statusAuthService({ repoRoot: REPO_ROOT }, service);
   result.statusBefore = status.status;
@@ -229,7 +236,7 @@ async function refresh(service, entry) {
     }
     const cred = storedCredential(service);
     if (!cred) {
-      return { ...result, status: 'no_credential', reason: `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
+      return { ...result, status: 'no_credential', reason: CI_MODE ? `Secrets（DOBOKU_AUTH_${service.toUpperCase()}_USER / _PASSWORD）が無い` : `資格情報ストアに ${keychainServiceNames(service).join(' / ')} が無い` };
     }
     const checkUrl = service === 'kdp' ? 'https://kdpreports.amazon.co.jp/dashboard' : null;
     const login = await autoLogin(service, cred, checkUrl).catch((e) => ({ status: 'error', reason: String(e.message).slice(0, 160) }));
@@ -261,7 +268,14 @@ async function refresh(service, entry) {
 }
 
 async function main() {
-  if (!credentialStoreSupported()) {
+  if (CI_MODE) {
+    const requested = opt('--service')?.split(',').map((x) => x.trim()).filter(Boolean) ?? [];
+    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !CI_ENV_CREDENTIAL_SERVICES.includes(x))) {
+      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${CI_ENV_CREDENTIAL_SERVICES.join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
+      return 2;
+    }
+  }
+  if (!credentialStoreSupported() && !CI_MODE) {
     console.error(`${TAG} Mac・Windows 専用（OS の資格情報ストアを使う）。検査不成立。`);
     return 2;
   }
@@ -276,7 +290,7 @@ async function main() {
   for (const service of candidates) {
     if (!AUTO_LOGIN[service] || !registry.services[service]) throw new Error(`自動ログイン非対応の service: ${service}`);
     const shared = sharedStatePath(service);
-    if (!requested && !(shared && existsSync(shared)) && !hasStoredCredential(service)) {
+    if (!CI_MODE && !requested && !(shared && existsSync(shared)) && !hasStoredCredential(service)) {
       skipped.push({ service, status: 'skipped', reason: `共用 state も資格情報（${keychainServiceNames(service).join(' / ')}）も無い` });
       continue;
     }
@@ -292,7 +306,7 @@ async function main() {
     const r = await refresh(service, registry.services[service])
       .catch((e) => ({ service, status: 'error', reason: String(e.message).slice(0, 160) }));
     results.push(r);
-    if (r.status !== 'ok' && !NO_LOGIN) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
+    if (r.status !== 'ok' && !NO_LOGIN && !CI_MODE) notify(`${service}: ${r.status} — ${r.reason ?? ''}`);
   }
   const all = [...results, ...skipped];
   if (AS_JSON) console.log(JSON.stringify({ dryRun: DRY_RUN, checked: results.length, results: all }, null, 2));
