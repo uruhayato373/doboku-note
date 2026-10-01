@@ -37,8 +37,8 @@ const IMPORT_DEPTH = 2;
 
 // コードではないが定期ジョブの挙動を変える設定ファイル。エントリと同じ workflow に紐づける。
 const CONFIG_OF_ENTRY = {
-  '.claude/scripts/fetch-psi-data.mjs': ['.claude/config/psi-urls.txt'],
-  '.claude/scripts/lint-mdx-mobile.mjs': ['.claude/config/content-rules.json'],
+  '.claude/scripts/fetch-psi-data.mjs': ['config/psi-urls.txt'],
+  '.claude/scripts/lint-mdx-mobile.mjs': ['config/content-rules.json'],
 };
 
 // ── git ──

@@ -32,10 +32,10 @@ const STAGED = process.argv.includes('--staged');
 // 理由: コード参照(src/*.tsx 等)は build/type-check/lint が、ランタイム生成 state(.claude/state/*.json)は
 // 生成タイミング依存で実在しないことが正当なため、ここでは扱わない（別系統）。mdx>md の順で境界バグ回避。
 const EXT = 'mdx|md';
-// docs/ .claude/ src/ で始まり、区切り文字以外を貪欲に取り、拡張子で終わるパス。
+// docs/ .claude/ src/ config/ data/ で始まり、区切り文字以外を貪欲に取り、拡張子で終わるパス。
 // 拡張子の直後がパス文字でないこと（.ts が .tsx の途中で切れる等を防ぐ）を境界で保証。
 const RE_REF = new RegExp(
-  String.raw`(?:docs|src|\.claude)\/[^\s\`"'()（）\[\]「」、。,:|*＊]+\.(?:${EXT})(?![A-Za-z0-9])`,
+  String.raw`(?:docs|src|config|data|\.claude)\/[^\s\`"'()（）\[\]「」、。,:|*＊]+\.(?:${EXT})(?![A-Za-z0-9])`,
   'g'
 );
 // 移動先候補が無意味になる汎用ファイル名（提案を抑制）
@@ -108,7 +108,7 @@ const EXCLUDE_SRC = ['docs/handoffs/', 'docs/reviews/', 'content/sns/', '.claude
 files = files.filter((f) => !EXCLUDE_SRC.some((pre) => f.startsWith(pre)));
 
 // 移動先提案用: リポジトリ内 docs/ .claude/ src/ の全ファイルの basename → パス
-const indexRoots = ['docs', '.claude', 'src'];
+const indexRoots = ['docs', '.claude', 'src', 'config', 'data'];
 const byBasename = new Map();
 for (const root of indexRoots) {
   for (const f of walk(root, [], /.*/)) {
@@ -134,7 +134,8 @@ for (const f of files) {
       //   .claude/state/**   = スキル/エージェントが生成する state・人間向け出力（review-queue.md 等）
       //   .claude/plans/**   = Claude Code の一時プランファイル
       //   .claude/projects/**= 旧 memory の置き場（PC ローカル）/ .claude/memory/** = 現 memory（repo 管理・point-in-time）
-      if (/^\.claude\/(state|plans|projects|memory)\//.test(ref)) continue;
+      //   data/**            = 収集スクリプト・CI が書く事業の記録（取得前は実在しないのが正当・2026-10-02 に .claude/state から分離）
+      if (/^\.claude\/(state|plans|projects|memory)\//.test(ref) || /^data\//.test(ref)) continue;
       // docs/handoffs/** = point-in-time 記録（extract→削除の運用・2026-07-11〜）。
       // 過去 handoff への出典引用は削除済みでも正当（記録は git 履歴）。information-architecture.md「handoff のライフサイクル」と整合。
       if (/^docs\/handoffs\//.test(ref)) continue;

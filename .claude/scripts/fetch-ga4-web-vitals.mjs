@@ -6,7 +6,7 @@
  * pagePath × deviceCategory × metric_name × metric_rating の件数で取り、
  * scripts/lib/web-vitals-rum.mjs でページの型ごとに判定して保存する。
  *
- * 出力: .claude/state/metrics/rum/web-vitals-YYYY-MM-DD.json（状態 status と集計 summary を持つ）
+ * 出力: data/metrics/rum/web-vitals-YYYY-MM-DD.json（状態 status と集計 summary を持つ）
  *   status: ok | no-events（計装はあるが送信 0 件＝deploy 前など）| dimensions-missing（GA4 にカスタムディメンション未登録）
  * 読み手: npm run report-web-vitals（週次レビュー）。
  *
@@ -25,7 +25,7 @@ import { summarize } from "../../scripts/lib/web-vitals-rum.mjs";
 
 dotenv.config({ path: ".env.local", quiet: true });
 
-const OUTPUT_DIR = ".claude/state/metrics/rum";
+const OUTPUT_DIR = "data/metrics/rum";
 const TAG = "[fetch-ga4-web-vitals]";
 
 function parseArgs(argv) {

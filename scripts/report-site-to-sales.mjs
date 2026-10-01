@@ -3,11 +3,11 @@
  * report-site-to-sales.mjs — サイトの note 送客クリック × note 側のサイト経由閲覧 × 商品別売上の月次突合
  *
  * 入力（すべてコミット済み・creds 不要）:
- *   GA4 by-label   .claude/state/metrics/ga4/ga4-cta-clicks-by-label-*.json（月一致の窓を優先、無ければ重なり最大）
- *   note 流入元    .claude/state/metrics/note/referrers-*.json（アカウント全体・取得が最新のファイル）
- *   売上           .claude/state/sales/sales-log.json
- *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・.claude/state/note/magazines-snapshot.json
- * 出力: .claude/state/metrics/business/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
+ *   GA4 by-label   data/metrics/ga4/ga4-cta-clicks-by-label-*.json（月一致の窓を優先、無ければ重なり最大）
+ *   note 流入元    data/metrics/note/referrers-*.json（アカウント全体・取得が最新のファイル）
+ *   売上           data/sales/sales-log.json
+ *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines-snapshot.json
+ * 出力: data/metrics/business/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
  *
  * Usage:
  *   npm run report-site-to-sales                     # 直近の完了月（JST）
@@ -33,9 +33,9 @@ import {
 } from './lib/site-to-sales.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const GA4_DIR = '.claude/state/metrics/ga4';
-const NOTE_DIR = '.claude/state/metrics/note';
-const OUT_DIR = '.claude/state/metrics/business';
+const GA4_DIR = 'data/metrics/ga4';
+const NOTE_DIR = 'data/metrics/note';
+const OUT_DIR = 'data/metrics/business';
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);
@@ -75,12 +75,12 @@ function main() {
   if (Object.keys(hubSeasonal).length === 0) return fail('hub-cta.ts の HUB seasonal 商品を解析できない');
   let salesLog;
   try {
-    salesLog = readJson('.claude/state/sales/sales-log.json');
+    salesLog = readJson('data/sales/sales-log.json');
   } catch (e) {
     return fail(`sales-log.json を読めない（${e.message}）`);
   }
   if (!Array.isArray(salesLog.sales)) return fail('sales-log.json に sales[] が無い');
-  const snapshotPath = '.claude/state/note/magazines-snapshot.json';
+  const snapshotPath = 'data/note/magazines-snapshot.json';
   const magazineSnapshot = existsSync(join(ROOT, snapshotPath)) ? readJson(snapshotPath) : null;
 
   const resolver = buildResolver({ catalog, hubSeasonal, magazineSnapshot, salesLog });
@@ -94,7 +94,7 @@ function main() {
   report.inputs = {
     ga4: pick.file,
     noteReferrers: referral.file,
-    sales: '.claude/state/sales/sales-log.json',
+    sales: 'data/sales/sales-log.json',
     salesLogUpdatedAt: salesLog.updatedAt ?? null,
     catalog: `src/lib/note-magazines.ts（${catalog.length} 商品）`,
     magazineSnapshot: magazineSnapshot ? `${snapshotPath}（${magazineSnapshot.fetchedAt ?? '取得時刻不明'}）` : null,

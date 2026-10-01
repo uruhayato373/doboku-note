@@ -3,7 +3,7 @@ import {
   numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { videoPackBoard, EXAM_LABELS, stageClass } from '@/lib/video-board';
+import { videoPackBoard, examLabel, stageClass } from '@/lib/video-board';
 import { STAGE_ORDER, LABELS } from '@/lib/lifecycle';
 
 export const dynamic = 'force-dynamic';
@@ -94,7 +94,7 @@ export default async function VideoPackBoard({
         </Link>
         {exams.map((e) => (
           <Link key={e} href={link({ exam: e })} className={'chip' + (activeExam === e ? ' active' : '')}>
-            {EXAM_LABELS[e] ?? e} {board.rows.filter((r) => r.exam === e).length}
+            {examLabel(e)} {board.rows.filter((r) => r.exam === e).length}
           </Link>
         ))}
       </div>
@@ -123,7 +123,7 @@ export default async function VideoPackBoard({
                 </TableCell>
                 <TableCell className="font-mono">
                   <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-                  <div className="text-xs text-muted-foreground">{EXAM_LABELS[r.exam] ?? r.exam}</div>
+                  <div className="text-xs text-muted-foreground">{examLabel(r.exam)}</div>
                 </TableCell>
                 <TableCell>
                   {r.hasScript ? (

@@ -20,7 +20,7 @@ function docHref(path: string): string {
 
 /**
  * /domains/<id> — 領域の概要。次の予定・やりかけのタスク・使うスキルとエージェント・関連文書を1画面に。
- * 領域の正本は .claude/config/domains.json（サイドバーのグループ名がここへのリンク）。
+ * 領域の正本は config/domains.json（サイドバーのグループ名がここへのリンク）。
  */
 export default async function DomainPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

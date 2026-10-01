@@ -34,8 +34,8 @@
  *   - 診断結果（coverage_state / 最終クロール / canonical）を state に残し、後の効果測定に使う。
  *
  * 出力（追跡）:
- *   .claude/state/metrics/gsc-indexing/requests-latest.json … 最新 run の診断＋送信結果
- *   .claude/state/metrics/gsc-indexing/history.json         … run 別の要約（append）
+ *   data/metrics/gsc-indexing/requests-latest.json … 最新 run の診断＋送信結果
+ *   data/metrics/gsc-indexing/history.json         … run 別の要約（append）
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
@@ -53,8 +53,8 @@ import {
 import { collectFailedRequests } from "./lib/report-honesty.mjs";
 import { normalizeTargetPath, parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 
-const STATE_DIR = ".claude/state/metrics/gsc-indexing";
-const SSOT_URLS = ".claude/state/metrics/gsc-ui/ssot/urls";
+const STATE_DIR = "data/metrics/gsc-indexing";
+const SSOT_URLS = "data/metrics/gsc-ui/ssot/urls";
 const META = "src/config/doc-meta-index.json";
 const REDIRECTS = "public/_redirects";
 const SITE = "https://doboku-note.com";

@@ -135,7 +135,7 @@ const CHECKS = [
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
-  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ .claude/config/video-content.json）' },
+  { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ config/video-content.json）' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
 
@@ -251,6 +251,7 @@ const CHECKS = [
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
+  { id: 'qualification-ssot', npm: 'check-qualification-ssot', timeout: 60_000, ci: true, note: '資格の名前・並び順が qualification-registry.json だけにあるか。設定の写しと、コードの資格 id→日本語対応表の基準超えを止める（2026-10-02: メニューごとに名前・順がずれた）' },
   { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', timeout: 30_000, ci: true, note: '過去問の年度在庫台帳（past-exam-inventory.json）と Drive 台帳の整合。FAIL は台帳の不整合だけで壁時計に依存しない。WARN（掲載中の未取得・最古年度の消失見込み・Drive 未退避・新年度の掲載見込み）の読み手＝/monthly-review 手順4' },
   { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'year-staleness', npm: 'check-year-staleness', timeout: 60_000, ci: false, note: 'ガイド・keyword 記事の title/seoTitle/description に残る前年度以前の年度表現（DN-0426）。過去問・年度別記事（group past-exam/primary/secondary、r05-essay-* 等の年度スラッグ）は主題なので除外。年度切替（毎年1月）の直後 2 週間だけ ci:true へ上げ、0 件になったら ci:false へ戻す。読み手＝/weekly-review（年度切替直後のみ確認）' },
@@ -311,7 +312,7 @@ const CHECKS = [
   // Git に何を追跡してよいかのラチェット（DN-0111 Phase 1・2026-08-21 追加）。
   // 既存違反（教材ページ画像 868 / base64 SVG 756 等）は baseline で猶予し、増加だけを止める。
   // baseline 更新: npm run check-git-binary-policy -- --update-baseline
-  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: '.claude/state/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
+  { id: 'snapshot-lifetime', cmd: ['node', 'scripts/prune-state-snapshots.mjs', '--check-coverage'], timeout: 60_000, ci: true, note: 'data/metrics/** と weekly-metrics/ の日付付き snapshot すべてに寿命（scripts/lib/prune-state-snapshots.mjs POLICIES）が宣言されているか。未宣言＝誰も消せず永久に増える系列。削除本体は書き手の workflow（psi-audit / fetch-metrics / index-coverage）が commit 直前に --commit で実行' },
   { id: 'git-binary-policy', npm: 'check-git-binary-policy', timeout: 120_000, ci: true, note: '生成物・著作権物・巨大 blob・拡張子偽装の新規追跡を baseline ラチェットで止める（HEAD 4.16GiB / remote 11GB の再発防止）' },
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {

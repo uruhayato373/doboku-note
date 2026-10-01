@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
-export const LISTINGS_PATH = join(ROOT, '.claude/config/coconala-listings.json');
+export const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
 
 /**
  * カタログ TS の本文からサービスを抽出する（純粋関数）。

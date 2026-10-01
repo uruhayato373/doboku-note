@@ -25,7 +25,7 @@ note メンバーシップ「土木セコカン合格ラボ」の運用入口。
 - ローカル実行限定。`<auth root>/profiles/playwright-note-profile` の note ログインが必要。
 - 配信順・公開予定日: `content/note/1級・2級土木/メンバーシップ/README.md`
 - 商品設計・会員の一線: `content/note/1級・2級土木/noteコンテンツ計画.md`
-- プラン機械SSOT: `.claude/config/note-membership.json`
+- プラン機械SSOT: `config/note-membership.json`
 - 公開商品SSOT: `src/lib/note-magazines.ts`
 - 実行責務: `.claude/agents/note-membership-operator.md`
 

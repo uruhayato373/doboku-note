@@ -28,10 +28,10 @@ npm run fetch-gsc-data -- --dimension query --days 90 --limit 50 --query "doboku
 
 # 4. 集計 + 診断レポート（~3 分）
 node .claude/scripts/analyze-gsc-coverage.mjs \
-  --inspection-glob ".claude/state/metrics/url-inspection/inspection-batch-*.json" \
-  --page-data .claude/state/metrics/gsc/gsc-page-LATEST.json \
-  --query-data .claude/state/metrics/gsc/gsc-query-LATEST.json \
-  --brand-query-data .claude/state/metrics/gsc/gsc-query-BRAND.json \
+  --inspection-glob "data/metrics/url-inspection/inspection-batch-*.json" \
+  --page-data data/metrics/gsc/gsc-page-LATEST.json \
+  --query-data data/metrics/gsc/gsc-query-LATEST.json \
+  --brand-query-data data/metrics/gsc/gsc-query-BRAND.json \
   --url-dir .tmp/gsc-urls/
 
 # 5. 補助分析（必要に応じて）
@@ -55,7 +55,7 @@ node .claude/scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
 - クロール統計情報: API なし、Web UI のみ
 - 外部被リンク: API なし（または 3rd party Ahrefs/Semrush）
 
-**生データ保存先**: `.claude/state/metrics/url-inspection/` `.claude/state/metrics/gsc/`
+**生データ保存先**: `data/metrics/url-inspection/` `data/metrics/gsc/`
 
 **関連 commit**: `eb87d5c7` (scripts) `a0e33889` (data保存)
 

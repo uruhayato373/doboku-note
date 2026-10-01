@@ -2,7 +2,7 @@
 /**
  * SEO meta 閾値チェック
  *
- * `.claude/state/metrics/seo-meta/` の最新スナップショット（または --file 指定）を読み、
+ * `data/metrics/seo-meta/` の最新スナップショット（または --file 指定）を読み、
  * Severity 別に違反を Markdown 表形式で表示する。CI / agent surface 用。
  *
  * Usage:
@@ -16,7 +16,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
 import { join } from "path";
 
-const STATE_DIR = ".claude/state/metrics/seo-meta";
+const STATE_DIR = "data/metrics/seo-meta";
 
 function parseArgs() {
   const args = process.argv.slice(2);

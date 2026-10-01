@@ -10,7 +10,7 @@ import satori from 'satori';
 import sharp from 'sharp';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const OUT_DIR = path.join(ROOT, '.claude/config/coconala/assets');
+const OUT_DIR = path.join(ROOT, 'content/coconala/assets');
 const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const W = 1200;
 const H = 900;

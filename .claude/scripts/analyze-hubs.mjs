@@ -5,7 +5,7 @@
  * impressions / position / CTR を比較して強化優先度を出力する。
  *
  * Usage:
- *   node .claude/scripts/analyze-hubs.mjs --page-data .claude/state/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
+ *   node .claude/scripts/analyze-hubs.mjs --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
  */
 
 import { readFileSync, writeFileSync } from "fs";

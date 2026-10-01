@@ -36,7 +36,7 @@ import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.m
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
 const ACCOUNT_CONFIG = JSON.parse(
-  fs.readFileSync(path.join(PROJECT_ROOT, ".claude/config/x-account.json"), "utf-8")
+  fs.readFileSync(path.join(PROJECT_ROOT, "config/x-account.json"), "utf-8")
 ) as { handle: string; authService: string };
 const PROFILE_DIR = resolveProfileDir(ACCOUNT_CONFIG.authService, {
   cwd: PROJECT_ROOT,

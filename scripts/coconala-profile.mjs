@@ -2,7 +2,7 @@
 /**
  * coconala-profile.mjs — ココナラ出品者プロフィールの自己紹介を account.json から設定
  * ---------------------------------------------------------------------------
- * .claude/config/coconala-account.json の profile（job / appeal / bio / schedule）を
+ * config/coconala-account.json の profile（job / appeal / bio / schedule）を
  * プロフィール編集ページ（/users/{id}/edit 相当）へ流し込む。Vue SPA・input に
  * name/id が無いため placeholder で識別。各セクションの「保存する」を押す。
  * 画像（avatar/cover）はクロッパを挟むため本スクリプトでは扱わない（別途 --image 系 or 手動）。

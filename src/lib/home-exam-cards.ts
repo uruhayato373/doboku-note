@@ -24,6 +24,8 @@ type HomeStatSpec = {
 };
 type HomeExamCard = {
   slug: string;
+  // label は qualification-registry.json の正式名を npm run sync-qualification-names が書く（手で書かない）
+  qualification?: string;
   order: number;
   label: string;
   en: string;

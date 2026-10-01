@@ -6,7 +6,7 @@ title: 動画コンテンツ運用ポリシー
 
 動画パックを生成・検査・派生・照合するときに、エージェント、スキル、スクリプト、管理画面が共有する作業契約。事業判断と優先順位は [動画コンテンツ運用設計](../../../docs/marketing/06_動画コンテンツ運用設計.md) を参照する。
 
-機械可読の契約（enum・状態遷移・UTM・尺・逐語 window）は `.claude/config/video-content.json` が SSOT。checker（`npm run check-video-content`）・fixture（`tests/fixtures/video-content/`）・将来の admin parser はこの config を読む。本書と config がずれたら config 側の `updated` を進めて両方を同一 commit で直す。
+機械可読の契約（enum・状態遷移・UTM・尺・逐語 window）は `config/video-content.json` が SSOT。checker（`npm run check-video-content`）・fixture（`tests/fixtures/video-content/`）・将来の admin parser はこの config を読む。本書と config がずれたら config 側の `updated` を進めて両方を同一 commit で直す。
 
 ## 1. SSOT境界
 
@@ -56,7 +56,7 @@ title: 動画コンテンツ運用ポリシー
 必須要件:
 
 - `packId` はリポジトリ全体で一意かつ公開後変更しない。ディレクトリ名 `{slug}` と一致させる
-- `intent` は `exam-point | howto | diagnosis | roadmap | career` の5値（`career` は 2026-09-01 追加＝キャリア・転職系。試験対策4値と分けて送客判定を濁さない）。`primaryCta.kind` は `note-magazine | coconala-service | site-article | links-hub` の4値。いずれも機械可読SSOTは `.claude/config/video-content.json`
+- `intent` は `exam-point | howto | diagnosis | roadmap | career` の5値（`career` は 2026-09-01 追加＝キャリア・転職系。試験対策4値と分けて送客判定を濁さない）。`primaryCta.kind` は `note-magazine | coconala-service | site-article | links-hub` の4値。いずれも機械可読SSOTは `config/video-content.json`
 - `pain` と `promise` は1つずつ
 - `sourceRefs` は実在し、公開可否を機械判定できる
   - `type: site|note|figure` は `path` 必須＋実在必須
@@ -235,7 +235,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。
 
-**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `.claude/state/metrics/ga4/ga4-campaign-*.json` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
+**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `data/metrics/ga4/ga4-campaign-*.json` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
 
 **Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、`video-content-status.json` の `derivatives.shorts[]` が実行状態を持つ。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
@@ -259,7 +259,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 `post-youtube-scheduled.yml` は毎日20:17 JSTに、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行する。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
 
-対象・日次上限は `.claude/config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
+対象・日次上限は `config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
 
 処理は処理完了監査→サムネ→公開範囲/予約復元→旧版削除→未予約Shortsの予約→残りの非公開アップロード。Pacific日付ごとの上限をAPI呼出し前に保存するため、手動で同日に再実行しても枠をリセットしない。APIの日次上限は次のPacific午前0時、チャンネルのアップロード/サムネ日次制限は24時間待つ。制限は待機として扱い、認証・データ不一致・応答不明は停止する。1回の予算消化で未処理が残っても次回へ持ち越す。
 

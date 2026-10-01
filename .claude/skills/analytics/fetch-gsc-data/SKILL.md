@@ -12,7 +12,7 @@ Google Search Console API から検索パフォーマンスデータ（クエリ
 
 ## 前提条件
 
-> **恒久ルール（2026-06-05・`.claude/knowledge/reference/measurement-incidents.md`）**: 計測データは **CI/CD 供給が正・ローカル creds は不要**。会社 PC はプロキシで外部 API が遮断されるため、**まず `.claude/state/metrics/gsc/` の既存スナップショット（CI 生成）を読む**。ローカル取得は Mac/CI/クラウドでのみ可。以下のローカル creds 手順は CI/Mac でフレッシュ取得が必要な場合に限る。
+> **恒久ルール（2026-06-05・`.claude/knowledge/reference/measurement-incidents.md`）**: 計測データは **CI/CD 供給が正・ローカル creds は不要**。会社 PC はプロキシで外部 API が遮断されるため、**まず `data/metrics/gsc/` の既存スナップショット（CI 生成）を読む**。ローカル取得は Mac/CI/クラウドでのみ可。以下のローカル creds 手順は CI/Mac でフレッシュ取得が必要な場合に限る。
 
 1. GCPコンソールでサービスアカウントを作成済み
 2. Search Console API を有効化済み
@@ -72,7 +72,7 @@ npm run fetch-gsc-data -- --dimensions page,query --days 28 --all
 
 取得したデータは以下に出力される:
 - **コンソール**: サマリー（上位30件）
-- **JSONファイル**: `.claude/state/metrics/gsc/gsc-{dimensions}-{timestamp}.json`（全件・複数軸は `page-query` のように連結）
+- **JSONファイル**: `data/metrics/gsc/gsc-{dimensions}-{timestamp}.json`（全件・複数軸は `page-query` のように連結）
 
 JSONファイルを Read ツールで読み込み、以下の観点で分析する:
 - **高インプレッション低CTR**: タイトル・ディスクリプションの改善候補

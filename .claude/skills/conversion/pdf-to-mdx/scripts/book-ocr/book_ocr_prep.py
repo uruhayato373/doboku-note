@@ -22,7 +22,7 @@ def vault_root():
     env = os.environ.get("DOBOKU_DRIVE_VAULT")
     if env and os.path.isdir(env):
         return env
-    cfg = json.load(open(".claude/config/drive-vault.json", encoding="utf-8"))
+    cfg = json.load(open("config/drive-vault.json", encoding="utf-8"))
     for c in cfg["vaultRoot"]["candidates"]:
         if c.get("platform") and c["platform"] != sys.platform:
             continue

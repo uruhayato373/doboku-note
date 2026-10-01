@@ -29,8 +29,8 @@ type Listing = {
 
 const SOURCES = [
   { file: 'src/lib/coconala-services.ts', what: 'タイトル・価格・出品状態・公開 URL（カタログ）' },
-  { file: '.claude/config/coconala-listings.json', what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
-  { file: '.claude/config/coconala-thumb-approved.json', what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
+  { file: 'config/coconala-listings.json', what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
+  { file: 'config/coconala-thumb-approved.json', what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
 ];
 
 function Row({ k, v }: { k: string; v: React.ReactNode }) {
@@ -49,7 +49,7 @@ export default async function CoconalaDetailPage({ params }: { params: Promise<{
   if (!s) notFound();
   const l = ((readListings() as Record<string, Listing>)[id] ?? {}) as Listing;
   const thumb = readApprovedThumbs()[id] ?? null;
-  const thumbRel = thumb?.path.replace(/^\.claude\/config\/coconala\/assets\//, '') ?? null;
+  const thumbRel = thumb?.path.replace(/^content\/coconala\/assets\//, '') ?? null;
   const thumbLocal = thumb ? existsSync(repoPath(...thumb.path.split('/'))) : false;
   const row = loadLedgerView().rows.find((r) => r.key === `coconala-product:${id}`);
   const live = row?.live ?? null;

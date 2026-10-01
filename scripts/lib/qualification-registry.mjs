@@ -4,8 +4,20 @@
  * 資格 id は qualification-registry.json が定義し、exam-calendar.json（日程）と exam-stats.json
  * （受験者数）が同じ id で持つ。三者の id が食い違うと、候補資格が片方の正本にだけ残ったり、
  * 展開中の資格の日程が無検査で素通りしたりする。scripts/check-exam-calendar.mjs から呼ぶ。
+ * 資格の名前（label・shortLabel）と並び順も registry だけが持ち、ほかは loadRegistry と下の関数で引く
+ * （写しを作らない。scripts/check-qualification-ssot.mjs が止める）。
  * ---------------------------------------------------------------------------
  */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+export const REGISTRY_PATH = 'config/qualification-registry.json';
+
+export function loadRegistry(root) {
+  return JSON.parse(readFileSync(join(root, REGISTRY_PATH), 'utf8'));
+}
+
+export { orderedQualifications, isQualificationRef, qualificationLabel, qualificationShortLabel, qualificationBadgeLabel } from './qualification-names.mjs';
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const STAT_KEYS = ['applicants', 'examinees', 'passers', 'passRate'];
@@ -73,14 +85,13 @@ const PAST_EXAM_KEYS = ['questions', 'answers'];
 
 /**
  * 出題形式（exam-formats.json）: 区分ごとの形式と過去問の公開範囲。語彙はファイル冒頭の formatTypes・stageKeys・
- * pastExamLevels。展開中の資格は区分が商品ラインナップ（product-lineup.json）の区分と一致すること
- * （区分ごとの売上と形式を同じ行に並べるため）。
+ * pastExamLevels。stages は試験区分の唯一の正本で、商品ラインナップ（product-lineup.mjs）もここから区分を読む
+ * （以前は product-lineup.json にも区分を写して一致を検査していた）。
  */
-function checkFormats(formats, ids, active, lineupConfig, errors) {
+function checkFormats(formats, ids, active, errors) {
   const types = new Set(Object.keys(formats.formatTypes ?? {}));
   const stageKeys = new Set(Object.keys(formats.stageKeys ?? {}));
   const levels = new Set(Object.keys(formats.pastExamLevels ?? {}));
-  const lineupStages = new Map((lineupConfig?.qualifications ?? []).filter((q) => Array.isArray(q.stages)).map((q) => [q.id, q.stages.map((s) => s.id)]));
   for (const id of ids) if (!formats.exams?.[id]) errors.push(`exam-formats に registry の ${id} が無い`);
   for (const [id, f] of Object.entries(formats.exams ?? {})) {
     const where = `exam-formats.${id}`;
@@ -92,6 +103,7 @@ function checkFormats(formats, ids, active, lineupConfig, errors) {
       if (keys.includes(s.key)) errors.push(`${where}.stages[${i}].key ${s.key} が重複`);
       keys.push(s.key);
       if (typeof s.label !== 'string' || !s.label) errors.push(`${where}.stages[${i}].label が必要`);
+      if (s.shortLabel !== undefined && (typeof s.shortLabel !== 'string' || !s.shortLabel)) errors.push(`${where}.stages[${i}].shortLabel は空でない文字列`);
       if (!Array.isArray(s.types) || s.types.length === 0) errors.push(`${where}.stages[${i}].types が空`);
       for (const t of s.types ?? []) if (!types.has(t)) errors.push(`${where}.stages[${i}].types の ${t} は formatTypes に無い`);
     }
@@ -101,28 +113,34 @@ function checkFormats(formats, ids, active, lineupConfig, errors) {
     const claimsPublic = PAST_EXAM_KEYS.some((k) => ['public', 'partial'].includes(f.pastExams?.[k]));
     if (claimsPublic && !/^https?:\/\//.test(f.pastExams?.source ?? '')) errors.push(`${where}.pastExams.source（公開を確かめた公式 URL）が必要`);
     checkVerification(where, f.verification, active.has(id), errors);
-    if (active.has(id) && lineupStages.has(id)) {
-      const want = lineupStages.get(id);
-      if (want.join(',') !== keys.join(',')) errors.push(`${where}: 展開中の資格の区分 ${keys.join(',')} が product-lineup の区分 ${want.join(',')} と一致しない`);
-    }
   }
 }
 
 /**
- * @param {{ registry: any, calendar: any, examStats: any, formats?: any, lineupConfig?: any, refExists?: (path: string) => boolean }} input
+ * @param {{ registry: any, calendar: any, examStats: any, formats?: any, refExists?: (path: string) => boolean }} input
  * @returns {string[]} 違反メッセージ（空なら整合）
  */
-export function validateQualificationRegistry({ registry, calendar, examStats, formats = null, lineupConfig = null, refExists = null }) {
+export function validateQualificationRegistry({ registry, calendar, examStats, formats = null, refExists = null }) {
   const errors = [];
   const statuses = new Set(Object.keys(registry.portfolioStatuses ?? {}));
   const families = new Set(Object.keys(registry.families ?? {}));
   const ids = new Set();
 
+  for (const id of Object.keys(registry.familyShortLabels ?? {})) if (!families.has(id)) errors.push(`registry.familyShortLabels: ${id} は families に無い`);
+  const qids = new Set((registry.qualifications ?? []).map((q) => q.id));
+  for (const [id, g] of Object.entries(registry.groups ?? {})) {
+    if (qids.has(id) || families.has(id)) errors.push(`registry.groups.${id}: 資格・ファミリーの id と重複`);
+    if (typeof g.label !== 'string' || !g.label) errors.push(`registry.groups.${id}: label が必要`);
+    if (!Array.isArray(g.members) || g.members.length < 2) errors.push(`registry.groups.${id}: members は 2 つ以上の資格 id`);
+    for (const m of g.members ?? []) if (!qids.has(m)) errors.push(`registry.groups.${id}: members の ${m} は registry に無い`);
+  }
   for (const q of registry.qualifications ?? []) {
     if (ids.has(q.id)) errors.push(`registry: id ${q.id} が重複`);
     ids.add(q.id);
     if (!statuses.has(q.portfolio)) errors.push(`registry.${q.id}: portfolio ${q.portfolio} は未定義`);
     if (!families.has(q.family)) errors.push(`registry.${q.id}: family ${q.family} は未定義`);
+    if (typeof q.label !== 'string' || !q.label) errors.push(`registry.${q.id}: label が必要`);
+    for (const k of ['shortLabel', 'badgeLabel']) if (q[k] !== undefined && (typeof q[k] !== 'string' || !q[k])) errors.push(`registry.${q.id}: ${k} は空でない文字列`);
     if (q.portfolio === 'declined' && !q.decision?.ref) errors.push(`registry.${q.id}: declined は decision.ref（判断の文書）が必要`);
     if (q.decision?.ref && refExists && !refExists(q.decision.ref)) errors.push(`registry.${q.id}: decision.ref ${q.decision.ref} が実在しない`);
   }
@@ -176,14 +194,7 @@ export function validateQualificationRegistry({ registry, calendar, examStats, f
     }
   }
 
-  if (formats) checkFormats(formats, ids, active, lineupConfig, errors);
-
-  // 商品ラインナップの行は展開中の資格そのもの。候補を載せない・展開中を落とさない。
-  if (lineupConfig) {
-    const lineup = new Set(lineupConfig.qualifications.map((q) => q.id));
-    for (const id of lineup) if (!active.has(id)) errors.push(`product-lineup の ${id} は registry で active ではない`);
-    for (const id of active) if (!lineup.has(id)) errors.push(`registry の active ${id} が product-lineup に無い`);
-  }
+  if (formats) checkFormats(formats, ids, active, errors);
   return errors;
 }
 

@@ -28,21 +28,21 @@ domain: product
 | 何を見るか | ファイル |
 |---|---|
 | サービスの価格・状態・URL・受付枠 | `src/lib/coconala-services.ts`（カタログ SoT） |
-| 競合の市場実測（価格帯・上位競合） | `.claude/state/coconala/market-summary.json`（軽量 SSOT・まずこれ／深掘りは `market-research.json`） |
-| アカウント（sellerName / profileUrl） | `.claude/config/coconala-account.json` |
-| 受注実績（こちらの記録） | `.claude/state/coconala/orders-log.json`（v2・`talkroomId` 必須） |
+| 競合の市場実測（価格帯・上位競合） | `data/coconala/market-summary.json`（軽量 SSOT・まずこれ／深掘りは `market-research.json`） |
+| アカウント（sellerName / profileUrl） | `config/coconala-account.json` |
+| 受注実績（こちらの記録） | `data/coconala/orders-log.json`（v2・`talkroomId` 必須） |
 | 商品構成の現在地 | カタログの `status`／`pauseReason`（`retired`=恒久廃止・`archivedAt` 済／`absence`=長期不在の一時休止・`resumeOn` に復帰予定日） |
-| 受注の実体（ココナラ側） | `.claude/state/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
+| 受注の実体（ココナラ側） | `data/coconala/orders-snapshot.json`（`npm run coconala-orders` が生成） |
 | 購入者のメッセージ・添付（1取引） | `.tmp/coconala/talkrooms/{id}/`（`npm run coconala-talkroom -- <id>` が生成・リポジトリ外・個人情報） |
 | 取引後の DM（全メッセージ・添付） | `.tmp/coconala/dm/{id}/`（`npm run coconala-dm -- <dmId>` が生成・messages.json にメッセージ単位・リポジトリ外・個人情報。DM の ID は orders-snapshot.json の inquiries[].dmId） |
-| KPI 週次 | `.claude/state/coconala/kpi-log.json` |
+| KPI 週次 | `data/coconala/kpi-log.json` |
 | 運用・スキーマ・ドリフト分類 | `.claude/knowledge/reference/coconala-operations.md` |
 | 戦略・出品文面・ヒアリングシート・撤退ライン | `content/note/1級・2級土木/ココナラ展開キット.md` |
 | 出品文面の構成の型 | `.claude/knowledge/reference/note-selling-structures.md`「強化コンポーネント」（C系PDF=直適用／S系人力=翻案） |
 
 ## 担当範囲
 
-1. **出品・修正**（`/coconala-publish`）— カタログ＋listings（`.claude/config/coconala-listings.json`）を SoT に `coconala-publish.mjs`（新規）/`coconala-edit.mjs`（修正）で出品フォームへ流し込む。下書きで検証 → `--commit` で公開 → publish がカタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し
+1. **出品・修正**（`/coconala-publish`）— カタログ＋listings（`config/coconala-listings.json`）を SoT に `coconala-publish.mjs`（新規）/`coconala-edit.mjs`（修正）で出品フォームへ流し込む。下書きで検証 → `--commit` で公開 → publish がカタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し
 2. **受注 E2E**（`/coconala-order`）— ヒアリングシート受領 → 一時保存 → `/keiken-tensaku` 起動 → 添削下書き提示 → **納品文面ドラフト**生成 → 返信文を `civil-keiken-tensaku-qa` で PASS まで検証 → orders-log 追記
 3. **KPI 記録**（`/coconala-status`）— ダッシュボード数値の貼付を正規化 → kpi-log 追記 → カタログ突合 → 撤退ライン判定
 4. **カタログ更新** — 満枠 `'full'`、季節オフ `'paused'`、価格改定（`price` と `priceYen` を同時更新→`/coconala-publish` で反映）
@@ -72,7 +72,7 @@ domain: product
 
 ### ケース0.5: 受注（C系 単発コンテンツ PDF）
 
-C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購入通知 → トークルームで PDF を送付（C1=`.claude/config/coconala/assets/pdf/coconala-C1-*.pdf` 1本 / C2=`coconala-C2-*.pdf` 5本）＋定型文 → `orders-log` へ append（`status: 'delivered'`）。個別の答案相談は S2 添削へ誘導する。PDF は note funnel 除去済み（`build-coconala-content-pdf.mjs`）＝再生成時も外部誘導 0 件を検証。
+C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購入通知 → トークルームで PDF を送付（C1=`content/coconala/assets/pdf/coconala-C1-*.pdf` 1本 / C2=`coconala-C2-*.pdf` 5本）＋定型文 → `orders-log` へ append（`status: 'delivered'`）。個別の答案相談は S2 添削へ誘導する。PDF は note funnel 除去済み（`build-coconala-content-pdf.mjs`）＝再生成時も外部誘導 0 件を検証。
 
 ### ケース1: 受注（S2 添削セット）
 
@@ -152,7 +152,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
   "case": "order | kpi | catalog",
   "serviceId": "coconala-tensaku-set",
   "artifacts": { "tensakuDraft": "path", "deliveryText": "生成済み（未送信）" },
-  "stateUpdated": [".claude/state/coconala/orders-log.json"],
+  "stateUpdated": ["data/coconala/orders-log.json"],
   "wiringCheck": "pass | fail",
   "operatorTodo": ["最終赤入れ", "トークルームへ送信", "status を delivered へ"],
   "notes": ["撤退ライン判定・警告があれば"]
@@ -162,11 +162,11 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 ## 参照
 
 - スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
-- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `.claude/config/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
+- 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `content/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`gen-image-gemini.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
 - 購入者評価: `scripts/coconala-rate-buyer.mjs`（`/ratings/provider_add/{talkroomId}`・星は `img[alt]` クリック・確認画面の二段構え）。**公開・取消不可なので既定は入力までで停止**、送信は `--submit`。星は5固定なので5をつけたくない取引では使わない。未送信と期限切迫は `check-coconala-orders` が surface する
-- 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `.claude/config/coconala-account.json`
+- 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `config/coconala-account.json`
 - 添削 Generator: `.claude/agents/civil-keiken-tensaku-drafter.md`（`/keiken-tensaku`）
 - 返信文 Evaluator: `.claude/agents/civil-keiken-tensaku-qa.md`（機械ゲート `scripts/check-tensaku-reply.mjs`）
 - 機械ガード: `scripts/check-coconala-wiring.mjs`（`npm run check-coconala-wiring`・pre-commit。カタログ↔listings↔商品画像↔state↔sales のカバレッジ検査）

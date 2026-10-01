@@ -2,14 +2,14 @@
 /**
  * scan-qualification-market.mjs — 資格ごとの市場（競合の混み具合）を検索で機械取得する（read-only）
  * ---------------------------------------------------------------------------
- * 検索語は .claude/config/market-scan.json（資格 id → keywords / coconala）。取得先:
+ * 検索語は config/market-scan.json（資格 id → keywords / coconala）。取得先:
  *   - YouTube … yt-dlp の検索（ytsearchN:<語>）で動画・チャンネル・再生数。ログイン・API キー不要
  *   - note    … 公開検索 API（api/v3/searches?context=note）で記事・作者・価格・スキ数
  *   - ココナラ … 既存の scripts/coconala-research.mjs に未取得の語だけを渡す（--coconala 指定時のみ。
  *               ブラウザで公開検索ページを読む・低頻度厳守＝四半期）
  * 追跡中の YouTube チャンネル（youtube-competitors.json）の登録者数も取る。
  *
- * 出力: .claude/state/market/history/market-YYYY-MM-DD.json（JST の実行日。1 ファイル＝その日の市場）。
+ * 出力: data/market/history/market-YYYY-MM-DD.json（JST の実行日。1 ファイル＝その日の市場）。
  *       直前のファイルを土台に取得した語だけ上書きするので、部分実行でも全資格の最新が 1 ファイルに揃う。
  *       読むときは最も新しい日付のファイルが最新（scripts/lib/market-inputs.mjs の latestMarketSnapshot）。
  *       1 件 1 行で書く（差分を読めるように・サイズを抑えるため）。
@@ -36,9 +36,9 @@ import { todayJst } from './lib/jst-date.mjs';
 import { latestMarketSnapshot, MARKET_HISTORY_DIR, stringifyMarketSnapshot } from './lib/market-inputs.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, '.claude/config/market-scan.json');
-const REGISTRY_PATH = join(ROOT, '.claude/config/qualification-registry.json');
-const YT_COMPETITORS_PATH = join(ROOT, '.claude/config/youtube-competitors.json');
+const CONFIG_PATH = join(ROOT, 'config/market-scan.json');
+const REGISTRY_PATH = join(ROOT, 'config/qualification-registry.json');
+const YT_COMPETITORS_PATH = join(ROOT, 'config/youtube-competitors.json');
 const HISTORY_DIR = join(ROOT, MARKET_HISTORY_DIR);
 
 const argv = process.argv.slice(2);
@@ -172,7 +172,7 @@ if (CHANNELS.has('note')) {
 }
 
 if (CHANNELS.has('coconala')) {
-  const researchPath = join(ROOT, '.claude/state/coconala/market-research.json');
+  const researchPath = join(ROOT, 'data/coconala/market-research.json');
   const research = existsSync(researchPath) ? JSON.parse(readFileSync(researchPath, 'utf8')) : { queries: [] };
   const done = new Set(research.queries.filter((q) => q.complete).map((q) => q.keyword));
   const todo = coconalaKeywords.filter((k) => !done.has(k));

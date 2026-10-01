@@ -15,9 +15,9 @@ const FAKE_TOKEN = 'fake-token-do-not-leak-1234567890';
 
 function makeRoot() {
   const root = mkdtempSync(join(tmpdir(), 'cf-fetch-'));
-  mkdirSync(join(root, '.claude/config'), { recursive: true });
+  mkdirSync(join(root, 'config'), { recursive: true });
   writeFileSync(
-    join(root, '.claude/config/cloudflare.json'),
+    join(root, 'config/cloudflare.json'),
     JSON.stringify({
       zoneName: 'doboku-note.com',
       graphql: 'https://api.cloudflare.com/client/v4/graphql',
@@ -81,7 +81,7 @@ test('fetch-cloudflare-analytics: cf-zone ファイルを書き counts.daysRetur
   assert.equal(result.snapshot.botSignals.firewallEvents.byAction.block, 3);
   assert.deepEqual(result.snapshot.botSignals.botScoreBuckets, { unavailable: 'plan' });
 
-  const outFile = join(root, '.claude/state/metrics/cloudflare/cf-zone-2026-09-21.json');
+  const outFile = join(root, 'data/metrics/cloudflare/cf-zone-2026-09-21.json');
   assert.ok(existsSync(outFile));
   const written = readFileSync(outFile, 'utf8');
   assert.ok(!written.includes(FAKE_TOKEN), 'トークンが成果物に含まれてはいけない');
@@ -133,7 +133,7 @@ test('fetch-cloudflare-analytics: 0 日は exit 2 で成果物を書かない', 
 
   const result = await runAnalytics({ fetchImpl, root, now: () => Date.parse('2026-09-21T01:00:00Z') });
   assert.equal(result.exitCode, 2);
-  assert.ok(!existsSync(join(root, '.claude/state/metrics/cloudflare')));
+  assert.ok(!existsSync(join(root, 'data/metrics/cloudflare')));
   delete process.env.CLOUDFLARE_ANALYTICS_API_TOKEN;
 });
 

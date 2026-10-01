@@ -31,15 +31,15 @@ const STAGED = process.argv.includes('--staged');
 const DEAD = [
   { pattern: /note\.com\/uruhayato(?![0-9])/g, why: 'note の旧ハンドル（HTTP 404・実査 2026-08-13）', use: 'note.com/dobokunote' },
   // X の URL 形でのみ禁止する。**素の `dobokunotecom` を禁止してはいけない**——
-  // 同じ文字列が Instagram の**現行**ハンドル（.claude/config/ig-account.json）だからで、
+  // 同じ文字列が Instagram の**現行**ハンドル（config/ig-account.json）だからで、
   // 全面禁止にすると 60 件超の誤検知になり、ゲートごと無視されるようになる（2026-08-13 に一度そうなった）。
   { pattern: /(x|twitter)\.com\/dobokunotecom\b/g, why: 'X の旧アカウント（2026-06-12 凍結・異議却下）', use: 'x.com/doboku373' },
 ];
 
 // 歴史記録として残す場所（消すと経緯が失われる）。理由を必ず書く。
 const ALLOW = [
-  { re: /^\.claude\/state\/metrics\//, why: '過去の計測ログ（当時の実測値そのもの）' },
-  { re: /^\.claude\/state\/(x-competitors|ig-competitors|note)\//, why: '競合スナップショットの時系列' },
+  { re: /^data\/metrics\//, why: '過去の計測ログ（当時の実測値そのもの）' },
+  { re: /^data\/(x-competitors|ig-competitors|note)\//, why: '競合スナップショットの時系列' },
   { re: /^content\/sns\/x\/(draft|published)\/_archive/, why: '旧アカウント時代の投稿アーカイブ' },
   { re: /^\.claude\/knowledge\/reference\/(x-post-policy|measurement-incidents|ig-publish-reconcile)\.md$/, why: '凍結の経緯そのものを記録している SSOT' },
   { re: /^scripts\/check-dead-handles\.mjs$/, why: '本チェッカ自身（禁止パターンを持つ）' },

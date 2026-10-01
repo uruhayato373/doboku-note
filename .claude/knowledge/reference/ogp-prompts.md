@@ -88,7 +88,7 @@ mono-tag は **資格＝色** と **コンテンツ種別＝右上バッジ** �
 
 mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（2026-06-18〜）。文字・ブランド枠は従来どおり satori が正確に描き、背景は「装飾の下地」として最背面に入る。背景ファイルが無ければ従来のオフホワイト＋グリッド（**完全後方互換**）。
 
-- **置き場**: `.claude/config/ogp/backgrounds/<exam-key>.png`（資格ごとに 1 枚を全記事で共有）。`ogp-create.mjs` の `resolveBackgroundImage(category)` が category→exam-key で解決し、無ければ null。exam-key は上の「テーマ色」表と同じ。
+- **置き場**: `config/ogp/backgrounds/<exam-key>.png`（資格ごとに 1 枚を全記事で共有）。`ogp-create.mjs` の `resolveBackgroundImage(category)` が category→exam-key で解決し、無ければ null。exam-key は上の「テーマ色」表と同じ。
 - **レイヤー順**（最背面→最前面）: 背景画像（`object-fit: cover`）→ 可読性スクリム（`C_SCRIM`、オフホワイト半透明・既定 **0.7**）→ グリッド → メタ（資格名 kicker＋種別ピル）・タイトル・右下ワードマーク → テーマ色 16px 外枠。（旧・左上シアン/右下紺のアクセントバーは 2026-07-07 撤去）
 - **可読性の二重担保**: ① 生成時に各背景を平均輝度 ~202 へ正規化（暗い出力だけ白へ線形ブレンド、明るい出力は不変）② 描画時にスクリムを重ねる。背景が強すぎ/弱すぎは `ogp-templates.mjs` の `C_SCRIM` alpha で一括調整。
 - **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。`GEMINI_API_KEY`（`.env.local`）で AI Studio の画像モデルを呼ぶ。既定 `--mode flash`（`gemini-2.5-flash-image`）、`--mode imagen`（`imagen-4.0-generate-001`）に切替可。プロンプトは「near-white の淡い地＋テーマ色は細線アクセントのみ・文字なし・左中央は静かに」。flash は稀に画像でなくテキストを返すためリトライ＋「画像のみ返す」指示で吸収。
@@ -115,7 +115,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 
 ## フォントサイズと改行
 
-- `pickFontSize` は `fontSizeTable: [76, 68, 60, 54, 48, 42]`（`.claude/config/ogp/text.json`）を上から試し、**全行が `safetyWidth: 1010px` に収まる最大サイズ**を選ぶ。上限 76px。
+- `pickFontSize` は `fontSizeTable: [76, 68, 60, 54, 48, 42]`（`config/ogp/text.json`）を上から試し、**全行が `safetyWidth: 1010px` に収まる最大サイズ**を選ぶ。上限 76px。
 - **縦フィット（2026-06-28〜）**: `pickFontSize` は横幅のみ合わせるため、行数が多いと固定の縦スペースを溢れて行が重なっていた。`renderMonoTag` が描画時に **縦スペース（`contentHeight` − ワードマーク行 − チップ）に収まるよう font を `FONT_FLOOR: 34px` まで縮小**し、最小でも収まらない病的な長文だけ **行数をクランプして `…` を付す**（横幅制約は緩めない＝小さくするだけ）。3 行以下は 76px 維持、4 行以上は自動縮小。
 - タイトル改行は 4 層戦略（`frontmatter.ogp.title` の `\n` → 記号直前 → スペース分割 → BudouX → `charCountFallback: 13` 字）。詳細は SKILL.md「4 層の日本語改行戦略」。
 - 長いタイトル（目安 6 行以上＝`…` でクランプされる）は `frontmatter.ogp.title` に短い OGP 専用見出し（`\n` 改行可）を与えると大きく・切れずに出る。自動生成の長い過去問タイトル（`技術士第二次試験 建設部門 令和X年度 …`）等が該当。
@@ -165,7 +165,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-05-20 | magazine-banner 派生を追加 | note マガジンヘッダー帯（1280×216）クロップ対応 |
 | 2026-05-29 | note-cover-g2 派生を追加（note 記事カバーを試験色分け） | note フィード・リンクカードで試験区分を色で識別 |
 | 2026-06-16 | **mono-tag 全幅リデザイン**: セーフゾーン(630)撤廃→全幅、最大フォント 54→76px、資格別テーマ色 16px 外枠を追加、下部メタ「READ ON doboku-note.com」とワードマークのタグラインを撤去、タイトルを縦中央寄せ。`text.json` を v5 に更新（`safetyWidth` 590→1010、`fontSizeTable` 引き上げ、`charCountFallback` 18→13）。確認用に OGP ギャラリー（`npm run ogp-gallery`）を新設 | 外部リンクカードでの可読性・分野識別性の向上（参考: socialplus / commune の大文字・低余白カード） |
-| 2026-06-18 | **mono-tag に資格別 AI 背景（任意）を追加**: `renderMonoTag` に背景画像レイヤー＋可読性スクリム `C_SCRIM`（0.7）を新設、`ogp-create.mjs` に `resolveBackgroundImage`（`.claude/config/ogp/backgrounds/<exam-key>.png`）を配線。生成スクリプト `npm run ogp-backgrounds`（Gemini/Imagen・輝度正規化・リトライ）を新設。背景なしは完全後方互換 | プレーンなオフホワイトより見栄えを上げつつ、文字の正確性・ブランド一貫性を維持（AI は背景のみ・文字は satori） |
+| 2026-06-18 | **mono-tag に資格別 AI 背景（任意）を追加**: `renderMonoTag` に背景画像レイヤー＋可読性スクリム `C_SCRIM`（0.7）を新設、`ogp-create.mjs` に `resolveBackgroundImage`（`config/ogp/backgrounds/<exam-key>.png`）を配線。生成スクリプト `npm run ogp-backgrounds`（Gemini/Imagen・輝度正規化・リトライ）を新設。背景なしは完全後方互換 | プレーンなオフホワイトより見栄えを上げつつ、文字の正確性・ブランド一貫性を維持（AI は背景のみ・文字は satori） |
 | 2026-06-28 | **mono-tag に コンテンツ種別バッジ（第2軸）を追加**: ワードマークを最上段の行（`topRow`・space-between）に再構成し右端へ種別バッジを配置。`renderMonoTag` に `contentType` props、`ogp-create.mjs` に `GROUP_TO_TYPE`/`resolveContentType` を新設（`group`→ラベル+アイコン）。アイコンは既存 `G2_ICON_PATHS` を再利用（satori 描画・文字は不使用）。未マッピング group はバッジ無し＝後方互換 | 資格（色）に加えガイド/過去問/テキスト/キーワードをサムネ一覧で一目識別（種別は AI でなくテンプレ描画で確定的・可読） |
 | 2026-06-28 | **mono-tag タイトルの縦フィット修正**: `renderMonoTag` に縦スペース計算＋font 縮小（`FONT_FLOOR: 34px`）＋行数クランプ（`…`）を追加。`pickFontSize` が横幅のみ合わせていたため 4 行以上の長タイトルが縦に溢れて行が重なっていた（約 225 件）。3 行以下は 76px 維持 | 長タイトルの行重なり（既存バグ）を解消。横フィットは不変（縮小のみ） |
 | 2026-06-29 | **mono-tag をダーク配色に既定化**: `renderMonoTag` に `dark` パレット分岐（深紺グラデ地・白タイトル・`accentLight`＝資格色を白へ 50% 寄せたアクセントで枠/チップ/バッジ/装飾を描画・AI 背景はダーク時スキップ）。`lightenHex` ヘルパ、`ogp-create.mjs` に `--light`（旧配色）/`--out-dir`（比較出力）を追加し render は `dark: !args.light` 既定。全 1033 枚をダーク再生成。ライト出力は `--light` で完全再現可 | 白だらけのフィードでの標準差別化・プレミアム感（参考: 暗色 OGP の標準カードに対する被視認性）。資格色を明色化して紺/藍でも識別性維持 |
@@ -183,13 +183,13 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 
 ## 旧 5 種テンプレ（撤去済み・履歴）
 
-背景画像 (`assets/fonts/ogp-backgrounds/dark-wood.png` `blackboard.png` 等) は履歴として残置するが、現運用では参照されない。カテゴリ別出し分けが将来再び必要になったら `.claude/config/ogp/rules.json` の `rules[]` を復活させる。
+背景画像 (`assets/fonts/ogp-backgrounds/dark-wood.png` `blackboard.png` 等) は履歴として残置するが、現運用では参照されない。カテゴリ別出し分けが将来再び必要になったら `config/ogp/rules.json` の `rules[]` を復活させる。
 
 ## テンプレ追加の手順（将来）
 
 1. このファイル（出典・用途・変更履歴）に追記
-2. `.claude/config/ogp/templates.json`（レジストリ）に ID を追加
+2. `config/ogp/templates.json`（レジストリ）に ID を追加
 3. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に `render{XYZ}` を追加（`(props, { width, height }) => element` シグネチャ）
-4. 必要なら `.claude/config/ogp/rules.json` にルール追加
+4. 必要なら `config/ogp/rules.json` にルール追加
 5. 背景画像が必要なら `.claude/skills/conversion/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置
 6. `npm run ogp-gallery` で一覧目視検証（mono-tag は全幅。中央クロップ耐性が要るテンプレのみ別途セーフ幅を検証）

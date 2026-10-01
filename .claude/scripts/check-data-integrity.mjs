@@ -22,8 +22,8 @@ import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
 import { assessGscPerformanceSnapshot } from "../../scripts/lib/gsc-data-integrity.mjs";
 
-const METRICS_DIR = ".claude/state/metrics/ga4";
-const GSC_METRICS_DIR = ".claude/state/metrics/gsc";
+const METRICS_DIR = "data/metrics/ga4";
+const GSC_METRICS_DIR = "data/metrics/gsc";
 const THRESHOLDS = {
   shortWindow: { days: 7, maxMissing: 2 },
   longWindow: { days: 14, maxMissing: 3 },

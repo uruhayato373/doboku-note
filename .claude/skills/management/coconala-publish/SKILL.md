@@ -2,7 +2,7 @@
 name: coconala-publish
 description: >
   ココナラ出品サービスを Playwright で「新規出品」「内容修正」「受付休止/再開/アーカイブ」するスキル。カタログ
-  （src/lib/coconala-services.ts＝価格/状態/URL）と listings（.claude/config/coconala-listings.json
+  （src/lib/coconala-services.ts＝価格/状態/URL）と listings（config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
   価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋
@@ -86,16 +86,16 @@ gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f arg
 承認画像登録済みの商品は `coconala-thumb` が原本の SHA-256 を照合してコピーする。既存CLIの未登録商品向けフォールバックは文字なし背景写真＋satori。新規制作は `/create-pop-image` を使い、承認後に画像台帳へ登録する。登録済み原本の欠落時は旧意匠に戻さず停止する。原本・配色・訴求の真実源は [coconala-operations.md 商品画像節](../../../../.claude/knowledge/reference/coconala-operations.md)。
 
 ```
-npm run gen-image-gemini -- --out .claude/config/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
+npm run gen-image-gemini -- --out content/coconala/assets/bg-civil.png --prompt "..."  # 背景（Gemini API課金）
 npm run coconala-thumb                                                                          # 承認原本をコピー／未登録は背景+文字を合成（THUMB_COPY）
 node scripts/coconala-publish.mjs --service <id> --commit --image thumb-<key>.png              # 公開と同時に画像アップロード（1商品=1実行）
 node scripts/coconala-edit.mjs --service <id> --service-id <n> --image thumb-<key>.png --commit # 既存商品へ画像だけ更新
 ```
 
-- `--image` は **bare 名でよい**（`.claude/config/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
+- `--image` は **bare 名でよい**（`content/coconala/assets/` に自動解決）。存在は**ブラウザ操作前に検査**（fail-fast）＝不正パスで orphan draft を残さない。
 - **orphan draft（出品失敗の残骸）が出たら**: `npm run coconala-delete-draft -- --id <n>`（dry-run）→ `--commit`。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。編集ページ正URL＝`/mypage/services/{id}`。
 
-素材は `.claude/config/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../knowledge/reference/coconala-operations.md)。
+素材は `content/coconala/assets/`（`bg-civil.png`/`bg-docs.png`／`thumb-<key>.png`）。詳細は [coconala-operations.md §8](../../../knowledge/reference/coconala-operations.md)。
 
 ## コンテンツ PDF 商品（C系・note→ココナラ）
 
@@ -130,7 +130,7 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 ## 参照
 
 - スクリプト: `scripts/coconala-publish.mjs` / `scripts/coconala-edit.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
-- 投入 SoT: `.claude/config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
-- 価格/状態 SoT: `src/lib/coconala-services.ts` ／ アカウント: `.claude/config/coconala-account.json`
+- 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
+- 価格/状態 SoT: `src/lib/coconala-services.ts` ／ アカウント: `config/coconala-account.json`
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` ／ 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - エージェント: `.claude/agents/coconala-operator.md` ／ KPI 照合: `/coconala-status` ／ 受注: `/coconala-order`

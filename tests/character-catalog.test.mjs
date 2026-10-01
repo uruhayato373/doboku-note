@@ -5,14 +5,14 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { readCharacterCatalog } from '../scripts/lib/character-catalog.mjs';
 
-const original = JSON.parse(readFileSync(new URL('../.claude/config/character-poses.json', import.meta.url), 'utf8'));
+const original = JSON.parse(readFileSync(new URL('../config/character-poses.json', import.meta.url), 'utf8'));
 function fixture(t, change = () => {}) {
   const root = mkdtempSync(join(tmpdir(), 'character-catalog-test-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
-  mkdirSync(join(root, '.claude/config'), { recursive: true });
+  mkdirSync(join(root, 'config'), { recursive: true });
   const m = structuredClone(original);
   change(m);
-  writeFileSync(join(root, '.claude/config/character-poses.json'), JSON.stringify(m));
+  writeFileSync(join(root, 'config/character-poses.json'), JSON.stringify(m));
   return root;
 }
 

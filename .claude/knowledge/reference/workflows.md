@@ -32,7 +32,7 @@ title: 推奨ワークフロー
 > [!note] 以下 2 つの callout はルーティン時代の記録（再開するときの前提知識）
 
 > [!warning] 沈黙の第 2 型＝サンドボックスの許可プロンプト待ち（2026-09-19）
-> ルーティンは `.claude/` 配下への書き込み（doboku-note の `.claude/state/**`、obsidian リポジトリ側の `.claude/agent-log.md` <!-- doc-ref:ignore -->）を Bash の `mkdir`/`tar` や Edit で行うと「sensitive file」の許可プロンプトで止まり、人が claude.ai で承認するまで **数日** `requires_action` のまま沈黙する。Phase 8.5 の起票にも到達しない（失敗ではなく待機のため）。2026-09-18 は存在しない `metrics-data` ブランチ展開の `mkdir -p .claude/state/metrics` で止まり W38 が欠落、2026-09-11 は Phase 9 の Edit で止まり 09-14 の承認まで待った。対処＝ルーティン本文で `.claude/` を**読むだけ**にし、書き込みは既存スクリプト実行に任せる（本文に明記済み）。診断は `RemoteTrigger list_runs` の `worker_status: requires_action` と `get_run_log` 末尾の `permission prompt` 行。
+> ルーティンは `.claude/` 配下への書き込み（doboku-note の `.claude/state/**`、obsidian リポジトリ側の `.claude/agent-log.md` <!-- doc-ref:ignore -->）を Bash の `mkdir`/`tar` や Edit で行うと「sensitive file」の許可プロンプトで止まり、人が claude.ai で承認するまで **数日** `requires_action` のまま沈黙する。Phase 8.5 の起票にも到達しない（失敗ではなく待機のため）。2026-09-18 は存在しない `metrics-data` ブランチ展開の `mkdir -p data/metrics` で止まり W38 が欠落、2026-09-11 は Phase 9 の Edit で止まり 09-14 の承認まで待った。対処＝ルーティン本文で `.claude/` を**読むだけ**にし、書き込みは既存スクリプト実行に任せる（本文に明記済み）。診断は `RemoteTrigger list_runs` の `worker_status: requires_action` と `get_run_log` 末尾の `permission prompt` 行。
 
 > [!warning] 「停止」より「発火しているのに沈黙」の方が多い（2026-08-16）
 > 2026-W33 の欠落を調べたところ、ルーティンは **enabled のまま毎週きちんと発火していた**（`last_fired_at` 2026-08-14）。にもかかわらず成果物が出ていなかった。欠落を「ルーティンが止まった」と決めつけると診断を誤る。
@@ -57,7 +57,7 @@ title: 推奨ワークフロー
 │  psi-audit.yml (JST 02:00)                                      │
 │    │ 代表 20 URL を mobile+desktop で計測                         │
 │    ▼                                                            │
-│  develop: .claude/state/metrics/psi/ に JSON 蓄積 [skip ci]     │
+│  develop: data/metrics/psi/ に JSON 蓄積 [skip ci]     │
 │    │                                                            │
 │    ├─ しきい値違反あり ──► CI 失敗(exit 1)で通知                 │
 │    │                        → 人が .claude/todo/ へ手動起票          │
@@ -70,7 +70,7 @@ title: 推奨ワークフロー
 │ 週 1 回（金曜 06:00 JST）                                        │
 │                                                                 │
 │  fetch-metrics.yml (cron: 0 21 * * 4)                           │
-│    │ GSC + GA4 を取得 → .claude/state/metrics/{gsc,ga4}/        │
+│    │ GSC + GA4 を取得 → data/metrics/{gsc,ga4}/        │
 │    ▼                                                            │
 │  link-audit.yml (cron: 0 22 * * 4, 金曜 07:00 JST)              │
 │    │ 内部リンク検証                                              │
@@ -81,7 +81,7 @@ title: 推奨ワークフロー
 │ 週 1 回（金曜 PM、同日完結）                                     │
 │                                                                 │
 │  /weekly-review                                                 │
-│    │ Agent C2: .claude/state/metrics/psi/ の 7 日分を読み         │
+│    │ Agent C2: data/metrics/psi/ の 7 日分を読み         │
 │    │            field(実害)→lab(診断)の順で前週比を出力          │
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
@@ -127,7 +127,7 @@ title: 推奨ワークフロー
 ```
 
 **原則**（3 層モデル）:
-- **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
+- **Tier 3 機械可読データ** → `data/metrics/*.json`（develop に CI が直接 commit）
 - **Tier 1 状態あり・アクション item** → `.claude/todo/`（backlog / annual / monthly / weekly の 4 層。年間・月間の中身はカードの `[時期:]` から導出）。**GitHub Issue は使わない**（CLAUDE.md §8・真実源 [information-architecture.md](information-architecture.md)）
 - **Tier 2 固定的知識・設計** → `docs/{領域}/*.md`, `.claude/knowledge/reference/*.md`
 - 週次 PDCA は `docs/reviews/weekly/YYYY-Www-review.md`（レビュー）と `YYYY-Www.md`（計画）の 2 本に保存。最新週のみ保持し、旧週は未完タスクを `.claude/todo/backlog.md` へ抽出してから削除（履歴は git）

@@ -10,6 +10,9 @@
  * 文言・価格は HTML でデータ駆動にした（マガジン追加時の画像生成を不要化）。
  */
 
+import { qualificationShortLabel } from '@/lib/qualification-names';
+
+// タイルの資格ラベルは registry の短い名前（ExamKey → registry の資格 id で引く・写さない）
 export type ExamKey =
   | 'tankan'
   | 'pe-construction'
@@ -59,50 +62,50 @@ export interface ExamBrand {
 
 export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   tankan: {
-    label: '技術士 総監',
+    label: qualificationShortLabel('pe-comprehensive-management'),
     themeVar: '--exam-pe',
     ctaBg: '/images/cta-bg/pe-comprehensive.webp',
   },
   'pe-construction': {
-    label: '技術士 建設部門',
+    label: qualificationShortLabel('pe-construction'),
     themeVar: '--exam-pe-construction',
     ctaBg: '/images/cta-bg/pe-construction.webp',
   },
   // 第一次試験は総監と同じ濃紺（globals.css の --exam-pe が「総監・第一次」共用）。
   // 専用の背景イラストは未整備のためベタ塗りにフォールバックする。
   'pe-first-stage': {
-    label: '技術士 第一次',
+    label: qualificationShortLabel('pe-first-stage'),
     themeVar: '--exam-pe',
     previewImage: '/images/card-pe-first-stage.webp',
   },
   'civil-1': {
-    label: '1級土木',
+    label: qualificationShortLabel('civil-construction-1'),
     themeVar: '--exam-civil-1',
     ctaBg: '/images/cta-bg/civil-1.webp',
   },
   'civil-2': {
-    label: '2級土木',
+    label: qualificationShortLabel('civil-construction-2'),
     themeVar: '--exam-civil-2',
     ctaBg: '/images/cta-bg/civil-2.webp',
   },
   concrete: {
-    label: 'コンクリート技士',
+    label: qualificationShortLabel('concrete-engineer'),
     themeVar: '--exam-concrete',
     previewImage: '/images/card-concrete-engineer.webp',
   },
   'concrete-chief': {
-    label: 'コンクリート主任技士',
+    label: qualificationShortLabel('concrete-chief-engineer'),
     themeVar: '--exam-concrete-chief',
     ctaBg: '/images/cta-bg/concrete-chief.webp',
   },
   'concrete-diagnosis': {
-    label: 'コンクリート診断士',
+    label: qualificationShortLabel('concrete-diagnostician'),
     themeVar: '--exam-concrete-diagnosis',
     ctaBg: '/images/cta-bg/concrete-diagnosis.webp',
   },
   // RCCM は専用の背景イラスト未整備のためテーマ色のベタ塗りにフォールバック（vertical 公開時に card 画像を追加）。
   rccm: {
-    label: 'RCCM',
+    label: qualificationShortLabel('rccm'),
     themeVar: '--exam-rccm',
   },
 };

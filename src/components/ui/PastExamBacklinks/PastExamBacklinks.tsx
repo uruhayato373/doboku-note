@@ -16,6 +16,7 @@ import civilExamTextbookIndex2 from '@/config/civil-exam-textbook-index-2.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { qualificationShortLabel } from '@/lib/qualification-names';
 
 interface PastExamBacklinksProps {
   category: string;
@@ -43,9 +44,10 @@ interface CivilIndexShape {
 const CIVIL_INDEX_1 = civilExamTextbookIndex as unknown as CivilIndexShape;
 const CIVIL_INDEX_2 = civilExamTextbookIndex2 as unknown as CivilIndexShape;
 
+// 見出しの資格名は registry の短い名前（写さない）
 const CIVIL_CONFIGS: Record<string, { index: CivilIndexShape; prefix: string; label: string }> = {
-  'civil-construction-1': { index: CIVIL_INDEX_1, prefix: 'civil-construction-1-', label: '1 級土木' },
-  'civil-construction-2': { index: CIVIL_INDEX_2, prefix: 'civil-construction-2-', label: '2 級土木' },
+  'civil-construction-1': { index: CIVIL_INDEX_1, prefix: 'civil-construction-1-', label: qualificationShortLabel('civil-construction-1') },
+  'civil-construction-2': { index: CIVIL_INDEX_2, prefix: 'civil-construction-2-', label: qualificationShortLabel('civil-construction-2') },
 };
 
 export default function PastExamBacklinks({ category, currentSlug }: PastExamBacklinksProps) {

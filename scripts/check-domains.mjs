@@ -2,7 +2,7 @@
 /**
  * check-domains.mjs — 領域（ドメイン）の正本と、それを参照する側の整合を検査する。
  *
- *   1. .claude/config/domains.json の id / label が重複なく揃っている
+ *   1. config/domains.json の id / label が重複なく揃っている
  *   2. 全スキル（.claude/skills/<cat>/<name>/SKILL.md）と全エージェント（.claude/agents/*.md）の
  *      frontmatter に domain: があり、正本の id である
  *   3. docs/**（reviews・handoffs を除く）と .claude/knowledge/reference/*.md が documents で

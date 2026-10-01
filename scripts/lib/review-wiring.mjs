@@ -21,7 +21,7 @@ export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'ro
  * 置き場は事業の記録と同じく追記だけ（check-business-direction が既存ファイルの変更・削除を止める）なので、
  * 取り直すたびに時刻付きのファイルを足し、回ごとに ranAt が最新のものを読む。
  */
-export const CHECKS_DIR = '.claude/state/metrics/business';
+export const CHECKS_DIR = 'data/metrics/business';
 export const checksFileName = (cadenceId, runKey, ranAt) => `checks-${cadenceId}-${runKey}-${ranAt.replace(/[:.]/g, '-')}.json`;
 const CHECKS_SECTION_RE = /^##\s+点検と Issue\s*$/;
 
@@ -251,7 +251,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [], runKey = nul
     },
     triage: () => {
       if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
-      const dir = join(root, '.claude/state/metrics/growth');
+      const dir = join(root, 'data/metrics/growth');
       const digestName = existsSync(dir) ? readdirSync(dir).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort().at(-1) : null;
       if (!digestName) return { state: 'missing', note: '計測ダイジェストが無い' };
       const digest = JSON.parse(readFileSync(join(dir, digestName), 'utf8'));
@@ -366,7 +366,7 @@ function deletedReports(root, dir, re) {
  * 保持方針で削除された古いレポートは git 履歴から読む（reportSource: 'git'）。
  * 最新の回だけに意味がある証拠（計測トリアージ・週間計画）は buildProcedureView が見るので、ここでは扱わない。
  */
-/** @param {string} root @param {string} cadenceId @param {{ reviews?: any[], limit?: number }} [opts] reviews を省くと .claude/state/metrics/business の全記録（同じ期間の書き直しも数える） */
+/** @param {string} root @param {string} cadenceId @param {{ reviews?: any[], limit?: number }} [opts] reviews を省くと data/metrics/business の全記録（同じ期間の書き直しも数える） */
 export function buildRunHistory(root, cadenceId, { reviews = records(root).filter((r) => r.kind === 'review'), limit = 12 } = {}) {
   const config = JSON.parse(readFileSync(join(root, CONFIG), 'utf8'));
   const c = config.cadences[cadenceId];

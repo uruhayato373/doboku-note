@@ -22,7 +22,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
 const POSTS = SITE_CONTENT_ROOT;
 const AUDIT = join(ROOT, '.claude', 'state', 'svg-audit.json');
-const CANVAS_CFG = join(ROOT, '.claude', 'config', 'figure-canvas.json');
+const CANVAS_CFG = join(ROOT, 'config', 'figure-canvas.json');
 const OUT = join(ROOT, '.claude', 'state', 'svg-catalog.json');
 
 // --- 固定キャンバス標準（figure-canvas-policy）。figure-*.svg の適合判定に使う ---

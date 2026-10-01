@@ -1,8 +1,8 @@
 /**
  * index-coverage.mjs — インデックス率（全体・資格別）の唯一の実装。
  * ---------------------------------------------------------------------------
- * 全体は index-coverage.yml（週次 CI）が書く .claude/state/metrics/gsc/index-coverage-history.json の indexed_ratio。
- * 資格別はその回の URL 検査バッチ（.claude/state/metrics/url-inspection/）を /exam/<資格id>/ 配下で数え、
+ * 全体は index-coverage.yml（週次 CI）が書く data/metrics/gsc/index-coverage-history.json の indexed_ratio。
+ * 資格別はその回の URL 検査バッチ（data/metrics/url-inspection/）を /exam/<資格id>/ 配下で数え、
  * verdict PASS の割合を出す（資格の URL 規則は事業計測 fetch-business-metrics と同じ）。
  * 読み手: 管理画面 トップ（KPI ツリーのサイトの段）・検索 ＞ インデックス。
  * ---------------------------------------------------------------------------
@@ -10,8 +10,8 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const HISTORY = '.claude/state/metrics/gsc/index-coverage-history.json';
-const BATCH_DIR = '.claude/state/metrics/url-inspection';
+const HISTORY = 'data/metrics/gsc/index-coverage-history.json';
+const BATCH_DIR = 'data/metrics/url-inspection';
 
 /** 検査の履歴（古い順）。無ければ空。 */
 export function indexHistory(root) {

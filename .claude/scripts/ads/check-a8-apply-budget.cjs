@@ -23,7 +23,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../..");
-const CATALOG_PATH = path.join(PROJECT_ROOT, ".claude/state/ads/a8-catalog.json");
+const CATALOG_PATH = path.join(PROJECT_ROOT, "data/ads/a8-catalog.json");
 const CURATED_PATH = path.join(PROJECT_ROOT, ".claude/scripts/ads/data/a8-curated.json");
 
 function loadCatalog() {

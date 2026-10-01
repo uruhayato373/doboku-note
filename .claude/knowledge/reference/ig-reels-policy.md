@@ -209,7 +209,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **hook**: `chip`（上部チップ）/ `lead`（白の前振り）/ `punch`（アクセント＋下線の決め句）/ `sub`（灰の緊張サブ）/ `anchor`（巨大な薄い1字＝視線誘導, 例 `?`）
 - **point**: `label`（小見出し, 例「答え」）/ `big`（アクセントの reveal 語, 例「安全管理」）/ `onScreen`（本文・濃色）
 - **cta**: `onScreen`（行・URL は書かない）＋ フォローボタン自動。`\n` で改行。
-- **共通（任意）**: `character`（ブランドマスコット合成）= slug 文字列 `"pointing"` か `{ "pose":"explaining", "side":"left"|"right", "scale":0.42 }`。下隅にフェードイン＋せり上がりで登場。slug は [`.claude/config/character-poses.json`](../../config/character-poses.json)（真実源 [character-asset-policy.md](character-asset-policy.md)）。テキスト密度の高い point は片側・控えめ scale、hook はキネティック干渉を避け原則なし。
+- **共通（任意）**: `character`（ブランドマスコット合成）= slug 文字列 `"pointing"` か `{ "pose":"explaining", "side":"left"|"right", "scale":0.42 }`。下隅にフェードイン＋せり上がりで登場。slug は [`config/character-poses.json`](../../../config/character-poses.json)（真実源 [character-asset-policy.md](character-asset-policy.md)）。テキスト密度の高い point は片側・控えめ scale、hook はキネティック干渉を避け原則なし。
 
 ```jsonc
 {
@@ -239,7 +239,7 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **キネティック・フック**: hook に `lead` と `punch` が揃うとき、**lead 先行→ punch/anchor が reveal 時刻（ナレの約42%・最大2.2秒）に α フェードイン**する段階表示を自動適用（base/punch を別レイヤーで描画し overlay）。カバーは punch まで入った完成フック。
 - **声（speaker）**: 優先順 `--speaker` > script.json の `speaker` > 既定 **13（青山龍星・成熟男性）**。一人称の体験談には男性声が合う。VOICEVOX エンジンは `~/voicevox_engine_dl/macos-arm64/run`（Docker/アプリ無し環境のローカル起動）。
 - **VOICEVOX 未起動なら `--png-only`** でビジュアルだけ先に確認できる。
-- **キャラ合成（doboku-note 先生）**: スライドに `character: "<pose>"` を指定するとブランドマスコットを重ねられる（登場演出）。pose は [`.claude/config/character-poses.json`](../../config/character-poses.json) の slug、beat（hook/point/cta）に合うものを選ぶ。素材・追加手順・不変条件は [character-asset-policy.md](character-asset-policy.md)。声は同キャラの speaker 13 で統一。
+- **キャラ合成（doboku-note 先生）**: スライドに `character: "<pose>"` を指定するとブランドマスコットを重ねられる（登場演出）。pose は [`config/character-poses.json`](../../../config/character-poses.json) の slug、beat（hook/point/cta）に合うものを選ぶ。素材・追加手順・不変条件は [character-asset-policy.md](character-asset-policy.md)。声は同キャラの speaker 13 で統一。
 
 ### 採点（ig-reels-qa・本タイプの軸読み替え）
 

@@ -41,7 +41,7 @@ if (!SERVICE) { console.error('--service <id> required（例: coconala-shindan�
 // ★ fail-fast: 画像パスをブラウザ操作より前に解決・存在確認する。
 //   不正パスで下書き作成後にクラッシュ→orphan draft が残る事故を防ぐ（2026-07-18）。
 const imgResolved = resolveImagePath(IMAGE);
-if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら .claude/config/coconala/assets/ に解決）`); process.exit(1); }
+if (!imgResolved.ok) { console.error(`ABORT: ${imgResolved.reason}（--image は bare 名なら content/coconala/assets/ に解決）`); process.exit(1); }
 const IMAGE_ABS = imgResolved.abs;
 
 const catalog = readCatalog();
@@ -49,7 +49,7 @@ const listings = readListings();
 const svc = catalog[SERVICE];
 const lst = listings[SERVICE];
 if (!svc) { console.error(`ABORT: カタログに serviceId "${SERVICE}" が無い`); process.exit(1); }
-if (!lst) { console.error(`ABORT: listings に "${SERVICE}" が無い（.claude/config/coconala-listings.json）`); process.exit(1); }
+if (!lst) { console.error(`ABORT: listings に "${SERVICE}" が無い（config/coconala-listings.json）`); process.exit(1); }
 
 // 冪等ガード: 既に出品済み（listed + serviceUrl あり）なら二重出品しない
 if (svc.status === 'listed' && /^https?:\/\//.test(svc.serviceUrl || '')) {

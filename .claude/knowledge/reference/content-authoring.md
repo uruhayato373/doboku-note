@@ -69,7 +69,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 | `inline` | `MagazineInlineCard` — 横長の小カード（モバイルは 96px の 6:5 画像＋テキスト、PC は 180px 画像＋テキスト） | 複数商品の比較・主商品に対する副次商品など、hero の連続で読み流れを壊したくない面。1 枚でも「代替案」として弱く提示するときに使える |
 
 - 商品ごとの CTA 文言は SoT の任意 3 フィールドで出し分ける: `ctaCatch`（キャッチコピー・~25字）/ `ctaButton`（ボタン文言・動詞で終える）/ `ctaPose`（`pointing` 論点提示 / `good-sign` 完成・合格訴求 / `smile` 伴走・入門）。省略時は `shortTitle` ?? `title` ／「note で詳しく見る」／`pointing` にフォールバックするため、**未設定のマガジンでも hero は描画できる**
-- キャラ画像は `public/images/character/avatar-{pose}.webp`。**どのポーズを使えるかの真実源は `.claude/config/character-poses.json` の `siteCta: true`**。増やすときは manifest → 画像生成 → 型の順（`npm run check-character-avatars` が三者整合を gate）。手順の詳細: [character-asset-policy.md](character-asset-policy.md)「サイト CTA にポーズを追加する手順」
+- キャラ画像は `public/images/character/avatar-{pose}.webp`。**どのポーズを使えるかの真実源は `config/character-poses.json` の `siteCta: true`**。増やすときは manifest → 画像生成 → 型の順（`npm run check-character-avatars` が三者整合を gate）。手順の詳細: [character-asset-policy.md](character-asset-policy.md)「サイト CTA にポーズを追加する手順」
 - 記事末尾・サイドバー・カテゴリ hub の「もくじタイル」は別系統（`HubCtaBanner`・商品単体ではない）
 - 収益 CTA は `data-cta-placement` で `article-top` / `article-mid` / `article-end` / `article-footer` / `article-sidebar` を分離する。GA4 はクリックに加え、50%以上表示された時点の `note_cta_impression` を送り、表示基準 CTR を比較する
 
@@ -180,7 +180,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 | 長文セルの3列表 | H3/太字リード＋箇条書き | — |
 | 本当に必要な2軸比較（**短い値**） | 2〜3列表のまま可 | 年度→テーマの2列表 |
 
-ルールの重大度・資格×種別の適用は `.claude/config/content-rules.json` が SSOT。機械チェックは `.claude/scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
+ルールの重大度・資格×種別の適用は `config/content-rules.json` が SSOT。機械チェックは `.claude/scripts/lint-mdx-mobile.mjs`（実行点＝品質サイクル `/quality-cycle`・`/check-mdx`・手動、全量は週次ラチェット `check-content-quality`）と `/review-mobile` スキルで実施。pre-commit フックが実行するのは `pre-commit-mdx.mjs`（MDX コンパイル・frontmatter・壊れ表等）で、lint-mdx-mobile とはルールの一部（0-1/1-7 相当）が判定同等という関係。
 
 ## 画像配信
 
@@ -277,7 +277,7 @@ sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条
 ---
 ```
 
-`sources` は自由記述の書名ではなく `.claude/config/reference-sources.json` の ID を使う。逐語・図・公開可否と
+`sources` は自由記述の書名ではなく `config/reference-sources.json` の ID を使う。逐語・図・公開可否と
 出典粒度は [reference-sources-policy.md](./reference-sources-policy.md) に従う。
 
 **`title` / `shortTitle` / `subtitle` / `seoTitle` の使い分け**

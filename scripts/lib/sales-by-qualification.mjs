@@ -1,7 +1,7 @@
 /**
  * sales-by-qualification.mjs — 期間の販売額を、チャネル（note・ココナラ・KDP）を問わず全資格へ振り分ける。
  * ---------------------------------------------------------------------------
- * 資格の判定は商品の分類ルール `.claude/config/product-lineup.json`（scripts/lib/product-lineup.mjs）をそのまま使う。
+ * 資格の判定は商品の分類ルール `config/product-lineup.json`（scripts/lib/product-lineup.mjs）をそのまま使う。
  * 重点資格（business-direction.json）に限らないので、行の合計はチャネル別の合計と一致する。
  * 複数資格にまたがる商品（会員など）は「複数資格」、どのルールにも当たらない商品は「未分類」の行に残す（黙って落とさない）。
  * 集計対象の選び方は business-direction.mjs の noteRevenue / coconalaRevenue / kdpRoyalty（'all'）と同じにする。
@@ -36,7 +36,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     totals.set(key, row);
   };
 
-  const salesPath = '.claude/state/sales/sales-log.json';
+  const salesPath = 'data/sales/sales-log.json';
   if (existsSync(join(root, salesPath))) {
     for (const s of readJson(root, salesPath).sales ?? []) {
       if (!inPeriod(String(s.date).slice(0, 10), period)) continue;
@@ -44,8 +44,8 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     }
   }
 
-  const cocoOrdersPath = '.claude/state/coconala/orders-snapshot.json';
-  const cocoLogPath = '.claude/state/coconala/orders-log.json';
+  const cocoOrdersPath = 'data/coconala/orders-snapshot.json';
+  const cocoLogPath = 'data/coconala/orders-log.json';
   if (existsSync(join(root, cocoOrdersPath))) {
     const log = existsSync(join(root, cocoLogPath)) ? readJson(root, cocoLogPath).orders ?? [] : [];
     const byRoom = new Map(log.map((o) => [String(o.talkroomId), o]));
@@ -56,7 +56,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     }
   }
 
-  const kdpPath = '.claude/state/sales/kdp-royalties.json';
+  const kdpPath = 'data/sales/kdp-royalties.json';
   if (existsSync(join(root, kdpPath))) {
     const catalogPath = 'scripts/kindle-published/catalog.json';
     const ownBooks = new Set((existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : []).map((b) => b.id ?? b.bookId));

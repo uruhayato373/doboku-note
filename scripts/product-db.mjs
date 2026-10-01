@@ -77,7 +77,7 @@ try {
   process.exit(1);
 }
 try {
-  const s = JSON.parse(readFileSync(join(ROOT, '.claude', 'state', 'sales', 'sales-log.json'), 'utf8'));
+  const s = JSON.parse(readFileSync(join(ROOT, 'data', 'sales', 'sales-log.json'), 'utf8'));
   const rows = Array.isArray(s) ? s : (s.sales ?? []);
   n.sales = ins('INSERT INTO sales VALUES (?,?,?,?,?)', rows.map((r) => [r.date ?? null, r.productId ?? null, r.title ?? null, r.type ?? null, r.price ?? null]));
 } catch (e) {

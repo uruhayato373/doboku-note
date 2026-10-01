@@ -25,7 +25,7 @@ import { fileURLToPath } from 'node:url';
 
 const TAG = '[check-ig-insights-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DIR = join(ROOT, '.claude/state/metrics/instagram');
+const DIR = join(ROOT, 'data/metrics/instagram');
 const FILE_RE = /^ig-insights-(\d{4}-\d{2}-\d{2})\.json$/;
 const JSON_OUT = process.argv.includes('--json');
 

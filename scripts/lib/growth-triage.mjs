@@ -44,7 +44,7 @@ export function validateDecisions(decisions, { items, backlogIds, experimentIds,
       if (!CANONICAL_CATEGORIES.includes(d.category)) errors.push(`${at}: category は ${CANONICAL_CATEGORIES.join(' / ')}`);
       if (!KINDS.includes(d.kind)) errors.push(`${at}: kind は ${KINDS.join(' / ')}`);
       if (!text(d.doing, 10) || !text(d.done, 10)) errors.push(`${at}: doing（やること）と done（完了条件）を 10 字以上で`);
-      if (!text(d.domain)) errors.push(`${at}: domain（[領域:]・.claude/config/domains.json のラベル）が必要`);
+      if (!text(d.domain)) errors.push(`${at}: domain（[領域:]・config/domains.json のラベル）が必要`);
       else if (domainLabels && !domainLabels.has(d.domain)) errors.push(`${at}: domain「${d.domain}」は語彙外（${[...domainLabels].join(' / ')}）`);
       if (d.period != null && !parseWhen(d.period)) errors.push(`${at}: period は YYYY-MM か YYYY-MM..YYYY-MM`);
       if (d.period == null && (d.tier === 'high' || d.tier === 'mid')) errors.push(`${at}: tier ${d.tier} は period（[時期:]）が必要`);

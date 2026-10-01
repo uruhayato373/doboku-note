@@ -4,11 +4,11 @@
  * ---------------------------------------------------------------------------
  * 入力: 最新の URL Inspection batch（index-coverage.yml が commit）＋最新の gsc-page（同 run が取得）
  *       ＋ public/_redirects（旧 /docs → 正規パス）＋ gsc-indexing/history.json（直近リクエストの cooldown）
- * 出力: .claude/state/metrics/gsc-indexing/priority-latest.json（順位・件数・根拠ファイル）
- *       .claude/state/metrics/gsc-indexing/priority-latest.txt （`gsc-indexing:request -- --file` にそのまま渡す）
+ * 出力: data/metrics/gsc-indexing/priority-latest.json（順位・件数・根拠ファイル）
+ *       data/metrics/gsc-indexing/priority-latest.txt （`gsc-indexing:request -- --file` にそのまま渡す）
  *
  * 人間の手順はこれだけ:
- *   npm run gsc-indexing:request -- --file .claude/state/metrics/gsc-indexing/priority-latest.txt
+ *   npm run gsc-indexing:request -- --file data/metrics/gsc-indexing/priority-latest.txt
  * 期限切れは `npm run check-gsc-indexing-due`（weekly-review-guard が毎週 surface）。
  *
  * §9: 入力が無ければ exit 1（順位表 0 件を成功にしない）。候補 0 件は正常（全部登録済み）で exit 0。
@@ -19,9 +19,9 @@ import { join } from "node:path";
 import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { buildIndexingPriority } from "./lib/gsc-indexing-priority.mjs";
 
-const BATCH_DIR = ".claude/state/metrics/url-inspection";
-const GSC_DIR = ".claude/state/metrics/gsc";
-const OUT_DIR = ".claude/state/metrics/gsc-indexing";
+const BATCH_DIR = "data/metrics/url-inspection";
+const GSC_DIR = "data/metrics/gsc";
+const OUT_DIR = "data/metrics/gsc-indexing";
 const REDIRECTS = "public/_redirects";
 
 function latest(dir, prefix) {

@@ -3,10 +3,10 @@
  * build-growth-digest.mjs — 成長パック（fetch-growth-pack）と既存の計測成果物から、週次レビューでトリアージする
  * 改善機会のダイジェストを作る（オフライン・決定的）。
  *
- * 入力: .claude/state/metrics/growth/pack-YYYY-Www.json（必須）と過去パック、monetization/coverage-*.json、
- *       bing/bing-*.json、.claude/state/experiments.json、.claude/config/seo-watchwords.json、
+ * 入力: data/metrics/growth/pack-YYYY-Www.json（必須）と過去パック、monetization/coverage-*.json、
+ *       bing/bing-*.json、data/experiments.json、config/seo-watchwords.json、
  *       growth/triage-log.json（週次レビューの処分・抑止に使う）、public/_redirects + content/site（URL→原稿）
- * 出力: .claude/state/metrics/growth/digest-YYYY-Www.json（CI だけが書く。週次レビューは読むだけ）
+ * 出力: data/metrics/growth/digest-YYYY-Www.json（CI だけが書く。週次レビューは読むだけ）
  *
  * Usage:
  *   node scripts/build-growth-digest.mjs                  # 最新パックの週で digest を書く
@@ -31,7 +31,7 @@ import {
 
 const TAG = '[growth-digest]';
 const ROOT = process.cwd();
-const GROWTH = '.claude/state/metrics/growth';
+const GROWTH = 'data/metrics/growth';
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);
@@ -84,16 +84,16 @@ export function buildContentIndex(root = ROOT) {
 export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
   const readJson = (p, fallback) => readJsonAt(root, p, fallback);
   const latestIn = (dir, re) => latestAt(root, dir, re);
-  const cfg = readJson('.claude/config/growth-cycle.json');
+  const cfg = readJson('config/growth-cycle.json');
   const packs = existsSync(join(root, GROWTH)) ? readdirSync(join(root, GROWTH)).filter((f) => /^pack-\d{4}-W\d{2}\.json$/.test(f)).sort() : [];
   const packName = week ? `pack-${week}.json` : packs.at(-1);
   if (!packName || !packs.includes(packName)) return null;
   const packFile = `${GROWTH}/${packName}`;
   const pack = readJson(packFile);
   const history = packs.filter((f) => f < packName).map((f) => readJson(`${GROWTH}/${f}`)).filter(Boolean);
-  const coverageFile = latestIn('.claude/state/metrics/monetization', /^coverage-\d.*\.json$/);
+  const coverageFile = latestIn('data/metrics/monetization', /^coverage-\d.*\.json$/);
   const coverage = coverageFile ? readJson(coverageFile) : null;
-  const bingFile = latestIn('.claude/state/metrics/bing', /^bing-\d{4}-\d{2}-\d{2}\.json$/);
+  const bingFile = latestIn('data/metrics/bing', /^bing-\d{4}-\d{2}-\d{2}\.json$/);
   const bing = bingFile ? readJson(bingFile) : null;
   const maxAge = cfg.digest.measurement.maxInputAgeDays;
   const coverageStamp = coverageFile?.match(/(\d{4}-\d{2}-\d{2})/)?.[1] ?? null;
@@ -106,11 +106,11 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     config: cfg.digest,
     qualifications: direction(root).qualifications.map((q) => q.id),
     ...(({ index, legacy }) => ({ contentIndex: index, legacy }))(buildContentIndex(root)),
-    watchwords: readJson('.claude/config/seo-watchwords.json', { watchwords: [] }).watchwords,
+    watchwords: readJson('config/seo-watchwords.json', { watchwords: [] }).watchwords,
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);
-  const experiments = readJson('.claude/state/experiments.json', { experiments: [] }).experiments;
+  const experiments = readJson('data/experiments.json', { experiments: [] }).experiments;
   const items = [
     ...detectMeasurement(pack, ctx),
     ...detectExperiments(experiments, Date.parse(`${today}T00:00:00+09:00`)),

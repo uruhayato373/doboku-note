@@ -34,8 +34,8 @@ export default function RoadmapPage() {
   const root = findRepoRoot();
   const cfg = loadRoadmap(root) as { period: { start: string; end: string }; buyWindowWeeks: number };
   const months = monthsOf(cfg.period) as string[];
-  const calendar = JSON.parse(readFileSync(repoPath('.claude', 'config', 'exam-calendar.json'), 'utf8'));
-  const registry = JSON.parse(readFileSync(repoPath('.claude', 'config', 'qualification-registry.json'), 'utf8')) as {
+  const calendar = JSON.parse(readFileSync(repoPath('config', 'exam-calendar.json'), 'utf8'));
+  const registry = JSON.parse(readFileSync(repoPath('config', 'qualification-registry.json'), 'utf8')) as {
     qualifications: { id: string; portfolio: string; label?: string; shortLabel?: string }[];
   };
   const active = registry.qualifications.filter((q) => q.portfolio === 'active');

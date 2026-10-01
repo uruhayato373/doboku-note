@@ -7,7 +7,7 @@
  * ---------------------------------------------------------------------------
  */
 
-export const SITEMAPS_STATE = ".claude/state/metrics/gsc/sitemaps-latest.json";
+export const SITEMAPS_STATE = "data/metrics/gsc/sitemaps-latest.json";
 
 /** robots.txt の `Sitemap:` 行を絶対 URL の配列で返す（重複除去・出現順）。 */
 export function parseRobotsSitemaps(text) {

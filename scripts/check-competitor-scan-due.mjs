@@ -29,12 +29,12 @@ const ROOT = join(__dirname, '..');
 
 // チャネル → history ディレクトリ（既存 note/coconala は専用dir、X/IG は機能スコープdir）
 const PLATFORMS = {
-  note: { dir: '.claude/state/note/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
-  coconala: { dir: '.claude/state/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
-  x: { dir: '.claude/state/x-competitors/history', review: '/competitor-review --platform x' },
-  ig: { dir: '.claude/state/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  note: { dir: 'data/note/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
+  coconala: { dir: 'data/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
+  x: { dir: 'data/x-competitors/history', review: '/competitor-review --platform x' },
+  ig: { dir: 'data/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
-  market: { dir: '.claude/state/market/history', prefix: 'market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
+  market: { dir: 'data/market/history', prefix: 'market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
 };
 
 const args = process.argv.slice(2);

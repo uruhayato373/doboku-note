@@ -1,0 +1,1204 @@
+{
+  "generatedAt": "2026-09-22T08:39:08.143Z",
+  "windows": {
+    "ga4": {
+      "start": "2026-08-20",
+      "end": "2026-09-16"
+    },
+    "gsc": {
+      "start": "2026-08-18",
+      "end": "2026-09-14"
+    },
+    "aligned": false,
+    "usable": true
+  },
+  "inputs": {
+    "ga4Label": "data/metrics/ga4/ga4-cta-clicks-by-label-2026-09-17T23-16-42.json",
+    "ga4Placement": "data/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-17T23-16-44.json",
+    "ga4Device": "data/metrics/ga4/ga4-cta-clicks-by-device-2026-09-17T23-16-41.json",
+    "ga4Page": "data/metrics/ga4/ga4-page-2026-09-17T23-16-38.json",
+    "gscPageQuery": "data/metrics/gsc/gsc-page-query-2026-09-17T23-16-37.json",
+    "a8": "data/metrics/affiliate/a8-results.json"
+  },
+  "coverage": {
+    "docMetaIndexTotal": 1255,
+    "careerArticles": 39,
+    "siteMdxScanned": 1274,
+    "extraLinkSourcesScanned": 1,
+    "gscRowsTotal": 890,
+    "gscRowsMatchedCareer": 7,
+    "ga4LabelRowsMatched": 15,
+    "ga4PlacementRowsMatched": 10,
+    "careerArticlesInGa4Top": 0,
+    "noteCareerArticles": 19
+  },
+  "funnel": {
+    "highIntentQuery": {
+      "impressions": 33,
+      "clicks": 0,
+      "rows": [
+        {
+          "query": "技術士転職",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 7,
+          "clicks": 0,
+          "position": 72.85714285714286
+        },
+        {
+          "query": "技術 士 年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 77.66666666666667
+        },
+        {
+          "query": "技術士 年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 73
+        },
+        {
+          "query": "技術士総合技術監理部門年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 29.333333333333332
+        },
+        {
+          "query": "ビルドジョブ 口コミ",
+          "url": "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 20
+        },
+        {
+          "query": "土木施工管理 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 96
+        },
+        {
+          "query": "技術士 総合技術監理部門 年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 30
+        },
+        {
+          "query": "施工管理job 評判",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/buildjob-review",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 68
+        },
+        {
+          "query": "施工管理 転職エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-agent-comparison",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 18
+        },
+        {
+          "query": "1級土木施工管理技士年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 70
+        },
+        {
+          "query": "一級土木施工管理技士 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 61
+        },
+        {
+          "query": "土木施工管理技士 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 69
+        },
+        {
+          "query": "施工管理 転職 理由",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/interview",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 18
+        },
+        {
+          "query": "公務員 土木職 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 9
+        },
+        {
+          "query": "技術士 転職",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 63
+        },
+        {
+          "query": "技術士年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 73
+        },
+        {
+          "query": "技術士建設部門年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 57
+        },
+        {
+          "query": "転職 技術士",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 56
+        }
+      ]
+    },
+    "internalLinks": {
+      "career-path": 48,
+      "market-value": 29,
+      "service-choice": 2,
+      "quit": 4,
+      "application": 9
+    },
+    "affiliateCta": {
+      "byPlacement": {
+        "sidebar": {
+          "impressions": 12673,
+          "clicks": 0
+        },
+        "article-inline": {
+          "impressions": 3546,
+          "clicks": 7
+        },
+        "article-end": {
+          "impressions": 3413,
+          "clicks": 0
+        },
+        "article-mid": {
+          "impressions": 2671,
+          "clicks": 3
+        },
+        "category-sidebar": {
+          "impressions": 773,
+          "clicks": 1
+        },
+        "category-mobile": {
+          "impressions": 76,
+          "clicks": 0
+        },
+        "category-career-section": {
+          "impressions": 2,
+          "clicks": 0
+        }
+      },
+      "byLabel": {
+        "BuildJob-sidebar": {
+          "impressions": 7355,
+          "clicks": 0
+        },
+        "ビルドジョブ": {
+          "impressions": 3728,
+          "clicks": 4
+        },
+        "DXConsulting-sidebar": {
+          "impressions": 3219,
+          "clicks": 0
+        },
+        "KensetsuJobs-sidebar": {
+          "impressions": 2852,
+          "clicks": 1
+        },
+        "BuildJob-endbanner": {
+          "impressions": 1996,
+          "clicks": 0
+        },
+        "建設JOBs": {
+          "impressions": 1405,
+          "clicks": 5
+        },
+        "ハイクラス DX・コンサル転職": {
+          "impressions": 1084,
+          "clicks": 1
+        },
+        "DXConsulting-endbanner": {
+          "impressions": 750,
+          "clicks": 0
+        },
+        "KensetsuJobs-endbanner": {
+          "impressions": 667,
+          "clicks": 0
+        },
+        "GKS-sidebar": {
+          "impressions": 96,
+          "clicks": 0
+        },
+        "BuildJob-hubcareer": {
+          "impressions": 2,
+          "clicks": 0
+        }
+      },
+      "totalImpressions": 23154,
+      "totalClicks": 11,
+      "ctr": 0.00047507989980133023,
+      "notSet": []
+    },
+    "a8": {
+      "window": {
+        "clicks": 63,
+        "conversions": 0,
+        "approved": 0,
+        "revenueYen": 0
+      },
+      "allTime": {
+        "clicks": 203,
+        "conversions": 1,
+        "approved": 0,
+        "revenueYen": 0
+      },
+      "monthsInWindow": [
+        "2026-08"
+      ]
+    }
+  },
+  "pillars": {
+    "career-path": {
+      "articles": 17,
+      "gscImpressions": 9,
+      "gscClicks": 0,
+      "inboundLinks": 48
+    },
+    "market-value": {
+      "articles": 8,
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "inboundLinks": 29
+    },
+    "service-choice": {
+      "articles": 5,
+      "gscImpressions": 2,
+      "gscClicks": 0,
+      "inboundLinks": 2
+    },
+    "quit": {
+      "articles": 4,
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "inboundLinks": 4
+    },
+    "application": {
+      "articles": 5,
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "inboundLinks": 9
+    }
+  },
+  "ledger": [
+    {
+      "slug": "civil-construction-1-guide-age-career",
+      "category": "civil-construction-1",
+      "title": "40代・50代の転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 1,
+      "gscClicks": 0,
+      "gscPosition": 63,
+      "topQueries": [
+        {
+          "query": "施工管理 50代",
+          "impressions": 1,
+          "clicks": 0
+        }
+      ],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-allowance",
+      "category": "civil-construction-1",
+      "title": "資格手当で年収を上げる",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-buildjob-review",
+      "category": "civil-construction-1",
+      "title": "ビルドジョブの評判と使いどころ",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "service-choice",
+      "gscImpressions": 2,
+      "gscClicks": 0,
+      "gscPosition": 20,
+      "topQueries": [
+        {
+          "query": "ビルドジョブ 口コミ",
+          "impressions": 2,
+          "clicks": 0
+        }
+      ],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career",
+      "category": "civil-construction-1",
+      "title": "転職の入口",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 13,
+      "careerAffiliateCount": 1,
+      "placements": [
+        "article-inline"
+      ]
+    },
+    {
+      "slug": "civil-construction-1-guide-career-agent-comparison",
+      "category": "civil-construction-1",
+      "title": "転職エージェントを軸で比較",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "service-choice",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career-agents",
+      "category": "civil-construction-1",
+      "title": "転職エージェントの選び方",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "service-choice",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career-cases",
+      "category": "civil-construction-1",
+      "title": "年収アップの王道パターン",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 2,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career-consultation-before-quit",
+      "category": "civil-construction-1",
+      "title": "辞める前に相談すべきこと",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "quit",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career-path",
+      "category": "civil-construction-1",
+      "title": "資格のキャリアパス",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 10,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-career-salary",
+      "category": "civil-construction-1",
+      "title": "年収・キャリア",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 3,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-company-types",
+      "category": "civil-construction-1",
+      "title": "建設会社の業態の違い",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 8,
+      "gscClicks": 0,
+      "gscPosition": 65.2,
+      "topQueries": [
+        {
+          "query": "ゼネコン コンサル",
+          "impressions": 4,
+          "clicks": 0
+        },
+        {
+          "query": "サブコン コンサル",
+          "impressions": 1,
+          "clicks": 0
+        },
+        {
+          "query": "サブコン ゼネコン",
+          "impressions": 1,
+          "clicks": 0
+        }
+      ],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-consultant",
+      "category": "civil-construction-1",
+      "title": "建設コンサルへの転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-dx-jobs",
+      "category": "civil-construction-1",
+      "title": "建設DXで伸びる職種",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-future",
+      "category": "civil-construction-1",
+      "title": "建設業の将来性",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-grade-comparison",
+      "category": "civil-construction-1",
+      "title": "1級と2級どちらを選ぶ",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 2,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-hatchu-shien",
+      "category": "civil-construction-1",
+      "title": "発注者支援業務への転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 7,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-interview",
+      "category": "civil-construction-1",
+      "title": "転職面接の質問",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "application",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 3,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-market-value",
+      "category": "civil-construction-1",
+      "title": "1級の市場価値",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 8,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-public-servant",
+      "category": "civil-construction-1",
+      "title": "公務員（土木職）への転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-quit-honne",
+      "category": "civil-construction-1",
+      "title": "きつい・やめとけは本当か",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "quit",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-quit-or-stay",
+      "category": "civil-construction-1",
+      "title": "辞めたいと思ったら",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "quit",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 3,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-resume",
+      "category": "civil-construction-1",
+      "title": "職務経歴書の書き方",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "application",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 4,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-salary-by-role",
+      "category": "civil-construction-1",
+      "title": "役職・会社規模別の年収",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 2,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-salary-up",
+      "category": "civil-construction-1",
+      "title": "年収を上げる方法",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 10,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-timing",
+      "category": "civil-construction-1",
+      "title": "転職のタイミング",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "application",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-white-company",
+      "category": "civil-construction-1",
+      "title": "ホワイト企業の見分け方",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "application",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-women",
+      "category": "civil-construction-1",
+      "title": "女性の施工管理",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-public-servant-merit",
+      "category": "civil-construction-1",
+      "title": "土木公務員と1級土木",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 5,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-buildjob-review",
+      "category": "civil-construction-2",
+      "title": "2級でビルドジョブは使える？",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "service-choice",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-career",
+      "category": "civil-construction-2",
+      "title": "2級のキャリア・メリット",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 9,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-career-agent-comparison",
+      "category": "civil-construction-2",
+      "title": "2級・若手のエージェント選び",
+      "published": true,
+      "reviewStatus": "needs-review",
+      "group": "guide",
+      "pillar": "service-choice",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-career-change",
+      "category": "civil-construction-2",
+      "title": "未経験からの転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-haken-seishain",
+      "category": "civil-construction-2",
+      "title": "派遣から正社員へ",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-job-reality",
+      "category": "civil-construction-2",
+      "title": "施工管理の仕事と将来性",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-quit-or-stay",
+      "category": "civil-construction-2",
+      "title": "辞めたいと思ったら",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "quit",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-resume",
+      "category": "civil-construction-2",
+      "title": "未経験の職務経歴書",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "application",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-salary",
+      "category": "civil-construction-2",
+      "title": "2級の年収・手当",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "market-value",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 4,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-2-guide-young-career",
+      "category": "civil-construction-2",
+      "title": "20代・第二新卒の転職",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 1,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "pe-construction-guide-career",
+      "category": "pe-construction",
+      "title": "建設部門技術士のキャリア",
+      "published": true,
+      "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    }
+  ],
+  "noteCareer": [
+    {
+      "path": "content/note/1級・2級土木/1級土木で市場価値が変わる-無料/article.md",
+      "utmCampaign": "civil-career-1kyu-value",
+      "noteId": "n6c68d022a56a",
+      "noteUrl": "'https://note.com/dobokunote/n/n6c68d022a56a'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/転職エージェント比較-無料/article.md",
+      "utmCampaign": "civil-career-agent-comparison",
+      "noteId": "ne49853deac96",
+      "noteUrl": "'https://note.com/dobokunote/n/ne49853deac96'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md",
+      "utmCampaign": "civil-career-agent-howto",
+      "noteId": "n5a823955985c",
+      "noteUrl": "'https://note.com/dobokunote/n/n5a823955985c'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/辞める前に確認すること-無料/article.md",
+      "utmCampaign": "civil-career-before-quit",
+      "noteId": "n7a81ebf1cdc5",
+      "noteUrl": "'https://note.com/dobokunote/n/n7a81ebf1cdc5'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/ビルドジョブの評判-発注者目線-無料/article.md",
+      "utmCampaign": "civil-career-buildjob-review",
+      "noteId": "na0f42fd52a51",
+      "noteUrl": "'https://note.com/dobokunote/n/na0f42fd52a51'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md",
+      "utmCampaign": "civil-career-failure-lessons",
+      "noteId": "n96f94252c128",
+      "noteUrl": "'https://note.com/dobokunote/n/n96f94252c128'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/家族時間と土木の仕事選び-無料/article.md",
+      "utmCampaign": "civil-career-family-time",
+      "noteId": "n45e5ec2f687e",
+      "noteUrl": "https://note.com/dobokunote/n/n45e5ec2f687e",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md",
+      "utmCampaign": "civil-career-hatchusha-view",
+      "noteId": "n85d4b322898b",
+      "noteUrl": "'https://note.com/dobokunote/n/n85d4b322898b'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/地元で働く土木転職-無料/article.md",
+      "utmCampaign": "civil-career-local-work",
+      "noteId": "n01a775d6c669",
+      "noteUrl": "https://note.com/dobokunote/n/n01a775d6c669",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/内定2社の条件比較-無料/article.md",
+      "utmCampaign": "civil-career-offer-comparison",
+      "noteId": "nf17ae9b9f3f7",
+      "noteUrl": "https://note.com/dobokunote/n/nf17ae9b9f3f7",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/技術士総監/資格取得後の担当経験の伝え方-無料/article.md",
+      "utmCampaign": "civil-career-pe-experience",
+      "noteId": "ne747e39c0ba4",
+      "noteUrl": "https://note.com/dobokunote/n/ne747e39c0ba4",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
+      "utmCampaign": "civil-career-public-vs-private",
+      "noteId": "n8b03a7de0c6b",
+      "noteUrl": "'https://note.com/dobokunote/n/n8b03a7de0c6b'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/土木公務員の職務経歴書-無料/article.md",
+      "utmCampaign": "civil-career-public-work-history",
+      "noteId": "n433cce5f118f",
+      "noteUrl": "https://note.com/dobokunote/n/n433cce5f118f",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md",
+      "utmCampaign": "civil-career-salary-difference",
+      "noteId": "nfbff7b1469b6",
+      "noteUrl": "'https://note.com/dobokunote/n/nfbff7b1469b6'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/発注者支援の仕事選び-無料/article.md",
+      "utmCampaign": "civil-career-support-role",
+      "noteId": "n266f0cdd99ef",
+      "noteUrl": "https://note.com/dobokunote/n/n266f0cdd99ef",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/転職のベストタイミング-無料/article.md",
+      "utmCampaign": "civil-career-timing",
+      "noteId": "n401905648243",
+      "noteUrl": "'https://note.com/dobokunote/n/n401905648243'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
+      "utmCampaign": "civil-career-white-company",
+      "noteId": "ne7284dacf78b",
+      "noteUrl": "'https://note.com/dobokunote/n/ne7284dacf78b'",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/工事経験の伝え方-無料/article.md",
+      "utmCampaign": "civil-career-work-history",
+      "noteId": "ne990d6bf4ce1",
+      "noteUrl": "https://note.com/dobokunote/n/ne990d6bf4ce1",
+      "noteStatus": "published",
+      "notePricing": "free"
+    },
+    {
+      "path": "content/note/1級・2級土木/2級土木の次の職場選び-無料/article.md",
+      "utmCampaign": "civil-career-young-next-role",
+      "noteId": "ncb066fce826b",
+      "noteUrl": "https://note.com/dobokunote/n/ncb066fce826b",
+      "noteStatus": "published",
+      "notePricing": "free"
+    }
+  ],
+  "baselineDrift": [
+    "affiliate 表示: 起票時 7370 → 今回 23154（314%）",
+    "affiliate クリック: 起票時 19 → 今回 11（58%）",
+    "高意図 query 表示: 起票時 10 → 今回 33（330%）"
+  ],
+  "warnings": [
+    "窓が不一致（GA4 2026-08-20〜2026-09-16 / GSC 2026-08-18〜2026-09-14）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと",
+    "GA4 page スナップショットは上位 100 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない"
+  ]
+}

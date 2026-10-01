@@ -1,7 +1,8 @@
 /**
  * product-lineup.mjs — 商品を「資格 × 試験区分 × チャネル」のマスへ写す（純粋関数＋config 読み込み）
  * ---------------------------------------------------------------------------
- * 分類ルールの SSOT は `.claude/config/product-lineup.json`。各チャネルの商品台帳は
+ * 分類ルールの SSOT は `config/product-lineup.json`。試験区分はそこに書かず、
+ * `config/exam-formats.json`（lib/exam-stages.mjs）から読んで qualifications[].stages に付ける。各チャネルの商品台帳は
  * 呼び出し側（admin `lib/lineup.ts`）が既存ローダーで読み、ここへ正規化済みの item を渡す。
  * どのルールにも当たらない商品は `unclassified` に残し、黙って落とさない（CLAUDE.md §9）。
  * ---------------------------------------------------------------------------
@@ -10,11 +11,29 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const LINEUP_CONFIG_PATH = join(ROOT, '.claude/config/product-lineup.json');
+import { loadExamStages } from './exam-stages.mjs';
+import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 
-export function loadLineupConfig() {
-  return JSON.parse(readFileSync(LINEUP_CONFIG_PATH, 'utf8'));
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+export const LINEUP_CONFIG_PATH = join(ROOT, 'config/product-lineup.json');
+
+/**
+ * product-lineup.json を読み、マスの資格（registry の展開中の資格・名前と並び順も registry）と
+ * 各資格の試験区分（exam-formats.json の stages）を付けて返す
+ */
+export function loadLineupConfig(root = ROOT) {
+  const config = JSON.parse(readFileSync(join(root, 'config/product-lineup.json'), 'utf8'));
+  return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
+}
+
+/** マスの資格を registry の展開中（portfolio: active）から付ける。product-lineup.json には資格を書かない */
+export function withQualifications(config, registry) {
+  return { ...config, qualifications: orderedQualifications(registry, 'active').map((q) => ({ id: q.id, label: q.label })) };
+}
+
+/** config の各資格に区分を付ける（区分の無い資格は stages: [] になり validateLineupConfig が止める） */
+export function withStages(config, stagesById) {
+  return { ...config, qualifications: config.qualifications.map((q) => ({ ...q, stages: stagesById.get(q.id) ?? [] })) };
 }
 
 /** config 内の全マスのキー（`資格id:区分id`）。 */
@@ -29,6 +48,7 @@ export function cellKeys(config) {
  */
 export function validateLineupConfig(config) {
   const errors = [];
+  for (const q of config.qualifications) if (!q.stages?.length) errors.push(`${q.id}: 試験区分が無い（exam-formats.json の stages）`);
   const keys = cellKeys(config);
   const known = new Set(keys);
   if (known.size !== keys.length) errors.push('qualifications に重複したマスがある');

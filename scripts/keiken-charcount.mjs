@@ -10,14 +10,14 @@
 //     --min-fill: 級別SSOTの minimum_fill_ratio 未満も exit 1 の対象にする（公開品質ゲート）
 //     --staged : git staged の keiken 記事だけ検査（pre-commit 用・関連なしは即 exit 0）
 //
-// しきい値の真実源: .claude/config/keiken-answer-sheet-limits.json（公式行数確定までは暫定）
+// しきい値の真実源: config/keiken-answer-sheet-limits.json（公式行数確定までは暫定）
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, '.claude/config/keiken-answer-sheet-limits.json');
+const CONFIG_PATH = join(ROOT, 'config/keiken-answer-sheet-limits.json');
 
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');

@@ -7,7 +7,7 @@ import {
 } from './lib/quiz-premium-funnel.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const GA4_DIR = join(ROOT, '.claude/state/metrics/ga4');
+const GA4_DIR = join(ROOT, 'data/metrics/ga4');
 const argv = process.argv.slice(2);
 const inputIndex = argv.indexOf('--input');
 const explicit = inputIndex >= 0 ? argv[inputIndex + 1] : null;

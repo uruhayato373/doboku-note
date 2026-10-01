@@ -17,7 +17,7 @@ metadata:
 - **How to apply:** 着手前に `docs/reference/note-essay-review-checklist.md` Step10 と `.claude/skills/social/publish-note` を Read（CLAUDE.md「書く前に読む」）。本文で `{{...}}` を見たら手で埋めず `.claude/scripts/note/` の対応スクリプトを探す。docs/note の .md 一括置換が必要でも `sed -i` でなく CRLF 保持手段（perl binmode / Node で元 EOL 保持）。プレースホルダーは単独行＝リンクカード化の前提（[[feedback_note_cta_no_price_linkcard]]）。
 
 ## 収録を増やしたら同じ commit で snapshot 再生成（2026-09-24）
-`note-magazine-add-articles --commit` で収録を増やしたら `npm run verify-note-magazines -- --contents --json` で `.claude/state/note/magazines-snapshot.json` を作り直して commit する。
+`note-magazine-add-articles --commit` で収録を増やしたら `npm run verify-note-magazines -- --contents --json` で `data/note/magazines-snapshot.json` を作り直して commit する。
 - **Why:** 2026-09-24 に会員お題ラボへ W9・W10 を収録（8→10）したが snapshot を直さず、`check-magazine-membership`（CI ゲート）が「ライブ 8」で赤になり無関係な PR #608・#609 の build まで落ちた。ライブの収録数は snapshot 経由でしか CI に見えない。
 - **How to apply:** 収録・会員特典の収録を触ったら snapshot 再生成→`npm run check-magazine-membership` 緑→commit まで1セット。SoT の件数表記（`src/lib/note-magazines.ts`）が変わる場合も同 commit。カードを閉じる前の docs 参照確認は todo-complete の doc-refs 検査（PR #611）が止める。関連: [[feedback_multi_session_concurrent_git]]
 

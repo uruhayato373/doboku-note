@@ -1,6 +1,6 @@
 ﻿---
 title: Instagram プロフィール文案
-purpose: Instagramプロフィールの設計理由・変更履歴。実際の表示名・bio・URLは `.claude/config/ig-account.json` がSSOT。
+purpose: Instagramプロフィールの設計理由・変更履歴。実際の表示名・bio・URLは `config/ig-account.json` がSSOT。
 characterLimit: 150
 lastUpdated: 2026-05-26
 appliesTo: Instagram のプロフィール欄（自己紹介）
@@ -22,7 +22,7 @@ relatedDocs:
 Instagram アカウント `@dobokunotecom` のプロフィール設計理由と変更履歴を管理する。
 
 > [!note]
-> **プロフィール全項目の真実源**: [`.claude/config/ig-account.json`](../../../.claude/config/ig-account.json)。エージェント、スキル、Playwrightは `handle`、`profile.displayName`、`profile.bio`、`profile.websiteUrl`、固定投稿、ハイライトをJSONから読む。本ファイルのコードブロックは履歴・説明用であり、実値と競合した場合はJSONを正とする。
+> **プロフィール全項目の真実源**: [`config/ig-account.json`](../../../config/ig-account.json)。エージェント、スキル、Playwrightは `handle`、`profile.displayName`、`profile.bio`、`profile.websiteUrl`、固定投稿、ハイライトをJSONから読む。本ファイルのコードブロックは履歴・説明用であり、実値と競合した場合はJSONを正とする。
 
 ## 仕様
 
@@ -59,7 +59,7 @@ doboku-note｜技術士総監・1級土木 対策
 @dobokunotecom
 ```
 
-Instagramの機械可読SSOTは `.claude/config/ig-account.json`。Xは別アカウント `@doboku373` で、`.claude/config/x-account.json` を正とする。
+Instagramの機械可読SSOTは `config/ig-account.json`。Xは別アカウント `@doboku373` で、`config/x-account.json` を正とする。
 
 ### リンク欄
 
@@ -81,7 +81,7 @@ https://doboku-note.com/links
 保存して試験前に見返す教材↓
 ```
 
-現在値は `.claude/config/ig-account.json` の `profile.bio` を参照する。
+現在値は `config/ig-account.json` の `profile.bio` を参照する。
 
 ### 旧採用版（案A・138 字・資格列挙型・〜2026-07-19）
 

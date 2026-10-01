@@ -7,7 +7,7 @@ import { buildExplanationNode } from './video-explanation.mjs';
  * 変換ロジックだけを持つ（unit test 対象）。
  *
  * 真実源:
- *   - キャンバス/尺: .claude/config/video-content.json（canvas.longform = 1920×1080）
+ *   - キャンバス/尺: config/video-content.json（canvas.longform = 1920×1080）
  *   - 試験色: .claude/scripts/sns/lib/exam-palette.mjs（note-cover-tokens.json の exams）
  *
  * scene の視覚要素（storyboard 追加フィールド・checker には additive）:

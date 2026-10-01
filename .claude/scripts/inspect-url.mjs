@@ -29,7 +29,7 @@ dotenv.config({ path: ".env.local" });
 
 const SITE_URL = "sc-domain:doboku-note.com";
 const SITE_URL_FOR_INSPECTION = "https://doboku-note.com/"; // URL Inspection は URL プレフィックス形式が必要な場合あり
-const OUTPUT_DIR = ".claude/state/metrics/url-inspection";
+const OUTPUT_DIR = "data/metrics/url-inspection";
 
 /**
  * 並列度の既定。URL Inspection は 2,000/日・600/分 が上限で、1 件 2〜5 秒なので 5 並列でも

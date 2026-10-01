@@ -49,7 +49,7 @@
 
 **やること**（在籍会員が0人になってから）:
 1. note の管理画面で在籍会員0人を確認する（残っていれば終了日まで待つ）。
-2. `.claude/config/note-membership.json` の `benefitMagazines` のうち**有料6誌（完全攻略パック・過去問模範答案集など）は削除しない**。会員プランとの紐づけを外すだけにし、単品販売は続ける。
+2. `config/note-membership.json` の `benefitMagazines` のうち**有料6誌（完全攻略パック・過去問模範答案集など）は削除しない**。会員プランとの紐づけを外すだけにし、単品販売は続ける。
 3. 会員専用マガジン「経験記述 週次お題ラボ｜1級・2級土木（会員専用）」（`mbe07bd5cecda`）を削除する（収録記事は無料記事として残る）。
 4. 「はじめに-合格ラボ」（加入の勧誘記事）を非公開にする。
 5. 2プラン（`4956c2d4f928`・`f9567e03949d`）とメンバーシップ自体を削除する（会員0人でないと削除できないかは未確認。画面で確かめる）。
@@ -169,7 +169,7 @@
 ### [DN-0339] Instagram の公開済み未記録48件と照合異常45件を /ig-reconcile で解消する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-09-26]
 
-**起点**: 週次レビューの申し送り（.claude/state/metrics/growth/digest-2026-W38.json）
+**起点**: 週次レビューの申し送り（data/metrics/growth/digest-2026-W38.json）
 
 **やること**: CI 週次の照合 `.claude/state/ig-reconcile/snapshot.json`（2026-09-19）で published_UNrecorded 48・anomaly 45・reel_built_unposted 42 が出ている。ローカルで `/ig-reconcile` を実行し、公開済みを posted.json へ backfill、異常の内訳（重複・種別・予約ずれ）を分類して直す。未公開のうち予約すべきものは予約前に一覧を示して確認を取る（外部への予約はユーザー承認後）。
 
@@ -191,7 +191,7 @@
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
 
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`.claude/config/note-intro-standard-civil2.json`）・カバー設定（`.claude/config/note-character-covers.json`）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
+**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard-civil2.json`）・カバー設定（`config/note-character-covers.json`）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
 
 **やること**:
 1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
@@ -244,7 +244,7 @@
 
 **起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。`npm run check-past-exam-inventory` が FAIL 2,112 件（WARN 0）。全件が技術士の重点外の部門（第一次試験 361・機械 171・農業 133・電気電子 113・化学 105 ほか 20 部門）で、理由は全件「取得済みと書いたのに Drive 台帳にも手元にも無い」。
 
-**やること**: (1) 実際に Drive の過去問 vault にあるかを 1 部門で確かめ、台帳（`.claude/config/past-exam-inventory.json`）の書き方の誤りか、ファイルの欠落かを切り分ける。(2) 台帳の誤りなら取得状態を実在に合わせて直す。欠落なら `/past-exam-archive` の手順で公式から取り直すか、重点外の部門は在庫の対象から外す（外すなら理由を台帳に書く）。
+**やること**: (1) 実際に Drive の過去問 vault にあるかを 1 部門で確かめ、台帳（`config/past-exam-inventory.json`）の書き方の誤りか、ファイルの欠落かを切り分ける。(2) 台帳の誤りなら取得状態を実在に合わせて直す。欠落なら `/past-exam-archive` の手順で公式から取り直すか、重点外の部門は在庫の対象から外す（外すなら理由を台帳に書く）。
 
 **完了条件**: `npm run check-past-exam-inventory` が FAIL 0 件。
 
@@ -497,7 +497,7 @@
 ### [DN-0451] 今日R2へ保存したKDP成果物を現行のDrive保管へ同期し、保存経路の不整合を解消する
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-29]
 
-**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `.claude/config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。
+**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。
 
 **やること**:
 1. 当日の実行ログ、R2台帳、R2実体、`scripts/kindle-dist/`、KDP台帳を照合し、保存したEPUB・表紙の対象数、キー、bytes、SHA-256を特定する。取得失敗や対象0件を正常扱いしない
@@ -522,7 +522,7 @@
 ### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
 
-**起点**: 2026-09-28 に Tailwind CSS を v3→v4 へ移行し develop へマージした（PR #683）。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。会社 PC は GA4 API がプロキシで遮断され、`.claude/state/metrics/ga4/` にもブラウザ別の集計が無いため未確認のまま。
+**起点**: 2026-09-28 に Tailwind CSS を v3→v4 へ移行し develop へマージした（PR #683）。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。会社 PC は GA4 API がプロキシで遮断され、`data/metrics/ga4/` にもブラウザ別の集計が無いため未確認のまま。
 
 **やること**: GA4（直近 28 日）の「ブラウザ」「ブラウザのバージョン」「OS のバージョン」で、対象未満のユーザー比率を出す（Safari は iOS 16.3 以下が主な対象）。比率が小さければ develop→main の昇格（`/deploy`）へ進む。大きければ移行の扱いを判断する。
 
@@ -583,7 +583,7 @@
 ### [DN-0417] 週次 GSC まとめ W38 の未起票の改善候補 5 件を片付ける（題名・CTA・共食い）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
 
-**起点**: 2026-09-27 の集客バックログ点検で、`.claude/state/metrics/growth/digest-2026-W38.json` の候補のうち DN-0338 以外にカードが無かった。
+**起点**: 2026-09-27 の集客バックログ点検で、`data/metrics/growth/digest-2026-W38.json` の候補のうち DN-0338 以外にカードが無かった。
 - OPP-07ad782c8d「スクレープドーザ」6.3 位・CTR 0%（`/exam/civil-construction-1/textbook/scraper`）
 - OPP-09ce18f721「中国地方整備局 共通仕様書」で `/standards/chugoku/local` と `/part-01` が共食い
 - OPP-4d4eb6bc94 サイドバー配置の CTA が CTR 0.02%（配置の中央値 0.23%・表示 12,916）
@@ -620,7 +620,7 @@
 
 **起点**: vault 台帳（`.claude/state/assets/drive-manifest.json`）の5枚が、今の `scripts/coconala-thumb.mjs` の出力と違う。`thumb-tensaku-4theme` は旧商品「4テーマセット ¥12,000」のままで、公開中の全5テーマ版（¥15,000）と合わない。`thumb-tensaku-set` / `thumb-1kyu-premium` も旧版。`thumb-sakusei` / `thumb-sakusei-4theme` は台帳が「作成」版で、Mac 上の実体は「指導」版（ライブ差し替え済み）。CI（`coconala-wiring`）は台帳にエントリがあれば通るので影響しない。上書きは vault の旧版を消すため、自動モードでは不可逆操作として止まる。
 
-**やること**: 上書きしてよいか決める。する場合は Mac で `node scripts/coconala-thumb.mjs --service coconala-<id> --out .tmp/thumb-verify/thumb-<id>.png` で3枚（`tensaku-set` / `tensaku-4theme` / `1kyu-premium`）を作り直して `.claude/config/coconala/assets/` へ置き、`node scripts/drive-vault-sync.mjs --group coconala-asset --commit` で5枚を登録して台帳を commit する。あわせて会社 PC の worktree `coconala-grade` と `tensaku-qa`（PR #638 はマージ済み）を `git worktree remove` する。
+**やること**: 上書きしてよいか決める。する場合は Mac で `node scripts/coconala-thumb.mjs --service coconala-<id> --out .tmp/thumb-verify/thumb-<id>.png` で3枚（`tensaku-set` / `tensaku-4theme` / `1kyu-premium`）を作り直して `content/coconala/assets/` へ置き、`node scripts/drive-vault-sync.mjs --group coconala-asset --commit` で5枚を登録して台帳を commit する。あわせて会社 PC の worktree `coconala-grade` と `tensaku-qa`（PR #638 はマージ済み）を `git worktree remove` する。
 
 **完了条件**: 上書きする場合は `node scripts/drive-vault-sync.mjs --group coconala-asset --verify` が不一致 0。しない場合は理由をこのカードに書いて削除する。
 
@@ -631,9 +631,9 @@
 
 **起点**: 2026-09-29 に note の反映を記事単位に変えた。記事ごとの反映計画（`scripts/lib/note-sync-plan.mjs`）が本文・カバー・タグの未反映分と止まっている理由を決め、Mac の launchd `note-sync`（毎週日曜 3:00）が `note-update-body --sync` で 1 記事 1 回の更新にまとめて反映し、CI の `note-sync-live.yml`（月曜 9:00）が判定だけを持つ。カバー台帳は再公開台帳へ統合した。統合時点の計画は公開 918 本のうち反映済み 410・反映待ち 505（本文 295〔配布 PDF の取り寄せ 203〕・カバー 216）・止まっている 3（中断: nded084d4f646 R06 過去問模範答案・n8d98d7fc24cc 工事21 下水処理場水槽RC・n3eb135ebdff7 序章＝DN-0271）。マガジンはカバーの新レイアウト（designVersion.magazine を上げた）で 98 誌が要登録。旧 DN-0269（原稿と公開記事のずれの解消と CI 検査）・DN-0277（【〇〇】に直した 257 本の再公開）・DN-0316（総監 2 本の冒頭 CTA 除去の反映）を統合した。
 
-**やること**: (1) 2026-09-29 07:53 に launchd を登録して初回を流した（記事 200・マガジン 99 誌。残りの記事は翌週以降の週次が続ける）。結果は `.claude/state/note/sync-log.json` と管理画面で確かめる。(2) 止まっていた 3 本のうち R06（nded084d4f646）と工事21（n8d98d7fc24cc・Drive から PDF を取り寄せ）は 09-29 に反映済み。残る序章（n3eb135ebdff7）は DN-0271（有料ラインの位置の判断待ち）。(3) 週次の結果は管理画面の「週次の結果」と CI の note-sync-live で見て、止まった記事が出たらその理由を直す。
+**やること**: (1) 2026-09-29 07:53 に launchd を登録して初回を流した（記事 200・マガジン 99 誌。残りの記事は翌週以降の週次が続ける）。結果は `data/note/sync-log.json` と管理画面で確かめる。(2) 止まっていた 3 本のうち R06（nded084d4f646）と工事21（n8d98d7fc24cc・Drive から PDF を取り寄せ）は 09-29 に反映済み。残る序章（n3eb135ebdff7）は DN-0271（有料ラインの位置の判断待ち）。(3) 週次の結果は管理画面の「週次の結果」と CI の note-sync-live で見て、止まった記事が出たらその理由を直す。
 
-**追記（2026-09-29・コンクリート主任技士の小論文 37 本）**: bea060922 で `magazines/コンクリート主任技士-実務立場別小論文集`（01〜08 の 32 本）と`-小論文-模範答案集`（5 本）の冒頭と末尾に、ココナラ添削（services/4425046）への導線を入れた。同期計画では 37 本とも反映待ち（本文）・noteId あり（2026-09-29 確認）。週次の同期のあとに公開ページで導線が出ているかを照合し、**照合できた日付を DN-0265（コンクリート主任技士のココナラ出品の継続判定）の効果判定の起点に使う**。照合の方法: 37 本とも有料記事で、末尾の導線は有料部分の区切りより後ろにある。**公開 API（`https://note.com/api/v3/notes/<noteId>`）で見えるのは冒頭の導線だけ**なので、冒頭はこの本文に `services/4425046` があるかで 37 本を照合し、末尾は `.claude/state/note/sync-log.json` の該当 run で 37 本が本文を更新済み（failed に無い）ことと、ログイン済みの編集画面で数本を目視して確かめる。照合日と件数（冒頭 n/37）をこのカードに書き、同じ日付を DN-0265 の起点に写す。
+**追記（2026-09-29・コンクリート主任技士の小論文 37 本）**: bea060922 で `magazines/コンクリート主任技士-実務立場別小論文集`（01〜08 の 32 本）と`-小論文-模範答案集`（5 本）の冒頭と末尾に、ココナラ添削（services/4425046）への導線を入れた。同期計画では 37 本とも反映待ち（本文）・noteId あり（2026-09-29 確認）。週次の同期のあとに公開ページで導線が出ているかを照合し、**照合できた日付を DN-0265（コンクリート主任技士のココナラ出品の継続判定）の効果判定の起点に使う**。照合の方法: 37 本とも有料記事で、末尾の導線は有料部分の区切りより後ろにある。**公開 API（`https://note.com/api/v3/notes/<noteId>`）で見えるのは冒頭の導線だけ**なので、冒頭はこの本文に `services/4425046` があるかで 37 本を照合し、末尾は `data/note/sync-log.json` の該当 run で 37 本が本文を更新済み（failed に無い）ことと、ログイン済みの編集画面で数本を目視して確かめる。照合日と件数（冒頭 n/37）をこのカードに書き、同じ日付を DN-0265 の起点に写す。
 
 **完了条件**: `npm run check-note-sync` が exit 0（反映待ち・止まっている記事・マガジンの要登録が 0）になったら、このカードを削除する。
 ### [DN-0439] コンテンツ台帳から、選んだ制作物の反映計画を作って一括で更新する（ずれの検知をチャネル共通の部品に）
@@ -762,6 +762,20 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: Mac で `npm run check-disk-hygiene` が FAIL 0、`claude mcp list` に github/filesystem が無い、memory リンクが symlink で `MEMORY.md` の行数が repo と一致、`npm run check-codex-compat` 緑。
 
+### [DN-0496] config/・data/ 分離後に各 PC の git 管理外ファイルと定期処理を新しい置き場へ揃える
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
+
+**起点**: 2026-10-02、事業の正本とツール設定を `.claude/config` → `config/`、事業の記録を `.claude/state` → `data/`、ココナラ素材を `.claude/config/coconala/assets` → `content/coconala/assets` へ移した（PR feature/config-data-dirs）。git 管理下のファイルは pull で移るが、**git 管理外のファイルは各 PC の旧パスに取り残される**。**着手条件**: 当該 PR が develop にマージ済み。
+
+各 PC（Windows・Mac）で repo 直下から:
+1. `git switch develop; git pull` と `npm run pre-commit:install`（pre-commit の内容が変わったため）。
+2. 取り残しの確認: 旧パス `.claude/config/coconala/assets/`・`.claude/state/metrics/gsc-ui/`・`.claude/state/metrics/ga4-ui/`・`.claude/state/metrics/affiliate/a8-ui/` にファイルが残っていないか見る。
+3. 残っていれば新しい置き場へ移す（中身を上書きしない）: ココナラ素材は `content/coconala/assets/`（無ければ `node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'` で Drive から取り戻す）、GSC・GA4 の UI CSV と A8 の生ファイルは `data/metrics/` 配下の同じ相対位置へ。空になった旧ディレクトリは消す。
+4. Mac の定期処理（`note-sync-routine`・`gsc-local-routine`）が使う `.claude/worktrees/` の作業ツリーを develop の先頭へ更新する（古いコミットのままだと旧パスへ書き続ける）。
+5. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
+
+**完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている。
+
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
 
@@ -782,12 +796,13 @@ Windows の PowerShell で repo 直下から順に:
 
 
 
+
 ### [DN-0261] 転職アフィリ第2波の効果を EXP-008 の wave-2 基線で再計測する
 タグ: [収益化] [領域:アフィリエイト] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-22] [期日:2026-10-20]
 
 2026-09-22 に第 2 波を出荷した（サイト新設 4・改稿 5・note 5・公務員土木クラスタ）。第 1 波（EXP-008・2026-09-08）の判定は DN-0120 で **継続（追加投資なし）** と裁定済みで、理由と残る問いは [affiliate-operations.md](../knowledge/reference/affiliate-operations.md) の裁定ログ 2026-09-22 にある。
 
-deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線** `.claude/state/metrics/affiliate/career-funnel-baseline-2026-09-16.json`（2026-09-22 凍結・GA4 窓 08-20〜09-16＝出荷直前） と比較する。第 1 波の 08-12 基線とは別ファイルで、混ぜない。afb の確定成果は `afb-outcomes-latest.json` を併記する（鍵登録後）。
+deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線** `data/metrics/affiliate/career-funnel-baseline-2026-09-16.json`（2026-09-22 凍結・GA4 窓 08-20〜09-16＝出荷直前） と比較する。第 1 波の 08-12 基線とは別ファイルで、混ぜない。afb の確定成果は `afb-outcomes-latest.json` を併記する（鍵登録後）。
 
 **この期間に答えを出す問い**: 11 click で確定成果 ¥0 だった件について、a8mat ピクセルが実際に発火しているかを本番 HTML で確認する（`curl` で対象ページの `a8mat=` がちょうど 1 件＝配置は既に検証済み。未検証なのは発火そのもの）。原因と決めつけずに観測する。
 
@@ -823,7 +838,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0338] 1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-26]
 
-**起点**: 週次トリアージ（.claude/state/metrics/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
+**起点**: 週次トリアージ（data/metrics/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
 
 **やること**: GSC で「インターフェアリングフロートとは」（35日 表示1,215・クリック2・平均7.6位・旧URLを含む）の着地ページと表示中のタイトルを確認し、textbook-network-schedule の seoTitle・description・リード文にフロート4種（トータル/フリー/インターフェアリング/ディペンデント）の定義と試験での問われ方を入れる。本文に無い定義は足さず、既存の図 figure-3-21-23 と整合させる。変更後は refresh-indexes。
 
@@ -865,7 +880,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0278] YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10..2026-12] [種類:改善] [検証:verify-video-publication] [起票:2026-09-23]
 
-**起点**: ちゃんさとは二次検定期に概要欄の1行目をココナラにし、一次検定期は note の模試を先頭に置いている（[07b_販売動線分析_ちゃんさと_2026-09.md](../../docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md) §2）。自社の概要欄は「要約→この動画で分かること→制作表記→▼リンク」の順で、リンクが折りたたみの下にある。制作表記（`.claude/config/youtube-production-disclosure.json`）は「技術士（総合技術監理部門）」だけで、建設部門と1級土木が無い。
+**起点**: ちゃんさとは二次検定期に概要欄の1行目をココナラにし、一次検定期は note の模試を先頭に置いている（[07b_販売動線分析_ちゃんさと_2026-09.md](../../docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md) §2）。自社の概要欄は「要約→この動画で分かること→制作表記→▼リンク」の順で、リンクが折りたたみの下にある。制作表記（`config/youtube-production-disclosure.json`）は「技術士（総合技術監理部門）」だけで、建設部門と1級土木が無い。
 
 **やること**:
 
@@ -883,7 +898,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0270] ココナラの出品画像を、一覧で読める型へ作り直す（人が見るサービスにキャラクター・画像に価格を入れない）
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-23] [期日:2026-10-20]
 
-**起点**: 2026-09-23 に競合の出品画像と並べて比べた。最大手のちゃんさと技師は、マスコット（ヘルメットの白クマが赤ペンで添削）と大きな「経験記述 添削」の文字、303geos は文字だけ、ひげごろーは本人写真と強い配色。3者に共通するのは太く大きい文字と強いコントラストで、自社の画像（淡い写真の背景に細い文字）は検索一覧の小さい表示で埋もれる。ユーザー決定の方針: 診断・添削・答案作成のような人が見るサービスは、doboku-note 先生を大きく入れ、資格（技術士・元発注者）を添える。PDF 教材はキャラクターを小さく隅に置き、主役は中身（冊子の見本・冊数）。画像には価格を入れない（ココナラは価格を画像の横に出す。9/23 の値上げでサムネ12枚を作り直したうえ、画像の中身は `check-coconala-live` でも検査できない）。最大手と同じ「キャラクター＋添削」の型なので、配色と構図で真似に見えないようにする。キャラクター素材（`.claude/config/character-poses.json`・11ポーズ）に「赤ペンで添削」のポーズが無く、新しいポーズは Codex で作る。Codex の利用上限が解けてから着手する。受験者が購入前に「誰が見てくれるか・何が入っているか」を一目で判断できるようにする画像で、HARMはA。画像の変更で閲覧が増えるかは未検証。
+**起点**: 2026-09-23 に競合の出品画像と並べて比べた。最大手のちゃんさと技師は、マスコット（ヘルメットの白クマが赤ペンで添削）と大きな「経験記述 添削」の文字、303geos は文字だけ、ひげごろーは本人写真と強い配色。3者に共通するのは太く大きい文字と強いコントラストで、自社の画像（淡い写真の背景に細い文字）は検索一覧の小さい表示で埋もれる。ユーザー決定の方針: 診断・添削・答案作成のような人が見るサービスは、doboku-note 先生を大きく入れ、資格（技術士・元発注者）を添える。PDF 教材はキャラクターを小さく隅に置き、主役は中身（冊子の見本・冊数）。画像には価格を入れない（ココナラは価格を画像の横に出す。9/23 の値上げでサムネ12枚を作り直したうえ、画像の中身は `check-coconala-live` でも検査できない）。最大手と同じ「キャラクター＋添削」の型なので、配色と構図で真似に見えないようにする。キャラクター素材（`config/character-poses.json`・11ポーズ）に「赤ペンで添削」のポーズが無く、新しいポーズは Codex で作る。Codex の利用上限が解けてから着手する。受験者が購入前に「誰が見てくれるか・何が入っているか」を一目で判断できるようにする画像で、HARMはA。画像の変更で閲覧が増えるかは未検証。
 
 **やること**: (1) 【2026-09-23 済】今の文言（「採点者視点」→「発注者視点で赤入れ」）で8件（shindan・tensaku-set・sakusei・sakusei-4theme・civil-keiken-kit・sokan-bunseki・rccm-mondai3-tensaku・rccm-mondai1-shindan）のサムネを作り直して差し替え、診断・添削のギャラリーも入れ直した（両方2枚）。`check-coconala-live` は20件一致、Drive vault 同期済み。(2) キャラクターの添削ポーズを `CHARACTER-SPEC`（1ポーズ＝1画像）に沿って Codex で作り、`character-poses.json` に登録する。(3) `coconala-thumb.mjs` に「人が見るサービス用（キャラクター大・太字・価格なし）」と「PDF 用（キャラクター小・中身の見本）」の2型を足し、添削・作成から差し替える。差し替えは `coconala-edit --replace-image` で、複数画像の商品（添削は2枚）はギャラリーを入れ直す。2026-09-25 に経験記述サービスを1級・2級に分け（PR #638）、診断・総監・RCCM はアーカイブした。対象は1級・2級の添削・作成8件（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`・`2kyu-tensaku`・`2kyu-tensaku-3theme`・`2kyu-sakusei`・`2kyu-sakusei-3theme`。同日に級別の背景色で作り直し済み）と `1kyu-premium`。PDF 教材は3件の閲覧を見てから同じ型へそろえる。
 
@@ -906,7 +921,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **起点**: 2026-09-10の実査では、ローカル自動監査のR2資格情報が未設定、rcloneの `doboku-gdrive` 接続も未設定で `npm run resources:cloud` が検査不成立。Driveコネクタ経由では既存vaultの1ファイルを全バイト・SHA-256照合できており、Drive自体の不存在ではない。
 
 1. DN-0135の行15（監査キーの最小権限化）と連携し、このWindows端末の監査に読み取り専用資格情報を設定する。必要なら `scripts/local-storage-verify.mjs` のキー選択を監査専用設定に対応させ、検査目的で書き込み権限を追加しない。
-2. 人のOAuthログインでrcloneの `doboku-gdrive` を既存の `doboku-note` vaultへ接続する。接続先は `.claude/config/drive-vault.json` に従う。vaultの重複作成や全量ローカル同期をせず、秘密情報をGit・監査ログへ保存しない。
+2. 人のOAuthログインでrcloneの `doboku-gdrive` を既存の `doboku-note` vaultへ接続する。接続先は `config/drive-vault.json` に従う。vaultの重複作成や全量ローカル同期をせず、秘密情報をGit・監査ログへ保存しない。
 3. 定期実行と同じ端末・実行環境で `npm run resources:cloud` を実行し、R2・Driveとも選定サンプルの全バイトをストリームで読み、容量とSHA-256を照合する。認証・通信失敗を0件成功やメタデータ照合で代用しない。
 
 **完了条件**: 両保管先で実体検査が各1件以上成立し、選定対象がすべて一致してコマンドがexit 0となる。定期実行からも同じ接続を利用でき、検査件数・日時・結果を確認できること。反復監査は既存の定期運用へ戻す。
@@ -918,7 +933,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **目的**: 「doboku-note先生＋短い極太見出し」の採用方針を生成テンプレートへ実装し、別PCでログイン済みの投稿実体へ反映する。制作・公開の定常運用と6週間計測は DN-0110、このカードは意匠と更新経路の改修を担当する。
 
-**参照**: [SNS画像ポリシー §0・§0.1](../knowledge/reference/sns-image-policy.md)、[キャラクター素材ポリシー](../knowledge/reference/character-asset-policy.md)、[ポーズ台帳](../config/character-poses.json)。制作・QA・投稿スキルはこの共通ルールを参照する。ルールの存在をレンダラーの実装完了とみなさない。
+**参照**: [SNS画像ポリシー §0・§0.1](../knowledge/reference/sns-image-policy.md)、[キャラクター素材ポリシー](../knowledge/reference/character-asset-policy.md)、[ポーズ台帳](../../config/character-poses.json)。制作・QA・投稿スキルはこの共通ルールを参照する。ルールの存在をレンダラーの実装完了とみなさない。
 
 **別PCでの再開順**:
 
@@ -934,7 +949,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0303] 手取り・運営費用・作業時間を週次で記録し、事業 KPI の利益判断を埋める
 タグ: [収益化] [領域:戦略] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-25]
 
-**起点**: 2026-09-25 に GA4 計測と事業 KPI（`.claude/config/business-direction.json`）の収益化サイクルを点検したところ、22 指標のうち `netReceipts`（手数料等控除後の受取額）・`costYen`（運営費用）・`workMinutes`（運営作業時間）が全資格・全期間で null だった。CLAUDE.md の判断基準は「受取・費用・運営時間まで確認する」だが、売上（noteRevenue 等）はあっても利益と時間あたりの効率が数字で見えない。記録の入口 `node scripts/business-review.mjs record --input <JSON> --commit` はあるが、何を・いつ・どの粒度で入れるかが決まっていない。
+**起点**: 2026-09-25 に GA4 計測と事業 KPI（`config/business-direction.json`）の収益化サイクルを点検したところ、22 指標のうち `netReceipts`（手数料等控除後の受取額）・`costYen`（運営費用）・`workMinutes`（運営作業時間）が全資格・全期間で null だった。CLAUDE.md の判断基準は「受取・費用・運営時間まで確認する」だが、売上（noteRevenue 等）はあっても利益と時間あたりの効率が数字で見えない。記録の入口 `node scripts/business-review.mjs record --input <JSON> --commit` はあるが、何を・いつ・どの粒度で入れるかが決まっていない。
 
 **やること**: (1) ユーザーと決める: 手取りの出所（note・ココナラ・KDP・A8 の各入金明細／プラットフォームの手数料控除後の月次表示）、費用の範囲（サーバー・API・ツール課金・外注・広告）、作業時間の測り方（週次レビューで資格別の概算を手入力／タスク単位で記録）、記録の粒度（週次か月次か・資格別に按分するか）。(2) 決めた方法を business-review.md に書き、週次または月次レビューの手順に記録の工程を入れる。自動で取れるもの（例: ココナラ・note の手数料率から手取りを計算）はスクリプト化する。(3) 1 回目の記録を入れる。
 
@@ -1069,7 +1084,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **追記（2026-09-27）**: 未登録ページを統合・noindex する基準もこのカードで決める（旧 DN-0320 の ③）。
 
-**追記（2026-09-27・集客点検）**: 対象を建設部門・RCCM に限らず、`.claude/state/metrics/gsc-indexing/priority-latest.txt` の需要あり未登録 38 件（総監 cost-benefit-analysis・1級 guide/construction-plan・2級 guide/schedule-management など）へ広げる。 2026-09-27 の教材配線先の点検では、教材から配線した 1級 textbook 7 本（steel-structures・water-sewer・coast-port・dam-construction・tunnel-natm・sabo-landslide・railway-underground）・1級 guide 2 本・2級 guide 4 本（exam-overview・concrete-key-points・quality-management・study-method）も未登録で表示 0。2級二次（10/25）前に 2級分を先に見る。
+**追記（2026-09-27・集客点検）**: 対象を建設部門・RCCM に限らず、`data/metrics/gsc-indexing/priority-latest.txt` の需要あり未登録 38 件（総監 cost-benefit-analysis・1級 guide/construction-plan・2級 guide/schedule-management など）へ広げる。 2026-09-27 の教材配線先の点検では、教材から配線した 1級 textbook 7 本（steel-structures・water-sewer・coast-port・dam-construction・tunnel-natm・sabo-landslide・railway-underground）・1級 guide 2 本・2級 guide 4 本（exam-overview・concrete-key-points・quality-management・study-method）も未登録で表示 0。2級二次（10/25）前に 2級分を先に見る。
 
 **進捗（2026-09-27）**: 2026-09-23 の URL 検査で未登録 144 件を分類。本番の sitemap.xml 漏れ 0・canonical 誤り 0・被リンク数と本文量は登録済みと差なし。大半は「検出 - 未登録」（未クロール）で、建設部門 50・RCCM 7・1級 20・2級 21。総監 13 件と 1級 2 件は Google が旧 /docs/ URL を正規に選んだまま（301 済み・旧 URL 用 sitemap は 11/30 まで）。本文からの被リンクが 0〜1 件だった 2級一次過去問 10 回分・2級ガイド 5 本・1級ガイド 4 本へ内部リンクを追加した（814de5390）。コードとコンテンツで打てる手は尽きたので、残りは GSC での登録リクエスト（ブラウザ作業・2級二次関連と RCCM を優先）と次の URL 検査での確認。
 

@@ -100,7 +100,7 @@ PWA の「インストール（ホーム画面アイコン）」と「オフラ�
 
 → **技術士一次を含む 4 資格で約 3,552 問が構造化済み**。技術士一次は図・KaTeX 数式・表形式選択肢を含むため、MDX から表示用 HTML へ正規化している。平成30年度と令和元年度再試験の適性科目 II-14 は公式に全員正解、令和7年度専門科目 III-13 は公式正答番号の掲載がないため、1,120 問に収録しつつ3問を採点母数から除外する。
 
-平成25〜30年度の追加480問は、日本技術士会の問題PDF 18本と正答合冊PDF 1本を `.claude/config/pe-first-stage-historical-sources.json` に固定し、`node scripts/fetch-pe-first-stage-historical.mjs` で SHA-256・ページ数まで再検証できる。画像主体の原典をOCRした後、年度・科目ごとに原典目視突合、正答照合、構造検査を実施して公開データへ統合した。
+平成25〜30年度の追加480問は、日本技術士会の問題PDF 18本と正答合冊PDF 1本を `config/pe-first-stage-historical-sources.json` に固定し、`node scripts/fetch-pe-first-stage-historical.mjs` で SHA-256・ページ数まで再検証できる。画像主体の原典をOCRした後、年度・科目ごとに原典目視突合、正答照合、構造検査を実施して公開データへ統合した。
 
 ---
 

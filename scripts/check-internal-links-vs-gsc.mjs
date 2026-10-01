@@ -29,7 +29,7 @@
 import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { join, sep } from "node:path";
 
-const SSOT = ".claude/state/metrics/gsc-ui/ssot/urls";
+const SSOT = "data/metrics/gsc-ui/ssot/urls";
 const META = "src/config/doc-meta-index.json";
 const SCAN_ROOTS = ["content/site", "src"];
 const WANT_JSON = process.argv.includes("--json");

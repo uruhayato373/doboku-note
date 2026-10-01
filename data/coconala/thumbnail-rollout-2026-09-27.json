@@ -1,0 +1,195 @@
+{
+  "date": "2026-09-27",
+  "designRegistry": "config/coconala-thumb-approved.json",
+  "targets": 18,
+  "publicImagesVerified": 18,
+  "galleryImagesPreserved": 4,
+  "liveCheck": {
+    "checkedAt": "2026-09-27T06:36:29.447Z",
+    "targets": 18,
+    "fetched": 18,
+    "matched": 18,
+    "mismatched": 0,
+    "fetchFailed": 0,
+    "skipped": [
+      "coconala-shindan(paused)",
+      "coconala-bunseki-pdf(paused)",
+      "coconala-1kyu-kakomon-pdf(paused)",
+      "coconala-2kyu-kakomon-pdf(paused)",
+      "coconala-1kyu-gakka-pdf(paused)",
+      "coconala-2kyu-gakka-pdf(paused)",
+      "coconala-sokan-bunseki-pdf(paused)",
+      "coconala-rccm-mondai3-tensaku(paused)",
+      "coconala-rccm-mondai1-shindan(paused)",
+      "coconala-rccm-mondai3-pdf(paused)",
+      "coconala-rccm-takuitsu-pdf(paused)",
+      "coconala-rccm-mondai1-pdf(paused)",
+      "coconala-pe-oral-pdf(paused)",
+      "coconala-pe-oral-qa(paused)"
+    ]
+  },
+  "services": [
+    {
+      "id": "coconala-tensaku-set",
+      "url": "https://coconala.com/services/4317375",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-tensaku-4theme",
+      "url": "https://coconala.com/services/4418735",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-sakusei",
+      "url": "https://coconala.com/services/4317796",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-sakusei-4theme",
+      "url": "https://coconala.com/services/4350199",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-tensaku",
+      "url": "https://coconala.com/services/4418775",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-tensaku-3theme",
+      "url": "https://coconala.com/services/4418778",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-sakusei",
+      "url": "https://coconala.com/services/4418781",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-sakusei-3theme",
+      "url": "https://coconala.com/services/4418785",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-kanseitoan-pdf",
+      "url": "https://coconala.com/services/4317580",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-kanseitoan-pdf",
+      "url": "https://coconala.com/services/4317722",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-1kyu-moshi-pdf",
+      "url": "https://coconala.com/services/4317886",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 4,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-moshi-pdf",
+      "url": "https://coconala.com/services/4317889",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-1kyu-full-pdf",
+      "url": "https://coconala.com/services/4341188",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 2,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-2kyu-full-pdf",
+      "url": "https://coconala.com/services/4341191",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-1kyu-premium",
+      "url": "https://coconala.com/services/4341335",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-civil-keiken-kit",
+      "url": "https://coconala.com/services/4322659",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-cce-essay-pdf",
+      "url": "https://coconala.com/services/4418972",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    },
+    {
+      "id": "coconala-cce-takuitsu-pdf",
+      "url": "https://coconala.com/services/4418974",
+      "firstMatches": true,
+      "countMatches": true,
+      "imageCount": 1,
+      "issues": [],
+      "ok": true
+    }
+  ]
+}

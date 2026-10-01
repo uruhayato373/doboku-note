@@ -18,21 +18,14 @@ import { fileURLToPath } from 'node:url';
 import { loadConfig, loadPackSummaries } from './lib/video-content-check.mjs';
 import { STAGE_LABELS } from './lib/content-lifecycle.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { loadRegistry, orderedQualifications } from './lib/qualification-registry.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const config = loadConfig(ROOT);
 const rows = loadPackSummaries(ROOT, config);
 
-const EXAM_LABEL = {
-  'civil-construction-1': '1級土木施工管理技士',
-  'civil-construction-2': '2級土木施工管理技士',
-  'pe-comprehensive-management': '技術士 総合技術監理部門',
-  'pe-construction': '技術士 建設部門',
-  'pe-first-stage': '技術士 第一次試験',
-  'concrete-chief-engineer': 'コンクリート主任技士',
-  'concrete-engineer': 'コンクリート技士',
-  'concrete-diagnostician': 'コンクリート診断士',
-};
+// 資格の名前と並びは registry（qualification-registry.json）から引く
+const registry = loadRegistry(ROOT);
 
 const lines = [
   '# 動画パック 企画バンク（自動生成）',
@@ -45,7 +38,7 @@ const lines = [
   '',
 ];
 
-for (const [exam, label] of Object.entries(EXAM_LABEL)) {
+for (const { id: exam, label } of orderedQualifications(registry)) {
   const group = rows.filter((r) => r.exam === exam);
   if (group.length === 0) continue;
   lines.push(`## ${label}（${group.length}）`, '');

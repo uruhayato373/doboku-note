@@ -17,7 +17,7 @@ export function canClean(row, minAgeDays, processes, kind, now = Date.now()) {
   return true;
 }
 export function cleanMain(args = process.argv.slice(2), { root = repoRoot, inspectProcesses = processInventory, quiet = false } = {}) {
-  const policy = JSON.parse(readFileSync(join(root, '.claude/config/local-resources.json'), 'utf8'));
+  const policy = JSON.parse(readFileSync(join(root, 'config/local-resources.json'), 'utf8'));
   const index = args.indexOf('--category');
   const category = index < 0 ? 'scratch' : args[index + 1];
   if (!policy.cleanup[category]) throw new Error('Unknown cleanup category');

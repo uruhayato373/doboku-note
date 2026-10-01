@@ -4,7 +4,7 @@
  *
  * サイト CTA のキャラアバターについて、3 者の整合を機械検知する。
  *
- *   ① `.claude/config/character-poses.json` の `siteCta: true`（＝どのポーズを配信するかの真実源）
+ *   ① `config/character-poses.json` の `siteCta: true`（＝どのポーズを配信するかの真実源）
  *   ② `public/images/character/avatar-{pose}.webp`（配信実体）
  *   ③ `src/lib/note-magazines.ts` の `ctaPose` union（MDX/SoT から指定できる値）
  *
@@ -23,7 +23,7 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const MANIFEST = '.claude/config/character-poses.json';
+const MANIFEST = 'config/character-poses.json';
 const SOT = 'src/lib/note-magazines.ts';
 
 const poses = require(join(ROOT, MANIFEST)).poses;

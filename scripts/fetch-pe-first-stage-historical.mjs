@@ -9,7 +9,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const CONFIG = resolve(ROOT, '.claude/config/pe-first-stage-historical-sources.json');
+const CONFIG = resolve(ROOT, 'config/pe-first-stage-historical-sources.json');
 const OUT = resolve(ROOT, '.tmp/pe1-historical-sources');
 const requestedYear = process.argv.find((arg) => /^h(?:2[5-9]|30)$/u.test(arg));
 const config = JSON.parse(readFileSync(CONFIG, 'utf8'));

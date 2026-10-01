@@ -8,13 +8,13 @@
  * 見られなかった。両者を突合し、改善機会（High-Impr-Low-CTR 等）を surface する。
  *
  * 入力（最新スナップショットを自動選択・オフライン）:
- *   - .claude/state/metrics/ga4/ga4-page-*.json   （page, activeUsers, sessions, engagementRate, bounceRate …）
- *   - .claude/state/metrics/gsc/gsc-page-<日付>*.json（keys:[URL], clicks, impressions, ctr, position・
+ *   - data/metrics/ga4/ga4-page-*.json   （page, activeUsers, sessions, engagementRate, bounceRate …）
+ *   - data/metrics/gsc/gsc-page-<日付>*.json（keys:[URL], clicks, impressions, ctr, position・
  *     page×query と打ち切り版は除外＝lib/ga4-snapshot.mjs の pickGscPage）
  *
  * 出力:
- *   - .claude/state/metrics/crosswalk/crosswalk-<ISO>.json  （全 join 行）
- *   - .claude/state/metrics/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
+ *   - data/metrics/crosswalk/crosswalk-<ISO>.json  （全 join 行）
+ *   - data/metrics/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
  *   - コンソールにサマリ
  *
  * usage: node .claude/scripts/report-ga4-gsc-crosswalk.mjs [--min-impr 50] [--low-ctr 0.01]
@@ -23,9 +23,9 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 
 import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
 
-const GA4_DIR = ".claude/state/metrics/ga4";
-const GSC_DIR = ".claude/state/metrics/gsc";
-const OUT_DIR = ".claude/state/metrics/crosswalk";
+const GA4_DIR = "data/metrics/ga4";
+const GSC_DIR = "data/metrics/gsc";
+const OUT_DIR = "data/metrics/crosswalk";
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);

@@ -7,7 +7,7 @@ domain: strategy
 
 ## 事業の週次判断（最初と最後に実行）
 
-`docs/strategy/01_プロダクト戦略.md` と `.claude/config/business-direction.json` を基準にする。**読む順は KPI ツリー（`docs/strategy/15_KPIツリー.md`・管理画面トップ）に従う**: 頂点の月の受取額（`netReceipts`）と目標（`target` 記録）の差を先に確認し、週次では直近の完了月の値を参照するだけにして、原因の候補は前週から落ちた段・目標を割っている段（チャネル → 入口）に絞る。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
+`docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json` を基準にする。**読む順は KPI ツリー（`docs/strategy/15_KPIツリー.md`・管理画面トップ）に従う**: 頂点の月の受取額（`netReceipts`）と目標（`target` 記録）の差を先に確認し、週次では直近の完了月の値を参照するだけにして、原因の候補は前週から落ちた段・目標を割っている段（チャネル → 入口）に絞る。`npm run business-review -- report --json` で前の完了した月曜〜日曜の資格別KPI、欠測、既存レビュー期日を確認する。以下の収集項目はこの判断を支える資料であり、集客だけを成功としない。
 
 収集後、`.claude/knowledge/reference/business-review.md` の手順でsnapshotとweeklyのreviewを追記する。資格別に「実測／未確認／判断／次の一手」を分け、実験IDと次回日を残す。note/ココナラ内アクセス・販売、運営時間も確認する。欠測はprovisional、同じ期間のレビューはsupersedesによる訂正。MDレポートを整理しても機械履歴は削除しない。JSONを明示してコミットする。月次の方針・目標変更は `/monthly-review` へ渡す。
 
@@ -60,7 +60,7 @@ domain: strategy
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
-- **note の流入元・記事別 PV（月次）**: `.claude/state/metrics/note/referrers-YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv-YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review が全体を complete、資格別を partial として自動集計する。週次では流入元内訳を findings 用に読む
+- **note の流入元・記事別 PV（月次）**: `data/metrics/note/referrers-YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv-YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review が全体を complete、資格別を partial として自動集計する。週次では流入元内訳を findings 用に読む
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
@@ -72,7 +72,7 @@ domain: strategy
 - 競合再スキャンの期限: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `competitor-scan-due` が 90 日超を知らせる（週次では実行しない・2026-09-30 DN-0394）。Issue が開いている週だけ、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。
 - 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
   `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
-  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `.claude/config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
+  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
 - GSC/GA4 UI 取得・登録リクエスト・sitemap・GA4 カスタムディメンション: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `gsc-ui-due`・`gsc-indexing-due`・`gsc-sitemaps-due`・`ga4-dimensions` が期限切れ・異常を知らせる（週次では実行しない）。Issue が開いている週だけ理由をそのまま列挙し、直し方（Mac の launchd `gsc-local` の状態とログ・Google の再ログイン・`fetch-metrics.yml` の再実行と Search Console の権限・GA4 設定の反映）を申し送る。GA4 の不足が続くあいだはプログラム別 EPC／配置別 CTR が CI で欠測している点を必ず書く。
 - **note の商品が購入者に届いているか（最重要）**: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `note-delivery-due` が、本文で約束した PDF がライブに無い（購入者が受け取れない）・実査が 14 日超・添付を捨てたまま、を知らせる（週次では実行しない）。Issue が開いていれば**レポート最上段**に置き、次セッションで添付の live 実査と再添付を行う（2026-08-11 の事故の再発防止）。
 - **ココナラブログの健全性**: 送客先が販売中でない・下書き放置は CI ゲート（quality-audit `coconala-blog`・ci:true）が止めるので週次では実行しない。
@@ -94,12 +94,12 @@ domain: strategy
   サイクルが閉じない（EXP-004 は 27 日、EXP-005 は 4 日以上放置された実績がある）。
 - **内部リンク健全性**: 公開ページの壊れた内部リンクは CI ゲート（quality-audit `internal-links`・ci:true）が止める。GSC の理由別 CSV との突合は `/google-search-growth` で行う（週次では実行しない）。
 - A8 成果取込期限（月次）: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `a8-report-due` が 30 日超を知らせる（週次では実行しない）。Issue が開いている週だけ `/a8-report` を申し送る。掲載中の広告の未集計・混入疑い（`issues[]`）は `/a8-report` の中で扱う。
-- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `.claude/state/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。sync-log の最新 run が 8 日より古ければ launchd が止まっている（Mac で launchd `note-sync` の状態を確認する）。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
+- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `data/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。sync-log の最新 run が 8 日より古ければ launchd が止まっている（Mac で launchd `note-sync` の状態を確認する）。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
 - note 構成監査: 有料境界の破損（FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT 等）は週次 CI `note-live-audit.yml` が検査し、失敗は同ワークフローの Issue で届く（週次では実行しない）。
 
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
 
-- **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し／YouTube 全件＝oEmbed で削除・非公開）、加えて**代表ページ**（note は資格×記事の種類ごと 1 本＝約 30 本、YouTube は Shorts・通常動画ごと 1 本）を**各サービスのブレイクポイントで区切った帯ごとの画面幅**（`.claude/config/public-view-breakpoints.json`・note 5 幅／YouTube 11 幅）で撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
+- **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し／YouTube 全件＝oEmbed で削除・非公開）、加えて**代表ページ**（note は資格×記事の種類ごと 1 本＝約 30 本、YouTube は Shorts・通常動画ごと 1 本）を**各サービスのブレイクポイントで区切った帯ごとの画面幅**（`config/public-view-breakpoints.json`・note 5 幅／YouTube 11 幅）で撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
   1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`breakpointDrift` に増減があれば、サービス側が画面幅の切り替えを変えたので設定を見直す（次セッションで）。
   2. sonnet のサブエージェント（`general-purpose`・1 体。note と YouTube で分けてもよい）に各 `review/index.json` と画像の場所を渡し、ページごとに**画面幅を並べて**見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 特定の画面幅でだけ崩れる（重なり・はみ出し・切れ・空の枠・カードや図の欠け）／記号がそのまま出ている（`**`・バッククォート・`\*`）／カバー・サムネイルの文字が切れる／本文の図が題材と合わない／画面の価格表示と `index.json` の原稿価格の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `ID・URL・画面幅・何が・どの画像か・重さ（直す/様子見）` の表。
   3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
@@ -129,7 +129,7 @@ domain: strategy
 調査方法 (2 段階):
 
 > **大原則（誤読防止）**: 計測は CI/CD 供給が正。`fetch-metrics.yml`（毎週金 06:00 JST）が
-> GA4/GSC を取得し `.claude/state/metrics/{ga4,gsc}/` に commit、`psi-audit.yml` が PSI を
+> GA4/GSC を取得し `data/metrics/{ga4,gsc}/` に commit、`psi-audit.yml` が PSI を
 > 日次 commit する。**コミット済みスナップショットを読むのが既定の取得元**であり、ローカル
 > creds は設計上不要。「creds 未設定＝計測基盤未整備」と扱わない。会社 PC は社内プロキシで
 > 外部 API（Google/Meta）が遮断されるため、ライブ fetch は基本通らない。
@@ -152,7 +152,7 @@ B. 実験進捗レポート:
     （例: 「deploy 後に LCP を再計測」＝deploy 待ちで宙吊りになっている申し送り）
   - なぜ機械化したか: 再測定の放置が EXP-002（70日→計測不能で cancelled）・EXP-003（42日）・
     EXP-005（proposed 4週）と 3 回実績化したため
-- 続けて `.claude/state/experiments.json` を読み、status 別にグループ化:
+- 続けて `data/experiments.json` を読み、status 別にグループ化:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
@@ -176,14 +176,14 @@ B. 実験進捗レポート:
 スナップショット読み（既定の取得元）:
 - CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
   コミット済みスナップショットを読んで WoW を自前算出する:
-  - GA4 NSM（推奨）: `.claude/state/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
+  - GA4 NSM（推奨）: `data/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
     最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
     **これがクリーンな7日 WoW**。`ga4-channel-organic-*` が無い場合のみ `ga4-channel-*.json`（28日窓）に
     フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
-  - GSC（推奨）: `.claude/state/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
+  - GSC（推奨）: `data/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
     日次 clicks/impressions を合計して前週比。無ければ `gsc-query-*.json`（28日窓）にフォールバックし
     「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
-  - PSI: `.claude/state/metrics/psi/psi-batch-*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
+  - PSI: `data/metrics/psi/psi-batch-*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
 - スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
 
 出力形式:
@@ -211,8 +211,8 @@ B. 実験進捗レポート:
 ```
 調査項目:
 - `npm run psi-audit:check` を実行し、**stderr の `field(CrUX) coverage: X/Y` と `field 判定不能の内訳` の行をそのまま転記する**（機械が `field_availability.url_level`/`origin_level` を数えた値。生 JSON を目視で読み直さない）
-- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
-- .claude/config/psi-config.json のしきい値
+- data/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
+- config/psi-config.json のしきい値
 - （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
 
 > **大原則（誤報防止）**: **実害は field_data(CrUX 実ユーザー p75) で判定し、lab は診断に使う**。
@@ -220,7 +220,7 @@ B. 実験進捗レポート:
 > **単発値・単発差分で CRITICAL を立てない**。field が FAST なら lab がどれだけ悪くても
 > 「改善余地（Medium 以下）」であって障害ではない。lab の回帰は**直近 5 バッチの中央値**で見る。
 > 真実源: `.claude/knowledge/reference/measurement-incidents.md`「2026-07-27: lab と field の判定原則」。
-> 機械可読は `.claude/config/psi-config.json` の `judgment`。
+> 機械可読は `config/psi-config.json` の `judgment`。
 > ※ 2026-07-27（W30）に lab の単発スパイクを CRITICAL と報告し、実際は field p75 822ms=FAST で
 > 実害ゼロだった。1 週間分の優先順位が歪んだ。
 
@@ -266,9 +266,9 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
 
 調査方法（オフライン・コミット済みスナップショット読み）:
 - `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
-  - 入力: 最新 `.claude/state/metrics/ga4/ga4-page-*.json`（流入）+ `ga4-cta-clicks-*.json`（クリック, あれば）
+  - 入力: 最新 `data/metrics/ga4/ga4-page-*.json`（流入）+ `ga4-cta-clicks-*.json`（クリック, あれば）
   - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
-  - 出力: `.claude/state/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
+  - 出力: `data/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
 - 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4-cta-clicks-*.json` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4-cta-clicks-by-label-*.json`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
   ライブ fetch は不要。creds 未設定でも成立する。
@@ -291,11 +291,11 @@ sales-log が 34 日止まっていたことに誰も気づかず、下流のガ
 扱うため、ここでは重複させず「流入」と「YT 公開照合」に絞る。
 
 調査方法（コミット済みスナップショット読み・全て CI 供給）:
-- SNS 流入: `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json` の最新 2 ファイルで
+- SNS 流入: `data/metrics/ga4/ga4-sourceMedium-sns-*.json` の最新 2 ファイルで
   source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
   （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
-- 週次スナップショット: `.claude/state/weekly-metrics/` の最新 YYYY-Www.json の `sns` セクション
+- 週次スナップショット: `data/weekly-metrics/` の最新 YYYY-Www.json の `sns` セクション
   （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
 - YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
   counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
@@ -488,7 +488,7 @@ blocked / fail があれば「課題・ブロッカー」へ、繰り返し bloc
 npm run review-checks -- --cadence weekly --run YYYY-Www --write
 ```
 
-（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `.claude/state/metrics/business/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
+（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `data/metrics/business/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
 レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
 `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
 
@@ -629,7 +629,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## 実験の進捗
 
-<!-- Agent C が .claude/state/experiments.json から running/measuring/今週 close を自動生成。
+<!-- Agent C が data/experiments.json から running/measuring/今週 close を自動生成。
      running 実験の baseline → current 比較、measure 推奨の警告、
      close 実験の learnings を出力。 -->
 
@@ -650,7 +650,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が .claude/state/metrics/psi/ と npm run psi-audit:check の出力から自動生成
+<!-- Agent C2 が data/metrics/psi/ と npm run psi-audit:check の出力から自動生成
      （GitHub Issue は廃止済み・追跡は psi-batch JSON の時系列＋しきい値比較のみ）。
      今週の違反件数、スコア前週比、新規/解消した違反、field(CrUX) coverage を記録。 -->
 
@@ -676,8 +676,8 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## SNS 流入と投稿実績
 
-<!-- Agent F が `.claude/state/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新2件）で source 別 WoW、
-     `.claude/state/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
+<!-- Agent F が `data/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新2件）で source 別 WoW、
+     `data/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
      ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
      「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->
 

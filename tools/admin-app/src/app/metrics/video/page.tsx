@@ -4,7 +4,7 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { videoOutcomes, derivativeLabel } from '@/lib/video-outcomes';
 import { LABELS } from '@/lib/lifecycle';
-import { EXAM_LABELS, stageClass } from '@/lib/video-board';
+import { examLabel, stageClass } from '@/lib/video-board';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,7 +35,7 @@ export default async function VideoOutcomesPage() {
       </nav>
 
       <Stack>
-      <PanelCard title="計測データ" description=".claude/state/metrics/ga4/ga4-campaign-*.json（CI 供給）">
+      <PanelCard title="計測データ" description="data/metrics/ga4/ga4-campaign-*.json（CI 供給）">
         {metrics.ok ? (
           <div className="filterbar">
             <StatusBadge tone="good">取得済み</StatusBadge>
@@ -135,7 +135,7 @@ export default async function VideoOutcomesPage() {
                   </TableCell>
                   <TableCell className="font-mono">
                     <Link href={`/content/content~sns/video-packs/${r.exam}/${r.slug}`}>{r.packId}</Link>
-                    <div className="text-xs text-muted-foreground">{EXAM_LABELS[r.exam] ?? r.exam}</div>
+                    <div className="text-xs text-muted-foreground">{examLabel(r.exam)}</div>
                   </TableCell>
                   <TableCell className="text-xs">
                     {r.derivatives.length === 0 ? (

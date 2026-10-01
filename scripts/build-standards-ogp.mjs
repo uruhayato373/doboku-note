@@ -10,7 +10,7 @@
  * 呼び出しを書き直すと、フォント・テンプレ・余白が独自進化して見た目がサイトから外れる。
  *
  * 出力先: content/site/standards-articles/{agency}/{document}/chapters/{chapterId}/ogp.png
- *   このパスは .claude/config/asset-storage.json の site-ogp-png グループ
+ *   このパスは config/asset-storage.json の site-ogp-png グループ
  *   （`^content/site/.+/ogp\.png$` → `posts/` prefix）に自動で一致するため、
  *   R2 退避・CI 供給・公開 URL の導出が既存の仕組みにそのまま乗る。
  *

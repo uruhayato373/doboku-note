@@ -171,7 +171,7 @@ jobs:
             cat /tmp/wf-health.txt
             echo '```'
             echo ""
-            echo "- 閾値の真実源: \`.claude/config/workflow-health.json\`（実行間隔＋バッファで決める）"
+            echo "- 閾値の真実源: \`config/workflow-health.json\`（実行間隔＋バッファで決める）"
             echo "- 判定ロジック: \`scripts/check-workflow-health.mjs\`"
             echo "- 閾値そのものを変えるときは config に理由を書く（間隔より短い上限は偽赤になる）"
           } > /tmp/wf-health-body.md

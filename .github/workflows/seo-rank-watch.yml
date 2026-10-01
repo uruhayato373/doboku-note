@@ -76,7 +76,7 @@ jobs:
           prompt: |
             doboku-noteのSEO Rank Watchを1回実行する。これは非対話CIであり、このturnで出力を完成する。
             最初に ${{ runner.temp }}/seo-rank-watch/context.json と
-            .claude/knowledge/reference/seo-rank-watch.md、.claude/config/business-direction.json、
+            .claude/knowledge/reference/seo-rank-watch.md、config/business-direction.json、
             docs/strategy/01_プロダクト戦略.md、.claude/knowledge/reference/content-authoring.md を読む。
             重点資格と判断基準は既存SSOTを使う。図で理解し、過去問で確かめ、答案に活かす。
 

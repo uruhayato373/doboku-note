@@ -5,7 +5,7 @@
  * `.claude/state/youtube-schedule.json` の pending のうち publishAt が近い（leadDays 以内）ものを
  * 最大 uploadBatchPerDay 本（YouTube quota ≈6本/日）、R2 から取得して private+publishAt でアップ。
  * YouTube が publishAt 時刻に自動公開する。アップ後 videoId/uploadedAt/status を台帳に書き戻し、
- * `.claude/state/yt-posted-log.jsonl` に追記する。
+ * `data/yt-posted-log.jsonl` に追記する。
  *
  * 実行: GitHub Actions の post-youtube-scheduled.yml（毎日 cron）。ローカル検証は --dry-run。
  *
@@ -24,7 +24,7 @@ const { google } = require('googleapis');
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 
 const LEDGER = '.claude/state/youtube-schedule.json';
-const LOG = '.claude/state/yt-posted-log.jsonl';
+const LOG = 'data/yt-posted-log.jsonl';
 const DRY = process.argv.includes('--dry-run');
 const maxIdx = process.argv.indexOf('--max');
 const MAX_OVERRIDE = maxIdx !== -1 ? Number(process.argv[maxIdx + 1]) : null;

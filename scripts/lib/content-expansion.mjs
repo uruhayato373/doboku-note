@@ -54,7 +54,7 @@ export function loadExpansion(root) {
 
 /** Metadata and evidence checks only. A passing schema never certifies semantic completeness. */
 export function expansionReport(root, data = loadExpansion(root), registry = null) {
-  registry ??= JSON.parse(readFileSync(resolve(root, '.claude/config/reference-sources.json'), 'utf8'));
+  registry ??= JSON.parse(readFileSync(resolve(root, 'config/reference-sources.json'), 'utf8'));
   const expected = registry.sources.filter(s => ['commercial-book', 'operator-owned'].includes(s.class));
   const issues = [], stale = [], seen = new Set(), hashes = new Map();
   if (data.version !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(data.reviewedAt ?? '')) issues.push('version / reviewedAt を確認してください');
@@ -165,7 +165,7 @@ export function siteSlugOf(path) {
 async function latestGscBySlug(root) {
   const { readdirSync } = await import('node:fs');
   const { slugFromKey } = await import('./url-normalization.mjs');
-  const dir = resolve(root, '.claude/state/metrics/gsc');
+  const dir = resolve(root, 'data/metrics/gsc');
   const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^gsc-page-\d{4}-.*\.json$/.test(f)).sort() : [];
   const out = new Map();
   if (!files.length) return { bySlug: out, file: null, period: null };

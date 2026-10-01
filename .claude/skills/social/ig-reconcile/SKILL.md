@@ -24,7 +24,7 @@ IG カルーセルの「実際に公開されているか（現状確認）」�
 
 ## アカウント SSOT
 
-実アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは [`.claude/config/ig-account.json`](../../../config/ig-account.json)。Xは別アカウント `@doboku373`（`.claude/config/x-account.json`）。スクリプトはハンドルを誤ると空振りするので、必ずconfig経由で参照する。
+実アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは [`config/ig-account.json`](../../../../config/ig-account.json)。Xは別アカウント `@doboku373`（`config/x-account.json`）。スクリプトはハンドルを誤ると空振りするので、必ずconfig経由で参照する。
 
 ## フロー
 

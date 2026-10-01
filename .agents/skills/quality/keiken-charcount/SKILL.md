@@ -4,7 +4,7 @@ description: >
   1級・2級土木 第2次検定 問題1（施工経験記述）の note マガジン模範答案について、各設問の答案本文を
   解答欄しきい値で機械チェックする。scripts/keiken-charcount.mjs が **(N)** マーカー型（完成答案集・過去問）と
   ### 記述例 型（予想問題集）と ### 〔設問〕(N) 見出し型（条件提示型）を両対応で抽出し、
-  .claude/config/keiken-answer-sheet-limits.json のしきい値で OVER を surface する。決定論的処理（CLAUDE.md 原則5）。
+  config/keiken-answer-sheet-limits.json のしきい値で OVER を surface する。決定論的処理（CLAUDE.md 原則5）。
   Use when user asks to [経験記述の字数確認, 施工経験記述の文字数チェック, 解答欄に収まるか, 答案の字数オーバー検出, /keiken-charcount].
 user-invocable: true
 domain: product

@@ -5,7 +5,7 @@
 
 ## 真実源と確認範囲
 
-- 教材の母数・権利区分は `.claude/config/reference-sources.json` の commercial-book / operator-owned。原本と全文OCRはDrive vault。
+- 教材の母数・権利区分は `config/reference-sources.json` の commercial-book / operator-owned。原本と全文OCRはDrive vault。
 - 意味評価の記録は `.claude/state/content-expansion.json`。学習課題、原本の箇所、対応する成果物、図解・SNSの要否と理由を記録する。書籍の本文や目次を公開用コンテンツへ複製しない。
 - 過去の総監398概念評価は `pe-textbook-keyword-coverage.json` を根拠として参照する。今回読んでいない本文を今回検証済みとしない。
 - 単発の実装作業はbacklog、作業実績はdispatch-log。公開・予約は各チャネルの既存SSOT、効果は事業レビュー。対応表へ公開日や売上の別台帳を作らない。

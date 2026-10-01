@@ -3,7 +3,7 @@ import { repoPath } from './repo-root';
 
 /**
  * affiliate.ts — A8 アフィリ成果（読み取り専用）。
- * .claude/state/metrics/affiliate/a8-report-log.json を読む。
+ * data/metrics/affiliate/a8-report-log.json を読む。
  * データ供給は /a8-report（npm run a8-ui:fetch → a8-ui:normalize）。
  *
  * ★ 表示上の最重要ルール: A8 のこの口座は stats47（統計で見る都道府県）と共用で、
@@ -12,12 +12,12 @@ import { repoPath } from './repo-root';
  *   programPeriod は口座横断から allowlist で抽出した doboku 分（crossCheck が担保）。
  */
 
-const AFF = ['.claude', 'state', 'metrics', 'affiliate'] as const;
+const AFF = ['data', 'metrics', 'affiliate'] as const;
 
-/** doboku の副サイト（note 等）の A8 サイト名。正本は .claude/config/a8-report-automation.json の a8.relatedSites。 */
+/** doboku の副サイト（note 等）の A8 サイト名。正本は config/a8-report-automation.json の a8.relatedSites。 */
 function readRelatedSites(): string[] {
   try {
-    const c = JSON.parse(readFileSync(repoPath('.claude', 'config', 'a8-report-automation.json'), 'utf8'));
+    const c = JSON.parse(readFileSync(repoPath('config', 'a8-report-automation.json'), 'utf8'));
     return Array.isArray(c?.a8?.relatedSites) ? c.a8.relatedSites : [];
   } catch {
     return [];
@@ -254,10 +254,10 @@ export function affiliatePlacements(): PlacementView {
   }
 }
 
-/** アフィリエイトに関わる実行中の実験と次の判定日（.claude/state/experiments.json）。 */
+/** アフィリエイトに関わる実行中の実験と次の判定日（data/experiments.json）。 */
 export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
   try {
-    const e = JSON.parse(readFileSync(repoPath('.claude', 'state', 'experiments.json'), 'utf8'));
+    const e = JSON.parse(readFileSync(repoPath('data', 'experiments.json'), 'utf8'));
     const list = (Array.isArray(e) ? e : e.experiments ?? []) as { id: string; title: string; status: string; target_metric?: string; next_check_date?: string }[];
     return list
       .filter((x) => x.status === 'running' && /affiliate|アフィリ/i.test(`${x.title} ${x.target_metric ?? ''}`))
@@ -270,7 +270,7 @@ export function affiliateExperiments(): { id: string; title: string; nextCheck: 
 /** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
 export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
 
-/** 提携・案件（.claude/state/ads/affiliate-catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+/** 提携・案件（data/ads/affiliate-catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
 export interface ProgramCatalogRow {
   id: string;
   label: string;
@@ -280,7 +280,7 @@ export interface ProgramCatalogRow {
 }
 export function affiliateCatalog(): ProgramCatalogRow[] {
   try {
-    const c = JSON.parse(readFileSync(repoPath('.claude', 'state', 'ads', 'affiliate-catalog.json'), 'utf8')) as {
+    const c = JSON.parse(readFileSync(repoPath('data', 'ads', 'affiliate-catalog.json'), 'utf8')) as {
       programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
     };
     const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];

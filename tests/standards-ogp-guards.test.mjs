@@ -210,10 +210,10 @@ test('章 OGP 被覆検査はローカルに実体が無くても退避台帳で
   const target = `${doc.agencyId}/${doc.documentId}`;
   const mirror = mkdtempSync(join(tmpdir(), 'standards-ogp-ledger-'));
   try {
-    mkdirSync(join(mirror, '.claude', 'config'), { recursive: true });
+    mkdirSync(join(mirror, 'config'), { recursive: true });
     symlinkSync(
-      join(REPO_ROOT, '.claude', 'config', 'standards-structure.json'),
-      join(mirror, '.claude', 'config', 'standards-structure.json'),
+      join(REPO_ROOT, 'config', 'standards-structure.json'),
+      join(mirror, 'config', 'standards-structure.json'),
     );
     mkdirSync(join(mirror, 'content', 'site'), { recursive: true });
     symlinkSync(join(SITE_CONTENT_ROOT, 'standards-library'), join(mirror, 'content', 'site', 'standards-library'));

@@ -61,7 +61,7 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
-- `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
+- `--json` 出力先: `data/note/magazines-snapshot.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
   ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
   （2026-06-12 に生成された snapshot が 73 日間そのまま残り、ゼネコン=5 件という古い値を保持していた。「コミット任意」がその腐敗の許可証になっていたため 2026-08-24 に改めた。）
 
@@ -271,7 +271,7 @@ npm run note-convert-to-paid -- --article <path> --commit
 
 - **L1 マガジン内一貫性**（既定で全マガジン）: 同一 `noteMagazine` の単品価格が複数種類に割れていないか。→ 07-24 の事故を1本の値崩れでも検出。
 - **L2 シリーズ内一貫性**（opt-in）: `uniformSeries` に「全マガジン同一単品価格」と宣言したシリーズだけ、期待価格との一致を検査。→ 07-28 の事故（マガジン単位で丸ごとずれる型）を検出。シリーズ内で価格が揃うべきかは商品設計次第（1級土木は学科 ¥580／経験記述 ¥1,980／暗記 ¥980 とライン別が正）なので既定では検査しない。
-- 意図的な価格差は `.claude/config/note-price-consistency.json` の `allowMagazines` に**理由つきで**免除を書く（なぜその差があるかが記録として残る）。
+- 意図的な価格差は `config/note-price-consistency.json` の `allowMagazines` に**理由つきで**免除を書く（なぜその差があるかが記録として残る）。
 
 ```bash
 npm run check-note-price-consistency            # 全 note 記事

@@ -14,12 +14,13 @@ import { fileURLToPath } from 'node:url';
 
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
+import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
-const PRODUCTION_DISCLOSURE = readJson(join(ROOT, '.claude/config/youtube-production-disclosure.json'));
+const PRODUCTION_DISCLOSURE = readJson(join(ROOT, 'config/youtube-production-disclosure.json'));
 const TARGET_EXAMS = [
   'civil-construction-1', 'civil-construction-2',
   'concrete-engineer', 'concrete-chief-engineer',
@@ -249,17 +250,21 @@ function assertMedia(packId: string) {
   return { video, thumbnail, rendered };
 }
 
+// 資格名は registry（qualification-registry.json）の正式名・短い名前から引く（写さない）。
+// 資格名の後に足す検索語だけ YouTube 用の語彙としてここに置く
+const REGISTRY = loadRegistry(ROOT);
+const EXTRA_KEYWORD: Record<TargetExam, string> = {
+  'civil-construction-1': '土木施工管理技士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'civil-construction-2': '土木施工管理技士', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+  'concrete-chief-engineer': 'コンクリート', // qualification-ssot: allow YouTube の追加検索語で資格名ではない
+};
 function examMeta(exam: TargetExam) {
-  if (exam === 'civil-construction-1') {
-    return { label: '1級土木', tags: ['1級土木施工管理技士', '1級土木'], hashtags: '#1級土木 #土木施工管理技士 #試験対策' };
-  }
-  if (exam === 'civil-construction-2') {
-    return { label: '2級土木', tags: ['2級土木施工管理技士', '2級土木'], hashtags: '#2級土木 #土木施工管理技士 #試験対策' };
-  }
-  if (exam === 'concrete-engineer') {
-    return { label: 'コンクリート技士', tags: ['コンクリート技士', 'コンクリート'], hashtags: '#コンクリート技士 #コンクリート #試験対策' };
-  }
-  return { label: 'コンクリート主任技士', tags: ['コンクリート主任技士', 'コンクリート'], hashtags: '#コンクリート主任技士 #コンクリート #試験対策' };
+  const label = qualificationShortLabel(REGISTRY, exam);
+  const extra = EXTRA_KEYWORD[exam];
+  // 動画タグは「正式名・短い名前」、短い名前が正式名と同じならファミリーの語を足す（従来の並びと同じ）
+  const tags = [...new Set([qualificationLabel(REGISTRY, exam), label, ...(label === qualificationLabel(REGISTRY, exam) ? [extra] : [])])];
+  return { label, tags, hashtags: `#${label} #${extra} #試験対策` };
 }
 
 function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {

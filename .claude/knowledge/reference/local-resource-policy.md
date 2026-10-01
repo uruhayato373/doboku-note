@@ -1,6 +1,6 @@
 # ローカル容量・メモリ運用
 
-設定の真実源は `.claude/config/local-resources.json`。保存先は [asset-storage-policy.md](asset-storage-policy.md) に従う。
+設定の真実源は `config/local-resources.json`。保存先は [asset-storage-policy.md](asset-storage-policy.md) に従う。
 
 ## 実行と記録
 

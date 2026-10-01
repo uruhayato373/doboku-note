@@ -23,7 +23,7 @@
  *   node scripts/scout-coconala-blogs.mjs            # config 全件→snapshot＋history＋drift
  *   node scripts/scout-coconala-blogs.mjs --headed
  *   node scripts/scout-coconala-blogs.mjs --query 経験記述   # ad-hoc（履歴を汚さない）
- * 出力: .claude/state/coconala/blog-competitors.json（+ history/blog-YYYY-MM-DD.json）
+ * 出力: data/coconala/blog-competitors.json（+ history/blog-YYYY-MM-DD.json）
  * exit: 0=取得成功 / 1=一部失敗 / 2=全滅（不成立）
  * ---------------------------------------------------------------------------
  */
@@ -35,8 +35,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, '.claude/config/coconala-blog.json');
-const STATE_DIR = join(ROOT, '.claude/state/coconala');
+const CONFIG_PATH = join(ROOT, 'config/coconala-blog.json');
+const STATE_DIR = join(ROOT, 'data/coconala');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'blog-competitors.json');
 const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });

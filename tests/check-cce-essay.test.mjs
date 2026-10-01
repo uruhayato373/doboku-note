@@ -6,7 +6,7 @@ import { evaluateCceEssay, yearsForTheme, renderHistory, extractHistoryBlock, ex
 /**
  * コンクリート主任技士 小論文 テーマ別教材の型（SSOT answerModel）と出題履歴ブロックの同期を固定する。
  */
-const history = JSON.parse(readFileSync(new URL('../.claude/config/cce-essay-history.json', import.meta.url), 'utf8'));
+const history = JSON.parse(readFileSync(new URL('../config/cce-essay-history.json', import.meta.url), 'utf8'));
 const jp = (n) => 'あ'.repeat(n);
 const personas = history.answerModel.personas;
 

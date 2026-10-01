@@ -4,7 +4,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 
 # 成長サイクル（GA4 起点の計測→記録→改善）
 
-アクセスと収益化の改善を、**CI が計測と機会抽出を供給し、ローカル週次レビューが全件を処分し、既存の実行経路が回す**一本のサイクルにする。判断理由の正典は [プロダクト戦略](../../../docs/strategy/01_プロダクト戦略.md)、KPI 定義は `.claude/config/business-direction.json`、閾値は `.claude/config/growth-cycle.json`。
+アクセスと収益化の改善を、**CI が計測と機会抽出を供給し、ローカル週次レビューが全件を処分し、既存の実行経路が回す**一本のサイクルにする。判断理由の正典は [プロダクト戦略](../../../docs/strategy/01_プロダクト戦略.md)、KPI 定義は `config/business-direction.json`、閾値は `config/growth-cycle.json`。
 
 ## 流れと担当
 

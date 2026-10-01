@@ -1,7 +1,7 @@
 /**
  * cce-essay.mjs — コンクリート主任技士 小論文（テーマ別 note 教材・出題履歴表）の判定ロジック（純関数）。
  *
- * 真実源は .claude/config/cce-essay-history.json（出題履歴・テーマ分類・模範答案の型と字数帯）。
+ * 真実源は config/cce-essay-history.json（出題履歴・テーマ分類・模範答案の型と字数帯）。
  * 本モジュールは形式・字数・SSOT との一致だけを機械化し、答案の中身（技術精度・立場の妥当性）は評価しない（cce-essay-qa）。
  */
 

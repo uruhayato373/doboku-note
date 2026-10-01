@@ -36,7 +36,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CREATOR = 'dobokunote';
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const SNAPSHOT_DIR = join(ROOT, '.claude/state/note');
+const SNAPSHOT_DIR = join(ROOT, 'data/note');
 
 const args = process.argv.slice(2);
 const WANT_CONTENTS = args.includes('--contents');

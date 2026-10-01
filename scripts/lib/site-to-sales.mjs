@@ -369,7 +369,7 @@ export function renderSiteToSalesTable(report) {
 }
 
 /**
- * 書き出し先を決める。`.claude/state/metrics/business/` は追記専用の台帳
+ * 書き出し先を決める。`data/metrics/business/` は追記専用の台帳
  * （check-business-direction が既存ファイルの変更を拒否する）なので、同月の内容が変わったら
  * 上書きせず `-rN` の改訂ファイルを足す。内容が同じなら書かない。
  * @param {string[]} existingNames ディレクトリ内のファイル名

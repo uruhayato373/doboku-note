@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "description": "人か手元のスクリプトだけが使うアセット（audience=human）の置き場＝Google Drive vault の機械可読 SSOT。R2（asset-storage.json）とは独立した系で、drive-vault-sync / check-drive-vault が読む。台帳は .claude/state/assets/drive-manifest.json。ルールの本文は .claude/knowledge/reference/asset-storage-policy.md §1。",
+  "invariants": [
+    "置き場は audience で決める。サイトが配信する→public R2 / CI が読み書きする→private R2 / 人か手元のスクリプトだけ→この Drive vault。",
+    "vault のパスは vault 相対で持つ。台帳に絶対パス（/Users/… や C:\\…）を書かない。マウント先は実行時に解決する。",
+    "sync は既定 dry-run。書き込みは --commit。コピー後に vault 側から読み直して sha256 が一致したものだけ台帳へ載せる。",
+    "サイズとハッシュは必ず読んで測る。Drive のストリーミングマウントは cloud-only のファイルに 16MiB のプレースホルダを stat で返す。",
+    "マウントへ書けた＝クラウドへ上がった、ではない。R2 側を消す前は --verify --cloud（Drive API の md5）を通す。リモート未設定なら fail-closed。",
+    "CI は Drive を持たない。ワークフローからこの系を呼ばない。マウント無しの検査は「実体検査 0 件」と明示し、無言の緑を作らない。",
+    "同じ repo パスが asset-storage.json と drive-vault.json の両方に一致する状態（active 同士）を作らない。check-drive-vault が衝突として止める。",
+    "台帳 drive-manifest.json は lean format（2026-09-06 DN-0172）。group 定義から導出できる vaultPath（adopted でないもの）と group 既定と同じ regenerable は書かない。読むときは loadDriveManifest が補うので、台帳 JSON を直読みするコードはこの 2 項目を当てにしない。書くときは補完して元に戻ることを全件検証してから置換する。"
+  ],
+  "vaultRoot": {
+    "env": "DOBOKU_DRIVE_VAULT",
+    "marker": "README.md",
+    "candidates": [
+      {
+        "platform": "darwin",
+        "glob": "~/Library/CloudStorage/GoogleDrive-*/マイドライブ/doboku-note"
+      },
+      {
+        "platform": "win32",
+        "path": "G:/マイドライブ/doboku-note"
+      },
+      {
+        "platform": "win32",
+        "path": "%USERPROFILE%/Google Drive/マイドライブ/doboku-note"
+      },
+      {
+        "platform": "win32",
+        "path": "%USERPROFILE%/マイドライブ/doboku-note"
+      }
+    ],
+    "note": "env が最優先。候補は marker（README.md）が実在するものだけ採用する。どれも無ければ root=null と理由を返し、例外にはしない。"
+  },
+  "cloud": {
+    "rcloneRemote": "doboku-gdrive",
+    "remoteRoot": "doboku-note",
+    "note": "--verify --cloud が使う。`rclone config` で Google Drive バックエンドのリモートを doboku-gdrive の名で作る（ブラウザ OAuth・人が 1 回）。"
+  },
+  "dedupeScan": [
+    "原資料PDF"
+  ],
+  "layout": {
+    "原資料PDF": "資料ごとの正本を1か所で管理。書籍/{referenceId}__{短い書名}/{source,pages,ocr,crops}/ に原本・画像・文字起こし・校正記録・図を同居させる。共通仕様書も原本隣接の同名フォルダに pages/text/ocr を置く。",
+    "制作物": "人が使う成果物。note配布PDF / IGレンダー / SNS音声動画（reels wav・mp4、YouTube Shorts mp4）/ 動画レンダー / Kindle / ココナラ / マガジンカバー / noteカバー確認用一式。",
+    "アーカイブ": "repo/（repo-archive）と 旧R2/（legacy-r2-orphan の SNS 素材）。"
+  },
+  "groups": [
+    {
+      "id": "standards-page-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/standards/.+/(pages/.+\\.jpe?g|text/.+\\.txt)$"
+      },
+      "vaultDir": "原資料PDF/共通仕様書",
+      "keyFrom": "standards-beside-pdf",
+      "regenerable": true,
+      "generator": "npm run build-standards-page-images",
+      "requiredBy": [
+        "scripts/check-standards-page-images.mjs",
+        "図クロップ・出典ページ照合（人）"
+      ],
+      "reason": "公的基準の原本 PDF を 1 ページ 1 画像＋1 テキストへ割った派生物。原本と同じ Drive に、原本 PDF と同名のフォルダで隣に置く（人が PDF とページを見比べる）。原本から決定的に再生成でき、著作権物でもないので R2 に置く理由が無い。"
+    },
+    {
+      "id": "past-exam-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/past-exams/[^/]+/[^/]+/[^/]+\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/過去問",
+      "keyFrom": "stripPrefix:content/sources/past-exams/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "config/past-exam-inventory.json（年度在庫の実体）",
+        ".claude/skills/conversion/past-exam-archive（取得・退避・照合）",
+        "過去問 MDX の原典照合（人）"
+      ],
+      "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は past-exam-inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
+    },
+    {
+      "id": "textbook-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/textbook/.+\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/教材",
+      "keyFrom": "stripPrefix:content/sources/textbook/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        ".claude/skills/conversion/pdf-to-mdx（--scanned）",
+        "文字起こしの原典照合（人）"
+      ],
+      "reason": "スキャン教材の原本 PDF。著作権物で public repo にも public R2 にも置けない。読むのは人と手元の OCR パイプラインだけなので Drive。既に手で置いた 63 本は sha256 で adopt して二重化しない。"
+    },
+    {
+      "id": "textbook-page-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"
+      },
+      "vaultDir": "原資料PDF/教材",
+      "keyFrom": "stripPrefix:content/sources/textbook/",
+      "regenerable": true,
+      "generator": "原典 PDF から再抽出（pdfimages → 回転 → 分割）",
+      "requiredBy": [
+        ".claude/skills/conversion/pdf-to-mdx",
+        "scanned-figure-crop-auditor"
+      ],
+      "reason": "教材のページ画像・図クロップ。原本 PDF と同じ 教材/{書名}/ ツリーに置き、PDF とページが同居する。"
+    },
+    {
+      "id": "reference-book-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/books/[^/]+/source/[0-9]{3}\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/書籍",
+      "keyFrom": "stripPrefix:content/sources/books/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/build-reference-book-pages.mjs",
+        "文字起こし・図クロップの原典照合（人）"
+      ],
+      "reason": "参考文献 ID 単位へ整理した市販書籍の原本 PDF。著作権物であり、読むのは人と手元の OCR・クロップ処理だけなので、1冊1ディレクトリの Drive vault に置く。"
+    },
+    {
+      "id": "reference-book-page-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/books/[^/]+/(pages/p[0-9]{4}\\.jpe?g|crops/p[0-9]{4}_[^/]+\\.(png|jpe?g|webp))$"
+      },
+      "vaultDir": "原資料PDF/書籍",
+      "keyFrom": "stripPrefix:content/sources/books/",
+      "regenerable": true,
+      "generator": "npm run build-reference-book-pages",
+      "requiredBy": [
+        ".claude/skills/conversion/pdf-to-mdx（--scanned）",
+        "scanned-figure-crop-auditor"
+      ],
+      "reason": "参考文献 ID 単位の通しページ画像と最終図クロップ。原本 PDF と同じ書籍ディレクトリに置き、OCR・原典照合・再クロップをページ単位で再実行できるようにする。"
+    },
+    {
+      "id": "note-delivery-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/note/.+\\.pdf$"
+      },
+      "vaultDir": "制作物/note配布PDF",
+      "keyFrom": "stripPrefix:content/note/",
+      "regenerable": true,
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs",
+        "scripts/check-note-attachments.mjs"
+      ],
+      "reason": "note 購入者へ配布する PDF。note へ添付するのは人が手元で実行するスクリプトで、サイトも CI も読まない。"
+    },
+    {
+      "id": "ig-rendered-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sns/instagram/(?:(?!.*/reels/).+|.+/reels/cover)\\.(png|jpe?g)$"
+      },
+      "vaultDir": "制作物/IGレンダー",
+      "keyFrom": "stripPrefix:content/sns/instagram/",
+      "regenerable": true,
+      "generator": "slide-data.json / reels/script.json と採用素材から再レンダー（ig-post-create / instagram-carousels:render / render-instagram-video-pack-reels）",
+      "requiredBy": [
+        ".claude/skills/social/publish-ig-bs"
+      ],
+      "reason": "IG カルーセルとReels表紙のレンダー PNG。投稿は人が手元の Playwright で行い、サイトもCIも読まない。"
+    },
+    {
+      "id": "x-rendered-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sns/x/draft/\\d{3}-[a-z0-9-]+-diagrams/img/tweet-\\d{2}-[^/]+\\.png$"
+      },
+      "vaultDir": "制作物/Xレンダー",
+      "keyFrom": "stripPrefix:content/sns/x/",
+      "regenerable": true,
+      "generator": "images.json の元記事・図と tweets.md から scripts/render-x-figure-drafts.mjs で再生成",
+      "requiredBy": [
+        ".claude/skills/social/publish-x"
+      ],
+      "reason": "サイト図から生成したX下書き画像。投稿は人が手元で確認して行い、サイトもCIも実体を配信しない。"
+    },
+    {
+      "id": "video-render-artifact",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/|youtube-covers-)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
+      },
+      "vaultDir": "制作物/動画レンダー",
+      "keyFrom": "stripPrefix:.tmp/video-render/",
+      "regenerable": true,
+      "generator": "npm run render-longform",
+      "requiredBy": [
+        "YouTube へのアップロード（人）"
+      ],
+      "reason": "16:9 動画のレンダー成果物。render-longform を回す CI ワークフローは存在せず、生成も公開も人が手元で行う。"
+    },
+    {
+      "id": "youtube-approved-cover",
+      "status": "active",
+      "audience": "human",
+      "match": {
+          "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.png$"
+      },
+      "vaultDir": "制作物/動画レンダー/採用カバー",
+      "keyFrom": "stripPrefix:.tmp/video-render/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": ["scripts/lib/youtube-approved-cover.mjs"],
+      "reason": "人が確認したPNGを制作端末の書体に依存せず使う。Macから読み込むためDriveに保管し、フォントを持たない端末での再生成は前提にしない。"
+    },
+    {
+      "id": "kindle-dist",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
+      },
+      "vaultDir": "制作物/Kindle",
+      "keyFrom": "stripPrefix:scripts/kindle-dist/",
+      "regenerable": true,
+      "generator": "npm run kindle-build",
+      "requiredBy": [
+        "scripts/kdp-publish.mjs"
+      ],
+      "coexistWithGit": true,
+      "reason": "KDP へ入稿した EPUB と表紙。Git が正本（CI の check-kindle-format が blob を読む）で、ここは控え。入稿は人が手元で行う。"
+    },
+    {
+      "id": "coconala-asset",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/coconala/assets/.+"
+      },
+      "vaultDir": "制作物/ココナラ",
+      "keyFrom": "stripPrefix:content/coconala/assets/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs"
+      ],
+      "reason": "ココナラ出品の画像・配布 PDF。出品は人が手元の Playwright で行う。"
+    },
+    {
+      "id": "note-magazine-cover-png",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/note/.+/_cover\\.png$"
+      },
+      "vaultDir": "制作物/マガジンカバー",
+      "keyFrom": "stripPrefix:content/note/",
+      "regenerable": true,
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-create.mjs"
+      ],
+      "reason": "note マガジンのカバー。マガジン作成は人が手元で行う。CI が書く記事カバー（note-cover-png）とは別物。"
+    },
+    {
+      "id": "note-cover-pop-preview",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.tmp/note-cover-pop-all/(?:content/note/.+\\.png|manifest\\.json|pop-image\\.json|qa-report\\.json|qa-contact-sheet\\.png)$"
+      },
+      "vaultDir": "制作物/noteカバー/POP版",
+      "keyFrom": "stripPrefix:.tmp/note-cover-pop-all/",
+      "regenerable": true,
+      "generator": "npm run note-character-covers -- --output-root .tmp/note-cover-pop-all",
+      "requiredBy": [
+        "新デザインの人による全件確認（note-cover-tokens.json の designVersion を上げる前）"
+      ],
+      "reason": "新しいnoteカバーテンプレートの全件確認用一式。版を上げる前に人が一覧確認し、端末間で共有するためDriveへ置く。note への登録（Mac の週次 note-sync-routine）とは別の確認用成果物。"
+    },
+    {
+      "id": "repo-archive",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
+      },
+      "vaultDir": "アーカイブ/repo",
+      "keyFrom": "repoRelative",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [],
+      "reason": "監査証跡・表紙デザイン案・キャラ素材原本。読む人はいても読むコードは無い。"
+    },
+    {
+      "id": "legacy-r2-orphan",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.local/archive/legacy-r2/sns/.+$"
+      },
+      "vaultDir": "アーカイブ/旧R2/sns",
+      "keyFrom": "stripPrefix:.local/archive/legacy-r2/sns/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [],
+      "reason": "旧 R2 から退避した SNS 素材（exam-packs の wav/mp4 等 1,146 件）。読み手は無いが再生成できないので捨てずに Drive へ。同じ孤児のうち記事画像 2,573 件は参照 0 を確認して削除する（Drive へは持たない）。"
+    },
+    {
+      "id": "sns-archived-media",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$"
+      },
+      "vaultDir": "制作物/SNS音声動画",
+      "keyFrom": "stripPrefix:content/sns/",
+      "regenerable": true,
+      "generator": "reels/script.txt・script.json から VOICEVOX 再合成＋ffmpeg（ig-reel-create / publish-reel-jit / yt-shorts-create）",
+      "requiredBy": [
+        "scripts/publish-reel-jit.mjs",
+        ".claude/scripts/youtube/per-problem-shorts.mjs"
+      ],
+      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
+    },
+    {
+      "id": "source-transcript",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/(textbook/(?!(?:.*/)?README\\.md$).+\\.md|books/[^/]+/ocr/(?!(?:.*/)?README\\.md$).+\\.md)$"
+      },
+      "vaultDir": "原資料PDF",
+      "keyFrom": "reference-transcript",
+      "regenerable": false,
+      "generator": "pdf-to-mdx --scanned（scanned-textbook-transcriber が視覚 OCR で書き起こす）",
+      "requiredBy": [
+        "scripts/check-reference-sources.mjs"
+      ],
+      "reason": "原本の文字起こしを参考文献 ID から解決し、同じ原本ディレクトリの ocr/ へ置く。旧 repo 論理キーも同じ物理正本へ解決する。市販書籍由来は Git と公開サイトに置かない。"
+    }
+  ]
+}

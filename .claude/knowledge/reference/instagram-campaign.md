@@ -1,6 +1,6 @@
 # Instagram動画パックの制作・配信
 
-制作対象と投稿順は [instagram-campaign.json](../../config/instagram-campaign.json)、制作物の照合結果は [instagram-campaign.json](../../state/instagram-campaign.json) が真実源。2026-09-10の承認範囲は112テーマをカルーセル112投稿・リール224本へ展開し、全件を制作・検査してから配信を始める。
+制作対象と投稿順は [instagram-campaign.json](../../../config/instagram-campaign.json)、制作物の照合結果は [instagram-campaign.json](../../state/instagram-campaign.json) が真実源。2026-09-10の承認範囲は112テーマをカルーセル112投稿・リール224本へ展開し、全件を制作・検査してから配信を始める。
 
 ## 制作
 

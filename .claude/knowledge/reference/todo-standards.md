@@ -101,7 +101,7 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 | `[起票:YYYY-MM-DD]` | 任意 | 鮮度測定 |
 | `[期日:YYYY-MM-DD]` | 任意 | 期限。超過は admin がバッジで出す |
 | `[時期:YYYY-MM]` / `[時期:YYYY-MM..YYYY-MM]` | 🔴・🟡 は必須（`[期日:]` があれば期日の月を含める）。🟢・🟣 は任意 | やる月。いつやるかの唯一の正本（見出しは重要度）。年間ロードマップ（管理画面 計画 ＞ 年間ロードマップ）と「今月のカード」はこの値だけで決まる（重点の別台帳を持たない）。形式は `check-backlog-schema`、過ぎたまま残るカードは `check-backlog-health` S15（`npm run roll-backlog-when` で翌月へ回す）。doboku-note だけの拡張 |
-| `[領域:X]` | doboku-note は必須 | 事業の領域（戦略 / 計画 / 商品 / アフィリエイト / サイト / SNS / 教材 / 管理）。語彙の正本は `.claude/config/domains.json`。サイドバー・スケジュールと同じ領域で束ねる。doboku-note だけの拡張（stats47 共通スキーマには無い） |
+| `[領域:X]` | doboku-note は必須 | 事業の領域（戦略 / 計画 / 商品 / アフィリエイト / サイト / SNS / 教材 / 管理）。語彙の正本は `config/domains.json`。サイドバー・スケジュールと同じ領域で束ねる。doboku-note だけの拡張（stats47 共通スキーマには無い） |
 | `[Codex候補]` | flag | バルク処理向き |
 | `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない**（付け外しは doboku-note では `todo:claim`/`todo:release`。契約→[todo-lifecycle.md](todo-lifecycle.md)） |
 

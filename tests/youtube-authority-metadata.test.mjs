@@ -5,7 +5,7 @@ import test from 'node:test';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const disclosure = JSON.parse(readFileSync(join(ROOT, '.claude/config/youtube-production-disclosure.json'), 'utf8'));
+const disclosure = JSON.parse(readFileSync(join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'));
 
 function walk(dir, out = []) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {

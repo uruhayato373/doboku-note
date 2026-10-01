@@ -5,7 +5,7 @@
  * links/page.tsx（/links の単発サービス導線）と check-coconala-wiring.mjs から参照される。
  *
  * 出品フロー (2026-07-18〜 自動化):
- * 1. 本エントリ（title/price/status:'draft'）＋ .claude/config/coconala-listings.json（本文/カテゴリ）を用意
+ * 1. 本エントリ（title/price/status:'draft'）＋ config/coconala-listings.json（本文/カテゴリ）を用意
  * 2. `/coconala-publish`（node scripts/coconala-publish.mjs --service <id> --commit）で出品
  *    → 公開成功時に status:'listed' + serviceUrl + listedAt を本ファイルへ自動書き戻し
  * 3. commit → デプロイ後、/links に「単発サービス」カードが自動表示される
@@ -99,7 +99,7 @@ export interface CoconalaService {
  *
  * 新サービス追加時の配線チェックリスト（capability ドリフト防止・2026-07-16 / 07-18 拡充）:
  *   本エントリ追加だけでは依存する実行系に配線されない。新サービスを足したら:
- *   1. 投入本文: .claude/config/coconala-listings.json に category/genreFacets/provisionFormat/
+ *   1. 投入本文: config/coconala-listings.json に category/genreFacets/provisionFormat/
  *      catchphrase(15-30字)/body(≤1000)/purchaseNote(≤500) を追加
  *   1b. PDF 商品（id が -pdf）なら notePriceBasis（note で同じ中身を買う方法）か notePriceExempt（対象外の理由）を書く。
  *       価格は note 基準 × 1.1 を価格刻みで切り上げた額以上（check-coconala-wiring 検査10・coconala-operations.md §2.6）
@@ -633,7 +633,7 @@ const SERVICES_RAW = {
   },
   // 総監 出題テーマ分析 PDF（テスト出品）。有料note「設問3国家施策バンク」本文は転載せず、
   // 出題傾向の読み方＋R8地方創生の正直な検証に限定（非カニバリ）。PDF は外部URL0件で生成済
-  // （.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf）。status:'draft'。
+  // （content/coconala/assets/pdf/coconala-sokan-bunseki.pdf）。status:'draft'。
   // 公開前ゲート: /coconala-publish --commit。総監はココナラ客層が薄い前提の test。
   // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を
   //   1級・2級土木（級別の添削・作成）とコンクリート主任技士へ回す。note 側の商品は残す。
@@ -655,7 +655,7 @@ const SERVICES_RAW = {
   },
 
   // ---- RCCM（2026-09-15 新設・CBT 試験期間 9/1〜10/31 の直前期向け）----
-  // 競合実測（.claude/state/coconala/market-research.json）: 経験論文添削 ¥6,500〜13,000、
+  // 競合実測（data/coconala/market-research.json）: 経験論文添削 ¥6,500〜13,000、
   // 択一予想 ¥2,500（★4.9・48件）。運営者の座は「発注者としてコンサル業務を発注・検査した技術士（建設・総監）」。
   // RCCM 合格・コンサル在籍は名乗らない。出品は /coconala-publish --commit（status:'draft' → 'listed' と serviceUrl を同時に埋める）。
   // 2026-09-25 アーカイブ（ユーザー決定）: ココナラでは RCCM と総監から撤退し、出品上限20件の枠を

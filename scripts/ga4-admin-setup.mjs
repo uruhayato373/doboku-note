@@ -9,9 +9,9 @@
  * 管理画面設定は API（Admin API）でも可能だが、この口座はサービスアカウントに編集権を与えていない
  * ため、ログイン済みプロファイルのブラウザ操作で **観測 → 差分 → 作成** を回す。
  *
- * 望ましい状態の SSOT: .claude/config/ga4-admin-desired-state.json
- * 観測結果の SSOT:     .claude/state/metrics/ga4-admin/inventory-latest.json（追跡）
- *                      .claude/state/metrics/ga4-admin/last-run.json（追跡・マーカー）
+ * 望ましい状態の SSOT: config/ga4-admin-desired-state.json
+ * 観測結果の SSOT:     data/metrics/ga4-admin/inventory-latest.json（追跡）
+ *                      data/metrics/ga4-admin/last-run.json（追跡・マーカー）
  *
  * CLI:
  *   node scripts/ga4-admin-setup.mjs                 # 観測のみ（dry-run 既定）。差分を出して終了
@@ -41,8 +41,8 @@ import {
   ga4RoutePrefix,
 } from "./lib/google-console-browser.mjs";
 
-const STATE_DIR = ".claude/state/metrics/ga4-admin";
-const DESIRED_PATH = ".claude/config/ga4-admin-desired-state.json";
+const STATE_DIR = "data/metrics/ga4-admin";
+const DESIRED_PATH = "config/ga4-admin-desired-state.json";
 
 function parseArgs() {
   const a = process.argv.slice(2);

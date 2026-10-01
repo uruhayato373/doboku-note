@@ -3,7 +3,7 @@
  * check-coverage-thresholds.mjs
  * ---------------------------------------------------------------------------
  * index-coverage.yml が history へ追記した**直後**に走る機械ゲート。
- * `.claude/state/metrics/gsc/index-coverage-history.json` の最新エントリ（と前回）を読み、
+ * `data/metrics/gsc/index-coverage-history.json` の最新エントリ（と前回）を読み、
  * 「機械が無条件に異常と断定できるもの」だけを exit 1 にする。
  *
  * 赤にするもの（無条件の異常）:
@@ -32,7 +32,7 @@ const ROOT = join(__dirname, "..", "..");
 
 const args = process.argv.slice(2);
 const hi = args.indexOf("--history");
-const HISTORY = hi >= 0 && args[hi + 1] ? args[hi + 1] : ".claude/state/metrics/gsc/index-coverage-history.json";
+const HISTORY = hi >= 0 && args[hi + 1] ? args[hi + 1] : "data/metrics/gsc/index-coverage-history.json";
 
 /** URL Inspection の 1 日上限 2,000 に対する安全マージン（index-coverage.yml の head -n と一致させる）。 */
 const INSPECT_CAP = 1900;

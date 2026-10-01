@@ -1,8 +1,8 @@
 /**
  * PSI しきい値チェックスクリプト
  *
- * .claude/state/metrics/psi/ の最新 2 ファイル（mobile + desktop 同日実行分）を読み、
- * .claude/config/psi-config.json のしきい値と比較して violations を標準出力に書き出す。
+ * data/metrics/psi/ の最新 2 ファイル（mobile + desktop 同日実行分）を読み、
+ * config/psi-config.json のしきい値と比較して violations を標準出力に書き出す。
  *
  * Usage:
  *   node .claude/scripts/psi-threshold-check.mjs                     # 人間向けサマリー
@@ -18,8 +18,8 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 
-const CONFIG_PATH = ".claude/config/psi-config.json";
-const DEFAULT_STATE_DIR = ".claude/state/metrics/psi";
+const CONFIG_PATH = "config/psi-config.json";
+const DEFAULT_STATE_DIR = "data/metrics/psi";
 
 function parseArgs() {
   const args = process.argv.slice(2);

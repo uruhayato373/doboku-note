@@ -10,7 +10,7 @@ import { join } from 'node:path';
 
 export const COMPETITOR_CHANNELS = ['note', 'x', 'ig', 'coconala', 'youtube'];
 /** 市場スキャンの置き場。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
-export const MARKET_HISTORY_DIR = '.claude/state/market/history';
+export const MARKET_HISTORY_DIR = 'data/market/history';
 const MARKET_FILE = /^market-(\d{4}-\d{2}-\d{2})\.json$/;
 
 /** 最も新しい市場スキャン（無ければ null）。 */
@@ -52,13 +52,13 @@ const readIf = (path) => (existsSync(path) ? readJson(path) : null);
 
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
-  const config = (name) => readJson(join(root, '.claude/config', name));
-  const salesLog = readIf(join(root, '.claude/state/sales/sales-log.json'));
-  const orderLog = readIf(join(root, '.claude/state/coconala/orders-log.json'));
+  const config = (name) => readJson(join(root, 'config', name));
+  const salesLog = readIf(join(root, 'data/sales/sales-log.json'));
+  const orderLog = readIf(join(root, 'data/coconala/orders-log.json'));
   /** @type {Record<string, any[]>} */
   const competitors = {};
   for (const ch of COMPETITOR_CHANNELS) {
-    const path = join(root, '.claude/config', `${ch}-competitors.json`);
+    const path = join(root, 'config', `${ch}-competitors.json`);
     competitors[ch] = existsSync(path) ? readJson(path).competitors ?? [] : [];
   }
   return {
@@ -73,6 +73,6 @@ export function loadMarketInputs(root) {
     orders: Array.isArray(orderLog) ? orderLog : (orderLog?.orders ?? []),
     competitors,
     snapshot: latestMarketSnapshot(root),
-    coconalaResearch: readIf(join(root, '.claude/state/coconala/market-research.json')),
+    coconalaResearch: readIf(join(root, 'data/coconala/market-research.json')),
   };
 }

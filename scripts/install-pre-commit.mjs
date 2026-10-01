@@ -186,7 +186,7 @@ if [ -z "$SKIP_REFERENCE_SOURCES" ]; then
   fi
 fi
 
-# 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
+# 置き場のモデル（docs/content/config/data/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
 # docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
 node scripts/check-information-architecture.mjs --staged
 if [ $? -ne 0 ]; then
@@ -223,6 +223,12 @@ fi
 
 # 1級・2級土木の公式試験日SSOTと既知の誤日付を検証
 node scripts/check-exam-calendar.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 資格の名前・並び順は qualification-registry.json だけ（設定の写し・コードの対応表の増加を止める）
+node scripts/check-qualification-ssot.mjs
 if [ $? -ne 0 ]; then
   exit 1
 fi

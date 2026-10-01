@@ -3,7 +3,7 @@
 図版 SVG を「記事 + SNS 両用」で運用するための**固定キャンバス標準**の真実源（SSOT）。
 新規作図のサイズ規約・既存図の移行方針・ガード・カタログ管理・エージェント分業をここで定義する。
 
-機械可読版（レンダラー・ガード・カタログ・Generator が参照）は `.claude/config/figure-canvas.json`。
+機械可読版（レンダラー・ガード・カタログ・Generator が参照）は `config/figure-canvas.json`。
 色トークンは `.claude/knowledge/design-system/svg-tokens.json`、作図手順は `.claude/skills/authoring/create-svg/SKILL.md`。
 
 > [!note] 確定事項（2026-06-22）
@@ -137,7 +137,7 @@
 
 ## 7. 実装シーケンス（設計承認後）
 
-- [ ] `.claude/config/figure-canvas.json`（機械 SSOT）— 本 doc と対で作成済み
+- [ ] `config/figure-canvas.json`（機械 SSOT）— 本 doc と対で作成済み
 - [ ] `scripts/check-figure-canvas.mjs` ＋ pre-commit / CI 配線（allowlist 付き）
 - [ ] create-svg SKILL.md を固定キャンバス（高さ 500 固定・2 canvas）へ改定
 - [ ] `build-svg-catalog` に canvas/fitStatus フィールド追加（※ PR#269 の所在を要確認）

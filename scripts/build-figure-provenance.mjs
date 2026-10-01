@@ -9,7 +9,7 @@
  * 入力（既にあるものを join・二重計算しない）:
  *   - content/site/**\/img/*.{png,webp,jpg}   … 記事図（png/webp は basename で 1 レコード）
  *   - .claude/state/figure-text-audit.json         … 品質(sharp/soft/blurry)・写り込み(leak/prose/...)
- *   - .claude/config/figure-sources.json           … 資格別ソース台帳（元素材・再スキャン要否）
+ *   - config/figure-sources.json           … 資格別ソース台帳（元素材・再スキャン要否）
  *   - 各記事 article.mdx                            … published / 図の本文参照(掲載)
  *
  * needs（次アクション）の決め方:
@@ -33,7 +33,7 @@ const quiet = process.argv.includes("--json");
 const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 
 const audit = readJson(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
-const sourcesDoc = readJson(path.join(ROOT, ".claude", "config", "figure-sources.json"));
+const sourcesDoc = readJson(path.join(ROOT, "config", "figure-sources.json"));
 const sources = sourcesDoc?.categories || {};
 const manualNeeds = Array.isArray(sourcesDoc?.manual_needs) ? sourcesDoc.manual_needs : [];
 const resolveSrc = (cat) => {

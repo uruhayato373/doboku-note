@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-const manifest = JSON.parse(readFileSync('.claude/config/character-poses.json', 'utf8'));
+const manifest = JSON.parse(readFileSync('config/character-poses.json', 'utf8'));
 
 test('キャラクター台帳から検索・絞り込み・3案比較ができる', async ({ page }) => {
   test.setTimeout(120_000);

@@ -3,7 +3,7 @@
  *
  * GA4 Data API の標準指標 sessions / keyEvents / sessionKeyEventRate を pagePath 別に取る。
  * キーイベントの定義（どのイベントを数えるか）は GA4 プロパティ側が真実源
- * （`.claude/config/ga4-admin-desired-state.json`）。ここではイベント名で絞らない。
+ * （`config/ga4-admin-desired-state.json`）。ここではイベント名で絞らない。
  * sessionKeyEventRate は API が 0〜1 の小数で返す（％ではない）。
  */
 import { japanFilter, spamExclusion, andFilter } from "./ga4-client.mjs";

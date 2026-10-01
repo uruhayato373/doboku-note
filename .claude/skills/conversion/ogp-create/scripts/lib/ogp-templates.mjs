@@ -2,7 +2,7 @@
  * OGP テンプレートレンダラ（T06 Mono Tag 統一版）。
  *
  * 各テンプレは (props, sizeOpts) を受け取って satori element を返す純関数。
- * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) .claude/knowledge/reference/ogp-prompts.md に出典記録 の3点セット。
+ * テンプレ追加時は 1) renderers に関数追加 2) config/ogp/templates.json に定義追加 3) .claude/knowledge/reference/ogp-prompts.md に出典記録 の3点セット。
  *
  * レイアウト方針（2026-06-16〜）:
  *   - mono-tag（サイト OGP / cover 無し note カバー）は全幅レイアウト。左右 72px パディング内に

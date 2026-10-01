@@ -4,9 +4,9 @@ import { join, resolve } from 'node:path';
 import { buildNoteFunnelEfficiency, renderNoteFunnelEfficiencyMarkdown } from './lib/note-funnel-efficiency.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const GA4_DIR = join(ROOT, '.claude/state/metrics/ga4');
-const SALES_PATH = join(ROOT, '.claude/state/sales/sales-log.json');
-const OUTPUT_DIR = join(ROOT, '.claude/state/metrics/monetization');
+const GA4_DIR = join(ROOT, 'data/metrics/ga4');
+const SALES_PATH = join(ROOT, 'data/sales/sales-log.json');
+const OUTPUT_DIR = join(ROOT, 'data/metrics/monetization');
 
 function valueAfter(args, flag) {
   const index = args.indexOf(flag);

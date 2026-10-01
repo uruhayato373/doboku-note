@@ -5,7 +5,7 @@
  * - 全件（台帳で公開の動画）: YouTube oEmbed（ログイン・API キー不要）で見られるか（404 削除・403 非公開）。
  *   CI のブラウザでは bot 確認でプレーヤーが隠れるので、再生可否はページではなく oEmbed で決める。
  * - 代表動画（--review）: Shorts と通常動画それぞれで公開がいちばん新しい 1 本を、YouTube の
- *   ブレイクポイントで区切った帯ごとの画面幅（.claude/config/public-view-breakpoints.json）で開いて撮る。
+ *   ブレイクポイントで区切った帯ごとの画面幅（config/public-view-breakpoints.json）で開いて撮る。
  *   画像は週次レビューでエージェントが見る。CSS の切り替わり幅も数え直し、設定と違えば WARN。
  * 判定は scripts/lib/youtube-public-view.mjs。
  *
@@ -87,7 +87,7 @@ if (REVIEW) {
   console.log(`  代表動画: ${reps.length} 本 × ${BP.youtube.viewports.length} 画面幅を撮影 ${index.reduce((n, e) => n + e.shots.length, 0)} 枚`);
   if (bpReport) {
     const { added, removed } = bpReport.drift;
-    if (added.length || removed.length) console.log(`  WARN YouTube の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。.claude/config/public-view-breakpoints.json を見直す`);
+    if (added.length || removed.length) console.log(`  WARN YouTube の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。config/public-view-breakpoints.json を見直す`);
     else console.log(`  切り替わり幅: 設定どおり（${bpReport.measured.join('/')}px）`);
   } else {
     console.log('  WARN 切り替わり幅を数え直せなかった（未確認）');

@@ -24,7 +24,7 @@ function stageVariant(stage: string): 'success' | 'warning' | 'outline' | 'secon
  * /content/lineup — 商品ラインナップ（資格 × 試験区分 × チャネル）の read-only 画面。
  *
  * 一覧は販売中の件数だけで空きマス（未展開）を見せ、資格名から ?q=<資格id> の詳細（表紙つき・全件）へ進む。分類ルールは
- * `.claude/config/product-lineup.json`、判定は `scripts/lib/product-lineup.mjs`。
+ * `config/product-lineup.json`、判定は `scripts/lib/product-lineup.mjs`。
  * 価格・状態の変更や出品はしない（各チャネルのスキルの担当）。
  */
 export default async function LineupPage({ searchParams }: { searchParams: Promise<{ retired?: string; q?: string }> }) {
@@ -97,7 +97,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
       {unclassified.length > 0 && (
         <PanelCard title={`未分類 ${unclassified.length} 件`}>
           <p className="text-sm text-muted-foreground">
-            どの分類ルールにも当たらなかった商品。<code>.claude/config/product-lineup.json</code> の rules に追加する。
+            どの分類ルールにも当たらなかった商品。<code>config/product-lineup.json</code> の rules に追加する。
           </p>
           <ul className="text-sm">
             {unclassified.map((i) => (

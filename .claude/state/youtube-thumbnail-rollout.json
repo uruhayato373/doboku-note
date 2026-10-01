@@ -275,7 +275,7 @@
     "localEvidenceFilesPersisted": 7,
     "deleteAutomation": {
       "mode": "ci-live-preflight-and-delete",
-      "configuration": ".claude/config/youtube-delivery.json",
+      "configuration": "config/youtube-delivery.json",
       "backlogId": "DN-0184",
       "additionalDeletionApprovalRequired": false,
       "manualFreshAuditTimestampRequired": false,

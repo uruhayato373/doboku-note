@@ -6,8 +6,8 @@
  * 2026-06-06 の手作業監査（last-minute-2026 の無導線発見）を機械化したもの。
  *
  * データソース:
- *   - .claude/state/metrics/ga4/ga4-page-*.json        … ページ別流入（最新を自動選択）
- *   - .claude/state/metrics/ga4/ga4-cta-clicks-*.json   … CTA クリック（あれば。無ければ n.d.）
+ *   - data/metrics/ga4/ga4-page-*.json        … ページ別流入（最新を自動選択）
+ *   - data/metrics/ga4/ga4-cta-clicks-*.json   … CTA クリック（あれば。無ければ n.d.）
  *   - src/config/doc-meta-index.json                    … 全 doc の category/group/tags
  *
  * 配置の真実源:
@@ -23,7 +23,7 @@
  * 使い方:
  *   npx tsx .claude/scripts/report-monetization-coverage.mts
  *   npx tsx .claude/scripts/report-monetization-coverage.mts --min-users 20
- *   （出力: コンソール md + .claude/state/metrics/monetization/coverage-*.json + coverage-latest.md）
+ *   （出力: コンソール md + data/metrics/monetization/coverage-*.json + coverage-latest.md）
  */
 import {
   readFileSync,
@@ -46,10 +46,10 @@ import {
 } from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
-const GA4_DIR = join(ROOT, ".claude/state/metrics/ga4");
-const OUT_DIR = join(ROOT, ".claude/state/metrics/monetization");
+const GA4_DIR = join(ROOT, "data/metrics/ga4");
+const OUT_DIR = join(ROOT, "data/metrics/monetization");
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
-const SALES_LOG = join(ROOT, ".claude/state/sales/sales-log.json");
+const SALES_LOG = join(ROOT, "data/sales/sales-log.json");
 
 function arg(name: string, fallback: number): number {
   const i = process.argv.indexOf(name);

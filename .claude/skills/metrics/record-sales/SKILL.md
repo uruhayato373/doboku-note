@@ -11,7 +11,7 @@ domain: product
 
 # /record-sales
 
-note 販売履歴を `.claude/state/sales/sales-log.json` に記録し、月次集計を表示する。
+note 販売履歴を `data/sales/sales-log.json` に記録し、月次集計を表示する。
 
 ## 用途
 
@@ -37,7 +37,7 @@ note 販売履歴を `.claude/state/sales/sales-log.json` に記録し、月次�
 ```
 
 1. ユーザーから販売履歴テキストを受け取る
-2. 親が直接、正規化して `.claude/state/sales/sales-log.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../../knowledge/reference/sales-tracking.md)）
+2. 親が直接、正規化して `data/sales/sales-log.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../../knowledge/reference/sales-tracking.md)）
 3. 結果（追加件数・スキップ件数・不明 productId）を表示
 4. 月次集計テーブルを表示
 
@@ -115,7 +115,7 @@ kuro
 
 | ファイル | 役割 |
 |---|---|
-| `.claude/state/sales/sales-log.json` | 販売履歴データ（手動転記） |
+| `data/sales/sales-log.json` | 販売履歴データ（手動転記） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター（価格・URL） |
 | `.claude/knowledge/reference/sales-tracking.md` | 運用手順書 |
 
@@ -130,7 +130,7 @@ kuro
 ### 重複が多すぎる
 
 - 同じ期間を複数回ペーストしていないか確認
-- 既存データの最終日付を確認: `jq '.sales | last | .date' .claude/state/sales/sales-log.json`
+- 既存データの最終日付を確認: `jq '.sales | last | .date' data/sales/sales-log.json`
 
 ### 集計が合わない
 

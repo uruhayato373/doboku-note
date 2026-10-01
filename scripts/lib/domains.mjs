@@ -1,5 +1,5 @@
 /**
- * domains.mjs — 事業の領域（ドメイン）の正本 `.claude/config/domains.json` を読む唯一の実装。
+ * domains.mjs — 事業の領域（ドメイン）の正本 `config/domains.json` を読む唯一の実装。
  *
  * サイドバーの並び・バックログの [領域:]・スケジュール・スキル/エージェントの frontmatter `domain:`・
  * 文書の割り当て（documents＝パス接頭辞、長い一致が優先）は全てここを経由して領域 id に解決する。
@@ -7,7 +7,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-export const DOMAINS_PATH = '.claude/config/domains.json';
+export const DOMAINS_PATH = 'config/domains.json';
 
 export function loadDomains(root) {
   return JSON.parse(readFileSync(join(root, DOMAINS_PATH), 'utf8'));

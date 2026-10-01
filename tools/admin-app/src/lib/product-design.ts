@@ -2,13 +2,14 @@ import { readFileSync } from 'node:fs';
 
 import { loadLineupView, type LineupItem } from './lineup';
 import { magazines } from './content';
-import { repoPath } from './repo-root';
+import { findRepoRoot, repoPath } from './repo-root';
+import { loadThemes, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
 
 /**
  * product-design.ts — 管理画面「商品設計」（/product/design）の表示モデル（read-only）。
  *
  * 資格 × 試験区分ごとに、note 商品を「パック・マガジン・単品」の層に並べる。層は手で書かず、
- * note の実際の収録（.claude/state/note/magazines-snapshot.json・verify-note-magazines --contents --json が書く）から決める:
+ * note の実際の収録（data/note/magazines-snapshot.json・verify-note-magazines --contents --json が書く）から決める:
  *   - パック  … 同じ区分の別のマガジンの収録を丸ごと含む有料マガジン
  *   - マガジン … それ以外の有料マガジン
  *   - 単品    … マガジンに収録された有料記事と、単品の商品（note-magazines.ts の noteUrl が /n/）
@@ -75,7 +76,7 @@ interface Snapshot {
 
 function readSnapshot(errors: string[]): Snapshot | null {
   try {
-    return JSON.parse(readFileSync(repoPath('.claude', 'state', 'note', 'magazines-snapshot.json'), 'utf8')) as Snapshot;
+    return JSON.parse(readFileSync(repoPath('data', 'note', 'magazines-snapshot.json'), 'utf8')) as Snapshot;
   } catch (e) {
     errors.push(`note の収録（magazines-snapshot.json）を読めない: ${(e as Error).message}`);
     return null;
@@ -92,9 +93,14 @@ const strictlyContains = (a: Set<string>, b: Set<string>) => b.size > 0 && a.siz
 export function designQualifications(): { id: string; label: string }[] {
   try {
     const view = loadLineupView();
+    const themes = loadThemes(findRepoRoot());
     const seen = new Map<string, string>();
     for (const r of view.rows) {
-      if ((r.byChannel.note ?? []).some((i) => !i.ended)) seen.set(r.qualificationId, r.qualificationLabel);
+      if (!(r.byChannel.note ?? []).some((i) => !i.ended)) continue;
+      // 並びは lineup の行＝registry の順、名前は registry の短い名前（コンテンツ台帳の枝と同じ）。
+      // 区分に分ける資格（content-themes.json の splitByStage）は「資格:区分」の枝にする
+      const id = themes.split.has(r.qualificationId) ? `${r.qualificationId}:${r.stageId}` : r.qualificationId;
+      seen.set(id, themeShortLabel(themes, id));
     }
     return [...seen.entries()].map(([id, label]) => ({ id, label }));
   } catch {
@@ -117,7 +123,8 @@ export function loadDesignView(q: string | null): DesignView {
   const catalog = new Map(magazines().map((m) => [m.id, m]));
 
   const stages: DesignStage[] = [];
-  for (const row of lineup.rows.filter((r) => r.qualificationId === qualificationId)) {
+  const [baseId, onlyStage] = qualificationId.split(':');
+  for (const row of lineup.rows.filter((r) => r.qualificationId === baseId && (!onlyStage || r.stageId === onlyStage))) {
     const items = (row.byChannel.note ?? []).filter((i: LineupItem) => !i.ended);
     if (items.length === 0) continue;
     const mags: (DesignMagazine & { set: Set<string> })[] = [];

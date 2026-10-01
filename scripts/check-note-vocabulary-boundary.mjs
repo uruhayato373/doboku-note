@@ -6,7 +6,7 @@
  * ケースが 200 本見つかった（例: `コンクリート主任技士-実務立場別小論文`（series）と
  * `…小論文集`（magazine））。調べた結果「どちらも生きている・役割が違う」と判明した:
  *
- *   - `noteMagazine` … 商品（マガジン）への所属ラベル。`.claude/config/note-magazine-membership.json`
+ *   - `noteMagazine` … 商品（マガジン）への所属ラベル。`config/note-magazine-membership.json`
  *     の labels/packs/excluded のどれかに必ず属する（未分類 0 は check-magazine-membership.mjs が
  *     既に強制）。本スクリプトはこちらを再検査しない。
  *   - `noteSeries`   … 編集上の系列マーカー（カバー生成の系列名 ＋ `総合案内` はもくじ index の
@@ -42,7 +42,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const CONFIG_PATH = join(ROOT, '.claude/config/note-magazine-membership.json');
+const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
 
 const STAGED = process.argv.includes('--staged');
 

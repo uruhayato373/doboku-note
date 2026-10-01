@@ -24,12 +24,12 @@ export const metadata: Metadata = {
 
 const TOOL_GROUPS = [
   { id: 'exam', title: '受験・演習・キャリア', icon: BookOpen },
-  { id: 'concrete', title: 'コンクリートの計算', icon: FlaskConical },
+  { id: 'concrete', title: 'コンクリートの計算', icon: FlaskConical }, // qualification-ssot: allow ツール名で資格名ではない
   { id: 'construction', title: '施工・安全・原価', icon: HardHat },
 ];
 const toolGroup = (href: string) => /concrete-|water-content/.test(href) ? 'concrete' : /sling-|trench-|rebar-|cost-/.test(href) ? 'construction' : 'exam';
 const FLOWS: Record<string, string> = {
-  'kakomon-quiz': '年度・問題を選ぶ → 解答・復習', 'pe-first-stage': '科目・年度を選ぶ → 解答・復習',
+  'kakomon-quiz': '年度・問題を選ぶ → 解答・復習', 'pe-first-stage': '科目・年度を選ぶ → 解答・復習', // qualification-ssot: allow 操作手順の説明で資格名ではない
   'juken-shikaku': '年齢・実務経験 → 受験資格', 'career-check': '工種・立場・経験 → 強みの整理',
   'keiken-charcount': '答案を入力 → 解答欄との字数比較', 'concrete-time-check': '外気温・時刻 → 時間の限度',
   'concrete-pump-plan': '打込み量・ルート → 台数・圧送距離', 'sling-tension': '荷重・角度 → 張力',

@@ -208,9 +208,9 @@ async function build() {
     const catalog = readCatalog();
     const listings = readListings();
     let approved = {};
-    try { approved = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-thumb-approved.json'), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
+    try { approved = JSON.parse(readFileSync(join(ROOT, 'config/coconala-thumb-approved.json'), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
     let sellerName = '';
-    try { sellerName = JSON.parse(readFileSync(join(ROOT, '.claude/config/coconala-account.json'), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
+    try { sellerName = JSON.parse(readFileSync(join(ROOT, 'config/coconala-account.json'), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
     const listed = Object.values(catalog).filter((s) => s.status === 'listed');
     const keyOf = (s) => createHash('sha1').update(JSON.stringify([s, listings[s.id] ?? null, approved[s.id] ?? null, sellerName])).digest('hex');
     const items = {};

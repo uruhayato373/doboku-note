@@ -165,7 +165,7 @@ test('routingFor: active な Drive group と R2 group が同じパスに重な�
     'content/sources/textbook/x/a.pdf', 'content/sources/textbook/x/img/p1.png', 'content/sources/textbook/x/chapter.md',
     'content/note/a/pdf/x.pdf', 'content/note/a/magazines/m/_cover.png', 'content/note/a/img/cover.png',
     'content/sns/instagram/x/img/01.png', 'content/sns/instagram/x/reels/wav/a.wav',
-    '.tmp/video-render/p/video.mp4', 'scripts/kindle-dist/a.epub', '.claude/config/coconala/assets/a.png',
+    '.tmp/video-render/p/video.mp4', 'scripts/kindle-dist/a.epub', 'content/coconala/assets/a.png',
     '.claude/state/ocr-audit/a.json', '.local/archive/legacy-r2/sns/a.mp4', '.local/archive/legacy-r2/content/a.png',
     'content/site/x/ogp.png', '.local/archive/git-history/a.bundle',
   ];

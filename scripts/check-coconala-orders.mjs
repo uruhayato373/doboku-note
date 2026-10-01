@@ -36,10 +36,10 @@ import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquir
 
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
-const SNAPSHOT_PATH = join(ROOT, '.claude/state/coconala/orders-snapshot.json');
-const ORDERS_PATH = join(ROOT, '.claude/state/coconala/orders-log.json');
+const SNAPSHOT_PATH = join(ROOT, 'data/coconala/orders-snapshot.json');
+const ORDERS_PATH = join(ROOT, 'data/coconala/orders-log.json');
 // 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）
-const RESOLVED_PATH = join(ROOT, '.claude/config/coconala/resolved-inquiries.json');
+const RESOLVED_PATH = join(ROOT, 'data/coconala/resolved-inquiries.json');
 
 const REPLY_WARN_HOURS = 24;      // 返信期限の何時間前から要対応にするか
 const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか
@@ -56,8 +56,8 @@ if (staged) {
     changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 });
   } catch { changed = ''; }
   const relevant = changed.split('\n').some((p) =>
-    p.includes('.claude/state/coconala/orders-log.json') ||
-    p.includes('.claude/state/coconala/orders-snapshot.json') ||
+    p.includes('data/coconala/orders-log.json') ||
+    p.includes('data/coconala/orders-snapshot.json') ||
     p.includes('scripts/check-coconala-orders.mjs')
   );
   if (!relevant) process.exit(0);

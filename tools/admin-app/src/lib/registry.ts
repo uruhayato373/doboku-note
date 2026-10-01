@@ -14,7 +14,7 @@ export interface AgentEntry {
   description: string;
   model: string | null;
   tools: string | null;
-  domain: string | null; // 事業の領域 id（.claude/config/domains.json）
+  domain: string | null; // 事業の領域 id（config/domains.json）
   file: string; // repo-relative
 }
 
@@ -22,7 +22,7 @@ export interface SkillEntry {
   name: string;
   description: string;
   category: string; // skills/ 直下ディレクトリ名
-  domain: string | null; // 事業の領域 id（.claude/config/domains.json）
+  domain: string | null; // 事業の領域 id（config/domains.json）
   file: string; // repo-relative
 }
 

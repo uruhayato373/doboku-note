@@ -1,7 +1,7 @@
 name: ☁️ Fetch Cloudflare zone analytics (daily)
 
 # Cloudflare Zone Analytics（GraphQL）から日次でトラフィック指標を取得し、
-# .claude/state/metrics/cloudflare/ へ commit する。
+# data/metrics/cloudflare/ へ commit する。
 # 失敗・成功は automation-failure Issue（channel: cloudflare-metrics）で通知する
 # （scripts/report-automation-failure.mjs）。
 #
@@ -64,7 +64,7 @@ jobs:
           node scripts/fetch-cloudflare-analytics.mjs 2>&1 | tee "$RUNNER_TEMP/cf.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Publish to develop (.claude/state/metrics/cloudflare/)
+      - name: Publish to develop (data/metrics/cloudflare/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -73,7 +73,7 @@ jobs:
 
           # 取得が失敗した run ではディレクトリ自体が無い。pathspec 不一致で git が exit 128 になり
           # 「取得失敗」が「publish 失敗」に見えるのを避ける（2026-09-21 初回 run で実測）。
-          if [ -d .claude/state/metrics/cloudflare ]; then git add .claude/state/metrics/cloudflare; fi
+          if [ -d data/metrics/cloudflare ]; then git add data/metrics/cloudflare; fi
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

@@ -124,7 +124,7 @@ export default function NoteStatusPage() {
               <StatusBadge tone="bad">未分類 {m.unclassified.length} 種</StatusBadge>{' '}
               {m.unclassified.map((u) => `${u.label}(${u.count})`).join('、')}
               <br />
-              <code>.claude/config/note-magazine-membership.json</code> の{' '}
+              <code>config/note-magazine-membership.json</code> の{' '}
               <code>labels</code> / <code>packs</code> / <code>excluded</code>{' '}
               のどれかへ登録する（未分類のまま放置すると、そのラベルは検査の射程外になる）。
             </p>
@@ -150,7 +150,7 @@ export default function NoteStatusPage() {
           {!s.ok ? (
             <>
               <StatusBadge tone="bad">未取得</StatusBadge>{' '}
-              <code>.claude/state/note/status-snapshot.json</code> が読めません。
+              <code>data/note/status-snapshot.json</code> が読めません。
               記事別のライブ公開状態は<strong>判定していません</strong>。
               週次 note-live-audit.yml が供給します（管理画面はライブ API を叩きません）。{s.error}
             </>

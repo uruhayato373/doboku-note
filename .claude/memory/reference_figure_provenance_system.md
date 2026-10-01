@@ -7,7 +7,7 @@ metadata:
 記事図クロップの品質改善を「毎回手で辿らず」継続するための土台（2026-07-08 構築）。真実源 `docs/reference/figure-provenance.md`。
 
 **3層**:
-- `.claude/config/figure-sources.json` … 資格別ソース台帳（元素材の所在・種別・品質・再スキャン要否）。**手動SSOT**。
+- `config/figure-sources.json` … 資格別ソース台帳（元素材の所在・種別・品質・再スキャン要否）。**手動SSOT**。
 - `.claude/state/figure-text-audit.json` … 機械監査＝**写り込み**(OCR: leak/prose/maybe/clean)＋**画質**(ラプラシアン分散 sharp/soft/blurry)。`npm run audit-figure-text`。
 - `.claude/state/figure-provenance.json` … 上2つ＋命名年度＋公開/掲載を join し各図の **needs** を算出。`npm run build-figure-provenance`。
 
@@ -59,7 +59,7 @@ metadata:
 - 生成: `npm run guide-covers`（`scripts/generate-guide-covers.mjs`・Imagen 4 fast・資格×5枚=35枚・~$0.70）→ `public/images/guide-covers/<category>/<n>.webp`（16:9・public 配信）。
 - 機構: `src/config/guide-cover-photos.json`（資格別プール）＋ `src/lib/guide-cover.ts` `guideCoverFor(doc)`（slug 安定ハッシュで1枚選択）。`DocCard`（CategorySections）がガイドはカバー写真・他はブランドバンドに fallback。AI生成=出典/ライセンス表記不要（CC BY-SA 流用は uncaption カバーで帰属の壁があり不採用）。
 
-**OGP に写真を載せる時の落とし穴（2026-06-26 検証）**: 現行 OGP テンプレ（`.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`）は背景の上に **70% オフホワイトのスクリム**（`rgba(253,252,248,0.7)`）を被せ、`generate-ogp-backgrounds.mjs` 側で背景を「淡く正規化」する設計（抽象テクスチャ＋可読タイトル前提）。→ **鮮やかな写真を OGP 背景に置くと ~30% しか見えない薄いゴースト**になる。`resolveBackgroundImage(category)` は per-exam 共有（`.claude/config/ogp/backgrounds/<exam-key>.{png,webp,jpg}`）。写真前向きの OGP（写真くっきり＋白タイトル）にするには**全面スクリムをやめ下部グラデ＋オーバーレイの photo-card 型テンプレを新設**する必要があり、単なる「同じ写真の使い回し」では済まない。OGP 一括再生成は全記事 ~2038 枚に及ぶ点も注意（[[reference_figure_provenance_system]]）。関連: [[reference_aidesigner_mcp]]（socialplus 参考のデザイン改善の流れ）。
+**OGP に写真を載せる時の落とし穴（2026-06-26 検証）**: 現行 OGP テンプレ（`.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`）は背景の上に **70% オフホワイトのスクリム**（`rgba(253,252,248,0.7)`）を被せ、`generate-ogp-backgrounds.mjs` 側で背景を「淡く正規化」する設計（抽象テクスチャ＋可読タイトル前提）。→ **鮮やかな写真を OGP 背景に置くと ~30% しか見えない薄いゴースト**になる。`resolveBackgroundImage(category)` は per-exam 共有（`config/ogp/backgrounds/<exam-key>.{png,webp,jpg}`）。写真前向きの OGP（写真くっきり＋白タイトル）にするには**全面スクリムをやめ下部グラデ＋オーバーレイの photo-card 型テンプレを新設**する必要があり、単なる「同じ写真の使い回し」では済まない。OGP 一括再生成は全記事 ~2038 枚に及ぶ点も注意（[[reference_figure_provenance_system]]）。関連: [[reference_aidesigner_mcp]]（socialplus 参考のデザイン改善の流れ）。
 
 ---
 
@@ -68,7 +68,7 @@ metadata:
 ブランドマスコット「doboku-note 先生」（40代男性・土木技術者・先生役）を SSOT で管理化（2026-06-26, commit 2b2ffb376）。素材保存だけだったのを「真実源＋機械可読＋再利用ツール」に。
 
 - **アイデンティティ SoT** = `docs/sns/_assets/character/CHARACTER-SPEC.md`（設定書＝人格/外見/ブランド色/避けたい表現/ロードマップ）。不変条件: ヘルメット文字 `doboku-note`・濃紺作業着＋黄反射ベスト・メガネ・セミリアル、`どぼくらぼ` 誤字や若すぎ/写真風はNG。VOICEVOX speaker 13（青山龍星）。
-- **ポーズ機械可読 SoT** = `.claude/config/character-poses.json`（slug/file/label/category/beat、`verified:false`=AI生成からの自動推定名で要本人確認）。初版14ポーズ＋`_source/`生成元グリッド3枚。
+- **ポーズ機械可読 SoT** = `config/character-poses.json`（slug/file/label/category/beat、`verified:false`=AI生成からの自動推定名で要本人確認）。初版14ポーズ＋`_source/`生成元グリッド3枚。
 - **運用 SSOT** = `docs/reference/character-asset-policy.md`（保存/命名/生成→抽出/チャネル別使用/管理分担）。CLAUDE.md索引に登録済み。
 - **抽出ツール** = `npm run character-extract -- --in <dir> [--names ...] [--montage]`（無地背景生成画像→白背景 flood-fill 透過＋トリム→ポーズ名保存）。淡色/影が残れば aidesigner remove_image_background（無料）。
 

@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { execFileSync, spawn } from 'node:child_process';
 
-import { classifyProduct } from '../../../../scripts/lib/product-lineup.mjs';
-import { loadThemes, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
+import { classifyProduct, loadLineupConfig } from '../../../../scripts/lib/product-lineup.mjs';
+import { classifyNoteStage, loadThemes, orderedThemeIds, stageTheme, themeLabel, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
 import { loadNoteCoverCategories, noteCoverCategoryLabel } from '../../../../scripts/lib/note-cover-category.mjs';
 import { loadCoconalaItems, loadKindleItems, loadNoteItems, type LineupItem } from './lineup';
 import { findRepoRoot, repoPath } from './repo-root';
@@ -67,6 +67,8 @@ export interface LedgerView {
   channels: { id: string; label: string }[];
   themeLabel: (id: string | null) => string;
   themeShortLabel: (id: string | null) => string;
+  /** テーマの並び順（registry の資格の順 → ファミリー → 話題。区分に分けた資格は区分の順＋全般） */
+  themeOrder: string[];
   coverCategories: { id: string; label: string; description: string; styleHint: string }[];
   coverCategoryLabel: (id: string | null) => string;
   lineupQualifications: Set<string>;
@@ -122,7 +124,7 @@ const KIND: Record<string, string> = { note: 'マガジン', coconala: '出品',
 /** 承認済み POP 画像（ココナラの商品画像の正本）。読めなければ空 */
 export function readApprovedThumbs(): Record<string, { path: string; sha256: string }> {
   try {
-    return JSON.parse(readFileSync(repoPath('.claude', 'config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
+    return JSON.parse(readFileSync(repoPath('config', 'coconala-thumb-approved.json'), 'utf8')).images ?? {};
   } catch {
     return {};
   }
@@ -170,14 +172,21 @@ function readNoteIndex(): { index: NoteIndex | null; error: string | null } {
   }
 }
 
-/** 商品の資格（product-lineup のマス「資格:試験区分」の資格部分）。 */
-function productThemes(config: LineupConfig, item: LineupItem): string[] {
+type ThemeCtx = ReturnType<typeof loadThemes>;
+
+/** 商品のテーマ（product-lineup のマス「資格:試験区分」の資格部分。区分に分ける資格は区分つき）。 */
+function productThemes(config: LineupConfig, themes: ThemeCtx, item: LineupItem): string[] {
   const cells = (classifyProduct(config.rules?.[item.channel], item.id) as string[] | null) ?? [];
-  return [...new Set(cells.map((c) => c.split(':')[0]))];
+  const stagesByQ = new Map<string, string[]>();
+  for (const c of cells) {
+    const [q, st] = c.split(':');
+    stagesByQ.set(q, [...(stagesByQ.get(q) ?? []), st]);
+  }
+  return [...stagesByQ].map(([q, st]) => stageTheme(themes, q, st) as string);
 }
 
 export function loadLedgerView(): LedgerView {
-  const config = JSON.parse(readFileSync(repoPath('.claude', 'config', 'product-lineup.json'), 'utf8')) as LineupConfig;
+  const config = loadLineupConfig(findRepoRoot()) as LineupConfig;
   const themes = loadThemes(findRepoRoot());
   const coverCategories = loadNoteCoverCategories(findRepoRoot());
   const sourceErrors: LedgerView['sourceErrors'] = [];
@@ -193,7 +202,7 @@ export function loadLedgerView(): LedgerView {
       kind: '記事',
       title: n.title,
       url: n.noteUrl,
-      themes: n.theme ? [n.theme] : [],
+      themes: n.theme ? [stageTheme(themes, n.theme, [classifyNoteStage(themes, n.path)].filter(Boolean)) as string] : [],
       coverCategory: n.coverCategory ?? null,
       price: notePriceLabel(n.pricing, n.price),
       sales: articleSales?.byTitle.get(salesTitleKey(n.title)) ?? null,
@@ -272,7 +281,7 @@ export function loadLedgerView(): LedgerView {
           kind: KIND[channel] ?? '商品',
           title: item.noteTitle ?? item.title,
           url: item.url,
-          themes: productThemes(config, item),
+          themes: productThemes(config, themes, item),
           coverCategory: null,
           price: item.price,
           sales: channel === 'note' ? sales?.byMagazine.get(item.id) ?? null : null,
@@ -307,6 +316,7 @@ export function loadLedgerView(): LedgerView {
     channels: config.channels.filter((c) => c.id !== 'app'),
     themeLabel: (id) => themeLabel(themes, id) as string,
     themeShortLabel: (id) => themeShortLabel(themes, id) as string,
+    themeOrder: orderedThemeIds(themes) as string[],
     coverCategories: [...coverCategories.categories.values()] as LedgerView['coverCategories'],
     coverCategoryLabel: (id) => noteCoverCategoryLabel(coverCategories, id) as string,
     lineupQualifications: new Set(config.qualifications.map((q) => q.id)),
@@ -329,9 +339,8 @@ export function ledgerNav(): { themes: { id: string; label: string }[]; channels
       channelCount.set(r.channel, (channelCount.get(r.channel) ?? 0) + 1);
     }
     return {
-      themes: [...themeCount.entries()]
-        .sort((a, b) => b[1] - a[1])
-        .map(([id]) => ({ id, label: view.themeShortLabel(id) })),
+      // 並びは registry の順（商品設計の枝と同じ）。件数順にしない
+      themes: view.themeOrder.filter((id) => themeCount.has(id)).map((id) => ({ id, label: view.themeShortLabel(id) })),
       channels: view.channels.filter((c) => (channelCount.get(c.id) ?? 0) > 0),
     };
   } catch {

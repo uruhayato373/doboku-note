@@ -357,7 +357,7 @@ jobs:
           rc=$?
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
-      # もしもは提携状況を取り、カタログ（.claude/state/ads/affiliate-catalog.json）を更新する。
+      # もしもは提携状況を取り、カタログ（data/ads/affiliate-catalog.json）を更新する。
       # 期限切れで 0 件になったときは affiliate-status の偽陰性ガード（exit 4）が書き込みを止める（DN-0483）。
       - name: "moshimo: affiliate status"
         id: collect_moshimo
@@ -401,14 +401,14 @@ jobs:
         if: always()
         run: |
           mkdir -p "${RUNNER_TEMP}/out"
-          git status --porcelain -- .claude/state | awk '{print $2}' | while read -r f; do
+          git status --porcelain -- data .claude/state | awk '{print $2}' | while read -r f; do
             mkdir -p "${RUNNER_TEMP}/out/$(dirname "$f")"
             cp -r "$f" "${RUNNER_TEMP}/out/$f"
           done
           staged=$(find "${RUNNER_TEMP}/out" -type f | wc -l | tr -d ' ')
           echo "staged files: ${staged}"
           if [ "${{ matrix.mode }}" = "collect" ] && [ "${staged}" = "0" ]; then
-            echo "::warning::collect モードなのに .claude/state に変更がありません（collector が何も書いていない・または書き先が違う）"
+            echo "::warning::collect モードなのに data/・.claude/state に変更がありません（collector が何も書いていない・または書き先が違う）"
           fi
 
       - name: Upload staged state
@@ -417,7 +417,7 @@ jobs:
         with:
           name: auth-state-${{ matrix.service }}
           path: ${{ runner.temp }}/out
-          # 成果物は全部 .claude/state 配下＝隠しディレクトリ。既定（false）だと 1 件も上がらず publish が「変更なし」になる
+          # 成果物の一部（ig-reconcile）は .claude/state 配下＝隠しディレクトリ（記録は 2026-10-02 から data/）。既定（false）だと隠し側が上がらず publish が「変更なし」になる
           # （2026-09-21 canary run 35564319389 で実測。収集と書き戻しは成功していたのに記録が残らなかった）。
           include-hidden-files: true
           if-no-files-found: ignore
@@ -514,7 +514,7 @@ jobs:
 
       # note-live-audit.yml の Publish snapshots と同じ書式（develop の in-place dirty を避け、
       # origin/develop 先頭へ hard reset してからステージ済み成果物を復元する）。
-      - name: Publish snapshots to develop (.claude/state/)
+      - name: Publish snapshots to develop (data/・.claude/state/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -528,7 +528,7 @@ jobs:
             cp -r "${{ runner.temp }}/out/." .
           fi
 
-          git add -- .claude/state/metrics .claude/state/sales .claude/state/coconala .claude/state/note .claude/state/ads .claude/state/x-metrics .claude/state/ig-reconcile 2>/dev/null || true
+          git add -- data/metrics data/sales data/coconala data/note data/ads data/x-metrics .claude/state/ig-reconcile 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

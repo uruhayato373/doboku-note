@@ -3,22 +3,22 @@
  *
  * Usage:
  *   node .claude/scripts/analyze-gsc-coverage.mjs \
- *     --inspection-glob ".claude/state/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
- *     --page-data .claude/state/metrics/gsc/gsc-page-2026-04-27T11-15-23.json \
- *     --query-data .claude/state/metrics/gsc/gsc-query-2026-04-27T11-15-31.json \
- *     --brand-query-data .claude/state/metrics/gsc/gsc-query-2026-04-27T11-15-32.json \
+ *     --inspection-glob "data/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
+ *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json \
+ *     --query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-31.json \
+ *     --brand-query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-32.json \
  *     --url-dir .tmp/gsc-urls/
  *
  * 出力:
- *   .claude/state/metrics/gsc/coverage-diagnosis-{ts}.json
- *   .claude/state/metrics/gsc/coverage-diagnosis-{ts}.md
+ *   data/metrics/gsc/coverage-diagnosis-{ts}.json
+ *   data/metrics/gsc/coverage-diagnosis-{ts}.md
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "fs";
 import { join, basename } from "path";
 import { glob } from "glob";
 
-const OUTPUT_DIR = ".claude/state/metrics/gsc";
+const OUTPUT_DIR = "data/metrics/gsc";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -507,10 +507,10 @@ function generateMarkdown(agg, findings) {
   // raw data refs
   lines.push(`### 生データ`);
   lines.push(``);
-  lines.push(`- URL Inspection 結果: \`.claude/state/metrics/url-inspection/inspection-batch-2026-04-27*.json\``);
-  lines.push(`- Search Analytics page: \`.claude/state/metrics/gsc/gsc-page-2026-04-27*.json\``);
-  lines.push(`- Search Analytics query: \`.claude/state/metrics/gsc/gsc-query-2026-04-27*.json\``);
-  lines.push(`- 集計 JSON: \`.claude/state/metrics/gsc/coverage-diagnosis-{ts}.json\``);
+  lines.push(`- URL Inspection 結果: \`data/metrics/url-inspection/inspection-batch-2026-04-27*.json\``);
+  lines.push(`- Search Analytics page: \`data/metrics/gsc/gsc-page-2026-04-27*.json\``);
+  lines.push(`- Search Analytics query: \`data/metrics/gsc/gsc-query-2026-04-27*.json\``);
+  lines.push(`- 集計 JSON: \`data/metrics/gsc/coverage-diagnosis-{ts}.json\``);
   lines.push(``);
 
   return lines.join("\n");

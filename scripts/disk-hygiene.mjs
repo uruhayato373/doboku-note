@@ -43,7 +43,7 @@ import {
 } from './lib/disk-hygiene.mjs';
 
 const HOME = homedir();
-const CONFIG_PATH = join(REPO_ROOT, '.claude', 'config', 'disk-hygiene.json');
+const CONFIG_PATH = join(REPO_ROOT, 'config', 'disk-hygiene.json');
 
 export function loadConfig(path = CONFIG_PATH) {
   return JSON.parse(readFileSync(path, 'utf-8'));

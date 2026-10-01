@@ -31,8 +31,8 @@
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 
-const SALES_LOG = '.claude/state/sales/sales-log.json';
-const NOTE_METRICS_DIR = '.claude/state/metrics/note';
+const SALES_LOG = 'data/sales/sales-log.json';
+const NOTE_METRICS_DIR = 'data/metrics/note';
 const STALE_WARN = 10; // 10 日転記が無ければ注意
 const STALE_FAIL = 21; // 3 週間走っていなければ「止まっている」と断定する
 const MONTHLY_DUE_DAY = 5; // 5日以降は前月のnoteアクセス＋売上表示を要求する

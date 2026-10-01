@@ -40,7 +40,7 @@ const PUBLIC_ROUTES = publicRouteIndex();
 const pathways = await loadTsModule('src/config/career-pathways.ts');
 const { CAREER_NEEDS, CAREER_HUB_ENTRIES, CAREER_HUB_SLUG, resolveCareerNeed, resolveCareerNextSteps } = pathways;
 // 禁止表現は TS からではなく機械可読 config を真実源にする（テストだけが読む export を作らない）。
-const FORBIDDEN_CTA_PHRASES = JSON.parse(read('.claude/config/career-funnel.json')).forbiddenCtaPhrases;
+const FORBIDDEN_CTA_PHRASES = JSON.parse(read('config/career-funnel.json')).forbiddenCtaPhrases;
 
 const NEEDS = Object.keys(CAREER_NEEDS);
 
@@ -102,7 +102,7 @@ test('代表 slug が意図した need に落ちる', () => {
 
 test('need → pillar が career-funnel.json の柱分類と矛盾しない', () => {
   // 2 つの分類（need 8 値 / pillar 5 値）を別ファイルに持つ以上、ずれを機械で止める。
-  const cfg = JSON.parse(read('.claude/config/career-funnel.json'));
+  const cfg = JSON.parse(read('config/career-funnel.json'));
   const classify = (slug) => {
     for (const rule of cfg.pillarRules) {
       if (rule.slugPatterns.some((p) => slug.includes(p))) return rule.pillar;

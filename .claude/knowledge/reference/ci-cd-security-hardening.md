@@ -103,7 +103,7 @@ gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or
 
 ### R2オブジェクト
 
-- `auth-state/*`（private バケット `doboku-note-archive`）— age暗号化したPlaywright storageState。`.claude/config/asset-storage.json`のinvariantsで offload/hydrate/groups の対象外と明記。
+- `auth-state/*`（private バケット `doboku-note-archive`）— age暗号化したPlaywright storageState。`config/asset-storage.json`のinvariantsで offload/hydrate/groups の対象外と明記。
 
 ### 脅威モデル
 

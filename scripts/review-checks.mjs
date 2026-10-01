@@ -12,7 +12,7 @@
  * Issue は gh issue list --state open（全ラベル）、依存の脆弱性は Dependabot の open alerts（パッケージ単位で振り分ける）。
  * 読めなければ issuesError / alertsError を残す（0 件と呼ばない）。
  *
- * 書くもの（--write）: .claude/state/metrics/business/checks-<cadence>-<runKey>-<実行時刻>.json
+ * 書くもの（--write）: data/metrics/business/checks-<cadence>-<runKey>-<実行時刻>.json
  *   （事業の記録と同じく追記だけ。取り直すと新しいファイルを足し、読み手は回ごとに最新を使う）
  * 読むもの: scripts/lib/review-wiring.mjs の evidence「checks」（管理画面のレビュー手順）。
  *   レポートの「## 点検と Issue」節に、要対応の各項目を「- <コマンド名 or #番号> … → 振り分け: DN-xxxx / 定常 / 理由」で書く。
