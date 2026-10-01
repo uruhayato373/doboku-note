@@ -108,6 +108,7 @@ export function loadNoteItems(): LineupItem[] {
       stageLabel: stageLabel(stage),
       url: m.noteUrl || null,
       coverUrl: covers.get(m.id) ?? null,
+      ended: Boolean(m.retiredAt),
     };
   });
 }
