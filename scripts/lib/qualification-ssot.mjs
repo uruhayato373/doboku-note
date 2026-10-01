@@ -124,7 +124,8 @@ const allowMatch = (pattern, path) => new RegExp(`^${pattern.replace(/[.[\]$]/g,
 
 /** コードの 1 ファイルで、資格 id（または別名）→ 日本語の対応表らしい行を返す（行番号は 1 始まり） */
 export function findCodeCopies(text, ids) {
-  const alt = [...ids].map((id) => id.replace(/[-]/g, '\\-')).join('|');
+  // id を正規表現の文字として扱う（特殊文字はすべてエスケープ）
+  const alt = [...ids].map((id) => id.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('|');
   const patterns = [
     // '<資格>': '日本語' / '<資格>': { …日本語 / rccm: '日本語'
     new RegExp(`(?:['"\`](?:${alt})['"\`]|\\b(?:${alt})\\b)\\s*:\\s*(?:['"\`][^'"\`\\n]*${JP}|\\{[^}\\n]*${JP})`),
