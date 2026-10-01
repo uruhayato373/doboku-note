@@ -124,8 +124,7 @@ export function loadQualificationsView(): QualificationsView {
   const registry = readConfig<{ families: Record<string, string>; qualifications: RegistryEntry[] }>('qualification-registry.json');
   const calendar = readConfig<{ exams: Record<string, CalExam> }>('exam-calendar.json');
   const examStats = readConfig<{ exams: Record<string, { latest: Latest | null }>; peSecondaryDivisions: Record<string, { totals?: { excludingCem20?: StatRow } }> }>('exam-stats.json');
-  const lineupConfig = readConfig<unknown>('product-lineup.json');
-  const errors = validateQualificationRegistry({ registry, calendar, examStats, lineupConfig }) as string[];
+  const errors = validateQualificationRegistry({ registry, calendar, examStats }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
 
   const view = (q: RegistryEntry, latest: Latest | null): QualificationView => {

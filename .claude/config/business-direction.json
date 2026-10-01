@@ -6,7 +6,6 @@
   "qualifications": [
     {
       "id": "civil-construction-1",
-      "label": "1級土木施工管理技士",
       "audience": "第一次・第二次検定の受験者",
       "promise": "施工の構造・手順・違いを図で理解し、選択肢の判定と経験記述に活かす。",
       "journey": [
@@ -18,7 +17,6 @@
     },
     {
       "id": "pe-comprehensive-management",
-      "label": "技術士 総合技術監理部門",
       "audience": "総監の択一・記述式を学ぶ受験者",
       "promise": "5管理の関係とトレードオフを図で整理し、過去問と論述に結び付ける。",
       "journey": [
@@ -30,7 +28,6 @@
     },
     {
       "id": "pe-construction",
-      "label": "技術士 建設部門",
       "audience": "第二次試験の必須・選択科目を学ぶ受験者",
       "promise": "原因・対策・適用条件・残留リスクを構造化し、専門答案を組み立てる。",
       "journey": [
@@ -42,7 +39,6 @@
     },
     {
       "id": "rccm",
-      "label": "RCCM",
       "audience": "建設コンサルタントの管理技術者を目指す RCCM 受験者（試験A・試験B）",
       "promise": "問題III 管理技術力を総監5管理の構造で組み立て、問題I 業務経験論文を業務実績と整合させる。",
       "journey": [

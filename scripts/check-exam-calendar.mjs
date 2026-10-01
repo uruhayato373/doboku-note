@@ -169,7 +169,6 @@ for (const e of validateQualificationRegistry({
   calendar,
   examStats: readConfig("exam-stats.json"),
   formats: readConfig("exam-formats.json"),
-  lineupConfig: readConfig("product-lineup.json"),
   refExists: (p) => existsSync(join(ROOT, p)),
 })) {
   errors.push(e);

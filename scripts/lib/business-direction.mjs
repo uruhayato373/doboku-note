@@ -15,6 +15,9 @@ const validDay = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s ?? '') && !Number.isNaN(Dat
 const nonempty = (s) => typeof s === 'string' && s.trim().length >= 3 && s.length <= 4000;
 export function direction(root) {
   const c = readJson(root, DIRECTION);
+  // 重点資格の名前は qualification-registry.json から引く（business-direction.json に写さない）
+  const registry = readJson(root, '.claude/config/qualification-registry.json');
+  c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
   required(new Set(c.metrics.map(m => m.id)).size === c.metrics.length && c.metrics.every(m => nonempty(m.definition) && m.target === null), '指標定義が不正です。目標は履歴へ記録してください');

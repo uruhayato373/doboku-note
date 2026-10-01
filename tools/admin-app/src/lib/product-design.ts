@@ -97,11 +97,10 @@ export function designQualifications(): { id: string; label: string }[] {
     const seen = new Map<string, string>();
     for (const r of view.rows) {
       if (!(r.byChannel.note ?? []).some((i) => !i.ended)) continue;
+      // 並びは lineup の行＝registry の順、名前は registry の短い名前（コンテンツ台帳の枝と同じ）。
       // 区分に分ける資格（content-themes.json の splitByStage）は「資格:区分」の枝にする
-      if (themes.split.has(r.qualificationId)) {
-        const id = `${r.qualificationId}:${r.stageId}`;
-        seen.set(id, themeShortLabel(themes, id));
-      } else seen.set(r.qualificationId, r.qualificationLabel);
+      const id = themes.split.has(r.qualificationId) ? `${r.qualificationId}:${r.stageId}` : r.qualificationId;
+      seen.set(id, themeShortLabel(themes, id));
     }
     return [...seen.entries()].map(([id, label]) => ({ id, label }));
   } catch {

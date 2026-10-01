@@ -76,19 +76,25 @@ test('実際の note の記事はすべてテーマに分類できる（新し�
   assert.deepEqual(unclassified, []);
 });
 
-test('サイドメニュー用の短い名前（無ければ正式名）', async () => {
-  const { themeShortLabel } = await import('../scripts/lib/content-theme.mjs');
-  const c = buildThemes({ ...cfg, shortLabels: { 'pe-comprehensive-management': '技術士 総監' } }, registry);
+test('サイドメニュー用の短い名前は registry の shortLabel・familyShortLabels（無ければ正式名）', () => {
+  const reg = {
+    ...registry,
+    qualifications: registry.qualifications.map((q) => (q.id === 'pe-comprehensive-management' ? { ...q, shortLabel: '技術士 総監' } : q)),
+    familyShortLabels: { 'civil-construction': '1・2級土木 共通' },
+  };
+  const c = buildThemes(cfg, reg);
   assert.equal(themeShortLabel(c, 'pe-comprehensive-management'), '技術士 総監');
+  assert.equal(themeShortLabel(c, 'civil-construction'), '1・2級土木 共通');
   assert.equal(themeShortLabel(c, 'career'), '転職・キャリア');
-  assert.throws(() => buildThemes({ ...cfg, shortLabels: { typo: 'x' } }, registry), /未知のテーマ typo/);
+  // content-themes.json に名前を写すと止める
+  assert.throws(() => buildThemes({ ...cfg, shortLabels: { 'pe-comprehensive-management': 'x' } }, registry), /写さない/);
 });
 
 test('splitByStage: 区分つきテーマ・全般・名前・枝の並び', () => {
   const stages = new Map([['civil-construction-1', [{ id: 'first', label: '第一次検定' }, { id: 'second', label: '第二次検定' }]]]);
   const c = buildThemes(
-    { ...cfg, shortLabels: { 'civil-construction-1': '1級土木' }, splitByStage: ['civil-construction-1'], stageRules: { note: [{ pattern: '二次|経験記述', stage: 'second' }, { pattern: '一次', stage: 'first' }] } },
-    registry,
+    { ...cfg, splitByStage: ['civil-construction-1'], stageRules: { note: [{ pattern: '二次|経験記述', stage: 'second' }, { pattern: '一次', stage: 'first' }] } },
+    { ...registry, qualifications: registry.qualifications.map((q) => (q.id === 'civil-construction-1' ? { ...q, shortLabel: '1級土木' } : q)) },
     stages,
   );
   assert.equal(classifyNoteStage(c, 'content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md'), 'second');

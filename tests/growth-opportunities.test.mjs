@@ -154,7 +154,7 @@ test('buildDigest runs end-to-end on a fixture repository and renders the review
   const root = mkdtempSync(join(tmpdir(), 'growth-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   for (const d of ['.claude/config', '.claude/state/metrics/growth', 'public', 'content/site/civil-construction-1/textbook-a']) mkdirSync(join(root, d), { recursive: true });
-  for (const f of ['.claude/config/growth-cycle.json', '.claude/config/business-direction.json', '.claude/config/seo-watchwords.json']) writeFileSync(join(root, f), readFileSync(f));
+  for (const f of ['.claude/config/growth-cycle.json', '.claude/config/business-direction.json', '.claude/config/qualification-registry.json', '.claude/config/seo-watchwords.json']) writeFileSync(join(root, f), readFileSync(f));
   writeFileSync(join(root, 'public/_redirects'), '/docs/civil-construction-1-textbook-a /exam/civil-construction-1/textbook/a 301\n');
   writeFileSync(join(root, 'content/site/civil-construction-1/textbook-a/article.mdx'), '---\ntitle: a\n---\n');
   writeFileSync(join(root, '.claude/state/experiments.json'), JSON.stringify({ experiments: [] }));

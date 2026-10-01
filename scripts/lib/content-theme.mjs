@@ -37,9 +37,10 @@ export function buildThemes(cfg, registry, examStages = new Map()) {
       if (!themes.has(r.theme)) throw new Error(`content-themes.json: rules.${channel} が未知のテーマ ${r.theme} を指している`);
     }
   }
-  for (const id of Object.keys(cfg.shortLabels ?? {})) {
-    if (!themes.has(id)) throw new Error(`content-themes.json: shortLabels が未知のテーマ ${id} を指している`);
-  }
+  if (cfg.shortLabels) throw new Error('content-themes.json: shortLabels は qualification-registry.json の shortLabel・familyShortLabels へ（名前を写さない）');
+  // 短い名前は registry が正本（資格は shortLabel、ファミリーは familyShortLabels）
+  const shortLabels = { ...(registry.familyShortLabels ?? {}) };
+  for (const q of registry.qualifications ?? []) if (q.shortLabel) shortLabels[q.id] = q.shortLabel;
   const split = new Map();
   for (const id of cfg.splitByStage ?? []) {
     const stages = examStages.get(id) ?? [];
@@ -50,7 +51,7 @@ export function buildThemes(cfg, registry, examStages = new Map()) {
   for (const [channel, list] of Object.entries(cfg.stageRules ?? {})) {
     for (const r of list) if (!keys.has(r.stage)) throw new Error(`content-themes.json: stageRules.${channel} が未知の区分 ${r.stage} を指している`);
   }
-  return { themes, rules, shortLabels: cfg.shortLabels ?? {}, split, stageRules: cfg.stageRules ?? {}, stageCommonLabel: cfg.stageCommonLabel ?? '全般' };
+  return { themes, rules, shortLabels, split, stageRules: cfg.stageRules ?? {}, stageCommonLabel: cfg.stageCommonLabel ?? '全般' };
 }
 
 /**
@@ -79,6 +80,14 @@ export function classifyNoteStage(ctx, rel) {
 export function stageThemeIds(ctx, theme) {
   const stages = ctx.split?.get(theme);
   return stages ? [...stages.map((st) => `${theme}:${st.id}`), `${theme}:${COMMON_STAGE}`] : [theme];
+}
+
+/**
+ * サイドメニューなどでテーマを並べる順（registry の資格の順 → 資格ファミリー → 話題。区分に分ける資格は区分の順＋全般）。
+ * 画面ごとに件数順・ファイル順で並べず、全てこの順にする。
+ */
+export function orderedThemeIds(ctx) {
+  return [...ctx.themes.keys()].flatMap((id) => stageThemeIds(ctx, id));
 }
 
 /** 「資格:区分」を分ける。区分の無いテーマは stage が null */

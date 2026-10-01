@@ -8,7 +8,7 @@ const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01'
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
  for(const p of ['.claude/config','.claude/state/sales','.claude/state/metrics/ga4','.claude/state/metrics/note','.claude/state/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
- writeFileSync(join(root,'.claude/config/business-direction.json'),readFileSync('.claude/config/business-direction.json'));
+ for(const f of ['business-direction.json','qualification-registry.json'])writeFileSync(join(root,'.claude/config',f),readFileSync(join('.claude/config',f)));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'.claude/state/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
 }

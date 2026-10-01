@@ -227,6 +227,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 資格の名前・並び順は qualification-registry.json だけ（設定の写し・コードの対応表の増加を止める）
+node scripts/check-qualification-ssot.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # X月間キャンペーン計画の日付・導線・URL・販売投稿間隔を検証
 node scripts/check-x-campaign-plan.mjs
 if [ $? -ne 0 ]; then

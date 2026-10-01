@@ -4,8 +4,35 @@
  * 資格 id は qualification-registry.json が定義し、exam-calendar.json（日程）と exam-stats.json
  * （受験者数）が同じ id で持つ。三者の id が食い違うと、候補資格が片方の正本にだけ残ったり、
  * 展開中の資格の日程が無検査で素通りしたりする。scripts/check-exam-calendar.mjs から呼ぶ。
+ * 資格の名前（label・shortLabel）と並び順も registry だけが持ち、ほかは loadRegistry と下の関数で引く
+ * （写しを作らない。scripts/check-qualification-ssot.mjs が止める）。
  * ---------------------------------------------------------------------------
  */
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+export const REGISTRY_PATH = '.claude/config/qualification-registry.json';
+
+export function loadRegistry(root) {
+  return JSON.parse(readFileSync(join(root, REGISTRY_PATH), 'utf8'));
+}
+
+/** 資格を registry の並び順で返す（portfolio で絞れる）。画面の並びは全てこの順にする */
+export function orderedQualifications(registry, portfolio = null) {
+  return (registry.qualifications ?? []).filter((q) => !portfolio || q.portfolio === portfolio);
+}
+
+/** 資格の正式名。未知の id は id のまま */
+export function qualificationLabel(registry, id) {
+  return registry.qualifications?.find((q) => q.id === id)?.label ?? id;
+}
+
+/** 画面の短い名前（shortLabel、無ければ正式名）。資格ファミリーは familyShortLabels、無ければ families */
+export function qualificationShortLabel(registry, id) {
+  const q = registry.qualifications?.find((x) => x.id === id);
+  if (q) return q.shortLabel || q.label;
+  return registry.familyShortLabels?.[id] ?? registry.families?.[id] ?? id;
+}
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const STAT_KEYS = ['applicants', 'examinees', 'passers', 'passRate'];
@@ -105,20 +132,23 @@ function checkFormats(formats, ids, active, errors) {
 }
 
 /**
- * @param {{ registry: any, calendar: any, examStats: any, formats?: any, lineupConfig?: any, refExists?: (path: string) => boolean }} input
+ * @param {{ registry: any, calendar: any, examStats: any, formats?: any, refExists?: (path: string) => boolean }} input
  * @returns {string[]} 違反メッセージ（空なら整合）
  */
-export function validateQualificationRegistry({ registry, calendar, examStats, formats = null, lineupConfig = null, refExists = null }) {
+export function validateQualificationRegistry({ registry, calendar, examStats, formats = null, refExists = null }) {
   const errors = [];
   const statuses = new Set(Object.keys(registry.portfolioStatuses ?? {}));
   const families = new Set(Object.keys(registry.families ?? {}));
   const ids = new Set();
 
+  for (const id of Object.keys(registry.familyShortLabels ?? {})) if (!families.has(id)) errors.push(`registry.familyShortLabels: ${id} は families に無い`);
   for (const q of registry.qualifications ?? []) {
     if (ids.has(q.id)) errors.push(`registry: id ${q.id} が重複`);
     ids.add(q.id);
     if (!statuses.has(q.portfolio)) errors.push(`registry.${q.id}: portfolio ${q.portfolio} は未定義`);
     if (!families.has(q.family)) errors.push(`registry.${q.id}: family ${q.family} は未定義`);
+    if (typeof q.label !== 'string' || !q.label) errors.push(`registry.${q.id}: label が必要`);
+    if (q.shortLabel !== undefined && (typeof q.shortLabel !== 'string' || !q.shortLabel)) errors.push(`registry.${q.id}: shortLabel は空でない文字列`);
     if (q.portfolio === 'declined' && !q.decision?.ref) errors.push(`registry.${q.id}: declined は decision.ref（判断の文書）が必要`);
     if (q.decision?.ref && refExists && !refExists(q.decision.ref)) errors.push(`registry.${q.id}: decision.ref ${q.decision.ref} が実在しない`);
   }
@@ -173,13 +203,6 @@ export function validateQualificationRegistry({ registry, calendar, examStats, f
   }
 
   if (formats) checkFormats(formats, ids, active, errors);
-
-  // 商品ラインナップの行は展開中の資格そのもの。候補を載せない・展開中を落とさない。
-  if (lineupConfig) {
-    const lineup = new Set(lineupConfig.qualifications.map((q) => q.id));
-    for (const id of lineup) if (!active.has(id)) errors.push(`product-lineup の ${id} は registry で active ではない`);
-    for (const id of active) if (!lineup.has(id)) errors.push(`registry の active ${id} が product-lineup に無い`);
-  }
   return errors;
 }
 

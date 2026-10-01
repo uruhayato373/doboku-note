@@ -1,0 +1,20 @@
+{
+  "_doc": "資格の名前の写しとして check-qualification-ssot が拾うが、資格名とは別の属性なので残してよい箇所（file＋path、* は 1 段の任意キー）。理由を必ず書く。資格の名前・短い名前・並び順そのものは qualification-registry.json だけに書き、ここに逃がさない。",
+  "allow": [
+    {
+      "file": ".claude/config/exam-calendar.json",
+      "path": "$.exams.*.label",
+      "reason": "試験の正式名（例 1級土木施工管理技術検定）。資格名とは別の、主催者の表記そのもの"
+    },
+    {
+      "file": ".claude/config/exam-stats.json",
+      "path": "$.exams.*.label",
+      "reason": "統計の出典にある試験の正式名。資格名とは別の属性"
+    },
+    {
+      "file": ".claude/config/note-funnel.json",
+      "path": "$.exams.*.label",
+      "reason": "note 導線の独自グループ名（tankan・civil など registry と別の id 体系で、id が偶然一致する 3 件だけ拾われる）。registry の id で参照する形への移行は backlog の返済カード"
+    }
+  ]
+}

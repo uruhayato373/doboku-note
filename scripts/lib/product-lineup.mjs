@@ -12,13 +12,23 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadExamStages } from './exam-stages.mjs';
+import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const LINEUP_CONFIG_PATH = join(ROOT, '.claude/config/product-lineup.json');
 
-/** product-lineup.json を読み、各資格に exam-formats.json の試験区分（stages）を付けて返す */
+/**
+ * product-lineup.json を読み、マスの資格（registry の展開中の資格・名前と並び順も registry）と
+ * 各資格の試験区分（exam-formats.json の stages）を付けて返す
+ */
 export function loadLineupConfig(root = ROOT) {
-  return withStages(JSON.parse(readFileSync(join(root, '.claude/config/product-lineup.json'), 'utf8')), loadExamStages(root));
+  const config = JSON.parse(readFileSync(join(root, '.claude/config/product-lineup.json'), 'utf8'));
+  return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
+}
+
+/** マスの資格を registry の展開中（portfolio: active）から付ける。product-lineup.json には資格を書かない */
+export function withQualifications(config, registry) {
+  return { ...config, qualifications: orderedQualifications(registry, 'active').map((q) => ({ id: q.id, label: q.label })) };
 }
 
 /** config の各資格に区分を付ける（区分の無い資格は stages: [] になり validateLineupConfig が止める） */

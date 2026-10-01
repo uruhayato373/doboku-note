@@ -50,7 +50,7 @@ test('CI prepare/apply records waiting once without changing experiments, and re
   const config = JSON.parse(readFileSync('.claude/config/seo-watchwords.json', 'utf8'));
   config.strategy.reviewedAt = new Date().toISOString().slice(0, 10);
   save('.claude/config/seo-watchwords.json', config);
-  for (const name of ['business-direction', 'exam-calendar']) save(`.claude/config/${name}.json`, JSON.parse(readFileSync(`.claude/config/${name}.json`, 'utf8')));
+  for (const name of ['business-direction', 'qualification-registry', 'exam-calendar']) save(`.claude/config/${name}.json`, JSON.parse(readFileSync(`.claude/config/${name}.json`, 'utf8')));
   const ledger = { experiments: [{ id: 'EXISTING1', status: 'running' }, { id: 'EXISTING2', status: 'running' }] };
   save('.claude/state/experiments.json', ledger);
   const cli = resolve('scripts/seo-rank-watch-ci.mjs');

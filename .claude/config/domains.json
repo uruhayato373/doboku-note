@@ -261,6 +261,12 @@
           "match": "/ops/auth"
         },
         {
+          "label": "正本の検査",
+          "href": "/ops/ssot",
+          "kind": "actions",
+          "match": "/ops/ssot"
+        },
+        {
           "label": "ナレッジ",
           "href": "/knowledge",
           "kind": "policy",
