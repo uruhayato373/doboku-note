@@ -167,6 +167,20 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-01]
+
+**起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスの ID/PW を各 PC の OS 資格情報ストアで管理する方針にした。正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`、確認は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）。Windows は note・ココナラを登録済み（同日）で、Mac は未着手。管理画面が見えるのはその PC の登録だけなので、Mac は Mac で確かめる。
+
+**やること**（Mac で。パスワードは対話入力にして引数や履歴に残さない）:
+1. develop を最新にして `npm run admin` を起動し、`/ops/auth` を開いて未登録の行を確かめる。
+2. 全 9 サービスの項目をキーチェーンへ登録する: `security add-generic-password -s doboku-note-auth-<service> -a <ログインID> -w`（service は note・coconala・kdp・a8・moshimo・x・instagram・google・afb）。note・ココナラの ID は dobokunotecom@gmail.com。A8・もしもは stats47 の `stats47-measurement-a8` / `-moshimo` が Mac にあればそれで足りる（doboku-note 側を優先して読む）。
+3. `npm run auth-refresh:install -- --status` で launchd（`com.doboku-note.auth-session-refresh`）が登録済みか確かめる。未登録なら `npm run auth-refresh:install`。
+4. `npm run auth-refresh:install -- --run-now` で 1 回走らせ、`~/Library/Logs/doboku-note/auth-session-refresh.log` と `/ops/auth` の「最新の維持結果」が ok になるのを確かめる。
+5. `node scripts/note-sales-fetch.mjs --month <前月>`（dry-run）で、売上ページのパスワード再確認を資格情報で通せるか（`[1b]` の行）を確かめる。
+
+**完了条件**: Mac の `/ops/auth` で「この PC の資格情報」が 9 件とも登録済み（A8・もしもは共用項目でも可）、定期実行が登録済み、自動ログイン対応の行（note・ココナラ・KDP・A8・もしも）の最新の維持結果が ok か失敗理由が分かる状態。
+
 ### [DN-0478] 2級二次の後に、無料化した週次お題10本の時期表現を来年度も使える言い方へ直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-01] [期日:2026-10-31]
 

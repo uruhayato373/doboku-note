@@ -33,7 +33,7 @@
  *   doboku-note だけ別にするなら doboku-note-auth-a8 / -moshimo を登録する（こちらが優先）
  *
  * CI（--ci・GitHub Actions 専用）: login-collectors で暗号化 state が切れていたときだけ、Secrets の ID/PW
- *   （credential-store の CI_ENV_CREDENTIAL_SERVICES に載る service だけ）で 1 回ログインし直して state を保存する。
+ *   （資格情報の正本で ciCredential=true の service だけ・credential-store の ciEnvCredentialServices）で 1 回ログインし直して state を保存する。
  *   共用 state の取り込み・export・dispatch・通知はしない。2026-10-01 オーナー決定（note・ココナラ）。
  *
  * 使い方:
@@ -60,7 +60,7 @@ import {
   keychainServiceNames,
   sharedStatePath,
 } from './lib/auth-session-refresh.mjs';
-import { CI_ENV_CREDENTIAL_SERVICES, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
+import { ciEnvCredentialServices, credentialStoreSupported, hasSecret, readFirstCredential, readServiceCredential } from './lib/credential-store.mjs';
 import { withAuthLock } from './lib/playwright-auth-lock.mjs';
 import {
   ensureAuthDirectories,
@@ -270,8 +270,8 @@ async function refresh(service, entry) {
 async function main() {
   if (CI_MODE) {
     const requested = opt('--service')?.split(',').map((x) => x.trim()).filter(Boolean) ?? [];
-    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !CI_ENV_CREDENTIAL_SERVICES.includes(x))) {
-      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${CI_ENV_CREDENTIAL_SERVICES.join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
+    if (process.env.GITHUB_ACTIONS !== 'true' || requested.length === 0 || requested.some((x) => !ciEnvCredentialServices().includes(x))) {
+      console.error(`${TAG} --ci は GitHub Actions で、Secrets を許可した service（${ciEnvCredentialServices().join(' / ')}）を --service で指定したときだけ使える。検査不成立。`);
       return 2;
     }
   }

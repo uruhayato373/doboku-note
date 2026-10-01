@@ -233,6 +233,10 @@ npm run auth:ci-writeback    # CI 専用。更新後の storageState を CAS で
 npm run auth:ci-plan         # ops-write の write plan を作り DOBOKU_CI_WRITE_PLAN_SHA256 を計算する
 ```
 
+## 資格情報の正本（2026-10-01）
+
+ログインが必要な全サービス（note・ココナラ・KDP・X・Instagram・Google・A8・もしも・afb）の ID/PW は、各 PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）に `doboku-note-auth-<service>` で登録する。方針の正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`（`autoLogin`＝切れたら自動で入り直すか・`ciCredential`＝GitHub Secrets を持つか・`policyNote`＝理由）と `credentialPolicy`（登録コマンド・定期実行）。X・Instagram・Google・afb は `autoLogin: false`（凍結・2 段階認証・セレクタ未確認）で、資格情報は人がログインするときのために保管する。`tests/auth-credential-ssot.test.mjs` が正本と `AUTO_LOGIN`・CI の Secrets 配線の一致を検査する。状態は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）で見る（開いた PC の登録だけが見える。Mac の作業は DN-0479）。
+
 ## ログイン維持（auth:refresh・Mac 2026-09-28／Windows・note・ココナラ 2026-09-28 DN-0362）
 
 A8 は揮発性 Cookie で、Mac で export した state が CI の定期収集（予定より数時間遅れて動く）の時点で切れていた
@@ -251,7 +255,7 @@ ID/PW の読み口は `scripts/lib/credential-store.mjs` だけ（Mac キーチ�
 
 2FA・CAPTCHA・ID/PW 不通・口座不一致では突破せず、auth root の `metadata/<service>.autologin-failed` を残して通知する（Mac は通知センター、Windows はタスクバーの通知）。
 
-**CI での入り直し（note・ココナラ・2026-10-01）**: `login-collectors.yml` は restore の結果が authenticated でないとき、`auth-session-refresh.mjs --ci --service <service>` で Secrets（`DOBOKU_AUTH_<SERVICE>_USER` / `_PASSWORD`）の ID/PW を使い 1 回だけ入り直す。許可 service は `credential-store.mjs` の `CI_ENV_CREDENTIAL_SERVICES` だけ。成功すれば以降の collector と writeback が動き、新しい state が R2 へ書き戻される。2FA・CAPTCHA では止まり、Issue に restore と re-login の結果が載る。共用 state の取り込み・export・通知は CI ではしない。
+**CI での入り直し（note・ココナラ・2026-10-01）**: `login-collectors.yml` は restore の結果が authenticated でないとき、`auth-session-refresh.mjs --ci --service <service>` で Secrets（`DOBOKU_AUTH_<SERVICE>_USER` / `_PASSWORD`）の ID/PW を使い 1 回だけ入り直す。許可 service は資格情報の正本（`playwright-auth-profiles.json` の `credential.ciCredential=true`）だけ。成功すれば以降の collector と writeback が動き、新しい state が R2 へ書き戻される。2FA・CAPTCHA では止まり、Issue に restore と re-login の結果が載る。共用 state の取り込み・export・通知は CI ではしない。
 人が `npm run auth:login -- --service <service>` で通し、印を消すまで自動では再試行しない。ログは
 Mac `~/Library/Logs/doboku-note/auth-session-refresh.log`／Windows `%USERPROFILE%\.local\state\doboku-note\logs\auth-session-refresh.log`。
 

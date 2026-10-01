@@ -249,6 +249,12 @@
           "match": "/quality"
         },
         {
+          "label": "ログインと資格情報",
+          "href": "/ops/auth",
+          "kind": "results",
+          "match": "/ops/auth"
+        },
+        {
           "label": "ナレッジ",
           "href": "/knowledge",
           "kind": "policy",
