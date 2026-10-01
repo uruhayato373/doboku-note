@@ -392,6 +392,10 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 - ツール: `node scripts/note-delete-note.mjs --note <key>`（既定 PROBE）／`--commit`（実削除・account gate＋API消滅検証つき）。複数は `--notes <k1,k2,...>` で 1 回の起動で順に削除する。一覧は無限スクロールで古い記事は先頭ページに無いので、カードが見つかるまで下へ読み進める（2026-10-01・それまでは古い記事が「見つからない」で止まっていた）。
 - **note リッチエディタは既存ブロックの移動・削除に強く抵抗**する（プログラム的 marker を剥がす・画像ブロックの scripted 削除が無反応）。**構成変更は「旧note破棄→新規公開で理想順に組む」が確実**（見出し直前への挿入＝native h2 に range→Enter→ArrowUp→座標で+menu は堅牢）。
 
+### マガジンの削除: note-magazine-delete（2026-10-01）
+- マガジン編集画面 `note.com/{creator}/m/{key}/edit` の左下「マガジン削除」→「削除する」。収録記事は削除されない。定期購読マガジンは削除できない（廃刊手続き）。メンバーシップ特典に紐づくマガジンは紐付けを外してからでないと消せない（その場合は中断する）。
+- ツール: `npm run note-magazine-delete -- --keys m1,m2`（既定 PROBE＝マガジン名と削除ボタンの有無を表示）／`--commit`（削除後に公開 API が 404 になったかを確かめる）。
+
 ### PDF 生成の環境依存（2026-07-04 訂正）
 - **Mac でハングするのは `magazine-to-pdf.mjs` の Chrome `--print-to-pdf` 経路だけ**。**Playwright `chromium.launch({headless:true})` → `page.pdf()` は Mac で正常動作**する（実例 `scripts/generate-anki-pdf.mjs`＝A5赤シートPDF・`--sample` で見本PNG）。カスタムHTML→PDF は magazine-to-pdf でなく `page.pdf()` を使う。
 
