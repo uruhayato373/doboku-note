@@ -1,6 +1,29 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-01T16:43:51.641Z",
+      "finishedAt": "2026-10-01T16:50:32.282Z",
+      "plan": {
+        "synced": 611,
+        "ready": 283,
+        "blocked": 4,
+        "blockers": {
+          "aborted": 4
+        }
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": []
+    },
+    {
       "startedAt": "2026-10-01T16:36:59.211Z",
       "finishedAt": "2026-10-01T16:43:38.373Z",
       "plan": {
@@ -253,29 +276,6 @@
             ]
           }
         ],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T15:18:51.276Z",
-      "finishedAt": "2026-10-01T15:25:27.175Z",
-      "plan": {
-        "synced": 610,
-        "ready": 284,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
         "failed": []
       },
       "magazines": {
