@@ -18,15 +18,18 @@ function action(r: CredentialRow): { text: string; detail?: string } | null {
   if (r.storePresent === false && !registered) return { text: '未登録' };
   if (r.failMarks.length > 0) return { text: 'ログインし直す', detail: `npm run auth:login -- --service ${r.id} の後、失敗印を消す:\n${r.failMarks.join('\n')}` };
   if (r.lastRefresh && r.lastRefresh.status !== 'ok' && r.lastRefresh.status !== 'skipped') return { text: 'ログインし直す', detail: r.lastRefresh.reason ?? r.lastRefresh.status };
-  if (r.ciCredential && (r.ciUser === null || r.ciPassword === null)) return null;
-  if (r.ciCredential && (!r.ciUser || !r.ciPassword)) return { text: 'CI 未登録' };
+  const ciWanted = r.ciCredential || r.ciStored;
+  if (ciWanted && (r.ciUser === null || r.ciPassword === null)) return null;
+  if (ciWanted && (!r.ciUser || !r.ciPassword)) return { text: 'CI 未登録' };
   return null;
 }
 
 function ciCell(r: CredentialRow) {
-  if (!r.ciCredential) return <span className="text-muted-foreground">—</span>;
+  if (!r.ciCredential && !r.ciStored) return <span className="text-muted-foreground">—</span>;
   if (r.ciUser === null || r.ciPassword === null) return <span className="text-muted-foreground">?</span>;
-  return r.ciUser && r.ciPassword ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>;
+  if (!r.ciUser || !r.ciPassword) return <StatusBadge tone="warn">未</StatusBadge>;
+  // CI が実際に読むのは ciCredential だけ。保管だけのものは「保管」と出し、理由は自動ログイン欄のツールチップ（方針）
+  return r.ciCredential ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="info" title={r.policyNote}>保管</StatusBadge>;
 }
 
 export default function AuthCredentialsPage() {
@@ -48,7 +51,7 @@ export default function AuthCredentialsPage() {
               <TableHead>サービス</TableHead>
               <TableHead>ログイン ID</TableHead>
               <TableHead title="この PC の資格情報マネージャー（Mac はキーチェーン）">この PC</TableHead>
-              <TableHead title="GitHub Secrets（CI で使うサービスだけ）">CI</TableHead>
+              <TableHead title="GitHub Secrets。済＝CI がログインに使う／保管＝登録だけで CI は使わない（理由はマウスで）">CI</TableHead>
               <TableHead title="切れたときに自動でログインし直すか">自動ログイン</TableHead>
               <TableHead>要対応</TableHead>
             </TableRow>
