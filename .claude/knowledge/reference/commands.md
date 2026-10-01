@@ -116,6 +116,12 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
+`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `content/products/` を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> --commit`・DN-0492）
+
+`npm run check-products` — 商品の正本のゲート（型・id・参照先・生成ブロックの一致・収録の意図×コミット済みの収録記録。ネットワーク不使用・ci:true）
+
+`npm run product:db -- --query "<SQL>"` — 正本・収録記録・販売ログから検索用 SQLite `.tmp/products.db`（生成物・Git 管理外・sql.js）を作って問い合わせる。`--check` は書き出さずに完走だけ確かめる
+
 `npm run note-sync:install` — Mac の launchd に note の週次同期を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`.claude/state/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。試験直前に 1 資格だけ先に流すなら `bash scripts/scheduled/note-sync.sh --only 'content/note/1級・2級土木/1級土木/'`（専用 worktree で同じ手順・マガジンのカバーは触らない）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
 
 ```bash
