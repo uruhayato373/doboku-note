@@ -1455,21 +1455,18 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: `npm run verify-note-status` で6本が公開、`check-magazine-membership` が exit 0。
 
-### [DN-0461] コンクリート主任技士 小論文「令和形式テーマ別」を note・ココナラで公開し、サイトと旧商品の導線を切り替える
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31]
+### [DN-0461] コンクリート主任技士 小論文を令和形式テーマ別へ一本化する（新版を公開→導線を付け替え→旧版を下書き・削除）
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31] [進行中]
 
-**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR `feat/cce-essay-reiwa`）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格・機械ゲート `check-cce-essay` 通過）。SoT `cce-essay-reiwa-pack` は `published:false`、ココナラ `coconala-cce-full-pdf` は `status:'draft'`。本試験は 2026-11-29。
+**起点**: 2026-09-30 に、旧4テーマ×8立場（序論・本論・結論型）が令和2年度以降の「1題・約1,000字・4項目」形式と合わないため作り直した（PR #744）。原稿は `content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/`（無料の出題傾向分析＋有料5本、cce-essay-qa 合格）。2026-10-01 のユーザー決定で旧版を整理する: 旧版の販売は note 販売履歴（〜09-27）で生コン工場の環境配慮・耐久性の2本（各¥980）だけ、旧マガジン・セット・残り30本・小論文模範答案集5本は0件。note の仕様では購入された有料記事は下書きに戻せず、削除しても購入者は購入済みページから読める（noteヘルプ 360015885853）。本試験は 2026-11-29。
 
-**やること**（PR マージ後、この順で）:
-1. note に6本を公開し（単品 ¥1,480・無料1本）、マガジン（¥3,980・掲載文は同 dir の `note掲載文.txt`）を作って収録。各記事の hashtags.txt とカバーを用意し、`note-magazines.ts` の noteUrl を埋めて `published: true`。収録後に `verify-note-magazines --contents` の snapshot を再生成する。
-2. サイト `concrete-chief-engineer-guide-essay` の導線を新マガジンへ切り替える（`magazine-placement.ts` の top、本文の旧テーマ別パック4枚の `<MagazineCard>` を外して新マガジンに差し替え）。
-3. 旧商品（実務立場別答案集・テーマ別パック・小論文模範答案集）は販売履歴があるので非公開にしない。各記事の冒頭に「令和形式の新版」への案内を1行足し、note 同期で反映する。
-4. ココナラ K3（完全パック＝令和形式6冊＋択一3冊・¥8,000）の PDF を `node scripts/build-coconala-content-pdf.mjs --product K3` で作り、商品画像を承認してから出品（文面は運営者が確認してから公開）。公開後に旧 K1/K2（カタログは retired 済み）を `node scripts/coconala-pause.mjs --service coconala-cce-essay-pdf,coconala-cce-takuitsu-pdf --commit` で受付休止する。
-5. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする（worktree 間の鮮度チェック偽陽性のため PR では入れていない）。
+**やること**（この順で。新版が無い期間を作らない）:
+1. 新版6本（単品 ¥1,480・無料1本）を公開し、マガジン（¥3,980・`note掲載文.txt`）を作って収録。カバー・`note-magazines.ts` の noteUrl と `published: true`・`verify-note-magazines --contents` の snapshot を更新する。
+2. 導線を新版へ付け替える: まるごとパック（¥9,800）の収録を旧小論文から新版へ差し替え（価格表記・掲載文も）、もくじ、サイト `concrete-chief-engineer-guide-essay`（`magazine-placement.ts`・本文の `<MagazineCard>`）、ココナラ K3（完全パック PDF）の公開と旧 K1/K2 の受付休止。
+3. 直前に販売履歴を取り直し（9/28 以降の購入を確認）、旧版を整理する: 売れた記事は削除、売れていない記事（実務立場別32本の残り・小論文模範答案集5本）は下書きに戻す、旧マガジン（立場別8誌・テーマ別4誌・実務立場別答案集・小論文模範答案集）は削除。`note-magazines.ts` の旧エントリを `published: false` にし、原稿側の `noteStatus` を合わせる。
+4. 共有 pre-commit フックを develop 側で `npm run pre-commit:install` し直し、`check-cce-essay --staged` を有効にする。
 
-**完了条件**: note の6本とマガジンが公開ページで見え、`check-magazine-membership` と `check-coconala-wiring` が exit 0。サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。効果判定は DN-0265（本試験後）で旧商品と分けて数える。
-
-**進捗（2026-09-30）**: 手順1の note 公開は運営者の実行へ切り出した（DN-0463）。手順2・3は note URL 確定待ち。手順4: K3 は出品済み（services/4426935・カタログ listed）、PDF 9冊を `build-coconala-content-pdf --product K3` で再ビルド済み。旧 K1/K2 のライブ休止は、別セッションがブラウザを使用中（BROWSER_ALREADY_RUNNING）で未実行・カタログは paused。同日あとで `coconala-pause --commit` を実行し、2件ともライブで既に受付休止中（skip）と確認した。手順5の pre-commit 再インストールは未実施。
+**完了条件**: 新版6本とマガジンが公開 API で見え、まるごとパックの収録が新版になっている。旧版の記事・マガジンが公開 API で取得できない（購入者向けを除く）。`check-magazine-membership`・`check-magazine-wiring`・`check-coconala-wiring` が exit 0、サイト guide-essay のビルド後 HTML に新マガジンの CTA が出ている。
 
 ### [DN-0265] コンクリート主任技士のココナラ出品（小論文添削・完全パック PDF の2件）を本試験後に継続か休止か判定する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-23] [期日:2026-12-15]
