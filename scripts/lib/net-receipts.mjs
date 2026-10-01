@@ -3,9 +3,28 @@
  * ---------------------------------------------------------------------------
  * 受取額 = note の手数料控除後売上 ＋ ココナラの手数料控除後売上（トークルームのクローズ日で計上）
  *        ＋ KDP ロイヤリティ確定値（catalog 対象書籍のみ）。振込手数料は含めない（15_KPIツリー.md）。
- * 読み手: scripts/record-net-receipts.mjs（月次レビューの取得手順）・tests/net-receipts.test.mjs。
+ * 読み手: scripts/record-net-receipts.mjs（月次レビューの取得手順）・scripts/note-sales-fetch.mjs（集計中の判定）・tests/net-receipts.test.mjs。
  * ---------------------------------------------------------------------------
  */
+
+/**
+ * note は前月の売上を毎月 2 日に確定する。それまで売上管理は「ただいま前月の売上を集計中です」と出し、
+ * 処理済みの表に前月の行が無く、月別詳細にも合計・手数料控除後売上が出ない（2026-10-01 実画面）。
+ */
+export function noteSalesFinalizeDate(month) {
+  const [y, m] = month.split('-').map(Number);
+  return new Date(Date.UTC(y, m, 2)).toISOString().slice(0, 10);
+}
+
+/** 売上管理の本文が「前月の売上を集計中」か。 */
+export function isNoteSalesAggregating(text) {
+  return /前月の売上を集計中/.test(String(text ?? ''));
+}
+
+/** 集計中で止めるときの 1 行（YYYY-MM と確定日を示す）。 */
+export function noteSalesPendingMessage(month) {
+  return `${month} の note 売上はまだ集計中（note は毎月 2 日に確定）。${noteSalesFinalizeDate(month)} 以降に再実行する`;
+}
 
 /** note の月別売上詳細ページ（/dashboard/salesmanage?datespan=YYYYMM）の本文から売上・手数料・控除後を読む。 */
 export function parseNoteSalesDetail(text) {
