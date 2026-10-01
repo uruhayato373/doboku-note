@@ -18,8 +18,11 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { readdirSync, statSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
+// textlint は npx でなく node で直接起動する（Windows の spawnSync は npx.cmd を解決できない）。
+const TEXTLINT_BIN = createRequire(import.meta.url).resolve('textlint/bin/textlint.js');
 const SCAN_DIR = join(ROOT, 'content', 'site');
 const SCAN_EXT = /\.mdx$/;
 
@@ -77,7 +80,7 @@ let failedBatches = 0;
 const violations = [];
 
 for (const batch of batches) {
-  const result = spawnSync('npx', ['textlint', '--format', 'json', ...batch], {
+  const result = spawnSync(process.execPath, [TEXTLINT_BIN, '--format', 'json', ...batch], {
     cwd: ROOT,
     encoding: 'utf8',
     maxBuffer: 256 * 1024 * 1024,
