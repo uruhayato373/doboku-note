@@ -19,7 +19,8 @@
   "retiredMagazineIds": {
     "whitepaper-r7-strategy": "src/lib/note-magazines.ts の退役記録に従う。2026-05-25に無料記事化済みでマガジン出力先がない。",
     "civil-1-anki": "単発記事のためマガジンカバー対象外。記事カバーで管理する。",
-    "civil-2-anki": "単発記事のためマガジンカバー対象外。記事カバーで管理する。"
+    "civil-2-anki": "単発記事のためマガジンカバー対象外。記事カバーで管理する。",
+    "civil-2-keiken-river-rural-park-pack": "2026-10-01 にペルソナ別パックへ組み替えて note から削除（販売0件）。"
   },
   "additionalMagazines": [
     {
@@ -74,25 +75,49 @@
       "id": "civil-2-keiken-local-road-pack",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-地域道路付帯施設10工事",
       "qualifier": "2級土木｜施工経験記述",
-      "magazineName": "地域道路・付帯施設",
-      "proof": "身近な道路10工事",
-      "benefit": "経験した道路工事から選ぶ"
+      "magazineName": "市町村道路の維持修繕",
+      "proof": "市町村道の12工事",
+      "benefit": "担当した維持修繕から選ぶ"
     },
     {
       "id": "civil-2-keiken-water-drainage-pack",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-上下水道排水5工事",
       "qualifier": "2級土木｜施工経験記述",
-      "magazineName": "上下水道・排水",
-      "proof": "水路・管路5工事",
-      "benefit": "住宅地の供用工事から書く"
+      "magazineName": "上下水道・管工事",
+      "proof": "管路・排水の8工事",
+      "benefit": "担当した管工事から選ぶ"
     },
     {
-      "id": "civil-2-keiken-river-rural-park-pack",
-      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川農林公園7工事",
+      "id": "civil-2-keiken-concrete-foundation-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-コンクリート構造物基礎10工事",
       "qualifier": "2級土木｜施工経験記述",
-      "magazineName": "河川・農林・公園",
-      "proof": "地域施設7工事",
-      "benefit": "身近な公共工事から書く"
+      "magazineName": "コンクリート構造物・基礎",
+      "proof": "構造物・基礎の10工事",
+      "benefit": "打設と基礎を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-earthwork-slope-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-土工造成法面10工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "土工・造成・法面",
+      "proof": "土工・法面の10工事",
+      "benefit": "締固めと法面を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-river-disaster-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川砂防災害復旧10工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "河川・砂防・災害復旧",
+      "proof": "河川・砂防の10工事",
+      "benefit": "水際の管理を書き分ける"
+    },
+    {
+      "id": "civil-2-keiken-paving-pack",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-舗装会社の新設修繕9工事",
+      "qualifier": "2級土木｜施工経験記述",
+      "magazineName": "舗装会社の新設・修繕",
+      "proof": "舗装の9工事",
+      "benefit": "新設も修繕も書き分ける"
     },
     {
       "id": "essay-steel-concrete-consultant-magazine",
