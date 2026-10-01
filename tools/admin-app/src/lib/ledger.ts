@@ -124,8 +124,10 @@ const REFRESH_COOLDOWN_MS = 10 * 60_000;
  * Windows で detached にすると子の curl・git がターミナルを開き続けるので detached にしない（PR #779 と同じ理由）。
  */
 function refreshIndexIfStale(generatedAt: string | null): boolean {
-  if (Date.now() - refreshStartedAt < REFRESH_COOLDOWN_MS) return true;
   const builtAt = generatedAt ? Date.parse(generatedAt) : 0;
+  // 起動した作り直しが終わって索引が新しくなっていれば「作り直し中」を出さない
+  if (refreshStartedAt && builtAt >= refreshStartedAt) refreshStartedAt = 0;
+  if (refreshStartedAt && Date.now() - refreshStartedAt < REFRESH_COOLDOWN_MS) return true;
   let stale = !builtAt || Date.now() - builtAt > REFRESH_AGE_MS;
   if (!stale) {
     try {
