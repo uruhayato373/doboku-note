@@ -29,9 +29,15 @@ export interface DesignMagazine {
   tier: Tier;
   /** note 上の収録本数（有料記事のみ）。収録を読めない・未作成は null */
   count: number | null;
-  /** パック: 丸ごと含むマガジン／マガジン: 自分を丸ごと含むパック（題名） */
-  contains: string[];
-  inPacks: string[];
+  /** パック: 丸ごと含むマガジン／マガジン: 自分を丸ごと含むパック */
+  contains: Ref[];
+  inPacks: Ref[];
+}
+
+/** 他の商品への参照（表示名は資格名を外した短い名前） */
+export interface Ref {
+  id: string;
+  label: string;
 }
 
 export interface DesignSingle {
@@ -39,8 +45,8 @@ export interface DesignSingle {
   title: string;
   price: number | null;
   url: string;
-  inMagazines: string[];
-  inPacks: string[];
+  inMagazines: Ref[];
+  inPacks: Ref[];
 }
 
 export interface DesignStage {
@@ -150,8 +156,8 @@ export function loadDesignView(q: string | null): DesignView {
       a.tier = 'pack';
       for (const b of inner) {
         if (inner.some((mid) => within(mid, b))) continue;
-        a.contains.push(short(b.title));
-        b.inPacks.push(short(a.title));
+        a.contains.push({ id: b.id, label: short(b.title) });
+        b.inPacks.push({ id: a.id, label: short(a.title) });
       }
     }
 
@@ -160,7 +166,7 @@ export function loadDesignView(q: string | null): DesignView {
     for (const m of mags) {
       for (const n of (m.key && notesByMag.get(m.key)) || []) {
         const s = singles.get(n.key) ?? { key: n.key, title: n.name, price: n.price, url: `https://note.com/dobokunote/n/${n.key}`, inMagazines: [], inPacks: [] };
-        (m.tier === 'pack' ? s.inPacks : s.inMagazines).push(short(m.title));
+        (m.tier === 'pack' ? s.inPacks : s.inMagazines).push({ id: m.id, label: short(m.title) });
         singles.set(n.key, s);
       }
     }
