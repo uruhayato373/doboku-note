@@ -1,5 +1,4 @@
 import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
-import type { Tone } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { authCredentialsView, type CredentialRow } from '@/lib/auth-credentials';
@@ -7,119 +6,85 @@ import { authCredentialsView, type CredentialRow } from '@/lib/auth-credentials'
 export const dynamic = 'force-dynamic';
 
 /**
- * /ops/auth — ログインが必要な全サービスの資格情報（正本 .claude/config/playwright-auth-profiles.json の credential）と、
- * この PC の登録・ログイン維持・CI の Secrets を 1 枚で見る。パスワードは読まない（有無と更新日だけ）。
+ * /ops/auth — ログインが必要な全サービスについて、人が見るべきことだけを出す:
+ * ログイン ID・この PC の登録・CI の登録・自動ログインの有無・要対応。
+ * 正本は .claude/config/playwright-auth-profiles.json の credential、ID とパスワードは各 PC の資格情報ストア（パスワードは読まない）。
  */
-const MACHINE_LABEL = { windows: 'Windows', mac: 'Mac', other: 'この OS（資格情報ストア非対応）' } as const;
+const MACHINE_LABEL = { windows: 'Windows', mac: 'Mac', other: 'この PC' } as const;
 
-function presence(v: boolean | null, ok = '登録済み', ng = '未登録') {
-  if (v === null) return <StatusBadge tone="neutral">確認できない</StatusBadge>;
-  return v ? <StatusBadge tone="good">{ok}</StatusBadge> : <StatusBadge tone="warn">{ng}</StatusBadge>;
+/** 人が手を打つべきこと（無ければ null）。 */
+function action(r: CredentialRow): { text: string; detail?: string } | null {
+  const registered = r.storePresent === true || r.sharedPresent === true;
+  if (r.storePresent === false && !registered) return { text: '未登録' };
+  if (r.failMarks.length > 0) return { text: 'ログインし直す', detail: `npm run auth:login -- --service ${r.id} の後、失敗印を消す:\n${r.failMarks.join('\n')}` };
+  if (r.lastRefresh && r.lastRefresh.status !== 'ok' && r.lastRefresh.status !== 'skipped') return { text: 'ログインし直す', detail: r.lastRefresh.reason ?? r.lastRefresh.status };
+  if (r.ciCredential && (r.ciUser === null || r.ciPassword === null)) return null;
+  if (r.ciCredential && (!r.ciUser || !r.ciPassword)) return { text: 'CI 未登録' };
+  return null;
 }
 
-function refreshTone(status: string): Tone {
-  if (status === 'ok') return 'good';
-  if (status === 'skipped' || status === 'needs-login') return 'neutral';
-  return 'bad';
-}
-
-function ciCell(r: CredentialRow, secretsError: string | null) {
-  if (!r.ciCredential) return <span className="text-muted-foreground">使わない</span>;
-  if (secretsError) return <StatusBadge tone="neutral" title={secretsError}>確認できない</StatusBadge>;
-  const both = Boolean(r.ciUser && r.ciPassword);
-  const date = [r.ciUser, r.ciPassword].filter(Boolean).sort().at(-1)?.slice(0, 10);
-  return both ? <StatusBadge tone="good" title={`更新 ${date}`}>登録済み</StatusBadge> : <StatusBadge tone="bad">{r.ciUser ? 'パスワード未登録' : 'ID 未登録'}</StatusBadge>;
+function ciCell(r: CredentialRow) {
+  if (!r.ciCredential) return <span className="text-muted-foreground">—</span>;
+  if (r.ciUser === null || r.ciPassword === null) return <span className="text-muted-foreground">?</span>;
+  return r.ciUser && r.ciPassword ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>;
 }
 
 export default function AuthCredentialsPage() {
   const v = authCredentialsView();
-  const missing = v.rows.filter((r) => r.storePresent === false && !(r.sharedPresent === true));
-  const failing = v.rows.filter((r) => r.failMarks.length > 0);
+  const todo = v.rows.map((r) => ({ r, a: action(r) })).filter((x) => x.a);
+  const unregistered = v.rows.filter((r) => action(r)?.text === '未登録');
+  const registerCmd = v.machine === 'mac' ? v.register.mac : v.register.windows;
 
   return (
     <>
       <PageHead
         title="ログインと資格情報"
-        sub={`正本 ${v.registryPath}（credential）· この PC: ${MACHINE_LABEL[v.machine]} · 資格情報 ${v.rows.length - missing.length}/${v.rows.length} 件登録 · パスワードは表示しない`}
+        sub={`${MACHINE_LABEL[v.machine]} · 登録 ${v.rows.length - unregistered.length}/${v.rows.length} · 要対応 ${todo.length} 件 · 毎日のログイン維持 ${v.task.registered === true ? '登録済み' : v.task.registered === false ? '未登録' : '不明'}`}
       />
       <Stack>
-        <PanelCard title="この PC のログイン維持" description="毎日 17:45 に各サービスのログインを確かめ、切れていれば資格情報で 1 回だけ入り直す（自動ログイン対応のサービスだけ）">
-          <Stack gap="sm">
-            <div className="filterbar">
-              {v.task.registered === true && <StatusBadge tone="good">定期実行 登録済み</StatusBadge>}
-              {v.task.registered === false && <StatusBadge tone="bad">定期実行 未登録</StatusBadge>}
-              {v.task.registered === null && <StatusBadge tone="neutral">定期実行 確認できない</StatusBadge>}
-              {failing.length > 0 && <StatusBadge tone="bad">失敗印 {failing.length} 件</StatusBadge>}
-            </div>
-            <pre className="m-0 whitespace-pre-wrap text-xs text-muted-foreground">{v.task.detail}</pre>
-            <p className="m-0 text-sm text-muted-foreground">
-              ログ <code>{v.log.path}</code>（最終更新 {v.log.updatedAt ? v.log.updatedAt.slice(0, 16).replace('T', ' ') + ' UTC' : 'まだ無い'}）。
-              未登録なら <code>npm run auth-refresh:install</code>。
-            </p>
-          </Stack>
-        </PanelCard>
-
         <TableFrame>
           <TableHeader>
             <TableRow>
               <TableHead>サービス</TableHead>
-              <TableHead title="切れたときに資格情報で自動で入り直すか（正本の autoLogin）">自動ログイン</TableHead>
-              <TableHead title="この PC の OS 資格情報ストア（Mac キーチェーン / Windows 資格情報マネージャー）">この PC の資格情報</TableHead>
-              <TableHead title="GitHub Secrets DOBOKU_AUTH_<SERVICE>_USER / _PASSWORD（正本の ciCredential）">CI</TableHead>
-              <TableHead title="ログイン維持ログの最新結果（この PC）">最新の維持結果</TableHead>
-              <TableHead>方針</TableHead>
+              <TableHead>ログイン ID</TableHead>
+              <TableHead title="この PC の資格情報マネージャー（Mac はキーチェーン）">この PC</TableHead>
+              <TableHead title="GitHub Secrets（CI で使うサービスだけ）">CI</TableHead>
+              <TableHead title="切れたときに自動でログインし直すか">自動ログイン</TableHead>
+              <TableHead>要対応</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {v.rows.map((r) => (
-              <TableRow key={r.id}>
-                <TableCell>
-                  <div className="font-medium">{r.label}</div>
-                  <code className="text-xs text-muted-foreground">{r.storeItem}</code>
-                </TableCell>
-                <TableCell>{r.autoLogin ? <StatusBadge tone="info">自動</StatusBadge> : <StatusBadge tone="neutral">人が入る</StatusBadge>}</TableCell>
-                <TableCell>
-                  {presence(r.storePresent)}
-                  {r.sharedStoreItem && (
-                    <div className="mt-1 text-xs text-muted-foreground">
-                      共用 <code>{r.sharedStoreItem}</code> {r.sharedPresent === null ? '?' : r.sharedPresent ? 'あり' : 'なし'}
-                    </div>
-                  )}
-                </TableCell>
-                <TableCell>{ciCell(r, v.secretsError)}</TableCell>
-                <TableCell>
-                  {r.failMarks.length > 0 ? (
-                    <StatusBadge tone="bad" title={r.failMarks.join('\n')}>失敗印あり</StatusBadge>
-                  ) : r.lastRefresh ? (
-                    <StatusBadge tone={refreshTone(r.lastRefresh.status)} title={r.lastRefresh.reason}>{r.lastRefresh.status}</StatusBadge>
-                  ) : (
-                    <span className="text-muted-foreground">記録なし</span>
-                  )}
-                </TableCell>
-                <TableCell className="text-sm text-muted-foreground">{r.policyNote}</TableCell>
-              </TableRow>
-            ))}
+            {v.rows.map((r) => {
+              const a = action(r);
+              const user = r.storeUser ?? (r.sharedPresent ? r.sharedUser : null);
+              const registered = r.storePresent === true || r.sharedPresent === true;
+              return (
+                <TableRow key={r.id}>
+                  <TableCell className="font-medium">{r.label}</TableCell>
+                  <TableCell>{user ?? <span className="text-muted-foreground">—</span>}</TableCell>
+                  <TableCell>
+                    {r.storePresent === null && r.sharedPresent === null
+                      ? <span className="text-muted-foreground">?</span>
+                      : registered ? <StatusBadge tone="good">済</StatusBadge> : <StatusBadge tone="warn">未</StatusBadge>}
+                  </TableCell>
+                  <TableCell>{ciCell(r)}</TableCell>
+                  <TableCell title={r.policyNote}>{r.autoLogin ? 'する' : <span className="text-muted-foreground">しない</span>}</TableCell>
+                  <TableCell>{a ? <StatusBadge tone="bad" title={a.detail}>{a.text}</StatusBadge> : <span className="text-muted-foreground">—</span>}</TableCell>
+                </TableRow>
+              );
+            })}
           </TableBody>
         </TableFrame>
 
-        <PanelCard title="登録のしかた" description="値は対話入力にして、コマンドの引数や履歴にパスワードを残さない。登録後にこのページを開き直すと反映される">
-          <Stack gap="sm">
-            {Object.entries(v.register).map(([k, cmd]) => (
-              <div key={k} className="text-sm">
-                <span className="mr-2 font-medium">{k === 'mac' ? 'Mac' : k === 'windows' ? 'Windows' : 'CI'}</span>
-                <code>{cmd}</code>
-              </div>
-            ))}
-            {missing.length > 0 && (
-              <p className="m-0 text-sm text-muted-foreground">
-                この PC で未登録: {missing.map((r) => r.label).join('・')}
-              </p>
-            )}
-            <p className="m-0 text-sm text-muted-foreground">
-              見えるのはこの PC の登録だけ。もう一方の PC（Mac / Windows）はその PC で管理画面を開いて確かめる。
-            </p>
-          </Stack>
-        </PanelCard>
+        {unregistered.length > 0 && registerCmd && (
+          <PanelCard title="未登録のサービスを登録する" description="ターミナルで実行し、聞かれたらパスワードを入力する。登録後にこのページを再読み込みする">
+            <Stack gap="sm">
+              {unregistered.map((r) => (
+                <code key={r.id} className="text-sm">{registerCmd.replace('<storeItem>', r.storeItem)}</code>
+              ))}
+            </Stack>
+          </PanelCard>
+        )}
       </Stack>
     </>
   );

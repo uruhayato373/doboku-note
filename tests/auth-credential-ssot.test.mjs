@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
 import { AUTO_LOGIN, keychainServiceNames } from '../scripts/lib/auth-session-refresh.mjs';
-import { ciEnvCredentialServices, ciEnvVarNames, cmdkeyListHas, loadCredentialRegistry, presentSecrets } from '../scripts/lib/credential-store.mjs';
+import { ciEnvCredentialServices, ciEnvVarNames, cmdkeyListHas, cmdkeyListUser, loadCredentialRegistry, presentSecrets, storedAccounts } from '../scripts/lib/credential-store.mjs';
 
 const registry = loadCredentialRegistry();
 const CI_SERVICES = ciEnvCredentialServices();
@@ -59,6 +59,24 @@ test('cmdkey /list の出力から項目の有無だけを読む（表示言語�
   const calls = [];
   const r = presentSecrets(['doboku-note-auth-note', 'doboku-note-auth-x'], { platform: 'win32', exec: (cmd, args) => { calls.push([cmd, ...args]); return ja; } });
   assert.deepEqual(r, { 'doboku-note-auth-note': true, 'doboku-note-auth-x': false });
-  assert.deepEqual(calls, [['cmdkey', '/list']]);
+  assert.equal(calls.length, 1, 'cmdkey /list は 1 回だけ');
+  assert.match(calls[0].join(' '), /chcp 65001 >nul & cmdkey \/list/);
   assert.deepEqual(presentSecrets(['a'], { platform: 'linux' }), { a: null });
+});
+
+test('ログイン ID は資格情報ストアから読み、パスワードは取り出さない', () => {
+  const en = '    Target: LegacyGeneric:target=doboku-note-auth-coconala\n    Type: Generic \n    User: c@example.jp\n    \n    Target: LegacyGeneric:target=doboku-note-auth-note\n    Type: Generic \n    User: n@example.jp\n';
+  const ja = 'ターゲット: LegacyGeneric:target=doboku-note-auth-x\n種類: 汎用\nユーザー: @dobokunote\n';
+  assert.equal(cmdkeyListUser(en, 'doboku-note-auth-note'), 'n@example.jp');
+  assert.equal(cmdkeyListUser(en, 'doboku-note-auth-coconala'), 'c@example.jp');
+  assert.equal(cmdkeyListUser(ja, 'doboku-note-auth-x'), '@dobokunote');
+  assert.equal(cmdkeyListUser(en, 'doboku-note-auth-kdp'), null);
+  assert.deepEqual(storedAccounts(['doboku-note-auth-note', 'doboku-note-auth-kdp'], { platform: 'win32', exec: () => en }), {
+    'doboku-note-auth-note': { present: true, user: 'n@example.jp' },
+    'doboku-note-auth-kdp': { present: false, user: null },
+  });
+  const macCalls = [];
+  const mac = storedAccounts(['a', 'b'], { platform: 'darwin', exec: (cmd, args) => { macCalls.push(args); if (args[2] === 'a') return '"acct"<blob>="me@example.jp"'; throw new Error('44'); } });
+  assert.deepEqual(mac, { a: { present: true, user: 'me@example.jp' }, b: { present: false, user: null } });
+  assert.ok(macCalls.every((a) => !a.includes('-w')), 'Mac でもパスワード（-w）を取り出さない');
 });
