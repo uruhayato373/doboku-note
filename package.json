@@ -404,6 +404,7 @@
     "note-traffic-fetch": "node scripts/note-traffic-fetch.mjs",
     "note-sales-fetch": "node scripts/note-sales-fetch.mjs",
     "note-sync-tags": "node scripts/note-sync-tags.mjs",
+    "note-magazine-delete": "node scripts/note-magazine-delete.mjs",
     "note-swap-author-banner": "node scripts/note-swap-author-banner.mjs",
     "note-update-body": "node scripts/note-update-body.mjs",
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
