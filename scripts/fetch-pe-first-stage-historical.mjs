@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 日本技術士会の平成25〜30年度PDFを一時領域へ取得し、固定SHA-256とページ数を検証する。
+// 日本技術士会の平成23〜30年度PDFを一時領域へ取得し、固定SHA-256とページ数を検証する。
 // 原典はgitへ入れず、OCR・目視突合の入力だけを再現可能にする。
 
 import { createHash } from 'node:crypto';
@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = resolve(ROOT, 'config/pe-first-stage-historical-sources.json');
 const OUT = resolve(ROOT, '.tmp/pe1-historical-sources');
-const requestedYear = process.argv.find((arg) => /^h(?:2[5-9]|30)$/u.test(arg));
+const requestedYear = process.argv.find((arg) => /^h(?:2[3-9]|30)$/u.test(arg));
 const config = JSON.parse(readFileSync(CONFIG, 'utf8'));
 mkdirSync(OUT, { recursive: true });
 

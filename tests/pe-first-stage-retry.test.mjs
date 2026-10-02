@@ -35,9 +35,9 @@ test('全員得点のⅡ-14は掲載を保ち、正答番号とSNS採点問題�
   assert.equal(excluded[0].options.length, 5);
   assert.ok(excluded[0].explanations.every((e) => !e.isAnswer && e.statementCorrect == null));
   assert.equal(retry.filter((q) => q.correct != null).length, 79);
-  assert.equal(dataset.questions.length, 1120);
-  assert.equal(dataset.questions.filter((q) => q.correct == null).length, 3);
-  assert.equal(dataset.years.length, 14);
+  assert.equal(dataset.questions.length, 1270);
+  assert.equal(dataset.questions.filter((q) => q.correct == null).length, 4);
+  assert.equal(dataset.years.length, 16);
 });
 
 test('再試験の6図・計算式・5肢解説は演習用HTMLでも失われない', () => {

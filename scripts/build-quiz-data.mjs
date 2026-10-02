@@ -37,6 +37,10 @@ const SOURCES = [
   },
 ];
 
+// H23・H24 の基礎科目は 25 問（H25 から 30 問）。
+const pe1ExpectedPerYear = (year, subject) =>
+  subject === 'basic' && ['h23', 'h24'].includes(year) ? 25 : PE1_SUBJECTS[subject].expectedPerYear;
+
 const PE1_SUBJECTS = {
   basic: { label: '基礎科目', order: 1, expectedPerYear: 30 },
   aptitude: { label: '適性科目', order: 2, expectedPerYear: 15 },
@@ -174,7 +178,7 @@ function renderQuizMarkdown(value) {
 }
 
 function splitQuestionSections(body) {
-  const matches = [...body.matchAll(/^##\s+([^\n]+)$/gm)].filter((m) => /^[ⅠⅡⅢ]/u.test(m[1].trim()));
+  const matches = [...body.matchAll(/^##\s+([^\n]+)$/gm)].filter((m) => /^[ⅠⅡⅢⅣ]/u.test(m[1].trim()));
   return matches.map((m, index) => ({
     heading: m[1].trim(),
     content: body.slice(m.index + m[0].length, matches[index + 1]?.index ?? body.length).trim(),
@@ -295,7 +299,7 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     const parsed = matter(readFileSync(file, 'utf8'));
     if (parsed.data.dateModified) modifiedDates.push(String(parsed.data.dateModified));
     const sections = splitQuestionSections(parsed.content);
-    const expected = PE1_SUBJECTS[subject].expectedPerYear;
+    const expected = pe1ExpectedPerYear(year, subject);
     if (sections.length !== expected) {
       throw new Error(`${articleDir}: 問題見出し ${sections.length}件（期待 ${expected}件）`);
     }
@@ -371,8 +375,8 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     count: questions.filter((q) => q.subject === subject).length,
   }));
   const unscored = questions.filter((q) => q.correct == null);
-  if (questions.length !== 1120 || unscored.length !== 3) {
-    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1120 / 3）`);
+  if (questions.length !== 1270 || unscored.length !== 4) {
+    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1270 / 4）`);
   }
   if (new Set(questions.map((q) => q.id)).size !== questions.length) {
     throw new Error('pe-first-stage: 問題IDが重複しています');
@@ -386,15 +390,15 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   if (malformed.length) {
     throw new Error(`pe-first-stage: 5肢・5解説・正答範囲の不整合 ${malformed.map((q) => q.id).join(', ')}`);
   }
-  const expectedUnscored = new Set(['h30-aptitude-ⅱ-14', 'r01-retry-aptitude-ⅱ-14', 'r07-construction-ⅲ-13']);
+  const expectedUnscored = new Set(['h23-aptitude-ⅱ-4', 'h30-aptitude-ⅱ-14', 'r01-retry-aptitude-ⅱ-14', 'r07-construction-ⅲ-13']);
   if (unscored.some((q) => !expectedUnscored.has(q.id)) || [...expectedUnscored].some((id) => !unscored.some((q) => q.id === id))) {
     throw new Error(`pe-first-stage: 採点対象外IDが想定外 ${unscored.map((q) => q.id).join(', ')}`);
   }
-  const expectedSubjects = { basic: 420, aptitude: 210, construction: 490 };
+  const expectedSubjects = { basic: 470, aptitude: 240, construction: 560 };
   if (subjects.some(({ subject, count }) => count !== expectedSubjects[subject])) {
     throw new Error(`pe-first-stage: 科目件数が想定外 ${subjects.map(({ subject, count }) => `${subject}=${count}`).join(', ')}`);
   }
-  if (years.length !== 14 || years.some(({ count }) => count !== 80)) {
+  if (years.length !== 16 || years.some(({ year, count }) => count !== (['h23', 'h24'].includes(year) ? 75 : 80))) {
     throw new Error(`pe-first-stage: 年度件数が想定外 ${years.map(({ year, count }) => `${year}=${count}`).join(', ')}`);
   }
   return {
