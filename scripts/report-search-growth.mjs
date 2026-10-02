@@ -34,7 +34,6 @@ import { latestFile } from "./lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
 
-const M = "data/metrics";
 const OUT_DIR = ".claude/state/improvements";
 const SITE_ORIGIN = "https://doboku-note.com";
 

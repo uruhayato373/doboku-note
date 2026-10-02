@@ -19,7 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { latestFile } from './lib/datasets.mjs';
+import { datasetPath, latestFile } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -43,9 +43,9 @@ function readJson(rel) {
 
 const latestSnapshot = latestFile(ROOT, 'coconala.competitors');
 const snapshot = latestSnapshot ? readJson(latestSnapshot) : null;
-const research = readJson('data/coconala/market-research.json');
-const config = readJson('config/coconala-competitors.json');
-const account = readJson('config/coconala-account.json');
+const research = readJson(datasetPath('coconala.market-research'));
+const config = readJson(datasetPath('config.coconala-competitors'));
+const account = readJson(datasetPath('config.coconala-account'));
 if (!snapshot?.competitors || !research?.queries || !config?.competitors) {
   console.error('[report-competitor-watch] 入力が読めない（競合の時系列の最新 / market-research / coconala-competitors）— 検査不成立');
   process.exit(2);
@@ -114,5 +114,5 @@ if (asJson) {
   for (const c of candidates) console.log(`    - ${c.seller}: 販売 ${c.sales}・${c.services} 出品・¥${c.minPrice ?? '—'}〜${c.maxPrice || '—'}（${c.sample}）`);
   console.log(`  売上推定が一部だけ ${partial.length} 社`);
   for (const p of partial) console.log(`    - ${p.label}: 取得 ${p.captured} / 累計 ${p.total}`);
-  console.log('  → 追跡に加えるなら config/coconala-competitors.json に handle を足す。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合');
+  console.log(`  → 追跡に加えるなら ${datasetPath('config.coconala-competitors')} に handle を足す。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合`);
 }

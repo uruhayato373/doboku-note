@@ -44,7 +44,7 @@ import {
 
 const INVENTORY = datasetPath("ga4.admin-inventory");
 const HISTORY = datasetPath("ga4.admin-history");
-const DESIRED_PATH = "config/ga4-admin-desired-state.json";
+const DESIRED_PATH = datasetPath("config.ga4-admin-desired-state");
 
 function parseArgs() {
   const a = process.argv.slice(2);

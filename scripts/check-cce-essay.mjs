@@ -23,9 +23,10 @@ import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { evaluateCceEssay, extractHistoryBlocks, syncHistoryBlock } from './lib/cce-essay.mjs';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOTS = ['content/note/コンクリート主任技士', 'content/site/concrete-chief-engineer'];
-const SSOT = 'config/cce-essay-history.json';
+const SSOT = datasetPath('config.cce-essay-history');
 const STAGED = process.argv.includes('--staged');
 const FIX = process.argv.includes('--fix');
 const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));

@@ -38,8 +38,7 @@ const DEAD = [
 
 // 歴史記録として残す場所（消すと経緯が失われる）。理由を必ず書く。
 const ALLOW = [
-  { re: /^data\/metrics\//, why: '過去の計測ログ（当時の実測値そのもの）' },
-  { re: /^data\/((x|instagram|coconala)\/competitors|note)\//, why: '競合スナップショットの時系列' },
+  { re: /^data\//, why: '事業の記録（当時の実測値・競合スナップショットの時系列そのもの）' },
   { re: /^content\/sns\/x\/(draft|published)\/_archive/, why: '旧アカウント時代の投稿アーカイブ' },
   { re: /^\.claude\/knowledge\/reference\/(x-post-policy|measurement-incidents|ig-publish-reconcile)\.md$/, why: '凍結の経緯そのものを記録している SSOT' },
   { re: /^scripts\/check-dead-handles\.mjs$/, why: '本チェッカ自身（禁止パターンを持つ）' },

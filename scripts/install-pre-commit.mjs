@@ -305,7 +305,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# data/note/sales.json の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
+# note の販売履歴（データセット note.sales）の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
 node scripts/check-sales-mapping.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1

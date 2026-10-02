@@ -20,6 +20,7 @@ import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -87,7 +88,7 @@ if (REVIEW) {
   console.log(`  代表動画: ${reps.length} 本 × ${BP.youtube.viewports.length} 画面幅を撮影 ${index.reduce((n, e) => n + e.shots.length, 0)} 枚`);
   if (bpReport) {
     const { added, removed } = bpReport.drift;
-    if (added.length || removed.length) console.log(`  WARN YouTube の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。config/public-view-breakpoints.json を見直す`);
+    if (added.length || removed.length) console.log(`  WARN YouTube の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。${datasetPath('config.public-view-breakpoints')} を見直す`);
     else console.log(`  切り替わり幅: 設定どおり（${bpReport.measured.join('/')}px）`);
   } else {
     console.log('  WARN 切り替わり幅を数え直せなかった（未確認）');

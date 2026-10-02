@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { direction, records, validateRecord, buildReport, hash, strategyForRecord, RECORDS } from './lib/business-direction.mjs';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 try {
   const root = process.cwd(), config = direction(root), rows = records(root);
   const errors = [];
@@ -21,7 +22,7 @@ try {
   const normalizeEol = s => s.split(String.fromCharCode(13)).join('');
   const changes = git(['diff', ...(process.argv.includes('--staged') ? ['--cached'] : ['HEAD']), '--name-only', '--no-renames', '-z', '--', RECORDS]).split('\0').filter(Boolean);
   if (process.argv.includes('--staged')) {
-    const stagedPaths = [...changes, 'config/business-direction.json', 'config/seo-watchwords.json'];
+    const stagedPaths = [...changes, datasetPath('config.business-direction'), datasetPath('config.seo-watchwords')];
     for (const f of stagedPaths) {
       // autocrlf の端末では index=LF / 作業ツリー=CRLF になるので改行を正規化してから比較する（Windows で常に FAIL する偽赤の再発防止・2026-09-14）
       try { if (normalizeEol(git(['show', `:${f}`])) !== normalizeEol(readFileSync(f, 'utf8'))) errors.push(`${f}: stagedと作業ツリーを揃えて検査してください`); }
@@ -30,9 +31,9 @@ try {
   }
   const old = new Set(git(['ls-tree','-r','--name-only','HEAD',RECORDS]).trim().split('\n'));
   for (const f of changes) if (old.has(f)) errors.push(`${f}: 過去記録は変更・削除できません。訂正を追記してください`);
-  const watch = JSON.parse(readFileSync('config/seo-watchwords.json','utf8'));
-  if (watch.strategy.focusSource !== 'config/business-direction.json' || watch.strategy.focusQualifications) errors.push('SEOの重点資格はbusiness-directionだけを参照してください');
-  const experiments = JSON.parse(readFileSync('data/business/experiments.json','utf8')).experiments;
+  const watch = JSON.parse(readFileSync(datasetPath('config.seo-watchwords'),'utf8'));
+  if (watch.strategy.focusSource !== datasetPath('config.business-direction') || watch.strategy.focusQualifications) errors.push('SEOの重点資格はbusiness-directionだけを参照してください');
+  const experiments = JSON.parse(readFileSync(datasetPath('business.experiments'),'utf8')).experiments;
   for (const e of experiments.filter(e => e.businessContext)) {
     const b = e.businessContext;
     if (!['all', ...config.qualifications.map(q => q.id)].includes(b.qualification) || !config.metrics.some(m => m.id === b.metricId) || !b.readerNeed?.trim() || !b.verifiedGap?.trim() || !rows.some(r => r.kind === 'review' && r.file === resolveMovedPath(b.reviewRecord))) errors.push(`${e.id}: businessContextの資格・指標・レビュー参照を確認してください`);

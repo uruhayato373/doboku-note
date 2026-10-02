@@ -13,9 +13,10 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { datasetPath } from '../../../scripts/lib/datasets.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const TEMPLATES_PATH = join(HERE, '..', '..', 'config', 'utm-templates.json');
+const TEMPLATES_PATH = join(HERE, '..', '..', '..', datasetPath('config.utm-templates'));
 
 let _templates = null;
 

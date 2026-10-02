@@ -31,7 +31,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { dirname, join } from "path";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
-import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -214,7 +214,7 @@ function explain429() {
         "  これは「PSI の障害」でも「このプロジェクトのクォータ枯渇」でもありません。",
         "",
         "  計測は CI/CD 供給が正（キーは GitHub Secrets にあり、日次ジョブは正常に動いています）。",
-        "  → 既存データ: data/psi/batch/*.json",
+        `  → 既存データ: ${datasetDir("psi.batch")}/*.json`,
         "  → 真実源: .claude/knowledge/reference/measurement-incidents.md",
         "  ───────────────────────────────────────────────",
       ].join("\n"),
@@ -386,7 +386,7 @@ async function main() {
   if (!process.env.PSI_API_KEY && !process.env.CI) {
     console.warn(
       "[fetch-psi-data] WARN PSI_API_KEY 未設定。キー無しは匿名共有枠に載るため 429 になりやすい\n" +
-        "  計測は CI/CD 供給が正。既存データ: data/psi/batch/*.json",
+        `  計測は CI/CD 供給が正。既存データ: ${datasetDir("psi.batch")}/*.json`,
     );
   }
 

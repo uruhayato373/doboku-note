@@ -26,6 +26,7 @@ import { join } from 'node:path';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { tryGfmTable } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 import {
   ARTICLES_ROOT,
   analyzeDocument,
@@ -346,7 +347,7 @@ function main() {
   const targets = explicit.length > 0 ? explicit : (overrides.build?.documents ?? []);
 
   if (targets.length === 0) {
-    console.error('生成対象がゼロ件。config/standards-structure.json の build.documents を確認する。');
+    console.error(`生成対象がゼロ件。${datasetPath('config.standards-structure')} の build.documents を確認する。`);
     process.exitCode = 2;
     return;
   }

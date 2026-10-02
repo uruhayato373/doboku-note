@@ -379,6 +379,42 @@ export function datasetFiles(root, id) {
 /** 最新のファイル（無ければ null） */
 export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
 
+// ---- コードの直書きの検出（check-datasets が使う） ----------------------------------
+
+/**
+ * config/・data/ のパスを直書きしてよいファイル。台帳そのものと、追記だけの台帳に残る旧パスを読み替える対応表。
+ * それ以外のコードは datasetPath・datasetDir・datasetFiles・latestFile で台帳から引く。
+ */
+export const PATH_LITERAL_ALLOW = ['scripts/lib/datasets.mjs', 'scripts/lib/repository-paths.mjs'];
+
+const AREA_DIRS = Object.values(AREAS).map((a) => a.dir).join('|');
+/**
+ * 直書きの形。(1) `'data/note/sales.json'`・`${ROOT}/config/…`・`/^data\/…/`、
+ * (2) 分割形 `join(ROOT, 'config', 'x.json')`・`join(HERE, '..', 'config', …)`。
+ * `src/config/…`・`public/data/…`・URL の `/data/…`、分割形の `'src', 'config'`・コマンド引数の `['config', '--get']`・
+ * `gtag('config', '${id}')` は置き場の config/・data/ ではないので拾わない。
+ */
+const PATH_LITERAL = new RegExp(
+  `(?:(?<![\\w.\\-/\\\\])|(?<=\\}\\/))(?:${AREA_DIRS})\\\\?\\/[A-Za-z0-9_{$-]` +
+    `|(?<![\\w-]['"\`]\\s*,\\s*|\\[\\s*)['"\`](?:${AREA_DIRS})['"\`]\\s*,\\s*(?:['"][A-Za-z0-9_]|\`[A-Za-z0-9_$])`,
+  'g',
+);
+
+/**
+ * 1 行ずつ config/・data/ のパスの直書きを返す。
+ * 行頭がコメント（// ・ * ・ /*）の行と、行末の ` // ` 以降は読まない（説明文にパスを書くのはよい）。
+ * 移す前の旧パスを読み替えるなど、台帳に無いパスをあえて書く行は行末に `// path-literal-ok: 理由` を付ける。
+ */
+export function findPathLiterals(source) {
+  const hits = [];
+  source.split('\n').forEach((line, i) => {
+    if (/^\s*(\/\/|\*|\/\*)/.test(line) || /path-literal-ok:\s*\S/.test(line)) return;
+    const code = line.replace(/\s\/\/\s.*$/, '');
+    for (const m of code.matchAll(PATH_LITERAL)) hits.push({ line: i + 1, text: code.slice(m.index, m.index + 60).trim() });
+  });
+  return hits;
+}
+
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));
 

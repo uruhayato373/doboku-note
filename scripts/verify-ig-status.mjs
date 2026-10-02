@@ -36,6 +36,7 @@ import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileC
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -47,9 +48,9 @@ const log = (...a) => { if (!JSON_OUT) console.log(...a); };
 
 // ─── アカウント SSOT ───────────────────────────────────────────
 function loadAccount() {
-  const p = join(ROOT, "config/ig-account.json");
+  const p = join(ROOT, datasetPath("config.ig-account"));
   if (!existsSync(p)) {
-    console.error("[verify-ig-status] config/ig-account.json が見つかりません（アカウント SSOT）");
+    console.error(`[verify-ig-status] ${datasetPath("config.ig-account")} が見つかりません（アカウント SSOT）`);
     process.exit(1);
   }
   return JSON.parse(readFileSync(p, "utf8"));

@@ -11,9 +11,10 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const LATEST = join(ROOT, 'data/gsc/indexing-requests.json');
+const LATEST = join(ROOT, datasetPath('gsc.indexing-requests'));
 
 /** requests-latest.json の中身から表示行を決める（出さないときは null） */
 export function gscLoginLine(latest) {

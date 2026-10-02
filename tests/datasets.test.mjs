@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { DATASETS, datasetById, datasetsFor, findPathLiterals, inferShape, jsonSchemaOf, matchFiles, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
@@ -89,4 +89,26 @@ test('inferShape: 型の無いデータセットは実物から対応表・配�
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('findPathLiterals: 文字列・テンプレート・正規表現・join の分割形を拾い、public/data・URL・コメント・許可印は拾わない', () => {
+  const lines = (src) => findPathLiterals(src).map((h) => h.line);
+  assert.deepEqual(lines("const a = 'data/note/sales.json';"), [1]);
+  assert.deepEqual(lines('const a = `${ROOT}/data/note/sales.json`;'), [1]);
+  assert.deepEqual(lines('const re = /^data\\/metrics\\/x/;'), [1]);
+  assert.deepEqual(lines("readFileSync(repoPath('data', 'experiments.json'))"), [1], '分割形（2026-10-02 に管理画面が旧パスを黙って読んでいた形）');
+  assert.deepEqual(lines("const a = join(ROOT, 'public/data/x.csv');\nconst u = '/data/x.csv';"), []);
+  assert.deepEqual(lines("// data/note/sales.json を読む\n * data/note/sales.json\nf(); // data/note/sales.json"), []);
+  assert.deepEqual(lines("const old = 'data/metrics/x.json'; // path-literal-ok: 旧パスの読み替え"), []);
+});
+
+test('findPathLiterals: config/ も拾い、src/config・コマンド引数・gtag の config は拾わない', () => {
+  const lines = (src) => findPathLiterals(src).map((h) => h.line);
+  assert.deepEqual(lines("const a = 'config/exam-calendar.json';"), [1]);
+  assert.deepEqual(lines("join(ROOT, 'config', 'figure-canvas.json')"), [1]);
+  assert.deepEqual(lines("join(HERE, '..', '..', 'config', 'utm-templates.json')"), [1], '.. の後の分割形');
+  assert.deepEqual(lines("join(root, 'config', `${ch}-competitors.json`)"), [1]);
+  assert.deepEqual(lines("join(ROOT, 'src', 'config', 'categories.json')\nconst a = '.claude/config/x.json';\nimport c from '../tsconfig.json';"), []);
+  assert.deepEqual(lines("git(['config', '--get', 'remote.origin.promisor'])\nrun('npm', ['config', 'get', 'cache'])\ngtag('config', '${gaId}', {"), []);
+  assert.deepEqual(lines("const roots = ['docs', '.claude', 'src', 'config', 'data'];"), []);
 });

@@ -10,10 +10,10 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { latestFile } from './datasets.mjs';
+import { datasetPath, latestFile } from './datasets.mjs';
 import { listReports } from './metric-reports.mjs';
 
-export const CONFIG = 'config/search-strategy.json';
+export const CONFIG = datasetPath('config.search-strategy');
 const SITE = 'https://doboku-note.com';
 
 const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
@@ -133,7 +133,7 @@ export function buildSearchOpportunities(root) {
   if (!snaps.length) return { config, period: null, source: null, previous: null, clusters: [] };
   const latest = snaps[0];
   const prev = snaps.find((s) => (Date.parse(latest.data.meta.endDate) - Date.parse(s.data.meta.endDate)) / 86_400_000 >= 25) ?? null;
-  const watch = existsSync(join(root, 'config/seo-watchwords.json')) ? readJson(root, 'config/seo-watchwords.json') : { watchwords: [] };
+  const watch = existsSync(join(root, datasetPath('config.seo-watchwords'))) ? readJson(root, datasetPath('config.seo-watchwords')) : { watchwords: [] };
   const watchedPaths = new Set((watch.watchwords ?? []).map((w) => w.targetPath));
   const backlogPath = join(root, '.claude/todo/backlog.md');
   const cardedPaths = cardedPathsFrom(existsSync(backlogPath) ? readFileSync(backlogPath, 'utf8') : '');

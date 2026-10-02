@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
 import { checkListedServices, diffLiveProfile, fetchLiveHtml } from './lib/coconala-live.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -32,7 +33,7 @@ const catalog = readCatalog();
 const listings = readListings();
 let account = {};
 try {
-  account = JSON.parse(readFileSync(join(ROOT, 'config/coconala-account.json'), 'utf8'));
+  account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.coconala-account')), 'utf8'));
 } catch { /* 出品者名とプロフィールの照合だけ省く */ }
 const sellerName = account.sellerName || '';
 

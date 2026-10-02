@@ -20,9 +20,10 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, lstatSync, existsS
 import { join, resolve, dirname, relative, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { classifyBySize, isDangerousName, diffBaseline, buildBaseline, fmtBytes, extOf } from '#lib/image-audit.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
-const CONFIG = join(ROOT, 'config', 'image-limits.json');
+const CONFIG = join(ROOT, datasetPath('config.image-limits'));
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'image-baseline.json');
 const OUT_JSON = join(ROOT, '.claude', 'state', 'quality', 'image-audit.json');
 const OUT_MD = join(ROOT, '.claude', 'state', 'quality', 'image-audit.md');

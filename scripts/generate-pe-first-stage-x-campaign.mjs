@@ -5,6 +5,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetDir } from './lib/datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const month = process.argv[2] || '2026-10';
@@ -57,7 +58,7 @@ const plan = {
   guardrails: ['URL付きは12/31本（note 5・site 7）まで', '販売投稿は夜枠のみ', '時刻は帯内で分散', '各投稿はクイズJSONの異なる論点から執筆'],
   posts,
 };
-const outDir = resolve(ROOT, 'config/x-campaigns');
+const outDir = resolve(ROOT, datasetDir('config.x-campaigns'));
 mkdirSync(outDir, { recursive: true });
 const out = resolve(outDir, `${month}-pe-first-stage.json`);
 writeFileSync(out, `${JSON.stringify(plan, null, 2)}\n`, 'utf8');

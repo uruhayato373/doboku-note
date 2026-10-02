@@ -96,7 +96,7 @@ export function listReports(root, id) {
 /** その種類の最新のレポート（無ければ null） */
 export const latestReport = (root, id) => listReports(root, id)[0] ?? null;
 
-const LEGACY_RE = /^data\/metrics\/(ga4|gsc)\/((?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})Z?\.json$/;
+const LEGACY_RE = /^data\/metrics\/(ga4|gsc)\/((?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})Z?\.json$/; // path-literal-ok: 移す前の名前を読み替える
 
 /** 移す前の名前 → 「ファイル#枠」（違う形なら null）。同じ日に取り直していた旧いファイルは、その日の最新を指す */
 export function legacyReportRef(path) {

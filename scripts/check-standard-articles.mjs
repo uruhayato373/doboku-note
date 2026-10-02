@@ -31,6 +31,7 @@ import {
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -937,7 +938,7 @@ function main() {
   }
 
   if (targets.length === 0) {
-    report.error = '検査対象が 0 件（config/standards-structure.json の build.documents を確認する）。検査不成立。';
+    report.error = `検査対象が 0 件（${datasetPath('config.standards-structure')} の build.documents を確認する）。検査不成立。`;
     emit(report, asJson, report.error);
     return;
   }

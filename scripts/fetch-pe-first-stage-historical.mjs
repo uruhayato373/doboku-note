@@ -7,9 +7,10 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const CONFIG = resolve(ROOT, 'config/pe-first-stage-historical-sources.json');
+const CONFIG = resolve(ROOT, datasetPath('config.pe-first-stage-historical-sources'));
 const OUT = resolve(ROOT, '.tmp/pe1-historical-sources');
 const requestedYear = process.argv.find((arg) => /^h(?:2[3-9]|30)$/u.test(arg));
 const config = JSON.parse(readFileSync(CONFIG, 'utf8'));

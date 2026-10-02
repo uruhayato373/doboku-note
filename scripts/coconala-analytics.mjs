@@ -41,7 +41,7 @@
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import {
   launchContext,
   waitForLogin,
@@ -51,14 +51,15 @@ import {
   ROOT,
 } from './lib/coconala-session.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[coconala-analytics]';
 const HEADLESS = process.argv.includes('--headless');
 const WITH_SERVICES = !process.argv.includes('--no-services');
 const APPEND_KPI = process.argv.includes('--append-kpi');
 
-const OUT_PATH = join(ROOT, 'data/coconala/analytics.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
+const OUT_PATH = join(ROOT, datasetPath('coconala.analytics'));
+const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
 const BLOG_DIR = join(ROOT, 'content/coconala/blog');
 const OVERVIEW_URL = 'https://coconala.com/mypage/analytics?ref=menu';
 
@@ -329,7 +330,7 @@ async function main() {
     scan: { steps: scan, ok: okScans, total: scan.length },
   };
 
-  mkdirSync(join(ROOT, 'data/coconala'), { recursive: true });
+  mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(OUT_PATH, JSON.stringify(snapshot, null, 2) + '\n');
 
   console.log('');

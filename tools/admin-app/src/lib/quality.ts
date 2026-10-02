@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * quality.ts — コンテンツ品質ダッシュボード（読み取り専用）。
@@ -76,7 +77,7 @@ export function qualitySummary(): QualitySummary {
     { counts: {} },
   );
   const rules = readJson<{ defaults?: Record<string, Severity>; fullScan?: { rules?: string[] } }>(
-    repoPath('config', 'content-rules.json'),
+    repoPath(datasetPath('config.content-rules')),
     { defaults: {}, fullScan: { rules: [] } },
   );
   const popular = readJson<{ pages?: { slug: string; activeUsers?: number }[]; generatedFrom?: string; window?: { start: string; end: string } }>(

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 
 import { STAGE_LABELS } from '../../../../scripts/lib/content-lifecycle.mjs';
+import { datasetDir } from '../../../../scripts/lib/datasets.mjs';
 import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
@@ -164,7 +165,7 @@ export function videoOutcomes(): VideoOutcomes {
     : {
         ok: false,
         reason:
-          'GA4 campaign スナップショットが未取得（fetch-metrics.yml の "Fetch GA4 (campaign, 28d…)" が走ると data/ga4/reports/ の campaign に入る）',
+          `GA4 campaign スナップショットが未取得（fetch-metrics.yml の "Fetch GA4 (campaign, 28d…)" が走ると ${datasetDir('ga4.reports')}/ の campaign に入る）`,
         file: null,
         ageDays: null,
         startDate: null,

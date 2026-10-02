@@ -22,9 +22,10 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
-const OUT_DIR = "data/analysis/crosswalk";
+const OUT_DIR = datasetDir("analysis.crosswalk");
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);

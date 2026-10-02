@@ -29,6 +29,7 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { createRequire } from "module";
+import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
 
@@ -50,8 +51,8 @@ if (!STATE_PATH) throw new Error("A8 の stateFileName が auth registry にあ�
 //   選べない場合は誤サイト提携を防ぐため申請しない (publish-x / coconala の account assert と同じ思想・2026-07-20)。
 const TARGET_SITE = "doboku-note";
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-a8-debug");
-const CATALOG_PATH = path.join(PROJECT_ROOT, "data/a8/catalog.json");
-const INVENTORY_PATH = path.join(PROJECT_ROOT, "data/a8/inventory.json");
+const CATALOG_PATH = path.join(PROJECT_ROOT, datasetPath("a8.catalog"));
+const INVENTORY_PATH = path.join(PROJECT_ROOT, datasetPath("a8.inventory"));
 // doboku の creative SSOT (dedup / placed 判定の突合先)。stats47 の AFFILIATE_ADS[] とは形が違う。
 const CREATIVES_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-creatives.ts");
 const MATS_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-mats.json");

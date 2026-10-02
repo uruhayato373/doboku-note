@@ -44,6 +44,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import {
   HANDOFF_DIRECT_RE,
   WEEKLY_FILE_RE,
@@ -62,7 +63,7 @@ import {
 const ARCHIVE_PREFIX = 'docs/handoffs/_archive/';
 const BACKLOG = '.claude/todo/backlog.md';
 const DISPATCH_LOG = '.claude/state/dispatch/dispatch-log.json';
-const EXPERIMENTS = 'data/business/experiments.json';
+const EXPERIMENTS = datasetPath('business.experiments');
 const MAX_BUFFER = 256 * 1024 * 1024;
 
 if (process.env.SKIP_HANDOFF_EXTRACT === '1') {

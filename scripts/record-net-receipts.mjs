@@ -19,6 +19,7 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[record-net-receipts]';
 const ROOT = process.cwd();
@@ -74,7 +75,7 @@ async function main() {
       return 2;
     }
   }
-  const kdpPath = join(ROOT, 'data/kdp/royalties.json');
+  const kdpPath = join(ROOT, datasetPath('kdp.royalties'));
   const kdp = existsSync(kdpPath) ? kdpCatalogRoyalty(JSON.parse(readFileSync(kdpPath, 'utf8')).months?.[MONTH]) : null;
   const coconala = arg('--coconala') != null ? Number(arg('--coconala')) : null;
   const record = buildNetReceiptsMeasurement({ month: MONTH, note, coconala, kdp });

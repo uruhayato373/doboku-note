@@ -31,8 +31,9 @@
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
-const SALES_LOG = 'data/note/sales.json';
+const SALES_LOG = datasetPath('note.sales');
 const RECORDER = '.claude/agents/sales-recorder.md';
 const NOTE_CATALOG = 'src/lib/note-magazines.ts';
 
@@ -156,5 +157,5 @@ for (const v of violations) {
 console.error('');
 console.error('対処: .claude/agents/sales-recorder.md の productId 推定テーブルに該当行を追加し');
 console.error('      （命名規則は .claude/knowledge/reference/sales-tracking.md）、同一コミットに含めてください。');
-console.error('      slug 自体が誤りなら data/note/sales.json を修正。緊急回避は SKIP_SALES_MAPPING=1。');
+console.error(`      slug 自体が誤りなら ${SALES_LOG} を修正。緊急回避は SKIP_SALES_MAPPING=1。`);
 process.exit(1);

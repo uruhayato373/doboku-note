@@ -21,7 +21,6 @@ import { listReports } from "./lib/metric-reports.mjs";
 import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 
 const ROOT = process.cwd();
-const METRICS = join(ROOT, "data/metrics");
 const IMPROVEMENTS = join(ROOT, ".claude/state/improvements");
 const CEM_PREFIX = "pe-comprehensive-management-";
 const NOW = new Date();

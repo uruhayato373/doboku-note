@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
 import { readCatalog, readListings } from './lib/coconala-session.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
@@ -41,8 +42,8 @@ const AMBER = '#d4a017';      // CTA（価格チップ・editorial CTA 色）
 //   アクセント（上部バー・eyebrow）は級 tint 系、価格チップの AMBER は CTA 色として共通維持。
 // ---------------------------------------------------------------------------
 const BG_WIDE = {
-  'civil-1': 'config/ogp/backgrounds/civil-1.png', // 1600×667
-  'civil-2': 'config/ogp/backgrounds/civil-2.png',
+  'civil-1': datasetPath('config.ogp-backgrounds', { name: 'civil-1' }), // 1600×667
+  'civil-2': datasetPath('config.ogp-backgrounds', { name: 'civil-2' }),
 };
 const THEMES = {
   default: { bar: NAVY, eyebrow: NAVY },
@@ -384,7 +385,7 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
-const approved = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/coconala-thumb-approved.json'), 'utf8')).images;
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, datasetPath('config.coconala-thumb-approved')), 'utf8')).images;
 const catalog = readCatalog();
 const listings = readListings();
 const DEFAULT_BG = 'content/coconala/assets/bg-civil.png';

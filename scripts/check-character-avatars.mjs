@@ -19,11 +19,12 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { datasetPath } from './lib/datasets.mjs';
 
 const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const MANIFEST = 'config/character-poses.json';
+const MANIFEST = datasetPath('config.character-poses');
 const SOT = 'src/lib/note-magazines.ts';
 
 const poses = require(join(ROOT, MANIFEST)).poses;

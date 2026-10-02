@@ -21,7 +21,7 @@ import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS = SITE_CONTENT_ROOT;
-const CONFIG = join(ROOT, "config", "figure-canvas.json");
+const CONFIG = join(ROOT, "config", "figure-canvas.json"); // path-literal-ok: tests/check-figure-canvas.test.mjs が scripts/lib/datasets.mjs（と zod）を含まない隔離環境へ複写して動かす
 const staged = process.argv.includes("--staged");
 const syncAllowlist = process.argv.includes("--sync-allowlist");
 
@@ -168,7 +168,7 @@ if (errors.length) {
   console.error(
     `\n  修正: viewBox を ${FEED[0]}×${FEED[1]}(figure-N.svg) / ${WIDE[0]}×${WIDE[1]}(figure-N--wide.svg) に。`
   );
-  console.error(`  移行待ちなら config/figure-canvas.json の guard.migrationAllowlist に追加。`);
+  console.error(`  移行待ちなら config/figure-canvas.json の guard.migrationAllowlist に追加。`); // path-literal-ok: 同上（隔離環境で datasets.mjs を読めない）
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
   process.exit(1);
 }

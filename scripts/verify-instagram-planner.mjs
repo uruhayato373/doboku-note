@@ -6,9 +6,10 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { assessInstagramPlanner } from './lib/instagram-planner-check.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const account = JSON.parse(readFileSync(join(ROOT, 'config/ig-account.json'), 'utf8'));
+const account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.ig-account')), 'utf8'));
 const argv = process.argv.slice(2);
 const value = (name, fallback = '') => {
   const index = argv.indexOf(name);

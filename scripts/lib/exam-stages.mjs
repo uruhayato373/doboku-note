@@ -7,6 +7,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
 /** exam-formats.json（読み込み済み）から 資格 id → [{ id, label }] を作る */
 export function stagesFromFormats(formats) {
@@ -18,5 +19,5 @@ export function stagesFromFormats(formats) {
 }
 
 export function loadExamStages(root) {
-  return stagesFromFormats(JSON.parse(readFileSync(join(root, 'config/exam-formats.json'), 'utf8')));
+  return stagesFromFormats(JSON.parse(readFileSync(join(root, datasetPath('config.exam-formats')), 'utf8')));
 }

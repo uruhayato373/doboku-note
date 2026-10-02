@@ -4,6 +4,7 @@ import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { findRepoRoot, repoPath } from './repo-root';
 import { NOTE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { classifyNote, loadThemes, themeLabel } from '../../../../scripts/lib/content-theme.mjs';
 
 /**
@@ -134,7 +135,7 @@ export function magazineLabelIndex(): Map<string, { id: string; title: string }>
   const cfg = readJson<{
     labels?: Record<string, string>;
     packs?: Record<string, { labels?: string[] } | string>;
-  }>(repoPath('config', 'note-magazine-membership.json'));
+  }>(repoPath(datasetPath('config.note-magazine-membership')));
   const titleOf = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
   const out = new Map<string, { id: string; title: string }>();
   const put = (label: string, id: string) => out.set(label, { id, title: titleOf.get(id) ?? label });

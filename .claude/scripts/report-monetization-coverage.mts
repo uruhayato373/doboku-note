@@ -36,6 +36,7 @@ import {
 // 切り出せず、生成物に絶対パスがそのまま焼き込まれて commit される（2026-08-18 修正）。
 // check-note-site-utm が Windows で常に 0 件になった事故（2026-07-28）と同型。
 import { basename, join, sep } from "path";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
 import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
@@ -47,9 +48,9 @@ import {
 } from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
-const OUT_DIR = join(ROOT, "data/analysis/monetization");
+const OUT_DIR = join(ROOT, datasetDir("analysis.monetization-coverage"));
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
-const SALES_LOG = join(ROOT, "data/note/sales.json");
+const SALES_LOG = join(ROOT, datasetPath("note.sales"));
 
 function arg(name: string, fallback: number): number {
   const i = process.argv.indexOf(name);
