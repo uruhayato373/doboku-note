@@ -22,7 +22,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
 | `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
-| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/metrics/{gsc,ga4,growth,bing,ga4-admin}/` |
+| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/{gsc,ga4}/・data/analysis/growth/・data/bing/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
@@ -42,7 +42,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-request-indexing` | Script（Playwright・**Mac の launchd `gsc-local` が毎日 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
 | `gsc-local` | Mac の launchd（毎日 10:30・`npm run gsc-local:install`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。専用 worktree（`.claude/worktrees/gsc-local`・lock 済み）を origin/develop に揃えて実行し台帳を push。未ログインは macOS 通知。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
 | `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
-| `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `metrics/gsc/rank-watch/`（追記）＋既存 `experiments.json` |
+| `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `data/gsc/rank-watch/<月>.jsonl`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
 | 機械履歴 | `data/gsc/index-coverage.json` | indexed_ratio の時系列 | CI が append |
@@ -181,7 +181,7 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 | GA4 管理画面 設定の期待値 | `config/ga4-admin-desired-state.json` |
 | GA4 管理画面 設定の観測（committed） | `data/ga4/admin-inventory.json` ＋ `history.json` |
 | インデックス登録リクエストの記録（committed・**SSOT**） | `data/gsc/indexing-requests.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
-| 実験台帳（committed） | `data/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
+| 実験台帳（committed） | `data/business/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 | 総監 CNI 5分類の実行結果（committed） | `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}` |
 

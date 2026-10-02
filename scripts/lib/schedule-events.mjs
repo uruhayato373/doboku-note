@@ -789,7 +789,7 @@ function readVideoStatus(rootDir, todayKey) {
 }
 
 function readExperiments(rootDir, todayKey) {
-  const relPath = 'data/experiments.json';
+  const relPath = 'data/business/experiments.json';
   return readSource('experiments', 'experiment', relPath, () => {
     const json = readJsonFile(join(rootDir, relPath));
     const list = Array.isArray(json) ? json : (json.experiments ?? Object.values(json));
@@ -798,7 +798,7 @@ function readExperiments(rootDir, todayKey) {
 }
 
 function readBusinessReviews(rootDir, todayKey) {
-  const relDir = 'data/metrics/business';
+  const relDir = 'data/business/records';
   return readSource('business-review', 'review', relDir, () => {
     const reviews = readdirSync(join(rootDir, relDir))
       .filter((f) => /^review-.*\.json$/.test(f))

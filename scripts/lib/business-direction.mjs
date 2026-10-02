@@ -8,7 +8,7 @@ import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
 export const DIRECTION = 'config/business-direction.json';
-export const RECORDS = 'data/metrics/business';
+export const RECORDS = 'data/business/records';
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const jst = (now = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(now));
 export const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
@@ -158,7 +158,7 @@ function saveUnlocked(root, input, now) {
   required(input.kind !== 'snapshot', 'スナップショットは専用コマンドで生成してください');
   const r = validateRecord(input, c, history, now);
   if (r.kind === 'review') {
-    const experiments = readJson(root, 'data/experiments.json').experiments;
+    const experiments = readJson(root, 'data/business/experiments.json').experiments;
     required(r.experimentIds.every(id => experiments.some(e => e.id === id)), '実験台帳にないIDです');
   }
   return appendRecord(root, { ...r, schemaVersion: 1, createdAt: new Date(now).toISOString(), strategyHash: hash(c) });
@@ -460,7 +460,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const p = reviewPeriod(cadence, jst(now)), existing = reviews.find(r => r.cadence === cadence && samePeriod(r.period, p));
     return { cadence, period: p, record: existing?.file ?? null, due: !existing || existing.nextReviewDate <= jst(now), status: existing?.status ?? 'missing' };
   });
-  const experiments = readJson(root, 'data/experiments.json').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
+  const experiments = readJson(root, 'data/business/experiments.json').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
   const operatingBalance = ['all', ...c.qualifications.map(q => q.id)].map(qualification => {
     const receipts = cells.find(x => x.qualification === qualification && x.metric === 'netReceipts'), costs = cells.find(x => x.qualification === qualification && x.metric === 'costYen');
     return { qualification, value: receipts.coverage === 'complete' && costs.coverage === 'complete' && receipts.value != null && costs.value != null ? receipts.value - costs.value : null };

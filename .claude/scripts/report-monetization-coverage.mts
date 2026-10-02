@@ -23,7 +23,7 @@
  * 使い方:
  *   npx tsx .claude/scripts/report-monetization-coverage.mts
  *   npx tsx .claude/scripts/report-monetization-coverage.mts --min-users 20
- *   （出力: コンソール md + data/metrics/monetization/coverage-*.json + coverage-latest.md）
+ *   （出力: コンソール md + data/analysis/monetization/coverage-*.json + coverage-latest.md）
  */
 import {
   readFileSync,
@@ -47,7 +47,7 @@ import {
 } from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
-const OUT_DIR = join(ROOT, "data/metrics/monetization");
+const OUT_DIR = join(ROOT, "data/analysis/monetization");
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const SALES_LOG = join(ROOT, "data/note/sales.json");
 

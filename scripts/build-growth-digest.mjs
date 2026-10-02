@@ -3,10 +3,10 @@
  * build-growth-digest.mjs — 成長パック（fetch-growth-pack）と既存の計測成果物から、週次レビューでトリアージする
  * 改善機会のダイジェストを作る（オフライン・決定的）。
  *
- * 入力: data/metrics/growth/pack-YYYY-Www.json（必須）と過去パック、monetization/coverage-*.json、
- *       bing/bing-*.json、data/experiments.json、config/seo-watchwords.json、
+ * 入力: data/analysis/growth/pack-YYYY-Www.json（必須）と過去パック、monetization/coverage-*.json、
+ *       bing/bing-*.json、data/business/experiments.json、config/seo-watchwords.json、
  *       growth/triage-log.json（週次レビューの処分・抑止に使う）、public/_redirects + content/site（URL→原稿）
- * 出力: data/metrics/growth/digest-YYYY-Www.json（CI だけが書く。週次レビューは読むだけ）
+ * 出力: data/analysis/growth/digest-YYYY-Www.json（CI だけが書く。週次レビューは読むだけ）
  *
  * Usage:
  *   node scripts/build-growth-digest.mjs                  # 最新パックの週で digest を書く
@@ -32,7 +32,7 @@ import {
 
 const TAG = '[growth-digest]';
 const ROOT = process.cwd();
-const GROWTH = 'data/metrics/growth';
+const GROWTH = 'data/analysis/growth';
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);
@@ -111,7 +111,7 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);
-  const experiments = readJson('data/experiments.json', { experiments: [] }).experiments;
+  const experiments = readJson('data/business/experiments.json', { experiments: [] }).experiments;
   const items = [
     ...detectMeasurement(pack, ctx),
     ...detectExperiments(experiments, Date.parse(`${today}T00:00:00+09:00`)),

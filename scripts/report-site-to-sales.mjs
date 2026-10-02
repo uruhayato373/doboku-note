@@ -7,7 +7,7 @@
  *   note 流入元    data/note/referrers/*.json（アカウント全体・取得が最新のファイル）
  *   売上           data/note/sales.json
  *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines.json
- * 出力: data/metrics/business/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
+ * 出力: data/business/records/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
  *
  * Usage:
  *   npm run report-site-to-sales                     # 直近の完了月（JST）
@@ -35,7 +35,7 @@ import {
 } from './lib/site-to-sales.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const OUT_DIR = 'data/metrics/business';
+const OUT_DIR = 'data/business/records';
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);

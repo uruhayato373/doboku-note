@@ -6,7 +6,7 @@ import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SALES_PATH = join(ROOT, 'data/note/sales.json');
-const OUTPUT_DIR = join(ROOT, 'data/metrics/monetization');
+const OUTPUT_DIR = join(ROOT, 'data/analysis/monetization');
 
 function valueAfter(args, flag) {
   const index = args.indexOf(flag);

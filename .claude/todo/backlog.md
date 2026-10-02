@@ -246,7 +246,7 @@
 ### [DN-0339] Instagram の公開済み未記録48件と照合異常45件を /ig-reconcile で解消する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-09-26]
 
-**起点**: 週次レビューの申し送り（data/metrics/growth/digest-2026-W38.json）
+**起点**: 週次レビューの申し送り（data/analysis/growth/digest-2026-W38.json）
 
 **やること**: CI 週次の照合 `.claude/state/ig-reconcile/snapshot.json`（2026-09-19）で published_UNrecorded 48・anomaly 45・reel_built_unposted 42 が出ている。ローカルで `/ig-reconcile` を実行し、公開済みを posted.json へ backfill、異常の内訳（重複・種別・予約ずれ）を分類して直す。未公開のうち予約すべきものは予約前に一覧を示して確認を取る（外部への予約はユーザー承認後）。
 
@@ -296,7 +296,7 @@
 **やること**:
 1. Codex で文字なしの素材を作る: (a) 一次試験用の `ctaBg`（720×600 webp・紺の重ねで白文字が読める明るさ・他資格の背景と同じ画風） (b) 過去問 PDF の紙面を見せる素材（既存の紙面見本 `content/note/技術士一次/一次択一-過去問PDF/img/sample.png` 900×1180 を使ったモックアップ）。
 2. 「紙面見本入りの CTA」を作り、R07 の 3 ページで今の CTA と並べる。置き場所は「解答・解説」の開封計測（answer_reveal・PR #826）で読まれている位置を見て、解説の途中も候補にする。
-3. `data/experiments.json` に実験として登録し、試験前の 2〜3 週間で配置別のクリック率を比べる。
+3. `data/business/experiments.json` に実験として登録し、試験前の 2〜3 週間で配置別のクリック率を比べる。
 
 **完了条件**: 実験の結果（配置・素材別の表示とクリック）を記録し、効果のあった CTA を一次試験の全ページへ広げるか戻すかを決めた。
 
@@ -708,7 +708,7 @@
 ### [DN-0417] 週次 GSC まとめ W38 の未起票の改善候補 5 件を片付ける（題名・CTA・共食い）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
 
-**起点**: 2026-09-27 の集客バックログ点検で、`data/metrics/growth/digest-2026-W38.json` の候補のうち DN-0338 以外にカードが無かった。
+**起点**: 2026-09-27 の集客バックログ点検で、`data/analysis/growth/digest-2026-W38.json` の候補のうち DN-0338 以外にカードが無かった。
 - OPP-07ad782c8d「スクレープドーザ」6.3 位・CTR 0%（`/exam/civil-construction-1/textbook/scraper`）
 - OPP-09ce18f721「中国地方整備局 共通仕様書」で `/standards/chugoku/local` と `/part-01` が共食い
 - OPP-4d4eb6bc94 サイドバー配置の CTA が CTR 0.02%（配置の中央値 0.23%・表示 12,916）
@@ -895,7 +895,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 各 PC（Windows・Mac）で repo 直下から:
 1. `git switch develop; git pull` と `npm run pre-commit:install`（pre-commit の内容が変わったため）。
 2. 取り残しの確認: 旧パス `.claude/config/coconala/assets/`・`.claude/state/metrics/gsc-ui/`・`.claude/state/metrics/ga4-ui/`・`.claude/state/metrics/affiliate/a8-ui/` にファイルが残っていないか見る。
-3. 残っていれば新しい置き場へ移す（中身を上書きしない）: ココナラ素材は `content/coconala/assets/`（無ければ `node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'` で Drive から取り戻す）、GSC・GA4 の UI CSV と A8 の生ファイルは `data/metrics/` 配下の同じ相対位置へ。空になった旧ディレクトリは消す。
+3. 残っていれば新しい置き場へ移す（中身を上書きしない）: ココナラ素材は `content/coconala/assets/`（無ければ `node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'` で Drive から取り戻す）、GSC・GA4 の UI CSV と A8 の生ファイルは `data/` 配下の同じ相対位置へ。空になった旧ディレクトリは消す。
 4. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
@@ -964,7 +964,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0338] 1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-26]
 
-**起点**: 週次トリアージ（data/metrics/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
+**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
 
 **やること**: GSC で「インターフェアリングフロートとは」（35日 表示1,215・クリック2・平均7.6位・旧URLを含む）の着地ページと表示中のタイトルを確認し、textbook-network-schedule の seoTitle・description・リード文にフロート4種（トータル/フリー/インターフェアリング/ディペンデント）の定義と試験での問われ方を入れる。本文に無い定義は足さず、既存の図 figure-3-21-23 と整合させる。変更後は refresh-indexes。
 

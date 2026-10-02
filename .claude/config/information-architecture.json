@@ -139,7 +139,9 @@
       "data/metrics/gsc/index-coverage-history.json",
       "data/metrics/gsc-ui/last-run.json",
       "data/metrics/ga4-ui/last-run.json",
-      "data/metrics/ga4"
+      "data/metrics",
+      "data/weekly-metrics",
+      "data/experiments.json"
     ]
   },
   "docsIsNotContent": {
@@ -325,7 +327,13 @@
       "data/metrics/gsc-ui/last-run.json",
       "data/metrics/ga4-ui/last-run.json",
       "data/metrics/ga4/",
-      "data/metrics/gsc/gsc-"
+      "data/metrics/gsc/",
+      "data/metrics/business",
+      "data/weekly-metrics",
+      "data/experiments.json",
+      "data/metrics/crosswalk",
+      "data/metrics/monetization",
+      "data/metrics/growth"
     ],
     "scanGlobs": [
       "scripts/",

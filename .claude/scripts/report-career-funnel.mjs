@@ -22,7 +22,7 @@
  *
  * 設定（語彙・柱の分類規則）: config/career-funnel.json
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
- * 評価サイクル: data/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
+ * 評価サイクル: data/business/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";

@@ -13,11 +13,11 @@ test('patternOf: 日時・UUID・ハッシュの型で当て、名前の前方�
   assert.deepEqual(idsFor('data/gsc/url-inspection/2026-10-02T00-21-12.json'), ['gsc.url-inspection']);
   assert.deepEqual(idsFor('data/gsc/url-inspection-single/2026-10-02T00-21-12.json'), ['gsc.url-inspection-single']);
   assert.deepEqual(
-    idsFor('data/metrics/business/measurement-2026-09-13T02-19-08-867Z-0b3048b5-56ce-4bb9-8bb9-38866952d7b5.json'),
+    idsFor('data/business/records/measurement-2026-09-13T02-19-08-867Z-0b3048b5-56ce-4bb9-8bb9-38866952d7b5.json'),
     ['business.measurement'],
   );
-  assert.deepEqual(idsFor('data/metrics/business/checks-monthly-2026-08-2026-10-01T06-52-13-780Z.json'), ['business.checks-monthly']);
-  assert.deepEqual(idsFor('data/metrics/business/site-to-sales-2026-08-r2.json'), ['business.site-to-sales']);
+  assert.deepEqual(idsFor('data/business/records/checks-monthly-2026-08-2026-10-01T06-52-13-780Z.json'), ['business.checks-monthly']);
+  assert.deepEqual(idsFor('data/business/records/site-to-sales-2026-08-r2.json'), ['business.site-to-sales']);
   assert.deepEqual(idsFor('data/gsc/ui/2026-07-30T05-41-28Z/normalized/notFound--allKnownPages.json'), ['gsc.ui-raw']);
   assert.ok(patternOf('data/a.json').test('data/a.json'));
   assert.ok(!patternOf('data/a.json').test('data/aXjson'), '. は文字どおり');

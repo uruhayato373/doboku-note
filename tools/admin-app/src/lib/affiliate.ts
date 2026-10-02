@@ -254,7 +254,7 @@ export function affiliatePlacements(): PlacementView {
   }
 }
 
-/** アフィリエイトに関わる実行中の実験と次の判定日（data/experiments.json）。 */
+/** アフィリエイトに関わる実行中の実験と次の判定日（data/business/experiments.json）。 */
 export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
   try {
     const e = JSON.parse(readFileSync(repoPath('data', 'experiments.json'), 'utf8'));

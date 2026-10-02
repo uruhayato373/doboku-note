@@ -1,6 +1,6 @@
 import { DIRECTION, direction } from './business-direction.mjs';
 import { createHash, randomUUID } from 'node:crypto';
-import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { addDays, calendarDate, getDateRange } from './gsc-date-range.mjs';
 import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates, selectionKey } from './seo-watch-strategy.mjs';
@@ -16,8 +16,42 @@ export function readWatchConfig(root) {
   return validateConfig(config);
 }
 export const CONFIG = 'config/seo-watchwords.json';
-export const LEDGER = 'data/experiments.json';
-export const HISTORY = 'data/metrics/gsc/rank-watch';
+export const LEDGER = 'data/business/experiments.json';
+/**
+ * 計測（watch-…）と判断（run-…）の記録。月ごとの追記ファイル data/gsc/rank-watch/<YYYY-MM>.jsonl に 1 行 1 件。
+ * 行は {"recordId": "watch-<時刻>-<短い id>", ...中身}。参照は「ファイル#recordId」。書いた行は変えない（追記だけ）。
+ */
+export const HISTORY = 'data/gsc/rank-watch';
+const monthFileOf = (recordId) => `${HISTORY}/${recordId.match(/-(\d{4}-\d{2})-\d{2}T/)[1]}.jsonl`;
+
+/** 記録を古い順に返す（prefix は watch- か run-）。返す各件は中身＋file（「ファイル#recordId」） */
+function readRecords(root, prefix) {
+  const dir = join(root, HISTORY);
+  if (!existsSync(dir)) return [];
+  const out = [];
+  for (const name of readdirSync(dir).filter((f) => /^\d{4}-\d{2}\.jsonl$/.test(f)).sort()) {
+    for (const line of readFileSync(join(dir, name), 'utf8').split('\n')) {
+      if (!line.trim()) continue;
+      const { recordId, ...data } = JSON.parse(line);
+      if (recordId.startsWith(prefix)) out.push({ ...data, file: `${HISTORY}/${name}#${recordId}` });
+    }
+  }
+  return out.sort((a, b) => a.file.split('#')[1].localeCompare(b.file.split('#')[1]));
+}
+
+function appendRecord(root, recordId, data) {
+  const file = monthFileOf(recordId);
+  mkdirSync(join(root, HISTORY), { recursive: true });
+  appendFileSync(join(root, file), JSON.stringify({ recordId, ...data }) + '\n');
+  return `${file}#${recordId}`;
+}
+
+/** 参照「ファイル#recordId」の記録があるか（移す前の名前は呼び手が resolveMovedPath で読み替えてから渡す） */
+export function hasRecord(root, ref) {
+  const [file, recordId] = String(ref ?? '').split('#');
+  if (!recordId || !file.startsWith(`${HISTORY}/`) || !existsSync(join(root, file))) return false;
+  return readFileSync(join(root, file), 'utf8').split('\n').some((line) => line.startsWith(`{"recordId":"${recordId}"`));
+}
 export const KIND = 'seo-rank-watch';
 export const hash = (value) => createHash('sha256').update(value).digest('hex');
 export const readJson = (root, path) => JSON.parse(readFileSync(join(root, path), 'utf8'));
@@ -97,9 +131,7 @@ export function evaluate(before, after, policy) {
   return 'no-effect'; // An operational classification, not a causal significance test.
 }
 export function readMeasurements(root) {
-  const dir = join(root, HISTORY);
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir).filter((f) => /^watch-.*\.json$/.test(f)).sort().map((f) => ({ ...readJson(root, `${HISTORY}/${f}`), file: `${HISTORY}/${f}` }));
+  return readRecords(root, 'watch-');
 }
 export function latestMeasurement(snapshots, watch) {
   return snapshots.filter((s) => s.type === 'measurement' && s.scopeKey === scopeKey(watch)).at(-1) ?? null;
@@ -149,15 +181,11 @@ export function report(root, now = new Date()) {
     due: rows.filter((r) => r.nextReviewDate && r.nextReviewDate <= dateJst(now) && ['observing', 'achieved'].includes(r.status)).map((r) => r.id) };
 }
 export function writeSnapshot(root, data, now = new Date()) {
-  const file = `${HISTORY}/watch-${now.toISOString().replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}.json`;
-  mkdirSync(join(root, HISTORY), { recursive: true });
-  writeFileSync(join(root, file), JSON.stringify(data, null, 2) + '\n', { flag: 'wx' });
-  return file;
+  return appendRecord(root, `watch-${now.toISOString().replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}`, data);
 }
 
 export function readRuns(root) {
-  const dir = join(root, HISTORY);
-  return existsSync(dir) ? readdirSync(dir).filter((f) => /^run-.*\.json$/.test(f)).sort().map((f) => ({ ...readJson(root, `${HISTORY}/${f}`), file: `${HISTORY}/${f}` })) : [];
+  return readRecords(root, 'run-');
 }
 
 export function decisionRecord(view, note = '', policyReview = false, now = new Date(), failed = false) {
@@ -188,9 +216,7 @@ export function writeDecision(root, entry) {
   validateRun(entry);
   const existing = readRuns(root).find((r) => r.fingerprint === entry.fingerprint);
   if (existing) return { file: existing.file, appended: false };
-  const file = `${HISTORY}/run-${entry.recordedAt.replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}.json`;
-  mkdirSync(join(root, HISTORY), { recursive: true });
-  writeFileSync(join(root, file), JSON.stringify(entry, null, 2) + '\n', { flag: 'wx' });
+  const file = appendRecord(root, `run-${entry.recordedAt.replace(/[:.]/g, '-')}-${randomUUID().slice(0, 8)}`, entry);
   return { file, appended: true };
 }
 /** One writer; detect edits by another process before an atomic rename. */

@@ -7,10 +7,10 @@ import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, 
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','data/business','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
  for(const f of ['business-direction.json','qualification-registry.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
- writeFileSync(join(root,'data/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
+ writeFileSync(join(root,'data/business/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
 }
 const measure = (values = { notePv: 10 }) => ({kind:'measurement', qualification:'all', period, channel:'note', subject:'aggregate', source:'note新ダッシュボード・全記事',coverage:'complete',values});
 test('calendar periods are completed JST weeks and months',()=>{

@@ -129,7 +129,7 @@ domain: strategy
 調査方法 (2 段階):
 
 > **大原則（誤読防止）**: 計測は CI/CD 供給が正。`fetch-metrics.yml`（毎週金 06:00 JST）が
-> GA4/GSC を取得し `data/metrics/{ga4,gsc}/` に commit、`psi-audit.yml` が PSI を
+> GA4/GSC を取得し `data/{ga4,gsc}/reports/` に commit、`psi-audit.yml` が PSI を
 > 日次 commit する。**コミット済みスナップショットを読むのが既定の取得元**であり、ローカル
 > creds は設計上不要。「creds 未設定＝計測基盤未整備」と扱わない。会社 PC は社内プロキシで
 > 外部 API（Google/Meta）が遮断されるため、ライブ fetch は基本通らない。
@@ -152,7 +152,7 @@ B. 実験進捗レポート:
     （例: 「deploy 後に LCP を再計測」＝deploy 待ちで宙吊りになっている申し送り）
   - なぜ機械化したか: 再測定の放置が EXP-002（70日→計測不能で cancelled）・EXP-003（42日）・
     EXP-005（proposed 4週）と 3 回実績化したため
-- 続けて `data/experiments.json` を読み、status 別にグループ化:
+- 続けて `data/business/experiments.json` を読み、status 別にグループ化:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
@@ -268,7 +268,7 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
 - `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
   - 入力: 最新 `ga4.page`（流入）+ `ga4.cta-clicks`（クリック, あれば）
   - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
-  - 出力: `data/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
+  - 出力: `data/analysis/monetization/coverage-latest.md`（+ coverage-*.json）
 - 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4.cta-clicks` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4.cta-clicks-by-label`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
   ライブ fetch は不要。creds 未設定でも成立する。
@@ -295,7 +295,7 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
   source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
   （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
-- 週次スナップショット: `data/weekly-metrics/` の最新 YYYY-Www.json の `sns` セクション
+- 週次スナップショット: `data/business/weekly/` の最新 YYYY-Www.json の `sns` セクション
   （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
 - YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
   counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
@@ -488,7 +488,7 @@ blocked / fail があれば「課題・ブロッカー」へ、繰り返し bloc
 npm run review-checks -- --cadence weekly --run YYYY-Www --write
 ```
 
-（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `data/metrics/business/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
+（点検は `review-wiring.json` の `checks`＝`npm run check-workflow-health` と `node scripts/check-backlog-health.mjs`。結果は回ごとに `data/business/records/checks-weekly-<週>-<実行時刻>.json` に追記で残る。）
 レポートの「## 点検と Issue」に、失敗・検査不成立の点検と開いている Issue・Dependabot の脆弱性の**全件**を
 `- <コマンド名 or #番号 or dependabot:パッケージ名> 状況 → 振り分け: DN-xxxx / 定常 / 理由` で書く。行き先の無い項目が残る週は「実施できた」にならない（管理画面のレビュー手順が数える）。
 
@@ -629,7 +629,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## 実験の進捗
 
-<!-- Agent C が data/experiments.json から running/measuring/今週 close を自動生成。
+<!-- Agent C が data/business/experiments.json から running/measuring/今週 close を自動生成。
      running 実験の baseline → current 比較、measure 推奨の警告、
      close 実験の learnings を出力。 -->
 
@@ -677,7 +677,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 ## SNS 流入と投稿実績
 
 <!-- Agent F が `ga4.source-medium-sns`（最新2件）で source 別 WoW、
-     `data/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
+     `data/business/weekly/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
      ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
      「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->
 

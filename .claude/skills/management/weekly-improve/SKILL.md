@@ -12,7 +12,7 @@ domain: strategy
 
 **実行環境**: ライブ fetch を伴うため **macOS（creds + 外部到達性あり）専用**。会社 PC（社内プロキシで Google API 遮断）では Phase 1 の取得が通らない。
 
-> その環境では本スキルではなく `/weekly-review` を使う（CI がコミットした `data/metrics/` のスナップショットを読む＝既定経路）。計測自体は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
+> その環境では本スキルではなく `/weekly-review` を使う（CI がコミットした `data/` のスナップショットを読む＝既定経路）。計測自体は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 > なお `--no-fetch` を付ければ本スキルもコミット済み最新メトリクスで動く。
 
 ## なぜこのスキルがあるのか
@@ -84,7 +84,7 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 
 まず `npm run seo-rank-watch -- report --json` でrank-watchの期限を確認し、対象は専用reviewへ渡す。`kind: seo-rank-watch` を以下の10日/28日手動手順では変更しない。
 
-`data/experiments.json` を読み、status が `running` かつ `started_at + 10 日経過`の実験を列挙。該当があればユーザーに提示:
+`data/business/experiments.json` を読み、status が `running` かつ `started_at + 10 日経過`の実験を列挙。該当があればユーザーに提示:
 
 ```
 以下の実験は計測推奨です:
@@ -151,7 +151,7 @@ coverage 側は同ログで判断が積み上がっている（`/gsc-review`）�
 - `data/gsc/reports/*.json` — 取得した GSC データ
 - `data/ga4/reports/*.json` — 取得した GA4 データ
 - `.claude/state/improvements/{YYYY-MM-DD}.md` — 改善候補リスト（生データ）
-- `data/experiments.json` — 採用された候補が追記される（status: running）
+- `data/business/experiments.json` — 採用された候補が追記される（status: running）
 - `.claude/knowledge/reference/gsc-management.md` — 観測・判断ログへ裁定を追記（Phase 7）
 
 ## 運用ルール

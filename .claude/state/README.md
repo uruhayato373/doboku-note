@@ -53,7 +53,7 @@
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域。サイトが読む正本は `config/`）
-- **`data/` との往復**: 旧 `data/*.json` は 2026-04-15 に本ディレクトリへ集約した（ADR: `.claude/knowledge/reference/data-storage-decision.md`）。その結果、事業の記録とエージェントの作業状態が混ざって区別できなくなったため、2026-10-02 に事業の記録だけを `data/` へ戻した。日付付き snapshot の寿命（`scripts/lib/prune-state-snapshots.mjs`）と不変台帳（`data/metrics/business/**`・`data/metrics/gsc/rank-watch/**`）の扱いは `data/` 側に移った。不変台帳の中の旧パスは書き換えず、読む側が `resolveMovedPath` で読み替える
+- **`data/` との往復**: 旧 `data/*.json` は 2026-04-15 に本ディレクトリへ集約した（ADR: `.claude/knowledge/reference/data-storage-decision.md`）。その結果、事業の記録とエージェントの作業状態が混ざって区別できなくなったため、2026-10-02 に事業の記録だけを `data/` へ戻した。日付付き snapshot の寿命（`scripts/lib/prune-state-snapshots.mjs`）と不変台帳（`data/business/records/**`・`data/metrics/gsc/rank-watch/**`）の扱いは `data/` 側に移った。不変台帳の中の旧パスは書き換えず、読む側が `resolveMovedPath` で読み替える
 - **タスクの単一正源**: やるべきことは `.claude/todo/`（annual/monthly/weekly、手動運用）に集約。旧 `task-queue.json` + 旧 Project TODO ビュー 自動生成は 2026-06-11 廃止
 
 詳細なアーキテクチャは [information-architecture.md](../../.claude/knowledge/reference/information-architecture.md) を参照。

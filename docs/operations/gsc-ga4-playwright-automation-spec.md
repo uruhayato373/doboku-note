@@ -414,7 +414,7 @@ data/gsc/
   <runId>/               # gitignore（raw CSV / ZIP / manifest / normalized）
 ```
 
-`.gitignore` は `data/metrics/{gsc-ui,ga4-ui}/*/` を無視しつつ `!.../ssot/` で例外化する。
+`.gitignore` は `data/{gsc,ga4}/ui/` を無視しつつ `!.../ssot/` で例外化する。
 `report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
 フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
 

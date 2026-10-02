@@ -52,18 +52,20 @@ test('CI prepare/apply records waiting once without changing experiments, and re
   save('config/seo-watchwords.json', config);
   for (const name of ['business-direction', 'qualification-registry', 'exam-calendar']) save(`config/${name}.json`, JSON.parse(readFileSync(`config/${name}.json`, 'utf8')));
   const ledger = { experiments: [{ id: 'EXISTING1', status: 'running' }, { id: 'EXISTING2', status: 'running' }] };
-  save('data/experiments.json', ledger);
+  save('data/business/experiments.json', ledger);
   const cli = resolve('scripts/seo-rank-watch-ci.mjs');
   const run = command => execFileSync(execPath, [cli, command, '--dir', join(root, 'output')], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   run('prepare');
   assert.equal(JSON.parse(readFileSync(join(root, 'output/context.json'), 'utf8')).selected, null);
   run('apply'); run('apply');
-  const history = join(root, 'data/metrics/gsc/rank-watch');
+  const history = join(root, 'data/gsc/rank-watch');
   assert.equal(readdirSync(history).length, 1);
-  const entry = JSON.parse(readFileSync(join(history, readdirSync(history)[0]), 'utf8'));
+  const lines = readFileSync(join(history, readdirSync(history)[0]), 'utf8').trim().split('\n');
+  assert.equal(lines.length, 1, '同じ判断を 2 回 apply しても 1 行');
+  const entry = JSON.parse(lines[0]);
   assert.equal(entry.result, 'capacity-limit');
-  assert.deepEqual(JSON.parse(readFileSync(join(root, 'data/experiments.json'), 'utf8')), ledger);
-  save('data/experiments.json', { ...ledger, editedConcurrently: true });
+  assert.deepEqual(JSON.parse(readFileSync(join(root, 'data/business/experiments.json'), 'utf8')), ledger);
+  save('data/business/experiments.json', { ...ledger, editedConcurrently: true });
   assert.throws(() => run('apply'), /Prepared context changed/);
 });
 test('capacity waiting records the existing experiments instead of closing them', () => {

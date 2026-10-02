@@ -224,7 +224,7 @@ npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を 
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
 npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
-npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/metrics/business/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
+npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/business/records/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
 npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
@@ -267,7 +267,7 @@ npm run report-search-opportunities # 検索キーワード戦略（config/searc
 npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
 npm run x-profile-sync    # X の自己紹介を正本 config/x-account.json の profile.bio に合わせる。既定 dry-run（差分表示）、`-- --commit` で書き換えて表示の一致を確認。ログイン中が handle 以外なら ABORT（exit 2・別アカウントは書き換えない）。上限は limits.bio
 npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
-npm run review-checks -- --cadence monthly --run YYYY-MM --write # レビューの回ごとに点検（review-wiring.json の checks）を実行し、開いている Issue・Dependabot の脆弱性と一緒に data/metrics/business/checks-<回>-<時刻>.json へ追記。レポートの「点検と Issue」で全件に行き先が無いと管理画面の手順が「一部」。置き場は追記だけ（上書き・削除は check-business-direction が止める）
+npm run review-checks -- --cadence monthly --run YYYY-MM --write # レビューの回ごとに点検（review-wiring.json の checks）を実行し、開いている Issue・Dependabot の脆弱性と一緒に data/business/records/checks-<回>-<時刻>.json へ追記。レポートの「点検と Issue」で全件に行き先が無いと管理画面の手順が「一部」。置き場は追記だけ（上書き・削除は check-business-direction が止める）
 npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
 npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）
 npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する

@@ -6,7 +6,7 @@
 // 読み手は全部 latest-1〜2 件しか見ていなかった。寿命が宣言されていないファイル＝「誰も消せないので永久に増える」
 // なので、**未宣言の日付付きファイルは赤**（coverage 検査）にして、新しい系列が黙って増えるのを止める。
 //
-// 決して触らないもの: 台帳で immutable のデータセット（data/metrics/business の KPI 台帳＝check-business-direction が
+// 決して触らないもの: 台帳で immutable のデータセット（data/business/records の KPI 台帳＝check-business-direction が
 // 削除を拒否、rank-watch＝check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に入れない
 // （tests/prune-state-snapshots.test.mjs が assert する）。手元だけの生データ（local）は対象外。
 //

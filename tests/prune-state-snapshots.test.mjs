@@ -30,7 +30,7 @@ const dayReport = (source, n) => datasetPath(`${source}.reports`, { date: day(n)
 const week = (w) => datasetPath('business.weekly', { week: `2026-W${String(w).padStart(2, '0')}` });
 const WEEK_INDEX = datasetPath('business.weekly-index');
 const BUSINESS = datasetPath('business.snapshot', { ts: '2026-09-13T02-22-01-130Z', uuid: '8275f38f-bcf9-499a-a79e-9753bc204570' });
-const RANK = datasetPath('gsc.rank-watch', { ts: '2026-08-01T00-00-00-000Z', hash: 'abcdef12' });
+const RANK = datasetPath('gsc.rank-watch', { month: '2026-08' });
 
 test('snapshotStamp: 4 種の日付形式を読み、無日付は null', () => {
   assert.equal(snapshotStamp('2026-09-06T18-53-31.json').stamp, '2026-09-06T18-53-31');
