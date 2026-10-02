@@ -5,7 +5,7 @@ import examCalendar from '../../config/exam-calendar.json';
 // トップの資格カードは 2026-09 まで home-exam-cards.json の手打ち文字列（例: 「2026年7月 第1次」）を
 // 出しており、試験が終わっても表示が変わらなかった。ここで算出した値を優先し、未来のイベントが
 // 無い資格だけ手打ち文字列へフォールバックする。
-// 判定は JST の暦日。ビルド時刻で固定されるため「残り日数」は ExamCountdown（client）が再計算する。
+// 判定は JST の暦日。次回の試験日と名称をビルド時に解決する。
 
 export type NextExamEvent = {
   /** イベント名（例: 第二次検定・筆記試験） */
