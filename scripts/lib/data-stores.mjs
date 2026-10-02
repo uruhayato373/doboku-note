@@ -23,7 +23,7 @@ export const STORE_KINDS = {
 export function listStoreFiles(root, kind, { tracked = false } = {}) {
   const { dir } = STORE_KINDS[kind];
   if (tracked) {
-    const out = execFileSync('git', ['ls-files', '-z', '--', `${dir}/`], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '--', `${dir}/`], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
     return out.split('\0').filter(Boolean);
   }
   const files = [];

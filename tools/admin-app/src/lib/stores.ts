@@ -92,7 +92,7 @@ const REF_PATHS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src', '
 
 function codeRefs(root: string, token: string): string[] {
   try {
-    const out = execFileSync('git', ['grep', '-l', '-F', '-e', token, '--', ...REF_PATHS], { cwd: root, encoding: 'utf8' });
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'grep', '-l', '-F', '-e', token, '--', ...REF_PATHS], { cwd: root, encoding: 'utf8' });
     return out.split('\n').filter(Boolean).sort();
   } catch {
     return []; // 一致なしは exit 1
