@@ -17,7 +17,7 @@
  * exit: 0 完走 / 2 検査不成立（カタログ解析 0 件・sales.json 読取不能など入力の破損）
  * 純関数とテスト: scripts/lib/site-to-sales.mjs・tests/site-to-sales.test.mjs
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
 import { datasetFiles, datasetPath } from './lib/datasets.mjs';
