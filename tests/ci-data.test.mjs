@@ -17,7 +17,7 @@ const put = (root, rel, body) => {
 
 const OLD_PSI = 'data/psi/batch/2026-09-01T00-00-00.json';
 const NEW_PSI = 'data/psi/batch/2026-10-01T00-00-00.json';
-const EXPERIMENTS = 'data/experiments.json';
+const EXPERIMENTS = 'data/business/experiments.json';
 const NOTE_HISTORY = 'data/note/competitors/2026-10-01.json';
 
 /** CI の流れ（書く → 退避 → develop の先頭へ戻す → 書き戻す）を一時リポジトリで再現する */

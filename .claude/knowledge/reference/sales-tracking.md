@@ -125,7 +125,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 npm run report-note-funnel-efficiency
 ```
 
-最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales.json独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`data/metrics/monetization/note-funnel-efficiency-latest.{json,md}`。
+最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales.json独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`data/analysis/monetization/note-funnel-efficiency-latest.{json,md}`。
 
 これは購入者をクリックへ結合したCVRではない。note販売履歴に流入識別子が無いため、売上÷クリックは同期間の診断指標に限り、因果attributionと表現しない。単品記事売上と商品IDを持たないハブ導線は対象外。
 
@@ -136,7 +136,7 @@ npm run report-site-to-sales                    # 直近の完了月
 npm run report-site-to-sales -- --month 2026-08
 ```
 
-暦月×note商品で、GA4 `note_cta_click`（by-label）・note流入元の `doboku-note.com`・sales.json の販売を並べる。出力は `data/metrics/business/site-to-sales-YYYY-MM.json`（追記専用。内容が変われば `-rN`）。結合キーはカタログ商品＝`note-magazines.ts` の id、カタログ外の単品＝`article:<slug>`。単品の収録マガジンは `data/note/magazines.json` の題名一致で求め、マガジン側には非加算の「収録単品の販売」として載せる。
+暦月×note商品で、GA4 `note_cta_click`（by-label）・note流入元の `doboku-note.com`・sales.json の販売を並べる。出力は `data/business/records/site-to-sales-YYYY-MM.json`（追記専用。内容が変われば `-rN`）。結合キーはカタログ商品＝`note-magazines.ts` の id、カタログ外の単品＝`article:<slug>`。単品の収録マガジンは `data/note/magazines.json` の題名一致で求め、マガジン側には非加算の「収録単品の販売」として載せる。
 
 各値の状態を読む: GA4 は月一致の窓が無ければ `window-mismatch`（窓と月内日数を併記）。月一致にするには `fetch-ga4-cta-clicks -- --month YYYY-MM --by-label`。note流入元は記事別に出ないため商品別は常に `unresolvable`、2026-08 以前は rel=noreferrer で `not-measurable`。売上は note の月次売上表示と一致して `reconciled`。面だけのlabel（2026-08-22 より前）と無料もくじ導線は未解決クリックとして理由別に件数を出す。
 

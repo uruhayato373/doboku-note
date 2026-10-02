@@ -52,7 +52,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
 1. **preflight**
    - `git branch --show-current` と `git status`（並行セッションの巻き込み防止・自分の変更のみ commit）
    - `config/google-console-automation.json` の property を確認
-   - `data/metrics/{gsc,ga4,url-inspection}/` の最新スナップショット日付を確認
+   - `data/{gsc,ga4}/reports/・data/gsc/url-inspection/` の最新スナップショット日付を確認
    - `npm run check-gsc-ui-due` で **前回が完全だったか**を確認（`lastAttempt.complete !== true` なら再取得が必要）
    - `npm run check-ga4-dimensions` で GA4 設定ドリフトを確認（blocking な未登録があれば手順 7 へ）
    - `analyze-only` なら 2〜4 を飛ばして 5 へ

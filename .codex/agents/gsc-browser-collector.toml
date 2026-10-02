@@ -59,7 +59,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
    ある面で `okUnits === 0` かつ `zeroUnits > 0` なら `suspiciousScopes` に出る＝UI 変更を疑う。
 6. **exit code を読む**: 0=完全 / 2=不完全（部分成功・全ゼロ）/ 3=未ログイン / 5=property 不一致 /
    6=レポート到達不能。**2 でも取れた分は使える**（親の判断で正規化へ進む）。
-7. **マーカー確認**: `data/metrics/{gsc-ui,ga4-ui}/last-run.json`（schemaVersion 3）の
+7. **マーカー確認**: `data/{gsc,ga4}/ui-last-run.json`（schemaVersion 3）の
    `lastAttempt`（今回）と `lastComplete`（最後に完全だった取得）。失敗しても `lastComplete` は
    保持される＝月次サイクルの時計は失敗でリセットされない。
 8. **報告**: 下記フォーマットで親へ返す。debug artifact のパスは出すが中身の Cookie/メールは引用しない。

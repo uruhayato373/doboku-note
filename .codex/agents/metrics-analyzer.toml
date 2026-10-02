@@ -47,7 +47,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ## 決定的な検出は機会ダイジェストが持つ（2026-09-24〜）
 
-閾値で決まる検出はコードへ移した（CLAUDE.md §5）。**最初に最新の `data/metrics/growth/digest-*.json` を読み**（CI の fetch-metrics が毎週生成。Markdown で見るなら `node scripts/build-growth-digest.mjs --print`）、次の対応を前提にする:
+閾値で決まる検出はコードへ移した（CLAUDE.md §5）。**最初に最新の `data/analysis/growth/digest-*.json` を読み**（CI の fetch-metrics が毎週生成。Markdown で見るなら `node scripts/build-growth-digest.mjs --print`）、次の対応を前提にする:
 
 | 本エージェントの Pattern | ダイジェストの type（安定 ID `OPP-…`） |
 |---|---|

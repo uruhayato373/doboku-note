@@ -14,7 +14,7 @@
  *   - 1 か月 1 行。追記のみで、既存行は上書きしない（`--force` で明示的に置換）
  *   - 2027 年に初めて前年同期比が成立する。それまでは試験日 × 売上曲線が判定手段
  *
- * 出力: data/metrics/monthly-snapshot.json
+ * 出力: data/business/monthly-snapshot.json
  *   { month, organicUsers, gscClicks, gscImpressions, salesYen, salesCount, examEvents[], sources{} }
  *
  * Usage:
@@ -35,7 +35,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, 'data/metrics/monthly-snapshot.json');
+const OUT = join(ROOT, 'data/business/monthly-snapshot.json');
 const JSON_OUT = process.argv.includes('--json');
 const FORCE = process.argv.includes('--force');
 

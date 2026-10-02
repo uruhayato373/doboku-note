@@ -13,8 +13,8 @@
  *     page×query と打ち切り版は除外＝lib/ga4-snapshot.mjs の pickGscPage）
  *
  * 出力:
- *   - data/metrics/crosswalk/crosswalk-<ISO>.json  （全 join 行）
- *   - data/metrics/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
+ *   - data/analysis/crosswalk/crosswalk-<ISO>.json  （全 join 行）
+ *   - data/analysis/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
  *   - コンソールにサマリ
  *
  * usage: node .claude/scripts/report-ga4-gsc-crosswalk.mjs [--min-impr 50] [--low-ctr 0.01]
@@ -24,7 +24,7 @@ import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
-const OUT_DIR = "data/metrics/crosswalk";
+const OUT_DIR = "data/analysis/crosswalk";
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);

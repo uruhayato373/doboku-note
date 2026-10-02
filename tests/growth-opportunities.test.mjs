@@ -153,12 +153,12 @@ test('KPIs and bing reconciliation treat missing data as missing, not zero', () 
 test('buildDigest runs end-to-end on a fixture repository and renders the review marker', (t) => {
   const root = mkdtempSync(join(tmpdir(), 'growth-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
-  for (const d of ['config', 'data/metrics/growth', 'public', 'content/site/civil-construction-1/textbook-a']) mkdirSync(join(root, d), { recursive: true });
+  for (const d of ['config', 'data/analysis/growth', 'data/business', 'public', 'content/site/civil-construction-1/textbook-a']) mkdirSync(join(root, d), { recursive: true });
   for (const f of ['config/growth-cycle.json', 'config/business-direction.json', 'config/qualification-registry.json', 'config/seo-watchwords.json']) writeFileSync(join(root, f), readFileSync(f));
   writeFileSync(join(root, 'public/_redirects'), '/docs/civil-construction-1-textbook-a /exam/civil-construction-1/textbook/a 301\n');
   writeFileSync(join(root, 'content/site/civil-construction-1/textbook-a/article.mdx'), '---\ntitle: a\n---\n');
-  writeFileSync(join(root, 'data/experiments.json'), JSON.stringify({ experiments: [] }));
-  writeFileSync(join(root, 'data/metrics/growth/pack-2026-W38.json'), JSON.stringify(basePack({
+  writeFileSync(join(root, 'data/business/experiments.json'), JSON.stringify({ experiments: [] }));
+  writeFileSync(join(root, 'data/analysis/growth/pack-2026-W38.json'), JSON.stringify(basePack({
     ga4Landing: { ok: true, rows: [{ page: '/exam/civil-construction-1/textbook/a', group: 'google', week: { sessions: 30, engagedSessions: 20, keyEvents: 0 }, base: { sessions: 100, engagedSessions: 60, keyEvents: 0 } }] },
     ga4Events: { ok: true, rows: [ev('/exam/civil-construction-1/textbook/a', 'note_cta_click', 3, 12)] },
     gscPageWeek: gsc([pg('/exam/civil-construction-1/textbook/a', 3)]),

@@ -4,7 +4,7 @@ description: >
   NSM（月間オーガニック検索流入ユーザー数）改善の実験ライフサイクルを管理する。
   propose（候補提案）→ start（実行開始）→ measure（前後比較）→ close（学び記録）の
   PDCA ループを回す。セッション間で継続作業を持越す場合は pending/resume で復帰可能。
-  data/experiments.json を状態保存先に使い、playbook + rubric で意思決定を支援する。
+  data/business/experiments.json を状態保存先に使い、playbook + rubric で意思決定を支援する。
   Use when user asks to [NSM 実験, 仮説検証, /nsm-experiment, 実験提案, 効果測定,
   PDCA サイクル, 作業継続, 残作業確認, pending 作業, GSC インデックスリクエスト].
 user-invocable: true
@@ -13,11 +13,11 @@ domain: strategy
 
 ## 資格別の事業改善との接続
 
-方針・指標の正典は `docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json`。新たな事業レビュー起点の提案には `businessContext` として qualification（重点資格IDまたはall）、readerNeed、verifiedGap、metricId、reviewRecord（`data/metrics/business/` のreview参照）を付け、既存のbaseline/next_check_dateに基準期間・再測定日を持たせる。状態台帳はexperiments.jsonを継続する。集客以外の学習・販売・運営負担も評価対象だが、SEO Rank Watchには以下の専用契約を適用する。
+方針・指標の正典は `docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json`。新たな事業レビュー起点の提案には `businessContext` として qualification（重点資格IDまたはall）、readerNeed、verifiedGap、metricId、reviewRecord（`data/business/records/` のreview参照）を付け、既存のbaseline/next_check_dateに基準期間・再測定日を持たせる。状態台帳はexperiments.jsonを継続する。集客以外の学習・販売・運営負担も評価対象だが、SEO Rank Watchには以下の専用契約を適用する。
 
 **実行環境**: ライブ計測（baseline/current の取得）を伴う操作は **creds + 外部到達性がある環境（macOS 等）専用**。会社 PC（社内プロキシで Google API 遮断）では `metrics-reader.mjs` のライブ呼び出しは通らない。
 
-> その場合は CI がコミットした `data/metrics/{ga4,gsc}/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
+> その場合は CI がコミットした `data/{ga4,gsc}/reports/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
 
 ## SEO Rank Watch の専用経路
 
@@ -116,7 +116,7 @@ abandoned  abandoned  running (re-measure)
 0. 期限超過の一覧だけが欲しいときは `npm run check-experiment-due -- --json` が最短（決定的 surfacer。
    weekly-review もこれを転記する。measure 期限超過 / next_check_date 未設定の滞留 / proposed の滞留 /
    未処理の `pending_user_actions` を返す。判定のみで状態は書き換えない＝裁定は人）
-1. `data/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-plan/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
+1. `data/business/experiments.json` を読み、`experiments[]` から `status` が `running` と `measuring` の実験を全件抽出（兄弟スキル weekly-review/weekly-plan/weekly-improve と同じく JSON 直読み。ヘルパーモジュールは介さない）
 2. 各 experiment について以下をチェック:
    - `pending_user_actions` フィールドが存在して配列が空でないか
    - `next_check_date` が今日以前か（期限超過）or 3 日以内（近接）or 未来
@@ -255,7 +255,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 
 | 連携先 | 役割 |
 |---|---|
-| **`data/experiments.json`** | 実験 state 本体（JSON 直読み書き。専用ヘルパーモジュールは無い） |
+| **`data/business/experiments.json`** | 実験 state 本体（JSON 直読み書き。専用ヘルパーモジュールは無い） |
 | **`.claude/scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
 | **`.claude/scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
 | **`.claude/skills/management/weekly-plan/SKILL.md`** | Phase 1 Agent C で実験提案を自動化 |
@@ -292,7 +292,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 
 - `.claude/pdfs/guide.pdf` Chapter 3 (Testing and iteration) ── Pattern 3 Iterative refinement の出典
 - `.claude/skills/management/nsm-experiment/references/definition.md` ── NSM 定義と目標値
-- `data/experiments.json` ── 実験 state 本体（JSON 直読み書き）
+- `data/business/experiments.json` ── 実験 state 本体（JSON 直読み書き）
 - `.claude/scripts/lib/metrics-reader.mjs` ── 計測実装
 - `references/playbook.md` ── 実験パターンカタログ
 - `references/rubric.md` ── 優先順位評価軸

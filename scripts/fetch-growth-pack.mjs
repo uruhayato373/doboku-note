@@ -16,7 +16,7 @@
  *   node scripts/fetch-growth-pack.mjs --week 2026-W38  # 過去週の取り直し（同名ファイルを上書き）
  *   node scripts/fetch-growth-pack.mjs --dry-run        # 取得だけして書かない
  *
- * 出力: data/metrics/growth/pack-YYYY-Www.json
+ * 出力: data/analysis/growth/pack-YYYY-Www.json
  * exit: 0 全区画取得 / 1 取得失敗あり（取れた区画は書く・失敗は sections[*].error）/
  *       2 検査不成立（認証なし・週が GSC 確定前）
  */
@@ -31,7 +31,7 @@ import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[growth-pack]';
-const OUT_DIR = 'data/metrics/growth';
+const OUT_DIR = 'data/analysis/growth';
 const CONFIG = 'config/growth-cycle.json';
 const args = process.argv.slice(2);
 const argValue = (name) => {

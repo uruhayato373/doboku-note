@@ -7,7 +7,7 @@ domain: plan
 
 ## 事業レビューからの選定
 
-`docs/strategy/01_プロダクト戦略.md`、`config/business-direction.json`、`data/metrics/business/` の最新週次/月次判断を先に読む。重点資格・学習上の不足・販売と運営負担に沿って選ぶ。月初は `/monthly-review` の判断で、今月やるカードの `[時期:]` を付ける・直す（monthly.md は成果目標だけ・タスク表は書かない）。施策の状態は実験台帳、単発の実装はbacklogを参照し、毎週の取得・レビューを新規backlogへ量産しない。
+`docs/strategy/01_プロダクト戦略.md`、`config/business-direction.json`、`data/business/records/` の最新週次/月次判断を先に読む。重点資格・学習上の不足・販売と運営負担に沿って選ぶ。月初は `/monthly-review` の判断で、今月やるカードの `[時期:]` を付ける・直す（monthly.md は成果目標だけ・タスク表は書かない）。施策の状態は実験台帳、単発の実装はbacklogを参照し、毎週の取得・レビューを新規backlogへ量産しない。
 
 `todo-planner` エージェントを起動して今週の計画を立て、`.claude/todo/weekly.md` を更新する。
 

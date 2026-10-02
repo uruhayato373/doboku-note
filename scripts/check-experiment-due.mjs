@@ -3,7 +3,7 @@
  * check-experiment-due.mjs — 「計測→記録→改善→**再計測**」の最後の輪を閉じる surfacer
  * ---------------------------------------------------------------------------
  * なぜ必要か（2026-07-30 新設）: PDCA の仕組み自体は既にある
- * （`/nsm-experiment` propose→start→measure→close ＋ `data/experiments.json`）。
+ * （`/nsm-experiment` propose→start→measure→close ＋ `data/business/experiments.json`）。
  * 欠けていたのは **「期限が来た実験を誰が思い出すか」** だけだった。実際:
  *   - EXP-004 は `next_check_date` 2026-05-30 に対し measure が 05-30、close が 06-26（27日放置）
  *   - EXP-005 は 2026-07-26 に `pending_user_actions`（deploy 後の再計測）が積まれたまま
@@ -28,7 +28,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { judgeLedger } from "./lib/experiment-due.mjs";
 
-const LEDGER = "data/experiments.json";
+const LEDGER = "data/business/experiments.json";
 const argv = process.argv.slice(2);
 const WANT_JSON = argv.includes("--json");
 const num = (flag, def) => {

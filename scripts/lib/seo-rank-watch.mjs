@@ -16,7 +16,7 @@ export function readWatchConfig(root) {
   return validateConfig(config);
 }
 export const CONFIG = 'config/seo-watchwords.json';
-export const LEDGER = 'data/experiments.json';
+export const LEDGER = 'data/business/experiments.json';
 /**
  * 計測（watch-…）と判断（run-…）の記録。月ごとの追記ファイル data/gsc/rank-watch/<YYYY-MM>.jsonl に 1 行 1 件。
  * 行は {"recordId": "watch-<時刻>-<短い id>", ...中身}。参照は「ファイル#recordId」。書いた行は変えない（追記だけ）。

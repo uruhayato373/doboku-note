@@ -238,6 +238,14 @@ export const RESTRUCTURED_PATHS = [
     (_, source, y, mo, d, h, mi, s) => `data/${source}/reports/${new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +s) + 9 * 3600_000).toISOString().slice(0, 10)}.json`],
   ["data/metrics/ga4/quiz-premium-funnel-latest.json", "data/analysis/quiz-premium-funnel.json"],
   // 順位の見張り: 1 件 1 ファイル → 月ごとの追記ファイル（行は recordId で引く）
+  // 事業の台帳・週次・月次と分析（2026-10-02）。台帳はファイル名を保ったままフォルダごと
+  ["data/metrics/business", "data/business/records"],
+  ["data/experiments.json", "data/business/experiments.json"],
+  ["data/weekly-metrics", "data/business/weekly"],
+  ["data/metrics/monthly-snapshot.json", "data/business/monthly-snapshot.json"],
+  ["data/metrics/crosswalk", "data/analysis/crosswalk"],
+  ["data/metrics/monetization", "data/analysis/monetization"],
+  ["data/metrics/growth", "data/analysis/growth"],
   [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
 ];
 

@@ -127,7 +127,7 @@ data/analysis/<データセット>/   記録から計算した結果・文書が
 統合しないもの:
 
 - 書き手か書く時期が違うもの（CI と手元・別のワークフロー）。1 ファイルにすると並行セッションと CI の衝突が増える（商品を 1 商品 1 ファイルにしたのと同じ理由）
-- 書き手が複数の中身を変えない台帳（`data/metrics/business`。CI の週次取得と手元のレビューが書く）
+- 書き手が複数の中身を変えない台帳（`data/business/records`。CI の週次取得と手元のレビューが書く）
 - 読み手の多い正本（`qualification-registry`・`exam-*`）と、更新の多い設定（`coconala-listings`・`asset-storage`・`workflow-health` など）
 
 | 対象 | 今 | 統合後 | 条件・注意 |
@@ -146,7 +146,7 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 
 1. 台帳と検査を入れ、`domains.json` の config/・data/ の割り当てと管理画面の推定を台帳へ寄せる（ファイルは動かさない）。**2026-10-02 済み**
 2. 型を書く: 売上（note・KDP は済み。ココナラ受注・A8）→ business 台帳（`validateRecord` は業務ルールとして残す）→ `experiments`・`weekly-metrics`。読み書きを台帳経由の関数にし、パスの直書きを減らす。ワークフローは書き戻しを `npm run ci-data`（`scripts/ci-data.mjs`。変わったファイルを git status から拾って退避・復元し、実在するパスだけを add）で行い、YAML にデータのパスを書かない。最新ファイルの場所も `ci-data latest <id>` で引く（2026-10-02 済み。DN-0497 の旧パスもここで解消）
-3. 取得元ごとに 1 PR で移動・統合する。ワークフローは develop を checkout して develop のスクリプトで書き、YAML は置き場の根と台帳の id だけを渡すので（段階 1）、移動に合わせて main の YAML を変えなくてよい（id を消すときは `RETIRED_IDS` に後継を書く）。中身を変えない台帳は中身を書き換えず `MOVED_PATHS`・`RESTRUCTURED_PATHS`（`resolveMovedPath` が 2 段の移動もたどる）で読み替える。business 台帳の `sources[].sha256` は「その時点の版」の記録で、あとから照合し直さない（書式を揃えても壊れない）
+3. 取得元ごとに 1 PR で移動・統合する。ワークフローは develop を checkout して develop のスクリプトで書き、YAML は置き場の根と台帳の id だけを渡すので（段階 1）、移動に合わせて main の YAML を変えなくてよい（id を消すときは `RETIRED_IDS` に後継を書く）。中身を変えない台帳は中身を書き換えず `MOVED_PATHS`・`RESTRUCTURED_PATHS`（`resolveMovedPath` が 2 段の移動もたどる）で読み替える。business 台帳の `sources[].sha256` は「その時点の版」の記録で、あとから照合し直さない（書式を揃えても壊れない）。**2026-10-02 済み**（#823 競合・市場／#825 note・KDP・ココナラ／#827 SNS・アフィリエイト・サイト計測・寿命を台帳の `retain` へ／#828 GSC・GA4 の一括でない取得・画面取得の URL 一覧 11→1／#831 GA4・GSC の週次取得を日ごとに 1 ファイル（377→40・読み書きは `scripts/lib/metric-reports.mjs`）／rank-watch を月ごとの追記 jsonl・事業の台帳を `data/business/records/`（ファイル名を保つ）・分析を `data/analysis/`）。git 管理の data/ は 846 → 364。`data/metrics/` は無くなった。決めたこと: 寿命は台帳の各データセットの `retain` が正本（`prune-state-snapshots` は台帳を読むだけ・`--family` の名前はワークフローとの契約）／GA4・GSC は種類 id（`ga4.page` など）で引き、参照は「ファイル#種類」／追記だけの台帳（`*.jsonl`）は `.gitattributes` で LF に固定し、不変の検査は「HEAD の中身が前方に残る」で見る
 4. config/ も同じ台帳で型を持つ。優先は読み手が多い `qualification-registry`（32 ファイル）・`domains`（24）・`product-lineup`（14）と、更新の多い `coconala-listings`。資格 id の照合のようなファイル間の整合は既存の `check-*` に残す
 
 ## 参考リンク

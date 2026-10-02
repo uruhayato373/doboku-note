@@ -4,9 +4,9 @@
 
 ## 記録の置き場
 
-- 既存実績: note=`data/note/sales.json`、KDP=`data/kdp/royalties.json`、ココナラ=`data/coconala/{analytics,orders-snapshot,orders}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`data/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
-- 追加計測・目標・凍結スナップショット・判断履歴: `data/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
-- 改善の状態: `data/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
+- 既存実績: note=`data/note/sales.json`、KDP=`data/kdp/royalties.json`、ココナラ=`data/coconala/{analytics,orders-snapshot,orders}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`data/`。商品状態・価格・顧客対応の台帳は従来どおり。
+- 追加計測・目標・凍結スナップショット・判断履歴: `data/business/records/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
+- 改善の状態: `data/business/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
 - Instagram: `data/instagram/insights/*.json`（Graph API を使わない＝2026-09-23 ユーザー決定。インサイトは取得しないので欠測のまま扱い、0 と読まない）。
 - Cloudflare: `data/cloudflare/zone/*.json`（CI 日次・`cloudflare-metrics.yml`）。
 
@@ -25,7 +25,7 @@ Googleの取得は既存CI認証を使い、前の完了した週・月の資格
 
 GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の閲覧を条件とするため、複数資格を見る同一人を資格間で足さない。旧URLの期間を含む月との増減は対象範囲の変化を含み、改善効果と判定しない。演習イベントは既存1級土木ツールの範囲。GSCの資格別クリックは正規URL配下を条件とし、旧URLや一般実務ページと混ぜない。異なるタイムゾーンの厳密な購買率は計算しない。
 
-自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/metrics/business/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
+自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/business/records/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
 note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `data/note/referrers/YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv/YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。月の途中に取得したファイル（`fetchedAt` が対象月末以前）は取得日までの期間・partial として扱い、月全体の値にしない。月末後でも note の確定日（翌月 2 日・JST）より前に取得したファイルは確定前の値として、月の期間のまま partial にする。note 販売の complete は、さらに `data/note/sales.json` の `months[YYYY-MM].finalized`（`note-sales-fetch` が確定日以降に検算一致したときだけ true）を要する。note が確定前の月を含む期間のスナップショットには `pendingFinalization` が付き、それに基づくレビューは provisional・次回日を確定日以降にしか記録できない（確定後に新しいスナップショットで supersedes 訂正する）。週次レビューには按分せず、月の値は `/metrics/business` の「別期間の既存計測」に出す（実装 `noteMonthFacts`）。
 
