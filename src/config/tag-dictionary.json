@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T03:58:01.638Z",
+  "generated_at": "2026-10-02T13:43:03.202Z",
   "summary": {
-    "total_mdx_files": 1347,
+    "total_mdx_files": 1348,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -2705,7 +2705,7 @@
     },
     {
       "name": "試験対策",
-      "count": 76,
+      "count": 77,
       "inAllowlist": true,
       "usedIn": [
         "building-construction-guide-1kyu-keiken-kijutsu",
@@ -2771,6 +2771,7 @@
         "pe-first-stage-guide-construction-subject",
         "pe-first-stage-guide-matrix-vector-calculation",
         "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-r08-answers",
         "pe-first-stage-guide-resistance-circuit-calculation",
         "pe-first-stage-guide-study-plan",
         "rccm-guide-difference-pe",
@@ -2788,7 +2789,7 @@
     },
     {
       "name": "技術士（第一次試験）",
-      "count": 73,
+      "count": 74,
       "inAllowlist": true,
       "usedIn": [
         "pe-first-stage-guide-after-pass",
@@ -2798,6 +2799,7 @@
         "pe-first-stage-guide-construction-subject",
         "pe-first-stage-guide-matrix-vector-calculation",
         "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-r08-answers",
         "pe-first-stage-guide-resistance-circuit-calculation",
         "pe-first-stage-guide-study-plan",
         "pe-first-stage-h23-aptitude",
