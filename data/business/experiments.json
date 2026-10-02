@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-02T12:08:19.546Z",
+  "updated_at": "2026-10-02T13:02:16.547Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1544,7 +1544,8 @@
       "learnings": null,
       "closed_at": null,
       "actions": [
-        "2026-10-02: note マガジン m1881a9578027 のセット価格を ¥2,480 に変更（オーナー承認・API 確認済）。content/products・note掲載文.txt・note-magazines.ts を同期"
+        "2026-10-02: note マガジン m1881a9578027 のセット価格を ¥2,480 に変更（オーナー承認・API 確認済）。content/products・note掲載文.txt・note-magazines.ts を同期",
+        "2026-10-02: 同日起票の EXP-014 で 2級 経験記述の書き方・例文の冒頭 CTA が完成答案集になり、事後窓（10/03〜10/25）でサイト露出が増える。販売件数の増減を値上げだけに帰属させない（裁定時に EXP-014 の冒頭クリック数と併記する）"
       ],
       "next_check_date": "2026-10-26",
       "resume_criteria": null,
@@ -1554,6 +1555,61 @@
           "at": "2026-10-02T12:08:19.546Z",
           "event": "propose→start",
           "note": "試験翌日 2026-10-26 に判定"
+        }
+      ]
+    },
+    {
+      "id": "EXP-014",
+      "title": "2級土木 二次ページの冒頭 CTA を、高額のまとめ売りから時期・検索意図に合う商品へ差し替え、冒頭バナーの表示崩れを直して、冒頭 CTA のクリック率を上げる",
+      "hypothesis": "冒頭 1 行 CTA の全資格平均クリック率は 0.40%（本文カード 6.72%）で、2級二次の冒頭（まるごと・想定工事バンク）は 0.16%（3,687 表示・6 クリック）と最低帯だった。具体的で安い商品は冒頭でも 1.4〜2.5% 取れている。さらに冒頭バナーは長い価格文字列でタイトル幅 0 になる表示崩れが PC 幅で起きていた。年度別・二次の始め方を試験日まで直前総仕上げパック、書き方・例文を完成答案集に替え、崩れを直せば冒頭のクリック率が上がる。",
+      "target_metric": "2級二次ページ（/exam/civil-construction-2/secondary/）の冒頭 CTA（ラベル末尾 -top）のクリック率。補助に同ページ群の note_cta_click 合計",
+      "target_delta": "事後窓（本番反映翌日〜2026-10-25）で冒頭 CTA のクリック率 1.0% 以上なら維持し、試験後の主 CTA 選定に横展開する。0.5〜1.0% は商品は維持して文言を見直す。0.5% 未満なら冒頭 CTA の役割自体を見直す（本文カードへ寄せる）。試験直前で流入が増える時期なので、件数ではなく率で判定する",
+      "baseline": {
+        "measured_at": "2026-10-02",
+        "note": "GA4 2026-09-04〜10-01（日本）: 2級二次の冒頭 CTA 3,687 表示・6 クリック（0.16%）。同ページ群の note_cta_click 合計は約 190。冒頭は civil-2-niji-marugoto-pack（年度別・書き方・例文・始め方）と civil-2-koji-bank（期間前半の年度別ほか）。PC 幅では長い price の商品で冒頭バナーが縦に崩れていた",
+        "source": "data/ga4/reports/2026-10-02.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "2級二次の直前期に過去問や書き方を読んでいる受験者が、今の段階に合う教材（直前の仕上げ・完成答案）にすぐたどり着きたい",
+        "verifiedGap": "冒頭に高額のまとめ売りを置き、しかも PC 幅で表示が崩れていた（本番 1024px で実測・2026-10-02）。まるごとは公開以来販売 0・案内記事の 9 月閲覧 15",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:note_cta_click",
+        "scope": {
+          "pagePrefix": "/exam/civil-construction-2/secondary/"
+        },
+        "anchor": "2026-10-03",
+        "preDays": 28,
+        "postDays": 22,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 190,
+        "minVolume": 1,
+        "note": "自動計測は同ページ群の note_cta_click 合計（事前 28 日 約190）。主判定の冒頭クリック率は fetch-ga4-cta-clicks --by-label のラベル末尾 -top で週次レビューが読む。anchor は本番反映翌日。反映が遅れたら直す。事後窓は試験日 10/25 まで"
+      },
+      "status": "running",
+      "created_at": "2026-10-02T13:02:16.547Z",
+      "started_at": "2026-10-02T13:02:16.547Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-10-02: PR #841（feat/civil2-funnel）で magazine-placement の 2級二次冒頭を差し替え（resolveCivil2SecondaryLead で試験翌日に二次まるごとへ自動復帰）、MagazineTopBanner の価格を先頭金額のみに、CTA ゼロだった記事 7 本を配線、ページ単位の CTA ゼロ検査を追加"
+      ],
+      "next_check_date": "2026-10-26",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-02T13:02:16.547Z",
+          "event": "propose→start",
+          "note": "本番反映後に anchor を確定。試験翌日 2026-10-26 に判定"
         }
       ]
     }
