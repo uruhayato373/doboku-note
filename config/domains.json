@@ -261,12 +261,6 @@
           "match": "/ops/auth"
         },
         {
-          "label": "正本の検査",
-          "href": "/ops/ssot",
-          "kind": "actions",
-          "match": "/ops/ssot"
-        },
-        {
           "label": "設定",
           "href": "/ops/store?k=config",
           "kind": "inventory",

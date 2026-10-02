@@ -3,6 +3,8 @@ import { EmptyRow, numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFr
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { isStoreKind, loadStoreView, type StoreView } from '@/lib/stores';
+import { REGISTRY_PATH } from '../../../../../../scripts/lib/qualification-registry.mjs';
+import { QualificationSsot } from './qualification-ssot';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,6 +17,7 @@ const Untracked = () => <StatusBadge tone="neutral" title="手元だけにあり
  * /ops/store — 設定（config/）とデータ（data/）の一覧と型（read-only）。k=config|data、d=領域、f=系列。
  * 日付・時刻だけ違うファイルは 1 系列にまとめ、型は系列の最新ファイルの実物から読む（scripts/lib/data-stores.mjs）。
  * 領域の割り当ては domains.json の documents。書き換えはファイルと PR で行う。
+ * 資格の正本（qualification-registry.json）を開いたときは、中身と名前の写しの検査結果を型の上に出す（旧 /ops/ssot）。
  */
 export default async function StorePage({ searchParams }: { searchParams: Promise<{ k?: string; d?: string; f?: string }> }) {
   const { k, d, f } = await searchParams;
@@ -110,6 +113,8 @@ function Detail({ v }: { v: StoreView }) {
         {x.shape.doc ? <p className="whitespace-pre-wrap text-sm">{x.shape.doc}</p> : <p className="text-sm text-muted-foreground">説明（_doc）なし</p>}
         {x.shape.error && <p className="project-warning-text text-sm">読み取れない: {x.shape.error}</p>}
       </PanelCard>
+
+      {x.key === REGISTRY_PATH && <QualificationSsot />}
 
       {x.shape.rows.length > 0 && (
         <PanelCard title="型" description={`最新ファイル（${x.files[0]?.path ?? '—'}）の実物から。? は無いことがある項目、{id} は対応表の各行`}>

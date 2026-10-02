@@ -1,5 +1,5 @@
 /**
- * qualification-ssot.mjs — 資格の名前の写しを探す（npm run check-qualification-ssot と管理画面「正本の検査」が使う唯一の実装）。
+ * qualification-ssot.mjs — 資格の名前の写しを探す（npm run check-qualification-ssot と管理画面 管理＞設定 の資格の正本が使う唯一の実装）。
  *
  * 資格の属性（正式名・短い名前・ごく短い名前・並び順・まとまり groups）は config/qualification-registry.json だけが持つ。
  * 機能を足すたびに別の設定・コードへ名前を写し、id の一致だけを見る検査を素通りして名前・並びが
