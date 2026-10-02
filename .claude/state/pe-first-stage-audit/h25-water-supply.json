@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h25-water-supply",
+  "year": "H25",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T13:30:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典画像18ページを1問ずつ照合し、35問・175肢の問題文・極性・数値・図（Ⅲ-10、Ⅲ-13）に不一致なし、公式正答35問も全件一致。計算問題（Ⅲ-21、31、32）は再計算で一致。Ⅲ-3は水道施設設計指針2012の浅井戸・集水埋渠・揚水試験の記述で裏取りして解説を具体化、Ⅲ-33は揮散と活性汚泥への影響の根拠を示して書き直した。"
+  }
+}

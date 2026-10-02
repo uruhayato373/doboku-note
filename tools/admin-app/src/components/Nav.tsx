@@ -119,10 +119,12 @@ type NavProps = {
   materials?: { shelf: string; items: { id: string; label: string }[] }[];
   /** 領域の名前・並び・画面（layout が domains.json から渡す） */
   domains?: NavDomain[];
+  /** 設定・データの下に並べる領域（layout が lib/stores.ts から渡す・domains.json の documents で割り当てのある領域だけ） */
+  stores?: Record<string, { id: string; label: string }[]>;
 };
 
 /** 領域ごとのメニュー。useSearchParams を使うので Nav が Suspense で包む。 */
-function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, design = [], materials = [], domains = [] }: NavProps) {
+function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, design = [], materials = [], domains = [], stores = {} }: NavProps) {
   const pathname = usePathname() ?? '';
   const searchParams = useSearchParams();
   // スマホ幅の Sheet は画面を移ったら閉じる（公式 Sidebar は開閉を利用側に任せる）。
@@ -173,6 +175,22 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, des
       query: { q: d.id },
     })),
   });
+  // 設定・データは領域ごとの枝で開く（domains.json の項目は /ops/store?k=<config|data>・各領域は &d=<領域 id>）
+  const storeTree = (tab: Tab): NavTree => {
+    const k = tab.query?.k ?? '';
+    return {
+      label: tab.label,
+      tabs: [
+        { href: tab.href, label: 'すべて', match: tab.match, query: { k, d: '' } },
+        ...(stores[k] ?? []).map((d) => ({
+          href: `${tab.href}&d=${encodeURIComponent(d.id)}`,
+          label: d.label,
+          match: tab.match,
+          query: { k, d: d.id },
+        })),
+      ],
+    };
+  };
   const materialTrees: NavTree[] = materials.map((m) => ({
     label: m.shelf,
     tabs: m.items.map((it) => ({
@@ -205,6 +223,7 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, des
                 if (e.match === '/materials') return [e, ...materialTrees];
                 if (e.match === '/metrics/business') return [reviewTree(e.label)];
                 if (e.match === '/product/design') return [designTree(e.label)];
+                if (e.match === '/ops/store') return [storeTree(e)];
                 return [e];
               })
               .map((entry) =>

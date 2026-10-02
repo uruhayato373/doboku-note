@@ -135,6 +135,11 @@
     "class": "qualification"
   },
   {
+    "name": "専門科目（上下水道部門）",
+    "slug": "pe-first-stage-water-supply",
+    "class": "qualification"
+  },
+  {
     "name": "経済性管理",
     "slug": "economic-management",
     "class": "qualification"
@@ -402,6 +407,16 @@
     "name": "特定技能",
     "slug": "specified-skilled-worker",
     "class": "topical"
+  },
+  {
+    "name": "平成23年度",
+    "slug": "h23",
+    "class": "qualification"
+  },
+  {
+    "name": "平成24年度",
+    "slug": "h24",
+    "class": "qualification"
   },
   {
     "name": "平成25年度",

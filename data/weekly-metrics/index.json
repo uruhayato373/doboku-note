@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-27T11:52:49.294Z",
+  "generated_at": "2026-10-02T00:21:56.660Z",
   "weeks": [
     {
       "week_id": "2026-W16",
@@ -76,6 +76,11 @@
       "week_id": "2026-W39",
       "path": "data/weekly-metrics/2026-W39.json",
       "generated_at": "2026-09-27T11:52:49.287Z"
+    },
+    {
+      "week_id": "2026-W40",
+      "path": "data/weekly-metrics/2026-W40.json",
+      "generated_at": "2026-10-02T00:21:56.653Z"
     }
   ]
 }

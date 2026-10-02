@@ -15,7 +15,7 @@
 //   node scripts/lint-ja.mjs --all      # 全件 report（content/site/**/*.mdx・違反があっても exit 0）
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
@@ -27,6 +27,21 @@ const SCAN_DIR = join(ROOT, 'content', 'site');
 const SCAN_EXT = /\.mdx$/;
 
 const mode = process.argv.includes('--all') ? 'all' : 'staged';
+
+// 技術士第一次試験の過去問ページは、問題見出し（## Ⅰ-1-1 等）から <details> までが公式問題の逐語。
+// 原文の送り仮名（「受け入れ」「2か所」等）は表記統一の対象にしない＝その範囲の prh 指摘だけ除く。
+const OFFICIAL_QUESTION_PAGE = /[\\/]pe-first-stage[\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)[\\/]article\.mdx$/;
+
+function officialQuestionLines(filePath) {
+  const lines = new Set();
+  let inQuestion = false;
+  readFileSync(filePath, 'utf8').split(/\r?\n/).forEach((line, index) => {
+    if (/^##\s/.test(line)) inQuestion = /^##\s+[ⅠⅡⅢⅣ]-\d/.test(line);
+    else if (/^<details>/.test(line)) inQuestion = false;
+    if (inQuestion) lines.add(index + 1);
+  });
+  return lines;
+}
 
 function stagedMdxFiles() {
   const out = execFileSync(
@@ -77,6 +92,7 @@ for (let i = 0; i < files.length; i += BATCH_SIZE) {
 let totalErrors = 0;
 let scannedFiles = 0;
 let failedBatches = 0;
+let officialSkipped = 0;
 const violations = [];
 
 for (const batch of batches) {
@@ -109,6 +125,12 @@ for (const batch of batches) {
 
   scannedFiles += batch.length;
   for (const fileReport of report) {
+    if (OFFICIAL_QUESTION_PAGE.test(fileReport.filePath)) {
+      const official = officialQuestionLines(fileReport.filePath);
+      const kept = fileReport.messages.filter((msg) => !(msg.ruleId === 'prh' && official.has(msg.line)));
+      officialSkipped += fileReport.messages.length - kept.length;
+      fileReport.messages = kept;
+    }
     if (fileReport.messages.length === 0) continue;
     totalErrors += fileReport.messages.length;
     violations.push(fileReport);
@@ -117,6 +139,7 @@ for (const batch of batches) {
 
 console.log(
   `[lint-ja --${mode}] 対象 ${files.length} 件 / 実検査 ${scannedFiles} 件 / 検知 ${totalErrors} 件（${violations.length} ファイル）` +
+    (officialSkipped > 0 ? ` / 公式問題の原文で除外 ${officialSkipped} 件` : '') +
     (failedBatches > 0 ? ` / 実行不成立バッチ ${failedBatches} 件` : ''),
 );
 

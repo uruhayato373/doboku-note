@@ -11,7 +11,7 @@ import { expect, type Page } from '@playwright/test';
  * リダイレクト自体の検査は Cloudflare の責務なので E2E では扱わない。
  */
 export const representativePages = [
-  { path: '/', heading: '対応する資格・試験' },
+  { path: '/', heading: '資格を選んで学ぶ' },
   { path: '/exam/civil-construction-1', heading: '1級土木施工管理技士' },
   { path: '/exam/civil-construction-2', heading: '2級土木施工管理技士' },
   { path: '/exam/pe-comprehensive-management', heading: '技術士（総合技術監理部門）' },

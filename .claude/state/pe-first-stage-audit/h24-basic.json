@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h24-basic",
+  "year": "H24",
+  "sub": "basic",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 25,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 25,
+    "option_checked_count": 125,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 25,
+    "expected_count": 25,
+    "details_count": 25,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典17ページと図6点を25問・125肢で照合し、公式正答25問と一致。計算・論理問題（Ⅰ-1-1、1-3、1-5、2-2〜2-5、3-2〜3-5、4-1）は再計算して全件一致。解説の誤りとして、Ⅰ-3-3肢4（列でなく行の内積）、Ⅰ-3-5肢1・5（適合条件の説明）、Ⅰ-5-2（2005年度標準発熱量表の値に基づく数値へ更新）を修正した。"
+  }
+}

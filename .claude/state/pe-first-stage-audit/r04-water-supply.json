@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r04-water-supply",
+  "year": "R04",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典18ページを1問ずつ照合し、Ⅲ-17 肢5の「及びびろ過」の脱字重複を修復。Ⅲ-1・9・10・11は水道施設設計指針2012、Ⅲ-18は水道法施行規則第15条、Ⅲ-21は雨水管理総合計画策定ガイドライン（案）、Ⅲ-29は揚排水ポンプ設備技術基準で確認し、Ⅲ-8・11・15・18・21・25・28・29・35の解説を具体化した。 Ⅲ-35肢2は親が、清掃できない地下間隙型を標準に含めた点を誤りとして確定（肢5の清掃要件と整合。指針原文は未取得）。"
+  }
+}

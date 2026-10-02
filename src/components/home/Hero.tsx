@@ -3,59 +3,29 @@ import { ArrowRight, Search } from "lucide-react";
 
 export default function Hero() {
   return (
-    // 背景写真は全幅ブリード・ヘッダー直下に密着。テキストは HTML でオーバーレイ（リフロー/SEO/レスポンシブ最適）。
-    <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] overflow-hidden bg-(--paper)">
+    <section className="relative h-[280px] w-full overflow-hidden bg-white sm:h-[320px]">
       <img
-        src="/images/hero-home-v2.webp"
+        src="/images/hero-home-sensei.webp"
         width={1942}
         height={809}
-        alt="河川を渡る斜張橋と都市インフラの風景 — doboku-note"
+        alt="doboku先生と橋のイラスト"
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute -right-10 top-[35px] h-[150px] w-auto max-w-none min-[390px]:-right-[30px] min-[390px]:h-[180px] sm:right-0 sm:top-0 sm:h-full"
       />
-      {/* 明るい写真の上でダーク文字を読みやすくする淡い白ベール（テーマ非依存＝白固定）。 */}
-      <div
-        aria-hidden="true"
-        className="hero-overlay absolute inset-0"
-      />
-      {/* テキストは元バナーの文言を踏襲。背景写真は常に明色（テーマ非依存）のため、反転する
-          --ink/--accent を避け固定 slate＋白テキストシャドウで両テーマの可読性を担保。 */}
-      <div className="relative z-10 mx-auto flex min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] max-w-[1280px] flex-col items-center justify-center px-4 sm:px-6 lg:px-10 text-center">
-        <h1 className="flex flex-col items-center gap-2.5 sm:gap-3.5">
-          <span className="hero-ink-soft hero-shadow-soft font-sans text-[12px] tracking-[0.15em] sm:text-[15px]">
-            合格に必要な知識を、わかりやすく。
-          </span>
-          <span className="hero-ink hero-shadow-strong font-serif text-[42px] font-black leading-none tracking-tight sm:text-[64px] lg:text-[80px]">
-            doboku-note
-          </span>
-          <span className="hero-ink hero-shadow-soft flex items-center gap-3 sm:gap-4">
-            <span aria-hidden="true" className="hero-rule h-px w-6 sm:w-10" />
-            <span className="font-sans text-[14px] sm:text-[19px] tracking-[0.25em] pl-[0.25em]">
-              土木・建設資格の学習ノート
-            </span>
-            <span aria-hidden="true" className="hero-rule h-px w-6 sm:w-10" />
-          </span>
-        </h1>
-        <p className="hero-ink-soft hero-shadow-soft mt-4 max-w-[34em] font-sans text-[13px] leading-relaxed sm:mt-5 sm:text-[16px]">
-          土木施工管理技士・技術士・コンクリート系資格の受験者向けに、試験ガイド・体系テキスト・過去問解説・キーワード集を無料で公開。
-          元発注者の合格体験をもとに『理解』を支え、『合格』へつなぐ。
-        </p>
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4">
-          <a
-            href="#exams"
-            className="hero-ink inline-flex items-center gap-2.5 rounded-full bg-warn px-7 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider shadow-lift transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:px-9 sm:py-4 sm:text-[15px]"
-          >
-            <span>資格を選んで学ぶ</span>
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
+      <div aria-hidden="true" className="absolute inset-0 bg-linear-to-r from-white via-white/70 to-transparent sm:via-white/10" />
+      <div className="relative z-10 mx-auto max-w-[1280px] px-4 pt-10 sm:px-6 sm:pt-[75px] lg:px-10">
+        <h1 className="hero-ink font-serif text-[32px] font-black leading-tight tracking-tight sm:text-[56px]">doboku-note</h1>
+        <p className="hero-ink-soft mt-3 text-[12px] sm:text-[17px]">土木・建設資格の学習ノート</p>
+        <div className="mt-6 flex max-w-[215px] flex-wrap gap-2 sm:max-w-none sm:gap-3">
+          <a href="#exams" className="hero-ink focus-ring inline-flex min-h-11 items-center gap-2 rounded-card-content bg-warn px-4 py-3 text-[12px] font-bold shadow-card-content transition-[filter] hover:brightness-105 sm:px-5 sm:text-[14px]">
+            資格を選んで学ぶ
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-          <Link
-            href="/search"
-            className="hero-ink inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/60 px-5 py-3 font-sans text-[13px] font-bold shadow-s backdrop-blur-xs transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:text-[14px]"
-          >
-            <Search className="h-4 w-4" strokeWidth={2.5} />
-            <span>用語・過去問を検索</span>
+          <Link href="/search" className="hero-ink focus-ring inline-flex min-h-11 items-center gap-2 rounded-card-content border border-brand/30 bg-white px-4 py-3 text-[12px] font-bold transition-[filter] hover:brightness-95 dark:border-brand/30 sm:px-5 sm:text-[14px]">
+            <Search className="h-4 w-4" aria-hidden="true" />
+            用語・過去問を検索
           </Link>
         </div>
       </div>

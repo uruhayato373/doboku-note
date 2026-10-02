@@ -1,7 +1,7 @@
 {
   "version": 1,
   "_doc": "docs/strategy/14_領域モデル.md",
-  "description": "事業の領域（ドメイン）の正本。サイドバーの並び・バックログの [領域:] ・スケジュール・スキル/エージェントの frontmatter domain・文書の割り当ては全てここを参照する。スキル/エージェントは各 frontmatter の domain が正本、文書は documents（パス接頭辞。長い一致が優先）が正本。",
+  "description": "事業の領域（ドメイン）の正本。サイドバーの並び・バックログの [領域:] ・スケジュール・スキル/エージェントの frontmatter domain・文書の割り当ては全てここを参照する。スキル/エージェントは各 frontmatter の domain が正本、文書は documents（パス接頭辞。長い一致が優先）が正本。設定（config/）・データ（data/）の領域は scripts/lib/datasets.mjs の台帳が持つ。",
   "domains": [
     {
       "id": "strategy",
@@ -261,10 +261,22 @@
           "match": "/ops/auth"
         },
         {
-          "label": "正本の検査",
-          "href": "/ops/ssot",
-          "kind": "actions",
-          "match": "/ops/ssot"
+          "label": "設定",
+          "href": "/ops/store?k=config",
+          "kind": "inventory",
+          "match": "/ops/store",
+          "query": {
+            "k": "config"
+          }
+        },
+        {
+          "label": "データ",
+          "href": "/ops/store?k=data",
+          "kind": "inventory",
+          "match": "/ops/store",
+          "query": {
+            "k": "data"
+          }
         },
         {
           "label": "ナレッジ",
@@ -355,6 +367,7 @@
     ".claude/knowledge/reference/pe-cem-school-prices.md": "strategy",
     ".claude/knowledge/reference/pe-exam-by-division.md": "strategy",
     ".claude/knowledge/reference/playwright-auth-profiles.md": "ops",
+    ".claude/knowledge/reference/pop-image-policy.md": "product",
     ".claude/knowledge/reference/reference-sites.md": "strategy",
     ".claude/knowledge/reference/reference-sources-policy.md": "material",
     ".claude/knowledge/reference/sales-tracking.md": "product",
@@ -393,8 +406,7 @@
     "docs/strategy/": "strategy",
     "docs/strategy/05_情報アーキテクチャ.md": "site",
     "docs/strategy/09_販売チャネル競合分析.md": "product",
-    "docs/strategy/13_土木公務員SEO戦略2026-08.md": "site",
-    ".claude/knowledge/reference/pop-image-policy.md": "product"
+    "docs/strategy/13_土木公務員SEO戦略2026-08.md": "site"
   },
   "navKinds": {
     "inventory": "品揃え・一覧（何があり何が足りないか）",

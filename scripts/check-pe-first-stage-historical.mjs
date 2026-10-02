@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// 技術士第一次試験 H25-H30 の公開前ラチェット。
+// 技術士第一次試験 H23-H30 の公開前ラチェット。
 // OCR由来の「意味を保つつもりの言い換え」で誤答肢が正しい文へ変わった事故と、
 // 正答番号だけを根拠にした循環解説を機械的に再発防止する。
 
@@ -8,12 +8,17 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const YEARS = ['h25', 'h26', 'h27', 'h28', 'h29', 'h30'];
+const YEARS = ['h23', 'h24', 'h25', 'h26', 'h27', 'h28', 'h29', 'h30'];
 const SUBJECTS = {
   basic: 30,
   aptitude: 15,
   construction: 35,
 };
+// H23・H24 の基礎科目は 1〜5群×5問の 25 問（H25 から 30 問）。
+const expectedCount = (year, subject) => (subject === 'basic' && ['h23', 'h24'].includes(year) ? 25 : SUBJECTS[subject]);
+// --only=h23-basic で 1 ページだけ、--skip-audit で監査記録の検査を省く（起稿中の自己検査用）。
+const onlyArg = process.argv.find((arg) => arg.startsWith('--only='))?.slice('--only='.length);
+const skipAudit = process.argv.includes('--skip-audit');
 const FORBIDDEN = [
   /記述の定義・数値・適用条件のいずれかが設問条件と一致しない/,
   /記述又は計算結果が設問条件に合致するため/,
@@ -48,15 +53,19 @@ const FORBIDDEN = [
   /を指す定義であり正しい/,
   /^\s*"導出結果は「[^"]+」",?$/m,
   /欠陥によ他人/,
+  // 生成スクリプトの欠損値がそのまま文字列化した ExamPoint（2026-10-02 r06-water-supply で34問）。
+  /\bundefined\b/,
   /という性質・条件が成り立つため正しい/,
   /(?:に|で)について/,
   /というという/,
   /「[アイウエオ][）)]|[(（][アイウエオ]」/,
 ];
-const OCR_BREAKAGE = /炊に|派の|関わの|1人の定義|ア1ウ|ウ玉|行為者の縮に|「「倫理|浴道|通常子見|(?<!元)来自由|追発|日指|要素作p|u_&#123;|1\.5L°C|✕線|連携は・もちろん|以下、安法|指標生物といい。例えば|A13\+|Cuz\+|CoHi20g|CaClz|O°C|1\.013✕105|3\.0x1023|エネルギ一|過流|正しいものはO|と言じるに足りる|aアミノ酸|水の記述のうち/;
+const OCR_BREAKAGE = /炊に|派の|関わの|1人の定義|ア1ウ|ウ玉|行為者の縮に|「「倫理|浴道|通常子見|(?<!元)来自由|追発|日指|要素作p|u_&#123;|1\.5L°C|✕線|連携は・もちろん|以下、安法|指標生物といい。例えば|A13\+|Cuz\+|CoHi20g|CaClz|O°C|1\.013✕105|3\.0x1023|エネルギ一|(?<!ろ)過流|正しいものはO|と言じるに足りる|aアミノ酸|水の記述のうち/;
 const BROKEN_MATH = /\$[^$\n]*(?:√|′|，)[^$\n]*\$|^\s*[1-5]\.\s+\^\{|。\\(?:end|delta|sigma|begin|phi|sqrt)\b|\$(?:delta|omega|sigma|mathrm)\b|\b(?:Pell|arepsilon)\b|(?<!\\)sqrt\{|\tomathrm/m;
 const CONTROL_CHAR = /[\x00-\x08\x0B\x0C\x0E-\x1F]/;
 const errors = [];
+let checkedPages = 0;
+let checkedQuestions = 0;
 
 function examPointSimilarity(first, second) {
   const normalize = (value) => value
@@ -91,9 +100,19 @@ function latexOutsideMath(line) {
   return /\\(?:begin|end)\{(?:bmatrix|matrix|array)\}|\\(?:delta|sigma|phi|sqrt)(?:[_^{\s])/.test(outside);
 }
 
-for (const year of YEARS) {
-  for (const [subject, expected] of Object.entries(SUBJECTS)) {
+// 専門科目（上下水道部門）は平成23〜令和7年度と令和元年度再試験の全回（各35問）。
+const WATER_YEARS = ['h23', 'h24', 'h25', 'h26', 'h27', 'h28', 'h29', 'h30', 'r01', 'r01-retry', 'r02', 'r03', 'r04', 'r05', 'r06', 'r07'];
+const PAGES = [
+  ...YEARS.flatMap((year) => Object.keys(SUBJECTS).map((subject) => ({ year, subject, expected: expectedCount(year, subject) }))),
+  ...WATER_YEARS.map((year) => ({ year, subject: 'water-supply', expected: 35 })),
+];
+
+for (const { year, subject, expected } of PAGES) {
+  {
     const id = `${year}-${subject}`;
+    if (onlyArg && onlyArg !== id) continue;
+    checkedPages += 1;
+    checkedQuestions += expected;
     const file = resolve(ROOT, 'content/site/pe-first-stage', id, 'article.mdx');
     const audit = resolve(ROOT, '.claude/state/pe-first-stage-audit', `${id}.json`);
     if (!existsSync(file)) {
@@ -101,7 +120,7 @@ for (const year of YEARS) {
       continue;
     }
     const text = readFileSync(file, 'utf8');
-    const questions = text.match(/^##\s+(?:Ⅰ|Ⅱ|Ⅲ)-/gm)?.length ?? 0;
+    const questions = text.match(/^##\s+(?:Ⅰ|Ⅱ|Ⅲ|Ⅳ)-/gm)?.length ?? 0;
     const answers = text.match(/^\*\*正答：/gm)?.length ?? 0;
     const details = text.match(/^<details>$/gm)?.length ?? 0;
     const points = text.match(/^<ExamPoint$/gm)?.length ?? 0;
@@ -155,9 +174,19 @@ for (const year of YEARS) {
     if (oddDollarLines.length) errors.push(`${id}: 未閉鎖の数式 $ がある行 ${oddDollarLines.join(',')}`);
     if (BROKEN_MATH.test(text)) errors.push(`${id}: KaTeX非互換または数式断片が残存`);
     if (CONTROL_CHAR.test(text)) errors.push(`${id}: 制御文字を含む数式断片が残存`);
-    const outsideMathLines = text.split(/\r?\n/).flatMap((line, index) => latexOutsideMath(line) ? [index + 1] : []);
+    // 行単独の $$ で囲む表示数式ブロック（モバイル規約 11-2 の書き方）の中は数式として扱う。
+    let inDisplayMath = false;
+    const outsideMathLines = text.split(/\r?\n/).flatMap((line, index) => {
+      if (line.trim() === '$$') {
+        inDisplayMath = !inDisplayMath;
+        return [];
+      }
+      return !inDisplayMath && latexOutsideMath(line) ? [index + 1] : [];
+    });
     if (outsideMathLines.length) errors.push(`${id}: 数式外にLaTeX断片がある行 ${outsideMathLines.join(',')}`);
-    if (!existsSync(audit)) {
+    if (skipAudit) {
+      // 起稿中は監査記録が未作成。
+    } else if (!existsSync(audit)) {
       errors.push(`${id}: audit JSON がない`);
     } else {
       const record = JSON.parse(readFileSync(audit, 'utf8'));
@@ -227,4 +256,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('[check-pe-first-stage-historical] PASS 18ページ / 480問（原典監査・構造・汎用解説ラチェット）');
+console.log(`[check-pe-first-stage-historical] PASS ${checkedPages}ページ / ${checkedQuestions}問（原典監査・構造・汎用解説ラチェット${skipAudit ? '・監査記録は未検査' : ''}）`);

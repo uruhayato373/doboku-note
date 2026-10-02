@@ -1,0 +1,528 @@
+/**
+ * datasets.mjs — 設定（config/）と記録（data/）の台帳。どのファイルが何のデータかを決める唯一の正本。
+ *
+ * 1 データセット＝パス（下の SLOTS を使った型）・種類・領域・説明・型（zod・任意）。
+ * git 管理下の config/・data/ の全ファイルは、ちょうど 1 つのデータセットに当たらなければならない（npm run check-datasets・CI）。
+ * 新しい設定・記録を足すときは、先にここへ 1 行足す。型（dataset-schemas.mjs）があれば中身も検査する。
+ * 管理画面 管理＞設定／データ（/ops/store）はこの台帳を並べる。判断の経緯は data-storage-decision.md
+ * 「設定・記録の構成と型の正本」。
+ *
+ * id は「取得元.データセット」（自社の記録は business.、計算した結果・文書が引く調査は analysis.）。
+ * 置き場を移しても id は変えない（パスだけ書き換える）。
+ */
+import { execFileSync } from 'node:child_process';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import { z } from 'zod';
+import { KdpRoyalties, NoteSalesLog } from './dataset-schemas.mjs';
+
+export const AREAS = {
+  config: { dir: 'config', label: '設定' },
+  data: { dir: 'data', label: 'データ' },
+};
+
+export const KINDS = {
+  config: '設定・正本',
+  ledger: '台帳（追記）',
+  series: '時系列',
+  state: '最新状態',
+  report: 'レポート（人が読む）',
+  evidence: '根拠（一回きりの調査）',
+  raw: '生データ（手元だけ）',
+};
+
+/** パスの中の可変部分。{**} は下の階層すべて */
+const SLOTS = {
+  '{ts}': '\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2}(?:-\\d{3})?Z?',
+  '{date}': '\\d{4}-\\d{2}-\\d{2}',
+  '{month}': '\\d{4}-\\d{2}',
+  '{week}': '\\d{4}-W\\d{2}',
+  '{range}': '\\d{8}_\\d{8}',
+  '{uuid}': '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
+  '{hash}': '[0-9a-f]{8}',
+  '{rev}': '(?:-r\\d+)?',
+  '{rerun}': '(?:-\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2}(?:-\\d{3})?Z?)?',
+  '{name}': '[^/]+',
+  '{**}': '.+',
+};
+
+/**
+ * 1 行 1 データセット。opts: schema（zod）・immutable（中身を変えない台帳）・local（手元だけ・git 管理外）・
+ * planned（置き場は決めたがまだ 1 件も無い）
+ */
+const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain, doc, ...opts });
+
+export const DATASETS = [
+  // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====
+  // 戦略
+  d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期'),
+  d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態'),
+  d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程'),
+  d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲'),
+  d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率'),
+  d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値'),
+  d('config.note-competitors', 'config/note-competitors.json', 'config', 'strategy', 'note の競合クリエイター'),
+  d('config.coconala-competitors', 'config/coconala-competitors.json', 'config', 'strategy', 'ココナラの競合セラー'),
+  d('config.x-competitors', 'config/x-competitors.json', 'config', 'strategy', 'X の競合アカウント'),
+  d('config.ig-competitors', 'config/ig-competitors.json', 'config', 'strategy', 'Instagram の競合アカウント'),
+  d('config.youtube-competitors', 'config/youtube-competitors.json', 'config', 'strategy', 'YouTube の競合チャンネル'),
+  // 計画
+  d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数'),
+  // 商品
+  d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類'),
+  d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方'),
+  d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成'),
+  d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典'),
+  d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値'),
+  d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定'),
+  d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準形（1級土木）'),
+  d('config.note-intro-standard-civil2', 'config/note-intro-standard-civil2.json', 'config', 'product', 'note 記事の冒頭の標準形（2級土木）'),
+  d('config.note-intro-standard-civil-cross', 'config/note-intro-standard-civil-cross.json', 'config', 'product', 'note 記事の冒頭の標準形（1級・2級土木の共通記事）'),
+  d('config.note-cover-categories', 'config/note-cover-categories.json', 'config', 'product', 'note カバーの用途別の分類'),
+  d('config.note-cover-magazine-v4', 'config/note-cover-magazine-v4.json', 'config', 'product', 'note マガジンカバー（V4）の表示値'),
+  d('config.note-character-covers', 'config/note-character-covers.json', 'config', 'product', 'note のキャラクターカバーの記事別設定'),
+  d('config.coconala-account', 'config/coconala-account.json', 'config', 'product', 'ココナラの出品アカウント'),
+  d('config.coconala-listings', 'config/coconala-listings.json', 'config', 'product', 'ココナラ出品の投入用データ'),
+  d('config.coconala-blog', 'config/coconala-blog.json', 'config', 'product', 'ココナラブログの偵察対象と運用値'),
+  d('config.coconala-thumb-approved', 'config/coconala-thumb-approved.json', 'config', 'product', '承認済みのココナラのサムネイル'),
+  d('config.kdp-memo', 'config/kdp-memo.json', 'config', 'product', 'KDP 入稿の既定値と各本の情報'),
+  d('config.keiken-answer-sheet-limits', 'config/keiken-answer-sheet-limits.json', 'config', 'product', '経験記述の解答欄の字数上限'),
+  d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類'),
+  d('config.past-exam-inventory', 'config/past-exam-inventory.json', 'config', 'product', '過去問の年度の在庫'),
+  // アフィリエイト
+  d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定'),
+  d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定'),
+  d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定'),
+  // サイト
+  d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲'),
+  d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ'),
+  d('config.seo-watchwords', 'config/seo-watchwords.json', 'config', 'site', '順位を見張る検索語'),
+  d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定'),
+  d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定'),
+  d('config.indexnow', 'config/indexnow.json', 'config', 'site', 'IndexNow の更新通知の設定'),
+  d('config.google-console-automation', 'config/google-console-automation.json', 'config', 'site', 'GSC・GA4 の画面取得の設定'),
+  d('config.ga4-admin-desired-state', 'config/ga4-admin-desired-state.json', 'config', 'site', 'GA4 管理画面の望ましい状態'),
+  d('config.psi-config', 'config/psi-config.json', 'config', 'site', 'PSI 定期計測の設定と閾値'),
+  d('config.psi-urls', 'config/psi-urls.txt', 'config', 'site', 'PSI の計測対象 URL'),
+  d('config.utm-templates', 'config/utm-templates.json', 'config', 'site', 'UTM の付け方'),
+  d('config.figure-canvas', 'config/figure-canvas.json', 'config', 'site', '図版 SVG の固定キャンバスの標準'),
+  d('config.figure-sources', 'config/figure-sources.json', 'config', 'site', '記事図の元素材の所在と品質'),
+  d('config.image-limits', 'config/image-limits.json', 'config', 'site', '画像アセットの品質ガードの閾値'),
+  d('config.public-view-breakpoints', 'config/public-view-breakpoints.json', 'config', 'site', '公開ページの見え方検査の画面幅'),
+  d('config.standards-structure', 'config/standards-structure.json', 'config', 'site', '土木工事共通仕様書の構造化の設定'),
+  d('config.ogp-rules', 'config/ogp/rules.json', 'config', 'site', 'OGP テンプレートの自動選定ルール'),
+  d('config.ogp-templates', 'config/ogp/templates.json', 'config', 'site', 'OGP・note カバー共通のテンプレート'),
+  d('config.ogp-text', 'config/ogp/text.json', 'config', 'site', 'OGP タイトルの改行と字の大きさ'),
+  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像'),
+  // SNS
+  d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール'),
+  d('config.x-campaigns', 'config/x-campaigns/{month}-{name}.json', 'config', 'sns', 'X の月ごとの投稿計画'),
+  d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定'),
+  d('config.x-review', 'config/x-review.json', 'config', 'sns', 'X の投稿レビューの下書き'),
+  d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール'),
+  d('config.instagram-campaign', 'config/instagram-campaign.json', 'config', 'sns', 'Instagram キャンペーンの計画'),
+  d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名'),
+  d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）'),
+  d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約'),
+  d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定'),
+  d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）'),
+  // 教材
+  d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い'),
+  d('config.pe-first-stage-historical-sources', 'config/pe-first-stage-historical-sources.json', 'config', 'material', '技術士第一次試験の旧年度の出典'),
+  // 管理
+  d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て'),
+  d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場'),
+  d('config.drive-vault', 'config/drive-vault.json', 'config', 'ops', 'Google Drive vault に置くアセットの置き場'),
+  d('config.git-binary-policy', 'config/git-binary-policy.json', 'config', 'ops', 'Git に追跡してよいファイルの決まり'),
+  d('config.disk-hygiene', 'config/disk-hygiene.json', 'config', 'ops', '手元のディスク肥大を止める閾値'),
+  d('config.local-resources', 'config/local-resources.json', 'config', 'ops', '手元 PC の空き容量・メモリの閾値'),
+  d('config.workflow-health', 'config/workflow-health.json', 'config', 'ops', '重要なワークフローの健全性の閾値'),
+  d('config.cloudflare', 'config/cloudflare.json', 'config', 'ops', 'Cloudflare の解析とゾーン設定監視の設定'),
+  d('config.r2-delete-list', 'config/r2-delete-list.txt', 'config', 'ops', 'R2 から消すオブジェクトの一覧（削除済みの記録を含む）'),
+
+  // ===== data/: 取得元ごとの記録 =====
+  // note
+  d('note.sales', 'data/sales/sales-log.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: NoteSalesLog }),
+  d('note.magazines', 'data/note/magazines-snapshot.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）'),
+  d('note.status', 'data/note/status-snapshot.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）'),
+  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録'),
+  d('note.articles-pv', 'data/metrics/note/articles-pv-{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
+  d('note.referrers', 'data/metrics/note/referrers-{month}.json', 'series', 'product', 'note の月間の流入元'),
+  d('note.competitors', 'data/note/history/competitors-{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期）'),
+  d('note.competitors-latest', 'data/note/competitors-snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  // KDP
+  d('kdp.royalties', 'data/sales/kdp-royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: KdpRoyalties }),
+  // ココナラ
+  d('coconala.orders', 'data/coconala/orders-log.json', 'ledger', 'product', 'ココナラの受注の記録'),
+  d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）'),
+  d('coconala.kpi', 'data/coconala/kpi-log.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移'),
+  d('coconala.analytics', 'data/coconala/analytics-snapshot.json', 'state', 'product', 'ココナラの出品分析の最新'),
+  d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）'),
+  d('coconala.thumbnail-rollout', 'data/coconala/thumbnail-rollout-{date}.json', 'evidence', 'product', 'サムネイル差し替えの一回きりの記録'),
+  d('coconala.competitors', 'data/coconala/history/competitors-{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期）'),
+  d('coconala.competitors-latest', 'data/coconala/competitors-snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('coconala.blog-competitors', 'data/coconala/history/blog-{date}.json', 'series', 'strategy', 'ココナラブログの競合記事'),
+  d('coconala.blog-competitors-latest', 'data/coconala/blog-competitors.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('coconala.market-research', 'data/coconala/market-research.json', 'state', 'strategy', 'ココナラの市場調査（検索結果の出品）'),
+  d('coconala.market-summary', 'data/coconala/market-summary.json', 'state', 'strategy', '同上の要約'),
+  // X
+  d('x.own-posts', 'data/x-metrics/history/{date}.json', 'series', 'sns', '自分の X 投稿の反応'),
+  d('x.own-posts-latest', 'data/x-metrics/own-posts.json', 'state', 'sns', '同上の最新（履歴の最新と同じ内容）'),
+  d('x.publish-log', 'data/sns/x-publish-log.csv', 'ledger', 'sns', 'X の予約投稿の記録'),
+  d('x.reposted', 'data/x-repost/reposted-log.json', 'ledger', 'sns', 'X で引用リポストした投稿'),
+  d('x.competitors', 'data/x-competitors/history/competitors-{date}.json', 'series', 'strategy', 'X の競合アカウント'),
+  d('x.competitors-latest', 'data/x-competitors/snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  // Instagram・YouTube
+  d('instagram.competitors', 'data/ig-competitors/history/competitors-{date}.json', 'series', 'strategy', 'Instagram の競合アカウント'),
+  d('instagram.competitors-latest', 'data/ig-competitors/snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('instagram.insights', 'data/metrics/instagram/ig-insights-{date}.json', 'series', 'sns', 'Instagram のインサイト', { planned: true }),
+  d('youtube.posted', 'data/yt-posted-log.jsonl', 'ledger', 'sns', 'YouTube に投稿した動画'),
+  // A8・アフィリエイト
+  d('a8.report-log', 'data/metrics/affiliate/a8-report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）'),
+  d('a8.results', 'data/metrics/affiliate/a8-results.json', 'state', 'affiliate', 'A8 の成果の要約'),
+  d('a8.catalog', 'data/ads/a8-catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧'),
+  d('a8.ui-last-run', 'data/metrics/affiliate/a8-ui/last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録'),
+  d('a8.ui-raw', 'data/metrics/affiliate/a8-ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果', { local: true }),
+  d('a8.inventory', 'data/ads/inventory-latest.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
+  d('afb.outcomes', 'data/metrics/affiliate/afb-outcomes-{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true }),
+  d('afb.outcomes-latest', 'data/metrics/affiliate/afb-outcomes-latest.json', 'state', 'affiliate', '同上の最新', { planned: true }),
+  d('affiliate.catalog', 'data/ads/affiliate-catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧'),
+  // GA4
+  d('ga4.page', 'data/metrics/ga4/ga4-page-{ts}.json', 'series', 'site', 'GA4 のページ別の指標'),
+  d('ga4.date', 'data/metrics/ga4/ga4-date-{ts}.json', 'series', 'site', 'GA4 の日別の指標'),
+  d('ga4.channel', 'data/metrics/ga4/ga4-channel-{ts}.json', 'series', 'site', 'GA4 のチャネル別の指標'),
+  d('ga4.channel-organic', 'data/metrics/ga4/ga4-channel-organic-{ts}.json', 'series', 'site', 'GA4 の自然検索の内訳'),
+  d('ga4.source', 'data/metrics/ga4/ga4-source-{ts}.json', 'series', 'site', 'GA4 の参照元別の指標'),
+  d('ga4.source-medium-sns', 'data/metrics/ga4/ga4-sourceMedium-sns-{ts}.json', 'series', 'site', 'GA4 の SNS からの流入'),
+  d('ga4.campaign', 'data/metrics/ga4/ga4-campaign-{ts}.json', 'series', 'site', 'GA4 のキャンペーン（UTM）別の指標'),
+  d('ga4.device', 'data/metrics/ga4/ga4-device-{ts}.json', 'series', 'site', 'GA4 のデバイス別の指標'),
+  d('ga4.host-name', 'data/metrics/ga4/ga4-hostName-{ts}.json', 'series', 'site', 'GA4 のホスト名別の指標（一回きり）'),
+  d('ga4.cta-clicks', 'data/metrics/ga4/ga4-cta-clicks-{ts}.json', 'series', 'site', 'CTA のクリック'),
+  d('ga4.cta-clicks-by-device', 'data/metrics/ga4/ga4-cta-clicks-by-device-{ts}.json', 'series', 'site', 'CTA のクリックのデバイス別'),
+  d('ga4.cta-clicks-by-label', 'data/metrics/ga4/ga4-cta-clicks-by-label-{ts}.json', 'series', 'site', 'CTA のクリックのラベル別（EPC の分母・月次の窓あり）'),
+  d('ga4.cta-clicks-by-placement', 'data/metrics/ga4/ga4-cta-clicks-by-placement-{ts}.json', 'series', 'site', 'CTA のクリックの置き場所別'),
+  d('ga4.key-events-by-page', 'data/metrics/ga4/ga4-key-events-by-page-{ts}.json', 'series', 'site', 'キーイベントのページ別'),
+  d('ga4.quiz-funnel', 'data/metrics/ga4/ga4-quiz-funnel-{ts}.json', 'series', 'site', '演習アプリのファネル'),
+  d('ga4.bot-audit', 'data/metrics/ga4/bot-audit-{ts}.json', 'series', 'site', 'ボット流入の割合の点検'),
+  d('ga4.admin-history', 'data/metrics/ga4-admin/history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録'),
+  d('ga4.admin-inventory', 'data/metrics/ga4-admin/inventory-latest.json', 'state', 'site', 'GA4 管理画面の設定の最新'),
+  d('ga4.admin-last-run', 'data/metrics/ga4-admin/last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
+  d('ga4.ui-last-run', 'data/metrics/ga4-ui/last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録'),
+  d('ga4.ui-raw', 'data/metrics/ga4-ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true }),
+  // GSC
+  d('gsc.page', 'data/metrics/gsc/gsc-page-{ts}.json', 'series', 'site', 'GSC のページ別の検索指標（水曜分は 1000 行で打ち切り）'),
+  d('gsc.query', 'data/metrics/gsc/gsc-query-{ts}.json', 'series', 'site', 'GSC の検索語別の検索指標'),
+  d('gsc.page-query', 'data/metrics/gsc/gsc-page-query-{ts}.json', 'series', 'site', 'GSC のページ×検索語の検索指標'),
+  d('gsc.date', 'data/metrics/gsc/gsc-date-{ts}.json', 'series', 'site', 'GSC の日別の検索指標'),
+  d('gsc.sitemaps', 'data/metrics/gsc/sitemaps-latest.json', 'state', 'site', 'サイトマップの送信状態'),
+  d('gsc.index-coverage-history', 'data/metrics/gsc/index-coverage-history.json', 'ledger', 'site', 'インデックス登録率の推移'),
+  d('gsc.rank-watch', 'data/metrics/gsc/rank-watch/watch-{ts}-{hash}.json', 'ledger', 'site', '見張っている検索語の順位', { immutable: true }),
+  d('gsc.rank-watch-run', 'data/metrics/gsc/rank-watch/run-{ts}-{hash}.json', 'ledger', 'site', '順位の見張りの実行記録', { immutable: true }),
+  d('gsc.url-inspection', 'data/metrics/url-inspection/inspection-batch-{ts}.json', 'series', 'site', 'URL 検査の結果'),
+  d('gsc.url-inspection-single', 'data/metrics/url-inspection/inspection-single-{ts}.json', 'series', 'site', 'URL 検査の単発の結果'),
+  d('gsc.indexing-history', 'data/metrics/gsc-indexing/history.json', 'ledger', 'site', 'インデックス登録の申請の記録'),
+  d('gsc.indexing-priority', 'data/metrics/gsc-indexing/priority-latest.json', 'state', 'site', '登録を申請する URL の優先順'),
+  d('gsc.indexing-priority-list', 'data/metrics/gsc-indexing/priority-latest.txt', 'state', 'site', '同上の URL 一覧（手元の申請作業が読む）'),
+  d('gsc.indexing-requests', 'data/metrics/gsc-indexing/requests-latest.json', 'state', 'site', '登録申請の最新の結果'),
+  d('gsc.ui-last-run', 'data/metrics/gsc-ui/last-run.json', 'state', 'site', 'GSC の画面取得を最後に回した記録'),
+  d('gsc.ui-history', 'data/metrics/gsc-ui/ssot/history.json', 'ledger', 'site', 'GSC の画面取得の結果の推移'),
+  d('gsc.ui-diff', 'data/metrics/gsc-ui/ssot/diff/{ts}.json', 'series', 'site', 'GSC の画面取得の前回との差'),
+  d('gsc.ui-urls', 'data/metrics/gsc-ui/ssot/urls/{name}.json', 'state', 'site', 'GSC の未登録理由ごとの URL 一覧'),
+  d('gsc.ui-raw', 'data/metrics/gsc-ui/{ts}/{**}', 'raw', 'site', 'GSC の画面から取った CSV と正規化結果', { local: true }),
+  d('gsc.ui-adhoc', 'data/metrics/gsc-ui/_adhoc/{**}', 'raw', 'site', 'GSC の画面の CSV を単発で正規化した結果', { local: true }),
+  // Bing・PSI・実ユーザー・Cloudflare・自サイト
+  d('bing.snapshots', 'data/metrics/bing/bing-{date}.json', 'series', 'site', 'Bing Webmaster の検索指標'),
+  d('psi.batch', 'data/metrics/psi/psi-batch-{ts}.json', 'series', 'site', 'PageSpeed Insights の定期計測'),
+  d('psi.single', 'data/metrics/psi/psi-single-{ts}.json', 'series', 'site', 'PageSpeed Insights の単発計測'),
+  d('psi.report', 'data/metrics/psi/latest-report.md', 'report', 'site', 'PSI の最新の報告'),
+  d('rum.web-vitals', 'data/metrics/rum/web-vitals-{date}.json', 'series', 'site', '実ユーザーの Web Vitals（GA4 経由）'),
+  d('cloudflare.zone', 'data/metrics/cloudflare/cf-zone-{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true }),
+  d('site.seo-meta', 'data/metrics/seo-meta/seo-meta-latest.json', 'state', 'site', 'サイトの SEO meta の監査結果'),
+
+  // ===== data/: 自社で発生した記録 =====
+  d('business.measurement', 'data/metrics/business/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true }),
+  d('business.snapshot', 'data/metrics/business/snapshot-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の一覧の時点記録', { immutable: true }),
+  d('business.target', 'data/metrics/business/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true }),
+  d('business.review', 'data/metrics/business/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true }),
+  d('business.site-to-sales', 'data/metrics/business/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true }),
+  d('business.checks-monthly', 'data/metrics/business/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true }),
+  d('business.checks-weekly', 'data/metrics/business/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true }),
+  d('business.experiments', 'data/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）'),
+  d('business.weekly', 'data/weekly-metrics/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ'),
+  d('business.weekly-index', 'data/weekly-metrics/index.json', 'state', 'strategy', '同上の一覧'),
+  d('business.monthly-snapshot', 'data/metrics/monthly-snapshot.json', 'state', 'strategy', '月次の数値のまとめ'),
+
+  // ===== data/: 記録から計算した結果・文書が引く調査 =====
+  d('analysis.crosswalk', 'data/metrics/crosswalk/crosswalk-{range}.json', 'series', 'site', 'GA4 と GSC の突き合わせ（改善の機会）'),
+  d('analysis.crosswalk-report', 'data/metrics/crosswalk/crosswalk-latest.md', 'report', 'site', '同上の報告'),
+  d('analysis.monetization-coverage', 'data/metrics/monetization/coverage-{ts}.json', 'series', 'product', '記事から商品への導線の網羅'),
+  d('analysis.monetization-report', 'data/metrics/monetization/coverage-latest.md', 'report', 'product', '同上の報告（週次レビューが読む）'),
+  d('analysis.note-funnel-efficiency', 'data/metrics/monetization/note-funnel-efficiency-latest.json', 'state', 'product', 'note 導線の効率'),
+  d('analysis.note-funnel-efficiency-report', 'data/metrics/monetization/note-funnel-efficiency-latest.md', 'report', 'product', '同上の報告（読み手なし）'),
+  d('analysis.growth-pack', 'data/metrics/growth/pack-{week}.json', 'series', 'site', '成長サイクルの週次の材料'),
+  d('analysis.growth-digest', 'data/metrics/growth/digest-{week}.json', 'series', 'site', '成長サイクルの週次ダイジェスト'),
+  d('analysis.growth-triage', 'data/metrics/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録'),
+  d('analysis.quiz-premium-funnel', 'data/metrics/ga4/quiz-premium-funnel-latest.json', 'state', 'site', '演習アプリの有料化のファネル'),
+  d('analysis.quiz-premium-funnel-report', 'data/metrics/ga4/quiz-premium-funnel-latest.md', 'report', 'site', '同上の報告（読み手なし）'),
+  d('analysis.career-funnel', 'data/metrics/affiliate/career-funnel-latest.json', 'state', 'affiliate', '転職アフィリエイトのファネル'),
+  d('analysis.career-funnel-report', 'data/metrics/affiliate/career-funnel-latest.md', 'report', 'affiliate', '同上の報告（読み手なし）'),
+  d('analysis.career-funnel-baseline', 'data/metrics/affiliate/career-funnel-baseline-{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線'),
+  d('analysis.buildjob-report', 'data/metrics/affiliate/buildjob-report-latest.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),
+  d('analysis.affiliate-opportunities', 'data/metrics/affiliate/opportunities-{date}.json', 'evidence', 'affiliate', '未活用のアフィリエイト案件の調査（文書が引用）'),
+  d('analysis.affiliate-research', 'data/metrics/affiliate/research-baseline-{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）'),
+  d('analysis.qualification-market', 'data/market/history/market-{date}.json', 'series', 'strategy', '資格ごとの市場（競合の混み具合）'),
+  d('analysis.civil-service-applicants', 'data/market/civil-service-applicants.json', 'evidence', 'strategy', '公務員土木職の受験者数（文書が引用）'),
+  d('analysis.gsc-coverage-diagnosis', 'data/metrics/gsc/coverage-diagnosis-{ts}.json', 'evidence', 'site', 'インデックス未登録の一回きりの診断'),
+  d('analysis.gsc-coverage-diagnosis-report', 'data/metrics/gsc/coverage-diagnosis-{ts}.md', 'report', 'site', '同上の報告（読み手なし）'),
+  d('analysis.gsc-indexing-memo', 'data/metrics/notes/gsc-indexing-requests-{date}.md', 'report', 'site', 'インデックス申請の手書きメモ（読み手なし）'),
+];
+
+// ---- パスの照合 -----------------------------------------------------------------
+
+const escape = (s) => s.replace(/[.+?^$()[\]\\|]/g, '\\$&');
+const compiled = new Map();
+
+/** 台帳のパスの型を正規表現にする（全体一致） */
+export function patternOf(path) {
+  if (!compiled.has(path)) {
+    let re = '';
+    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escape(part)) : escape(part);
+    compiled.set(path, new RegExp(`^${re}$`));
+  }
+  return compiled.get(path);
+}
+
+export const areaOf = (dataset) => dataset.path.split('/')[0];
+export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
+
+/** ファイル（リポジトリ相対・/ 区切り）に当たるデータセット。ちょうど 1 つが正しい */
+export const datasetsFor = (file) => DATASETS.filter((x) => patternOf(x.path).test(file));
+
+/**
+ * ファイルをデータセットごとに分ける。
+ * @returns {{ byId: Map<string, string[]>, unmatched: string[], ambiguous: { file: string, ids: string[] }[] }}
+ */
+export function matchFiles(files) {
+  const byId = new Map();
+  const unmatched = [];
+  const ambiguous = [];
+  for (const f of files) {
+    const hits = datasetsFor(f);
+    if (hits.length === 0) unmatched.push(f);
+    else if (hits.length > 1) ambiguous.push({ file: f, ids: hits.map((x) => x.id) });
+    else {
+      if (!byId.has(hits[0].id)) byId.set(hits[0].id, []);
+      byId.get(hits[0].id).push(f);
+    }
+  }
+  for (const list of byId.values()) list.sort().reverse(); // 新しい順（名前に日時があるものは名前順＝時刻順）
+  return { byId, unmatched, ambiguous };
+}
+
+/**
+ * 置き場のファイル（リポジトリ相対・/ 区切り）。tracked=true は git 管理下だけ（CI と同じ見え方）、
+ * false は手元の git 管理外（画面から取った CSV など）も含める。
+ */
+export function listAreaFiles(root, area, { tracked = false } = {}) {
+  const { dir } = AREAS[area];
+  if (tracked) {
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '--', `${dir}/`], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+    return out.split('\0').filter(Boolean);
+  }
+  const files = [];
+  const walk = (rel) => {
+    const abs = join(root, rel);
+    if (!existsSync(abs)) return;
+    for (const e of readdirSync(abs, { withFileTypes: true })) {
+      const p = `${rel}/${e.name}`;
+      if (e.isDirectory()) walk(p);
+      else if (e.isFile() && e.name !== '.gitkeep') files.push(p);
+    }
+  };
+  walk(dir);
+  return files.sort();
+}
+
+/** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
+export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));
+
+// ---- 型の検査 -------------------------------------------------------------------
+
+/** ファイルの中身（JSON・JSON Lines は行の配列）を読む */
+function readValue(root, file) {
+  const text = readFileSync(join(root, file), 'utf8').replace(/^﻿/, '');
+  if (file.endsWith('.jsonl')) return text.split(/\r?\n/).filter((l) => l.trim()).map((l) => JSON.parse(l));
+  return JSON.parse(text);
+}
+
+/**
+ * 型のあるデータセットのファイルを検査する。型が無ければ何もしない（checked 0）。
+ * @returns {{ checked: number, errors: { file: string, message: string }[] }}
+ */
+export function validateFiles(root, dataset, files) {
+  const errors = [];
+  if (!dataset.schema) return { checked: 0, errors };
+  for (const file of files) {
+    let value;
+    try {
+      value = readValue(root, file);
+    } catch (e) {
+      errors.push({ file, message: `読めない: ${e.message}` });
+      continue;
+    }
+    const r = dataset.schema.safeParse(value);
+    if (!r.success) for (const i of r.error.issues.slice(0, 5)) errors.push({ file, message: `${i.path.join('.') || '(全体)'}: ${i.message}` });
+  }
+  return { checked: files.length, errors };
+}
+
+/** 型の JSON Schema（zod から生成。エディタ・管理画面・Codex 向け） */
+export const jsonSchemaOf = (dataset) => (dataset.schema ? z.toJSONSchema(dataset.schema) : null);
+
+/** JSON Schema を「場所・型・説明」の行にする（管理画面の表） */
+export function schemaRows(js) {
+  const rows = [];
+  const typeOf = (s) => {
+    if (s.const !== undefined) return JSON.stringify(s.const);
+    if (s.enum) return s.enum.map((v) => JSON.stringify(v)).join(' | ');
+    if (s.anyOf) return s.anyOf.map(typeOf).join(' | ');
+    const t = Array.isArray(s.type) ? s.type.join(' | ') : s.type;
+    if (t === 'object') return s.properties ? 'object' : '対応表';
+    if (t === 'string' && s.format) return `string（${s.format}）`;
+    return t ?? 'unknown';
+  };
+  const walk = (s, path, required) => {
+    if (path) rows.push({ path: required ? path : `${path}?`, type: typeOf(s), description: s.description ?? null });
+    const body = s.anyOf?.find((x) => x.type !== 'null') ?? s;
+    if (body.properties) {
+      for (const [k, v] of Object.entries(body.properties)) walk(v, path ? `${path}.${k}` : k, (body.required ?? []).includes(k));
+    } else if (body.additionalProperties && typeof body.additionalProperties === 'object') {
+      walk(body.additionalProperties, `${path}.{id}`, true);
+    } else if (body.items) walk(body.items, `${path}[]`, true);
+  };
+  walk(js, '', true);
+  return rows;
+}
+
+// ---- 型の読み取り（型の無いデータセット用） --------------------------------------
+
+const MAX_ROWS = 80;
+const MAX_DEPTH = 5;
+const IDENT = /^[a-z_$][A-Za-z0-9_$]*$/;
+
+const kindOf = (v) => (v === null ? 'null' : Array.isArray(v) ? 'array' : typeof v);
+const kindsOf = (values) => [...new Set(values.map(kindOf))].join(' | ');
+
+/**
+ * id → 値 の対応表か（フィールド名の並んだオブジェクトと分ける）。
+ * キーが id（ハイフン・数字始まり）で値の型が揃っていれば件数に関わらず対応表。
+ * それ以外は 5 件以上で、値が全部オブジェクトでキーの半分以上が共通、または値が全部同じ基本型でキーが多い。
+ */
+function looksLikeMap(obj) {
+  const keys = Object.keys(obj);
+  const vals = Object.values(obj);
+  const sameKind = vals.length > 0 && vals.every((v) => kindOf(v) === kindOf(vals[0]));
+  if (sameKind && keys.some((x) => !IDENT.test(x))) return true;
+  if (keys.length < 5) return false;
+  if (vals.every((v) => kindOf(v) === 'object')) {
+    const sets = vals.map((v) => new Set(Object.keys(v)));
+    const union = new Set(sets.flatMap((x) => [...x]));
+    const common = [...union].filter((k) => sets.every((x) => x.has(k)));
+    return union.size > 0 && common.length * 2 >= union.size;
+  }
+  const k = kindOf(vals[0]);
+  return k !== 'object' && k !== 'array' && sameKind && keys.length >= 10;
+}
+
+/**
+ * 同じ場所に現れる値（配列の要素・対応表の値）をまとめて 1 行ずつ書く。
+ * オブジェクトはキーごとに下へ、出現しないことがあるキーは ? を付ける。
+ */
+function describe(values, path, depth, rows) {
+  if (rows.length >= MAX_ROWS) return;
+  const objects = values.filter((v) => kindOf(v) === 'object');
+  const arrays = values.filter((v) => kindOf(v) === 'array');
+  const others = values.filter((v) => kindOf(v) !== 'object' && kindOf(v) !== 'array');
+
+  if (objects.length && objects.every(looksLikeMap)) {
+    const inner = objects.flatMap((o) => Object.values(o));
+    const n = objects.length === 1 ? `（${inner.length} 件）` : '';
+    const leaf = inner.every((v) => kindOf(v) !== 'object' && kindOf(v) !== 'array');
+    rows.push({ path, type: leaf ? `対応表<${kindsOf(inner)}>${n}` : `対応表${n}` });
+    if (!leaf && depth < MAX_DEPTH) describe(inner, `${path}.{id}`, depth + 1, rows);
+    return;
+  }
+  if (arrays.length) {
+    const items = arrays.flat();
+    const n = arrays.length === 1 ? `（${items.length} 件）` : '';
+    const leaf = items.every((v) => kindOf(v) !== 'object' && kindOf(v) !== 'array');
+    const head = items.length ? (leaf ? `array<${kindsOf(items)}>${n}` : `array${n}`) : 'array（空）';
+    rows.push({ path, type: [head, ...others.map(kindOf)].join(' | ') });
+    if (!leaf && depth < MAX_DEPTH) describe(items, `${path}[]`, depth + 1, rows);
+    return;
+  }
+  if (objects.length) {
+    if (path) rows.push({ path, type: others.length ? `object | ${kindsOf(others)}` : 'object' });
+    if (depth >= MAX_DEPTH) return;
+    const seen = new Map();
+    for (const o of objects) for (const [k, v] of Object.entries(o)) {
+      if (!seen.has(k)) seen.set(k, []);
+      seen.get(k).push(v);
+    }
+    for (const [k, vs] of seen) {
+      const optional = vs.length < objects.length ? '?' : '';
+      describe(vs, `${path ? `${path}.` : ''}${k}${optional}`, depth + 1, rows);
+    }
+    return;
+  }
+  rows.push({ path, type: kindsOf(values) });
+}
+
+function summaryOf(value) {
+  const k = kindOf(value);
+  if (k === 'array') return `array（${value.length} 件）`;
+  if (k === 'object') return looksLikeMap(value) ? `対応表（${Object.keys(value).length} 件）` : `object（キー ${Object.keys(value).length}）`;
+  return k;
+}
+
+/** 説明文: 先頭の _doc / description / $comment（文字列のときだけ） */
+export function fileDoc(value) {
+  if (kindOf(value) !== 'object') return null;
+  for (const k of ['_doc', 'description', '$comment', '_comment']) if (typeof value[k] === 'string') return value[k];
+  return null;
+}
+
+/**
+ * ファイルの型を実物から読む。JSON・JSON Lines・CSV・テキストに対応し、大きすぎるファイルは読まない。
+ * @returns {{ format: string, summary: string, rows: { path: string, type: string }[], doc: string|null, error?: string }}
+ */
+export function inferShape(root, path, { maxBytes = 8 * 1024 * 1024 } = {}) {
+  const abs = join(root, path);
+  const size = statSync(abs).size;
+  const ext = path.slice(path.lastIndexOf('.') + 1).toLowerCase();
+  if (size > maxBytes) return { format: ext, summary: `大きいので読まない（${Math.round(size / 1024 / 1024)}MB）`, rows: [], doc: null };
+  if (!['json', 'jsonl', 'csv', 'md', 'txt'].includes(ext)) return { format: ext, summary: `${Math.round(size / 1024)}KB`, rows: [], doc: null };
+  const text = readFileSync(abs, 'utf8').replace(/^﻿/, '');
+  try {
+    if (ext === 'json') {
+      const v = JSON.parse(text);
+      const rows = [];
+      describe([v], '', 0, rows);
+      return { format: 'JSON', summary: summaryOf(v), rows: rows.map((r) => ({ ...r, path: r.path || '(全体)' })), doc: fileDoc(v) };
+    }
+    if (ext === 'jsonl') {
+      const lines = text.split(/\r?\n/).filter((l) => l.trim());
+      const rows = [];
+      describe(lines.slice(0, 200).map((l) => JSON.parse(l)), '', 0, rows);
+      return { format: 'JSON Lines', summary: `${lines.length} 行`, rows: rows.filter((r) => r.path), doc: null };
+    }
+    if (ext === 'csv') {
+      const lines = text.split(/\r?\n/).filter((l) => l.trim());
+      const head = (lines[0] ?? '').split(',').map((h) => h.replace(/^"|"$/g, ''));
+      return { format: 'CSV', summary: `${Math.max(lines.length - 1, 0)} 行 × ${head.length} 列`, rows: head.map((h) => ({ path: h, type: '列' })), doc: null };
+    }
+  } catch (e) {
+    return { format: ext, summary: '読み取れない', rows: [], doc: null, error: e.message };
+  }
+  return { format: ext === 'md' ? 'Markdown' : 'テキスト', summary: `${text.split(/\r?\n/).length} 行`, rows: [], doc: null };
+}

@@ -13,22 +13,22 @@ const NOTE_PRODUCTS: readonly { id: MagazineId; lead: string }[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "技術士第一次試験 過去問 無料演習｜基礎・適性・建設 全1,120問",
+  title: "技術士第一次試験 過去問 無料演習｜基礎・適性・建設 全1,270問",
   description:
-    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門）を無料で演習。平成25〜令和7年度と令和元年度再試験の全1,120問を、年度別・科目別・ランダム・間違い復習で解けます。図・数式・全選択肢解説つき。",
+    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門）を無料で演習。平成23〜令和7年度と令和元年度再試験の全1,270問を、年度別・科目別・ランダム・間違い復習で解けます。図・数式・全選択肢解説つき。",
   alternates: { canonical: "/tools/kakomon-quiz/pe-first-stage" },
   openGraph: {
     type: "website",
-    title: "技術士第一次試験 過去問 無料演習｜全1,120問",
-    description: "平成25〜令和7年度と令和元年度再試験の基礎・適性・専門（建設部門）全1,120問を、即採点・全選択肢解説つきで無料演習。",
+    title: "技術士第一次試験 過去問 無料演習｜全1,270問",
+    description: "平成23〜令和7年度と令和元年度再試験の基礎・適性・専門（建設部門）全1,270問を、即採点・全選択肢解説つきで無料演習。",
     url: "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
     siteName: "doboku-note",
     images: [{ url: "https://doboku-note.com/images/og-default.png", width: 1200, height: 630, alt: "技術士第一次試験 過去問 無料演習" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "技術士第一次試験 過去問 無料演習｜全1,120問",
-    description: "基礎・適性・専門（建設部門）の平成25〜令和7年度と令和元年度再試験を、図・数式・全選択肢解説つきで無料演習。",
+    title: "技術士第一次試験 過去問 無料演習｜全1,270問",
+    description: "基礎・適性・専門（建設部門）の平成23〜令和7年度と令和元年度再試験を、図・数式・全選択肢解説つきで無料演習。",
     images: ["https://doboku-note.com/images/og-default.png"],
   },
 };
@@ -37,9 +37,9 @@ const QUIZ_CONFIG: KakomonQuizConfig = {
   exam: "pe-first-stage",
   dataUrl: "/quiz/pe-first-stage.json",
   intro:
-    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門）を、1問ずつ即採点＋全選択肢の解説つきで演習できます。平成25〜令和7年度と令和元年度再試験の全1,120問（1,117問を採点、3問は採点対象外）を無料で収録しています。",
+    "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門）を、1問ずつ即採点＋全選択肢の解説つきで演習できます。平成23〜令和7年度と令和元年度再試験の全1,270問（1,266問を採点、4問は採点対象外）を無料で収録しています。",
   sourceNote:
-    "出典: 公益社団法人 日本技術士会「技術士第一次試験 過去問題」。図・数式を含めて原典と照合済みです。平成30年度と令和元年度再試験の適性科目Ⅱ-14は公式に全員正解、令和7年度 専門科目Ⅲ-13は公式正答番号の掲載なしのため、演習では採点対象外としています。",
+    "出典: 公益社団法人 日本技術士会「技術士第一次試験 過去問題」。図・数式を含めて原典と照合済みです。平成23年度 適性科目Ⅱ-4は公式に2肢（1又は5）を正答扱い、平成30年度と令和元年度再試験の適性科目Ⅱ-14は公式に全員正解、令和7年度 専門科目Ⅲ-13は公式正答番号の掲載なしのため、演習では採点対象外としています。",
   yearTitleSuffix: "・全3科目",
   showSubjects: true,
   placeholderYears: [
@@ -57,11 +57,13 @@ const QUIZ_CONFIG: KakomonQuizConfig = {
     { year: "h27", yearLabel: "平成27年度", parts: ["basic", "aptitude", "construction"], count: 80 },
     { year: "h26", yearLabel: "平成26年度", parts: ["basic", "aptitude", "construction"], count: 80 },
     { year: "h25", yearLabel: "平成25年度", parts: ["basic", "aptitude", "construction"], count: 80 },
+    { year: "h24", yearLabel: "平成24年度", parts: ["basic", "aptitude", "construction"], count: 75 },
+    { year: "h23", yearLabel: "平成23年度", parts: ["basic", "aptitude", "construction"], count: 75 },
   ],
   placeholderSubjects: [
-    { subject: "basic", subjectLabel: "基礎科目", count: 420 },
-    { subject: "aptitude", subjectLabel: "適性科目", count: 210 },
-    { subject: "construction", subjectLabel: "専門科目（建設部門）", count: 490 },
+    { subject: "basic", subjectLabel: "基礎科目", count: 470 },
+    { subject: "aptitude", subjectLabel: "適性科目", count: 240 },
+    { subject: "construction", subjectLabel: "専門科目（建設部門）", count: 560 },
   ],
   noteCta: {
     id: "pe1-takuitsu-pdf",
@@ -91,7 +93,7 @@ export default function PeFirstStageQuizPage() {
         title="技術士第一次試験 過去問演習"
         lead={
           <>
-            <strong className="text-(--ink)">基礎・適性・専門（建設部門）</strong>の平成25〜令和7年度と令和元年度再試験・全1,120問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
+            <strong className="text-(--ink)">基礎・適性・専門（建設部門）</strong>の平成23〜令和7年度と令和元年度再試験・全1,270問を、年度別・科目別・ランダム・間違い復習で解けます。図と数式もそのまま表示します。
           </>
         }
       />

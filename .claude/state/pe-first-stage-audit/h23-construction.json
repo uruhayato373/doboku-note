@@ -1,0 +1,29 @@
+{
+  "slug": "pe-first-stage-h23-construction",
+  "year": "H23",
+  "sub": "construction",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": [
+      "Ⅳ-27 肢4: 全国都市交通特性調査の二輪車分担率18.5%を一次情報で確認できず、公式正答で誤りとされない肢として扱った"
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典18ページを1問ずつ照合し、35問・175肢の本文・極性・図（Ⅳ-5, Ⅳ-7）は原典と一致、正答表35問も全件一致。解説の誤りを修正: Ⅳ-35 肢5（基本戦略は5つでなく4つで、誤りは「水域のつながり」）、Ⅳ-15 肢5（低水護岸の天端工）、Ⅳ-23 肢5（平成21年度の運転事故は0.61件）、Ⅳ-5/Ⅳ-6 の誤答肢の算出根拠、Ⅳ-20・Ⅳ-32 の根拠、Ⅳ-16 の条文番号。起稿者メモ由来の「裏取りは未確認」等の表現は除去。 Ⅳ-31肢2は親が山岳工法とシールド工法の施工管理の違い（切羽の直接観察・セグメントの事前製作）として解説を確定。"
+  }
+}

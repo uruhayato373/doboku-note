@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r02-water-supply",
+  "year": "R02",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T13:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典18ページを1問ずつ照合し、問題文・選択肢・極性・図(Ⅲ-16)の一致と公式正答35問の一致を確認。Ⅲ-9(乾燥は膜の不可逆劣化)、Ⅲ-19(計画降雨は地域ごと)、Ⅲ-20(処理区域と浸水防除区域は別々に決定)、Ⅲ-34(BOD/COD比)の根拠を設計指針・雨水管理総合計画策定ガイドライン(案)に基づき書き直し、Ⅲ-24・Ⅲ-30のExamPointを整えた。"
+  }
+}

@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-01T01-30-10Z",
-  "collectedAt": "2026-10-01T01:30:10.758Z",
+  "runId": "2026-10-02T01-30-12Z",
+  "collectedAt": "2026-10-02T01:30:12.591Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "10aeb89a9",
+  "scriptVersion": "0cc464417",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 291,
+  "targetCount": 281,
   "items": [
     {
       "slug": "/exam/pe-comprehensive-management/keywords/end-of-pipe",
@@ -81,23 +81,6 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/guide/quit-or-stay",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/quit-or-stay",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/pe-construction/keywords/railway-exam-themes",
       "url": "https://doboku-note.com/exam/pe-construction/keywords/railway-exam-themes",
       "inspected": {
@@ -115,8 +98,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/guide/salary-up",
-      "url": "https://doboku-note.com/exam/civil-construction-1/guide/salary-up",
+      "slug": "/exam/civil-construction-2/guide/concrete-key-points",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/concrete-key-points",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -132,8 +115,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/guide/women",
-      "url": "https://doboku-note.com/exam/civil-construction-1/guide/women",
+      "slug": "/exam/civil-construction-2/guide/exam-overview",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/exam-overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/guide/job-reality",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/job-reality",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -149,8 +149,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/coast-port",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/coast-port",
+      "slug": "/exam/civil-construction-2/guide/overview",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/overview",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -166,8 +166,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/dam-construction",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/dam-construction",
+      "slug": "/exam/civil-construction-2/guide/resume",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/resume",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -183,8 +183,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/railway-underground",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/railway-underground",
+      "slug": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -200,8 +200,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/sabo-landslide",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/sabo-landslide",
+      "slug": "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -217,8 +217,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/steel-structures",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/steel-structures",
+      "slug": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -234,8 +234,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/tunnel-natm",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/tunnel-natm",
+      "slug": "/exam/civil-construction-2/guide/study-method",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/study-method",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -251,8 +251,44 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-1/textbook/water-sewer",
-      "url": "https://doboku-note.com/exam/civil-construction-1/textbook/water-sewer",
+      "slug": "/exam/civil-construction-2/guide/textbooks",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/textbooks",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r04-kouki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-kouki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r04-zenki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-zenki",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -270,7 +306,7 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 15,
+    "inspected": 17,
     "accepted": 10,
     "alreadyIndexed": 5,
     "unreadable": 0

@@ -472,6 +472,51 @@
         "/exam/civil-construction-1/textbook/tunnel-natm",
         "/exam/civil-construction-1/textbook/water-sewer"
       ]
+    },
+    {
+      "runId": "2026-10-02T01-30-12Z",
+      "collectedAt": "2026-10-02T01:30:12.591Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 17,
+      "accepted": 10,
+      "alreadyIndexed": 5,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/civil-construction-2/guide/concrete-key-points",
+        "/exam/civil-construction-2/guide/exam-overview",
+        "/exam/civil-construction-2/guide/job-reality",
+        "/exam/civil-construction-2/guide/overview",
+        "/exam/civil-construction-2/guide/resume",
+        "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+        "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+        "/exam/civil-construction-2/guide/study-method",
+        "/exam/civil-construction-2/guide/textbooks",
+        "/exam/civil-construction-2/primary/r04-kouki",
+        "/exam/civil-construction-2/primary/r04-zenki"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-2/guide/concrete-key-points",
+        "/exam/civil-construction-2/guide/exam-overview",
+        "/exam/civil-construction-2/guide/job-reality",
+        "/exam/civil-construction-2/guide/overview",
+        "/exam/civil-construction-2/guide/resume",
+        "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+        "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+        "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+        "/exam/civil-construction-2/guide/study-method",
+        "/exam/civil-construction-2/primary/r04-zenki"
+      ]
     }
   ]
 }

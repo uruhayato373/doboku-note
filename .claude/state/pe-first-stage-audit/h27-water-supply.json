@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h27-water-supply",
+  "year": "H27",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T23:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典画像17ページを1問ずつ照合し、35問・全選択肢の問題文・極性・数値・表（Ⅲ-22）が一致すること、公式正答35問が全件一致することを確認。Ⅲ-1・Ⅲ-3・Ⅲ-18・Ⅲ-20・Ⅲ-34の解説を水道維持管理指針2006・流域別下水道整備総合計画調査指針と解説などの一次資料に合わせて具体化・修正した。"
+  }
+}

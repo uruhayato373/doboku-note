@@ -920,7 +920,7 @@ function lintCalloutStructure(lines, raw, filePath, findings) {
  */
 function isExamArchive(filePath) {
   // 技術士第一次: 通常回と同年度再試験（guide は対象に含めない）
-  if (/pe-first-stage[\\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction)[\\\/]/.test(filePath)) return true;
+  if (/pe-first-stage[\\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)[\\\/]/.test(filePath)) return true;
   // PE 形式: r05-primary/, h28-secondary/, r05-essay-river-consultant/
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
@@ -1871,7 +1871,7 @@ function lintNestedList(lines, findings) {
 // 公式問題の文体を短文化させない。原文は保持し、導入・解説・学習案内を採点する。
 function proseLinesOutsideOfficialQuestions(lines, filePath) {
   const normalized = filePath.replace(/\\/g, '/');
-  const firstStage = /\/pe-first-stage\/(?:h|r)\d{2}(?:-retry)?-(?:basic|aptitude|construction)\/article\.mdx$/.test(normalized);
+  const firstStage = /\/pe-first-stage\/(?:h|r)\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)\/article\.mdx$/.test(normalized);
   const construction = /\/pe-construction\/r\d{2}-(?:required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment)\/article\.mdx$/.test(normalized);
   if (!firstStage && !construction) return lines;
   let question = false;

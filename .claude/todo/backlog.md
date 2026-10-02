@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0498] 設定・記録を台帳に沿って移し、型を揃え、JSON ファイルを減らす（ADR 段階 2〜4）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02] [進行中]
+
+**起点**: 2026-10-02 に data/ の構成と型を調べ、台帳 `scripts/lib/datasets.mjs` と型の正本 zod を入れた（PR #819）。決定と統合の基準は `data-storage-decision.md`「設定・記録の構成と型の正本」。ユーザーの指示で段階 2〜4 をすべて行う。
+
+**やること**: 実行計画 `.claude/plans/DN-0498-data-restructure.md` の順（CI の書き戻しをパスに依存させない → 全データセットの型 → 取得元ごとの移動と統合 → config/ の統合）。
+
+**完了条件**: `npm run check-datasets` が全ファイルを台帳に当てて型の違反 0、週次・月次・管理画面の出力が移動前と同じ、ワークフローの書き戻しが新しいパスで成功、git 管理の data/ が約 280 ファイルに近づく。
+
 ### [DN-0485] Cloudflare の解析用 API トークンを発行して Secret に登録し、cloudflare-metrics と cloudflare-config を復旧する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-01]
 
@@ -187,6 +196,17 @@
 **進捗（2026-09-27）**: #661・#662・#664 は #665 に含めて閉じ、#665・#666 を develop へマージして本番へ deploy 済み。残りは、次の週次レビュー（10/3）の記録に「受取額と目標の差」と「検索の改善候補の起票（または起票なしの理由）」が残るかの確認だけ。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0497] scheduled-publish の git add が移動前のパスで黙って失敗する（CI の X 投稿を再開する前に直す）
+タグ: [インフラ・計測] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
+
+**起点**: 2026-10-02 の data/ 構成調査で見つけた。`.github/workflows/scheduled-publish.yml` の `git add content/sns/x .claude/state/x-publish .claude/state/x-repost data/x-repost 2>/dev/null || true` は、#814 で x-repost の記録を `data/x-repost` へ移した後も `.claude/state/x-repost` を指している。このディレクトリは停止スイッチ（`PAUSED`・git 管理外）を置いたときにしか存在しない。git add は存在しないパスが 1 つでもあると全体が失敗（exit 128）して何も stage せず、`2>/dev/null || true` がそれを隠す。CI からの X 投稿は 2026-09-28 から止めている（DN-0433 (e)）ので今は実害がないが、再開すると投稿記録（`.claude/state/x-publish/posted-log.jsonl`・`content/sns/x`・`data/x-repost`）がコミットされず、頻度ゲートの重複排除が効かなくなる。
+
+**やること**:
+1. 実在するパスだけを add する形に直し、`2>/dev/null || true` を外して add の失敗で job を赤にする。
+2. 同じ形（複数パスの git add を `|| true` で包む）のワークフローがほかにないか確かめ、あれば同じく直す。
+
+**完了条件**: `.claude/state/x-repost` が無い状態でも投稿記録が stage される。add が失敗したときは job が失敗する。
 
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
@@ -774,6 +794,8 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 4. 承認済みで未実行の CI 書き込み計画（`ops-write`）があれば作り直す（入力のパスが変わり plan hash が変わったため、古い計画は通らない）。
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
+
+**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。残りは Mac 分。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]

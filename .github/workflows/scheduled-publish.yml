@@ -162,7 +162,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add content/sns/x .claude/state/x-publish .claude/state/x-repost data/x-repost 2>/dev/null || true
+          # 無いパス（停止スイッチを置いていないときの .claude/state/x-repost など）は ci-data が飛ばす。git の失敗は隠さない（DN-0497）
+          node scripts/ci-data.mjs add --paths content/sns/x,.claude/state/x-publish,.claude/state/x-repost,data
           if git diff --cached --quiet; then
             echo "No changes to publish"
           else
