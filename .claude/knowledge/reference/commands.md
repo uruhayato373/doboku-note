@@ -84,7 +84,7 @@ npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・�
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
 npm run check-domains          # 領域の正本（config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
 npm run ci-data -- <save|restore|add|latest|path|put> # ワークフローが記録を develop へ書き戻すときの共通処理。変わったファイルを git status から拾って退避・復元し（save/restore）、実在するパスだけを add する。latest/path は台帳の id からパスを出す。YAML にデータのパスを書かないための道具（main の YAML が develop の置き場の変更に追従できるように）。罠: 依存（zod）を読むので npm ci の後で使う。node_modules の無い別 worktree では checkout 側から --root で対象を指す
-npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
+npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
 npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
@@ -112,7 +112,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-update-body -- --sync --list <file> --commit` — 記事単位の同期。記事ごとに未反映の部品（本文・カバー・タグ）だけを 1 回のエディタ操作で反映し「更新する」は 1 回。本文を触らない記事は有料境界・試し読みラインを動かさない。配布 PDF は貼り直す（手元に無ければ本文を触らず止まる）。止まっている記事（中断・会員特典の公開範囲未指定など）は飛ばす。部品を明示するなら `--parts cover,tags`。会員特典マガジン内の無料記事は frontmatter `memberTrial: bottom|lock` で公開範囲を決める。
 
-`npm run standardize-civil1-note-intro` — 1級土木 note の冒頭（最初の ## より前）を標準形へそろえる（著者画像POP・説明文2段落・ココナラ・収録元＋上位マガジン・失格注意。記事固有の文は残す）。既定 dry-run・`--apply`。割り当ては `config/note-intro-standard.json`。
+`npm run standardize-civil1-note-intro` — 1級土木 note の冒頭（最初の ## より前）を標準形へそろえる（著者画像POP・説明文2段落・ココナラ・収録元＋上位マガジン・失格注意。記事固有の文は残す）。既定 dry-run・`--apply`。割り当ては `config/note-intro-standard.json` の variants（`--variant civil1|civil2|civil-cross`・既定 civil1）。
 
 `npm run note-replace-intro` — 公開済み記事の冒頭だけを原稿で貼り直し、末尾の撤退済み導線を消して 1 記事 1 回で公開する（全文置換しない・PDF 添付の件数を前後で照合）。`--list <paths> --commit`。note は途中の編集を自動保存しないので、失敗した記事は下書きも汚れない。
 
