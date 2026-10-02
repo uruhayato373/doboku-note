@@ -19,7 +19,8 @@
 
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import { join } from "path";
+import { dirname } from "path";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
 
@@ -29,7 +30,6 @@ dotenv.config({ path: ".env.local" });
 
 const SITE_URL = "sc-domain:doboku-note.com";
 const SITE_URL_FOR_INSPECTION = "https://doboku-note.com/"; // URL Inspection は URL プレフィックス形式が必要な場合あり
-const OUTPUT_DIR = "data/metrics/url-inspection";
 
 /**
  * 並列度の既定。URL Inspection は 2,000/日・600/分 が上限で、1 件 2〜5 秒なので 5 並列でも
@@ -251,10 +251,10 @@ async function getTopUrlsFromGsc(auth, top) {
  * 途中で落ちても「最後の checkpoint までの部分結果」が同名で残り、CI がそれを拾える。
  */
 function resolveOutputPath(total) {
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const filename = `inspection-${total > 1 ? "batch" : "single"}-${timestamp}.json`;
-  return join(OUTPUT_DIR, filename);
+  const path = datasetPath(total > 1 ? "gsc.url-inspection" : "gsc.url-inspection-single", { ts: timestamp });
+  if (!existsSync(dirname(path))) mkdirSync(dirname(path), { recursive: true });
+  return path;
 }
 
 /**

@@ -10,8 +10,8 @@
  * ため、ログイン済みプロファイルのブラウザ操作で **観測 → 差分 → 作成** を回す。
  *
  * 望ましい状態の SSOT: config/ga4-admin-desired-state.json
- * 観測結果の SSOT:     data/metrics/ga4-admin/inventory-latest.json（追跡）
- *                      data/metrics/ga4-admin/last-run.json（追跡・マーカー）
+ * 観測結果の SSOT:     data/ga4/admin-inventory.json（追跡）
+ *                      data/ga4/admin-last-run.json（追跡・マーカー）
  *
  * CLI:
  *   node scripts/ga4-admin-setup.mjs                 # 観測のみ（dry-run 既定）。差分を出して終了
@@ -29,7 +29,8 @@
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { datasetPath } from "./lib/datasets.mjs";
 import { execSync } from "node:child_process";
 import {
   loadConfig,
@@ -41,7 +42,8 @@ import {
   ga4RoutePrefix,
 } from "./lib/google-console-browser.mjs";
 
-const STATE_DIR = "data/metrics/ga4-admin";
+const INVENTORY = datasetPath("ga4.admin-inventory");
+const HISTORY = datasetPath("ga4.admin-history");
 const DESIRED_PATH = "config/ga4-admin-desired-state.json";
 
 function parseArgs() {
@@ -327,7 +329,7 @@ async function main() {
   }
 
   const runId = makeRunId();
-  mkdirSync(STATE_DIR, { recursive: true });
+  mkdirSync(dirname(INVENTORY), { recursive: true });
 
   let wanted = desired.customDimensions ?? [];
   if (opts.only) wanted = wanted.filter((d) => d.parameterName === opts.only || d.displayName === opts.only);
@@ -354,7 +356,7 @@ async function main() {
   if (wanted.length === 0) {
     console.error(`[ga4-admin] ✗ 対象 0 件（desired-state の customDimensions が空 or --only が一致しない）。`);
     result.status = "no-targets";
-    writeFileSync(join(STATE_DIR, "inventory-latest.json"), JSON.stringify(result, null, 2), "utf-8");
+    writeFileSync(INVENTORY, JSON.stringify(result, null, 2), "utf-8");
     process.exit(2);
   }
 
@@ -488,10 +490,10 @@ async function main() {
   }
 
   // 追跡する成果物は 2 つだけ（run ごとのファイルは増え続けるので作らない）:
-  //   inventory-latest.json … 最新の観測＋差分（check-ga4-custom-dimensions が読む SSOT）
+  //   admin-inventory.json … 最新の観測＋差分（check-ga4-custom-dimensions が読む SSOT）
   //   history.json          … run 別の要約（いつ何が不足/作成されたか）
-  writeFileSync(join(STATE_DIR, "inventory-latest.json"), JSON.stringify(result, null, 2), "utf-8");
-  const histPath = join(STATE_DIR, "history.json");
+  writeFileSync(INVENTORY, JSON.stringify(result, null, 2), "utf-8");
+  const histPath = HISTORY;
   let hist = { schemaVersion: 1, channel: "ga4-admin", runs: [] };
   if (existsSync(histPath)) {
     try {
@@ -521,7 +523,7 @@ async function main() {
   console.log(
     `\n完了: status=${result.status} / desired ${result.desiredCount} 件中 登録済み ${result.present.length}・不足 ${missingNow.length}・作成 ${result.created.length}・作成失敗 ${result.createFailures.length}`,
   );
-  console.log(`inventory: ${join(STATE_DIR, "inventory-latest.json")}`);
+  console.log(`inventory: ${INVENTORY}`);
   if (!opts.commit && missingNow.length > 0) {
     console.log(`不足を作成するには: node scripts/ga4-admin-setup.mjs --commit`);
   }

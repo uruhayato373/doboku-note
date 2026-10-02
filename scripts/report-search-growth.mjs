@@ -4,11 +4,11 @@
  * 生成 HTML を URL 単位で突合し、修正アクションへ分類したレポートを生成する（オフライン join）。
  * ---------------------------------------------------------------------------
  * 入力（すべて既存の state / build 生成物・最新スナップショット自動選択）:
- *   - GSC UI 正規化: data/metrics/gsc-ui/ssot/urls/*.json（**追跡 SSOT・優先**）
- *                    無ければ data/metrics/gsc-ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
- *   - URL Inspection: data/metrics/url-inspection/inspection-*.json（最新）
- *   - GSC page:       data/metrics/gsc/gsc-page-*.json（最新・page×query 可）
- *   - GA4 page:       data/metrics/ga4/ga4-page-*.json（最新）
+ *   - GSC UI 正規化: data/gsc/ui-urls.json（**追跡 SSOT・優先**）
+ *                    無ければ data/gsc/ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
+ *   - URL Inspection: 台帳 gsc.url-inspection の最新（無ければ単発）
+ *   - GSC page:       台帳 gsc.page の最新
+ *   - GA4 page:       台帳 ga4.page の最新
  *   - live sitemap:   https://doboku-note.com/sitemap.xml（取得可なら／不可なら out/sitemap.xml）
  *   - local sitemap:  out/sitemap.xml
  *   - _redirects:     public/_redirects
@@ -30,6 +30,8 @@ import { join } from "node:path";
 import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
 import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
+import { latestFile } from "./lib/datasets.mjs";
+import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
 
 const M = "data/metrics";
 const OUT_DIR = ".claude/state/improvements";
@@ -57,7 +59,7 @@ function readJson(p, def = null) {
  * GSC UI の正規化データを読む。
  *
  * 優先順:
- *   1. **追跡 SSOT** `data/metrics/gsc-ui/ssot/urls/*.json`（どのマシン・どの worktree でも読める）
+ *   1. **追跡 SSOT** `data/gsc/ui-urls.json`（どのマシン・どの worktree でも読める）
  *   2. 旧経路 最新 run の `<run>/normalized/*.json`（gitignore・そのマシンで取得した直後だけ存在）
  *
  * 1 を先に見る理由: 旧実装は 2 だけを見ており、run ディレクトリは gitignore なので
@@ -65,9 +67,8 @@ function readJson(p, def = null) {
  * worktree ごと消えて実際に再現不能になった）。SSOT を先に読めば診断が常に再現する。
  */
 function loadGscUi() {
-  const base = join(M, "gsc-ui");
+  const base = rawDir("gsc-ui");
   const out = { rows: [], runId: null, runDir: null, byIssueScope: [], source: "none" };
-  if (!existsSync(base)) return out;
 
   const collect = (norm, sourceLabel) => {
     out.byIssueScope.push({
@@ -84,22 +85,20 @@ function loadGscUi() {
   };
 
   // 1. 追跡 SSOT
-  const urlsDir = join(base, "ssot", "urls");
-  if (existsSync(urlsDir)) {
-    const files = readdirSync(urlsDir).filter((f) => f.endsWith(".json"));
-    for (const f of files) {
-      const norm = readJson(join(urlsDir, f));
-      if (norm && Array.isArray(norm.rows)) collect(norm, "ssot");
-    }
-    if (out.rows.length || files.length) {
-      // SSOT のユニットは run が混在しうる（部分取得のとき）。最新 runId を代表値にする。
-      out.runId = out.byIssueScope.map((u) => u.runId).filter(Boolean).sort().at(-1) ?? null;
-      out.runDir = urlsDir;
-      return out;
-    }
+  const units = listUnitSsot("gsc-ui");
+  for (const u of units) {
+    const norm = readUnitSsot("gsc-ui", u.key);
+    if (norm && Array.isArray(norm.rows)) collect(norm, "ssot");
+  }
+  if (out.rows.length || units.length) {
+    // SSOT のユニットは run が混在しうる（部分取得のとき）。最新 runId を代表値にする。
+    out.runId = out.byIssueScope.map((u) => u.runId).filter(Boolean).sort().at(-1) ?? null;
+    out.runDir = urlsPath("gsc-ui");
+    return out;
   }
 
   // 2. 旧経路（run ローカル normalized）
+  if (!existsSync(base)) return out;
   const runs = readdirSync(base)
     .filter((f) => existsSync(join(base, f, "manifest.json")))
     .sort();
@@ -119,7 +118,7 @@ function loadGscUi() {
 /** URL Inspection 最新 batch → joinKey→{state, googleCanonical, userCanonical, lastCrawl, fetchState, verdict} */
 function loadInspection() {
   // batch を優先（single-URL の ad-hoc 検査に引きずられないよう prefix を固定）。
-  const f = latest(join(M, "url-inspection"), "inspection-batch-") || latest(join(M, "url-inspection"), "inspection-");
+  const f = latestFile(".", "gsc.url-inspection") || latestFile(".", "gsc.url-inspection-single");
   const map = new Map();
   if (!f) return { map, file: null };
   const j = readJson(f);
@@ -145,7 +144,7 @@ function loadInspection() {
 /** GSC page 最新 → joinKey→{clicks,impressions,ctr,position}（page 次元を集約）。 */
 function loadGscPage() {
   // page×query を優先し page も許容。keys[0]=page。
-  const f = latest(join(M, "gsc"), "gsc-page");
+  const f = latestFile(".", "gsc.page");
   const map = new Map();
   if (!f) return { map, file: null };
   const j = readJson(f);
@@ -176,7 +175,7 @@ function loadGscPage() {
 
 /** GA4 page 最新 → joinKey→{activeUsers,sessions,engagementRate}。 */
 function loadGa4Page() {
-  const f = latest(join(M, "ga4"), "ga4-page");
+  const f = latestFile(".", "ga4.page");
   const map = new Map();
   if (!f) return { map, file: null };
   const j = readJson(f);

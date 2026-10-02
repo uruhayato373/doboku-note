@@ -215,9 +215,9 @@ npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_l
 npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）
 npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して data/rum/web-vitals/*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
-npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は priority-latest.txt を :request に渡すだけ）
+npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は data/gsc/indexing-priority.txt を :request に渡すだけ）
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
-npm run gsc-sitemaps          # 本番 robots.txt の Sitemap 行（sitemap.xml・期限内の sitemap-legacy.xml）を Search Console API で送信（`-- --submit`・要サービスアカウントの「フル」権限）し、読み込み状況を gsc/sitemaps-latest.json へ（fetch-metrics.yml が週次で実行・ログイン不要）
+npm run gsc-sitemaps          # 本番 robots.txt の Sitemap 行（sitemap.xml・期限内の sitemap-legacy.xml）を Search Console API で送信（`-- --submit`・要サービスアカウントの「フル」権限）し、読み込み状況を data/gsc/sitemaps.json へ（fetch-metrics.yml が週次で実行・ログイン不要）
 npm run check-gsc-sitemaps    # sitemaps-latest.json を見て、記録が古い・GSC 未登録・送信失敗・エラー・14 日以上未読み込みなら DUE（weekly-review-guard が surface・常に exit 0）
 npm run gsc-local:install     # Mac の launchd に GSC のブラウザ作業を登録（毎日 10:30・寝ていた日は起床時に 1 回）: 順位表の先頭から登録リクエスト 10 件＋月次の理由別 UI CSV を、専用 worktree（.claude/worktrees/gsc-local・lock 済み）で回して台帳を develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は npm run google-console:login 済み。人の checkout で scripts/gsc-local-routine.mjs を直接叩かない（ブランチに乗った HEAD では拒否する）
 npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2

@@ -8,9 +8,9 @@
  *
  * Usage:
  *   node .claude/scripts/append-coverage-history.mjs \
- *     --batch data/metrics/url-inspection/inspection-batch-<ts>.json \
+ *     --batch data/gsc/url-inspection/<ts>.json \
  *     --date 2026-06-19 [--sitemap-count 1030] [--notes "..."] \
- *     [--history data/metrics/gsc/index-coverage-history.json]
+ *     [--history data/gsc/index-coverage.json]
  *
  * 冪等: 同じ --date のエントリが既にあれば追記せず exit 0。
  *       batch の results が空なら追記しない（部分失敗ガード）。
@@ -25,7 +25,7 @@ function parseArgs() {
     date: null,
     sitemapCount: null,
     notes: "",
-    history: "data/metrics/gsc/index-coverage-history.json",
+    history: "data/gsc/index-coverage.json",
   };
   for (let i = 0; i < a.length; i++) {
     switch (a[i]) {

@@ -213,6 +213,26 @@ export const RESTRUCTURED_PATHS = [
   [/^data\/metrics\/cloudflare\/cf-zone-(\d{4}-\d{2}-\d{2})\.json$/, "data/cloudflare/zone/$1.json"],
   [/^data\/metrics\/instagram\/ig-insights-(\d{4}-\d{2}-\d{2})\.json$/, "data/instagram/insights/$1.json"],
   ["data/metrics/seo-meta/seo-meta-latest.json", "data/analysis/seo-meta.json"],
+  // GSC・GA4 の一括でない取得（2026-10-02）
+  ["data/metrics/gsc/sitemaps-latest.json", "data/gsc/sitemaps.json"],
+  ["data/metrics/gsc/index-coverage-history.json", "data/gsc/index-coverage.json"],
+  [/^data\/metrics\/url-inspection\/inspection-batch-([0-9T-]+Z?)\.json$/, "data/gsc/url-inspection/$1.json"],
+  [/^data\/metrics\/url-inspection\/inspection-single-([0-9T-]+Z?)\.json$/, "data/gsc/url-inspection-single/$1.json"],
+  ["data/metrics/gsc-indexing/history.json", "data/gsc/indexing-history.json"],
+  ["data/metrics/gsc-indexing/priority-latest.json", "data/gsc/indexing-priority.json"],
+  ["data/metrics/gsc-indexing/priority-latest.txt", "data/gsc/indexing-priority.txt"],
+  ["data/metrics/gsc-indexing/requests-latest.json", "data/gsc/indexing-requests.json"],
+  ["data/metrics/gsc-ui/last-run.json", "data/gsc/ui-last-run.json"],
+  ["data/metrics/gsc-ui/ssot/history.json", "data/gsc/ui-history.json"],
+  [/^data\/metrics\/gsc-ui\/ssot\/diff\/([0-9T-]+Z?)\.json$/, "data/gsc/ui-diff/$1.json"],
+  ["data/metrics/gsc-ui/ssot/urls", "data/gsc/ui-urls.json"],
+  ["data/metrics/gsc-ui", "data/gsc/ui"],
+  ["data/metrics/ga4-admin/history.json", "data/ga4/admin-history.json"],
+  ["data/metrics/ga4-admin/inventory-latest.json", "data/ga4/admin-inventory.json"],
+  ["data/metrics/ga4-admin/last-run.json", "data/ga4/admin-last-run.json"],
+  ["data/metrics/ga4-ui/last-run.json", "data/ga4/ui-last-run.json"],
+  ["data/metrics/ga4-ui", "data/ga4/ui"],
+  [/^data\/metrics\/gsc\/coverage-diagnosis-([0-9T-]+Z?)\.json$/, "data/analysis/gsc-coverage-diagnosis/$1.json"],
 ];
 
 const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];

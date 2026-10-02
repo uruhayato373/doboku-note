@@ -21,7 +21,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
-| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`gsc-indexing/priority-latest.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
+| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/metrics/{gsc,ga4,growth,bing,ga4-admin}/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
@@ -33,19 +33,19 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `/google-search-growth` | Skill（月次。**取得と正規化は Mac の launchd `gsc-local` が `check-gsc-ui-due` の DUE で自動実行**・評価と承認はセッション） | GSC 理由別 **UI CSV**（API で取れない例 URL）を Playwright 取得 → 正規化 → URL Inspection/GSC page×query/GA4/sitemap/_redirects/生成HTML と突合 → 修正アクション分類（gsc-browser-collector/gsc-csv-auditor/seo-fix-planner）→ approval gate | ブラウザ → `gsc-ui/<run>/`（raw・gitignore）＋ **`gsc-ui/ssot/`（追跡 SSOT）** ＋ `improvements/search-growth-latest.md` |
 | `check-gsc-ui-due` | Script（surfacer） | 月次 UI 取得の期限催促。**日数だけでなく完全性も見る**＝`lastComplete` の年齢（30日）／`lastAttempt.complete !== true` のいずれかで DUE。gsc-ui（必須）と ga4-ui（任意）の 2 チャネル | committed `{gsc-ui,ga4-ui}/last-run.json` → weekly-review が DUE を surface |
 | `check-gsc-auto-review` | Script（surfacer・オフライン） | **記録層の沈黙検知**。観測ログの見出しを走査し「週次エントリが 8 日超前」「最新 inspection-batch が 8 日超未記録」を DUE 判定。走査 0 件は OK でなく「検査不能」。weekly-review-guard が実行し DUE なら Issue 起票 | `gsc-management.md` 見出し + batch 日付 → DUE 一覧 |
-| `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / sitemap > 1,900 の上限到達 / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留め `gsc-auto-review.yml` の判断へ回す | `index-coverage-history.json` → exit 0/1 |
+| `check-coverage-thresholds` | Script（ゲート・CI） | 月次データ publish 直後の機械ゲート。**赤=無条件異常のみ**（inspected 0 / sitemap > 1,900 の上限到達 / ratio < 60%）。前月比 −5pt・discovered > 20%・hygiene > 0 は warning に留め `gsc-auto-review.yml` の判断へ回す | `data/gsc/index-coverage.json` → exit 0/1 |
 | `check-google-ui-ssot` | Script（ゲート） | 追跡 SSOT の整合（marker ↔ history ↔ urls の runId・スキーマ・truncated・**検査ゼロ**）。SSOT が空／直近実行が不完全なら exit 1 | `gsc-ui/ssot/**` → exit 0/1 |
 | `ga4-admin-setup` | Script（ローカル手動・Playwright） | GA4 管理画面の設定を desired state と突合し、**不足カスタムディメンションを作成**（既定 dry-run・`--commit` で実行）。データ保持は観測のみ | `config/ga4-admin-desired-state.json` → `metrics/ga4-admin/inventory-latest.json` |
 | `check-ga4-dimensions` | Script（ゲート・オフライン） | desired state と最後の実機観測を突合。blocking なカスタムディメンション（`event_label`/`cta_placement`）が未登録なら exit 1 | inventory-latest → exit 0/1 |
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
-| `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `gsc-indexing/{priority-latest,history}.json` → DUE |
-| `gsc-request-indexing` | Script（Playwright・**Mac の launchd `gsc-local` が毎日 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `gsc-indexing/{requests-latest,history}.json` |
+| `check-gsc-indexing-due` | Script（surfacer・オフライン） | 順位表に表示実績のある未登録が残っているのに、受理された登録リクエストが 7 日以上無ければ DUE。順位表が無いときは検査不能として DUE。weekly-review-guard が毎週 job summary へ | `data/gsc/indexing-{priority,history}.json` → DUE |
+| `gsc-request-indexing` | Script（Playwright・**Mac の launchd `gsc-local` が毎日 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
 | `gsc-local` | Mac の launchd（毎日 10:30・`npm run gsc-local:install`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。専用 worktree（`.claude/worktrees/gsc-local`・lock 済み）を origin/develop に揃えて実行し台帳を push。未ログインは macOS 通知。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
-| `check-gsc-sitemaps` | Script（surfacer・オフライン） | `gsc/sitemaps-latest.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
+| `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
 | `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `metrics/gsc/rank-watch/`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
-| 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
+| 機械履歴 | `data/gsc/index-coverage.json` | indexed_ratio の時系列 | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
 > [!important]
@@ -83,12 +83,12 @@ Google の「Move a site with URL changes」（2026-08-20 更新）の手順ど�
   metrics-analyzer を起動 → 観測ログへ週次エントリ。**未記録の inspection-batch があれば同一実行で coverage 診断も行う**
   （水曜の index-coverage.yml の 2 日後＝毎週発火）。よって下の coverage CI → 記録の流れは**人手を介さず閉じる**。
   `/gsc-review`・`/weekly-improve` は応急・深掘り・上書き用として存続
-- **週次（CI・自動・coverage）**: `index-coverage.yml`（水 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち → 順位表 `priority-latest.*` を commit →
+- **週次（CI・自動・coverage）**: `index-coverage.yml`（水 JST 11:00）→ `check-coverage-thresholds` が無条件異常を赤落ち → 順位表 `indexing-priority.*` を commit →
   金曜の `gsc-auto-review.yml` が観測ログへ coverage エントリを記録（手動で先回りするなら `/gsc-review`）。
   **登録リクエスト**: Mac の launchd `gsc-local`（毎日 10:30・寝ていた日は起床時に 1 回・`npm run gsc-local:install`）が順位表の先頭から
   10 件送り、台帳を develop へ push する。止まる（Mac の電源断・Google の再ログイン待ち）と月曜の weekly-review-guard が
-  `check-gsc-indexing-due`（7 日）で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file data/metrics/gsc-indexing/priority-latest.txt --stop-at-limit`
-- **sitemap（CI・自動）**: `fetch-metrics.yml` の `gsc-sitemaps --submit` が本番 robots.txt の sitemap を送信し、読み込み状況を `gsc/sitemaps-latest.json` へ。
+  `check-gsc-indexing-due`（7 日）で DUE を出す。手で送るなら `npm run gsc-indexing:request -- --file data/gsc/indexing-priority.txt --stop-at-limit`
+- **sitemap（CI・自動）**: `fetch-metrics.yml` の `gsc-sitemaps --submit` が本番 robots.txt の sitemap を送信し、読み込み状況を `data/gsc/sitemaps.json` へ。
   月曜の weekly-review-guard が `check-gsc-sitemaps` で「記録が古い・未登録・送信失敗（権限不足）・エラー・14 日以上未読み込み」を DUE に出す
 - **月次（Mac の launchd＋セッション）**: 理由別 UI CSV の取得と正規化は `gsc-local` が `check-gsc-ui-due`（30日）の DUE で自動実行し、追跡 SSOT（`gsc-ui/ssot/`）を develop へ push する。突合 → 修正計画 → 観測ログ追記（`/google-search-growth` の validate 以降）はセッションで行う。取得が止まれば `check-gsc-ui-due` を weekly-review が surface。`/gsc-review`（coverage 全体）の深掘り＝理由ごとの例 URL を足す層。
 - **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
@@ -170,24 +170,24 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 
 | 種別 | パス |
 |---|---|
-| URL Inspection 生データ | `data/metrics/url-inspection/inspection-batch-*.json` |
-| indexed_ratio 時系列 | `data/metrics/gsc/index-coverage-history.json` |
+| URL Inspection 生データ | `data/gsc/url-inspection/*.json` |
+| indexed_ratio 時系列 | `data/gsc/index-coverage.json` |
 | GSC query/page/date | `data/metrics/gsc/gsc-*.json` |
 | 改善候補（performance） | `.claude/state/improvements/*.md` |
-| GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `data/metrics/gsc-ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
-| **GSC UI 情報の SSOT（committed）** | `data/metrics/gsc-ui/ssot/urls/<issue>--<scope>.json`（最新 URL 一覧）＋ `ssot/history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |
-| GSC UI 取得マーカー（committed） | `data/metrics/gsc-ui/last-run.json`（schemaVersion 3＝`lastAttempt`／`lastComplete`／`legacy`。`check-gsc-ui-due` が参照） |
-| GA4 UI 取得マーカー（committed） | `data/metrics/ga4-ui/last-run.json`（任意チャネル・一次経路は Data API） |
+| GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `data/gsc/ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
+| **GSC UI 情報の SSOT（committed）** | `data/gsc/ui-urls.json（units[<issue>--<scope>]）`（最新 URL 一覧）＋ `ui-history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |
+| GSC UI 取得マーカー（committed） | `data/gsc/ui-last-run.json`（schemaVersion 3＝`lastAttempt`／`lastComplete`／`legacy`。`check-gsc-ui-due` が参照） |
+| GA4 UI 取得マーカー（committed） | `data/ga4/ui-last-run.json`（任意チャネル・一次経路は Data API） |
 | GA4 管理画面 設定の期待値 | `config/ga4-admin-desired-state.json` |
-| GA4 管理画面 設定の観測（committed） | `data/metrics/ga4-admin/inventory-latest.json` ＋ `history.json` |
-| インデックス登録リクエストの記録（committed・**SSOT**） | `data/metrics/gsc-indexing/requests-latest.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
+| GA4 管理画面 設定の観測（committed） | `data/ga4/admin-inventory.json` ＋ `history.json` |
+| インデックス登録リクエストの記録（committed・**SSOT**） | `data/gsc/indexing-requests.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
 | 実験台帳（committed） | `data/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
 | 総監 CNI 5分類の実行結果（committed） | `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}` |
 
 ## 観測・判断ログ（append-only・人間の意思決定記録）
 
-> 数値は `index-coverage-history.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
+> 数値は `data/gsc/index-coverage.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
 
 書き手は 4 系統（自動 2 + 手動 2）。見出しに区別を付けて同じ時系列に積む:
 
@@ -243,7 +243,7 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 **観測**（URL 検査 20 本を再診断・7/30 リクエストから 5 日後）
 
 7/30 の run は送信上限 10 件で打ち止めになり、対象 20 本が**リクエスト群 10 / 未リクエスト群 10**に
-割れていた（`requests-latest.json` の `accepted` と `limit-reached`）。意図した実験ではないが、
+割れていた（`data/gsc/indexing-requests.json` の `accepted` と `limit-reached`）。意図した実験ではないが、
 同じ日に同じ基準で選ばれた 20 本なので、そのまま対照群として使える。
 
 | 群 | 5 日後に登録された本数 |
@@ -543,7 +543,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 ### 2026-09-17（URL 移行後の中間読み・登録リクエスト 10 件・クロール枠の漏れを修正）
 
 - 観測（本番 1,556 URL を全クロールして内部リンクを実測 × 9/7 batch）: 検出-未登録 723 件の被リンク中央値 26 本（索引済み 33 本）・被リンク 0 は 0 件・fetch/robots 異常 0 ＝**リンク不足でも技術問題でもなく、8/22 移行後の再クロール待ち**。Google 側 `referring_urls` は 672 件で空＝新 URL 体系のリンクグラフ自体が未クロール
-- 中間読み（GSC URL 検査・表示実績のある未登録 188 URL の上位 42 本・`requests-latest.json`）: **28 本（67%）が 9/7→9/17 の 10 日で登録済みへ移行**。残 14 本のうち検出-未登録 11・重複（旧 /docs を正規と判定）3。「数週間で収束」の Google 公式見込みどおりに進んでいる
+- 中間読み（GSC URL 検査・表示実績のある未登録 188 URL の上位 42 本・`data/gsc/indexing-requests.json`）: **28 本（67%）が 9/7→9/17 の 10 日で登録済みへ移行**。残 14 本のうち検出-未登録 11・重複（旧 /docs を正規と判定）3。「数週間で収束」の Google 公式見込みどおりに進んでいる
 - 打ち手 1（PR #517）: pre-commit が frontmatter だけの一括 commit（tags 付与・sources 結線）でも `dateModified` を更新し、**2 週間で sitemap 1,556 件中 1,209 件の lastmod が「更新」扱い**になっていた。本文・title・seoTitle・description が変わらない diff では据え置く。lastmod を信用できる信号に戻し、再クロール枠を未クロール側へ回す
 - 打ち手 2（同 PR）: `gsc-request-indexing` を正規パス対応にし、検出-未登録 10 本へ登録リクエスト送信（受理 10 / button-not-found 1 = law-compliance の重複判定ページ / 上限持ち越し 2）。EXP-006（crawled-not-indexed 対象）と違い、今回の対象は**未クロール**なので「強制クロール」として直接効く前提。効果は 9/24 の中間 Inspection と 10/1 月次で読む
 - 打ち手 3（同 PR）: R8 予想問題テーマ 6 本の `hideFromCategory` を外す（被リンク 1 本＝sitemap 中で最弱・6 本とも未登録）

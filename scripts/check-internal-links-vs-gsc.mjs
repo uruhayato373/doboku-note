@@ -28,16 +28,17 @@
  */
 import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { join, sep } from "node:path";
+import { readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
 
-const SSOT = "data/metrics/gsc-ui/ssot/urls";
+const SSOT = urlsPath("gsc-ui");
 const META = "src/config/doc-meta-index.json";
 const SCAN_ROOTS = ["content/site", "src"];
 const WANT_JSON = process.argv.includes("--json");
 
-function loadSsotSlugs(file) {
-  const p = join(SSOT, file);
-  if (!existsSync(p)) return null;
-  const rows = JSON.parse(readFileSync(p, "utf8")).rows ?? [];
+function loadSsotSlugs(key) {
+  const doc = readUnitSsot("gsc-ui", key);
+  if (!doc) return null;
+  const rows = doc.rows ?? [];
   // フラット slug（/docs/xxx で終わる）だけを対象にする。旧階層 URL（/docs/road/road-law/041）は
   // 内部リンクの書式ではないので照合対象外。
   const out = new Set();
@@ -60,8 +61,8 @@ function walk(dir, exts, acc = []) {
   return acc;
 }
 
-const notFound = loadSsotSlugs("notFound--allKnownPages.json");
-const redirect = loadSsotSlugs("redirect--allKnownPages.json");
+const notFound = loadSsotSlugs("notFound--allKnownPages");
+const redirect = loadSsotSlugs("redirect--allKnownPages");
 
 if (notFound == null && redirect == null) {
   const msg =
