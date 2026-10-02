@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlinkSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
@@ -475,9 +476,13 @@ export function snapshot(root, period, now = new Date()) {
 }
 function snapshotUnlocked(root, period, now) {
   const report = buildReport(root, period, now);
-  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   // note が確定前の月を含むスナップショットは、確定後に取り直す前提の暫定物として印を付ける（レビューは暫定にしかできない）
   const pendingFinalization = noteMonthsPendingFinalization(period, jst(now));
+  // 直前の同じ期間のスナップショットと方針・集計・確定待ちが同じなら新しい記録を作らず、直前のものを返す
+  // （週次の自動実行が createdAt だけ違う同一内容を積んでいた。27 本中 10 本）
+  const previous = currentRecords(records(root), 'snapshot').find(r => samePeriod(r.period, period));
+  if (previous && previous.strategyHash === report.strategyHash && isDeepStrictEqual(previous.cells, JSON.parse(JSON.stringify(report.cells))) && isDeepStrictEqual(previous.pendingFinalization ?? [], pendingFinalization)) return { ...previous, unchanged: true };
+  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources, ...(pendingFinalization.length ? { pendingFinalization } : {}) });
 }
 export function assertLocalWrite(request) {

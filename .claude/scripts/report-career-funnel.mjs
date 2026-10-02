@@ -29,6 +29,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { datasetPath, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
@@ -268,7 +269,7 @@ function main() {
     ga4Device: latestSnapshot("ga4.cta-clicks-by-device"),
     ga4Page: latestSnapshot("ga4.page"),
     gscPageQuery: latestSnapshot("gsc.page-query"),
-    a8: existsSync(join(ROOT, datasetPath("a8.results"))) ? join(ROOT, datasetPath("a8.results")) : null,
+    a8: existsSync(join(ROOT, datasetPath("a8.report-log"))) ? join(ROOT, datasetPath("a8.report-log")) : null,
     afb: latestFile(ROOT, "afb.outcomes") ? join(ROOT, latestFile(ROOT, "afb.outcomes")) : null,
   };
   const missing = Object.entries(inputs)
@@ -286,7 +287,7 @@ function main() {
   const ga4Placement = inputs.ga4Placement ? readJson(inputs.ga4Placement) : { meta: null, rows: [] };
   const ga4Page = inputs.ga4Page ? readJson(inputs.ga4Page) : { meta: null, rows: [] };
   const gscPageQuery = readJson(inputs.gscPageQuery);
-  const a8 = inputs.a8 ? readJson(inputs.a8) : { records: [] };
+  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
   const afb = inputs.afb ? readJson(inputs.afb) : null;
 
   const windows = checkWindows(ga4Label.meta, gscPageQuery.meta);

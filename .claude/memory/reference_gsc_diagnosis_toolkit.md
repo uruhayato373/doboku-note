@@ -43,7 +43,7 @@ node .claude/scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
 **判定マトリクス**（analyze-gsc-coverage.mjs が自動出力）:
 - last_crawl null ≥ 50% → クロールバジェット問題
 - page_fetch SUCCESSFUL < 80% → SSR/レンダリング問題
-- referring_urls 0 件 ≥ 50% → 内部リンク不全
+- referring_urls 0 件 ≥ 50% → 内部リンク不全（2026-10 から URL 検査のバッチは referring_urls を記録しない＝この判定は集計できない。単発 `inspect-url --url` は全欄を出す。診断の JSON/md は `.tmp/` へ出る）
 - referring 6+ なのに ex0 滞留 ≥ 100 → 権威性問題（内部施策効かない）
 - canonical 不一致 ≥ 30% → 重複判定問題
 - インデックス済 + 90 日 imp=0 ≥ 80% → 戦略資産集中の根拠

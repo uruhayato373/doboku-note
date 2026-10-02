@@ -222,7 +222,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 | 層 | ファイル | 役割 | サイズ |
 |---|---|---|---|
 | **エージェント参照 SSOT** | `data/coconala/market-summary.json` | キーワード別の価格分位・セグメント内訳・レビュー数トップ5 に畳んだ派生物。**着手時はまずこれを read** | 約 8KB |
-| アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細。個別出品の説明文・オプションまで見たいときだけ read | 約 700KB |
+| アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細（URL で一意）。個別出品の詳細まで見たいときだけ read | 約 700KB |
 
 - **再取得（実測）**: `npm run coconala-research`（＝`scripts/coconala-research.mjs`・Playwright）。生データ更新後にサマリーも自動再生成。
 - **サマリーだけ再生成**: `npm run coconala-summary`（＝`--summary-only`・Playwright 不使用・生データから畳むだけ・秒で終わる）。
@@ -230,7 +230,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 `market-summary.json` = `{ version, generatedAt, fetchedAt, source, note, keywords: [{ keyword, totalHits, collected, priceYen: {min,median,mean,max}, segments, topByReviews: [{title,seller,priceYen,rating,reviews,segment,url}] }] }`
 
-生データ `market-research.json` = `{ version, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, services: [...] }] }`
+生データ `market-research.json` = `{ version: 2, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, complete }], services: [{ title, catchphrase, seller, rating, reviews, priceYen, url, segment, queries: [見つかった検索語], detail? }], updatedAt }`。出品は URL で一意（語ごとに重ねて持たない）・説明の抜粋は持たない・`detail` は詳細ページを取った出品だけ（保存形は `scripts/lib/coconala-market.mjs`）
 
 `{ version, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, services: [...] }] }`
 

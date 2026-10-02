@@ -12,20 +12,13 @@
  *   - GSC の page（data/gsc/reports/<日付>.json・keys:[URL], clicks, impressions, ctr, position・
  *     page×query と打ち切り版は除外＝lib/ga4-snapshot.mjs の pickGscPage）
  *
- * 出力:
- *   - data/analysis/crosswalk/crosswalk-<ISO>.json  （全 join 行）
- *   - data/analysis/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
- *   - コンソールにサマリ
+ * 出力（何も書かない）: 標準出力に Markdown（サマリ＋改善機会 Top）。--json なら join 済みの全行（meta + rows）。
+ * 週次の CI では回さない（読み手がいない週次出力だったので 2026-10 にやめた）。見たいときに手で回す。
  *
- * usage: node .claude/scripts/report-ga4-gsc-crosswalk.mjs [--min-impr 50] [--low-ctr 0.01]
+ * usage: node .claude/scripts/report-ga4-gsc-crosswalk.mjs [--min-impr 50] [--low-ctr 0.01] [--json]
  */
-import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
-import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
-
-const OUT_DIR = datasetDir("analysis.crosswalk");
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);
@@ -33,6 +26,7 @@ function arg(name, def) {
 }
 const MIN_IMPR = parseInt(arg("--min-impr", "50"), 10);
 const LOW_CTR = parseFloat(arg("--low-ctr", "0.01"));
+const JSON_OUT = process.argv.includes("--json");
 
 // URL / path を join キーへ正規化（ドメイン除去・クエリ/ハッシュ除去・末尾スラッシュ除去）
 function normPath(u) {
@@ -103,7 +97,6 @@ function fmtPct(v) {
   return v === null ? "n.d." : (v * 100).toFixed(1) + "%";
 }
 
-const stamp = (ga4.meta?.endDate || "") + "_" + (gsc.meta?.endDate || "");
 const md = [];
 md.push(`# GA4 × GSC crosswalk（page 突合）`);
 md.push("");
@@ -142,11 +135,10 @@ if (gscNoGa4.length) {
   md.push("");
 }
 
-if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
-const isoSafe = stamp.replace(/[^0-9_]/g, "");
-writeFileSync(join(OUT_DIR, `crosswalk-${isoSafe}.json`), JSON.stringify({ meta: { ga4File, gscFile, ga4Range: [ga4.meta?.startDate, ga4.meta?.endDate], gscRange: [gsc.meta?.startDate, gsc.meta?.endDate], minImpr: MIN_IMPR, lowCtr: LOW_CTR }, rows }, null, 2));
-writeFileSync(join(OUT_DIR, "crosswalk-latest.md"), md.join("\n"));
-
-console.log(`[crosswalk] join ${rows.length} paths（GSC∩GA4 ${rows.filter((r) => r.gsc && r.ga4).length}）`);
-console.log(`  title機会(pos≤15低CTR): ${titleOpportunity.length}｜ranking機会(pos>15): ${rankingOpportunity.length}｜Ranked-Low-Engage: ${rankedLowEngage.length}｜GSC-only-clicks: ${gscNoGa4.length}`);
-console.log(`  → ${join(OUT_DIR, "crosswalk-latest.md")}`);
+if (JSON_OUT) {
+  console.log(JSON.stringify({ meta: { ga4File, gscFile, ga4Range: [ga4.meta?.startDate, ga4.meta?.endDate], gscRange: [gsc.meta?.startDate, gsc.meta?.endDate], minImpr: MIN_IMPR, lowCtr: LOW_CTR }, rows }, null, 2));
+} else {
+  console.log(md.join("\n"));
+}
+console.error(`[crosswalk] join ${rows.length} paths（GSC∩GA4 ${rows.filter((r) => r.gsc && r.ga4).length}）`);
+console.error(`  title機会(pos≤15低CTR): ${titleOpportunity.length}｜ranking機会(pos>15): ${rankingOpportunity.length}｜Ranked-Low-Engage: ${rankedLowEngage.length}｜GSC-only-clicks: ${gscNoGa4.length}`);

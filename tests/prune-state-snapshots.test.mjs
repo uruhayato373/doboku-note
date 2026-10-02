@@ -10,8 +10,8 @@ import { DATASETS, datasetPath, patternOf } from '../scripts/lib/datasets.mjs';
 import {
   FAMILIES,
   POLICIES,
+  RETIRED_FAMILIES,
   collectPins,
-  filterWeeklyIndex,
   isDated,
   isExcluded,
   plan,
@@ -28,7 +28,6 @@ const psi = (ts) => datasetPath('psi.batch', { ts });
 /** 日ごとのレポート（GA4・GSC の週次取得）。n 日前の日付のファイル */
 const dayReport = (source, n) => datasetPath(`${source}.reports`, { date: day(n).slice(0, 10) });
 const week = (w) => datasetPath('business.weekly', { week: `2026-W${String(w).padStart(2, '0')}` });
-const WEEK_INDEX = datasetPath('business.weekly-index');
 const BUSINESS = datasetPath('business.snapshot', { ts: '2026-09-13T02-22-01-130Z', uuid: '8275f38f-bcf9-499a-a79e-9753bc204570' });
 const RANK = datasetPath('gsc.rank-watch', { month: '2026-08' });
 
@@ -50,10 +49,10 @@ test('寿命の宣言は台帳の retain から作り、family は既知・規�
     assert.ok(typeof p.family === 'string' && p.family, `${p.dataset} に family が無い`);
     const x = DATASETS.find((d) => d.id === p.dataset);
     assert.ok(!x.immutable && !x.local, `${p.dataset}: 中身を変えない台帳・手元だけのデータに寿命は書かない`);
-    if (p.rule.index) assert.ok(DATASETS.some((d) => d.id === p.rule.index), `${p.dataset} の index ${p.rule.index} が台帳に無い`);
   }
-  // ワークフロー（main の YAML）が --family で渡す名前は残す
-  for (const f of ['psi', 'ga4', 'gsc', 'monetization', 'crosswalk', 'weekly-metrics', 'growth', 'bing', 'url-inspection', 'cloudflare', 'instagram']) assert.ok(FAMILIES.includes(f), f);
+  // ワークフロー（main の YAML）が --family で渡す名前は残す。消した family（crosswalk）は RETIRED_FAMILIES に置く
+  for (const f of ['psi', 'ga4', 'gsc', 'monetization', 'weekly-metrics', 'growth', 'bing', 'url-inspection', 'cloudflare', 'instagram']) assert.ok(FAMILIES.includes(f), f);
+  for (const f of RETIRED_FAMILIES) assert.ok(!FAMILIES.includes(f), `${f} は台帳に残っている（RETIRED_FAMILIES から外す）`);
   assert.equal(policiesFor(psi('2026-09-06T18-53-31')).length, 1);
   assert.equal(policiesFor('data/psi/batch/unknown-2026-09-06T18-53-31.json').length, 0);
 });
@@ -109,6 +108,15 @@ test('plan: 日ごとのレポートは、各種類の最新を含む日を古�
   assert.equal(by[dayReport('ga4', 200)].decision, 'delete');
 });
 
+test('plan: 取得をやめた枠（device）しか持たない古い日は、「各種類の最新」として永久に残さない', () => {
+  const stale = dayReport('ga4', 200);
+  const files = [stale, dayReport('ga4', 1)];
+  const readJson = (f) => ({ reports: f === stale ? { device: {}, page: {} } : { page: {} } });
+  const r = plan({ files, now: NOW, readJson });
+  const by = Object.fromEntries(r.entries.map((e) => [e.file, e]));
+  assert.equal(by[stale].decision, 'delete');
+});
+
 test('plan: 寿命の無い日付付きファイルは undeclared として数え、消さない。--family は他 family を skipped にする', () => {
   const mystery = `data/psi/batch/mystery-${day(1)}.json`;
   const files = [mystery, psi(day(1)), dayReport('ga4', 1)];
@@ -118,18 +126,24 @@ test('plan: 寿命の無い日付付きファイルは undeclared として数�
   assert.equal(r.summary.delete, 0);
 });
 
-test('plan: 週次は 26 週を残し索引の書き直し指示を返す。filterWeeklyIndex が weeks を落とす', () => {
+test('plan: 週次は 26 週を残し、古い 4 週を消す', () => {
   const files = [];
   for (let w = 1; w <= 30; w++) files.push(week(w));
-  files.push(WEEK_INDEX);
   const r = plan({ files, now: NOW });
   assert.equal(r.summary.delete, 4);
-  assert.equal(r.indexRewrites.length, 1);
-  assert.equal(r.indexRewrites[0].index, WEEK_INDEX);
-  const idx = { version: 1, weeks: files.filter((f) => f !== WEEK_INDEX).map((p) => ({ week_id: p.slice(-12, -5), path: p })) };
-  const next = filterWeeklyIndex(idx, r.indexRewrites[0].removed);
-  assert.equal(next.weeks.length, 26);
-  assert.ok(!next.weeks.some((w) => w.path.endsWith('2026-W01.json')));
+  assert.deepEqual(r.entries.filter((e) => e.decision === 'delete').map((e) => e.file).sort(), [1, 2, 3, 4].map(week));
+});
+
+test('plan: 成長パックは最新＋減衰判定の過去 3 週、導線の網羅は最新 1 本だけ残す', () => {
+  const files = [];
+  for (let w = 30; w <= 37; w++) files.push(datasetPath('analysis.growth-pack', { week: `2026-W${w}` }));
+  for (let i = 0; i < 3; i++) files.push(datasetPath('analysis.monetization-coverage', { ts: day(i) }));
+  const r = plan({ files, now: NOW });
+  const by = (family) => r.entries.filter((e) => e.family === family);
+  assert.equal(by('growth').filter((e) => e.decision === 'keep').length, 4);
+  assert.equal(by('growth').filter((e) => e.decision === 'delete').length, 4);
+  assert.equal(by('monetization').filter((e) => e.decision === 'keep').length, 1);
+  assert.equal(by('monetization').filter((e) => e.decision === 'delete').length, 2);
 });
 
 test('collectPins: seo-watchwords の gsc evidence と business 台帳が指すパスを拾い、移す前の名前は今の置き場へ読み替える', () => {
@@ -148,7 +162,7 @@ test('CLI: 実 repo で --check-coverage が未宣言 0 で exit 0（数を出�
   assert.match(out, /寿命が宣言されている/);
 });
 
-test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変えない台帳と索引を正しく扱う', () => {
+test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変えない台帳を触らない', () => {
   const root = mkdtempSync(join(tmpdir(), 'prune-state-'));
   try {
     execFileSync('git', ['init', '-q', root]);
@@ -160,7 +174,6 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変
     put(BUSINESS, '{"sources":[]}');
     put(RANK);
     for (let w = 1; w <= 28; w++) put(week(w));
-    put(WEEK_INDEX, JSON.stringify({ version: 1, weeks: Array.from({ length: 28 }, (_, i) => ({ week_id: `2026-W${String(i + 1).padStart(2, '0')}`, path: week(i + 1) })) }));
     execFileSync('git', ['-C', root, 'add', '-A']);
     execFileSync('git', ['-C', root, '-c', 'user.email=t@t', '-c', 'user.name=t', 'commit', '-q', '-m', 'seed']);
     // psi の最新 1 件は untracked（workflow の書き戻し直後と同じ状態）。本文を変え rename 検出を避ける
@@ -178,9 +191,8 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変
     assert.ok(!existsSync(join(root, psi(day(14)))));
     assert.ok(existsSync(join(root, psi(day(12)))));
     assert.ok(existsSync(join(root, BUSINESS)) && existsSync(join(root, RANK)));
-    const idx = JSON.parse(readFileSync(join(root, WEEK_INDEX), 'utf8'));
-    assert.equal(idx.weeks.length, 26);
-    assert.ok(!existsSync(join(root, week(1))));
+    assert.ok(!existsSync(join(root, week(1))) && !existsSync(join(root, week(2))));
+    assert.ok(existsSync(join(root, week(3))));
     // add -A が削除も stage する（workflow の前提）
     execFileSync('git', ['-C', root, 'add', '-A', '--', 'data']);
     const staged = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'diff', '--cached', '--name-status', '--no-renames'], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
@@ -190,6 +202,13 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test('CLI: 台帳から消した family（crosswalk）は何も消さずに受け付け、知らない family は止める', () => {
+  const run = (...args) => execFileSync(process.execPath, [CLI, '--now', '2026-09-14T13:00:00Z', ...args], { cwd: REPO, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  assert.match(run('--family', 'crosswalk'), /台帳に無い family は何も消さない: crosswalk/);
+  assert.match(run('--family', 'psi,crosswalk'), /台帳に無い family は何も消さない: crosswalk/);
+  assert.throws(() => run('--family', 'no-such-family'), /unknown family: no-such-family/);
 });
 
 test('寿命のあるデータセットのパスは日付の型を持つ（日付の無いファイルに寿命を書いても効かない）', () => {

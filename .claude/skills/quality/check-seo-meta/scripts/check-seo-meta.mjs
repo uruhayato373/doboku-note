@@ -18,7 +18,10 @@
  *   npm run check-seo-meta                       # out/ 直接検査（主経路・要 npm run build）
  *   npm run check-seo-meta -- --limit 20         # 先頭 20 URL（dry-run）
  *   npm run check-seo-meta -- --base-url https://doboku-note.com  # HTTP 巡回（本番・Bot 注意）
- *   npm run check-seo-meta -- --json             # 結果 JSON を stdout
+ *   npm run check-seo-meta -- --json             # 全 URL の結果 JSON を stdout（ファイルは書かない）
+ *
+ * 追跡するファイル（台帳 analysis.seo-meta）に書くのは summary と違反のある URL の行だけ。
+ * 全 URL の行は 1MB あり、違反は数行・canonical と og:url は全行が self URL で同値だった（2026-10）。
  *
  * 依存: Node 20+ / node-html-parser（seo-checks 経由）。
  */
@@ -255,7 +258,17 @@ async function main() {
 
   const outPath = datasetPath("analysis.seo-meta");
   mkdirSync(dirname(outPath), { recursive: true });
-  writeFileSync(outPath, JSON.stringify(out, null, 2));
+  const stored = {
+    version: 3,
+    generated_at: out.generated_at,
+    base_url: out.base_url,
+    mode: out.mode,
+    summary: out.summary,
+    results_note: "違反のある URL の行だけ（全 URL の結果は npm run check-seo-meta -- --json）",
+    results: results.filter((r) => r.violations && r.violations.length),
+    violations_by_type: out.violations_by_type,
+  };
+  writeFileSync(outPath, JSON.stringify(stored, null, 2));
 
   console.log("");
   console.log(`✓ ${summary.urls_checked} URL 検査完了 (${summary.duration_ms} ms)`);

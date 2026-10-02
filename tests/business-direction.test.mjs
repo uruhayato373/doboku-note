@@ -135,6 +135,17 @@ test('targets require real complete baselines',t=>{
  assert.throws(()=>saveRecord(root,target,now),/実測/);
  saveRecord(root,measure(),now);const second=snapshot(root,period,now);saveRecord(root,{...target,snapshot:second.file},now);
 });
+test('a snapshot identical to the previous one of the same period is not written again',t=>{
+ const root=fixture(t), count=()=>records(root).filter(r=>r.kind==='snapshot').length;
+ const first=snapshot(root,period,now);assert.equal(first.unchanged,undefined);
+ const again=snapshot(root,period,new Date('2026-09-13T02:00:00Z'));
+ assert.equal(again.unchanged,true);assert.equal(again.file,first.file);assert.equal(count(),1);
+ // 中身が変われば書く。別の期間は別に数える
+ saveRecord(root,measure(),now);const changed=snapshot(root,period,new Date('2026-09-13T03:00:00Z'));
+ assert.notEqual(changed.file,first.file);assert.equal(changed.unchanged,undefined);assert.equal(count(),2);
+ assert.equal(snapshot(root,period,new Date('2026-09-13T04:00:00Z')).file,changed.file);
+ snapshot(root,{startDate:'2026-08-24',endDate:'2026-08-30'},now);assert.equal(count(),3);
+});
 test('write endpoint requires local same-origin JSON',()=>{
  const make=(origin,host='127.0.0.1:3021')=>new Request('http://127.0.0.1:3021/metrics/business/record',{method:'POST',headers:{origin,host,'content-type':'application/json'}});
  assert.doesNotThrow(()=>assertLocalWrite(make('http://127.0.0.1:3021')));

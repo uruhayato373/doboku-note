@@ -58,8 +58,10 @@ npm run check-seo-meta -- --json
 npm run check-seo-meta -- --base-url https://doboku-note.com
 ```
 
-結果は `data/analysis/seo-meta.json` を上書きする。約1.2MBの全URL結果を
-実行ごとの別名ファイルとしてGitへ増やさない。過去の結果と比べるときは git の履歴から取り出す。
+結果は `data/analysis/seo-meta.json` を上書きする（summary と違反のある URL の行だけ・約 1KB。
+全 URL の行は 1MB あり、違反は数行・canonical と og:url は全行が self URL で同値だったので持たない）。
+全 URL の結果は `-- --json`（標準出力）で見る。実行ごとの別名ファイルとして Git へ増やさない。
+過去の結果と比べるときは git の履歴から取り出す。
 
 ### 結果レポート出力
 
@@ -81,7 +83,7 @@ npm run check-seo-meta:check -- --exit-on-violation
 
 ```json
 {
-  "version": 2,
+  "version": 3,
   "generated_at": "2026-07-13T22:00:00.000Z",
   "base_url": "out/ (static export)",
   "mode": "out",
@@ -94,6 +96,7 @@ npm run check-seo-meta:check -- --exit-on-violation
     "by_type": { "jsonld_headline_mismatch": 55, "description_long": 24, "ssr_thin_body": 2 },
     "duration_ms": 73300
   },
+  "results_note": "違反のある URL の行だけ（全 URL の結果は npm run check-seo-meta -- --json）",
   "results": [
     {
       "url": "/exam/...",
@@ -103,12 +106,14 @@ npm run check-seo-meta:check -- --exit-on-violation
       "og_url": "https://doboku-note.com/exam/...",
       "robots": "index, follow",
       "json_ld": { "count": 5 },
-      "violations": []
+      "violations": [{ "type": "description_long", "severity": "MEDIUM", "message": "..." }]
     }
   ],
   "violations_by_type": { "description_long": ["/docs/..."] }
 }
 ```
+
+`-- --json` の標準出力は同じ形で、`results` が全 URL の行（違反の無い行は `violations: []`）。
 
 ## 違反タイプと Severity
 

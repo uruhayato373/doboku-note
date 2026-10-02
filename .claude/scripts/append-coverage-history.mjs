@@ -2,7 +2,9 @@
 /**
  * URL Inspection の batch ファイルを集計し、index-coverage-history.json に1エントリ追記する。
  *
- * GSC 管理 SSOT の機械履歴部分（時系列の indexed_ratio）を維持する。
+ * GSC 管理 SSOT の機械履歴部分（時系列の indexed_ratio と、資格別の件数・率 by_qualification）を維持する。
+ * 資格別は /exam/<資格id>/ 配下の URL ごと（scripts/lib/index-coverage.mjs）。バッチは新しい 2 回分しか残さないので、
+ * 資格別をバッチから後で数え直せない＝この回の分をここで履歴に書く。
  * creds 不要（既存 JSON を読んで集計するだけ）＝ローカルでもテスト可能。
  * index-coverage.yml（CI・月次）が URL Inspection 後に呼ぶ。設計の真実源は .claude/knowledge/reference/gsc-management.md。
  *
@@ -18,6 +20,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { qualificationIdsIn, qualificationRatios } from "../../scripts/lib/index-coverage.mjs";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -106,6 +109,7 @@ const entry = {
   inspected,
   ...counts,
   indexed_ratio: indexedRatio,
+  by_qualification: qualificationRatios(results, qualificationIdsIn(results)),
   batch_file: batchPaths.map((p) => p.split("/").pop()).join(","),
   notes: o.notes || "",
 };

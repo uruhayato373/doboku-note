@@ -186,6 +186,29 @@ function extractSummary(result, inspectedUrl) {
   };
 }
 
+/**
+ * バッチ（複数 URL）に残す欄。読まれるのは url・inspected_at と index の verdict・coverage_state・robots_txt_state・
+ * last_crawl_time・page_fetch_state・google_canonical・user_canonical だけ。mobile（全件 VERDICT_UNSPECIFIED）・amp（全件 null）・
+ * rich_results・inspection_result_link・indexing_state・sitemap・referring_urls は読み手がおらず、バッチの容量の大半だった（2026-10 に落とした）。
+ * 単発（1 URL）の出力と CLI 表示は全欄のまま。
+ */
+export function batchSummary(summary) {
+  const i = summary.index;
+  return {
+    url: summary.url,
+    inspected_at: summary.inspected_at,
+    index: {
+      verdict: i.verdict,
+      coverage_state: i.coverage_state,
+      robots_txt_state: i.robots_txt_state,
+      last_crawl_time: i.last_crawl_time,
+      page_fetch_state: i.page_fetch_state,
+      google_canonical: i.google_canonical,
+      user_canonical: i.user_canonical,
+    },
+  };
+}
+
 function printSummary(summary) {
   const verdictEmoji = (v) =>
     ({ PASS: "✓", PARTIAL: "⚠", FAIL: "✗", NEUTRAL: "—" }[v] || "?");
@@ -326,7 +349,7 @@ async function main() {
       const result = await inspectUrl(auth, url);
       const summary = extractSummary(result, url);
       if (!opts.json) printSummary(summary);
-      return summary;
+      return urls.length > 1 ? batchSummary(summary) : summary;
     },
     {
       shouldStop: () => stopping,
