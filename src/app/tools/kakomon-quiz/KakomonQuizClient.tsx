@@ -30,6 +30,11 @@ export type KakomonQuizConfig = {
   sourceNote: string;
   yearTitleSuffix: string;
   showSubjects?: boolean;
+  /**
+   * 専門科目を部門で選ぶ試験（技術士一次＝建設・上下水道）。受験者は基礎・適性＋専門 1 部門を受けるので、
+   * 年度別・ランダムは選んだ部門の専門科目だけを含める（他部門の専門科目は出さない）。科目別・復習は全科目。
+   */
+  specialties?: readonly { subject: string; label: string }[];
   placeholderYears?: QuizDataset["years"];
   placeholderSubjects?: NonNullable<QuizDataset["subjects"]>;
   /** Phase 0の匿名Premium需要テスト対象。現時点では1級土木だけを有効化する。 */
@@ -84,6 +89,7 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
   const wrongKey = `dnq:${config.exam}:wrong`;
   const tallyKey = `dnq:${config.exam}:tally`;
   const completionKey = `dnq:${config.exam}:completions`;
+  const specialtyKey = `dnq:${config.exam}:specialty`;
   const [data, setData] = useState<QuizDataset | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState(false);
@@ -91,6 +97,7 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
   const [wrong, setWrong] = useState<Set<string>>(new Set());
   const [tally, setTally] = useState<Tally>({ answered: 0, correct: 0 });
   const [completionCount, setCompletionCount] = useState(0);
+  const [specialty, setSpecialty] = useState<string | null>(config.specialties?.[0]?.subject ?? null);
   const dataRef = useRef<QuizDataset | null>(null);
 
   // localStorage 読み出しは mount 後（SSR/hydration 安全）
@@ -102,10 +109,27 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
       if (t && typeof t.answered === "number") setTally(t);
       const completions = Number(localStorage.getItem(completionKey) || "0");
       if (Number.isSafeInteger(completions) && completions >= 0) setCompletionCount(completions);
+      const savedSpecialty = localStorage.getItem(specialtyKey);
+      if (savedSpecialty && config.specialties?.some((item) => item.subject === savedSpecialty)) setSpecialty(savedSpecialty);
     } catch {
       /* 破損時は無視 */
     }
-  }, [completionKey, tallyKey, wrongKey]);
+  }, [completionKey, config.specialties, specialtyKey, tallyKey, wrongKey]);
+
+  const chooseSpecialty = useCallback((subject: string) => {
+    setSpecialty(subject);
+    try {
+      localStorage.setItem(specialtyKey, subject);
+    } catch {
+      /* 保存不可でも演習は継続 */
+    }
+  }, [specialtyKey]);
+
+  // 年度別・ランダムの出題範囲: 部門を選ぶ試験では、選んでいない部門の専門科目を外す
+  const inScope = useCallback(
+    (q: QuizQuestion) => !config.specialties?.some((item) => item.subject === q.subject) || q.subject === specialty,
+    [config.specialties, specialty],
+  );
 
   const ensureData = useCallback(async (): Promise<QuizDataset | null> => {
     if (dataRef.current) return dataRef.current;
@@ -178,25 +202,25 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
     if (!data || !mode) return [];
     if (mode.kind === "year") {
       return data.questions
-        .filter((q) => q.year === mode.year)
+        .filter((q) => q.year === mode.year && inScope(q))
         .sort((a, b) => a.id.localeCompare(b.id));
     }
     if (mode.kind === "subject") {
       return data.questions.filter((q) => q.subject === mode.subject);
     }
     if (mode.kind === "random") {
-      return shuffle(data.questions).slice(0, RANDOM_COUNT);
+      return shuffle(data.questions.filter(inScope)).slice(0, RANDOM_COUNT);
     }
     // review
     return data.questions.filter((q) => wrong.has(q.id));
     // wrong を依存に入れると復習中に集合が縮んで問題が消えるため、開始時点で固定
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, mode]);
+  }, [data, mode, inScope]);
 
   if (mode && questions.length > 0) {
     return (
       <QuizRunner
-        title={modeTitle(mode, data, config)}
+        title={modeTitle(mode, data, config, specialty)}
         questions={questions}
         config={config}
         onRecord={recordAnswer}
@@ -218,19 +242,23 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
       onStart={start}
       onRetry={ensureData}
       config={config}
+      specialty={specialty}
+      onChooseSpecialty={chooseSpecialty}
+      inScope={inScope}
     />
   );
 }
 
-function modeTitle(mode: Mode, data: QuizDataset | null, config: KakomonQuizConfig): string {
+function modeTitle(mode: Mode, data: QuizDataset | null, config: KakomonQuizConfig, specialty: string | null): string {
+  const specialtyLabel = config.specialties?.find((item) => item.subject === specialty)?.label;
   if (mode.kind === "year") {
     const y = data?.years.find((yr) => yr.year === mode.year);
-    return `${y?.yearLabel ?? mode.year}${config.yearTitleSuffix}`;
+    return `${y?.yearLabel ?? mode.year}${config.yearTitleSuffix}${specialtyLabel ? `（${specialtyLabel}）` : ""}`;
   }
   if (mode.kind === "subject") {
     return data?.subjects?.find((item) => item.subject === mode.subject)?.subjectLabel ?? mode.subject;
   }
-  if (mode.kind === "random") return "ランダム20問";
+  if (mode.kind === "random") return `ランダム20問${specialtyLabel ? `（${specialtyLabel}）` : ""}`;
   return "間違い復習";
 }
 
@@ -246,6 +274,9 @@ function MenuScreen({
   onStart,
   onRetry,
   config,
+  specialty,
+  onChooseSpecialty,
+  inScope,
 }: {
   data: QuizDataset | null;
   loading: boolean;
@@ -256,6 +287,9 @@ function MenuScreen({
   onStart: (m: Mode) => void;
   onRetry: () => void;
   config: KakomonQuizConfig;
+  specialty: string | null;
+  onChooseSpecialty: (subject: string) => void;
+  inScope: (q: QuizQuestion) => boolean;
 }) {
   const totalPct = tally.answered > 0 ? Math.round((tally.correct / tally.answered) * 100) : null;
   return (
@@ -286,6 +320,30 @@ function MenuScreen({
           >
             再読み込み
           </button>
+        </div>
+      )}
+
+      {config.specialties && config.specialties.length > 1 && (
+        <div className="mb-6">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-(--ink-muted) mb-2">
+            専門科目の部門（年度別・ランダムに含める部門）
+          </div>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="専門科目の部門">
+            {config.specialties.map((item) => {
+              const active = item.subject === specialty;
+              return (
+                <button
+                  key={item.subject}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => onChooseSpecialty(item.subject)}
+                  className={`focus-ring rounded-card-content border px-3 py-1.5 text-sm font-bold transition-colors ${active ? "border-(--accent) bg-(--accent-fill) text-(--accent)" : "border-(--rule) text-(--ink-body) hover:border-(--accent)"}`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
 
@@ -356,7 +414,9 @@ function MenuScreen({
               className="focus-ring card-surface-content p-3 text-left shadow-none transition-colors hover:border-(--accent) disabled:opacity-60"
             >
               <div className="font-bold text-(--ink) text-[14px]">{y.yearLabel}</div>
-              <div className="text-[12px] text-(--ink-muted) mt-0.5">{y.count}問</div>
+              <div className="text-[12px] text-(--ink-muted) mt-0.5">
+                {data ? data.questions.filter((q) => q.year === y.year && inScope(q)).length : y.count}問
+              </div>
             </button>
           ))}
         </div>

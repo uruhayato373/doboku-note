@@ -37,7 +37,7 @@ const SOURCES = [
   },
   {
     exam: 'pe-first-stage',
-    examLabel: '技術士第一次試験（建設部門）',
+    examLabel: '技術士第一次試験（建設部門・上下水道部門）',
     kind: 'pe-first-stage-mdx',
     srcPath: 'content/site/pe-first-stage',
   },
@@ -51,6 +51,8 @@ const PE1_SUBJECTS = {
   basic: { label: '基礎科目', order: 1, expectedPerYear: 30 },
   aptitude: { label: '適性科目', order: 2, expectedPerYear: 15 },
   construction: { label: '専門科目（建設部門）', order: 3, expectedPerYear: 35 },
+  // 上下水道部門（2026-10-02 公開・DN-0508）。演習では専門科目を部門で選び、年度別・ランダムは選んだ部門だけを含める
+  'water-supply': { label: '専門科目（上下水道部門）', order: 4, expectedPerYear: 35 },
 };
 
 /** "h26" -> "平成26年度", "r01" -> "令和元年度", "r07" -> "令和7年度" */
@@ -251,6 +253,15 @@ function extractOptions(questionPart) {
       options: [1, 2, 3, 4, 5].map((num) => ({ num, markdown: `選択肢${num}（上の図を参照）` })),
     };
   }
+  // 選択肢が本文中の下線部・番号（①〜⑤）にだけある問題（上下水道部門に多い・DN-0508）。図の選択肢を優先し、図が無いときだけ使う。
+  // 本文はそのまま残し、解答操作だけを番号ボタンとして補う（下線部の内容を切り出して推測しない）。
+  const circled = ['①', '②', '③', '④', '⑤'];
+  if (circled.every((c) => questionPart.includes(c))) {
+    return {
+      body: questionPart.trim(),
+      options: circled.map((c, i) => ({ num: i + 1, markdown: `${c}（本文中の番号）` })),
+    };
+  }
   return null;
 }
 
@@ -287,7 +298,7 @@ function extractExamPoint(answerPart) {
 function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   const baseDir = resolve(ROOT, srcPath);
   // 再試験は同じ年度の通常試験と別の実施回。年度・科目を分けてID衝突を防ぐ。
-  const articlePattern = /^([hr]\d{2}(?:-retry)?)-(basic|aptitude|construction)$/;
+  const articlePattern = /^([hr]\d{2}(?:-retry)?)-(basic|aptitude|construction|water-supply)$/;
   const articleDirs = readdirSync(baseDir)
     .filter((name) => articlePattern.test(name))
     .sort((a, b) => {
@@ -381,8 +392,8 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     count: questions.filter((q) => q.subject === subject).length,
   }));
   const unscored = questions.filter((q) => q.correct == null);
-  if (questions.length !== 1270 || unscored.length !== 4) {
-    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1270 / 4）`);
+  if (questions.length !== 1830 || unscored.length !== 4) {
+    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1830 / 4）`);
   }
   if (new Set(questions.map((q) => q.id)).size !== questions.length) {
     throw new Error('pe-first-stage: 問題IDが重複しています');
@@ -400,11 +411,12 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   if (unscored.some((q) => !expectedUnscored.has(q.id)) || [...expectedUnscored].some((id) => !unscored.some((q) => q.id === id))) {
     throw new Error(`pe-first-stage: 採点対象外IDが想定外 ${unscored.map((q) => q.id).join(', ')}`);
   }
-  const expectedSubjects = { basic: 470, aptitude: 240, construction: 560 };
+  const expectedSubjects = { basic: 470, aptitude: 240, construction: 560, 'water-supply': 560 };
   if (subjects.some(({ subject, count }) => count !== expectedSubjects[subject])) {
     throw new Error(`pe-first-stage: 科目件数が想定外 ${subjects.map(({ subject, count }) => `${subject}=${count}`).join(', ')}`);
   }
-  if (years.length !== 16 || years.some(({ year, count }) => count !== (['h23', 'h24'].includes(year) ? 75 : 80))) {
+  // 1 回分＝基礎・適性・専門 2 部門（H23・H24 は基礎が 25 問）
+  if (years.length !== 16 || years.some(({ year, count }) => count !== (['h23', 'h24'].includes(year) ? 110 : 115))) {
     throw new Error(`pe-first-stage: 年度件数が想定外 ${years.map(({ year, count }) => `${year}=${count}`).join(', ')}`);
   }
   return {

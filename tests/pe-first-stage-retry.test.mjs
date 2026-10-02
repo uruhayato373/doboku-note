@@ -19,11 +19,13 @@ before(() => {
   }
 });
 
-test('通常のR1と再試験は80問ずつの独立した実施回・問題IDを持つ', () => {
+test('通常のR1と再試験は独立した実施回・問題IDを持つ（基礎・適性・建設 80 問＋上下水道 35 問）', () => {
   const regular = dataset.questions.filter((q) => q.year === 'r01');
   const retry = dataset.questions.filter((q) => q.year === 'r01-retry');
-  assert.equal(regular.length, 80);
-  assert.equal(retry.length, 80);
+  assert.equal(regular.length, 115);
+  assert.equal(retry.length, 115);
+  assert.equal(regular.filter((q) => q.subject !== 'water-supply').length, 80);
+  assert.equal(retry.filter((q) => q.subject !== 'water-supply').length, 80);
   assert.equal(new Set(dataset.questions.map((q) => q.id)).size, dataset.questions.length);
   assert.ok(regular.some((q) => q.id === 'r01-basic-ⅰ-1-1'));
   assert.ok(retry.some((q) => q.id === 'r01-retry-basic-ⅰ-1-1'));
@@ -42,15 +44,17 @@ test('全員得点のⅡ-14は掲載を保ち、正答番号とSNS採点問題�
   assert.ok(excluded[0].socialExclusionReasons.includes('unscored'));
   assert.equal(excluded[0].options.length, 5);
   assert.ok(excluded[0].explanations.every((e) => !e.isAnswer && e.statementCorrect == null));
-  assert.equal(retry.filter((q) => q.correct != null).length, 79);
-  assert.equal(dataset.questions.length, 1270);
+  assert.equal(retry.filter((q) => q.correct != null).length, 114);
+  assert.equal(dataset.questions.length, 1830);
+  assert.equal(dataset.questions.filter((q) => q.subject === 'water-supply').length, 560);
   assert.equal(dataset.questions.filter((q) => q.correct == null).length, 4);
   assert.equal(dataset.years.length, 16);
 });
 
 test('再試験の6図・計算式・5肢解説は演習用HTMLでも失われない', () => {
   const retry = dataset.questions.filter((q) => q.year === 'r01-retry');
-  assert.equal(retry.filter((q) => /<img\b/.test(q.bodyHtml)).length, 6);
+  // 建設部門側（基礎・適性・建設）の 6 図。上下水道部門の図は別に数える（DN-0508 で追加）
+  assert.equal(retry.filter((q) => q.subject !== 'water-supply' && /<img\b/.test(q.bodyHtml)).length, 6);
   assert.ok(retry.every((q) => q.options.length === 5 && q.explanations.length === 5));
   assert.ok(retry.every((q) => q.explanations.every((e) => e.text)));
   assert.ok(retry.every((q) => !JSON.stringify(q).includes('katex-error')));
