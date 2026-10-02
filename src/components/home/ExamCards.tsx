@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
 import type { NextExamEvent } from '@/lib/exam-schedule';
-import ExamCountdown from './ExamCountdown';
+
 
 export interface ExamData {
   slug: string;
@@ -38,76 +38,31 @@ const EXAM_THEME: Record<string, ExamTheme> = {
 };
 const FALLBACK_THEME: ExamTheme = { bar: "bg-(--accent)", hoverBorder: "hover:border-(--accent)" };
 
-// 資格別アクセント画像（カード背景・文字なし・テーマ色に寄せた明色写真）。Codex 生成 → webp。
-const EXAM_IMAGE: Record<string, string> = {
-  "civil-construction-1": "/images/card-civil-construction-1.webp",
-  "civil-construction-2": "/images/card-civil-construction-2.webp",
-  "pe-first-stage": "/images/card-pe-first-stage.webp",
-  "pe-construction": "/images/card-pe-construction.webp",
-  "pe-comprehensive-management": "/images/card-pe-comprehensive-management.webp",
-  "concrete-engineer": "/images/card-concrete-engineer.webp",
-  "concrete-chief-engineer": "/images/card-concrete-chief-engineer.webp",
-  "concrete-diagnostician": "/images/card-concrete-diagnostician.webp",
-  rccm: "/images/card-rccm.webp",
-  // 測量士・舗装は専用写真ができるまで RCCM と同じ共通背景を暫定で使う（画像なしだと白文字のコントラスト不足）
-  surveyor: "/images/card-rccm.webp",
-  pavement: "/images/card-rccm.webp",
-};
-
-// export: 検索ゼロステート（SearchZeroState）が同じ資格カードデザインを横展開するため（DN-0079③）。
+// 検索ゼロステートでも同じ資格入口を使う。
 export function ExamCard({ e }: { e: ExamData }) {
   const t = EXAM_THEME[e.slug] ?? FALLBACK_THEME;
-  const img = EXAM_IMAGE[e.slug];
-  // stats を 1 行のスコープに集約（deep-link はやめ、網羅性の提示のみ残す）。
   return (
-    // 画像前面カード: 背景画像＋下部スクリム＋テーマ色ライン、左下にライブ文字を重ねる。カード全体＝カテゴリへのリンク。
     <Link
       href={getCategoryHubPath(e.slug)}
-      className={`focus-ring group relative block aspect-3/2 overflow-hidden rounded-card-section border border-(--rule-soft) transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:shadow-lift ${t.hoverBorder}`}
+      className={`focus-ring group relative flex min-h-[88px] items-center overflow-hidden rounded-card-section border border-(--rule-soft) bg-(--paper) py-3 pl-4 pr-7 transition-[border-color,box-shadow] hover:shadow-card-hover dark:border-(--rule-soft) sm:min-h-[76px] sm:pl-5 ${t.hoverBorder}`}
     >
-      {img ? (
-        <img
-          src={img}
-          alt=""
-          aria-hidden="true"
-          width={1000}
-          height={565}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      ) : (
-        <div className="absolute inset-0 bg-(--accent-fill)" />
-      )}
-      {/* 試験別テーマ色ライン（上端） */}
-      <span aria-hidden="true" className={`absolute inset-x-0 top-0 z-10 h-1 ${t.bar}`} />
-      {/* 下部テキスト帯：黒の半透明フロストパネル（backdrop-blur）。画像は上部をそのまま見せ、
-          テキスト範囲にだけ半透明ダークを敷く。上端はソフトなグラデで硬い境界を和らげておしゃれに。 */}
-      <div className="absolute inset-x-0 bottom-0">
-        <div aria-hidden="true" className="h-6 bg-linear-to-t from-black/35 to-transparent" />
-        <div className="border-t border-white/10 bg-black/45 px-4 py-3 text-white backdrop-blur-md">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-white/80">
-            {e.nextExamEvent ? <ExamCountdown date={e.nextExamEvent.date} label={e.nextExamEvent.label} /> : e.nextExam}
-          </div>
-          <h3 className="mt-0.5 font-serif text-lg font-black leading-tight sm:text-xl sm:leading-7">{e.label}</h3>
-          <div className="mt-1 line-clamp-1 text-[12px] leading-snug text-white/85">{e.subtitle}</div>
-        </div>
-      </div>
+      <span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] ${t.bar}`} />
+      <h3 className="text-[14px] font-bold leading-relaxed text-(--ink) sm:text-[16px]">{e.label}</h3>
+      <span aria-hidden="true" className="absolute right-3 text-xl text-(--accent)">›</span>
     </Link>
   );
 }
-
 export default function ExamCards({ exams }: ExamCardsProps) {
   return (
     <section id="exams" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="mb-6 sm:mb-8">
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-(--ink)">
           <Link href="/exam" className="focus-ring rounded-card-inline hover:text-(--accent) transition-colors">
-            対応する資格・試験
+            資格を選んで学ぶ
           </Link>
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3.5">
         {exams.map((e) => (
           <ExamCard key={e.slug} e={e} />
         ))}
