@@ -64,34 +64,31 @@ jobs:
           set -e
           echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
 
+      # 書いた記録を一時退避する。パスは台帳（scripts/lib/datasets.mjs）から引き、YAML に書かない（DN-0498）
       - name: Stage outputs
-        run: |
-          mkdir -p /tmp/psi-publish
-          cp -r data/metrics/psi/* /tmp/psi-publish/ 2>/dev/null || true
-          cp /tmp/psi-report/report.md /tmp/psi-publish/latest-report.md 2>/dev/null || true
-          ls -la /tmp/psi-publish
+        run: node scripts/ci-data.mjs save "$RUNNER_TEMP/psi-out" --paths data
 
-      - name: Publish to develop branch (data/metrics/psi/)
+      - name: Publish to develop branch (data/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git fetch origin develop
-          git checkout develop
-          git pull --rebase origin develop
+          git checkout -f develop
+          git reset --hard origin/develop
 
           # npm ci は main のフックを prepare で導入するため、develop の
           # ソースへ切り替えた時点で bot commit 用フックも同期する。
           npm run pre-commit:install
 
-          mkdir -p data/metrics/psi
-          cp -r /tmp/psi-publish/* data/metrics/psi/ 2>/dev/null || true
+          node scripts/ci-data.mjs restore "$RUNNER_TEMP/psi-out"
+          if [ -f /tmp/psi-report/report.md ]; then node scripts/ci-data.mjs put psi.report /tmp/psi-report/report.md; fi
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い batch を消す。書き手と同じ commit で消すのが唯一安全
           # （別 commit で消すと上の reset --hard + copy-back に黙って戻される）。git add <dir> は削除も stage する。
           node scripts/prune-state-snapshots.mjs --commit --family psi
 
-          git add data/metrics/psi
+          node scripts/ci-data.mjs add --paths data
           if git diff --cached --quiet; then
             echo "No PSI changes to publish"
             exit 0
@@ -108,5 +105,5 @@ jobs:
       - name: Fail on field violations or invalid input (アラート)
         if: steps.check.outputs.exit_code != '0'
         run: |
-          echo "::error::PSI の field 実害または取得失敗率20%超を検出。詳細は data/metrics/psi/latest-report.md を確認し、.claude/todo/ に手動で起票してください。"
+          echo "::error::PSI の field 実害または取得失敗率20%超を検出。詳細は PSI の最新報告（node scripts/ci-data.mjs path psi.report）を確認し、.claude/todo/ に手動で起票してください。"
           exit 1

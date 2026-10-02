@@ -82,7 +82,7 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 ### 背景（2026-10-02 の調査）
 
-- data/ は git 管理 846 ファイル・120 系列。最上位で分け方の軸（取得元・記録の種類・機能）が混ざり、同じ主題（X・YouTube・競合・売上・レビュー）が複数の置き場に散らばっていた。10/2 の分離後も CI は X・YouTube・Instagram の記録を `.claude/state/` に書いている
+- data/ は git 管理 846 ファイル・120 系列。最上位で分け方の軸（取得元・記録の種類・機能）が混ざり、同じ主題（X・YouTube・競合・売上・レビュー）が複数の置き場に散らばっていた。10/2 の分離後も CI は X・YouTube・Instagram の記録を `.claude/state/` に書いている（見直した結果、どれも監査結果・自動化の作業状態なので `.claude/state/` に残す。下の「フォルダの原則」）
 - data/ のパスは約 185 ファイル・616 か所に直書き（`DATA_ROOT` の利用は 2）。移動後も `scheduled-publish.yml` の git add が旧パスを指し、`|| true` が失敗を隠していた（DN-0497）
 - データの決まりが 6 か所に分かれていた: 領域（`domains.json`）・寿命（`prune-state-snapshots.mjs`）・不変（同じ除外リスト＋検査 2 本）・鮮度（10 本超の `check-*`）・型（管理画面の手書きの型約 40 個＋`validateRecord`）・書き手（各ワークフローの git add）
 - 型の宣言は 0。JSON 108 系列のうち version 欄なし 51、欄の名前は `schemaVersion`・`version`・`schema_version` の 3 通り。形が変わっても version が変わらない例（`weekly-metrics`・`url-inspection`）、キーの snake_case と camelCase の混在があった
@@ -111,7 +111,8 @@ data/analysis/<データセット>/   記録から計算した結果・文書が
 - 取得元を軸にする: 書き手（取得スクリプト）が取得元ごとに 1 つで、データは複数の領域から使われるため。領域は台帳が持つ
 - 1 データセット＝1 フォルダ（または 1 ファイル）。時系列はファイル名を時刻だけにし、種類は名前で表す（時系列は `<時刻>.json`、最新状態は `latest.json`、追記の台帳は `.jsonl`）
 - 人が読む md は `analysis/` だけ、手書きのメモは `docs/`。手元だけの生データは `<取得元>/ui/` で git 管理外
-- `.claude/state/` に残る外部サービスの記録と、config/ に紛れた計画・作業記録（`x-campaigns`・`x-review`・`r2-delete-list.txt`・`coconala-thumb-approved`・`past-exam-inventory`）の置き場もこのときに見直す
+- `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify` と投稿キュー `youtube-schedule.json`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02）
+- config/ に紛れた計画・作業記録（`x-campaigns`・`x-review`・`r2-delete-list.txt`・`coconala-thumb-approved`・`past-exam-inventory`）の置き場は段階 4 で見直す
 
 ### 統合の基準（JSON ファイルを減らす）
 
@@ -144,7 +145,7 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 ### 進め方
 
 1. 台帳と検査を入れ、`domains.json` の config/・data/ の割り当てと管理画面の推定を台帳へ寄せる（ファイルは動かさない）。**2026-10-02 済み**
-2. 型を書く: 売上（note・KDP は済み。ココナラ受注・A8）→ business 台帳（`validateRecord` は業務ルールとして残す）→ `experiments`・`weekly-metrics`。読み書きを台帳経由の関数にし、パスの直書きを減らす。ワークフローの git add も台帳から作る（YAML にパスを書かない）
+2. 型を書く: 売上（note・KDP は済み。ココナラ受注・A8）→ business 台帳（`validateRecord` は業務ルールとして残す）→ `experiments`・`weekly-metrics`。読み書きを台帳経由の関数にし、パスの直書きを減らす。ワークフローは書き戻しを `npm run ci-data`（`scripts/ci-data.mjs`。変わったファイルを git status から拾って退避・復元し、実在するパスだけを add）で行い、YAML にデータのパスを書かない。最新ファイルの場所も `ci-data latest <id>` で引く（2026-10-02 済み。DN-0497 の旧パスもここで解消）
 3. 取得元ごとに 1 PR で移動・統合し、すぐ本番へ出す。定期実行は main のワークフローで develop を書くので、移動とワークフローの変更は同時に main へ出す。中身を変えない台帳は中身を書き換えず `MOVED_PATHS` で読み替える。business 台帳の `sources[].sha256` は「その時点の版」の記録で、あとから照合し直さない（書式を揃えても壊れない）
 4. config/ も同じ台帳で型を持つ。優先は読み手が多い `qualification-registry`（32 ファイル）・`domains`（24）・`product-lineup`（14）と、更新の多い `coconala-listings`。資格 id の照合のようなファイル間の整合は既存の `check-*` に残す
 

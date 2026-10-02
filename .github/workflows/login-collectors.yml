@@ -357,7 +357,7 @@ jobs:
           rc=$?
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
-      # もしもは提携状況を取り、カタログ（data/ads/affiliate-catalog.json）を更新する。
+      # もしもは提携状況を取り、カタログ（台帳 affiliate.catalog）を更新する。
       # 期限切れで 0 件になったときは affiliate-status の偽陰性ガード（exit 4）が書き込みを止める（DN-0483）。
       - name: "moshimo: affiliate status"
         id: collect_moshimo
@@ -400,12 +400,9 @@ jobs:
       - name: Stage outputs
         if: always()
         run: |
-          mkdir -p "${RUNNER_TEMP}/out"
-          git status --porcelain -- data .claude/state | awk '{print $2}' | while read -r f; do
-            mkdir -p "${RUNNER_TEMP}/out/$(dirname "$f")"
-            cp -r "$f" "${RUNNER_TEMP}/out/$f"
-          done
-          staged=$(find "${RUNNER_TEMP}/out" -type f | wc -l | tr -d ' ')
+          # 書いた記録を一時退避する（追加・変更・削除）。パスは台帳（scripts/lib/datasets.mjs）から引き、YAML に書かない（DN-0498）
+          node scripts/ci-data.mjs save "${RUNNER_TEMP}/out" --paths data,.claude/state/ig-reconcile --name "${{ matrix.service }}"
+          staged=$(find "${RUNNER_TEMP}/out/files" -type f 2>/dev/null | wc -l | tr -d ' ')
           echo "staged files: ${staged}"
           if [ "${{ matrix.mode }}" = "collect" ] && [ "${staged}" = "0" ]; then
             echo "::warning::collect モードなのに data/・.claude/state に変更がありません（collector が何も書いていない・または書き先が違う）"
@@ -524,11 +521,9 @@ jobs:
           git reset --hard origin/develop
           npm run pre-commit:install
 
-          if [ -d "${{ runner.temp }}/out" ]; then
-            cp -r "${{ runner.temp }}/out/." .
-          fi
+          node scripts/ci-data.mjs restore "${{ runner.temp }}/out"
 
-          git add -- data/metrics data/sales data/coconala data/note data/ads data/x-metrics .claude/state/ig-reconcile 2>/dev/null || true
+          node scripts/ci-data.mjs add --paths data,.claude/state/ig-reconcile
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
