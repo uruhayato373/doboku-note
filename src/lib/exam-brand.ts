@@ -2,12 +2,11 @@
  * 資格（試験ファミリー）別のブランド情報 SSOT。
  *
  * マガジン id → 資格キー（examKeyOf）と、資格キー → 表示ブランド（ラベル・テーマ色・
- * CTA 背景イラスト）を一元管理する。note CTA タイル（HubCtaBanner）や記事内 MagazineCard が
+ * プレビュー画像）を一元管理する。note CTA タイル（HubCtaBanner）や記事内 MagazineCard が
  * 「どのマガジンをどの資格の見た目で出すか」を data 駆動で解決するために参照する。
  *
- * 背景イラストは cta-bg/*.webp（左空き・右にモチーフの明色イラスト＝HTML 文字オーバーレイ用）を
- * 共通利用する。資格別の焼き込みバナー（旧 sidebarImageUrl / 300×250 satori）は廃し、
- * 文言・価格は HTML でデータ駆動にした（マガジン追加時の画像生成を不要化）。
+ * 商品 CTA は資格色＋共通キャラクターの POP 表示。文言・価格は HTML でデータ駆動にする。
+ * ctaBg は既存背景素材の参照として保持する。
  */
 
 import { qualificationShortLabel } from '@/lib/qualification-names';
@@ -55,7 +54,7 @@ export interface ExamBrand {
   /** globals.css の資格テーマ色トークン名（--exam-*）。 */
   readonly themeVar: string;
   /**
-   * CTA タイル/バナーの背景イラスト（cta-bg/*.webp）。省略時はテーマ色のベタ塗りにフォールバック。
+   * 既存背景素材の参照（cta-bg/*.webp）。共通 POP CTA では使わない。
    */
   readonly ctaBg?: string;
 }
@@ -72,7 +71,7 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     ctaBg: '/images/cta-bg/pe-construction.webp',
   },
   // 第一次試験は総監と同じ濃紺（globals.css の --exam-pe が「総監・第一次」共用）。
-  // 専用の背景イラストは未整備のためベタ塗りにフォールバックする。
+  // CTA はこのテーマ色と共通キャラクターで表示する。
   'pe-first-stage': {
     label: qualificationShortLabel('pe-first-stage'),
     themeVar: '--exam-pe',
@@ -103,7 +102,7 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     themeVar: '--exam-concrete-diagnosis',
     ctaBg: '/images/cta-bg/concrete-diagnosis.webp',
   },
-  // RCCM は専用の背景イラスト未整備のためテーマ色のベタ塗りにフォールバック（vertical 公開時に card 画像を追加）。
+  // RCCM の CTA もテーマ色と共通キャラクターで表示する。
   rccm: {
     label: qualificationShortLabel('rccm'),
     themeVar: '--exam-rccm',

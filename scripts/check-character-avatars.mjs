@@ -56,6 +56,10 @@ for (const p of unionPoses) {
 
 // ① vs ②: siteCta のポーズに配信 webp が実在するか（＝本番 404 の直接原因）
 for (const p of sitePoses) {
+  const cutout = `public/images/character/cta-${p}.webp`;
+  if (!existsSync(join(ROOT, cutout))) {
+    errors.push(`'${p}' のPOP用腰上画像が無い: ${cutout}（npm run character-avatars ${p}）`);
+  }
   const rel = `public/images/character/avatar-${p}.webp`;
   if (!existsSync(join(ROOT, rel))) {
     errors.push(`'${p}' の配信アバターが無い: ${rel}（npm run character-icons ${p} && npm run character-avatars ${p}）`);

@@ -47,7 +47,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 | 資格入口カード | 画像なし | — | 資格色の左線＋資格名＋矢印。`card-<category>.webp` は既存素材として保持 |
 | OGP 背景 | 1.9:1 | wide | `config/ogp/backgrounds/<exam-key>.png` |
 | note カバー | 1.91:1 | 写真プール対象外 | 2026-09-28から背景写真なしの文字優先POP。資格色・コピー・人物の正本は `note-cover-character-v5.md` と `note-cover-tokens.json` |
-| 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
+| 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー用の予備素材。サイト内note CTAは背景写真を使わず `NotePopCta` の資格色・HTML文字・腰上人物で表示する。配置別仕様は [デザインシステム](../design-system/design-system.md)） |
 
 ## 4. 生成→保存→反映パイプライン
 

@@ -3,13 +3,13 @@
  * build-character-avatars.mjs
  *
  * 「doboku-note 先生」の円形アイコン（SNS 用マスター）から、サイト CTA 用の配信アバターを派生する。
- * MagazineHeroCta（note ヒーロー CTA バナー）が `avatar-{pose}.webp` を参照する。
+ * POP CTAは確認済みの腰上フレームを `cta-{pose}.webp` として参照する。
  *
  * 入力: content/sns/_assets/character/icons/{pose}-400.png（`npm run character-icons` の生成物）
- * 出力: public/images/character/avatar-{pose}.webp（240×240・~15KB）
+ * 出力: public/images/character/avatar-{pose}.webp（240×240）と cta-{pose}.webp（腰上・幅400）
  *
  * 円のトリミング・紺グラデ背景の作り込みは generate-character-icons.mjs が真実源。
- * ここは「サイト配信向けにサイズと形式を落とすだけ」の派生層に徹する（意匠を二重管理しない）。
+ * 腰上の座標は character-poses.json、描画は character-framing.mjs を使う。
  *
  * 使い方:
  *   node scripts/build-character-avatars.mjs          # サイト CTA で使う 3 ポーズ
@@ -20,6 +20,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import sharp from 'sharp';
+import { renderCharacterFrame } from './lib/character-framing.mjs';
 
 const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -48,6 +49,8 @@ async function makeAvatar(pose) {
   const out = join(OUT_DIR, `avatar-${pose}.webp`);
   await sharp(src).resize(SIZE, SIZE).webp({ quality: 88 }).toFile(out);
   const kb = Math.round(statSync(out).size / 1024);
+  const { buffer } = await renderCharacterFrame(ROOT, { pose, frame: 'waist', width: 400 });
+  await sharp(buffer).webp({ quality: 88 }).toFile(join(OUT_DIR, `cta-${pose}.webp`));
   console.log(`  ok: ${pose} → images/character/avatar-${pose}.webp (${kb}KB)`);
   return true;
 }
@@ -59,8 +62,8 @@ async function main() {
   console.log(`Building ${targets.length} avatar(s)...`);
   let ok = 0;
   for (const t of targets) if (await makeAvatar(t)) ok++;
-  if (ok === 0) {
-    console.error('生成 0 件');
+  if (ok !== targets.length || ok === 0) {
+    console.error(`生成 ${ok}/${targets.length} 件`);
     process.exit(1);
   }
 }

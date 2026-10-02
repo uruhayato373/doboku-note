@@ -42,14 +42,14 @@ export interface NoteMagazine {
   /**
    * ヒーロー CTA（MagazineHeroCta）の商品別出し分け。焼き込みバナーを作らずに
    * 「商品ごとに刺さる CTA」を出すための 3 点セット（全て任意・省略時フォールバック）。
-   * - ctaCatch: バナー見出しのキャッチコピー（読者の課題を突く 1 文）。省略時 shortTitle ?? title
-   * - ctaButton: ボタン文言（動詞で終える）。省略時「note で詳しく見る」
+   * - ctaCatch: 商品名の下に出す補足コピー。省略時 shortDescription / 題名の括弧内容 / description
+   * - ctaButton: ボタン文言（動詞で終える）。省略時「教材の内容を見る」
    * - ctaPose: マスコットのポーズ。省略時 pointing
    *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
    *
    * ctaPose の許可値の真実源は `config/character-poses.json` の `siteCta: true`
    * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
-   * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
+   * 三者の整合（manifest ⇔ public/images/character/{avatar,cta}-{pose}.webp ⇔ 本 union）は
    * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
    */
   readonly ctaCatch?: string;
