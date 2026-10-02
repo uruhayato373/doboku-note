@@ -233,6 +233,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 設定（config/）・記録（data/）の全ファイルが台帳に宣言され、型のあるものは型に合う
+node scripts/check-datasets.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # X月間キャンペーン計画の日付・導線・URL・販売投稿間隔を検証
 node scripts/check-x-campaign-plan.mjs
 if [ $? -ne 0 ]; then
