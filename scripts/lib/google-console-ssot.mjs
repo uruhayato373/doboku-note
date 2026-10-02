@@ -22,6 +22,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { datasetDir, datasetPath } from "./datasets.mjs";
 
 // 既定は追跡される記録のルート（data）。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
 const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
@@ -30,21 +31,24 @@ const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
 export function ssotDir(channel) {
   return join(ROOT_DIR, channel.replace(/-ui$/, ""));
 }
+/** チャネルの記録の位置（台帳の id「取得元.ui-…」のパスを、置き場の根 ROOT_DIR の下へ置き直す。テストは根だけ差し替える） */
+const sourceOf = (channel) => channel.replace(/-ui$/, "");
+const underRoot = (rel) => join(ROOT_DIR, rel.replace(/^data\//, ""));
 export function urlsPath(channel) {
-  return join(ssotDir(channel), "ui-urls.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-urls`));
 }
 export function diffDir(channel) {
-  return join(ssotDir(channel), "ui-diff");
+  return underRoot(datasetDir(`${sourceOf(channel)}.ui-diff`));
 }
 export function historyPath(channel) {
-  return join(ssotDir(channel), "ui-history.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-history`));
 }
 export function markerPath(channel) {
-  return join(ssotDir(channel), "ui-last-run.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-last-run`));
 }
 /** 手元だけの生データ（run ごとの CSV・manifest・正規化結果） */
 export function rawDir(channel) {
-  return join(ssotDir(channel), "ui");
+  return underRoot(datasetDir(`${sourceOf(channel)}.ui-raw`));
 }
 /** SSOT が 1 つでもあるか（マーカーと別に「正規化したことがあるか」を判定する） */
 export function hasSsot(channel) {

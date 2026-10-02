@@ -91,11 +91,12 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 ### 台帳
 
 - 1 データセット＝パス（`{ts}`・`{date}` などの型）・種類（設定・台帳・時系列・最新状態・レポート・根拠・生データ）・領域・説明・型（任意）・中身を変えないか・手元だけか。id は「取得元.データセット」で、置き場を移しても変えない
-- git 管理下の全ファイルがちょうど 1 つのデータセットに当たること・置き場が id の取得元と合うこと・型のあるものが型に合うこと・コードが `config/`・`data/` のパスを直書きせず台帳から `datasetPath`・`datasetDir` で引くことを `npm run check-datasets`（CI ゲート＋pre-commit）が止める。管理画面 管理＞設定／データ はこの台帳を並べる
+- git 管理下の全ファイルがちょうど 1 つのデータセットに当たること・置き場が id の取得元と合うこと・型のあるものが型に合うこと・コードが `config/`・`data/` のパスを直書きせず台帳から `datasetPath`・`datasetDir` で引くこと・コードと YAML が引く id が台帳にあることを `npm run check-datasets`（CI ゲート＋pre-commit）が止める。CI の書き戻しは `ci-data add` が stage した記録を型で検査し、違反なら push の前に止める。管理画面 管理＞設定／データ はこの台帳を並べる
 - 設定・データの領域は台帳が持つ（`domains.json` の `documents` は文書だけ）。寿命表・鮮度の閾値・書き手は段階 2 以降に台帳へ寄せる
 
 ### 型の正本は zod
 
+- 台帳（`datasets.mjs`）は依存ゼロに保ち、各行は型を名前（`schema: 'NoteSalesLog'`）で指す。型の検査は `dataset-validate.mjs`。台帳は 200 近いスクリプトがパスを引くだけに読み、npm ci をしないワークフローも含むため（2026-10-02 に台帳が zod を読み込み、indexnow-submit などが落ちた。`tests/workflow-zero-dependency.test.mjs` が止める）
 - 商品と記事 frontmatter が既に zod（方式を 2 つにしない）。管理画面（`allowJs`・`strict`）は zod から型を得られ、手書きの型を減らせる。JSON Schema は `z.toJSONSchema` で生成してエディタ・管理画面・Codex に渡す
 - JSON Schema ファイルを正本にする案も検証した（`z.fromJSONSchema` で pattern・enum・余分なキー・日時形式・`$ref` の検査が効き、依存も増えない）が、TypeScript の型が作れないので採らない
 - 書き方の約束: version 欄は `schemaVersion`（整数）1 本、キーは camelCase、日時は UTC の ISO 8601（末尾 Z）、日付だけの値は JST の YYYY-MM-DD と型に書く、意味と単位は `.describe()` に書く、人と CI が書き足す記録は `.strict()`。既存の欄の名前は移すときに揃え、それまでは型に今の名前を書く

@@ -12,12 +12,11 @@ import {
   datasetById,
   fileDoc,
   inferShape,
-  jsonSchemaOf,
   listAreaFiles,
   matchFiles,
   schemaRows,
-  validateFiles,
 } from '../../../../scripts/lib/datasets.mjs';
+import { jsonSchemaOf, validateFiles } from '../../../../scripts/lib/dataset-validate.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**

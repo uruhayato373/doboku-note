@@ -33,6 +33,7 @@ import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 import { latestFile } from "./lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
 const OUT_DIR = ".claude/state/improvements";
 const SITE_ORIGIN = "https://doboku-note.com";
@@ -118,10 +119,10 @@ function loadGscUi() {
 /** URL Inspection 最新 batch → joinKey→{state, googleCanonical, userCanonical, lastCrawl, fetchState, verdict} */
 function loadInspection() {
   // batch を優先（single-URL の ad-hoc 検査に引きずられないよう prefix を固定）。
-  const f = latestFile(".", "gsc.url-inspection") || latestFile(".", "gsc.url-inspection-single");
+  const f = latestFile(REPO_ROOT, "gsc.url-inspection") || latestFile(REPO_ROOT, "gsc.url-inspection-single");
   const map = new Map();
   if (!f) return { map, file: null };
-  const j = readJson(f);
+  const j = readJson(join(REPO_ROOT, f));
   const results = j?.results || [];
   for (const r of results) {
     if (!r.url) continue;

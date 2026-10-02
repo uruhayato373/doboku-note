@@ -245,7 +245,7 @@ function relevantStaged() {
   return changed.split('\n').some((p) =>
     p.startsWith('content/note/')
     || p.includes('src/lib/note-magazines.ts')
-    || p.includes('note-magazine-membership.json'));
+    || p === datasetPath('config.note-magazine-membership'));
 }
 
 function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); process.exit(2); }

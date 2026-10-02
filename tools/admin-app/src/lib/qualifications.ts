@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 
 import { validateQualificationRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
 import { repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * qualifications.ts — `/strategy/qualifications`（read-only・人が見る画面）の表示モデル。
@@ -80,7 +81,7 @@ function shortWindow(w: string): string {
   return m ? `${m[1]}予定` : w;
 }
 
-const readConfig = <T,>(name: string): T => JSON.parse(readFileSync(repoPath('config', name), 'utf8')) as T;
+const readConfig = <T,>(id: string): T => JSON.parse(readFileSync(repoPath(datasetPath(id)), 'utf8')) as T;
 
 const fmtCount = (r: StatRow | null | undefined) => (r?.examinees != null ? `${r.examinees.toLocaleString('ja-JP')}人` : '—');
 const fmtRate = (r: StatRow | null | undefined) =>
@@ -121,9 +122,9 @@ function stageLines(cal: CalExam | undefined, latest: Latest | null, today: stri
 }
 
 export function loadQualificationsView(): QualificationsView {
-  const registry = readConfig<{ families: Record<string, string>; qualifications: RegistryEntry[] }>('qualification-registry.json');
-  const calendar = readConfig<{ exams: Record<string, CalExam> }>('exam-calendar.json');
-  const examStats = readConfig<{ exams: Record<string, { latest: Latest | null }>; peSecondaryDivisions: Record<string, { totals?: { excludingCem20?: StatRow } }> }>('exam-stats.json');
+  const registry = readConfig<{ families: Record<string, string>; qualifications: RegistryEntry[] }>('config.qualification-registry');
+  const calendar = readConfig<{ exams: Record<string, CalExam> }>('config.exam-calendar');
+  const examStats = readConfig<{ exams: Record<string, { latest: Latest | null }>; peSecondaryDivisions: Record<string, { totals?: { excludingCem20?: StatRow } }> }>('config.exam-stats');
   const errors = validateQualificationRegistry({ registry, calendar, examStats }) as string[];
   const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
 

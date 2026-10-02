@@ -22,7 +22,7 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
-import { datasetDir } from "../../scripts/lib/datasets.mjs";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
 const OUT_DIR = datasetDir("analysis.crosswalk");
@@ -145,8 +145,8 @@ if (gscNoGa4.length) {
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 const isoSafe = stamp.replace(/[^0-9_]/g, "");
 writeFileSync(join(OUT_DIR, `crosswalk-${isoSafe}.json`), JSON.stringify({ meta: { ga4File, gscFile, ga4Range: [ga4.meta?.startDate, ga4.meta?.endDate], gscRange: [gsc.meta?.startDate, gsc.meta?.endDate], minImpr: MIN_IMPR, lowCtr: LOW_CTR }, rows }, null, 2));
-writeFileSync(join(OUT_DIR, "crosswalk-latest.md"), md.join("\n"));
+writeFileSync(datasetPath("analysis.crosswalk-report"), md.join("\n"));
 
 console.log(`[crosswalk] join ${rows.length} paths（GSC∩GA4 ${rows.filter((r) => r.gsc && r.ga4).length}）`);
 console.log(`  title機会(pos≤15低CTR): ${titleOpportunity.length}｜ranking機会(pos>15): ${rankingOpportunity.length}｜Ranked-Low-Engage: ${rankedLowEngage.length}｜GSC-only-clicks: ${gscNoGa4.length}`);
-console.log(`  → ${join(OUT_DIR, "crosswalk-latest.md")}`);
+console.log(`  → ${datasetPath("analysis.crosswalk-report")}`);

@@ -10,8 +10,10 @@
  * 終了コード: 0＝読めた（手を打つ組の有無に関係なく）/ 2＝検査不成立（記録が無い・古い・取得できていない）
  */
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { datasetDir, latestFile } from './lib/datasets.mjs';
 import { actionable, MIN_SAMPLES } from './lib/web-vitals-rum.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const DIR = datasetDir('rum.web-vitals');
 const TAG = '[report-web-vitals]';
@@ -19,13 +21,13 @@ const MAX_AGE_DAYS = 10;
 const STATUS_JA = { good: '良好', 'needs-improvement': '要改善', poor: '不良', insufficient: '件数不足' };
 
 function main() {
-  const file = latestFile('.', 'rum.web-vitals');
+  const file = latestFile(REPO_ROOT, 'rum.web-vitals');
   const name = file;
   if (!file) {
     console.error(`${TAG} 検査不成立: ${DIR} に記録が無い（fetch-metrics.yml の Fetch GA4 (web vitals) を確認）`);
     return 2;
   }
-  const data = JSON.parse(readFileSync(file, 'utf8'));
+  const data = JSON.parse(readFileSync(join(REPO_ROOT, file), 'utf8'));
   const age = Math.floor((Date.now() - Date.parse(data.generatedAt)) / 86400000);
   const rows = data.summary?.rows ?? [];
   const act = actionable(rows);
