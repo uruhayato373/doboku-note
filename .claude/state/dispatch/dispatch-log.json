@@ -1663,6 +1663,18 @@
       "commit": "5c10c4e234a8",
       "verification": "gh api dependabot/alerts?state=open → 0 件・Lighthouse CI 直近 5 run success",
       "note": "PR #824 で tmp・uuid を overrides で修正版へ（alert #29・#79・#80 fixed 2026-10-02）。extract-zip #81・#82 は修正版なしのため理由付きで dismiss（tolerable_risk・同日）。open alerts 0 件"
+    },
+    {
+      "id": "DN-0246",
+      "at": "2026-10-02",
+      "task": "会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "65dfe1231781",
+      "verification": "api/v1/magazines/mbe07bd5cecda/notes → 11 件・W11 含む / npm run check-membership-drip 16/16 WARN 0",
+      "note": "W11 n64f9653dc30c（9/28 公開）は特典マガジン mbe07bd5cecda に収録済み（収録 11 件・API 実体確認 2026-10-02）。収録操作は既に済んでいた"
     }
   ]
 }
