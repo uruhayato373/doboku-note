@@ -1711,6 +1711,18 @@
       "commit": "2e1a64f51e17",
       "verification": "npm run check-magazine-membership 合格（ライブ 0 の誌なし）・tests/verify-note-magazines-failure.test.mjs PASS（修正前に戻すと FAIL）",
       "note": "PR #842: 収録記事の取得失敗を 0 件と区別（3 回まで取り直し・失敗は notes を書かず contentsFailed[]・過半なら snapshot を書かず exit 1）。snapshot を取り直し 93 誌すべて取得・0 件の誌なし。原因と直し方を note-api-verification.md に追記"
+    },
+    {
+      "id": "DN-0508",
+      "at": "2026-10-02",
+      "task": "上下水道部門の 560 問を無料演習（過去問クイズ）へ加える",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "821644029e74",
+      "verification": "node scripts/build-quiz-data.mjs 1,830 問 PASS・tests/pe-first-stage-retry 6 件 PASS・本番 /tools/kakomon-quiz/pe-first-stage に上下水道部門の切り替えと科目 560 問、JSON は brotli で 1.5MB 配信",
+      "note": "PR #844（fce5a044b）: build-quiz-data に water-supply を追加し全 1,830 問（既存 1,270 問は 1 問も変わらないことを突合）。演習に専門科目の部門（建設／上下水道）の切り替えを追加し、年度別・ランダムは選んだ部門だけを出す。上下水道ページから演習への導線（tools.ts）。本番反映（cloudflare-deploy 37015849181・check-production-ssr exit 0）"
     }
   ]
 }
