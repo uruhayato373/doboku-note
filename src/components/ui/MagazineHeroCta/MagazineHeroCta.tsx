@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import Image from "next/image";
 import {
   getMagazine,
@@ -40,6 +42,9 @@ export default function MagazineHeroCta({
   const magazine = getMagazine(id);
   if (!magazine) return null;
 
+  const image = noteCtaImage(id, 'body');
+  if (image) return <NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image}
+    trackLabel={`${id}:${utmContent}`} placement={placement} className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(id);
   const catchCopy = magazine.ctaCatch ?? magazine.shortTitle ?? magazine.title;
   const sub = magazine.shortDescription ?? magazine.description;

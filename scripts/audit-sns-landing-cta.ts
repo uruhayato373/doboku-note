@@ -7,7 +7,7 @@
  *
  * 判定（ソース静的判定。本番 HTML の data-cta 位置による監査は build 後に別途行う）:
  *   記事    : placement.top が描画可能（getMagazine 非 null）、または本文冒頭 50% 以内に <MagazineCard>
- *   tools   : page.tsx に data-cta="note" を持つ静的ブロックがある（クライアント描画のみは SSR に出ないので不可）
+ *   tools   : サーバー page.tsx に note の静的リンクか NoteImageCta がある（クライアント描画のみは SSR に出ないので不可）
  *   資格トップ: resolveHubCta か sidebarProduct が非 null
  *   その他  : 対象外として件数だけ出す（/links・トップ等）
  *
@@ -24,6 +24,7 @@ import { getAllPublicDocRoutes } from '../src/lib/content-routes';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct } from '../src/lib/sidebar-discovery';
 import { datasetDir } from './lib/datasets.mjs';
+import { hasStaticToolNoteCta } from './lib/sns-landing-cta.mjs';
 
 const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
@@ -101,7 +102,7 @@ for (const [path, links] of [...linkCount].sort()) {
   if (path.startsWith('/practice')) { excluded.practice++; continue; }
   if (path.startsWith('/tools/')) {
     const src = toolSource(path);
-    const ok = !!src && /data-cta=["']note["']/.test(src);
+    const ok = !!src && hasStaticToolNoteCta(src);
     verdicts.push({ path, links, kind: 'tool', ok, note: ok ? 'page.tsx に note 静的ブロック' : src ? 'note の静的ブロックなし（クライアント描画は SSR に出ない）' : 'page.tsx が見つからない' });
     continue;
   }

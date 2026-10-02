@@ -1,7 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import process from 'node:process';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel) => readFileSync(ROOT + rel, 'utf8');
@@ -14,12 +16,55 @@ test('note CTA は表示インプレッションと配置を計測する', () =>
   assert.match(provider, /coconala_cta_impression/);
   assert.match(provider, /\[data-cta="affiliate"\], \[data-cta="coconala"\]/);
 
-  const hero = read('src/components/ui/MagazineHeroCta/MagazineHeroCta.tsx');
-  const inline = read('src/components/ui/MagazineInlineCard/MagazineInlineCard.tsx');
-  const top = read('src/components/ui/MagazineTopBanner/MagazineTopBanner.tsx');
-  for (const [name, source] of [['hero', hero], ['inline', inline], ['top', top]]) {
-    assert.match(source, /data-cta-placement=/, `${name}: data-cta-placement がない`);
+  const html = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+    import React from 'react';
+    import { renderToStaticMarkup } from 'react-dom/server';
+    import Hero from './src/components/ui/MagazineHeroCta/MagazineHeroCta.tsx';
+    import Inline from './src/components/ui/MagazineInlineCard/MagazineInlineCard.tsx';
+    import Top from './src/components/ui/MagazineTopBanner/MagazineTopBanner.tsx';
+    globalThis.React = React;
+    const cases = [
+      [Hero, { id: 'pe1-takuitsu-pdf', utmContent: 'tracking-test', placement: 'article-mid' }],
+      [Inline, { magazineId: 'pe1-takuitsu-pdf', url: 'https://note.com/example', title: 'PDF', description: '復習', badge: '教材', trackLabel: 'tracking-test', placement: 'article-end' }],
+      [Top, { magazineId: 'pe1-takuitsu-pdf', url: 'https://note.com/example', title: 'PDF', badge: '教材', trackLabel: 'tracking-test' }],
+    ];
+    process.stdout.write(JSON.stringify(cases.map(([C, props]) => renderToStaticMarkup(React.createElement(C, props)))));
+  `], { cwd: ROOT, encoding: 'utf8' }));
+  assert.equal(html.length, 3);
+  for (const [index, source] of html.entries()) {
+    assert.match(source, /data-cta="note"/);
+    assert.match(source, /data-cta-label="pe1-takuitsu-pdf:tracking-test"/);
+    assert.ok(source.includes(`data-cta-placement="${['article-mid', 'article-end', 'article-top'][index]}"`));
+    assert.match(source, /href="https:\/\/note.com\//);
+    assert.match(source, /cta-pdf-body\.webp/);
+    assert.match(source, /全560問/);
   }
+});
+
+test('一次PDFは本文2:1・サイドバー6:5の生成画像をR2から表示する', () => {
+  const result = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+    import React from 'react';
+    import { renderToStaticMarkup } from 'react-dom/server';
+    import { getMagazine } from './src/lib/note-magazines.ts';
+    import { noteCtaImage } from './src/lib/note-cta-images.ts';
+    import Card from './src/components/ui/NoteProductCard.tsx';
+    globalThis.React = React;
+    const product = getMagazine('pe1-takuitsu-pdf');
+    process.stdout.write(JSON.stringify({
+      body: noteCtaImage(product.id), tile: noteCtaImage(product.id, 'tile'),
+      unrelated: noteCtaImage('civil-1-combo-essay') ?? null,
+      html: renderToStaticMarkup(React.createElement(Card, {product, category:'pe-first-stage', placement:'article-sidebar'})),
+    }));
+  `], { cwd: ROOT, encoding: 'utf8' }));
+  assert.equal(result.body.width / result.body.height, 2);
+  assert.equal(result.tile.width / result.tile.height, 6/5);
+  assert.match(result.body.src, /^https:\/\/storage\.doboku-note\.com\/posts\//);
+  assert.match(result.tile.src, /cta-pdf-sidebar\.webp\?v=[a-f0-9]+$/);
+  assert.equal(result.unrelated, null);
+  assert.match(result.html, /cta-pdf-sidebar\.webp/);
+  assert.match(result.html, /data-cta-label="pe1-takuitsu-pdf"/);
+  assert.match(result.html, /data-cta-placement="article-sidebar"/);
+  assert.match(result.html, /全560問/);
 });
 
 test('1級書き方ガイドの終盤CTAは一意ラベルの小型カード1件', () => {

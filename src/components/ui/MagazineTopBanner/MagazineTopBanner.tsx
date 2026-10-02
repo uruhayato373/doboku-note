@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import Image from "next/image";
 import { brandOf } from "@/lib/exam-brand";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
@@ -31,6 +33,9 @@ export default function MagazineTopBanner({
   badge,
   trackLabel,
 }: MagazineTopBannerProps) {
+  const image = noteCtaImage(magazineId, 'body');
+  if (image) return <NoteImageCta href={url} image={image}
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} className="mb-8" />;
   const brand = brandOf(magazineId);
   // コンパクト型なので価格は先頭の金額だけを出す。catalog の price は「¥2,480（模試3回＋暗記ノート＋
   // 出題分析・単品合計¥3,140、約21%OFF）」のように長いことがあり、縮まない価格欄が行幅を占有して
