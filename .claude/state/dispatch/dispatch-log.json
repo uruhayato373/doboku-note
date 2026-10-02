@@ -1639,6 +1639,18 @@
       "commit": "8810f3cdeebf",
       "verification": "develop で npm run test（2386 pass / fail 0）後に git status --short public/quiz が空。npm run check-generated-indexes が一致",
       "note": "PR #835 で修正: build-quiz-data に --out-dir、テストは一時ディレクトリへ生成。generatedAt を JST の YYYY-MM-DD に統一し、refresh-indexes に build-quiz-data を追加（古い解説 2 問の配信も解消）"
+    },
+    {
+      "id": "DN-0498",
+      "at": "2026-10-02",
+      "task": "設定・記録を台帳に沿って移し、型を揃え、JSON ファイルを減らす（ADR 段階 2〜4）",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e3c1ebb9a362",
+      "verification": "npm run check-datasets（全ファイルが台帳に当たり型あり 24・直書き 0）・git ls-files data | wc -l = 275",
+      "note": "段階1〜4を完了: 台帳と検査（#822ほか）、取得元ごとの移動と統合で data/ 846→275 ファイル（#823〜#832）、config/ の統合と型 24 データセット（#833）。CI の書き戻しは手動起動の login-collectors（note・2026-10-02 run 36997607032）が新しい置き場へ書けた。残件は DN-0515（config/ の型）・DN-0496（Mac の定期処理の確認と Windows の worktree）"
     }
   ]
 }
