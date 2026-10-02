@@ -619,3 +619,36 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - ② 資格の入口ページに CollectionPage / ItemList を付ける → DN-0412
 - ③ 未登録ページを統合・noindex する基準は、建設部門・RCCM の登録率の調査（DN-0390）で決める
 - ④ GSC 実験の対象と成功指標は、検索キーワード戦略の 11〜30 位の改善サイクル（report-search-opportunities・週次で起票・28 日後に判定）にまとめる
+
+### 2026-10-02（週次・自動レビュー）
+
+- 観測: GSC 09-01〜09-28 / GA4 09-04〜10-01 / ダイジェスト W39。High-Impr-Low-CTR 2・Rank-Stuck 1・Hidden-Winner 3・Orphan-Query 2・SNS-Shift 1・Traffic-Drop/Cannibalization/Decay 0。週次クリック 12（基準比 +41%）だが母数小・主要流入は Bing
+- 上位候補と推奨:
+  1. **EXP-009 / EXP-011 が next_check_date 2026-10-01 を超過**。1級・2級 CBT 10/4・10/25 直前のため判定か延期を早急に（`/nsm-experiment measure`）
+  2. **`/exam/civil-construction-1/textbook/network-schedule`**: 「インターフェアリングフロート」301 imp・1 click・CTR 0.33%・8.4 位。title 実験（5 URL 以内・14〜28 日）の最有力候補
+  3. **2級土木 `/secondary/*` が Hidden-Winner**: r07 1,122 / experience-writing-guide 943 sessions・engagement 0.77〜0.84。主戦場外だが需要明確。exam-overview の CTA 率 0.25%（平均 0.68% 比低）
+- 他 7 件 → improvements/2026-10-02.md（cost-driver CTR 0 / keiken-charcount / practice 3 本 / 中国地整 Rank-Stuck / リスクマトリックス・TBM の Orphan-Query / YouTube 新規 14 sessions 質低）
+- トリアージ待ち（処分は土曜 growth-triage が決定）:
+  - OPP-162229ca6d / OPP-64e99175ec → 実験判定ルート（measure）
+  - OPP-aeb5940b4c → title 実験提案ルート（network-schedule）
+  - OPP-8028130bb4 / OPP-4932351d8d → CTA 改善ルート（2級 secondary）+ 2級の戦略位置づけは週次レビュー判断
+  - OPP-57ad840c93 → title/リード確認ルート（cost-driver）
+  - OPP-e13377d736 → 内部リンクルート（優先度低）
+- 注記: 自動生成・人間の上書き歓迎。canonical 不一致 18 件・権威性 270 件・/standards/ 再評価は裁定済み条件未達のため再提案せず
+
+### 2026-10-02（coverage・自動レビュー）
+
+- 観測（batch 2026-09-30・history 該当エントリと完全一致）: inspected 1,579 / sitemap 1,579（差分 0）・indexed 1,255・ratio **79.5%**（前回 9/23 79.9% → −0.4pt）・discovered-not-indexed 243（15.4%）・crawled-not-indexed 9・hygiene（404+redirect）0・other 72（前回 41）
+- 分母 +145（1,434→1,579）: part-N 分冊 133 件の復帰＋純増。セクション別: `/exam/` 1,058/1,218＝86.9% / `/topics/` 81.2% / `/practice/` 67.2% / `/standards/` 全体 49.0%・**part-N 除き 58.6%**（裁定済みの再評価を実施 → 60% をわずかに下回る）
+- **canonical 不一致 18 → 13 件**（継続 13・解消 5・新規 0）。sitemap-legacy.xml の効果が出始めている可能性（1 点観測・断定せず）。代表 3 件: `/exam/civil-construction-1/secondary/getting-started` / `/exam/concrete-chief-engineer/textbook/products` / `/exam/concrete-diagnostician/primary/exercise-05`（いずれも google 正規が旧 `/docs/`）
+- other +31 の増加要因: 「URL が Google に認識されていません」23 → 59 件（+36）。新規 51 件のうち part-N 復帰分 14 件・前回 sitemap 既在 37 件。偏在: `/exam/pe-construction` 13 件・`/standards/kyushu` 9 件
+- 原因バケット:
+  - 権威性: discovered 243 + crawled 9 + 未認識 59 ＝計 311 件（19.7%）。偏在は `/standards/` 115 件（セクション内 44%・うち part-N 66）と `/exam/` 103 件
+  - 技術: page_fetch_state の FAILED/ROBOTS_DENIED/5xx 0 件（UNSPECIFIED 302 件は未クロール由来で取得障害ではない）
+  - hygiene: 404・redirect 0 件。残るは canonical 不一致 13 件のみ
+- 推奨アクション（判断マトリクスに沿う）:
+  1. canonical 不一致は減少トレンド入り。「様子見」裁定を維持し、次回 batch で 13 件の推移を続けて見る
+  2. `/standards/` part-N 除き 58.6% は再評価の結果 60% 未達。被リンク獲得か量の抑制・統合かの戦略判断を週次/月次レビューへ（権威性起因 311 件の裁定と同枠）
+  3. 未認識 59 件（うち前回 sitemap 既在 37 件）の偏在（pe-construction・kyushu）は次回 batch で解消するか観測。1 点では取りこぼしか未検出か判別不能
+- 異常フラグ: なし（ratio 79.5%≥60% / 前回比 −0.4pt / discovered 15.4%<20% / hygiene 0 / inspected=sitemap / results 1,579 件・前回比 +10.1%）
+- 注記: 自動生成・最終決定は人間。batch の実体パスは `data/gsc/url-inspection/2026-09-30T07-42-14.json`
