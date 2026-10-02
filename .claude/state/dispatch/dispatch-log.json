@@ -1651,6 +1651,18 @@
       "commit": "e3c1ebb9a362",
       "verification": "npm run check-datasets（全ファイルが台帳に当たり型あり 24・直書き 0）・git ls-files data | wc -l = 275",
       "note": "段階1〜4を完了: 台帳と検査（#822ほか）、取得元ごとの移動と統合で data/ 846→275 ファイル（#823〜#832）、config/ の統合と型 24 データセット（#833）。CI の書き戻しは手動起動の login-collectors（note・2026-10-02 run 36997607032）が新しい置き場へ書けた。残件は DN-0515（config/ の型）・DN-0496（Mac の定期処理の確認と Windows の worktree）"
+    },
+    {
+      "id": "DN-0489",
+      "at": "2026-10-02",
+      "task": "@lhci/cli 経由の依存の脆弱性（extract-zip・tmp high、uuid medium）を更新か overrides で解消する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5c10c4e234a8",
+      "verification": "gh api dependabot/alerts?state=open → 0 件・Lighthouse CI 直近 5 run success",
+      "note": "PR #824 で tmp・uuid を overrides で修正版へ（alert #29・#79・#80 fixed 2026-10-02）。extract-zip #81・#82 は修正版なしのため理由付きで dismiss（tolerable_risk・同日）。open alerts 0 件"
     }
   ]
 }

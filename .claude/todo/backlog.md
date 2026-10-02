@@ -371,14 +371,6 @@
 
 **完了条件**: 02・03 が更新され、展開する／しないと時期が決まって、展開するなら制作カードへ分割されている。
 
-### [DN-0489] @lhci/cli 経由の依存の脆弱性（extract-zip・tmp high、uuid medium）を更新か overrides で解消する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-01] [進行中]
-
-**起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。Dependabot の open alerts 5 件（#82・#81 extract-zip high、#80 tmp high・#79 tmp low、#29 uuid medium・8/12 から）。push のたびに警告が出ていたが、どの検査・Issue にも入っていなかった。`npm ls` では 3 つとも `@lhci/cli@0.15.1` の下（inquirer → external-editor → tmp、lighthouse → puppeteer-core → @puppeteer/browsers → extract-zip、直下の tmp・uuid）。CI の Lighthouse 計測でしか使わない開発依存。
-
-**やること**: (1) `@lhci/cli` の新しい版で解消するかを確かめ、あれば上げる。(2) 無ければ package.json の `overrides` で extract-zip・tmp・uuid を修正版へ固定し、`npm ci` と Lighthouse CI のジョブが通るかを見る。(3) 解消しない alert は理由を書いて Dependabot で dismiss する。
-
-**完了条件**: Dependabot の open alerts が 0 件（または理由付きで dismiss）で、Lighthouse CI が緑。
 
 ### [DN-0486] 資格の正本の要対応 57 件（主担当の原文照合が未了 27 件ほか）を公式ページで照合して verification を更新する
 タグ: [コンテンツ品質] [領域:戦略] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
