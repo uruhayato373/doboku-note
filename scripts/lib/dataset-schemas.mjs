@@ -337,6 +337,223 @@ const ga4Block = z.looseObject({
   total: z.looseObject({ thisUsers: count('今週の人数'), prevUsers: count('前週の人数') }),
 });
 
+/** 週次の計測まとめの索引（data/business/weekly/index.json） */
+export const WeeklyIndex = z
+  .object({
+    version: z.literal(1),
+    generated_at: utcTime('生成時刻'),
+    weeks: z.array(z.object({ week_id: z.string().regex(/^\d{4}-W\d{2}$/), path: z.string(), generated_at: utcTime('生成時刻') }).strict()),
+  })
+  .strict()
+  .meta({ title: '週次の計測の索引' });
+
+/** 月ごとの前年比用の控え（data/business/monthly-snapshot.json） */
+export const MonthlySnapshot = z
+  .object({
+    _doc: z.string(),
+    updatedAt: jstDate('最終更新'),
+    months: z.array(
+      z.looseObject({
+        month,
+        salesYen: yen('売上').nullable().optional(),
+        examEvents: z.array(z.object({ exam: z.string(), label: z.string(), date: jstDate('日付') }).strict()),
+      }),
+    ),
+  })
+  .strict()
+  .meta({ title: '月ごとの控え' });
+
+/** ココナラの閲覧・お気に入りの週次（data/coconala/kpi.json）。数値はココナラ画面の 30 日累計 */
+export const CoconalaKpi = z
+  .object({
+    version: z.literal(1),
+    updatedAt: jstDate('最終更新'),
+    source: z.string(),
+    howToUpdate: z.string(),
+    weekly: z.array(
+      z
+        .object({
+          weekOf: jstDate('週の月曜'),
+          serviceId: z.string().min(1),
+          views: count('閲覧'),
+          favorites: count('お気に入り'),
+          orders: count('購入'),
+          period: z.object({ from: jstDate('開始'), to: jstDate('終了') }).strict(),
+          windowDays: count('集計日数'),
+          cumulative: z.boolean(),
+          source: z.string(),
+        })
+        .strict(),
+    ),
+    milestones: z.array(z.object({ date: jstDate('日付'), event: z.string(), detail: z.string() }).strict()),
+    sellerRank: z.object({ value: z.string(), since: jstDate('昇格日'), source: z.string() }).strict(),
+    notificationMailbox: z.object({ address: z.string(), note: z.string(), verifiedAt: jstDate('確認日') }).strict(),
+    blogsWeekly: z.array(
+      z
+        .object({
+          weekOf: jstDate('週の月曜'),
+          slug: z.string(),
+          blogId: z.string().regex(/^\d+$/),
+          title: z.string(),
+          views: count('閲覧'),
+          postedOn: jstDate('投稿日'),
+          period: z.object({ from: jstDate('開始'), to: jstDate('終了') }).strict(),
+          windowDays: count('集計日数'),
+          cumulative: z.boolean(),
+          source: z.string(),
+        })
+        .strict(),
+    ),
+  })
+  .strict()
+  .meta({ title: 'ココナラの閲覧の週次' });
+
+/** 承認したココナラのサムネイル（data/coconala/thumb-approved.json） */
+export const CoconalaThumbApproved = z
+  .object({
+    _doc: z.string(),
+    approvedAt: jstDate('承認日'),
+    design: z.string(),
+    images: z.record(z.string(), z.object({ path: z.string(), sha256 }).strict()).describe('サービス id → 承認した画像'),
+  })
+  .strict()
+  .meta({ title: 'ココナラのサムネイル承認' });
+
+/** 人が決着と判断した DM（data/coconala/resolved-inquiries.json） */
+export const CoconalaResolvedInquiries = z
+  .object({
+    _comment: z.string(),
+    _updatedAt: jstDate('最終更新'),
+    resolved: z.array(z.object({ dmId: z.string().regex(/^\d+$/), reason: z.string().min(1), resolvedOn: z.union([jstDate('決着日'), isoTime('決着日時')]) }).strict()),
+  })
+  .strict()
+  .meta({ title: 'ココナラの決着した問い合わせ' });
+
+/** 引用リポスト済みの記録（data/x/reposted.json）。重複リポストを防ぐ */
+export const XReposted = z
+  .object({
+    _comment: z.string(),
+    reposted: z.array(
+      z
+        .object({
+          id: z.string().regex(/^\d+$/),
+          url: z.string().url(),
+          comment: z.string(),
+          exam: z.string(),
+          reason: z.string(),
+          repostedAt: utcTime('リポスト時刻'),
+          handle: z.string().optional(),
+        })
+        .strict(),
+    ),
+  })
+  .strict()
+  .meta({ title: 'X の引用リポスト' });
+
+/** YouTube の投稿済み（data/youtube/posted.jsonl・1 行 1 本） */
+export const YoutubePosted = z
+  .array(z.object({ key: z.string().min(1), videoId: z.string().min(1), publishAt: utcTime('公開予定'), title: z.string(), uploadedAt: utcTime('アップロード時刻') }).strict())
+  .meta({ title: 'YouTube の投稿済み' });
+
+/** 順位の見張り（data/gsc/rank-watch/<月>.jsonl・追記だけ）。行の中身は seo-rank-watch.mjs が決める */
+export const RankWatch = z
+  .array(z.looseObject({ recordId: z.string().regex(/^(watch|run)-\d{4}-\d{2}-[0-9T-]+Z-[0-9a-f]{8}$/), type: z.string() }))
+  .meta({ title: '順位の見張り' });
+
+const runBase = { runId: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z$/), collectedAt: utcTime('取得時刻') };
+
+/** GA4 管理設定の照合の履歴（data/ga4/admin-history.json） */
+export const Ga4AdminHistory = z
+  .object({
+    schemaVersion: z.literal(1),
+    channel: z.literal('ga4-admin'),
+    runs: z.array(z.looseObject({ ...runBase, mode: z.enum(['dry-run', 'commit']), status: z.string() })),
+  })
+  .strict()
+  .meta({ title: 'GA4 管理設定の照合' });
+
+/** GSC のインデックス登録依頼の履歴（data/gsc/indexing-history.json） */
+export const GscIndexingHistory = z
+  .object({
+    schemaVersion: z.literal(1),
+    runs: z.array(z.looseObject({ ...runBase, mode: z.enum(['dry-run', 'commit']), status: z.string(), slugs: z.array(z.string()) })),
+  })
+  .strict()
+  .meta({ title: 'GSC のインデックス登録依頼' });
+
+/** GSC 画面取得の履歴（data/gsc/ui-history.json） */
+export const GscUiHistory = z
+  .object({
+    schemaVersion: z.literal(1),
+    channel: z.literal('gsc-ui'),
+    runs: z.array(
+      z.looseObject({
+        ...runBase,
+        property: z.string(),
+        status: z.string(),
+        complete: z.boolean(),
+        units: z.array(z.object({ unit: z.string(), rows: count('行数'), added: count('増えた行'), removed: count('消えた行') }).strict()),
+      }),
+    ),
+  })
+  .strict()
+  .meta({ title: 'GSC 画面取得の履歴' });
+
+/** インデックス状況の推移（data/gsc/index-coverage.json）。欄の名前は既存の snake_case のまま */
+export const GscIndexCoverage = z
+  .object({
+    schema_version: z.literal('1.0'),
+    updated_at: utcTime('最終更新'),
+    entries: z.array(
+      z.looseObject({
+        date: jstDate('計測日'),
+        run_at: utcTime('実行時刻'),
+        sitemap_urls: count('sitemap の URL 数'),
+        inspected: count('検査した URL 数'),
+        indexed: count('登録済み'),
+        indexed_ratio: z.number().min(0).max(1),
+      }),
+    ),
+  })
+  .strict()
+  .meta({ title: 'インデックス状況の推移' });
+
+/** 成長機会の振り分けの記録（data/analysis/growth/triage-log.json） */
+export const GrowthTriage = z
+  .object({
+    schemaVersion: z.literal(1),
+    entries: z.array(
+      z.looseObject({
+        id: z.string().nullable(),
+        week: z.string().regex(/^\d{4}-W\d{2}$/),
+        weekStart: jstDate('週の月曜'),
+        action: z.enum(['verdict', 'defer', 'backlog', 'reject', 'bundle']),
+        at: utcTime('記録時刻'),
+      }),
+    ),
+  })
+  .strict()
+  .meta({ title: '成長機会の振り分け' });
+
+/** note の同期の実行記録（data/note/sync-log.json） */
+export const NoteSyncLog = z
+  .object({
+    runs: z.array(
+      z
+        .object({
+          startedAt: utcTime('開始'),
+          finishedAt: utcTime('終了'),
+          plan: z.looseObject({ synced: count('同期済み'), ready: count('同期できる'), blocked: count('止まっている') }),
+          articles: z.object({ attempted: count('試みた記事'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
+          magazines: z.object({ attempted: count('試みたマガジン'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
+          problems: z.array(z.unknown()),
+        })
+        .strict(),
+    ),
+  })
+  .strict()
+  .meta({ title: 'note の同期の記録' });
+
 /** 週次の計測まとめ（data/business/weekly/<週>.json）。欄の名前は既存の snake_case のまま */
 export const WeeklyMetrics = z
   .looseObject({
