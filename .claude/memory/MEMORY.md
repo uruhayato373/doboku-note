@@ -6,6 +6,7 @@
 - [運営者資格](user_operator_qualifications.md) — 正本author.ts
 
 ## Feedback
+- [生成CTAの画像採用](feedback_generated_cta_asset_fidelity.md) — 完成画像をR2配信・比率維持
 - [管理画面UI](feedback_admin_ui_for_humans.md) — 人が見る画面、必要値のみ
 - [アフィリ転職のみ](feedback_affiliate_career_only.md) — 講座廃止・同一matピクセル監査
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知

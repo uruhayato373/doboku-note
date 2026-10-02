@@ -61,6 +61,8 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 
 ### note 商品 CTA の見た目（hero / inline）
 
+技術士一次の過去問PDF（`pe1-takuitsu-pdf`）は生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の別画像を `NoteImageCta` で比率を保って表示し、R2 URL・寸法・生成記録は `content/site/pe-first-stage/_shared/pop-image.json`、商品と画像の対応は `src/lib/note-cta-images.ts` が参照する。hero／inline／冒頭／教材カード／無料演習の既存配置・計測ラベルは維持する。以下のHTML意匠は画像の未登録商品に適用する。
+
 `<MagazineCard>` の `variant` で 2 型を使い分ける。文言・URL・キャラは全て `src/lib/note-magazines.ts`（SoT）が供給するため、MDX には **id と utmContent だけ**を書く（価格・note URL の直書きは禁止）。
 
 | variant | 実体 | 使う場面 |

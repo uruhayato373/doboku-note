@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import MetaCard from './MetaCard/MetaCard';
 import { type NoteMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import { brandOf } from '@/lib/exam-brand';
@@ -7,6 +9,9 @@ import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 export default function NoteProductCard({ product, category, placement }: {
   product: NoteMagazine; category: string; placement: string;
 }) {
+  const generatedImage = noteCtaImage(product.id, placement.includes('sidebar') ? 'tile' : 'body');
+  if (generatedImage) return <NoteImageCta href={buildMagazineUrl(product, `${category}-${placement}`)} image={generatedImage}
+    trackLabel={product.id} placement={placement} className={placement.includes('sidebar') ? 'mx-auto w-full max-w-[300px]' : 'w-full'} />;
   const brand = brandOf(product.id);
   const image = brand.previewImage || brand.ctaBg;
   const url = buildMagazineUrl(product, `${category}-${placement}`);
