@@ -87,6 +87,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSy
 import { join, resolve, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 
 const CELL_MAX = 15;
@@ -97,7 +98,7 @@ const CELL_MAX = 15;
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function loadContentRules() {
-  const p = resolve(REPO_ROOT, 'config/content-rules.json');
+  const p = resolve(REPO_ROOT, datasetPath('config.content-rules'));
   if (!existsSync(p)) return null;
   try {
     return JSON.parse(readFileSync(p, 'utf8'));

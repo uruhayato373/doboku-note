@@ -23,7 +23,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { DATASETS, datasetFiles } from './lib/datasets.mjs';
+import { DATASETS, datasetFiles, datasetPath } from './lib/datasets.mjs';
 import { DATA_ROOT, FAMILIES, collectPins, filterWeeklyIndex, plan } from './lib/prune-state-snapshots.mjs';
 
 function parseArgs(argv) {
@@ -56,7 +56,7 @@ function readJsonAt(root) {
 }
 
 function loadPins(root) {
-  const ww = join(root, 'config/seo-watchwords.json');
+  const ww = join(root, datasetPath('config.seo-watchwords'));
   const watchwords = existsSync(ww) ? JSON.parse(readFileSync(ww, 'utf8')) : null;
   // business の中身を変えない台帳（KPI の計測・時点記録・目標・レビュー・突合）が sources[] で名前を指すファイル
   const businessDocs = [];

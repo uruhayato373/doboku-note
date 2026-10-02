@@ -33,7 +33,7 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, 'config/coconala-competitors.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.coconala-competitors'));
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright が管理する Chromium と runner の一時 profile を使う。
 // ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。

@@ -85,7 +85,7 @@ export function buildContentIndex(root = ROOT) {
 export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
   const readJson = (p, fallback) => readJsonAt(root, p, fallback);
   const latestIn = (dir, re) => latestAt(root, dir, re);
-  const cfg = readJson('config/growth-cycle.json');
+  const cfg = readJson(datasetPath('config.growth-cycle'));
   const packs = existsSync(join(root, GROWTH)) ? readdirSync(join(root, GROWTH)).filter((f) => /^pack-\d{4}-W\d{2}\.json$/.test(f)).sort() : [];
   const packName = week ? `pack-${week}.json` : packs.at(-1);
   if (!packName || !packs.includes(packName)) return null;
@@ -107,7 +107,7 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     config: cfg.digest,
     qualifications: direction(root).qualifications.map((q) => q.id),
     ...(({ index, legacy }) => ({ contentIndex: index, legacy }))(buildContentIndex(root)),
-    watchwords: readJson('config/seo-watchwords.json', { watchwords: [] }).watchwords,
+    watchwords: readJson(datasetPath('config.seo-watchwords'), { watchwords: [] }).watchwords,
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);

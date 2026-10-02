@@ -7,6 +7,7 @@ import { PageHead } from '@/components/ui';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { Badge } from '@/components/ui/badge';
 import { loadLineupView, type LineupItem, type LineupRow } from '@/lib/lineup';
+import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -97,7 +98,7 @@ export default async function LineupPage({ searchParams }: { searchParams: Promi
       {unclassified.length > 0 && (
         <PanelCard title={`未分類 ${unclassified.length} 件`}>
           <p className="text-sm text-muted-foreground">
-            どの分類ルールにも当たらなかった商品。<code>config/product-lineup.json</code> の rules に追加する。
+            どの分類ルールにも当たらなかった商品。<code>{datasetPath('config.product-lineup')}</code> の rules に追加する。
           </p>
           <ul className="text-sm">
             {unclassified.map((i) => (

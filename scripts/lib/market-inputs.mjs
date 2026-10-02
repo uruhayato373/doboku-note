@@ -50,23 +50,23 @@ const readIf = (path) => (existsSync(path) ? readJson(path) : null);
 
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
-  const config = (name) => readJson(join(root, 'config', name));
+  const config = (id) => readJson(join(root, datasetPath(`config.${id}`)));
   const salesLog = readIf(join(root, datasetPath('note.sales')));
   const orderLog = readIf(join(root, datasetPath('coconala.orders')));
   /** @type {Record<string, any[]>} */
   const competitors = {};
   for (const ch of COMPETITOR_CHANNELS) {
-    const path = join(root, 'config', `${ch}-competitors.json`);
+    const path = join(root, datasetPath(`config.${ch}-competitors`));
     competitors[ch] = existsSync(path) ? readJson(path).competitors ?? [] : [];
   }
   return {
-    registry: config('qualification-registry.json'),
-    formats: config('exam-formats.json'),
-    examStats: config('exam-stats.json'),
-    calendar: config('exam-calendar.json'),
-    lineupConfig: config('product-lineup.json'),
-    scanConfig: config('market-scan.json'),
-    buyWindowWeeks: config('annual-roadmap.json').buyWindowWeeks,
+    registry: config('qualification-registry'),
+    formats: config('exam-formats'),
+    examStats: config('exam-stats'),
+    calendar: config('exam-calendar'),
+    lineupConfig: config('product-lineup'),
+    scanConfig: config('market-scan'),
+    buyWindowWeeks: config('annual-roadmap').buyWindowWeeks,
     sales: salesLog?.sales ?? [],
     orders: Array.isArray(orderLog) ? orderLog : (orderLog?.orders ?? []),
     competitors,

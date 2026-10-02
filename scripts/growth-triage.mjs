@@ -36,7 +36,7 @@ const GROWTH = datasetDir('analysis.growth-pack');
 const LOG = datasetPath('analysis.growth-triage');
 const BACKLOG = '.claude/todo/backlog.md';
 const LEDGER = datasetPath('business.experiments');
-const WATCH = 'config/seo-watchwords.json';
+const WATCH = datasetPath('config.seo-watchwords');
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);

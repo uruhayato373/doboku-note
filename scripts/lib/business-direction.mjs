@@ -7,7 +7,7 @@ import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
 import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
-export const DIRECTION = 'config/business-direction.json';
+export const DIRECTION = datasetPath('config.business-direction');
 export const RECORDS = datasetDir('business.measurement');
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const jst = (now = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(now));
@@ -19,7 +19,7 @@ const nonempty = (s) => typeof s === 'string' && s.trim().length >= 3 && s.lengt
 export function direction(root) {
   const c = readJson(root, DIRECTION);
   // 重点資格の名前は qualification-registry.json から引く（business-direction.json に写さない）
-  const registry = readJson(root, 'config/qualification-registry.json');
+  const registry = readJson(root, datasetPath('config.qualification-registry'));
   c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');

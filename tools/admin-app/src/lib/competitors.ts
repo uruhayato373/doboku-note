@@ -107,7 +107,7 @@ export function loadCompetitorView(): CompetitorView {
     .filter((x): x is { date: string; snap: RawSnapshot } => x.snap !== null);
 
   const registry = readJson<{ qualifications: { id: string; label: string }[] }>(
-    join(root, 'config/qualification-registry.json'),
+    join(root, datasetPath('config.qualification-registry')),
   );
   const examLabels = Object.fromEntries((registry?.qualifications ?? []).map((q) => [q.id, q.label]));
 

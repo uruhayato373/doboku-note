@@ -17,7 +17,7 @@ import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 /** doboku の副サイト（note 等）の A8 サイト名。正本は config/a8-report-automation.json の a8.relatedSites。 */
 function readRelatedSites(): string[] {
   try {
-    const c = JSON.parse(readFileSync(repoPath('config', 'a8-report-automation.json'), 'utf8'));
+    const c = JSON.parse(readFileSync(repoPath(datasetPath('config.a8-report-automation')), 'utf8'));
     return Array.isArray(c?.a8?.relatedSites) ? c.a8.relatedSites : [];
   } catch {
     return [];

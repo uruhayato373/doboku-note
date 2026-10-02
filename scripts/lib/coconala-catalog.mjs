@@ -9,10 +9,11 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
-export const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
+export const LISTINGS_PATH = join(ROOT, datasetPath('config.coconala-listings'));
 
 /**
  * カタログ TS の本文からサービスを抽出する（純粋関数）。

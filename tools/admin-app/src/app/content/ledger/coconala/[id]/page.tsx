@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { loadLedgerView, readApprovedThumbs } from '@/lib/ledger';
 import { repoPath } from '@/lib/repo-root';
 import { readCatalog, readListings } from '../../../../../../../../scripts/lib/coconala-catalog.mjs';
+import { datasetPath } from '../../../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,8 +30,8 @@ type Listing = {
 
 const SOURCES = [
   { file: 'src/lib/coconala-services.ts', what: 'タイトル・価格・出品状態・公開 URL（カタログ）' },
-  { file: 'config/coconala-listings.json', what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
-  { file: 'config/coconala-thumb-approved.json', what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
+  { file: datasetPath('config.coconala-listings'), what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
+  { file: datasetPath('config.coconala-thumb-approved'), what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
 ];
 
 function Row({ k, v }: { k: string; v: React.ReactNode }) {

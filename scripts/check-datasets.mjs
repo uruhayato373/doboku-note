@@ -7,7 +7,7 @@
  *      （planned に CI のボットが初めて書いたときは警告だけにする。無関係な PR を赤くしない）
  *   3. id・種類・領域が正しい（id の重複・KINDS に無い種類・domains.json に無い領域は違反）
  *   4. 型（zod）のあるデータセットは、全ファイルが型に合う
- *   5. コード（scripts/・tools/・src/・.claude/）は data/ のパスを直書きせず、台帳から datasetPath などで引く
+ *   5. コード（scripts/・tools/・src/・.claude/）は config/・data/ のパスを直書きせず、台帳から datasetPath などで引く
  *      （置き場を移したとき直書きが旧パスのまま残り、読めずに黙って空を返す不具合を止める）
  * 検査したファイル数を出し、1 件も読めなければ検査不成立（exit 2）。違反は exit 1。
  */
@@ -15,7 +15,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATA_PATH_LITERAL_ALLOW, DATASETS, KINDS, findDataPathLiterals, listAreaFiles, matchFiles, validateFiles } from './lib/datasets.mjs';
+import { AREAS, PATH_LITERAL_ALLOW, DATASETS, KINDS, findPathLiterals, listAreaFiles, matchFiles, validateFiles } from './lib/datasets.mjs';
 import { loadDomains } from './lib/domains.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -52,10 +52,10 @@ for (const x of typed) {
 const CODE_ROOTS = ['scripts', 'tools', 'src', '.claude'];
 const codeFiles = execFileSync('git', ['-C', ROOT, '-c', 'core.quotepath=false', 'ls-files', '-z', '--', ...CODE_ROOTS], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
   .split('\0')
-  .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !DATA_PATH_LITERAL_ALLOW.includes(f));
+  .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !PATH_LITERAL_ALLOW.includes(f));
 for (const f of codeFiles) {
-  for (const h of findDataPathLiterals(readFileSync(join(ROOT, f), 'utf8'))) {
-    errors.push(`${f}:${h.line}: data/ のパスを直書きしている（台帳から datasetPath・datasetDir で引く）— ${h.text}`);
+  for (const h of findPathLiterals(readFileSync(join(ROOT, f), 'utf8'))) {
+    errors.push(`${f}:${h.line}: config/・data/ のパスを直書きしている（台帳から datasetPath・datasetDir で引く）— ${h.text}`);
   }
 }
 
@@ -72,4 +72,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに data/ の直書きが無い）');
+console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに config/・data/ の直書きが無い）');

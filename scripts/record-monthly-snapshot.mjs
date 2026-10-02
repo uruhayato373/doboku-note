@@ -117,9 +117,9 @@ function main() {
   // ── その月の試験イベント（季節性の説明変数。売上曲線と重ねて読む） ──
   const examEvents = [];
   try {
-    const cal = readJson(join(ROOT, 'config/exam-calendar.json'));
+    const cal = readJson(join(ROOT, datasetPath('config.exam-calendar')));
     // 展開中の資格だけ（候補資格の日程も exam-calendar に蓄積しているが、売上の説明変数には混ぜない）
-    const active = new Set(activeIds(readJson(join(ROOT, 'config/qualification-registry.json'))));
+    const active = new Set(activeIds(readJson(join(ROOT, datasetPath('config.qualification-registry')))));
     for (const [key, ex] of Object.entries(cal.exams ?? {})) {
       if (!active.has(key)) continue;
       for (const ev of Object.values(ex.events ?? {})) {

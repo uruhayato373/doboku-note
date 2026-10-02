@@ -571,10 +571,10 @@ function readJsonFile(abs) {
 }
 
 function readExamCalendar(rootDir) {
-  const relPath = 'config/exam-calendar.json';
+  const relPath = datasetPath('config.exam-calendar');
   try {
     const json = readJsonFile(join(rootDir, relPath));
-    const registry = readJsonFile(join(rootDir, 'config/qualification-registry.json'));
+    const registry = readJsonFile(join(rootDir, datasetPath('config.qualification-registry')));
     const { events, skipped } = mapExamCalendar(json, relPath, new Set(activeIds(registry)));
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
@@ -592,7 +592,7 @@ function readExamCalendar(rootDir) {
 }
 
 function readXCampaigns(rootDir) {
-  const dirRel = 'config/x-campaigns';
+  const dirRel = datasetDir('config.x-campaigns');
   const dirAbs = join(rootDir, dirRel);
   const events = [];
   const errors = [];

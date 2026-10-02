@@ -36,6 +36,7 @@
 import { S3Client, DeleteObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
+import { datasetPath } from './lib/datasets.mjs';
 
 const root = process.cwd();
 
@@ -76,7 +77,7 @@ const commit = args.includes('--commit');
 const listIdx = args.indexOf('--list');
 const groupIdx = args.indexOf('--from-manifest-group');
 const fromGroup = groupIdx !== -1 ? args[groupIdx + 1] : null;
-const listPath = listIdx !== -1 ? args[listIdx + 1] : (fromGroup ? null : 'config/r2-delete-list.txt');
+const listPath = listIdx !== -1 ? args[listIdx + 1] : (fromGroup ? null : datasetPath('config.r2-delete-list'));
 const allowUnpreserved = args.includes('--allow-unpreserved');
 
 let keys;

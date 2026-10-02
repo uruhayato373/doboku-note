@@ -57,7 +57,7 @@ import { datasetPath } from './lib/datasets.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 
 /** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。 */
@@ -489,7 +489,7 @@ function main() {
     + '\n  1. ライブへ収録   node scripts/note-magazine-add-articles.mjs --target <m…> --notes <n…> --commit'
     + '\n  2. SoT の件数表記 src/lib/note-magazines.ts の title / description / shortDescription / price'
     + '\n  3. snapshot 再生成 npm run verify-note-magazines -- --contents --json'
-    + '\nペルソナ dir の外から収録している例外は config/note-magazine-membership.json の extras に理由付きで。',
+    + `\nペルソナ dir の外から収録している例外は ${datasetPath('config.note-magazine-membership')} の extras に理由付きで。`,
   );
   process.exit(1);
 }

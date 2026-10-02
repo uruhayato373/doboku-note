@@ -16,7 +16,7 @@ export function readWatchConfig(root) {
   }
   return validateConfig(config);
 }
-export const CONFIG = 'config/seo-watchwords.json';
+export const CONFIG = datasetPath('config.seo-watchwords');
 export const LEDGER = datasetPath('business.experiments');
 /**
  * 計測（watch-…）と判断（run-…）の記録。月ごとの追記ファイル data/gsc/rank-watch/<YYYY-MM>.jsonl に 1 行 1 件。
@@ -141,7 +141,7 @@ export function report(root, now = new Date()) {
   const config = readWatchConfig(root);
   const store = readJson(root, LEDGER);
   const snapshots = readMeasurements(root);
-  const calendar = existsSync(join(root, 'config/exam-calendar.json')) ? readJson(root, 'config/exam-calendar.json') : null;
+  const calendar = existsSync(join(root, datasetPath('config.exam-calendar'))) ? readJson(root, datasetPath('config.exam-calendar')) : null;
   const runs = readRuns(root);
   const recentActions = Object.fromEntries(config.strategy.focusQualifications.map((id) => [id, store.experiments.filter((e) => e.kind === KIND && config.watchwords.find((w) => w.id === e.watchId)?.qualification === id).flatMap((e) => e.actions ?? []).filter((a) => a.date >= addDays(dateJst(now), -27)).length]));
   const activeExperiments = store.experiments.filter((e) => ['running', 'measuring'].includes(e.status) || (e.kind === KIND && statusOf(e) === 'pending-deploy'));

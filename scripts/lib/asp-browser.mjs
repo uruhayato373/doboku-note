@@ -11,6 +11,7 @@
  *   - ensureTargetSite              : **サイト帰属の確定。失敗は例外**（asp-site-guard に判定を委譲）
  */
 import { readFileSync, existsSync } from "node:fs";
+import { datasetPath } from "./datasets.mjs";
 
 import {
   launchContext,
@@ -42,7 +43,7 @@ export {
   SiteAttributionError,
 };
 
-export const ASP_CONFIG_PATH = "config/affiliate-asp.json";
+export const ASP_CONFIG_PATH = datasetPath("config.affiliate-asp");
 
 export function loadAspConfig() {
   const cfg = JSON.parse(readFileSync(ASP_CONFIG_PATH, "utf-8"));

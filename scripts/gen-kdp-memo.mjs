@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { getDefaults } from './lib/kdp-common.mjs'
+import { datasetPath } from './lib/datasets.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 // ── 共通ルール（真実源 = config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
@@ -134,11 +135,11 @@ ${d.previewNote}
 `
 }
 
-const cfg = JSON.parse(readFileSync(resolve(REPO, 'config/kdp-memo.json'), 'utf8')).books
+const cfg = JSON.parse(readFileSync(resolve(REPO, datasetPath('config.kdp-memo')), 'utf8')).books
 const ids = process.argv.slice(2).length ? process.argv.slice(2) : Object.keys(cfg)
 for (const id of ids) {
   const d = cfg[id]
-  if (!d) { console.error(`config に ${id} がない（config/kdp-memo.json に追記を）`); continue }
+  if (!d) { console.error(`config に ${id} がない（${datasetPath('config.kdp-memo')} に追記を）`); continue }
   const specPath = resolve(REPO, `scripts/kindle-specs/${id}.json`)
   if (!existsSync(specPath)) { console.error(`spec が無い: ${id}`); continue }
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))

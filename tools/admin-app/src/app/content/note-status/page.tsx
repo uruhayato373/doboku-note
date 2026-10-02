@@ -125,7 +125,7 @@ export default function NoteStatusPage() {
               <StatusBadge tone="bad">未分類 {m.unclassified.length} 種</StatusBadge>{' '}
               {m.unclassified.map((u) => `${u.label}(${u.count})`).join('、')}
               <br />
-              <code>config/note-magazine-membership.json</code> の{' '}
+              <code>{datasetPath('config.note-magazine-membership')}</code> の{' '}
               <code>labels</code> / <code>packs</code> / <code>excluded</code>{' '}
               のどれかへ登録する（未分類のまま放置すると、そのラベルは検査の射程外になる）。
             </p>

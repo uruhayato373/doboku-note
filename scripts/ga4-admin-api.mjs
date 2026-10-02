@@ -29,7 +29,7 @@ import dotenv from 'dotenv';
 import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[ga4-admin-api]';
-const DESIRED = 'config/ga4-admin-desired-state.json';
+const DESIRED = datasetPath('config.ga4-admin-desired-state');
 const INVENTORY = datasetPath('ga4.admin-inventory');
 const RETENTION_MONTHS = { TWO_MONTHS: 2, FOURTEEN_MONTHS: 14, TWENTY_SIX_MONTHS: 26, THIRTY_EIGHT_MONTHS: 38, FIFTY_MONTHS: 50 };
 

@@ -31,12 +31,13 @@ import * as fs from "fs";
 import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
+import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
 const ACCOUNT_CONFIG = JSON.parse(
-  fs.readFileSync(path.join(PROJECT_ROOT, "config/x-account.json"), "utf-8")
+  fs.readFileSync(path.join(PROJECT_ROOT, datasetPath("config.x-account")), "utf-8")
 ) as { handle: string; authService: string };
 const PROFILE_DIR = resolveProfileDir(ACCOUNT_CONFIG.authService, {
   cwd: PROJECT_ROOT,

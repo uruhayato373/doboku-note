@@ -39,11 +39,11 @@ import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
-const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
+const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
 const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
 const SALES_PATH = join(ROOT, datasetPath('note.sales'));
-const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
+const LISTINGS_PATH = join(ROOT, datasetPath('config.coconala-listings'));
 const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
@@ -61,8 +61,8 @@ if (staged) {
     (p) =>
       p.includes('src/lib/coconala-services.ts') ||
       p.includes(`${dirname(datasetPath('coconala.orders'))}/`) ||
-      p.includes('config/coconala-account.json') ||
-      p.includes('config/coconala-listings.json') ||
+      p.includes(datasetPath('config.coconala-account')) ||
+      p.includes(datasetPath('config.coconala-listings')) ||
       // note の値上げでココナラが価格ルールの下限を割るのも検知する
       p.includes('src/lib/note-magazines.ts') ||
       p.includes(datasetPath('note.sales')) ||
@@ -171,7 +171,7 @@ for (const o of findOverdueResume(catalog, today)) {
 const account = readJson(ACCOUNT_PATH);
 if (listed.length > 0) {
   if (!account || account.__parseError) {
-    violations.push('listed サービスがあるのに config/coconala-account.json が読めません');
+    violations.push(`listed サービスがあるのに ${datasetPath('config.coconala-account')} が読めません`);
   } else if (!account.profileUrl) {
     violations.push(
       'listed サービスがあるのに coconala-account.json の profileUrl が空（出品済みならアカウント SSOT を埋める）'
@@ -193,7 +193,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJson(join(ROOT, 'config/coconala-thumb-approved.json'))?.images ?? {};
+const approvedThumbs = readJson(join(ROOT, datasetPath('config.coconala-thumb-approved')))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));

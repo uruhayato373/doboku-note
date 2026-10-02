@@ -24,7 +24,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { datasetPath } from "./lib/datasets.mjs";
 
-const DESIRED_PATH = "config/ga4-admin-desired-state.json";
+const DESIRED_PATH = datasetPath("config.ga4-admin-desired-state");
 const INVENTORY_PATH = datasetPath("ga4.admin-inventory");
 
 const argv = process.argv.slice(2);

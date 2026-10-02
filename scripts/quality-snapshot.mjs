@@ -17,11 +17,12 @@ import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
 const BASELINE = join(ROOT, ".claude", "state", "quality", "lint-baseline.json");
 const HISTORY = join(ROOT, ".claude", "state", "quality", "history.jsonl");
-const RULES = join(ROOT, "config", "content-rules.json");
+const RULES = join(ROOT, datasetPath("config.content-rules"));
 
 function readJson(p, fallback) {
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return fallback; }

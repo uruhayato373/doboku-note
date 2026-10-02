@@ -8,11 +8,12 @@
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
 export function loadBreakpointConfig() {
-  return JSON.parse(readFileSync(join(ROOT, 'config/public-view-breakpoints.json'), 'utf8'));
+  return JSON.parse(readFileSync(join(ROOT, datasetPath('config.public-view-breakpoints')), 'utf8'));
 }
 
 /** Playwright の newContext に渡す値（端末の種類ごとに UA・タッチ・倍率を変える）。 */

@@ -4,12 +4,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readScheduledQueue } from './lib/x-scheduled-queue.mjs';
 import { assessQueueHealth } from './lib/x-queue-health.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const root = process.cwd();
 const out = path.join(root, '.tmp/x-queue-health/latest.json');
 let report;
 try {
-  const { handle } = JSON.parse(fs.readFileSync('config/x-account.json', 'utf8'));
+  const { handle } = JSON.parse(fs.readFileSync(datasetPath('config.x-account'), 'utf8'));
   const tweets = [], articles = [];
   for (const base of ['content/sns/x/draft', 'content/sns/x/published']) {
     if (!fs.existsSync(base)) continue;
