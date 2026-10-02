@@ -81,3 +81,7 @@ doboku-note サイト（/docs 記事ページ）の note 有料マガジン/メ�
 - 自動配線（2・3）は `resolvePlacement` の入口 `isCareer` ガードで止まる（2026-09-22 に真実源 `isCareerDoc` へ寄せた）。カテゴリ別・slug 接頭辞別に判定を書き足さない
 - MDX に著者が明示的に置いた `<MagazineCard>` はガードの射程外。機械で一律に剥がさず判断を残す（2026-09-22 時点で 2 本が該当: `pe-comprehensive-management-public-engineer-qualification-map` と `civil-construction-1-guide-consultant`。いずれも RCCM 商品）
 - 関連: [[reference_site_magazine_cta_firing]]（CTA が出る/出ない条件）・[[feedback_affiliate_career_only]]
+
+## 枠ごとの効き（2026-10-02 実測・GA4 9/4〜10/1）
+冒頭 1 行 CTA（`MagazineTopBanner`）の全資格平均クリック率は 0.40%、本文の `<MagazineCard>` は 6.72%、中間 CTA は 1.47%。冒頭でも具体的で安い商品（択一 PDF 等）は 1.4〜2.5% 取れるが、高額のまとめ売り（まるごと・想定工事バンク・完全攻略）は 0.12〜0.19% で最低帯。**冒頭に高額バンドルを置かない**。冒頭バナーは長い catalog price 文字列で PC 幅のタイトルが幅 0（縦書き状）に崩れていた → 先頭金額のみ表示に是正（PR #841）。表示率の議論の前に、まず本番の描画を `a[data-cta-placement="article-top"]` の幅で実測する。
+マガジン単位の到達検査（各商品 1 面以上）は、新記事の許可リスト足し忘れを素通りする → `check-magazine-cta` にページ単位ゲート（1級・2級土木・baseline `zeroPage`）を追加済み。関連 [[project_civil_niji_gakka_line]]
