@@ -4,6 +4,9 @@ import type { Metadata } from "next";
 import KakomonQuizClient, { type KakomonQuizConfig } from "../KakomonQuizClient";
 import "katex/dist/katex.min.css";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+import NotePopCta from "@/components/ui/NotePopCta/NotePopCta";
+import { brandOf } from "@/lib/exam-brand";
+import { noteCtaCopy } from "@/lib/note-cta-copy";
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
 // （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
@@ -107,20 +110,24 @@ export default function PeFirstStageQuizPage() {
             const mag = getMagazine(id);
             if (!mag) return null;
             const label = `${id}:tools-kakomon-quiz-pe-first-stage`;
+            const brand = brandOf(id);
+            const copy = noteCtaCopy(mag);
             return (
-              <a
+              <NotePopCta
                 key={id}
                 href={buildMagazineUrl(mag, label)}
-                target="_blank"
-                rel="noopener"
-                data-cta="note"
-                data-cta-label={label}
-                data-cta-placement="tools-kakomon-quiz-pe-first-stage"
-                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-              >
-                <div className="font-bold text-(--ink)">{mag.shortTitle ?? mag.title}</div>
-                <div className="text-sm text-(--ink-body) mt-1">{lead}</div>
-              </a>
+                qualification={brand.label}
+                title={copy.title}
+                subtitle={lead}
+                price={copy.price}
+                badge={mag.badge}
+                button="教材の内容を見る"
+                themeVar={brand.themeVar}
+                pose={mag.ctaPose ?? 'pointing'}
+                format="compact"
+                trackLabel={label}
+                placement="tools-kakomon-quiz-pe-first-stage"
+              />
             );
           })}
         </div>

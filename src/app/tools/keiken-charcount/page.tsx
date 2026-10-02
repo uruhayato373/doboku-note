@@ -5,6 +5,9 @@ import KeikenCharcountClient from "./KeikenCharcountClient";
 import OffsiteCta from "@/components/ui/OffsiteCta/OffsiteCta";
 import { resolveOffsiteCta } from "@/lib/offsite-cta";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+import NotePopCta from "@/components/ui/NotePopCta/NotePopCta";
+import { brandOf } from "@/lib/exam-brand";
+import { noteCtaCopy } from "@/lib/note-cta-copy";
 
 // 答案を書いている最中の人が来る高 intent ページ。記事への内部リンク（クライアント側）に加えて、
 // note の完成答案集とココナラ添削へ直接つなぐ（2026-09-27 配線監査 DN-0364）。
@@ -70,20 +73,24 @@ export default function KeikenCharcountPage() {
             const mag = getMagazine(id);
             if (!mag) return null;
             const label = `${id}:tools-keiken-charcount`;
+            const brand = brandOf(id);
+            const copy = noteCtaCopy(mag);
             return (
-              <a
+              <NotePopCta
                 key={id}
                 href={buildMagazineUrl(mag, label)}
-                target="_blank"
-                rel="noopener"
-                data-cta="note"
-                data-cta-label={label}
-                data-cta-placement="tools-keiken-charcount"
-                className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-(--accent)"
-              >
-                <div className="font-bold text-(--ink)">{mag.shortTitle ?? mag.title}</div>
-                <div className="text-sm text-(--ink-body) mt-1">{lead}</div>
-              </a>
+                qualification={brand.label}
+                title={copy.title}
+                subtitle={lead}
+                price={copy.price}
+                badge={mag.badge}
+                button="教材の内容を見る"
+                themeVar={brand.themeVar}
+                pose={mag.ctaPose ?? 'pointing'}
+                format="compact"
+                trackLabel={label}
+                placement="tools-keiken-charcount"
+              />
             );
           })}
         </div>
