@@ -45,6 +45,8 @@ tail -n +20 "$HOOK" > /tmp/hook-body.sh && sh /tmp/hook-body.sh
 相手の worktree にしか無いスクリプトを呼ぶ行は落ちるので、その分は除いて回す。
 共有 .git の別の事故は [[reference_shared_worktree_autostash_hazard]]。
 
+**2026-10-02 以降（DN-0506・PR #842）**: `pre-commit:install` は「導入済み＝origin/develop の版で、自分のツリーの版が develop の過去版」のとき上書きを拒否する（`--force` で回避・`npm install` の prepare では止めない）。鮮度ガードも installed が develop と同じなら「ツリーに develop を取り込め」と案内する。ゲートを足している途中（develop に無い版）は従来どおり入る。フックは一時ファイル→rename で置き換わるので、実行中のシェルが壊れない。
+
 **再発（2026-08-26）**: `node scripts/install-pre-commit.mjs` は `--help` 等の
 フラグを一切見ず、引数の有無に関わらず即座に上書き実行する（dry-run が無い）。
 「中身を確認するだけのつもり」で実行しても即座に共有フックが書き換わる。
