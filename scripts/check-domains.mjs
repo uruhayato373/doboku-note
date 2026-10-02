@@ -9,12 +9,15 @@
  *      ちょうど1つの領域に解決できる
  *   4. 各領域のサイドバー画面（nav）の種類が navKinds にあり、URL の画面（tools/admin-app/src/app 配下の page.tsx）が実在する
  *   5. 年間ロードマップの設定（annual-roadmap.json）が期間と買い場の週数だけを持つ（重点はバックログの [時期:]）
+ *   6. 設定（config/**）とデータ（data/**）の git 管理下の全ファイルが documents で領域に解決でき、
+ *      documents の config/・data/ のキーがどれかのファイルに当たる（管理画面 管理＞設定／データ の並びの元）
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
+import { STORE_KINDS, listStoreFiles, groupStores, deadStoreKeys } from './lib/data-stores.mjs';
 import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -69,8 +72,12 @@ const docs = [
 ];
 for (const p of docs) if (!documentDomain(cfg, rel(p))) errors.push(`${rel(p)}: domains.json の documents で領域が決まらない`);
 
-console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件を実検査 / 違反 ${errors.length} 件`);
-if (defs.length === 0 || docs.length === 0 || navViews === 0) {
+const storeFiles = Object.keys(STORE_KINDS).flatMap((k) => listStoreFiles(ROOT, k, { tracked: true }));
+for (const f of groupStores(cfg, storeFiles).unassigned) errors.push(`${f}: domains.json の documents で領域が決まらない（設定・データ）`);
+for (const k of deadStoreKeys(cfg, storeFiles)) errors.push(`documents["${k}"]: 当たるファイルが無い（移動・削除の取り残し）`);
+
+console.log(`[check-domains] 領域 ${ids.size} / サイドバー画面 ${navViews} / ロードマップ設定 1 件 / スキル・エージェント ${defs.length} 件 / 文書 ${docs.length} 件・設定とデータ ${storeFiles.length} 件を実検査 / 違反 ${errors.length} 件`);
+if (defs.length === 0 || docs.length === 0 || navViews === 0 || storeFiles.length === 0) {
   console.error('✗ 検査不成立: 対象を 1 件も読めなかった');
   process.exit(2);
 }
