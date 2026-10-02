@@ -9,7 +9,7 @@ const SCRIPT = '.claude/scripts/psi-threshold-check.mjs'
 
 function runWith(result) {
   const dir = mkdtempSync(join(tmpdir(), 'psi-threshold-test-'))
-  writeFileSync(join(dir, 'psi-batch-2026-08-21T00-00-00.json'), JSON.stringify({ results: [result] }))
+  writeFileSync(join(dir, '2026-08-21T00-00-00.json'), JSON.stringify({ results: [result] }))
   const run = spawnSync(process.execPath, [SCRIPT, '--json', '--state-dir', dir], { encoding: 'utf8' })
   rmSync(dir, { recursive: true, force: true })
   return { ...run, json: JSON.parse(run.stdout) }

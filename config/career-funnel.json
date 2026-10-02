@@ -82,7 +82,7 @@
     "event_label": "2026-07-07",
     "cta_placement": "2026-07-25"
   },
-  "$baselineComment": "起票時（2026-08-21）の基線。レポートがこの値から大きくずれたら理由を説明する。凍結済みの完全な基線は data/metrics/affiliate/career-funnel-baseline-2026-08-12.json、評価は experiments.json の EXP-008。",
+  "$baselineComment": "起票時（2026-08-21）の基線。レポートがこの値から大きくずれたら理由を説明する。凍結済みの完全な基線は data/analysis/career-funnel-baseline/2026-08-12.json、評価は experiments.json の EXP-008。",
   "reportedBaseline": {
     "affiliateImpressions": 7370,
     "affiliateClicks": 19,

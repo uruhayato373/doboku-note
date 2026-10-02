@@ -19,14 +19,13 @@
 //
 // exit: 0=OK/WARN, 1=FAIL
 
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { latestFile } from './lib/datasets.mjs';
 
 const TAG = '[check-ig-insights-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DIR = join(ROOT, 'data/metrics/instagram');
-const FILE_RE = /^ig-insights-(\d{4}-\d{2}-\d{2})\.json$/;
 const JSON_OUT = process.argv.includes('--json');
 
 /**
@@ -88,20 +87,17 @@ export function assessIgInsights(snapshotOrNull, nowUtcMs, { maxAgeDays = 10, fa
   return { status, reasons, expiresInDays, inspected };
 }
 
-/** DIR 内の最新 snapshot をファイル名ソートで読む。無ければ null。 */
-function loadLatest(dir) {
-  if (!existsSync(dir)) return null;
-  const files = readdirSync(dir).filter((f) => FILE_RE.test(f)).sort();
-  if (files.length === 0) return null;
-  const file = files[files.length - 1];
-  const data = JSON.parse(readFileSync(join(dir, file), 'utf8'));
-  return { ...data, __file: file };
+/** 最新の snapshot（台帳 instagram.insights）を読む。無ければ null。 */
+function loadLatest() {
+  const file = latestFile(ROOT, 'instagram.insights');
+  if (!file) return null;
+  return { ...JSON.parse(readFileSync(join(ROOT, file), 'utf8')), __file: file };
 }
 
 const isMain = process.argv[1] && process.argv[1].endsWith('check-ig-insights-freshness.mjs');
 
 if (isMain) {
-  const snapshot = loadLatest(DIR);
+  const snapshot = loadLatest();
   const r = assessIgInsights(snapshot, Date.now());
 
   if (JSON_OUT) {

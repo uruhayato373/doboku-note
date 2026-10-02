@@ -11,10 +11,10 @@
  *   - data/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
  *       ※ 面別ラベルは fetch-ga4-cta-clicks --by-label で取得（要 GA4 event_label カスタムディメンション）。
  *   - data/metrics/ga4/ga4-cta-clicks-*.json           （pagePath × eventName × eventCount・page 別）
- *   - data/metrics/affiliate/a8-results.json           （A8 成果。`/a8-report` が自動取込）
+ *   - data/a8/results.json           （A8 成果。`/a8-report` が自動取込）
  *
  * 出力:
- *   - data/metrics/affiliate/buildjob-report-latest.md  （面別/ページ別/EPC サマリ）
+ *   - data/analysis/buildjob-report.md  （面別/ページ別/EPC サマリ）
  *   - コンソールにサマリ
  *
  * usage: node .claude/scripts/report-buildjob-affiliate.mjs
@@ -23,13 +23,13 @@
  *     GA4 by-label が未登録で全ラベル "(not set)" のときは面別内訳が出せない旨を明示して継続する。
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { pickByLabelSnapshot } from "./lib/ga4-snapshot.mjs";
 
 import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
 
 const GA4_DIR = "data/metrics/ga4";
-const AFF_DIR = "data/metrics/affiliate";
 
 /** プログラム分類: data-cta-label（面別 trackLabel or CareerAffiliate の service 名）→ プログラム。 */
 const PROGRAM_BY_LABEL = new Map([
@@ -149,7 +149,7 @@ if (pageFile) {
 }
 
 // ---- 3. A8 成果スナップショットと突合（推定 EPC） --------------------------
-const a8File = join(AFF_DIR, "a8-results.json");
+const a8File = datasetPath("a8.results");
 const a8 = existsSync(a8File) ? readJson(a8File) : { records: [] };
 
 // ★ 分子（A8 確定報酬）と分母（GA4 クリック）の期間を揃える。
@@ -348,13 +348,13 @@ lines.push("- 面別内訳には GA4 の `event_label` カスタムディメン�
 lines.push("");
 
 const md = lines.join("\n");
-const outPath = join(AFF_DIR, "buildjob-report-latest.md");
+const outPath = datasetPath("analysis.buildjob-report");
 // --check: 成果物を書かずに完走だけ確認する（quality-audit ci 用。DN-0253・入力の import 破損や snapshot 欠落を CI で拾う）
 if (process.argv.includes("--check")) {
   console.log(`[report-buildjob-affiliate --check] 完走（${md.split("\n").length} 行を生成・書き込みなし）`);
   process.exit(0);
 }
-if (!existsSync(AFF_DIR)) mkdirSync(AFF_DIR, { recursive: true });
+mkdirSync(dirname(outPath), { recursive: true });
 writeFileSync(outPath, md + "\n");
 
 // ---- コンソールサマリ -------------------------------------------------------

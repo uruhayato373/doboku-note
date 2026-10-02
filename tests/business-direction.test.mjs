@@ -144,10 +144,10 @@ test('write endpoint requires local same-origin JSON',()=>{
 });
 test('instagram and cloudflare source facts are all-only with period coverage',t=>{
  const root=fixture(t);
- mkdirSync(join(root,'data/metrics/instagram'),{recursive:true});
- mkdirSync(join(root,'data/metrics/cloudflare'),{recursive:true});
- writeFileSync(join(root,'data/metrics/instagram/ig-insights-2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',account:{followersCount:500},daily:Array.from({length:31},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,reach:10}))}));
- writeFileSync(join(root,'data/metrics/cloudflare/cf-zone-2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',daily:Array.from({length:30},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,jp:{requests:100},other:{requests:20}}))}));
+ mkdirSync(join(root,'data/instagram/insights'),{recursive:true});
+ mkdirSync(join(root,'data/cloudflare/zone'),{recursive:true});
+ writeFileSync(join(root,'data/instagram/insights/2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',account:{followersCount:500},daily:Array.from({length:31},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,reach:10}))}));
+ writeFileSync(join(root,'data/cloudflare/zone/2026-08-15.json'),JSON.stringify({fetchedAt:'2026-08-16T00:00:00Z',daily:Array.from({length:30},(_, i)=>({date:`2026-08-${String(i+1).padStart(2,'0')}`,jp:{requests:100},other:{requests:20}}))}));
  const r=buildReport(root,period,now);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='igReach').value,310);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='igReach').coverage,'complete');
@@ -166,7 +166,7 @@ test('unionDaily takes the later snapshot value for a shared date',()=>{
 });
 test('latestAll returns [] when the directory is absent',t=>{
  const root=fixture(t);
- assert.deepEqual(latestAll(root,'data/metrics/instagram','ig-insights-'),[]);
+ assert.deepEqual(latestAll(root,'instagram.insights'),[]);
 });
 test('validateRecord accepts instagram/cloudflare channels and rejects unknown ones',t=>{
  const root=fixture(t), c=direction(root);

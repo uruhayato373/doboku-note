@@ -2,29 +2,30 @@
 /**
  * report-web-vitals.mjs — 実ユーザー計測（RUM）の Core Web Vitals を週次レビュー向けに読む。
  *
- * 最新の data/metrics/rum/web-vitals-*.json（fetch-ga4-web-vitals が CI で保存）を読み、
+ * 最新の data/rum/web-vitals/*.json（fetch-ga4-web-vitals が CI で保存）を読み、
  * 手を打つべき組（不良・要改善で件数が足りているもの）を先に出す。判定は scripts/lib/web-vitals-rum.mjs。
  * 週次レビューは、ここに「不良」が出たら改善カードを起票する（PSI のラボ値だけでは起票しない）。
  *
  * 使い方: npm run report-web-vitals [-- --json]
  * 終了コード: 0＝読めた（手を打つ組の有無に関係なく）/ 2＝検査不成立（記録が無い・古い・取得できていない）
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { datasetDir, latestFile } from './lib/datasets.mjs';
 import { actionable, MIN_SAMPLES } from './lib/web-vitals-rum.mjs';
 
-const DIR = 'data/metrics/rum';
+const DIR = datasetDir('rum.web-vitals');
 const TAG = '[report-web-vitals]';
 const MAX_AGE_DAYS = 10;
 const STATUS_JA = { good: '良好', 'needs-improvement': '要改善', poor: '不良', insufficient: '件数不足' };
 
 function main() {
-  const name = existsSync(DIR) ? readdirSync(DIR).filter((f) => /^web-vitals-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().at(-1) : null;
-  if (!name) {
+  const file = latestFile('.', 'rum.web-vitals');
+  const name = file;
+  if (!file) {
     console.error(`${TAG} 検査不成立: ${DIR} に記録が無い（fetch-metrics.yml の Fetch GA4 (web vitals) を確認）`);
     return 2;
   }
-  const data = JSON.parse(readFileSync(join(DIR, name), 'utf8'));
+  const data = JSON.parse(readFileSync(file, 'utf8'));
   const age = Math.floor((Date.now() - Date.parse(data.generatedAt)) / 86400000);
   const rows = data.summary?.rows ?? [];
   const act = actionable(rows);

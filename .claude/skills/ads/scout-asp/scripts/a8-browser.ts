@@ -50,8 +50,8 @@ if (!STATE_PATH) throw new Error("A8 の stateFileName が auth registry にあ�
 //   選べない場合は誤サイト提携を防ぐため申請しない (publish-x / coconala の account assert と同じ思想・2026-07-20)。
 const TARGET_SITE = "doboku-note";
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-a8-debug");
-const CATALOG_PATH = path.join(PROJECT_ROOT, "data/ads/a8-catalog.json");
-const INVENTORY_PATH = path.join(PROJECT_ROOT, "data/ads/inventory-latest.json");
+const CATALOG_PATH = path.join(PROJECT_ROOT, "data/a8/catalog.json");
+const INVENTORY_PATH = path.join(PROJECT_ROOT, "data/a8/inventory.json");
 // doboku の creative SSOT (dedup / placed 判定の突合先)。stats47 の AFFILIATE_ADS[] とは形が違う。
 const CREATIVES_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-creatives.ts");
 const MATS_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-mats.json");

@@ -313,7 +313,7 @@
         ],
         "cron": "20 21 * * 1",
         "skipScheduleIfFresh": {
-          "marker": "data/metrics/affiliate/a8-ui/last-run.json",
+          "marker": "data/a8/ui-last-run.json",
           "field": "collectedAt",
           "hours": 30
         },

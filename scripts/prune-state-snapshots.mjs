@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-// prune-state-snapshots — CI が `data/metrics/**` と `data/weekly-metrics/` に積む日付付き snapshot を
-// 寿命表（scripts/lib/prune-state-snapshots.mjs の POLICIES）に従って消す。
+// prune-state-snapshots — CI が data/ に積む日付付きファイルを、台帳（scripts/lib/datasets.mjs）の
+// 各データセットの retain（寿命）に従って消す。計画は scripts/lib/prune-state-snapshots.mjs。
 //
 // 使い方:
 //   node scripts/prune-state-snapshots.mjs                    # dry-run（既定）。計画を表示して何も消さない
-//   node scripts/prune-state-snapshots.mjs --commit           # 実際に unlink し、weekly-metrics/index.json を書き直す
+//   node scripts/prune-state-snapshots.mjs --commit           # 実際に unlink し、週次の索引（business.weekly-index）を書き直す
 //   node scripts/prune-state-snapshots.mjs --family psi,ga4   # family を限定（workflow が自分の書く系列だけ消すため）
 //   node scripts/prune-state-snapshots.mjs --check-coverage   # 寿命未宣言の日付付きファイルが 0 件か（quality-audit ci:true）
 //   --json で機械可読、--now <ISO> で基準時刻を固定（テスト用）
@@ -16,14 +16,15 @@
 // 出力は常に「対象 / 削除 / 保持 / 除外 / 未宣言」を数で出す（検査ゼロを PASS と呼ばない・CLAUDE.md §9）。
 // exit: 0 = 計画どおり（--commit なら削除完了）/ 1 = --check-coverage で未宣言あり、または削除に失敗 / 2 = 検査不成立（git が読めない）
 //
-// 触らないもの: metrics/business/**・metrics/gsc/rank-watch/**（不変台帳。lib の EXCLUDED_DIRS）、
+// 触らないもの: 台帳で immutable のデータセット（KPI 台帳・rank-watch）、手元だけの生データ、
 // seo-watchwords.json の evidence.source と business 台帳が名前で指すファイル（pin）。
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { EXCLUDED_DIRS, FAMILIES, METRICS_ROOT, SCAN_ROOTS, collectPins, filterWeeklyIndex, plan } from './lib/prune-state-snapshots.mjs';
+import { DATASETS, datasetFiles } from './lib/datasets.mjs';
+import { DATA_ROOT, FAMILIES, collectPins, filterWeeklyIndex, plan } from './lib/prune-state-snapshots.mjs';
 
 function parseArgs(argv) {
   const a = { commit: false, json: false, check: false, families: null, now: Date.now(), root: REPO_ROOT };
@@ -46,7 +47,7 @@ function parseArgs(argv) {
 
 /** tracked + untracked（ignore 除く）を同じ集合として扱う。workflow は copy-back 直後＝新ファイルが untracked の状態で呼ぶ */
 function listFiles(root) {
-  const out = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', ...SCAN_ROOTS], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+  const out = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', DATA_ROOT], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
   return out.split('\0').filter(Boolean);
 }
 
@@ -57,11 +58,10 @@ function readJsonAt(root) {
 function loadPins(root) {
   const ww = join(root, 'config/seo-watchwords.json');
   const watchwords = existsSync(ww) ? JSON.parse(readFileSync(ww, 'utf8')) : null;
-  const businessDir = join(root, METRICS_ROOT, 'business');
+  // business の中身を変えない台帳（KPI の計測・時点記録・目標・レビュー・突合）が sources[] で名前を指すファイル
   const businessDocs = [];
-  if (existsSync(businessDir)) {
-    const names = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'ls-files', '-z', '--cached', '--others', '--exclude-standard', '--', `${METRICS_ROOT}/business`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).split('\0').filter((f) => f.endsWith('.json'));
-    for (const f of names) if (existsSync(join(root, f))) businessDocs.push(readFileSync(join(root, f), 'utf8'));
+  for (const x of DATASETS.filter((d) => d.id.startsWith('business.') && d.immutable)) {
+    for (const f of datasetFiles(root, x.id)) if (f.endsWith('.json')) businessDocs.push(readFileSync(join(root, f), 'utf8'));
   }
   return collectPins({ watchwords, businessDocs });
 }
@@ -87,18 +87,18 @@ function main() {
     console.log(JSON.stringify({ mode: args.check ? 'check-coverage' : args.commit ? 'commit' : 'dry-run', families: args.families || FAMILIES, pins: [...pins], ...result }, null, 2));
   } else {
     const tag = '[prune-state-snapshots]';
-    console.log(`${tag} ${args.check ? '寿命宣言の検査' : args.commit ? '削除を実行' : 'dry-run'}: 日付付き ${s.examined} 件を実検査 / 削除 ${s.delete} / 保持 ${s.keep}${s.skipped ? ` / 対象外 family ${s.skipped}` : ''} / 除外 dir ${s.excluded} / 未宣言 ${s.undeclared.length}（pin ${pins.size}）`);
+    console.log(`${tag} ${args.check ? '寿命宣言の検査' : args.commit ? '削除を実行' : 'dry-run'}: 日付付き ${s.examined} 件を実検査 / 削除 ${s.delete} / 保持 ${s.keep}${s.skipped ? ` / 対象外 family ${s.skipped}` : ''} / 不変の台帳 ${s.excluded} / 未宣言 ${s.undeclared.length}（pin ${pins.size}）`);
     for (const f of FAMILIES) {
       const b = s.byFamily[f];
       if (b.keep || b.delete) console.log(`  ${f.padEnd(15)} 保持 ${String(b.keep).padStart(3)} / 削除 ${String(b.delete).padStart(3)}`);
     }
     if (!args.check && s.delete) for (const e of result.entries.filter((e) => e.decision === 'delete')) console.log(`  ${args.commit ? 'rm ' : '   '}${e.file}`);
-    for (const u of s.undeclared) console.error(`  ✗ 未宣言: ${u} — scripts/lib/prune-state-snapshots.mjs の POLICIES に寿命を足す（消さない系列なら 'keep-all'）`);
+    for (const u of s.undeclared) console.error(`  ✗ 未宣言: ${u} — 台帳 scripts/lib/datasets.mjs のデータセットに retain を足す（消さない系列なら { family, keepAll: true }）`);
   }
 
   if (args.check) {
     if (s.undeclared.length) {
-      console.error(`\n✗ 寿命が宣言されていない日付付きファイル ${s.undeclared.length} 件。除外 dir（${EXCLUDED_DIRS.join(', ')}）以外の日付付き snapshot は POLICIES に載せる`);
+      console.error(`\n✗ 寿命が宣言されていない日付付きファイル ${s.undeclared.length} 件。中身を変えない台帳以外の日付付きファイルは台帳の retain に寿命を書く`);
       return 1;
     }
     if (!args.json) console.log(`  ✓ 日付付き ${s.examined} 件すべてに寿命が宣言されている`);

@@ -48,11 +48,11 @@ test('UTM 契約: campaign は packId・source は youtube・content は longfor
 
 test('動画成果ビューが読むスナップショット prefix と fetcher の出力名が一致する', () => {
   // fetcher は `ga4-${dimension}${suffix}-${timestamp}.json` を書く（saveJson）。
-  // admin は latestSnapshot('ga4', 'ga4-campaign') を読む。両者がずれると永久に未取得になる。
+  // admin は台帳の ga4.campaign（latestSnapshot('ga4.campaign')）を読む。台帳の型と fetcher の名前がずれると永久に未取得になる。
   const fetcher = read('.claude/scripts/fetch-ga4-data.mjs');
   assert.match(fetcher, /ga4-\$\{opts\.dimension\}\$\{suffix\}-\$\{timestamp\}\.json/);
   const view = read('tools/admin-app/src/lib/video-outcomes.ts');
-  assert.match(view, /latestSnapshot\('ga4', 'ga4-campaign'\)/);
+  assert.match(view, /latestSnapshot\('ga4\.campaign'\)/);
 });
 
 test('SNS join: レガシー Shorts 台帳と動画パック派生を混ぜない', () => {

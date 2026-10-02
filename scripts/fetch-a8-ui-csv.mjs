@@ -23,6 +23,7 @@
  */
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { execSync } from "node:child_process";
 
 import {
@@ -46,7 +47,7 @@ import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mj
 import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
-const STATE_DIR = "data/metrics/affiliate/a8-ui";
+const STATE_DIR = datasetDir("a8.ui-raw");
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -87,7 +88,7 @@ function writeLastRunMarker(manifest) {
     note: "A8 レポート CSV 取得の最新実行マーカー（成果の生データは含めない）。",
   };
   try {
-    writeFileSync(join(STATE_DIR, "last-run.json"), JSON.stringify(marker, null, 2), "utf-8");
+    writeFileSync(datasetPath("a8.ui-last-run"), JSON.stringify(marker, null, 2), "utf-8");
   } catch {
     /* マーカー失敗は取得本体を妨げない */
   }

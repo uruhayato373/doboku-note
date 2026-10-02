@@ -33,7 +33,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 - `npm run a8-ui:fetch -- --dry-run`（DOM 検出のみ）と本取得の実行
 - 初回/UI 変更時の `--dry-run --probe-isolation`（config の siteScope 宣言と実機の整合を確認）
 - 実行後の生成物確認:
-  - `data/metrics/affiliate/a8-ui/<run>/manifest.json` の `status` と各 `units[].status`
+  - `data/a8/ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<reportKey>--<run>.csv`）の存在・行数（`csvRows`）・`sha256`・`encoding`
   - `.local/playwright-a8-debug/<run>/` の failure artifact 有無
 - 停止条件の検知と報告（下記）
@@ -65,7 +65,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 
 1. **preflight**: `git status` で作業ツリー確認。`config/a8-report-automation.json` の
    `mediaId` / `targetSite` / `reports[].siteScope` を Read。前回実行は
-   `data/metrics/affiliate/a8-ui/last-run.json` を Read。
+   `data/a8/ui-last-run.json` を Read。
 2. **dry-run**: `npm run a8-ui:fetch -- --dry-run` を実行。`manifest.dryRun` の
    `loggedIn` / `accountAsserted` と各 unit の `status`（`dry-run-ok` か）を読む。
 3. **停止判定**: `not-signed-in` / `account-mismatch` / `report-unreachable` なら停止し、
@@ -98,7 +98,7 @@ A8 の 1 口座に **stats47** と **doboku-note** の 2 サイトが載って�
 - {not-signed-in / CAPTCHA / site-mismatch / UI 変更}（あれば具体アクション）
 
 ## 生成物
-- manifest: data/metrics/affiliate/a8-ui/<run>/manifest.json
+- manifest: data/a8/ui/<run>/manifest.json
 - raw CSV: N 本 / debug artifact: {あり path / なし}
 ```
 

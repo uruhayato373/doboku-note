@@ -27,7 +27,7 @@ test('observedAt が 11 日前なら FAIL（上限10日）', () => {
   assert.ok(r.reasons.some((m) => m.includes('11 日前')));
 });
 
-test('afb-outcomes-latest.json が無ければ FAIL（未取得）', () => {
+test('afb の成果の最新が無ければ FAIL（未取得）', () => {
   const r = assessAfbOutcomesFreshness({ latest: null }, NOW);
   assert.equal(r.status, 'FAIL');
   assert.ok(r.reasons.some((m) => m.includes('無い')));

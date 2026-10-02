@@ -24,9 +24,9 @@ test('patternOf: 日時・UUID・ハッシュの型で当て、名前の前方�
 });
 
 test('matchFiles: 未宣言を返し、データセットごとに新しい順に並べる', () => {
-  const m = matchFiles(['data/metrics/psi/psi-batch-2026-09-25T20-17-52.json', 'data/metrics/psi/psi-batch-2026-10-01T21-36-01.json', 'data/unknown.json']);
+  const m = matchFiles(['data/psi/batch/2026-09-25T20-17-52.json', 'data/psi/batch/2026-10-01T21-36-01.json', 'data/unknown.json']);
   assert.deepEqual(m.unmatched, ['data/unknown.json']);
-  assert.deepEqual(m.byId.get('psi.batch'), ['data/metrics/psi/psi-batch-2026-10-01T21-36-01.json', 'data/metrics/psi/psi-batch-2026-09-25T20-17-52.json']);
+  assert.deepEqual(m.byId.get('psi.batch'), ['data/psi/batch/2026-10-01T21-36-01.json', 'data/psi/batch/2026-09-25T20-17-52.json']);
   assert.equal(m.ambiguous.length, 0);
 });
 

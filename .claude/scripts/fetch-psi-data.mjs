@@ -2,7 +2,7 @@
  * PageSpeed Insights API 取得スクリプト
  *
  * Core Web Vitals（LCP, INP, CLS）と Lighthouse スコアを取得し
- * data/metrics/psi/ に時系列で保存する。
+ * data/psi/batch/（一括）・data/psi/single/（単発）に時系列で保存する。
  *
  * 認証方針:
  *   PSI API v5 は公開エンドポイント。低量の呼び出しは API キー不要。
@@ -28,15 +28,15 @@
 
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
-import { join } from "path";
+import { dirname, join } from "path";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 
 dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = "data/metrics/psi";
 const DEFAULT_STRATEGY = "mobile";
 const DEFAULT_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"];
 
@@ -214,7 +214,7 @@ function explain429() {
         "  これは「PSI の障害」でも「このプロジェクトのクォータ枯渇」でもありません。",
         "",
         "  計測は CI/CD 供給が正（キーは GitHub Secrets にあり、日次ジョブは正常に動いています）。",
-        "  → 既存データ: data/metrics/psi/psi-batch-*.json",
+        "  → 既存データ: data/psi/batch/*.json",
         "  → 真実源: .claude/knowledge/reference/measurement-incidents.md",
         "  ───────────────────────────────────────────────",
       ].join("\n"),
@@ -351,10 +351,9 @@ function printSummary(summary) {
 }
 
 function saveJson(summaries) {
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const filename = `psi-${summaries.length > 1 ? "batch" : "single"}-${timestamp}.json`;
-  const filepath = join(OUTPUT_DIR, filename);
+  const filepath = datasetPath(summaries.length > 1 ? "psi.batch" : "psi.single", { ts: timestamp });
+  if (!existsSync(dirname(filepath))) mkdirSync(dirname(filepath), { recursive: true });
   writeFileSync(filepath, JSON.stringify({ version: 1, generated_at: new Date().toISOString(), results: summaries }, null, 2), "utf-8");
   return filepath;
 }
@@ -387,7 +386,7 @@ async function main() {
   if (!process.env.PSI_API_KEY && !process.env.CI) {
     console.warn(
       "[fetch-psi-data] WARN PSI_API_KEY 未設定。キー無しは匿名共有枠に載るため 429 になりやすい\n" +
-        "  計測は CI/CD 供給が正。既存データ: data/metrics/psi/psi-batch-*.json",
+        "  計測は CI/CD 供給が正。既存データ: data/psi/batch/*.json",
     );
   }
 

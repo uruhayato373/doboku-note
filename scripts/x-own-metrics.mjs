@@ -30,13 +30,11 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { datasetPath, latestFile } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const HANDLE = 'doboku373';
-const STATE_DIR = join(ROOT, 'data/x-metrics');
-const HISTORY_DIR = join(STATE_DIR, 'history');
-const LATEST = join(STATE_DIR, 'own-posts.json');
 
 const argv = process.argv.slice(2);
 const REPORT_ONLY = argv.includes('--report');
@@ -122,11 +120,12 @@ function typeOf(hit) {
 const now = new Date();
 let store;
 if (REPORT_ONLY) {
-  if (!existsSync(LATEST)) {
+  const latest = latestFile(ROOT, 'x.own-posts');
+  if (!latest) {
     console.error('[x-own-metrics] NG: 保存済みデータが無い。まず採取する: node scripts/x-own-metrics.mjs');
     process.exit(1);
   }
-  store = JSON.parse(readFileSync(LATEST, 'utf8'));
+  store = JSON.parse(readFileSync(join(ROOT, latest), 'utf8'));
   console.log(`[x-own-metrics] 保存済み ${store.posts.length} 件で集計（採取 ${store.fetchedAt}）`);
 } else {
   if (!TW) {
@@ -165,9 +164,9 @@ if (REPORT_ONLY) {
     source: 'agent-reach twitter CLI（read-only: user/user-posts）・個人アカ uruhayato373 経由',
     posts,
   };
-  mkdirSync(HISTORY_DIR, { recursive: true });
-  writeFileSync(LATEST, JSON.stringify(store, null, 2) + '\n');
-  writeFileSync(join(HISTORY_DIR, `${store.fetchedAt.slice(0, 10)}.json`), JSON.stringify(store, null, 2) + '\n');
+  const out = join(ROOT, datasetPath('x.own-posts', { date: store.fetchedAt.slice(0, 10) }));
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, JSON.stringify(store, null, 2) + '\n');
   console.log(`[x-own-metrics] 実採取 ${posts.length} 件 / フォロワー ${store.followers ?? '?'}`);
 }
 

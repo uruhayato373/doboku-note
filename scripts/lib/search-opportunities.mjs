@@ -10,6 +10,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { latestFile } from './datasets.mjs';
 
 export const CONFIG = 'config/search-strategy.json';
 const GSC_DIR = 'data/metrics/gsc';
@@ -124,14 +125,12 @@ export function summarizeBing(cluster, rows, striking, endDate) {
   return { queries: all.length, top10: all.filter((q) => q.position != null && q.position < 10.5).length, candidates };
 }
 
-/** 最新の Bing Webmaster の記録（data/metrics/bing/bing-YYYY-MM-DD.json）。無ければ null。 */
+/** 最新の Bing Webmaster の記録（台帳 bing.snapshots）。無ければ null。 */
 function latestBing(root) {
-  const dir = join(root, 'data/metrics/bing');
-  if (!existsSync(dir)) return null;
-  const name = readdirSync(dir).filter((f) => /^bing-\d{4}-\d{2}-\d{2}\.json$/.test(f)).sort().at(-1);
-  if (!name) return null;
-  const data = JSON.parse(readFileSync(join(dir, name), 'utf8'));
-  return data.sections?.query?.ok ? { file: name, rows: data.sections.query.rows ?? [] } : null;
+  const file = latestFile(root, 'bing.snapshots');
+  if (!file) return null;
+  const data = JSON.parse(readFileSync(join(root, file), 'utf8'));
+  return data.sections?.query?.ok ? { file, rows: data.sections.query.rows ?? [] } : null;
 }
 
 export function buildSearchOpportunities(root) {

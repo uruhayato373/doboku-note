@@ -74,15 +74,15 @@ export default async function Ga4Page({
   const sp = await searchParams;
 
   // page テーブルのみ ?snapshot= で履歴切替可能にする。
-  const pageHistory = listSnapshots('ga4').get('ga4-page') ?? [];
-  const pageSnap = sp.snapshot ? snapshotByFile('ga4', sp.snapshot) : latestSnapshot('ga4', 'ga4-page');
+  const pageHistory = listSnapshots('ga4.page');
+  const pageSnap = sp.snapshot ? snapshotByFile('ga4.page', sp.snapshot) : latestSnapshot('ga4.page');
 
   return (
     <>
       <PageHead title="アクセス（GA4）" sub="チャネル / ページ / 参照元 / SNS 別（各最新スナップショット・ユーザー降順）" />
 
       <Stack>
-      <Section title="チャネル別" snap={latestSnapshot('ga4', 'ga4-channel')} dimKey="channel" dimLabel="チャネル" />
+      <Section title="チャネル別" snap={latestSnapshot('ga4.channel')} dimKey="channel" dimLabel="チャネル" />
 
       <PanelCard title="ページ別（上位20）" description={<Freshness snapshot={pageSnap} />}>
         <Stack gap="sm">
@@ -100,10 +100,10 @@ export default async function Ga4Page({
         </Stack>
       </PanelCard>
 
-      <Section title="参照元別" snap={latestSnapshot('ga4', 'ga4-source')} dimKey="source" dimLabel="参照元" limit={20} />
+      <Section title="参照元別" snap={latestSnapshot('ga4.source')} dimKey="source" dimLabel="参照元" limit={20} />
       <Section
         title="SNS 流入（source / medium）"
-        snap={latestSnapshot('ga4', 'ga4-sourceMedium-sns')}
+        snap={latestSnapshot('ga4.source-medium-sns')}
         dimKey="sourceMedium"
         dimLabel="source / medium"
         wrapDim

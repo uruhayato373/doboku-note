@@ -40,11 +40,11 @@ export default async function GscPage({
   searchParams: Promise<{ snapshot?: string }>;
 }) {
   const sp = await searchParams;
-  const queryHistory = listSnapshots('gsc').get('gsc-query') ?? [];
+  const queryHistory = listSnapshots('gsc.query');
   const querySnap: SnapshotFile | null = sp.snapshot
-    ? snapshotByFile('gsc', sp.snapshot)
-    : latestSnapshot('gsc', 'gsc-query');
-  const pageSnap = latestSnapshot('gsc', 'gsc-page');
+    ? snapshotByFile('gsc.query', sp.snapshot)
+    : latestSnapshot('gsc.query');
+  const pageSnap = latestSnapshot('gsc.page');
 
   const queryRows = sortByClicks(loadSnapshot<GscRow>(querySnap)?.rows ?? []);
   const pageRows = sortByClicks(loadSnapshot<GscRow>(pageSnap)?.rows ?? []);

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // fetch-ig-insights.mjs — Instagram Graph API から投稿インサイト・アカウント日次リーチを取得し、
-// data/metrics/instagram/ig-insights-<today>.json へ書く CI 週次コレクタ。
+// data/instagram/insights/<today>.json へ書く CI 週次コレクタ。
 //
 // 背景（方針）: IG の計測は verify-ig-status.mjs（Playwright でライブ画面を読む reconciler）に
 //   依存しており、UI 変更・ボット対策・ログインセッション切れで壊れやすい。CI から素朴に叩ける
@@ -28,6 +28,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 import { addDays } from './lib/business-direction.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { createIgGraphClient, mediaToLive } from './lib/ig-graph.mjs';
 import { normHead, localPacks, reconcile, driftCount, buildSnapshot } from './lib/ig-reconcile-core.mjs';
 
@@ -189,9 +190,8 @@ export async function run({ client, root, now = new Date(), argv = [] }) {
 
   const written = [];
   if (!opts.dryRun) {
-    const metricsDir = join(root, 'data/metrics/instagram');
-    mkdirSync(metricsDir, { recursive: true });
-    const outPath = join(metricsDir, `ig-insights-${today}.json`);
+    const outPath = join(root, datasetPath('instagram.insights', { date: today }));
+    mkdirSync(dirname(outPath), { recursive: true });
     writeFileSync(outPath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
     written.push(outPath);
   }

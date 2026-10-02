@@ -24,14 +24,14 @@
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
  * 評価サイクル: data/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
-import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { datasetPath, latestFile } from "../../scripts/lib/datasets.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const GA4_DIR = join(ROOT, "data/metrics/ga4");
 const GSC_DIR = join(ROOT, "data/metrics/gsc");
-const AFF_DIR = join(ROOT, "data/metrics/affiliate");
 const CONFIG = join(ROOT, "config/career-funnel.json");
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
@@ -116,7 +116,7 @@ export function classifyNotSet({ windowStart, registeredAt }) {
 }
 
 /**
- * afb-outcomes-latest.json（fetch-afb-outcomes.mjs の出力・records は conversionId で重複排除済み）から
+ * afb の成果の最新（data/afb/outcomes/・fetch-afb-outcomes.mjs の出力・records は conversionId で重複排除済み）から
  * 状態別件数を数える。ファイルが無い（未取得）と records が空（取得できたが 0 件）を区別するため、
  * 呼び出し側は afb が null かどうかで判定し、これは非 null のときだけ呼ぶ。
  */
@@ -275,8 +275,8 @@ function main() {
     ga4Device: latestSnapshot(GA4_DIR, "ga4-cta-clicks-by-device-"),
     ga4Page: latestSnapshot(GA4_DIR, "ga4-page-"),
     gscPageQuery: latestSnapshot(GSC_DIR, "gsc-page-query-"),
-    a8: existsSync(join(AFF_DIR, "a8-results.json")) ? join(AFF_DIR, "a8-results.json") : null,
-    afb: existsSync(join(AFF_DIR, "afb-outcomes-latest.json")) ? join(AFF_DIR, "afb-outcomes-latest.json") : null,
+    a8: existsSync(join(ROOT, datasetPath("a8.results"))) ? join(ROOT, datasetPath("a8.results")) : null,
+    afb: latestFile(ROOT, "afb.outcomes") ? join(ROOT, latestFile(ROOT, "afb.outcomes")) : null,
   };
   const missing = Object.entries(inputs)
     .filter(([, v]) => !v)
@@ -513,7 +513,7 @@ function main() {
     return;
   }
   // 中止するなら latest も書かない（失敗した実行が成果物だけ更新するのを防ぐ）。
-  const frozen = freeze ? join(AFF_DIR, `career-funnel-baseline-${windows.ga4.end}.json`) : null;
+  const frozen = freeze ? join(ROOT, datasetPath("analysis.career-funnel-baseline", { date: windows.ga4.end })) : null;
   if (frozen) {
     // 基線は「その時点のサイトの姿」を固定するもので、上書きすると比較対象そのものが動く。
     // ファイル名は GA4 窓の終端日なので、同じ窓の取得データのまま記事を増やして再凍結すると
@@ -528,9 +528,13 @@ function main() {
       process.exit(1);
     }
   }
-  writeFileSync(join(AFF_DIR, "career-funnel-latest.json"), `${JSON.stringify(result, null, 2)}\n`);
-  writeFileSync(join(AFF_DIR, "career-funnel-latest.md"), renderMarkdown(result, cfg));
-  if (frozen) writeFileSync(frozen, `${JSON.stringify(result, null, 2)}\n`);
+  for (const id of ["analysis.career-funnel", "analysis.career-funnel-report"]) mkdirSync(dirname(join(ROOT, datasetPath(id))), { recursive: true });
+  writeFileSync(join(ROOT, datasetPath("analysis.career-funnel")), `${JSON.stringify(result, null, 2)}\n`);
+  writeFileSync(join(ROOT, datasetPath("analysis.career-funnel-report")), renderMarkdown(result, cfg));
+  if (frozen) {
+    mkdirSync(dirname(frozen), { recursive: true });
+    writeFileSync(frozen, `${JSON.stringify(result, null, 2)}\n`);
+  }
 
   say(
     `[report-career-funnel] career 記事 ${ledger.length} 本 / site MDX ${siteFiles} 件＋設定 ${extraScanned} 件を実走査 / ` +
@@ -544,7 +548,7 @@ function main() {
   );
   if (frozen) say(`  基線を凍結: ${relative(frozen)}`);
   if (jsonOut) process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
-  else say("  出力: data/metrics/affiliate/career-funnel-latest.{json,md}");
+  else say(`  出力: ${datasetPath("analysis.career-funnel")}・${datasetPath("analysis.career-funnel-report")}`);
 }
 
 function renderMarkdown(r, cfg) {

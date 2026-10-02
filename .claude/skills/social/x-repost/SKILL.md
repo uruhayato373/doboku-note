@@ -27,7 +27,7 @@ domain: sns
 | curate（選別・コメント生成） | サブエージェント `x-repost-curator`（`.claude/agents/`） | Pro/Max 枠 |
 | exec（引用RP 実行） | `x-repost-exec.ts` | 不使用 |
 | 設定 | `config/x-repost.json` | - |
-| 重複防止 | `data/x-repost/reposted-log.json` | - |
+| 重複防止 | `data/x/reposted.json` | - |
 | キルスイッチ | `.claude/state/x-repost/PAUSED`（存在すると exec 中止） | - |
 
 ## 前提（publish-x と同じ）
