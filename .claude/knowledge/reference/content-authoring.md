@@ -41,7 +41,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
 - `<NoteLink url="..." title="..." description="..." imageSrc="/images/note-links/*.webp" />` — **note 記事への画像付き導線カード**（有料単品は `kind="product" price="..."`）
 - `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." />` — 一般外部 URL のカード（OGP 画像を左に本来比で表示する横型カード。モバイルは画像を上に縦積み）
-- `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・既定はPOPの `<MagazineHeroCta>` を描画。列挙時のみ `variant="inline"`。記事末尾/サイドバーのタイルは placement 経由で自動配置）
+- `<MagazineCard id="..." utmContent="..." />` — note magazine（有料）販売ページへの本文中カード（SoT 解決版・既定は画像中心の `<MagazineHeroCta>` を描画。列挙時のみ `variant="inline"`。記事末尾/サイドバーのタイルは placement 経由で自動配置）
 
 ## リンク系コンポーネントの使い分け
 
@@ -61,16 +61,18 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 
 ### note 商品 CTA の見た目（hero / inline）
 
+技術士一次の過去問PDF（`pe1-takuitsu-pdf`）は生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の別画像を `NoteImageCta` で比率を保って表示し、R2 URL・寸法・生成記録は `content/site/pe-first-stage/_shared/pop-image.json`、商品と画像の対応は `src/lib/note-cta-images.ts` が参照する。hero／inline／冒頭／教材カード／無料演習の既存配置・計測ラベルは維持する。以下のHTML意匠は画像の未登録商品に適用する。
+
 `<MagazineCard>` の `variant` で 2 型を使い分ける。文言・URL・キャラは全て `src/lib/note-magazines.ts`（SoT）が供給するため、MDX には **id と utmContent だけ**を書く（価格・note URL の直書きは禁止）。
 
 | variant | 実体 | 使う場面 |
 |---|---|---|
-| `hero`（**既定**・省略可） | `MagazineHeroCta` → 共通 `NotePopCta` のbody。資格色の色面・HTML商品名・腰上人物・緑ボタン。2:1基準、480px以下は高さ可変 | 主商品。記事中間CTAとMDX本文の既定 |
-| `inline` | `MagazineInlineCard` → 共通POPのcompact。短縮商品名・補足・72pxの人物・ボタン。高さ可変 | 比較商品・副次商品。主CTAの連続を避ける面 |
+| `hero`（**既定**・省略可） | `MagazineHeroCta` — 資格別背景イラスト＋ブランド紺オーバーレイ＋白枠＋マスコット＋note 緑の大ボタン（高さ ~380px） | 単体で強く売る面。記事中間 CTA（自動挿入）と MDX 本文中の既定 |
+| `inline` | `MagazineInlineCard` — 横長の小カード（モバイルは 96px の 6:5 画像＋テキスト、PC は 180px 画像＋テキスト） | 複数商品の比較・主商品に対する副次商品など、hero の連続で読み流れを壊したくない面。1 枚でも「代替案」として弱く提示するときに使える |
 
-- 商品名は `noteCtaCopy` が `shortTitle` ?? `title` の最後の `｜` 以降から解決し、末尾括弧の説明を補足に分ける。補足は `shortDescription` を優先する。heroの `ctaCatch` は主見出しではなく補足に使用する。`ctaButton` は省略時「教材の内容を見る」、`ctaPose` は省略時 `pointing`。価格はカタログの先頭金額を表示する。
-- キャラ画像は `public/images/character/cta-{pose}.webp`（確認済み腰上フレーム）。ポーズの真実源は `config/character-poses.json` の `siteCta: true`。追加はmanifestの腰上座標確認 → 画像生成 → 型の順。`check-character-avatars` が円形avatarと腰上CTAの実体・型を検査する。手順は [character-asset-policy.md](character-asset-policy.md)。
-- 記事末尾・サイドバー・カテゴリhubのもくじCTAも `NotePopCta` のtileを共用する。リンク先と季節切替は `resolveHubCta`、画面別ラベルは各呼出し元が供給する。
+- 商品ごとの CTA 文言は SoT の任意 3 フィールドで出し分ける: `ctaCatch`（キャッチコピー・~25字）/ `ctaButton`（ボタン文言・動詞で終える）/ `ctaPose`（`pointing` 論点提示 / `good-sign` 完成・合格訴求 / `smile` 伴走・入門）。省略時は `shortTitle` ?? `title` ／「note で詳しく見る」／`pointing` にフォールバックするため、**未設定のマガジンでも hero は描画できる**
+- キャラ画像は `public/images/character/avatar-{pose}.webp`。**どのポーズを使えるかの真実源は `config/character-poses.json` の `siteCta: true`**。増やすときは manifest → 画像生成 → 型の順（`npm run check-character-avatars` が三者整合を gate）。手順の詳細: [character-asset-policy.md](character-asset-policy.md)「サイト CTA にポーズを追加する手順」
+- 記事末尾・サイドバー・カテゴリ hub の「もくじタイル」は別系統（`HubCtaBanner`・商品単体ではない）
 - 収益 CTA は `data-cta-placement` で `article-top` / `article-mid` / `article-end` / `article-footer` / `article-sidebar` を分離する。GA4 はクリックに加え、50%以上表示された時点の `note_cta_impression` を送り、表示基準 CTR を比較する
 
 ## 過去問 MDX の構造ルール

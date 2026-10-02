@@ -42,14 +42,14 @@ export interface NoteMagazine {
   /**
    * ヒーロー CTA（MagazineHeroCta）の商品別出し分け。焼き込みバナーを作らずに
    * 「商品ごとに刺さる CTA」を出すための 3 点セット（全て任意・省略時フォールバック）。
-   * - ctaCatch: 商品名の下に出す補足コピー。省略時 shortDescription / 題名の括弧内容 / description
-   * - ctaButton: ボタン文言（動詞で終える）。省略時「教材の内容を見る」
+   * - ctaCatch: バナー見出しのキャッチコピー（読者の課題を突く 1 文）。省略時 shortTitle ?? title
+   * - ctaButton: ボタン文言（動詞で終える）。省略時「note で詳しく見る」
    * - ctaPose: マスコットのポーズ。省略時 pointing
    *   pointing=論点提示・good-sign=完成/合格訴求・smile=伴走/入門
    *
    * ctaPose の許可値の真実源は `config/character-poses.json` の `siteCta: true`
    * （型に literal が要るためここに union を書くが、増やすときは manifest → webp 生成 → 本 union の順）。
-   * 三者の整合（manifest ⇔ public/images/character/{avatar,cta}-{pose}.webp ⇔ 本 union）は
+   * 三者の整合（manifest ⇔ public/images/character/avatar-{pose}.webp ⇔ 本 union）は
    * `npm run check-character-avatars` が gate する＝union だけ広げると本番でアバターが 404 になるため。
    */
   readonly ctaCatch?: string;
@@ -532,7 +532,7 @@ const MAGAZINES_RAW = {
     description: '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）と令和5年度以前の3項目形式の両方に対応。',
     shortTitle: '2級土木 施工経験記述 完成答案集',
     shortDescription: '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
-    price: '¥1,980（3本セット）',
+    price: '¥2,480（3本セット）',
     badge: 'note 限定',
     ctaCatch: '経験記述は「完成答案」を見るのが最短です',
     ctaButton: '完成答案集を見てみる',

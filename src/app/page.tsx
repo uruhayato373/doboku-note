@@ -104,7 +104,7 @@ export default async function HomePage() {
       <LatestArticles articles={latest} />
       <AboutSection />
       {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。
-          資格色の色面＋先生＋HTML文字のPOP（PremiumNoteHero）。data-cta="note" で計測。 */}
+          ブランド背景＋HTML文字のヒーロー（PremiumNoteHero）。data-cta="note" で計測。 */}
       <PremiumNoteHero />
     </PageShell>
   );

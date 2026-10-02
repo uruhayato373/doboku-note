@@ -36,23 +36,35 @@ test('note CTA は表示インプレッションと配置を計測する', () =>
     assert.match(source, /data-cta-label="pe1-takuitsu-pdf:tracking-test"/);
     assert.ok(source.includes(`data-cta-placement="${['article-mid', 'article-end', 'article-top'][index]}"`));
     assert.match(source, /href="https:\/\/note.com\//);
-    assert.match(source, /cta-pointing.webp/);
+    assert.match(source, /cta-pdf-body\.webp/);
+    assert.match(source, /全560問/);
   }
 });
 
-test('POPの商品見出しは公開全商品で空にならず、一次PDFの科目・年度・問題数を補足に残す', () => {
+test('一次PDFは本文2:1・サイドバー6:5の生成画像をR2から表示する', () => {
   const result = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
-    import { NOTE_MAGAZINES, getMagazine } from './src/lib/note-magazines.ts';
-    import { noteCtaCopy } from './src/lib/note-cta-copy.ts';
-    const products = Object.values(NOTE_MAGAZINES).filter(p => p.published && p.noteUrl);
-    process.stdout.write(JSON.stringify({ count: products.length, empty: products.filter(p => !noteCtaCopy(p).title.trim()).map(p => p.id), pdf: noteCtaCopy(getMagazine('pe1-takuitsu-pdf')) }));
+    import React from 'react';
+    import { renderToStaticMarkup } from 'react-dom/server';
+    import { getMagazine } from './src/lib/note-magazines.ts';
+    import { noteCtaImage } from './src/lib/note-cta-images.ts';
+    import Card from './src/components/ui/NoteProductCard.tsx';
+    globalThis.React = React;
+    const product = getMagazine('pe1-takuitsu-pdf');
+    process.stdout.write(JSON.stringify({
+      body: noteCtaImage(product.id), tile: noteCtaImage(product.id, 'tile'),
+      unrelated: noteCtaImage('civil-1-combo-essay') ?? null,
+      html: renderToStaticMarkup(React.createElement(Card, {product, category:'pe-first-stage', placement:'article-sidebar'})),
+    }));
   `], { cwd: ROOT, encoding: 'utf8' }));
-  assert.ok(result.count > 0);
-  assert.deepEqual(result.empty, []);
-  assert.equal(result.pdf.title, '過去問PDF 合本');
-  assert.match(result.pdf.subtitle, /基礎・適性・専門/);
-  assert.match(result.pdf.subtitle, /令和元〜7年度 全560問/);
-  assert.equal(result.pdf.price, '¥1,480');
+  assert.equal(result.body.width / result.body.height, 2);
+  assert.equal(result.tile.width / result.tile.height, 6/5);
+  assert.match(result.body.src, /^https:\/\/storage\.doboku-note\.com\/posts\//);
+  assert.match(result.tile.src, /cta-pdf-sidebar\.webp$/);
+  assert.equal(result.unrelated, null);
+  assert.match(result.html, /cta-pdf-sidebar\.webp/);
+  assert.match(result.html, /data-cta-label="pe1-takuitsu-pdf"/);
+  assert.match(result.html, /data-cta-placement="article-sidebar"/);
+  assert.match(result.html, /全560問/);
 });
 
 test('1級書き方ガイドの終盤CTAは一意ラベルの小型カード1件', () => {

@@ -1,0 +1,79 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": "pe1-takuitsu-pdf",
+  "channel": "site",
+  "copy": {
+    "qualification": "技術士一次試験｜建設部門",
+    "title": "過去問PDF",
+    "benefit": "全560問・A4印刷用",
+    "button": "教材の内容を見る"
+  },
+  "evidence": [
+    "src/lib/note-magazines.ts#pe1-takuitsu-pdf"
+  ],
+  "variants": {
+    "body": {
+      "format": {
+        "width": 1774,
+        "height": 887
+      },
+      "prompt": "Use case: ui-mockup. Create ONE very wide HORIZONTAL website in-article CTA design concept, aspect ratio EXACTLY 2:1 (1600x800 visual layout). Input reference is an approved Japanese product POP image: use only its identical teacher character and broad navy/white/yellow POP style. Replace ALL reference text. This banner will display at 672x336 on a desktop article; it must feel compact and horizontal, not a square poster stretched. Plain navy #16365c left panel occupying 65% and near-white right panel occupying 35%, a narrow yellow accent, no scenic/photo background. The left area has exact Japanese copy, large but orderly: small '技術士一次試験｜建設部門', dominant two-line '過去問PDF' then '全560問', subordinate single line 'A4印刷で、解いて復習', bottom green rounded button '教材の内容を見る'. Absolutely no other text, author claim, price, URL, logo, watermark. Strong white headline with modest yellow emphasis; secondary copy is smaller and calm, not every line oversized. In the right section, same teacher mascot, exact face/hair/glasses/beard, plain white helmet, blue work clothes, friendly half-body pointing to a stack of A4 papers with abstract gray lines only. Do not invent sample Japanese paper text. Reserve 5% margin on every edge. No overlapping headline/character. Flat UI-ish clean product CTA, less decorative than a marketplace thumbnail. No extra frame or screenshot of a browser. Reviewable composition concept; actual site will render Japanese text and CTA in HTML with separate existing mascot asset.",
+      "original": {
+        "filename": "exec-5a404e1c-60e9-4954-9a29-23c18a88b30a.png",
+        "sha256": "eefd88292ea4d17fa88979693d6e278cafbae354be43cf546dbb5e836db46d58"
+      },
+      "output": {
+        "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp",
+        "sha256": "d29d65e01926af6fe538884b1e10a541bff690b6f4a12d5276e8ec0088085224"
+      },
+      "review": {
+        "date": "2026-10-02",
+        "result": "原寸・幅360px・サイト配置で判読、文字切れ、人物、縦横比を確認"
+      }
+    },
+    "tile": {
+      "format": {
+        "width": 1374,
+        "height": 1145
+      },
+      "prompt": "Use case: ui-mockup. Create one flat, finished-looking WEBSITE CTA DESIGN CONCEPT in LANDSCAPE 6:5 ratio (1200x1000 design canvas), for display at 300x250 in a desktop article sidebar. Use the supplied approved Japanese product POP image ONLY as visual style and character identity reference. Replace ALL original lettering, claims and subject. Exact new text: top small '建設部門'; main large two-line headline '技術士一次' and '過去問PDF'; small single benefit '全560問・A4印刷用'; bottom CTA pill '教材の内容を見る'. No other lettering. Navy #16365c color blocks, white background, white and yellow heavy Japanese typography with restrained outline; maximum clarity at 300px wide. Familiar identical teacher mascot on the right third: same face, black hair, black glasses, slight beard, plain white helmet, blue work clothes; waist-up, friendly pointing at a small stack of printed paper on the lower right. Left two-thirds contain headline. Only simple solid color panels, modest accent diagonal; no scenery, photo background, desk, complicated textures, tiny text, watermark, URL, prices, red sales explosion, or inherited civil construction wording. Avoid making everything loud: title is the only very large text, secondary copy calm, green CTA button at bottom. Keep all faces and text safely inside. This is a reviewable concept to later implement with separate HTML text and existing character assets.",
+      "original": {
+        "filename": "exec-38b4ce21-8953-4cb3-a16b-004abedb1133.png",
+        "sha256": "57b2cef42ea01725704b6151ef0d59b0029121d5f6da4079958c6b975035a80a"
+      },
+      "output": {
+        "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
+        "sha256": "302ff0b20171aa990985e81c88aeef88f885afaa08a1f44f1d45d9dc98a9f0a3"
+      },
+      "review": {
+        "date": "2026-10-02",
+        "result": "原寸・幅360px・サイト配置で判読、文字切れ、人物、縦横比を確認"
+      }
+    }
+  },
+  "storage": {
+    "delivery": "public R2 / doboku-note / posts/pe-first-stage/_shared/img/",
+    "conversion": "PNGをクロップ・リサイズせずWebP quality95へ変換",
+    "verifiedAt": "2026-10-02T12:29:35.496Z",
+    "verification": "2件とも公開URLから読み戻したSHA-256がoutput.sha256と一致",
+    "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（variants.original.filenameのPNGを保持）"
+  },
+  "publication": {
+    "status": "サイト参照をPRで反映中"
+  },
+  "references": [
+    {
+      "filename": "exec-5a404e1c-60e9-4954-9a29-23c18a88b30a.png",
+      "sha256": "eefd88292ea4d17fa88979693d6e278cafbae354be43cf546dbb5e836db46d58",
+      "kind": "採用する生成済み完成画像"
+    },
+    {
+      "filename": "exec-38b4ce21-8953-4cb3-a16b-004abedb1133.png",
+      "sha256": "57b2cef42ea01725704b6151ef0d59b0029121d5f6da4079958c6b975035a80a",
+      "kind": "採用する生成済み完成画像"
+    }
+  ]
+}

@@ -2,64 +2,6 @@
 
 @config '../../tailwind.config.js';
 
-/* note商品POP。配置に合わせて組み直し、文字はHTMLのまま保つ。 */
-.note-pop-cta {
-  --note-pop-highlight: #ffe335;
-  --note-pop-panel: #ffffff;
-  container-type: inline-size;
-  color: var(--note-pop-panel);
-  background-color: color-mix(in srgb, var(--note-pop-theme) 50%, var(--hero-cta-band-ink));
-  background-image: linear-gradient(110deg, transparent 72%, var(--note-pop-panel) 72%);
-  text-decoration: none;
-}
-.note-pop-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 30%;
-  grid-template-rows: 1fr auto;
-  gap: 14px;
-  padding: 24px;
-  aspect-ratio: 2 / 1;
-}
-.note-pop-copy { min-width: 0; align-self: center; }
-.note-pop-qualification { display: block; font-size: 14px; font-weight: 800; line-height: 1.4; }
-.note-pop-badge { display: block; margin-top: 3px; font-size: 12px; line-height: 1.4; }
-.note-pop-title {
-  display: block; margin-top: 10px; font-size: clamp(24px, 5cqi, 40px);
-  font-weight: 900; line-height: 1.2; overflow-wrap: anywhere; text-wrap: balance;
-}
-.note-pop-title-accent { display: block; color: var(--note-pop-highlight); }
-.note-pop-subtitle {
-  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
-  overflow: hidden; margin-top: 10px; font-size: 14px; line-height: 1.5;
-}
-.note-pop-character { position: relative; min-width: 0; grid-column: 2; grid-row: 1 / 3; }
-.note-pop-character-image { object-fit: contain; object-position: bottom center; }
-.note-pop-button {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  min-height: 44px; padding: 10px 12px; border-radius: var(--radius-card-inline);
-  background: var(--hero-cta-button); color: var(--note-pop-panel);
-  font-size: 15px; font-weight: 800; line-height: 1.4; text-align: center;
-}
-.note-pop-cta:hover .note-pop-button { background: var(--hero-cta-button-hover); }
-.note-pop-price { flex-shrink: 0; font-size: 13px; }
-.note-pop-cta--tile { width: 100%; max-width: 300px; margin-inline: auto; }
-.note-pop-cta--tile .note-pop-layout { aspect-ratio: 6 / 5; gap: 10px; padding: 16px; }
-.note-pop-cta--tile .note-pop-title { font-size: clamp(20px, 7cqi, 26px); margin-top: 8px; }
-.note-pop-cta--tile .note-pop-qualification { font-size: 13px; }
-.note-pop-cta--tile .note-pop-subtitle { font-size: 12px; -webkit-line-clamp: 2; margin-top: 8px; }
-.note-pop-cta--tile .note-pop-character { grid-row: 1; }
-.note-pop-cta--tile .note-pop-button { grid-column: 1 / -1; font-size: 13px; }
-.note-pop-cta--compact .note-pop-layout { aspect-ratio: auto; grid-template-columns: minmax(0, 1fr) 72px; gap: 10px; padding: 16px; }
-.note-pop-cta--compact .note-pop-title { font-size: 18px; margin-top: 6px; line-height: 1.35; }
-.note-pop-cta--compact .note-pop-subtitle { font-size: 13px; -webkit-line-clamp: 2; margin-top: 6px; }
-.note-pop-cta--compact .note-pop-button { justify-content: flex-start; font-size: 13px; }
-@container (max-width: 480px) {
-  .note-pop-cta--body .note-pop-layout { aspect-ratio: auto; gap: 12px; padding: 18px; }
-  .note-pop-cta--body .note-pop-title { font-size: 26px; }
-  .note-pop-cta--body .note-pop-character { grid-row: 1; }
-  .note-pop-cta--body .note-pop-button { grid-column: 1 / -1; font-size: 14px; }
-}
-
 /* v3 互換: v4 の text-* は行高を単位なしの比率（text-sm = 1.25/0.875）で持つため、子孫へ比率として継承され、
    小さい文字の子の行高が v3（rem の絶対値で継承）より縮む。v3 と同じ rem 値に戻す。 */
 @theme {

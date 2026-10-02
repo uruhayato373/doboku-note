@@ -84,7 +84,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | チャネル | 使い所 | 備考 |
 |---|---|---|
 | サイト | プロフィール画像・記事内吹き出し・アイキャッチ・FAQ | 吹き出しは表情系（smile/thinking/surprised）＋ gesture の explaining |
-| **サイト note CTA** | 共通 `NotePopCta` の腰上人物 | `npm run character-avatars` で確認済みwaistから `public/images/character/cta-{pose}.webp`（幅400）を生成する。円形 `avatar-{pose}.webp` も継続生成。商品ごとのposeは `note-magazines.ts` の `ctaPose`。 |
+| **サイト note CTA** | ヒーロー CTA バナー（`MagazineHeroCta`）の円形アバター | `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生。pose は商品ごとに `note-magazines.ts` の `ctaPose` で指定（pointing=論点提示／good-sign=完成・合格訴求／smile=伴走・入門）。完成画像を登録した一次PDF商品は `NoteImageCta` を優先する。人物変更は完成画像を再制作する（[デザインシステム](../design-system/design-system.md)参照） |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
 | **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。詳細 → [ig-reels-policy.md](ig-reels-policy.md) §7 |
@@ -102,19 +102,19 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | 保存場所・命名・生成/抽出手順・チャネル運用 | 本ドキュメント |
 | 透過抽出（追加ポーズ） | `scripts/character-extract.mjs`（`npm run character-extract`） |
 | 円形アイコン（紺グラデ背景・SNS プロフィール用マスター） | `scripts/generate-character-icons.mjs`（`npm run character-icons`）→ `icons/{pose}-{800,400,180}.png` |
-| サイトCTA配信画像 | `scripts/build-character-avatars.mjs` → `avatar-{pose}.webp` と `cta-{pose}.webp`。腰上座標はmanifest、描画は `character-framing.mjs` |
+| サイト CTA 配信アバター（上記アイコンの派生） | `scripts/build-character-avatars.mjs`（`npm run character-avatars`）→ `public/images/character/avatar-{pose}.webp` |
 | 上記 3 者の整合ゲート | `scripts/check-character-avatars.mjs`（`npm run check-character-avatars`・`quality:audit` の ci ゲート） |
 
-- 円の意匠は `generate-character-icons.mjs` が持つ。腰上の座標は `character-poses.json` の確認済みwaist、描画は `character-framing.mjs` を共用する。`build-character-avatars.mjs` は両素材を配信用WebPへ派生する。
+- 円の意匠（トリミング・紺グラデ）の真実源は `generate-character-icons.mjs` に一本化し、`build-character-avatars.mjs` は**サイズ/形式を落とす派生層**に徹する（意匠の二重管理を避ける）。
 
 ### サイト CTA にポーズを追加する手順
 
 `siteCta` を真実源にし、列挙を複製しない。**manifest → 画像 → 型**の順で進める（逆順にすると本番でアバターが 404 になる）。
 
 1. `config/character-poses.json` の該当 pose に `"siteCta": true` を追記（未登録のポーズなら先に生成→`npm run character-extract`→登録）
-2. `framing.variants.waist` の座標・原本SHAと `quality:ready` を確認する。`npm run character-icons {pose}` → `npm run character-avatars {pose}` で円形・腰上の両画像を生成する。
+2. `npm run character-icons {pose}` → `npm run character-avatars`（生成対象は manifest から自動導出。列挙を書き足す必要はない）
 3. `src/lib/note-magazines.ts` の `ctaPose` union に `| '{pose}'` を追加（型に literal が要るためここだけ手書き。他所に列挙を増やさない）
-4. `npm run check-character-avatars` でmanifest ⇔ 円形/腰上WebP ⇔ 型の整合を確認し、生成物を併せてcommitする。
+4. `npm run check-character-avatars` で manifest ⇔ webp ⇔ union の三者整合を確認 → 生成物と併せて commit
 
 このゲートは `og:image` の 404 を防ぐ `check-ogp-coverage` と同クラスの予防。`type-check` は manifest と実ファイルを見られないため独立ゲートにしている。
 
