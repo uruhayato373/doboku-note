@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import Image from "next/image";
 import MagazineBadge from "@/components/ui/MagazineBadge/MagazineBadge";
 import { brandOf } from "@/lib/exam-brand";
@@ -36,6 +38,9 @@ export default function MagazineInlineCard({
   trackLabel,
   placement = "article-body",
 }: MagazineInlineCardProps) {
+  const image = noteCtaImage(magazineId, 'body');
+  if (image) return <NoteImageCta href={url} image={image}
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(magazineId);
   return (
     <a

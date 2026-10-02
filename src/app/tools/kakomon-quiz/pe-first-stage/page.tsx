@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
@@ -107,6 +109,9 @@ export default function PeFirstStageQuizPage() {
             const mag = getMagazine(id);
             if (!mag) return null;
             const label = `${id}:tools-kakomon-quiz-pe-first-stage`;
+            const image = noteCtaImage(id);
+            if (image) return <NoteImageCta key={id} href={buildMagazineUrl(mag, label)} image={image}
+              trackLabel={label} placement="tools-kakomon-quiz-pe-first-stage" />;
             return (
               <a
                 key={id}
