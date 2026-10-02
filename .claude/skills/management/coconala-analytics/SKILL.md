@@ -1,6 +1,6 @@
 ---
 name: coconala-analytics
-description: ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し、kpi-log.json へ週次 upsert するスキル。全体累計（閲覧/販売/販売額/お気に入り）・サービス別（listed 全件を URL 直打ちで走査）・ブログ別閲覧数を analytics-snapshot.json に落とし、check-coconala-analytics で鮮度・欠測・マスク値・kpi-log 整合を検査する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。セラーサクセス未加入の表示数は 0000 とマスクされるため null 記録。取得のみで書き込み（メモ追加・設定変更・出品操作）はしない。撤退ライン判定と受注突合は /coconala-status、出品操作は /coconala-publish が担当で守備範囲が異なる。Use when user asks to [ココナラの数字を取る, ココナラKPIを自動取得, ココナラ分析を記録, 閲覧数を記録, /coconala-analytics].
+description: ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し、data/coconala/kpi.json へ週次 upsert するスキル。全体累計（閲覧/販売/販売額/お気に入り）・サービス別（listed 全件を URL 直打ちで走査）・ブログ別閲覧数を data/coconala/analytics.json に落とし、check-coconala-analytics で鮮度・欠測・マスク値・kpi.json 整合を検査する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。セラーサクセス未加入の表示数は 0000 とマスクされるため null 記録。取得のみで書き込み（メモ追加・設定変更・出品操作）はしない。撤退ライン判定と受注突合は /coconala-status、出品操作は /coconala-publish が担当で守備範囲が異なる。Use when user asks to [ココナラの数字を取る, ココナラKPIを自動取得, ココナラ分析を記録, 閲覧数を記録, /coconala-analytics].
 user-invocable: true
 domain: product
 ---
@@ -19,14 +19,14 @@ domain: product
 ## 手順
 
 ```bash
-npm run coconala-analytics -- --append-kpi   # 収集 → snapshot → kpi-log へ upsert
-npm run check-coconala-analytics             # 鮮度・欠測・マスク値・kpi-log 整合
+npm run coconala-analytics -- --append-kpi   # 収集 → snapshot → kpi.json へ upsert
+npm run check-coconala-analytics             # 鮮度・欠測・マスク値・kpi.json 整合
 ```
 
 補助フラグ: `--no-services`（全体＋ブログのみ）／`--headless`／`--append-kpi` なしなら snapshot のみ。
 
-出力は `data/coconala/analytics-snapshot.json`（実体）と
-`data/coconala/kpi-log.json` の `weekly` / `blogsWeekly`（週次台帳・`weekOf`+`serviceId` で upsert＝再実行しても二重計上しない）。
+出力は `data/coconala/analytics.json`（実体）と
+`data/coconala/kpi.json` の `weekly` / `blogsWeekly`（週次台帳・`weekOf`+`serviceId` で upsert＝再実行しても二重計上しない）。
 
 ## 読み方（ここを間違えると数字が嘘になる）
 
@@ -58,8 +58,8 @@ npm run check-coconala-analytics             # 鮮度・欠測・マスク値・
 ## 完了条件
 
 - `npm run check-coconala-analytics` が exit 0（または FAIL の内容がカタログ側の是正待ちとして報告されている）
-- `kpi-log.json` に当該 `weekOf` の行が入り、`updatedAt` が更新されている
-- 変更した `kpi-log.json` / `analytics-snapshot.json` が commit されている
+- `data/coconala/kpi.json` に当該 `weekOf` の行が入り、`updatedAt` が更新されている
+- 変更した `data/coconala/kpi.json` / `data/coconala/analytics.json` が commit されている
 
 ## 参照
 

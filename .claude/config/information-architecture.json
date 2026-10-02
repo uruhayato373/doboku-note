@@ -110,7 +110,14 @@
       "data/coconala/history",
       "data/x-competitors",
       "data/ig-competitors",
-      "data/market"
+      "data/market",
+      "data/sales",
+      "data/metrics/note",
+      "data/note/magazines-snapshot.json",
+      "data/note/status-snapshot.json",
+      "data/coconala/orders-log.json",
+      "data/coconala/kpi-log.json",
+      "data/coconala/analytics-snapshot.json"
     ]
   },
   "docsIsNotContent": {
@@ -266,7 +273,14 @@
       "data/market/",
       "data/note/competitors-snapshot.json",
       "data/coconala/competitors-snapshot.json",
-      "data/coconala/blog-competitors.json"
+      "data/coconala/blog-competitors.json",
+      "data/sales/",
+      "data/metrics/note/",
+      "data/note/magazines-snapshot.json",
+      "data/note/status-snapshot.json",
+      "data/coconala/orders-log.json",
+      "data/coconala/kpi-log.json",
+      "data/coconala/analytics-snapshot.json"
     ],
     "scanGlobs": [
       "scripts/",

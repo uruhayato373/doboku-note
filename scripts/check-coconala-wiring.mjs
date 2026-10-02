@@ -10,9 +10,9 @@
  *
  * 検査項目:
  *   1. status:'listed' は serviceUrl 必須（https://coconala.com/services/… 形式）
- *   2. orders-log / kpi-log の serviceId がカタログに実在
- *   3. orders-log の priceYen がカタログの priceYen と一致（価格改定の取り残し検知）
- *   4. sales-log.json の `coconala:<id>` productId の id がカタログに実在
+ *   2. orders.json / kpi.json の serviceId がカタログに実在
+ *   3. orders.json の priceYen がカタログの priceYen と一致（価格改定の取り残し検知）
+ *   4. data/note/sales.json の `coconala:<id>` productId の id がカタログに実在
  *   5. listed が1件でもあれば coconala-account.json の profileUrl が非空
  *   6. 一度も出品していない（status:'draft' かつ listedAt 未設定）サービスに受注/KPI 実績が無い
  *   7. カバレッジ: 全カタログ product に listings（category/body）＋商品画像 thumb-*.png がある
@@ -39,9 +39,9 @@ import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/co
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
-const ORDERS_PATH = join(ROOT, 'data/coconala/orders-log.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
-const SALES_PATH = join(ROOT, 'data/sales/sales-log.json');
+const ORDERS_PATH = join(ROOT, 'data/coconala/orders.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
+const SALES_PATH = join(ROOT, 'data/note/sales.json');
 const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
 const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
@@ -64,7 +64,7 @@ if (staged) {
       p.includes('config/coconala-listings.json') ||
       // note の値上げでココナラが価格ルールの下限を割るのも検知する
       p.includes('src/lib/note-magazines.ts') ||
-      p.includes('data/sales/sales-log.json') ||
+      p.includes('data/note/sales.json') ||
       p.includes('scripts/check-coconala-wiring.mjs')
   );
   if (!relevant) process.exit(0); // ココナラに無関係な commit → スキップ
@@ -243,19 +243,19 @@ if (existsSync(NOTE_MAGAZINES_PATH)) {
   violations.push('src/lib/note-magazines.ts が無く、価格ルール（note より安く売らない）を検査できません');
 }
 
-// 2 & 3. orders-log の serviceId 実在＋priceYen 一致
+// 2 & 3. orders.json の serviceId 実在＋priceYen 一致
 // 受注日時点の定価。priceHistory（until 昇順）で受注日が until 以前の最初の旧定価、無ければ現行価格。
 const priceAt = (svc, date) => {
   const hist = [...(svc.priceHistory ?? [])].sort((a, b) => a.until.localeCompare(b.until));
   return hist.find((h) => typeof date === 'string' && date <= h.until)?.priceYen ?? svc.priceYen;
 };
 const orders = readJson(ORDERS_PATH);
-if (orders?.__parseError) violations.push(`orders-log.json が JSON として壊れています: ${orders.__parseError}`);
+if (orders?.__parseError) violations.push(`data/coconala/orders.json が JSON として壊れています: ${orders.__parseError}`);
 else if (orders) {
   for (const [i, o] of (orders.orders ?? []).entries()) {
     const svc = byId.get(o.serviceId);
     if (!svc) {
-      violations.push(`orders-log[${i}] 未知の serviceId: "${o.serviceId}"（カタログに存在しません）`);
+      violations.push(`orders.json[${i}] 未知の serviceId: "${o.serviceId}"（カタログに存在しません）`);
       continue;
     }
     // 見積り（カスタム提案）受注は定価と違うのが正しい取引形態なので、カタログ定価との
@@ -263,21 +263,21 @@ else if (orders) {
     // 2026-08-06 初発生: フルパック ¥10,000 から購入済み模試 ¥2,500 を引いた ¥7,500 の見積り。
     if (o.quote) {
       if (typeof o.quote.amountYen !== 'number') {
-        violations.push(`orders-log[${i}] quote.amountYen が数値でありません（${o.serviceId}）`);
+        violations.push(`orders.json[${i}] quote.amountYen が数値でありません（${o.serviceId}）`);
       } else if (o.priceYen !== o.quote.amountYen) {
         violations.push(
-          `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs quote.amountYen ${o.quote.amountYen}（${o.serviceId}）`
+          `orders.json[${i}] priceYen 不一致: 実績 ${o.priceYen} vs quote.amountYen ${o.quote.amountYen}（${o.serviceId}）`
         );
       }
       if (!o.quote.basis || String(o.quote.basis).trim() === '') {
         violations.push(
-          `orders-log[${i}] quote.basis が空です（${o.serviceId}）` +
+          `orders.json[${i}] quote.basis が空です（${o.serviceId}）` +
             ' — 定価と違う額の根拠が無いと、後から値引きミスと正当な見積りを区別できません'
         );
       }
     } else if (typeof o.priceYen === 'number' && svc.priceYen !== null && o.priceYen !== priceAt(svc, o.date)) {
       violations.push(
-        `orders-log[${i}] priceYen 不一致: 実績 ${o.priceYen} vs 受注日時点の定価 ${priceAt(svc, o.date)}（${o.serviceId}・${o.date}）` +
+        `orders.json[${i}] priceYen 不一致: 実績 ${o.priceYen} vs 受注日時点の定価 ${priceAt(svc, o.date)}（${o.serviceId}・${o.date}）` +
           ' — 価格改定なら実績は当時の額のままで正なので、カタログの priceHistory に旧定価と有効最終日を足す' +
           '（カスタム見積りなら quote ブロックを付ける）'
       );
@@ -285,18 +285,18 @@ else if (orders) {
   }
 }
 
-// 2. kpi-log の serviceId 実在
+// 2. kpi.json の serviceId 実在
 const kpi = readJson(KPI_PATH);
-if (kpi?.__parseError) violations.push(`kpi-log.json が JSON として壊れています: ${kpi.__parseError}`);
+if (kpi?.__parseError) violations.push(`data/coconala/kpi.json が JSON として壊れています: ${kpi.__parseError}`);
 else if (kpi) {
   for (const [i, w] of (kpi.weekly ?? []).entries()) {
     if (!byId.has(w.serviceId)) {
-      violations.push(`kpi-log[${i}] 未知の serviceId: "${w.serviceId}"（カタログに存在しません）`);
+      violations.push(`kpi.json[${i}] 未知の serviceId: "${w.serviceId}"（カタログに存在しません）`);
     }
   }
 }
 
-// 4. sales-log の coconala:<id> がカタログに実在
+// 4. sales.json の coconala:<id> がカタログに実在
 const sales = readJson(SALES_PATH);
 if (sales && !sales.__parseError) {
   for (const [i, s] of (sales.sales ?? []).entries()) {
@@ -305,7 +305,7 @@ if (sales && !sales.__parseError) {
     const svcId = id.slice('coconala:'.length);
     if (!byId.has(svcId)) {
       violations.push(
-        `sales-log[${i}] productId "${id}" の id がカタログに存在しません` +
+        `sales.json[${i}] productId "${id}" の id がカタログに存在しません` +
           '（命名規則: coconala:<coconala-services.ts の id>）'
       );
     }
@@ -326,13 +326,13 @@ if (neverListed.size > 0) {
   );
   for (const id of orderHit) {
     violations.push(
-      `[${id}] 未出品（status:'draft' かつ listedAt 未設定）なのに orders-log に受注があります` +
+      `[${id}] 未出品（status:'draft' かつ listedAt 未設定）なのに orders.json に受注があります` +
         ' — ダミー値の混入か serviceId 取り違え。出品済みならカタログを listed + listedAt へ更新'
     );
   }
   for (const id of kpiHit) {
     violations.push(
-      `[${id}] 未出品（status:'draft' かつ listedAt 未設定）なのに kpi-log に実績があります` +
+      `[${id}] 未出品（status:'draft' かつ listedAt 未設定）なのに kpi.json に実績があります` +
         ' — ダミー値の混入か serviceId 取り違え。出品済みならカタログを listed + listedAt へ更新'
     );
   }
@@ -349,7 +349,7 @@ if (violations.length) {
   for (const v of violations) console.error(`  - ${v}`);
   console.error('');
   console.error('対処: src/lib/coconala-services.ts（カタログ SoT）と data/coconala/*.json、');
-  console.error('      data/sales/sales-log.json の整合を取ってください。');
+  console.error('      data/note/sales.json の整合を取ってください。');
   console.error('      運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
   process.exit(1);
 }

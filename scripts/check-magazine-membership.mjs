@@ -16,7 +16,7 @@
  * 三軸:
  *   A: repo 実数  … 記事 frontmatter `noteMagazine` の集計（記事を足す＝宣言が増える）
  *   B: SoT 表記   … note-magazines.ts の「計N記事」「（N本セット」
- *   C: ライブ     … data/note/magazines-snapshot.json の magazines[].notes.length
+ *   C: ライブ     … data/note/magazines.json の magazines[].notes.length
  *
  *   期待収録数(id) = Σ A(その id に紐づくラベル) + Σ fromMagazines + extras[id].count
  *   収録リストを別に手書きしないのは、それ自体が第 4 のドリフト源になるため。
@@ -57,7 +57,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
-const SNAPSHOT_PATH = join(ROOT, 'data/note/magazines-snapshot.json');
+const SNAPSHOT_PATH = join(ROOT, 'data/note/magazines.json');
 
 /** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。 */
 const STALE_DAYS = 9;

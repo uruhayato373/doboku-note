@@ -138,7 +138,7 @@
       "stage": "販売",
       "label": "note販売件数",
       "unit": "件",
-      "definition": "既存sales-logの取引件数。記事・マガジンを分け、サイト流入に帰属させない。",
+      "definition": "既存sales.jsonの取引件数。記事・マガジンを分け、サイト流入に帰属させない。",
       "channel": "note",
       "target": null
     },
@@ -147,7 +147,7 @@
       "stage": "販売",
       "label": "note販売額",
       "unit": "円",
-      "definition": "既存sales-logの販売額。手数料控除前。入金額や利益ではない。",
+      "definition": "既存sales.jsonの販売額。手数料控除前。入金額や利益ではない。",
       "channel": "note",
       "target": null
     },
@@ -310,7 +310,7 @@
     "改善状態は既存experiments.json、単発の実装タスクはbacklogを正とする。SEOの7日観察と同時実験上限を守る。"
   ],
   "salesAttribution": {
-    "source": "既存sales-logの商品ID命名と商品カタログ。未一致・複数資格の会員商品は全体のみに含める。",
+    "source": "既存sales.jsonの商品ID命名と商品カタログ。未一致・複数資格の会員商品は全体のみに含める。",
     "rules": [
       {
         "prefixes": [

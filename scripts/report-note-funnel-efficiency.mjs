@@ -5,7 +5,7 @@ import { buildNoteFunnelEfficiency, renderNoteFunnelEfficiencyMarkdown } from '.
 
 const ROOT = resolve(import.meta.dirname, '..');
 const GA4_DIR = join(ROOT, 'data/metrics/ga4');
-const SALES_PATH = join(ROOT, 'data/sales/sales-log.json');
+const SALES_PATH = join(ROOT, 'data/note/sales.json');
 const OUTPUT_DIR = join(ROOT, 'data/metrics/monetization');
 
 function valueAfter(args, flag) {

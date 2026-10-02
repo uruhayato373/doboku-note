@@ -150,7 +150,7 @@ export default function NoteStatusPage() {
           {!s.ok ? (
             <>
               <StatusBadge tone="bad">未取得</StatusBadge>{' '}
-              <code>data/note/status-snapshot.json</code> が読めません。
+              <code>data/note/status.json</code> が読めません。
               記事別のライブ公開状態は<strong>判定していません</strong>。
               週次 note-live-audit.yml が供給します（管理画面はライブ API を叩きません）。{s.error}
             </>

@@ -17,6 +17,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 import { findRepoRoot, repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /** 週次供給＋2日バッファ。check-magazine-membership.mjs の STALE_DAYS と揃える。 */
 export const STALE_DAYS = 9;
@@ -107,7 +108,7 @@ export function membershipState(): MembershipState {
   }
 }
 
-// ─── 記事別の公開状態（CI 供給の status-snapshot.json）─────────
+// ─── 記事別の公開状態（CI 供給の data/note/status.json）─────────
 
 export interface StatusSnapshot {
   ok: boolean;
@@ -142,7 +143,7 @@ const EMPTY_STATUS = {
  */
 export function statusSnapshot(now: number = Date.now()): StatusSnapshot {
   try {
-    const raw = readFileSync(repoPath('data', 'note', 'status-snapshot.json'), 'utf8');
+    const raw = readFileSync(repoPath(datasetPath('note.status')), 'utf8');
     const d = JSON.parse(raw) as Record<string, unknown>;
     const fetchedAt = (d.fetchedAt as string) ?? null;
     const t = fetchedAt ? Date.parse(fetchedAt) : NaN;

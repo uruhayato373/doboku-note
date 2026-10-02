@@ -46,7 +46,7 @@ export function parseNoteSalesDetail(text) {
   return { gross: yen('売上'), fee: yen('手数料'), net: yen('手数料控除後売上') };
 }
 
-/** kdp-royalties.json の 1 か月分から、catalog 対象書籍（bookId あり）のロイヤリティ合計と確定か否かを返す。 */
+/** data/kdp/royalties.json の 1 か月分から、catalog 対象書籍（bookId あり）のロイヤリティ合計と確定か否かを返す。 */
 export function kdpCatalogRoyalty(monthEntry) {
   if (!monthEntry) return null;
   const royalty = (monthEntry.books ?? []).filter((b) => b.bookId).reduce((sum, b) => sum + (Number(b.royalty) || 0), 0);

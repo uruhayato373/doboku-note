@@ -63,7 +63,7 @@ export type CompetitorView = {
   platform: 'coconala';
   fetchedDate: string | null;
   rows: CompetitorRow[];
-  /** 自社の行。出品は coconala-services.ts の listed、販売は orders-log.json（自社の受注記録）から数える。 */
+  /** 自社の行。出品は coconala-services.ts の listed、販売は data/coconala/orders.json（自社の受注記録）から数える。 */
   self: CompetitorRow;
   examLabels: Record<string, string>;
 };
@@ -154,7 +154,7 @@ const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1
 function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   const listed = listedCoconalaServices();
   const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
-  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders-log.json'));
+  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders.json'));
   const orders = Array.isArray(log) ? log : (log?.orders ?? []);
   const recent = baseDate ? orders.filter((o) => o.date >= baseDate) : [];
   const sum = (xs: { priceYen?: number }[]) => xs.reduce((n, o) => n + (o.priceYen ?? 0), 0);

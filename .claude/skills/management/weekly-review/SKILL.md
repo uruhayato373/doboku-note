@@ -60,7 +60,7 @@ domain: strategy
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
-- **note の流入元・記事別 PV（月次）**: `data/metrics/note/referrers-YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv-YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review が全体を complete、資格別を partial として自動集計する。週次では流入元内訳を findings 用に読む
+- **note の流入元・記事別 PV（月次）**: `data/note/referrers/YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv/YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review が全体を complete、資格別を partial として自動集計する。週次では流入元内訳を findings 用に読む
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
@@ -258,9 +258,9 @@ B. 実験進捗レポート:
 機械突合し、「高流入なのに無導線」のギャップを surface する（手作業監査の自動化）。
 
 **最初に売上の実数を出す**（2026-08-17 追加）。従来この週次は**実売上を一度も読んでいなかった**ため、
-sales-log が 34 日止まっていたことに誰も気づかず、下流のガードレールが「売上は停止中」という
+sales.json が 34 日止まっていたことに誰も気づかず、下流のガードレールが「売上は停止中」という
 前提を1か月抱えたままだった。
-- 売上転記の停滞（note-sales-fetch）と KDP ロイヤリティの取得停止は、日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `sales-freshness`・`kdp-report-freshness` が知らせる（週次では実行しない）。Issue が開いていれば**カバレッジの議論より先に**対象月・不足を報告する。カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。KDP は note の sales-log と粒度が異なるため混ぜない。
+- 売上転記の停滞（note-sales-fetch）と KDP ロイヤリティの取得停止は、日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `sales-freshness`・`kdp-report-freshness` が知らせる（週次では実行しない）。Issue が開いていれば**カバレッジの議論より先に**対象月・不足を報告する。カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。KDP は note の sales.json と粒度が異なるため混ぜない。
 - Issue が無ければ `npm run sales-summary` の当月行（件数・金額）を 1 行で載せる。
   「異常なし」ではなく**実検査件数と最終転記日**を書くこと。
 

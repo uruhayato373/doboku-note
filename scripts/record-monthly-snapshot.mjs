@@ -73,12 +73,12 @@ function main() {
   let salesYen = null;
   let salesCount = null;
   try {
-    const sales = readJson(join(ROOT, 'data/sales/sales-log.json')).sales ?? [];
+    const sales = readJson(join(ROOT, 'data/note/sales.json')).sales ?? [];
     const inMonth = sales.filter((s) => String(s.date ?? '').startsWith(month));
     salesYen = inMonth.reduce((a, s) => a + (Number(s.price) || 0), 0);
     salesCount = inMonth.length;
   } catch (e) {
-    console.error(`✗ 検査不成立: sales-log.json を読めない（${e.message}）`);
+    console.error(`✗ 検査不成立: data/note/sales.json を読めない（${e.message}）`);
     process.exit(1);
   }
 

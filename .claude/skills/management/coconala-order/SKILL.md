@@ -3,7 +3,7 @@ name: coconala-order
 description: >
   ココナラで受注したサービス（1級・2級土木 S1 診断 / S2 添削 / S3 指導 / C系・RCCM・コンクリート主任技士・技術士口頭の PDF / 技術士口頭 想定質問作成）
   1件を、受領から納品文面ドラフトまで通す統括スキル。coconala-operator を起動し、商品タイプ別に分岐して
-  /keiken-tensaku（S1=診断・S2=添削・S3=骨子→添削）でドラフト生成、または C系=PDF即送付文を生成 → orders-log 追記。
+  /keiken-tensaku（S1=診断・S2=添削・S3=骨子→添削）でドラフト生成、または C系=PDF即送付文を生成 → orders.json 追記。
   最終赤入れとトークルームへの送信は運営者（人間）。捏造禁止・外部誘導禁止・個人情報非コミット。
   Use when user asks to [ココナラで受注した, ココナラの納品文面を作って, 添削依頼が来た, PDF商品が売れた, /coconala-order].
 user-invocable: true
@@ -39,7 +39,7 @@ domain: product
 
 **S3 指導（`coconala-sakusei` / `-4theme` / `coconala-2kyu-sakusei` / `-3theme`。id は旧「作成」のまま）**
 2026-09-25 に作成（答案ドラフトの納品）が運営に「学校の課題の代行」として取り下げられ、代筆しない指導へ作り替えた。**答案を書くのは本人**。2段階で進める。
-3. **1段目＝骨子**: 指導用ヒアリングシート（キット §4b）を検査。**宣誓チェック未記入なら停止**（創作で埋めない）→ `/keiken-tensaku <path> --grade N --mode kosshi` → `骨子シート.md`（`check-kosshi-sheet` exit 0）→ キット §4c「骨子シート送付」文を添えてトークルームで送る。**正式納品にはしない**（途中経過のメッセージ）。orders-log は `status:'kosshi-sent'`。
+3. **1段目＝骨子**: 指導用ヒアリングシート（キット §4b）を検査。**宣誓チェック未記入なら停止**（創作で埋めない）→ `/keiken-tensaku <path> --grade N --mode kosshi` → `骨子シート.md`（`check-kosshi-sheet` exit 0）→ キット §4c「骨子シート送付」文を添えてトークルームで送る。**正式納品にはしない**（途中経過のメッセージ）。orders.json は `status:'kosshi-sent'`。
 3'. **2段目＝添削**: 本人が書いた答案を受け取ったら S2 と同じく `/keiken-tensaku <path> --grade N`（添削）→ 返却を**正式納品**にする。再添削（1回）は S2 の書き直し受付と同じ手順。全テーマ版は、書けたテーマから順に骨子→添削をテーマ単位で回してよい。
    - **未整備**: お届け予定日までに本人の答案が届かないときの扱い（延長の依頼・その時点での納品の可否）。初回の受注で運営者が決め、キットと本スキルに書き足す。
 
@@ -53,7 +53,7 @@ domain: product
 
 **共通の後段**
 3b. **返信文の検証**（土木 S1/S2/S3）: トークルームに貼る文面を `返信文.txt` にまとめ、`civil-keiken-tensaku-qa`（機械ゲート `check-tensaku-reply` を含む。S3 の骨子は `check-kosshi-sheet` も）で PASS するまで直す。送信するのは PASS した文面だけ。
-4. **orders-log 追記**: `date` / `serviceId` / **`talkroomId`（必須）** / `priceYen`（カタログから）/ `grade`（C系は null 可）/ `status:'received'` / `replyDueAt`（snapshot から転記）/ `deliveredAt:null` / `artifacts:[]`。
+4. **orders.json 追記**: `date` / `serviceId` / **`talkroomId`（必須）** / `priceYen`（カタログから）/ `grade`（C系は null 可）/ `status:'received'` / `replyDueAt`（snapshot から転記）/ `deliveredAt:null` / `artifacts:[]`。
 5. **突合**: `npm run check-coconala-orders` を実行し exit 0 を確認（記録漏れ・金額ズレ・返信期限を機械が見る）。
 6. **引き継ぎ提示**: 下記チェックリストを表示して終了。**返信期限（無連絡で自動キャンセル）を必ず明示する**。
 
@@ -64,7 +64,7 @@ domain: product
 - [ ] 納品文面のトーンを自分の言葉に／**AI 下書き注記が消えているか確認**
 - [ ] **note・サイトの URL が入っていないか確認**（ココナラ規約: 外部誘導禁止）
 - [ ] トークルームへ送信（送信はユーザー操作。エージェントは送らない）
-- [ ] orders-log の `status` を `delivered` へ・`deliveredAt`・`artifacts`（送ったファイルと sha256）・`tensakuMinutes` 記録
+- [ ] orders.json の `status` を `delivered` へ・`deliveredAt`・`artifacts`（送ったファイルと sha256）・`tensakuMinutes` 記録
       ※ C系 PDF は再ビルドで中身が変わりうる。**どの版を送ったか**を残さないと後から特定できない（2026-08-05 の C8 で実際に発生）
 - [ ] 共通の誤りは匿名化して添削事例アーカイブへ（1対多の資産化）
 
@@ -78,7 +78,7 @@ domain: product
 npm run coconala-rate-buyer -- <talkroomId> <コメントtxt>            # 入力のみ（既定）
 npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送信
 ```
-- [ ] orders-log に `rating`（送った文面そのもの）を記録し `status` を `closed` へ
+- [ ] orders.json に `rating`（送った文面そのもの）を記録し `status` を `closed` へ
 - [ ] **星を5にしたくない取引ではスクリプトを使わない**（星5固定のため。人が UI で入力する）
 
 > [!warning] 通知メールでは気づけない
@@ -90,14 +90,14 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 ## ガードレール
 
 - **捏造はしない（Red Line #2 再定義）**: 経験していない工事・事実・数値を創作しない。S1 診断＝方向性まで（書き換え文なし）／S2 添削＝本人原稿への赤入れ／S3 指導＝骨子は本人の回答の引用だけ・**答案の代筆はしない**（書くのは本人。欠落は `〇〇` と確認の質問）。
-- **書き直しは1回まで（S2/S3）**: 再提出は `/keiken-tensaku` を前回下書きと併せ再実行し差分中心に再チェック → `orders-log` の `status` を `revised` へ（キット §5 の再チェック手順・§4c 返却文）。
-- **顧客原稿をコミットしない**: orders-log に記録するのは日付・serviceId・金額・級・進捗・所要時間のみ。
+- **書き直しは1回まで（S2/S3）**: 再提出は `/keiken-tensaku` を前回下書きと併せ再実行し差分中心に再チェック → `orders.json` の `status` を `revised` へ（キット §5 の再チェック手順・§4c 返却文）。
+- **顧客原稿をコミットしない**: orders.json に記録するのは日付・serviceId・金額・級・進捗・所要時間のみ。
 - **価格はカタログが真実源**: 文面に価格を書くならカタログの `price` を転記。改定はカタログ→キットの順で同一 commit。
 - コミット前に `npm run check-coconala-wiring`（pre-commit でも自動実行）。
 
 ## 完了条件
 
-- ドラフト（S1 診断下書き / S2 添削下書き / S3 骨子シート→添削下書き、C系は PDF 送付文）＋納品文面が生成され、orders-log に1件 append されている。
+- ドラフト（S1 診断下書き / S2 添削下書き / S3 骨子シート→添削下書き、C系は PDF 送付文）＋納品文面が生成され、orders.json に1件 append されている。
 - `check-coconala-wiring` が exit 0。
 - `check-coconala-orders` に「評価未送信」が出ていない（クローズ済みの取引すべてに `rating` がある）。
 - 「送信した」と報告しない（送信は運営者）。

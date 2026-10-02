@@ -34,7 +34,7 @@ const NOTE_DIR = join(ROOT, 'content/note');
 const FIX = process.argv.includes('--fix');
 const JSON_OUT = process.argv.includes('--json');
 const CI = process.argv.includes('--ci');
-// --snapshot: 結果を data/note/status-snapshot.json へ永続化する。
+// --snapshot: 結果を data/note/status.json へ永続化する。
 // これが無かったため、記事別のライブ公開状態は CI artifact にしか残らず、
 // 管理画面からも週次レビューからも見えなかった（2026-08-24）。stdout の出力は変えない。
 const SNAPSHOT = process.argv.includes('--snapshot');
@@ -161,7 +161,7 @@ const result = {
 };
 
 if (SNAPSHOT) {
-  const out = join(ROOT, 'data/note/status-snapshot.json');
+  const out = join(ROOT, 'data/note/status.json');
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, `${JSON.stringify({ fetchedAt: new Date().toISOString(), ...result }, null, 2)}
 `);

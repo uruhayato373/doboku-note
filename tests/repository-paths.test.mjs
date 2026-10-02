@@ -8,6 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   REPO_ROOT, SITE_CONTENT_ROOT, DOCS_ROOT, MIGRATION_MAP, LEGACY_ROOTS,
   NOTE_CONTENT_ROOT, SNS_CONTENT_ROOT, COCONALA_BLOG_ROOT, KINDLE_CONTENT_ROOT, TEXTBOOK_SOURCES_ROOT,
+  MOVED_PATHS, RESTRUCTURED_PATHS, resolveMovedPath,
 } from '../scripts/lib/repository-paths.mjs';
 import { inventory, findDualSsot } from '../scripts/audit-content-layout.mjs';
 
@@ -185,4 +186,22 @@ test('content/kindle は Web 配信対象に含まれない（非公開原稿）
   ).split('\n').filter(Boolean);
   const nonComment = hits.filter((l) => !/:\s*(\/\/|\/\*|\*)/.test(l.replace(/^[^:]*:\d+:/, ':')));
   assert.deepEqual(nonComment, [], `Web 配信側から content/kindle を読んでいる: ${nonComment.join(' / ')}`);
+});
+
+test('resolveMovedPath: .claude/ → data/ → 取得元ごとの 2 段の移動をたどり、移していないパスはそのまま', () => {
+  assert.equal(resolveMovedPath('.claude/state/sales/sales-log.json'), 'data/note/sales.json');
+  assert.equal(resolveMovedPath('data/sales/kdp-royalties.json'), 'data/kdp/royalties.json');
+  assert.equal(resolveMovedPath('.claude/state/metrics/note/referrers-2026-08.json'), 'data/note/referrers/2026-08.json');
+  assert.equal(resolveMovedPath('data/metrics/note/articles-pv-2026-07.json'), 'data/note/articles-pv/2026-07.json');
+  assert.equal(resolveMovedPath('data/metrics/note/referrers-latest.json'), 'data/metrics/note/referrers-latest.json', '型に合わないものは読み替えない');
+  assert.equal(resolveMovedPath('data/note/sales.json'), 'data/note/sales.json');
+  assert.equal(resolveMovedPath(null), null);
+});
+
+test('移動表に循環が無い（どの旧パスも有限回の読み替えで止まる）', () => {
+  for (const [from] of [...MOVED_PATHS, ...RESTRUCTURED_PATHS]) {
+    if (from instanceof RegExp) continue;
+    const once = resolveMovedPath(from);
+    assert.equal(resolveMovedPath(once), once, `${from} → ${once}`);
+  }
 });

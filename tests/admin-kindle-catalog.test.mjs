@@ -161,7 +161,7 @@ test('joinRoyalties: royalties が null/months 欠如なら ok:false を返す�
 })
 
 test('joinRoyalties: 同一 bookId が複数行に分かれていても合算し1行にする（React key 重複の再発防止）', () => {
-  // 2026-08-28 実測: kdp-royalties.json の books[] に e-01 が2行（マーケットプレイス別内訳が
+  // 2026-08-28 実測: data/kdp/royalties.json の books[] に e-01 が2行（マーケットプレイス別内訳が
   // 未マージ）存在し、admin /content/kindle の一覧で React key 重複警告を引き起こした。
   const royalties = {
     months: {

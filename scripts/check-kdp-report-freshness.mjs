@@ -12,7 +12,7 @@
 import { existsSync, readFileSync, writeSync } from 'node:fs';
 import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
 
-const STATE = 'data/sales/kdp-royalties.json';
+const STATE = 'data/kdp/royalties.json';
 const CATALOG = 'scripts/kindle-published/catalog.json';
 const FINAL_DUE_DAY = 16;
 const ESTIMATE_DUE_DAY = 28;

@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 /**
- * check-coconala-orders.mjs — 受注スナップショット ↔ orders-log の突合と、要対応の surface
+ * check-coconala-orders.mjs — 受注スナップショット ↔ orders.json の突合と、要対応の surface
  * ---------------------------------------------------------------------------
- * 背景: ココナラの受注は「ココナラ側の実体」と「orders-log.json（リポジトリの記録）」の
+ * 背景: ココナラの受注は「ココナラ側の実体」と「data/coconala/orders.json（リポジトリの記録）」の
  *   二層になる。人手の追記に依存すると、①売れたのに記録が無い ②記録の金額/商品がズレる
  *   ③返信期限（48時間で自動キャンセル）や納品を落とす、が起きる。本ガードは
- *   `coconala-orders.mjs` が採った snapshot と orders-log を決定論的に突合する。
+ *   `coconala-orders.mjs` が採った snapshot と orders.json を決定論的に突合する。
  *
  * オフライン検査（ネットワークに出ない）。実体の取得は `npm run coconala-orders` が担当。
  *
  * 検査:
- *   1. snapshot の取引が orders-log に存在する（talkroomId で突合）＝記録漏れの検知
+ *   1. snapshot の取引が orders.json に存在する（talkroomId で突合）＝記録漏れの検知
  *   2. 突合できた取引の serviceId / priceYen / soldOn が一致
  *   3. 未返信 かつ 返信期限が REPLY_WARN_HOURS 以内 or 経過 → 要対応（自動キャンセル防止）
  *   4. status:'received' のまま STALE_DAYS 超 → 納品滞留の警告
- *   5. orders-log にあって snapshot に無い → 警告（talkroomId 誤り or 取引が消えた）
+ *   5. orders.json にあって snapshot に無い → 警告（talkroomId 誤り or 取引が消えた）
  *
  * 「検査ゼロを PASS と呼ばない」:
  *   - snapshot が無い / status:'partial' / SNAPSHOT_STALE_DAYS より古い → **検査不成立で exit 2**。
@@ -37,7 +37,7 @@ import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquir
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
 const SNAPSHOT_PATH = join(ROOT, 'data/coconala/orders-snapshot.json');
-const ORDERS_PATH = join(ROOT, 'data/coconala/orders-log.json');
+const ORDERS_PATH = join(ROOT, 'data/coconala/orders.json');
 // 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）
 const RESOLVED_PATH = join(ROOT, 'data/coconala/resolved-inquiries.json');
 
@@ -56,7 +56,7 @@ if (staged) {
     changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 });
   } catch { changed = ''; }
   const relevant = changed.split('\n').some((p) =>
-    p.includes('data/coconala/orders-log.json') ||
+    p.includes('data/coconala/orders.json') ||
     p.includes('data/coconala/orders-snapshot.json') ||
     p.includes('scripts/check-coconala-orders.mjs')
   );
@@ -95,7 +95,7 @@ if (!health.ok) {
 }
 const ageDays = health.ageDays;
 if (!log || log.__parseError) {
-  console.error(`${TAG} ✗ orders-log.json が読めません（${ORDERS_PATH}）`);
+  console.error(`${TAG} ✗ data/coconala/orders.json が読めません（${ORDERS_PATH}）`);
   process.exit(1);
 }
 
@@ -107,7 +107,7 @@ const actions = [];
 const infos = [];
 const now = Date.now();
 
-// 1 & 2 & 5. snapshot ↔ orders-log の突合（判定は coconala-guards）
+// 1 & 2 & 5. snapshot ↔ orders.json の突合（判定は coconala-guards）
 const rec = reconcileOrders(snapOrders, logOrders);
 const violations = [...rec.violations];
 const warnings = [...rec.warnings];
@@ -161,7 +161,7 @@ for (const l of logOrders) {
   const days = (now - Date.parse(l.date)) / 86_400_000;
   if (days > STALE_DAYS) {
     warnings.push(
-      `orders-log: ${l.serviceId}（${l.date}）が ${Math.floor(days)} 日 status:'received' のままです` +
+      `orders.json: ${l.serviceId}（${l.date}）が ${Math.floor(days)} 日 status:'received' のままです` +
       ` — 納品済みなら delivered へ、未納品なら着手してください`
     );
   }
@@ -181,7 +181,7 @@ for (const l of logOrders) {
   if (!l.rating) {
     const label = `${l.serviceId}（room ${l.talkroomId}）`;
     actions.push(
-      `評価未送信: ${label} — 取引は ${l.status} だが orders-log に rating が無い。` +
+      `評価未送信: ${label} — 取引は ${l.status} だが orders.json に rating が無い。` +
       `期限を過ぎるとこちらの評価は公開されない。` +
       `https://coconala.com/ratings/provider_add/${l.talkroomId}`
     );
@@ -213,7 +213,7 @@ if (asJson) {
   process.exit(actions.length || warnings.length ? 1 : 0);
 }
 console.log(
-  `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders-log ${logOrders.length} 件 / ` +
+  `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders.json ${logOrders.length} 件 / ` +
   `問い合わせ(DM) ${inqScanned ? `${inquiries.length} 件（返信不可 ${inq.infos.length} / 決着済み除外 ${inq.excluded.length}）` : '未取得'} / 評価 ${ratingChecked} 件` +
   `（snapshot ${ageDays.toFixed(1)} 日前・タブ ${snap.scan?.tabsOk}/${snap.scan?.tabsTotal} 取得）`
 );
@@ -245,4 +245,4 @@ if (violations.length) {
   process.exit(1);
 }
 console.log('');
-console.log(`${TAG} ✓ ココナラ側の取引はすべて orders-log と一致`);
+console.log(`${TAG} ✓ ココナラ側の取引はすべて orders.json と一致`);

@@ -2,7 +2,7 @@
 /**
  * sales-summary.mjs
  *
- * data/sales/sales-log.json を読み、月次・商品別の売上を集計して表示する。
+ * data/note/sales.json を読み、月次・商品別の売上を集計して表示する。
  * 売上の真実源は note ダッシュボードの販売履歴（手動転記）。
  *
  * Usage:
@@ -15,7 +15,7 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const LOG = join(ROOT, "data/sales/sales-log.json");
+const LOG = join(ROOT, "data/note/sales.json");
 const MILESTONE = 15000; // Web 月収マイルストーン（iOS 着手判断トリガー）
 
 const yen = (n) => "¥" + n.toLocaleString("en-US");

@@ -25,7 +25,7 @@ function repo() {
   git(root, 'init', '-q');
   put(root, OLD_PSI, '{"v":1}\n');
   put(root, EXPERIMENTS, '{"v":1}\n');
-  put(root, 'data/note/status-snapshot.json', '{"v":1}\n');
+  put(root, 'data/note/status.json', '{"v":1}\n');
   put(root, 'content/a.txt', 'a\n');
   git(root, 'add', '-A');
   git(root, 'commit', '-q', '-m', 'init');

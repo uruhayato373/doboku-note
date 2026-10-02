@@ -191,9 +191,9 @@ const CHECKS = [
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
   // 壁時計依存（転記日からの経過日数）なので ops 区分（ヘッダ「設計」）。2026-09-18 に ci から移した。
   { id: 'note-delivery-due', npm: 'check-note-delivery-due', timeout: 30_000, ci: false, ops: true, note: '購入者が商品（PDF 添付）を受け取れない状態の放置（2026-08-11 の事故＝約束した添付が無いまま 4 日販売）。committed state の鮮度（実査 STALE_DAYS 超）・未解消・取得失敗を見る。実査本体は check-note-attachments:live（ローカル・要ログイン）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-19 まで週次スキル内で LLM が叩くだけだった' },
-  // ココナラ分析 snapshot と kpi-log の整合（オフライン）。取得本体 coconala-analytics.mjs は要ログインでローカル専用なので、
+  // ココナラ分析 snapshot と kpi.json の整合（オフライン）。取得本体 coconala-analytics.mjs は要ログインでローカル専用なので、
   // ここは「取得が回っていない／新商品が snapshot に無い」を週次で拾う（2026-09-19 まで週次スキル内で LLM が叩くだけだった）。
-  { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, note: 'ココナラ分析の鮮度・listed全件取得・kpi-log整合を検査。取得は 2026-09-21 以降 login-collectors.yml（coconala 火 cron・暗号化 state）が hosted CI で回す（失効時のフォールバックはローカル認証実行）。読み手＝ops-audit.yml（日次Issue）で、停止は同ワークフローへ集約する。' },
+  { id: 'coconala-analytics', npm: 'check-coconala-analytics', timeout: 60_000, ci: false, ops: true, note: 'ココナラ分析の鮮度・listed全件取得・kpi.json整合を検査。取得は 2026-09-21 以降 login-collectors.yml（coconala 火 cron・暗号化 state）が hosted CI で回す（失効時のフォールバックはローカル認証実行）。読み手＝ops-audit.yml（日次Issue）で、停止は同ワークフローへ集約する。' },
   // ココナラの公開ページ（ログイン不要の構造化データ）とカタログ／listings の突合。外部の状態に依存するので ops 区分。
   { id: 'coconala-live', npm: 'check-coconala-live', timeout: 240_000, ci: false, ops: true, note: 'ココナラ公開ページの価格・タイトル・キャッチ・本文・出品者・販売状態がカタログ／listings と、出品者プロフィールの職業・アピール・自己紹介文が coconala-account.json と一致するか（2026-09-23 新設・プロフィールは 2026-09-27 追加）。読み手＝ops-audit.yml（日次 --ops）→ automation-failure Issue（channel ops）。exit 2 は取得失敗が過半＝検査不成立' },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: false, ops: true, note: '売上転記（note-sales-fetch）の停止と、note-traffic-fetchで取得済みの月次売上表示との金額不一致を検知する（updatedAt が 21 日超または月次不一致で赤・閑散期でも偽赤にならない）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった。取得は認証が要るのでローカル専用。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）' },
@@ -209,7 +209,7 @@ const CHECKS = [
   { id: 'afb-outcomes-freshness', npm: 'check-afb-outcomes-freshness', timeout: 30_000, ci: false, ops: true, note: 'afb 成果（公式 API・fetch-metrics.yml 週次）の取得停止を検知。読み手＝ops-audit.yml（日次 --ops）' },
   // カタログ↔listings↔画像↔受注／KPI／売上の整合と、PDF 商品の価格ルール（note より安く売らない）。結果はリポジトリの差分だけで決まる。
   { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
-  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales-log の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
+  { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
   { id: 'sns-landing-cta', npm: 'audit-sns-landing-cta:ci', timeout: 120_000, ci: true, note: 'SNS 原稿・X 予約のリンク先（転職・practice 除く）に note 導線が冒頭（top / 早い MagazineCard / ツールの静的ブロック）にあるか。未配線で落ちる（DN-0364）' },
@@ -372,7 +372,7 @@ const CHECKS = [
     id: 'site-to-sales-report',
     cmd: ['node', 'scripts/report-site-to-sales.mjs', '--check'],
     timeout: 60_000, ci: true,
-    note: 'サイト送客クリック×note流入元×商品別売上の月次突合が実行可能か（成果物は書かない・月次レビューが読む。入力はコミット済み GA4/note/sales-log）',
+    note: 'サイト送客クリック×note流入元×商品別売上の月次突合が実行可能か（成果物は書かない・月次レビューが読む。入力はコミット済み GA4/note/sales.json）',
   },
   // 公開 SEO ページ（frequent-topics）を生成するスクリプトが実行できることを毎回確かめる。
   // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返し

@@ -66,9 +66,9 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/keiken-tensaku` | 経験記述の顧客対応ドラフト生成（`civil-keiken-tensaku-drafter`）→ 返信文を `civil-keiken-tensaku-qa`＋`check-tensaku-reply` で PASS まで検証。①添削（既定・提出原稿→赤入れ）②骨子（`--mode kosshi`・ココナラ S3 指導・ヒアリング→骨子シート・答案の文章なし・`check-kosshi-sheet`）③診断（`--mode shindan`・ココナラ S1・A/B/C＋ワースト3・書き換え文なし）。捏造禁止（回答にない事実を作らない） | `経験記述を添削`, `添削下書きを作成`, `骨子シートを作成`, `ヒアリングから骨子`, `経験記述を診断`, `/keiken-tensaku` |
 | `/coconala-publish` | ココナラ出品サービスを Playwright で新規出品・内容修正・価格反映・**棚の出し入れ（受付休止/再開/アーカイブ）**（`coconala-operator`。カタログ＋listings SoT→フォーム充填。account assert＋draft-first＋`--commit` gate。公開成功でカタログ書き戻し。休止系は `coconala-pause`＝`pauseReason` で恒久廃止と長期不在を区別・対象選択は `coconala-guards` でテスト固定） | `ココナラに出品`, `ココナラ出品を修正`, `ココナラ価格反映`, `ココナラを休止`, `出品を再開`, `/coconala-publish` |
-| `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。土木はシート検証→`/keiken-tensaku`、PDF 商品は部門確認と特典同梱、技術士口頭 想定質問は運用テンプレ→納品文面ドラフト→orders-log 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
-| `/coconala-status` | ココナラ 受注実体の収集＋orders-log 突合（`coconala-orders`→`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録（`/coconala-analytics`）＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
-| `/coconala-analytics` | ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し `kpi-log.json` へ週次 upsert（`coconala-analytics`→`check-coconala-analytics`）。全体累計＋サービス別（listed 全件を URL 直打ち）＋ブログ別閲覧数。**数値は30日ローリング累計で週次増分ではない**・**`0000` はマスクで 0 ではない**（null 記録）・partial は exit 2。書き込みなし | `ココナラの数字を取る`, `ココナラKPIを自動取得`, `閲覧数を記録`, `/coconala-analytics` |
+| `/coconala-order` | ココナラ受注1件のE2E（`coconala-operator`。土木はシート検証→`/keiken-tensaku`、PDF 商品は部門確認と特典同梱、技術士口頭 想定質問は運用テンプレ→納品文面ドラフト→orders.json 追記。最終赤入れ・送信は運営者） | `ココナラで受注した`, `ココナラの納品文面`, `/coconala-order` |
+| `/coconala-status` | ココナラ 受注実体の収集＋orders.json 突合（`coconala-orders`→`check-coconala-orders`＝記録漏れ・金額ズレ・返信期限・納品滞留）＋KPI 週次記録（`/coconala-analytics`）＋カタログ↔state↔sales 照合＋撤退ライン判定（read-only・是正はしない） | `ココナラの状態を確認`, `ココナラKPIを記録`, `/coconala-status` |
+| `/coconala-analytics` | ココナラ「サービス・ブログ分析」を Playwright で read-only 収集し `data/coconala/kpi.json` へ週次 upsert（`coconala-analytics`→`check-coconala-analytics`）。全体累計＋サービス別（listed 全件を URL 直打ち）＋ブログ別閲覧数。**数値は30日ローリング累計で週次増分ではない**・**`0000` はマスクで 0 ではない**（null 記録）・partial は exit 2。書き込みなし | `ココナラの数字を取る`, `ココナラKPIを自動取得`, `閲覧数を記録`, `/coconala-analytics` |
 | `/coconala-blog` | ココナラブログ（記事型）の企画〜公開（`coconala-blog-writer`→`coconala-blog-qa`→`coconala-blog-publish`）。ココナラ内 SEO/回遊から自出品へ送客。**外部リンク禁止**・送客は `service:<id>` のサービスカード・draft-first＋`--commit` gate・公開後はログアウト状態でライブ実査（G6） | `ココナラブログを書く`, `ココナラブログを公開`, `ブログで送客`, `/coconala-blog` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
 | `/figure-recrop` | 既存の記事図クロップ（`content/site/**/img/`）を**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。**大量処理（並列 workflow）モード**＝`figure-crop-worker`（Generator）を図ごとに spawn し親が最終目視QA→MDX/台帳を直列適用（png/webp両対応・2026-07-09 確立）。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `大量の図をまとめて再クロップ`, `/figure-recrop` |
@@ -131,7 +131,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 |---|---|---|
 | `/fetch-gsc-data` | Google Search Console データ取得（単一/複数ディメンション・page×query・25,000 件ページング） | `GSCデータ`, `検索データ取得`, `page×query`, `/fetch-gsc-data` |
 | `/psi-audit` | PSI で代表ページ日次計測、CWV しきい値違反を surface | `PSI計測`, `Core Web Vitals`, `/psi-audit` |
-| `/record-sales` | note 販売履歴を SSOT（sales-log.json）に記録・集計 | `売上記録`, `販売履歴を記録`, `note売上`, `/record-sales` |
+| `/record-sales` | note 販売履歴を SSOT（data/note/sales.json）に記録・集計 | `売上記録`, `販売履歴を記録`, `note売上`, `/record-sales` |
 
 ### 戦略・管理（management）
 

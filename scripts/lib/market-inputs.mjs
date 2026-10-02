@@ -51,8 +51,8 @@ const readIf = (path) => (existsSync(path) ? readJson(path) : null);
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
   const config = (name) => readJson(join(root, 'config', name));
-  const salesLog = readIf(join(root, 'data/sales/sales-log.json'));
-  const orderLog = readIf(join(root, 'data/coconala/orders-log.json'));
+  const salesLog = readIf(join(root, 'data/note/sales.json'));
+  const orderLog = readIf(join(root, 'data/coconala/orders.json'));
   /** @type {Record<string, any[]>} */
   const competitors = {};
   for (const ch of COMPETITOR_CHANNELS) {
