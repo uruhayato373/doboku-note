@@ -19,6 +19,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { datasetPath } from "./lib/datasets.mjs";
+import { withSharedConnection } from "./lib/asp-config.mjs";
 
 const MATS = "src/config/affiliate-mats.json";
 const CATALOG = datasetPath("affiliate.catalog");
@@ -142,7 +143,13 @@ if (existsSync(A8_CONFIG)) {
 
 // ── 4. ASP 接続設定
 if (existsSync(ASP_CONFIG)) {
-  const asp = readJson(ASP_CONFIG);
+  // A8 の URL・口座・ブラウザの共通部分は a8-report-automation.json が正本（読み出しと同じ合成をしてから検査する。写しが書かれていれば例外）
+  let asp = readJson(ASP_CONFIG);
+  try {
+    asp = withSharedConnection(asp);
+  } catch (e) {
+    errors.push(`${ASP_CONFIG}: ${e.message}`);
+  }
   if (!asp?.targetSiteName) errors.push(`${ASP_CONFIG}: targetSiteName が無い`);
   for (const [name, a] of Object.entries(asp?.asps ?? {})) {
     if (!["none", "url-param", "chosen-widget"].includes(a.siteSeparation)) {

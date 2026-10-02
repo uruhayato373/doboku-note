@@ -41,7 +41,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `id` | `coconala-{種別}`。`data/note/sales.json` の productId は `coconala:{id}` |
 | `status` | `draft`（未出品・非表示）/ `listed`（出品中・**/links に自動表示**）/ `full`（満枠・導線を伏せる）/ `paused`（季節オフ） |
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
-| `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
+| `priceYen` / `priceNote` / `price` | 価格（円・**正本はこれ 1 つ**）/ 表示に添える補足（例: `2テーマセット`）/ 表示用の文字列（`¥8,000（2テーマセット）`）。`price` は `priceYen` と `priceNote` から作るのでエントリには書かない（`tests/coconala-price-label.test.mjs` が止める） |
 | `weeklyCapacity` | 週の受付枠（Red Line #1「定員なし恒久添削の禁止」の機械的表明） |
 | `priceHistory` | 価格改定の履歴（旧定価と有効最終日）。過去受注の突合に使う（§6 検査3） |
 | `notePriceBasis` / `notePriceExempt` | PDF 商品の価格ルール（note より安く売らない）の基準／対象外の理由（§2.6・§6 検査10） |
@@ -101,7 +101,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ### 2.1b 出品投入 SoT: `config/coconala-listings.json`
 
-出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここに価格を書かない**（安全弁§4）。
+出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**サービス本体の価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここにサービス本体の価格を書かない**（安全弁§4）。有料オプションの価格（`options[].priceYen`）だけはカタログに無いので、ここが正本。
 
 | listings[id] のキー | 意味 |
 |---|---|

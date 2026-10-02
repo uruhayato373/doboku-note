@@ -240,7 +240,7 @@ const CHECKS = [
   { id: 'sns-urls-note', cmd: ['node', 'scripts/check-sns-urls.mjs', '--note'], timeout: 60_000, ci: true, note: '同上の note 本文コーパス（content/note/**/*.md・全量のみ・pre-commit では走らない）' },
   // ── ops（運用アラート）── 壁時計依存。PR の diff では直せないので ci:true に置かない（ヘッダ「設計」参照）。
   { id: 'membership-drip', npm: 'check-membership-drip', timeout: 30_000, ci: false, ops: true, note: '会員配信ドリップの遅れ・実体欠落。配信表(README)が真実源で、予定日を GRACE_DAYS 以上過ぎた未配信は赤。2026-08-27 に学科02が2日遅れで沈黙していた（カード側の日付が正典とずれていて気づけなかった）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・復旧で自動クローズ）。2026-09-18 まで ci 区分に居て 30 日に 13 回 Pre-merge を落としていたため ops へ移した' },
-  { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）' },
+  { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）。退役済み（config の retiredAt）は SKIP と理由を出し、公開状態だけ見る' },
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
   { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
@@ -254,7 +254,7 @@ const CHECKS = [
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査。資格台帳・日程・統計・出題形式（exam-formats）の id と照合記録の整合も見る' },
   { id: 'qualification-ssot', npm: 'check-qualification-ssot', timeout: 60_000, ci: true, note: '資格の名前・並び順が qualification-registry.json だけにあるか。設定の写しと、コードの資格 id→日本語対応表の基準超えを止める（2026-10-02: メニューごとに名前・順がずれた）' },
-  { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', timeout: 30_000, ci: true, note: '過去問の年度在庫台帳（past-exam-inventory.json）と Drive 台帳の整合。FAIL は台帳の不整合だけで壁時計に依存しない。WARN（掲載中の未取得・最古年度の消失見込み・Drive 未退避・新年度の掲載見込み）の読み手＝/monthly-review 手順4' },
+  { id: 'past-exam-inventory', npm: 'check-past-exam-inventory', timeout: 30_000, ci: true, note: '過去問の年度在庫台帳（台帳 id pastexams.inventory）と Drive 台帳の整合。FAIL は台帳の不整合だけで壁時計に依存しない。WARN（掲載中の未取得・最古年度の消失見込み・Drive 未退避・新年度の掲載見込み）の読み手＝/monthly-review 手順4' },
   { id: 'qualification-market', npm: 'check-qualification-market', timeout: 30_000, ci: true, note: '展開の判断材料の正本（market-scan の検索語・*-competitors の exams・売上の資格への分類）の整合。壁時計に依存しない' },
   { id: 'year-staleness', npm: 'check-year-staleness', timeout: 60_000, ci: false, note: 'ガイド・keyword 記事の title/seoTitle/description に残る前年度以前の年度表現（DN-0426）。過去問・年度別記事（group past-exam/primary/secondary、r05-essay-* 等の年度スラッグ）は主題なので除外。年度切替（毎年1月）の直後 2 週間だけ ci:true へ上げ、0 件になったら ci:false へ戻す。読み手＝/weekly-review（年度切替直後のみ確認）' },
   { id: 'review-wiring', npm: 'check-review-wiring', timeout: 30_000, ci: true, note: '週次・月次レビューのスキルの実行コマンドと配線の正本（review-wiring.json）の一致。管理画面の配線図が実態とずれないため' },

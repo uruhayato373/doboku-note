@@ -77,11 +77,11 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [
-        "config/past-exam-inventory.json（年度在庫の実体）",
+        "data/pastexams/inventory.json（年度在庫の実体）",
         ".claude/skills/conversion/past-exam-archive（取得・退避・照合）",
         "過去問 MDX の原典照合（人）"
       ],
-      "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は past-exam-inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
+      "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は data/pastexams/inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
     },
     {
       "id": "textbook-source-pdf",
@@ -336,7 +336,7 @@
       "generator": "reels/script.txt・script.json から VOICEVOX 再合成＋ffmpeg（ig-reel-create / publish-reel-jit / yt-shorts-create）",
       "requiredBy": [
         "scripts/publish-reel-jit.mjs",
-        ".claude/scripts/youtube/per-problem-shorts.mjs"
+        ".claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs"
       ],
       "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
     },

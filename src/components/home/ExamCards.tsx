@@ -1,18 +1,10 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
-import type { NextExamEvent } from '@/lib/exam-schedule';
 
 
 export interface ExamData {
   slug: string;
   label: string;
-  en: string;
-  subtitle: string;
-  description: string;
-  stats: { k: string; v: string; anchor?: string }[];
-  nextExam: string;
-  /** exam-calendar から解決した次の試験（無ければ null → nextExam の手打ち文言を表示） */
-  nextExamEvent?: NextExamEvent | null;
   variant: "civil" | "pe";
 }
 

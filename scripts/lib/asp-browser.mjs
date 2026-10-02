@@ -27,6 +27,7 @@ import {
   startStatusTicker,
 } from "./google-console-browser.mjs";
 import { assertSiteOrThrow, extractSiteId, SiteAttributionError } from "./asp-site-guard.mjs";
+import { withSharedConnection } from "./asp-config.mjs";
 import { attachCISession } from "./playwright-auth-state.mjs";
 
 export {
@@ -48,7 +49,8 @@ export const ASP_CONFIG_PATH = datasetPath("config.affiliate-asp");
 export function loadAspConfig() {
   const cfg = JSON.parse(readFileSync(ASP_CONFIG_PATH, "utf-8"));
   if (!cfg?.asps) throw new Error(`${ASP_CONFIG_PATH}: asps がありません`);
-  return cfg;
+  // A8 の URL・口座・ブラウザの共通部分は a8-report-automation.json が正本（scripts/lib/asp-config.mjs が合成する）
+  return withSharedConnection(cfg);
 }
 
 /** ASP 設定を取り出す。未知の名前は落とす（typo を黙って通さない）。 */

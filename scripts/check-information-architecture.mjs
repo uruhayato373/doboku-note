@@ -3,7 +3,9 @@
  *
  * 背景: 2026-08-18 に docs/ と content/ を分離した（docs=人が読む恒久判断 /
  *   content=顧客へ届ける制作物と入力 / .claude=エージェント運用 / src・tools・scripts=実装）。
- *   2026-10-02 に事業の正本（config/）と記録（data/）を .claude/ から分離し、旧パスを forbiddenRoots・stalePathLiterals に登録した。
+ *   2026-10-02 に事業の正本（config/）と記録（data/）を .claude/ から分離した。ファイルを移した旧パスは
+ *   scripts/lib/repository-paths.mjs の MOVED_PATHS・RESTRUCTURED_PATHS が正本で、ここが検査のたびに
+ *   禁止ルート（forbiddenRoots）と旧パス走査（stalePathLiterals）へ取り込む（3 か所に同じ旧パスを書かない）。
  *   この分離は**規約だけでは戻る**。実際に移行中も「docs に article.md が生える」
  *   「content に TODO 台帳が生える」形の逆戻りが起きうる配置だった。
  *
@@ -27,10 +29,47 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';
 import { extname, basename, join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MOVED_PATHS, RESTRUCTURED_PATHS } from './lib/repository-paths.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = join(ROOT, '.claude/config/information-architecture.json');
 const toPosix = (v) => v.split(sep).join('/');
+
+/** 拡張子で終わるパスはファイル、それ以外はディレクトリとみなす（旧パスの置き場はこの形で揃っている） */
+const isFilePath = (p) => /\.[A-Za-z0-9]+$/.test(p.split('/').pop());
+
+/**
+ * repository-paths.mjs に旧パスとして載っている文字列（正規表現で書いた移動は文字列にできないので対象外）。
+ * ファイルを移すときは RESTRUCTURED_PATHS に 1 行足せば、禁止ルートにも旧パス走査にも入る。
+ */
+export function movedFromPaths() {
+  return [...new Set([...MOVED_PATHS, ...RESTRUCTURED_PATHS].map(([from]) => from).filter((f) => typeof f === 'string'))];
+}
+
+/**
+ * 設定 JSON に repository-paths.mjs の旧パスを足した検査用の設定にする。
+ * JSON には repository-paths に載らない旧パス（docs 側の廃止・移動表の無い旧パス）だけを書く。
+ * 走査の旧パスはディレクトリを末尾 / 付きで持つ（残したファイルの前方一致を拾わない）。
+ */
+export function withMovedPaths(raw) {
+  const cfg = structuredClone(raw);
+  const moved = movedFromPaths();
+  // 親のディレクトリがもう載っている旧パスは足さない（同じ場所を二重に報告しない。検出する集合は変わらない）
+  const merge = (own, extra, covers) => {
+    const all = [...new Set([...own, ...extra])];
+    return all.filter((e) => !all.some((d) => d !== e && covers(d, e)));
+  };
+  cfg.forbiddenRoots.paths = merge(raw.forbiddenRoots.paths, moved, (d, e) => e.startsWith(`${d}/`));
+  if (cfg.stalePathLiterals) {
+    cfg.stalePathLiterals.paths = merge(raw.stalePathLiterals.paths, moved.map((p) => (isFilePath(p) ? p : `${p}/`)), (d, e) => e.startsWith(d));
+  }
+  return cfg;
+}
+
+/** 検査用の設定（JSON＋repository-paths の旧パス）を読む */
+export function loadConfig(path = CONFIG) {
+  return withMovedPaths(JSON.parse(readFileSync(path, 'utf8')));
+}
 
 /** 検査対象のファイル一覧。全量は追跡下、--staged は追加/変更ぶんだけ。 */
 export function listTargets({ staged = false } = {}) {
@@ -137,7 +176,7 @@ function main() {
     process.exit(2);
   }
   let cfg;
-  try { cfg = JSON.parse(readFileSync(CONFIG, 'utf8')); } catch (e) {
+  try { cfg = loadConfig(); } catch (e) {
     console.error(`✗ 検査不成立: 設定が壊れている: ${e.message}`);
     process.exit(2);
   }

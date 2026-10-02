@@ -4,7 +4,7 @@ doboku-note のアフィリエイト運用（提携・配置・計測）の真�
 A8 / もしも / afb の 3 ASP を横断する。
 
 - **提携カタログ（機械可読）**: `data/affiliate/catalog.json`
-- **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`
+- **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`（A8 の URL・口座・ブラウザの共通部分は `config/a8-report-automation.json` が正本で、`scripts/lib/asp-config.mjs` が読み出し時に合成する。a8 に写しを書くと例外で止まる）
 - **mat レジストリ（機械可読）**: `src/config/affiliate-mats.json`
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
