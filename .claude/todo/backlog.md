@@ -21,7 +21,7 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0511] note の前月売上取得が CI で画面遷移のエラーで落ち、9月末の売上が記録に入らない
+### [DN-0512] note の前月売上取得が CI で画面遷移のエラーで落ち、9月末の売上が記録に入らない
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
 
 **起点**: 2026-10-02 の login-collectors（run 36997607032・service=note）で `note-sales-fetch --month 2026-09 --commit` が `ABORT: 想定外のエラー — page.evaluate: Execution context was destroyed, most likely because of a navigation` で止まった。同じ実行の当月（2026-10）は検算差 0 で書けている。結果、`data/note/sales.json` の 9 月は 31 件 ¥92,560 のままで、note の流入取得が示す 9 月売上 ¥104,840 と ¥12,280 ずれている（9/28〜9/30 分が未記録と推定・未確認）。step は continue-on-error で緑表示だった。
