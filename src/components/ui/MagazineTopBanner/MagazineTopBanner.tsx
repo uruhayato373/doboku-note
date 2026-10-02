@@ -1,3 +1,5 @@
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
+import { noteCtaImage } from "@/lib/note-cta-images";
 import Image from "next/image";
 import { brandOf } from "@/lib/exam-brand";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
@@ -31,6 +33,9 @@ export default function MagazineTopBanner({
   badge,
   trackLabel,
 }: MagazineTopBannerProps) {
+  const image = noteCtaImage(magazineId, 'body');
+  if (image) return <NoteImageCta href={url} image={image}
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} className="mb-8" />;
   const brand = brandOf(magazineId);
 
   return (
