@@ -3,7 +3,7 @@
   "exam": "pe-first-stage",
   "officialIndex": "https://www.engineer.or.jp/c_categories/index02021.html",
   "answerIndex": "https://www.engineer.or.jp/c_topics/004/004106.html",
-  "scope": "平成25〜30年度・基礎科目／適性科目／専門科目（建設部門）",
+  "scope": "平成23〜30年度・基礎科目／適性科目／専門科目（建設部門）",
   "expectedQuestionsPerYear": 80,
   "conversionNote": "問題PDFは画像主体のためOCR＋原典目視突合が必要。正答はH23〜H30合冊PDFを年度・科目・建設部門で照合する。原典突合前の問題・正答は公開しない。",
   "answerSource": {
@@ -13,6 +13,16 @@
     "pages": 176
   },
   "years": {
+    "h23": {
+      "basic": { "file": "h23-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/001/attached/attach_1614_1.pdf", "sha256": "1e64b36209561a13cf9dd9f8c01cf7071db3267b8b102e73b3fe440909e41c0e", "pages": 17 },
+      "aptitude": { "file": "h23-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/001/attached/attach_1614_2.pdf", "sha256": "5edeacf9cde01f7f01ec563fbe9efeeb39a966d7d419b326b6f185ca3c88b9d0", "pages": 16 },
+      "construction": { "file": "h23-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7454_9.pdf", "sha256": "81f6aca27d3cf667ddff411eb80e24a47220a38a7c74c62fb3f36bcb4a4c1114", "pages": 18 }
+    },
+    "h24": {
+      "basic": { "file": "h24-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/002/attached/attach_2072_1.pdf", "sha256": "f98ff93a2f9786d6144689fc173409b2b7244582ad65e51ddf4c161920e6d533", "pages": 17 },
+      "aptitude": { "file": "h24-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/002/attached/attach_2072_2.pdf", "sha256": "be4f05f20edd03b61562c0bad7495bcfdfa1951d005048c79f26e59292a8f188", "pages": 13 },
+      "construction": { "file": "h24-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7456_9.pdf", "sha256": "690b537db13a83bf8feb9885ec8b085e00a0f3b86f84c3e26d397b5c9468d2f9", "pages": 17 }
+    },
     "h25": {
       "basic": { "file": "h25-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7458_1.pdf", "sha256": "20f3dee6674342d80b085979efa0b843c276ad96e0062def058bf8112723cf74", "pages": 22 },
       "aptitude": { "file": "h25-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7458_2.pdf", "sha256": "dfe1929d9e92bd20858580cbef556579c81ecc182af8db51c4d525ad461c523e", "pages": 17 },

@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h23-aptitude",
+  "year": "H23",
+  "sub": "aptitude",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 16,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典16ページを1問ずつ照合し、Ⅱ-10Bの「マネメント」脱字を原典どおり「マネジメント」に修正。Ⅱ-4（技術士法第36条第2項の「次章」に第47条の2が含まれることから1・5両方が正答扱いとなる解釈の幅）、Ⅱ-7エ、Ⅱ-11（ISO26000の組織定義と原則数）、Ⅱ-3肢1の解説を事実に合わせて改稿。公式正答15問は全件一致、○×組合せ問題の各記号判定を全肢確認。"
+  }
+}
