@@ -4,7 +4,7 @@ title: ブランド画像システム（資格別・多フォーマット・色�
 
 # ブランド画像システム
 
-資格別の「雰囲気写真」を **少数のマスター原版**から全フォーマット（hero / OGP / note カバー / ホームカード / 広告バナー）へ展開し、**サイトの色スキームと統一**する運用の真実源（SSOT）。
+資格別の「雰囲気写真」を **少数のマスター原版**から写真を使うフォーマット（OGP / 広告バナー）へ展開し、**サイトの色スキームと統一**する運用の真実源（SSOT）。
 
 > [!note] 設計原則（2 層モデル）
 > - **写真＝雰囲気レイヤー**：明るく低コントラスト、資格色へ"ゆるくトーン寄せ"。文字は焼き込まない。
@@ -29,22 +29,22 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 ## 2. マスター原版（資格ごとに 2 枚）
 
-全フォーマットは 2 つの原版から `object-cover` クロップで賄う（36枚量産しない＝AI のばらつきを避け統一感を保つ）。
+写真を使うフォーマットは 2 つの原版から `object-cover` クロップで賄う（36枚量産しない＝AI のばらつきを避け統一感を保つ）。
 
 | 原版 | 比率 | 生成サイズ目安 | 賄うフォーマット |
 |---|---|---|---|
-| **wide**（横長）| 2.4:1 | 2400×1000 | hero(2.4:1) / OGP(1.9:1) / ホームカード(16:9) |
+| **wide**（横長）| 2.4:1 | 2400×1000 | OGP(1.9:1) |
 | **square**（近正方）| 1.2:1 | 1200×1000 | 広告バナー 300×250(1.2:1) / About 図版 / IG(1:1 は中央クロップ) |
 
 - **クロップ規約**：`object-cover` 中央。**重要被写体は中央〜やや広めに置く**（wide→16:9 は左右トリム、square→1:1 は左右トリム）。文字を置く"余白ゾーン"を上か下に確保。
-- **文字は常に非焼き込み**：OGP/note カバーは satori、hero/カードは HTML で重ねる（写真は文字なしで生成）。
+- **文字は常に非焼き込み**：OGP/note カバーは satori、トップheroはHTMLで重ねる（専用イラストは§3参照）（写真は文字なしで生成）。
 
 ## 3. フォーマット → どの原版 → 配置先
 
 | 面 | 比率 | 原版 | 配置先（Claude が変換・配線）|
 |---|---|---|---|
-| トップ hero | 2.4:1 | wide | `public/images/hero-home-v2.webp`（現行。`hero-home.webp` はロールバック用に保持） |
-| ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
+| トップ hero | 2.4:1 原版 | 先生＋橋のイラスト | `public/images/hero-home-sensei.webp`（表示高さはスマホ280px・PC320px。文字はHTML。旧写真は保持） |
+| 資格入口カード | 画像なし | — | 資格色の左線＋資格名＋矢印。`card-<category>.webp` は既存素材として保持 |
 | OGP 背景 | 1.9:1 | wide | `config/ogp/backgrounds/<exam-key>.png` |
 | note カバー | 1.91:1 | 写真プール対象外 | 2026-09-28から背景写真なしの文字優先POP。資格色・コピー・人物の正本は `note-cover-character-v5.md` と `note-cover-tokens.json` |
 | 広告バナー | 300×250 | square | `public/images/ads/<exam-key>-300x250.*`（自社ハウスバナー/ディスプレイ広告用の予備素材。サイト内の note CTA タイルは焼き込み画像を廃し `public/images/cta-bg/<exam>.webp` イラスト＋HTML 文字でデータ駆動＝`src/lib/exam-brand.ts`。2026-07）|
@@ -53,7 +53,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 1. **生成（Codex・ユーザー）**：下記プロンプトで各資格 wide + square を生成。
 2. **保存先**：`~/Downloads/` に **`brand-<exam-key>-wide.png` / `brand-<exam-key>-square.png`** の名前で保存（Codex が別リポに吐く癖があるので保存先を明示）。
-3. **反映（Claude）**：webp 化 → 上表の配置先へ配線 → **軽いカラーグレード（資格色へのトーン寄せ）で色統一** → OGP/カード/hero を再生成 → 検証 → PR → デプロイ。コストは webp/グレードともローカル無料。
+3. **反映（Claude）**：webp 化 → 上表の配置先へ配線 → **軽いカラーグレード（資格色へのトーン寄せ）で色統一** → OGPを再生成 → 検証 → PR → デプロイ。コストは webp/グレードともローカル無料。
 
 ## 5. Codex 生成プロンプト
 
@@ -77,6 +77,6 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 - **note カバー**：2026-09-28 のV5文字優先POPでは写真プールを使わない。全記事・全マガジンを明るい色面・大きな左寄せ文字・右側の先生キャラクターで構成する（`note-cover-character-v5.md`）。OGPのmono-tagとは別renderer。
 - **広告 300×250**：AdSense 枠は Google 配信で自画像は載らない。本システムは**自社ハウスバナー/ディスプレイ広告クリエイティブ**用途を想定。
-- **pe-first-stage**：OGP は exam-key `pe-comprehensive` を共有。ホームカードのみ独自画像可。
-- **再生成トリガー**：背景差替時は OGP 全再生成（`npm run ogp -- --all --force`）。カバー/カードは対応スクリプトで再生成。
+- **pe-first-stage**：OGP は exam-key `pe-comprehensive` を共有。資格入口カードは画像なし。
+- **再生成トリガー**：背景差替時は OGP 全再生成（`npm run ogp -- --all --force`）。トップheroの専用イラストは別途差し替える。
 - 真実源：色＝`src/styles/globals.css`、OGP 実装＝[ogp-prompts.md](ogp-prompts.md)、写真ポリシー＝[image-policy.md](image-policy.md)。
