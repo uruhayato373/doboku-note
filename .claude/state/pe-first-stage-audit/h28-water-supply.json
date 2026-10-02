@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h28-water-supply",
+  "year": "H28",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T19:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 14,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典14ページを1問ずつ照合し問題文・選択肢（Ⅲ-4の語句組合せ5肢を含む）は一致、図は原典になく、公式正答35問も全件一致。計算問題（Ⅲ-22・24・25・28・32）は再計算で一致、Ⅲ-12は水道維持管理指針2006の配水量分析表、Ⅲ-19は下水道施設計画・設計指針の解説（遮集量=計画時間最大汚水量の3倍）と突合した。Ⅲ-35の解説に硫化メチルが中性ガスである点を補った。"
+  }
+}
