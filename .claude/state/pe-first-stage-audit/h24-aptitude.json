@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h24-aptitude",
+  "year": "H24",
+  "sub": "aptitude",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 13,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典13ページを1問ずつ照合し、15問75肢の問題文・選択肢・極性・○×組合せは原典と一致、公式正答15問も全件一致。Ⅱ-4肢4の解説（ウの判定）、Ⅱ-7キの理由（未加工農産物）、Ⅱ-15肢1の『未確認』表現を修正。図の掲載はなし。 Ⅱ-7は親が消費者庁の資料（不動産に付合した部品も出荷時に動産なら製造物責任の対象）で確認し、非該当をア・ウ・エ・キ（エ＝使用者の修理は製造・加工に当たらない）に訂正。"
+  }
+}
