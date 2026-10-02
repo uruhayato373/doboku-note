@@ -25,7 +25,7 @@
  *   resolveTemplate の「入力側」フロントマター（ogp.template / category / tags）をそのまま
  *   hash に含める。
  *   注意（既知の誤検知）: tags を含めるため、テンプレ選定に一切影響しないタグ編集だけでも
- *   srcHash が変わり stale 判定が出ることがある。現状 config/ogp/rules.json の
+ *   srcHash が変わり stale 判定が出ることがある。現状 config/ogp/settings.json の
  *   rules は空配列（default: "mono-tag" 固定）で category/tags はテンプレ選定に無関係なので、
  *   この誤検知が「テンプレは変わっていないのに stale と出る」形で今は必ず顕在化する。
  *   rules が追加されテンプレ選定が category/tags に依存するようになれば、この誤差は縮む

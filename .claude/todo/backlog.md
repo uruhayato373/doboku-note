@@ -98,14 +98,6 @@
 
 **完了条件**: 公式正答の公開から 3 日以内に令和8年度の 4 ページが公開され、`node scripts/check-pe-first-stage-historical.mjs`（年度追加後）と `node scripts/build-quiz-data.mjs` が通る。
 
-### [DN-0498] 設定・記録を台帳に沿って移し、型を揃え、JSON ファイルを減らす（ADR 段階 2〜4）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02] [進行中]
-
-**起点**: 2026-10-02 に data/ の構成と型を調べ、台帳 `scripts/lib/datasets.mjs` と型の正本 zod を入れた（PR #819）。決定と統合の基準は `data-storage-decision.md`「設定・記録の構成と型の正本」。ユーザーの指示で段階 2〜4 をすべて行う。
-
-**やること**: 実行計画 `.claude/plans/DN-0498-data-restructure.md` の順（CI の書き戻しをパスに依存させない → 全データセットの型 → 取得元ごとの移動と統合 → config/ の統合）。
-
-**完了条件**: `npm run check-datasets` が全ファイルを台帳に当てて型の違反 0、週次・月次・管理画面の出力が移動前と同じ、ワークフローの書き戻しが新しいパスで成功、git 管理の data/ が約 280 ファイルに近づく。
 
 ### [DN-0485] Cloudflare の解析用 API トークンを発行して Secret に登録し、cloudflare-metrics と cloudflare-config を復旧する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-01]
@@ -337,10 +329,19 @@
 **完了条件**: 変更をデプロイし、4 週間後（2026-11 初め）の GSC で一次試験ページのインデックス数・表示回数、Bing で「技術士一次試験 過去問」系のクリックを変更前（本カードの数値）と比べて記録する。
 
 
+### [DN-0515] config/ の読み手の多い設定 4 種に型（zod）を付ける
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
+
+**起点**: DN-0498 で data/ の台帳 24 データセットに型を付けた（`scripts/lib/dataset-schemas.mjs`）。config/ は手を付けていない。ADR `data-storage-decision.md` の進め方 4 で優先と決めた `qualification-registry`（読み手 32）・`domains`（24）・`product-lineup`（14）・`coconala-listings`（更新が多い）が残る。
+
+**やること**: 4 ファイルの型を書き、台帳の `schema` で結ぶ。資格 id の照合のようなファイル間の整合は既存の `check-*` に残し、型は形だけを見る（同じ判定を 2 か所に書かない）。
+
+**完了条件**: `npm run check-datasets` の型ありが 28 になり違反 0。既存の `check-qualification-ssot` など各ファイルの検査がそのまま通る。
+
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
 
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard-civil2.json`）・カバー設定（`config/note-character-covers.json`）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
+**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
 
 **やること**:
 1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
@@ -370,14 +371,6 @@
 
 **完了条件**: 02・03 が更新され、展開する／しないと時期が決まって、展開するなら制作カードへ分割されている。
 
-### [DN-0489] @lhci/cli 経由の依存の脆弱性（extract-zip・tmp high、uuid medium）を更新か overrides で解消する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-01] [進行中]
-
-**起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。Dependabot の open alerts 5 件（#82・#81 extract-zip high、#80 tmp high・#79 tmp low、#29 uuid medium・8/12 から）。push のたびに警告が出ていたが、どの検査・Issue にも入っていなかった。`npm ls` では 3 つとも `@lhci/cli@0.15.1` の下（inquirer → external-editor → tmp、lighthouse → puppeteer-core → @puppeteer/browsers → extract-zip、直下の tmp・uuid）。CI の Lighthouse 計測でしか使わない開発依存。
-
-**やること**: (1) `@lhci/cli` の新しい版で解消するかを確かめ、あれば上げる。(2) 無ければ package.json の `overrides` で extract-zip・tmp・uuid を修正版へ固定し、`npm ci` と Lighthouse CI のジョブが通るかを見る。(3) 解消しない alert は理由を書いて Dependabot で dismiss する。
-
-**完了条件**: Dependabot の open alerts が 0 件（または理由付きで dismiss）で、Lighthouse CI が緑。
 
 ### [DN-0486] 資格の正本の要対応 57 件（主担当の原文照合が未了 27 件ほか）を公式ページで照合して verification を更新する
 タグ: [コンテンツ品質] [領域:戦略] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
@@ -924,7 +917,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
 
-**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。残りは Mac 分。
+**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。Mac 分も同日に手順 1〜3 を実施（`.claude/` 側の取り残し 0 件、`data/metrics/` の gsc-ui 3 回分・a8-ui 6 回分を `data/gsc/ui/`・`data/a8/ui/` へ移して旧ディレクトリを削除）し、`.gitignore` の移行中の行を消した。残りは Mac の定期処理の次回実行が `data/` へ書いていることの確認と、Windows の worktree `.claude/worktrees/data3` の `git worktree remove`（ブランチ `feat/data-config`・`feat/data-rank-watch` は origin で削除済み・DN-0498 の引き継ぎから移した）。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]

@@ -7,7 +7,7 @@
  *   - note    … 公開検索 API（api/v3/searches?context=note）で記事・作者・価格・スキ数
  *   - ココナラ … 既存の scripts/coconala-research.mjs に未取得の語だけを渡す（--coconala 指定時のみ。
  *               ブラウザで公開検索ページを読む・低頻度厳守＝四半期）
- * 追跡中の YouTube チャンネル（youtube-competitors.json）の登録者数も取る。
+ * 追跡中の YouTube チャンネル（config/competitors.json の youtube）の登録者数も取る。
  *
  * 出力: data/analysis/qualification-market/YYYY-MM-DD.json（台帳 analysis.qualification-market・JST の実行日。1 ファイル＝その日の市場）。
  *       直前のファイルを土台に取得した語だけ上書きするので、部分実行でも全資格の最新が 1 ファイルに揃う。
@@ -39,7 +39,7 @@ import { datasetPath } from './lib/datasets.mjs';
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, datasetPath('config.market-scan'));
 const REGISTRY_PATH = join(ROOT, datasetPath('config.qualification-registry'));
-const YT_COMPETITORS_PATH = join(ROOT, datasetPath('config.youtube-competitors'));
+const YT_COMPETITORS_PATH = join(ROOT, datasetPath('config.competitors'));
 
 const argv = process.argv.slice(2);
 const KNOWN_FLAGS = new Set(['--qualification', '--channel', '--coconala', '--dry-run', '--force']);
@@ -128,7 +128,7 @@ if (CHANNELS.has('youtube')) {
     await sleep(1000);
   }
   // 追跡中チャンネルの登録者数
-  const tracked = existsSync(YT_COMPETITORS_PATH) ? JSON.parse(readFileSync(YT_COMPETITORS_PATH, 'utf8')).competitors ?? [] : [];
+  const tracked = existsSync(YT_COMPETITORS_PATH) ? JSON.parse(readFileSync(YT_COMPETITORS_PATH, 'utf8')).youtube?.competitors ?? [] : [];
   snapshot.youtubeChannels ??= {};
   for (const c of tracked) {
     if (!FORCE && snapshot.youtubeChannels[c.handle]?.fetchedAt?.slice(0, 10) === today) continue;

@@ -193,7 +193,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJson(join(ROOT, datasetPath('config.coconala-thumb-approved')))?.images ?? {};
+const approvedThumbs = readJson(join(ROOT, datasetPath('coconala.thumb-approved')))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
@@ -210,7 +210,7 @@ for (const s of catalog) {
   // 退避済みの端末や CI のクリーンチェックアウトでは実体が無いのが正常で、そこで落とすと
   // 「生成しろ」と言われても生成すべきものが既に在る、という直せない赤になる（2026-08-30）。
   // 判定は「ローカル実体 または 退避台帳」。どちらにも無ければ本当に存在しない。
-  // 2026-09-29: 正本は承認済みの POP 画像（coconala-thumb-approved.json）。フラットな thumb-<key>.png は
+  // 2026-09-29: 正本は承認済みの POP 画像（data/coconala/thumb-approved.json）。フラットな thumb-<key>.png は
   // そこから複製する派生物なので、承認原本を先に見る（旧デザインのフラット画像を台帳へ上げ直させない）。
   const thumbRel = `content/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
   const thumb = resolveThumb({

@@ -72,7 +72,7 @@ domain: strategy
 - 競合再スキャンの期限: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `competitor-scan-due` が 90 日超を知らせる（週次では実行しない・2026-09-30 DN-0394）。Issue が開いている週だけ、チャネルは `/competitor-review`、market（資格キーワードの市場スキャン）は次の月次レビューでの再取得を申し送る。
 - 競合の変化と追跡候補（ココナラ）: `npm run report-competitor-watch -- --json` を実行（オフライン・committed state 参照・creds不要）。
   `changes[]`（値下げ・出品増減・撤収・累計販売 +20 件以上）、`candidates[]`（追跡外で関連サービスの販売実績 20 件以上の売り手）、
-  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `config/coconala-competitors.json` に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
+  `partial[]`（売上推定が一部だけの売り手）を読む。候補は次セッションで handle を解決して `config/competitors.json` の coconala に足すかを判断。一覧は管理画面 戦略 ＞ 資格と市場 ＞ 競合
 - GSC/GA4 UI 取得・登録リクエスト・sitemap・GA4 カスタムディメンション: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `gsc-ui-due`・`gsc-indexing-due`・`gsc-sitemaps-due`・`ga4-dimensions` が期限切れ・異常を知らせる（週次では実行しない）。Issue が開いている週だけ理由をそのまま列挙し、直し方（Mac の launchd `gsc-local` の状態とログ・Google の再ログイン・`fetch-metrics.yml` の再実行と Search Console の権限・GA4 設定の反映）を申し送る。GA4 の不足が続くあいだはプログラム別 EPC／配置別 CTR が CI で欠測している点を必ず書く。
 - **note の商品が購入者に届いているか（最重要）**: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `note-delivery-due` が、本文で約束した PDF がライブに無い（購入者が受け取れない）・実査が 14 日超・添付を捨てたまま、を知らせる（週次では実行しない）。Issue が開いていれば**レポート最上段**に置き、次セッションで添付の live 実査と再添付を行う（2026-08-11 の事故の再発防止）。
 - **ココナラブログの健全性**: 送客先が販売中でない・下書き放置は CI ゲート（quality-audit `coconala-blog`・ci:true）が止めるので週次では実行しない。

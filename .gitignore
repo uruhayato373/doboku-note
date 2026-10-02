@@ -144,13 +144,9 @@ public/posts
 # 真実源 → scripts/lib/google-console-ssot.mjs
 data/gsc/ui/
 data/ga4/ui/
-# 移行中: 2026-10-02 より前の置き場に残る手元の CSV（各 PC で data/<取得元>/ui/ へ移したら消す・DN-0496）
-data/metrics/gsc-ui/*/
-data/metrics/ga4-ui/*/
 # A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json / a8-results.json が
 # 追跡対象の SSOT で、raw は再取得可能。直下の last-run.json は取得マーカーとして追跡する。
 data/a8/ui/
-data/metrics/affiliate/a8-ui/*/
 # 突合レポートの run 単位 JSON（regenerable）。latest.md は残す。
 .claude/state/improvements/search-growth-*.json
 

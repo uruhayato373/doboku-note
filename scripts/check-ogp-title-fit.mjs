@@ -31,7 +31,7 @@ const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const textConfig = JSON.parse(readFileSync(datasetPath('config.ogp-text'), 'utf8'));
+const textConfig = JSON.parse(readFileSync(datasetPath('config.ogp-settings'), 'utf8')).text;
 const categories = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
 const catLabel = new Map(categories.map((c) => [c.slug, c.label]));
 

@@ -4,7 +4,6 @@ import { stripTweetMemos } from './x-tweets-md.mjs';
 import { tweetLength } from '../check-x-length.mjs';
 import { cardSpecHash } from './x-character-spec.mjs';
 import { resolveReviewPlans } from './x-review-schedule.mjs';
-import { datasetPath } from './datasets.mjs';
 
 export function readXReviewPlans(root, config) {
   const json = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
@@ -21,7 +20,7 @@ export function readTweetBlocks(markdown) {
 
 export function readXReview(root) {
   const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
-  const config=json(datasetPath('config.x-review'));
+  const config=json('content/sns/x/review.json');
   const plans=readXReviewPlans(root, config);
   const ledger=json('.claude/state/sns/x-card-render.json').entries;
   const rows=[];

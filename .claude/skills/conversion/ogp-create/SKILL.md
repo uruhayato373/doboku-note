@@ -47,7 +47,7 @@ note 公開用ドラフト（`content/note/`）のカバー画像（1280×670）
 
 ## 全幅レイアウト（2026-06-16〜）
 
-mono-tag は **全幅レイアウト**。左右 72px パディング内に、**最上段の 1 行メタ（資格名 kicker＝左・30px 塗りチップ＋種別ピル＝右・テキストのみ）→ タイトル（縦中央寄せ）**を左寄せで積み、**ワードマークは右下へ従属配置**する。タイトルは `safetyWidth: 1010px`（`config/ogp/text.json`）に収まる最大フォント（上限 76px）で大きく描く。背景写真の上に淡スクリム、外周に資格別テーマ色 16px 外枠。**装飾ライン（旧・左上シアン/右下紺のアクセントバー）と資格名の ▶ マーカー・種別バッジの装飾アイコンは 2026-07-07 に撤去**（text-forward トレンド準拠。詳細は SSOT ogp-prompts.md の変更履歴）。旧レイアウト＝ワードマーク左上→カテゴリチップ→タイトルの縦積み（〜2026-07-07）。
+mono-tag は **全幅レイアウト**。左右 72px パディング内に、**最上段の 1 行メタ（資格名 kicker＝左・30px 塗りチップ＋種別ピル＝右・テキストのみ）→ タイトル（縦中央寄せ）**を左寄せで積み、**ワードマークは右下へ従属配置**する。タイトルは `safetyWidth: 1010px`（`config/ogp/settings.json` の text）に収まる最大フォント（上限 76px）で大きく描く。背景写真の上に淡スクリム、外周に資格別テーマ色 16px 外枠。**装飾ライン（旧・左上シアン/右下紺のアクセントバー）と資格名の ▶ マーカー・種別バッジの装飾アイコンは 2026-07-07 に撤去**（text-forward トレンド準拠。詳細は SSOT ogp-prompts.md の変更履歴）。旧レイアウト＝ワードマーク左上→カテゴリチップ→タイトルの縦積み（〜2026-07-07）。
 
 旧「中央630×630セーフティゾーン」制約はmono-tagと現行note V5の双方で撤廃した。noteの現行安全域は`note-cover-character-v5.md`を参照し、G2の中央クロップ前提を適用しない。背景・経緯は [`.claude/knowledge/reference/ogp-prompts.md`](../../../../.claude/knowledge/reference/ogp-prompts.md)「変更履歴」を参照。
 
@@ -185,9 +185,9 @@ ogp:
 ## テンプレート追加手順（将来テンプレを増やす場合）
 
 1. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加（`renderTemplate(id, props, { width, height })` のシグネチャに従う）
-2. `config/ogp/templates.json` にテンプレ定義を追加（ID・説明）
+2. `config/ogp/settings.json` の templates にテンプレ定義を追加（ID・説明）
 3. `.claude/knowledge/reference/ogp-prompts.md` に出典プロンプトと用途を記録
-4. `config/ogp/rules.json` の `default` または `rules[]` で出し分けルールを追加
+4. `config/ogp/settings.json` の rules の `default` または `rules[]` で出し分けルールを追加
 5. `--template <新ID> --dry-run` で動作確認
 
 ## 出力先
@@ -250,9 +250,9 @@ cover:
 - 意匠の素案試作（前段）: `/ogp-design-explore`（aidesigner / Canva の MCP で OGP デザイン案を試作 → 採用方向を本スキルの satori テンプレに実装して量産）
 - デザイン SSOT: `.claude/knowledge/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴の真実源）
 - OGP ギャラリー（一括目視 QA）: `scripts/ogp-gallery.mjs`（`npm run ogp-gallery`）
-- テンプレ定義: `config/ogp/templates.json`
-- ルール: `config/ogp/rules.json`
-- 改行・フォント設定: `config/ogp/text.json`
+- テンプレ定義: `config/ogp/settings.json` の templates
+- ルール: `config/ogp/settings.json` の rules
+- 改行・フォント設定: `config/ogp/settings.json` の text
 - レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（mono-tag / magazine-banner / note-cover-g2 / crop-safe-v4 実装の真実源）
 - 改行・フォント計算: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs`
 - エントリポイント: `.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs`

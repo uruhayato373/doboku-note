@@ -13,7 +13,7 @@
  * 出力（SSOT）:
  *   - data/note/competitors/YYYY-MM-DD.json … 日付つき時系列（台帳 note.competitors・コミット）。最新は時系列の最新を読む
  *   - 部分実行（--handle・--exam）は時系列に書かず .tmp/note.competitors-partial.json に置く
- * 対象ハンドルは config/note-competitors.json（--handle で ad-hoc 上書き）。
+ * 対象ハンドルは config/competitors.json の note（--handle で ad-hoc 上書き）。
  * 分析記録の真実源は docs/strategy/09_販売チャネル競合分析.md。
  *
  * 取得経路（会社 PC プロキシ対策・verify-note-magazines.mjs と同方式）:
@@ -46,7 +46,7 @@ import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, datasetPath('config.note-competitors'));
+const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 note
 
 const args = process.argv.slice(2);
 function argVal(flag, def) {
@@ -269,7 +269,7 @@ function main() {
   if (HANDLE_OVERRIDE) {
     competitors = HANDLE_OVERRIDE.split(',').map((h) => ({ handle: h.trim() })).filter((c) => c.handle);
   } else {
-    const cfg = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
+    const cfg = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).note;
     competitors = cfg.competitors ?? [];
     if (EXAM_FILTER) competitors = competitors.filter((c) => (c.exams ?? []).includes(EXAM_FILTER));
   }

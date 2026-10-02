@@ -1,6 +1,6 @@
 # 083 1級・2級土木 二次シーズン 2026-08（8/13〜8/31・全19本）
 
-計画の真実源: `config/x-campaigns/2026-08-civil.json`（status: approved-plan）
+計画の真実源: `content/sns/x/campaigns/2026-08-civil.json`（status: approved-plan）
 試験日: 1級土木 第二次 **2026-10-04** / 2級土木 後期一次・第二次 **2026-10-25**（`exam-calendar.json`）
 
 > 8/1〜8/12 は下書きが作られず投稿が途切れた（最終投稿 7/31）。本ファイルは 8/13 以降の残り 19 本。

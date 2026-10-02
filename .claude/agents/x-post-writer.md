@@ -15,7 +15,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 > - 戦略上の位置づけ → `docs/marketing/01_SNS集客戦略.md` の X 節
 > - **投稿型 ↔ 6 切り口（angle）の対応・資産マッピング・Red Line** → [`.claude/knowledge/reference/content-angle-policy.md`](../../.claude/knowledge/reference/content-angle-policy.md)
 > - **1級・2級土木の試験日SSOT** → [`config/exam-calendar.json`](../../config/exam-calendar.json)
-> - 月間計画がある場合 → `config/x-campaigns/YYYY-MM-*.json`
+> - 月間計画がある場合 → `content/sns/x/campaigns/YYYY-MM-*.json`
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
 >
@@ -48,7 +48,7 @@ X 投稿の下書き（`content/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）�
 
 1. `.claude/knowledge/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
    - 試験日・残日数・「約N週」を書く場合は `config/exam-calendar.json` を参照し、記憶や既存原稿から転記しない。
-   - 対象月の `config/x-campaigns/YYYY-MM-*.json` があれば、日付・試験軸・投稿型・着地先を変更せず原稿化する。
+   - 対象月の `content/sns/x/campaigns/YYYY-MM-*.json` があれば、日付・試験軸・投稿型・着地先を変更せず原稿化する。
 2. `angle` の処理（`.claude/shared-policy/REPURPOSE.md` §3 参照）：
    - `angle=all` → 6切り口それぞれで1本ずつ、計6本生成する
    - `angle` 指定あり → その切り口の視点1本のみ生成する

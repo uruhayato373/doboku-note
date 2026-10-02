@@ -18,7 +18,7 @@ domain: strategy
   - coconala: `data/coconala/competitors/` の最新（`npm run ci-data -- latest coconala.competitors`）
   - x: `data/x/competitors/` の最新（`npm run ci-data -- latest x.competitors`）
   - ig: `data/instagram/competitors/` の最新（`npm run ci-data -- latest instagram.competitors`）
-  - youtube・資格ごとの混み具合: `npm run qualification-market -- --json`（市場スキャン `data/analysis/qualification-market/*.json` と `youtube-competitors.json` の登録者数から組み立てた値。親が実行して渡す）
+  - youtube・資格ごとの混み具合: `npm run qualification-market -- --json`（市場スキャン `data/analysis/qualification-market/*.json` と `competitors.json` の youtube の登録者数から組み立てた値。親が実行して渡す）
 - 各競合の**価格帯・品揃え・権威性の源泉・更新頻度**を要約（`platformExtra` の固有値も加味）
 - 09 の 2 軸マップ（横=実績型/物量型・縦=価格帯）を実データで更新。**チャネル横断で同一主体が現れる**（例: sosou_nino=note+X、chansato_st=note+ココナラ）ことを名寄せして統合ビューを出す
 - 自社（`src/lib/note-magazines.ts` / `src/lib/coconala-services.ts` の実価格）との**対比**で以下を surface：

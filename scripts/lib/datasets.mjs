@@ -14,7 +14,12 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { z } from 'zod';
-import { KdpRoyalties, NoteSalesLog } from './dataset-schemas.mjs';
+import {
+  A8ReportLog, BusinessMeasurement, BusinessReview, BusinessSnapshot, BusinessTarget, CoconalaKpi, CoconalaOrders,
+  CoconalaResolvedInquiries, CoconalaThumbApproved, Experiments, Ga4AdminHistory, GrowthTriage, GscIndexCoverage,
+  GscIndexingHistory, GscUiHistory, KdpRoyalties, MonthlySnapshot, NoteSalesLog, NoteSyncLog, RankWatch, WeeklyIndex,
+  WeeklyMetrics, XReposted, YoutubePosted,
+} from './dataset-schemas.mjs';
 
 export const AREAS = {
   config: { dir: 'config', label: '設定' },
@@ -69,11 +74,7 @@ export const DATASETS = [
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲'),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率'),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値'),
-  d('config.note-competitors', 'config/note-competitors.json', 'config', 'strategy', 'note の競合クリエイター'),
-  d('config.coconala-competitors', 'config/coconala-competitors.json', 'config', 'strategy', 'ココナラの競合セラー'),
-  d('config.x-competitors', 'config/x-competitors.json', 'config', 'strategy', 'X の競合アカウント'),
-  d('config.ig-competitors', 'config/ig-competitors.json', 'config', 'strategy', 'Instagram の競合アカウント'),
-  d('config.youtube-competitors', 'config/youtube-competitors.json', 'config', 'strategy', 'YouTube の競合チャンネル'),
+  d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube の枠ごと）'),
   // 計画
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数'),
   // 商品
@@ -83,16 +84,11 @@ export const DATASETS = [
   d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典'),
   d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値'),
   d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定'),
-  d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準形（1級土木）'),
-  d('config.note-intro-standard-civil2', 'config/note-intro-standard-civil2.json', 'config', 'product', 'note 記事の冒頭の標準形（2級土木）'),
-  d('config.note-intro-standard-civil-cross', 'config/note-intro-standard-civil-cross.json', 'config', 'product', 'note 記事の冒頭の標準形（1級・2級土木の共通記事）'),
-  d('config.note-cover-categories', 'config/note-cover-categories.json', 'config', 'product', 'note カバーの用途別の分類'),
-  d('config.note-cover-magazine-v4', 'config/note-cover-magazine-v4.json', 'config', 'product', 'note マガジンカバー（V4）の表示値'),
-  d('config.note-character-covers', 'config/note-character-covers.json', 'config', 'product', 'note のキャラクターカバーの記事別設定'),
+  d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準（1級・2級・両方の型を variants に）'),
+  d('config.note-covers', 'config/note-covers.json', 'config', 'product', 'note カバーの設定（記事の上書き・分類の語彙・マガジンの文言）'),
   d('config.coconala-account', 'config/coconala-account.json', 'config', 'product', 'ココナラの出品アカウント'),
   d('config.coconala-listings', 'config/coconala-listings.json', 'config', 'product', 'ココナラ出品の投入用データ'),
   d('config.coconala-blog', 'config/coconala-blog.json', 'config', 'product', 'ココナラブログの偵察対象と運用値'),
-  d('config.coconala-thumb-approved', 'config/coconala-thumb-approved.json', 'config', 'product', '承認済みのココナラのサムネイル'),
   d('config.kdp-memo', 'config/kdp-memo.json', 'config', 'product', 'KDP 入稿の既定値と各本の情報'),
   d('config.keiken-answer-sheet-limits', 'config/keiken-answer-sheet-limits.json', 'config', 'product', '経験記述の解答欄の字数上限'),
   d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類'),
@@ -118,15 +114,11 @@ export const DATASETS = [
   d('config.image-limits', 'config/image-limits.json', 'config', 'site', '画像アセットの品質ガードの閾値'),
   d('config.public-view-breakpoints', 'config/public-view-breakpoints.json', 'config', 'site', '公開ページの見え方検査の画面幅'),
   d('config.standards-structure', 'config/standards-structure.json', 'config', 'site', '土木工事共通仕様書の構造化の設定'),
-  d('config.ogp-rules', 'config/ogp/rules.json', 'config', 'site', 'OGP テンプレートの自動選定ルール'),
-  d('config.ogp-templates', 'config/ogp/templates.json', 'config', 'site', 'OGP・note カバー共通のテンプレート'),
-  d('config.ogp-text', 'config/ogp/text.json', 'config', 'site', 'OGP タイトルの改行と字の大きさ'),
+  d('config.ogp-settings', 'config/ogp/settings.json', 'config', 'site', 'OGP の設定（テンプレートの自動選定・定義＝note カバー共通・タイトルの改行と字の大きさ）'),
   d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像'),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール'),
-  d('config.x-campaigns', 'config/x-campaigns/{month}-{name}.json', 'config', 'sns', 'X の月ごとの投稿計画'),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定'),
-  d('config.x-review', 'config/x-review.json', 'config', 'sns', 'X の投稿レビューの下書き'),
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール'),
   d('config.instagram-campaign', 'config/instagram-campaign.json', 'config', 'sns', 'Instagram キャンペーンの計画'),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名'),
@@ -153,18 +145,19 @@ export const DATASETS = [
   d('note.sales', 'data/note/sales.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: NoteSalesLog }),
   d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）'),
   d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）'),
-  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録'),
+  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: NoteSyncLog }),
   d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
   d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元'),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
   // KDP
   d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: KdpRoyalties }),
   // ココナラ
-  d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録'),
+  d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: CoconalaOrders }),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）'),
-  d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移'),
+  d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: CoconalaKpi }),
   d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新'),
-  d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）'),
+  d('coconala.thumb-approved', 'data/coconala/thumb-approved.json', 'ledger', 'product', '承認したココナラのサムネイル（承認日・画像ごとの承認）', { schema: CoconalaThumbApproved }),
+  d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）', { schema: CoconalaResolvedInquiries }),
   d('coconala.competitors', 'data/coconala/competitors/{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
   d('coconala.blog-competitors', 'data/coconala/blog-competitors/{date}.json', 'series', 'strategy', 'ココナラブログの競合記事', { retain: { family: 'competitors', keepAll: true } }),
   d('coconala.market-research', 'data/coconala/market-research.json', 'state', 'strategy', 'ココナラの市場調査（検索結果の出品）'),
@@ -172,14 +165,14 @@ export const DATASETS = [
   // X
   d('x.own-posts', 'data/x/own-posts/{date}.json', 'series', 'sns', '自分の X 投稿の反応', { retain: { family: 'x', keepAll: true } }),
   d('x.publish-log', 'data/x/publish-log.csv', 'ledger', 'sns', 'X の予約投稿の記録'),
-  d('x.reposted', 'data/x/reposted.json', 'ledger', 'sns', 'X で引用リポストした投稿'),
+  d('x.reposted', 'data/x/reposted.json', 'ledger', 'sns', 'X で引用リポストした投稿', { schema: XReposted }),
   d('x.competitors', 'data/x/competitors/{date}.json', 'series', 'strategy', 'X の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
   // Instagram・YouTube
   d('instagram.competitors', 'data/instagram/competitors/{date}.json', 'series', 'strategy', 'Instagram の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
   d('instagram.insights', 'data/instagram/insights/{date}.json', 'series', 'sns', 'Instagram のインサイト', { planned: true, retain: { family: 'instagram', maxAgeDays: 180 } }),
-  d('youtube.posted', 'data/youtube/posted.jsonl', 'ledger', 'sns', 'YouTube に投稿した動画'),
+  d('youtube.posted', 'data/youtube/posted.jsonl', 'ledger', 'sns', 'YouTube に投稿した動画', { schema: YoutubePosted }),
   // A8・アフィリエイト
-  d('a8.report-log', 'data/a8/report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）'),
+  d('a8.report-log', 'data/a8/report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）', { schema: A8ReportLog }),
   d('a8.results', 'data/a8/results.json', 'state', 'affiliate', 'A8 の成果の要約'),
   d('a8.catalog', 'data/a8/catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧'),
   d('a8.ui-last-run', 'data/a8/ui-last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録'),
@@ -189,7 +182,7 @@ export const DATASETS = [
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧'),
   // GA4
   d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得した日ごとに 1 ファイル・17 種のレポート。読み書きは scripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } } }),
-  d('ga4.admin-history', 'data/ga4/admin-history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録'),
+  d('ga4.admin-history', 'data/ga4/admin-history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録', { schema: Ga4AdminHistory }),
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新'),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録'),
@@ -197,16 +190,16 @@ export const DATASETS = [
   // GSC
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true } }),
   d('gsc.sitemaps', 'data/gsc/sitemaps.json', 'state', 'site', 'サイトマップの送信状態'),
-  d('gsc.index-coverage-history', 'data/gsc/index-coverage.json', 'ledger', 'site', 'インデックス登録率の推移'),
-  d('gsc.rank-watch', 'data/gsc/rank-watch/{month}.jsonl', 'ledger', 'site', '見張っている検索語の順位（watch-…）と見張りの判断（run-…）。月ごとに 1 行 1 件の追記だけ', { immutable: true }),
+  d('gsc.index-coverage-history', 'data/gsc/index-coverage.json', 'ledger', 'site', 'インデックス登録率の推移', { schema: GscIndexCoverage }),
+  d('gsc.rank-watch', 'data/gsc/rank-watch/{month}.jsonl', 'ledger', 'site', '見張っている検索語の順位（watch-…）と見張りの判断（run-…）。月ごとに 1 行 1 件の追記だけ', { immutable: true, schema: RankWatch }),
   d('gsc.url-inspection', 'data/gsc/url-inspection/{ts}.json', 'series', 'site', 'URL 検査の結果', { retain: { family: 'url-inspection', keepNewest: 6 } }),
   d('gsc.url-inspection-single', 'data/gsc/url-inspection-single/{ts}.json', 'series', 'site', 'URL 検査の単発の結果', { retain: { family: 'url-inspection', keepNewest: 2 } }),
-  d('gsc.indexing-history', 'data/gsc/indexing-history.json', 'ledger', 'site', 'インデックス登録の申請の記録'),
+  d('gsc.indexing-history', 'data/gsc/indexing-history.json', 'ledger', 'site', 'インデックス登録の申請の記録', { schema: GscIndexingHistory }),
   d('gsc.indexing-priority', 'data/gsc/indexing-priority.json', 'state', 'site', '登録を申請する URL の優先順'),
   d('gsc.indexing-priority-list', 'data/gsc/indexing-priority.txt', 'state', 'site', '同上の URL 一覧（手元の申請作業が読む）'),
   d('gsc.indexing-requests', 'data/gsc/indexing-requests.json', 'state', 'site', '登録申請の最新の結果'),
   d('gsc.ui-last-run', 'data/gsc/ui-last-run.json', 'state', 'site', 'GSC の画面取得を最後に回した記録'),
-  d('gsc.ui-history', 'data/gsc/ui-history.json', 'ledger', 'site', 'GSC の画面取得の結果の推移'),
+  d('gsc.ui-history', 'data/gsc/ui-history.json', 'ledger', 'site', 'GSC の画面取得の結果の推移', { schema: GscUiHistory }),
   d('gsc.ui-diff', 'data/gsc/ui-diff/{ts}.json', 'series', 'site', 'GSC の画面取得の前回との差', { retain: { family: 'gsc-ui', keepAll: true } }),
   d('gsc.ui-urls', 'data/gsc/ui-urls.json', 'state', 'site', 'GSC の未登録理由ごとの URL 一覧（理由×範囲ごとの最新を 1 ファイルに）'),
   d('gsc.ui-raw', 'data/gsc/ui/{ts}/{**}', 'raw', 'site', 'GSC の画面から取った CSV と正規化結果', { local: true }),
@@ -219,17 +212,17 @@ export const DATASETS = [
   d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true, retain: { family: 'cloudflare', maxAgeDays: 120 } }),
 
   // ===== data/: 自社で発生した記録 =====
-  d('business.measurement', 'data/business/records/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true }),
-  d('business.snapshot', 'data/business/records/snapshot-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の一覧の時点記録', { immutable: true }),
-  d('business.target', 'data/business/records/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true }),
-  d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true }),
+  d('business.measurement', 'data/business/records/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true, schema: BusinessMeasurement }),
+  d('business.snapshot', 'data/business/records/snapshot-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の一覧の時点記録', { immutable: true, schema: BusinessSnapshot }),
+  d('business.target', 'data/business/records/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true, schema: BusinessTarget }),
+  d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true, schema: BusinessReview }),
   d('business.site-to-sales', 'data/business/records/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true }),
   d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true }),
   d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true }),
-  d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）'),
-  d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ', { retain: { family: 'weekly-metrics', keepNewest: 26, index: 'business.weekly-index' } }),
-  d('business.weekly-index', 'data/business/weekly/index.json', 'state', 'strategy', '同上の一覧'),
-  d('business.monthly-snapshot', 'data/business/monthly-snapshot.json', 'state', 'strategy', '月次の数値のまとめ'),
+  d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: Experiments }),
+  d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ', { retain: { family: 'weekly-metrics', keepNewest: 26, index: 'business.weekly-index' }, schema: WeeklyMetrics }),
+  d('business.weekly-index', 'data/business/weekly/index.json', 'state', 'strategy', '同上の一覧', { schema: WeeklyIndex }),
+  d('business.monthly-snapshot', 'data/business/monthly-snapshot.json', 'state', 'strategy', '月次の数値のまとめ', { schema: MonthlySnapshot }),
 
   // ===== data/: 記録から計算した結果・文書が引く調査 =====
   d('analysis.crosswalk', 'data/analysis/crosswalk/crosswalk-{range}.json', 'series', 'site', 'GA4 と GSC の突き合わせ（改善の機会）', { retain: { family: 'crosswalk', keepNewest: 8 } }),
@@ -240,7 +233,7 @@ export const DATASETS = [
   d('analysis.note-funnel-efficiency-report', 'data/analysis/monetization/note-funnel-efficiency-latest.md', 'report', 'product', '同上の報告（読み手なし）'),
   d('analysis.growth-pack', 'data/analysis/growth/pack-{week}.json', 'series', 'site', '成長サイクルの週次の材料', { retain: { family: 'growth', keepNewest: 12 } }),
   d('analysis.growth-digest', 'data/analysis/growth/digest-{week}.json', 'series', 'site', '成長サイクルの週次ダイジェスト', { retain: { family: 'growth', keepNewest: 26 } }),
-  d('analysis.growth-triage', 'data/analysis/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録'),
+  d('analysis.growth-triage', 'data/analysis/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録', { schema: GrowthTriage }),
   d('analysis.quiz-premium-funnel', 'data/analysis/quiz-premium-funnel.json', 'state', 'site', '演習アプリの有料化のファネル'),
   d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル'),
   d('analysis.career-funnel-report', 'data/analysis/career-funnel.md', 'report', 'affiliate', '同上の報告（月次レビューが読む）'),
@@ -446,6 +439,16 @@ export function validateFiles(root, dataset, files) {
     if (!r.success) for (const i of r.error.issues.slice(0, 5)) errors.push({ file, message: `${i.path.join('.') || '(全体)'}: ${i.message}` });
   }
   return { checked: files.length, errors };
+}
+
+/**
+ * 置き場が id の取得元と合うか（config.* は config/、それ以外は data/<取得元>/ か data/<取得元>.*）。
+ * フォルダを取得元ごとにした（段階 3）ので、id と置き場がずれたら台帳か置き場のどちらかが古い
+ */
+export function pathMatchesId(dataset) {
+  const source = dataset.id.split('.')[0];
+  if (source === 'config') return dataset.path.startsWith('config/');
+  return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
 }
 
 /** 型の JSON Schema（zod から生成。エディタ・管理画面・Codex 向け） */

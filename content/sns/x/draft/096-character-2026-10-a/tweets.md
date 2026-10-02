@@ -1,6 +1,6 @@
 # 096 キャラクター学習カード 2026-10 上旬
 
-<!-- 日時と導線は config/x-campaigns/2026-10-character.json。scheduled はローカル計画。X予約実行前。 -->
+<!-- 日時と導線は content/sns/x/campaigns/2026-10-character.json。scheduled はローカル計画。X予約実行前。 -->
 
 ## Tweet 01: 10/20 12:10 pe-first-stage / 論点解説 / site
 
