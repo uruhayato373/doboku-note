@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -49,7 +50,7 @@ export function noteSyncPlan(): SyncPlan {
 }
 
 export function noteSyncRuns(): SyncRun[] {
-  const p = `${findRepoRoot()}/data/note/sync-log.json`;
+  const p = `${findRepoRoot()}/${datasetPath('note.sync-log')}`;
   if (!existsSync(p)) return [];
   try {
     return (JSON.parse(readFileSync(p, 'utf8')) as { runs?: SyncRun[] }).runs ?? [];

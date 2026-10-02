@@ -4,9 +4,10 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
 export function loadNoteCoverCategories(root) {
-  const cfg = JSON.parse(readFileSync(join(root, 'config/note-covers.json'), 'utf8')).categories;
+  const cfg = JSON.parse(readFileSync(join(root, datasetPath('config.note-covers')), 'utf8')).categories;
   return buildNoteCoverCategories(cfg);
 }
 

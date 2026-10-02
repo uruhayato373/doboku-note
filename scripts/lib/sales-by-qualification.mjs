@@ -10,6 +10,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { classifySale, classifyProduct, loadLineupConfig } from './product-lineup.mjs';
+import { datasetPath } from './datasets.mjs';
 
 const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
 const inPeriod = (day, period) => day >= period.startDate && day <= period.endDate;
@@ -36,7 +37,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     totals.set(key, row);
   };
 
-  const salesPath = 'data/note/sales.json';
+  const salesPath = datasetPath('note.sales');
   if (existsSync(join(root, salesPath))) {
     for (const s of readJson(root, salesPath).sales ?? []) {
       if (!inPeriod(String(s.date).slice(0, 10), period)) continue;
@@ -44,8 +45,8 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     }
   }
 
-  const cocoOrdersPath = 'data/coconala/orders-snapshot.json';
-  const cocoLogPath = 'data/coconala/orders.json';
+  const cocoOrdersPath = datasetPath('coconala.orders-snapshot');
+  const cocoLogPath = datasetPath('coconala.orders');
   if (existsSync(join(root, cocoOrdersPath))) {
     const log = existsSync(join(root, cocoLogPath)) ? readJson(root, cocoLogPath).orders ?? [] : [];
     const byRoom = new Map(log.map((o) => [String(o.talkroomId), o]));
@@ -56,7 +57,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     }
   }
 
-  const kdpPath = 'data/kdp/royalties.json';
+  const kdpPath = datasetPath('kdp.royalties');
   if (existsSync(join(root, kdpPath))) {
     const catalogPath = 'scripts/kindle-published/catalog.json';
     const ownBooks = new Set((existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : []).map((b) => b.id ?? b.bookId));

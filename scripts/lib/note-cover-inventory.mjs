@@ -11,6 +11,7 @@ import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 import { resolveCoverExam, assignCoverPoses, coverExamNames } from './note-character-cover.mjs';
 import { loadRegistry } from './qualification-registry.mjs';
+import { datasetPath } from './datasets.mjs';
 
 export const hashBytes = (value) => createHash('sha256').update(value).digest('hex');
 export const ARTICLE_FILE_RE = /^article(?:-[^/]+)?\.md$/;
@@ -20,10 +21,10 @@ const toPosix = (p) => p.replaceAll('\\', '/');
 export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
   const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
   const tokens = readJson(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json');
-  const poseLabels = Object.fromEntries(readJson(sourceRoot, 'config/character-poses.json')
+  const poseLabels = Object.fromEntries(readJson(sourceRoot, datasetPath('config.character-poses'))
     .poses.map((pose) => [pose.slug, pose.label]));
-  const v4Map = readJson(sourceRoot, 'config/note-covers.json').magazineText;
-  const config = readJson(configRoot, 'config/note-covers.json').characterCovers;
+  const v4Map = readJson(sourceRoot, datasetPath('config.note-covers')).magazineText;
+  const config = readJson(configRoot, datasetPath('config.note-covers')).characterCovers;
   const registry = loadRegistry(sourceRoot);
   return { tokens, poseLabels, v4Map, config, registry };
 }

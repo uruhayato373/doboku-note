@@ -27,8 +27,9 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { judgeLedger } from "./lib/experiment-due.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
-const LEDGER = "data/business/experiments.json";
+const LEDGER = datasetPath("business.experiments");
 const argv = process.argv.slice(2);
 const WANT_JSON = argv.includes("--json");
 const num = (flag, def) => {

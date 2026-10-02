@@ -15,7 +15,7 @@ npm run serve             # out/ をローカル配信（既定 3025・`_redirec
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す。:ops で運用アラート区分〔ops:true＝配信・転記の遅れ〕だけ実行＝ops-audit.yml が日次で回し automation-failure Issue channel ops へ。--ci/--report-only/--ops は排他・0 件実行は exit 2）
-npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点 + note 記事カタログ）
+npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点 + note 記事カタログ + 演習データ public/quiz）
 npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/ledger）の索引を作る（.claude/state/content-ledger.json・git 管理外）。記事・出品ごとに前回から変わったものだけ読み直し・照合し直す（原稿は git の中身のハッシュが鍵＝worktree を替えても読み直さない／照合は鍵が変わった・前回ずれ・取得失敗・24 時間経過のものだけ）。初回は約 5 分・以後は 1 分前後。`--refresh` で全件照合・`--no-live` で照合しない。npm run admin の起動時に 6 時間より古ければ裏で作り直す（DN-0438）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
@@ -84,7 +84,7 @@ npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・�
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
 npm run check-domains          # 領域の正本（config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
 npm run ci-data -- <save|restore|add|latest|path|put> # ワークフローが記録を develop へ書き戻すときの共通処理。変わったファイルを git status から拾って退避・復元し（save/restore）、実在するパスだけを add する。latest/path は台帳の id からパスを出す。YAML にデータのパスを書かないための道具（main の YAML が develop の置き場の変更に追従できるように）。罠: 依存（zod）を読むので npm ci の後で使う。node_modules の無い別 worktree では checkout 側から --root で対象を指す
-npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
+npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか、コード（scripts/・tools/・src/・.claude/）が config/・data/ のパスを直書きしていないか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
 npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 

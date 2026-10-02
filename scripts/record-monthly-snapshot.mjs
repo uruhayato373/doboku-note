@@ -33,9 +33,10 @@ import { fileURLToPath } from 'node:url';
 // 記録する日付は JST 基準。toISOString() は UTC なので JST 00:00〜08:59 に走らせると前日付になる。
 import { todayJst } from './lib/jst-date.mjs';
 import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, 'data/business/monthly-snapshot.json');
+const OUT = join(ROOT, datasetPath('business.monthly-snapshot'));
 const JSON_OUT = process.argv.includes('--json');
 const FORCE = process.argv.includes('--force');
 
@@ -74,12 +75,12 @@ function main() {
   let salesYen = null;
   let salesCount = null;
   try {
-    const sales = readJson(join(ROOT, 'data/note/sales.json')).sales ?? [];
+    const sales = readJson(join(ROOT, datasetPath('note.sales'))).sales ?? [];
     const inMonth = sales.filter((s) => String(s.date ?? '').startsWith(month));
     salesYen = inMonth.reduce((a, s) => a + (Number(s.price) || 0), 0);
     salesCount = inMonth.length;
   } catch (e) {
-    console.error(`✗ 検査不成立: data/note/sales.json を読めない（${e.message}）`);
+    console.error(`✗ 検査不成立: ${datasetPath('note.sales')} を読めない（${e.message}）`);
     process.exit(1);
   }
 
@@ -116,9 +117,9 @@ function main() {
   // ── その月の試験イベント（季節性の説明変数。売上曲線と重ねて読む） ──
   const examEvents = [];
   try {
-    const cal = readJson(join(ROOT, 'config/exam-calendar.json'));
+    const cal = readJson(join(ROOT, datasetPath('config.exam-calendar')));
     // 展開中の資格だけ（候補資格の日程も exam-calendar に蓄積しているが、売上の説明変数には混ぜない）
-    const active = new Set(activeIds(readJson(join(ROOT, 'config/qualification-registry.json'))));
+    const active = new Set(activeIds(readJson(join(ROOT, datasetPath('config.qualification-registry')))));
     for (const [key, ex] of Object.entries(cal.exams ?? {})) {
       if (!active.has(key)) continue;
       for (const ev of Object.values(ex.events ?? {})) {

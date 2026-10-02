@@ -7,6 +7,7 @@ import { domainList } from '@/lib/domains';
 import { todoBoard } from '@/lib/todo';
 import { renderMarkdown } from '@/lib/markdown';
 import { loadRoadmap, monthsOf, examTimeline, lastYearSalesByMonth } from '../../../../../../scripts/lib/annual-roadmap.mjs';
+import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { loadMarketInputs } from '../../../../../../scripts/lib/market-inputs.mjs';
 import { salesByQualification } from '../../../../../../scripts/lib/qualification-market.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
@@ -34,8 +35,8 @@ export default function RoadmapPage() {
   const root = findRepoRoot();
   const cfg = loadRoadmap(root) as { period: { start: string; end: string }; buyWindowWeeks: number };
   const months = monthsOf(cfg.period) as string[];
-  const calendar = JSON.parse(readFileSync(repoPath('config', 'exam-calendar.json'), 'utf8'));
-  const registry = JSON.parse(readFileSync(repoPath('config', 'qualification-registry.json'), 'utf8')) as {
+  const calendar = JSON.parse(readFileSync(repoPath(datasetPath('config.exam-calendar')), 'utf8'));
+  const registry = JSON.parse(readFileSync(repoPath(datasetPath('config.qualification-registry')), 'utf8')) as {
     qualifications: { id: string; portfolio: string; label?: string; shortLabel?: string }[];
   };
   const active = registry.qualifications.filter((q) => q.portfolio === 'active');

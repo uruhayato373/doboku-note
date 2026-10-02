@@ -4,9 +4,10 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { extname, join, relative } from "node:path";
 import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
 import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const ROOT = process.cwd();
-const SSOT_PATH = join(ROOT, "config/exam-calendar.json");
+const SSOT_PATH = join(ROOT, datasetPath("config.exam-calendar"));
 const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 
 const expected = {

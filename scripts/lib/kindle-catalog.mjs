@@ -11,9 +11,10 @@
 import { readFileSync, existsSync, statSync } from 'node:fs'
 import { join, basename } from 'node:path'
 import { REPO_ROOT } from './repository-paths.mjs'
+import { datasetPath } from './datasets.mjs'
 
 export const CATALOG_PATH = join(REPO_ROOT, 'scripts/kindle-published/catalog.json')
-export const ROYALTIES_PATH = join(REPO_ROOT, 'data/kdp/royalties.json')
+export const ROYALTIES_PATH = join(REPO_ROOT, datasetPath('kdp.royalties'))
 export const KINDLE_DIST_DIR = join(REPO_ROOT, 'scripts/kindle-dist')
 export const KINDLE_PUBLISHED_DIR = join(REPO_ROOT, 'scripts/kindle-published')
 export const KINDLE_SPECS_DIR = join(REPO_ROOT, 'scripts/kindle-specs')

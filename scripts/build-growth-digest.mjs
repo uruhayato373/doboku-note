@@ -24,7 +24,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 
 import { join, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { direction, jst } from './lib/business-direction.mjs';
-import { latestFile } from './lib/datasets.mjs';
+import { datasetDir, datasetPath, latestFile } from './lib/datasets.mjs';
 import {
   detectSeo, detectRevenue, detectMeasurement, detectExperiments, selectSurfaced,
   summarizeKpis, topMovers, reconcileBing, inputCoverage,
@@ -32,7 +32,7 @@ import {
 
 const TAG = '[growth-digest]';
 const ROOT = process.cwd();
-const GROWTH = 'data/analysis/growth';
+const GROWTH = datasetDir('analysis.growth-pack');
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);
@@ -85,7 +85,7 @@ export function buildContentIndex(root = ROOT) {
 export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
   const readJson = (p, fallback) => readJsonAt(root, p, fallback);
   const latestIn = (dir, re) => latestAt(root, dir, re);
-  const cfg = readJson('config/growth-cycle.json');
+  const cfg = readJson(datasetPath('config.growth-cycle'));
   const packs = existsSync(join(root, GROWTH)) ? readdirSync(join(root, GROWTH)).filter((f) => /^pack-\d{4}-W\d{2}\.json$/.test(f)).sort() : [];
   const packName = week ? `pack-${week}.json` : packs.at(-1);
   if (!packName || !packs.includes(packName)) return null;
@@ -107,11 +107,11 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     config: cfg.digest,
     qualifications: direction(root).qualifications.map((q) => q.id),
     ...(({ index, legacy }) => ({ contentIndex: index, legacy }))(buildContentIndex(root)),
-    watchwords: readJson('config/seo-watchwords.json', { watchwords: [] }).watchwords,
+    watchwords: readJson(datasetPath('config.seo-watchwords'), { watchwords: [] }).watchwords,
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);
-  const experiments = readJson('data/business/experiments.json', { experiments: [] }).experiments;
+  const experiments = readJson(datasetPath('business.experiments'), { experiments: [] }).experiments;
   const items = [
     ...detectMeasurement(pack, ctx),
     ...detectExperiments(experiments, Date.parse(`${today}T00:00:00+09:00`)),

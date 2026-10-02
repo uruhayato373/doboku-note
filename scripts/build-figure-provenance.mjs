@@ -25,6 +25,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
@@ -33,7 +34,7 @@ const quiet = process.argv.includes("--json");
 const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 
 const audit = readJson(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
-const sourcesDoc = readJson(path.join(ROOT, "config", "figure-sources.json"));
+const sourcesDoc = readJson(path.join(ROOT, datasetPath("config.figure-sources")));
 const sources = sourcesDoc?.categories || {};
 const manualNeeds = Array.isArray(sourcesDoc?.manual_needs) ? sourcesDoc.manual_needs : [];
 const resolveSrc = (cat) => {

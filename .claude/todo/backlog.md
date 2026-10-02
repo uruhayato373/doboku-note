@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0512] note の前月売上取得が CI で画面遷移のエラーで落ち、9月末の売上が記録に入らない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
+
+**起点**: 2026-10-02 の login-collectors（run 36997607032・service=note）で `note-sales-fetch --month 2026-09 --commit` が `ABORT: 想定外のエラー — page.evaluate: Execution context was destroyed, most likely because of a navigation` で止まった。同じ実行の当月（2026-10）は検算差 0 で書けている。結果、`data/note/sales.json` の 9 月は 31 件 ¥92,560 のままで、note の流入取得が示す 9 月売上 ¥104,840 と ¥12,280 ずれている（9/28〜9/30 分が未記録と推定・未確認）。step は continue-on-error で緑表示だった。
+
+**やること**: (1) 前月指定時の年/月 select 切替後に遷移完了を待ってから明細を読む（evaluate の前に navigation／load 待ち）。(2) 修正後に CI で 2026-09 を取り直し、検算差 0 を確認する。
+
+**完了条件**: `note-sales-fetch --month 2026-09 --commit` が CI で検算 OK になり、sales.json の 9 月合計が ¥104,840 と一致する。
+
 ### [DN-0506] コミット前フックを古いツリーから入れ直すと共有フックが古い版に戻り、他セッションのコミットが壊れる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
 
@@ -313,7 +322,7 @@
 **完了条件**: 変更をデプロイし、4 週間後（2026-11 初め）の GSC で一次試験ページのインデックス数・表示回数、Bing で「技術士一次試験 過去問」系のクリックを変更前（本カードの数値）と比べて記録する。
 
 
-### [DN-0511] config/ の読み手の多い設定 4 種に型（zod）を付ける
+### [DN-0513] config/ の読み手の多い設定 4 種に型（zod）を付ける
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
 
 **起点**: DN-0498 で data/ の台帳 24 データセットに型を付けた（`scripts/lib/dataset-schemas.mjs`）。config/ は手を付けていない。ADR `data-storage-decision.md` の進め方 4 で優先と決めた `qualification-registry`（読み手 32）・`domains`（24）・`product-lineup`（14）・`coconala-listings`（更新が多い）が残る。
@@ -909,7 +918,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
 
-**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。残りは Mac 分。
+**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。Mac 分も同日に手順 1〜3 を実施（`.claude/` 側の取り残し 0 件、`data/metrics/` の gsc-ui 3 回分・a8-ui 6 回分を `data/gsc/ui/`・`data/a8/ui/` へ移して旧ディレクトリを削除）し、`.gitignore` の移行中の行を消した。残りは Mac の定期処理の次回実行が `data/` へ書いていることの確認だけ。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
@@ -1294,6 +1303,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **やること**: (1) quality-audit の note を実態に合わせる。(2) 取得を `curl --ssl-no-revoke` に替え、取得失敗と SHA 不一致を区別して件数を出す。(3) 上下水道の原典 24 本を SHA-256・ページ数つきで固定設定に足す。
 
 **完了条件**: 会社 PC で `node scripts/fetch-pe-first-stage-historical.mjs` が全件 PASS（上下水道を含む）し、quality-audit の note が検査対象と一致する。
+
 
 
 

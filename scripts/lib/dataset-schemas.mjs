@@ -212,7 +212,7 @@ export const A8ReportLog = z
     monthly: z.array(z.object({ month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の月別'),
     daily: z.array(z.object({ date: jstDate('日付'), month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の日別'),
     programPeriod: z
-      .array(z.object({ ...a8Program, program: z.string().nullable().describe('config/affiliate-programs の id。対応が無いものは null'), accountWide: z.literal(true), ...a8Amounts }).strict())
+      .array(z.object({ ...a8Program, program: z.string().nullable().describe('提携案件の id（台帳 affiliate.catalog の programs のキー）。対応が無いものは null'), accountWide: z.literal(true), ...a8Amounts }).strict())
       .describe('口座全体のプログラム別'),
     crossCheck: z.looseObject({ comparable: z.boolean(), period: z.string() }).describe('サイト実績とプログラム別の突き合わせ'),
     unmapped: z.array(z.object({ ...a8Program, clicks: count('クリック数'), grossRevenueYen: yen('発生報酬') }).strict()),
@@ -253,7 +253,7 @@ export const BusinessSnapshot = z
   .object({
     kind: z.literal('snapshot'),
     ...recordBase,
-    strategy: z.looseObject({ qualifications: z.array(z.looseObject({ id: z.string() })), metrics: z.array(z.looseObject({ id: z.string() })) }).describe('記録したときの事業方針（config/business-direction.json の写し）'),
+    strategy: z.looseObject({ qualifications: z.array(z.looseObject({ id: z.string() })), metrics: z.array(z.looseObject({ id: z.string() })) }).describe('記録したときの事業方針（台帳 config.business-direction の写し）'),
     cells: z
       .array(
         z

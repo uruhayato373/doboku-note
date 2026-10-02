@@ -32,6 +32,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -41,7 +42,7 @@ const CHANNELS = [
   {
     key: "gsc-ui",
     label: "GSC UI 取得",
-    marker: "data/gsc/ui-last-run.json",
+    marker: datasetPath("gsc.ui-last-run"),
     // 年齢でも DUE にする（月次の本体）
     ageDriven: true,
     command: "npm run search-growth:audit",
@@ -49,7 +50,7 @@ const CHANNELS = [
   {
     key: "ga4-ui",
     label: "GA4 UI 取得",
-    marker: "data/ga4/ui-last-run.json",
+    marker: datasetPath("ga4.ui-last-run"),
     // 一次経路は Data API なので「古い」だけでは DUE にしない。未実施/不完全のときだけ surface する。
     ageDriven: false,
     command: "npm run ga4-ui:fetch",

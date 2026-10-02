@@ -20,6 +20,7 @@
 
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { assessGscPerformanceSnapshot } from "../../scripts/lib/gsc-data-integrity.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
@@ -206,7 +207,7 @@ const opts = parseArgs();
 const filePath = findLatestDateFile();
 
 if (!filePath) {
-  console.error("No GA4 date report found in data/ga4/reports/");
+  console.error(`No GA4 date report found in ${datasetDir("ga4.reports")}/`);
   console.error("Run `npm run fetch-ga4-data -- --dimension date` first.");
   process.exit(2);
 }

@@ -18,11 +18,12 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const MATS = "src/config/affiliate-mats.json";
-const CATALOG = "data/affiliate/catalog.json";
-const A8_CONFIG = "config/a8-report-automation.json";
-const ASP_CONFIG = "config/affiliate-asp.json";
+const CATALOG = datasetPath("affiliate.catalog");
+const A8_CONFIG = datasetPath("config.a8-report-automation");
+const ASP_CONFIG = datasetPath("config.affiliate-asp");
 const CONSUMER = ".claude/scripts/report-buildjob-affiliate.mjs";
 const WATCHED = [MATS, CATALOG, A8_CONFIG, ASP_CONFIG, CONSUMER];
 const KNOWLEDGE = ".claude/knowledge/reference/affiliate-operations.md";

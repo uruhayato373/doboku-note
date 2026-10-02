@@ -41,7 +41,7 @@ import { datasetPath } from "./lib/datasets.mjs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
-const LOG = join(ROOT, "data/a8/report-log.json");
+const LOG = join(ROOT, datasetPath("a8.report-log"));
 const REVIEW = "/a8-report（ローカル・要 A8 ログイン）";
 
 const args = process.argv.slice(2);

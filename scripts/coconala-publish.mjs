@@ -30,6 +30,7 @@ import {
 import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -49,7 +50,7 @@ const listings = readListings();
 const svc = catalog[SERVICE];
 const lst = listings[SERVICE];
 if (!svc) { console.error(`ABORT: カタログに serviceId "${SERVICE}" が無い`); process.exit(1); }
-if (!lst) { console.error(`ABORT: listings に "${SERVICE}" が無い（config/coconala-listings.json）`); process.exit(1); }
+if (!lst) { console.error(`ABORT: listings に "${SERVICE}" が無い（${datasetPath('config.coconala-listings')}）`); process.exit(1); }
 
 // 冪等ガード: 既に出品済み（listed + serviceUrl あり）なら二重出品しない
 if (svc.status === 'listed' && /^https?:\/\//.test(svc.serviceUrl || '')) {

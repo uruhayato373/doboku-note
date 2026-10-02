@@ -30,8 +30,9 @@ import {
 } from "./lib/asp-browser.mjs";
 
 import { detectFalseNegative } from "./lib/asp-falsenegative-guard.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
-const CATALOG = "data/affiliate/catalog.json";
+const CATALOG = datasetPath("affiliate.catalog");
 
 function parseArgs() {
   const a = process.argv.slice(2);

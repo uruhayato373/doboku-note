@@ -16,7 +16,7 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "fs";
 import { join, basename, dirname } from "path";
-import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
 
@@ -508,10 +508,10 @@ function generateMarkdown(agg, findings) {
   // raw data refs
   lines.push(`### 生データ`);
   lines.push(``);
-  lines.push(`- URL Inspection 結果: \`data/gsc/url-inspection/2026-04-27*.json\``);
-  lines.push(`- Search Analytics page: \`--page-data\` に渡したレポート（data/gsc/reports/<日付>.json#page）`);
-  lines.push(`- Search Analytics query: \`--query-data\` に渡したレポート（data/gsc/reports/<日付>.json#query）`);
-  lines.push(`- 集計 JSON: \`data/analysis/gsc-coverage-diagnosis/{ts}.json\``);
+  lines.push(`- URL Inspection 結果: \`${datasetDir("gsc.url-inspection")}/2026-04-27*.json\``);
+  lines.push(`- Search Analytics page: \`--page-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#page）`);
+  lines.push(`- Search Analytics query: \`--query-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#query）`);
+  lines.push(`- 集計 JSON: \`${datasetDir("analysis.gsc-coverage-diagnosis")}/{ts}.json\``);
   lines.push(``);
 
   return lines.join("\n");

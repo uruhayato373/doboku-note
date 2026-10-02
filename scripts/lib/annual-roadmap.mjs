@@ -7,8 +7,9 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
-export const ROADMAP_PATH = 'config/annual-roadmap.json';
+export const ROADMAP_PATH = datasetPath('config.annual-roadmap');
 const YM = /^\d{4}-(0[1-9]|1[0-2])$/;
 
 export function loadRoadmap(root) {

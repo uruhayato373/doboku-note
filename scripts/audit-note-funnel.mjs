@@ -21,6 +21,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
@@ -44,7 +45,7 @@ function fetchLiveBlob(noteId) {
     return JSON.stringify(data.body || '') + JSON.stringify(data.embedded_contents || []);
   } catch { return null; }
 }
-const CONFIG = JSON.parse(readFileSync(join(ROOT, 'config/note-funnel.json'), 'utf8'));
+const CONFIG = JSON.parse(readFileSync(join(ROOT, datasetPath('config.note-funnel')), 'utf8'));
 const magSrc = readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8');
 
 // note-magazines.ts から公開済みマガジン {id, noteId} を抽出

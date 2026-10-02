@@ -28,10 +28,11 @@ import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, 'config/competitors.json'); // 取得元ごとの枠 instagram
+const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 instagram
 
 const argv = process.argv.slice(2);
 const hi = argv.indexOf('--handle');

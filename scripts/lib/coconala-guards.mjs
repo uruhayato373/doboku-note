@@ -334,7 +334,7 @@ export function resolveThumb({ id, approvedPath = null, flatPath, has, renderabl
   const flat = has(flatPath);
   const warn = approvedPath
     ? `[${id}] 承認済み画像 ${approvedPath} がローカルにも退避台帳にもありません（Drive vault の coconala-asset から復元）`
-    : `[${id}] 承認済みの POP 画像がまだありません（data/coconala/thumb-approved.json に未登録）`;
+    : `[${id}] 承認済みの POP 画像がまだありません（台帳 coconala.thumb-approved に未登録）`;
   if (flat) return { ok: true, source: 'flat', where: flat, warn };
   if (renderable) return { ok: true, source: 'renderable', where: null, warn };
   return { ok: false, source: null, where: null, warn: null };

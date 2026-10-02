@@ -20,10 +20,11 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
 export const LIBRARY_ROOT = join(process.cwd(), 'content', 'site', 'standards-library');
 export const ARTICLES_ROOT = join(process.cwd(), 'content', 'site', 'standards-articles');
-const OVERRIDES_PATH = join(process.cwd(), 'config', 'standards-structure.json');
+const OVERRIDES_PATH = join(process.cwd(), datasetPath('config.standards-structure'));
 
 // ---- 行パターン ---------------------------------------------------------
 // インデント上限は中部 common の実測分布から決めている（コメントの数値は実測件数）。

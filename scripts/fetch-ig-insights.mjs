@@ -54,7 +54,7 @@ function parseArgs(argv) {
 
 // ─── 設定 ────────────────────────────────────────────────────
 function readIgAccountConfig(root) {
-  const p = join(root, 'config/ig-account.json');
+  const p = join(root, datasetPath('config.ig-account'));
   if (!existsSync(p)) return {};
   try {
     return JSON.parse(readFileSync(p, 'utf8'));
@@ -237,7 +237,7 @@ if (isMain) {
   const accountConfig = readIgAccountConfig(ROOT);
   const igUserId = process.env.IG_BUSINESS_ACCOUNT_ID || accountConfig?.graph?.businessAccountId;
   if (!igUserId) {
-    console.error(`${TAG} IG_BUSINESS_ACCOUNT_ID が未設定で、config/ig-account.json の graph.businessAccountId も未設定です`);
+    console.error(`${TAG} IG_BUSINESS_ACCOUNT_ID が未設定で、${datasetPath('config.ig-account')} の graph.businessAccountId も未設定です`);
     process.exit(1);
   }
   const apiVersion = process.env.IG_GRAPH_API_VERSION || 'v23.0';

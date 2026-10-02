@@ -7,9 +7,10 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { datasetPath } from './datasets.mjs'
 
 const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
-const CONFIG_PATH = resolve(REPO, 'config/kdp-memo.json')
+const CONFIG_PATH = resolve(REPO, datasetPath('config.kdp-memo'))
 const SPEC_DIR = resolve(REPO, 'scripts/kindle-specs')
 
 // config に defaults が無い旧環境でも動く後方互換フォールバック（gen-kdp-memo.mjs 旧定数と同値）
@@ -67,7 +68,7 @@ export function resolveBook(id, { requireMemo = true } = {}) {
   const cfg = loadKdpConfig()
   const defaults = getDefaults(cfg)
   const d = cfg.books[id]
-  if (!d && requireMemo) throw new Error(`config/kdp-memo.json books["${id}"] 未登録（kdp-operator でメタデータ生成が必要）`)
+  if (!d && requireMemo) throw new Error(`${datasetPath('config.kdp-memo')} books["${id}"] 未登録（kdp-operator でメタデータ生成が必要）`)
   const m = d || {}
   const kdp = m.kdp || {}
   const cat = categoryPathFor(id, defaults)

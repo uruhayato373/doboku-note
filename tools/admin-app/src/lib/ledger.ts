@@ -9,6 +9,7 @@ import { findRepoRoot, repoPath } from './repo-root';
 import { loadProductSales, matchArticleSales, salesTitleKey, type ProductSales } from './sales';
 import { artifactRelPaths, loadKindleCatalog } from '../../../../scripts/lib/kindle-catalog.mjs';
 import { isOnKdp, kindleDrift } from '../../../../scripts/lib/kindle-uploaded.mjs';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * ledger.ts — 管理画面「コンテンツ台帳」（/content/ledger）の表示モデル（DN-0438）。
@@ -124,7 +125,7 @@ const KIND: Record<string, string> = { note: 'マガジン', coconala: '出品',
 /** 承認済み POP 画像（ココナラの商品画像の正本）。読めなければ空 */
 export function readApprovedThumbs(): Record<string, { path: string; sha256: string }> {
   try {
-    return JSON.parse(readFileSync(repoPath('data', 'coconala', 'thumb-approved.json'), 'utf8')).images ?? {};
+    return JSON.parse(readFileSync(repoPath(datasetPath('coconala.thumb-approved')), 'utf8')).images ?? {};
   } catch {
     return {};
   }
@@ -255,7 +256,7 @@ export function loadLedgerView(): LedgerView {
       text: hit?.text ?? [],
       price: hit?.price ?? [],
       sale: hit ? hit.sale : index?.coconala ? ['公開照合の対象に入っていない（出品中なのに照合されていない）'] : [],
-      image: approved[id] ? null : '承認済みの POP 画像が無い（data/coconala/thumb-approved.json に未登録）',
+      image: approved[id] ? null : `承認済みの POP 画像が無い（${datasetPath('coconala.thumb-approved')} に未登録）`,
       checkedAt: hit?.checkedAt ?? index?.coconala?.checkedAt ?? null,
     };
   };

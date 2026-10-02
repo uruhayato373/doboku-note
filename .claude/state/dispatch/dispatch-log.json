@@ -1627,6 +1627,18 @@
       "commit": "0007479c44ce",
       "verification": "main の scheduled-publish.yml が scripts/ci-data.mjs add で無いパスを飛ばし、2>/dev/null || true を外した（#821・main 782445504）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0511",
+      "at": "2026-10-02",
+      "task": "`npm run test` が追跡中の public/quiz/pe-first-stage.json を書き換える",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8810f3cdeebf",
+      "verification": "develop で npm run test（2386 pass / fail 0）後に git status --short public/quiz が空。npm run check-generated-indexes が一致",
+      "note": "PR #835 で修正: build-quiz-data に --out-dir、テストは一時ディレクトリへ生成。generatedAt を JST の YYYY-MM-DD に統一し、refresh-indexes に build-quiz-data を追加（古い解説 2 問の配信も解消）"
     }
   ]
 }

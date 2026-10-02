@@ -42,10 +42,11 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, 'config/competitors.json'); // 取得元ごとの枠 note
+const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 note
 
 const args = process.argv.slice(2);
 function argVal(flag, def) {

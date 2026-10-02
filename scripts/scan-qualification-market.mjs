@@ -37,9 +37,9 @@ import { latestMarketSnapshot, MARKET_DATASET, stringifyMarketSnapshot } from '.
 import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, 'config/market-scan.json');
-const REGISTRY_PATH = join(ROOT, 'config/qualification-registry.json');
-const YT_COMPETITORS_PATH = join(ROOT, 'config/competitors.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.market-scan'));
+const REGISTRY_PATH = join(ROOT, datasetPath('config.qualification-registry'));
+const YT_COMPETITORS_PATH = join(ROOT, datasetPath('config.competitors'));
 
 const argv = process.argv.slice(2);
 const KNOWN_FLAGS = new Set(['--qualification', '--channel', '--coconala', '--dry-run', '--force']);
@@ -172,7 +172,7 @@ if (CHANNELS.has('note')) {
 }
 
 if (CHANNELS.has('coconala')) {
-  const researchPath = join(ROOT, 'data/coconala/market-research.json');
+  const researchPath = join(ROOT, datasetPath('coconala.market-research'));
   const research = existsSync(researchPath) ? JSON.parse(readFileSync(researchPath, 'utf8')) : { queries: [] };
   const done = new Set(research.queries.filter((q) => q.complete).map((q) => q.keyword));
   const todo = coconalaKeywords.filter((k) => !done.has(k));

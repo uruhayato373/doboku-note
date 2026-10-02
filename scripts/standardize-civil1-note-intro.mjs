@@ -26,6 +26,7 @@ import { join, dirname, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -33,8 +34,8 @@ const SHOW = args.includes('--show');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
 // 型は config/note-intro-standard.json の variants（既定は 1級＝civil1。2級は --variant civil2）
 const VARIANT = args.includes('--variant') ? args[args.indexOf('--variant') + 1] : 'civil1';
-const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, 'config/note-intro-standard.json'), 'utf8')).variants[VARIANT];
-if (!CONFIG) throw new Error(`config/note-intro-standard.json に型 ${VARIANT} が無い`);
+const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.note-intro-standard')), 'utf8')).variants[VARIANT];
+if (!CONFIG) throw new Error(`${datasetPath('config.note-intro-standard')} に型 ${VARIANT} が無い`);
 const ROOT = join(REPO_ROOT, CONFIG.root);
 const BANNER_SRC = join(REPO_ROOT, 'content/note/共通/著者オーソリティ/img', CONFIG.banner);
 

@@ -7,7 +7,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { latestFile } from './datasets.mjs';
+import { datasetPath, latestFile } from './datasets.mjs';
 
 export const COMPETITOR_CHANNELS = ['note', 'x', 'ig', 'coconala', 'youtube'];
 /** 市場スキャンの台帳の id。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
@@ -50,27 +50,27 @@ const readIf = (path) => (existsSync(path) ? readJson(path) : null);
 
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
-  const config = (name) => readJson(join(root, 'config', name));
-  const salesLog = readIf(join(root, 'data/note/sales.json'));
-  const orderLog = readIf(join(root, 'data/coconala/orders.json'));
+  const config = (id) => readJson(join(root, datasetPath(`config.${id}`)));
+  const salesLog = readIf(join(root, datasetPath('note.sales')));
+  const orderLog = readIf(join(root, datasetPath('coconala.orders')));
   /** @type {Record<string, any[]>} */
   const competitors = {};
-  const tracked = readJson(join(root, 'config/competitors.json'));
+  const tracked = config('competitors');
   for (const ch of COMPETITOR_CHANNELS) {
     competitors[ch] = tracked[ch === 'ig' ? 'instagram' : ch]?.competitors ?? [];
   }
   return {
-    registry: config('qualification-registry.json'),
-    formats: config('exam-formats.json'),
-    examStats: config('exam-stats.json'),
-    calendar: config('exam-calendar.json'),
-    lineupConfig: config('product-lineup.json'),
-    scanConfig: config('market-scan.json'),
-    buyWindowWeeks: config('annual-roadmap.json').buyWindowWeeks,
+    registry: config('qualification-registry'),
+    formats: config('exam-formats'),
+    examStats: config('exam-stats'),
+    calendar: config('exam-calendar'),
+    lineupConfig: config('product-lineup'),
+    scanConfig: config('market-scan'),
+    buyWindowWeeks: config('annual-roadmap').buyWindowWeeks,
     sales: salesLog?.sales ?? [],
     orders: Array.isArray(orderLog) ? orderLog : (orderLog?.orders ?? []),
     competitors,
     snapshot: latestMarketSnapshot(root),
-    coconalaResearch: readIf(join(root, 'data/coconala/market-research.json')),
+    coconalaResearch: readIf(join(root, datasetPath('coconala.market-research'))),
   };
 }
