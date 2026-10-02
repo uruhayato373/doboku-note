@@ -1,14 +1,16 @@
-﻿/**
+﻿import { NOTE_BASE, SITE_HOST, SITE_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
+
+/**
  * SNS 投稿・動画生成の共通設定。
  * テキスト・URL・YouTube メタデータを一元管理する。
  */
 export const SNS_CONFIG = {
-  // ブランド
-  domain: 'doboku-note.com',
-  domainUrl: 'https://doboku-note.com',
-  // 2026-08-13: 旧 note ハンドル（uruhayato 名義）は **HTTP 404**（実査）。ここが SSOT なので
-  // 生成物（YouTube 概要欄 32 本ほか）が全て死んだリンクを吐いていた。現行は dobokunote。
-  noteUrl: 'https://note.com/dobokunote/',
+  // ブランド（サイト・note の識別子は scripts/lib/site-identity.mjs が唯一の定義。ここに書き写さない）
+  // 2026-08-13: 旧 note ハンドル（uruhayato 名義）をここに直書きしていたため、生成物（YouTube 概要欄 32 本ほか）が
+  // 全て HTTP 404 のリンクを吐いていた。
+  domain: SITE_HOST,
+  domainUrl: SITE_ORIGIN,
+  noteUrl: `${NOTE_BASE}/`,
   profession: '技術士（総合技術監理部門）',
   professionShort: '技術士総監',
   defaultCategory: 'pe-comprehensive-management',

@@ -29,6 +29,7 @@ import { fileURLToPath } from 'node:url';
 import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
+import { NOTE_CREATOR } from './site-identity.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -99,7 +100,7 @@ export async function launchNoteContext(opts = {}) {
  *
  * @param {import('playwright').Page} page
  * @param {object} [opts]
- * @param {string} [opts.expected='dobokunote']  body innerText に含まれるべき文字列
+ * @param {string} [opts.expected=NOTE_CREATOR]  body innerText に含まれるべき文字列
  * @param {string|null} [opts.url='https://note.com/settings/account']
  *   非 null なら内部で goto する。呼び出し側が既に該当ページを開いている場合は null を渡す
  *   （goto のタイムアウト/待機を呼び出し側の既存コードのまま変えたくない場合はこちら）。
@@ -111,7 +112,7 @@ export async function launchNoteContext(opts = {}) {
  */
 export async function assertAccountGate(page, opts = {}) {
   const {
-    expected = 'dobokunote',
+    expected = NOTE_CREATOR,
     url = 'https://note.com/settings/account',
     gotoTimeoutMs = 60000,
     waitNetworkIdle = false,

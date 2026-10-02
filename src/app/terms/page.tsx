@@ -10,6 +10,8 @@ import {
   Ban,
   RefreshCw,
 } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: '利用規約',
@@ -20,10 +22,10 @@ export const metadata: Metadata = {
     type: 'website',
     title: '利用規約 | doboku-note',
     description: 'doboku-noteの利用規約について。コンテンツの利用条件、免責事項、知的財産権についてご案内します。',
-    url: 'https://doboku-note.com/terms',
+    url: `${SITE_ORIGIN}/terms`,
     images: [
       {
-        url: 'https://doboku-note.com/images/og-default.png',
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'doboku-note - 土木系資格試験 専門技術ノート',

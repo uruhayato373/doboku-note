@@ -15,6 +15,8 @@ import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon
 import { externalLinkRel } from "@/lib/external-link-rel";
 import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-creatives";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { withNoteUtm } from "@/lib/note-utm";
 
 export const metadata: Metadata = {
   // title テンプレート "%s | doboku-note" がサイト名を付与するため、ここでは重ねない
@@ -23,17 +25,17 @@ export const metadata: Metadata = {
   description:
     "発注者視点で土木・建設系9資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士、RCCMの無料解説と教材への入口まとめ。",
   alternates: {
-    canonical: "https://doboku-note.com/links",
+    canonical: `${SITE_ORIGIN}/links`,
   },
   openGraph: {
     type: "website",
     title: "Links — doboku-note の入口",
     description:
       "技術士・土木施工管理・コンクリート系・RCCMの9資格を、無料サイト解説から教材まで分野別に案内します。",
-    url: "https://doboku-note.com/links",
+    url: `${SITE_ORIGIN}/links`,
     images: [
       {
-        url: "https://doboku-note.com/images/og-links.png",
+        url: `${SITE_ORIGIN}/images/og-links.png`,
         width: 1200,
         height: 630,
         alt: "doboku-note 土木・建設系9資格の試験対策コンテンツ一覧",
@@ -41,13 +43,6 @@ export const metadata: Metadata = {
     ],
   },
 };
-
-const UTM_BASE = "utm_source=links&utm_medium=referral&utm_campaign=link-hub";
-
-function withUtm(url: string, content: string): string {
-  const sep = url.includes("?") ? "&" : "?";
-  return `${url}${sep}${UTM_BASE}&utm_content=${content}`;
-}
 
 /**
  * 資格カード（2026-07-28 再設計）。
@@ -349,7 +344,7 @@ function ExamCardView({ card }: { card: ExamCard }) {
             channelLabel="note"
             label={mokuji.title}
             sub="有料教材の一覧。どれから読むかがわかる"
-            href={withUtm(mokuji.noteUrl, `mokuji-${card.key}`)}
+            href={withNoteUtm(mokuji.noteUrl, "links", { content: `mokuji-${card.key}` })}
             external
             cta="note"
             ctaLabel={`mokuji-${card.key}`}
@@ -415,7 +410,7 @@ const HERO_CHIPS = EXAM_GROUPS.map((group) => ({ label: group.title, id: group.i
 
 // 運営者の SNS・note・プロフィールへの導線。旧実装はページ末尾の AuthorProfile（375px で 1,098px）に
 // しか無く、SNS から来た人が最後までスクロールしないと X に戻れなかった（2026-09-24 にヒーローへ 1 行で集約）。
-const NOTE_TOP_URL = withUtm(AUTHOR.noteCta.url.replace(/\?.*$/, ""), "note-top");
+const NOTE_TOP_URL = withNoteUtm(AUTHOR.noteCta.url.replace(/\?.*$/, ""), "links", { content: "note-top" });
 
 export default function LinksPage() {
   // チップはカード定義から導出する（旧: マガジン件数で出し分け。カード化で常に中身があるため不要）。

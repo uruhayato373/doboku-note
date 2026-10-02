@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import SlingTensionClient from "./SlingTensionClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "玉掛け 吊り角度・張力計算ツール｜必要な破断荷重",
     description: "吊り角度で変わる張力と、安全係数6を満たすワイヤー選定をその場で計算。",
-    url: "https://doboku-note.com/tools/sling-tension",
+    url: `${SITE_ORIGIN}/tools/sling-tension`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "玉掛け 吊り角度・張力計算ツール — doboku-note",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "玉掛け 吊り角度・張力計算ツール",
     description: "吊り角度で変わる張力と必要な破断荷重を、その場で確認。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

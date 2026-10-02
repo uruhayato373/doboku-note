@@ -5,6 +5,8 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { setUtmParams } from './lib/utm-contract.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const month = process.argv[2] || '2026-10';
@@ -14,7 +16,7 @@ if (!/^\d{4}-\d{2}$/.test(month)) {
 }
 const [year, monthNumber] = month.split('-').map(Number);
 const days = new Date(year, monthNumber, 0).getDate();
-const quizUrl = 'https://doboku-note.com/tools/kakomon-quiz/pe-first-stage';
+const quizUrl = `${SITE_ORIGIN}/tools/kakomon-quiz/pe-first-stage`;
 const noteUrl = 'https://note.com/dobokunote/n/n466132e6fd74';
 const noteDays = new Set([2, 9, 16, 23, 30]);
 const siteDays = new Set([3, 7, 12, 17, 21, 26, 31]);
@@ -32,18 +34,16 @@ for (let day = 1; day <= days; day++) {
   const date = `${month}-${String(day).padStart(2, '0')}`;
   const topic = topics[(day - 1) % topics.length];
   if (noteDays.has(day)) {
-    const target = new URL(noteUrl);
-    target.searchParams.set('utm_source', 'x');
-    target.searchParams.set('utm_medium', 'social');
-    target.searchParams.set('utm_campaign', `pe-first-stage-${month}`);
-    target.searchParams.set('utm_content', `${month.replace('-', '')}-${String(day).padStart(2, '0')}-note`);
+    const target = setUtmParams(new URL(noteUrl), 'x.post', {
+      campaign: `pe-first-stage-${month}`,
+      content: `${month.replace('-', '')}-${String(day).padStart(2, '0')}-note`,
+    });
     posts.push({ date, time: slotTimes.C[day % slotTimes.C.length], slot: 'C', exam: 'pe-first-stage', type: 'A4過去問PDF', funnel: 'note', target: target.toString(), image: null, topic });
   } else if (siteDays.has(day)) {
-    const target = new URL(quizUrl);
-    target.searchParams.set('utm_source', 'x');
-    target.searchParams.set('utm_medium', 'social');
-    target.searchParams.set('utm_campaign', `pe-first-stage-${month}`);
-    target.searchParams.set('utm_content', `${month.replace('-', '')}-${String(day).padStart(2, '0')}`);
+    const target = setUtmParams(new URL(quizUrl), 'x.post', {
+      campaign: `pe-first-stage-${month}`,
+      content: `${month.replace('-', '')}-${String(day).padStart(2, '0')}`,
+    });
     posts.push({ date, time: slotTimes.B[day % slotTimes.B.length], slot: 'B', exam: 'pe-first-stage', type: '過去問1問1答', funnel: 'site', target: target.toString(), image: null, topic });
   } else {
     posts.push({ date, time: slotTimes.A[day % slotTimes.A.length], slot: 'A', exam: 'pe-first-stage', type: day % 2 ? '引っかけ集' : '暗記フレーズ', funnel: 'linkless', target: null, image: null, topic });

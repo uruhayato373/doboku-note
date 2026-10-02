@@ -17,12 +17,15 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import { utmChannel } from './lib/utm-contract.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 
 const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
+// source / medium は契約（config/utm-templates.json の note.site）。campaign は記事ごとに渡す。
+const NOTE_UTM = utmChannel('note.site');
 
 function parseArgs(argv) {
   const args = { target: null, campaign: null, dryRun: false };
@@ -77,7 +80,7 @@ function injectUtm(url, campaign) {
   const base = hashIdx === -1 ? url : url.slice(0, hashIdx);
   const hash = hashIdx === -1 ? '' : url.slice(hashIdx);
   const sep = base.includes('?') ? '&' : '?';
-  const params = `utm_source=note&utm_medium=referral&utm_campaign=${encodeURIComponent(campaign)}`;
+  const params = `utm_source=${NOTE_UTM.source}&utm_medium=${NOTE_UTM.medium}&utm_campaign=${encodeURIComponent(campaign)}`;
   return `${base}${sep}${params}${hash}`;
 }
 

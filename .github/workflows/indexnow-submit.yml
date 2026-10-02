@@ -48,7 +48,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_run' }}
         run: |
           KEY=$(node -e 'const c=require("./config/indexnow.json");process.stdout.write(c.key||"")')
-          HOST=$(node -e 'const c=require("./config/indexnow.json");process.stdout.write(c.host||"doboku-note.com")')
+          HOST=$(node --input-type=module -e 'import { SITE_HOST } from "./src/config/site-identity.mjs"; process.stdout.write(SITE_HOST)')
           for i in $(seq 1 18); do
             body=$(curl -sS --max-time 15 -A "Mozilla/5.0" "https://$HOST/$KEY.txt" || true)
             if [ "$body" = "$KEY" ]; then echo "key file OK after $i tries"; exit 0; fi

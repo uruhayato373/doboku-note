@@ -6,6 +6,9 @@ import type { Metadata } from "next";
 import KakomonQuizClient, { type KakomonQuizConfig } from "../KakomonQuizClient";
 import "katex/dist/katex.min.css";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import { withNoteUtm } from "@/lib/note-utm";
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
 // （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
@@ -23,15 +26,15 @@ export const metadata: Metadata = {
     type: "website",
     title: "技術士第一次試験 過去問 無料演習｜全1,270問",
     description: "平成23〜令和7年度と令和元年度再試験の基礎・適性・専門（建設部門）全1,270問を、即採点・全選択肢解説つきで無料演習。",
-    url: "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+    url: `${SITE_ORIGIN}/tools/kakomon-quiz/pe-first-stage`,
     siteName: "doboku-note",
-    images: [{ url: "https://doboku-note.com/images/og-default.png", width: 1200, height: 630, alt: "技術士第一次試験 過去問 無料演習" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "技術士第一次試験 過去問 無料演習" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "技術士第一次試験 過去問 無料演習｜全1,270問",
     description: "基礎・適性・専門（建設部門）の平成23〜令和7年度と令和元年度再試験を、図・数式・全選択肢解説つきで無料演習。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 
@@ -69,7 +72,7 @@ const QUIZ_CONFIG: KakomonQuizConfig = {
   ],
   noteCta: {
     id: "pe1-takuitsu-pdf",
-    href: "https://note.com/dobokunote/n/n466132e6fd74?utm_source=doboku-note&utm_medium=quiz&utm_campaign=pe-first-stage-kakomon",
+    href: withNoteUtm("https://note.com/dobokunote/n/n466132e6fd74", "quiz", { campaign: "pe-first-stage-kakomon" }),
     title: "A4で印刷して書き込む｜全560問PDF（note）",
     description: "3科目7年分を一冊に集約。間違いへ直接メモして紙で反復したい方向け",
   },

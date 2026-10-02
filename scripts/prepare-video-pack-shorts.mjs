@@ -11,6 +11,7 @@ import { parseArgs } from 'node:util';
 
 import { loadRegistry, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { setUtmParams } from './lib/utm-contract.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -83,12 +84,7 @@ function firstSentence(text) {
 }
 
 function withShortsUtm(url, packId) {
-  const parsed = new URL(url);
-  parsed.searchParams.set('utm_source', 'youtube');
-  parsed.searchParams.set('utm_medium', 'video');
-  parsed.searchParams.set('utm_campaign', packId);
-  parsed.searchParams.set('utm_content', 'shorts');
-  return parsed.toString();
+  return setUtmParams(new URL(url), 'youtube.shorts', { campaign: packId }).toString();
 }
 
 function findPrimaryUrl(description, packId) {

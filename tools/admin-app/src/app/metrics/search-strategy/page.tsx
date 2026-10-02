@@ -4,6 +4,7 @@ import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildSearchOpportunities } from '../../../../../../scripts/lib/search-opportunities.mjs';
+import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -77,7 +78,7 @@ export default function SearchStrategyPage() {
                     {c.candidates.map((p) => (
                       <TableRow key={p.page}>
                         <TableCell className="text-xs">
-                          <a href={`https://doboku-note.com${p.page}`} target="_blank" rel="noreferrer">{p.page}</a>
+                          <a href={`${SITE_ORIGIN}${p.page}`} target="_blank" rel="noreferrer">{p.page}</a>
                         </TableCell>
                         <TableCell className={numCol}>{p.impressions}</TableCell>
                         <TableCell className={numCol}>{p.bestPosition}位</TableCell>

@@ -30,6 +30,7 @@ import { recordPublishedAssetHash } from './lib/note-republish-hash.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -264,7 +265,7 @@ try {
   //    「更新するを押せた」＝添付できた ではない。有料エリアの添付カードは未ログインでは
   //    見えないので、ログイン済みの本コンテキストで数えるのが唯一の実測手段。
   if (COMMIT) {
-    await page.goto(`https://note.com/dobokunote/n/${NOTE}`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`${NOTE_BASE}/n/${NOTE}`, { waitUntil: 'domcontentloaded' });
     await sleep(3000);
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
     await sleep(2000);
@@ -285,7 +286,7 @@ if (COMMIT && exitCode === 0 && wasFreeArticle) {
 }
 if (COMMIT && exitCode === 0 && !wasFreeArticle) {
   console.log('\n[検証] 公開ページで有料維持を実体確認');
-  const r = spawnSync('curl', ['-sS', '-m', '40', '--ssl-no-revoke', '-L', '-H', 'User-Agent: Mozilla/5.0', `https://note.com/dobokunote/n/${NOTE}`], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
+  const r = spawnSync('curl', ['-sS', '-m', '40', '--ssl-no-revoke', '-L', '-H', 'User-Agent: Mozilla/5.0', `${NOTE_BASE}/n/${NOTE}`], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
   const html = r.stdout || '';
   const paid = /購入手続き|有料エリア|このコンテンツは有料/.test(html) || /"price":\s*[1-9]/.test(html);
   console.log(`  paid指標=${paid ? 'OK ✓' : '✗ 検出できず'} (htmlLen=${html.length})`);

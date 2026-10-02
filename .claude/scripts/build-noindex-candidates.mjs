@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync } from "fs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -115,7 +116,7 @@ async function main() {
   // 分類
   const classified = phantoms.map((url) => {
     const pattern = classifyPattern(url);
-    const slug = url.replace("https://doboku-note.com/docs/", "");
+    const slug = url.replace(`${SITE_ORIGIN}/docs/`, "");
     const { priority, reason } = priorityForPattern(pattern, slug);
     return { url, pattern, slug, priority, reason };
   });

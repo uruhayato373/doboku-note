@@ -1,7 +1,6 @@
 {
   "_source": "真実源=docs/marketing/02_チャネル動線設計.md §4。medium は GA4 標準チャネル分類に寄せる（social/video/referral）。配信形式(shorts/reel/carousel/post)は utm_content、送客対象や slug/pack は呼び出し側が utm_campaign で渡す。utm-builder.mjs が読む。",
   "_decided": "2026-07-03 ユーザー確定: X/IG=social・YT=video・note→site=referral（既存ゲート check-note-site-utm と整合）",
-  "base": { "site": "https://doboku-note.com" },
   "channels": {
     "x.post": { "source": "x", "medium": "social", "content": "post" },
     "x.pinned": { "source": "x", "medium": "social", "content": "pinned" },
@@ -12,5 +11,16 @@
     "youtube.shorts": { "source": "youtube", "medium": "video", "content": "shorts" },
     "youtube.longform": { "source": "youtube", "medium": "video", "content": "longform" },
     "note.site": { "source": "note", "medium": "referral", "content": "" }
+  },
+  "_siteToNote_note": "サイト（doboku-note.com）から note へ送る導線の UTM。面ごとの source/medium と既定の campaign を持つ（utm_content と、campaign を面が決めるものは呼び出し側が渡す）。channels に混ぜない: channels の source は GA4 の SNS 流入の source 集合（週次の SNS 別 WoW）に使われる。読み手は src/lib/note-utm.ts。e2e/cta.spec.ts は utm_source が site か doboku-note であることを見る",
+  "siteToNote": {
+    "magazine": { "source": "doboku-note", "medium": "referral", "campaign": "note-magazine" },
+    "links": { "source": "links", "medium": "referral", "campaign": "link-hub" },
+    "authorCard": { "source": "site", "medium": "author-card", "campaign": "author-profile" },
+    "quiz": { "source": "doboku-note", "medium": "quiz" }
+  },
+  "_ebook_note": "電子書籍（Kindle の EPUB）から サイトへ送る導線。SNS ではないので channels には置かない（GA4 の SNS 流入の source 集合を変えないため）。campaign は本ごとに呼び出し側が渡す。読み手は scripts/build-takuitsu-reconstruct.mjs",
+  "ebook": {
+    "kindle": { "source": "kindle", "medium": "ebook" }
   }
 }

@@ -50,6 +50,7 @@ import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images
 import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -573,7 +574,7 @@ try {
     try {
       const id = (url.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
       if (id) {
-        const cleanUrl = `https://note.com/dobokunote/n/${id}`;
+        const cleanUrl = `${NOTE_BASE}/n/${id}`;
         let upd = raw;
         upd = setFmField(upd, 'noteUrl', `"${cleanUrl}"`);
         upd = setFmField(upd, 'noteId', `"${id}"`);

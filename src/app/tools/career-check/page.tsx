@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { CAREER_HUB_ENTRIES, CAREER_HUB_SLUG } from "@/config/career-pathways";
 import CareerCheckClient from "./CareerCheckClient";
 import { getPublicDocPath } from '@/lib/content-routes';
+import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: "土木施工管理キャリア整理ツール｜資格・工種・工事規模・立場を棚卸しする",
@@ -16,11 +18,11 @@ export const metadata: Metadata = {
     title: "土木施工管理キャリア整理ツール｜経験の棚卸し",
     description:
       "資格・工種・工事規模・立場で経験を棚卸し。転職可否や年収は判定せず、論点と確認事項を整理します。登録不要・入力は保存されません。",
-    url: "https://doboku-note.com/tools/career-check",
+    url: `${SITE_ORIGIN}/tools/career-check`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "土木施工管理キャリア整理ツール — doboku-note",
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "土木施工管理キャリア整理ツール｜経験の棚卸し",
     description: "資格・工種・工事規模・立場で経験を棚卸し。転職可否や年収は判定しません。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

@@ -23,6 +23,7 @@
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { classifyPage, missingHeaders, parseSitemapLocs, splitCurlOutput, summarize } from './lib/production-sweep.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
 const run = promisify(execFile);
 const args = process.argv.slice(2);
@@ -30,7 +31,7 @@ const opt = (name, dflt) => {
   const i = args.indexOf(name);
   return i >= 0 && args[i + 1] ? args[i + 1] : dflt;
 };
-const SITE = opt('--site', 'https://doboku-note.com');
+const SITE = opt('--site', SITE_ORIGIN);
 const CONCURRENCY = Number(opt('--concurrency', 8));
 const SAMPLE = Number(opt('--sample', 0));
 const JSON_OUT = args.includes('--json');

@@ -32,10 +32,10 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CREATOR = 'dobokunote';
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 

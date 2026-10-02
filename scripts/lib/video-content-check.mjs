@@ -15,11 +15,20 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { videoStatusToStage } from './content-lifecycle.mjs';
+import { channelFamily } from './utm-channels.mjs';
 
 const CONFIG_PATH = 'config/video-content.json'; // path-literal-ok: tests/video-publication-check.test.mjs が lib を単体で tmp にコピーして走らせる（datasets.mjs・zod が解決できない）
+const UTM_TEMPLATES_PATH = 'config/utm-templates.json'; // path-literal-ok: 同上（台帳 id: config.utm-templates）
 
+/**
+ * 動画パックの契約（config/video-content.json）を読む。
+ * 概要欄・台本の送客リンクの UTM の期待値（config.utm = { source, medium, contentEnum }）は、
+ * video-content.json に持たず UTM の契約（config/utm-templates.json の youtube.*）から作る（同じ値の別宣言を持たない）。
+ */
 export function loadConfig(root) {
-  return JSON.parse(readFileSync(join(root, CONFIG_PATH), 'utf8'));
+  const config = JSON.parse(readFileSync(join(root, CONFIG_PATH), 'utf8'));
+  const youtube = channelFamily(JSON.parse(readFileSync(join(root, UTM_TEMPLATES_PATH), 'utf8')), 'youtube');
+  return { ...config, utm: { source: youtube.source, medium: youtube.medium, contentEnum: [...youtube.contents].sort() } };
 }
 
 function issue(severity, code, packId, message) {

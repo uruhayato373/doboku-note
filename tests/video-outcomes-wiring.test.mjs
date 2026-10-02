@@ -12,6 +12,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadConfig } from '../scripts/lib/video-content-check.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
@@ -38,12 +39,13 @@ test('fetch-metrics.yml が campaign スナップショットを取得する', (
   assert.match(wf, /ci-data\.mjs add --paths data/, 'data/ が commit 対象でない');
 });
 
-test('UTM 契約: campaign は packId・source は youtube・content は longform|shorts', () => {
-  const cfg = JSON.parse(read('config/video-content.json'));
-  assert.equal(cfg.utm.source, 'youtube');
-  assert.equal(cfg.utm.medium, 'video');
-  assert.equal(cfg.utm.campaign, '{packId}');
-  assert.deepEqual(cfg.utm.contentEnum, ['longform', 'shorts']);
+test('UTM 契約: source は youtube・medium は video・content は longform|shorts（正本は utm-templates.json の youtube.*）', () => {
+  // 動画パックの契約 video-content.json に UTM の別宣言を持たない。検査が使う期待値は utm-templates.json から作る。
+  assert.equal(JSON.parse(read('config/video-content.json')).utm, undefined, 'video-content.json に utm を持たせない');
+  const { utm } = loadConfig(ROOT);
+  assert.equal(utm.source, 'youtube');
+  assert.equal(utm.medium, 'video');
+  assert.deepEqual(utm.contentEnum, ['longform', 'shorts']);
 });
 
 test('動画成果ビューが読むスナップショット prefix と fetcher の出力名が一致する', () => {

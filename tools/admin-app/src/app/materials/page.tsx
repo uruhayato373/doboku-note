@@ -4,6 +4,7 @@ import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
 import categories from '../../../../../src/config/categories.json';
+import { SITE_ORIGIN } from '../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,7 +29,6 @@ type Summary = ReturnType<typeof sourceSummary>;
 type SitePage = { slug: string; title: string; category: string; group: string | null; published: boolean; url: string | null; units: number; impressions: number; clicks: number };
 type Wiring = { bySource: Map<string, SitePage[]>; byPage: Map<string, { sourceId: string; units: number }[]>; gsc: { file: string | null; period: string | null } };
 
-const SITE = 'https://doboku-note.com';
 const categoryLabel = (slug: string) => (categories as { slug: string; label: string }[]).find((c) => c.slug === slug)?.label ?? slug;
 const groupLabels: Record<string, string> = { keyword: 'キーワード', guide: 'ガイド', textbook: 'テキスト', 'past-exam': '過去問', primary: '一次過去問', secondary: '二次過去問', pillar: 'ピラー' };
 const fmt = (n: number) => n.toLocaleString('ja-JP');
@@ -285,7 +285,7 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
                 return (
                   <TableRow key={p.slug}>
                     <TableCell className="whitespace-normal max-w-[420px]">
-                      {p.url ? <a href={`${SITE}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
+                      {p.url ? <a href={`${SITE_ORIGIN}${p.url}`} target="_blank" rel="noreferrer">{p.title}</a> : p.title}
                     </TableCell>
                     <TableCell>{p.published ? <span className="text-xs">公開</span> : <StatusBadge tone="warn">非公開</StatusBadge>}</TableCell>
                     <TableCell className={numCol}>{p.units}</TableCell>

@@ -20,12 +20,12 @@ import { readFileSync, existsSync } from "node:fs";
 import dotenv from "dotenv";
 import { pathToFileURL } from "node:url";
 import { datasetPath } from "../../../scripts/lib/datasets.mjs";
+import { GSC_PROPERTY, SITE_ORIGIN } from "../../../scripts/lib/site-identity.mjs";
 
 dotenv.config({ path: ".env.local" });
 
-const GSC_SITE_URL = "sc-domain:doboku-note.com";
 const GSC_DELAY_DAYS = 3; // GSC data has ~3 day delay
-const PSI_TARGET_URL = "https://doboku-note.com/"; // デフォルトは root 1 URL のみ計測
+const PSI_TARGET_URL = `${SITE_ORIGIN}/`; // デフォルトは root 1 URL のみ計測
 
 // ── Date helpers ─────────────────────────────────────────────────
 
@@ -290,9 +290,9 @@ async function fetchGscWeekly(credentials, ranges) {
   });
 
   const [thisTotal, prevTotal, topQueries] = await Promise.all([
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end),
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.prev.start, ranges.prev.end),
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end, {
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.this.start, ranges.this.end),
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.prev.start, ranges.prev.end),
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.this.start, ranges.this.end, {
       dimensions: ["query"],
       rowLimit: 10,
     }),

@@ -15,6 +15,7 @@
 import { extractMdx } from '#lib/sns-common/mdx-extract.mjs';
 import { fetchImageForKeyword } from '#lib/sns-common/image-search.mjs';
 import { SNS_CONFIG, detectManagement } from '#lib/sns-common/sns-config.mjs';
+import { SITE_HOST } from '#seo/site-identity.mjs';
 
 /**
  * MDX から storyboard を組む（ファイル読み込みあり）。
@@ -89,7 +90,7 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
       data: {
         headline: 'もっと詳しく',
         subline: 'doboku-note で全文を読む',
-        url: 'doboku-note.com',
+        url: SITE_HOST,
       },
     },
   ];

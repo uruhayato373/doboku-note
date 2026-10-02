@@ -32,6 +32,7 @@ import { dirname, join } from "path";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { GSC_PROPERTY } from "../../scripts/lib/site-identity.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -119,7 +120,7 @@ async function getTopUrlsFromGsc(auth, top) {
   const fmt = (d) => d.toISOString().split("T")[0];
 
   const res = await searchconsole.searchanalytics.query({
-    siteUrl: "sc-domain:doboku-note.com",
+    siteUrl: GSC_PROPERTY,
     requestBody: {
       startDate: fmt(start),
       endDate: fmt(end),
