@@ -25,15 +25,29 @@
       },
       "output": {
         "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
-        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp?v=922633f4c138",
-        "sha256": "922633f4c13854a3d4f72c9a971dcea51932558fc052e480283cef66ab50221a",
-        "bytes": 139326,
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp?v=d17bf0108e2f",
+        "sha256": "d17bf0108e2f7c17c570c0d12c91d0595318467a4df52d9e36db28c7472e94cc",
+        "bytes": 131940,
         "quality": 85
       },
       "review": {
         "date": "2026-10-02",
-        "result": "原寸・幅360px・サイト配置で判読、文字切れ、人物、縦横比を確認"
-      }
+        "result": "原寸と文字部分の拡大で判読・文字の縁のにじみなし・構図不変を確認。375px のサイト表示は本番反映後に確認"
+      },
+      "edits": [
+        {
+          "date": "2026-10-02",
+          "operation": "button-recolor",
+          "reason": "ボタンの白文字と背景のコントラストを 4.5:1 以上にする（DN-0513。旧版は 2.22〜3.59:1）",
+          "method": "ボタン領域（x 65–933, y 664–824）の緑みの強い画素だけを緑の度合いに応じて最大 0.6 倍に暗くした決定的な補正。構図・人物・コピー・比率は不変",
+          "contrast": "ボタン画素の 95% が白文字に対し 4.96:1 以上（中央値 6.65:1）",
+          "previous": {
+            "sha256": "922633f4c13854a3d4f72c9a971dcea51932558fc052e480283cef66ab50221a",
+            "bytes": 139326,
+            "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp?v=922633f4c138"
+          }
+        }
+      ]
     },
     "tile": {
       "format": {
