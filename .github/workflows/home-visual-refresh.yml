@@ -1,0 +1,43 @@
+name: Refresh approved home snapshots
+on:
+  push:
+    branches: [codex/home-simple-teacher]
+    paths: [.github/workflows/home-visual-refresh.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Read CI screenshots
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 36952656474 -n playwright-e2e-1 -D /tmp/home-e2e
+      - name: Update only approved home images
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import shutil
+          root = Path('/tmp/home-e2e/test-results')
+          destinations = Path('e2e/visual.spec.ts-snapshots')
+          updated = 0
+          for mode in ('light', 'dark'):
+              for project in ('desktop-chromium', 'mobile-chromium'):
+                  matches = list(root.glob(f'**/{mode}-home-actual.png'))
+                  matches = [p for p in matches if project in str(p.parent)]
+                  if not matches:
+                      raise RuntimeError(f'No actual screenshot for {mode} {project}')
+                  shutil.copy2(matches[0], destinations / f'{mode}-home-{project}-linux.png')
+                  updated += 1
+          print(f'Updated {updated} approved home screenshots')
+          PY
+      - name: Preserve Linux baselines on the task branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- e2e/visual.spec.ts-snapshots/light-home-desktop-chromium-linux.png e2e/visual.spec.ts-snapshots/light-home-mobile-chromium-linux.png e2e/visual.spec.ts-snapshots/dark-home-desktop-chromium-linux.png e2e/visual.spec.ts-snapshots/dark-home-mobile-chromium-linux.png
+          git commit -m 'test(home): refresh approved Linux visual baselines'
+          git push origin HEAD:codex/home-simple-teacher
