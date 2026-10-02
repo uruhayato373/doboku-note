@@ -54,5 +54,20 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "全35問（Ⅲ-1〜Ⅲ-35）の見出しが連番で揃っている。frontmatterにtitle/category/group/published/source_pdfすべて存在。ExamPoint・detailsとも35個で一致。原典PDF全20ページを視覚照合完了。設問番号・問題文先頭・選択肢数（全問5択）・問いの極性（Ⅲ-13のみ最も適切、他は最も不適切）・図の有無（Ⅲ-1,Ⅲ-5,Ⅲ-6,Ⅲ-17に図あり）すべてMDXと一致。Ⅲ-17の正答表記のみ不一致（answer_checkに記載）。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T22:45:00+09:00",
+    "task": "DN-0504",
+    "items": [
+      {
+        "q": "Ⅲ-13",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.engineer.or.jp/c_topics/011/011517.html",
+          "https://www.engineer.or.jp/c_topics/011/attached/attach_11517_2.pdf"
+        ],
+        "note": "日本技術士会の正答訂正: 当初正答②は法律名の誤りで正答の選択肢なし・選択者全員に得点。記事・演習の注記を断定へ（PR #844）"
+      }
+    ]
   }
 }
