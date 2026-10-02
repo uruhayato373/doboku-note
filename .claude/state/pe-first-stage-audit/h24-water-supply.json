@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h24-water-supply",
+  "year": "H24",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T13:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典17ページを1問ずつ照合し、問題文・選択肢・極性・Ⅳ-13の表画像が原典と一致、公式正答35問は全件一致、Ⅳ-28・Ⅳ-30は再計算して一致。Ⅳ-5の高分子凝集剤の根拠不明な基準記述、Ⅳ-16の水質基準項目数の記述、Ⅳ-17の放射性セシウムの吸着剤の記述を、確認できる範囲の表現へ修正。"
+  }
+}
