@@ -503,12 +503,12 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 > 同じ表現が全ページに残る（2026-08-12 に「採点者に伝わる答案へ」が全13ページで実際に発生）。
 > 文言の一括是正は listings / カタログ / サムネ ＋ **bio** の4面を見て、最後にライブ実査する。
 
-**商品画像（サービスサムネ）**: 2026-09-27 に公開中18商品を、資格名・商品名・技術士〈総合技術監理部門〉を大きく見せるキャラクター入り POP 意匠へ統一。1級土木＝青、2級土木＝緑、コンクリート主任技士＝紫。価格・doboku-note の文字は入れず、添削／指導／PDF教材で訴求を分ける。画像生成後、日本語・冊数・対象テーマを目視確認した承認原本を使う。原本の対応と SHA-256 は `config/coconala-thumb-approved.json`、実体は `assets/pop-20260927/`（Drive vault の coconala-asset）に保存。既存CLIは未登録商品に写真＋satoriを使うフォールバックを持つ。新規商品の制作は `/create-pop-image` で行い、承認後に画像台帳へ登録する。
+**商品画像（サービスサムネ）**: 2026-09-27 に公開中18商品を、資格名・商品名・技術士〈総合技術監理部門〉を大きく見せるキャラクター入り POP 意匠へ統一。1級土木＝青、2級土木＝緑、コンクリート主任技士＝紫。価格・doboku-note の文字は入れず、添削／指導／PDF教材で訴求を分ける。画像生成後、日本語・冊数・対象テーマを目視確認した承認原本を使う。原本の対応と SHA-256 は `data/coconala/thumb-approved.json`、実体は `assets/pop-20260927/`（Drive vault の coconala-asset）に保存。既存CLIは未登録商品に写真＋satoriを使うフォールバックを持つ。新規商品の制作は `/create-pop-image` で行い、承認後に画像台帳へ登録する。
 
 | スクリプト | 役割 |
 |---|---|
 | `scripts/gen-image-gemini.mjs --out <png> --prompt "..."` | Gemini 画像 API（`gemini-2.5-flash-image`・`.env.local` の `GEMINI_API_KEY`）で背景写真を生成。**API 課金・1呼び出し=1枚**。プロンプトは brand-image-system §5 準拠（明るく低コントラスト・青トーン・文字/人物なし・左に文字余白） |
-| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | config/coconala-thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
+| `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
 素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。
 

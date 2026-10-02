@@ -55,9 +55,9 @@ export function loadMarketInputs(root) {
   const orderLog = readIf(join(root, datasetPath('coconala.orders')));
   /** @type {Record<string, any[]>} */
   const competitors = {};
+  const tracked = config('competitors');
   for (const ch of COMPETITOR_CHANNELS) {
-    const path = join(root, datasetPath(`config.${ch}-competitors`));
-    competitors[ch] = existsSync(path) ? readJson(path).competitors ?? [] : [];
+    competitors[ch] = tracked[ch === 'ig' ? 'instagram' : ch]?.competitors ?? [];
   }
   return {
     registry: config('qualification-registry'),

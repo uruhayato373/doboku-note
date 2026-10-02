@@ -115,7 +115,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 
 ## フォントサイズと改行
 
-- `pickFontSize` は `fontSizeTable: [76, 68, 60, 54, 48, 42]`（`config/ogp/text.json`）を上から試し、**全行が `safetyWidth: 1010px` に収まる最大サイズ**を選ぶ。上限 76px。
+- `pickFontSize` は `fontSizeTable: [76, 68, 60, 54, 48, 42]`（`config/ogp/settings.json` の text）を上から試し、**全行が `safetyWidth: 1010px` に収まる最大サイズ**を選ぶ。上限 76px。
 - **縦フィット（2026-06-28〜）**: `pickFontSize` は横幅のみ合わせるため、行数が多いと固定の縦スペースを溢れて行が重なっていた。`renderMonoTag` が描画時に **縦スペース（`contentHeight` − ワードマーク行 − チップ）に収まるよう font を `FONT_FLOOR: 34px` まで縮小**し、最小でも収まらない病的な長文だけ **行数をクランプして `…` を付す**（横幅制約は緩めない＝小さくするだけ）。3 行以下は 76px 維持、4 行以上は自動縮小。
 - タイトル改行は 4 層戦略（`frontmatter.ogp.title` の `\n` → 記号直前 → スペース分割 → BudouX → `charCountFallback: 13` 字）。詳細は SKILL.md「4 層の日本語改行戦略」。
 - 長いタイトル（目安 6 行以上＝`…` でクランプされる）は `frontmatter.ogp.title` に短い OGP 専用見出し（`\n` 改行可）を与えると大きく・切れずに出る。自動生成の長い過去問タイトル（`技術士第二次試験 建設部門 令和X年度 …`）等が該当。
@@ -183,13 +183,13 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 
 ## 旧 5 種テンプレ（撤去済み・履歴）
 
-背景画像 (`assets/fonts/ogp-backgrounds/dark-wood.png` `blackboard.png` 等) は履歴として残置するが、現運用では参照されない。カテゴリ別出し分けが将来再び必要になったら `config/ogp/rules.json` の `rules[]` を復活させる。
+背景画像 (`assets/fonts/ogp-backgrounds/dark-wood.png` `blackboard.png` 等) は履歴として残置するが、現運用では参照されない。カテゴリ別出し分けが将来再び必要になったら `config/ogp/settings.json` の rules の `rules[]` を復活させる。
 
 ## テンプレ追加の手順（将来）
 
 1. このファイル（出典・用途・変更履歴）に追記
-2. `config/ogp/templates.json`（レジストリ）に ID を追加
+2. `config/ogp/settings.json` の templates（レジストリ）に ID を追加
 3. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に `render{XYZ}` を追加（`(props, { width, height }) => element` シグネチャ）
-4. 必要なら `config/ogp/rules.json` にルール追加
+4. 必要なら `config/ogp/settings.json` の rules にルール追加
 5. 背景画像が必要なら `.claude/skills/conversion/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置
 6. `npm run ogp-gallery` で一覧目視検証（mono-tag は全幅。中央クロップ耐性が要るテンプレのみ別途セーフ幅を検証）

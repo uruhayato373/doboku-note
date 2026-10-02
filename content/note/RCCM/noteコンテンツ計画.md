@@ -35,7 +35,7 @@
 - L1 コンテンツ総合案内 → L2 `RCCMもくじ` → L3 各記事の `cta:rccm-mokuji`（`config/note-funnel.json` `exams.rccm`）。
 - サイト: `/exam/rccm/` ガイド（PR `feat/rccm-vertical`）の article-top CTA → `rccm-mondai3-magazine`。
 - ココナラ: `coconala-rccm-mondai3-tensaku` ¥6,000／`coconala-rccm-mondai1-shindan` ¥2,000／`coconala-rccm-mondai3-pdf` ¥3,000。
-- X: `config/x-campaigns/2026-10-rccm.json`（9/29〜10/30・1 本/日）。
+- X: `content/sns/x/campaigns/2026-10-rccm.json`（9/29〜10/30・1 本/日）。
 
 ## 5. 2027 サイクル
 

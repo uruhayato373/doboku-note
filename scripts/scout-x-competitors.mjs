@@ -2,7 +2,7 @@
 /**
  * scout-x-competitors.mjs — X(旧Twitter) 競合の時系列偵察（read-only）
  * ---------------------------------------------------------------------------
- * config/x-competitors.json の各競合の公開プロフィール統計（フォロワー/総投稿数）と
+ * config/competitors.json の x の各競合の公開プロフィール統計（フォロワー/総投稿数）と
  * 直近投稿（エンゲージ・更新頻度）を **agent-reach の twitter CLI** で取得し、共通 snapshot
  * schema（profile/counts/cadence/platformExtra/drift）へ正規化して時系列に落とす。前回比 drift
  *（フォロワー増減・投稿増・エンゲージ変化）を機械検出する。
@@ -33,7 +33,7 @@ import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, datasetPath('config.x-competitors'));
+const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 x
 
 // twitter CLI の解決（agent-reach バックエンド。~/.local/bin を優先）
 const TW = [join(process.env.HOME || '', '.local/bin/twitter'), 'twitter'].find(
@@ -181,7 +181,7 @@ function main() {
   }
   let competitors;
   if (HANDLE_OVERRIDE) competitors = [{ handle: HANDLE_OVERRIDE }];
-  else competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).competitors ?? [];
+  else competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).x.competitors ?? [];
   if (competitors.length === 0) { console.error('ERROR: 対象ハンドルがありません。'); process.exit(1); }
   if (competitors.length > 15) { console.error('ERROR: 安全弁＝1回 ≤15 プロフィール。config を分割してください。'); process.exit(1); }
   const PARTIAL = Boolean(HANDLE_OVERRIDE);

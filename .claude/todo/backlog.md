@@ -337,10 +337,19 @@
 **完了条件**: 変更をデプロイし、4 週間後（2026-11 初め）の GSC で一次試験ページのインデックス数・表示回数、Bing で「技術士一次試験 過去問」系のクリックを変更前（本カードの数値）と比べて記録する。
 
 
+### [DN-0514] config/ の読み手の多い設定 4 種に型（zod）を付ける
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
+
+**起点**: DN-0498 で data/ の台帳 24 データセットに型を付けた（`scripts/lib/dataset-schemas.mjs`）。config/ は手を付けていない。ADR `data-storage-decision.md` の進め方 4 で優先と決めた `qualification-registry`（読み手 32）・`domains`（24）・`product-lineup`（14）・`coconala-listings`（更新が多い）が残る。
+
+**やること**: 4 ファイルの型を書き、台帳の `schema` で結ぶ。資格 id の照合のようなファイル間の整合は既存の `check-*` に残し、型は形だけを見る（同じ判定を 2 か所に書かない）。
+
+**完了条件**: `npm run check-datasets` の型ありが 28 になり違反 0。既存の `check-qualification-ssot` など各ファイルの検査がそのまま通る。
+
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
 
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard-civil2.json`）・カバー設定（`config/note-character-covers.json`）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
+**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
 
 **やること**:
 1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
@@ -924,7 +933,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
 
-**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。残りは Mac 分。
+**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。Mac 分も同日に手順 1〜3 を実施（`.claude/` 側の取り残し 0 件、`data/metrics/` の gsc-ui 3 回分・a8-ui 6 回分を `data/gsc/ui/`・`data/a8/ui/` へ移して旧ディレクトリを削除）し、`.gitignore` の移行中の行を消した。残りは Mac の定期処理の次回実行が `data/` へ書いていることの確認だけ。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]

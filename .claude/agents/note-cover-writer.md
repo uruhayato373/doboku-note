@@ -96,6 +96,6 @@ generate: 32 covers 再生成
 ## 担当外
 
 - **描画実装・色定義** — `scripts/lib/note-character-cover.mjs`（V5）/ tokens
-- **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（同じ V5 描画・濃色。文言は `note-cover-magazine-v4.json`）
+- **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（同じ V5 描画・濃色。文言は `config/note-covers.json` の magazineText）
 - **本文・図版の編集** — 別工程
 - **公開済み記事のライブ反映** — 別工程。本エージェントは `cover:` 執筆＋PNG 再生成まで。**すでに公開済みの記事**は、`cover:` を直して develop へ入れれば Mac の週次 note-sync（`scripts/note-sync-routine.mjs`・本文やタグの変更と 1 回の更新にまとめる）が差し替える。急ぐときは `npm run note-update-body -- --parts cover --article <path> --commit`（有料境界は動かさない）でライブ差し替えする。真実源 → `.claude/knowledge/design-system/note-cover.md`「ライブ反映」

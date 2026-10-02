@@ -87,7 +87,7 @@ test('mapExamCalendar: 不正な日付形式の event はスキップして skip
 
 test('mapXCampaign: posts[] を plan-slot イベントへ写像する', () => {
   const json = { posts: [{ date: '2026-09-01', time: '07:15', slot: 'A', exam: 'civil-1', type: '共感フック', funnel: 'linkless' }] };
-  const [ev] = mapXCampaign(json, 'config/x-campaigns/2026-09-civil.json');
+  const [ev] = mapXCampaign(json, 'content/sns/x/campaigns/2026-09-civil.json');
   assert.equal(ev.date, '2026-09-01');
   assert.equal(ev.time, '07:15');
   assert.equal(ev.kind, 'plan-slot');
