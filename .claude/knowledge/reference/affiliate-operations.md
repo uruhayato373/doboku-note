@@ -309,7 +309,7 @@ TS 設定（`career-pathways.ts`）も数える。MDX だけを走査すると�
 career 記事 38 本の GSC クリックは**全件 0**で、高意図クエリも 28 日で表示 7・クリック 0。
 入口に人が来ていない状態で note 側の受け皿を先に作っても、空の漏斗を長くするだけになる。
 
-**着手条件**: EXP-008（`data/experiments.json`）の 28 日評価で
+**着手条件**: EXP-008（`data/business/experiments.json`）の 28 日評価で
 career の GSC クリックが 0 から動き、hub → 柱の遷移が観測できたとき。
 そのとき初めて note 側へ広げる。条件を満たさなければ作らない判断も含めて、実験の close で決める。
 

@@ -14,7 +14,7 @@
  *   - 1 か月 1 行。追記のみで、既存行は上書きしない（`--force` で明示的に置換）
  *   - 2027 年に初めて前年同期比が成立する。それまでは試験日 × 売上曲線が判定手段
  *
- * 出力: data/metrics/monthly-snapshot.json
+ * 出力: data/business/monthly-snapshot.json
  *   { month, organicUsers, gscClicks, gscImpressions, salesYen, salesCount, examEvents[], sources{} }
  *
  * Usage:
@@ -32,9 +32,11 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 // 記録する日付は JST 基準。toISOString() は UTC なので JST 00:00〜08:59 に走らせると前日付になる。
 import { todayJst } from './lib/jst-date.mjs';
+import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, 'data/metrics/monthly-snapshot.json');
+const OUT = join(ROOT, datasetPath('business.monthly-snapshot'));
 const JSON_OUT = process.argv.includes('--json');
 const FORCE = process.argv.includes('--force');
 
@@ -73,12 +75,12 @@ function main() {
   let salesYen = null;
   let salesCount = null;
   try {
-    const sales = readJson(join(ROOT, 'data/note/sales.json')).sales ?? [];
+    const sales = readJson(join(ROOT, datasetPath('note.sales'))).sales ?? [];
     const inMonth = sales.filter((s) => String(s.date ?? '').startsWith(month));
     salesYen = inMonth.reduce((a, s) => a + (Number(s.price) || 0), 0);
     salesCount = inMonth.length;
   } catch (e) {
-    console.error(`✗ 検査不成立: data/note/sales.json を読めない（${e.message}）`);
+    console.error(`✗ 検査不成立: ${datasetPath('note.sales')} を読めない（${e.message}）`);
     process.exit(1);
   }
 
@@ -86,11 +88,11 @@ function main() {
   //    値そのものより **どの窓を見た数字か** が後から効くので、期間もそのまま記録する。 ──
   // **ga4-sourceMedium-sns- は SNS 限定**（note/referral と x/social しか入っていない）ので
   // organic を数えると必ず 0 になる。チャネル別スナップショット（sessionDefaultChannelGroup）を使う。
-  const ga4File = latest('data/metrics/ga4', 'ga4-channel-organic-');
+  const ga4File = latestReportRef(ROOT, 'ga4.channel-organic');
   let organic = null;
   let ga4Window = null;
   if (ga4File) {
-    const g = readJson(ga4File);
+    const g = readJsonOrReport(ROOT, ga4File);
     ga4Window = `${g.meta?.startDate}〜${g.meta?.endDate}`;
     const organicRows = (g.rows ?? []).filter((r) => /organic/i.test(String(r.channel ?? '')));
     // 0 件なら「organic が 0」ではなく「想定した行が無い」＝ null で記録し、後から誤読させない
@@ -101,12 +103,12 @@ function main() {
 
   // gsc-query-*（query 次元）は匿名化クエリが落ちるため合計が過小になる（2026-08 実測: 28 日で 7 クリック）。
   // 日次合計（gsc-date-*・次元 date）は落ちないので、こちらを合計する。窓は 8 日なので sources に残す。
-  const gscFile = latest('data/metrics/gsc', 'gsc-date-') ?? latest('data/metrics/gsc', 'gsc-query-');
+  const gscFile = latestReportRef(ROOT, 'gsc.date') ?? latestReportRef(ROOT, 'gsc.query');
   let gscClicks = null;
   let gscImpr = null;
   let gscWindow = null;
   if (gscFile) {
-    const g = readJson(gscFile);
+    const g = readJsonOrReport(ROOT, gscFile);
     gscWindow = `${g.meta?.startDate}〜${g.meta?.endDate}`;
     gscClicks = (g.rows ?? []).reduce((a, r) => a + (Number(r.clicks) || 0), 0);
     gscImpr = (g.rows ?? []).reduce((a, r) => a + (Number(r.impressions) || 0), 0);
@@ -115,9 +117,9 @@ function main() {
   // ── その月の試験イベント（季節性の説明変数。売上曲線と重ねて読む） ──
   const examEvents = [];
   try {
-    const cal = readJson(join(ROOT, 'config/exam-calendar.json'));
+    const cal = readJson(join(ROOT, datasetPath('config.exam-calendar')));
     // 展開中の資格だけ（候補資格の日程も exam-calendar に蓄積しているが、売上の説明変数には混ぜない）
-    const active = new Set(activeIds(readJson(join(ROOT, 'config/qualification-registry.json'))));
+    const active = new Set(activeIds(readJson(join(ROOT, datasetPath('config.qualification-registry')))));
     for (const [key, ex] of Object.entries(cal.exams ?? {})) {
       if (!active.has(key)) continue;
       for (const ev of Object.values(ex.events ?? {})) {

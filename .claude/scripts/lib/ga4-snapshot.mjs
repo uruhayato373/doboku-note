@@ -2,7 +2,7 @@
  * ga4-snapshot.mjs — GA4 CTA スナップショットの「窓」を決める・選ぶ（DN-0062）
  *
  * なぜ共有 lib にするか:
- *   `data/metrics/ga4/` のスナップショットは複数のレポートが消費する
+ *   GA4 のレポート（data/ga4/reports/<日付>.json）は複数のレポートが消費する
  *   （report-buildjob-affiliate、および今後の career ファネルレポート）。選択ロジックを
  *   各レポートに複製すると、窓の扱いがレポートごとにズレる。ズレると同じデータから
  *   違う EPC が出るので、選択は 1 実装に集約する。
@@ -14,8 +14,7 @@
  *   黙って負ける**（辞書順の最後が勝つため）。そこで meta.windowKind で選ぶ。
  */
 
-import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { listReports } from "../../../scripts/lib/metric-reports.mjs";
 
 /** `--days` の既定（前日を終端とする N 日）。 */
 export const DEFAULT_DAYS = 28;
@@ -69,45 +68,22 @@ export function resolveWindow(opts = {}) {
  * 月次窓があればその中で最新を、無ければ従来どおり取得時刻が最新のものを返す。
  * **windowKind 未設定の既存ファイルは "days"（28 日窓）として扱う**。
  *
- * @param {string} dir スナップショットのディレクトリ
- * @returns {string|null} 選ばれたファイルの絶対/相対パス。候補が無ければ null
+ * @param {string} [root] リポジトリのルート
+ * @returns {string|null} 選ばれたレポートの参照（「ファイル#枠」）。候補が無ければ null
  */
-export function pickByLabelSnapshot(dir) {
-  if (!existsSync(dir)) return null;
-  const files = readdirSync(dir)
-    .filter((f) => f.startsWith("ga4-cta-clicks-by-label-") && f.endsWith(".json"))
-    .sort();
-  if (!files.length) return null;
-
-  const monthly = [];
-  for (const f of files) {
-    const full = join(dir, f);
-    try {
-      if (JSON.parse(readFileSync(full, "utf8"))?.meta?.windowKind === "month") monthly.push(full);
-    } catch {
-      // 壊れた JSON は候補から外すだけ。ここで落とすとレポート全体が読めなくなる。
-    }
-  }
-  return monthly.length ? monthly[monthly.length - 1] : join(dir, files[files.length - 1]);
+export function pickByLabelSnapshot(root = ".") {
+  const all = listReports(root, "ga4.cta-clicks-by-label");
+  if (!all.length) return null;
+  return (all.find((r) => r.data?.meta?.windowKind === "month") ?? all[0]).ref;
 }
 
 /**
- * GA4×GSC crosswalk 用の GSC ページ別スナップショットを選ぶ。
+ * GA4×GSC crosswalk 用の GSC ページ別レポートを選ぶ。
+ * 水曜の index-coverage.yml が書く 1000 行打ち切り版（meta.truncated）を拾わず、最新を返す。
  *
- * `gsc-page-` の前方一致だけで選ぶと `gsc-page-query-*`（page×query・名前順で末尾）を拾い、
- * 1 ページ 1 クエリ行の値で突合して機会表が毎週空になっていた（2026-09 発覚）。
- * 日付が直後に続くページ別ファイルのうち、`meta.truncated` でない最新を返す
- * （水曜の index-coverage.yml が書く 1000 行打ち切り版を拾わない）。
- *
- * @param {string[]} names ディレクトリ内のファイル名
- * @param {(name: string) => object|null} readMeta ファイル名 → meta（読めなければ null）
- * @returns {string|null} 選ばれたファイル名
+ * @param {string} [root] リポジトリのルート
+ * @returns {string|null} 選ばれたレポートの参照（「ファイル#枠」）
  */
-export function pickGscPage(names, readMeta) {
-  const candidates = names.filter((f) => /^gsc-page-\d{4}-/.test(f) && f.endsWith(".json")).sort().reverse();
-  for (const name of candidates) {
-    const meta = readMeta(name);
-    if (meta && meta.truncated !== true) return name;
-  }
-  return null;
+export function pickGscPage(root = ".") {
+  return listReports(root, "gsc.page").find((r) => r.data?.meta && r.data.meta.truncated !== true)?.ref ?? null;
 }

@@ -24,6 +24,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
+import { datasetPath } from './lib/datasets.mjs';
 
 const NAME = 'check-scheduled-exec-branch';
 const WF_DIR = '.github/workflows';
@@ -37,8 +38,8 @@ const IMPORT_DEPTH = 2;
 
 // コードではないが定期ジョブの挙動を変える設定ファイル。エントリと同じ workflow に紐づける。
 const CONFIG_OF_ENTRY = {
-  '.claude/scripts/fetch-psi-data.mjs': ['config/psi-urls.txt'],
-  '.claude/scripts/lint-mdx-mobile.mjs': ['config/content-rules.json'],
+  '.claude/scripts/fetch-psi-data.mjs': [datasetPath('config.psi-urls')],
+  '.claude/scripts/lint-mdx-mobile.mjs': [datasetPath('config.content-rules')],
 };
 
 // ── git ──

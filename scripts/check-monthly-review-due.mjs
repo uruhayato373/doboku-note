@@ -7,7 +7,7 @@
  * 回し忘れると月間計画がずれたまま進む。週次（check-weekly-review-due）と同じく「忘れる」を止める。
  *
  * 判定（JST）: 毎月 DUE_DAY 日以降、前月を対象にした月次レビューの記録
- *   （data/metrics/business/review-*.json のうち cadence:"monthly" かつ period.startDate が前月 1 日）
+ *   （data/business/records/review-*.json のうち cadence:"monthly" かつ period.startDate が前月 1 日）
  *   が無ければ DUE（exit 1・1 行）。DUE_DAY より前は無言（月初の数日は計測の確定待ち）。
  *
  * 使い方:
@@ -18,9 +18,10 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { datasetDir } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const REVIEW_DIR = join(ROOT, 'data/metrics/business');
+const REVIEW_DIR = join(ROOT, datasetDir('business.review'));
 export const DUE_DAY = 3;
 
 /**

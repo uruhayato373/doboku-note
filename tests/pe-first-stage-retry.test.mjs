@@ -1,14 +1,22 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 let dataset;
 before(() => {
-  execFileSync(process.execPath, ['scripts/build-quiz-data.mjs'], { cwd: root, stdio: 'pipe' });
-  dataset = JSON.parse(readFileSync(root + 'public/quiz/pe-first-stage.json', 'utf8'));
+  // 追跡中の public/quiz を書き換えないよう一時ディレクトリへ生成する（DN-0511）
+  const out = mkdtempSync(join(tmpdir(), 'quiz-'));
+  try {
+    execFileSync(process.execPath, ['scripts/build-quiz-data.mjs', '--out-dir', out], { cwd: root, stdio: 'pipe' });
+    dataset = JSON.parse(readFileSync(join(out, 'pe-first-stage.json'), 'utf8'));
+  } finally {
+    rmSync(out, { recursive: true, force: true });
+  }
 });
 
 test('通常のR1と再試験は80問ずつの独立した実施回・問題IDを持つ', () => {

@@ -80,7 +80,7 @@ PE で型を作り、Civil へ流用した。
 **C1: 本 SEO 群の効果判定**（デプロイ起点 2026-06-02 ＋ 約4週が目安。新規ページのインデックス・順位確立に数週かかるため）。
 
 **データ源（新規取得は不要）**: 既存自動計測を参照する。
-- 金 06:00 JST の CI `fetch-metrics.yml` が `npm run fetch-gsc-data` で `data/metrics/gsc/`（`gsc-query-*` / 7日窓 `gsc-date-*`）にコミット。
+- 金 06:00 JST の CI `fetch-metrics.yml` が `npm run fetch-gsc-data` で `data/gsc/reports/`（`gsc.query` / 7日窓 `gsc.date`）にコミット。
 - 日 22:03 JST のクラウドルーティン `doboku-note weekly PDCA` が上記を読み review + PR。
 - → C1 は「~6/30 頃の週次レビュー時に、下記の軸で**この実験固有の効果**を見る」だけでよい。専用ルーティンは作らない（routine 重複禁止の教訓）。
 
@@ -109,4 +109,4 @@ PE で型を作り、Civil へ流用した。
 - 雛形: `content/site/civil-construction-1/guide-exam-overview/article.mdx`（guide 構造）
 - コンポーネント: `Callout` / `RelatedKeywords` / `NoteLink` / `SeeAlso`（`src/lib/component-loader/index.ts`）
 - Red Line 真実源: `content/note/技術士総監/noteコンテンツ計画.md`・`docs/marketing/02_チャネル動線設計.md` §7
-- GSC データ: `data/metrics/gsc/`（最新 2026-05-28）
+- GSC データ: `data/gsc/reports/`（最新 2026-05-28）

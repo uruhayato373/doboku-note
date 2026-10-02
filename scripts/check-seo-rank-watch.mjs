@@ -5,7 +5,9 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
-import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun } from './lib/seo-rank-watch.mjs';
+import { readReportRef } from './lib/metric-reports.mjs';
+import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun, hasRecord } from './lib/seo-rank-watch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 export function observationViolations(before, after, changedPaths, getContent) {
   const errors = [];
@@ -39,17 +41,19 @@ function main() {
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const get = (path) => staged ? git(['show', `:${path}`]) : readFileSync(join(root, path), 'utf8');
   const raw = JSON.parse(get(CONFIG));
-  if (raw.strategy.focusSource !== 'config/business-direction.json' || raw.strategy.focusQualifications) throw new Error('Use business direction as qualification SSOT');
+  if (raw.strategy.focusSource !== datasetPath('config.business-direction') || raw.strategy.focusQualifications) throw new Error('Use business direction as qualification SSOT');
   raw.strategy.focusQualifications = JSON.parse(get(raw.strategy.focusSource)).qualifications.map(q => q.id);
   const config = validateConfig(raw), ledger = JSON.parse(get(LEDGER)), errors = [];
   const ids = new Set();
-  const calendar = JSON.parse(get('config/exam-calendar.json'));
+  const calendar = JSON.parse(get(datasetPath('config.exam-calendar')));
   for (const w of config.watchwords) {
     if (!existsSync(join(root, w.contentPath))) errors.push(`Missing article: ${w.contentPath}`);
     if (!calendar.exams[w.qualification] || (w.examEvent && !calendar.exams[w.qualification].events[w.examEvent])) errors.push(`${w.id}: qualification/calendar event is missing`);
     if (w.evidence.kind === 'gsc') {
-      if (!w.evidence.source.startsWith('data/metrics/gsc/') || !existsSync(join(root, w.evidence.source))) errors.push(`${w.id}: GSC registration evidence is missing`);
-      else if (!JSON.parse(get(w.evidence.source)).rows?.some((r) => r.keys?.includes(w.keyword) && r.impressions > 0)) errors.push(`${w.id}: registered query has no impressions in its cited GSC source`);
+      // 根拠は GSC のレポート（「ファイル#枠」か、移す前の名前。readReportRef が両方読む）
+      const evidence = readReportRef(root, w.evidence.source);
+      if (!evidence) errors.push(`${w.id}: GSC registration evidence is missing`);
+      else if (!evidence.rows?.some((r) => r.keys?.includes(w.keyword) && r.impressions > 0)) errors.push(`${w.id}: registered query has no impressions in its cited GSC source`);
     }
   }
   for (const e of ledger.experiments.filter((e) => e.kind === KIND)) {
@@ -59,7 +63,7 @@ function main() {
     if (!['proposed', 'running', 'done', 'abandoned'].includes(e.status)) errors.push(`${e.id}: invalid status`);
     if (['observing', 'achieved'].includes(statusOf(e)) && !/^\d{4}-\d{2}-\d{2}$/.test(e.next_check_date ?? '')) errors.push(`${e.id}: next review required`);
     if (statusOf(e) === 'observing' && (!deploymentFor(e) || ![7, 14, 28].includes(e.reviewDays))) errors.push(`${e.id}: verified deployment and review window required`);
-    for (const action of e.actions ?? []) if (!resolveMovedPath(action.measurementFile)?.startsWith(`${HISTORY}/`) || !existsSync(join(root, resolveMovedPath(action.measurementFile)))) errors.push(`${e.id}: measurement provenance missing`);
+    for (const action of e.actions ?? []) if (!hasRecord(root, resolveMovedPath(action.measurementFile))) errors.push(`${e.id}: measurement provenance missing`);
   }
   for (const snapshot of readMeasurements(root)) {
     try { validateSnapshot(snapshot); } catch { errors.push(`Invalid rank snapshot: ${snapshot.file}`); }
@@ -67,7 +71,7 @@ function main() {
   const runs = readRuns(root);
   for (const run of runs) {
     try { validateRun(run); } catch { errors.push(`Invalid decision record: ${run.file}`); }
-    for (const row of run.rows ?? []) if (row.measurementFile && !existsSync(join(root, resolveMovedPath(row.measurementFile)))) errors.push(`${run.file}: missing measurement evidence`);
+    for (const row of run.rows ?? []) if (row.measurementFile && !hasRecord(root, resolveMovedPath(row.measurementFile))) errors.push(`${run.file}: missing measurement evidence`);
   }
   if (staged) {
     let before;
@@ -75,7 +79,12 @@ function main() {
     const changed = git(['diff', '--cached', '--name-only', '--no-renames', '-z']).split('\0').filter(Boolean);
     errors.push(...observationViolations(before, ledger, changed, get));
     const oldSnapshots = git(['ls-tree', '-r', '--name-only', 'HEAD', HISTORY]).trim().split('\n').filter(Boolean);
-    for (const path of changed) if (oldSnapshots.includes(path)) errors.push(`Rank history is immutable: ${path}`);
+    // 月ごとの追記ファイル: HEAD の中身が前方にそのまま残っていること（既存の行を変えない・消さない）
+    for (const path of changed.filter((p) => oldSnapshots.includes(p))) {
+      let after = '';
+      try { after = git(['show', `:${path}`]); } catch { /* 削除 */ }
+      if (!after.startsWith(git(['show', `HEAD:${path}`]))) errors.push(`Rank history is immutable (append only): ${path}`);
+    }
   } else errors.push(...observationViolations(ledger, ledger, [], get));
   for (const error of errors) console.error(`[seo-rank-watch] ${error}`);
   console.log(`[seo-rank-watch] ${errors.length ? 'FAIL' : 'PASS'}: ${config.watchwords.length} watches / ${config.strategy.focusQualifications.length} qualifications, ${ids.size} experiments, ${runs.length} decisions`);

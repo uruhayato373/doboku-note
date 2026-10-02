@@ -19,8 +19,9 @@
 
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
-const METRICS_DIR = "data/metrics/ga4";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -33,17 +34,7 @@ function parseArgs() {
 }
 
 function findLatestDateFile() {
-  let files;
-  try {
-    files = readdirSync(METRICS_DIR);
-  } catch {
-    return null;
-  }
-  const dateFiles = files
-    .filter((f) => f.startsWith("ga4-date-") && f.endsWith(".json"))
-    .sort()
-    .reverse();
-  return dateFiles[0] ? join(METRICS_DIR, dateFiles[0]) : null;
+  return latestReportRef(".", "ga4.date");
 }
 
 function formatIso(ymd) {
@@ -156,11 +147,11 @@ const opts = parseArgs();
 const filePath = findLatestDateFile();
 
 if (!filePath) {
-  console.error(`No ga4-date-*.json found in ${METRICS_DIR}`);
+  console.error(`No GA4 date report found in ${datasetDir("ga4.reports")}/`);
   process.exit(2);
 }
 
-const data = JSON.parse(readFileSync(filePath, "utf-8"));
+const data = readJsonOrReport(".", filePath);
 const series = buildDailySeries(data.rows, data.meta.startDate, data.meta.endDate);
 const anomalies = detectAnomalies(series);
 

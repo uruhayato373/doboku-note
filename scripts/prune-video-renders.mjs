@@ -11,12 +11,13 @@ import {
 import { join, relative, resolve } from 'node:path';
 import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 import { sha256File as sha256 } from './lib/asset-storage.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const BASE = join(ROOT, '.tmp/video-render');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');
-const DRIVE_CONFIG = join(ROOT, 'config/drive-vault.json');
+const DRIVE_CONFIG = join(ROOT, datasetPath('config.drive-vault'));
 const argv = process.argv.slice(2);
 const commit = argv.includes('--commit');
 const verifyCloud = argv.includes('--cloud');

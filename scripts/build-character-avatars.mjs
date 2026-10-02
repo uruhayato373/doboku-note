@@ -20,13 +20,14 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import sharp from 'sharp';
+import { datasetPath } from './lib/datasets.mjs';
 
 const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const ICON_DIR = join(ROOT, 'content/sns/_assets/character/icons');
 const OUT_DIR = join(ROOT, 'public/images/character');
-const POSES = require(join(ROOT, 'config/character-poses.json')).poses;
+const POSES = require(join(ROOT, datasetPath('config.character-poses'))).poses;
 const POSE_SLUGS = POSES.map((p) => p.slug);
 
 // サイト CTA で使うポーズは manifest の siteCta フラグが真実源（ここに列挙を複製しない）。

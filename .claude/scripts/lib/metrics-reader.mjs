@@ -19,6 +19,7 @@ import { google } from "googleapis";
 import { readFileSync, existsSync } from "node:fs";
 import dotenv from "dotenv";
 import { pathToFileURL } from "node:url";
+import { datasetPath } from "../../../scripts/lib/datasets.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -178,7 +179,7 @@ async function fetchGa4Weekly(credentials, ranges, opts = {}) {
 // SNS 流入の source 集合を UTM SSOT (utm-templates.json) から読む（ハードコードしない）
 function getSnsSources() {
   try {
-    const cfg = JSON.parse(readFileSync("config/utm-templates.json", "utf-8"));
+    const cfg = JSON.parse(readFileSync(datasetPath("config.utm-templates"), "utf-8"));
     const sources = Object.values(cfg.channels || {})
       .map((c) => c.source)
       .filter(Boolean);

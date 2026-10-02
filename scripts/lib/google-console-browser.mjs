@@ -24,9 +24,10 @@ import { createHash } from "node:crypto";
 import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
 import { leanContextOptions } from "./playwright-launch.mjs";
 import { attachCISession } from "./playwright-auth-state.mjs";
+import { datasetPath } from "./datasets.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const CONFIG_PATH = "config/google-console-automation.json";
+export const CONFIG_PATH = datasetPath("config.google-console-automation");
 
 export function loadConfig() {
   const raw = readFileSync(CONFIG_PATH, "utf-8");

@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 
 import { STAGE_LABELS } from '../../../../scripts/lib/content-lifecycle.mjs';
+import { datasetDir } from '../../../../scripts/lib/datasets.mjs';
 import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
@@ -13,7 +14,7 @@ import { findRepoRoot, repoPath } from './repo-root';
  * video-outcomes.ts — 動画パックの「公開状態 × 送客成果」を join する（read-only）。
  *
  * 設計（docs/marketing/06_動画コンテンツ運用設計.md §6・§9）:
- *   - 計測は **CI 供給が正**。ここでは `data/metrics/ga4/ga4-campaign-*.json`
+ *   - 計測は **CI 供給が正**。ここでは GA4 の campaign（`data/ga4/reports/<日付>.json`）
  *     （fetch-metrics.yml が週次で取得）を読むだけで、ライブ API を叩かない
  *     （会社 PC はプロキシで外部 API を遮断・measurement-incidents.md）。
  *   - **snapshot 未取得を 0 として扱わない**。campaign スナップショットがまだ無い状態と
@@ -164,7 +165,7 @@ export function videoOutcomes(): VideoOutcomes {
     : {
         ok: false,
         reason:
-          'GA4 campaign スナップショットが未取得（fetch-metrics.yml の "Fetch GA4 (campaign, 28d…)" が走ると data/metrics/ga4/ga4-campaign-*.json が供給される）',
+          `GA4 campaign スナップショットが未取得（fetch-metrics.yml の "Fetch GA4 (campaign, 28d…)" が走ると ${datasetDir('ga4.reports')}/ の campaign に入る）`,
         file: null,
         ageDays: null,
         startDate: null,

@@ -24,6 +24,7 @@ import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scanTree } from './lib/local-resources.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(ROOT, '.claude/state/repo-assets');
@@ -174,7 +175,7 @@ const RULES = [
     test: (p) => /^content\/note\/.*\/img\/cover[A-Za-z0-9_-]*\.svg$/.test(p),
     bucket: 'REGENERATE',
     reason: 'satori の中間生成物。背景写真を data:image base64 で丸ごと内包するため巨大。cover.png はこの SVG から sharp で焼くだけで、SVG 自体を読むコードは存在しない（repo 全体 grep で参照ゼロを確認）',
-    regenFrom: 'article*.md frontmatter の cover ブロック + config/ogp/backgrounds/<exam>.png',
+    regenFrom: `article*.md frontmatter の cover ブロック + ${datasetPath('config.ogp-backgrounds', { name: '<exam>' })}`,
     usedBy: [],
     generator: 'scripts/generate-note-covers.mjs',
     visibility: () => 'n/a',
@@ -269,7 +270,7 @@ const RULES = [
   },
   {
     id: 'ogp-background',
-    test: (p) => /^config\/ogp\//.test(p),
+    test: (p) => /^config\/ogp\//.test(p), // path-literal-ok: git の全 blob を置き場の接頭辞で分類する規則表の 1 行（config/ogp/ 配下全体が対象で台帳の 1 id ではない）
     bucket: 'KEEP_GIT',
     reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
     regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', '.claude/skills/conversion/ogp-create'], generator: null, visibility: () => 'n/a',

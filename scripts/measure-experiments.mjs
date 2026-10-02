@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * measure-experiments.mjs — 実験台帳（data/experiments.json）のうち `measure` 仕様を持つ running / measuring の
+ * measure-experiments.mjs — 実験台帳（data/business/experiments.json）のうち `measure` 仕様を持つ running / measuring の
  * 実験について、前後の窓で GA4 / GSC / 売上台帳を測り、`measurements[]` に自動計測を追記する。
  *
  * なぜ: 前後比較が手作業（/nsm-experiment measure）で、EXP-007/008 は期限を数週間過ぎても測られなかった。
@@ -22,14 +22,15 @@ import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
 import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
 import { buildContentIndex } from './build-growth-digest.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[measure-experiments]';
-const LEDGER = 'data/experiments.json';
-const SALES = 'data/note/sales.json';
+const LEDGER = datasetPath('business.experiments');
+const SALES = datasetPath('note.sales');
 
 async function ga4Value(ga4, spec, windows) {
   const ranges = [{ ...windows.pre, name: 'pre' }, { ...windows.post, name: 'post' }];

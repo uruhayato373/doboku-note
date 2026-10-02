@@ -4,6 +4,7 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { BarChart, type Bar } from '@/components/charts/BarChart';
 import { salesSummary } from '@/lib/sales';
+import { datasetPath } from '../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,7 +22,7 @@ export default function SalesPage() {
     <>
       <PageHead
         title="note売上の登録実績"
-        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · data/note/sales.json`}
+        sub={`累計 ${yen(total.revenue)} / ${total.count} 件 / ${total.months} ヶ月 · ${datasetPath('note.sales')}`}
       />
 
       <Stack>

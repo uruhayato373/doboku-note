@@ -44,7 +44,7 @@
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import {
   launchContext,
   waitForLogin,
@@ -53,13 +53,14 @@ import {
   sleep,
   ROOT,
 } from './lib/coconala-session.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[coconala-orders]';
 const HEADLESS = process.argv.includes('--headless');
 const WITH_DEADLINE = !process.argv.includes('--no-deadline');
 const MAX_DEADLINE_ROOMS = 10; // ルーム個別訪問の上限（無制限に開かない）
 
-const OUT_PATH = join(ROOT, 'data/coconala/orders-snapshot.json');
+const OUT_PATH = join(ROOT, datasetPath('coconala.orders-snapshot'));
 
 /** 取引管理（出品）のタブ。2026-08-05 に実機のタブをクリックして確定。 */
 const TABS = [
@@ -187,7 +188,7 @@ async function main() {
   // 記録済みの talkroom だけ**を例外にする（記録が無い未解決は従来どおり警告する）。
   const quotedRooms = (() => {
     try {
-      const log = JSON.parse(readFileSync(join(ROOT, 'data/coconala/orders.json'), 'utf8'));
+      const log = JSON.parse(readFileSync(join(ROOT, datasetPath('coconala.orders')), 'utf8'));
       const rows = Array.isArray(log) ? log : log.orders ?? [];
       return new Map(rows.filter((o) => o.quote && o.talkroomId).map((o) => [String(o.talkroomId), o.serviceId ?? null]));
     } catch {
@@ -307,7 +308,7 @@ async function main() {
   const quoted = orders.filter((o) => !o.serviceId && quotedRooms.has(String(o.talkroomId)));
   const unresolved = orders.filter((o) => !o.serviceId && !quotedRooms.has(String(o.talkroomId)));
 
-  mkdirSync(join(ROOT, 'data/coconala'), { recursive: true });
+  mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(
     OUT_PATH,
     JSON.stringify(

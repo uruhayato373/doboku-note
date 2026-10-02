@@ -4,6 +4,7 @@ import { join, resolve, relative, isAbsolute } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { resolveAuthRoot } from './lib/playwright-auth-profile.mjs';
 import { safePath, scanTree, processInventory, acquireLock } from './lib/local-resources.mjs';
 
@@ -17,7 +18,7 @@ export function canClean(row, minAgeDays, processes, kind, now = Date.now()) {
   return true;
 }
 export function cleanMain(args = process.argv.slice(2), { root = repoRoot, inspectProcesses = processInventory, quiet = false } = {}) {
-  const policy = JSON.parse(readFileSync(join(root, 'config/local-resources.json'), 'utf8'));
+  const policy = JSON.parse(readFileSync(join(root, datasetPath('config.local-resources')), 'utf8'));
   const index = args.indexOf('--category');
   const category = index < 0 ? 'scratch' : args[index + 1];
   if (!policy.cleanup[category]) throw new Error('Unknown cleanup category');

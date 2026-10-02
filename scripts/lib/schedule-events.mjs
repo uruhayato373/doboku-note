@@ -40,6 +40,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
+import { datasetDir, datasetPath } from './datasets.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -570,10 +571,10 @@ function readJsonFile(abs) {
 }
 
 function readExamCalendar(rootDir) {
-  const relPath = 'config/exam-calendar.json';
+  const relPath = datasetPath('config.exam-calendar');
   try {
     const json = readJsonFile(join(rootDir, relPath));
-    const registry = readJsonFile(join(rootDir, 'config/qualification-registry.json'));
+    const registry = readJsonFile(join(rootDir, datasetPath('config.qualification-registry')));
     const { events, skipped } = mapExamCalendar(json, relPath, new Set(activeIds(registry)));
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
@@ -591,7 +592,7 @@ function readExamCalendar(rootDir) {
 }
 
 function readXCampaigns(rootDir) {
-  const dirRel = 'config/x-campaigns';
+  const dirRel = datasetDir('config.x-campaigns');
   const dirAbs = join(rootDir, dirRel);
   const events = [];
   const errors = [];
@@ -789,7 +790,7 @@ function readVideoStatus(rootDir, todayKey) {
 }
 
 function readExperiments(rootDir, todayKey) {
-  const relPath = 'data/experiments.json';
+  const relPath = datasetPath('business.experiments');
   return readSource('experiments', 'experiment', relPath, () => {
     const json = readJsonFile(join(rootDir, relPath));
     const list = Array.isArray(json) ? json : (json.experiments ?? Object.values(json));
@@ -798,7 +799,7 @@ function readExperiments(rootDir, todayKey) {
 }
 
 function readBusinessReviews(rootDir, todayKey) {
-  const relDir = 'data/metrics/business';
+  const relDir = datasetDir('business.review');
   return readSource('business-review', 'review', relDir, () => {
     const reviews = readdirSync(join(rootDir, relDir))
       .filter((f) => /^review-.*\.json$/.test(f))

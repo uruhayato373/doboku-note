@@ -14,8 +14,8 @@
  *   action と必須項目は scripts/lib/growth-triage.mjs 冒頭。id:null の backlog は申し送りの起票。
  *   backlog は domain（[領域:]・domains.json のラベル）必須、period（[時期:]）は tier high / mid で必須。
  *
- * 書き込み先（--commit）: .claude/todo/backlog.md / data/experiments.json / config/seo-watchwords.json /
- *   data/metrics/growth/triage-log.json。全判断を先に検証し、1 件でも不正なら何も書かない。
+ * 書き込み先（--commit）: .claude/todo/backlog.md / data/business/experiments.json / config/seo-watchwords.json /
+ *   data/analysis/growth/triage-log.json。全判断を先に検証し、1 件でも不正なら何も書かない。
  *   書いた後に check-backlog-schema が落ちたら全ファイルを元に戻す。
  * **ローカル専用**: DN の採番に git の全履歴が要る（shallow clone では exit 2）。
  *
@@ -28,14 +28,15 @@ import { nextId, backlogGitLog } from './backlog-edit.mjs';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { readWatchConfig, validateConfig } from './lib/seo-rank-watch.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, buildWatch, pendingItems } from './lib/growth-triage.mjs';
 
 const TAG = '[growth-triage]';
-const GROWTH = 'data/metrics/growth';
-const LOG = `${GROWTH}/triage-log.json`;
+const GROWTH = datasetDir('analysis.growth-pack');
+const LOG = datasetPath('analysis.growth-triage');
 const BACKLOG = '.claude/todo/backlog.md';
-const LEDGER = 'data/experiments.json';
-const WATCH = 'config/seo-watchwords.json';
+const LEDGER = datasetPath('business.experiments');
+const WATCH = datasetPath('config.seo-watchwords');
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);

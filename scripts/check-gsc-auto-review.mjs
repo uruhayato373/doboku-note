@@ -39,12 +39,12 @@ import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { basename, dirname, join } from "node:path";
 import { latestFile } from "./lib/datasets.mjs";
+import { latestReport } from "./lib/metric-reports.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
 const LOG_PATH = ".claude/knowledge/reference/gsc-management.md";
-const GSC_DIR = "data/metrics/gsc";
 const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";
 /** ログが肥大化したら年次アーカイブを促す観測点（無限成長の早期警戒）。 */
 const BLOAT_LINES = 800;
@@ -77,22 +77,6 @@ function scanHeadings(md) {
   return all;
 }
 
-/** ディレクトリ内 `prefix-YYYY-MM-DD...` の最新ファイルの日付を返す。 */
-function latestStampedDate(dir, prefix) {
-  let files;
-  try {
-    files = readdirSync(join(ROOT, dir));
-  } catch {
-    return null;
-  }
-  const dates = files
-    .filter((f) => f.startsWith(prefix))
-    .map((f) => f.slice(prefix.length).match(/^(\d{4}-\d{2}-\d{2})/)?.[1])
-    .filter(Boolean)
-    .sort();
-  return dates.length ? dates[dates.length - 1] : null;
-}
-
 function daysSince(dateStr) {
   const ms = Date.parse(`${dateStr}T00:00:00Z`);
   if (!Number.isFinite(ms)) return null;
@@ -114,7 +98,7 @@ const logLines = md ? md.split(/\r?\n/).length : 0;
 const brokenInspection = md == null || headings.length === 0;
 
 const latestBatch = latestFile(ROOT, "gsc.url-inspection") ? basename(latestFile(ROOT, "gsc.url-inspection")).slice(0, 10) : null;
-const latestGscQuery = latestStampedDate(GSC_DIR, "gsc-query-");
+const latestGscQuery = latestReport(ROOT, "gsc.query")?.stamp.slice(0, 10) ?? null;
 
 const weeklyEntries = headings.filter((h) => h.weekly);
 const monthlyEntries = headings.filter((h) => h.monthly);

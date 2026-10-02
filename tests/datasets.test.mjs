@@ -3,21 +3,21 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { DATASETS, datasetById, datasetsFor, findPathLiterals, inferShape, jsonSchemaOf, matchFiles, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
 test('patternOf: 日時・UUID・ハッシュの型で当て、名前の前方が同じ別の系列は取り違えない', () => {
-  assert.deepEqual(idsFor('data/metrics/gsc/gsc-page-2026-10-02T00-21-12.json'), ['gsc.page']);
-  assert.deepEqual(idsFor('data/metrics/gsc/gsc-page-query-2026-10-02T00-21-12.json'), ['gsc.page-query']);
-  assert.deepEqual(idsFor('data/metrics/ga4/ga4-cta-clicks-2026-10-02T00-21-27.json'), ['ga4.cta-clicks']);
-  assert.deepEqual(idsFor('data/metrics/ga4/ga4-cta-clicks-by-label-2026-10-02T00-21-27.json'), ['ga4.cta-clicks-by-label']);
+  assert.deepEqual(idsFor('data/gsc/reports/2026-10-02.json'), ['gsc.reports']);
+  assert.deepEqual(idsFor('data/ga4/reports/2026-10-02.json'), ['ga4.reports']);
+  assert.deepEqual(idsFor('data/gsc/url-inspection/2026-10-02T00-21-12.json'), ['gsc.url-inspection']);
+  assert.deepEqual(idsFor('data/gsc/url-inspection-single/2026-10-02T00-21-12.json'), ['gsc.url-inspection-single']);
   assert.deepEqual(
-    idsFor('data/metrics/business/measurement-2026-09-13T02-19-08-867Z-0b3048b5-56ce-4bb9-8bb9-38866952d7b5.json'),
+    idsFor('data/business/records/measurement-2026-09-13T02-19-08-867Z-0b3048b5-56ce-4bb9-8bb9-38866952d7b5.json'),
     ['business.measurement'],
   );
-  assert.deepEqual(idsFor('data/metrics/business/checks-monthly-2026-08-2026-10-01T06-52-13-780Z.json'), ['business.checks-monthly']);
-  assert.deepEqual(idsFor('data/metrics/business/site-to-sales-2026-08-r2.json'), ['business.site-to-sales']);
+  assert.deepEqual(idsFor('data/business/records/checks-monthly-2026-08-2026-10-01T06-52-13-780Z.json'), ['business.checks-monthly']);
+  assert.deepEqual(idsFor('data/business/records/site-to-sales-2026-08-r2.json'), ['business.site-to-sales']);
   assert.deepEqual(idsFor('data/gsc/ui/2026-07-30T05-41-28Z/normalized/notFound--allKnownPages.json'), ['gsc.ui-raw']);
   assert.ok(patternOf('data/a.json').test('data/a.json'));
   assert.ok(!patternOf('data/a.json').test('data/aXjson'), '. は文字どおり');
@@ -89,4 +89,26 @@ test('inferShape: 型の無いデータセットは実物から対応表・配�
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('findPathLiterals: 文字列・テンプレート・正規表現・join の分割形を拾い、public/data・URL・コメント・許可印は拾わない', () => {
+  const lines = (src) => findPathLiterals(src).map((h) => h.line);
+  assert.deepEqual(lines("const a = 'data/note/sales.json';"), [1]);
+  assert.deepEqual(lines('const a = `${ROOT}/data/note/sales.json`;'), [1]);
+  assert.deepEqual(lines('const re = /^data\\/metrics\\/x/;'), [1]);
+  assert.deepEqual(lines("readFileSync(repoPath('data', 'experiments.json'))"), [1], '分割形（2026-10-02 に管理画面が旧パスを黙って読んでいた形）');
+  assert.deepEqual(lines("const a = join(ROOT, 'public/data/x.csv');\nconst u = '/data/x.csv';"), []);
+  assert.deepEqual(lines("// data/note/sales.json を読む\n * data/note/sales.json\nf(); // data/note/sales.json"), []);
+  assert.deepEqual(lines("const old = 'data/metrics/x.json'; // path-literal-ok: 旧パスの読み替え"), []);
+});
+
+test('findPathLiterals: config/ も拾い、src/config・コマンド引数・gtag の config は拾わない', () => {
+  const lines = (src) => findPathLiterals(src).map((h) => h.line);
+  assert.deepEqual(lines("const a = 'config/exam-calendar.json';"), [1]);
+  assert.deepEqual(lines("join(ROOT, 'config', 'figure-canvas.json')"), [1]);
+  assert.deepEqual(lines("join(HERE, '..', '..', 'config', 'utm-templates.json')"), [1], '.. の後の分割形');
+  assert.deepEqual(lines("join(root, 'config', `${ch}-competitors.json`)"), [1]);
+  assert.deepEqual(lines("join(ROOT, 'src', 'config', 'categories.json')\nconst a = '.claude/config/x.json';\nimport c from '../tsconfig.json';"), []);
+  assert.deepEqual(lines("git(['config', '--get', 'remote.origin.promisor'])\nrun('npm', ['config', 'get', 'cache'])\ngtag('config', '${gaId}', {"), []);
+  assert.deepEqual(lines("const roots = ['docs', '.claude', 'src', 'config', 'data'];"), []);
 });

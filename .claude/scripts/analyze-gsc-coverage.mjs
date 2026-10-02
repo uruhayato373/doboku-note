@@ -4,9 +4,9 @@
  * Usage:
  *   node .claude/scripts/analyze-gsc-coverage.mjs \
  *     --inspection-glob "data/gsc/url-inspection/2026-04-27*.json" \
- *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json \
- *     --query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-31.json \
- *     --brand-query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-32.json \
+ *     --page-data "data/gsc/reports/<日付>.json#page" \
+ *     --query-data "data/gsc/reports/<日付>.json#query" \
+ *     --brand-query-data "data/gsc/reports/<日付>.json#query" \
  *     --url-dir .tmp/gsc-urls/
  *
  * 出力:
@@ -16,7 +16,8 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "fs";
 import { join, basename, dirname } from "path";
-import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
 
 
@@ -507,10 +508,10 @@ function generateMarkdown(agg, findings) {
   // raw data refs
   lines.push(`### 生データ`);
   lines.push(``);
-  lines.push(`- URL Inspection 結果: \`data/gsc/url-inspection/2026-04-27*.json\``);
-  lines.push(`- Search Analytics page: \`data/metrics/gsc/gsc-page-2026-04-27*.json\``);
-  lines.push(`- Search Analytics query: \`data/metrics/gsc/gsc-query-2026-04-27*.json\``);
-  lines.push(`- 集計 JSON: \`data/analysis/gsc-coverage-diagnosis/{ts}.json\``);
+  lines.push(`- URL Inspection 結果: \`${datasetDir("gsc.url-inspection")}/2026-04-27*.json\``);
+  lines.push(`- Search Analytics page: \`--page-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#page）`);
+  lines.push(`- Search Analytics query: \`--query-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#query）`);
+  lines.push(`- 集計 JSON: \`${datasetDir("analysis.gsc-coverage-diagnosis")}/{ts}.json\``);
   lines.push(``);
 
   return lines.join("\n");
@@ -529,10 +530,10 @@ async function main() {
   const categoryMap = loadCategoryMap(opts.urlDir);
   console.log(`Loaded ${Object.keys(categoryMap).length} URL→category mappings`);
 
-  const pageData = opts.pageData ? JSON.parse(readFileSync(opts.pageData, "utf-8")) : null;
-  const queryData = opts.queryData ? JSON.parse(readFileSync(opts.queryData, "utf-8")) : null;
+  const pageData = opts.pageData ? readJsonOrReport(".", opts.pageData) : null;
+  const queryData = opts.queryData ? readJsonOrReport(".", opts.queryData) : null;
   const brandData = opts.brandQueryData
-    ? JSON.parse(readFileSync(opts.brandQueryData, "utf-8"))
+    ? readJsonOrReport(".", opts.brandQueryData)
     : null;
 
   const agg = aggregate(inspections, categoryMap, pageData, queryData, brandData);

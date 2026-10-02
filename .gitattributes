@@ -11,3 +11,6 @@ content/products/**/*.json text eol=lf
 
 # public/_redirects は生成スクリプトが LF で書く。autocrlf の PC で改行差だけの変更が毎回出るのを防ぐ
 public/_redirects text eol=lf
+
+# 追記だけの台帳（data/**/*.jsonl・rank-watch など）は 1 行 1 件。PC ごとに改行が変わると「既存の行を変えていない」の検査が崩れる
+data/**/*.jsonl text eol=lf

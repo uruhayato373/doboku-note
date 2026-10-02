@@ -138,7 +138,10 @@
       "data/metrics/gsc/sitemaps-latest.json",
       "data/metrics/gsc/index-coverage-history.json",
       "data/metrics/gsc-ui/last-run.json",
-      "data/metrics/ga4-ui/last-run.json"
+      "data/metrics/ga4-ui/last-run.json",
+      "data/metrics",
+      "data/weekly-metrics",
+      "data/experiments.json"
     ]
   },
   "docsIsNotContent": {
@@ -322,7 +325,15 @@
       "data/metrics/gsc/sitemaps-latest.json",
       "data/metrics/gsc/index-coverage-history.json",
       "data/metrics/gsc-ui/last-run.json",
-      "data/metrics/ga4-ui/last-run.json"
+      "data/metrics/ga4-ui/last-run.json",
+      "data/metrics/ga4/",
+      "data/metrics/gsc/",
+      "data/metrics/business",
+      "data/weekly-metrics",
+      "data/experiments.json",
+      "data/metrics/crosswalk",
+      "data/metrics/monetization",
+      "data/metrics/growth"
     ],
     "scanGlobs": [
       "scripts/",
@@ -351,7 +362,8 @@
       "scripts/lib/repository-paths.mjs",
       "scripts/lib/prune-state-snapshots.mjs",
       "tests/prune-state-snapshots.test.mjs",
-      "scripts/lib/index-coverage.mjs"
+      "scripts/lib/index-coverage.mjs",
+      "scripts/lib/metric-reports.mjs"
     ]
   }
 }

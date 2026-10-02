@@ -15,12 +15,13 @@ import { fileURLToPath } from 'node:url';
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
 import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
-const PRODUCTION_DISCLOSURE = readJson(join(ROOT, 'config/youtube-production-disclosure.json'));
+const PRODUCTION_DISCLOSURE = readJson(join(ROOT, datasetPath('config.youtube-production-disclosure')));
 const TARGET_EXAMS = [
   'civil-construction-1', 'civil-construction-2',
   'concrete-engineer', 'concrete-chief-engineer',

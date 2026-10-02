@@ -3,10 +3,11 @@
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const DISCLOSURE = JSON.parse(readFileSync(join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'));
+const DISCLOSURE = JSON.parse(readFileSync(join(ROOT, datasetPath('config.youtube-production-disclosure')), 'utf8'));
 const COMMIT = process.argv.includes('--commit');
 
 function walk(dir, out = []) {

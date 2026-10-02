@@ -27,7 +27,7 @@ function examDayEndUtcMs(examId: CivilExamId, eventId: 'second'): number {
   const date = examCalendar.exams[examId].events[eventId].date;
   const timestamp = Date.parse(`${date}T23:59:59+09:00`);
   if (!Number.isFinite(timestamp)) {
-    throw new Error(`Invalid exam date in config/exam-calendar.json: ${examId}.${eventId}`);
+    throw new Error(`Invalid exam date in 試験日程（config.exam-calendar）: ${examId}.${eventId}`);
   }
   return timestamp;
 }

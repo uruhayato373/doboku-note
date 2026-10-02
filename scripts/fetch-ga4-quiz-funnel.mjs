@@ -3,13 +3,13 @@
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { reportIdOf, writeReport } from './lib/metric-reports.mjs';
 import dotenv from 'dotenv';
 import { resolveWindow } from '../.claude/scripts/lib/ga4-snapshot.mjs';
 import { QUIZ_FUNNEL_EVENT_NAMES } from './lib/quiz-premium-funnel.mjs';
 
 dotenv.config({ path: '.env.local' });
 
-const OUTPUT_DIR = 'data/metrics/ga4';
 const PAGE_PATH = '/tools/kakomon-quiz';
 const argv = process.argv.slice(2);
 const value = (flag, fallback) => {
@@ -98,10 +98,7 @@ async function run() {
     placementRows,
   };
 
-  mkdirSync(OUTPUT_DIR, { recursive: true });
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
-  const output = join(OUTPUT_DIR, `ga4-quiz-funnel-${stamp}.json`);
-  writeFileSync(output, JSON.stringify(data, null, 2) + '\n');
+  const output = writeReport(".", 'ga4.quiz-funnel', data).ref;
   console.log(`[fetch-ga4-quiz-funnel] ${data.rows.length}イベント / ${startDate}〜${endDate} / ${output}`);
 }
 

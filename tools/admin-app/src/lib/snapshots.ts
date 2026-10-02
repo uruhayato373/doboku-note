@@ -1,11 +1,14 @@
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { basename } from 'node:path';
 import { datasetFiles } from '../../../../scripts/lib/datasets.mjs';
+import { REPORT_KINDS, listReports, readReportRef } from '../../../../scripts/lib/metric-reports.mjs';
 import { findRepoRoot, repoPath } from './repo-root';
 
 /**
  * snapshots.ts — CI がコミットした時刻つきの JSON スナップショット（GA4・GSC・PSI など）を読む。
  * どのファイルがどのデータセットかは台帳（scripts/lib/datasets.mjs）が決める。ここは台帳の id で引くだけ。
+ * GA4・GSC の週次取得は日ごとの 1 ファイルに入っているので、種類（ga4.page など）で引くと
+ * scripts/lib/metric-reports.mjs が「ファイル#枠」を返す。
  *
  * ライブ API は絶対に叩かない（会社 PC はプロキシで Google/Meta を遮断・CI 供給が正）。
  */
@@ -20,6 +23,8 @@ export interface SnapshotFile {
   file: string;
   /** 絶対パス。 */
   abs: string;
+  /** GA4・GSC のレポートなら「ファイル#枠」。 */
+  ref?: string;
   /** タイムスタンプ文字列（2026-07-15T05-53-27）。 */
   stamp: string;
   /** mtime（epoch ms）。 */
@@ -28,6 +33,12 @@ export interface SnapshotFile {
 
 /** データセットの時刻つきファイルを新しい順に返す。 */
 export function listSnapshots(dataset: string): SnapshotFile[] {
+  if (dataset in REPORT_KINDS) {
+    return listReports(findRepoRoot(), dataset).map((r) => {
+      const abs = repoPath(r.file);
+      return { dataset, file: basename(r.ref), abs, ref: r.ref, stamp: r.stamp, mtimeMs: statSync(abs).mtimeMs };
+    });
+  }
   const out: SnapshotFile[] = [];
   for (const rel of datasetFiles(findRepoRoot(), dataset)) {
     const file = basename(rel);
@@ -68,7 +79,8 @@ export function loadSnapshot<Row = Record<string, unknown>>(
 ): LoadedSnapshot<Row> | null {
   if (!s || !existsSync(s.abs)) return null;
   try {
-    const data = JSON.parse(readFileSync(s.abs, 'utf8'));
+    const data = s.ref ? readReportRef(findRepoRoot(), s.ref) : JSON.parse(readFileSync(s.abs, 'utf8'));
+    if (!data) return null;
     return { meta: data.meta ?? {}, rows: Array.isArray(data.rows) ? data.rows : [] };
   } catch {
     return null;

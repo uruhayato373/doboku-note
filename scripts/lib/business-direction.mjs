@@ -3,11 +3,12 @@ import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
-import { datasetFiles, datasetPath } from './datasets.mjs';
+import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
+import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
-export const DIRECTION = 'config/business-direction.json';
-export const RECORDS = 'data/metrics/business';
+export const DIRECTION = datasetPath('config.business-direction');
+export const RECORDS = datasetDir('business.measurement');
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export const jst = (now = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(now));
 export const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
@@ -18,7 +19,7 @@ const nonempty = (s) => typeof s === 'string' && s.trim().length >= 3 && s.lengt
 export function direction(root) {
   const c = readJson(root, DIRECTION);
   // 重点資格の名前は qualification-registry.json から引く（business-direction.json に写さない）
-  const registry = readJson(root, 'config/qualification-registry.json');
+  const registry = readJson(root, datasetPath('config.qualification-registry'));
   c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
@@ -157,7 +158,7 @@ function saveUnlocked(root, input, now) {
   required(input.kind !== 'snapshot', 'スナップショットは専用コマンドで生成してください');
   const r = validateRecord(input, c, history, now);
   if (r.kind === 'review') {
-    const experiments = readJson(root, 'data/experiments.json').experiments;
+    const experiments = readJson(root, datasetPath('business.experiments')).experiments;
     required(r.experimentIds.every(id => experiments.some(e => e.id === id)), '実験台帳にないIDです');
   }
   return appendRecord(root, { ...r, schemaVersion: 1, createdAt: new Date(now).toISOString(), strategyHash: hash(c) });
@@ -330,12 +331,14 @@ export function coconalaViewFacts({ snapshot, path }) {
 export function sourceFacts(root, c, period) {
   const facts = [];
   const put = (metric, value, sourcePeriod, file, qualification = 'all', coverage = 'complete', note = '') => facts.push({ metric, value, period: sourcePeriod, source: file, qualification, coverage, note });
-  const ga = latest(root, 'data/metrics/ga4', 'ga4-channel-organic-');
+  const gaReport = latestReport(root, 'ga4.channel-organic');
+  const ga = gaReport && { data: gaReport.data, file: gaReport.ref };
   if (ga && ga.data.meta?.organicOnly && ga.data.meta?.japanOnly) {
     const row = ga.data.rows?.find(r => r.channel === 'Organic Search');
     if (row) put('organicUsers', row.activeUsers, ga.data.meta, ga.file);
   }
-  const quiz = latest(root, 'data/metrics/ga4', 'ga4-quiz-funnel-');
+  const quizReport = latestReport(root, 'ga4.quiz-funnel');
+  const quiz = quizReport && { data: quizReport.data, file: quizReport.ref };
   if (quiz) for (const [event, metric] of [['quiz_start', 'quizStarts'], ['quiz_complete', 'quizCompletions']]) {
     const row = quiz.data.rows?.find(r => r.eventName === event);
     put(metric, row?.eventCount ?? null, quiz.data.meta, quiz.file, 'civil-construction-1', row ? 'complete' : 'partial', '無料演習ツールのみ。イベント欠落は0と確定しない。');
@@ -457,7 +460,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const p = reviewPeriod(cadence, jst(now)), existing = reviews.find(r => r.cadence === cadence && samePeriod(r.period, p));
     return { cadence, period: p, record: existing?.file ?? null, due: !existing || existing.nextReviewDate <= jst(now), status: existing?.status ?? 'missing' };
   });
-  const experiments = readJson(root, 'data/experiments.json').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
+  const experiments = readJson(root, datasetPath('business.experiments')).experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
   const operatingBalance = ['all', ...c.qualifications.map(q => q.id)].map(qualification => {
     const receipts = cells.find(x => x.qualification === qualification && x.metric === 'netReceipts'), costs = cells.find(x => x.qualification === qualification && x.metric === 'costYen');
     return { qualification, value: receipts.coverage === 'complete' && costs.coverage === 'complete' && receipts.value != null && costs.value != null ? receipts.value - costs.value : null };
@@ -472,7 +475,7 @@ export function snapshot(root, period, now = new Date()) {
 }
 function snapshotUnlocked(root, period, now) {
   const report = buildReport(root, period, now);
-  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file))).digest('hex') }));
+  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   // note が確定前の月を含むスナップショットは、確定後に取り直す前提の暫定物として印を付ける（レビューは暫定にしかできない）
   const pendingFinalization = noteMonthsPendingFinalization(period, jst(now));
   return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources, ...(pendingFinalization.length ? { pendingFinalization } : {}) });

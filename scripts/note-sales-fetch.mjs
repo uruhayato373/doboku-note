@@ -53,11 +53,12 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
 import { jst } from './lib/business-direction.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const SALES_LOG = join(ROOT, 'data/note/sales.json');
+const SALES_LOG = join(ROOT, datasetPath('note.sales'));
 const NAME = 'note-sales-fetch';
 
 const argv = process.argv.slice(2);
@@ -278,7 +279,7 @@ try {
   const fetchedDay = jst(now);
   log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized: isNoteMonthFinalized(MONTH_ARG, fetchedDay) } };
   writeFileSync(SALES_LOG, JSON.stringify(log, null, 2) + '\n');
-  console.log(`[6] data/note/sales.json を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
+  console.log(`[6] ${datasetPath('note.sales')} を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
 
   await ctx.close();
   process.exit(0);

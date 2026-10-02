@@ -127,7 +127,7 @@ function makeRepo() {
   };
   write('.claude/todo/backlog.md', '# backlog\n\n## 🔴 High\n\n### [DN-0100] 計測\nタグ: [運用] [種類:改善]\n\n本文\n');
   write('.claude/state/dispatch/dispatch-log.json', JSON.stringify({ entries: [{ id: 'DN-0200', outcome: 'done' }] }));
-  write('data/experiments.json', JSON.stringify({ experiments: [{ id: 'EXP-007' }] }));
+  write('data/business/experiments.json', JSON.stringify({ experiments: [{ id: 'EXP-007' }] }));
   write('docs/reviews/weekly/2026-W38-review.md', OLD_REVIEW);
   g('add', '-A');
   g('commit', '-q', '-m', 'init');

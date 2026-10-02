@@ -115,7 +115,7 @@ function recentlyAcceptedPaths(days) {
 function targetsFromSsot({ category, group }) {
   const doc = readUnitSsot("gsc-ui", "crawledNotIndexed--allKnownPages");
   if (!doc) {
-    throw new Error(`SSOT が無い: data/gsc/ui-urls.json の crawledNotIndexed--allKnownPages（先に \`npm run search-growth:audit\`）`);
+    throw new Error(`SSOT が無い: ${datasetPath("gsc.ui-urls")} の crawledNotIndexed--allKnownPages（先に \`npm run search-growth:audit\`）`);
   }
   const rows = doc.rows ?? [];
   const slugs = [...new Set(rows.map((r) => (String(r.url).match(/\/docs\/([a-z0-9-]+)\/?$/) || [])[1]).filter(Boolean))];

@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { calendarDate, addDays, getDateRange, validateRange } from '../scripts/lib/gsc-date-range.mjs';
 import { fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
+import { hasRecord } from '../scripts/lib/seo-rank-watch.mjs';
 import { CONFIG, LEDGER, KIND, hash, scopeKey, validateConfig, report, aggregate, evaluate, reviewWindows, nextReviewDate, writeSnapshot, updateLedger, recordAction, markDeployed, applyReview, statusOf, decisionRecord, writeDecision, readRuns, validateRun } from '../scripts/lib/seo-rank-watch.mjs';
 import { seasonFor, discoverCandidates } from '../scripts/lib/seo-watch-strategy.mjs';
 import { observationViolations } from '../scripts/check-seo-rank-watch.mjs';
@@ -116,7 +117,12 @@ test('past improvement events and snapshots are immutable; snapshot names never 
   const root = fixture(t), exp = observing(), changed = structuredClone(exp); changed.actions[0].done = 'rewritten';
   assert.ok(observationViolations({ experiments: [exp] }, { experiments: [changed] }, [], () => 'changed').some((s) => s.includes('append-only')));
   const one = writeSnapshot(root, { value: 1 }, now), two = writeSnapshot(root, { value: 2 }, now);
-  assert.notEqual(one, two); assert.equal(JSON.parse(readFileSync(join(root, one))).value, 1);
+  assert.notEqual(one, two);
+  // 同じ月のファイルへ 1 行ずつ追記し、先に書いた行は変えない
+  assert.equal(one.split('#')[0], two.split('#')[0]);
+  const lines = readFileSync(join(root, one.split('#')[0]), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
+  assert.deepEqual(lines.map((l) => [l.recordId, l.value]), [[one.split('#')[1], 1], [two.split('#')[1], 2]]);
+  assert.ok(hasRecord(root, one) && !hasRecord(root, `${one.split('#')[0]}#watch-missing`));
 });
 test('ledger writes preserve unrelated fields and reject a concurrent writer', async (t) => {
   const root = fixture(t);

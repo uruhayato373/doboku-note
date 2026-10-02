@@ -14,7 +14,7 @@
  *   node .claude/scripts/audit-ga4-bot-ratio.mjs --min-users 10  # 評価対象の最小 users
  *
  * 出力:
- *   data/metrics/ga4/bot-audit-YYYY-MM-DDTHH-MM-SS.json
+ *   data/ga4/reports/<日付>.json の reports["bot-audit"]
  *   STDOUT に上位 30 件と「除外推奨」リスト
  *
  * incident: .claude/knowledge/reference/measurement-incidents.md 2026-04-26
@@ -23,11 +23,11 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
 import dotenv from "dotenv";
 
 dotenv.config({ path: ".env.local" });
 
-const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 14;
 const DEFAULT_MIN_USERS = 5;
 const DEFAULT_LIMIT = 100;
@@ -225,14 +225,7 @@ async function main() {
     `\n全体: total=${totals.allUsers} / jp=${totals.jpUsers} / foreign=${totals.foreignUsers} (海外 ${(foreignRatio * 100).toFixed(1)}%)`
   );
 
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
-  const ts = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const outPath = join(OUTPUT_DIR, `bot-audit-${ts}.json`);
-  writeFileSync(
-    outPath,
-    JSON.stringify({ meta: { ...dateRange, minUsers: opts.minUsers, threshold: FOREIGN_RATIO_THRESHOLD }, totals, rows }, null, 2),
-    "utf-8"
-  );
+  const outPath = writeReport(".", "ga4.bot-audit", { meta: { ...dateRange, minUsers: opts.minUsers, threshold: FOREIGN_RATIO_THRESHOLD }, totals, rows }).ref;
   console.log(`\n出力: ${outPath}`);
 }
 

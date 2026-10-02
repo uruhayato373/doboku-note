@@ -14,11 +14,12 @@ import { join } from 'node:path';
 import { chromium } from 'playwright';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[x-profile-sync]';
 const ROOT = process.cwd();
 const COMMIT = process.argv.includes('--commit');
-const account = JSON.parse(readFileSync(join(ROOT, 'config/x-account.json'), 'utf8'));
+const account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.x-account')), 'utf8'));
 const want = account.profile.bio;
 const limit = account.limits?.bio ?? 160;
 const norm = (s) => String(s ?? '').replace(/\r\n/g, '\n').trim();

@@ -1,6 +1,7 @@
 import { readFileSync, existsSync, realpathSync } from 'node:fs';
 import { resolve, relative, isAbsolute, sep } from 'node:path';
 import { createHash } from 'node:crypto';
+import { datasetPath } from './datasets.mjs';
 
 export const EXPANSION_PATH = '.claude/state/content-expansion.json';
 export const CONTENT_DECISIONS = ['covered', 'partial', 'unreviewed', 'blocked', 'excluded'];
@@ -54,7 +55,7 @@ export function loadExpansion(root) {
 
 /** Metadata and evidence checks only. A passing schema never certifies semantic completeness. */
 export function expansionReport(root, data = loadExpansion(root), registry = null) {
-  registry ??= JSON.parse(readFileSync(resolve(root, 'config/reference-sources.json'), 'utf8'));
+  registry ??= JSON.parse(readFileSync(resolve(root, datasetPath('config.reference-sources')), 'utf8'));
   const expected = registry.sources.filter(s => ['commercial-book', 'operator-owned'].includes(s.class));
   const issues = [], stale = [], seen = new Set(), hashes = new Map();
   if (data.version !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(data.reviewedAt ?? '')) issues.push('version / reviewedAt を確認してください');
@@ -161,22 +162,21 @@ export function siteSlugOf(path) {
   return m ? `${m[1]}-${m[2] ?? m[3]}` : null;
 }
 
-/** GSC ページ集計の最新（ページ単位 gsc-page-YYYY-*）を論理 slug ごとに合算する。無ければ空 Map と file:null。 */
+/** GSC ページ集計の最新（gsc.page）を論理 slug ごとに合算する。無ければ空 Map と file:null。 */
 async function latestGscBySlug(root) {
-  const { readdirSync } = await import('node:fs');
   const { slugFromKey } = await import('./url-normalization.mjs');
-  const dir = resolve(root, 'data/metrics/gsc');
-  const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^gsc-page-\d{4}-.*\.json$/.test(f)).sort() : [];
+  const { latestReport } = await import('./metric-reports.mjs');
+  const latest = latestReport(root, 'gsc.page');
   const out = new Map();
-  if (!files.length) return { bySlug: out, file: null, period: null };
-  const data = JSON.parse(readFileSync(resolve(dir, files.at(-1)), 'utf8'));
+  if (!latest) return { bySlug: out, file: null, period: null };
+  const data = latest.data;
   for (const r of data.rows ?? []) {
     const slug = slugFromKey(r.keys?.[0]);
     if (!slug) continue;
     const prev = out.get(slug) ?? { impressions: 0, clicks: 0 };
     out.set(slug, { impressions: prev.impressions + (r.impressions ?? 0), clicks: prev.clicks + (r.clicks ?? 0) });
   }
-  return { bySlug: out, file: files.at(-1), period: data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null };
+  return { bySlug: out, file: latest.ref, period: data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null };
 }
 
 /**

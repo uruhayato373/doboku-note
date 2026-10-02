@@ -30,8 +30,9 @@ import { createHash } from 'node:crypto';
 import { closeSync, createReadStream, existsSync, mkdirSync, openSync, readdirSync, readFileSync, readSync, renameSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join, sep } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
+import { datasetPath } from './datasets.mjs';
 
-export const CONFIG_PATH = join(REPO_ROOT, 'config/asset-storage.json');
+export const CONFIG_PATH = join(REPO_ROOT, datasetPath('config.asset-storage'));
 export const MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/manifest.json');
 
 /** R2 のキーは常に '/' 区切り。Windows の path.sep が '\\' なので正規化する。 */

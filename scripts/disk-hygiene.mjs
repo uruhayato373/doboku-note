@@ -23,6 +23,7 @@ import { join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { cleanMain } from './local-resource-clean.mjs';
 import { resolveAuthRoot } from './lib/playwright-auth-profile.mjs';
 import { listProcesses } from './lib/process-list.mjs';
@@ -43,7 +44,7 @@ import {
 } from './lib/disk-hygiene.mjs';
 
 const HOME = homedir();
-const CONFIG_PATH = join(REPO_ROOT, 'config', 'disk-hygiene.json');
+const CONFIG_PATH = join(REPO_ROOT, datasetPath('config.disk-hygiene'));
 
 export function loadConfig(path = CONFIG_PATH) {
   return JSON.parse(readFileSync(path, 'utf-8'));

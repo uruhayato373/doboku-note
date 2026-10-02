@@ -8,9 +8,9 @@
  * 期間中（〜2026-08-31）は civil 全ページが BuildJob 100% のため、面別クリックの伸びを毎週追える。
  *
  * 入力（最新スナップショットを自動選択・オフライン・ネットワーク不要）:
- *   - data/metrics/ga4/ga4-cta-clicks-by-label-*.json  （label × eventName × eventCount）
+ *   - GA4 の cta-clicks-by-label（data/ga4/reports/<日付>.json・label × eventName × eventCount）
  *       ※ 面別ラベルは fetch-ga4-cta-clicks --by-label で取得（要 GA4 event_label カスタムディメンション）。
- *   - data/metrics/ga4/ga4-cta-clicks-*.json           （pagePath × eventName × eventCount・page 別）
+ *   - GA4 の cta-clicks（同上・pagePath × eventName × eventCount・page 別）
  *   - data/a8/results.json           （A8 成果。`/a8-report` が自動取込）
  *
  * 出力:
@@ -26,10 +26,10 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 
 import { dirname, join } from "node:path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { pickByLabelSnapshot } from "./lib/ga4-snapshot.mjs";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
 import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
 
-const GA4_DIR = "data/metrics/ga4";
 
 /** プログラム分類: data-cta-label（面別 trackLabel or CareerAffiliate の service 名）→ プログラム。 */
 const PROGRAM_BY_LABEL = new Map([
@@ -62,22 +62,13 @@ const BUILDJOB_SURFACE_LABELS = [
   "BuildJob-hubcareer",
 ];
 
-/** prefix の直後が数字（日付）のファイルだけを拾う（-by-device / -by-label の別スキーマ混入を防ぐ）。 */
-function latest(prefix) {
-  if (!existsSync(GA4_DIR)) return null;
-  const files = readdirSync(GA4_DIR)
-    .filter((f) => f.startsWith(prefix) && /\d/.test(f.charAt(prefix.length)) && f.endsWith(".json"))
-    .sort();
-  return files.length ? join(GA4_DIR, files[files.length - 1]) : null;
-}
-
 /** by-label スナップショットの選択は lib に集約（窓の扱いをレポート間でズレさせない・DN-0062）。 */
 function latestByLabel() {
-  return pickByLabelSnapshot(GA4_DIR);
+  return pickByLabelSnapshot(".");
 }
 
 function readJson(path) {
-  return JSON.parse(readFileSync(path, "utf8"));
+  return readJsonOrReport(".", path);
 }
 
 function fmtInt(n) {
@@ -134,7 +125,7 @@ if (labelFile) {
 // ---- 2. ページ別（pagePath）BuildJob 相当クリック --------------------------
 // page 別ファイルは label 次元を持たないため「affiliate クリックが多いページ」を出す
 // （BuildJob 面がそのページに乗っているかは slug × affiliate-creatives の高意図判定で解釈する）。
-const pageFile = latest("ga4-cta-clicks-");
+const pageFile = latestReportRef(".", "ga4.cta-clicks");
 const pageRows = [];
 let pagePeriod = null;
 if (pageFile) {

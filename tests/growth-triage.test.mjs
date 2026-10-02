@@ -8,7 +8,7 @@ import { loadDomains } from '../scripts/lib/domains.mjs';
 import { readWatchConfig, validateConfig } from '../scripts/lib/seo-rank-watch.mjs';
 
 const seo = { id: 'OPP-aaaaaaaaaa', category: 'seo', type: 'seo-high-impr-low-ctr', title: '「過去問 解答」は平均 4 位なのに CTR 0%', key: { page: '/exam/civil-construction-1/secondary/r07', query: '過去問 解答' }, expectedWeeklyGain: { value: 3.2, unit: 'searchClicks' }, contentPath: 'content/site/civil-construction-1/secondary-r07.mdx', suggest: ['watchword', 'backlog'],
-  watchwordDraft: { keyword: '1級土木 二次 解答 令和7年', targetPath: '/exam/civil-construction-1/secondary/r07', contentPath: 'content/site/civil-construction-1/secondary-r07/article.mdx', qualification: 'civil-construction-1', intent: 'exam-task', evidence: { kind: 'gsc', source: 'data/metrics/growth/pack-2026-W38.json' } } };
+  watchwordDraft: { keyword: '1級土木 二次 解答 令和7年', targetPath: '/exam/civil-construction-1/secondary/r07', contentPath: 'content/site/civil-construction-1/secondary-r07/article.mdx', qualification: 'civil-construction-1', intent: 'exam-task', evidence: { kind: 'gsc', source: 'data/analysis/growth/pack-2026-W38.json' } } };
 const rev = { id: 'OPP-bbbbbbbbbb', category: 'revenue', type: 'revenue-placement-ctr', title: '配置 sidebar の CTR 0%', key: { placement: 'sidebar' }, expectedWeeklyGain: { value: 7.2, unit: 'ctaClicks' }, suggest: ['experiment', 'backlog'], watchwordDraft: null };
 const exp = { id: 'OPP-cccccccccc', category: 'experiment', type: 'experiment-due', title: 'EXP-007: 期限超過', key: { experiment: 'EXP-007', reasons: 'MEASURE_DUE' }, suggest: ['verdict', 'defer'], watchwordDraft: null };
 const ctx = { items: [seo, rev, exp], backlogIds: new Set(['DN-0185']), experimentIds: new Set(['EXP-007']) };
@@ -52,7 +52,7 @@ test('watchword decisions need a draft; the merged watch passes the rank-watch v
 
 test('rendered cards land in the right tier and satisfy the real backlog schema', () => {
   const original = readFileSync('.claude/todo/backlog.md', 'utf8');
-  const card = renderCard({ dnId: 'DN-9990', d: { ...backlogCard, verify: 'check-backlog-schema' }, item: rev, digestFile: 'data/metrics/growth/digest-2026-W38.json', today: '2026-09-26' });
+  const card = renderCard({ dnId: 'DN-9990', d: { ...backlogCard, verify: 'check-backlog-schema' }, item: rev, digestFile: 'data/analysis/growth/digest-2026-W38.json', today: '2026-09-26' });
   assert.match(card, /OPP-bbbbbbbbbb/);
   const next = insertCard(original, 'mid', card);
   const cards = parseBacklog(next);

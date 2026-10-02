@@ -29,6 +29,8 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import dotenv from "dotenv";
 import { SPAM_REFERRAL_SOURCES } from "./lib/ga4-client.mjs";
 
@@ -36,7 +38,6 @@ dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "channel";
@@ -65,7 +66,7 @@ const SOURCE_LIKE_DIMENSIONS = ["sessionSource", "sessionSourceMedium"];
 // ハードコードせず、真実源の channels[].source をユニーク化して返す。
 function getSnsSources() {
   try {
-    const cfg = JSON.parse(readFileSync("config/utm-templates.json", "utf-8"));
+    const cfg = JSON.parse(readFileSync(datasetPath("config.utm-templates"), "utf-8"));
     const sources = Object.values(cfg.channels || {})
       .map((c) => c.source)
       .filter(Boolean);
@@ -367,17 +368,9 @@ function printSummary(data) {
 }
 
 function saveJson(data, opts) {
-  if (!existsSync(OUTPUT_DIR)) {
-    mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   const suffix = `${opts.organicOnly ? "-organic" : ""}${opts.snsOnly ? "-sns" : ""}`;
-  const filename = `ga4-${opts.dimension}${suffix}-${timestamp}.json`;
-  const filepath = join(OUTPUT_DIR, filename);
-
-  writeFileSync(filepath, JSON.stringify(data, null, 2), "utf-8");
-  console.log(`\n出力: ${filepath}`);
+  const { ref } = writeReport(".", reportIdOf("ga4", `${opts.dimension}${suffix}`), data);
+  console.log(`\n出力: ${ref}`);
 }
 
 // ── Main ──

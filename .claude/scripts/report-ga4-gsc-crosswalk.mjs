@@ -8,13 +8,13 @@
  * 見られなかった。両者を突合し、改善機会（High-Impr-Low-CTR 等）を surface する。
  *
  * 入力（最新スナップショットを自動選択・オフライン）:
- *   - data/metrics/ga4/ga4-page-*.json   （page, activeUsers, sessions, engagementRate, bounceRate …）
- *   - data/metrics/gsc/gsc-page-<日付>*.json（keys:[URL], clicks, impressions, ctr, position・
+ *   - GA4 の page（data/ga4/reports/<日付>.json・page, activeUsers, sessions, engagementRate, bounceRate …）
+ *   - GSC の page（data/gsc/reports/<日付>.json・keys:[URL], clicks, impressions, ctr, position・
  *     page×query と打ち切り版は除外＝lib/ga4-snapshot.mjs の pickGscPage）
  *
  * 出力:
- *   - data/metrics/crosswalk/crosswalk-<ISO>.json  （全 join 行）
- *   - data/metrics/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
+ *   - data/analysis/crosswalk/crosswalk-<ISO>.json  （全 join 行）
+ *   - data/analysis/crosswalk/crosswalk-latest.md   （サマリ＋改善機会 Top）
  *   - コンソールにサマリ
  *
  * usage: node .claude/scripts/report-ga4-gsc-crosswalk.mjs [--min-impr 50] [--low-ctr 0.01]
@@ -22,10 +22,10 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { pickGscPage } from "./lib/ga4-snapshot.mjs";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
-const GA4_DIR = "data/metrics/ga4";
-const GSC_DIR = "data/metrics/gsc";
-const OUT_DIR = "data/metrics/crosswalk";
+const OUT_DIR = datasetDir("analysis.crosswalk");
 
 function arg(name, def) {
   const i = process.argv.indexOf(name);
@@ -33,26 +33,6 @@ function arg(name, def) {
 }
 const MIN_IMPR = parseInt(arg("--min-impr", "50"), 10);
 const LOW_CTR = parseFloat(arg("--low-ctr", "0.01"));
-
-function latest(dir, prefix) {
-  if (!existsSync(dir)) return null;
-  // prefix の直後が日付のものだけ（`ga4-page-` 等で別スキーマの派生ファイルを拾わない）
-  const files = readdirSync(dir).filter((f) => f.startsWith(prefix) && /^\d/.test(f.slice(prefix.length)) && f.endsWith(".json")).sort();
-  return files.length ? join(dir, files[files.length - 1]) : null;
-}
-
-function latestGscPage() {
-  if (!existsSync(GSC_DIR)) return null;
-  const readMeta = (name) => {
-    try {
-      return JSON.parse(readFileSync(join(GSC_DIR, name), "utf-8")).meta ?? {};
-    } catch {
-      return null;
-    }
-  };
-  const name = pickGscPage(readdirSync(GSC_DIR), readMeta);
-  return name ? join(GSC_DIR, name) : null;
-}
 
 // URL / path を join キーへ正規化（ドメイン除去・クエリ/ハッシュ除去・末尾スラッシュ除去）
 function normPath(u) {
@@ -63,15 +43,15 @@ function normPath(u) {
   return p || "/";
 }
 
-const ga4File = latest(GA4_DIR, "ga4-page-");
-const gscFile = latestGscPage();
+const ga4File = latestReportRef(".", "ga4.page");
+const gscFile = pickGscPage(".");
 if (!ga4File || !gscFile) {
   console.error(`[crosswalk] 入力不足: ga4-page=${!!ga4File} gsc-page=${!!gscFile}。スキップ。`);
   process.exit(0);
 }
 
-const ga4 = JSON.parse(readFileSync(ga4File, "utf-8"));
-const gsc = JSON.parse(readFileSync(gscFile, "utf-8"));
+const ga4 = readJsonOrReport(".", ga4File);
+const gsc = readJsonOrReport(".", gscFile);
 
 // GA4: page→{users,sessions,engagementRate,bounceRate}
 const ga4Map = new Map();

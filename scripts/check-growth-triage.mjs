@@ -19,6 +19,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { pendingItems } from './lib/growth-triage.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[check-growth-triage]';
@@ -42,7 +43,7 @@ function latest(dir, re) {
 }
 
 function main() {
-  const growth = join(ROOT, 'data/metrics/growth');
+  const growth = join(ROOT, datasetDir('analysis.growth-pack'));
   const reviews = join(ROOT, 'docs/reviews/weekly');
   const digestName = latest(growth, /^digest-\d{4}-W\d{2}\.json$/);
   const reviewName = latest(reviews, /^\d{4}-W\d{2}-review\.md$/);
@@ -51,7 +52,7 @@ function main() {
     return 2;
   }
   const digest = JSON.parse(readFileSync(join(growth, digestName), 'utf8'));
-  const logPath = join(growth, 'triage-log.json');
+  const logPath = join(ROOT, datasetPath('analysis.growth-triage'));
   const log = existsSync(logPath) ? JSON.parse(readFileSync(logPath, 'utf8')) : { entries: [] };
   const r = checkTriage({ digest, log, review: readFileSync(join(reviews, reviewName), 'utf8'), reviewName });
   if (process.argv.includes('--json')) console.log(JSON.stringify({ digest: digestName, review: reviewName, ...r }, null, 2));

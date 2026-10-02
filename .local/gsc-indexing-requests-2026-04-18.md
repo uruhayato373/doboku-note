@@ -58,5 +58,5 @@ Cloudflare Pages デプロイ完了後（2026-04-18 11:55 JST 以降）、以下
 ## 完了後の作業
 
 1. 本ファイルのチェックボックスを埋めて commit
-2. `data/experiments.json` の `EXP-001` と `EXP-002` の `pending_user_actions` から完了した URL を削除
+2. `data/business/experiments.json` の `EXP-001` と `EXP-002` の `pending_user_actions` から完了した URL を削除
 3. 14 日後（2026-05-02）に `fetch-gsc-data` 再実行 → EXP-002 の `combined_clicks_28d` を measure

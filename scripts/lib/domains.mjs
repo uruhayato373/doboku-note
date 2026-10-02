@@ -6,8 +6,9 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
-export const DOMAINS_PATH = 'config/domains.json';
+export const DOMAINS_PATH = datasetPath('config.domains');
 
 export function loadDomains(root) {
   return JSON.parse(readFileSync(join(root, DOMAINS_PATH), 'utf8'));

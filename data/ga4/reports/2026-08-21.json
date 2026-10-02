@@ -1,0 +1,5760 @@
+{
+  "schemaVersion": 1,
+  "source": "ga4",
+  "date": "2026-08-21",
+  "reports": {
+    "bot-audit": {
+      "stamp": "2026-08-21T08-34-03",
+      "meta": {
+        "startDate": "2026-08-07",
+        "endDate": "2026-08-20",
+        "minUsers": 5,
+        "threshold": 0.8
+      },
+      "totals": {
+        "allUsers": 1668,
+        "jpUsers": 1613,
+        "foreignUsers": 55
+      },
+      "rows": [
+        {
+          "source": "bing",
+          "totalUsers": 1312,
+          "jpUsers": 1300,
+          "foreignUsers": 12,
+          "foreignRatio": 0.009146341463414634,
+          "engagementRate": 0.686418458311484,
+          "flagged": false
+        },
+        {
+          "source": "(direct)",
+          "totalUsers": 152,
+          "jpUsers": 119,
+          "foreignUsers": 33,
+          "foreignRatio": 0.21710526315789475,
+          "engagementRate": 0.4097560975609756,
+          "flagged": false
+        },
+        {
+          "source": "note",
+          "totalUsers": 45,
+          "jpUsers": 44,
+          "foreignUsers": 1,
+          "foreignRatio": 0.022222222222222223,
+          "engagementRate": 0.5,
+          "flagged": false
+        },
+        {
+          "source": "google",
+          "totalUsers": 43,
+          "jpUsers": 41,
+          "foreignUsers": 2,
+          "foreignRatio": 0.046511627906976744,
+          "engagementRate": 0.6904761904761905,
+          "flagged": false
+        },
+        {
+          "source": "copilot.com",
+          "totalUsers": 30,
+          "jpUsers": 30,
+          "foreignUsers": 0,
+          "foreignRatio": 0,
+          "engagementRate": 0.6792452830188679,
+          "flagged": false
+        },
+        {
+          "source": "yahoo",
+          "totalUsers": 24,
+          "jpUsers": 24,
+          "foreignUsers": 0,
+          "foreignRatio": 0,
+          "engagementRate": 0.7040816326530612,
+          "flagged": false
+        },
+        {
+          "source": "note.com",
+          "totalUsers": 18,
+          "jpUsers": 18,
+          "foreignUsers": 0,
+          "foreignRatio": 0,
+          "engagementRate": 0.4140127388535032,
+          "flagged": false
+        },
+        {
+          "source": "x",
+          "totalUsers": 17,
+          "jpUsers": 17,
+          "foreignUsers": 0,
+          "foreignRatio": 0,
+          "engagementRate": 0.5882352941176471,
+          "flagged": false
+        },
+        {
+          "source": "facebook.com",
+          "totalUsers": 6,
+          "jpUsers": 3,
+          "foreignUsers": 3,
+          "foreignRatio": 0.5,
+          "engagementRate": 0.6666666666666666,
+          "flagged": false
+        }
+      ]
+    },
+    "channel": {
+      "stamp": "2026-08-21T08-33-24",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "dimension": "channel",
+        "dimensionApiName": "sessionDefaultChannelGroup",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "channel": "Organic Search",
+          "activeUsers": 2723,
+          "sessions": 4403,
+          "screenPageViewsPerSession": 1.883488530547354,
+          "averageSessionDuration": 359.601141262094,
+          "engagementRate": 0.6538723597547127,
+          "bounceRate": 0.3461276402452873
+        },
+        {
+          "channel": "Direct",
+          "activeUsers": 271,
+          "sessions": 394,
+          "screenPageViewsPerSession": 1.8197969543147208,
+          "averageSessionDuration": 196.034963142132,
+          "engagementRate": 0.434010152284264,
+          "bounceRate": 0.565989847715736
+        },
+        {
+          "channel": "Referral",
+          "activeUsers": 122,
+          "sessions": 627,
+          "screenPageViewsPerSession": 3.3301435406698565,
+          "averageSessionDuration": 507.5862447336523,
+          "engagementRate": 0.48165869218500795,
+          "bounceRate": 0.518341307814992
+        },
+        {
+          "channel": "AI Assistant",
+          "activeUsers": 54,
+          "sessions": 62,
+          "screenPageViewsPerSession": 1.3870967741935485,
+          "averageSessionDuration": 189.92668679032258,
+          "engagementRate": 0.532258064516129,
+          "bounceRate": 0.46774193548387094
+        },
+        {
+          "channel": "Organic Social",
+          "activeUsers": 51,
+          "sessions": 72,
+          "screenPageViewsPerSession": 1.9166666666666667,
+          "averageSessionDuration": 153.6907405138889,
+          "engagementRate": 0.4861111111111111,
+          "bounceRate": 0.5138888888888888
+        },
+        {
+          "channel": "Unassigned",
+          "activeUsers": 32,
+          "sessions": 59,
+          "screenPageViewsPerSession": 3.0847457627118646,
+          "averageSessionDuration": 423.8244061525424,
+          "engagementRate": 0.6440677966101694,
+          "bounceRate": 0.3559322033898305
+        }
+      ]
+    },
+    "channel-organic": {
+      "stamp": "2026-08-21T08-33-27",
+      "meta": {
+        "startDate": "2026-08-14",
+        "endDate": "2026-08-20",
+        "dimension": "channel",
+        "dimensionApiName": "sessionDefaultChannelGroup",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": true,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "channel": "Organic Search",
+          "activeUsers": 947,
+          "sessions": 1356,
+          "screenPageViewsPerSession": 1.6460176991150441,
+          "averageSessionDuration": 393.1312148112094,
+          "engagementRate": 0.6976401179941003,
+          "bounceRate": 0.3023598820058997
+        }
+      ]
+    },
+    "cta-clicks": {
+      "stamp": "2026-08-21T08-33-36",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": false,
+        "byLabel": false,
+        "byPlacement": false,
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "page": "/docs/civil-construction-2-secondary-r07",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 966
+        },
+        {
+          "page": "/category/pe-comprehensive-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 796
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 533
+        },
+        {
+          "page": "/",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 514
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 364
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-getting-started",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 314
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-leveling",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 283
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-primary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 281
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-exam-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 242
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r06",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 226
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r04",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 182
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-secondary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 169
+        },
+        {
+          "page": "/docs/pe-first-stage-r07-basic",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 156
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 140
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 133
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-schedule-charts",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 132
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-getting-started",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 131
+        },
+        {
+          "page": "/about",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 125
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-exam-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 124
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r07",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 100
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-index",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 97
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-strategy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 92
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 80
+        },
+        {
+          "page": "/docs/concrete-diagnostician-guide-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 71
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 69
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-keyword-2026",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 69
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 65
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-root-cause-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 65
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r03",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 60
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-frequent-topics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 58
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-scraper",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 52
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 52
+        },
+        {
+          "page": "/docs/pe-construction-competency-revision-r8",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 50
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 49
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-general-vs-comprehensive",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 46
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r05",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 45
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-guide-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 43
+        },
+        {
+          "page": "/docs/pe-construction-toan-kousei-template",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 43
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-network-schedule",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 42
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-scaffolding",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 42
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-grade-comparison",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 41
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 41
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r07-primary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 41
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-economic-security",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 41
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 40
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 40
+        },
+        {
+          "page": "/docs/pe-first-stage-r07-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 40
+        },
+        {
+          "page": "/category/concrete-chief-engineer",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 39
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-shovel-excavator",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 37
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-alarp-principle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 37
+        },
+        {
+          "page": "/category/civil-construction-2",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 36
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-mix-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 35
+        },
+        {
+          "page": "/docs/pe-construction-construction-planning-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 35
+        },
+        {
+          "page": "/docs/pe-first-stage-r06-aptitude",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 35
+        },
+        {
+          "page": "/docs/pe-first-stage-r07-aptitude",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 35
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r07-b",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 33
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-excavation-shoring",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 33
+        },
+        {
+          "page": "/docs/pe-construction-r07-steel-concrete",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 33
+        },
+        {
+          "page": "/category/civil-construction-1",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 32
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r07",
+          "eventName": "note_cta_click",
+          "eventCount": 32
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 32
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-plan-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 31
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 31
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-study-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 30
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 30
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-market-research",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 30
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-planning-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 30
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-target-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 29
+        },
+        {
+          "page": "/docs/pe-construction-steel-concrete-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 29
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-crane",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 28
+        },
+        {
+          "page": "/docs/pe-construction-ninaite-dx-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 28
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-loader",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 27
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-histogram",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 26
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-business-continuity-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 26
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-distance-angle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 25
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-law-compliance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 25
+        },
+        {
+          "page": "/docs/pe-construction-required-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 25
+        },
+        {
+          "page": "/docs/pe-construction-road-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 25
+        },
+        {
+          "page": "/category/pe-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 24
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 24
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hazid",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 24
+        },
+        {
+          "page": "/docs/pe-construction-river-coast-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 24
+        },
+        {
+          "page": "/category/pe-first-stage",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 23
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-structural-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 23
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pert-cpm",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 23
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-technical-nontechnical-skills",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 23
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-worker-dispatch-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 23
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lifecycle-costing-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 22
+        },
+        {
+          "page": "/docs/pe-construction-pe-secondary-essay-guide",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 22
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-job-reality",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 21
+        },
+        {
+          "page": "/docs/civil-construction-2-primary-r07-zenki",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 21
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+          "eventName": "note_cta_click",
+          "eventCount": 21
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-inherent-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 21
+        },
+        {
+          "page": "/",
+          "eventName": "note_cta_click",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-schedule-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-guide-essay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-products",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-master-schedule-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/pe-construction-secondary-study-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 20
+        },
+        {
+          "page": "/docs/pe-construction-hissu-kamoku-kaitourei",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 19
+        },
+        {
+          "page": "/docs/pe-construction-urban-planning-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 19
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-vs-pe",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 18
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-work-scheduling",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 18
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 18
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 18
+        },
+        {
+          "page": "/docs/pe-construction-port-airport-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 18
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-1-vs-2",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-river-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equipment-characteristics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-human-error-probability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "page": "/links",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-machinery-structure",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-tractor-bulldozer",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-guide-trends",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-environmental-impact-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-costing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/pe-construction-gakushuu-jikan-schedule",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 16
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+          "eventName": "note_cta_click",
+          "eventCount": 15
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-port-regulations",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 15
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-law-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 15
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cost-driver",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 15
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-product-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 15
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-concrete-basics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-construction-plan-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-demand-forecasting",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-performance-shaping-factors",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pqcdsme",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r07-secondary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-work-life-balance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 14
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r03-a",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 13
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-construction-plan-past-problems",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 13
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-design-review",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 13
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-pattern-cross-year-application",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 13
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+          "eventName": "note_cta_click",
+          "eventCount": 13
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-explosives-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-machinery-crane",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-site-investigation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-balance-sheet",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-economic-management-pillar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-four-m-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-occupational-safety-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pmbok",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 12
+        },
+        {
+          "page": "/category/pe-comprehensive-management",
+          "eventName": "note_cta_click",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-concrete-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r06",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-control-chart",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-surveying-basics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-resume",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-income-statement",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-investment-recovery-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pattern-essay-general-contractor",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 11
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-construction-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-public-servant",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-standard-contract",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/concrete-diagnostician-textbook-variation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-break-even-point",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-carbon-neutral",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cost-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hazop",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-supply-chain-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/pe-first-stage-r03-aptitude",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-quality-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-construction-plan-basics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/civil-construction-2-primary-r07-kouki",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-carbon-pricing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-citizen-participation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-green-infrastructure",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-heinrich-law",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-machinery-safety-guidelines",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-nonconformity-rate",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-public-servant-comprehensive-merit",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-quality-control",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-health-org-structure",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-value-engineering",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-construction-bousai-genseigai-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-construction-guide-career",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-construction-r06-urban-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/pe-construction-tunnel-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 9
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-difficulty",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-durability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-activity-abc",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-concurrent-engineering",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cost-variance-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-discount-rate",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ecrs-principle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-idea-generation-methods",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-contract-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-linear-programming",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-multi-track-hr-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pha",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-private-engineer-comprehensive-merit",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-reliability-block-diagram",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-residual-risk",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-seven-types-of-pollution",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-skill-standards",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-construction-geotechnical-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-construction-r07-required",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/pe-first-stage-r05-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/tools/keiken-charcount",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 8
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-concrete-past-problems",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-getting-started",
+          "eventName": "note_cta_click",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r07",
+          "eventName": "note_cta_click",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-byproduct-recycle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-noise-vibration-regulation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-risk-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-work-environment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-schedule-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-quality-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+          "eventName": "note_cta_click",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-communication-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ecosystem-services",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-environmental-basic-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equipment-reliability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-followership",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-gantt-chart",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-improvement-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-load-capacity",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+          "eventName": "note_cta_click",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-nature-positive",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ojt-off-jt",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-preventive-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/tools/kakomon-quiz",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 7
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-career-cases",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-dx-jobs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-earthwork-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-study-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-surveying",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-quality-management-past-problems",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r03",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-management-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-mix-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-business-intelligence",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-conformity-bias",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-esg-environmental-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fail-soft",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lead-time",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-maintenance-prevention",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-npv-net-present-value",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-opt-in-opt-out",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pdca-cycle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-public-engineer-qualification-map",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-confirmation-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-subsidiarity-principle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-therp",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-construction-bosai-kokudo-kyoujinka",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-construction-guide-required-essay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-construction-gyoumu-keireki-hyou",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-construction-iji-kanri-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/pe-first-stage-r02-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 6
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-company-types",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-law-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-mgmt-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-grader-compaction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-earthwork-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-products",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-structural-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/concrete-diagnostician-textbook-deterioration",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/concrete-diagnostician-textbook-repair",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-bottom-up-estimation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cash-flow-statement",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-circular-society-basic-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-design-in",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-digital-twin-cps",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-energy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-environmental-accounting",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fail-safe",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-four-e-countermeasures",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-information-management-pillar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-standards-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-last-minute-2026",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pattern-essay-road-municipality",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-payback-period-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-periodic-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-progress-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-quality-costing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-circular-economy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-rio-declaration",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-management-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-health-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-instrumented-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-management-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-stress-check-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-temporary-works-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-construction-environment-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/pe-construction-r05-environment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/search",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/tools/juken-shikaku",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-concrete-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-foundation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-public-servant-merit",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-earthwork-basics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-earthwork-past-problems",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+          "eventName": "note_cta_click",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-waste-disposal-manifest",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-concrete-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-study-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-materials",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/concrete-diagnostician-guide-essay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-all-hazard-approach",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-analogous-estimation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-bowtie-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-budget-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-decision-tree-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-delphi-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-depreciation-residual-value",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-direct-manufacturing-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equipment-economics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-five-s",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-front-loading",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-game-theory",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-heat-island-effect",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-human-capital-disclosure",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ifrs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-initial-investment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-integer-programming",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-iot",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-jisec",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-jit-production",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-order-costing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-maslow-hierarchy-of-needs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-mcgregor-xy-theory",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-method-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-monte-carlo-simulation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-output-indicators",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-parametric-estimation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-personal-info-protection",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-planned-usage-period",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ppm-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-capability-index",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-safety-mgmt",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r06-secondary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-primary",
+          "eventName": "note_cta_click",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-recruitment-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-rohs-weee",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-skill-qualification-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-smart-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-theory-of-constraints",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-utilization-rate",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-wellbeing-org",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-work-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-first-stage-r03-basic",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/pe-first-stage-r03-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-allowance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-buildjob-review",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-career-salary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-demolition",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-environment-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r03-b",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r04-b",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r05-b",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r06-b",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r07-a",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-quality-management-basics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-building-standards",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-business",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-quality-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-textbooks",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-young-career",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r06",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/concrete-diagnostician-textbook-investigation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/concrete-diagnostician-textbook-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-analytic-hierarchy-process",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-autonomous-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-bathtub-curve",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-capacity-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-corrective-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-customer-satisfaction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-defense-in-depth",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-depreciation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-direct-costing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-economic-management-pillar",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-eta",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-evaluation-bias",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-green-transformation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-haccp",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hazardous-facility-disaster-prevention",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-indirect-manufacturing-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-interlock",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-rotation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-policy-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-relations-adjustment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-union-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lifecycle-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-load-leveling",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-maintenance-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-merit-demerit-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-multi-objective-optimization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-natech",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pattern-essay-general-contractor",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pdpc-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-performance-based-pay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-present-annual-future-value",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-push-production",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r04-secondary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-replacement-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-monitoring",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-2-0",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-management-pillar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-second-career",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-specialist-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-standard-costing",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-three-point-estimation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-urban-flood",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-variable-work-hours",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-visual-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-wacc-roic",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-bosai-kokudo-kyoujinka",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-infra-roukyuuka-iji",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-ninaite-kakuho-seisansei",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-power-civil-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r04-river-coast",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r07-geotechnical",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r07-port-airport",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r07-river-coast",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r07-road",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-r07-urban-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-sentaku-kamoku-kakiwake",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-steel-concrete-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-construction-toan-kousei-template",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-first-stage-r01-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/docs/pe-first-stage-r06-construction",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "page": "/links",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "page": "/",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/category/civil-construction-2",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/category/concrete-diagnostician",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-exam-overview",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-schedule-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-management-subplans",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-water-air-soil-pollution",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-career",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-salary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-getting-started",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r07",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-aging-infrastructure",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-blind-drill",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-career-track-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cause-and-effect-diagram",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-centralization-decentralization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-circular-economy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-collective-intelligence",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-competency-hr",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-construction-plan",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cpd",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-data-mining",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-digital-rights",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-dioxin-countermeasures-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-discount-rate",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-eco-action-21",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-employment-security-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-environmental-standards",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equipment-maintainability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-application-guide",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-index",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-index",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fault-avoidance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fault-tolerance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fixed-communication",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-four-m-of-production",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-frequent-topics",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-h21-primary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-halo-effect-errors",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hazard-map",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-human-resource-management-pillar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-immigration-control-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-input-indicators",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-internal-rate-of-return",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-intrinsic-motivation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-inventory-control",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-type-employment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-key-performance-indicators",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-share-ratio",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-mentor",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-organizational-commitment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-portrait-publicity-privacy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-predictive-maintenance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-psychological-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-public-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pyramid-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r05-secondary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-recommendation-systems",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-reemployment-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-relative-absolute-evaluation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-reliability-maintainability-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-required-quality",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-role-grade-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-objectives",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-swot-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-task-based-training",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-unced-earth-summit",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-vta-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-carbon-neutral-kensetsu",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-construction-planning-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-construction-planning-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-port-airport-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-power-civil-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-r06-port-airport",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-r07-power-civil",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-shakai-shihon-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2
+        },
+        {
+          "page": "/docs/pe-construction-urban-planning-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "page": "/",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/category/pe-comprehensive-management",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-four-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-interview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-market-value",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-resume",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-safety-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-salary-up",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-keyword-2026",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r07-b",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r03",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-mgmt-overview",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-machinery-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-exam-overview",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-exam-overview",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-foundation-key-points",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-overview",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-safety-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-primary-r05-zenki",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r04",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r04",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-360-degree-evaluation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-accident-statistics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-achievement-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-agenda-21",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-annual-salary-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-appraisal-three-principles",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-asch-conformity-experiment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-attitude-appraisal",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-basel-convention",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-behavioral-regulation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-bid-rigging",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-blockchain-crypto",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-carbon-neutral",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-career-ownership",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-career-path",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-catastrophe-bias",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-chemical-substances-review-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-child-rearing-support-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-child-support-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-childcare-nursing-leave-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-climate-change-international",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-club-of-rome",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cluster-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-common-criteria",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-competency-evaluation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-content-process",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-contingency",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-continued-employment-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-control-limits",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-correlation-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cost-effectiveness-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-csr",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-data-leak-tampering-loss",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-dcf-method",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-diagnostic-od",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-dialogic-od",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-disability-discrimination-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-disability-employment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-disability-employment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-disaster-countermeasures-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-discretionary-work-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-divisional-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-e-learning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-eco-drr",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-economic-comparison-principle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-elderly-employment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-employee-benefits",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-employment-insurance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-employment-statistics",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equal-employment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-equal-pay-for-equal-work",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-esd",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-esg-investment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-index",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-extrinsic-motivation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-flat-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-flextime-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-foreign-trainee-program",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-formal-informal-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-fta",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-functional-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-gender-equality-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-gender-gap",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-general-overview",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-generative-ai",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-global-hr-development",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-green-bond",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-h22-primary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hawthorne-experiment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-health-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hierarchical-training",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-highly-professional-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-human-relations-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-human-resource-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-incentive",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-indefinite-conversion-rule",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-individual-labor-dispute-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-individual-wage-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-information-retrieval",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-inspection-methods",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-internal-job-posting",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-internship",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-interpersonal-skills",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-investment-recovery-plan",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ip-creation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-ip-utilization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-jit-production",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-based-pay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-design",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-execution-ability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-job-grade-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-keyword-2026",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-keyword-2026",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-kunming-montreal-framework",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-mobility",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-productivity",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-labor-tribunal-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lgbt-understanding-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lgbtq",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lifecycle-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-linear-regression",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-location-limited-employee",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-logistic-regression",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lopa",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-mandatory-management-retirement",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-matrix-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-mbo",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-membership-type-employment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-mental-health-care",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-millennium-ecosystem-assessment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-minimum-wage-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-network-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-nonconformity-rate",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-operation-errors",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-opportunity-cost",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-optimism-bias",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-oshms",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-outcome-indicators",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-part-time-fixed-term-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pension-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-performance-evaluation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-performance-linked-bonus",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-personal-information",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-personnel-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pfi",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pm-theory",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-positive-action",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-power-harassment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-problem-setting-ability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-problem-solving-ability",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-capability-index",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-costing",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-public-relations",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-pull-production",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-qc-circle",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-quality-assurance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-quality-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r04-primary",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-primary",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-secondary",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-economic-security",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-theme-economic-security",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-radioactive-decontamination-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-reskilling",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-return-to-work-support",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-identification",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-management-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-risk-map-matrix",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-s-plus-3e",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-scientific-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-self-declaration-system",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-self-development",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-seniority-wage",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-servant-leadership",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-sexual-harassment",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-side-jobs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-skill-based-pay",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-sl-theory",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-social-environment-management-pillar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-specialized-training",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-standardization-strategy",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-survey-analysis",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-system-safety",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-tacit-knowledge",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-talent-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-teal-organization",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-total-wage-management",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-training-techniques",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-unconscious-bias",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-visual-management",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-vocational-training-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-waste-management-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-whitepaper-study-map",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-women-empowerment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-workers-compensation-insurance",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-youth-employment-act",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-datsutanso-kankyo-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-gakushuu-jikan-schedule",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-guide-required-essay",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-hissu-kamoku-kaitourei",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-kensetsu-dx",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-port-airport-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-power-civil-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r01-road",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r03-port-airport",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r05-river-coast",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r06-road",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r07-construction-planning",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-r07-power-civil",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-railway-exam-themes",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-required-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-secondary-study-method",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-shakai-shihon-ronbun-keyword",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-steel-concrete-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-construction-urban-planning-ronbun-keyword",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-first-stage-r05-aptitude",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "page": "/docs/pe-first-stage-r06-basic",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        }
+      ]
+    },
+    "cta-clicks-by-device": {
+      "stamp": "2026-08-21T08-33-38",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": true,
+        "byLabel": false,
+        "byPlacement": false,
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "device": "desktop",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 10842
+        },
+        {
+          "device": "mobile",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 202
+        },
+        {
+          "device": "desktop",
+          "eventName": "note_cta_click",
+          "eventCount": 189
+        },
+        {
+          "device": "tablet",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 62
+        },
+        {
+          "device": "mobile",
+          "eventName": "note_cta_click",
+          "eventCount": 14
+        },
+        {
+          "device": "desktop",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 12
+        },
+        {
+          "device": "desktop",
+          "eventName": "note_article_click",
+          "eventCount": 10
+        },
+        {
+          "device": "mobile",
+          "eventName": "note_article_click",
+          "eventCount": 3
+        },
+        {
+          "device": "mobile",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        }
+      ]
+    },
+    "cta-clicks-by-label": {
+      "stamp": "2026-08-21T08-33-39",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": false,
+        "byLabel": true,
+        "byPlacement": false,
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "label": "BuildJob-sidebar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3518
+        },
+        {
+          "label": "DXConsulting-sidebar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 2738
+        },
+        {
+          "label": "ビルドジョブ",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1929
+        },
+        {
+          "label": "BuildJob-endbanner",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1093
+        },
+        {
+          "label": "ハイクラス DX・コンサル転職",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 740
+        },
+        {
+          "label": "DXConsulting-endbanner",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 543
+        },
+        {
+          "label": "KensetsuJobs-sidebar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 537
+        },
+        {
+          "label": "secondary-r07-q1",
+          "eventName": "note_cta_click",
+          "eventCount": 36
+        },
+        {
+          "label": "secondary-experience-guide",
+          "eventName": "note_cta_click",
+          "eventCount": 29
+        },
+        {
+          "label": "secondary-experience-examples",
+          "eventName": "note_cta_click",
+          "eventCount": 17
+        },
+        {
+          "label": "category-pe-comprehensive-management-hub-mokuji-docs-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 10
+        },
+        {
+          "label": "category-pe-comprehensive-management-hub-mokuji-footer",
+          "eventName": "note_cta_click",
+          "eventCount": 9
+        },
+        {
+          "label": "persona-guide-general-contractor",
+          "eventName": "note_cta_click",
+          "eventCount": 7
+        },
+        {
+          "label": "construction-planning-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 6
+        },
+        {
+          "label": "note-ndf7ddb3f0a97",
+          "eventName": "note_cta_click",
+          "eventCount": 6
+        },
+        {
+          "label": "BuildJob-sidebar",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 5
+        },
+        {
+          "label": "home-note-hero",
+          "eventName": "note_cta_click",
+          "eventCount": 5
+        },
+        {
+          "label": "management-tradeoffs-economy-safety",
+          "eventName": "note_cta_click",
+          "eventCount": 5
+        },
+        {
+          "label": "ハイクラス DX・コンサル転職",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 5
+        },
+        {
+          "label": "category-pe-comprehensive-management-hub-mokuji-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 4
+        },
+        {
+          "label": "note-n0c52cfabab78",
+          "eventName": "note_article_click",
+          "eventCount": 4
+        },
+        {
+          "label": "建設JOBs",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 4
+        },
+        {
+          "label": "BuildJob-hubcareer",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "label": "c2-secondary-start",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "label": "category-civil-construction-1-hub-mokuji-footer",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "label": "economic-management-pillar-inline-1-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "label": "secondary-experience-writing-guide-inline-1-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "label": "secondary-experience-writing-guide-top",
+          "eventName": "note_cta_click",
+          "eventCount": 3
+        },
+        {
+          "label": "bosai-kokudo-kyoujinka-tail",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "c1-exam-overview",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "category-civil-construction-2-hub-mokuji-docs-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "category-civil-construction-2-hub-mokuji-footer",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "essay-exam-strategy-inline-1-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "guide-earthwork-key-points-inline-2-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "note-n3bcb87efddad",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "label": "note-n6f9854578518",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "label": "note-nc360aaa381b0",
+          "eventName": "note_article_click",
+          "eventCount": 2
+        },
+        {
+          "label": "pattern-essay-general-contractor-body",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "persona-guide-complete-pack",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "persona-guide-road-consultant",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "port-airport-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "r08-primary-top",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "secondary-experience-writing-examples-top",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "secondary-r03-q1",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "urban-planning-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "ビルドジョブ",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 2
+        },
+        {
+          "label": "BuildJob-midtext",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1
+        },
+        {
+          "label": "DXConsulting-endbanner",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "bosai-kokudo-kyoujinka-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "c2-gakka-kijutsu",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "category-civil-construction-1-hub-mokuji-docs-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "category-pe-comprehensive-management-hub-mokuji-mob",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "category-pe-construction-hub-mokuji-docs-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "category-pe-construction-hub-mokuji-footer",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "category-pe-construction-hub-mokuji-sb",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "construction-planning-ronbun-keyword-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "gakushuu-jikan-schedule-foot",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "hissu-kamoku-kaitourei-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "human-resource-management-pillar-inline-1-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "management-tradeoffs-economy-social",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "note-n279ac7c6fe6a",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "label": "note-naace4eeaa230",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "label": "note-nb052deac97b1",
+          "eventName": "note_article_click",
+          "eventCount": 1
+        },
+        {
+          "label": "persona-guide-road-municipality",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "persona-guide-water-municipality",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "power-civil-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "power-civil-ronbun-keyword-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "required-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "secondary-getting-started-top",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "secondary-r03-top",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "secondary-r04-inline-1-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "secondary-r06-q1",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "secondary-r06-top",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "shakai-shihon-ronbun-keyword-mid",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "steel-concrete-exam-themes",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "tankan-frequent-reiwa",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        },
+        {
+          "label": "tankan-h21-primary",
+          "eventName": "note_cta_click",
+          "eventCount": 1
+        }
+      ]
+    },
+    "cta-clicks-by-placement": {
+      "stamp": "2026-08-21T08-33-40",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": false,
+        "byLabel": false,
+        "byPlacement": true,
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "placement": "sidebar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 5900
+        },
+        {
+          "placement": "article-end",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1636
+        },
+        {
+          "placement": "article-mid",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1546
+        },
+        {
+          "placement": "article-inline",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 1111
+        },
+        {
+          "placement": "category-sidebar",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 801
+        },
+        {
+          "placement": "(unknown)",
+          "eventName": "note_cta_click",
+          "eventCount": 190
+        },
+        {
+          "placement": "category-mobile",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 92
+        },
+        {
+          "placement": "article-end-mobile",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 17
+        },
+        {
+          "placement": "(not set)",
+          "eventName": "note_cta_click",
+          "eventCount": 13
+        },
+        {
+          "placement": "(unknown)",
+          "eventName": "note_article_click",
+          "eventCount": 13
+        },
+        {
+          "placement": "article-mid",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 5
+        },
+        {
+          "placement": "sidebar",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 5
+        },
+        {
+          "placement": "category-career-section",
+          "eventName": "affiliate_cta_impression",
+          "eventCount": 3
+        },
+        {
+          "placement": "article-inline",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 2
+        },
+        {
+          "placement": "article-end",
+          "eventName": "affiliate_cta_click",
+          "eventCount": 1
+        }
+      ]
+    },
+    "date": {
+      "stamp": "2026-08-21T08-33-26",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "dimension": "date",
+        "dimensionApiName": "date",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "date": "20260819",
+          "activeUsers": 264,
+          "sessions": 356,
+          "screenPageViewsPerSession": 1.6938202247191012,
+          "averageSessionDuration": 465.9186528230337,
+          "engagementRate": 0.6601123595505618,
+          "bounceRate": 0.3398876404494382
+        },
+        {
+          "date": "20260820",
+          "activeUsers": 259,
+          "sessions": 328,
+          "screenPageViewsPerSession": 1.454268292682927,
+          "averageSessionDuration": 373.66703522560977,
+          "engagementRate": 0.6951219512195121,
+          "bounceRate": 0.3048780487804878
+        },
+        {
+          "date": "20260818",
+          "activeUsers": 236,
+          "sessions": 312,
+          "screenPageViewsPerSession": 1.6346153846153846,
+          "averageSessionDuration": 309.8660251025641,
+          "engagementRate": 0.6858974358974359,
+          "bounceRate": 0.3141025641025641
+        },
+        {
+          "date": "20260817",
+          "activeUsers": 232,
+          "sessions": 319,
+          "screenPageViewsPerSession": 1.5924764890282133,
+          "averageSessionDuration": 196.87827513479624,
+          "engagementRate": 0.6269592476489029,
+          "bounceRate": 0.3730407523510972
+        },
+        {
+          "date": "20260803",
+          "activeUsers": 202,
+          "sessions": 274,
+          "screenPageViewsPerSession": 1.8722627737226278,
+          "averageSessionDuration": 261.00669733941606,
+          "engagementRate": 0.635036496350365,
+          "bounceRate": 0.36496350364963503
+        },
+        {
+          "date": "20260724",
+          "activeUsers": 193,
+          "sessions": 264,
+          "screenPageViewsPerSession": 1.3674242424242424,
+          "averageSessionDuration": 238.15214250378787,
+          "engagementRate": 0.5833333333333334,
+          "bounceRate": 0.4166666666666667
+        },
+        {
+          "date": "20260727",
+          "activeUsers": 187,
+          "sessions": 254,
+          "screenPageViewsPerSession": 1.3543307086614174,
+          "averageSessionDuration": 247.8043037952756,
+          "engagementRate": 0.6259842519685039,
+          "bounceRate": 0.37401574803149606
+        },
+        {
+          "date": "20260728",
+          "activeUsers": 183,
+          "sessions": 259,
+          "screenPageViewsPerSession": 2.158301158301158,
+          "averageSessionDuration": 328.97586904247106,
+          "engagementRate": 0.640926640926641,
+          "bounceRate": 0.3590733590733591
+        },
+        {
+          "date": "20260805",
+          "activeUsers": 182,
+          "sessions": 258,
+          "screenPageViewsPerSession": 1.6705426356589148,
+          "averageSessionDuration": 485.3997328100775,
+          "engagementRate": 0.6666666666666666,
+          "bounceRate": 0.3333333333333333
+        },
+        {
+          "date": "20260730",
+          "activeUsers": 176,
+          "sessions": 249,
+          "screenPageViewsPerSession": 1.7670682730923695,
+          "averageSessionDuration": 336.3949226987952,
+          "engagementRate": 0.5983935742971888,
+          "bounceRate": 0.40160642570281124
+        },
+        {
+          "date": "20260729",
+          "activeUsers": 172,
+          "sessions": 250,
+          "screenPageViewsPerSession": 1.568,
+          "averageSessionDuration": 295.176749028,
+          "engagementRate": 0.556,
+          "bounceRate": 0.444
+        },
+        {
+          "date": "20260804",
+          "activeUsers": 167,
+          "sessions": 247,
+          "screenPageViewsPerSession": 1.951417004048583,
+          "averageSessionDuration": 319.38798810121455,
+          "engagementRate": 0.6234817813765182,
+          "bounceRate": 0.3765182186234818
+        },
+        {
+          "date": "20260806",
+          "activeUsers": 158,
+          "sessions": 224,
+          "screenPageViewsPerSession": 1.5223214285714286,
+          "averageSessionDuration": 304.87744063839284,
+          "engagementRate": 0.6205357142857143,
+          "bounceRate": 0.3794642857142857
+        },
+        {
+          "date": "20260731",
+          "activeUsers": 156,
+          "sessions": 217,
+          "screenPageViewsPerSession": 1.3179723502304148,
+          "averageSessionDuration": 231.60974574654378,
+          "engagementRate": 0.5944700460829493,
+          "bounceRate": 0.4055299539170507
+        },
+        {
+          "date": "20260807",
+          "activeUsers": 139,
+          "sessions": 210,
+          "screenPageViewsPerSession": 1.9428571428571428,
+          "averageSessionDuration": 342.07650254761904,
+          "engagementRate": 0.6571428571428571,
+          "bounceRate": 0.34285714285714286
+        },
+        {
+          "date": "20260810",
+          "activeUsers": 113,
+          "sessions": 174,
+          "screenPageViewsPerSession": 3.396551724137931,
+          "averageSessionDuration": 484.04739239080453,
+          "engagementRate": 0.7068965517241379,
+          "bounceRate": 0.29310344827586204
+        },
+        {
+          "date": "20260812",
+          "activeUsers": 110,
+          "sessions": 162,
+          "screenPageViewsPerSession": 3.2901234567901234,
+          "averageSessionDuration": 713.1070047345679,
+          "engagementRate": 0.6358024691358025,
+          "bounceRate": 0.36419753086419754
+        },
+        {
+          "date": "20260725",
+          "activeUsers": 94,
+          "sessions": 140,
+          "screenPageViewsPerSession": 3.2357142857142858,
+          "averageSessionDuration": 451.33786120714285,
+          "engagementRate": 0.5785714285714286,
+          "bounceRate": 0.42142857142857143
+        },
+        {
+          "date": "20260813",
+          "activeUsers": 89,
+          "sessions": 138,
+          "screenPageViewsPerSession": 1.8695652173913044,
+          "averageSessionDuration": 273.70166737681166,
+          "engagementRate": 0.5942028985507246,
+          "bounceRate": 0.4057971014492754
+        },
+        {
+          "date": "20260814",
+          "activeUsers": 85,
+          "sessions": 150,
+          "screenPageViewsPerSession": 2.7533333333333334,
+          "averageSessionDuration": 491.3361375266667,
+          "engagementRate": 0.5933333333333334,
+          "bounceRate": 0.4066666666666667
+        },
+        {
+          "date": "20260802",
+          "activeUsers": 72,
+          "sessions": 117,
+          "screenPageViewsPerSession": 2.8034188034188032,
+          "averageSessionDuration": 362.98600476923076,
+          "engagementRate": 0.5042735042735043,
+          "bounceRate": 0.49572649572649574
+        },
+        {
+          "date": "20260811",
+          "activeUsers": 63,
+          "sessions": 107,
+          "screenPageViewsPerSession": 3.4485981308411215,
+          "averageSessionDuration": 521.2616843925234,
+          "engagementRate": 0.6261682242990654,
+          "bounceRate": 0.37383177570093457
+        },
+        {
+          "date": "20260808",
+          "activeUsers": 60,
+          "sessions": 101,
+          "screenPageViewsPerSession": 4.03960396039604,
+          "averageSessionDuration": 311.3013239603961,
+          "engagementRate": 0.49504950495049505,
+          "bounceRate": 0.504950495049505
+        },
+        {
+          "date": "20260801",
+          "activeUsers": 59,
+          "sessions": 96,
+          "screenPageViewsPerSession": 2.1979166666666665,
+          "averageSessionDuration": 382.6798181041666,
+          "engagementRate": 0.5208333333333334,
+          "bounceRate": 0.4791666666666667
+        },
+        {
+          "date": "20260726",
+          "activeUsers": 58,
+          "sessions": 107,
+          "screenPageViewsPerSession": 4.242990654205608,
+          "averageSessionDuration": 661.9592545981309,
+          "engagementRate": 0.5887850467289719,
+          "bounceRate": 0.411214953271028
+        },
+        {
+          "date": "20260816",
+          "activeUsers": 57,
+          "sessions": 103,
+          "screenPageViewsPerSession": 2.6407766990291264,
+          "averageSessionDuration": 486.2036399320388,
+          "engagementRate": 0.5533980582524272,
+          "bounceRate": 0.44660194174757284
+        },
+        {
+          "date": "20260815",
+          "activeUsers": 54,
+          "sessions": 96,
+          "screenPageViewsPerSession": 3.4270833333333335,
+          "averageSessionDuration": 546.620686125,
+          "engagementRate": 0.65625,
+          "bounceRate": 0.34375
+        },
+        {
+          "date": "20260809",
+          "activeUsers": 40,
+          "sessions": 75,
+          "screenPageViewsPerSession": 3.066666666666667,
+          "averageSessionDuration": 399.17274212,
+          "engagementRate": 0.4533333333333333,
+          "bounceRate": 0.5466666666666666
+        }
+      ]
+    },
+    "device": {
+      "stamp": "2026-08-21T08-33-37",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "dimension": "device",
+        "dimensionApiName": "deviceCategory",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "device": "desktop",
+          "activeUsers": 3001,
+          "sessions": 4919,
+          "screenPageViewsPerSession": 2.0300874161414924,
+          "averageSessionDuration": 344.53304747611304,
+          "engagementRate": 0.6391542996544013,
+          "bounceRate": 0.3608457003455987
+        },
+        {
+          "device": "mobile",
+          "activeUsers": 217,
+          "sessions": 660,
+          "screenPageViewsPerSession": 2.162121212121212,
+          "averageSessionDuration": 384.00083944848484,
+          "engagementRate": 0.4590909090909091,
+          "bounceRate": 0.5409090909090909
+        },
+        {
+          "device": "tablet",
+          "activeUsers": 11,
+          "sessions": 68,
+          "screenPageViewsPerSession": 1.338235294117647,
+          "averageSessionDuration": 1153.9174881323531,
+          "engagementRate": 0.47058823529411764,
+          "bounceRate": 0.5294117647058824
+        }
+      ]
+    },
+    "page": {
+      "stamp": "2026-08-21T08-33-35",
+      "meta": {
+        "startDate": "2026-07-24",
+        "endDate": "2026-08-20",
+        "dimension": "page",
+        "dimensionApiName": "pagePath",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "page": "/docs/civil-construction-2-secondary-r07",
+          "activeUsers": 254,
+          "sessions": 383,
+          "screenPageViewsPerSession": 1.4281984334203655,
+          "averageSessionDuration": 407.53796510966055,
+          "engagementRate": 0.7859007832898173,
+          "bounceRate": 0.21409921671018275
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+          "activeUsers": 240,
+          "sessions": 333,
+          "screenPageViewsPerSession": 1.06006006006006,
+          "averageSessionDuration": 223.54041326126125,
+          "engagementRate": 0.6786786786786787,
+          "bounceRate": 0.3213213213213213
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+          "activeUsers": 224,
+          "sessions": 381,
+          "screenPageViewsPerSession": 1.141732283464567,
+          "averageSessionDuration": 388.04129845669286,
+          "engagementRate": 0.6666666666666666,
+          "bounceRate": 0.3333333333333333
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-leveling",
+          "activeUsers": 136,
+          "sessions": 171,
+          "screenPageViewsPerSession": 1.0818713450292399,
+          "averageSessionDuration": 239.38250908187138,
+          "engagementRate": 0.695906432748538,
+          "bounceRate": 0.30409356725146197
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-getting-started",
+          "activeUsers": 124,
+          "sessions": 137,
+          "screenPageViewsPerSession": 1.2043795620437956,
+          "averageSessionDuration": 226.23431274452554,
+          "engagementRate": 0.8540145985401459,
+          "bounceRate": 0.145985401459854
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-exam-overview",
+          "activeUsers": 122,
+          "sessions": 129,
+          "screenPageViewsPerSession": 1.069767441860465,
+          "averageSessionDuration": 129.6962887364341,
+          "engagementRate": 0.8062015503875969,
+          "bounceRate": 0.1937984496124031
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+          "activeUsers": 112,
+          "sessions": 135,
+          "screenPageViewsPerSession": 1.037037037037037,
+          "averageSessionDuration": 218.2216645185185,
+          "engagementRate": 0.725925925925926,
+          "bounceRate": 0.2740740740740741
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-primary",
+          "activeUsers": 104,
+          "sessions": 281,
+          "screenPageViewsPerSession": 1.708185053380783,
+          "averageSessionDuration": 562.502053024911,
+          "engagementRate": 0.5231316725978647,
+          "bounceRate": 0.47686832740213525
+        },
+        {
+          "page": "/",
+          "activeUsers": 94,
+          "sessions": 169,
+          "screenPageViewsPerSession": 3.9171597633136095,
+          "averageSessionDuration": 248.4765347514793,
+          "engagementRate": 0.7159763313609467,
+          "bounceRate": 0.28402366863905326
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-keyword-2026",
+          "activeUsers": 69,
+          "sessions": 376,
+          "screenPageViewsPerSession": 1.8164893617021276,
+          "averageSessionDuration": 320.9720838271277,
+          "engagementRate": 0.4574468085106383,
+          "bounceRate": 0.5425531914893617
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-schedule-charts",
+          "activeUsers": 63,
+          "sessions": 81,
+          "screenPageViewsPerSession": 1.1111111111111112,
+          "averageSessionDuration": 204.20349146913583,
+          "engagementRate": 0.6666666666666666,
+          "bounceRate": 0.3333333333333333
+        },
+        {
+          "page": "/category/pe-comprehensive-management",
+          "activeUsers": 60,
+          "sessions": 216,
+          "screenPageViewsPerSession": 4.49537037037037,
+          "averageSessionDuration": 476.54927850925924,
+          "engagementRate": 0.5925925925925926,
+          "bounceRate": 0.4074074074074074
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-strategy",
+          "activeUsers": 57,
+          "sessions": 62,
+          "screenPageViewsPerSession": 1.0161290322580645,
+          "averageSessionDuration": 198.77461433870968,
+          "engagementRate": 0.8548387096774194,
+          "bounceRate": 0.14516129032258066
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+          "activeUsers": 56,
+          "sessions": 68,
+          "screenPageViewsPerSession": 1.0735294117647058,
+          "averageSessionDuration": 213.9446455882353,
+          "engagementRate": 0.8676470588235294,
+          "bounceRate": 0.1323529411764706
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r06",
+          "activeUsers": 52,
+          "sessions": 91,
+          "screenPageViewsPerSession": 1.2417582417582418,
+          "averageSessionDuration": 388.9166532967033,
+          "engagementRate": 0.6153846153846154,
+          "bounceRate": 0.38461538461538464
+        },
+        {
+          "page": "/docs/civil-construction-1-secondary-r07",
+          "activeUsers": 51,
+          "sessions": 61,
+          "screenPageViewsPerSession": 1.098360655737705,
+          "averageSessionDuration": 192.78810319672132,
+          "engagementRate": 0.7377049180327869,
+          "bounceRate": 0.26229508196721313
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-health-org-structure",
+          "activeUsers": 48,
+          "sessions": 49,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 36.399420306122444,
+          "engagementRate": 0.16326530612244897,
+          "bounceRate": 0.8367346938775511
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r08-secondary",
+          "activeUsers": 45,
+          "sessions": 124,
+          "screenPageViewsPerSession": 1.4838709677419355,
+          "averageSessionDuration": 200.78445324999998,
+          "engagementRate": 0.6290322580645161,
+          "bounceRate": 0.3709677419354839
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-index",
+          "activeUsers": 41,
+          "sessions": 54,
+          "screenPageViewsPerSession": 1.5740740740740742,
+          "averageSessionDuration": 221.71674803703704,
+          "engagementRate": 0.7962962962962963,
+          "bounceRate": 0.2037037037037037
+        },
+        {
+          "page": "/tools/keiken-charcount",
+          "activeUsers": 40,
+          "sessions": 95,
+          "screenPageViewsPerSession": 1.0105263157894737,
+          "averageSessionDuration": 113.59080965263158,
+          "engagementRate": 0.49473684210526314,
+          "bounceRate": 0.5052631578947369
+        },
+        {
+          "page": "/docs/pe-construction-competency-revision-r8",
+          "activeUsers": 39,
+          "sessions": 44,
+          "screenPageViewsPerSession": 1.1136363636363635,
+          "averageSessionDuration": 291.25586740909097,
+          "engagementRate": 0.6590909090909091,
+          "bounceRate": 0.3409090909090909
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r04",
+          "activeUsers": 37,
+          "sessions": 81,
+          "screenPageViewsPerSession": 1.1358024691358024,
+          "averageSessionDuration": 597.2592782469136,
+          "engagementRate": 0.7160493827160493,
+          "bounceRate": 0.2839506172839506
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-root-cause-analysis",
+          "activeUsers": 36,
+          "sessions": 45,
+          "screenPageViewsPerSession": 0.9111111111111111,
+          "averageSessionDuration": 201.53254304444445,
+          "engagementRate": 0.5111111111111111,
+          "bounceRate": 0.4888888888888889
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-getting-started",
+          "activeUsers": 32,
+          "sessions": 49,
+          "screenPageViewsPerSession": 1.489795918367347,
+          "averageSessionDuration": 362.05572122448984,
+          "engagementRate": 0.8979591836734694,
+          "bounceRate": 0.10204081632653061
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-alarp-principle",
+          "activeUsers": 30,
+          "sessions": 37,
+          "screenPageViewsPerSession": 1.2972972972972974,
+          "averageSessionDuration": 155.60040559459458,
+          "engagementRate": 0.5675675675675675,
+          "bounceRate": 0.43243243243243246
+        },
+        {
+          "page": "/docs/pe-first-stage-r07-basic",
+          "activeUsers": 29,
+          "sessions": 47,
+          "screenPageViewsPerSession": 2.297872340425532,
+          "averageSessionDuration": 476.61011757446806,
+          "engagementRate": 0.5319148936170213,
+          "bounceRate": 0.46808510638297873
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-scaffolding",
+          "activeUsers": 27,
+          "sessions": 32,
+          "screenPageViewsPerSession": 0.9375,
+          "averageSessionDuration": 108.85628315625,
+          "engagementRate": 0.65625,
+          "bounceRate": 0.34375
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-shovel-excavator",
+          "activeUsers": 27,
+          "sessions": 29,
+          "screenPageViewsPerSession": 0.9310344827586207,
+          "averageSessionDuration": 98.83680765517241,
+          "engagementRate": 0.6896551724137931,
+          "bounceRate": 0.3103448275862069
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-scraper",
+          "activeUsers": 25,
+          "sessions": 30,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 206.99871729999998,
+          "engagementRate": 0.7666666666666667,
+          "bounceRate": 0.23333333333333334
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+          "activeUsers": 25,
+          "sessions": 31,
+          "screenPageViewsPerSession": 1.2580645161290323,
+          "averageSessionDuration": 182.33738509677423,
+          "engagementRate": 0.8709677419354839,
+          "bounceRate": 0.12903225806451613
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-network-schedule",
+          "activeUsers": 24,
+          "sessions": 40,
+          "screenPageViewsPerSession": 0.85,
+          "averageSessionDuration": 119.09823639999999,
+          "engagementRate": 0.425,
+          "bounceRate": 0.575
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-general-vs-comprehensive",
+          "activeUsers": 24,
+          "sessions": 26,
+          "screenPageViewsPerSession": 0.9615384615384616,
+          "averageSessionDuration": 82.30930961538459,
+          "engagementRate": 0.8076923076923077,
+          "bounceRate": 0.19230769230769232
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+          "activeUsers": 22,
+          "sessions": 43,
+          "screenPageViewsPerSession": 1.9534883720930232,
+          "averageSessionDuration": 1218.5364681162791,
+          "engagementRate": 0.8604651162790697,
+          "bounceRate": 0.13953488372093023
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+          "activeUsers": 22,
+          "sessions": 30,
+          "screenPageViewsPerSession": 0.8,
+          "averageSessionDuration": 146.58366233333334,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-construction-plan-overview",
+          "activeUsers": 21,
+          "sessions": 27,
+          "screenPageViewsPerSession": 1.037037037037037,
+          "averageSessionDuration": 234.89078414814816,
+          "engagementRate": 0.7037037037037037,
+          "bounceRate": 0.2962962962962963
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-mix-design",
+          "activeUsers": 21,
+          "sessions": 24,
+          "screenPageViewsPerSession": 1.0416666666666667,
+          "averageSessionDuration": 190.18804104166665,
+          "engagementRate": 0.7916666666666666,
+          "bounceRate": 0.20833333333333334
+        },
+        {
+          "page": "/docs/pe-construction-river-coast-exam-themes",
+          "activeUsers": 21,
+          "sessions": 27,
+          "screenPageViewsPerSession": 0.9259259259259259,
+          "averageSessionDuration": 136.36095722222223,
+          "engagementRate": 0.5185185185185185,
+          "bounceRate": 0.48148148148148145
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-excavation-shoring",
+          "activeUsers": 19,
+          "sessions": 23,
+          "screenPageViewsPerSession": 0.8695652173913043,
+          "averageSessionDuration": 79.450777,
+          "engagementRate": 0.6956521739130435,
+          "bounceRate": 0.30434782608695654
+        },
+        {
+          "page": "/docs/concrete-diagnostician-guide-overview",
+          "activeUsers": 19,
+          "sessions": 19,
+          "screenPageViewsPerSession": 1.631578947368421,
+          "averageSessionDuration": 101.11357421052632,
+          "engagementRate": 0.7894736842105263,
+          "bounceRate": 0.21052631578947367
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+          "activeUsers": 19,
+          "sessions": 33,
+          "screenPageViewsPerSession": 3.090909090909091,
+          "averageSessionDuration": 186.46145345454545,
+          "engagementRate": 0.7272727272727273,
+          "bounceRate": 0.2727272727272727
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-construction",
+          "activeUsers": 18,
+          "sessions": 27,
+          "screenPageViewsPerSession": 1.8148148148148149,
+          "averageSessionDuration": 436.13111737037036,
+          "engagementRate": 0.7777777777777778,
+          "bounceRate": 0.2222222222222222
+        },
+        {
+          "page": "/docs/pe-construction-construction-planning-exam-themes",
+          "activeUsers": 18,
+          "sessions": 21,
+          "screenPageViewsPerSession": 1.1904761904761905,
+          "averageSessionDuration": 175.56541842857143,
+          "engagementRate": 0.6666666666666666,
+          "bounceRate": 0.3333333333333333
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-grade-comparison",
+          "activeUsers": 17,
+          "sessions": 18,
+          "screenPageViewsPerSession": 1.1666666666666667,
+          "averageSessionDuration": 146.6604776111111,
+          "engagementRate": 0.8888888888888888,
+          "bounceRate": 0.1111111111111111
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-histogram",
+          "activeUsers": 17,
+          "sessions": 20,
+          "screenPageViewsPerSession": 0.95,
+          "averageSessionDuration": 119.22949450000002,
+          "engagementRate": 0.7,
+          "bounceRate": 0.3
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-hazid",
+          "activeUsers": 17,
+          "sessions": 21,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 140.45954,
+          "engagementRate": 0.5714285714285714,
+          "bounceRate": 0.42857142857142855
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+          "activeUsers": 16,
+          "sessions": 25,
+          "screenPageViewsPerSession": 2.84,
+          "averageSessionDuration": 138.64775496000001,
+          "engagementRate": 0.92,
+          "bounceRate": 0.08
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-market-research",
+          "activeUsers": 16,
+          "sessions": 21,
+          "screenPageViewsPerSession": 1.2857142857142858,
+          "averageSessionDuration": 138.96258219047618,
+          "engagementRate": 0.9523809523809523,
+          "bounceRate": 0.047619047619047616
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-technical-nontechnical-skills",
+          "activeUsers": 16,
+          "sessions": 18,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 239.5987799444445,
+          "engagementRate": 0.8333333333333334,
+          "bounceRate": 0.16666666666666666
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-distance-angle",
+          "activeUsers": 15,
+          "sessions": 18,
+          "screenPageViewsPerSession": 0.9444444444444444,
+          "averageSessionDuration": 139.88330833333333,
+          "engagementRate": 0.5555555555555556,
+          "bounceRate": 0.4444444444444444
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+          "activeUsers": 15,
+          "sessions": 18,
+          "screenPageViewsPerSession": 1.2222222222222223,
+          "averageSessionDuration": 102.12357811111112,
+          "engagementRate": 0.8888888888888888,
+          "bounceRate": 0.1111111111111111
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-inherent-safety",
+          "activeUsers": 15,
+          "sessions": 21,
+          "screenPageViewsPerSession": 1.0476190476190477,
+          "averageSessionDuration": 236.32111738095236,
+          "engagementRate": 0.5238095238095238,
+          "bounceRate": 0.47619047619047616
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-lifecycle-costing-method",
+          "activeUsers": 15,
+          "sessions": 18,
+          "screenPageViewsPerSession": 1.1111111111111112,
+          "averageSessionDuration": 299.7861436111111,
+          "engagementRate": 0.7222222222222222,
+          "bounceRate": 0.2777777777777778
+        },
+        {
+          "page": "/docs/pe-construction-steel-concrete-exam-themes",
+          "activeUsers": 15,
+          "sessions": 16,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 110.20371075,
+          "engagementRate": 0.875,
+          "bounceRate": 0.125
+        },
+        {
+          "page": "/docs/civil-construction-1-primary-r07-b",
+          "activeUsers": 14,
+          "sessions": 16,
+          "screenPageViewsPerSession": 1.1875,
+          "averageSessionDuration": 294.055502,
+          "engagementRate": 0.6875,
+          "bounceRate": 0.3125
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-exam-overview",
+          "activeUsers": 14,
+          "sessions": 18,
+          "screenPageViewsPerSession": 5.055555555555555,
+          "averageSessionDuration": 598.3338313888888,
+          "engagementRate": 0.9444444444444444,
+          "bounceRate": 0.05555555555555555
+        },
+        {
+          "page": "/tools/juken-shikaku",
+          "activeUsers": 14,
+          "sessions": 14,
+          "screenPageViewsPerSession": 1.3571428571428572,
+          "averageSessionDuration": 199.7226127857143,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-1-vs-2",
+          "activeUsers": 13,
+          "sessions": 13,
+          "screenPageViewsPerSession": 1.1538461538461537,
+          "averageSessionDuration": 124.12428792307693,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/docs/civil-construction-2-secondary-r05",
+          "activeUsers": 13,
+          "sessions": 27,
+          "screenPageViewsPerSession": 0.9629629629629629,
+          "averageSessionDuration": 263.51495666666665,
+          "engagementRate": 0.6296296296296297,
+          "bounceRate": 0.37037037037037035
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-cost-driver",
+          "activeUsers": 13,
+          "sessions": 16,
+          "screenPageViewsPerSession": 0.875,
+          "averageSessionDuration": 196.01556012499998,
+          "engagementRate": 0.625,
+          "bounceRate": 0.375
+        },
+        {
+          "page": "/docs/pe-first-stage-r07-aptitude",
+          "activeUsers": 13,
+          "sessions": 22,
+          "screenPageViewsPerSession": 1.0909090909090908,
+          "averageSessionDuration": 98.4106126818182,
+          "engagementRate": 0.5454545454545454,
+          "bounceRate": 0.45454545454545453
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-vs-pe",
+          "activeUsers": 12,
+          "sessions": 15,
+          "screenPageViewsPerSession": 0.8,
+          "averageSessionDuration": 83.79833406666667,
+          "engagementRate": 0.5333333333333333,
+          "bounceRate": 0.4666666666666667
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-crane",
+          "activeUsers": 12,
+          "sessions": 15,
+          "screenPageViewsPerSession": 1.3333333333333333,
+          "averageSessionDuration": 134.61054333333334,
+          "engagementRate": 0.7333333333333333,
+          "bounceRate": 0.26666666666666666
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-loader",
+          "activeUsers": 12,
+          "sessions": 12,
+          "screenPageViewsPerSession": 1.25,
+          "averageSessionDuration": 325.799199,
+          "engagementRate": 0.6666666666666666,
+          "bounceRate": 0.3333333333333333
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-work-scheduling",
+          "activeUsers": 12,
+          "sessions": 13,
+          "screenPageViewsPerSession": 1.0769230769230769,
+          "averageSessionDuration": 150.45215907692307,
+          "engagementRate": 0.5384615384615384,
+          "bounceRate": 0.46153846153846156
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-study-plan",
+          "activeUsers": 12,
+          "sessions": 14,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 169.89515550000002,
+          "engagementRate": 0.8571428571428571,
+          "bounceRate": 0.14285714285714285
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-break-even-point",
+          "activeUsers": 12,
+          "sessions": 15,
+          "screenPageViewsPerSession": 1.4,
+          "averageSessionDuration": 257.25715126666665,
+          "engagementRate": 0.7333333333333333,
+          "bounceRate": 0.26666666666666666
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+          "activeUsers": 12,
+          "sessions": 21,
+          "screenPageViewsPerSession": 1.9047619047619047,
+          "averageSessionDuration": 176.41657633333332,
+          "engagementRate": 0.9523809523809523,
+          "bounceRate": 0.047619047619047616
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+          "activeUsers": 12,
+          "sessions": 26,
+          "screenPageViewsPerSession": 1.0769230769230769,
+          "averageSessionDuration": 224.67854603846152,
+          "engagementRate": 0.6923076923076923,
+          "bounceRate": 0.3076923076923077
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+          "activeUsers": 12,
+          "sessions": 16,
+          "screenPageViewsPerSession": 3.25,
+          "averageSessionDuration": 503.31605556249997,
+          "engagementRate": 0.6875,
+          "bounceRate": 0.3125
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-process-planning-construction",
+          "activeUsers": 12,
+          "sessions": 18,
+          "screenPageViewsPerSession": 1.5,
+          "averageSessionDuration": 146.29411233333335,
+          "engagementRate": 0.8333333333333334,
+          "bounceRate": 0.16666666666666666
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-target-cost",
+          "activeUsers": 12,
+          "sessions": 13,
+          "screenPageViewsPerSession": 1.5384615384615385,
+          "averageSessionDuration": 168.4458333076923,
+          "engagementRate": 0.7692307692307693,
+          "bounceRate": 0.23076923076923078
+        },
+        {
+          "page": "/docs/pe-construction-urban-planning-exam-themes",
+          "activeUsers": 12,
+          "sessions": 12,
+          "screenPageViewsPerSession": 1.0833333333333333,
+          "averageSessionDuration": 262.00772808333335,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/links",
+          "activeUsers": 12,
+          "sessions": 13,
+          "screenPageViewsPerSession": 2.6153846153846154,
+          "averageSessionDuration": 225.14629753846154,
+          "engagementRate": 0.5384615384615384,
+          "bounceRate": 0.46153846153846156
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-four-m-analysis",
+          "activeUsers": 11,
+          "sessions": 13,
+          "screenPageViewsPerSession": 0.9230769230769231,
+          "averageSessionDuration": 210.23466176923077,
+          "engagementRate": 0.8461538461538461,
+          "bounceRate": 0.15384615384615385
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-safety-management-pillar",
+          "activeUsers": 11,
+          "sessions": 31,
+          "screenPageViewsPerSession": 1.5806451612903225,
+          "averageSessionDuration": 44.90966612903226,
+          "engagementRate": 0.2903225806451613,
+          "bounceRate": 0.7096774193548387
+        },
+        {
+          "page": "/docs/pe-construction-port-airport-exam-themes",
+          "activeUsers": 11,
+          "sessions": 13,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 259.45221969230766,
+          "engagementRate": 0.7692307692307693,
+          "bounceRate": 0.23076923076923078
+        },
+        {
+          "page": "/category/pe-construction",
+          "activeUsers": 10,
+          "sessions": 17,
+          "screenPageViewsPerSession": 1.7058823529411764,
+          "averageSessionDuration": 150.6467427647059,
+          "engagementRate": 0.7058823529411765,
+          "bounceRate": 0.29411764705882354
+        },
+        {
+          "page": "/docs/Y29uY3JldG",
+          "activeUsers": 10,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 13.807873,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-port-regulations",
+          "activeUsers": 10,
+          "sessions": 14,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 162.51693471428572,
+          "engagementRate": 0.7142857142857143,
+          "bounceRate": 0.2857142857142857
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-frequent-topics",
+          "activeUsers": 10,
+          "sessions": 29,
+          "screenPageViewsPerSession": 3.3448275862068964,
+          "averageSessionDuration": 362.39529768965514,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r07-primary",
+          "activeUsers": 10,
+          "sessions": 23,
+          "screenPageViewsPerSession": 2.391304347826087,
+          "averageSessionDuration": 271.19930395652176,
+          "engagementRate": 0.9130434782608695,
+          "bounceRate": 0.08695652173913043
+        },
+        {
+          "page": "/docs/pe-construction-required-exam-themes",
+          "activeUsers": 10,
+          "sessions": 14,
+          "screenPageViewsPerSession": 1.2857142857142858,
+          "averageSessionDuration": 670.2433480714286,
+          "engagementRate": 0.7857142857142857,
+          "bounceRate": 0.21428571428571427
+        },
+        {
+          "page": "/docs/pe-construction-road-exam-themes",
+          "activeUsers": 10,
+          "sessions": 24,
+          "screenPageViewsPerSession": 0.875,
+          "averageSessionDuration": 128.7218655833333,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/docs/pe-first-stage-r06-aptitude",
+          "activeUsers": 10,
+          "sessions": 20,
+          "screenPageViewsPerSession": 1.85,
+          "averageSessionDuration": 671.3867063,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/about",
+          "activeUsers": 9,
+          "sessions": 30,
+          "screenPageViewsPerSession": 4.233333333333333,
+          "averageSessionDuration": 676.1545906666666,
+          "engagementRate": 0.7333333333333333,
+          "bounceRate": 0.26666666666666666
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+          "activeUsers": 9,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1.3,
+          "averageSessionDuration": 192.9882959,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/docs/civil-construction-2-guide-overview",
+          "activeUsers": 9,
+          "sessions": 11,
+          "screenPageViewsPerSession": 1.8181818181818181,
+          "averageSessionDuration": 110.14440190909092,
+          "engagementRate": 0.8181818181818182,
+          "bounceRate": 0.18181818181818182
+        },
+        {
+          "page": "/docs/civil-construction-2-primary-r07-kouki",
+          "activeUsers": 9,
+          "sessions": 12,
+          "screenPageViewsPerSession": 1.0833333333333333,
+          "averageSessionDuration": 171.52446441666666,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/docs/concrete-chief-engineer-primary-mix-design",
+          "activeUsers": 9,
+          "sessions": 14,
+          "screenPageViewsPerSession": 1.0714285714285714,
+          "averageSessionDuration": 211.34075414285712,
+          "engagementRate": 0.5714285714285714,
+          "bounceRate": 0.42857142857142855
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-green-infrastructure",
+          "activeUsers": 9,
+          "sessions": 12,
+          "screenPageViewsPerSession": 0.75,
+          "averageSessionDuration": 164.44961841666665,
+          "engagementRate": 0.3333333333333333,
+          "bounceRate": 0.6666666666666666
+        },
+        {
+          "page": "/docs/pe-comprehensive-management-r07-secondary",
+          "activeUsers": 9,
+          "sessions": 9,
+          "screenPageViewsPerSession": 1.3333333333333333,
+          "averageSessionDuration": 242.89276444444445,
+          "engagementRate": 1,
+          "bounceRate": 0
+        },
+        {
+          "page": "/docs/pe-construction-gakushuu-jikan-schedule",
+          "activeUsers": 9,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1.6,
+          "averageSessionDuration": 232.90251249999997,
+          "engagementRate": 0.8,
+          "bounceRate": 0.2
+        },
+        {
+          "page": "/docs/pe-construction-hissu-kamoku-kaitourei",
+          "activeUsers": 9,
+          "sessions": 9,
+          "screenPageViewsPerSession": 1.2222222222222223,
+          "averageSessionDuration": 272.88684066666667,
+          "engagementRate": 0.8888888888888888,
+          "bounceRate": 0.1111111111111111
+        },
+        {
+          "page": "/docs/pe-construction-pe-secondary-essay-guide",
+          "activeUsers": 9,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1.4,
+          "averageSessionDuration": 111.47545210000001,
+          "engagementRate": 0.9,
+          "bounceRate": 0.1
+        },
+        {
+          "page": "/docs/pe-construction-secondary-study-method",
+          "activeUsers": 9,
+          "sessions": 16,
+          "screenPageViewsPerSession": 1.125,
+          "averageSessionDuration": 68.7402646875,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        },
+        {
+          "page": "/docs/pe-construction-toan-kousei-template",
+          "activeUsers": 9,
+          "sessions": 15,
+          "screenPageViewsPerSession": 2.6666666666666665,
+          "averageSessionDuration": 196.95592159999998,
+          "engagementRate": 0.9333333333333333,
+          "bounceRate": 0.06666666666666667
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-concrete-maintenance",
+          "activeUsers": 8,
+          "sessions": 14,
+          "screenPageViewsPerSession": 0.8571428571428571,
+          "averageSessionDuration": 393.140229,
+          "engagementRate": 0.35714285714285715,
+          "bounceRate": 0.6428571428571429
+        },
+        {
+          "page": "/docs/civil-construction-1-guide-quality-management",
+          "activeUsers": 8,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1.2,
+          "averageSessionDuration": 136.2936592,
+          "engagementRate": 0.6,
+          "bounceRate": 0.4
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-explosives-act",
+          "activeUsers": 8,
+          "sessions": 8,
+          "screenPageViewsPerSession": 1,
+          "averageSessionDuration": 322.42978574999995,
+          "engagementRate": 0.875,
+          "bounceRate": 0.125
+        },
+        {
+          "page": "/docs/civil-construction-1-textbook-law-compliance",
+          "activeUsers": 8,
+          "sessions": 8,
+          "screenPageViewsPerSession": 1.75,
+          "averageSessionDuration": 388.31422225,
+          "engagementRate": 0.625,
+          "bounceRate": 0.375
+        }
+      ]
+    },
+    "sourceMedium-sns": {
+      "stamp": "2026-08-21T08-33-28",
+      "meta": {
+        "startDate": "2026-08-14",
+        "endDate": "2026-08-20",
+        "dimension": "sourceMedium",
+        "dimensionApiName": "sessionSourceMedium",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 50,
+        "organicOnly": false,
+        "snsOnly": true,
+        "snsSources": [
+          "x",
+          "instagram",
+          "youtube",
+          "note"
+        ],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [
+          "(not set)",
+          "ntp.msn.com",
+          "statics.teams.cdn.office.net",
+          "hustler.zenhp.co.jp",
+          "mobilesecurity.trendmicro.com"
+        ],
+        "propertyId": "properties/419382901"
+      },
+      "rows": [
+        {
+          "sourceMedium": "note / referral",
+          "activeUsers": 21,
+          "sessions": 54,
+          "screenPageViewsPerSession": 4.462962962962963,
+          "averageSessionDuration": 367.66553100000004,
+          "engagementRate": 0.5370370370370371,
+          "bounceRate": 0.46296296296296297
+        },
+        {
+          "sourceMedium": "x / social",
+          "activeUsers": 10,
+          "sessions": 10,
+          "screenPageViewsPerSession": 1.6,
+          "averageSessionDuration": 107.7197208,
+          "engagementRate": 0.5,
+          "bounceRate": 0.5
+        }
+      ]
+    }
+  }
+}

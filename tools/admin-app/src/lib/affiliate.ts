@@ -17,7 +17,7 @@ import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 /** doboku の副サイト（note 等）の A8 サイト名。正本は config/a8-report-automation.json の a8.relatedSites。 */
 function readRelatedSites(): string[] {
   try {
-    const c = JSON.parse(readFileSync(repoPath('config', 'a8-report-automation.json'), 'utf8'));
+    const c = JSON.parse(readFileSync(repoPath(datasetPath('config.a8-report-automation')), 'utf8'));
     return Array.isArray(c?.a8?.relatedSites) ? c.a8.relatedSites : [];
   } catch {
     return [];
@@ -254,10 +254,10 @@ export function affiliatePlacements(): PlacementView {
   }
 }
 
-/** アフィリエイトに関わる実行中の実験と次の判定日（data/experiments.json）。 */
+/** アフィリエイトに関わる実行中の実験と次の判定日（data/business/experiments.json）。 */
 export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
   try {
-    const e = JSON.parse(readFileSync(repoPath('data', 'experiments.json'), 'utf8'));
+    const e = JSON.parse(readFileSync(repoPath(datasetPath('business.experiments')), 'utf8'));
     const list = (Array.isArray(e) ? e : e.experiments ?? []) as { id: string; title: string; status: string; target_metric?: string; next_check_date?: string }[];
     return list
       .filter((x) => x.status === 'running' && /affiliate|アフィリ/i.test(`${x.title} ${x.target_metric ?? ''}`))
@@ -280,7 +280,7 @@ export interface ProgramCatalogRow {
 }
 export function affiliateCatalog(): ProgramCatalogRow[] {
   try {
-    const c = JSON.parse(readFileSync(repoPath('data', 'ads', 'affiliate-catalog.json'), 'utf8')) as {
+    const c = JSON.parse(readFileSync(repoPath(datasetPath('affiliate.catalog')), 'utf8')) as {
       programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
     };
     const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];

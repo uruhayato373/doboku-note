@@ -15,7 +15,7 @@ npm run serve             # out/ をローカル配信（既定 3025・`_redirec
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す。:ops で運用アラート区分〔ops:true＝配信・転記の遅れ〕だけ実行＝ops-audit.yml が日次で回し automation-failure Issue channel ops へ。--ci/--report-only/--ops は排他・0 件実行は exit 2）
-npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点 + note 記事カタログ）
+npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点 + note 記事カタログ + 演習データ public/quiz）
 npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/ledger）の索引を作る（.claude/state/content-ledger.json・git 管理外）。記事・出品ごとに前回から変わったものだけ読み直し・照合し直す（原稿は git の中身のハッシュが鍵＝worktree を替えても読み直さない／照合は鍵が変わった・前回ずれ・取得失敗・24 時間経過のものだけ）。初回は約 5 分・以後は 1 分前後。`--refresh` で全件照合・`--no-live` で照合しない。npm run admin の起動時に 6 時間より古ければ裏で作り直す（DN-0438）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
@@ -84,7 +84,7 @@ npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・�
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
 npm run check-domains          # 領域の正本（config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
 npm run ci-data -- <save|restore|add|latest|path|put> # ワークフローが記録を develop へ書き戻すときの共通処理。変わったファイルを git status から拾って退避・復元し（save/restore）、実在するパスだけを add する。latest/path は台帳の id からパスを出す。YAML にデータのパスを書かないための道具（main の YAML が develop の置き場の変更に追従できるように）。罠: 依存（zod）を読むので npm ci の後で使う。node_modules の無い別 worktree では checkout 側から --root で対象を指す
-npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
+npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか、コード（scripts/・tools/・src/・.claude/）が config/・data/ のパスを直書きしていないか。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
 npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
@@ -224,7 +224,7 @@ npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を 
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
 npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
-npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/metrics/business/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
+npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/business/records/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
 npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
@@ -267,7 +267,7 @@ npm run report-search-opportunities # 検索キーワード戦略（config/searc
 npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、手を打つ組（不良・要改善で件数 30 以上）を先に出す。読み手＝週次レビュー（不良が出たら改善カードを起票）。exit 2＝記録が無い・10 日超・カスタムディメンション未登録
 npm run x-profile-sync    # X の自己紹介を正本 config/x-account.json の profile.bio に合わせる。既定 dry-run（差分表示）、`-- --commit` で書き換えて表示の一致を確認。ログイン中が handle 以外なら ABORT（exit 2・別アカウントは書き換えない）。上限は limits.bio
 npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
-npm run review-checks -- --cadence monthly --run YYYY-MM --write # レビューの回ごとに点検（review-wiring.json の checks）を実行し、開いている Issue・Dependabot の脆弱性と一緒に data/metrics/business/checks-<回>-<時刻>.json へ追記。レポートの「点検と Issue」で全件に行き先が無いと管理画面の手順が「一部」。置き場は追記だけ（上書き・削除は check-business-direction が止める）
+npm run review-checks -- --cadence monthly --run YYYY-MM --write # レビューの回ごとに点検（review-wiring.json の checks）を実行し、開いている Issue・Dependabot の脆弱性と一緒に data/business/records/checks-<回>-<時刻>.json へ追記。レポートの「点検と Issue」で全件に行き先が無いと管理画面の手順が「一部」。置き場は追記だけ（上書き・削除は check-business-direction が止める）
 npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
 npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）
 npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する

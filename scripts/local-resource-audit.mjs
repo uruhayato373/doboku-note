@@ -2,6 +2,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { scanTree, machineResources, processInventory, warningsFor, acquireLock, GiB } from './lib/local-resources.mjs';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
@@ -9,7 +10,7 @@ import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 export async function run({ argv = [], quiet = false } = {}) {
   const out = createOutput({ quiet });
   const args = argv;
-  const policy = JSON.parse(readFileSync(join(root, 'config/local-resources.json'), 'utf8'));
+  const policy = JSON.parse(readFileSync(join(root, datasetPath('config.local-resources')), 'utf8'));
   const quick = args.includes('--quick');
   const release = quick ? () => {} : acquireLock(root, 'audit');
   try {

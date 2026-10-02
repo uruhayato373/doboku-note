@@ -6,7 +6,7 @@
 // 読み手は全部 latest-1〜2 件しか見ていなかった。寿命が宣言されていないファイル＝「誰も消せないので永久に増える」
 // なので、**未宣言の日付付きファイルは赤**（coverage 検査）にして、新しい系列が黙って増えるのを止める。
 //
-// 決して触らないもの: 台帳で immutable のデータセット（data/metrics/business の KPI 台帳＝check-business-direction が
+// 決して触らないもの: 台帳で immutable のデータセット（data/business/records の KPI 台帳＝check-business-direction が
 // 削除を拒否、rank-watch＝check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に入れない
 // （tests/prune-state-snapshots.test.mjs が assert する）。手元だけの生データ（local）は対象外。
 //
@@ -138,6 +138,16 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
         else if (it.time >= limit) keep.set(it.file, `within ${rule.maxAgeDays}d`);
       });
     }
+    if (rule.keepNewestPerSection && readJson) {
+      // 日ごとのレポート: 種類ごとに最新を含む日を残す（一度しか取っていない種類が日の寿命で消えないように）
+      const seen = new Set();
+      for (const it of items) {
+        const sections = Object.keys(safeRead(readJson, it.file)?.reports ?? {}).filter((k) => !seen.has(k));
+        if (!sections.length) continue;
+        sections.forEach((k) => seen.add(k));
+        if (!keep.has(it.file)) keep.set(it.file, `newest of ${sections.join(',')}`);
+      }
+    }
     if (rule.alsoKeepNewestWhere && readJson) {
       const { path, equals } = rule.alsoKeepNewestWhere;
       const hit = items.find((it) => getPath(safeRead(readJson, it.file), path) === equals);
@@ -191,7 +201,8 @@ export function filterWeeklyIndex(index, removedPaths) {
 export function collectPins({ watchwords = null, businessDocs = [] } = {}) {
   const pins = new Set();
   for (const w of watchwords?.watchwords || []) {
-    if (w?.evidence?.kind === 'gsc' && typeof w.evidence.source === 'string') pins.add(norm(w.evidence.source));
+    // 「ファイル#枠」はファイルを残す
+    if (w?.evidence?.kind === 'gsc' && typeof w.evidence.source === 'string') pins.add(norm(w.evidence.source.split('#')[0]));
   }
   // 新しいパス（data/…）と、台帳に残る旧パス（.claude/state/…）の両方を拾う
   const re = /(?<![A-Za-z0-9_.-])(?:data|\.claude\/state)\/[A-Za-z0-9_./-]+\.(?:json|md)/g;

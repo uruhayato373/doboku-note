@@ -40,9 +40,9 @@ import matter from 'gray-matter';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const categories = require(path.join(process.cwd(), 'src/config/categories.json'));
-const templatesConfig = require(path.join(process.cwd(), 'config/ogp/templates.json'));
-const rulesConfig = require(path.join(process.cwd(), 'config/ogp/rules.json'));
-const textConfig = require(path.join(process.cwd(), 'config/ogp/text.json'));
+const templatesConfig = require(path.join(process.cwd(), datasetPath('config.ogp-templates')));
+const rulesConfig = require(path.join(process.cwd(), datasetPath('config.ogp-rules')));
+const textConfig = require(path.join(process.cwd(), datasetPath('config.ogp-text')));
 
 // 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
 // ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
@@ -115,6 +115,7 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = process.cwd();
@@ -122,7 +123,7 @@ const POSTS_DIR = SITE_CONTENT_ROOT;
 const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
 // 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。
 // 真実源の exam-key は CATEGORY_TO_EXAM_KEY（上）と note-cover-tokens.json に一致。
-const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, 'config', 'ogp', 'backgrounds');
+const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, datasetDir('config.ogp-backgrounds'));
 
 // ---- CLI 引数パース ----
 

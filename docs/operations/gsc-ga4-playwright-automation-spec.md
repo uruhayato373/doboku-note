@@ -251,8 +251,8 @@ GoogleのCSVはロケール、BOM、ファイル分割、列名が変化し得�
 
 - GSC UI正規化JSON
 - `data/gsc/url-inspection/` 最新batch
-- `data/metrics/gsc/gsc-page-query-*` 最新2件
-- `data/metrics/ga4/ga4-page-*` 最新2件
+- `gsc.page-query` 最新2件
+- `ga4.page` 最新2件
 - live `sitemap.xml`
 - `public/_redirects`
 - `out/`の生成HTML
@@ -414,7 +414,7 @@ data/gsc/
   <runId>/               # gitignore（raw CSV / ZIP / manifest / normalized）
 ```
 
-`.gitignore` は `data/metrics/{gsc-ui,ga4-ui}/*/` を無視しつつ `!.../ssot/` で例外化する。
+`.gitignore` は `data/{gsc,ga4}/ui/` を無視しつつ `!.../ssot/` で例外化する。
 `report-search-growth.mjs` は **SSOT を優先**して読み（`gscUiSource: "ssot"`）、無ければ run ローカルへ
 フォールバックする。整合は `scripts/check-google-ui-ssot.mjs` が検査する。
 
