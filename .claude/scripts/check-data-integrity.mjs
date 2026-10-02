@@ -213,8 +213,8 @@ if (!filePath) {
 
 const result = checkIntegrity(filePath);
 const gscFiles = {
-  query: findLatestGscFile("gsc-query-"),
-  page: findLatestGscFile("gsc-page-", "gsc-page-query-"),
+  query: latestReportRef(".", "gsc.query"),
+  page: latestReportRef(".", "gsc.page"),
 };
 const gscChecks = Object.entries(gscFiles).map(([label, path]) => ({
   label,

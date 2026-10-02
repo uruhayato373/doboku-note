@@ -509,8 +509,8 @@ function generateMarkdown(agg, findings) {
   lines.push(`### 生データ`);
   lines.push(``);
   lines.push(`- URL Inspection 結果: \`data/gsc/url-inspection/2026-04-27*.json\``);
-  lines.push(`- Search Analytics page: \`${opts.pageData ?? '-'}\``);
-  lines.push(`- Search Analytics query: \`${opts.queryData ?? '-'}\``);
+  lines.push(`- Search Analytics page: \`--page-data\` に渡したレポート（data/gsc/reports/<日付>.json#page）`);
+  lines.push(`- Search Analytics query: \`--query-data\` に渡したレポート（data/gsc/reports/<日付>.json#query）`);
   lines.push(`- 集計 JSON: \`data/analysis/gsc-coverage-diagnosis/{ts}.json\``);
   lines.push(``);
 
