@@ -38,7 +38,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | フィールド | 用途 |
 |---|---|
-| `id` | `coconala-{種別}`。sales.json の productId は `coconala:{id}` |
+| `id` | `coconala-{種別}`。`data/note/sales.json` の productId は `coconala:{id}` |
 | `status` | `draft`（未出品・非表示）/ `listed`（出品中・**/links に自動表示**）/ `full`（満枠・導線を伏せる）/ `paused`（季節オフ） |
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
 | `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
@@ -380,10 +380,10 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
    - **価格引き上げ**: 4週で S1+S2 合計5件以上 → S2 の引き上げを検討（評価20件が目安）
    - **工数警告**: `tensakuMinutes` 平均が30分超 → `weeklyCapacity` 引き下げ
    - **満枠**: 当週受注が `weeklyCapacity` 到達 → `status: 'full'` flip を提案
-4. 売上は月次で orders.json（closed）→ sales.json へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
+4. 売上は月次で `data/coconala/orders.json`（closed）→ `data/note/sales.json` へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
 
 > **2026-08-17 方針変更（旧: ダッシュボードはスクレイプしない）**
-> 自社 KPI は長らく「手動貼付が正」としていたが、貼付が続かず `kpi.json.weekly` は**14週間 0 行**のまま
+> 自社 KPI は長らく「手動貼付が正」としていたが、貼付が続かず `kpi.json` の `weekly` は**14週間 0 行**のまま
 > だった（初受注 08-04・出品 07-16 を経ても撤退ライン判定の素地が無い）。運用が回らない安全策は
 > 安全ではないので、**ログイン必須の自社分析画面も read-only で自動取得する**（ユーザー判断）。
 > 安全弁は受注収集（§2.2b）と同じ＝`assertAccount`・低頻度（週次）・**書き込み操作なし**
@@ -414,7 +414,7 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 | 1 | listed は serviceUrl 必須（`https://coconala.com/services/{n}`） | 出品したのに URL 未記入で /links が空リンクを出す |
 | 2 | orders.json / kpi.json の serviceId がカタログに実在 | typo・退役サービスの記録 |
 | 3 | orders.json の priceYen が受注日時点の定価（カタログの `priceHistory`、無ければ現行 `priceYen`）と一致。見積り受注は `quote.amountYen` と一致 | 価格改定の取り残し・値引きミス |
-| 4 | sales.json の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
+| 4 | `data/note/sales.json` の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
 | 5 | listed があるなら account の profileUrl が非空 | 出品済みなのにアカウント SSOT が空 |
 | 6 | 一度も出品していない（`draft` かつ `listedAt` 未設定）サービスに受注/KPI 実績が無い | 未出品なのに閲覧・販売が立つ論理矛盾（ダミー値の混入・serviceId 取り違え）。※ listed 後に `paused`/`draft` へ戻した場合は `listedAt` が残るので誤検知しない |
 | 7 | 全カタログに listings エントリ（カテゴリ・本文）と商品画像がある（承認済み POP 原本 → フラット thumb-<key>.png → coconala-thumb の描画定義の順に、ローカル実体か Drive 台帳で確認。出品中で POP 未承認なら警告） | listings の書き忘れ・サムネ未生成 |
