@@ -775,6 +775,8 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 
 **完了条件**: 各 PC で旧パスに git 管理外のファイルが 0 件、`npm run check-information-architecture` と `npm run check-drive-vault -- --staged-only` が通り、Mac の定期処理の次回実行が `data/` へ書いている（定期処理の worktree は毎回 origin/develop へ reset されるので手で更新しなくてよい）。
 
+**進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。残りは Mac 分。
+
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
 
