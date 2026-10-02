@@ -59,7 +59,7 @@ test('一次PDFは本文2:1・サイドバー6:5の生成画像をR2から表示
   assert.equal(result.body.width / result.body.height, 2);
   assert.equal(result.tile.width / result.tile.height, 6/5);
   assert.match(result.body.src, /^https:\/\/storage\.doboku-note\.com\/posts\//);
-  assert.match(result.tile.src, /cta-pdf-sidebar\.webp$/);
+  assert.match(result.tile.src, /cta-pdf-sidebar\.webp\?v=[a-f0-9]+$/);
   assert.equal(result.unrelated, null);
   assert.match(result.html, /cta-pdf-sidebar\.webp/);
   assert.match(result.html, /data-cta-label="pe1-takuitsu-pdf"/);

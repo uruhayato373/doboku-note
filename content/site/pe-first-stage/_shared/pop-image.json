@@ -25,8 +25,10 @@
       },
       "output": {
         "path": "content/site/pe-first-stage/_shared/img/cta-pdf-body.webp",
-        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp",
-        "sha256": "d29d65e01926af6fe538884b1e10a541bff690b6f4a12d5276e8ec0088085224"
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-body.webp?v=922633f4c138",
+        "sha256": "922633f4c13854a3d4f72c9a971dcea51932558fc052e480283cef66ab50221a",
+        "bytes": 139326,
+        "quality": 85
       },
       "review": {
         "date": "2026-10-02",
@@ -45,8 +47,10 @@
       },
       "output": {
         "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
-        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
-        "sha256": "302ff0b20171aa990985e81c88aeef88f885afaa08a1f44f1d45d9dc98a9f0a3"
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar.webp?v=f3451d6e7756",
+        "sha256": "f3451d6e775699de12c65242baa745e330dca53cc3e8ca887e06e18499e3b3c1",
+        "bytes": 142980,
+        "quality": 80
       },
       "review": {
         "date": "2026-10-02",
@@ -56,13 +60,14 @@
   },
   "storage": {
     "delivery": "public R2 / doboku-note / posts/pe-first-stage/_shared/img/",
-    "conversion": "PNGをクロップ・リサイズせずWebP quality95へ変換",
-    "verifiedAt": "2026-10-02T12:29:35.496Z",
-    "verification": "2件とも公開URLから読み戻したSHA-256がoutput.sha256と一致",
+    "conversion": "PNGの寸法・構図を保ってWebPへ変換（品質はvariants.output.quality）。150KiB以下。",
+    "verifiedAt": "2026-10-02T12:41:24.413Z",
+    "verification": "2件ともサイトが参照するバージョン付き公開URLから読み戻し、SHA-256がoutput.sha256と一致",
     "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（variants.original.filenameのPNGを保持）"
   },
   "publication": {
-    "status": "サイト参照をPRで反映中"
+    "status": "R2公開済み。サイト反映状況はPRで追跡",
+    "url": "https://github.com/uruhayato373/doboku-note/pull/836"
   },
   "references": [
     {
