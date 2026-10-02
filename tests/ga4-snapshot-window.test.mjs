@@ -1,9 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, basename } from 'node:path';
+import { join } from 'node:path';
 import { resolveWindow, pickByLabelSnapshot } from '../.claude/scripts/lib/ga4-snapshot.mjs';
+import { writeReport } from '../scripts/lib/metric-reports.mjs';
 
 /**
  * GA4 スナップショットの窓契約（DN-0062）。
@@ -13,12 +14,11 @@ import { resolveWindow, pickByLabelSnapshot } from '../.claude/scripts/lib/ga4-s
  * EPC の分母だけが月境界から外れていた。選択は windowKind で行う。
  */
 
-function snapshotDir(files) {
-  const dir = mkdtempSync(join(tmpdir(), 'ga4-snap-'));
-  for (const [name, meta] of files) {
-    writeFileSync(join(dir, name), JSON.stringify({ meta, rows: [] }));
-  }
-  return dir;
+/** 一時リポジトリに by-label のレポートを書く（[取得時刻, meta] の組）。戻り値はルート */
+function snapshotRoot(entries) {
+  const root = mkdtempSync(join(tmpdir(), 'ga4-snap-'));
+  for (const [stamp, meta] of entries) writeReport(root, 'ga4.cta-clicks-by-label', { meta, rows: [] }, { stamp });
+  return root;
 }
 
 test('resolveWindow: --month は月初〜月末に展開する', () => {
@@ -53,42 +53,50 @@ test('resolveWindow: 不正な指定は黙って既定へ落とさず落とす',
 });
 
 test('pickByLabelSnapshot: 月次窓は、より新しい 28 日窓に負けない', () => {
-  const dir = snapshotDir([
-    ['ga4-cta-clicks-by-label-2026-08-01T00-00-00.json', { windowKind: 'month' }],
-    ['ga4-cta-clicks-by-label-2026-08-28T21-00-00.json', { windowKind: 'days' }],
+  const root = snapshotRoot([
+    ['2026-08-01T00-00-00', { windowKind: 'month' }],
+    ['2026-08-28T21-00-00', { windowKind: 'days' }],
   ]);
-  assert.equal(basename(pickByLabelSnapshot(dir)), 'ga4-cta-clicks-by-label-2026-08-01T00-00-00.json');
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-01.json#cta-clicks-by-label:month');
 });
 
-test('pickByLabelSnapshot: windowKind 未設定の既存ファイルは days 扱い', () => {
-  const dir = snapshotDir([
-    ['ga4-cta-clicks-by-label-2026-08-13T21-36-59.json', { startDate: '2026-07-16' }],
-    ['ga4-cta-clicks-by-label-2026-08-20T21-00-00.json', { windowKind: 'month' }],
+test('pickByLabelSnapshot: windowKind 未設定の既存レポートは days 扱い', () => {
+  const root = snapshotRoot([
+    ['2026-08-13T21-36-59', { startDate: '2026-07-16' }],
+    ['2026-08-20T21-00-00', { windowKind: 'month' }],
   ]);
-  assert.equal(basename(pickByLabelSnapshot(dir)), 'ga4-cta-clicks-by-label-2026-08-20T21-00-00.json');
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-21.json#cta-clicks-by-label:month');
 });
 
 test('pickByLabelSnapshot: 月次が複数あれば最新の月次を選ぶ', () => {
-  const dir = snapshotDir([
-    ['ga4-cta-clicks-by-label-2026-07-01T00-00-00.json', { windowKind: 'month' }],
-    ['ga4-cta-clicks-by-label-2026-08-01T00-00-00.json', { windowKind: 'month' }],
+  const root = snapshotRoot([
+    ['2026-07-01T00-00-00', { windowKind: 'month' }],
+    ['2026-08-01T00-00-00', { windowKind: 'month' }],
   ]);
-  assert.equal(basename(pickByLabelSnapshot(dir)), 'ga4-cta-clicks-by-label-2026-08-01T00-00-00.json');
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-01.json#cta-clicks-by-label:month');
 });
 
 test('pickByLabelSnapshot: 月次が無ければ従来どおり最新を返す', () => {
-  const dir = snapshotDir([
-    ['ga4-cta-clicks-by-label-2026-08-13T21-36-59.json', { windowKind: 'days' }],
-    ['ga4-cta-clicks-by-label-2026-08-20T21-00-00.json', { windowKind: 'days' }],
+  const root = snapshotRoot([
+    ['2026-08-13T21-36-59', { windowKind: 'days' }],
+    ['2026-08-20T21-00-00', { windowKind: 'days' }],
   ]);
-  assert.equal(basename(pickByLabelSnapshot(dir)), 'ga4-cta-clicks-by-label-2026-08-20T21-00-00.json');
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-21.json#cta-clicks-by-label');
 });
 
-test('pickByLabelSnapshot: 壊れた JSON があっても選択は続行する', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'ga4-snap-'));
-  writeFileSync(join(dir, 'ga4-cta-clicks-by-label-2026-08-01T00-00-00.json'), '{ 壊れ');
-  writeFileSync(join(dir, 'ga4-cta-clicks-by-label-2026-08-02T00-00-00.json'), JSON.stringify({ meta: { windowKind: 'month' }, rows: [] }));
-  assert.equal(basename(pickByLabelSnapshot(dir)), 'ga4-cta-clicks-by-label-2026-08-02T00-00-00.json');
+test('pickByLabelSnapshot: 同じ日の 28 日窓と月次窓は別の枠に入り、月次を選ぶ', () => {
+  const root = snapshotRoot([
+    ['2026-08-28T21-00-00', { windowKind: 'days' }],
+    ['2026-08-28T21-05-00', { windowKind: 'month' }],
+  ]);
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-29.json#cta-clicks-by-label:month');
+});
+
+test('pickByLabelSnapshot: 壊れた日のファイルがあっても選択は続行する', () => {
+  const root = snapshotRoot([['2026-08-02T00-00-00', { windowKind: 'month' }]]);
+  mkdirSync(join(root, 'data/ga4/reports'), { recursive: true });
+  writeFileSync(join(root, 'data/ga4/reports/2026-08-05.json'), '{ 壊れ');
+  assert.equal(pickByLabelSnapshot(root), 'data/ga4/reports/2026-08-02.json#cta-clicks-by-label:month');
 });
 
 test('pickByLabelSnapshot: 候補が無ければ null（空を成功と呼ばない）', () => {

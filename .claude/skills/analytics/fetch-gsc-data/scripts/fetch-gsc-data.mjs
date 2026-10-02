@@ -18,6 +18,7 @@
 import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join, resolve } from "path";
+import { reportIdOf, writeReport } from "../../../../../scripts/lib/metric-reports.mjs";
 import { pathToFileURL } from "node:url";
 import { getDateRange, validateRange } from "../../../../../scripts/lib/gsc-date-range.mjs";
 import dotenv from "dotenv";
@@ -28,7 +29,6 @@ import { fetchGscPages } from "../../../../../scripts/lib/gsc-pagination.mjs";
 // ── Config ──
 
 const SITE_URL = "sc-domain:doboku-note.com";
-const OUTPUT_DIR = "data/metrics/gsc";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "query";
@@ -222,18 +222,9 @@ function printSummary(data) {
 }
 
 function saveJson(data, opts) {
-  if (!existsSync(OUTPUT_DIR)) {
-    mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  // 複数ディメンションは page,query → gsc-page-query-{ts}.json（metrics-analyzer が参照）。
-  const dimSlug = opts.effectiveDimensions.join("-");
-  const filename = `gsc-${dimSlug}-${timestamp}.json`;
-  const filepath = join(OUTPUT_DIR, filename);
-
-  writeFileSync(filepath, JSON.stringify(data, null, 2) + "\n", { encoding: "utf-8", flag: "wx" });
-  console.log(`\n出力: ${filepath}`);
+  // 複数ディメンションは page,query → 枠 page-query（metrics-analyzer が参照）。
+  const { ref } = writeReport(".", reportIdOf("gsc", opts.effectiveDimensions.join("-")), data);
+  console.log(`\n出力: ${ref}`);
 }
 
 // ── Main ──

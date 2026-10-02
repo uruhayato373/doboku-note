@@ -176,12 +176,12 @@ B. 実験進捗レポート:
 スナップショット読み（既定の取得元）:
 - CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
   コミット済みスナップショットを読んで WoW を自前算出する:
-  - GA4 NSM（推奨）: `data/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
+  - GA4 NSM（推奨）: `ga4.channel-organic`（7日窓・JP・Organic Search のみ）の
     最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
-    **これがクリーンな7日 WoW**。`ga4-channel-organic-*` が無い場合のみ `ga4-channel-*.json`（28日窓）に
+    **これがクリーンな7日 WoW**。`ga4.channel-organic` が無い場合のみ `ga4.channel`（28日窓）に
     フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
-  - GSC（推奨）: `data/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
-    日次 clicks/impressions を合計して前週比。無ければ `gsc-query-*.json`（28日窓）にフォールバックし
+  - GSC（推奨）: `gsc.date`（7日窓・日次）の最新2ファイルで
+    日次 clicks/impressions を合計して前週比。無ければ `gsc.query`（28日窓）にフォールバックし
     「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
   - PSI: `data/psi/batch/*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
 - スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
@@ -266,10 +266,10 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
 
 調査方法（オフライン・コミット済みスナップショット読み）:
 - `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
-  - 入力: 最新 `data/metrics/ga4/ga4-page-*.json`（流入）+ `ga4-cta-clicks-*.json`（クリック, あれば）
+  - 入力: 最新 `ga4.page`（流入）+ `ga4.cta-clicks`（クリック, あれば）
   - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
   - 出力: `data/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
-- 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4-cta-clicks-*.json` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4-cta-clicks-by-label-*.json`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
+- 併せて最新 `ga4-key-events-by-page-*.json`（pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4.cta-clicks` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4.cta-clicks-by-label`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
   ライブ fetch は不要。creds 未設定でも成立する。
 
@@ -291,7 +291,7 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
 扱うため、ここでは重複させず「流入」と「YT 公開照合」に絞る。
 
 調査方法（コミット済みスナップショット読み・全て CI 供給）:
-- SNS 流入: `data/metrics/ga4/ga4-sourceMedium-sns-*.json` の最新 2 ファイルで
+- SNS 流入: `ga4.source-medium-sns` の最新 2 ファイルで
   source（x/instagram/youtube/note）別 WoW を出す。1 ファイルしか無い初週は絶対値のみ
   （delta は「前週データなし」と明記）。ファイル自体が無ければ「SNS 流入スナップショット
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
@@ -676,7 +676,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## SNS 流入と投稿実績
 
-<!-- Agent F が `data/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新2件）で source 別 WoW、
+<!-- Agent F が `ga4.source-medium-sns`（最新2件）で source 別 WoW、
      `data/weekly-metrics/` 最新の sns セクション、`.claude/state/yt-verify/latest.json` の
      ドリフト counts を埋め込む。初週/未生成時はその旨を明記。source 急落・YT ドリフトは
      「## 来週への申し送り」にも 1 行起票。IG/X の公開ドリフトは Agent B / Agent I 側で扱い重複させない。 -->

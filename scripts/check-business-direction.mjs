@@ -11,7 +11,7 @@ try {
     if (r.kind === 'snapshot') {
       if (!r.strategy || hash(r.strategy) !== r.strategyHash || !Array.isArray(r.cells) || r.cells.length === 0) errors.push(`${r.file}: snapshot invalid`);
       for (const c of r.cells ?? []) if (c.value != null && (!Number.isFinite(c.value) || c.value < 0)) errors.push(`${r.file}: metric invalid`);
-      for (const s of r.sources ?? []) if (!existsSync(join(root, resolveMovedPath(s.file))) || !/^[a-f0-9]{64}$/.test(s.sha256)) errors.push(`${r.file}: source missing`);
+      for (const s of r.sources ?? []) if (!existsSync(join(root, resolveMovedPath(s.file).split('#')[0])) || !/^[a-f0-9]{64}$/.test(s.sha256)) errors.push(`${r.file}: source missing`);
     } else {
       const before = rows.filter(x => x.createdAt < r.createdAt || (x.createdAt === r.createdAt && x.file !== r.file));
       try { validateRecord(r, strategyForRecord(r, rows, config), before, new Date(r.createdAt)); } catch (e) { errors.push(`${r.file}: ${e.message}`); }

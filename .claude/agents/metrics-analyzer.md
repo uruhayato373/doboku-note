@@ -17,7 +17,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ## 担当範囲
 
-- `data/metrics/gsc/` と `data/metrics/ga4/` 配下の最新 JSON 読み込み
+- GA4・GSC のレポートの読み込み（取得した日ごとの `data/ga4/reports/<日付>.json`・`data/gsc/reports/<日付>.json` の `reports.<種類>`）。下の表の種類 id（`gsc.page-query` など）の最新は `node scripts/ci-data.mjs latest <id>` が「ファイル#種類」で返す
 - 改善機会の6パターン抽出（SNS-Source-Shift 含む）
 - `.claude/state/improvements/{YYYY-MM-DD}.md` への出力
 
@@ -36,14 +36,14 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 | ファイル | 取得元スキル |
 |---|---|
-| `data/metrics/gsc/gsc-query-*.json`（最新） | `/fetch-gsc-data` |
-| `data/metrics/gsc/gsc-page-<日付>*.json`（最新・`gsc-page-query-*` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
-| `data/metrics/gsc/gsc-page-query-*.json`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
+| `gsc.query`（最新） | `/fetch-gsc-data` |
+| `gsc.page（data/gsc/reports/<日付>.json）`（最新・`gsc.page-query` と `truncated:true` の水曜打ち切り版は除く） | `/fetch-gsc-data --dimension page` |
+| `gsc.page-query`（最新・前週があれば 2 件） | `/fetch-gsc-data --dimensions page,query --all`（Pattern 7/8 用・週次 CI 生成） |
 
-> `gsc-query-*` / `gsc-page-*` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc-date-*` の合計と `gsc-page-query-*` は、各データの対象範囲を明示して別に利用できる。
-| `data/metrics/ga4/ga4-page-*.json`（最新） | GA4 page dimension |
-| `data/metrics/ga4/ga4-date-*.json`（最新） | GA4 date dimension（トレンド判定用） |
-| `data/metrics/ga4/ga4-sourceMedium-sns-*.json`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
+> `gsc.query` / `gsc.page` が `truncated:true` または0行なら、候補件数の前週比較やサイト全体の増減を断定しない。完全な `gsc.date` の合計と `gsc.page-query` は、各データの対象範囲を明示して別に利用できる。
+| `ga4.page`（最新） | GA4 page dimension |
+| `ga4.date`（最新） | GA4 date dimension（トレンド判定用） |
+| `ga4.source-medium-sns`（最新 2 件） | GA4 SNS 流入 source×medium（Pattern 6 用・`fetch-ga4-data --sns-only`） |
 
 オプション（前週比較用）:
 - 上記の前週スナップショット（`snapshot-weekly-metrics` の出力）があれば使用。無ければトレンドは単一週のみで判定。
@@ -112,7 +112,7 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 ### Pattern 6: SNS-Source-Shift（SNS 流入の急変）
 
-**条件**: `ga4-sourceMedium-sns-*.json` の最新 2 ファイルで source（x/instagram/youtube/note）別に WoW を取り、次のいずれか:
+**条件**: `ga4.source-medium-sns` の最新 2 ファイルで source（x/instagram/youtube/note）別に WoW を取り、次のいずれか:
 - **急落**: 今週 sessions ≥ 5 かつ 前週比 −30% 以上の減少
 - **新規成長**: 前週ほぼゼロ（< 3）から今週 ≥ 10 に伸びた source
 
@@ -120,11 +120,11 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **出力項目**: source、今週 users/sessions、前週、delta%、判定（急落/新規成長）
 
-**前提**: `ga4-sourceMedium-sns-*.json` が 2 ファイル未満（初週・未生成）なら本パターンはスキップし「SNS 流入データ不足（1 週分のみ）」と記録。ファイル自体が無ければ「SNS breakdown 未生成」と 1 行。
+**前提**: `ga4.source-medium-sns` が 2 ファイル未満（初週・未生成）なら本パターンはスキップし「SNS 流入データ不足（1 週分のみ）」と記録。ファイル自体が無ければ「SNS breakdown 未生成」と 1 行。
 
 ### Pattern 7: Cannibalization（同一クエリの共食い）
 
-**条件**: `gsc-page-query-*.json`（最新）で、同一 query に対して impressions ≥ 5 の page が **2 つ以上**あり、いずれも position ≤ 30。
+**条件**: `gsc.page-query`（最新）で、同一 query に対して impressions ≥ 5 の page が **2 つ以上**あり、いずれも position ≤ 30。
 
 **正規化（必須）**: グルーピング前に page URL の `#fragment` を除去して正規化する（同一ページのアンカー付き URL 行が「複数ページ競合」に見える誤検出防止。2026-07-15 初回実測では site-wide 検出 3 件すべてがこの誤検出だった）。正規化後に同一 page となった行は impressions/clicks を合算し、position は impressions 加重平均で代表させる。
 
@@ -132,11 +132,11 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 
 **出力項目**: query、競合 page 群（URL / impr / clicks / position）、主候補（最も clicks/position の良い page）
 
-**前提**: `gsc-page-query-*.json` が無ければ本パターンをスキップし「page×query 未生成」と 1 行。
+**前提**: `gsc.page-query` が無ければ本パターンをスキップし「page×query 未生成」と 1 行。
 
 ### Pattern 8: Content-Decay（順位/クリックの継続悪化）
 
-**条件**: `gsc-page-query-*.json` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。page は Pattern 7 と同じく `#fragment` 除去で正規化してからペア突合する（アンカー行の分散で clicks が割れる／週によって fragment が変わりペアが不一致になるのを防ぐ）。
+**条件**: `gsc.page-query` の最新と前週スナップショットで**同一 (page, query) ペア**を追跡し、clicks が −30% 以上 かつ position が +3 以上悪化しているペア（前週 clicks ≥ 3）。page は Pattern 7 と同じく `#fragment` 除去で正規化してからペア突合する（アンカー行の分散で clicks が割れる／週によって fragment が変わりペアが不一致になるのを防ぐ）。
 
 **理由**: 一度上位だったページの品質再評価・鮮度劣化・競合台頭のシグナル。コアアップデート demote の早期検知にも効く（gsc-management.md 2026-07-10 の教訓）。
 
@@ -199,9 +199,9 @@ total_candidates: N
 
 ## 実行手順
 
-1. **入力ファイル特定**: `data/metrics/gsc/` と `data/metrics/ga4/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
+1. **入力ファイル特定**: `data/gsc/reports/` と `data/ga4/reports/` を `Glob` で探索し、各 dimension ごとに最新ファイルを選ぶ
 2. **読み込み**: JSON を Read で取得（容量が大きければ `rows` の上位 N 件に絞る）
-3. **パターン抽出**: Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5/6（Pattern 6 は要 `ga4-sourceMedium-sns-*.json`）
+3. **パターン抽出**: Pattern 1/2/3/7/8 はダイジェストの `OPP-…` を引用する（再抽出しない）。自分で抽出するのは Pattern 4/5/6（Pattern 6 は要 `ga4.source-medium-sns`）
 4. **存在判定（Pattern 5 のみ）**: `content/site/` に対して Grep で slug 主要語検索
 5. **出力書き出し**: `.claude/state/improvements/{YYYY-MM-DD}.md` を Write
 6. **サマリーを標準出力に返す**: 件数のみ。詳細はファイル経由で呼び出し元が Read する

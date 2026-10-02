@@ -35,7 +35,7 @@ export default async function VideoOutcomesPage() {
       </nav>
 
       <Stack>
-      <PanelCard title="計測データ" description="data/metrics/ga4/ga4-campaign-*.json（CI 供給）">
+      <PanelCard title="計測データ" description="GA4 の campaign（data/ga4/reports/・CI 供給）">
         {metrics.ok ? (
           <div className="filterbar">
             <StatusBadge tone="good">取得済み</StatusBadge>

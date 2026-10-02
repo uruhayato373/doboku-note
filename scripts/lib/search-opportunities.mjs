@@ -1,7 +1,7 @@
 /**
  * search-opportunities.mjs — 検索キーワード戦略（config/search-strategy.json）のクラスター別集計と改善候補。
  * ---------------------------------------------------------------------------
- * GSC の検索語×ページ集計（data/metrics/gsc/gsc-page-query-*.json・CI 供給）を読み、
+ * GSC の検索語×ページ集計（data/gsc/reports/<日付>.json の page-query・CI 供給）を読み、
  * クラスター（検索語の正規表現）ごとに 表示・クリック・1 桁順位の件数・11〜30 位の件数を出す。
  * 改善候補は「11〜30 位で表示がある検索語」をページ単位に束ねたもの（既存ページの手直しで 1 桁へ上げる対象）。
  * 既に SEO Rank Watch で観察中のページと、バックログにカードがあるページには印を付ける（二重に起票しない）。
@@ -11,10 +11,9 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { latestFile } from './datasets.mjs';
+import { listReports } from './metric-reports.mjs';
 
 export const CONFIG = 'config/search-strategy.json';
-const GSC_DIR = 'data/metrics/gsc';
-const FILE_RE = /^gsc-page-query-(\d{4}-\d{2}-\d{2})T[\d-]+\.json$/;
 const SITE = 'https://doboku-note.com';
 
 const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
@@ -22,14 +21,9 @@ const pathOf = (url) => String(url).replace(SITE, '') || '/';
 
 /** 期間の異なる検索語×ページ集計の一覧（新しい順）。同じ期間の重複取得は最新の 1 本だけ。 */
 export function listPageQuerySnapshots(root) {
-  const dir = join(root, GSC_DIR);
-  if (!existsSync(dir)) return [];
   const seen = new Set();
-  return readdirSync(dir)
-    .filter((f) => FILE_RE.test(f))
-    .sort()
-    .reverse()
-    .map((f) => ({ file: `${GSC_DIR}/${f}`, data: readJson(root, `${GSC_DIR}/${f}`) }))
+  return listReports(root, 'gsc.page-query')
+    .map((r) => ({ file: r.ref, data: r.data }))
     .filter(({ data }) => {
       const key = `${data.meta?.startDate}/${data.meta?.endDate}`;
       if (!data.meta?.startDate || seen.has(key)) return false;

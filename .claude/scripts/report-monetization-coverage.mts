@@ -6,8 +6,8 @@
  * 2026-06-06 の手作業監査（last-minute-2026 の無導線発見）を機械化したもの。
  *
  * データソース:
- *   - data/metrics/ga4/ga4-page-*.json        … ページ別流入（最新を自動選択）
- *   - data/metrics/ga4/ga4-cta-clicks-*.json   … CTA クリック（あれば。無ければ n.d.）
+ *   - GA4 の page（data/ga4/reports/<日付>.json） … ページ別流入（最新を自動選択）
+ *   - GA4 の cta-clicks（同上）                   … CTA クリック（あれば。無ければ n.d.）
  *   - src/config/doc-meta-index.json                    … 全 doc の category/group/tags
  *
  * 配置の真実源:
@@ -36,6 +36,7 @@ import {
 // 切り出せず、生成物に絶対パスがそのまま焼き込まれて commit される（2026-08-18 修正）。
 // check-note-site-utm が Windows で常に 0 件になった事故（2026-07-28）と同型。
 import { basename, join, sep } from "path";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
 import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
@@ -46,7 +47,6 @@ import {
 } from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
-const GA4_DIR = join(ROOT, "data/metrics/ga4");
 const OUT_DIR = join(ROOT, "data/metrics/monetization");
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const SALES_LOG = join(ROOT, "data/note/sales.json");
@@ -57,14 +57,15 @@ function arg(name: string, fallback: number): number {
 }
 const MIN_USERS = arg("--min-users", 15); // gap 判定の高流入しきい値
 
+const REPORT_OF_PREFIX: Record<string, string> = {
+  "ga4-page-": "ga4.page",
+  "ga4-cta-clicks-": "ga4.cta-clicks",
+  "ga4-cta-clicks-by-placement-": "ga4.cta-clicks-by-placement",
+  "ga4-cta-clicks-by-label-": "ga4.cta-clicks-by-label",
+};
+/** 種類の最新レポートの参照（「ファイル#枠」・GA4 は日ごとの 1 ファイル） */
 function latest(prefix: string): string | null {
-  if (!existsSync(GA4_DIR)) return null;
-  const files = readdirSync(GA4_DIR)
-    // prefix の直後が数字（日付）のものだけ＝`ga4-cta-clicks-by-device-*` / `-by-label-*` の別スキーマ
-    // ファイルを誤って拾わない（"b">"2" で sort 末尾に来て latest を乗っ取り TypeError になっていた）。
-    .filter((f) => f.startsWith(prefix) && /^\d/.test(f.slice(prefix.length)) && f.endsWith(".json"))
-    .sort();
-  return files.length ? join(GA4_DIR, files[files.length - 1]) : null;
+  return latestReportRef(ROOT, REPORT_OF_PREFIX[prefix]);
 }
 
 function normPath(p: string): string {
@@ -131,7 +132,7 @@ if (!pageFile) {
   console.error("ga4-page-*.json が見つかりません。先に npm run fetch-ga4-data -- --dimension page");
   process.exit(1);
 }
-const pageData = JSON.parse(readFileSync(pageFile, "utf-8"));
+const pageData = readJsonOrReport(ROOT, pageFile);
 const traffic = new Map<string, { users: number; sessions: number }>();
 for (const r of pageData.rows) {
   traffic.set(normPath(r.page), {
@@ -145,7 +146,7 @@ const noteClicks = new Map<string, number>();
 const affClicks = new Map<string, number>();
 let clickData: any = null;
 if (clickFile) {
-  clickData = JSON.parse(readFileSync(clickFile, "utf-8"));
+  clickData = readJsonOrReport(ROOT, clickFile);
   for (const r of clickData.rows) {
     const p = normPath(r.page);
     if (r.eventName === "note_cta_click")
@@ -171,7 +172,7 @@ interface PlacementCtr {
 let placementCtr: PlacementCtr[] = [];
 let placementMeta: { startDate: string; endDate: string } | null = null;
 if (placementFile) {
-  const placementData = JSON.parse(readFileSync(placementFile, "utf-8"));
+  const placementData = readJsonOrReport(ROOT, placementFile);
   placementMeta = { startDate: placementData.meta.startDate, endDate: placementData.meta.endDate };
   const agg = new Map<string, { impressions: number; clicks: number }>();
   for (const r of placementData.rows as { placement: string; eventName: string; eventCount: number }[]) {
@@ -211,7 +212,7 @@ let idClickCoverage: { idClicks: number; totalClicks: number; pct: number | null
   pct: null,
 };
 if (labelFile) {
-  const labelData = JSON.parse(readFileSync(labelFile, "utf-8"));
+  const labelData = readJsonOrReport(ROOT, labelFile);
   const salesLog = existsSync(SALES_LOG)
     ? (JSON.parse(readFileSync(SALES_LOG, "utf-8")).sales as { productId: string; price: number }[])
     : [];

@@ -17,6 +17,7 @@ import {
 } from "./lib/cem-index-classifier.mjs";
 import { toJoinKey } from "./lib/url-normalization.mjs";
 import { datasetFiles } from "./lib/datasets.mjs";
+import { listReports } from "./lib/metric-reports.mjs";
 import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 
 const ROOT = process.cwd();
@@ -47,12 +48,11 @@ function latestFile(dir, prefix) {
   return files.length ? join(dir, files.at(-1)) : null;
 }
 
-function datedFiles(dir, prefix, cutoff) {
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((name) => name.startsWith(prefix) && name.endsWith(".json"))
-    .sort()
-    .map((name) => ({ path: join(dir, name), json: readJson(join(dir, name)) }))
+/** 種類のレポートを古い順に。同じ日に取り直したものは最新だけ（以前は再実行の分を二重に数えていた） */
+function datedFiles(id, cutoff) {
+  return listReports(ROOT, id)
+    .reverse()
+    .map((r) => ({ path: r.ref, json: r.data }))
     .filter(({ json }) => {
       const end = json?.meta?.endDate || json?.endDate;
       return end && new Date(`${end}T23:59:59Z`) >= cutoff;
@@ -219,8 +219,8 @@ function main() {
   const examBacklinks = readJson(join(ROOT, "src/config/past-exam-backlinks.json"), {});
   const inbound = loadInbound(relations);
   const cutoff = new Date(NOW.getTime() - 95 * 86_400_000);
-  const gscFiles = datedFiles(join(METRICS, "gsc"), "gsc-page-query-", cutoff);
-  const ga4Files = datedFiles(join(METRICS, "ga4"), "ga4-page-", cutoff);
+  const gscFiles = datedFiles("gsc.page-query", cutoff);
+  const ga4Files = datedFiles("ga4.page", cutoff);
   const gsc = aggregateGsc(gscFiles);
   const ga4 = aggregateGa4(ga4Files);
   const inspections = loadInspectionMaps();

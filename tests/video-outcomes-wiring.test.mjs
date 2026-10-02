@@ -47,10 +47,10 @@ test('UTM 契約: campaign は packId・source は youtube・content は longfor
 });
 
 test('動画成果ビューが読むスナップショット prefix と fetcher の出力名が一致する', () => {
-  // fetcher は `ga4-${dimension}${suffix}-${timestamp}.json` を書く（saveJson）。
+  // fetcher は日ごとのレポートの枠 `${dimension}${suffix}` に書く（saveJson → writeReport）。
   // admin は台帳の ga4.campaign（latestSnapshot('ga4.campaign')）を読む。台帳の型と fetcher の名前がずれると永久に未取得になる。
   const fetcher = read('.claude/scripts/fetch-ga4-data.mjs');
-  assert.match(fetcher, /ga4-\$\{opts\.dimension\}\$\{suffix\}-\$\{timestamp\}\.json/);
+  assert.match(fetcher, /reportIdOf\("ga4", `\$\{opts\.dimension\}\$\{suffix\}`\)/);
   const view = read('tools/admin-app/src/lib/video-outcomes.ts');
   assert.match(view, /latestSnapshot\('ga4\.campaign'\)/);
 });

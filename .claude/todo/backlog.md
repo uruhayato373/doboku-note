@@ -589,7 +589,7 @@
 ### [DN-0431] Tailwind v4（PR #683）を main へ上げる前に、古いブラウザからのアクセス比率を確かめる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-09-28]
 
-**起点**: 2026-09-28 に Tailwind CSS を v3→v4 へ移行し develop へマージした（PR #683）。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。会社 PC は GA4 API がプロキシで遮断され、`data/metrics/ga4/` にもブラウザ別の集計が無いため未確認のまま。
+**起点**: 2026-09-28 に Tailwind CSS を v3→v4 へ移行し develop へマージした（PR #683）。v4 の対象ブラウザは Safari 16.4+ / Chrome 111+ / Firefox 128+ で、それ未満では CSS（カスケードレイヤー・oklch 色・@property）が効かず表示が崩れる。会社 PC は GA4 API がプロキシで遮断され、`data/ga4/reports/` にもブラウザ別の集計が無いため未確認のまま。
 
 **やること**: GA4（直近 28 日）の「ブラウザ」「ブラウザのバージョン」「OS のバージョン」で、対象未満のユーザー比率を出す（Safari は iOS 16.3 以下が主な対象）。比率が小さければ develop→main の昇格（`/deploy`）へ進む。大きければ移行の扱いを判断する。
 
@@ -1611,7 +1611,7 @@ SEO記事・note・SNS
 **残作業 — Phase 0 本番計測**:
 
 1. ユーザーが対象差分のdeployを承認した回に、1級土木だけでfake-doorを公開する。技術士一次には表示しない
-2. 週次`fetch-metrics.yml`で`ga4-quiz-funnel-*.json`と`quiz-premium-funnel-latest.{json,md}`を取得し、1級PWA利用者100人以上まで待つ
+2. 週次`fetch-metrics.yml`で`ga4.quiz-funnel`と`quiz-premium-funnel-latest.{json,md}`を取得し、1級PWA利用者100人以上まで待つ
 3. `premium_intent / premium_view >= 5%`かつ、GA4 `totalUsers`で購入希望10人以上を確認する。未達なら認証・決済・メール基盤を作らず停止する
 4. success gateを満たした場合だけ、Phase 1の費用・保存データ・停止方法を提示してユーザー承認を待つ
 

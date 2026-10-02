@@ -5,10 +5,11 @@
  * impressions / position / CTR を比較して強化優先度を出力する。
  *
  * Usage:
- *   node .claude/scripts/analyze-hubs.mjs --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
+ *   node .claude/scripts/analyze-hubs.mjs --page-data "data/gsc/reports/<日付>.json#page"
  */
 
 import { readFileSync, writeFileSync } from "fs";
+import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -60,7 +61,7 @@ function main() {
     process.exit(2);
   }
 
-  const data = JSON.parse(readFileSync(opts.pageData, "utf-8"));
+  const data = readJsonOrReport(".", opts.pageData);
   const rows = data.rows || [];
 
   // hub に該当する行を抽出

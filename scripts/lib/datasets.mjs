@@ -54,6 +54,7 @@ const SLOTS = {
  *         { family, maxAgeDays: D }   D 日より古いものを消す（最新 1 件は必ず残す）
  *         { family, keepAll: true }   消さない（寿命を「無期限」と宣言するだけ）
  *   alsoKeepNewestWhere: { path, equals }  JSON の path が equals のうち最新 1 件も残す
+ *   keepNewestPerSection: 日ごとのレポート（reports.<種類>）で、各種類の最新を含む日は古くても残す
  *   index: 削除したファイルを weeks[] から落とす索引のデータセット id
  *   family はワークフローが `--family` で渡す名前（main の YAML との契約。変えるときは両方を同時に）
  */
@@ -187,32 +188,14 @@ export const DATASETS = [
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true } }),
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧'),
   // GA4
-  d('ga4.page', 'data/metrics/ga4/ga4-page-{ts}.json', 'series', 'site', 'GA4 のページ別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.date', 'data/metrics/ga4/ga4-date-{ts}.json', 'series', 'site', 'GA4 の日別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.channel', 'data/metrics/ga4/ga4-channel-{ts}.json', 'series', 'site', 'GA4 のチャネル別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.channel-organic', 'data/metrics/ga4/ga4-channel-organic-{ts}.json', 'series', 'site', 'GA4 の自然検索の内訳', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.source', 'data/metrics/ga4/ga4-source-{ts}.json', 'series', 'site', 'GA4 の参照元別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.source-medium-sns', 'data/metrics/ga4/ga4-sourceMedium-sns-{ts}.json', 'series', 'site', 'GA4 の SNS からの流入', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.campaign', 'data/metrics/ga4/ga4-campaign-{ts}.json', 'series', 'site', 'GA4 のキャンペーン（UTM）別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.device', 'data/metrics/ga4/ga4-device-{ts}.json', 'series', 'site', 'GA4 のデバイス別の指標', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.host-name', 'data/metrics/ga4/ga4-hostName-{ts}.json', 'series', 'site', 'GA4 のホスト名別の指標（一回きり）', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.cta-clicks', 'data/metrics/ga4/ga4-cta-clicks-{ts}.json', 'series', 'site', 'CTA のクリック', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.cta-clicks-by-device', 'data/metrics/ga4/ga4-cta-clicks-by-device-{ts}.json', 'series', 'site', 'CTA のクリックのデバイス別', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.cta-clicks-by-label', 'data/metrics/ga4/ga4-cta-clicks-by-label-{ts}.json', 'series', 'site', 'CTA のクリックのラベル別（EPC の分母・月次の窓あり）', { retain: { family: 'ga4', maxAgeDays: 90, alsoKeepNewestWhere: { path: ['meta', 'windowKind'], equals: 'month' } } }),
-  d('ga4.cta-clicks-by-placement', 'data/metrics/ga4/ga4-cta-clicks-by-placement-{ts}.json', 'series', 'site', 'CTA のクリックの置き場所別', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.key-events-by-page', 'data/metrics/ga4/ga4-key-events-by-page-{ts}.json', 'series', 'site', 'キーイベントのページ別', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.quiz-funnel', 'data/metrics/ga4/ga4-quiz-funnel-{ts}.json', 'series', 'site', '演習アプリのファネル', { retain: { family: 'ga4', maxAgeDays: 90 } }),
-  d('ga4.bot-audit', 'data/metrics/ga4/bot-audit-{ts}.json', 'series', 'site', 'ボット流入の割合の点検', { retain: { family: 'ga4', maxAgeDays: 90 } }),
+  d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得した日ごとに 1 ファイル・17 種のレポート。読み書きは scripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } } }),
   d('ga4.admin-history', 'data/ga4/admin-history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録'),
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新'),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録'),
   d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true }),
   // GSC
-  d('gsc.page', 'data/metrics/gsc/gsc-page-{ts}.json', 'series', 'site', 'GSC のページ別の検索指標（水曜分は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90 } }),
-  d('gsc.query', 'data/metrics/gsc/gsc-query-{ts}.json', 'series', 'site', 'GSC の検索語別の検索指標', { retain: { family: 'gsc', maxAgeDays: 90 } }),
-  d('gsc.page-query', 'data/metrics/gsc/gsc-page-query-{ts}.json', 'series', 'site', 'GSC のページ×検索語の検索指標', { retain: { family: 'gsc', maxAgeDays: 90 } }),
-  d('gsc.date', 'data/metrics/gsc/gsc-date-{ts}.json', 'series', 'site', 'GSC の日別の検索指標', { retain: { family: 'gsc', maxAgeDays: 90 } }),
+  d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true } }),
   d('gsc.sitemaps', 'data/gsc/sitemaps.json', 'state', 'site', 'サイトマップの送信状態'),
   d('gsc.index-coverage-history', 'data/gsc/index-coverage.json', 'ledger', 'site', 'インデックス登録率の推移'),
   d('gsc.rank-watch', 'data/metrics/gsc/rank-watch/watch-{ts}-{hash}.json', 'ledger', 'site', '見張っている検索語の順位', { immutable: true }),
@@ -259,8 +242,7 @@ export const DATASETS = [
   d('analysis.growth-pack', 'data/metrics/growth/pack-{week}.json', 'series', 'site', '成長サイクルの週次の材料', { retain: { family: 'growth', keepNewest: 12 } }),
   d('analysis.growth-digest', 'data/metrics/growth/digest-{week}.json', 'series', 'site', '成長サイクルの週次ダイジェスト', { retain: { family: 'growth', keepNewest: 26 } }),
   d('analysis.growth-triage', 'data/metrics/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録'),
-  d('analysis.quiz-premium-funnel', 'data/metrics/ga4/quiz-premium-funnel-latest.json', 'state', 'site', '演習アプリの有料化のファネル'),
-  d('analysis.quiz-premium-funnel-report', 'data/metrics/ga4/quiz-premium-funnel-latest.md', 'report', 'site', '同上の報告（読み手なし）'),
+  d('analysis.quiz-premium-funnel', 'data/analysis/quiz-premium-funnel.json', 'state', 'site', '演習アプリの有料化のファネル'),
   d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル'),
   d('analysis.career-funnel-report', 'data/analysis/career-funnel.md', 'report', 'affiliate', '同上の報告（月次レビューが読む）'),
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true } }),

@@ -53,14 +53,13 @@ async function main() {
     return;
   }
   if (command === 'discover') {
-    const { readdirSync } = await import('node:fs');
-    const dir = 'data/metrics/gsc';
-    const file = readdirSync(join(root, dir)).filter((f) => /^gsc-page-query-.*\.json$/.test(f)).sort().at(-1);
-    if (!file) { console.log('No page-query snapshot'); return; }
-    const data = readJson(root, `${dir}/${file}`);
+    const { latestReport } = await import('./lib/metric-reports.mjs');
+    const latest = latestReport(root, 'gsc.page-query');
+    if (!latest) { console.log('No page-query snapshot'); return; }
+    const data = latest.data;
     const redirects = new Map(readFileSync(join(root, 'public/_redirects'), 'utf8').split('\n').map((line) => line.trim().split(/\s+/)).filter(([from, to, status]) => from?.startsWith('/docs/') && to?.startsWith('/exam/') && status === '301').map(([from, to]) => [from, to]));
     const candidates = discoverCandidates(data, config, redirects);
-    console.log(JSON.stringify({ source: `${dir}/${file}`, period: data.meta, note: '重点資格ごと最大3件。少数表示は需要の手掛かりで、効果判定には不足し得る。旧URLの数値を正規URLの実測と混同しない。', candidates }, null, 2));
+    console.log(JSON.stringify({ source: latest.ref, period: data.meta, note: '重点資格ごと最大3件。少数表示は需要の手掛かりで、効果判定には不足し得る。旧URLの数値を正規URLの実測と混同しない。', candidates }, null, 2));
     return;
   }
   if (command === 'report') {

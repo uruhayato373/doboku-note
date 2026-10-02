@@ -34,7 +34,7 @@ SEO を4面（技術健全性 / index coverage / performance / 検索意図）�
 2. **各面を audit-only Evaluator へ配る（意味評価・並列可）**
    - 技術健全性 → `technical-seo-auditor`（check-seo-build / check-seo-meta / index-coverage 履歴 / sitemap を統合）
    - index coverage → `gsc-index-auditor`（url-inspection + history）
-   - performance → `metrics-analyzer`（gsc/ga4 + `gsc-page-query-*` で cannibalization/decay も）
+   - performance → `metrics-analyzer`（gsc/ga4 + `gsc.page-query` で cannibalization/decay も）
    - 検索意図 → `search-intent-auditor`（**metrics-analyzer が surface した最大 20 URL のみ**）
    - CWV → `performance-auditor`（psi・任意）
 

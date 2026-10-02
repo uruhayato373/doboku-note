@@ -31,6 +31,7 @@
  */
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
 import dotenv from "dotenv";
 import { resolveWindow } from "./lib/ga4-snapshot.mjs";
 import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
@@ -42,7 +43,6 @@ import {
 
 dotenv.config({ path: ".env.local" });
 
-const OUTPUT_DIR = "data/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const EVENT_NAMES = [
   "note_cta_click",
@@ -241,8 +241,7 @@ async function mainKeyEvents(client, propertyId, opts, stamp) {
     process.exitCode = 1;
     return;
   }
-  const outPath = join(OUTPUT_DIR, `ga4-key-events-by-page-${stamp}.json`);
-  writeFileSync(outPath, JSON.stringify(data, null, 2));
+  const outPath = writeReport(".", "ga4.key-events-by-page", data, { stamp }).ref;
   const sum = summarizeKeyEvents(data.rows);
   console.log(
     `件数: ${data.rows.length} / 全 ${data.meta.rowCount}${data.meta.truncated ? "（上限で打ち切り）" : ""}` +
@@ -257,7 +256,6 @@ async function mainKeyEvents(client, propertyId, opts, stamp) {
 async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   if (opts.keyEvents) {
     await mainKeyEvents(client, propertyId, opts, stamp);
@@ -272,8 +270,7 @@ async function main() {
       : opts.byDevice
         ? "-by-device"
         : "";
-  const outPath = join(OUTPUT_DIR, `ga4-cta-clicks${variant}-${stamp}.json`);
-  writeFileSync(outPath, JSON.stringify(data, null, 2));
+  const outPath = writeReport(".", reportIdOf("ga4", `cta-clicks${variant}`), data, { stamp }).ref;
 
   console.log(`\n期間: ${data.meta.startDate} 〜 ${data.meta.endDate}`);
   console.log(`イベント: ${EVENT_NAMES.join(", ")}`);

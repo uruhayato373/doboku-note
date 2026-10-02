@@ -17,16 +17,16 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { datasetPath, latestFile } from "./lib/datasets.mjs";
+import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { buildIndexingPriority } from "./lib/gsc-indexing-priority.mjs";
 
-const GSC_DIR = "data/metrics/gsc";
 const PRIORITY_JSON = datasetPath("gsc.indexing-priority");
 const PRIORITY_TXT = datasetPath("gsc.indexing-priority-list");
 const REDIRECTS = "public/_redirects";
 
 const batchFile = latestFile(".", "gsc.url-inspection");
-const gscPageFile = latestFile(".", "gsc.page");
+const gscPageFile = latestReportRef(".", "gsc.page");
 if (!batchFile || !gscPageFile) {
   console.error(`[gsc-indexing-priority] ✗ 入力不足 batch=${batchFile ?? "なし"} gsc-page=${gscPageFile ?? "なし"}`);
   process.exit(1);
@@ -36,7 +36,7 @@ if (batch.partial === true) {
   console.error(`[gsc-indexing-priority] ✗ 最新 batch が partial（${batch.completed}/${batch.total}）。完走 batch を待つ`);
   process.exit(1);
 }
-const gscPage = JSON.parse(readFileSync(gscPageFile, "utf8"));
+const gscPage = readJsonOrReport(".", gscPageFile);
 const legacyRoutes = existsSync(REDIRECTS) ? parseLegacyRedirects(readFileSync(REDIRECTS, "utf8")) : new Map();
 const historyPath = datasetPath("gsc.indexing-history");
 const requestRuns = existsSync(historyPath) ? JSON.parse(readFileSync(historyPath, "utf8")).runs ?? [] : [];

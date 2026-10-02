@@ -25,7 +25,7 @@ domain: site
   - `src/config/doc-meta-index.json`（title / category / group）
   - `public/_redirects`（既存 301）
   - `out/docs/<slug>.html`（canonical / robots の現物）
-  - `data/metrics/gsc/gsc-page-query-*`（cannibalization: 同一クエリ複数ページ）
+  - `gsc.page-query`（cannibalization: 同一クエリ複数ページ）
 
 ## 責務
 

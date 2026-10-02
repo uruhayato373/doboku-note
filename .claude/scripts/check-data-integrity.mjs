@@ -21,9 +21,8 @@
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
 import { assessGscPerformanceSnapshot } from "../../scripts/lib/gsc-data-integrity.mjs";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
-const METRICS_DIR = "data/metrics/ga4";
-const GSC_METRICS_DIR = "data/metrics/gsc";
 const THRESHOLDS = {
   shortWindow: { days: 7, maxMissing: 2 },
   longWindow: { days: 14, maxMissing: 3 },
@@ -44,31 +43,7 @@ function parseArgs() {
 // ── Helpers ──
 
 function findLatestDateFile() {
-  let files;
-  try {
-    files = readdirSync(METRICS_DIR);
-  } catch (e) {
-    return null;
-  }
-  const dateFiles = files
-    .filter((f) => f.startsWith("ga4-date-") && f.endsWith(".json"))
-    .sort()
-    .reverse();
-  return dateFiles[0] ? join(METRICS_DIR, dateFiles[0]) : null;
-}
-
-function findLatestGscFile(prefix, excludedPrefix = null) {
-  let files;
-  try {
-    files = readdirSync(GSC_METRICS_DIR);
-  } catch {
-    return null;
-  }
-  const matches = files
-    .filter((file) => file.startsWith(prefix) && file.endsWith(".json") && (!excludedPrefix || !file.startsWith(excludedPrefix)))
-    .sort()
-    .reverse();
-  return matches[0] ? join(GSC_METRICS_DIR, matches[0]) : null;
+  return latestReportRef(".", "ga4.date");
 }
 
 function parseYmd(ymd) {
@@ -99,7 +74,7 @@ function diffDays(a, b) {
 // ── Check ──
 
 function checkIntegrity(filePath) {
-  const data = JSON.parse(readFileSync(filePath, "utf-8"));
+  const data = readJsonOrReport(".", filePath);
   const start = new Date(data.meta.startDate);
   const end = new Date(data.meta.endDate);
   const present = new Set(data.rows.map((r) => r.date));
@@ -231,7 +206,7 @@ const opts = parseArgs();
 const filePath = findLatestDateFile();
 
 if (!filePath) {
-  console.error(`No ga4-date-*.json found in ${METRICS_DIR}`);
+  console.error("No GA4 date report found in data/ga4/reports/");
   console.error("Run `npm run fetch-ga4-data -- --dimension date` first.");
   process.exit(2);
 }
@@ -244,7 +219,7 @@ const gscFiles = {
 const gscChecks = Object.entries(gscFiles).map(([label, path]) => ({
   label,
   path,
-  ...assessGscPerformanceSnapshot(path ? JSON.parse(readFileSync(path, "utf-8")) : null, `GSC ${label}`),
+  ...assessGscPerformanceSnapshot(path ? readJsonOrReport(".", path) : null, `GSC ${label}`),
 }));
 const gscHealthy = gscChecks.every((check) => check.healthy);
 
