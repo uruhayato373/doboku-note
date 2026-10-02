@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T01:22:09.025Z",
+  "generated_at": "2026-10-02T03:58:01.638Z",
   "summary": {
-    "total_mdx_files": 1331,
-    "total_unique_tags": 129,
-    "allowlist_size": 328,
-    "known_count": 129,
+    "total_mdx_files": 1347,
+    "total_unique_tags": 130,
+    "allowlist_size": 330,
+    "known_count": 130,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -2787,6 +2787,86 @@
       ]
     },
     {
+      "name": "技術士（第一次試験）",
+      "count": 73,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-calculus-numerical-calculation",
+        "pe-first-stage-guide-construction-subject",
+        "pe-first-stage-guide-matrix-vector-calculation",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-resistance-circuit-calculation",
+        "pe-first-stage-guide-study-plan",
+        "pe-first-stage-h23-aptitude",
+        "pe-first-stage-h23-basic",
+        "pe-first-stage-h23-construction",
+        "pe-first-stage-h23-water-supply",
+        "pe-first-stage-h24-aptitude",
+        "pe-first-stage-h24-basic",
+        "pe-first-stage-h24-construction",
+        "pe-first-stage-h24-water-supply",
+        "pe-first-stage-h25-aptitude",
+        "pe-first-stage-h25-basic",
+        "pe-first-stage-h25-construction",
+        "pe-first-stage-h25-water-supply",
+        "pe-first-stage-h26-aptitude",
+        "pe-first-stage-h26-basic",
+        "pe-first-stage-h26-construction",
+        "pe-first-stage-h26-water-supply",
+        "pe-first-stage-h27-aptitude",
+        "pe-first-stage-h27-basic",
+        "pe-first-stage-h27-construction",
+        "pe-first-stage-h27-water-supply",
+        "pe-first-stage-h28-aptitude",
+        "pe-first-stage-h28-basic",
+        "pe-first-stage-h28-construction",
+        "pe-first-stage-h28-water-supply",
+        "pe-first-stage-h29-aptitude",
+        "pe-first-stage-h29-basic",
+        "pe-first-stage-h29-construction",
+        "pe-first-stage-h29-water-supply",
+        "pe-first-stage-h30-aptitude",
+        "pe-first-stage-h30-basic",
+        "pe-first-stage-h30-construction",
+        "pe-first-stage-h30-water-supply",
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r01-retry-aptitude",
+        "pe-first-stage-r01-retry-basic",
+        "pe-first-stage-r01-retry-construction",
+        "pe-first-stage-r01-retry-water-supply",
+        "pe-first-stage-r01-water-supply",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r02-water-supply",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r03-water-supply",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r04-water-supply",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r05-water-supply",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r06-water-supply",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction",
+        "pe-first-stage-r07-water-supply"
+      ]
+    },
+    {
       "name": "関係法規",
       "count": 72,
       "inAllowlist": true,
@@ -3003,70 +3083,6 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-construction-1-textbook-work-scheduling"
-      ]
-    },
-    {
-      "name": "技術士（第一次試験）",
-      "count": 57,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-guide-after-pass",
-        "pe-first-stage-guide-aptitude-subject",
-        "pe-first-stage-guide-basic-subject",
-        "pe-first-stage-guide-calculus-numerical-calculation",
-        "pe-first-stage-guide-construction-subject",
-        "pe-first-stage-guide-matrix-vector-calculation",
-        "pe-first-stage-guide-overview",
-        "pe-first-stage-guide-resistance-circuit-calculation",
-        "pe-first-stage-guide-study-plan",
-        "pe-first-stage-h23-aptitude",
-        "pe-first-stage-h23-basic",
-        "pe-first-stage-h23-construction",
-        "pe-first-stage-h24-aptitude",
-        "pe-first-stage-h24-basic",
-        "pe-first-stage-h24-construction",
-        "pe-first-stage-h25-aptitude",
-        "pe-first-stage-h25-basic",
-        "pe-first-stage-h25-construction",
-        "pe-first-stage-h26-aptitude",
-        "pe-first-stage-h26-basic",
-        "pe-first-stage-h26-construction",
-        "pe-first-stage-h27-aptitude",
-        "pe-first-stage-h27-basic",
-        "pe-first-stage-h27-construction",
-        "pe-first-stage-h28-aptitude",
-        "pe-first-stage-h28-basic",
-        "pe-first-stage-h28-construction",
-        "pe-first-stage-h29-aptitude",
-        "pe-first-stage-h29-basic",
-        "pe-first-stage-h29-construction",
-        "pe-first-stage-h30-aptitude",
-        "pe-first-stage-h30-basic",
-        "pe-first-stage-h30-construction",
-        "pe-first-stage-r01-aptitude",
-        "pe-first-stage-r01-basic",
-        "pe-first-stage-r01-construction",
-        "pe-first-stage-r01-retry-aptitude",
-        "pe-first-stage-r01-retry-basic",
-        "pe-first-stage-r01-retry-construction",
-        "pe-first-stage-r02-aptitude",
-        "pe-first-stage-r02-basic",
-        "pe-first-stage-r02-construction",
-        "pe-first-stage-r03-aptitude",
-        "pe-first-stage-r03-basic",
-        "pe-first-stage-r03-construction",
-        "pe-first-stage-r04-aptitude",
-        "pe-first-stage-r04-basic",
-        "pe-first-stage-r04-construction",
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r05-construction",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r06-construction",
-        "pe-first-stage-r07-aptitude",
-        "pe-first-stage-r07-basic",
-        "pe-first-stage-r07-construction"
       ]
     },
     {
@@ -3590,6 +3606,33 @@
       ]
     },
     {
+      "name": "令和元年度",
+      "count": 20,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-r01-construction-planning",
+        "pe-construction-r01-environment",
+        "pe-construction-r01-geotechnical",
+        "pe-construction-r01-port-airport",
+        "pe-construction-r01-power-civil",
+        "pe-construction-r01-railway",
+        "pe-construction-r01-required",
+        "pe-construction-r01-river-coast",
+        "pe-construction-r01-road",
+        "pe-construction-r01-steel-concrete",
+        "pe-construction-r01-tunnel",
+        "pe-construction-r01-urban-planning",
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r01-retry-aptitude",
+        "pe-first-stage-r01-retry-basic",
+        "pe-first-stage-r01-retry-construction",
+        "pe-first-stage-r01-retry-water-supply",
+        "pe-first-stage-r01-water-supply"
+      ]
+    },
+    {
       "name": "コンクリート診断士",
       "count": 18,
       "inAllowlist": true,
@@ -3615,28 +3658,103 @@
       ]
     },
     {
-      "name": "令和元年度",
+      "name": "令和4年度",
       "count": 18,
       "inAllowlist": true,
       "usedIn": [
-        "pe-construction-r01-construction-planning",
-        "pe-construction-r01-environment",
-        "pe-construction-r01-geotechnical",
-        "pe-construction-r01-port-airport",
-        "pe-construction-r01-power-civil",
-        "pe-construction-r01-railway",
-        "pe-construction-r01-required",
-        "pe-construction-r01-river-coast",
-        "pe-construction-r01-road",
-        "pe-construction-r01-steel-concrete",
-        "pe-construction-r01-tunnel",
-        "pe-construction-r01-urban-planning",
-        "pe-first-stage-r01-aptitude",
-        "pe-first-stage-r01-basic",
-        "pe-first-stage-r01-construction",
-        "pe-first-stage-r01-retry-aptitude",
-        "pe-first-stage-r01-retry-basic",
-        "pe-first-stage-r01-retry-construction"
+        "pe-comprehensive-management-r04-primary",
+        "pe-construction-r04-construction-planning",
+        "pe-construction-r04-environment",
+        "pe-construction-r04-geotechnical",
+        "pe-construction-r04-port-airport",
+        "pe-construction-r04-power-civil",
+        "pe-construction-r04-railway",
+        "pe-construction-r04-required",
+        "pe-construction-r04-river-coast",
+        "pe-construction-r04-road",
+        "pe-construction-r04-steel-concrete",
+        "pe-construction-r04-tunnel",
+        "pe-construction-r04-urban-planning",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r04-water-supply",
+        "surveyor-primary-r04"
+      ]
+    },
+    {
+      "name": "令和5年度",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r05-primary",
+        "pe-construction-r05-construction-planning",
+        "pe-construction-r05-environment",
+        "pe-construction-r05-geotechnical",
+        "pe-construction-r05-port-airport",
+        "pe-construction-r05-power-civil",
+        "pe-construction-r05-railway",
+        "pe-construction-r05-required",
+        "pe-construction-r05-river-coast",
+        "pe-construction-r05-road",
+        "pe-construction-r05-steel-concrete",
+        "pe-construction-r05-tunnel",
+        "pe-construction-r05-urban-planning",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r05-water-supply",
+        "surveyor-primary-r05"
+      ]
+    },
+    {
+      "name": "令和6年度",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r06-primary",
+        "pe-construction-r06-construction-planning",
+        "pe-construction-r06-environment",
+        "pe-construction-r06-geotechnical",
+        "pe-construction-r06-port-airport",
+        "pe-construction-r06-power-civil",
+        "pe-construction-r06-railway",
+        "pe-construction-r06-required",
+        "pe-construction-r06-river-coast",
+        "pe-construction-r06-road",
+        "pe-construction-r06-steel-concrete",
+        "pe-construction-r06-tunnel",
+        "pe-construction-r06-urban-planning",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r06-water-supply",
+        "surveyor-primary-r06"
+      ]
+    },
+    {
+      "name": "令和7年度",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r07-primary",
+        "pe-construction-r07-construction-planning",
+        "pe-construction-r07-environment",
+        "pe-construction-r07-geotechnical",
+        "pe-construction-r07-port-airport",
+        "pe-construction-r07-power-civil",
+        "pe-construction-r07-railway",
+        "pe-construction-r07-required",
+        "pe-construction-r07-river-coast",
+        "pe-construction-r07-road",
+        "pe-construction-r07-steel-concrete",
+        "pe-construction-r07-tunnel",
+        "pe-construction-r07-urban-planning",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction",
+        "pe-first-stage-r07-water-supply",
+        "surveyor-primary-r07"
       ]
     },
     {
@@ -3715,99 +3833,51 @@
       ]
     },
     {
-      "name": "令和4年度",
+      "name": "令和2年度",
       "count": 17,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r04-primary",
-        "pe-construction-r04-construction-planning",
-        "pe-construction-r04-environment",
-        "pe-construction-r04-geotechnical",
-        "pe-construction-r04-port-airport",
-        "pe-construction-r04-power-civil",
-        "pe-construction-r04-railway",
-        "pe-construction-r04-required",
-        "pe-construction-r04-river-coast",
-        "pe-construction-r04-road",
-        "pe-construction-r04-steel-concrete",
-        "pe-construction-r04-tunnel",
-        "pe-construction-r04-urban-planning",
-        "pe-first-stage-r04-aptitude",
-        "pe-first-stage-r04-basic",
-        "pe-first-stage-r04-construction",
-        "surveyor-primary-r04"
+        "pe-comprehensive-management-r02-primary",
+        "pe-construction-r02-construction-planning",
+        "pe-construction-r02-environment",
+        "pe-construction-r02-geotechnical",
+        "pe-construction-r02-port-airport",
+        "pe-construction-r02-power-civil",
+        "pe-construction-r02-railway",
+        "pe-construction-r02-required",
+        "pe-construction-r02-river-coast",
+        "pe-construction-r02-road",
+        "pe-construction-r02-steel-concrete",
+        "pe-construction-r02-tunnel",
+        "pe-construction-r02-urban-planning",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r02-water-supply"
       ]
     },
     {
-      "name": "令和5年度",
+      "name": "令和3年度",
       "count": 17,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r05-primary",
-        "pe-construction-r05-construction-planning",
-        "pe-construction-r05-environment",
-        "pe-construction-r05-geotechnical",
-        "pe-construction-r05-port-airport",
-        "pe-construction-r05-power-civil",
-        "pe-construction-r05-railway",
-        "pe-construction-r05-required",
-        "pe-construction-r05-river-coast",
-        "pe-construction-r05-road",
-        "pe-construction-r05-steel-concrete",
-        "pe-construction-r05-tunnel",
-        "pe-construction-r05-urban-planning",
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r05-construction",
-        "surveyor-primary-r05"
-      ]
-    },
-    {
-      "name": "令和6年度",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r06-primary",
-        "pe-construction-r06-construction-planning",
-        "pe-construction-r06-environment",
-        "pe-construction-r06-geotechnical",
-        "pe-construction-r06-port-airport",
-        "pe-construction-r06-power-civil",
-        "pe-construction-r06-railway",
-        "pe-construction-r06-required",
-        "pe-construction-r06-river-coast",
-        "pe-construction-r06-road",
-        "pe-construction-r06-steel-concrete",
-        "pe-construction-r06-tunnel",
-        "pe-construction-r06-urban-planning",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r06-construction",
-        "surveyor-primary-r06"
-      ]
-    },
-    {
-      "name": "令和7年度",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r07-primary",
-        "pe-construction-r07-construction-planning",
-        "pe-construction-r07-environment",
-        "pe-construction-r07-geotechnical",
-        "pe-construction-r07-port-airport",
-        "pe-construction-r07-power-civil",
-        "pe-construction-r07-railway",
-        "pe-construction-r07-required",
-        "pe-construction-r07-river-coast",
-        "pe-construction-r07-road",
-        "pe-construction-r07-steel-concrete",
-        "pe-construction-r07-tunnel",
-        "pe-construction-r07-urban-planning",
-        "pe-first-stage-r07-aptitude",
-        "pe-first-stage-r07-basic",
-        "pe-first-stage-r07-construction",
-        "surveyor-primary-r07"
+        "pe-comprehensive-management-r03-primary",
+        "pe-construction-r03-construction-planning",
+        "pe-construction-r03-environment",
+        "pe-construction-r03-geotechnical",
+        "pe-construction-r03-port-airport",
+        "pe-construction-r03-power-civil",
+        "pe-construction-r03-railway",
+        "pe-construction-r03-required",
+        "pe-construction-r03-river-coast",
+        "pe-construction-r03-road",
+        "pe-construction-r03-steel-concrete",
+        "pe-construction-r03-tunnel",
+        "pe-construction-r03-urban-planning",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r03-water-supply"
       ]
     },
     {
@@ -3835,52 +3905,6 @@
       ]
     },
     {
-      "name": "令和2年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-construction-r02-construction-planning",
-        "pe-construction-r02-environment",
-        "pe-construction-r02-geotechnical",
-        "pe-construction-r02-port-airport",
-        "pe-construction-r02-power-civil",
-        "pe-construction-r02-railway",
-        "pe-construction-r02-required",
-        "pe-construction-r02-river-coast",
-        "pe-construction-r02-road",
-        "pe-construction-r02-steel-concrete",
-        "pe-construction-r02-tunnel",
-        "pe-construction-r02-urban-planning",
-        "pe-first-stage-r02-aptitude",
-        "pe-first-stage-r02-basic",
-        "pe-first-stage-r02-construction"
-      ]
-    },
-    {
-      "name": "令和3年度",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r03-primary",
-        "pe-construction-r03-construction-planning",
-        "pe-construction-r03-environment",
-        "pe-construction-r03-geotechnical",
-        "pe-construction-r03-port-airport",
-        "pe-construction-r03-power-civil",
-        "pe-construction-r03-railway",
-        "pe-construction-r03-required",
-        "pe-construction-r03-river-coast",
-        "pe-construction-r03-road",
-        "pe-construction-r03-steel-concrete",
-        "pe-construction-r03-tunnel",
-        "pe-construction-r03-urban-planning",
-        "pe-first-stage-r03-aptitude",
-        "pe-first-stage-r03-basic",
-        "pe-first-stage-r03-construction"
-      ]
-    },
-    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -3901,6 +3925,29 @@
         "pe-first-stage-r05-basic",
         "pe-first-stage-r06-basic",
         "pe-first-stage-r07-basic"
+      ]
+    },
+    {
+      "name": "専門科目（上下水道部門）",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h23-water-supply",
+        "pe-first-stage-h24-water-supply",
+        "pe-first-stage-h25-water-supply",
+        "pe-first-stage-h26-water-supply",
+        "pe-first-stage-h27-water-supply",
+        "pe-first-stage-h28-water-supply",
+        "pe-first-stage-h29-water-supply",
+        "pe-first-stage-h30-water-supply",
+        "pe-first-stage-r01-retry-water-supply",
+        "pe-first-stage-r01-water-supply",
+        "pe-first-stage-r02-water-supply",
+        "pe-first-stage-r03-water-supply",
+        "pe-first-stage-r04-water-supply",
+        "pe-first-stage-r05-water-supply",
+        "pe-first-stage-r06-water-supply",
+        "pe-first-stage-r07-water-supply"
       ]
     },
     {
@@ -4643,6 +4690,94 @@
       ]
     },
     {
+      "name": "平成23年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h23-aptitude",
+        "pe-first-stage-h23-basic",
+        "pe-first-stage-h23-construction",
+        "pe-first-stage-h23-water-supply"
+      ]
+    },
+    {
+      "name": "平成24年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h24-aptitude",
+        "pe-first-stage-h24-basic",
+        "pe-first-stage-h24-construction",
+        "pe-first-stage-h24-water-supply"
+      ]
+    },
+    {
+      "name": "平成25年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h25-aptitude",
+        "pe-first-stage-h25-basic",
+        "pe-first-stage-h25-construction",
+        "pe-first-stage-h25-water-supply"
+      ]
+    },
+    {
+      "name": "平成26年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h26-aptitude",
+        "pe-first-stage-h26-basic",
+        "pe-first-stage-h26-construction",
+        "pe-first-stage-h26-water-supply"
+      ]
+    },
+    {
+      "name": "平成27年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h27-aptitude",
+        "pe-first-stage-h27-basic",
+        "pe-first-stage-h27-construction",
+        "pe-first-stage-h27-water-supply"
+      ]
+    },
+    {
+      "name": "平成28年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h28-aptitude",
+        "pe-first-stage-h28-basic",
+        "pe-first-stage-h28-construction",
+        "pe-first-stage-h28-water-supply"
+      ]
+    },
+    {
+      "name": "平成29年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h29-aptitude",
+        "pe-first-stage-h29-basic",
+        "pe-first-stage-h29-construction",
+        "pe-first-stage-h29-water-supply"
+      ]
+    },
+    {
+      "name": "平成30年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h30-aptitude",
+        "pe-first-stage-h30-basic",
+        "pe-first-stage-h30-construction",
+        "pe-first-stage-h30-water-supply"
+      ]
+    },
+    {
       "name": "建設DX",
       "count": 4,
       "inAllowlist": true,
@@ -4732,86 +4867,6 @@
         "pe-comprehensive-management-last-minute-2026",
         "pe-construction-gakushuu-jikan-schedule",
         "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "平成23年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h23-aptitude",
-        "pe-first-stage-h23-basic",
-        "pe-first-stage-h23-construction"
-      ]
-    },
-    {
-      "name": "平成24年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h24-aptitude",
-        "pe-first-stage-h24-basic",
-        "pe-first-stage-h24-construction"
-      ]
-    },
-    {
-      "name": "平成25年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h25-aptitude",
-        "pe-first-stage-h25-basic",
-        "pe-first-stage-h25-construction"
-      ]
-    },
-    {
-      "name": "平成26年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h26-aptitude",
-        "pe-first-stage-h26-basic",
-        "pe-first-stage-h26-construction"
-      ]
-    },
-    {
-      "name": "平成27年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h27-aptitude",
-        "pe-first-stage-h27-basic",
-        "pe-first-stage-h27-construction"
-      ]
-    },
-    {
-      "name": "平成28年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h28-aptitude",
-        "pe-first-stage-h28-basic",
-        "pe-first-stage-h28-construction"
-      ]
-    },
-    {
-      "name": "平成29年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h29-aptitude",
-        "pe-first-stage-h29-basic",
-        "pe-first-stage-h29-construction"
-      ]
-    },
-    {
-      "name": "平成30年度",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h30-aptitude",
-        "pe-first-stage-h30-basic",
-        "pe-first-stage-h30-construction"
       ]
     },
     {

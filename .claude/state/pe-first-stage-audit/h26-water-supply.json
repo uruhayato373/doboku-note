@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h26-water-supply",
+  "year": "H26",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T13:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典18ページ35問を直接照合し問題文・選択肢の相違なし、公式正答35問は全件一致。水道施設設計指針2012・水道施設維持管理指針2006・千葉市/横浜市下水道設計指針等で数値を確認し、Ⅲ-3、Ⅲ-4、Ⅲ-5、Ⅲ-9、Ⅲ-10、Ⅲ-15、Ⅲ-19、Ⅲ-21、Ⅲ-27、Ⅲ-32の解説を根拠付きに改稿。"
+  }
+}

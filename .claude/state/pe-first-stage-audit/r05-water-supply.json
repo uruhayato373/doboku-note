@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r05-water-supply",
+  "year": "R05",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T12:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 19,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典19ページを1問ずつ照合し、35問・175肢の問題文・極性・選択肢・図（Ⅲ-13）が一致、公式正答も全件一致。Ⅲ-21は雨水管理総合計画策定ガイドラインに基づき誤り肢の根拠を具体化、Ⅲ-20・Ⅲ-25の説明とⅢ-11・Ⅲ-27のExamPointを整理。Ⅲ-28肢5・Ⅲ-33肢5は一次資料を取得できず記述を維持。"
+  }
+}

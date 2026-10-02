@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h30-water-supply",
+  "year": "H30",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T18:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典17ページを1問ずつ照合し問題文・選択肢・図2点は一致、公式正答35問も全件一致。解説は水道維持管理指針2006、下水道施設計画・設計指針、水質汚濁防止法施行令別表第一等で確認し、Ⅲ-5（D60の読み）、Ⅲ-11（75mm以上の公式）、Ⅲ-15①（特定施設の実際）、Ⅲ-16、Ⅲ-17①（要検討項目の説明）、Ⅲ-25、Ⅲ-27、Ⅲ-30、Ⅲ-33、Ⅲ-35の記述を具体化・訂正した。"
+  }
+}

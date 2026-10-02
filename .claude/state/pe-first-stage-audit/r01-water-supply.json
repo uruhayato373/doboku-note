@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r01-water-supply",
+  "year": "R01",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T14:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典17ページを1問ずつ照合し、Ⅲ-2の表の語句とⅢ-9（ア）の「供給規定」を原典どおりに修正。Ⅲ-5は設計指針のろ過砂規格で解説を具体化し、Ⅲ-34はピークカット常用発電が稼働時間の短い雨水ポンプ向きである点へ改稿、Ⅲ-30肢4とⅢ-23のExamPointを補正。Ⅲ-3（10％）・Ⅲ-6（0.1mg/L）・Ⅲ-8（濁度2度・色度5度・透過率75％）は一次資料で確認。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h29-water-supply",
+  "year": "H29",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T12:30:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 19,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典19ページと図2点（Ⅲ-13表、Ⅲ-14ろ過池断面）を1問ずつ照合し、問題文・選択肢・極性・正答35問の一致を確認。解説は、Ⅲ-8④の精密ろ過膜の孔径を水道施設設計指針2012の値（0.01〜2μm程度）へ、Ⅲ-19④の観光汚水を国交省の流総計画指針（日帰り客と宿泊客を別々に推定）の根拠へ、Ⅲ-27は設計指針の記述と一致を確認、そのほかⅢ-2②・Ⅲ-7④⑤・Ⅲ-8⑤・Ⅲ-18⑤・Ⅲ-26②・Ⅲ-31④の説明を具体化した。"
+  }
+}

@@ -53,12 +53,14 @@ const FORBIDDEN = [
   /を指す定義であり正しい/,
   /^\s*"導出結果は「[^"]+」",?$/m,
   /欠陥によ他人/,
+  // 生成スクリプトの欠損値がそのまま文字列化した ExamPoint（2026-10-02 r06-water-supply で34問）。
+  /\bundefined\b/,
   /という性質・条件が成り立つため正しい/,
   /(?:に|で)について/,
   /というという/,
   /「[アイウエオ][）)]|[(（][アイウエオ]」/,
 ];
-const OCR_BREAKAGE = /炊に|派の|関わの|1人の定義|ア1ウ|ウ玉|行為者の縮に|「「倫理|浴道|通常子見|(?<!元)来自由|追発|日指|要素作p|u_&#123;|1\.5L°C|✕線|連携は・もちろん|以下、安法|指標生物といい。例えば|A13\+|Cuz\+|CoHi20g|CaClz|O°C|1\.013✕105|3\.0x1023|エネルギ一|過流|正しいものはO|と言じるに足りる|aアミノ酸|水の記述のうち/;
+const OCR_BREAKAGE = /炊に|派の|関わの|1人の定義|ア1ウ|ウ玉|行為者の縮に|「「倫理|浴道|通常子見|(?<!元)来自由|追発|日指|要素作p|u_&#123;|1\.5L°C|✕線|連携は・もちろん|以下、安法|指標生物といい。例えば|A13\+|Cuz\+|CoHi20g|CaClz|O°C|1\.013✕105|3\.0x1023|エネルギ一|(?<!ろ)過流|正しいものはO|と言じるに足りる|aアミノ酸|水の記述のうち/;
 const BROKEN_MATH = /\$[^$\n]*(?:√|′|，)[^$\n]*\$|^\s*[1-5]\.\s+\^\{|。\\(?:end|delta|sigma|begin|phi|sqrt)\b|\$(?:delta|omega|sigma|mathrm)\b|\b(?:Pell|arepsilon)\b|(?<!\\)sqrt\{|\tomathrm/m;
 const CONTROL_CHAR = /[\x00-\x08\x0B\x0C\x0E-\x1F]/;
 const errors = [];
@@ -98,9 +100,15 @@ function latexOutsideMath(line) {
   return /\\(?:begin|end)\{(?:bmatrix|matrix|array)\}|\\(?:delta|sigma|phi|sqrt)(?:[_^{\s])/.test(outside);
 }
 
-for (const year of YEARS) {
-  for (const subject of Object.keys(SUBJECTS)) {
-    const expected = expectedCount(year, subject);
+// 専門科目（上下水道部門）は平成23〜令和7年度と令和元年度再試験の全回（各35問）。
+const WATER_YEARS = ['h23', 'h24', 'h25', 'h26', 'h27', 'h28', 'h29', 'h30', 'r01', 'r01-retry', 'r02', 'r03', 'r04', 'r05', 'r06', 'r07'];
+const PAGES = [
+  ...YEARS.flatMap((year) => Object.keys(SUBJECTS).map((subject) => ({ year, subject, expected: expectedCount(year, subject) }))),
+  ...WATER_YEARS.map((year) => ({ year, subject: 'water-supply', expected: 35 })),
+];
+
+for (const { year, subject, expected } of PAGES) {
+  {
     const id = `${year}-${subject}`;
     if (onlyArg && onlyArg !== id) continue;
     checkedPages += 1;

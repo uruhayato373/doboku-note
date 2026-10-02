@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r01-retry-water-supply",
+  "year": "R01-retry",
+  "sub": "water-supply",
+  "audited_at": "2026-10-02T13:00:00+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "原典18ページを1問ずつ照合し、35問・175肢の問題文・選択肢・表形式選択肢（Ⅲ-8・13・17・30・34）に不一致なし。水道施設設計指針2012（取水施設選定表、浄水施設、配水管洗浄、塩素剤）と下水道管きょ設計指針等で確認し、Ⅲ-1（取水堰・取水管渠の適地、正しい2つは（ア）（イ））、Ⅲ-5・6・7・16・21・32の解説と ExamPoint を修正。 Ⅲ-29は親が令和3年度Ⅲ-28⑤（公式に正しい記述：汚水ポンプの吸込水位は日平均汚水量流入時の水位）と一致することで確定。Ⅲ-10・Ⅲ-26・Ⅲ-15は一次根拠未取得のまま公式正答と整合する記述。"
+  }
+}
