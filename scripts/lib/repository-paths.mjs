@@ -237,6 +237,8 @@ export const RESTRUCTURED_PATHS = [
   [/^data\/metrics\/(ga4|gsc)\/(?:(?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})Z?\.json$/,
     (_, source, y, mo, d, h, mi, s) => `data/${source}/reports/${new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +s) + 9 * 3600_000).toISOString().slice(0, 10)}.json`],
   ["data/metrics/ga4/quiz-premium-funnel-latest.json", "data/analysis/quiz-premium-funnel.json"],
+  // 順位の見張り: 1 件 1 ファイル → 月ごとの追記ファイル（行は recordId で引く）
+  [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
 ];
 
 const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];

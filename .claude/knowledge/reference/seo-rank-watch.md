@@ -3,9 +3,9 @@
 ## 真実源と入口
 
 - 監視対象・選定方針: `config/seo-watchwords.json`（資格、意図、読者、必要な情報、登録根拠、次の学習行動、query、正規URL、原稿、priority、country、device）。日本 `jpn`・全端末が初期値。query/URL/国/端末を変える場合は別idを作る。
-- 順位履歴: `data/metrics/gsc/rank-watch/watch-*.json`。GSC生データ・期間・集計・固定条件を追記専用で保存する。既存履歴は修正しない。
+- 順位履歴: `data/gsc/rank-watch/<YYYY-MM>.jsonl` の `recordId: watch-…` の行（月ごとに 1 行 1 件）。GSC生データ・期間・集計・固定条件を追記専用で保存する。既存の行は修正しない（`check-seo-rank-watch --staged` が「HEAD の中身が前方に残っていること」を検査）。参照は「ファイル#recordId」
 - 改善履歴: `data/experiments.json` の `kind: seo-rank-watch`。actions/historyは追記専用。別の改善台帳を作らない。
-- 実行・方針レビュー履歴: 同じGSC保存先の `rank-watch/run-*.json`。当時の設定hash・資格別候補・順位の参照先・選定/待機理由・直近の判定を追記する。改善なしの回も記録し、過去ファイルは変更しない。
+- 実行・方針レビュー履歴: 同じファイルの `recordId: run-…` の行。当時の設定hash・資格別候補・順位の参照先・選定/待機理由・直近の判定を追記する。改善なしの回も記録し、過去の行は変更しない。
 - 実装: `scripts/seo-rank-watch.mjs` と `scripts/lib/seo-rank-watch.mjs`。管理画面 `/metrics/seo-watch` は同じ判定関数を読む。
 - スキル入口: `/weekly-improve --rank-watch`（「SEO Rank Watch」もこのモードへルーティング）。本番反映は従来の `/deploy`。
 

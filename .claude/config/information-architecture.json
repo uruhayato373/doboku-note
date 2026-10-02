@@ -139,7 +139,8 @@
       "data/metrics/gsc/index-coverage-history.json",
       "data/metrics/gsc-ui/last-run.json",
       "data/metrics/ga4-ui/last-run.json",
-      "data/metrics/ga4"
+      "data/metrics/ga4",
+      "data/metrics/gsc"
     ]
   },
   "docsIsNotContent": {
@@ -325,7 +326,7 @@
       "data/metrics/gsc-ui/last-run.json",
       "data/metrics/ga4-ui/last-run.json",
       "data/metrics/ga4/",
-      "data/metrics/gsc/gsc-"
+      "data/metrics/gsc/"
     ],
     "scanGlobs": [
       "scripts/",

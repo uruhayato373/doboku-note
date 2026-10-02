@@ -198,8 +198,7 @@ export const DATASETS = [
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true } }),
   d('gsc.sitemaps', 'data/gsc/sitemaps.json', 'state', 'site', 'サイトマップの送信状態'),
   d('gsc.index-coverage-history', 'data/gsc/index-coverage.json', 'ledger', 'site', 'インデックス登録率の推移'),
-  d('gsc.rank-watch', 'data/metrics/gsc/rank-watch/watch-{ts}-{hash}.json', 'ledger', 'site', '見張っている検索語の順位', { immutable: true }),
-  d('gsc.rank-watch-run', 'data/metrics/gsc/rank-watch/run-{ts}-{hash}.json', 'ledger', 'site', '順位の見張りの実行記録', { immutable: true }),
+  d('gsc.rank-watch', 'data/gsc/rank-watch/{month}.jsonl', 'ledger', 'site', '見張っている検索語の順位（watch-…）と見張りの判断（run-…）。月ごとに 1 行 1 件の追記だけ', { immutable: true }),
   d('gsc.url-inspection', 'data/gsc/url-inspection/{ts}.json', 'series', 'site', 'URL 検査の結果', { retain: { family: 'url-inspection', keepNewest: 6 } }),
   d('gsc.url-inspection-single', 'data/gsc/url-inspection-single/{ts}.json', 'series', 'site', 'URL 検査の単発の結果', { retain: { family: 'url-inspection', keepNewest: 2 } }),
   d('gsc.indexing-history', 'data/gsc/indexing-history.json', 'ledger', 'site', 'インデックス登録の申請の記録'),
@@ -288,6 +287,7 @@ export const RETIRED_IDS = {
   'afb.outcomes-latest': 'afb.outcomes',
   'psi.report': 'analysis.psi-report',
   'site.seo-meta': 'analysis.seo-meta',
+  'gsc.rank-watch-run': 'gsc.rank-watch',
 };
 
 /** id を台帳のデータセットに解決する（廃止した id は後継へ）。無ければ null */

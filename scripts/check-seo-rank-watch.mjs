@@ -6,7 +6,7 @@ import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
 import { readReportRef } from './lib/metric-reports.mjs';
-import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun } from './lib/seo-rank-watch.mjs';
+import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun, hasRecord } from './lib/seo-rank-watch.mjs';
 
 export function observationViolations(before, after, changedPaths, getContent) {
   const errors = [];
@@ -62,7 +62,7 @@ function main() {
     if (!['proposed', 'running', 'done', 'abandoned'].includes(e.status)) errors.push(`${e.id}: invalid status`);
     if (['observing', 'achieved'].includes(statusOf(e)) && !/^\d{4}-\d{2}-\d{2}$/.test(e.next_check_date ?? '')) errors.push(`${e.id}: next review required`);
     if (statusOf(e) === 'observing' && (!deploymentFor(e) || ![7, 14, 28].includes(e.reviewDays))) errors.push(`${e.id}: verified deployment and review window required`);
-    for (const action of e.actions ?? []) if (!resolveMovedPath(action.measurementFile)?.startsWith(`${HISTORY}/`) || !existsSync(join(root, resolveMovedPath(action.measurementFile)))) errors.push(`${e.id}: measurement provenance missing`);
+    for (const action of e.actions ?? []) if (!hasRecord(root, resolveMovedPath(action.measurementFile))) errors.push(`${e.id}: measurement provenance missing`);
   }
   for (const snapshot of readMeasurements(root)) {
     try { validateSnapshot(snapshot); } catch { errors.push(`Invalid rank snapshot: ${snapshot.file}`); }
@@ -70,7 +70,7 @@ function main() {
   const runs = readRuns(root);
   for (const run of runs) {
     try { validateRun(run); } catch { errors.push(`Invalid decision record: ${run.file}`); }
-    for (const row of run.rows ?? []) if (row.measurementFile && !existsSync(join(root, resolveMovedPath(row.measurementFile)))) errors.push(`${run.file}: missing measurement evidence`);
+    for (const row of run.rows ?? []) if (row.measurementFile && !hasRecord(root, resolveMovedPath(row.measurementFile))) errors.push(`${run.file}: missing measurement evidence`);
   }
   if (staged) {
     let before;
@@ -78,7 +78,12 @@ function main() {
     const changed = git(['diff', '--cached', '--name-only', '--no-renames', '-z']).split('\0').filter(Boolean);
     errors.push(...observationViolations(before, ledger, changed, get));
     const oldSnapshots = git(['ls-tree', '-r', '--name-only', 'HEAD', HISTORY]).trim().split('\n').filter(Boolean);
-    for (const path of changed) if (oldSnapshots.includes(path)) errors.push(`Rank history is immutable: ${path}`);
+    // 月ごとの追記ファイル: HEAD の中身が前方にそのまま残っていること（既存の行を変えない・消さない）
+    for (const path of changed.filter((p) => oldSnapshots.includes(p))) {
+      let after = '';
+      try { after = git(['show', `:${path}`]); } catch { /* 削除 */ }
+      if (!after.startsWith(git(['show', `HEAD:${path}`]))) errors.push(`Rank history is immutable (append only): ${path}`);
+    }
   } else errors.push(...observationViolations(ledger, ledger, [], get));
   for (const error of errors) console.error(`[seo-rank-watch] ${error}`);
   console.log(`[seo-rank-watch] ${errors.length ? 'FAIL' : 'PASS'}: ${config.watchwords.length} watches / ${config.strategy.focusQualifications.length} qualifications, ${ids.size} experiments, ${runs.length} decisions`);

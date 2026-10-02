@@ -58,9 +58,11 @@ test('CI prepare/apply records waiting once without changing experiments, and re
   run('prepare');
   assert.equal(JSON.parse(readFileSync(join(root, 'output/context.json'), 'utf8')).selected, null);
   run('apply'); run('apply');
-  const history = join(root, 'data/metrics/gsc/rank-watch');
+  const history = join(root, 'data/gsc/rank-watch');
   assert.equal(readdirSync(history).length, 1);
-  const entry = JSON.parse(readFileSync(join(history, readdirSync(history)[0]), 'utf8'));
+  const lines = readFileSync(join(history, readdirSync(history)[0]), 'utf8').trim().split('\n');
+  assert.equal(lines.length, 1, '同じ判断を 2 回 apply しても 1 行');
+  const entry = JSON.parse(lines[0]);
   assert.equal(entry.result, 'capacity-limit');
   assert.deepEqual(JSON.parse(readFileSync(join(root, 'data/experiments.json'), 'utf8')), ledger);
   save('data/experiments.json', { ...ledger, editedConcurrently: true });
