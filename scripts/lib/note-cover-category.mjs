@@ -1,19 +1,19 @@
 /**
  * note-cover-category.mjs — note 記事のカバー画像分類を決める唯一の実装。
- * 語彙とルールの正本は config/note-cover-categories.json。
+ * 語彙とルールの正本は config/note-covers.json の categories。
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 export function loadNoteCoverCategories(root) {
-  const cfg = JSON.parse(readFileSync(join(root, 'config/note-cover-categories.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(root, 'config/note-covers.json'), 'utf8')).categories;
   return buildNoteCoverCategories(cfg);
 }
 
 export function buildNoteCoverCategories(cfg) {
   const categories = new Map((cfg.categories ?? []).map((category) => [category.id, category]));
   const assertCategory = (id, at) => {
-    if (!categories.has(id)) throw new Error(`note-cover-categories.json: ${at} が未知の分類 ${id} を指している`);
+    if (!categories.has(id)) throw new Error(`note-covers.json の categories: ${at} が未知の分類 ${id} を指している`);
   };
   for (const [channel, rules] of Object.entries(cfg.rules ?? {})) {
     for (const rule of rules) assertCategory(rule.category, `rules.${channel}`);

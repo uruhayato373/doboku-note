@@ -8,7 +8,7 @@ import { findRepoRoot } from './repo-root';
  * 組み立ては scripts/lib/qualification-market.mjs（npm run qualification-market と同じ実装）。
  * 正本は exam-formats.json（出題形式）・exam-stats.json（受験者数）・exam-calendar.json（試験日）・
  * data/note/sales.json＋product-lineup.json（売上）・market-scan.json と data/market（混み具合）・
- * *-competitors.json（追跡数）。ここは型を付けて渡すだけで、値を足さない。
+ * competitors.json（追跡数）。ここは型を付けて渡すだけで、値を足さない。
  */
 
 export type Density = 'none' | 'low' | 'mid' | 'high' | null;

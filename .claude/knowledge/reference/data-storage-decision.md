@@ -112,7 +112,7 @@ data/analysis/<データセット>/   記録から計算した結果・文書が
 - 1 データセット＝1 フォルダ（または 1 ファイル）。時系列はファイル名を時刻だけにし、種類は名前で表す（時系列は `<時刻>.json`、最新状態は `latest.json`、追記の台帳は `.jsonl`）
 - 人が読む md は `analysis/` だけ、手書きのメモは `docs/`。手元だけの生データは `<取得元>/ui/` で git 管理外
 - `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify` と投稿キュー `youtube-schedule.json`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02）
-- config/ に紛れた計画・作業記録（`x-campaigns`・`x-review`・`r2-delete-list.txt`・`coconala-thumb-approved`・`past-exam-inventory`）の置き場は段階 4 で見直す
+- config/ に紛れた計画・作業記録は段階 4 で見直した（2026-10-02）: X の月次計画は `content/sns/x/campaigns/`、X 原稿の確認台帳は `content/sns/x/review.json`（計画と同じ列挙に入らないよう外に置く）、ココナラのサムネイル承認は `data/coconala/thumb-approved.json`。`r2-delete-list.txt` は main のワークフロー（`r2-delete.yml`）が読む操作の入力、`past-exam-inventory` は取得スクリプトの対象一覧なので config/ に残す
 
 ### 統合の基準（JSON ファイルを減らす）
 
@@ -147,7 +147,7 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 1. 台帳と検査を入れ、`domains.json` の config/・data/ の割り当てと管理画面の推定を台帳へ寄せる（ファイルは動かさない）。**2026-10-02 済み**
 2. 型を書く: 売上（note・KDP は済み。ココナラ受注・A8）→ business 台帳（`validateRecord` は業務ルールとして残す）→ `experiments`・`weekly-metrics`。読み書きを台帳経由の関数にし、パスの直書きを減らす。ワークフローは書き戻しを `npm run ci-data`（`scripts/ci-data.mjs`。変わったファイルを git status から拾って退避・復元し、実在するパスだけを add）で行い、YAML にデータのパスを書かない。最新ファイルの場所も `ci-data latest <id>` で引く（2026-10-02 済み。DN-0497 の旧パスもここで解消）
 3. 取得元ごとに 1 PR で移動・統合する。ワークフローは develop を checkout して develop のスクリプトで書き、YAML は置き場の根と台帳の id だけを渡すので（段階 1）、移動に合わせて main の YAML を変えなくてよい（id を消すときは `RETIRED_IDS` に後継を書く）。中身を変えない台帳は中身を書き換えず `MOVED_PATHS`・`RESTRUCTURED_PATHS`（`resolveMovedPath` が 2 段の移動もたどる）で読み替える。business 台帳の `sources[].sha256` は「その時点の版」の記録で、あとから照合し直さない（書式を揃えても壊れない）。**2026-10-02 済み**（#823 競合・市場／#825 note・KDP・ココナラ／#827 SNS・アフィリエイト・サイト計測・寿命を台帳の `retain` へ／#828 GSC・GA4 の一括でない取得・画面取得の URL 一覧 11→1／#831 GA4・GSC の週次取得を日ごとに 1 ファイル（377→40・読み書きは `scripts/lib/metric-reports.mjs`）／rank-watch を月ごとの追記 jsonl・事業の台帳を `data/business/records/`（ファイル名を保つ）・分析を `data/analysis/`）。git 管理の data/ は 846 → 364。`data/metrics/` は無くなった。決めたこと: 寿命は台帳の各データセットの `retain` が正本（`prune-state-snapshots` は台帳を読むだけ・`--family` の名前はワークフローとの契約）／GA4・GSC は種類 id（`ga4.page` など）で引き、参照は「ファイル#種類」／追記だけの台帳（`*.jsonl`）は `.gitattributes` で LF に固定し、不変の検査は「HEAD の中身が前方に残る」で見る
-4. config/ も同じ台帳で型を持つ。優先は読み手が多い `qualification-registry`（32 ファイル）・`domains`（24）・`product-lineup`（14）と、更新の多い `coconala-listings`。資格 id の照合のようなファイル間の整合は既存の `check-*` に残す
+4. config/ の統合（2026-10-02 済み）: 競合の追跡リスト 5→`config/competitors.json`（取得元ごとの枠）・OGP 3→`config/ogp/settings.json`・note 冒頭の標準 3→`config/note-intro-standard.json`（`variants`）・note カバー 3→`config/note-covers.json`。残したもの: PSI（`psi-config.json` は main の `lighthouse.yml` が読む・`psi-urls.txt` は行の一覧）、会員（`note-membership` は会員プラン・`note-magazine-membership` はマガジン収録で主題が別）、動画（`video-brand` は見た目・`video-content` は企画で一緒に変えない）。旧パスは `RESTRUCTURED_PATHS` と `information-architecture.json` の禁止ルート・旧パス走査に登録した。続けて config/ も同じ台帳で型を持つ。優先は読み手が多い `qualification-registry`（32 ファイル）・`domains`（24）・`product-lineup`（14）と、更新の多い `coconala-listings`。資格 id の照合のようなファイル間の整合は既存の `check-*` に残す
 
 ## 参考リンク
 

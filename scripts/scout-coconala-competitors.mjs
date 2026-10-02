@@ -2,7 +2,7 @@
 /**
  * scout-coconala-competitors.mjs — ココナラ競合セラーの時系列偵察（read-only）
  * ---------------------------------------------------------------------------
- * config/coconala-competitors.json の各競合セラーの**出品サービス一覧**を
+ * config/competitors.json の coconala の各競合セラーの**出品サービス一覧**を
  * 公開プロフィールページ（coconala.com/users/{id}）から Playwright で取得し、
  * scout-note-competitors と同じ共通 snapshot schema（profile/counts/price/cadence/
  * drift/platformExtra）へ正規化して時系列に落とす。前回比 drift（価格改定/新商品/
@@ -32,7 +32,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, 'config/coconala-competitors.json');
+const CONFIG_PATH = join(ROOT, 'config/competitors.json'); // 取得元ごとの枠 coconala
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright が管理する Chromium と runner の一時 profile を使う。
 // ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。
@@ -150,10 +150,10 @@ async function main() {
   if (HANDLE_OVERRIDE) {
     competitors = [{ handle: HANDLE_OVERRIDE }];
   } else {
-    competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).competitors ?? [];
+    competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).coconala.competitors ?? [];
   }
   if (competitors.length === 0) {
-    console.error('ERROR: 対象セラーがありません（coconala-competitors.json が空 or --handle 未指定）。');
+    console.error('ERROR: 対象セラーがありません（competitors.json の coconala が空 or --handle 未指定）。');
     process.exit(1);
   }
   const PARTIAL = Boolean(HANDLE_OVERRIDE);

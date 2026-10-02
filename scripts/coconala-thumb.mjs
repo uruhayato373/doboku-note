@@ -384,7 +384,7 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
-const approved = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/coconala-thumb-approved.json'), 'utf8')).images;
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/coconala/thumb-approved.json'), 'utf8')).images;
 const catalog = readCatalog();
 const listings = readListings();
 const DEFAULT_BG = 'content/coconala/assets/bg-civil.png';

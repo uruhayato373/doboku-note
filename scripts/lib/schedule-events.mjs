@@ -13,7 +13,7 @@
  *
  * 読むソース（6 系統・sourceId。実際の読み取りは collectScheduleEvents が行う）:
  *   - exam-calendar   … config/exam-calendar.json（試験日）
- *   - x-campaign      … config/x-campaigns/*.json（X 計画枠）
+ *   - x-campaign      … content/sns/x/campaigns/*.json（X 計画枠）
  *   - x-status        … content/sns/x/draft/*\/status.json（X 実予約・実投稿）
  *   - ig-status       … content/sns/instagram/**\/status.json（IG 実予約・実投稿）
  *   - youtube-schedule… .claude/state/youtube-schedule.json（YouTube 予約）
@@ -591,7 +591,7 @@ function readExamCalendar(rootDir) {
 }
 
 function readXCampaigns(rootDir) {
-  const dirRel = 'config/x-campaigns';
+  const dirRel = 'content/sns/x/campaigns';
   const dirAbs = join(rootDir, dirRel);
   const events = [];
   const errors = [];

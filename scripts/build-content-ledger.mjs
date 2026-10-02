@@ -26,7 +26,7 @@
  * 照合は、鍵が変わった・前回ずれていた・取得できなかった・24 時間たった ものだけやり直す。--refresh で全件やり直す。
  *
  * ココナラの公開照合: 出品中（listed）の全サービスの公開ページを、正本（カタログ・listings）と照合する
- * （check-coconala-live と同じ lib）。画像は承認済み POP 画像（coconala-thumb-approved.json）の登録で見る。
+ * （check-coconala-live と同じ lib）。画像は承認済み POP 画像（data/coconala/thumb-approved.json）の登録で見る。
  * 出品ごとに正本（カタログの項目・listings・承認済み画像）のハッシュを持ち、上と同じ条件の出品だけ照合する。
  * --no-live のときは前回の結果のまま。
  *
@@ -208,7 +208,7 @@ async function build() {
     const catalog = readCatalog();
     const listings = readListings();
     let approved = {};
-    try { approved = JSON.parse(readFileSync(join(ROOT, 'config/coconala-thumb-approved.json'), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
+    try { approved = JSON.parse(readFileSync(join(ROOT, 'data/coconala/thumb-approved.json'), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
     let sellerName = '';
     try { sellerName = JSON.parse(readFileSync(join(ROOT, 'config/coconala-account.json'), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
     const listed = Object.values(catalog).filter((s) => s.status === 'listed');

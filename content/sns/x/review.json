@@ -5,10 +5,10 @@
   "to": "2026-10-31",
   "timezone": "Asia/Tokyo",
   "plans": [
-    "config/x-campaigns/2026-09-civil.json",
-    "config/x-campaigns/2026-10-character.json",
-    "config/x-campaigns/2026-10-civil-final.json",
-    "config/x-campaigns/2026-10-rccm.json"
+    "content/sns/x/campaigns/2026-09-civil.json",
+    "content/sns/x/campaigns/2026-10-character.json",
+    "content/sns/x/campaigns/2026-10-civil-final.json",
+    "content/sns/x/campaigns/2026-10-rccm.json"
   ],
   "drafts": [
     "090-civil-2026-09-a",

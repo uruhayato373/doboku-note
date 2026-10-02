@@ -1,4 +1,4 @@
-<!-- source: config/x-campaigns/2026-08-civil-boost.json（civil-1 抜粋8本）。日付・時刻・型・funnel・target は計画から変更していない。 -->
+<!-- source: content/sns/x/campaigns/2026-08-civil-boost.json（civil-1 抜粋8本）。日付・時刻・型・funnel・target は計画から変更していない。 -->
 
 ## Tweet 01: 8/16 12:15 civil-1 / 過去問1問1答 / site
 

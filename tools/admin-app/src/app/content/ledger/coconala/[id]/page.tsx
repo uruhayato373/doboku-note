@@ -30,7 +30,7 @@ type Listing = {
 const SOURCES = [
   { file: 'src/lib/coconala-services.ts', what: 'タイトル・価格・出品状態・公開 URL（カタログ）' },
   { file: 'config/coconala-listings.json', what: 'キャッチコピー・カテゴリ・本文・FAQ・オプション（出品本文）' },
-  { file: 'config/coconala-thumb-approved.json', what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
+  { file: 'data/coconala/thumb-approved.json', what: '商品画像（承認済みの POP 画像のパスと SHA-256）' },
 ];
 
 function Row({ k, v }: { k: string; v: React.ReactNode }) {

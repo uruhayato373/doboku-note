@@ -57,7 +57,7 @@ const plan = {
   guardrails: ['URL付きは12/31本（note 5・site 7）まで', '販売投稿は夜枠のみ', '時刻は帯内で分散', '各投稿はクイズJSONの異なる論点から執筆'],
   posts,
 };
-const outDir = resolve(ROOT, 'config/x-campaigns');
+const outDir = resolve(ROOT, 'content/sns/x/campaigns');
 mkdirSync(outDir, { recursive: true });
 const out = resolve(outDir, `${month}-pe-first-stage.json`);
 writeFileSync(out, `${JSON.stringify(plan, null, 2)}\n`, 'utf8');

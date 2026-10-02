@@ -317,7 +317,7 @@ export function classifyInquiries(inquiries, resolved = [], nowMs = Date.now()) 
 /**
  * 商品画像の所在を判定する（check-coconala-wiring §7）。
  *
- * 正本は承認済みの POP 画像（coconala-thumb-approved.json の path・2026-09-27 承認）。フラットな
+ * 正本は承認済みの POP 画像（data/coconala/thumb-approved.json の path・2026-09-27 承認）。フラットな
  * assets/thumb-<key>.png は coconala-thumb が承認原本から複製する派生物なので、承認原本があれば
  * フラット側の有無は問わない。承認前の新商品は、フラット画像か、coconala-thumb の描画定義
  * （THUMB_COPY）があれば「作れる」とみなし、POP 画像が未承認であることを警告に出す。
@@ -334,7 +334,7 @@ export function resolveThumb({ id, approvedPath = null, flatPath, has, renderabl
   const flat = has(flatPath);
   const warn = approvedPath
     ? `[${id}] 承認済み画像 ${approvedPath} がローカルにも退避台帳にもありません（Drive vault の coconala-asset から復元）`
-    : `[${id}] 承認済みの POP 画像がまだありません（coconala-thumb-approved.json に未登録）`;
+    : `[${id}] 承認済みの POP 画像がまだありません（data/coconala/thumb-approved.json に未登録）`;
   if (flat) return { ok: true, source: 'flat', where: flat, warn };
   if (renderable) return { ok: true, source: 'renderable', where: null, warn };
   return { ok: false, source: null, where: null, warn: null };

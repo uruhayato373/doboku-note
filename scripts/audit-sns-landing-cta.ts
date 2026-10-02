@@ -27,7 +27,7 @@ import { sidebarProduct } from '../src/lib/sidebar-discovery';
 const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const SITE = join(ROOT, 'content/site');
-const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, 'config/x-campaigns')];
+const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, 'content/sns/x/campaigns')];
 const CARD_EARLY_RATIO = 0.5;
 
 const GROUP_FIELD_MAP: Record<string, string> = {

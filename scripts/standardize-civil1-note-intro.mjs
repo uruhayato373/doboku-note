@@ -16,7 +16,7 @@
  *   node scripts/standardize-civil1-note-intro.mjs                 # dry-run（件数と要確認）
  *   node scripts/standardize-civil1-note-intro.mjs --apply         # 書き込み
  *   node scripts/standardize-civil1-note-intro.mjs --only <パスの一部> [--show]   # 絞り込み・差分表示
- *   node scripts/standardize-civil1-note-intro.mjs --config config/note-intro-standard-civil2.json [--apply]   # 2級
+ *   node scripts/standardize-civil1-note-intro.mjs --variant civil2 [--apply]   # 2級
  * exit: 0 成功 / 1 要確認あり（--apply でも要確認の記事は書かない）/ 2 設定エラー
  * 正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」
  * ---------------------------------------------------------------------------
@@ -31,9 +31,10 @@ const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const SHOW = args.includes('--show');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
-// 既定は1級。2級は --config config/note-intro-standard-civil2.json
-const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : 'config/note-intro-standard.json';
-const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, CONFIG_PATH), 'utf8'));
+// 型は config/note-intro-standard.json の variants（既定は 1級＝civil1。2級は --variant civil2）
+const VARIANT = args.includes('--variant') ? args[args.indexOf('--variant') + 1] : 'civil1';
+const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, 'config/note-intro-standard.json'), 'utf8')).variants[VARIANT];
+if (!CONFIG) throw new Error(`config/note-intro-standard.json に型 ${VARIANT} が無い`);
 const ROOT = join(REPO_ROOT, CONFIG.root);
 const BANNER_SRC = join(REPO_ROOT, 'content/note/共通/著者オーソリティ/img', CONFIG.banner);
 

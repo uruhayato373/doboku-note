@@ -22,8 +22,8 @@ export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
   const tokens = readJson(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json');
   const poseLabels = Object.fromEntries(readJson(sourceRoot, 'config/character-poses.json')
     .poses.map((pose) => [pose.slug, pose.label]));
-  const v4Map = readJson(sourceRoot, 'config/note-cover-magazine-v4.json');
-  const config = readJson(configRoot, 'config/note-character-covers.json');
+  const v4Map = readJson(sourceRoot, 'config/note-covers.json').magazineText;
+  const config = readJson(configRoot, 'config/note-covers.json').characterCovers;
   const registry = loadRegistry(sourceRoot);
   return { tokens, poseLabels, v4Map, config, registry };
 }

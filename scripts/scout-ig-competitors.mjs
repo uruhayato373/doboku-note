@@ -2,7 +2,7 @@
 /**
  * scout-ig-competitors.mjs — Instagram 競合の時系列偵察（read-only・未ログイン）
  * ---------------------------------------------------------------------------
- * config/ig-competitors.json の各競合の公開プロフィール統計（フォロワー/フォロー/
+ * config/competitors.json の instagram の各競合の公開プロフィール統計（フォロワー/フォロー/
  * 投稿数）を **未ログインの公開ページ（og:description メタ）** から curl で取得し、共通
  * snapshot schema（profile/counts/cadence/platformExtra/drift）へ正規化して時系列に落とす。
  * 前回比 drift（フォロワー増減・投稿数増＝投稿活動）を機械検出する。
@@ -31,7 +31,7 @@ import { todayJst } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const CONFIG_PATH = join(ROOT, 'config/ig-competitors.json');
+const CONFIG_PATH = join(ROOT, 'config/competitors.json'); // 取得元ごとの枠 instagram
 
 const argv = process.argv.slice(2);
 const hi = argv.indexOf('--handle');
@@ -87,7 +87,7 @@ const fmt = (n) => (n == null ? '—' : n.toLocaleString('ja-JP'));
 function main() {
   let competitors;
   if (HANDLE_OVERRIDE) competitors = [{ handle: HANDLE_OVERRIDE }];
-  else competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).competitors ?? [];
+  else competitors = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')).instagram.competitors ?? [];
   if (competitors.length === 0) { console.error('ERROR: 対象ハンドルがありません。'); process.exit(1); }
   const PARTIAL = Boolean(HANDLE_OVERRIDE);
 

@@ -20,7 +20,7 @@ export function readTweetBlocks(markdown) {
 
 export function readXReview(root) {
   const json=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
-  const config=json('config/x-review.json');
+  const config=json('content/sns/x/review.json');
   const plans=readXReviewPlans(root, config);
   const ledger=json('.claude/state/sns/x-card-render.json').entries;
   const rows=[];

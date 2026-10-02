@@ -34,7 +34,7 @@ const SLOTS = ["A", "B", "C"];
 
 // 引数省略時は x-campaigns/ の全 *.json を検査する（旧実装は 2026-08 固定＝
 // 9月以降のファイルを作っても無検査で素通りしていた。2026-08-12 是正）。
-const DIR = "config/x-campaigns";
+const DIR = "content/sns/x/campaigns";
 const files = process.argv[2]
   ? [process.argv[2]]
   : readdirSync(DIR).filter((f) => f.endsWith(".json")).map((f) => join(DIR, f)).sort();
