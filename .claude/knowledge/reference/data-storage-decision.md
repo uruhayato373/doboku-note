@@ -96,6 +96,7 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 ### 型の正本は zod
 
+- 台帳（`datasets.mjs`）は依存ゼロに保ち、各行は型を名前（`schema: 'NoteSalesLog'`）で指す。型の検査は `dataset-validate.mjs`。台帳は 200 近いスクリプトがパスを引くだけに読み、npm ci をしないワークフローも含むため（2026-10-02 に台帳が zod を読み込み、indexnow-submit などが落ちた。`tests/workflow-zero-dependency.test.mjs` が止める）
 - 商品と記事 frontmatter が既に zod（方式を 2 つにしない）。管理画面（`allowJs`・`strict`）は zod から型を得られ、手書きの型を減らせる。JSON Schema は `z.toJSONSchema` で生成してエディタ・管理画面・Codex に渡す
 - JSON Schema ファイルを正本にする案も検証した（`z.fromJSONSchema` で pattern・enum・余分なキー・日時形式・`$ref` の検査が効き、依存も増えない）が、TypeScript の型が作れないので採らない
 - 書き方の約束: version 欄は `schemaVersion`（整数）1 本、キーは camelCase、日時は UTC の ISO 8601（末尾 Z）、日付だけの値は JST の YYYY-MM-DD と型に書く、意味と単位は `.describe()` に書く、人と CI が書き足す記録は `.strict()`。既存の欄の名前は移すときに揃え、それまでは型に今の名前を書く

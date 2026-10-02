@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, pathMatchesId, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { DATASETS, datasetById, datasetsFor, inferShape, matchFiles, pathMatchesId, patternOf, schemaRows } from '../scripts/lib/datasets.mjs';
+import { jsonSchemaOf, validateFiles } from '../scripts/lib/dataset-validate.mjs';
 import { basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from '../scripts/lib/path-literals.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);

@@ -20,7 +20,8 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATASETS, KINDS, datasetsFor, listAreaFiles, matchFiles, pathMatchesId, resolveDataset, validateFiles } from './lib/datasets.mjs';
+import { AREAS, DATASETS, KINDS, datasetsFor, listAreaFiles, matchFiles, pathMatchesId, resolveDataset } from './lib/datasets.mjs';
+import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
 import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from './lib/path-literals.mjs';
@@ -60,6 +61,11 @@ for (const x of DATASETS) {
   if (!pathMatchesId(x)) errors.push(`${x.id}: 置き場 ${x.path} が id の取得元と合わない（config.* は config/、他は data/<取得元>/）`);
   if (!(x.kind in KINDS)) errors.push(`${x.id}: 種類 ${x.kind} は KINDS に無い`);
   if (!domainIds.has(x.domain)) errors.push(`${x.id}: 領域 ${x.domain} は domains.json に無い`);
+  try {
+    schemaOf(x);
+  } catch (e) {
+    errors.push(e.message);
+  }
   const unknown = Object.keys(x).filter((k) => !DECLARATION_KEYS.has(k));
   if (unknown.length) errors.push(`${x.id}: 台帳の宣言に知らないキー ${unknown.join('・')}（誤記なら直す。新しい宣言なら check-datasets の DECLARATION_KEYS に足す）`);
   const n = byId.get(x.id)?.length ?? 0;

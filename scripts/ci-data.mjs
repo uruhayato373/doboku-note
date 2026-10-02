@@ -24,7 +24,8 @@ import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { AREAS, datasetDir, datasetsFor, latestFile, patternOf, resolveDataset, validateFiles } from './lib/datasets.mjs';
+import { AREAS, datasetDir, datasetsFor, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
+import { validateFiles } from './lib/dataset-validate.mjs';
 import { REPORT_KINDS, latestReportRef } from './lib/metric-reports.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
