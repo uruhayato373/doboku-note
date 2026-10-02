@@ -23,5 +23,32 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典17ページを1問ずつ照合し、Ⅲ-2の表の語句とⅢ-9（ア）の「供給規定」を原典どおりに修正。Ⅲ-5は設計指針のろ過砂規格で解説を具体化し、Ⅲ-34はピークカット常用発電が稼働時間の短い雨水ポンプ向きである点へ改稿、Ⅲ-30肢4とⅢ-23のExamPointを補正。Ⅲ-3（10％）・Ⅲ-6（0.1mg/L）・Ⅲ-8（濁度2度・色度5度・透過率75％）は一次資料で確認。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-26",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.jswa.jp/wp2/wp-content/uploads/2019/05/20190507taishin2014.pdf"
+        ],
+        "note": "構造類型（Ⅰ類震度法・Ⅱ類応答変位法）は確認、地下埋設水槽の行は未確認"
+      },
+      {
+        "q": "Ⅲ-20",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.mlit.go.jp/common/001065300.pdf"
+        ],
+        "note": "地下水量＝日最大の生活＋営業汚水量の和の10〜20%（工場排水量は含まない）"
+      }
+    ]
   }
 }

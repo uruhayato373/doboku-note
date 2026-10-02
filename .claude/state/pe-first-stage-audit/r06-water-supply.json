@@ -23,5 +23,41 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典17ページを1問ずつ照合し、35問・175肢の問題文・極性・選択肢・Ⅲ-1の図が原典と一致することを確認。34問のExamPointに「undefined」が入っていたため具体的な学習ポイントへ差し替え、Ⅲ-3（低水護岸）・Ⅲ-5（コーナ部）・Ⅲ-6（0.2mg/Lは汚染のおそれがある場合）・Ⅲ-13（直接測定法の定義）・Ⅲ-15（レベル2は復旧性または安全性）・Ⅲ-16・Ⅲ-24・Ⅲ-26（自由支承は可とう性管）・Ⅲ-29・Ⅲ-32の解説を一次情報で修正。 Ⅲ-16肢4は親が、アクリルアミドモノマー（有害物質）を含む排水は原水へ戻さないのが原則である点を誤りの根拠として確定。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-14①",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://zairyo.ceri.go.jp/ceri_zairyo/topics5/togaitebiki201705.pdf"
+        ],
+        "note": "「貧配合は耐凍害性を損なう」の直接出典なし。耐凍害性の基本（低 W/C・空気量）で説明"
+      },
+      {
+        "q": "Ⅲ-28①",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.hitachihyoron.com/jp/pdf/1965/07/1965_07_17.pdf"
+        ],
+        "note": "二次情報で一致（汚水 1,800・雨水 3,600）。設計指針の解説本文が有料で公開抜粋に無い"
+      },
+      {
+        "q": "Ⅲ-16④",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.jwrc-net.or.jp/docs/publication-outreach/qa/10-98-4.pdf",
+          "https://www.mlit.go.jp/common/830003652.pdf"
+        ],
+        "note": "「原則場外へ」を外し、高分子凝集剤の排水を返送しない前提（JWRC Q&A）で説明"
+      }
+    ]
   }
 }

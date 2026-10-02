@@ -23,5 +23,64 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典18ページを1問ずつ照合し、35問・全選択肢の問題文・極性・数値は原典どおりで公式正答表とも全件一致、Ⅲ-14の図も原典と一致。Ⅲ-3（エ）、Ⅲ-16、Ⅲ-19、Ⅲ-23、Ⅲ-26、Ⅲ-28、Ⅲ-30、Ⅲ-32、Ⅲ-34の解説を水道施設設計指針・水道維持管理指針・横浜市下水道設計指針・国交省高度処理ナレッジ集で確認して根拠を具体化し、35問のExamPointを引っかけを示す形へ書き直した。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-30③",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/001217263.pdf"
+        ],
+        "note": "VS が低い季節の公開資料なし。断定理由を外した"
+      },
+      {
+        "q": "Ⅲ-23②",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/kasen-gesuido/gesuido/shori/sokutei/chosa/koudosyori.files/0052_20180827.pdf"
+        ],
+        "note": "水温は r07 Ⅲ-22④ と同じ。ナレッジ集の事例を段階的高度処理と書き分け"
+      },
+      {
+        "q": "Ⅲ-22",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.clearwater-osaka.jp/wp-content/uploads/2025/06/3wtreatmentmethod_manual.pdf"
+        ],
+        "note": "「概ね50前後」を外し分流式の値と明記"
+      },
+      {
+        "q": "Ⅲ-35",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.city.yokohama.lg.jp/business/nyusatsu/youshiki/gesui/gesuishiryo/kijunshokankei.files/sekkeishishin23.pdf"
+        ],
+        "note": "耐震レベル1・2"
+      },
+      {
+        "q": "Ⅲ-18",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/mizukokudo/sewerage/mizukokudo_sewerage_tk_000404.html"
+        ],
+        "note": "下水道法第2条の2・都道府県構想"
+      },
+      {
+        "q": "Ⅲ-16",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.env.go.jp/content/900545857.pdf"
+        ],
+        "note": "クリプト対策指針: 原水検査・レベル3/4 に合わせて肢2・4を修正"
+      }
+    ]
   }
 }

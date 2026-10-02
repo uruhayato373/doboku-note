@@ -23,5 +23,32 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典画像17ページを1問ずつ照合し、35問・全選択肢の問題文・極性・数値・表（Ⅲ-22）が一致すること、公式正答35問が全件一致することを確認。Ⅲ-1・Ⅲ-3・Ⅲ-18・Ⅲ-20・Ⅲ-34の解説を水道維持管理指針2006・流域別下水道整備総合計画調査指針と解説などの一次資料に合わせて具体化・修正した。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-3③",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/830003652.pdf"
+        ],
+        "note": "注入濃度の出典なし。現行文は清掃中心で矛盾なし"
+      },
+      {
+        "q": "Ⅲ-34⑤",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.gesui.metro.tokyo.lg.jp/contractor/suisitsu/information/2kiseikoumoku"
+        ],
+        "note": "トリクロロエチレン: 揮散・作業環境の断定を外し、下水道管理者資料の影響（管内作業の危険・生物処理困難）で説明"
+      }
+    ]
   }
 }

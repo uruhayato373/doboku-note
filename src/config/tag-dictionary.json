@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T13:43:03.202Z",
+  "generated_at": "2026-10-02T13:55:16.111Z",
   "summary": {
-    "total_mdx_files": 1348,
+    "total_mdx_files": 1349,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -2705,7 +2705,7 @@
     },
     {
       "name": "試験対策",
-      "count": 77,
+      "count": 78,
       "inAllowlist": true,
       "usedIn": [
         "building-construction-guide-1kyu-keiken-kijutsu",
@@ -2774,6 +2774,7 @@
         "pe-first-stage-guide-r08-answers",
         "pe-first-stage-guide-resistance-circuit-calculation",
         "pe-first-stage-guide-study-plan",
+        "pe-first-stage-guide-water-supply-subject",
         "rccm-guide-difference-pe",
         "rccm-guide-eligibility-application",
         "rccm-guide-mondai1-keiken-ronbun",
@@ -2789,7 +2790,7 @@
     },
     {
       "name": "技術士（第一次試験）",
-      "count": 74,
+      "count": 75,
       "inAllowlist": true,
       "usedIn": [
         "pe-first-stage-guide-after-pass",
@@ -2802,6 +2803,7 @@
         "pe-first-stage-guide-r08-answers",
         "pe-first-stage-guide-resistance-circuit-calculation",
         "pe-first-stage-guide-study-plan",
+        "pe-first-stage-guide-water-supply-subject",
         "pe-first-stage-h23-aptitude",
         "pe-first-stage-h23-basic",
         "pe-first-stage-h23-construction",
@@ -3907,6 +3909,30 @@
       ]
     },
     {
+      "name": "専門科目（上下水道部門）",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-guide-water-supply-subject",
+        "pe-first-stage-h23-water-supply",
+        "pe-first-stage-h24-water-supply",
+        "pe-first-stage-h25-water-supply",
+        "pe-first-stage-h26-water-supply",
+        "pe-first-stage-h27-water-supply",
+        "pe-first-stage-h28-water-supply",
+        "pe-first-stage-h29-water-supply",
+        "pe-first-stage-h30-water-supply",
+        "pe-first-stage-r01-retry-water-supply",
+        "pe-first-stage-r01-water-supply",
+        "pe-first-stage-r02-water-supply",
+        "pe-first-stage-r03-water-supply",
+        "pe-first-stage-r04-water-supply",
+        "pe-first-stage-r05-water-supply",
+        "pe-first-stage-r06-water-supply",
+        "pe-first-stage-r07-water-supply"
+      ]
+    },
+    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -3927,29 +3953,6 @@
         "pe-first-stage-r05-basic",
         "pe-first-stage-r06-basic",
         "pe-first-stage-r07-basic"
-      ]
-    },
-    {
-      "name": "専門科目（上下水道部門）",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-h23-water-supply",
-        "pe-first-stage-h24-water-supply",
-        "pe-first-stage-h25-water-supply",
-        "pe-first-stage-h26-water-supply",
-        "pe-first-stage-h27-water-supply",
-        "pe-first-stage-h28-water-supply",
-        "pe-first-stage-h29-water-supply",
-        "pe-first-stage-h30-water-supply",
-        "pe-first-stage-r01-retry-water-supply",
-        "pe-first-stage-r01-water-supply",
-        "pe-first-stage-r02-water-supply",
-        "pe-first-stage-r03-water-supply",
-        "pe-first-stage-r04-water-supply",
-        "pe-first-stage-r05-water-supply",
-        "pe-first-stage-r06-water-supply",
-        "pe-first-stage-r07-water-supply"
       ]
     },
     {
