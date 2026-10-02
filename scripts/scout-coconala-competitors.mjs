@@ -24,7 +24,8 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
@@ -32,9 +33,6 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, 'config/coconala-competitors.json');
-const STATE_DIR = join(ROOT, 'data/coconala');
-const HISTORY_DIR = join(STATE_DIR, 'history');
-const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright が管理する Chromium と runner の一時 profile を使う。
 // ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。
@@ -121,21 +119,6 @@ function servicesFromMarket(market, names) {
 function todayStamp() {
   return todayJst();
 }
-function loadPreviousSnapshot(todayFile) {
-  let files = [];
-  try {
-    files = readdirSync(HISTORY_DIR).filter((f) => /^competitors-\d{4}-\d{2}-\d{2}\.json$/.test(f));
-  } catch {
-    return null;
-  }
-  const prior = files.filter((f) => f < todayFile).sort();
-  if (prior.length === 0) return null;
-  try {
-    return { file: prior[prior.length - 1], data: JSON.parse(readFileSync(join(HISTORY_DIR, prior[prior.length - 1]), 'utf-8')) };
-  } catch {
-    return null;
-  }
-}
 function computeDrift(current, previous) {
   if (!previous) return { basis: null, entries: [] };
   const prevBy = new Map((previous.data.competitors ?? []).map((c) => [c.handle, c]));
@@ -178,7 +161,6 @@ async function main() {
   console.log('=== ココナラ競合偵察（公開プロフィール read-only）===');
   console.log(`対象: ${competitors.length} セラー\n`);
 
-  mkdirSync(STATE_DIR, { recursive: true });
   const launchOptions = {
     headless: !HEADED,
     proxy: PROXY ? { server: PROXY } : undefined,
@@ -236,8 +218,7 @@ async function main() {
   await ctx.close();
 
   const stamp = todayStamp();
-  const todayFile = `competitors-${stamp}.json`;
-  const previous = PARTIAL ? null : loadPreviousSnapshot(todayFile);
+  const previous = PARTIAL ? null : loadPreviousSnapshot(ROOT, 'coconala.competitors', stamp);
   const drift = computeDrift(results, previous);
 
   console.log('--- 前回比ドリフト ---');
@@ -253,13 +234,8 @@ async function main() {
     drift: drift.entries,
     competitors: results,
   };
-  writeFileSync(LATEST_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-  if (!PARTIAL) {
-    mkdirSync(HISTORY_DIR, { recursive: true });
-    writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: data/coconala/history/${todayFile}`);
-  }
-  console.log(`最新ポインタ: ${LATEST_PATH}`);
+  const saved = saveSnapshot(ROOT, 'coconala.competitors', stamp, snapshot, { partial: PARTIAL });
+  console.log(`\n${PARTIAL ? '部分実行の結果（時系列には残さない）' : '時系列保存'}: ${saved}`);
   console.log(`完了: ${results.length} セラー（失敗 ${failed}）→ 分析は competitor-analyst --platform coconala`);
   process.exit(failed === results.length ? 1 : 0);
 }

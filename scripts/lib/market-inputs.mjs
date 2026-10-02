@@ -5,20 +5,18 @@
  * qualification-market.mjs の純粋関数が担う。取得物（snapshot・ココナラ調査）は無くてもよい（未取得として扱う）。
  * ---------------------------------------------------------------------------
  */
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { latestFile } from './datasets.mjs';
 
 export const COMPETITOR_CHANNELS = ['note', 'x', 'ig', 'coconala', 'youtube'];
-/** 市場スキャンの置き場。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
-export const MARKET_HISTORY_DIR = 'data/market/history';
-const MARKET_FILE = /^market-(\d{4}-\d{2}-\d{2})\.json$/;
+/** 市場スキャンの台帳の id。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
+export const MARKET_DATASET = 'analysis.qualification-market';
 
 /** 最も新しい市場スキャン（無ければ null）。 */
 export function latestMarketSnapshot(root) {
-  const dir = join(root, MARKET_HISTORY_DIR);
-  if (!existsSync(dir)) return null;
-  const latest = readdirSync(dir).filter((f) => MARKET_FILE.test(f)).sort().at(-1);
-  return latest ? JSON.parse(readFileSync(join(dir, latest), 'utf8')) : null;
+  const latest = latestFile(root, MARKET_DATASET);
+  return latest ? JSON.parse(readFileSync(join(root, latest), 'utf8')) : null;
 }
 
 /**

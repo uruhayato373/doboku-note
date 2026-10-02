@@ -9,7 +9,7 @@
  *               ブラウザで公開検索ページを読む・低頻度厳守＝四半期）
  * 追跡中の YouTube チャンネル（youtube-competitors.json）の登録者数も取る。
  *
- * 出力: data/market/history/market-YYYY-MM-DD.json（JST の実行日。1 ファイル＝その日の市場）。
+ * 出力: data/analysis/qualification-market/YYYY-MM-DD.json（台帳 analysis.qualification-market・JST の実行日。1 ファイル＝その日の市場）。
  *       直前のファイルを土台に取得した語だけ上書きするので、部分実行でも全資格の最新が 1 ファイルに揃う。
  *       読むときは最も新しい日付のファイルが最新（scripts/lib/market-inputs.mjs の latestMarketSnapshot）。
  *       1 件 1 行で書く（差分を読めるように・サイズを抑えるため）。
@@ -31,15 +31,15 @@
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
-import { latestMarketSnapshot, MARKET_HISTORY_DIR, stringifyMarketSnapshot } from './lib/market-inputs.mjs';
+import { latestMarketSnapshot, MARKET_DATASET, stringifyMarketSnapshot } from './lib/market-inputs.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, 'config/market-scan.json');
 const REGISTRY_PATH = join(ROOT, 'config/qualification-registry.json');
 const YT_COMPETITORS_PATH = join(ROOT, 'config/youtube-competitors.json');
-const HISTORY_DIR = join(ROOT, MARKET_HISTORY_DIR);
 
 const argv = process.argv.slice(2);
 const KNOWN_FLAGS = new Set(['--qualification', '--channel', '--coconala', '--dry-run', '--force']);
@@ -79,12 +79,12 @@ const keywords = uniq(targets.flatMap(([, q]) => q.keywords));
 const coconalaKeywords = uniq(targets.flatMap(([, q]) => q.coconala));
 
 const today = todayJst();
-const OUT_PATH = join(HISTORY_DIR, `market-${today}.json`);
+const OUT_PATH = join(ROOT, datasetPath(MARKET_DATASET, { date: today }));
 const snapshot = latestMarketSnapshot(ROOT) ?? { version: 1, youtube: {}, note: {}, youtubeChannels: {} };
 const doneToday = (bucket, k) => !FORCE && snapshot[bucket]?.[k]?.fetchedAt?.slice(0, 10) === today && !snapshot[bucket][k].error;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const save = () => {
-  mkdirSync(HISTORY_DIR, { recursive: true });
+  mkdirSync(dirname(OUT_PATH), { recursive: true });
   snapshot.updatedAt = new Date().toISOString();
   writeFileSync(OUT_PATH, stringifyMarketSnapshot(snapshot));
 };

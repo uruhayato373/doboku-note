@@ -20,25 +20,23 @@
  *   全滅なら exit 2（取得不成立）。0 件ヒットの緑と取得失敗の緑を混ぜない。
  *
  * 使い方:
- *   node scripts/scout-coconala-blogs.mjs            # config 全件→snapshot＋history＋drift
+ *   node scripts/scout-coconala-blogs.mjs            # config 全件→時系列＋drift
  *   node scripts/scout-coconala-blogs.mjs --headed
  *   node scripts/scout-coconala-blogs.mjs --query 経験記述   # ad-hoc（履歴を汚さない）
- * 出力: data/coconala/blog-competitors.json（+ history/blog-YYYY-MM-DD.json）
+ * 出力: data/coconala/blog-competitors/YYYY-MM-DD.json（台帳 coconala.blog-competitors。最新は時系列の最新を読む）
  * exit: 0=取得成功 / 1=一部失敗 / 2=全滅（不成立）
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { mkdirSync, writeFileSync, readFileSync, existsSync, writeSync } from 'node:fs';
+import { readFileSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
+import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, 'config/coconala-blog.json');
-const STATE_DIR = join(ROOT, 'data/coconala');
-const HISTORY_DIR = join(STATE_DIR, 'history');
-const LATEST_PATH = join(STATE_DIR, 'blog-competitors.json');
 const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TAG = '[scout-coconala-blogs]';
@@ -101,7 +99,7 @@ async function scrapeUser(page, id) {
   return { status, postCount: posts.length, posts: posts.slice(0, 30) };
 }
 
-const prev = existsSync(LATEST_PATH) ? JSON.parse(readFileSync(LATEST_PATH, 'utf8')) : null;
+const prev = loadPreviousSnapshot(ROOT, 'coconala.blog-competitors', today())?.data ?? null;
 
 const context = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: !HEADED,
@@ -179,10 +177,8 @@ if (AD_HOC) {
   process.exit(okAll ? 0 : 2);
 }
 
-mkdirSync(HISTORY_DIR, { recursive: true });
-writeFileSync(LATEST_PATH, JSON.stringify(out, null, 2) + '\n', 'utf8');
-writeFileSync(join(HISTORY_DIR, `blog-${today()}.json`), JSON.stringify(out, null, 2) + '\n', 'utf8');
+const saved = saveSnapshot(ROOT, 'coconala.blog-competitors', today(), out);
 
-console.log(`${TAG} 取得 ${okAll}/${total} 件${out.drift.length ? ` ・drift ${out.drift.length} 件` : ''} → ${LATEST_PATH.replace(ROOT + '/', '')}`);
+console.log(`${TAG} 取得 ${okAll}/${total} 件${out.drift.length ? ` ・drift ${out.drift.length} 件` : ''} → ${saved}`);
 if (okAll === 0) { console.error(`${TAG} 全滅（取得不成立）— 0 件ヒットではなく取得できていない`); process.exit(2); }
 process.exit(okAll === total ? 0 : 1);

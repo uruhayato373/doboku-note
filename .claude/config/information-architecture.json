@@ -105,7 +105,12 @@
       ".claude/state/sns/x-publish-log.csv",
       ".claude/state/x-repost/reposted-log.json",
       ".claude/state/x-repost/config.json",
-      ".claude/config/coconala/assets"
+      ".claude/config/coconala/assets",
+      "data/note/history",
+      "data/coconala/history",
+      "data/x-competitors",
+      "data/ig-competitors",
+      "data/market"
     ]
   },
   "docsIsNotContent": {
@@ -253,7 +258,15 @@
       ".claude/state/sns/x-publish-log.csv",
       ".claude/state/x-repost/reposted-log.json",
       ".claude/state/x-repost/config.json",
-      ".claude/config/coconala/assets/"
+      ".claude/config/coconala/assets/",
+      "data/note/history/",
+      "data/coconala/history/",
+      "data/x-competitors/",
+      "data/ig-competitors/",
+      "data/market/",
+      "data/note/competitors-snapshot.json",
+      "data/coconala/competitors-snapshot.json",
+      "data/coconala/blog-competitors.json"
     ],
     "scanGlobs": [
       "scripts/",

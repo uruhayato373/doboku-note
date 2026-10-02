@@ -7,7 +7,7 @@
 
 - 記事本文の SoT: `content/coconala/blog/{slug}/article.md`
 - 価格・出品状態の SoT: `src/lib/coconala-services.ts`（**本ファイルにも記事本文にも価格を書かない**）
-- 偵察データ: `data/coconala/blog-competitors.json`（`npm run scout-coconala-blogs`）
+- 偵察データ: `data/coconala/blog-competitors/` の最新（`npm run ci-data -- latest coconala.blog-competitors`）（`npm run scout-coconala-blogs`）
 - 機械ゲート: `scripts/lib/coconala-blog-guards.mjs` ／ `npm run check-coconala-blog`
 
 ---

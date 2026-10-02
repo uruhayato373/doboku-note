@@ -23,7 +23,7 @@ domain: sns
 | 本数体制・スロット・凍結ガード | `.claude/knowledge/reference/x-post-policy.md`（§11.2.1 スロット / §11.6 段階復帰 / §5.3 実績訴求） |
 | 資格ごとの季節性（申込・試験日） | `config/exam-calendar.json` |
 | 何が実際に反応したか | `data/x-metrics/own-posts.json`（`npm run x-own-metrics -- --report`） |
-| 競合の動き | `data/x-competitors/snapshot.json`（`npm run scout-x-competitors`・四半期） |
+| 競合の動き | `data/x/competitors/` の最新（`npm run ci-data -- latest x.competitors`）（`npm run scout-x-competitors`・四半期） |
 | 売れる状態の商品だけ | `src/lib/coconala-services.ts`(`listed`) / `note-magazines.ts`(`published:true`) |
 
 ## 手順

@@ -341,7 +341,7 @@ content/sns/x/
 - **取得アカウント＝運営者個人 `uruhayato373`**（agent-reach の twitter CLI が認証済み）。**投稿アカウント @doboku373 の Playwright プロファイル（`.local/playwright-x-profile`）は競合 read に使わない**。当初方針 backlog「X は未ログイン公開読取に留める」は、X が 2023 以降ログアウト閲覧を 404 で遮断するため実行不能＝**個人アカ CLI 経由の read がその代替（投稿アカを守る目的は同じ）**。
 - **read 専用**: `scout-x-competitors.mjs` は `twitter user` / `twitter user-posts` のみ呼ぶ（コード内 allowlist で二重ガード）。**post/like/follow/retweet/reply は関数として持たない**（§11.3 の自動フォロー/いいね禁止と整合）。
 - **低頻度・少数・jitter**: 四半期（`check-competitor-scan-due` 90日）・1回 ≤15 プロフィール・呼び出し間 1.5〜3.0s の jitter。投稿スケジュール（`x-schedule-guard` 管理）と実行タイミングを重ねない。
-- **エラー時は縮退**: CLI が not_found/認証切れを返したら該当社を failed 記録して続行（自動リトライしない）。取得結果は `data/x-competitors/`（価格/品揃え軸は 09 §B、コンテンツ型/エンゲージ軸は 07 SNS競合節）。
+- **エラー時は縮退**: CLI が not_found/認証切れを返したら該当社を failed 記録して続行（自動リトライしない）。取得結果は `data/x/competitors/`（価格/品揃え軸は 09 §B、コンテンツ型/エンゲージ軸は 07 SNS競合節）。
 - **週次小分け**: 月単位で数十本を一度にキューへ積まない（§11.2）。1週間分（2本/日×7＝14本）ずつ生成→ゲート→予約し、`x-sync-status` で消化を確認してから次週分を積む。
 
 ### 11.6 publish-x 自動化再開の判定チェックリスト（縮退→通常運用への復帰ゲート）
