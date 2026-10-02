@@ -76,6 +76,25 @@ const [YEAR, MONTH] = MONTH_ARG.split('-');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// 前月指定の年/月 <select> を変えると販売履歴ページが読み込み直される。その途中で page.evaluate を
+// 呼ぶと「Execution context was destroyed」で落ちていた（2026-10-02 CI・前月だけ失敗・当月は既定値の
+// まま再読み込みが起きず成功・DN-0512）。読み込みの完了を待つ／遷移で消えた評価だけ取り直す。
+async function settle(page) {
+  await page.waitForLoadState('domcontentloaded').catch(() => {});
+  await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+}
+async function evaluateStable(page, fn, arg) {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await page.evaluate(fn, arg);
+    } catch (e) {
+      if (attempt >= 3 || !/Execution context was destroyed|navigation/i.test(String(e?.message))) throw e;
+      await settle(page);
+      await sleep(1500);
+    }
+  }
+}
+
 /** note-magazines.ts を静的パースして {id, title, shortTitle} の配列を返す（既存スクリプトと同じ手法）。 */
 function loadMagazines() {
   const src = readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8');
@@ -148,13 +167,22 @@ try {
   // 文書化された想定: 0=年 / 1=月。ライブで違えば ABORT する（誤った月を書き込むより安全）。
   try {
     await selects.nth(0).selectOption({ label: `${YEAR}年` });
+    await settle(page);
     await selects.nth(1).selectOption({ label: `${Number(MONTH)}月` });
+    await settle(page);
   } catch (e) {
     console.error(`ABORT: 年/月セレクタの選択に失敗（${e.message}）。<select> の並びが想定と違う可能性`);
     await ctx.close();
     process.exit(4);
   }
   await sleep(1500);
+  // 選択が効いたかを読み戻す（再読み込みで既定の当月へ戻っていたら、誤った月を書く前に止める）
+  const chosen = await evaluateStable(page, () => Array.from(document.querySelectorAll('select')).slice(0, 2).map((s) => s.options[s.selectedIndex]?.text?.trim() ?? ''));
+  if (chosen[0] !== `${YEAR}年` || chosen[1] !== `${Number(MONTH)}月`) {
+    console.error(`ABORT: 年/月の選択が反映されていない（表示 ${chosen.join('/')}・要求 ${YEAR}年/${Number(MONTH)}月）`);
+    await ctx.close();
+    process.exit(4);
+  }
 
   // 「もっとみる」を尽きるまでクリック（明細が尽きたら消える/disabled になる想定）
   let clicks = 0;
@@ -177,7 +205,7 @@ try {
 
   // 明細行を抽出。行の正確なマークアップは未確認のため、価格表記（円）を手がかりに
   // 直近のタイトル・日付テキストを拾う緩い抽出にする。0 件は「取得失敗」として扱う。
-  const rawRows = await page.evaluate(() => {
+  const rawRows = await evaluateStable(page, () => {
     const priceRe = /^[\d,]+円(?:\s*\/\s*月)?$/; // メンバーシップ会費は「1,480円 / 月」（2026-09-13 実 DOM）
     const dateRe = /^\d{4}年\d{1,2}月\d{1,2}日/;
     const nodes = Array.from(document.querySelectorAll('body *')).filter(
@@ -212,7 +240,7 @@ try {
   // 2026-09-13 実 DOM: 売上管理ページに年/月 <select> は無い。当月は「今月の売上 … 総額 ¥N」、
   // 過去月は「処理済みの売上」表の行「YYYY年M月 <お支払日> ¥N <状況>」から読む。
   // 以前の `([\d,]+)\s*円` は説明文の「1,000円以上」を拾って必ず検算不一致になっていた。
-  const dashboardTotalText = await page.evaluate(({ year, month }) => {
+  const dashboardTotalText = await evaluateStable(page, ({ year, month }) => {
     const text = document.body.innerText || '';
     const cur = text.match(/今月の売上[\s\S]*?(\d{4})年(\d{1,2})月1日[\s\S]*?総額\s*¥([\d,]+)/);
     if (cur && Number(cur[1]) === year && Number(cur[2]) === month) return cur[3];
@@ -221,7 +249,7 @@ try {
   }, { year: Number(YEAR), month: Number(MONTH) });
   if (!dashboardTotalText) {
     // 前月は翌月 2 日の確定まで処理済みの表に行が無い。これは DOM の変化ではないので別の終了コードで止める
-    if (isNoteSalesAggregating(await page.evaluate(() => document.body.innerText || ''))) {
+    if (isNoteSalesAggregating(await evaluateStable(page, () => document.body.innerText || ''))) {
       console.error(`PENDING: ${noteSalesPendingMessage(MONTH_ARG)}。1 バイトも書き込まない`);
       await ctx.close();
       process.exit(8);
