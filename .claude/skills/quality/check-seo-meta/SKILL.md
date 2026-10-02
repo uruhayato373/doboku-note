@@ -24,13 +24,15 @@ build 済み out/ の全正規 URL の HTML から `<title>`, `<meta>`, `<link r
 | 母集合ガード | doc URL ≥ max(1000, published×0.9) | 記事総数が大きく変わった時 |
 | concurrency | 8（HTTP モードのみ） | 本番巡回で詰まったら下げる |
 | title | `doboku-note` 出現 ≤ 1（重複検出） | サイト名変更時 |
-| description | 160 文字超は警告のみ | SEO 方針変更時 |
+| description | 長さは `thresholds.description`（`min_length` 50・`max_length` 160・`lint_max_length` 200）。`max_length` 超は警告のみ | SEO 方針変更時 |
 | canonical / og:url | **self URL 完全一致**（seo-checks 共通） | ドメイン変更時 |
 | JSON-LD | parse 可能・Article 系は headline 整合（参考） | 構造化データ戦略変更時 |
 
 > [!note]
-> 判定ロジック（閾値含む）の実体は `scripts/lib/seo-checks.mjs`。config の `thresholds`/`severity` は
-> HTTP 巡回の互換用に残るが、canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
+> 判定ロジックの実体は `scripts/lib/seo-checks.mjs`。canonical/og:url/title/SSR の実判定は seo-checks 側が真実源で、
+> config の `thresholds`/`severity` の大半は HTTP 巡回の互換用に残る。ただし **title と description の長さ**
+> （`thresholds.title.max_length`・`thresholds.description.*`）は config が唯一の正本で、`scripts/lib/seo-thresholds.mjs`
+> （seo-checks の警告・lint-frontmatter・fix-descriptions・bulk-rewrite-descriptions）とサイトの `src/lib/metadata.ts`（整形）が読む。
 
 ## 前提
 
@@ -119,7 +121,7 @@ seo-checks.mjs の findings を写像（`error → HIGH` / `warn → MEDIUM` / `
 | `title_missing` | HIGH | `<title>` 自体が無い |
 | `title_sitename_dup` | **HIGH** | `doboku-note` が title 内で 2 回以上出現（template 重複の検出） |
 | `description_missing` | HIGH | meta description が無い |
-| `description_long` | MEDIUM | 160 文字超（**警告のみ・CI は落とさない**） |
+| `description_long` | MEDIUM | `thresholds.description.max_length`（160）文字超（**警告のみ・CI は落とさない**） |
 | `canonical_missing` | HIGH | `<link rel="canonical">` が無い |
 | `canonical_mismatch` | HIGH | canonical が self URL と**完全一致しない**（ドメイン接頭辞だけでは判定しない） |
 | `og_url_missing` | HIGH | og:url が無い |

@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getServiceEntry } from './playwright-auth-profile.mjs';
 import { datasetPath } from './datasets.mjs';
+import { GSC_PROPERTY, NOTE_CREATOR } from './site-identity.mjs';
 
 function readJson(repoRoot, relativePath) {
   return JSON.parse(readFileSync(join(repoRoot, relativePath), 'utf8'));
@@ -32,7 +33,7 @@ export function loadAuthAdapter(serviceId, options) {
   const repoRoot = options.repoRoot;
   const adapter = baseAdapter(serviceId, options);
   if (serviceId === 'note') {
-    return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: ['dobokunote'] };
+    return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: [NOTE_CREATOR] };
   }
   if (serviceId === 'coconala') {
     const account = readJson(repoRoot, datasetPath('config.coconala-account'));
@@ -80,12 +81,12 @@ export function loadAuthAdapter(serviceId, options) {
   }
   if (serviceId === 'google') {
     const config = readJson(repoRoot, datasetPath('config.google-console-automation'));
-    const property = String(config.gsc?.property ?? '').replace(/^sc-domain:/, '');
+    const property = GSC_PROPERTY.replace(/^sc-domain:/, '');
     return {
       ...adapter,
       // 最後に開いたプロパティ（共用口座では stats47 など）に飛ぶので、resource_id を明示して doboku-note のプロパティを開く。
       // 2026-09-21: 明示しないと URL にも本文にも property が出ず authenticated なのに unknown になった。
-      checkUrl: `${config.gsc?.baseUrl ?? adapter.checkUrl}?resource_id=${encodeURIComponent(config.gsc?.property ?? '')}`,
+      checkUrl: `${config.gsc?.baseUrl ?? adapter.checkUrl}?resource_id=${encodeURIComponent(GSC_PROPERTY)}`,
       expectedMarkers: [property].filter(Boolean),
       // 未ログインの GSC は /login ではなく紹介ページ（/search-console/about）へ退避する。
       expiredPattern: /(?:\/search-console\/about|\/login|\/signin|ServiceLogin|InteractiveLogin)/i,

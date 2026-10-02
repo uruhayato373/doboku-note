@@ -28,7 +28,9 @@
     },
     "description": {
       "min_length": 50,
-      "max_length": 160
+      "max_length": 160,
+      "lint_max_length": 200,
+      "_note": "min_length=短すぎ（lint が警告）／max_length=推奨の上限＝検索結果に出る長さ（src/lib/metadata.ts が整形・build 後の seo-checks が警告・bulk-rewrite の上限）／lint_max_length=frontmatter の lint が長すぎと指摘する長さ（max_length 超〜ここまでは metadata.ts が整形するので指摘しない）。frontmatter-schema（zod）の 500 はスキーマ検証の構文上の上限で別物。読み手は scripts/lib/seo-thresholds.mjs と src/lib/metadata.ts"
     },
     "canonical": {
       "required": true,

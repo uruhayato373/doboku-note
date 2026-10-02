@@ -23,13 +23,13 @@ import { dirname } from "path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
+import { GSC_PROPERTY, SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 
 dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const SITE_URL = "sc-domain:doboku-note.com";
-const SITE_URL_FOR_INSPECTION = "https://doboku-note.com/"; // URL Inspection は URL プレフィックス形式が必要な場合あり
+const SITE_URL_FOR_INSPECTION = `${SITE_ORIGIN}/`; // URL Inspection は URL プレフィックス形式が必要な場合あり
 
 /**
  * 並列度の既定。URL Inspection は 2,000/日・600/分 が上限で、1 件 2〜5 秒なので 5 並列でも
@@ -129,7 +129,7 @@ async function inspectUrl(auth, inspectionUrl, { attempts = RETRY_ATTEMPTS, base
       const res = await searchconsole.urlInspection.index.inspect({
         requestBody: {
           inspectionUrl,
-          siteUrl: SITE_URL,
+          siteUrl: GSC_PROPERTY,
           languageCode: "ja-JP",
         },
       });
@@ -235,7 +235,7 @@ async function getTopUrlsFromGsc(auth, top) {
   const fmt = (d) => d.toISOString().split("T")[0];
 
   const res = await searchconsole.searchanalytics.query({
-    siteUrl: SITE_URL,
+    siteUrl: GSC_PROPERTY,
     requestBody: {
       startDate: fmt(start),
       endDate: fmt(end),

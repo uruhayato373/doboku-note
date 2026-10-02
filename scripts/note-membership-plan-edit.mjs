@@ -52,12 +52,12 @@ import { mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_CREATOR } from './lib/site-identity.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
-const CREATOR = 'dobokunote';
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);
@@ -85,7 +85,7 @@ const page = ctx.pages()[0] || await ctx.newPage();
 // --- account gate ---
 await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
 await sleep(3000);
-if (!(await page.evaluate(() => document.body.innerText.includes('dobokunote')))) {
+if (!(await page.evaluate((creator) => document.body.innerText.includes(creator), NOTE_CREATOR))) {
   console.error('ABORT: account が dobokunote でない（誤爆防止）'); await ctx.close(); process.exit(2);
 }
 console.log('[1] account gate OK (dobokunote)');

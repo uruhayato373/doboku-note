@@ -11,6 +11,7 @@ import {
   type QuizFunnelMode,
   type QuizFunnelPlacement,
 } from "@/lib/quiz/funnel";
+import { withNoteUtm } from "@/lib/note-utm";
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
@@ -49,7 +50,7 @@ const DEFAULT_CONFIG: KakomonQuizConfig = {
   premiumPilot: true,
   noteCta: {
     id: "civil-1-ichiji",
-    href: "https://note.com/dobokunote/n/nec34238ca6d6?utm_source=doboku-note&utm_medium=quiz&utm_campaign=civil-1-kakomon",
+    href: withNoteUtm("https://note.com/dobokunote/n/nec34238ca6d6", "quiz", { campaign: "civil-1-kakomon" }),
     title: "1級土木 一次 出る順 合格ノート（note）",
     description: "頻出論点を出る順で総まとめ。直前の得点源に",
   },

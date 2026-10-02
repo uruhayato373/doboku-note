@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import TrenchLegalCheckClient from "./TrenchLegalCheckClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "溝掘削 法令チェッカー｜作業主任者・勾配基準の適用確認",
     description: "掘削面の高さから、作業主任者の選任義務と法面勾配の基準をその場で確認。",
-    url: "https://doboku-note.com/tools/trench-legal-check",
+    url: `${SITE_ORIGIN}/tools/trench-legal-check`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "溝掘削 法令チェッカー — doboku-note",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "溝掘削 法令チェッカー",
     description: "作業主任者の選任義務と法面勾配の基準を、その場で確認。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

@@ -27,26 +27,21 @@ import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 import { pathToFileURL } from 'node:url';
-import { datasetPath } from '../../scripts/lib/datasets.mjs';
+import { DESCRIPTION_LINT_MAX, DESCRIPTION_MAX, DESCRIPTION_MIN, TITLE_MAX } from '../../scripts/lib/seo-thresholds.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 
-// ── 閾値定数（Task #14 の実地測定に基づく） ────────────────────
+// ── 閾値定数 ────────────────────────────────────────────────────
+// title / description の長さは config/seo-meta-config.json の thresholds が唯一の正本
+// （scripts/lib/seo-thresholds.mjs が読む。読めなければ import の時点で落ちる＝黙って既定値に倒さない）。
 
-const DESC_MIN = 50;
-const DESC_MAX = 200;
 const PUBLISHED_AT_YEAR_MIN = 2020;
 const PUBLISHED_AT_YEAR_MAX = 2030;
 
-// title/seoTitle 長（G4）: レンダリング後 <title> の目安。seo-meta-config.json の title.max_length を再利用。
+// title/seoTitle 長（G4）: レンダリング後 <title> の目安（TITLE_MAX）。
 const TITLE_SUFFIX = '｜doboku-note';
-let TITLE_MAX = 70;
-try {
-  const _seo = JSON.parse(readFileSync(join(ROOT, datasetPath('config.seo-meta-config')), 'utf8'));
-  if (_seo?.thresholds?.title?.max_length) TITLE_MAX = _seo.thresholds.title.max_length;
-} catch { /* seo-meta-config が無ければ 70 でフォールバック */ }
 
 // ── 引数パース ─────────────────────────────────────────────────
 
@@ -143,11 +138,11 @@ export function lintFrontmatter(filePath, data, allowlist) {
 
   // --- MEDIUM: description 長さ ---
   const desc = typeof data.description === 'string' ? data.description : '';
-  if (desc && desc.length < DESC_MIN) {
-    push('MEDIUM', 'desc-short', `description が短い: ${desc.length} 文字（推奨 ${DESC_MIN}-160）`);
+  if (desc && desc.length < DESCRIPTION_MIN) {
+    push('MEDIUM', 'desc-short', `description が短い: ${desc.length} 文字（推奨 ${DESCRIPTION_MIN}-${DESCRIPTION_MAX}）`);
   }
-  if (desc && desc.length > DESC_MAX) {
-    push('LOW', 'desc-long', `description が長い: ${desc.length} 文字（推奨 <= 160、上限 ${DESC_MAX}）`);
+  if (desc && desc.length > DESCRIPTION_LINT_MAX) {
+    push('LOW', 'desc-long', `description が長い: ${desc.length} 文字（推奨 <= ${DESCRIPTION_MAX}、上限 ${DESCRIPTION_LINT_MAX}）`);
   }
 
   // --- MEDIUM: guide のナビ用短縮タイトル（サイドバー 2 行表示の供給源）---

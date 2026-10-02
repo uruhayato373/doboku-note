@@ -25,7 +25,8 @@ function resolveAlias(spec) {
   if (!spec.startsWith('@/')) return null;
   const base = posix.join('src', spec.slice(2));
   // JSON（config 層）はそのまま default export へ包む（2026-09-11・content-taxonomy.ts が categories.json 等を読む）
-  if (base.endsWith('.json')) return existsSync(resolve(ROOT, base)) ? base : null;
+  // .mjs（src/config/site-identity.mjs・src/lib/keyword-href.mjs など TS ではない共有モジュール）は実ファイルをそのまま読む
+  if (base.endsWith('.json') || /\.m?js$/.test(base)) return existsSync(resolve(ROOT, base)) ? base : null;
   for (const ext of ['.ts', '.tsx', '/index.ts']) {
     const rel = base + ext;
     if (existsSync(resolve(ROOT, rel))) return rel;
@@ -47,6 +48,7 @@ export function toDataUrl(relPath, cache = new Map()) {
   js = js.replace(/(from\s*|import\s*\(\s*)(["'])(@\/[^"']+)\2/g, (m, head, quote, spec) => {
     const dep = resolveAlias(spec);
     if (!dep) throw new Error(`[load-ts] エイリアスを解決できない: ${spec}（${relPath}）`);
+    if (/\.m?js$/.test(dep)) return `${head}${quote}${pathToFileURL(resolve(ROOT, dep)).href}${quote}`;
     return `${head}${quote}${toDataUrl(dep, cache)}${quote}`;
   });
   // 相対 import（2026-10-02・src/lib/qualification-names.ts が registry の JSON と scripts/lib の .mjs を読む）。

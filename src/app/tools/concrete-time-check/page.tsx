@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import ConcreteTimeCheckClient from "./ConcreteTimeCheckClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -14,11 +16,11 @@ export const metadata: Metadata = {
     title: "コンクリート打込み 時間管理チェッカー｜打重ね時間間隔の限度時刻",
     description:
       "外気温と練混ぜ時刻から、許容打重ね時間間隔・運搬時間の限度を時刻で表示。暑中／寒中コンクリートの区分も判定。",
-    url: "https://doboku-note.com/tools/concrete-time-check",
+    url: `${SITE_ORIGIN}/tools/concrete-time-check`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "コンクリート打込み 時間管理チェッカー — doboku-note",
@@ -30,7 +32,7 @@ export const metadata: Metadata = {
     title: "コンクリート打込み 時間管理チェッカー",
     description:
       "外気温と練混ぜ時刻から、許容打重ね時間間隔・運搬時間の限度を時刻で表示。暑中／寒中の区分も判定。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

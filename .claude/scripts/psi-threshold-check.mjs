@@ -18,6 +18,7 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 
 const CONFIG_PATH = datasetPath("config.psi-config");
 const DEFAULT_STATE_DIR = datasetDir("psi.batch");
@@ -262,7 +263,7 @@ function formatMarkdown(results, violations, gateViolations, thresholds) {
       return val > max ? `${v}⚠` : v;
     };
     lines.push(
-      `| ${r.url.replace("https://doboku-note.com", "")} | ${r.strategy} | ${flag(s.performance, thresholds.performance_score_min)} | ${flag(s.accessibility, thresholds.accessibility_score_min)} | ${flag(s.best_practices, thresholds.best_practices_score_min)} | ${flag(s.seo, thresholds.seo_score_min)} | ${flagMax(lab.LCP_ms, thresholds.LCP_ms_max, true)} | ${flagMax(lab.CLS, thresholds.CLS_max, false)} |`,
+      `| ${r.url.replace(SITE_ORIGIN, "")} | ${r.strategy} | ${flag(s.performance, thresholds.performance_score_min)} | ${flag(s.accessibility, thresholds.accessibility_score_min)} | ${flag(s.best_practices, thresholds.best_practices_score_min)} | ${flag(s.seo, thresholds.seo_score_min)} | ${flagMax(lab.LCP_ms, thresholds.LCP_ms_max, true)} | ${flagMax(lab.CLS, thresholds.CLS_max, false)} |`,
     );
   }
   lines.push("");

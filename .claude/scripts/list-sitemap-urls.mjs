@@ -12,7 +12,9 @@
  *   SITEMAP_ROOT=https://example.com/sitemap.xml node .claude/scripts/list-sitemap-urls.mjs
  */
 
-const ROOT = process.env.SITEMAP_ROOT || "https://doboku-note.com/sitemap.xml";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+
+const ROOT = process.env.SITEMAP_ROOT || `${SITE_ORIGIN}/sitemap.xml`;
 
 async function fetchText(url) {
   const res = await fetch(url, {

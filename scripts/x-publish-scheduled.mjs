@@ -46,12 +46,11 @@ import {
   loadLedger,
   appendPostedLog,
 } from './lib/x-frequency-gate.mjs';
+import { X_HANDLE as ACCOUNT, X_PROFILE_URL as PROFILE_URL } from './lib/site-identity.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const NAME = 'x-publish-scheduled';
-const ACCOUNT = 'doboku373';
-const PROFILE_URL = 'https://x.com/doboku373';
 const PUBLISH_X_SCRIPT = '.claude/skills/social/publish-x/publish-x.ts';
 export const PAUSED_RELATIVE = '.claude/state/x-repost/PAUSED';
 const SALES_KEYWORD_RE = /(販売|¥|円|マガジン|購入)/;

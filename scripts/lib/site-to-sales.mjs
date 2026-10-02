@@ -19,6 +19,7 @@
 import { ctaProductIdFromSalesProductId } from './note-funnel-efficiency.mjs';
 import { canonicalizeProductId } from './sales-normalize.mjs';
 import { normalizeNoteTitle } from './business-direction.mjs';
+import { SITE_HOST } from './site-identity.mjs';
 
 /** doboku-note → note のリンクが referrer を渡すようになった月（fe41d58cd・2026-09-15 commit）。前月までは no referrer に溶けている。 */
 export const NOTE_REFERRER_MEASURABLE_FROM_MONTH = '2026-09';
@@ -199,7 +200,7 @@ export function pickNoteReferral(referrerFiles, month) {
     status: !measurable ? 'not-measurable' : complete ? 'measured' : 'partial-month',
     file: latest.file,
     fetchedAt: latest.fetchedAt,
-    siteReferredViews: measurable ? Number(src['doboku-note.com'] ?? 0) : null,
+    siteReferredViews: measurable ? Number(src[SITE_HOST] ?? 0) : null,
     totalViews: latest.row.total ?? null,
     noReferrerViews: src['no referrer'] ?? null,
     note: measurable

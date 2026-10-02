@@ -16,6 +16,8 @@ import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
 import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { setUtmParams } from './lib/utm-contract.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -209,18 +211,14 @@ function cta(manifest: Manifest) {
     target = item.serviceUrl;
   } else if (kind === 'site-article' && targetPath) {
     label = 'サイトの詳しい解説を読む';
-    target = new URL(targetPath, 'https://doboku-note.com').toString();
+    target = new URL(targetPath, SITE_ORIGIN).toString();
   } else if (kind === 'links-hub') {
     label = '資格別の学習ガイド・教材一覧を見る';
-    target = 'https://doboku-note.com/links';
+    target = `${SITE_ORIGIN}/links`;
   } else {
     throw new Error(`${manifest.packId}: CTA を解決できません ${kind}/${targetId ?? targetPath ?? ''}`);
   }
-  const url = new URL(target);
-  url.searchParams.set('utm_source', 'youtube');
-  url.searchParams.set('utm_medium', 'video');
-  url.searchParams.set('utm_campaign', manifest.packId);
-  url.searchParams.set('utm_content', 'longform');
+  const url = setUtmParams(new URL(target), 'youtube.longform', { campaign: manifest.packId });
   return { label, url: url.toString() };
 }
 

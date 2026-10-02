@@ -18,9 +18,10 @@ import { readdirSync, statSync } from 'node:fs';
 import { join, basename, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { transformMdxFile, readMdxFile } from '#lib/mdx-io.mjs';
+import { DESCRIPTION_MIN } from '#seo/seo-thresholds.mjs';
 
 const BASE = 'content/site/pe-comprehensive-management';
-const MIN_LEN = 50;
+const MIN_LEN = DESCRIPTION_MIN; // lint-frontmatter の desc-short と同じ下限（config/seo-meta-config.json）
 const TARGET_LEN = 90;
 
 const args = process.argv.slice(2);

@@ -17,6 +17,7 @@
  */
 import { COLORS, rect, text } from '../lib/svg-base.mjs';
 import { examColor } from '../lib/exam-palette.mjs';
+import { SITE_HOST } from '../../../../scripts/lib/site-identity.mjs';
 
 const W = 1080;
 const H = 1350;
@@ -141,7 +142,7 @@ export function renderExamQuizCoverIg({ exam, examDir, subject = null, topic = n
 
   // ブランド（グリッド外・開封時に表示）
   body.push(rect({ x: MX, y: 1288, w: 38, h: 38, rx: 8, fill: hue }));
-  body.push(text({ x: MX + 54, y: 1318, content: 'doboku-note.com', size: 34, weight: 700, fill: COLORS.inkStrong }));
+  body.push(text({ x: MX + 54, y: 1318, content: SITE_HOST, size: 34, weight: 700, fill: COLORS.inkStrong }));
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">

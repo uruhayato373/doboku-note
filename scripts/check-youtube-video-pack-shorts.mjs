@@ -2,9 +2,12 @@
 /** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { utmChannel } from './lib/utm-contract.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
+// 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
+const SHORTS_UTM = utmChannel('youtube.shorts');
 const EXAMS = [
   'civil-construction-1',
   'civil-construction-2',
@@ -68,10 +71,10 @@ for (const exam of EXAMS) {
       else titles.set(item.title, label);
       const description = String(item.description ?? '');
       for (const token of [
-        'utm_source=youtube',
-        'utm_medium=video',
+        `utm_source=${SHORTS_UTM.source}`,
+        `utm_medium=${SHORTS_UTM.medium}`,
         `utm_campaign=${packId}`,
-        'utm_content=shorts',
+        `utm_content=${SHORTS_UTM.content}`,
         '技術士（総合技術監理部門）',
       ]) {
         if (!description.includes(token)) errors.push(`${label}: descriptionに ${token} がない`);

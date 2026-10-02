@@ -30,11 +30,11 @@ import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
-const CREATOR = 'dobokunote';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -79,7 +79,7 @@ try {
 
   // account ゲート
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(2500);
-  if (!/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
+  if (!(await page.evaluate(() => document.body.innerText || '')).includes(CREATOR)) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
   // マガジン編集ページ

@@ -25,6 +25,7 @@ import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.m
 import { leanContextOptions } from "./playwright-launch.mjs";
 import { attachCISession } from "./playwright-auth-state.mjs";
 import { datasetPath } from "./datasets.mjs";
+import { GSC_PROPERTY } from "./site-identity.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const CONFIG_PATH = datasetPath("config.google-console-automation");
@@ -213,11 +214,10 @@ export async function isSignedInToGsc(page) {
 /**
  * 対象 GSC プロパティが選択されているかを可視テキストで assert。
  * 一致しなければ throw（呼び出し側が debug dump→停止）。
- * property は "sc-domain:doboku-note.com" 形式。可視表示は "doboku-note.com" で照合。
+ * property は site-identity.mjs の GSC_PROPERTY（"sc-domain:<host>" 形式）。可視表示は host で照合。
  */
-export async function assertGscProperty(page, cfg) {
-  const property = cfg.gsc.property; // sc-domain:doboku-note.com
-  const host = property.replace(/^sc-domain:/, "").replace(/^https?:\/\//, "").replace(/\/$/, "");
+export async function assertGscProperty(page) {
+  const host = GSC_PROPERTY.replace(/^sc-domain:/, "").replace(/^https?:\/\//, "").replace(/\/$/, "");
   const bodyText = await page.locator("body").innerText().catch(() => "");
   if (!bodyText.includes(host)) {
     const err = new Error(`対象プロパティ (${host}) が画面に見当たりません。プロパティ切替が必要です。`);

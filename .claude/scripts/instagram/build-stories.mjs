@@ -31,6 +31,7 @@ import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync } from
 import { join, basename, resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
+import { IG_HANDLE } from '../../../scripts/lib/site-identity.mjs';
 
 // .claude/scripts/instagram/ → リポジトリルートへ 3 階層
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -158,7 +159,7 @@ const captionText = [
   '- または doboku-note.com の ' + yearLabel + ' 解説ページ',
   '',
   '### メンション',
-  '@dobokunotecom',
+  `@${IG_HANDLE}`,
   '',
 ].join('\n');
 writeFileSync(join(storiesDir, 'caption.txt'), captionText, 'utf8');

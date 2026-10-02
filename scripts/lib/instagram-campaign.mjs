@@ -3,12 +3,13 @@ import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { datasetPath } from './datasets.mjs';
 import { IG_DESIGN, instagramRendererDigest } from './instagram-video-design.mjs';
+import { IG_HANDLE } from './site-identity.mjs';
 
 export const CAMPAIGN_PATH = datasetPath('config.instagram-campaign');
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
 export const json = path => JSON.parse(readFileSync(path, 'utf8'));
 export function validateCampaign(plan) {
-  if (plan.schemaVersion !== 1 || plan.account !== 'dobokunotecom' || plan.design !== IG_DESIGN || plan.productionFirst !== true) throw new Error('Instagram campaign契約が不正です');
+  if (plan.schemaVersion !== 1 || plan.account !== IG_HANDLE || plan.design !== IG_DESIGN || plan.productionFirst !== true) throw new Error('Instagram campaign契約が不正です');
   if (plan.expected?.topics !== 112 || plan.expected?.carousels !== 112 || plan.expected?.reels !== 224 || plan.topics?.length !== 112) throw new Error('承認範囲112テーマ/336投稿が欠けています');
   const ids = new Set(), paths = new Set();
   for (const t of plan.topics) {

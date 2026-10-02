@@ -12,11 +12,13 @@
 
 import { readFileSync } from 'node:fs';
 import { parse } from 'node-html-parser';
+import { SITE_ORIGIN } from './site-identity.mjs';
+import { DESCRIPTION_MAX } from './seo-thresholds.mjs';
 
-export const SITE_ORIGIN = 'https://doboku-note.com';
+// 値の定義は site-identity.mjs（従来どおりここから import できるよう再公開する）。
+export { SITE_ORIGIN };
 
-/** description がこの長さを超えても警告どまり（CI は落とさない）。 */
-export const DESCRIPTION_SOFT_MAX = 160;
+// description が DESCRIPTION_MAX（config/seo-meta-config.json の thresholds.description.max_length）を超えても警告どまり（CI は落とさない）。
 /** SSR 本文の最低文字数（これ未満は SSR 破壊/空ページの疑い）。 */
 export const MIN_BODY_TEXT = 200;
 
@@ -147,7 +149,7 @@ export function normalizeUrlForCompare(url) {
   if (!url) return null;
   let u = url.trim().replace(/^https?:\/\/(www\.)?/i, 'https://');
   // 末尾スラッシュを除去（ルート単独スラッシュは残す）
-  if (u.length > 'https://doboku-note.com/'.length && u.endsWith('/')) {
+  if (u.length > `${SITE_ORIGIN}/`.length && u.endsWith('/')) {
     u = u.slice(0, -1);
   }
   return u;
@@ -169,12 +171,12 @@ export function checkDescription(seo) {
     out.push({ level: 'error', code: 'description_missing', message: 'meta description が無い' });
     return out;
   }
-  // 160 字超過は警告のみ（CI を落とさない — 要件）
-  if (seo.description.length > DESCRIPTION_SOFT_MAX) {
+  // 推奨長（DESCRIPTION_MAX）超過は警告のみ（CI を落とさない — 要件）
+  if (seo.description.length > DESCRIPTION_MAX) {
     out.push({
       level: 'warn',
       code: 'description_long',
-      message: `description が ${seo.description.length} 字（推奨 ${DESCRIPTION_SOFT_MAX} 字以下）`,
+      message: `description が ${seo.description.length} 字（推奨 ${DESCRIPTION_MAX} 字以下）`,
     });
   }
   return out;

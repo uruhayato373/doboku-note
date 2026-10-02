@@ -1,7 +1,5 @@
 {
   "_comment": "x-repost（X 引用リポスト curation）の設定。queries/閾値/blocklist を編集してチューニングする。真実源: .claude/skills/social/x-repost/SKILL.md",
-  "ownHandle": "doboku373",
-  "_ownHandle_note": "★必須★ 自分の X ハンドル（@抜き）。自投稿のリポスト・自己引用を除外するために使う。未設定だと discover が警告して停止する。 ／ 2026-08-13: 旧 dobokunotecom は 2026-06-12 に凍結済み。現行は doboku373。",
   "siteBase": "https://doboku-note.com",
   "noteBase": "https://note.com/dobokunote",
   "maxPerRun": 3,

@@ -21,6 +21,7 @@ import {
   waitForHumanLogin,
   isSignedInToGsc,
 } from "./lib/google-console-browser.mjs";
+import { GSC_PROPERTY } from "./lib/site-identity.mjs";
 
 const argv = process.argv.slice(2);
 const HEADLESS = argv.includes("--headless");
@@ -28,7 +29,7 @@ const HEADLESS = argv.includes("--headless");
 async function main() {
   const cfg = loadConfig();
   console.log("GSC/GA4 ログインプロファイルを開いています（システム Chrome）...");
-  console.log(`プロパティ: ${cfg.gsc.property}`);
+  console.log(`プロパティ: ${GSC_PROPERTY}`);
   const ctx = await launchContext(cfg, { headless: HEADLESS });
   const page = ctx.pages()[0] ?? (await ctx.newPage());
 

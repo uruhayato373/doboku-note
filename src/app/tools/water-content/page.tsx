@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import WaterContentClient from "./WaterContentClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "コンクリート 単位水量・水和水 計算ツール",
     description: "水セメント比と単位セメント量から、単位水量と水和水・余剰水の内訳を計算。",
-    url: "https://doboku-note.com/tools/water-content",
+    url: `${SITE_ORIGIN}/tools/water-content`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "コンクリート 単位水量・水和水 計算ツール — doboku-note",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "コンクリート 単位水量・水和水 計算ツール",
     description: "単位水量と水和水・余剰水の内訳を、その場で計算。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

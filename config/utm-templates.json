@@ -12,5 +12,16 @@
     "youtube.shorts": { "source": "youtube", "medium": "video", "content": "shorts" },
     "youtube.longform": { "source": "youtube", "medium": "video", "content": "longform" },
     "note.site": { "source": "note", "medium": "referral", "content": "" }
+  },
+  "_siteToNote_note": "サイト（doboku-note.com）から note へ送る導線の UTM。面ごとの source/medium と既定の campaign を持つ（utm_content と、campaign を面が決めるものは呼び出し側が渡す）。channels に混ぜない: channels の source は GA4 の SNS 流入の source 集合（週次の SNS 別 WoW）に使われる。読み手は src/lib/note-utm.ts。e2e/cta.spec.ts は utm_source が site か doboku-note であることを見る",
+  "siteToNote": {
+    "magazine": { "source": "doboku-note", "medium": "referral", "campaign": "note-magazine" },
+    "links": { "source": "links", "medium": "referral", "campaign": "link-hub" },
+    "authorCard": { "source": "site", "medium": "author-card", "campaign": "author-profile" },
+    "quiz": { "source": "doboku-note", "medium": "quiz" }
+  },
+  "_ebook_note": "電子書籍（Kindle の EPUB）から サイトへ送る導線。SNS ではないので channels には置かない（GA4 の SNS 流入の source 集合を変えないため）。campaign は本ごとに呼び出し側が渡す。読み手は scripts/build-takuitsu-reconstruct.mjs",
+  "ebook": {
+    "kindle": { "source": "kindle", "medium": "ebook" }
   }
 }
