@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, findPathLiterals, inferShape, jsonSchemaOf, matchFiles, pathMatchesId, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, pathMatchesId, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from '../scripts/lib/path-literals.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
@@ -121,3 +122,35 @@ test('findPathLiterals: config/ も拾い、src/config・コマンド引数・gt
   assert.deepEqual(lines("git(['config', '--get', 'remote.origin.promisor'])\nrun('npm', ['config', 'get', 'cache'])\ngtag('config', '${gaId}', {"), []);
   assert.deepEqual(lines("const roots = ['docs', '.claude', 'src', 'config', 'data'];"), []);
 });
+
+test('findPathLiterals: join の引数の置き場は次が変数でも行をまたいでも拾い、ファイル名だけの直書きも名前の索引で拾う', () => {
+  const lines = (src, opts) => findPathLiterals(src, opts).map((h) => h.line);
+  assert.deepEqual(lines("const p = join(ROOT, 'config', name);"), [1], '次の引数が変数');
+  assert.deepEqual(lines("const p = join(\n  ROOT,\n  'data',\n  sub,\n);"), [3], '行をまたぐ呼び出し');
+  assert.deepEqual(lines("repoPath('data', 'experiments.json')"), [1]);
+  assert.deepEqual(lines("join(ROOT, 'src', 'config', name)\nrun('npm', ['config', 'get'])\njoin(HERE, '..', 'config', x)"), [3], "'src' の後は別の置き場・'..' の後は置き場");
+  const basenames = new Map([['exam-stats.json', 'config.exam-stats']]);
+  assert.deepEqual(lines("const s = readConfig('exam-stats.json');", { basenames }), [1]);
+  assert.deepEqual(lines("const s = readConfig('status.json');", { basenames }), [], '索引に無い汎用名は拾わない');
+  assert.deepEqual(lines("const s = readConfig('exam-stats.json'); // path-literal-ok: 理由", { basenames }), []);
+});
+
+test('basenameIndex: 台帳の中で一意で、config/・data/ の外に同名の無いファイル名だけを索引にする', () => {
+  const idx = basenameIndex(['config/exam-stats.json', 'content/sns/x/status.json', 'data/note/status.json']);
+  assert.equal(idx.get('exam-stats.json'), 'config.exam-stats');
+  assert.equal(idx.has('status.json'), false, 'content/ にも同名がある');
+});
+
+test('findDatasetIds: コードの datasetPath 系と YAML の ci-data の id を拾い、コメントの例と GA4・GSC のレポートの種類の関数は数えない', () => {
+  const ids = (src) => findDatasetIds(src).map((r) => `${r.id}@${r.via}`);
+  assert.deepEqual(ids("datasetPath('note.sales'); latestFile(ROOT, 'gsc.reports'); listReports('gsc.page');"), ['note.sales@datasetPath', 'gsc.reports@latestFile']);
+  assert.deepEqual(ids('run: node scripts/ci-data.mjs latest gsc.page\n  npm run ci-data -- add --datasets note.sales,kdp.royalties'), ['gsc.page@ci-data latest', 'note.sales@ci-data --datasets', 'kdp.royalties@ci-data --datasets']);
+  assert.deepEqual(ids(' *   add [--paths a,b] [--datasets id,id]\n# ci-data put foo.bar'), [], 'コメントの使い方の例');
+});
+
+test('findConfigPaths: ワークフロー・package.json の config/・data/ のパスを拾い、組み立て途中とコメントは除く', () => {
+  const paths = (src) => findConfigPaths(src).map((p) => p.path);
+  assert.deepEqual(paths('  default: config/r2-delete-list.txt\n  file: "data/${{ inputs.x }}/a.json"\n# config/old.json'), ['config/r2-delete-list.txt']);
+  assert.deepEqual(paths('"psi": "node x.mjs --file config/psi-urls.txt"'), ['config/psi-urls.txt']);
+});
+

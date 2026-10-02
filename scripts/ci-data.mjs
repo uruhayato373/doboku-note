@@ -12,7 +12,8 @@
  *       退避したファイルを作業ツリーへ戻し、削除を反映する（develop の先頭へ hard reset した後に使う）
  *   add [--paths a,b] [--datasets id,id]
  *       paths は実在する（作業ツリーか index にある）ものだけを git add -A、datasets は当たる変更ファイルだけを add する。
- *       無いパスは飛ばす。git の失敗は隠さない（exit 1）
+ *       無いパスは飛ばす。git の失敗は隠さない（exit 1）。stage した記録のうち型（zod）のあるデータセットのファイルを型で検査し、
+ *       違反があれば exit 1（push の前に止める。書き戻しのコミットは [skip ci] なので、ここで止めないと次の人の PR で初めて赤くなる）
  *   latest <id>      データセットの最新ファイルのパス（無ければ exit 1）。GA4・GSC のレポートの種類（ga4.page など）なら
  *                    最新の「ファイル#枠」（scripts/lib/metric-reports.mjs）
  *   path <id>        データセットのパス（日時などの可変部分があれば、その手前のディレクトリ）
@@ -23,7 +24,7 @@ import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { AREAS, datasetDir, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
+import { AREAS, datasetDir, datasetsFor, latestFile, patternOf, resolveDataset, validateFiles } from './lib/datasets.mjs';
 import { REPORT_KINDS, latestReportRef } from './lib/metric-reports.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -132,6 +133,22 @@ export function add(root, { paths = [], datasets = [] }) {
   return { specs: specs.length, skipped, staged };
 }
 
+/** stage した記録のうち、型のあるデータセットのファイルを型で検査する（消したファイルは見ない） */
+export function validateStaged(root) {
+  const staged = git(root, ['diff', '--cached', '--name-only', '-z', '--diff-filter=ACMR']).split('\0').filter(Boolean);
+  const errors = [];
+  let checked = 0;
+  for (const file of staged) {
+    for (const x of datasetsFor(file)) {
+      if (!x.schema) continue;
+      const r = validateFiles(root, x, [file]);
+      checked += r.checked;
+      for (const e of r.errors) errors.push(`${e.file}: 型（${x.id}）に合わない — ${e.message}`);
+    }
+  }
+  return { checked, errors };
+}
+
 // ---- CLI ---------------------------------------------------------------------------------
 
 function parse(argv) {
@@ -168,7 +185,13 @@ function main() {
     need(o.paths.length || o.datasets.length, '--paths か --datasets が要る');
     const r = add(root, o);
     if (r.skipped.length) console.log(`[ci-data] add: 無いので飛ばした ${r.skipped.join(', ')}`);
-    console.log(`[ci-data] add: 対象 ${r.specs} 件・stage 済み ${r.staged} ファイル`);
+    const v = validateStaged(root);
+    console.log(`[ci-data] add: 対象 ${r.specs} 件・stage 済み ${r.staged} ファイル・型の検査 ${v.checked} ファイル`);
+    if (v.errors.length) {
+      for (const e of v.errors) console.error(`[ci-data]   ✗ ${e}`);
+      console.error('[ci-data] 型に合わない記録を書き戻そうとした。書き手か型（scripts/lib/dataset-schemas.mjs）を直す');
+      process.exit(1);
+    }
   } else if (cmd === 'latest') {
     need(o._[0], 'latest <id> が要る');
     const p = o._[0] in REPORT_KINDS ? latestReportRef(root, o._[0]) : (dataset(o._[0]), latestFile(root, o._[0]));

@@ -16,16 +16,17 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { summarizeSsotStatus } from './lib/qualification-registry.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const read = (name) => JSON.parse(readFileSync(join(ROOT, 'config', name), 'utf8'));
+const read = (id) => JSON.parse(readFileSync(join(ROOT, datasetPath(id)), 'utf8'));
 const args = new Set(process.argv.slice(2));
 
 const summary = summarizeSsotStatus({
-  registry: read('qualification-registry.json'),
-  calendar: read('exam-calendar.json'),
-  examStats: read('exam-stats.json'),
-  formats: read('exam-formats.json'),
+  registry: read('config.qualification-registry'),
+  calendar: read('config.exam-calendar'),
+  examStats: read('config.exam-stats'),
+  formats: read('config.exam-formats'),
   today: todayJst(),
 });
 

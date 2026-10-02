@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { pendingItems } from './growth-triage.mjs';
 import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
 import { records } from './business-direction.mjs';
-import { datasetDir } from './datasets.mjs';
+import { datasetDir, datasetPath } from './datasets.mjs';
 
 export const CONFIG = '.claude/config/review-wiring.json';
 export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'checks', 'none'];
@@ -256,7 +256,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [], runKey = nul
       const digestName = existsSync(dir) ? readdirSync(dir).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort().at(-1) : null;
       if (!digestName) return { state: 'missing', note: '計測ダイジェストが無い' };
       const digest = JSON.parse(readFileSync(join(dir, digestName), 'utf8'));
-      const logPath = join(dir, 'triage-log.json');
+      const logPath = join(root, datasetPath('analysis.growth-triage'));
       const log = existsSync(logPath) ? JSON.parse(readFileSync(logPath, 'utf8')) : { entries: [] };
       const pending = pendingItems(digest, log).length;
       const total = digest.surfaced.length;

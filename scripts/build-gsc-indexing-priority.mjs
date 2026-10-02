@@ -20,18 +20,19 @@ import { datasetPath, latestFile } from "./lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { buildIndexingPriority } from "./lib/gsc-indexing-priority.mjs";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
 const PRIORITY_JSON = datasetPath("gsc.indexing-priority");
 const PRIORITY_TXT = datasetPath("gsc.indexing-priority-list");
 const REDIRECTS = "public/_redirects";
 
-const batchFile = latestFile(".", "gsc.url-inspection");
+const batchFile = latestFile(REPO_ROOT, "gsc.url-inspection");
 const gscPageFile = latestReportRef(".", "gsc.page");
 if (!batchFile || !gscPageFile) {
   console.error(`[gsc-indexing-priority] ✗ 入力不足 batch=${batchFile ?? "なし"} gsc-page=${gscPageFile ?? "なし"}`);
   process.exit(1);
 }
-const batch = JSON.parse(readFileSync(batchFile, "utf8"));
+const batch = JSON.parse(readFileSync(join(REPO_ROOT, batchFile), "utf8"));
 if (batch.partial === true) {
   console.error(`[gsc-indexing-priority] ✗ 最新 batch が partial（${batch.completed}/${batch.total}）。完走 batch を待つ`);
   process.exit(1);

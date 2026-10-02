@@ -372,53 +372,27 @@ export function datasetFiles(root, id) {
 /** 最新のファイル（無ければ null） */
 export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
 
-// ---- コードの直書きの検出（check-datasets が使う） ----------------------------------
-
-/**
- * config/・data/ のパスを直書きしてよいファイル。台帳そのものと、追記だけの台帳に残る旧パスを読み替える対応表。
- * それ以外のコードは datasetPath・datasetDir・datasetFiles・latestFile で台帳から引く。
- */
-export const PATH_LITERAL_ALLOW = ['scripts/lib/datasets.mjs', 'scripts/lib/repository-paths.mjs'];
-
-const AREA_DIRS = Object.values(AREAS).map((a) => a.dir).join('|');
-/**
- * 直書きの形。(1) `'data/note/sales.json'`・`${ROOT}/config/…`・`/^data\/…/`、
- * (2) 分割形 `join(ROOT, 'config', 'x.json')`・`join(HERE, '..', 'config', …)`。
- * `src/config/…`・`public/data/…`・URL の `/data/…`、分割形の `'src', 'config'`・コマンド引数の `['config', '--get']`・
- * `gtag('config', '${id}')` は置き場の config/・data/ ではないので拾わない。
- */
-const PATH_LITERAL = new RegExp(
-  `(?:(?<![\\w.\\-/\\\\])|(?<=\\}\\/))(?:${AREA_DIRS})\\\\?\\/[A-Za-z0-9_{$-]` +
-    `|(?<![\\w-]['"\`]\\s*,\\s*|\\[\\s*)['"\`](?:${AREA_DIRS})['"\`]\\s*,\\s*(?:['"][A-Za-z0-9_]|\`[A-Za-z0-9_$])`,
-  'g',
-);
-
-/**
- * 1 行ずつ config/・data/ のパスの直書きを返す。
- * 行頭がコメント（// ・ * ・ /*）の行と、行末の ` // ` 以降は読まない（説明文にパスを書くのはよい）。
- * 移す前の旧パスを読み替えるなど、台帳に無いパスをあえて書く行は行末に `// path-literal-ok: 理由` を付ける。
- */
-export function findPathLiterals(source) {
-  const hits = [];
-  source.split('\n').forEach((line, i) => {
-    if (/^\s*(\/\/|\*|\/\*)/.test(line) || /path-literal-ok:\s*\S/.test(line)) return;
-    const code = line.replace(/\s\/\/\s.*$/, '');
-    for (const m of code.matchAll(PATH_LITERAL)) hits.push({ line: i + 1, text: code.slice(m.index, m.index + 60).trim() });
-  });
-  return hits;
-}
-
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));
 
 // ---- 型の検査 -------------------------------------------------------------------
 
-/** ファイルの中身（JSON・JSON Lines は行の配列）を読む */
+/** ファイルの中身（JSON・JSON Lines は行の配列）を読む。JSON Lines の壊れた行は行番号を付けて投げる */
 function readValue(root, file) {
-  const text = readFileSync(join(root, file), 'utf8').replace(/^﻿/, '');
-  if (file.endsWith('.jsonl')) return text.split(/\r?\n/).filter((l) => l.trim()).map((l) => JSON.parse(l));
-  return JSON.parse(text);
+  const text = readFileSync(join(root, file), 'utf8').replace(/^\uFEFF/, '');
+  if (!file.endsWith('.jsonl')) return JSON.parse(text);
+  return text.split(/\r?\n/).flatMap((l, i) => {
+    if (!l.trim()) return [];
+    try {
+      return [JSON.parse(l)];
+    } catch (e) {
+      throw new Error(`${i + 1} 行目: ${e.message}`);
+    }
+  });
 }
+
+/** 1 ファイルあたりに出す違反の上限（総数は別に出す） */
+const MAX_ISSUES_PER_FILE = 5;
 
 /**
  * 型のあるデータセットのファイルを検査する。型が無ければ何もしない（checked 0）。
@@ -436,7 +410,10 @@ export function validateFiles(root, dataset, files) {
       continue;
     }
     const r = dataset.schema.safeParse(value);
-    if (!r.success) for (const i of r.error.issues.slice(0, 5)) errors.push({ file, message: `${i.path.join('.') || '(全体)'}: ${i.message}` });
+    if (r.success) continue;
+    const { issues } = r.error;
+    for (const i of issues.slice(0, MAX_ISSUES_PER_FILE)) errors.push({ file, message: `${i.path.join('.') || '(全体)'}: ${i.message}` });
+    if (issues.length > MAX_ISSUES_PER_FILE) errors.push({ file, message: `ほか ${issues.length - MAX_ISSUES_PER_FILE} 件（全 ${issues.length} 件）` });
   }
   return { checked: files.length, errors };
 }
@@ -577,7 +554,7 @@ export function inferShape(root, path, { maxBytes = 8 * 1024 * 1024 } = {}) {
   const ext = path.slice(path.lastIndexOf('.') + 1).toLowerCase();
   if (size > maxBytes) return { format: ext, summary: `大きいので読まない（${Math.round(size / 1024 / 1024)}MB）`, rows: [], doc: null };
   if (!['json', 'jsonl', 'csv', 'md', 'txt'].includes(ext)) return { format: ext, summary: `${Math.round(size / 1024)}KB`, rows: [], doc: null };
-  const text = readFileSync(abs, 'utf8').replace(/^﻿/, '');
+  const text = readFileSync(abs, 'utf8').replace(/^\uFEFF/, '');
   try {
     if (ext === 'json') {
       const v = JSON.parse(text);
