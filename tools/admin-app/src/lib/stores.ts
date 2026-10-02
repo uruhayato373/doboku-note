@@ -1,56 +1,78 @@
 import { execFileSync } from 'node:child_process';
-import { statSync } from 'node:fs';
+import { readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { loadDomains } from '../../../../scripts/lib/domains.mjs';
-import { STORE_KINDS, groupStores, inferShape, listStoreFiles, storeDomainIds } from '../../../../scripts/lib/data-stores.mjs';
+import {
+  AREAS,
+  DATASETS,
+  KINDS,
+  areaDomainIds,
+  areaOf,
+  datasetById,
+  fileDoc,
+  inferShape,
+  jsonSchemaOf,
+  listAreaFiles,
+  matchFiles,
+  schemaRows,
+  validateFiles,
+} from '../../../../scripts/lib/datasets.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
  * stores.ts — 管理画面 管理＞設定／データ（/ops/store）の表示モデル（read-only）。
  *
- * 一覧・系列・型の読み取りは scripts/lib/data-stores.mjs、領域の割り当ては domains.json の documents が正本で、
- * ここでは並べるだけ。未割当は npm run check-domains（CI）が止めるので、画面に出るのは手元の git 管理外だけのはず。
+ * 何がどのデータかは scripts/lib/datasets.mjs の台帳が正本で、ここは並べるだけ。型（zod）のあるデータセットは
+ * 型の定義と検査結果を、無いものは最新ファイルの実物から読んだ形を出す。未宣言のファイルは npm run check-datasets（CI）が
+ * 止めるので、画面に出るのは手元の git 管理外だけのはず。
  */
 
-export type StoreKind = keyof typeof STORE_KINDS;
-export const STORE_KIND_IDS = Object.keys(STORE_KINDS) as StoreKind[];
-export const isStoreKind = (v: string | undefined): v is StoreKind => !!v && v in STORE_KINDS;
+export type StoreArea = keyof typeof AREAS;
+export const STORE_AREAS = Object.keys(AREAS) as StoreArea[];
+export const isStoreArea = (v: string | undefined): v is StoreArea => !!v && v in AREAS;
 
-type Cfg = { domains: { id: string; label: string }[]; documents: Record<string, string> };
-type Series = { key: string; domain: string | null; files: string[] };
+type Dataset = (typeof DATASETS)[number] & { immutable?: boolean; local?: boolean; planned?: boolean; schema?: unknown };
 type Shape = { format: string; summary: string; rows: { path: string; type: string }[]; doc: string | null; error?: string };
 
 export type StoreNavItem = { id: string; label: string };
 
-/** サイドバーの枝（設定・データの下の領域）。documents だけで決め、ファイルは読まない。 */
-export function storeNav(): Record<StoreKind, StoreNavItem[]> {
+/** サイドバーの枝（設定・データの下の領域）。台帳だけで決め、ファイルは読まない */
+export function storeNav(): Record<StoreArea, StoreNavItem[]> {
   try {
-    const cfg = loadDomains(findRepoRoot()) as Cfg;
-    const label = (id: string) => cfg.domains.find((d) => d.id === id)?.label ?? id;
+    const domains = (loadDomains(findRepoRoot()) as { domains: { id: string; label: string }[] }).domains;
+    const label = (id: string) => domains.find((d) => d.id === id)?.label ?? id;
     return Object.fromEntries(
-      STORE_KIND_IDS.map((k) => [k, (storeDomainIds(cfg, k) as string[]).map((id) => ({ id, label: label(id) }))]),
-    ) as Record<StoreKind, StoreNavItem[]>;
+      STORE_AREAS.map((a) => [a, (areaDomainIds(a, domains.map((d) => d.id)) as string[]).map((id) => ({ id, label: label(id) }))]),
+    ) as Record<StoreArea, StoreNavItem[]>;
   } catch {
     return { config: [], data: [] };
   }
 }
 
 export interface StoreRow {
-  key: string;
+  id: string;
   name: string;
+  doc: string;
+  kind: string;
   files: number;
   updated: string | null;
-  untracked: boolean;
+  local: boolean;
+  typed: boolean;
   shape: string;
-  doc: string | null;
 }
 
 export interface StoreDetail {
-  key: string;
+  id: string;
   name: string;
-  domain: string | null;
-  shape: Shape;
+  path: string;
+  doc: string;
+  kind: string;
+  domain: string;
+  flags: string[];
+  fileDoc: string | null;
+  schema: { rows: { path: string; type: string; description: string | null }[]; checked: number; errors: { file: string; message: string }[] } | null;
+  shape: Shape | null;
   files: { path: string; updated: string | null; size: string; untracked: boolean }[];
   more: number;
   refs: string[];
@@ -58,14 +80,14 @@ export interface StoreDetail {
 }
 
 export interface StoreView {
-  kind: StoreKind;
-  kindLabel: string;
-  domains: { id: string; label: string; series: number; files: number }[];
+  area: StoreArea;
+  areaLabel: string;
+  domains: { id: string; label: string; datasets: number; files: number }[];
   domain: { id: string; label: string } | null;
   rows: StoreRow[];
   detail: StoreDetail | null;
-  unassigned: string[];
-  total: { series: number; files: number };
+  unmatched: string[];
+  total: { datasets: number; files: number; typed: number };
   error: string | null;
 }
 
@@ -78,14 +100,15 @@ const stat = (root: string, p: string) => {
     return null;
   }
 };
+const shapeLabel = (s: Shape) => (s.format === 'JSON' ? s.summary : `${s.format}・${s.summary}`);
 
-/** 名前で参照しているコードを探す語: ファイル名の固定部分（短すぎればフォルダ名）。 */
-function refToken(key: string): string {
-  const parts = key.split('/');
-  const base = parts[parts.length - 1].replace(/\.[a-z]+$/i, '');
-  const literal = base.split('*').sort((a, b) => b.length - a.length)[0].replace(/^[-_]+|[-_]+$/g, '');
-  if (!key.includes('*')) return parts[parts.length - 1];
-  return literal.length >= 4 ? literal : parts[parts.length - 2] ?? base;
+/** 名前で参照しているコードを探す語: ファイル名の固定部分（短すぎればフォルダ名） */
+function refToken(path: string): string {
+  const parts = path.split('/');
+  const base = parts[parts.length - 1];
+  if (!base.includes('{')) return base;
+  const literal = base.replace(/\.[a-z]+$/i, '').split(/\{[^}]+\}/).sort((a, b) => b.length - a.length)[0].replace(/^[-_]+|[-_]+$/g, '');
+  return literal.length >= 6 ? literal : (parts[parts.length - 2] ?? literal);
 }
 
 const REF_PATHS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src', '.github/workflows', 'package.json'];
@@ -99,59 +122,79 @@ function codeRefs(root: string, token: string): string[] {
   }
 }
 
-export function loadStoreView(kind: StoreKind, domainId?: string, key?: string): StoreView {
+export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: string): StoreView {
   const root = findRepoRoot();
-  const { dir, label: kindLabel } = STORE_KINDS[kind];
-  const empty: StoreView = { kind, kindLabel, domains: [], domain: null, rows: [], detail: null, unassigned: [], total: { series: 0, files: 0 }, error: null };
+  const { dir, label: areaLabel } = AREAS[area];
+  const empty: StoreView = { area, areaLabel, domains: [], domain: null, rows: [], detail: null, unmatched: [], total: { datasets: 0, files: 0, typed: 0 }, error: null };
   try {
-    const cfg = loadDomains(root) as Cfg;
-    const files = listStoreFiles(root, kind) as string[];
-    const tracked = new Set(listStoreFiles(root, kind, { tracked: true }) as string[]);
-    const { series, unassigned } = groupStores(cfg, files) as { series: Series[]; unassigned: string[] };
-    const name = (k: string) => k.slice(dir.length + 1);
+    const domainList = (loadDomains(root) as { domains: { id: string; label: string }[] }).domains;
+    const files = listAreaFiles(root, area) as string[];
+    const tracked = new Set(listAreaFiles(root, area, { tracked: true }) as string[]);
+    const { byId, unmatched } = matchFiles(files) as { byId: Map<string, string[]>; unmatched: string[] };
+    const sets = (DATASETS as Dataset[]).filter((x) => areaOf(x) === area);
+    const filesOf = (x: Dataset) => byId.get(x.id) ?? [];
+    const name = (x: Dataset) => x.path.slice(dir.length + 1);
 
-    const domains = cfg.domains
+    const domains = domainList
       .map((d) => {
-        const mine = series.filter((s) => s.domain === d.id);
-        return { id: d.id, label: d.label, series: mine.length, files: mine.reduce((n, s) => n + s.files.length, 0) };
+        const mine = sets.filter((x) => x.domain === d.id);
+        return { id: d.id, label: d.label, datasets: mine.length, files: mine.reduce((n, x) => n + filesOf(x).length, 0) };
       })
-      .filter((d) => d.series > 0);
+      .filter((d) => d.datasets > 0);
     const domain = domains.find((d) => d.id === domainId) ?? null;
 
     const rows: StoreRow[] = domain
-      ? series
-          .filter((s) => s.domain === domain.id)
-          .map((s) => {
-            const latest = s.files[0];
-            const st = stat(root, latest);
-            const shape = inferShape(root, latest) as Shape;
+      ? sets
+          .filter((x) => x.domain === domain.id)
+          .map((x) => {
+            const list = filesOf(x);
+            const st = list[0] ? stat(root, list[0]) : null;
+            const shape = !x.schema && list[0] ? (inferShape(root, list[0]) as Shape) : null;
             return {
-              key: s.key,
-              name: name(s.key),
-              files: s.files.length,
+              id: x.id,
+              name: name(x),
+              doc: x.doc,
+              kind: KINDS[x.kind as keyof typeof KINDS] ?? x.kind,
+              files: list.length,
               updated: st ? day(st.mtimeMs) : null,
-              untracked: s.files.every((f) => !tracked.has(f)),
-              shape: shape.format === 'JSON' ? shape.summary : `${shape.format}・${shape.summary}`,
-              doc: shape.doc,
+              local: !!x.local || (list.length > 0 && list.every((f) => !tracked.has(f))),
+              typed: !!x.schema,
+              shape: x.schema ? '型あり' : shape ? shapeLabel(shape) : x.planned ? '未着手' : '—',
             };
           })
       : [];
 
-    const hit = key ? series.find((s) => s.key === key) : undefined;
+    const hit = datasetId ? (datasetById(datasetId) as Dataset | null) : null;
     let detail: StoreDetail | null = null;
-    if (hit) {
-      const token = refToken(hit.key);
-      const shown = hit.files.slice(0, 30);
+    if (hit && areaOf(hit) === area) {
+      const list = filesOf(hit);
+      const shown = list.slice(0, 30);
+      const token = refToken(hit.path);
+      let doc: string | null = null;
+      if (list[0]?.endsWith('.json')) {
+        try {
+          doc = fileDoc(JSON.parse(readFileSync(join(root, list[0]), 'utf8'))) as string | null;
+        } catch {
+          doc = null;
+        }
+      }
+      const checked = hit.schema ? (validateFiles(root, hit, list.filter((f) => tracked.has(f))) as { checked: number; errors: { file: string; message: string }[] }) : null;
       detail = {
-        key: hit.key,
-        name: name(hit.key),
+        id: hit.id,
+        name: name(hit),
+        path: hit.path,
+        doc: hit.doc,
+        kind: KINDS[hit.kind as keyof typeof KINDS] ?? hit.kind,
         domain: hit.domain,
-        shape: inferShape(root, hit.files[0]) as Shape,
+        flags: [hit.immutable && '中身を変えない', hit.local && '手元だけ（git 管理外）', hit.planned && '未着手（ファイルなし）'].filter(Boolean) as string[],
+        fileDoc: doc,
+        schema: checked ? { rows: schemaRows(jsonSchemaOf(hit)), ...checked } : null,
+        shape: !hit.schema && list[0] ? (inferShape(root, list[0]) as Shape) : null,
         files: shown.map((f) => {
           const st = stat(root, f);
           return { path: f, updated: st ? day(st.mtimeMs) : null, size: st ? sizeOf(st.size) : '—', untracked: !tracked.has(f) };
         }),
-        more: hit.files.length - shown.length,
+        more: list.length - shown.length,
         refs: codeRefs(root, token),
         refToken: token,
       };
@@ -163,8 +206,8 @@ export function loadStoreView(kind: StoreKind, domainId?: string, key?: string):
       domain: domain ? { id: domain.id, label: domain.label } : null,
       rows,
       detail,
-      unassigned,
-      total: { series: series.length, files: files.length },
+      unmatched,
+      total: { datasets: sets.length, files: files.length, typed: sets.filter((x) => x.schema).length },
     };
   } catch (e) {
     return { ...empty, error: (e as Error).message };
