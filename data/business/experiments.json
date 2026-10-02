@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-02T05:35:27.066Z",
+  "updated_at": "2026-10-02T12:08:19.546Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1497,6 +1497,63 @@
           "at": "2026-09-25T00:00:00.000Z",
           "event": "propose→start",
           "note": "本番反映後 4 週（2026-10-23）で途中経過、事後窓終了（2026-11-26）で判定"
+        }
+      ]
+    },
+    {
+      "id": "EXP-013",
+      "title": "2級土木 施工経験記述 工種×テーマ別 完成答案集（3本セット）を ¥1,980 → ¥2,480 に値上げし、試験直前の販売件数が落ちないかを見る",
+      "hypothesis": "単品 ¥1,180×3＝¥3,540 に対しセット ¥1,980 は44%引きで、他セット（直前パック21%引き）より深く、1工事単品 ¥1,680 とも近すぎた。¥2,480（30%引き）でも試験直前（10/25）の需要は落ちず、1件あたり受取が増える。",
+      "target_metric": "civil-2-experience-essay の note 売上（事後窓 2026-10-03〜2026-10-25）",
+      "target_delta": "事後窓で ¥4,960（新価格2件）以上なら価格を維持。1件以下なら試験後に ¥1,980 へ戻すか判断する。件数が少ないため時期要因と分離できない点は裁定時に明記する",
+      "baseline": {
+        "measured_at": "2026-10-02",
+        "note": "値上げ前の販売は通算3件（2026-07 に1件、10/01・10/02 に各1件・いずれも ¥1,980）。9/28〜9/30 は sales.json 未取得（DN-0511）。note 上の価格変更は 2026-10-02 に note-edit-magazine で実施し API で ¥2,480 を確認。単品3本は ¥1,180 のまま",
+        "source": "data/note/sales.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "2級2次検定の施工経験記述で、自分の現場に置き換えられる完成答案を3管理分まとめて手に入れたい",
+        "verifiedGap": "セット割引が他セットより深く、1工事単品との価格差が ¥300 しかなかった（src/lib/note-magazines.ts・note API 実査 2026-10-02）",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "sales.revenue",
+        "scope": {
+          "productIds": [
+            "civil-2-experience-essay"
+          ]
+        },
+        "anchor": "2026-10-03",
+        "preDays": 28,
+        "postDays": 23,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 4960,
+        "minVolume": 1,
+        "note": "10/02 の販売は旧価格のため anchor を 10/03 にする。事後窓は試験日 10/25 まで"
+      },
+      "status": "running",
+      "created_at": "2026-10-02T12:08:19.546Z",
+      "started_at": "2026-10-02T12:08:19.546Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-10-02: note マガジン m1881a9578027 のセット価格を ¥2,480 に変更（オーナー承認・API 確認済）。content/products・note掲載文.txt・note-magazines.ts を同期"
+      ],
+      "next_check_date": "2026-10-26",
+      "resume_criteria": null,
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-02T12:08:19.546Z",
+          "event": "propose→start",
+          "note": "試験翌日 2026-10-26 に判定"
         }
       ]
     }
