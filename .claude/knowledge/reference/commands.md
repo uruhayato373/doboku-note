@@ -256,7 +256,7 @@ npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
 npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
-npm run check-past-exam-inventory # 過去問の年度在庫台帳（past-exam-inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
+npm run check-past-exam-inventory # 過去問の年度在庫台帳（data/pastexams/inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
 npm run past-exam-fetch      # 過去問の年度在庫台帳の未取得行を公式 sourceUrl から content/sources/past-exams/{資格}/{年度}/ へ取得し acquiredAt を書く（既定 dry-run・--commit・--exam/--year で絞る）。curl --ssl-no-revoke・%PDF- 以外は不採用。手順全体は /past-exam-archive
 npm run drive-browser-transfer -- plan|upload|upload-tree|resolve|verify # Drive マウントも rclone も無い端末から Playwright の Google プロファイルで Drive vault へ置き、CDP で全バイト読み戻して drive-connector-register 用 receipt を作る。フォルダ作成と一覧は Drive MCP。罠: upload の SENT は実在確認ではない（verify が確かめる）・別プロファイル Chrome 稼働中は DOBOKU_PW_ALLOW_PARALLEL=1
 npm run check-qualification-market # 展開の判断材料の正本の整合（market-scan の検索語とタイトル条件・*-competitors の exams が資格 id・売上がすべて資格へ分類できる）。CI ゲート。売上の新しい productId は product-lineup.json の salesRules に足す

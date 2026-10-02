@@ -5,7 +5,7 @@
  * links/page.tsx（/links の単発サービス導線）と check-coconala-wiring.mjs から参照される。
  *
  * 出品フロー (2026-07-18〜 自動化):
- * 1. 本エントリ（title/price/status:'draft'）＋ config/coconala-listings.json（本文/カテゴリ）を用意
+ * 1. 本エントリ（title/priceYen/status:'draft'）＋ config/coconala-listings.json（本文/カテゴリ）を用意
  * 2. `/coconala-publish`（node scripts/coconala-publish.mjs --service <id> --commit）で出品
  *    → 公開成功時に status:'listed' + serviceUrl + listedAt を本ファイルへ自動書き戻し
  * 3. commit → デプロイ後、/links に「単発サービス」カードが自動表示される
@@ -52,10 +52,12 @@ export interface CoconalaService {
   /** カード用の短縮タイトル */
   readonly shortTitle: string;
   readonly description: string;
-  /** 表示用の価格文字列（例: '¥8,000（2テーマセット）'） */
-  readonly price: string;
-  /** 機械照合用の価格。data/coconala/orders.json / data/note/sales.json の実績と突合する */
+  /** 価格（円）。**価格の正本はこれ 1 つ**。data/coconala/orders.json / data/note/sales.json の実績と突合し、表示用の `price` も本値から作る */
   readonly priceYen: number;
+  /** 価格に添える補足（例: '2テーマセット'）。表示では「¥8,000（2テーマセット）」の括弧の中に入る */
+  readonly priceNote?: string;
+  /** 表示用の価格文字列（例: '¥8,000（2テーマセット）'）。priceYen と priceNote から作る（COCONALA_SERVICES。エントリには書かない） */
+  readonly price: string;
   /**
    * 価格改定の履歴。旧定価と、その価格が有効だった最終日（ISO 日付）。
    * orders.json の過去受注は「受注日時点の定価」と突合する（check-coconala-wiring）。無ければ現行 priceYen と突合。
@@ -140,8 +142,8 @@ const SERVICES_RAW = {
     shortTitle: '経験記述 合格診断',
     description:
       '1級・2級土木施工管理技士 第2次検定の施工経験記述（問題1）の下書き1テーマ分を、元自治体土木（発注者側）の目で診断。合格可能性の A/B/C 判定＋減点ポイント ワースト3＋字数チェックを返却する。診断のみで書き換え文は提供しない（書き換え案は添削サービスの担当）。',
-    price: '¥1,500（1テーマ診断）',
     priceYen: 1500,
+    priceNote: '1テーマ診断',
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 5,
     pauseReason: 'retired',
@@ -153,7 +155,7 @@ const SERVICES_RAW = {
   //   首位のちゃんさと技師は ¥12,000×297件・¥24,000×133件でレビュー寡占。
   //   → レビュー0の新規参入で ¥8,000（第2集団の上端）は割高と判断し ¥6,000 で開始、
   //     評価20件で ¥9,800（ちゃんさとの下・第2集団の上）へ引き上げる。
-  // 価格改定時は priceYen と price の両方＋ココナラ展開キット.md §2 の価格表を同時更新する。
+  // 価格改定時は priceYen（表示の価格は priceYen から作る）＋ココナラ展開キット.md §2 の価格表を同時更新する。
   // 2026-09-25 ユーザー決定（級別化）: 1級と2級で出題実績が違う（1級はR6=安全管理×施工計画・
   //   R7=品質管理×環境対策で読めない→5管理全部が完成形、2級はR6=品質×工程・R7=安全×工程で
   //   設問2が2年連続工程管理→3管理で全出題をカバー）ため、本サービスは1級専用に改題。
@@ -167,8 +169,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 添削（2テーマ・24時間）',
     description:
       '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、受け取りから24時間以内に添削してお返しします。令和6年度からの新形式は5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）のうち2テーマが当日指定され、テーマはご自身で選べません。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含みます。下書きがまだない方には、ヒアリングで骨子を組み立てる指導サービスがあります（どちらも代筆はしません）。経験していない工事や数値の創作はお受けしません。',
-    price: '¥6,000（1級・2テーマセット・24時間以内・書き直し1回込み）',
     priceYen: 6000,
+    priceNote: '1級・2テーマセット・24時間以内・書き直し1回込み',
     examScope: ['civil-1'],
     weeklyCapacity: 2,
     pauseReason: 'absence',
@@ -191,8 +193,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 添削（全5テーマ・24時間）',
     description:
       '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全5テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから24時間以内にお返しします。経験していない工事や数値の創作はお受けしません。',
-    price: '¥15,000（1級・全5テーマセット・24時間以内・書き直し1回込み）',
     priceYen: 15000,
+    priceNote: '1級・全5テーマセット・24時間以内・書き直し1回込み',
     examScope: ['civil-1'],
     weeklyCapacity: 1,
     listedAt: '2026-09-25',
@@ -216,8 +218,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 指導（骨子→添削・2テーマ）',
     description:
       '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して2テーマ分の骨子シート（何を・どの順で・どの数値で書くか）を48時間以内にお渡しし、骨子をもとにご本人が書いた答案を添削、書き直し後の再添削1回まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
-    price: '¥8,000（1級・骨子2テーマ＋添削・再添削1回込み）',
     priceYen: 8000,
+    priceNote: '1級・骨子2テーマ＋添削・再添削1回込み',
     examScope: ['civil-1'],
     weeklyCapacity: 2,
     pauseReason: 'absence',
@@ -254,8 +256,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 指導（全5テーマ・24時間）',
     description:
       '1級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して全5テーマ（品質管理・安全管理・工程管理・施工計画・環境対策）分の骨子シート（何を・どの順で・どの数値で書くか）を24時間以内にお渡しし、骨子をもとにご本人が書いた答案を添削、書き直し後の再添削1回まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
-    price: '¥20,000（1級・全5テーマの骨子＋添削・再添削1回込み）',
     priceYen: 20000,
+    priceNote: '1級・全5テーマの骨子＋添削・再添削1回込み',
     priceHistory: [{ priceYen: 16000, until: '2026-09-25' }],
     examScope: ['civil-1'],
     weeklyCapacity: 1,
@@ -274,8 +276,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 添削（2テーマ・24時間）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、受け取りから24時間以内に添削してお返しします。令和6年度からの新形式は3テーマ（品質管理・安全管理・工程管理）のうち2テーマが当日指定され、テーマはご自身で選べません（近年は工程管理が連続で出題）。2テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回を含みます。下書きがまだない方には、ヒアリングで骨子を組み立てる指導サービスがあります（どちらも代筆はしません）。経験していない工事や数値の創作はお受けしません。',
-    price: '¥5,000（2級・2テーマセット・24時間以内・書き直し1回込み）',
     priceYen: 5000,
+    priceNote: '2級・2テーマセット・24時間以内・書き直し1回込み',
     examScope: ['civil-2'],
     weeklyCapacity: 2,
     pauseReason: 'absence',
@@ -294,8 +296,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 添削（全3テーマ・24時間）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、3テーマ（品質管理・安全管理・工程管理）すべて添削。当日どの2テーマが指定されても自分の工事で書けるよう、全3テーマ分の赤入れ（NG→OK 書き換え案）＋6観点のチェックリスト判定表＋読み手視点のコメント＋書き直し1回（まとめて）を、受け取りから24時間以内にお返しします。経験していない工事や数値の創作はお受けしません。',
-    price: '¥5,000（2級・全3テーマセット・24時間以内・書き直し1回込み）',
     priceYen: 5000,
+    priceNote: '2級・全3テーマセット・24時間以内・書き直し1回込み',
     priceHistory: [{ priceYen: 7500, until: '2026-09-29' }],
     examScope: ['civil-2'],
     weeklyCapacity: 1,
@@ -313,8 +315,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 指導（骨子→添削・2テーマ）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して2テーマ分の骨子シート（何を・どの順で・どの数値で書くか）を24時間以内にお渡しし、骨子をもとにご本人が書いた答案を24時間以内に添削、書き直し後の再添削1回（24時間以内）まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
-    price: '¥7,000（2級・骨子2テーマ＋添削・再添削1回込み）',
     priceYen: 7000,
+    priceNote: '2級・骨子2テーマ＋添削・再添削1回込み',
     examScope: ['civil-2'],
     weeklyCapacity: 2,
     pauseReason: 'absence',
@@ -329,8 +331,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 指導（全3テーマ・24時間）',
     description:
       '2級土木施工管理技士 第2次検定の施工経験記述（問題1）を、ご自身で書けるように指導するサービス。ヒアリングで実工事の事実を整理して全3テーマ（品質管理・安全管理・工程管理）分の骨子シート（何を・どの順で・どの数値で書くか）を24時間以内にお渡しし、骨子をもとにご本人が書いた答案を24時間以内に添削、書き直し後の再添削1回（24時間以内）まで行います。下書きがすでにある方は添削サービスへ。答案の代筆はしません。経験していない工事や数値の創作もお受けしません。合格を保証するものではありません。',
-    price: '¥6,500（2級・全3テーマの骨子＋添削・再添削1回込み・各24時間以内）',
     priceYen: 6500,
+    priceNote: '2級・全3テーマの骨子＋添削・再添削1回込み・各24時間以内',
     priceHistory: [{ priceYen: 10000, until: '2026-09-29' }],
     examScope: ['civil-2'],
     weeklyCapacity: 1,
@@ -348,8 +350,8 @@ const SERVICES_RAW = {
     shortTitle: '二次 出題分析＋直前重点 PDF',
     description:
       '1級土木施工管理技士 第2次検定の出題分析＋直前2週間ロードマップ PDF（令和3〜7年度の実績分析・約6,000字/6ページ）。経験記述テーマの出題履歴・学科記述の出る順トップ論点・日割りの直前計画を収録。購入後トークルームで PDF をお送りします。',
-    price: '¥2,500（PDF 1本）',
     priceYen: 2500,
+    priceNote: 'PDF 1本',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
@@ -371,8 +373,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 模範答案セット PDF',
     description:
       '1級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 10冊。テーマ別の完成答案集5冊（品質管理・安全管理・工程管理・施工計画・環境対策＝完成答案3例＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
-    price: '¥5,500（PDF 10冊・テーマ別＋年度別）',
     priceYen: 5500,
+    priceNote: 'PDF 10冊・テーマ別＋年度別',
     priceHistory: [{ priceYen: 5000, until: '2026-09-22' }],
     notePriceBasis: 'civil-1-experience-essay + civil-1-pastexam-essay',
     examScope: ['civil-1'],
@@ -393,8 +395,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 模範答案セット PDF',
     description:
       '2級土木施工管理技士 第2次検定 施工経験記述の模範答案セット PDF 8冊。テーマ別の完成答案集3冊（品質管理・安全管理・工程管理＝完成答案＋NG→合格＋採点チェック）と、年度別の過去問模範答案5冊（令和3〜7年度＝各年度の出題テーマに沿った模範答案＋置換ガイド）を一括収録。テーマから引くか年度から引くか、両方の索引で自分の工事に置き換えられます。購入後トークルームで PDF をお送りします。',
-    price: '¥5,000（PDF 8冊・テーマ別＋年度別）',
     priceYen: 5000,
+    priceNote: 'PDF 8冊・テーマ別＋年度別',
     priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
     notePriceBasis: 'civil-2-experience-essay + civil-2-pastexam-essay',
     examScope: ['civil-2'],
@@ -413,8 +415,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 経験記述 過去問模範答案 PDF',
     description:
       '1級土木施工管理技士 第2次検定 施工経験記述の過去問模範答案集 PDF 5本（令和3〜7年度・年度別）。各年度の出題テーマに沿った想定工事の模範答案＋設問の書き分け＋置換ガイド。過去問を年度単位で研究したい方向け。購入後トークルームで PDF をお送りします。',
-    price: '¥3,000（PDF 5本・R03-R07）',
     priceYen: 3000,
+    priceNote: 'PDF 5本・R03-R07',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
@@ -431,8 +433,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 経験記述 過去問模範答案 PDF',
     description:
       '2級土木施工管理技士 第2次検定 施工経験記述の過去問模範答案集 PDF 5本（令和3〜7年度・年度別）。各年度の出題テーマに沿った想定工事の模範答案＋置換ガイド。過去問を年度単位で研究したい方向け。購入後トークルームで PDF をお送りします。',
-    price: '¥3,000（PDF 5本・R03-R07）',
     priceYen: 3000,
+    priceNote: 'PDF 5本・R03-R07',
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
@@ -450,8 +452,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次学科記述 攻略 PDF',
     description:
       '1級土木施工管理技士 第2次検定 学科記述（問題2〜11）のテーマ別 出る順攻略 PDF 5本（コンクリート工・品質管理・土工・安全管理法規・施工計画環境）。令和3〜7年度の出題頻度分析＋頻出論点の書き方の型＋直前チェック語句。購入後トークルームで PDF をお送りします。',
-    price: '¥2,500（PDF 5本・5論点）',
     priceYen: 2500,
+    priceNote: 'PDF 5本・5論点',
     examScope: ['civil-1'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
@@ -468,8 +470,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 二次学科記述 攻略 PDF',
     description:
       '2級土木施工管理技士 第2次検定 学科記述のテーマ別 出る順攻略 PDF 5本（コンクリート工・品質管理・土工・安全管理法規・施工計画環境）。令和3〜7年度の出題頻度分析＋頻出論点の書き方の型＋直前チェック語句。購入後トークルームで PDF をお送りします。',
-    price: '¥2,500（PDF 5本・5論点）',
     priceYen: 2500,
+    priceNote: 'PDF 5本・5論点',
     examScope: ['civil-2'],
     weeklyCapacity: 10,
     pauseReason: 'retired',
@@ -494,8 +496,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 予想模試3回 PDF',
     description:
       '1級土木施工管理技士 第2次検定の予想模擬試験3回分・PDF 6冊（各回の問題冊子＋解答解説）。施工経験記述は毎回2テーマ、学科記述は必須・選択構造で通し演習できます。令和3〜7年度の出題傾向から作成した自主教材で、自己採点・復習計画つき。購入後トークルームでお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥3,500（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
     priceYen: 3500,
+    priceNote: '予想模試3回・PDF 6冊＋特典 直前暗記ノート',
     priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
     notePriceBasis: 'civil-1-chokuzen-pack | civil-1-r8-mock3-pdf + civil-1-anki-note',
     examScope: ['civil-1'],
@@ -516,8 +518,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 二次 予想模試3回 PDF',
     description:
       '2級土木施工管理技士 第2次検定の予想模擬試験3回分・PDF 6冊（各回の問題冊子＋解答解説）。施工経験記述は毎回2テーマ、学科記述は必須4問＋選択2問で通し演習できます。令和3〜7年度の出題傾向から作成した自主教材で、自己採点・復習計画つき。購入後トークルームでお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥3,000（予想模試3回・PDF 6冊＋特典 直前暗記ノート）',
     priceYen: 3000,
+    priceNote: '予想模試3回・PDF 6冊＋特典 直前暗記ノート',
     priceHistory: [{ priceYen: 2000, until: '2026-09-22' }],
     notePriceBasis: 'civil-2-chokuzen-pack | civil-2-r8-mock3-pdf + civil-2-anki-note',
     examScope: ['civil-2'],
@@ -547,8 +549,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 教材フルパック PDF',
     description:
       '1級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計22冊）。出題分析＋直前重点（1冊）・経験記述 模範答案（テーマ別5冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験3回分（問題冊子＋解答解説の6冊）を一括でお送りします。出題分析と学科記述攻略はこのパックのみの収録。分析→インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥12,000（PDF 22冊・全部入り＋特典 直前暗記ノート）',
     priceYen: 12000,
+    priceNote: 'PDF 22冊・全部入り＋特典 直前暗記ノート',
     priceHistory: [{ priceYen: 10000, until: '2026-09-22' }],
     notePriceBasis: 'civil-1-niji-marugoto-pack | civil-1-chokuzen-pack + civil-1-experience-essay + civil-1-pastexam-essay + civil-1-gakka-kijutsu',
     examScope: ['civil-1'],
@@ -570,8 +572,8 @@ const SERVICES_RAW = {
     shortTitle: '2級 二次 教材フルパック PDF',
     description:
       '2級土木施工管理技士 第2次検定の対策PDFを全部入りでまとめたフルパック（計19冊）。経験記述 模範答案（テーマ別3冊＋年度別5冊）・学科記述 攻略（5冊・5論点）・予想模擬試験3回分（問題冊子＋解答解説の6冊）を一括でお送りします。学科記述攻略はこのパックのみの収録。インプット→演習→模試まで一気通貫。購入後トークルームで PDF をお送りします（本試験の出題を保証するものではありません）。',
-    price: '¥10,000（PDF 19冊・全部入り＋特典 直前暗記ノート）',
     priceYen: 10000,
+    priceNote: 'PDF 19冊・全部入り＋特典 直前暗記ノート',
     priceHistory: [{ priceYen: 7000, until: '2026-09-22' }],
     notePriceBasis: 'civil-2-niji-marugoto-pack | civil-2-chokuzen-pack + civil-2-experience-essay + civil-2-pastexam-essay + civil-2-gakka-kijutsu',
     examScope: ['civil-2'],
@@ -600,8 +602,8 @@ const SERVICES_RAW = {
     shortTitle: '1級 二次 プレミアム（教材＋添削）',
     description:
       '1級土木施工管理技士 第2次検定の対策PDF 22冊（出題分析・経験記述模範答案10冊・学科記述攻略5冊・予想模擬試験3回分6冊／計145ページ）に、施工経験記述の添削（新形式2テーマ・赤入れ＋書き直し1回）を組み合わせたセット。教材で書き方を掴み、実際に書いた答案を元自治体土木（発注者＝提出書類を審査する側）の目で赤入れします。購入後トークルームでPDFをお送りし、答案はヒアリングシートご記入後に添削します。経験していない工事や数値の創作はお受けしません。合格を保証するものではありません。',
-    price: '¥17,000（PDF22冊＋添削2テーマ・書き直し1回）',
     priceYen: 17000,
+    priceNote: 'PDF22冊＋添削2テーマ・書き直し1回',
     priceHistory: [{ priceYen: 15000, until: '2026-09-22' }],
     examScope: ['civil-1'],
     weeklyCapacity: 1,
@@ -623,8 +625,8 @@ const SERVICES_RAW = {
     shortTitle: '経験記述 AI設計キット（DL）',
     description:
       '1級・2級土木施工管理技士 第2次検定の施工経験記述を、あなた自身の工事経験からAI（Claude Code）で設計・検証するキット。Claude Code用スキル＋作成/レビューを分けるエージェント＋入力・答案テンプレート＋字数・必須項目・プレースホルダ検査スクリプト＋架空サンプル＋手順PDFを同梱。完成答案の代筆ではなく、設問分解・不足情報の停止・独立レビュー・字数検査を自分で回す作業環境です。パソコンでのファイル操作とClaude Codeの利用が前提。購入後トークルームでキット一式をお送りします。合格を保証するものではありません。',
-    price: '¥8,000（DLキット一式）',
     priceYen: 8000,
+    priceNote: 'DLキット一式',
     examScope: ['civil-1', 'civil-2'],
     weeklyCapacity: 20,
     pauseReason: 'retired',
@@ -645,8 +647,8 @@ const SERVICES_RAW = {
     shortTitle: '総監 出題テーマ分析 PDF',
     description:
       '技術士総合技術監理部門（総監）記述式（必須科目I-2）の出題傾向分析 PDF。令和6〜8年度の実績（カーボン／少子高齢化／地方創生）から「社会課題×5管理のトレードオフ」系統の読み方、設問3の解答様式（課題×施策2組・各約600字・5管理2つ以上の明記）、出そうなテーマの見極め方、R8地方創生の正直な検証（本命は外し・候補群で当てた）を収録。購入後トークルームで PDF をお送りします。出題を保証するものではありません。',
-    price: '¥2,500（PDF）',
     priceYen: 2500,
+    priceNote: 'PDF',
     notePriceExempt: '出題テーマ分析は note に同じ中身の商品が無い（note の施策バンク本文は転載しない設計）',
     examScope: ['pe-comprehensive-management'],
     weeklyCapacity: 20,
@@ -668,8 +670,8 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 問題III 添削',
     description:
       'RCCM資格試験 試験B 問題III（管理技術力・1,200〜1,600字）の下書き1テーマ分を、発注者としてコンサルタントの成果品を検査・評定してきた技術士（建設部門・総合技術監理部門）が添削。①現状と課題／②対策のあり方の構成、指定語の「」使用（4語以上）、管理技術者としての視点逸脱、字数超過を指摘し、書き換え案を返却する。1往復の再確認付き。合格を保証するものではない。',
-    price: '¥6,000（1テーマ・再確認1回）',
     priceYen: 6000,
+    priceNote: '1テーマ・再確認1回',
     examScope: ['rccm'],
     weeklyCapacity: 2,
     pauseReason: 'retired',
@@ -685,8 +687,8 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 問題I 診断',
     description:
       'RCCM資格試験 試験A 問題I（業務経験論文・2,400字以内）の下書きを、業務実績証明書との整合、技術上の問題点と業務上の問題点の立て方、結論の具体性の観点で診断。合格可能性の A/B/C 判定と減点ポイント ワースト3、字数チェックを返却する。診断のみで書き換え文は提供しない。経験していない業務の創作はお受けしない。',
-    price: '¥2,000（1本診断）',
     priceYen: 2000,
+    priceNote: '1本診断',
     examScope: ['rccm'],
     weeklyCapacity: 3,
     pauseReason: 'retired',
@@ -702,8 +704,8 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 問題III 模範論文 PDF',
     description:
       'RCCM資格試験 2026年度 問題III（管理技術力）の公開6テーマ全部の模範論文（各1,200〜1,600字・①現状と課題／②対策のあり方）と、指定語の使用チェック表・部門別の置換ポイントをまとめた印刷用PDF。購入後トークルームでお送りする。出題や合格を保証するものではない。',
-    price: '¥4,000（PDF）',
     priceYen: 4000,
+    priceNote: 'PDF',
     priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
     notePriceBasis: 'rccm-mondai3-magazine',
     examScope: ['rccm'],
@@ -723,8 +725,8 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 択一 PDF',
     description:
       'RCCM資格試験の択一（試験A 問題II・試験B 問題IV-1）対策PDF2冊。オリジナル予想50問（全選択肢の正誤理由・計算は途中式付き）と、登録規程から土木基礎までの一問一答159問。過去問題は非公開のため、公開の一次出典から作成した自作問題で、実際の試験問題の再現ではない。購入後トークルームでお送りする。出題や合格を保証するものではない。',
-    price: '¥3,000（PDF2冊）',
     priceYen: 3000,
+    priceNote: 'PDF2冊',
     priceHistory: [{ priceYen: 2500, until: '2026-09-22' }],
     notePriceBasis: 'rccm-takuitsu-yosou-50 + rccm-anki-note',
     examScope: ['rccm'],
@@ -745,8 +747,8 @@ const SERVICES_RAW = {
     shortTitle: 'RCCM 問題I テンプレ＋記入例 PDF',
     description:
       'RCCM資格試験 試験A 問題I（業務経験論文・2,400字以内）のテンプレートと、受験部門の記入例2本のPDF。上水道・下水道・土質及び基礎・道路・河川砂防及び海岸海洋・鋼構造及びコンクリートの6部門から1部門を選ぶ。記入例は架空の業務に基づく練習用で、そのまま使う原稿ではない。出題や合格を保証するものではない。',
-    price: '¥4,500（テンプレ＋1部門の記入例2本）',
     priceYen: 4500,
+    priceNote: 'テンプレ＋1部門の記入例2本',
     priceHistory: [{ priceYen: 4000, until: '2026-09-22' }],
     notePriceBasis: 'each: rccm-mondai1-template + rccm-mondai1-water | rccm-mondai1-template + rccm-mondai1-sewer | rccm-mondai1-template + rccm-mondai1-geotechnical | rccm-mondai1-template + rccm-mondai1-road | rccm-mondai1-template + rccm-mondai1-river-coast | rccm-mondai1-template + rccm-mondai1-steel-concrete',
     examScope: ['rccm'],
@@ -766,8 +768,8 @@ const SERVICES_RAW = {
     shortTitle: '技術士 口頭試験 想定問答 PDF',
     description:
       '技術士第二次試験の口頭試験に向けた想定問答と準備ロードマップのPDF。総合技術監理部門版（想定25問・立場別の回答例）と建設部門版（改訂コンピテンシー対応の想定問答バンク）から、受験部門に合う1冊をお送りする。回答例は架空の業務に基づく例示で、実際の試問の再現ではない。合格を保証するものではない。',
-    price: '¥3,500（PDF1冊）',
     priceYen: 3500,
+    priceNote: 'PDF1冊',
     priceHistory: [{ priceYen: 3000, until: '2026-09-22' }],
     notePriceBasis: 'each: tankan-oral-complete | pe-construction-oral-guide',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
@@ -783,8 +785,8 @@ const SERVICES_RAW = {
     shortTitle: '技術士 口頭試験 想定質問作成',
     description:
       '受験申込書の「業務内容の詳細」（720字以内）と業務経歴をもとに、口頭試験で聞かれやすい想定質問20問と、ご本人の事実から組み立てた回答の骨子を返すテキスト完結のサービス。ビデオ面接ではない。経験していない業務の創作はせず、事実が足りない箇所は確認事項として返す。建設部門・総合技術監理部門に対応。合格を保証するものではない。',
-    price: '¥5,000（想定質問20問＋回答骨子）',
     priceYen: 5000,
+    priceNote: '想定質問20問＋回答骨子',
     examScope: ['pe-comprehensive-management', 'pe-construction'],
     weeklyCapacity: 2,
     pauseReason: 'retired',
@@ -804,8 +806,8 @@ const SERVICES_RAW = {
     shortTitle: 'コンクリート主任技士 小論文 PDF',
     description:
       'コンクリート主任技士試験の小論文対策PDF5冊。答案の型と時間配分をまとめた解法ガイドと、品質管理・耐久性・環境配慮・施工トラブルの4テーマの模範答案（想定問題・答案の方針・チェックポイント・自分の案件への置換ガイド付き）。模範答案は架空の案件に基づく例示。出題や合格を保証するものではない。',
-    price: '¥3,000（PDF5冊）',
     priceYen: 3000,
+    priceNote: 'PDF5冊',
     notePriceBasis: 'cce-essay-magazine',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
@@ -820,8 +822,8 @@ const SERVICES_RAW = {
     shortTitle: 'コンクリート主任技士 択一直前パック PDF',
     description:
       'コンクリート主任技士試験の四肢択一対策PDF3冊。8分野のオリジナル予想50問（全選択肢解説）、配合計算の実戦演習12問（途中式付き）、数値と定義の一問一答157問。予想は出題を保証するものではなく、実際の試験問題の再現ではない。',
-    price: '¥3,500（PDF3冊）',
     priceYen: 3500,
+    priceNote: 'PDF3冊',
     notePriceBasis: 'cce-takuitsu-chokuzen-pack | cce-r8-mc-50 + cce-mix-calculation-practice + cce-anki-note',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
@@ -840,8 +842,8 @@ const SERVICES_RAW = {
     shortTitle: 'コンクリート主任技士 完全パック PDF',
     description:
       'コンクリート主任技士試験の小論文と四肢択一をまとめたPDF9冊。小論文は令和2年度以降の1題・約1,000字の形式に合わせた出題傾向分析と5テーマ×8立場の模範答案、択一は8分野の予想50問・配合計算12問・一問一答157問。答案は各立場を想定した例示。出題や合格を保証するものではない。',
-    price: '¥8,000（PDF9冊）',
     priceYen: 8000,
+    priceNote: 'PDF9冊',
     notePriceBasis: 'cce-essay-reiwa-pack + cce-takuitsu-chokuzen-pack',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
@@ -860,17 +862,27 @@ const SERVICES_RAW = {
     shortTitle: 'コンクリート主任技士 小論文 添削（1課題・48時間）',
     description:
       'コンクリート主任技士試験の記述式問題（小論文）を、受け取りから48時間以内に添削してお返しします。ご自身で書いた小論文1課題分の赤入れ（NG→OK 書き換え案）＋観点別の判定表（題意への応答・技術的な正確さ・実務経験の具体性・構成・字数と表現）＋書き直し1回を含みます。書く題材が決まらない方向けに、ヒアリングで骨子を一緒に組み立てる有料オプションがあります（代筆はしません）。経験していない業務や数値の創作はお受けしません。合格を保証するものではありません。',
-    price: '¥5,000（小論文1課題・48時間以内・書き直し1回込み）',
     priceYen: 5000,
+    priceNote: '小論文1課題・48時間以内・書き直し1回込み',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 2,
     listedAt: '2026-09-29',
   },
-} as const satisfies Record<string, CoconalaService>;
+} as const satisfies Record<string, Omit<CoconalaService, 'price'>>;
 
 export type CoconalaServiceId = keyof typeof SERVICES_RAW;
 
-export const COCONALA_SERVICES: Readonly<Record<CoconalaServiceId, CoconalaService>> = SERVICES_RAW;
+/** 表示用の価格文字列（例: '¥8,000（2テーマセット）'）。priceYen から作り、数字を二重に書かない */
+function coconalaPriceLabel(priceYen: number, priceNote?: string): string {
+  return `¥${priceYen.toLocaleString('en-US')}${priceNote ? `（${priceNote}）` : ''}`;
+}
+
+// SERVICES_RAW は `as const` のリテラル型なので、いったん widen してから price を足す（note-magazines.ts と同じ流儀）
+const SERVICES_INPUT: Readonly<Record<CoconalaServiceId, Omit<CoconalaService, 'price'>>> = SERVICES_RAW;
+
+export const COCONALA_SERVICES = Object.fromEntries(
+  Object.entries(SERVICES_INPUT).map(([id, s]) => [id, { ...s, price: coconalaPriceLabel(s.priceYen, s.priceNote) }]),
+) as Readonly<Record<CoconalaServiceId, CoconalaService>>;
 
 /**
  * 出品中（listed）のサービスのみ。サイト導線はこれを使う＝draft/full/paused は自動的に非表示。

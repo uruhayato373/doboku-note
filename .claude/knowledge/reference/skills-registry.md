@@ -32,7 +32,7 @@ title: スキル ガバナンス記録
 
 > 2026-09-13 更新: weekly-improve に SEO Rank Watch（--rank-watch）を統合。資格受験者の課題を優先し、待機を含むrun記録・28日方針レビューをweekly-improve / weekly-reviewへ結線。fetch-gsc-data のPT・両端包含・完全一致条件を補い、nsm-experiment / weekly-review / weekly-plan は専用7日判定へルーティングする。新規スキルは作らず件数は不変。
 
-> 2026-09-29 新設: `conversion/past-exam-archive`（公式過去問の原本 PDF を年度在庫台帳 `past-exam-inventory.json` に沿って公式から取得し、Drive vault `原資料PDF/過去問/`（新 group `past-exam-source-pdf`）へ退避・全バイト照合・台帳登録する）。背景＝公式の掲載は直近数年度だけで、取り逃すと取り直せない。Drive のマウントも rclone も無い会社PCで、Playwright の Google プロファイル＋CDP 読み戻し＋Drive MCP（フォルダ作成・一覧）の組合せが通ることを実測し、`scripts/past-exam-fetch.mjs` と `scripts/drive-browser-transfer.mjs`（plan/upload/verify）に固めた。あわせて過去問を教材（`textbook-source-pdf`）から分離し、既存 238 本を移し替え、第三者の解答解説 24 本は教材側 `過去問解説/` へ分けた。**新エージェントは作らない**（取得・照合は決定的スクリプト・公式URLの調査は general-purpose で足りる）。合計 `106→107`、conversion `7→8`。
+> 2026-09-29 新設: `conversion/past-exam-archive`（公式過去問の原本 PDF を年度在庫台帳 `data/pastexams/inventory.json` に沿って公式から取得し、Drive vault `原資料PDF/過去問/`（新 group `past-exam-source-pdf`）へ退避・全バイト照合・台帳登録する）。背景＝公式の掲載は直近数年度だけで、取り逃すと取り直せない。Drive のマウントも rclone も無い会社PCで、Playwright の Google プロファイル＋CDP 読み戻し＋Drive MCP（フォルダ作成・一覧）の組合せが通ることを実測し、`scripts/past-exam-fetch.mjs` と `scripts/drive-browser-transfer.mjs`（plan/upload/verify）に固めた。あわせて過去問を教材（`textbook-source-pdf`）から分離し、既存 238 本を移し替え、第三者の解答解説 24 本は教材側 `過去問解説/` へ分けた。**新エージェントは作らない**（取得・照合は決定的スクリプト・公式URLの調査は general-purpose で足りる）。合計 `106→107`、conversion `7→8`。
 
 > 2026-09-30 新設: `authoring/cce-essay-cycle`（コンクリート主任技士 小論文の出題履歴 SSOT `config/cce-essay-history.json` を起点に、サイト/note の出題履歴ブロック再生成・`cce-essay-writer`/`cce-essay-qa` によるテーマ別模範答案・PDF/ココナラ展開へルーティング）。背景＝旧4テーマ×8立場の序論本論結論型が令和2年度以降の1題約1,000字形式と合っておらず、年度別テーマを各記事へ手で写していたため。合計 `107→108`、authoring `11→12`。
 

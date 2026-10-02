@@ -2,7 +2,7 @@
  * google-console-ssot.mjs — GSC/GA4 UI CSV から得た情報の **追跡される SSOT**
  * ---------------------------------------------------------------------------
  * なぜ必要か（2026-07-30 新設）: これまで正規化結果は run ディレクトリ配下
- * （当時の `data/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
+ * （当時の GSC 画面取得フォルダの `<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
  * raw CSV は再取得しかできない（＝再生成不可能）ため、worktree を捨てた時点で **URL レベルの情報が
  * 消え**、`report-search-growth` も「前回比」を出せず、別マシンでは診断そのものが再現できなかった。
  * 実際 2026-07-23 の run（1,952 行）は run ディレクトリごと消えて last-run.json だけが残っていた。

@@ -29,8 +29,9 @@ build 済み out/ の全正規 URL の HTML から `<title>`, `<meta>`, `<link r
 | JSON-LD | parse 可能・Article 系は headline 整合（参考） | 構造化データ戦略変更時 |
 
 > [!note]
-> 判定ロジック（閾値含む）の実体は `scripts/lib/seo-checks.mjs`。config の `thresholds`/`severity` は
-> HTTP 巡回の互換用に残るが、canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
+> 判定ロジック（閾値・重大度の level を含む）の実体は `scripts/lib/seo-checks.mjs`。config の `thresholds` は
+> HTTP 巡回の互換用に残るが（title の長さは lint-frontmatter も読む）、canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
+> 重大度（`severity`）は config に持たない（読み手が無く、値を直しても何も変わらないため削除した）。
 
 ## 前提
 

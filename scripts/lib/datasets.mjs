@@ -86,7 +86,6 @@ export const DATASETS = [
   d('config.kdp-memo', 'config/kdp-memo.json', 'config', 'product', 'KDP 入稿の既定値と各本の情報'),
   d('config.keiken-answer-sheet-limits', 'config/keiken-answer-sheet-limits.json', 'config', 'product', '経験記述の解答欄の字数上限'),
   d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類'),
-  d('config.past-exam-inventory', 'config/past-exam-inventory.json', 'config', 'product', '過去問の年度の在庫'),
   // アフィリエイト
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定'),
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定'),
@@ -114,7 +113,6 @@ export const DATASETS = [
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール'),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定'),
   d('config.ig-account', 'config/ig-account.json', 'config', 'sns', 'Instagram のアカウントとプロフィール'),
-  d('config.instagram-campaign', 'config/instagram-campaign.json', 'config', 'sns', 'Instagram キャンペーンの計画'),
   d('config.character-poses', 'config/character-poses.json', 'config', 'sns', 'キャラクター素材のポーズと命名'),
   d('config.video-brand', 'config/video-brand.json', 'config', 'sns', '動画のブランド（ロゴ・背景）'),
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約'),
@@ -122,7 +120,6 @@ export const DATASETS = [
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）'),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い'),
-  d('config.pe-first-stage-historical-sources', 'config/pe-first-stage-historical-sources.json', 'config', 'material', '技術士第一次試験の旧年度の出典'),
   // 管理
   d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て'),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場'),
@@ -132,7 +129,6 @@ export const DATASETS = [
   d('config.local-resources', 'config/local-resources.json', 'config', 'ops', '手元 PC の空き容量・メモリの閾値'),
   d('config.workflow-health', 'config/workflow-health.json', 'config', 'ops', '重要なワークフローの健全性の閾値'),
   d('config.cloudflare', 'config/cloudflare.json', 'config', 'ops', 'Cloudflare の解析とゾーン設定監視の設定'),
-  d('config.r2-delete-list', 'config/r2-delete-list.txt', 'config', 'ops', 'R2 から消すオブジェクトの一覧（削除済みの記録を含む）'),
 
   // ===== data/: 取得元ごとの記録 =====
   // note
@@ -204,6 +200,9 @@ export const DATASETS = [
   d('psi.single', 'data/psi/single/{ts}.json', 'series', 'site', 'PageSpeed Insights の単発計測', { retain: { family: 'psi', keepNewest: 5 } }),
   d('rum.web-vitals', 'data/rum/web-vitals/{date}.json', 'series', 'site', '実ユーザーの Web Vitals（GA4 経由）', { retain: { family: 'rum', maxAgeDays: 120 } }),
   d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true, retain: { family: 'cloudflare', maxAgeDays: 120 } }),
+  // 過去問・R2（人とスクリプトが書く作業の台帳。config/ から移した。設定ではなく、取得・削除の進み具合の記録）
+  d('pastexams.inventory', 'data/pastexams/inventory.json', 'ledger', 'product', '過去問の年度の在庫（公式の掲載状態・取得日・PDF の SHA-256 とページ数。取得スクリプトが書き換える）'),
+  d('r2.delete-list', 'data/r2/delete-list.txt', 'ledger', 'ops', 'R2 から消すオブジェクトの一覧（1 行 1 キー。削除済みはコメント行で残す）'),
 
   // ===== data/: 自社で発生した記録 =====
   d('business.measurement', 'data/business/records/measurement-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の計測値', { immutable: true, schema: 'BusinessMeasurement' }),
@@ -275,6 +274,9 @@ export const RETIRED_IDS = {
   'psi.report': 'analysis.psi-report',
   'site.seo-meta': 'analysis.seo-meta',
   'gsc.rank-watch-run': 'gsc.rank-watch',
+  'config.past-exam-inventory': 'pastexams.inventory',
+  'config.pe-first-stage-historical-sources': 'pastexams.inventory',
+  'config.r2-delete-list': 'r2.delete-list',
 };
 
 /** id を台帳のデータセットに解決する（廃止した id は後継へ）。無ければ null */

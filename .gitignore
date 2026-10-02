@@ -57,7 +57,7 @@ _minpo_*.png
 content/sources/textbook/**/*.pdf
 content/sources/textbook/**/*.PDF
 # 公式過去問の原本 PDF（content/sources/past-exams）— 実体は Google Drive vault の past-exam-source-pdf group。
-# 在庫は config/past-exam-inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
+# 在庫は data/pastexams/inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
 content/sources/past-exams/**/*.pdf
 content/sources/past-exams/**/*.PDF
 # PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。

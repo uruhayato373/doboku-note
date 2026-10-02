@@ -3,12 +3,12 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
+import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
  for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','data/business','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
- for(const f of ['business-direction.json','qualification-registry.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
+ for(const f of ['business-direction.json','qualification-registry.json','product-lineup.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'data/business/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
 }
@@ -227,8 +227,8 @@ test('a snapshot taken before note finalization is marked, and its review must s
 test('KDP completeness counts only books live by the end of the month',()=>{
  const entry={range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,books:[{bookId:'A-01',royalty:700},{bookId:'h-02',royalty:50},{bookId:null,royalty:999}]};
  const catalogBooks=[{id:'A-01',status:'live',publishedDate:'2026-07-01'},{id:'h-02',status:'live',publishedDate:'2026-08-20'},{id:'h-01',status:'live',publishedDate:'2026-09-24'},{id:'x-01',status:'draft'}];
- const attribution=[{prefixes:['A-'],qualification:'civil-construction-1'},{prefixes:['h-'],qualification:'rccm'}];
- const facts=kdpMonthFacts({entry,catalogBooks,attribution,qualifications:['civil-construction-1','rccm','pe-construction'],path:'k'});
+ const qualificationOf=id=>id?.startsWith('A-')?'civil-construction-1':id?.startsWith('h-')?'rccm':null;
+ const facts=kdpMonthFacts({entry,catalogBooks,qualificationOf,qualifications:['civil-construction-1','rccm','pe-construction'],path:'k'});
  const all=facts.find(f=>f.qualification==='all');
  assert.equal(all.value,750);assert.equal(all.coverage,'complete');assert.match(all.note,/2\/2 冊/);
  assert.equal(facts.find(f=>f.qualification==='rccm').value,50);
@@ -236,6 +236,36 @@ test('KDP completeness counts only books live by the end of the month',()=>{
  // 月内に LIVE だった本が欠ければ partial のまま。推計値も partial。
  assert.equal(kdpMonthFacts({entry:{...entry,books:[entry.books[0]]},catalogBooks,path:'k'})[0].coverage,'partial');
  assert.equal(kdpMonthFacts({entry:{...entry,estimated:true},catalogBooks,path:'k'})[0].coverage,'partial');
+});
+test('売上・KDP の資格帰属は product-lineup.json の分類を引き、複数資格・未分類・重点資格外は全体だけに含める',()=>{
+ const lineup=JSON.parse(readFileSync(join('config','product-lineup.json'),'utf8'));
+ const focus=direction(process.cwd()).qualifications.map(q=>q.id);
+ const q=lineupQualifier(lineup,focus);
+ // 接頭辞を外した id・article: 付きの id のどちらも 1 つの資格へ
+ assert.equal(q.sale('article:civil-1-keiken-pack-24'),'civil-construction-1');
+ assert.equal(q.sale('civil-1-takuitsu-pdf'),'civil-construction-1');
+ assert.equal(q.sale('article:bk-road-r8'),'pe-construction');
+ assert.equal(q.sale('pe-construction-required-magazine'),'pe-construction');
+ assert.equal(q.sale('article:tankan-oral-x'),'pe-comprehensive-management');
+ assert.equal(q.sale('r8-essay-forecast'),'pe-comprehensive-management');
+ assert.equal(q.sale('article:rccm-essay-x'),'rccm');
+ // 複数資格にまたがる会員商品・どのルールにも当たらない id・重点資格外の資格は null（全体のみ）
+ assert.equal(q.sale('civil-membership-lab'),null);
+ assert.equal(q.sale('membership:civil-membership-lab'),null);
+ assert.equal(q.sale('article:unknown-xyz'),null);
+ assert.equal(q.sale(undefined),null);
+ assert.equal(q.sale('cce-essay-x'),null);
+ // KDP: 書籍 id の接頭辞で重点資格へ。コンクリート系・技術士一次は重点資格外
+ assert.equal(q.book('A-01'),'civil-construction-1');
+ assert.equal(q.book('e-02'),'civil-construction-1');
+ assert.equal(q.book('f-01'),'pe-comprehensive-management');
+ assert.equal(q.book('c-03'),'pe-construction');
+ assert.equal(q.book('h-01'),'rccm');
+ assert.equal(q.book('g-01'),null);
+ assert.equal(q.book('d-01'),null);
+ assert.equal(q.book('zz-9'),null);
+ // 重点資格の指定が変われば帰属も変わる（資格 id の写しを持たない）
+ assert.equal(lineupQualifier(lineup,['rccm']).sale('article:civil-1-keiken-pack-24'),null);
 });
 test('coconala DM dates resolve the year from the fetch date and refuse relative or time-only labels',()=>{
  assert.equal(coconalaDmDate('9月1日','2026-09-23'),'2026-09-01');

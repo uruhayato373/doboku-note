@@ -3,16 +3,11 @@
   "zoneName": "doboku-note.com",
   "graphql": "https://api.cloudflare.com/client/v4/graphql",
   "rest": "https://api.cloudflare.com/client/v4",
-  "settingsWatched": [],
   "rulesetPhases": [
     "http_request_cache_settings",
     "http_response_compression",
     "http_request_firewall_managed",
     "http_request_dynamic_redirect",
     "http_request_firewall_custom"
-  ],
-  "analytics": {
-    "windowDays": 7,
-    "topPaths": 50
-  }
+  ]
 }

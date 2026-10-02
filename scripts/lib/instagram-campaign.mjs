@@ -1,10 +1,10 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
-import { datasetPath } from './datasets.mjs';
 import { IG_DESIGN, instagramRendererDigest } from './instagram-video-design.mjs';
 
-export const CAMPAIGN_PATH = datasetPath('config.instagram-campaign');
+// 計画（112 テーマの制作対象・投稿順・配信間隔・配信の許可）は設定ではなく制作物の台帳なので content/ に置く（X の月次計画と同じ）
+export const CAMPAIGN_PATH = 'content/sns/instagram/campaign.json';
 export const sha256 = value => createHash('sha256').update(value).digest('hex');
 export const json = path => JSON.parse(readFileSync(path, 'utf8'));
 export function validateCampaign(plan) {

@@ -8,7 +8,7 @@
   },
   "templates": {
     "version": 2,
-    "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
+    "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は .claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
     "templates": {
       "mono-tag": {
         "name": "Mono Tag（T06）",
