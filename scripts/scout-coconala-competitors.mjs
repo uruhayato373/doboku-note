@@ -30,9 +30,10 @@ import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, 'config/coconala-competitors.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.coconala-competitors'));
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright が管理する Chromium と runner の一時 profile を使う。
 // ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。
@@ -91,7 +92,7 @@ async function scrapeSeller(page, handle) {
 /** market-research.json（検索由来・正確抽出）から seller 名一致のサービスを引く。
  *  profile の nickname と label/config の label を突き合わせる（正規化して部分一致）。 */
 function loadMarketServices() {
-  const p = join(ROOT, 'data/coconala/market-research.json');
+  const p = join(ROOT, datasetPath('coconala.market-research'));
   if (!existsSync(p)) return [];
   try {
     const j = JSON.parse(readFileSync(p, 'utf-8'));

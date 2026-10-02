@@ -26,13 +26,14 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, isAbsolute, join } from "node:path";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..", "..");
 
 const args = process.argv.slice(2);
 const hi = args.indexOf("--history");
-const HISTORY = hi >= 0 && args[hi + 1] ? args[hi + 1] : "data/gsc/index-coverage.json";
+const HISTORY = hi >= 0 && args[hi + 1] ? args[hi + 1] : datasetPath("gsc.index-coverage-history");
 
 /** URL Inspection の 1 日上限 2,000 に対する安全マージン（index-coverage.yml の head -n と一致させる）。 */
 const INSPECT_CAP = 1900;

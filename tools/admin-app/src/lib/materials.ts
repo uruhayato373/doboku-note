@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * サイドバーの「教材一覧」の下に並べる教材（棚＝shelf ごと、短い表示名＝shortTitle）。
@@ -7,7 +8,7 @@ import { repoPath } from './repo-root';
  */
 export function materialsNav(): { shelf: string; items: { id: string; label: string }[] }[] {
   try {
-    const reg = JSON.parse(readFileSync(repoPath('config/reference-sources.json'), 'utf8')) as {
+    const reg = JSON.parse(readFileSync(repoPath(datasetPath('config.reference-sources')), 'utf8')) as {
       sources: { id: string; class: string; shortTitle?: string; shelf?: string }[];
     };
     const shelves = new Map<string, { id: string; label: string }[]>();

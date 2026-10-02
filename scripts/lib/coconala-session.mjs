@@ -23,12 +23,13 @@ import { todayJst } from './jst-date.mjs';
 import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
+import { datasetPath } from './datasets.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（check-coconala-blog 等・CI の
 // quality-audit）まで CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
 export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
-export const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
+export const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 export const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

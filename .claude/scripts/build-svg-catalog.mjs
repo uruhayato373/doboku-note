@@ -17,12 +17,13 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve, join, relative } from 'node:path';
 import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { datasetPath } from '../../scripts/lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..', '..');
 const POSTS = SITE_CONTENT_ROOT;
 const AUDIT = join(ROOT, '.claude', 'state', 'svg-audit.json');
-const CANVAS_CFG = join(ROOT, 'config', 'figure-canvas.json');
+const CANVAS_CFG = join(ROOT, datasetPath('config.figure-canvas'));
 const OUT = join(ROOT, '.claude', 'state', 'svg-catalog.json');
 
 // --- 固定キャンバス標準（figure-canvas-policy）。figure-*.svg の適合判定に使う ---

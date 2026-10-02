@@ -19,8 +19,9 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fetchWeeklyNsmMetrics, formatNsmSection } from '#lib/metrics-reader.mjs';
+import { datasetDir } from '../../scripts/lib/datasets.mjs';
 
-const OUT_DIR = 'data/business/weekly';
+const OUT_DIR = datasetDir('business.weekly');
 const INDEX_PATH = join(OUT_DIR, 'index.json');
 
 // ── ISO 8601 週番号計算 ────────────────────────────────────────

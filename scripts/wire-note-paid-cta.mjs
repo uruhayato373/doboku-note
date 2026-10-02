@@ -32,10 +32,11 @@
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = 'content/note';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
-const CFG = JSON.parse(readFileSync('config/note-funnel.json', 'utf8'));
+const CFG = JSON.parse(readFileSync(datasetPath('config.note-funnel'), 'utf8'));
 
 const APPLY = process.argv.includes('--apply');
 const CHECK = process.argv.includes('--check');

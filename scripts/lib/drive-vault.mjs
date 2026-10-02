@@ -25,9 +25,10 @@ import { homedir } from 'node:os';
 import { dirname, join, sep } from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { REPO_ROOT } from './repository-paths.mjs';
+import { datasetPath } from './datasets.mjs';
 import { loadReferenceSources, transcriptDirsForSource } from './reference-sources.mjs';
 
-export const DRIVE_CONFIG_PATH = join(REPO_ROOT, 'config/drive-vault.json');
+export const DRIVE_CONFIG_PATH = join(REPO_ROOT, datasetPath('config.drive-vault'));
 export const DRIVE_MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/drive-manifest.json');
 
 /** vault 相対パスは常に '/' 区切り・NFC。Windows の '\\' と macOS の NFD を寄せる。 */

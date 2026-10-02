@@ -35,7 +35,7 @@ import { assertSiteOrThrow } from '../../scripts/lib/asp-site-guard.mjs';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-const CONFIG_PATH = join(ROOT, 'config/affiliate-asp.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.affiliate-asp'));
 const TAG = '[fetch-afb-outcomes]';
 
 const DAY = 86_400_000;

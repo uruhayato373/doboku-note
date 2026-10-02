@@ -17,6 +17,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -25,7 +26,7 @@ function parseArgs() {
     date: null,
     sitemapCount: null,
     notes: "",
-    history: "data/gsc/index-coverage.json",
+    history: datasetPath("gsc.index-coverage-history"),
   };
   for (let i = 0; i < a.length; i++) {
     switch (a[i]) {

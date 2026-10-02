@@ -15,6 +15,7 @@
  *   - assertTargetSiteRow : サイト別レポートに doboku-note 行があるかの確認
  */
 import { readFileSync, existsSync } from "node:fs";
+import { datasetPath } from "./datasets.mjs";
 
 import {
   launchContext,
@@ -45,7 +46,7 @@ export {
   startStatusTicker,
 };
 
-export const A8_CONFIG_PATH = "config/a8-report-automation.json";
+export const A8_CONFIG_PATH = datasetPath("config.a8-report-automation");
 
 export function loadA8Config() {
   const cfg = JSON.parse(readFileSync(A8_CONFIG_PATH, "utf-8"));

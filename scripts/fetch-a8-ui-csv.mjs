@@ -428,7 +428,7 @@ async function main() {
         console.log("  button(visible):");
         for (const b of pp.buttons.filter((b) => b.visible)) console.log(`    ${JSON.stringify(b)}`);
       }
-      console.log("  → この出力を見て config/a8-report-automation.json の a8.periodForm を確定する");
+      console.log(`  → この出力を見て ${datasetPath("config.a8-report-automation")} の a8.periodForm を確定する`);
       console.log("     （レポートにより期間フォームの粒度が異なる。どれを操作するかは推測しない）");
     }
 

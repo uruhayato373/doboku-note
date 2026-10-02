@@ -4,6 +4,7 @@ import {
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { membershipState, statusSnapshot, STALE_DAYS } from '@/lib/note-status';
+import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -124,7 +125,7 @@ export default function NoteStatusPage() {
               <StatusBadge tone="bad">未分類 {m.unclassified.length} 種</StatusBadge>{' '}
               {m.unclassified.map((u) => `${u.label}(${u.count})`).join('、')}
               <br />
-              <code>config/note-magazine-membership.json</code> の{' '}
+              <code>{datasetPath('config.note-magazine-membership')}</code> の{' '}
               <code>labels</code> / <code>packs</code> / <code>excluded</code>{' '}
               のどれかへ登録する（未分類のまま放置すると、そのラベルは検査の射程外になる）。
             </p>
@@ -150,7 +151,7 @@ export default function NoteStatusPage() {
           {!s.ok ? (
             <>
               <StatusBadge tone="bad">未取得</StatusBadge>{' '}
-              <code>data/note/status.json</code> が読めません。
+              <code>{datasetPath('note.status')}</code> が読めません。
               記事別のライブ公開状態は<strong>判定していません</strong>。
               週次 note-live-audit.yml が供給します（管理画面はライブ API を叩きません）。{s.error}
             </>

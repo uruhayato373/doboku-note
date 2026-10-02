@@ -16,7 +16,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { videoStatusToStage } from './content-lifecycle.mjs';
 
-const CONFIG_PATH = 'config/video-content.json';
+const CONFIG_PATH = 'config/video-content.json'; // path-literal-ok: tests/video-publication-check.test.mjs が lib を単体で tmp にコピーして走らせる（datasets.mjs・zod が解決できない）
 
 export function loadConfig(root) {
   return JSON.parse(readFileSync(join(root, CONFIG_PATH), 'utf8'));

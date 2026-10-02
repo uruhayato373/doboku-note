@@ -38,9 +38,10 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CONFIG_PATH = join(ROOT, 'config/workflow-health.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.workflow-health'));
 
 /**
  * gh run list を JSON で取る。
@@ -220,7 +221,7 @@ function main() {
   for (const r of bad) console.error(`  ${r.name}  ${r.detail}`);
   console.error(
     '\n赤が続いている／動いていない workflow がある。run のログを見て原因を潰す。'
-    + '\n閾値そのものを変えるときは config/workflow-health.json に理由を書く。',
+    + `\n閾値そのものを変えるときは ${datasetPath('config.workflow-health')} に理由を書く。`,
   );
   process.exit(1);
 }

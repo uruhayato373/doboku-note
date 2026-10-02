@@ -19,9 +19,10 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkReply } from './lib/tensaku-reply-guards.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const LIMITS_PATH = join(ROOT, 'config/keiken-answer-sheet-limits.json');
+const LIMITS_PATH = join(ROOT, datasetPath('config.keiken-answer-sheet-limits'));
 const TAG = '[check-tensaku-reply]';
 
 const argv = process.argv.slice(2);

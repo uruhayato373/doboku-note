@@ -24,7 +24,6 @@ const { google } = require('googleapis');
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 
 const LEDGER = '.claude/state/youtube-schedule.json';
-const LOG = 'data/youtube/posted.jsonl';
 const DRY = process.argv.includes('--dry-run');
 const maxIdx = process.argv.indexOf('--max');
 const MAX_OVERRIDE = maxIdx !== -1 ? Number(process.argv[maxIdx + 1]) : null;
@@ -118,6 +117,8 @@ function reloadLedger() {
 }
 
 async function main() {
+  const { datasetPath } = await import('../../../scripts/lib/datasets.mjs');
+  const LOG = datasetPath('youtube.posted');
   const now = Date.now();
   const due = ledger.items
     .filter((it) => it.status === 'pending' && new Date(it.publishAt).getTime() <= now + LEAD_MS)

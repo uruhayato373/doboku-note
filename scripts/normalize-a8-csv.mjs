@@ -33,7 +33,7 @@ import {
 const STATE_DIR = datasetDir("a8.ui-raw");
 const REPORT_LOG = datasetPath("a8.report-log");
 const RESULTS = datasetPath("a8.results");
-const CONFIG_PATH = "config/a8-report-automation.json";
+const CONFIG_PATH = datasetPath("config.a8-report-automation");
 
 /** reportKey → a8-report-log.json 内の配列名とキー関数。 */
 const BUCKET = {

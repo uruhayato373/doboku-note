@@ -39,10 +39,11 @@
 import { readdirSync, readFileSync, statSync, existsSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const BASE = 'content/note';
-const CONFIG = 'config/note-price-consistency.json';
+const CONFIG = datasetPath('config.note-price-consistency');
 
 const argv = process.argv.slice(2);
 const staged = argv.includes('--staged');

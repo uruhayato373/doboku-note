@@ -13,9 +13,10 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const LOG = join(ROOT, "data/note/sales.json");
+const LOG = join(ROOT, datasetPath("note.sales"));
 const MILESTONE = 15000; // Web 月収マイルストーン（iOS 着手判断トリガー）
 
 const yen = (n) => "¥" + n.toLocaleString("en-US");

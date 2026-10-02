@@ -15,9 +15,10 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const CONFIG_PATH = join(ROOT, 'config/keiken-answer-sheet-limits.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.keiken-answer-sheet-limits'));
 
 const args = process.argv.slice(2);
 const asJson = args.includes('--json');

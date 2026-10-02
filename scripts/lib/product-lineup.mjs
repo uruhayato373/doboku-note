@@ -13,16 +13,17 @@ import { fileURLToPath } from 'node:url';
 
 import { loadExamStages } from './exam-stages.mjs';
 import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
+import { datasetPath } from './datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const LINEUP_CONFIG_PATH = join(ROOT, 'config/product-lineup.json');
+export const LINEUP_CONFIG_PATH = join(ROOT, datasetPath('config.product-lineup'));
 
 /**
  * product-lineup.json を読み、マスの資格（registry の展開中の資格・名前と並び順も registry）と
  * 各資格の試験区分（exam-formats.json の stages）を付けて返す
  */
 export function loadLineupConfig(root = ROOT) {
-  const config = JSON.parse(readFileSync(join(root, 'config/product-lineup.json'), 'utf8'));
+  const config = JSON.parse(readFileSync(join(root, datasetPath('config.product-lineup')), 'utf8'));
   return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
 }
 

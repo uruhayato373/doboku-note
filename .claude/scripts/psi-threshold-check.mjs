@@ -17,9 +17,9 @@
 
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
-import { datasetDir } from "../../scripts/lib/datasets.mjs";
+import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 
-const CONFIG_PATH = "config/psi-config.json";
+const CONFIG_PATH = datasetPath("config.psi-config");
 const DEFAULT_STATE_DIR = datasetDir("psi.batch");
 
 function parseArgs() {

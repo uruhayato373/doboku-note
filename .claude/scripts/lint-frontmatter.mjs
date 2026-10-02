@@ -27,6 +27,7 @@ import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 import { pathToFileURL } from 'node:url';
+import { datasetPath } from '../../scripts/lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
@@ -43,7 +44,7 @@ const PUBLISHED_AT_YEAR_MAX = 2030;
 const TITLE_SUFFIX = '｜doboku-note';
 let TITLE_MAX = 70;
 try {
-  const _seo = JSON.parse(readFileSync(join(ROOT, 'config/seo-meta-config.json'), 'utf8'));
+  const _seo = JSON.parse(readFileSync(join(ROOT, datasetPath('config.seo-meta-config')), 'utf8'));
   if (_seo?.thresholds?.title?.max_length) TITLE_MAX = _seo.thresholds.title.max_length;
 } catch { /* seo-meta-config が無ければ 70 でフォールバック */ }
 

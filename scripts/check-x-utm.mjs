@@ -26,6 +26,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { blankTweetMemos } from './lib/x-tweets-md.mjs';
 import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 if (process.env.SKIP_X_UTM === '1') {
   console.log('[check-x-utm] SKIP_X_UTM=1 のためスキップ');
@@ -91,7 +92,7 @@ if (problems.length) {
   console.error(`[check-x-utm] ✗ UTM 規約違反の X 送客リンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
   console.error('\n対処: X の送客リンクは https://doboku-note.com/exam/{資格}/{種別}/{slug}?utm_source=x&utm_medium=social&utm_campaign={施策}&utm_content={post|pinned} にする。');
-  console.error('真実源: config/utm-templates.json（x.post）／.claude/knowledge/reference/x-post-policy.md §6。');
+  console.error(`真実源: ${datasetPath('config.utm-templates')}（x.post）／.claude/knowledge/reference/x-post-policy.md §6。`);
   console.error('（既存違反のバーンダウン中は SKIP_X_UTM=1 で一時回避可）');
   process.exit(1);
 }

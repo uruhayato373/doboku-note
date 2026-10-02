@@ -30,6 +30,7 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import dotenv from "dotenv";
 import { SPAM_REFERRAL_SOURCES } from "./lib/ga4-client.mjs";
 
@@ -65,7 +66,7 @@ const SOURCE_LIKE_DIMENSIONS = ["sessionSource", "sessionSourceMedium"];
 // ハードコードせず、真実源の channels[].source をユニーク化して返す。
 function getSnsSources() {
   try {
-    const cfg = JSON.parse(readFileSync("config/utm-templates.json", "utf-8"));
+    const cfg = JSON.parse(readFileSync(datasetPath("config.utm-templates"), "utf-8"));
     const sources = Object.values(cfg.channels || {})
       .map((c) => c.source)
       .filter(Boolean);

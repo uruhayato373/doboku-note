@@ -20,7 +20,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
-import { datasetFiles, datasetPath } from './lib/datasets.mjs';
+import { datasetDir, datasetFiles, datasetPath } from './lib/datasets.mjs';
 import { listReports } from './lib/metric-reports.mjs';
 import {
   buildResolver,
@@ -35,7 +35,7 @@ import {
 } from './lib/site-to-sales.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const OUT_DIR = 'data/business/records';
+const OUT_DIR = datasetDir('business.site-to-sales');
 
 const args = process.argv.slice(2);
 const flag = (name) => args.includes(name);

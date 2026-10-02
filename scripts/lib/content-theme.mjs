@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { loadExamStages } from './exam-stages.mjs';
+import { datasetPath } from './datasets.mjs';
 
 export const UNCLASSIFIED = null;
 /** 区分に分ける資格で、どの区分にも決まらない制作物の区分 id（例 civil-construction-1:common） */
@@ -18,8 +19,8 @@ export const COMMON_STAGE = 'common';
 
 /** テーマの一覧（id → { id, label, kind }）とチャネルごとのルールを読む。 */
 export function loadThemes(root) {
-  const cfg = JSON.parse(readFileSync(join(root, 'config/content-themes.json'), 'utf8'));
-  const registry = JSON.parse(readFileSync(join(root, 'config/qualification-registry.json'), 'utf8'));
+  const cfg = JSON.parse(readFileSync(join(root, datasetPath('config.content-themes')), 'utf8'));
+  const registry = JSON.parse(readFileSync(join(root, datasetPath('config.qualification-registry')), 'utf8'));
   return buildThemes(cfg, registry, loadExamStages(root));
 }
 

@@ -30,9 +30,10 @@ import {
   isExcludedGroup,
   extractFrontmatterFields,
 } from './lib/year-staleness.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const CHECK_MODE = process.argv.includes('--check');
-const CALENDAR_PATH = 'config/exam-calendar.json';
+const CALENDAR_PATH = datasetPath('config.exam-calendar');
 const SCAN_DIR = 'content/site';
 const SCAN_EXT = /\.mdx?$/;
 
