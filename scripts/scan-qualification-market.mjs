@@ -172,7 +172,7 @@ if (CHANNELS.has('note')) {
 }
 
 if (CHANNELS.has('coconala')) {
-  const researchPath = join(ROOT, 'data/coconala/market-research.json');
+  const researchPath = join(ROOT, datasetPath('coconala.market-research'));
   const research = existsSync(researchPath) ? JSON.parse(readFileSync(researchPath, 'utf8')) : { queries: [] };
   const done = new Set(research.queries.filter((q) => q.complete).map((q) => q.keyword));
   const todo = coconalaKeywords.filter((k) => !done.has(k));

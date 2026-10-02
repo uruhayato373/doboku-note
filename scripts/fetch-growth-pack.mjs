@@ -27,11 +27,12 @@ import { addDays, GSC_FINAL_LAG_DAYS, jst } from './lib/business-direction.mjs';
 import { packPeriods, foldLanding, foldEvents, foldGsc } from './lib/growth-pack.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
+import { datasetDir } from './lib/datasets.mjs';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[growth-pack]';
-const OUT_DIR = 'data/analysis/growth';
+const OUT_DIR = datasetDir('analysis.growth-pack');
 const CONFIG = 'config/growth-cycle.json';
 const args = process.argv.slice(2);
 const argValue = (name) => {

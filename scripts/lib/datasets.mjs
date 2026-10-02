@@ -379,6 +379,31 @@ export function datasetFiles(root, id) {
 /** 最新のファイル（無ければ null） */
 export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
 
+// ---- コードの直書きの検出（check-datasets が使う） ----------------------------------
+
+/**
+ * data/ のパスを直書きしてよいファイル。台帳そのものと、追記だけの台帳に残る旧パスを読み替える対応表。
+ * それ以外のコードは datasetPath・datasetDir・datasetFiles・latestFile で台帳から引く。
+ */
+export const DATA_PATH_LITERAL_ALLOW = ['scripts/lib/datasets.mjs', 'scripts/lib/repository-paths.mjs'];
+
+/**
+ * 1 行の中の data/ パスの直書き（`'data/note/sales.json'`・`${ROOT}/data/…`・`/^data\/…/`・`join(ROOT, 'data', 'note')`）。
+ * `public/data/…` や URL の `/data/…` は data/ 置き場ではないので拾わない。
+ * 行頭がコメント（// ・ * ・ /*）の行と、行末の ` // ` 以降は読まない（説明文にパスを書くのはよい）。
+ * 移す前の旧パスを読み替えるなど、台帳に無いパスをあえて書く行は行末に `// data-path-literal-ok: 理由` を付ける。
+ */
+const DATA_PATH_LITERAL = /(?:(?<![\w.\-/\\])|(?<=\}\/))data\\?\/[A-Za-z0-9_{$-]|['"`]data['"`]\s*,\s*['"`]/g;
+export function findDataPathLiterals(source) {
+  const hits = [];
+  source.split('\n').forEach((line, i) => {
+    if (/^\s*(\/\/|\*|\/\*)/.test(line) || /data-path-literal-ok:\s*\S/.test(line)) return;
+    const code = line.replace(/\s\/\/\s.*$/, '');
+    for (const m of code.matchAll(DATA_PATH_LITERAL)) hits.push({ line: i + 1, text: code.slice(m.index, m.index + 60).trim() });
+  });
+  return hits;
+}
+
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));
 

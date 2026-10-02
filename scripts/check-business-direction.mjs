@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { direction, records, validateRecord, buildReport, hash, strategyForRecord, RECORDS } from './lib/business-direction.mjs';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 try {
   const root = process.cwd(), config = direction(root), rows = records(root);
   const errors = [];
@@ -32,7 +33,7 @@ try {
   for (const f of changes) if (old.has(f)) errors.push(`${f}: 過去記録は変更・削除できません。訂正を追記してください`);
   const watch = JSON.parse(readFileSync('config/seo-watchwords.json','utf8'));
   if (watch.strategy.focusSource !== 'config/business-direction.json' || watch.strategy.focusQualifications) errors.push('SEOの重点資格はbusiness-directionだけを参照してください');
-  const experiments = JSON.parse(readFileSync('data/business/experiments.json','utf8')).experiments;
+  const experiments = JSON.parse(readFileSync(datasetPath('business.experiments'),'utf8')).experiments;
   for (const e of experiments.filter(e => e.businessContext)) {
     const b = e.businessContext;
     if (!['all', ...config.qualifications.map(q => q.id)].includes(b.qualification) || !config.metrics.some(m => m.id === b.metricId) || !b.readerNeed?.trim() || !b.verifiedGap?.trim() || !rows.some(r => r.kind === 'review' && r.file === resolveMovedPath(b.reviewRecord))) errors.push(`${e.id}: businessContextの資格・指標・レビュー参照を確認してください`);

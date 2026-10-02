@@ -7,7 +7,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { latestFile } from './datasets.mjs';
+import { datasetPath, latestFile } from './datasets.mjs';
 
 export const COMPETITOR_CHANNELS = ['note', 'x', 'ig', 'coconala', 'youtube'];
 /** 市場スキャンの台帳の id。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
@@ -51,8 +51,8 @@ const readIf = (path) => (existsSync(path) ? readJson(path) : null);
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
   const config = (name) => readJson(join(root, 'config', name));
-  const salesLog = readIf(join(root, 'data/note/sales.json'));
-  const orderLog = readIf(join(root, 'data/coconala/orders.json'));
+  const salesLog = readIf(join(root, datasetPath('note.sales')));
+  const orderLog = readIf(join(root, datasetPath('coconala.orders')));
   /** @type {Record<string, any[]>} */
   const competitors = {};
   for (const ch of COMPETITOR_CHANNELS) {
@@ -71,6 +71,6 @@ export function loadMarketInputs(root) {
     orders: Array.isArray(orderLog) ? orderLog : (orderLog?.orders ?? []),
     competitors,
     snapshot: latestMarketSnapshot(root),
-    coconalaResearch: readIf(join(root, 'data/coconala/market-research.json')),
+    coconalaResearch: readIf(join(root, datasetPath('coconala.market-research'))),
   };
 }

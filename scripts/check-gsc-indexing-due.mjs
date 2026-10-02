@@ -27,7 +27,7 @@ const priority = existsSync(pPath) ? JSON.parse(readFileSync(pPath, "utf8")) : n
 const requestRuns = existsSync(hPath) ? JSON.parse(readFileSync(hPath, "utf8")).runs ?? [] : [];
 
 const verdict = evaluateIndexingDue({ priority, requestRuns, thresholdDays });
-const command = "npm run gsc-indexing:request -- --file data/gsc/indexing-priority.txt（ローカル・Google ログイン必須・10 件/回）";
+const command = `npm run gsc-indexing:request -- --file ${datasetPath("gsc.indexing-priority-list")}（ローカル・Google ログイン必須・10 件/回）`;
 const result = { channel: "gsc-indexing", label: "GSC 登録リクエスト", generatedAt: priority?.generatedAt ?? null, thresholdDays, ...verdict, command };
 
 if (JSON_OUT) {

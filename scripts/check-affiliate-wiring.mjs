@@ -18,9 +18,10 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const MATS = "src/config/affiliate-mats.json";
-const CATALOG = "data/affiliate/catalog.json";
+const CATALOG = datasetPath("affiliate.catalog");
 const A8_CONFIG = "config/a8-report-automation.json";
 const ASP_CONFIG = "config/affiliate-asp.json";
 const CONSUMER = ".claude/scripts/report-buildjob-affiliate.mjs";

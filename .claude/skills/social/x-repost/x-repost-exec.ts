@@ -17,6 +17,7 @@
 import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
+import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
@@ -27,7 +28,7 @@ const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 const STATE_DIR = path.join(PROJECT_ROOT, ".claude/state/x-repost");
 // 設定は config/、引用リポストの実績は data/、候補・承認・停止スイッチはエージェントの作業状態として .claude/state（2026-10-02 分離）
 const CONFIG_PATH = path.join(PROJECT_ROOT, "config/x-repost.json");
-const LOG_PATH = path.join(PROJECT_ROOT, "data/x/reposted.json");
+const LOG_PATH = path.join(PROJECT_ROOT, datasetPath("x.reposted"));
 const APPROVED_PATH = path.join(STATE_DIR, "approved.json");
 const PAUSED_PATH = path.join(STATE_DIR, "PAUSED");
 

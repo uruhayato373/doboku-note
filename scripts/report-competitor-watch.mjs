@@ -19,7 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { latestFile } from './lib/datasets.mjs';
+import { datasetPath, latestFile } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -43,7 +43,7 @@ function readJson(rel) {
 
 const latestSnapshot = latestFile(ROOT, 'coconala.competitors');
 const snapshot = latestSnapshot ? readJson(latestSnapshot) : null;
-const research = readJson('data/coconala/market-research.json');
+const research = readJson(datasetPath('coconala.market-research'));
 const config = readJson('config/coconala-competitors.json');
 const account = readJson('config/coconala-account.json');
 if (!snapshot?.competitors || !research?.queries || !config?.competitors) {

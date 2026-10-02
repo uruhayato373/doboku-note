@@ -25,6 +25,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { setNoteStatus } from './lib/note-status.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -161,7 +162,7 @@ const result = {
 };
 
 if (SNAPSHOT) {
-  const out = join(ROOT, 'data/note/status.json');
+  const out = join(ROOT, datasetPath('note.status'));
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, `${JSON.stringify({ fetchedAt: new Date().toISOString(), ...result }, null, 2)}
 `);

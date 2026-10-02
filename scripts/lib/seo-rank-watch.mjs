@@ -4,6 +4,7 @@ import { appendFileSync, existsSync, readFileSync, readdirSync, mkdirSync, write
 import { join } from 'node:path';
 import { addDays, calendarDate, getDateRange } from './gsc-date-range.mjs';
 import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates, selectionKey } from './seo-watch-strategy.mjs';
+import { datasetDir, datasetPath } from './datasets.mjs';
 
 export class WatchError extends Error {}
 
@@ -16,12 +17,12 @@ export function readWatchConfig(root) {
   return validateConfig(config);
 }
 export const CONFIG = 'config/seo-watchwords.json';
-export const LEDGER = 'data/business/experiments.json';
+export const LEDGER = datasetPath('business.experiments');
 /**
  * 計測（watch-…）と判断（run-…）の記録。月ごとの追記ファイル data/gsc/rank-watch/<YYYY-MM>.jsonl に 1 行 1 件。
  * 行は {"recordId": "watch-<時刻>-<短い id>", ...中身}。参照は「ファイル#recordId」。書いた行は変えない（追記だけ）。
  */
-export const HISTORY = 'data/gsc/rank-watch';
+export const HISTORY = datasetDir('gsc.rank-watch');
 const monthFileOf = (recordId) => `${HISTORY}/${recordId.match(/-(\d{4}-\d{2})-\d{2}T/)[1]}.jsonl`;
 
 /** 記録を古い順に返す（prefix は watch- か run-）。返す各件は中身＋file（「ファイル#recordId」） */

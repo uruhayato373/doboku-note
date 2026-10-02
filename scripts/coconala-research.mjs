@@ -43,14 +43,15 @@
  */
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
-const OUT_DIR = join(ROOT, 'data/coconala');
-const OUT_PATH = join(OUT_DIR, 'market-research.json');
-const SUMMARY_PATH = join(OUT_DIR, 'market-summary.json');
+const OUT_PATH = join(ROOT, datasetPath('coconala.market-research'));
+const SUMMARY_PATH = join(ROOT, datasetPath('coconala.market-summary'));
+const OUT_DIR = dirname(OUT_PATH);
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright 管理の Chromium と runner の一時 profile（scout-coconala-competitors.mjs と同じ）。
 const PROFILE = IS_CI
@@ -144,7 +145,7 @@ function buildSummary(result) {
     version: 1,
     generatedAt: new Date().toISOString(),
     fetchedAt: result.fetchedAt,
-    source: 'data/coconala/market-research.json',
+    source: datasetPath('coconala.market-research'),
     note: 'エージェント参照用の派生 SSOT。生データは source を read。再生成: npm run coconala-research -- --summary-only',
     keywords: (result.queries || []).map((q) => {
       const s = q.services || [];

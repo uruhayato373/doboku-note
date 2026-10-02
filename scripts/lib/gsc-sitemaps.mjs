@@ -6,8 +6,9 @@
  * 送るべき sitemap の真実源は本番 robots.txt の `Sitemap:` 行（sitemap.xml と期限内の sitemap-legacy.xml）。
  * ---------------------------------------------------------------------------
  */
+import { datasetPath } from "./datasets.mjs";
 
-export const SITEMAPS_STATE = "data/gsc/sitemaps.json";
+export const SITEMAPS_STATE = datasetPath("gsc.sitemaps");
 
 /** robots.txt の `Sitemap:` 行を絶対 URL の配列で返す（重複除去・出現順）。 */
 export function parseRobotsSitemaps(text) {

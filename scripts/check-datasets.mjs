@@ -7,11 +7,15 @@
  *      （planned に CI のボットが初めて書いたときは警告だけにする。無関係な PR を赤くしない）
  *   3. id・種類・領域が正しい（id の重複・KINDS に無い種類・domains.json に無い領域は違反）
  *   4. 型（zod）のあるデータセットは、全ファイルが型に合う
+ *   5. コード（scripts/・tools/・src/・.claude/）は data/ のパスを直書きせず、台帳から datasetPath などで引く
+ *      （置き場を移したとき直書きが旧パスのまま残り、読めずに黙って空を返す不具合を止める）
  * 検査したファイル数を出し、1 件も読めなければ検査不成立（exit 2）。違反は exit 1。
  */
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATASETS, KINDS, listAreaFiles, matchFiles, validateFiles } from './lib/datasets.mjs';
+import { AREAS, DATA_PATH_LITERAL_ALLOW, DATASETS, KINDS, findDataPathLiterals, listAreaFiles, matchFiles, validateFiles } from './lib/datasets.mjs';
 import { loadDomains } from './lib/domains.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -45,12 +49,22 @@ for (const x of typed) {
   for (const e of r.errors) errors.push(`${e.file}: 型（${x.id}）に合わない — ${e.message}`);
 }
 
+const CODE_ROOTS = ['scripts', 'tools', 'src', '.claude'];
+const codeFiles = execFileSync('git', ['-C', ROOT, '-c', 'core.quotepath=false', 'ls-files', '-z', '--', ...CODE_ROOTS], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  .split('\0')
+  .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !DATA_PATH_LITERAL_ALLOW.includes(f));
+for (const f of codeFiles) {
+  for (const h of findDataPathLiterals(readFileSync(join(ROOT, f), 'utf8'))) {
+    errors.push(`${f}:${h.line}: data/ のパスを直書きしている（台帳から datasetPath・datasetDir で引く）— ${h.text}`);
+  }
+}
+
 const count = (pred) => DATASETS.filter(pred).length;
 console.log(
-  `[check-datasets] 設定とデータ ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 違反 ${errors.length} 件`,
+  `[check-datasets] 設定とデータ ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 直書きの走査 ${codeFiles.length} ファイル / 違反 ${errors.length} 件`,
 );
-if (files.length === 0) {
-  console.error('✗ 検査不成立: config/・data/ のファイルを 1 件も読めなかった');
+if (files.length === 0 || codeFiles.length === 0) {
+  console.error(`✗ 検査不成立: ${files.length === 0 ? 'config/・data/ のファイル' : '直書きを走査するコード'}を 1 件も読めなかった`);
   process.exit(2);
 }
 for (const w of warnings) console.log(`  ! ${w}`);
@@ -58,4 +72,4 @@ if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合う）');
+console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに data/ の直書きが無い）');

@@ -40,6 +40,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
+import { datasetDir, datasetPath } from './datasets.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -789,7 +790,7 @@ function readVideoStatus(rootDir, todayKey) {
 }
 
 function readExperiments(rootDir, todayKey) {
-  const relPath = 'data/business/experiments.json';
+  const relPath = datasetPath('business.experiments');
   return readSource('experiments', 'experiment', relPath, () => {
     const json = readJsonFile(join(rootDir, relPath));
     const list = Array.isArray(json) ? json : (json.experiments ?? Object.values(json));
@@ -798,7 +799,7 @@ function readExperiments(rootDir, todayKey) {
 }
 
 function readBusinessReviews(rootDir, todayKey) {
-  const relDir = 'data/business/records';
+  const relDir = datasetDir('business.review');
   return readSource('business-review', 'review', relDir, () => {
     const reviews = readdirSync(join(rootDir, relDir))
       .filter((f) => /^review-.*\.json$/.test(f))

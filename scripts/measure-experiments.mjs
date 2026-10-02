@@ -22,14 +22,15 @@ import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
 import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
 import { buildContentIndex } from './build-growth-digest.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[measure-experiments]';
-const LEDGER = 'data/business/experiments.json';
-const SALES = 'data/note/sales.json';
+const LEDGER = datasetPath('business.experiments');
+const SALES = datasetPath('note.sales');
 
 async function ga4Value(ga4, spec, windows) {
   const ranges = [{ ...windows.pre, name: 'pre' }, { ...windows.post, name: 'post' }];

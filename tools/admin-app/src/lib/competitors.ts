@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { datasetFiles } from '../../../../scripts/lib/datasets.mjs';
+import { datasetFiles, datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { listedCoconalaServices } from '../../../../src/lib/coconala-services';
 import { findRepoRoot } from './repo-root';
 
@@ -154,7 +154,7 @@ const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1
 function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   const listed = listedCoconalaServices();
   const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
-  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders.json'));
+  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, datasetPath('coconala.orders')));
   const orders = Array.isArray(log) ? log : (log?.orders ?? []);
   const recent = baseDate ? orders.filter((o) => o.date >= baseDate) : [];
   const sum = (xs: { priceYen?: number }[]) => xs.reduce((n, o) => n + (o.priceYen ?? 0), 0);

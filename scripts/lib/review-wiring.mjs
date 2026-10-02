@@ -12,6 +12,7 @@ import { join } from 'node:path';
 import { pendingItems } from './growth-triage.mjs';
 import { extractWeeklyHandoffItems, parseRouting } from './handoff-extraction.mjs';
 import { records } from './business-direction.mjs';
+import { datasetDir } from './datasets.mjs';
 
 export const CONFIG = '.claude/config/review-wiring.json';
 export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'routing', 'weeklyPlan', 'checks', 'none'];
@@ -21,7 +22,7 @@ export const EVIDENCE = ['reviewRecord', 'sections', 'triage', 'reportFile', 'ro
  * 置き場は事業の記録と同じく追記だけ（check-business-direction が既存ファイルの変更・削除を止める）なので、
  * 取り直すたびに時刻付きのファイルを足し、回ごとに ranAt が最新のものを読む。
  */
-export const CHECKS_DIR = 'data/business/records';
+export const CHECKS_DIR = datasetDir('business.checks-monthly');
 export const checksFileName = (cadenceId, runKey, ranAt) => `checks-${cadenceId}-${runKey}-${ranAt.replace(/[:.]/g, '-')}.json`;
 const CHECKS_SECTION_RE = /^##\s+点検と Issue\s*$/;
 
@@ -251,7 +252,7 @@ export function buildProcedureView(root, cadenceId, { reviews = [], runKey = nul
     },
     triage: () => {
       if (pastRun) return { state: 'manual', note: '前の回は確かめない（いまの状態しか残らない）' };
-      const dir = join(root, 'data/analysis/growth');
+      const dir = join(root, datasetDir('analysis.growth-digest'));
       const digestName = existsSync(dir) ? readdirSync(dir).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort().at(-1) : null;
       if (!digestName) return { state: 'missing', note: '計測ダイジェストが無い' };
       const digest = JSON.parse(readFileSync(join(dir, digestName), 'utf8'));

@@ -21,8 +21,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 import { loadAspConfig, getAsp, openAsp, ensureTargetSite, visibleText, dumpFailure } from "./lib/asp-browser.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
-const CATALOG = "data/affiliate/catalog.json";
+const CATALOG = datasetPath("affiliate.catalog");
 
 function parseArgs() {
   const a = process.argv.slice(2);

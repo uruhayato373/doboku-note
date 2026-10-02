@@ -52,12 +52,13 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
-const SNAPSHOT_PATH = join(ROOT, 'data/note/magazines.json');
+const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 
 /** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。 */
 const STALE_DAYS = 9;

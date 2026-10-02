@@ -8,6 +8,7 @@ import { PageHead } from '@/components/ui';
 import { channelById, type AdminChannelId } from '@/lib/channel-registry';
 import { loadLedgerView, type LedgerRow } from '@/lib/ledger';
 import { ctaDrift, drift, inState, jst, STATES } from '@/lib/ledger-status';
+import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { DriftBadge } from './drift-badge';
 
 export const dynamic = 'force-dynamic';
@@ -26,7 +27,7 @@ const yen = (n: number) => `¥${n.toLocaleString('ja-JP')}`;
 /** 販売列。note の有料記事・マガジンだけ数える。販売ログを読めないときは 0 件ではなく「?」 */
 function SalesCell({ r, salesOk }: { r: LedgerRow; salesOk: boolean }) {
   if (r.channel !== 'note' || r.price === '無料') return <>—</>;
-  if (!salesOk) return <StatusBadge tone="bad" title="data/note/sales.json を読めない">?</StatusBadge>;
+  if (!salesOk) return <StatusBadge tone="bad" title={`${datasetPath('note.sales')} を読めない`}>?</StatusBadge>;
   if (!r.sales) return <span className="text-muted-foreground">0</span>;
   return <span className="text-foreground" title={`最後に売れた日 ${r.sales.lastDate}`}>{r.sales.count} 件 {yen(r.sales.revenue)}</span>;
 }
@@ -138,7 +139,7 @@ export default async function LedgerPage({ searchParams }: { searchParams: Promi
             <TableHead className="hidden xl:table-cell">テーマ</TableHead>
             <TableHead className="hidden lg:table-cell" title="note 記事のカバー画像を用途別に管理する分類">カバー分類</TableHead>
             <TableHead>価格</TableHead>
-            <TableHead title="note の販売履歴（data/note/sales.json）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日">販売</TableHead>
+            <TableHead title={`note の販売履歴（${datasetPath('note.sales')}）の累計。マガジンは id、単品記事は題名で照合。マウスで最後に売れた日`}>販売</TableHead>
             <TableHead>状態</TableHead>
             <TableHead title="公開ページが正本どおりか。note＝原稿の本文・タグ（同期の判定）／ココナラ＝タイトル・キャッチコピー・本文・販売状態（公開ページの照合）。済／ずれ（マウスで理由）／止＝反映できない／?＝照合していない">本文</TableHead>
             <TableHead title="note＝カバー画像が原稿どおりか／ココナラ＝承認済みの POP 画像が登録されているか">画像</TableHead>

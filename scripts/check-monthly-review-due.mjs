@@ -18,9 +18,10 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { datasetDir } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const REVIEW_DIR = join(ROOT, 'data/business/records');
+const REVIEW_DIR = join(ROOT, datasetDir('business.review'));
 export const DUE_DAY = 3;
 
 /**
