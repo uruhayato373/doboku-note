@@ -15,6 +15,7 @@ import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { getDefaults, uncoveredCategoryBooks } from './lib/kdp-common.mjs'
+import { datasetPath } from './lib/datasets.mjs'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json')
@@ -32,7 +33,7 @@ console.log(`[check-kdp-category-coverage] ${targets.length} 冊を実検査 / �
 
 if (uncovered.length) {
   console.error(`  未登録（提出すると警告なく既定 gijutsushi[技術士] へ入稿される）: ${uncovered.join(', ')}`)
-  console.error('  config/kdp-memo.json の defaults.categoryAssign に接頭辞を追加すること')
+  console.error(`  ${datasetPath('config.kdp-memo')} の defaults.categoryAssign に接頭辞を追加すること`)
   process.exit(1)
 }
 

@@ -35,6 +35,7 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
@@ -285,7 +286,7 @@ try {
       if (!bodyt.includes(want)) { console.error(`ABORT: account "${want}" が本棚に見当たらない（誤アカウント防止）`); await shot(page, '01b-account'); await ctx.close(); process.exit(2); }
       console.log(`[1b] account assert OK (${want})`);
     } else {
-      console.log(`[1b] account assert スキップ（検出=${detected || '不明'}）。有効化するには config/kdp-memo.json defaults.accountEmail を設定`);
+      console.log(`[1b] account assert スキップ（検出=${detected || '不明'}）。有効化するには ${datasetPath('config.kdp-memo')} defaults.accountEmail を設定`);
     }
   }
 

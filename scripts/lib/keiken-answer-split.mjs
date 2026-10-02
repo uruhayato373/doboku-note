@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { basename, dirname, extname, join, relative, sep } from 'node:path';
 import { strFromU8, unzipSync } from 'fflate';
+import { datasetPath } from './datasets.mjs';
 
 export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/note/1級・2級土木', label: 'note（1級・2級土木）' },
@@ -12,7 +13,7 @@ export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/kindle', label: 'Kindle' },
   { kind: 'dir', path: '.claude/agents', label: 'エージェント定義' },
   { kind: 'dir', path: 'docs', label: 'docs' },
-  { kind: 'file', path: 'config/coconala-listings.json', label: 'ココナラ出品 SSOT' },
+  { kind: 'file', path: datasetPath('config.coconala-listings'), label: 'ココナラ出品 SSOT' },
 ];
 
 const TEXT_EXTENSIONS = new Set(['.md', '.mdx', '.json', '.txt', '.yaml', '.yml']);
@@ -361,5 +362,5 @@ export function analyzeDocuments(documents, limits) {
 }
 
 export function loadLimits(root) {
-  return JSON.parse(readFileSync(join(root, 'config/keiken-answer-sheet-limits.json'), 'utf8'));
+  return JSON.parse(readFileSync(join(root, datasetPath('config.keiken-answer-sheet-limits')), 'utf8'));
 }

@@ -26,6 +26,7 @@
 import { collect, loadConfig } from './disk-hygiene.mjs';
 import { bytesHuman, formatTable, summarize } from './lib/disk-hygiene.mjs';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 // session-start.mjs は import して run({ argv: ['--quick'], quiet: true }) を呼ぶ（DN-0236・子の node を立てない）
 export async function run({ argv = [], quiet = false } = {}) {
@@ -38,7 +39,7 @@ export async function run({ argv = [], quiet = false } = {}) {
   try {
     config = loadConfig();
   } catch (e) {
-    out.error(`[check-disk-hygiene] ✗ 設定を読めない（config/disk-hygiene.json）: ${e.message}`);
+    out.error(`[check-disk-hygiene] ✗ 設定を読めない（${datasetPath('config.disk-hygiene')}）: ${e.message}`);
     out.error('[check-disk-hygiene] 検査不成立（検査 0 件）。緑にしない。');
     return out.result(2);
   }

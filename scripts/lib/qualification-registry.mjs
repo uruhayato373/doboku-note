@@ -10,8 +10,9 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
-export const REGISTRY_PATH = 'config/qualification-registry.json';
+export const REGISTRY_PATH = datasetPath('config.qualification-registry');
 
 export function loadRegistry(root) {
   return JSON.parse(readFileSync(join(root, REGISTRY_PATH), 'utf8'));

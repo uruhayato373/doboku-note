@@ -7,6 +7,7 @@ import { pathToFileURL } from 'node:url';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
 import { readReportRef } from './lib/metric-reports.mjs';
 import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun, hasRecord } from './lib/seo-rank-watch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 export function observationViolations(before, after, changedPaths, getContent) {
   const errors = [];
@@ -40,11 +41,11 @@ function main() {
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const get = (path) => staged ? git(['show', `:${path}`]) : readFileSync(join(root, path), 'utf8');
   const raw = JSON.parse(get(CONFIG));
-  if (raw.strategy.focusSource !== 'config/business-direction.json' || raw.strategy.focusQualifications) throw new Error('Use business direction as qualification SSOT');
+  if (raw.strategy.focusSource !== datasetPath('config.business-direction') || raw.strategy.focusQualifications) throw new Error('Use business direction as qualification SSOT');
   raw.strategy.focusQualifications = JSON.parse(get(raw.strategy.focusSource)).qualifications.map(q => q.id);
   const config = validateConfig(raw), ledger = JSON.parse(get(LEDGER)), errors = [];
   const ids = new Set();
-  const calendar = JSON.parse(get('config/exam-calendar.json'));
+  const calendar = JSON.parse(get(datasetPath('config.exam-calendar')));
   for (const w of config.watchwords) {
     if (!existsSync(join(root, w.contentPath))) errors.push(`Missing article: ${w.contentPath}`);
     if (!calendar.exams[w.qualification] || (w.examEvent && !calendar.exams[w.qualification].events[w.examEvent])) errors.push(`${w.id}: qualification/calendar event is missing`);

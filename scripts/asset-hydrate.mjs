@@ -28,6 +28,7 @@ import {
   cachePathFor, cacheDirFor, sha256File, fileBytes, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { downloadVerified } from './lib/verified-download.mjs';
 import { acquireLock } from './lib/local-resources.mjs';
 
@@ -93,7 +94,7 @@ async function main() {
   console.log('  復元予定容量 MiB : ' + mib(restoreBytes));
   if (!DRY && restoreBytes > maxBytes) throw new Error('Restore exceeds limit: narrow --path or explicitly raise --max-mib');
   const disk = statfsSync(REPO_ROOT);
-  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, 'config/local-resources.json'), 'utf8'));
+  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.local-resources')), 'utf8'));
   const reserveBytes = (process.env.CI ? 1 : resourcePolicy.minFreeDiskGiB) * 1073741824;
   if (!DRY && disk.bavail * disk.bsize < restoreBytes * 2 + reserveBytes) throw new Error('Insufficient free disk for restore');
 

@@ -23,8 +23,9 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { buildPayload, classifyResponse, parseSitemap, selectRecentlyModified } from "./lib/indexnow.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
-const CONFIG = "config/indexnow.json";
+const CONFIG = datasetPath("config.indexnow");
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry-run");
 const di = args.indexOf("--days");

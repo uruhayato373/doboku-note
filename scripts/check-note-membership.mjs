@@ -33,9 +33,10 @@ import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CFG = join(ROOT, 'config/note-membership.json');
+const CFG = join(ROOT, datasetPath('config.note-membership'));
 const LIVE = process.argv.includes('--live');
 if (!existsSync(CFG)) { console.error(`[check-note-membership] FAIL: config が無い: ${CFG}`); process.exit(1); }
 const cfg = JSON.parse(readFileSync(CFG, 'utf8'));

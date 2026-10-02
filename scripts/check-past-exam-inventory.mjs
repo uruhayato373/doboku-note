@@ -19,9 +19,10 @@ import { join, posix } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-vault.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const NAME = 'check-past-exam-inventory';
-const INVENTORY_PATH = 'config/past-exam-inventory.json';
+const INVENTORY_PATH = datasetPath('config.past-exam-inventory');
 const DRIVE_GROUP = 'past-exam-source-pdf';
 const OFFICIAL = ['listed', 'removed', 'never', 'unknown'];
 const KINDS = ['question', 'answer']; // 公式の問題と正答・解答例だけ。第三者の解答・解説・模擬試験は教材側（過去問解説/）
@@ -95,8 +96,8 @@ function main() {
   let inventory, formats, calendar, driveCfg, manifest;
   try {
     inventory = JSON.parse(readFileSync(join(REPO_ROOT, INVENTORY_PATH), 'utf8'));
-    formats = JSON.parse(readFileSync(join(REPO_ROOT, 'config/exam-formats.json'), 'utf8'));
-    calendar = JSON.parse(readFileSync(join(REPO_ROOT, 'config/exam-calendar.json'), 'utf8'));
+    formats = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-formats')), 'utf8'));
+    calendar = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-calendar')), 'utf8'));
     driveCfg = loadDriveConfig();
     manifest = loadDriveManifest();
   } catch (e) {

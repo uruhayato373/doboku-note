@@ -28,21 +28,22 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { checkPauseReasons, findOverdueResume, resolveThumb } from './lib/coconala-guards.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
-const ACCOUNT_PATH = join(ROOT, 'config/coconala-account.json');
-const ORDERS_PATH = join(ROOT, 'data/coconala/orders.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
-const SALES_PATH = join(ROOT, 'data/note/sales.json');
-const LISTINGS_PATH = join(ROOT, 'config/coconala-listings.json');
+const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
+const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
+const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
+const SALES_PATH = join(ROOT, datasetPath('note.sales'));
+const LISTINGS_PATH = join(ROOT, datasetPath('config.coconala-listings'));
 const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
@@ -59,12 +60,12 @@ if (staged) {
   const relevant = changed.split('\n').some(
     (p) =>
       p.includes('src/lib/coconala-services.ts') ||
-      p.includes('data/coconala/') ||
-      p.includes('config/coconala-account.json') ||
-      p.includes('config/coconala-listings.json') ||
+      p.includes(`${dirname(datasetPath('coconala.orders'))}/`) ||
+      p.includes(datasetPath('config.coconala-account')) ||
+      p.includes(datasetPath('config.coconala-listings')) ||
       // note の値上げでココナラが価格ルールの下限を割るのも検知する
       p.includes('src/lib/note-magazines.ts') ||
-      p.includes('data/note/sales.json') ||
+      p.includes(datasetPath('note.sales')) ||
       p.includes('scripts/check-coconala-wiring.mjs')
   );
   if (!relevant) process.exit(0); // ココナラに無関係な commit → スキップ
@@ -170,7 +171,7 @@ for (const o of findOverdueResume(catalog, today)) {
 const account = readJson(ACCOUNT_PATH);
 if (listed.length > 0) {
   if (!account || account.__parseError) {
-    violations.push('listed サービスがあるのに config/coconala-account.json が読めません');
+    violations.push(`listed サービスがあるのに ${datasetPath('config.coconala-account')} が読めません`);
   } else if (!account.profileUrl) {
     violations.push(
       'listed サービスがあるのに coconala-account.json の profileUrl が空（出品済みならアカウント SSOT を埋める）'
@@ -192,7 +193,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJson(join(ROOT, 'config/coconala-thumb-approved.json'))?.images ?? {};
+const approvedThumbs = readJson(join(ROOT, datasetPath('config.coconala-thumb-approved')))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
@@ -250,7 +251,7 @@ const priceAt = (svc, date) => {
   return hist.find((h) => typeof date === 'string' && date <= h.until)?.priceYen ?? svc.priceYen;
 };
 const orders = readJson(ORDERS_PATH);
-if (orders?.__parseError) violations.push(`data/coconala/orders.json が JSON として壊れています: ${orders.__parseError}`);
+if (orders?.__parseError) violations.push(`${datasetPath('coconala.orders')} が JSON として壊れています: ${orders.__parseError}`);
 else if (orders) {
   for (const [i, o] of (orders.orders ?? []).entries()) {
     const svc = byId.get(o.serviceId);
@@ -287,7 +288,7 @@ else if (orders) {
 
 // 2. kpi.json の serviceId 実在
 const kpi = readJson(KPI_PATH);
-if (kpi?.__parseError) violations.push(`data/coconala/kpi.json が JSON として壊れています: ${kpi.__parseError}`);
+if (kpi?.__parseError) violations.push(`${datasetPath('coconala.kpi')} が JSON として壊れています: ${kpi.__parseError}`);
 else if (kpi) {
   for (const [i, w] of (kpi.weekly ?? []).entries()) {
     if (!byId.has(w.serviceId)) {
@@ -348,8 +349,8 @@ if (violations.length) {
   console.error('[check-coconala-wiring] ✗ ココナラの配線ドリフトを検出:');
   for (const v of violations) console.error(`  - ${v}`);
   console.error('');
-  console.error('対処: src/lib/coconala-services.ts（カタログ SoT）と data/coconala/*.json、');
-  console.error('      data/note/sales.json の整合を取ってください。');
+  console.error(`対処: src/lib/coconala-services.ts（カタログ SoT）と ${dirname(datasetPath('coconala.orders'))}/*.json、`);
+  console.error(`      ${datasetPath('note.sales')} の整合を取ってください。`);
   console.error('      運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
   process.exit(1);
 }

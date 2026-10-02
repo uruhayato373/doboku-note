@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod } from '../../../../scripts/lib/business-direction.mjs';
 import { buildGate } from '../../../../scripts/lib/backlog-gate.mjs';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { monthlyReadiness } from '../../../../scripts/lib/monthly-review-readiness.mjs';
 
 type StepState = 'done' | 'waiting' | 'todo' | 'human';
@@ -39,10 +40,10 @@ function loadPlan() {
   return monthlyReadiness({
     period,
     today,
-    salesMonths: readJson(root, 'data/note/sales.json')?.months ?? {},
-    trafficFetchedAt: readJson(root, `data/note/referrers/${month}.json`)?.fetchedAt ?? null,
+    salesMonths: readJson(root, datasetPath('note.sales'))?.months ?? {},
+    trafficFetchedAt: readJson(root, datasetPath('note.referrers', { month }))?.fetchedAt ?? null,
     cells: report.cells,
-    kdpMonth: readJson(root, 'data/kdp/royalties.json')?.months?.[month] ?? null,
+    kdpMonth: readJson(root, datasetPath('kdp.royalties'))?.months?.[month] ?? null,
     gate,
     experiments: report.experiments,
     due: (report.due as { cadence: string; record: string | null }[]).find((x) => x.cadence === 'monthly') ?? null,

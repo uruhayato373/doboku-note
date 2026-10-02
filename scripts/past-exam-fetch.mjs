@@ -16,9 +16,10 @@ import { tmpdir } from 'node:os';
 import { dirname, join, posix } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const NAME = 'past-exam-fetch';
-export const INVENTORY_PATH = join(REPO_ROOT, 'config/past-exam-inventory.json');
+export const INVENTORY_PATH = join(REPO_ROOT, datasetPath('config.past-exam-inventory'));
 
 /** 取得対象（sourceUrl があり未取得）を列挙する（純関数）。 */
 export function pendingFiles(inventory, { exam = null, year = null } = {}) {

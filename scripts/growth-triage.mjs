@@ -28,14 +28,15 @@ import { nextId, backlogGitLog } from './backlog-edit.mjs';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { readWatchConfig, validateConfig } from './lib/seo-rank-watch.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, buildWatch, pendingItems } from './lib/growth-triage.mjs';
 
 const TAG = '[growth-triage]';
-const GROWTH = 'data/analysis/growth';
-const LOG = `${GROWTH}/triage-log.json`;
+const GROWTH = datasetDir('analysis.growth-pack');
+const LOG = datasetPath('analysis.growth-triage');
 const BACKLOG = '.claude/todo/backlog.md';
-const LEDGER = 'data/business/experiments.json';
-const WATCH = 'config/seo-watchwords.json';
+const LEDGER = datasetPath('business.experiments');
+const WATCH = datasetPath('config.seo-watchwords');
 const args = process.argv.slice(2);
 const argValue = (name) => {
   const i = args.indexOf(name);

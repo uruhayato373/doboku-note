@@ -38,11 +38,12 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { datasetPath } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const CONFIG_PATH = join(ROOT, 'config/note-magazine-membership.json');
+const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
 
 const STAGED = process.argv.includes('--staged');
 

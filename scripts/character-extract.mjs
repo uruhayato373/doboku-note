@@ -21,6 +21,7 @@
 import { execSync } from 'node:child_process';
 import { readdirSync, statSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
+import { datasetPath } from './lib/datasets.mjs';
 
 function arg(name, def = undefined) {
   const i = process.argv.indexOf(`--${name}`);
@@ -99,4 +100,4 @@ for (const s of staged) {
   console.log(`  ${s.src} → ${s.name}.png`);
 }
 console.log(`\n保存完了: ${staged.length}枚 → ${outDir}`);
-console.log('次: config/character-poses.json に poses を追記し、verified を確認すること。');
+console.log(`次: ${datasetPath('config.character-poses')} に poses を追記し、verified を確認すること。`);

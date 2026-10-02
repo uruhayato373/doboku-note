@@ -7,8 +7,9 @@ import { migrationStorage } from './lib/youtube-migration-storage.mjs';
 import { inspectPlaylists, auditReplacement, updateReplacementThumbnail, activateReplacement, deleteOldReplacement } from './lib/youtube-migration-finalize.mjs';
 import { scheduleReplacement } from './lib/youtube-delivery-schedule.mjs';
 import { runDelivery } from './lib/youtube-delivery.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
-const config = JSON.parse(readFileSync('config/youtube-delivery.json'));
+const config = JSON.parse(readFileSync(datasetPath('config.youtube-delivery')));
 const commit = process.env.APPLY_DELIVERY === 'true';
 let storage;
 const json = value => Buffer.from(JSON.stringify(value));

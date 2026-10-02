@@ -25,11 +25,12 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[check-coconala-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SNAP_PATH = join(ROOT, 'data/coconala/analytics.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
+const SNAP_PATH = join(ROOT, datasetPath('coconala.analytics'));
+const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 
 const argMaxAge = process.argv.indexOf('--max-age-days');
@@ -120,7 +121,7 @@ function main() {
 
   // 5-6. kpi.json 側
   if (!existsSync(KPI_PATH)) {
-    fail('data/coconala/kpi.json が無い');
+    fail(`${datasetPath('coconala.kpi')} が無い`);
   } else {
     const kpi = JSON.parse(readFileSync(KPI_PATH, 'utf8'));
     const weekly = kpi.weekly || [];

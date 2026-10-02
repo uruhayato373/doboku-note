@@ -31,7 +31,7 @@ import { datasetPath, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const CONFIG = join(ROOT, "config/career-funnel.json");
+const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 

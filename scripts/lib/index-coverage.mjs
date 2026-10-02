@@ -9,13 +9,13 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { datasetDir } from './datasets.mjs';
+import { datasetDir, datasetPath } from './datasets.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 
-const HISTORY = 'data/gsc/index-coverage.json';
+const HISTORY = datasetPath('gsc.index-coverage-history');
 const BATCH_DIR = datasetDir('gsc.url-inspection');
 /** 履歴に書いたバッチ名 → いまの位置（移す前の名前 inspection-batch-<時刻>.json も読める） */
-const batchFileOf = (name) => (name.startsWith('inspection-') ? resolveMovedPath(`data/metrics/url-inspection/${name}`) : `${BATCH_DIR}/${name}`);
+const batchFileOf = (name) => (name.startsWith('inspection-') ? resolveMovedPath(`data/metrics/url-inspection/${name}`) : `${BATCH_DIR}/${name}`); // path-literal-ok: 移す前の名前を読み替える
 
 /** 検査の履歴（古い順）。無ければ空。 */
 export function indexHistory(root) {

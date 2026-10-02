@@ -19,8 +19,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
+import { datasetPath } from './datasets.mjs';
 
-export const REFERENCE_SOURCES_PATH = join(REPO_ROOT, 'config/reference-sources.json');
+export const REFERENCE_SOURCES_PATH = join(REPO_ROOT, datasetPath('config.reference-sources'));
 export const REFERENCE_BASELINE_PATH = join(REPO_ROOT, '.claude/config/reference-sources-baseline.json');
 export const STANDARDS_CATALOG_PATH = join(REPO_ROOT, 'content/site/standards-library/catalog.json');
 

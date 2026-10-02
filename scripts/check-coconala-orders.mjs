@@ -33,13 +33,14 @@ import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries, inquiryClockMs } from './lib/coconala-guards.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const TAG = '[check-coconala-orders]';
 const ROOT = process.cwd();
-const SNAPSHOT_PATH = join(ROOT, 'data/coconala/orders-snapshot.json');
-const ORDERS_PATH = join(ROOT, 'data/coconala/orders.json');
+const SNAPSHOT_PATH = join(ROOT, datasetPath('coconala.orders-snapshot'));
+const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
 // 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）
-const RESOLVED_PATH = join(ROOT, 'data/coconala/resolved-inquiries.json');
+const RESOLVED_PATH = join(ROOT, datasetPath('coconala.resolved-inquiries'));
 
 const REPLY_WARN_HOURS = 24;      // 返信期限の何時間前から要対応にするか
 const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか
@@ -56,8 +57,8 @@ if (staged) {
     changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 });
   } catch { changed = ''; }
   const relevant = changed.split('\n').some((p) =>
-    p.includes('data/coconala/orders.json') ||
-    p.includes('data/coconala/orders-snapshot.json') ||
+    p.includes(datasetPath('coconala.orders')) ||
+    p.includes(datasetPath('coconala.orders-snapshot')) ||
     p.includes('scripts/check-coconala-orders.mjs')
   );
   if (!relevant) process.exit(0);
@@ -95,7 +96,7 @@ if (!health.ok) {
 }
 const ageDays = health.ageDays;
 if (!log || log.__parseError) {
-  console.error(`${TAG} ✗ data/coconala/orders.json が読めません（${ORDERS_PATH}）`);
+  console.error(`${TAG} ✗ ${datasetPath('coconala.orders')} が読めません（${ORDERS_PATH}）`);
   process.exit(1);
 }
 

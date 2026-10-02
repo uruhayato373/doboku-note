@@ -26,13 +26,14 @@ import { join, dirname, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
 const SHOW = args.includes('--show');
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
 // 既定は1級。2級は --config config/note-intro-standard-civil2.json
-const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : 'config/note-intro-standard.json';
+const CONFIG_PATH = args.includes('--config') ? args[args.indexOf('--config') + 1] : datasetPath('config.note-intro-standard');
 const CONFIG = JSON.parse(readFileSync(join(REPO_ROOT, CONFIG_PATH), 'utf8'));
 const ROOT = join(REPO_ROOT, CONFIG.root);
 const BANNER_SRC = join(REPO_ROOT, 'content/note/共通/著者オーソリティ/img', CONFIG.banner);

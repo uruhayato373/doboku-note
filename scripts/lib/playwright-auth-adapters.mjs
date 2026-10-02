@@ -5,6 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { getServiceEntry } from './playwright-auth-profile.mjs';
+import { datasetPath } from './datasets.mjs';
 
 function readJson(repoRoot, relativePath) {
   return JSON.parse(readFileSync(join(repoRoot, relativePath), 'utf8'));
@@ -34,7 +35,7 @@ export function loadAuthAdapter(serviceId, options) {
     return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: ['dobokunote'] };
   }
   if (serviceId === 'coconala') {
-    const account = readJson(repoRoot, 'config/coconala-account.json');
+    const account = readJson(repoRoot, datasetPath('config.coconala-account'));
     return {
       ...adapter,
       checkUrl: 'https://coconala.com/mypage/services_lists',
@@ -42,7 +43,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'kdp') {
-    const memo = readJson(repoRoot, 'config/kdp-memo.json');
+    const memo = readJson(repoRoot, datasetPath('config.kdp-memo'));
     const accountEmail = memo.defaults?.accountEmail;
     const checkUrl = 'https://kdpreports.amazon.co.jp/dashboard';
     if (!accountEmail) {
@@ -59,12 +60,12 @@ export function loadAuthAdapter(serviceId, options) {
     return { ...adapter, checkUrl, expectedMarkers: [accountEmail], missingAssertReason: null };
   }
   if (serviceId === 'x') {
-    const account = readJson(repoRoot, 'config/x-account.json');
+    const account = readJson(repoRoot, datasetPath('config.x-account'));
     return { ...adapter, expectedMarkers: [`@${account.handle}`] };
   }
 
   if (serviceId === 'instagram') {
-    const account = readJson(repoRoot, 'config/ig-account.json');
+    const account = readJson(repoRoot, datasetPath('config.ig-account'));
     // Business Suite のプランナーは本文にハンドル/ページ名を出さない（アカウント表示は img/aria）。
     // ログイン済みならプランナー URL に asset_id=<Doboku-note ページ ID> が付いてリダイレクトされるので、
     // それを account assert にする（2026-09-21 実測: 旧 marker では常に unknown だった）。
@@ -78,7 +79,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'google') {
-    const config = readJson(repoRoot, 'config/google-console-automation.json');
+    const config = readJson(repoRoot, datasetPath('config.google-console-automation'));
     const property = String(config.gsc?.property ?? '').replace(/^sc-domain:/, '');
     return {
       ...adapter,
@@ -91,7 +92,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'a8') {
-    const config = readJson(repoRoot, 'config/a8-report-automation.json');
+    const config = readJson(repoRoot, datasetPath('config.a8-report-automation'));
     return {
       ...adapter,
       checkUrl: `${config.a8.baseUrl}${config.a8.homePath}`,
@@ -99,7 +100,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'moshimo' || serviceId === 'afb') {
-    const root = readJson(repoRoot, 'config/affiliate-asp.json');
+    const root = readJson(repoRoot, datasetPath('config.affiliate-asp'));
     const asp = root.asps?.[serviceId];
     if (serviceId === 'afb') {
       // 2026-09-21: export（同一プロセスで login→state 取得）を成立させるため supported に。

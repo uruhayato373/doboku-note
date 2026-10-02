@@ -16,6 +16,7 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 import { REGISTRY_PATH, isQualificationRef, qualificationLabel } from './qualification-registry.mjs';
+import { datasetPath } from './datasets.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
@@ -23,8 +24,8 @@ const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
 const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
 const ALIAS_SOURCES = [
   ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],
-  ['config/note-funnel.json', (j) => j.exams],
-  ['config/keiken-answer-sheet-limits.json', (j) => j.grades],
+  [datasetPath('config.note-funnel'), (j) => j.exams],
+  [datasetPath('config.keiken-answer-sheet-limits'), (j) => j.grades],
 ];
 export const ALLOW_MARKER = 'qualification-ssot: allow';
 const CODE_EXT = /\.(mjs|cjs|js|ts|tsx|mts|cts)$/;

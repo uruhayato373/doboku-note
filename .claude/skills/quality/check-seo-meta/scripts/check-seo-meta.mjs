@@ -31,7 +31,7 @@ import {
   runIndexablePageChecks,
 } from "#seo/seo-checks.mjs";
 
-const CONFIG_PATH = "config/seo-meta-config.json";
+const CONFIG_PATH = datasetPath("config.seo-meta-config");
 /** 母集合ガード: 収集 doc URL 数の下限（絶対値・比率）。 */
 const MIN_DOC_URLS = 1000;
 const MIN_DOC_RATIO = 0.9;
