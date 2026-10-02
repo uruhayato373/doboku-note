@@ -148,8 +148,7 @@ export const DATASETS = [
   d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録'),
   d('note.articles-pv', 'data/metrics/note/articles-pv-{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
   d('note.referrers', 'data/metrics/note/referrers-{month}.json', 'series', 'product', 'note の月間の流入元'),
-  d('note.competitors', 'data/note/history/competitors-{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期）'),
-  d('note.competitors-latest', 'data/note/competitors-snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）'),
   // KDP
   d('kdp.royalties', 'data/sales/kdp-royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: KdpRoyalties }),
   // ココナラ
@@ -159,10 +158,8 @@ export const DATASETS = [
   d('coconala.analytics', 'data/coconala/analytics-snapshot.json', 'state', 'product', 'ココナラの出品分析の最新'),
   d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）'),
   d('coconala.thumbnail-rollout', 'data/coconala/thumbnail-rollout-{date}.json', 'evidence', 'product', 'サムネイル差し替えの一回きりの記録'),
-  d('coconala.competitors', 'data/coconala/history/competitors-{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期）'),
-  d('coconala.competitors-latest', 'data/coconala/competitors-snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
-  d('coconala.blog-competitors', 'data/coconala/history/blog-{date}.json', 'series', 'strategy', 'ココナラブログの競合記事'),
-  d('coconala.blog-competitors-latest', 'data/coconala/blog-competitors.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('coconala.competitors', 'data/coconala/competitors/{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期・全社の通常実行だけ）'),
+  d('coconala.blog-competitors', 'data/coconala/blog-competitors/{date}.json', 'series', 'strategy', 'ココナラブログの競合記事'),
   d('coconala.market-research', 'data/coconala/market-research.json', 'state', 'strategy', 'ココナラの市場調査（検索結果の出品）'),
   d('coconala.market-summary', 'data/coconala/market-summary.json', 'state', 'strategy', '同上の要約'),
   // X
@@ -170,11 +167,9 @@ export const DATASETS = [
   d('x.own-posts-latest', 'data/x-metrics/own-posts.json', 'state', 'sns', '同上の最新（履歴の最新と同じ内容）'),
   d('x.publish-log', 'data/sns/x-publish-log.csv', 'ledger', 'sns', 'X の予約投稿の記録'),
   d('x.reposted', 'data/x-repost/reposted-log.json', 'ledger', 'sns', 'X で引用リポストした投稿'),
-  d('x.competitors', 'data/x-competitors/history/competitors-{date}.json', 'series', 'strategy', 'X の競合アカウント'),
-  d('x.competitors-latest', 'data/x-competitors/snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('x.competitors', 'data/x/competitors/{date}.json', 'series', 'strategy', 'X の競合アカウント（全社の通常実行だけ）'),
   // Instagram・YouTube
-  d('instagram.competitors', 'data/ig-competitors/history/competitors-{date}.json', 'series', 'strategy', 'Instagram の競合アカウント'),
-  d('instagram.competitors-latest', 'data/ig-competitors/snapshot.json', 'state', 'strategy', '同上の最新（履歴の最新と同じ内容）'),
+  d('instagram.competitors', 'data/instagram/competitors/{date}.json', 'series', 'strategy', 'Instagram の競合アカウント（全社の通常実行だけ）'),
   d('instagram.insights', 'data/metrics/instagram/ig-insights-{date}.json', 'series', 'sns', 'Instagram のインサイト', { planned: true }),
   d('youtube.posted', 'data/yt-posted-log.jsonl', 'ledger', 'sns', 'YouTube に投稿した動画'),
   // A8・アフィリエイト
@@ -270,8 +265,8 @@ export const DATASETS = [
   d('analysis.buildjob-report', 'data/metrics/affiliate/buildjob-report-latest.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),
   d('analysis.affiliate-opportunities', 'data/metrics/affiliate/opportunities-{date}.json', 'evidence', 'affiliate', '未活用のアフィリエイト案件の調査（文書が引用）'),
   d('analysis.affiliate-research', 'data/metrics/affiliate/research-baseline-{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）'),
-  d('analysis.qualification-market', 'data/market/history/market-{date}.json', 'series', 'strategy', '資格ごとの市場（競合の混み具合）'),
-  d('analysis.civil-service-applicants', 'data/market/civil-service-applicants.json', 'evidence', 'strategy', '公務員土木職の受験者数（文書が引用）'),
+  d('analysis.qualification-market', 'data/analysis/qualification-market/{date}.json', 'series', 'strategy', '資格ごとの市場（競合の混み具合）'),
+  d('analysis.civil-service-applicants', 'data/analysis/civil-service-applicants.json', 'evidence', 'strategy', '公務員土木職の受験者数（文書が引用）'),
   d('analysis.gsc-coverage-diagnosis', 'data/metrics/gsc/coverage-diagnosis-{ts}.json', 'evidence', 'site', 'インデックス未登録の一回きりの診断'),
   d('analysis.gsc-coverage-diagnosis-report', 'data/metrics/gsc/coverage-diagnosis-{ts}.md', 'report', 'site', '同上の報告（読み手なし）'),
   d('analysis.gsc-indexing-memo', 'data/metrics/notes/gsc-indexing-requests-{date}.md', 'report', 'site', 'インデックス申請の手書きメモ（読み手なし）'),
@@ -294,6 +289,21 @@ export function patternOf(path) {
 
 export const areaOf = (dataset) => dataset.path.split('/')[0];
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
+
+/**
+ * 台帳から消した id → 後継の id。ワークフローは id で記録を指すので（scripts/ci-data.mjs）、main の YAML が
+ * 古い id を渡しても止まらないよう、消した id はここへ移して後継に読み替える（tests/ci-data.test.mjs が YAML の id を検査）。
+ */
+export const RETIRED_IDS = {
+  'note.competitors-latest': 'note.competitors',
+  'coconala.competitors-latest': 'coconala.competitors',
+  'coconala.blog-competitors-latest': 'coconala.blog-competitors',
+  'x.competitors-latest': 'x.competitors',
+  'instagram.competitors-latest': 'instagram.competitors',
+};
+
+/** id を台帳のデータセットに解決する（廃止した id は後継へ）。無ければ null */
+export const resolveDataset = (id) => datasetById(id) ?? datasetById(RETIRED_IDS[id]) ?? null;
 
 /** ファイル（リポジトリ相対・/ 区切り）に当たるデータセット。ちょうど 1 つが正しい */
 export const datasetsFor = (file) => DATASETS.filter((x) => patternOf(x.path).test(file));
@@ -342,6 +352,44 @@ export function listAreaFiles(root, area, { tracked = false } = {}) {
   walk(dir);
   return files.sort();
 }
+
+// ---- 読み書き（パスを直書きせず台帳から引く） ---------------------------------------
+
+function mustGet(id) {
+  const x = resolveDataset(id);
+  if (!x) throw new Error(`台帳に無いデータセット: ${id}`);
+  return x;
+}
+
+/**
+ * 書き込み先のパス（リポジトリ相対）。可変部分（{date} など）は values で埋め、台帳の型に合うことを確かめる。
+ * {rev}・{rerun} のように省略できる部分は空文字でよい。
+ */
+export function datasetPath(id, values = {}) {
+  const x = mustGet(id);
+  const p = x.path.replace(/\{([a-z*]+)\}/g, (m, k) => {
+    if (!(k in values)) throw new Error(`${id}: ${m} の値が要る（${x.path}）`);
+    return String(values[k]);
+  });
+  if (!patternOf(x.path).test(p)) throw new Error(`${id}: ${p} は台帳の型 ${x.path} に合わない`);
+  return p;
+}
+
+/** パスの可変部分の手前のディレクトリ（可変部分が無ければパスそのもの） */
+export function datasetDir(id) {
+  const { path } = mustGet(id);
+  const i = path.indexOf('{');
+  return i < 0 ? path : path.slice(0, path.lastIndexOf('/', i));
+}
+
+/** データセットのファイル（リポジトリ相対・新しい順＝名前の降順。手元の git 管理外も含む） */
+export function datasetFiles(root, id) {
+  const x = mustGet(id);
+  return matchFiles(listAreaFiles(root, areaOf(x))).byId.get(id) ?? [];
+}
+
+/** 最新のファイル（無ければ null） */
+export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
 
 /** その置き場に宣言のある領域 id（ファイルを読まない・サイドバー用） */
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));

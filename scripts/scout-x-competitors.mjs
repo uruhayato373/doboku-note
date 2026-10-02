@@ -24,7 +24,8 @@
  * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process';
-import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
@@ -32,9 +33,6 @@ import { todayJst } from './lib/jst-date.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CONFIG_PATH = join(ROOT, 'config/x-competitors.json');
-const STATE_DIR = join(ROOT, 'data/x-competitors');
-const HISTORY_DIR = join(STATE_DIR, 'history');
-const LATEST_PATH = join(STATE_DIR, 'snapshot.json');
 
 // twitter CLI の解決（agent-reach バックエンド。~/.local/bin を優先）
 const TW = [join(process.env.HOME || '', '.local/bin/twitter'), 'twitter'].find(
@@ -148,21 +146,6 @@ function analyze(comp, now) {
 function todayStamp() {
   return todayJst();
 }
-function loadPreviousSnapshot(todayFile) {
-  let files = [];
-  try {
-    files = readdirSync(HISTORY_DIR).filter((f) => /^competitors-\d{4}-\d{2}-\d{2}\.json$/.test(f));
-  } catch {
-    return null;
-  }
-  const prior = files.filter((f) => f < todayFile).sort();
-  if (prior.length === 0) return null;
-  try {
-    return { file: prior[prior.length - 1], data: JSON.parse(readFileSync(join(HISTORY_DIR, prior[prior.length - 1]), 'utf-8')) };
-  } catch {
-    return null;
-  }
-}
 function computeDrift(current, previous) {
   if (!previous) return { basis: null, entries: [] };
   const prevBy = new Map((previous.data.competitors ?? []).map((c) => [c.handle, c]));
@@ -225,8 +208,7 @@ function main() {
   }
 
   const stamp = todayStamp();
-  const todayFile = `competitors-${stamp}.json`;
-  const previous = PARTIAL ? null : loadPreviousSnapshot(todayFile);
+  const previous = PARTIAL ? null : loadPreviousSnapshot(ROOT, 'x.competitors', stamp);
   const drift = computeDrift(results, previous);
 
   console.log('\n--- 前回比ドリフト ---');
@@ -243,14 +225,8 @@ function main() {
     drift: drift.entries,
     competitors: results,
   };
-  mkdirSync(STATE_DIR, { recursive: true });
-  writeFileSync(LATEST_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-  if (!PARTIAL) {
-    mkdirSync(HISTORY_DIR, { recursive: true });
-    writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: data/x-competitors/history/${todayFile}`);
-  }
-  console.log(`最新ポインタ: ${LATEST_PATH}`);
+  const saved = saveSnapshot(ROOT, 'x.competitors', stamp, snapshot, { partial: PARTIAL });
+  console.log(`\n${PARTIAL ? '部分実行の結果（時系列には残さない）' : '時系列保存'}: ${saved}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed}）→ 分析は competitor-analyst --platform x`);
   process.exit(failed === results.length ? 1 : 0);
 }

@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { add, changedFiles, latest, restore, save, staticPathOf } from '../scripts/ci-data.mjs';
+import { fileURLToPath } from 'node:url';
+import { add, changedFiles, restore, save } from '../scripts/ci-data.mjs';
+import { datasetDir, datasetPath, latestFile, resolveDataset } from '../scripts/lib/datasets.mjs';
 
 const git = (root, ...args) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', '-c', 'core.autocrlf=false', ...args], { cwd: root, encoding: 'utf8' });
 const put = (root, rel, body) => {
@@ -15,7 +17,7 @@ const put = (root, rel, body) => {
 const OLD_PSI = 'data/metrics/psi/psi-batch-2026-09-01T00-00-00.json';
 const NEW_PSI = 'data/metrics/psi/psi-batch-2026-10-01T00-00-00.json';
 const EXPERIMENTS = 'data/experiments.json';
-const NOTE_HISTORY = 'data/note/history/competitors-2026-10-01.json';
+const NOTE_HISTORY = 'data/note/competitors/2026-10-01.json';
 
 /** CI の流れ（書く → 退避 → develop の先頭へ戻す → 書き戻す）を一時リポジトリで再現する */
 function repo() {
@@ -23,7 +25,7 @@ function repo() {
   git(root, 'init', '-q');
   put(root, OLD_PSI, '{"v":1}\n');
   put(root, EXPERIMENTS, '{"v":1}\n');
-  put(root, 'data/note/competitors-snapshot.json', '{"v":1}\n');
+  put(root, 'data/note/status-snapshot.json', '{"v":1}\n');
   put(root, 'content/a.txt', 'a\n');
   git(root, 'add', '-A');
   git(root, 'commit', '-q', '-m', 'init');
@@ -103,13 +105,28 @@ test('add: 無いパスは飛ばし（失敗しない）、削除も stage す�
   }
 });
 
-test('latest・staticPathOf: 台帳からパスを引く', () => {
+test('ワークフローが ci-data に渡す台帳の id は、すべて解決できる（消した id は RETIRED_IDS で後継へ）', () => {
+  const dir = join(dirname(fileURLToPath(import.meta.url)), '..', '.github', 'workflows');
+  const ids = new Set();
+  for (const f of readdirSync(dir).filter((n) => n.endsWith('.yml'))) {
+    const text = readFileSync(join(dir, f), 'utf8');
+    for (const m of text.matchAll(/ci-data\.mjs[^\n]*?--(?:exclude-)?datasets\s+([A-Za-z0-9.,-]+)/g)) for (const id of m[1].split(',')) ids.add(id);
+    for (const m of text.matchAll(/ci-data\.mjs\s+(?:latest|path|put)\s+([A-Za-z0-9.-]+)/g)) ids.add(m[1]);
+  }
+  assert.ok(ids.size >= 10, `ワークフローから id を拾えていない（${ids.size} 件）`);
+  for (const id of ids) assert.ok(resolveDataset(id), `ワークフローの id ${id} が台帳に無い（消すなら RETIRED_IDS に後継を書く）`);
+});
+
+test('latestFile・datasetDir・datasetPath: 台帳からパスを引く', () => {
   const root = repo();
   try {
-    assert.equal(latest(root, 'psi.batch'), NEW_PSI);
-    assert.equal(latest(root, 'gsc.page'), null);
-    assert.equal(staticPathOf('psi.batch'), 'data/metrics/psi');
-    assert.equal(staticPathOf('psi.report'), 'data/metrics/psi/latest-report.md');
+    assert.equal(latestFile(root, 'psi.batch'), NEW_PSI);
+    assert.equal(latestFile(root, 'gsc.page'), null);
+    assert.equal(datasetDir('psi.batch'), 'data/metrics/psi');
+    assert.equal(datasetDir('psi.report'), 'data/metrics/psi/latest-report.md');
+    assert.equal(datasetPath('psi.batch', { ts: '2026-10-01T00-00-00' }), NEW_PSI);
+    assert.throws(() => datasetPath('psi.batch', { ts: 'yesterday' }), /型/);
+    assert.throws(() => datasetPath('psi.batch'), /値が要る/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

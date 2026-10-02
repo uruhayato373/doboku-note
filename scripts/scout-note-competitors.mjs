@@ -11,8 +11,8 @@
  * スクリプト）と判断（Evaluator）の分離。
  *
  * 出力（SSOT）:
- *   - data/note/history/competitors-YYYY-MM-DD.json … 日付つき時系列（コミット）
- *   - data/note/competitors-snapshot.json           … 最新へのポインタ（上書き）
+ *   - data/note/competitors/YYYY-MM-DD.json … 日付つき時系列（台帳 note.competitors・コミット）。最新は時系列の最新を読む
+ *   - 部分実行（--handle・--exam）は時系列に書かず .tmp/note.competitors-partial.json に置く
  * 対象ハンドルは config/note-competitors.json（--handle で ad-hoc 上書き）。
  * 分析記録の真実源は docs/strategy/09_販売チャネル競合分析.md。
  *
@@ -37,17 +37,15 @@
  */
 
 import { spawnSync } from 'node:child_process';
-import { readFileSync, readdirSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
+import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CONFIG_PATH = join(ROOT, 'config/note-competitors.json');
-const STATE_DIR = join(ROOT, 'data/note');
-const HISTORY_DIR = join(STATE_DIR, 'history');
-const LATEST_PATH = join(STATE_DIR, 'competitors-snapshot.json');
 
 const args = process.argv.slice(2);
 function argVal(flag, def) {
@@ -221,21 +219,6 @@ function todayStamp() {
 }
 
 /** 今日より前の最新 history スナップショットを読む（比較対象）。 */
-function loadPreviousSnapshot(todayFile) {
-  let files = [];
-  try {
-    files = readdirSync(HISTORY_DIR).filter((f) => /^competitors-\d{4}-\d{2}-\d{2}\.json$/.test(f));
-  } catch {
-    return null;
-  }
-  const prior = files.filter((f) => f < todayFile).sort();
-  if (prior.length === 0) return null;
-  try {
-    return { file: prior[prior.length - 1], data: JSON.parse(readFileSync(join(HISTORY_DIR, prior[prior.length - 1]), 'utf-8')) };
-  } catch {
-    return null;
-  }
-}
 
 /** 前回比の差分を検出。type = new-entrant|dropped|price|new-product|dormant|revived|cadence。 */
 function computeDrift(current, previous) {
@@ -326,8 +309,7 @@ function main() {
 
   // 前回比ドリフト（部分実行 --handle/--exam 時は履歴を汚さない/比較しない）
   const stamp = todayStamp();
-  const todayFile = `competitors-${stamp}.json`;
-  const previous = PARTIAL ? null : loadPreviousSnapshot(todayFile);
+  const previous = PARTIAL ? null : loadPreviousSnapshot(ROOT, 'note.competitors', stamp);
   const drift = computeDrift(results, previous);
 
   console.log('--- 前回比ドリフト ---');
@@ -350,16 +332,8 @@ function main() {
     competitors: results,
   };
 
-  mkdirSync(STATE_DIR, { recursive: true });
-  // 最新ポインタは常に更新
-  writeFileSync(LATEST_PATH, JSON.stringify(snapshot, null, 2), 'utf-8');
-  // 履歴は config 全社の通常実行時のみ（部分実行 --handle/--exam は全社ベースラインを汚さない）
-  if (!PARTIAL) {
-    mkdirSync(HISTORY_DIR, { recursive: true });
-    writeFileSync(join(HISTORY_DIR, todayFile), JSON.stringify(snapshot, null, 2), 'utf-8');
-    console.log(`\n時系列保存: data/note/history/${todayFile}`);
-  }
-  console.log(`最新ポインタ: ${LATEST_PATH}`);
+  const saved = saveSnapshot(ROOT, 'note.competitors', stamp, snapshot, { partial: PARTIAL });
+  console.log(`\n${PARTIAL ? '部分実行の結果（時系列には残さない）' : '時系列保存'}: ${saved}`);
   console.log(`完了: ${results.length} 社（失敗 ${failed} 社 / ドリフト ${drift.entries.length} 件）`);
   console.log('→ 差別化分析＋09反映パッチは competitor-analyst エージェントに本 JSON を渡す');
   process.exit(failed === results.length ? 1 : 0);
