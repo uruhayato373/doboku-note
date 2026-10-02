@@ -17,6 +17,7 @@ import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import initSqlJs from 'sql.js';
 import { ROOT, SNAPSHOT, loadProducts, articleNoteId, noteKeyOf } from './lib/product-registry.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const argv = process.argv.slice(2);
 const query = argv.includes('--query') ? argv[argv.indexOf('--query') + 1] : null;
@@ -77,7 +78,7 @@ try {
   process.exit(1);
 }
 try {
-  const s = JSON.parse(readFileSync(join(ROOT, 'data', 'sales', 'sales-log.json'), 'utf8'));
+  const s = JSON.parse(readFileSync(join(ROOT, datasetPath('note.sales')), 'utf8'));
   const rows = Array.isArray(s) ? s : (s.sales ?? []);
   n.sales = ins('INSERT INTO sales VALUES (?,?,?,?,?)', rows.map((r) => [r.date ?? null, r.productId ?? null, r.title ?? null, r.type ?? null, r.price ?? null]));
 } catch (e) {

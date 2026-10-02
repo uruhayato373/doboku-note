@@ -134,7 +134,7 @@
         "scripts/verify-note-magazines.mjs"
       ],
       "ledger": [
-        "data/note/magazines-snapshot.json"
+        "data/note/magazines.json"
       ]
     },
     "note.attach-file": {

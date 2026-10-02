@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { normalizeNoteTitle } from '../../../../scripts/lib/business-direction.mjs';
 import { canonicalizeProductId } from '../../../../scripts/lib/sales-normalize.mjs';
 import { ctaProductIdFromSalesProductId } from '../../../../scripts/lib/note-funnel-efficiency.mjs';
@@ -7,7 +8,7 @@ import { MEMBERSHIP_PRODUCTS } from '../../../../scripts/lib/site-to-sales.mjs';
 
 /**
  * sales.ts — 収益実績（読み取り専用）。
- * data/sales/sales-log.json を月次・商品別に集計（tools/admin/lib/sales.mjs 移植）。
+ * data/note/sales.json を月次・商品別に集計（tools/admin/lib/sales.mjs 移植）。
  */
 
 const monthOf = (d: string) => d.slice(0, 7);
@@ -49,7 +50,7 @@ export interface ProductSales { count: number; revenue: number; lastDate: string
 export function loadProductSales(): { byMagazine: Map<string, ProductSales>; articles: (ProductSales & { id: string; titles: string[] })[] } | null {
   let sales: SaleRow[];
   try {
-    sales = (JSON.parse(readFileSync(repoPath('data', 'sales', 'sales-log.json'), 'utf8')) as { sales?: SaleRow[] }).sales ?? [];
+    sales = (JSON.parse(readFileSync(repoPath(datasetPath('note.sales')), 'utf8')) as { sales?: SaleRow[] }).sales ?? [];
   } catch {
     return null;
   }
@@ -112,7 +113,7 @@ export const salesTitleKey = (title: string) => normalizeNoteTitle(title) as str
 export function salesSummary(): SalesSummary {
   let data: { sales?: SaleRow[]; source?: string; updatedAt?: string; currency?: string };
   try {
-    data = JSON.parse(readFileSync(repoPath('data', 'sales', 'sales-log.json'), 'utf8'));
+    data = JSON.parse(readFileSync(repoPath(datasetPath('note.sales')), 'utf8'));
   } catch {
     return { source: null, updatedAt: null, currency: 'JPY', months: [], total: { count: 0, revenue: 0, months: 0 } };
   }

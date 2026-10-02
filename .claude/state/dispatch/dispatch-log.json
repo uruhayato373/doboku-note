@@ -1615,6 +1615,18 @@
       "commit": "b0293f8ed5e5",
       "verification": "npm run check-qualification-ssot（設定の写し0・書き込み先の食い違い0・コードの直書き0）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0497",
+      "at": "2026-10-02",
+      "task": "scheduled-publish の git add が移動前のパスで黙って失敗する（CI の X 投稿を再開する前に直す）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0007479c44ce",
+      "verification": "main の scheduled-publish.yml が scripts/ci-data.mjs add で無いパスを飛ばし、2>/dev/null || true を外した（#821・main 782445504）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

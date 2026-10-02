@@ -5,10 +5,10 @@
  * 値を写し持たない（写しは古くなる）。
  *   - 出題形式・過去問の公開範囲 … exam-formats.json
  *   - 受験者数 … exam-stats.json ／ 試験日 … exam-calendar.json ／ 買われる時期の週数 … annual-roadmap.json
- *   - 自社の売上 … data/sales/sales-log.json と coconala/orders-log.json を
+ *   - 自社の売上 … data/note/sales.json と data/coconala/orders.json を
  *     product-lineup.json（salesRules・rules）で「資格 × 区分」へ写す
  *   - 誰を追跡するか … {note,x,ig,coconala,youtube}-competitors.json（exams は資格 id）
- *   - 市場の混み具合 … market-scan.json の検索語で取った data/market/history/market-*.json の最新（YouTube・note）
+ *   - 市場の混み具合 … market-scan.json の検索語で取った data/analysis/qualification-market/*.json の最新（YouTube・note）
  *     と data/coconala/market-research.json（ココナラ）
  * 呼び出し元: scripts/report-qualification-market.mjs（npm run qualification-market）・
  * scripts/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。

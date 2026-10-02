@@ -8,7 +8,7 @@
  * その失敗・停止の backstop。X はログイン済み個人セッションが
  * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。
  *
- * 判定: 各チャネルの history/ の最新 competitors-YYYY-MM-DD.json（market は market-YYYY-MM-DD.json）の日付から経過日数
+ * 判定: 各チャネルの時系列（台帳 <取得元>.competitors・market は analysis.qualification-market）の最新の日付から経過日数
  *       >= しきい値（既定90日）で DUE。履歴が無ければ DUE(初回)。
  *
  * 使い方:
@@ -20,21 +20,21 @@
  * ---------------------------------------------------------------------------
  */
 
-import { readdirSync } from 'node:fs';
+import { latestFile } from './lib/datasets.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
-// チャネル → history ディレクトリ（既存 note/coconala は専用dir、X/IG は機能スコープdir）
+// チャネル → 時系列の台帳の id
 const PLATFORMS = {
-  note: { dir: 'data/note/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
-  coconala: { dir: 'data/coconala/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
-  x: { dir: 'data/x-competitors/history', review: '/competitor-review --platform x' },
-  ig: { dir: 'data/ig-competitors/history', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  note: { dataset: 'note.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform note で意味分析' },
+  coconala: { dataset: 'coconala.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
+  x: { dataset: 'x.competitors', review: '/competitor-review --platform x' },
+  ig: { dataset: 'instagram.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
-  market: { dir: 'data/market/history', prefix: 'market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
+  market: { dataset: 'analysis.qualification-market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
 };
 
 const args = process.argv.slice(2);
@@ -44,17 +44,9 @@ const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 90 : 9
 const pi = args.indexOf('--platform');
 const ONLY = pi >= 0 && args[pi + 1] ? args[pi + 1] : null;
 
-function latestScanDate(dir, prefix = 'competitors') {
-  const re = new RegExp(`^${prefix}-(\\d{4}-\\d{2}-\\d{2})\\.json$`);
-  let files = [];
-  try {
-    files = readdirSync(join(ROOT, dir)).filter((f) => re.test(f));
-  } catch {
-    return null;
-  }
-  if (files.length === 0) return null;
-  const dates = files.map((f) => f.match(/(\d{4}-\d{2}-\d{2})/)[1]).sort();
-  return dates[dates.length - 1];
+function latestScanDate(dataset) {
+  const latest = latestFile(ROOT, dataset);
+  return latest ? latest.match(/(\d{4}-\d{2}-\d{2})\.json$/)?.[1] ?? null : null;
 }
 
 const platforms = ONLY ? { [ONLY]: PLATFORMS[ONLY] } : PLATFORMS;
@@ -65,7 +57,7 @@ if (ONLY && !PLATFORMS[ONLY]) {
 
 const perPlatform = {};
 for (const [name, cfg] of Object.entries(platforms)) {
-  const last = latestScanDate(cfg.dir, cfg.prefix);
+  const last = latestScanDate(cfg.dataset);
   const daysSince = last ? Math.floor((Date.now() - Date.parse(last + 'T00:00:00Z')) / 86400000) : null;
   const due = last == null || daysSince >= THRESHOLD;
   perPlatform[name] = { lastScan: last, daysSince, due, automation: cfg.automation ?? 'manual', review: cfg.review };

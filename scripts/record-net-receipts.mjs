@@ -4,7 +4,7 @@
  *
  * - note: 売上管理の月別詳細（/dashboard/salesmanage?datespan=YYYYMM）の「手数料控除後売上」を
  *   note-sales-fetch と同じ永続プロファイルで read-only 取得する（パスワード再確認は lib/note-reauth.mjs が資格情報で 1 回だけ通す。通らなければ ABORT・人が通す）
- * - KDP: data/sales/kdp-royalties.json の同月（npm run kdp-report で取得済み・確定値のみ complete）
+ * - KDP: data/kdp/royalties.json の同月（npm run kdp-report で取得済み・確定値のみ complete）
  * - ココナラ: 売上履歴の手数料控除後（クローズ日で計上）を --coconala <円> で渡す（自動取得は未実装）
  * 組み立ては scripts/lib/net-receipts.mjs。記録は npm run business-review -- record（同じ検証を通す）。
  *
@@ -74,7 +74,7 @@ async function main() {
       return 2;
     }
   }
-  const kdpPath = join(ROOT, 'data/sales/kdp-royalties.json');
+  const kdpPath = join(ROOT, 'data/kdp/royalties.json');
   const kdp = existsSync(kdpPath) ? kdpCatalogRoyalty(JSON.parse(readFileSync(kdpPath, 'utf8')).months?.[MONTH]) : null;
   const coconala = arg('--coconala') != null ? Number(arg('--coconala')) : null;
   const record = buildNetReceiptsMeasurement({ month: MONTH, note, coconala, kdp });

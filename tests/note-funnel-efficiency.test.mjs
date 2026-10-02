@@ -13,7 +13,7 @@ test('商品ID付きlabelだけを安定して解決する', () => {
   assert.equal(productIdFromLabel('plain-label'), null);
 });
 
-test('sales-log独自の建設部門IDをCTAの商品IDへ正規化する', () => {
+test('sales.json独自の建設部門IDをCTAの商品IDへ正規化する', () => {
   assert.equal(ctaProductIdFromSalesProductId('bk-i-required-essay-magazine'), 'pe-construction-required-magazine');
   assert.equal(ctaProductIdFromSalesProductId('bk-railway-secondary-magazine'), 'pe-construction-railway-magazine');
   assert.equal(ctaProductIdFromSalesProductId('bk-road-pack'), 'pe-construction-road-pack');

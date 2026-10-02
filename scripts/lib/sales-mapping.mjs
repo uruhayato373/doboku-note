@@ -3,7 +3,7 @@
  *
  * note-magazines.ts は各エントリの先頭を id / published / noteUrl の順で固定している。
  * `/n/` は単品記事、`/m/` はマガジンなので、単品だけ `article:<catalog-id>` へ変換する。
- * 初売上が sales-log に現れる前でも sales-recorder の mapping 漏れを検出するための入力。
+ * 初売上が sales.json に現れる前でも sales-recorder の mapping 漏れを検出するための入力。
  */
 export function publishedArticleProductIds(catalogSource) {
   const entryPattern =

@@ -74,7 +74,7 @@ GSC/GA4 を横断して「どの URL が・なぜ検索に効いていないか�
 
 4. **normalize**（決定的スクリプト）
    - `npm run google-console:normalize`（既定で最新 run。raw/manifest は不変）
-   - run 配下の共通 JSON に加えて **追跡 SSOT** を更新する: `gsc-ui/ssot/urls/*.json`・`ssot/history.json`・`ssot/diff/<runId>.json`
+   - run 配下の共通 JSON に加えて **追跡 SSOT** を更新する: `data/gsc/ui-urls.json`・`ui-history.json`・`ssot/diff/<runId>.json`
    - downloaded が 0 件なら exit 1（正規化不成立）。取得をやり直す
    - `npm run check-google-ui-ssot` で marker ↔ history ↔ urls の整合を確認
 

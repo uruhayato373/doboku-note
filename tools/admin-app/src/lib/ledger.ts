@@ -44,7 +44,7 @@ export interface LedgerRow {
   /** note 記事のカバー用途。商品行は null */
   coverCategory: string | null;
   price: string | null;
-  /** note の販売実績（sales-log.json の累計）。note 以外・販売ログを読めないときは null */
+  /** note の販売実績（data/note/sales.json の累計）。note 以外・販売ログを読めないときは null */
   sales: ProductSales | null;
   /** note 記事の収録先（原稿の noteMagazine）。マガジン行と同じ中身を単品でも売っているかの手がかり */
   magazine: string | null;

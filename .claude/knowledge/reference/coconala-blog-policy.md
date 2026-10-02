@@ -7,7 +7,7 @@
 
 - 記事本文の SoT: `content/coconala/blog/{slug}/article.md`
 - 価格・出品状態の SoT: `src/lib/coconala-services.ts`（**本ファイルにも記事本文にも価格を書かない**）
-- 偵察データ: `data/coconala/blog-competitors.json`（`npm run scout-coconala-blogs`）
+- 偵察データ: `data/coconala/blog-competitors/` の最新（`npm run ci-data -- latest coconala.blog-competitors`）（`npm run scout-coconala-blogs`）
 - 機械ゲート: `scripts/lib/coconala-blog-guards.mjs` ／ `npm run check-coconala-blog`
 
 ---
@@ -152,7 +152,7 @@ angle の語彙は [content-angle-policy.md](content-angle-policy.md) と共通�
 
 ## 9. 計測
 
-マイページ「サービス・ブログ分析」を**月次で目視**。数値が動いたら `kpi-log.json` へ。
+マイページ「サービス・ブログ分析」を**月次で目視**。数値が動いたら `data/coconala/kpi.json` へ。
 v1 では自動収集しない（ダッシュボードのスクレイプは §4 の方針どおり手動貼付が正）。
 
 判断:

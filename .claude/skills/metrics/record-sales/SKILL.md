@@ -1,7 +1,7 @@
 ---
 name: record-sales
 description: >
-  note 販売履歴を SSOT（sales-log.json）に記録するスキル。
+  note 販売履歴を SSOT（data/note/sales.json）に記録するスキル。
   ユーザーがダッシュボードからコピーした販売履歴テキストを受け取り、
   sales-recorder エージェントで正規化・追記し、月次集計を表示する。
   Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales].
@@ -11,7 +11,7 @@ domain: product
 
 # /record-sales
 
-note 販売履歴を `data/sales/sales-log.json` に記録し、月次集計を表示する。
+note 販売履歴を `data/note/sales.json` に記録し、月次集計を表示する。
 
 ## 用途
 
@@ -37,7 +37,7 @@ note 販売履歴を `data/sales/sales-log.json` に記録し、月次集計を�
 ```
 
 1. ユーザーから販売履歴テキストを受け取る
-2. 親が直接、正規化して `data/sales/sales-log.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../../knowledge/reference/sales-tracking.md)）
+2. 親が直接、正規化して `data/note/sales.json` に追記する（テキスト整形＋JSON 追記は決定的な小作業なので委譲しない。productId の対応表は [sales-tracking.md](../../../knowledge/reference/sales-tracking.md)）
 3. 結果（追加件数・スキップ件数・不明 productId）を表示
 4. 月次集計テーブルを表示
 
@@ -115,7 +115,7 @@ kuro
 
 | ファイル | 役割 |
 |---|---|
-| `data/sales/sales-log.json` | 販売履歴データ（手動転記） |
+| `data/note/sales.json` | 販売履歴データ（手動転記） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター（価格・URL） |
 | `.claude/knowledge/reference/sales-tracking.md` | 運用手順書 |
 
@@ -125,12 +125,12 @@ kuro
 
 1. `--validate` で不明分を確認
 2. `sales-recorder.md` の productId 推定ルールに追加
-3. または `sales-log.json` を直接編集して正しい productId に修正
+3. または `data/note/sales.json` を直接編集して正しい productId に修正
 
 ### 重複が多すぎる
 
 - 同じ期間を複数回ペーストしていないか確認
-- 既存データの最終日付を確認: `jq '.sales | last | .date' data/sales/sales-log.json`
+- 既存データの最終日付を確認: `jq '.sales | last | .date' data/note/sales.json`
 
 ### 集計が合わない
 

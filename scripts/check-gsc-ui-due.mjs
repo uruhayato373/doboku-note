@@ -41,7 +41,7 @@ const CHANNELS = [
   {
     key: "gsc-ui",
     label: "GSC UI 取得",
-    marker: "data/metrics/gsc-ui/last-run.json",
+    marker: "data/gsc/ui-last-run.json",
     // 年齢でも DUE にする（月次の本体）
     ageDriven: true,
     command: "npm run search-growth:audit",
@@ -49,7 +49,7 @@ const CHANNELS = [
   {
     key: "ga4-ui",
     label: "GA4 UI 取得",
-    marker: "data/metrics/ga4-ui/last-run.json",
+    marker: "data/ga4/ui-last-run.json",
     // 一次経路は Data API なので「古い」だけでは DUE にしない。未実施/不完全のときだけ surface する。
     ageDriven: false,
     command: "npm run ga4-ui:fetch",

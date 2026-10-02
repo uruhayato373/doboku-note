@@ -53,7 +53,7 @@ npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --gr
 - **既定 dry-run**。送信は `--commit`（`:request`）のみ。1 回の送信上限は既定 10 件（日次クォータ配慮）。
   上限やクォータで送れなかった分は `limit-reached` / `quota-exceeded` として記録され、次回に回る。
 - 送信後に受理文言を確認し、読めなければ `unconfirmed`＝成功にカウントしない。
-- **記録の SSOT は `data/metrics/gsc-indexing/{requests-latest,history}.json`**（追跡）。
+- **記録の SSOT は `data/gsc/indexing-{requests,history}.json`**（追跡）。
   手書きノートは作らない（`.claude/state/*.md` 新規作成禁止）。
 - pending 表示（上の resume 画面）は history.json の `limit-reached` / `quota-exceeded` から組む。
 
@@ -135,7 +135,7 @@ abandoned  abandoned  running (re-measure)
      ・civil-construction-1-textbook-construction-mgmt-overview
      ・civil-construction-1-guide-earthwork-key-points
    理由: GSC 1 日クォータ上限到達
-   参照: data/metrics/gsc-indexing/history.json（機械記録・SSOT）
+   参照: data/gsc/indexing-history.json（機械記録・SSOT）
 ```
 
 5. ユーザーに「どの action から進めるか」を問う。「EXP-001 を resume して」等の返答があれば `resume` サブモードへ遷移。
@@ -213,7 +213,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
 - metric: `gsc.clicks` / `gsc.impressions` / `gsc.position` / `ga4.sessions`（scope.source=`google` で自然検索 google のみ）/ `ga4.event:<イベント名>` / `sales.revenue` / `sales.count`（scope.productPrefix か productIds）
 - 新商品の売上など前後比が意味を持たない実験は `target`（事後窓の絶対目標）を付ける → 目安は `target-met` / `target-missed`
 - 目安（`verdictHint`）は improved / no-effect / worse / insufficient-data / in-progress。**裁定ではない**（季節性・同時施策は人が見る）
-- 売上は台帳（sales-log）の最終日が事後窓の終わりに届くまで確定扱いにしない
+- 売上は台帳（sales.json）の最終日が事後窓の終わりに届くまで確定扱いにしない
 - 仕様と判定の実装: `scripts/lib/experiment-measure.mjs`。表現できない指標（note ダッシュボード・複合ファネル）は付けず、従来どおり手で measure する
 
 ### close: 学び記録

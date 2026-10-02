@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-coconala-analytics.mjs — 分析スナップショットと kpi-log の整合をオフラインで検査する
+ * check-coconala-analytics.mjs — 分析スナップショットと kpi.json の整合をオフラインで検査する
  * ---------------------------------------------------------------------------
  * coconala-analytics.mjs（取得）に対する検査側。外部アクセスはしない。
  *
@@ -14,8 +14,8 @@
  *   2. カタログの listed サービスが snapshot に**全件**載っている（取りこぼし検出）
  *   3. snapshot の serviceId がカタログに実在（typo・退役）
  *   4. マスク指標（セラーサクセス表示数）が 0 でなく null で記録されている
- *   5. kpi-log に snapshot と同じ weekOf の行がある（--append-kpi 忘れの検出）
- *   6. kpi-log の weekly 行が cumulative フラグと period を持つ（週次増分との取り違え防止）
+ *   5. kpi.json に snapshot と同じ weekOf の行がある（--append-kpi 忘れの検出）
+ *   6. kpi.json の weekly 行が cumulative フラグと period を持つ（週次増分との取り違え防止）
  *
  * 使い方: node scripts/check-coconala-analytics.mjs [--max-age-days N]
  * exit: 0=OK（WARN のみ含む） / 1=FAIL
@@ -28,8 +28,8 @@ import { todayJst } from './lib/jst-date.mjs';
 
 const TAG = '[check-coconala-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SNAP_PATH = join(ROOT, 'data/coconala/analytics-snapshot.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
+const SNAP_PATH = join(ROOT, 'data/coconala/analytics.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 
 const argMaxAge = process.argv.indexOf('--max-age-days');
@@ -118,23 +118,23 @@ function main() {
   const maskedCount = services.filter((s) => (s.masked || []).length).length;
   if (maskedCount) console.log(`${TAG} 注記: 表示数がマスク（セラーサクセス未加入）のサービス ${maskedCount} 件 → null 記録`);
 
-  // 5-6. kpi-log 側
+  // 5-6. kpi.json 側
   if (!existsSync(KPI_PATH)) {
-    fail('kpi-log.json が無い');
+    fail('data/coconala/kpi.json が無い');
   } else {
     const kpi = JSON.parse(readFileSync(KPI_PATH, 'utf8'));
     const weekly = kpi.weekly || [];
     if (gotOk.length && weekly.length === 0) {
-      warn('snapshot は取れているが kpi-log.weekly が空（--append-kpi を実行していない）');
+      warn('snapshot は取れているが kpi.json.weekly が空（--append-kpi を実行していない）');
     }
     const autoRows = weekly.filter((r) => r.source === 'analytics-auto');
     for (const r of autoRows) {
-      if (r.cumulative !== true) fail(`kpi-log.weekly に cumulative フラグが無い行（週次増分と誤読される）: ${r.weekOf} ${r.serviceId}`);
-      if (!r.period || !r.period.from || !r.period.to) fail(`kpi-log.weekly に period が無い行: ${r.weekOf} ${r.serviceId}`);
-      if (!catalogById.has(r.serviceId)) fail(`kpi-log.weekly の serviceId がカタログに無い: ${r.serviceId}`);
+      if (r.cumulative !== true) fail(`kpi.json.weekly に cumulative フラグが無い行（週次増分と誤読される）: ${r.weekOf} ${r.serviceId}`);
+      if (!r.period || !r.period.from || !r.period.to) fail(`kpi.json.weekly に period が無い行: ${r.weekOf} ${r.serviceId}`);
+      if (!catalogById.has(r.serviceId)) fail(`kpi.json.weekly の serviceId がカタログに無い: ${r.serviceId}`);
     }
     const latestWeek = autoRows.map((r) => r.weekOf).sort().pop() || null;
-    console.log(`${TAG} kpi-log: weekly ${weekly.length} 行（自動 ${autoRows.length}・最新 weekOf=${latestWeek || 'なし'}）/ blogsWeekly ${(kpi.blogsWeekly || []).length} 行`);
+    console.log(`${TAG} kpi.json: weekly ${weekly.length} 行（自動 ${autoRows.length}・最新 weekOf=${latestWeek || 'なし'}）/ blogsWeekly ${(kpi.blogsWeekly || []).length} 行`);
   }
 
   for (const w of warns) console.log(`${TAG} WARN ${w}`);

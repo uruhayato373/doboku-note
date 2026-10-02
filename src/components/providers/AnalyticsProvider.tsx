@@ -89,6 +89,33 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
+  // 過去問ページの「解答・解説」（MDX の素の <details>）を開いた回数（2026-10-02 新設）。
+  // 解説がどれだけ読まれているか＝解説を有料側へ移した場合に影響する読者数を測る。
+  // label＝ページ slug（URL 末尾）、cta_placement＝直前の H2（問題番号 Ⅲ-1 等）。同じ要素はページ滞在中 1 回だけ。
+  useEffect(() => {
+    const sent = new WeakSet<Element>();
+    const onToggle = (e: Event) => {
+      const details = e.target as HTMLDetailsElement | null;
+      if (!(details instanceof HTMLDetailsElement) || !details.open || sent.has(details)) return;
+      const summary = details.querySelector(":scope > summary")?.textContent?.trim();
+      if (summary !== "解答・解説") return;
+      sent.add(details);
+      let heading: Element | null = details.previousElementSibling;
+      while (heading && heading.tagName !== "H2") heading = heading.previousElementSibling;
+      gtag.event({
+        action: "answer_reveal",
+        category: "past-exam",
+        label: pathname.split("/").filter(Boolean).pop() || "(unknown)",
+        params: {
+          cta_placement: heading?.textContent?.replace(/#$/, "").trim() || "(unknown)",
+        },
+      });
+    };
+    // toggle はバブリングしないため capture で拾う。
+    document.addEventListener("toggle", onToggle, { capture: true });
+    return () => document.removeEventListener("toggle", onToggle, { capture: true });
+  }, [pathname]);
+
   // note / アフィリエイト / ココナラ CTA が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
   // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
   // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。

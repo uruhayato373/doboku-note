@@ -5,7 +5,7 @@
   "strategies": ["mobile", "desktop"],
   "categories": ["performance", "accessibility", "best-practices", "seo"],
   "url_list_file": "config/psi-urls.txt",
-  "output_dir": "data/metrics/psi",
+  "output_dir": "data/psi",
   "judgment": {
     "doc": ".claude/knowledge/reference/measurement-incidents.md「2026-07-27: lab と field の判定原則」「2026-09-14: PSI field_data のキー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」",
     "primary_source": "field",

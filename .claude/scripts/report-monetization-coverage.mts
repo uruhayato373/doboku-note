@@ -49,7 +49,7 @@ const ROOT = process.cwd();
 const GA4_DIR = join(ROOT, "data/metrics/ga4");
 const OUT_DIR = join(ROOT, "data/metrics/monetization");
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
-const SALES_LOG = join(ROOT, "data/sales/sales-log.json");
+const SALES_LOG = join(ROOT, "data/note/sales.json");
 
 function arg(name: string, fallback: number): number {
   const i = process.argv.indexOf(name);
@@ -192,7 +192,7 @@ if (placementFile) {
     .sort((a, b) => b.impressions - a.impressions);
 }
 
-// ── GA4 label × sales-log 突合（DN-0124）──
+// ── GA4 label × sales.json 突合（DN-0124）──
 // note_cta_click の label は `{magazineId}:{utmContent}` 形式のものと、utmContent 単体
 // （magazineId が埋め込まれていない＝旧配線やもくじ系）が混在する。前者だけが productId へ
 // 解決できる＝「ID付き」。**分母（全クリック）を隠さない**（§9）ため、ID付き/全体の比率を必ず出す。
@@ -474,7 +474,7 @@ if (placementCtr.length) {
   lines.push("");
 }
 
-// ── GA4 label × sales-log 突合（DN-0124）──
+// ── GA4 label × sales.json 突合（DN-0124）──
 lines.push("### note CTA label × 売上 突合（ID付きのみ）");
 lines.push("");
 lines.push(

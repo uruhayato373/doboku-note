@@ -155,7 +155,7 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 ## 参照
 
 - `.claude/knowledge/reference/affiliate-operations.md` — 転職アフィリの配置面・EPC・a8-results 運用の真実源
-- `.claude/knowledge/reference/sales-tracking.md` — note 売上 SSOT（sales-log.json・productId 命名）
+- `.claude/knowledge/reference/sales-tracking.md` — note 売上 SSOT（data/note/sales.json・productId 命名）
 - `docs/operations/計測基盤強化ロードマップ.md` — 計測基盤Tier 2/3の完了判断と、個別購入attributionを断定しない境界
 - `docs/strategy/04_収益化戦略.md` — 収益化戦略の恒久文書（結論はここへ）
 - `.claude/skills/management/growth-loops/SKILL.md` — 成長ループ分析

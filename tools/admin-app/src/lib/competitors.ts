@@ -1,12 +1,13 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { datasetFiles } from '../../../../scripts/lib/datasets.mjs';
 import { listedCoconalaServices } from '../../../../src/lib/coconala-services';
 import { findRepoRoot } from './repo-root';
 
 /**
  * competitors.ts — `/strategy/competitors`（競合・人が見る画面）の表示モデル。
  *
- * 正本は scout-coconala-competitors.mjs が書く時系列 `data/coconala/history/competitors-*.json`。
+ * 正本は scout-coconala-competitors.mjs が書く時系列（台帳 coconala.competitors＝`data/coconala/competitors/<日付>.json`）。
  * 最新の 1 本を今の値、同じセラーが載っている過去の 1 本を比較の基準にする（新規追跡は基準なし）。
  * 値を足さない・推測しない。取得できていない値は null のまま渡す。
  */
@@ -62,12 +63,12 @@ export type CompetitorView = {
   platform: 'coconala';
   fetchedDate: string | null;
   rows: CompetitorRow[];
-  /** 自社の行。出品は coconala-services.ts の listed、販売は orders-log.json（自社の受注記録）から数える。 */
+  /** 自社の行。出品は coconala-services.ts の listed、販売は data/coconala/orders.json（自社の受注記録）から数える。 */
   self: CompetitorRow;
   examLabels: Record<string, string>;
 };
 
-const HISTORY_RE = /^competitors-(\d{4}-\d{2}-\d{2})\.json$/;
+const DATE_RE = /(\d{4}-\d{2}-\d{2})\.json$/;
 /** 比較の基準は最新から 30 日以上前の直近スナップショット（無ければ直前の 1 本）。数日前の再取得と比べても変化が見えないため。 */
 const BASE_MIN_DAYS = 30;
 const daysBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / 86_400_000;
@@ -96,14 +97,11 @@ function changesBetween(base: RawCompetitor, now: RawCompetitor): string[] {
 
 export function loadCompetitorView(): CompetitorView {
   const root = findRepoRoot();
-  const dir = join(root, 'data/coconala/history');
-  const files = existsSync(dir)
-    ? readdirSync(dir)
-        .map((f) => ({ f, m: HISTORY_RE.exec(f) }))
-        .filter((x): x is { f: string; m: RegExpExecArray } => x.m !== null)
-        .map(({ f, m }) => ({ date: m[1]!, path: join(dir, f) }))
-        .sort((a, b) => b.date.localeCompare(a.date))
-    : [];
+  const files = (datasetFiles(root, 'coconala.competitors') as string[])
+    .map((f) => ({ f, m: DATE_RE.exec(f) }))
+    .filter((x): x is { f: string; m: RegExpExecArray } => x.m !== null)
+    .map(({ f, m }) => ({ date: m[1]!, path: join(root, f) }))
+    .sort((a, b) => b.date.localeCompare(a.date));
   const snaps = files
     .map((x) => ({ date: x.date, snap: readJson<RawSnapshot>(x.path) }))
     .filter((x): x is { date: string; snap: RawSnapshot } => x.snap !== null);
@@ -156,7 +154,7 @@ const SCOPE_TO_EXAM: Record<string, string> = { 'civil-1': 'civil-construction-1
 function loadSelfRow(root: string, baseDate: string | null): CompetitorRow {
   const listed = listedCoconalaServices();
   const prices = listed.map((s) => s.priceYen).sort((a, b) => a - b);
-  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders-log.json'));
+  const log = readJson<{ orders?: { date: string; priceYen?: number }[] } | { date: string; priceYen?: number }[]>(join(root, 'data/coconala/orders.json'));
   const orders = Array.isArray(log) ? log : (log?.orders ?? []);
   const recent = baseDate ? orders.filter((o) => o.date >= baseDate) : [];
   const sum = (xs: { priceYen?: number }[]) => xs.reduce((n, o) => n + (o.priceYen ?? 0), 0);

@@ -71,6 +71,8 @@ const EVENT_NAMES = [
   // --by-label で立場別（orderer / contractor / qualification-map）、--by-placement で面別に分かれる。
   "qualification_bridge_impression",
   "qualification_bridge_click",
+  // 過去問ページの「解答・解説」を開いた回数（2026-10-02 新設）。--by-label でページ別、--by-placement で問題番号別。
+  "answer_reveal",
 ];
 
 function parseArgs() {

@@ -32,7 +32,7 @@ domain: product
 
 ### 1. 選題（policy §3 の資産マップ）
 
-`data/coconala/blog-competitors.json` を読み、競合が書いていない／自分に一次資産がある論点を選ぶ。
+`data/coconala/blog-competitors/` の最新（`npm run ci-data -- latest coconala.blog-competitors`） を読み、競合が書いていない／自分に一次資産がある論点を選ぶ。
 古ければ `npm run scout-coconala-blogs`（四半期でよい）。
 
 ### 2. 執筆 — `coconala-blog-writer`

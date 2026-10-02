@@ -19,10 +19,10 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 
 | ファイル | 役割 | 更新頻度 |
 |---|---|---|
-| `data/sales/sales-log.json` | 販売履歴データ（日付・商品・価格） | 都度（手動転記） |
+| `data/note/sales.json` | 販売履歴データ（日付・商品・価格） | 都度（手動転記） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター（公開状態・URL・価格） | 商品追加時 |
 
-### sales-log.json の構造
+### data/note/sales.json の構造
 
 ```json
 {
@@ -101,7 +101,7 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 # （販売履歴テキストをペースト）
 
 # 手動編集（上級者向け）
-vim data/sales/sales-log.json
+vim data/note/sales.json
 ```
 
 ### 2. 集計の確認
@@ -115,9 +115,9 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 
 1. note ダッシュボード → 売上 → 「今月の売上」を確認
 2. `npm run sales-summary -- YYYY-MM` と比較
-3. 差異があれば sales-log.json を確認・修正
+3. 差異があれば data/note/sales.json を確認・修正
 
-毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales-log 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（CI の login-collectors も毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
+毎月5日以降、`check-sales-freshness` は前月の `note-traffic-fetch` 結果を要求し、月次売上表示と同月の sales.json 合計を照合する。月初4日までは前々月を対象にする。`updatedAt` が新しくても未取得・金額不一致ならFAILとし、販売明細の取りこぼしを緑にしない。販売履歴のパスワード再確認は資格情報で自動で通る（CI の login-collectors も毎週取得する）。通らなかったときは人がブラウザで通し、その後 `note-sales-fetch --commit` を再実行する。
 
 ### 4. 商品別CTAとの期間効率
 
@@ -125,7 +125,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 npm run report-note-funnel-efficiency
 ```
 
-最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales-log独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`data/metrics/monetization/note-funnel-efficiency-latest.{json,md}`。
+最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales.json独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`data/metrics/monetization/note-funnel-efficiency-latest.{json,md}`。
 
 これは購入者をクリックへ結合したCVRではない。note販売履歴に流入識別子が無いため、売上÷クリックは同期間の診断指標に限り、因果attributionと表現しない。単品記事売上と商品IDを持たないハブ導線は対象外。
 
@@ -136,7 +136,7 @@ npm run report-site-to-sales                    # 直近の完了月
 npm run report-site-to-sales -- --month 2026-08
 ```
 
-暦月×note商品で、GA4 `note_cta_click`（by-label）・note流入元の `doboku-note.com`・sales-log の販売を並べる。出力は `data/metrics/business/site-to-sales-YYYY-MM.json`（追記専用。内容が変われば `-rN`）。結合キーはカタログ商品＝`note-magazines.ts` の id、カタログ外の単品＝`article:<slug>`。単品の収録マガジンは `magazines-snapshot.json` の題名一致で求め、マガジン側には非加算の「収録単品の販売」として載せる。
+暦月×note商品で、GA4 `note_cta_click`（by-label）・note流入元の `doboku-note.com`・sales.json の販売を並べる。出力は `data/metrics/business/site-to-sales-YYYY-MM.json`（追記専用。内容が変われば `-rN`）。結合キーはカタログ商品＝`note-magazines.ts` の id、カタログ外の単品＝`article:<slug>`。単品の収録マガジンは `data/note/magazines.json` の題名一致で求め、マガジン側には非加算の「収録単品の販売」として載せる。
 
 各値の状態を読む: GA4 は月一致の窓が無ければ `window-mismatch`（窓と月内日数を併記）。月一致にするには `fetch-ga4-cta-clicks -- --month YYYY-MM --by-label`。note流入元は記事別に出ないため商品別は常に `unresolvable`、2026-08 以前は rel=noreferrer で `not-measurable`。売上は note の月次売上表示と一致して `reconciled`。面だけのlabel（2026-08-22 より前）と無料もくじ導線は未解決クリックとして理由別に件数を出す。
 
@@ -201,9 +201,9 @@ npm run report-site-to-sales -- --month 2026-08
 |---|---|
 | ココナラ 単発サービス | `coconala:<id>`（id は `src/lib/coconala-services.ts` の id と**完全一致**）。**価格の実値はカタログが真実源**（ここは目安）。人が動くサービス: `coconala-shindan`（¥1,500）/ `coconala-tensaku-set`（¥6,000）/ `coconala-sakusei`（¥8,000）/ `coconala-tensaku-4theme`（4テーマ添削 ¥12,000）/ `coconala-sakusei-4theme`（4テーマ版 ¥16,000）。教材3段はしご: `coconala-{1kyu,2kyu}-moshi-pdf`（¥2,500/¥2,000）→ `coconala-{,2kyu-}kanseitoan-pdf`（模範答案セット ¥5,000/¥4,000）→ `coconala-{1kyu,2kyu}-full-pdf`（教材フルパック ¥10,000/¥7,000）。最上位: `coconala-1kyu-premium`（教材＋添削 ¥15,000）。その他: `coconala-civil-keiken-kit`（¥8,000）/ `coconala-sokan-bunseki-pdf`（¥2,500）。**2026-08-05 にアーカイブ**（恒久廃止・新規売上なし／過去分の転記は id をそのまま使う）: `coconala-bunseki-pdf`・`coconala-{1kyu,2kyu}-kakomon-pdf`・`coconala-{1kyu,2kyu}-gakka-pdf`。全て `coconala:` 接頭辞 |
 
-- **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく `data/coconala/orders-log.json`（`/coconala-order` が受注時に追記）からの月次転記。
+- **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく `data/coconala/orders.json`（`/coconala-order` が受注時に追記）からの月次転記。
 - `price` は**手数料差引前の販売額**を記録する（note と同じ粒度。ココナラ手数料 約22% は集計時に別途考慮）。
-- id の実在は `npm run check-coconala-wiring` が pre-commit で検証（sales-log の `coconala:*` がカタログに無いと落ちる）。運用 SSOT → [coconala-operations.md](coconala-operations.md)
+- id の実在は `npm run check-coconala-wiring` が pre-commit で検証（sales.json の `coconala:*` がカタログに無いと落ちる）。運用 SSOT → [coconala-operations.md](coconala-operations.md)
 
 ### 新商品の追加
 
@@ -212,10 +212,10 @@ npm run report-site-to-sales -- --month 2026-08
 3. 本ドキュメントの命名規則テーブルに追記
 
 > **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
-> sales-log.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
+> data/note/sales.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
 > `article:unknown-*` が残っている、または `note-magazines.ts` の公開済み単品（`/n/`）に
 > `article:<catalog-id>` の明示 mapping がないと **pre-commit / CI で止める**。
-> pre-commit は sales-log.json・sales-recorder.md・note-magazines.ts のいずれかを含む変更で発火する。
+> pre-commit は data/note/sales.json・sales-recorder.md・note-magazines.ts のいずれかを含む変更で発火する。
 > 緊急回避は `SKIP_SALES_MAPPING=1`。
 
 ---
@@ -255,8 +255,8 @@ npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 ## Kindle（KDP）ロイヤリティ（非 note チャネル・2026-07-31〜）
 
 note の販売履歴が「1 購入 = 1 レコードの手動転記」なのに対し、Kindle は Amazon 側が月次で
-集計したロイヤリティを出す。当月は推計、前月は翌月15日頃の確定後に再取得する。粒度が違うため sales-log.json には混ぜず、
-別ファイル `data/sales/kdp-royalties.json` に月次で保存する。
+集計したロイヤリティを出す。当月は推計、前月は翌月15日頃の確定後に再取得する。粒度が違うため data/note/sales.json には混ぜず、
+別ファイル `data/kdp/royalties.json` に月次で保存する。
 
 ```bash
 npm run kdp-report                 # 当月を取得して保存
@@ -285,7 +285,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 
 - **購入者名・ハンドルは記録しない**
 - 売上分析には `date / productId / price` で十分
-- 個人を特定できる情報は sales-log.json に含めない
+- 個人を特定できる情報は data/note/sales.json に含めない
 
 ---
 
@@ -301,5 +301,5 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
-| `data/sales/kdp-royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |
+| `data/kdp/royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |
 | `src/lib/note-magazines.ts` | マガジン ID マスター |

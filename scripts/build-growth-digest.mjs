@@ -24,6 +24,7 @@ import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 
 import { join, relative, resolve, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { direction, jst } from './lib/business-direction.mjs';
+import { latestFile } from './lib/datasets.mjs';
 import {
   detectSeo, detectRevenue, detectMeasurement, detectExperiments, selectSurfaced,
   summarizeKpis, topMovers, reconcileBing, inputCoverage,
@@ -91,9 +92,9 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
   const packFile = `${GROWTH}/${packName}`;
   const pack = readJson(packFile);
   const history = packs.filter((f) => f < packName).map((f) => readJson(`${GROWTH}/${f}`)).filter(Boolean);
-  const coverageFile = latestIn('data/metrics/monetization', /^coverage-\d.*\.json$/);
+  const coverageFile = latestFile(root, 'analysis.monetization-coverage');
   const coverage = coverageFile ? readJson(coverageFile) : null;
-  const bingFile = latestIn('data/metrics/bing', /^bing-\d{4}-\d{2}-\d{2}\.json$/);
+  const bingFile = latestFile(root, 'bing.snapshots');
   const bing = bingFile ? readJson(bingFile) : null;
   const maxAge = cfg.digest.measurement.maxInputAgeDays;
   const coverageStamp = coverageFile?.match(/(\d{4}-\d{2}-\d{2})/)?.[1] ?? null;

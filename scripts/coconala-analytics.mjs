@@ -4,9 +4,9 @@
  * ---------------------------------------------------------------------------
  * なぜ必要か:
  *   KPI（閲覧数・お気に入り・販売数）は長らく「手で貼る」運用だったが、貼付が続かず
- *   kpi-log.json の weekly は空のままだった（2026-08-17 時点で 0 行）。撤退ライン
+ *   data/coconala/kpi.json の weekly は空のままだった（2026-08-17 時点で 0 行）。撤退ライン
  *   （出品4週で S2 受注3件未満）や価格引き上げの判定が、素地が無いまま止まっていた。
- *   本スクリプトは分析画面を機械可読なスナップショットに落とし、kpi-log への追記
+ *   本スクリプトは分析画面を機械可読なスナップショットに落とし、kpi.json への追記
  *   （--append-kpi）まで行う。read-only・書き込み操作なし（メモ追加・設定変更はしない）。
  *
  * 方針変更の記録（2026-08-17）:
@@ -32,11 +32,11 @@
  *
  * 使い方:
  *   node scripts/coconala-analytics.mjs                  # 収集のみ（snapshot 更新）
- *   node scripts/coconala-analytics.mjs --append-kpi     # ＋ kpi-log.json へ週次 upsert
+ *   node scripts/coconala-analytics.mjs --append-kpi     # ＋ data/coconala/kpi.json へ週次 upsert
  *   node scripts/coconala-analytics.mjs --no-services    # 全体＋ブログのみ（サービス別を回らない）
  *   node scripts/coconala-analytics.mjs --headless
  *
- * 出力: data/coconala/analytics-snapshot.json
+ * 出力: data/coconala/analytics.json
  * exit: 0=全対象を取得 / 2=1つでも取得失敗（partial・「検査ゼロを PASS と呼ばない」）
  * ---------------------------------------------------------------------------
  */
@@ -57,8 +57,8 @@ const HEADLESS = process.argv.includes('--headless');
 const WITH_SERVICES = !process.argv.includes('--no-services');
 const APPEND_KPI = process.argv.includes('--append-kpi');
 
-const OUT_PATH = join(ROOT, 'data/coconala/analytics-snapshot.json');
-const KPI_PATH = join(ROOT, 'data/coconala/kpi-log.json');
+const OUT_PATH = join(ROOT, 'data/coconala/analytics.json');
+const KPI_PATH = join(ROOT, 'data/coconala/kpi.json');
 const BLOG_DIR = join(ROOT, 'content/coconala/blog');
 const OVERVIEW_URL = 'https://coconala.com/mypage/analytics?ref=menu';
 
@@ -337,10 +337,10 @@ async function main() {
     `${TAG} 対象(listed) ${targets.length} 件 / 取得 ${services.filter((s) => s.ok).length} 件・除外(公開中でない) ${skipped.length} 件・ブログ ${blogs.length} 件 → ${OUT_PATH}`
   );
 
-  /* --- 4. kpi-log へ upsert --- */
+  /* --- 4. kpi.json へ upsert --- */
   if (APPEND_KPI) {
     const appended = appendKpi(snapshot);
-    console.log(`${TAG} kpi-log: weekly ${appended.services} 行 / blogsWeekly ${appended.blogs} 行を upsert（weekOf=${appended.weekOf}）`);
+    console.log(`${TAG} kpi.json: weekly ${appended.services} 行 / blogsWeekly ${appended.blogs} 行を upsert（weekOf=${appended.weekOf}）`);
   }
 
   if (status !== 'ok') {
@@ -350,7 +350,7 @@ async function main() {
   console.log(`${TAG} OK: 全対象を取得`);
 }
 
-/** snapshot を kpi-log.json へ upsert（同一 weekOf+serviceId は置換＝二重計上しない） */
+/** snapshot を data/coconala/kpi.json へ upsert（同一 weekOf+serviceId は置換＝二重計上しない） */
 export function appendKpi(snapshot, kpiPath = KPI_PATH) {
   const kpi = JSON.parse(readFileSync(kpiPath, 'utf8'));
   const asOf = snapshot.period?.services?.to || snapshot.fetchedOnJst || todayJst();

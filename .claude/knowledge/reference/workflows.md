@@ -57,7 +57,7 @@ title: 推奨ワークフロー
 │  psi-audit.yml (JST 02:00)                                      │
 │    │ 代表 20 URL を mobile+desktop で計測                         │
 │    ▼                                                            │
-│  develop: data/metrics/psi/ に JSON 蓄積 [skip ci]     │
+│  develop: data/psi/batch/ に JSON 蓄積 [skip ci]     │
 │    │                                                            │
 │    ├─ しきい値違反あり ──► CI 失敗(exit 1)で通知                 │
 │    │                        → 人が .claude/todo/ へ手動起票          │
@@ -81,7 +81,7 @@ title: 推奨ワークフロー
 │ 週 1 回（金曜 PM、同日完結）                                     │
 │                                                                 │
 │  /weekly-review                                                 │
-│    │ Agent C2: data/metrics/psi/ の 7 日分を読み         │
+│    │ Agent C2: data/psi/batch/ の 7 日分を読み         │
 │    │            field(実害)→lab(診断)の順で前週比を出力          │
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │

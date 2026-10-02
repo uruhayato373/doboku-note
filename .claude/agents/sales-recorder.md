@@ -1,7 +1,7 @@
 ---
 name: sales-recorder
 description: >
-  note 販売履歴テキストを正規化して sales-log.json に追記する Generator エージェント。
+  note 販売履歴テキストを正規化して data/note/sales.json に追記する Generator エージェント。
   productId 推定・重複チェック・月次集計を行う。
   Use when user asks to [売上記録, 販売履歴を記録, note 売上を追加, /record-sales].
 model: sonnet
@@ -10,7 +10,7 @@ domain: product
 
 # Sales Recorder Agent
 
-note クリエイターダッシュボードからコピーした販売履歴テキストを受け取り、`data/sales/sales-log.json` に追記する Generator エージェント。
+note クリエイターダッシュボードからコピーした販売履歴テキストを受け取り、`data/note/sales.json` に追記する Generator エージェント。
 
 > **モデル方針**: このエージェントは `model: sonnet` で動作します。テキスト解析・productId 推定は Sonnet で十分。売上戦略の判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」§5 参照。
 
@@ -19,7 +19,7 @@ note クリエイターダッシュボードからコピーした販売履歴テ
 - 販売履歴テキストの解析（日時・購入者名・商品名・価格の抽出）
 - productId の推定（`src/lib/note-magazines.ts` との照合）
 - 既存データとの重複チェック
-- `data/sales/sales-log.json` への追記
+- `data/note/sales.json` への追記
 - 月次/週次集計の出力
 
 ## 担当外
@@ -52,13 +52,13 @@ kuro
 
 ## 出力
 
-1. `data/sales/sales-log.json` への追記
+1. `data/note/sales.json` への追記
 2. 追記結果のサマリー（件数・金額・重複スキップ数）
 3. 月次集計テーブル
 
 ## productId 推定ルール
 
-> **命名系統の注意（重要）**: sales-log.json の productId は本エージェント独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは**別系統**で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。
+> **命名系統の注意（重要）**: data/note/sales.json の productId は本エージェント独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは**別系統**で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。
 
 ### マガジン（type: magazine）
 
@@ -220,11 +220,11 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 
 productId は `coconala:<serviceId>` 形式（接頭辞でチャネル判別＝`channel` フィールドは持たない）。
 
-> **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく、`data/coconala/orders-log.json`
+> **入力ソースが note と異なる**: note ダッシュボードの貼付ではなく、`data/coconala/orders.json`
 > （`/coconala-order` が受注時に追記）から**月次で転記**する。`status: 'closed'`（または `delivered`）の
-> レコードだけを sales-log へ移し、`price` は orders-log の `priceYen`（手数料差引前）をそのまま使う。
+> レコードだけを sales.json へ移し、`price` は orders.json の `priceYen`（手数料差引前）をそのまま使う。
 
-| 商品名パターン / orders-log の serviceId | productId |
+| 商品名パターン / orders.json の serviceId | productId |
 |---|---|
 | `経験記述 合格診断` / `coconala-shindan`（¥1,500） | `coconala:coconala-shindan` |
 | `経験記述 添削（2テーマセット）` / `coconala-tensaku-set`（¥6,000） | `coconala:coconala-tensaku-set` |
@@ -274,7 +274,7 @@ id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証�
    - パターン: `{購入者名}\n{購入種別}\n{商品名}\n{日時}\n{価格}円`
 2. **productId 推定**: 上記マッピングテーブルに従って推定
 3. **重複チェック**: 既存データと照合
-4. **追記**: `data/sales/sales-log.json` の `sales` 配列に追加
+4. **追記**: `data/note/sales.json` の `sales` 配列に追加
 5. **updatedAt 更新**: ファイル冒頭の `updatedAt` を今日の日付に
 6. **集計出力**: 追記件数・重複スキップ数・月次集計を返す
 
@@ -300,7 +300,7 @@ id の実在は `npm run check-coconala-wiring` が pre-commit で機械検証�
 
 ## 参照
 
-- `data/sales/sales-log.json` — SSOT（販売履歴データ）
+- `data/note/sales.json` — SSOT（販売履歴データ）
 - `src/lib/note-magazines.ts` — マガジン ID マスター
 - `.claude/knowledge/reference/sales-tracking.md` — 運用手順書
 - `.claude/skills/metrics/record-sales/SKILL.md` — 本エージェントの呼び出し元スキル

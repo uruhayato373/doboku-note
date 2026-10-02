@@ -1,17 +1,19 @@
-// prune-state-snapshots（純粋ロジック）— `data/metrics/**` と `data/weekly-metrics/` に
-// CI が積む日付付き snapshot の寿命表と、削除計画の算出。I/O を持たない（読み手は scripts/prune-state-snapshots.mjs）。
+// prune-state-snapshots（純粋ロジック）— data/ に CI が積む日付付きファイルの寿命と、削除計画の算出。
+// I/O を持たない（読み手は scripts/prune-state-snapshots.mjs）。寿命は台帳（scripts/lib/datasets.mjs）の
+// 各データセットの retain が正本で、ここは台帳を読んで計画を立てるだけ。
 //
 // 守りたい事故: 2026-09-14 時点で日付付き snapshot が 704 件（psi 299 / ga4 222 / gsc 110 …）git に無期限蓄積し、
 // 読み手は全部 latest-1〜2 件しか見ていなかった。寿命が宣言されていないファイル＝「誰も消せないので永久に増える」
 // なので、**未宣言の日付付きファイルは赤**（coverage 検査）にして、新しい系列が黙って増えるのを止める。
 //
-// 決して触らないもの（EXCLUDED_DIRS）: `metrics/business/**`（check-business-direction が削除を拒否する台帳）、
-// `metrics/gsc/rank-watch/**`（check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に
-// 入れない（tests/prune-state-snapshots.test.mjs が assert する）。
+// 決して触らないもの: 台帳で immutable のデータセット（data/metrics/business の KPI 台帳＝check-business-direction が
+// 削除を拒否、rank-watch＝check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に入れない
+// （tests/prune-state-snapshots.test.mjs が assert する）。手元だけの生データ（local）は対象外。
 //
 // pin（名前で参照されるので消せない）: `config/seo-watchwords.json` の `evidence.source`、business 台帳が
-// `sources[]` で指す metrics パス。CLI が集めて `pins` に渡す。
+// `sources[]` で指すパス。CLI が集めて `pins` に渡す。
 
+import { DATASETS, datasetPath, datasetsFor } from './datasets.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 
 const TS_FULL = /(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})/;
@@ -19,68 +21,20 @@ const TS_DATE = /(\d{4})-(\d{2})-(\d{2})/;
 const TS_COMPACT = /(\d{4})(\d{2})(\d{2})_\d{8}/;
 const TS_WEEK = /(\d{4})-W(\d{2})/;
 
-export const METRICS_ROOT = 'data/metrics';
-export const WEEKLY_ROOT = 'data/weekly-metrics';
-export const SCAN_ROOTS = [METRICS_ROOT, WEEKLY_ROOT];
+export const DATA_ROOT = 'data';
 
-/** 削除計画から常に除外する dir（台帳・不変履歴）。末尾 `/` 無しで書き、prefix 一致で判定する */
-export const EXCLUDED_DIRS = [`${METRICS_ROOT}/business`, `${METRICS_ROOT}/gsc/rank-watch`];
-
-/**
- * 寿命表。1 ファイルは必ず 0 か 1 個の policy に一致する（2 個以上は設定ミス＝coverage 検査が赤）。
- * rule:
- *   { keepNewest: N }                          … 同 policy 内で新しい N 件を残す
- *   { maxAgeDays: D, keepNewestPerPrefix: 1 }  … D 日超を消す。ただし prefix（日付を除いた名前）ごとに最新 1 件は必ず残す
- *   'keep-all'                                 … 消さない（寿命を「無期限」と宣言するだけ）
- * keepNewestWhere: { prefix, path, equals } … JSON の path が equals のファイルのうち最新 1 件を追加で残す
- *   （ga4-cta-clicks-by-label は `meta.windowKind === "month"` の最新が EPC 分母。.claude/scripts/lib/ga4-snapshot.mjs pickByLabelSnapshot）
- * index: dir 内の索引 JSON。削除した path を `weeks[]` から落として書き直す（weekly-metrics/index.json）
- */
-export const POLICIES = [
-  { family: 'psi', dir: `${METRICS_ROOT}/psi`, match: /^psi-batch-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: { keepNewest: 14 } },
-  { family: 'psi', dir: `${METRICS_ROOT}/psi`, match: /^psi-single-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: { keepNewest: 5 } },
-  {
-    family: 'ga4',
-    dir: `${METRICS_ROOT}/ga4`,
-    match: /^(ga4-[A-Za-z-]+|bot-audit)-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/,
-    rule: { maxAgeDays: 90, keepNewestPerPrefix: 1 },
-    keepNewestWhere: { prefix: 'ga4-cta-clicks-by-label-', path: ['meta', 'windowKind'], equals: 'month' },
-  },
-  {
-    family: 'gsc',
-    dir: `${METRICS_ROOT}/gsc`,
-    match: /^gsc-(query|page|date|page-query)-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/,
-    rule: { maxAgeDays: 90, keepNewestPerPrefix: 1 },
-  },
-  { family: 'url-inspection', dir: `${METRICS_ROOT}/url-inspection`, match: /^inspection-batch-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: { keepNewest: 6 } },
-  { family: 'url-inspection', dir: `${METRICS_ROOT}/url-inspection`, match: /^inspection-single-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: { keepNewest: 2 } },
-  { family: 'monetization', dir: `${METRICS_ROOT}/monetization`, match: /^coverage-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: { keepNewest: 4 } },
-  { family: 'crosswalk', dir: `${METRICS_ROOT}/crosswalk`, match: /^crosswalk-\d{8}_\d{8}\.json$/, rule: { keepNewest: 8 } },
-  { family: 'weekly-metrics', dir: WEEKLY_ROOT, match: /^\d{4}-W\d{2}\.json$/, rule: { keepNewest: 26 }, index: 'index.json' },
-  // 寿命「無期限」を宣言するだけの行（消さない）。基準線・手動取得の証跡で、読み手が名前で参照する
-  { family: 'affiliate', dir: `${METRICS_ROOT}/affiliate`, match: /-\d{4}-\d{2}-\d{2}\.json$/, rule: 'keep-all' },
-  { family: 'gsc-ui', dir: `${METRICS_ROOT}/gsc-ui/ssot/diff`, match: /^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.json$/, rule: 'keep-all' }, // check-google-ui-ssot の marker↔history↔urls 整合が run 単位で参照
-  { family: 'gsc', dir: `${METRICS_ROOT}/gsc`, match: /^coverage-diagnosis-\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.(json|md)$/, rule: 'keep-all' }, // 2026-04 の単発診断（analyze-gsc-coverage が読む）。増えない
-  { family: 'notes', dir: `${METRICS_ROOT}/notes`, match: /-\d{4}-\d{2}-\d{2}\.md$/, rule: 'keep-all' },
-  { family: 'instagram', dir: `${METRICS_ROOT}/instagram`, match: /^ig-insights-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 180, keepNewestPerPrefix: 1 } },
-  { family: 'cloudflare', dir: `${METRICS_ROOT}/cloudflare`, match: /^cf-zone-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
-  // 成長サイクル: pack は digest の入力（再計算用に 12 週）、digest は週次トリアージの対象（半年）
-  { family: 'growth', dir: `${METRICS_ROOT}/growth`, match: /^pack-\d{4}-W\d{2}\.json$/, rule: { keepNewest: 12 } },
-  { family: 'growth', dir: `${METRICS_ROOT}/growth`, match: /^digest-\d{4}-W\d{2}\.json$/, rule: { keepNewest: 26 } },
-  { family: 'bing', dir: `${METRICS_ROOT}/bing`, match: /^bing-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
-  { family: 'rum', dir: `${METRICS_ROOT}/rum`, match: /^web-vitals-\d{4}-\d{2}-\d{2}\.json$/, rule: { maxAgeDays: 120, keepNewestPerPrefix: 1 } },
-];
+/** 寿命の宣言（台帳の retain を持つデータセット） */
+export const POLICIES = DATASETS.filter((x) => x.retain).map((x) => ({ family: x.retain.family, dataset: x.id, rule: x.retain }));
 
 export const FAMILIES = [...new Set(POLICIES.map((p) => p.family))];
 
 // 台帳の記録は旧パス（.claude/state/metrics/…）のまま残しているので、新しい位置へ読み替えてから比べる
 const norm = (p) => resolveMovedPath(p.replace(/\\/g, '/').replace(/^\.\//, ''));
-const dirOf = (p) => p.slice(0, p.lastIndexOf('/'));
 const baseOf = (p) => p.slice(p.lastIndexOf('/') + 1);
 
+/** 中身を変えない台帳のファイルか（決して消さない） */
 export function isExcluded(file) {
-  const f = norm(file);
-  return EXCLUDED_DIRS.some((d) => f === d || f.startsWith(d + '/'));
+  return datasetsFor(norm(file)).some((x) => x.immutable);
 }
 
 /** ISO 週（YYYY-Www）の月曜 00:00 UTC */
@@ -115,16 +69,10 @@ export function isDated(file) {
   return snapshotStamp(baseOf(norm(file))) !== null;
 }
 
-/** 名前から日付以降を落とした prefix（`ga4-channel-2026-…json` → `ga4-channel`） */
-export function prefixOf(basename) {
-  return basename.replace(/[-_]?\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}Z?\.\w+$/, '').replace(/[-_]?\d{8}_\d{8}\.\w+$/, '').replace(/[-_]?\d{4}-\d{2}-\d{2}\.\w+$/, '');
-}
-
+/** ファイルに当たる寿命の宣言（台帳で 1 つのデータセットに当たり、そのデータセットが retain を持つときだけ 1 件） */
 export function policiesFor(file) {
-  const f = norm(file);
-  const dir = dirOf(f);
-  const base = baseOf(f);
-  return POLICIES.filter((p) => p.dir === dir && p.match.test(base));
+  const hits = datasetsFor(norm(file));
+  return hits.length === 1 ? POLICIES.filter((p) => p.dataset === hits[0].id) : [];
 }
 
 const getPath = (obj, path) => path.reduce((o, k) => (o && typeof o === 'object' ? o[k] : undefined), obj);
@@ -132,10 +80,10 @@ const getPath = (obj, path) => path.reduce((o, k) => (o && typeof o === 'object'
 /**
  * 削除計画を立てる。
  * @param {object} args
- * @param {string[]} args.files 走査対象（SCAN_ROOTS 配下の相対パス。tracked + untracked を渡す）
+ * @param {string[]} args.files 走査対象（data/ 配下の相対パス。tracked + untracked を渡す）
  * @param {number} [args.now] epoch ms（maxAgeDays の基準）
  * @param {Iterable<string>} [args.pins] 名前で参照されるため消せないパス
- * @param {(file:string)=>any} [args.readJson] keepNewestWhere の判定に使う（無ければその条件は無視＝保守的に prefix 最新だけ残す）
+ * @param {(file:string)=>any} [args.readJson] alsoKeepNewestWhere の判定に使う（無ければその条件は無視＝保守的に最新だけ残す）
  * @param {string[]} [args.families] 対象 family の限定（未指定＝全部）
  * @returns {{ entries: Array<{file:string, family:string|null, decision:'keep'|'delete'|'excluded'|'undeclared'|'skipped', reason:string}>, summary: object, indexRewrites: Array<{index:string, removed:string[]}> }}
  */
@@ -147,19 +95,20 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
 
   for (const raw of files) {
     const file = norm(raw);
-    if (!SCAN_ROOTS.some((r) => file.startsWith(r + '/'))) continue;
-    if (isExcluded(file)) {
-      entries.push({ file, family: null, decision: 'excluded', reason: 'immutable ledger dir' });
+    if (!file.startsWith(`${DATA_ROOT}/`)) continue;
+    const hits = datasetsFor(file);
+    if (hits.some((x) => x.local)) continue; // 手元だけの生データは寿命の対象外
+    if (hits.some((x) => x.immutable)) {
+      entries.push({ file, family: null, decision: 'excluded', reason: 'immutable ledger' });
       continue;
     }
-    if (!isDated(file)) continue; // latest-*.json / history.json / index.json 等は寿命の対象外
+    if (!isDated(file)) continue; // 最新状態・台帳・索引など日付の無いものは寿命の対象外
     const matched = policiesFor(file);
     if (matched.length !== 1) {
-      entries.push({ file, family: null, decision: 'undeclared', reason: matched.length === 0 ? 'no policy declares a lifetime' : `matches ${matched.length} policies` });
+      entries.push({ file, family: null, decision: 'undeclared', reason: hits.length === 1 ? `${hits[0].id} has no retain` : hits.length === 0 ? 'not in the catalog' : `matches ${hits.length} datasets` });
       continue;
     }
-    const policy = matched[0];
-    const idx = POLICIES.indexOf(policy);
+    const idx = POLICIES.indexOf(matched[0]);
     if (!byPolicy.has(idx)) byPolicy.set(idx, []);
     byPolicy.get(idx).push(file);
   }
@@ -167,8 +116,9 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
   const indexRewrites = [];
   for (const [idx, list] of byPolicy) {
     const policy = POLICIES[idx];
+    const rule = policy.rule;
     const items = list
-      .map((file) => ({ file, base: baseOf(file), ...snapshotStamp(baseOf(file)) }))
+      .map((file) => ({ file, ...snapshotStamp(baseOf(file)) }))
       .sort((a, b) => (a.stamp < b.stamp ? 1 : a.stamp > b.stamp ? -1 : a.file < b.file ? 1 : -1)); // 新しい順
 
     if (wanted && !wanted.has(policy.family)) {
@@ -177,27 +127,21 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
     }
 
     const keep = new Map(); // file → reason
-    if (policy.rule === 'keep-all') {
+    if (rule.keepAll) {
       for (const it of items) keep.set(it.file, 'keep-all');
-    } else if (policy.rule.keepNewest) {
-      items.slice(0, policy.rule.keepNewest).forEach((it, i) => keep.set(it.file, `newest ${i + 1}/${policy.rule.keepNewest}`));
-    } else if (policy.rule.maxAgeDays) {
-      const limit = now - policy.rule.maxAgeDays * 86400000;
-      const seenPrefix = new Set();
-      for (const it of items) {
-        const prefix = prefixOf(it.base);
-        if (!seenPrefix.has(prefix)) {
-          seenPrefix.add(prefix);
-          keep.set(it.file, `newest of ${prefix}`);
-          continue;
-        }
-        if (it.time >= limit) keep.set(it.file, `within ${policy.rule.maxAgeDays}d`);
-      }
+    } else if (rule.keepNewest) {
+      items.slice(0, rule.keepNewest).forEach((it, i) => keep.set(it.file, `newest ${i + 1}/${rule.keepNewest}`));
+    } else if (rule.maxAgeDays) {
+      const limit = now - rule.maxAgeDays * 86400000;
+      items.forEach((it, i) => {
+        if (i === 0) keep.set(it.file, `newest of ${policy.dataset}`);
+        else if (it.time >= limit) keep.set(it.file, `within ${rule.maxAgeDays}d`);
+      });
     }
-    if (policy.keepNewestWhere && readJson) {
-      const { prefix, path, equals } = policy.keepNewestWhere;
-      const hit = items.find((it) => it.base.startsWith(prefix) && getPath(safeRead(readJson, it.file), path) === equals);
-      if (hit) keep.set(hit.file, `newest ${prefix}* with ${path.join('.')}=${equals}`);
+    if (rule.alsoKeepNewestWhere && readJson) {
+      const { path, equals } = rule.alsoKeepNewestWhere;
+      const hit = items.find((it) => getPath(safeRead(readJson, it.file), path) === equals);
+      if (hit) keep.set(hit.file, `newest with ${path.join('.')}=${equals}`);
     }
     for (const it of items) if (pinSet.has(it.file)) keep.set(it.file, 'pinned by name');
 
@@ -205,15 +149,15 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
     for (const it of items) {
       if (keep.has(it.file)) entries.push({ file: it.file, family: policy.family, decision: 'keep', reason: keep.get(it.file) });
       else {
-        entries.push({ file: it.file, family: policy.family, decision: 'delete', reason: policy.rule.keepNewest ? `older than newest ${policy.rule.keepNewest}` : `older than ${policy.rule.maxAgeDays}d` });
+        entries.push({ file: it.file, family: policy.family, decision: 'delete', reason: rule.keepNewest ? `older than newest ${rule.keepNewest}` : `older than ${rule.maxAgeDays}d` });
         removed.push(it.file);
       }
     }
-    if (policy.index && removed.length) indexRewrites.push({ index: `${policy.dir}/${policy.index}`, removed });
+    if (rule.index && removed.length) indexRewrites.push({ index: datasetPath(rule.index), removed });
   }
 
-  // 不変条件: 除外 dir のファイルは決して delete にならない
-  for (const e of entries) if (e.decision === 'delete' && isExcluded(e.file)) throw new Error(`invariant: excluded file planned for deletion: ${e.file}`);
+  // 不変条件: 中身を変えない台帳のファイルは決して delete にならない
+  for (const e of entries) if (e.decision === 'delete' && isExcluded(e.file)) throw new Error(`invariant: immutable file planned for deletion: ${e.file}`);
 
   const count = (d) => entries.filter((e) => e.decision === d).length;
   const summary = {
@@ -236,21 +180,21 @@ function safeRead(readJson, file) {
   }
 }
 
-/** weekly-metrics/index.json から削除済み path の週を落とす（純粋） */
+/** 週次の索引（business.weekly-index）から削除済み path の週を落とす（純粋） */
 export function filterWeeklyIndex(index, removedPaths) {
   const gone = new Set(removedPaths.map(norm));
   const weeks = (index.weeks || []).filter((w) => !gone.has(norm(w.path || '')));
   return { ...index, weeks };
 }
 
-/** seo-watchwords.json / business 台帳から「名前で参照される metrics パス」を抜く（純粋） */
+/** seo-watchwords.json / business 台帳から「名前で参照される記録のパス」を抜く（純粋） */
 export function collectPins({ watchwords = null, businessDocs = [] } = {}) {
   const pins = new Set();
   for (const w of watchwords?.watchwords || []) {
     if (w?.evidence?.kind === 'gsc' && typeof w.evidence.source === 'string') pins.add(norm(w.evidence.source));
   }
   // 新しいパス（data/…）と、台帳に残る旧パス（.claude/state/…）の両方を拾う
-  const re = /(?<![A-Za-z0-9_.-])(?:data|\.claude\/state)\/(?:metrics|weekly-metrics)\/[A-Za-z0-9_./-]+/g;
+  const re = /(?<![A-Za-z0-9_.-])(?:data|\.claude\/state)\/[A-Za-z0-9_./-]+\.(?:json|md)/g;
   for (const text of businessDocs) for (const m of String(text).matchAll(re)) pins.add(norm(m[0]));
   return pins;
 }

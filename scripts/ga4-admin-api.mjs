@@ -7,7 +7,7 @@
  * 取れなかった。API ならサービスアカウントで CI から毎週観測でき、作成も同じ認証で行える。
  *
  *   check  … カスタムディメンション・キーイベント・データ保持を読み、desired state と突合して表示する。
- *            --commit で data/metrics/ga4-admin/inventory-latest.json を上書き（check-ga4-dimensions が読む）。
+ *            --commit で data/ga4/admin-inventory.json を上書き（check-ga4-dimensions が読む）。
  *            必要権限: プロパティの閲覧者（Data API と同じサービスアカウント）
  *   apply  … desired state の keyEvents のうち不足分を作成する（作成のみ。編集・削除はしない）。
  *            既定は dry-run、--commit で作成。必要権限: プロパティの**編集者**
@@ -29,7 +29,7 @@ import dotenv from 'dotenv';
 
 const TAG = '[ga4-admin-api]';
 const DESIRED = 'config/ga4-admin-desired-state.json';
-const INVENTORY = 'data/metrics/ga4-admin/inventory-latest.json';
+const INVENTORY = 'data/ga4/admin-inventory.json';
 const RETENTION_MONTHS = { TWO_MONTHS: 2, FOURTEEN_MONTHS: 14, TWENTY_SIX_MONTHS: 26, THIRTY_EIGHT_MONTHS: 38, FIFTY_MONTHS: 50 };
 
 /** 観測と desired state の差分（純関数）。 */

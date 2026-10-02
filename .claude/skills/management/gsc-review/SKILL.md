@@ -2,7 +2,7 @@
 name: gsc-review
 description: >
   月次 GSC index coverage レビューのオーケストレータ。CI（index-coverage.yml）が更新した
-  url-inspection スナップショットと index-coverage-history.json を gsc-index-auditor で診断し、
+  url-inspection スナップショットと data/gsc/index-coverage.json を gsc-index-auditor で診断し、
   .claude/knowledge/reference/gsc-management.md の「観測・判断ログ」へユーザー判断つきで追記する流れを統括する。
   performance（CTR/rank）は /weekly-improve（metrics-analyzer）、CWV は performance-auditor の担当で直交。
   Use when user asks to [GSC月次レビュー, index coverage確認, インデックス率, /gsc-review].
@@ -33,8 +33,8 @@ domain: site
 ## 手順
 
 1. **データ確認**
-   - `data/metrics/url-inspection/` の最新 `inspection-batch-*.json` の日付を確認
-   - `data/metrics/gsc/index-coverage-history.json` の最新エントリ日付を確認
+   - `data/gsc/url-inspection/` の最新ファイルの日付を確認
+   - `data/gsc/index-coverage.json` の最新エントリ日付を確認
    - 最新 batch が当月でなければ、CI 未実行と判断し `gh workflow run index-coverage.yml` を案内（実行はユーザー判断）
 
 2. **診断（gsc-index-auditor を起動）**

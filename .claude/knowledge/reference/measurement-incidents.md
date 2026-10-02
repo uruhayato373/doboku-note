@@ -258,7 +258,7 @@ GSC が逆を向いて見えた件も矛盾しない。**週 26 クリックは 
 
 ### 関連
 
-- 売上の月次: `data/sales/sales-log.json`（2026-08-17 に 7 月を実体で差し替え・[sales-tracking.md](sales-tracking.md)）
+- 売上の月次: `data/note/sales.json`（2026-08-17 に 7 月を実体で差し替え・[sales-tracking.md](sales-tracking.md)）
 - 試験日の真実源: `config/exam-calendar.json`
 
 ## 2026-07-30: 「構造的に必ず赤いゲート」— weekly-review-guard の偽赤（恒久ルール）

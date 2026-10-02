@@ -2,42 +2,64 @@
  * google-console-ssot.mjs — GSC/GA4 UI CSV から得た情報の **追跡される SSOT**
  * ---------------------------------------------------------------------------
  * なぜ必要か（2026-07-30 新設）: これまで正規化結果は run ディレクトリ配下
- * （`data/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
+ * （当時の `data/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
  * raw CSV は再取得しかできない（＝再生成不可能）ため、worktree を捨てた時点で **URL レベルの情報が
  * 消え**、`report-search-growth` も「前回比」を出せず、別マシンでは診断そのものが再現できなかった。
  * 実際 2026-07-23 の run（1,952 行）は run ディレクトリごと消えて last-run.json だけが残っていた。
  *
- * そこで「CSV から得た情報」を .claude 内の SSOT として commit する:
+ * そこで「CSV から得た情報」を追跡される SSOT として commit する（<取得元> は gsc-ui → gsc、ga4-ui → ga4）:
  *
- *   data/metrics/<channel>/
- *     last-run.json                     # 取得マーカー（既存・完全性つき）
- *     ssot/
- *       urls/<issueKey>--<scope>.json    # 最新の正規化 URL 一覧（lean 射影・追跡）
- *       history.json                     # run 別のユニット件数履歴（append・追跡）
- *       diff/<runId>.json                # 直前 SSOT との差分（added/removed URL・追跡）
- *     <runId>/                           # raw CSV / ZIP / manifest（gitignore・再取得のみ）
+ *   data/<取得元>/
+ *     ui-last-run.json                  # 取得マーカー（完全性つき）
+ *     ui-urls.json                      # 最新の正規化 URL 一覧（units[<issueKey>--<scope>]・lean 射影）
+ *     ui-history.json                   # run 別のユニット件数履歴（append）
+ *     ui-diff/<runId>.json              # 直前 SSOT との差分（added/removed URL）
+ *     ui/<runId>/                       # raw CSV / ZIP / manifest（gitignore・再取得のみ）
  *
  * lean 射影の理由: 正規化 JSON の `rows[].raw` は CSV 全列の複製で、URL と lastCrawled から
  * 復元できる。追跡サイズを抑えるため raw を落とし、突合に必要な列だけを残す。
  * rejects は件数が小さく「取りこぼしの証拠」なので残す。
  */
-import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 
-// 既定は追跡される計測ステートのルート。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
-const METRICS = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data/metrics";
+// 既定は追跡される記録のルート（data）。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
+const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
 
+/** チャネル（gsc-ui・ga4-ui）→ 取得元のフォルダ（data/gsc・data/ga4） */
 export function ssotDir(channel) {
-  return join(METRICS, channel, "ssot");
+  return join(ROOT_DIR, channel.replace(/-ui$/, ""));
 }
-export function urlsDir(channel) {
-  return join(ssotDir(channel), "urls");
+export function urlsPath(channel) {
+  return join(ssotDir(channel), "ui-urls.json");
 }
 export function diffDir(channel) {
-  return join(ssotDir(channel), "diff");
+  return join(ssotDir(channel), "ui-diff");
 }
 export function historyPath(channel) {
-  return join(ssotDir(channel), "history.json");
+  return join(ssotDir(channel), "ui-history.json");
+}
+export function markerPath(channel) {
+  return join(ssotDir(channel), "ui-last-run.json");
+}
+/** 手元だけの生データ（run ごとの CSV・manifest・正規化結果） */
+export function rawDir(channel) {
+  return join(ssotDir(channel), "ui");
+}
+/** SSOT が 1 つでもあるか（マーカーと別に「正規化したことがあるか」を判定する） */
+export function hasSsot(channel) {
+  return existsSync(urlsPath(channel)) || existsSync(historyPath(channel));
+}
+
+function readUnits(channel) {
+  const p = urlsPath(channel);
+  if (!existsSync(p)) return { schemaVersion: 1, channel, units: {} };
+  try {
+    const doc = JSON.parse(readFileSync(p, "utf-8"));
+    return doc && typeof doc.units === "object" ? doc : { schemaVersion: 1, channel, units: {} };
+  } catch {
+    return { schemaVersion: 1, channel, units: {}, __broken: true };
+  }
 }
 
 export function unitKey(issue, scope) {
@@ -55,21 +77,12 @@ function leanRows(rows = []) {
 }
 
 export function readUnitSsot(channel, key) {
-  const p = join(urlsDir(channel), `${key}.json`);
-  if (!existsSync(p)) return null;
-  try {
-    return JSON.parse(readFileSync(p, "utf-8"));
-  } catch {
-    return null;
-  }
+  return readUnits(channel).units[key] ?? null;
 }
 
 export function listUnitSsot(channel) {
-  const dir = urlsDir(channel);
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => ({ key: f.replace(/\.json$/, ""), path: join(dir, f) }));
+  const p = urlsPath(channel);
+  return Object.keys(readUnits(channel).units).sort().map((key) => ({ key, path: p }));
 }
 
 /**
@@ -106,8 +119,11 @@ export function writeUnitSsot(channel, { issue, scope, norm, collectedAt }) {
     rows,
   };
 
-  mkdirSync(urlsDir(channel), { recursive: true });
-  writeFileSync(join(urlsDir(channel), `${key}.json`), JSON.stringify(doc, null, 2), "utf-8");
+  const all = readUnits(channel);
+  delete all.__broken;
+  all.units = Object.fromEntries(Object.entries({ ...all.units, [key]: doc }).sort(([a], [b]) => a.localeCompare(b)));
+  mkdirSync(ssotDir(channel), { recursive: true });
+  writeFileSync(urlsPath(channel), JSON.stringify(all, null, 2), "utf-8");
   return { key, rows: rows.length, added, removed, previousRows: prev?.exportedRows ?? null };
 }
 
@@ -165,7 +181,7 @@ export function readHistory(channel) {
 }
 
 export function readMarker(channel) {
-  const p = join(METRICS, channel, "last-run.json");
+  const p = markerPath(channel);
   if (!existsSync(p)) return null;
   try {
     return JSON.parse(readFileSync(p, "utf-8"));

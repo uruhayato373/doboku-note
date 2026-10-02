@@ -22,7 +22,7 @@ import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { AREAS, areaOf, datasetById, listAreaFiles, matchFiles, patternOf } from './lib/datasets.mjs';
+import { AREAS, datasetDir, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -30,16 +30,9 @@ const git = (root, args, input) =>
   execFileSync('git', ['-c', 'core.quotepath=false', ...args], { cwd: root, encoding: 'utf8', input, maxBuffer: 256 * 1024 * 1024 });
 
 function dataset(id) {
-  const x = datasetById(id);
+  const x = resolveDataset(id);
   if (!x) throw new Error(`台帳に無いデータセット: ${id}`);
   return x;
-}
-
-/** データセットのパスのうち、可変部分（{ts} など）の手前のディレクトリ。可変部分が無ければパスそのもの */
-export function staticPathOf(id) {
-  const { path } = dataset(id);
-  const i = path.indexOf('{');
-  return i < 0 ? path : path.slice(0, path.lastIndexOf('/', i));
 }
 
 const matchesAny = (file, ids) => ids.some((id) => patternOf(dataset(id).path).test(file));
@@ -71,7 +64,7 @@ export function changedFiles(root, pathspecs) {
 
 /** paths（根）と datasets（id）から、対象の変更ファイルを選ぶ */
 function selectChanges(root, { paths = [], datasets = [] }) {
-  const specs = [...paths, ...datasets.map(staticPathOf)];
+  const specs = [...paths, ...datasets.map(datasetDir)];
   const all = changedFiles(root, specs);
   return all.filter((e) => paths.some((p) => e.path === p || e.path.startsWith(`${p.replace(/\/$/, '')}/`)) || (datasets.length > 0 && matchesAny(e.path, datasets)));
 }
@@ -128,19 +121,13 @@ export function add(root, { paths = [], datasets = [] }) {
   const specs = paths.filter((p) => existsSync(join(root, p)) || tracked(p));
   const skipped = paths.filter((p) => !specs.includes(p));
   if (datasets.length) {
-    for (const e of changedFiles(root, datasets.map(staticPathOf).filter((p) => existsSync(join(root, p)) || tracked(p)))) {
+    for (const e of changedFiles(root, datasets.map(datasetDir).filter((p) => existsSync(join(root, p)) || tracked(p)))) {
       if (matchesAny(e.path, datasets)) specs.push(e.path);
     }
   }
   if (specs.length) git(root, ['add', '-A', '--pathspec-from-file=-', '--pathspec-file-nul'], `${specs.join('\0')}\0`);
   const staged = git(root, ['diff', '--cached', '--name-only', '-z']).split('\0').filter(Boolean).length;
   return { specs: specs.length, skipped, staged };
-}
-
-export function latest(root, id) {
-  const x = dataset(id);
-  const files = listAreaFiles(root, areaOf(x));
-  return matchFiles(files).byId.get(id)?.[0] ?? null;
 }
 
 // ---- CLI ---------------------------------------------------------------------------------
@@ -182,12 +169,13 @@ function main() {
     console.log(`[ci-data] add: 対象 ${r.specs} 件・stage 済み ${r.staged} ファイル`);
   } else if (cmd === 'latest') {
     need(o._[0], 'latest <id> が要る');
-    const p = latest(root, o._[0]);
+    dataset(o._[0]);
+    const p = latestFile(root, o._[0]);
     if (!p) process.exit(1);
     process.stdout.write(`${p}\n`);
   } else if (cmd === 'path') {
     need(o._[0], 'path <id> が要る');
-    process.stdout.write(`${staticPathOf(o._[0])}\n`);
+    process.stdout.write(`${datasetDir(o._[0])}\n`);
   } else if (cmd === 'put') {
     need(o._[0] && o._[1], 'put <id> <src> が要る');
     const x = dataset(o._[0]);

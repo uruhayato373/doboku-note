@@ -2,7 +2,7 @@
 /**
  * check-products.mjs — 商品の正本（content/products/）のゲート（DN-0492・quality-audit ci:true）。
  * ---------------------------------------------------------------------------
- * 結果は PR の差分（正本・note-magazines.ts・コミット済みの収録記録 magazines-snapshot.json・原稿）だけで決まる。
+ * 結果は PR の差分（正本・note-magazines.ts・コミット済みの収録記録 data/note/magazines.json・原稿）だけで決まる。
  * ネットワークは使わない（note の実物との照合は verify-note-magazines の担当）。
  *   1. 型・ファイル名と id・正規化（canonicalJson）
  *   2. id の重複・includes の参照先・members の原稿の実在

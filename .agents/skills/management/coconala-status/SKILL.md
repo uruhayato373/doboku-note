@@ -2,9 +2,9 @@
 name: coconala-status
 description: >
   ココナラ出品の状態を read-only で照合するスキル。受注の実体を npm run coconala-orders で収集して
-  orders-log と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
-  /coconala-analytics が kpi-log.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
-  state ↔ sales-log のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
+  orders.json と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
+  /coconala-analytics が data/coconala/kpi.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
+  state ↔ sales.json のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
   KPI 数値は対象期間の累計（既定30日ローリング）であって週次増分ではない（cumulative フラグを見る）。
   投稿・出品・価格変更はしない（検知と報告のみ）。
   Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, ココナラの数字を貼る, 撤退ライン判定, /coconala-status].

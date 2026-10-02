@@ -5,7 +5,7 @@
  * 検査（すべて diff だけで決まる。壁時計に依存しない）:
  *   - market-scan.json: 資格 id が registry にあり、見送り以外の全資格に検索語がある・閾値の形
  *   - {note,x,ig,coconala,youtube}-competitors.json: exams が registry の資格 id・handle の重複なし
- *   - 売上（sales-log.json）とココナラ受注（orders-log.json）が product-lineup.json で資格へ分類できる
+ *   - 売上（data/note/sales.json）とココナラ受注（data/coconala/orders.json）が product-lineup.json で資格へ分類できる
  * 出題形式（exam-formats.json）と registry の id 整合は npm run check-exam-calendar が見る。
  * 市場スキャンの古さ（90 日）は壁時計に依存するので npm run qualification-market の要対応に出す（月次レビューが読む）。
  *

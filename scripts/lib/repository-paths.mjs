@@ -171,11 +171,88 @@ export const MOVED_PATHS = [
   [".claude/state/ads", "data/ads"],
 ];
 
-/** 記録に書かれたリポジトリ相対パスを、移動後の位置へ読み替える（移していないパスはそのまま） */
-export function resolveMovedPath(p) {
-  if (typeof p !== 'string') return p;
-  for (const [from, to] of MOVED_PATHS) {
-    if (p === from || p.startsWith(`${from}/`)) return to + p.slice(from.length);
+/**
+ * DN-0498（2026-10-02〜）で data/ の中を取得元ごとに組み替えたパス（旧 → 新）。MOVED_PATHS と同じく、追記だけを許す
+ * 台帳の中の旧パスを読むために使う。文字列は前方一致、正規表現はパス全体に当てて置き換える。
+ * .claude/ → data/ → 取得元ごとの 2 段の移動は resolveMovedPath が続けてたどる。
+ */
+export const RESTRUCTURED_PATHS = [
+  ["data/sales/sales-log.json", "data/note/sales.json"],
+  ["data/sales/kdp-royalties.json", "data/kdp/royalties.json"],
+  ["data/note/magazines-snapshot.json", "data/note/magazines.json"],
+  ["data/note/status-snapshot.json", "data/note/status.json"],
+  [/^data\/metrics\/note\/articles-pv-(\d{4}-\d{2})\.json$/, "data/note/articles-pv/$1.json"],
+  [/^data\/metrics\/note\/referrers-(\d{4}-\d{2})\.json$/, "data/note/referrers/$1.json"],
+  ["data/coconala/orders-log.json", "data/coconala/orders.json"],
+  ["data/coconala/kpi-log.json", "data/coconala/kpi.json"],
+  ["data/coconala/analytics-snapshot.json", "data/coconala/analytics.json"],
+  // SNS・アフィリエイト・サイトの計測（2026-10-02）
+  [/^data\/x-metrics\/history\/(\d{4}-\d{2}-\d{2})\.json$/, "data/x/own-posts/$1.json"],
+  ["data/sns/x-publish-log.csv", "data/x/publish-log.csv"],
+  ["data/x-repost/reposted-log.json", "data/x/reposted.json"],
+  ["data/yt-posted-log.jsonl", "data/youtube/posted.jsonl"],
+  ["data/ads/a8-catalog.json", "data/a8/catalog.json"],
+  ["data/ads/affiliate-catalog.json", "data/affiliate/catalog.json"],
+  ["data/ads/inventory-latest.json", "data/a8/inventory.json"],
+  ["data/metrics/affiliate/a8-report-log.json", "data/a8/report-log.json"],
+  ["data/metrics/affiliate/a8-results.json", "data/a8/results.json"],
+  ["data/metrics/affiliate/a8-ui/last-run.json", "data/a8/ui-last-run.json"],
+  ["data/metrics/affiliate/a8-ui", "data/a8/ui"],
+  ["data/metrics/affiliate/career-funnel-latest.json", "data/analysis/career-funnel.json"],
+  ["data/metrics/affiliate/career-funnel-latest.md", "data/analysis/career-funnel.md"],
+  ["data/metrics/affiliate/buildjob-report-latest.md", "data/analysis/buildjob-report.md"],
+  [/^data\/metrics\/affiliate\/career-funnel-baseline-(\d{4}-\d{2}-\d{2})\.json$/, "data/analysis/career-funnel-baseline/$1.json"],
+  [/^data\/metrics\/affiliate\/opportunities-(\d{4}-\d{2}-\d{2})\.json$/, "data/analysis/affiliate-opportunities/$1.json"],
+  [/^data\/metrics\/affiliate\/research-baseline-(\d{4}-\d{2}-\d{2})\.json$/, "data/analysis/affiliate-research/$1.json"],
+  [/^data\/metrics\/affiliate\/afb-outcomes-(\d{4}-\d{2}-\d{2})\.json$/, "data/afb/outcomes/$1.json"],
+  [/^data\/metrics\/bing\/bing-(\d{4}-\d{2}-\d{2})\.json$/, "data/bing/snapshots/$1.json"],
+  [/^data\/metrics\/psi\/psi-batch-([0-9T-]+)\.json$/, "data/psi/batch/$1.json"],
+  [/^data\/metrics\/psi\/psi-single-([0-9T-]+)\.json$/, "data/psi/single/$1.json"],
+  ["data/metrics/psi/latest-report.md", "data/analysis/psi-report.md"],
+  [/^data\/metrics\/rum\/web-vitals-(\d{4}-\d{2}-\d{2})\.json$/, "data/rum/web-vitals/$1.json"],
+  [/^data\/metrics\/cloudflare\/cf-zone-(\d{4}-\d{2}-\d{2})\.json$/, "data/cloudflare/zone/$1.json"],
+  [/^data\/metrics\/instagram\/ig-insights-(\d{4}-\d{2}-\d{2})\.json$/, "data/instagram/insights/$1.json"],
+  ["data/metrics/seo-meta/seo-meta-latest.json", "data/analysis/seo-meta.json"],
+  // GSC・GA4 の一括でない取得（2026-10-02）
+  ["data/metrics/gsc/sitemaps-latest.json", "data/gsc/sitemaps.json"],
+  ["data/metrics/gsc/index-coverage-history.json", "data/gsc/index-coverage.json"],
+  [/^data\/metrics\/url-inspection\/inspection-batch-([0-9T-]+Z?)\.json$/, "data/gsc/url-inspection/$1.json"],
+  [/^data\/metrics\/url-inspection\/inspection-single-([0-9T-]+Z?)\.json$/, "data/gsc/url-inspection-single/$1.json"],
+  ["data/metrics/gsc-indexing/history.json", "data/gsc/indexing-history.json"],
+  ["data/metrics/gsc-indexing/priority-latest.json", "data/gsc/indexing-priority.json"],
+  ["data/metrics/gsc-indexing/priority-latest.txt", "data/gsc/indexing-priority.txt"],
+  ["data/metrics/gsc-indexing/requests-latest.json", "data/gsc/indexing-requests.json"],
+  ["data/metrics/gsc-ui/last-run.json", "data/gsc/ui-last-run.json"],
+  ["data/metrics/gsc-ui/ssot/history.json", "data/gsc/ui-history.json"],
+  [/^data\/metrics\/gsc-ui\/ssot\/diff\/([0-9T-]+Z?)\.json$/, "data/gsc/ui-diff/$1.json"],
+  ["data/metrics/gsc-ui/ssot/urls", "data/gsc/ui-urls.json"],
+  ["data/metrics/gsc-ui", "data/gsc/ui"],
+  ["data/metrics/ga4-admin/history.json", "data/ga4/admin-history.json"],
+  ["data/metrics/ga4-admin/inventory-latest.json", "data/ga4/admin-inventory.json"],
+  ["data/metrics/ga4-admin/last-run.json", "data/ga4/admin-last-run.json"],
+  ["data/metrics/ga4-ui/last-run.json", "data/ga4/ui-last-run.json"],
+  ["data/metrics/ga4-ui", "data/ga4/ui"],
+  [/^data\/metrics\/gsc\/coverage-diagnosis-([0-9T-]+Z?)\.json$/, "data/analysis/gsc-coverage-diagnosis/$1.json"],
+];
+
+const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];
+
+function moveOnce(p) {
+  for (const [from, to] of PATH_MOVES) {
+    if (from instanceof RegExp) {
+      if (from.test(p)) return p.replace(from, to);
+    } else if (p === from || p.startsWith(`${from}/`)) return to + p.slice(from.length);
   }
   return p;
+}
+
+/** 記録に書かれたリポジトリ相対パスを、移動後の位置へ読み替える（移していないパスはそのまま・何段の移動でもたどる） */
+export function resolveMovedPath(p) {
+  if (typeof p !== 'string') return p;
+  for (let i = 0; i < 8; i++) {
+    const next = moveOnce(p);
+    if (next === p) return p;
+    p = next;
+  }
+  throw new Error(`移動表が循環している: ${p}`);
 }

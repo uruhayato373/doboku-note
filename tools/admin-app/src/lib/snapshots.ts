@@ -1,21 +1,21 @@
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import { repoPath } from './repo-root';
+import { existsSync, readFileSync, statSync } from 'node:fs';
+import { basename } from 'node:path';
+import { datasetFiles } from '../../../../scripts/lib/datasets.mjs';
+import { findRepoRoot, repoPath } from './repo-root';
 
 /**
- * snapshots.ts — data/metrics/{ga4,gsc,psi} 配下の
- * CI がコミットしたタイムスタンプ付き JSON スナップショットを読む。
+ * snapshots.ts — CI がコミットした時刻つきの JSON スナップショット（GA4・GSC・PSI など）を読む。
+ * どのファイルがどのデータセットかは台帳（scripts/lib/datasets.mjs）が決める。ここは台帳の id で引くだけ。
  *
  * ライブ API は絶対に叩かない（会社 PC はプロキシで Google/Meta を遮断・CI 供給が正）。
  */
 
-export type MetricKind = 'ga4' | 'gsc' | 'psi';
-
-const TS_RE = /^(.+)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})\.json$/;
+/** 名前の時刻（2026-07-15T05-53-27）か日付（2026-07-15・その日の 0 時として扱う） */
+const STAMP_RE = /(\d{4}-\d{2}-\d{2})(T\d{2}-\d{2}-\d{2})?/;
 
 export interface SnapshotFile {
-  /** prefix（例: ga4-date, gsc-query, psi-batch）。 */
-  prefix: string;
+  /** 台帳のデータセット id（例: ga4.date, gsc.query, psi.batch）。 */
+  dataset: string;
   /** ファイル名。 */
   file: string;
   /** 絶対パス。 */
@@ -26,48 +26,27 @@ export interface SnapshotFile {
   mtimeMs: number;
 }
 
-function metricsDir(kind: MetricKind): string {
-  return repoPath('data', 'metrics', kind);
-}
-
-/** kind 配下のタイムスタンプ付き JSON を prefix 別・新しい順にグルーピングして返す。 */
-export function listSnapshots(kind: MetricKind): Map<string, SnapshotFile[]> {
-  const dir = metricsDir(kind);
-  const map = new Map<string, SnapshotFile[]>();
-  if (!existsSync(dir)) return map;
-  for (const file of readdirSync(dir)) {
-    const m = TS_RE.exec(file);
-    if (!m) continue; // index-coverage-history.json や latest-report.md 等は対象外
-    const prefix = m[1]!;
-    const abs = join(dir, file);
-    const entry: SnapshotFile = {
-      prefix,
-      file,
-      abs,
-      stamp: m[2]!,
-      mtimeMs: statSync(abs).mtimeMs,
-    };
-    const arr = map.get(prefix) ?? [];
-    arr.push(entry);
-    map.set(prefix, arr);
+/** データセットの時刻つきファイルを新しい順に返す。 */
+export function listSnapshots(dataset: string): SnapshotFile[] {
+  const out: SnapshotFile[] = [];
+  for (const rel of datasetFiles(findRepoRoot(), dataset)) {
+    const file = basename(rel);
+    const m = STAMP_RE.exec(file);
+    if (!m) continue;
+    const abs = repoPath(rel);
+    out.push({ dataset, file, abs, stamp: `${m[1]}${m[2] ?? 'T00-00-00'}`, mtimeMs: statSync(abs).mtimeMs });
   }
-  for (const arr of map.values()) arr.sort((a, b) => b.stamp.localeCompare(a.stamp));
-  return map;
+  return out.sort((a, b) => b.stamp.localeCompare(a.stamp));
 }
 
-/** prefix の最新スナップショット（無ければ null）。 */
-export function latestSnapshot(kind: MetricKind, prefix: string): SnapshotFile | null {
-  return listSnapshots(kind).get(prefix)?.[0] ?? null;
+/** データセットの最新スナップショット（無ければ null）。 */
+export function latestSnapshot(dataset: string): SnapshotFile | null {
+  return listSnapshots(dataset)[0] ?? null;
 }
 
-/** ファイル名指定でスナップショットを解決（?snapshot= の履歴選択用・traversal ガード付き）。 */
-export function snapshotByFile(kind: MetricKind, file: string): SnapshotFile | null {
-  if (!TS_RE.test(file)) return null;
-  for (const arr of listSnapshots(kind).values()) {
-    const hit = arr.find((s) => s.file === file);
-    if (hit) return hit;
-  }
-  return null;
+/** ファイル名指定でスナップショットを解決（?snapshot= の履歴選択用・台帳に当たるものだけ＝traversal ガード）。 */
+export function snapshotByFile(dataset: string, file: string): SnapshotFile | null {
+  return listSnapshots(dataset).find((s) => s.file === file) ?? null;
 }
 
 export interface GaMeta {

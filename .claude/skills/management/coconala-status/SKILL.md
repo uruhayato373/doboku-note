@@ -2,9 +2,9 @@
 name: coconala-status
 description: >
   ココナラ出品の状態を read-only で照合するスキル。受注の実体を npm run coconala-orders で収集して
-  orders-log と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
-  /coconala-analytics が kpi-log.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
-  state ↔ sales-log のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
+  orders.json と突合（check-coconala-orders）し、分析画面の数値（閲覧数/お気に入り/販売数）は
+  /coconala-analytics が data/coconala/kpi.json へ週次 upsert したものを読んで、カタログ（coconala-services.ts）↔
+  state ↔ sales.json のドリフトを報告、撤退ライン（出品4週で S2 受注3件未満）を判定する。
   KPI 数値は対象期間の累計（既定30日ローリング）であって週次増分ではない（cumulative フラグを見る）。
   投稿・出品・価格変更はしない（検知と報告のみ）。
   Use when user asks to [ココナラの状態を確認, ココナラKPIを記録, ココナラの数字を貼る, 撤退ライン判定, /coconala-status].
@@ -18,7 +18,7 @@ domain: product
 
 ```
 /coconala-status            # カタログ↔state の整合だけ確認（数値なし）
-/coconala-status            # ＋ダッシュボードの数値を貼り付ければ kpi-log へ週次記録
+/coconala-status            # ＋ダッシュボードの数値を貼り付ければ kpi.json へ週次記録
 ```
 
 ## フロー
@@ -28,9 +28,9 @@ domain: product
    snapshot が取れない/古いときは exit 2＝**検査不成立**なので「受注 0 件」と報告しない。
 1. **整合チェック**: `node scripts/check-coconala-wiring.mjs` を実行し結果を報告（listed なのに serviceUrl 空・未知 serviceId・priceYen 不一致・**paused の理由欠落**・**復帰予定日 `resumeOn` の超過** 等）。
    ⚠ が出たら**棚が止まったままになっていないか**を必ず報告する（長期不在の全件休止から戻し忘れると、売上ゼロのまま誰も気づかない）。
-2. **KPI 取得**: `npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`（詳細は `/coconala-analytics`）。`kpi-log.json` の `weekly` / `blogsWeekly` へ `weekOf`（ISO 週初＝月曜）単位で upsert される。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
+2. **KPI 取得**: `npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`（詳細は `/coconala-analytics`）。`data/coconala/kpi.json` の `weekly` / `blogsWeekly` へ `weekOf`（ISO 週初＝月曜）単位で upsert される。数値の**手動貼付があればそれも正規化してよい**。**読み取れない項目は `null`。推測で埋めない**。
    数値は `period` 区間の累計（`cumulative: true`・既定30日ローリング）なので、**前週行との引き算で「今週の伸び」を出さない**。
-3. **受注サマリ**: `orders-log.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
+3. **受注サマリ**: `data/coconala/orders.json` から 直近4週の serviceId 別 受注件数・平均 `tensakuMinutes` を集計。
 4. **判定を報告**:
    - **撤退ライン**（ココナラ展開キット §6）: 出品4週経過で **S2 受注3件未満 → 「投資停止・看板維持のみ」を推奨**（判断はユーザー）。
    - **成功の感触**: 4週で S1+S2 合計5件以上 → 価格引き上げ（S2 ¥8,000→¥12,000 は評価20件が目安）を検討。
@@ -58,7 +58,7 @@ domain: product
 
 - `check-coconala-orders`（受注の実体突合）と `check-coconala-wiring`（配線）の結果＋受注サマリ＋判定が報告されている。
 - 受注件数は **snapshot の実検査数**とともに報告する（「0 件」と「取得できていない」を区別する）。
-- 数値の貼付があった場合は kpi-log に1行 append され、`updatedAt` が更新されている。
+- 数値の貼付があった場合は kpi.json に1行 append され、`updatedAt` が更新されている。
 
 ## 参照
 

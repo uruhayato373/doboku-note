@@ -15,9 +15,8 @@
  *
  * 出力:
  *   --commit なし: 集計を stdout に表示するだけ（書き込みなし）
- *   --commit あり: data/metrics/affiliate/afb-outcomes-YYYY-MM-DD.json（JST 日付）
- *                  + afb-outcomes-latest.json
- *                  寿命は scripts/lib/prune-state-snapshots.mjs の family 'affiliate'（`-YYYY-MM-DD.json` は keep-all）
+ *   --commit あり: data/afb/outcomes/YYYY-MM-DD.json（JST 日付。最新は台帳の latestFile('afb.outcomes') で引く）
+ *                  寿命は台帳 scripts/lib/datasets.mjs の afb.outcomes の retain（family 'affiliate'・消さない）
  *
  * exit: 0 成功（0 件含む・[] は正常なゼロ結果）／ 1 HTTP・schema・サイト帰属エラー／ 2 検査不成立（AFB_API_KEY 未設定）
  *
@@ -33,10 +32,10 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertSiteOrThrow } from '../../scripts/lib/asp-site-guard.mjs';
+import { datasetPath } from '../../scripts/lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CONFIG_PATH = join(ROOT, 'config/affiliate-asp.json');
-const OUT_DIR = join(ROOT, 'data/metrics/affiliate');
 const TAG = '[fetch-afb-outcomes]';
 
 const DAY = 86_400_000;
@@ -278,13 +277,10 @@ async function main() {
 
   if (!commit) return;
 
-  mkdirSync(OUT_DIR, { recursive: true });
-  const dated = join(OUT_DIR, `afb-outcomes-${jstDateString(now)}.json`);
-  const latest = join(OUT_DIR, 'afb-outcomes-latest.json');
-  const body = `${JSON.stringify(result, null, 2)}\n`;
-  writeFileSync(dated, body);
-  writeFileSync(latest, body);
-  console.log(`${TAG} 書き込み: ${relative(dated)} / ${relative(latest)}`);
+  const dated = join(ROOT, datasetPath('afb.outcomes', { date: jstDateString(now) }));
+  mkdirSync(dirname(dated), { recursive: true });
+  writeFileSync(dated, `${JSON.stringify(result, null, 2)}\n`);
+  console.log(`${TAG} 書き込み: ${relative(dated)}`);
 }
 
 const isMain = process.argv[1] && process.argv[1].split('\\').join('/').endsWith('fetch-afb-outcomes.mjs');

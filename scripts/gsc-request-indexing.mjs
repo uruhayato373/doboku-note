@@ -34,12 +34,14 @@
  *   - 診断結果（coverage_state / 最終クロール / canonical）を state に残し、後の効果測定に使う。
  *
  * 出力（追跡）:
- *   data/metrics/gsc-indexing/requests-latest.json … 最新 run の診断＋送信結果
- *   data/metrics/gsc-indexing/history.json         … run 別の要約（append）
+ *   data/gsc/indexing-requests.json … 最新 run の診断＋送信結果
+ *   data/gsc/indexing-history.json         … run 別の要約（append）
  * ---------------------------------------------------------------------------
  */
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { datasetPath } from "./lib/datasets.mjs";
+import { readUnitSsot } from "./lib/google-console-ssot.mjs";
 import { execSync } from "node:child_process";
 import {
   loadConfig,
@@ -53,8 +55,8 @@ import {
 import { collectFailedRequests } from "./lib/report-honesty.mjs";
 import { normalizeTargetPath, parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 
-const STATE_DIR = "data/metrics/gsc-indexing";
-const SSOT_URLS = "data/metrics/gsc-ui/ssot/urls";
+const REQUESTS = datasetPath("gsc.indexing-requests");
+const HISTORY = datasetPath("gsc.indexing-history");
 const META = "src/config/doc-meta-index.json";
 const REDIRECTS = "public/_redirects";
 const SITE = "https://doboku-note.com";
@@ -92,7 +94,7 @@ const COOLDOWN_DAYS = 14;
 
 /** history.json の run から、直近 N 日に受理された URL パスの集合を作る。 */
 function recentlyAcceptedPaths(days) {
-  const p = join(STATE_DIR, "history.json");
+  const p = HISTORY;
   const set = new Set();
   if (!existsSync(p)) return set;
   let runs = [];
@@ -111,11 +113,11 @@ function recentlyAcceptedPaths(days) {
 
 /** 「クロール済み - インデックス未登録」の SSOT から対象 slug を選ぶ（category / group で絞る）。 */
 function targetsFromSsot({ category, group }) {
-  const p = join(SSOT_URLS, "crawledNotIndexed--allKnownPages.json");
-  if (!existsSync(p)) {
-    throw new Error(`SSOT が無い: ${p}（先に \`npm run search-growth:audit\`）`);
+  const doc = readUnitSsot("gsc-ui", "crawledNotIndexed--allKnownPages");
+  if (!doc) {
+    throw new Error(`SSOT が無い: data/gsc/ui-urls.json の crawledNotIndexed--allKnownPages（先に \`npm run search-growth:audit\`）`);
   }
-  const rows = JSON.parse(readFileSync(p, "utf8")).rows ?? [];
+  const rows = doc.rows ?? [];
   const slugs = [...new Set(rows.map((r) => (String(r.url).match(/\/docs\/([a-z0-9-]+)\/?$/) || [])[1]).filter(Boolean))];
   const meta = JSON.parse(readFileSync(META, "utf8")).docs ?? {};
   return slugs.filter((s) => {
@@ -225,7 +227,7 @@ async function main() {
   const opts = parseArgs();
   const cfg = loadConfig();
   const runId = makeRunId();
-  mkdirSync(STATE_DIR, { recursive: true });
+  mkdirSync(dirname(REQUESTS), { recursive: true });
 
   const legacyRoutes = loadLegacyRoutes();
   let inputs = [];
@@ -348,8 +350,8 @@ async function main() {
     await ctx.close();
   }
 
-  writeFileSync(join(STATE_DIR, "requests-latest.json"), JSON.stringify(result, null, 2), "utf-8");
-  const hp = join(STATE_DIR, "history.json");
+  writeFileSync(REQUESTS, JSON.stringify(result, null, 2), "utf-8");
+  const hp = HISTORY;
   let hist = { schemaVersion: 1, runs: [] };
   if (existsSync(hp)) {
     try {
@@ -395,7 +397,7 @@ async function main() {
     }
   }
 
-  console.log(`記録: ${join(STATE_DIR, "requests-latest.json")}`);
+  console.log(`記録: ${REQUESTS}`);
   if (!opts.commit) console.log("実際にリクエストするには --commit を付けて再実行してください。");
   // 1 件でも送信に失敗していたら 0 で終わらない（緑を見て「全部送れた」と読ませない）。
   const clean = result.status === "ok" || result.status === "dry-ok";

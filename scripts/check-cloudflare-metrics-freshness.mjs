@@ -4,7 +4,7 @@
 // ドリフト自体（設定が意図と食い違っているか）はここでは判定しない（別 channel の担当）。
 //
 // 判定:
-//   zone snapshot: data/metrics/cloudflare/cf-zone-YYYY-MM-DD.json の最新
+//   zone snapshot: data/cloudflare/zone/YYYY-MM-DD.json の最新（台帳 cloudflare.zone）
 //     → 無い／3 日超前／counts.daysReturned が 0 以下 は FAIL
 //   config latest: .claude/state/cloudflare/zone-config-latest.json
 //     → 無い／fetchedAt が 10 日超前 は FAIL
@@ -17,14 +17,13 @@
 //
 // exit: 0=OK/WARN, 1=FAIL
 
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { latestFile } from './lib/datasets.mjs';
 
 const TAG = '[check-cloudflare-metrics-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const ZONE_DIR = join(ROOT, 'data/metrics/cloudflare');
-const ZONE_FILE_RE = /^cf-zone-(\d{4}-\d{2}-\d{2})\.json$/;
 const CONFIG_LATEST = join(ROOT, '.claude/state/cloudflare/zone-config-latest.json');
 const JSON_OUT = process.argv.includes('--json');
 
@@ -101,14 +100,11 @@ export function assessCloudflareFreshness({ zoneSnapshot, configLatest }, nowUtc
   return { status, reasons, inspected };
 }
 
-/** ZONE_DIR 内の最新 snapshot をファイル名ソートで読む。無ければ null。 */
-function loadLatestZone(dir) {
-  if (!existsSync(dir)) return null;
-  const files = readdirSync(dir).filter((f) => ZONE_FILE_RE.test(f)).sort();
-  if (files.length === 0) return null;
-  const file = files[files.length - 1];
-  const data = JSON.parse(readFileSync(join(dir, file), 'utf8'));
-  return { ...data, __file: file };
+/** 最新の zone snapshot（台帳 cloudflare.zone）を読む。無ければ null。 */
+function loadLatestZone() {
+  const file = latestFile(ROOT, 'cloudflare.zone');
+  if (!file) return null;
+  return { ...JSON.parse(readFileSync(join(ROOT, file), 'utf8')), __file: file };
 }
 
 function loadConfigLatest(path) {
@@ -119,7 +115,7 @@ function loadConfigLatest(path) {
 const isMain = process.argv[1] && process.argv[1].endsWith('check-cloudflare-metrics-freshness.mjs');
 
 if (isMain) {
-  const zoneSnapshot = loadLatestZone(ZONE_DIR);
+  const zoneSnapshot = loadLatestZone();
   const configLatest = loadConfigLatest(CONFIG_LATEST);
   const r = assessCloudflareFreshness({ zoneSnapshot, configLatest }, Date.now());
 

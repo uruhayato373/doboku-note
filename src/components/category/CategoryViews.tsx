@@ -214,6 +214,49 @@ export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGrou
   );
 }
 
+/**
+ * 技術士第一次試験への入口（総監・建設部門のカテゴリページに置く）。
+ * インデックス率の高いページ群から、一次試験の一覧・直近年度・無料演習へ内部リンクを張る（DN-0499）。
+ */
+const PE1_ENTRY_LINKS: readonly { href: string; label: string }[] = [
+  { href: '/exam/pe-first-stage', label: '過去問一覧（平成23〜令和7年度）' },
+  { href: '/exam/pe-first-stage/primary/r07-basic', label: '令和7年度 基礎科目' },
+  { href: '/exam/pe-first-stage/primary/r07-aptitude', label: '令和7年度 適性科目' },
+  { href: '/exam/pe-first-stage/primary/r07-construction', label: '令和7年度 専門科目（建設部門）' },
+  { href: '/tools/kakomon-quiz/pe-first-stage', label: '無料で過去問を解く' },
+];
+
+function PeFirstStageEntry({ placement }: { placement: string }) {
+  return (
+    <section
+      className="card-surface-section mb-10 p-5 sm:p-6"
+      aria-labelledby={`pe1-entry-${placement}`}
+      data-cta="nav"
+      data-cta-label="pe1-entry"
+      data-cta-placement={placement}
+    >
+      <h2 id={`pe1-entry-${placement}`} className="font-serif text-[21px] sm:text-[24px] font-black text-(--ink)">
+        技術士第一次試験の過去問
+      </h2>
+      <p className="mt-2 text-[14px] leading-7 text-(--ink-body)">
+        第二次試験の前段となる第一次試験の基礎・適性・専門科目を、年度別に全選択肢の解説つきで公開しています。
+      </p>
+      <ul className="mt-3 flex flex-wrap gap-2">
+        {PE1_ENTRY_LINKS.map(({ href, label }) => (
+          <li key={href}>
+            <Link
+              href={href}
+              className="focus-ring inline-flex rounded-card-content border border-(--rule-soft) px-3 py-1.5 text-sm font-bold text-(--accent) hover:border-(--accent) hover:underline"
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 /** pe-first-stage: 適性・基礎・専門マトリクス */
 export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const guideGroup = groups.find(g => g.key === 'guide');
@@ -289,6 +332,7 @@ export function PeComprehensiveView({ groups, mobileCareerAds = [] }: { groups: 
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-exam-table" />
       )}
+      <PeFirstStageEntry placement="pe-comprehensive-management" />
       {/* キーワード索引へのナビゲーション（本体は /sitemap-keywords に移動） */}
       {keywordCount > 0 && (
         <section id="sec-keyword" className="scroll-mt-24">
@@ -355,6 +399,7 @@ export function PeConstructionView({ groups, mobileCareerAds = [] }: { groups: D
       {pastExamGroup && (
         <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
       )}
+      <PeFirstStageEntry placement="pe-construction" />
       {mobileCareerAds[1]}
       <CareerSection
         featured={curriculum.career.featured}

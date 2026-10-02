@@ -47,14 +47,14 @@ npm run fetch-psi-audit
 npm run psi-audit:check -- --output /tmp/psi-report.md
 ```
 
-結果は `data/metrics/psi/psi-batch-*.json` に時系列保存される。
+結果は `data/psi/batch/*.json` に時系列保存される。
 
 ### GitHub Actions（日次自動）
 
 `.github/workflows/psi-audit.yml` が JST 02:00 に以下を実行:
 1. `npm run fetch-psi-audit` で代表ページを計測
 2. `npm run psi-audit:check` でしきい値判定
-3. 結果を `develop` ブランチの `data/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
+3. 結果を `develop` ブランチの `data/psi/batch/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
 4. field 実害・取得失敗率20%超なら CI を失敗させて GitHub 通知。単発 lab 超過や少数の一時的な PSI 5xx は Action を失敗させず、改善候補としてレポートに残す
 
 > [!note] 欠測とリトライ（2026-08-18）
@@ -84,7 +84,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 ユーザーが `/psi-audit` を実行したら、以下を順に実施する:
 
 1. **計測済みデータの確認**
-   - `data/metrics/psi/` に最新ファイルがあるか確認
+   - `data/psi/batch/` に最新ファイルがあるか確認
    - 24 時間以内のデータが無ければ `npm run fetch-psi-audit` を実行するか確認（PSI API は 1 URL 30秒かかるため時間がかかる旨を伝える）
 
 2. **しきい値チェック**

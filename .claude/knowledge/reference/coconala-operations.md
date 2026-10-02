@@ -38,7 +38,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 | フィールド | 用途 |
 |---|---|
-| `id` | `coconala-{種別}`。sales-log の productId は `coconala:{id}` |
+| `id` | `coconala-{種別}`。`data/note/sales.json` の productId は `coconala:{id}` |
 | `status` | `draft`（未出品・非表示）/ `listed`（出品中・**/links に自動表示**）/ `full`（満枠・導線を伏せる）/ `paused`（季節オフ） |
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
 | `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
@@ -115,7 +115,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 > カテゴリ/価格/facet の value が coconala 側でリニューアルされたら `node scripts/coconala-discover.mjs --advance --cat 12 --sub 254 --type 764` で現行 options を再取得して是正する。
 
-### 2.2 受注実績: `data/coconala/orders-log.json`（v2）
+### 2.2 受注実績: `data/coconala/orders.json`（v2）
 
 `{ version, updatedAt, currency, source, privacyNote, howToUpdate, schema, orders: [] }`
 
@@ -160,7 +160,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 ### 2.2b 受注の実体: `data/coconala/orders-snapshot.json`（read-only 収集）
 
 `npm run coconala-orders`（`scripts/coconala-orders.mjs`・Playwright・**書き込み一切なし**）が
-取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders-log が「こちらの記録」、
+取引管理（出品）の全タブを走査して生成する機械可読スナップショット。orders.json が「こちらの記録」、
 snapshot が「ココナラ側の実体」で、`npm run check-coconala-orders` が `talkroomId` で突合する。
 
 `{ version, fetchedAt, status, source, privacyNote, scan: { tabs[], tabsOk, tabsTotal, deadlineFailed }, orders: [] }`
@@ -246,7 +246,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 散文の分析結果は [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) §1。
 
-### 2.4 KPI: `data/coconala/kpi-log.json`
+### 2.4 KPI: `data/coconala/kpi.json`
 
 `{ version, updatedAt, source, howToUpdate, weekly: [...], blogsWeekly: [...], milestones, sellerRank, notificationMailbox }`
 
@@ -261,7 +261,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 > **`cumulative: true` の意味**: 数値は `period` 区間の**累計**（既定は過去30日間のローリング）であって
 > 週次の増分ではない。前週行との引き算で「今週の伸び」を出してはいけない（区間が26日重なる）。
 
-### 2.5 分析スナップショット: `data/coconala/analytics-snapshot.json`
+### 2.5 分析スナップショット: `data/coconala/analytics.json`
 
 `npm run coconala-analytics` の出力＝ココナラ分析画面の実体。`{ fetchedOnJst, status, period{services,blogs}, totals, services[], skipped[], blogs[], scan }`。
 
@@ -303,10 +303,10 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
       │   C系 PDF → ヒアリング不要・キット §4c「C系 PDF 送付」文＋該当PDF特定
       ├ 納品文面ドラフト生成（S1/S2/S3 は 返信文.txt にまとめる）
       ├ 返信文を civil-keiken-tensaku-qa（機械ゲート check-tensaku-reply を含む・S3 の骨子は check-kosshi-sheet も）で PASS まで検証（S1/S2/S3・FAIL のまま運営者へ渡さない）
-      └ orders-log へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
+      └ orders.json へ append（status: received・**talkroomId 必須**・replyDueAt を転記）
   → npm run check-coconala-orders（記録漏れ・金額ズレ・返信期限を機械で確認）
   → ★運営者: 最終赤入れ/事実確認（10〜30分・C系は送付のみ）→ トークルームへ送信
-  → orders-log を delivered へ・deliveredAt/artifacts（送った版の sha256）・tensakuMinutes 記録
+  → orders.json を delivered へ・deliveredAt/artifacts（送った版の sha256）・tensakuMinutes 記録
   → （書き直し依頼時）/keiken-tensaku を前回下書きと再実行し差分中心に再チェック → status: revised（1回まで）
   → 共通の誤りは匿名化して添削事例アーカイブへ
 ```
@@ -374,16 +374,16 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 ## 4. KPI 週次運用（`/coconala-analytics` → `/coconala-status`）
 
 1. ココナラの分析画面を**read-only で自動取得**する（`npm run coconala-analytics -- --append-kpi` → `npm run check-coconala-analytics`）。手動貼付も引き続き可
-2. kpi-log へ週次 upsert ＋ orders-log から受注サマリ
+2. kpi.json へ週次 upsert ＋ orders.json から受注サマリ
 3. 判定:
    - **撤退ライン**: 出品4週で S2 受注3件未満 → 投資停止・看板維持のみ（キット §6）
    - **価格引き上げ**: 4週で S1+S2 合計5件以上 → S2 の引き上げを検討（評価20件が目安）
    - **工数警告**: `tensakuMinutes` 平均が30分超 → `weeklyCapacity` 引き下げ
    - **満枠**: 当週受注が `weeklyCapacity` 到達 → `status: 'full'` flip を提案
-4. 売上は月次で orders-log（closed）→ sales-log へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
+4. 売上は月次で `data/coconala/orders.json`（closed）→ `data/note/sales.json` へ転記（`coconala:<id>`・[sales-tracking.md](sales-tracking.md)）
 
 > **2026-08-17 方針変更（旧: ダッシュボードはスクレイプしない）**
-> 自社 KPI は長らく「手動貼付が正」としていたが、貼付が続かず `kpi-log.weekly` は**14週間 0 行**のまま
+> 自社 KPI は長らく「手動貼付が正」としていたが、貼付が続かず `kpi.json` の `weekly` は**14週間 0 行**のまま
 > だった（初受注 08-04・出品 07-16 を経ても撤退ライン判定の素地が無い）。運用が回らない安全策は
 > 安全ではないので、**ログイン必須の自社分析画面も read-only で自動取得する**（ユーザー判断）。
 > 安全弁は受注収集（§2.2b）と同じ＝`assertAccount`・低頻度（週次）・**書き込み操作なし**
@@ -412,9 +412,9 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 | # | 検査 | 落ちる例 |
 |---|---|---|
 | 1 | listed は serviceUrl 必須（`https://coconala.com/services/{n}`） | 出品したのに URL 未記入で /links が空リンクを出す |
-| 2 | orders-log / kpi-log の serviceId がカタログに実在 | typo・退役サービスの記録 |
-| 3 | orders-log の priceYen が受注日時点の定価（カタログの `priceHistory`、無ければ現行 `priceYen`）と一致。見積り受注は `quote.amountYen` と一致 | 価格改定の取り残し・値引きミス |
-| 4 | sales-log の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
+| 2 | orders.json / kpi.json の serviceId がカタログに実在 | typo・退役サービスの記録 |
+| 3 | orders.json の priceYen が受注日時点の定価（カタログの `priceHistory`、無ければ現行 `priceYen`）と一致。見積り受注は `quote.amountYen` と一致 | 価格改定の取り残し・値引きミス |
+| 4 | `data/note/sales.json` の `coconala:<id>` がカタログに実在 | 売上の productId 命名ミス |
 | 5 | listed があるなら account の profileUrl が非空 | 出品済みなのにアカウント SSOT が空 |
 | 6 | 一度も出品していない（`draft` かつ `listedAt` 未設定）サービスに受注/KPI 実績が無い | 未出品なのに閲覧・販売が立つ論理矛盾（ダミー値の混入・serviceId 取り違え）。※ listed 後に `paused`/`draft` へ戻した場合は `listedAt` が残るので誤検知しない |
 | 7 | 全カタログに listings エントリ（カテゴリ・本文）と商品画像がある（承認済み POP 原本 → フラット thumb-<key>.png → coconala-thumb の描画定義の順に、ローカル実体か Drive 台帳で確認。出品中で POP 未承認なら警告） | listings の書き忘れ・サムネ未生成 |
@@ -426,18 +426,18 @@ npm run coconala-rate-buyer -- <talkroomId> <コメントtxt> --submit   # 送�
 
 ### 6.2 受注の突合（`npm run check-coconala-orders`・2026-08-05 新設）
 
-snapshot（§2.2b＝ココナラ側の実体）と orders-log（こちらの記録）を `talkroomId` で突合する**オフライン検査**。
+snapshot（§2.2b＝ココナラ側の実体）と orders.json（こちらの記録）を `talkroomId` で突合する**オフライン検査**。
 取得は `npm run coconala-orders` が担当で、こちらはネットワークに出ない。
 
 | # | 検査 | 落ちる例 |
 |---|---|---|
-| 1 | snapshot の取引が orders-log に存在 | **売れたのに記録が無い**（人手の追記もれ） |
+| 1 | snapshot の取引が orders.json に存在 | **売れたのに記録が無い**（人手の追記もれ） |
 | 2 | serviceId / priceYen / 販売日 が一致 | 商品の取り違え・価格改定の取り残し |
 | 3 | 未返信かつ返信期限が 24h 以内 or 経過 | **48時間無連絡で自動キャンセル**を落とす |
 | 3a | `statusLabel:'納品確認待ち'` の期限は**要対応に混ぜない**（`level:'buyer-confirm'`・別枠で surface） | 正式な納品の後、同じ「返信期限」が**買い手の承諾期限**に変わる。混同すると**対応不要の取引が緊急として立つ** |
 | 3b | 購入前の問い合わせ（DM）を要対応に surface | 受注一覧だけ見て**購入前の質問を落とす**（＝売上機会の逸失） |
 | 4 | `status:'received'` のまま 5 日超 | 納品の滞留 |
-| 5 | orders-log にあって snapshot に無い | talkroomId の誤り |
+| 5 | orders.json にあって snapshot に無い | talkroomId の誤り |
 
 DM は突合相手が無いので**存在の surface に徹する**（未読/既読と対象商品を出すだけ・自動で開かない）。
 DM 一覧の取得に失敗したら警告を出す（「問い合わせ 0 件」と「見ていない」を区別する）。
@@ -461,7 +461,7 @@ DM 一覧の取得に失敗したら警告を出す（「問い合わせ 0 件�
 
 **「検査ゼロを PASS と呼ばない」**（[[feedback_gate_zero_coverage_false_pass]]）:
 snapshot が **無い / `status:'partial'` / 7日より古い** ときは **exit 2＝検査不成立**で、
-「取引 0 件だから緑」と区別する。出力は常に `実検査 ココナラ側 N 件 / orders-log M 件` の形で件数を出す。
+「取引 0 件だから緑」と区別する。出力は常に `実検査 ココナラ側 N 件 / orders.json M 件` の形で件数を出す。
 
 pre-commit では `--staged --no-freshness` で走り、**exit 1（実際の不整合）だけを止める**。
 exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な作業のたびに Playwright 実行を
@@ -588,7 +588,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 > ——導線・カバー・タグの更新は strip で消えるため中身は変わらない。判定は「両版を strip に通して本文比較」で行い、
 > かつ**ビルドと同じ `includeFrom` を適用**する（適用し忘れると、仕様どおり落ちている冒頭が「本文欠落」に見える）。
 
-- **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（例: C1=1本 / C2=5本 / C8・C9 模試=問題冊子＋解答解説の2冊）＋キット §4c「C系 PDF 送付」文（`orders-log` へ append）。個別相談は添削（S2）へ誘導。
+- **納品運用**: C系（`provision_format=3`・PDF・各種定型ファイル）は**ヒアリング不要**。購入通知→トークルームで PDF を送付（例: C1=1本 / C2=5本 / C8・C9 模試=問題冊子＋解答解説の2冊）＋キット §4c「C系 PDF 送付」文（`orders.json` へ append）。個別相談は添削（S2）へ誘導。
 - **KDP 安全**: 二次経験記述は Kindle Select ロック無し（土木 Kindle は一次のみ）。一次過去問PDF は Select 独占中＝coconala 化しない。
 - `magazine-to-pdf.mjs` は Mac の新 headless Chrome が exit しない事例に対応（PDF 生成済みなら timeout を成功扱い・2026-07-18）。**`spec.outDir` は `srcDir` と同じく REPO 基準で絶対パス化する**（Chrome の `--print-to-pdf` は相対パスを受け付けず、`0x3 指定されたパスが見つかりません` で PDF だけ出ないまま exit 0 を返すため。呼び出し側には「PDF 生成に失敗」としか見えない・2026-08-05 修正）。
 

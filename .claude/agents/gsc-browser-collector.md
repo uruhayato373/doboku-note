@@ -25,7 +25,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
     実機と合っていない。GA4 の数値は Data API（週次 CI）が供給しており UI は照合用バックアップなので
     **blocking ではない**。必要になった時点で config のラベル追加から着手する。
 - 実行後の生成物確認:
-  - `data/metrics/gsc-ui/<run>/manifest.json` の `status` と各 `units[].status`
+  - `data/gsc/ui/<run>/manifest.json` の `status` と各 `units[].status`
   - raw CSV（`<issue>--<scope>--<run>.csv`）の存在・行数・sha256（manifest 値）
   - `.local/playwright-google-debug/<run>/` の failure artifact 有無
 - 停止条件の検知と報告（下記）
@@ -98,7 +98,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 - {not-signed-in / 2FA / property-mismatch / UI 変更}（あれば具体アクション）
 
 ## 生成物
-- manifest: data/metrics/gsc-ui/<run>/manifest.json
+- manifest: data/gsc/ui/<run>/manifest.json
 - raw CSV: N 本 / debug artifact: {あり path / なし}
 ```
 

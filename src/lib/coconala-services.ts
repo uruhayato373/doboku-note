@@ -54,11 +54,11 @@ export interface CoconalaService {
   readonly description: string;
   /** 表示用の価格文字列（例: '¥8,000（2テーマセット）'） */
   readonly price: string;
-  /** 機械照合用の価格。orders-log.json / sales-log.json の実績と突合する */
+  /** 機械照合用の価格。data/coconala/orders.json / data/note/sales.json の実績と突合する */
   readonly priceYen: number;
   /**
    * 価格改定の履歴。旧定価と、その価格が有効だった最終日（ISO 日付）。
-   * orders-log の過去受注は「受注日時点の定価」と突合する（check-coconala-wiring）。無ければ現行 priceYen と突合。
+   * orders.json の過去受注は「受注日時点の定価」と突合する（check-coconala-wiring）。無ければ現行 priceYen と突合。
    */
   readonly priceHistory?: readonly { readonly priceYen: number; readonly until: string }[];
   /**
@@ -94,7 +94,7 @@ export interface CoconalaService {
 
 /**
  * 命名規約 (id):
- * - coconala-{サービス種別}: ココナラ出品サービス。sales-log.json の productId は
+ * - coconala-{サービス種別}: ココナラ出品サービス。data/note/sales.json の productId は
  *   `coconala:{id}` 形式（例: coconala:coconala-tensaku-set）で接頭辞によりチャネルを判別する。
  *
  * 新サービス追加時の配線チェックリスト（capability ドリフト防止・2026-07-16 / 07-18 拡充）:
@@ -118,7 +118,7 @@ const SERVICES_RAW = {
   // 経験記述 S 系（診断/添削/作成）共通の受付運用（2026-09-25 ユーザー決定）:
   //   受付は8商品（S2/S2上位/S3/S3上位×1級2級）を合わせて1日2名まで。この上限は個々の
   //   weeklyCapacity（本フィールドは商品単位の定員宣言＝Red Line #1 の機械的表明）では
-  //   表現できない横断制約のため、運営者が orders-log を見ながら手動で運用する
+  //   表現できない横断制約のため、運営者が orders.json を見ながら手動で運用する
   //   （各商品の weeklyCapacity は目安として合計が週14件程度に収まるよう抑えてある）。
   //   1級は二次検定 10/4 の直前のため、1級対象サービスは「10/2 受付分まで」（購入前メッセージ・
   //   トークルームで案内。カタログには書かない＝期日は運用側の判断で動くため）。
@@ -158,7 +158,7 @@ const SERVICES_RAW = {
   //   R7=品質管理×環境対策で読めない→5管理全部が完成形、2級はR6=品質×工程・R7=安全×工程で
   //   設問2が2年連続工程管理→3管理で全出題をカバー）ため、本サービスは1級専用に改題。
   //   2級版は新設の coconala-2kyu-tensaku（¥5,000）。速さを売りに24時間以内で返却（既存4日から短縮）。
-  //   価格・週次枠は据え置き。id・serviceUrl は不変（過去受注 orders-log との突合キーのため）。
+  //   価格・週次枠は据え置き。id・serviceUrl は不変（過去受注 orders.json との突合キーのため）。
   'coconala-tensaku-set': {
     id: 'coconala-tensaku-set',
     status: 'paused',

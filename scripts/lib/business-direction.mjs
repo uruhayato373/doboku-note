@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
+import { datasetFiles, datasetPath } from './datasets.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
 export const DIRECTION = 'config/business-direction.json';
@@ -180,10 +181,9 @@ function latest(root, dir, prefix) {
   return f ? { data: readJson(root, `${dir}/${f}`), file: `${dir}/${f}` } : null;
 }
 /** dir 配下で prefix + *.json に一致するファイル全部を名前順（＝日付昇順）で返す。無ければ []。 */
-export function latestAll(root, dir, prefix) {
-  if (!existsSync(join(root, dir))) return [];
-  return readdirSync(join(root, dir)).filter(f => f.startsWith(prefix) && f.endsWith('.json')).sort()
-    .map(f => ({ file: `${dir}/${f}`, data: readJson(root, `${dir}/${f}`) }));
+/** データセットの全ファイルを古い順に [{ file, data }] で返す（台帳の id で引く） */
+export function latestAll(root, id) {
+  return [...datasetFiles(root, id)].sort().map(file => ({ file, data: readJson(root, file) }));
 }
 /**
  * latestAll() が返す [{file, data}] の各 data[key]（日別行の配列）を date で合流させる。
@@ -226,7 +226,7 @@ export function noteArticleQualification(title, publishedItems = []) {
 const sourceFact = (metric, value, period, source, qualification = 'all', coverage = 'complete', note = '') => ({ metric, value, period, source, qualification, coverage, note });
 const monthsOf = (period) => [...new Set([period.startDate.slice(0, 7), period.endDate.slice(0, 7)])];
 /**
- * note ダッシュボードの月次取得物（referrers-YYYY-MM / articles-pv-YYYY-MM）→ 事実。期間は取得物の月のまま返し、
+ * note ダッシュボードの月次取得物（台帳の note.referrers / note.articles-pv）→ 事実。期間は取得物の月のまま返し、
  * 週へ按分しない（週次レビューでは「別期間の既存計測」に出る）。月の途中に取得したファイル（「今月」表示）は
  * 取得日までの値なので、期間を取得日で切って partial にする（月全体の値として月次セルへ入れない）。
  * 月末後でも note の確定日（翌月 2 日）より前の取得は確定前の値なので、期間は月のまま partial にする。
@@ -341,19 +341,18 @@ export function sourceFacts(root, c, period) {
     put(metric, row?.eventCount ?? null, quiz.data.meta, quiz.file, 'civil-construction-1', row ? 'complete' : 'partial', '無料演習ツールのみ。イベント欠落は0と確定しない。');
   }
   const noteMonth = period.startDate.slice(0, 7);
-  const noteTrafficPath = `data/metrics/note/referrers-${noteMonth}.json`;
-  const noteArticlesPath = `data/metrics/note/articles-pv-${noteMonth}.json`;
+  const noteTrafficPath = datasetPath('note.referrers', { month: noteMonth });
   const publishedPath = '.claude/state/note-published.json';
   const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
   const qualificationIds = c.qualifications.map(q => q.id);
   // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
   for (const month of monthsOf(period)) {
-    const trafficPath = `data/metrics/note/referrers-${month}.json`, articlesPath = `data/metrics/note/articles-pv-${month}.json`;
+    const trafficPath = datasetPath('note.referrers', { month }), articlesPath = datasetPath('note.articles-pv', { month });
     if (!existsSync(join(root, trafficPath))) continue;
     const articles = existsSync(join(root, articlesPath)) ? readJson(root, articlesPath) : null;
     facts.push(...noteMonthFacts({ traffic: readJson(root, trafficPath), articles, publishedItems, qualifications: qualificationIds, trafficPath, articlesPath }));
   }
-  const salesPath = 'data/sales/sales-log.json';
+  const salesPath = datasetPath('note.sales');
   if (existsSync(join(root, salesPath))) {
     const salesLedger = readJson(root, salesPath);
     const sales = salesLedger.sales.filter(s => s.date.slice(0, 10) >= period.startDate && s.date.slice(0, 10) <= period.endDate);
@@ -378,7 +377,7 @@ export function sourceFacts(root, c, period) {
       put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, salesCoverage, `${salesNote} 販売額は利益・実受取ではない。`);
     }
   }
-  const kdpPath = 'data/sales/kdp-royalties.json';
+  const kdpPath = datasetPath('kdp.royalties');
   if (existsSync(join(root, kdpPath))) {
     const ledger = readJson(root, kdpPath);
     const catalogPath = 'scripts/kindle-published/catalog.json';
@@ -388,8 +387,8 @@ export function sourceFacts(root, c, period) {
       facts.push(...kdpMonthFacts({ entry, catalogBooks, attribution: c.kindleAttribution?.rules ?? [], qualifications: qualificationIds, path: kdpPath }));
     }
   }
-  const cocoOrdersPath = 'data/coconala/orders-snapshot.json';
-  const cocoLogPath = 'data/coconala/orders-log.json';
+  const cocoOrdersPath = datasetPath('coconala.orders-snapshot');
+  const cocoLogPath = datasetPath('coconala.orders');
   if (existsSync(join(root, cocoOrdersPath))) {
     const snapshot = readJson(root, cocoOrdersPath);
     const orders = (snapshot.orders ?? []).filter(order => order.soldOn >= period.startDate && order.soldOn <= period.endDate);
@@ -399,7 +398,7 @@ export function sourceFacts(root, c, period) {
     const mapped = orders.every(order => Number.isInteger(order.priceYen) && order.priceYen >= 0 && logByRoom.has(String(order.talkroomId)));
     const coverage = fullScan && mapped ? 'complete' : 'partial';
     const sourcePeriod = period;
-    const note = `取引管理 ${snapshot.scan?.tabsOk ?? 0}/${snapshot.scan?.tabsTotal ?? 0} タブ・対象月 ${orders.length} 件をorders-logへ突合。キャンセルは除外。`;
+    const note = `取引管理 ${snapshot.scan?.tabsOk ?? 0}/${snapshot.scan?.tabsTotal ?? 0} タブ・対象月 ${orders.length} 件を受注の記録へ突合。キャンセルは除外。`;
     put('coconalaOrders', orders.length, sourcePeriod, cocoOrdersPath, 'all', coverage, note);
     put('coconalaRevenue', orders.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, 'all', coverage, `${note} 手数料控除前。`);
     for (const qualification of c.qualifications.map(q => q.id)) {
@@ -413,7 +412,7 @@ export function sourceFacts(root, c, period) {
       put('coconalaRevenue', selected.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。手数料控除前。`);
     }
   }
-  const igSnapshots = latestAll(root, 'data/metrics/instagram', 'ig-insights-');
+  const igSnapshots = latestAll(root, 'instagram.insights');
   if (igSnapshots.length > 0) {
     const igDaily = unionDaily(igSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: igCoverage } = coverageForPeriod(igDaily, period);
@@ -423,7 +422,7 @@ export function sourceFacts(root, c, period) {
     const followersCount = igSnapshots.at(-1).data?.account?.followersCount;
     put('igFollowers', Number.isFinite(followersCount) ? followersCount : null, period, igFile, 'all', 'complete', '期間末時点のストック。');
   }
-  const cfSnapshots = latestAll(root, 'data/metrics/cloudflare', 'cf-zone-');
+  const cfSnapshots = latestAll(root, 'cloudflare.zone');
   if (cfSnapshots.length > 0) {
     const cfDaily = unionDaily(cfSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: cfCoverage } = coverageForPeriod(cfDaily, period);
@@ -432,7 +431,7 @@ export function sourceFacts(root, c, period) {
     put('cfRequestsJp', cfDaily.reduce((sum, row) => sum + (Number(row.jp?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
     put('cfRequestsOther', cfDaily.reduce((sum, row) => sum + (Number(row.other?.requests) || 0), 0), period, cfFile, 'all', cfCoverage, cfNote);
   }
-  const cocoPath = 'data/coconala/analytics-snapshot.json';
+  const cocoPath = datasetPath('coconala.analytics');
   if (existsSync(join(root, cocoPath))) facts.push(...coconalaViewFacts({ snapshot: readJson(root, cocoPath), path: cocoPath }));
   if (existsSync(join(root, cocoOrdersPath))) facts.push(...coconalaInquiryFacts({ snapshot: readJson(root, cocoOrdersPath), period, qualifications: qualificationIds, path: cocoOrdersPath }));
   return facts;

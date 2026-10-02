@@ -3,7 +3,7 @@
  * kdp-report.mjs
  * ---------------------------------------------------------------------------
  * Amazon KDP のレポート画面（kdpreports.amazon.co.jp）を Playwright で読み取り、
- * 月次ロイヤリティを data/sales/kdp-royalties.json へ正規化保存する
+ * 月次ロイヤリティを data/kdp/royalties.json へ正規化保存する
  * **読み取り専用** レポータ。KDP 側には一切書き込まない（クリックはページ送り/月選択のみ）。
  *
  * kdp-publish.mjs と同じ「システム Chrome(channel:chrome) + OS標準auth rootの永続プロファイル
@@ -42,7 +42,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
-const STATE = join(ROOT, 'data/sales/kdp-royalties.json');
+const STATE = join(ROOT, 'data/kdp/royalties.json');
 const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json');
 const BASE = 'https://kdpreports.amazon.co.jp';
 mkdirSync(TMP, { recursive: true });

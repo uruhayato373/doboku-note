@@ -9,7 +9,7 @@
 | 置き場 | 持つもの | 例 |
 |---|---|---|
 | `config/` | 事業・試験・商品の正本、スクリプト・CI・サイトの設定（人が判断して変える値） | `qualification-registry.json`・`exam-calendar.json`・`product-lineup.json`・`psi-config.json` |
-| `data/` | 外から取ってきた・発生した事業の記録（追記で増える事実） | `sales/`・`metrics/`・`coconala/`・`note/`・`market/`・`experiments.json` |
+| `data/` | 外から取ってきた・発生した事業の記録（追記で増える事実） | `sales/`・`metrics/`・`coconala/`・`note/`・`analysis/`・`experiments.json` |
 | **`.claude/state/`（本ディレクトリ）** | エージェントの作業状態：品質サイクル・監査結果・ロールアウト進捗・生成索引・claims・dispatch-log | `quality-scores.json`・`exam-keyword-cycles/`・`dispatch/` |
 | `.claude/config/` | 品質ゲートの基準・許可リスト、CI 書き込み・認証の許可リスト（`.claude/` の書き込み保護下に置く） | `*-baseline.json`・`*-allow.json`・`ci-write-operations.json` |
 

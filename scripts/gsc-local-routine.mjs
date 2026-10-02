@@ -27,6 +27,7 @@
  */
 import { spawnSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import {
   classifyIndexingResult,
   classifyUiFetchExit,
@@ -36,11 +37,11 @@ import {
 const DRY = process.argv.includes("--dry-run");
 const NO_PUSH = process.argv.includes("--no-push");
 const TAG = "[gsc-local]";
-const DIR = "data/metrics/gsc-indexing";
-const PRIORITY = `${DIR}/priority-latest.txt`;
-const LATEST = `${DIR}/requests-latest.json`;
-const HISTORY = `${DIR}/history.json`;
-const LEDGER_PATHS = [DIR, "data/metrics/gsc-ui/last-run.json", "data/metrics/gsc-ui/ssot"];
+const PRIORITY = datasetPath("gsc.indexing-priority-list");
+const LATEST = datasetPath("gsc.indexing-requests");
+const HISTORY = datasetPath("gsc.indexing-history");
+// 手元で書き、develop へ push する記録（登録申請と画面取得）
+const LEDGER_PATHS = ["gsc.indexing-requests", "gsc.indexing-history", "gsc.ui-last-run", "gsc.ui-history", "gsc.ui-urls"].map((id) => datasetPath(id)).concat(datasetDir("gsc.ui-diff"));
 
 const problems = [];
 const done = [];

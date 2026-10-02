@@ -16,8 +16,8 @@ domain: site
 
 ## 担当範囲（データ品質のみ）
 
-対象 run: `data/metrics/gsc-ui/<run>/`（最新、または親指定）。
-**加えて追跡 SSOT** `data/metrics/gsc-ui/ssot/`（`urls/<issue>--<scope>.json` /
+対象 run: `data/gsc/ui/<run>/`（最新、または親指定）。
+**加えて追跡 SSOT** `data/gsc/ui-urls.json・ui-history.json・ui-diff/`（`urls/<issue>--<scope>.json` /
 `history.json` / `diff/<runId>.json`）も対象。raw は gitignore で消えるが SSOT は残るので、
 「そのマシンに run が無い」ケースでも SSOT だけで品質判定できる。
 機械判定は `npm run check-google-ui-ssot` が持つ（marker↔history↔urls の runId 整合・スキーマ・
@@ -76,7 +76,7 @@ domain: site
 
 ## 実行手順
 
-1. 最新 run を Glob（`data/metrics/gsc-ui/*/manifest.json`）で特定。
+1. 最新 run を Glob（`data/gsc/ui/*/manifest.json`）で特定。
    **run が 1 つも無ければ**（別マシン・worktree 破棄後）追跡 SSOT（`gsc-ui/ssot/`）だけで判定する
    ＝「run が無い」を FAIL にしない（raw は gitignore なので不在が正常）。
 2. manifest を Read。各 unit の rawFile に対し `shasum -a 256` を Bash 実行し manifest 値と照合。

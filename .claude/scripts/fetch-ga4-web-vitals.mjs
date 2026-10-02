@@ -6,7 +6,7 @@
  * pagePath × deviceCategory × metric_name × metric_rating の件数で取り、
  * scripts/lib/web-vitals-rum.mjs でページの型ごとに判定して保存する。
  *
- * 出力: data/metrics/rum/web-vitals-YYYY-MM-DD.json（状態 status と集計 summary を持つ）
+ * 出力: data/rum/web-vitals/YYYY-MM-DD.json（状態 status と集計 summary を持つ）
  *   status: ok | no-events（計装はあるが送信 0 件＝deploy 前など）| dimensions-missing（GA4 にカスタムディメンション未登録）
  * 読み手: npm run report-web-vitals（週次レビュー）。
  *
@@ -17,15 +17,15 @@
  * 環境変数: GOOGLE_SERVICE_ACCOUNT_KEY_PATH / GA4_PROPERTY_ID
  */
 import { writeFileSync, mkdirSync, existsSync } from "fs";
-import { join } from "path";
+import { dirname } from "path";
 import dotenv from "dotenv";
 import { getDaysRange } from "./lib/ga4-snapshot.mjs";
 import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
 import { summarize } from "../../scripts/lib/web-vitals-rum.mjs";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 
 dotenv.config({ path: ".env.local", quiet: true });
 
-const OUTPUT_DIR = "data/metrics/rum";
 const TAG = "[fetch-ga4-web-vitals]";
 
 function parseArgs(argv) {
@@ -109,8 +109,8 @@ async function main() {
     console.error(`${TAG} --check: fixture ${FIXTURE.length} 行を集計できた（書き出しなし）`);
     return 0;
   }
-  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
-  const outPath = join(OUTPUT_DIR, `web-vitals-${new Date().toISOString().slice(0, 10)}.json`);
+  const outPath = datasetPath("rum.web-vitals", { date: new Date().toISOString().slice(0, 10) });
+  if (!existsSync(dirname(outPath))) mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, JSON.stringify(data, null, 2) + "\n");
   console.error(`${TAG} 保存: ${outPath}`);
   return 0;

@@ -149,7 +149,7 @@ export function videoOutcomes(): VideoOutcomes {
   const state = readState();
 
   // ── 2) 計測 snapshot（CI 供給・未取得は 0 にしない）──
-  const snap = latestSnapshot('ga4', 'ga4-campaign');
+  const snap = latestSnapshot('ga4.campaign');
   const loaded = loadSnapshot<Record<string, unknown>>(snap);
   const metrics: VideoOutcomes['metrics'] = loaded
     ? {

@@ -19,8 +19,8 @@ domain: site
 - `npm run check-seo-build --json` の出力（summary + findings）を読む
   - error: sitemap HTML 欠落 / noindex・redirect・404 混入 / canonical・og:url 不一致 / title・description 欠落 / JSON-LD parse error / JSON-LD 必須キー欠落（`jsonld_required_missing`・@type 別の表は `scripts/lib/jsonld-required-props.mjs`） / SSR 破壊 / broken internal link / coverage 90% 未満
   - warn: description 160 字超 / JSON-LD 見出し乖離 / JSON-LD 推奨キー欠落（`jsonld_recommended_missing`） / noncanonical link / orphan / 到達不能 / thin body
-- `npm run check-seo-meta --json`（または最新 `data/metrics/seo-meta/seo-meta-*.json`）の母集合検査結果
-- `data/metrics/gsc/index-coverage-history.json` の最新 indexed_ratio（hygiene と突き合わせる）
+- `npm run check-seo-meta --json`（または最新 `data/analysis/seo-meta.json`）の母集合検査結果
+- `data/gsc/index-coverage.json` の最新 indexed_ratio（hygiene と突き合わせる）
 - `out/sitemap.xml`（母集合 URL 数）
 
 これらを突き合わせ、「**今どの技術 SEO 欠陥が残っているか / 直近で悪化したか**」を重大度順にまとめる。
@@ -40,8 +40,8 @@ domain: site
 | 入力 | 生成元 |
 |---|---|
 | `check-seo-build --json` の stdout（または保存 JSON） | `npm run build` 後に親が実行 |
-| `data/metrics/seo-meta/seo-meta-*.json`（最新） | `/check-seo-meta` |
-| `data/metrics/gsc/index-coverage-history.json` | 月次 CI |
+| `data/analysis/seo-meta.json`（最新） | `/check-seo-meta` |
+| `data/gsc/index-coverage.json` | 月次 CI |
 | `out/sitemap.xml` | `npm run build` |
 
 `out/` や JSON が無い場合は「build 未実行／スキャナ未実行」と 1 行で報告し、憶測で埋めない。

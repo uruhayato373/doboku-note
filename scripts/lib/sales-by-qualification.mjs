@@ -36,7 +36,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     totals.set(key, row);
   };
 
-  const salesPath = 'data/sales/sales-log.json';
+  const salesPath = 'data/note/sales.json';
   if (existsSync(join(root, salesPath))) {
     for (const s of readJson(root, salesPath).sales ?? []) {
       if (!inPeriod(String(s.date).slice(0, 10), period)) continue;
@@ -45,7 +45,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
   }
 
   const cocoOrdersPath = 'data/coconala/orders-snapshot.json';
-  const cocoLogPath = 'data/coconala/orders-log.json';
+  const cocoLogPath = 'data/coconala/orders.json';
   if (existsSync(join(root, cocoOrdersPath))) {
     const log = existsSync(join(root, cocoLogPath)) ? readJson(root, cocoLogPath).orders ?? [] : [];
     const byRoom = new Map(log.map((o) => [String(o.talkroomId), o]));
@@ -56,7 +56,7 @@ export function salesByQualification(root, period, config = loadLineupConfig()) 
     }
   }
 
-  const kdpPath = 'data/sales/kdp-royalties.json';
+  const kdpPath = 'data/kdp/royalties.json';
   if (existsSync(join(root, kdpPath))) {
     const catalogPath = 'scripts/kindle-published/catalog.json';
     const ownBooks = new Set((existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : []).map((b) => b.id ?? b.bookId));

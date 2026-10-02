@@ -115,7 +115,7 @@ export function findOverdueResume(services, today) {
 }
 
 /**
- * snapshot（ココナラ側の実体）と orders-log（こちらの記録）を talkroomId で突合する。
+ * snapshot（ココナラ側の実体）と orders.json（こちらの記録）を talkroomId で突合する。
  * @returns {{violations:string[], warnings:string[]}}
  */
 export function reconcileOrders(snapOrders, logOrders) {
@@ -129,7 +129,7 @@ export function reconcileOrders(snapOrders, logOrders) {
     const l = byRoom.get(String(s.talkroomId));
     if (!l) {
       violations.push(
-        `ココナラに取引があるのに orders-log に記録がありません: room ${s.talkroomId}` +
+        `ココナラに取引があるのに orders.json に記録がありません: room ${s.talkroomId}` +
           `（${s.serviceId ?? String(s.listingText ?? '').slice(0, 24)} / ¥${s.priceYen} / ${s.soldOn}）`
       );
       continue;
@@ -148,11 +148,11 @@ export function reconcileOrders(snapOrders, logOrders) {
   const snapRooms = new Set(snaps.map((s) => String(s.talkroomId)));
   for (const l of logs) {
     if (!l.talkroomId) {
-      warnings.push(`orders-log: ${l.serviceId}（${l.date}）に talkroomId がありません — 取引を追跡できません`);
+      warnings.push(`orders.json: ${l.serviceId}（${l.date}）に talkroomId がありません — 取引を追跡できません`);
       continue;
     }
     if (!snapRooms.has(String(l.talkroomId))) {
-      warnings.push(`orders-log: room ${l.talkroomId}（${l.serviceId}）がココナラ側の一覧にありません`);
+      warnings.push(`orders.json: room ${l.talkroomId}（${l.serviceId}）がココナラ側の一覧にありません`);
     }
   }
   return { violations, warnings };

@@ -5,7 +5,7 @@
  * 四半期の取得（competitor-scan.yml → scout-coconala-competitors / coconala-research）が書いた state を読むだけ。
  * 取得はしない。読み手＝週次レビュー（/weekly-review の Step「競合の変化」）。
  *
- *   1. 変化: competitors-snapshot.json の drift（価格・出品数・撤収・新規追跡）と、累計販売の伸びが大きい売り手
+ *   1. 変化: 競合の時系列の最新（台帳 coconala.competitors）の drift（価格・出品数・撤収・新規追跡）と、累計販売の伸びが大きい売り手
  *   2. 追跡候補: market-research.json（検索結果）に出た、追跡リスト外で関連サービスの販売実績が多い売り手
  *   3. 推定が一部だけの売り手: 取得できたサービスの販売実績が累計販売の半分未満（管理画面の「（一部）」と同じ基準）
  *
@@ -19,6 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { latestFile } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -40,12 +41,13 @@ function readJson(rel) {
   }
 }
 
-const snapshot = readJson('data/coconala/competitors-snapshot.json');
+const latestSnapshot = latestFile(ROOT, 'coconala.competitors');
+const snapshot = latestSnapshot ? readJson(latestSnapshot) : null;
 const research = readJson('data/coconala/market-research.json');
 const config = readJson('config/coconala-competitors.json');
 const account = readJson('config/coconala-account.json');
 if (!snapshot?.competitors || !research?.queries || !config?.competitors) {
-  console.error('[report-competitor-watch] 入力の state が読めない（competitors-snapshot / market-research / coconala-competitors）— 検査不成立');
+  console.error('[report-competitor-watch] 入力が読めない（競合の時系列の最新 / market-research / coconala-competitors）— 検査不成立');
   process.exit(2);
 }
 

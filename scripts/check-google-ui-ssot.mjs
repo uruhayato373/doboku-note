@@ -5,9 +5,9 @@
  * 何を守るか:
  *   1. **検査ゼロを PASS と呼ばない**（CLAUDE.md §9）。SSOT が空／history が空なら exit 1。
  *      「1 ユニットも無い」状態が緑になると「取得できている」と誤読される。
- *   2. last-run.json ↔ ssot/history.json ↔ ssot/urls/*.json の runId 整合。
+ *   2. ui-last-run.json ↔ ui-history.json ↔ ui-urls.json の runId 整合。
  *      取得だけ走って正規化を忘れた（＝SSOT が古い）状態を検出する。
- *   3. urls/*.json のスキーマ健全性（rows 配列・exportedRows 一致・runId/collectedAt 有り）。
+ *   3. ui-urls.json の各ユニットのスキーマ健全性（rows 配列・exportedRows 一致・runId/collectedAt 有り）。
  *   4. 前回取得が不完全（complete:false）なら FAIL。取り切れていない状態を緑にしない。
  *   5. truncated（GSC の 1,000 件上限に当たった）ユニットは WARN（データが頭打ち＝解釈注意）。
  *
@@ -27,7 +27,7 @@ import {
   readUnitSsot,
   readHistory,
   readMarker,
-  ssotDir,
+  hasSsot as hasSsotFiles,
 } from "./lib/google-console-ssot.mjs";
 
 const WANT_JSON = process.argv.includes("--json");
@@ -47,7 +47,7 @@ for (const ch of CHANNELS) {
   const marker = readMarker(ch.key);
   const history = readHistory(ch.key);
   const units = listUnitSsot(ch.key);
-  const hasSsot = existsSync(ssotDir(ch.key));
+  const hasSsot = hasSsotFiles(ch.key);
 
   const entry = {
     channel: ch.key,
@@ -74,12 +74,12 @@ for (const ch of CHANNELS) {
 
   // (1) 検査ゼロの検出
   if (units.length === 0) {
-    const msg = `[${ch.label}] ssot/urls/*.json が 0 件（正規化されていない）。取得後に \`npm run google-console:normalize -- --latest\` が必要。`;
+    const msg = `[${ch.label}] ui-urls.json のユニットが 0 件（正規化されていない）。取得後に \`npm run google-console:normalize -- --latest\` が必要。`;
     if (ch.required) errors.push(msg);
     else warnings.push(msg);
   }
   if (!history || (history.runs ?? []).length === 0) {
-    const msg = `[${ch.label}] ssot/history.json が空（run 履歴なし）。`;
+    const msg = `[${ch.label}] ui-history.json が空（run 履歴なし）。`;
     if (ch.required) errors.push(msg);
     else warnings.push(msg);
   }
