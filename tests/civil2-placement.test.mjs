@@ -28,22 +28,37 @@ const calendar = JSON.parse(readFileSync(ROOT + 'config/exam-calendar.json', 'ut
 const examDate = calendar.exams['civil-construction-2'].events.second.date;
 const examDayStartMs = Date.parse(`${examDate}T00:00:00+09:00`);
 
-test('resolveCivil2SecondaryLead: 試験当日までは直前パック、翌日から二次まるごと', async () => {
-  const { resolveCivil2SecondaryLead } = await loadPlacement();
-  assert.equal(resolveCivil2SecondaryLead(examDayStartMs - 1), 'civil-2-chokuzen-pack');
-  assert.equal(resolveCivil2SecondaryLead(examDayStartMs + 86_400_000 - 1), 'civil-2-chokuzen-pack');
-  assert.equal(resolveCivil2SecondaryLead(examDayStartMs + 86_400_000), 'civil-2-niji-marugoto-pack');
+// 切替はビルド時の Date.now() で決まる（resolveCivil2SecondaryLead は非公開）。Date.now を差し替えて
+// 実 resolvePlacement の冒頭を見る。
+function topAt(resolvePlacement, slug, nowMs) {
+  const orig = Date.now;
+  Date.now = () => nowMs;
+  try {
+    return resolvePlacement(slug, 'secondary');
+  } finally {
+    Date.now = orig;
+  }
+}
+
+test('2級二次の冒頭: 試験当日までは直前パック、翌日から二次まるごと', async () => {
+  const { resolvePlacement } = await loadPlacement();
+  for (const slug of ['civil-construction-2-secondary-r07', 'civil-construction-2-secondary-getting-started']) {
+    assert.equal(topAt(resolvePlacement, slug, examDayStartMs - 1).top?.magazineId, 'civil-2-chokuzen-pack', slug);
+    assert.equal(topAt(resolvePlacement, slug, examDayStartMs + 86_400_000 - 1).top?.magazineId, 'civil-2-chokuzen-pack', slug);
+    assert.equal(topAt(resolvePlacement, slug, examDayStartMs + 86_400_000).top?.magazineId, 'civil-2-niji-marugoto-pack', slug);
+  }
 });
 
-test('2級 年度別ページ: 冒頭は季節の主 CTA、中間（inline 先頭で top と別）に二次まるごとが残る', async () => {
-  const { resolvePlacement, resolveMidNoteSlot, resolveCivil2SecondaryLead } = await loadPlacement();
-  const p = resolvePlacement('civil-construction-2-secondary-r07', 'secondary');
-  assert.equal(p.top?.magazineId, resolveCivil2SecondaryLead());
-  const ids = [p.top, ...p.inline].map((s) => s.magazineId);
-  assert.ok(ids.includes('civil-2-niji-marugoto-pack'), '二次まるごとが年度別ページから消えている');
-  const mid = resolveMidNoteSlot(p);
-  assert.ok(mid, '中間 CTA が無い');
-  assert.notEqual(mid.magazineId, p.top?.magazineId);
+test('2級 年度別ページ: 試験の前後どちらでも、二次まるごとと中間 CTA（top と別）がある', async () => {
+  const { resolvePlacement, resolveMidNoteSlot } = await loadPlacement();
+  for (const nowMs of [examDayStartMs - 1, examDayStartMs + 86_400_000]) {
+    const p = topAt(resolvePlacement, 'civil-construction-2-secondary-r07', nowMs);
+    const ids = [p.top, ...p.inline].map((s) => s.magazineId);
+    assert.ok(ids.includes('civil-2-niji-marugoto-pack'), '二次まるごとが年度別ページから消えている');
+    const mid = resolveMidNoteSlot(p);
+    assert.ok(mid, '中間 CTA が無い');
+    assert.notEqual(mid.magazineId, p.top?.magazineId);
+  }
 });
 
 test('2級 経験記述の書き方・例文: 冒頭は完成答案集', async () => {

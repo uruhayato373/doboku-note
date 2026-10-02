@@ -71,7 +71,7 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
  * まとめ売り（まるごと 0.17%・想定工事バンク 0.15%）が最低で、具体的で安い商品（択一 PDF 等）は
  * 1.4〜2.5% 取れていた（GA4 2026-09-04〜10-01）。直前期は時期に合う直前パックを置く（EXP-014）。
  */
-export function resolveCivil2SecondaryLead(nowMs = Date.now()): MagazineId {
+function resolveCivil2SecondaryLead(nowMs = Date.now()): MagazineId {
   const secondExamDate = examCalendar.exams['civil-construction-2'].events.second.date;
   const examDayStartMs = Date.parse(`${secondExamDate}T00:00:00+09:00`);
   if (!Number.isFinite(examDayStartMs)) {
