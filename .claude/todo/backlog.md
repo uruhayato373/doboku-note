@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0512] note の前月売上取得が CI で画面遷移のエラーで落ち、9月末の売上が記録に入らない
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
+
+**起点**: 2026-10-02 の login-collectors（run 36997607032・service=note）で `note-sales-fetch --month 2026-09 --commit` が `ABORT: 想定外のエラー — page.evaluate: Execution context was destroyed, most likely because of a navigation` で止まった。同じ実行の当月（2026-10）は検算差 0 で書けている。結果、`data/note/sales.json` の 9 月は 31 件 ¥92,560 のままで、note の流入取得が示す 9 月売上 ¥104,840 と ¥12,280 ずれている（9/28〜9/30 分が未記録と推定・未確認）。step は continue-on-error で緑表示だった。
+
+**やること**: (1) 前月指定時の年/月 select 切替後に遷移完了を待ってから明細を読む（evaluate の前に navigation／load 待ち）。(2) 修正後に CI で 2026-09 を取り直し、検算差 0 を確認する。
+
+**完了条件**: `note-sales-fetch --month 2026-09 --commit` が CI で検算 OK になり、sales.json の 9 月合計が ¥104,840 と一致する。
+
 ### [DN-0506] コミット前フックを古いツリーから入れ直すと共有フックが古い版に戻り、他セッションのコミットが壊れる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
 
@@ -1286,14 +1295,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0511] `npm run test` が追跡中の public/quiz/pe-first-stage.json を書き換える
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-02]
-
-**起点**: 2026-10-02。`tests/pe-first-stage-retry.test.mjs` の `before()` が `scripts/build-quiz-data.mjs` を実行し、git 管理下の `public/quiz/pe-first-stage.json` を再生成する。`generatedAt` が `Date#toString()` のため実行日とロケール（「日本標準時」/「Japan Standard Time」）で毎回差分が出て、テストを回すだけで作業ツリーが汚れる（並行セッションで無関係なコミットに巻き込む恐れ）。
-
-**やること**: テストは一時ディレクトリへ生成して読む（`build-quiz-data.mjs` に出力先の引数を足す）か、生成済みファイルを読むだけにする。`generatedAt` は ISO 8601 にしてロケールに依存させない。
-
-**完了条件**: クリーンな作業ツリーで `npm run test` を実行した後、`git status --short public/quiz` が空。
 
 ### [DN-0488] stats47 の建設統計・行政財政指標を note 記事のデータ根拠に 1〜2 点埋め込んで試作する
 タグ: [収益化] [領域:商品] [種類:改善] [起票:2026-10-01]

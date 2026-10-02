@@ -11,7 +11,7 @@
 // スキーマ差（body/correct/optionExplanations 等）は normalizeQuestion で吸収する。
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
-import { dirname, resolve, basename } from 'node:path';
+import { dirname, resolve, basename, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import katex from 'katex';
@@ -21,6 +21,12 @@ import remarkHtml from 'remark-html';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
+// 出力先。既定は配信用の public/quiz。テストは --out-dir で一時ディレクトリへ出し、追跡中の生成物を書き換えない。
+const outDirArg = process.argv.indexOf('--out-dir');
+const OUT_DIR = outDirArg >= 0 ? resolve(process.argv[outDirArg + 1]) : resolve(ROOT, 'public/quiz');
+
+/** frontmatter の日付（YAML は Date に解釈される）を JST の YYYY-MM-DD に揃える。String(Date) は実行環境のロケールで表記が変わり、並べても日付順にならない */
+const toJstDate = (v) => (v instanceof Date ? new Date(v.getTime() + 9 * 3600_000).toISOString().slice(0, 10) : String(v));
 
 const SOURCES = [
   {
@@ -297,7 +303,7 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     const [, year, subject] = articleDir.match(articlePattern);
     const file = resolve(baseDir, articleDir, 'article.mdx');
     const parsed = matter(readFileSync(file, 'utf8'));
-    if (parsed.data.dateModified) modifiedDates.push(String(parsed.data.dateModified));
+    if (parsed.data.dateModified) modifiedDates.push(toJstDate(parsed.data.dateModified));
     const sections = splitQuestionSections(parsed.content);
     const expected = pe1ExpectedPerYear(year, subject);
     if (sections.length !== expected) {
@@ -416,14 +422,14 @@ for (const source of SOURCES) {
   const dataset = source.kind === 'pe-first-stage-mdx'
     ? buildPeFirstStageDataset(source)
     : buildJsonDataset(source);
-  const outPath = resolve(ROOT, `public/quiz/${source.exam}.json`);
+  const outPath = resolve(OUT_DIR, `${source.exam}.json`);
   mkdirSync(dirname(outPath), { recursive: true });
   // 決定的な出力（改行は LF）。生成物なので pre-commit の対象外だが LF で統一。
   writeFileSync(outPath, JSON.stringify(dataset) + '\n', 'utf8');
   totalQ += dataset.questions.length;
   const bytes = Buffer.byteLength(JSON.stringify(dataset));
   console.log(
-    `[build-quiz-data] ${source.exam}: ${dataset.questions.length}問 / ${dataset.years.length}年 -> public/quiz/${source.exam}.json (${(bytes / 1024).toFixed(0)}KB)`,
+    `[build-quiz-data] ${source.exam}: ${dataset.questions.length}問 / ${dataset.years.length}年 -> ${relative(ROOT, outPath)} (${(bytes / 1024).toFixed(0)}KB)`,
   );
 }
 console.log(`[build-quiz-data] 合計 ${totalQ} 問を生成`);
