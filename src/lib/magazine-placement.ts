@@ -64,6 +64,24 @@ export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
 }
 
 /**
+ * 2級二次ページ（年度別・二次の始め方）の冒頭 CTA を、試験日のSSOTに合わせて切り替える。
+ * 第二次検定当日（JST）までは直前総仕上げパック、翌日からは二次まるごとパックを案内する。
+ *
+ * 冒頭は 1 行テキスト CTA で、全資格平均のクリック率は 0.40%（本文カード 6.72%）。中でも高額の
+ * まとめ売り（まるごと 0.17%・想定工事バンク 0.15%）が最低で、具体的で安い商品（択一 PDF 等）は
+ * 1.4〜2.5% 取れていた（GA4 2026-09-04〜10-01）。直前期は時期に合う直前パックを置く（EXP-014）。
+ */
+export function resolveCivil2SecondaryLead(nowMs = Date.now()): MagazineId {
+  const secondExamDate = examCalendar.exams['civil-construction-2'].events.second.date;
+  const examDayStartMs = Date.parse(`${secondExamDate}T00:00:00+09:00`);
+  if (!Number.isFinite(examDayStartMs)) {
+    throw new Error('Invalid civil-construction-2.events.second.date in exam-calendar.json');
+  }
+  const nextDayStartMs = examDayStartMs + 86_400_000;
+  return nowMs < nextDayStartMs ? 'civil-2-chokuzen-pack' : 'civil-2-niji-marugoto-pack';
+}
+
+/**
  * pe-comprehensive-management-{r0X}-essay-{persona} → ペルソナ別 magazine。
  */
 function matchPersonaEssay(slug: string): MagazineId | null {
@@ -191,8 +209,17 @@ const CIVIL_EXAM_PREP_GUIDES: ReadonlySet<string> = new Set([
   'guide-environment-management',       // 1級 環境保全管理の重要ポイント
   'guide-foundation-key-points',        // 2級 基礎工の重要ポイント
   'guide-construction-plan-key-points', // 2級 施工計画の重要ポイント
+  // 2級「重要ポイント」専門土木 5 本（2026-09-30 公開）が欠落し CTA ゼロだった（2026-10-02 是正）。
+  'guide-dam-tunnel-key-points',        // 2級 ダム・トンネルの重要ポイント
+  'guide-river-sabo-key-points',        // 2級 河川・砂防の重要ポイント
+  'guide-road-pavement-key-points',     // 2級 道路・舗装の重要ポイント
+  'guide-structures-key-points',        // 2級 構造物の重要ポイント
+  'guide-water-sewer-key-points',       // 2級 上下水道の重要ポイント
   'keyword-2026',                       // 1級 全分野キーワード索引（GA4 上位着地）
   'guide-1-vs-2',                       // 1級と2級の違い（受験選択＝guide-difficulty と同枠）
+  // 2026-10-02: ページ単位の CTA ゼロ検査を入れた際に見つかった 1級の欠落 2 本。
+  'guide-demolition',                   // 1級 解体工事の重要ポイント（重要ポイントシリーズ）
+  'guide-vs-pe',                        // 施工管理技士と技術士の違い（受験選択＝guide-1-vs-2 と同枠）
 ]);
 
 const CIVIL_SECONDARY_ADJACENT_GUIDES: ReadonlySet<string> = new Set([
@@ -475,8 +502,12 @@ function resolvePlacementRaw(
   //    （予想問題集 civil-2-yosou-essay は 2026-06-02 退役。環境対策のみ完成答案集へ昇格）
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
-      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（7 点の最上位バンドル・2026-09-17）
+      // 試験日までは直前総仕上げパック、翌日から二次まるごと（resolveCivil2SecondaryLead・EXP-014）
+      top: slot(resolveCivil2SecondaryLead(), slug, 'top'),
       inline: [
+        // 中間 CTA（inline の先頭で top と別の 1 誌）。冒頭を直前パックへ譲った二次まるごとの面をここで確保する。
+        // 試験翌日に top が二次まるごとへ戻ると、中間は次の出題分析に繰り下がる（resolveMidNoteSlot）。
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-1'),
         slot('civil-2-r8-bunseki', slug, 'inline-2'), // 出題分析・直前重点（入口・2026-09-17）
         slot('civil-2-koji-bank', slug, 'inline-3'),
         slot('civil-2-gakka-kijutsu', slug, 'inline-4'), // 学科記述（問題2〜9）
@@ -487,7 +518,7 @@ function resolvePlacementRaw(
     };
   }
   // 7.5b. 2級 経験記述 テーマ別の書き方（secondary-experience-writing-by-theme）→ 想定工事バンク led
-  //       （テーマ×工事の完成答案を探す読者。まるごとパックが 3 面の top を取ったので、旗艦単品の面をここで確保・2026-09-17）。
+  //       （テーマ×工事の完成答案を探す読者。まるごとパックが top を取る面があるので、旗艦単品の面をここで確保・2026-09-17）。
   if (slug === 'civil-construction-2-secondary-experience-writing-by-theme') {
     return {
       top: slot('civil-2-koji-bank', slug, 'top'),
@@ -523,10 +554,12 @@ function resolvePlacementRaw(
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
     return {
-      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
+      // 書き方・例文を探す読者には、検索意図に直結する完成答案集を冒頭に置く（2026-10-02・EXP-014）。
+      // 旧 top の二次まるごとは冒頭 1 行 CTA でクリック率 0.17%。完成答案集は本文カードで 8.4%・販売 3 件。
+      top: slot('civil-2-experience-essay', slug, 'top'),
       inline: [
-        slot('civil-2-koji-bank', slug, 'inline-2'),
-        slot('civil-2-experience-essay', slug, 'inline-3'),
+        slot('civil-2-koji-bank', slug, 'inline-2'), // 中間 CTA は従来どおり想定工事バンク
+        slot('civil-2-niji-marugoto-pack', slug, 'inline-3'), // 二次まるごと（2026-09-17）
         slot('civil-2-pastexam-essay', slug, 'inline-4'),
       ],
     };
@@ -535,7 +568,8 @@ function resolvePlacementRaw(
   //      top-of-funnel の入口記事。civil-2 は catch-all が無いため明示ブランチが必要（2026-07-04 新設）。
   if (slug === 'civil-construction-2-secondary-getting-started') {
     return {
-      top: slot('civil-2-niji-marugoto-pack', slug, 'top'), // 二次まるごと（2026-09-17）
+      // 試験日までは直前総仕上げパック、翌日から二次まるごと（resolveCivil2SecondaryLead・EXP-014）
+      top: slot(resolveCivil2SecondaryLead(), slug, 'top'),
       inline: [
         slot('civil-2-koji-bank', slug, 'inline-2'),
         slot('civil-2-experience-essay', slug, 'inline-3'),
