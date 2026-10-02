@@ -125,3 +125,6 @@ Next 16 (Turbopack) は **同一プロジェクトディレクトリに対する
 admin が 3021 に縛られる理由は OAuth/webhook/CORS ではなく、`playwright.admin.config.ts` の baseURL と webServer、および手順書が 3021 前提であること。
 
 関連: [[feedback_multi_session_concurrent_git]] / [[reference_shared_worktree_autostash_hazard]]
+
+## worktree で dev 検証するときの preview 起動（2026-10-02 実測・Mac）
+`preview_start` は**本体の** `.claude/launch.json` しか読まない（worktree 側に足しても "No server named"）。`npm run dev` は predev で `kill-port 3020` を実行し**別セッションの dev を殺す**ので使わない。本体の launch.json に一時エントリ `{"runtimeExecutable":"bash","runtimeArgs":["-c","cd <worktree> && exec npx next dev --webpack -p 3031"],"port":3031}` を足して起動し、検証後に必ず削除する（diff が空に戻ることを確認）。

@@ -15,13 +15,13 @@ domain: strategy
 
 競合の**公開データ（価格/品揃え/フォロワー/更新頻度/エンゲージ）を再取得**し、前回スナップショットからの変化を起点に差別化ポジションを再評価する。四半期サイクル。note / Instagram / ココナラの機械取得は `competitor-scan.yml` が自動実行し、本スキルは取得済みデータの意味評価を担う。X は `npm run check-competitor-scan-due` が DUE を返したとき、または重要な競合の動きを察知したときに手動取得から回す。
 
-`--platform note|x|ig|coconala|youtube|all`（既定 all）。**誰を追跡するか**の正本は `config/{note,x,ig,coconala,youtube}-competitors.json`（`exams` は `qualification-registry.json` の資格 id・`npm run check-qualification-market` が検査）、**資格ごとの混み具合**の正本は市場スキャン（`data/analysis/qualification-market/*.json`・検索語とタイトル条件は `market-scan.json`）で、並べて見るのは `npm run qualification-market`／管理画面 戦略＞資格と市場＞展開の判断。文章の真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[07_競合調査.md](../../../../docs/strategy/07_競合調査.md) の SNS競合節。
+`--platform note|x|ig|coconala|youtube|all`（既定 all）。**誰を追跡するか**の正本は `config/competitors.json`（取得元ごとの枠）（`exams` は `qualification-registry.json` の資格 id・`npm run check-qualification-market` が検査）、**資格ごとの混み具合**の正本は市場スキャン（`data/analysis/qualification-market/*.json`・検索語とタイトル条件は `market-scan.json`）で、並べて見るのは `npm run qualification-market`／管理画面 戦略＞資格と市場＞展開の判断。文章の真実源: 価格/品揃え軸=[09_販売チャネル競合分析.md](../../../../docs/strategy/09_販売チャネル競合分析.md)、コンテンツ型/エンゲージ軸=[07_競合調査.md](../../../../docs/strategy/07_競合調査.md) の SNS競合節。
 
 ## 手順
 
 ### 0. 競合の発掘（keyword discovery・シード追跡の弊害を潰す）
 
-**四半期に1回、シード追跡だけでなくキーワードで新規競合を発掘する**（2026-07-20 に「シードのみ追跡→concrete 系を白地と誤判定」した反省）。まず `npm run scan-qualification-market -- --coconala` で全資格の検索語を YouTube・note・ココナラで取り、`npm run qualification-market` の混み具合と上位の売り手を読む（YouTube の強いチャンネルは `youtube-competitors.json` に ID で足す）。X は検索 CLI が不安定なので、試験キーワード（`技術士二次試験 対策`／`土木施工管理技士 経験記述`／`1級土木施工管理技士 過去問`／`コンクリート診断士 対策`／`コンクリート主任技士` 等）で検索し、config 未登録で頻出/高エンゲージのアカウントを config に追加する。
+**四半期に1回、シード追跡だけでなくキーワードで新規競合を発掘する**（2026-07-20 に「シードのみ追跡→concrete 系を白地と誤判定」した反省）。まず `npm run scan-qualification-market -- --coconala` で全資格の検索語を YouTube・note・ココナラで取り、`npm run qualification-market` の混み具合と上位の売り手を読む（YouTube の強いチャンネルは `competitors.json` の youtube に ID で足す）。X は検索 CLI が不安定なので、試験キーワード（`技術士二次試験 対策`／`土木施工管理技士 経験記述`／`1級土木施工管理技士 過去問`／`コンクリート診断士 対策`／`コンクリート主任技士` 等）で検索し、config 未登録で頻出/高エンゲージのアカウントを config に追加する。
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
@@ -49,7 +49,7 @@ npm run scan-qualification-market -- --channel youtube   # YouTube（追跡チ�
 - 各 scout の共通 snapshot schema: `{ profile, counts, price(min/median/max/bands), cadence, drift[], platformExtra }`。出力は `data/{note,coconala,x,instagram}/competitors/YYYY-MM-DD.json`（台帳 `<取得元>.competitors`・時系列 SSOT。最新ポインタは持たず時系列の最新を読む。部分実行は `.tmp/` に置く）
 - コンソール末尾の**「前回比ドリフト」**を必ず読む（価格改定・新商品・休眠・新規参入）
 - note は `--exam <tag>` で試験別に切れる（部分実行=履歴を汚さない）
-- 競合を足すときは対応する `.claude/config/{platform}-competitors.json` に `{handle,label,exams,note}` を追記（`exams` は資格 id。YouTube の handle はチャンネル ID＝表示名から逆引きした ID の取り違えが 2026-09 にあった）
+- 競合を足すときは対応する `config/competitors.json` の取得元の枠 に `{handle,label,exams,note}` を追記（`exams` は資格 id。YouTube の handle はチャンネル ID＝表示名から逆引きした ID の取り違えが 2026-09 にあった）
 
 ### 2. 意味評価（analyst）
 
@@ -86,4 +86,4 @@ X scout は各競合の**エンゲージ上位10投稿**（`engagementLeaders`�
 - 機械: `.github/workflows/competitor-scan.yml`・`scripts/scout-{note,x,ig}-competitors.mjs`・`scout-coconala-competitors.mjs`・`check-competitor-scan-due.mjs`
 - 勝ち型の原案化: `x-post-writer`（生成・ユニーク性強制）／`x-post-qa`（§11 near-duplicate ゲート）
 - Evaluator: `competitor-analyst`（[agents-registry.md](../../../../.claude/knowledge/reference/agents-registry.md)）
-- config: `.claude/config/{note,x,ig,coconala}-competitors.json`（競合ハンドル SSOT・チャネル別）
+- config: `config/competitors.json`（競合ハンドル SSOT・チャネル別）

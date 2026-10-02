@@ -23,13 +23,12 @@ import { resolvePlacement } from '../src/lib/magazine-placement';
 import { getAllPublicDocRoutes } from '../src/lib/content-routes';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct } from '../src/lib/sidebar-discovery';
-import { datasetDir } from './lib/datasets.mjs';
 import { hasStaticToolNoteCta } from './lib/sns-landing-cta.mjs';
 
 const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const SITE = join(ROOT, 'content/site');
-const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, datasetDir('config.x-campaigns'))];
+const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, 'content/sns/x/campaigns')];
 const CARD_EARLY_RATIO = 0.5;
 
 const GROUP_FIELD_MAP: Record<string, string> = {

@@ -12,14 +12,13 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { datasetPath } from "./lib/datasets.mjs";
 
 const ROOT = process.cwd();
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
 const STATUS_PATH = path.join(DRAFT_DIR, "status.json");
 const TEMPLATE_PATH = path.join(DRAFT_DIR, "teasers.template.md");
 const OUTPUT_PATH = path.join(DRAFT_DIR, "tweets.md");
-const PLAN_PATH = path.join(ROOT, datasetPath("config.x-campaigns", { month: "2026-09", name: "civil" }));
+const PLAN_PATH = path.join(ROOT, "content/sns/x/campaigns/2026-09-civil.json");
 const ARGS = process.argv.slice(2);
 const DRY_RUN = ARGS.includes("--dry-run");
 

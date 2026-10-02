@@ -7,9 +7,9 @@
 // （drive-vault.json の note-magazine-cover-png）。
 //
 // 本ファイルの MAGAZINES は「どのマガジンにカバーがあるか」の一覧（id / magazineDir / lines / category / fillBg）。
-// V5 の文言は config/note-cover-magazine-v4.json（qualifier / magazineName / proof / benefit）を id で
+// V5 の文言は config/note-covers.json の magazineText（qualifier / magazineName / proof / benefit）を id で
 // マージし、無い id は lines[] から補う。MAGAZINES に無いマガジンの補完と退役は
-// config/note-character-covers.json（additionalMagazines / retiredMagazineIds）。
+// config/note-covers.json の characterCovers（additionalMagazines / retiredMagazineIds）。
 //
 // 注: サイト側の CTA 画像（旧 public/images/magazines/*-cover）は 2026-07 に廃止した。サイトの note CTA は
 //     exam-brand.ts の資格別 cta-bg イラスト＋ HTML 文字でデータ駆動する（本スクリプトは note 側専用）。
@@ -30,7 +30,7 @@ const ROOT = join(__dirname, '..');
 
 /**
  * 各マガジンの cover 定義。
- * - id: note-cover-magazine-v4.json / note-character-covers.json と突合するキー
+ * - id: config/note-covers.json の magazineText / characterCovers と突合するキー
  * - magazineDir: _cover.png の出力先（無ければ retiredMagazineIds に退役理由を書く）
  * - lines: タイトル行。V4 マップに文言が無い id はここから主見出し（2 行目）・リード（1 行目）・補足（3 行目）を補う
  * - category: 資格ラベル / fillBg: 帯の色（無ければ試験トークンの deep）
@@ -182,7 +182,7 @@ export const MAGAZINES = [
   },
   {
     id: 'setsumon3-policy-bank',
-    // V4 フィールドは config/note-cover-magazine-v4.json（一元マップ・magazine key: m91516dfc27ac）
+    // V4 フィールドは config/note-covers.json の magazineText（一元マップ・magazine key: m91516dfc27ac）
     magazineDir: 'content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
     fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
@@ -251,7 +251,7 @@ export const MAGAZINES = [
   },
   {
     id: 'civil-1-marugoto',
-    // V4 フィールドは config/note-cover-magazine-v4.json（一元マップ・magazine key: md29a34906314）
+    // V4 フィールドは config/note-covers.json の magazineText（一元マップ・magazine key: md29a34906314）
     fileBaseName: 'civil-1-niji-marugoto-pack-cover',
     magazineDir: 'content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック',
     lines: ['1級土木 二次検定', 'まるごとパック', '経験記述＋学科記述＋直前暗記'],

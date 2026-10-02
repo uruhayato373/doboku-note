@@ -246,6 +246,23 @@ export const RESTRUCTURED_PATHS = [
   ["data/metrics/crosswalk", "data/analysis/crosswalk"],
   ["data/metrics/monetization", "data/analysis/monetization"],
   ["data/metrics/growth", "data/analysis/growth"],
+  // 2026-10-02 段階 4: 設定の統合（複数ファイル→1 ファイルの枠）と、設定でない計画・記録の移設
+  ["config/note-competitors.json", "config/competitors.json"],
+  ["config/x-competitors.json", "config/competitors.json"],
+  ["config/ig-competitors.json", "config/competitors.json"],
+  ["config/coconala-competitors.json", "config/competitors.json"],
+  ["config/youtube-competitors.json", "config/competitors.json"],
+  ["config/ogp/rules.json", "config/ogp/settings.json"],
+  ["config/ogp/templates.json", "config/ogp/settings.json"],
+  ["config/ogp/text.json", "config/ogp/settings.json"],
+  ["config/note-intro-standard-civil2.json", "config/note-intro-standard.json"],
+  ["config/note-intro-standard-civil-cross.json", "config/note-intro-standard.json"],
+  ["config/note-character-covers.json", "config/note-covers.json"],
+  ["config/note-cover-categories.json", "config/note-covers.json"],
+  ["config/note-cover-magazine-v4.json", "config/note-covers.json"],
+  ["config/x-review.json", "content/sns/x/review.json"],
+  ["config/x-campaigns", "content/sns/x/campaigns"],
+  ["config/coconala-thumb-approved.json", "data/coconala/thumb-approved.json"],
   [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
 ];
 

@@ -9,7 +9,7 @@ test('Article延期後も元計画に公開URLを結び、告知原稿は新し�
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'x-teaser-'));
   try {
     const draft = path.join(root, 'content/sns/x/draft/094-career-longform-pilot');
-    const planDir = path.join(root, 'config/x-campaigns');
+    const planDir = path.join(root, 'content/sns/x/campaigns');
     fs.mkdirSync(draft, { recursive: true });
     fs.mkdirSync(planDir, { recursive: true });
     const tweets = {}, posts = [], blocks = [];

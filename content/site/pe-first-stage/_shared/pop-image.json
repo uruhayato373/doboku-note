@@ -61,13 +61,22 @@
   "storage": {
     "delivery": "public R2 / doboku-note / posts/pe-first-stage/_shared/img/",
     "conversion": "PNGの寸法・構図を保ってWebPへ変換（品質はvariants.output.quality）。150KiB以下。",
-    "verifiedAt": "2026-10-02T12:41:24.413Z",
+    "verifiedAt": "2026-10-02T12:57:42.233Z",
     "verification": "2件ともサイトが参照するバージョン付き公開URLから読み戻し、SHA-256がoutput.sha256と一致",
     "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（variants.original.filenameのPNGを保持）"
   },
   "publication": {
-    "status": "R2公開済み。サイト反映状況はPRで追跡",
-    "url": "https://github.com/uruhayato373/doboku-note/pull/836"
+    "status": "反映済み",
+    "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+    "relatedUrls": [
+      "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+      "https://doboku-note.com/exam/pe-first-stage"
+    ],
+    "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/836",
+    "deployCommit": "110391980a67e2abf4c5fd481364c3272445811d",
+    "workflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37009185096",
+    "verifiedAt": "2026-10-02T12:57:42.233Z",
+    "verification": "本番SSR2URLはexit0。3ページHTTP200・main・技術士・最新版画像URLを確認。PC/375pxの5CTA画像読み込み正常・横スクロールなし。"
   },
   "references": [
     {
