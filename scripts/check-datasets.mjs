@@ -5,13 +5,13 @@
  *   1. git 管理下の config/・data/ の全ファイルが、ちょうど 1 つのデータセットに当たる（未宣言・重なりは違反）
  *   2. 宣言したデータセットにファイルがある（手元だけ local・未着手 planned を除く）。local に git 管理のファイルは無い
  *      （planned に CI のボットが初めて書いたときは警告だけにする。無関係な PR を赤くしない）
- *   3. id・種類・領域が正しい（id の重複・KINDS に無い種類・domains.json に無い領域は違反）
+ *   3. id・種類・領域が正しい（id の重複・KINDS に無い種類・domains.json に無い領域・id の取得元と合わない置き場は違反）
  *   4. 型（zod）のあるデータセットは、全ファイルが型に合う
  * 検査したファイル数を出し、1 件も読めなければ検査不成立（exit 2）。違反は exit 1。
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATASETS, KINDS, listAreaFiles, matchFiles, validateFiles } from './lib/datasets.mjs';
+import { AREAS, DATASETS, KINDS, listAreaFiles, matchFiles, pathMatchesId, validateFiles } from './lib/datasets.mjs';
 import { loadDomains } from './lib/domains.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +29,7 @@ for (const x of DATASETS) {
   if (seen.has(x.id)) errors.push(`${x.id}: id が重複している`);
   seen.add(x.id);
   if (!/^[a-z0-9]+(\.[a-z0-9-]+)+$/.test(x.id)) errors.push(`${x.id}: id は「取得元.データセット」（英小文字・数字・ハイフン）`);
+  if (!pathMatchesId(x)) errors.push(`${x.id}: 置き場 ${x.path} が id の取得元と合わない（config.* は config/、他は data/<取得元>/）`);
   if (!(x.kind in KINDS)) errors.push(`${x.id}: 種類 ${x.kind} は KINDS に無い`);
   if (!domainIds.has(x.domain)) errors.push(`${x.id}: 領域 ${x.domain} は domains.json に無い`);
   const n = byId.get(x.id)?.length ?? 0;

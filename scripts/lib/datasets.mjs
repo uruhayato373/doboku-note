@@ -402,6 +402,16 @@ export function validateFiles(root, dataset, files) {
   return { checked: files.length, errors };
 }
 
+/**
+ * 置き場が id の取得元と合うか（config.* は config/、それ以外は data/<取得元>/ か data/<取得元>.*）。
+ * フォルダを取得元ごとにした（段階 3）ので、id と置き場がずれたら台帳か置き場のどちらかが古い
+ */
+export function pathMatchesId(dataset) {
+  const source = dataset.id.split('.')[0];
+  if (source === 'config') return dataset.path.startsWith('config/');
+  return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
+}
+
 /** 型の JSON Schema（zod から生成。エディタ・管理画面・Codex 向け） */
 export const jsonSchemaOf = (dataset) => (dataset.schema ? z.toJSONSchema(dataset.schema) : null);
 

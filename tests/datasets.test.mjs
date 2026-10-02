@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
+import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFiles, pathMatchesId, patternOf, schemaRows, validateFiles } from '../scripts/lib/datasets.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
@@ -34,6 +34,15 @@ test('台帳: id は重複せず「取得元.データセット」の形', () =>
   const ids = DATASETS.map((x) => x.id);
   assert.equal(new Set(ids).size, ids.length);
   for (const id of ids) assert.match(id, /^[a-z0-9]+(\.[a-z0-9-]+)+$/);
+});
+
+test('pathMatchesId: 置き場は id の取得元に合う（config.* は config/、他は data/<取得元>/）', () => {
+  assert.ok(pathMatchesId({ id: 'gsc.reports', path: 'data/gsc/reports/{date}.json' }));
+  assert.ok(pathMatchesId({ id: 'config.competitors', path: 'config/competitors.json' }));
+  assert.ok(!pathMatchesId({ id: 'gsc.reports', path: 'data/ga4/reports/{date}.json' }));
+  assert.ok(!pathMatchesId({ id: 'gsc.reports', path: 'data/gscx/reports.json' }), '取得元の名前の前方一致で通さない');
+  assert.ok(!pathMatchesId({ id: 'config.x', path: 'data/config/x.json' }));
+  for (const x of DATASETS) assert.ok(pathMatchesId(x), `${x.id}: ${x.path}`);
 });
 
 test('validateFiles: 型に合わない記録を場所つきで返す', () => {
