@@ -25,7 +25,7 @@ const COLOR: Record<string, string> = { exam: 'var(--accent)', result: 'var(--go
 /**
  * /plan/roadmap — 年間ロードマップ（時間軸は縦＝月の行）。
  * 左: 資格の行事と買い場（exam-calendar.json・翌年の未公表分は昨年度から推定して薄字）。
- * 中: 前年同月の資格別売上（sales-log・orders-log を qualification-market.mjs の salesByQualification で資格へ振り分け・値を写さない）。
+ * 中: 前年同月の資格別売上（sales.json・orders.json を qualification-market.mjs の salesByQualification で資格へ振り分け・値を写さない）。
  * 右: その月に始まるカード（バックログの [時期:]・[領域:] が唯一の正本。重点の別台帳を持たない）。
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。

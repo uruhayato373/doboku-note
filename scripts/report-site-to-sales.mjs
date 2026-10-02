@@ -4,9 +4,9 @@
  *
  * 入力（すべてコミット済み・creds 不要）:
  *   GA4 by-label   data/metrics/ga4/ga4-cta-clicks-by-label-*.json（月一致の窓を優先、無ければ重なり最大）
- *   note 流入元    data/metrics/note/referrers-*.json（アカウント全体・取得が最新のファイル）
- *   売上           data/sales/sales-log.json
- *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines-snapshot.json
+ *   note 流入元    data/note/referrers/*.json（アカウント全体・取得が最新のファイル）
+ *   売上           data/note/sales.json
+ *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines.json
  * 出力: data/metrics/business/site-to-sales-YYYY-MM.json（追記専用台帳。内容が変われば -rN を足す）と標準出力の表
  *
  * Usage:
@@ -14,12 +14,13 @@
  *   npm run report-site-to-sales -- --month 2026-08
  *   npm run report-site-to-sales -- --json           # JSON を標準出力へ
  *   npm run report-site-to-sales -- --check          # 書かずに完走だけ確認（quality-audit ci）
- * exit: 0 完走 / 2 検査不成立（カタログ解析 0 件・sales-log 読取不能など入力の破損）
+ * exit: 0 完走 / 2 検査不成立（カタログ解析 0 件・sales.json 読取不能など入力の破損）
  * 純関数とテスト: scripts/lib/site-to-sales.mjs・tests/site-to-sales.test.mjs
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
+import { datasetFiles, datasetPath } from './lib/datasets.mjs';
 import {
   buildResolver,
   buildSiteToSales,
@@ -33,8 +34,6 @@ import {
 } from './lib/site-to-sales.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const GA4_DIR = 'data/metrics/ga4';
-const NOTE_DIR = 'data/metrics/note';
 const OUT_DIR = 'data/metrics/business';
 
 const args = process.argv.slice(2);
@@ -52,15 +51,14 @@ function readJson(rel) {
   return JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 }
 
-function listJson(dir, re) {
-  const abs = join(ROOT, dir);
-  if (!existsSync(abs)) return [];
+/** 台帳のデータセットの全ファイルを古い順に読む */
+function readDataset(id) {
   const out = [];
-  for (const name of readdirSync(abs).filter((n) => re.test(n)).sort()) {
+  for (const file of datasetFiles(ROOT, id).sort()) {
     try {
-      out.push({ file: `${dir}/${name}`, data: readJson(`${dir}/${name}`) });
+      out.push({ file, data: readJson(file) });
     } catch (e) {
-      console.error(`[report-site-to-sales] 読めない入力を除外: ${dir}/${name}（${e.message}）`);
+      console.error(`[report-site-to-sales] 読めない入力を除外: ${file}（${e.message}）`);
     }
   }
   return out;
@@ -73,28 +71,29 @@ function main() {
   if (catalog.length === 0) return fail('note-magazines.ts から商品を 1 件も解析できない（定義の形が変わった）');
   const hubSeasonal = parseHubSeasonalProducts(readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8'));
   if (Object.keys(hubSeasonal).length === 0) return fail('hub-cta.ts の HUB seasonal 商品を解析できない');
+  const salesPath = datasetPath('note.sales');
   let salesLog;
   try {
-    salesLog = readJson('data/sales/sales-log.json');
+    salesLog = readJson(salesPath);
   } catch (e) {
-    return fail(`sales-log.json を読めない（${e.message}）`);
+    return fail(`${salesPath} を読めない（${e.message}）`);
   }
-  if (!Array.isArray(salesLog.sales)) return fail('sales-log.json に sales[] が無い');
-  const snapshotPath = 'data/note/magazines-snapshot.json';
+  if (!Array.isArray(salesLog.sales)) return fail(`${salesPath} に sales[] が無い`);
+  const snapshotPath = datasetPath('note.magazines');
   const magazineSnapshot = existsSync(join(ROOT, snapshotPath)) ? readJson(snapshotPath) : null;
 
   const resolver = buildResolver({ catalog, hubSeasonal, magazineSnapshot, salesLog });
-  const labelSnapshots = listJson(GA4_DIR, /^ga4-cta-clicks-by-label-.*\.json$/);
+  const labelSnapshots = readDataset('ga4.cta-clicks-by-label');
   const pick = pickGa4Snapshot(labelSnapshots.map((s) => ({ file: s.file, meta: s.data.meta })), month);
   const picked = labelSnapshots.find((s) => s.file === pick.file);
   const ga4 = { pick, rows: picked ? picked.data.rows ?? picked.data.data ?? [] : [] };
-  const referral = pickNoteReferral(listJson(NOTE_DIR, /^referrers-\d{4}-\d{2}\.json$/), month);
+  const referral = pickNoteReferral(readDataset('note.referrers'), month);
 
   const report = buildSiteToSales({ month, resolver, ga4, salesLog, referral });
   report.inputs = {
     ga4: pick.file,
     noteReferrers: referral.file,
-    sales: 'data/sales/sales-log.json',
+    sales: salesPath,
     salesLogUpdatedAt: salesLog.updatedAt ?? null,
     catalog: `src/lib/note-magazines.ts（${catalog.length} 商品）`,
     magazineSnapshot: magazineSnapshot ? `${snapshotPath}（${magazineSnapshot.fetchedAt ?? '取得時刻不明'}）` : null,

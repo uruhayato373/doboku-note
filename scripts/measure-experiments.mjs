@@ -29,7 +29,7 @@ dotenv.config({ path: '.env.local', quiet: true });
 
 const TAG = '[measure-experiments]';
 const LEDGER = 'data/experiments.json';
-const SALES = 'data/sales/sales-log.json';
+const SALES = 'data/note/sales.json';
 
 async function ga4Value(ga4, spec, windows) {
   const ranges = [{ ...windows.pre, name: 'pre' }, { ...windows.post, name: 'post' }];

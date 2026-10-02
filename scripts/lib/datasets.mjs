@@ -142,22 +142,21 @@ export const DATASETS = [
 
   // ===== data/: 取得元ごとの記録 =====
   // note
-  d('note.sales', 'data/sales/sales-log.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: NoteSalesLog }),
-  d('note.magazines', 'data/note/magazines-snapshot.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）'),
-  d('note.status', 'data/note/status-snapshot.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）'),
+  d('note.sales', 'data/note/sales.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: NoteSalesLog }),
+  d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）'),
+  d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）'),
   d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録'),
-  d('note.articles-pv', 'data/metrics/note/articles-pv-{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
-  d('note.referrers', 'data/metrics/note/referrers-{month}.json', 'series', 'product', 'note の月間の流入元'),
+  d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
+  d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元'),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）'),
   // KDP
-  d('kdp.royalties', 'data/sales/kdp-royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: KdpRoyalties }),
+  d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: KdpRoyalties }),
   // ココナラ
-  d('coconala.orders', 'data/coconala/orders-log.json', 'ledger', 'product', 'ココナラの受注の記録'),
+  d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録'),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）'),
-  d('coconala.kpi', 'data/coconala/kpi-log.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移'),
-  d('coconala.analytics', 'data/coconala/analytics-snapshot.json', 'state', 'product', 'ココナラの出品分析の最新'),
+  d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移'),
+  d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新'),
   d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）'),
-  d('coconala.thumbnail-rollout', 'data/coconala/thumbnail-rollout-{date}.json', 'evidence', 'product', 'サムネイル差し替えの一回きりの記録'),
   d('coconala.competitors', 'data/coconala/competitors/{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期・全社の通常実行だけ）'),
   d('coconala.blog-competitors', 'data/coconala/blog-competitors/{date}.json', 'series', 'strategy', 'ココナラブログの競合記事'),
   d('coconala.market-research', 'data/coconala/market-research.json', 'state', 'strategy', 'ココナラの市場調査（検索結果の出品）'),

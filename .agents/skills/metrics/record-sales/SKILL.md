@@ -1,7 +1,7 @@
 ---
 name: record-sales
 description: >
-  note 販売履歴を SSOT（sales-log.json）に記録するスキル。
+  note 販売履歴を SSOT（data/note/sales.json）に記録するスキル。
   ユーザーがダッシュボードからコピーした販売履歴テキストを受け取り、
   sales-recorder エージェントで正規化・追記し、月次集計を表示する。
   Use when user asks to [売上記録, 販売履歴を記録, note 売上, /record-sales].

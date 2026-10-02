@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// sales-log.json の「転記が止まっていないか」を検査する（今回の事故の失敗モードそのもの）。
+// data/note/sales.json の「転記が止まっていないか」を検査する（今回の事故の失敗モードそのもの）。
 //
-// 背景（2026-08-17）: sales-log は 2026-07-14 で止まっており、2026-07 は note 実績
+// 背景（2026-08-17）: sales.json は 2026-07-14 で止まっており、2026-07 は note 実績
 // 145 件 ¥275,140 に対して 23 件 ¥49,660＝**18% しか入っていなかった**。2026-08 は 0 件。
 // にもかかわらず誰も落ちなかった。sales-summary は「入っている分」を正しく足すので緑のまま、
 // 週次レビューは売上を読んでおらず、下流のガードレール（x-post-writer 等）は
-// 「sales-log は停止中」という前提を1か月抱えたままだった。
+// 「sales.json は停止中」という前提を1か月抱えたままだった。
 // **手動転記は「やった月」と「やらなかった月」が外から区別できない**——これを機械で区別する。
 //
 // **判定軸は updatedAt（転記を実行した日）であって、最終売上日ではない。**
@@ -30,9 +30,9 @@
 // 真実源: .claude/knowledge/reference/sales-tracking.md「取得と検算」
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
+import { datasetPath } from './lib/datasets.mjs';
 
-const SALES_LOG = 'data/sales/sales-log.json';
-const NOTE_METRICS_DIR = 'data/metrics/note';
+const SALES_LOG = datasetPath('note.sales');
 const STALE_WARN = 10; // 10 日転記が無ければ注意
 const STALE_FAIL = 21; // 3 週間走っていなければ「止まっている」と断定する
 const MONTHLY_DUE_DAY = 5; // 5日以降は前月のnoteアクセス＋売上表示を要求する
@@ -132,9 +132,9 @@ if (isMain) {
 
   const freshness = assessSalesLog(log);
   const dueMonth = dueSalesMonth();
-  const dueFile = `referrers-${dueMonth}.json`;
-  let benchmark = existsSync(`${NOTE_METRICS_DIR}/${dueFile}`)
-    ? assessSalesBenchmark(log, JSON.parse(readFileSync(`${NOTE_METRICS_DIR}/${dueFile}`, 'utf8')))
+  const dueFile = datasetPath('note.referrers', { month: dueMonth });
+  let benchmark = existsSync(dueFile)
+    ? assessSalesBenchmark(log, JSON.parse(readFileSync(dueFile, 'utf8')))
     : { status: 'FAIL', reason: `${dueMonth} のnoteアクセス・月次売上表示が未取得`, month: dueMonth, expected: null, actual: null, count: 0 };
   const r = benchmark?.status === 'FAIL' ? { ...freshness, status: 'FAIL', reason: benchmark.reason } : freshness;
 

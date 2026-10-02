@@ -5,8 +5,8 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * note-traffic-fetch.mjs
  * ---------------------------------------------------------------------------
  * note ダッシュボード「アクセス状況」（/dashboard）を Playwright read-only で取得し、
- *   data/metrics/note/referrers-YYYY-MM.json   … 記事の流入元（月次時系列＋対象月の内訳）
- *   data/metrics/note/articles-pv-YYYY-MM.json … 対象期間の記事別 インプレッション/PV/スキ/売上
+ *   data/note/referrers/YYYY-MM.json   … 記事の流入元（月次時系列＋対象月の内訳）
+ *   data/note/articles-pv/YYYY-MM.json … 対象期間の記事別 インプレッション/PV/スキ/売上
  * を書く（DN-0249）。
  *
  * 背景（2026-09-15 実測）: 収益の出所は note 内回遊＋note 記事への検索直で 73〜80%、X 0.2%。
@@ -30,11 +30,11 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows } from './lib/note-traffic-normalize.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'data/metrics/note');
 const NAME = 'note-traffic-fetch';
 const argv = process.argv.slice(2);
 const getArg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : null; };
@@ -125,13 +125,15 @@ try {
   if (summary.pageViews === null) problems.push('ページビューが読めない');
   if (problems.length) { console.error(`${NAME}: 検査不成立: ${problems.join(' / ')}`); exitCode = 1; }
   else if (COMMIT) {
-    mkdirSync(OUT_DIR, { recursive: true });
+    const refPath = datasetPath('note.referrers', { month: MONTH });
+    const artPath = datasetPath('note.articles-pv', { month: MONTH });
+    for (const p of [refPath, artPath]) mkdirSync(dirname(join(ROOT, p)), { recursive: true });
     const fetchedAt = new Date().toISOString();
     const ref = { schemaVersion: 1, month: MONTH, fetchedAt, source: 'note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）', period, monthly: series.months, targetMonth: monthRow, pie, summary };
     const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy: 'pageViews', count: rows.length, rows };
-    writeFileSync(join(OUT_DIR, `referrers-${MONTH}.json`), JSON.stringify(ref, null, 2) + '\n');
-    writeFileSync(join(OUT_DIR, `articles-pv-${MONTH}.json`), JSON.stringify(art, null, 2) + '\n');
-    console.log(`[write] referrers-${MONTH}.json / articles-pv-${MONTH}.json（記事 ${rows.length} 件）`);
+    writeFileSync(join(ROOT, refPath), JSON.stringify(ref, null, 2) + '\n');
+    writeFileSync(join(ROOT, artPath), JSON.stringify(art, null, 2) + '\n');
+    console.log(`[write] ${refPath} / ${artPath}（記事 ${rows.length} 件）`);
   } else {
     console.log('（dry-run・書き込みなし。--commit で保存）');
   }

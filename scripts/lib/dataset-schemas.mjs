@@ -15,7 +15,7 @@ const month = z.string().regex(/^\d{4}-\d{2}$/, 'YYYY-MM');
 const yen = (what) => z.number().int().min(0).describe(`${what}（円）`);
 const count = (what) => z.number().int().min(0).describe(what);
 
-/** note の販売履歴（data/sales/sales-log.json）。購入者は記録しない */
+/** note の販売履歴（data/note/sales.json）。購入者は記録しない */
 export const NoteSalesLog = z
   .object({
     version: z.literal(1),
@@ -56,7 +56,7 @@ export const NoteSalesLog = z
 
 const kdpAmounts = { ebook: yen('電子書籍のロイヤリティ'), print: yen('ペーパーバックのロイヤリティ'), kenp: yen('KENP のロイヤリティ') };
 
-/** KDP のロイヤリティ（data/sales/kdp-royalties.json）。当月分は推計で、確定後に同じ月を取り直して上書きする */
+/** KDP のロイヤリティ（data/kdp/royalties.json）。当月分は推計で、確定後に同じ月を取り直して上書きする */
 export const KdpRoyalties = z
   .object({
     version: z.literal(1),

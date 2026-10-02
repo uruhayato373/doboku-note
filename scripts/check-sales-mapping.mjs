@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// sales-log.json に出現する productId と、公開済み単品商品が sales-recorder エージェントの
+// data/note/sales.json に出現する productId と、公開済み単品商品が sales-recorder エージェントの
 // mapping テーブルに文書化されているかを検証する（capability ドリフトの再発防止）。
 //
 // 背景: .claude/knowledge/reference/sales-tracking.md「新商品の追加」手順② は「新商品を売ったら
@@ -10,14 +10,14 @@
 // 「sales mapping の更新もれ」を commit 時に検知して止める。
 //
 // 検査内容:
-//   1. data/sales/sales-log.json の distinct productId を収集
+//   1. data/note/sales.json の distinct productId を収集
 //   2. src/lib/note-magazines.ts の公開済み単品（/n/）を article:<id> として収集
 //   3. .claude/agents/sales-recorder.md の backtick コードスパンから productId パターンを抽出し
 //      （`{subject}`→任意 slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意）正規表現に変換
 //   4. どのパターンにも一致しない productId、公開単品の明示 mapping 漏れ、
 //      article:unknown-* を違反として列挙
 //
-// --staged 時は sales-log.json / sales-recorder.md / note-magazines.ts のいずれかが
+// --staged 時は data/note/sales.json / sales-recorder.md / note-magazines.ts のいずれかが
 // staged の場合のみ起動（それ以外は no-op）。
 // 違反が 1 件でもあれば exit 1。緊急回避: SKIP_SALES_MAPPING=1、または git commit --no-verify。
 //
@@ -32,7 +32,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
 
-const SALES_LOG = 'data/sales/sales-log.json';
+const SALES_LOG = 'data/note/sales.json';
 const RECORDER = '.claude/agents/sales-recorder.md';
 const NOTE_CATALOG = 'src/lib/note-magazines.ts';
 
@@ -63,7 +63,7 @@ if (staged) {
   }
 }
 
-// --- 1. sales-log.json の distinct productId ---
+// --- 1. data/note/sales.json の distinct productId ---
 let log;
 try {
   log = JSON.parse(readFileSync(SALES_LOG, 'utf8'));
@@ -156,5 +156,5 @@ for (const v of violations) {
 console.error('');
 console.error('対処: .claude/agents/sales-recorder.md の productId 推定テーブルに該当行を追加し');
 console.error('      （命名規則は .claude/knowledge/reference/sales-tracking.md）、同一コミットに含めてください。');
-console.error('      slug 自体が誤りなら sales-log.json を修正。緊急回避は SKIP_SALES_MAPPING=1。');
+console.error('      slug 自体が誤りなら data/note/sales.json を修正。緊急回避は SKIP_SALES_MAPPING=1。');
 process.exit(1);

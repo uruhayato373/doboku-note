@@ -1,5 +1,5 @@
 /**
- * sales-normalize.mjs — sales-log.json の productId 解決を純関数として切り出したもの。
+ * sales-normalize.mjs — data/note/sales.json の productId 解決を純関数として切り出したもの。
  *
  * 背景（DN-0018）: 取得（`note-sales-fetch.mjs`）とスキル手動転記（`sales-recorder` エージェント）で
  * 同じ商品が別表記の productId に解決されると、`sales-summary` の商品別集計が分断される

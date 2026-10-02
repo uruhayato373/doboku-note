@@ -3,7 +3,7 @@
  * coconala-orders.mjs — ココナラ「取引管理（出品）」の受注実績を read-only で収集する
  * ---------------------------------------------------------------------------
  * なぜ必要か:
- *   ココナラの受注は購入通知メールと画面にしか無く、リポジトリ側（orders-log.json）は
+ *   ココナラの受注は購入通知メールと画面にしか無く、リポジトリ側（data/coconala/orders.json）は
  *   人手の追記に依存していた。2026-08-04 の初受注では、エージェントが「何が売れたか」を
  *   知る手段が無く、その場限りの Playwright を書いて調べる羽目になった（記録も残らない）。
  *   本スクリプトは受注一覧を**機械可読なスナップショット**に落とし、以後の突合
@@ -187,7 +187,7 @@ async function main() {
   // 記録済みの talkroom だけ**を例外にする（記録が無い未解決は従来どおり警告する）。
   const quotedRooms = (() => {
     try {
-      const log = JSON.parse(readFileSync(join(ROOT, 'data/coconala/orders-log.json'), 'utf8'));
+      const log = JSON.parse(readFileSync(join(ROOT, 'data/coconala/orders.json'), 'utf8'));
       const rows = Array.isArray(log) ? log : log.orders ?? [];
       return new Map(rows.filter((o) => o.quote && o.talkroomId).map((o) => [String(o.talkroomId), o.serviceId ?? null]));
     } catch {
@@ -332,7 +332,7 @@ async function main() {
     `${TAG} タブ ${tabsOk}/${scan.length} 取得・取引 ${orders.length} 件・問い合わせ ${inquiries.length} 件 → ${OUT_PATH}`
   );
   if (quoted.length) {
-    console.log(`${TAG} 見積り（カスタム提案）${quoted.length} 件は突合対象外（orders-log に quote として記録済み）:`);
+    console.log(`${TAG} 見積り（カスタム提案）${quoted.length} 件は突合対象外（orders.json に quote として記録済み）:`);
     for (const o of quoted) console.log(`    room ${o.talkroomId} → ${quotedRooms.get(String(o.talkroomId)) ?? '(serviceId 未記録)'}`);
   }
   if (unresolved.length) {

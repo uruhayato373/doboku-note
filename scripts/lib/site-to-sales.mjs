@@ -4,11 +4,11 @@
  *
  * 結合キー = note 商品 ID:
  *   - カタログ商品（マガジン・/n/ 単品・メンバーシップ）: src/lib/note-magazines.ts の id
- *   - カタログ外の単品記事: sales-log の `article:<slug>`（収録マガジンは live snapshot の題名一致で求める）
+ *   - カタログ外の単品記事: sales.json の `article:<slug>`（収録マガジンは live snapshot の題名一致で求める）
  * 各データからの解決:
  *   - GA4 event_label: `<id>:<面>` / 裸の `<id>` / `category-<資格>-hub-seasonal-*`（hub-cta.ts の seasonal.product）/
- *     `note-n<key>`（カタログ noteUrl・landingUrl → live snapshot の題名 → sales-log の productId）
- *   - sales-log productId: `article:` を外してカタログにあればその id、建設部門の `bk-*` は CTA 側 id へ、
+ *     `note-n<key>`（カタログ noteUrl・landingUrl → live snapshot の題名 → sales.json の productId）
+ *   - sales.json productId: `article:` を外してカタログにあればその id、建設部門の `bk-*` は CTA 側 id へ、
  *     `membership:civil-lab-*` は civil-membership-lab へ
  *   - note 流入元: アカウント全体の月次値しか無い（記事別の流入元は note が出さない）→ 商品別は常に解決不能
  *
@@ -125,7 +125,7 @@ export function resolveCtaLabel(label, r) {
     if (catalogId) return { productId: catalogId, via: 'note-key', placement: '(none)' };
     const title = r.titleByNoteKey.get(noteKey);
     if (!title) return { productId: null, via: 'note-key', placement: '(none)', reason: 'note 記事キーがカタログ・マガジン snapshot に無い' };
-    // 販売実績の無い単品は sales-log に productId が無いので、記事キーそのものを商品 ID にする（売上 0 は照合済みの 0）。
+    // 販売実績の無い単品は sales.json に productId が無いので、記事キーそのものを商品 ID にする（売上 0 は照合済みの 0）。
     const containedIn = (r.containers.get(title) ?? []).map((x) => x.productId).filter((id) => r.catalogIds.has(id)).sort();
     return { productId: r.productIdByTitle.get(title) ?? `note:${noteKey}`, via: 'note-key', placement: '(none)', containedIn };
   }
@@ -140,7 +140,7 @@ export function resolveCtaLabel(label, r) {
   };
 }
 
-/** sales-log 1 行 → { productId|null, kind, containedIn, reason } */
+/** sales.json 1 行 → { productId|null, kind, containedIn, reason } */
 export function resolveSale(sale, r) {
   const raw = canonicalizeProductId(String(sale.productId ?? ''));
   for (const [re, id] of MEMBERSHIP_PRODUCTS) if (re.test(raw)) return { productId: id, kind: 'membership', containedIn: [] };
@@ -279,7 +279,7 @@ export function buildSiteToSales({ month, resolver, ga4, salesLog, referral }) {
     target.containedArticleRevenue += sale.price;
   }
   const dashboard = referral?.dashboardSales ?? null;
-  // 照合は「note の月次売上表示」と sales-log 合計の一致。表示の取得が月末以前なら月途中の一致でしかない。
+  // 照合は「note の月次売上表示」と sales.json 合計の一致。表示の取得が月末以前なら月途中の一致でしかない。
   salesSummary.reconciliation = dashboard
     ? {
       dashboardYen: dashboard.yen,
@@ -310,7 +310,7 @@ export function buildSiteToSales({ month, resolver, ga4, salesLog, referral }) {
     schemaVersion: 1,
     month,
     period: { startDate: bounds.startDate, endDate: bounds.endDate },
-    joinKey: 'note 商品ID（カタログ商品は src/lib/note-magazines.ts の id、カタログ外の単品は sales-log の article:<slug>）',
+    joinKey: 'note 商品ID（カタログ商品は src/lib/note-magazines.ts の id、カタログ外の単品は sales.json の article:<slug>）',
     clicks: clickSummary,
     noteReferral: { ...referral, perProduct: 'unresolvable', perProductReason: 'note の流入元はアカウント全体の月次値のみで、記事・マガジン別に出ない' },
     sales: salesSummary,

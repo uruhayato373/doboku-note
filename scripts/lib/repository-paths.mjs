@@ -171,11 +171,41 @@ export const MOVED_PATHS = [
   [".claude/state/ads", "data/ads"],
 ];
 
-/** 記録に書かれたリポジトリ相対パスを、移動後の位置へ読み替える（移していないパスはそのまま） */
-export function resolveMovedPath(p) {
-  if (typeof p !== 'string') return p;
-  for (const [from, to] of MOVED_PATHS) {
-    if (p === from || p.startsWith(`${from}/`)) return to + p.slice(from.length);
+/**
+ * DN-0498（2026-10-02〜）で data/ の中を取得元ごとに組み替えたパス（旧 → 新）。MOVED_PATHS と同じく、追記だけを許す
+ * 台帳の中の旧パスを読むために使う。文字列は前方一致、正規表現はパス全体に当てて置き換える。
+ * .claude/ → data/ → 取得元ごとの 2 段の移動は resolveMovedPath が続けてたどる。
+ */
+export const RESTRUCTURED_PATHS = [
+  ["data/sales/sales-log.json", "data/note/sales.json"],
+  ["data/sales/kdp-royalties.json", "data/kdp/royalties.json"],
+  ["data/note/magazines-snapshot.json", "data/note/magazines.json"],
+  ["data/note/status-snapshot.json", "data/note/status.json"],
+  [/^data\/metrics\/note\/articles-pv-(\d{4}-\d{2})\.json$/, "data/note/articles-pv/$1.json"],
+  [/^data\/metrics\/note\/referrers-(\d{4}-\d{2})\.json$/, "data/note/referrers/$1.json"],
+  ["data/coconala/orders-log.json", "data/coconala/orders.json"],
+  ["data/coconala/kpi-log.json", "data/coconala/kpi.json"],
+  ["data/coconala/analytics-snapshot.json", "data/coconala/analytics.json"],
+];
+
+const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];
+
+function moveOnce(p) {
+  for (const [from, to] of PATH_MOVES) {
+    if (from instanceof RegExp) {
+      if (from.test(p)) return p.replace(from, to);
+    } else if (p === from || p.startsWith(`${from}/`)) return to + p.slice(from.length);
   }
   return p;
+}
+
+/** 記録に書かれたリポジトリ相対パスを、移動後の位置へ読み替える（移していないパスはそのまま・何段の移動でもたどる） */
+export function resolveMovedPath(p) {
+  if (typeof p !== 'string') return p;
+  for (let i = 0; i < 8; i++) {
+    const next = moveOnce(p);
+    if (next === p) return p;
+    p = next;
+  }
+  throw new Error(`移動表が循環している: ${p}`);
 }

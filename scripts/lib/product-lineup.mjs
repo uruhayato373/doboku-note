@@ -81,7 +81,7 @@ export function validateLineupConfig(config) {
 }
 
 /**
- * 売上記録（sales-log.json）の productId をマスへ写す。売上の id は sales-recorder 独自の系統
+ * 売上記録（data/note/sales.json）の productId をマスへ写す。売上の id は sales-recorder 独自の系統
  * （bk-*・article:<slug>・membership:<plan>）なので、接頭辞を外して salesRules → rules.note の順に当てる。
  * @returns {string[] | null}
  */

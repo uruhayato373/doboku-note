@@ -305,19 +305,19 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# sales-log.json の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
+# data/note/sales.json の productId が sales-recorder.md の mapping に文書化されているか検証（売上mapping陳腐化の再発防止）
 node scripts/check-sales-mapping.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# ココナラ カタログ(coconala-services.ts)↔state(orders/kpi)↔sales-log の配線ドリフト検証（2026-07-16）
+# ココナラ カタログ(coconala-services.ts)↔state(orders/kpi)↔sales.json の配線ドリフト検証（2026-07-16）
 node scripts/check-coconala-wiring.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# ココナラ 受注スナップショット↔orders-log の突合（2026-08-05。オフライン検査・実体取得は npm run coconala-orders）
+# ココナラ 受注スナップショット↔orders.json の突合（2026-08-05。オフライン検査・実体取得は npm run coconala-orders）
 if [ -f scripts/check-coconala-orders.mjs ]; then
   node scripts/check-coconala-orders.mjs --staged --no-freshness
   if [ $? -eq 1 ]; then

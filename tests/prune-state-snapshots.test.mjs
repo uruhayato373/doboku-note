@@ -133,7 +133,7 @@ test('plan: weekly-metrics は 26 週を残し index.json の書き直し指示�
 test('collectPins: seo-watchwords の gsc evidence と business 台帳の metrics パスを拾う', () => {
   const pins = collectPins({
     watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json` } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
-    businessDocs: [`{"sources":[{"file":"${M}/business/measurement-x.json"},{"file":"data/sales/sales-log.json"}]}`],
+    businessDocs: [`{"sources":[{"file":"${M}/business/measurement-x.json"},{"file":"data/note/sales.json"}]}`],
   });
   assert.deepEqual([...pins].sort(), [`${M}/business/measurement-x.json`, `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json`]);
 });

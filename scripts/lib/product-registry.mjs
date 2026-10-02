@@ -10,11 +10,12 @@ import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+import { datasetPath } from './datasets.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PRODUCTS_DIR = join(ROOT, 'content', 'products');
 export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
-export const SNAPSHOT = join(ROOT, 'data', 'note', 'magazines-snapshot.json');
+export const SNAPSHOT = join(ROOT, datasetPath('note.magazines'));
 
 /** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
 const CatalogValue = z.union([z.string(), z.number(), z.boolean(), z.null()]);

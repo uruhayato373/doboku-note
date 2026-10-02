@@ -5,7 +5,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * note-sales-fetch.mjs
  * ---------------------------------------------------------------------------
  * note の「販売履歴」`/sitesettings/purchasers`（明細）と「売上管理」`/sitesettings/salesmanage`
- * （月次総額）を Playwright read-only で取得し、`data/sales/sales-log.json` の
+ * （月次総額）を Playwright read-only で取得し、`data/note/sales.json` の
  * 該当月を差し替える（DN-0018）。
  *
  * 背景: 手動転記は「やった月」と「やらなかった月」が外から区別できず、2026-07 は
@@ -30,7 +30,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * 使い方:
  *   node scripts/note-sales-fetch.mjs                      # 当月・dry-run（既定・安全）
  *   node scripts/note-sales-fetch.mjs --month 2026-07       # 指定月・dry-run
- *   node scripts/note-sales-fetch.mjs --month 2026-07 --commit  # 検算OK後に sales-log.json を差し替え
+ *   node scripts/note-sales-fetch.mjs --month 2026-07 --commit  # 検算OK後に data/note/sales.json を差し替え
  *
  * 実行はローカル（note ログイン済みプロファイルのある Mac/Windows）限定。
  *
@@ -57,7 +57,7 @@ import { jst } from './lib/business-direction.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
-const SALES_LOG = join(ROOT, 'data/sales/sales-log.json');
+const SALES_LOG = join(ROOT, 'data/note/sales.json');
 const NAME = 'note-sales-fetch';
 
 const argv = process.argv.slice(2);
@@ -95,7 +95,7 @@ function loadMagazines() {
   return out;
 }
 
-console.log(`=== ${NAME}: ${MONTH_ARG} / mode=${COMMIT ? 'COMMIT(sales-log差し替え)' : 'DRY-RUN(書き込みなし)'} ===`);
+console.log(`=== ${NAME}: ${MONTH_ARG} / mode=${COMMIT ? 'COMMIT(sales.json差し替え)' : 'DRY-RUN(書き込みなし)'} ===`);
 
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false,
@@ -278,7 +278,7 @@ try {
   const fetchedDay = jst(now);
   log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized: isNoteMonthFinalized(MONTH_ARG, fetchedDay) } };
   writeFileSync(SALES_LOG, JSON.stringify(log, null, 2) + '\n');
-  console.log(`[6] sales-log.json を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
+  console.log(`[6] data/note/sales.json を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
 
   await ctx.close();
   process.exit(0);

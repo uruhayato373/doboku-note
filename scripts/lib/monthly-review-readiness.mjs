@@ -19,10 +19,10 @@ const cell = (cells, metric) => (cells ?? []).find((c) => c.qualification === 'a
  * @param {object} input
  * @param {{ startDate: string, endDate: string }} input.period 対象月（前の暦月）
  * @param {string} input.today JST の YYYY-MM-DD
- * @param {Record<string, { finalized?: boolean }>} [input.salesMonths] sales-log.json の months
- * @param {string | null} [input.trafficFetchedAt] referrers-YYYY-MM.json の fetchedAt
+ * @param {Record<string, { finalized?: boolean }>} [input.salesMonths] data/note/sales.json の months
+ * @param {string | null} [input.trafficFetchedAt] referrers/YYYY-MM.json の fetchedAt
  * @param {Array<{ qualification: string, metric: string, value: number | null, coverage: string }>} [input.cells] business-review のセル
- * @param {{ estimated?: boolean } | null} [input.kdpMonth] kdp-royalties.json の months[YYYY-MM]
+ * @param {{ estimated?: boolean } | null} [input.kdpMonth] data/kdp/royalties.json の months[YYYY-MM]
  * @param {{ lowWithoutWhen: unknown[], stale: unknown[] } | null} [input.gate] backlog-gate の monthly
  * @param {Array<{ id: string, overdue?: boolean }>} [input.experiments] report の experiments
  * @param {{ record: string | null } | null} [input.due] report の due のうち monthly

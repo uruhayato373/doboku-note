@@ -31,12 +31,13 @@ import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CREATOR = 'dobokunote';
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
-const SNAPSHOT_DIR = join(ROOT, 'data/note');
+const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 
 const args = process.argv.slice(2);
 const WANT_CONTENTS = args.includes('--contents');
@@ -268,7 +269,7 @@ function main() {
 
   // --- JSON スナップショット（任意）---
   if (WANT_JSON) {
-    mkdirSync(SNAPSHOT_DIR, { recursive: true });
+    mkdirSync(dirname(SNAPSHOT_PATH), { recursive: true });
     const snapshot = {
       fetchedAt: new Date().toISOString(),
       creator: CREATOR,
@@ -280,7 +281,7 @@ function main() {
       })),
       issues,
     };
-    const outPath = join(SNAPSHOT_DIR, 'magazines-snapshot.json');
+    const outPath = SNAPSHOT_PATH;
     writeFileSync(outPath, JSON.stringify(snapshot, null, 2), 'utf-8');
     console.log(`\nスナップショット保存: ${outPath}`);
   }

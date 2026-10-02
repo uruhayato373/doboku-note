@@ -7,7 +7,7 @@ import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, 
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['config','.claude/state','data/sales','data/metrics/ga4','data/metrics/note','data/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/metrics/ga4','data/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
  for(const f of ['business-direction.json','qualification-registry.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'data/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
@@ -29,7 +29,7 @@ test('an unfinished monthly period is skipped without blocking the finished week
  assert.deepEqual(ids(duePeriods(['monthly'],'2026-10-04')),{due:['monthly'],skipped:[]});
 });
 test('missing is null, sales coverage partial, no invented earnings',t=>{
- const root=fixture(t);writeFileSync(join(root,'data/sales/sales-log.json'),JSON.stringify({sales:[{date:'2026-08-10',price:1000}]}));
+ const root=fixture(t);writeFileSync(join(root,'data/note/sales.json'),JSON.stringify({sales:[{date:'2026-08-10',price:1000}]}));
  const r=buildReport(root,period,now);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').value,1000);assert.equal(r.cells.find(c=>c.metric==='noteRevenue').coverage,'partial');assert.equal(r.cells.find(c=>c.metric==='notePv').value,null);assert.equal(r.operatingBalance[0].value,null);
 });
 test('KDP monthly ledger enters business review with completeness and qualification attribution',t=>{
@@ -40,7 +40,7 @@ test('KDP monthly ledger enters business review with completeness and qualificat
   {bookId:'g-01',title:'concrete',royalty:200},
  ];
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:books.map(book=>({id:book.bookId,status:'live'}))}));
- writeFileSync(join(root,'data/sales/kdp-royalties.json'),JSON.stringify({months:{'2026-08':{range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,total:{bookCount:3,royalty:1200},kenpPagesRead:88,books}}}));
+ writeFileSync(join(root,'data/kdp/royalties.json'),JSON.stringify({months:{'2026-08':{range:{start:'2026-08-01',end:'2026-08-31'},estimated:false,total:{bookCount:3,royalty:1200},kenpPagesRead:88,books}}}));
  const r=buildReport(root,period,now);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='kdpRoyalty').value,1200);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='kdpRoyalty').coverage,'complete');
@@ -50,8 +50,8 @@ test('KDP monthly ledger enters business review with completeness and qualificat
 });
 test('note monthly traffic enters all as complete and qualification rows as partial',t=>{
  const root=fixture(t);
- writeFileSync(join(root,'data/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:5000}}));
- writeFileSync(join(root,'data/metrics/note/articles-pv-2026-08.json'),JSON.stringify({rows:[
+ writeFileSync(join(root,'data/note/referrers/2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:5000}}));
+ writeFileSync(join(root,'data/note/articles-pv/2026-08.json'),JSON.stringify({rows:[
   {title:'1級土木 二次対策',pageViews:20,impressions:200},
   {title:'技術士 建設部門｜必須科目I',pageViews:30,impressions:300},
   {title:'資格横断記事',pageViews:50,impressions:500},
@@ -67,15 +67,15 @@ test('note monthly traffic enters all as complete and qualification rows as part
 });
 test('note sales become complete only when monthly display matches and every product id is resolved',t=>{
  const root=fixture(t);
- writeFileSync(join(root,'data/metrics/note/referrers-2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:3000}}));
+ writeFileSync(join(root,'data/note/referrers/2026-08.json'),JSON.stringify({month:'2026-08',fetchedAt:'2026-09-02T00:00:00Z',period:{from:'2026-08-01',to:'2026-08-31'},summary:{pageViews:100,impressions:1000,salesYen:3000}}));
  const salesRows=[
   {date:'2026-08-01',productId:'article:civil-1-keiken-pack-24',price:1000},
   {date:'2026-08-02',productId:'pe-construction-required-magazine',price:2000},
  ];
  // 確定日（9/2）より前に取った明細は、表示額と一致していても complete にしない
- writeFileSync(join(root,'data/sales/sales-log.json'),JSON.stringify({months:{'2026-08':{finalized:false}},sales:salesRows}));
+ writeFileSync(join(root,'data/note/sales.json'),JSON.stringify({months:{'2026-08':{finalized:false}},sales:salesRows}));
  assert.equal(buildReport(root,period,now).cells.find(c=>c.qualification==='all'&&c.metric==='noteRevenue').coverage,'partial');
- writeFileSync(join(root,'data/sales/sales-log.json'),JSON.stringify({months:{'2026-08':{finalized:true}},sales:salesRows}));
+ writeFileSync(join(root,'data/note/sales.json'),JSON.stringify({months:{'2026-08':{finalized:true}},sales:salesRows}));
  const r=buildReport(root,period,now);
  assert.equal(r.cells.find(c=>c.qualification==='all'&&c.metric==='noteRevenue').coverage,'complete');
  assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='noteRevenue').value,1000);
@@ -92,7 +92,7 @@ test('coconala transaction snapshot supplies exact monthly orders and revenue',t
   {talkroomId:'1',soldOn:'2026-08-04',priceYen:2500},
   {talkroomId:'2',soldOn:'2026-08-06',priceYen:7500},
  ]}));
- writeFileSync(join(root,'data/coconala/orders-log.json'),JSON.stringify({orders:[
+ writeFileSync(join(root,'data/coconala/orders.json'),JSON.stringify({orders:[
   {talkroomId:'1',serviceId:'coconala-1kyu-moshi-pdf',grade:1},
   {talkroomId:'2',serviceId:'coconala-1kyu-full-pdf',grade:1},
  ]}));
@@ -205,7 +205,7 @@ test('note monthly facts keep the month period, and a mid-month fetch is cut at 
 });
 test('a weekly review does not apportion monthly note data and explains where the month value is',t=>{
  const root=fixture(t);
- writeFileSync(join(root,'data/metrics/note/referrers-2026-09.json'),JSON.stringify({fetchedAt:'2026-10-01T00:00:00Z',period:{from:'2026-09-01',to:'2026-09-30'},summary:{pageViews:100,impressions:1000}}));
+ writeFileSync(join(root,'data/note/referrers/2026-09.json'),JSON.stringify({fetchedAt:'2026-10-01T00:00:00Z',period:{from:'2026-09-01',to:'2026-09-30'},summary:{pageViews:100,impressions:1000}}));
  const r=buildReport(root,week,new Date('2026-10-02T00:00:00Z'));
  const cell=r.cells.find(c=>c.qualification==='all'&&c.metric==='notePv');
  assert.equal(cell.value,null);assert.equal(cell.coverage,'missing');assert.match(cell.note,/2026-09-01〜2026-09-30 の値は別期間/);

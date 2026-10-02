@@ -117,7 +117,7 @@ export function alreadyMeasured(exp, hash, post, complete = false) {
 
 /**
  * 売上の窓が確定しているか。窓にかかる月がすべて、note の確定日（翌月 2 日）以降に取得・検算された
- * （sales-log の months[YYYY-MM].finalized）ときだけ true。台帳の最終販売日では判定しない
+ * （sales.json の months[YYYY-MM].finalized）ときだけ true。台帳の最終販売日では判定しない
  * （販売の無い日で終わる窓が永久に途中になり、途中取得でも最終日に販売があれば確定に見えるため）。
  */
 export function salesWindowFinalized(salesMonths, ...windows) {
