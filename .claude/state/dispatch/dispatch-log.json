@@ -1663,6 +1663,54 @@
       "commit": "5c10c4e234a8",
       "verification": "gh api dependabot/alerts?state=open → 0 件・Lighthouse CI 直近 5 run success",
       "note": "PR #824 で tmp・uuid を overrides で修正版へ（alert #29・#79・#80 fixed 2026-10-02）。extract-zip #81・#82 は修正版なしのため理由付きで dismiss（tolerable_risk・同日）。open alerts 0 件"
+    },
+    {
+      "id": "DN-0246",
+      "at": "2026-10-02",
+      "task": "会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "65dfe1231781",
+      "verification": "api/v1/magazines/mbe07bd5cecda/notes → 11 件・W11 含む / npm run check-membership-drip 16/16 WARN 0",
+      "note": "W11 n64f9653dc30c（9/28 公開）は特典マガジン mbe07bd5cecda に収録済み（収録 11 件・API 実体確認 2026-10-02）。収録操作は既に済んでいた"
+    },
+    {
+      "id": "DN-0315",
+      "at": "2026-10-02",
+      "task": "ココナラブログ3本と会員記事5本の、1級・2級の割り振り修正が公開ページに出ているか確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2a1cac15dc5a",
+      "verification": "ブログ: 修正行と公開ページの突合 3/3 一致 / 会員: api/v3/notes 23/23 取得・該当 6 本不一致 0 / npm run check-keiken-answer-split 合格",
+      "note": "ライブ実査（2026-10-02）: ココナラブログ3本（815069/815072/815116）は 56c62e61 の修正行 7 行すべてが公開ページにあり旧行の残存 0。会員記事は公開済み 23 本すべてのライブ本文を note ログイン済みプロファイル（読み取りのみ）で取得し、1級の解答欄説明を含む 6 本（予想問題 06・07・08・10 ほか）で原稿と一致・不一致 0。修正作業は不要だった"
+    },
+    {
+      "id": "DN-0506",
+      "at": "2026-10-02",
+      "task": "コミット前フックを古いツリーから入れ直すと共有フックが古い版に戻り、他セッションのコミットが壊れる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e1a64f51e17",
+      "verification": "tests/pre-commit-install-guard.test.mjs（一時リポジトリで旧版 worktree からの上書き拒否・inode 入れ替え）PASS・判定無効化で 2 件 FAIL を確認・PR CI 全緑",
+      "note": "PR #842（2e1a64f51）: 導入済み＝origin/develop の版で自分の版が develop の過去版なら上書き拒否（--force で回避・prepare では止めない）、フック書き込みを一時ファイル→rename、鮮度ガードの案内を「ツリーを develop へ」と「再インストール」に分離。フック本体ハッシュは不変"
+    },
+    {
+      "id": "DN-0482",
+      "at": "2026-10-02",
+      "task": "verify-note-magazines --contents の snapshot で 39 誌の収録が 0 件になる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e1a64f51e17",
+      "verification": "npm run check-magazine-membership 合格（ライブ 0 の誌なし）・tests/verify-note-magazines-failure.test.mjs PASS（修正前に戻すと FAIL）",
+      "note": "PR #842: 収録記事の取得失敗を 0 件と区別（3 回まで取り直し・失敗は notes を書かず contentsFailed[]・過半なら snapshot を書かず exit 1）。snapshot を取り直し 93 誌すべて取得・0 件の誌なし。原因と直し方を note-api-verification.md に追記"
     }
   ]
 }

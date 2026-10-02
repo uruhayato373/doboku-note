@@ -64,6 +64,7 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 - `--json` 出力先: `data/note/magazines.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
   ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
   （2026-06-12 に生成された snapshot が 73 日間そのまま残り、ゼネコン=5 件という古い値を保持していた。「コミット任意」がその腐敗の許可証になっていたため 2026-08-24 に改めた。）
+- 収録記事の取得失敗は 0 件と区別する（DN-0482）: 以前は `magazines/{key}/notes` が JSON を返さないとき（連続取得で弾かれる・プロキシ）も `?? []` で「収録 0 件」と書き、`check-magazine-membership` が 39 誌で「ライブ 0」と誤判定した（2026-10-01）。いまは間を空けて 3 回まで取り直し、それでも取れない誌は `notes` を書かず `contentsFailed[]` に記録する（軸 C は未検査）。失敗が過半なら snapshot を書き換えず exit 1。
 
 ### 検出するズレ
 
