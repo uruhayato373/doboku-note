@@ -22,7 +22,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 import { loadAspConfig, getAsp, openAsp, ensureTargetSite, visibleText, dumpFailure } from "./lib/asp-browser.mjs";
 
-const CATALOG = "data/ads/affiliate-catalog.json";
+const CATALOG = "data/affiliate/catalog.json";
 
 function parseArgs() {
   const a = process.argv.slice(2);

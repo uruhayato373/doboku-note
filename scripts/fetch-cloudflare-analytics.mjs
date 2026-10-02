@@ -22,11 +22,11 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst, nowJstIso } from './lib/jst-date.mjs';
 import { addDays, readJson } from './lib/business-direction.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM_FIELDS } from './lib/cloudflare-analytics.mjs';
 
 const TAG = '[fetch-cloudflare-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT_DIR = 'data/metrics/cloudflare';
 
 /** GraphQL エラーメッセージ（トークンを含み得ない Cloudflare 側の文言）を 200 字へ切る。 */
 const truncateMessage = (message) => String(message ?? '').slice(0, 200);
@@ -187,9 +187,9 @@ export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () 
   };
 
   if (!dryRun) {
-    const dir = join(root, OUT_DIR);
-    if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, `cf-zone-${today}.json`), JSON.stringify(snapshot, null, 2) + '\n');
+    const outPath = join(root, datasetPath('cloudflare.zone', { date: today }));
+    if (!existsSync(dirname(outPath))) mkdirSync(dirname(outPath), { recursive: true });
+    writeFileSync(outPath, JSON.stringify(snapshot, null, 2) + '\n');
   }
 
   return { exitCode: 0, snapshot, jsonOut };

@@ -14,8 +14,8 @@ const put = (root, rel, body) => {
   writeFileSync(join(root, rel), body);
 };
 
-const OLD_PSI = 'data/metrics/psi/psi-batch-2026-09-01T00-00-00.json';
-const NEW_PSI = 'data/metrics/psi/psi-batch-2026-10-01T00-00-00.json';
+const OLD_PSI = 'data/psi/batch/2026-09-01T00-00-00.json';
+const NEW_PSI = 'data/psi/batch/2026-10-01T00-00-00.json';
 const EXPERIMENTS = 'data/experiments.json';
 const NOTE_HISTORY = 'data/note/competitors/2026-10-01.json';
 
@@ -92,7 +92,7 @@ test('save: datasets を指定すると、そのデータセットの変更だ�
 test('add: 無いパスは飛ばし（失敗しない）、削除も stage する。datasets は当たる変更だけ', () => {
   const root = repo();
   try {
-    const r = add(root, { paths: ['data/metrics', '.claude/state/x-repost'] });
+    const r = add(root, { paths: ['data/psi', '.claude/state/x-repost'] });
     assert.deepEqual(r.skipped, ['.claude/state/x-repost']);
     const staged = git(root, 'diff', '--cached', '--name-status').trim().split('\n').sort();
     assert.deepEqual(staged, [`A\t${NEW_PSI}`, `D\t${OLD_PSI}`].sort());
@@ -122,8 +122,8 @@ test('latestFile・datasetDir・datasetPath: 台帳からパスを引く', () =>
   try {
     assert.equal(latestFile(root, 'psi.batch'), NEW_PSI);
     assert.equal(latestFile(root, 'gsc.page'), null);
-    assert.equal(datasetDir('psi.batch'), 'data/metrics/psi');
-    assert.equal(datasetDir('psi.report'), 'data/metrics/psi/latest-report.md');
+    assert.equal(datasetDir('psi.batch'), 'data/psi/batch');
+    assert.equal(datasetDir('psi.report'), 'data/analysis/psi-report.md', '消した id は後継へ読み替える');
     assert.equal(datasetPath('psi.batch', { ts: '2026-10-01T00-00-00' }), NEW_PSI);
     assert.throws(() => datasetPath('psi.batch', { ts: 'yesterday' }), /型/);
     assert.throws(() => datasetPath('psi.batch'), /値が要る/);

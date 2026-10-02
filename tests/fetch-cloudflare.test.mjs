@@ -81,7 +81,7 @@ test('fetch-cloudflare-analytics: cf-zone ファイルを書き counts.daysRetur
   assert.equal(result.snapshot.botSignals.firewallEvents.byAction.block, 3);
   assert.deepEqual(result.snapshot.botSignals.botScoreBuckets, { unavailable: 'plan' });
 
-  const outFile = join(root, 'data/metrics/cloudflare/cf-zone-2026-09-21.json');
+  const outFile = join(root, 'data/cloudflare/zone/2026-09-21.json');
   assert.ok(existsSync(outFile));
   const written = readFileSync(outFile, 'utf8');
   assert.ok(!written.includes(FAKE_TOKEN), 'トークンが成果物に含まれてはいけない');
@@ -133,7 +133,7 @@ test('fetch-cloudflare-analytics: 0 日は exit 2 で成果物を書かない', 
 
   const result = await runAnalytics({ fetchImpl, root, now: () => Date.parse('2026-09-21T01:00:00Z') });
   assert.equal(result.exitCode, 2);
-  assert.ok(!existsSync(join(root, 'data/metrics/cloudflare')));
+  assert.ok(!existsSync(join(root, 'data/cloudflare')));
   delete process.env.CLOUDFLARE_ANALYTICS_API_TOKEN;
 });
 

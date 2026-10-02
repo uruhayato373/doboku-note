@@ -6,8 +6,8 @@ import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { DATASETS, datasetPath, patternOf } from '../scripts/lib/datasets.mjs';
 import {
-  EXCLUDED_DIRS,
   FAMILIES,
   POLICIES,
   collectPins,
@@ -16,7 +16,6 @@ import {
   isExcluded,
   plan,
   policiesFor,
-  prefixOf,
   snapshotStamp,
 } from '../scripts/lib/prune-state-snapshots.mjs';
 
@@ -25,127 +24,122 @@ const CLI = join(REPO, 'scripts', 'prune-state-snapshots.mjs');
 const NOW = Date.parse('2026-09-14T00:00:00Z');
 const day = (n) => new Date(NOW - n * 86400000).toISOString().slice(0, 19).replace(/:/g, '-');
 
-const M = 'data/metrics';
-const W = 'data/weekly-metrics';
+const psi = (ts) => datasetPath('psi.batch', { ts });
+const ga4 = (id, ts) => datasetPath(id, { ts });
+const week = (w) => datasetPath('business.weekly', { week: `2026-W${String(w).padStart(2, '0')}` });
+const WEEK_INDEX = datasetPath('business.weekly-index');
+const BUSINESS = datasetPath('business.snapshot', { ts: '2026-09-13T02-22-01-130Z', uuid: '8275f38f-bcf9-499a-a79e-9753bc204570' });
+const RANK = datasetPath('gsc.rank-watch', { ts: '2026-08-01T00-00-00-000Z', hash: 'abcdef12' });
 
 test('snapshotStamp: 4 種の日付形式を読み、無日付は null', () => {
-  assert.equal(snapshotStamp('psi-batch-2026-09-06T18-53-31.json').stamp, '2026-09-06T18-53-31');
+  assert.equal(snapshotStamp('2026-09-06T18-53-31.json').stamp, '2026-09-06T18-53-31');
   assert.equal(snapshotStamp('crosswalk-20260701_20260628.json').stamp, '2026-07-01T00-00-00');
   assert.equal(snapshotStamp('2026-W37.json').stamp, '2026-09-07T00-00-00'); // ISO 週の月曜
-  assert.equal(snapshotStamp('opportunities-2026-09-08.json').stamp, '2026-09-08T00-00-00');
-  assert.equal(snapshotStamp('latest-report.md'), null);
+  assert.equal(snapshotStamp('2026-09-08.json').stamp, '2026-09-08T00-00-00');
+  assert.equal(snapshotStamp('psi-report.md'), null);
   assert.equal(snapshotStamp('history.json'), null);
-  assert.equal(isDated(`${M}/psi/latest-report.md`), false);
+  assert.equal(isDated(datasetPath('analysis.psi-report')), false);
 });
 
-test('prefixOf: 日付以降を落とし、series ごとの grouping key になる', () => {
-  assert.equal(prefixOf('ga4-cta-clicks-by-label-2026-09-10T22-51-47.json'), 'ga4-cta-clicks-by-label');
-  assert.equal(prefixOf('bot-audit-2026-09-10T22-51-47Z.json'), 'bot-audit');
-  assert.equal(prefixOf('gsc-page-query-2026-09-10T22-51-42.json'), 'gsc-page-query');
+test('寿命の宣言は台帳の retain から作り、family は既知・規則は 1 種類だけ', () => {
+  assert.ok(POLICIES.length > 0);
+  for (const p of POLICIES) {
+    const rules = ['keepNewest', 'maxAgeDays', 'keepAll'].filter((k) => p.rule[k]);
+    assert.equal(rules.length, 1, `${p.dataset} の retain は keepNewest / maxAgeDays / keepAll のどれか 1 つ`);
+    assert.ok(typeof p.family === 'string' && p.family, `${p.dataset} に family が無い`);
+    const x = DATASETS.find((d) => d.id === p.dataset);
+    assert.ok(!x.immutable && !x.local, `${p.dataset}: 中身を変えない台帳・手元だけのデータに寿命は書かない`);
+    if (p.rule.index) assert.ok(DATASETS.some((d) => d.id === p.rule.index), `${p.dataset} の index ${p.rule.index} が台帳に無い`);
+  }
+  // ワークフロー（main の YAML）が --family で渡す名前は残す
+  for (const f of ['psi', 'ga4', 'gsc', 'monetization', 'crosswalk', 'weekly-metrics', 'growth', 'bing', 'url-inspection', 'cloudflare', 'instagram']) assert.ok(FAMILIES.includes(f), f);
+  assert.equal(policiesFor(psi('2026-09-06T18-53-31')).length, 1);
+  assert.equal(policiesFor('data/psi/batch/unknown-2026-09-06T18-53-31.json').length, 0);
 });
 
-test('POLICIES: family 名が既知で、同じ dir の match が互いに排他（1 ファイル 1 policy）', () => {
-  const samples = [
-    `${M}/psi/psi-batch-2026-09-06T18-53-31.json`,
-    `${M}/psi/psi-single-2026-09-06T18-53-31.json`,
-    `${M}/ga4/ga4-channel-2026-09-06T18-53-31.json`,
-    `${M}/ga4/bot-audit-2026-09-06T18-53-31.json`,
-    `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json`,
-    `${M}/gsc/coverage-diagnosis-2026-04-27T11-50-08.md`,
-    `${M}/url-inspection/inspection-batch-2026-09-01T02-00-00.json`,
-    `${M}/monetization/coverage-2026-09-14T01-02-28.json`,
-    `${M}/crosswalk/crosswalk-20260701_20260628.json`,
-    `${W}/2026-W37.json`,
-    `${M}/gsc-ui/ssot/diff/2026-08-22T07-46-59Z.json`,
-  ];
-  for (const s of samples) assert.equal(policiesFor(s).length, 1, s);
-  assert.ok(FAMILIES.includes('psi') && FAMILIES.includes('weekly-metrics'));
-  assert.equal(policiesFor(`${M}/psi/unknown-series-2026-09-06T18-53-31.json`).length, 0);
-});
-
-test('plan: keepNewest は新しい N 件だけ残し、除外 dir は決して delete にならない', () => {
+test('plan: keepNewest は新しい N 件だけ残し、中身を変えない台帳は決して delete にならない', () => {
   const files = [];
-  for (let i = 0; i < 20; i++) files.push(`${M}/psi/psi-batch-${day(i)}.json`);
-  files.push(`${M}/psi/latest-report.md`);
-  files.push(`${M}/business/snapshot-2026-09-13T02-22-01-130Z-8275f38f-bcf9-499a-a79e-9753bc204570.json`);
-  files.push(`${M}/gsc/rank-watch/watch-2026-08-01T00-00-00-000Z-abcdef12.json`);
+  for (let i = 0; i < 20; i++) files.push(psi(day(i)));
+  files.push(datasetPath('analysis.psi-report'));
+  files.push(BUSINESS, RANK);
   const r = plan({ files, now: NOW });
   const del = r.entries.filter((e) => e.decision === 'delete').map((e) => e.file);
   assert.equal(r.summary.delete, 6);
   assert.equal(r.summary.keep, 14);
   assert.equal(r.summary.excluded, 2);
   assert.ok(del.every((f) => !isExcluded(f)));
-  assert.ok(del.includes(`${M}/psi/psi-batch-${day(19)}.json`));
-  assert.ok(!del.includes(`${M}/psi/psi-batch-${day(13)}.json`));
-  assert.ok(!r.entries.some((e) => e.file.endsWith('latest-report.md')), '無日付ファイルは対象にしない');
-  for (const d of EXCLUDED_DIRS) assert.ok(r.entries.some((e) => e.file.startsWith(d) && e.decision === 'excluded'));
+  assert.ok(del.includes(psi(day(19))));
+  assert.ok(!del.includes(psi(day(13))));
+  assert.ok(!r.entries.some((e) => e.file.endsWith('.md')), '無日付ファイルは対象にしない');
+  assert.ok(isExcluded(BUSINESS) && isExcluded(RANK));
 });
 
-test('plan: maxAgeDays は prefix ごとに最新 1 件を残し、pin と monthly by-label も残す', () => {
+test('plan: maxAgeDays はデータセットごとに最新 1 件を残し、pin と月次の by-label も残す', () => {
+  const monthly = ga4('ga4.cta-clicks-by-label', day(150));
   const files = [
-    `${M}/ga4/ga4-channel-${day(200)}.json`, // 唯一の ga4-channel → 古くても残る
-    `${M}/ga4/ga4-page-${day(200)}.json`, // 古い方 → 消える
-    `${M}/ga4/ga4-page-${day(10)}.json`,
-    `${M}/ga4/ga4-cta-clicks-by-label-${day(150)}.json`, // monthly → 残る
-    `${M}/ga4/ga4-cta-clicks-by-label-${day(120)}.json`, // days & 古い → 消える
-    `${M}/ga4/ga4-cta-clicks-by-label-${day(5)}.json`,
-    `${M}/gsc/gsc-page-query-${day(100)}.json`, // pinned → 残る
-    `${M}/gsc/gsc-page-query-${day(95)}.json`, // 古い → 消える
-    `${M}/gsc/gsc-page-query-${day(1)}.json`,
+    ga4('ga4.channel', day(200)), // 唯一の ga4.channel → 古くても残る
+    ga4('ga4.page', day(200)), // 古い方 → 消える
+    ga4('ga4.page', day(10)),
+    monthly, // 月次 → 残る
+    ga4('ga4.cta-clicks-by-label', day(120)), // 日数の窓で古い → 消える
+    ga4('ga4.cta-clicks-by-label', day(5)),
+    ga4('gsc.page-query', day(100)), // pin → 残る
+    ga4('gsc.page-query', day(95)), // 古い → 消える
+    ga4('gsc.page-query', day(1)),
   ];
-  const monthly = `${M}/ga4/ga4-cta-clicks-by-label-${day(150)}.json`;
   const readJson = (f) => ({ meta: { windowKind: f === monthly ? 'month' : 'days' } });
-  const pins = new Set([`${M}/gsc/gsc-page-query-${day(100)}.json`]);
+  const pins = new Set([ga4('gsc.page-query', day(100))]);
   const r = plan({ files, now: NOW, pins, readJson });
   const by = Object.fromEntries(r.entries.map((e) => [e.file, e]));
-  assert.equal(by[`${M}/ga4/ga4-channel-${day(200)}.json`].decision, 'keep');
-  assert.equal(by[`${M}/ga4/ga4-page-${day(200)}.json`].decision, 'delete');
+  assert.equal(by[ga4('ga4.channel', day(200))].decision, 'keep');
+  assert.equal(by[ga4('ga4.page', day(200))].decision, 'delete');
   assert.equal(by[monthly].decision, 'keep');
   assert.match(by[monthly].reason, /windowKind=month/);
-  assert.equal(by[`${M}/ga4/ga4-cta-clicks-by-label-${day(120)}.json`].decision, 'delete');
-  assert.equal(by[`${M}/gsc/gsc-page-query-${day(100)}.json`].decision, 'keep');
-  assert.equal(by[`${M}/gsc/gsc-page-query-${day(100)}.json`].reason, 'pinned by name');
-  assert.equal(by[`${M}/gsc/gsc-page-query-${day(95)}.json`].decision, 'delete');
+  assert.equal(by[ga4('ga4.cta-clicks-by-label', day(120))].decision, 'delete');
+  assert.equal(by[ga4('gsc.page-query', day(100))].reason, 'pinned by name');
+  assert.equal(by[ga4('gsc.page-query', day(95))].decision, 'delete');
 });
 
-test('plan: 未宣言の日付付きファイルは undeclared として数え、消さない。--family は他 family を skipped にする', () => {
-  const files = [`${M}/psi/mystery-${day(1)}.json`, `${M}/psi/psi-batch-${day(1)}.json`, `${M}/ga4/ga4-date-${day(1)}.json`];
+test('plan: 寿命の無い日付付きファイルは undeclared として数え、消さない。--family は他 family を skipped にする', () => {
+  const mystery = `data/psi/batch/mystery-${day(1)}.json`;
+  const files = [mystery, psi(day(1)), ga4('ga4.date', day(1))];
   const r = plan({ files, now: NOW, families: ['psi'] });
-  assert.deepEqual(r.summary.undeclared, [`${M}/psi/mystery-${day(1)}.json`]);
+  assert.deepEqual(r.summary.undeclared, [mystery]);
   assert.equal(r.summary.skipped, 1);
   assert.equal(r.summary.delete, 0);
 });
 
-test('plan: weekly-metrics は 26 週を残し index.json の書き直し指示を返す。filterWeeklyIndex が weeks を落とす', () => {
+test('plan: 週次は 26 週を残し索引の書き直し指示を返す。filterWeeklyIndex が weeks を落とす', () => {
   const files = [];
-  for (let w = 1; w <= 30; w++) files.push(`${W}/2026-W${String(w).padStart(2, '0')}.json`);
-  files.push(`${W}/index.json`);
+  for (let w = 1; w <= 30; w++) files.push(week(w));
+  files.push(WEEK_INDEX);
   const r = plan({ files, now: NOW });
   assert.equal(r.summary.delete, 4);
   assert.equal(r.indexRewrites.length, 1);
-  assert.equal(r.indexRewrites[0].index, `${W}/index.json`);
-  const idx = { version: 1, weeks: files.filter((f) => f !== `${W}/index.json`).map((p) => ({ week_id: p.slice(-12, -5), path: p })) };
+  assert.equal(r.indexRewrites[0].index, WEEK_INDEX);
+  const idx = { version: 1, weeks: files.filter((f) => f !== WEEK_INDEX).map((p) => ({ week_id: p.slice(-12, -5), path: p })) };
   const next = filterWeeklyIndex(idx, r.indexRewrites[0].removed);
   assert.equal(next.weeks.length, 26);
   assert.ok(!next.weeks.some((w) => w.path.endsWith('2026-W01.json')));
 });
 
-test('collectPins: seo-watchwords の gsc evidence と business 台帳の metrics パスを拾う', () => {
+test('collectPins: seo-watchwords の gsc evidence と business 台帳が指すパスを拾う', () => {
+  const src = ga4('gsc.page-query', '2026-09-10T22-51-42');
   const pins = collectPins({
-    watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json` } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
-    businessDocs: [`{"sources":[{"file":"${M}/business/measurement-x.json"},{"file":"data/note/sales.json"}]}`],
+    watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: src } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
+    businessDocs: [`{"sources":[{"file":"${BUSINESS}"},{"file":"data/sales/sales-log.json"}]}`],
   });
-  assert.deepEqual([...pins].sort(), [`${M}/business/measurement-x.json`, `${M}/gsc/gsc-page-query-2026-09-10T22-51-42.json`]);
+  assert.deepEqual([...pins].sort(), [BUSINESS, 'data/note/sales.json', src].sort(), '旧パスは新しい位置へ読み替える');
 });
 
-test('CLI: 実 repo で --check-coverage が未宣言 0 で exit 0（除外 dir は保持・数を出力）', () => {
+test('CLI: 実 repo で --check-coverage が未宣言 0 で exit 0（数を出力）', () => {
   const out = execFileSync(process.execPath, [CLI, '--check-coverage'], { cwd: REPO, encoding: 'utf8' });
   assert.match(out, /日付付き \d+ 件を実検査/);
   assert.match(out, /未宣言 0/);
   assert.match(out, /寿命が宣言されている/);
 });
 
-test('CLI: 一時 repo で --commit が計画どおり unlink し、除外 dir と index.json を正しく扱う', () => {
+test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変えない台帳と索引を正しく扱う', () => {
   const root = mkdtempSync(join(tmpdir(), 'prune-state-'));
   try {
     execFileSync('git', ['init', '-q', root]);
@@ -153,48 +147,46 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、除外 dir �
       mkdirSync(join(root, dirname(rel)), { recursive: true });
       writeFileSync(join(root, rel), body);
     };
-    for (let i = 0; i < 16; i++) put(`${M}/psi/psi-batch-${day(i)}.json`);
-    put(`${M}/business/snapshot-2026-09-13T02-22-01-130Z-8275f38f-bcf9-499a-a79e-9753bc204570.json`, '{"sources":[]}');
-    put(`${M}/gsc/rank-watch/watch-2026-08-01T00-00-00-000Z-abcdef12.json`);
-    for (let w = 1; w <= 28; w++) put(`${W}/2026-W${String(w).padStart(2, '0')}.json`);
-    put(`${W}/index.json`, JSON.stringify({ version: 1, weeks: Array.from({ length: 28 }, (_, i) => ({ week_id: `2026-W${String(i + 1).padStart(2, '0')}`, path: `${W}/2026-W${String(i + 1).padStart(2, '0')}.json` })) }));
-    // psi-batch の最新 1 件は untracked（workflow の copy-back 直後と同じ状態）
+    for (let i = 0; i < 16; i++) put(psi(day(i)));
+    put(BUSINESS, '{"sources":[]}');
+    put(RANK);
+    for (let w = 1; w <= 28; w++) put(week(w));
+    put(WEEK_INDEX, JSON.stringify({ version: 1, weeks: Array.from({ length: 28 }, (_, i) => ({ week_id: `2026-W${String(i + 1).padStart(2, '0')}`, path: week(i + 1) })) }));
     execFileSync('git', ['-C', root, 'add', '-A']);
     execFileSync('git', ['-C', root, '-c', 'user.email=t@t', '-c', 'user.name=t', 'commit', '-q', '-m', 'seed']);
-    put(`${M}/psi/psi-batch-2026-09-14T12-00-00.json`, '{"generated_at":"2026-09-14T12:00:00Z"}'); // 本文を変え rename 検出を避ける
+    // psi の最新 1 件は untracked（workflow の書き戻し直後と同じ状態）。本文を変え rename 検出を避ける
+    const newest = psi('2026-09-14T12-00-00');
+    put(newest, '{"generated_at":"2026-09-14T12:00:00Z"}');
 
-    const dry = execFileSync(process.execPath, [CLI, '--root', root, '--json', '--now', '2026-09-14T13:00:00Z'], { encoding: 'utf8' });
-    const j = JSON.parse(dry);
-    assert.equal(j.summary.delete, 3 + 2); // psi 17 → 14, weekly 28 → 26
+    const j = JSON.parse(execFileSync(process.execPath, [CLI, '--root', root, '--json', '--now', '2026-09-14T13:00:00Z'], { encoding: 'utf8' }));
+    assert.equal(j.summary.delete, 3 + 2); // psi 17 → 14, 週次 28 → 26
     assert.equal(j.summary.excluded, 2);
 
     const out = execFileSync(process.execPath, [CLI, '--root', root, '--commit', '--now', '2026-09-14T13:00:00Z'], { encoding: 'utf8' });
     assert.match(out, /✓ 5 件を削除/);
-    assert.ok(existsSync(join(root, `${M}/psi/psi-batch-2026-09-14T12-00-00.json`)), 'untracked の最新は残る');
-    assert.ok(!existsSync(join(root, `${M}/psi/psi-batch-${day(15)}.json`)));
-    assert.ok(!existsSync(join(root, `${M}/psi/psi-batch-${day(14)}.json`)));
-    assert.ok(existsSync(join(root, `${M}/psi/psi-batch-${day(12)}.json`)));
-    assert.ok(existsSync(join(root, `${M}/business/snapshot-2026-09-13T02-22-01-130Z-8275f38f-bcf9-499a-a79e-9753bc204570.json`)));
-    assert.ok(existsSync(join(root, `${M}/gsc/rank-watch/watch-2026-08-01T00-00-00-000Z-abcdef12.json`)));
-    const idx = JSON.parse(readFileSync(join(root, `${W}/index.json`), 'utf8'));
+    assert.ok(existsSync(join(root, newest)), 'untracked の最新は残る');
+    assert.ok(!existsSync(join(root, psi(day(15)))));
+    assert.ok(!existsSync(join(root, psi(day(14)))));
+    assert.ok(existsSync(join(root, psi(day(12)))));
+    assert.ok(existsSync(join(root, BUSINESS)) && existsSync(join(root, RANK)));
+    const idx = JSON.parse(readFileSync(join(root, WEEK_INDEX), 'utf8'));
     assert.equal(idx.weeks.length, 26);
-    assert.ok(!existsSync(join(root, `${W}/2026-W01.json`)));
-    // git add <dir> が削除を stage する（workflow の前提）
-    execFileSync('git', ['-C', root, 'add', `${M}/psi`, W]);
+    assert.ok(!existsSync(join(root, week(1))));
+    // add -A が削除も stage する（workflow の前提）
+    execFileSync('git', ['-C', root, 'add', '-A', '--', 'data']);
     const staged = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'diff', '--cached', '--name-status', '--no-renames'], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-    assert.match(staged, /^D\t.*psi-batch-/m);
-    assert.match(staged, /^A\t.*psi-batch-2026-09-14T12-00-00\.json/m);
-    // 除外 dir に差分が無い
-    const status = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'status', '--porcelain', '--', `${M}/business`, `${M}/gsc/rank-watch`], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-    assert.equal(status.trim(), '');
+    assert.match(staged, new RegExp(`^D\\t${psi(day(15)).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'));
+    assert.match(staged, new RegExp(`^A\\t${newest.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'));
+    assert.ok(!staged.includes(BUSINESS) && !staged.includes(RANK), '中身を変えない台帳に差分が無い');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
 });
 
-test('POLICIES の dir はすべて SCAN_ROOTS 配下で、除外 dir と重ならない', () => {
+test('寿命のあるデータセットのパスは日付の型を持つ（日付の無いファイルに寿命を書いても効かない）', () => {
   for (const p of POLICIES) {
-    assert.ok(p.dir.startsWith(M) || p.dir.startsWith(W), p.dir);
-    assert.ok(!isExcluded(p.dir + '/x.json'), `${p.dir} は除外 dir と重複`);
+    const { path } = DATASETS.find((d) => d.id === p.dataset);
+    assert.ok(/\{(ts|date|week|range)\}/.test(path), `${p.dataset}（${path}）に日付の型が無い`);
+    assert.ok(patternOf(path).test(path.replace('{ts}', '2026-01-01T00-00-00').replace('{date}', '2026-01-01').replace('{week}', '2026-W01').replace('{range}', '20260101_20260131').replace('{name}', 'x').replace('{**}', 'x')));
   }
 });

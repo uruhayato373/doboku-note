@@ -4,8 +4,8 @@
  * ---------------------------------------------------------------------------
  * fetch-a8-ui-csv.mjs が保存した run（raw CSV + manifest.json）を読み、
  *   1. <runDir>/normalized/<reportKey>.json（+ .rejects.json）を書く
- *   2. data/metrics/affiliate/a8-report-log.json へ upsert（committed SSOT）
- *   3. data/metrics/affiliate/a8-results.json の records へ rollup（既存スキーマ維持）
+ *   2. data/a8/report-log.json へ upsert（committed SSOT）
+ *   3. data/a8/results.json の records へ rollup（既存スキーマ維持）
  * raw CSV と manifest.json は書き換えない（append-only・監査可能性のため）。
  *
  * A8 は承認確定で過去月の数値が遡及変化するため、追記でなく **upsert**（最新 fetch が正）。
@@ -17,6 +17,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync, statSync, rmSync } from "node:fs";
 import { join } from "node:path";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 
 import {
   decodeCsvBuffer,
@@ -29,10 +30,9 @@ import {
   suggestMissingPrograms,
 } from "./lib/a8-report-csv.mjs";
 
-const STATE_DIR = "data/metrics/affiliate/a8-ui";
-const AFF_DIR = "data/metrics/affiliate";
-const REPORT_LOG = join(AFF_DIR, "a8-report-log.json");
-const RESULTS = join(AFF_DIR, "a8-results.json");
+const STATE_DIR = datasetDir("a8.ui-raw");
+const REPORT_LOG = datasetPath("a8.report-log");
+const RESULTS = datasetPath("a8.results");
 const CONFIG_PATH = "config/a8-report-automation.json";
 
 /** reportKey → a8-report-log.json 内の配列名とキー関数。 */

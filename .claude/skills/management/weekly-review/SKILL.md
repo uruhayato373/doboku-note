@@ -183,7 +183,7 @@ B. 実験進捗レポート:
   - GSC（推奨）: `data/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
     日次 clicks/impressions を合計して前週比。無ければ `gsc-query-*.json`（28日窓）にフォールバックし
     「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
-  - PSI: `data/metrics/psi/psi-batch-*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
+  - PSI: `data/psi/batch/*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
 - スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
 
 出力形式:
@@ -211,7 +211,7 @@ B. 実験進捗レポート:
 ```
 調査項目:
 - `npm run psi-audit:check` を実行し、**stderr の `field(CrUX) coverage: X/Y` と `field 判定不能の内訳` の行をそのまま転記する**（機械が `field_availability.url_level`/`origin_level` を数えた値。生 JSON を目視で読み直さない）
-- data/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
+- data/psi/batch/*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - config/psi-config.json のしきい値
 - （廃止: `gh issue list --label performance,weekly-pdca` は GitHub Issue 廃止〔CLAUDE.md §8〕で無効。違反の追跡は上記 psi-batch JSON の時系列＋しきい値比較のみで行う）
 
@@ -650,7 +650,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が data/metrics/psi/ と npm run psi-audit:check の出力から自動生成
+<!-- Agent C2 が data/psi/batch/ と npm run psi-audit:check の出力から自動生成
      （GitHub Issue は廃止済み・追跡は psi-batch JSON の時系列＋しきい値比較のみ）。
      今週の違反件数、スコア前週比、新規/解消した違反、field(CrUX) coverage を記録。 -->
 

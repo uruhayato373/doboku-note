@@ -39,10 +39,10 @@ export default async function PsiPage({
   searchParams: Promise<{ snapshot?: string }>;
 }) {
   const sp = await searchParams;
-  const history = listSnapshots('psi').get('psi-batch') ?? [];
+  const history = listSnapshots('psi.batch');
   const snap: SnapshotFile | null = sp.snapshot
-    ? snapshotByFile('psi', sp.snapshot)
-    : latestSnapshot('psi', 'psi-batch');
+    ? snapshotByFile('psi.batch', sp.snapshot)
+    : latestSnapshot('psi.batch');
   const batch = snap ? readJsonFile<PsiBatch>(snap.abs) : null;
   const results = batch?.results ?? [];
 

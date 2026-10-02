@@ -1,7 +1,7 @@
 /**
  * PSI しきい値チェックスクリプト
  *
- * data/metrics/psi/ の最新 2 ファイル（mobile + desktop 同日実行分）を読み、
+ * data/psi/batch/ の最新 2 ファイル（mobile + desktop 同日実行分）を読み、
  * config/psi-config.json のしきい値と比較して violations を標準出力に書き出す。
  *
  * Usage:
@@ -17,9 +17,10 @@
 
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
 
 const CONFIG_PATH = "config/psi-config.json";
-const DEFAULT_STATE_DIR = "data/metrics/psi";
+const DEFAULT_STATE_DIR = datasetDir("psi.batch");
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -38,11 +39,11 @@ function loadConfig() {
 
 function loadLatestResults(stateDir) {
   const files = readdirSync(stateDir)
-    .filter((f) => f.startsWith("psi-batch-") && f.endsWith(".json"))
+    .filter((f) => /^\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}\.json$/.test(f))
     .sort()
     .reverse();
   if (files.length === 0) {
-    throw new Error(`No psi-batch-*.json files found in ${stateDir}`);
+    throw new Error(`No PSI batch files (<timestamp>.json) found in ${stateDir}`);
   }
   // 直近 2 ファイル（mobile + desktop 想定）を読み込み、strategy 重複を除去
   const byStrategy = new Map();

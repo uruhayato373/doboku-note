@@ -31,7 +31,7 @@ domain: affiliate
 
 ## 手順
 
-1. **候補を出す**。カタログ（`data/ads/affiliate-catalog.json`）と走査結果から、
+1. **候補を出す**。カタログ（`data/affiliate/catalog.json`）と走査結果から、
    単価・確定率・EPC・読者セグメント適合を並べる
    - セグメント不一致を除外する（例: **建築転職は建築士系で土木読者とは別**。2026-07-27 判断）
    - Red Line（講座・教材・添削・書籍）を除外する

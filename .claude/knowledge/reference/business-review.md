@@ -7,8 +7,8 @@
 - 既存実績: note=`data/note/sales.json`、KDP=`data/kdp/royalties.json`、ココナラ=`data/coconala/{analytics,orders-snapshot,orders}.json`（閲覧は30日窓、注文・販売額は暦月）、GSC/GA4=`data/metrics/`。商品状態・価格・顧客対応の台帳は従来どおり。
 - 追加計測・目標・凍結スナップショット・判断履歴: `data/metrics/business/`。1回1ファイル・追記専用。訂正は `supersedes` で旧ファイルを参照し、削除・上書きしない。
 - 改善の状態: `data/experiments.json`。レビューは実験IDを参照するだけで別の実験状態台帳を作らない。
-- Instagram: `data/metrics/instagram/ig-insights-*.json`（Graph API を使わない＝2026-09-23 ユーザー決定。インサイトは取得しないので欠測のまま扱い、0 と読まない）。
-- Cloudflare: `data/metrics/cloudflare/cf-zone-*.json`（CI 日次・`cloudflare-metrics.yml`）。
+- Instagram: `data/instagram/insights/*.json`（Graph API を使わない＝2026-09-23 ユーザー決定。インサイトは取得しないので欠測のまま扱い、0 と読まない）。
+- Cloudflare: `data/cloudflare/zone/*.json`（CI 日次・`cloudflare-metrics.yml`）。
 
 ## 計測
 

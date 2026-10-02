@@ -44,7 +44,7 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 
 - `git branch --show-current` / `git status`
 - `config/a8-report-automation.json` の `mediaId` / `targetSite` / `reports[].siteScope` を Read
-- 前回実行: `data/metrics/affiliate/a8-ui/last-run.json`
+- 前回実行: `data/a8/ui-last-run.json`
 
 ### 2. collect（`a8-report-collector` エージェント）
 
@@ -91,9 +91,9 @@ npm run a8-ui:normalize -- --latest --dry-run   # 差分だけ見る
 npm run a8-ui:normalize -- --latest             # SSOT へ書く
 ```
 
-- `data/metrics/affiliate/a8-report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
+- `data/a8/report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
   `programPeriod`（allowlist 抽出）/ `monthly`・`daily`（**口座横断**）/ `crossCheck` を upsert
-- `data/metrics/affiliate/a8-results.json` — 既存スキーマの records へ rollup。
+- `data/a8/results.json` — 既存スキーマの records へ rollup。
   **単月 run のときだけ**（A8 の既定期間は年初〜当月の累計なので、通常は `notAttributable` に退避される）
 
 `unmapped` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。

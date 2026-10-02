@@ -186,20 +186,20 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
-npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x-metrics/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
+npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・週次 link-audit.yml）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```
 
 ## Instagram・Cloudflare（CI 取得・freshness）
 
 ```bash
-npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→data/metrics/instagram/・.claude/state/ig-reconcile/snapshot.json（CI 週次 fetch-ig-insights.yml が実行。0 件取得は exit 2＝成果物を書かない）
+npm run fetch-ig-insights          # Instagram Graph API で media+insights+SoT 照合を取得→data/instagram/insights/・.claude/state/ig-reconcile/snapshot.json（CI 週次 fetch-ig-insights.yml が実行。0 件取得は exit 2＝成果物を書かない）
 npm run ig-graph-token             # IG_GRAPH_ACCESS_TOKEN のローテ（長期トークン発行→ローカルで `gh secret set` へ手動投入。ローカル専用・秘密値を出力しない）
-npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン別日次集計を取得→data/metrics/cloudflare/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
+npm run fetch-cloudflare-analytics # Cloudflare GraphQL Analytics でゾーン別日次集計を取得→data/cloudflare/zone/（CI 日次 cloudflare-metrics.yml。0 件は exit 2）
 npm run fetch-cloudflare-zone-config # Cloudflare ゾーン設定（キャッシュ/圧縮/WAF/Bot Management）を取得しドリフト検知→.claude/state/cloudflare/zone-config-latest.json（CI 月次 cloudflare-config-audit.yml。**ドリフト採用は `--accept-baseline` を人が確認してから**）
 npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失効 7 日前を検知（quality-audit の ops 区分・snapshot 0 件は FAIL）
 npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
-npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/metrics/affiliate/afb-outcomes-latest.json（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
+npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/afb/outcomes/（日付別の最新）（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
 npm run check-afb-outcomes-freshness # afb 成果取得の停止を検知（quality-audit の ops 区分・10 日超で FAIL）
 ```
 
@@ -213,7 +213,7 @@ npm run check-google-ui-ssot   # UI CSV 情報の追跡 SSOT の整合ゲート�
 npm run ga4-admin:check        # GA4 管理画面の設定を desired state と突合（dry-run／:apply で不足カスタムディメンションを作成）
 npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_label/cta_placement）のドリフト検知（オフライン）
 npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）
-npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して data/metrics/rum/web-vitals-*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
+npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して data/rum/web-vitals/*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
 npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は priority-latest.txt を :request に渡すだけ）
 npm run check-gsc-indexing-due # 表示実績のある未登録が残っているのに 7 日以上リクエスト無しなら DUE（weekly-review-guard が surface・常に exit 0）
@@ -223,9 +223,9 @@ npm run gsc-local:install     # Mac の launchd に GSC のブラウザ作業を
 npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC で前日付になっていないか（JST 09:00 前の実行事故・pre-commit 同梱）
-npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/metrics/affiliate/buildjob-report-latest.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
+npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
 npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/metrics/business/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
-npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→career-funnel-latest.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
+npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
 ## 台帳・ドキュメント整合

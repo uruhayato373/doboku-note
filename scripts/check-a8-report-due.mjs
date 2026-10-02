@@ -11,7 +11,7 @@
  * から「そろそろ A8 成果の取り込み時期」を思い出させる。新規 cron は作らない。
  * （`check-gsc-ui-due.mjs` と同じ思想・同じ形）
  *
- * 判定: `data/metrics/affiliate/a8-ui/last-run.json`（committed マーカー）の
+ * 判定: `data/a8/ui-last-run.json`（committed マーカー）の
  *       collectedAt から経過日数 >= しきい値で DUE。マーカー無ければ DUE(初回/未実施)。
  *
  * 追加で surface するもの（A8 固有・放置すると静かに壊れる）:
@@ -36,11 +36,12 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { classifyCrossCheck } from "./lib/report-honesty.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
-const MARKER = join(ROOT, "data/metrics/affiliate/a8-ui/last-run.json");
-const LOG = join(ROOT, "data/metrics/affiliate/a8-report-log.json");
+const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
+const LOG = join(ROOT, "data/a8/report-log.json");
 const REVIEW = "/a8-report（ローカル・要 A8 ログイン）";
 
 const args = process.argv.slice(2);

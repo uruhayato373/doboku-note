@@ -1,9 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { repoPath } from './repo-root';
+import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 
 /**
  * affiliate.ts — A8 アフィリ成果（読み取り専用）。
- * data/metrics/affiliate/a8-report-log.json を読む。
+ * data/a8/report-log.json を読む。
  * データ供給は /a8-report（npm run a8-ui:fetch → a8-ui:normalize）。
  *
  * ★ 表示上の最重要ルール: A8 のこの口座は stats47（統計で見る都道府県）と共用で、
@@ -12,7 +13,6 @@ import { repoPath } from './repo-root';
  *   programPeriod は口座横断から allowlist で抽出した doboku 分（crossCheck が担保）。
  */
 
-const AFF = ['data', 'metrics', 'affiliate'] as const;
 
 /** doboku の副サイト（note 等）の A8 サイト名。正本は config/a8-report-automation.json の a8.relatedSites。 */
 function readRelatedSites(): string[] {
@@ -146,7 +146,7 @@ export function affiliateSummary(): AffiliateSummary {
     crossCheck?: CrossCheck;
     unmapped?: { programId?: string | null; programRaw?: string }[];
     notAttributable?: unknown[];
-  }>(...AFF, 'a8-report-log.json');
+  }>(datasetPath('a8.report-log'));
 
   if (!log || !(log.siteSummary?.length || log.programPeriod?.length)) return EMPTY;
 
@@ -232,7 +232,7 @@ export function affiliateSummary(): AffiliateSummary {
   };
 }
 
-/** サイト内の広告クリック（GA4・配置別）。career-funnel-latest.json（npm run report-career-funnel）を読むだけ。 */
+/** サイト内の広告クリック（GA4・配置別）。data/analysis/career-funnel.json（npm run report-career-funnel）を読むだけ。 */
 export interface PlacementView {
   window: { start: string; end: string } | null;
   generatedAt: string | null;
@@ -240,7 +240,7 @@ export interface PlacementView {
 }
 export function affiliatePlacements(): PlacementView {
   try {
-    const j = JSON.parse(readFileSync(repoPath(...AFF, 'career-funnel-latest.json'), 'utf8')) as {
+    const j = JSON.parse(readFileSync(repoPath(datasetPath('analysis.career-funnel')), 'utf8')) as {
       generatedAt?: string;
       windows?: { ga4?: { start: string; end: string } };
       funnel?: { affiliateCta?: { byPlacement?: Record<string, { impressions?: number; clicks?: number }> } };
@@ -270,7 +270,7 @@ export function affiliateExperiments(): { id: string; title: string; nextCheck: 
 /** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
 export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
 
-/** 提携・案件（data/ads/affiliate-catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+/** 提携・案件（data/affiliate/catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
 export interface ProgramCatalogRow {
   id: string;
   label: string;

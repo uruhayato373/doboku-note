@@ -2,7 +2,7 @@
 /**
  * SEO meta 閾値チェック
  *
- * `data/metrics/seo-meta/` の最新スナップショット（または --file 指定）を読み、
+ * `data/analysis/seo-meta.json`（または --file 指定）を読み、
  * Severity 別に違反を Markdown 表形式で表示する。CI / agent surface 用。
  *
  * Usage:
@@ -13,10 +13,8 @@
  *   npm run check-seo-meta:check -- --exit-on-violation       # 違反があれば exit 1
  */
 
-import { readFileSync, writeFileSync, readdirSync, statSync } from "fs";
-import { join } from "path";
-
-const STATE_DIR = "data/metrics/seo-meta";
+import { existsSync, readFileSync, writeFileSync } from "fs";
+import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -33,15 +31,8 @@ function parseArgs() {
 }
 
 function findLatest() {
-  try {
-    const files = readdirSync(STATE_DIR).filter((f) => f.startsWith("seo-meta-") && f.endsWith(".json"));
-    if (files.length === 0) return null;
-    const withMtime = files.map((f) => ({ f, mtime: statSync(join(STATE_DIR, f)).mtimeMs }));
-    withMtime.sort((a, b) => b.mtime - a.mtime);
-    return join(STATE_DIR, withMtime[0].f);
-  } catch (_) {
-    return null;
-  }
+  const path = datasetPath("analysis.seo-meta");
+  return existsSync(path) ? path : null;
 }
 
 function severityRank(sev) {

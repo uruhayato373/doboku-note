@@ -8,7 +8,7 @@
  * **静かに間違った EPC** が出る（取り込みは成功し数字も出るが、対象が違う）。機械で止める。
  *
  *   1. `src/config/affiliate-mats.json`            … サイトに実際に置いた広告（program 語彙の de-facto SSOT）
- *   2. `data/ads/affiliate-catalog.json`  … 3 ASP 横断の提携カタログ
+ *   2. `data/affiliate/catalog.json`  … 3 ASP 横断の提携カタログ
  *   3. `config/a8-report-automation.json`  … A8 成果取込の programIdMap
  *   4. `.claude/scripts/report-buildjob-affiliate.mjs` … EPC 消費側の語彙
  *
@@ -20,7 +20,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 
 const MATS = "src/config/affiliate-mats.json";
-const CATALOG = "data/ads/affiliate-catalog.json";
+const CATALOG = "data/affiliate/catalog.json";
 const A8_CONFIG = "config/a8-report-automation.json";
 const ASP_CONFIG = "config/affiliate-asp.json";
 const CONSUMER = ".claude/scripts/report-buildjob-affiliate.mjs";

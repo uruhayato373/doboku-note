@@ -117,7 +117,19 @@
       "data/note/status-snapshot.json",
       "data/coconala/orders-log.json",
       "data/coconala/kpi-log.json",
-      "data/coconala/analytics-snapshot.json"
+      "data/coconala/analytics-snapshot.json",
+      "data/x-metrics",
+      "data/sns",
+      "data/x-repost",
+      "data/yt-posted-log.jsonl",
+      "data/ads",
+      "data/metrics/affiliate",
+      "data/metrics/bing",
+      "data/metrics/psi",
+      "data/metrics/rum",
+      "data/metrics/cloudflare",
+      "data/metrics/instagram",
+      "data/metrics/seo-meta"
     ]
   },
   "docsIsNotContent": {
@@ -280,7 +292,19 @@
       "data/note/status-snapshot.json",
       "data/coconala/orders-log.json",
       "data/coconala/kpi-log.json",
-      "data/coconala/analytics-snapshot.json"
+      "data/coconala/analytics-snapshot.json",
+      "data/x-metrics/",
+      "data/sns/",
+      "data/x-repost/",
+      "data/yt-posted-log.jsonl",
+      "data/ads/",
+      "data/metrics/affiliate/",
+      "data/metrics/bing/",
+      "data/metrics/psi/",
+      "data/metrics/rum/",
+      "data/metrics/cloudflare/",
+      "data/metrics/instagram/",
+      "data/metrics/seo-meta/"
     ],
     "scanGlobs": [
       "scripts/",
@@ -307,7 +331,8 @@
       "scripts/check-doc-refs.mjs",
       "scripts/check-relative-links.mjs",
       "scripts/lib/repository-paths.mjs",
-      "scripts/lib/prune-state-snapshots.mjs"
+      "scripts/lib/prune-state-snapshots.mjs",
+      "tests/prune-state-snapshots.test.mjs"
     ]
   }
 }

@@ -837,7 +837,7 @@ Windows の PowerShell で repo 直下から順に:
 
 2026-09-22 に第 2 波を出荷した（サイト新設 4・改稿 5・note 5・公務員土木クラスタ）。第 1 波（EXP-008・2026-09-08）の判定は DN-0120 で **継続（追加投資なし）** と裁定済みで、理由と残る問いは [affiliate-operations.md](../knowledge/reference/affiliate-operations.md) の裁定ログ 2026-09-22 にある。
 
-deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線** `data/metrics/affiliate/career-funnel-baseline-2026-09-16.json`（2026-09-22 凍結・GA4 窓 08-20〜09-16＝出荷直前） と比較する。第 1 波の 08-12 基線とは別ファイルで、混ぜない。afb の確定成果は `afb-outcomes-latest.json` を併記する（鍵登録後）。
+deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線** `data/analysis/career-funnel-baseline/2026-09-16.json`（2026-09-22 凍結・GA4 窓 08-20〜09-16＝出荷直前） と比較する。第 1 波の 08-12 基線とは別ファイルで、混ぜない。afb の確定成果は `data/afb/outcomes/ の最新` を併記する（鍵登録後）。
 
 **この期間に答えを出す問い**: 11 click で確定成果 ¥0 だった件について、a8mat ピクセルが実際に発火しているかを本番 HTML で確認する（`curl` で対象ページの `a8mat=` がちょうど 1 件＝配置は既に検証済み。未検証なのは発火そのもの）。原因と決めつけずに観測する。
 

@@ -17,7 +17,7 @@ domain: affiliate
 | 何を見るか | ファイル |
 |---|---|
 | 運用ポリシー・3 ASP の罠・スキーマ・安全弁 | `.claude/knowledge/reference/affiliate-operations.md`（**運用 SSOT**） |
-| 提携カタログ（どの案件をどの ASP で運用するか） | `data/ads/affiliate-catalog.json` |
+| 提携カタログ（どの案件をどの ASP で運用するか） | `data/affiliate/catalog.json` |
 | ASP 接続設定・セレクタ・既知の罠 | `config/affiliate-asp.json` |
 | mat レジストリ（配置済み creative） | `src/config/affiliate-mats.json` |
 | A8 固有（scout ＋ 成果取込） | `.claude/knowledge/reference/a8-affiliate-pipeline.md` |

@@ -10,7 +10,7 @@
  *
  * 入力: .claude/state/x-repost/approved.json
  *   { "approved": [ { "id": "...", "url": "https://x.com/.../status/...", "comment": "引用コメント本文" }, ... ] }
- * 出力: 成功分を data/x-repost/reposted-log.json に追記
+ * 出力: 成功分を data/x/reposted.json に追記
  *
  * キルスイッチ: .claude/state/x-repost/PAUSED が存在すると即時中止。
  */
@@ -27,7 +27,7 @@ const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 const STATE_DIR = path.join(PROJECT_ROOT, ".claude/state/x-repost");
 // 設定は config/、引用リポストの実績は data/、候補・承認・停止スイッチはエージェントの作業状態として .claude/state（2026-10-02 分離）
 const CONFIG_PATH = path.join(PROJECT_ROOT, "config/x-repost.json");
-const LOG_PATH = path.join(PROJECT_ROOT, "data/x-repost/reposted-log.json");
+const LOG_PATH = path.join(PROJECT_ROOT, "data/x/reposted.json");
 const APPROVED_PATH = path.join(STATE_DIR, "approved.json");
 const PAUSED_PATH = path.join(STATE_DIR, "PAUSED");
 

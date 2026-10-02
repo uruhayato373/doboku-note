@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
-import { datasetPath } from './datasets.mjs';
+import { datasetFiles, datasetPath } from './datasets.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
 export const DIRECTION = 'config/business-direction.json';
@@ -181,10 +181,9 @@ function latest(root, dir, prefix) {
   return f ? { data: readJson(root, `${dir}/${f}`), file: `${dir}/${f}` } : null;
 }
 /** dir 配下で prefix + *.json に一致するファイル全部を名前順（＝日付昇順）で返す。無ければ []。 */
-export function latestAll(root, dir, prefix) {
-  if (!existsSync(join(root, dir))) return [];
-  return readdirSync(join(root, dir)).filter(f => f.startsWith(prefix) && f.endsWith('.json')).sort()
-    .map(f => ({ file: `${dir}/${f}`, data: readJson(root, `${dir}/${f}`) }));
+/** データセットの全ファイルを古い順に [{ file, data }] で返す（台帳の id で引く） */
+export function latestAll(root, id) {
+  return [...datasetFiles(root, id)].sort().map(file => ({ file, data: readJson(root, file) }));
 }
 /**
  * latestAll() が返す [{file, data}] の各 data[key]（日別行の配列）を date で合流させる。
@@ -413,7 +412,7 @@ export function sourceFacts(root, c, period) {
       put('coconalaRevenue', selected.reduce((sum, order) => sum + (Number(order.priceYen) || 0), 0), sourcePeriod, cocoOrdersPath, qualification, coverage, `${note} serviceIdと級で資格帰属。手数料控除前。`);
     }
   }
-  const igSnapshots = latestAll(root, 'data/metrics/instagram', 'ig-insights-');
+  const igSnapshots = latestAll(root, 'instagram.insights');
   if (igSnapshots.length > 0) {
     const igDaily = unionDaily(igSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: igCoverage } = coverageForPeriod(igDaily, period);
@@ -423,7 +422,7 @@ export function sourceFacts(root, c, period) {
     const followersCount = igSnapshots.at(-1).data?.account?.followersCount;
     put('igFollowers', Number.isFinite(followersCount) ? followersCount : null, period, igFile, 'all', 'complete', '期間末時点のストック。');
   }
-  const cfSnapshots = latestAll(root, 'data/metrics/cloudflare', 'cf-zone-');
+  const cfSnapshots = latestAll(root, 'cloudflare.zone');
   if (cfSnapshots.length > 0) {
     const cfDaily = unionDaily(cfSnapshots, 'daily').filter(r => r.date >= period.startDate && r.date <= period.endDate);
     const { coverage: cfCoverage } = coverageForPeriod(cfDaily, period);
