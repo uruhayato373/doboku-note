@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-01T05:50:38.575Z",
+  "updated_at": "2026-10-02T00:22:11.001Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1211,6 +1211,28 @@
           "salesLedgerThrough": "2026-09-27",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-02T00:22:10.998Z",
+          "specHash": "5ad8dbe14f9d",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-19",
+            "endDate": "2026-09-15",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-16",
+            "endDate": "2026-09-28",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-09-27",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1343,6 +1365,28 @@
           "post": {
             "startDate": "2026-09-17",
             "endDate": "2026-09-23",
+            "value": 2480,
+            "volume": 1
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-09-27",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-02T00:22:11.001Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-09-28",
             "value": 2480,
             "volume": 1
           },
