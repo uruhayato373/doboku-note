@@ -217,7 +217,7 @@ jobs:
 
       # 実ユーザー計測（RUM）: サイトの web_vitals イベントをページの型×端末×指標×評価で取り、良好率で判定する
       # （CrUX が訪問不足で供給されないための代わり）。カスタムディメンション未登録の間は status: dimensions-missing で exit 0。
-      # data/metrics/rum/web-vitals-*.json。週次レビューが npm run report-web-vitals で読む。
+      # 台帳 rum.web-vitals。週次レビューが npm run report-web-vitals で読む。
       - name: Fetch GA4 (web vitals, real-user Core Web Vitals)
         continue-on-error: true
         env:
@@ -261,7 +261,7 @@ jobs:
           AFB_API_KEY: ${{ secrets.AFB_API_KEY }}
         run: node .claude/scripts/fetch-afb-outcomes.mjs --commit
 
-      # 週次 NSM スナップショット（data/weekly-metrics/YYYY-Www.json）。
+      # 週次 NSM スナップショット（台帳 business.weekly）。
       # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
       # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を
       # ライブ取得して time-series を積む。weekly-review の SNS フェーズが最新スナップショットを読む。
@@ -353,16 +353,12 @@ jobs:
           node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
+      # 書いた記録（data/ の追加・変更・削除）を一時退避する。パスは YAML に書かず台帳（scripts/lib/datasets.mjs）から引く。
+      # main の YAML が develop の置き場の変更に追従できなくなるのを防ぐため（DN-0497・DN-0498）
       - name: Stage outputs
-        run: |
-          mkdir -p /tmp/metrics-publish
-          cp -r data/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
-          # weekly-metrics は metrics/ の兄弟ディレクトリなので個別にコピーする
-          mkdir -p /tmp/weekly-metrics-publish
-          cp -r data/weekly-metrics/* /tmp/weekly-metrics-publish/ 2>/dev/null || true
-          ls -la /tmp/metrics-publish
+        run: node scripts/ci-data.mjs save "$RUNNER_TEMP/metrics-out" --paths data
 
-      - name: Publish to develop branch (data/metrics/{ga4,gsc}/)
+      - name: Publish to develop branch (data/)
         id: publish
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
@@ -374,8 +370,8 @@ jobs:
           git fetch origin develop
           # 実行中の in-place 書き込み（crosswalk-latest.md・weekly-metrics/index.json 等の追跡ファイル）で
           # 作業ツリーが dirty になり `git pull --rebase` が "cannot pull with rebase" で失敗するのを防ぐ。
-          # 成果物は直前の "Stage outputs" で /tmp に退避済みなので、origin/develop 先頭へ hard reset して
-          # クリーンにしてから /tmp を復元する（-f で dirty tree でも develop へ切替）。
+          # 成果物は直前の "Stage outputs" で退避済みなので、origin/develop 先頭へ hard reset して
+          # クリーンにしてから復元する（-f で dirty tree でも develop へ切替）。
           git checkout -f develop
           git reset --hard origin/develop
 
@@ -384,18 +380,10 @@ jobs:
           # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
           npm run pre-commit:install
 
-          mkdir -p data/metrics/ga4 data/metrics/gsc data/metrics/monetization data/metrics/crosswalk data/metrics/affiliate data/metrics/growth data/metrics/bing data/metrics/ga4-admin data/metrics/rum data/weekly-metrics
-          cp -r /tmp/metrics-publish/ga4/* data/metrics/ga4/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/gsc/* data/metrics/gsc/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/monetization/* data/metrics/monetization/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/crosswalk/* data/metrics/crosswalk/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/affiliate/* data/metrics/affiliate/ 2>/dev/null || true
-          # growth は pack だけを戻す（triage-log.json は土曜の週次レビューが develop へ push する処分記録で、
-          # job 開始時点の古い版で上書きしない。digest は下で reset 後の最新から生成する）
-          cp /tmp/metrics-publish/growth/pack-*.json data/metrics/growth/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/bing/* data/metrics/bing/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/ga4-admin/* data/metrics/ga4-admin/ 2>/dev/null || true
-          cp -r /tmp/metrics-publish/rum/* data/metrics/rum/ 2>/dev/null || true
+          # 退避した記録を戻す。実験台帳（下の自動計測が develop 最新を読んで書く）と、成長サイクルの処分記録
+          # （土曜の週次レビューが develop へ push する）・ダイジェスト（下で reset 後の最新から作る）は job 開始時点の
+          # 古い版で上書きしないよう戻さない
+          node scripts/ci-data.mjs restore "$RUNNER_TEMP/metrics-out" --exclude-datasets business.experiments,analysis.growth-triage,analysis.growth-digest
 
           # 実験の自動計測と機会ダイジェストは develop 最新（reset 後）の experiments.json と triage-log
           # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
@@ -406,7 +394,6 @@ jobs:
           node scripts/build-growth-digest.mjs
           echo "digest_rc=$?" >> "$GITHUB_OUTPUT"
           set -e
-          cp -r /tmp/weekly-metrics-publish/* data/weekly-metrics/ 2>/dev/null || true
 
           # 寿命表（scripts/lib/prune-state-snapshots.mjs）に従って古い snapshot を消す（business は除外 dir・触らない）。
           # affiliate family は keep-all（`-YYYY-MM-DD.json` は消さない台帳）なので prune 対象に含めても実害は無いが、
@@ -418,7 +405,7 @@ jobs:
           # スナップショットと同じ commit で作り直さないと、次にビルドした手元にだけ差分が出る（2026-09-26）。
           node scripts/build-popular-pages.mjs
           git add src/config/popular-pages.json
-          git add data/metrics/business data/metrics/ga4 data/metrics/gsc data/metrics/monetization data/metrics/crosswalk data/metrics/affiliate data/metrics/growth data/metrics/bing data/metrics/ga4-admin data/metrics/rum data/weekly-metrics data/experiments.json
+          node scripts/ci-data.mjs add --paths data
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

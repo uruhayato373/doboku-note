@@ -183,6 +183,9 @@ export const DATASETS = [
   d('a8.catalog', 'data/ads/a8-catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧'),
   d('a8.ui-last-run', 'data/metrics/affiliate/a8-ui/last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録'),
   d('a8.ui-raw', 'data/metrics/affiliate/a8-ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果', { local: true }),
+  d('a8.inventory', 'data/ads/inventory-latest.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
+  d('afb.outcomes', 'data/metrics/affiliate/afb-outcomes-{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true }),
+  d('afb.outcomes-latest', 'data/metrics/affiliate/afb-outcomes-latest.json', 'state', 'affiliate', '同上の最新', { planned: true }),
   d('affiliate.catalog', 'data/ads/affiliate-catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧'),
   // GA4
   d('ga4.page', 'data/metrics/ga4/ga4-page-{ts}.json', 'series', 'site', 'GA4 のページ別の指標'),
@@ -203,6 +206,7 @@ export const DATASETS = [
   d('ga4.bot-audit', 'data/metrics/ga4/bot-audit-{ts}.json', 'series', 'site', 'ボット流入の割合の点検'),
   d('ga4.admin-history', 'data/metrics/ga4-admin/history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録'),
   d('ga4.admin-inventory', 'data/metrics/ga4-admin/inventory-latest.json', 'state', 'site', 'GA4 管理画面の設定の最新'),
+  d('ga4.admin-last-run', 'data/metrics/ga4-admin/last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/metrics/ga4-ui/last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録'),
   d('ga4.ui-raw', 'data/metrics/ga4-ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true }),
   // GSC
@@ -225,6 +229,7 @@ export const DATASETS = [
   d('gsc.ui-diff', 'data/metrics/gsc-ui/ssot/diff/{ts}.json', 'series', 'site', 'GSC の画面取得の前回との差'),
   d('gsc.ui-urls', 'data/metrics/gsc-ui/ssot/urls/{name}.json', 'state', 'site', 'GSC の未登録理由ごとの URL 一覧'),
   d('gsc.ui-raw', 'data/metrics/gsc-ui/{ts}/{**}', 'raw', 'site', 'GSC の画面から取った CSV と正規化結果', { local: true }),
+  d('gsc.ui-adhoc', 'data/metrics/gsc-ui/_adhoc/{**}', 'raw', 'site', 'GSC の画面の CSV を単発で正規化した結果', { local: true }),
   // Bing・PSI・実ユーザー・Cloudflare・自サイト
   d('bing.snapshots', 'data/metrics/bing/bing-{date}.json', 'series', 'site', 'Bing Webmaster の検索指標'),
   d('psi.batch', 'data/metrics/psi/psi-batch-{ts}.json', 'series', 'site', 'PageSpeed Insights の定期計測'),
@@ -241,6 +246,7 @@ export const DATASETS = [
   d('business.review', 'data/metrics/business/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true }),
   d('business.site-to-sales', 'data/metrics/business/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true }),
   d('business.checks-monthly', 'data/metrics/business/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true }),
+  d('business.checks-weekly', 'data/metrics/business/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true }),
   d('business.experiments', 'data/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）'),
   d('business.weekly', 'data/weekly-metrics/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ'),
   d('business.weekly-index', 'data/weekly-metrics/index.json', 'state', 'strategy', '同上の一覧'),

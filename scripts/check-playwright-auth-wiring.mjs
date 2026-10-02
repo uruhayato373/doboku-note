@@ -118,6 +118,7 @@ const WRITE_VERB_EXCEPTIONS = new Set(['scripts/x-publish-scheduled.mjs']);
 const WORKFLOW_UTILITY_SCRIPTS = new Set([
   'scripts/report-automation-failure.mjs',
   'scripts/install-pre-commit.mjs',
+  'scripts/ci-data.mjs',
   '.claude/scripts/build-doc-meta-index.mjs',
 ]);
 const allCiScripts = new Set([...CI_ALWAYS_ALLOWED_SCRIPTS, ...WORKFLOW_UTILITY_SCRIPTS]);

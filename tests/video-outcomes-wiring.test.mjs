@@ -33,8 +33,9 @@ test('fetch-metrics.yml が campaign スナップショットを取得する', (
     /fetch-ga4-data -- --dimension campaign/,
     'campaign 取得ステップが無い＝管理画面は永久に「未取得」のまま',
   );
-  // 供給先ディレクトリが develop へ publish される経路に乗っているか
-  assert.match(wf, /git add[^\n]*data\/metrics\/ga4/, 'ga4 ディレクトリが commit 対象でない');
+  // 供給先が develop へ publish される経路に乗っているか（data/ の変更を台帳経由でまとめて add する）
+  assert.match(wf, /ci-data\.mjs save [^\n]*--paths data/, '取得結果が退避されない');
+  assert.match(wf, /ci-data\.mjs add --paths data/, 'data/ が commit 対象でない');
 });
 
 test('UTM 契約: campaign は packId・source は youtube・content は longform|shorts', () => {
