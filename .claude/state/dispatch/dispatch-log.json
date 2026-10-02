@@ -1675,6 +1675,18 @@
       "commit": "65dfe1231781",
       "verification": "api/v1/magazines/mbe07bd5cecda/notes → 11 件・W11 含む / npm run check-membership-drip 16/16 WARN 0",
       "note": "W11 n64f9653dc30c（9/28 公開）は特典マガジン mbe07bd5cecda に収録済み（収録 11 件・API 実体確認 2026-10-02）。収録操作は既に済んでいた"
+    },
+    {
+      "id": "DN-0315",
+      "at": "2026-10-02",
+      "task": "ココナラブログ3本と会員記事5本の、1級・2級の割り振り修正が公開ページに出ているか確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2a1cac15dc5a",
+      "verification": "ブログ: 修正行と公開ページの突合 3/3 一致 / 会員: api/v3/notes 23/23 取得・該当 6 本不一致 0 / npm run check-keiken-answer-split 合格",
+      "note": "ライブ実査（2026-10-02）: ココナラブログ3本（815069/815072/815116）は 56c62e61 の修正行 7 行すべてが公開ページにあり旧行の残存 0。会員記事は公開済み 23 本すべてのライブ本文を note ログイン済みプロファイル（読み取りのみ）で取得し、1級の解答欄説明を含む 6 本（予想問題 06・07・08・10 ほか）で原稿と一致・不一致 0。修正作業は不要だった"
     }
   ]
 }
