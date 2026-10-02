@@ -28,26 +28,19 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { datasetPath, latestFile } from "../../scripts/lib/datasets.mjs";
+import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const GA4_DIR = join(ROOT, "data/metrics/ga4");
-const GSC_DIR = join(ROOT, "data/metrics/gsc");
 const CONFIG = join(ROOT, "config/career-funnel.json");
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 
-const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
+const readJson = (p) => readJsonOrReport(ROOT, p);
 const toPosix = (p) => p.split("\\").join("/");
 const relative = (p) => toPosix(p).slice(toPosix(ROOT).length + 1);
 
-/** prefix で始まる最新スナップショットを返す。数字境界で prefix の誤マッチを防ぐ。 */
-export function latestSnapshot(dir, prefix) {
-  if (!existsSync(dir)) return null;
-  const files = readdirSync(dir)
-    .filter((f) => f.startsWith(prefix) && /\d/.test(f.charAt(prefix.length)) && f.endsWith(".json"))
-    .sort();
-  return files.length ? join(dir, files[files.length - 1]) : null;
-}
+/** 種類の最新レポートの参照（「ファイル#枠」）。GA4・GSC は日ごとの 1 ファイルに入っている */
+export const latestSnapshot = (id) => latestReportRef(ROOT, id);
 
 // ---- 純関数（テストから使う）------------------------------------------------
 
@@ -270,11 +263,11 @@ function main() {
   const cfg = readJson(CONFIG);
 
   const inputs = {
-    ga4Label: latestSnapshot(GA4_DIR, "ga4-cta-clicks-by-label-"),
-    ga4Placement: latestSnapshot(GA4_DIR, "ga4-cta-clicks-by-placement-"),
-    ga4Device: latestSnapshot(GA4_DIR, "ga4-cta-clicks-by-device-"),
-    ga4Page: latestSnapshot(GA4_DIR, "ga4-page-"),
-    gscPageQuery: latestSnapshot(GSC_DIR, "gsc-page-query-"),
+    ga4Label: latestSnapshot("ga4.cta-clicks-by-label"),
+    ga4Placement: latestSnapshot("ga4.cta-clicks-by-placement"),
+    ga4Device: latestSnapshot("ga4.cta-clicks-by-device"),
+    ga4Page: latestSnapshot("ga4.page"),
+    gscPageQuery: latestSnapshot("gsc.page-query"),
     a8: existsSync(join(ROOT, datasetPath("a8.results"))) ? join(ROOT, datasetPath("a8.results")) : null,
     afb: latestFile(ROOT, "afb.outcomes") ? join(ROOT, latestFile(ROOT, "afb.outcomes")) : null,
   };

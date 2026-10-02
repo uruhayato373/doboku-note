@@ -11,10 +11,11 @@
  * Usage:
  *   node .claude/scripts/build-noindex-candidates.mjs \
  *     --inspection-glob "data/gsc/url-inspection/2026-04-27*.json" \
- *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
+ *     --page-data "data/gsc/reports/<日付>.json#page"
  */
 
 import { readFileSync, writeFileSync } from "fs";
+import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
 
 function parseArgs() {
@@ -100,7 +101,7 @@ async function main() {
 
   console.log(`PASS verdict URLs: ${passUrls.length}`);
 
-  const pageData = JSON.parse(readFileSync(opts.pageData, "utf-8"));
+  const pageData = readJsonOrReport(".", opts.pageData);
   const impressionMap = new Map();
   for (const r of pageData.rows || []) {
     impressionMap.set(r.keys[0], { impressions: r.impressions, clicks: r.clicks });

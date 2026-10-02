@@ -3,7 +3,7 @@
  * report-site-to-sales.mjs — サイトの note 送客クリック × note 側のサイト経由閲覧 × 商品別売上の月次突合
  *
  * 入力（すべてコミット済み・creds 不要）:
- *   GA4 by-label   data/metrics/ga4/ga4-cta-clicks-by-label-*.json（月一致の窓を優先、無ければ重なり最大）
+ *   GA4 by-label   data/ga4/reports/<日付>.json の cta-clicks-by-label（月一致の窓を優先、無ければ重なり最大）
  *   note 流入元    data/note/referrers/*.json（アカウント全体・取得が最新のファイル）
  *   売上           data/note/sales.json
  *   商品カタログ   src/lib/note-magazines.ts・src/lib/hub-cta.ts・data/note/magazines.json
@@ -21,6 +21,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 
 import { join, resolve } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
 import { datasetFiles, datasetPath } from './lib/datasets.mjs';
+import { listReports } from './lib/metric-reports.mjs';
 import {
   buildResolver,
   buildSiteToSales,
@@ -83,7 +84,7 @@ function main() {
   const magazineSnapshot = existsSync(join(ROOT, snapshotPath)) ? readJson(snapshotPath) : null;
 
   const resolver = buildResolver({ catalog, hubSeasonal, magazineSnapshot, salesLog });
-  const labelSnapshots = readDataset('ga4.cta-clicks-by-label');
+  const labelSnapshots = listReports(ROOT, 'ga4.cta-clicks-by-label').reverse().map((r) => ({ file: r.ref, data: r.data }));
   const pick = pickGa4Snapshot(labelSnapshots.map((s) => ({ file: s.file, meta: s.data.meta })), month);
   const picked = labelSnapshots.find((s) => s.file === pick.file);
   const ga4 = { pick, rows: picked ? picked.data.rows ?? picked.data.data ?? [] : [] };

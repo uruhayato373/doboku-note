@@ -2,6 +2,10 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { runReportAll, andFilter, japanFilter } from "../.claude/scripts/lib/ga4-client.mjs";
 import { pickGscPage } from "../.claude/scripts/lib/ga4-snapshot.mjs";
+import { writeReport } from "../scripts/lib/metric-reports.mjs";
+import { mkdtempSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
 function fakeClient(total) {
   const calls = [];
@@ -42,18 +46,11 @@ test("andFilter collapses 0/1/n expressions", () => {
   assert.equal(andFilter([japanFilter(), japanFilter()]).andGroup.expressions.length, 2);
 });
 
-test("pickGscPage skips page×query and truncated page snapshots", () => {
-  const metas = {
-    "gsc-page-2026-09-17T23-16-36.json": { truncated: false },
-    "gsc-page-2026-09-23T06-54-58.json": { truncated: true },
-    "gsc-page-query-2026-09-17T23-16-37.json": { truncated: false },
-    "gsc-query-2026-09-17T23-16-35.json": { truncated: false },
-  };
-  assert.equal(pickGscPage(Object.keys(metas), (n) => metas[n]), "gsc-page-2026-09-17T23-16-36.json");
-  assert.equal(pickGscPage(["gsc-page-query-2026-09-17T23-16-37.json"], () => ({})), null);
-  // 読めないファイルは飛ばして古い方へ
-  assert.equal(
-    pickGscPage(["gsc-page-2026-09-10T00-00-00.json", "gsc-page-2026-09-17T00-00-00.json"], (n) => (n.includes("09-17") ? null : {})),
-    "gsc-page-2026-09-10T00-00-00.json",
-  );
+test("pickGscPage skips truncated page reports and picks the latest full one", () => {
+  const root = mkdtempSync(join(tmpdir(), "gsc-page-"));
+  writeReport(root, "gsc.page", { meta: { truncated: false }, rows: [] }, { stamp: "2026-09-17T23-16-36" });
+  writeReport(root, "gsc.page", { meta: { truncated: true }, rows: [] }, { stamp: "2026-09-23T06-54-58" });
+  writeReport(root, "gsc.page-query", { meta: { truncated: false }, rows: [] }, { stamp: "2026-09-24T23-16-37" });
+  assert.equal(pickGscPage(root), "data/gsc/reports/2026-09-18.json#page");
+  assert.equal(pickGscPage(mkdtempSync(join(tmpdir(), "gsc-page-"))), null);
 });

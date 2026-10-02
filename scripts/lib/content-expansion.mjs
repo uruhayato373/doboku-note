@@ -161,22 +161,21 @@ export function siteSlugOf(path) {
   return m ? `${m[1]}-${m[2] ?? m[3]}` : null;
 }
 
-/** GSC ページ集計の最新（ページ単位 gsc-page-YYYY-*）を論理 slug ごとに合算する。無ければ空 Map と file:null。 */
+/** GSC ページ集計の最新（gsc.page）を論理 slug ごとに合算する。無ければ空 Map と file:null。 */
 async function latestGscBySlug(root) {
-  const { readdirSync } = await import('node:fs');
   const { slugFromKey } = await import('./url-normalization.mjs');
-  const dir = resolve(root, 'data/metrics/gsc');
-  const files = existsSync(dir) ? readdirSync(dir).filter((f) => /^gsc-page-\d{4}-.*\.json$/.test(f)).sort() : [];
+  const { latestReport } = await import('./metric-reports.mjs');
+  const latest = latestReport(root, 'gsc.page');
   const out = new Map();
-  if (!files.length) return { bySlug: out, file: null, period: null };
-  const data = JSON.parse(readFileSync(resolve(dir, files.at(-1)), 'utf8'));
+  if (!latest) return { bySlug: out, file: null, period: null };
+  const data = latest.data;
   for (const r of data.rows ?? []) {
     const slug = slugFromKey(r.keys?.[0]);
     if (!slug) continue;
     const prev = out.get(slug) ?? { impressions: 0, clicks: 0 };
     out.set(slug, { impressions: prev.impressions + (r.impressions ?? 0), clicks: prev.clicks + (r.clicks ?? 0) });
   }
-  return { bySlug: out, file: files.at(-1), period: data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null };
+  return { bySlug: out, file: latest.ref, period: data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null };
 }
 
 /**

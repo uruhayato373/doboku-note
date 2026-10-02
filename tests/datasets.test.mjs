@@ -8,10 +8,10 @@ import { DATASETS, datasetById, datasetsFor, inferShape, jsonSchemaOf, matchFile
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
 test('patternOf: 日時・UUID・ハッシュの型で当て、名前の前方が同じ別の系列は取り違えない', () => {
-  assert.deepEqual(idsFor('data/metrics/gsc/gsc-page-2026-10-02T00-21-12.json'), ['gsc.page']);
-  assert.deepEqual(idsFor('data/metrics/gsc/gsc-page-query-2026-10-02T00-21-12.json'), ['gsc.page-query']);
-  assert.deepEqual(idsFor('data/metrics/ga4/ga4-cta-clicks-2026-10-02T00-21-27.json'), ['ga4.cta-clicks']);
-  assert.deepEqual(idsFor('data/metrics/ga4/ga4-cta-clicks-by-label-2026-10-02T00-21-27.json'), ['ga4.cta-clicks-by-label']);
+  assert.deepEqual(idsFor('data/gsc/reports/2026-10-02.json'), ['gsc.reports']);
+  assert.deepEqual(idsFor('data/ga4/reports/2026-10-02.json'), ['ga4.reports']);
+  assert.deepEqual(idsFor('data/gsc/url-inspection/2026-10-02T00-21-12.json'), ['gsc.url-inspection']);
+  assert.deepEqual(idsFor('data/gsc/url-inspection-single/2026-10-02T00-21-12.json'), ['gsc.url-inspection-single']);
   assert.deepEqual(
     idsFor('data/metrics/business/measurement-2026-09-13T02-19-08-867Z-0b3048b5-56ce-4bb9-8bb9-38866952d7b5.json'),
     ['business.measurement'],

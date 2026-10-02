@@ -233,6 +233,10 @@ export const RESTRUCTURED_PATHS = [
   ["data/metrics/ga4-ui/last-run.json", "data/ga4/ui-last-run.json"],
   ["data/metrics/ga4-ui", "data/ga4/ui"],
   [/^data\/metrics\/gsc\/coverage-diagnosis-([0-9T-]+Z?)\.json$/, "data/analysis/gsc-coverage-diagnosis/$1.json"],
+  // GA4・GSC の週次取得を日ごとの 1 ファイルへ（取得時刻の JST の日。中の枠は scripts/lib/metric-reports.mjs の readReportRef が読む）
+  [/^data\/metrics\/(ga4|gsc)\/(?:(?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})Z?\.json$/,
+    (_, source, y, mo, d, h, mi, s) => `data/${source}/reports/${new Date(Date.UTC(+y, +mo - 1, +d, +h, +mi, +s) + 9 * 3600_000).toISOString().slice(0, 10)}.json`],
+  ["data/metrics/ga4/quiz-premium-funnel-latest.json", "data/analysis/quiz-premium-funnel.json"],
 ];
 
 const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];

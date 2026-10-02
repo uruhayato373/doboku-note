@@ -24,7 +24,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/metrics/{gsc,ga4,growth,bing,ga4-admin}/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
-| `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc-page-query-*` 含む）→ `improvements/*.md` |
+| `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
 | `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
 | **`gsc-auto-review.yml`** | **CI（週次・金 JST 12:00・要 `CLAUDE_CODE_OAUTH_TOKEN`）** | **記録層の自動化**。オーケストレータ＝`claude-fable-5`。毎週 metrics-analyzer を起動し観測ログへ週次エントリを追記。未記録の inspection-batch があれば同一実行で gsc-index-auditor も起動し coverage エントリ（見出し `（coverage・自動レビュー）`・旧称 月次）を追記。異常時のみ `automation-failure` Issue 起票。**重い JSON 走査は sonnet サブエージェント側**（親は生の計測 JSON とログ全文を読まない） | committed state → `gsc-management.md` 観測ログ ＋ `improvements/*.md`（develop へ push） |
 | ~~`doboku-note GSC auto review`~~ | クラウドルーティン（**退役 2026-08-06**） | 上記 CI が引き継ぎ自走を確認したため `enabled:false`。実行履歴が repo から見えないためクラウドは正にしない | — |
@@ -172,7 +172,7 @@ crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW 
 |---|---|
 | URL Inspection 生データ | `data/gsc/url-inspection/*.json` |
 | indexed_ratio 時系列 | `data/gsc/index-coverage.json` |
-| GSC query/page/date | `data/metrics/gsc/gsc-*.json` |
+| GSC query/page/date | `data/gsc/reports/<日付>.json` |
 | 改善候補（performance） | `.claude/state/improvements/*.md` |
 | GSC UI 理由別 CSV（生・**gitignore**・再取得のみ） | `data/gsc/ui/<run>/`（raw ZIP + manifest + `normalized/*.json`） |
 | **GSC UI 情報の SSOT（committed）** | `data/gsc/ui-urls.json（units[<issue>--<scope>]）`（最新 URL 一覧）＋ `ui-history.json`（run 別件数）＋ `ssot/diff/<runId>.json`（URL 増減） |

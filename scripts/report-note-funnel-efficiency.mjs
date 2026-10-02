@@ -2,9 +2,9 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { buildNoteFunnelEfficiency, renderNoteFunnelEfficiencyMarkdown } from './lib/note-funnel-efficiency.mjs';
+import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const GA4_DIR = join(ROOT, 'data/metrics/ga4');
 const SALES_PATH = join(ROOT, 'data/note/sales.json');
 const OUTPUT_DIR = join(ROOT, 'data/metrics/monetization');
 
@@ -14,21 +14,19 @@ function valueAfter(args, flag) {
 }
 
 function latestLabelSnapshot() {
-  const files = readdirSync(GA4_DIR)
-    .filter((name) => /^ga4-cta-clicks-by-label-.*\.json$/.test(name))
-    .sort();
-  if (files.length === 0) throw new Error('ga4-cta-clicks-by-label snapshot がありません');
-  return join(GA4_DIR, files.at(-1));
+  const ref = latestReportRef(ROOT, 'ga4.cta-clicks-by-label');
+  if (!ref) throw new Error('GA4 の cta-clicks-by-label がありません（data/ga4/reports/）');
+  return ref;
 }
 
 const args = process.argv.slice(2);
-const ga4Path = resolve(valueAfter(args, '--ga4') ?? latestLabelSnapshot());
+const ga4Path = valueAfter(args, '--ga4') ? resolve(valueAfter(args, '--ga4')) : latestLabelSnapshot();
 const salesPath = resolve(valueAfter(args, '--sales') ?? SALES_PATH);
 const noWrite = args.includes('--no-write');
 const jsonOnly = args.includes('--json');
 
 const report = buildNoteFunnelEfficiency({
-  ga4: JSON.parse(readFileSync(ga4Path, 'utf8')),
+  ga4: readJsonOrReport(ROOT, ga4Path),
   salesLog: JSON.parse(readFileSync(salesPath, 'utf8')),
 });
 const markdown = renderNoteFunnelEfficiencyMarkdown(report, {

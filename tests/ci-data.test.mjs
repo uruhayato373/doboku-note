@@ -7,6 +7,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { add, changedFiles, restore, save } from '../scripts/ci-data.mjs';
 import { datasetDir, datasetPath, latestFile, resolveDataset } from '../scripts/lib/datasets.mjs';
+import { REPORT_KINDS } from '../scripts/lib/metric-reports.mjs';
 
 const git = (root, ...args) => execFileSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', '-c', 'core.autocrlf=false', ...args], { cwd: root, encoding: 'utf8' });
 const put = (root, rel, body) => {
@@ -114,14 +115,14 @@ test('ワークフローが ci-data に渡す台帳の id は、すべて解決�
     for (const m of text.matchAll(/ci-data\.mjs\s+(?:latest|path|put)\s+([A-Za-z0-9.-]+)/g)) ids.add(m[1]);
   }
   assert.ok(ids.size >= 10, `ワークフローから id を拾えていない（${ids.size} 件）`);
-  for (const id of ids) assert.ok(resolveDataset(id), `ワークフローの id ${id} が台帳に無い（消すなら RETIRED_IDS に後継を書く）`);
+  for (const id of ids) assert.ok(resolveDataset(id) || id in REPORT_KINDS, `ワークフローの id ${id} が台帳に無い（消すなら RETIRED_IDS に後継を書く）`);
 });
 
 test('latestFile・datasetDir・datasetPath: 台帳からパスを引く', () => {
   const root = repo();
   try {
     assert.equal(latestFile(root, 'psi.batch'), NEW_PSI);
-    assert.equal(latestFile(root, 'gsc.page'), null);
+    assert.equal(latestFile(root, 'gsc.reports'), null);
     assert.equal(datasetDir('psi.batch'), 'data/psi/batch');
     assert.equal(datasetDir('psi.report'), 'data/analysis/psi-report.md', '消した id は後継へ読み替える');
     assert.equal(datasetPath('psi.batch', { ts: '2026-10-01T00-00-00' }), NEW_PSI);

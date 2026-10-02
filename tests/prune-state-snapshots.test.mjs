@@ -25,7 +25,8 @@ const NOW = Date.parse('2026-09-14T00:00:00Z');
 const day = (n) => new Date(NOW - n * 86400000).toISOString().slice(0, 19).replace(/:/g, '-');
 
 const psi = (ts) => datasetPath('psi.batch', { ts });
-const ga4 = (id, ts) => datasetPath(id, { ts });
+/** 日ごとのレポート（GA4・GSC の週次取得）。n 日前の日付のファイル */
+const dayReport = (source, n) => datasetPath(`${source}.reports`, { date: day(n).slice(0, 10) });
 const week = (w) => datasetPath('business.weekly', { week: `2026-W${String(w).padStart(2, '0')}` });
 const WEEK_INDEX = datasetPath('business.weekly-index');
 const BUSINESS = datasetPath('business.snapshot', { ts: '2026-09-13T02-22-01-130Z', uuid: '8275f38f-bcf9-499a-a79e-9753bc204570' });
@@ -74,35 +75,43 @@ test('plan: keepNewest は新しい N 件だけ残し、中身を変えない台
   assert.ok(isExcluded(BUSINESS) && isExcluded(RANK));
 });
 
-test('plan: maxAgeDays はデータセットごとに最新 1 件を残し、pin と月次の by-label も残す', () => {
-  const monthly = ga4('ga4.cta-clicks-by-label', day(150));
+test('plan: maxAgeDays はデータセットごとに最新 1 件を残し、pin と月次の by-label を持つ日も残す', () => {
+  const monthly = dayReport('ga4', 200);
   const files = [
-    ga4('ga4.channel', day(200)), // 唯一の ga4.channel → 古くても残る
-    ga4('ga4.page', day(200)), // 古い方 → 消える
-    ga4('ga4.page', day(10)),
-    monthly, // 月次 → 残る
-    ga4('ga4.cta-clicks-by-label', day(120)), // 日数の窓で古い → 消える
-    ga4('ga4.cta-clicks-by-label', day(5)),
-    ga4('gsc.page-query', day(100)), // pin → 残る
-    ga4('gsc.page-query', day(95)), // 古い → 消える
-    ga4('gsc.page-query', day(1)),
+    monthly, // 月次の by-label を持つ → 古くても残る
+    dayReport('ga4', 120), // 古い → 消える
+    dayReport('ga4', 10),
+    dayReport('gsc', 100), // pin → 残る
+    dayReport('gsc', 95), // 古い → 消える
+    dayReport('gsc', 1),
   ];
-  const readJson = (f) => ({ meta: { windowKind: f === monthly ? 'month' : 'days' } });
-  const pins = new Set([ga4('gsc.page-query', day(100))]);
+  const readJson = (f) => (f === monthly ? { reports: { 'cta-clicks-by-label:month': { meta: { windowKind: 'month' } } } } : { reports: {} });
+  const pins = new Set([dayReport('gsc', 100)]);
   const r = plan({ files, now: NOW, pins, readJson });
   const by = Object.fromEntries(r.entries.map((e) => [e.file, e]));
-  assert.equal(by[ga4('ga4.channel', day(200))].decision, 'keep');
-  assert.equal(by[ga4('ga4.page', day(200))].decision, 'delete');
   assert.equal(by[monthly].decision, 'keep');
   assert.match(by[monthly].reason, /windowKind=month/);
-  assert.equal(by[ga4('ga4.cta-clicks-by-label', day(120))].decision, 'delete');
-  assert.equal(by[ga4('gsc.page-query', day(100))].reason, 'pinned by name');
-  assert.equal(by[ga4('gsc.page-query', day(95))].decision, 'delete');
+  assert.equal(by[dayReport('ga4', 120)].decision, 'delete');
+  assert.equal(by[dayReport('ga4', 10)].decision, 'keep');
+  assert.equal(by[dayReport('gsc', 100)].reason, 'pinned by name');
+  assert.equal(by[dayReport('gsc', 95)].decision, 'delete');
+  assert.equal(by[dayReport('gsc', 1)].decision, 'keep');
+});
+
+test('plan: 日ごとのレポートは、各種類の最新を含む日を古くても残す（一度しか取っていない種類を消さない）', () => {
+  const onlySource = dayReport('ga4', 300);
+  const files = [onlySource, dayReport('ga4', 200), dayReport('ga4', 1)];
+  const readJson = (f) => ({ reports: f === onlySource ? { source: {}, page: {} } : { page: {} } });
+  const r = plan({ files, now: NOW, readJson });
+  const by = Object.fromEntries(r.entries.map((e) => [e.file, e]));
+  assert.equal(by[onlySource].decision, 'keep');
+  assert.match(by[onlySource].reason, /newest of source/);
+  assert.equal(by[dayReport('ga4', 200)].decision, 'delete');
 });
 
 test('plan: 寿命の無い日付付きファイルは undeclared として数え、消さない。--family は他 family を skipped にする', () => {
   const mystery = `data/psi/batch/mystery-${day(1)}.json`;
-  const files = [mystery, psi(day(1)), ga4('ga4.date', day(1))];
+  const files = [mystery, psi(day(1)), dayReport('ga4', 1)];
   const r = plan({ files, now: NOW, families: ['psi'] });
   assert.deepEqual(r.summary.undeclared, [mystery]);
   assert.equal(r.summary.skipped, 1);
@@ -123,13 +132,13 @@ test('plan: 週次は 26 週を残し索引の書き直し指示を返す。filt
   assert.ok(!next.weeks.some((w) => w.path.endsWith('2026-W01.json')));
 });
 
-test('collectPins: seo-watchwords の gsc evidence と business 台帳が指すパスを拾う', () => {
-  const src = ga4('gsc.page-query', '2026-09-10T22-51-42');
+test('collectPins: seo-watchwords の gsc evidence と business 台帳が指すパスを拾い、移す前の名前は今の置き場へ読み替える', () => {
+  const legacy = 'data/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json';
   const pins = collectPins({
-    watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: src } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
+    watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: legacy } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
     businessDocs: [`{"sources":[{"file":"${BUSINESS}"},{"file":"data/sales/sales-log.json"}]}`],
   });
-  assert.deepEqual([...pins].sort(), [BUSINESS, 'data/note/sales.json', src].sort(), '旧パスは新しい位置へ読み替える');
+  assert.deepEqual([...pins].sort(), [BUSINESS, 'data/gsc/reports/2026-09-11.json', 'data/note/sales.json'].sort(), '取得時刻の JST の日のファイル');
 });
 
 test('CLI: 実 repo で --check-coverage が未宣言 0 で exit 0（数を出力）', () => {

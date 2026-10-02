@@ -7,8 +7,8 @@
  *   - GSC UI 正規化: data/gsc/ui-urls.json（**追跡 SSOT・優先**）
  *                    無ければ data/gsc/ui/<run>/normalized/*.json（gitignore・そのマシンのみ）
  *   - URL Inspection: 台帳 gsc.url-inspection の最新（無ければ単発）
- *   - GSC page:       台帳 gsc.page の最新
- *   - GA4 page:       台帳 ga4.page の最新
+ *   - GSC page:       gsc.page の最新（data/gsc/reports/）
+ *   - GA4 page:       ga4.page の最新（data/ga4/reports/）
  *   - live sitemap:   https://doboku-note.com/sitemap.xml（取得可なら／不可なら out/sitemap.xml）
  *   - local sitemap:  out/sitemap.xml
  *   - _redirects:     public/_redirects
@@ -31,6 +31,7 @@ import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
 import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 import { latestFile } from "./lib/datasets.mjs";
+import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
 
 const M = "data/metrics";
@@ -144,10 +145,10 @@ function loadInspection() {
 /** GSC page 最新 → joinKey→{clicks,impressions,ctr,position}（page 次元を集約）。 */
 function loadGscPage() {
   // page×query を優先し page も許容。keys[0]=page。
-  const f = latestFile(".", "gsc.page");
+  const f = latestReportRef(".", "gsc.page");
   const map = new Map();
   if (!f) return { map, file: null };
-  const j = readJson(f);
+  const j = readJsonOrReport(".", f);
   for (const r of j?.rows || []) {
     const page = r.keys?.[0];
     if (!page || !/^https?:/i.test(page)) continue;
@@ -175,10 +176,10 @@ function loadGscPage() {
 
 /** GA4 page 最新 → joinKey→{activeUsers,sessions,engagementRate}。 */
 function loadGa4Page() {
-  const f = latestFile(".", "ga4.page");
+  const f = latestReportRef(".", "ga4.page");
   const map = new Map();
   if (!f) return { map, file: null };
-  const j = readJson(f);
+  const j = readJsonOrReport(".", f);
   for (const r of j?.rows || []) {
     if (!r.page) continue;
     const key = toJoinKey(r.page);

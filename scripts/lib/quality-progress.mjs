@@ -2,7 +2,7 @@
  * quality-progress.mjs — 総監キーワードページ（cem プロファイル）の品質サイクル進捗を組み立てる唯一の実装。
  * ---------------------------------------------------------------------------
  * 入力: .claude/state/quality-scores.json（5 軸スコア）・quality-cycle-state.json（status / history）・
- *       keyword-summaries.json（題名）・data/metrics/gsc/gsc-page-*.json の最新（順位・表示・クリック）。
+ *       keyword-summaries.json（題名）・GSC の page の最新（data/gsc/reports/・順位・表示・クリック）。
  * 読み手: 管理画面 管理 ＞ 品質概観 ＞ 品質サイクル進捗（/quality/progress）。
  * 旧 docs/editorial/05_品質サイクル進捗.md（build-progress-md.mjs が md へ書き出していた）を 2026-09-27 に置き換えた。
  * ---------------------------------------------------------------------------
@@ -10,6 +10,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { slugFromKey } from './url-normalization.mjs';
+import { latestReport } from './metric-reports.mjs';
 
 const SLUG_PREFIX = 'pe-comprehensive-management-';
 
@@ -17,14 +18,9 @@ function loadJson(p) {
   return JSON.parse(readFileSync(p, 'utf8'));
 }
 
-function loadLatestGscPage(GSC_DIR) {
-  const files = readdirSync(GSC_DIR)
-    // gsc-page-query-* は検索語×ページの別集計（ページ単位の表示が検索語ごとに割れる）。ページ単位の gsc-page-YYYY-* だけを読む
-    .filter((f) => /^gsc-page-\d{4}-/.test(f) && f.endsWith('.json'))
-    .sort();
-  if (files.length === 0) return { rows: [], file: null };
-  const latest = files[files.length - 1];
-  return { ...loadJson(join(GSC_DIR, latest)), file: latest };
+function loadLatestGscPage(root) {
+  const r = latestReport(root, 'gsc.page');
+  return r ? { ...r.data, file: r.ref } : { rows: [], file: null };
 }
 
 // 旧 /docs/pe-comprehensive-management-{slug} と 2026-08-22 移行後の新 URL
@@ -99,8 +95,7 @@ export function loadQualityProgress(root) {
   const scores = loadJson(p('quality-scores.json'));
   const state = loadJson(p('quality-cycle-state.json'));
   const summaries = existsSync(p('keyword-summaries.json')) ? loadJson(p('keyword-summaries.json')) : { keywords: {} };
-  const gscDir = join(root, 'data/metrics/gsc'); // 計測の記録は data/（品質サイクルの状態は .claude/state）
-  const gsc = existsSync(gscDir) ? loadLatestGscPage(gscDir) : { rows: [], file: null };
+  const gsc = loadLatestGscPage(root); // 計測の記録は data/（品質サイクルの状態は .claude/state）
   const rows = buildRows({ scores, state, summaries, gsc });
   return { present: true, rows, summary: summarize(rows), gscFile: gsc.file, scoresAt: scores.scored_at ?? null };
 }

@@ -2,7 +2,7 @@
 /**
  * build-popular-pages.mjs
  *
- * 最新の GA4 ページ別スナップショット（data/metrics/ga4/ga4-page-*.json、
+ * 最新の GA4 ページ別レポート（data/ga4/reports/<日付>.json の page、
  * CI が `npm run fetch-ga4-data -- --dimension page` で取得・コミット）を読み、
  * 正規公開 URL（および移行期間中の旧 /docs URL）の記事を activeUsers 降順に並べた
  * `src/config/popular-pages.json` を生成する。
@@ -16,21 +16,13 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { slugFromKey } from './lib/url-normalization.mjs';
+import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
 
-const GA4_DIR = join(process.cwd(), 'data', 'metrics', 'ga4');
 const OUT = join(process.cwd(), 'src', 'config', 'popular-pages.json');
 
-/** 最新の ga4-page-*.json（ファイル名のタイムスタンプ順）を返す。無ければ null。 */
+/** 最新の GA4 ページ別レポートの参照（data/ga4/reports/<日付>.json#page）。無ければ null。 */
 function latestPageSnapshot() {
-  let files;
-  try {
-    files = readdirSync(GA4_DIR).filter((f) => f.startsWith('ga4-page-') && f.endsWith('.json'));
-  } catch {
-    return null;
-  }
-  if (files.length === 0) return null;
-  files.sort(); // ga4-page-YYYY-MM-DDThh-mm-ss.json は辞書順 = 時系列順
-  return join(GA4_DIR, files[files.length - 1]);
+  return latestReportRef('.', 'ga4.page');
 }
 
 function build() {
@@ -45,7 +37,7 @@ function build() {
 
   let data;
   try {
-    data = JSON.parse(readFileSync(snapshot, 'utf8'));
+    data = readJsonOrReport('.', snapshot);
   } catch {
     writeFileSync(OUT, JSON.stringify(empty, null, 2) + '\n');
     console.log('[build-popular-pages] スナップショット parse 失敗 → 空データを書き出し');

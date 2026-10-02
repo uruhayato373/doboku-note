@@ -7,7 +7,7 @@ import { reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, 
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
- for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/metrics/ga4','data/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
+ for(const p of ['config','.claude/state','data/note/referrers','data/note/articles-pv','data/kdp','data/ga4/reports','data/coconala','scripts/kindle-published'])mkdirSync(join(root,p),{recursive:true});
  for(const f of ['business-direction.json','qualification-registry.json'])writeFileSync(join(root,'config',f),readFileSync(join('config',f)));
  writeFileSync(join(root,'scripts/kindle-published/catalog.json'),JSON.stringify({books:[]}));
  writeFileSync(join(root,'data/experiments.json'),JSON.stringify({experiments:[{id:'SEO-test'},{id:'perf-lcp-mobile-2026-W17'}]})); return root;
@@ -104,7 +104,7 @@ test('coconala transaction snapshot supplies exact monthly orders and revenue',t
  assert.equal(r.cells.find(c=>c.qualification==='pe-construction'&&c.metric==='coconalaOrders').coverage,'not-applicable');
 });
 test('daily users never summed and different windows never substituted',t=>{
- const root=fixture(t);writeFileSync(join(root,'data/metrics/ga4/ga4-date-test.json'),JSON.stringify({meta:period,rows:[{activeUsers:10},{activeUsers:10}]}));
+ const root=fixture(t);mkdirSync(join(root,'data/ga4/reports'),{recursive:true});writeFileSync(join(root,'data/ga4/reports/2026-09-01.json'),JSON.stringify({schemaVersion:1,source:'ga4',date:'2026-09-01',reports:{date:{stamp:'2026-09-01T00-00-00',meta:period,rows:[{activeUsers:10},{activeUsers:10}]}}}));
  assert.equal(buildReport(root,period,now).cells[0].value,null);
  saveRecord(root,measure(),now);assert.equal(buildReport(root,{startDate:'2026-09-01',endDate:'2026-09-07'},now).cells.find(c=>c.metric==='notePv').value,null);
 });

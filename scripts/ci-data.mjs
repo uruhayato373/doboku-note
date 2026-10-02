@@ -13,7 +13,8 @@
  *   add [--paths a,b] [--datasets id,id]
  *       paths は実在する（作業ツリーか index にある）ものだけを git add -A、datasets は当たる変更ファイルだけを add する。
  *       無いパスは飛ばす。git の失敗は隠さない（exit 1）
- *   latest <id>      データセットの最新ファイルのパス（無ければ exit 1）
+ *   latest <id>      データセットの最新ファイルのパス（無ければ exit 1）。GA4・GSC のレポートの種類（ga4.page など）なら
+ *                    最新の「ファイル#枠」（scripts/lib/metric-reports.mjs）
  *   path <id>        データセットのパス（日時などの可変部分があれば、その手前のディレクトリ）
  *   put <id> <src>   可変部分の無いデータセットの位置へファイルを置く
  *   --root <dir>     対象の作業ツリー（既定はこのスクリプトのリポジトリ。node_modules の無い別の worktree で add するとき）
@@ -23,6 +24,7 @@ import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync,
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { AREAS, datasetDir, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
+import { REPORT_KINDS, latestReportRef } from './lib/metric-reports.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -169,8 +171,7 @@ function main() {
     console.log(`[ci-data] add: 対象 ${r.specs} 件・stage 済み ${r.staged} ファイル`);
   } else if (cmd === 'latest') {
     need(o._[0], 'latest <id> が要る');
-    dataset(o._[0]);
-    const p = latestFile(root, o._[0]);
+    const p = o._[0] in REPORT_KINDS ? latestReportRef(root, o._[0]) : (dataset(o._[0]), latestFile(root, o._[0]));
     if (!p) process.exit(1);
     process.stdout.write(`${p}\n`);
   } else if (cmd === 'path') {

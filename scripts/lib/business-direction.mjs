@@ -4,6 +4,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 import { datasetFiles, datasetPath } from './datasets.mjs';
+import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 
 export const DIRECTION = 'config/business-direction.json';
@@ -330,12 +331,14 @@ export function coconalaViewFacts({ snapshot, path }) {
 export function sourceFacts(root, c, period) {
   const facts = [];
   const put = (metric, value, sourcePeriod, file, qualification = 'all', coverage = 'complete', note = '') => facts.push({ metric, value, period: sourcePeriod, source: file, qualification, coverage, note });
-  const ga = latest(root, 'data/metrics/ga4', 'ga4-channel-organic-');
+  const gaReport = latestReport(root, 'ga4.channel-organic');
+  const ga = gaReport && { data: gaReport.data, file: gaReport.ref };
   if (ga && ga.data.meta?.organicOnly && ga.data.meta?.japanOnly) {
     const row = ga.data.rows?.find(r => r.channel === 'Organic Search');
     if (row) put('organicUsers', row.activeUsers, ga.data.meta, ga.file);
   }
-  const quiz = latest(root, 'data/metrics/ga4', 'ga4-quiz-funnel-');
+  const quizReport = latestReport(root, 'ga4.quiz-funnel');
+  const quiz = quizReport && { data: quizReport.data, file: quizReport.ref };
   if (quiz) for (const [event, metric] of [['quiz_start', 'quizStarts'], ['quiz_complete', 'quizCompletions']]) {
     const row = quiz.data.rows?.find(r => r.eventName === event);
     put(metric, row?.eventCount ?? null, quiz.data.meta, quiz.file, 'civil-construction-1', row ? 'complete' : 'partial', '無料演習ツールのみ。イベント欠落は0と確定しない。');
@@ -472,7 +475,7 @@ export function snapshot(root, period, now = new Date()) {
 }
 function snapshotUnlocked(root, period, now) {
   const report = buildReport(root, period, now);
-  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file))).digest('hex') }));
+  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   // note が確定前の月を含むスナップショットは、確定後に取り直す前提の暫定物として印を付ける（レビューは暫定にしかできない）
   const pendingFinalization = noteMonthsPendingFinalization(period, jst(now));
   return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources, ...(pendingFinalization.length ? { pendingFinalization } : {}) });

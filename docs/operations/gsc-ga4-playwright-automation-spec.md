@@ -251,8 +251,8 @@ GoogleのCSVはロケール、BOM、ファイル分割、列名が変化し得�
 
 - GSC UI正規化JSON
 - `data/gsc/url-inspection/` 最新batch
-- `data/metrics/gsc/gsc-page-query-*` 最新2件
-- `data/metrics/ga4/ga4-page-*` 最新2件
+- `gsc.page-query` 最新2件
+- `ga4.page` 最新2件
 - live `sitemap.xml`
 - `public/_redirects`
 - `out/`の生成HTML

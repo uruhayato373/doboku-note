@@ -5,6 +5,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { resolveMovedPath } from './lib/repository-paths.mjs';
+import { readReportRef } from './lib/metric-reports.mjs';
 import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun } from './lib/seo-rank-watch.mjs';
 
 export function observationViolations(before, after, changedPaths, getContent) {
@@ -48,8 +49,10 @@ function main() {
     if (!existsSync(join(root, w.contentPath))) errors.push(`Missing article: ${w.contentPath}`);
     if (!calendar.exams[w.qualification] || (w.examEvent && !calendar.exams[w.qualification].events[w.examEvent])) errors.push(`${w.id}: qualification/calendar event is missing`);
     if (w.evidence.kind === 'gsc') {
-      if (!w.evidence.source.startsWith('data/metrics/gsc/') || !existsSync(join(root, w.evidence.source))) errors.push(`${w.id}: GSC registration evidence is missing`);
-      else if (!JSON.parse(get(w.evidence.source)).rows?.some((r) => r.keys?.includes(w.keyword) && r.impressions > 0)) errors.push(`${w.id}: registered query has no impressions in its cited GSC source`);
+      // 根拠は GSC のレポート（「ファイル#枠」か、移す前の名前。readReportRef が両方読む）
+      const evidence = readReportRef(root, w.evidence.source);
+      if (!evidence) errors.push(`${w.id}: GSC registration evidence is missing`);
+      else if (!evidence.rows?.some((r) => r.keys?.includes(w.keyword) && r.impressions > 0)) errors.push(`${w.id}: registered query has no impressions in its cited GSC source`);
     }
   }
   for (const e of ledger.experiments.filter((e) => e.kind === KIND)) {
