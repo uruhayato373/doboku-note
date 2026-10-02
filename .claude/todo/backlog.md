@@ -197,16 +197,6 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0497] scheduled-publish の git add が移動前のパスで黙って失敗する（CI の X 投稿を再開する前に直す）
-タグ: [インフラ・計測] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-02]
-
-**起点**: 2026-10-02 の data/ 構成調査で見つけた。`.github/workflows/scheduled-publish.yml` の `git add content/sns/x .claude/state/x-publish .claude/state/x-repost data/x-repost 2>/dev/null || true` は、#814 で x-repost の記録を `data/x-repost` へ移した後も `.claude/state/x-repost` を指している。このディレクトリは停止スイッチ（`PAUSED`・git 管理外）を置いたときにしか存在しない。git add は存在しないパスが 1 つでもあると全体が失敗（exit 128）して何も stage せず、`2>/dev/null || true` がそれを隠す。CI からの X 投稿は 2026-09-28 から止めている（DN-0433 (e)）ので今は実害がないが、再開すると投稿記録（`.claude/state/x-publish/posted-log.jsonl`・`content/sns/x`・`data/x-repost`）がコミットされず、頻度ゲートの重複排除が効かなくなる。
-
-**やること**:
-1. 実在するパスだけを add する形に直し、`2>/dev/null || true` を外して add の失敗で job を赤にする。
-2. 同じ形（複数パスの git add を `|| true` で包む）のワークフローがほかにないか確かめ、あれば同じく直す。
-
-**完了条件**: `.claude/state/x-repost` が無い状態でも投稿記録が stage される。add が失敗したときは job が失敗する。
 
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
