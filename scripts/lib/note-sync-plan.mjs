@@ -169,11 +169,11 @@ export function withLiveCovers(plan, liveArticles) {
     const live = liveArticles[item.path];
     if (!live || live.error || item.reasons.cover) continue;
     const rec = ledger.articles[item.path];
-    const reason = !live.eyecatch ? no-cover : rec && sameImage(rec.liveUrl, live.eyecatch) === false ? live-changed : null;
+    const reason = !live.eyecatch ? 'no-cover' : rec && sameImage(rec.liveUrl, live.eyecatch) === false ? 'live-changed' : null;
     if (!reason) continue;
     item.reasons.cover = reason;
     item.parts = Object.keys(item.reasons);
-    if (item.status === synced) item.status = ready;
+    if (item.status === 'synced') item.status = 'ready';
     changed++;
   }
   return changed;
