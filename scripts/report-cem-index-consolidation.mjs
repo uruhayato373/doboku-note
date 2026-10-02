@@ -16,6 +16,7 @@ import {
   classifyCemIndexCandidate,
 } from "./lib/cem-index-classifier.mjs";
 import { toJoinKey } from "./lib/url-normalization.mjs";
+import { datasetFiles } from "./lib/datasets.mjs";
 import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 
 const ROOT = process.cwd();
@@ -92,13 +93,12 @@ function aggregateGa4(files) {
 }
 
 function loadInspectionMaps() {
-  const dir = join(METRICS, "url-inspection");
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((name) => name.startsWith("inspection-batch-") && name.endsWith(".json"))
+  return datasetFiles(ROOT, "gsc.url-inspection")
     .sort()
     .slice(-2)
-    .map((name) => {
+    .map((rel) => {
+      const name = rel.split("/").pop();
+      const dir = join(ROOT, rel.slice(0, -name.length - 1));
       const json = readJson(join(dir, name), { results: [] });
       const states = new Map();
       for (const row of json.results || []) {

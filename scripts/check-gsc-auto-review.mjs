@@ -37,13 +37,13 @@
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { basename, dirname, join } from "node:path";
+import { latestFile } from "./lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
 const LOG_PATH = ".claude/knowledge/reference/gsc-management.md";
-const BATCH_DIR = "data/metrics/url-inspection";
 const GSC_DIR = "data/metrics/gsc";
 const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";
 /** ログが肥大化したら年次アーカイブを促す観測点（無限成長の早期警戒）。 */
@@ -113,7 +113,7 @@ const logLines = md ? md.split(/\r?\n/).length : 0;
 // 判定の破損: ログが読めない、または見出しを 1 件も認識できない（形式変更・セクション消失）。
 const brokenInspection = md == null || headings.length === 0;
 
-const latestBatch = latestStampedDate(BATCH_DIR, "inspection-batch-");
+const latestBatch = latestFile(ROOT, "gsc.url-inspection") ? basename(latestFile(ROOT, "gsc.url-inspection")).slice(0, 10) : null;
 const latestGscQuery = latestStampedDate(GSC_DIR, "gsc-query-");
 
 const weeklyEntries = headings.filter((h) => h.weekly);

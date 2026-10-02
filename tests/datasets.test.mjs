@@ -18,7 +18,7 @@ test('patternOf: 日時・UUID・ハッシュの型で当て、名前の前方�
   );
   assert.deepEqual(idsFor('data/metrics/business/checks-monthly-2026-08-2026-10-01T06-52-13-780Z.json'), ['business.checks-monthly']);
   assert.deepEqual(idsFor('data/metrics/business/site-to-sales-2026-08-r2.json'), ['business.site-to-sales']);
-  assert.deepEqual(idsFor('data/metrics/gsc-ui/2026-07-30T05-41-28Z/normalized/notFound--allKnownPages.json'), ['gsc.ui-raw']);
+  assert.deepEqual(idsFor('data/gsc/ui/2026-07-30T05-41-28Z/normalized/notFound--allKnownPages.json'), ['gsc.ui-raw']);
   assert.ok(patternOf('data/a.json').test('data/a.json'));
   assert.ok(!patternOf('data/a.json').test('data/aXjson'), '. は文字どおり');
 });

@@ -3,22 +3,22 @@
  *
  * Usage:
  *   node .claude/scripts/analyze-gsc-coverage.mjs \
- *     --inspection-glob "data/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
+ *     --inspection-glob "data/gsc/url-inspection/2026-04-27*.json" \
  *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json \
  *     --query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-31.json \
  *     --brand-query-data data/metrics/gsc/gsc-query-2026-04-27T11-15-32.json \
  *     --url-dir .tmp/gsc-urls/
  *
  * 出力:
- *   data/metrics/gsc/coverage-diagnosis-{ts}.json
- *   data/metrics/gsc/coverage-diagnosis-{ts}.md
+ *   data/analysis/gsc-coverage-diagnosis/{ts}.json
+ *   .tmp/gsc-coverage-diagnosis-{ts}.md（人が読む報告・追跡しない）
  */
 
-import { readFileSync, writeFileSync, existsSync, readdirSync } from "fs";
-import { join, basename } from "path";
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "fs";
+import { join, basename, dirname } from "path";
+import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { glob } from "glob";
 
-const OUTPUT_DIR = "data/metrics/gsc";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -507,10 +507,10 @@ function generateMarkdown(agg, findings) {
   // raw data refs
   lines.push(`### 生データ`);
   lines.push(``);
-  lines.push(`- URL Inspection 結果: \`data/metrics/url-inspection/inspection-batch-2026-04-27*.json\``);
+  lines.push(`- URL Inspection 結果: \`data/gsc/url-inspection/2026-04-27*.json\``);
   lines.push(`- Search Analytics page: \`data/metrics/gsc/gsc-page-2026-04-27*.json\``);
   lines.push(`- Search Analytics query: \`data/metrics/gsc/gsc-query-2026-04-27*.json\``);
-  lines.push(`- 集計 JSON: \`data/metrics/gsc/coverage-diagnosis-{ts}.json\``);
+  lines.push(`- 集計 JSON: \`data/analysis/gsc-coverage-diagnosis/{ts}.json\``);
   lines.push(``);
 
   return lines.join("\n");
@@ -540,8 +540,10 @@ async function main() {
   agg.diagnosis = findings;
 
   const ts = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const jsonPath = join(OUTPUT_DIR, `coverage-diagnosis-${ts}.json`);
-  const mdPath = join(OUTPUT_DIR, `coverage-diagnosis-${ts}.md`);
+  const jsonPath = datasetPath("analysis.gsc-coverage-diagnosis", { ts });
+  const mdPath = join(".tmp", `gsc-coverage-diagnosis-${ts}.md`);
+  mkdirSync(dirname(jsonPath), { recursive: true });
+  mkdirSync(".tmp", { recursive: true });
   writeFileSync(jsonPath, JSON.stringify(agg, null, 2), "utf-8");
   const md = generateMarkdown(agg, findings);
   writeFileSync(mdPath, md, "utf-8");

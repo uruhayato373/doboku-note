@@ -13,22 +13,21 @@
  * ---------------------------------------------------------------------------
  */
 import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
+import { datasetPath } from "./lib/datasets.mjs";
 import { evaluateIndexingDue } from "./lib/gsc-indexing-priority.mjs";
 
-const DIR = "data/metrics/gsc-indexing";
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes("--json");
 const di = args.indexOf("--days");
 const thresholdDays = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 7 : 7;
 
-const pPath = join(DIR, "priority-latest.json");
-const hPath = join(DIR, "history.json");
+const pPath = datasetPath("gsc.indexing-priority");
+const hPath = datasetPath("gsc.indexing-history");
 const priority = existsSync(pPath) ? JSON.parse(readFileSync(pPath, "utf8")) : null;
 const requestRuns = existsSync(hPath) ? JSON.parse(readFileSync(hPath, "utf8")).runs ?? [] : [];
 
 const verdict = evaluateIndexingDue({ priority, requestRuns, thresholdDays });
-const command = "npm run gsc-indexing:request -- --file data/metrics/gsc-indexing/priority-latest.txt（ローカル・Google ログイン必須・10 件/回）";
+const command = "npm run gsc-indexing:request -- --file data/gsc/indexing-priority.txt（ローカル・Google ログイン必須・10 件/回）";
 const result = { channel: "gsc-indexing", label: "GSC 登録リクエスト", generatedAt: priority?.generatedAt ?? null, thresholdDays, ...verdict, command };
 
 if (JSON_OUT) {

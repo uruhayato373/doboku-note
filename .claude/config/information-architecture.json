@@ -129,7 +129,16 @@
       "data/metrics/rum",
       "data/metrics/cloudflare",
       "data/metrics/instagram",
-      "data/metrics/seo-meta"
+      "data/metrics/seo-meta",
+      "data/metrics/url-inspection",
+      "data/metrics/gsc-indexing",
+      "data/metrics/gsc-ui/ssot",
+      "data/metrics/ga4-admin",
+      "data/metrics/notes",
+      "data/metrics/gsc/sitemaps-latest.json",
+      "data/metrics/gsc/index-coverage-history.json",
+      "data/metrics/gsc-ui/last-run.json",
+      "data/metrics/ga4-ui/last-run.json"
     ]
   },
   "docsIsNotContent": {
@@ -304,7 +313,16 @@
       "data/metrics/rum/",
       "data/metrics/cloudflare/",
       "data/metrics/instagram/",
-      "data/metrics/seo-meta/"
+      "data/metrics/seo-meta/",
+      "data/metrics/url-inspection/",
+      "data/metrics/gsc-indexing/",
+      "data/metrics/gsc-ui/ssot/",
+      "data/metrics/ga4-admin/",
+      "data/metrics/notes/",
+      "data/metrics/gsc/sitemaps-latest.json",
+      "data/metrics/gsc/index-coverage-history.json",
+      "data/metrics/gsc-ui/last-run.json",
+      "data/metrics/ga4-ui/last-run.json"
     ],
     "scanGlobs": [
       "scripts/",
@@ -332,7 +350,8 @@
       "scripts/check-relative-links.mjs",
       "scripts/lib/repository-paths.mjs",
       "scripts/lib/prune-state-snapshots.mjs",
-      "tests/prune-state-snapshots.test.mjs"
+      "tests/prune-state-snapshots.test.mjs",
+      "scripts/lib/index-coverage.mjs"
     ]
   }
 }

@@ -16,8 +16,8 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 ## 担当範囲
 
-- `data/metrics/url-inspection/inspection-batch-*.json`（最新1件）の読み込み
-- `data/metrics/gsc/index-coverage-history.json`（時系列）の読み込みと**前回エントリとの差分**
+- `data/gsc/url-inspection/*.json`（最新1件）の読み込み
+- `data/gsc/index-coverage.json`（時系列）の読み込みと**前回エントリとの差分**
 - coverage_state ごとの件数分類（下記 7 バケット）
 - `indexed_ratio = indexed / sitemap_urls` の算出と閾値判定
 - **原因バケット診断**（3 区分）
@@ -38,8 +38,8 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 | ファイル | 取得元 |
 |---|---|
-| `data/metrics/url-inspection/inspection-batch-*.json`（最新） | `index-coverage.yml`（CI 月次） |
-| `data/metrics/gsc/index-coverage-history.json` | 同 CI が append |
+| `data/gsc/url-inspection/*.json`（最新） | `index-coverage.yml`（CI 月次） |
+| `data/gsc/index-coverage.json` | 同 CI が append |
 
 履歴が 1 点しか無い場合は差分をスキップし「初回/単一点」と明示する。
 
@@ -106,8 +106,8 @@ URL Inspection のスナップショットを読み込み、**サイトの index
 
 ## 実行手順
 
-1. **最新 batch 特定**: `data/metrics/url-inspection/` を Glob で探索し最新の `inspection-batch-*.json` を選ぶ
-2. **history 読み込み**: `index-coverage-history.json` を読み、最新エントリ（=今回 CI 追記分）と前回エントリを取得
+1. **最新 batch 特定**: `data/gsc/url-inspection/` を Glob で探索し最新の `data/gsc/url-inspection/*.json` を選ぶ
+2. **history 読み込み**: `data/gsc/index-coverage.json` を読み、最新エントリ（=今回 CI 追記分）と前回エントリを取得
 3. **集計の検算**: history の最新エントリ件数と batch の `results` 件数が整合するか確認（不整合ならフラグ）
 4. **原因バケット判定**: batch の `results[].index.page_fetch_state` / `coverage_state` / canonical を走査
 5. **hygiene URL 抽出**: 404 / redirect / canonical 不一致の `url` を列挙

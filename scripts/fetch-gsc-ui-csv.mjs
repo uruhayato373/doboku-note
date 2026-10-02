@@ -23,6 +23,7 @@
  */
 import { mkdirSync, writeFileSync, existsSync, readFileSync, renameSync } from "node:fs";
 import { join } from "node:path";
+import { markerPath, rawDir } from "./lib/google-console-ssot.mjs";
 import { execSync } from "node:child_process";
 import { inflateRawSync } from "node:zlib";
 import {
@@ -39,7 +40,7 @@ import {
 import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 
-const STATE_DIR = "data/metrics/gsc-ui";
+const STATE_DIR = rawDir("gsc-ui");
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -459,11 +460,11 @@ function bail(manifest, runDir, status, exitCode) {
 }
 
 /**
- * 最新取得マーカーを STATE_DIR 直下に書く（run 生データは gitignore・これだけ commit する）。
+ * 最新取得マーカーを data/gsc/ui-last-run.json に書く（run 生データは gitignore・これだけ commit する）。
  * 失敗 run が直前の成功記録を消さないよう、既存マーカーを読んで lastComplete を引き継ぐ。
  */
 function writeLastRunMarker(manifest, judged) {
-  const path = join(STATE_DIR, "last-run.json");
+  const path = markerPath("gsc-ui");
   let prev = null;
   try {
     prev = JSON.parse(readFileSync(path, "utf-8"));

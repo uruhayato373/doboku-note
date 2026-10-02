@@ -10,7 +10,7 @@
  *
  * Usage:
  *   node .claude/scripts/build-noindex-candidates.mjs \
- *     --inspection-glob "data/metrics/url-inspection/inspection-batch-2026-04-27*.json" \
+ *     --inspection-glob "data/gsc/url-inspection/2026-04-27*.json" \
  *     --page-data data/metrics/gsc/gsc-page-2026-04-27T11-15-23.json
  */
 

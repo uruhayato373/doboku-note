@@ -24,6 +24,7 @@
  */
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { markerPath, rawDir } from "./lib/google-console-ssot.mjs";
 import { execSync } from "node:child_process";
 import {
   loadConfig,
@@ -37,7 +38,7 @@ import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 import { assertGa4Property } from "./lib/google-console-browser.mjs";
 
-const STATE_DIR = "data/metrics/ga4-ui";
+const STATE_DIR = rawDir("ga4-ui");
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -167,7 +168,7 @@ async function main() {
  * 「GA4 UI 経路が一度も走っていない」ことすら surface されなかった（2026-07-30 追加）。
  */
 function writeLastRunMarker(manifest, judged) {
-  const path = join(STATE_DIR, "last-run.json");
+  const path = markerPath("ga4-ui");
   let prev = null;
   try {
     prev = JSON.parse(readFileSync(path, "utf-8"));

@@ -53,7 +53,7 @@ npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --gr
 - **既定 dry-run**。送信は `--commit`（`:request`）のみ。1 回の送信上限は既定 10 件（日次クォータ配慮）。
   上限やクォータで送れなかった分は `limit-reached` / `quota-exceeded` として記録され、次回に回る。
 - 送信後に受理文言を確認し、読めなければ `unconfirmed`＝成功にカウントしない。
-- **記録の SSOT は `data/metrics/gsc-indexing/{requests-latest,history}.json`**（追跡）。
+- **記録の SSOT は `data/gsc/indexing-{requests,history}.json`**（追跡）。
   手書きノートは作らない（`.claude/state/*.md` 新規作成禁止）。
 - pending 表示（上の resume 画面）は history.json の `limit-reached` / `quota-exceeded` から組む。
 
@@ -135,7 +135,7 @@ abandoned  abandoned  running (re-measure)
      ・civil-construction-1-textbook-construction-mgmt-overview
      ・civil-construction-1-guide-earthwork-key-points
    理由: GSC 1 日クォータ上限到達
-   参照: data/metrics/gsc-indexing/history.json（機械記録・SSOT）
+   参照: data/gsc/indexing-history.json（機械記録・SSOT）
 ```
 
 5. ユーザーに「どの action から進めるか」を問う。「EXP-001 を resume して」等の返答があれば `resume` サブモードへ遷移。

@@ -6,7 +6,7 @@
 ## 生成物の置き場
 
 ```
-data/metrics/gsc-ui/<run-id>/
+data/gsc/ui/<run-id>/
 ├── manifest.json                              # 取得メタ（fetch-gsc-ui-csv.mjs）
 ├── <issue>--<scope>--<run-id>.csv             # raw CSV（上書きしない）
 └── normalized/
@@ -85,7 +85,7 @@ data/metrics/gsc-ui/<run-id>/
   run ディレクトリは gitignore なので、worktree を捨てると URL 情報が消えていた。
 
 ```
-data/metrics/gsc-ui/
+data/gsc/
   last-run.json                  # 追跡（schemaVersion 3: lastAttempt / lastComplete / legacy）
   ssot/                          # 追跡（.gitignore の `!.../ssot/` で例外化）
     urls/<issue>--<scope>.json   # 最新の正規化 URL 一覧（lean 射影＝raw 列を落とす。rejects は残す）
@@ -100,5 +100,5 @@ data/metrics/gsc-ui/
 ## GA4 UI CSV
 
 一次経路は Data API（`npm run fetch-ga4-data`）。UI CSV は API で再現できない探索/照合用の
-バックアップとして `data/metrics/ga4-ui/<run-id>/` に raw + manifest を保存する
+バックアップとして `data/ga4/ui/<run-id>/` に raw + manifest を保存する
 （28 日窓・Asia/Tokyo を manifest.window に記録・`apiPreferred: true`）。

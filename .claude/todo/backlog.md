@@ -1119,7 +1119,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **追記（2026-09-27）**: 未登録ページを統合・noindex する基準もこのカードで決める（旧 DN-0320 の ③）。
 
-**追記（2026-09-27・集客点検）**: 対象を建設部門・RCCM に限らず、`data/metrics/gsc-indexing/priority-latest.txt` の需要あり未登録 38 件（総監 cost-benefit-analysis・1級 guide/construction-plan・2級 guide/schedule-management など）へ広げる。 2026-09-27 の教材配線先の点検では、教材から配線した 1級 textbook 7 本（steel-structures・water-sewer・coast-port・dam-construction・tunnel-natm・sabo-landslide・railway-underground）・1級 guide 2 本・2級 guide 4 本（exam-overview・concrete-key-points・quality-management・study-method）も未登録で表示 0。2級二次（10/25）前に 2級分を先に見る。
+**追記（2026-09-27・集客点検）**: 対象を建設部門・RCCM に限らず、`data/gsc/indexing-priority.txt` の需要あり未登録 38 件（総監 cost-benefit-analysis・1級 guide/construction-plan・2級 guide/schedule-management など）へ広げる。 2026-09-27 の教材配線先の点検では、教材から配線した 1級 textbook 7 本（steel-structures・water-sewer・coast-port・dam-construction・tunnel-natm・sabo-landslide・railway-underground）・1級 guide 2 本・2級 guide 4 本（exam-overview・concrete-key-points・quality-management・study-method）も未登録で表示 0。2級二次（10/25）前に 2級分を先に見る。
 
 **進捗（2026-09-27）**: 2026-09-23 の URL 検査で未登録 144 件を分類。本番の sitemap.xml 漏れ 0・canonical 誤り 0・被リンク数と本文量は登録済みと差なし。大半は「検出 - 未登録」（未クロール）で、建設部門 50・RCCM 7・1級 20・2級 21。総監 13 件と 1級 2 件は Google が旧 /docs/ URL を正規に選んだまま（301 済み・旧 URL 用 sitemap は 11/30 まで）。本文からの被リンクが 0〜1 件だった 2級一次過去問 10 回分・2級ガイド 5 本・1級ガイド 4 本へ内部リンクを追加した（814de5390）。コードとコンテンツで打てる手は尽きたので、残りは GSC での登録リクエスト（ブラウザ作業・2級二次関連と RCCM を優先）と次の URL 検査での確認。
 
