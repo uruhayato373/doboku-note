@@ -37,6 +37,10 @@ export default function MagazineTopBanner({
   if (image) return <NoteImageCta href={url} image={image}
     trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} className="mb-8" />;
   const brand = brandOf(magazineId);
+  // コンパクト型なので価格は先頭の金額だけを出す。catalog の price は「¥2,480（模試3回＋暗記ノート＋
+  // 出題分析・単品合計¥3,140、約21%OFF）」のように長いことがあり、縮まない価格欄が行幅を占有して
+  // タイトル幅が 0 になり 1 文字ずつ縦に並んでいた（2026-10-02 本番で確認）。内訳は遷移先と末尾カードが持つ。
+  const headlinePrice = price?.match(/^¥[\d,]+/)?.[0] ?? price;
 
   return (
     <a
@@ -74,9 +78,9 @@ export default function MagazineTopBanner({
           </div>
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          {price && (
-            <span className="hidden text-[13px] font-bold text-ink-strong sm:block">
-              {price}
+          {headlinePrice && (
+            <span className="hidden whitespace-nowrap text-[13px] font-bold text-ink-strong sm:block">
+              {headlinePrice}
             </span>
           )}
           <span className="text-lg text-brand-deep dark:text-brand" aria-hidden="true">

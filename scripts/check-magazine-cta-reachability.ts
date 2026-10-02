@@ -30,9 +30,14 @@
  * だけを落とす（content-quality-ratchet と同じラチェット方式）。もくじタイル経由かどうかの
  * 推測判定は置かない——曖昧な warn は「検査したのに素通り」を作るため、0 面は 0 面と数える。
  *
+ * ページ単位（2026-10-02 追加）: 1級・2級土木の公開記事（career 以外）で、上の手段が 1 つも
+ * 成立しないページを数える。マガジン単位の検査は「各商品が 1 面以上」なので、新しい記事を
+ * placement の許可リストへ足し忘れても、その商品が他ページに面を持てば素通りする（2級 重要
+ * ポイント 5 本と 1級 2 本が CTA ゼロのまま公開されていた）。例外は baseline の zeroPage に理由付きで記録する。
+ *
  * 使い方:
  *   npx tsx scripts/check-magazine-cta-reachability.ts        # レポート（exit 0）
- *   npx tsx scripts/check-magazine-cta-reachability.ts --ci   # 到達 0 面があれば exit 1
+ *   npx tsx scripts/check-magazine-cta-reachability.ts --ci   # 到達 0 面のマガジン・CTA ゼロのページがあれば exit 1
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
@@ -77,7 +82,7 @@ const MID_MIN_CHARS = 8000;
 const MID_SLOT_MIN_H2 = 3;
 const MID_SLOT_MIN_CHARS = 2500;
 
-type Doc = { slug: string; category: string; group: string; body: string; isCareer: boolean };
+type Doc = { slug: string; category: string; group: string; body: string; isCareer: boolean; isPublished: boolean };
 
 // src/lib/doc-classifier.ts:31-39 と同じ対応表。frontmatter の生値 → DocGroupKey。
 const GROUP_FIELD_MAP: Record<string, string> = {
@@ -115,6 +120,7 @@ function collectDocs(): Doc[] {
         group: GROUP_FIELD_MAP[rawGroup] ?? rawGroup,
         body: raw.replace(/^---[\s\S]*?\n---\n/, ''),
         isCareer,
+        isPublished: !/^published:\s*false\s*$/m.test(fm),
       });
     }
   }
@@ -146,9 +152,15 @@ const hasMidSlot = (d: Doc): boolean => {
 const hubSrc = readFileSync(join(ROOT, 'src/lib/hub-cta.ts'), 'utf8');
 const hubCategories = new Set([...hubSrc.matchAll(/^\s{2}'([a-z0-9-]+)':\s*\{/gm)].map((m) => m[1]!));
 
-const baseline: Record<string, string> = existsSync(EXEMPT_PATH)
-  ? (JSON.parse(readFileSync(EXEMPT_PATH, 'utf8')).zeroSurface ?? {})
-  : {};
+const baselineJson = existsSync(EXEMPT_PATH) ? JSON.parse(readFileSync(EXEMPT_PATH, 'utf8')) : {};
+const baseline: Record<string, string> = baselineJson.zeroSurface ?? {};
+// ページ単位の CTA ゼロ（1級・2級土木）の理由付き例外。key は記事 slug（{category}-{name}）。
+const zeroPageBaseline: Record<string, string> = baselineJson.zeroPage ?? {};
+
+// ページ単位の検査対象。土木は記事単位の配線（placement の許可リスト）に頼るため、新しい記事を
+// 許可リストへ足し忘れると CTA ゼロのまま公開される（2026-10-02: 2級 重要ポイント 5 本・1級 2 本）。
+// マガジン単位の検査（各商品が 1 面以上）では、他ページで面を持つ商品ばかりなので素通りする。
+const PAGE_GATE_CATEGORIES = new Set(['civil-construction-1', 'civil-construction-2']);
 
 type Reach = { id: string; routes: string[]; categories: Set<string> };
 const reach = new Map<string, Reach>();
@@ -228,4 +240,37 @@ if (newZero.length) {
   if (CI) process.exit(1);
 } else {
   console.log(`\n✓ 新規の 0 面マガジンなし（0 面 ${zero.length} 件はすべて baseline 記載）`);
+}
+
+// ── ページ単位: 1級・2級土木の公開記事に note CTA が 1 つも出ないページ ──────────────
+// 面の数え方はマガジン単位と同じ（top / 中間 CTA / MagazineCard / 非 HUB のサイドバー）。
+// career 記事は note CTA を出さない設計（resolvePlacement の 0 番ガード）なので対象外。
+const pageSurfaces = new Map<string, number>();
+for (const r of reach.values()) {
+  for (const route of r.routes) {
+    const slug = route.slice(route.indexOf(':') + 1);
+    pageSurfaces.set(slug, (pageSurfaces.get(slug) ?? 0) + 1);
+  }
+}
+const gateDocs = docs.filter((d) => PAGE_GATE_CATEGORIES.has(d.category) && d.isPublished);
+const gateTargets = gateDocs.filter((d) => !d.isCareer);
+const zeroPages = gateTargets.filter((d) => !pageSurfaces.get(d.slug));
+const newZeroPages = zeroPages.filter((d) => !zeroPageBaseline[d.slug]);
+const fixedPages = Object.keys(zeroPageBaseline).filter((slug) => pageSurfaces.get(slug));
+console.log(`\n[page-gate] 1級・2級土木の公開記事 ${gateDocs.length} 本（career ${gateDocs.length - gateTargets.length} 本は対象外）/ 実検査 ${gateTargets.length} 本 / CTA ゼロ ${zeroPages.length} 本（baseline 外 ${newZeroPages.length} 本）`);
+for (const d of zeroPages) {
+  console.log(`  ${zeroPageBaseline[d.slug] ? '-' : '✗'} ${d.slug}${zeroPageBaseline[d.slug] ? `（baseline: ${zeroPageBaseline[d.slug]}）` : ''}`);
+}
+if (fixedPages.length) console.log(`  info: baseline 掲載だが CTA が付いた ${fixedPages.length} 本（baseline から削除してよい）: ${fixedPages.join(', ')}`);
+if (!gateTargets.length) {
+  console.error('✗ 検査不成立: 1級・2級土木の公開記事が 0 本（走査経路が壊れている）');
+  process.exit(1);
+}
+if (newZeroPages.length) {
+  console.error(`✗ note CTA が 1 つも出ない公開記事（baseline 外）${newZeroPages.length} 本`);
+  console.error('  対処: magazine-placement.ts の許可リスト（CIVIL_EXAM_PREP_GUIDES 等）に slug を足す / 本文に <MagazineCard> を置く /');
+  console.error('        CTA を持たない設計なら .claude/config/magazine-cta-baseline.json の zeroPage に理由付きで登録する');
+  if (CI) process.exit(1);
+} else {
+  console.log('✓ ページ単位の CTA ゼロなし（baseline 外）');
 }

@@ -23,5 +23,38 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典17ページを1問ずつ照合し、問題文・選択肢・極性・Ⅳ-13の表画像が原典と一致、公式正答35問は全件一致、Ⅳ-28・Ⅳ-30は再計算して一致。Ⅳ-5の高分子凝集剤の根拠不明な基準記述、Ⅳ-16の水質基準項目数の記述、Ⅳ-17の放射性セシウムの吸着剤の記述を、確認できる範囲の表現へ修正。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅳ-25②",
+        "verdict": "unconfirmable",
+        "sources": [],
+        "note": "学術文献で幅は水深の1〜2倍。指針本文は未確認"
+      },
+      {
+        "q": "Ⅳ-8ア",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/common/830003584.pdf"
+        ],
+        "note": "数ヶ月間隔の薬品洗浄"
+      },
+      {
+        "q": "Ⅳ-19",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.mlit.go.jp/mizukokudo/sewerage/content/001386020.pdf"
+        ],
+        "note": "確率年 5〜10 年が標準"
+      }
+    ]
   }
 }

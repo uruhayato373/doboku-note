@@ -943,12 +943,20 @@ try {
   // ═══════════════ 新規提出フロー（既定 / --commit-publish で出版）═══════════════
   // ── 再開: draftAsin があれば既存ドラフトへ、無ければ新規作成 ──
   const existingDraft = getDraftAsin(ID);
+  // 新規作成の詳細フォームも再認証（/ap/signin・max_auth_age=0）を挟む。以前は page.goto だけで、
+  // サインイン画面のまま #data-title を 30 秒待ってタイムアウトしていた（2026-10-02 j-02・DN-0262）。
+  let reached;
   if (existingDraft) {
     console.log(`[2] 既存ドラフト ${existingDraft} を再開（重複作成しない）`);
-    await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${existingDraft}/details`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    reached = await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${existingDraft}/details`);
   } else {
     console.log('[2] 新規 Kindle 本 詳細フォームへ…');
-    await page.goto('https://kdp.amazon.co.jp/action/mangaactions.createkindle/ja_JP/title-setup/kindle/new/details', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    reached = await gotoTitleSetup(page, 'https://kdp.amazon.co.jp/action/mangaactions.createkindle/ja_JP/title-setup/kindle/new/details');
+  }
+  if (!reached) {
+    console.error('ABORT: KDP がパスワードの再入力を求めたまま（3 分以内に入力されなかった）。KDP の永続プロファイルでサインインし直してから再実行する（本は作成されていない）');
+    await ctx.close();
+    process.exit(3);
   }
   await page.waitForSelector('#data-title', { timeout: 30000 });
   await sleep(1500);

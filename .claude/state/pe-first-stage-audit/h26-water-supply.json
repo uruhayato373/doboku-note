@@ -23,5 +23,65 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典18ページ35問を直接照合し問題文・選択肢の相違なし、公式正答35問は全件一致。水道施設設計指針2012・水道施設維持管理指針2006・千葉市/横浜市下水道設計指針等で数値を確認し、Ⅲ-3、Ⅲ-4、Ⅲ-5、Ⅲ-9、Ⅲ-10、Ⅲ-15、Ⅲ-19、Ⅲ-21、Ⅲ-27、Ⅲ-32の解説を根拠付きに改稿。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-12②",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/001037879.pdf",
+          "https://www.mlit.go.jp/common/830004065.pdf"
+        ],
+        "note": "効率特性の出典なし。揚程と使用実態のみ"
+      },
+      {
+        "q": "Ⅲ-14④",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/830003584.pdf"
+        ],
+        "note": "濃縮前処理の記述なし。設計指針の解説本文が有料で公開抜粋に無い"
+      },
+      {
+        "q": "Ⅲ-18",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.city.mizuho.lg.jp/secure/3485/7748_f_8_o.pdf"
+        ],
+        "note": "計画流入水質"
+      },
+      {
+        "q": "Ⅲ-24⑤",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/kasen-gesuido/gesuido/shishin_2010.files/shishin2010-07.pdf"
+        ],
+        "note": "雨水ポンプ場の計画下水量"
+      },
+      {
+        "q": "Ⅲ-22",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/common/001097916.pdf"
+        ],
+        "note": "HRT 6〜8h・MLSS 1,500〜2,000"
+      },
+      {
+        "q": "Ⅲ-25",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/common/001097916.pdf"
+        ],
+        "note": "嫌気無酸素好気法の除去率"
+      }
+    ]
   }
 }

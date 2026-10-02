@@ -1663,6 +1663,90 @@
       "commit": "5c10c4e234a8",
       "verification": "gh api dependabot/alerts?state=open → 0 件・Lighthouse CI 直近 5 run success",
       "note": "PR #824 で tmp・uuid を overrides で修正版へ（alert #29・#79・#80 fixed 2026-10-02）。extract-zip #81・#82 は修正版なしのため理由付きで dismiss（tolerable_risk・同日）。open alerts 0 件"
+    },
+    {
+      "id": "DN-0246",
+      "at": "2026-10-02",
+      "task": "会員 経験記述 W8〜W11 を公開日後に特典マガジン mbe07bd5cecda へ収録する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "65dfe1231781",
+      "verification": "api/v1/magazines/mbe07bd5cecda/notes → 11 件・W11 含む / npm run check-membership-drip 16/16 WARN 0",
+      "note": "W11 n64f9653dc30c（9/28 公開）は特典マガジン mbe07bd5cecda に収録済み（収録 11 件・API 実体確認 2026-10-02）。収録操作は既に済んでいた"
+    },
+    {
+      "id": "DN-0315",
+      "at": "2026-10-02",
+      "task": "ココナラブログ3本と会員記事5本の、1級・2級の割り振り修正が公開ページに出ているか確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2a1cac15dc5a",
+      "verification": "ブログ: 修正行と公開ページの突合 3/3 一致 / 会員: api/v3/notes 23/23 取得・該当 6 本不一致 0 / npm run check-keiken-answer-split 合格",
+      "note": "ライブ実査（2026-10-02）: ココナラブログ3本（815069/815072/815116）は 56c62e61 の修正行 7 行すべてが公開ページにあり旧行の残存 0。会員記事は公開済み 23 本すべてのライブ本文を note ログイン済みプロファイル（読み取りのみ）で取得し、1級の解答欄説明を含む 6 本（予想問題 06・07・08・10 ほか）で原稿と一致・不一致 0。修正作業は不要だった"
+    },
+    {
+      "id": "DN-0506",
+      "at": "2026-10-02",
+      "task": "コミット前フックを古いツリーから入れ直すと共有フックが古い版に戻り、他セッションのコミットが壊れる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e1a64f51e17",
+      "verification": "tests/pre-commit-install-guard.test.mjs（一時リポジトリで旧版 worktree からの上書き拒否・inode 入れ替え）PASS・判定無効化で 2 件 FAIL を確認・PR CI 全緑",
+      "note": "PR #842（2e1a64f51）: 導入済み＝origin/develop の版で自分の版が develop の過去版なら上書き拒否（--force で回避・prepare では止めない）、フック書き込みを一時ファイル→rename、鮮度ガードの案内を「ツリーを develop へ」と「再インストール」に分離。フック本体ハッシュは不変"
+    },
+    {
+      "id": "DN-0482",
+      "at": "2026-10-02",
+      "task": "verify-note-magazines --contents の snapshot で 39 誌の収録が 0 件になる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2e1a64f51e17",
+      "verification": "npm run check-magazine-membership 合格（ライブ 0 の誌なし）・tests/verify-note-magazines-failure.test.mjs PASS（修正前に戻すと FAIL）",
+      "note": "PR #842: 収録記事の取得失敗を 0 件と区別（3 回まで取り直し・失敗は notes を書かず contentsFailed[]・過半なら snapshot を書かず exit 1）。snapshot を取り直し 93 誌すべて取得・0 件の誌なし。原因と直し方を note-api-verification.md に追記"
+    },
+    {
+      "id": "DN-0508",
+      "at": "2026-10-02",
+      "task": "上下水道部門の 560 問を無料演習（過去問クイズ）へ加える",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "821644029e74",
+      "verification": "node scripts/build-quiz-data.mjs 1,830 問 PASS・tests/pe-first-stage-retry 6 件 PASS・本番 /tools/kakomon-quiz/pe-first-stage に上下水道部門の切り替えと科目 560 問、JSON は brotli で 1.5MB 配信",
+      "note": "PR #844（fce5a044b）: build-quiz-data に water-supply を追加し全 1,830 問（既存 1,270 問は 1 問も変わらないことを突合）。演習に専門科目の部門（建設／上下水道）の切り替えを追加し、年度別・ランダムは選んだ部門だけを出す。上下水道ページから演習への導線（tools.ts）。本番反映（cloudflare-deploy 37015849181・check-production-ssr exit 0）"
+    },
+    {
+      "id": "DN-0513",
+      "at": "2026-10-02",
+      "task": "一次PDFのCTA画像のボタン文字のコントラストを改善する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0ccbf1886b21",
+      "verification": "R2 公開 URL の sha256 先頭 d17bf0108e2f7c17 が pop-image.json と一致・本番 r07-basic を 375px で表示し画像 341×171・文字切れなし・横はみ出しなし",
+      "note": "本文用 CTA 画像のボタン領域の緑みの強い画素だけを最大 0.6 倍に暗くする決定的補正（構図・人物・コピー・比率不変）。ボタン画素の 95% が白文字に対し 4.96:1 以上（中央値 6.65:1・旧 2.22〜3.59:1）。pop-image.json の body を新版 SHA d17bf0108e2f…・?v= に更新し edits に旧版を記録。R2 は r2-sync（develop・37017679518）で先に更新してからデプロイ"
+    },
+    {
+      "id": "DN-0504",
+      "at": "2026-10-02",
+      "task": "技術士一次試験の公開済み解説で根拠が未確定の問を、一次情報で確定させる（上下水道・H23/H24）",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0ccbf1886b21",
+      "verification": "node scripts/check-pe-first-stage-historical.mjs PASS（40 ページ / 1190 問）・演習データ 1,830 問で再生成・本番反映（cloudflare-deploy 37018356176・check-production-ssr exit 0）・本番 r01-water-supply で修正文を確認",
+      "note": "61 か所（上下水道 16 回分の指摘・建設 h23/h24・基礎 h23）＋令和7 建設 Ⅲ-13 を一次情報と照合。確定 20・確定して修正 8・確定できず 33（設計指針の解説本文が有料で公開抜粋に無い等。根拠のない理由・数値を外し公式正答の範囲に弱めた）。判定・出典 URL・理由は .claude/state/pe-first-stage-audit/{年度}-{科目}.json の fact_check に記録（a46c96372・PR #844）"
     }
   ]
 }

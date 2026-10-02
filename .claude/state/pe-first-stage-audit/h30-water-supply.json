@@ -23,5 +23,39 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典17ページを1問ずつ照合し問題文・選択肢・図2点は一致、公式正答35問も全件一致。解説は水道維持管理指針2006、下水道施設計画・設計指針、水質汚濁防止法施行令別表第一等で確認し、Ⅲ-5（D60の読み）、Ⅲ-11（75mm以上の公式）、Ⅲ-15①（特定施設の実際）、Ⅲ-16、Ⅲ-17①（要検討項目の説明）、Ⅲ-25、Ⅲ-27、Ⅲ-30、Ⅲ-33、Ⅲ-35の記述を具体化・訂正した。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-27",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://openjicareport.jica.go.jp/pdf/11879095_03.pdf"
+        ],
+        "note": "合流式 25〜50 の一次出典なし（二次で一致）"
+      },
+      {
+        "q": "Ⅲ-35",
+        "verdict": "unconfirmable",
+        "sources": [],
+        "note": "検索上限で未調査。処理方法の列挙を外し公式正答のみ"
+      },
+      {
+        "q": "Ⅲ-15①",
+        "verdict": "confirmed",
+        "sources": [
+          "https://laws.e-gov.go.jp/law/346CO0000000188",
+          "https://laws.e-gov.go.jp/law/346CO0000000300"
+        ],
+        "note": "出題当時（2018）も同じ食い違い"
+      }
+    ]
   }
 }

@@ -212,7 +212,7 @@ const CHECKS = [
   { id: 'coconala-wiring', npm: 'check-coconala-wiring', timeout: 60_000, ci: true, note: 'pre-commit（--staged）だけだと hook を通らない commit や note 価格の変更で取りこぼすため CI でも全件検査（2026-09-23）' },
   { id: 'sales-mapping', npm: 'check-sales-mapping', timeout: 60_000, ci: true, note: 'sales.json の productId と note-magazines.ts の公開済み単品が sales-recorder.md の mapping に文書化されているか（初売上前の新商品も先行検知）' },
   { id: 'note-funnel', npm: 'check-note-funnel', timeout: 90_000, ci: true },
-  { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
+  { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）と、1級・2級土木の公開記事に CTA ゼロのページが無いか。baseline 外の新規 0 面・ゼロページで落ちる' },
   { id: 'sns-landing-cta', npm: 'audit-sns-landing-cta:ci', timeout: 120_000, ci: true, note: 'SNS 原稿・X 予約のリンク先（転職・practice 除く）に note 導線が冒頭（top / 早い MagazineCard / ツールの静的ブロック）にあるか。未配線で落ちる（DN-0364）' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
   { id: 'note-boundary', npm: 'check-note-boundary', timeout: 90_000, ci: true, note: 'paid published 記事の有料境界(paidBoundary)解決可能性（全ロック/漏洩の RULE_GAP 再発防止・全量）' },

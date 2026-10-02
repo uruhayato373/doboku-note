@@ -7,13 +7,16 @@
  *   npm run pre-commit:install
  */
 
-import { writeFileSync, chmodSync, existsSync, mkdirSync } from "fs";
+import { writeFileSync, chmodSync, existsSync, mkdirSync, renameSync, readFileSync } from "fs";
 import { join } from "path";
 import { execFileSync } from "child_process";
+import { hookBodyHash, installedHookHash, decideHookInstall } from "./lib/hook-install-guard.mjs";
 
 // worktree 対応: worktree では .git はファイル（gitdir ポインタ）なので
 // 相対 ".git/hooks" は解決できない。共有フックの実体パスを git に問い合わせる。
 function resolveHooksDir() {
+  // テスト用の差し替え（共有フックに触れずに書き込み方を確かめる）
+  if (process.env.DOBOKU_HOOKS_DIR) return process.env.DOBOKU_HOOKS_DIR;
   try {
     const p = execFileSync("git", ["rev-parse", "--git-path", "hooks"], {
       encoding: "utf8",
@@ -571,8 +574,20 @@ const m=s.match(/const HOOK_CONTENT_BODY = \\\`([\\s\\S]*?)\\\`;/);
 process.stdout.write(m?createHash('sha256').update(m[1]).digest('hex').slice(0,12):'unknown');
 " 2>/dev/null)
 if [ -n "$HOOK_HASH_SOURCE" ] && [ "$HOOK_HASH_SOURCE" != "unknown" ] && [ "$HOOK_HASH_INSTALLED" != "$HOOK_HASH_SOURCE" ]; then
-  echo "[pre-commit] 導入済みフックが古い（installed=$HOOK_HASH_INSTALLED source=$HOOK_HASH_SOURCE）。"
-  echo "             npm run pre-commit:install を実行してから commit してください。"
+  HOOK_HASH_DEVELOP=$(git show origin/develop:scripts/install-pre-commit.mjs 2>/dev/null | node -e "
+const {createHash}=require('node:crypto');
+const s=require('fs').readFileSync(0,'utf8');
+const m=s.match(/const HOOK_CONTENT_BODY = \\\`([\\s\\S]*?)\\\`;/);
+process.stdout.write(m?createHash('sha256').update(m[1]).digest('hex').slice(0,12):'unknown');
+" 2>/dev/null)
+  if [ "$HOOK_HASH_INSTALLED" = "$HOOK_HASH_DEVELOP" ]; then
+    echo "[pre-commit] 導入済みフックは origin/develop と同じ版で、このツリーの install-pre-commit.mjs が古い（installed=$HOOK_HASH_INSTALLED source=$HOOK_HASH_SOURCE）。"
+    echo "             pre-commit:install は実行しない（共有フックが古い版に戻り、他セッションのゲートが消える）。"
+    echo "             git fetch してこのツリーへ origin/develop を取り込んでから commit してください。"
+  else
+    echo "[pre-commit] 導入済みフックが古い（installed=$HOOK_HASH_INSTALLED source=$HOOK_HASH_SOURCE）。"
+    echo "             npm run pre-commit:install を実行してから commit してください。"
+  fi
   exit 1
 fi
 # --- ここまで ---
@@ -581,7 +596,42 @@ const HOOK_CONTENT = HOOK_CONTENT_BODY.replace(
   '# Installed by: npm run pre-commit:install\n',
   '# Installed by: npm run pre-commit:install\n' + DRIFT_GUARD,
 );
-writeFileSync(HOOK_PATH, HOOK_CONTENT, { mode: 0o755 });
+// 古いツリーから共有フックを入れ直すと、他セッションが足した新しいゲートが消える（DN-0506）。
+// 導入済み＝origin/develop の版で、このツリーの版が develop の過去の版なら上書きしない。
+// 自分の版が develop に無い（＝ゲートを足している途中）なら入れる。--force で判定を飛ばす。
+const FORCE = process.argv.includes("--force");
+function gitText(args) {
+  try {
+    return execFileSync("git", args, { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+  } catch {
+    return null;
+  }
+}
+if (!FORCE && !process.env.DOBOKU_HOOKS_DIR && existsSync(HOOK_PATH)) {
+  const SRC = "scripts/install-pre-commit.mjs";
+  const developSrc = gitText(["show", `origin/develop:${SRC}`]);
+  const historyCommits = (gitText(["log", "-n", "40", "--format=%H", "origin/develop", "--", SRC]) ?? "").split("\n").filter(Boolean);
+  const developHistory = historyCommits.map((c) => hookBodyHash(gitText(["show", `${c}:${SRC}`]))).filter(Boolean);
+  const decision = decideHookInstall({
+    installedHash: installedHookHash(readFileSync(HOOK_PATH, "utf8")),
+    sourceHash: HOOK_HASH,
+    developHash: developSrc ? hookBodyHash(developSrc) : null,
+    developHistory,
+  });
+  if (decision === "refuse-stale") {
+    console.error("✗ 共有フックを上書きしません: 導入済みフックは origin/develop と同じ版で、このツリーの install-pre-commit.mjs は develop の過去の版です。");
+    console.error("  入れ直すと共有フックが古い版に戻り、他セッションのゲートが消えます。");
+    console.error("  git fetch してこのツリーへ origin/develop を取り込んでから commit してください（どうしても入れるなら --force）。");
+    // npm install の prepare では止めない（依存の導入まで失敗させない）
+    process.exit(process.env.npm_lifecycle_event === "prepare" ? 0 : 1);
+  }
+}
+
+// 一時ファイルに書いてから入れ替える。実行中のシェルは元のファイル（inode）を読み続けるので、
+// 書き換えの途中で読み込み位置がずれて構文エラーになる事故（2026-10-02・同日 4 回）を防ぐ。
+const HOOK_TMP = `${HOOK_PATH}.tmp-${process.pid}`;
+writeFileSync(HOOK_TMP, HOOK_CONTENT, { mode: 0o755 });
+renameSync(HOOK_TMP, HOOK_PATH);
 
 // Windows doesn't use chmod, but set it for cross-platform compatibility
 try {

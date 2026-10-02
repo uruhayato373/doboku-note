@@ -23,5 +23,48 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典18ページを1問ずつ照合し、問題文・選択肢・極性・図(Ⅲ-16)の一致と公式正答35問の一致を確認。Ⅲ-9(乾燥は膜の不可逆劣化)、Ⅲ-19(計画降雨は地域ごと)、Ⅲ-20(処理区域と浸水防除区域は別々に決定)、Ⅲ-34(BOD/COD比)の根拠を設計指針・雨水管理総合計画策定ガイドライン(案)に基づき書き直し、Ⅲ-24・Ⅲ-30のExamPointを整えた。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-20③",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/mizukokudo/sewerage/content/001728942.pdf"
+        ],
+        "note": "処理区域と排水区域"
+      },
+      {
+        "q": "Ⅲ-27⑤",
+        "verdict": "confirmed",
+        "sources": [
+          "https://openjicareport.jica.go.jp/pdf/11879095_03.pdf"
+        ],
+        "note": "越流負荷 150（準一次）。「以下」を「程度」に"
+      },
+      {
+        "q": "Ⅲ-34",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.jswe.or.jp/publications/jutaku/wsi/pdf/seikasyu-003.pdf"
+        ],
+        "note": "BOD/COD 比 2 程度の公的出典なし"
+      },
+      {
+        "q": "Ⅲ-25",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.jswa.go.jp/company/50th-anniversary/JS-technology/"
+        ],
+        "note": "OD 法の高度処理"
+      }
+    ]
   }
 }

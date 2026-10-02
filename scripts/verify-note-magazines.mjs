@@ -45,8 +45,12 @@ const WANT_JSON = args.includes('--json');
 const WANT_VS_TXT = args.includes('--vs-txt');
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML が返ったら null。 */
+// 同期の待ち（curl を spawnSync で回す実装なので await を使わない）
+const sleepSync = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+
 function curlJson(url) {
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt > 0) sleepSync(1000 * attempt * 2); // 連続取得で弾かれたときに間を空けて取り直す
     const r = spawnSync(
       'curl',
       ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url],
@@ -90,12 +94,17 @@ function fetchAllMagazines() {
   return out;
 }
 
-/** マガジンの収録記事を取得（ページ送り）。 */
+/**
+ * マガジンの収録記事を取得（ページ送り）。取得に失敗したら null（0 件の [] とは区別する）。
+ * 以前は失敗も `?? []` で 0 件として snapshot に書き、check-magazine-membership が「ライブ 0」と
+ * 誤判定していた（2026-10-01 に 39 誌・DN-0482）。null の誌は snapshot に notes を書かず、軸 C は未検査になる。
+ */
 function fetchMagazineNotes(key) {
   const out = [];
   for (let page = 1; page <= 20; page++) {
     const d = curlJson(`https://note.com/api/v1/magazines/${key}/notes?page=${page}`);
-    const notes = d?.data?.notes ?? [];
+    if (!Array.isArray(d?.data?.notes)) return null;
+    const notes = d.data.notes;
     if (notes.length === 0) break;
     for (const n of notes) {
       out.push({ key: n.key, name: n.name, price: n.price ?? 0 });
@@ -255,15 +264,27 @@ function main() {
 
   // --- 収録記事（任意）---
   const contentsByKey = {};
+  const contentsFailed = [];
   if (WANT_CONTENTS) {
     console.log('\n--- 各マガジンの収録記事 ---');
     for (const m of mags) {
       const notes = fetchMagazineNotes(m.key);
+      if (notes === null) {
+        contentsFailed.push(m.key);
+        console.log(`\n### ${m.name}  (${m.key}) ¥${m.price}  収録: 取得失敗（未検査・0 件ではない）`);
+        continue;
+      }
       contentsByKey[m.key] = notes;
       console.log(`\n### ${m.name}  (${m.key}) ¥${m.price}  収録${notes.length}件`);
       for (const n of notes) {
         console.log(`   ¥${n.price}  ${n.key}  ${String(n.name).slice(0, 52)}`);
       }
+    }
+    console.log(`\n収録記事: 対象 ${mags.length} 誌 / 取得 ${mags.length - contentsFailed.length} 誌 / 取得失敗 ${contentsFailed.length} 誌${contentsFailed.length ? `（${contentsFailed.join(', ')}）` : ''}`);
+    // 検査ゼロを PASS と呼ばない: 失敗が過半なら snapshot を上書きせず検査不成立で止める
+    if (contentsFailed.length * 2 > mags.length) {
+      console.error(`✗ 検査不成立: 収録記事の取得失敗が過半（${contentsFailed.length}/${mags.length}）。snapshot は書き換えない`);
+      process.exit(1);
     }
   }
 
@@ -279,6 +300,7 @@ function main() {
         sotId: sotByKey.get(m.key)?.id ?? null,
         notes: contentsByKey[m.key] ?? undefined,
       })),
+      ...(WANT_CONTENTS ? { contentsFailed } : {}),
       issues,
     };
     const outPath = SNAPSHOT_PATH;

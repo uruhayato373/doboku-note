@@ -23,5 +23,40 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典18ページを1問ずつ照合し、Ⅲ-17 肢5の「及びびろ過」の脱字重複を修復。Ⅲ-1・9・10・11は水道施設設計指針2012、Ⅲ-18は水道法施行規則第15条、Ⅲ-21は雨水管理総合計画策定ガイドライン（案）、Ⅲ-29は揚排水ポンプ設備技術基準で確認し、Ⅲ-8・11・15・18・21・25・28・29・35の解説を具体化した。 Ⅲ-35肢2は親が、清掃できない地下間隙型を標準に含めた点を誤りとして確定（肢5の清掃要件と整合。指針原文は未取得）。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-35②",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/001267285.pdf"
+        ],
+        "note": "地下間隙型を標準から外す理由の公開資料なし。設計指針の解説本文が有料で公開抜粋に無い"
+      },
+      {
+        "q": "Ⅲ-14",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/common/830003767.pdf"
+        ],
+        "note": "水道維持管理指針2006 9.5"
+      },
+      {
+        "q": "Ⅲ-21③",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/mizukokudo/sewerage/content/001728942.pdf"
+        ],
+        "note": "③の出典なし。肢2の理由は雨水管理総合計画 GL に合わせて修正"
+      }
+    ]
   }
 }

@@ -23,5 +23,66 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典15ページを1問ずつ照合し、35問・175肢の問題文と選択肢に不一致がないこと、公式正答35問と一致することを確認した。Ⅲ-4・10・13・14・16・22・26・33・34の解説を水道施設設計指針（2012）、水道事業ガイドライン（JWWA Q 100）等で裏取りして具体化し、35問のExamPointを論点1つと独立した学習ポイント2個へ書き直した。図は原典になく追加なし。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-22④",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/001033454.pdf",
+          "https://pubmed.ncbi.nlm.nih.gov/12906280"
+        ],
+        "note": "りん除去への水温の影響を明記した公的資料なし（学術も結果が分かれる）。肢3の雨天時の悪化は確定。断定理由を外した"
+      },
+      {
+        "q": "Ⅲ-33エ",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.jswe.or.jp/publications/jutaku/wsi/pdf/seikasyu-003.pdf"
+        ],
+        "note": "BOD/COD 比 2 程度の公的出典なし。COD の定義は確定。比が大きいほど生物分解されやすい形に"
+      },
+      {
+        "q": "Ⅲ-34",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.mlit.go.jp/mizukokudo/sewerage/content/001362667.pdf"
+        ],
+        "note": "下水道BCP 2019 改訂資料「必要最小限の容量しか保有していないことがある」に合わせた"
+      },
+      {
+        "q": "Ⅲ-18",
+        "verdict": "confirmed",
+        "sources": [
+          "https://laws.e-gov.go.jp/api/1/lawdata/333AC0000000079"
+        ],
+        "note": "下水道法第2条の2"
+      },
+      {
+        "q": "Ⅲ-20",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.city.mizuho.lg.jp/secure/3485/7748_f_8_o.pdf",
+          "https://www.mlit.go.jp/common/001065300.pdf"
+        ],
+        "note": "計画水質＝汚濁負荷量÷日平均汚水量"
+      },
+      {
+        "q": "Ⅲ-26③",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.jstage.jst.go.jp/article/jswe1978/11/5/11_5_282/_pdf/-char/ja"
+        ],
+        "note": "小規模処理場で固形塩素（1988 年前後の資料）"
+      }
+    ]
   }
 }

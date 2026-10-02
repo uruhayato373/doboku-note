@@ -23,5 +23,30 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典17ページを1問ずつ直接確認し、35問・175肢の問題文・極性・数値・図(Ⅳ-7, Ⅳ-9)が原典と一致すること、正答が公式正答表と全件一致することを確認。Ⅳ-9肢5を原典図の読み直しに基づき具体化（反時計回りM、反力M/L、+M/2から-M/2への跳び）、Ⅳ-25の逃げ表現を軟弱地盤は地盤改良・杭基礎で対応できるため必須条件でないという根拠に置換しExamPointも修正、Ⅳ-10とⅣ-11の記述を根拠付きに改稿。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅳ-10⑤",
+        "verdict": "confirmed-fixed",
+        "sources": [
+          "https://www.mlit.go.jp/road/sign/kijyun/pdf/20251029hashikouka.pdf"
+        ],
+        "note": "道示 Ⅱ: 溶接と支圧接合は併用不可（現行版で確認・H24 版は未確認）"
+      },
+      {
+        "q": "Ⅳ-25③",
+        "verdict": "unconfirmable",
+        "sources": [],
+        "note": "軟弱地盤を立地条件外とする一次情報なし。根拠のない一文を削除"
+      }
+    ]
   }
 }

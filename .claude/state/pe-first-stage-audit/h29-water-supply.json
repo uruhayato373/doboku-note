@@ -23,5 +23,54 @@
     "frontmatter_ok": true,
     "missing_questions": [],
     "notes": "原典19ページと図2点（Ⅲ-13表、Ⅲ-14ろ過池断面）を1問ずつ照合し、問題文・選択肢・極性・正答35問の一致を確認。解説は、Ⅲ-8④の精密ろ過膜の孔径を水道施設設計指針2012の値（0.01〜2μm程度）へ、Ⅲ-19④の観光汚水を国交省の流総計画指針（日帰り客と宿泊客を別々に推定）の根拠へ、Ⅲ-27は設計指針の記述と一致を確認、そのほかⅢ-2②・Ⅲ-7④⑤・Ⅲ-8⑤・Ⅲ-18⑤・Ⅲ-26②・Ⅲ-31④の説明を具体化した。"
+  },
+  "fact_check": {
+    "checked_at": "2026-10-02T23:30:00+09:00",
+    "task": "DN-0504",
+    "verdicts": {
+      "confirmed": "一次情報で確定・解説はそのまま",
+      "confirmed-fixed": "一次情報で確定し解説を修正",
+      "unconfirmable": "一次情報で確定できず、根拠のない理由・数値を外して公式正答の範囲に弱めた"
+    },
+    "items": [
+      {
+        "q": "Ⅲ-8①",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.mlit.go.jp/common/000146906.pdf"
+        ],
+        "note": "定流量ろ過"
+      },
+      {
+        "q": "Ⅲ-8③",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://www.mlit.go.jp/common/830003584.pdf"
+        ],
+        "note": "エアロック・差圧の記述なし。設計指針の解説本文が有料で公開抜粋に無い"
+      },
+      {
+        "q": "Ⅲ-26②",
+        "verdict": "unconfirmable",
+        "sources": [
+          "https://openjicareport.jica.go.jp/pdf/11879095_03.pdf"
+        ],
+        "note": "幅と水深の比の公開資料なし"
+      },
+      {
+        "q": "Ⅲ-31④",
+        "verdict": "unconfirmable",
+        "sources": [],
+        "note": "検索上限で未調査。98% 分離濃縮の断定を外した"
+      },
+      {
+        "q": "Ⅲ-18⑤",
+        "verdict": "confirmed",
+        "sources": [
+          "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/kasen-gesuido/gesuido/shishin_2010.files/shishin2010-07.pdf"
+        ],
+        "note": "汚泥集約処理"
+      }
+    ]
   }
 }
