@@ -151,7 +151,7 @@ test('findDatasetIds: コードの datasetPath 系と YAML の ci-data の id �
 
 test('findConfigPaths: ワークフロー・package.json の config/・data/ のパスを拾い、組み立て途中とコメントは除く', () => {
   const paths = (src) => findConfigPaths(src).map((p) => p.path);
-  assert.deepEqual(paths('  default: config/r2-delete-list.txt\n  file: "data/${{ inputs.x }}/a.json"\n# config/old.json'), ['config/r2-delete-list.txt']);
+  assert.deepEqual(paths('  default: data/r2/delete-list.txt\n  file: "data/${{ inputs.x }}/a.json"\n# config/old.json'), ['data/r2/delete-list.txt']);
   assert.deepEqual(paths('"psi": "node x.mjs --file config/psi-urls.txt"'), ['config/psi-urls.txt']);
 });
 

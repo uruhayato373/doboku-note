@@ -2,7 +2,8 @@
  * PageSpeed Insights API 取得スクリプト
  *
  * Core Web Vitals（LCP, INP, CLS）と Lighthouse スコアを取得し
- * data/psi/batch/（一括）・data/psi/single/（単発）に時系列で保存する。
+ * 一括（複数 URL）は台帳 psi.batch（data/psi/batch/）に時系列で保存する。
+ * 単発（1 URL）は読み手がいないので .tmp/psi-single-<時刻>.json に出す（追跡しない）。
  *
  * 認証方針:
  *   PSI API v5 は公開エンドポイント。低量の呼び出しは API キー不要。
@@ -353,7 +354,7 @@ function printSummary(summary) {
 
 function saveJson(summaries) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const filepath = datasetPath(summaries.length > 1 ? "psi.batch" : "psi.single", { ts: timestamp });
+  const filepath = summaries.length > 1 ? datasetPath("psi.batch", { ts: timestamp }) : join(".tmp", `psi-single-${timestamp}.json`);
   if (!existsSync(dirname(filepath))) mkdirSync(dirname(filepath), { recursive: true });
   writeFileSync(filepath, JSON.stringify({ version: 1, generated_at: new Date().toISOString(), results: summaries }, null, 2), "utf-8");
   return filepath;

@@ -1,7 +1,7 @@
 /**
  * metric-reports.mjs — GA4・GSC の週次取得（レポート）を読み書きする唯一の実装（DN-0498 段階 3）。
  *
- * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 17＋4 種のレポートを
+ * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 16＋4 種のレポートを
  *   data/ga4/reports/<日付>.json・data/gsc/reports/<日付>.json の reports.<種類> に入れる。
  *   同じ日に同じ種類を取り直したら上書きする（以前は別名のファイルが増えていた）。
  *   GA4 の CTA ラベル別だけは「暦月の窓」の取得（meta.windowKind === 'month'）を別の枠 cta-clicks-by-label:month に置く。
@@ -17,7 +17,7 @@ import { datasetFiles, datasetPath } from './datasets.mjs';
 /** 種類 id → 取得元とファイル内の枠の名前（枠の名前は移す前のファイル名の前半） */
 export const REPORT_KINDS = Object.fromEntries([
   ['ga4.page', 'page'], ['ga4.date', 'date'], ['ga4.channel', 'channel'], ['ga4.channel-organic', 'channel-organic'],
-  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'], ['ga4.device', 'device'],
+  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'],
   ['ga4.host-name', 'hostName'], ['ga4.cta-clicks', 'cta-clicks'], ['ga4.cta-clicks-by-device', 'cta-clicks-by-device'],
   ['ga4.cta-clicks-by-label', 'cta-clicks-by-label'], ['ga4.cta-clicks-by-placement', 'cta-clicks-by-placement'],
   ['ga4.key-events-by-page', 'key-events-by-page'], ['ga4.quiz-funnel', 'quiz-funnel'], ['ga4.bot-audit', 'bot-audit'],

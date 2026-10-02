@@ -31,6 +31,7 @@
       "excluded_noindex": 0,
       "other": 7,
       "indexed_ratio": 0.816,
+      "by_qualification": {},
       "batch_file": "inspection-batch-2026-06-19T13-26-17.json",
       "notes": "トラフィック減の再調査。+256ページ後もindex率は54%→82%に改善（権威性の壁は当時想定より低い）。残課題=新規ページのblended順位希釈とCTR欠落。"
     },
@@ -47,6 +48,7 @@
       "excluded_noindex": 0,
       "other": 2,
       "indexed_ratio": 0.746,
+      "by_qualification": {},
       "batch_file": "inspection-batch-2026-07-01T05-04-05.json",
       "notes": "monthly cron (index-coverage.yml)"
     },
@@ -63,6 +65,7 @@
       "excluded_noindex": 0,
       "other": 18,
       "indexed_ratio": 0.717,
+      "by_qualification": {},
       "batch_file": "inspection-batch-2026-08-01T05-03-32.json",
       "notes": "monthly cron (index-coverage.yml)"
     },
@@ -79,6 +82,48 @@
       "excluded_noindex": 0,
       "other": 148,
       "indexed_ratio": 0.418,
+      "by_qualification": {
+        "civil-construction-1": {
+          "inspected": 154,
+          "indexed": 88,
+          "ratio": 0.5714285714285714
+        },
+        "civil-construction-2": {
+          "inspected": 45,
+          "indexed": 11,
+          "ratio": 0.24444444444444444
+        },
+        "concrete-chief-engineer": {
+          "inspected": 19,
+          "indexed": 17,
+          "ratio": 0.8947368421052632
+        },
+        "concrete-diagnostician": {
+          "inspected": 18,
+          "indexed": 11,
+          "ratio": 0.6111111111111112
+        },
+        "concrete-engineer": {
+          "inspected": 17,
+          "indexed": 2,
+          "ratio": 0.11764705882352941
+        },
+        "pe-comprehensive-management": {
+          "inspected": 728,
+          "indexed": 349,
+          "ratio": 0.4793956043956044
+        },
+        "pe-construction": {
+          "inspected": 130,
+          "indexed": 57,
+          "ratio": 0.43846153846153846
+        },
+        "pe-first-stage": {
+          "inspected": 45,
+          "indexed": 12,
+          "ratio": 0.26666666666666666
+        }
+      },
       "batch_file": "inspection-batch-2026-09-07T00-54-52.json",
       "notes": "monthly cron (index-coverage.yml)"
     },
@@ -95,6 +140,53 @@
       "excluded_noindex": 0,
       "other": 41,
       "indexed_ratio": 0.799,
+      "by_qualification": {
+        "civil-construction-1": {
+          "inspected": 165,
+          "indexed": 139,
+          "ratio": 0.8424242424242424
+        },
+        "civil-construction-2": {
+          "inspected": 45,
+          "indexed": 18,
+          "ratio": 0.4
+        },
+        "concrete-chief-engineer": {
+          "inspected": 19,
+          "indexed": 18,
+          "ratio": 0.9473684210526315
+        },
+        "concrete-diagnostician": {
+          "inspected": 18,
+          "indexed": 16,
+          "ratio": 0.8888888888888888
+        },
+        "concrete-engineer": {
+          "inspected": 17,
+          "indexed": 3,
+          "ratio": 0.17647058823529413
+        },
+        "pe-comprehensive-management": {
+          "inspected": 728,
+          "indexed": 704,
+          "ratio": 0.967032967032967
+        },
+        "pe-construction": {
+          "inspected": 147,
+          "indexed": 88,
+          "ratio": 0.5986394557823129
+        },
+        "pe-first-stage": {
+          "inspected": 51,
+          "indexed": 20,
+          "ratio": 0.39215686274509803
+        },
+        "rccm": {
+          "inspected": 8,
+          "indexed": 0,
+          "ratio": 0
+        }
+      },
       "batch_file": "inspection-batch-2026-09-23T06-54-59.json",
       "notes": "weekly cron (index-coverage.yml)"
     },
@@ -111,6 +203,63 @@
       "excluded_noindex": 0,
       "other": 72,
       "indexed_ratio": 0.795,
+      "by_qualification": {
+        "civil-construction-1": {
+          "inspected": 165,
+          "indexed": 147,
+          "ratio": 0.8909090909090909
+        },
+        "civil-construction-2": {
+          "inspected": 45,
+          "indexed": 25,
+          "ratio": 0.5555555555555556
+        },
+        "concrete-chief-engineer": {
+          "inspected": 19,
+          "indexed": 18,
+          "ratio": 0.9473684210526315
+        },
+        "concrete-diagnostician": {
+          "inspected": 18,
+          "indexed": 16,
+          "ratio": 0.8888888888888888
+        },
+        "concrete-engineer": {
+          "inspected": 17,
+          "indexed": 8,
+          "ratio": 0.47058823529411764
+        },
+        "pavement": {
+          "inspected": 4,
+          "indexed": 3,
+          "ratio": 0.75
+        },
+        "pe-comprehensive-management": {
+          "inspected": 728,
+          "indexed": 705,
+          "ratio": 0.9684065934065934
+        },
+        "pe-construction": {
+          "inspected": 147,
+          "indexed": 96,
+          "ratio": 0.6530612244897959
+        },
+        "pe-first-stage": {
+          "inspected": 51,
+          "indexed": 26,
+          "ratio": 0.5098039215686274
+        },
+        "rccm": {
+          "inspected": 8,
+          "indexed": 1,
+          "ratio": 0.125
+        },
+        "surveyor": {
+          "inspected": 4,
+          "indexed": 1,
+          "ratio": 0.25
+        }
+      },
       "batch_file": "inspection-batch-2026-09-30T07-42-14.json",
       "notes": "weekly cron (index-coverage.yml)"
     }

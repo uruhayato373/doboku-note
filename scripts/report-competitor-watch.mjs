@@ -46,7 +46,7 @@ const snapshot = latestSnapshot ? readJson(latestSnapshot) : null;
 const research = readJson(datasetPath('coconala.market-research'));
 const config = readJson(datasetPath('config.competitors'))?.coconala;
 const account = readJson(datasetPath('config.coconala-account'));
-if (!snapshot?.competitors || !research?.queries || !config?.competitors) {
+if (!snapshot?.competitors || !research?.queries || !Array.isArray(research.services) || !config?.competitors) {
   console.error('[report-competitor-watch] 入力が読めない（競合の時系列の最新 / market-research / coconala-competitors）— 検査不成立');
   process.exit(2);
 }
@@ -58,30 +58,25 @@ const changes = (snapshot.drift ?? [])
   .filter((d) => d.type !== 'sales' || (typeof d.after === 'number' && typeof d.before === 'number' && d.after - d.before >= SALES_JUMP_MIN))
   .map((d) => ({ handle: d.handle, label: labelOf[d.handle] ?? d.handle, type: d.type, detail: d.detail }));
 
-// 2. 追跡候補（関連サービスを売り手ごとに集計・重複 URL は 1 回）
+// 2. 追跡候補（関連サービスを売り手ごとに集計。出品は URL で一意）
 const tracked = new Set(config.competitors.map((c) => c.label.replace(/\s/g, '')));
 const self = (account?.sellerName ?? '').replace(/\s/g, '');
-const seen = new Set();
 const bySeller = new Map();
 let scannedServices = 0;
-for (const q of research.queries) {
-  for (const s of q.services ?? []) {
-    if (seen.has(s.url)) continue;
-    seen.add(s.url);
-    scannedServices++;
-    const text = `${s.title ?? ''}${s.catchphrase ?? ''}`;
-    if (!RELEVANT.test(text) || (OTHER_FIELD.test(text) && !/建設|総監|総合技術監理|上下水道/.test(text))) continue;
-    const key = String(s.seller ?? '');
-    if (!key || tracked.has(key.replace(/\s/g, '')) || key.replace(/\s/g, '') === self) continue;
-    const row = bySeller.get(key) ?? { seller: key, services: 0, sales: 0, minPrice: Infinity, maxPrice: 0, sample: s.title, url: s.url };
-    row.services++;
-    row.sales += Number.parseInt(s.detail?.totalSales ?? s.reviews ?? 0, 10) || 0;
-    if (typeof s.priceYen === 'number') {
-      row.minPrice = Math.min(row.minPrice, s.priceYen);
-      row.maxPrice = Math.max(row.maxPrice, s.priceYen);
-    }
-    bySeller.set(key, row);
+for (const s of research.services) {
+  scannedServices++;
+  const text = `${s.title ?? ''}${s.catchphrase ?? ''}`;
+  if (!RELEVANT.test(text) || (OTHER_FIELD.test(text) && !/建設|総監|総合技術監理|上下水道/.test(text))) continue;
+  const key = String(s.seller ?? '');
+  if (!key || tracked.has(key.replace(/\s/g, '')) || key.replace(/\s/g, '') === self) continue;
+  const row = bySeller.get(key) ?? { seller: key, services: 0, sales: 0, minPrice: Infinity, maxPrice: 0, sample: s.title, url: s.url };
+  row.services++;
+  row.sales += Number.parseInt(s.detail?.totalSales ?? s.reviews ?? 0, 10) || 0;
+  if (typeof s.priceYen === 'number') {
+    row.minPrice = Math.min(row.minPrice, s.priceYen);
+    row.maxPrice = Math.max(row.maxPrice, s.priceYen);
   }
+  bySeller.set(key, row);
 }
 const candidates = [...bySeller.values()]
   .filter((r) => r.sales >= CANDIDATE_MIN_SALES)

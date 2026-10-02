@@ -9,14 +9,14 @@
  *     --brand-query-data "data/gsc/reports/<日付>.json#query" \
  *     --url-dir .tmp/gsc-urls/
  *
- * 出力:
- *   data/analysis/gsc-coverage-diagnosis/{ts}.json
- *   .tmp/gsc-coverage-diagnosis-{ts}.md（人が読む報告・追跡しない）
+ * 出力（追跡しない。一回きりの診断なので台帳には記録しない）:
+ *   .tmp/gsc-coverage-diagnosis-{ts}.json
+ *   .tmp/gsc-coverage-diagnosis-{ts}.md（人が読む報告）
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from "fs";
-import { join, basename, dirname } from "path";
-import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { join, basename } from "path";
+import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
 
@@ -104,6 +104,8 @@ function aggregate(inspections, categoryMap, pageData, queryData, brandData) {
       generated_at: new Date().toISOString(),
       total_inspected: inspections.length,
       categories: { ex0: 0, ex1: 0, ex2: 0, ex3: 0, ex4: 0, unknown: 0 },
+      // URL 検査のバッチは 2026-10 から referring_urls を記録しない。無いものを「参照 0 件」と読んで偽の所見を出さない
+      referring_urls_recorded: inspections.some((r) => Array.isArray(r.index?.referring_urls)),
     },
     A_last_crawl: { ex0: { never: 0, ge30d: 0, "7-30d": 0, lt7d: 0 } },
     B_page_fetch_state: {},
@@ -265,8 +267,8 @@ function judgeDiagnosis(agg) {
     });
   }
 
-  // C: 内部リンク不全
-  if (ex0Count > 0) {
+  // C: 内部リンク不全（referring_urls を記録したバッチだけ）
+  if (ex0Count > 0 && agg.meta.referring_urls_recorded) {
     const zeroLinkPct = (agg.C_referring_urls.ex0["0"] / ex0Count) * 100;
     if (zeroLinkPct >= 50) {
       findings.push({
@@ -379,10 +381,14 @@ function generateMarkdown(agg, findings) {
   // C
   lines.push(`### C. referring_urls 数 × カテゴリ`);
   lines.push(``);
-  lines.push(`| referring 数 | 全体 | うち ex0 |`);
-  lines.push(`|---|---:|---:|`);
-  for (const k of ["0", "1-2", "3-5", "6+"]) {
-    lines.push(`| ${k} | ${agg.C_referring_urls.all[k]} | ${agg.C_referring_urls.ex0[k]} |`);
+  if (!agg.meta.referring_urls_recorded) {
+    lines.push(`（この検査バッチは referring_urls を記録していないため集計しない）`);
+  } else {
+    lines.push(`| referring 数 | 全体 | うち ex0 |`);
+    lines.push(`|---|---:|---:|`);
+    for (const k of ["0", "1-2", "3-5", "6+"]) {
+      lines.push(`| ${k} | ${agg.C_referring_urls.all[k]} | ${agg.C_referring_urls.ex0[k]} |`);
+    }
   }
   lines.push(``);
   if (agg.I_high_referring_ex0.length > 0) {
@@ -511,7 +517,7 @@ function generateMarkdown(agg, findings) {
   lines.push(`- URL Inspection 結果: \`${datasetDir("gsc.url-inspection")}/2026-04-27*.json\``);
   lines.push(`- Search Analytics page: \`--page-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#page）`);
   lines.push(`- Search Analytics query: \`--query-data\` に渡したレポート（${datasetDir("gsc.reports")}/<日付>.json#query）`);
-  lines.push(`- 集計 JSON: \`${datasetDir("analysis.gsc-coverage-diagnosis")}/{ts}.json\``);
+  lines.push(`- 集計 JSON: \`.tmp/gsc-coverage-diagnosis-{ts}.json\``);
   lines.push(``);
 
   return lines.join("\n");
@@ -541,9 +547,8 @@ async function main() {
   agg.diagnosis = findings;
 
   const ts = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const jsonPath = datasetPath("analysis.gsc-coverage-diagnosis", { ts });
+  const jsonPath = join(".tmp", `gsc-coverage-diagnosis-${ts}.json`);
   const mdPath = join(".tmp", `gsc-coverage-diagnosis-${ts}.md`);
-  mkdirSync(dirname(jsonPath), { recursive: true });
   mkdirSync(".tmp", { recursive: true });
   writeFileSync(jsonPath, JSON.stringify(agg, null, 2), "utf-8");
   const md = generateMarkdown(agg, findings);

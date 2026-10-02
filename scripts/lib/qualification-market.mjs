@@ -99,7 +99,7 @@ export function noteMetrics(items, totals) {
 }
 
 /**
- * ココナラの検索結果（coconala-research.mjs の services）から、評価件数の多いサービスの数を出す。
+ * ココナラの検索結果（market-research.json の services）から、評価件数の多いサービスの数を出す。
  * @param {Array<{url:string, seller:string, reviews:number|null, priceYen:number|null}>} services
  */
 export function coconalaMetrics(services, strongReviews, totals) {
@@ -243,7 +243,7 @@ export function buildMarketView(input) {
   const coconalaByKeyword = new Map((coconalaResearch?.queries ?? []).map((q) => [q.keyword, q]));
   // ココナラは取得済みの全検索結果を 1 つにまとめ、タイトル条件で資格へ振り分ける（汎用の語「経験記述 添削」等で
   // 取れたサービスも数える）。資格専用の語が未取得なら、その値は下限（partial）。
-  const coconalaPool = [...(coconalaResearch?.queries ?? []).filter((x) => x.complete || (x.services ?? []).length > 0).flatMap((x) => x.services ?? [])];
+  const coconalaPool = coconalaResearch?.services ?? [];
 
   const rows = registry.qualifications.map((q) => {
     const fmt = formats.exams?.[q.id] ?? null;

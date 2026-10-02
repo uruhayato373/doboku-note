@@ -16,6 +16,8 @@ import {
   parsePeriodFromFilename,
   crossCheckAgainstSite,
   suggestMissingPrograms,
+  keepProgramRows,
+  resultsFromReportLog,
 } from "../scripts/lib/a8-report-csv.mjs";
 
 const cfg = JSON.parse(readFileSync("config/a8-report-automation.json", "utf-8"));
@@ -238,6 +240,36 @@ test("toResultsRecords: 未写像プログラムは黙って捨てず unmapped �
   assert.equal(records.length, 0);
   assert.equal(unmapped.length, 1);
   assert.equal(unmapped[0].programId, "s999");
+});
+
+test("keepProgramRows: 案件に対応した行（全期間）と当期の行だけ残し、過去期間の他サイト分は落とす", () => {
+  const rows = [
+    { period: "202607-202607", programId: "s1", program: "buildjob" },
+    { period: "202607-202607", programId: "s2", program: null }, // 過去期間の他サイト分 → 落とす
+    { period: "202608-202608", programId: "s2", program: null }, // 当期の他サイト分 → 残す
+    { period: "202608-202608", programId: "s1", program: "buildjob" },
+  ];
+  const kept = keepProgramRows(rows, "202608-202608");
+  assert.deepEqual(kept.map((r) => `${r.period}:${r.programId}`), ["202607-202607:s1", "202608-202608:s2", "202608-202608:s1"]);
+  assert.deepEqual(keepProgramRows(undefined, "202608-202608"), []);
+});
+
+test("resultsFromReportLog: 単月の期間の案件行だけを月×案件に写し、累計の期間・未写像は写さない。同じ月は新しい取得を採る", () => {
+  const row = (period, program, clicks, fetchedAt, extra = {}) => ({ period, programId: `s-${program ?? "x"}`, programRaw: `名前-${program}`, program, clicks, conversions: 1, approved: 0, revenueYen: 0, fetchedAt, ...extra });
+  const log = {
+    programPeriod: [
+      row("202601-202607", "buildjob", 56, "2026-07-27T00:00:00Z"), // 累計 → 写さない
+      row("202607-202607", "buildjob", 39, "2026-08-04T00:00:00Z"),
+      row("202607-202607", null, 99, "2026-08-04T00:00:00Z"), // 未写像 → 写さない
+      row("20260701-20260727", "buildjob", 30, "2026-07-28T00:00:00Z"), // 同じ月の古い取得 → 新しい方が勝つ
+      row("202608-202608", "gks", 2, "2026-09-28T00:00:00Z"),
+    ],
+  };
+  const records = resultsFromReportLog(log);
+  assert.deepEqual(records.map((r) => `${r.month}:${r.program}:${r.clicks}`), ["2026-07:buildjob:39", "2026-08:gks:2"]);
+  assert.equal(records[0].note, "A8 レポート自動取込（名前-buildjob）");
+  assert.deepEqual(resultsFromReportLog({}), []);
+  assert.deepEqual(resultsFromReportLog(null), []);
 });
 
 test("crossCheckAgainstSite: allowlist 抽出がサイト別を超えたら混入を検出する", () => {

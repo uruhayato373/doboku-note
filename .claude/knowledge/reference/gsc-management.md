@@ -45,7 +45,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `data/gsc/rank-watch/<月>.jsonl`（追記）＋既存 `experiments.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
-| 機械履歴 | `data/gsc/index-coverage.json` | indexed_ratio の時系列 | CI が append |
+| 機械履歴 | `data/gsc/index-coverage.json` | indexed_ratio の時系列と、資格別（`/exam/<資格>/` 配下）の検査数・登録数・率（`by_qualification`）。URL 検査のバッチ（`data/gsc/url-inspection/`）は新しい 2 回分しか残さないので、資格別はバッチから数え直さずここを読む | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
 > [!important]

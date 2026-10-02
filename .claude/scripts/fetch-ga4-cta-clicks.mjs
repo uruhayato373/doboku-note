@@ -111,8 +111,8 @@ function parseArgs() {
         break;
       case "--by-device":
         // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
-        // モバイル/PC 別の CTA クリックを取り、device 別 sessions（fetch-ga4-data --dimension device）を
-        // 分母にしてデバイス別 CTR を出す。downstream（report-monetization-coverage = page 別）は非破壊。
+        // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
+        // downstream（report-monetization-coverage = page 別）は非破壊。
         opts.byDevice = true;
         break;
       case "--by-label":

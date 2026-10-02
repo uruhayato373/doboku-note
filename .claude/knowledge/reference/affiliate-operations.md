@@ -352,7 +352,7 @@ npm run a8-ui:normalize -- --latest
 ## 6.5 成果ドリブンの見直し基準（判断マトリクス）
 
 > 「クリックは測れているが、成果を見て配置を変える基準が無い」状態を埋める節。
-> 数値は `a8-results.json`（確定額）と GA4 `affiliate_cta_click`（クリック）を正とする。
+> 数値は A8 の月次の成果（確定額。`a8-report-log.json` の単月の期間から導く）と GA4 `affiliate_cta_click`（クリック）を正とする。
 > ここには「何を観測し、何を打ち手に決めたか」を記す。判定は人。機械ゲートは作らない（月次・低頻度）。
 
 ### 2 つの EPC を混同しない（最重要）
@@ -360,16 +360,16 @@ npm run a8-ui:normalize -- --latest
 | 種類 | 出どころ | 使いどころ |
 |---|---|---|
 | **ASP 公開 EPC**（市場平均） | `affiliate-catalog.json` の `asps.a8.epcYen`。他メディア込みの全体統計 | **案件を選ぶ前**の期待値見積り |
-| **自サイト実測 EPC** | 確定額（`a8-results.json`）÷ **GA4 の `affiliate_cta_click`** | **撤去・入替・A/B 勝敗**の判定 |
+| **自サイト実測 EPC** | 確定額（A8 の月次の成果）÷ **GA4 の `affiliate_cta_click`** | **撤去・入替・A/B 勝敗**の判定 |
 
 catalog の EPC 942 円（ビルドジョブ）／709 円（建設JOBs）は前者。**これで勝敗を決めてはいけない**
 （自サイトの読者層・面の文脈が反映されていない）。
 
-**案件別の分母に A8 のクリックを使ってはいけない**。`a8-results.json` の `clicks` は
+**案件別の分母に A8 のクリックを使ってはいけない**。A8 の月次の成果の `clicks` は
 プログラム別レポート（**口座横断**）由来で stats47 のクリックを含みうる。
 2026-07 実測では自社 4 案件の合計 75 click に対しサイト別の doboku-note は 56 click（19 の超過）。
 サイト分離できるのはサイト別レポートだけで、そこには案件の内訳が無い——
-だから**案件別の分母は GA4 のラベル別クリックが唯一の真実源**（`a8-results.json` の `_comment` も同旨。
+だから**案件別の分母は GA4 のラベル別クリックが唯一の真実源**（`resultsFromReportLog` の説明も同旨。
 A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件数・確定報酬）**。
 
 ### 分母規律 — 判定してよい条件
@@ -412,7 +412,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
    建設JOBs は記事ページ arm B のみ。EPC はクリックあたりなので露出差に頑健だが、
    **分母の貯まる速度が違う**（建設JOBs の方が判定に時間がかかる）ことを織り込む
 
-**判定指標**: 確定ベース実測 EPC（分子＝`a8-results.json` の確定額、分母＝当該 arm のクリック）。
+**判定指標**: 確定ベース実測 EPC（分子＝A8 の月次の成果の確定額、分母＝当該 arm のクリック）。
 同率なら発生ベース EPC をタイブレーク。**両案件が分母規律を満たすまで判定を延期する**（期限で無理に決めない）。
 
 **前提**: 単月データは取得済み。8月はサイト別71クリック・成果0。プログラム別は口座横断63クリックで差8クリックが未帰属、7月にも口座分の超過がある。サイト別と口座別を混ぜてEPCを計算しない。確定成果不足により案件の優劣は判定不能。9月途中と6月再取得はブラウザ保存失敗で欠測、0件ではない。
@@ -476,7 +476,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 ### 2026-08-28（DN-0041 P5 期日前裁定・据え置き）
 
-- **観測**: 確定成果は 2026-08-04 時点で 0 件（`a8-results.json` 空・単月取得未実施）。クリックは
+- **観測**: 確定成果は 2026-08-04 時点で 0 件（A8 の月次の成果が空・単月取得未実施）。クリックは
   年初〜7月累計 137 click（2026-07-27 時点、上記 2 エントリと同数値）。直近スナップショット
   （`buildjob-report-latest.md`・2026-07-28〜08-24 窓・GA4 プログラム別）では buildjob 7 /
   kensetsu-jobs 1 / dx-consulting 6 = 計 14 click、面別表示合計 12,155。窓が 137 click の集計期間と
@@ -491,7 +491,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 ### 2026-09-22（DN-0120 裁定・継続）
 
-- **観測**（取得は hosted CI の a8 cron・`a8-results.json` 2026-05〜2026-08 / GA4 2026-08-20〜09-16）:
+- **観測**（取得は hosted CI の a8 cron・A8 の月次の成果 2026-05〜2026-08 / GA4 2026-08-20〜09-16）:
   確定成果 **¥0**。アフィリ面の表示 23,154 / クリック 11。面別ではサイドバー 12,673 表示 → 0 click、
   記事末 3,413 表示 → 0 click、**本文中のネイティブカードだけがクリックを取っている（11 件中 10 件）**。
   `career_need_select` と `/tools/career-check` は 28 日で **0 発火**。GSC の career クラスタは
@@ -540,7 +540,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | `src/config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
 | `src/config/affiliate-creatives.ts` | creative 定数と出し分けロジックの真実源 |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
-| `data/a8/results.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `a8-report-log.json` の `siteSummary` |
+| `data/a8/report-log.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `siteSummary`。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
 | `data/afb/outcomes/（日付別の最新）` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
 | `npm run report-buildjob-affiliate` | BuildJob クリック/EPC 週次レポート |
 | 各 MDX | 実際の埋め込み（本文・文面の真実源） |

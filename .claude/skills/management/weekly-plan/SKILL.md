@@ -27,12 +27,12 @@ domain: plan
 
 ### Phase 0: 週次メトリクス スナップショット（CI 供給が既定）
 
-**スナップショットは `fetch-metrics.yml`（金 06:00 JST）が CI 上でライブ取得してコミットする**（2026-07-04〜。2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行＝恒久ルールと整合）。`data/business/weekly/YYYY-Www.json` に NSM（GA4+GSC 前週比較）＋ **SNS 流入（source 別 WoW）** を保存し index.json に追記する。Phase 0 で人がやることは通常なし（最新スナップショットを読むだけ）。
+**スナップショットは `fetch-metrics.yml`（金 06:00 JST）が CI 上でライブ取得してコミットする**（2026-07-04〜。2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行＝恒久ルールと整合）。`data/business/weekly/YYYY-Www.json` に NSM（GA4+GSC 前週比較）＋ **SNS 流入（source 別 WoW）** を保存する。窓は**確定した直近の月〜日**（事業レビュー・成長パックと同じ）で、ファイル名の週はその窓の ISO 週（実行日の週ではない）。Phase 0 で人がやることは通常なし（最新スナップショットを読むだけ）。
 
 ローカルで手動生成したい場合のみ（creds のある Mac 等）:
 
 ```bash
-node .claude/scripts/snapshot-weekly-metrics.mjs        # 現在の週（既存週は skip・--force で上書き）
+node .claude/scripts/snapshot-weekly-metrics.mjs        # 確定した直近の週（既存週は skip・--force で上書き）
 ```
 
 会社 PC のプロキシ配下などライブ取得できない環境では実行しない。Agent C（および weekly-review の SNS フェーズ）は **CI がコミットした `.claude/state/{weekly-metrics,metrics/{ga4,gsc}}/` のスナップショットを直接読む**（既定経路）。
@@ -108,7 +108,7 @@ Phase 0 の snapshot 直後、`data/business/weekly/YYYY-Www.json` を読み、�
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
    - proposed 実験: 優先順位（次に start すべきもの）
-3. 時系列 index.json から直近 4 週分のトレンドを読む（運用中の場合）
+3. `data/business/weekly/` の新しい 4 本（YYYY-Www.json）から直近 4 週分のトレンドを読む（運用中の場合）
 4. 上記を統合して次の実験候補を 3-5 件提案
    - .claude/skills/management/nsm-experiment/references/playbook.md の典型パターンから
    - .claude/skills/management/nsm-experiment/references/rubric.md で優先順位付け

@@ -18,11 +18,13 @@
  *
  * lean 射影の理由: 正規化 JSON の `rows[].raw` は CSV 全列の複製で、URL と lastCrawled から
  * 復元できる。追跡サイズを抑えるため raw を落とし、突合に必要な列だけを残す。
+ * comparisonKey も url から導けて読み手がいない（差分は toComparisonKey(url) で数える）ので持たない（2026-10）。
  * rejects は件数が小さく「取りこぼしの証拠」なので残す。
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { datasetDir, datasetPath } from "./datasets.mjs";
+import { toComparisonKey } from "./url-normalization.mjs";
 
 // 既定は追跡される記録のルート（data）。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
 const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
@@ -73,7 +75,7 @@ export function unitKey(issue, scope) {
 /** 正規化 JSON → 追跡用の lean 射影（raw 列を落とす）。 */
 function leanRows(rows = []) {
   return rows.map((r) => {
-    const out = { url: r.url, comparisonKey: r.comparisonKey };
+    const out = { url: r.url };
     if (r.lastCrawled !== undefined) out.lastCrawled = r.lastCrawled ?? null;
     if (r.duplicateCount && r.duplicateCount > 1) out.duplicateCount = r.duplicateCount;
     return out;
@@ -98,10 +100,12 @@ export function writeUnitSsot(channel, { issue, scope, norm, collectedAt }) {
   const prev = readUnitSsot(channel, key);
   const rows = leanRows(norm.rows);
 
-  const prevKeys = new Set((prev?.rows ?? []).map((r) => r.comparisonKey));
-  const nextKeys = new Set(rows.map((r) => r.comparisonKey));
-  const added = rows.filter((r) => !prevKeys.has(r.comparisonKey)).map((r) => r.url);
-  const removed = (prev?.rows ?? []).filter((r) => !nextKeys.has(r.comparisonKey)).map((r) => r.url);
+  // 保存した行は comparisonKey を持たない（旧い行は持つ）。url から導く値と同じなので、どちらも同じ鍵になる
+  const keyOf = (r) => r.comparisonKey ?? toComparisonKey(r.url);
+  const prevKeys = new Set((prev?.rows ?? []).map(keyOf));
+  const nextKeys = new Set(rows.map(keyOf));
+  const added = rows.filter((r) => !prevKeys.has(keyOf(r))).map((r) => r.url);
+  const removed = (prev?.rows ?? []).filter((r) => !nextKeys.has(keyOf(r))).map((r) => r.url);
 
   const doc = {
     schemaVersion: 1,

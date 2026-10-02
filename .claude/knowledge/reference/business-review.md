@@ -42,7 +42,7 @@ Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を�
 週次は前の月曜〜日曜、月次は前の暦月を対象にする。`--start YYYY-MM-DD --end YYYY-MM-DD` で過去期間も表示できる。期間がまだ終了していなければ記録できない。GSCの窓は太平洋時間、レビューの期限は日本時間。
 
 1. `report` で対象・欠測・レビュー期日・実験期日を確認し、既存ソースの鮮度と計測範囲を読む。
-2. 対象期間の `snapshot` を保存する。集計値・元ファイルのhash・その時点の方針が凍結される。売上の個人情報は複製しない。
+2. 対象期間の `snapshot` を保存する。集計値・元ファイルのhash・その時点の方針が凍結される。売上の個人情報は複製しない。同じ期間の直前のスナップショットと方針・集計・確定待ちが同じなら新しい記録は作らず、直前のファイルを返す（出力に `unchanged: true`。レビューはそのファイルを参照してよい）。
 3. 重点資格ごとに実測と未確認を分け、商品説明・記事・導線の現物を照合する。
 4. `review` を記録する。`qualification: all`, `cadence: weekly/monthly`, `period`, `snapshot`, `qualificationsReviewed`（重点資格ID全て）, `status: complete/provisional`, `findings`, `decision`, `nextAction`, `experimentIds`, `nextReviewDate` が必要。資格別の実測がない場合はprovisional。completeはレビュー作業の完了であり、改善効果・全指標の計測完了を意味しない。
 5. 次の改善は `/nsm-experiment propose` へ渡す。対象資格、読者の課題、現物で確認した不足、変更案、評価指標、基準期間、再計測日とレビュー記録の参照を付ける。SEOは `/weekly-improve --rank-watch` の専用契約を使う。単発実装はbacklogへ起票し、定常運用はweeklyから直接扱う。

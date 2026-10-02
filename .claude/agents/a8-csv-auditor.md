@@ -50,7 +50,7 @@ domain: affiliate
   口座横断レポートには stats47 のプログラムが 45 件並ぶので、**未写像そのものは取りこぼしではない**。
   shortfall があるときだけ `missingProgramCandidates`（既知 stats47 を除いた候補）を見て、
   収益のある候補があれば FAIL 相当。`unmappedCount` は参考値（他サイト分を含む）
-- **`notAttributable`** は異常ではない（対象期間が単月でないため月次 SSOT へ写せなかった行）。
+- **`notAttributable`** は異常ではない（対象期間が単月でないため月次の成果へ写せなかった行）。
   件数と現在の期間を報告するに留める
 
 ### 4. 時系列の整合（upsert の副作用チェック）
@@ -58,7 +58,7 @@ domain: affiliate
 - `a8-report-log.json` の `siteSummary` / `monthly` / `daily` / `programPeriod` に**重複キーが無い**こと
 - 前回 run と比べて既存月の値が変わった場合、それが「確定処理による遡及」で説明できるか
   （確定件数・確定報酬が**増える**のは正常。**減る**のは要確認）
-- `a8-results.json` の records は **単月 run のときだけ**増える（累計期間の run では増えないのが正常）
+- 月次の成果（`programPeriod` の単月の期間から導く月×案件）は **単月 run のときだけ**増える（累計期間の run では増えないのが正常）
 
 ## 判定
 
