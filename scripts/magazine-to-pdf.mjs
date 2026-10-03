@@ -129,6 +129,12 @@ function renderAnswerFields(html) {
     })
 }
 
+// CommonMark は閉じ ** の直前が約物（」など）で直後が文字だと太字にしない（「**課題1「…」**を」）。
+// 変換後に残った ** の対を <strong> にする。タグや改行をまたぐものは触らない。
+function cjkStrong(html) {
+  return html.replace(/\*\*([^*<>\n]+?)\*\*/g, '<strong>$1</strong>')
+}
+
 function buildHtml(title, bodyHtml) {
   return `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><title>${title}</title>
@@ -230,7 +236,7 @@ async function main() {
     const { content } = matter(raw)
     const { md, title } = extract(content, art)
 
-    const bodyHtml = renderAnswerFields(String(await processor.process(md)))
+    const bodyHtml = renderAnswerFields(cjkStrong(String(await processor.process(md))))
     const slug = art.out.replace(/[\\/:*?"<>|]/g, '_')
     const htmlPath = join(workDir, `${slug}.html`)
     const pdfTmp = join(workDir, `${slug}.pdf`)
