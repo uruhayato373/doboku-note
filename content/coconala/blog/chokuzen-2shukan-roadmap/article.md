@@ -8,7 +8,7 @@ exam: civil-1
 angle: ハウツー
 category: 学び
 tags: [経験記述, 学科記述, 施工管理技士, 直前対策]
-funnel: [coconala-tensaku-4theme, coconala-sakusei-4theme]
+funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
 source:
   - content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx
   - content/site/civil-construction-1/guide-study-plan/article.mdx
@@ -54,12 +54,12 @@ source:
 
 この2週間でやることは3つに絞れます。1つ目は、経験記述をまず2テーマで通しで書いて字数を合わせ、残りのテーマも同じ流れで書ける状態にすること。2つ目は、学科記述は新しい分野に広げず間違えた論点だけを拾い直し、書いた答案は音読して細かい欠落をつぶすこと。3つ目は、時間配分を本番前に一度試しておき、前日と当日の朝は新しいことを増やさず、書いてきたものを確認するだけにすることです。新しい知識を追加するより、持っている経験を答案の形に固定する2週間にしてください。
 
-ただ、この2週間だけで全5テーマの答案を1から組み立てるのは簡単ではありません。
+ただ、この2週間だけで全テーマの答案を1から組み立てるのは簡単ではありません。
 
-残り2週間で全5テーマを仕上げるなら、人の目を借りるのが近道です。書いた答案がある方には全5テーマの添削を、まだ書けていない方にはヒアリングから全5テーマの骨子（構成）をつくる指導を承っています。どちらも10/4の本試験に間に合うよう、24時間以内にお返しします。
+1級の第二次検定（10/4）は終わりました。1級の添削・骨子づくりは次の受検期まで休止しています。同じ2週間の進め方は、10/25に第二次検定を受ける2級でも使えます。2級で書いた答案がある方には全3テーマ（品質管理・安全管理・工程管理）の添削を、まだ書けていない方にはヒアリングから全3テーマの骨子（構成）をつくる指導を承っています。どちらも10/25の本試験に間に合うよう、24時間以内にお返しします。
 
-service:coconala-tensaku-4theme
+service:coconala-2kyu-tensaku-3theme
 
-service:coconala-sakusei-4theme
+service:coconala-2kyu-sakusei-3theme
 
 経験していない工事や数値の創作、答案の代筆はお受けしていません。合格を保証するものではありません。
