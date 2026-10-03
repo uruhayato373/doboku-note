@@ -3,7 +3,7 @@
  *
  * pe-secondary-exam-writer が出荷した模範解答（content/note/技術士建設部門/magazines/BK-*）の
  * 「## フル模範解答」セクション内の各選択肢ブロックを実測し、区分別ハード上限
- * （答案枚数 × 600 字）超過＝手書きで写しきれない答案を検出する。
+ * （答案用紙の枚数 × 1 枚の字数。config/pe-answer-sheets.json）超過＝手書きで写しきれない答案を検出する。
  *
  * 字数は日本語に強い code point 数で測る（awk|wc -m は Windows で過小カウントするため使わない）。
  * markdown 記号（# * ` - | [ ] ( ) > 全角/半角空白・tab）を除去した残りを数える。
@@ -13,24 +13,24 @@
  *   node scripts/check-note-charlimits.mjs --staged   # git staged の BK article*.md のみ（pre-commit 用）
  *
  * 終了コード: HARD 上限超過が 1 件でもあれば 1（コミットをブロック）。SKIP_NOTE_CHARLIMITS=1 で回避可。
- * 93% 目標超過（ハード上限内）は警告のみ・ブロックしない。
+ * 目標（上限 × targetRatio）超過（ハード上限内）は警告のみ・ブロックしない。
  */
 import { readFileSync, existsSync } from "fs";
 import { execSync } from "child_process";
 import path from "path";
 import { REPO_ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 import { listFiles } from "./lib/fs-walk.mjs";
+import { readDataset } from "./lib/dataset-io.mjs";
 
 const STAGED = process.argv.includes("--staged");
 const MAG_ROOT = path.join(NOTE_CONTENT_ROOT, "技術士建設部門", "magazines");
 
-// exam_type -> [hard, target93]
-const LIMITS = {
-  I: [1800, 1674],
-  "II-1": [600, 558],
-  "II-2": [1200, 1116],
-  III: [1800, 1674],
-};
+// exam_type -> [hard, target]（答案用紙の枚数 × 1 枚の字数・目標は上限 × targetRatio）
+const SHEETS = readDataset(REPO_ROOT, "config.pe-answer-sheets");
+const LIMITS = Object.fromEntries(
+  Object.entries(SHEETS.sheets["pe-construction"]).map(([et, n]) => [et, [n * SHEETS.charsPerSheet, Math.round(n * SHEETS.charsPerSheet * SHEETS.targetRatio)]]),
+);
+const TARGET_PCT = `${Math.round(SHEETS.targetRatio * 100)}%`;
 
 function examTypeFromName(file) {
   const b = path.basename(file);
@@ -143,16 +143,16 @@ if (hardViol.length) {
 }
 
 if (!STAGED) {
-  console.log(`${tag} 走査 ${scanned} ファイル / HARD超過 ${hardViol.length} / 93%目標超過 ${targetViol.length}`);
+  console.log(`${tag} 走査 ${scanned} ファイル / HARD超過 ${hardViol.length} / ${TARGET_PCT}目標超過 ${targetViol.length}`);
   if (targetViol.length) {
-    console.log(`${tag} （参考）93%目標超過だがハード上限内＝手書き可・非ブロック ${targetViol.length} 件`);
+    console.log(`${tag} （参考）${TARGET_PCT}目標超過だがハード上限内＝手書き可・非ブロック ${targetViol.length} 件`);
   }
 } else if (targetViol.length) {
-  console.log(`${tag} 参考: 93%目標超過 ${targetViol.length} 件（ハード上限内・非ブロック）`);
+  console.log(`${tag} 参考: ${TARGET_PCT}目標超過 ${targetViol.length} 件（ハード上限内・非ブロック）`);
 }
 
 if (hardViol.length) {
-  console.error(`${tag} 区分別ハード上限: II-1=600 / II-2=1200 / III・必須I=1800 字。冗長表現を削って上限内に（SKIP_NOTE_CHARLIMITS=1 で緊急回避可）。`);
+  console.error(`${tag} 区分別ハード上限: ${Object.entries(LIMITS).map(([et, [hard]]) => `${et}=${hard}`).join(" / ")} 字。冗長表現を削って上限内に（SKIP_NOTE_CHARLIMITS=1 で緊急回避可）。`);
   process.exit(1);
 }
 
