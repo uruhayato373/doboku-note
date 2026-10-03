@@ -1795,6 +1795,54 @@
       "commit": "caec14da2174",
       "verification": "check-production-ssr exit 0。本番 /exam/civil-construction-2/primary/r03-zenki〜r06-zenki で修正文言（q56-fig・運転者に危険・材料費等記載見積書・(ロ)→(ニ)→(イ)→(ハ) 等）を curl で確認",
       "note": "R03〜R06 の全 249 問（61/61/61/66）を公式 PDF（全国建設研修センター公表のミラー）と照合して直した（7d4aaf42b・fdaf99e45・caec14da2）。修正後の past-exam-qa 再監査で残った転記ずれ 3 問（R03 No.50・R04 No.54/59 の選択肢）も公式ページ画像で確かめて修正し、転記起因の指摘は 0。照合できなかった問は 0。表記ゆれ（土留め／土止め・侵食／浸食など意味が同じもの）は件数に含めない。R05 No.56 に公式の図1〜3 を追加。lint:ja の公式問題逐語の例外を土木の第1次検定に広げた（PR #849）。refresh-indexes 済み・本番反映済み"
+    },
+    {
+      "id": "DN-0516",
+      "at": "2026-10-03",
+      "task": "診断士2記事の末尾CTAが参考資料の抽出で消える不具合と、到達検査の誤集計を直す",
+      "tier": "mid",
+      "executor": "codex-site-product-wiring",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3eed16f5dca7",
+      "verification": "本番 assessment/repair 2/2で記述式マガジンURLを確認。回帰テスト成功。check-magazine-cta:ci exit 0。check-production-ssr exit 0。deploy 37098276124 success。",
+      "note": "参考資料抽出で消えていた2カードを本文へ移し、実描画ベースの検査へ修正。PR #854。本番96/96照合に両記事を含む。マージ時に落ちた進行中タグを既存claimと整合させて完了処理。"
+    },
+    {
+      "id": "DN-0517",
+      "at": "2026-10-03",
+      "task": "教材一覧の主任技士カードから受付中ココナラ商品への導線が消える資格キー変換を直す",
+      "tier": "mid",
+      "executor": "codex-site-product-wiring",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3eed16f5dca7",
+      "verification": "pickCoconalaFor(concrete-chief) 回帰テスト成功。本番 /links の主任技士ココナラURLと一次教材行を確認。CI E2E 130 passed / 22 skipped。check-production-ssr exit 0。",
+      "note": "主任技士の資格キー変換を復旧。公開商品のみを表示し、教材一覧をモバイルの明暗両テーマで目視。PR #854。"
+    },
+    {
+      "id": "DN-0509",
+      "at": "2026-10-03",
+      "task": "上下水道部門のページに、基礎・適性科目向けの note 導線を置く",
+      "tier": "low",
+      "executor": "codex-site-product-wiring",
+      "outcome": "swept",
+      "plan": null,
+      "commit": "46cd17e1a502",
+      "verification": "本番 上下水道16過去問＋科目ガイド1件で共通科目教材リンクと収録範囲注記を確認。全96件照合96/96、check-production-ssr exit 0。",
+      "note": "実装を公開し、旧カードの残件である公開4週間後の配置別CTR計測を DN-0521 へRESEED。28日未経過のため測定完了とは扱わない。"
+    },
+    {
+      "id": "DN-0520",
+      "at": "2026-10-03",
+      "task": "サイト商品導線監査の不足96ページを適合商品へ配線し、本番表示を確認する",
+      "tier": "mid",
+      "executor": "codex-site-product-wiring",
+      "outcome": "done",
+      "plan": null,
+      "commit": "3eed16f5dca7",
+      "verification": "本番対象96/96 PASS。check-production-ssr 2/2 exit 0。R2画像50/50は採用manifestのbyte length・SHA256に一致。check-magazine-cta:ci 実検査1184/1184、未説明の導線ゼロ0。CI E2E 130 passed / 22 skipped、quality/build・Lighthouse成功。",
+      "note": "PR #854 merged、deploy 37098276124 success（46cd17e1a502）。価格なし既存画像の目視、明暗・モバイル・記事中央/末尾の配置を確認。公開4週間後の上下水道効果測定を DN-0521 に抽出。受入条件を満たしたplanを削除。"
     }
   ]
 }
