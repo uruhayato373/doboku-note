@@ -72,7 +72,7 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 - **なぜ DB を正本にしないか**: PR の差分に CI のゲート（`check-products`・収録の三軸照合）を掛けられなくなる／全セッションに Cloudflare の API トークンが要る（エージェントは資格情報を読まない方針）／worktree ごとの並行作業を PR でまとめる運用と合わない。会社 PC から R2 へは届く（ネットワークは理由ではない。D1 の API へ届くかは未確認）
 - **なぜ 1 商品 1 ファイルか**: 並行セッションの衝突を減らす。書き換えは `npm run product`（型の検査・キー順・字下げ 2・LF）で行い、手で書かない
 - **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `content/products/**/*.json` を LF 固定
-- **段階1**: 2級土木の note 商品を移し、`src/lib/note-magazines.ts` の該当エントリは正本から生成する（`// <generated:products civil-construction-2>` ブロック・読み手は変えない）。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他資格・他チャネル、読み手の JSON 直読み）は段階2以降
+- **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他チャネル、読み手の JSON 直読み）は段階2以降
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
 

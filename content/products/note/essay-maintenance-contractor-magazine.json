@@ -1,0 +1,30 @@
+{
+  "id": "essay-maintenance-contractor-magazine",
+  "channel": "note",
+  "qualification": "pe-comprehensive-management",
+  "stage": "written",
+  "series": "keiken",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "essay-maintenance-contractor-magazine",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/mabf26d2c72fb",
+    "noteTitle": "技術士 総監｜維持更新施工の記述式5年分",
+    "title": "技術士 総監｜維持更新施工の記述式5年分",
+    "description": "維持修繕・更新工事の施工者として、供用条件・施工品質・安全・要員配置を統括する立場の模範論文集です。令和3〜7年度の実過去問5記事に、各年度A・Bの2案を収録。発注者の決裁権と自分の判断範囲を分け、5つの管理とトレードオフを具体化します。想定案件による答案モデルであり、著者自身の民間勤務経験を示すものではありません。固有の事実・数値は自分の経験に置き換えてください。R8予想問題は含みません。",
+    "shortTitle": "総監記述式 維持更新施工",
+    "shortDescription": "令和3〜7年度、各年A・Bの2案。維持修繕・更新工事の施工者として、供用条件・施工品質・安全・要員配置を統括する立場の答案モデル。",
+    "price": "¥1,980",
+    "badge": "note 実務立場別 教材"
+  },
+  "members": [
+    "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R03/article.md",
+    "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R04/article.md",
+    "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R05/article.md",
+    "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R06/article.md",
+    "content/note/技術士総監/magazines/総監模範論文-維持更新施工/R07/article.md"
+  ],
+  "includes": [],
+  "memo": []
+}
