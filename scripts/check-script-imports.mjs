@@ -22,9 +22,10 @@
 //
 // 「検査ゼロを PASS と呼ばない」（CLAUDE.md §9）: 走査対象が 0 件なら exit 1。
 
-import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
-import { join, dirname, resolve } from "node:path";
+import { readFileSync, existsSync, statSync } from "node:fs";
+import { join, dirname, resolve, relative } from "node:path";
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ROOTS = ["scripts", ".claude/scripts", ".claude/skills"];
 const EXT = /\.(mjs|mts|js|cjs)$/;
@@ -35,17 +36,8 @@ const ALLOW = [
   /\/pagefind\/pagefind\.js$/, // Pagefind がビルド時に out/ へ生成する
 ];
 
-function walk(dir, acc = []) {
-  const abs = join(ROOT, dir);
-  if (!existsSync(abs)) return acc;
-  for (const e of readdirSync(abs, { withFileTypes: true })) {
-    if (SKIP_DIR.has(e.name) || e.name.startsWith(".") && e.name !== ".claude") continue;
-    const rel = `${dir}/${e.name}`;
-    if (e.isDirectory()) walk(rel, acc);
-    else if (EXT.test(e.name)) acc.push(rel);
-  }
-  return acc;
-}
+// ファイルもディレクトリも、この名前なら入らない／数えない（.claude だけは隠しでも対象）
+const isSkipped = (name) => SKIP_DIR.has(name) || (name.startsWith(".") && name !== ".claude");
 
 // import/export ... from '...' / import('...') の相対パスだけを拾う。
 const PATTERNS = [
@@ -73,7 +65,11 @@ function stripComments(src) {
     .join("\n");
 }
 
-const files = ROOTS.flatMap((r) => walk(r));
+const files = ROOTS.flatMap((r) => listFiles(join(ROOT, r), {
+  allowMissing: true,
+  skipDir: (_p, name) => isSkipped(name),
+  match: (_p, name) => !isSkipped(name) && EXT.test(name),
+}).map((p) => relative(ROOT, p).split("\\").join("/")));
 
 if (files.length === 0) {
   console.error("[check-script-imports] 検査不成立: 走査対象のスクリプトが 1 件も見つかりません。");

@@ -8,9 +8,12 @@
 //   node scripts/essay-shisaku-charcount.mjs <persona-dir|article.md> [--detail]  # 個別・ブロック明細
 //   node scripts/essay-shisaku-charcount.mjs <path> --strict         # 超過1件でも exit 1（ゲート用）
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
+import { NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = 'content/note/技術士総監/magazines';
+const ROOT = join(NOTE_CONTENT_ROOT, '技術士総監', 'magazines');
+// 表示は ROOT からの相対（ROOT の外を指定したときはそのまま）
+const shown = (a) => { const abs = resolve(a); return (abs.startsWith(ROOT + sep) ? relative(ROOT, abs) : a).replace(/\\/g, '/'); };
 const LIMIT = 600;
 const args = process.argv.slice(2);
 const flags = args.filter((a) => a.startsWith('--'));
@@ -118,13 +121,13 @@ for (const a of arts) {
   const tone = introToneMixing(a);
   toneMixTotal += tone.length;
   if (tone.length) {
-    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}  【導入部 文体混在(である調) ${tone.length}件・警告】`);
+    console.log(`\n${shown(a)}  【導入部 文体混在(である調) ${tone.length}件・警告】`);
     for (const t of tone) console.log(`  ⚠ ${t}`);
   }
   blk += res.length; over += res.filter((r) => r.over).length; proseNg += res.filter((r) => r.bullets > 0).length;
   bodyBulletTotal += bb;
   if (DETAIL || ng.length || bb > 0) {
-    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}${bb > 0 ? `  【答案箇条書き ${bb}か所】` : ''}`);
+    console.log(`\n${shown(a)}${bb > 0 ? `  【答案箇条書き ${bb}か所】` : ''}`);
     for (const r of (DETAIL ? res : ng)) {
       const mark = r.over ? '✗字' : r.bullets > 0 ? '✗散' : '✓ ';
       console.log(`  ${mark} ${String(r.len).padStart(4)}字${r.bullets ? ` 箇条${r.bullets}` : ''}  ${r.head}`);

@@ -21,9 +21,8 @@ import { execFileSync } from 'node:child_process';
 import { coverFitIssues } from './lib/note-character-cover.mjs';
 import { loadCoverSources, collectArticleFiles, buildArticleTarget, buildMagazineTargets } from './lib/note-cover-inventory.mjs';
 import { MAGAZINES } from './generate-magazine-covers.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT as NOTE_DIR } from './lib/repository-paths.mjs';
 
-const NOTE_DIR = 'content/note';
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
@@ -33,7 +32,7 @@ function stagedMd() {
     // 引用符付き8進エスケープになり startsWith('content/note') に不一致→日本語パス記事が素通りする）
     return execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n').map((s) => s.trim())
-      .filter((s) => s.startsWith(NOTE_DIR) && /\/article(-[A-Za-z0-9-]+)?\.md$/.test(s))
+      .filter((s) => join(ROOT, s).startsWith(NOTE_DIR) && /\/article(-[A-Za-z0-9-]+)?\.md$/.test(s))
       .map((s) => join(ROOT, s));
   } catch {
     return [];
@@ -46,7 +45,7 @@ const ng = [];
 let articles = 0;
 for (const fp of files) {
   if (!existsSync(fp)) continue;
-  const slug = fp.slice(join(ROOT, NOTE_DIR).length + 1).split('\\').join('/');
+  const slug = fp.slice(NOTE_DIR.length + 1).split('\\').join('/');
   let target;
   try { target = buildArticleTarget(ROOT, fp, sources, readFileSync(fp, 'utf8')); } catch (e) { ng.push({ slug, issues: [e.message] }); continue; }
   articles++;

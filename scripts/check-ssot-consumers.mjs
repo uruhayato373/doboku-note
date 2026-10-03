@@ -16,9 +16,10 @@
 // 実行: node scripts/check-ssot-consumers.mjs [--json]
 // 常に exit 0（非ブロッキング surfacer）。判断は人がする。
 
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const WANT_JSON = process.argv.includes('--json');
 
@@ -49,16 +50,7 @@ const ALLOWLIST = [
   },
 ];
 
-function walk(dir, out = []) {
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (e === 'page.tsx' || e === 'layout.tsx') out.push(p);
-  }
-  return out;
-}
-
-const pages = walk(join(ROOT, 'src/app'));
+const pages = listFiles(join(ROOT, 'src/app'), { match: (_p, name) => name === 'page.tsx' || name === 'layout.tsx', followLinks: true });
 const findings = [];
 
 for (const abs of pages) {

@@ -30,30 +30,23 @@
  * 終了コード: BAD 1件以上 → exit 1。FETCH_ERR は WARN 扱い（ネットワーク偽陰性と区別）。
  * 真実源: .claude/knowledge/reference/note-api-verification.md「live 本文整合性検査」
  */
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, stripHtmlComments, findSplitBeforeCard, findLongHeadings, countSotLongHeadings } from './lib/note-live-check.mjs';
 import { bodyHash, canonBodyHash, loadState } from './lib/note-republish-hash.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const rawArgs = process.argv.slice(2);
 const PATHS_ONLY = rawArgs.includes('--paths');
 const FILTER = rawArgs.find((a) => !a.startsWith('--')) || '';
 const CONCURRENCY = 8;
 
-function walk(dir, acc) {
-  for (const c of readdirSync(dir)) {
-    const p = join(dir, c);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, acc);
-    // 型別ファイル（article-<型>.md）を落とさない。固定名だと建設部門の大半が
-    // 最初から対象外になり「検査したつもり」になる（2026-08-13 に verify-note-status で
-    // 同じ欠陥が 195 本を無検査にしていた）。
-    else if (/^article(-[^/\\]+)?\.md$/.test(c)) acc.push(p);
-  }
-  return acc;
-}
+// 型別ファイル（article-<型>.md）を落とさない。固定名だと建設部門の大半が
+// 最初から対象外になり「検査したつもり」になる（2026-08-13 に verify-note-status で
+// 同じ欠陥が 195 本を無検査にしていた）。
+const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;
 
 // SoT から期待画像数を導出（有料は境界より前のみ）。境界不明の有料は null（画像検査 skip）。
 function expectedImagesOf(raw) {
@@ -87,7 +80,7 @@ const canonLedger = ledger.canonHashes || {};
 const targets = [];
 let reserved = 0;
 let driftSkipped = 0;
-for (const f of walk(join(ROOT, 'content/note'), [])) {
+for (const f of listFiles(join(ROOT, 'content/note'), { match: (_p, name) => ARTICLE_RE.test(name), followLinks: true })) {
   if (FILTER && !f.includes(FILTER)) continue;
   const raw = readFileSync(f, 'utf8');
   if (!raw.startsWith('---')) continue;

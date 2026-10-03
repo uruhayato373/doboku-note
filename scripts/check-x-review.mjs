@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { readXReview, readXReviewPlans } from './lib/x-review.mjs';
 import { validateReviewSchedule } from './lib/x-review-schedule.mjs';
 import { validateCharacterCard } from './lib/x-character-spec.mjs';
 import { sha256File } from './lib/asset-storage.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 const data=readXReview(root),local=process.argv.includes('--local'),errors=[];
 const config=JSON.parse(fs.readFileSync(path.join(root,'content/sns/x/review.json'),'utf8'));
 const plans=readXReviewPlans(root, config);

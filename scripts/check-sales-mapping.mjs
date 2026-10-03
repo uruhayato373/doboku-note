@@ -29,13 +29,17 @@
 // 真実源: .claude/knowledge/reference/sales-tracking.md / .claude/agents/sales-recorder.md
 
 import { readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT, CLAUDE_ROOT } from './lib/repository-paths.mjs';
 
 const SALES_LOG = datasetPath('note.sales');
-const RECORDER = '.claude/agents/sales-recorder.md';
-const NOTE_CATALOG = 'src/lib/note-magazines.ts';
+const RECORDER = join(CLAUDE_ROOT, 'agents', 'sales-recorder.md');
+const NOTE_CATALOG = join(REPO_ROOT, 'src', 'lib', 'note-magazines.ts');
+// git の出力（リポジトリからの相対・/ 区切り）と比べるための形
+const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 
 if (process.env.SKIP_SALES_MAPPING === '1') {
   console.log('[check-sales-mapping] スキップ（SKIP_SALES_MAPPING=1）');
@@ -57,8 +61,8 @@ if (staged) {
   }
   if (
     !stagedFiles.includes(SALES_LOG) &&
-    !stagedFiles.includes(RECORDER) &&
-    !stagedFiles.includes(NOTE_CATALOG)
+    !stagedFiles.includes(repoRel(RECORDER)) &&
+    !stagedFiles.includes(repoRel(NOTE_CATALOG))
   ) {
     process.exit(0); // 売上系の変更が無いコミットは対象外
   }

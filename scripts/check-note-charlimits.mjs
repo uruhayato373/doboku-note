@@ -15,12 +15,14 @@
  * 終了コード: HARD 上限超過が 1 件でもあれば 1（コミットをブロック）。SKIP_NOTE_CHARLIMITS=1 で回避可。
  * 93% 目標超過（ハード上限内）は警告のみ・ブロックしない。
  */
-import { readFileSync, existsSync, readdirSync, statSync } from "fs";
+import { readFileSync, existsSync } from "fs";
 import { execSync } from "child_process";
 import path from "path";
+import { REPO_ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { listFiles } from "./lib/fs-walk.mjs";
 
 const STAGED = process.argv.includes("--staged");
-const MAG_ROOT = "content/note/技術士建設部門/magazines";
+const MAG_ROOT = path.join(NOTE_CONTENT_ROOT, "技術士建設部門", "magazines");
 
 // exam_type -> [hard, target93]
 const LIMITS = {
@@ -63,23 +65,17 @@ function blocks(sec) {
   return out;
 }
 
-// MAG_ROOT 配下の BK-* マガジンから article*.md を再帰収集（fs.globSync は Node20 非対応のため手書き walk）
+// MAG_ROOT 配下の BK-* マガジン（BK-*/<年度>/article*.md の 2 階層）から article*.md を収集（fs.globSync は Node20 非対応）
 function walkArticles() {
-  const found = [];
-  if (!existsSync(MAG_ROOT)) return found;
-  for (const mag of readdirSync(MAG_ROOT)) {
-    if (!mag.startsWith("BK-")) continue;
-    const magDir = path.join(MAG_ROOT, mag);
-    if (!statSync(magDir).isDirectory()) continue;
-    for (const year of readdirSync(magDir)) {
-      const yearDir = path.join(magDir, year);
-      if (!statSync(yearDir).isDirectory()) continue;
-      for (const f of readdirSync(yearDir)) {
-        if (/^article(-II1|-II2|-III)?\.md$/.test(f)) found.push(path.join(yearDir, f));
-      }
-    }
-  }
-  return found;
+  return listFiles(MAG_ROOT, {
+    allowMissing: true,
+    followLinks: true,
+    maxDepth: 2,
+    match: (p) => {
+      const [mag, , file] = path.relative(MAG_ROOT, p).split(path.sep);
+      return file !== undefined && mag.startsWith("BK-") && /^article(-II1|-II2|-III)?\.md$/.test(file);
+    },
+  });
 }
 
 function targetFiles() {
@@ -103,6 +99,7 @@ function targetFiles() {
       .filter((p) =>
         /(^|\/)content\/note\/技術士建設部門\/magazines\/BK-[^/]+\/[^/]+\/article(-II1|-II2|-III)?\.md$/.test(p)
       )
+      .map((p) => path.join(REPO_ROOT, p))
       .filter(existsSync);
   }
   return walkArticles();
@@ -127,11 +124,12 @@ for (const file of files) {
   const [hard, tgt] = LIMITS[et];
   const sec = answerSection(readFileSync(file, "utf-8"));
   if (sec == null) continue;
+  const shown = path.relative(REPO_ROOT, file).split(path.sep).join("/");
   for (const [head, body] of blocks(sec)) {
     const n = stripCount(body);
     if (n === 0) continue;
-    if (n > hard) hardViol.push({ file, et, head: head.slice(0, 28), n, lim: hard });
-    else if (n > tgt) targetViol.push({ file, et, head: head.slice(0, 28), n, lim: tgt });
+    if (n > hard) hardViol.push({ file: shown, et, head: head.slice(0, 28), n, lim: hard });
+    else if (n > tgt) targetViol.push({ file: shown, et, head: head.slice(0, 28), n, lim: tgt });
   }
 }
 

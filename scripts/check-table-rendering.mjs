@@ -17,9 +17,10 @@
  *   node scripts/check-table-rendering.mjs --json     # 機械可読
  */
 
-import { readFileSync, writeSync, readdirSync } from "node:fs";
+import { readFileSync, writeSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { findUnrenderedTables, stripFrontmatter } from "./lib/table-rendering-rules.mjs";
+import { listFiles as listTree } from "./lib/fs-walk.mjs";
 
 const args = process.argv.slice(2);
 const STAGED = args.includes("--staged");
@@ -47,22 +48,7 @@ function listFiles() {
   }
   // fs.globSync は Node 22+ 専用。CI は Node 20 なので使えない
   // （使うと対象0件になり「検査不成立」で落ちる。2026-08-04 に CI で顕在化）。
-  const out = [];
-  const walk = (dir) => {
-    let entries;
-    try {
-      entries = readdirSync(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const e of entries) {
-      const p = `${dir}/${e.name}`;
-      if (e.isDirectory()) walk(p);
-      else if (e.isFile() && e.name.endsWith(".mdx")) out.push(p);
-    }
-  };
-  ROOTS.forEach(walk);
-  return out;
+  return ROOTS.flatMap((r) => listTree(r, { ext: ".mdx", allowMissing: true }));
 }
 
 const files = listFiles();

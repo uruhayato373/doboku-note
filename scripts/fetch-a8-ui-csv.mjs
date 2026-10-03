@@ -25,6 +25,7 @@ import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { execSync } from "node:child_process";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 
 import {
   loadA8Config,
@@ -50,16 +51,15 @@ import { parseCsv } from "./lib/google-console-csv.mjs";
 const STATE_DIR = datasetDir("a8.ui-raw");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const opts = { dryRun: false, headed: false, reports: "all", probeIsolation: false, probePeriod: false, month: null };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--dry-run") opts.dryRun = true;
-    else if (a[i] === "--headed") opts.headed = true;
-    else if (a[i] === "--probe-isolation") opts.probeIsolation = true;
-    else if (a[i] === "--probe-period") opts.probePeriod = true;
-    else if (a[i] === "--reports") opts.reports = a[++i];
-    else if (a[i] === "--month") opts.month = a[++i];
-  }
+  const opts = parseCliArgs({
+    "dry-run": { type: "boolean" },
+    headed: { type: "boolean" },
+    reports: { type: "string", default: "all" },
+    "probe-isolation": { type: "boolean" },
+    "probe-period": { type: "boolean" },
+    month: { type: "string" },
+  });
+  delete opts._;
   return opts;
 }
 

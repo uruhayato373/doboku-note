@@ -26,6 +26,7 @@ import { join } from "node:path";
 import { markerPath, rawDir } from "./lib/google-console-ssot.mjs";
 import { execSync } from "node:child_process";
 import { inflateRawSync } from "node:zlib";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 import {
   loadConfig,
   launchContext,
@@ -44,14 +45,13 @@ import { GSC_PROPERTY } from "./lib/site-identity.mjs";
 const STATE_DIR = rawDir("gsc-ui");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const opts = { dryRun: false, headed: false, issues: "all", scope: "both" };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--dry-run") opts.dryRun = true;
-    else if (a[i] === "--headed") opts.headed = true;
-    else if (a[i] === "--issues") opts.issues = a[++i];
-    else if (a[i] === "--scope") opts.scope = a[++i];
-  }
+  const opts = parseCliArgs({
+    "dry-run": { type: "boolean" },
+    headed: { type: "boolean" },
+    issues: { type: "string", default: "all" },
+    scope: { type: "string", default: "both" },
+  });
+  delete opts._;
   return opts;
 }
 

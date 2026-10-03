@@ -25,11 +25,12 @@
  *   node scripts/check-published-vs-redirects.mjs --staged   # staged の .mdx だけ（pre-commit）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const CONTENT = join(ROOT, 'content/site');
 const REDIRECTS = join(ROOT, 'public/_redirects');
@@ -61,13 +62,11 @@ function redirectSources() {
 }
 
 /** content/site 配下の .mdx を列挙して slug を付ける */
-function walk(dir, segments = [], out = []) {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) { walk(full, [...segments, entry.name], out); continue; }
-    if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
-    const base = entry.name.replace(/\.mdx$/, '');
+function walk(dir) {
+  const out = [];
+  for (const full of listFiles(dir, { ext: '.mdx', allowMissing: true })) {
+    const segments = relative(dir, full).split(sep);
+    const base = segments.pop().replace(/\.mdx$/, '');
     const parts = base === 'article' ? segments : [...segments, base];
     if (parts.length === 0) continue;
     out.push({ file: full, slug: parts.join('-') });

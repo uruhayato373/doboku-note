@@ -32,6 +32,7 @@ import {
 } from './lib/seo-checks.mjs';
 import { validateJsonLd, JSONLD_RULE_TYPES } from './lib/jsonld-required-props.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const jsonOut = argv.includes('--json');
@@ -72,19 +73,10 @@ function fileToUrlPath(relFromOut) {
 
 // ---- 全 HTML ルート集合（404/_not-found/_ 配下・非ルートは除外） ----
 const EXCLUDE_FILES = new Set(['404.html', '_not-found.html']);
-function walkHtml(dir, base = '') {
-  const results = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const rel = base ? `${base}/${entry.name}` : entry.name;
-    if (entry.isDirectory()) {
-      if (entry.name === 'pagefind' || entry.name === 'content') continue;
-      results.push(...walkHtml(path.join(dir, entry.name), rel));
-    } else if (entry.name.endsWith('.html')) {
-      if (EXCLUDE_FILES.has(rel) || rel.startsWith('_') || rel.includes('/_')) continue;
-      results.push(rel);
-    }
-  }
-  return results;
+function walkHtml(dir) {
+  return listFiles(dir, { ext: '.html', skipDir: (_p, name) => name === 'pagefind' || name === 'content' })
+    .map((p) => path.relative(dir, p).split(path.sep).join('/'))
+    .filter((rel) => !(EXCLUDE_FILES.has(rel) || rel.startsWith('_') || rel.includes('/_')));
 }
 const allHtmlRel = walkHtml(OUT);
 const routeSet = new Set(allHtmlRel.map(fileToUrlPath));

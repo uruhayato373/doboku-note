@@ -22,12 +22,13 @@
  *   node scripts/check-outbound-links.mjs --json
  * exit: 0 合格 / 1 死んだ送客先あり・検査不成立
  */
-import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
+import { readFileSync, writeSync } from 'node:fs';
 import { join, sep } from 'node:path';
 import { fetchNote, fetchMagazine } from './lib/note-api.mjs';
 import { extractNoteRefs } from './lib/note-refs.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const NAME = 'check-outbound-links';
 const argv = process.argv.slice(2);
@@ -42,22 +43,17 @@ const toPosix = (p) => p.split(sep).join('/');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const TEXT_EXT = /\.(md|mdx|txt|json|ts|tsx)$/;
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    if (e.name === 'node_modules' || e.name.startsWith('_archive')) continue;
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.isFile() && TEXT_EXT.test(e.name)) out.push(p);
-  }
-  return out;
-}
+const isExcluded = (name) => name === 'node_modules' || name.startsWith('_archive');
 
 // url -> Set(参照元ファイル)
 const refs = new Map();
 for (const s of SCOPES) {
   if (SCOPE && s !== SCOPE) continue;
-  for (const abs of walk(join(ROOT, 'content', s))) {
+  for (const abs of listFiles(join(ROOT, 'content', s), {
+    allowMissing: true,
+    skipDir: (_p, name) => isExcluded(name),
+    match: (_p, name) => !isExcluded(name) && TEXT_EXT.test(name),
+  })) {
     const rel = toPosix(abs.slice(ROOT.length + 1));
     const src = readFileSync(abs, 'utf8');
     for (const { kind, id } of extractNoteRefs(src)) {

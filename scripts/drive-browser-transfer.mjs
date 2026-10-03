@@ -26,23 +26,16 @@
  *   - フォルダのアップロードは同名フォルダを統合せず 2 つ目を作る。送る前に置き先に同名が無いことを確かめる
  */
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { basename, join, posix, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor, vaultRelFor } from './lib/drive-vault.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const NAME = 'drive-browser-transfer';
 const oneLine = (e) => String(e?.message || e).split(/\r?\n/)[0].slice(0, 200);
 const sha = (b) => createHash('sha256').update(b).digest('hex');
-
-function walk(dir) {
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir).flatMap((n) => {
-    const p = join(dir, n);
-    return statSync(p).isDirectory() ? walk(p) : [p];
-  });
-}
 
 /** Drive 台帳に無い手元ファイルを vault フォルダごとに束ねる（純関数に近い: 走査結果を受け取る）。 */
 export function buildPlan(groupId, repoPaths, { cfg, manifest }) {
@@ -188,7 +181,7 @@ async function uploadTree(units) {
     await page.waitForTimeout(8000);
     for (const u of units) {
       const abs = resolve(REPO_ROOT, u.dir);
-      const files = walk(abs);
+      const files = listFiles(abs, { allowMissing: true, followLinks: true });
       try {
         await page.goto(`https://drive.google.com/drive/folders/${u.parentId}`, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await page.waitForFunction((n) => document.title.startsWith(`${n} - `), u.parentName, { timeout: 60_000 });
@@ -255,7 +248,7 @@ async function main() {
     const prefix = String(group?.keyFrom || '').replace(/^stripPrefix:/, '');
     if (!group || !prefix || prefix === group.keyFrom) throw new Error('--group は keyFrom が stripPrefix の group を指定する');
     const base = join(REPO_ROOT, prefix);
-    const repoPaths = walk(base).map((p) => toRepoPath(prefix, relative(base, p)));
+    const repoPaths = listFiles(base, { allowMissing: true, followLinks: true }).map((p) => toRepoPath(prefix, relative(base, p)));
     const plan = buildPlan(groupId, repoPaths, { cfg, manifest: loadDriveManifest() });
     console.log(JSON.stringify(plan, null, 2));
     console.error(`[${NAME}] plan: 手元 ${repoPaths.length} 件を走査 / 未登録 ${plan.folders.reduce((s, f) => s + f.files.length, 0)} 件・${plan.folders.length} フォルダ`);

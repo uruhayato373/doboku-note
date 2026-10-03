@@ -4,13 +4,10 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readJson } from './lib/json-io.mjs';
 
 const DATA_ROOT = join(ROOT, 'public', 'standards-data');
 const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
-
-function readJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -22,9 +19,9 @@ function graphNode(graph, type) {
 
 function main() {
   assert(existsSync(DATA_ROOT), 'public/standards-data がありません。先に生成してください');
-  const manifest = readJson(join(DATA_ROOT, 'manifest.json'));
-  const catalog = readJson(join(DATA_ROOT, 'catalog.json'));
-  const comparison = readJson(join(DATA_ROOT, 'comparison.json'));
+  const manifest = readJson(DATA_ROOT, 'manifest.json');
+  const catalog = readJson(DATA_ROOT, 'catalog.json');
+  const comparison = readJson(DATA_ROOT, 'comparison.json');
   const headers = readFileSync(join(ROOT, 'public', '_headers'), 'utf8');
   const failures = [];
   let checkedDocuments = 0;
@@ -35,8 +32,8 @@ function main() {
     const [agencyId, documentId] = document.id.split('/');
     const documentRoot = join(DATA_ROOT, agencyId, documentId);
     try {
-      const index = readJson(join(documentRoot, 'index.json'));
-      const documentSchema = readJson(join(documentRoot, 'index.jsonld'));
+      const index = readJson(documentRoot, 'index.json');
+      const documentSchema = readJson(documentRoot, 'index.jsonld');
       assert(index.source.sha256 === document.sourceSha256, `${document.id}: 原本SHAがcatalogと不一致`);
       assert(index.chapters.length > 0, `${document.id}: 章が0件`);
       assert(
@@ -50,7 +47,7 @@ function main() {
         assert(existsSync(markdownPath), `${document.id}/${chapter.id}: Markdownがない`);
         assert(existsSync(jsonLdPath), `${document.id}/${chapter.id}: JSON-LDがない`);
         const markdown = readFileSync(markdownPath, 'utf8');
-        const schema = readJson(jsonLdPath);
+        const schema = readJson(documentRoot, `chapters/${chapter.id}.jsonld`);
         const graph = schema['@graph'];
         const source = graphNode(graph, 'DigitalDocument');
         const article = graphNode(graph, 'TechArticle');

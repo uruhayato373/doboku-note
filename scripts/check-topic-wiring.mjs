@@ -5,6 +5,7 @@ import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { pathToFileURL } from 'node:url';
 import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const EXPECTED_AGENCIES = [
   'chubu', 'chugoku', 'hokkaido', 'hokuriku', 'kanto',
@@ -21,7 +22,7 @@ function findMdxFiles(directory) {
   return files;
 }
 
-export function auditTopicWiring(root = process.cwd()) {
+export function auditTopicWiring(root = REPO_ROOT) {
   const topics = JSON.parse(readFileSync(join(root, 'src/config/topics.json'), 'utf8'));
   // タグは canonical（tags.json）で照合する。記事の別名綴りは build 時に正規化されるため、ここでも同じ正規化を通す
   const aliasMap = buildAliasMap(JSON.parse(readFileSync(join(root, 'src/config/tags.json'), 'utf8')));

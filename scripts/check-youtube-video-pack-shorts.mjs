@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 /** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readJson } from './lib/json-io.mjs';
 
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 // 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
@@ -23,10 +24,6 @@ const slots = new Map();
 const daily = new Map();
 let packCount = 0;
 let shortsCount = 0;
-
-function readJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
 
 function addSlot(value, label) {
   if (!value) return;
@@ -49,9 +46,9 @@ for (const exam of EXAMS) {
     const youtubePath = join(dir, 'youtube.json');
     if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
     packCount += 1;
-    const manifest = readJson(manifestPath);
-    const storyboard = readJson(storyboardPath);
-    const youtube = readJson(youtubePath);
+    const manifest = readJson(dir, 'video-pack.json');
+    const storyboard = readJson(dir, 'storyboard.json');
+    const youtube = readJson(dir, 'youtube.json');
     const sceneIds = new Set((storyboard.scenes ?? []).map((scene) => scene.sceneId));
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;

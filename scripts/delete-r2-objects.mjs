@@ -37,8 +37,7 @@ import { S3Client, DeleteObjectCommand, HeadObjectCommand } from '@aws-sdk/clien
 import fs from 'fs';
 import path from 'path';
 import { datasetPath } from './lib/datasets.mjs';
-
-const root = process.cwd();
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
 // .env.local があれば読む（ローカル実行用。CI では env から渡る）
 const envPath = path.join(root, '.env.local');
