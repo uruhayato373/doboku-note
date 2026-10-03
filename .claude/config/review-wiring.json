@@ -110,6 +110,12 @@
           "role": "点検"
         },
         {
+          "command": "ci-data",
+          "label": "最新レポートの場所（GA4 のページ別 CV など）",
+          "stage": "検索",
+          "role": "点検"
+        },
+        {
           "command": "growth-digest",
           "label": "計測ダイジェスト",
           "stage": "検索",
