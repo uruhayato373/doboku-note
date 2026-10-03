@@ -7,6 +7,9 @@
  * 価格改定・文面修正・カテゴリ変更を「SoT を直してこのスクリプトを回す」運用にする。
  *
  * 安全弁: 既定は「下書きで保存」。反映（再公開）は --commit。account assert。
+ * 公開中サービスの編集画面には「下書きで保存」が無いので、--commit なしは送信しない dry-run になる
+ * （アカウント・画面到達・画像スロット枚数・フィールド入力・更新ボタンの存在まで確かめて exit 0）。
+ * 画像のアップロード・削除は送信前でもその場で公開側へ反映されるため、dry-run では画像に触らない。
  *
  * 使い方:
  *   node scripts/coconala-edit.mjs --service coconala-tensaku-set --commit      # カタログの現値を反映
@@ -22,7 +25,7 @@ import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep, readCatalog, readListings, writeBackCatalog, resolveImagePath,
 } from './lib/coconala-session.mjs';
-import { fillServiceForm, submitForm, uploadImage, replaceImage } from './lib/coconala-form.mjs';
+import { fillServiceForm, submitForm, uploadImage, replaceImage, readImageSlots, listSubmitButtons } from './lib/coconala-form.mjs';
 
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -75,7 +78,7 @@ if (ONLY.length) {
   for (const k of ONLY) { const fk = keyMap[k] || k; if (fk in allFields) fields[fk] = allFields[fk]; }
   // category を触るなら provisionFormat も保持不要（部分更新）
 }
-console.log(`[prep] edit service=${SERVICE} id=${numericId} fields=${ONLY.length ? ONLY.join(',') : 'ALL'} mode=${COMMIT ? 'COMMIT(反映)' : 'DRAFT(下書き)'}`);
+console.log(`[prep] edit service=${SERVICE} id=${numericId} fields=${ONLY.length ? ONLY.join(',') : 'ALL'} mode=${COMMIT ? 'COMMIT(反映)' : svc.status === 'listed' ? 'DRY-RUN(公開中・送信しない)' : 'DRAFT(下書き)'}`);
 
 mkdirSync(join(ROOT, '.tmp/coconala'), { recursive: true });
 const shot = (n) => join(ROOT, '.tmp/coconala', n);
@@ -93,8 +96,16 @@ try {
   await sleep(3000);
   if (!/\/mypage\/services\/\d+/.test(page.url())) { console.error('ABORT: 編集ページに到達できない（id 不正 or 権限）'); await ctx.close(); process.exit(3); }
 
+  // 公開中サービスの編集画面（「下書きで保存」が無い）で --commit が無ければ dry-run。
+  // 画像のアップロード・削除は送信前でもその場でサーバへ反映されるので、dry-run では画像に触らず読むだけにする。
+  const LIVE_DRY_RUN = !COMMIT && !(await listSubmitButtons(page)).includes('下書きで保存');
+  if (LIVE_DRY_RUN) console.log('[edit] dry-run: 公開中サービスの編集画面。画像は触らず、入力と更新ボタンの存在だけ確かめる（反映は --commit）');
+
   // 画像アップロード（--image）。IMAGE_ONLY なら本文フィールドは触らない（画像だけ更新）。
-  if (IMAGE_ABS) {
+  if (IMAGE_ABS && LIVE_DRY_RUN) {
+    const slots = await readImageSlots(page);
+    console.log(`[edit] dry-run 画像: 現在 ${slots.length} 枚 → ${REPLACE_IMAGE ? '差し替え' : '追加'}予定 ${IMAGE_ABS}（未実行）`);
+  } else if (IMAGE_ABS) {
     const ir = REPLACE_IMAGE
       ? await replaceImage(page, IMAGE_ABS, { tag: '[edit]' })
       : await uploadImage(page, IMAGE_ABS, { tag: '[edit]', force: FORCE_IMAGE });
@@ -110,7 +121,7 @@ try {
   }
   await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`) }).catch(() => {});
 
-  const r = await submitForm(page, { commit: COMMIT, tag: '[edit]' });
+  const r = await submitForm(page, { commit: COMMIT, dryRun: LIVE_DRY_RUN, tag: '[edit]' });
   console.log(`[edit] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors, reason: r.reason }));
   await page.screenshot({ path: shot(`edit-result-${SERVICE}.png`) }).catch(() => {});
   // 公開成功 & カタログがまだ draft → listed へ書き戻し（下書きを公開した場合）
@@ -120,7 +131,7 @@ try {
     console.log('    ★ account.json は既設定。/links には listed で表示されます');
   }
   if (!r.ok) process.exitCode = 2;
-  console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : 'draft', ok: r.ok }));
+  console.log('RESULT:', JSON.stringify({ service: SERVICE, id: numericId, mode: COMMIT ? 'commit' : r.dryRun ? 'dry-run' : 'draft', ok: r.ok }));
 } finally {
   await ctx.close();
 }

@@ -19,6 +19,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
+import { OFFICIAL_QUESTION_PAGE, officialTextRanges } from './lib/official-question-text.mjs';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 // textlint は npx でなく node で直接起動する（Windows の spawnSync は npx.cmd を解決できない）。
@@ -27,33 +28,6 @@ const SCAN_DIR = join(ROOT, 'content', 'site');
 const SCAN_EXT = /\.mdx$/;
 
 const mode = process.argv.includes('--all') ? 'all' : 'staged';
-
-// 技術士第一次試験の過去問ページは、問題見出し（## Ⅰ-1-1 等）から <details> までが公式問題の逐語。
-// 解説の「N. ＜選択肢の原文＞ 理由」の行頭も同じ原文の引用。原文の表記（「受け入れ」「2か所」「組立て等作業主任者」
-// 全角の「Ｈ形鋼」等）は表記統一の対象にしない＝その範囲（行 → 末尾の桁）に出た指摘だけ除く。
-const OFFICIAL_QUESTION_PAGE = /[\\/]pe-first-stage[\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)[\\/]article\.mdx$/;
-
-function officialTextRanges(filePath) {
-  const ranges = new Map(); // 行番号 → 原文が続く最後の桁（1 始まり）
-  let inQuestion = false;
-  let options = new Map();
-  readFileSync(filePath, 'utf8').split(/\r?\n/).forEach((line, index) => {
-    if (/^##\s/.test(line)) {
-      inQuestion = /^##\s+[ⅠⅡⅢⅣ]-\d/.test(line);
-      options = new Map();
-    } else if (/^<details>/.test(line)) {
-      inQuestion = false;
-    }
-    const option = /^([1-5])\.\s+(.+)$/.exec(line);
-    if (inQuestion) {
-      ranges.set(index + 1, Infinity);
-      if (option) options.set(option[1], option[2].trim());
-    } else if (option && options.get(option[1]) && option[2].startsWith(options.get(option[1]))) {
-      ranges.set(index + 1, line.indexOf(option[2]) + options.get(option[1]).length);
-    }
-  });
-  return ranges;
-}
 
 function stagedMdxFiles() {
   const out = execFileSync(
@@ -138,7 +112,7 @@ for (const batch of batches) {
   scannedFiles += batch.length;
   for (const fileReport of report) {
     if (OFFICIAL_QUESTION_PAGE.test(fileReport.filePath)) {
-      const official = officialTextRanges(fileReport.filePath);
+      const official = officialTextRanges(readFileSync(fileReport.filePath, 'utf8'));
       const kept = fileReport.messages.filter((msg) => !(official.has(msg.line) && msg.column <= official.get(msg.line)));
       officialSkipped += fileReport.messages.length - kept.length;
       fileReport.messages = kept;
