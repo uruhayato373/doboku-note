@@ -1747,6 +1747,18 @@
       "commit": "0ccbf1886b21",
       "verification": "node scripts/check-pe-first-stage-historical.mjs PASS（40 ページ / 1190 問）・演習データ 1,830 問で再生成・本番反映（cloudflare-deploy 37018356176・check-production-ssr exit 0）・本番 r01-water-supply で修正文を確認",
       "note": "61 か所（上下水道 16 回分の指摘・建設 h23/h24・基礎 h23）＋令和7 建設 Ⅲ-13 を一次情報と照合。確定 20・確定して修正 8・確定できず 33（設計指針の解説本文が有料で公開抜粋に無い等。根拠のない理由・数値を外し公式正答の範囲に弱めた）。判定・出典 URL・理由は .claude/state/pe-first-stage-audit/{年度}-{科目}.json の fact_check に記録（a46c96372・PR #844）"
+    },
+    {
+      "id": "DN-0407",
+      "at": "2026-10-02",
+      "task": "コンクリート技士・主任技士の YouTube 競合分析（09a）を 05a・07a・08a と同じ形で行う",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ee8b631f35a6",
+      "verification": "09 本文の『未実施』は改訂履歴 v1 行のみ（履歴として保持）。check-relative-links・check-doc-refs が同一 commit で通過",
+      "note": "09a（32ch yt-dlp 実測・2026-10-02）を新規作成し、09 を v1.3 に改訂（§2 競合の未実施記述を実測要点へ置換・ポジショニングから TTS を外す・Red Line と §8 を更新）。00_SNS整理マップに 09a 行を追加。commit ee8b631f3"
     }
   ]
 }
