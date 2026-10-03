@@ -9,6 +9,15 @@ interface ImageVariant {
   output: { url: string };
 }
 
+/** 単品note記事はMDXの題名・価格を保ち、明示した教材分類の画像を共用する。 */
+export function noteCtaFamilyImage(family: string) {
+  const entry = (sharedImages.families as Record<string, { qualification: string; body: ImageVariant }>)[family];
+  if (!entry?.body) return undefined;
+  const variant = entry.body;
+  return { src: variant.output.url, width: variant.format.width, height: variant.format.height,
+    alt: `${qualificationShortLabel(entry.qualification)}の学習教材` };
+}
+
 /** 教材一覧への導線は資格共通のタイル。商品名・収録内容を画像へ固定しない。 */
 export function noteCtaQualificationTile(qualification: string) {
   const variant = (sharedImages.tiles as Record<string, ImageVariant>)[qualification];

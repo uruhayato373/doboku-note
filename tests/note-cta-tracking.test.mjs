@@ -8,6 +8,34 @@ import process from 'node:process';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel) => readFileSync(ROOT + rel, 'utf8');
 
+test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商品名・価格・計測を保つ', () => {
+  const rows = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+    import React from 'react';
+    import {renderToStaticMarkup} from 'react-dom/server';
+    import {readFileSync} from 'node:fs';
+    import NoteLink from './src/components/ui/NoteLink/NoteLink.tsx';
+    globalThis.React=React;
+    const names=['economic-management','human-resource-management','information-management','safety-management','social-environment-management'];
+    const rows=names.map(name=>{
+      const raw=readFileSync('content/site/pe-comprehensive-management/'+name+'-pillar/article.mdx','utf8');
+      const block=raw.match(/<NoteLink\\b[\\s\\S]*?kind="product"[\\s\\S]*?\\/>/)?.[0];
+      if(!block)throw Error(name+': product card missing');
+      const props=Object.fromEntries([...block.matchAll(/([a-zA-Z]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
+      return {...props,html:renderToStaticMarkup(React.createElement(NoteLink,props))};
+    });process.stdout.write(JSON.stringify(rows));
+  `], {cwd:ROOT,encoding:'utf8'}));
+  assert.equal(rows.length, 5);
+  for (const row of rows) {
+    assert.equal(row.imageFamily, 'pe-comprehensive-management-reading');
+    assert.match(row.html, /cta-reading-body-v1\.webp/);
+    assert.ok(row.html.includes(row.url.split('?')[0]));
+    assert.ok(row.html.includes(row.title));
+    assert.ok(row.html.includes(row.price));
+    assert.match(row.html, /data-cta="note"/);
+    assert.match(row.html, /data-cta-placement="article-body"/);
+  }
+});
+
 test('note CTA は表示インプレッションと配置を計測する', () => {
   const provider = read('src/components/providers/AnalyticsProvider.tsx');
   assert.match(provider, /note_cta_impression/);

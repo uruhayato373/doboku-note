@@ -58,7 +58,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 
 - **note 記事リンクは例外なく画像付き `<NoteLink>`**。note.com のカバー/OGPは使わず、サイト制作画像を `public/images/note-links/` に置き、`imageSrc="/images/note-links/{name}.webp"` を必須指定する
-- 画像内にタイトル・価格を焼き込まない。変更される情報は HTML props で表示し、無料記事は既定 `kind="article"`、有料単品は `kind="product" price="¥..."` とする
+- 無料記事は既定 `kind="article"`、有料単品は `kind="product" price="¥..."` とする。有料単品は登録済み `imageFamily` の完成画像を優先できる（総監5管理pillarは `imageFamily="pe-comprehensive-management-reading"`）。商品名・価格はpropsで併記し、`imageSrc`は必須フォールバックとして残す。無料記事・family未指定の従来カードではタイトル・価格を画像に焼き込まない
 - 自動検出: `npm run check-note-link-cards` が自社note生リンク、旧 `coverImage`、画像省略、許可外パス、ファイル欠落、WebP偽装をCIエラーにする。pre-commitも変更MDXへ同じ契約を適用する
 
 ### note 商品 CTA の見た目（hero / inline）
