@@ -17,6 +17,7 @@
  *   8. 鮮度（freshness: { warnDays, failDays }）の宣言が正しい形（1 以上の整数・warnDays < failDays・知らないキーなし）
  *   9. config/・data/ の JSON・JSON Lines のデータセットは型（schema）を持つ（型が無いと形が崩れても書き戻し・検査が素通りする）。
  *      planned に CI のボットが初めて書いたときは 2. と同じく警告だけにする
+ *  10. JSON に同じオブジェクト内の重複キーが無い（JSON.parse は後ろの値で黙って上書きするので型では見えない）
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
  */
 import { execFileSync } from 'node:child_process';
@@ -26,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { AREAS, DATASETS, KINDS, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, resolveDataset } from './lib/datasets.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
+import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
 import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from './lib/path-literals.mjs';
 
@@ -91,6 +93,12 @@ for (const x of typed) {
   for (const e of r.errors) errors.push(`${e.file}: 型（${x.id}）に合わない — ${e.message}`);
 }
 
+let dupScanned = 0;
+for (const f of files.filter((x) => /\.jsonl?$/.test(x))) {
+  dupScanned++;
+  for (const d of findDuplicateKeys(readFileSync(join(ROOT, f), 'utf8'))) errors.push(`${f}:${d.line}: キー「${d.key}」が同じオブジェクトに重複している（JSON.parse は後ろの値だけを残す）`);
+}
+
 const CODE_ROOT = /^(scripts|tools|src|\.claude)\//;
 const codeFiles = tracked.filter((f) => CODE_ROOT.test(f) && /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f));
 const settingFiles = tracked.filter((f) => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(f) || f === 'package.json');
@@ -138,7 +146,7 @@ for (const f of settingFiles) {
 
 const count = (pred) => DATASETS.filter(pred).length;
 console.log(
-  `[check-datasets] 設定とデータ ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 違反 ${errors.length} 件`,
+  `[check-datasets] 設定とデータ ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 違反 ${errors.length} 件`,
 );
 if (files.length === 0) inconclusive('config/・data/ のファイルを 1 件も読めなかった');
 if (codeFiles.length === 0) inconclusive('直書きを走査するコードを 1 件も読めなかった');
