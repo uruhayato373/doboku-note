@@ -48,7 +48,7 @@ import { classifyArticleCtas, extractCtaExpectations } from './lib/note-cta-live
 import { artifactRelPaths, loadKindleCatalog } from './lib/kindle-catalog.mjs';
 import { fileSha256, isOnKdp } from './lib/kindle-uploaded.mjs';
 import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
@@ -209,9 +209,9 @@ async function build() {
     const catalog = readCatalog();
     const listings = readListings();
     let approved = {};
-    try { approved = JSON.parse(readFileSync(join(ROOT, datasetPath('coconala.thumb-approved')), 'utf8')).images ?? {}; } catch { /* 画像の鍵だけ空 */ }
+    try { approved = readDataset(ROOT, 'coconala.thumb-approved').images ?? {}; } catch { /* 画像の鍵だけ空 */ }
     let sellerName = '';
-    try { sellerName = JSON.parse(readFileSync(join(ROOT, datasetPath('config.coconala-account')), 'utf8')).sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
+    try { sellerName = readDataset(ROOT, 'config.coconala-account').sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
     const listed = Object.values(catalog).filter((s) => s.status === 'listed');
     const keyOf = (s) => createHash('sha1').update(JSON.stringify([s, listings[s.id] ?? null, approved[s.id] ?? null, sellerName])).digest('hex');
     const items = {};

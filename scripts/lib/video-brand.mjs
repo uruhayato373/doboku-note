@@ -1,14 +1,12 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 const img = (buffer, style) => ({ type: 'img', props: { src: `data:image/png;base64,${buffer.toString('base64')}`, style } });
 const box = (children, style) => ({ type: 'div', props: { style: { display: 'flex', position: 'absolute', ...style }, children } });
 const text = (children, style) => box(children, { fontFamily: 'NotoSansJP', fontWeight: 900, color: '#0F2742', ...style });
 
 export async function loadVideoBrand(root) {
-  const config = JSON.parse(readFileSync(join(root, datasetPath('config.video-brand'))));
+  const config = readDataset(root, 'config.video-brand');
   if (config.schemaVersion !== 1 || config.design !== 'bridge-notebook-a') throw new Error('Unknown video brand');
   return { config, logo: await readVerifiedVideoPng(root, config.logo, config.logo),
     background: await readVerifiedVideoPng(root, config.longformBackground, config.longformBackground) };

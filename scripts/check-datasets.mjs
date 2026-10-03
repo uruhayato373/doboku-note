@@ -11,16 +11,17 @@
  *   5. コード（scripts/・tools/・src/・.claude/）は config/・data/ のパスを直書きせず、台帳から datasetPath などで引く
  *      （置き場を移したとき直書きが旧パスのまま残り、読めずに黙って空を返す不具合を止める）。ファイル名だけの直書き
  *      （`readConfig('exam-stats.json')`）と、`join(ROOT, 'data', 変数)` の分割形も拾う
- *   6. コードと YAML が引く台帳の id（datasetPath('id')・`ci-data latest <id>` など）が台帳にある（無ければ実行時に初めて落ちる）
+ *   6. コードと YAML が引く台帳の id（datasetPath('id')・readDataset・writeDataset・freshnessDays・`ci-data latest <id>` など）が台帳にある（無ければ実行時に初めて落ちる）
  *   7. ワークフローと package.json に書いた config/・data/ のパスが台帳に当たる（YAML は main で動くので、移した後に旧パスが
  *      残ると黙って空振りする。DN-0497）
+ *   8. 鮮度（freshness: { warnDays, failDays }）の宣言が正しい形（1 以上の整数・warnDays < failDays・知らないキーなし）
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATASETS, KINDS, datasetsFor, listAreaFiles, matchFiles, pathMatchesId, resolveDataset } from './lib/datasets.mjs';
+import { AREAS, DATASETS, KINDS, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, resolveDataset } from './lib/datasets.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
@@ -31,7 +32,7 @@ const errors = [];
 const warnings = [];
 
 /** 台帳 1 行に書いてよいキー（d() の位置引数と opts） */
-const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'planned', 'retain']);
+const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'planned', 'retain', 'freshness']);
 
 function inconclusive(message) {
   console.error(`✗ 検査不成立: ${message}`);
@@ -68,6 +69,7 @@ for (const x of DATASETS) {
   }
   const unknown = Object.keys(x).filter((k) => !DECLARATION_KEYS.has(k));
   if (unknown.length) errors.push(`${x.id}: 台帳の宣言に知らないキー ${unknown.join('・')}（誤記なら直す。新しい宣言なら check-datasets の DECLARATION_KEYS に足す）`);
+  if (x.freshness) for (const p of freshnessProblems(x.freshness)) errors.push(`${x.id}: 鮮度の宣言（freshness）が不正 — ${p}`);
   const n = byId.get(x.id)?.length ?? 0;
   if (x.local && n > 0) errors.push(`${x.id}: 手元だけ（local）のはずが git 管理に ${n} ファイルある（.gitignore を確かめる）`);
   if (x.planned && n > 0) warnings.push(`${x.id}: ファイルが入ったので planned を外してよい`);

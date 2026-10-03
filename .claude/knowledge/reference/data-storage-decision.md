@@ -90,9 +90,11 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 ### 台帳
 
-- 1 データセット＝パス（`{ts}`・`{date}` などの型）・種類（設定・台帳・時系列・最新状態・レポート・根拠・生データ）・領域・説明・型（任意）・中身を変えないか・手元だけか。id は「取得元.データセット」で、置き場を移しても変えない
+- 1 データセット＝パス（`{ts}`・`{date}` などの型）・種類（設定・台帳・時系列・最新状態・レポート・根拠・生データ）・領域・説明・型（任意）・中身を変えないか・手元だけか・寿命（`retain`）・鮮度（`freshness`）。id は「取得元.データセット」で、置き場を移しても変えない
 - git 管理下の全ファイルがちょうど 1 つのデータセットに当たること・置き場が id の取得元と合うこと・型のあるものが型に合うこと・コードが `config/`・`data/` のパスを直書きせず台帳から `datasetPath`・`datasetDir` で引くこと・コードと YAML が引く id が台帳にあることを `npm run check-datasets`（CI ゲート＋pre-commit）が止める。CI の書き戻しは `ci-data add` が stage した記録を型で検査し、違反なら push の前に止める。管理画面 管理＞設定／データ はこの台帳を並べる
-- 設定・データの領域は台帳が持つ（`domains.json` の `documents` は文書だけ）。寿命表・鮮度の閾値・書き手は段階 2 以降に台帳へ寄せる
+- 設定・データの領域は台帳が持つ（`domains.json` の `documents` は文書だけ）。寿命は `retain`、鮮度の閾値は `freshness` として台帳に寄せた（下）。書き手は段階 2 以降に台帳へ寄せる
+- 鮮度の閾値（最新の記録が何日古いと注意・失敗か）は台帳の行の `freshness: { warnDays, failDays }`（片方だけでもよい）が正本（2026-10-03）。スクリプトの定数・関数の既定値・管理画面の写し（コメントで人手同期）に散っていた 20 データセット分を寄せ、検査と管理画面は `freshnessOf`・`freshnessDays`（宣言が無ければ投げる）で読む。「超えたら」か「以上」か・日数の数え方は検査ごとに決める（値は変えていない）。台帳の外（`.claude/state` の記録・docs・backlog）の鮮度と、設定ファイルの中の閾値（`workflow-health.json`・`growth-cycle.json`）は寄せない（その設定ファイルが正本）
+- 設定・記録の読み書きは共通部品に寄せた（2026-10-03）: 依存ゼロの `scripts/lib/json-io.mjs`（`readJson`・`readJsonIf`・`writeJson`＝字下げ 2・LF・末尾改行で、中身が同じなら書かない）と `scripts/lib/dataset-io.mjs`（台帳の id で読む `readDataset`・`readDatasetIf`・`readLatest`。壊れていれば場所つきで投げる）。型の検査を持つ `scripts/lib/dataset-write.mjs`（`writeDataset`・`appendDataset`＝型を検査してから書き、immutable の既存ファイルは上書きしない）は zod を読むので、npm ci をしないワークフローが（間接にも）読むファイルからは使わない（GA4・GSC の取得の書き込み `metric-reports.mjs` は `writeJson`）。`readJson` を各スクリプトが定義するのを増やさない（`tests/read-json-ratchet.test.mjs`）。`.gitattributes` が config/・data/ の JSON を LF に固定する
 
 ### 型の正本は zod
 
@@ -166,3 +168,4 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 2026-04-14: 元 ADR `.claude/knowledge/reference/data-storage-decision.md` 初版（commit `5613b76a`）。複数試験対応の議論を経て D1 不採用を決定
 - 2026-04-27: ADR を圧縮し本ファイルへ移管。元ファイル削除。詳細経緯は git history 参照
 - 2026-10-02: 「設定・記録の構成と型の正本」を追加（台帳 `datasets.mjs`・型の正本 zod・フォルダの原則・統合の基準）
+- 2026-10-03: 台帳に `freshness`（鮮度の閾値）を追加し、設定・記録の読み書きの共通部品（`json-io`・`dataset-io`・`dataset-write`）と、JST の日付の出し方（`jst-date.mjs`）・取得失敗の上限（`inconclusive-gate.mjs`）を 1 か所にした

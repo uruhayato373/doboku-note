@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { basename, dirname, extname, join, relative, sep } from 'node:path';
 import { strFromU8, unzipSync } from 'fflate';
 import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export const SCAN_TARGETS = [
   { kind: 'dir', path: 'content/note/1級・2級土木', label: 'note（1級・2級土木）' },
@@ -362,5 +363,5 @@ export function analyzeDocuments(documents, limits) {
 }
 
 export function loadLimits(root) {
-  return JSON.parse(readFileSync(join(root, datasetPath('config.keiken-answer-sheet-limits')), 'utf8'));
+  return readDataset(root, 'config.keiken-answer-sheet-limits');
 }

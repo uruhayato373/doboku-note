@@ -21,11 +21,12 @@
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative, basename, dirname } from 'node:path';
+import { todayJst } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUTPUT_DIR = join(ROOT, '.claude/state/ocr-audit');
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = todayJst();
 const OUTPUT_FILE = join(OUTPUT_DIR, `${TODAY}.json`);
 
 // ── 対象 MDX の収集 ───────────────────────────────────

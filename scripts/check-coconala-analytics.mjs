@@ -25,7 +25,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 
 const TAG = '[check-coconala-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,7 +34,8 @@ const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 
 const argMaxAge = process.argv.indexOf('--max-age-days');
-const MAX_AGE_DAYS = argMaxAge >= 0 ? Number(process.argv[argMaxAge + 1]) : 8;
+// 既定の上限は台帳 coconala.analytics の freshness.failDays（--max-age-days で一時的に変えられる）
+const MAX_AGE_DAYS = argMaxAge >= 0 ? Number(process.argv[argMaxAge + 1]) : freshnessDays('coconala.analytics', 'failDays');
 
 const fails = [];
 const warns = [];

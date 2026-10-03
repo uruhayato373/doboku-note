@@ -19,11 +19,11 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { pendingItems } from './lib/growth-triage.mjs';
-import { datasetDir, datasetPath } from './lib/datasets.mjs';
+import { datasetDir, datasetPath, freshnessDays } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[check-growth-triage]';
-const MAX_DIGEST_AGE_DAYS = 10;
+const MAX_DIGEST_AGE_DAYS = freshnessDays('analysis.growth-digest', 'failDays'); // 台帳の値（scripts/lib/datasets.mjs）
 
 /** 検査本体（純関数）。 */
 export function checkTriage({ digest, log, review, reviewName, now = Date.now() }) {

@@ -4,7 +4,7 @@
 // ドリフト自体（設定が意図と食い違っているか）はここでは判定しない（別 channel の担当）。
 //
 // 判定:
-//   zone snapshot: data/cloudflare/zone/YYYY-MM-DD.json の最新（台帳 cloudflare.zone）
+//   zone snapshot: data/cloudflare/zone/YYYY-MM-DD.json の最新（台帳 cloudflare.zone。上限は freshness.failDays＝3 日）
 //     → 無い／3 日超前／counts.daysReturned が 0 以下 は FAIL
 //   config latest: .claude/state/cloudflare/zone-config-latest.json
 //     → 無い／fetchedAt が 10 日超前 は FAIL
@@ -20,7 +20,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { latestFile } from './lib/datasets.mjs';
+import { freshnessDays, latestFile } from './lib/datasets.mjs';
 
 const TAG = '[check-cloudflare-metrics-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -33,7 +33,8 @@ const JSON_OUT = process.argv.includes('--json');
  * @param {number} nowUtcMs
  * @param {{zoneMaxAgeDays?:number, configMaxAgeDays?:number}} opts
  */
-export function assessCloudflareFreshness({ zoneSnapshot, configLatest }, nowUtcMs, { zoneMaxAgeDays = 3, configMaxAgeDays = 10 } = {}) {
+// zone snapshot の上限は台帳 cloudflare.zone の freshness.failDays。config latest（.claude/state）は台帳の外なのでここが正本。
+export function assessCloudflareFreshness({ zoneSnapshot, configLatest }, nowUtcMs, { zoneMaxAgeDays = freshnessDays('cloudflare.zone', 'failDays'), configMaxAgeDays = 10 } = {}) {
   const reasons = [];
   let status = 'OK';
 

@@ -10,18 +10,18 @@ import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import { loadRegistry, qualificationShortLabel } from './lib/qualification-registry.mjs';
-import { datasetPath } from './lib/datasets.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const DISCLOSURE = JSON.parse(readFileSync(join(ROOT, datasetPath('config.youtube-production-disclosure')), 'utf8'));
+const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
 const SLOT_TIMES = ['07:30:00', '12:30:00', '20:00:00'];
 
 // 対応する試験。名前は registry の短い名前、試験日は exam-calendar.json のその年最後の試験日（どちらも写さない）
 const REGISTRY = loadRegistry(ROOT);
-const CALENDAR = JSON.parse(readFileSync(join(ROOT, datasetPath('config.exam-calendar')), 'utf8'));
+const CALENDAR = readDataset(ROOT, 'config.exam-calendar');
 const lastExamDate = (id) => Object.values(CALENDAR.exams[id]?.events ?? {}).filter((e) => e.kind === 'exam').map((e) => e.date).sort().at(-1);
 const EXAMS = Object.fromEntries(['civil-construction-1', 'civil-construction-2', 'concrete-engineer', 'concrete-chief-engineer'].map((id) => {
   const title = qualificationShortLabel(REGISTRY, id);

@@ -5,9 +5,7 @@
  * 制作物のテーマ（content-theme.mjs）はここから区分を読み、区分の一覧を別のファイルに写さない。
  * 表示名は shortLabel（画面の短い名前）があればそれ、無ければ label。
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 /** exam-formats.json（読み込み済み）から 資格 id → [{ id, label }] を作る */
 export function stagesFromFormats(formats) {
@@ -19,5 +17,5 @@ export function stagesFromFormats(formats) {
 }
 
 export function loadExamStages(root) {
-  return stagesFromFormats(JSON.parse(readFileSync(join(root, datasetPath('config.exam-formats')), 'utf8')));
+  return stagesFromFormats(readDataset(root, 'config.exam-formats'));
 }

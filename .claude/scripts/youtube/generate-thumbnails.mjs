@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * YouTube Shorts サムネイル（thumbnail.png）のみを生成して R2 にアップする。
  *

@@ -116,7 +116,7 @@ test('review improvement and concurrent edits cannot bypass a commit-time page l
 test('past improvement events and snapshots are immutable; snapshot names never overwrite', (t) => {
   const root = fixture(t), exp = observing(), changed = structuredClone(exp); changed.actions[0].done = 'rewritten';
   assert.ok(observationViolations({ experiments: [exp] }, { experiments: [changed] }, [], () => 'changed').some((s) => s.includes('append-only')));
-  const one = writeSnapshot(root, { value: 1 }, now), two = writeSnapshot(root, { value: 2 }, now);
+  const one = writeSnapshot(root, { type: 'measurement', value: 1 }, now), two = writeSnapshot(root, { type: 'measurement', value: 2 }, now); // 追記する行は型（RankWatch）の type が要る
   assert.notEqual(one, two);
   // 同じ月のファイルへ 1 行ずつ追記し、先に書いた行は変えない
   assert.equal(one.split('#')[0], two.split('#')[0]);

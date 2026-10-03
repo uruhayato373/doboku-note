@@ -1,7 +1,7 @@
-import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs';
+import { existsSync, realpathSync, statSync } from 'node:fs';
 import { join, relative, isAbsolute } from 'node:path';
 import { validateFraming } from './character-frame-geometry.mjs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 /** @typedef {{uses: string[], facing: string, gestureDirection: string, placements: string[], crops: string[], note: string, reviewedAt: string}} Composition */
 /** @typedef {{slug: string, file: string, label: string, category: string, beats: string[], verified: boolean, siteCta?: boolean, composition?: Composition, framing?: import('./character-frame-geometry.mjs').Framing, quality?: {status: string, note: string, reviewedAt: string}}} Pose */
@@ -11,7 +11,7 @@ import { datasetPath } from './datasets.mjs';
 /** Catalog entries stay visible when assets are absent on another PC. No remote fetching. */
 export function readCharacterCatalog(root) {
   /** @type {Manifest} */
-  const manifest = JSON.parse(readFileSync(join(root, datasetPath('config.character-poses')), 'utf8'));
+  const manifest = readDataset(root, 'config.character-poses');
   const vocab = manifest.catalog;
   if (manifest.assetsDir !== 'content/sns/_assets/character' || !Array.isArray(manifest.poses) || !manifest.poses.length) {
     throw new Error('キャラクター台帳の素材ルートまたはポーズ一覧が不正です');

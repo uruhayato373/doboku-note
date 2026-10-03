@@ -1,7 +1,7 @@
+import { jstDayOf as jstDay } from './jst-date.mjs';
 import { isTweetInQueue } from './x-scheduled-queue.mjs';
 
 const DAY = 86400000;
-const jstDay = time => new Date(time + 9 * 3600000).toISOString().slice(0, 10);
 
 /** 実予約だけで翌日から7日間を検査。公開完了の判定はしない。 */
 export function assessQueueHealth({ snapshot, tweets, articles = [], account, now = Date.now() }) {

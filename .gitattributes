@@ -14,3 +14,8 @@ public/_redirects text eol=lf
 
 # 追記だけの台帳（data/**/*.jsonl・rank-watch など）は 1 行 1 件。PC ごとに改行が変わると「既存の行を変えていない」の検査が崩れる
 data/**/*.jsonl text eol=lf
+
+# 設定・記録の JSON（台帳 scripts/lib/datasets.mjs の config/・data/）は LF にそろえる。書き込みは scripts/lib/json-io.mjs の formatJson（字下げ 2・LF・末尾改行）。
+# PC ごとに改行が変わると、中身が同じなのに差分が出て「同じ中身なら書かない」も効かなくなる
+config/**/*.json text eol=lf
+data/**/*.json text eol=lf

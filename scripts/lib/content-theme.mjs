@@ -7,11 +7,9 @@
  * 置いた転職・キャリアの記事が資格の記事として数えられていた。ここではフォルダを動かさず、ルールで写す。
  * 管理画面（tools/admin-app）と検査が同じ関数を使う。
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 
 import { loadExamStages } from './exam-stages.mjs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export const UNCLASSIFIED = null;
 /** 区分に分ける資格で、どの区分にも決まらない制作物の区分 id（例 civil-construction-1:common） */
@@ -19,8 +17,8 @@ export const COMMON_STAGE = 'common';
 
 /** テーマの一覧（id → { id, label, kind }）とチャネルごとのルールを読む。 */
 export function loadThemes(root) {
-  const cfg = JSON.parse(readFileSync(join(root, datasetPath('config.content-themes')), 'utf8'));
-  const registry = JSON.parse(readFileSync(join(root, datasetPath('config.qualification-registry')), 'utf8'));
+  const cfg = readDataset(root, 'config.content-themes');
+  const registry = readDataset(root, 'config.qualification-registry');
   return buildThemes(cfg, registry, loadExamStages(root));
 }
 

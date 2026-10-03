@@ -43,7 +43,7 @@
  * exit: 0=全タブ取得成功 / 2=1つでも取得失敗（partial・「検査ゼロを PASS と呼ばない」）
  * ---------------------------------------------------------------------------
  */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   launchContext,
@@ -54,6 +54,7 @@ import {
   ROOT,
 } from './lib/coconala-session.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const TAG = '[coconala-orders]';
 const HEADLESS = process.argv.includes('--headless');
@@ -189,7 +190,7 @@ async function main() {
   // 記録済みの talkroom だけ**を例外にする（記録が無い未解決は従来どおり警告する）。
   const quotedRooms = (() => {
     try {
-      const log = JSON.parse(readFileSync(join(ROOT, datasetPath('coconala.orders')), 'utf8'));
+      const log = readDataset(ROOT, 'coconala.orders');
       const rows = Array.isArray(log) ? log : log.orders ?? [];
       return new Map(rows.filter((o) => o.quote && o.talkroomId).map((o) => [String(o.talkroomId), o.serviceId ?? null]));
     } catch {

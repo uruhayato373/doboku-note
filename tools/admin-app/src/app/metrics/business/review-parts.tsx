@@ -10,6 +10,7 @@ import { findRepoRoot } from '@/lib/repo-root';
 import { buildReport, reviewPeriod } from '../../../../../../scripts/lib/business-direction.mjs';
 import { buildProcedureView, buildReviewView, buildRunHistory, runKeyOfPeriod } from '../../../../../../scripts/lib/review-wiring.mjs';
 import { buildGate } from '../../../../../../scripts/lib/backlog-gate.mjs';
+import { todayJst } from '../../../../../../scripts/lib/jst-date.mjs';
 
 /**
  * 戦略 ＞ レビュー（週次・月次）の共通部品。画面には人が目で確かめる・決めることだけを出す
@@ -231,7 +232,7 @@ export function loadReview(cadenceId: 'weekly' | 'monthly', runKey?: string): Re
   const cadences = buildReviewView(root, { reviews: report.reviews, due: report.due }) as Cadence[];
   const gate = (() => {
     try {
-      return buildGate(readFileSync(join(root, '.claude/todo/backlog.md'), 'utf8'), new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10)) as Gate;
+      return buildGate(readFileSync(join(root, '.claude/todo/backlog.md'), 'utf8'), todayJst()) as Gate;
     } catch {
       return null;
     }

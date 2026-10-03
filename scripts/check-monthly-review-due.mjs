@@ -19,6 +19,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import { datasetDir } from './lib/datasets.mjs';
+import { jstClock } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const REVIEW_DIR = join(ROOT, datasetDir('business.review'));
@@ -29,7 +30,7 @@ export const DUE_DAY = 3;
  * reviewed(month) は前月 month を対象にした月次レビューがあれば true。
  */
 export function dueMonth(nowMs, reviewed) {
-  const jst = new Date(nowMs + 9 * 3600 * 1000);
+  const jst = jstClock(nowMs);
   if (jst.getUTCDate() < DUE_DAY) return null;
   const prev = new Date(Date.UTC(jst.getUTCFullYear(), jst.getUTCMonth() - 1, 1)).toISOString().slice(0, 7);
   return reviewed(prev) ? null : prev;

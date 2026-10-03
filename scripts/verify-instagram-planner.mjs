@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /** Meta Business Suite の月間プランナーを短時間で読み、予約時刻と任意テキストを照合する。 */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { assessInstagramPlanner } from './lib/instagram-planner-check.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.ig-account')), 'utf8'));
+const account = readDataset(ROOT, 'config.ig-account');
 const argv = process.argv.slice(2);
 const value = (name, fallback = '') => {
   const index = argv.indexOf(name);

@@ -11,7 +11,8 @@ import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 import { resolveCoverExam, assignCoverPoses, coverExamNames } from './note-character-cover.mjs';
 import { loadRegistry } from './qualification-registry.mjs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
+import { readJson } from './json-io.mjs';
 
 export const hashBytes = (value) => createHash('sha256').update(value).digest('hex');
 export const ARTICLE_FILE_RE = /^article(?:-[^/]+)?\.md$/;
@@ -19,12 +20,11 @@ const toPosix = (p) => p.replaceAll('\\', '/');
 
 /** 生成に要る設定を読む。config（補完定義）だけは生成器側の checkout から読めるよう root を分ける。 */
 export function loadCoverSources(sourceRoot, configRoot = sourceRoot) {
-  const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
   const tokens = readJson(sourceRoot, '.claude/knowledge/design-system/note-cover-tokens.json');
-  const poseLabels = Object.fromEntries(readJson(sourceRoot, datasetPath('config.character-poses'))
+  const poseLabels = Object.fromEntries(readDataset(sourceRoot, 'config.character-poses')
     .poses.map((pose) => [pose.slug, pose.label]));
-  const v4Map = readJson(sourceRoot, datasetPath('config.note-covers')).magazineText;
-  const config = readJson(configRoot, datasetPath('config.note-covers')).characterCovers;
+  const v4Map = readDataset(sourceRoot, 'config.note-covers').magazineText;
+  const config = readDataset(configRoot, 'config.note-covers').characterCovers;
   const registry = loadRegistry(sourceRoot);
   return { tokens, poseLabels, v4Map, config, registry };
 }

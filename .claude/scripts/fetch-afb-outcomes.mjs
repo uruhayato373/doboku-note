@@ -33,6 +33,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertSiteOrThrow } from '../../scripts/lib/asp-site-guard.mjs';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
+import { jstDayOf } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CONFIG_PATH = join(ROOT, datasetPath('config.affiliate-asp'));
@@ -79,7 +80,7 @@ function providerDate(value) {
 
 /** now を JST の YYYY-MM-DD に落とす（afb のタイムスタンプは JST 運用前提・提供元は未明記）。 */
 export function jstDateString(now = new Date()) {
-  return new Date(now.getTime() + 9 * 3_600_000).toISOString().slice(0, 10);
+  return jstDayOf(now);
 }
 
 /** 前日で終わる直近 28 日（JST）。afb API は最大 30 日窓・当日を含められない。 */

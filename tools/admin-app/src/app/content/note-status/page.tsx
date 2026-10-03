@@ -3,15 +3,15 @@ import {
 } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import { membershipState, statusSnapshot, STALE_DAYS } from '@/lib/note-status';
+import { MAGAZINES_STALE_DAYS, membershipState, STATUS_STALE_DAYS, statusSnapshot } from '@/lib/note-status';
 import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 
 export const dynamic = 'force-dynamic';
 
-/** 鮮度バッジ。0-1 日=good / STALE_DAYS 以内=warn / 超過・不明=bad。 */
-function Age({ days }: { days: number | null }) {
+/** 鮮度バッジ。0-1 日=good / staleDays 以内=warn / 超過・不明=bad。staleDays は台帳の freshness.failDays。 */
+function Age({ days, staleDays }: { days: number | null; staleDays: number }) {
   if (days == null) return <StatusBadge tone="bad">鮮度不明</StatusBadge>;
-  const tone: Tone = days <= 1 ? 'good' : days <= STALE_DAYS ? 'warn' : 'bad';
+  const tone: Tone = days <= 1 ? 'good' : days <= staleDays ? 'warn' : 'bad';
   return <StatusBadge tone={tone}>{days} 日前</StatusBadge>;
 }
 
@@ -52,7 +52,7 @@ export default function NoteStatusPage() {
               ライブ軸:{' '}
               {m.freshness.ok ? (
                 <>
-                  <Age days={m.freshness.ageDays} /> （{m.freshness.fetchedAt}）
+                  <Age days={m.freshness.ageDays} staleDays={MAGAZINES_STALE_DAYS} /> （{m.freshness.fetchedAt}）
                 </>
               ) : (
                 <>
@@ -157,12 +157,12 @@ export default function NoteStatusPage() {
             </>
           ) : (
             <>
-              <Age days={s.ageDays} /> （{s.fetchedAt}） · noteStatus 運用 <strong>{s.tracked}</strong> 本
+              <Age days={s.ageDays} staleDays={STATUS_STALE_DAYS} /> （{s.fetchedAt}） · noteStatus 運用 <strong>{s.tracked}</strong> 本
               のうち実検査 <strong>{s.inspected}</strong> 本 · noteUrl のみで管理 {s.untracked} 本
               {s.stale && (
                 <>
                   {' '}
-                  <StatusBadge tone="bad">古い</StatusBadge> {STALE_DAYS} 日を超えています
+                  <StatusBadge tone="bad">古い</StatusBadge> {STATUS_STALE_DAYS} 日を超えています
                 </>
               )}
             </>
