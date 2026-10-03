@@ -1,0 +1,40 @@
+{
+  "id": "r8-essay-forecast",
+  "channel": "note",
+  "qualification": "pe-comprehensive-management",
+  "stage": "written",
+  "series": "keiken",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "r8-essay-forecast",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m6854c7437d4d",
+    "noteTitle": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+    "title": "令和8年度 総監記述式 R8予想問題集 2026最終予想｜出る6テーマ × 専門分野を問わない解答骨子",
+    "description": "R8 で出題が予想される6テーマ（AI社会・気候変動適応・経済安全保障・災害復旧・資源循環・老朽化インフラ）を、出題予想根拠＋専門分野を問わない三層構造の解答骨子＋3ペルソナ別アレンジ早見表で攻略。各テーマに自治体道路担当の3,000字級フル模範論文を実演サンプルとして収録。さらに各テーマは全14ペルソナ別のフル模範論文を単品でも展開（受注者4＋自治体10／自分の専門分野・立場で選べる）。立場が違っても分野不問の骨子から自分の答案を組める。試験直前の最終予想・総仕上げに。",
+    "shortTitle": "R8 予想問題集",
+    "shortDescription": "R8の出る6テーマを分野不問の三層骨子＋3ペルソナ早見表で攻略。道路担当フル論文を実演収録。試験直前の最終予想。",
+    "price": "¥3,480（6テーマセット・各¥780、単品比26%OFF）",
+    "badge": "note 限定",
+    "ctaCatch": "R8で何が出るか、6テーマに絞り込みました",
+    "ctaButton": "最終予想を見てみる",
+    "ctaPose": "pointing"
+  },
+  "members": [
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/AI社会/article.md",
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/気候変動適応/article.md",
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/災害復旧/article.md",
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/経済安全保障/article.md",
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/老朽化インフラ/article.md",
+    "content/note/技術士総監/magazines/総監記述式-R8予想問題集/資源循環/article.md"
+  ],
+  "includes": [],
+  "memo": [
+    "----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----",
+    "注: whitepaper-r7-strategy は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ",
+    "    戦略転換。SoT エントリも削除し、note 上で単独無料記事として公開する。",
+    "    後続商品 (M3/M4/M9/M5-8) への送客は記事本文末尾 CTA + 各章末ミニ CTA で行う。",
+    "    詳細: docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md"
+  ]
+}
