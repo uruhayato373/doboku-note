@@ -54,7 +54,8 @@ test('完成画像のバナーに価格・説明を添えず、商品一覧は�
     assert.ok(!row.html.includes(row.price));
     assert.ok(!row.html.includes('商品説明の重複を表示しない'));
     const content = row.html.match(/<a\b[^>]*>([\s\S]*?)<\/a>/)[1];
-    assert.equal(content.replace(/<[^>]+>/g, '').trim(), row.compact ? '年度別PDF教材' : '');
+    const visibleText = Array.from(content.matchAll(/>([^<]+)</g), ([, text]) => text).join('').trim();
+    assert.equal(visibleText, row.compact ? '年度別PDF教材' : '');
     assert.match(content, /<img /);
     assert.match(row.html, /alt="教材の内容を見る"/);
     assert.match(row.html, /data-cta-placement="article-mid"/);
