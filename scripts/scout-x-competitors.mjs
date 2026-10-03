@@ -218,6 +218,7 @@ function main() {
   else { console.log(`  基準: ${drift.basis}`); for (const e of drift.entries) console.log(`  [${e.type}] ${e.handle}: ${e.detail}`); }
 
   const snapshot = {
+    schemaVersion: 1,
     fetchedAt: new Date().toISOString(),
     platform: 'x',
     source: 'agent-reach twitter CLI（read-only: user/user-posts）・個人アカ uruhayato373 経由・投稿アカ@doboku373 不使用',

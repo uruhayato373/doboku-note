@@ -72,7 +72,7 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 - **なぜ DB を正本にしないか**: PR の差分に CI のゲート（`check-products`・収録の三軸照合）を掛けられなくなる／全セッションに Cloudflare の API トークンが要る（エージェントは資格情報を読まない方針）／worktree ごとの並行作業を PR でまとめる運用と合わない。会社 PC から R2 へは届く（ネットワークは理由ではない。D1 の API へ届くかは未確認）
 - **なぜ 1 商品 1 ファイルか**: 並行セッションの衝突を減らす。書き換えは `npm run product`（型の検査・キー順・字下げ 2・LF）で行い、手で書かない
 - **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `content/products/**/*.json` を LF 固定
-- **段階1**: 2級土木の note 商品を移し、`src/lib/note-magazines.ts` の該当エントリは正本から生成する（`// <generated:products civil-construction-2>` ブロック・読み手は変えない）。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他資格・他チャネル、読み手の JSON 直読み）は段階2以降
+- **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他チャネル、読み手の JSON 直読み）は段階2以降
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
 
@@ -105,6 +105,7 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 - 型が持つもの（2026-10-02 続き）: 形（欄・型・語彙・範囲）に加えて、**1 つのファイルの中で決まる不変条件**を `superRefine` で持つ（行の一意・月の件数と合計の一致・金額の合計・期間の前後・週が月曜）。足してよいのは**実データ全件で違反 0 を確かめたもの**だけで、不変の台帳は過去の行が守らない規則を入れない。部品は `dataset-schemas.mjs` の `uniqueBy`・`sumEquals`・`isMonday`。ファイル間の整合（資格 id・商品 id の実在）は既存の `check-*` に残す。丸ごと重複した行は不変条件にしない（同じ日に同じ商品が 2 件売れた行は同一の内容になる。`note.sales` に 16 組あり、月の合計と突合して実取引と確かめた）
 - 日時の型は 3 つ。`utcTime`＝取得・記録の時刻で**末尾 Z だけ**（+09:00 は `Date.parse` を通るが日付が 1 日ずれる）。`isoTime`＝人が手で書く台帳で、分まで・時差必須・実在する日時だけ（時差が無いと CI の UTC で 9 時間ずれる。画面の表示をそのまま取る欄だけ `zone: false`）。`offsetTime`＝予定の時刻のように +09:00 で書く欄（YouTube の公開予定）。存在しない日付（`2026-02-30`）は `z.iso.date()` が止める
 - 版を上げるときは `versioned('schemaVersion', { 1: V1, 2: V2 })`（判別共用体）に新しい版を足し、旧版は消さない（その版で書かれた過去のファイル・不変の台帳の過去の行が落ちない）。版の欄が `schemaVersion` でない型・版の欄が無い型は `tests/dataset-schemas.test.mjs` の許可リストに数え、**増やせない**（上限の定数を上げる変更がレビューで目に付く）。`schemaVersion` へ揃えたら一覧から消す。型の検査は `tests/dataset-schemas.test.mjs` が、型のある全データセットの最新ファイルから必須キーを 1 つ消すと落ちること（常に通る型の検出）と、不変条件ごとの失敗例を見る
+- config/・data/ の JSON・JSON Lines は全データセットが型を持つ（2026-10-03。data/ 38・config/ 52 データセットに型を付け、`version`・欄なしのものは書き手・読み手・既存ファイルを `schemaVersion` へ揃えた。型が無いのは JSON でない txt・png と未着手・手元だけのデータセット）。型の無い JSON は `check-datasets` が止める（planned に CI が初めて書いたときは警告だけ）。型は取得元ごとに `dataset-schemas-{market,search,analysis}.mjs`、設定は `dataset-schemas-config-{business,ops,media}.mjs` へ分け、`dataset-schemas.mjs` が `export *` で束ねる（同じ名前を 2 つのファイルで export しない）。部品は `dataset-schema-parts.mjs`、失敗例のテストは `tests/dataset-schemas-<group>.test.mjs`。外部 API・画面から取った行の中身は `z.looseObject` で主キーと数値欄だけを型にする（書き手が正常に出す値を落とすと `ci-data add` が書き戻しを止めるため）。人が書く設定は `.strict()` で誤記の欄を止め、ファイル間の整合は既存の `check-*` に残す
 
 ### フォルダの原則（移動は段階 3）
 

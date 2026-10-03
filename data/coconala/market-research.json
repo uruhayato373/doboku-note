@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "schemaVersion": 2,
   "fetchedAt": "2026-10-01T07:12:11.663Z",
   "method": "playwright(channel:chrome, headless)",
   "note": "公開・ログイン不要ページの read-only 調査。運用KPI（ログイン必須）の取得ではない（coconala-operations.md §4 と直交）。",

@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: content/sources/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
   "_updated": "2026-09-12",
   "_fields": {

@@ -4,11 +4,12 @@
  * 書き手: scripts/coconala-research.mjs。読み手: report-competitor-watch・scout-coconala-competitors・
  * lib/qualification-market・coconala-research の market-summary 生成。
  *
- * version 2（2026-10）:
+ * 版の欄は schemaVersion（旧名 version は読み込み時に schemaVersion へ揃える）。
+ * schemaVersion 2（2026-10）:
  *   queries  … 検索語ごとの進み具合（keyword・resolvedUrl・pageType・totalHits・pagesScanned・complete）。出品は持たない
  *   services … 出品。URL で一意で、見つかった検索語を queries に持つ。
  *              excerpt（説明の抜粋・読み手なし）は持たない。detail は詳細ページを取ったときだけ持つ（null は書かない）
- * version 1 は queries[].services に出品を持ち、同じ出品を語ごとに重ねて持っていた（3,365 行・実 1,548 件）。
+ * schemaVersion 1（旧名 version: 1）は queries[].services に出品を持ち、同じ出品を語ごとに重ねて持っていた（3,365 行・実 1,548 件）。
  * ---------------------------------------------------------------------------
  */
 
@@ -38,10 +39,15 @@ export function addService(research, index, keyword, service) {
 /** research.services の URL → 出品の Map */
 export const indexServices = (research) => new Map((research.services ?? []).map((s) => [s.url, s]));
 
-/** version 1（語ごとに出品を重ねて持つ）→ version 2。version 2 ならそのまま返す（冪等）。 */
+/** 版 1（語ごとに出品を重ねて持つ）→ 版 2。版 2 ならそのまま返す（冪等）。版の欄は schemaVersion に揃える（旧名 version は捨てる）。 */
 export function toStoredResearch(raw) {
-  if (raw?.version === RESEARCH_VERSION && Array.isArray(raw.services)) return raw;
-  const research = { version: RESEARCH_VERSION, fetchedAt: raw.fetchedAt, method: raw.method, note: raw.note, queries: [], services: [], updatedAt: raw.updatedAt };
+  const version = raw?.schemaVersion ?? raw?.version;
+  if (version === RESEARCH_VERSION && Array.isArray(raw.services)) {
+    if (raw.schemaVersion === RESEARCH_VERSION && raw.version === undefined) return raw;
+    const { version: _legacy, schemaVersion: _current, ...rest } = raw;
+    return { schemaVersion: RESEARCH_VERSION, ...rest };
+  }
+  const research = { schemaVersion: RESEARCH_VERSION, fetchedAt: raw.fetchedAt, method: raw.method, note: raw.note, queries: [], services: [], updatedAt: raw.updatedAt };
   const index = new Map();
   for (const { services = [], ...meta } of raw.queries ?? []) {
     research.queries.push(meta);

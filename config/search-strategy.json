@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "_doc": "docs/strategy/16_検索キーワード戦略.md",
   "_note": "検索キーワード戦略の機械正本。クラスター（狙う読者 × 検索語の型 × 受け皿のページ）ごとに、GSC の検索語×ページ集計から「11〜30 位で表示がある」改善候補を出す。実装は scripts/lib/search-opportunities.mjs、CLI は npm run report-search-opportunities、管理画面は 検索 ＞ キーワード戦略。1 キーワードの実験と 7 日観察は既存の SEO Rank Watch（seo-watchwords.json）が持つ。",
   "striking": {

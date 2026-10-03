@@ -1,0 +1,34 @@
+{
+  "id": "cd-road-bridge-pack",
+  "channel": "note",
+  "qualification": "concrete-diagnostician",
+  "stage": "written",
+  "series": "other",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "cd-road-bridge-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m7a59ccbb7e47",
+    "noteTitle": "診断士 記述式｜道路・橋梁8ケース",
+    "title": "コンクリート診断士 記述式｜道路・橋梁8ケース",
+    "description": "既存の塩害・ASR・凍害・疲労複合に、道路トンネル、PC橋、港湾桟橋、地震後のRC橋脚を加えた道路・橋梁系8ケース。解法ガイドを含む全9記事を、道路・橋梁の維持管理に携わる受験者向けに再収録する。",
+    "shortTitle": "診断士｜道路・橋梁8ケース",
+    "shortDescription": "道路・橋梁の変状を8ケースで答案化。解法ガイド付き。",
+    "price": "¥3,980（9記事セット）",
+    "badge": "note 限定 立場別"
+  },
+  "members": [
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/02-道路トンネル覆工-漏水凍害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/04-PC橋-グラウト不良鋼材腐食/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/06-港湾桟橋-塩害マクロセル/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/07-RC橋脚-地震損傷/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-ASR/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-凍害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-塩害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-疲労複合/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/解法ガイド/article.md"
+  ],
+  "includes": [],
+  "memo": []
+}

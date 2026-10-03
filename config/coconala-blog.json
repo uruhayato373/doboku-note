@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_note": "ココナラブログ（記事型）の偵察対象と運用パラメータ。scripts/scout-coconala-blogs.mjs が読む。競合の『出品サービス』を見る competitors.json の coconala とは対象が別（あちらはサービス・こちらはブログ記事）。取得は公開ページ read-only・低頻度・書き込みなし。記事の本文/価格/導線の真実源は別（本文=content/coconala/blog/**、価格=src/lib/coconala-services.ts、ルール=.claude/knowledge/reference/coconala-blog-policy.md）。ここには価格を書かない。",
   "cadenceDays": 90,
   "queries": [

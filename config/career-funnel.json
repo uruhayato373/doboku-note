@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "$comment": "キャリア（転職アフィリエイト）ファネルの機械可読設定。真実源の人間向け解説は .claude/knowledge/reference/affiliate-operations.md「キャリア面の構造」。語彙をレポート本文へ散らさないため、ここに集約する。",
   "highIntentQueryTerms": [
     "転職",

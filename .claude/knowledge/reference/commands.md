@@ -84,7 +84,7 @@ npm run check-content-expansion # 全教材の論点→記事/図/SNS対応・�
 npm run check-content-expansion:linked # backlogIds を持つ論点に要作業・原典待ち・再確認が残れば exit 1（backlog の [検証:] 用・無印は常に緑）
 npm run check-domains          # 領域の正本（config/domains.json）とスキル/エージェントの domain:・文書の割り当ての整合（バックログの [領域:] は check-backlog-schema）
 npm run ci-data -- <save|restore|add|latest|path|put> # ワークフローが記録を develop へ書き戻すときの共通処理。変わったファイルを git status から拾って退避・復元し（save/restore）、実在するパスだけを add する。latest/path は台帳の id からパスを出す。YAML にデータのパスを書かないための道具（main の YAML が develop の置き場の変更に追従できるように）。罠: 依存（zod）を読むので npm ci の後で使う。node_modules の無い別 worktree では checkout 側から --root で対象を指す
-npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか、コード（scripts/・tools/・src/・.claude/）が config/・data/ のパスを直書きしていないか（ファイル名だけ・join の分割形を含む）、コードと YAML が引く id（datasetPath 系・readDataset・writeDataset・freshnessDays など）が台帳にあるか、ワークフロー・package.json のパスが台帳に当たるか、台帳の宣言に知らないキーが無いか、鮮度（freshness: { warnDays, failDays }）の宣言が正しい形か。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
+npm run check-datasets         # 設定（config/）・記録（data/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか、config/・data/ の JSON に型が無いデータセットが無いか、JSON に同じオブジェクト内の重複キーが無いか、コード（scripts/・tools/・src/・.claude/）が config/・data/ のパスを直書きしていないか（ファイル名だけ・join の分割形を含む）、コードと YAML が引く id（datasetPath 系・readDataset・writeDataset・freshnessDays など）が台帳にあるか、ワークフロー・package.json のパスが台帳に当たるか、台帳の宣言に知らないキーが無いか、鮮度（freshness: { warnDays, failDays }）の宣言が正しい形か。CI ゲート＋pre-commit。管理画面 管理＞設定／データ がこの台帳を並べる。罠: 新しい設定・記録を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。手元だけの生データは local: true で、git 管理に入ると違反
 npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
 ```
 
@@ -118,7 +118,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
-`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `content/products/` を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> --commit`・DN-0492）
+`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `content/products/` を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
 
 `npm run check-products` — 商品の正本のゲート（型・id・参照先・生成ブロックの一致・収録の意図×コミット済みの収録記録。ネットワーク不使用・ci:true）
 

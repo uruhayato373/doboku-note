@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_meta": {
     "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/keiken-charcount.mjs が参照する真実源。級別に分けて管理する（1級と2級で解答欄が異なるため）。",
     "borderline_tolerance": 0.1,

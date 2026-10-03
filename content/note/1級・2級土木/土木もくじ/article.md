@@ -42,66 +42,34 @@ cover:
 ---
 
 <!-- cta:coconala-custom -->
-自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば添削、まだ書けていなければヒアリングから骨子（構成）をつくります。上の2つが1級（全5テーマ）、下の2つが2級（全3テーマ）です。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
+2級の経験記述を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全3テーマの添削（上）、まだ書けていなければヒアリングから全3テーマの骨子づくり（下）です。1級の第二次検定（10/4）は終わったため、1級の添削・骨子づくりはこのもくじからの案内を止めています。
 
 https://coconala.com/services/4418778
 
 https://coconala.com/services/4418785
+
+## 2級：10/25 の本試験に向けて
+
+2級土木の第二次検定と第一次検定（後期）は、どちらも10/25です。残りの期間に合わせて、使う教材を絞れます。
+
+- **直前の仕上げ**（予想模試3回＋直前暗記ノート＋出題分析） → [二次 直前総仕上げパック](https://note.com/dobokunote/m/md3518107aa97)
+- **経験記述の型がまだ固まっていない**（安全・品質・工程の3テーマ） → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m1881a9578027)
+- **第一次検定の後期を受ける** → [第1次検定 過去問PDF（R03-R07 前期後期 全630問）](https://note.com/dobokunote/n/n4963f45bd6f8)
+- **書いた答案を人に見てほしい** → 上のココナラ（全3テーマの添削・骨子づくり）
 
 ## 無料で現在地を確認してから選ぶ
 
 最初に無料の答案診断で現在地を確認し、その後に買い切り教材か伴走支援を選びます。
 
 - **まだ買わずに答案の弱点を知りたい** → [落ちる施工経験記述 診断（無料）](https://note.com/dobokunote/n/nd1c0e564ef10)から
-- **1級で、まず経験記述の型を固めたい** → 施工経験記述 完成答案集
 - **2級で、まず頻出3管理の型を固めたい** → 施工経験記述 完成答案集
-- **自分の工事に近い想定工事を広く探したい** → 完全攻略パック（1級）／想定工事バンク（2級）
-- **過去問の年度別模範答案で演習したい** → 施工経験記述 過去問 模範答案集（1級／2級）
-- **まず一次を過去問で突破したい** → 第1次検定 過去問PDF（1級／2級）
-- **自分の答案を人に見てほしい** → ココナラの添削・骨子づくり（このページの最後で案内）
+- **1級で、まず経験記述の型を固めたい** → 施工経験記述 完成答案集
+- **自分の工事に近い想定工事を広く探したい** → 想定工事バンク（2級）／完全攻略パック（1級）
+- **過去問の年度別模範答案で演習したい** → 施工経験記述 過去問 模範答案集（2級／1級）
+- **まず一次を過去問で突破したい** → 第1次検定 過去問PDF（2級／1級）
+- **自分の答案を人に見てほしい** → ココナラの添削・骨子づくり（2級・このページの冒頭で案内）
 
 各教材の中身は、このあとのセクションで順に説明します。
-
----
-
-## 1級土木の有料教材
-
-**施工経験記述 完成答案集**（5管理）— まず1本、管理項目別の型がほしい人の入口。5つの管理それぞれの完成答案を読み、自分の答案の骨組みを固めるところから始められます。
-
-https://note.com/dobokunote/m/m150c9db08902
-
-**施工経験記述 完全攻略パック**（想定工事×5管理 全網羅）— 経験記述に特化して仕上げたい人向け。想定工事から自分の現場に近いものを選び、品質・工程・安全・施工計画・環境の5管理すべての完成答案をそろえられます。
-
-「自分の工事でどう書くか」を一望できる構成です。
-
-https://note.com/dobokunote/m/m8290970a7f05
-
-**二次検定まるごとパック**（経験記述＋学科記述＋直前暗記＋予想模試＋出題分析）— 経験記述だけでなく、学科記述（問題2〜11）と直前暗記、予想模試3回、出題分析までまとめて仕上げたい人向けの最上位パックです。
-
-https://note.com/dobokunote/m/md29a34906314
-
-**二次 直前総仕上げパック**（予想模試3回＋直前暗記ノート＋出題分析）— 教材はそろっていて、試験直前2週間を「模試で確認 → 暗記で穴埋め → 分析で優先順位」の3点で回し切りたい人向けです。
-
-https://note.com/dobokunote/m/m7a9b3ad964f6
-
-そのほかの1級教材（目的に合わせて追加）:
-
-- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9) — 出題された年度の設問でそのまま演習したい人向け
-- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6) — R6以降の「2テーマ必答」に何が出ても対応したい人向け
-- [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
-- [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
-- [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
-- [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
-- [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/nc2a33b52a2f7) — 本番形式で時間を測って仕上げたい人向け
-- [二次検定 直前暗記ノート](https://note.com/dobokunote/n/na84b001e827e) — 試験直前に重要語句を絞って確認したい人向け
-- [橋梁維持更新 8工事](https://note.com/dobokunote/m/mbcc9f67baf80) — 橋梁補修・更新に近い現場から5管理を選びたい人向け
-- [道路・トンネル維持 7工事](https://note.com/dobokunote/m/ma782ece5c04e) — 供用下の道路・トンネル工事に絞って準備したい人向け
-- [河川・災害復旧 10工事](https://note.com/dobokunote/m/m713ed083f60a) — 河川・砂防・海岸・災害復旧から工事を選びたい人向け
-- [上下水道・処理施設 7工事](https://note.com/dobokunote/m/mf5b91216ae1f) — 供用を続けながら行う施設更新に近い人向け
 
 ---
 
@@ -148,6 +116,45 @@ https://note.com/dobokunote/m/md3518107aa97
 
 ---
 
+## 1級土木の有料教材
+
+令和8年度の第二次検定（10/4）は終わりました。次の受検に向けて、一次・二次の教材を目的に合わせて選べます。
+
+**施工経験記述 完成答案集**（5管理）— まず1本、管理項目別の型がほしい人の入口。5つの管理それぞれの完成答案を読み、自分の答案の骨組みを固めるところから始められます。
+
+https://note.com/dobokunote/m/m150c9db08902
+
+**施工経験記述 完全攻略パック**（想定工事×5管理 全網羅）— 経験記述に特化して仕上げたい人向け。想定工事から自分の現場に近いものを選び、品質・工程・安全・施工計画・環境の5管理すべての完成答案をそろえられます。
+
+「自分の工事でどう書くか」を一望できる構成です。
+
+https://note.com/dobokunote/m/m8290970a7f05
+
+**二次検定まるごとパック**（経験記述＋学科記述＋直前暗記＋予想模試＋出題分析）— 経験記述だけでなく、学科記述（問題2〜11）と直前暗記、予想模試3回、出題分析までまとめて仕上げたい人向けの最上位パックです。
+
+https://note.com/dobokunote/m/md29a34906314
+
+**二次 直前総仕上げパック**（予想模試3回＋直前暗記ノート＋出題分析）— 教材はそろっていて、試験直前2週間を「模試で確認 → 暗記で穴埋め → 分析で優先順位」の3点で回し切りたい人向けです。
+
+https://note.com/dobokunote/m/m7a9b3ad964f6
+
+そのほかの1級教材（目的に合わせて追加）:
+
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9) — 出題された年度の設問でそのまま演習したい人向け
+- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6) — R6以降の「2テーマ必答」に何が出ても対応したい人向け
+- [二次学科記述 テーマ別 出る順（問題2〜11）](https://note.com/dobokunote/m/mcfe1059b3335) — 経験記述以外の学科記述も出る順で固めたい人向け
+- [出題分析と直前の重点（過去5年の実績）](https://note.com/dobokunote/n/nd68f3f6b5f9e) — まず何から手を付けるか、直前2週間の優先順位を決めたい人向け
+- [第1次検定 出る順 合格ノート（12年頻度分析）](https://note.com/dobokunote/n/nec34238ca6d6) — 一次の施工管理法を出る順で優先度づけしたい人向け
+- [第1次検定 過去問PDF（H26-R7 全1162問・全選択肢解説）](https://note.com/dobokunote/n/n155093f42183) — まず一次を過去問演習で突破したい人向け
+- [令和8年度 二次検定 予想模試3回](https://note.com/dobokunote/n/nc2a33b52a2f7) — 本番形式で時間を測って仕上げたい人向け
+- [二次検定 直前暗記ノート](https://note.com/dobokunote/n/na84b001e827e) — 試験直前に重要語句を絞って確認したい人向け
+- [橋梁維持更新 8工事](https://note.com/dobokunote/m/mbcc9f67baf80) — 橋梁補修・更新に近い現場から5管理を選びたい人向け
+- [道路・トンネル維持 7工事](https://note.com/dobokunote/m/ma782ece5c04e) — 供用下の道路・トンネル工事に絞って準備したい人向け
+- [河川・災害復旧 10工事](https://note.com/dobokunote/m/m713ed083f60a) — 河川・砂防・海岸・災害復旧から工事を選びたい人向け
+- [上下水道・処理施設 7工事](https://note.com/dobokunote/m/mf5b91216ae1f) — 供用を続けながら行う施設更新に近い人向け
+
+---
+
 ## 無料で全体像をつかむ
 
 買う前に、まず無料記事で試験の全体像と答案の考え方をつかめます。
@@ -157,17 +164,6 @@ https://note.com/dobokunote/m/md3518107aa97
 - [落ちる施工経験記述 診断｜模範解答サンプル](https://note.com/dobokunote/n/nd1c0e564ef10) — 落ちる答案の型を採点者視点で診断＋1級・2級の模範解答サンプル
 - [経験記述は予想問題で書く練習をする](https://note.com/dobokunote/n/n1a0cef1de78b) — 読むだけで終わらせず、手を動かして書けるようにする進め方
 - [独学の経験記述添削、その限界](https://note.com/dobokunote/n/nb9b9a20106f0) — 自己採点で直せる所と、第三者の添削でしか直らない所の切り分け
-
-### 1級土木
-
-- [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
-- [1級 工事概要の書き方](https://note.com/dobokunote/n/na1f84193571a)
-- [1級 経験記述 R6新形式と設問書き分け](https://note.com/dobokunote/n/n34c1c35423f1)
-- [1級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/nfea4a39cf108)
-- [1級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nd88d5ec77f2d)
-- [1級 経験記述 テーマ選び5管理](https://note.com/dobokunote/n/nd4c5c13ee445)
-- [1級 テキスト精読ガイド 施工管理・法規編（一次・出題頻度順）](https://note.com/dobokunote/n/n653cd1b3ee71)
-- [1級 テキスト精読ガイド 土木一般・共通工学編（一次・出題頻度順）](https://note.com/dobokunote/n/nd4320a66d09f)
 
 ### 2級土木
 
@@ -182,6 +178,17 @@ https://note.com/dobokunote/m/md3518107aa97
 - [2級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nc60854accc56)
 - [2級 経験記述 テーマ選び](https://note.com/dobokunote/n/n26e51803f01b)
 - [2級 テキスト精読ガイド 全分野編（一次・出題頻度順）](https://note.com/dobokunote/n/na8e28f954797)
+
+### 1級土木
+
+- [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
+- [1級 工事概要の書き方](https://note.com/dobokunote/n/na1f84193571a)
+- [1級 経験記述 R6新形式と設問書き分け](https://note.com/dobokunote/n/n34c1c35423f1)
+- [1級 施工経験記述で落ちる答案の共通点](https://note.com/dobokunote/n/nfea4a39cf108)
+- [1級 経験記述を自分の現場に置換する方法](https://note.com/dobokunote/n/nd88d5ec77f2d)
+- [1級 経験記述 テーマ選び5管理](https://note.com/dobokunote/n/nd4c5c13ee445)
+- [1級 テキスト精読ガイド 施工管理・法規編（一次・出題頻度順）](https://note.com/dobokunote/n/n653cd1b3ee71)
+- [1級 テキスト精読ガイド 土木一般・共通工学編（一次・出題頻度順）](https://note.com/dobokunote/n/nd4320a66d09f)
 
 ---
 
@@ -222,15 +229,15 @@ https://note.com/dobokunote/m/md3518107aa97
 
 - **1級をこれから始める** → [1級土木をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)
 - **2級をこれから始める** → [二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)＋[独学の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
-- **落ちる答案のパターンを知りたい** → [1級版](https://note.com/dobokunote/n/nfea4a39cf108)／[2級版](https://note.com/dobokunote/n/na5e045a1c6f8)
-- **一次を過去問で突破したい** → [1級](https://note.com/dobokunote/n/n155093f42183)／[2級](https://note.com/dobokunote/n/n4963f45bd6f8) 第1次検定 過去問PDF
-- **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
-- **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
+- **落ちる答案のパターンを知りたい** → [2級版](https://note.com/dobokunote/n/na5e045a1c6f8)／[1級版](https://note.com/dobokunote/n/nfea4a39cf108)
+- **一次を過去問で突破したい** → [2級](https://note.com/dobokunote/n/n4963f45bd6f8)／[1級](https://note.com/dobokunote/n/n155093f42183) 第1次検定 過去問PDF
+- **経験記述の完成答案がほしい** → [2級](https://note.com/dobokunote/m/m1881a9578027)／[1級](https://note.com/dobokunote/m/m150c9db08902) 完成答案集
+- **過去問の年度別模範答案がほしい** → [2級](https://note.com/dobokunote/m/md3aa0f9a37d7)／[1級](https://note.com/dobokunote/m/m3a578194a0a9) 過去問模範答案集
 - **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
-- **試験直前2週間を回し切りたい** → [1級](https://note.com/dobokunote/m/m7a9b3ad964f6)／[2級](https://note.com/dobokunote/m/md3518107aa97) 直前総仕上げパック（模試3回＋暗記＋出題分析）
-- **二次の教材をまとめてそろえたい** → [1級](https://note.com/dobokunote/m/md29a34906314)／[2級](https://note.com/dobokunote/m/m2d9a069b6f87) 二次検定まるごとパック
-- **一次のテキストをどこから読むか決めたい** → [1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)／[2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)（無料）
-- **自分の答案を人に見てほしい** → 冒頭のココナラ（添削・骨子づくり）
+- **試験直前2週間を回し切りたい** → [2級](https://note.com/dobokunote/m/md3518107aa97)／[1級](https://note.com/dobokunote/m/m7a9b3ad964f6) 直前総仕上げパック（模試3回＋暗記＋出題分析）
+- **二次の教材をまとめてそろえたい** → [2級](https://note.com/dobokunote/m/m2d9a069b6f87)／[1級](https://note.com/dobokunote/m/md29a34906314) 二次検定まるごとパック
+- **一次のテキストをどこから読むか決めたい** → [2級 精読ガイド](https://note.com/dobokunote/n/na8e28f954797)／[1級 精読ガイド](https://note.com/dobokunote/n/n653cd1b3ee71)（無料）
+- **自分の答案を人に見てほしい** → 冒頭のココナラ（2級の添削・骨子づくり）
 
 ---
 

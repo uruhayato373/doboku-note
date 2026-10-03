@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_comment": "note メンバーシップ「土木セコカン合格ラボ」の機械可読 SSOT。会費・定員は note では一度設定すると変更できない（プラン作り直しが唯一の手段）ため、運用中は check-note-membership.mjs が突合していた。2026-09-30 に撤退（ユーザー決定・note 上で休止済み）。導線は note 記事・サイト配置から撤去し、tests/note-membership-funnel.test.mjs が再混入を止める。retiredAt があるあいだ check-note-membership.mjs は価格の写し（mirrors）・定員・planId・実機の突合をせず SKIP する。再開するときは retiredAt を消し、mirrors を宣言し直す。人が読む真実源は content/note/1級・2級土木/noteコンテンツ計画.md と メンバーシップ説明文.md。",
   "updatedAt": "2026-09-30",
   "retiredAt": "2026-09-30",

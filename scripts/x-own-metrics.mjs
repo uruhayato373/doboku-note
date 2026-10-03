@@ -157,6 +157,7 @@ if (REPORT_ONLY) {
     };
   });
   store = {
+    schemaVersion: 1,
     handle: HANDLE,
     fetchedAt: jstClock(now).toISOString().slice(0, 19) + '+09:00',
     followers: followers ? Number(followers) : null,

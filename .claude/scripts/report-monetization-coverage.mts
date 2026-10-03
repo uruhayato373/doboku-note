@@ -13,7 +13,7 @@
  * 配置の真実源:
  *   - note CTA: src/lib/magazine-placement.ts（resolvePlacement）+ note-magazines.ts（公開判定）
  *     ＋ src/lib/hub-cta.ts（もくじタイル）＋ MDX 本文の <MagazineCard>
- *   - アフィリ: src/app/docs/[...slug]/page.tsx のサイドバー条件をミラー（下記 deriveAffiliate）
+ *   - アフィリ: src/components/docs/DocPage.tsx のサイドバー条件をミラー（下記 deriveAffiliate）
  *
  * **数える経路は「実際に描画されるもの」に揃える**（2026-08-25・DN-0133）。
  * 描画と集計がずれると、偽陰性は「配線済みの面を毎週 Must に出し続ける」（top・もくじタイル・
@@ -39,9 +39,12 @@ import { basename, join, sep } from "path";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
-import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
+import { resolvePlacement, resolveArticleMidNoteSlot, renderedMagazineCardIds } from "../../src/lib/magazine-placement.ts";
+import { getPublicDocPath } from "../../src/lib/content-routes.ts";
+import { getCategoryBySlug, getCategoryHubPath } from "../../src/lib/categories.ts";
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
-import { getMagazine } from "../../src/lib/note-magazines.ts";
+import { getMagazine, NOTE_MAGAZINES } from "../../src/lib/note-magazines.ts";
+import { sidebarProduct } from "../../src/lib/sidebar-discovery.ts";
 import {
   resolveCategoryCareerAds,
   resolveDocsCareerSidebarAd,
@@ -74,12 +77,11 @@ function normPath(p: string): string {
 }
 
 // ── アフィリエイト サイドバー配置の導出（page.tsx のミラー。SoT は page.tsx） ──
-// 全 docs サイドバー上部に転職枠を無条件常設。creative はカテゴリ別出し分け
-// （resolveDocsCareerSidebarAd: 総監=PE_CONSULTING〔DXConsulting〕/ 他=〜2026-08-31 BuildJob・
-// 9-01 以降 GKS）。2026-06-25: 講座（SAT）併置は廃止＝現行アフィリは転職のみ。docs は全て転職枠が出る。
-function deriveAffiliate(category: string): string | null {
+// 記事の転職creativeはカテゴリ・slugで出し分ける（記事末・中間で共用）。
+// 2026-09-26に記事サイドバーの広告は撤去された。
+function deriveAffiliate(category: string, slug: string): string | null {
   // サイドバー転職枠のプログラム名（"BuildJob" / "GKS" / "DXConsulting"）。trackLabel = "{program}-sidebar"。
-  return resolveDocsCareerSidebarAd(category).trackLabel.replace(/-sidebar$/, "");
+  return resolveDocsCareerSidebarAd(category, slug).trackLabel.replace(/-sidebar$/, "");
 }
 
 // ── 本文に直接置かれた <MagazineCard>（MDX 内・placement を経由しない note 導線） ──
@@ -88,8 +90,8 @@ function deriveAffiliate(category: string): string | null {
 // （例: pe-construction の学習法系 7 本は本文カードだけで送客している）。
 // 実測の起点は management-tradeoffs — sidebar 廃止（DN-0133）で placement が空になるが、
 // 本文には <MagazineCard> が 3 枚あって導線は生きている。
-function indexBodyMagazineCards(): Map<string, string[]> {
-  const out = new Map<string, string[]>();
+function indexBodyMagazineCards(): Map<string, { body: string; ids: string[] }> {
+  const out = new Map<string, { body: string; ids: string[] }>();
   const walk = (dir: string, acc: string[] = []): string[] => {
     for (const e of readdirSync(dir, { withFileTypes: true })) {
       const p = join(dir, e.name);
@@ -102,12 +104,8 @@ function indexBodyMagazineCards(): Map<string, string[]> {
   if (!existsSync(siteDir)) return out;
   for (const abs of walk(siteDir)) {
     const src = readFileSync(abs, "utf-8");
-    const ids = [
-      ...new Set(
-        [...src.matchAll(/<MagazineCard\s+[^>]*id="([^"]+)"/g)].map((m) => m[1]!),
-      ),
-    ];
-    if (!ids.length) continue;
+    const body = src.replace(/^---[\s\S]*?\n---\n/, "");
+    const ids = [...new Set(renderedMagazineCardIds(body))];
     // slug は「カテゴリ-ディレクトリ名」のフラット形。Convention A（個別ファイル名）と
     // Convention B（article.mdx）が共存するので両方から復元する。
     // basename を使う（Windows の join は円記号区切り＝split("/") では切り出せない・L29 と同じ轍）。
@@ -116,7 +114,7 @@ function indexBodyMagazineCards(): Map<string, string[]> {
     const category = parts[0]!;
     const leaf = basename(rel);
     const name = leaf === "article.mdx" ? parts[parts.length - 2]! : leaf.replace(/\.mdx$/, "");
-    out.set(`${category}-${name}`, ids);
+    out.set(`${category}-${name}`, { body, ids });
   }
   return out;
 }
@@ -207,6 +205,7 @@ interface NoteLabelSalesRow {
   revenue: number;
 }
 let noteLabelSales: NoteLabelSalesRow[] = [];
+let labelSalesWindow: { start: string; end: string } | null = null;
 let idClickCoverage: { idClicks: number; totalClicks: number; pct: number | null } = {
   idClicks: 0,
   totalClicks: 0,
@@ -214,11 +213,13 @@ let idClickCoverage: { idClicks: number; totalClicks: number; pct: number | null
 };
 if (labelFile) {
   const labelData = readJsonOrReport(ROOT, labelFile);
+  labelSalesWindow = { start: labelData.meta.startDate, end: labelData.meta.endDate };
   const salesLog = existsSync(SALES_LOG)
-    ? (JSON.parse(readFileSync(SALES_LOG, "utf-8")).sales as { productId: string; price: number }[])
+    ? (JSON.parse(readFileSync(SALES_LOG, "utf-8")).sales as { date: string; productId: string; price: number }[])
     : [];
   const salesByProduct = new Map<string, { count: number; revenue: number }>();
   for (const s of salesLog) {
+    if (s.date < labelSalesWindow.start || s.date > labelSalesWindow.end) continue;
     const cur = salesByProduct.get(s.productId) ?? { count: 0, revenue: 0 };
     cur.count += 1;
     cur.revenue += s.price ?? 0;
@@ -275,86 +276,95 @@ interface Row {
 }
 
 const rows: Row[] = [];
+const publishedCategories = new Set(Object.values(NOTE_MAGAZINES).filter((m) => m.published && m.noteUrl).map((m) => m.category));
+const zeroPages = JSON.parse(readFileSync(join(ROOT, ".claude/config/magazine-cta-baseline.json"), "utf8")).zeroPage ?? {};
 for (const [slug, meta] of Object.entries(metaIndex)) {
-  if (meta.published === false) continue;
-  const page = `/docs/${slug}`;
-  const t = traffic.get(page);
-  const users = t?.users ?? 0;
-  const sessions = t?.sessions ?? 0;
+  if (meta.published === false || getCategoryBySlug(meta.category)?.visible === false) continue;
+  const canonicalPage = getPublicDocPath(slug);
+  // 旧URLへの訪問は別行で残し、URL別activeUsersを合算して利用者を二重計上しない。
+  const pages = [canonicalPage, ...(traffic.has(`/docs/${slug}`) ? [`/docs/${slug}`] : [])];
+  for (const page of pages) {
+    const t = traffic.get(page);
+    const users = t?.users ?? 0;
+    const sessions = t?.sessions ?? 0;
 
-  const docGroup = classifyDoc({ slug, ...meta } as any);
-  const placement = resolvePlacement(slug, docGroup as any);
-  const liveInline = placement.inline.filter((s) => getMagazine(s.magazineId));
-  // **top（冒頭 1 行 CTA）も導線に数える**。2026-08-25 まで inline+sidebar しか見ておらず、
-  // top だけで配線したページが「note 導線ゼロ」に出続けていた。pastExam は MidCta の
-  // midEligibleGroup に入らないため inline を足しても描画されず、`top` が唯一の置き場になる
-  // （magazine-placement.ts 4.2 の説明どおり）。そこを数えないと、正しく配線した面ほど
-  // 未配線に見える。実害: r08-primary(104users) と competency-revision-r8(39users) は
-  // W33 に配線済みなのに W33・W34・W35 と 3 週続けて「未配線」として Must に挙がっていた。
-  const liveTop = placement.top && getMagazine(placement.top.magazineId) ? [placement.top] : [];
-  // **もくじタイル（resolveHubCta）も導線に数える**。page.tsx は HUB 資格の記事すべてに
-  // 記事末尾＋サイドバーの 2 面で出しており（showMokuji）、placement とは別系統の note 導線。
-  // ここを見ていなかったため、HUB 資格の guide が「note 導線ゼロ」に混ざっていた
-  // （general-vs-comprehensive 24users / civil-1 guide-grade-comparison 17users）。
-  // 非 HUB 資格（技術士一次・concrete・reference）には null が返るので自然に対象外になる。
-  const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
-  // **MDX 本文の <MagazineCard> も導線に数える**（第 3 の経路・上の indexBodyMagazineCards 参照）。
-  const liveBody = (bodyCards.get(slug) ?? []).filter((id) => getMagazine(id as any));
-  // Set は結合した**後**に取る。top/inline だけを先に dedup し liveBody を生のまま足していたため、
-  // 同じ magazineId が top/inline と本文カードの両方にあるページで表示が二重化していた
-  // （2026-08-25 発覚: civil-2-experience-essay 等が「+」区切りの表示に 2 回出る）。
-  const noteCta = [
-    ...new Set([
-      ...liveTop.map((s) => s.magazineId),
-      ...liveInline.map((s) => s.magazineId),
-      ...liveBody,
-      ...(hubTile ? [hubTile.trackLabel] : []),
-    ]),
-  ];
-  const affiliate = deriveAffiliate(meta.category);
+    const docGroup = classifyDoc({ slug, ...meta } as any);
+    const placement = resolvePlacement(slug, docGroup as any, isCareerDoc(meta as any));
+    const article = bodyCards.get(slug);
+    const mid = resolveArticleMidNoteSlot(placement, docGroup, article?.body ?? "", docGroup === 'secondary' && /^civil-construction-[12]$/.test(meta.category));
+    const liveInline = mid && getMagazine(mid.magazineId) ? [mid] : [];
+    // 冒頭・中央・本文・サイドバーは実描画と同じ resolver で公開商品の有無を判定する。
+    const liveTop = placement.top && getMagazine(placement.top.magazineId) ? [placement.top] : [];
+    // **もくじタイル（resolveHubCta）も導線に数える**。page.tsx は HUB 資格の記事すべてに
+    // 記事末尾＋サイドバーの 2 面で出しており（showMokuji）、placement とは別系統の note 導線。
+    // ここを見ていなかったため、HUB 資格の guide が「note 導線ゼロ」に混ざっていた
+    // （general-vs-comprehensive 24users / civil-1 guide-grade-comparison 17users）。
+    // 非 HUB 資格（技術士一次・concrete・reference）には null が返るので自然に対象外になる。
+    const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
+    // **MDX 本文の <MagazineCard> も導線に数える**（第 3 の経路・上の indexBodyMagazineCards 参照）。
+    const liveBody = article?.ids ?? [];
+    const sidebar = sidebarProduct(meta.category, { slug, ...meta } as any);
+    // Set は結合した**後**に取る。top/inline だけを先に dedup し liveBody を生のまま足していたため、
+    // 同じ magazineId が top/inline と本文カードの両方にあるページで表示が二重化していた
+    // （2026-08-25 発覚: civil-2-experience-essay 等が「+」区切りの表示に 2 回出る）。
+    const noteCta = [
+      ...new Set([
+        ...liveTop.map((s) => s.magazineId),
+        ...liveInline.map((s) => s.magazineId),
+        ...liveBody,
+        ...(sidebar ? [sidebar.id] : []),
+        ...(hubTile ? [hubTile.trackLabel] : []),
+      ]),
+    ];
+    const affiliate = deriveAffiliate(meta.category, slug);
 
-  // **OR 判定は「どれか 1 つでもあれば合格」なので、アフィリ枠さえあれば note ゼロが隠れる**。
-  // 総合判定（monetized）は従来どおり残しつつ、チャネル別の穴を独立して持つ。
-  // note は自社商品への唯一の導線で、アフィリ（他社送客）とは代替関係にない。
-  //
-  // 2026-08-25: 旧 `linksFallback`（PE keyword かつ sidebar に live マガジン無し → /links 送り）を
-  // 削除した。page.tsx に /links へのフォールバックは無く（`LinksHubTile` はどこからも import
-  // されていない）、**描画されない導線を「あり」と数える偽陽性**だった。sidebar 廃止と同型の
-  // ズレで、こちらは note 導線ゼロを隠す向きに効いていた。
-  const hasNote = noteCta.length > 0;
-  const hasAffiliate = affiliate !== null;
-  const monetized = hasNote || hasAffiliate;
-  const gap = users >= MIN_USERS && !monetized;
-  const noteGap = users >= MIN_USERS && !hasNote;
+    // **OR 判定は「どれか 1 つでもあれば合格」なので、アフィリ枠さえあれば note ゼロが隠れる**。
+    // 総合判定（monetized）は従来どおり残しつつ、チャネル別の穴を独立して持つ。
+    // note は自社商品への唯一の導線で、アフィリ（他社送客）とは代替関係にない。
+    //
+    // 2026-08-25: 旧 `linksFallback`（PE keyword かつ sidebar に live マガジン無し → /links 送り）を
+    // 削除した。page.tsx に /links へのフォールバックは無く（`LinksHubTile` はどこからも import
+    // されていない）、**描画されない導線を「あり」と数える偽陽性**だった。sidebar 廃止と同型の
+    // ズレで、こちらは note 導線ゼロを隠す向きに効いていた。
+    const hasNote = noteCta.length > 0;
+    const hasAffiliate = affiliate !== null;
+    const monetized = hasNote || hasAffiliate;
+    const gap = users >= MIN_USERS && !monetized;
+    const noteEligible = publishedCategories.has(meta.category) && !isCareerDoc(meta as any) && !zeroPages[slug];
+    const noteGap = users >= MIN_USERS && noteEligible && !hasNote;
 
-  rows.push({
-    slug,
-    page,
-    category: meta.category,
-    docGroup,
-    users,
-    sessions,
-    noteCta,
-    affiliate,
-    noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
-    affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
-    monetized,
-    gap,
-    noteGap,
-  });
+    rows.push({
+      slug,
+      page,
+      category: meta.category,
+      docGroup,
+      users,
+      sessions,
+      noteCta,
+      affiliate,
+      noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
+      affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
+      monetized,
+      gap,
+      noteGap,
+    });
+  }
 }
 
 // 非 doc の高流入ハブ（/ と /category/*）も収益カバレッジに含める。
 // これらは docs の placement 系統外（別テンプレ）だが GA4 流入・CTA クリックは取れる。
 for (const [page, t] of traffic) {
+  if (rows.some((r) => r.page === page)) continue;
   let category: string | null = null;
   let noteCta: string[] = [];
   let affiliate: string | null = null;
   if (page === "/") {
     noteCta = ["home-links-hub"]; // /links 教材ハブ banner（src/app/page.tsx）
     affiliate = null; // 2026-06-25: トップの SAT 講座アフィリ（HOME_AFFILIATE）は廃止。home はアフィリ枠なし。
-  } else if (page.startsWith("/category/")) {
-    category = page.slice("/category/".length);
+  } else if (page.startsWith("/category/") || /^\/exam\/[^/]+$/.test(page)) {
+    category = page.split('/')[2]!;
+    if (!getCategoryBySlug(category) || getCategoryBySlug(category)?.visible === false) continue;
+    if (!page.startsWith('/category/') && getCategoryHubPath(category) !== page) continue;
     // 2026-07-06 に resolveCategoryMagazines（複数誌の直リンク）は resolveHubCta へ一本化された。
     // mode:'product' は特定マガジンへの直リンク、mode:'mokuji' は L2 もくじへの集約。
     const hub = resolveHubCta(category);
@@ -383,7 +393,7 @@ for (const [page, t] of traffic) {
     affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
     monetized,
     gap: users >= MIN_USERS && !monetized,
-    noteGap: users >= MIN_USERS && noteCta.length === 0,
+    noteGap: users >= MIN_USERS && publishedCategories.has(category ?? '') && noteCta.length === 0,
   });
 }
 
@@ -394,12 +404,23 @@ const trafficked = rows.filter((r) => r.users > 0);
 const gaps = trafficked.filter((r) => r.gap);
 // アフィリ枠があるので総合判定は通るが、note 導線が無いページ（OR 判定が隠していた穴）
 const noteOnlyGaps = trafficked.filter((r) => r.noteGap && !r.gap);
+const matchedPages = new Set(rows.map((r) => r.page));
+const coverage = {
+  trafficRows: traffic.size,
+  matchedTrafficRows: [...traffic.keys()].filter((page) => matchedPages.has(page)).length,
+  unmatchedTrafficPages: [...traffic.keys()].filter((page) => !matchedPages.has(page)),
+};
+if (coverage.trafficRows === 0 || coverage.matchedTrafficRows === 0) {
+  throw new Error(`収益導線の集計不成立: GA4入力 ${coverage.trafficRows} URL / 照合 ${coverage.matchedTrafficRows} URL`);
+}
 const ctr = (clicks: number | null, users: number) =>
   clicks === null ? "n.d." : users > 0 ? `${((clicks / users) * 100).toFixed(1)}%` : "—";
 const noteLabel = (r: Row) => (r.noteCta.length ? r.noteCta.join("+") : "—");
 
 const lines: string[] = [];
 lines.push("## 収益カバレッジ ダッシュボード");
+lines.push("");
+lines.push(`- GA4入力 ${coverage.trafficRows} URL / 記事・資格トップ・ホームへの照合 ${coverage.matchedTrafficRows} URL / その集計対象外 ${coverage.unmatchedTrafficPages.length} URL（ツール・検索・教材一覧等を含む）`);
 lines.push("");
 lines.push(
   `> 流入: \`${pageData.meta.startDate}〜${pageData.meta.endDate}\`（${basename(pageFile)}）` +
@@ -453,7 +474,7 @@ trafficked.slice(0, 25).forEach((r, i) => {
 });
 lines.push("");
 lines.push(
-  `> note CTA: 配置済み live マガジン id（\`(/links)\`=教材ハブ送り）。アフィリ: サイドバー枠の導出（SoT=page.tsx）。CTR は users 比、\`n.d.\`=クリック未取得。`,
+  `> note CTA: 配置済み live マガジン id（\`(/links)\`=教材ハブ送り）。アフィリ: 転職creativeの導出（SoT=DocPage.tsx）。CTR は users 比、\`n.d.\`=クリック未取得。`,
 );
 lines.push("");
 
@@ -477,7 +498,8 @@ if (placementCtr.length) {
 }
 
 // ── GA4 label × sales.json 突合（DN-0124）──
-lines.push("### note CTA label × 売上 突合（ID付きのみ）");
+lines.push("### note CTA label × 同期間の商品売上（ID付きのみ）");
+if (labelSalesWindow) lines.push(`> 期間: ${labelSalesWindow.start}〜${labelSalesWindow.end}。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに同じ合計を表示するため、行の売上を合算しない。`);
 lines.push("");
 lines.push(
   `> ID付きクリック / 全クリック: **${idClickCoverage.idClicks} / ${idClickCoverage.totalClicks}**` +
@@ -497,45 +519,33 @@ if (noteLabelSales.length) {
 }
 
 const md = lines.join("\n");
-console.log(md);
+const report = {
+  schemaVersion: 1,
+  meta: {
+    trafficWindow: { start: pageData.meta.startDate, end: pageData.meta.endDate },
+    clickWindow: clickData ? { start: clickData.meta.startDate, end: clickData.meta.endDate } : null,
+    labelSalesWindow,
+    minUsers: MIN_USERS,
+    pageFile: basename(pageFile),
+    clickFile: clickFile ? basename(clickFile) : null,
+  },
+  summary: { trafficked: trafficked.length, gaps: gaps.length },
+  coverage,
+  rows,
+  placementCtr,
+  noteLabelSales,
+  idClickCoverage,
+};
+const jsonOutput = process.argv.includes("--json");
+console.log(jsonOutput ? JSON.stringify(report, null, 2) : md);
 
-// ── persist ──
-// --check: ここまでの計算（入力の読み込み・配置解決・集計）が完走したことだけを確認し、
-// 成果物は書かない。quality-audit のゲートから毎回呼ぶため、実行のたびに timestamped JSON を
-// 増やさない。なぜゲート化したか: 2026-07-06 に magazine-placement.ts から
-// resolveCategoryMagazines が消えた際、本スクリプトは import エラーで実行不能になったのに
-// 検出器が無く、週次レビューは 6 週間ぶん古い（6/18 時点の）集計を貼り続けた。
-// 「壊れているのに誰も気づかない」を機械で塞ぐ（2026-08-16 追加）。
-if (process.argv.includes("--check")) {
-  console.log(
-    `[monetization-coverage] OK: 流入 ${trafficked.length} ページ / ギャップ ${gaps.length} 件を算出（--check・未書き込み）`,
-  );
-  process.exit(0);
+// --check / --json は書き込まない。入力・URL照合ゼロは上で集計不成立として落とす。
+if (process.argv.includes("--check") || jsonOutput) {
+  console.error(`[monetization-coverage] OK: 入力 ${coverage.trafficRows} URL / 照合 ${coverage.matchedTrafficRows} URL / 流入 ${trafficked.length} ページ / ギャップ ${gaps.length} 件（未書き込み）`);
+} else {
+  if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  writeFileSync(join(OUT_DIR, `coverage-${stamp}.json`), JSON.stringify(report, null, 2) + "\n");
+  writeFileSync(join(ROOT, datasetPath("analysis.monetization-report")), md + "\n");
+  console.error(`\n[written] ${datasetPath("analysis.monetization-report")}`);
 }
-if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
-const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-writeFileSync(
-  join(OUT_DIR, `coverage-${stamp}.json`),
-  JSON.stringify(
-    {
-      meta: {
-        trafficWindow: { start: pageData.meta.startDate, end: pageData.meta.endDate },
-        clickWindow: clickData
-          ? { start: clickData.meta.startDate, end: clickData.meta.endDate }
-          : null,
-        minUsers: MIN_USERS,
-        pageFile: basename(pageFile),
-        clickFile: clickFile ? basename(clickFile) : null,
-      },
-      summary: { trafficked: trafficked.length, gaps: gaps.length },
-      rows,
-      placementCtr,
-      noteLabelSales,
-      idClickCoverage,
-    },
-    null,
-    2,
-  ),
-);
-writeFileSync(join(ROOT, datasetPath("analysis.monetization-report")), md + "\n");
-console.error(`\n[written] ${datasetPath("analysis.monetization-report")}`);

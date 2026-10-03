@@ -80,7 +80,9 @@ const coconalaKeywords = uniq(targets.flatMap(([, q]) => q.coconala));
 
 const today = todayJst();
 const OUT_PATH = join(ROOT, datasetPath(MARKET_DATASET, { date: today }));
-const snapshot = latestMarketSnapshot(ROOT) ?? { version: 1, youtube: {}, note: {}, youtubeChannels: {} };
+// 版の欄は schemaVersion（旧名 version は持ち越さない）。先頭に置く
+const snapshot = { schemaVersion: 1, ...(latestMarketSnapshot(ROOT) ?? { youtube: {}, note: {}, youtubeChannels: {} }) };
+delete snapshot.version;
 const doneToday = (bucket, k) => !FORCE && snapshot[bucket]?.[k]?.fetchedAt?.slice(0, 10) === today && !snapshot[bucket][k].error;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const save = () => {

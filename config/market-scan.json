@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "_doc": "資格ごとの市場（競合の混み具合）を機械取得する検索語と判定の閾値。資格 id は qualification-registry.json と同じで、見送り（declined）以外の全資格に keywords と coconala が要る（npm run check-qualification-market が検査）。取得は npm run scan-qualification-market（YouTube=yt-dlp の検索・note=公開検索 API・ココナラ=scripts/coconala-research.mjs）で、結果は data/analysis/qualification-market/YYYY-MM-DD.json（1 ファイル＝その日の市場・最も新しい日付が最新）。判定と集計は scripts/lib/qualification-market.mjs が唯一の実装で、npm run qualification-market と管理画面 資格一覧（展開の判断）が読む。誰を追跡するかは {note,x,ig,coconala,youtube}-competitors.json、判断の理由は docs/strategy/06_多資格展開戦略.md。",
   "results": {
     "youtube": 20,

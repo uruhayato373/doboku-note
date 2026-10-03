@@ -64,7 +64,7 @@ export const samePage = (a, b) => a.targetPath === b.targetPath || a.contentPath
 export const dateJst = (now = new Date()) => jstDayOf(now);
 
 export function validateConfig(config) {
-  if (config.version !== 1 || config.siteUrl !== GSC_PROPERTY || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
+  if (config.schemaVersion !== 1 || config.siteUrl !== GSC_PROPERTY || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
   const ids = new Set(), scopes = new Set();
   for (const w of config.watchwords) {
     if (!/^[a-z0-9-]+$/.test(w.id ?? '') || ids.has(w.id) || !w.keyword?.trim() || scopes.has(scopeKey(w))) throw new WatchError('Duplicate or invalid watchword');

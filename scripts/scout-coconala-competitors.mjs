@@ -225,6 +225,7 @@ async function main() {
   else { console.log(`  基準: ${drift.basis}`); for (const e of drift.entries) console.log(`  [${e.type}] ${e.handle}: ${e.detail}`); }
 
   const snapshot = {
+    schemaVersion: 1,
     fetchedAt: new Date().toISOString(),
     platform: 'coconala',
     caveat: '累計販売実績(totalSales)/nickname は公開プロフィール header 由来（clean）。個別サービスの価格/品揃えは market-research.json（検索由来・土木/技術士 関連のみ＝全出品でない）。プロフィールの出品カードは推薦カルーセルと同一DOM構造で他社品が混入するため使わない。投稿日は非公開＝cadence取得不可。有料本文は取得不可。',

@@ -8,7 +8,7 @@ exam: civil
 angle: ハウツー
 category: 学び
 tags: [経験記述, 施工管理技士, 予想問題]
-funnel: [coconala-tensaku-4theme, coconala-sakusei-4theme]
+funnel: [coconala-2kyu-tensaku-3theme, coconala-2kyu-sakusei-3theme]
 source: content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md
 ---
 
@@ -44,11 +44,11 @@ source: content/note/1級・2級土木/経験記述-予想問題で書く練習-
 
 ただ、このサイクルには弱点があります。毎週の新しいお題を自分で用意し続けるのが、思いのほか大変なことです。しかも過去問をそのまま引いてしまうと、最初に書いた「暗記が効きにくい理由」へ逆戻りします。では今年はどのテーマが来るのか。ここから先は出題傾向の分析にあたる部分です。
 
-予想テーマで書いた答案は、自分で丸付けするより第三者に読んでもらうほうが、直すべき点がはっきりします。書いた答案がある方には全5テーマの添削を、まだ書けていない方にはヒアリングから全5テーマの骨子（構成）をつくる指導を承っています。どちらも10/4の本試験に間に合うよう、24時間以内にお返しします。
+予想テーマで書いた答案は、自分で丸付けするより第三者に読んでもらうほうが、直すべき点がはっきりします。書いた答案がある方には全3テーマの添削を、まだ書けていない方にはヒアリングから全3テーマの骨子（構成）をつくる指導を承っています。どちらも10/25の本試験に間に合うよう、24時間以内にお返しします。
 
-service:coconala-tensaku-4theme
+service:coconala-2kyu-tensaku-3theme
 
-service:coconala-sakusei-4theme
+service:coconala-2kyu-sakusei-3theme
 
 経験していない工事や数値の創作、答案の代筆はお受けしていません。合格を保証するものではありません。
 

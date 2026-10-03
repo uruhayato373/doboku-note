@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_note": "OGP（とサイト・note カバー共通のテンプレート）の設定。rules＝テンプレートの自動選定、templates＝テンプレートの定義、text＝タイトルの改行と字の大きさ。読み手は ogp-create.mjs・check-ogp-title-fit.mjs。",
   "rules": {
     "version": 2,

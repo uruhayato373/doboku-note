@@ -113,6 +113,7 @@ const context = await chromium.launchPersistentContext(PROFILE, leanContextOptio
 const page = context.pages()[0] || (await context.newPage());
 
 const out = {
+  schemaVersion: 1,
   fetchedAt: new Date().toISOString(),
   platform: 'coconala-blog',
   caveat: '公開ページの read-only 取得。検索は部分一致のためヒット数はノイズを含む。',
