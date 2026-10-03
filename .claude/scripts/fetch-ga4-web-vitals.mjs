@@ -92,6 +92,7 @@ async function main() {
   const summary = summarize(result.rows ?? []);
   const status = result.status ?? (summary.events === 0 ? "no-events" : "ok");
   const data = {
+    schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     status,
     window: result.startDate ? { startDate: result.startDate, endDate: result.endDate, days: opts.days } : null,

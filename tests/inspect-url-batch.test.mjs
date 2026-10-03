@@ -15,7 +15,7 @@ const { batchSummary, buildBatchDocument, shouldRetryInspect, httpStatusOf } = m
 
 test('buildBatchDocument: 全件 settled なら partial:false、穴があれば partial:true で穴を落とす', () => {
   const full = buildBatchDocument([{ url: 'a' }, { url: 'b', error: 'x' }], 2);
-  assert.equal(full.version, 1);
+  assert.equal(full.schemaVersion, 1);
   assert.equal(full.partial, false);
   assert.equal(full.completed, 2);
   assert.equal(full.total, 2);

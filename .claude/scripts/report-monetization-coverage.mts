@@ -518,6 +518,7 @@ writeFileSync(
   join(OUT_DIR, `coverage-${stamp}.json`),
   JSON.stringify(
     {
+      schemaVersion: 1,
       meta: {
         trafficWindow: { start: pageData.meta.startDate, end: pageData.meta.endDate },
         clickWindow: clickData

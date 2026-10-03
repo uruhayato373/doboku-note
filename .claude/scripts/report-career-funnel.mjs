@@ -462,6 +462,7 @@ function main() {
   const noteCareer = collectNoteCareer(cfg);
 
   const result = {
+    schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     windows,
     inputs: Object.fromEntries(Object.entries(inputs).map(([k, v]) => [k, v ? relative(v) : null])),

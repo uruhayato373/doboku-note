@@ -18,5 +18,5 @@ const snapshot = input && (isReportRef(input) || existsSync(input)) ? readJsonOr
 const summary = summarizeQuizPremiumFunnel(snapshot);
 
 mkdirSync(dirname(join(ROOT, OUT)), { recursive: true });
-writeFileSync(join(ROOT, OUT), JSON.stringify(summary, null, 2) + '\n');
+writeFileSync(join(ROOT, OUT), JSON.stringify({ schemaVersion: 1, ...summary }, null, 2) + '\n');
 console.log(`[report-quiz-premium-funnel] status=${summary.status} / source=${input ?? '未取得'}`);

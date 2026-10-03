@@ -324,6 +324,7 @@ function main() {
   }
 
   const snapshot = {
+    schemaVersion: 1,
     fetchedAt: new Date().toISOString(),
     notePagesPerCreator: NOTE_PAGES,
     withMagazineContents: WANT_CONTENTS,

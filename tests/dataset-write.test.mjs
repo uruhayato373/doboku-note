@@ -71,10 +71,10 @@ test('writeDataset: immutable（中身を変えない台帳）の既存ファイ
 
 test('writeDataset: 同じ中身のファイルが CRLF で残っていても書き直す。可変部分の欠け・台帳に無い id・値の型違いは投げる', () => {
   withRoot((root) => {
-    mkdirSync(join(root, 'data/note'), { recursive: true });
-    writeFileSync(join(root, 'data/note/status.json'), '{\r\n  "a": 1\r\n}\r\n');
-    assert.equal(writeDataset(root, 'note.status', { a: 1 }).changed, true, '型の無いデータセット（note.status）で書式だけを見る');
-    assert.equal(readFileSync(join(root, 'data/note/status.json'), 'utf8'), '{\n  "a": 1\n}\n');
+    mkdirSync(join(root, 'config'), { recursive: true });
+    writeFileSync(join(root, 'config/exam-stats.json'), '{\r\n  "a": 1\r\n}\r\n');
+    assert.equal(writeDataset(root, 'config.exam-stats', { a: 1 }).changed, true, '型の無いデータセット（config.exam-stats）で書式だけを見る');
+    assert.equal(readFileSync(join(root, 'config/exam-stats.json'), 'utf8'), '{\n  "a": 1\n}\n');
     assert.throws(() => writeDataset(root, 'bing.snapshots', {}), /\{date\} の値が要る/);
     assert.throws(() => writeDataset(root, 'no.such-dataset', {}), /台帳に無いデータセット/);
     assert.throws(() => writeDataset(root, 'youtube.posted', { not: 'an array' }), /行の配列で渡す/);

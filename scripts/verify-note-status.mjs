@@ -164,7 +164,7 @@ const result = {
 if (SNAPSHOT) {
   const out = join(ROOT, datasetPath('note.status'));
   mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, `${JSON.stringify({ fetchedAt: new Date().toISOString(), ...result }, null, 2)}
+  writeFileSync(out, `${JSON.stringify({ schemaVersion: 1, fetchedAt: new Date().toISOString(), ...result }, null, 2)}
 `);
   console.error(`[verify-note-status] snapshot を書きました: ${out}`);
 }
