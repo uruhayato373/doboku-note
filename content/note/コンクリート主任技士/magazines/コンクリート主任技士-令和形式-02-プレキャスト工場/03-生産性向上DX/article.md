@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-プレキャスト工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nd7b4b28d9eb0"
+noteId: "nd7b4b28d9eb0"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-precast-productivity
 cceEssayTheme: productivity
 cceEssayPersona: プレキャスト工場
@@ -42,7 +42,7 @@ cover:
 - プレキャスト工場の立場で、養生履歴や寸法データの電子化を脱型・出荷の判断に結び付けた答案例
 - 工場が決められる範囲と越権になる書き方、使う指標、施工者との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m7937821e86a7
 
 > 本答案はプレキャスト工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

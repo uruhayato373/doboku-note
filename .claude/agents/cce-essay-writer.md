@@ -116,7 +116,7 @@ cover:
 
 立場で選んで買えるように、テーマ別記事の答案を **1立場×1テーマの記事**（8立場×5テーマ＝40本）に分けて売る。置き場は `magazines/コンクリート主任技士-令和形式-{NN}-{立場}/{MM-テーマ}/article.md`（立場と dir 名・ラベルの対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md`）。親が下書き（frontmatter・無料節・(2)・(3)・採点者ポイントをテーマ別記事から写したもの）を用意し、writer は **テーマ単位で8立場ぶん**を仕上げる。
 
-入力: `theme`（SSOT id）と、そのテーマの8本の下書きパス。テーマ別記事 `magazines/コンクリート主任技士-小論文テーマ別-令和形式/{MM-テーマ}/article.md`（または `content/sources/` に移した写し）を必ず Read する。
+入力: `theme`（SSOT id）と、そのテーマの8本の下書きパス。テーマ別記事 `content/sources/cce-persona-essays/令和形式テーマ別-8立場/{MM-テーマ}/article.md`（2026-10-03 に note から外した原稿）を必ず Read する。
 
 frontmatter は下書きのまま（`cceEssayPersona` に SSOT `answerModel.personas` の表記、`noteMagazine` は立場ラベル、`price: 980`）。writer が書く・直すのは次の箇所だけ:
 

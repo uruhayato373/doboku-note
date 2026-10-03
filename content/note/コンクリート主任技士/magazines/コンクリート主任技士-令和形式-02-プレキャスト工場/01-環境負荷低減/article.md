@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-プレキャスト工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n178d81567130"
+noteId: "n178d81567130"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-precast-environment
 cceEssayTheme: environment
 cceEssayPersona: プレキャスト工場
@@ -42,7 +42,7 @@ cover:
 - プレキャスト工場の立場で書く表題・取り組み（3）・今後の対策を、共通の現状と課題（2）と組み合わせた模範答案
 - プレキャスト工場が「決められる範囲」と「使う指標」、生コン工場との線引き、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m7937821e86a7
 
 > 本答案はプレキャスト工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

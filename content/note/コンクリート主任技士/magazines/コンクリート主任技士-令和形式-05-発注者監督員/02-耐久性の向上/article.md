@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-発注者監督員
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nee43d106727d"
+noteId: "nee43d106727d"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-owner-durability
 cceEssayTheme: durability
 cceEssayPersona: 発注者・監督員
@@ -42,7 +42,7 @@ cover:
 - 発注者・監督員の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 条件の指定、施工中の確認、完成時の記録で決められる範囲と、生コン工場・施工者の領域との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/ma1d6fcf577bc
 
 > 本答案は発注者・監督員の立場を想定した答案モデルです。特定の工事や担当業務の体験談ではありません。
 

@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-発注者監督員
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n3fe06d94e604"
+noteId: "n3fe06d94e604"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-owner-productivity
 cceEssayTheme: productivity
 cceEssayPersona: 発注者・監督員
@@ -42,7 +42,7 @@ cover:
 - 発注者・監督員の立場で、電子記録の照合と立会いの重点化を結び付けた答案例
 - 監督員が決められる範囲と越権になる書き方、使う指標、施工者との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/ma1d6fcf577bc
 
 > 本答案は発注者・監督員の立場を想定した答案モデルです。特定の工事や担当業務の体験談ではありません。
 

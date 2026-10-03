@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-設計コンサル
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nfb3459731640"
+noteId: "nfb3459731640"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-design-consultant-productivity
 cceEssayTheme: productivity
 cceEssayPersona: 設計コンサルタント
@@ -42,7 +42,7 @@ cover:
 - 設計コンサルタントの立場で、施工性のモデル上での確認と引継ぎ資料を現場作業の削減に結び付けた答案例
 - 設計者が決められる範囲と越権になる書き方、使う指標、施工者や発注者との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m0dff629807db
 
 > 本答案は設計コンサルタントの立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-ゼネコン土木施工
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n727ee9f7b79e"
+noteId: "n727ee9f7b79e"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-civil-contractor-productivity
 cceEssayTheme: productivity
 cceEssayPersona: ゼネコン土木施工
@@ -42,7 +42,7 @@ cover:
 - ゼネコン土木施工の立場で、打込みから養生までの記録の一元化を現場の判断に結び付けた答案例
 - 現場代理人が決められる範囲と越権になる書き方、使う指標、生コン工場との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m1b555fe40131
 
 > 本答案はゼネコン土木施工の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

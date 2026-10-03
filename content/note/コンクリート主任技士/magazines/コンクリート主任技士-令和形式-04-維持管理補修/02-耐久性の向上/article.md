@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-維持管理補修
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n83cc78cb4d99"
+noteId: "n83cc78cb4d99"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-maintenance-durability
 cceEssayTheme: durability
 cceEssayPersona: 維持管理・補修
@@ -42,7 +42,7 @@ cover:
 - 維持管理・補修の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 点検区分と調査、補修案で決められる範囲と、管理者の判断になる事項の線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m155421580ea3
 
 > 本答案は維持管理・補修の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-試験検査機関
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n5048a0531415"
+noteId: "n5048a0531415"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-testing-workforce
 cceEssayTheme: workforce
 cceEssayPersona: 試験・検査機関
@@ -42,7 +42,7 @@ cover:
 - 試験・検査機関の立場で書いた表題・取り組み・今後の対策に、共通の現状と課題をつないだ1題の模範答案
 - 試験・検査機関が決められる範囲と使う指標、依頼者・施工者との線引き、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m43992b2f5503
 
 > 本答案は試験・検査機関の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

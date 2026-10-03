@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-試験検査機関
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n48af15b98de1"
+noteId: "n48af15b98de1"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-testing-durability
 cceEssayTheme: durability
 cceEssayPersona: 試験・検査機関
@@ -42,7 +42,7 @@ cover:
 - 試験・検査機関の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 試験項目の提案と報告で決められる範囲と、診断者・発注者の判断になる事項の線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m43992b2f5503
 
 > 本答案は試験・検査機関の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

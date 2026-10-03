@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-ゼネコン土木施工
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n74ef04a0d19f"
+noteId: "n74ef04a0d19f"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-civil-contractor-climate-quality
 cceEssayTheme: climate-quality
 cceEssayPersona: ゼネコン土木施工
@@ -42,7 +42,7 @@ cover:
 - ゼネコン土木施工の立場で書いた表題・業務との関係・今後の対策の答案モデル（現状と課題は同じテーマの他の立場と共通）
 - ゼネコン土木施工が「決められる範囲」と「使う指標」、越権になる書き方、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m1b555fe40131
 
 > 本答案はゼネコン土木施工の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

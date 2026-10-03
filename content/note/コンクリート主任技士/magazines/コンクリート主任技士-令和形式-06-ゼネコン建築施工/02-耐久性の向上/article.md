@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-ゼネコン建築施工
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/na0a09cbf3992"
+noteId: "na0a09cbf3992"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-building-contractor-durability
 cceEssayTheme: durability
 cceEssayPersona: ゼネコン建築施工
@@ -42,7 +42,7 @@ cover:
 - ゼネコン建築施工の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 配筋、養生、存置期間で決められる範囲と、設計者・監理者の承認が要る事項の線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m0595b4b179e0
 
 > 本答案はゼネコン建築施工の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

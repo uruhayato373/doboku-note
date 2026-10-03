@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-プレキャスト工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nfa847133fbd4"
+noteId: "nfa847133fbd4"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-precast-durability
 cceEssayTheme: durability
 cceEssayPersona: プレキャスト工場
@@ -42,7 +42,7 @@ cover:
 - プレキャスト工場の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 養生条件とかぶりの確認で決められる範囲と、発注者・設計者との協議が要る事項の線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m7937821e86a7
 
 > 本答案はプレキャスト工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

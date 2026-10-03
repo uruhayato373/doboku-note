@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-生コン工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n0a5828644cf4"
+noteId: "n0a5828644cf4"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-namacon-productivity
 cceEssayTheme: productivity
 cceEssayPersona: 生コン工場
@@ -42,7 +42,7 @@ cover:
 - 生コン工場の立場で、出荷の判断と製造記録の電子化を結び付けた答案例
 - 工場が決められる範囲と越権になる書き方、使う指標、施工者との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m02a55d302f25
 
 > 本答案は生コン工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

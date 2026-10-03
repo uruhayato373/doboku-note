@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-生コン工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nabd35b3a3ea6"
+noteId: "nabd35b3a3ea6"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-namacon-durability
 cceEssayTheme: durability
 cceEssayPersona: 生コン工場
@@ -42,7 +42,7 @@ cover:
 - 生コン工場の立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 配合と製造管理で決められる範囲と、設計者・購入者の領域との線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m02a55d302f25
 
 > 本答案は生コン工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

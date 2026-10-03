@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-設計コンサル
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n8da7d24954da"
+noteId: "n8da7d24954da"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-design-consultant-durability
 cceEssayTheme: durability
 cceEssayPersona: 設計コンサルタント
@@ -42,7 +42,7 @@ cover:
 - 設計コンサルタントの立場で書いた (1) 表題、(3) 業務での取り組み、(4) 今後の対策の模範答案
 - 照査と設計条件の指定で決められる範囲と、発注者の判断になる事項の線引き
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m0dff629807db
 
 > 本答案は設計コンサルタントの立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 

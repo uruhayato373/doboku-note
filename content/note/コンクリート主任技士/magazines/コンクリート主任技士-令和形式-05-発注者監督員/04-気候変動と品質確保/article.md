@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-発注者監督員
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/nd4bdcb67bc22"
+noteId: "nd4bdcb67bc22"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-owner-climate-quality
 cceEssayTheme: climate-quality
 cceEssayPersona: 発注者・監督員
@@ -42,7 +42,7 @@ cover:
 - 発注者・監督員の立場で書いた表題・業務との関係・今後の対策の答案モデル（現状と課題は同じテーマの他の立場と共通）
 - 発注者・監督員が「決められる範囲」と「使う指標」、越権になる書き方、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/ma1d6fcf577bc
 
 > 本答案は発注者・監督員の立場を想定した答案モデルです。特定の工事や担当業務の体験談ではありません。
 

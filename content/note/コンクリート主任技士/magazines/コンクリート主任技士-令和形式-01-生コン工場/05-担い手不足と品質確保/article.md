@@ -6,10 +6,10 @@ paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
 noteMagazine: コンクリート主任技士-令和形式-生コン工場
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n132a222b6165"
+noteId: "n132a222b6165"
+notePublishedAt: "2026-10-03"
+noteStatus: published
 utmCampaign: cce-reiwa-namacon-workforce
 cceEssayTheme: workforce
 cceEssayPersona: 生コン工場
@@ -42,7 +42,7 @@ cover:
 - 生コン工場の立場で書いた表題・取り組み・今後の対策に、共通の現状と課題をつないだ1題の模範答案
 - 生コン工場が決められる範囲と使う指標、施工者との線引き、採点者が見るポイント
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m02a55d302f25
 
 > 本答案は生コン工場の立場を想定した答案モデルです。著者自身が当該職務に従事した経験を意味しません。
 
