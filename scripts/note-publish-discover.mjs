@@ -21,6 +21,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_CREATOR } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -39,7 +40,7 @@ try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
   await sleep(2500);
-  if (!(await page.evaluate(() => document.body.innerText.includes('dobokunote')))) {
+  if (!(await page.evaluate((creator) => document.body.innerText.includes(creator), NOTE_CREATOR))) {
     console.error('ABORT: account が dobokunote でない'); await ctx.close(); process.exit(2);
   }
   console.log('[1] account gate OK');

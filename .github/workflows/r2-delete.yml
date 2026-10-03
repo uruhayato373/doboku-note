@@ -17,7 +17,7 @@ on:
       list:
         description: '削除リストのパス'
         required: false
-        default: 'config/r2-delete-list.txt'
+        default: 'data/r2/delete-list.txt'
         type: string
 
 concurrency:

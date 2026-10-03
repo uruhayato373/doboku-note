@@ -1,4 +1,5 @@
 import { calendarDate } from './gsc-date-range.mjs';
+import { SITE_ORIGIN } from './site-identity.mjs';
 
 export const INTENTS = { 'exam-task': '受験の具体的な課題', 'exam-topic': '試験論点の学習', 'qualification-guide': '資格全体の入口', reference: '一般用語・実務参考' };
 export const SELECTION_ORDER = '受験意図 → 学習上の価値 → 試験時期 → 順位・需要の段階 → 直近の資格別改善数 → 順位・表示回数';
@@ -44,7 +45,7 @@ export function inferIntent(keyword) {
 /** Hints only. Page/query evidence never authorizes an automatic registration or edit. */
 export function discoverCandidates(data, config, redirects = new Map()) {
   const rows = data.rows.flatMap((r) => {
-    if (!(r.position > 1 && r.position <= 20 && r.impressions > 0) || !r.keys?.[0]?.startsWith('https://doboku-note.com/')) return [];
+    if (!(r.position > 1 && r.position <= 20 && r.impressions > 0) || !r.keys?.[0]?.startsWith(`${SITE_ORIGIN}/`)) return [];
     const originalPath = new URL(r.keys[0]).pathname, targetPath = redirects.get(originalPath) ?? originalPath;
     const qualification = config.strategy.focusQualifications.find((id) => targetPath.startsWith(`/exam/${id}/`));
     if (!qualification || config.watchwords.some((w) => w.keyword === r.keys[1] && w.targetPath === targetPath)) return [];

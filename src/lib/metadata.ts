@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import seoMeta from "../../config/seo-meta-config.json";
 
-const SITE_URL = "https://doboku-note.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/og-default.png`;
+/** ページ個別の og:image を持たないページの既定画像（絶対 URL） */
+export const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/images/og-default.png`;
 const DEFAULT_OG_ALT = "doboku-note - 土木系資格試験 専門技術ノート";
-const META_DESCRIPTION_MAX = 160;
+/** 検索スニペットの description の上限。正本は config/seo-meta-config.json の thresholds（lint・build 後の検査も同じ値を読む） */
+const META_DESCRIPTION_MAX = seoMeta.thresholds.description.max_length;
 
-/** 検索スニペット用の description を意味の切れ目で 160 字以内に収める。 */
+/** 検索スニペット用の description を意味の切れ目で META_DESCRIPTION_MAX 字以内に収める。 */
 export function normalizeMetaDescription(description: string): string {
   const compact = description.replace(/\s+/g, " ").trim();
   if (compact.length <= META_DESCRIPTION_MAX) return compact;
@@ -27,7 +30,7 @@ export function normalizeMetaDescription(description: string): string {
  * 明示指定）で必ず自己 URL を設定する。
  *
  * @param path 先頭スラッシュ付きの自己パス（例 "/about"）。canonical と og:url に共通使用。
- *             metadataBase（https://doboku-note.com）に対して絶対 URL へ解決される。
+ *             metadataBase（SITE_ORIGIN）に対して絶対 URL へ解決される。
  * @param absoluteTitle true のとき title テンプレート（"%s | doboku-note"）を回避する。
  */
 export function buildPageMetadata({
@@ -86,7 +89,7 @@ export const getCommonSeoData = () => ({
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://doboku-note.com"),
+  metadataBase: new URL(SITE_ORIGIN),
   // canonical は root に置かない（子ページが省略すると homepage canonical を継承する
   // 事故構造になるため）。各ページが buildPageMetadata 等で自己 canonical を明示する。
   // ホーム自身の canonical は src/app/page.tsx が設定する。
@@ -120,7 +123,7 @@ export const getCommonSeoData = () => ({
       "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
     siteName: "doboku-note",
     images: [{
-      url: "https://doboku-note.com/images/og-default.png",
+      url: DEFAULT_OG_IMAGE,
       width: 1200,
       height: 630,
       alt: "doboku-note - 土木系資格試験 専門技術ノート",
@@ -131,7 +134,7 @@ export const getCommonSeoData = () => ({
     title: "doboku-note - 土木系資格試験 専門技術ノート",
     description:
       "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
   // GSC所有権確認はDNS認証で完了済み
 });

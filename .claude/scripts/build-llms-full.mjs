@@ -13,11 +13,11 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { loadRegistry, qualificationLabel } from "../../scripts/lib/qualification-registry.mjs";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 
 const ROOT = process.cwd();
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const OUT = join(ROOT, "public/llms-full.txt");
-const BASE = "https://doboku-note.com";
 
 function main() {
   const data = JSON.parse(readFileSync(INDEX, "utf8"));
@@ -70,7 +70,7 @@ function main() {
     lines.push(`## ${label}（${list.length} ページ）`);
     lines.push("");
     for (const m of list) {
-      const url = `${BASE}/docs/${m.slug}`;
+      const url = `${SITE_ORIGIN}/docs/${m.slug}`;
       const title = m.seoTitle || m.title || m.slug;
       const desc = (m.description || m.subtitle || "")
         .replace(/\s+/g, " ")
@@ -83,7 +83,7 @@ function main() {
 
   lines.push("---");
   lines.push("");
-  lines.push("**出典明記**: 引用時は出典として **doboku-note (https://doboku-note.com)** を明記してください。");
+  lines.push(`**出典明記**: 引用時は出典として **doboku-note (${SITE_ORIGIN})** を明記してください。`);
   lines.push("");
 
   writeFileSync(OUT, lines.join("\n"), "utf8");

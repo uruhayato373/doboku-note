@@ -6,7 +6,7 @@ doboku=転職一本へ移植・スリム化）。
 
 ## なぜ必要か
 
-- A8.net は **公開 API が無い**（`data/a8/results.json` も「月1手入力」）。提携状況の確認・
+- A8.net は **公開 API が無い**（月次の成果も長らく「月1手入力」だった）。提携状況の確認・
   広告コード取得は管理画面の手作業しかなく、Playwright 自動操作が唯一の機械化手段。
 - doboku の提携は当初ドキュメントへ人手で記録していたため、A8 実機とのドリフト（申請したが承認されたか／
   却下されたか）を人が追えていなかった。現在は `data/affiliate/catalog.json`（機械可読）が
@@ -101,7 +101,7 @@ X/IG/note/ココナラと同じ永続プロファイル方式（`.claude/knowled
 ## 成果レポート パイプライン（`/a8-report`・2026-07-27 新設）
 
 提携運用（上記＝申請・素材）とは**別サブシステム**。A8 のレポート CSV を取り込んで
-**EPC 判定の分母**（成果・確定報酬）を供給する。従来 `a8-results.json` は月1手入力の前提で
+**EPC 判定の分母**（成果・確定報酬）を供給する。従来 月次の成果（`results.json`）は月1手入力の前提で
 空のままだったため、`report-buildjob-affiliate.mjs` が EPC を出せずビルドジョブ vs 建設JOBs の
 A/B 判断が保留になっていた。ここを自動化した。
 
@@ -147,7 +147,7 @@ npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 A8 の既定期間＝**年初〜当月の累計**。実際の期間は CSV のファイル名にしか出ない
 （`site_202601-202607_20260727105756.csv`）ので manifest に記録する。
 
-そのため **`a8-results.json`（月次キー）へは単月 run のときしか書かない**。累計値を特定月の実績として
+そのため **月次の成果（月×案件）は report-log の単月の期間からしか導かない**（`resultsFromReportLog`。以前の `results.json` は 2026-10 に廃止）。累計値を特定月の実績として
 書き込まない（`notAttributable` で理由を残す）。月次内訳は `.claude/todo/backlog.md` の後続タスク。
 
 ### upsert である理由
@@ -175,8 +175,9 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - 継続運用: `scripts/check-a8-report-due.mjs`（surfacer）／`scripts/check-affiliate-wiring.mjs`（pre-commit ガード・3 ASP 横断）
 - 設定 SoT: `config/a8-report-automation.json`（URL・ラベル・`columnAliases`・`programIdMap`・`mediaId`・`reports[].siteScope`）
 - SSOT: `data/a8/report-log.json`
-  （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝allowlist 抽出 / `monthly`・`daily`＝口座横断 /
-  `crossCheck` / `unmapped` / `notAttributable`）＋ `a8-results.json`（既存スキーマへ rollup・消費側は無変更）
+  （`siteSummary`＝doboku 分離済みの真実源 / `programPeriod`＝案件に対応した行＋当期の口座横断の行 / `monthly`・`daily`＝口座横断 /
+  `crossCheck` / `missingProgramCandidates` / `notAttributable`）。月次の成果（月×案件）は持たず、読み手が
+  `resultsFromReportLog`（`scripts/lib/a8-report-csv.mjs`）で単月の期間から導く
 - skill: `.claude/skills/ads/a8-report/SKILL.md`（`disable-model-invocation: true`）
 - agents: `a8-report-collector`（収集）／`a8-csv-auditor`（品質監査）
 - 管理画面: admin-app `/affiliate` タブ（月次×プログラム×EPC・未写像の警告）

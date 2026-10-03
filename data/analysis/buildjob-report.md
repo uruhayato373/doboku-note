@@ -3,7 +3,7 @@
 生成時のスナップショット期間: 面別=2026-07-28〜2026-08-24 / ページ別=2026-07-28〜2026-08-24
 
 > 生成: `npm run report-buildjob-affiliate`（オフライン集計）。GA4 クリックが真実源（分子）、
-> A8 成果（`a8-results.json`）は `/a8-report` が自動取込（`a8-ui:fetch` → `a8-ui:normalize`）。計測は本番のみ発火＝デプロイ後に蓄積。
+> A8 成果（`data/a8/report-log.json` の単月の期間から導く月×案件）は `/a8-report` が自動取込（`a8-ui:fetch` → `a8-ui:normalize`）。計測は本番のみ発火＝デプロイ後に蓄積。
 
 ## プログラム別クリック（affiliate_cta_click）
 
@@ -60,7 +60,7 @@ _表示イベントを持つ面 9 件・表示合計 12,155 を実集計。表�
 
 - **2026-07-28 以降、キャンペーン中（〜08-31）は civil セグメント全ページが BuildJob 100%**（高意図 36 slug 限定をやめた。GA4 実測でその 36 slug は流入上位に 1 つも入らず、実流入の学習系ページが 50/50 A/B のまま低 EPC 側に半分流れていたため）。9/1 以降は `isCampaignActive()`=false で slug ハッシュ A/B へ自動復帰するが、GKS(457) < 建設JOBs(709) と逆転するため復帰後の arm 設計は要見直し。
 - 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。
-- 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。
+- 推定 EPC は A8 の月次の成果（`data/a8/report-log.json` の単月の期間）に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。
 - **EPC の分母は GA4 のラベル別クリック**（A8 の `clicks` は口座横断＝stats47 分を含むので使わない。真実源: affiliate-operations.md §6.5）。分子は A8 の確定報酬で、GA4 窓に重なる月（2026-07, 2026-08）に限定して合算する。窓外として除外した月: 2026-05, 2026-06。**月全体の報酬 ÷ 2026-07-28〜2026-08-24のクリック**というズレが残るため EPC は概算。揃えるには `npm run fetch-ga4-cta-clicks -- --by-label --month YYYY-MM` で月次窓を取り直す。
 - 面別内訳には GA4 の `event_label` カスタムディメンション登録が必要（未登録なら `(not set)` に集約）。
 

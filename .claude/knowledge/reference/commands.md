@@ -57,7 +57,7 @@ npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレク
 npm run generate-webp     # png/jpg → webp 変換
 npm run upload-images-r2  # 画像を R2 にアップロード
 npm run audit-repo-assets    # リポジトリ肥大化の read-only 監査（ワークツリー/HEAD/pack の3指標を分けて計測→KEEP_GIT/R2_PUBLIC/R2_PRIVATE/REGENERATE/REVIEW へ分類。--history は要キャッシュ・DN-0111 Phase 0）
-npm run prune-state-snapshots # CI が積む日付付き snapshot（psi/ga4/gsc/url-inspection/monetization/crosswalk/weekly-metrics）を寿命表で消す（既定 dry-run・`--commit`・`--family a,b`・`--check-coverage`＝未宣言の日付付きファイル 0 件か〔quality:audit ci:true〕。business/** と gsc/rank-watch/** は不変台帳で除外・seo-watchwords の evidence.source は pin。削除は書き手 workflow の commit 直前で実行し、別 commit では消さない〔reset --hard + copy-back に戻される〕）
+npm run prune-state-snapshots # CI が積む日付付き snapshot（psi/ga4/gsc/url-inspection/monetization/weekly-metrics）を寿命表で消す（既定 dry-run・`--commit`・`--family a,b`・`--check-coverage`＝未宣言の日付付きファイル 0 件か〔quality:audit ci:true〕。business/** と gsc/rank-watch/** は不変台帳で除外・seo-watchwords の evidence.source は pin。削除は書き手 workflow の commit 直前で実行し、別 commit では消さない〔reset --hard + copy-back に戻される〕）
 npm run check-git-binary-policy # 生成物・著作権物・巨大blob・拡張子偽装・同一原本の二重生成の**新規追跡**を baseline ラチェットで止める（設定 config/git-binary-policy.json・pre-commit --staged ＋ quality:audit・DN-0111 Phase 1）
 npm run asset-offload         # 追跡アセットを R2 へ退避（既定 dry-run・--commit で実行。upload 後に bytes と sha256 を R2 から読み直して検証してから manifest へ記録。ローカル削除と untrack はしない。**--verify** で追跡解除前の全件照合〔ローカル実体・manifest・R2 の 3 者一致〕を行い、--out に untrack できる一覧を書く。1 件でも欠ければ exit 1）
 npm run asset-hydrate         # 退避したアセットを取り戻す（ローカル→cache→R2→generator の順・--offline で cache のみ・--path で部分取得）
@@ -256,7 +256,7 @@ npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
 npm run exam-ssot-status # 資格の正本（日程・受験者数・出題形式）の照合状態＝要対応（未確認・原文未照合・180日超・次年度日程未登録・統計が古い）と記録（発表待ち・非公表）。月次レビューが読む（`-- --json`／`-- --check` は完走だけ＝quality-audit ci）
 npm run qualification-market # 資格ごとの展開の判断材料（自分で書く区分＝経験記述・論文とその受験者数・買われる時期・売上・YouTube/note/ココナラの混み具合・X/IG 追跡数）。管理画面 戦略＞資格と市場＞展開の判断と同じ実装（`-- --json`／`-- --check`）。要対応（市場スキャンの未取得・90日超・出題形式の未確認）があっても exit 0
-npm run check-past-exam-inventory # 過去問の年度在庫台帳（past-exam-inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
+npm run check-past-exam-inventory # 過去問の年度在庫台帳（data/pastexams/inventory.json）と Drive 台帳の整合。FAIL＝台帳の不整合のみ（資格 id・textbook-source-pdf に当たらないパス・取得済みなのに実体無し）。WARN＝掲載中の未取得・最古年度の消失見込み（windowYears があるとき）・Drive 未退避・試験日＋publishLagDays 経過で今年度の行が無い。月次レビューが読む。罠: CI は手元の PDF を見ないので「Drive 台帳に未登録」は WARN 止まり
 npm run past-exam-fetch      # 過去問の年度在庫台帳の未取得行を公式 sourceUrl から content/sources/past-exams/{資格}/{年度}/ へ取得し acquiredAt を書く（既定 dry-run・--commit・--exam/--year で絞る）。curl --ssl-no-revoke・%PDF- 以外は不採用。手順全体は /past-exam-archive
 npm run drive-browser-transfer -- plan|upload|upload-tree|resolve|verify # Drive マウントも rclone も無い端末から Playwright の Google プロファイルで Drive vault へ置き、CDP で全バイト読み戻して drive-connector-register 用 receipt を作る。フォルダ作成と一覧は Drive MCP。罠: upload の SENT は実在確認ではない（verify が確かめる）・別プロファイル Chrome 稼働中は DOBOKU_PW_ALLOW_PARALLEL=1
 npm run check-qualification-market # 展開の判断材料の正本の整合（market-scan の検索語とタイトル条件・*-competitors の exams が資格 id・売上がすべて資格へ分類できる）。CI ゲート。売上の新しい productId は product-lineup.json の salesRules に足す

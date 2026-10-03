@@ -17,13 +17,13 @@ import path from "node:path";
 import { chromium } from "playwright";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
+import { X_HANDLE as EXPECTED_ACCOUNT } from "./lib/site-identity.mjs";
 
 const ROOT = process.cwd();
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
 const REGISTRY_PATH = path.join(DRAFT_DIR, "article-drafts.json");
 const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
 const DEBUG_DIR = path.join(ROOT, ".local/playwright-x-debug");
-const EXPECTED_ACCOUNT = "doboku373";
 const BEFORE_WINDOW_MS = 15 * 60 * 1000;
 const AFTER_WINDOW_MS = 120 * 60 * 1000;
 const ARGS = process.argv.slice(2);
@@ -168,7 +168,7 @@ async function findPublishedUrl(page, item) {
     showArticle.click(),
   ]);
   const articleUrl = page.url().split("?")[0];
-  if (!/^https:\/\/x\.com\/doboku373\/(article|status)\/\d+$/.test(articleUrl)) {
+  if (!new RegExp(`^https://x\\.com/${EXPECTED_ACCOUNT}/(article|status)/\\d+$`).test(articleUrl)) {
     fail(`公開URLの形式が不正: ${articleUrl}`);
   }
   // /status/ 側は遷移直後に本文が描画されていない（2026-09-20 実測: 公開済みなのに count 0 で fail）。待って確認する

@@ -6,6 +6,7 @@ import { CAMPAIGN_PATH, inspectCampaign, json, validateCampaign, buildInstagramS
 import { IG_DESIGN } from './lib/instagram-video-design.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
+import { IG_HANDLE } from './lib/site-identity.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..'), args = process.argv.slice(2);
 const base = 'content/sns/instagram/video-packs';
@@ -26,7 +27,7 @@ if (args.includes('--prepare')) {
   const groups = [...new Set([...byTopic.values()].map(t => t.exam))].map(exam => [...byTopic.values()].filter(t => t.exam === exam));
   const topics = [];
   while (groups.some(g => g.length)) for (const group of groups) if (group.length) topics.push(group.shift());
-  const plan = validateCampaign({ schemaVersion: 1, id: 'instagram-bridge-notebook-a-20260910', account: 'dobokunotecom', design: IG_DESIGN,
+  const plan = validateCampaign({ schemaVersion: 1, id: 'instagram-bridge-notebook-a-20260910', account: IG_HANDLE, design: IG_DESIGN,
     productionFirst: true, publicationEnabled: false, approvedAt: '2026-09-10', expected: { topics: 112, carousels: 112, reels: 224 },
     cadence: { maxPerDay: 2, timezone: 'Asia/Tokyo', startDate: null, sequence: [
       { day: 0, time: '12:30', format: 'reel-1' }, { day: 1, time: '12:30', format: 'carousel' }, { day: 1, time: '19:00', format: 'reel-2' }],

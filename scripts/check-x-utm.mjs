@@ -27,6 +27,7 @@ import { execFileSync } from 'node:child_process';
 import { blankTweetMemos } from './lib/x-tweets-md.mjs';
 import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { utmChannelFamily } from './lib/utm-contract.mjs';
 
 if (process.env.SKIP_X_UTM === '1') {
   console.log('[check-x-utm] SKIP_X_UTM=1 のためスキップ');
@@ -35,6 +36,8 @@ if (process.env.SKIP_X_UTM === '1') {
 
 const STAGED = process.argv.includes('--staged');
 const ROOTS = ['content/sns/x/draft', 'content/sns/x/published'];
+// 期待する source / medium は契約（config/utm-templates.json の x.*）から受け取る。コードに書き写さない。
+const X_UTM = utmChannelFamily('x');
 
 // `_` 接頭辞ディレクトリ（_archive 等）を含むパスは除外
 const isExcluded = (p) => p.split('/').some((seg) => seg.startsWith('_'));
@@ -79,10 +82,10 @@ for (const f of files) {
       const url = m[2];
       const site = classifySitePath(url.replace(/^https?:\/\/[^/]+/, '').replace(/[?#].*$/, ''), routes);
       if (site.kind === 'legacy') legacy.push(`${f}:${i + 1} ${url}${site.to ? ` → ${SITE_ORIGIN}${site.to}` : ''}`);
-      if (!url.includes('utm_source=x')) {
-        problems.push(`${f}:${i + 1} [utm-source] ${url}（utm_source=x が必要）`);
-      } else if (!url.includes('utm_medium=social')) {
-        problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=social が必要）`);
+      if (!url.includes(`utm_source=${X_UTM.source}`)) {
+        problems.push(`${f}:${i + 1} [utm-source] ${url}（utm_source=${X_UTM.source} が必要）`);
+      } else if (!url.includes(`utm_medium=${X_UTM.medium}`)) {
+        problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=${X_UTM.medium} が必要）`);
       }
     }
   });
@@ -91,7 +94,7 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-x-utm] ✗ UTM 規約違反の X 送客リンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: X の送客リンクは https://doboku-note.com/exam/{資格}/{種別}/{slug}?utm_source=x&utm_medium=social&utm_campaign={施策}&utm_content={post|pinned} にする。');
+  console.error(`\n対処: X の送客リンクは ${SITE_ORIGIN}/exam/{資格}/{種別}/{slug}?utm_source=${X_UTM.source}&utm_medium=${X_UTM.medium}&utm_campaign={施策}&utm_content={${X_UTM.contents.join('|')}} にする。`);
   console.error(`真実源: ${datasetPath('config.utm-templates')}（x.post）／.claude/knowledge/reference/x-post-policy.md §6。`);
   console.error('（既存違反のバーンダウン中は SKIP_X_UTM=1 で一時回避可）');
   process.exit(1);

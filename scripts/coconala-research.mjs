@@ -5,6 +5,7 @@
  * 目的: doboku-note のココナラ商品展開（価格・セグメント・空白の判断）に使う一次データを、
  *   公開検索ページから実測して `data/coconala/market-research.json` に永続化する。
  *   WebFetch の要約（概算・LLM 経由）ではなく、DOM から直接取った実数値を SoT にする。
+ *   保存形は scripts/lib/coconala-market.mjs（queries＝語ごとの進み具合・services＝URL で一意の出品）。
  *
  * スコープの注意（.claude/knowledge/reference/coconala-operations.md §4 と直交）:
  *   運用 SSOT の「スクレイピングしない」は **自社ダッシュボードの KPI 取得**の話（ログイン必須・
@@ -47,6 +48,7 @@ import { dirname, join } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { RESEARCH_VERSION, addService, indexServices, queryServices, toStoredResearch } from './lib/coconala-market.mjs';
 
 const ROOT = process.cwd();
 const OUT_PATH = join(ROOT, datasetPath('coconala.market-research'));
@@ -148,7 +150,7 @@ function buildSummary(result) {
     source: datasetPath('coconala.market-research'),
     note: 'エージェント参照用の派生 SSOT。生データは source を read。再生成: npm run coconala-research -- --summary-only',
     keywords: (result.queries || []).map((q) => {
-      const s = q.services || [];
+      const s = queryServices(result, q.keyword);
       const segments = {};
       for (const x of s) segments[x.segment] = (segments[x.segment] || 0) + 1;
       return {
@@ -182,7 +184,7 @@ function loadPrev() {
   if (FORCE || !existsSync(OUT_PATH)) return null;
   try {
     const j = JSON.parse(readFileSync(OUT_PATH, 'utf-8'));
-    return Array.isArray(j.queries) ? j : null;
+    return Array.isArray(j.queries) ? toStoredResearch(j) : null; // 旧形（語ごとに出品を重ねて持つ）も読み込み時に畳む
   } catch {
     return null; // 壊れていたら作り直す
   }
@@ -203,18 +205,22 @@ async function main() {
 
   const prev = loadPrev();
   const result = prev ?? {
-    version: 1,
+    version: RESEARCH_VERSION,
     fetchedAt: new Date().toISOString(),
     method: 'playwright(channel:chrome, headless)',
     note: '公開・ログイン不要ページの read-only 調査。運用KPI（ログイン必須）の取得ではない（coconala-operations.md §4 と直交）。',
     queries: [],
+    services: [],
   };
+  let serviceIndex = indexServices(result);
   if (prev) console.log(`[coconala-research] 既存を検出 → 再開モード（完了済み ${prev.queries.filter((q) => q.complete).length}/${prev.queries.length} クエリ）`);
 
   // --refresh: 既存の語を全部、途中経過を捨てて取り直す（語の一覧は market-research.json が持つ）。
   const queries = REFRESH ? result.queries.map((x) => x.keyword) : QUERIES;
   if (REFRESH) {
-    for (const x of result.queries) Object.assign(x, { pagesScanned: 0, complete: false, services: [] });
+    for (const x of result.queries) Object.assign(x, { pagesScanned: 0, complete: false });
+    result.services = [];
+    serviceIndex = indexServices(result);
     result.fetchedAt = new Date().toISOString();
     console.log(`[coconala-research] --refresh: 既存 ${queries.length} 語を取り直す`);
   }
@@ -222,17 +228,18 @@ async function main() {
   for (const keyword of queries) {
     // --- 再開: 既存クエリを引き継ぐ ---
     let q = result.queries.find((x) => x.keyword === keyword);
+    const collected = () => queryServices(result, keyword).length;
     if (q?.complete) {
-      console.log(`[coconala-research] ${keyword}: 完了済みのためスキップ（${q.services.length}件）`);
+      console.log(`[coconala-research] ${keyword}: 完了済みのためスキップ（${collected()}件）`);
       continue;
     }
     if (!q) {
-      q = { keyword, resolvedUrl: null, pageType: null, totalHits: null, pagesScanned: 0, complete: false, services: [] };
+      q = { keyword, resolvedUrl: null, pageType: null, totalHits: null, pagesScanned: 0, complete: false };
       result.queries.push(q);
     }
-    const seen = new Set(q.services.map((s) => s.url?.replace('https://coconala.com', '')).filter(Boolean));
+    const seen = new Set(queryServices(result, keyword).map((s) => s.url?.replace('https://coconala.com', '')).filter(Boolean));
     const startPage = (q.pagesScanned ?? 0) + 1;
-    if (startPage > 1) console.log(`[coconala-research] ${keyword}: ページ${startPage}から再開（既に${q.services.length}件）`);
+    if (startPage > 1) console.log(`[coconala-research] ${keyword}: ページ${startPage}から再開（既に${collected()}件）`);
 
     for (let p = startPage; p <= MAX_PAGES; p++) {
       const url = `https://coconala.com/search?keyword=${encodeURIComponent(keyword)}&page=${p}`;
@@ -259,7 +266,6 @@ async function main() {
             return {
               title: txt(c, '.c-serviceListItemColContentHeader_overview'),
               catchphrase: txt(c, '.c-serviceListItemColContentHeader_catchphrase'),
-              excerpt: txt(c, '.c-serviceListItemColContentHeader_description'),
               seller: txt(c, '.c-serviceListItemColContentFooterInfoUser_name'),
               ratingRaw: txt(c, '.c-serviceListItemColContentFooterPriceRating_score'),
               reviewsRaw: txt(c, '.c-serviceListItemColContentFooterPriceRating_count'),
@@ -273,7 +279,6 @@ async function main() {
           return {
             title: txt(c, '.c-serviceBlockItemContent_title'),
             catchphrase: null,
-            excerpt: null,
             seller: txt(c, '.c-serviceBlockItemContentInfoUser'),
             ratingRaw: txt(c, '.c-serviceBlockItemContentPriceRating_score'),
             reviewsRaw: txt(c, '.c-serviceBlockItemContentPriceRating_count'),
@@ -295,35 +300,33 @@ async function main() {
       for (const it of scraped.items) {
         if (!it.href || seen.has(it.href)) continue;
         seen.add(it.href);
-        q.services.push({
+        addService(result, serviceIndex, keyword, {
           title: it.title,
           catchphrase: it.catchphrase,
-          excerpt: it.excerpt,
           seller: it.seller,
           rating: it.ratingRaw ? parseFloat(it.ratingRaw) : null,
           reviews: reviewNum(it.reviewsRaw),
           priceYen: priceNum(it.priceRaw),
           url: `https://coconala.com${it.href}`,
           segment: classify(it.title ?? '', it.catchphrase ?? ''),
-          detail: null,
         });
       }
       q.pagesScanned = p;
       save(result); // ★ 1ページごとにチェックポイント（中断しても失わない）
 
       // 最終ページ判定: 累積がヒット数に達したら終了
-      if (q.totalHits && q.services.length >= q.totalHits) break;
+      if (q.totalHits && collected() >= q.totalHits) break;
       const hasNext = await page.evaluate(() => !!document.querySelector('a.pagination-next'));
       if (!hasNext) break;
       await page.waitForTimeout(1500); // 礼節
     }
 
     // 詳細ページ（レビュー数の多い順に上位 N 件・未取得のものだけ）
-    const top = [...q.services]
+    const top = queryServices(result, keyword)
       .filter((s) => s.url)
       .sort((a, b) => (b.reviews ?? 0) - (a.reviews ?? 0))
       .slice(0, DETAIL_TOP);
-    const todo = top.filter((s) => s.detail === null);
+    const todo = top.filter((s) => !s.detail);
     if (todo.length < top.length) console.log(`[coconala-research] ${keyword}: 詳細 ${top.length - todo.length}件は取得済みのためスキップ`);
     for (const s of todo) {
       try {
@@ -358,15 +361,14 @@ async function main() {
     q.complete = true;
     save(result);
     console.log(
-      `[coconala-research] ${keyword}: type=${q.pageType} hits=${q.totalHits ?? '?'} collected=${q.services.length} pages=${q.pagesScanned} details=${top.length} ✓`
+      `[coconala-research] ${keyword}: type=${q.pageType} hits=${q.totalHits ?? '?'} collected=${collected()} pages=${q.pagesScanned} details=${top.length} ✓`
     );
   }
 
   await ctx.close();
   save(result);
   writeSummary(result);
-  const total = result.queries.reduce((n, q) => n + q.services.length, 0);
-  console.log(`[coconala-research] ✓ ${result.queries.length} クエリ / ${total} サービスを ${OUT_PATH} に保存`);
+  console.log(`[coconala-research] ✓ ${result.queries.length} クエリ / ${result.services.length} サービス（URL で一意）を ${OUT_PATH} に保存`);
   console.log(`[coconala-research] ✓ エージェント参照サマリーを ${SUMMARY_PATH} に生成`);
 }
 

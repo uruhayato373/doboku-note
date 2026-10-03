@@ -15,8 +15,8 @@ import { createHash } from 'node:crypto';
 import { fetchNoteDetails, fetchCreatorMagazines } from './note-api.mjs';
 import { parseNoteText } from './note-meta.mjs';
 import { readCoverRecords, saveCoverRecords } from './note-republish-hash.mjs';
+import { NOTE_CREATOR } from './site-identity.mjs';
 
-export const CREATOR = 'dobokunote';
 const TOKENS_PATH = '.claude/knowledge/design-system/note-cover-tokens.json';
 // note掲載文.txt が live の説明文と一致しないマガジンは src/lib/note-magazines.ts の noteUrl で同定する
 const MAGAZINE_KEY_OVERRIDE = { 'magazine:river-consultant': 'm32132ecb3033', 'magazine:general-contractor': 'm32aaa137f22e' };
@@ -76,7 +76,7 @@ export async function fetchLiveArticles(targets, { delayMs = 250, onProgress } =
  * 先頭一致（25 字以上）→ 手当て表の順。同定できないものは reason 付きで返す。
  */
 export async function fetchLiveMagazines(root, targets, ledger) {
-  const live = await fetchCreatorMagazines(CREATOR);
+  const live = await fetchCreatorMagazines(NOTE_CREATOR);
   const byKey = new Map(live.map((m) => [m.key, m]));
   const norm = (s) => (s || '').normalize('NFKC').replace(/\s+/g, '');
   const prefix = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; };

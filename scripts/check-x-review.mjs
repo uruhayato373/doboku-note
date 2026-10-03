@@ -6,6 +6,7 @@ import { readXReview, readXReviewPlans } from './lib/x-review.mjs';
 import { validateReviewSchedule } from './lib/x-review-schedule.mjs';
 import { validateCharacterCard } from './lib/x-character-spec.mjs';
 import { sha256File } from './lib/asset-storage.mjs';
+import { utmChannel } from './lib/utm-contract.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const data=readXReview(root),local=process.argv.includes('--local'),errors=[];
 const config=JSON.parse(fs.readFileSync(path.join(root,'content/sns/x/review.json'),'utf8'));
@@ -26,7 +27,7 @@ for(const r of data.rows){if(!r.newCard)continue;
  if(r.funnel==='note'){
   const u=r.url?new URL(r.url):null;
   if(!u||!published.has(u.origin+u.pathname)||!u.pathname.includes('/m/'))errors.push(`${r.id}: 公開マガジンへの導線がありません`);
-  if(u?.searchParams.get('utm_source')!=='x'||!u?.searchParams.get('utm_content'))errors.push(`${r.id}: UTMがありません`);
+  if(u?.searchParams.get('utm_source')!==utmChannel('x.post').source||!u?.searchParams.get('utm_content'))errors.push(`${r.id}: UTMがありません`);
  }
  if(local&&r.imagePath){imageChecks++;if(sha256File(path.join(root,r.imagePath))!==r.imageSha256)errors.push(`${r.id}: PNG hash不一致`);}
 }

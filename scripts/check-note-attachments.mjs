@@ -35,6 +35,7 @@ import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
 import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles } from './lib/note-attachments.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
@@ -168,7 +169,7 @@ const CONFIRM_WAIT_MS = Number(process.env.NOTE_ATTACH_CONFIRM_WAIT_MS || 15000)
 async function measureLive(noteId, { settleMs, scrollPasses, waitForAttachmentMs }) {
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      await page.goto(`https://note.com/dobokunote/n/${noteId}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      await page.goto(`${NOTE_BASE}/n/${noteId}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
       await sleep(settleMs);
       for (let p = 1; p <= scrollPasses; p++) {
         await page.evaluate((n) => window.scrollTo(0, (document.body.scrollHeight * n) / 3), p);

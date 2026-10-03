@@ -1,11 +1,14 @@
 import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlinkSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
 import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
+import { classifyProduct, classifySale } from './product-lineup.mjs';
+import { qualificationKey } from './sales-by-qualification.mjs';
 
 export const DIRECTION = datasetPath('config.business-direction');
 export const RECORDS = datasetDir('business.measurement');
@@ -23,7 +26,7 @@ export function direction(root) {
   c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
-  required(new Set(c.metrics.map(m => m.id)).size === c.metrics.length && c.metrics.every(m => nonempty(m.definition) && m.target === null), '指標定義が不正です。目標は履歴へ記録してください');
+  required(new Set(c.metrics.map(m => m.id)).size === c.metrics.length && c.metrics.every(m => nonempty(m.definition)), '指標定義が不正です');
   const scopes = new Set(['all', ...c.qualifications.map(q => q.id)]);
   required(c.metrics.every(m => !m.appliesTo || (Array.isArray(m.appliesTo) && m.appliesTo.length > 0 && m.appliesTo.every(x => scopes.has(x)))), '指標の適用資格が不正です');
   return c;
@@ -259,10 +262,23 @@ export function noteMonthFacts({ traffic, articles = null, publishedItems = [], 
   return facts;
 }
 /**
+ * 重点資格への帰属。商品の分類（config/product-lineup.json の rules・salesRules）が正本で、ここに接頭辞の表を持たない。
+ * 1 つの資格にだけ属す商品はその資格に帰属し、複数資格にまたがる商品（会員など）・どのルールにも当たらない商品は
+ * null（全体にだけ含める）。管理画面の資格別売上（sales-by-qualification.mjs）と同じ判定。
+ */
+export function lineupQualifier(lineup, focusIds) {
+  const focus = new Set(focusIds);
+  const only = cells => { const key = qualificationKey(cells); return focus.has(key) ? key : null; };
+  return {
+    sale: productId => only(classifySale(lineup, productId)),
+    book: bookId => only(classifyProduct(lineup.rules?.kindle, bookId)),
+  };
+}
+/**
  * KDP 月次台帳の1か月分 → 事実。母数は catalog のうち対象月末までに LIVE だった本（kdpLiveBookIdsAsOf）。
  * 共有口座の他サイト書籍は書籍別行の bookId で除外し、口座合計は使わない。
  */
-export function kdpMonthFacts({ entry, catalogBooks = [], attribution = [], qualifications = [], path }) {
+export function kdpMonthFacts({ entry, catalogBooks = [], qualificationOf = () => null, qualifications = [], path }) {
   const period = { startDate: entry?.range?.start, endDate: entry?.range?.end };
   if (!validDay(period.startDate) || !validDay(period.endDate)) return [];
   const expectedBookIds = kdpLiveBookIdsAsOf(catalogBooks, period.endDate);
@@ -275,7 +291,7 @@ export function kdpMonthFacts({ entry, catalogBooks = [], attribution = [], qual
   const sum = list => list.reduce((total, book) => total + (Number(book.royalty) || 0), 0);
   const facts = [sourceFact('kdpRoyalty', sum(books.filter(book => expected.has(book.bookId))), period, path, 'all', coverage, `${note} 共有口座全体の合計は使わず、書籍別行を合算。`)];
   for (const qualification of qualifications) {
-    const selected = books.filter(book => attribution.find(rule => rule.ids?.includes(book.bookId) || rule.prefixes?.some(prefix => book.bookId?.startsWith(prefix)))?.qualification === qualification);
+    const selected = books.filter(book => qualificationOf(book.bookId) === qualification);
     facts.push(sourceFact('kdpRoyalty', sum(selected), period, path, qualification, coverage, `${note} 書籍IDの資格帰属で集計。`));
   }
   return facts;
@@ -348,6 +364,8 @@ export function sourceFacts(root, c, period) {
   const publishedPath = '.claude/state/note-published.json';
   const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
   const qualificationIds = c.qualifications.map(q => q.id);
+  // 売上・KDP の資格への帰属は商品の分類（product-lineup.json）を引く（接頭辞の表を business-direction.json に持たない）
+  const attribute = lineupQualifier(readJson(root, datasetPath('config.product-lineup')), qualificationIds);
   // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
   for (const month of monthsOf(period)) {
     const trafficPath = datasetPath('note.referrers', { month }), articlesPath = datasetPath('note.articles-pv', { month });
@@ -375,7 +393,7 @@ export function sourceFacts(root, c, period) {
       ? `販売履歴 ${sales.length} 件・¥${totalRevenue.toLocaleString()}をnote月次売上表示と照合し一致。productId未解決0件。`
       : `台帳への登録分。note確定後（翌月2日以降）の取得・月次売上表示との一致・productId解決のいずれかが未完のため網羅性は未確認。`;
     for (const qualification of ['all', ...c.qualifications.map(q => q.id)]) {
-      const selected = qualification === 'all' ? sales : sales.filter(s => c.salesAttribution.rules.find(rule => rule.ids?.includes(s.productId) || rule.prefixes.some(prefix => s.productId?.startsWith(prefix)))?.qualification === qualification);
+      const selected = qualification === 'all' ? sales : sales.filter(s => attribute.sale(s.productId) === qualification);
       put('noteSales', selected.length, period, salesPath, qualification, salesCoverage, `${salesNote} 全体には重点資格外・複数資格商品を含む。`);
       put('noteRevenue', selected.reduce((sum, s) => sum + s.price, 0), period, salesPath, qualification, salesCoverage, `${salesNote} 販売額は利益・実受取ではない。`);
     }
@@ -387,7 +405,7 @@ export function sourceFacts(root, c, period) {
     const catalogBooks = existsSync(join(root, catalogPath)) ? readJson(root, catalogPath).books ?? [] : [];
     const months = monthsOf(period);
     for (const entry of Object.values(ledger.months ?? {}).filter(row => months.includes(String(row?.range?.start ?? '').slice(0, 7)))) {
-      facts.push(...kdpMonthFacts({ entry, catalogBooks, attribution: c.kindleAttribution?.rules ?? [], qualifications: qualificationIds, path: kdpPath }));
+      facts.push(...kdpMonthFacts({ entry, catalogBooks, qualificationOf: attribute.book, qualifications: qualificationIds, path: kdpPath }));
     }
   }
   const cocoOrdersPath = datasetPath('coconala.orders-snapshot');
@@ -475,9 +493,13 @@ export function snapshot(root, period, now = new Date()) {
 }
 function snapshotUnlocked(root, period, now) {
   const report = buildReport(root, period, now);
-  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   // note が確定前の月を含むスナップショットは、確定後に取り直す前提の暫定物として印を付ける（レビューは暫定にしかできない）
   const pendingFinalization = noteMonthsPendingFinalization(period, jst(now));
+  // 直前の同じ期間のスナップショットと方針・集計・確定待ちが同じなら新しい記録を作らず、直前のものを返す
+  // （週次の自動実行が createdAt だけ違う同一内容を積んでいた。27 本中 10 本）
+  const previous = currentRecords(records(root), 'snapshot').find(r => samePeriod(r.period, period));
+  if (previous && previous.strategyHash === report.strategyHash && isDeepStrictEqual(previous.cells, JSON.parse(JSON.stringify(report.cells))) && isDeepStrictEqual(previous.pendingFinalization ?? [], pendingFinalization)) return { ...previous, unchanged: true };
+  const sources = [...new Set(report.cells.map(c => c.source).filter(Boolean))].map(file => ({ file, sha256: createHash('sha256').update(readFileSync(join(root, file.split('#')[0]))).digest('hex') }));
   return appendRecord(root, { kind: 'snapshot', qualification: 'all', schemaVersion: 1, period, createdAt: new Date(now).toISOString(), strategyHash: report.strategyHash, strategy: report.strategy, cells: report.cells, sources, ...(pendingFinalization.length ? { pendingFinalization } : {}) });
 }
 export function assertLocalWrite(request) {

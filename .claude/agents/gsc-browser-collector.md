@@ -49,7 +49,7 @@ GSC/GA4 の UI CSV を取得する既存スクリプトを実行し、生成物�
 
 ## 実行手順
 
-1. **preflight**: `git status` で作業ツリー確認。`config/google-console-automation.json` の property を Read。
+1. **preflight**: `git status` で作業ツリー確認。GSC のプロパティ（`scripts/lib/site-identity.mjs` の `GSC_PROPERTY`）を確認。
 2. **dry-run**: `npm run gsc-ui:fetch -- --dry-run` を実行。manifest.dryRun の property / pageIndexingReachable /
    issues[*].{rowDetected,exportButtonUnique,csvMenuDetected} を読み、検出できたユニットを列挙。
 3. **停止判定**: dry-run が not-signed-in / property-mismatch / unreachable なら停止し、人間アクションを明示して終了。

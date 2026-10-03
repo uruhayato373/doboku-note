@@ -29,7 +29,7 @@ developer_instructions = """
 2. 保守的 false の **semantic 補強**:
    - `similarCluster` / `hasParent`: doc-meta の title/category から親ハブ・類似クラスタを推定
    - `cannibalization`: gsc-page-query で同一クエリを複数 URL が奪い合うかを確認
-   - `hasExternalLinks`: inspection の `referring_urls` 等から外部/内部被リンクの気配
+   - `hasExternalLinks`: 外部/内部被リンクの気配（URL 検査のバッチは `referring_urls` を記録しない〔2026-10〜〕ので、必要な URL だけ `npm run inspect-url -- --url <URL>` の単発出力で確かめる）
    - これらを踏まえ UNKNOWN_REVIEW を CONSOLIDATE / REDIRECT_LEGACY / KEEP へ寄せる（confidence 付き）
 3. **優先順位付け**: 各候補に `impact`（impressions/需要）× `confidence` × `effort`（技術修正=低 /
    統合=高）を付け、上位 20 を Top リストに。

@@ -11,6 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
+import { R2_PUBLIC_ORIGIN } from '../../../../../scripts/lib/site-identity.mjs';
 
 const root = process.cwd();
 
@@ -20,7 +21,7 @@ const isDryRun = args.includes('--dry-run');
 const prefixIndex = args.indexOf('--prefix');
 const prefixFilter = prefixIndex !== -1 ? args[prefixIndex + 1] : null;
 
-const R2_PUBLIC_URL = 'https://storage.doboku-note.com';
+const R2_PUBLIC_URL = R2_PUBLIC_ORIGIN;
 const postsDir = path.join(root, 'content/site');
 
 let downloaded = 0;

@@ -13,11 +13,11 @@ import { join, relative } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
+import { IG_HANDLE as ACCOUNT } from './lib/site-identity.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
-const ACCOUNT = 'dobokunotecom';
 // 既存カルーセルの主力帯（12:00 / 19:00）と衝突させず、朝・昼・夜の3本へ分散する。
 const SLOT_TIMES = ['07:30:00', '12:30:00', '21:00:00'];
 // 名前は registry の正式名（写さない）。タグは Instagram 用の語彙でここが正本

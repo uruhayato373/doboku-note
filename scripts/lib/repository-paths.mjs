@@ -175,6 +175,8 @@ export const MOVED_PATHS = [
  * DN-0498（2026-10-02〜）で data/ の中を取得元ごとに組み替えたパス（旧 → 新）。MOVED_PATHS と同じく、追記だけを許す
  * 台帳の中の旧パスを読むために使う。文字列は前方一致、正規表現はパス全体に当てて置き換える。
  * .claude/ → data/ → 取得元ごとの 2 段の移動は resolveMovedPath が続けてたどる。
+ * **ここに足した旧パス（文字列）は、検査のたびに check-information-architecture が禁止ルート・旧パス走査へ取り込む**
+ * （.claude/config/information-architecture.json には書かない。移動表に載らない旧パスだけをそちらに書く）。
  */
 export const RESTRUCTURED_PATHS = [
   ["data/sales/sales-log.json", "data/note/sales.json"],
@@ -263,6 +265,11 @@ export const RESTRUCTURED_PATHS = [
   ["config/x-review.json", "content/sns/x/review.json"],
   ["config/x-campaigns", "content/sns/x/campaigns"],
   ["config/coconala-thumb-approved.json", "data/coconala/thumb-approved.json"],
+  // 2026-10-02 段階 4 の続き: 設定でない作業の台帳・計画を config/ から出す（旧パスは check-information-architecture が MOVED/RESTRUCTURED から自動で止める）
+  ["config/r2-delete-list.txt", "data/r2/delete-list.txt"],
+  ["config/past-exam-inventory.json", "data/pastexams/inventory.json"],
+  ["config/instagram-campaign.json", "content/sns/instagram/campaign.json"],
+  ["config/pe-first-stage-historical-sources.json", "data/pastexams/inventory.json"],
   [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
 ];
 

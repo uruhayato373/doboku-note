@@ -58,8 +58,7 @@
   "review": {
     "weekly": "前の完了した月曜〜日曜。実験の結果・欠測と次の一手を確認。",
     "monthly": "前の完了した暦月。資格・商品・費用と重点配分を見直す。",
-    "timezone": "Asia/Tokyo",
-    "maxPriorities": 3
+    "timezone": "Asia/Tokyo"
   },
   "metrics": [
     {
@@ -68,8 +67,7 @@
       "label": "自然検索アクティブユーザー",
       "unit": "人",
       "definition": "GA4 Organic Search・日本。期間全体を重複排除した値。日別や資格別の人数を合算しない。",
-      "channel": "GA4",
-      "target": null
+      "channel": "GA4"
     },
     {
       "id": "gscClicks",
@@ -77,8 +75,7 @@
       "label": "Google検索クリック",
       "unit": "回",
       "definition": "日本・Web検索。資格別は正規URL配下のページ集計。匿名化やAPI制限により全体と一致しない場合がある。",
-      "channel": "GSC",
-      "target": null
+      "channel": "GSC"
     },
     {
       "id": "quizStarts",
@@ -87,7 +84,6 @@
       "unit": "回",
       "definition": "quiz_startのイベント回数。合格率やユニーク学習者数ではない。",
       "channel": "GA4",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1"
@@ -100,7 +96,6 @@
       "unit": "回",
       "definition": "quiz_completeのイベント回数。実装対象と計測範囲を示す。",
       "channel": "GA4",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1"
@@ -112,8 +107,7 @@
       "label": "note CTAクリック",
       "unit": "回",
       "definition": "サイトのnote_cta_click。購入者との紐付けはない。",
-      "channel": "GA4",
-      "target": null
+      "channel": "GA4"
     },
     {
       "id": "notePv",
@@ -121,8 +115,7 @@
       "label": "note記事PV",
       "unit": "回",
       "definition": "記事を開いた回数。旧全体ビュー・マガジン閲覧・インプレッションと別指標。自己閲覧を含む。",
-      "channel": "note",
-      "target": null
+      "channel": "note"
     },
     {
       "id": "noteImpressions",
@@ -130,8 +123,7 @@
       "label": "noteインプレッション",
       "unit": "回",
       "definition": "note新ダッシュボードでの露出。PVと足さず、旧全体ビューへ接続しない。",
-      "channel": "note",
-      "target": null
+      "channel": "note"
     },
     {
       "id": "noteSales",
@@ -139,8 +131,7 @@
       "label": "note販売件数",
       "unit": "件",
       "definition": "既存sales.jsonの取引件数。記事・マガジンを分け、サイト流入に帰属させない。",
-      "channel": "note",
-      "target": null
+      "channel": "note"
     },
     {
       "id": "noteRevenue",
@@ -148,8 +139,7 @@
       "label": "note販売額",
       "unit": "円",
       "definition": "既存sales.jsonの販売額。手数料控除前。入金額や利益ではない。",
-      "channel": "note",
-      "target": null
+      "channel": "note"
     },
     {
       "id": "kdpRoyalty",
@@ -157,8 +147,7 @@
       "label": "KDPロイヤリティ",
       "unit": "円",
       "definition": "KDPレポートの月次推計または確定ロイヤリティ。estimatedと取得完全性を示し、販売額や入金額へ読み替えない。",
-      "channel": "KDP",
-      "target": null
+      "channel": "KDP"
     },
     {
       "id": "coconalaViews",
@@ -167,7 +156,6 @@
       "unit": "回",
       "definition": "サービス分析の閲覧数。rolling30日の週次スナップショットを合算しない。",
       "channel": "coconala",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -181,7 +169,6 @@
       "unit": "件",
       "definition": "対象期間に受けた購入前相談。注文・完了件数と区別する。個人情報は記録しない。",
       "channel": "coconala",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -195,7 +182,6 @@
       "unit": "件",
       "definition": "サービス分析で定義される販売数。トークルームの完了件数と区別する。",
       "channel": "coconala",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -209,7 +195,6 @@
       "unit": "円",
       "definition": "サービス分析の販売額。手数料控除前。",
       "channel": "coconala",
-      "target": null,
       "appliesTo": [
         "all",
         "civil-construction-1",
@@ -222,8 +207,7 @@
       "label": "手数料等控除後の受取額",
       "unit": "円",
       "definition": "対象チャネルの実受取額。販売額から未確認の料率で推計しない。",
-      "channel": "operations",
-      "target": null
+      "channel": "operations"
     },
     {
       "id": "costYen",
@@ -231,8 +215,7 @@
       "label": "運営費用",
       "unit": "円",
       "definition": "対象期間に対応する費用。計上範囲を出典に記す。未記録をゼロにしない。",
-      "channel": "operations",
-      "target": null
+      "channel": "operations"
     },
     {
       "id": "workMinutes",
@@ -240,8 +223,7 @@
       "label": "運営作業時間",
       "unit": "分",
       "definition": "対象期間の制作・保守・顧客対応の合計。観測できた範囲を示す。",
-      "channel": "operations",
-      "target": null
+      "channel": "operations"
     },
     {
       "id": "qualityDefects",
@@ -249,8 +231,7 @@
       "label": "重大な教材不備",
       "unit": "件",
       "definition": "対象・実検査数を示した品質検査の重大不備件数。未検査を0件と扱わない。",
-      "channel": "operations",
-      "target": null
+      "channel": "operations"
     },
     {
       "id": "igReach",
@@ -259,7 +240,6 @@
       "unit": "人日",
       "definition": "アカウント日次リーチの合計（延べ）。ユニークではない。",
       "channel": "instagram",
-      "target": null,
       "appliesTo": [
         "all"
       ]
@@ -271,7 +251,6 @@
       "unit": "人",
       "definition": "期間末時点のフォロワー数（ストック）。",
       "channel": "instagram",
-      "target": null,
       "appliesTo": [
         "all"
       ]
@@ -283,7 +262,6 @@
       "unit": "件",
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
-      "target": null,
       "appliesTo": [
         "all"
       ]
@@ -295,7 +273,6 @@
       "unit": "件",
       "definition": "Cloudflare edge 集計・bot を含む・GA4 と一致しない。GA4 の bot 疑義の突合用。",
       "channel": "cloudflare",
-      "target": null,
       "appliesTo": [
         "all"
       ]
@@ -308,82 +285,5 @@
     "目標値は実測の期間・対象・理由を添えて設定し、過去の目標は追記履歴に残す。",
     "重点資格外の既存教材を一律削除せず、保守・需要に応じて判断する。",
     "改善状態は既存experiments.json、単発の実装タスクはbacklogを正とする。SEOの7日観察と同時実験上限を守る。"
-  ],
-  "salesAttribution": {
-    "source": "既存sales.jsonの商品ID命名と商品カタログ。未一致・複数資格の会員商品は全体のみに含める。",
-    "rules": [
-      {
-        "prefixes": [
-          "civil-1-",
-          "article:civil-1-"
-        ],
-        "qualification": "civil-construction-1"
-      },
-      {
-        "prefixes": [
-          "bk-",
-          "article:bk-",
-          "pe-construction-"
-        ],
-        "qualification": "pe-construction"
-      },
-      {
-        "prefixes": [
-          "essay-",
-          "tankan-",
-          "tradeoff-",
-          "article:essay-",
-          "article:tankan-",
-          "article:tradeoff-",
-          "article:setsumon3-",
-          "article:r8-"
-        ],
-        "ids": [
-          "r8-essay-forecast"
-        ],
-        "qualification": "pe-comprehensive-management"
-      },
-      {
-        "prefixes": [
-          "rccm-",
-          "article:rccm-",
-          "coconala:coconala-rccm-"
-        ],
-        "qualification": "rccm"
-      }
-    ]
-  },
-  "kindleAttribution": {
-    "source": "scripts/kindle-published/catalog.json の書籍ID。重点資格に一意帰属できない技術士一次・2級土木・コンクリート系は全体のみに含める。",
-    "rules": [
-      {
-        "prefixes": [
-          "A-"
-        ],
-        "ids": [
-          "e-02"
-        ],
-        "qualification": "civil-construction-1"
-      },
-      {
-        "prefixes": [
-          "b-",
-          "f-"
-        ],
-        "qualification": "pe-comprehensive-management"
-      },
-      {
-        "prefixes": [
-          "c-"
-        ],
-        "qualification": "pe-construction"
-      },
-      {
-        "prefixes": [
-          "h-"
-        ],
-        "qualification": "rccm"
-      }
-    ]
-  }
+  ]
 }

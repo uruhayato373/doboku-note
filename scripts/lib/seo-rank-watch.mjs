@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { addDays, calendarDate, getDateRange } from './gsc-date-range.mjs';
 import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates, selectionKey } from './seo-watch-strategy.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
+import { GSC_PROPERTY, SITE_ORIGIN } from './site-identity.mjs';
 
 export class WatchError extends Error {}
 
@@ -61,7 +62,7 @@ export const samePage = (a, b) => a.targetPath === b.targetPath || a.contentPath
 export const dateJst = (now = new Date()) => calendarDate(now, 'Asia/Tokyo');
 
 export function validateConfig(config) {
-  if (config.version !== 1 || config.siteUrl !== 'sc-domain:doboku-note.com' || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
+  if (config.version !== 1 || config.siteUrl !== GSC_PROPERTY || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
   const ids = new Set(), scopes = new Set();
   for (const w of config.watchwords) {
     if (!/^[a-z0-9-]+$/.test(w.id ?? '') || ids.has(w.id) || !w.keyword?.trim() || scopes.has(scopeKey(w))) throw new WatchError('Duplicate or invalid watchword');
@@ -112,10 +113,10 @@ export function validateSnapshot(snapshot) {
   if (snapshot.version !== 1 || !['measurement', 'review'].includes(snapshot.type) || snapshot.scopeKey !== scopeKey(snapshot.scope) || !Number.isFinite(Date.parse(snapshot.fetchedAt))) throw new WatchError('Invalid rank snapshot');
   for (const part of [snapshot.before, snapshot.after]) {
     if (!part?.window || part.window.startDate !== part.raw?.meta?.startDate || part.window.endDate !== part.raw?.meta?.endDate || JSON.stringify(part.metrics) !== JSON.stringify(aggregate(part.raw))) throw new WatchError('Rank aggregate does not match raw GSC data');
-    const expected = { query: snapshot.scope.keyword, page: `https://doboku-note.com${snapshot.scope.targetPath}` };
+    const expected = { query: snapshot.scope.keyword, page: `${SITE_ORIGIN}${snapshot.scope.targetPath}` };
     for (const key of ['country', 'device']) if (snapshot.scope[key]) expected[key] = snapshot.scope[key];
     const filters = part.raw.meta.filters ?? [];
-    if (part.raw.meta.siteUrl !== 'sc-domain:doboku-note.com' || part.raw.meta.type !== 'web' || JSON.stringify(part.raw.meta.dimensions) !== '["date"]' || filters.length !== Object.keys(expected).length || filters.some((f) => f.operator !== 'equals' || expected[f.dimension] !== f.expression)) throw new WatchError('Rank measurement scope does not match watchword');
+    if (part.raw.meta.siteUrl !== GSC_PROPERTY || part.raw.meta.type !== 'web' || JSON.stringify(part.raw.meta.dimensions) !== '["date"]' || filters.length !== Object.keys(expected).length || filters.some((f) => f.operator !== 'equals' || expected[f.dimension] !== f.expression)) throw new WatchError('Rank measurement scope does not match watchword');
   }
   if (snapshot.before.window.endDate >= snapshot.after.window.startDate) throw new WatchError('Comparison periods overlap');
   const duration = (w) => Date.parse(w.endDate) - Date.parse(w.startDate);

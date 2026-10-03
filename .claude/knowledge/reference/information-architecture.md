@@ -80,13 +80,13 @@ content/
 
 | 検出 | 例 |
 |---|---|
-| 廃止した置き場への新規ファイル | `docs/project/`・`docs/note/`・`.claude/content/`・`.claude/prompts/`・`.local/r2/posts/`・`*/_archive/`・`.claude/plans/completed/` |
+| 廃止した置き場への新規ファイル | `docs/project/`・`docs/note/`・`.claude/content/`・`.claude/prompts/`・`.local/r2/posts/`・`*/_archive/`・`.claude/plans/completed/`・ファイルを移した旧パス（`config/`・`data/` の移動元。`scripts/lib/repository-paths.mjs` の `MOVED_PATHS`・`RESTRUCTURED_PATHS` に 1 行足せば禁止ルートと旧パス走査へ自動で入る） |
 | docs/ への制作物の混入 | `article.md`・`slide-data.json`・`.mdx`・`.mp4`・`.pdf`（`docs/design/images`・`handoffs`・`reviews` は除外） |
 | content/ への flow の混入 | `backlog.md`・`weekly.md`・`content/*/plans/`・`content/*/todo/` |
 | 二重 SSOT | 旧ルートが復活している |
 
 - 実行: `npm run check-information-architecture`（全量）/ `--staged`（pre-commit）
-- allowlist は `.claude/config/information-architecture.json` に理由付きで書く。
+- 移動表（`repository-paths.mjs`）に載らない旧パス（docs 側の廃止・移動先のない旧ディレクトリ）と allowlist は `.claude/config/information-architecture.json` に書く（allowlist は理由付き）。旧パスを移動表と JSON の 2 か所に書かない（`tests/information-architecture.test.mjs` が重複を止める）。
   **コードへ散らさない／既存違反を巨大 baseline で恒久黙認しない**（現在 0 件）。
 
 ## 配置の判断フロー（4 領域）

@@ -10,21 +10,11 @@
 // CLI（X は tweets.md 直書きのため人手/エージェントが Bash で呼ぶ）:
 //   node .claude/scripts/lib/utm-builder.mjs --url <URL> --channel x --format post --campaign <name> [--content <c>] [--force]
 
-import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-import { datasetPath } from '../../../scripts/lib/datasets.mjs';
+import { loadUtmTemplates } from '../../../scripts/lib/utm-contract.mjs';
 
-const HERE = dirname(fileURLToPath(import.meta.url));
-const TEMPLATES_PATH = join(HERE, '..', '..', '..', datasetPath('config.utm-templates'));
-
-let _templates = null;
-
-export function loadUtmTemplates() {
-  if (_templates) return _templates;
-  _templates = JSON.parse(readFileSync(TEMPLATES_PATH, 'utf-8'));
-  return _templates;
-}
+// 契約（config/utm-templates.json）の読み込みは scripts/lib/utm-contract.mjs。従来どおりここから import できるよう再公開する。
+export { loadUtmTemplates };
 
 /**
  * baseUrl に UTM を付与して返す。

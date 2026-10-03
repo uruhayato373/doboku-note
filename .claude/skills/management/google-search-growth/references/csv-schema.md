@@ -88,7 +88,7 @@ data/gsc/ui/<run-id>/
 data/gsc/
   last-run.json                  # 追跡（schemaVersion 3: lastAttempt / lastComplete / legacy）
   ssot/                          # 追跡（.gitignore の `!.../ssot/` で例外化）
-    urls/<issue>--<scope>.json   # 最新の正規化 URL 一覧（lean 射影＝raw 列を落とす。rejects は残す）
+    urls/<issue>--<scope>.json   # 最新の正規化 URL 一覧（lean 射影＝raw 列と comparisonKey〔url から導ける〕を落とす。rejects は残す）
     history.json                 # run 別のユニット件数履歴
     diff/<runId>.json            # 直前 SSOT との URL 増減（added/removed）
   <run-id>/                      # gitignore（raw CSV / ZIP / manifest / normalized）

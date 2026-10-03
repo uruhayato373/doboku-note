@@ -31,10 +31,10 @@ import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { datasetPath, latestFile } from './lib/datasets.mjs';
+import { X_HANDLE as HANDLE } from './lib/site-identity.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const HANDLE = 'doboku373';
 
 const argv = process.argv.slice(2);
 const REPORT_ONLY = argv.includes('--report');

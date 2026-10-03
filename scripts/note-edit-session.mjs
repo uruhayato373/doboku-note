@@ -27,6 +27,7 @@ import { chromium } from 'playwright';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, '..');
@@ -38,7 +39,7 @@ const userDataDir = resolveProfileDir('note', { cwd: PROJECT_ROOT, repoRoot: PRO
 // 引数を URL へ正規化（フルURL / マガジンkey / パスのいずれも受ける）
 let target = process.argv[2] || 'https://note.com/sitesettings/magazines';
 if (/^m[0-9a-f]{6,}$/.test(target)) {
-  target = `https://note.com/dobokunote/m/${target}`;
+  target = `${NOTE_BASE}/m/${target}`;
 } else if (!/^https?:\/\//.test(target)) {
   target = 'https://note.com/' + target.replace(/^\//, '');
 }

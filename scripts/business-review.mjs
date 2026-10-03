@@ -15,7 +15,8 @@ try {
     else console.log(JSON.stringify({ file: saveRecord(root, input).file }));
   } else if (command === 'snapshot') {
     if (!args.includes('--commit')) throw new Error('snapshot は --commit が必要です');
-    console.log(JSON.stringify({ file: snapshot(root, period).file }));
+    const snap = snapshot(root, period);
+    console.log(JSON.stringify(snap.unchanged ? { file: snap.file, unchanged: true } : { file: snap.file }));
   } else if (command === 'report') {
     const r = buildReport(root, period);
     if (args.includes('--json')) console.log(JSON.stringify(r, null, 2));

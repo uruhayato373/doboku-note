@@ -16,6 +16,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { R2_PUBLIC_ORIGIN } from '../../../scripts/lib/site-identity.mjs';
 
 const args = process.argv.slice(2);
 const getArg = (k, def) => { const i = args.indexOf(k); return i !== -1 ? args[i + 1] : def; };
@@ -23,7 +24,7 @@ const startStr = getArg('--start', null);
 const perDay = Number(getArg('--per-day', '3'));
 const slotsJST = ['07:30', '12:30', '20:00'].slice(0, perDay);
 const preserve = args.includes('--preserve');
-const R2_PUBLIC_BASE = 'https://storage.doboku-note.com/sns/youtube-shorts/';
+const R2_PUBLIC_BASE = `${R2_PUBLIC_ORIGIN}/sns/youtube-shorts/`;
 const LEDGER = '.claude/state/youtube-schedule.json';
 
 if (!startStr || !/^\d{4}-\d{2}-\d{2}$/.test(startStr)) {
