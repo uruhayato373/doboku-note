@@ -10,6 +10,7 @@ import { renderCharacterFrame } from './character-framing.mjs';
 import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
 import { renderYoutubeCover } from './youtube-cover.mjs';
 import { resolveExam } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export const IG_DESIGN = 'bridge-notebook-a-v1';
 export const IG_CTA_NARRATION = 'フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。';
@@ -27,7 +28,7 @@ const text = (value, style = {}) => box({ fontFamily: FONT, fontWeight: 700, col
 const img = (buffer, style) => ({ type: 'img', props: { src: `data:image/png;base64,${buffer.toString('base64')}`, style } });
 
 export async function instagramLogo(root) {
-  const config = JSON.parse(readFileSync(join(root, datasetPath('config.video-brand'))));
+  const config = readDataset(root, 'config.video-brand');
   return readVerifiedVideoPng(root, config.logo, config.logo);
 }
 

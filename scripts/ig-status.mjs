@@ -31,6 +31,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
 import { join, relative, dirname } from "path";
 import { fileURLToPath, pathToFileURL } from "url";
+import { todayJst } from "./lib/jst-date.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -247,8 +248,7 @@ function resolvePackDir(arg) {
 }
 
 function todayISO() {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  return todayJst();
 }
 
 function resolveFormat(arg) {

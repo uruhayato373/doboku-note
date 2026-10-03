@@ -19,10 +19,9 @@
 import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { nowJstIso } from './lib/jst-date.mjs';
 import { readJson } from './lib/business-direction.mjs';
-import { datasetPath } from './lib/datasets.mjs';
 import { normalizeZoneConfig, diffZoneConfig, hasDrift } from './lib/cloudflare-zone-config.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const TAG = '[fetch-cloudflare-zone-config]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -43,7 +42,7 @@ async function getJson(fetchImpl, url, token) {
  * @param {{fetchImpl:Function, root?:string, now?:() => number, argv?:string[]}} opts
  */
 export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () => Date.now(), argv = [] } = {}) {
-  const config = readJson(root, datasetPath('config.cloudflare'));
+  const config = readDataset(root, 'config.cloudflare');
   const token = process.env.CLOUDFLARE_ANALYTICS_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
   if (!token) return { exitCode: 1, reason: 'auth-unavailable', message: 'CLOUDFLARE_ANALYTICS_API_TOKEN / CLOUDFLARE_API_TOKEN が無い' };
 
@@ -107,7 +106,7 @@ export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () 
   }
 
   const normalized = normalizeZoneConfig({ settings, rulesets, botManagement, plan: zone.plan ?? null });
-  const latest = { fetchedAt: nowJstIso(now()), zone: config.zoneName, config: normalized };
+  const latest = { fetchedAt: new Date(now()).toISOString(), zone: config.zoneName, config: normalized };
 
   if (!existsSync(stateDir)) mkdirSync(stateDir, { recursive: true });
   writeFileSync(latestPath, JSON.stringify(latest, null, 2) + '\n');

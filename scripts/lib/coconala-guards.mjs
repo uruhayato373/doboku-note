@@ -10,6 +10,7 @@
  * ここに置くもの: 入力→分類のみ。ファイル読み書き・Playwright・console 出力は呼び出し側。
  * ---------------------------------------------------------------------------
  */
+import { freshnessDays } from './datasets.mjs';
 
 /** 休止・再開・アーカイブの操作種別 */
 export const PAUSE_REASONS = ['retired', 'absence'];
@@ -191,9 +192,10 @@ export function classifyReplyDeadlines(snapOrders, nowMs, { warnHours = 24 } = {
 
 /**
  * snapshot が検査に使える状態かを判定する（「検査ゼロを PASS と呼ばない」）。
+ * staleDays の既定は台帳 coconala.orders-snapshot の freshness.failDays（scripts/lib/datasets.mjs）。
  * @returns {{ok:boolean, reason?:string, ageDays:number|null}}
  */
-export function assessSnapshot(snap, nowMs, { staleDays = 7, checkFreshness = true } = {}) {
+export function assessSnapshot(snap, nowMs, { staleDays = freshnessDays('coconala.orders-snapshot', 'failDays'), checkFreshness = true } = {}) {
   if (!snap || snap.__parseError) return { ok: false, reason: 'snapshot がありません', ageDays: null };
   if (snap.status !== 'ok') return { ok: false, reason: `snapshot.status="${snap.status}"（取得できなかったタブがある）`, ageDays: null };
   const ageDays = (nowMs - Date.parse(snap.fetchedAt)) / 86_400_000;

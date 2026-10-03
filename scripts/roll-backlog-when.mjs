@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseBacklog, parseWhen } from './lib/backlog-lib.mjs';
+import { jstMonth } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = join(ROOT, '.claude/todo/backlog.md');
@@ -57,7 +58,7 @@ function main() {
     }
   }
   const mi = argv.indexOf('--month');
-  const thisMonth = mi >= 0 ? argv[mi + 1] : new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 7);
+  const thisMonth = mi >= 0 ? argv[mi + 1] : jstMonth();
   if (!/^\d{4}-\d{2}$/.test(thisMonth ?? '')) {
     console.error('ERROR: --month は YYYY-MM');
     process.exit(2);

@@ -20,7 +20,7 @@
  * ---------------------------------------------------------------------------
  */
 
-import { latestFile } from './lib/datasets.mjs';
+import { freshnessDays, latestFile } from './lib/datasets.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -40,7 +40,9 @@ const PLATFORMS = {
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes('--json');
 const di = args.indexOf('--days');
-const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 90 : 90;
+// しきい値はチャネルごとに台帳（scripts/lib/datasets.mjs）の freshness.warnDays。--days は全チャネルに掛ける一時的な上書き
+const DAYS_OVERRIDE = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || null : null;
+const thresholdOf = (dataset) => DAYS_OVERRIDE ?? freshnessDays(dataset, 'warnDays');
 const pi = args.indexOf('--platform');
 const ONLY = pi >= 0 && args[pi + 1] ? args[pi + 1] : null;
 
@@ -59,14 +61,15 @@ const perPlatform = {};
 for (const [name, cfg] of Object.entries(platforms)) {
   const last = latestScanDate(cfg.dataset);
   const daysSince = last ? Math.floor((Date.now() - Date.parse(last + 'T00:00:00Z')) / 86400000) : null;
-  const due = last == null || daysSince >= THRESHOLD;
+  const due = last == null || daysSince >= thresholdOf(cfg.dataset);
   perPlatform[name] = { lastScan: last, daysSince, due, automation: cfg.automation ?? 'manual', review: cfg.review };
 }
 
 const dueList = Object.entries(perPlatform).filter(([, v]) => v.due).map(([k]) => k);
 const result = {
   check: 'competitor-scan-due',
-  thresholdDays: THRESHOLD,
+  // 全チャネルが同じ値のあいだは「その値」。分かれたら最大（チャネルごとの値は台帳と下の本文に出る）
+  thresholdDays: Math.max(...Object.values(platforms).map((cfg) => thresholdOf(cfg.dataset))),
   anyDue: dueList.length > 0,
   duePlatforms: dueList,
   platforms: perPlatform,
@@ -79,11 +82,11 @@ if (WANT_JSON) {
     if (v.due) {
       console.log(
         v.lastScan
-          ? `[競合再スキャン:${name}] DUE: 前回 ${v.lastScan}（${v.daysSince}日前・しきい値${THRESHOLD}日）→ ${v.review}`
+          ? `[競合再スキャン:${name}] DUE: 前回 ${v.lastScan}（${v.daysSince}日前・しきい値${thresholdOf(platforms[name].dataset)}日）→ ${v.review}`
           : `[競合再スキャン:${name}] DUE: 履歴なし（初回）→ ${v.review}`
       );
     } else {
-      console.log(`[競合再スキャン:${name}] OK: 前回 ${v.lastScan}（${v.daysSince}日前・次回まで${THRESHOLD - v.daysSince}日）`);
+      console.log(`[競合再スキャン:${name}] OK: 前回 ${v.lastScan}（${v.daysSince}日前・次回まで${thresholdOf(platforms[name].dataset) - v.daysSince}日）`);
     }
   }
 }

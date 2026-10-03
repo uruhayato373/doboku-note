@@ -1,28 +1,32 @@
-import { readFileSync, readdirSync, existsSync, mkdirSync, writeFileSync, unlinkSync, openSync, closeSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, mkdirSync, unlinkSync, openSync, closeSync } from 'node:fs';
 import { join } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { isDeepStrictEqual } from 'node:util';
 import { kdpLiveBookIdsAsOf } from './kindle-catalog.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
+import { jstDayOf as jst } from './jst-date.mjs';
+import { readJson } from './json-io.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './datasets.mjs';
 import { latestReport } from './metric-reports.mjs';
 import { isNoteMonthFinalized, noteMonthsPendingFinalization, noteSalesFinalizeDate } from './net-receipts.mjs';
 import { classifyProduct, classifySale } from './product-lineup.mjs';
 import { qualificationKey } from './sales-by-qualification.mjs';
+import { readDataset } from './dataset-io.mjs';
+import { writeDataset } from './dataset-write.mjs';
 
 export const DIRECTION = datasetPath('config.business-direction');
 export const RECORDS = datasetDir('business.measurement');
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
-export const jst = (now = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date(now));
+export { jst };
 export const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
-export const readJson = (root, file) => JSON.parse(readFileSync(join(root, file), 'utf8'));
+export { readJson };
 const required = (ok, message) => { if (!ok) throw new Error(message); };
 const validDay = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s ?? '') && !Number.isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
 const nonempty = (s) => typeof s === 'string' && s.trim().length >= 3 && s.length <= 4000;
 export function direction(root) {
   const c = readJson(root, DIRECTION);
   // 重点資格の名前は qualification-registry.json から引く（business-direction.json に写さない）
-  const registry = readJson(root, datasetPath('config.qualification-registry'));
+  const registry = readDataset(root, 'config.qualification-registry');
   c.qualifications = c.qualifications.map(q => ({ ...q, label: registry.qualifications.find(r => r.id === q.id)?.label ?? q.id }));
   required(c.version === 1 && nonempty(c.positioning) && c.qualifications.length > 0, '事業方針が不正です');
   required(new Set(c.qualifications.map(q => q.id)).size === c.qualifications.length, '資格IDが重複しています');
@@ -161,7 +165,7 @@ function saveUnlocked(root, input, now) {
   required(input.kind !== 'snapshot', 'スナップショットは専用コマンドで生成してください');
   const r = validateRecord(input, c, history, now);
   if (r.kind === 'review') {
-    const experiments = readJson(root, datasetPath('business.experiments')).experiments;
+    const experiments = readDataset(root, 'business.experiments').experiments;
     required(r.experimentIds.every(id => experiments.some(e => e.id === id)), '実験台帳にないIDです');
   }
   return appendRecord(root, { ...r, schemaVersion: 1, createdAt: new Date(now).toISOString(), strategyHash: hash(c) });
@@ -174,9 +178,8 @@ function withLock(root, action) {
   try { return action(); } finally { closeSync(fd); unlinkSync(lock); }
 }
 function appendRecord(root, r) {
-  mkdirSync(join(root, RECORDS), { recursive: true });
-  const file = `${RECORDS}/${r.kind}-${r.createdAt.replace(/[:.]/g, '-')}-${randomUUID()}.json`;
-  writeFileSync(join(root, file), `${JSON.stringify(r, null, 2)}\n`, { flag: 'wx' });
+  // 記録は追記のみ（immutable）。型（BusinessMeasurement など）を検査してから排他的に作る（dataset-write.mjs）
+  const { file } = writeDataset(root, `business.${r.kind}`, r, { values: { ts: r.createdAt.replace(/[:.]/g, '-'), uuid: randomUUID() } });
   return { ...r, file };
 }
 function latest(root, dir, prefix) {
@@ -365,7 +368,7 @@ export function sourceFacts(root, c, period) {
   const publishedItems = existsSync(join(root, publishedPath)) ? readJson(root, publishedPath).items ?? [] : [];
   const qualificationIds = c.qualifications.map(q => q.id);
   // 売上・KDP の資格への帰属は商品の分類（product-lineup.json）を引く（接頭辞の表を business-direction.json に持たない）
-  const attribute = lineupQualifier(readJson(root, datasetPath('config.product-lineup')), qualificationIds);
+  const attribute = lineupQualifier(readDataset(root, 'config.product-lineup'), qualificationIds);
   // 月次の取得物は月の期間のまま載せる。期間が一致するレビュー（月次）だけがセルに使い、週次は別期間として表示する。
   for (const month of monthsOf(period)) {
     const trafficPath = datasetPath('note.referrers', { month }), articlesPath = datasetPath('note.articles-pv', { month });
@@ -478,7 +481,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const p = reviewPeriod(cadence, jst(now)), existing = reviews.find(r => r.cadence === cadence && samePeriod(r.period, p));
     return { cadence, period: p, record: existing?.file ?? null, due: !existing || existing.nextReviewDate <= jst(now), status: existing?.status ?? 'missing' };
   });
-  const experiments = readJson(root, datasetPath('business.experiments')).experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
+  const experiments = readDataset(root, 'business.experiments').experiments.filter(e => ['running','measuring'].includes(e.status) || e.watchStatus === 'pending-deploy').map(e => ({ id: e.id, title: e.title, status: e.status, nextReviewDate: e.next_check_date ?? null, overdue: e.next_check_date && e.next_check_date <= jst(now) }));
   const operatingBalance = ['all', ...c.qualifications.map(q => q.id)].map(qualification => {
     const receipts = cells.find(x => x.qualification === qualification && x.metric === 'netReceipts'), costs = cells.find(x => x.qualification === qualification && x.metric === 'costYen');
     return { qualification, value: receipts.coverage === 'complete' && costs.coverage === 'complete' && receipts.value != null && costs.value != null ? receipts.value - costs.value : null };

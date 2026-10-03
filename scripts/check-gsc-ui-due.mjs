@@ -32,7 +32,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
-import { datasetPath } from "./lib/datasets.mjs";
+import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -60,7 +60,9 @@ const CHANNELS = [
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes("--json");
 const di = args.indexOf("--days");
-const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || 30 : 30;
+// 既定は台帳 gsc.ui-last-run の freshness.warnDays（--days で一時的に変えられる）
+const DEFAULT_THRESHOLD = freshnessDays("gsc.ui-last-run", "warnDays");
+const THRESHOLD = di >= 0 && args[di + 1] ? parseInt(args[di + 1], 10) || DEFAULT_THRESHOLD : DEFAULT_THRESHOLD;
 
 /** runId 形式（2026-07-23T22-59-15Z）も ISO も受ける。 */
 function parseStamp(s) {

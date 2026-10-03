@@ -10,6 +10,7 @@
  * - 期限（LEGACY_SITEMAP_UNTIL）を過ぎたビルドでは出さない＝外し忘れを構造的に防ぐ。
  * - 転送先が今の sitemap に載っている（＝index させたい）ものだけを出す。
  */
+import { jstDayOf } from "./jst-date.mjs";
 
 export const LEGACY_SITEMAP_FILE = "sitemap-legacy.xml";
 /** 旧 URL の sitemap を出す最終日（JST の日付）。この日を過ぎたビルドでは出さない。 */
@@ -19,8 +20,7 @@ export const LEGACY_REDIRECTED_AT = "2026-08-22";
 
 /** 期限内か（JST の日付で比較）。 */
 export function legacySitemapActive(now = new Date(), until = LEGACY_SITEMAP_UNTIL) {
-  const jst = new Date(now.getTime() + 9 * 3600 * 1000).toISOString().slice(0, 10);
-  return jst <= until;
+  return jstDayOf(now) <= until;
 }
 
 /**

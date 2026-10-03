@@ -6,10 +6,10 @@
 
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, '.tmp/pe1-historical-sources');
@@ -51,7 +51,7 @@ export function historicalSources(inventory) {
 
 async function main() {
   const requestedYear = process.argv.find((arg) => /^h(?:2[3-9]|30)$/u.test(arg));
-  const inventory = JSON.parse(readFileSync(resolve(ROOT, datasetPath('pastexams.inventory')), 'utf8'));
+  const inventory = readDataset(ROOT, 'pastexams.inventory');
   const all = historicalSources(inventory);
   if (all.length === 0) {
     console.error('[pe1-historical] 在庫台帳に sha256 を付けた原典が 1 件も無い（検査不成立）');

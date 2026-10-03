@@ -23,6 +23,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MISSING = join(ROOT, '.claude/state/note-attachments-missing.json');
@@ -79,9 +80,9 @@ console.log(`[note-attach-batch] 実測日 ${measuredAt} / 総アップロード
 // 公開した記事を一度も見ていない**という意味でしかない（2026-08-13 に実発生＝08-11 の母集団に
 // 対して残 0 と表示し、その裏で前日公開の建設部門 16 本が未添付のまま残っていた）。
 // 鮮度を明示し、当日でなければ「全部終わった」と読めないよう警告する。
-const todayJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
-if (measuredAt !== todayJst) {
-  console.warn(`\n★ 母集団が古い（実測 ${measuredAt} / 今日 ${todayJst}）。`);
+const today = todayJst();
+if (measuredAt !== today) {
+  console.warn(`\n★ 母集団が古い（実測 ${measuredAt} / 今日 ${today}）。`);
   console.warn('  これ以降に公開した記事は母集団に入っていないため、ここで「残 0」になっても未添付が残りうる。');
   console.warn('  実査で採り直す: node scripts/check-note-attachments.mjs --live\n');
 }

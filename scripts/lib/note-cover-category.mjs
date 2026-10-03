@@ -2,12 +2,10 @@
  * note-cover-category.mjs — note 記事のカバー画像分類を決める唯一の実装。
  * 語彙とルールの正本は config/note-covers.json の categories。
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export function loadNoteCoverCategories(root) {
-  const cfg = JSON.parse(readFileSync(join(root, datasetPath('config.note-covers')), 'utf8')).categories;
+  const cfg = readDataset(root, 'config.note-covers').categories;
   return buildNoteCoverCategories(cfg);
 }
 

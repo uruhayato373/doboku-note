@@ -27,7 +27,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { datasetPath, latestFile } from "../../scripts/lib/datasets.mjs";
+import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 
@@ -298,7 +298,7 @@ function main() {
     );
   }
   const stale = stalenessDays(windows.ga4.end, Date.now());
-  if (stale != null && stale > 10) {
+  if (stale != null && stale > freshnessDays("ga4.reports", "warnDays")) { // 台帳 ga4.reports の freshness.warnDays
     warnings.push(`GA4 の窓の終端が ${stale} 日前。計測 CI の供給停止を疑う（fetch-metrics の直近 run を見る）`);
   }
 

@@ -36,6 +36,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
+import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../../../../');
@@ -193,7 +194,7 @@ const slug = args.slug;
 const examId = args.exam; // 例: r07-pack-01
 const examDir = typeof args['exam-dir'] === 'string' ? args['exam-dir'] : null; // 試験軸（例: 1級土木）。省略時は総監（従来パス）
 const category = args.category ?? 'pe-comprehensive-management';
-const date = args.date ?? new Date().toISOString().slice(0, 10);
+const date = args.date ?? todayJst();
 const sizeArg = args.size ?? 'both';
 const resetFlag = 'reset' in args;
 const configOnly = 'config-only' in args;

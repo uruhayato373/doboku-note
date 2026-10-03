@@ -1,6 +1,7 @@
 import { loadMarketInputs } from '../../../../scripts/lib/market-inputs.mjs';
 import { buildMarketView, validateMarketInputs } from '../../../../scripts/lib/qualification-market.mjs';
 import { findRepoRoot } from './repo-root';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 
 /**
  * market.ts — `/strategy/market`（展開の判断・人が見る画面）の表示モデル。
@@ -57,7 +58,7 @@ export interface MarketView {
 
 export function loadMarketView(): MarketView {
   const input = loadMarketInputs(findRepoRoot());
-  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  const today = todayJst();
   const view = buildMarketView({ ...input, today }) as unknown as Omit<MarketView, 'errors'>;
   return { ...view, errors: validateMarketInputs(input) as string[] };
 }

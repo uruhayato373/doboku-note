@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows } from './lib/note-traffic-normalize.mjs';
+import { jstClock } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -51,7 +52,7 @@ if (CHECK) {
   process.exit(ok ? 0 : 1);
 }
 
-const jstNow = new Date(Date.now() + 9 * 3600 * 1000);
+const jstNow = jstClock();
 const thisMonth = `${jstNow.getUTCFullYear()}-${String(jstNow.getUTCMonth() + 1).padStart(2, '0')}`;
 const prev = new Date(Date.UTC(jstNow.getUTCFullYear(), jstNow.getUTCMonth() - 1, 1));
 const lastMonth = `${prev.getUTCFullYear()}-${String(prev.getUTCMonth() + 1).padStart(2, '0')}`;

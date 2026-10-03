@@ -2,15 +2,15 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
-import { datasetPath } from './lib/datasets.mjs';
 import { scanTree, machineResources, processInventory, warningsFor, acquireLock, GiB } from './lib/local-resources.mjs';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 // session-start.mjs は import して run({ argv: ['--quick'], quiet: true }) を呼ぶ（DN-0236・子の node を立てない）
 export async function run({ argv = [], quiet = false } = {}) {
   const out = createOutput({ quiet });
   const args = argv;
-  const policy = JSON.parse(readFileSync(join(root, datasetPath('config.local-resources')), 'utf8'));
+  const policy = readDataset(root, 'config.local-resources');
   const quick = args.includes('--quick');
   const release = quick ? () => {} : acquireLock(root, 'audit');
   try {

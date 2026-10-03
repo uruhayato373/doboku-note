@@ -21,7 +21,8 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { datasetPath } from './lib/datasets.mjs';
+import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
@@ -29,7 +30,6 @@ const CI = process.argv.includes('--ci');
 // ソースのマーカー(D1)はあってもライブ未反映＝再投稿もれ、を検出する（2026-06-18 に総監19本で実害化）。
 // 実証済みの curl --ssl-no-revoke を shell-out（会社PCプロキシ・CI 双方で疎通）。
 const LIVE = process.argv.includes('--live');
-const MAX_LIVE_FETCH_FAIL_RATE = 0.2;
 // note 公開記事 API を取得し body+embedded_contents の結合文字列を返す（取得不能は null）。
 function fetchLiveBlob(noteId) {
   try {
@@ -45,7 +45,7 @@ function fetchLiveBlob(noteId) {
     return JSON.stringify(data.body || '') + JSON.stringify(data.embedded_contents || []);
   } catch { return null; }
 }
-const CONFIG = JSON.parse(readFileSync(join(ROOT, datasetPath('config.note-funnel')), 'utf8'));
+const CONFIG = readDataset(ROOT, 'config.note-funnel');
 const magSrc = readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8');
 
 // note-magazines.ts から公開済みマガジン {id, noteId} を抽出
@@ -200,11 +200,11 @@ if (reviewCandidates.length) {
 }
 
 const liveFetchFailRate = liveChecked ? liveWarn.length / liveChecked : 1;
-const liveNotConclusive = LIVE && (liveChecked === 0 || liveFetchFailRate > MAX_LIVE_FETCH_FAIL_RATE);
+const liveNotConclusive = LIVE && (liveChecked === 0 || liveFetchFailRate > MAX_FETCH_FAIL_RATE);
 if (liveNotConclusive) {
   console.error(
     `\n[audit-note-funnel] ✗ ライブ検査不成立: 対象 ${liveChecked} 本中 ${liveWarn.length} 本が取得失敗` +
-    `（${Math.round(liveFetchFailRate * 100)}%・上限 ${Math.round(MAX_LIVE_FETCH_FAIL_RATE * 100)}%）`,
+    `（${Math.round(liveFetchFailRate * 100)}%・上限 ${Math.round(MAX_FETCH_FAIL_RATE * 100)}%）`,
   );
 }
 

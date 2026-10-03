@@ -33,7 +33,7 @@ import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { todayJst } from './lib/jst-date.mjs';
+import { jstMonth, todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { attachCISession } from './lib/playwright-auth-state.mjs';
@@ -54,14 +54,15 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const DRY = argv.includes('--dry-run');
 const DUMP = argv.includes('--dump');
 const now = new Date();
-const CUR_MONTH = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+const CUR_MONTH = jstMonth(now);
 const MONTH = getArg('--month') || CUR_MONTH;
 if (!/^\d{4}-\d{2}$/.test(MONTH)) { console.error('--month は YYYY-MM 形式'); process.exit(1); }
 const [Y, M] = MONTH.split('-').map(Number);
 const LAST_DAY = new Date(Y, M, 0).getDate();
 const IS_CURRENT = MONTH === CUR_MONTH;
-const prev = new Date(now.getFullYear(), now.getMonth() - 1, 1);
-const IS_PREV = MONTH === `${prev.getFullYear()}-${String(prev.getMonth() + 1).padStart(2, '0')}`;
+const [CUR_Y, CUR_M] = CUR_MONTH.split('-').map(Number);
+const prev = new Date(Date.UTC(CUR_Y, CUR_M - 2, 1));
+const IS_PREV = MONTH === `${prev.getUTCFullYear()}-${String(prev.getUTCMonth() + 1).padStart(2, '0')}`;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const jpDate = (d) => `${Y}年${String(M).padStart(2, '0')}月${String(d).padStart(2, '0')}日`;

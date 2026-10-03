@@ -11,13 +11,13 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { datasetDir, latestFile } from './lib/datasets.mjs';
+import { datasetDir, freshnessDays, latestFile } from './lib/datasets.mjs';
 import { actionable, MIN_SAMPLES } from './lib/web-vitals-rum.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const DIR = datasetDir('rum.web-vitals');
 const TAG = '[report-web-vitals]';
-const MAX_AGE_DAYS = 10;
+const MAX_AGE_DAYS = freshnessDays('rum.web-vitals', 'failDays'); // 台帳の値（scripts/lib/datasets.mjs）
 const STATUS_JA = { good: '良好', 'needs-improvement': '要改善', poor: '不良', insufficient: '件数不足' };
 
 function main() {

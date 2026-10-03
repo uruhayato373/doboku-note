@@ -14,6 +14,7 @@
  * scripts/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。
  * ---------------------------------------------------------------------------
  */
+import { freshnessDays } from './datasets.mjs';
 import { classifyProduct, classifySale } from './product-lineup.mjs';
 
 /** 管理画面の列の並び。YouTube・note・ココナラは検索で混み具合を測り、X・Instagram は追跡数だけ持つ。 */
@@ -21,8 +22,8 @@ export const CHANNELS = ['note', 'youtube', 'coconala', 'x', 'ig'];
 export const SCANNED_CHANNELS = ['youtube', 'note', 'coconala'];
 /** 受験者が自分の答案を組み立てる形式。売上はここに集中している（2026-09 の実売）。 */
 export const COMPOSE_TYPES = ['experience', 'essay'];
-/** 市場スキャンを古いとみなす日数（四半期）。 */
-export const SCAN_STALE_DAYS = 90;
+/** 市場スキャンを古いとみなす日数（四半期）。値は台帳 analysis.qualification-market の freshness.warnDays。 */
+export const SCAN_STALE_DAYS = freshnessDays('analysis.qualification-market', 'warnDays');
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const DAY_MS = 86_400_000;

@@ -9,17 +9,15 @@
  * 使い方: npm run x-profile-sync [-- --commit]
  * 終了コード: 0＝一致（または書き換えて一致を確認）/ 1＝差分あり（dry-run）か書き換え後も不一致 / 2＝検査不成立（ログイン・アカウント・画面）
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { chromium } from 'playwright';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const TAG = '[x-profile-sync]';
 const ROOT = process.cwd();
 const COMMIT = process.argv.includes('--commit');
-const account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.x-account')), 'utf8'));
+const account = readDataset(ROOT, 'config.x-account');
 const want = account.profile.bio;
 const limit = account.limits?.bio ?? 160;
 const norm = (s) => String(s ?? '').replace(/\r\n/g, '\n').trim();

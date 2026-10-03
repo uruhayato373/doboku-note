@@ -1,7 +1,7 @@
 import { readFileSync, existsSync, realpathSync } from 'node:fs';
 import { resolve, relative, isAbsolute, sep } from 'node:path';
 import { createHash } from 'node:crypto';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export const EXPANSION_PATH = '.claude/state/content-expansion.json';
 export const CONTENT_DECISIONS = ['covered', 'partial', 'unreviewed', 'blocked', 'excluded'];
@@ -55,7 +55,7 @@ export function loadExpansion(root) {
 
 /** Metadata and evidence checks only. A passing schema never certifies semantic completeness. */
 export function expansionReport(root, data = loadExpansion(root), registry = null) {
-  registry ??= JSON.parse(readFileSync(resolve(root, datasetPath('config.reference-sources')), 'utf8'));
+  registry ??= readDataset(root, 'config.reference-sources');
   const expected = registry.sources.filter(s => ['commercial-book', 'operator-owned'].includes(s.class));
   const issues = [], stale = [], seen = new Set(), hashes = new Map();
   if (data.version !== 1 || !/^\d{4}-\d{2}-\d{2}$/.test(data.reviewedAt ?? '')) issues.push('version / reviewedAt を確認してください');
