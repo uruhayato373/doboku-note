@@ -1783,6 +1783,18 @@
       "commit": "ed2c6c23b15b",
       "verification": "npm run check-datasets（型あり 37・型の検査 142 ファイル・違反 0）・check-qualification-ssot・check-domains・check-coconala-wiring・check-exam-calendar が通る",
       "note": "PR #850 で config/ の読み手の多い 4 種（qualification-registry・domains・product-lineup・coconala-listings）に加え exam-calendar・note-funnel にも型を付けた。資格 id の照合などファイル間の整合は既存の check-* に残し、型は形だけ。あわせて data/ の画面取得の記録・不変の証拠にも型を広げ、型ありは 24→37"
+    },
+    {
+      "id": "DN-0473",
+      "at": "2026-10-03",
+      "task": "2級土木 一次前期（r03〜r06）の設問文・選択肢の転記ずれを公式問題と照合して直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "caec14da2174",
+      "verification": "check-production-ssr exit 0。本番 /exam/civil-construction-2/primary/r03-zenki〜r06-zenki で修正文言（q56-fig・運転者に危険・材料費等記載見積書・(ロ)→(ニ)→(イ)→(ハ) 等）を curl で確認",
+      "note": "R03〜R06 の全 249 問（61/61/61/66）を公式 PDF（全国建設研修センター公表のミラー）と照合して直した（7d4aaf42b・fdaf99e45・caec14da2）。修正後の past-exam-qa 再監査で残った転記ずれ 3 問（R03 No.50・R04 No.54/59 の選択肢）も公式ページ画像で確かめて修正し、転記起因の指摘は 0。照合できなかった問は 0。表記ゆれ（土留め／土止め・侵食／浸食など意味が同じもの）は件数に含めない。R05 No.56 に公式の図1〜3 を追加。lint:ja の公式問題逐語の例外を土木の第1次検定に広げた（PR #849）。refresh-indexes 済み・本番反映済み"
     }
   ]
 }
