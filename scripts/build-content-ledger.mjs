@@ -213,7 +213,8 @@ async function build() {
     let sellerName = '';
     try { sellerName = readDataset(ROOT, 'config.coconala-account').sellerName || ''; } catch { /* 出品者名の照合だけ省く */ }
     const listed = Object.values(catalog).filter((s) => s.status === 'listed');
-    const keyOf = (s) => createHash('sha1').update(JSON.stringify([s, listings[s.id] ?? null, approved[s.id] ?? null, sellerName])).digest('hex');
+    // 照合をやり直すかの鍵（変更検知用）。出品者名などを含むので弱いハッシュは使わない
+    const keyOf = (s) => createHash('sha256').update(JSON.stringify([s, listings[s.id] ?? null, approved[s.id] ?? null, sellerName])).digest('hex');
     const items = {};
     const toCheck = {};
     for (const s of listed) {
