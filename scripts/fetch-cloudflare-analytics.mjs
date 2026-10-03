@@ -20,10 +20,11 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { todayJst, nowJstIso } from './lib/jst-date.mjs';
-import { addDays, readJson } from './lib/business-direction.mjs';
+import { todayJst } from './lib/jst-date.mjs';
+import { addDays } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM_FIELDS } from './lib/cloudflare-analytics.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const TAG = '[fetch-cloudflare-analytics]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -111,7 +112,7 @@ async function fetchFirewallEvents(fetchImpl, { graphql, token, zoneTag, date })
  * @param {{fetchImpl:Function, root?:string, now?:() => number, argv?:string[]}} opts
  */
 export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () => Date.now(), argv = [] } = {}) {
-  const config = readJson(root, datasetPath('config.cloudflare'));
+  const config = readDataset(root, 'config.cloudflare');
   const token = process.env.CLOUDFLARE_ANALYTICS_API_TOKEN || process.env.CLOUDFLARE_API_TOKEN;
   if (!token) return { exitCode: 1, reason: 'auth-unavailable', message: 'CLOUDFLARE_ANALYTICS_API_TOKEN / CLOUDFLARE_API_TOKEN が無い' };
 
@@ -175,7 +176,7 @@ export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () 
   const anomaly = spikeFlag(daily);
   const snapshot = {
     schemaVersion: 1,
-    fetchedAt: nowJstIso(now()),
+    fetchedAt: new Date(now()).toISOString(), // 記録の日時は UTC の ISO 8601（Z）
     zone: { name: config.zoneName, plan: zone.plan?.name ?? null },
     window: { since, until },
     daily,

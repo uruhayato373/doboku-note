@@ -34,14 +34,14 @@ domain: sns
 
 1. **システム Chrome** インストール済み（Playwright 同梱 Chromium は X にボット判定される）。
 2. **初回ログイン**: `npm run auth:login -- --service x` でセッションを `<auth root>/profiles/playwright-x-profile/` に保存。
-3. **config.json の `ownHandle` を設定**（@抜き）。未設定だと discover が停止する（自投稿リポスト防止）。
+3. **自アカウントのハンドル**は `config/x-account.json` の `handle`（`scripts/lib/site-identity.mjs` の `X_HANDLE`）。自投稿のリポスト防止に使う。`x-repost.json` には持たない。
 
 ## 使い方
 
 ### 初回セットアップ（必ず 1 回）
 
 ```bash
-# 1. ownHandle を設定（config/x-repost.json を編集）
+# 1. （自アカウントのハンドルは config/x-account.json の handle。設定不要）
 # 2. 候補を収集
 npx tsx .claude/skills/social/x-repost/x-repost-discover.ts --interactive
 

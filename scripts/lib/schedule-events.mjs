@@ -522,7 +522,7 @@ export function mapExperiments(list, relPath, todayKey) {
   const events = [];
   for (const x of list ?? []) {
     const date = toJstDate(x?.next_check_date);
-    if (!date || ['done', 'closed', 'cancelled'].includes(x.status)) continue;
+    if (!date || ['done', 'closed', 'cancelled', 'abandoned'].includes(x.status)) continue;
     events.push({
       id: `experiments:${x.id}`, date, time: null, channel: 'experiment', kind: 'check',
       status: date < todayKey ? 'overdue' : 'planned',

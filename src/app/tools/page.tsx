@@ -5,6 +5,8 @@ import SectionBlock from "@/components/layout/SectionBlock";
 import Link from "next/link";
 import { BookOpen, FlaskConical, HardHat } from "lucide-react";
 import type { Metadata } from "next";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   title: "無料ツール一覧｜土木・技術士の試験対策",
@@ -15,9 +17,9 @@ export const metadata: Metadata = {
     type: "website",
     title: "無料ツール一覧｜土木施工管理技士 受験対策 — doboku-note",
     description: "経験記述の文字数チェック・受験資格判定・過去問ミニ演習など、土木施工管理技士の受験対策に使える無料web ツール集。",
-    url: "https://doboku-note.com/tools",
+    url: `${SITE_ORIGIN}/tools`,
     siteName: "doboku-note",
-    images: [{ url: "https://doboku-note.com/images/og-default.png", width: 1200, height: 630, alt: "無料ツール一覧 — doboku-note" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "無料ツール一覧 — doboku-note" }],
   },
 };
 

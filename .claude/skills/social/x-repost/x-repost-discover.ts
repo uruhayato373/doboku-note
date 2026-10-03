@@ -14,7 +14,7 @@
  * 前提:
  *   1. システム Chrome がインストール済み（publish-x と同条件）
  *   2. 初回ログイン済み（共通 auth resolver が返す X 専用プロファイルを使用）
- *   3. config.json の ownHandle が設定済み
+ *   3. 自アカウントのハンドルは config/x-account.json の handle（scripts/lib/site-identity.mjs の X_HANDLE）。x-repost.json には持たない
  */
 import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
@@ -23,6 +23,7 @@ import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
+import { X_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const PROFILE_DIR = resolveProfileDir("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
@@ -178,11 +179,7 @@ async function searchQuery(
 async function main() {
   const config = loadJson<any>(CONFIG_PATH, null);
   if (!config) { console.error(`🚨 config.json が読めません: ${CONFIG_PATH}`); process.exit(1); }
-  const ownHandle: string = (config.ownHandle || "").replace(/^@/, "");
-  if (!ownHandle) {
-    console.error("🚨 config.json の ownHandle が未設定です。自投稿リポストを防ぐため必須。@抜きハンドルを設定してください。");
-    process.exit(1);
-  }
+  const ownHandle: string = X_HANDLE; // 自投稿の除外に使う。正本は config/x-account.json（読めない・空なら import の時点で落ちる）
 
   const log = loadJson<{ reposted: { id: string; url?: string; repostedAt?: string }[] }>(LOG_PATH, { reposted: [] });
   const seenIds = new Set<string>(log.reposted.map((r) => r.id));

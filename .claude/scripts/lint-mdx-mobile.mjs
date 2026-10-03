@@ -89,6 +89,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
+import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
 
 const CELL_MAX = 15;
 
@@ -473,7 +474,7 @@ function lintNoteLink(lines, findings) {
     // <NoteLink> ブロックの開始を追跡（同一行 self-close も含む）
     if (line.includes('<NoteLink')) inNoteLink = true;
     // note 記事リンク（/n/）が <NoteLink> 外にあれば警告
-    if (line.includes('note.com/dobokunote/n/') && !inNoteLink) {
+    if (line.includes(`${NOTE_BASE.replace(/^https?:\/\//, '')}/n/`) && !inNoteLink) {
       findings.push({
         severity: 'MEDIUM',
         rule: '8-3',
@@ -925,7 +926,7 @@ function isExamArchive(filePath) {
   // PE 形式: r05-primary/, h28-secondary/, r05-essay-river-consultant/
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
-  if (/civil-construction-1[\\\/](?:primary|secondary)-/.test(filePath)) return true;
+  if (/civil-construction-[12][\\\/](?:primary|secondary)-/.test(filePath)) return true;
   // コンクリート主任技士 形式: 分野別過去問 primary-materials/, primary-construction/ 等
   if (/concrete-chief-engineer[\\\/]primary-/.test(filePath)) return true;
   // コンクリート診断士 形式: 分野別過去問 primary-deterioration/, primary-investigation/ 等

@@ -14,6 +14,8 @@ import PageHeader from "@/components/layout/PageHeader";
 import SectionBlock from "@/components/layout/SectionBlock";
 import SectionCard from "@/components/ui/SectionCard/SectionCard";
 import AuthorProfile from "@/components/ui/AuthorProfile/AuthorProfile";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" を重ねない
@@ -27,10 +29,10 @@ export const metadata: Metadata = {
     title: "doboku-noteについて — 1級土木施工管理技士・技術士 試験対策サイト",
     description:
       "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。",
-    url: "https://doboku-note.com/about",
+    url: `${SITE_ORIGIN}/about`,
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "doboku-note - 土木系資格試験 専門技術ノート",

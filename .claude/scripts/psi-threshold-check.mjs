@@ -18,6 +18,9 @@
 import { readFileSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+import { MAX_FETCH_FAIL_RATE } from "../../scripts/lib/inconclusive-gate.mjs";
+import { todayJst } from "../../scripts/lib/jst-date.mjs";
 
 const CONFIG_PATH = datasetPath("config.psi-config");
 const DEFAULT_STATE_DIR = datasetDir("psi.batch");
@@ -225,7 +228,7 @@ function fieldAvailabilityHint(results) {
 }
 
 function formatMarkdown(results, violations, gateViolations, thresholds) {
-  const date = new Date().toISOString().slice(0, 10);
+  const date = todayJst();
   const lines = [];
   lines.push(`# PSI 計測レポート — ${date}`);
   lines.push("");
@@ -262,7 +265,7 @@ function formatMarkdown(results, violations, gateViolations, thresholds) {
       return val > max ? `${v}⚠` : v;
     };
     lines.push(
-      `| ${r.url.replace("https://doboku-note.com", "")} | ${r.strategy} | ${flag(s.performance, thresholds.performance_score_min)} | ${flag(s.accessibility, thresholds.accessibility_score_min)} | ${flag(s.best_practices, thresholds.best_practices_score_min)} | ${flag(s.seo, thresholds.seo_score_min)} | ${flagMax(lab.LCP_ms, thresholds.LCP_ms_max, true)} | ${flagMax(lab.CLS, thresholds.CLS_max, false)} |`,
+      `| ${r.url.replace(SITE_ORIGIN, "")} | ${r.strategy} | ${flag(s.performance, thresholds.performance_score_min)} | ${flag(s.accessibility, thresholds.accessibility_score_min)} | ${flag(s.best_practices, thresholds.best_practices_score_min)} | ${flag(s.seo, thresholds.seo_score_min)} | ${flagMax(lab.LCP_ms, thresholds.LCP_ms_max, true)} | ${flagMax(lab.CLS, thresholds.CLS_max, false)} |`,
     );
   }
   lines.push("");
@@ -311,11 +314,11 @@ function main() {
   const violations = checkViolations(results, config.thresholds, config.field_thresholds || {});
   const fetchErrors = violations.filter((v) => v.type === "error").length;
   const fetchErrorRate = results.length ? fetchErrors / results.length : 1;
-  if (fetchErrorRate > 0.2) {
+  if (fetchErrorRate > MAX_FETCH_FAIL_RATE) {
     violations.push({
       type: "coverage",
       actual: Number((fetchErrorRate * 100).toFixed(1)),
-      threshold: 20,
+      threshold: Math.round(MAX_FETCH_FAIL_RATE * 100),
       detail: `${fetchErrors}/${results.length} results failed`,
     });
   }

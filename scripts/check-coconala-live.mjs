@@ -16,13 +16,12 @@
  * 取得は公開ページの GET だけ（書き込み・ログインなし）。1件ごとに 1 秒あける。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
 import { checkListedServices, diffLiveProfile, fetchLiveHtml } from './lib/coconala-live.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
@@ -33,7 +32,7 @@ const catalog = readCatalog();
 const listings = readListings();
 let account = {};
 try {
-  account = JSON.parse(readFileSync(join(ROOT, datasetPath('config.coconala-account')), 'utf8'));
+  account = readDataset(ROOT, 'config.coconala-account');
 } catch { /* 出品者名とプロフィールの照合だけ省く */ }
 const sellerName = account.sellerName || '';
 

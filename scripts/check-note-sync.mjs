@@ -22,11 +22,11 @@ import { fileURLToPath } from 'node:url';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, summarize } from './lib/note-cover-live.mjs';
 import { BLOCKERS, buildSyncPlan, countPlan, withLiveCovers } from './lib/note-sync-plan.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[check-note-sync]';
 const MIN_ARTICLES = 500;
-const MAX_FETCH_FAIL_RATE = 0.2;
 const json = process.argv.includes('--json');
 
 const plan = await buildSyncPlan(ROOT);
@@ -63,7 +63,7 @@ if (json) {
   console.log(`${TAG} マガジン: 最新 ${magPlan.ok.length} / 要登録 ${magPlan.pending.length} / 保留 ${magPlan.hold.length}`);
 }
 
-if (plan.items.length < MIN_ARTICLES || (withId.length && failed / withId.length > MAX_FETCH_FAIL_RATE)) {
+if (plan.items.length < MIN_ARTICLES || fetchFailDominant(failed, withId.length)) {
   console.error(`${TAG} ✗ 検査不成立: 公開記事 ${plan.items.length}（下限 ${MIN_ARTICLES}）/ API 失敗 ${failed}/${withId.length}`);
   process.exit(2);
 }

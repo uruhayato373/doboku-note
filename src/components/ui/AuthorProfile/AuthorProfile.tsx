@@ -90,7 +90,7 @@ function SocialLinks({ center = false }: { center?: boolean }) {
         rel="noopener noreferrer"
         className="hover:text-(--accent) hover:underline"
       >
-        X @doboku373
+        {`X @${AUTHOR.twitterHandle}`}
       </a>
       <Link href="/about" className="hover:text-(--accent) hover:underline">
         運営者について →

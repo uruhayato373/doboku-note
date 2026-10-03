@@ -537,5 +537,5 @@ writeFileSync(
     2,
   ),
 );
-writeFileSync(join(OUT_DIR, "coverage-latest.md"), md + "\n");
-console.error(`\n[written] ${join(OUT_DIR, "coverage-latest.md")}`);
+writeFileSync(join(ROOT, datasetPath("analysis.monetization-report")), md + "\n");
+console.error(`\n[written] ${datasetPath("analysis.monetization-report")}`);

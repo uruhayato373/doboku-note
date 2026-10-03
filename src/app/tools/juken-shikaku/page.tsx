@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import JukenShikakuClient from "./JukenShikakuClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   title: "土木施工管理技士 受験資格チェッカー｜1級・2級 新受検資格を年齢・実務経験で判定",
@@ -13,17 +15,17 @@ export const metadata: Metadata = {
     title: "土木施工管理技士 受験資格チェッカー｜1級・2級",
     description:
       "1級・2級土木施工管理技士の受験資格を年齢・実務経験で無料判定。令和6年度〜の新受検資格に対応。",
-    url: "https://doboku-note.com/tools/juken-shikaku",
+    url: `${SITE_ORIGIN}/tools/juken-shikaku`,
     siteName: "doboku-note",
     images: [
-      { url: "https://doboku-note.com/images/og-default.png", width: 1200, height: 630, alt: "土木施工管理技士 受験資格チェッカー — doboku-note" },
+      { url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "土木施工管理技士 受験資格チェッカー — doboku-note" },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "土木施工管理技士 受験資格チェッカー｜1級・2級",
     description: "1級・2級土木施工管理技士の受験資格を年齢・実務経験で無料判定。新受検資格対応。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

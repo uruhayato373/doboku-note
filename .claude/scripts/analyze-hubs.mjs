@@ -10,6 +10,7 @@
 
 import { readFileSync, writeFileSync } from "fs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 
 function parseArgs() {
   const args = process.argv.slice(2);
@@ -132,7 +133,7 @@ function main() {
     lines.push(`| URL | hub | impr | clicks | CTR | pos | 理由 |`);
     lines.push(`|---|---|---:|---:|---:|---:|---|`);
     for (const r of subset.slice(0, 20)) {
-      const slug = r.url.replace("https://doboku-note.com", "");
+      const slug = r.url.replace(SITE_ORIGIN, "");
       lines.push(
         `| \`${slug}\` | ${r.hub} | ${r.impressions} | ${r.clicks} | ${(r.ctr * 100).toFixed(1)}% | ${r.position.toFixed(1)} | ${r.reason} |`,
       );

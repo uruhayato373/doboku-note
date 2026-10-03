@@ -20,6 +20,7 @@ import { writeFileSync, mkdirSync, renameSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { collectPostedTweets, hasSiteLink, fetchOembed } from './lib/x-posted-live.mjs';
+import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 
 // レート制限回避の同期 sleep（note-live-check.mjs と同じ形。Unix の sleep バイナリに依存しない）。
 const sleepSync = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
@@ -70,8 +71,8 @@ function main() {
 
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(`${OUT_PATH}.tmp`, `${JSON.stringify(report, null, 2)}\n`);
-  // 失敗時も直前の正常な結果を残したいので rename で置き換える（fetchFailRate > 0.2 のときは書かない）
-  if (fetchFailRate <= 0.2) {
+  // 失敗時も直前の正常な結果を残したいので rename で置き換える（fetchFailRate が MAX_FETCH_FAIL_RATE を超えたときは書かない）
+  if (fetchFailRate <= MAX_FETCH_FAIL_RATE) {
     renameSync(`${OUT_PATH}.tmp`, OUT_PATH);
   }
 
@@ -95,8 +96,8 @@ function main() {
     console.log(`  本文にサイトリンク無し: ${report.no_site_link} 件（意図的な linkless 施策を含む・要目視確認）`);
   }
 
-  if (fetchFailRate > 0.2) {
-    console.error('[check-x-posted-live] 取得失敗率20%超 — 判定材料不足（検査不成立）');
+  if (fetchFailRate > MAX_FETCH_FAIL_RATE) {
+    console.error(`[check-x-posted-live] 取得失敗率${Math.round(MAX_FETCH_FAIL_RATE * 100)}%超 — 判定材料不足（検査不成立）`);
     process.exitCode = 1;
   } else if (report.gone > 0) {
     process.exitCode = 1;

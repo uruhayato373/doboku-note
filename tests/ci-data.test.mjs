@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { add, changedFiles, restore, save } from '../scripts/ci-data.mjs';
+import { add, changedFiles, restore, save, validateStaged } from '../scripts/ci-data.mjs';
 import { datasetDir, datasetPath, latestFile, resolveDataset } from '../scripts/lib/datasets.mjs';
 import { REPORT_KINDS } from '../scripts/lib/metric-reports.mjs';
 
@@ -132,3 +132,26 @@ test('latestFile・datasetDir・datasetPath: 台帳からパスを引く', () =>
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('validateStaged: 型のあるデータセットの stage 済みファイルを型で検査し、違反を push の前に返す', () => {
+  const root = mkdtempSync(join(tmpdir(), 'ci-data-validate-'));
+  try {
+    git(root, 'init', '-q');
+    const sales = datasetPath('note.sales');
+    const real = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', sales), 'utf8');
+    put(root, sales, real);
+    put(root, 'content/a.txt', 'a\n');
+    git(root, 'add', '-A');
+    let r = validateStaged(root);
+    assert.equal(r.checked, 1, '型のある note.sales だけを検査する（content は対象外）');
+    assert.deepEqual(r.errors, []);
+    put(root, sales, '{"sales":"壊れた"}\n');
+    git(root, 'add', '-A');
+    r = validateStaged(root);
+    assert.equal(r.checked, 1);
+    assert.ok(r.errors.length > 0 && r.errors.every((e) => e.includes('note.sales')), '型に合わない記録を返す');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+

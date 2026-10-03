@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * YouTube Shorts 自動生成 CLI。
  *
@@ -43,6 +43,7 @@ import {
   probeDuration,
   ffmpegAvailable,
 } from './lib/ffmpeg-compose.mjs';
+import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
 
 const WIDTH = 1080;
 const HEIGHT = 1920;
@@ -315,7 +316,7 @@ export async function createShortsFromReels({ packId, outDir, examDir = '技術�
   }
 
   const slideData = JSON.parse(readFileSync(slideDataPath, 'utf8'));
-  const date = new Date().toISOString().slice(0, 10);
+  const date = todayJst();
   const docsDir = outDir ?? join('content', 'sns', 'youtube', `${date}-${packId}`);
   const tmpDir = join('.tmp', 'sns', date, `${packId}-shorts`);
   mkdirSync(docsDir, { recursive: true });

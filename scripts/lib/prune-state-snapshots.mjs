@@ -13,7 +13,8 @@
 // pin（名前で参照されるので消せない）: `config/seo-watchwords.json` の `evidence.source`、business 台帳が
 // `sources[]` で指すパス。CLI が集めて `pins` に渡す。
 
-import { DATASETS, datasetPath, datasetsFor } from './datasets.mjs';
+import { DATASETS, datasetsFor } from './datasets.mjs';
+import { REPORT_KINDS } from './metric-reports.mjs';
 import { resolveMovedPath } from './repository-paths.mjs';
 
 const TS_FULL = /(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})/;
@@ -28,9 +29,18 @@ export const POLICIES = DATASETS.filter((x) => x.retain).map((x) => ({ family: x
 
 export const FAMILIES = [...new Set(POLICIES.map((p) => p.family))];
 
+/**
+ * 台帳から消した family。main の YAML は deploy まで古い名前を `--family` に渡し続けるので、受け付けて何も消さない
+ * （RETIRED_IDS の family 版）。YAML から外したら消してよい。
+ */
+export const RETIRED_FAMILIES = ['crosswalk'];
+
 // 台帳の記録は旧パス（.claude/state/metrics/…）のまま残しているので、新しい位置へ読み替えてから比べる
 const norm = (p) => resolveMovedPath(p.replace(/\\/g, '/').replace(/^\.\//, ''));
 const baseOf = (p) => p.slice(p.lastIndexOf('/') + 1);
+
+/** 日ごとのレポートに今も書く枠の名前（取得をやめた枠は「最新の日を残す」対象にしない＝古い 1 日が永久に残るのを防ぐ） */
+const KNOWN_SECTIONS = new Set(Object.values(REPORT_KINDS).flatMap((k) => [k.section, `${k.section}:month`]));
 
 /** 中身を変えない台帳のファイルか（決して消さない） */
 export function isExcluded(file) {
@@ -85,7 +95,7 @@ const getPath = (obj, path) => path.reduce((o, k) => (o && typeof o === 'object'
  * @param {Iterable<string>} [args.pins] 名前で参照されるため消せないパス
  * @param {(file:string)=>any} [args.readJson] alsoKeepNewestWhere の判定に使う（無ければその条件は無視＝保守的に最新だけ残す）
  * @param {string[]} [args.families] 対象 family の限定（未指定＝全部）
- * @returns {{ entries: Array<{file:string, family:string|null, decision:'keep'|'delete'|'excluded'|'undeclared'|'skipped', reason:string}>, summary: object, indexRewrites: Array<{index:string, removed:string[]}> }}
+ * @returns {{ entries: Array<{file:string, family:string|null, decision:'keep'|'delete'|'excluded'|'undeclared'|'skipped', reason:string}>, summary: object }}
  */
 export function plan({ files, now = Date.now(), pins = [], readJson = null, families = null } = {}) {
   const pinSet = new Set([...pins].map(norm));
@@ -113,7 +123,6 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
     byPolicy.get(idx).push(file);
   }
 
-  const indexRewrites = [];
   for (const [idx, list] of byPolicy) {
     const policy = POLICIES[idx];
     const rule = policy.rule;
@@ -142,7 +151,7 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
       // 日ごとのレポート: 種類ごとに最新を含む日を残す（一度しか取っていない種類が日の寿命で消えないように）
       const seen = new Set();
       for (const it of items) {
-        const sections = Object.keys(safeRead(readJson, it.file)?.reports ?? {}).filter((k) => !seen.has(k));
+        const sections = Object.keys(safeRead(readJson, it.file)?.reports ?? {}).filter((k) => KNOWN_SECTIONS.has(k) && !seen.has(k));
         if (!sections.length) continue;
         sections.forEach((k) => seen.add(k));
         if (!keep.has(it.file)) keep.set(it.file, `newest of ${sections.join(',')}`);
@@ -155,15 +164,10 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
     }
     for (const it of items) if (pinSet.has(it.file)) keep.set(it.file, 'pinned by name');
 
-    const removed = [];
     for (const it of items) {
       if (keep.has(it.file)) entries.push({ file: it.file, family: policy.family, decision: 'keep', reason: keep.get(it.file) });
-      else {
-        entries.push({ file: it.file, family: policy.family, decision: 'delete', reason: rule.keepNewest ? `older than newest ${rule.keepNewest}` : `older than ${rule.maxAgeDays}d` });
-        removed.push(it.file);
-      }
+      else entries.push({ file: it.file, family: policy.family, decision: 'delete', reason: rule.keepNewest ? `older than newest ${rule.keepNewest}` : `older than ${rule.maxAgeDays}d` });
     }
-    if (rule.index && removed.length) indexRewrites.push({ index: datasetPath(rule.index), removed });
   }
 
   // 不変条件: 中身を変えない台帳のファイルは決して delete にならない
@@ -179,7 +183,7 @@ export function plan({ files, now = Date.now(), pins = [], readJson = null, fami
     undeclared: entries.filter((e) => e.decision === 'undeclared').map((e) => e.file),
     byFamily: Object.fromEntries(FAMILIES.map((f) => [f, { keep: entries.filter((e) => e.family === f && e.decision === 'keep').length, delete: entries.filter((e) => e.family === f && e.decision === 'delete').length }])),
   };
-  return { entries, summary, indexRewrites };
+  return { entries, summary };
 }
 
 function safeRead(readJson, file) {
@@ -188,13 +192,6 @@ function safeRead(readJson, file) {
   } catch {
     return null;
   }
-}
-
-/** 週次の索引（business.weekly-index）から削除済み path の週を落とす（純粋） */
-export function filterWeeklyIndex(index, removedPaths) {
-  const gone = new Set(removedPaths.map(norm));
-  const weeks = (index.weeks || []).filter((w) => !gone.has(norm(w.path || '')));
-  return { ...index, weeks };
 }
 
 /** seo-watchwords.json / business 台帳から「名前で参照される記録のパス」を抜く（純粋） */

@@ -52,7 +52,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { basename, dirname, join, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
@@ -60,8 +60,8 @@ const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 
-/** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。 */
-const STALE_DAYS = 9;
+/** 週次 note-live-audit + 2 日のバッファ。これを超えた snapshot は「真実」として使わない。値は台帳 note.magazines の freshness.failDays（管理画面も同じ値を読む）。 */
+const STALE_DAYS = freshnessDays('note.magazines', 'failDays');
 
 /** 型別 article-*.md を落とさない（CLAUDE.md §9）。 */
 const ARTICLE_FILE = /^article(-[^.]+)?\.md$/;
@@ -245,7 +245,7 @@ function relevantStaged() {
   return changed.split('\n').some((p) =>
     p.startsWith('content/note/')
     || p.includes('src/lib/note-magazines.ts')
-    || p.includes('note-magazine-membership.json'));
+    || p === datasetPath('config.note-magazine-membership'));
 }
 
 function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); process.exit(2); }

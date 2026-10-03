@@ -2,10 +2,11 @@
 
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
 const ROOT = process.cwd();
 const DATA_ROOT = join(ROOT, 'public', 'standards-data');
-const SITE_ORGANIZATION_ID = 'https://doboku-note.com/#organization';
+const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
 function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'));

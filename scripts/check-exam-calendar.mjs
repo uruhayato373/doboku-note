@@ -163,13 +163,13 @@ for (const [examId, exam] of Object.entries(calendar.exams ?? {})) {
 }
 // 資格一覧（qualification-registry.json）・受験者統計（exam-stats.json）・出題形式（exam-formats.json）・
 // 商品ラインナップと id が揃っていること。
-const readConfig = (name) => JSON.parse(readFileSync(join(ROOT, "config", name), "utf8"));
-const registry = readConfig("qualification-registry.json");
+const readConfig = (id) => JSON.parse(readFileSync(join(ROOT, datasetPath(id)), "utf8"));
+const registry = readConfig("config.qualification-registry");
 for (const e of validateQualificationRegistry({
   registry,
   calendar,
-  examStats: readConfig("exam-stats.json"),
-  formats: readConfig("exam-formats.json"),
+  examStats: readConfig("config.exam-stats"),
+  formats: readConfig("config.exam-formats"),
   refExists: (p) => existsSync(join(ROOT, p)),
 })) {
   errors.push(e);

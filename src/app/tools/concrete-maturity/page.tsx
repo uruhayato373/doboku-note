@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import ConcreteMaturityClient from "./ConcreteMaturityClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "コンクリート 積算温度（マチュリティ）計算ツール",
     description: "養生期間中の温度と日数から積算温度を計算し、標準養生28日相当と比較。",
-    url: "https://doboku-note.com/tools/concrete-maturity",
+    url: `${SITE_ORIGIN}/tools/concrete-maturity`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "コンクリート 積算温度（マチュリティ）計算ツール — doboku-note",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "コンクリート 積算温度（マチュリティ）計算ツール",
     description: "養生期間の温度と日数から積算温度を計算し、標準養生28日相当と比較。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

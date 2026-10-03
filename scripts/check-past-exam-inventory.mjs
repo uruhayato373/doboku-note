@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 過去問の在庫台帳（config/past-exam-inventory.json）を検査する。
+ * 過去問の在庫台帳（data/pastexams/inventory.json）を検査する。
  *
  * 公式の過去問は「直近 N 年度だけ掲載」が多く、取り逃した年度は二度と手に入らない。
  * 台帳は資格×年度×ファイルの在庫（公式掲載の有無・入手元・取得日）を持ち、PDF 本体は
@@ -20,9 +20,10 @@ import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-vault.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const NAME = 'check-past-exam-inventory';
-const INVENTORY_PATH = datasetPath('config.past-exam-inventory');
+const INVENTORY_PATH = datasetPath('pastexams.inventory');
 const DRIVE_GROUP = 'past-exam-source-pdf';
 const OFFICIAL = ['listed', 'removed', 'never', 'unknown'];
 const KINDS = ['question', 'answer']; // 公式の問題と正答・解答例だけ。第三者の解答・解説・模擬試験は教材側（過去問解説/）
@@ -63,6 +64,10 @@ export function evaluateInventory({ inventory, formats, calendar, manifest, driv
           continue;
         }
         if (f.sourceUrl != null && !/^https:\/\//.test(f.sourceUrl)) fails.push(`${fl}: sourceUrl は https`);
+        // 固定した原典の検証値（任意）。付けるなら SHA-256 とページ数を揃える（片方だけだと取得時の照合が効かない）
+        if (f.sha256 != null && !/^[a-f0-9]{64}$/.test(f.sha256)) fails.push(`${fl}: sha256 は 64 桁の 16 進`);
+        if (f.pages != null && !(Number.isInteger(f.pages) && f.pages > 0)) fails.push(`${fl}: pages は正の整数`);
+        if ((f.sha256 == null) !== (f.pages == null)) fails.push(`${fl}: sha256 と pages は両方書く（固定した原典の検証値）`);
         if (!f.acquiredAt) {
           if (y.official === 'listed') listedMissing.push({ year: y.year, label: fl });
           continue;
@@ -96,8 +101,8 @@ function main() {
   let inventory, formats, calendar, driveCfg, manifest;
   try {
     inventory = JSON.parse(readFileSync(join(REPO_ROOT, INVENTORY_PATH), 'utf8'));
-    formats = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-formats')), 'utf8'));
-    calendar = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-calendar')), 'utf8'));
+    formats = readDataset(REPO_ROOT, 'config.exam-formats');
+    calendar = readDataset(REPO_ROOT, 'config.exam-calendar');
     driveCfg = loadDriveConfig();
     manifest = loadDriveManifest();
   } catch (e) {

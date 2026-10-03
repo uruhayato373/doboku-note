@@ -31,10 +31,11 @@ import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { datasetPath, latestFile } from './lib/datasets.mjs';
+import { X_HANDLE as HANDLE } from './lib/site-identity.mjs';
+import { jstClock } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const HANDLE = 'doboku373';
 
 const argv = process.argv.slice(2);
 const REPORT_ONLY = argv.includes('--report');
@@ -64,7 +65,7 @@ function toJst(t, now) {
   if (d.getTime() - now.getTime() > 7 * 86400000) {
     d = new Date(Date.UTC(now.getUTCFullYear() - 1, mo, +m[2], +m[3], +m[4]));
   }
-  const jst = new Date(d.getTime() + 9 * 3600000);
+  const jst = jstClock(d);
   return { iso: jst.toISOString().replace('Z', '+09:00'), hour: jst.getUTCHours(), date: jst.toISOString().slice(0, 10) };
 }
 
@@ -157,7 +158,7 @@ if (REPORT_ONLY) {
   });
   store = {
     handle: HANDLE,
-    fetchedAt: new Date(now.getTime() + 9 * 3600000).toISOString().slice(0, 19) + '+09:00',
+    fetchedAt: jstClock(now).toISOString().slice(0, 19) + '+09:00',
     followers: followers ? Number(followers) : null,
     // 取得できない指標を明記しておく（後で「反応が無い」と誤読しないため）
     unavailableMetrics: ['impressions', 'replies', 'profileClicks'],

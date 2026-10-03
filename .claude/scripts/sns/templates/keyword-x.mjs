@@ -6,6 +6,7 @@
 
 import { COLORS, rect, line, text, multilineText, svgDoc } from '../lib/svg-base.mjs';
 import { wrapByCharCount } from '../lib/text-wrap.mjs';
+import { SITE_HOST } from '../../../../scripts/lib/site-identity.mjs';
 
 const W = 1200;
 const H = 675;
@@ -39,7 +40,7 @@ export function renderKeywordTweet({ tweet, meta }) {
     // top label
     rect({ x: 60, y: 30, w: labelW, h: 56, rx: 28, fill: COLORS.brand }),
     text({ x: 60 + labelW / 2, y: 58, content: labelText, size: 26, weight: 700, fill: COLORS.white, anchor: 'middle', baseline: 'central' }),
-    text({ x: 1160, y: 64, content: 'doboku-note.com', size: 22, fill: COLORS.inkMuted, anchor: 'end' }),
+    text({ x: 1160, y: 64, content: SITE_HOST, size: 22, fill: COLORS.inkMuted, anchor: 'end' }),
 
     // subtitle chip
     subtitle ? text({ x: 60, y: 130, content: subtitle, size: 28, weight: 600, fill: COLORS.brand }) : '',

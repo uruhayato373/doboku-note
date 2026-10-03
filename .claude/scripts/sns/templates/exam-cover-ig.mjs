@@ -19,6 +19,7 @@
 import { COLORS, esc, rect, text, svgDoc } from '../lib/svg-base.mjs';
 import { examColor, officialNameLines } from '../lib/exam-palette.mjs';
 import { SNS_CONFIG } from '../../lib/sns-common/sns-config.mjs';
+import { SITE_HOST } from '../../../../scripts/lib/site-identity.mjs';
 
 const W = 1080;
 
@@ -92,7 +93,7 @@ export function renderExamCoverIg({ exam, tag = '過去問', year, fmtLabel, pag
 
   // ブランド（全フォーマット共通寸法）
   body.push(rect({ x: L.mx, y: L.brandY, w: 40, h: 40, rx: 8, fill: hue }));
-  body.push(text({ x: L.mx + 56, y: L.brandY + 32, content: 'doboku-note.com', size: 36, weight: 700, fill: COLORS.inkStrong }));
+  body.push(text({ x: L.mx + 56, y: L.brandY + 32, content: SITE_HOST, size: 36, weight: 700, fill: COLORS.inkStrong }));
 
   return svgDoc({ width: W, height: L.height, body: body.join('\n  ') });
 }

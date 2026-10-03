@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import KakomonQuizClient from "./KakomonQuizClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   title: "1級土木 過去問 無料演習｜第一次検定 全1,098問を4択クイズ",
@@ -12,15 +14,15 @@ export const metadata: Metadata = {
     type: "website",
     title: "1級土木 過去問 無料演習｜第一次検定 全1,098問 4択クイズ",
     description: "1級土木 第一次検定の過去問を即採点＋全選択肢解説つきで無料演習。平成26〜令和7年度 全1,098問。",
-    url: "https://doboku-note.com/tools/kakomon-quiz",
+    url: `${SITE_ORIGIN}/tools/kakomon-quiz`,
     siteName: "doboku-note",
-    images: [{ url: "https://doboku-note.com/images/og-default.png", width: 1200, height: 630, alt: "1級土木 過去問 無料演習 — doboku-note" }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "1級土木 過去問 無料演習 — doboku-note" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "1級土木 過去問 無料演習｜第一次検定 全1,098問 4択クイズ",
     description: "1級土木 第一次検定の過去問を即採点＋全選択肢解説つきで無料演習。平成26〜令和7年度 全1,098問。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

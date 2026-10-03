@@ -40,3 +40,15 @@ test('公式問題の長文を保持し、自著の解説とガイドの長文�
   assert.equal(/\(15-2\)/.test(guideResult.stdout),true,guideResult.stdout);
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+test('2級土木の過去問（primary-*/secondary-*）も過去問として扱い、ガイドは検査を残す（2026-10-02）',()=>{
+ // 以前は civil-construction-1 だけが対象で、2級の過去問ページに 9-6（正答記号）の誤検知 HIGH が数百件出ていた
+ const root=mkdtempSync(join(tmpdir(),'dn-exam-lint-c2-'));
+ try{
+  const body='---\ntitle: 試験\ncategory: civil-construction-2\ngroup: primary\n---\n\n導入文です。\n\n'+[1,2,3].map(i=>`## 問題 No.${i}\n\n説明です。\n\n<ExamPoint summary="計算の確認" items={["条件の整理"]} />\n\n正答：①\n`).join('\n');
+  for(const [slug,exam] of [['primary-r04-zenki',true],['secondary-r07',true],['guide-overview',false]]){
+   const dir=join(root,'civil-construction-2',slug);mkdirSync(dir,{recursive:true});const file=join(dir,'article.mdx');writeFileSync(file,body);
+   const r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});
+   assert.equal(/\(9-1\)|\(9-6\)/.test(r.stdout),!exam,`${slug}\n${r.stdout}${r.stderr}`);
+  }
+ }finally{rmSync(root,{recursive:true,force:true});}
+});

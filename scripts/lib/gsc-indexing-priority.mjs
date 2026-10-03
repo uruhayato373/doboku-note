@@ -6,8 +6,6 @@
  * 置く（登録できれば即クリックに変わる期待値が最大）。登録済み・直近 cooldown 内にリクエスト済みは除く。
  */
 
-const SITE = "https://doboku-note.com";
-
 export const SEGMENT_ORDER = ["/exam/", "/practice/", "/topics/", "/tools/", "/standards/", "/"];
 
 export function toPath(url) {
@@ -110,4 +108,3 @@ export function evaluateIndexingDue({ priority, requestRuns = [], now = new Date
   return { due: reasons.length > 0, reasons: reasons.length ? reasons : [`表示実績のある未登録 ${pending} 件・最後のリクエスト ${daysSinceAccepted} 日前`], pendingWithDemand: pending, lastAcceptedAt, daysSinceAccepted };
 }
 
-export { SITE };

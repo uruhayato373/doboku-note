@@ -22,6 +22,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { SITE_ORIGIN } from "./site-identity.mjs";
 
 const SITE_HOST_RE = /^https?:\/\/(www\.)?doboku-note\.com/i;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../..");
@@ -58,7 +59,7 @@ export function tryParseUrl(raw) {
   const s = String(raw).trim();
   if (!s) return null;
   try {
-    if (s.startsWith("/")) return new URL(s, "https://doboku-note.com");
+    if (s.startsWith("/")) return new URL(s, SITE_ORIGIN);
     return new URL(s);
   } catch {
     return null;
@@ -103,7 +104,7 @@ export function toJoinKey(raw) {
 }
 
 /** 絶対 URL へ（site origin 補完）。表示・HTTP チェック用。parse 不能なら null。 */
-export function toAbsoluteUrl(raw, origin = "https://doboku-note.com") {
+export function toAbsoluteUrl(raw, origin = SITE_ORIGIN) {
   const s = String(raw ?? "").trim();
   if (!s) return null;
   if (/^https?:\/\//i.test(s)) return s;

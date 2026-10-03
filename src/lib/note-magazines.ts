@@ -1,3 +1,5 @@
+import { withNoteUtm } from './note-utm';
+
 /**
  * note 有料マガジン定義 (Single Source of Truth)
  *
@@ -2269,20 +2271,9 @@ export function getMagazine(id: MagazineId): NoteMagazine | null {
 /**
  * UTM パラメータ付き note URL を生成。
  *
- * 統一規約:
- * - utm_source = doboku-note
- * - utm_medium = referral
- * - utm_campaign = note-magazine
- * - utm_content = {配置箇所識別子} (例: "keyword-2026-sidebar")
+ * source / medium / campaign は config/utm-templates.json の `siteToNote.magazine`（src/lib/note-utm.ts が付ける）。
+ * utm_content = {配置箇所識別子} (例: "keyword-2026-sidebar")
  */
 export function buildMagazineUrl(magazine: NoteMagazine, utmContent: string): string {
-  const params = new URLSearchParams({
-    utm_source: 'doboku-note',
-    utm_medium: 'referral',
-    utm_campaign: 'note-magazine',
-    utm_content: utmContent,
-  });
-  const base = magazine.landingUrl ?? magazine.noteUrl;
-  const sep = base.includes('?') ? '&' : '?';
-  return `${base}${sep}${params.toString()}`;
+  return withNoteUtm(magazine.landingUrl ?? magazine.noteUrl, 'magazine', { content: utmContent });
 }

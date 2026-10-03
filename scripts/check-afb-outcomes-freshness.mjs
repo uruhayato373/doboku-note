@@ -4,7 +4,7 @@
 //
 // 判定:
 //   data/afb/outcomes/YYYY-MM-DD.json の最新（台帳 afb.outcomes）
-//     → 無い／observedAt が読めない／10 日超前 は FAIL
+//     → 無い／observedAt が読めない／台帳 afb.outcomes の freshness.failDays（10 日）超前 は FAIL
 //   ディレクトリ自体が読めない（存在するがアクセス不可）は exit 2（本番異常と検査不成立を分ける）
 //
 // 使い方:
@@ -17,7 +17,7 @@
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { datasetDir, latestFile } from './lib/datasets.mjs';
+import { datasetDir, freshnessDays, latestFile } from './lib/datasets.mjs';
 
 const TAG = '[check-afb-outcomes-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -31,7 +31,7 @@ const JSON_OUT = process.argv.includes('--json');
  * @param {number} nowUtcMs
  * @param {{maxAgeDays?: number}} opts
  */
-export function assessAfbOutcomesFreshness({ latest }, nowUtcMs, { maxAgeDays = 10 } = {}) {
+export function assessAfbOutcomesFreshness({ latest }, nowUtcMs, { maxAgeDays = freshnessDays('afb.outcomes', 'failDays') } = {}) {
   const inspected = { file: LABEL, observedAt: null, siteId: null, rowsExamined: null };
 
   if (!latest) {

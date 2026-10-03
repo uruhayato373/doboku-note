@@ -36,9 +36,11 @@ import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-common.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { jstClock, todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
@@ -238,7 +240,7 @@ async function gotoTitleSetup(page, url) {
 // 保存に成功した原稿・表紙のハッシュを catalog の uploaded に書く（管理画面の台帳が手元の版とのずれを出す・lib/kindle-uploaded.mjs）。
 const writeCatalogUploaded = (id, files, via) => {
   const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
-  const at = new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Tokyo' }).replace(' ', 'T') + '+09:00';
+  const at = jstClock().toISOString().slice(0, 19) + '+09:00'; // JST の壁時計（YYYY-MM-DDTHH:mm:ss+09:00）
   for (const [part, path] of Object.entries(files)) recordUploaded(b, part, fileSha256(path), { at, via });
   writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
   console.log(`[catalog] ${id} uploaded 記録（${Object.keys(files).join('・')}・${via}）`);
@@ -248,7 +250,7 @@ const writeCatalogUploaded = (id, files, via) => {
 const writeCatalogPrice = (id, price, from) => {
   const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
   b.priceJpy = price;
-  (b.priceHistory ||= []).push({ date: new Date().toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' }), from: Number(from), to: price });
+  (b.priceHistory ||= []).push({ date: todayJst(), from: Number(from), to: price });
   writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
   console.log(`[catalog] ${id} priceJpy = ${price}`);
 };
@@ -689,7 +691,7 @@ try {
       console.error('  この状態の found=false は「本棚に無い」の証拠にならないので、重複判定に使わないこと。');
       process.exit(1);
     }
-    if (errs.length > items.length * 0.2) {
+    if (fetchFailDominant(errs.length, items.length)) {
       console.error(`\n[sync] ✗ 検査不成立: ${items.length} 冊中 ${errs.length} 冊で取得エラー（${errs[0].err}）。`);
       process.exit(1);
     }
@@ -943,12 +945,20 @@ try {
   // ═══════════════ 新規提出フロー（既定 / --commit-publish で出版）═══════════════
   // ── 再開: draftAsin があれば既存ドラフトへ、無ければ新規作成 ──
   const existingDraft = getDraftAsin(ID);
+  // 新規作成の詳細フォームも再認証（/ap/signin・max_auth_age=0）を挟む。以前は page.goto だけで、
+  // サインイン画面のまま #data-title を 30 秒待ってタイムアウトしていた（2026-10-02 j-02・DN-0262）。
+  let reached;
   if (existingDraft) {
     console.log(`[2] 既存ドラフト ${existingDraft} を再開（重複作成しない）`);
-    await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${existingDraft}/details`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    reached = await gotoTitleSetup(page, `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${existingDraft}/details`);
   } else {
     console.log('[2] 新規 Kindle 本 詳細フォームへ…');
-    await page.goto('https://kdp.amazon.co.jp/action/mangaactions.createkindle/ja_JP/title-setup/kindle/new/details', { waitUntil: 'domcontentloaded', timeout: 60000 });
+    reached = await gotoTitleSetup(page, 'https://kdp.amazon.co.jp/action/mangaactions.createkindle/ja_JP/title-setup/kindle/new/details');
+  }
+  if (!reached) {
+    console.error('ABORT: KDP がパスワードの再入力を求めたまま（3 分以内に入力されなかった）。KDP の永続プロファイルでサインインし直してから再実行する（本は作成されていない）');
+    await ctx.close();
+    process.exit(3);
   }
   await page.waitForSelector('#data-title', { timeout: 30000 });
   await sleep(1500);

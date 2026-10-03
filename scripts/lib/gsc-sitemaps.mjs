@@ -6,7 +6,7 @@
  * 送るべき sitemap の真実源は本番 robots.txt の `Sitemap:` 行（sitemap.xml と期限内の sitemap-legacy.xml）。
  * ---------------------------------------------------------------------------
  */
-import { datasetPath } from "./datasets.mjs";
+import { datasetPath, freshnessDays } from "./datasets.mjs";
 
 export const SITEMAPS_STATE = datasetPath("gsc.sitemaps");
 
@@ -34,7 +34,8 @@ const ageDays = (iso, now) => {
  * - GSC が報告するエラー（警告はリダイレクトを含む旧 URL の sitemap で必ず出るので数えない）
  * - Google が長く読み込んでいない sitemap
  */
-export function evaluateSitemapsDue({ latest, now = new Date(), maxRecordAgeDays = 10, maxDownloadAgeDays = 14 }) {
+// maxRecordAgeDays の既定は台帳 gsc.sitemaps の freshness.warnDays。maxDownloadAgeDays（Google が読み込んでいない日数）は台帳の鮮度ではなく Google 側の事実への許容。
+export function evaluateSitemapsDue({ latest, now = new Date(), maxRecordAgeDays = freshnessDays("gsc.sitemaps", "warnDays"), maxDownloadAgeDays = 14 }) {
   const reasons = [];
   if (!latest) return { due: true, reasons: ["記録が無い（fetch-metrics の GSC sitemaps ステップが一度も完走していない）"] };
   const recordAge = ageDays(latest.fetchedAt, now);

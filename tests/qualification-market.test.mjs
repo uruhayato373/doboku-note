@@ -190,10 +190,11 @@ test('buildMarketView: 自分で書く区分の受験者数・買われる時期
     },
     coconalaResearch: {
       queries: [
-        { keyword: 'q1', complete: true, totalHits: 3, services: [] },
-        // 汎用の語で取れたサービスもタイトル条件で資格へ振り分ける
-        { keyword: '経験記述 添削', complete: true, totalHits: 9, services: [{ url: 'u9', seller: 's', title: 'Ｑ２ 論文添削', reviews: 50, priceYen: 3000 }] },
+        { keyword: 'q1', complete: true, totalHits: 3 },
+        { keyword: '経験記述 添削', complete: true, totalHits: 9 },
       ],
+      // 汎用の語で取れたサービスもタイトル条件で資格へ振り分ける（出品は URL で一意・見つかった語は queries）
+      services: [{ url: 'u9', seller: 's', title: 'Ｑ２ 論文添削', reviews: 50, priceYen: 3000, queries: ['経験記述 添削'] }],
     },
     buyWindowWeeks: 8,
     today: '2026-09-26',

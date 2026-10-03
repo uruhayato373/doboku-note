@@ -54,12 +54,12 @@ import {
 } from "./lib/google-console-browser.mjs";
 import { collectFailedRequests } from "./lib/report-honesty.mjs";
 import { normalizeTargetPath, parseLegacyRedirects } from "./lib/legacy-routes.mjs";
+import { GSC_PROPERTY, SITE_ORIGIN } from "./lib/site-identity.mjs";
 
 const REQUESTS = datasetPath("gsc.indexing-requests");
 const HISTORY = datasetPath("gsc.indexing-history");
 const META = "src/config/doc-meta-index.json";
 const REDIRECTS = "public/_redirects";
-const SITE = "https://doboku-note.com";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -260,7 +260,7 @@ async function main() {
     schemaVersion: 1,
     runId,
     collectedAt: new Date().toISOString(),
-    property: cfg.gsc.property,
+    property: GSC_PROPERTY,
     mode: opts.commit ? "commit" : "dry-run",
     scriptVersion: gitCommit(),
     filter: { category: opts.category, group: opts.group },
@@ -281,7 +281,7 @@ async function main() {
   let sent = 0;
 
   try {
-    await page.goto(`${cfg.gsc.baseUrl}/index?resource_id=${encodeURIComponent(cfg.gsc.property)}`, {
+    await page.goto(`${cfg.gsc.baseUrl}/index?resource_id=${encodeURIComponent(GSC_PROPERTY)}`, {
       waitUntil: "domcontentloaded",
       timeout: cfg.browser.timeoutMs,
     });
@@ -291,14 +291,14 @@ async function main() {
       result.status = "not-signed-in";
       throw Object.assign(new Error("not-signed-in"), { handled: true });
     }
-    await assertGscProperty(page, cfg).catch(async (e) => {
-      await dumpFailure(page, cfg, runId, { step: "assert-property", expected: [cfg.gsc.property], message: e.message });
+    await assertGscProperty(page).catch(async (e) => {
+      await dumpFailure(page, cfg, runId, { step: "assert-property", expected: [GSC_PROPERTY], message: e.message });
       result.status = "property-mismatch";
       throw Object.assign(e, { handled: true });
     });
 
     for (const slug of slugs) {
-      const target = `${SITE}${slug}`;
+      const target = `${SITE_ORIGIN}${slug}`;
       const item = { slug, url: target, inspected: null, request: null };
       const reached = await inspectViaSearchBar(page, cfg, target);
       item.reachedVerdict = reached;

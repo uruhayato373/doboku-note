@@ -13,8 +13,12 @@
  *   散らばる。**退役ハンドルを名前で禁止**するのが唯一の確実な止め方。
  *
  * 検査:
- *   追跡下のテキストに退役ハンドルが現れたら NG。過去の計測ログなど、
- *   歴史記録として残すべき場所は allowlist に理由付きで載せる。
+ *   (1) 追跡下のテキストに退役ハンドルが現れたら NG。過去の計測ログなど、
+ *       歴史記録として残すべき場所は allowlist に理由付きで載せる。
+ *   (2) コードが現行の識別子（サイトの origin・note のクリエイター・GSC のプロパティ・R2 のホスト・X/IG のハンドル）を
+ *       定数として再宣言していたら NG。退役ハンドルを名前で禁止するのは後追いなので、現行の値を
+ *       1 か所（src/config/site-identity.mjs・scripts/lib/site-identity.mjs）に寄せ、書き写しを止める。
+ *       判定は scripts/lib/identity-literals.mjs（記事 1 本分の URL のようなデータは止めない）。
  *
  * 使い方:
  *   node scripts/check-dead-handles.mjs            # 全件
@@ -24,6 +28,7 @@
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { execSync, execFileSync } from 'node:child_process';
+import { findIdentityLiterals, isIdentityScanTarget } from './lib/identity-literals.mjs';
 
 const STAGED = process.argv.includes('--staged');
 
@@ -64,12 +69,12 @@ if (STAGED) {
   files = execFileSync(
     'git',
     ['-c', 'core.quotepath=false',
-      'ls-files', '--', '*.md', '*.mdx', '*.json', '*.mjs', '*.js', '*.ts', '*.tsx', '*.txt', '*.yml', '*.yaml', '*.sh'],
+      'ls-files', '--', '*.md', '*.mdx', '*.json', '*.mjs', '*.cjs', '*.js', '*.ts', '*.mts', '*.tsx', '*.txt', '*.yml', '*.yaml', '*.sh'],
     { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 },
   ).split('\n').filter(Boolean);
 }
 // バイナリ・巨大ファイルは除く
-files = files.filter((f) => /\.(md|mdx|json|mjs|js|ts|tsx|txt|ya?ml|sh)$/.test(f));
+files = files.filter((f) => /\.(md|mdx|json|mjs|cjs|js|ts|mts|tsx|txt|ya?ml|sh)$/.test(f));
 
 if (!STAGED && files.length === 0) {
   console.error('[check-dead-handles] NG: 走査対象が 0 ファイル（検査不成立）');
@@ -77,10 +82,16 @@ if (!STAGED && files.length === 0) {
 }
 
 const hits = [];
+const redeclared = [];
+let identityScanned = 0;
 for (const f of files) {
-  if (isAllowed(f)) continue;
   let src;
   try { src = readFileSync(f, 'utf8'); } catch { continue; }
+  if (isIdentityScanTarget(f)) {
+    identityScanned += 1;
+    for (const h of findIdentityLiterals(src)) redeclared.push({ file: f, ...h });
+  }
+  if (isAllowed(f)) continue;
   for (const d of DEAD) {
     d.pattern.lastIndex = 0;
     if (!d.pattern.test(src)) continue;
@@ -90,11 +101,24 @@ for (const f of files) {
 }
 
 console.log(`[check-dead-handles] ${files.length} ファイルを実検査（退役ハンドル ${DEAD.length} 種 / allowlist ${ALLOW.length} 種）`);
+console.log(`[check-dead-handles] うちコード ${identityScanned} ファイルで現行の識別子の再宣言を検査`);
+
+// 全件実行でコードが 1 件も走査されないのは、検査が動いていないだけ（緑にしない）
+if (!STAGED && identityScanned === 0) {
+  console.error('[check-dead-handles] NG: 識別子の再宣言の走査対象が 0 ファイル（検査不成立）');
+  process.exit(1);
+}
 
 if (hits.length) {
   console.error(`[check-dead-handles] NG: 退役ハンドルへの参照 ${hits.length} 件`);
   for (const h of hits) console.error(`  ${h.file}:${h.line}  ${h.why} → ${h.use} を使う`);
   console.error('\n  歴史記録として残す必要があるなら、check-dead-handles.mjs の ALLOW に理由付きで追加する。');
-  process.exit(1);
 }
-console.log('[check-dead-handles] ✓ 退役ハンドルへの参照なし');
+if (redeclared.length) {
+  console.error(`[check-dead-handles] NG: 現行の識別子の再宣言 ${redeclared.length} 件`);
+  for (const h of redeclared) console.error(`  ${h.file}:${h.line}  ${h.text}  → ${h.use} を import する`);
+  console.error('\n  サイト・アカウントの識別子は定義 1 か所から import する（書き写すと値が動いたとき直し漏れる）。');
+  console.error('  記事 1 本分の URL のようなデータは止めない。意図して書く行は行末に `// identity-literal-ok: 理由`。');
+}
+if (hits.length || redeclared.length) process.exit(1);
+console.log('[check-dead-handles] ✓ 退役ハンドルへの参照なし・識別子の再宣言なし');

@@ -31,6 +31,8 @@ import { spawnSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, metaHash, titleHash, TITLE_LIVE_MISMATCH, loadState, saveState } from './lib/note-republish-hash.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
+import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const args = process.argv.slice(2);
 const COMMIT = args.includes('--commit');
@@ -39,9 +41,7 @@ const JSON_OUT = args.includes('--json');
 const FILTER = args.includes('--filter') ? args[args.indexOf('--filter') + 1] : null;
 const ROOT = 'content/note';
 const SOT = 'src/lib/note-magazines.ts';
-const CREATOR = 'dobokunote';
 const THROTTLE_MS = 250;
-const MAX_FETCH_FAIL_RATE = 0.2;
 
 function walk(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -199,7 +199,7 @@ if (!FILTER) {
 if (COMMIT) { st.updatedAt = todayJst(); saveState(st); }
 
 const inspected = r.checked - r.fetchFail;
-const notConclusive = (r.checked > 0 && r.fetchFail / r.checked > MAX_FETCH_FAIL_RATE) || !magFetchOk;
+const notConclusive = fetchFailDominant(r.fetchFail, r.checked) || !magFetchOk;
 if (JSON_OUT) {
   writeSync(1, JSON.stringify({ mode: ADOPT_LIVE ? 'adopt-live' : 'source-wins', articles: { ...r, inspected }, magazines: { ...mags, fetched: magFetchOk }, notConclusive }, null, 2) + '\n');
 } else {

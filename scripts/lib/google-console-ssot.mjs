@@ -2,7 +2,7 @@
  * google-console-ssot.mjs — GSC/GA4 UI CSV から得た情報の **追跡される SSOT**
  * ---------------------------------------------------------------------------
  * なぜ必要か（2026-07-30 新設）: これまで正規化結果は run ディレクトリ配下
- * （当時の `data/metrics/gsc-ui/<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
+ * （当時の GSC 画面取得フォルダの `<runId>/normalized/`）にだけ書かれ、そこは gitignore だった。
  * raw CSV は再取得しかできない（＝再生成不可能）ため、worktree を捨てた時点で **URL レベルの情報が
  * 消え**、`report-search-growth` も「前回比」を出せず、別マシンでは診断そのものが再現できなかった。
  * 実際 2026-07-23 の run（1,952 行）は run ディレクトリごと消えて last-run.json だけが残っていた。
@@ -18,10 +18,13 @@
  *
  * lean 射影の理由: 正規化 JSON の `rows[].raw` は CSV 全列の複製で、URL と lastCrawled から
  * 復元できる。追跡サイズを抑えるため raw を落とし、突合に必要な列だけを残す。
+ * comparisonKey も url から導けて読み手がいない（差分は toComparisonKey(url) で数える）ので持たない（2026-10）。
  * rejects は件数が小さく「取りこぼしの証拠」なので残す。
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { datasetDir, datasetPath } from "./datasets.mjs";
+import { toComparisonKey } from "./url-normalization.mjs";
 
 // 既定は追跡される記録のルート（data）。テスト時のみ差し替える（本番パスを汚さずに配線を検証するため）。
 const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
@@ -30,21 +33,24 @@ const ROOT_DIR = process.env.GOOGLE_CONSOLE_SSOT_ROOT || "data";
 export function ssotDir(channel) {
   return join(ROOT_DIR, channel.replace(/-ui$/, ""));
 }
+/** チャネルの記録の位置（台帳の id「取得元.ui-…」のパスを、置き場の根 ROOT_DIR の下へ置き直す。テストは根だけ差し替える） */
+const sourceOf = (channel) => channel.replace(/-ui$/, "");
+const underRoot = (rel) => join(ROOT_DIR, rel.replace(/^data\//, ""));
 export function urlsPath(channel) {
-  return join(ssotDir(channel), "ui-urls.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-urls`));
 }
 export function diffDir(channel) {
-  return join(ssotDir(channel), "ui-diff");
+  return underRoot(datasetDir(`${sourceOf(channel)}.ui-diff`));
 }
 export function historyPath(channel) {
-  return join(ssotDir(channel), "ui-history.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-history`));
 }
 export function markerPath(channel) {
-  return join(ssotDir(channel), "ui-last-run.json");
+  return underRoot(datasetPath(`${sourceOf(channel)}.ui-last-run`));
 }
 /** 手元だけの生データ（run ごとの CSV・manifest・正規化結果） */
 export function rawDir(channel) {
-  return join(ssotDir(channel), "ui");
+  return underRoot(datasetDir(`${sourceOf(channel)}.ui-raw`));
 }
 /** SSOT が 1 つでもあるか（マーカーと別に「正規化したことがあるか」を判定する） */
 export function hasSsot(channel) {
@@ -69,7 +75,7 @@ export function unitKey(issue, scope) {
 /** 正規化 JSON → 追跡用の lean 射影（raw 列を落とす）。 */
 function leanRows(rows = []) {
   return rows.map((r) => {
-    const out = { url: r.url, comparisonKey: r.comparisonKey };
+    const out = { url: r.url };
     if (r.lastCrawled !== undefined) out.lastCrawled = r.lastCrawled ?? null;
     if (r.duplicateCount && r.duplicateCount > 1) out.duplicateCount = r.duplicateCount;
     return out;
@@ -94,10 +100,12 @@ export function writeUnitSsot(channel, { issue, scope, norm, collectedAt }) {
   const prev = readUnitSsot(channel, key);
   const rows = leanRows(norm.rows);
 
-  const prevKeys = new Set((prev?.rows ?? []).map((r) => r.comparisonKey));
-  const nextKeys = new Set(rows.map((r) => r.comparisonKey));
-  const added = rows.filter((r) => !prevKeys.has(r.comparisonKey)).map((r) => r.url);
-  const removed = (prev?.rows ?? []).filter((r) => !nextKeys.has(r.comparisonKey)).map((r) => r.url);
+  // 保存した行は comparisonKey を持たない（旧い行は持つ）。url から導く値と同じなので、どちらも同じ鍵になる
+  const keyOf = (r) => r.comparisonKey ?? toComparisonKey(r.url);
+  const prevKeys = new Set((prev?.rows ?? []).map(keyOf));
+  const nextKeys = new Set(rows.map(keyOf));
+  const added = rows.filter((r) => !prevKeys.has(keyOf(r))).map((r) => r.url);
+  const removed = (prev?.rows ?? []).filter((r) => !nextKeys.has(keyOf(r))).map((r) => r.url);
 
   const doc = {
     schemaVersion: 1,

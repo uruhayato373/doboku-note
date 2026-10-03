@@ -1,10 +1,15 @@
 import { DIRECTION, direction } from './business-direction.mjs';
 import { createHash, randomUUID } from 'node:crypto';
-import { appendFileSync, existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync, renameSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { addDays, calendarDate, getDateRange } from './gsc-date-range.mjs';
+import { jstDayOf } from './jst-date.mjs';
+import { readJson } from './json-io.mjs';
 import { INTENTS, SELECTION_ORDER, strategyErrors, seasonFor, compareCandidates, selectionKey } from './seo-watch-strategy.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
+import { GSC_PROPERTY, SITE_ORIGIN } from './site-identity.mjs';
+import { readDatasetIf } from './dataset-io.mjs';
+import { appendDataset } from './dataset-write.mjs';
 
 export class WatchError extends Error {}
 
@@ -23,7 +28,7 @@ export const LEDGER = datasetPath('business.experiments');
  * 行は {"recordId": "watch-<時刻>-<短い id>", ...中身}。参照は「ファイル#recordId」。書いた行は変えない（追記だけ）。
  */
 export const HISTORY = datasetDir('gsc.rank-watch');
-const monthFileOf = (recordId) => `${HISTORY}/${recordId.match(/-(\d{4}-\d{2})-\d{2}T/)[1]}.jsonl`;
+const monthOf = (recordId) => recordId.match(/-(\d{4}-\d{2})-\d{2}T/)[1];
 
 /** 記録を古い順に返す（prefix は watch- か run-）。返す各件は中身＋file（「ファイル#recordId」） */
 function readRecords(root, prefix) {
@@ -41,9 +46,7 @@ function readRecords(root, prefix) {
 }
 
 function appendRecord(root, recordId, data) {
-  const file = monthFileOf(recordId);
-  mkdirSync(join(root, HISTORY), { recursive: true });
-  appendFileSync(join(root, file), JSON.stringify({ recordId, ...data }) + '\n');
+  const { file } = appendDataset(root, 'gsc.rank-watch', { recordId, ...data }, { values: { month: monthOf(recordId) } }); // 型（RankWatch）を検査して追記
   return `${file}#${recordId}`;
 }
 
@@ -55,13 +58,13 @@ export function hasRecord(root, ref) {
 }
 export const KIND = 'seo-rank-watch';
 export const hash = (value) => createHash('sha256').update(value).digest('hex');
-export const readJson = (root, path) => JSON.parse(readFileSync(join(root, path), 'utf8'));
+export { readJson };
 export const scopeKey = (w) => hash(JSON.stringify([w.keyword, w.targetPath, w.country ?? null, w.device ?? null]));
 export const samePage = (a, b) => a.targetPath === b.targetPath || a.contentPath === b.contentPath;
-export const dateJst = (now = new Date()) => calendarDate(now, 'Asia/Tokyo');
+export const dateJst = (now = new Date()) => jstDayOf(now);
 
 export function validateConfig(config) {
-  if (config.version !== 1 || config.siteUrl !== 'sc-domain:doboku-note.com' || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
+  if (config.version !== 1 || config.siteUrl !== GSC_PROPERTY || !Array.isArray(config.watchwords)) throw new WatchError('Invalid watch config');
   const ids = new Set(), scopes = new Set();
   for (const w of config.watchwords) {
     if (!/^[a-z0-9-]+$/.test(w.id ?? '') || ids.has(w.id) || !w.keyword?.trim() || scopes.has(scopeKey(w))) throw new WatchError('Duplicate or invalid watchword');
@@ -112,10 +115,10 @@ export function validateSnapshot(snapshot) {
   if (snapshot.version !== 1 || !['measurement', 'review'].includes(snapshot.type) || snapshot.scopeKey !== scopeKey(snapshot.scope) || !Number.isFinite(Date.parse(snapshot.fetchedAt))) throw new WatchError('Invalid rank snapshot');
   for (const part of [snapshot.before, snapshot.after]) {
     if (!part?.window || part.window.startDate !== part.raw?.meta?.startDate || part.window.endDate !== part.raw?.meta?.endDate || JSON.stringify(part.metrics) !== JSON.stringify(aggregate(part.raw))) throw new WatchError('Rank aggregate does not match raw GSC data');
-    const expected = { query: snapshot.scope.keyword, page: `https://doboku-note.com${snapshot.scope.targetPath}` };
+    const expected = { query: snapshot.scope.keyword, page: `${SITE_ORIGIN}${snapshot.scope.targetPath}` };
     for (const key of ['country', 'device']) if (snapshot.scope[key]) expected[key] = snapshot.scope[key];
     const filters = part.raw.meta.filters ?? [];
-    if (part.raw.meta.siteUrl !== 'sc-domain:doboku-note.com' || part.raw.meta.type !== 'web' || JSON.stringify(part.raw.meta.dimensions) !== '["date"]' || filters.length !== Object.keys(expected).length || filters.some((f) => f.operator !== 'equals' || expected[f.dimension] !== f.expression)) throw new WatchError('Rank measurement scope does not match watchword');
+    if (part.raw.meta.siteUrl !== GSC_PROPERTY || part.raw.meta.type !== 'web' || JSON.stringify(part.raw.meta.dimensions) !== '["date"]' || filters.length !== Object.keys(expected).length || filters.some((f) => f.operator !== 'equals' || expected[f.dimension] !== f.expression)) throw new WatchError('Rank measurement scope does not match watchword');
   }
   if (snapshot.before.window.endDate >= snapshot.after.window.startDate) throw new WatchError('Comparison periods overlap');
   const duration = (w) => Date.parse(w.endDate) - Date.parse(w.startDate);
@@ -141,7 +144,7 @@ export function report(root, now = new Date()) {
   const config = readWatchConfig(root);
   const store = readJson(root, LEDGER);
   const snapshots = readMeasurements(root);
-  const calendar = existsSync(join(root, datasetPath('config.exam-calendar'))) ? readJson(root, datasetPath('config.exam-calendar')) : null;
+  const calendar = readDatasetIf(root, 'config.exam-calendar');
   const runs = readRuns(root);
   const recentActions = Object.fromEntries(config.strategy.focusQualifications.map((id) => [id, store.experiments.filter((e) => e.kind === KIND && config.watchwords.find((w) => w.id === e.watchId)?.qualification === id).flatMap((e) => e.actions ?? []).filter((a) => a.date >= addDays(dateJst(now), -27)).length]));
   const activeExperiments = store.experiments.filter((e) => ['running', 'measuring'].includes(e.status) || (e.kind === KIND && statusOf(e) === 'pending-deploy'));
@@ -264,7 +267,7 @@ export function recordAction(store, config, watch, action, measurement, now = ne
 export function markDeployed(exp, proof, now = new Date()) {
   if (statusOf(exp) !== 'pending-deploy') throw new WatchError('No pending action');
   if (proof.conclusion !== 'success' || proof.status !== 'completed' || proof.head_branch !== 'main' || proof.path !== '.github/workflows/cloudflare-deploy.yml' || !/^[a-f0-9]{40}$/.test(proof.head_sha ?? '') || !Number.isFinite(Date.parse(proof.updated_at)) || Date.parse(proof.updated_at) > now.getTime()) throw new WatchError('Successful main production deployment required');
-  if (calendarDate(new Date(proof.updated_at), 'Asia/Tokyo') < exp.actions.at(-1).date) throw new WatchError('Deployment predates the action');
+  if (jstDayOf(proof.updated_at) < exp.actions.at(-1).date) throw new WatchError('Deployment predates the action');
   exp.history.push({ date: dateJst(now), event: 'deployed', actionIndex: exp.actions.length - 1, deployedAt: proof.updated_at, commit: proof.head_sha, url: proof.html_url });
   exp.status = 'running'; exp.started_at = proof.updated_at; exp.reviewDays = 7;
   exp.next_check_date = nextReviewDate(proof.updated_at, 7);

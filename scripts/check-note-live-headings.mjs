@@ -35,6 +35,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, stripHtmlComments, findSplitBeforeCard, findLongHeadings, countSotLongHeadings } from './lib/note-live-check.mjs';
 import { bodyHash, canonBodyHash, loadState } from './lib/note-republish-hash.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rawArgs = process.argv.slice(2);
@@ -207,7 +208,7 @@ if (bad.length) {
 // 検査不成立を PASS にしない: 取得できていないなら「不整合なし」ではなく「検査できていない」。
 // （2026-07-28 まで、全件 FETCH_ERR でも「✓ 0 件検査・不整合なし」と出て緑になっていた）
 const failRate = targets.length ? errs.length / targets.length : 0;
-if (targets.length > 0 && failRate > 0.2) {
+if (fetchFailDominant(errs.length, targets.length)) {
   console.error(`\n[check-note-live-headings] ✗ 検査不成立: ${targets.length}本中${errs.length}本が取得失敗（${Math.round(failRate * 100)}%）`);
   console.error('  live を取得できていないため「不整合なし」は成立しない。curl が使えるか・プロキシ env・レート制限を確認する。');
   process.exit(1);

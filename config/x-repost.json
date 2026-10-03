@@ -1,9 +1,5 @@
 {
   "_comment": "x-repost（X 引用リポスト curation）の設定。queries/閾値/blocklist を編集してチューニングする。真実源: .claude/skills/social/x-repost/SKILL.md",
-  "ownHandle": "doboku373",
-  "_ownHandle_note": "★必須★ 自分の X ハンドル（@抜き）。自投稿のリポスト・自己引用を除外するために使う。未設定だと discover が警告して停止する。 ／ 2026-08-13: 旧 dobokunotecom は 2026-06-12 に凍結済み。現行は doboku373。",
-  "siteBase": "https://doboku-note.com",
-  "noteBase": "https://note.com/dobokunote",
   "maxPerRun": 3,
   "_maxPerRun_note": "1 回の exec で引用RPする最大件数（1日2-3件運用の上限）。",
   "minDelaySec": 45,
@@ -88,6 +84,5 @@
       "#施工管理技士"
     ]
   },
-  "_baseTags_note": "引用コメントに付けるなら試験別ベースタグ（x-post-policy §4 準拠）。引用RPはタグ無し〜2個までを推奨（タグ過多はスパム印象）。",
-  "_noteBase_note": "2026-08-13: 旧 note ハンドル（uruhayato 名義）は HTTP 404（実査）。現行は dobokunote。"
+  "_baseTags_note": "引用コメントに付けるなら試験別ベースタグ（x-post-policy §4 準拠）。引用RPはタグ無し〜2個までを推奨（タグ過多はスパム印象）。"
 }

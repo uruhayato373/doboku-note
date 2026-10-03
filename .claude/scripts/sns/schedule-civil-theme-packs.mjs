@@ -27,6 +27,7 @@ import { execSync } from 'node:child_process';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { jstDayOf } from '../../../scripts/lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const SKILL = '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts';
@@ -62,7 +63,7 @@ function buildPlan() {
   const dstr = (off, hh) => {
     const d = new Date(`${ANCHOR}T00:00:00+09:00`);
     d.setDate(d.getDate() + off);
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}T${hh}`;
+    return `${jstDayOf(d)}T${hh}`;
   };
   while (i2 < c2.length || i1 < c1.length) {
     if (i2 < c2.length) plan.push({ ...c2[i2++], when: dstr(day, SLOTS[0]) });
@@ -81,9 +82,8 @@ const isScheduled = (slug) => {
   catch { return false; }
 };
 
-/** JST の YYYY-MM-DD（UTC 実行の CI でも日付がずれないよう +9h してから切る）。 */
-const jstDay = (offsetDays = 0) =>
-  new Date(Date.now() + 9 * 3600_000 + offsetDays * 86400_000).toISOString().slice(0, 10);
+/** JST の YYYY-MM-DD（UTC 実行の CI でも日付がずれない・scripts/lib/jst-date.mjs）。 */
+const jstDay = (offsetDays = 0) => jstDayOf(Date.now() + offsetDays * 86400_000);
 
 /**
  * 未予約分の日時を「明日以降」へ詰め直す。
@@ -103,7 +103,7 @@ function rebaseToFuture(items) {
   return items.map((p, idx) => {
     const d = new Date(`${base}T00:00:00+09:00`);
     d.setDate(d.getDate() + Math.floor(idx / SLOTS.length));
-    const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const day = jstDayOf(d);
     return { ...p, when: `${day}T${SLOTS[idx % SLOTS.length]}` };
   });
 }

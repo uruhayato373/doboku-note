@@ -2,6 +2,8 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import RebarSpliceCheckClient from "./RebarSpliceCheckClient";
+import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -13,11 +15,11 @@ export const metadata: Metadata = {
     type: "website",
     title: "鉄筋継手 判定ツール｜ずらし量とガス圧接ふくらみ検査",
     description: "千鳥配置のずらし量と、ガス圧接のふくらみ検査基準への適合をその場で確認。",
-    url: "https://doboku-note.com/tools/rebar-splice-check",
+    url: `${SITE_ORIGIN}/tools/rebar-splice-check`,
     siteName: "doboku-note",
     images: [
       {
-        url: "https://doboku-note.com/images/og-default.png",
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "鉄筋継手 判定ツール — doboku-note",
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "鉄筋継手 判定ツール",
     description: "千鳥配置のずらし量とガス圧接ふくらみ検査基準を、その場で確認。",
-    images: ["https://doboku-note.com/images/og-default.png"],
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

@@ -40,6 +40,8 @@ import { promisify } from 'node:util';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
+import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -83,7 +85,7 @@ for (const abs of walkArticles(join(ROOT, 'content/note'))) {
   if (!/^noteUrl:\s*\S/m.test(fm) && !/noteStatus:.*publish/.test(fm)) continue;
   if (/^noteStatus:\s*reserved\b/m.test(fm)) { reserved++; continue; }
   const noteId = (fm.match(/noteId:\s*"?(n[0-9a-f]{12})"?/) || [])[1];
-  const url = (fm.match(/^noteUrl:\s*"?([^"\s]+)"?/m) || [])[1] || (noteId ? `https://note.com/dobokunote/n/${noteId}` : null);
+  const url = (fm.match(/^noteUrl:\s*"?([^"\s]+)"?/m) || [])[1] || (noteId ? `${NOTE_BASE}/n/${noteId}` : null);
   if (!noteId) continue;
   const pricing = frontmatterValue(raw, 'notePricing');
   const pdfs = expectedPdfs(abs, { root: ROOT }).length;
@@ -287,7 +289,7 @@ if (OUT) {
 
 const repLoads = reps.length * BP.note.viewports.length;
 const failRate = Math.max(apiFail / targets.length, viewTargets.length ? viewFail / viewTargets.length : 0, repLoads ? repFail / repLoads : 0, imgList.length ? imgUnknown / imgList.length : 0);
-if (failRate > 0.2) {
+if (failRate > MAX_FETCH_FAIL_RATE) {
   console.error(`[check-note-public-view] ✗ 検査不成立: 取得・表示の失敗が ${Math.round(failRate * 100)}%（API ${apiFail}/${targets.length}・ブラウザ ${viewFail}/${viewTargets.length}）`);
   process.exit(1);
 }

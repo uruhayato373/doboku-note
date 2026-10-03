@@ -18,13 +18,13 @@ domain: site
 
 ## 設定の真実源
 
-すべての運用パラメータは **`config/psi-config.json`** に集約:
+判定の設定は **`config/psi-config.json`**（読むのは `.claude/scripts/psi-threshold-check.mjs`）。対象・strategy・頻度は別の場所が持つ:
 
 | 項目 | 初期値 | 変更する時 |
 |---|---|---|
-| しきい値（Perf < 70・LCP > 2.5s 等） | 上記ファイル参照 | サイトの成長に応じて引き上げ |
+| しきい値（Perf < 70・LCP > 2.5s 等）・field の判定 | `config/psi-config.json` | サイトの成長に応じて引き上げ |
 | 計測対象 URL | `config/psi-urls.txt` | 新試験追加・テンプレ変更時 |
-| Strategy | `mobile` + `desktop` | モバイルのみに絞るなら mobile だけに |
+| Strategy | `mobile` + `desktop`（`package.json` の `fetch-psi-audit`） | モバイルのみに絞るなら mobile だけに |
 | 実行頻度 | 日次 JST 02:00（GitHub Actions） | `.github/workflows/psi-audit.yml` の cron |
 | 通知 | field 実害・取得失敗率20%超のときだけ CI を失敗。単発 lab 超過はレポートのみ（.claude/todo/ に手動起票） | 同 workflow の最終ステップ |
 

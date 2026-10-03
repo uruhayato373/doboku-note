@@ -2,14 +2,9 @@
  * auth CLI用のread-only account判定adapter。
  * アカウント値は既存configから読み、authenticatedは期待値を画面で確認できた場合だけ返す。
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { getServiceEntry } from './playwright-auth-profile.mjs';
-import { datasetPath } from './datasets.mjs';
-
-function readJson(repoRoot, relativePath) {
-  return JSON.parse(readFileSync(join(repoRoot, relativePath), 'utf8'));
-}
+import { GSC_PROPERTY, NOTE_CREATOR } from './site-identity.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 function baseAdapter(serviceId, options) {
   const entry = getServiceEntry(serviceId, { cwd: options.repoRoot });
@@ -32,10 +27,10 @@ export function loadAuthAdapter(serviceId, options) {
   const repoRoot = options.repoRoot;
   const adapter = baseAdapter(serviceId, options);
   if (serviceId === 'note') {
-    return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: ['dobokunote'] };
+    return { ...adapter, checkUrl: 'https://note.com/settings/account', expectedMarkers: [NOTE_CREATOR] };
   }
   if (serviceId === 'coconala') {
-    const account = readJson(repoRoot, datasetPath('config.coconala-account'));
+    const account = readDataset(repoRoot, 'config.coconala-account');
     return {
       ...adapter,
       checkUrl: 'https://coconala.com/mypage/services_lists',
@@ -43,7 +38,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'kdp') {
-    const memo = readJson(repoRoot, datasetPath('config.kdp-memo'));
+    const memo = readDataset(repoRoot, 'config.kdp-memo');
     const accountEmail = memo.defaults?.accountEmail;
     const checkUrl = 'https://kdpreports.amazon.co.jp/dashboard';
     if (!accountEmail) {
@@ -60,12 +55,12 @@ export function loadAuthAdapter(serviceId, options) {
     return { ...adapter, checkUrl, expectedMarkers: [accountEmail], missingAssertReason: null };
   }
   if (serviceId === 'x') {
-    const account = readJson(repoRoot, datasetPath('config.x-account'));
+    const account = readDataset(repoRoot, 'config.x-account');
     return { ...adapter, expectedMarkers: [`@${account.handle}`] };
   }
 
   if (serviceId === 'instagram') {
-    const account = readJson(repoRoot, datasetPath('config.ig-account'));
+    const account = readDataset(repoRoot, 'config.ig-account');
     // Business Suite のプランナーは本文にハンドル/ページ名を出さない（アカウント表示は img/aria）。
     // ログイン済みならプランナー URL に asset_id=<Doboku-note ページ ID> が付いてリダイレクトされるので、
     // それを account assert にする（2026-09-21 実測: 旧 marker では常に unknown だった）。
@@ -79,20 +74,20 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'google') {
-    const config = readJson(repoRoot, datasetPath('config.google-console-automation'));
-    const property = String(config.gsc?.property ?? '').replace(/^sc-domain:/, '');
+    const config = readDataset(repoRoot, 'config.google-console-automation');
+    const property = GSC_PROPERTY.replace(/^sc-domain:/, '');
     return {
       ...adapter,
       // 最後に開いたプロパティ（共用口座では stats47 など）に飛ぶので、resource_id を明示して doboku-note のプロパティを開く。
       // 2026-09-21: 明示しないと URL にも本文にも property が出ず authenticated なのに unknown になった。
-      checkUrl: `${config.gsc?.baseUrl ?? adapter.checkUrl}?resource_id=${encodeURIComponent(config.gsc?.property ?? '')}`,
+      checkUrl: `${config.gsc?.baseUrl ?? adapter.checkUrl}?resource_id=${encodeURIComponent(GSC_PROPERTY)}`,
       expectedMarkers: [property].filter(Boolean),
       // 未ログインの GSC は /login ではなく紹介ページ（/search-console/about）へ退避する。
       expiredPattern: /(?:\/search-console\/about|\/login|\/signin|ServiceLogin|InteractiveLogin)/i,
     };
   }
   if (serviceId === 'a8') {
-    const config = readJson(repoRoot, datasetPath('config.a8-report-automation'));
+    const config = readDataset(repoRoot, 'config.a8-report-automation');
     return {
       ...adapter,
       checkUrl: `${config.a8.baseUrl}${config.a8.homePath}`,
@@ -100,7 +95,7 @@ export function loadAuthAdapter(serviceId, options) {
     };
   }
   if (serviceId === 'moshimo' || serviceId === 'afb') {
-    const root = readJson(repoRoot, datasetPath('config.affiliate-asp'));
+    const root = readDataset(repoRoot, 'config.affiliate-asp');
     const asp = root.asps?.[serviceId];
     if (serviceId === 'afb') {
       // 2026-09-21: export（同一プロセスで login→state 取得）を成立させるため supported に。

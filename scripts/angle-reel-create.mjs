@@ -26,6 +26,7 @@ import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
+import { IG_HANDLE } from './lib/site-identity.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const IG = join(ROOT, 'content/sns/instagram');
@@ -103,7 +104,7 @@ function hookLayout(s, angle) {
     lead: bLead.svg,
     anchor: anchor ? `<text x="${W - 30}" y="1520" font-family="Noto Sans JP" font-weight="700" font-size="920" fill="${C.navyDeep}" text-anchor="end" opacity="0.55">${esc(anchor)}</text>` : '',
     punch: bPunch.svg + `<rect x="240" y="${underlineY}" width="600" height="12" rx="6" fill="${C.accent}" opacity="0.85"/>` + (sub ? block({ ls: lines(sub, 46, 940), y: underlineY + 100, fontSize: 46, lh: 64, fill: C.sub }).svg : ''),
-    handle: `<text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.sub}" text-anchor="middle">@dobokunotecom</text>`,
+    handle: `<text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.sub}" text-anchor="middle">@${IG_HANDLE}</text>`,
   };
 }
 const wrapSvg = (inner, transparent = false) => `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${inner}</svg>`;
@@ -131,7 +132,7 @@ function svgPoint(s) {
   ${labelSvg}
   ${bBig.svg}
   ${bBody.svg}
-  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="34" fill="${C.subDark}" text-anchor="middle">@dobokunotecom</text>
+  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="34" fill="${C.subDark}" text-anchor="middle">@${IG_HANDLE}</text>
 </svg>`;
 }
 
@@ -147,7 +148,7 @@ function svgCta(s) {
   ${b.svg}
   <rect x="${W / 2 - 230}" y="${btnY}" width="460" height="104" rx="52" fill="${C.white}"/>
   <text x="${W / 2}" y="${btnY + 68}" font-family="Noto Sans JP" font-weight="700" font-size="46" fill="${C.brand}" text-anchor="middle">＋ フォロー</text>
-  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.white}" text-anchor="middle">@dobokunotecom</text>
+  <text x="${W / 2}" y="1810" font-family="Noto Sans JP" font-weight="700" font-size="36" fill="${C.white}" text-anchor="middle">@${IG_HANDLE}</text>
 </svg>`;
 }
 

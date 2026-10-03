@@ -12,13 +12,13 @@ import {
   datasetById,
   fileDoc,
   inferShape,
-  jsonSchemaOf,
   listAreaFiles,
   matchFiles,
   schemaRows,
-  validateFiles,
 } from '../../../../scripts/lib/datasets.mjs';
+import { jsonSchemaOf, validateFiles } from '../../../../scripts/lib/dataset-validate.mjs';
 import { findRepoRoot } from './repo-root';
+import { jstDayOf } from '../../../../scripts/lib/jst-date.mjs';
 
 /**
  * stores.ts — 管理画面 管理＞設定／データ（/ops/store）の表示モデル（read-only）。
@@ -32,7 +32,8 @@ export type StoreArea = keyof typeof AREAS;
 export const STORE_AREAS = Object.keys(AREAS) as StoreArea[];
 export const isStoreArea = (v: string | undefined): v is StoreArea => !!v && v in AREAS;
 
-type Dataset = (typeof DATASETS)[number] & { immutable?: boolean; local?: boolean; planned?: boolean; schema?: unknown };
+type Freshness = { warnDays?: number; failDays?: number };
+type Dataset = (typeof DATASETS)[number] & { immutable?: boolean; local?: boolean; planned?: boolean; schema?: unknown; freshness?: Freshness };
 type Shape = { format: string; summary: string; rows: { path: string; type: string }[]; doc: string | null; error?: string };
 
 export type StoreNavItem = { id: string; label: string };
@@ -91,7 +92,10 @@ export interface StoreView {
   error: string | null;
 }
 
-const day = (ms: number) => new Date(ms).toLocaleDateString('sv-SE', { timeZone: 'Asia/Tokyo' });
+const day = (ms: number) => jstDayOf(ms);
+/** 鮮度の閾値の表示（台帳の freshness。何日古いと注意・失敗か） */
+const freshnessLabel = (f: Freshness) =>
+  `鮮度: ${[f.warnDays != null && `${f.warnDays} 日で注意`, f.failDays != null && `${f.failDays} 日で失敗`].filter(Boolean).join('・')}`;
 const sizeOf = (n: number) => (n >= 1024 * 1024 ? `${(n / 1024 / 1024).toFixed(1)}MB` : n >= 1024 ? `${Math.round(n / 1024)}KB` : `${n}B`);
 const stat = (root: string, p: string) => {
   try {
@@ -186,7 +190,7 @@ export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: st
         doc: hit.doc,
         kind: KINDS[hit.kind as keyof typeof KINDS] ?? hit.kind,
         domain: hit.domain,
-        flags: [hit.immutable && '中身を変えない', hit.local && '手元だけ（git 管理外）', hit.planned && '未着手（ファイルなし）'].filter(Boolean) as string[],
+        flags: [hit.immutable && '中身を変えない', hit.local && '手元だけ（git 管理外）', hit.planned && '未着手（ファイルなし）', hit.freshness && freshnessLabel(hit.freshness)].filter(Boolean) as string[],
         fileDoc: doc,
         schema: checked ? { rows: schemaRows(jsonSchemaOf(hit)), ...checked } : null,
         shape: !hit.schema && list[0] ? (inferShape(root, list[0]) as Shape) : null,

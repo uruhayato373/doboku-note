@@ -57,7 +57,7 @@ _minpo_*.png
 content/sources/textbook/**/*.pdf
 content/sources/textbook/**/*.PDF
 # 公式過去問の原本 PDF（content/sources/past-exams）— 実体は Google Drive vault の past-exam-source-pdf group。
-# 在庫は config/past-exam-inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
+# 在庫は data/pastexams/inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
 content/sources/past-exams/**/*.pdf
 content/sources/past-exams/**/*.PDF
 # PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。
@@ -144,7 +144,7 @@ public/posts
 # 真実源 → scripts/lib/google-console-ssot.mjs
 data/gsc/ui/
 data/ga4/ui/
-# A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json / a8-results.json が
+# A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json が
 # 追跡対象の SSOT で、raw は再取得可能。直下の last-run.json は取得マーカーとして追跡する。
 data/a8/ui/
 # 突合レポートの run 単位 JSON（regenerable）。latest.md は残す。

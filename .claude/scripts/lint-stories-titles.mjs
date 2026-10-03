@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * lint-stories-titles.mjs — Stories/過去問パック title 字数 lint
  *

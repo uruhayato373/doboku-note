@@ -32,6 +32,7 @@ import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows } from './lib/note-traffic-normalize.mjs';
+import { jstClock } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -51,7 +52,7 @@ if (CHECK) {
   process.exit(ok ? 0 : 1);
 }
 
-const jstNow = new Date(Date.now() + 9 * 3600 * 1000);
+const jstNow = jstClock();
 const thisMonth = `${jstNow.getUTCFullYear()}-${String(jstNow.getUTCMonth() + 1).padStart(2, '0')}`;
 const prev = new Date(Date.UTC(jstNow.getUTCFullYear(), jstNow.getUTCMonth() - 1, 1));
 const lastMonth = `${prev.getUTCFullYear()}-${String(prev.getUTCMonth() + 1).padStart(2, '0')}`;
@@ -102,7 +103,8 @@ try {
   // 2. 対象月の内訳・集計・記事一覧（「今月」/「先月」）
   await selectPeriod(periodLabel);
   // 記事一覧を PV 順にして全件展開（「もっとみる」を押し切る）
-  try { await selectByOption('公開日順', 'ページビュー順'); } catch (e) { console.log(`[warn] 並び順の <select> が無い（${e.message}）。公開日順のまま取得する`); }
+  let sortedBy = 'pageViews';
+  try { await selectByOption('公開日順', 'ページビュー順'); } catch (e) { sortedBy = 'publishedAt'; console.log(`[warn] 並び順の <select> が無い（${e.message}）。公開日順のまま取得する`); }
   for (let i = 0; i < 40; i++) {
     const more = page.getByRole('button', { name: 'もっとみる' }).first();
     if (!(await more.count()) || !(await more.isVisible().catch(() => false))) break;
@@ -130,7 +132,7 @@ try {
     for (const p of [refPath, artPath]) mkdirSync(dirname(join(ROOT, p)), { recursive: true });
     const fetchedAt = new Date().toISOString();
     const ref = { schemaVersion: 1, month: MONTH, fetchedAt, source: 'note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）', period, monthly: series.months, targetMonth: monthRow, pie, summary };
-    const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy: 'pageViews', count: rows.length, rows };
+    const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy, count: rows.length, rows };
     writeFileSync(join(ROOT, refPath), JSON.stringify(ref, null, 2) + '\n');
     writeFileSync(join(ROOT, artPath), JSON.stringify(art, null, 2) + '\n');
     console.log(`[write] ${refPath} / ${artPath}（記事 ${rows.length} 件）`);

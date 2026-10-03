@@ -44,6 +44,12 @@ GitHub Actions の **scheduled（cron）workflow はデフォルトブランチ 
 
 ---
 
+## 依存ゼロのワークフローは npm パッケージを（間接にも）読めない
+`indexnow-submit.yml`・`ops-audit.yml`・`gsc-auto-review.yml` は npm ci をしない（依存ゼロの前提）。2026-10-02 に台帳 `scripts/lib/datasets.mjs` が型のため zod を import し、台帳からパスを引くだけのスクリプトまで zod に依存した結果、indexnow-submit がデプロイのたびに `ERR_MODULE_NOT_FOUND` で落ちた（4 回。ops-audit は同日夜の実行で落ちるところだった）。
+- **原因**: 200 近いファイルが読む lib に依存を足したとき、依存ゼロの呼び出し元を確かめなかった。自分の手の走査も YAML のコメント「npm ci しない」を「npm ci する」と誤って数えて見逃した
+- **対策**: 台帳は依存ゼロ（型は名前で指し、検査は `scripts/lib/dataset-validate.mjs`）。`tests/workflow-zero-dependency.test.mjs` が YAML を解析し、npm ci 前に node で実行するスクリプトの import をたどって npm パッケージに届けば落とす
+- **教訓**: 広く読まれる lib に import を足す前に、その lib を読むワークフローが依存を入れているかを見る。scheduled の YAML は main で動くので、直しても deploy まで本番の失敗は続く
+
 ## 素の npm ci は ERESOLVE（.npmrc で解消済み）
 
 素の `npm ci` を実行すると ERESOLVE で失敗する。eslint@^10 と eslint-plugin-react@7.37.5（peer は eslint ^9.7 まで）が衝突するため。CI の workflow はすべて `npm ci --legacy-peer-deps` を明示している。
