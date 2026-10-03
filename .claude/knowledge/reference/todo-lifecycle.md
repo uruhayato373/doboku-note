@@ -23,7 +23,7 @@ frontmatter は taskId / type: implementation-plan / createdAt / deleteOnComplet
 - `npm run todo:complete -- DN-#### --confirm-conditions --commit [--verify "..."]`。dry-run が既定
 - 削除前の検査 `doc-refs`: `docs/` の live 文書（週次スナップショット除く）がその ID を参照していたら止める。閉じると `check-project-task-refs` の dangling-id で CI が赤くなるため、参照を完了扱いへ書き換えてから閉じる
 - 一括で閉じるもの: backlog カード削除・monthly/weekly 行削除・claims 解除・dispatch-log 追記（id/at/task/tier/executor/outcome/plan/commit/verification）・事後検査（schema+task-plan-links+dispatch-log）
-- plan unit が残っていれば WARN（受入条件確認のうえ手で削除。自動削除しない）
+- plan unit は自動削除しない。受入条件を確認して手で削除し、`check-backlog-schema`・`check-task-plan-links`・`check-dispatch-log`をすべて通して完了とする。planを残した`todo:complete`は事後検査のorphan-planでexit 1になるため、plan削除を`&&`で後続に置かず、別の操作で行う。
 - **どれか1つでも失敗したらカードと plan を保持し、完了扱いにしない**
 
 ## dispatch-log

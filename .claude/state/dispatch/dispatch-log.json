@@ -1843,6 +1843,18 @@
       "commit": "3eed16f5dca7",
       "verification": "本番対象96/96 PASS。check-production-ssr 2/2 exit 0。R2画像50/50は採用manifestのbyte length・SHA256に一致。check-magazine-cta:ci 実検査1184/1184、未説明の導線ゼロ0。CI E2E 130 passed / 22 skipped、quality/build・Lighthouse成功。",
       "note": "PR #854 merged、deploy 37098276124 success（46cd17e1a502）。価格なし既存画像の目視、明暗・モバイル・記事中央/末尾の配置を確認。公開4週間後の上下水道効果測定を DN-0521 に抽出。受入条件を満たしたplanを削除。"
+    },
+    {
+      "id": "DN-0522",
+      "at": "2026-10-03",
+      "task": "収益導線レポートが旧URLだけを集計し、改善候補から現行ページを落とす不具合を直す",
+      "tier": "mid",
+      "executor": "codex-cta-measure-loop",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0522-cta-measure-loop.md",
+      "commit": "755094da648b",
+      "verification": "16 regression tests passed; review wiring 54 inputs; growth digest reads regenerated coverage; CI audit and build passed",
+      "note": "PR #856 merged; canonical traffic and same-window sales review repaired"
     }
   ]
 }
