@@ -924,12 +924,11 @@ function resolvePlacementRaw(
     return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
   }
 
-  // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
-  // 上位版 persona-pack ではなく入口を置くのは 9 と同じラダー方針。
-  // テーマ接続: 小論文の 4 テーマは 品質管理／耐久性／環境配慮／施工トラブル。
-  //   - textbook-production-qc（製造・品質管理／検査）→「品質管理」に直結
-  //   - primary-construction（過去問 施工）→「施工トラブル」に接続
-  //   - textbook-mix-design（配合設計）→「耐久性」（W/C 比・かぶり）経由の接続で、上 2 つより弱い
+  // コンクリート主任技士 テキスト/過去問 → 小論文 全40答案（cce-essay-reiwa-pack）。
+  // 立場別5テーマ（8誌）は読者の立場がページから決まらないため、全40答案の誌面と guide-essay で案内する。
+  // テーマ接続（令和形式の5テーマ）:
+  //   - textbook-production-qc（製造・品質管理／検査）→「生産性向上・DX」「担い手不足と品質確保」に接続
+  //   - primary-construction（過去問 施工）→「気候変動と品質確保」（暑中・寒中）に接続
   if (
     slug === 'concrete-chief-engineer-textbook-production-qc' ||
     slug === 'concrete-chief-engineer-primary-construction'

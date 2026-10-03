@@ -4,7 +4,7 @@ description: >
   note 有料マガジンを `note掲載文.txt` 駆動で新規作成する（/magazines/new・有料単体）。`note-edit-magazine`（編集専用）が扱わない「新規作成」を担う。Use when user says [noteマガジン作成, note有料マガジンを作る, /note-magazine-create].
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dir <magazineDir> [--commit]"
+argument-hint: "--dir <magazineDir> [--commit] [--allow-duplicate]"
 domain: product
 ---
 

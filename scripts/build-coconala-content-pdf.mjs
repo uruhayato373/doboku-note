@@ -199,7 +199,8 @@ const PRODUCTS = {
     ],
   },
   // K1（主任技士 小論文 旧版）は 2026-10-01 に原稿ごと退役（DN-0461）。ココナラ出品も retired。
-  // K3: コンクリート主任技士 完全パック（令和形式の小論文6冊＋択一直前パック3冊）。note cce-essay-reiwa-pack＋cce-takuitsu-chokuzen-pack と同内容。
+  // K3: コンクリート主任技士 完全パック（令和形式の小論文6冊＋択一直前パック3冊）。小論文はテーマ別5冊（1冊に8立場）で、
+  // 2026-10-03 に note の全40答案（1立場1本）と別構成になった（価格の見直しは DN-0526）。
   K3: {
     label: 'coconala-cce-full-pdf',
     noteRelative: true,

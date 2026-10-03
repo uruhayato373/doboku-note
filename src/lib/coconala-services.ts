@@ -832,7 +832,7 @@ const SERVICES_RAW = {
   // ---- コンクリート主任技士 完全パック PDF（2026-09-30 下書き）----
   // ココナラの主任技士は「添削＋完全パック」の2件に絞る（2026-09-30 運営者判断）。単品 PDF（小論文・択一）は販売0のまま retired。
   // 中身は令和形式の小論文6冊＋択一直前パック3冊。旧形式（序論本論結論型）の小論文5冊は形式が古いので入れない。
-  // note の cce-essay-reiwa-pack（¥3,980）＋cce-takuitsu-chokuzen-pack（¥2,980）＝¥6,960 ×1.1 を ¥500 刻みで切り上げ。
+  // ¥8,000 は note 旧価格（cce-essay-reiwa-pack ¥3,980＋cce-takuitsu-chokuzen-pack ¥2,980＝¥6,960）×1.1 を ¥500 刻みで切り上げた値。
   // 出品は運営者が本文を確認してから（公開は取り消せない）。
   'coconala-cce-full-pdf': {
     id: 'coconala-cce-full-pdf',

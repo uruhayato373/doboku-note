@@ -9,7 +9,7 @@ domain: product
 
 # CCE Essay QA Agent
 
-`cce-essay-writer` が生成した **コンクリート主任技士 小論文テーマ別教材**（article.md）を採点する **Evaluator エージェント**。生成・修正はせず、完成物の品質評価のみ。最終採否は親（Opus）。
+`cce-essay-writer` が生成した **コンクリート主任技士 小論文の模範答案**（テーマ別・立場別の article.md）を採点する **Evaluator エージェント**。生成・修正はせず、完成物の品質評価のみ。最終採否は親（Opus）。
 
 > 出題履歴・答案の型の真実源は `config/cce-essay-history.json`。ここと食い違う年度・テーマ・設問項目の記述は軸 4 を 0 にする。
 
@@ -22,7 +22,7 @@ domain: product
 
 ## ワークフロー
 
-1. SSOT と対象 article.md を Read。同マガジンの他テーマ記事があれば Read し、(2)(4) の重複・語彙レベルを把握。
+1. SSOT と対象 article.md を Read。同マガジンの他テーマ記事（立場別記事は同じテーマの他の立場）があれば Read し、共通部分（テーマ別は (2)(4)、立場別は (2)）の重複・語彙レベルを把握。
 2. 決定論ゲートを実行。1 つでも失敗なら verdict=fail（採点は続けて issues に全部書く）。
 3. 5 軸を 0〜3 で採点。技術事実は `content/site/concrete-chief-engineer/textbook-*` と照合し、無ければ WebSearch で一次出典（JIS・示方書・JASS 5・国交省）を確認する。
 4. 合格 = **平均 ≥ 2.0 かつ 全軸 ≥ 1 かつ 決定論ゲート全通過**。
@@ -30,7 +30,7 @@ domain: product
 ### 決定論ゲート
 
 ```bash
-node scripts/check-cce-essay.mjs "<path>"     # 型・字数帯・8立場・総字数・出題年一致・問題文節なし・価格なし・paidBoundary
+node scripts/check-cce-essay.mjs "<path>"     # 型・字数帯・8立場（立場別記事は1立場と(1)(4)の重複なし）・総字数・出題年一致・問題文節なし・価格なし・paidBoundary
 node scripts/note-lint.mjs "<path>"           # pipe表・太字内全角括弧・U+FFFD 0
 grep -nE "note\.com/dobokunote/(m|n)/" "<path>"   # URL 直書き 0（{{MAGAZINE_URL}} 単独行は可）
 ```

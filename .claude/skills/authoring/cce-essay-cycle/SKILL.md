@@ -33,7 +33,7 @@ domain: product
 
 1. 出題を 2 出典以上で確認する（JCI は問題文を公開しない。書籍・合格者記事を突合）。主担当が原文を読んでから書く（サブエージェントの要約を正本へそのまま入れない）。
 2. SSOT の `years` 先頭に追記（`options[].theme` を `themes` の id へ対応づけ、`items`・`confidence`・`sources` を必ず付ける）。新しいテーマ系統なら `themes` に追加し、商品の要否を判断する。
-3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（テーマ別記事の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
+3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（立場別記事40本の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
 4. サイトは `npm run refresh-indexes`、note は再同期（note-sync）。
 
 ### draft — 模範答案を作る
@@ -46,8 +46,8 @@ domain: product
 
 1. `magazine-pdf-builder` で PDF 化（`/magazine-to-pdf`）。
 2. `note-magazines.ts` に SoT を追加（`published: false` のまま）、`magazine-placement.ts` の `concrete-chief-engineer-guide-essay` を新商品へ。
-3. ココナラは `coconala-services.ts` に `status: 'draft'` で登録（PDF は note 価格×1.1）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
-4. 旧商品（序論本論結論型）は販売履歴があるため非公開にしない。案内文を追記して導線だけ切り替える。
+3. ココナラは `coconala-services.ts` に `status: 'draft'` で登録（PDF は note 価格×1.1。note に同じ中身が無い PDF は `notePriceExempt` に理由を書く＝K3 が該当）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
+4. 商品の組み替えで旧版を note から削除するときは、販売記録（`data/note/sales.json`）で0件を確かめてから行い、原稿は `content/sources/cce-persona-essays/` へ移す（2026-10-01 序論本論結論型・2026-10-03 テーマ別5本）。
 
 ## 担当外
 

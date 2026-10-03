@@ -109,5 +109,5 @@ if (essays + blocks === 0) {
   console.log(`[check-cce-essay] 対象 0 件（${mode}・cceEssayTheme 記事も出題履歴ブロックも無い）— 検査していない`);
   process.exit(mode === '全件' ? 2 : 0);
 }
-console.log(`[check-cce-essay] ${violations ? '✗' : '✓'} ${mode}: テーマ別教材 ${essays} 件・出題履歴ブロック ${blocks} 件を実検査 / 違反 ${violations} 件`);
+console.log(`[check-cce-essay] ${violations ? '✗' : '✓'} ${mode}: 小論文教材 ${essays} 件・出題履歴ブロック ${blocks} 件を実検査 / 違反 ${violations} 件`);
 process.exitCode = violations ? 1 : 0;

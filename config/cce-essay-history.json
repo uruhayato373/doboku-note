@@ -195,7 +195,7 @@
     }
   ],
   "answerModel": {
-    "_doc": "note 小論文テーマ別記事の模範答案の型（R2〜R7 の設問構成を束ねた共通形）。check-cce-essay がこの字数帯で検査する。",
+    "_doc": "note 小論文の模範答案（テーマ別記事・立場別記事）の型（R2〜R7 の設問構成を束ねた共通形）。check-cce-essay がこの字数帯で検査する。",
     "parts": [
       { "key": "title", "heading": "(1) 表題", "chars": [10, 60], "scope": "common" },
       { "key": "situation", "heading": "(2) 現状と課題", "chars": [250, 380], "scope": "common" },

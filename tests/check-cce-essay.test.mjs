@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { evaluateCceEssay, extractAnswerParts, findSharedPersonaParts, yearsForTheme, renderHistory, extractHistoryBlock, extractHistoryBlocks, syncHistoryBlock } from '../scripts/lib/cce-essay.mjs';
 
 /**
- * コンクリート主任技士 小論文 テーマ別教材の型（SSOT answerModel）と出題履歴ブロックの同期を固定する。
+ * コンクリート主任技士 小論文の模範答案（テーマ別・立場別）の型（SSOT answerModel）と出題履歴ブロックの同期を固定する。
  */
 const history = JSON.parse(readFileSync(new URL('../config/cce-essay-history.json', import.meta.url), 'utf8'));
 const jp = (n) => 'あ'.repeat(n);
