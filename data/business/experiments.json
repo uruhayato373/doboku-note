@@ -40,7 +40,7 @@
         "source": "gsc-page-2026-04-18T02-03-37.json",
         "strategy_doc": null
       },
-      "status": "cancelled",
+      "status": "abandoned",
       "created_at": "2026-04-18T00:00:00.000Z",
       "started_at": "2026-04-18T00:00:00.000Z",
       "paused_at": "2026-04-19T00:00:00.000Z",
@@ -297,7 +297,7 @@
       "hypothesis": "GA4 Script strategy を afterInteractive → lazyOnload に変更し、gtag.js の実行を LCP 発火後まで遅延させることで mobile main thread の占有を解消し、site root の mobile LCP を 4828ms → 4000ms 以下、Performance 76 → 80 以上に引き上げる。",
       "target_metric": "site_root_mobile_lcp_ms",
       "target_delta": "4828 -> 4000",
-      "status": "completed",
+      "status": "done",
       "started_at": "2026-04-25",
       "completed_at": "2026-04-25",
       "related_issue": 84,

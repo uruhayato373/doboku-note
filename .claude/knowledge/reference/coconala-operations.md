@@ -128,7 +128,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日）。見積り受注は `quote.amountYen` と一致必須 |
 | `grade` | 1 or 2（級）。級の無い商品は null |
 | `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**）。S3 指導は `received` → `kosshi-sent`（骨子シート送付済み・本人の答案待ち。`received` の滞留警告の対象外）→ `delivered`（添削の返却＝正式納品）→ … |
-| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
+| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記（snapshot は時差なしの JST の壁時計なので `+09:00` を付けて書く。型が時差なしを止める） |
 | `deliveredAt` | 納品した日時（ISO）。未納品は null |
 | `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
 | `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |

@@ -13,7 +13,7 @@
     "priceYen": "販売額（手数料差引前）。カタログと不一致なら memo に改定日。見積り受注は quote.amountYen と一致必須",
     "grade": "1 or 2（級）。級の無い商品は null",
     "status": "received → delivered → revised（書き直し）→ closed",
-    "replyDueAt": "返信期限（無連絡で自動キャンセルになる時刻）。snapshot が拾える場合はそれを転記",
+    "replyDueAt": "返信期限（無連絡で自動キャンセルになる時刻）。snapshot が拾える場合はそれを転記する。snapshot は時差なしの JST の壁時計なので +09:00 を付けて書く（時差が無いと読み手の実行環境で 9 時間ずれる）",
     "deliveredAt": "納品した日時（ISO）。未納品は null",
     "artifacts": "納品した成果物 [{ file, sha256, builtAt }]。どの版を送ったかを後から特定するため（2026-08-05: 納品直前に模試PDFを作り直した経緯がある）",
     "tensakuMinutes": "最終赤入れの所要時間（工数実測・定員判断の根拠）。C系 PDF は null",
@@ -182,7 +182,7 @@
       "priceYen": 2500,
       "grade": 1,
       "status": "delivered",
-      "replyDueAt": "2026-08-27T21:00",
+      "replyDueAt": "2026-08-27T21:00+09:00",
       "deliveredAt": "2026-08-26T12:02+09:00",
       "artifacts": [
         {
@@ -213,7 +213,7 @@
       "priceYen": 15000,
       "grade": 1,
       "status": "delivered",
-      "replyDueAt": "2026-09-27T02:00",
+      "replyDueAt": "2026-09-27T02:00+09:00",
       "deliveredAt": "2026-09-25T17:15+09:00",
       "artifacts": [
         {
