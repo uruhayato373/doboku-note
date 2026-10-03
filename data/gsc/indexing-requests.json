@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-02T01-30-12Z",
-  "collectedAt": "2026-10-02T01:30:12.591Z",
+  "runId": "2026-10-03T01-30-11Z",
+  "collectedAt": "2026-10-03T01:30:11.034Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "0cc464417",
+  "scriptVersion": "39b58f02c",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 281,
+  "targetCount": 271,
   "items": [
     {
       "slug": "/exam/pe-comprehensive-management/keywords/end-of-pipe",
@@ -98,159 +98,6 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/guide/concrete-key-points",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/concrete-key-points",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/exam-overview",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/exam-overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/job-reality",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/job-reality",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/overview",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/resume",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/resume",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/study-method",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/study-method",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/civil-construction-2/guide/textbooks",
       "url": "https://doboku-note.com/exam/civil-construction-2/guide/textbooks",
       "inspected": {
@@ -262,9 +109,8 @@
         "indexingAllowed": null
       },
       "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
@@ -280,15 +126,133 @@
         "indexingAllowed": null
       },
       "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
+        "requested": true,
+        "status": "accepted"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r04-zenki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-zenki",
+      "slug": "/exam/civil-construction-2/primary/r05-kouki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-kouki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r05-zenki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-zenki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r06-kouki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-kouki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r06-zenki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-zenki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/primary/r07-zenki",
+      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r07-zenki",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "url": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/concrete-engineer/primary/construction",
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/construction",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/concrete-engineer/primary/mix-design",
+      "url": "https://doboku-note.com/exam/concrete-engineer/primary/mix-design",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -306,7 +270,7 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 17,
+    "inspected": 15,
     "accepted": 10,
     "alreadyIndexed": 5,
     "unreadable": 0
