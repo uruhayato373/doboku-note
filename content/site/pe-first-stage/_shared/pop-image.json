@@ -32,7 +32,11 @@
       },
       "review": {
         "date": "2026-10-02",
-        "result": "原寸と文字部分の拡大で判読・文字の縁のにじみなし・構図不変を確認。375px のサイト表示は本番反映後に確認"
+        "result": "原寸と文字部分の拡大で判読・文字の縁のにじみなし・構図不変を確認。375px のサイト表示は本番反映後に確認",
+        "publicationReview": {
+          "date": "2026-10-03",
+          "result": "本番375px・PC、light/darkで読み込み・比率・判読を確認"
+        }
       },
       "edits": [
         {
@@ -108,10 +112,24 @@
       "verifiedAt": "2026-10-02T12:57:42.233Z",
       "verification": "2件ともサイトが参照するバージョン付き公開URLから読み戻し、SHA-256がoutput.sha256と一致"
     },
-    "verification": "サイドバー新版の公開URLは反映後に読み戻す。既存版の検証結果はpreviousVerificationに保持。"
+    "verification": "採用画像50件すべてのバージョン付きR2公開URLを読み戻し、SHA-256がoutput.sha256と一致（50対象・50検査・50成功）。",
+    "verifiedAt": "2026-10-03T01:56:23.447Z",
+    "syncWorkflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37089615665"
   },
   "publication": {
-    "status": "サイドバー新版は未反映",
+    "status": "反映済み",
+    "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+    "relatedUrls": [
+      "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+      "https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide",
+      "https://doboku-note.com/exam/civil-construction-1",
+      "https://doboku-note.com/exam/pe-comprehensive-management/pillar/information-management-pillar"
+    ],
+    "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/851",
+    "deployCommit": "90dddbb19089cdbff721782a099849c636532556",
+    "workflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37089615672",
+    "verifiedAt": "2026-10-03T02:29:13.102Z",
+    "verification": "本番SSR2URLはexit0。公開4ページ×PC/375px×light/darkの16表示で、画像読込・原寸比率・横スクロールなしを確認。本文中央・末尾・サイドバー・単品カードを目視。CI E2E130成功・22skip。",
     "previous": {
       "status": "反映済み",
       "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
