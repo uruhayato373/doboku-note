@@ -155,7 +155,8 @@ function parseDeadline(text, soldOn) {
   if (!m) return null;
   const year = (soldOn || '').slice(0, 4) || String(new Date().getFullYear());
   const [, mo, d, h, mi] = m;
-  return `${year}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:${mi}`;
+  // 画面の時刻は JST。時差を付けないと UTC で動く CI の Date.parse が 9 時間ずれて読む
+  return `${year}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:${mi}+09:00`;
 }
 
 async function gotoTab(page, url) {

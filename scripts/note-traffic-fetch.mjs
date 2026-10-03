@@ -102,7 +102,8 @@ try {
   // 2. 対象月の内訳・集計・記事一覧（「今月」/「先月」）
   await selectPeriod(periodLabel);
   // 記事一覧を PV 順にして全件展開（「もっとみる」を押し切る）
-  try { await selectByOption('公開日順', 'ページビュー順'); } catch (e) { console.log(`[warn] 並び順の <select> が無い（${e.message}）。公開日順のまま取得する`); }
+  let sortedBy = 'pageViews';
+  try { await selectByOption('公開日順', 'ページビュー順'); } catch (e) { sortedBy = 'publishedAt'; console.log(`[warn] 並び順の <select> が無い（${e.message}）。公開日順のまま取得する`); }
   for (let i = 0; i < 40; i++) {
     const more = page.getByRole('button', { name: 'もっとみる' }).first();
     if (!(await more.count()) || !(await more.isVisible().catch(() => false))) break;
@@ -130,7 +131,7 @@ try {
     for (const p of [refPath, artPath]) mkdirSync(dirname(join(ROOT, p)), { recursive: true });
     const fetchedAt = new Date().toISOString();
     const ref = { schemaVersion: 1, month: MONTH, fetchedAt, source: 'note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）', period, monthly: series.months, targetMonth: monthRow, pie, summary };
-    const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy: 'pageViews', count: rows.length, rows };
+    const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy, count: rows.length, rows };
     writeFileSync(join(ROOT, refPath), JSON.stringify(ref, null, 2) + '\n');
     writeFileSync(join(ROOT, artPath), JSON.stringify(art, null, 2) + '\n');
     console.log(`[write] ${refPath} / ${artPath}（記事 ${rows.length} 件）`);

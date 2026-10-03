@@ -42,3 +42,9 @@ test('judgeLedger: due と issues（PENDING の 1 行）を返す', () => {
   assert.deepEqual(due.map((d) => d.id), ['A']);
   assert.deepEqual(issues, ['A: 要人手 1 件: deploy 後に再計測']);
 });
+
+test('最後に手を入れた日: history の行が at しか持たなくても読む（EXP-009 以降の形）', () => {
+  const r = judgeExperiment({ id: 'E8', status: 'measuring', started_at: '2026-06-01', history: [{ at: '2026-09-15T10:00:00Z' }] }, NOW);
+  assert.equal(r.daysSinceTouch, 3, 'started_at（2026-06-01）へ黙って戻らない（9/15 10:00Z から 3.58 日）');
+  assert.equal(r.due, false);
+});

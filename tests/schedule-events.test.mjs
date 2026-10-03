@@ -296,3 +296,12 @@ test('mapBacklogDue: カードの [領域:] を予定の領域にする', async 
   const [ev] = mapBacklogDue([{ id: 'DN-0001', title: 't', due: '2026-10-01', domain: '商品' }], '2026-09-26');
   assert.equal(ev.domain, 'product');
 });
+
+test('mapExperiments: 打ち切った実験（abandoned）は次の確認日が残っていても予定に出さない', async () => {
+  const { mapExperiments } = await import('../scripts/lib/schedule-events.mjs');
+  const ex = mapExperiments([
+    { id: 'EXP-A', status: 'abandoned', next_check_date: '2026-10-10', title: '打ち切り' },
+    { id: 'EXP-B', status: 'running', next_check_date: '2026-10-10', title: '進行中' },
+  ], 'data/business/experiments.json', '2026-10-03');
+  assert.deepEqual(ex.map((e) => e.id), ['experiments:EXP-B']);
+});

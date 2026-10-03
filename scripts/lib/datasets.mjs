@@ -62,8 +62,8 @@ export const DATASETS = [
   // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====
   // 戦略
   d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期'),
-  d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態'),
-  d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程'),
+  d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
+  d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲'),
   d('config.exam-stats', 'config/exam-stats.json', 'config', 'strategy', '受験者数・合格率'),
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値'),
@@ -71,16 +71,16 @@ export const DATASETS = [
   // 計画
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数'),
   // 商品
-  d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類'),
+  d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方'),
-  d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成'),
+  d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
   d('config.note-membership', 'config/note-membership.json', 'config', 'product', 'note メンバーシップの会費・特典'),
   d('config.note-magazine-membership', 'config/note-magazine-membership.json', 'config', 'product', 'マガジン収録の期待値'),
   d('config.note-price-consistency', 'config/note-price-consistency.json', 'config', 'product', '単品価格のずれを止める検査の設定'),
   d('config.note-intro-standard', 'config/note-intro-standard.json', 'config', 'product', 'note 記事の冒頭の標準（1級・2級・両方の型を variants に）'),
   d('config.note-covers', 'config/note-covers.json', 'config', 'product', 'note カバーの設定（記事の上書き・分類の語彙・マガジンの文言）'),
   d('config.coconala-account', 'config/coconala-account.json', 'config', 'product', 'ココナラの出品アカウント'),
-  d('config.coconala-listings', 'config/coconala-listings.json', 'config', 'product', 'ココナラ出品の投入用データ'),
+  d('config.coconala-listings', 'config/coconala-listings.json', 'config', 'product', 'ココナラ出品の投入用データ', { schema: 'CoconalaListings' }),
   d('config.coconala-blog', 'config/coconala-blog.json', 'config', 'product', 'ココナラブログの偵察対象と運用値'),
   d('config.kdp-memo', 'config/kdp-memo.json', 'config', 'product', 'KDP 入稿の既定値と各本の情報'),
   d('config.keiken-answer-sheet-limits', 'config/keiken-answer-sheet-limits.json', 'config', 'product', '経験記述の解答欄の字数上限'),
@@ -120,7 +120,7 @@ export const DATASETS = [
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い'),
   // 管理
-  d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て'),
+  d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て', { schema: 'DomainsConfig' }),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場'),
   d('config.drive-vault', 'config/drive-vault.json', 'config', 'ops', 'Google Drive vault に置くアセットの置き場'),
   d('config.git-binary-policy', 'config/git-binary-policy.json', 'config', 'ops', 'Git に追跡してよいファイルの決まり'),
@@ -132,19 +132,19 @@ export const DATASETS = [
   // ===== data/: 取得元ごとの記録 =====
   // note
   d('note.sales', 'data/note/sales.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: 'NoteSalesLog' }),
-  d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）'),
+  d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）', { schema: 'NoteMagazines' }),
   d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）'),
   d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog' }),
-  d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV'),
-  d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元'),
+  d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV', { schema: 'NoteArticlesPv' }),
+  d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元', { schema: 'NoteReferrers' }),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
   // KDP
   d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: 'KdpRoyalties' }),
   // ココナラ
   d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: 'CoconalaOrders' }),
-  d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）'),
+  d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）', { schema: 'CoconalaOrdersSnapshot' }),
   d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: 'CoconalaKpi' }),
-  d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新'),
+  d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新', { schema: 'CoconalaAnalytics' }),
   d('coconala.thumb-approved', 'data/coconala/thumb-approved.json', 'ledger', 'product', '承認したココナラのサムネイル（承認日・画像ごとの承認）', { schema: 'CoconalaThumbApproved' }),
   d('coconala.resolved-inquiries', 'data/coconala/resolved-inquiries.json', 'ledger', 'product', '人が決着と判断した問い合わせ（受注の検査から外す）', { schema: 'CoconalaResolvedInquiries' }),
   d('coconala.competitors', 'data/coconala/competitors/{date}.json', 'series', 'strategy', 'ココナラの競合セラーの出品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true } }),
@@ -166,7 +166,7 @@ export const DATASETS = [
   d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果', { local: true }),
   d('a8.inventory', 'data/a8/inventory.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true } }),
-  d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧'),
+  d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧', { schema: 'AffiliateCatalog' }),
   // GA4
   d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得した日ごとに 1 ファイル・16 種のレポート。読み書きは scripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } } }),
   d('ga4.admin-history', 'data/ga4/admin-history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録', { schema: 'Ga4AdminHistory' }),
@@ -205,9 +205,9 @@ export const DATASETS = [
   d('business.snapshot', 'data/business/records/snapshot-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の一覧の時点記録', { immutable: true, schema: 'BusinessSnapshot' }),
   d('business.target', 'data/business/records/target-{ts}-{uuid}.json', 'ledger', 'strategy', 'KPI の目標', { immutable: true, schema: 'BusinessTarget' }),
   d('business.review', 'data/business/records/review-{ts}-{uuid}.json', 'ledger', 'strategy', '週次・月次レビューの判断', { immutable: true, schema: 'BusinessReview' }),
-  d('business.site-to-sales', 'data/business/records/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true }),
-  d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true }),
-  d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true }),
+  d('business.site-to-sales', 'data/business/records/site-to-sales-{month}{rev}.json', 'evidence', 'strategy', 'サイトから売上への暦月の突合', { immutable: true, schema: 'BusinessSiteToSales' }),
+  d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksMonthly' }),
+  d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true, schema: 'BusinessChecksWeekly' }),
   d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments' }),
   d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ（窓は確定した月〜日・ファイル名の週はその窓の ISO 週）', { retain: { family: 'weekly-metrics', keepNewest: 26 }, schema: 'WeeklyMetrics' }),
 
@@ -370,29 +370,55 @@ export function pathMatchesId(dataset) {
   return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
 }
 
-/** JSON Schema を「場所・型・説明」の行にする（管理画面の表） */
+/**
+ * JSON Schema を「場所・型・説明」の行にする（管理画面の表）。
+ * 判別共用体（oneOf・anyOf の object が 2 つ以上）は各形の欄を 1 つの表に集め、全部の形にある必須の欄だけを必須にする
+ */
 export function schemaRows(js) {
-  const rows = [];
+  const variantsOf = (s) => s.anyOf ?? s.oneOf;
   const typeOf = (s) => {
     if (s.const !== undefined) return JSON.stringify(s.const);
     if (s.enum) return s.enum.map((v) => JSON.stringify(v)).join(' | ');
-    if (s.anyOf) return s.anyOf.map(typeOf).join(' | ');
+    const variants = variantsOf(s);
+    if (variants) return [...new Set(variants.map(typeOf))].join(' | ');
     const t = Array.isArray(s.type) ? s.type.join(' | ') : s.type;
     if (t === 'object') return s.properties ? 'object' : '対応表';
     if (t === 'string' && s.format) return `string（${s.format}）`;
     return t ?? 'unknown';
   };
-  const walk = (s, path, required) => {
-    if (path) rows.push({ path: required ? path : `${path}?`, type: typeOf(s), description: s.description ?? null });
-    const body = s.anyOf?.find((x) => x.type !== 'null') ?? s;
-    if (body.properties) {
-      for (const [k, v] of Object.entries(body.properties)) walk(v, path ? `${path}.${k}` : k, (body.required ?? []).includes(k));
-    } else if (body.additionalProperties && typeof body.additionalProperties === 'object') {
-      walk(body.additionalProperties, `${path}.{id}`, true);
-    } else if (body.items) walk(body.items, `${path}[]`, true);
+  /** 形ごとの行を欄の場所で束ねる。全部の形にあって必須の欄だけ必須、型は形ごとの型を並べる */
+  const mergeRows = (lists) => {
+    const byPath = new Map();
+    for (const rows of lists) {
+      const seen = new Set();
+      for (const r of rows) {
+        const path = r.path.replace(/\?$/, '');
+        const cur = byPath.get(path) ?? { path, types: [], description: r.description, optional: false, n: 0 };
+        if (!cur.types.includes(r.type)) cur.types.push(r.type);
+        cur.optional ||= r.path.endsWith('?');
+        if (!seen.has(path)) cur.n++;
+        seen.add(path);
+        byPath.set(path, cur);
+      }
+    }
+    return [...byPath.values()].map((c) => ({ path: c.optional || c.n < lists.length ? `${c.path}?` : c.path, type: c.types.join(' | '), description: c.description }));
   };
-  walk(js, '', true);
-  return rows;
+  /** s の下の行（s 自身の行は含めない） */
+  const below = (s, path) => {
+    const variants = variantsOf(s);
+    const objects = (variants ?? []).filter((x) => x.properties);
+    if (objects.length > 1) return mergeRows(objects.map((o) => below(o, path)));
+    const body = variants?.find((x) => x.type !== 'null') ?? s;
+    if (body.properties) {
+      return Object.entries(body.properties).flatMap(([k, v]) => rowsOf(v, path ? `${path}.${k}` : k, (body.required ?? []).includes(k)));
+    }
+    if (body.additionalProperties && typeof body.additionalProperties === 'object') return rowsOf(body.additionalProperties, `${path}.{id}`, true);
+    if (body.items) return rowsOf(body.items, `${path}[]`, true);
+    return [];
+  };
+  const descriptionOf = (s) => s.description ?? variantsOf(s)?.find((x) => x.type !== 'null')?.description ?? null; // null を許す欄は元の型の説明を出す
+  const rowsOf = (s, path, required) => [{ path: required ? path : `${path}?`, type: typeOf(s), description: descriptionOf(s) }, ...below(s, path)];
+  return below(js, '');
 }
 
 // ---- 型の読み取り（型の無いデータセット用） --------------------------------------
