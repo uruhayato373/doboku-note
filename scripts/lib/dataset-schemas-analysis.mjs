@@ -220,12 +220,23 @@ export const MonetizationCoverage = z
       .object({
         trafficWindow: PairWindow.describe('流入（ページ別）の窓'),
         clickWindow: PairWindow.nullable().describe('CTA クリックの窓。クリックの入力が無ければ null'),
+        labelSalesWindow: PairWindow.nullable().optional().describe('ラベル別クリックと note 販売を突き合わせた窓。入力が無ければ null。2026-10-03 より前の記録は欄なし'),
         minUsers: count('導線なしを「穴」と数める最低ユーザー数'),
         pageFile: z.string().min(1).describe('流入の入力ファイル名'),
         clickFile: z.string().nullable().describe('クリックの入力ファイル名。無ければ null'),
       })
       .strict(),
     summary: z.object({ trafficked: count('流入のあったページ数'), gaps: count('流入があり導線が無いページ数') }).strict(),
+    coverage: z
+      .object({
+        trafficRows: count('GA4 の流入の URL 数'),
+        matchedTrafficRows: count('記事・ハブに照合できた URL 数'),
+        unmatchedTrafficPages: z.array(z.string()).describe('照合できなかった URL'),
+      })
+      .strict()
+      .refine((c) => c.matchedTrafficRows + c.unmatchedTrafficPages.length === c.trafficRows, '照合できた数と照合できなかった URL の数の和が流入の URL 数と合わない')
+      .optional()
+      .describe('流入の URL と記事・ハブの照合の網羅（2026-10-03 より前の記録は欄なし）'),
     rows: z
       .array(
         z.object({
@@ -241,7 +252,7 @@ export const MonetizationCoverage = z
           affClicks: count('アフィリエイトの CTA クリック').nullable().describe('クリックの入力が無ければ null'),
           monetized: z.boolean().describe('note かアフィリエイトの導線が 1 つでもある'),
           gap: z.boolean().describe('流入が minUsers 以上なのに導線が無い'),
-          noteGap: z.boolean().describe('流入が minUsers 以上なのに note 導線が無い（アフィリエイトがあっても立つ）'),
+          noteGap: z.boolean().describe('流入が minUsers 以上なのに note 導線が無い（アフィリエイトがあっても立つ）。note 商品の無いカテゴリ・転職記事は立たない'),
         }).strict(),
       )
       .describe('流入の多い順'),
@@ -255,7 +266,8 @@ export const MonetizationCoverage = z
   })
   .strict()
   .superRefine((c, ctx) => {
-    uniqueBy('slug', 'slug')(c.rows, { addIssue: (i) => ctx.addIssue({ ...i, path: ['rows', ...i.path] }) });
+    // 行はページ単位（同じ記事の旧 /docs/ の URL は別の行になるので slug は重なりうる）
+    uniqueBy('page', 'ページ')(c.rows, { addIssue: (i) => ctx.addIssue({ ...i, path: ['rows', ...i.path] }) });
     const trafficked = c.rows.filter((r) => r.users > 0);
     if (trafficked.length !== c.summary.trafficked) flag(ctx, ['summary', 'trafficked'], `${c.summary.trafficked} が流入のある行 ${trafficked.length} と合わない`);
     const gaps = trafficked.filter((r) => r.gap).length;
@@ -264,7 +276,8 @@ export const MonetizationCoverage = z
       const monetized = r.noteCta.length > 0 || r.affiliate !== null;
       if (r.monetized !== monetized) flag(ctx, ['rows', i, 'monetized'], `monetized ${r.monetized} が導線の有無 ${monetized} と合わない`);
       if (r.gap !== (r.users >= c.meta.minUsers && !monetized)) flag(ctx, ['rows', i, 'gap'], `gap ${r.gap} が流入と導線から決まる値と合わない`);
-      if (r.noteGap !== (r.users >= c.meta.minUsers && r.noteCta.length === 0)) flag(ctx, ['rows', i, 'noteGap'], `noteGap ${r.noteGap} が流入と note 導線から決まる値と合わない`);
+      // noteGap は公開カテゴリか・転職記事でないか（ファイルの外の条件）でも消えるので、立っているときに流入と導線が満たすことだけを見る
+      if (r.noteGap && !(r.users >= c.meta.minUsers && r.noteCta.length === 0)) flag(ctx, ['rows', i, 'noteGap'], `noteGap が立っているのに流入 ${r.users}・note 導線 ${r.noteCta.length} 件で条件を満たさない`);
     });
     if (c.idClickCoverage.idClicks > c.idClickCoverage.totalClicks) flag(ctx, ['idClickCoverage', 'idClicks'], 'id 付きクリックが全クリックを超える');
   })

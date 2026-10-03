@@ -86,6 +86,9 @@ test('MonetizationCoverage: 実データが通り、導線の判定と集計の�
   assertFails(S, broken(c, (x) => { x.rows.push(structuredClone(x.rows[0])); }), /重複/);
   assertFails(S, broken(c, (x) => { x.rows[0].noteCta = 'home-links-hub'; }), /noteCta/);
   assertFails(S, broken(c, (x) => { x.idClickCoverage.idClicks = x.idClickCoverage.totalClicks + 1; }), /超える/);
+  // noteGap はファイル外の条件でも消える（立たない側は見ない）。立っているのに流入が足りない行は落とす
+  assertFails(S, broken(c, (x) => { const r = x.rows.find((y) => y.users < x.meta.minUsers); r.noteGap = true; }), /noteGap が立っている/);
+  if (c.coverage) assertFails(S, broken(c, (x) => { x.coverage.trafficRows += 1; }), /流入の URL 数と合わない/);
   // クリックの入力が無い実行（clickWindow・clickFile・クリック数が null）は通る
   assertOk(S, broken(c, (x) => { x.meta.clickWindow = null; x.meta.clickFile = null; for (const r of x.rows) { r.noteClicks = null; r.affClicks = null; } }));
 });

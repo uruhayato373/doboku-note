@@ -6,6 +6,8 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-10-03: `weekly-review` の収益導線レポートに正規URL照合数・集計不成立・同期間の商品売上の読み方を反映。CTA別購入帰属と商品合計を区別する。件数は不変。
+
 - 2026-09-27: `social/create-pop-image` を追加。承認済みPOP意匠の媒体横断制作と原本・生成履歴を管理。note-magazine-cover／create-x-card／coconala-publishから結線。専任エージェントは追加しない。
 
 
