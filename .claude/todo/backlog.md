@@ -440,16 +440,14 @@
 
 **完了条件**: 節を追加して公開済み、本文 3,000 字以上を維持、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
 
-### [DN-0467] coconala-edit の公開済み商品画像 dry-run が「下書きで保存」未検出で失敗する
-タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-30] [進行中]
+### [DN-0467] coconala-edit の公開中サービス dry-run を実機で 1 回走らせ、exit 0 と公開画像が変わらないことを確かめる（運営者の再ログイン後）
+タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-30]
 
-**起点**: 2026-09-30、公開済み `coconala-cce-essay-tensaku` へ `--image thumb-cce-essay-tensaku.png --replace-image` を dry-run したところ、期待アカウント確認と画像差し替えの画面操作は成功したが、`submitForm(commit:false)` が「下書きで保存」だけを探し、公開済み編集画面には「更新する」しかないため exit 2。続けて `--commit` は exit 0 で更新できた。
+**起点**: PR #848 で、公開中サービスの `coconala-edit.mjs` を `--commit` なしで回すと送信しない dry-run になり、画像には触らず枚数だけ読むようにした（回帰テスト `tests/coconala-submit-choice.test.mjs`）。2026-10-03 の実機確認は Mac のココナラのログインが切れていて未実施（6 分待機でタイムアウト・パスワードはエージェントが入れない）。
 
-**やること**: `scripts/coconala-edit.mjs` の公開済み商品向け dry-run を保存せず正常終了できるようにし、画像アップロードが保存前に公開側へ反映されないかも実機で確認する。`scripts/lib/coconala-form.mjs` の送信ボタン判定と、draft/listed の回帰テストを合わせる。
+**やること**: 運営者が Mac でココナラに再ログインしたあと、`node scripts/coconala-edit.mjs --service coconala-cce-essay-tensaku --image <main の content/coconala/assets/thumb-cce-essay-tensaku.png の絶対パス> --replace-image` を実行し、公開ページ https://coconala.com/services/4425046 の og:image（実行前 `757b3de9-9784853.png`）と比べる。
 
-**完了条件**: 公開済み商品の画像差し替え dry-run が対象アカウント・画像スロットを検査して exit 0、公開画像は変わらず、`--commit` の更新動作を回帰テストで維持している。
-
-
+**完了条件**: 上の実行が `RESULT` の `mode:"dry-run"`・exit 0 で終わり、公開ページの og:image が実行前と同じ。
 
 ### [DN-0462] コンクリート主任技士の択一過去問の欠け31問を原典ページから補う
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-09-30]
