@@ -25,7 +25,7 @@ account assert＋draft-first＋`--commit` gate）。文面・価格を SoT で�
 node scripts/coconala-publish.mjs --service coconala-shindan             # 新規：下書き作成のみ（既定・安全）
 node scripts/coconala-publish.mjs --service coconala-tensaku-set --commit # 新規：公開
 node scripts/coconala-edit.mjs --service coconala-tensaku-set --commit    # 修正：カタログ現値をフル反映
-node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修正：価格だけ（下書き保存）
+node scripts/coconala-edit.mjs --service coconala-shindan --fields price   # 修正：価格だけ（下書きは下書き保存・公開中は送信しない dry-run）
 node scripts/coconala-edit.mjs --service <id> --image <png> --replace-image --commit  # 商品画像の差し替え
 node scripts/coconala-pause.mjs --all-paused --commit                     # 棚から下ろす（受付休止）
 node scripts/coconala-pause.mjs --resume --absence --commit               # 長期不在あけの一括復帰
@@ -74,7 +74,7 @@ gh workflow run ops-write.yml --ref develop -f operation=coconala.publish -f arg
 
 ## ガードレール
 
-- **draft-first**: 既定は「下書きで保存」。公開は `--commit` を明示したときだけ。
+- **draft-first**: 既定は「下書きで保存」。公開は `--commit` を明示したときだけ。公開中サービスの編集は下書きが無いので `--commit` なしは送信しない dry-run（画像は送信前でも即反映されるため dry-run では触らない）。
 - **偽成功を報告しない**: 送信後にフォームのバリデーションエラー（記入エラー）が出たら「公開した」と言わない（publish/edit は `ok:false` を返し下書きに退避）。
 - **価格の直書き禁止**: 価格はカタログ（`priceYen`）が真実源。listings に価格を書かない。
 - **代筆禁止・外部誘導禁止**: 出品文面の原則は `.claude/knowledge/reference/coconala-operations.md` §5・展開キット §2-3。

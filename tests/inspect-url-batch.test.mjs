@@ -11,7 +11,7 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 
 const mod = await import('../.claude/scripts/inspect-url.mjs');
-const { buildBatchDocument, shouldRetryInspect, httpStatusOf } = mod;
+const { batchSummary, buildBatchDocument, shouldRetryInspect, httpStatusOf } = mod;
 
 test('buildBatchDocument: 全件 settled なら partial:false、穴があれば partial:true で穴を落とす', () => {
   const full = buildBatchDocument([{ url: 'a' }, { url: 'b', error: 'x' }], 2);
@@ -29,6 +29,35 @@ test('buildBatchDocument: 全件 settled なら partial:false、穴があれば 
   assert.equal(part.completed, 2);
   assert.equal(part.total, 4);
   assert.deepEqual(part.results.map((r) => r.url), ['a', 'c'], '入力順を保ち、未着手の穴は results に入れない');
+});
+
+test('batchSummary: バッチには読まれる欄だけを残す（mobile・amp・rich_results・リンク・参照元は落とす）', () => {
+  const full = {
+    url: 'https://example.com/a',
+    inspected_at: '2026-10-02T00:00:00.000Z',
+    index: {
+      verdict: 'PASS',
+      coverage_state: '送信して登録されました',
+      robots_txt_state: 'ALLOWED',
+      indexing_state: 'INDEXING_ALLOWED',
+      last_crawl_time: '2026-10-01T00:00:00Z',
+      page_fetch_state: 'SUCCESSFUL',
+      google_canonical: 'https://example.com/a',
+      user_canonical: 'https://example.com/a',
+      referring_urls: ['https://example.com/'],
+      sitemap: ['https://example.com/sitemap.xml'],
+    },
+    mobile: { verdict: 'VERDICT_UNSPECIFIED', issues: [] },
+    amp: { verdict: null, indexing_state: null },
+    rich_results: { verdict: null, detected_items: [] },
+    inspection_result_link: 'https://search.google.com/search-console/inspect?x=1',
+  };
+  const slim = batchSummary(full);
+  assert.deepEqual(Object.keys(slim), ['url', 'inspected_at', 'index']);
+  assert.deepEqual(Object.keys(slim.index), ['verdict', 'coverage_state', 'robots_txt_state', 'last_crawl_time', 'page_fetch_state', 'google_canonical', 'user_canonical']);
+  for (const k of Object.keys(slim.index)) assert.equal(slim.index[k], full.index[k], k);
+  assert.equal(slim.url, full.url);
+  assert.equal(slim.inspected_at, full.inspected_at);
 });
 
 test('buildBatchDocument: error エントリも「検査を試みた」として completed に数える', () => {

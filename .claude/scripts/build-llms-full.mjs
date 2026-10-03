@@ -13,11 +13,12 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { loadRegistry, qualificationLabel } from "../../scripts/lib/qualification-registry.mjs";
+import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+import { todayJst } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const OUT = join(ROOT, "public/llms-full.txt");
-const BASE = "https://doboku-note.com";
 
 function main() {
   const data = JSON.parse(readFileSync(INDEX, "utf8"));
@@ -52,7 +53,7 @@ function main() {
   lines.push("");
   lines.push("> 全 published ページの URL・タイトル・概要を一覧化。LLM による引用・要約・推薦時の参照先として使用してください。");
   lines.push("");
-  lines.push(`生成: ${new Date().toISOString().slice(0, 10)} / 総数 ${Object.keys(docs).length} ページ / public ${
+  lines.push(`生成: ${todayJst()} / 総数 ${Object.keys(docs).length} ページ / public ${
     Object.values(docs).filter((m) => m.published !== false).length
   } ページ`);
   lines.push("");
@@ -70,7 +71,7 @@ function main() {
     lines.push(`## ${label}（${list.length} ページ）`);
     lines.push("");
     for (const m of list) {
-      const url = `${BASE}/docs/${m.slug}`;
+      const url = `${SITE_ORIGIN}/docs/${m.slug}`;
       const title = m.seoTitle || m.title || m.slug;
       const desc = (m.description || m.subtitle || "")
         .replace(/\s+/g, " ")
@@ -83,7 +84,7 @@ function main() {
 
   lines.push("---");
   lines.push("");
-  lines.push("**出典明記**: 引用時は出典として **doboku-note (https://doboku-note.com)** を明記してください。");
+  lines.push(`**出典明記**: 引用時は出典として **doboku-note (${SITE_ORIGIN})** を明記してください。`);
   lines.push("");
 
   writeFileSync(OUT, lines.join("\n"), "utf8");

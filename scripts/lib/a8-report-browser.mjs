@@ -179,7 +179,7 @@ export function formatA8Month(month) {
  * 期間フォームを「単月」に設定する（開始月＝終了月＝month）。
  *
  * なぜ必要か: A8 は期間を URL で制御できず既定が累計（年初〜当月）なので、そのままでは
- * `parsePeriodFromFilename` の singleMonth が埋まらず a8-results.json（月次キー）へ写せない
+ * `parsePeriodFromFilename` の singleMonth が埋まらず月次の成果へ写せない
  * ＝ EPC の分母が供給されない。
  *
  * 設計: セレクタは config の `a8.periodForm`（実機観察で確定した値）駆動。**name では選べない**

@@ -23,6 +23,7 @@ import { getDaysRange } from "./lib/ga4-snapshot.mjs";
 import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
 import { summarize } from "../../scripts/lib/web-vitals-rum.mjs";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { todayJst } from "../../scripts/lib/jst-date.mjs";
 
 dotenv.config({ path: ".env.local", quiet: true });
 
@@ -109,7 +110,7 @@ async function main() {
     console.error(`${TAG} --check: fixture ${FIXTURE.length} 行を集計できた（書き出しなし）`);
     return 0;
   }
-  const outPath = datasetPath("rum.web-vitals", { date: new Date().toISOString().slice(0, 10) });
+  const outPath = datasetPath("rum.web-vitals", { date: todayJst() });
   if (!existsSync(dirname(outPath))) mkdirSync(dirname(outPath), { recursive: true });
   writeFileSync(outPath, JSON.stringify(data, null, 2) + "\n");
   console.error(`${TAG} 保存: ${outPath}`);

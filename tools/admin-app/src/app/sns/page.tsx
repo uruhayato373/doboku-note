@@ -5,6 +5,7 @@ import { PageHead } from '@/components/ui';
 import { snsBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
 import { derivativeLabel } from '@/lib/video-outcomes';
+import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,7 +25,7 @@ export default async function SnsBoardPage() {
   const { ig, x, schedule } = await snsBoard();
   const join = videoSnsJoin();
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayJst();
   const upcoming: { date: string; label: string; slug: string }[] = [];
   for (const s of schedule) {
     for (const [k, label] of SCHED_KEYS) {

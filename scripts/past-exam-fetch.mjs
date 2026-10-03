@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * past-exam-fetch — 過去問の年度在庫台帳（config/past-exam-inventory.json）の未取得ファイルを
+ * past-exam-fetch — 過去問の年度在庫台帳（data/pastexams/inventory.json）の未取得ファイルを
  * 公式 URL（sourceUrl）から取得し、content/sources/past-exams/{資格}/{年度}/ に置いて acquiredAt を書く。
  *
  *   node scripts/past-exam-fetch.mjs [--exam <id>] [--year <西暦>]           # dry-run（取得予定だけ出す）
@@ -17,9 +17,10 @@ import { dirname, join, posix } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { jstDayOf } from './lib/jst-date.mjs';
 
 const NAME = 'past-exam-fetch';
-export const INVENTORY_PATH = join(REPO_ROOT, datasetPath('config.past-exam-inventory'));
+export const INVENTORY_PATH = join(REPO_ROOT, datasetPath('pastexams.inventory'));
 
 /** 取得対象（sourceUrl があり未取得）を列挙する（純関数）。 */
 export function pendingFiles(inventory, { exam = null, year = null } = {}) {
@@ -37,9 +38,9 @@ export function pendingFiles(inventory, { exam = null, year = null } = {}) {
   return out;
 }
 
-/** JST の YYYY-MM-DD（Git Bash の TZ 指定は効かないので Intl で取る）。 */
+/** JST の YYYY-MM-DD（Git Bash の TZ 指定は効かないので scripts/lib/jst-date.mjs で取る）。 */
 export function jstDate(d = new Date()) {
-  return new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(d);
+  return jstDayOf(d);
 }
 
 function fetchPdf(url, dest) {

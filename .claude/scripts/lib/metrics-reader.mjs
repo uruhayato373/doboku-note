@@ -20,12 +20,13 @@ import { readFileSync, existsSync } from "node:fs";
 import dotenv from "dotenv";
 import { pathToFileURL } from "node:url";
 import { datasetPath } from "../../../scripts/lib/datasets.mjs";
+import { GSC_PROPERTY, SITE_ORIGIN } from "../../../scripts/lib/site-identity.mjs";
+import { GSC_FINAL_LAG_DAYS, addDays, isoWeekKey, jst, reviewPeriod } from "../../../scripts/lib/business-direction.mjs";
 
 dotenv.config({ path: ".env.local" });
 
-const GSC_SITE_URL = "sc-domain:doboku-note.com";
 const GSC_DELAY_DAYS = 3; // GSC data has ~3 day delay
-const PSI_TARGET_URL = "https://doboku-note.com/"; // デフォルトは root 1 URL のみ計測
+const PSI_TARGET_URL = `${SITE_ORIGIN}/`; // デフォルトは root 1 URL のみ計測
 
 // ── Date helpers ─────────────────────────────────────────────────
 
@@ -69,6 +70,23 @@ export function computeWeekRanges() {
       prev: { start: formatDate(gscPrevStart), end: formatDate(gscPrevEnd) },
     },
   };
+}
+
+/**
+ * 週次スナップショット（snapshot-weekly-metrics）の窓: 確定した直近の月〜日（今週）とその前の月〜日（前週）。
+ * 事業レビュー（business.measurement）・成長パックと同じ窓で、GA4 と GSC は同じ。GSC が確定するのは週の終了日から
+ * GSC_FINAL_LAG_DAYS 日後（business-direction.mjs の決まり）なので、確定前なら 1 週前の週を使う。
+ * weekId はその窓の ISO 週（例 2026-W39）。today は JST の YYYY-MM-DD。
+ */
+export function completedWeekRanges(today = jst()) {
+  let thisWeek = reviewPeriod("weekly", today);
+  if (thisWeek.endDate > addDays(today, -GSC_FINAL_LAG_DAYS)) thisWeek = reviewPeriod("weekly", thisWeek.startDate);
+  const prevWeek = reviewPeriod("weekly", thisWeek.startDate);
+  const range = (p) => ({ start: p.startDate, end: p.endDate });
+  const weekId = isoWeekKey(thisWeek.startDate);
+  const [, year, week] = /^(\d{4})-W(\d{2})$/.exec(weekId);
+  const ranges = { this: range(thisWeek), prev: range(prevWeek) };
+  return { weekId, year: Number(year), week: Number(week), ranges: { ga4: ranges, gsc: ranges } };
 }
 
 // ── Credentials ───────────────────────────────────────────────────
@@ -290,9 +308,9 @@ async function fetchGscWeekly(credentials, ranges) {
   });
 
   const [thisTotal, prevTotal, topQueries] = await Promise.all([
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end),
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.prev.start, ranges.prev.end),
-    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end, {
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.this.start, ranges.this.end),
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.prev.start, ranges.prev.end),
+    fetchGscAnalytics(auth, GSC_PROPERTY, ranges.this.start, ranges.this.end, {
       dimensions: ["query"],
       rowLimit: 10,
     }),
@@ -384,9 +402,13 @@ async function fetchPsiSummary(targetUrl = PSI_TARGET_URL) {
 
 // ── Main entry ────────────────────────────────────────────────────
 
-export async function fetchWeeklyNsmMetrics() {
+/**
+ * @param {object} [fixedRanges] 窓を決めて渡すとそれを使う（週次スナップショットは completedWeekRanges）。
+ *   省略すると computeWeekRanges（昨日から遡る 7 日・GSC は 3 日遅れ）。実験の計測など随時の読み出し用。
+ */
+export async function fetchWeeklyNsmMetrics(fixedRanges = null) {
   const credentials = getCredentials();
-  const ranges = computeWeekRanges();
+  const ranges = fixedRanges ?? computeWeekRanges();
 
   const [ga4, ga4Jp, sns, gsc, psi] = await Promise.all([
     fetchGa4Weekly(credentials, ranges.ga4).catch((e) => ({
@@ -413,7 +435,9 @@ export async function fetchWeeklyNsmMetrics() {
     psi,
     gsc,
     notes: [
-      `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
+      fixedRanges
+        ? `窓は確定した月〜日（今週 ${ranges.ga4.this.start} 〜 ${ranges.ga4.this.end}）。GA4 と GSC は同じ窓（事業レビュー・成長パックと同じ）`
+        : `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
       "NSM = Organic Search の activeUsers (definition.md 準拠)",
       "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
       "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",

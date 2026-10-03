@@ -3,6 +3,7 @@ import type { DocMeta } from "@/lib/docs";
 
 import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
+import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryHubPath } from '@/lib/categories';
 import { getPublicDocPath } from '@/lib/content-routes';
 
@@ -150,7 +151,7 @@ function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
 
 export default function StructuredData({ type, post, docMeta }: StructuredDataProps) {
   const generateStructuredData = () => {
-    const baseUrl = "https://doboku-note.com";
+    const baseUrl = SITE_ORIGIN;
 
     switch (type) {
       case "article":
@@ -266,7 +267,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
   if (!structuredData) return null;
 
   const meta = post || docMeta;
-  const baseUrl = "https://doboku-note.com";
+  const baseUrl = SITE_ORIGIN;
 
   // Additional schemas for specific page types
   const quizData = meta && isExamQuizPage(meta as DocMeta | PostData)

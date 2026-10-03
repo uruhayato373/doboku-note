@@ -7,9 +7,10 @@ import { migrationStorage } from './lib/youtube-migration-storage.mjs';
 import { inspectPlaylists, auditReplacement, updateReplacementThumbnail, activateReplacement, deleteOldReplacement } from './lib/youtube-migration-finalize.mjs';
 import { scheduleReplacement } from './lib/youtube-delivery-schedule.mjs';
 import { runDelivery } from './lib/youtube-delivery.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const config = JSON.parse(readFileSync(datasetPath('config.youtube-delivery')));
+const config = readDataset(REPO_ROOT, 'config.youtube-delivery');
 const commit = process.env.APPLY_DELIVERY === 'true';
 let storage;
 const json = value => Buffer.from(JSON.stringify(value));

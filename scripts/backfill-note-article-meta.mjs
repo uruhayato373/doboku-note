@@ -18,9 +18,9 @@
 import { execFileSync } from "node:child_process";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { NOTE_CREATOR as CREATOR } from "./lib/site-identity.mjs";
 
 const APPLY = process.argv.includes("--apply");
-const CREATOR = "dobokunote";
 
 function curlJson(url) {
   const raw = execFileSync("curl", ["-s", "--ssl-no-revoke", url], {

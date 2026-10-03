@@ -10,6 +10,7 @@
  * usage: import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, assessCloudflareMetrics } from './cloudflare-analytics.mjs'
  * exit code: このファイルは CLI を持たない（呼び出し側スクリプトの exit code に従う）。
  */
+import { freshnessDays } from './datasets.mjs';
 
 // sum{} のサブフィールド（1 要素 = 1 フィールド。ネストは "name { ... }" のまま 1 要素にする）。
 // pruneQueryFields はこの「フィールド名が先頭」という形に依存して剪定する。
@@ -148,8 +149,8 @@ export function spikeFlag(daily) {
   return { flagged: false, reason: null, yesterdayJp, median6Jp, otherOverJp };
 }
 
-/** 直近スナップショットの鮮度・件数から検査自体が成立しているかを判定する。 */
-export function assessCloudflareMetrics(latestSnapshot, nowUtcMs, { maxAgeDays = 3 } = {}) {
+/** 直近スナップショットの鮮度・件数から検査自体が成立しているかを判定する。maxAgeDays の既定は台帳 cloudflare.zone の freshness.failDays。 */
+export function assessCloudflareMetrics(latestSnapshot, nowUtcMs, { maxAgeDays = freshnessDays('cloudflare.zone', 'failDays') } = {}) {
   const reasons = [];
   if (!latestSnapshot) {
     return { status: 'FAIL', reasons: ['snapshot が存在しない'], inspected: 0 };

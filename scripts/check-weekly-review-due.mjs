@@ -20,6 +20,7 @@ import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
+import { jstClock } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DUE_DOW = 6;      // 土曜
@@ -40,7 +41,7 @@ export function isoWeek(d) {
  * exists(weekId) は同期関数。
  */
 export function dueWeek(nowMs, exists) {
-  const jst = new Date(nowMs + 9 * 3600 * 1000);
+  const jst = jstClock(nowMs);
   const dow = jst.getUTCDay(); // 0=日 … 6=土（JST）
   const hour = jst.getUTCHours();
   const thisWeek = isoWeek(jst);

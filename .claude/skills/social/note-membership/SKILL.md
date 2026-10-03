@@ -61,7 +61,7 @@ note メンバーシップ「土木セコカン合格ラボ」の運用入口。
 
 ## プラン操作
 
-- 状態照合: `npm run check-note-membership`
+- 状態照合: `npm run check-note-membership`（退役済み＝`config/note-membership.json` の `retiredAt` があるあいだは、価格の写し・定員・planId・`--live` の突合をせず SKIP と理由を出す。再開するときは `retiredAt` を消して `mirrors` を宣言し直す）
 - 設定読取: `node scripts/note-membership-plan-edit.mjs --plan <planId>`
 - 設定保存: `node scripts/note-membership-plan-edit.mjs --plan <planId> ... --commit`
 - 公開状態: `node scripts/note-membership-plan-status.mjs --plan <planId> --publish|--unpublish [--commit]`

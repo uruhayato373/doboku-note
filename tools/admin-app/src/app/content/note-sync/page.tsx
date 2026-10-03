@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { noteSyncPlan, noteSyncRuns, type SyncItem, type SyncPart } from '@/lib/note-sync';
+import { NOTE_BASE } from '../../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,7 @@ const TABS = [
 ] as const;
 type TabId = (typeof TABS)[number]['id'];
 
-const noteUrl = (noteId: string) => `https://note.com/dobokunote/n/${noteId}`;
+const noteUrl = (noteId: string) => `${NOTE_BASE}/n/${noteId}`;
 const dt = (iso: string) => iso.slice(5, 16).replace('T', ' ').replace('-', '/');
 
 function Stat({ label, value }: { label: string; value: React.ReactNode }) {

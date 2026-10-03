@@ -5,6 +5,7 @@ import { magazines } from './content';
 import { findRepoRoot, repoPath } from './repo-root';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { loadThemes, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
+import { NOTE_BASE } from '../../../../scripts/lib/site-identity.mjs';
 
 /**
  * product-design.ts — 管理画面「商品設計」（/product/design）の表示モデル（read-only）。
@@ -173,7 +174,7 @@ export function loadDesignView(q: string | null): DesignView {
     for (const s of singleSkus) singles.set(s.key, s);
     for (const m of mags) {
       for (const n of (m.key && notesByMag.get(m.key)) || []) {
-        const s = singles.get(n.key) ?? { key: n.key, title: n.name, price: n.price, url: `https://note.com/dobokunote/n/${n.key}`, inMagazines: [], inPacks: [] };
+        const s = singles.get(n.key) ?? { key: n.key, title: n.name, price: n.price, url: `${NOTE_BASE}/n/${n.key}`, inMagazines: [], inPacks: [] };
         (m.tier === 'pack' ? s.inPacks : s.inMagazines).push({ id: m.id, label: short(m.title) });
         singles.set(n.key, s);
       }

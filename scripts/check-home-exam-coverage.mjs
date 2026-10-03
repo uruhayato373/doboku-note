@@ -9,7 +9,7 @@
  *   home-exam-cards.json にカードを持つ」ことを機械的に強制する。
  *
  *   variant=reference（公的資料の抜粋）と variant=general（資格に紐づかない実務コンテンツ）は
- *   資格カードの対象外。カードの必須フィールド nextExam を持ちようがないため、
+ *   資格カードの対象外。試験区分を持たないため、
  *   トップに出す場合も資格カードとは別の入口を用意する。
  *
  * 不整合（赤落ち）条件:
@@ -24,7 +24,8 @@ import { readFileSync } from "node:fs";
 
 const CATEGORIES = "src/config/categories.json";
 const HOME_CARDS = "src/config/home-exam-cards.json";
-const REQUIRED_FIELDS = ["slug", "order", "label", "en", "subtitle", "description", "nextExam", "stats"];
+// カードが持つのは並びと名前だけ（画面に出すのは名前のみ。説明文・試験日・件数は持たない）
+const REQUIRED_FIELDS = ["slug", "order", "label"];
 
 function load(path) {
   try {

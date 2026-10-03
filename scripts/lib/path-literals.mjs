@@ -118,8 +118,12 @@ export function basenameIndex(trackedFiles) {
   return new Map(fixed.map((x) => [x.path.split('/').pop(), x.id]).filter(([b]) => count.get(b) === 1 && !outside.has(b)));
 }
 
-/** 台帳の id を引く呼び出し（第 1 文字列引数が id）。listReports・latestReport は GA4・GSC のレポートの種類なので含めない */
-const ID_CALL = /\b(datasetPath|datasetDir|datasetFiles|latestFile|datasetById|resolveDataset)\(\s*(?:[A-Za-z_$][\w$.]*\s*,\s*)?(['"])([a-z0-9]+(?:\.[a-z0-9-]+)+)\2/g;
+/**
+ * 台帳の id を引く呼び出し（第 1 文字列引数が id。root を取る関数は root の次）。パス（datasetPath 系）・読み（readDataset・readDatasetIf・readLatest）・
+ * 書き（writeDataset・appendDataset）・鮮度（freshnessOf・freshnessDays）のどれも、id の綴り違いを実行時でなく検査で止める。
+ * listReports・latestReport は GA4・GSC のレポートの種類なので含めない
+ */
+const ID_CALL = /\b(datasetPath|datasetDir|datasetFiles|latestFile|datasetById|resolveDataset|readDataset|readDatasetIf|readLatest|writeDataset|appendDataset|freshnessOf|freshnessDays)\(\s*(?:[A-Za-z_$][\w$.]*\s*,\s*)?(['"])([a-z0-9]+(?:\.[a-z0-9-]+)+)\2/g;
 /** ワークフローの `node scripts/ci-data.mjs put|latest|path <id>`・`npm run ci-data -- …` */
 const CI_DATA_ID = /ci-data(?:\.mjs)?(?:\s+--)?\s+(?:put|latest|path)\s+([a-z0-9]+\.[a-z0-9-]+)/g;
 const CI_DATA_DATASETS = /--datasets\s+([a-z0-9.,-]+)/g;

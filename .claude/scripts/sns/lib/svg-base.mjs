@@ -5,6 +5,8 @@
  * Hiragino Sans + Noto Sans JP のフォント指定で IG/X 表示時に確実にフォールバックする。
  */
 
+import { SITE_HOST } from '../../../../scripts/lib/site-identity.mjs';
+
 export const FONT = `'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif`;
 
 // `.claude/design-system/svg-tokens.json` および `content/site/**/img/*.svg` と整合
@@ -107,7 +109,7 @@ export function igFooter() {
   return text({
     x: 1040,
     y: 1318,
-    content: 'doboku-note.com',
+    content: SITE_HOST,
     size: 24,
     fill: COLORS.inkMuted,
     anchor: 'end',

@@ -95,10 +95,7 @@ function loadMarketServices() {
   const p = join(ROOT, datasetPath('coconala.market-research'));
   if (!existsSync(p)) return [];
   try {
-    const j = JSON.parse(readFileSync(p, 'utf-8'));
-    const all = [];
-    for (const q of j.queries ?? []) for (const s of q.services ?? []) all.push(s);
-    return all;
+    return JSON.parse(readFileSync(p, 'utf-8')).services ?? []; // 出品は URL で一意（scripts/lib/coconala-market.mjs）
   } catch {
     return [];
   }

@@ -48,8 +48,10 @@ import { execSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { REPO_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const CACHE_FILE = join(process.cwd(), 'node_modules/.cache/doboku-note/git-dates.json');
+// リポジトリのルートは module の場所から決める（import 時の process.cwd() で固定しない）。loadGitDates(root) で別のルートも渡せる
+const cacheFileOf = (root) => join(root, 'node_modules/.cache/doboku-note/git-dates.json');
 
 /** 現在の全 ref のハッシュ。ref が 1 つでも動けばキーが変わる＝キャッシュは自動失効する。 */
 // キャッシュキーに算法も混ぜる。ref だけをキーにすると、**算法を変えても
@@ -57,16 +59,16 @@ const CACHE_FILE = join(process.cwd(), 'node_modules/.cache/doboku-note/git-date
 // 気づかなければ「変えたのに反映されない」を延々デバッグすることになる）。
 const ALGO_VERSION = 'rename=exact-only/2026-08-21';
 
-function cacheKey() {
+function cacheKey(root) {
   const refs = execSync('git rev-parse --all', {
-    encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'], maxBuffer: 8 * 1024 * 1024,
+    cwd: root, encoding: 'utf-8', stdio: ['pipe', 'pipe', 'ignore'], maxBuffer: 8 * 1024 * 1024,
   });
   return createHash('sha256').update(ALGO_VERSION + '\n' + refs).digest('hex');
 }
 
-function readCache(key) {
+function readCache(root, key) {
   try {
-    const parsed = JSON.parse(readFileSync(CACHE_FILE, 'utf-8'));
+    const parsed = JSON.parse(readFileSync(cacheFileOf(root), 'utf-8'));
     if (parsed.key !== key) return null;
     // 保存形式は [created, dateModified] のタプル（65k エントリの肥大を抑える）。
     return new Map(Object.entries(parsed.entries).map(([p, v]) => [p, { created: v[0], dateModified: v[1] }]));
@@ -75,12 +77,13 @@ function readCache(key) {
   }
 }
 
-function writeCache(key, dates) {
+function writeCache(root, key, dates) {
   try {
-    mkdirSync(dirname(CACHE_FILE), { recursive: true });
+    const file = cacheFileOf(root);
+    mkdirSync(dirname(file), { recursive: true });
     const entries = {};
     for (const [p, v] of dates) entries[p] = [v.created, v.dateModified];
-    writeFileSync(CACHE_FILE, JSON.stringify({ key, entries }));
+    writeFileSync(file, JSON.stringify({ key, entries }));
   } catch {
     // 書けなくても動作に影響しない（次回また git log を回すだけ）
   }
@@ -89,15 +92,16 @@ function writeCache(key, dates) {
 /**
  * リポジトリ全体の git log を一度解析し、ファイル → 日付マップを返す。
  *
+ * @param {string} [root] git のリポジトリのルート（既定は module の場所から決めた REPO_ROOT。cwd には依らない）
  * @returns {Map<string, { created: string, dateModified: string }>}
  */
-export function loadGitDates() {
+export function loadGitDates(root = REPO_ROOT) {
   const useCache = process.env.GIT_DATES_NO_CACHE !== '1';
   let key = null;
   if (useCache) {
     try {
-      key = cacheKey();
-      const hit = readCache(key);
+      key = cacheKey(root);
+      const hit = readCache(root, key);
       if (hit) return hit;
     } catch {
       key = null; // rev-parse に失敗したらキャッシュを諦めて通常経路へ
@@ -105,6 +109,7 @@ export function loadGitDates() {
   }
 
   const out = execSync('git -c core.quotepath=false log --all --name-status -M100% --format=__COMMIT__:%ai', {
+    cwd: root,
     encoding: 'utf-8',
     stdio: ['pipe', 'pipe', 'ignore'],
     maxBuffer: 64 * 1024 * 1024, // 64MB（38k 行 × 数百 byte 程度を想定）
@@ -160,7 +165,7 @@ export function loadGitDates() {
     touch(parts[parts.length - 1], currentDate);
   }
 
-  if (key) writeCache(key, dates);
+  if (key) writeCache(root, key, dates);
   return dates;
 }
 

@@ -8,11 +8,12 @@
 
 import { COLORS, esc, rect, line, text, multilineText, numberedCircle, svgDoc } from '../lib/svg-base.mjs';
 import { wrapByCharCount } from '../lib/text-wrap.mjs';
+import { SITE_HOST } from '../../../../scripts/lib/site-identity.mjs';
 
 const W = 1200;
 const H = 675;
 
-function xFooter(content = 'doboku-note.com') {
+function xFooter(content = SITE_HOST) {
   return text({ x: 1160, y: 64, content, size: 22, fill: COLORS.inkMuted, anchor: 'end' });
 }
 

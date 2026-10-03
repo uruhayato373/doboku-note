@@ -24,6 +24,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { buildPayload, classifyResponse, parseSitemap, selectRecentlyModified } from "./lib/indexnow.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { SITE_HOST, SITE_ORIGIN } from "./lib/site-identity.mjs";
 
 const CONFIG = datasetPath("config.indexnow");
 const args = process.argv.slice(2);
@@ -33,6 +34,8 @@ const di = args.indexOf("--days");
 const cfg = JSON.parse(readFileSync(CONFIG, "utf8"));
 const days = di >= 0 && args[di + 1] ? Number(args[di + 1]) : cfg.windowDays;
 const localKeyFile = `public/${cfg.key}.txt`;
+// host と key ファイルの URL はサイトの識別子から導く（config に写さない）。key は公開必須の識別子で public/<key>.txt と一致させる。
+const KEY_LOCATION = `${SITE_ORIGIN}/${cfg.key}.txt`;
 if (!existsSync(localKeyFile) || readFileSync(localKeyFile, "utf8").trim() !== cfg.key) {
   console.error(`[indexnow] ✗ ${localKeyFile} が無いか内容が config.key と一致しない`);
   process.exit(2);
@@ -45,7 +48,7 @@ async function getText(url) {
 }
 
 async function main() {
-  const sitemapUrl = `https://${cfg.host}/sitemap.xml`;
+  const sitemapUrl = `${SITE_ORIGIN}/sitemap.xml`;
   let entries;
   try {
     entries = parseSitemap(await getText(sitemapUrl));
@@ -59,7 +62,7 @@ async function main() {
   }
   let liveKey;
   try {
-    liveKey = (await getText(cfg.keyLocation)).trim();
+    liveKey = (await getText(KEY_LOCATION)).trim();
   } catch (e) {
     console.error(`[indexnow] ✗ key ファイルが本番で読めない: ${e.message}（deploy 前か、public/ に無い）`);
     process.exit(2);
@@ -82,7 +85,7 @@ async function main() {
     console.log("[indexnow] dry-run: 送信しない");
     return;
   }
-  const payload = buildPayload({ host: cfg.host, key: cfg.key, keyLocation: cfg.keyLocation, urlList });
+  const payload = buildPayload({ host: SITE_HOST, key: cfg.key, keyLocation: KEY_LOCATION, urlList });
   const res = await fetch(cfg.endpoint, {
     method: "POST",
     headers: { "content-type": "application/json; charset=utf-8" },

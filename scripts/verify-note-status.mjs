@@ -26,6 +26,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { setNoteStatus } from './lib/note-status.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -39,7 +40,6 @@ const CI = process.argv.includes('--ci');
 // これが無かったため、記事別のライブ公開状態は CI artifact にしか残らず、
 // 管理画面からも週次レビューからも見えなかった（2026-08-24）。stdout の出力は変えない。
 const SNAPSHOT = process.argv.includes('--snapshot');
-const MAX_FETCH_FAIL_RATE = 0.2;
 
 if (CI && FIX) {
   console.error('[verify-note-status] --ci と --fix は併用できません（CI は read-only）。');

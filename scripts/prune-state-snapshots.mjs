@@ -4,7 +4,7 @@
 //
 // 使い方:
 //   node scripts/prune-state-snapshots.mjs                    # dry-run（既定）。計画を表示して何も消さない
-//   node scripts/prune-state-snapshots.mjs --commit           # 実際に unlink し、週次の索引（business.weekly-index）を書き直す
+//   node scripts/prune-state-snapshots.mjs --commit           # 実際に unlink する
 //   node scripts/prune-state-snapshots.mjs --family psi,ga4   # family を限定（workflow が自分の書く系列だけ消すため）
 //   node scripts/prune-state-snapshots.mjs --check-coverage   # 寿命未宣言の日付付きファイルが 0 件か（quality-audit ci:true）
 //   --json で機械可読、--now <ISO> で基準時刻を固定（テスト用）
@@ -20,11 +20,11 @@
 // seo-watchwords.json の evidence.source と business 台帳が名前で指すファイル（pin）。
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { DATASETS, datasetFiles, datasetPath } from './lib/datasets.mjs';
-import { DATA_ROOT, FAMILIES, collectPins, filterWeeklyIndex, plan } from './lib/prune-state-snapshots.mjs';
+import { DATA_ROOT, FAMILIES, RETIRED_FAMILIES, collectPins, plan } from './lib/prune-state-snapshots.mjs';
 
 function parseArgs(argv) {
   const a = { commit: false, json: false, check: false, families: null, now: Date.now(), root: REPO_ROOT };
@@ -40,7 +40,12 @@ function parseArgs(argv) {
     else if (x === '--help' || x === '-h') a.help = true;
     else throw new Error(`unknown option: ${x}`);
   }
-  if (a.families) for (const f of a.families) if (!FAMILIES.includes(f)) throw new Error(`unknown family: ${f}（${FAMILIES.join(', ')}）`);
+  if (a.families) {
+    for (const f of a.families) if (!FAMILIES.includes(f) && !RETIRED_FAMILIES.includes(f)) throw new Error(`unknown family: ${f}（${FAMILIES.join(', ')}）`);
+    // 台帳から消した family は何も消さずに受け付ける（main の YAML が deploy まで古い名前を渡すため）
+    a.retired = a.families.filter((f) => RETIRED_FAMILIES.includes(f));
+    a.families = a.families.filter((f) => !RETIRED_FAMILIES.includes(f));
+  }
   if (!Number.isFinite(a.now)) throw new Error('--now は ISO 日時');
   return a;
 }
@@ -82,6 +87,7 @@ function main() {
   const pins = loadPins(args.root);
   const result = plan({ files, now: args.now, pins, readJson: readJsonAt(args.root), families: args.families });
   const s = result.summary;
+  if (args.retired?.length && !args.json) console.log(`[prune-state-snapshots] 台帳に無い family は何も消さない: ${args.retired.join(', ')}`);
 
   if (args.json) {
     console.log(JSON.stringify({ mode: args.check ? 'check-coverage' : args.commit ? 'commit' : 'dry-run', families: args.families || FAMILIES, pins: [...pins], ...result }, null, 2));
@@ -117,13 +123,6 @@ function main() {
       failed++;
       console.error(`  ✗ 削除失敗 ${e.file}: ${err.message}`);
     }
-  }
-  for (const rw of result.indexRewrites) {
-    const p = join(args.root, rw.index);
-    if (!existsSync(p)) continue;
-    const next = filterWeeklyIndex(JSON.parse(readFileSync(p, 'utf8')), rw.removed);
-    writeFileSync(p, JSON.stringify(next, null, 2) + '\n');
-    if (!args.json) console.log(`  rewrite ${rw.index}（${rw.removed.length} 週を索引から除去）`);
   }
   if (!args.json) console.log(failed ? `✗ ${failed} 件の削除に失敗` : `✓ ${s.delete} 件を削除`);
   return failed ? 1 : 0;

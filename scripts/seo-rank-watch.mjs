@@ -7,6 +7,7 @@ import { pathToFileURL } from 'node:url';
 import { getDateRange, addDays } from './lib/gsc-date-range.mjs';
 import { WatchError, readWatchConfig, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
 import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
 async function main() {
   const { values: opts, positionals } = parseArgs({ allowPositionals: true, options: {
@@ -30,7 +31,7 @@ async function main() {
       client = { auth: api.getAuth(), fetch: api.fetchSearchAnalytics };
     }
     const raw = await client.fetch(client.auth, { ...window, effectiveDimensions: ['date'], all: true, exact: true,
-      query: watch.keyword, page: `https://doboku-note.com${watch.targetPath}`, country: watch.country, device: watch.device });
+      query: watch.keyword, page: `${SITE_ORIGIN}${watch.targetPath}`, country: watch.country, device: watch.device });
     return { window, metrics: aggregate(raw), raw };
   };
   const take = async (watch, windows, type, extra = {}) => {

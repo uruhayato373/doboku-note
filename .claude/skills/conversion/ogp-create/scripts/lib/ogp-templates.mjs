@@ -15,6 +15,8 @@
  *   note カバー=1280×670 の両方をサポート。SAFETY_ZONE_WIDTH=630 は g2/banner 系のセーフ幅算出に使う。
  */
 
+import { SITE_HOST } from '../../../../../../scripts/lib/site-identity.mjs';
+
 const DEFAULT_WIDTH = 1200;
 const DEFAULT_HEIGHT = 630;
 const SAFETY_ZONE_WIDTH = 630; // 中央正方形の幅（両サイズ共通）
@@ -22,7 +24,7 @@ const SAFETY_WIDTH = 590; // タイトルが収まる横幅の上限（pickFontS
 
 const SITE_NAME = 'doboku-note';
 const SITE_TAGLINE = '土木系資格試験ノート';
-const SITE_DOMAIN = 'doboku-note.com';
+const SITE_DOMAIN = SITE_HOST;
 
 // --- T06 Mono Tag color tokens ---
 const C_BG = '#fdfcf8';

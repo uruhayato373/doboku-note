@@ -12,12 +12,13 @@
 import fs from 'fs';
 import path from 'path';
 import { SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
+import { R2_PUBLIC_HOST, SITE_HOST } from '../../../../../../../scripts/lib/site-identity.mjs';
 
 const postsDir = SITE_CONTENT_ROOT;
 const TIMEOUT_MS = 15000;
 const CONCURRENCY = parseInt(process.argv.find((_, i, a) => a[i - 1] === '--concurrency') || '10');
 const REPORT_PATH = process.argv.find((_, i, a) => a[i - 1] === '--report') || null;
-const SKIP_DOMAINS = new Set(['localhost', 'storage.doboku-note.com', 'doboku-note.com']);
+const SKIP_DOMAINS = new Set(['localhost', R2_PUBLIC_HOST, SITE_HOST]);
 
 // Step 1: 全MDXファイルから外部URLを抽出
 function findMdxFiles(dir) {

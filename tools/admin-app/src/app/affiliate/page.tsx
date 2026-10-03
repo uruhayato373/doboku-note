@@ -25,7 +25,7 @@ const PLACEMENT_LABELS: Record<string, string> = {
  * 口座横断の月別・日別、検算、未写像の一覧は週次レビュー（check-a8-report-due）が見る。
  */
 export default function AffiliatePage() {
-  const { collected, period, surfaceTotals, programs, unmapped } = affiliateSummary();
+  const { collected, period, surfaceTotals, programs, missingPrograms } = affiliateSummary();
   const got = surfaceTotals.filter((x) => x.collected);
   const sumOf = (f: 'conversions' | 'revenueYen') => (got.length ? got.reduce((a, x) => a + (x[f] ?? 0), 0) : null);
   const placements = affiliatePlacements();
@@ -53,14 +53,14 @@ export default function AffiliatePage() {
           ))}
         </p>
       )}
-      {(experiments.length > 0 || unmapped.length > 0) && (
+      {(experiments.length > 0 || missingPrograms.length > 0) && (
         <p className="small" style={{ marginBottom: 12 }}>
           {experiments.map((x) => (
             <span key={x.id} style={{ marginRight: 16 }}>
               次の判定 {x.nextCheck ? md(x.nextCheck) : '未設定'}（{x.id}）
             </span>
           ))}
-          {unmapped.length > 0 && <span className="project-warning-text">A8 集計から漏れている案件 {unmapped.length} 件</span>}
+          {missingPrograms.length > 0 && <span className="project-warning-text">A8 集計から漏れている案件 {missingPrograms.length} 件</span>}
         </p>
       )}
 

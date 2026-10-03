@@ -34,10 +34,11 @@ import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { fetchCreatorMagazines } from './lib/note-api.mjs';
 import {
-  CREATOR, designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, recordCover, sameImage, writeLedger,
+  designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, recordCover, sameImage, writeLedger,
 } from './lib/note-cover-live.mjs';
 import { buildSyncPlan, countPlan, orderForRun, withLiveCovers } from './lib/note-sync-plan.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { NOTE_CREATOR } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[note-sync]';
@@ -134,7 +135,7 @@ async function syncMagazines(items, byKey, design) {
     const run = node(['scripts/note-magazine-cover.mjs', '--key', item.noteKey, '--dir', dir, '--commit'], join(WORK, `mag-${item.noteKey}-${stamp()}.log`));
     if (run.status === 2) { problems.push('note にログインできていない（account gate で停止）'); notify('note のログインが切れています。同期を止めました'); break; }
     if (run.status !== 0) { failed.push({ key: item.key, reason: `登録失敗（exit ${run.status}）` }); continue; }
-    const live = (await fetchCreatorMagazines(CREATOR)).find((m) => m.key === item.noteKey);
+    const live = (await fetchCreatorMagazines(NOTE_CREATOR)).find((m) => m.key === item.noteKey);
     if (!live?.cover || sameImage(live.cover, item.liveUrl)) { failed.push({ key: item.key, reason: '登録後も画像 URL が変わらない' }); continue; }
     recordCover(ledger, target, { design: design.magazine, noteKey: item.noteKey, liveUrl: live.cover, sha256: createHash('sha256').update(readFileSync(join(ROOT, target.imagePath))).digest('hex') });
     writeLedger(ROOT, ledger);

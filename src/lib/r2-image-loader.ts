@@ -1,8 +1,9 @@
 import type { ImageLoaderProps } from 'next/image';
 
 import categories from '@/config/categories.json';
+import { R2_PUBLIC_ORIGIN } from '@/config/site-identity.mjs';
 
-const R2_PUBLIC_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL || "https://storage.doboku-note.com";
+const R2_PUBLIC_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL || R2_PUBLIC_ORIGIN;
 
 /**
  * ローカル画像パスをR2公開URLに変換。

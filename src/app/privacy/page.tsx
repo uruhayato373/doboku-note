@@ -16,6 +16,8 @@ import {
   RefreshCw,
   Mail,
 } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
@@ -26,10 +28,10 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'プライバシーポリシー | doboku-note',
     description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
-    url: 'https://doboku-note.com/privacy',
+    url: `${SITE_ORIGIN}/privacy`,
     images: [
       {
-        url: 'https://doboku-note.com/images/og-default.png',
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'doboku-note - 土木系資格試験 専門技術ノート',

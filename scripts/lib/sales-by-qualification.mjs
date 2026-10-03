@@ -7,12 +7,12 @@
  * 集計対象の選び方は business-direction.mjs の noteRevenue / coconalaRevenue / kdpRoyalty（'all'）と同じにする。
  * ---------------------------------------------------------------------------
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { classifySale, classifyProduct, loadLineupConfig } from './product-lineup.mjs';
 import { datasetPath } from './datasets.mjs';
+import { readJson } from './json-io.mjs';
 
-const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
 const inPeriod = (day, period) => day >= period.startDate && day <= period.endDate;
 
 /** 売上 1 件の資格キー。cells は `資格id:区分id` の配列。 */

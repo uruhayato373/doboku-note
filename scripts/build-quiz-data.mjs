@@ -18,6 +18,7 @@ import katex from 'katex';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
+import { jstDayOf } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -26,7 +27,7 @@ const outDirArg = process.argv.indexOf('--out-dir');
 const OUT_DIR = outDirArg >= 0 ? resolve(process.argv[outDirArg + 1]) : resolve(ROOT, 'public/quiz');
 
 /** frontmatter の日付（YAML は Date に解釈される）を JST の YYYY-MM-DD に揃える。String(Date) は実行環境のロケールで表記が変わり、並べても日付順にならない */
-const toJstDate = (v) => (v instanceof Date ? new Date(v.getTime() + 9 * 3600_000).toISOString().slice(0, 10) : String(v));
+const toJstDate = (v) => (v instanceof Date ? jstDayOf(v) : String(v));
 
 const SOURCES = [
   {

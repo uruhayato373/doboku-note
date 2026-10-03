@@ -14,6 +14,7 @@
  * scripts/check-qualification-market.mjs（CI ゲート）・管理画面 資格一覧（展開の判断）。
  * ---------------------------------------------------------------------------
  */
+import { freshnessDays } from './datasets.mjs';
 import { classifyProduct, classifySale } from './product-lineup.mjs';
 
 /** 管理画面の列の並び。YouTube・note・ココナラは検索で混み具合を測り、X・Instagram は追跡数だけ持つ。 */
@@ -21,8 +22,8 @@ export const CHANNELS = ['note', 'youtube', 'coconala', 'x', 'ig'];
 export const SCANNED_CHANNELS = ['youtube', 'note', 'coconala'];
 /** 受験者が自分の答案を組み立てる形式。売上はここに集中している（2026-09 の実売）。 */
 export const COMPOSE_TYPES = ['experience', 'essay'];
-/** 市場スキャンを古いとみなす日数（四半期）。 */
-export const SCAN_STALE_DAYS = 90;
+/** 市場スキャンを古いとみなす日数（四半期）。値は台帳 analysis.qualification-market の freshness.warnDays。 */
+export const SCAN_STALE_DAYS = freshnessDays('analysis.qualification-market', 'warnDays');
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const DAY_MS = 86_400_000;
@@ -99,7 +100,7 @@ export function noteMetrics(items, totals) {
 }
 
 /**
- * ココナラの検索結果（coconala-research.mjs の services）から、評価件数の多いサービスの数を出す。
+ * ココナラの検索結果（market-research.json の services）から、評価件数の多いサービスの数を出す。
  * @param {Array<{url:string, seller:string, reviews:number|null, priceYen:number|null}>} services
  */
 export function coconalaMetrics(services, strongReviews, totals) {
@@ -243,7 +244,7 @@ export function buildMarketView(input) {
   const coconalaByKeyword = new Map((coconalaResearch?.queries ?? []).map((q) => [q.keyword, q]));
   // ココナラは取得済みの全検索結果を 1 つにまとめ、タイトル条件で資格へ振り分ける（汎用の語「経験記述 添削」等で
   // 取れたサービスも数える）。資格専用の語が未取得なら、その値は下限（partial）。
-  const coconalaPool = [...(coconalaResearch?.queries ?? []).filter((x) => x.complete || (x.services ?? []).length > 0).flatMap((x) => x.services ?? [])];
+  const coconalaPool = coconalaResearch?.services ?? [];
 
   const rows = registry.qualifications.map((q) => {
     const fmt = formats.exams?.[q.id] ?? null;

@@ -22,6 +22,7 @@ import dotenv from 'dotenv';
 import { normalizeBing, redactKey } from './lib/bing-webmaster.mjs';
 import { addDays, jst } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
 dotenv.config({ path: '.env.local', quiet: true });
 
@@ -31,7 +32,7 @@ const ENDPOINTS = { query: 'GetQueryStats', page: 'GetPageStats', traffic: 'GetR
 
 async function main() {
   const key = process.env.BING_WEBMASTER_API_KEY;
-  const siteUrl = process.env.BING_SITE_URL || 'https://doboku-note.com/';
+  const siteUrl = process.env.BING_SITE_URL || `${SITE_ORIGIN}/`;
   if (!key) {
     console.error(`${TAG} 検査不成立: BING_WEBMASTER_API_KEY が未設定（Bing Webmaster Tools → 設定 → API アクセスで発行し GitHub Secret へ登録）`);
     return 2;

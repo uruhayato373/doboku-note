@@ -32,6 +32,7 @@ import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/pla
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
+import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -213,12 +214,12 @@ function updateStatus(
     data = { updated_at: "", tweets: entries };
   }
 
-  const nowJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00");
+  const nowJst = jstClock().toISOString().replace("Z", "+09:00");
   const key = String(tweetNum);
   const tb = tweets.find((t) => t.number === tweetNum);
 
   if (scheduledDate) {
-    const scheduledJst = new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000)
+    const scheduledJst = jstClock(scheduledDate)
       .toISOString()
       .replace("Z", "+09:00");
     data.tweets[key] = {

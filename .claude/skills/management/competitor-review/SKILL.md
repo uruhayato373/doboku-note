@@ -28,7 +28,7 @@ export PATH="$HOME/.local/bin:$PATH"
 twitter -c search "コンクリート診断士 対策" -n 15 | grep -oE '@[A-Za-z0-9_]+' | sort | uniq -c | sort -rn   # X: 投稿主を集計
 # 未登録の頻出アカを twitter -c user <h> で follower/bio 確認→exam純度が高ければ config 追加
 # note: curl "https://note.com/api/v3/searches?context=user&q=<kw>"（urlname 発掘）
-# ココナラ: market-research.json の seller を集計（既にキーワード検索由来）
+# ココナラ: market-research.json の services（URL で一意）の seller を集計（既にキーワード検索由来）
 ```
 
 - 追加の可否は **follower 規模 × exam 純度（bio/直近投稿）** で判断。麻雀/IT/建築士等の無関係 bio は除外。

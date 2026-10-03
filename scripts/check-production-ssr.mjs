@@ -23,8 +23,9 @@
 //   このスクリプト自身が上の事故を再現する。
 
 import { execFileSync } from 'node:child_process';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
-export const DEFAULT_URLS = ['https://doboku-note.pages.dev', 'https://doboku-note.com'];
+export const DEFAULT_URLS = ['https://doboku-note.pages.dev', SITE_ORIGIN];
 export const KEYWORDS = ['土木', '技術士'];
 
 function isProxyBlockPage(body) {

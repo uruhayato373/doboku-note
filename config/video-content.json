@@ -61,13 +61,6 @@
     },
     "note_": "catalog 系 kind は targetId がカタログ id に解決できること。site-article は targetPath 実在。links-hub は /links 固定で targetId 不要。primaryCta は 1 つだけ（配列不可）。campaign は packId と一致。"
   },
-  "utm": {
-    "source": "youtube",
-    "medium": "video",
-    "campaign": "{packId}",
-    "contentEnum": ["longform", "shorts"],
-    "note_": "utm_medium=video は GA4 標準 Video チャネル分類のため固定（真実源 docs/marketing/02_チャネル動線設計.md §4）。utm_source=instagram の混入は禁忌。"
-  },
   "canvas": {
     "longform": { "ratio": "16:9", "render": [1920, 1080] },
     "vertical": { "ratio": "9:16", "render": [1080, 1920] }

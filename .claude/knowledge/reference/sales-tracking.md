@@ -125,7 +125,7 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 npm run report-note-funnel-efficiency
 ```
 
-最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales.json独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`data/analysis/monetization/note-funnel-efficiency-latest.{json,md}`。
+最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales.json独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は標準出力だけ（`--json`で JSON。何も書かず、週次の CI でも回さない。読み手のいない出力だったので2026-10にやめた）。
 
 これは購入者をクリックへ結合したCVRではない。note販売履歴に流入識別子が無いため、売上÷クリックは同期間の診断指標に限り、因果attributionと表現しない。単品記事売上と商品IDを持たないハブ導線は対象外。
 

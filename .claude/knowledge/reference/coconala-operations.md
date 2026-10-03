@@ -41,7 +41,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `id` | `coconala-{種別}`。`data/note/sales.json` の productId は `coconala:{id}` |
 | `status` | `draft`（未出品・非表示）/ `listed`（出品中・**/links に自動表示**）/ `full`（満枠・導線を伏せる）/ `paused`（季節オフ） |
 | `serviceUrl` | 出品後の URL（`https://coconala.com/services/{n}`）。listed なら必須・照合キー |
-| `price` / `priceYen` | 表示文字列 / 機械照合用。**必ず同時に更新**する |
+| `priceYen` / `priceNote` / `price` | 価格（円・**正本はこれ 1 つ**）/ 表示に添える補足（例: `2テーマセット`）/ 表示用の文字列（`¥8,000（2テーマセット）`）。`price` は `priceYen` と `priceNote` から作るのでエントリには書かない（`tests/coconala-price-label.test.mjs` が止める） |
 | `weeklyCapacity` | 週の受付枠（Red Line #1「定員なし恒久添削の禁止」の機械的表明） |
 | `priceHistory` | 価格改定の履歴（旧定価と有効最終日）。過去受注の突合に使う（§6 検査3） |
 | `notePriceBasis` / `notePriceExempt` | PDF 商品の価格ルール（note より安く売らない）の基準／対象外の理由（§2.6・§6 検査10） |
@@ -101,7 +101,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ### 2.1b 出品投入 SoT: `config/coconala-listings.json`
 
-出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここに価格を書かない**（安全弁§4）。
+出品フォームへ流し込む本文・カテゴリ・納期・ジャンルの機械可読 SoT（`coconala-publish/edit` が serviceId で引く）。**サービス本体の価格・タイトル・状態・URL はカタログ（2.1）が真実源＝ここにサービス本体の価格を書かない**（安全弁§4）。有料オプションの価格（`options[].priceYen`）だけはカタログに無いので、ここが正本。
 
 | listings[id] のキー | 意味 |
 |---|---|
@@ -128,7 +128,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `priceYen` | 販売額（手数料差引前）。カタログと不一致なら要説明（価格改定時は memo に改定日）。見積り受注は `quote.amountYen` と一致必須 |
 | `grade` | 1 or 2（級）。級の無い商品は null |
 | `status` | `received` → `delivered` → `revised`（書き直し対応）→ `closed`（**購入者評価まで送信済み**）。S3 指導は `received` → `kosshi-sent`（骨子シート送付済み・本人の答案待ち。`received` の滞留警告の対象外）→ `delivered`（添削の返却＝正式納品）→ … |
-| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記 |
+| `replyDueAt` | 返信期限（**無連絡で自動キャンセル**になる時刻）。snapshot が拾えたら転記（snapshot は時差なしの JST の壁時計なので `+09:00` を付けて書く。型が時差なしを止める） |
 | `deliveredAt` | 納品した日時（ISO）。未納品は null |
 | `artifacts` | 納品した成果物 `[{ file, sha256, builtAt }]`。**どの版を送ったかを特定するため** |
 | `tensakuMinutes` | 最終赤入れの所要時間（工数の実測・定員判断の根拠）。C系 PDF は null |
@@ -222,7 +222,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 | 層 | ファイル | 役割 | サイズ |
 |---|---|---|---|
 | **エージェント参照 SSOT** | `data/coconala/market-summary.json` | キーワード別の価格分位・セグメント内訳・レビュー数トップ5 に畳んだ派生物。**着手時はまずこれを read** | 約 8KB |
-| アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細。個別出品の説明文・オプションまで見たいときだけ read | 約 700KB |
+| アーカイブ（生データ） | `data/coconala/market-research.json` | 全出品の実測明細（URL で一意）。個別出品の詳細まで見たいときだけ read | 約 700KB |
 
 - **再取得（実測）**: `npm run coconala-research`（＝`scripts/coconala-research.mjs`・Playwright）。生データ更新後にサマリーも自動再生成。
 - **サマリーだけ再生成**: `npm run coconala-summary`（＝`--summary-only`・Playwright 不使用・生データから畳むだけ・秒で終わる）。
@@ -230,7 +230,7 @@ DM 一覧 = `/message?fromMyPage=true`、行 = `a.c-messageItemWrap[href="/mypag
 
 `market-summary.json` = `{ version, generatedAt, fetchedAt, source, note, keywords: [{ keyword, totalHits, collected, priceYen: {min,median,mean,max}, segments, topByReviews: [{title,seller,priceYen,rating,reviews,segment,url}] }] }`
 
-生データ `market-research.json` = `{ version, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, services: [...] }] }`
+生データ `market-research.json` = `{ version: 2, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, complete }], services: [{ title, catchphrase, seller, rating, reviews, priceYen, url, segment, queries: [見つかった検索語], detail? }], updatedAt }`。出品は URL で一意（語ごとに重ねて持たない）・説明の抜粋は持たない・`detail` は詳細ページを取った出品だけ（保存形は `scripts/lib/coconala-market.mjs`）
 
 `{ version, fetchedAt, method, note, queries: [{ keyword, resolvedUrl, pageType, totalHits, pagesScanned, services: [...] }] }`
 
@@ -483,7 +483,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 | スクリプト | 役割 |
 |---|---|
 | `scripts/coconala-publish.mjs --service <id> [--commit]` | 新規出品。`/services/add`→種別=テキストチャット→「内容の入力に進む」で下書き生成→フォーム充填→下書き保存（既定）/公開（`--commit`）→公開時カタログへ `listed`＋`serviceUrl`＋`listedAt` 書き戻し |
-| `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新 |
+| `scripts/coconala-edit.mjs --service <id> [--fields …] [--commit]` | 既存修正。カタログ＋listings の現値でフォーム再充填。`--fields price,delivery` 等で部分更新。公開中サービスで `--commit` なしは送信しない dry-run（画像のアップロード・削除は送信前でも即反映されるので、dry-run では画像に触らず枚数だけ読む） |
 | `scripts/coconala-delete-draft.mjs --id <n[,n]> [--allow-duplicate] [--commit]` | **空の下書き（orphan draft）を安全に削除**。4重ガード（G0 カタログ在籍拒否・G1 URL一致・G2 タイトル空・G3「下書きを削除」導線＝公開商品には出ない）。既定 dry-run・実削除は `--commit`。公開中商品は構造的に誤爆しない。**G2b（2026-08-12）**: publish は毎回 `/services/add` を叩くため「draft 実行→commit 実行」で**サービスが2件でき draft 側が孤児になる**。この孤児だけは「タイトルが listed 商品と一致（末尾ます剥がしで正規化）かつ別 id」で一意に判定でき、`--allow-duplicate` で削除できる。作りかけの題名付き下書きは従来どおり触らない |
 | `scripts/coconala-orders.mjs [--no-deadline] [--headless]` | **受注実績＋購入前問い合わせ(DM) の read-only 収集**（§2.2b）。取引管理（出品）の全タブ＋未返信タブ＋DM 一覧を走査し、未返信 room の返信期限をトークルームから拾って `orders-snapshot.json` を生成（DM スレッドは開かない＝既読にしない）。**書き込み一切なし・個人情報を保存しない**。1タブでも取得失敗なら `status:'partial'` ＋ exit 2 |
 | `scripts/coconala-pause.mjs [--resume --absence \| --archive --all-retired \| --all-paused] [--commit]` | **受付休止 / 再開 / アーカイブ**の決定的操作。対象選択とガードは `scripts/lib/coconala-guards.mjs`（`tests/coconala-guards.test.mjs` で固定）＝休止は `paused` のみ・再開は `listed` のみ・アーカイブは `pauseReason:'retired'` のみを受け付ける。既定 dry-run。実行後は一覧を再読して `stop_fg`（アーカイブは一覧からの消失）を**実測で検証**。**一覧は1ページ10件でページ送り**するので対象の載るページを探してから操作する（1ページ目しか見ないと11件目以降が「見つからない」に化ける）。`--resume --absence` はカタログの `listed` 戻しとマーカー除去まで行う |
@@ -600,7 +600,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 >
 > 2026-08-05 に C8 で 1級 経験記述が 7行/9行（旧3項目形式の名残）、学科記述 5 問で答案例が枠から +2〜+68 字あふれる状態を検出し是正。**答案例の「約N字」表記が枠容量を超えている＝その場で破綻が読める**ので、ラベルと行数は必ず突き合わせる。
 
-**安全弁**: ①account assert（`sellerName`=dobokunote をマイページ本文で確認・不一致は即中断）②既定は「下書きで保存」・実公開は `--commit` 必須 ③価格/カテゴリ充填 warning があれば公開せず下書き退避 ④送信後の記入エラーは `ok:false` を返し「公開した」と報告しない。
+**安全弁**: ①account assert（`sellerName`=dobokunote をマイページ本文で確認・不一致は即中断）②既定は「下書きで保存」・実公開は `--commit` 必須（公開中サービスの編集は下書きが無いので、`--commit` なしは送信しない dry-run） ③価格/カテゴリ充填 warning があれば公開せず下書き退避 ④送信後の記入エラーは `ok:false` を返し「公開した」と報告しない。
 
 **フォーム仕様の要点**（2026-07-18 実機確定）:
 - **タイトル**: 25字未満。末尾「ます」は**固定サフィックスで自動付与**されるため、フォームには末尾「ます」を剥がして入れる（さもないと公開表示が「〜しますます」と二重になる）。form lib が自動で剥がす＝カタログ title は自然な「〜します」で持つ。

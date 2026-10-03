@@ -18,6 +18,8 @@ import { readFileSync, mkdirSync, existsSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { SITE_ORIGIN } from "./lib/site-identity.mjs";
+import { todayJst } from "./lib/jst-date.mjs";
 
 // fileURLToPath を使う: Windows では `new URL("..", import.meta.url).pathname` が
 // `/C:/Users/…` を返し、文字列連結すると `C:\C:\Users\…` になって ENOENT で落ちる。
@@ -37,16 +39,11 @@ function publicKeywordPath(slug) {
   return `${PUBLIC_KEYWORD_ROOT}/${slug}`;
 }
 
-// JST（会社PCのローカルTZ非依存で日付を出す。CI/ローカルどちらでも同じ結果にするため）
-// Date#getTime() は常に UTC epoch ミリ秒なので、getTimezoneOffset() で補正すると
-// ローカルTZ が既に JST のとき二重加算になる（9h 分ずれて翌日になるバグを実測で確認）。
-// 単純に UTC epoch へ 9 時間を足して UTC メソッドで読めば TZ 非依存で JST の日付になる。
+// JST（会社PCのローカルTZ非依存で日付を出す。CI/ローカルどちらでも同じ結果にするため）。
+// getTimezoneOffset() で補正するとローカルTZ が既に JST のとき二重加算になる（9h 分ずれて翌日になるバグを実測で確認）ので、
+// 計算は scripts/lib/jst-date.mjs（UTC epoch に 9 時間を足して UTC メソッドで読む）だけで行う。
 function todayJST() {
-  const jst = new Date(Date.now() + 9 * 60 * 60000);
-  const y = jst.getUTCFullYear();
-  const m = String(jst.getUTCMonth() + 1).padStart(2, "0");
-  const d = String(jst.getUTCDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
+  return todayJst();
 }
 
 function csvEscape(v) {
@@ -261,7 +258,7 @@ console.log(`  TOP5: ${ranked.slice(0, 5).map((t) => `${t.title}(${t.count})`).j
 const csvHeader = ["slug", "論点名", "5管理分類", "出現回数", "出題年度数", "直近出題年度", "出題年度リスト", "ページURL"];
 const csvRows = ranked.map((t) => {
   const dirExists = existsSync(join(SITE_DIR, t.slug));
-  const url = dirExists ? `https://doboku-note.com${publicKeywordPath(t.slug)}` : "";
+  const url = dirExists ? `${SITE_ORIGIN}${publicKeywordPath(t.slug)}` : "";
   return [t.slug, t.title, t.kanri, t.count, t.yearsCount, t.latestYear, t.years.join(";"), url];
 });
 const csvContent =

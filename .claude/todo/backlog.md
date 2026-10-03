@@ -85,12 +85,12 @@
 
 **やること**（在籍会員が0人になってから）:
 1. note の管理画面で在籍会員0人を確認する（残っていれば終了日まで待つ）。
-2. `config/note-membership.json` の `benefitMagazines` のうち**有料6誌（完全攻略パック・過去問模範答案集など）は削除しない**。会員プランとの紐づけを外すだけにし、単品販売は続ける。
+2. 会員プランの特典マガジンのうち**有料6誌（完全攻略パック・過去問模範答案集など）は削除しない**。会員プランとの紐づけを外すだけにし、単品販売は続ける。（特典 7 誌の名前は旧 `config/note-membership.json` の `benefitMagazines`＝2026-10-02 に読み手が無いため削除。1級土木 施工経験記述｜過去問 模範答案集／工種×テーマ別 完成答案集／2テーマ組合せ大全（全10組合せ）／完全攻略パック、2級土木 施工経験記述｜過去問 模範答案集（R03-R07）／工種×テーマ別 完成答案集、経験記述 週次お題ラボ｜1級・2級土木（会員専用）。前者の 6 誌が有料）
 3. 会員専用マガジン「経験記述 週次お題ラボ｜1級・2級土木（会員専用）」（`mbe07bd5cecda`）を削除する（収録記事は無料記事として残る）。
 4. 「はじめに-合格ラボ」（加入の勧誘記事）を非公開にする。
 5. 2プラン（`4956c2d4f928`・`f9567e03949d`）とメンバーシップ自体を削除する（会員0人でないと削除できないかは未確認。画面で確かめる）。
 6. 22記事の `memberTrial: bottom` と末尾の「以上、今回の〜でした。」を外し、`note-update-body --list` で反映する。
-7. `note-membership.json`・`check-note-membership.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
+7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。`https://note.com/dobokunote/membership/join` が加入画面を出さない。
 
@@ -257,14 +257,6 @@
 **完了条件**: 変更をデプロイし、4 週間後（2026-11 初め）の GSC で一次試験ページのインデックス数・表示回数、Bing で「技術士一次試験 過去問」系のクリックを変更前（本カードの数値）と比べて記録する。
 
 
-### [DN-0515] config/ の読み手の多い設定 4 種に型（zod）を付ける
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
-
-**起点**: DN-0498 で data/ の台帳 24 データセットに型を付けた（`scripts/lib/dataset-schemas.mjs`）。config/ は手を付けていない。ADR `data-storage-decision.md` の進め方 4 で優先と決めた `qualification-registry`（読み手 32）・`domains`（24）・`product-lineup`（14）・`coconala-listings`（更新が多い）が残る。
-
-**やること**: 4 ファイルの型を書き、台帳の `schema` で結ぶ。資格 id の照合のようなファイル間の整合は既存の `check-*` に残し、型は形だけを見る（同じ判定を 2 か所に書かない）。
-
-**完了条件**: `npm run check-datasets` の型ありが 28 になり違反 0。既存の `check-qualification-ssot` など各ファイルの検査がそのまま通る。
 
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
@@ -314,7 +306,7 @@
 
 **起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。`npm run check-past-exam-inventory` が FAIL 2,112 件（WARN 0）。全件が技術士の重点外の部門（第一次試験 361・機械 171・農業 133・電気電子 113・化学 105 ほか 20 部門）で、理由は全件「取得済みと書いたのに Drive 台帳にも手元にも無い」。
 
-**やること**: (1) 実際に Drive の過去問 vault にあるかを 1 部門で確かめ、台帳（`config/past-exam-inventory.json`）の書き方の誤りか、ファイルの欠落かを切り分ける。(2) 台帳の誤りなら取得状態を実在に合わせて直す。欠落なら `/past-exam-archive` の手順で公式から取り直すか、重点外の部門は在庫の対象から外す（外すなら理由を台帳に書く）。
+**やること**: (1) 実際に Drive の過去問 vault にあるかを 1 部門で確かめ、台帳（`data/pastexams/inventory.json`）の書き方の誤りか、ファイルの欠落かを切り分ける。(2) 台帳の誤りなら取得状態を実在に合わせて直す。欠落なら `/past-exam-archive` の手順で公式から取り直すか、重点外の部門は在庫の対象から外す（外すなら理由を台帳に書く）。
 
 **完了条件**: `npm run check-past-exam-inventory` が FAIL 0 件。
 
@@ -1221,9 +1213,9 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0510] 一次試験の検査の説明文が古い・原典取得スクリプトが会社 PC のプロキシで落ちる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-02]
 
-**起点**: 2026-10-02。(1) `scripts/quality-audit.mjs` の `pe-first-stage-historical` の note が「H25-H30の480問」のままだが、実際の検査対象は H23〜H30 の建設 3 科目と上下水道 16 回分の 40 ページ・1,190 問。(2) `scripts/fetch-pe-first-stage-historical.mjs` が Node の `fetch` で取得しており、会社 PC のプロキシで `TypeError: fetch failed` になる（規約は `curl --ssl-no-revoke`）。上下水道の原典（16 本＋正答 8 本）は固定設定（`config/pe-first-stage-historical-sources.json`）にも未登録。
+**起点**: 2026-10-02。(1) `scripts/quality-audit.mjs` の `pe-first-stage-historical` の note が「H25-H30の480問」のままだが、実際の検査対象は H23〜H30 の建設 3 科目と上下水道 16 回分の 40 ページ・1,190 問。(2) `scripts/fetch-pe-first-stage-historical.mjs` が Node の `fetch` で取得しており、会社 PC のプロキシで `TypeError: fetch failed` になる（規約は `curl --ssl-no-revoke`）。上下水道の原典（16 本＋正答 8 本）は過去問の在庫台帳（`data/pastexams/inventory.json`・固定した原典は files[] の sha256・pages）にも未登録。
 
-**やること**: (1) quality-audit の note を実態に合わせる。(2) 取得を `curl --ssl-no-revoke` に替え、取得失敗と SHA 不一致を区別して件数を出す。(3) 上下水道の原典 24 本を SHA-256・ページ数つきで固定設定に足す。
+**やること**: (1) quality-audit の note を実態に合わせる。(2) 取得を `curl --ssl-no-revoke` に替え、取得失敗と SHA 不一致を区別して件数を出す。(3) 上下水道の原典 24 本の SHA-256・ページ数を在庫台帳の該当ファイル（files[]）に足す（`historicalSources` は専門科目の別部門を `h23-specialty-NN.pdf` の名で取り出す）。
 
 **完了条件**: 会社 PC で `node scripts/fetch-pe-first-stage-historical.mjs` が全件 PASS（上下水道を含む）し、quality-audit の note が検査対象と一致する。
 

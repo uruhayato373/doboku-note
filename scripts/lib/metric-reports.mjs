@@ -1,7 +1,7 @@
 /**
  * metric-reports.mjs — GA4・GSC の週次取得（レポート）を読み書きする唯一の実装（DN-0498 段階 3）。
  *
- * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 17＋4 種のレポートを
+ * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 16＋4 種のレポートを
  *   data/ga4/reports/<日付>.json・data/gsc/reports/<日付>.json の reports.<種類> に入れる。
  *   同じ日に同じ種類を取り直したら上書きする（以前は別名のファイルが増えていた）。
  *   GA4 の CTA ラベル別だけは「暦月の窓」の取得（meta.windowKind === 'month'）を別の枠 cta-clicks-by-label:month に置く。
@@ -10,14 +10,16 @@
  * 移す前の名前（data/metrics/ga4/ga4-page-<時刻>.json）で書かれた参照も readReportRef で読める
  * （business 台帳・seo-watchwords が名前で指している）。
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { dirname, isAbsolute, join } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { isAbsolute, join } from 'node:path';
 import { datasetFiles, datasetPath } from './datasets.mjs';
+import { jstDayOf } from './jst-date.mjs';
+import { writeJson } from './json-io.mjs';
 
 /** 種類 id → 取得元とファイル内の枠の名前（枠の名前は移す前のファイル名の前半） */
 export const REPORT_KINDS = Object.fromEntries([
   ['ga4.page', 'page'], ['ga4.date', 'date'], ['ga4.channel', 'channel'], ['ga4.channel-organic', 'channel-organic'],
-  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'], ['ga4.device', 'device'],
+  ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'],
   ['ga4.host-name', 'hostName'], ['ga4.cta-clicks', 'cta-clicks'], ['ga4.cta-clicks-by-device', 'cta-clicks-by-device'],
   ['ga4.cta-clicks-by-label', 'cta-clicks-by-label'], ['ga4.cta-clicks-by-placement', 'cta-clicks-by-placement'],
   ['ga4.key-events-by-page', 'key-events-by-page'], ['ga4.quiz-funnel', 'quiz-funnel'], ['ga4.bot-audit', 'bot-audit'],
@@ -44,10 +46,10 @@ function kindOf(id) {
 export const nowStamp = (now = new Date()) => now.toISOString().replace(/[:.]/g, '-').slice(0, 19);
 
 /** 名前用の時刻（UTC）→ JST の日付 */
-export function jstDayOf(stamp) {
+export function jstDayOfStamp(stamp) {
   const m = STAMP_RE.exec(stamp);
   if (!m) throw new Error(`時刻の書式が違う: ${stamp}`);
-  return new Date(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]) + 9 * 3600_000).toISOString().slice(0, 10);
+  return jstDayOf(Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +m[6]));
 }
 
 function readDay(root, abs) {
@@ -61,15 +63,14 @@ function readDay(root, abs) {
  */
 export function writeReport(root, id, data, { stamp = nowStamp() } = {}) {
   const k = kindOf(id);
-  const date = jstDayOf(stamp);
+  const date = jstDayOfStamp(stamp);
   const file = datasetPath(`${k.source}.reports`, { date });
   const abs = join(root, file);
   const day = readDay(root, abs) ?? { schemaVersion: 1, source: k.source, date, reports: {} };
   const section = k.section + (data?.meta?.windowKind === 'month' && id === 'ga4.cta-clicks-by-label' ? MONTH_SUFFIX : '');
   day.reports[section] = { stamp: stamp.replace(/Z$/, ''), ...data };
   day.reports = Object.fromEntries(Object.entries(day.reports).sort(([a], [b]) => a.localeCompare(b)));
-  mkdirSync(dirname(abs), { recursive: true });
-  writeFileSync(abs, `${JSON.stringify(day, null, 2)}\n`);
+  writeJson(root, file, day); // 書式（字下げ 2・LF・末尾改行）と「同じ中身なら書かない」は json-io。dataset-write（型の検査・zod）は npm ci をしないワークフローが読むこのファイルから使えない
   return { file, ref: `${file}#${section}` };
 }
 
@@ -103,7 +104,7 @@ export function legacyReportRef(path) {
   const m = LEGACY_RE.exec(path);
   if (!m) return null;
   const section = m[2].replace(/^(ga4|gsc)-/, '');
-  return `${datasetPath(`${m[1]}.reports`, { date: jstDayOf(m[3]) })}#${section}`;
+  return `${datasetPath(`${m[1]}.reports`, { date: jstDayOfStamp(m[3]) })}#${section}`;
 }
 
 /** 「ファイル#枠」か移す前の名前を読み、{ meta, rows, ... } を返す（無ければ null） */

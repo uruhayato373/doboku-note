@@ -17,10 +17,14 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 import { findRepoRoot, repoPath } from './repo-root';
-import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
+import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
 
-/** 週次供給＋2日バッファ。check-magazine-membership.mjs の STALE_DAYS と揃える。 */
-export const STALE_DAYS = 9;
+/**
+ * 週次供給＋2日バッファ。値は台帳 scripts/lib/datasets.mjs の freshness.failDays（note.magazines は check-magazine-membership.mjs も同じ値を読む。
+ * 以前はこちらに 9 を書き写してコメントで人手同期していた）。
+ */
+export const MAGAZINES_STALE_DAYS: number = freshnessDays('note.magazines', 'failDays');
+export const STATUS_STALE_DAYS: number = freshnessDays('note.status', 'failDays');
 
 // ─── 三軸突合（check-magazine-membership --json）─────────
 
@@ -153,7 +157,7 @@ export function statusSnapshot(now: number = Date.now()): StatusSnapshot {
       error: null,
       fetchedAt,
       ageDays,
-      stale: ageDays == null || ageDays > STALE_DAYS,
+      stale: ageDays == null || ageDays > STATUS_STALE_DAYS,
       tracked: (d.tracked as number) ?? 0,
       untracked: (d.untracked as number) ?? 0,
       inspected: (d.inspected as number) ?? 0,

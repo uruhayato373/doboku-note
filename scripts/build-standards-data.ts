@@ -20,6 +20,7 @@ import {
 import { inferStandardEdition } from '../src/lib/standards-comparison';
 import type { StandardChapter, StandardArticlesManifest } from '../src/lib/standards-articles';
 import type { StandardDocument, StandardsCatalog } from '../src/lib/standards';
+import { SITE_ORIGIN } from '../src/config/site-identity.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_ROOT = resolve(ROOT, 'public');
@@ -178,9 +179,9 @@ function documentIndex(
     chapters: manifest.chapters.map((chapter) => ({
       id: chapter.chapterId,
       title: chapter.title,
-      html: `https://doboku-note.com/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`,
-      markdown: `https://doboku-note.com${standardsDataPath(document, chapter, 'md')}`,
-      jsonLd: `https://doboku-note.com${standardsDataPath(document, chapter, 'jsonld')}`,
+      html: `${SITE_ORIGIN}/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`,
+      markdown: `${SITE_ORIGIN}${standardsDataPath(document, chapter, 'md')}`,
+      jsonLd: `${SITE_ORIGIN}${standardsDataPath(document, chapter, 'jsonld')}`,
       sourcePages: [chapter.firstPage, chapter.lastPage],
       sourceSha256: chapter.sourceSha256,
       outputSha256: chapter.outputSha256,
@@ -259,9 +260,9 @@ function main(): void {
         pages: document.pages,
         sourceUrl: document.sourceUrl ?? document.landing,
         sourceSha256: document.sourceSha256,
-        html: `https://doboku-note.com/standards/${document.agencyId}/${document.documentId}`,
+        html: `${SITE_ORIGIN}/standards/${document.agencyId}/${document.documentId}`,
         ...(structured
-          ? { dataIndex: `https://doboku-note.com/standards-data/${document.agencyId}/${document.documentId}/index.json` }
+          ? { dataIndex: `${SITE_ORIGIN}/standards-data/${document.agencyId}/${document.documentId}/index.json` }
           : {}),
       };
     }),

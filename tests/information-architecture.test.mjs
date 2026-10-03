@@ -3,10 +3,13 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { auditPath, auditDualSsot, auditStalePathLiterals, listTargets } from '../scripts/check-information-architecture.mjs';
+import {
+  auditPath, auditDualSsot, auditStalePathLiterals, listTargets, loadConfig, movedFromPaths, withMovedPaths,
+} from '../scripts/check-information-architecture.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CFG = JSON.parse(readFileSync(join(ROOT, '.claude/config/information-architecture.json'), 'utf8'));
+// JSON の旧パス＋repository-paths.mjs の移動表（検査が実際に使う設定）
+const CFG = loadConfig();
 
 /**
  * 4 領域モデル（docs / content / .claude / 実装）への逆戻りを止めるゲートの契約。
@@ -137,4 +140,44 @@ test('allowFiles に挙げたファイルは実在する（消えた例外を残
   const { existsSync } = await import('node:fs');
   const missing = (STALE.allowFiles ?? []).filter((f) => !existsSync(join(ROOT, f)));
   assert.deepEqual(missing, [], `allowFiles に実在しないファイルがある: ${missing.join(', ')}`);
+});
+
+/* ------------------------------------------------------------------ *
+ * 旧パスの正本は repository-paths.mjs の移動表（JSON と二重に書かない）
+ * ------------------------------------------------------------------ */
+
+test('移動表の旧パス（文字列）はすべて、禁止ルートにも旧パス走査にも入る（JSON に書かなくてよい）', () => {
+  const moved = movedFromPaths();
+  assert.ok(moved.length > 100, `移動表から旧パスが取れていない: ${moved.length}`);
+  for (const from of moved) {
+    assert.ok(auditPath(from, CFG).some((v) => v.rule === 'forbidden-root'), `禁止ルートに入っていない: ${from}`);
+    const literal = /\.[A-Za-z0-9]+$/.test(from) ? from : `${from}/probe.json`; // ディレクトリは配下のパスを書いた形で拾う
+    assert.ok(
+      auditStalePathLiterals('scripts/x.mjs', `const p = '${literal}';`, CFG.stalePathLiterals).length > 0,
+      `旧パス走査に入っていない: ${from}`,
+    );
+  }
+});
+
+test('移動表に 1 行足すだけで、禁止ルートと旧パス走査へ入る（ディレクトリは末尾 / 付きで走査）', () => {
+  const raw = JSON.parse(readFileSync(join(ROOT, '.claude/config/information-architecture.json'), 'utf8'));
+  assert.equal(auditPath('config/zzz-moved.json', withMovedPaths(raw)).length, 0, '足す前は正当なパスとして通る');
+  // 移動表そのものは触らず、関数の契約だけを確かめる: JSON に無い旧パスは moved 由来でしか入らない
+  const fromJsonOnly = new Set([...raw.forbiddenRoots.paths, ...raw.stalePathLiterals.paths]);
+  const derived = movedFromPaths().filter((p) => !fromJsonOnly.has(p));
+  assert.ok(derived.length > 50, 'JSON に残さず移動表だけが持つ旧パスが無い（二重管理に戻っている）');
+  const dir = derived.find((p) => !/\.[A-Za-z0-9]+$/.test(p));
+  assert.ok(dir, '移動表にディレクトリの旧パスが無い');
+  assert.equal(auditStalePathLiterals('scripts/x.mjs', `join(ROOT, '${dir}/a.json')`, CFG.stalePathLiterals).length > 0, true, dir);
+});
+
+test('JSON の旧パスと移動表の旧パスは重ならない（二重管理の再発を止める）', () => {
+  const raw = JSON.parse(readFileSync(join(ROOT, '.claude/config/information-architecture.json'), 'utf8'));
+  const moved = new Set(movedFromPaths());
+  const dup = raw.forbiddenRoots.paths.filter((p) => moved.has(p));
+  assert.deepEqual(dup, [], `禁止ルートが移動表と二重: ${dup.join(', ')}（JSON から消す）`);
+  // 走査はディレクトリを末尾 / 付きで持つ（末尾 / なしで JSON に書いたものは、ディレクトリそのものを書いた参照も拾う別の旧パス）
+  const derivedStale = new Set([...moved].map((p) => (/\.[A-Za-z0-9]+$/.test(p) ? p : `${p}/`)));
+  const dupStale = raw.stalePathLiterals.paths.filter((p) => derivedStale.has(p));
+  assert.deepEqual(dupStale, [], `旧パス走査が移動表と二重: ${dupStale.join(', ')}（JSON から消す）`);
 });

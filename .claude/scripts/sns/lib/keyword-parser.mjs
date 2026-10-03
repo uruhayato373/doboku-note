@@ -13,6 +13,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
+import { SITE_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
 
 export function parseKeywordPack(packDir) {
   const carouselMd = readFileSync(join(packDir, 'instagram-carousel.md'), 'utf8').replace(/\r\n/g, '\n');
@@ -88,7 +89,7 @@ function parseMeta(carouselMd, sourceMd, packDir) {
 
   // CTA リンク（slide 10）
   const ctaLink = carouselMd.match(/リンク[:：]\s*`(https:\/\/doboku-note[^`]+)`/);
-  const ctaUrl = ctaLink ? ctaLink[1] : `https://doboku-note.com/docs/pe-comprehensive-management-${keywordSlug}`;
+  const ctaUrl = ctaLink ? ctaLink[1] : `${SITE_ORIGIN}/docs/pe-comprehensive-management-${keywordSlug}`;
 
   // バッジ「総監 X.X セクション名」を slide 1 から
   const badgeMatch = carouselMd.match(/バッジ[:：]\s*「(.+?)」/);

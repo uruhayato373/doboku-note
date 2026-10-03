@@ -9,8 +9,10 @@
  */
 import { existsSync, readFileSync } from "node:fs";
 import { parseLegacyRedirects } from "./legacy-routes.mjs";
+import { SITE_ORIGIN } from "./site-identity.mjs";
 
-export const SITE_ORIGIN = "https://doboku-note.com";
+// 値の定義は site-identity.mjs（check-note-site-utm / check-x-utm が従来どおりここから import できるよう再公開する）。
+export { SITE_ORIGIN };
 
 // group1 = パス（クエリ・フラグメントを含まない）、group2 = クエリ／フラグメント。
 // パスの文字は ASCII に限る（日本語の句読点や閉じ括弧をパスに巻き込まない）。`{slug}` のような

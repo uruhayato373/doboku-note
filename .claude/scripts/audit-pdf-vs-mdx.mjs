@@ -31,13 +31,14 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative, basename, dirname } from 'node:path';
 import { spawnSync, spawn } from 'node:child_process';
+import { todayJst } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const PDF_ROOT = join(ROOT, 'content/sources/past-exams/技術士（総監）');
 const MDX_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const TMP_DIR = join(ROOT, '.tmp/ocr-cache');
 const OUTPUT_DIR = join(ROOT, '.claude/state/pdf-mdx-audit');
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = todayJst();
 
 const args = process.argv.slice(2);
 const SKIP_OCR = args.includes('--skip-ocr');

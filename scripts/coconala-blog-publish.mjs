@@ -36,6 +36,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { launchContext, waitForLogin, assertAccount, readCatalog, readAccount, shotPath, sleep, ROOT } from './lib/coconala-session.mjs';
 import { assertBlogPost, BlogGuardError } from './lib/coconala-blog-guards.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const TAG = '[blog-publish]';
 const argv = process.argv.slice(2);
@@ -508,7 +509,7 @@ try {
     if (exitCode === 0 && !UPDATE) {
       // ココナラの公開日時は JST。UTC の toISOString だと JST 09:00 前の公開が前日付になり、
       // 「1日1本まで」の運用判断がズレる（2026-08-13 07:38 JST 公開が 2026-08-12 と記録された）。
-      const jstDate = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+      const jstDate = todayJst();
       writeBackFm({ blogUrl: liveUrl, blogId, status: 'published', publishedAt: jstDate });
       console.log(`${TAG} frontmatter 書き戻し完了`);
     } else if (exitCode === 0) {

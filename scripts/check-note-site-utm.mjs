@@ -29,6 +29,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
+import { utmChannel } from './lib/utm-contract.mjs';
 
 if (process.env.SKIP_NOTE_UTM === '1') {
   console.log('[check-note-site-utm] SKIP_NOTE_UTM=1 のためスキップ');
@@ -37,6 +38,8 @@ if (process.env.SKIP_NOTE_UTM === '1') {
 
 const STAGED = process.argv.includes('--staged');
 const ROOT = 'content/note';
+// 期待する source / medium は契約（config/utm-templates.json の note.site）から受け取る。コードに書き写さない。
+const NOTE_UTM = utmChannel('note.site');
 
 // note 公開対象のファイル名（Convention B の article.md と、型別の article-II1.md 等）。
 // 企画/設計/README の内部 doc は対象外。他の note 系ゲート（check-note-structure /
@@ -110,12 +113,12 @@ for (const f of files) {
         problems.push(`${f}:${i + 1} [legacy-url] ${url} → ${to}`);
       }
       if (inline) {
-        if (!url.includes('utm_source=note')) {
+        if (!url.includes(`utm_source=${NOTE_UTM.source}`)) {
           problems.push(`${f}:${i + 1} [utm-missing] ${url}`);
-        } else if (!url.includes('utm_medium=referral')) {
+        } else if (!url.includes(`utm_medium=${NOTE_UTM.medium}`)) {
           // referral は GA4 標準 medium（Referral チャネルへ正しく分類）。
           // inline/banner 等の非標準値は Unassigned 化するため referral に統一する。
-          problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=referral が必要）`);
+          problems.push(`${f}:${i + 1} [utm-medium] ${url}（utm_medium=${NOTE_UTM.medium} が必要）`);
         }
       } else if (!inCardSection && !cardOkArmed) {
         // 補助節/マーカー外の裸URLは主要送客の計測を壊すため NG（インライン+UTM にする）
@@ -129,7 +132,7 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-note-site-utm] ✗ 規約違反のサイト送客リンク ${problems.length} 件（UTM・旧 URL）:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/exam/{資格}/{種別}/{slug}?utm_source=note&utm_medium=referral&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
+  console.error(`\n対処: サイト送客リンクは [テキスト](${SITE_ORIGIN}/exam/{資格}/{種別}/{slug}?utm_source=${NOTE_UTM.source}&utm_medium=${NOTE_UTM.medium}&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。`);
   console.error('旧 /docs/ URL は npm run fix-legacy-site-links -- --write で新 URL へ張り替える（UTM は保持される）。');
   console.error('生 URL 単独行は /note-publish がカード化し UTM が落ちる。真実源: docs/marketing/02_チャネル動線設計.md');
   console.error('（既存違反のバーンダウン中は SKIP_NOTE_UTM=1 で一時回避可）');

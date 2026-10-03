@@ -18,7 +18,7 @@ export default function IndexPage() {
   const root = findRepoRoot();
   const quals = (direction(root) as { qualifications: { id: string; label: string }[] }).qualifications;
   const rows = (indexHistory(root) as { date: string }[])
-    .map((e) => expandEntry(root, e, quals.map((q) => q.id)) as { date: string; all: Ratio; byQualification: Record<string, Ratio> })
+    .map((e) => expandEntry(e, quals.map((q) => q.id)) as { date: string; all: Ratio; byQualification: Record<string, Ratio> })
     .reverse();
   return (
     <>

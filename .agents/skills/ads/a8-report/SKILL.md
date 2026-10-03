@@ -2,7 +2,7 @@
 name: a8-report
 description: >
   A8.net のレポート CSV を Playwright で取得し、doboku-note 分だけを正規化して SSOT
-  （a8-report-log.json / a8-results.json）へ upsert する成果データパイプライン。
+  （a8-report-log.json）へ upsert する成果データパイプライン。
   サイト別・プログラム別（詳細）・期間別（月別/日別）の 4 レポートを扱い、EPC 判定の分母を自動供給する。
   この A8 口座は stats47（統計で見る都道府県）と共用。**サイト切替は存在せず**、分離できるのはサイト別レポートのみ。
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".

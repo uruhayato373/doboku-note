@@ -54,43 +54,77 @@
         "width": 1374,
         "height": 1145
       },
-      "prompt": "Use case: ui-mockup. Create one flat, finished-looking WEBSITE CTA DESIGN CONCEPT in LANDSCAPE 6:5 ratio (1200x1000 design canvas), for display at 300x250 in a desktop article sidebar. Use the supplied approved Japanese product POP image ONLY as visual style and character identity reference. Replace ALL original lettering, claims and subject. Exact new text: top small '建設部門'; main large two-line headline '技術士一次' and '過去問PDF'; small single benefit '全560問・A4印刷用'; bottom CTA pill '教材の内容を見る'. No other lettering. Navy #16365c color blocks, white background, white and yellow heavy Japanese typography with restrained outline; maximum clarity at 300px wide. Familiar identical teacher mascot on the right third: same face, black hair, black glasses, slight beard, plain white helmet, blue work clothes; waist-up, friendly pointing at a small stack of printed paper on the lower right. Left two-thirds contain headline. Only simple solid color panels, modest accent diagonal; no scenery, photo background, desk, complicated textures, tiny text, watermark, URL, prices, red sales explosion, or inherited civil construction wording. Avoid making everything loud: title is the only very large text, secondary copy calm, green CTA button at bottom. Keep all faces and text safely inside. This is a reviewable concept to later implement with separate HTML text and existing character assets.",
+      "prompt": "Edit this exact existing website sidebar banner. Change ONLY the green CTA button at the bottom: use a very dark, flat evergreen background #065F46 behind all white button letters, with no bright green gradient. Keep the exact button wording 「教材の内容を見る」 and white arrow. Preserve ALL OTHER existing text, character identity, helmet, paper, navy/white/yellow composition, pixel layout, proportions and 6:5 aspect ratio. This is a local contrast repair, not a redesign. No new text or objects. Button text must have at least 4.5:1 contrast against its entire background, including near edges of letters. Output the entire complete banner.",
+      "references": [
+        {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
+          "sha256": "f3451d6e775699de12c65242baa745e330dca53cc3e8ca887e06e18499e3b3c1"
+        }
+      ],
       "original": {
-        "filename": "exec-38b4ce21-8953-4cb3-a16b-004abedb1133.png",
-        "sha256": "57b2cef42ea01725704b6151ef0d59b0029121d5f6da4079958c6b975035a80a"
+        "filename": "exec-874124d2-0f2b-48de-9e5b-5746a8694c0f.png",
+        "sha256": "1e98995b6ca37580e614428a11494c411f5a3b958e94cd77fce9de6929d817f5"
       },
       "output": {
-        "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
-        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar.webp?v=f3451d6e7756",
-        "sha256": "f3451d6e775699de12c65242baa745e330dca53cc3e8ca887e06e18499e3b3c1",
-        "bytes": 142980,
+        "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar-v2.webp",
+        "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar-v2.webp?v=717b16beacf6",
+        "sha256": "717b16beacf6bf6e90f3d8ee619f638e38779b1f36fed9cbead4067b77d4e354",
+        "bytes": 133592,
         "quality": 80
       },
       "review": {
-        "date": "2026-10-02",
-        "result": "原寸・幅360px・サイト配置で判読、文字切れ、人物、縦横比を確認"
+        "date": "2026-10-03",
+        "result": "原寸・幅300pxのサイト表示で、コピー一致・判読・文字切れなし・先生の同一性・濃緑ボタンの白文字を確認"
+      },
+      "previous": {
+        "format": {
+          "width": 1374,
+          "height": 1145
+        },
+        "prompt": "Use case: ui-mockup. Create one flat, finished-looking WEBSITE CTA DESIGN CONCEPT in LANDSCAPE 6:5 ratio (1200x1000 design canvas), for display at 300x250 in a desktop article sidebar. Use the supplied approved Japanese product POP image ONLY as visual style and character identity reference. Replace ALL original lettering, claims and subject. Exact new text: top small '建設部門'; main large two-line headline '技術士一次' and '過去問PDF'; small single benefit '全560問・A4印刷用'; bottom CTA pill '教材の内容を見る'. No other lettering. Navy #16365c color blocks, white background, white and yellow heavy Japanese typography with restrained outline; maximum clarity at 300px wide. Familiar identical teacher mascot on the right third: same face, black hair, black glasses, slight beard, plain white helmet, blue work clothes; waist-up, friendly pointing at a small stack of printed paper on the lower right. Left two-thirds contain headline. Only simple solid color panels, modest accent diagonal; no scenery, photo background, desk, complicated textures, tiny text, watermark, URL, prices, red sales explosion, or inherited civil construction wording. Avoid making everything loud: title is the only very large text, secondary copy calm, green CTA button at bottom. Keep all faces and text safely inside. This is a reviewable concept to later implement with separate HTML text and existing character assets.",
+        "original": {
+          "filename": "exec-38b4ce21-8953-4cb3-a16b-004abedb1133.png",
+          "sha256": "57b2cef42ea01725704b6151ef0d59b0029121d5f6da4079958c6b975035a80a"
+        },
+        "output": {
+          "path": "content/site/pe-first-stage/_shared/img/cta-pdf-sidebar.webp",
+          "url": "https://storage.doboku-note.com/posts/pe-first-stage/_shared/img/cta-pdf-sidebar.webp?v=f3451d6e7756",
+          "sha256": "f3451d6e775699de12c65242baa745e330dca53cc3e8ca887e06e18499e3b3c1",
+          "bytes": 142980,
+          "quality": 80
+        },
+        "review": {
+          "date": "2026-10-02",
+          "result": "原寸・幅360px・サイト配置で判読、文字切れ、人物、縦横比を確認"
+        }
       }
     }
   },
   "storage": {
     "delivery": "public R2 / doboku-note / posts/pe-first-stage/_shared/img/",
     "conversion": "PNGの寸法・構図を保ってWebPへ変換（品質はvariants.output.quality）。150KiB以下。",
-    "verifiedAt": "2026-10-02T12:57:42.233Z",
-    "verification": "2件ともサイトが参照するバージョン付き公開URLから読み戻し、SHA-256がoutput.sha256と一致",
-    "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（variants.original.filenameのPNGを保持）"
+    "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（variants.original.filenameのPNGを保持）",
+    "previousVerification": {
+      "verifiedAt": "2026-10-02T12:57:42.233Z",
+      "verification": "2件ともサイトが参照するバージョン付き公開URLから読み戻し、SHA-256がoutput.sha256と一致"
+    },
+    "verification": "サイドバー新版の公開URLは反映後に読み戻す。既存版の検証結果はpreviousVerificationに保持。"
   },
   "publication": {
-    "status": "反映済み",
-    "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
-    "relatedUrls": [
-      "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
-      "https://doboku-note.com/exam/pe-first-stage"
-    ],
-    "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/836",
-    "deployCommit": "110391980a67e2abf4c5fd481364c3272445811d",
-    "workflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37009185096",
-    "verifiedAt": "2026-10-02T12:57:42.233Z",
-    "verification": "本番SSR2URLはexit0。3ページHTTP200・main・技術士・最新版画像URLを確認。PC/375pxの5CTA画像読み込み正常・横スクロールなし。"
+    "status": "サイドバー新版は未反映",
+    "previous": {
+      "status": "反映済み",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+      "relatedUrls": [
+        "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+        "https://doboku-note.com/exam/pe-first-stage"
+      ],
+      "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/836",
+      "deployCommit": "110391980a67e2abf4c5fd481364c3272445811d",
+      "workflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37009185096",
+      "verifiedAt": "2026-10-02T12:57:42.233Z",
+      "verification": "本番SSR2URLはexit0。3ページHTTP200・main・技術士・最新版画像URLを確認。PC/375pxの5CTA画像読み込み正常・横スクロールなし。"
+    }
   },
   "references": [
     {

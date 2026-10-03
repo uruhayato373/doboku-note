@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Instagram カルーセル予約投稿スクリプト（Meta Business Suite / Playwright 永続プロファイル）
  *
  * 既存の Graph API ルート（scripts/publish-ig.mjs）は「予約投稿」をネイティブサポートしない。
@@ -49,6 +49,8 @@ import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/pla
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
 import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-image-upload.mjs";
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
+import { IG_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
+import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -63,7 +65,7 @@ const CAROUSEL_MAX = 10;
 // 投稿先アカウント名（2026-06-09 実測。別アカウントは env で上書き）
 //   投稿先ドロップダウンの role=option ラベルと一致させること
 const FB_PAGE_NAME = process.env.IG_BS_FB_PAGE || "Doboku-note";       // 外す対象（Facebook ページ）
-const IG_ACCOUNT_NAME = process.env.IG_BS_IG_ACCOUNT || "dobokunotecom"; // 残す対象（Instagram）
+const IG_ACCOUNT_NAME = process.env.IG_BS_IG_ACCOUNT || IG_HANDLE; // 残す対象（Instagram）
 
 let IS_DRY_RUN = false;
 let IS_PAUSE = false;
@@ -341,9 +343,9 @@ function updateStatus(pack: Pack, scheduledDate: Date | null): void {
   const cur = fs.existsSync(statusPath)
     ? JSON.parse(fs.readFileSync(statusPath, "utf-8"))
     : {};
-  const nowJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00");
+  const nowJst = jstClock().toISOString().replace("Z", "+09:00");
   const scheduledJst = scheduledDate
-    ? new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00")
+    ? jstClock(scheduledDate).toISOString().replace("Z", "+09:00")
     : null;
   cur[pack.kind] = {
     ...(cur[pack.kind] || {}),

@@ -23,7 +23,7 @@ domain: sns
 | | パス | 形式 |
 |---|---|---|
 | 入力 | `.claude/state/x-repost/candidates.json` | `{ candidates: [{ id, url, handle, text, likes, retweets, replies, exam, query, postedAt }] }` |
-| 入力 | `config/x-repost.json` | own/blocklist/maxPerRun/baseTags/siteBase |
+| 入力 | `config/x-repost.json` | blocklist/maxPerRun/baseTags（自分のハンドル・サイトと note の URL は `src/config/site-identity.mjs`・`config/x-account.json`） |
 | 出力 | `.claude/state/x-repost/approved.json` | `{ generatedAt, approved: [{ id, url, comment, exam, reason }] }` |
 
 `approved` は **config.maxPerRun 件以下**（既定 3）。基準を満たす候補がそれ未満なら少なく出す（無理に埋めない）。

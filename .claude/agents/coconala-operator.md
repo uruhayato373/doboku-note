@@ -65,7 +65,7 @@ domain: product
 ### ケース0: 出品・修正（`/coconala-publish`）
 
 1. カタログ（価格/status/title）＋ listings（本文/カテゴリ/納期/genreFacets）を Read。価格改定なら**カタログを先に直す**（`price`＋`priceYen` 同時）。
-2. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。`ok:false`（記入エラー）なら公開しない。
+2. **下書きで検証**: `node scripts/coconala-publish.mjs --service <id>`（新規）or `coconala-edit.mjs --service <id>`（修正）を `--commit` なしで実行 → `ok:true`（下書き保存成功）と `.tmp/coconala/*.png` を確認。公開中サービスの `coconala-edit` は下書きが無いので送信しない dry-run になり（画像は触らず枚数だけ読む）、`RESULT` の `mode:"dry-run"`・exit 0 を確認する。`ok:false`（記入エラー）なら公開しない。
 3. **公開**: 問題なければ `--commit` を付けて実行。publish は成功時カタログを `listed`＋`serviceUrl`＋`listedAt` に自動書き戻し。`--image` はサムネのファイル名（bare 名で可＝assets へ解決）。
 4. 出品後 `coconala-account.json` の `profileUrl` を埋め、`npm run check-coconala-wiring` グリーンを確認。
 5. **orphan draft の掃除**: 出品失敗（記入エラー・クラッシュ）で「サービスタイトル未設定・¥0・下書き中」が残ったら `npm run coconala-delete-draft -- --id <n>`（dry-run 検査）→ `--commit` で削除。カタログ在籍 id はガードで拒否＝公開商品は誤爆しない。

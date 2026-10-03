@@ -52,7 +52,7 @@ test('validateFiles: 型に合わない記録を場所つきで返す', () => {
   try {
     const good = {
       version: 1, updatedAt: '2026-10-01', currency: 'JPY', source: 's', privacyNote: 'p', howToUpdate: 'h',
-      sales: [{ date: '2026-09-01', productId: 'x', title: 't', type: 'article', price: 500 }],
+      sales: [{ date: '2026-09-01', productId: 'article:x', title: 't', type: 'article', price: 500 }],
       months: { '2026-09': { fetchedAt: '2026-10-01T00:00:00.000Z', count: 1, total: 500, finalized: true } },
     };
     writeFileSync(join(dir, 'good.json'), JSON.stringify(good));
@@ -66,6 +66,38 @@ test('validateFiles: 型に合わない記録を場所つきで返す', () => {
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('validateFiles: JSON Lines は行ごとに検査し、壊れた行は行番号つきで返す', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'datasets-'));
+  try {
+    const row = { key: 'k1', videoId: 'v1', publishAt: '2026-06-09T07:30:00+09:00', title: 't', uploadedAt: '2026-06-05T23:13:02.281Z' };
+    const lines = (rows) => `${rows.map((r) => (typeof r === 'string' ? r : JSON.stringify(r))).join('\n')}\n`;
+    writeFileSync(join(dir, 'ok.jsonl'), lines([row, { ...row, key: 'k2', videoId: 'v2' }]));
+    writeFileSync(join(dir, 'broken-json.jsonl'), lines([row, '{"key": "k2", ']));
+    writeFileSync(join(dir, 'broken-row.jsonl'), lines([row, { ...row, key: 'k2', videoId: 'v2', publishAt: '2026-06-09T07:30:00' }]));
+    const ds = datasetById('youtube.posted');
+    const r = validateFiles(dir, ds, ['ok.jsonl', 'broken-json.jsonl', 'broken-row.jsonl']);
+    assert.equal(r.checked, 3);
+    assert.ok(r.errors.every((e) => e.file !== 'ok.jsonl'));
+    assert.ok(r.errors.some((e) => e.file === 'broken-json.jsonl' && e.message.startsWith('読めない: 2 行目')), '壊れた JSON は行番号つき');
+    assert.ok(r.errors.some((e) => e.file === 'broken-row.jsonl' && e.message.startsWith('1.publishAt')), '型に合わない行は配列の添字つき');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('schemaRows: 判別共用体は各形の欄を 1 つの表に集め、全部の形にある欄だけを必須にする', () => {
+  const rows = schemaRows(jsonSchemaOf(datasetById('gsc.rank-watch')));
+  const row = (p) => rows.find((r) => r.path === p);
+  assert.equal(row('[].recordId').type, 'string');
+  assert.match(row('[].type').type, /"measurement".*"decision"/, 'type は形ごとの値を並べる');
+  assert.ok(row('[].scopeKey?'), '計測にだけある欄は無いことがある');
+  assert.ok(row('[].selectionOrder?'), '判断にだけある欄は無いことがある');
+  assert.ok(row('[].version'), '全部の形にある必須の欄は必須のまま');
+  const orders = schemaRows(jsonSchemaOf(datasetById('coconala.orders')));
+  assert.ok(orders.some((r) => r.path === 'orders[].talkroomId'), '版つきの型（oneOf）の欄も出る');
+  assert.match(orders.find((r) => r.path === 'orders[].replyDueAt').description, /返信期限/, 'null を許す欄は元の型の説明を出す');
 });
 
 test('schemaRows: 型の JSON Schema から場所・型・説明の行を作る', () => {
@@ -151,7 +183,7 @@ test('findDatasetIds: コードの datasetPath 系と YAML の ci-data の id �
 
 test('findConfigPaths: ワークフロー・package.json の config/・data/ のパスを拾い、組み立て途中とコメントは除く', () => {
   const paths = (src) => findConfigPaths(src).map((p) => p.path);
-  assert.deepEqual(paths('  default: config/r2-delete-list.txt\n  file: "data/${{ inputs.x }}/a.json"\n# config/old.json'), ['config/r2-delete-list.txt']);
+  assert.deepEqual(paths('  default: data/r2/delete-list.txt\n  file: "data/${{ inputs.x }}/a.json"\n# config/old.json'), ['data/r2/delete-list.txt']);
   assert.deepEqual(paths('"psi": "node x.mjs --file config/psi-urls.txt"'), ['config/psi-urls.txt']);
 });
 

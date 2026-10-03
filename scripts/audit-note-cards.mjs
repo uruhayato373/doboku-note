@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { SITE_HOST } from './lib/site-identity.mjs';
 
 function walk(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -87,7 +88,7 @@ async function checkOgp(url) {
   await sleep(300);
   return res;
 }
-const classify = (u) => u.includes('doboku-note.com') ? 'doboku-note'
+const classify = (u) => u.includes(SITE_HOST) ? 'doboku-note'
   : (u.includes('note.com') ? 'note-internal' : 'external-other');
 
 const report = [];
