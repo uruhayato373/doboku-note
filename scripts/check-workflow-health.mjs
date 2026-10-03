@@ -193,6 +193,8 @@ function main() {
 
   // 検査ゼロを PASS と呼ばない: 取得に失敗した分が支配的なら「健全」と言ってはいけない。
   if (rows.length === 0) fail(`${targets.length} 本すべてで run を取得できない（gh 認証・ネットワークを疑う）`);
+  // 0.3 は lib/inconclusive-gate.mjs の MAX_FETCH_FAIL_RATE（0.2）に寄せない: 母集団が note の記事 URL ではなく gh で run を取る workflow（config/workflow-health.json）で、
+  // 導入時から 0.3 のまま。0.2 に揃えると取得失敗に厳しくなり判定が変わる。値の根拠の記録は見つからなかったので変えていない。
   if (errors.length > targets.length * 0.3) {
     fail(`${targets.length} 本中 ${errors.length} 本で run を取得できない（取得失敗が支配的）`);
   }

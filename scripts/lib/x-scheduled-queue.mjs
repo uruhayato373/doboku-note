@@ -4,7 +4,7 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 import { resolveProfileDir } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 export function parseQueueDate(text) {
   const m = text.match(/(\d{4})年(\d+)月(\d+)日.*?(午前|午後)(\d+):(\d+)/);
@@ -23,7 +23,7 @@ export function isTweetInQueue(tweet, rows) {
 }
 
 export async function readScheduledQueue({ root = process.cwd(), headless = true } = {}) {
-  const { handle } = JSON.parse(fs.readFileSync(path.join(root, datasetPath('config.x-account')), 'utf8'));
+  const { handle } = readDataset(root, 'config.x-account');
   const ctx = await chromium.launchPersistentContext(resolveProfileDir('x', { cwd: root, repoRoot: root }), leanContextOptions({
     headless, channel: 'chrome', viewport: { width: 1280, height: 1000 },
     locale: 'ja-JP', timezoneId: 'Asia/Tokyo', args: ['--disable-blink-features=AutomationControlled'],

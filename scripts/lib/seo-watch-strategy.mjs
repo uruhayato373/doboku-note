@@ -1,4 +1,4 @@
-import { calendarDate } from './gsc-date-range.mjs';
+import { jstDayOf } from './jst-date.mjs';
 import { SITE_ORIGIN } from './site-identity.mjs';
 
 export const INTENTS = { 'exam-task': '受験の具体的な課題', 'exam-topic': '試験論点の学習', 'qualification-guide': '資格全体の入口', reference: '一般用語・実務参考' };
@@ -23,7 +23,7 @@ export function strategyErrors(config) {
 export function seasonFor(watch, calendar, now) {
   const exam = calendar?.exams?.[watch.qualification], event = exam?.events?.[watch.examEvent];
   if (!event) return { active: false, label: '対象日程の確認待ち', date: null, daysUntil: null };
-  const daysUntil = Math.round((Date.parse(event.date) - Date.parse(calendarDate(now, 'Asia/Tokyo'))) / 86400000);
+  const daysUntil = Math.round((Date.parse(event.date) - Date.parse(jstDayOf(now))) / 86400000);
   return { active: daysUntil >= 0 && daysUntil <= 90, label: daysUntil < 0 ? '次年度日程待ち' : event.label, date: event.date, daysUntil };
 }
 

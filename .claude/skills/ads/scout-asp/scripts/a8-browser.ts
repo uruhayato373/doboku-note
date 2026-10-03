@@ -32,6 +32,7 @@ import { createRequire } from "module";
 import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
+import { todayJst } from "../../../../../scripts/lib/jst-date.mjs";
 
 const require = createRequire(import.meta.url);
 const core = require("../../../../scripts/ads/lib/a8-scout-core.mjs");
@@ -610,7 +611,7 @@ async function cmdApply(page: Page, max: number): Promise<void> {
     return;
   }
   // 週次申請上限を機械強制。
-  const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  const today = todayJst();
   let budget = applyBudget.applyBudget(cat, today);
   console.log(`申請枠: 今週 ${budget.weekCount}/${budget.max} (残 ${budget.remaining})`);
 

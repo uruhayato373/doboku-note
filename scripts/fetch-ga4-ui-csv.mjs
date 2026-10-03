@@ -37,6 +37,7 @@ import {
 import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
 import { assertGa4Property } from "./lib/google-console-browser.mjs";
+import { jstClock } from "./lib/jst-date.mjs";
 
 const STATE_DIR = rawDir("ga4-ui");
 
@@ -61,7 +62,7 @@ function gitCommit() {
 
 /** Asia/Tokyo 基準の 28 日窓（前日終端）。 */
 function tokyoWindow(days) {
-  const now = new Date(Date.now() + 9 * 3600 * 1000); // UTC+9
+  const now = jstClock(); // getUTC* が JST の値
   const end = new Date(now);
   end.setUTCDate(end.getUTCDate() - 1);
   const start = new Date(end);

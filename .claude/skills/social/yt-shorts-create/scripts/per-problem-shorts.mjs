@@ -38,6 +38,7 @@ import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
 import { buildUtmUrl } from '#lib/utm-builder.mjs';
+import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
 
 const { renderExamCoverIg } = await import(pathToFileURL(resolve('.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib/svg-to-png.mjs')).href);
@@ -233,7 +234,7 @@ async function main() {
     },
   });
   const examDir = values['exam-dir'];
-  const date = values.date || new Date().toISOString().slice(0, 10);
+  const date = values.date || todayJst();
   const coversDir = values['covers-dir'];
   mkdirSync(coversDir, { recursive: true });
   const titles = values.titles && existsSync(values.titles) ? JSON.parse(readFileSync(values.titles, 'utf8')) : {};

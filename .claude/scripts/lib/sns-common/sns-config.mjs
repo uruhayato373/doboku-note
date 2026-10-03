@@ -1,4 +1,4 @@
-﻿import { NOTE_BASE, SITE_HOST, SITE_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
+import { NOTE_BASE, SITE_HOST, SITE_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
 
 /**
  * SNS 投稿・動画生成の共通設定。

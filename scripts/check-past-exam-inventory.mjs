@@ -20,6 +20,7 @@ import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { loadDriveConfig, loadDriveManifest, driveGroupFor } from './lib/drive-vault.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const NAME = 'check-past-exam-inventory';
 const INVENTORY_PATH = datasetPath('pastexams.inventory');
@@ -100,8 +101,8 @@ function main() {
   let inventory, formats, calendar, driveCfg, manifest;
   try {
     inventory = JSON.parse(readFileSync(join(REPO_ROOT, INVENTORY_PATH), 'utf8'));
-    formats = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-formats')), 'utf8'));
-    calendar = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.exam-calendar')), 'utf8'));
+    formats = readDataset(REPO_ROOT, 'config.exam-formats');
+    calendar = readDataset(REPO_ROOT, 'config.exam-calendar');
     driveCfg = loadDriveConfig();
     manifest = loadDriveManifest();
   } catch (e) {

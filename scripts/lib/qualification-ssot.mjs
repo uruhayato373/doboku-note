@@ -17,6 +17,7 @@ import { join, relative } from 'node:path';
 
 import { REGISTRY_PATH, isQualificationRef, qualificationLabel } from './qualification-registry.mjs';
 import { datasetPath } from './datasets.mjs';
+import { readJson } from './json-io.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
@@ -32,7 +33,6 @@ const CODE_EXT = /\.(mjs|cjs|js|ts|tsx|mts|cts)$/;
 const SKIP_DIRS = new Set(['node_modules', '.next', 'out', 'dist']);
 const JP = '[\\u3040-\\u30ff\\u4e00-\\u9fff]';
 
-const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
 
 /**
  * registry の名前を書き込んで使うファイル（サイトのカテゴリ・トップの資格カード・タグ辞書）。読み手が多く（14 箇所）

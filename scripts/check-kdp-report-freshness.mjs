@@ -12,6 +12,7 @@
 import { existsSync, readFileSync, writeSync } from 'node:fs';
 import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { jstYmd } from './lib/jst-date.mjs';
 
 const STATE = datasetPath('kdp.royalties');
 const CATALOG = 'scripts/kindle-published/catalog.json';
@@ -19,14 +20,6 @@ const FINAL_DUE_DAY = 16;
 const ESTIMATE_DUE_DAY = 28;
 const JSON_OUT = process.argv.includes('--json');
 const TAG = '[check-kdp-report-freshness]';
-
-function jstParts(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
-  }).formatToParts(now);
-  const get = (type) => Number(parts.find((p) => p.type === type)?.value);
-  return { year: get('year'), month: get('month'), day: get('day') };
-}
 
 function shiftMonth(year, month, delta) {
   const date = new Date(Date.UTC(year, month - 1 + delta, 1));
@@ -63,7 +56,7 @@ function monthEnd(month) {
  */
 export function assessKdpReport(state, now = new Date(), expected = []) {
   const expectedFor = (month) => (expected.every((x) => typeof x === 'string') ? expected : kdpLiveBookIdsAsOf(expected, monthEnd(month)));
-  const { year, month, day } = jstParts(now);
+  const { year, month, day } = jstYmd(now);
   const currentMonth = shiftMonth(year, month, 0);
   const finalMonth = shiftMonth(year, month, day >= FINAL_DUE_DAY ? -1 : -2);
   const due = [{ month: finalMonth, kind: 'final' }];

@@ -17,6 +17,7 @@ import { dirname, join, posix } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { jstDayOf } from './lib/jst-date.mjs';
 
 const NAME = 'past-exam-fetch';
 export const INVENTORY_PATH = join(REPO_ROOT, datasetPath('pastexams.inventory'));
@@ -37,9 +38,9 @@ export function pendingFiles(inventory, { exam = null, year = null } = {}) {
   return out;
 }
 
-/** JST の YYYY-MM-DD（Git Bash の TZ 指定は効かないので Intl で取る）。 */
+/** JST の YYYY-MM-DD（Git Bash の TZ 指定は効かないので scripts/lib/jst-date.mjs で取る）。 */
 export function jstDate(d = new Date()) {
-  return new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(d);
+  return jstDayOf(d);
 }
 
 function fetchPdf(url, dest) {

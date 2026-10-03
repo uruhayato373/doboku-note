@@ -19,17 +19,13 @@ import { toJoinKey } from "./lib/url-normalization.mjs";
 import { datasetFiles } from "./lib/datasets.mjs";
 import { listReports } from "./lib/metric-reports.mjs";
 import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
+import { jstDayOf } from "./lib/jst-date.mjs";
 
 const ROOT = process.cwd();
 const IMPROVEMENTS = join(ROOT, ".claude/state/improvements");
 const CEM_PREFIX = "pe-comprehensive-management-";
 const NOW = new Date();
-const DATE = new Intl.DateTimeFormat("en-CA", {
-  timeZone: "Asia/Tokyo",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
-}).format(NOW);
+const DATE = jstDayOf(NOW);
 
 function readJson(path, fallback = null) {
   try {

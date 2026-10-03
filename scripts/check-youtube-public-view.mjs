@@ -21,6 +21,7 @@ import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentativ
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -105,7 +106,7 @@ if (OUT) {
   mkdirSync(dirname(OUT), { recursive: true });
   writeFileSync(OUT, JSON.stringify({ targets: videos.length, unknown, representatives: reps.length, breakpoints: bpReport, bad, warn }, null, 2) + '\n');
 }
-if (unknown / videos.length > 0.2) {
+if (fetchFailDominant(unknown, videos.length)) {
   console.error(`[check-youtube-public-view] ✗ 検査不成立: oEmbed で判定できない ${unknown}/${videos.length} 本`);
   process.exit(1);
 }

@@ -29,6 +29,7 @@ import { join, relative } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
 import { classifyStagedDiff, frontmatterEndLine } from "./lib/staged-diff-kind.mjs";
+import { todayJst } from "../../scripts/lib/jst-date.mjs";
 
 const POSTS_DIR = "content/site";
 
@@ -131,7 +132,7 @@ function runStaged() {
   }
   // 部分 staging の検出: 作業ツリーと index が食い違うファイル
   const dirty = new Set(git(["diff", "--name-only"]).split("\n").filter(Boolean));
-  const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); // JST
+  const today = todayJst(); // JST
 
   let bumped = 0, partial = 0, unchanged = 0, metaOnly = 0;
   for (const file of staged) {

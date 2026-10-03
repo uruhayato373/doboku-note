@@ -41,6 +41,7 @@ import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettl
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
+import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -288,7 +289,7 @@ if (OUT) {
 
 const repLoads = reps.length * BP.note.viewports.length;
 const failRate = Math.max(apiFail / targets.length, viewTargets.length ? viewFail / viewTargets.length : 0, repLoads ? repFail / repLoads : 0, imgList.length ? imgUnknown / imgList.length : 0);
-if (failRate > 0.2) {
+if (failRate > MAX_FETCH_FAIL_RATE) {
   console.error(`[check-note-public-view] ✗ 検査不成立: 取得・表示の失敗が ${Math.round(failRate * 100)}%（API ${apiFail}/${targets.length}・ブラウザ ${viewFail}/${viewTargets.length}）`);
   process.exit(1);
 }

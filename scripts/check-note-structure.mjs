@@ -28,14 +28,14 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { MIN_FREE_PREVIEW_CHARS, expectedFreePreviewMin, textLen } from './lib/note-live-check.mjs';
+import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = 'content/note';
 const JSON_OUT = process.argv.includes('--json');
 const CI = process.argv.includes('--ci'); // CRITICAL(allowlist除く)>0 で exit 1
 const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i >= 0 ? Number(process.argv[i + 1]) : Infinity; })();
 const GOAL_TAGS = 90;
-// 取得失敗がこの割合を超えたら「検査不成立」として落とす（偽 PASS の封じ）。
-const MAX_FETCH_FAIL_RATE = 0.2;
+// 取得失敗がこの割合（lib/inconclusive-gate.mjs の MAX_FETCH_FAIL_RATE）を超えたら「検査不成立」として落とす（偽 PASS の封じ）。
 // note API は連続アクセスで弾かれる（2026-07-28: 215本を短時間に2周して148本が取得失敗）。
 const THROTTLE_MS = 250;
 // 既知の境界定義ズレ（偽陽性・判断待ち）は WAIVED として --ci ゲートを素通し。
@@ -225,7 +225,7 @@ for (const x of findings) byCode[x.code] = (byCode[x.code] || 0) + 1;
 const fetchFail = byCode.FETCH_ERR || 0;
 const inspected = targets.length - fetchFail;
 const failRate = targets.length ? fetchFail / targets.length : 0;
-const notConclusive = targets.length > 0 && failRate > MAX_FETCH_FAIL_RATE;
+const notConclusive = fetchFailDominant(fetchFail, targets.length);
 
 if (JSON_OUT) {
   writeSync(1, JSON.stringify({ checked: targets.length, inspected, fetchFail, notConclusive, findings, byCode }, null, 2) + '\n');

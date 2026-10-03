@@ -8,6 +8,7 @@ import { buildReport, reviewPeriod } from '../../../../scripts/lib/business-dire
 import { buildGate } from '../../../../scripts/lib/backlog-gate.mjs';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { monthlyReadiness } from '../../../../scripts/lib/monthly-review-readiness.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 
 type StepState = 'done' | 'waiting' | 'todo' | 'human';
 type Step = { key: string; group: string; label: string; state: StepState; detail: string; command?: string };
@@ -32,7 +33,7 @@ function loadPlan() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let report: any;
   try { report = buildReport(root, period); } catch { return null; }
-  const today = new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+  const today = todayJst();
   const month = period.startDate.slice(0, 7);
   const gate = (() => {
     try { return (buildGate(readFileSync(join(root, '.claude/todo/backlog.md'), 'utf8'), today) as { monthly: { lowWithoutWhen: unknown[]; stale: unknown[] } }).monthly; } catch { return null; }

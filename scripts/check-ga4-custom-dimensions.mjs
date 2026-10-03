@@ -22,7 +22,7 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from "node:fs";
-import { datasetPath } from "./lib/datasets.mjs";
+import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
 
 const DESIRED_PATH = datasetPath("config.ga4-admin-desired-state");
 const INVENTORY_PATH = datasetPath("ga4.admin-inventory");
@@ -30,7 +30,9 @@ const INVENTORY_PATH = datasetPath("ga4.admin-inventory");
 const argv = process.argv.slice(2);
 const WANT_JSON = argv.includes("--json");
 const ai = argv.indexOf("--max-age-days");
-const MAX_AGE_DAYS = ai >= 0 && argv[ai + 1] ? parseInt(argv[ai + 1], 10) || 90 : 90;
+// 既定のしきい値は台帳 ga4.admin-inventory の freshness.warnDays（--max-age-days で一時的に変えられる）
+const DEFAULT_MAX_AGE_DAYS = freshnessDays("ga4.admin-inventory", "warnDays");
+const MAX_AGE_DAYS = ai >= 0 && argv[ai + 1] ? parseInt(argv[ai + 1], 10) || DEFAULT_MAX_AGE_DAYS : DEFAULT_MAX_AGE_DAYS;
 
 const errors = [];
 const warnings = [];

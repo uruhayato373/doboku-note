@@ -5,9 +5,7 @@
  * qualification-market.mjs の純粋関数が担う。取得物（snapshot・ココナラ調査）は無くてもよい（未取得として扱う）。
  * ---------------------------------------------------------------------------
  */
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { datasetPath, latestFile } from './datasets.mjs';
+import { readDataset, readDatasetIf, readLatest } from './dataset-io.mjs';
 
 export const COMPETITOR_CHANNELS = ['note', 'x', 'ig', 'coconala', 'youtube'];
 /** 市場スキャンの台帳の id。1 ファイル＝その日の市場で、最も新しい日付のファイルが最新。 */
@@ -15,8 +13,7 @@ export const MARKET_DATASET = 'analysis.qualification-market';
 
 /** 最も新しい市場スキャン（無ければ null）。 */
 export function latestMarketSnapshot(root) {
-  const latest = latestFile(root, MARKET_DATASET);
-  return latest ? JSON.parse(readFileSync(join(root, latest), 'utf8')) : null;
+  return readLatest(root, MARKET_DATASET)?.data ?? null;
 }
 
 /**
@@ -45,14 +42,11 @@ export function stringifyMarketSnapshot(snapshot) {
   return `{\n${parts.join(',\n')}\n}\n`;
 }
 
-const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'));
-const readIf = (path) => (existsSync(path) ? readJson(path) : null);
-
 /** @param {string} root リポジトリのルート */
 export function loadMarketInputs(root) {
-  const config = (id) => readJson(join(root, datasetPath(`config.${id}`)));
-  const salesLog = readIf(join(root, datasetPath('note.sales')));
-  const orderLog = readIf(join(root, datasetPath('coconala.orders')));
+  const config = (id) => readDataset(root, `config.${id}`);
+  const salesLog = readDatasetIf(root, 'note.sales');
+  const orderLog = readDatasetIf(root, 'coconala.orders');
   /** @type {Record<string, any[]>} */
   const competitors = {};
   const tracked = config('competitors');
@@ -71,6 +65,6 @@ export function loadMarketInputs(root) {
     orders: Array.isArray(orderLog) ? orderLog : (orderLog?.orders ?? []),
     competitors,
     snapshot: latestMarketSnapshot(root),
-    coconalaResearch: readIf(join(root, datasetPath('coconala.market-research'))),
+    coconalaResearch: readDatasetIf(root, 'coconala.market-research'),
   };
 }

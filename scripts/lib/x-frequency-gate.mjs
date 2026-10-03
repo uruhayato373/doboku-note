@@ -252,7 +252,7 @@ export function evaluateXFrequencyGate({ ledger, live, candidate, now, limits, p
  * status=scheduled|queued かつ scheduled_at が [now-windowMinutes, now] の帯にある
  * 最古の1本を返す（0件は null。2本以上あっても1本だけ＝次の run が拾う）。
  * @param {Array<object>} ledger loadLedger の出力
- * @param {string} nowJst JST ISO
+ * @param {string} nowJst 今の時刻（ISO 8601。JST の +09:00 でも UTC の Z でもよい。epoch で比べる）
  * @param {{windowMinutes?: number}} [opts]
  */
 export function selectDueTweet(ledger, nowJst, { windowMinutes = 30 } = {}) {

@@ -16,6 +16,7 @@ import {
   type TodoStatus,
   type BacklogRef,
 } from '@/lib/todo';
+import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -100,7 +101,7 @@ function TaskLink({ card }: { card: TodoCard }) {
 
 function DueBadge({ due }: { due: string | null }) {
   if (!due) return <span className="text-muted-foreground">—</span>;
-  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  const today = todayJst();
   const tone: Tone = due < today ? 'bad' : due === today ? 'warn' : 'neutral';
   return <StatusBadge tone={tone}>{due}</StatusBadge>;
 }

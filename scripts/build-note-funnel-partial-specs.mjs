@@ -9,7 +9,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, relative } from 'node:path';
 import matter from 'gray-matter';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -17,7 +17,7 @@ const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ?
 const BASE = getArg('--base') || 'HEAD';
 const EXAM = getArg('--exam');
 const OUT = resolve(ROOT, getArg('--out') || '.tmp/note-funnel-partial');
-const CONFIG = JSON.parse(readFileSync(join(ROOT, datasetPath('config.note-funnel')), 'utf8'));
+const CONFIG = readDataset(ROOT, 'config.note-funnel');
 if (!EXAM || !CONFIG.exams[EXAM]) throw new Error('--exam <config key> が必要');
 
 const rootRel = CONFIG.exams[EXAM].articleGlob;

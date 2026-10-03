@@ -8,16 +8,14 @@
  *
  * 存在しないチャネルは throw する（黙って既定値に倒さない）。
  */
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { datasetPath } from './datasets.mjs';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { channelFamily, channelOf } from './utm-channels.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 let cached = null;
 
 export function loadUtmTemplates() {
-  if (!cached) cached = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.utm-templates')), 'utf8'));
+  if (!cached) cached = readDataset(REPO_ROOT, 'config.utm-templates');
   return cached;
 }
 

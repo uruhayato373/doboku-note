@@ -22,6 +22,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
+import { todayJst } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, '.claude/state/exam-keyword-map.json');
@@ -47,7 +48,7 @@ function parseArgs(argv) {
 }
 
 function todayISO() {
-  return new Date().toISOString().slice(0, 10);
+  return todayJst();
 }
 
 function arraysEqual(a, b) {

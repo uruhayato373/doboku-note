@@ -30,11 +30,13 @@
 // 真実源: .claude/knowledge/reference/sales-tracking.md「取得と検算」
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { jstYmd, todayJst } from './lib/jst-date.mjs';
 
 const SALES_LOG = datasetPath('note.sales');
-const STALE_WARN = 10; // 10 日転記が無ければ注意
-const STALE_FAIL = 21; // 3 週間走っていなければ「止まっている」と断定する
+// 閾値の数字は台帳 scripts/lib/datasets.mjs の note.sales（freshness）が正本
+const STALE_WARN = freshnessDays('note.sales', 'warnDays'); // 10 日転記が無ければ注意
+const STALE_FAIL = freshnessDays('note.sales', 'failDays'); // 3 週間走っていなければ「止まっている」と断定する
 const MONTHLY_DUE_DAY = 5; // 5日以降は前月のnoteアクセス＋売上表示を要求する
 //   ← 事故（2026-07-14 停止・8/17 発覚＝34 日）を FAIL 側に入れるための値。
 //     35 日にすると当の事故が WARN 止まりで鳴らない。逆に短すぎると月次運用を殺すので 3 週間。
@@ -42,8 +44,8 @@ const JSON_OUT = process.argv.includes('--json');
 const TAG = '[check-sales-freshness]';
 
 const DAY_MS = 86_400_000;
-const today = new Date();
-const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+// 「今日」は日本時間の日付（実行環境のタイムゾーンで作ると、CI（UTC）の 00:00〜08:59 JST に 1 日前を指す）
+const todayUtc = Date.parse(`${todayJst()}T00:00:00Z`);
 
 /** "YYYY-MM-DD" → 経過日数。読めなければ null。 */
 export function ageInDays(dateStr, nowUtc = todayUtc) {
@@ -105,10 +107,9 @@ export function assessSalesBenchmark(log, traffic) {
 }
 
 export function dueSalesMonth(now = new Date()) {
-  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(now);
-  const get = type => Number(parts.find(part => part.type === type)?.value);
-  const delta = get('day') >= MONTHLY_DUE_DAY ? -1 : -2;
-  const date = new Date(Date.UTC(get('year'), get('month') - 1 + delta, 1));
+  const { year, month, day } = jstYmd(now);
+  const delta = day >= MONTHLY_DUE_DAY ? -1 : -2;
+  const date = new Date(Date.UTC(year, month - 1 + delta, 1));
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`;
 }
 

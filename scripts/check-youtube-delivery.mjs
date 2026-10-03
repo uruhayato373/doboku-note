@@ -3,11 +3,12 @@ import { readFileSync } from 'node:fs';
 import { migrationStorage } from './lib/youtube-migration-storage.mjs';
 import { sha256, assertPlan } from './lib/youtube-migration.mjs';
 import { assessDelivery } from './lib/youtube-delivery-check.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const args = process.argv.slice(2), option = key => args.includes(key) ? args[args.indexOf(key) + 1] : null;
 try {
-  const config = JSON.parse(readFileSync(datasetPath('config.youtube-delivery')));
+  const config = readDataset(REPO_ROOT, 'config.youtube-delivery');
   let stateBytes, planBytes;
   if (option('--state')) {
     if (!option('--plan')) throw new Error('Offline state requires its frozen plan');

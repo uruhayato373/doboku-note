@@ -45,7 +45,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
@@ -54,6 +54,8 @@ import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteRea
 import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
 import { jst } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { jstMonth, todayJst } from './lib/jst-date.mjs';
+import { writeDataset } from './lib/dataset-write.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -67,7 +69,7 @@ const COMMIT = argv.includes('--commit');
 const NO_AUTO_REAUTH = argv.includes('--no-auto-reauth');
 
 const now = new Date();
-const MONTH_ARG = getArg('--month') || `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+const MONTH_ARG = getArg('--month') || jstMonth(now);
 if (!/^\d{4}-\d{2}$/.test(MONTH_ARG)) {
   console.error(`${NAME}: --month は YYYY-MM 形式で指定する（例: 2026-07）`);
   process.exit(1);
@@ -301,12 +303,12 @@ try {
   const kept = (log.sales || []).filter((s) => !String(s.date || '').startsWith(MONTH_ARG));
   const removed = (log.sales || []).length - kept.length;
   log.sales = [...kept, ...entries.map(({ date, productId, title, type, price }) => ({ date, productId, title, type, price }))];
-  log.updatedAt = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  log.updatedAt = todayJst(now);
   // 月ごとの取得記録。finalized=true は note の確定日（翌月 2 日）以降に月次表示と検算一致したもの。
   // 事業レビュー・実験計測はこれが true の月だけを確定値として扱う（確定前の値を完了と呼ばない）
   const fetchedDay = jst(now);
   log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized: isNoteMonthFinalized(MONTH_ARG, fetchedDay) } };
-  writeFileSync(SALES_LOG, JSON.stringify(log, null, 2) + '\n');
+  writeDataset(ROOT, 'note.sales', log); // 型（NoteSalesLog）を検査してから書く。合わなければ 1 バイトも書かない
   console.log(`[6] ${datasetPath('note.sales')} を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
 
   await ctx.close();

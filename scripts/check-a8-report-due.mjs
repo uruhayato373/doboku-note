@@ -36,7 +36,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 import { classifyCrossCheck } from "./lib/report-honesty.mjs";
-import { datasetPath } from "./lib/datasets.mjs";
+import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -49,7 +49,8 @@ const WANT_JSON = args.includes("--json");
 const di = args.indexOf("--days");
 // `|| 30` で書くと --days 0（常に DUE＝動作確認用）が falsy に潰れるので明示的に判定する
 const parsedDays = di >= 0 && args[di + 1] != null ? Number.parseInt(args[di + 1], 10) : NaN;
-const THRESHOLD = Number.isFinite(parsedDays) && parsedDays >= 0 ? parsedDays : 30;
+// 既定は台帳 a8.ui-last-run の freshness.warnDays（--days で一時的に変えられる）
+const THRESHOLD = Number.isFinite(parsedDays) && parsedDays >= 0 ? parsedDays : freshnessDays("a8.ui-last-run", "warnDays");
 
 const readJson = (p) => {
   try {

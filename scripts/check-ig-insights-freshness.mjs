@@ -22,7 +22,7 @@
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { latestFile } from './lib/datasets.mjs';
+import { freshnessDays, latestFile } from './lib/datasets.mjs';
 
 const TAG = '[check-ig-insights-freshness]';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -34,9 +34,11 @@ const JSON_OUT = process.argv.includes('--json');
  *                token: { type: string, expiresAt: number(unix秒|0), dataAccessExpiresAt: number(unix秒|0) } }
  * @param {object|null} snapshotOrNull
  * @param {number} nowUtcMs
+ * maxAgeDays の既定は台帳 instagram.insights の freshness.failDays（取得の鮮度）。failDays・warnDays はトークンの失効までの日数の下限・警告で、
+ * 取得の鮮度（台帳の freshness）とは別の閾値。
  * @param {{maxAgeDays?:number, failDays?:number, warnDays?:number}} opts
  */
-export function assessIgInsights(snapshotOrNull, nowUtcMs, { maxAgeDays = 10, failDays = 7, warnDays = 14 } = {}) {
+export function assessIgInsights(snapshotOrNull, nowUtcMs, { maxAgeDays = freshnessDays('instagram.insights', 'failDays'), failDays = 7, warnDays = 14 } = {}) {
   const inspected = { file: snapshotOrNull?.__file ?? null, fetchedAt: null, mediaListed: null };
   if (!snapshotOrNull) {
     return { status: 'FAIL', reasons: ['snapshot が無い（fetch-ig-insights.yml が止まっている）'], expiresInDays: null, inspected };

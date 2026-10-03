@@ -31,6 +31,7 @@ import { applyTagsOnSettings, readNoteAsAuthor, tagsOfNote } from './lib/note-ta
 import { publishLive } from './lib/note-live-publish.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -146,7 +147,7 @@ for (const a of articles) {
 }
 
 // 取得できていないなら「in-sync」ではなく「判定できていない」。緑を返さない（偽 PASS の封じ）。
-if (considered > 0 && fetchFail / considered > 0.2) {
+if (fetchFailDominant(fetchFail, considered)) {
   console.error(`\n[note-sync-tags] ✗ 判定不成立: ${considered}本中${fetchFail}本が live タグを取得できず（${Math.round((fetchFail / considered) * 100)}%）。`);
   console.error('  live を読めないと「不足なし」は成立しない。curl が使えるか／プロキシ env／レート制限を確認する。');
   process.exit(1);

@@ -5,15 +5,14 @@
  * 実行のたびに CSS の media query を数え直し、設定に無い主要な切り替わり幅が出たら知らせる
  * （サービス側の変更で撮る幅が古くならないように）。
  */
-import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 
 export function loadBreakpointConfig() {
-  return JSON.parse(readFileSync(join(ROOT, datasetPath('config.public-view-breakpoints')), 'utf8'));
+  return readDataset(ROOT, 'config.public-view-breakpoints');
 }
 
 /** Playwright の newContext に渡す値（端末の種類ごとに UA・タッチ・倍率を変える）。 */

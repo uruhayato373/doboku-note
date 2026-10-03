@@ -21,10 +21,12 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 
-export const LIBRARY_ROOT = join(process.cwd(), 'content', 'site', 'standards-library');
-export const ARTICLES_ROOT = join(process.cwd(), 'content', 'site', 'standards-articles');
-const OVERRIDES_PATH = join(process.cwd(), datasetPath('config.standards-structure'));
+// リポジトリのルートは module の場所から決める（import 時の process.cwd() で固定しない。どの cwd から呼んでも同じ実体を指す）
+export const LIBRARY_ROOT = join(SITE_CONTENT_ROOT, 'standards-library');
+export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
+const OVERRIDES_PATH = join(REPO_ROOT, datasetPath('config.standards-structure'));
 
 // ---- 行パターン ---------------------------------------------------------
 // インデント上限は中部 common の実測分布から決めている（コメントの数値は実測件数）。

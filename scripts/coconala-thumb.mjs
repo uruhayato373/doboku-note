@@ -22,6 +22,7 @@ import satori from 'satori';
 import sharp from 'sharp';
 import { readCatalog, readListings } from './lib/coconala-session.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
@@ -385,7 +386,7 @@ async function resolveVisual(id, svc, bgOverride) {
   return { uri: bgDataUri(DEFAULT_BG), theme: THEMES.default, note: 'bg=既定(共通)' };
 }
 
-const approved = JSON.parse(fs.readFileSync(path.join(ROOT, datasetPath('coconala.thumb-approved')), 'utf8')).images;
+const approved = readDataset(ROOT, 'coconala.thumb-approved').images;
 const catalog = readCatalog();
 const listings = readListings();
 const DEFAULT_BG = 'content/coconala/assets/bg-civil.png';
