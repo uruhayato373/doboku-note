@@ -1,0 +1,53 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "note",
+  "requestedFormat": {
+    "width": 1280,
+    "height": 670
+  },
+  "id": "civil-2-experience-essay",
+  "article": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集",
+  "ref": "content/coconala/assets/pop-20260927/thumb-2kyu-kanseitoan-pdf.png",
+  "file": "01-2kyu-model-answers.png",
+  "copy": {
+    "qualification": "2級土木",
+    "stage": "二次・施工経験記述",
+    "headline": "模範答案",
+    "proof": "品質・安全・工程の3テーマ",
+    "pdf": "PDFダウンロード",
+    "benefit": "印刷して書き方を確認",
+    "authority": "技術士（総監）が制作"
+  },
+  "color": "rich green #2A7050",
+  "evidence": [
+    "content/products/note/civil-2-experience-essay.json",
+    ".claude/state/note-attach-done.json"
+  ],
+  "publicationNeeds": [],
+  "prompt": "Use case: ads-marketing. Create one finished Japanese note.com paid educational product cover, horizontally wide 1280×670 px (approximately 1.91:1). The provided approved Coconala POP cover is a style and character reference, not an edit target. Recompose for the wide note format. Preserve the same mature Japanese male civil-engineer teacher: short black hair, rectangular black glasses, light beard, white blank safety helmet, navy workwear and tie, yellow safety vest. Use energetic, professional Japanese bookstore POP styling: extremely bold legible Japanese typography, white and yellow with restrained red for the main product, dark colored header, pale illustrated background, strong diagonal accents and crisp outlines. Text occupies left 72%, teacher large on right 27%, holding a stack of printed learning sheets and a red pen. No competing text on the papers. Do not crop the face or any lettering. All meaningful lettering inside x=45..1235 and y=15..655; generous inner clearance for outlines. Biggest hierarchy: qualification and product type; the PDF-download yellow band should be almost as prominent as the headline. Put the author credential in a separate small yellow badge near the teacher. This is a print-ready flat graphic, not a photographed poster or 3D mockup. Do not show a website UI. No logo, brand name, URL, price, exam date, guarantee, medals, or additional words. Render all specified Japanese strings exactly once, no random or repeated text. Use the reference solely for approved appearance and visual style; ignore its old content and PDF counts.\nPrimary color: rich green #2A7050. Exact text and hierarchy:\nTop qualification, large: 「2級土木」\nSmaller stage label: 「二次・施工経験記述」\nEnormous central headline: 「模範答案」\nBold evidence line: 「品質・安全・工程の3テーマ」\nVery prominent yellow download band, wide lower left: 「PDFダウンロード」\nSmaller usage line beside or underneath download band: 「印刷して書き方を確認」\nSmall separate author badge near the teacher: 「技術士（総監）が制作」. Keep qualification intact. Especially maintain the word 主任技士 versus 技士 where specified.",
+  "reference": {
+    "path": "content/coconala/assets/pop-20260927/thumb-2kyu-kanseitoan-pdf.png",
+    "sha256": "97dc06337e81d8900951d001052cfd19167c399c6321f9e64a0f9bd077b7c562"
+  },
+  "output": {
+    "path": ".tmp/note-cover-pop-review-20261003/01-2kyu-model-answers.png",
+    "sha256": "15e9772f1227f2809facf1adc0ab00a1d3440809082f39ecd8d0b65a318916e3",
+    "width": 1734,
+    "height": 907,
+    "tool": "built-in image_gen",
+    "source": "/Users/minamidaisuke/.codex/generated_images/01a10098-a83f-7360-a440-bd5bdb473adc/exec-141d34d0-b1d3-405e-b869-409ac7faded4.png"
+  },
+  "review": {
+    "date": "2026-10-03",
+    "fullSize": "資格名・見出し・指定数値・PDF帯を目視確認。誤字・文字切れなし。参照と同じ先生の外見。",
+    "mobile360": "資格名・主題・PDFダウンロードの3要素を判読。補足と著者表示は小さい。",
+    "status": "運営者の目視確認待ち",
+    "format": "生成実寸1734×907、note横長比率。1280×670への最終出力は採用後。"
+  },
+  "storage": {
+    "group": "note-cover-pop-preview",
+    "repoKey": ".tmp/note-cover-pop-all/content/note/review-20261003/01-2kyu-model-answers.png",
+    "publication": "未公開・既存自動生成器へ未接続"
+  }
+}
