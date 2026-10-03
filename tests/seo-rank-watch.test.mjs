@@ -23,6 +23,25 @@ function recorded() {
   return recordAction(store, config, watch, action, measurement, new Date('2026-08-01T00:00:00Z'));
 }
 const proof = { conclusion: 'success', status: 'completed', head_branch: 'main', path: '.github/workflows/cloudflare-deploy.yml', head_sha: 'a'.repeat(40), updated_at: '2026-08-01T10:00:00Z', html_url: 'https://github.com/owner/repo/actions/runs/1' };
+/**
+ * 型（RankWatch の measurement）に合う計測の行。テストが意味を持たせる欄（対象・期間・指標）だけを渡し、
+ * 残りの必須の欄（version・scope・raw・contentHash）は形だけ埋める（書き込み前に型を検査するため）
+ */
+function measurementRow(w, { before = {}, after = {}, fetchedAt = now.toISOString() } = {}) {
+  const side = (x, fallback) => {
+    const window = x.window?.startDate ? x.window : fallback;
+    const raw = { meta: { siteUrl: config.siteUrl, dataState: 'final', startDate: window.startDate, endDate: window.endDate, truncated: false }, rows: [] };
+    return { window, metrics: x.metrics ?? metric(), raw };
+  };
+  return {
+    type: 'measurement', version: 1, watchId: w.id,
+    scope: { id: w.id, keyword: w.keyword, targetPath: w.targetPath, contentPath: w.contentPath, priority: w.priority, enabled: true },
+    scopeKey: scopeKey(w), fetchedAt,
+    before: side(before, { startDate: '2026-08-27', endDate: '2026-09-02' }),
+    after: side(after, { startDate: '2026-09-03', endDate: '2026-09-09' }),
+    contentHash: hash(w.contentPath),
+  };
+}
 function observing() { const exp = recorded(); markDeployed(exp, proof, now); return exp; }
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'seo-watch-'));
@@ -116,12 +135,12 @@ test('review improvement and concurrent edits cannot bypass a commit-time page l
 test('past improvement events and snapshots are immutable; snapshot names never overwrite', (t) => {
   const root = fixture(t), exp = observing(), changed = structuredClone(exp); changed.actions[0].done = 'rewritten';
   assert.ok(observationViolations({ experiments: [exp] }, { experiments: [changed] }, [], () => 'changed').some((s) => s.includes('append-only')));
-  const one = writeSnapshot(root, { type: 'measurement', value: 1 }, now), two = writeSnapshot(root, { type: 'measurement', value: 2 }, now); // 追記する行は型（RankWatch）の type が要る
+  const one = writeSnapshot(root, measurementRow(watch, { after: { metrics: metric(5, 41) } }), now), two = writeSnapshot(root, measurementRow(watch, { after: { metrics: metric(5, 42) } }), now);
   assert.notEqual(one, two);
   // 同じ月のファイルへ 1 行ずつ追記し、先に書いた行は変えない
   assert.equal(one.split('#')[0], two.split('#')[0]);
   const lines = readFileSync(join(root, one.split('#')[0]), 'utf8').trim().split('\n').map((l) => JSON.parse(l));
-  assert.deepEqual(lines.map((l) => [l.recordId, l.value]), [[one.split('#')[1], 1], [two.split('#')[1], 2]]);
+  assert.deepEqual(lines.map((l) => [l.recordId, l.after.metrics.impressions]), [[one.split('#')[1], 41], [two.split('#')[1], 42]]);
   assert.ok(hasRecord(root, one) && !hasRecord(root, `${one.split('#')[0]}#watch-missing`));
 });
 test('ledger writes preserve unrelated fields and reject a concurrent writer', async (t) => {
@@ -133,7 +152,7 @@ test('ledger writes preserve unrelated fields and reject a concurrent writer', a
 test('selection uses fresh fixed-scope data, prioritizes near-first ranks and respects capacity', (t) => {
   const root = fixture(t);
   const before = { window: { startDate: '2026-08-27', endDate: '2026-09-02' }, metrics: metric(8) }, after = { window: { startDate: '2026-09-03', endDate: '2026-09-09' }, metrics: metric(4) };
-  writeSnapshot(root, { type: 'measurement', scopeKey: scopeKey(watch), fetchedAt: now.toISOString(), before, after }, now);
+  writeSnapshot(root, measurementRow(watch, { before, after }), now);
   assert.equal(report(root, now).selected.id, watch.id); assert.equal(report(root, now).rows[0].delta, 4);
   assert.equal(report(root, new Date('2026-10-01T00:00:00Z')).selected, null);
   writeFileSync(join(root, LEDGER), JSON.stringify({ experiments: [{ status: 'running' }, { status: 'running' }] }));
@@ -159,12 +178,12 @@ test('snapshot provenance rejects changed ranks, mixed scopes and overlapping pe
 
 test('an already first-place keyword is not forcibly selected for improvement', (t) => {
   const root = fixture(t);
-  writeSnapshot(root, { type: 'measurement', scopeKey: scopeKey(watch), fetchedAt: now.toISOString(), before: { metrics: metric(1) }, after: { metrics: metric(1), window: {} } }, now);
+  writeSnapshot(root, measurementRow(watch, { before: { metrics: metric(1) }, after: { metrics: metric(1), window: {} } }), now);
   assert.equal(report(root, now).selected, null);
 });
 
 function addMeasurement(root, w, rank) {
-  writeSnapshot(root, { type: 'measurement', scopeKey: scopeKey(w), fetchedAt: now.toISOString(), before: { metrics: metric(8) }, after: { metrics: metric(rank), window: { startDate: '2026-09-03', endDate: '2026-09-09' } } }, now);
+  writeSnapshot(root, measurementRow(w, { before: { metrics: metric(8) }, after: { metrics: metric(rank), window: { startDate: '2026-09-03', endDate: '2026-09-09' } } }), now);
 }
 test('specific exam tasks outrank nearer topic ranks; general definitions stay monitor-only', (t) => {
   const root = fixture(t), task = { ...watch, id: 'task', keyword: '1級土木 経験記述', intent: 'exam-task', priority: 2, contentPath: 'content/site/task/article.mdx', targetPath: '/exam/civil-construction-1/secondary/r07' };

@@ -54,24 +54,27 @@ test('writeDataset: 型の検査はファイルに入る中身で行う（undefi
 });
 
 test('writeDataset: immutable（中身を変えない台帳）の既存ファイルは上書きしない。同じ中身なら何もしない', () => {
+  // 不変の台帳はどれも型があるので、型に通る本物の記録（2026-08 の突合）を元にする
+  const real = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'data/business/records/site-to-sales-2026-08.json'), 'utf8'));
+  const edited = { ...real, limitations: [...real.limitations, '訂正の試し'] };
   withRoot((root) => {
-    const values = { month: '2026-09', rev: '' };
-    const first = writeDataset(root, 'business.site-to-sales', { schemaVersion: 1, n: 1 }, { values });
-    assert.deepEqual(first, { file: 'data/business/records/site-to-sales-2026-09.json', changed: true });
-    assert.deepEqual(writeDataset(root, 'business.site-to-sales', { schemaVersion: 1, n: 1 }, { values }), { file: first.file, changed: false });
-    assert.throws(() => writeDataset(root, 'business.site-to-sales', { schemaVersion: 1, n: 2 }, { values }), /中身を変えない記録（immutable）/);
-    assert.equal(readFileSync(join(root, first.file), 'utf8'), '{\n  "schemaVersion": 1,\n  "n": 1\n}\n', '上書きされていない');
+    const values = { month: '2026-08', rev: '' };
+    const first = writeDataset(root, 'business.site-to-sales', real, { values });
+    assert.deepEqual(first, { file: 'data/business/records/site-to-sales-2026-08.json', changed: true });
+    assert.deepEqual(writeDataset(root, 'business.site-to-sales', real, { values }), { file: first.file, changed: false });
+    assert.throws(() => writeDataset(root, 'business.site-to-sales', edited, { values }), /中身を変えない記録（immutable）/);
+    assert.equal(readFileSync(join(root, first.file), 'utf8'), `${JSON.stringify(real, null, 2)}\n`, '上書きされていない');
     // 訂正は別の版（-r2）として新しく作る
-    assert.equal(writeDataset(root, 'business.site-to-sales', { schemaVersion: 1, n: 2 }, { values: { month: '2026-09', rev: '-r2' } }).changed, true);
+    assert.equal(writeDataset(root, 'business.site-to-sales', edited, { values: { month: '2026-08', rev: '-r2' } }).changed, true);
   });
 });
 
 test('writeDataset: 同じ中身のファイルが CRLF で残っていても書き直す。可変部分の欠け・台帳に無い id・値の型違いは投げる', () => {
   withRoot((root) => {
     mkdirSync(join(root, 'data/note'), { recursive: true });
-    writeFileSync(join(root, 'data/note/magazines.json'), '{\r\n  "a": 1\r\n}\r\n');
-    assert.equal(writeDataset(root, 'note.magazines', { a: 1 }).changed, true);
-    assert.equal(readFileSync(join(root, 'data/note/magazines.json'), 'utf8'), '{\n  "a": 1\n}\n');
+    writeFileSync(join(root, 'data/note/status.json'), '{\r\n  "a": 1\r\n}\r\n');
+    assert.equal(writeDataset(root, 'note.status', { a: 1 }).changed, true, '型の無いデータセット（note.status）で書式だけを見る');
+    assert.equal(readFileSync(join(root, 'data/note/status.json'), 'utf8'), '{\n  "a": 1\n}\n');
     assert.throws(() => writeDataset(root, 'bing.snapshots', {}), /\{date\} の値が要る/);
     assert.throws(() => writeDataset(root, 'no.such-dataset', {}), /台帳に無いデータセット/);
     assert.throws(() => writeDataset(root, 'youtube.posted', { not: 'an array' }), /行の配列で渡す/);

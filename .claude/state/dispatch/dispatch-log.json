@@ -1759,6 +1759,18 @@
       "commit": "ee8b631f35a6",
       "verification": "09 本文の『未実施』は改訂履歴 v1 行のみ（履歴として保持）。check-relative-links・check-doc-refs が同一 commit で通過",
       "note": "09a（32ch yt-dlp 実測・2026-10-02）を新規作成し、09 を v1.3 に改訂（§2 競合の未実施記述を実測要点へ置換・ポジショニングから TTS を外す・Red Line と §8 を更新）。00_SNS整理マップに 09a 行を追加。commit ee8b631f3"
+    },
+    {
+      "id": "DN-0512",
+      "at": "2026-10-03",
+      "task": "note の前月売上取得が CI で画面遷移のエラーで落ち、9月末の売上が記録に入らない",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "24edeb892dc8",
+      "verification": "gh run view 37015108311 --log で [5] 検算 OK と [6] 2026-09 を 31 件 → 35 件へ差し替え を確認",
+      "note": "PR #842（select 切替後の settle・evaluate の再試行・選択値の読み戻し）を入れ、login-collectors run 37015108311 で note-sales-fetch --month 2026-09 --commit が検算 OK（明細合計 ¥106,800＝表示総額・差 0）。sales.json の 9 月は 31 件 ¥92,560 → 35 件 ¥106,800（9/28〜9/30 分を含む・develop 98006dce5）。完了条件の照合先 ¥104,840 はアクセス状況画面の『売上』で、販売履歴の総額と ¥1,960 違う。両画面の集計基準の差と推定（未確認・過去月のアクセス状況売上は保存していないので比較できない）。記録の正は検算の通る販売履歴とした"
     }
   ]
 }

@@ -28,7 +28,8 @@ const DEFINES_READ_JSON = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+readJson\
 function definers() {
   const files = execFileSync('git', ['ls-files', '-z', '--', 'scripts', '.claude', 'tools'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28 })
     .split('\0')
-    .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules'));
+    // 共通の実装そのもの（json-io.mjs）は数えない
+    .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && f !== 'scripts/lib/json-io.mjs');
   assert.ok(files.length > 500, `走査したコード ${files.length} ファイル（検査不成立）`);
   return files.filter((f) => DEFINES_READ_JSON.test(readFileSync(join(ROOT, f), 'utf8')));
 }
