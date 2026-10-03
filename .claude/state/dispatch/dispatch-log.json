@@ -1771,6 +1771,18 @@
       "commit": "24edeb892dc8",
       "verification": "gh run view 37015108311 --log で [5] 検算 OK と [6] 2026-09 を 31 件 → 35 件へ差し替え を確認",
       "note": "PR #842（select 切替後の settle・evaluate の再試行・選択値の読み戻し）を入れ、login-collectors run 37015108311 で note-sales-fetch --month 2026-09 --commit が検算 OK（明細合計 ¥106,800＝表示総額・差 0）。sales.json の 9 月は 31 件 ¥92,560 → 35 件 ¥106,800（9/28〜9/30 分を含む・develop 98006dce5）。完了条件の照合先 ¥104,840 はアクセス状況画面の『売上』で、販売履歴の総額と ¥1,960 違う。両画面の集計基準の差と推定（未確認・過去月のアクセス状況売上は保存していないので比較できない）。記録の正は検算の通る販売履歴とした"
+    },
+    {
+      "id": "DN-0515",
+      "at": "2026-10-03",
+      "task": "config/ の読み手の多い設定 4 種に型（zod）を付ける",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ed2c6c23b15b",
+      "verification": "npm run check-datasets（型あり 37・型の検査 142 ファイル・違反 0）・check-qualification-ssot・check-domains・check-coconala-wiring・check-exam-calendar が通る",
+      "note": "PR #850 で config/ の読み手の多い 4 種（qualification-registry・domains・product-lineup・coconala-listings）に加え exam-calendar・note-funnel にも型を付けた。資格 id の照合などファイル間の整合は既存の check-* に残し、型は形だけ。あわせて data/ の画面取得の記録・不変の証拠にも型を広げ、型ありは 24→37"
     }
   ]
 }
