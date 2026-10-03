@@ -294,10 +294,21 @@
 
 
 
+### [DN-0527] note マガジンに入っている「原稿と結び付かない記事」31 本を確かめ、原稿の記事へ差し替える
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-04]
+
+**起点**: 2026-10-04 に note の全商品 143 件を `content/products/note/` へ移したとき、公開中のマガジンの収録記録（`data/note/magazines.json`）に、原稿の frontmatter の noteId と一致しない記事が 31 本あった。題名は原稿と同じで ID だけが違う（例: 建設部門 道路 R07 II-1 は原稿が `n9c791def70f4`、マガジンの収録が `n123cf1c5f8f0`）。内訳は 1級 施工経験記述 完全攻略パック 14・建設部門 道路 選択科目 模範解答集 16（道路まるごとパックも includes で同じ記事）・総監 記述式 完全パック 1。正本には今の収録どおり `note:<noteId>` で書き、`npm run check-products` が毎回一覧を出す。
+
+**やること**:
+1. 31 本の ID が note 上で何か（重複公開した旧版か・原稿の無い別記事か）を `npm run verify-note-magazines -- --contents --json` と note の実物で確かめる。
+2. 旧版なら、マガジンの収録を原稿の記事へ差し替え（note の操作は運営者の承認つき）、`npm run product -- add-member / remove-member` で正本の `note:` を原稿のパスに直す。原稿の無い記事なら、原稿を起こすか収録から外す。
+
+**完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
+
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
 
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
+**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした（2026-10-04 に残りの資格も移し、note の全 143 件が正本から生成）。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
 
 **やること**:
 1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。

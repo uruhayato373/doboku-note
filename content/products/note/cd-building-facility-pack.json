@@ -1,0 +1,30 @@
+{
+  "id": "cd-building-facility-pack",
+  "channel": "note",
+  "qualification": "concrete-diagnostician",
+  "stage": "written",
+  "series": "other",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "cd-building-facility-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/me3141ce22b7e",
+    "noteTitle": "診断士 記述式｜建築・施設4ケース",
+    "title": "コンクリート診断士 記述式｜建築・施設4ケース",
+    "description": "中性化、ASR、立体駐車場の火害、RC擁壁の初期欠陥・中性化を収録。建築・施設管理に近い受験者が、外観変状から調査、性能評価、補修・補強までを練習する4ケースと解法ガイド。",
+    "shortTitle": "診断士｜建築・施設4ケース",
+    "shortDescription": "建築・施設管理に近い4ケース。解法ガイド付き。",
+    "price": "¥2,480（5記事セット）",
+    "badge": "note 限定 立場別"
+  },
+  "members": [
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/03-立体駐車場-火害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/08-擁壁-初期欠陥中性化/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-ASR/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/問題B-中性化/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/解法ガイド/article.md"
+  ],
+  "includes": [],
+  "memo": []
+}

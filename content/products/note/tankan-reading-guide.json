@@ -1,0 +1,33 @@
+{
+  "id": "tankan-reading-guide",
+  "channel": "note",
+  "qualification": "pe-comprehensive-management",
+  "stage": "written",
+  "series": "first",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "tankan-reading-guide",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m607bf095b02a",
+    "noteTitle": "技術士 総監｜5管理 テキスト精読ガイド",
+    "title": "doboku-note 連動｜5管理 テキスト精読ガイド",
+    "description": "サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。",
+    "shortTitle": "5管理 精読ガイド",
+    "shortDescription": "5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。",
+    "badge": "note 限定 教材",
+    "ctaCatch": "キーワードの丸暗記で止まっていませんか？",
+    "ctaButton": "精読ガイドを見てみる",
+    "ctaPose": "pointing"
+  },
+  "members": [
+    "content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-人的資源管理/article.md",
+    "content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理/article.md",
+    "content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-情報管理/article.md",
+    "content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-社会環境管理/article.md",
+    "content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-経済性管理/article.md",
+    "content/note/技術士総監/計算問題パターン集/article.md"
+  ],
+  "includes": [],
+  "memo": []
+}

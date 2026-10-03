@@ -1,0 +1,27 @@
+{
+  "id": "pe-oral-general-guide",
+  "channel": "note",
+  "qualification": "pe-construction",
+  "stage": "oral",
+  "series": "other",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "pe-oral-general-guide",
+    "published": false,
+    "noteUrl": "",
+    "title": "技術士 口頭試験対策（全部門共通）｜令和8年度 改訂コンピテンシー対応の想定問答と部門別の当てはめ例",
+    "description": "技術士第二次試験（総合技術監理部門を除く全部門）の口頭試験を、公式の試問事項4つ（マネジメント・評価／コミュニケーション・リーダーシップ／技術者倫理／継続研さん）に沿った想定問答24問と、筆記合格発表から当日までの準備ロードマップで準備する。上下水道・電気電子・農業・機械・建設の当てはめ例、業務内容の詳細720字以内を口頭2分に組み立て直す型、落ちる回答の型付き。想定問答は運営者が独自に作成したもので、実際の出題を再現したものではありません。",
+    "shortTitle": "技術士 口頭試験対策（全部門共通）",
+    "shortDescription": "試問事項別の想定問答24問＋上下水道・電気電子・農業・機械・建設の当てはめ例。",
+    "price": "¥1,980",
+    "badge": "note 限定"
+  },
+  "members": [],
+  "includes": [],
+  "memo": [
+    "技術士 口頭試験対策（全部門共通・DN-0344）。原稿は content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/。",
+    "note 未公開の下書き（published:false・noteUrl 空）。価格は建設部門版と同額の仮置きで、値付けと公開は運営者が決める。",
+    "公開時は examKeyOf（src/lib/exam-brand.ts）が pe-oral-* を解決しないため総監ブランドに落ちる点を先に決めること。"
+  ]
+}
