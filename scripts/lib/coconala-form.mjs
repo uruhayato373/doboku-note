@@ -189,6 +189,14 @@ export async function uploadImage(page, imgPath, { tag = '[img]', force = false 
   return { ok: after > before, added: after > before, before, after, reason: after > before ? undefined : 'アップロード後も画像枚数が増えない' };
 }
 
+/** 画像スロット（アップロード済み画像）を読むだけ。画面は変えない。 */
+export function readImageSlots(page) {
+  return page.evaluate(() =>
+    [...document.querySelectorAll('.js_thumbnail-wrapper.-image-exists .thumbnail.js_image-thumbnail')]
+      .map((d) => ({ id: d.getAttribute('data-id'), bg: d.getAttribute('style') || '' }))
+  );
+}
+
 /**
  * 商品画像を「差し替える」（既存スロットを上書き）。2026-08-05 新設。
  *
@@ -204,10 +212,7 @@ export async function uploadImage(page, imgPath, { tag = '[img]', force = false 
  */
 export async function replaceImage(page, imgPath, { tag = '[img]' } = {}) {
   await dismissModal(page);
-  const slots = () => page.evaluate(() =>
-    [...document.querySelectorAll('.js_thumbnail-wrapper.-image-exists .thumbnail.js_image-thumbnail')]
-      .map((d) => ({ id: d.getAttribute('data-id'), bg: d.getAttribute('style') || '' }))
-  );
+  const slots = () => readImageSlots(page);
   const before = await slots();
   if (before.length === 0) {
     // まだ画像が無いなら通常アップロードと同義
@@ -244,23 +249,55 @@ export async function replaceImage(page, imgPath, { tag = '[img]' } = {}) {
   };
 }
 
+// 新規下書き→公開は「公開する」、既に公開中サービスの更新は「更新する/サービスを更新」。
+const DRAFT_BUTTONS = ['下書きで保存'];
+const PUBLISH_BUTTONS = ['公開する', '更新する', 'サービスを更新', '変更を保存'];
+
+/**
+ * 画面にある送信ボタン名から、押すボタンか「押さずに終える」かを決める。
+ * 公開中サービスの編集画面には「下書きで保存」が無い（「更新する」だけ）。dryRun なら押さずに終える。
+ * @param {{commit:boolean, dryRun:boolean, available:string[]}} p
+ * @returns {{click:string}|{dryRun:string}|{missing:string[]}}
+ */
+export function chooseSubmitAction({ commit = false, dryRun = false, available = [] }) {
+  const candidates = commit ? PUBLISH_BUTTONS : DRAFT_BUTTONS;
+  const hit = candidates.find((c) => available.includes(c));
+  if (hit) return { click: hit };
+  if (!commit && dryRun) {
+    const pub = PUBLISH_BUTTONS.find((c) => available.includes(c));
+    if (pub) return { dryRun: pub };
+  }
+  return { missing: candidates };
+}
+
+/** 画面にある送信ボタン名（下書き保存・公開・更新）。公開中サービスの編集画面は「下書きで保存」を含まない。 */
+export async function listSubmitButtons(page) {
+  const available = [];
+  for (const c of [...DRAFT_BUTTONS, ...PUBLISH_BUTTONS]) {
+    if (await page.getByRole('button', { name: c, exact: true }).count()) available.push(c);
+  }
+  return available;
+}
+
 /**
  * 送信。commit=false → 「下書きで保存」、commit=true → 「公開する」。
+ * dryRun=true で「下書きで保存」が無い（公開中サービスの編集画面）ときは、更新ボタンの存在だけ確かめて押さない。
  * ボタンはともに button.submitButton[type=submit]。テキストで判別する。
- * @returns {Promise<{ok:boolean, action:string, url:string, reason?:string}>}
+ * @returns {Promise<{ok:boolean, action:string, url:string, dryRun?:boolean, reason?:string}>}
  */
-export async function submitForm(page, { commit = false, tag = '[form]' } = {}) {
-  // 新規下書き→公開は「公開する」、既に公開中サービスの更新は「更新する/サービスを更新」。
-  const candidates = commit ? ['公開する', '更新する', 'サービスを更新', '変更を保存'] : ['下書きで保存'];
-  let name = null, btn = null;
-  for (const c of candidates) {
-    const b = page.getByRole('button', { name: c, exact: true });
-    if (await b.count()) { name = c; btn = b; break; }
+export async function submitForm(page, { commit = false, dryRun = false, tag = '[form]' } = {}) {
+  const available = await listSubmitButtons(page);
+  const choice = chooseSubmitAction({ commit, dryRun, available });
+  if (choice.dryRun) {
+    console.log(`${tag} dry-run: 公開中の編集画面（「${choice.dryRun}」あり・下書き保存なし）。送信せず終える`);
+    return { ok: true, action: `dry-run（「${choice.dryRun}」は押さない）`, url: page.url(), dryRun: true };
   }
-  if (!btn) {
+  if (choice.missing) {
     const allButtons = await page.evaluate(() => Array.from(document.querySelectorAll('button')).map((b) => (b.textContent || '').replace(/\s+/g, ' ').trim()).filter(Boolean));
-    return { ok: false, action: candidates[0], url: page.url(), reason: `送信ボタン未検出（候補: ${candidates.join('/')}）。画面上のbutton: ${JSON.stringify(allButtons.slice(0, 30))}` };
+    return { ok: false, action: choice.missing[0], url: page.url(), reason: `送信ボタン未検出（候補: ${choice.missing.join('/')}）。画面上のbutton: ${JSON.stringify(allButtons.slice(0, 30))}` };
   }
+  const name = choice.click;
+  const btn = page.getByRole('button', { name, exact: true });
   await btn.first().click();
   await sleep(4000);
   try { await page.waitForLoadState('networkidle', { timeout: 20000 }); } catch {}
