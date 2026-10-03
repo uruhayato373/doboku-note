@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "Git の外へ出すアセットのうち **R2 に置くもの**（audience=site / ci）の機械可読 SSOT（DN-0111 Phase 3）。置き場は誰が使うかで決める: サイトが配信する→public R2 / CI が読み書きする→private R2 / 人か手元のスクリプトだけ→Google Drive vault（config/drive-vault.json・別系）。offload / hydrate / check-asset-storage が読む。manifest は .claude/state/assets/manifest.json。",
   "invariants": [
     "置き場は audience で決める。site（サイトが配信）→public R2 / ci（GitHub Actions が読み書き）→private R2 か byVisibility / human（人か手元のスクリプトだけ）→Google Drive vault。human を R2 に残すなら audienceException に理由を書く。",

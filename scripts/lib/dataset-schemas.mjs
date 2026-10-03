@@ -1,6 +1,6 @@
 /**
  * dataset-schemas.mjs — 設定・記録の型（zod）。正本はここで、JSON Schema は z.toJSONSchema で生成する。
- * 取得元ごとの型は dataset-schemas-{market,search,analysis}.mjs に分け、末尾の export * で束ねる（引く側はここだけを読む）。
+ * 取得元ごとの型は dataset-schemas-{market,search,analysis}.mjs、設定の型は dataset-schemas-config-{business,ops,media}.mjs に分け、末尾の export * で束ねる（引く側はここだけを読む）。
  * 部品（日時・金額・不変条件・版）は dataset-schema-parts.mjs。
  *
  * どのファイルにどの型を当てるかは datasets.mjs の台帳が決める（ここはパスを知らない）。
@@ -1395,3 +1395,6 @@ export const WeeklyMetrics = z
 export * from './dataset-schemas-market.mjs';
 export * from './dataset-schemas-search.mjs';
 export * from './dataset-schemas-analysis.mjs';
+export * from './dataset-schemas-config-business.mjs';
+export * from './dataset-schemas-config-ops.mjs';
+export * from './dataset-schemas-config-media.mjs';

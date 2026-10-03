@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_note": "競合の追跡リスト（取得元ごと）。各取得元の中身は以前の config/<取得元>-competitors.json と同じ形。読み手は scout-*-competitors・scan-qualification-market・report-competitor-watch・coconala-research。 note には性格（何者か・導線・同一主体・競合する自社商品）だけを書き、価格・販売数・フォロワー数・日付などの観測値は書かない（実測は取得のたびに data/*/competitors/{date}.json へ入るので、書くと二重に古びる。tests/competitors-notes.test.mjs が止める）。",
   "note": {
     "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = 対象資格。値は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/strategy/09_販売チャネル競合分析.md。",

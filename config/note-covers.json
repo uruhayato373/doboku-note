@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_doc": "note カバーの設定。characterCovers＝記事の上書き・退役／追加マガジン、categories＝カバー分類の語彙とルール、magazineText＝マガジンカバーの文言（マガジン id ごと・旧 note-cover-magazine-v4）。読み手は scripts/lib/note-cover-inventory.mjs・note-cover-category.mjs。",
   "characterCovers": {
     "_doc": ".claude/knowledge/design-system/note-cover-character-v5.md",

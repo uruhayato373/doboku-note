@@ -90,7 +90,7 @@ const hasWideGap = (line) => gapCount(line, 4) >= 1;
 // ---- 読み込み -----------------------------------------------------------
 
 export function loadOverrides() {
-  if (!existsSync(OVERRIDES_PATH)) return { version: 1, documents: {} };
+  if (!existsSync(OVERRIDES_PATH)) return { schemaVersion: 1, documents: {} };
   return JSON.parse(readFileSync(OVERRIDES_PATH, 'utf8'));
 }
 

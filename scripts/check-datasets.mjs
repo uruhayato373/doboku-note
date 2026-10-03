@@ -15,7 +15,7 @@
  *   7. ワークフローと package.json に書いた config/・data/ のパスが台帳に当たる（YAML は main で動くので、移した後に旧パスが
  *      残ると黙って空振りする。DN-0497）
  *   8. 鮮度（freshness: { warnDays, failDays }）の宣言が正しい形（1 以上の整数・warnDays < failDays・知らないキーなし）
- *   9. data/ の JSON・JSON Lines のデータセットは型（schema）を持つ（型が無いと形が崩れても書き戻し・検査が素通りする）。
+ *   9. config/・data/ の JSON・JSON Lines のデータセットは型（schema）を持つ（型が無いと形が崩れても書き戻し・検査が素通りする）。
  *      planned に CI のボットが初めて書いたときは 2. と同じく警告だけにする
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
  */
@@ -77,8 +77,8 @@ for (const x of DATASETS) {
   if (x.planned && n > 0) warnings.push(`${x.id}: ファイルが入ったので planned を外してよい`);
   if (!x.local && !x.planned && n === 0) errors.push(`${x.id}: 宣言だけでファイルが無い（${x.path}）`);
   const jsonFiles = (byId.get(x.id) ?? []).filter((f) => /\.jsonl?$/.test(f)).length;
-  if (x.path.startsWith(`${AREAS.data.dir}/`) && !x.schema && jsonFiles > 0) {
-    const message = `${x.id}: data/ の JSON（${jsonFiles} ファイル）に型が無い（scripts/lib/dataset-schemas*.mjs に zod の型を書き、台帳の schema に名前で結ぶ）`;
+  if (!x.schema && jsonFiles > 0) {
+    const message = `${x.id}: JSON（${jsonFiles} ファイル）に型が無い（scripts/lib/dataset-schemas*.mjs に zod の型を書き、台帳の schema に名前で結ぶ）`;
     (x.planned ? warnings : errors).push(message);
   }
 }
