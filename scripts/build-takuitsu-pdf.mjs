@@ -139,13 +139,25 @@ async function preprocess(body, images, imageSrc) {
   out = out.replace(/<ExamPoint>([\s\S]*?)<\/ExamPoint>/g, (whole, text) =>
     push(`<div class="exampoint"><p class="ep-head"><strong>要点</strong>　${xesc(text.trim())}</p></div>`))
   // ExamPoint（自己終了 props 型）→ 要点ボックス
-  out = out.replace(/<ExamPoint([\s\S]*?)\/>/g, (whole, props) => {
+  // props は JS 文字列なので `\\overline` のようにエスケープされている。戻してから数式を描画する
+  // （本文側の $…$ 変換はトークン化した要点箱の中まで届かず、生の LaTeX が印字されていた）。
+  const propText = async (raw) => {
+    const s = raw.replace(/\\(["\\])/g, '$1')
+    let html = '', last = 0
+    for (const m of s.matchAll(/\$([^$\n]+?)\$/g)) {
+      html += xesc(s.slice(last, m.index)) + (await mathToMathml(m[1], false))
+      last = m.index + m[0].length
+    }
+    return html + xesc(s.slice(last))
+  }
+  for (const m of [...out.matchAll(/<ExamPoint([\s\S]*?)\/>/g)]) {
+    const props = m[1]
     const summary = (props.match(/summary="((?:[^"\\]|\\.)*)"/) || [])[1] || ''
     const itemsSrc = (props.match(/items=\{\[([\s\S]*?)\]\}/) || [])[1] || ''
-    const items = [...itemsSrc.matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1])
-    const lis = items.map((t) => `<li>${xesc(t)}</li>`).join('')
-    return push(`<div class="exampoint"><p class="ep-head"><strong>要点</strong>　${xesc(summary)}</p>${lis ? `<ul>${lis}</ul>` : ''}</div>`)
-  })
+    const items = [...itemsSrc.matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((x) => x[1])
+    const lis = (await Promise.all(items.map(propText))).map((t) => `<li>${t}</li>`).join('')
+    out = out.replace(m[0], push(`<div class="exampoint"><p class="ep-head"><strong>要点</strong>　${await propText(summary)}</p>${lis ? `<ul>${lis}</ul>` : ''}</div>`))
+  }
 
   // details（解答・解説）→ 解答ブロック（PDF は改ページせず問題直後に置く）
   out = out
@@ -181,7 +193,10 @@ async function preprocess(body, images, imageSrc) {
 }
 
 // ---- 最小 markdown → XHTML レンダラ（pe1 と同一）--------------------------
-const inlineMd = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+// [文字](URL) は紙面でリンクにならないので文字だけ残す（URL 生表記の印字を防ぐ）
+const inlineMd = (s) => xesc(s)
+  .replace(/!?\[([^\]\n]+)\]\((?:[^()\s]|\([^()\s]*\))+\)/g, '$1')
+  .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
 function mdToXhtml(text) {
   const lines = text.split('\n')
   const html = []
@@ -339,12 +354,10 @@ async function renderSources(spec, images, imageSrc, edition = 'all') {
     const { fm, body: whole } = splitFrontmatter(raw)
     const label = fm.shortTitle || fm.title || basename(srcRel)
     let body = whole
-    let qCount = (whole.match(/^## /gm) || []).length
-    if (edition !== 'all') {
-      const parts = splitBody(whole)
-      body = parts[edition]
-      qCount = parts.count
-    }
+    // 問題数は解答（<details>）を持つ見出しだけを数える（「論点の出題傾向」等の分析節を問題に数えない）
+    const parts = splitBody(whole)
+    const qCount = parts.count || (whole.match(/^## /gm) || []).length
+    if (edition !== 'all') body = parts[edition]
     const pre = await preprocess(body, images, imageSrc)
     qTotal += qCount
     if (pre.hasMath) mathChaps++
