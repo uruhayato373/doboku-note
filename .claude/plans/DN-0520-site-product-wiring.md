@@ -1,5 +1,5 @@
 ---
-taskId: DN-0518
+taskId: DN-0520
 type: implementation-plan
 createdAt: 2026-10-03
 deleteOnComplete: true

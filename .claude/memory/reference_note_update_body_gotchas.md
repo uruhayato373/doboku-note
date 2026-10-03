@@ -95,3 +95,13 @@ note のリンクカード(figure 埋め込み)化（2026-06-30 実機検証で�
 **次の一手**: Cloudflare ダッシュボードで Bot 保護がソーシャルクローラ（note/facebookexternalhit/Twitterbot 等）をチャレンジしていないか確認→必要なら許可。**直れば全 doboku-note リンクが note でカード化＋X/Facebook の OGP カードも改善する高価値案件**。
 
 **ツール**: `npm run audit-note-cards`（read-only）。未カード単独URL段落を INT-fixable(note内部)/DN-blocked(doboku-note・Cloudflare疑い)/EXT-fixable(他外部) に分類。2026-06-30=80本中38本に未カード52件（doboku-note 47=DN-blocked / note内部 5=INT-fixable・ただし全て有料記事で paywall 安全フロー必須）。真実源 doc=`.claude/skills/social/publish-note/references/update-mode.md`。関連 [[project_note_revenue_strategy_2026]]。
+
+---
+
+## 配布PDFの差し替え・追加（2026-10-03 実測）
+
+- **dry-run でもエディタで全文置換とアップロードが走る**: `note-update-body --reattach-pdf` を `--commit` なしで実行しても PDF はアップロードされ（その日の枠を消費・`note-attach-done.json` に記録）、下書きは差し替わった状態で残る。dry-run したら同じ記事を必ず本番反映する。
+- **`--reattach-pdf` は「今ついている添付」だけを貼り直す**（同名のローカル実体＝新版で差し替わる）。新しい PDF を足すのは `note-attach-file --force`。
+- **`note-attach-file --force` はアップロード直後の再公開で境界検証 NG（exit 8）になりやすい**（有料エリア表示が間に合わない・無料漏れ防止で保存しないので公開側は無事）。数分待って `--force` なしで同じコマンドを打つと「既添付→再公開のみ」でアップロードせずに通る（10MB 級は 3〜4 分待つ）。境界の見出しは記事 frontmatter の `paidBoundary` を `--boundary-regex` に渡す（既定は「試験問題|予想問題」で、択一PDF記事の「PDF のダウンロードと使い方」には合わない）。
+- **`--list` で数十本流すと Mac の空きメモリ不足でブラウザが落ち、続く記事が連鎖失敗する**（3 本連続で ABORT）。10 本ずつ起動し直す。落ちた記事は中断記録に載るので、ライブ実査で無事を確かめてから `--force-retry`。中断ゲート（元にPDFがあるのにエディタに添付ゼロなら止める）があるので再試行は安全。
+- アップロード上限: スクリプトの安全上限 90/日は `note-attach-done.json` を数えるが、`note-attach-file` のアップロードはそこに載らないので手で足して管理する。関連 [[feedback_note_article_three_set_dod]]
