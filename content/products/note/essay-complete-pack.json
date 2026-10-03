@@ -1,0 +1,59 @@
+{
+  "id": "essay-complete-pack",
+  "channel": "note",
+  "qualification": "pe-comprehensive-management",
+  "stage": "written",
+  "series": "keiken",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "essay-complete-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m171222175fac",
+    "noteTitle": "総監記述式 完全パック｜全20ペルソナ・全217記事",
+    "title": "総監記述式 完全パック｜全20ペルソナ・全217記事",
+    "description": "型・国家施策・R8予想演習・20ペルソナの模範論文（受注者10＋自治体10）・精読・択一過去問PDFを収録した全217記事。土質基礎・上下水道・維持更新施工・鋼コン・トンネル・道路舗装施工の6ペルソナは令和3〜7年度を各年A・B案で収録。既存14ペルソナとは収録年度が異なります。口頭試験対策は別売です。",
+    "shortTitle": "記述式 完全パック",
+    "shortDescription": "型×設問3×予想×全20ペルソナ模範論文＋精読＋択一PDFの全217記事。総監対策の決定版バンドル。",
+    "price": "¥9,800",
+    "badge": "note 限定",
+    "ctaCatch": "記述式の対策、これ1つで全部そろいます",
+    "ctaButton": "完全パックを見てみる",
+    "ctaPose": "good-sign"
+  },
+  "members": [
+    "note:n64a61345763c"
+  ],
+  "includes": [
+    "essay-core-pack",
+    "essay-general-contractor-magazine",
+    "essay-geotechnical-consultant-magazine",
+    "essay-maintenance-contractor-magazine",
+    "essay-park-municipality-magazine",
+    "essay-port-municipality-magazine",
+    "essay-procurement-municipality-magazine",
+    "essay-river-consultant-magazine",
+    "essay-river-municipality-magazine",
+    "essay-road-consultant-magazine",
+    "essay-road-municipality-magazine",
+    "essay-road-paving-contractor-magazine",
+    "essay-sabo-municipality-magazine",
+    "essay-sewage-municipality-magazine",
+    "essay-standards-municipality-magazine",
+    "essay-steel-concrete-consultant-magazine",
+    "essay-tunnel-consultant-magazine",
+    "essay-urban-consultant-magazine",
+    "essay-urban-municipality-magazine",
+    "essay-water-consultant-magazine",
+    "essay-water-municipality-magazine",
+    "tankan-reading-guide",
+    "tankan-takuitsu-heisei-pdf",
+    "tankan-takuitsu-reiwa-pdf"
+  ],
+  "memo": [
+    "2026-06-15 に9ペルソナ63記事＋精読6記事を収録し note 上で122記事に拡張",
+    "（note-magazine-add + note-edit-magazine、API実体検証済）。",
+    "価格は 2026-06-20 に ¥9,800 へ改定（旧 ¥14,800）。単品合計¥44,640相当（約78%OFF）。",
+    "決定: 総監マガジン構成_決定2026.md §3-2 ＋ 2026-06-15 追補。"
+  ]
+}

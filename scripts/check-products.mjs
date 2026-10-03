@@ -14,7 +14,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, GROUPS, loadProducts, expectedMembers, renderBlock, replaceBlock, BLOCK_BEGIN, noteKeyOf,
+  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, NOTE_ONLY_MEMBER, productGroups, blockGroupsIn, loadProducts, expectedMembers, renderBlock, replaceBlock, BLOCK_BEGIN, noteKeyOf,
 } from './lib/product-registry.mjs';
 
 const { products, errors } = loadProducts();
@@ -25,21 +25,26 @@ if (products.length === 0) {
 }
 
 const byId = new Map();
+/** 原稿の noteId と結び付かない note 上の収録（note:<noteId>）。違反ではないが件数と中身を毎回出す */
+const noteOnly = [];
 for (const p of products) {
   if (byId.has(p.id)) violations.push(`${p.id}: id が重複`);
   byId.set(p.id, p);
 }
 for (const p of products) {
   for (const inc of p.includes) if (!byId.has(inc)) violations.push(`${p.id}: includes の ${inc} が正本に無い`);
-  for (const m of p.members) if (!existsSync(join(ROOT, m))) violations.push(`${p.id}: members の原稿が無い ${m}`);
+  for (const m of p.members) {
+    if (NOTE_ONLY_MEMBER.test(m)) noteOnly.push(`${p.id}: ${m}`);
+    else if (!existsSync(join(ROOT, m))) violations.push(`${p.id}: members の原稿が無い ${m}`);
+  }
 }
 
 // 3. 生成ブロック
 const ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
 let blocks = 0;
-for (const [group, pick] of Object.entries(GROUPS)) {
-  const mine = products.filter(pick);
-  if (!mine.length) continue;
+const groups = productGroups(products);
+for (const g of blockGroupsIn(ts)) if (!groups.some(([q]) => q === g)) violations.push(`note-magazines.ts に正本の無い資格の生成ブロックが残っている（${g}）`);
+for (const [group, mine] of groups) {
   blocks++;
   if (!ts.includes(BLOCK_BEGIN(group))) {
     violations.push(`note-magazines.ts に生成ブロックが無い（${group}）→ npm run product -- gen`);
@@ -76,7 +81,8 @@ for (const p of products) {
   if (extra.length) violations.push(`${p.id}: 意図に無い収録 ${extra.length} 本（${extra.slice(0, 5).join(', ')}${extra.length > 5 ? ' …' : ''}）`);
 }
 
-console.log(`[check-products] 正本 ${products.length} 件 / 生成ブロック ${blocks} / 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 違反 ${violations.length} 件`);
+console.log(`[check-products] 正本 ${products.length} 件 / 生成ブロック ${blocks} / 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 原稿と結び付かない収録 ${noteOnly.length} 本 / 違反 ${violations.length} 件`);
+if (noteOnly.length) console.log(`[check-products] 原稿の noteId と結び付かない収録（note 上で同じ題名の別 ID が入っているなど）:\n  ${noteOnly.join("\n  ")}`);
 if (violations.length) {
   for (const v of violations) console.error(`  ✗ ${v}`);
   process.exit(1);

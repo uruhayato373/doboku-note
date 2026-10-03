@@ -36,7 +36,10 @@ export const Product = z
     persona: z.string().nullable().default(null),
     /** note-magazines.ts の該当エントリ（そのまま書き出す） */
     catalog: Catalog,
-    /** note 上で収録すべき記事（リポジトリ相対の article.md パス） */
+    /**
+     * note 上で収録すべき記事（リポジトリ相対の article.md パス）。原稿の noteId と結び付かない note 上の記事は
+     * `note:<noteId>`（同じ題名の別 ID が収録されているなど。check-products が件数を出す）
+     */
     members: z.array(z.string()).default([]),
     /** 丸ごと含む商品の id（パックが含むマガジン・単品） */
     includes: z.array(z.string()).default([]),
@@ -112,8 +115,12 @@ const fmField = (raw, key) => {
   return m ? m[1].trim() : '';
 };
 
-/** 記事パス → note の noteId（未公開は ''）。読めないパスは null */
+export const NOTE_ONLY_MEMBER = /^note:(n[0-9a-f]+)$/;
+
+/** 記事パス → note の noteId（未公開は ''）。読めないパスは null。`note:<noteId>` はその noteId */
 export function articleNoteId(relPath) {
+  const noteOnly = relPath.match(NOTE_ONLY_MEMBER);
+  if (noteOnly) return noteOnly[1];
   const abs = join(ROOT, relPath);
   if (!existsSync(abs)) return null;
   const raw = readFileSync(abs, 'utf8');
@@ -195,5 +202,16 @@ export function replaceBlock(ts, group, block) {
   return ts.slice(0, b) + block + ts.slice(e + BLOCK_END(group).length);
 }
 
-/** 生成の対象（段階1: note の資格ごとのグループ） */
-export const GROUPS = { 'civil-construction-2': (p) => p.channel === 'note' && p.qualification === 'civil-construction-2' };
+/**
+ * 生成の単位: note の資格ごと（qualification は資格 id か group id）。正本にある資格だけを id 順で返す
+ * @returns {[string, object[]][]} [資格, その資格の商品][]
+ */
+export function productGroups(products) {
+  const note = products.filter((p) => p.channel === 'note');
+  return [...new Set(note.map((p) => p.qualification))].sort().map((q) => [q, note.filter((p) => p.qualification === q)]);
+}
+
+/** note-magazines.ts にある生成ブロックの資格（正本から消えた資格のブロックが残っていないかを見る） */
+export function blockGroupsIn(ts) {
+  return [...ts.matchAll(/^ {2}\/\/ <generated:products (\S+)>/gm)].map((m) => m[1]);
+}

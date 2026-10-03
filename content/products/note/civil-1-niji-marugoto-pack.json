@@ -1,0 +1,45 @@
+{
+  "id": "civil-1-niji-marugoto-pack",
+  "channel": "note",
+  "qualification": "civil-construction-1",
+  "stage": "second",
+  "series": "cross",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "civil-1-niji-marugoto-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/md29a34906314",
+    "noteTitle": "1級土木 二次検定まるごとパック",
+    "landingUrl": "https://note.com/dobokunote/n/n824a4ea20acf",
+    "title": "1級土木 二次検定まるごとパック（経験記述＋学科記述＋直前暗記＋予想模試＋出題分析）",
+    "description": "1級土木施工管理技士 第2次検定を、経験記述（問題1）と学科記述（問題2〜11）の両面からまるごと対策する最上位パック。施工経験記述 完全攻略パック（想定工事×5管理の全模範答案）と、二次学科記述 テーマ別出る順（5年分の頻度分析＋解答の型）、直前暗記ノート（穴埋め頻出語句 一問一答）に加え、2026年9月からR8予想模試3回（問題冊子＋解答解説PDF6冊）と出題分析・直前重点（直前2週間ロードマップ）も収録（価格据置）。単品合計¥16,720より割安に束ねた買い切りアンカー。個別添削や月例予想での伴走が欲しい方は、メンバーシップ「土木セコカン合格ラボ」が別途あります。※改変前提のテンプレートで、合格を保証するものではありません。",
+    "shortTitle": "1級土木 二次検定まるごとパック",
+    "shortDescription": "経験記述 完全攻略＋学科記述 出る順＋直前暗記＋予想模試3回＋出題分析を統合した最上位買い切りパック。",
+    "price": "¥11,800（二次まるごと・単品合計¥16,720）",
+    "badge": "note 限定",
+    "ctaCatch": "経験記述も学科記述も、二次はこれ1つで",
+    "ctaButton": "まるごとパックの案内を見てみる",
+    "ctaPose": "good-sign"
+  },
+  "members": [
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/article.md"
+  ],
+  "includes": [
+    "civil-1-anki-note",
+    "civil-1-chokuzen-pack",
+    "civil-1-gakka-kijutsu",
+    "civil-1-keiken-complete-pack",
+    "civil-1-r8-bunseki",
+    "civil-1-r8-mock3-pdf"
+  ],
+  "memo": [
+    "P5: 1級 二次まるごとパック（新最上位アンカー・経験記述完全攻略¥9,800＋P1＋P3aを束ね）",
+    "単品合計 ¥13,260（¥9,800＋¥2,480＋¥980）→ ¥11,800。既存¥9,800は残置（Red Line #8）。",
+    "商品ページに「伴走・添削が欲しい方は会員へ」の分岐を明記（会員より魅力的に見えすぎ回避）。",
+    "P1/P3a 完成後に束ねるだけ（索引記事1本のみ新規）。",
+    "サイト CTA は有料マガジンへ直行させず、無料の「まるごとパック 総合案内」に着地させる",
+    "（3つの柱の全体像を見せてから購入へ）。noteUrl はマガジン SoT で不変。",
+    "landingUrl（無料の総合案内）へ着地するため、ボタン文言も「案内を見る」に合わせる。"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "cd-structure-case-bank",
+  "channel": "note",
+  "qualification": "concrete-diagnostician",
+  "stage": "written",
+  "series": "other",
+  "tier": "magazine",
+  "persona": null,
+  "catalog": {
+    "id": "cd-structure-case-bank",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/md94d10122def",
+    "noteTitle": "診断士 記述式｜構造物別8ケース",
+    "title": "コンクリート診断士 記述式｜構造物別 想定8ケース",
+    "description": "下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる問題Bのオリジナル想定問題とフル模範答案集。",
+    "shortTitle": "診断士 記述式｜構造物別8ケース",
+    "shortDescription": "8構造物で、診断から対策までの答案構成を反復する。",
+    "price": "¥3,980（8本セット・単品各¥1,480）",
+    "badge": "note 限定 教材"
+  },
+  "members": [
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/01-下水処理施設-化学的侵食/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/02-道路トンネル覆工-漏水凍害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/03-立体駐車場-火害/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/04-PC橋-グラウト不良鋼材腐食/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/05-配水池-ひび割れ漏水/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/06-港湾桟橋-塩害マクロセル/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/07-RC橋脚-地震損傷/article.md",
+    "content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース/08-擁壁-初期欠陥中性化/article.md"
+  ],
+  "includes": [],
+  "memo": [
+    "コンクリート診断士の商品拡張（2026-09-20公開）。原稿は8本を一度だけ持ち、各パックへ再収録する。"
+  ]
+}

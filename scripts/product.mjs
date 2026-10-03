@@ -9,14 +9,15 @@
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
  *   npm run product -- fmt                                                          # 全ファイルを正規化して書き直す
  *   npm run product -- gen [--check]                                                # note-magazines.ts の生成ブロックを書く（--check は差分で exit 1）
- *   npm run product -- import-note --qualification <id> [--commit]                  # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
+ *   npm run product -- import-note --qualification <id> [--ids a,b] [--commit]      # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
+ *                                                                                  # 複数の資格にまたがる商品は --ids で選び、--qualification に group id か主な資格を書く
  * exit: 0 成功 / 1 検査・差分・書き込み失敗 / 2 引数不正
  */
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
-  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, GROUPS, Product, loadProducts, saveProduct, canonicalJson, productPath,
+  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, canonicalJson, productPath,
   renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
@@ -61,7 +62,9 @@ async function readCatalog() {
     const m = l.match(/^ {2}'([a-z0-9-]+)': \{$/);
     if (!m) return;
     const out = [];
-    for (let j = i - 1; j >= 0 && /^ {2}\/\/ /.test(lines[j]); j--) out.unshift(lines[j].replace(/^ {2}\/\/ /, ''));
+    // 直前のコメント（`//` の後に空白が無い行も続きとして拾う）
+    for (let j = i - 1; j >= 0 && /^ {2}\/\//.test(lines[j]) && !/<\/?generated:products /.test(lines[j]); j--) out.unshift(lines[j].replace(/^ {2}\/\/ ?/, ''));
+    for (let j = i + 1; j < lines.length && lines[j] !== '  },'; j++) if (/^ {4,}\/\/ /.test(lines[j])) out.push(lines[j].replace(/^ +\/\/ /, ''));
     memo.set(m[1], out);
   });
   return { all, memo };
@@ -104,14 +107,20 @@ async function importNote() {
 
   // 複数の資格にまたがる商品（会員プランなど）は資格のグループに入れない（段階1の対象外）
   const qualsOf = (id) => new Set((classifyProduct(config.rules?.note, id) ?? []).map((c) => c.split(':')[0]));
-  const picked = Object.values(all).filter((m) => { const qs = qualsOf(m.id); return qs.size === 1 && qs.has(q); });
+  const ids = arg('--ids')?.split(',').filter(Boolean);
+  const picked = ids
+    ? Object.values(all).filter((m) => ids.includes(m.id))
+    : Object.values(all).filter((m) => { const qs = qualsOf(m.id); return qs.size === 1 && qs.has(q); });
+  if (ids && picked.length !== ids.length) die(`--ids に台帳に無い id がある（${ids.filter((id) => !all[id]).join(', ')}）`, 1);
   if (!picked.length) die(`対象 0 件（${q}）。product-lineup.json の rules.note を確かめる`, 1);
   // 収録（live）から、マガジン同士の包含で層と includes を決める
   const sets = new Map(picked.map((m) => [m.id, new Set(live.get(noteKeyOf(m.noteUrl)) ?? [])]));
   const contains = (a, b) => b.size > 0 && a.size > b.size && [...b].every((k) => a.has(k));
   const out = [];
   for (const m of picked) {
-    const cell = (classifyProduct(config.rules.note, m.id) ?? []).find((c) => c.startsWith(`${q}:`));
+    const cells = classifyProduct(config.rules.note, m.id) ?? [];
+    const cell = cells.find((c) => c.startsWith(`${q}:`)) ?? (ids ? cells[0] : undefined);
+    if (!cell) die(`${m.id}: product-lineup.json の rules.note で ${q} のマスに当たらない`, 1);
     const single = singleKeyOf(m.noteUrl);
     const mine = sets.get(m.id);
     const inner = picked.filter((o) => o.id !== m.id && contains(mine, sets.get(o.id)));
@@ -119,7 +128,7 @@ async function importNote() {
     // 単品 SKU（/n/）が丸ごと含まれる場合も includes にする
     const singleSkus = picked.filter((o) => o.id !== m.id && singleKeyOf(o.noteUrl) && mine.has(singleKeyOf(o.noteUrl)));
     const covered = new Set([...direct.flatMap((o) => [...sets.get(o.id)]), ...singleSkus.map((o) => singleKeyOf(o.noteUrl))]);
-    const members = [...mine].filter((k) => !covered.has(k)).map((k) => articles.get(k) ?? `?${k}`);
+    const members = [...mine].filter((k) => !covered.has(k)).map((k) => articles.get(k) ?? `note:${k}`);
     const tier = m.retiredAt ? 'magazine' : single ? 'single' : !m.priceStr && /会員/.test(m.price ?? '') ? 'membership' : inner.length ? 'pack' : 'magazine';
     const p = {
       id: m.id,
@@ -138,17 +147,16 @@ async function importNote() {
     if (!parsed.success) die(`${m.id}: ${parsed.error.issues.map((i) => `${i.path.join('.')} ${i.message}`).join(' / ')}`, 1);
     out.push(parsed.data);
   }
-  const unknown = out.flatMap((p) => p.members.filter((x) => x.startsWith('?')).map((x) => `${p.id}: ${x}`));
+  const unknown = out.flatMap((p) => p.members.filter((x) => x.startsWith('note:')).map((x) => `${p.id}: ${x}`));
   for (const p of out) console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${p.id}  members=${p.members.length} includes=${p.includes.length}`);
-  if (unknown.length) console.log(`[product] 原稿が見つからない収録 ${unknown.length} 件:\n  ${unknown.join('\n  ')}`);
+  if (unknown.length) console.log(`[product] 原稿の noteId と結び付かない収録 ${unknown.length} 件（note:<noteId> で正本に入れる）:\n  ${unknown.join('\n  ')}`);
   if (!commit) return console.log(`[product] dry-run: ${out.length} 件（--commit で content/products/note/ へ書く）`);
   for (const p of out) saveProduct(p);
   console.log(`[product] ${out.length} 件を書いた。次に gen でブロックを作る（初回は --init-block）`);
 }
 
-/** 初回: note-magazines.ts から対象エントリ（とその直前のコメント）を抜き、最初の位置に生成ブロックの枠を置く */
-function initBlock(group, ids) {
-  let ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
+/** 初回: note-magazines.ts の全文 ts から対象エントリ（とその直前のコメント）を抜き、最初の位置に生成ブロックの枠を置く（複数の資格を続けて作るので、ディスクでなく渡された全文を書き換える） */
+function initBlock(ts, group, ids) {
   if (ts.includes(BLOCK_BEGIN(group))) return ts;
   const lines = ts.split('\n');
   const drop = new Set();
@@ -157,7 +165,7 @@ function initBlock(group, ids) {
     const m = l.match(/^ {2}'([a-z0-9-]+)': \{$/);
     if (!m || !ids.has(m[1])) return;
     let s = i;
-    while (s > 0 && /^ {2}\/\/ /.test(lines[s - 1])) s--;
+    while (s > 0 && /^ {2}\/\//.test(lines[s - 1]) && !/<\/?generated:products /.test(lines[s - 1])) s--;
     let e = i;
     while (e < lines.length && lines[e] !== '  },') e++;
     for (let k = s; k <= e; k++) drop.add(k);
@@ -177,13 +185,13 @@ function gen() {
   const { products, errors } = loadProducts();
   if (errors.length) die(`正本に問題がある:\n  ${errors.join('\n  ')}`, 1);
   let ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
-  for (const [group, pick] of Object.entries(GROUPS)) {
-    const mine = products.filter(pick);
-    if (!mine.length) continue;
+  const groups = productGroups(products);
+  const stale = blockGroupsIn(ts).filter((g) => !groups.some(([q]) => q === g));
+  if (stale.length) die(`正本に商品が無い資格の生成ブロックが残っている（${stale.join(', ')}）。ブロックを消す`, 1);
+  for (const [group, mine] of groups) {
     if (!ts.includes(BLOCK_BEGIN(group))) {
       if (check) die(`生成ブロックが無い（${group}）。npm run product -- gen を実行する`, 1);
-      writeFileSync(NOTE_MAGAZINES_TS, initBlock(group, new Set(mine.map((p) => p.id))));
-      ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
+      ts = initBlock(ts, group, new Set(mine.map((p) => p.id)));
     }
     const next = replaceBlock(ts, group, renderBlock(group, mine));
     if (next === null) die(`生成ブロックの枠が壊れている（${group}）`, 1);

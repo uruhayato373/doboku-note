@@ -1,0 +1,38 @@
+{
+  "id": "essay-core-pack",
+  "channel": "note",
+  "qualification": "pe-comprehensive-management",
+  "stage": "written",
+  "series": "keiken",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "essay-core-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/m6e7de5e4ea3d",
+    "noteTitle": "技術士 総監｜記述式 コアパック",
+    "title": "総監記述式 コアパック｜型 × 設問3 × R8予想（ペルソナ非依存3本）",
+    "description": "記述式の答案を完成させる最小セット。クロストレードオフ（5管理対立の型）＋設問(3)国家施策バンク（弾薬）＋R8予想問題集（演習）の3本を収録。収録の設問(3)バンクは、R8本試験テーマ「地方創生」を6/1公開で事前収録した実績があります。どの分野・立場でも効く横断教材で、自分のペルソナ別模範論文は単品で1つ足すだけ。単品合計¥7,940相当。",
+    "shortTitle": "記述式 コアパック",
+    "shortDescription": "型×設問3×R8の横断3本セット。記述式エンジンを安く・全員に。ペルソナは別途1本追加。",
+    "price": "¥5,480（3本セット、31%OFF）",
+    "badge": "note 限定",
+    "ctaCatch": "型・弾薬・演習。記述式のエンジンを最短で",
+    "ctaButton": "コアパックを見てみる",
+    "ctaPose": "pointing"
+  },
+  "members": [],
+  "includes": [
+    "r8-essay-forecast",
+    "setsumon3-policy-bank",
+    "tradeoff-5kanri"
+  ],
+  "memo": [
+    "----- 記述式コアパック（下段・2026-06-15 新設・有料¥5,480で note 作成済） -----",
+    "2段ラダーの下段。型+設問3+R8（ペルソナ非依存）の24記事を収録（¥5,480＝単品合計¥7,940の31%OFF）。",
+    "2026-06-15 に有料(単体)¥5,480で新規作成（/magazines/new・カテゴリ=キャリア）→ コア24記事を",
+    "note-magazine-add で収録・API実体検証済（¥5480・24件）。",
+    "構成元: 型 m921fbe060575／設問3 m91516dfc27ac／R8 m6854c7437d4d。精読は除外（択一/論点で別軸）。",
+    "決定記録: content/note/技術士総監/総監マガジン構成_決定2026.md §3-1 ＋ 2026-06-15 追補。"
+  ]
+}

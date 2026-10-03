@@ -11,7 +11,7 @@
 | 総監 note 戦略・進捗・価格企画 | `技術士総監/noteコンテンツ計画.md`（マガジン構成の決定記録は `技術士総監/総監マガジン構成_決定2026.md`） |
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
 | 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
-| 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
+| 実価格・noteUrl・公開状態 | `content/products/note/<id>.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `gen` で生成。照合は `npm run verify-note-magazines`） |
 | 全記事を横断して引く（URL・ID・状態・価格・所属マガジン） | `.claude/state/note-published.json`（frontmatter と note-magazines.ts から生成。`npm run build-note-catalog`） |
 | 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
@@ -127,7 +127,7 @@ utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
 
-題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `src/lib/note-magazines.ts` の `noteTitle` / `price`。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
+題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `content/products/note/<id>.json` の `catalog.noteTitle` / `catalog.price`（`note-magazines.ts` は生成物）。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
 
 - 題名・価格を変える: 原稿を直して commit する。題名は週次の Mac `note-sync-routine` が自動で note へ反映する。価格は同期画面に「止まっている」と出るので `note-article-price-sweep` で反映する
 - note 側で直接変わった（ずれた）: 週次 CI（`note-live-audit.yml`）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る
