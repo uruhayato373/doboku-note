@@ -267,7 +267,8 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
 調査方法（オフライン・コミット済みスナップショット読み）:
 - `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
   - 入力: 最新 `ga4.page`（流入）+ `ga4.cta-clicks`（クリック, あれば）
-  - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
+  - 現行の正規URLと旧URLは別行で照合する。`coverage` のGA4入力数・照合数・対象外数を確認し、入力0または照合0は集計不成立とする。
+  - note配置は描画と共通の判定を使う。参照: `src/lib/magazine-placement.ts` / `src/components/docs/DocPage.tsx` / `src/components/ui/ArticleFooter/ArticleFooter.tsx`。
   - 出力: `data/analysis/monetization/coverage-latest.md`（+ coverage-*.json）
 - 併せて最新 `ga4.key-events-by-page`（`npm run ci-data -- latest ga4.key-events-by-page` が「ファイル#枠」を返す。pagePath × sessions / keyEvents / sessionKeyEventRate・28 日）でキーイベント率の上位・高流入なのに 0 のページを、`ga4.cta-clicks` の `coconala_cta_impression` / `coconala_cta_click` でココナラ CTA の表示→クリック率を、`qualification_bridge_impression` / `qualification_bridge_click` で実務記事・共通仕様書の「業務経験 → 資格」カード（EXP-012）の表示→クリック率を 1 行ずつ載せる（立場別は `ga4.cta-clicks-by-label`。ファイルが無い・0 件は「未取得」と書き、0 と混ぜない）。
 - いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
@@ -473,7 +474,7 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
 - **外部書き込みの孤児**: weekly-review-guard の report digest（quality-audit `external-write-orphans`）が `orphan` を Issue にした週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。**exit 2（検査不成立 N/M 取得失敗）は「痕跡なし」ではない**＝社内プロキシ配下などで run ログが取れていない。取れる環境で再実行してから結論する（DN-0225）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
 - **品質censusのdelta**: weekly-review-guard の report digest（quality-audit `quality-census`）が悪化（薄層への逆戻り・スコア低下）を Issue にした週だけ、該当記事を backlog へ（週次では実行しない）。
-- **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 売上突合（ID付き比率）を1行確認する。
+- **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 同期間の商品売上（ID付き比率）を1行確認する。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに表示する売上を合算しない。
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
 
