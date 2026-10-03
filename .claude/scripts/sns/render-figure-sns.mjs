@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve, join, basename, relative } from 'node:path';
 import { svgDoc, text, rect, line, COLORS, MGMT_COLORS } from './lib/svg-base.mjs';
+import { SITE_HOST } from '../../../scripts/lib/site-identity.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const FORMATS = ['ig-single', 'yt-thumb', 'vertical'];
@@ -59,7 +60,7 @@ export function buildFigureFrame(input, format, { uri, width, height }) {
       text({ x: 56, y: 100, content: qualification, size: 28, weight: 700, fill: color }),
       text({ x: 56, y: 145, content: topic, size: 24, fill: COLORS.inkBody }),
       ...title.map((value, i) => text({ x: 56, y: 230 + i * 78, content: value, size: 42, weight: 800, fill: COLORS.brandDeep })),
-      text({ x: 56, y: 672, content: 'doboku-note.com', size: 26, fill: COLORS.inkBody }),
+      text({ x: 56, y: 672, content: SITE_HOST, size: 26, fill: COLORS.inkBody }),
       fittedImage(570, 40, 670, 640),
     ];
   } else {
@@ -74,7 +75,7 @@ export function buildFigureFrame(input, format, { uri, width, height }) {
       fittedImage(50, diagramY, 980, vertical ? 1280 : 910),
       line({ x1: 60, y1: H - 120, x2: 1020, y2: H - 120, stroke: COLORS.border, sw: 2 }),
       text({ x: 60, y: H - 68, content: '図の読み方と詳しい解説はサイトへ', size: 30, fill: COLORS.inkBody }),
-      text({ x: 1030, y: H - 25, content: 'doboku-note.com', size: 24, fill: COLORS.inkBody, anchor: 'end' }),
+      text({ x: 1030, y: H - 25, content: SITE_HOST, size: 24, fill: COLORS.inkBody, anchor: 'end' }),
     ];
   }
   return { svg: svgDoc({ width: W, height: H, body: body.join('\n') }), width: W, height: H };

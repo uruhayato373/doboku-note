@@ -201,7 +201,7 @@ const a8Program = { programId: z.string().regex(/^s\d+$/), programRaw: z.string(
 /** A8 レポートの正規化（data/a8/report-log.json）。siteSummary だけがこのサイトに分離された実績で、他は口座全体 */
 export const A8ReportLog = z
   .object({
-    schemaVersion: z.literal(2),
+    schemaVersion: z.literal(3),
     _comment: z.string(),
     _siteScopeNote: z.string(),
     site: z.literal('doboku-note'),
@@ -213,11 +213,10 @@ export const A8ReportLog = z
     daily: z.array(z.object({ date: jstDate('日付'), month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の日別'),
     programPeriod: z
       .array(z.object({ ...a8Program, program: z.string().nullable().describe('提携案件の id（台帳 affiliate.catalog の programs のキー）。対応が無いものは null'), accountWide: z.literal(true), ...a8Amounts }).strict())
-      .describe('口座全体のプログラム別'),
+      .describe('口座全体のプログラム別。案件に対応した行（全期間）と、当期の対応の無い行（他サイト分）だけ。月次の成果はここの単月の期間から導く'),
     crossCheck: z.looseObject({ comparable: z.boolean(), period: z.string() }).describe('サイト実績とプログラム別の突き合わせ'),
-    unmapped: z.array(z.object({ ...a8Program, clicks: count('クリック数'), grossRevenueYen: yen('発生報酬') }).strict()),
-    notAttributable: z.array(z.unknown()),
-    missingProgramCandidates: z.array(z.object({ ...a8Program, clicks: count('クリック数'), grossRevenueYen: yen('発生報酬') }).strict()),
+    notAttributable: z.array(z.unknown()).describe('対象期間が単月でなく月次の成果に写せなかった行'),
+    missingProgramCandidates: z.array(z.object({ ...a8Program, clicks: count('クリック数'), grossRevenueYen: yen('発生報酬') }).strict()).describe('取りこぼしの疑い（サイト別を説明しきれないときだけ・他サイト分を除いた候補）'),
     unmappedCount: count('対応の無いプログラムの数'),
   })
   .strict()
@@ -336,32 +335,6 @@ const ga4Block = z.looseObject({
   channels: z.array(z.looseObject({ channel: z.string(), thisUsers: count('今週の人数'), prevUsers: count('前週の人数'), ...delta })),
   total: z.looseObject({ thisUsers: count('今週の人数'), prevUsers: count('前週の人数') }),
 });
-
-/** 週次の計測まとめの索引（data/business/weekly/index.json） */
-export const WeeklyIndex = z
-  .object({
-    version: z.literal(1),
-    generated_at: utcTime('生成時刻'),
-    weeks: z.array(z.object({ week_id: z.string().regex(/^\d{4}-W\d{2}$/), path: z.string(), generated_at: utcTime('生成時刻') }).strict()),
-  })
-  .strict()
-  .meta({ title: '週次の計測の索引' });
-
-/** 月ごとの前年比用の控え（data/business/monthly-snapshot.json） */
-export const MonthlySnapshot = z
-  .object({
-    _doc: z.string(),
-    updatedAt: jstDate('最終更新'),
-    months: z.array(
-      z.looseObject({
-        month,
-        salesYen: yen('売上').nullable().optional(),
-        examEvents: z.array(z.object({ exam: z.string(), label: z.string(), date: jstDate('日付') }).strict()),
-      }),
-    ),
-  })
-  .strict()
-  .meta({ title: '月ごとの控え' });
 
 /** ココナラの閲覧・お気に入りの週次（data/coconala/kpi.json）。数値はココナラ画面の 30 日累計 */
 export const CoconalaKpi = z
@@ -512,6 +485,10 @@ export const GscIndexCoverage = z
         inspected: count('検査した URL 数'),
         indexed: count('登録済み'),
         indexed_ratio: z.number().min(0).max(1),
+        by_qualification: z
+          .record(z.string(), z.object({ inspected: count('検査した URL 数'), indexed: count('登録済み'), ratio: z.number().min(0).max(1).describe('登録済み ÷ 検査した URL 数') }).strict())
+          .optional()
+          .describe('資格別（URL が /exam/<資格 id>/ 配下）の検査結果。資格の URL が無かった回は空。バッチが消えていて数え直せない回は欄が無い'),
       }),
     ),
   })

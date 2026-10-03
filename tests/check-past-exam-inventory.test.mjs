@@ -82,3 +82,14 @@ test('資格台帳に無い試験は registry:false と label で載せられ、
   const ng = run({ exams: { 'pe-mechanical': { registry: false, dir: 'content/sources/past-exams/技術士（機械部門）', years } } });
   assert.ok(ng.fails.some((f) => f.includes('label')));
 });
+
+test('固定した原典の検証値: sha256（64 桁の 16 進）と pages（正の整数）は両方書くか両方書かない', () => {
+  const sha = 'a'.repeat(64);
+  const one = (extra) => run(inv([{ year: 2026, official: 'listed', files: [{ ...file('R08/a.pdf'), ...extra }] }]), { fileExists: () => false });
+  assert.deepEqual(one({ sha256: sha, pages: 17 }).fails, []);
+  assert.deepEqual(one({}).fails, [], '検証値の無いファイルは従来どおり');
+  assert.ok(one({ sha256: 'xyz', pages: 17 }).fails.some(f => f.includes('sha256 は 64 桁')));
+  assert.ok(one({ sha256: sha, pages: 0 }).fails.some(f => f.includes('pages は正の整数')));
+  assert.ok(one({ sha256: sha }).fails.some(f => f.includes('両方書く')));
+  assert.ok(one({ pages: 17 }).fails.some(f => f.includes('両方書く')));
+});

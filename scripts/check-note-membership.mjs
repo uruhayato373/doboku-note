@@ -20,6 +20,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  *                 （Playwright・ローカル専用。未指定なら A-C のみ）
  *
  * **検査ゼロを PASS と呼ばない**: 検査対象数と実検査数を必ず出力し、mirrors が 0 件なら FAIL。
+ * 退役済み（config の retiredAt あり）は A〜D を行わず、SKIP と理由を出して config の公開状態だけ確かめる。
  *
  * 使い方:
  *   node scripts/check-note-membership.mjs           # オフライン（CI 可）
@@ -28,7 +29,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * 真実源: config/note-membership.json / memory `note-membership-publish`
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -40,6 +41,17 @@ const CFG = join(ROOT, datasetPath('config.note-membership'));
 const LIVE = process.argv.includes('--live');
 if (!existsSync(CFG)) { console.error(`[check-note-membership] FAIL: config が無い: ${CFG}`); process.exit(1); }
 const cfg = JSON.parse(readFileSync(CFG, 'utf8'));
+
+// 退役済み（config の retiredAt）: 会費・定員・planId の写しを残す理由が無いので突合しない。
+// 「検査 0 件」を緑に見せないため SKIP と理由を出す。残すのは config 自体の整合（退役したのに公開中のプランが無い）だけ。
+// 再開するときは retiredAt を消し、mirrors を宣言し直す（mirrors が 0 件のままだと下の A で FAIL）。
+if (cfg.retiredAt) {
+  const open = cfg.plans.filter((p) => p.published !== false);
+  // process.exit の直前の console.log はパイプで出力を捨てるので、同期書き込みで出す
+  writeSync(1, `[check-note-membership] SKIP: 退役済み（retiredAt=${cfg.retiredAt}）。mirrors・定員・planId・--live の突合は行わない（検査 ${cfg.plans.length} プランの公開状態のみ）。\n`);
+  for (const p of open) writeSync(2, `  FAIL 退役済みなのに config で公開中: ${p.name}（${p.id}）\n`);
+  process.exit(open.length ? 1 : 0);
+}
 const byKey = Object.fromEntries(cfg.plans.map((p) => [p.key, p]));
 const fail = [];
 const warn = [];

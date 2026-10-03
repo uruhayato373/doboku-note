@@ -326,11 +326,12 @@ export function parsePeriodFromFilename(name) {
 }
 
 /**
- * プログラム別の正規化行 → 既存 a8-results.json の records スキーマ。
+ * プログラム別の正規化行 → 月次の成果（月×案件）の行。
  *
- * a8-results.json は **月次**キーのため、対象期間が 1 ヶ月に閉じている run でしか写せない。
+ * 月次の成果は **月**キーのため、対象期間が 1 ヶ月に閉じている期間の行でしか写せない。
  * 現状の A8 既定期間は「年初〜当月の累計」なので、その場合は records を作らず
  * `notAttributable` として理由付きで返す（累計値を特定月の実績として書き込まない）。
+ * 読み手は resultsFromReportLog（report-log の programPeriod の期間ごとに本関数を当てる）。
  * 写像できない（programIdMap に無い）行は unmapped として返す（黙って捨てない）。
  */
 export function toResultsRecords(programRows, { singleMonth = null } = {}) {
@@ -368,4 +369,44 @@ export function toResultsRecords(programRows, { singleMonth = null } = {}) {
     });
   }
   return { records, unmapped, notAttributable };
+}
+
+/** report-log の説明欄（_comment・_siteScopeNote）。normalize が毎回書き直す。 */
+export const REPORT_LOG_NOTES = {
+  _comment:
+    "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
+  _siteScopeNote:
+    "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。",
+};
+
+/**
+ * report-log の programPeriod に残す行。doboku 分と判定できた行（program あり・全期間）と、当期の口座横断の全行
+ * （他サイト分の件数と取りこぼし候補を数えるため）。古い期間の他サイト分は読み手がおらず、257 行中 241 行を占めていた（2026-10）。
+ */
+export function keepProgramRows(rows, currentPeriod) {
+  return (rows ?? []).filter((r) => r.program || r.period === currentPeriod);
+}
+
+/**
+ * report-log の programPeriod（期間ごとのプログラム別）から月次の成果（月 × 案件）の行を導く。
+ * 対象期間が 1 ヶ月に閉じている期間の行だけを写す（累計期間の値を特定月の実績にしない）。
+ * 同じ月・案件が複数の期間にあれば、新しく取った行（fetchedAt）を採る。
+ * 以前は data/a8/results.json に写して持っていたが、report-log から導けるので持たない（2026-10）。
+ * 行の clicks は口座横断（stats47 分を含みうる）の参考値で、EPC の分母には使わない（分母は GA4 のラベル別クリック）。
+ * 読み手: report-buildjob-affiliate・report-career-funnel（EPC・A8 成果の突合）。
+ */
+export function resultsFromReportLog(log) {
+  const periods = new Map();
+  for (const r of log?.programPeriod ?? []) {
+    if (!periods.has(r.period)) periods.set(r.period, []);
+    periods.get(r.period).push(r);
+  }
+  const newest = (rows) => rows.reduce((m, r) => ((r.fetchedAt ?? "") > m ? r.fetchedAt : m), "");
+  let records = [];
+  for (const [period, rows] of [...periods].sort((a, b) => (newest(a[1]) < newest(b[1]) ? -1 : 1))) {
+    const singleMonth = parsePeriodFromFilename(period)?.singleMonth ?? null;
+    if (!singleMonth) continue;
+    records = upsertBy(records, toResultsRecords(rows, { singleMonth }).records, KEY.results);
+  }
+  return records;
 }

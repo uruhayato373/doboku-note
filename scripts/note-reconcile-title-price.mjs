@@ -31,6 +31,7 @@ import { spawnSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, metaHash, titleHash, TITLE_LIVE_MISMATCH, loadState, saveState } from './lib/note-republish-hash.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 
 const args = process.argv.slice(2);
 const COMMIT = args.includes('--commit');
@@ -39,7 +40,6 @@ const JSON_OUT = args.includes('--json');
 const FILTER = args.includes('--filter') ? args[args.indexOf('--filter') + 1] : null;
 const ROOT = 'content/note';
 const SOT = 'src/lib/note-magazines.ts';
-const CREATOR = 'dobokunote';
 const THROTTLE_MS = 250;
 const MAX_FETCH_FAIL_RATE = 0.2;
 

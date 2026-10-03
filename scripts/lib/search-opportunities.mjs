@@ -12,12 +12,12 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath, latestFile } from './datasets.mjs';
 import { listReports } from './metric-reports.mjs';
+import { SITE_ORIGIN } from './site-identity.mjs';
 
 export const CONFIG = datasetPath('config.search-strategy');
-const SITE = 'https://doboku-note.com';
 
 const readJson = (root, rel) => JSON.parse(readFileSync(join(root, rel), 'utf8'));
-const pathOf = (url) => String(url).replace(SITE, '') || '/';
+const pathOf = (url) => String(url).replace(SITE_ORIGIN, '') || '/';
 
 /** 期間の異なる検索語×ページ集計の一覧（新しい順）。同じ期間の重複取得は最新の 1 本だけ。 */
 export function listPageQuerySnapshots(root) {

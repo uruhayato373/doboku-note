@@ -5,8 +5,8 @@ import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.m
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
-const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const REDIRECTS_FILE = join('public', '_redirects');
@@ -232,7 +232,7 @@ for (const { path } of collectStaticHtmlFiles(OUT_DIR)) {
   // Google に通知してしまう。原典カタログを表示する standards ページだけ catalog.asOf を
   // 使い、それ以外の静的ページは正確な更新日を持たないため lastmod 自体を省略する。
   const lastmod = resolveStaticLastmod(urlPath, STANDARDS_AS_OF);
-  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod, ...meta });
+  urls.push({ loc: `${SITE_ORIGIN}${urlPath}`, lastmod, ...meta });
 }
 
 // MDX は意図別 canonical route で生成。旧 /docs は _redirects のみ。
@@ -240,7 +240,7 @@ for (const { slug, lastmod } of mdxDocs) {
   const urlPath = docRoutes.get(slug) ?? `/docs/${slug}`;
   const meta = getUrlMeta(urlPath, slug);
   if (!meta) continue;
-  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: lastmod.toISOString(), ...meta });
+  urls.push({ loc: `${SITE_ORIGIN}${urlPath}`, lastmod: lastmod.toISOString(), ...meta });
 }
 
 // 重複排除 (loc で一意) + ソート
@@ -266,7 +266,7 @@ writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);
 const legacySitemap = buildLegacySitemapUrls({
   docRoutes,
   sitemapLocs: new Set(unique.map((u) => u.loc)),
-  siteUrl: SITE_URL,
+  siteUrl: SITE_ORIGIN,
 });
 if (legacySitemap.active) {
   writeFileSync(join(OUT_DIR, LEGACY_SITEMAP_FILE), renderLegacySitemap(legacySitemap.urls));
@@ -344,8 +344,8 @@ Disallow: /
 User-agent: MJ12bot
 Disallow: /
 
-Sitemap: ${SITE_URL}/sitemap.xml
-${legacySitemap.active ? `Sitemap: ${SITE_URL}/${LEGACY_SITEMAP_FILE}\n` : ''}`;
+Sitemap: ${SITE_ORIGIN}/sitemap.xml
+${legacySitemap.active ? `Sitemap: ${SITE_ORIGIN}/${LEGACY_SITEMAP_FILE}\n` : ''}`;
 writeFileSync(join(OUT_DIR, 'robots.txt'), robots);
 
 // サマリ出力

@@ -1,5 +1,5 @@
 {
-  "_note": "競合の追跡リスト（取得元ごと）。各取得元の中身は以前の config/<取得元>-competitors.json と同じ形。読み手は scout-*-competitors・scan-qualification-market・report-competitor-watch・coconala-research。",
+  "_note": "競合の追跡リスト（取得元ごと）。各取得元の中身は以前の config/<取得元>-competitors.json と同じ形。読み手は scout-*-competitors・scan-qualification-market・report-competitor-watch・coconala-research。 note には性格（何者か・導線・同一主体・競合する自社商品）だけを書き、価格・販売数・フォロワー数・日付などの観測値は書かない（実測は取得のたびに data/*/competitors/{date}.json へ入るので、書くと二重に古びる。tests/competitors-notes.test.mjs が止める）。",
   "note": {
     "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = 対象資格。値は qualification-registry.json の資格 id（npm run check-qualification-market が検査）。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/strategy/09_販売チャネル競合分析.md。",
     "competitors": [
@@ -10,7 +10,7 @@
           "pe-comprehensive-management",
           "pe-construction"
         ],
-        "note": "最大競合。総監サブスク¥9,900/月・物量最大手（6千記事超・64マガジン）"
+        "note": "最大競合。総監のサブスクが主力・物量最大手（記事・マガジンの数で他を圧倒）"
       },
       {
         "handle": "gijyutsushi",
@@ -19,7 +19,7 @@
           "pe-construction",
           "pe-comprehensive-management"
         ],
-        "note": "R8必須8題＋おまけ¥9,500・A判定実績訴求"
+        "note": "R8必須の問題別模範解答＋おまけ・A判定実績訴求"
       },
       {
         "handle": "gijutsushisokan",
@@ -27,7 +27,7 @@
         "exams": [
           "pe-comprehensive-management"
         ],
-        "note": "休眠。旧¥12,000商品は最新取得で確認できず、価格根拠から除外"
+        "note": "休眠。旧商品は最新取得で確認できず、価格根拠から除外"
       },
       {
         "handle": "chansato_st",
@@ -36,7 +36,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "1級2級土木 経験記述添削（ココナラ800名超）"
+        "note": "1級2級土木 経験記述添削（ココナラが主戦場）"
       },
       {
         "handle": "kensetsu_dx_data",
@@ -45,7 +45,7 @@
           "pe-construction",
           "building-construction-1"
         ],
-        "note": "AI制作（NotebookLM/Claude）・¥300×多数・154記事"
+        "note": "AI制作（NotebookLM/Claude）・低価格の記事を多数出す物量型"
       },
       {
         "handle": "miyabi_labo",
@@ -54,7 +54,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "まとめノート¥1,000-1,500・模擬¥200-300・中規模"
+        "note": "まとめノート（中価格）と模擬試験（低価格）・中規模"
       },
       {
         "handle": "petenconsul",
@@ -62,7 +62,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "¥1,500帯"
+        "note": "技術士建設部門・中価格帯"
       },
       {
         "handle": "study_room358",
@@ -71,7 +71,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "PDF量産（185本）だが低反応の傍証"
+        "note": "PDF量産型だが低反応の傍証"
       },
       {
         "handle": "dobokujira",
@@ -79,7 +79,7 @@
         "exams": [
           "civil-construction-2"
         ],
-        "note": "2級暗記ノート¥500・本人公表500部超（note露出は薄い）"
+        "note": "2級の暗記ノートを低価格で販売（note露出は薄い）"
       },
       {
         "handle": "ba_ya",
@@ -89,7 +89,7 @@
           "civil-construction-2",
           "concrete-diagnostician"
         ],
-        "note": "1級2級土木は低価格¥200-500帯。診断士は¥500-2,980の3段階"
+        "note": "1級2級土木は低価格帯。診断士は価格を3段階に分ける"
       },
       {
         "handle": "vast_flax7410",
@@ -97,7 +97,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "技術士・建設系（一陸技等）。無料情報中心・11マガジン・R8予想物量（09時点74本）"
+        "note": "技術士・建設系（一陸技等）。無料情報中心・R8予想の物量が多い"
       },
       {
         "handle": "chic_vole6176",
@@ -105,7 +105,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "技術士二次 建設部門・耳学習音声ファイル¥300-1000（令和6合格）"
+        "note": "技術士二次 建設部門・耳学習の音声ファイル（令和6合格）"
       },
       {
         "handle": "con_ymc",
@@ -115,7 +115,7 @@
           "concrete-diagnostician",
           "pe-construction"
         ],
-        "note": "技術士(建設コンクリート)専門・NOTEBOOKLM×コンクリート・答案倉庫81記事15マガジン・有料¥100〜"
+        "note": "技術士(建設コンクリート)専門・NOTEBOOKLM×コンクリート・答案倉庫（記事・マガジン多数）・有料は低価格から"
       },
       {
         "handle": "vast_cougar3004",
@@ -126,7 +126,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "診断士合格答案¥700・診断士勉強法¥400・技士/1級土木保有"
+        "note": "診断士の合格答案・勉強法を低価格で販売・技士/1級土木保有"
       },
       {
         "handle": "chaoconcrete",
@@ -144,7 +144,7 @@
           "concrete-chief-engineer",
           "concrete-diagnostician"
         ],
-        "note": "主任技士＋診断士＋一級建築士・104記事4マガジン（日記主体）"
+        "note": "主任技士＋診断士＋一級建築士・日記主体"
       },
       {
         "handle": "apt_lily9030",
@@ -152,7 +152,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "note": "2026-07-20 検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述¥980・3マガジン"
+        "note": "検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述を低価格で販売"
       },
       {
         "handle": "fine_takumi296",
@@ -161,7 +161,7 @@
           "pe-construction",
           "pe-comprehensive-management"
         ],
-        "note": "2026-07-20 検索『技術士二次試験』で発掘。1016F・76記事。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体"
+        "note": "検索『技術士二次試験』で発掘。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体"
       },
       {
         "handle": "i_love_concrete",
@@ -169,7 +169,7 @@
         "exams": [
           "concrete-engineer"
         ],
-        "note": "コンクリート技士の勉強法＋PDF/Excel教材を¥1,000で販売。資格・実務経験と『理解優先』を訴求"
+        "note": "コンクリート技士の勉強法＋PDF/Excel教材を販売。資格・実務経験と『理解優先』を訴求"
       },
       {
         "handle": "gosharub",
@@ -178,7 +178,7 @@
           "concrete-chief-engineer",
           "concrete-diagnostician"
         ],
-        "note": "主任技士2023合格再現論文＋2019〜2023解答例¥2,000〜、診断士再現論文¥500〜"
+        "note": "主任技士の合格再現論文＋年度別の解答例、診断士の再現論文を販売"
       },
       {
         "handle": "20260729",
@@ -186,7 +186,7 @@
         "exams": [
           "pe-first-stage"
         ],
-        "note": "2026-09-04発掘。技術士一次のブラウザ問題集¥1,180（過去問495問＋自作450問）と適性科目テーマ分析を販売"
+        "note": "技術士一次のブラウザ問題集（過去問＋自作問題）と適性科目テーマ分析を販売"
       },
       {
         "handle": "shino40",
@@ -197,7 +197,7 @@
           "civil-construction-1",
           "building-construction-1"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。管工事の暗記ノート（2級 二次 ¥10,000）。X @shino40_kan と同一主体"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。管工事の暗記ノート（2級 二次）。X @shino40_kan と同一主体"
       }
     ]
   },
@@ -211,7 +211,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "1級2級土木 経験記述添削の最大手(ココナラ800名超・09で最大競合の一つ)。note=chansato_st と同一主体。経験記述添削¥12,000(/services/1690708)"
+        "note": "1級2級土木 経験記述添削の最大手(09で最大競合の一つ)。note=chansato_st と同一主体。主力の経験記述添削は /services/1690708"
       },
       {
         "handle": "804799",
@@ -219,7 +219,7 @@
         "exams": [
           "civil-construction-2"
         ],
-        "note": "2級土木 出題分析¥2,500/経験記述解答例予想¥3,500。年度予想型"
+        "note": "2級土木 出題分析・経験記述解答例予想。年度予想型"
       },
       {
         "handle": "578238",
@@ -229,7 +229,7 @@
           "civil-construction-2",
           "pe-construction"
         ],
-        "note": "2026-07-20 market-research集計で発掘(未登録最大手・17サービス)。建設教育・添削系"
+        "note": "market-research集計で発掘(未登録の最大手)。建設教育・添削系"
       },
       {
         "handle": "623717",
@@ -238,7 +238,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-07-20 発掘(10サービス)。1級2級土木の合格研究室・経験記述系"
+        "note": "発掘。1級2級土木の合格研究室・経験記述系"
       },
       {
         "handle": "5561691",
@@ -247,7 +247,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-07-20 発掘(10サービス)。道路/土木・経験記述系"
+        "note": "発掘。道路/土木・経験記述系"
       },
       {
         "handle": "1528311",
@@ -258,7 +258,7 @@
           "building-construction-1",
           "building-construction-2"
         ],
-        "note": "2026-09-23 market-research で発掘。1級土木二次 予想模試 ¥30,000・販売992（PDFのみ・採点なし）／1級建築二次 ¥30,000・1,276。集客は本人の YouTube（ココナラは手数料分割高と明記）。土木模試の価格上限の実証だがブランド集客前提（09 §D7）"
+        "note": "market-research で発掘。1級土木二次・1級建築二次の予想模試（PDFのみ・採点なし）で販売数が突出。集客は本人の YouTube（ココナラは手数料分割高と明記）。土木模試の価格上限の実証だがブランド集客前提（09 §D7）"
       },
       {
         "handle": "4787672",
@@ -267,7 +267,7 @@
           "pe-construction",
           "pe-comprehensive-management"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。技術士第二次 筆記論文添削¥2,000〜2,500（4出品・販売98）。技術士二次の論文添削で検索上位"
+        "note": "market-research から追加。技術士第二次 筆記論文添削（複数出品）。技術士二次の論文添削で検索上位"
       },
       {
         "handle": "5240267",
@@ -276,7 +276,7 @@
           "pe-construction",
           "concrete-chief-engineer"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。技術士 建設部門 専門キーワード解説集ほか7出品（¥1,500〜4,000・販売40）。建設部門キーワードPDFの直接競合"
+        "note": "market-research から追加。技術士 建設部門 専門キーワード解説集ほか複数出品。建設部門キーワードPDFの直接競合"
       },
       {
         "handle": "2275259",
@@ -284,7 +284,7 @@
         "exams": [
           "pe-water-supply"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。技術士（上下水道）論文添削¥2,000〜6,500（3出品・販売56）"
+        "note": "market-research から追加。技術士（上下水道）論文添削"
       },
       {
         "handle": "3040228",
@@ -293,7 +293,7 @@
           "pe-water-supply",
           "pe-construction"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。技術士（上下水道）キーワード・出典提供¥1,000〜3,000（3出品・販売53）"
+        "note": "market-research から追加。技術士（上下水道）キーワード・出典提供"
       },
       {
         "handle": "2302173",
@@ -302,7 +302,7 @@
           "rccm",
           "pe-construction"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。RCCM 勉強法指導¥3,000（販売28）。技術士建設部門でも出品"
+        "note": "market-research から追加。RCCM 勉強法指導。技術士建設部門でも出品"
       },
       {
         "handle": "1712958",
@@ -310,7 +310,7 @@
         "exams": [
           "rccm"
         ],
-        "note": "2026-09-27 market-research(09-23取得)から追加。RCCM 試験論文添削¥5,000（販売16）"
+        "note": "market-research から追加。RCCM 試験論文添削"
       },
       {
         "handle": "681836",
@@ -318,7 +318,7 @@
         "exams": [
           "pe-comprehensive-management"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。総監 択一過去問¥1,000（技術士機械キーワード集も・販売53）。総監 択一 note 教材の直接競合"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監 択一過去問（技術士機械キーワード集も）。総監 択一 note 教材の直接競合"
       },
       {
         "handle": "836463",
@@ -327,7 +327,7 @@
           "pe-comprehensive-management",
           "pe-construction"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。総監記述の模範論文・解説¥15,000／技術士二次論文アドバイス¥6,500（販売21）。総監 模範論文 note の直接競合"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監記述の模範論文・解説／技術士二次論文アドバイス。総監 模範論文 note の直接競合"
       },
       {
         "handle": "5475567",
@@ -336,7 +336,7 @@
           "pe-comprehensive-management",
           "pe-construction"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。総監キーワード集・口頭試験対策ほか4出品（¥1,500〜10,000・販売6）。総監キーワード note の直接競合"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。総監キーワード集・口頭試験対策ほか複数出品。総監キーワード note の直接競合"
       },
       {
         "handle": "5271408",
@@ -345,7 +345,7 @@
           "pe-construction",
           "pe-comprehensive-management"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。建設×総監の論文指導¥11,000〜・口頭準備（販売10）"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。建設×総監の論文指導・口頭準備"
       },
       {
         "handle": "1005143",
@@ -353,7 +353,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。技術士 口頭試験サポート¥6,000（販売24）"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士 口頭試験サポート"
       },
       {
         "handle": "3318018",
@@ -361,7 +361,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。技術士第二次 口頭試験の模擬練習¥2,500（販売17）"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士第二次 口頭試験の模擬練習"
       },
       {
         "handle": "3948001",
@@ -369,7 +369,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。技術士（建設部門）二次試験対策¥3,500（販売17）"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。技術士（建設部門）二次試験対策"
       },
       {
         "handle": "2990006",
@@ -379,7 +379,7 @@
           "civil-construction-2",
           "steel-structure-diagnostician"
         ],
-        "note": "2026-09-27 追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか7語）から追加。1級2級土木 経験論文作成サポート・土木鋼構造物診断士 論文添削ほか5出品（¥2,000〜14,000・販売25）"
+        "note": "追加検索（総合技術監理・技術士 上下水道/口頭試験/経験論文 ほか）から追加。1級2級土木 経験論文作成サポート・土木鋼構造物診断士 論文添削ほか複数出品"
       },
       {
         "handle": "2005610",
@@ -388,7 +388,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 添削¥5,000（関連3出品・販売195）。1級2級土木 添削の中価格帯の大手"
+        "note": "report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 添削（関連出品あり）。1級2級土木 添削の中価格帯の大手"
       },
       {
         "handle": "3321327",
@@ -397,7 +397,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 作成代行¥7,000〜10,000（販売92）"
+        "note": "report-competitor-watch の追跡外候補から追加。土木施工管理技士 経験記述 作成代行"
       },
       {
         "handle": "1761437",
@@ -406,7 +406,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-09-27 report-competitor-watch の追跡外候補から追加。ゼロから土木施工経験記述を作成¥4,000〜5,000（販売40）"
+        "note": "report-competitor-watch の追跡外候補から追加。ゼロから土木施工経験記述を作成"
       }
     ]
   },
@@ -430,7 +430,7 @@
           "construction-machinery-1",
           "construction-machinery-2"
         ],
-        "note": "施工管理技士7種・出版社公式。マンガ『4コマでわかるセコカン受検』/種目クイズ。2025-03開設"
+        "note": "施工管理技士の複数種目・出版社公式。マンガ『4コマでわかるセコカン受検』/種目クイズ"
       },
       {
         "handle": "kotori71621",
@@ -439,7 +439,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "現場密着リール(重機操作等)・受験対策ではない参照枠。個別リール1-1.5万再生(2025-10報道)"
+        "note": "現場密着リール(重機操作等)・受験対策ではない参照枠。個別リールの再生が多い（報道）"
       },
       {
         "handle": "higegoro_school",
@@ -452,7 +452,7 @@
           "pipe-work-1",
           "pipe-work-2"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。X @LICEN0202・ココナラ 1528311 と同一主体。フォロワー数は未確認"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。X @LICEN0202・ココナラ 1528311 と同一主体"
       }
     ]
   },
@@ -517,7 +517,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント"
+        "note": "07 のX投稿型エンゲージ実測の対象にした土木施工管理アカウント"
       },
       {
         "handle": "dobokusekoukan",
@@ -525,7 +525,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動"
+        "note": "キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動"
       },
       {
         "handle": "tvxq_pelican29",
@@ -534,7 +534,7 @@
           "pe-construction",
           "concrete-diagnostician"
         ],
-        "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。5206F・技術士/施工管理/建築士の多資格発信"
+        "note": "検索『コンクリート診断士 対策』で発掘。技術士/施工管理/建築士の多資格発信"
       },
       {
         "handle": "PockyDay2",
@@ -542,7 +542,7 @@
         "exams": [
           "concrete-diagnostician"
         ],
-        "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)"
+        "note": "検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)"
       },
       {
         "handle": "JpValue32635",
@@ -552,7 +552,7 @@
           "concrete-chief-engineer",
           "concrete-diagnostician"
         ],
-        "note": "コンクリート3資格の唯一の日次発信アカ（2026-08-13 実在確認・followers 98 / tweets 1174）。導線=学習アプリ+YouTube一問一答。**投稿量に対しエンゲージほぼ0**（直近6本で♥0〜1）＝コンクリートXニッチの需要が薄い可能性。バースト投稿（同分に4本）で当社の禁忌と逆。"
+        "note": "コンクリート3資格の唯一の日次発信アカ。導線=学習アプリ+YouTube一問一答。**投稿量に対しエンゲージが小さい**＝コンクリートXニッチの需要が薄い可能性。バースト投稿（同分に複数本）で当社の禁忌と逆。"
       },
       {
         "handle": "LICEN0202",
@@ -565,7 +565,7 @@
           "pipe-work-1",
           "pipe-work-2"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。施工管理を横断する最大手の個人講師。BASE で模擬試験¥3,500〜¥45,000・ココナラ（1528311）で二次模試¥30,000・経験記述添削¥35,000・YouTube「施工管理技士の学校」。フォロワー約3,200は検索スニペット由来（未検証）"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。施工管理を横断する最大手の個人講師。BASE で模擬試験・ココナラ（1528311）で二次模試と経験記述添削・YouTube「施工管理技士の学校」"
       },
       {
         "handle": "shino40_kan",
@@ -576,7 +576,7 @@
           "civil-construction-1",
           "building-construction-1"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。note（shino40）で暗記ノート（2級管工事 二次 ¥10,000 を確認）。ブログ sekoukannri.com・kankouji-sekou.com。フォロワー約3,150は検索スニペット由来（未検証）"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。note（shino40）で暗記ノート（2級管工事 二次）。ブログ sekoukannri.com・kankouji-sekou.com"
       },
       {
         "handle": "kurodaCEO",
@@ -585,7 +585,7 @@
           "landscape-1",
           "landscape-2"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。造園施工管理の唯一の専業発信者。Kindle/書籍「読むだけセコカン」シリーズ（価格は未取得）。フォロワー約3,000は検索スニペット由来（未検証）"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。造園施工管理の唯一の専業発信者。Kindle/書籍「読むだけセコカン」シリーズ"
       },
       {
         "handle": "denginoheya",
@@ -594,7 +594,7 @@
           "electrical-work-1",
           "electrical-work-2"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。1級電気工事の経験記述例を自サイトで無料公開。有料販売は確認できず"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。1級電気工事の経験記述例を自サイトで無料公開。有料販売は確認できず"
       },
       {
         "handle": "kamonegi_shikak",
@@ -603,7 +603,7 @@
           "electrical-work-1",
           "electrical-work-2"
         ],
-        "note": "2026-09-26 施工管理系の競合調査（WebSearch・公開ページ）で追加。2024-12 開設の小規模アカウント。note は無料記事のみ確認"
+        "note": "施工管理系の競合調査（WebSearch・公開ページ）で追加。小規模アカウント。note は無料記事のみ確認"
       }
     ]
   },
@@ -626,7 +626,7 @@
           "pavement-1",
           "pavement-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
@@ -640,7 +640,7 @@
           "electrical-work-2",
           "pavement-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCuSGRLcIrq20nw9gyisjlRg",
@@ -650,7 +650,7 @@
           "building-construction-1",
           "building-construction-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCc7akqTU6Jt79JctkeSorpA",
@@ -660,7 +660,7 @@
           "electrical-work-1",
           "electrical-work-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCcEHWJmPP1T70kjKQ_WVptw",
@@ -670,7 +670,7 @@
           "concrete-chief-engineer",
           "concrete-diagnostician"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCypWu8PM6lvPNWMC8l7_dhw",
@@ -680,7 +680,7 @@
           "building-construction-1",
           "building-construction-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCG8ueDd1v2gvwiu7GPLIp7w",
@@ -689,7 +689,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCmFYf1O6xcc36SUuOWPw5gw",
@@ -698,7 +698,7 @@
           "building-construction-1",
           "building-construction-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCAr038HhwXFgPV-X9QqnsSA",
@@ -707,7 +707,7 @@
           "civil-construction-1",
           "civil-construction-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCqaXKUagxeOtwhg5CVt3rNQ",
@@ -716,7 +716,7 @@
           "pipe-work-1",
           "electrical-work-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCRVsgUaa2U6_rChtq4V34Lw",
@@ -724,7 +724,7 @@
         "exams": [
           "landscape-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCmbCfKwjaJjWIacaAH9HuOg",
@@ -732,7 +732,7 @@
         "exams": [
           "assistant-surveyor"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
@@ -740,7 +740,7 @@
         "exams": [
           "concrete-engineer"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCK_CBOhixLYF-QXFti_5mug",
@@ -748,7 +748,7 @@
         "exams": [
           "pipe-work-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCaeFQe_zESrw0r7HjT8yJWA",
@@ -756,7 +756,7 @@
         "exams": [
           "assistant-surveyor"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UChhrbCj91Q0ioMvHK6Y7Tmw",
@@ -764,7 +764,7 @@
         "exams": [
           "electrical-work-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCYnxfpH3-jFAno0kKemgISQ",
@@ -772,7 +772,7 @@
         "exams": [
           "pipe-work-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCkPzQ2eOtwur4huFCeebDHA",
@@ -780,7 +780,7 @@
         "exams": [
           "pipe-work-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCj_yS-YKJ2DmBASVHCi_QEw",
@@ -788,7 +788,7 @@
         "exams": [
           "construction-machinery-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCqEUavmgDZKL0MvJLmWTEsw",
@@ -796,7 +796,7 @@
         "exams": [
           "landscape-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UC7EPFbim9Kk0Vp6SZXvm6zA",
@@ -804,7 +804,7 @@
         "exams": [
           "civil-service-national-general-civil"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCCIRvndSLKweqluVG7IK4XQ",
@@ -812,7 +812,7 @@
         "exams": [
           "pe-first-stage"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCaGcOAhnQ_Of8hYr3eqkxEg",
@@ -820,7 +820,7 @@
         "exams": [
           "pipe-work-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UC1FqaL7yXzPkKo6lj86kLnA",
@@ -828,7 +828,7 @@
         "exams": [
           "building-construction-1"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCoJyWQcKEv4ZM9rAPyObi5g",
@@ -836,7 +836,7 @@
         "exams": [
           "assistant-surveyor"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UC55tCoiZG_e5jlUrxR7bEKg",
@@ -844,7 +844,7 @@
         "exams": [
           "concrete-engineer"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCLAEcShfmfzHXkj2iIxYTdw",
@@ -852,7 +852,7 @@
         "exams": [
           "electrical-work-2"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCSyAuJvpCX8h-7NKKarGegQ",
@@ -860,7 +860,7 @@
         "exams": [
           "concrete-chief-engineer"
         ],
-        "note": "2026-09-26 市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
+        "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格"
       },
       {
         "handle": "UCTUSxfs6ZpBTuDcf9gciglA",
@@ -869,7 +869,7 @@
           "pe-construction",
           "pe-first-stage"
         ],
-        "note": "08a（2026-09-01 yt-dlp 実測）で ID を訂正済み（旧 UCMQmkBuumbc7mBHhF14c6Yw は無関係の音楽ゲームチャンネル）"
+        "note": "08a で ID を訂正済み（旧 UCMQmkBuumbc7mBHhF14c6Yw は無関係の音楽ゲームチャンネル）"
       },
       {
         "handle": "UCrbmFXXZvrb1a-nbQm-MOig",
@@ -886,7 +886,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "08a（2026-09-01 実測 4,420 人）"
+        "note": "08a（登録者数は scan-qualification-market が取る）"
       },
       {
         "handle": "UCZk6KCoGs-7OKrLvv6CG0dA",
@@ -902,7 +902,7 @@
         "exams": [
           "pe-construction"
         ],
-        "note": "08a（2026-09-01 実測 941 人）"
+        "note": "08a（登録者数は scan-qualification-market が取る）"
       },
       {
         "handle": "UCMY7e9Ri9Vh_syU8b7kuMdA",

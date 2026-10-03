@@ -25,7 +25,7 @@ Googleの取得は既存CI認証を使い、前の完了した週・月の資格
 
 GA4人数は期間全体に対するAPI集計。資格別は正規URL配下の閲覧を条件とするため、複数資格を見る同一人を資格間で足さない。旧URLの期間を含む月との増減は対象範囲の変化を含み、改善効果と判定しない。演習イベントは既存1級土木ツールの範囲。GSCの資格別クリックは正規URL配下を条件とし、旧URLや一般実務ページと混ぜない。異なるタイムゾーンの厳密な購買率は計算しない。
 
-自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/business/records/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
+自動集計対象外の値は、各管理画面で期間・対象・定義を確認し `data/business/records/` の JSON へ記録する（`scripts/lib/business-direction.mjs` の `saveRecord`）。`source` に取得面・確認範囲を記す。新PVと旧全体ビューは接続しない。ココナラの閲覧数は `/coconala-analytics` の30日窓を使い、暦月へ換算しない。KDPは月次台帳の書籍別行からcatalog対象だけを集計し、共有口座総額やサイト帰属できないKENPを事業実績へ入れない。note売上・KDPの資格への帰属は商品の分類 `config/product-lineup.json` を引き（`lineupQualifier`・管理画面の資格別売上と同じ判定）、複数資格にまたがる商品・未分類・重点資格外は全体のみに含める。認証・ログイン・UI変更で取得できなければ、値を作らず次回の取得対象へ残す。
 
 note の `notePv` / `noteImpressions` は `npm run note-traffic-fetch -- --month YYYY-MM --commit` が書く `data/note/referrers/YYYY-MM.json` の `summary` を全体値の出典にする（自己閲覧を含む・`coverage: complete`）。資格別は `articles-pv/YYYY-MM.json` の記事タイトルを公開台帳と資格名へ照合する。未帰属記事を残すため資格別はpartialとし、全体値と一致するよう按分しない。流入元の内訳（`targetMonth.sources`）は指標にせず findings に書く。月の途中に取得したファイル（`fetchedAt` が対象月末以前）は取得日までの期間・partial として扱い、月全体の値にしない。月末後でも note の確定日（翌月 2 日・JST）より前に取得したファイルは確定前の値として、月の期間のまま partial にする。note 販売の complete は、さらに `data/note/sales.json` の `months[YYYY-MM].finalized`（`note-sales-fetch` が確定日以降に検算一致したときだけ true）を要する。note が確定前の月を含む期間のスナップショットには `pendingFinalization` が付き、それに基づくレビューは provisional・次回日を確定日以降にしか記録できない（確定後に新しいスナップショットで supersedes 訂正する）。週次レビューには按分せず、月の値は `/metrics/business` の「別期間の既存計測」に出す（実装 `noteMonthFacts`）。
 
@@ -42,7 +42,7 @@ Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を�
 週次は前の月曜〜日曜、月次は前の暦月を対象にする。`--start YYYY-MM-DD --end YYYY-MM-DD` で過去期間も表示できる。期間がまだ終了していなければ記録できない。GSCの窓は太平洋時間、レビューの期限は日本時間。
 
 1. `report` で対象・欠測・レビュー期日・実験期日を確認し、既存ソースの鮮度と計測範囲を読む。
-2. 対象期間の `snapshot` を保存する。集計値・元ファイルのhash・その時点の方針が凍結される。売上の個人情報は複製しない。
+2. 対象期間の `snapshot` を保存する。集計値・元ファイルのhash・その時点の方針が凍結される。売上の個人情報は複製しない。同じ期間の直前のスナップショットと方針・集計・確定待ちが同じなら新しい記録は作らず、直前のファイルを返す（出力に `unchanged: true`。レビューはそのファイルを参照してよい）。
 3. 重点資格ごとに実測と未確認を分け、商品説明・記事・導線の現物を照合する。
 4. `review` を記録する。`qualification: all`, `cadence: weekly/monthly`, `period`, `snapshot`, `qualificationsReviewed`（重点資格ID全て）, `status: complete/provisional`, `findings`, `decision`, `nextAction`, `experimentIds`, `nextReviewDate` が必要。資格別の実測がない場合はprovisional。completeはレビュー作業の完了であり、改善効果・全指標の計測完了を意味しない。
 5. 次の改善は `/nsm-experiment propose` へ渡す。対象資格、読者の課題、現物で確認した不足、変更案、評価指標、基準期間、再計測日とレビュー記録の参照を付ける。SEOは `/weekly-improve --rank-watch` の専用契約を使う。単発実装はbacklogへ起票し、定常運用はweeklyから直接扱う。

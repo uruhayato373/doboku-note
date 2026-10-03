@@ -34,6 +34,8 @@ export const FrontmatterSchema = z
     title: z.string().min(1),
     shortTitle: z.string().optional(),
     subtitle: z.string().optional(),
+    // 500 はスキーマ検証の構文上の上限（SEO の長さの目安ではない）。description の推奨長・lint の上限は
+    // config/seo-meta-config.json の thresholds.description（scripts/lib/seo-thresholds.mjs・src/lib/metadata.ts が読む）。
     description: z.string().min(1).max(500).optional(),
     category: Category.optional(),
     // exams / sections は 2026-09-11 に廃止（読み捨て・新規記事には書かない。横断は資格タグと topics で表現）

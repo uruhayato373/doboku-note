@@ -51,7 +51,6 @@ const DIMENSION_MAP = {
   medium: "sessionMedium",
   sourceMedium: "sessionSourceMedium",
   country: "country",
-  device: "deviceCategory",
   // 動画パック単位の送客計測（DN-0110 Phase 3）。utm_campaign に packId を入れているので
   // campaign 別に見ると「どの企画が実際に人を連れてきたか」が分かる。
   // campaignContent は utm_content（longform / shorts）＝配信形式の切り分け。
@@ -377,6 +376,12 @@ function saveJson(data, opts) {
 
 async function main() {
   const opts = parseArgs();
+
+  // device は読み手がおらず 2026-10 に取得をやめた。main の YAML は deploy まで古い引数を渡し続けるので、何もせず成功で返す
+  if (opts.dimension === "device") {
+    console.log("[fetch-ga4-data] --dimension device は取得をやめた（読み手がいない）。何もしない");
+    return;
+  }
 
   console.log("Google Analytics 4 データ取得中...");
 

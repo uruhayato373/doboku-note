@@ -29,10 +29,11 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { globSync } from "glob";
+import { R2_PUBLIC_ORIGIN } from "../../../../../../../scripts/lib/site-identity.mjs";
 
 const AUDIT_STATE = ".claude/state/svg-audit.json";
 const OUTPUT = ".tmp/svg-gallery-comment.md";
-const IMAGE_HOST = "https://storage.doboku-note.com";
+const IMAGE_HOST = R2_PUBLIC_ORIGIN;
 
 if (!existsSync(AUDIT_STATE)) {
   console.error(`audit state not found: ${AUDIT_STATE}`);

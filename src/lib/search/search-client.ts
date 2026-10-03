@@ -1,3 +1,5 @@
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+
 /**
  * Pagefind ベースのクライアントサイド検索クライアント
  * ビルド時に生成された /pagefind/ インデックスを動的ロードして全文検索を提供
@@ -77,7 +79,7 @@ function stripMark(html: string): string {
 function toEntry(data: PagefindData): SearchIndexEntry {
   // 静的出力の .html は検索結果の表示用URLに持ち込まない。
   // 正規URLへ揃えることでdevでの遷移とサムネイル索引の照合も成立する。
-  const url = new URL(data.url, 'https://doboku-note.com');
+  const url = new URL(data.url, SITE_ORIGIN);
   const path = (url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '') || '/') + url.hash;
   return {
     id: path.replace(/^\//, ""),

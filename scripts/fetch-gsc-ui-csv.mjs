@@ -39,6 +39,7 @@ import {
 } from "./lib/google-console-browser.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 import { judgeRun, formatRunSummary, exitCodeFor, buildMarker } from "./lib/google-console-units.mjs";
+import { GSC_PROPERTY } from "./lib/site-identity.mjs";
 
 const STATE_DIR = rawDir("gsc-ui");
 
@@ -68,7 +69,7 @@ function gitCommit() {
  * ドロップダウン操作より URL 直指定の方が決定的で、scope 切替後のドリルインも安定する。
  */
 function indexReportUrl(cfg, scopeKey = "allKnownPages") {
-  const rid = encodeURIComponent(cfg.gsc.property);
+  const rid = encodeURIComponent(GSC_PROPERTY);
   const param = (cfg.gsc.scopeParams && cfg.gsc.scopeParams[scopeKey]) || "";
   return `${cfg.gsc.baseUrl}/index?resource_id=${rid}${param}`;
 }
@@ -320,7 +321,7 @@ async function main() {
     schemaVersion: 1,
     runId,
     collectedAt: new Date().toISOString(),
-    property: cfg.gsc.property,
+    property: GSC_PROPERTY,
     mode: opts.dryRun ? "dry-run" : "fetch",
     browserHeadless: !opts.headed && cfg.browser.headless,
     scriptVersion: gitCommit(),
@@ -349,12 +350,12 @@ async function main() {
 
     // 対象プロパティ assert（不一致なら全体停止）
     try {
-      await assertGscProperty(page, cfg);
+      await assertGscProperty(page);
       if (manifest.dryRun) manifest.dryRun.property = true;
     } catch (e) {
       await dumpFailure(page, cfg, runId, {
         step: "assert-property",
-        expected: [cfg.gsc.property],
+        expected: [GSC_PROPERTY],
         message: e.message,
       });
       console.error(`プロパティ不一致で停止: ${e.message}`);

@@ -23,12 +23,12 @@ import { pathToFileURL } from "node:url";
 import { getDateRange, validateRange } from "../../../../../scripts/lib/gsc-date-range.mjs";
 import dotenv from "dotenv";
 import { fetchGscPages } from "../../../../../scripts/lib/gsc-pagination.mjs";
+import { GSC_PROPERTY } from "../../../../../scripts/lib/site-identity.mjs";
 
 
 
 // ── Config ──
 
-const SITE_URL = "sc-domain:doboku-note.com";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "query";
@@ -147,14 +147,14 @@ export async function fetchSearchAnalytics(auth, opts, searchconsole = google.se
     fetchPage: async ({ startRow, rowLimit }) => {
       const requestBody = { startDate, endDate, dimensions, rowLimit, startRow, dataState: "final", type: "web" };
       if (filterGroups) requestBody.dimensionFilterGroups = filterGroups;
-      const res = await searchconsole.searchanalytics.query({ siteUrl: SITE_URL, requestBody });
+      const res = await searchconsole.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody });
       return res.data.rows || [];
     },
   });
 
   return {
     meta: {
-      siteUrl: SITE_URL,
+      siteUrl: GSC_PROPERTY,
       dataState: "final",
       type: "web",
       timeZone: "America/Los_Angeles",

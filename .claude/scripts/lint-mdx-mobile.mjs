@@ -89,6 +89,7 @@ import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
+import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
 
 const CELL_MAX = 15;
 
@@ -473,7 +474,7 @@ function lintNoteLink(lines, findings) {
     // <NoteLink> ブロックの開始を追跡（同一行 self-close も含む）
     if (line.includes('<NoteLink')) inNoteLink = true;
     // note 記事リンク（/n/）が <NoteLink> 外にあれば警告
-    if (line.includes('note.com/dobokunote/n/') && !inNoteLink) {
+    if (line.includes(`${NOTE_BASE.replace(/^https?:\/\//, '')}/n/`) && !inNoteLink) {
       findings.push({
         severity: 'MEDIUM',
         rule: '8-3',

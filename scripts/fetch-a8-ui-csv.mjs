@@ -138,8 +138,8 @@ async function probeIsolation(page, cfg) {
  * どちらを操作すべきかは実機を見ないと確定しない。ここで値を観察して config の
  * `a8.periodForm` を人間が確定する（スクリプトが推測で選ばない）。
  *
- * 単月取得（`--month`）が入れば site-summary を月ごとに取れて、a8-results.json の
- * 月次 records ＝ EPC の分母が埋まる（現在は累計期間しか取れず records が空）。
+ * 単月取得（`--month`）が入れば site-summary を月ごとに取れて、月次の成果
+ * ＝ EPC の分母が埋まる（現在は累計期間しか取れず月次の成果が空）。
  */
 async function probePeriodForm(page, cfg, reportKey = "site-summary") {
   await openReport(page, cfg, reportKey);

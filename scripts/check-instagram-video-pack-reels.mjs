@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { IG_HANDLE } from './lib/site-identity.mjs';
 
 const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
@@ -42,7 +43,7 @@ for (const metaPath of rows) {
   if (seen.has(id)) fail(label, 'sourcePackId+key が重複');
   seen.add(id);
   counts[meta.exam] = (counts[meta.exam] ?? 0) + 1;
-  if (meta.schemaVersion !== 1 || meta.channel !== 'instagram' || meta.account !== 'dobokunotecom') fail(label, 'meta 契約不一致');
+  if (meta.schemaVersion !== 1 || meta.channel !== 'instagram' || meta.account !== IG_HANDLE) fail(label, 'meta 契約不一致');
   if (!/^\d{4}-\d{2}-\d{2}T(?:07:30|12:30|21:00):00\+09:00$/.test(meta.publishAt ?? '')) fail(label, `publishAt 不正: ${meta.publishAt}`);
   if (meta.approvedBy !== 'user') fail(label, 'approvedBy=user がありません');
   const captionPath = join(reelsDir, 'caption.txt');

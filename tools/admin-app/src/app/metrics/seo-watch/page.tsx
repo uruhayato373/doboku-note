@@ -5,6 +5,7 @@ import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
 import { report } from '../../../../../../scripts/lib/seo-rank-watch.mjs';
+import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,7 +46,7 @@ export default function SeoWatchPage() {
       <TableFrame>
         <TableHeader><TableRow><TableHead>キーワード / 期間</TableHead><TableHead>状態</TableHead><TableHead className={numCol}>平均順位</TableHead><TableHead className={numCol}>前期差</TableHead><TableHead className={numCol}>表示</TableHead><TableHead className={numCol}>クリック / CTR</TableHead><TableHead>次回レビュー</TableHead></TableRow></TableHeader>
         <TableBody>{data.rows.map((w: any) => <TableRow key={w.id}>
-          <TableCell><a href={`https://doboku-note.com${w.targetPath}`} target="_blank" rel="noreferrer">{w.keyword}</a><div className="small">{w.qualificationLabel} · {w.intentLabel}</div><div className="text-xs text-muted-foreground">{w.period ? `${w.period.startDate}〜${w.period.endDate}` : '未計測'} · {w.country ?? '全地域'} / {w.device ?? '全デバイス'}</div></TableCell>
+          <TableCell><a href={`${SITE_ORIGIN}${w.targetPath}`} target="_blank" rel="noreferrer">{w.keyword}</a><div className="small">{w.qualificationLabel} · {w.intentLabel}</div><div className="text-xs text-muted-foreground">{w.period ? `${w.period.startDate}〜${w.period.endDate}` : '未計測'} · {w.country ?? '全地域'} / {w.device ?? '全デバイス'}</div></TableCell>
           <TableCell><StatusBadge tone={w.status === 'achieved' ? 'good' : w.mode === 'monitor' || w.status === 'observing' ? 'neutral' : 'warn'}>{stateLabel(w)}</StatusBadge>{!w.fresh && <div className="small">要取得</div>}</TableCell>
           <TableCell className={numCol}>{rank(w.current?.rank)}</TableCell><TableCell className={numCol}>{w.delta == null ? '—' : `${w.delta > 0 ? '+' : ''}${w.delta.toFixed(2)}`}</TableCell>
           <TableCell className={numCol}>{w.current?.impressions ?? '—'}</TableCell><TableCell className={numCol}>{w.current?.clicks ?? '—'} / {percent(w.current?.ctr)}</TableCell><TableCell>{w.nextReviewDate ?? '—'}</TableCell>
@@ -60,7 +61,7 @@ export default function SeoWatchPage() {
       <div data-watch-id={w.id}>
       <div className="filterbar"><StatusBadge tone="neutral">平均 {rank(w.current?.rank)} 位</StatusBadge><StatusBadge tone="neutral">{w.current?.impressions ?? "—"} 表示</StatusBadge>{w.nextReviewDate && <StatusBadge tone="neutral">レビュー {w.nextReviewDate}</StatusBadge>}</div>
       <p><strong>読者:</strong> {w.audience}<br /><strong>知りたいこと:</strong> {w.need}</p>
-      <p><strong>登録理由:</strong> {w.rationale}</p><p><strong>次の学習行動:</strong> <a href={`https://doboku-note.com${w.nextStep.path}`} target="_blank" rel="noreferrer">{w.nextStep.label}</a></p>
+      <p><strong>登録理由:</strong> {w.rationale}</p><p><strong>次の学習行動:</strong> <a href={`${SITE_ORIGIN}${w.nextStep.path}`} target="_blank" rel="noreferrer">{w.nextStep.label}</a></p>
       <p className="small">判定: {w.reason} · 試験時期: {w.season.label}{w.season.active ? `（${w.season.daysUntil}日後）` : ''} · 登録根拠: {w.evidence.kind === 'gsc' ? 'GSCに実測あり' : '受験課題の仮説・需要未確認'}</p>
       {w.pauseReason && <p><StatusBadge tone="warn">{w.pauseReason}</StatusBadge></p>}
       {w.actions.length === 0 ? <p className="text-sm text-muted-foreground">{w.mode === 'monitor' ? '計測のみ継続します。' : '改善はまだ記録されていません。上位ページと比較し、不足を確認してから着手します。'}</p> : w.actions.map((a: any, i: number) => <div key={i}>

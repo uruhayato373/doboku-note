@@ -80,7 +80,8 @@ export interface AffiliateSummary {
   accountWideMonths: MonthRow[];
   accountWideDays: DayRow[];
   crossCheck: CrossCheck | null;
-  unmapped: { programId: string | null; programRaw: string }[];
+  /** サイト別を説明しきれないときだけ出る取りこぼし候補（他サイト分を除く）。report-log の missingProgramCandidates */
+  missingPrograms: { programId: string | null; programRaw: string }[];
   notAttributable: number;
 }
 
@@ -129,7 +130,7 @@ const EMPTY: AffiliateSummary = {
   accountWideMonths: [],
   accountWideDays: [],
   crossCheck: null,
-  unmapped: [],
+  missingPrograms: [],
   notAttributable: 0,
 };
 
@@ -144,7 +145,7 @@ export function affiliateSummary(): AffiliateSummary {
     daily?: RawRow[];
     programPeriod?: RawRow[];
     crossCheck?: CrossCheck;
-    unmapped?: { programId?: string | null; programRaw?: string }[];
+    missingProgramCandidates?: { programId?: string | null; programRaw?: string }[];
     notAttributable?: unknown[];
   }>(datasetPath('a8.report-log'));
 
@@ -227,7 +228,7 @@ export function affiliateSummary(): AffiliateSummary {
     accountWideMonths,
     accountWideDays,
     crossCheck: log.crossCheck ?? null,
-    unmapped: (log.unmapped ?? []).map((u) => ({ programId: u.programId ?? null, programRaw: u.programRaw ?? '' })),
+    missingPrograms: (log.missingProgramCandidates ?? []).map((u) => ({ programId: u.programId ?? null, programRaw: u.programRaw ?? '' })),
     notAttributable: (log.notAttributable ?? []).length,
   };
 }

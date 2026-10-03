@@ -28,6 +28,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { NOTE_BASE } from './lib/site-identity.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -50,7 +51,7 @@ try {
   }
   console.log('[1] account gate OK');
 
-  await page.goto(`https://note.com/dobokunote/n/${NOTE}?scrollpos=comment`, { waitUntil: 'domcontentloaded', timeout: 90000 });
+  await page.goto(`${NOTE_BASE}/n/${NOTE}?scrollpos=comment`, { waitUntil: 'domcontentloaded', timeout: 90000 });
   try { await page.waitForLoadState('networkidle', { timeout: 25000 }); } catch {}
   await sleep(7000);
 

@@ -6,8 +6,11 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import dotenv from 'dotenv';
 import { direction, duePeriods, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
+import { GSC_PROPERTY, SITE_ORIGIN } from './lib/site-identity.mjs';
 const root = process.cwd(), args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
+/** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const field = (fieldName, value, matchType = 'EXACT') => ({ filter: { fieldName, stringFilter: { matchType, value } } });
 async function run() {
   const c = direction(root), key = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH, id = process.env.GA4_PROPERTY_ID;
@@ -40,9 +43,9 @@ async function run() {
       const limited = users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length;
       pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。', values });
       const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
-      if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^https://doboku-note\\.com/exam/${qualification}/` });
-      const { data } = await gsc.searchanalytics.query({ siteUrl: 'sc-domain:doboku-note.com', requestBody: { ...period, type: 'web', dataState: 'final', dimensionFilterGroups: [{ filters }] } });
-      pending.push({ kind: 'measurement', qualification, period, channel: 'GSC', subject: 'aggregate', coverage: 'complete', source: 'GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。', values: { gscClicks: Number(data.rows?.[0]?.clicks ?? 0) } });
+      if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
+      const { data } = await gsc.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody: { ...period, type: 'web', dataState: 'final', dimensionFilterGroups: [{ filters }] } });
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GSC', subject: 'aggregate', coverage: 'complete', source: `GSC Search Analytics API ${GSC_PROPERTY}・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。`, values: { gscClicks: Number(data.rows?.[0]?.clicks ?? 0) } });
     }
   }
   if (!args.includes('--commit')) { console.log(`[business-metrics] dry-run: ${pending.length}集計取得。--commitで追記`); return; }

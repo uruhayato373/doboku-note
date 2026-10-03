@@ -11,7 +11,7 @@
  *   - GA4 の cta-clicks-by-label（data/ga4/reports/<日付>.json・label × eventName × eventCount）
  *       ※ 面別ラベルは fetch-ga4-cta-clicks --by-label で取得（要 GA4 event_label カスタムディメンション）。
  *   - GA4 の cta-clicks（同上・pagePath × eventName × eventCount・page 別）
- *   - data/a8/results.json           （A8 成果。`/a8-report` が自動取込）
+ *   - data/a8/report-log.json        （A8 成果。`/a8-report` が自動取込。単月の期間から月×案件を導く）
  *
  * 出力:
  *   - data/analysis/buildjob-report.md  （面別/ページ別/EPC サマリ）
@@ -27,6 +27,7 @@ import { dirname, join } from "node:path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { pickByLabelSnapshot } from "./lib/ga4-snapshot.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 
 import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
 
@@ -140,8 +141,8 @@ if (pageFile) {
 }
 
 // ---- 3. A8 成果スナップショットと突合（推定 EPC） --------------------------
-const a8File = datasetPath("a8.results");
-const a8 = existsSync(a8File) ? readJson(a8File) : { records: [] };
+const a8LogFile = datasetPath("a8.report-log");
+const a8 = { records: existsSync(a8LogFile) ? resultsFromReportLog(readJson(a8LogFile)) : [] };
 
 // ★ 分子（A8 確定報酬）と分母（GA4 クリック）の期間を揃える。
 //   揃えないと「全期間の報酬 ÷ 直近 28 日のクリック」になり EPC を過大評価する
@@ -183,7 +184,7 @@ lines.push("");
 lines.push(`生成時のスナップショット期間: 面別=${labelPeriod ?? "N/A"} / ページ別=${pagePeriod ?? "N/A"}`);
 lines.push("");
 lines.push("> 生成: `npm run report-buildjob-affiliate`（オフライン集計）。GA4 クリックが真実源（分子）、");
-lines.push("> A8 成果（`a8-results.json`）は `/a8-report` が自動取込（`a8-ui:fetch` → `a8-ui:normalize`）。計測は本番のみ発火＝デプロイ後に蓄積。");
+lines.push(`> A8 成果（\`${a8LogFile}\` の単月の期間から導く月×案件）は \`/a8-report\` が自動取込（\`a8-ui:fetch\` → \`a8-ui:normalize\`）。計測は本番のみ発火＝デプロイ後に蓄積。`);
 lines.push("");
 
 lines.push("## プログラム別クリック（affiliate_cta_click）");
@@ -325,7 +326,7 @@ lines.push(
     "9/1 以降は `isCampaignActive()`=false で slug ハッシュ A/B へ自動復帰するが、GKS(457) < 建設JOBs(709) と逆転するため復帰後の arm 設計は要見直し。",
 );
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
-lines.push("- 推定 EPC は `a8-results.json` に成果が入ってから有効。A8 は API 無しのため `/a8-report`（Playwright・要ローカルログイン）で取り込む。");
+lines.push(`- 推定 EPC は A8 の月次の成果（\`${a8LogFile}\` の単月の期間）に成果が入ってから有効。A8 は API 無しのため \`/a8-report\`（Playwright・要ローカルログイン）で取り込む。`);
 lines.push(
   `- **EPC の分母は GA4 のラベル別クリック**（A8 の \`clicks\` は口座横断＝stats47 分を含むので使わない。真実源: affiliate-operations.md §6.5）。` +
     `分子は A8 の確定報酬で、GA4 窓に重なる月${monthsInWindow ? `（${[...monthsInWindow].sort().join(", ")}）` : ""}に限定して合算する。` +

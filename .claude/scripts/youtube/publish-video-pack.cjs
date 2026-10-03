@@ -16,6 +16,18 @@ const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'), // path-literal-ok: CommonJS のモジュール先頭（同期・async 文脈なし）で読み ESM の台帳を引けない（台帳 id: config.youtube-production-disclosure）
 );
+// 概要欄の送客リンクの UTM（source / medium）は契約（config/utm-templates.json の youtube.longform / youtube.shorts）から受け取る。
+const UTM_CHANNELS = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'config/utm-templates.json'), 'utf8'), // path-literal-ok: CommonJS のモジュール先頭（同期・async 文脈なし）で読み ESM の台帳を引けない（台帳 id: config.utm-templates）
+).channels;
+const YOUTUBE_UTM = (() => {
+  const longform = UTM_CHANNELS['youtube.longform'];
+  const shorts = UTM_CHANNELS['youtube.shorts'];
+  if (shorts.source !== longform.source || shorts.medium !== longform.medium) {
+    throw new Error('utm-templates.json: youtube.longform と youtube.shorts の source / medium が揃っていない');
+  }
+  return { source: longform.source, medium: longform.medium };
+})();
 let publish;
 
 function arg(name, fallback = null) {
@@ -60,7 +72,7 @@ function loadEnv() {
 
 function assertMetadata(item, packId) {
   if (!item.title || item.title.length > 100) throw new Error(`${item.key}: title が空または100字超`);
-  for (const required of [`utm_source=youtube`, `utm_medium=video`, `utm_campaign=${packId}`]) {
+  for (const required of [`utm_source=${YOUTUBE_UTM.source}`, `utm_medium=${YOUTUBE_UTM.medium}`, `utm_campaign=${packId}`]) {
     if (!item.description?.includes(required)) throw new Error(`${item.key}: description に ${required} がありません`);
   }
   if (!item.description?.includes(PRODUCTION_DISCLOSURE.authorityNotice)) {

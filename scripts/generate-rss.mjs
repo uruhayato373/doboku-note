@@ -3,8 +3,8 @@ import { join, relative } from 'path';
 import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 
-const SITE_URL = 'https://doboku-note.com';
 const SITE_TITLE = 'doboku-note - 土木系資格試験 専門技術ノート';
 const SITE_DESCRIPTION =
   '1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。';
@@ -114,7 +114,7 @@ function toIso8601(date) {
 function buildRss(items, lastBuildDate, routes) {
   const itemsXml = items
     .map((it) => {
-      const url = `${SITE_URL}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
+      const url = `${SITE_ORIGIN}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
       const categoryXml = it.tags.map((t) => `    <category>${escapeXml(t)}</category>`).join('\n');
       return `  <item>
     <title>${escapeXml(it.title)}</title>
@@ -131,11 +131,11 @@ ${categoryXml}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>${escapeXml(SITE_TITLE)}</title>
-  <link>${SITE_URL}</link>
+  <link>${SITE_ORIGIN}</link>
   <description>${escapeXml(SITE_DESCRIPTION)}</description>
   <language>${SITE_LANGUAGE}</language>
   <lastBuildDate>${toRfc822(lastBuildDate)}</lastBuildDate>
-  <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+  <atom:link href="${SITE_ORIGIN}/feed.xml" rel="self" type="application/rss+xml" />
 ${itemsXml}
 </channel>
 </rss>
@@ -145,7 +145,7 @@ ${itemsXml}
 function buildAtom(items, lastBuildDate, routes) {
   const entriesXml = items
     .map((it) => {
-      const url = `${SITE_URL}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
+      const url = `${SITE_ORIGIN}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
       const categoryXml = it.tags
         .map((t) => `    <category term="${escapeXml(t)}" />`)
         .join('\n');
@@ -165,9 +165,9 @@ ${categoryXml}
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="${SITE_LANGUAGE}">
   <title>${escapeXml(SITE_TITLE)}</title>
   <subtitle>${escapeXml(SITE_DESCRIPTION)}</subtitle>
-  <link href="${SITE_URL}/atom.xml" rel="self" />
-  <link href="${SITE_URL}" />
-  <id>${SITE_URL}/</id>
+  <link href="${SITE_ORIGIN}/atom.xml" rel="self" />
+  <link href="${SITE_ORIGIN}" />
+  <id>${SITE_ORIGIN}/</id>
   <updated>${toIso8601(lastBuildDate)}</updated>
   <author>
     <name>${escapeXml(FEED_AUTHOR)}</name>

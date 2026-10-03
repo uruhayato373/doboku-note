@@ -6,9 +6,9 @@ import Link from "next/link";
 /**
  * 施工経験記述 文字数チェッカー（クライアント）。
  *
- * 解答欄しきい値の真実源は config/keiken-answer-sheet-limits.json
- * （scripts/keiken-charcount.mjs と同値）。本ツールは静的ページのため当該値を埋め込み、
- * カウント規則（markdown 装飾・タグ・空白を除いた実文字数、プレースホルダ〇は算入）も
+ * 解答欄しきい値の真実源は config/keiken-answer-sheet-limits.json（scripts/keiken-charcount.mjs と同じ）。
+ * 値は写さず、サーバー側の page.tsx がビルド時に読んで props（limits）で渡す。
+ * カウント規則（markdown 装飾・タグ・空白を除いた実文字数、プレースホルダ〇は算入）は
  * スクリプトと一致させている。値の根拠（公式解答欄の行数×字/行）は下部「出典」を参照。
  */
 
@@ -16,23 +16,8 @@ type Grade = "civil-1" | "civil-2";
 type Format = "current2" | "legacy3";
 type QKey = "q1" | "q2" | "q3";
 
-// 解答欄しきい値（confirmed / provisional:false）。単位=実文字数。
-const LIMITS: Record<Grade, Record<string, number>> = {
-  "civil-1": {
-    current2_q1: 200,
-    current2_q2: 200,
-    legacy3_q1: 225,
-    legacy3_q2: 275,
-    legacy3_q3: 175,
-  },
-  "civil-2": {
-    current2_q1: 250,
-    current2_q2: 250,
-    legacy3_q1: 250,
-    legacy3_q2: 250,
-    legacy3_q3: 250,
-  },
-};
+/** 解答欄しきい値。級 → 設問キー（current2_q1 など）→ 上限の実文字数。 */
+export type KeikenLimits = Record<Grade, Record<string, number>>;
 
 const QUESTIONS: Record<Format, { key: QKey; label: string }[]> = {
   current2: [
@@ -114,7 +99,7 @@ const SEV_META: Record<
   },
 };
 
-export default function KeikenCharcountClient() {
+export default function KeikenCharcountClient({ limits }: { limits: KeikenLimits }) {
   const [grade, setGrade] = useState<Grade>("civil-1");
   const [format, setFormat] = useState<Format>("current2");
   const [qkey, setQkey] = useState<QKey>("q1");
@@ -124,7 +109,7 @@ export default function KeikenCharcountClient() {
   // 形式切替で設問(3)が消える場合に q3 を補正
   const activeQ = questions.some((q) => q.key === qkey) ? qkey : "q1";
   const category = `${format}_${activeQ}`;
-  const max = LIMITS[grade][category] ?? 200;
+  const max = limits[grade][category] ?? 200;
 
   const chars = useMemo(() => countChars(text), [text]);
   const sev = severityOf(chars, max);

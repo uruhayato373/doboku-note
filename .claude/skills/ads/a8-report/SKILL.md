@@ -2,7 +2,7 @@
 name: a8-report
 description: >
   A8.net のレポート CSV を Playwright で取得し、doboku-note 分だけを正規化して SSOT
-  （a8-report-log.json / a8-results.json）へ upsert する成果データパイプライン。
+  （a8-report-log.json）へ upsert する成果データパイプライン。
   サイト別・プログラム別（詳細）・期間別（月別/日別）の 4 レポートを扱い、EPC 判定の分母を自動供給する。
   この A8 口座は stats47（統計で見る都道府県）と共用。**サイト切替は存在せず**、分離できるのはサイト別レポートのみ。
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
@@ -23,7 +23,7 @@ A8.net メディア管理画面（media-console.a8.net）のレポートを CSV 
 
 ## なぜ必要か
 
-A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった（`a8-results.json` は空のまま）。
+A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった（月次の成果は空のまま）。
 その結果、消費側の `report-buildjob-affiliate.mjs`（GA4 クリック × A8 成果 → EPC）が
 **分母を持てず**、ビルドジョブ vs 建設JOBs の A/B 勝者判断が保留になっていた。ここを埋める。
 
@@ -35,7 +35,7 @@ A8 は公開 API が無く、成果は長らく月 1 の手入力前提だった
 | サイト分離 | 分離できるのは `/report/site` のみ。他は口座横断で allowlist 抽出＋サイト別との検算 |
 | ログイン | 人間。CAPTCHA/2FA を自動突破しない |
 | セレクタ | 候補が 0/複数なら推測クリックせず debug dump して停止 |
-| 取りこぼし | programIdMap 未登録のプログラムは黙って捨てず `unmapped` に出す |
+| 取りこぼし | programIdMap 未登録のプログラムは黙って捨てず `missingProgramCandidates` に出す（サイト別を説明しきれないときだけ） |
 | 生データ | raw CSV と manifest は書き換えない（append-only・監査可能性） |
 
 ## フェーズ
@@ -67,7 +67,7 @@ npm run a8-ui:fetch -- --dry-run --probe-period --headed
 ```
 
 出力を見て `config/a8-report-automation.json` の `a8.periodForm` を人間が確定する。
-なぜ要るか: 現在は A8 既定の累計期間しか取れず `a8-results.json` が空＝**EPC の分母が無い**
+なぜ要るか: 現在は A8 既定の累計期間しか取れず月次の成果（単月の期間）が空＝**EPC の分母が無い**
 （手順は backlog「A8 レポートの期間指定」）。
 
 dry-run が `not-signed-in` なら、開いたブラウザで人間がログインする（スクリプトが待って storageState を保存するので、
@@ -92,11 +92,12 @@ npm run a8-ui:normalize -- --latest             # SSOT へ書く
 ```
 
 - `data/a8/report-log.json` — `siteSummary`（doboku 分離済み＝真実源）/
-  `programPeriod`（allowlist 抽出）/ `monthly`・`daily`（**口座横断**）/ `crossCheck` を upsert
-- `data/a8/results.json` — 既存スキーマの records へ rollup。
-  **単月 run のときだけ**（A8 の既定期間は年初〜当月の累計なので、通常は `notAttributable` に退避される）
+  `programPeriod`（案件に対応した行＋当期の口座横断の行だけ残す）/ `monthly`・`daily`（**口座横断**）/ `crossCheck` を upsert
+- 月次の成果（月×案件）は持たない。読み手（`report-buildjob-affiliate`・`report-career-funnel`）が
+  `programPeriod` の**単月の期間**から導く（`resultsFromReportLog`）。A8 の既定期間は年初〜当月の累計なので、
+  累計の行は月次に写せず `notAttributable` に退避される
 
-`unmapped` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。
+`missingProgramCandidates` が出たら config の `a8.programIdMap` に追記して再実行する（黙って無視しない）。
 
 ### 5. analyze（親が実施）
 
@@ -122,7 +123,7 @@ npm run report-buildjob-affiliate
 | `report-unreachable` | `reports.*.path` の URL が変わった。実機の URL を config へ |
 | 文字化け | `csvEncoding` を切替（normalize は U+FFFD を数えて自動フォールバックもする） |
 | `fatal: 必須列が見つからない` | `columnAliases` に実機のヘッダー文言を追記 |
-| `unmapped` | `programIdMap` に raw 名を追記 |
+| `missingProgramCandidates` | `programIdMap` に raw 名を追記 |
 
 ## 参照
 

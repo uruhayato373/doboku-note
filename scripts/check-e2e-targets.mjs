@@ -27,6 +27,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { SITE_HOST } from './lib/site-identity.mjs';
 
 const ROOT = process.cwd();
 const E2E_DIR = path.join(ROOT, 'e2e');
@@ -37,7 +38,7 @@ const WORKFLOWS = path.join(ROOT, '.github', 'workflows');
 const URL_LIST_FILES = [path.join(ROOT, datasetPath('config.psi-urls'))];
 
 /** 本番を指す絶対 URL のホスト。ここから後ろのパスを out/ と突合する。 */
-const SITE_HOSTS = ['doboku-note.pages.dev', 'doboku-note.com'];
+const SITE_HOSTS = ['doboku-note.pages.dev', SITE_HOST];
 
 /**
  * この行内マーカーが付いた行の URL は「リダイレクトそのものを試すテスト」なので転送元でよい。

@@ -24,13 +24,15 @@ build 済み out/ の全正規 URL の HTML から `<title>`, `<meta>`, `<link r
 | 母集合ガード | doc URL ≥ max(1000, published×0.9) | 記事総数が大きく変わった時 |
 | concurrency | 8（HTTP モードのみ） | 本番巡回で詰まったら下げる |
 | title | `doboku-note` 出現 ≤ 1（重複検出） | サイト名変更時 |
-| description | 160 文字超は警告のみ | SEO 方針変更時 |
+| description | 長さは `thresholds.description`（`min_length` 50・`max_length` 160・`lint_max_length` 200）。`max_length` 超は警告のみ | SEO 方針変更時 |
 | canonical / og:url | **self URL 完全一致**（seo-checks 共通） | ドメイン変更時 |
 | JSON-LD | parse 可能・Article 系は headline 整合（参考） | 構造化データ戦略変更時 |
 
 > [!note]
-> 判定ロジック（閾値含む）の実体は `scripts/lib/seo-checks.mjs`。config の `thresholds`/`severity` は
-> HTTP 巡回の互換用に残るが、canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
+> 判定ロジック（閾値・重大度の level を含む）の実体は `scripts/lib/seo-checks.mjs`。canonical/og:url/title/SSR の実判定は seo-checks 側が真実源。
+> ただし **title と description の長さ**（`thresholds.title.max_length`・`thresholds.description.*`）は config が唯一の正本で、`scripts/lib/seo-thresholds.mjs`
+> （seo-checks の警告・lint-frontmatter・fix-descriptions・bulk-rewrite-descriptions）とサイトの `src/lib/metadata.ts`（整形）が読む。
+> 重大度（`severity`）や読み手の無い閾値は config に持たない（値を直しても何も変わらないため削除した）。
 
 ## 前提
 
@@ -58,8 +60,10 @@ npm run check-seo-meta -- --json
 npm run check-seo-meta -- --base-url https://doboku-note.com
 ```
 
-結果は `data/analysis/seo-meta.json` を上書きする。約1.2MBの全URL結果を
-実行ごとの別名ファイルとしてGitへ増やさない。過去の結果と比べるときは git の履歴から取り出す。
+結果は `data/analysis/seo-meta.json` を上書きする（summary と違反のある URL の行だけ・約 1KB。
+全 URL の行は 1MB あり、違反は数行・canonical と og:url は全行が self URL で同値だったので持たない）。
+全 URL の結果は `-- --json`（標準出力）で見る。実行ごとの別名ファイルとして Git へ増やさない。
+過去の結果と比べるときは git の履歴から取り出す。
 
 ### 結果レポート出力
 
@@ -81,7 +85,7 @@ npm run check-seo-meta:check -- --exit-on-violation
 
 ```json
 {
-  "version": 2,
+  "version": 3,
   "generated_at": "2026-07-13T22:00:00.000Z",
   "base_url": "out/ (static export)",
   "mode": "out",
@@ -94,6 +98,7 @@ npm run check-seo-meta:check -- --exit-on-violation
     "by_type": { "jsonld_headline_mismatch": 55, "description_long": 24, "ssr_thin_body": 2 },
     "duration_ms": 73300
   },
+  "results_note": "違反のある URL の行だけ（全 URL の結果は npm run check-seo-meta -- --json）",
   "results": [
     {
       "url": "/exam/...",
@@ -103,12 +108,14 @@ npm run check-seo-meta:check -- --exit-on-violation
       "og_url": "https://doboku-note.com/exam/...",
       "robots": "index, follow",
       "json_ld": { "count": 5 },
-      "violations": []
+      "violations": [{ "type": "description_long", "severity": "MEDIUM", "message": "..." }]
     }
   ],
   "violations_by_type": { "description_long": ["/docs/..."] }
 }
 ```
+
+`-- --json` の標準出力は同じ形で、`results` が全 URL の行（違反の無い行は `violations: []`）。
 
 ## 違反タイプと Severity
 
@@ -119,7 +126,7 @@ seo-checks.mjs の findings を写像（`error → HIGH` / `warn → MEDIUM` / `
 | `title_missing` | HIGH | `<title>` 自体が無い |
 | `title_sitename_dup` | **HIGH** | `doboku-note` が title 内で 2 回以上出現（template 重複の検出） |
 | `description_missing` | HIGH | meta description が無い |
-| `description_long` | MEDIUM | 160 文字超（**警告のみ・CI は落とさない**） |
+| `description_long` | MEDIUM | `thresholds.description.max_length`（160）文字超（**警告のみ・CI は落とさない**） |
 | `canonical_missing` | HIGH | `<link rel="canonical">` が無い |
 | `canonical_mismatch` | HIGH | canonical が self URL と**完全一致しない**（ドメイン接頭辞だけでは判定しない） |
 | `og_url_missing` | HIGH | og:url が無い |

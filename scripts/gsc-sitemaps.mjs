@@ -21,9 +21,9 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { google } from "googleapis";
 import { SITEMAPS_STATE, parseRobotsSitemaps } from "./lib/gsc-sitemaps.mjs";
+import { GSC_PROPERTY, SITE_ORIGIN } from "./lib/site-identity.mjs";
 
-const SITE_URL = "sc-domain:doboku-note.com";
-const ROBOTS_URL = "https://doboku-note.com/robots.txt";
+const ROBOTS_URL = `${SITE_ORIGIN}/robots.txt`;
 const SUBMIT = process.argv.includes("--submit");
 const TAG = "[gsc-sitemaps]";
 
@@ -61,7 +61,7 @@ async function main() {
   if (SUBMIT) {
     for (const path of robotsSitemaps) {
       try {
-        await sc.sitemaps.submit({ siteUrl: SITE_URL, feedpath: path });
+        await sc.sitemaps.submit({ siteUrl: GSC_PROPERTY, feedpath: path });
         submit.push({ path, status: "ok" });
       } catch (e) {
         const code = httpStatus(e);
@@ -72,7 +72,7 @@ async function main() {
 
   let sitemaps;
   try {
-    const res = await sc.sitemaps.list({ siteUrl: SITE_URL });
+    const res = await sc.sitemaps.list({ siteUrl: GSC_PROPERTY });
     sitemaps = (res.data.sitemap ?? []).map((s) => ({
       path: s.path,
       type: s.type ?? null,
@@ -88,7 +88,7 @@ async function main() {
     fail(`sitemaps.list が失敗（HTTP ${httpStatus(e) ?? "?"}: ${String(e?.message ?? e).slice(0, 200)}）`);
   }
 
-  const record = { schemaVersion: 1, fetchedAt: new Date().toISOString(), property: SITE_URL, robotsSitemaps, submit, sitemaps };
+  const record = { schemaVersion: 1, fetchedAt: new Date().toISOString(), property: GSC_PROPERTY, robotsSitemaps, submit, sitemaps };
   mkdirSync(dirname(SITEMAPS_STATE), { recursive: true });
   writeFileSync(SITEMAPS_STATE, `${JSON.stringify(record, null, 2)}\n`);
 

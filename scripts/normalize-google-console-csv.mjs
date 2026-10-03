@@ -27,6 +27,7 @@ import { join, basename, isAbsolute } from "node:path";
 import { loadConfig } from "./lib/google-console-browser.mjs";
 import { normalizePageIndexingCsv } from "./lib/google-console-csv.mjs";
 import { writeUnitSsot, writeRunDiff, appendHistory, ssotDir, rawDir } from "./lib/google-console-ssot.mjs";
+import { GSC_PROPERTY } from "./lib/site-identity.mjs";
 
 const STATE_DIR = rawDir("gsc-ui");
 const CHANNEL = "gsc-ui";
@@ -68,7 +69,7 @@ function normalizeOne(csvText, meta, outDir, cfg) {
     schemaVersion: 1,
     source: "gsc-ui-page-indexing",
     runId: meta.runId,
-    property: meta.property || cfg.gsc.property,
+    property: meta.property || GSC_PROPERTY,
     issue: meta.issue,
     scope: meta.scope,
     uiTotal: meta.uiTotal,
@@ -100,7 +101,7 @@ function main() {
     }
     const csvText = readFileSync(o.file, "utf-8");
     const outDir = join(process.cwd(), STATE_DIR, "_adhoc");
-    normalizeOne(csvText, { runId: "adhoc", issue: o.issue, scope: o.scope, uiTotal: o.uiTotal, property: cfg.gsc.property }, outDir, cfg);
+    normalizeOne(csvText, { runId: "adhoc", issue: o.issue, scope: o.scope, uiTotal: o.uiTotal, property: GSC_PROPERTY }, outDir, cfg);
     return;
   }
 

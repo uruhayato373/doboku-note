@@ -23,7 +23,6 @@ function makeRoot() {
       graphql: 'https://api.cloudflare.com/client/v4/graphql',
       rest: 'https://api.cloudflare.com/client/v4',
       rulesetPhases: ['http_request_cache_settings', 'http_response_compression'],
-      analytics: { windowDays: 7, topPaths: 50 },
     }),
   );
   return root;

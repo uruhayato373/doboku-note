@@ -34,9 +34,9 @@ import { latestFile } from "./lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
+import { SITE_ORIGIN } from "./lib/site-identity.mjs";
 
 const OUT_DIR = ".claude/state/improvements";
-const SITE_ORIGIN = "https://doboku-note.com";
 
 const argv = process.argv.slice(2);
 const LIVE_HTTP = argv.includes("--live-http");

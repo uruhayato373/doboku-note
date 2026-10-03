@@ -27,7 +27,7 @@ paths:
 
 ## 画像削除
 
-- `r2-sync.yml` は**アップロードのみで削除しない**。リポジトリから消しても R2 には残り、URL 直叩きで取得できる状態が続く（2026-07-31 に診断士の書籍スキャン 79 件で発覚）。確実に撤去するには `config/r2-delete-list.txt` にキーを明示し、`R2 Delete Objects`（`r2-delete.yml`・workflow_dispatch・既定 dry-run）を `commit=true` で実行する。**自動 prune はしない**（R2 にしかない成果物を巻き込むため）。ローカルからは `npm run delete-r2-objects`
+- `r2-sync.yml` は**アップロードのみで削除しない**。リポジトリから消しても R2 には残り、URL 直叩きで取得できる状態が続く（2026-07-31 に診断士の書籍スキャン 79 件で発覚）。確実に撤去するには `data/r2/delete-list.txt` にキーを明示し、`R2 Delete Objects`（`r2-delete.yml`・workflow_dispatch・既定 dry-run）を `commit=true` で実行する。**自動 prune はしない**（R2 にしかない成果物を巻き込むため）。ローカルからは `npm run delete-r2-objects`
 
 ## OGP 画像
 

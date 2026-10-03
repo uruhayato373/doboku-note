@@ -1,9 +1,9 @@
 import type { StandardChapter } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';
 import { generateHeadingId } from '@/lib/toc';
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
-const SITE_URL = 'https://doboku-note.com';
-const SITE_ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
 export const PUBLIC_DATA_LICENSE_URL =
   'https://www.digital.go.jp/resources/open_data/public_data_license_v1.0';
@@ -17,7 +17,7 @@ type ChapterDataUrls = {
 };
 
 function absoluteUrl(path: string): string {
-  return path.startsWith('http://') || path.startsWith('https://') ? path : `${SITE_URL}${path}`;
+  return path.startsWith('http://') || path.startsWith('https://') ? path : `${SITE_ORIGIN}${path}`;
 }
 
 function siteOrganization(): JsonLdNode {
@@ -25,7 +25,7 @@ function siteOrganization(): JsonLdNode {
     '@type': 'Organization',
     '@id': SITE_ORGANIZATION_ID,
     name: 'doboku-note',
-    url: SITE_URL,
+    url: SITE_ORIGIN,
     email: 'info@doboku-note.com',
   };
 }
@@ -108,7 +108,7 @@ export function buildStandardsDatasetStructuredData(input: {
   chapters: number;
   articles: number;
 }): JsonLdNode {
-  const pageUrl = `${SITE_URL}/standards/data`;
+  const pageUrl = `${SITE_ORIGIN}/standards/data`;
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -139,12 +139,12 @@ export function buildStandardsDatasetStructuredData(input: {
           {
             '@type': 'DataDownload',
             encodingFormat: 'application/json',
-            contentUrl: `${SITE_URL}/standards-data/catalog.json`,
+            contentUrl: `${SITE_ORIGIN}/standards-data/catalog.json`,
           },
           {
             '@type': 'DataDownload',
             encodingFormat: 'application/json',
-            contentUrl: `${SITE_URL}/standards-data/comparison.json`,
+            contentUrl: `${SITE_ORIGIN}/standards-data/comparison.json`,
           },
         ],
       },
@@ -219,9 +219,9 @@ export function buildStandardChapterStructuredData(
     : [];
 
   const breadcrumb = [
-    { name: 'ホーム', item: SITE_URL },
-    { name: '基準類', item: `${SITE_URL}/standards` },
-    { name: document.agencyName, item: `${SITE_URL}/standards/${document.agencyId}` },
+    { name: 'ホーム', item: SITE_ORIGIN },
+    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
     { name: document.title, item: documentUrl },
     { name: chapter.title, item: chapterUrl },
   ];

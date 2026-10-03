@@ -4,6 +4,8 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import { Mail, Clock, AlertCircle } from 'lucide-react';
+import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
+import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ',
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'お問い合わせ | doboku-note',
     description: 'doboku-noteへのご質問・ご意見、公的資料の構造化・データ加工に関するご相談はこちらからお問い合わせください。',
-    url: 'https://doboku-note.com/contact',
+    url: `${SITE_ORIGIN}/contact`,
     images: [
       {
-        url: 'https://doboku-note.com/images/og-default.png',
+        url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
         alt: 'doboku-note - 土木系資格試験 専門技術ノート',

@@ -4,8 +4,8 @@
  * ---------------------------------------------------------------------------
  * fetch-a8-ui-csv.mjs が保存した run（raw CSV + manifest.json）を読み、
  *   1. <runDir>/normalized/<reportKey>.json（+ .rejects.json）を書く
- *   2. data/a8/report-log.json へ upsert（committed SSOT）
- *   3. data/a8/results.json の records へ rollup（既存スキーマ維持）
+ *   2. data/a8/report-log.json へ upsert（committed SSOT）。programPeriod は doboku 分（program あり）と当期の行だけ残す
+ * 月次の成果（月×案件）は report-log の単月の期間から読み手が導く（resultsFromReportLog）。以前は results.json へ写していた。
  * raw CSV と manifest.json は書き換えない（append-only・監査可能性のため）。
  *
  * A8 は承認確定で過去月の数値が遡及変化するため、追記でなく **upsert**（最新 fetch が正）。
@@ -28,11 +28,13 @@ import {
   crossCheckAgainstSite,
   sumSiteRows,
   suggestMissingPrograms,
+  keepProgramRows,
+  resultsFromReportLog,
+  REPORT_LOG_NOTES,
 } from "./lib/a8-report-csv.mjs";
 
 const STATE_DIR = datasetDir("a8.ui-raw");
 const REPORT_LOG = datasetPath("a8.report-log");
-const RESULTS = datasetPath("a8.results");
 const CONFIG_PATH = datasetPath("config.a8-report-automation");
 
 /** reportKey → a8-report-log.json 内の配列名とキー関数。 */
@@ -86,11 +88,8 @@ function readJson(path, fallback) {
 
 function emptyReportLog(site) {
   return {
-    schemaVersion: 2,
-    _comment:
-      "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
-    _siteScopeNote:
-      "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily / programPeriod は **口座横断**（stats47 込み）で、programPeriod は programIdMap の allowlist で doboku 分だけを抽出したもの。crossCheck が siteSummary との突合結果。",
+    schemaVersion: 3,
+    ...REPORT_LOG_NOTES,
     site,
     updatedAt: null,
     lastRun: null,
@@ -100,7 +99,6 @@ function emptyReportLog(site) {
     daily: [],
     programPeriod: [],
     crossCheck: null,
-    unmapped: [],
     notAttributable: [],
   };
 }
@@ -123,6 +121,10 @@ function main() {
   mkdirSync(outDir, { recursive: true });
 
   const log = readJson(REPORT_LOG, emptyReportLog(cfg.a8.targetSite));
+  // 形を変えた旧版の欄を持ち越さない（schemaVersion 3: unmapped は missingProgramCandidates と同値なので廃止）
+  log.schemaVersion = 3;
+  Object.assign(log, REPORT_LOG_NOTES);
+  delete log.unmapped;
   const perReport = [];
   let totalRejects = 0;
 
@@ -176,9 +178,11 @@ function main() {
   // ★ 期間を揃える。SSOT は累計 run と単月 run の行が **併存**するため（upsert のキーに期間が入る）、
   //   期間で絞らずに合算すると別期間の値が混ざる。実測: 累計 137 + 単月 61 = 198 を
   //   サイト別 137 と比べて「混入の疑い」を誤報し、さらに累計行が当月の実績として
-  //   a8-results.json へ書き込まれた（2026-07-28・単月取得の初回実走で発覚）。
+  //   月次の成果へ写された（2026-07-28・単月取得の初回実走で発覚）。
   const currentPeriod = period?.raw ?? null;
   const inCurrentPeriod = (r) => r.period === currentPeriod;
+  // 口座横断のプログラム別は、doboku 分（program あり）と当期の行だけ残す（他サイト分の過去期間は読み手がいない）
+  log.programPeriod = keepProgramRows(log.programPeriod, currentPeriod);
 
   // ★ 検算: 口座横断から抽出した doboku 分と、サイト別（真実源）の doboku-note 行を突合。
   //   期間が特定できない run（DL 失敗・対象データ 0 件で CSV ボタンが出ない等）では
@@ -209,29 +213,21 @@ function main() {
     ? suggestMissingPrograms(allProgramRows, { knownOtherSiteIds })
     : [];
 
-  // program-detail から a8-results.json（既存スキーマ＝月次）へ rollup。
-  // **絞り込み前の全行を渡す**（絞ってから渡すと unmapped 判定が構造上発火しない＝実走監査で発覚）。
-  const { records, unmapped, notAttributable } = toResultsRecords(allProgramRows, {
+  // program-detail を月次の成果（月×案件）に写せるかを数える。**絞り込み前の全行を渡す**
+  // （絞ってから渡すと unmapped 判定が構造上発火しない＝実走監査で発覚）。月次の行そのものは持たない（読み手が導く）。
+  const { unmapped, notAttributable } = toResultsRecords(allProgramRows, {
     singleMonth: period?.singleMonth ?? null,
   });
   // 未写像の生リスト自体は stats47 込みでノイズが大きいので件数だけ持ち、判断材料は candidates に寄せる
   log.unmappedCount = unmapped.length;
-  log.unmapped = log.missingProgramCandidates;
   log.notAttributable = notAttributable;
   log.updatedAt = new Date().toISOString();
   log.lastRun = manifest.runId;
-
-  const results = readJson(RESULTS, { records: [] });
-  const beforeCount = (results.records || []).length;
-  results.records = upsertBy(results.records || [], records, KEY.results);
-  results.updatedAt = log.updatedAt;
-  results.source = "fetch-a8-ui-csv.mjs → normalize-a8-csv.mjs（自動取込。手入力は不要）";
 
   if (opts.dryRun) {
     console.log("\n[dry-run] SSOT は書き込みません。");
   } else {
     writeFileSync(REPORT_LOG, JSON.stringify(log, null, 2) + "\n", "utf-8");
-    writeFileSync(RESULTS, JSON.stringify(results, null, 2) + "\n", "utf-8");
   }
 
   console.log(`\nSSOT: ${REPORT_LOG}（期間 ${period?.raw ?? "不明"}）`);
@@ -252,10 +248,10 @@ function main() {
         (log.crossCheck.exceeded ? "  ← ★超過＝他サイト混入の疑い" : "  ← 範囲内"),
     );
   }
-  console.log(`SSOT: ${RESULTS} records ${beforeCount} → ${results.records.length}`);
+  console.log(`  月次の成果（単月の期間から導く月×案件）: ${resultsFromReportLog(log).length} 行`);
   if (notAttributable.length > 0) {
     console.warn(
-      `\n[注意] 対象期間が単月でないため ${notAttributable.length} 件を a8-results.json（月次）へ写していません。` +
+      `\n[注意] 対象期間が単月でないため ${notAttributable.length} 件を月次の成果へ写せません。` +
         `\n  現在の期間: ${period?.raw ?? "不明"}。月次内訳には期間フォーム対応が必要（backlog 参照）。`,
     );
   }
