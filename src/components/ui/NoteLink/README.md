@@ -18,7 +18,7 @@ note 記事リンクはかつて 3 パターン（生 markdown / `<LinkCard>` / 
 | `kind` | | `article`（既定）または `product` |
 | `price` | | `kind="product"` のとき必須 |
 
-note.com のカバー画像や OGP は使用しない。`kind="product"` と登録済み `imageFamily` を指定すると、R2の完成画像を `NoteImageCta compact` で表示する。商品名・価格は既存propsで併記し、URL・計測属性も既存propsを使う。無料記事とfamily未指定の従来カードでは、画像内にタイトル・価格を焼き込まずHTMLで表示する。
+note.com のカバー画像や OGP は使用しない。`kind="product"` と登録済み `imageFamily` を指定すると、R2の完成画像を `NoteImageCta compact` で表示する。商品名は既存propsで併記し、価格・説明文は表示せず、URL・計測属性も既存propsを使う。無料記事とfamily未指定の従来カードでは、画像内にタイトル・価格を焼き込まずHTMLで表示する。
 
 ## 使用例
 

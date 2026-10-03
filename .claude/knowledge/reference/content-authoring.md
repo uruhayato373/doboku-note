@@ -58,12 +58,12 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 | 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
 
 - **note 記事リンクは例外なく画像付き `<NoteLink>`**。note.com のカバー/OGPは使わず、サイト制作画像を `public/images/note-links/` に置き、`imageSrc="/images/note-links/{name}.webp"` を必須指定する
-- 無料記事は既定 `kind="article"`、有料単品は `kind="product" price="¥..."` とする。有料単品は登録済み `imageFamily` の完成画像を優先できる（総監5管理pillarは `imageFamily="pe-comprehensive-management-reading"`）。商品名・価格はpropsで併記し、`imageSrc`は必須フォールバックとして残す。無料記事・family未指定の従来カードではタイトル・価格を画像に焼き込まない
+- 無料記事は既定 `kind="article"`、有料単品は `kind="product" price="¥..."` とする。有料単品は登録済み `imageFamily` の完成画像を優先できる（総監5管理pillarは `imageFamily="pe-comprehensive-management-reading"`）。完成画像経路では商品名だけを併記し、価格・説明文は表示せず、`imageSrc`は必須フォールバックとして残す。無料記事・family未指定の従来カードではタイトル・価格を画像に焼き込まない
 - 自動検出: `npm run check-note-link-cards` が自社note生リンク、旧 `coverImage`、画像省略、許可外パス、ファイル欠落、WebP偽装をCIエラーにする。pre-commitも変更MDXへ同じ契約を適用する
 
 ### note 商品 CTA の見た目（hero / inline）
 
-商品CTAは生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の画像を `NoteImageCta` で比率を保って表示する。商品別の名称・説明・価格は商品台帳のキャプションとして併記し、inlineの列挙は `compact` の横並びを使う。R2 URL・寸法・生成記録は `content/site/_shared/pop-image.json`、一次PDFの専用画像は `content/site/pe-first-stage/_shared/pop-image.json`、画像の選択は `src/lib/note-cta-images.ts`。以下のHTML意匠は画像未登録時のフォールバック。
+商品CTAは生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の画像を `NoteImageCta` で比率を保って表示する。通常は画像のみ、inlineの列挙は `compact` の画像と商品名の横並びを使う。説明文・価格は表示せず、価格はリンク先で確認する。R2 URL・寸法・生成記録は `content/site/_shared/pop-image.json`、一次PDFの専用画像は `content/site/pe-first-stage/_shared/pop-image.json`、画像の選択は `src/lib/note-cta-images.ts`。以下のHTML意匠は画像未登録時のフォールバック。
 
 資格・試験区分は既存 `config/product-lineup.json` の分類を共用し、`src/lib/note-product-classification.ts` が教材形式を加えて画像familyを選ぶ。商品追加時は既存familyを共用できるか確認する。記事への配線は `magazine-placement.ts` の個別指定・季節切替を優先し、未指定の記事は商品台帳の `pageMatch` で収録年度・科目を照合する。対象外年度・専門科目へは収録済みと誤認させる自動配線をしない。`tests/note-product-classification.test.mjs` が公開全商品の画像対応と一次PDFの範囲・配置を検査する。
 台帳のフィールド順 `id` → `published` → `noteUrl` は検査スクリプトの読取契約。`pageMatch` 等はこの3項目の後に追加する（順序変更は `check-x-campaign-plan` が商品未登録として止める）。
