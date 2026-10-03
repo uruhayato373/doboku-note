@@ -2,11 +2,11 @@
 
 <!-- 1級二次（10/4）後に差し替える固定ポスト。即時投稿（--immediate）でスレッドを組み、プロフィールに固定する。10/26 に自己採点・来年度向けへ差し替える（config/x-account.json の pinnedPost.reviewAfter）。 -->
 
-## Tweet 01: 2級土木 10/25 直前の入口 [thread]
+## Tweet 01: 10/4 即時 civil-2 / 固定スレッド / note [thread]
 
 2級土木の受検者へ。10/25の第二次検定・第一次検定（後期）に向けて、いま使う教材を状況別にまとめました。
 
-直前の仕上げには、予想模試3回・暗記ノート・出題分析の3点セット。時間を測って解き、抜けた語句を埋めます。
+第二次検定の直前仕上げには、予想模試3回・暗記ノート・出題分析の3点セット。時間を測って解き、抜けた語句を埋めます。
 
 https://note.com/dobokunote/m/md3518107aa97?utm_source=x&utm_medium=social&utm_campaign=civil2-final-pin&utm_content=head
 
@@ -16,7 +16,7 @@ https://note.com/dobokunote/m/md3518107aa97?utm_source=x&utm_medium=social&utm_c
 
 経験記述の答案の型がまだ固まっていない方へ。
 
-安全・品質・工程の3テーマの完成答案と、自分の工事へ置き換える手順を収録。当日は2テーマが指定されるので、3つとも書ける状態にしておきます。
+安全・品質・工程の3テーマの完成答案と、自分の工事へ置き換える手順を収録。令和6・7年度は2テーマが指定されたので、3つとも書ける状態にしておきます。
 
 https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=civil2-final-pin&utm_content=r1
 
