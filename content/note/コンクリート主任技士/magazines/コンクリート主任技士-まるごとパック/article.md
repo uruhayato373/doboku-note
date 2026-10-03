@@ -25,7 +25,7 @@ cover:
 # コンクリート主任技士 まるごとパック｜択一・小論文・配合計算を1つに
 
 
-![](img/figure-author-authority-concrete.png)
+![](img/figure-author-authority-concrete-pop.png)
 
 この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。
 

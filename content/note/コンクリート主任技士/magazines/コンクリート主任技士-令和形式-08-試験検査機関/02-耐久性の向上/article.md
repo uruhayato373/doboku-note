@@ -24,7 +24,7 @@ cover:
 ---
 # コンクリート主任技士 小論文 模範答案｜試験・検査機関｜耐久性の向上・維持管理｜令和形式
 
-![](img/figure-author-authority-concrete.png)
+![](img/figure-author-authority-concrete-pop.png)
 
 この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格し、記述式の答案を書く側に立ってきました。
 
