@@ -61,7 +61,10 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 
 ### note 商品 CTA の見た目（hero / inline）
 
-技術士一次の過去問PDF（`pe1-takuitsu-pdf`）は生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の別画像を `NoteImageCta` で比率を保って表示し、R2 URL・寸法・生成記録は `content/site/pe-first-stage/_shared/pop-image.json`、商品と画像の対応は `src/lib/note-cta-images.ts` が参照する。hero／inline／冒頭／教材カード／無料演習の既存配置・計測ラベルは維持する。以下のHTML意匠は画像の未登録商品に適用する。
+商品CTAは生成済み完成画像を優先する。本文は2:1、サイドバーは6:5の画像を `NoteImageCta` で比率を保って表示する。商品別の名称・説明・価格は商品台帳のキャプションとして併記し、inlineの列挙は `compact` の横並びを使う。R2 URL・寸法・生成記録は `content/site/_shared/pop-image.json`、一次PDFの専用画像は `content/site/pe-first-stage/_shared/pop-image.json`、画像の選択は `src/lib/note-cta-images.ts`。以下のHTML意匠は画像未登録時のフォールバック。
+
+資格・試験区分は既存 `config/product-lineup.json` の分類を共用し、`src/lib/note-product-classification.ts` が教材形式を加えて画像familyを選ぶ。商品追加時は既存familyを共用できるか確認する。記事への配線は `magazine-placement.ts` の個別指定・季節切替を優先し、未指定の記事は商品台帳の `pageMatch` で収録年度・科目を照合する。対象外年度・専門科目へは収録済みと誤認させる自動配線をしない。`tests/note-product-classification.test.mjs` が公開全商品の画像対応と一次PDFの範囲・配置を検査する。
+台帳のフィールド順 `id` → `published` → `noteUrl` は検査スクリプトの読取契約。`pageMatch` 等はこの3項目の後に追加する（順序変更は `check-x-campaign-plan` が商品未登録として止める）。
 
 `<MagazineCard>` の `variant` で 2 型を使い分ける。文言・URL・キャラは全て `src/lib/note-magazines.ts`（SoT）が供給するため、MDX には **id と utmContent だけ**を書く（価格・note URL の直書きは禁止）。
 

@@ -14,6 +14,8 @@ import { fileURLToPath } from 'node:url';
 import { loadExamStages } from './exam-stages.mjs';
 import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 import { datasetPath } from './datasets.mjs';
+import { classifyProduct } from '../../src/lib/product-classification.mjs';
+export { classifyProduct } from '../../src/lib/product-classification.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const LINEUP_CONFIG_PATH = join(ROOT, datasetPath('config.product-lineup'));
@@ -89,17 +91,6 @@ export function validateLineupConfig(config) {
 export function classifySale(config, productId) {
   const id = String(productId).replace(/^(article|membership):/, '');
   return classifyProduct(config.salesRules, id) ?? classifyProduct(config.rules?.note, id);
-}
-
-/**
- * 商品 id をマスへ写す。最初に一致したルールの cells を返し、一致しなければ null。
- * @returns {string[] | null}
- */
-export function classifyProduct(rules, id) {
-  for (const r of rules ?? []) {
-    if (new RegExp(r.match).test(id)) return r.cells;
-  }
-  return null;
 }
 
 /**

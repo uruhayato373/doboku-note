@@ -18,6 +18,7 @@
 import type { DocGroupKey } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
+import { matchNoteProductPage } from './note-product-classification';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -243,6 +244,10 @@ export function resolvePlacement(
   // career 記事は note 導線を一切置かない（下の resolvePlacementRaw 0 番と同じ判定を入口でも止める）
   if (isCareer) return EMPTY;
   const placement = resolvePlacementRaw(slug, docGroup, isCareer);
+  if (!placement.top && !placement.inline.length) {
+    const matchingProduct = matchNoteProductPage(slug);
+    if (matchingProduct) return { top: slot(matchingProduct, slug, 'top'), inline: [] };
+  }
   // 共通ルール（DN-0364・2026-09-30）: 個別配線で top を決めていないページは、inline の先頭
   // （公開済みの最初の 1 誌＝その資格の主力）を冒頭にも出す。SNS から着地するキーワード・テキスト・
   // 過去問ページは、本文中間の枠が長文でしか出ず note 導線が本文後半（中央値 69%）だった。
@@ -861,12 +866,7 @@ function resolvePlacementRaw(
   //       - concrete 2 資格と技術士一次は非 HUB でもくじタイルも出ない＝top が唯一の置き場
   //     条件を満たす 2 面だけ inline も併記して中間 CTA を発火させる。
 
-  // 技術士 第一次試験 令和7年度 基礎科目（29users・全30問 69,753字）→ 一次 過去問PDF 合本。
-  // 同一試験・令和元〜7年度 全560問・全選択肢解説で、読んでいる年度をそのまま含む完全一致。
-  // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
-  if (/^pe-first-stage-r0[1-9]-(basic|aptitude|construction)$/.test(slug)) {
-    return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [] };
-  }
+  // 一次過去問は商品台帳の pageMatch（収録年度・科目）から共通解決する。
   // 技術士 第一次試験 ガイド（2026-09-17）: 科目ガイド・計算ガイドは直前暗記ノート、概要・学習計画は直前パック（過去問PDF＋暗記）を top。
   // published:false の間は slot() が空になり露出しない（wire-ahead）。
   if (/^pe-first-stage-guide-(basic-subject|aptitude-subject|construction-subject|calculus-numerical-calculation|matrix-vector-calculation|resistance-circuit-calculation)$/.test(slug)) {

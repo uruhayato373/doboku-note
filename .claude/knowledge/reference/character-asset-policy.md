@@ -84,7 +84,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
 | チャネル | 使い所 | 備考 |
 |---|---|---|
 | サイト | プロフィール画像・記事内吹き出し・アイキャッチ・FAQ | 吹き出しは表情系（smile/thinking/surprised）＋ gesture の explaining |
-| **サイト note CTA** | ヒーロー CTA バナー（`MagazineHeroCta`）の円形アバター | `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生。pose は商品ごとに `note-magazines.ts` の `ctaPose` で指定（pointing=論点提示／good-sign=完成・合格訴求／smile=伴走・入門）。完成画像を登録した一次PDF商品は `NoteImageCta` を優先する。人物変更は完成画像を再制作する（[デザインシステム](../design-system/design-system.md)参照） |
+| **サイト note CTA** | 商品CTAの完成画像、未登録時はヒーロー CTA の円形アバター | 完成画像を選択する商品CTAは `NoteImageCta` を優先し、人物変更は完成画像を再制作する。未登録時のアバターは `npm run character-avatars` で `public/images/character/avatar-{pose}.webp` を派生し、商品台帳の `ctaPose` で選ぶ（[デザインシステム](../design-system/design-system.md)参照） |
 | YouTube | チャンネルアイコン・サムネ・解説ナビ・Shorts 立ち絵・冒頭/締め | サムネは指差し系＋文字スペース確保 |
 | Instagram | カルーセル・まとめ・過去問解説・暗記ポイント | カルーセルは管理別色テーマと併用 |
 | **IG/YT リール** | 角度駆動リールにキャラを合成（登場演出） | beat（hook/point/cta）に応じ pose を選ぶ。詳細 → [ig-reels-policy.md](ig-reels-policy.md) §7 |

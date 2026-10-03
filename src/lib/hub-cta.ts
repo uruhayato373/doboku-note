@@ -5,9 +5,9 @@ import { withNoteUtm } from '@/lib/note-utm';
 import { mokujiFor } from '@/lib/note-mokuji';
 import type { ExamKey } from '@/lib/exam-brand';
 
-// カテゴリ hub 本文の note CTA（資格別リッチ背景×HTML文字）を解決する。
+// カテゴリ hub 本文の note CTA の商品・もくじ・リンクを解決する。
 // 方針（2026-07-05 決定）: マガジンが多いので幅広面は「もくじ(L2索引)」へ集約し、直前期だけ特定商品へ直リンク。
-// 背景は資格ごとに 1 枚（public/images/cta-bg/*.webp）を使い回し、文言/価格は HTML でデータ駆動。
+// 表示は資格・商品に対応する完成画像を使う。背景は画像欠落時のフォールバック。
 // 直前期の switch 日は magazine-placement の季節ロジックと同型（ビルド時 Date.now() 比較）。
 
 type HubCtaSpec = {
@@ -81,6 +81,8 @@ const HUB: Partial<Record<string, HubCtaSpec>> = {
 
 export type ResolvedHubCta = {
   mode: 'product' | 'mokuji';
+  qualification: string;
+  productId?: MagazineId;
   bg: string;
   themeVar: string;
   /** バッジ文言（省略時は "note限定"）。product タイルでは magazine.badge を差す。 */
@@ -122,6 +124,8 @@ export function resolveHubCta(
       const utm = `category-${category}-hub-seasonal${suffix}`;
       return {
         mode: 'product',
+        qualification: category,
+        productId: spec.seasonal.product,
         bg: spec.bg,
         themeVar: spec.themeVar,
         qual: qualificationShortLabel(category),
@@ -143,6 +147,7 @@ export function resolveHubCta(
   const utm = `category-${category}-hub-mokuji${suffix}`;
   return {
     mode: 'mokuji',
+    qualification: category,
     bg: spec.bg,
     themeVar: spec.themeVar,
     qual: qualificationShortLabel(category),

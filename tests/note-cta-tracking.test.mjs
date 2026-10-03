@@ -52,16 +52,16 @@ test('一次PDFは本文2:1・サイドバー6:5の生成画像をR2から表示
     const product = getMagazine('pe1-takuitsu-pdf');
     process.stdout.write(JSON.stringify({
       body: noteCtaImage(product.id), tile: noteCtaImage(product.id, 'tile'),
-      unrelated: noteCtaImage('civil-1-combo-essay') ?? null,
+      unrelated: noteCtaImage('unknown-product') ?? null,
       html: renderToStaticMarkup(React.createElement(Card, {product, category:'pe-first-stage', placement:'article-sidebar'})),
     }));
   `], { cwd: ROOT, encoding: 'utf8' }));
   assert.equal(result.body.width / result.body.height, 2);
   assert.equal(result.tile.width / result.tile.height, 6/5);
   assert.match(result.body.src, /^https:\/\/storage\.doboku-note\.com\/posts\//);
-  assert.match(result.tile.src, /cta-pdf-sidebar\.webp\?v=[a-f0-9]+$/);
+  assert.match(result.tile.src, /cta-pdf-sidebar-v2\.webp\?v=[a-f0-9]+$/);
   assert.equal(result.unrelated, null);
-  assert.match(result.html, /cta-pdf-sidebar\.webp/);
+  assert.match(result.html, /cta-pdf-sidebar-v2\.webp/);
   assert.match(result.html, /data-cta-label="pe1-takuitsu-pdf"/);
   assert.match(result.html, /data-cta-placement="article-sidebar"/);
   assert.match(result.html, /全560問/);

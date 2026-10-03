@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import { type ResolvedHubCta } from '@/lib/hub-cta';
 import { NOTE_LINK_REL } from '@/lib/external-link-rel';
+import { noteCtaImage, noteCtaQualificationTile } from '@/lib/note-cta-images';
+import NoteImageCta from '@/components/ui/NoteImageCta/NoteImageCta';
 
-// カテゴリ hub 本文の note CTA。資格別リッチ背景（cta-bg/*.webp・右にモチーフ/左空き）＋
-// 左の余白へ HTML 文字（濃色＋白グローで可読）。文言/価格/リンク先は resolveHubCta がデータ駆動で供給。
-// 幅広面は「もくじ」へ集約し、直前期のみ特定商品へ直リンク（mode で分岐）。クリックは data-cta="note" で計測。
-// 色は --exam-*（バッジ）＋ --on-image-*（背景イラスト上の文字・テーマ非追従の固定濃色）を使用。
-// 背景イラストは常に明色のため、文字にテーマ追従色（--ink 等）を使うと dark で白化して消える。
+// カテゴリ hub の note CTA。完成画像を資格または商品から選び、商品台帳の説明を併記する。
+// もくじ・季節商品・リンク・計測は resolveHubCta の既存ルールを使う。画像欠落時は背景型へ戻る。
 
 const HALO = { textShadow: '0 1px 2px rgba(255,255,255,0.95), 0 0 12px rgba(255,255,255,0.85)' };
 
@@ -17,6 +16,12 @@ export default function HubCtaBanner({
   cta: ResolvedHubCta;
   placement: string;
 }) {
+  const image = cta.productId ? noteCtaImage(cta.productId, 'tile') : noteCtaQualificationTile(cta.qualification);
+  if (image) return <NoteImageCta href={cta.url}
+    image={cta.productId ? image : { ...image, caption: {
+      title: `${cta.qual} 教材一覧`, description: `${cta.title1}・${cta.title2}。${cta.sub}`, price: undefined,
+    } }}
+    trackLabel={cta.trackLabel} placement={placement} className="w-full max-w-[360px]" />;
   return (
     <a
       href={cta.url}
