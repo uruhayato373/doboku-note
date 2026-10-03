@@ -209,6 +209,15 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0516] 診断士2記事の末尾CTAが参考資料の抽出で消える不具合と、到達検査の誤集計を直す
+タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-03]
+
+**起点**: サイト全体の本番HTML調査で、`content/site/concrete-diagnostician/textbook-assessment/article.mdx:418` と `textbook-repair/article.mdx:446` の `cd-essay-magazine` カードが描画されないことを確認。いずれも `## 参考資料` の後ろにあり、`src/lib/extract-references.ts` がセクションごと除去する。`scripts/check-magazine-cta-reachability.ts` は生のMDXからカードを数えるため、描画されない面を導線に含める。
+
+**やること**: 商品カードと案内文を参考資料の外へ移し、到達検査の本文抽出を描画処理と合わせる。商品が別ページにあるだけでは当該記事の欠落を見落とすため、参考資料内だけにカードがあるケースを回帰検査に含める。
+
+**完了条件**: `/exam/concrete-diagnostician/textbook/assessment` と `/exam/concrete-diagnostician/textbook/repair` の本番HTMLに `https://note.com/dobokunote/m/mf2a132408b6f` のリンクがあり、参考資料内の非描画カードを到達面に数えない回帰検査が通る。
+
 ### [DN-0515] note 配布PDFの spec（scripts/pdf-specs・pdf-spec.json）を記事の現行構成に合わせ、作り直すと中身が欠ける・導線が混入する状態を直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-03]
 
