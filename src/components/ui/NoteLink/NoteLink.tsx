@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { NOTE_LINK_REL } from "@/lib/external-link-rel";
+import { noteCtaFamilyImage } from "@/lib/note-cta-images";
+import NoteImageCta from "@/components/ui/NoteImageCta/NoteImageCta";
 
 interface NoteLinkProps {
   /** note 記事の URL（例: https://note.com/dobokunote/n/nc360aaa381b0） */
@@ -11,6 +13,8 @@ interface NoteLinkProps {
   readonly description?: string;
   /** サイト側で制作・管理する画像。`/images/note-links/*.webp` のみ許可する。 */
   readonly imageSrc: string;
+  /** 有料単品の画像分類。制作物台帳のfamilyを指定し、商品名・価格はこのカードのpropsを使う。 */
+  readonly imageFamily?: string;
   /** 無料の関連記事か、有料商品か。商品は note_cta_click として収益計測する。 */
   readonly kind?: "article" | "product";
   /** 有料商品に表示する価格。note側と同期して更新する。 */
@@ -35,7 +39,7 @@ function trackLabelFromUrl(url: string): string {
  *
  * doboku-note から note.com 記事へリンクするときの唯一の正規コンポーネント。
  * note.com のカバー画像や OGP には依存せず、サイト側の `/images/note-links/`
- * 画像を必須にする。タイトル・価格は HTML で描画し、画像への文字焼き込みを避ける。
+ * 画像を必須にする。有料単品はimageFamilyの完成画像を優先し、タイトル・価格を併記する。
  *
  * 使い分けの真実源: `.claude/knowledge/reference/content-authoring.md`
  * 「リンク系コンポーネントの使い分け」
@@ -45,12 +49,17 @@ export default function NoteLink({
   title,
   description,
   imageSrc,
+  imageFamily,
   kind = "article",
   price,
   trackLabel,
   placement = "article-body",
 }: NoteLinkProps) {
   const isProduct = kind === "product";
+  const image = isProduct && imageFamily ? noteCtaFamilyImage(imageFamily) : undefined;
+  if (image) return <NoteImageCta href={url}
+    image={{ ...image, alt: `${title}。教材の内容を見る（note）`, caption: { title, description: description ?? '', price } }}
+    trackLabel={trackLabel ?? trackLabelFromUrl(url)} placement={placement} compact className="my-6 max-w-2xl" />;
 
   return (
     <a

@@ -13,7 +13,8 @@
     "title": "2級土木 第1次検定｜過去問PDF（令和3〜7年度 前期後期 全630問・全選択肢解説）",
     "description": "2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。",
     "price": "¥1,480",
-    "badge": "note 限定 PDF教材"
+    "badge": "note 限定 PDF教材",
+    "pageMatch": "^civil-construction-2-primary-r0[3-7]-(zenki|kouki)$"
   },
   "members": [],
   "includes": [],

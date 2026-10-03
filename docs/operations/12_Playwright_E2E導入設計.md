@@ -254,8 +254,10 @@ lint-ui も axe（`e2e/a11y.spec.ts`）も、CSS・Tailwind 変更によるレ�
 
 1. 意図した UI 変更を develop（コンテンツ）または feature ブランチ（コード）に反映する。
 2. `.github/workflows/e2e.yml` を `workflow_dispatch` で手動実行する（対象ブランチを指定）。差分のあるルートだけ「基準画像と一致しない」で失敗する（想定内）。
-3. run の artifact `visual-snapshots-<attempt>` をダウンロードし、中身を `e2e/visual.spec.ts-snapshots/` へ丸ごと展開する（Playwright が「新規/不一致の基準」をこのディレクトリへ直接書き出すため、ファイル名の変更は不要）。
+3. 新規で基準が無い場合は artifact `visual-snapshots-<attempt>` の該当画像を取り込む。既存基準との不一致は基準ファイルを上書きしないので、artifact `playwright-e2e-<attempt>` 内の `test-results/**/**-actual.png` を、ログの `Expected:` に示された基準ファイル名で取り込む。
 4. 差分が意図した変更だけであることを diff（画像）で確認してから commit する。
 5. 同じブランチで `workflow_dispatch` をもう一度実行し、緑になることを確認する。
 
 新規ルート追加時も同じ手順（該当ルートの基準画像だけが「存在しない」で失敗し、1回目の run で artifact に書き出される）。
+
+R2画像を追加する変更は、目視確認後に画像を同期し、公開URLの読み戻しを確認してから基準画像を採用する。未同期の404画像を含む `actual.png` は採用せず、同期後に再実行する。

@@ -40,7 +40,7 @@ export default function MagazineInlineCard({
 }: MagazineInlineCardProps) {
   const image = noteCtaImage(magazineId, 'body');
   if (image) return <NoteImageCta href={url} image={image}
-    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} className="my-6 w-full max-w-2xl" />;
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={placement} compact className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(magazineId);
   return (
     <a

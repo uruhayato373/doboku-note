@@ -14,10 +14,11 @@ note 記事リンクはかつて 3 パターン（生 markdown / `<LinkCard>` / 
 | `title` | ✓ | note 記事のタイトル |
 | `description` | | 記事の要約（2 行で line-clamp） |
 | `imageSrc` | ✓ | サイト制作画像（`/images/note-links/*.webp`） |
+| `imageFamily` | | 有料単品の完成画像family。`imageSrc`は必須フォールバック |
 | `kind` | | `article`（既定）または `product` |
 | `price` | | `kind="product"` のとき必須 |
 
-note.com のカバー画像や OGP は使用しない。画像内にタイトル・価格を焼き込まず、変更される情報は HTML で表示する。
+note.com のカバー画像や OGP は使用しない。`kind="product"` と登録済み `imageFamily` を指定すると、R2の完成画像を `NoteImageCta compact` で表示する。商品名・価格は既存propsで併記し、URL・計測属性も既存propsを使う。無料記事とfamily未指定の従来カードでは、画像内にタイトル・価格を焼き込まずHTMLで表示する。
 
 ## 使用例
 
@@ -32,7 +33,7 @@ note.com のカバー画像や OGP は使用しない。画像内にタイトル
 
 ## 設計
 
-カード画像はサイト側で制作し `public/images/note-links/` に保存する。note.com の OGP 取得結果やカバー変更に表示を依存させない。
+従来カードの画像はサイト側で制作し `public/images/note-links/` に保存する。note.com の OGP 取得結果やカバー変更に表示を依存させない。
 
 ## 真実源・関連
 
