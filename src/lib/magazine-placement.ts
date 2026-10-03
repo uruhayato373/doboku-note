@@ -263,7 +263,7 @@ export function resolvePlacement(
  * 本文中間 CTA に出す note マガジン。冒頭（top）と同じ商品を 2 度見せないため、
  * 公開済みの inline のうち top と別の先頭 1 誌を返す。DocPage と到達性検査が共有する。
  */
-export function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
+function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
   return (
     placement.inline.find(
       (s) => getMagazine(s.magazineId) !== null && s.magazineId !== placement.top?.magazineId,
