@@ -449,7 +449,7 @@
 **完了条件**: 節を追加して公開済み、本文 3,000 字以上を維持、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
 
 ### [DN-0467] coconala-edit の公開済み商品画像 dry-run が「下書きで保存」未検出で失敗する
-タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-30]
+タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-30] [進行中]
 
 **起点**: 2026-09-30、公開済み `coconala-cce-essay-tensaku` へ `--image thumb-cce-essay-tensaku.png --replace-image` を dry-run したところ、期待アカウント確認と画像差し替えの画面操作は成功したが、`submitForm(commit:false)` が「下書きで保存」だけを探し、公開済み編集画面には「更新する」しかないため exit 2。続けて `--commit` は exit 0 で更新できた。
 
