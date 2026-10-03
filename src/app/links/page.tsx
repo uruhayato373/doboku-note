@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
 import { EXAM_BRAND, type ExamKey } from "@/lib/exam-brand";
 import { pickCoconalaFor } from "@/lib/exam-key-bridge";
+import { getMagazine, buildMagazineUrl } from "@/lib/note-magazines";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
  * ②③は実体がある資格だけ表示し、未整備の導線を作らない。
  * 関与度の順に並ぶので、資格をまたいでも同じ位置に同じ性質のリンクが来る。
  *
- * マガジンの個別列挙は **note の L2 もくじへ集約して廃止**した（商品が増えても改修不要）。
+ * マガジンは note の L2 もくじへ集約。L2 未作成の第一次はカタログから代表教材を選ぶ。
  */
 type ExamCard = {
   /** exam-brand.ts の ExamKey（ラベル・テーマ色・背景イラストの解決に使う）。 */
@@ -295,12 +296,13 @@ function CardRow({
 /**
  * 資格カード 1 枚。頭に資格ブランドの帯（cta-bg イラスト or テーマ色）を敷き、
  * 中身は役割固定の 3 行。③ 個別サービスは資格に紐づく listed が無ければ行ごと省略する
- * （2026-09-24 時点でコンクリート 3 資格は 2 行、技術士第一次はサイトの 1 行だけ）。
+ * （主任技士は添削を含む 3 行。技術士第一次は L2 未作成のため実商品の教材行を出す）。
  */
 function ExamCardView({ card }: { card: ExamCard }) {
   const brand = EXAM_BRAND[card.key];
   const mokuji = mokujiFor(card.key);
   const coconala = pickCoconalaFor(card.key);
+  const noteProduct = !mokuji && card.key === "pe-first-stage" ? getMagazine("pe1-chokuzen-pack") : null;
 
   return (
     <div className="card-surface-content overflow-hidden p-0">
@@ -349,6 +351,11 @@ function ExamCardView({ card }: { card: ExamCard }) {
             cta="note"
             ctaLabel={`mokuji-${card.key}`}
           />
+        )}
+        {noteProduct && (
+          <CardRow channel="note" channelLabel="note" label={noteProduct.shortTitle ?? noteProduct.title}
+            sub={noteProduct.shortDescription ?? noteProduct.description}
+            href={buildMagazineUrl(noteProduct, "links-pe-first-stage")} external cta="note" ctaLabel={noteProduct.id} />
         )}
         {coconala && (
           <CardRow

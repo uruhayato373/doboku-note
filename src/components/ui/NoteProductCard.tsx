@@ -6,11 +6,11 @@ import { brandOf } from '@/lib/exam-brand';
 import { NOTE_LINK_REL } from '@/lib/external-link-rel';
 
 /** 公開済み教材のサイト用プレビュー。note表紙の保存場所や再生成には依存しない。 */
-export default function NoteProductCard({ product, category, placement }: {
-  product: NoteMagazine; category: string; placement: string;
+export default function NoteProductCard({ product, category, placement, scopeNotice }: {
+  product: NoteMagazine; category: string; placement: string; scopeNotice?: string | undefined;
 }) {
   const generatedImage = noteCtaImage(product.id, placement.includes('sidebar') ? 'tile' : 'body');
-  if (generatedImage) return <NoteImageCta href={buildMagazineUrl(product, `${category}-${placement}`)} image={generatedImage}
+  if (generatedImage) return <NoteImageCta href={buildMagazineUrl(product, `${category}-${placement}`)} image={generatedImage} scopeNotice={scopeNotice}
     trackLabel={product.id} placement={placement} className={placement.includes('sidebar') ? 'mx-auto w-full max-w-[300px]' : 'w-full'} />;
   const brand = brandOf(product.id);
   const image = brand.previewImage || brand.ctaBg;

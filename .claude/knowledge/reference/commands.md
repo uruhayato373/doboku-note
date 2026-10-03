@@ -92,7 +92,7 @@ npm run check-generated-indexes # refresh-indexes を実際に回し、生成物
 
 ```bash
 npm run build-standard-articles # 公的基準の逐語文字起こし→編・章・節の構造化章記事を生成（`content/site/standards-articles/`。章は PDF 分冊でなく原本の柱＝編・章で切る。対象と canonical 機関は config/standards-structure.json）
-npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画
+npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
 npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
 npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行）
@@ -133,7 +133,7 @@ npm run check-kdp-report-freshness # KDPロイヤリティ台帳の期限とdobo
 npm run note-traffic-fetch # note ダッシュボード「アクセス状況」を read-only 取得→data/note/{referrers,articles-pv}/YYYY-MM.json（--month は今月/先月のみ・--commit で保存・--check は fixture で正規化の完走確認＝quality:audit ci・ログイン要・DN-0249）。流入元は自己閲覧を含み、サイト経由は PR #511 deploy 前は no referrer に含まれる
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKでdata/note/sales.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）。パスワード再確認は資格情報 `doboku-note-auth-note`（CI は Secrets）で 1 回だけ自動で通す。`--no-auto-reauth` で人が通す。失敗印 `metadata/note.reauth-failed` は確認後に人が消す。前月の売上は note が翌月 2 日に確定するまで集計中で、その間は exit 8（PENDING・書き込みなし）
 npm run record-net-receipts # 月の受取額（NSM）を事業の計測記録へ。note は売上管理の月別詳細の「手数料控除後売上」をブラウザで read-only 取得（パスワード再確認は資格情報 `doboku-note-auth-note` で 1 回だけ自動・通らなければ人）、KDP は data/kdp/royalties.json の catalog 対象・確定値、ココナラは `--coconala <円>`（控除後・クローズ日計上）。`--month YYYY-MM`、既定 dry-run・`--commit` で記録。3 つそろい KDP 確定のときだけ complete（欠測を 0 にしない）
-npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard）＋1級・2級土木の公開記事に CTA ゼロのページが無いか（:ci で落ちる・例外は baseline の zeroPage・quality:audit に同梱）
+npm run check-magazine-cta # 公開 note 商品の到達面＋9資格の公開学習記事の CTA ゼロを検査（下書き・career を除外。参考資料抽出後のカード、自動中間・末尾、サイドバー、もくじを描画と同じ resolver で判定。:ci は baseline 外ゼロで失敗、対象数を出力・quality:audit に同梱）
 npm run audit-sns-landing-cta # SNS原稿・X予約のリンク先（転職・practice除く）に note 導線が冒頭側にあるか（ソース静的判定・quality:audit に同梱・DN-0364）
 npm run check-sales-freshness # data/note/sales.json の転記停止（updatedAt）と、毎月5日以降に前月noteアクセス取得・月次売上表示との金額一致を検査（quality:audit の **ops 区分**＝ops-audit.yml が日次で Issue へ。取得自体は認証が要るのでローカル専用）
 npm run check-weekly-review-due # 週次レビュー（ローカル実行・土曜）の忘れを催促（土曜 09:00 JST 以降に今週分、月〜金は先週分の *-review.md が無ければ exit 1・SessionStart フックが呼ぶ。最終 backstop は月曜の weekly-review-guard）

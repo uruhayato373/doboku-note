@@ -19,6 +19,7 @@ import type { DocGroupKey } from './doc-classifier';
 import { getMagazine, type MagazineId } from './note-magazines';
 import examCalendar from '../../config/exam-calendar.json';
 import { matchNoteProductPage } from './note-product-classification';
+import { extractReferencesSection } from './extract-references';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -27,6 +28,8 @@ export interface PlacementSlot {
 
 export interface ResolvedPlacement {
   readonly inline: ReadonlyArray<PlacementSlot>;
+  /** 他部門でも使える共通科目だけを案内するときの対象範囲。 */
+  readonly scopeNotice?: string;
   // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
   // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
   readonly top?: PlacementSlot;
@@ -243,11 +246,10 @@ export function resolvePlacement(
 ): ResolvedPlacement {
   // career 記事は note 導線を一切置かない（下の resolvePlacementRaw 0 番と同じ判定を入口でも止める）
   if (isCareer) return EMPTY;
+  // 収録範囲が一致する一次PDFを、季節の別段階の商品より先に選ぶ。
+  const matchingProduct = matchNoteProductPage(slug);
+  if (matchingProduct) return { top: slot(matchingProduct, slug, 'top'), inline: [] };
   const placement = resolvePlacementRaw(slug, docGroup, isCareer);
-  if (!placement.top && !placement.inline.length) {
-    const matchingProduct = matchNoteProductPage(slug);
-    if (matchingProduct) return { top: slot(matchingProduct, slug, 'top'), inline: [] };
-  }
   // 共通ルール（DN-0364・2026-09-30）: 個別配線で top を決めていないページは、inline の先頭
   // （公開済みの最初の 1 誌＝その資格の主力）を冒頭にも出す。SNS から着地するキーワード・テキスト・
   // 過去問ページは、本文中間の枠が長文でしか出ず note 導線が本文後半（中央値 69%）だった。
@@ -261,12 +263,39 @@ export function resolvePlacement(
  * 本文中間 CTA に出す note マガジン。冒頭（top）と同じ商品を 2 度見せないため、
  * 公開済みの inline のうち top と別の先頭 1 誌を返す。DocPage と到達性検査が共有する。
  */
-export function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
+function resolveMidNoteSlot(placement: ResolvedPlacement): PlacementSlot | null {
   return (
     placement.inline.find(
       (s) => getMagazine(s.magazineId) !== null && s.magazineId !== placement.top?.magazineId,
     ) ?? null
   );
+}
+
+/** 描画に渡す本文だけを数える。参考資料内のカードは到達面に含めない。 */
+export function renderedMagazineCardIds(content: string): MagazineId[] {
+  const { strippedContent } = extractReferencesSection(content);
+  return [...strippedContent.matchAll(/<MagazineCard[^>]*\sid=["']([^"']+)["']/g)]
+    .map(m => m[1] as MagazineId).filter(id => getMagazine(id));
+}
+
+/** 記事中間の実表示条件を描画と検査で共有する。一次は問題見出しの間で復習を案内する。 */
+export function resolveArticleMidNoteSlot(
+  placement: ResolvedPlacement, group: DocGroupKey, content: string, isCivilSecondary = false,
+): PlacementSlot | null {
+  const { strippedContent: body } = extractReferencesSection(content);
+  const h2 = (body.match(/^##\s+/gm) ?? []).length;
+  if (group === 'primary') {
+    if (h2 < 3 || body.length < 2500 || /<MagazineCard[^>]*placement=["']article-mid["']/.test(body)) return null;
+    return placement.top && getMagazine(placement.top.magazineId) ? placement.top : null;
+  }
+  if (!['guide', 'pillar', 'textbook'].includes(group) && !isCivilSecondary) return null;
+  return h2 >= 5 && body.length >= 8000 ? resolveMidNoteSlot(placement) : null;
+}
+
+/** 手書きの商品カードがない記事には、主教材を末尾にも表示する。 */
+export function resolveEndNoteSlot(placement: ResolvedPlacement, content: string): PlacementSlot | null {
+  if (renderedMagazineCardIds(content).length) return null;
+  return placement.top && getMagazine(placement.top.magazineId) ? placement.top : null;
 }
 
 function resolvePlacementRaw(
@@ -847,11 +876,28 @@ function resolvePlacementRaw(
     };
   }
   // 10.7. コンクリート技士 その他の体系テキスト 4 章 → 直前暗記ノート、概要・学習計画 → 択一 直前パック（2026-09-17・wire-ahead）。
-  if (/^concrete-engineer-textbook-(materials|properties-testing|construction|environment)$/.test(slug)) {
+  if (/^concrete-engineer-(textbook|primary)-(materials|properties-testing|construction|environment)$/.test(slug)) {
     return { top: slot('ce-anki-note', slug, 'top'), inline: [] };
   }
-  if (slug === 'concrete-engineer-guide-overview' || slug === 'concrete-engineer-guide-study-plan') {
+  if (/^concrete-engineer-guide-(overview|study-plan|books|difference-chief|eligibility-2026)$/.test(slug)) {
     return { top: slot('ce-chokuzen-pack', slug, 'top'), inline: [] };
+  }
+
+  if (/^concrete-diagnostician-guide-(study-method|trends)$/.test(slug)) {
+    return { top: slot('cd-marugoto-pack', slug, 'top'), inline: [] };
+  }
+  if (/^concrete-diagnostician-textbook-(deterioration|investigation|maintenance|variation)$/.test(slug)) {
+    return { top: slot('cd-takuitsu-98-pdf', slug, 'top'), inline: [] };
+  }
+
+  // 旧年度・再試験は560問PDFの収録外。年度に依存しない要点整理へ案内する。
+  if (/^pe-first-stage-(h(?:2[3-9]|30)|r01-retry)-(basic|aptitude|construction)$/.test(slug)) {
+    return { top: slot('pe1-anki-note', slug, 'top'), inline: [] };
+  }
+  // 上下水道の専門教材は未発売。全部門共通の基礎・適性だけを対象として案内する。
+  if (/^pe-first-stage-(?:(?:h(?:2[3-9]|30)|r0[1-7](?:-retry)?)-water-supply|guide-water-supply-subject)$/.test(slug)) {
+    return { top: slot('pe1-anki-note', slug, 'top'), inline: [],
+      scopeNotice: '基礎・適性科目の復習に使える教材です。収録の専門科目は建設部門向けで、上下水道の専門科目は含みません。' };
   }
 
   // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。

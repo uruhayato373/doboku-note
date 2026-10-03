@@ -16,10 +16,12 @@ const EXAM_SCOPE_BY_KEY: Partial<Record<ExamKey, string>> = {
   'civil-1': 'civil-1',
   'civil-2': 'civil-2',
   concrete: 'concrete-engineer',
+  'concrete-chief': 'concrete-chief-engineer',
+  'concrete-diagnosis': 'concrete-diagnostician',
   rccm: 'rccm',
 };
 
-/** ExamKey → 商品カタログ側の examScope 値。対応が無い資格（concrete 等）は null。 */
+/** ExamKey → 商品カタログ側の examScope 値。対応が無い資格は null。 */
 function toExamScope(key: ExamKey): string | null {
   return EXAM_SCOPE_BY_KEY[key] ?? null;
 }
