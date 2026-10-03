@@ -48,18 +48,56 @@ export function yearsForTheme(history, themeId) {
 
 const inRange = (n, [lo, hi]) => n >= lo && n <= hi;
 
+/** 空白を除いた本文（立場別記事どうしの (1)・(4) の一致判定用）。 */
+const normalize = (text) => (text ?? '').replace(/\s/g, '');
+
+/** `## 模範答案` の (1)〜(4) を key → 本文で返す（節が無い part は含めない）。 */
+export function extractAnswerParts(body, history) {
+  const answer = sectionOf(body, ANSWER_HEADING, 2);
+  const parts = {};
+  if (answer === null) return parts;
+  for (const part of history.answerModel.parts) {
+    const sec = sectionOf(answer, part.heading, 3);
+    if (sec !== null) parts[part.key] = sec.trim();
+  }
+  return parts;
+}
+
 /**
- * テーマ別教材 1 記事を評価する。
+ * 同じテーマの立場別記事どうしで、立場ごとに書くべき part（personaArticle.distinctParts）が一致している組を返す。
+ * @param {{file: string, theme: string, persona: string, parts: Record<string, string>}[]} entries
+ * @returns {{file: string, other: string, key: string}[]} file 側から見た一致（両方向に出す）
+ */
+export function findSharedPersonaParts(entries, history) {
+  const keys = history.answerModel.personaArticle?.distinctParts || [];
+  const hits = [];
+  for (const a of entries) {
+    for (const b of entries) {
+      if (a === b || a.theme !== b.theme) continue;
+      for (const key of keys) {
+        const x = normalize(a.parts[key]);
+        if (x && x === normalize(b.parts[key])) hits.push({ file: a.file, other: b.file, key });
+      }
+    }
+  }
+  return hits;
+}
+
+/**
+ * テーマ別教材 1 記事を評価する。frontmatter に cceEssayPersona があれば立場別記事（1立場×1テーマ）として評価する。
  * @param {string} body frontmatter を除いた本文
- * @param {object} data frontmatter（cceEssayTheme / cceSourceYears / paidBoundary）
+ * @param {object} data frontmatter（cceEssayTheme / cceEssayPersona / cceSourceYears / paidBoundary）
  * @param {object} history cce-essay-history.json
  */
 export function evaluateCceEssay(body, data, history) {
   const errors = [];
   const model = history.answerModel;
   const themeId = data.cceEssayTheme;
+  const persona = data.cceEssayPersona;
+  const isPersonaArticle = persona !== undefined;
   const counts = {};
 
+  if (isPersonaArticle && !model.personas.includes(persona)) errors.push(`H5: frontmatter cceEssayPersona「${persona}」が SSOT personas に無い`);
   if (!history.themes[themeId]) errors.push(`H1: frontmatter cceEssayTheme「${themeId}」が SSOT themes に無い`);
   else {
     const expected = yearsForTheme(history, themeId);
@@ -73,10 +111,11 @@ export function evaluateCceEssay(body, data, history) {
     for (const part of model.parts) {
       const sec = sectionOf(answer, part.heading, 3);
       if (sec === null) { errors.push(`H3: \`### ${part.heading}\` が無い`); continue; }
-      if (part.scope === 'common') {
+      if (part.scope === 'common' || isPersonaArticle) {
         const n = countChars(sec);
         counts[part.key] = n;
         if (!inRange(n, part.chars)) errors.push(`H4: ${part.heading} ${n} 字（${part.chars[0]}〜${part.chars[1]} 字）`);
+        if (isPersonaArticle && part.scope === 'persona' && /^####\s/m.test(sec)) errors.push(`H5: 立場別記事の ${part.heading} に \`####\` の立場見出しがある（その立場だけを本文で書く）`);
       } else {
         counts[part.key] = {};
         for (const persona of model.personas) {
@@ -90,14 +129,17 @@ export function evaluateCceEssay(body, data, history) {
     }
     const common = model.parts.filter((p) => p.scope === 'common').reduce((s, p) => s + (typeof counts[p.key] === 'number' ? counts[p.key] : 0), 0);
     const personaPart = model.parts.find((p) => p.scope === 'persona');
-    for (const [persona, n] of Object.entries(counts[personaPart?.key] || {})) {
+    const work = counts[personaPart?.key];
+    const assembled = typeof work === 'number' ? { [persona]: work } : work || {};
+    for (const [label, n] of Object.entries(assembled)) {
       const total = common + n;
-      if (!inRange(total, model.totalChars)) errors.push(`H6: ${persona} を組み立てた答案 ${total} 字（${model.totalChars[0]}〜${model.totalChars[1]} 字）`);
+      if (!inRange(total, model.totalChars)) errors.push(`H6: ${label} を組み立てた答案 ${total} 字（${model.totalChars[0]}〜${model.totalChars[1]} 字）`);
     }
   }
 
   const h2s = body.split(/\r?\n/).filter((l) => /^##\s/.test(l)).map((l) => l.replace(/^##\s+/, '').trim());
-  for (const req of model.requiredH2 || []) {
+  const requiredH2 = isPersonaArticle ? model.personaArticle?.requiredH2 : model.requiredH2;
+  for (const req of requiredH2 || []) {
     if (!h2s.some((h) => h.startsWith(req))) errors.push(`H10: 必須の見出し \`## ${req}\` が無い`);
   }
 

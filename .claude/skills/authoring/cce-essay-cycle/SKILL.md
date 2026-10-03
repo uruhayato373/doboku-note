@@ -1,7 +1,7 @@
 ---
 name: cce-essay-cycle
 description: >
-  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・テーマ別模範答案（令和形式・8立場）・PDF/ココナラ展開を一本化する統括スキル。
+  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・令和形式の模範答案（テーマ別・立場別）・PDF/ココナラ展開を一本化する統括スキル。
   新年度の出題追記（history）→ 傾向記事の再生成 → writer/qa で答案作成（draft）→ PDF 化と配線（product）へルーティングする。
   Use when user asks to [主任技士 小論文, コンクリート主任技士 小論文の傾向, 小論文テーマ別答案, 主任技士 小論文 新年度追記, /cce-essay-cycle].
 user-invocable: true
@@ -36,9 +36,9 @@ domain: product
 3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（テーマ別記事の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
 4. サイトは `npm run refresh-indexes`、note は再同期（note-sync）。
 
-### draft — テーマ別模範答案を作る
+### draft — 模範答案を作る
 
-1. `cce-essay-writer`（`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。
+1. `cce-essay-writer`（`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。立場別記事（1立場×1テーマ）は親が下書きを用意し、writer をテーマ単位で8本ずつ走らせる（立場と置き場の対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md`）。
 2. `cce-essay-qa` で採点。平均 ≥ 2.0・全軸 ≥ 1・決定論ゲート全通過で合格。不合格は issues を writer へ渡して再走。
 3. 親が技術事実の抜き取り照合（各記事 3 箇所以上）をしてから commit。
 

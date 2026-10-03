@@ -1,7 +1,7 @@
 ---
 name: cce-essay-cycle
 description: >
-  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・テーマ別模範答案（令和形式・8立場）・PDF/ココナラ展開を一本化する統括スキル。
+  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・令和形式の模範答案（テーマ別・立場別）・PDF/ココナラ展開を一本化する統括スキル。
   新年度の出題追記（history）→ 傾向記事の再生成 → writer/qa で答案作成（draft）→ PDF 化と配線（product）へルーティングする。
   Use when user asks to [主任技士 小論文, コンクリート主任技士 小論文の傾向, 小論文テーマ別答案, 主任技士 小論文 新年度追記, /cce-essay-cycle].
 user-invocable: true
