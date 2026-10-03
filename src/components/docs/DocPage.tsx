@@ -27,10 +27,11 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { MDXProvider } from '@mdx-js/react';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import { extractHeadings } from '@/lib/toc';
-import { resolvePlacement, resolveMidNoteSlot } from '@/lib/magazine-placement';
+import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
+import MagazineHeroCta from '@/components/ui/MagazineHeroCta/MagazineHeroCta';
 import MagazineTopBanner from '@/components/ui/MagazineTopBanner';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import ArticleFooter from '@/components/ui/ArticleFooter/ArticleFooter';
@@ -349,17 +350,15 @@ export async function renderDocPage(slugStr: string) {
 
   // 中身を優先順に用意する（各種別 1 記事 1 回まで＝同じ広告を 2 度出さない）。
   const midRenderers: Array<() => React.ReactElement> = [];
-  // 1) note 中間 CTA（収益の主導線＝最優先）。供給源は placement.inline の先頭 1 誌で、
-  //    冒頭 CTA と別マガジンのときのみ（同じ商品を 2 度見せない）。
-  if (midEnabled) {
-    const midSlot = resolveMidNoteSlot(magazinePlacement);
-    if (midSlot) {
-      // 文言・リンク・キャラのポーズは MagazineHeroCta が note-magazines.ts から id で解決する。
-      midRenderers.push(() => (
-        <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`} />
-      ));
-    }
+  // 1) note 中間 CTA（最優先）。一次は冒頭教材を再掲し、その他は別の inline 商品を選ぶ。
+  const midSlot = resolveArticleMidNoteSlot(magazinePlacement, docGroup, strippedContent, isCivilSecondary);
+  if (midSlot) {
+    midRenderers.push(() => (
+      <MidArticleCta mode="note" id={midSlot.magazineId} utmContent={`${midSlot.utmContent}-mid`}
+        scopeNotice={magazinePlacement.scopeNotice} />
+    ));
   }
+  const endNoteSlot = resolveEndNoteSlot(magazinePlacement, strippedContent);
   // 2) 関連記事。長文記事では収益 CTA に枠を使い切らず、サイト内回遊を最低 1 枠確保する。
   if (midEnabled) {
     const relatedTop = rankRelated(doc.meta, relatedArticles, 1)[0];
@@ -464,6 +463,7 @@ export async function renderDocPage(slugStr: string) {
               {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner
+                  scopeNotice={magazinePlacement.scopeNotice}
                   magazineId={topSlot.magazineId}
                   url={buildMagazineUrl(topMagazine, topSlot.utmContent)}
                   title={topMagazine.shortTitle ?? topMagazine.title}
@@ -481,6 +481,9 @@ export async function renderDocPage(slugStr: string) {
                   midCtaPositions={effectiveMidPositions}
                 />
               </div>
+              {endNoteSlot && <MagazineHeroCta id={endNoteSlot.magazineId}
+                utmContent={`${endNoteSlot.utmContent}-end`} placement="article-end"
+                scopeNotice={magazinePlacement.scopeNotice} />}
               <MetaRow
                 variant="footer"
                 tags={doc.meta.tags as string[] | undefined}

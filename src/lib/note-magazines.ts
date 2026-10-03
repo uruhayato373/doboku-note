@@ -1994,7 +1994,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-takuitsu-pdf',
     published: true,
     noteUrl: 'https://note.com/dobokunote/n/n155093f42183',
-    pageMatch: '^civil-construction-1-primary-(h(2[6-9]|30)|r0[1-7])$',
+    pageMatch: '^civil-construction-1-primary-(h(2[6-9]|30)|r0[1-7])-(a|b)$',
     title: '1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）',
     description:
       '1級土木施工管理技士 第1次検定の平成26〜令和7年度 全12年分・問題A/B 全1162問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。図つき問題は図版込み、計算問題は考え方つき。印刷して直前期に紙で高速反復できる過去問演習教材。',

@@ -12,6 +12,7 @@ import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 interface MagazineHeroCtaProps {
   /** note-magazines.ts に登録済みのマガジン ID */
   readonly id: MagazineId;
+  readonly scopeNotice?: string | undefined;
   /** UTM tracking 識別子（= GA4 の data-cta-label） */
   readonly utmContent: string;
   /** GA4 の配置別集計。 */
@@ -37,13 +38,14 @@ interface MagazineHeroCtaProps {
 export default function MagazineHeroCta({
   id,
   utmContent,
+  scopeNotice,
   placement = "article-body",
 }: MagazineHeroCtaProps) {
   const magazine = getMagazine(id);
   if (!magazine) return null;
 
   const image = noteCtaImage(id, 'body');
-  if (image) return <NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image}
+  if (image) return <NoteImageCta href={buildMagazineUrl(magazine, utmContent)} image={image} scopeNotice={scopeNotice}
     trackLabel={`${id}:${utmContent}`} placement={placement} className="my-6 w-full max-w-2xl" />;
   const brand = brandOf(id);
   const catchCopy = magazine.ctaCatch ?? magazine.shortTitle ?? magazine.title;

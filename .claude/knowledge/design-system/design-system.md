@@ -172,7 +172,7 @@
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
 | `QualificationBridge`（`ui/QualificationBridge/QualificationBridge.tsx`） | 実務記事（`civil-practice`）の記事末と共通仕様書の章末に置く「業務経験 → 資格」カード。資格を意識していない読者に立場 3 択（発注者／施工会社／迷っている）で既存の資格ページへの入口を示す。本文に試験文脈を入れない規約は維持し、本文の外に 1 枚だけ置く。対象・文言・遷移先は `src/config/qualification-bridge.ts`。GA4 は root の `data-cta="qualification-bridge"` で表示（`qualification_bridge_impression`）、各リンクの `data-cta-label`（立場）でクリック（`qualification_bridge_click`）。EXP-012 | `placement` |
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像、平時は資格共通画像を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
-| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名だけを横並びにする。説明文・価格は表示しない。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` |
+| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名だけを横並びにする。説明文・価格は表示しない。収録範囲の誤認を防ぐ `scopeNotice` がある場合だけ、画像の直前に短い注記を表示する。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` / `className?` / `scopeNotice?` |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | 記事中間・MDX本文の強CTA。完成画像を `NoteImageCta` で表示し、未登録時は資格背景＋円形アバターのHTML意匠へフォールバックする。複数商品の列挙は `variant="inline"`＝`MagazineInlineCard` のcompact表示を使う。公開判定は `getMagazine()`、GA4は商品ID入りラベル・配置・表示インプレッションを共用 | `id`（`MagazineId`）/ `utmContent` / `placement` |
 | `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。完成画像のみの表示を優先し、未登録時は短縮タイトル・価格の1行HTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` |
 
@@ -343,11 +343,13 @@ CLAUDE.md §7 と一致:
 | footer を除く note スロット（top + sidebar `-sb`/`-docs-sb` + 中間 `-mid`） | ≤ 3 | **機械**（check-cta-density） |
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
-| note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
+| note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間/本文末尾 CTA・MDX 内 MagazineCard に集約。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
 | 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥3 かつ 2,500字（未満は 0 枠。**2026-08-24 に h2≥4 から緩和**＝GA4 実測で本文中間の imp 当たりクリックがサイドバーの約4倍〔sidebar 5,900imp/5click・article-mid 1,546imp/5click〕なのに、4,000字以上あるのに 0 枠の published 記事が 47 本あったため。h2=2 に下げないのは位置式 min(max(1,…), h2-2) が 0 に潰れて「先頭セクション直後は避ける」を破るから）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは affiliate 対象カテゴリ（civil-1/2・pe-construction・concrete-*・pe-first-stage）＋総監（DXコンサル）で、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
 
 > **アフィリ ピクセル計数の注意**: 素朴な substring カウント（`px.a8.net`・`0.gif` の出現数）は Next.js の RSC ペイロード（props の JSON 直列化）で ~2 倍に膨らむため使わない。check-cta-density は**レンダリング済み `<img>` タグだけ**をパースして a8mat を数える（href の `px.a8.net/svt/ejp`・banner の `bgt`・RSC payload は無視）。docs 記事は サイドバー枠の 1 ピクセルのみ発火（モバイル記事末カードは href のみ＝ピクセルなし）で 1 ページ 1 ピクセルを維持済み。
+
+**個別教材の自動配置**（2026-10-03）: 択一過去問（`primary`）は h2≥3・本文≥2,500字で冒頭の商品を中間にも表示する。手置き `article-mid` がある記事では重複させない。guide/pillar/textbook/civil-secondary の note 中間枠は h2≥5・8,000字で冒頭と異なる inline 商品を選ぶ。本文末尾は、参考資料抽出後の本文に公開商品の `<MagazineCard>` がない場合に限り冒頭商品を再掲する。判定は `resolveArticleMidNoteSlot` / `resolveEndNoteSlot` を描画と検査で共用する。
 
 > 中間 CTA 導入後 1〜2 週はスクロール完了率を GA4 で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
 

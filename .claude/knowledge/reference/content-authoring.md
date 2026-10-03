@@ -78,6 +78,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - 商品ごとの CTA 文言は SoT の任意 3 フィールドで出し分ける: `ctaCatch`（キャッチコピー・~25字）/ `ctaButton`（ボタン文言・動詞で終える）/ `ctaPose`（`pointing` 論点提示 / `good-sign` 完成・合格訴求 / `smile` 伴走・入門）。省略時は `shortTitle` ?? `title` ／「note で詳しく見る」／`pointing` にフォールバックするため、**未設定のマガジンでも hero は描画できる**
 - キャラ画像は `public/images/character/avatar-{pose}.webp`。**どのポーズを使えるかの真実源は `config/character-poses.json` の `siteCta: true`**。増やすときは manifest → 画像生成 → 型の順（`npm run check-character-avatars` が三者整合を gate）。手順の詳細: [character-asset-policy.md](character-asset-policy.md)「サイト CTA にポーズを追加する手順」
 - 記事末尾・サイドバー・カテゴリ hub の「もくじタイル」は別系統（`HubCtaBanner`・商品単体ではない）
+- 一次過去問の中間と本文末尾のバナーは `DocPage` が共通の配置ルールで補う。手置き `article-mid` と本文内の公開 `<MagazineCard>` は自動配置より優先する。カードは `## 参考資料` より前に置く（参考資料節は本文から抽出される）。
 - 収益 CTA は `data-cta-placement` で `article-top` / `article-mid` / `article-end` / `article-footer` / `article-sidebar` を分離する。GA4 はクリックに加え、50%以上表示された時点の `note_cta_impression` を送り、表示基準 CTR を比較する
 
 ## 過去問 MDX の構造ルール

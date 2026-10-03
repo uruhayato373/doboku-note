@@ -51,7 +51,7 @@ test('公開商品を資格・試験区分・形式で分類し、全商品に�
   }
 });
 
-test('一次PDFの自動配線は収録年度・科目を守り、careerと季節の個別配線を優先する', t => {
+test('一次PDFの自動配線は収録年度・科目を守り、収録外は要点整理へ案内する', t => {
   const result = inspect(`
     import {matchNoteProductPage} from './src/lib/note-product-classification.ts';
     import {resolvePlacement} from './src/lib/magazine-placement.ts';
@@ -64,7 +64,10 @@ test('一次PDFの自動配線は収録年度・科目を守り、careerと季�
   assert.equal(result.covered.length, 21);
   t.diagnostic(`収録21ページ・範囲外4ページ・career/科目ガイド2条件を検査`);
   for (const p of result.covered) { assert.equal(p.id, 'pe1-takuitsu-pdf'); assert.equal(p.top, p.id); }
-  for (const p of result.outside) { assert.equal(p.id, null, p.s); assert.equal(p.top, null, p.s); }
+  for (const p of result.outside) {
+    assert.equal(p.id, null, p.s);
+    assert.equal(p.top, p.s.includes('r08') ? null : 'pe1-anki-note', p.s);
+  }
   assert.deepEqual(result.career, { inline: [] });
   assert.equal(result.guide, 'pe1-anki-note');
 });
@@ -84,4 +87,69 @@ test('一次過去問21記事の中間・末尾カードは解説折りたたみ
   }
   t.diagnostic(`21記事 / 42枚の中間・末尾カードを検査（折りたたみ外）`);
   assert.equal(checked,21);
+});
+
+
+test('土木一次34ページは収録年度に合うPDFを優先し、範囲外にPDFを売らない', t => {
+  const result = inspect(`
+    import {resolvePlacement} from './src/lib/magazine-placement.ts';
+    const one=['h26','h27','h28','h29','h30','r01','r02','r03','r04','r05','r06','r07'].flatMap(y=>['a','b'].map(p=>'civil-construction-1-primary-'+y+'-'+p));
+    const two=['r03','r04','r05','r06','r07'].flatMap(y=>['zenki','kouki'].map(p=>'civil-construction-2-primary-'+y+'-'+p));
+    process.stdout.write(JSON.stringify({one:one.map(s=>resolvePlacement(s,'primary').top?.magazineId),two:two.map(s=>resolvePlacement(s,'primary').top?.magazineId),outside:resolvePlacement('civil-construction-1-primary-h25-a','primary').top?.magazineId}));
+  `);
+  assert.equal(result.one.length, 24); assert.equal(result.two.length, 10);
+  assert.ok(result.one.every(id => id === 'civil-1-takuitsu-pdf'));
+  assert.ok(result.two.every(id => id === 'civil-2-takuitsu-pdf'));
+  assert.notEqual(result.outside, 'civil-1-takuitsu-pdf');
+  t.diagnostic('収録34ページと範囲外1ページを検査');
+});
+
+test('参考資料内だけのカードは到達面に数えず、次のH2以降は本文として数える', () => {
+  const result = inspect(`
+    import {renderedMagazineCardIds,resolveEndNoteSlot,resolvePlacement} from './src/lib/magazine-placement.ts';
+    const card='<MagazineCard id="cd-essay-magazine" />';
+    const removed='本文\\n\\n## 参考資料\\n- 出典\\n'+card;
+    const restored=removed+'\\n\\n## 学習教材\\n'+card;
+    process.stdout.write(JSON.stringify({removed:renderedMagazineCardIds(removed),restored:renderedMagazineCardIds(restored)}));
+  `);
+  assert.deepEqual(result.removed, []);
+  assert.deepEqual(result.restored, ['cd-essay-magazine']);
+});
+
+test('上下水道17ページは共通科目の対象範囲を示し、専門科目PDFを案内しない', t => {
+  const result = inspect(`
+    import {resolvePlacement} from './src/lib/magazine-placement.ts';
+    const years=['h23','h24','h25','h26','h27','h28','h29','h30','r01-retry','r01','r02','r03','r04','r05','r06','r07'];
+    const slugs=[...years.map(y=>'pe-first-stage-'+y+'-water-supply'),'pe-first-stage-guide-water-supply-subject'];
+    process.stdout.write(JSON.stringify(slugs.map(s=>resolvePlacement(s,s.includes('guide')?'guide':'primary'))));
+  `);
+  assert.equal(result.length, 17);
+  for (const p of result) { assert.equal(p.top.magazineId, 'pe1-anki-note'); assert.match(p.scopeNotice,/基礎・適性科目/); assert.match(p.scopeNotice,/上下水道の専門科目は含みません/); }
+  t.diagnostic('上下水道17ページで対象範囲を検査');
+});
+
+test('中間と末尾は実描画条件を共有し、手書きカードを重ねない', () => {
+  const result = inspect(`
+    import {resolvePlacement,resolveArticleMidNoteSlot,resolveEndNoteSlot} from './src/lib/magazine-placement.ts';
+    const p=resolvePlacement('civil-construction-2-primary-r07-kouki','primary');
+    const body=['## 問1','## 問2','## 問3'].join('\\n'+ '説明'.repeat(800)+'\\n');
+    const explicit=body+'\\n<MagazineCard id="civil-2-takuitsu-pdf" placement="article-mid" />';
+    process.stdout.write(JSON.stringify({mid:resolveArticleMidNoteSlot(p,'primary',body),end:resolveEndNoteSlot(p,body),manualMid:resolveArticleMidNoteSlot(p,'primary',explicit),manualEnd:resolveEndNoteSlot(p,explicit),short:resolveArticleMidNoteSlot(p,'primary','## 問1')}));
+  `);
+  assert.equal(result.mid.magazineId, 'civil-2-takuitsu-pdf'); assert.equal(result.end.magazineId, 'civil-2-takuitsu-pdf');
+  assert.equal(result.manualMid, null); assert.equal(result.manualEnd, null); assert.equal(result.short, null);
+});
+
+test('主任技士は受付中の同資格ココナラへ接続し、追加3ページも対象を守る', () => {
+  const result = inspect(`
+    import {pickCoconalaFor} from './src/lib/exam-key-bridge.ts';
+    import {resolveOffsiteCta} from './src/lib/offsite-cta.ts';
+    process.stdout.write(JSON.stringify({chief:pickCoconalaFor('concrete-chief'),empty:pickCoconalaFor('pe-first-stage'),
+      grading:resolveOffsiteCta('civil-construction-2-secondary-grading-and-partial-credit'),
+      overview:resolveOffsiteCta('concrete-chief-engineer-guide-overview'),trends:resolveOffsiteCta('concrete-chief-engineer-guide-trends')}));
+  `);
+  assert.equal(result.chief.id, 'coconala-cce-essay-tensaku'); assert.equal(result.chief.status, 'listed'); assert.equal(result.empty, null);
+  assert.deepEqual(result.grading.map(i=>i.trackLabel), ['offsite-coconala-2kyu-tensaku-3theme']);
+  assert.equal(result.overview.length, 2);
+  assert.deepEqual(result.trends.map(i=>i.trackLabel), ['offsite-coconala-cce-full-pdf']);
 });

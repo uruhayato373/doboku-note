@@ -20,6 +20,7 @@ import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 type MidArticleCtaProps =
   | {
       readonly mode: 'note';
+      readonly scopeNotice?: string | undefined;
       readonly id: MagazineId;
       /** UTM 識別子（= GA4 の data-cta-label）。呼び出し側で -mid を付けて渡す。 */
       readonly utmContent: string;
@@ -36,7 +37,7 @@ type MidArticleCtaProps =
 
 export default function MidArticleCta(props: MidArticleCtaProps) {
   if (props.mode === 'note') {
-    return <MagazineHeroCta id={props.id} utmContent={props.utmContent} placement="article-mid" />;
+    return <MagazineHeroCta id={props.id} utmContent={props.utmContent} placement="article-mid" scopeNotice={props.scopeNotice} />;
   }
   if (props.mode === 'career') {
     // CareerAffiliate 自身が not-prose / my-6 / PR バッジ / rel="nofollow sponsored" を持つ。

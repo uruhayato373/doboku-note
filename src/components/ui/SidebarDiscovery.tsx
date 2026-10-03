@@ -6,12 +6,15 @@ import { getPublicDocPath } from '@/lib/content-routes';
 import { getCategoryBySlug } from '@/lib/categories';
 import { resolveNavTitle } from '@/lib/doc-title';
 import { discoveryGroups, sidebarProduct } from '@/lib/sidebar-discovery';
+import { resolvePlacement } from '@/lib/magazine-placement';
+import { classifyDoc, isCareerDoc } from '@/lib/doc-classifier';
 import NoteProductCard from './NoteProductCard';
 
 export function SidebarProduct({category,doc,placement}: {category:string;doc?:DocMeta;placement:string}) {
  const product=sidebarProduct(category,doc);
  if(!product)return null;
- return <NoteProductCard product={product} category={category} placement={placement} />;
+ const scopeNotice = doc ? resolvePlacement(doc.slug, classifyDoc(doc), isCareerDoc(doc)).scopeNotice : undefined;
+ return <NoteProductCard product={product} category={category} placement={placement} scopeNotice={scopeNotice} />;
 }
 
 export function DiscoveryNav({category,currentSlug,docs}: {category:string;currentSlug:string;docs:DocMeta[]}) {
