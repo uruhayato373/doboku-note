@@ -18,6 +18,8 @@ export interface NoteMagazine {
   readonly id: string;
   readonly published: boolean;
   readonly noteUrl: string;
+  /** 年度・科目が収録範囲と一致する記事slugの正規表現。個別配線が無い場合の既定CTA。 */
+  readonly pageMatch?: string;
   /**
    * サイト CTA の着地先 URL（省略時は noteUrl）。
    * 有料マガジンへ直接送る代わりに、無料の索引/案内記事など摩擦の低い front-door へ
@@ -819,6 +821,7 @@ const MAGAZINES_RAW = {
     description: '2級土木施工管理技士 第1次検定の令和3〜7年度 前期・後期 全630問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。組合せ問題は表で整理、計算問題は途中式つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
     price: '¥1,480',
     badge: 'note 限定 PDF教材',
+    pageMatch: '^civil-construction-2-primary-r0[3-7]-(zenki|kouki)$',
   },
   // </generated:products civil-construction-2>
 
@@ -1991,6 +1994,7 @@ const MAGAZINES_RAW = {
     id: 'civil-1-takuitsu-pdf',
     published: true,
     noteUrl: 'https://note.com/dobokunote/n/n155093f42183',
+    pageMatch: '^civil-construction-1-primary-(h(2[6-9]|30)|r0[1-7])$',
     title: '1級土木 第1次検定｜過去問PDF（平成26〜令和7年度 全12年分 全1162問・全選択肢解説）',
     description:
       '1級土木施工管理技士 第1次検定の平成26〜令和7年度 全12年分・問題A/B 全1162問を、4つの選択肢すべてに正誤の理由を付けて解説したA4印刷用PDF。図つき問題は図版込み、計算問題は考え方つき。印刷して直前期に紙で高速反復できる過去問演習教材。',
@@ -2001,6 +2005,7 @@ const MAGAZINES_RAW = {
     id: 'pe1-takuitsu-pdf',
     published: true,
     noteUrl: 'https://note.com/dobokunote/n/n466132e6fd74',
+    pageMatch: '^pe-first-stage-r0[1-7]-(basic|aptitude|construction)$',
     title: '技術士 第一次試験｜過去問PDF 合本（基礎・適性・専門 令和元〜7年度 全560問・全選択肢解説）',
     description:
       '技術士 第一次試験（建設部門）の令和元〜7年度 全7年分・基礎科目210問＋適性科目105問＋専門科目245問＝全560問を収録。公式正答番号のある559問は全選択肢の正誤理由を解説し、残る1問も正答を断定せず5肢の論点を整理。11週間の学習計画・周回記録・3科目の答案記入シートも付いたA4印刷用PDF。',

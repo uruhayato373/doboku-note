@@ -6,8 +6,8 @@
  * 「どのマガジンをどの資格の見た目で出すか」を data 駆動で解決するために参照する。
  *
  * 背景イラストは cta-bg/*.webp（左空き・右にモチーフの明色イラスト＝HTML 文字オーバーレイ用）を
- * 共通利用する。資格別の焼き込みバナー（旧 sidebarImageUrl / 300×250 satori）は廃し、
- * 文言・価格は HTML でデータ駆動にした（マガジン追加時の画像生成を不要化）。
+ * 完成画像が未登録の場合のフォールバックで共通利用する。
+ * 完成画像の選択は note-cta-images.ts、商品別の文言・価格は商品台帳から解決する。
  */
 
 import { qualificationShortLabel } from '@/lib/qualification-names';
@@ -36,7 +36,7 @@ function examKeyOf(id: string): ExamKey {
   // これが無いと pe1-takuitsu-pdf が総監として扱われ、資格別に束ねる面（/links のカード等）で
   // 一次の過去問 PDF が総監に混ざる（2026-07-28 に /links のカード化で顕在化）。
   if (id.startsWith('pe1-')) return 'pe-first-stage';
-  if (id.startsWith('civil-1') || id === 'civil-membership-lab') return 'civil-1';
+  if (id.startsWith('civil-1') || id.startsWith('civil-membership-')) return 'civil-1';
   if (id.startsWith('civil-2')) return 'civil-2';
   // コンクリート系は技士（ce-）、主任技士（cce-）、診断士（cd-）で資格が別。
   if (id.startsWith('cd-')) return 'concrete-diagnosis';

@@ -517,6 +517,49 @@
         "/exam/civil-construction-2/guide/study-method",
         "/exam/civil-construction-2/primary/r04-zenki"
       ]
+    },
+    {
+      "runId": "2026-10-03T01-30-11Z",
+      "collectedAt": "2026-10-03T01:30:11.034Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 15,
+      "accepted": 10,
+      "alreadyIndexed": 5,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/civil-construction-2/guide/textbooks",
+        "/exam/civil-construction-2/primary/r04-kouki",
+        "/exam/civil-construction-2/primary/r05-kouki",
+        "/exam/civil-construction-2/primary/r05-zenki",
+        "/exam/civil-construction-2/primary/r06-kouki",
+        "/exam/civil-construction-2/primary/r06-zenki",
+        "/exam/civil-construction-2/primary/r07-zenki",
+        "/exam/civil-construction-2/secondary/experience-writing-by-theme",
+        "/exam/concrete-engineer/primary/construction",
+        "/exam/concrete-engineer/primary/mix-design"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-2/guide/textbooks",
+        "/exam/civil-construction-2/primary/r04-kouki",
+        "/exam/civil-construction-2/primary/r05-kouki",
+        "/exam/civil-construction-2/primary/r05-zenki",
+        "/exam/civil-construction-2/primary/r06-kouki",
+        "/exam/civil-construction-2/primary/r06-zenki",
+        "/exam/civil-construction-2/primary/r07-zenki",
+        "/exam/civil-construction-2/secondary/experience-writing-by-theme",
+        "/exam/concrete-engineer/primary/construction",
+        "/exam/concrete-engineer/primary/mix-design"
+      ]
     }
   ]
 }
