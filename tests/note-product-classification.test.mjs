@@ -46,7 +46,7 @@ test('公開商品を資格・試験区分・形式で分類し、全商品に�
       assert.ok(image, `${r.id}/${format}: 画像欠落`);
       assert.ok(Math.abs(image.width/image.height - (format==='body'?2:6/5)) < 0.001, `${r.id}: 比率`);
       assert.match(image.src, /^https:\/\/storage\.doboku-note\.com\/posts\/.+\?v=[a-f0-9]+$/);
-      assert.equal(image.caption.title, r.title, `${r.id}: 共用画像でも個別商品名を表示`);
+      assert.equal(image.caption.title, r.title, `${r.id}: 共用画像でも個別商品名のメタデータを保持`);
     }
   }
 });
