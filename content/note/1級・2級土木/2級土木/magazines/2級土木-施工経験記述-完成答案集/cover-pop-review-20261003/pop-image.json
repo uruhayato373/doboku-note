@@ -43,11 +43,69 @@
     "fullSize": "資格名・見出し・指定数値・PDF帯を目視確認。誤字・文字切れなし。参照と同じ先生の外見。",
     "mobile360": "資格名・主題・PDFダウンロードの3要素を判読。補足と著者表示は小さい。",
     "status": "運営者の目視確認待ち",
-    "format": "生成実寸1734×907、note横長比率。1280×670への最終出力は採用後。"
+    "format": "公開用1280×670 PNGを書き出し済み。元画像も保持。"
   },
   "storage": {
-    "group": "note-cover-pop-preview",
-    "repoKey": ".tmp/note-cover-pop-all/content/note/review-20261003/01-2kyu-model-answers.png",
-    "publication": "未公開・既存自動生成器へ未接続"
+    "group": "note-cover-png",
+    "repoKey": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/img/cover-pop-20261003.png",
+    "bucket": "doboku-note-archive",
+    "r2Key": "note/covers/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/img/cover-pop-20261003.png",
+    "sha256": "949fd77d2fef93f70e20e070adb8a60ecff83207c963e25cab207c9d6a198962",
+    "verifiedAt": "2026-10-03T07:45:51.370Z",
+    "verification": "HEAD bytes and GET SHA-256 matched",
+    "publication": "note未反映",
+    "preview": {
+      "group": "note-cover-pop-preview",
+      "repoKey": ".tmp/note-cover-pop-all/content/note/review-20261003/01-2kyu-model-answers.png",
+      "publication": "未公開・既存自動生成器へ未接続"
+    }
+  },
+  "finalOutput": {
+    "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/img/cover-pop-20261003.png",
+    "sha256": "949fd77d2fef93f70e20e070adb8a60ecff83207c963e25cab207c9d6a198962",
+    "bytes": 1621682,
+    "width": 1280,
+    "height": 670,
+    "conversion": "sharp resize contain; text and composition preserved"
+  },
+  "publishPreparation": {
+    "checkedAt": "2026-10-03T07:46:19.918Z",
+    "cover": {
+      "ready": true,
+      "noteApplied": false,
+      "target": {
+        "kind": "magazine",
+        "key": "m1881a9578027"
+      }
+    },
+    "pdf": {
+      "checkedArticles": 3,
+      "errors": 0,
+      "articles": [
+        {
+          "noteKey": "n593e969c9dcf",
+          "fileCount": 1,
+          "limited": false,
+          "error": null
+        },
+        {
+          "noteKey": "n356ca0899c14",
+          "fileCount": 1,
+          "limited": false,
+          "error": null
+        },
+        {
+          "noteKey": "n05309c70c7eb",
+          "fileCount": 1,
+          "limited": false,
+          "error": null
+        }
+      ],
+      "status": "attached"
+    },
+    "automation": {
+      "customPngWired": false,
+      "note": "既存の自動更新はV5カバーを再生成するため、このPOP画像の直接登録が必要。"
+    }
   }
 }
