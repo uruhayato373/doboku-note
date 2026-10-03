@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 2,
+  "month": "2026-10",
+  "timezone": "Asia/Tokyo",
+  "status": "draft-plan",
+  "coverage": {
+    "from": "2026-10-16",
+    "to": "2026-10-22",
+    "perDay": 1
+  },
+  "strategy": {
+    "cadence": "1日1本・夜遅め（既存の夜の投稿の60分以上あと）",
+    "primaryExam": "civil-2",
+    "note": "2026-10-04 に 2級を主力へ切り替えた。10/16〜10/22 は既存の予約（コンクリート主任技士・技術士一次）が朝昼夜を埋め、2級の投稿が 0 本だった。本試験前の最終週に販売を集める（x-post-policy §5.4）ため、この 7 日だけ 2級を 1 本ずつ足して 1 日 4 本にする（§11.2 の 3〜5 本目安の範囲。予約前の x-schedule-guard は --max-per-day 4）。販売は 1 日おきで 1 日 1 本まで。ココナラ添削の受付締切は運営者が未決定のため書かない。10/23・10/24 は 097 の学習点検（購入勧誘なし）。"
+  },
+  "posts": [
+    {
+      "date": "2026-10-16",
+      "time": "21:42",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "直前パック",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/md3518107aa97?utm_source=x&utm_medium=social&utm_campaign=civil2-lastweek-2026&utm_content=2026-10-16-D",
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 1,
+      "magazineId": "civil-2-chokuzen-pack"
+    },
+    {
+      "date": "2026-10-17",
+      "time": "21:56",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "出題傾向の点検",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 2
+    },
+    {
+      "date": "2026-10-18",
+      "time": "22:07",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "一次後期の過去問",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/n/n4963f45bd6f8?utm_source=x&utm_medium=social&utm_campaign=civil2-lastweek-2026&utm_content=2026-10-18-D",
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 3,
+      "magazineId": "civil-2-takuitsu-pdf"
+    },
+    {
+      "date": "2026-10-19",
+      "time": "22:14",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "学科記述の型",
+      "funnel": "site",
+      "target": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide?utm_source=x&utm_medium=social&utm_campaign=civil2-lastweek-2026&utm_content=2026-10-19-D",
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 4
+    },
+    {
+      "date": "2026-10-20",
+      "time": "21:38",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "完成答案集",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_campaign=civil2-lastweek-2026&utm_content=2026-10-20-D",
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 5,
+      "magazineId": "civil-2-experience-essay"
+    },
+    {
+      "date": "2026-10-21",
+      "time": "21:51",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "当日の確認",
+      "funnel": "linkless",
+      "target": null,
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 6
+    },
+    {
+      "date": "2026-10-22",
+      "time": "22:03",
+      "slot": "C",
+      "exam": "civil-2",
+      "type": "暗記ノート",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/n/n793523a059e5?utm_source=x&utm_medium=social&utm_campaign=civil2-lastweek-2026&utm_content=2026-10-22-D",
+      "image": null,
+      "draft": "106-civil2-lastweek-2026-10",
+      "tweet": 7,
+      "magazineId": "civil-2-anki-note"
+    }
+  ]
+}
