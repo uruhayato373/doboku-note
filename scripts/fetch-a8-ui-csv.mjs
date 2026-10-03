@@ -78,6 +78,7 @@ function finalize(manifest, runDir) {
 /** 最新取得マーカー（run 生データは gitignore・これだけ commit する）。 */
 function writeLastRunMarker(manifest) {
   const marker = {
+    schemaVersion: 1,
     lastRun: manifest.runId,
     collectedAt: manifest.collectedAt,
     site: manifest.site,

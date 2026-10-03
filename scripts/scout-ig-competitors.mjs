@@ -130,6 +130,7 @@ function main() {
   else { console.log(`  基準: ${drift.basis}`); for (const e of drift.entries) console.log(`  [${e.type}] ${e.handle}: ${e.detail}`); }
 
   const snapshot = {
+    schemaVersion: 1,
     fetchedAt: new Date().toISOString(),
     platform: 'ig',
     source: '未ログイン公開プロフィール（og:description メタ・curl）。投稿アカ@dobokunotecom の IG セッションは不使用。',

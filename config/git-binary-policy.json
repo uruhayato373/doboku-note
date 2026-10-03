@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "Git に何を追跡してよいかの機械可読ポリシー（DN-0111 Phase 1）。検査は scripts/check-git-binary-policy.mjs、baseline は .claude/state/quality/git-binary-baseline.json。運用の真実源は .claude/todo/backlog.md の DN-0111。",
   "philosophy": [
     "原本（SSOT）は Git、生成物と著作権物は Git の外。",

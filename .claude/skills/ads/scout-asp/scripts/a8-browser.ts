@@ -177,7 +177,7 @@ async function isLoggedIn(page: Page): Promise<boolean> {
 }
 
 // ─── カタログ IO ───────────────────────────────────
-type Catalog = { entries: Record<string, any>; updatedAt?: string };
+type Catalog = { schemaVersion?: number; entries: Record<string, any>; updatedAt?: string };
 
 function loadCatalog(): Catalog {
   try {
@@ -189,8 +189,9 @@ function loadCatalog(): Catalog {
 
 function saveCatalog(cat: Catalog): void {
   cat.updatedAt = new Date().toISOString();
+  const out: Catalog = { schemaVersion: 1, ...cat }; // 版の欄は先頭（最初の保存で足す）
   fs.mkdirSync(path.dirname(CATALOG_PATH), { recursive: true });
-  fs.writeFileSync(CATALOG_PATH, JSON.stringify(cat, null, 2) + "\n", "utf8");
+  fs.writeFileSync(CATALOG_PATH, JSON.stringify(out, null, 2) + "\n", "utf8");
 }
 
 function nowIso(): string {

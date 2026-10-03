@@ -259,7 +259,7 @@ async function main() {
   const outPath = datasetPath("analysis.seo-meta");
   mkdirSync(dirname(outPath), { recursive: true });
   const stored = {
-    version: 3,
+    schemaVersion: 3,
     generated_at: out.generated_at,
     base_url: out.base_url,
     mode: out.mode,

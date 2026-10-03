@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "_comment": "土木工事共通仕様書の構造化（レイヤー2）の設定。パーサーの例外補正はコードに条件を足さずここへ集約する。真実源の説明は scripts/lib/standards-structure.mjs 冒頭。",
   "canonical": {
     "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。",

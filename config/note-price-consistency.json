@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_doc": "check-note-price-consistency.mjs の設定。単品価格のドリフト再発防止ゲート。真実源の解説は .claude/knowledge/reference/note-api-verification.md「単品価格の3層と一貫性ゲート」。",
 
   "_uniformSeries": "「配下の全マガジンが同一の単品価格であるべき」と決めたシリーズ。期待価格との不一致を FAIL にする。ライン別に価格が異なるシリーズ（1級土木の学科¥580 / 経験記述¥1,980 / 暗記¥980 等）はここに書かない。",

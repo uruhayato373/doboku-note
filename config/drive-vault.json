@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "人か手元のスクリプトだけが使うアセット（audience=human）の置き場＝Google Drive vault の機械可読 SSOT。R2（asset-storage.json）とは独立した系で、drive-vault-sync / check-drive-vault が読む。台帳は .claude/state/assets/drive-manifest.json。ルールの本文は .claude/knowledge/reference/asset-storage-policy.md §1。",
   "invariants": [
     "置き場は audience で決める。サイトが配信する→public R2 / CI が読み書きする→private R2 / 人か手元のスクリプトだけ→この Drive vault。",

@@ -48806,6 +48806,54 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "a816188d00512069"
+    },
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/img/cover-pop-20261003.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/img/cover-pop-20261003.png",
+      "sha256": "949fd77d2fef93f70e20e070adb8a60ecff83207c963e25cab207c9d6a198962",
+      "bytes": 1621682,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-03T07:45:51.370Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/img/cover-pop-20261003.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/img/cover-pop-20261003.png",
+      "sha256": "83cd9cc160bc526b0482f159d71c219b6669f99c84c7b37756b56c93f3e92055",
+      "bytes": 1635887,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-03T07:45:52.117Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/img/cover-pop-20261003.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/img/cover-pop-20261003.png",
+      "sha256": "0fef548225c82a5413eb59fa7833ace06742be8ce3cb949b1539049276039b96",
+      "bytes": 1607733,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-03T07:45:52.851Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/img/cover-pop-20261003.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/img/cover-pop-20261003.png",
+      "sha256": "48e20085e3862b320368d620fc969b3e152275642e6e1e5214a0f8c9786ce844",
+      "bytes": 1709702,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-10-03T07:45:53.599Z",
+      "width": 1280,
+      "height": 670
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

@@ -13,7 +13,8 @@ test('toStoredResearch: 語ごとに重なる出品を URL で 1 件にし、見
     ],
   };
   const r = toStoredResearch(raw);
-  assert.equal(r.version, RESEARCH_VERSION);
+  assert.equal(r.schemaVersion, RESEARCH_VERSION);
+  assert.equal('version' in r, false);
   assert.deepEqual(r.queries.map((q) => q.keyword), ['a', 'b']);
   assert.ok(r.queries.every((q) => !('services' in q)), '語の側は出品を持たない');
   assert.deepEqual(r.services.map((s) => `${s.url}:${s.queries.join(',')}`), ['x:a', 'y:a,b', 'z:b']);
@@ -21,13 +22,22 @@ test('toStoredResearch: 語ごとに重なる出品を URL で 1 件にし、見
   assert.ok(r.services.every((s) => !('excerpt' in s)));
   assert.ok(!('detail' in r.services[0]), 'null の detail は持たない');
   assert.deepEqual(r.services[2].detail, { totalSales: '5' }, '取った詳細は残す');
-  assert.deepEqual(Object.keys(r), ['version', 'fetchedAt', 'method', 'note', 'queries', 'services', 'updatedAt']);
+  assert.deepEqual(Object.keys(r), ['schemaVersion', 'fetchedAt', 'method', 'note', 'queries', 'services', 'updatedAt']);
 });
 
 test('toStoredResearch: 新形はそのまま返す（冪等）', () => {
   const once = toStoredResearch({ version: 1, fetchedAt: 'f', method: 'm', note: 'n', updatedAt: 'u', queries: [{ keyword: 'a', services: [svc('x')] }] });
   assert.equal(toStoredResearch(once), once);
   assert.deepEqual(toStoredResearch(JSON.parse(JSON.stringify(once))), once, 'ファイルに書いて読み直しても同じ');
+});
+
+test('toStoredResearch: 旧名 version: 2 の版 2 は schemaVersion に揃える（中身は変えない）', () => {
+  const legacy = { version: 2, fetchedAt: 'f', method: 'm', note: 'n', queries: [{ keyword: 'a' }], services: [{ url: 'x', queries: ['a'] }], updatedAt: 'u' };
+  const r = toStoredResearch(legacy);
+  assert.deepEqual(Object.keys(r), ['schemaVersion', 'fetchedAt', 'method', 'note', 'queries', 'services', 'updatedAt']);
+  assert.equal(r.schemaVersion, 2);
+  assert.deepEqual(r.services, legacy.services);
+  assert.equal(toStoredResearch(r), r, '揃えた後は冪等');
 });
 
 test('addService・queryServices: 既知の URL は語だけ足し、語ごとの出品を引ける', () => {

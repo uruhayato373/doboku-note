@@ -291,7 +291,7 @@ function resolveOutputPath(total) {
 export function buildBatchDocument(settled, total) {
   const results = settled.filter((s) => s != null);
   return {
-    version: 1,
+    schemaVersion: 1,
     generated_at: new Date().toISOString(),
     partial: results.length < total,
     completed: results.length,

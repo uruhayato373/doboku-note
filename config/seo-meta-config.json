@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "SEO meta 監査の対象 URL（include_routes・url_source）と巡回の並列数・タイムアウト。canonical/og:url/title/SSR の実判定は scripts/lib/seo-checks.mjs が真実源（out/ を直接検査）。thresholds は title と description の長さの唯一の正本（scripts/lib/seo-thresholds.mjs と src/lib/metadata.ts が読む）。Issue #125。",
   "url_source": "src/config/doc-meta-index.json",
   "include_routes": [

@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_doc": "note 記事の冒頭（著者バナー・ココナラ・マガジン導線）の標準。資格ごとの型（variants）を 1 ファイルに持つ。scripts/standardize-civil1-note-intro.mjs が --variant で選び、wire-note-funnel-cta.mjs が全型の root を標準の持ち場として読む。",
   "variants": {
     "civil1": {

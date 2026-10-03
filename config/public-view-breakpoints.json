@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_doc": "公開ページの見え方検査（check-note-public-view / check-youtube-public-view）が撮る画面幅。各サービスの CSS の media query（min/max-width）を規則数で数えた実測から、レイアウトが切り替わる幅（breakpoints＝下の帯の最大幅。max-width: 480 と min-width: 481 はどちらも 480）と、その各帯から 1 つずつ選んだ画面幅（viewports）を持つ。週次の実行で CSS を数え直し、ここに無い主要な切り替わり幅が出たら WARN（サービス側の変更に追随するため）。数え直した結果は run の成果物に残る。",
   "significantRuleCount": 15,
   "note": {

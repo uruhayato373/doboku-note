@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "参考文献（原本・一次資料）の機械可読 SSOT。区分（class）ごとに逐語転載・図の流用・文字起こしの公開可否と出典の粒度が決まる。記事の frontmatter sources: は必ずここの id（external-primary は id#条番号 も可）で指す。ルールの本文は .claude/knowledge/reference/reference-sources-policy.md。原本の実体は Google Drive vault（drive-vault.json / drive-manifest.json）。",
   "invariants": [
     "記事から参考文献を指すときは書名の自由文字列でなく id を書く。書名の表記ゆれは aliases だけに置き、本文・frontmatter には残さない。",

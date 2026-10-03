@@ -1,0 +1,100 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "note",
+  "requestedFormat": {
+    "width": 1280,
+    "height": 670
+  },
+  "id": "ce-anki-note",
+  "article": "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート",
+  "ref": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+  "file": "03-concrete-engineer-memory.png",
+  "copy": {
+    "qualification": "コンクリート技士",
+    "stage": "四肢択一対策",
+    "headline": "直前暗記ノート",
+    "proof": "一問一答139問｜6分野",
+    "pdf": "PDFダウンロード",
+    "benefit": "印刷して暗記の抜けを確認",
+    "authority": "技術士（総監）が制作"
+  },
+  "color": "teal #168080",
+  "evidence": [
+    "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/article.md"
+  ],
+  "publicationNeeds": [
+    "PDF版を制作し、有料エリアへ添付してから新カバーを反映。2026-10-03 公開APIの添付数0。"
+  ],
+  "prompt": "Use case: ads-marketing. Create one finished Japanese note.com paid educational product cover, horizontally wide 1280×670 px (approximately 1.91:1). The provided approved Coconala POP cover is a style and character reference, not an edit target. Recompose for the wide note format. Preserve the same mature Japanese male civil-engineer teacher: short black hair, rectangular black glasses, light beard, white blank safety helmet, navy workwear and tie, yellow safety vest. Use energetic, professional Japanese bookstore POP styling: extremely bold legible Japanese typography, white and yellow with restrained red for the main product, dark colored header, pale illustrated background, strong diagonal accents and crisp outlines. Text occupies left 72%, teacher large on right 27%, holding a stack of printed learning sheets and a red pen. No competing text on the papers. Do not crop the face or any lettering. All meaningful lettering inside x=45..1235 and y=15..655; generous inner clearance for outlines. Biggest hierarchy: qualification and product type; the PDF-download yellow band should be almost as prominent as the headline. Put the author credential in a separate small yellow badge near the teacher. This is a print-ready flat graphic, not a photographed poster or 3D mockup. Do not show a website UI. No logo, brand name, URL, price, exam date, guarantee, medals, or additional words. Render all specified Japanese strings exactly once, no random or repeated text. Use the reference solely for approved appearance and visual style; ignore its old content and PDF counts.\nPrimary color: teal #168080. Exact text and hierarchy:\nTop qualification, large: 「コンクリート技士」\nSmaller stage label: 「四肢択一対策」\nEnormous central headline: 「直前暗記ノート」\nBold evidence line: 「一問一答139問｜6分野」\nVery prominent yellow download band, wide lower left: 「PDFダウンロード」\nSmaller usage line beside or underneath download band: 「印刷して暗記の抜けを確認」\nSmall separate author badge near the teacher: 「技術士（総監）が制作」. Keep qualification intact. Especially maintain the word 主任技士 versus 技士 where specified.",
+  "reference": {
+    "path": "content/coconala/assets/pop-20260927/thumb-cce-takuitsu-pdf.png",
+    "sha256": "3779cf896009eb106a3d1107385ceef13d02c9140a499b1e2470850353de46fd"
+  },
+  "output": {
+    "path": ".tmp/note-cover-pop-review-20261003/03-concrete-engineer-memory.png",
+    "sha256": "c7cada5b9088ae13664dd9333672cb3a29ee4d1295c277d1fa4ce25527df7926",
+    "width": 1734,
+    "height": 907,
+    "tool": "built-in image_gen",
+    "source": "/Users/minamidaisuke/.codex/generated_images/01a10098-a83f-7360-a440-bd5bdb473adc/exec-7be5a6f8-c884-49bf-8ab3-6d91142c30bf.png"
+  },
+  "review": {
+    "date": "2026-10-03",
+    "fullSize": "資格名・見出し・指定数値・PDF帯を目視確認。誤字・文字切れなし。参照と同じ先生の外見。",
+    "mobile360": "資格名・主題・PDFダウンロードの3要素を判読。補足と著者表示は小さい。",
+    "status": "運営者の目視確認待ち",
+    "format": "公開用1280×670 PNGを書き出し済み。元画像も保持。"
+  },
+  "storage": {
+    "group": "note-cover-png",
+    "repoKey": "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/img/cover-pop-20261003.png",
+    "bucket": "doboku-note-archive",
+    "r2Key": "note/covers/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/img/cover-pop-20261003.png",
+    "sha256": "0fef548225c82a5413eb59fa7833ace06742be8ce3cb949b1539049276039b96",
+    "verifiedAt": "2026-10-03T07:45:52.851Z",
+    "verification": "HEAD bytes and GET SHA-256 matched",
+    "publication": "note未反映",
+    "preview": {
+      "group": "note-cover-pop-preview",
+      "repoKey": ".tmp/note-cover-pop-all/content/note/review-20261003/03-concrete-engineer-memory.png",
+      "publication": "未公開・既存自動生成器へ未接続"
+    }
+  },
+  "finalOutput": {
+    "path": "content/note/コンクリート技士/magazines/コンクリート技士-直前暗記ノート/img/cover-pop-20261003.png",
+    "sha256": "0fef548225c82a5413eb59fa7833ace06742be8ce3cb949b1539049276039b96",
+    "bytes": 1607733,
+    "width": 1280,
+    "height": 670,
+    "conversion": "sharp resize contain; text and composition preserved"
+  },
+  "publishPreparation": {
+    "checkedAt": "2026-10-03T07:46:19.918Z",
+    "cover": {
+      "ready": true,
+      "noteApplied": false,
+      "target": {
+        "kind": "article",
+        "key": "n0bbd4a5a8b57"
+      }
+    },
+    "pdf": {
+      "checkedArticles": 1,
+      "errors": 0,
+      "articles": [
+        {
+          "noteKey": "n0bbd4a5a8b57",
+          "fileCount": 0,
+          "limited": false,
+          "error": null
+        }
+      ],
+      "status": "attachment-required"
+    },
+    "automation": {
+      "customPngWired": false,
+      "note": "既存の自動更新はV5カバーを再生成するため、このPOP画像の直接登録が必要。"
+    }
+  }
+}

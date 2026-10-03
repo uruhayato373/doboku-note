@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_doc": "マガジン収録の期待値 SSOT。期待収録数(id) = Σ(その id に紐づくラベルの repo 公開記事数) + extras[id].count。ラベル = 記事 frontmatter の noteMagazine。id = src/lib/note-magazines.ts の id（note の m… キーは noteUrl から導出するのでここには書かない＝二重管理しない）。draft は note 未公開でマガジンに入りようがないため期待値から除外する。検査は scripts/check-magazine-membership.mjs。",
   "_why": "2026-08-24、総監模範論文の R8 予想テーマ 4→6 拡張でゼネコン/河川コンサルの記事 2 本ずつがライブマガジン未収録のまま残った。verify-note-magazines は SoT↔ライブの 2 者突合で、SoT の件数表記も 9 のまま古びていたため一致して緑が出ていた。repo の記事実数という第三軸を持ち込まないと検出できない。",
   "_sections": "labels = 1 ラベル→1 マガジン。packs = 複数ラベルを合算する束ね商品。excluded = マガジンに対応しないことが正しいラベル（理由必須）。**全ラベルがどれかに属すること（未分類 0）がゲート条件**。未分類を許すと、新しいラベルを作るたび検査の射程が黙って痩せる。",
