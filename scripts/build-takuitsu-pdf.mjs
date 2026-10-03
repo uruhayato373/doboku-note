@@ -5,6 +5,8 @@
 // 使い方:
 //   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json [--out <path.pdf>]
 //   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json --sample   # 冒頭数問の見本PNG
+//   node scripts/build-takuitsu-pdf.mjs --spec scripts/kindle-specs/e-01.json --split --out <base.pdf>
+//     → <base>-問題冊子.pdf（解答・要点を除いた演習用）と <base>-解答解説.pdf（解答・解説・要点だけ）
 //
 // Kindle 版との差分:
 //   - 出力は EPUB でなく A4 PDF（Playwright chromium page.pdf・Mac 安定＝generate-anki-pdf.mjs と同経路）
@@ -28,11 +30,12 @@ const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
 function parseArgs(argv) {
-  const a = { spec: null, out: null, sample: false }
+  const a = { spec: null, out: null, sample: false, split: false }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--spec') a.spec = argv[++i]
     else if (argv[i] === '--out') a.out = argv[++i]
     else if (argv[i] === '--sample') a.sample = true
+    else if (argv[i] === '--split') a.split = true
   }
   if (!a.spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
   return a
@@ -87,8 +90,9 @@ async function preprocess(body, images, imageSrc) {
   // MDX の実装コメントは紙面へ出さない。
   out = out.replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
 
-  // RelatedKeywords（サイト内リンク）は Kindle/PDF に不要 → 除去
-  out = out.replace(/<RelatedKeywords[\s\S]*?\/>/g, '')
+  // RelatedKeywords（サイト内リンク）・CareerAffiliate / MagazineCard（サイトの送客部品）は
+  // PDF に不要 → 除去。後者2つは未対応だった頃、配布 PDF に生タグのまま印字されていた。
+  out = out.replace(/<(?:RelatedKeywords|CareerAffiliate|MagazineCard)\b[\s\S]*?\/>/g, '')
 
   // Callout はタイトル付き要点ボックスへ変換する。生タグの紙面流出を防ぐ。
   out = out
@@ -301,21 +305,86 @@ ${answerGrid('適性科目（全15問必須）', 15, '15問すべてに解答し
 ${answerGrid('専門科目（全35問から25問を選択）', 35, '解答した25問の番号だけ記入し、未選択10問は空欄にします。')}</section>`
 }
 
-async function renderSources(spec, images, imageSrc) {
+// ---- 問題冊子／解答解説への分割 ----------------------------------------------
+// 1問 = `## ` 見出しから次の見出しまで。解答は各問の <details>…</details>。
+// 1級土木などは要点（ExamPoint）を </details> の後ろに置くため、details の外にある
+// ExamPoint / Callout も解答側へ回す（問題冊子に答えを漏らさない）。
+// details を持たない H2（「論点の出題傾向」等の分析節）は解説なので解答側だけに置く。
+// details 後の素の文（群の見出し「2群 情報・論理に関するもの…」等）は次の問への前置きなので問題側に残す。
+const ANSWER_COMPONENT_RE = /<ExamPoint>[\s\S]*?<\/ExamPoint>|<ExamPoint\b[\s\S]*?\/>|<Callout\b[\s\S]*?<\/Callout>/g
+function splitBody(body) {
+  const [preamble, ...blocks] = body.split(/^(?=## )/m)
+  const problem = [preamble], answer = []
+  let count = 0
+  for (const block of blocks) {
+    const open = block.indexOf('<details>')
+    if (open < 0) { answer.push(block); continue }
+    count++
+    const close = block.indexOf('</details>', open)
+    if (close < 0) throw new Error(`</details> が閉じていない: ${block.split('\n')[0]}`)
+    const heading = block.split('\n')[0]
+    const tail = block.slice(close + '</details>'.length)
+    const tailAnswers = tail.match(ANSWER_COMPONENT_RE) || []
+    problem.push(block.slice(0, open) + tail.replace(ANSWER_COMPONENT_RE, ''))
+    answer.push([heading, block.slice(open, close + '</details>'.length), ...tailAnswers].join('\n\n') + '\n')
+  }
+  return { problem: problem.join(''), answer: answer.join(''), count }
+}
+
+async function renderSources(spec, images, imageSrc, edition = 'all') {
   const chapters = []
   let qTotal = 0, mathChaps = 0
   for (const srcRel of spec.sources) {
     const raw = readFileSync(resolve(REPO, srcRel), 'utf8')
-    const { fm, body } = splitFrontmatter(raw)
+    const { fm, body: whole } = splitFrontmatter(raw)
     const label = fm.shortTitle || fm.title || basename(srcRel)
+    let body = whole
+    let qCount = (whole.match(/^## /gm) || []).length
+    if (edition !== 'all') {
+      const parts = splitBody(whole)
+      body = parts[edition]
+      qCount = parts.count
+    }
     const pre = await preprocess(body, images, imageSrc)
-    const qCount = (body.match(/^## /gm) || []).length
     qTotal += qCount
     if (pre.hasMath) mathChaps++
-    const inner = `<h1 class="year">${xesc(label)}（${qCount}問）</h1>\n` + restoreTokens(mdToXhtml(pre.text), pre.tokens)
+    const head = edition === 'answer' ? `${xesc(label)}　解答・解説（${qCount}問）` : `${xesc(label)}（${qCount}問）`
+    const inner = `<h1 class="year">${head}</h1>\n` + restoreTokens(mdToXhtml(pre.text), pre.tokens)
     chapters.push(inner)
   }
   return { chapters, qTotal, mathChaps }
+}
+
+const EDITIONS = {
+  all: { suffix: '', label: '' },
+  problem: { suffix: '-問題冊子', label: '問題冊子' },
+  answer: { suffix: '-解答解説', label: '解答・解説' },
+}
+
+async function buildHtml(spec, edition) {
+  const images = new Map(), imageSrc = new Map()
+  const { chapters, qTotal, mathChaps } = await renderSources(spec, images, imageSrc, edition)
+
+  const examName = spec.examName || DEFAULT_EXAM
+  const credit = spec.creditText || creditBody(examName, spec.creditIssuer)
+  const { label } = EDITIONS[edition]
+  const coverHtml = `<div class="cover"><h1>${xesc(spec.title)}</h1>
+<p class="sub">― ${xesc(spec.subtitle)} ―</p>${label ? `<p class="sub">【${label}】</p>` : ''}<p class="author">${xesc(AUTHOR)}</p></div>`
+  const creditHtml = `<div class="front"><h1>出典・免責</h1>
+<p class="credit"><strong>出典</strong><br/>${xesc(credit)}</p>
+<p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
+<p class="credit"><strong>著者・発行</strong>　${xesc(AUTHOR)}</p></div>`
+
+  // 答案記入シートは解く側の冊子にだけ付ける
+  const sheets = edition === 'answer' ? '' : buildStudySheets(spec)
+  let bodyHtml = coverHtml + creditHtml + sheets + chapters.join('\n')
+  // 画像 href → base64 data URI に差し替え（単一 HTML 埋め込み）
+  for (const [href, dataUri] of images) bodyHtml = bodyHtml.split(`src="${href}"`).join(`src="${dataUri}"`)
+
+  const title = label ? `${spec.title}【${label}】` : spec.title
+  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${xesc(title)}</title>
+<style>${PRINT_CSS}</style></head><body>${bodyHtml}</body></html>`
+  return { html, qTotal, mathChaps, imageCount: images.size }
 }
 
 async function main() {
@@ -324,50 +393,48 @@ async function main() {
   for (const k of ['bookId', 'title', 'subtitle', 'sources']) {
     if (!spec[k]) throw new Error(`spec に ${k} がありません`)
   }
-  const images = new Map(), imageSrc = new Map()
-  const { chapters, qTotal, mathChaps } = await renderSources(spec, images, imageSrc)
-
-  const examName = spec.examName || DEFAULT_EXAM
-  const credit = spec.creditText || creditBody(examName, spec.creditIssuer)
-  const coverHtml = `<div class="cover"><h1>${xesc(spec.title)}</h1>
-<p class="sub">― ${xesc(spec.subtitle)} ―</p><p class="author">${xesc(AUTHOR)}</p></div>`
-  const creditHtml = `<div class="front"><h1>出典・免責</h1>
-<p class="credit"><strong>出典</strong><br/>${xesc(credit)}</p>
-<p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
-<p class="credit"><strong>著者・発行</strong>　${xesc(AUTHOR)}</p></div>`
-
-  let bodyHtml = coverHtml + creditHtml + buildStudySheets(spec) + chapters.join('\n')
-  // 画像 href → base64 data URI に差し替え（単一 HTML 埋め込み）
-  for (const [href, dataUri] of images) bodyHtml = bodyHtml.split(`src="${href}"`).join(`src="${dataUri}"`)
-
-  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${xesc(spec.title)}</title>
-<style>${PRINT_CSS}</style></head><body>${bodyHtml}</body></html>`
-
-  const outPath = resolve(REPO, args.out || `.tmp/note-pdf/${spec.bookId}.pdf`)
-  mkdirSync(dirname(outPath), { recursive: true })
-  const htmlPath = outPath.replace(/\.pdf$/, '.html')
-  writeFileSync(htmlPath, html)
+  const basePath = resolve(REPO, args.out || `.tmp/note-pdf/${spec.bookId}.pdf`)
+  const editions = args.split ? ['problem', 'answer'] : ['all']
+  const built = []
+  for (const edition of editions) {
+    const { html, qTotal, mathChaps, imageCount } = await buildHtml(spec, edition)
+    const outPath = basePath.replace(/\.pdf$/, `${EDITIONS[edition].suffix}.pdf`)
+    mkdirSync(dirname(outPath), { recursive: true })
+    // 中間 HTML は base64 画像で数十 MB になるので、配布 PDF の隣（content/note）でなく .tmp へ出す
+    const htmlPath = resolve(REPO, '.tmp/note-pdf', basename(outPath).replace(/\.pdf$/, '.html'))
+    mkdirSync(dirname(htmlPath), { recursive: true })
+    writeFileSync(htmlPath, html)
+    built.push({ edition, outPath, htmlPath, qTotal, mathChaps, imageCount })
+  }
+  // 分割の取りこぼし（片方だけ問題数が違う）は紙面を作る前に止める
+  if (args.split && built[0].qTotal !== built[1].qTotal) {
+    throw new Error(`問題冊子 ${built[0].qTotal} 問と解答解説 ${built[1].qTotal} 問が一致しない`)
+  }
 
   // CI/端末ごとに Playwright 同梱 Chromium の有無が異なるため、note 自動化と同じ
   // システム Chrome を使う。ブラウザ更新後に executable missing で生成不能になるのを避ける。
   const browser = await chromium.launch({ headless: true, channel: 'chrome' })
   try {
-    const page = await browser.newPage()
-    // 大量の設問＋base64画像で HTML が巨大化するため setContent でなく file:// goto。
-    // waitUntil は 'load'（画像描画完了）、タイムアウトは余裕を持って 180s。
-    await page.goto(`file://${htmlPath}`, { waitUntil: 'load', timeout: 180000 })
-    if (args.sample) {
-      // 見本 PNG: 先頭章の冒頭のみ（販売ページ掲載用・A4 上部を切り出し）
-      const pngPath = outPath.replace(/\.pdf$/, '-sample.png')
-      await page.setViewportSize({ width: 900, height: 1180 })
-      await page.evaluate(() => { document.querySelectorAll('.cover,.front').forEach((e) => e.remove()) })
-      await page.screenshot({ path: pngPath })
-      console.log(`[sample] ${pngPath}`)
-    } else {
-      await page.pdf({ path: outPath, format: 'A4', printBackground: true, preferCSSPageSize: true })
-      console.log(`書籍: ${spec.title} ― ${spec.subtitle}（${spec.bookId}）`)
-      console.log(`収録: ${spec.sources.length} 章 / ${qTotal} 問 / 画像 ${images.size} 点 / 数式章 ${mathChaps}`)
-      console.log(`出力: ${outPath}`)
+    for (const b of built) {
+      const page = await browser.newPage()
+      // 大量の設問＋base64画像で HTML が巨大化するため setContent でなく file:// goto。
+      // waitUntil は 'load'（画像描画完了）、タイムアウトは余裕を持って 180s。
+      await page.goto(`file://${b.htmlPath}`, { waitUntil: 'load', timeout: 180000 })
+      if (args.sample) {
+        // 見本 PNG: 先頭章の冒頭のみ（販売ページ掲載用・A4 上部を切り出し）
+        const pngPath = b.outPath.replace(/\.pdf$/, '-sample.png')
+        await page.setViewportSize({ width: 900, height: 1180 })
+        await page.evaluate(() => { document.querySelectorAll('.cover,.front').forEach((e) => e.remove()) })
+        await page.screenshot({ path: pngPath })
+        console.log(`[sample] ${pngPath}`)
+      } else {
+        await page.pdf({ path: b.outPath, format: 'A4', printBackground: true, preferCSSPageSize: true })
+        const label = EDITIONS[b.edition].label
+        console.log(`書籍: ${spec.title} ― ${spec.subtitle}（${spec.bookId}）${label ? `【${label}】` : ''}`)
+        console.log(`収録: ${spec.sources.length} 章 / ${b.qTotal} 問 / 画像 ${b.imageCount} 点 / 数式章 ${b.mathChaps}`)
+        console.log(`出力: ${b.outPath}`)
+      }
+      await page.close()
     }
   } finally {
     await browser.close()
