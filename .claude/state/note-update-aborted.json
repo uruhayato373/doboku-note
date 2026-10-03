@@ -1,9 +1,19 @@
 {
   "aborted": [
     {
-      "noteId": "n155093f42183",
-      "reason": "pdf-missing",
-      "at": "2026-09-29T23:15:33"
+      "noteId": "n64ae7892e25c",
+      "reason": "keyboard.press: Target page, context or browser has been closed",
+      "at": "2026-10-03T04:36:31"
+    },
+    {
+      "noteId": "n31042910b6fa",
+      "reason": "page.goto: Target page, context or browser has been closed",
+      "at": "2026-10-03T04:36:33"
+    },
+    {
+      "noteId": "n6c286f187e36",
+      "reason": "page.goto: Target page, context or browser has been closed",
+      "at": "2026-10-03T04:36:35"
     }
   ],
   "_note": "2026-08-18: 旧形式（理由が汎用文字列）の 13 件のうち 11 件を public API でライブ実査し、published・本文 5,517〜112,841 字・画像ありで破損なしを確認したため解除した。残る 2 件は is_limited=true で未ログイン API では本文が返らず計測不能なので、--force-retry のゲートを維持する（計測不能を「無事」と読み替えない）。 2026-09-30: 手動反映の中断で止まった 6 件（ブラウザ終了・同時起動による editor 未ロード。いずれも保存前）を public API で実査し、published・無料本文 3,913〜6,595 字・is_limited=false で破損なしを確認したため解除した。"
