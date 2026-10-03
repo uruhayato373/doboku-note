@@ -760,6 +760,15 @@ export const ConfigCceEssayHistory = z
           .superRefine(uniqueBy('key')),
         totalChars: cceRange.describe('組み立てた答案全体の字数帯'),
         requiredH2: strList.min(1).describe('記事に必須の H2'),
+        personaArticle: z
+          .object({
+            _doc: text,
+            requiredH2: strList.min(1).describe('立場別記事（1立場×1テーマ）に必須の H2'),
+            distinctParts: strList.min(1).describe('同じテーマの立場別記事どうしで文面が一致してはいけない parts の key'),
+          })
+          .strict()
+          .optional()
+          .describe('立場別記事（frontmatter cceEssayPersona）の型'),
         personas: strList.min(1).superRefine(uniqueBy((p) => p, '立場')).describe('書き分ける立場'),
       })
       .strict(),
@@ -771,6 +780,8 @@ export const ConfigCceEssayHistory = z
       for (const t of [...y.options.map((o) => o.theme), ...(y.optionThemes ?? [])]) if (t !== null && !(t in c.themes)) flag(ctx, ['years', i], `themes に無いテーマ「${t}」`);
     });
     if (c.answerModel.parts.filter((p) => p.scope === 'persona').length !== 1) flag(ctx, ['answerModel', 'parts'], 'persona の部分はちょうど 1 つ（立場ごとに書き分ける設問）');
+    const keys = new Set(c.answerModel.parts.map((p) => p.key));
+    for (const k of c.answerModel.personaArticle?.distinctParts ?? []) if (!keys.has(k)) flag(ctx, ['answerModel', 'personaArticle', 'distinctParts'], `parts に無い key「${k}」`);
   })
   .meta({ title: 'コンクリート主任技士 小論文の出題履歴' });
 

@@ -161,7 +161,7 @@ npm run report-site-to-sales -- --month 2026-08
 | 2級土木 二次まるごとパック | `civil-2-niji-marugoto-pack`（¥8,800・79記事バンドル） |
 | 2級土木 直前総仕上げパック | `civil-2-chokuzen-pack`（¥2,480・模試3回＋暗記＋出題分析の 3 記事） |
 | RCCM まるごとパック | `rccm-marugoto-pack`（¥5,980・問題I〜IV 16記事） |
-| コンクリート主任技士 小論文 | `cce-essay-reiwa-pack`（¥3,980・6本・令和形式）。旧 `cce-essay-magazine`・`cce-essay-persona-pack`・立場別/テーマ別パックは 2026-10-01 に削除（過去の販売記録の照合用に ID は残す） |
+| コンクリート主任技士 小論文 | 全40答案 `cce-essay-reiwa-pack`（2026-10-03 から ¥5,980・41本。それ以前は ¥3,980・6本）／立場別5テーマ `cce-reiwa-{slug}-pack`（8誌・¥2,480）／立場別合格パック `cce-goukaku-{slug}-pack`（8誌・¥3,980）／まるごと `cce-marugoto-pack`（¥7,980・45本）。旧 `cce-essay-magazine`・`cce-essay-persona-pack`・立場別/テーマ別パック（`cce-persona-*`・`cce-theme-*`）は 2026-10-01 に削除（過去の販売記録の照合用に ID は残す）。slug の対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md` |
 
 ### 単品記事
 
@@ -189,6 +189,7 @@ npm run report-site-to-sales -- --month 2026-08
 | 1級土木 施工経験記述 工種別5管理完成答案 | `article:civil-1-keiken-pack-{工事番号 or 工種}`。確定済みは `15` / `24` / `51` / `55` / `72` / `76` / `102` / `105` / `108` / `tunnel` |
 | コンクリート主任技士 配合計算 実戦演習12問 | `article:cce-mix-calculation-practice` |
 | コンクリート主任技士 令和8年度 四肢択一 予想50問 | `article:cce-r8-mc-50` |
+| コンクリート主任技士 小論文 模範答案｜{立場}｜{テーマ}｜令和形式（¥980・2026-10-03〜） | `article:cce-reiwa-{slug}-{theme}`（frontmatter の utmCampaign と同じ） |
 | コンクリート診断士 四肢択一演習98問 PDF | `article:cd-takuitsu-98-pdf` |
 | コンクリート技士 配合計算・JIS判断 実戦演習12問 | `article:ce-mix-jis-practice` |
 | 1級土木 第1次検定 過去問PDF | `article:civil-1-takuitsu-pdf` |

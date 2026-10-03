@@ -832,7 +832,7 @@ const SERVICES_RAW = {
   // ---- コンクリート主任技士 完全パック PDF（2026-09-30 下書き）----
   // ココナラの主任技士は「添削＋完全パック」の2件に絞る（2026-09-30 運営者判断）。単品 PDF（小論文・択一）は販売0のまま retired。
   // 中身は令和形式の小論文6冊＋択一直前パック3冊。旧形式（序論本論結論型）の小論文5冊は形式が古いので入れない。
-  // note の cce-essay-reiwa-pack（¥3,980）＋cce-takuitsu-chokuzen-pack（¥2,980）＝¥6,960 ×1.1 を ¥500 刻みで切り上げ。
+  // ¥8,000 は note 旧価格（cce-essay-reiwa-pack ¥3,980＋cce-takuitsu-chokuzen-pack ¥2,980＝¥6,960）×1.1 を ¥500 刻みで切り上げた値。
   // 出品は運営者が本文を確認してから（公開は取り消せない）。
   'coconala-cce-full-pdf': {
     id: 'coconala-cce-full-pdf',
@@ -844,7 +844,9 @@ const SERVICES_RAW = {
       'コンクリート主任技士試験の小論文と四肢択一をまとめたPDF9冊。小論文は令和2年度以降の1題・約1,000字の形式に合わせた出題傾向分析と5テーマ×8立場の模範答案、択一は8分野の予想50問・配合計算12問・一問一答157問。答案は各立場を想定した例示。出題や合格を保証するものではない。',
     priceYen: 8000,
     priceNote: 'PDF9冊',
-    notePriceBasis: 'cce-essay-reiwa-pack + cce-takuitsu-chokuzen-pack',
+    // 2026-10-03（DN-0523）: PDF の小論文はテーマ別5冊（1冊に8立場）で、note からはこの形式を外し 1立場1本の40本へ組み替えた。
+    // note に同じ中身の商品が無くなったため価格ルールの対象外とする。値上げ（まるごと ¥7,980 基準なら ¥9,000）の判断は DN-0526。
+    notePriceExempt: '小論文はテーマ別5冊（1冊に8立場）で、note は 2026-10-03 から 1立場1本の40本へ組み替えたため同じ中身の商品が無い（価格の見直しは DN-0526）',
     examScope: ['concrete-chief-engineer'],
     weeklyCapacity: 20,
     listedAt: '2026-09-30',

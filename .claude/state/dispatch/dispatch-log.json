@@ -1855,6 +1855,18 @@
       "commit": "755094da648b",
       "verification": "16 regression tests passed; review wiring 54 inputs; growth digest reads regenerated coverage; CI audit and build passed",
       "note": "PR #856 merged; canonical traffic and same-window sales review repaired"
+    },
+    {
+      "id": "DN-0523",
+      "at": "2026-10-03",
+      "task": "コンクリート主任技士 小論文を立場別に選べる構成へ戻す: 1立場×1テーマの40本と立場別・合格パックを公開する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0523-cce-reiwa-persona.md",
+      "commit": "724a433cd1e8",
+      "verification": "check-cce-essay 40件違反0 / check-magazine-membership --ci 全40答案41・まるごと45・新16誌一致 / verify-note-magazines SoTズレ0 / audit-note-funnel・check-note-paid-cta exit0 / npm test 2683件 fail0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

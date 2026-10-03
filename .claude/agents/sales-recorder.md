@@ -105,7 +105,9 @@ kuro
 | `建設部門2次｜鉄道 選択科目 模範解答集` | `bk-railway-secondary-magazine` |
 | `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
 | `建設部門2次｜{他科目} まるごと合格パック`（必須科目I＋選択科目 バンドル） | `bk-{subject}-pack`（例: `bk-road-pack` / `bk-tunnel-pack` / `bk-urban-planning-pack`。note-magazines.ts の `pe-construction-{subject}-pack` に対応） |
-| `主任技士 小論文｜令和形式 5テーマ×8立場`（¥3,980・6本） | `cce-essay-reiwa-pack` |
+| `主任技士 小論文｜令和形式 5テーマ×8立場`（2026-10-03 から全40答案・¥5,980。それ以前は ¥3,980・6本） | `cce-essay-reiwa-pack` |
+| `主任技士 小論文｜{立場} 令和形式5テーマ`（¥2,480・2026-10-03〜。立場＝生コン工場／プレキャスト工場／ゼネコン土木施工／維持管理・補修／発注者・監督員／ゼネコン建築施工／設計コンサルタント／試験・検査機関） | `cce-reiwa-{slug}-pack`（slug は namacon／precast／civil-contractor／maintenance／owner／building-contractor／design-consultant／testing。対応表は `content/note/コンクリート主任技士/noteコンテンツ計画.md`） |
+| `主任技士 合格パック｜{立場}の択一＋小論文`（¥3,980・2026-10-03〜） | `cce-goukaku-{slug}-pack` |
 | `コンクリート主任技士 小論文｜模範答案集`（¥2,480・5本・2026-10-01 削除） | `cce-essay-magazine` |
 | `2級土木 施工経験記述｜過去問 模範答案集（R03-R07）`（¥2,480・5本セット） | `civil-2-pastexam-essay` |
 | `コンクリート主任技士 小論文｜実務立場別 模範答案集`（¥5,980・33本） | `cce-essay-persona-pack` |
@@ -120,7 +122,7 @@ kuro
 | `技術士 総監｜土質基礎コンサルの記述式5年分` | `essay-geotechnical-consultant-magazine` |
 | `技術士 総監｜上下水道コンサルの記述式5年分` | `essay-water-consultant-magazine` |
 | `技術士 総監｜維持更新施工の記述式5年分` | `essay-maintenance-contractor-magazine` |
-| `コンクリート主任技士 まるごとパック`（¥9,800・42記事＝小論文2マガジン＋択一予想50問＋配合計算12問＋直前暗記ノート） | `cce-marugoto-pack` |
+| `コンクリート主任技士 まるごとパック`（¥9,800・42記事 → 2026-10-01 ¥4,980・10記事 → 2026-10-03 ¥7,980・45記事） | `cce-marugoto-pack` |
 | `コンクリート主任技士 択一｜直前パック`（¥2,980・予想50問＋配合計算＋直前暗記ノート・2026-09-17 新設） | `cce-takuitsu-chokuzen-pack` |
 | `技術士 第一次試験｜直前パック`（¥1,980・過去問PDF 合本＋直前暗記ノート・2026-09-17 新設） | `pe1-chokuzen-pack` |
 | `コンクリート技士 択一｜直前パック`（¥1,480・配合計算・JIS判断12問＋直前暗記ノート・2026-09-17 新設） | `ce-chokuzen-pack` |
@@ -165,6 +167,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |
 | `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和（令和元〜7年度）`（単品¥980） | `article:tankan-takuitsu-reiwa-pdf` |
+| `コンクリート主任技士 小論文 模範答案｜{立場}｜{テーマ}｜令和形式`（立場別 単品 ¥980・2026-10-03〜） | `article:cce-reiwa-{slug}-{theme}`（frontmatter の utmCampaign と同じ。theme は environment／durability／productivity／climate-quality／workforce） |
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性`（実務立場別 単品） | `article:cce-persona-namacon-durability` |
 | `コンクリート主任技士 小論文 模範答案｜生コン工場｜環境配慮`（実務立場別 単品） | `article:cce-persona-namacon-environment` |
 | `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |

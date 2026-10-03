@@ -33,7 +33,6 @@
     "総監記述式-5管理クロストレードオフ": "tradeoff-5kanri",
     "総監記述式-R8予想問題集": "r8-essay-forecast",
     "総監テキスト精読ガイド": "tankan-reading-guide",
-    "コンクリート主任技士-小論文テーマ別-令和形式": "cce-essay-reiwa-pack",
     "コンクリート診断士-記述式-模範答案集": "cd-essay-magazine",
     "RCCM問題III-2026模範論文集": "rccm-mondai3-magazine",
     "経験記述-週次お題ラボ": "civil-membership-odai-lab",
@@ -51,7 +50,15 @@
     "総監模範論文-鋼コンコンサル": "essay-steel-concrete-consultant-magazine",
     "総監模範論文-トンネルコンサル": "essay-tunnel-consultant-magazine",
     "総監模範論文-道路舗装施工": "essay-road-paving-contractor-magazine",
-    "コンクリート診断士-想定構造物8ケース": "cd-structure-case-bank"
+    "コンクリート診断士-想定構造物8ケース": "cd-structure-case-bank",
+    "コンクリート主任技士-令和形式-生コン工場": "cce-reiwa-namacon-pack",
+    "コンクリート主任技士-令和形式-プレキャスト工場": "cce-reiwa-precast-pack",
+    "コンクリート主任技士-令和形式-ゼネコン土木施工": "cce-reiwa-civil-contractor-pack",
+    "コンクリート主任技士-令和形式-維持管理補修": "cce-reiwa-maintenance-pack",
+    "コンクリート主任技士-令和形式-発注者監督員": "cce-reiwa-owner-pack",
+    "コンクリート主任技士-令和形式-ゼネコン建築施工": "cce-reiwa-building-contractor-pack",
+    "コンクリート主任技士-令和形式-設計コンサル": "cce-reiwa-design-consultant-pack",
+    "コンクリート主任技士-令和形式-試験検査機関": "cce-reiwa-testing-pack"
   },
   "packs": {
     "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
@@ -90,6 +97,76 @@
       },
       "reason": "2級土木 二次検定まるごとパック（¥8,800・2026-09-17 新設）。想定工事バンク 61（索引含む）＋過去問模範答案集 5＋完成答案集 3＋学科記述出る順 5 を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本。単体記事4本（直前暗記ノート・R8予想模試3回・出題分析・小規模地域インフラ4工事）は extras。API 実測79本。"
     },
+    "cce-essay-reiwa-pack": {
+      "labels": [
+        "コンクリート主任技士-小論文テーマ別-令和形式",
+        "コンクリート主任技士-令和形式-生コン工場",
+        "コンクリート主任技士-令和形式-プレキャスト工場",
+        "コンクリート主任技士-令和形式-ゼネコン土木施工",
+        "コンクリート主任技士-令和形式-維持管理補修",
+        "コンクリート主任技士-令和形式-発注者監督員",
+        "コンクリート主任技士-令和形式-ゼネコン建築施工",
+        "コンクリート主任技士-令和形式-設計コンサル",
+        "コンクリート主任技士-令和形式-試験検査機関"
+      ],
+      "reason": "コンクリート主任技士 小論文 令和形式の全答案（2026-10-03 組み替え・DN-0523）。無料の出題傾向分析（ラベル コンクリート主任技士-小論文テーマ別-令和形式）と、1立場×1テーマの40本（8立場のラベル）を合算する。テーマ別5本（1本に8立場）は40本へ入れ替えて note から削除し、原稿は content/sources へ移す。"
+    },
+    "cce-goukaku-namacon-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-namacon-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜生コン工場（2026-10-03 新設・DN-0523）。生コン工場の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-precast-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-precast-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜プレキャスト工場（2026-10-03 新設・DN-0523）。プレキャスト工場の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-civil-contractor-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-civil-contractor-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜ゼネコン土木施工（2026-10-03 新設・DN-0523）。ゼネコン土木施工の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-maintenance-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-maintenance-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜維持管理・補修（2026-10-03 新設・DN-0523）。維持管理・補修の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-owner-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-owner-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜発注者・監督員（2026-10-03 新設・DN-0523）。発注者・監督員の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-building-contractor-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-building-contractor-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜ゼネコン建築施工（2026-10-03 新設・DN-0523）。ゼネコン建築施工の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-design-consultant-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-design-consultant-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜設計コンサルタント（2026-10-03 新設・DN-0523）。設計コンサルタントの立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
+    "cce-goukaku-testing-pack": {
+      "labels": [],
+      "fromMagazines": {
+        "cce-reiwa-testing-pack": "all"
+      },
+      "reason": "コンクリート主任技士 合格パック｜試験・検査機関（2026-10-03 新設・DN-0523）。試験・検査機関の立場別5テーマ（無料の出題傾向分析を含む）を丸ごと同梱し、択一直前3点（予想50問・配合計算・暗記ノート）は extras。パック案内記事は無い。"
+    },
     "cce-marugoto-pack": {
       "labels": [
         "コンクリート主任技士-まるごとパック"
@@ -97,7 +174,7 @@
       "fromMagazines": {
         "cce-essay-reiwa-pack": "all"
       },
-      "reason": "コンクリート主任技士 まるごとパック（2026-09-04 新設・2026-10-01 組み替えで ¥4,980）。令和形式テーマ別6本（無料の出題傾向分析1＋有料5）を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 3 本（四肢択一 R8予想50問・配合計算 実戦演習12問・直前暗記ノート）は extras。旧版の小論文（模範答案集・実務立場別）は 2026-10-01 に note から削除（DN-0461）"
+      "reason": "コンクリート主任技士 まるごとパック（2026-09-04 新設・2026-10-03 組み替えで ¥7,980・DN-0523）。小論文 令和形式の全答案（cce-essay-reiwa-pack＝無料の出題傾向分析＋1立場×1テーマの40本）を**まるごと**同梱し、パック案内 ¥0 がラベル付き 1 本、単体記事 3 本（四肢択一 R8予想50問・配合計算 実戦演習12問・直前暗記ノート）は extras。旧版の小論文（模範答案集・実務立場別）は 2026-10-01 に note から削除（DN-0461）"
     },
     "essay-complete-pack": {
       "labels": [
@@ -234,6 +311,70 @@
     "cce-marugoto-pack": {
       "count": 3,
       "reason": "四肢択一 R8予想50問（¥1,980・cce-r8-mc-50）・配合計算 実戦演習12問（¥1,480・cce-mix-calculation-practice）・2026-09-17 追加の直前暗記ノート（¥980・cce-anki-note）を同梱。いずれも単体記事で noteMagazine ラベルを持たないため集計に乗らない"
+    },
+    "cce-reiwa-namacon-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）を生コン工場の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-precast-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）をプレキャスト工場の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-civil-contractor-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）をゼネコン土木施工の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-maintenance-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）を維持管理・補修の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-owner-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）を発注者・監督員の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-building-contractor-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）をゼネコン建築施工の立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-design-consultant-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）を設計コンサルタントの立場別マガジンにも再収録する。"
+    },
+    "cce-reiwa-testing-pack": {
+      "count": 1,
+      "reason": "無料の出題傾向分析（コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析・noteMagazine は全40答案のラベル）を試験・検査機関の立場別マガジンにも再収録する。"
+    },
+    "cce-goukaku-namacon-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-precast-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-civil-contractor-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-maintenance-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-owner-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-building-contractor-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-design-consultant-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
+    },
+    "cce-goukaku-testing-pack": {
+      "count": 3,
+      "reason": "四肢択一 R8予想50問（cce-r8-mc-50）・配合計算 実戦演習12問（cce-mix-calculation-practice）・直前暗記ノート（cce-anki-note）の単体記事3本を同梱。noteMagazine ラベルを持たないため集計に乗らない。"
     },
     "cd-marugoto-pack": {
       "count": 1,
