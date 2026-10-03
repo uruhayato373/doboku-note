@@ -32,14 +32,13 @@
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { jstMonth, todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { attachCISession } from './lib/playwright-auth-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');

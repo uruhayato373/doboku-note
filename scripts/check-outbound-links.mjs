@@ -23,13 +23,12 @@
  * exit: 0 合格 / 1 死んだ送客先あり・検査不成立
  */
 import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
-import { join, dirname, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, sep } from 'node:path';
 import { fetchNote, fetchMagazine } from './lib/note-api.mjs';
 import { extractNoteRefs } from './lib/note-refs.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-outbound-links';
 const argv = process.argv.slice(2);
 const arg = (n, d = null) => { const i = argv.indexOf(n); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };

@@ -25,11 +25,10 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import { loadConfig, discoverPacks } from './lib/video-content-check.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = new Set(process.argv.slice(2));
 const DRY = argv.has('--dry');
 const JSON_OUT = argv.has('--json');

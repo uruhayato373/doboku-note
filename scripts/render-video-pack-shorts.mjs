@@ -7,9 +7,9 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { buildExplanationNode } from './lib/video-explanation.mjs';
@@ -18,8 +18,8 @@ import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
 import { narrationInput, reusableNarration, sha256 as bytesSha256 } from './lib/video-narration-cache.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const W = 1080;
 const H = 1920;
 const HOOK_SECONDS = 4;

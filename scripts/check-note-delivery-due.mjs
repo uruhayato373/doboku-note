@@ -31,10 +31,9 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, writeSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE = join(ROOT, '.claude/state/note-attachments-missing.json');
 const STALE_DAYS = 14;      // 有料記事の追加・PDF差替えの頻度から、2週間を上限とする
 const asJson = process.argv.includes('--json');

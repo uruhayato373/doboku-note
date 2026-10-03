@@ -21,10 +21,9 @@
 //   markdown（見出し/番号付き選択肢/箇条書き/表/引用）→ 最小レンダラで XHTML 化
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
-import { join, resolve, basename, dirname } from 'node:path'
+import { resolve, basename, dirname } from 'node:path'
 import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
-
-const REPO = resolve(import.meta.dirname, '..')
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'

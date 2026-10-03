@@ -5,11 +5,10 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = path.join(ROOT, 'content/coconala/assets');
 const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const W = 1200;

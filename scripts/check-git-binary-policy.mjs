@@ -30,10 +30,9 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, openSync, readSync, closeSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const POLICY_PATH = join(ROOT, datasetPath('config.git-binary-policy'));
 const BASELINE_PATH = join(ROOT, '.claude/state/quality/git-binary-baseline.json');
 

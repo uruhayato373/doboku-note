@@ -22,15 +22,10 @@
 
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import { fileURLToPath } from "node:url";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = join(dirnameOf(import.meta.url), "..");
 const CALLOUT_SRC = join(ROOT, "src/components/ui/Callout/Callout.tsx");
 const DEFAULT_TARGETS = ["content"];
-
-function dirnameOf(metaUrl) {
-  return fileURLToPath(new URL(".", metaUrl));
-}
 
 function extractAllowedTypes() {
   const src = readFileSync(CALLOUT_SRC, "utf-8");

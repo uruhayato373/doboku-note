@@ -8,11 +8,11 @@
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+export { ROOT };
 export const PRODUCTS_DIR = join(ROOT, 'content', 'products');
 export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
 export const SNAPSHOT = join(ROOT, datasetPath('note.magazines'));

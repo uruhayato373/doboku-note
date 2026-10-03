@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // 図解投稿の制作入力を確認し、サイト図から画像を再生成する。投稿・予約は行わない。
 import { readFileSync, mkdirSync, renameSync, rmSync, realpathSync } from 'node:fs';
-import { resolve, dirname, join, basename, relative, isAbsolute } from 'node:path';
+import { resolve, join, basename, relative, isAbsolute } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { splitTweets, tweetLength } from './check-x-length.mjs';
 import { renderFigureSns } from '../.claude/scripts/sns/render-figure-sns.mjs';
-const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 export function validateXFigureDraft(draft,root=ROOT) {
   if(!/^\d{3}-[a-z0-9-]+$/.test(draft))throw Error('draftは番号付き下書き名で指定');
   const dir=join(root,'content/sns/x/draft',draft);

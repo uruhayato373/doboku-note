@@ -24,7 +24,6 @@
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadBannerReferences, matchBannerBuffer } from './lib/author-banner-match.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { countEditorImages, uploadAtCaret, settleUploads } from './lib/note-images.mjs';
@@ -34,8 +33,8 @@ import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { recordPublishedHash } from './lib/note-republish-hash.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const DONE_LOG = join(ROOT, '.claude/state/note-swap-banner-done.json');

@@ -14,13 +14,11 @@
 // - フラグメント (#anchor) が末尾にあればその前に挿入
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 import { utmChannel } from './lib/utm-contract.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 
 const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;

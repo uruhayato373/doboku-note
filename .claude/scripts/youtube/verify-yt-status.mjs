@@ -25,10 +25,9 @@
 //   （recorded_but_gone / not_public_after_publishAt / pending_overdue のいずれかが 1 件以上） / 1 = 認証・ネットワーク失敗。
 
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const LEDGER = join(ROOT, '.claude/state/youtube-schedule.json');
 const REPORT_DIR = join(ROOT, '.claude/state/yt-verify');
 const REPORT_PATH = join(REPORT_DIR, 'latest.json');

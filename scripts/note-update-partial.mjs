@@ -15,6 +15,7 @@ import {
 } from './lib/note-partial-update.mjs';
 import { cardifyBareUrls } from './lib/note-cardify.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 /**
  * 公開済み note 記事の「指定した範囲だけ」を更新する。
@@ -31,7 +32,6 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
  * npm run note-update-partial -- --spec <spec> --commit --paid-line-bottom   # 有料記事の境界 line を末尾の直前へ置き直して公開（末尾だけ有料の記事用）
  */
 
-const ROOT = process.cwd();
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);

@@ -25,9 +25,9 @@
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { SITE_HOST } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 function walk(dir, acc = []) {
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -40,7 +40,6 @@ function walk(dir, acc = []) {
   return acc;
 }
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const JSON_OUT = process.argv.includes('--json');
 const outIdx = process.argv.indexOf('--out');

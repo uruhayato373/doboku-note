@@ -29,7 +29,6 @@ import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { fetchCreatorMagazines } from './lib/note-api.mjs';
@@ -39,8 +38,8 @@ import {
 import { buildSyncPlan, countPlan, orderForRun, withLiveCovers } from './lib/note-sync-plan.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[note-sync]';
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry-run');

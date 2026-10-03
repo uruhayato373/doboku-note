@@ -19,8 +19,8 @@ import { readdirSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const DRY_RUN = process.argv.includes('--dry-run');
 

@@ -40,8 +40,8 @@ import { readdirSync, readFileSync, statSync, existsSync, writeSync } from 'node
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const BASE = 'content/note';
 const CONFIG = datasetPath('config.note-price-consistency');
 

@@ -9,8 +9,7 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
@@ -18,8 +17,8 @@ import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;

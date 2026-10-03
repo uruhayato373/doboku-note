@@ -20,8 +20,9 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(process.cwd(), 'out');
+const ROOT = join(REPO_ROOT, 'out');
 // dev サーバー（3020）とは別ポートにする。同じにすると Playwright の reuseExistingServer が
 // 起動中の dev を黙って再利用してしまい、静的配信のつもりで dev を検査することになる。
 const PORT = Number(process.env.PORT ?? 3025);

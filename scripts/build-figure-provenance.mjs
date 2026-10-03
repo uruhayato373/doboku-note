@@ -24,10 +24,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 
-const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = path.join(ROOT, ".claude", "state", "figure-provenance.json");
 const quiet = process.argv.includes("--json");

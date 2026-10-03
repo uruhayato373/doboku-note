@@ -1,8 +1,7 @@
 import { existsSync, lstatSync, mkdirSync, readlinkSync, unlinkSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
 
-const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const localPosts = resolve(repoRoot, 'content', 'site');
 const publicPosts = resolve(repoRoot, 'public', 'posts');
 

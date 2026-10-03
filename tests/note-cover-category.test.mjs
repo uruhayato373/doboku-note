@@ -2,12 +2,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { fileURLToPath, URL } from 'node:url';
 import matter from 'gray-matter';
 import { classifyNote, loadThemes } from '../scripts/lib/content-theme.mjs';
 import { buildNoteCoverCategories, classifyNoteCover, loadNoteCoverCategories, noteCoverCategoryLabel } from '../scripts/lib/note-cover-category.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const ctx = buildNoteCoverCategories({
   categories: [
     { id: 'index', label: 'もくじ' }, { id: 'guide', label: '無料ガイド' },

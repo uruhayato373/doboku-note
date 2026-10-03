@@ -51,9 +51,9 @@ import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { IG_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
+import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
-const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const IG_DIR = path.join(PROJECT_ROOT, "content/sns/instagram");
 const PROFILE_DIR = resolveProfileDir("instagram", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-ig-bs-debug");

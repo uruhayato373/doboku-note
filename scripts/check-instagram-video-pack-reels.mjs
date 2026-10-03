@@ -4,8 +4,8 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { IG_HANDLE } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const checkMedia = process.argv.includes('--media');
 const EXPECTED = {

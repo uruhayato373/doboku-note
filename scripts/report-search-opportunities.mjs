@@ -16,11 +16,9 @@
  * 終了コード: 0 = 読めた / 2 = 設定か GSC の検索語×ページ集計が無い（検査不成立）
  * ---------------------------------------------------------------------------
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { buildSearchOpportunities } from './lib/search-opportunities.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let r;
 try {
   r = buildSearchOpportunities(ROOT);

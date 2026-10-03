@@ -32,14 +32,13 @@
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
 import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles } from './lib/note-attachments.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
 
 // 期待値の算出（記事 dir の PDF ∪ 退避台帳、型別 article の割り当て）は保存を伴う編集経路と

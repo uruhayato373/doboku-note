@@ -28,8 +28,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
 import { SITE_HOST } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const E2E_DIR = path.join(ROOT, 'e2e');
 const OUT = path.join(ROOT, 'out');
 const REDIRECTS = path.join(ROOT, 'public', '_redirects');

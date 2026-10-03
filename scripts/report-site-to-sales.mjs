@@ -18,7 +18,7 @@
  * 純関数とテスト: scripts/lib/site-to-sales.mjs・tests/site-to-sales.test.mjs
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './lib/datasets.mjs';
 import { listReports } from './lib/metric-reports.mjs';
@@ -33,8 +33,8 @@ import {
   previousMonth,
   renderSiteToSalesTable,
 } from './lib/site-to-sales.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const OUT_DIR = datasetDir('business.site-to-sales');
 
 const args = process.argv.slice(2);

@@ -85,18 +85,17 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve, dirname, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
+import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 const CELL_MAX = 15;
 
 // ── ルール設定（config/content-rules.json）────────────────────────────
 // 重大度・資格×種別の有効/無効を外部化した SSOT。不在/破損時はスクリプト内
 // ハードコード値（各ルール function が push する severity）へフォールバックする。
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function loadContentRules() {
   const p = resolve(REPO_ROOT, datasetPath('config.content-rules'));

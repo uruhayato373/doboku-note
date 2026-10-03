@@ -29,12 +29,11 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
-import { join, relative, dirname } from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+import { join, relative } from "path";
+import { pathToFileURL } from "url";
 import { todayJst } from "./lib/jst-date.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 export const IG_DIR = join(ROOT, "content/sns/instagram");
 
 const EXCLUDE_DIRS = new Set(["_dev", "highlights", "stories", "img", "carousel", "reels"]);

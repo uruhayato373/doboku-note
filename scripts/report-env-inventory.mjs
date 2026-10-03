@@ -14,10 +14,9 @@
  *   node scripts/report-env-inventory.mjs --print   # 標準出力に表も出す
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, lstatSync, existsSync } from 'node:fs';
-import { join, resolve, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname, relative } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 const OUT = join(ROOT, '.claude', 'state', 'quality', 'env-inventory.json');
 const PRINT = process.argv.includes('--print');
 

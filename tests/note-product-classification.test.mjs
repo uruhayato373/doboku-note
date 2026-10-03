@@ -1,23 +1,23 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
 import process from 'node:process';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const inspect = code => JSON.parse(execFileSync(process.execPath,
-  [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', code], { cwd: ROOT, encoding: 'utf8', maxBuffer: 8_000_000 }));
+  [join(ROOT, 'node_modules/tsx/dist/cli.mjs'), '-e', code], { cwd: ROOT, encoding: 'utf8', maxBuffer: 8_000_000 }));
 
 test('採用画像の実体・公開URL・目視記録が一致する', t => {
-  const shared = JSON.parse(readFileSync(ROOT + 'content/site/_shared/pop-image.json', 'utf8'));
-  const pe1 = JSON.parse(readFileSync(ROOT + 'content/site/pe-first-stage/_shared/pop-image.json', 'utf8'));
+  const shared = JSON.parse(readFileSync(join(ROOT, 'content/site/_shared/pop-image.json'), 'utf8'));
+  const pe1 = JSON.parse(readFileSync(join(ROOT, 'content/site/pe-first-stage/_shared/pop-image.json'), 'utf8'));
   const variants = [...Object.values(shared.families).flatMap(f => [f.body, f.tile].filter(Boolean)),
     ...Object.values(shared.tiles), pe1.variants.body, pe1.variants.tile];
   assert.ok(variants.length > 0, '採用画像の検査対象が空');
   for (const variant of variants) {
-    const bytes = readFileSync(ROOT + variant.output.path);
+    const bytes = readFileSync(join(ROOT, variant.output.path));
     const sha = createHash('sha256').update(bytes).digest('hex');
     assert.equal(sha, variant.output.sha256, variant.output.path);
     assert.equal(bytes.length, variant.output.bytes);
@@ -76,7 +76,7 @@ test('一次過去問21記事の中間・末尾カードは解説折りたたみ
   let checked=0;
   for (let year=1;year<=7;year++) for (const subject of ['basic','aptitude','construction']) {
     const path=`content/site/pe-first-stage/r0${year}-${subject}/article.mdx`;
-    const raw=readFileSync(ROOT+path,'utf8');
+    const raw=readFileSync(join(ROOT, path),'utf8');
     for (const placement of ['article-mid','article-end']) {
       const cards=[...raw.matchAll(new RegExp('<MagazineCard[^>]*placement="'+placement+'"[^>]*>','g'))];
       assert.equal(cards.length,1,`${path}/${placement}`);

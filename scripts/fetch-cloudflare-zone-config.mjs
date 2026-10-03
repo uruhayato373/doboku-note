@@ -17,14 +17,13 @@
  */
 
 import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readJson } from './lib/business-direction.mjs';
 import { normalizeZoneConfig, diffZoneConfig, hasDrift } from './lib/cloudflare-zone-config.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[fetch-cloudflare-zone-config]';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE_DIR = '.claude/state/cloudflare';
 const LATEST_FILE = 'zone-config-latest.json';
 const BASELINE_FILE = 'zone-config-baseline.json';

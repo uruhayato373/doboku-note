@@ -33,11 +33,10 @@
 import { readFileSync, readdirSync, lstatSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname, basename, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
 import { loadCatalog } from './lib/ci-write-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-playwright-auth-wiring';
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');

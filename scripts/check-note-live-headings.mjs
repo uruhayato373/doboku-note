@@ -31,13 +31,12 @@
  * 真実源: .claude/knowledge/reference/note-api-verification.md「live 本文整合性検査」
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, stripHtmlComments, findSplitBeforeCard, findLongHeadings, countSotLongHeadings } from './lib/note-live-check.mjs';
 import { bodyHash, canonBodyHash, loadState } from './lib/note-republish-hash.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const rawArgs = process.argv.slice(2);
 const PATHS_ONLY = rawArgs.includes('--paths');
 const FILTER = rawArgs.find((a) => !a.startsWith('--')) || '';

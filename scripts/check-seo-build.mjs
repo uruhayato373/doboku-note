@@ -31,8 +31,8 @@ import {
   selfUrl,
 } from './lib/seo-checks.mjs';
 import { validateJsonLd, JSONLD_RULE_TYPES } from './lib/jsonld-required-props.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const jsonOut = argv.includes('--json');
 function getArg(name, def) {

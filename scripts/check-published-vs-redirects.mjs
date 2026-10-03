@@ -26,12 +26,11 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = join(ROOT, 'content/site');
 const REDIRECTS = join(ROOT, 'public/_redirects');
 const TAG = '[check-published-vs-redirects]';

@@ -49,8 +49,8 @@ import { artifactRelPaths, loadKindleCatalog } from './lib/kindle-catalog.mjs';
 import { fileSha256, isOnKdp } from './lib/kindle-uploaded.mjs';
 import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';

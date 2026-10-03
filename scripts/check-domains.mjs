@@ -12,12 +12,11 @@
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
 import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadDomains(ROOT);
 const ids = new Set(cfg.domains.map((d) => d.id));
 const errors = [];

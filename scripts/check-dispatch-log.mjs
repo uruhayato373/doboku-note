@@ -12,10 +12,10 @@
  * exit: 0 PASS / 1 違反 / 2 検査不成立
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LOG_PATH = '.claude/state/dispatch/dispatch-log.json';
 export const LEGACY_CUTOFF = '2026-08-18';
 const OUTCOMES = new Set(['done', 'swept', 'blocked', 'fail']);

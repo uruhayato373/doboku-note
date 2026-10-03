@@ -23,12 +23,11 @@
 import { execFileSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { AREAS, datasetDir, datasetsFor, latestFile, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { validateFiles } from './lib/dataset-validate.mjs';
 import { REPORT_KINDS, latestReportRef } from './lib/metric-reports.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const git = (root, args, input) =>
   execFileSync('git', ['-c', 'core.quotepath=false', ...args], { cwd: root, encoding: 'utf8', input, maxBuffer: 256 * 1024 * 1024 });

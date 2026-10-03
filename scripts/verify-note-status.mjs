@@ -28,10 +28,9 @@ import { setNoteStatus } from './lib/note-status.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const FIX = process.argv.includes('--fix');
 const JSON_OUT = process.argv.includes('--json');

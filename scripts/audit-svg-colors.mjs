@@ -13,11 +13,8 @@
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
 import { join, relative } from 'path';
-import { fileURLToPath } from 'url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-// URL#pathname は Windows で '/C:/...' を返し、join() が 'C:\C:\...' を作る。
-// fileURLToPath でプラットフォーム固有の絶対パスへ変換する。
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const TARGET_DIR = join(ROOT, 'content/site');
 
 /** パレット（hex 小文字） + 受容色（white/none 等） */

@@ -16,14 +16,12 @@
  *   node scripts/check-character-avatars.mjs        # 不整合があれば exit 1
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const MANIFEST = datasetPath('config.character-poses');
 const SOT = 'src/lib/note-magazines.ts';
 

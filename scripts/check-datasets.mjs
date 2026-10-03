@@ -22,16 +22,15 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { AREAS, DATASETS, KINDS, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, resolveDataset } from './lib/datasets.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
 import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from './lib/path-literals.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
 const warnings = [];
 

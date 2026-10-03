@@ -28,10 +28,10 @@
  */
 import { spawnSync } from 'node:child_process';
 import { rmSync, existsSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { parseArgs } from 'node:util';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const PPS = join(ROOT, '.claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs');
 const PUBLISH = join(ROOT, '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts');
 

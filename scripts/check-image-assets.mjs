@@ -17,12 +17,11 @@
  *   node scripts/check-image-assets.mjs --update-baseline
  */
 import { readFileSync, readdirSync, writeFileSync, mkdirSync, lstatSync, existsSync } from 'node:fs';
-import { join, resolve, dirname, relative, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname, relative, basename } from 'node:path';
 import { classifyBySize, isDangerousName, diffBaseline, buildBaseline, fmtBytes, extOf } from '#lib/image-audit.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 const CONFIG = join(ROOT, datasetPath('config.image-limits'));
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'image-baseline.json');
 const OUT_JSON = join(ROOT, '.claude', 'state', 'quality', 'image-audit.json');

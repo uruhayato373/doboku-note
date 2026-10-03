@@ -25,8 +25,8 @@ import { fileURLToPath } from 'node:url'
 import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 import { NOTE_BASE, NOTE_CREATOR, SITE_ORIGIN } from './lib/site-identity.mjs'
 import { utmEbook } from './lib/utm-contract.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 // 電子書籍（Kindle）→ サイトの UTM は契約（config/utm-templates.json の ebook.kindle）。campaign は本ごと
 const KINDLE_UTM = utmEbook('kindle')
 

@@ -37,7 +37,6 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import {
   parseBacklog,
@@ -48,8 +47,8 @@ import {
 } from './lib/backlog-lib.mjs';
 import { STALE_DAYS } from './lib/backlog-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TODO_LAYERS = new Set(TODO_LAYER_FILES);
 
 const AUDIT_LOG = '.claude/state/backlog/audit-log.json';

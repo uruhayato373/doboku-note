@@ -28,14 +28,12 @@
 
 import { spawnSync } from 'node:child_process';
 import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
 

@@ -36,8 +36,8 @@ import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));

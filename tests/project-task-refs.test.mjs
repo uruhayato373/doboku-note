@@ -1,12 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { auditProjectDoc } from '../scripts/check-project-task-refs.mjs';
 import { parseBacklog } from '../scripts/lib/backlog-lib.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const IDS = new Set(['DN-0001', 'DN-0026']);
 
 /**

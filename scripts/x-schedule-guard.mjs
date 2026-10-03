@@ -29,8 +29,8 @@ import fs from "fs";
 import path from "path";
 import { readScheduledQueue } from "./lib/x-scheduled-queue.mjs";
 import { normalize, trigrams, jaccard } from "./lib/x-text-similarity.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const ARGV = process.argv.slice(2);
 const flag = (name, def) => {
   const i = ARGV.indexOf(name);

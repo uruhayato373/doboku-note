@@ -11,17 +11,15 @@
 // スキーマ差（body/correct/optionExplanations 等）は normalizeQuestion で吸収する。
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
-import { dirname, resolve, basename, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, resolve, relative } from 'node:path';
 import matter from 'gray-matter';
 import katex from 'katex';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 import { jstDayOf } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
 // 出力先。既定は配信用の public/quiz。テストは --out-dir で一時ディレクトリへ出し、追跡中の生成物を書き換えない。
 const outDirArg = process.argv.indexOf('--out-dir');
 const OUT_DIR = outDirArg >= 0 ? resolve(process.argv[outDirArg + 1]) : resolve(ROOT, 'public/quiz');

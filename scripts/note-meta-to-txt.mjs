@@ -9,13 +9,12 @@
  *   npm run note-meta-to-txt -- --write # 実際に note掲載文.txt を書き出す
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { glob } from 'node:fs/promises';
 import { writeFileSync } from 'node:fs';
 import { generateNoteText, checkLimits } from './lib/note-meta.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WRITE = process.argv.includes('--write');
 
 function blockScalar(lines, key) {

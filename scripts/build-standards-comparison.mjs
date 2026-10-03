@@ -3,8 +3,8 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const ARTICLES_ROOT = join(ROOT, 'content', 'site', 'standards-articles');
 const CATALOG_PATH = join(ROOT, 'content', 'site', 'standards-library', 'catalog.json');
 const CONFIG_PATH = join(ROOT, datasetPath('config.standards-structure'));

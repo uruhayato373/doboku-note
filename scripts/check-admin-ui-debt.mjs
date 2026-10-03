@@ -27,10 +27,10 @@
  */
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const APP_DIR = join(ROOT, 'tools/admin-app/src/app');
 const BASELINE = join(ROOT, '.claude/config/admin-ui-debt-baseline.json');
 const TAG = '[check-admin-ui-debt]';

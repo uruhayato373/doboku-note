@@ -7,8 +7,8 @@
  */
 import * as path from "path";
 import * as fs from "fs";
+import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 
-const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFT_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
 const PUBLISHED_DIR = path.join(PROJECT_ROOT, "content/sns/x/published");
 

@@ -13,9 +13,9 @@ import { chromium } from 'playwright';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[x-profile-sync]';
-const ROOT = process.cwd();
 const COMMIT = process.argv.includes('--commit');
 const account = readDataset(ROOT, 'config.x-account');
 const want = account.profile.bio;

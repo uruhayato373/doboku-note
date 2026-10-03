@@ -23,8 +23,8 @@
 import { readdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, extname, dirname } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const DOC_META = join(ROOT, 'src/config/doc-meta-index.json');
 const QUALITY_DIR = join(ROOT, '.claude/state/quality');

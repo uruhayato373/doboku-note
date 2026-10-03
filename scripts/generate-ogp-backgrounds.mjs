@@ -33,9 +33,9 @@ import dotenv from 'dotenv';
 import { createRequire } from 'node:module';
 import { coverExamNames } from './lib/note-character-cover.mjs';
 import { datasetDir } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const ROOT = process.cwd();
 // .env.local（GEMINI_API_KEY 等）を読み込む。既存スクリプトの慣習に合わせる。
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));

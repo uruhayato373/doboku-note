@@ -13,8 +13,8 @@ import { join } from 'node:path';
 import {
   DeleteObjectCommand, GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client,
 } from '@aws-sdk/client-s3';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');

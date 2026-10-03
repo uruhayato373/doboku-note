@@ -29,16 +29,15 @@
 //   recorded_but_gone / anomaly のいずれかが 1 件以上）。network 失敗は 1。
 
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { chromium } from "playwright";
 import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot } from "./lib/ig-reconcile-core.mjs";
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes("--json");
 const NO_PLANNER = argv.includes("--no-planner");

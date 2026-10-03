@@ -16,8 +16,8 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, datasetPath('config.keiken-answer-sheet-limits'));
 
 const args = process.argv.slice(2);

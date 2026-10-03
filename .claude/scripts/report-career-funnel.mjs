@@ -26,12 +26,11 @@
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
+import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");

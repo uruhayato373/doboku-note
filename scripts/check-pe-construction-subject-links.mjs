@@ -9,9 +9,8 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG_PATH = path.join(ROOT, 'src/config/pe-construction-exam-keyword-links.json');
 const SUBJECTS_PATH = path.join(ROOT, 'src/lib/pe-construction-subjects.ts');
 const CURRICULUM_PATH = path.join(ROOT, 'src/config/category-curriculum.json');

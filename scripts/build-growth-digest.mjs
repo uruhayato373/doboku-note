@@ -29,9 +29,9 @@ import {
   detectSeo, detectRevenue, detectMeasurement, detectExperiments, selectSurfaced,
   summarizeKpis, topMovers, reconcileBing, inputCoverage,
 } from './lib/growth-opportunities.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[growth-digest]';
-const ROOT = process.cwd();
 const GROWTH = datasetDir('analysis.growth-pack');
 const args = process.argv.slice(2);
 const argValue = (name) => {

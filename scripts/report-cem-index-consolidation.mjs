@@ -20,8 +20,8 @@ import { datasetFiles } from "./lib/datasets.mjs";
 import { listReports } from "./lib/metric-reports.mjs";
 import { loadSiteRoutes, siteUrlForSlug } from "./lib/site-links.mjs";
 import { jstDayOf } from "./lib/jst-date.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const IMPROVEMENTS = join(ROOT, ".claude/state/improvements");
 const CEM_PREFIX = "pe-comprehensive-management-";
 const NOW = new Date();

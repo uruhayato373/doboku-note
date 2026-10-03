@@ -16,8 +16,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { transformMdxFile } from "./lib/mdx-io.mjs";
 import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
+import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const POSTS = join(ROOT, "content/site");
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
 

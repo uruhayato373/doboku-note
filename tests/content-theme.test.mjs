@@ -2,11 +2,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { fileURLToPath, URL } from 'node:url';
 import matter from 'gray-matter';
 import { buildThemes, classifyNote, classifyNoteStage, loadThemes, stageTheme, stageThemeIds, themeLabel, themeShortLabel } from '../scripts/lib/content-theme.mjs';
-
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const registry = {
   qualifications: [

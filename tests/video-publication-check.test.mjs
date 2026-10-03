@@ -11,11 +11,9 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import process from 'node:process';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * scripts/ と .claude/config を持つ最小環境を作り、state と record を差し替えて CLI を走らせる。
@@ -28,7 +26,7 @@ function runCheck({ state, record }) {
     mkdirSync(join(root, '.claude', 'config'), { recursive: true });
     mkdirSync(join(root, '.claude', 'state'), { recursive: true });
     cpSync(join(ROOT, 'scripts', 'check-video-publication.mjs'), join(root, 'scripts', 'check-video-publication.mjs'));
-    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs']) {
+    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'repository-paths.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
     }
     cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));

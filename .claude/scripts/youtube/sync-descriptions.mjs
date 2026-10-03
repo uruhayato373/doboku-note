@@ -25,8 +25,8 @@
 // ---------------------------------------------------------------------------
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const LEDGER = join(ROOT, '.claude/state/youtube-schedule.json');
 const COMMIT = process.argv.includes('--commit');
 const DRY_NO_API = process.argv.includes('--dry');

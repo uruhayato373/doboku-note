@@ -24,9 +24,8 @@ import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = path.join(ROOT, ".claude", "state", "figure-text-audit.json");
 const args = process.argv.slice(2);

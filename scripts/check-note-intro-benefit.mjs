@@ -24,10 +24,9 @@
  * ---------------------------------------------------------------------------
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
 const ALLOW_PATH = join(ROOT, '.claude/config/note-intro-benefit-allow.json');
 const MARKER = '**この記事でわかること**';

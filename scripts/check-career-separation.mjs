@@ -21,10 +21,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BUILT = process.argv.includes('--built');
 
 const errors = [];

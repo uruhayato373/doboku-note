@@ -8,12 +8,10 @@
  */
 
 import { readdirSync, existsSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '../..');
 const IG_DIR = resolve(ROOT, 'content/sns/instagram');
 const SCRIPT = resolve(ROOT, '.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs');
 

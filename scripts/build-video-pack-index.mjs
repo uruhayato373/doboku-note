@@ -13,14 +13,13 @@
  * Usage: npm run build-video-pack-index
  */
 import { writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { loadConfig, loadPackSummaries } from './lib/video-content-check.mjs';
 import { STAGE_LABELS } from './lib/content-lifecycle.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadRegistry, orderedQualifications } from './lib/qualification-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const config = loadConfig(ROOT);
 const rows = loadPackSummaries(ROOT, config);
 

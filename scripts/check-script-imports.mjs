@@ -23,10 +23,9 @@
 // 「検査ゼロを PASS と呼ばない」（CLAUDE.md §9）: 走査対象が 0 件なら exit 1。
 
 import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
-import { join, dirname, resolve, relative } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, dirname, resolve } from "node:path";
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const ROOTS = ["scripts", ".claude/scripts", ".claude/skills"];
 const EXT = /\.(mjs|mts|js|cjs)$/;
 const SKIP_DIR = new Set(["node_modules", ".git", "out", ".next", "dist"]);

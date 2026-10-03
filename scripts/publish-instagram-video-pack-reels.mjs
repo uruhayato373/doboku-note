@@ -8,8 +8,8 @@ import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const campaign = assertInstagramPublicationReady(ROOT);
 const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');

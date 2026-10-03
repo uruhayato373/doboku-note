@@ -11,11 +11,11 @@
  *   node .claude/scripts/build-cross-exam-keyword-index.mjs
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { basename, dirname, extname, join, relative, sep } from 'node:path';
+import { dirname, extname, join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUT_PATH = join(ROOT, 'src/config/cross-exam-keywords.json');
 

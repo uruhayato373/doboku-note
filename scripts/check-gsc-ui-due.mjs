@@ -30,12 +30,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 const REVIEW = "/google-search-growth（ローカル・要 Google ログイン）";
 
 const CHANNELS = [

@@ -2,14 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * コードの先頭に BOM を置かない。BOM の直後にシバン行（#!）があると node が構文エラーで起動できない
  * （2026-08-22 から yt-shorts-create.mjs など 5 本が実行できなかった。ESLint は BOM を読み飛ばすので no-undef の検査では気づけない）。
  */
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 test('追跡中のコードファイルは先頭に BOM を持たない', () => {
   const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '--', '*.mjs', '*.js', '*.cjs', '*.mts', '*.ts', '*.tsx'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })

@@ -12,8 +12,8 @@ import { parseArgs } from 'node:util';
 import { loadRegistry, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));

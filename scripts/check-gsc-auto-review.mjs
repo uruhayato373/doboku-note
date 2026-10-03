@@ -36,13 +36,11 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, readdirSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { basename, dirname, join } from "node:path";
+import { basename, join } from "node:path";
 import { latestFile } from "./lib/datasets.mjs";
 import { latestReport } from "./lib/metric-reports.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 
 const LOG_PATH = ".claude/knowledge/reference/gsc-management.md";
 const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";

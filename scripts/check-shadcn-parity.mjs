@@ -25,10 +25,10 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { diffEntities, extractEntities } from './lib/shadcn-parity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const UI_DIR = join(ROOT, 'tools/admin-app/src/components/ui');
 const APP_SRC = join(ROOT, 'tools/admin-app/src');
 const REF_DIR = join(ROOT, '.claude/config/shadcn-reference');

@@ -14,13 +14,10 @@
  * Usage: node .claude/scripts/build-svg-catalog.mjs
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve, join, relative } from 'node:path';
-import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { dirname, join, relative } from 'node:path';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..', '..');
 const POSTS = SITE_CONTENT_ROOT;
 const AUDIT = join(ROOT, '.claude', 'state', 'svg-audit.json');
 const CANVAS_CFG = join(ROOT, datasetPath('config.figure-canvas'));

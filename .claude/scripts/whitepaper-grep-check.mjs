@@ -42,9 +42,8 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { TEXTBOOK_SOURCES_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, TEXTBOOK_SOURCES_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PDF_DIR = join(TEXTBOOK_SOURCES_ROOT, '白書等');
 const CACHE_DIR = join(ROOT, '.tmp', 'whitepaper-cache');
 

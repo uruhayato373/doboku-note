@@ -1,8 +1,7 @@
 import { spawn } from 'node:child_process';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
+import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
 
-const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const nextBin = resolve(repoRoot, 'node_modules', 'next', 'dist', 'bin', 'next');
 const mediaServer = resolve(repoRoot, 'scripts', 'local-media-server.mjs');
 const children = new Set();

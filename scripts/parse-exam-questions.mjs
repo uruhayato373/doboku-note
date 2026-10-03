@@ -36,11 +36,9 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 const POSTS_DIR = join(ROOT, "content/site/pe-comprehensive-management");
 const OUTPUT_JSON = join(ROOT, "src/config/exam-questions.json");
 

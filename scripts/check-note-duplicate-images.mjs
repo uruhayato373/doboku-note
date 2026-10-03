@@ -10,11 +10,9 @@
  * 終了コード: 0 = 重複なし / 1 = 重複あり、または検査対象 0 件（検査不成立）
  */
 import { readFileSync, readdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { findDuplicateImages } from './lib/note-duplicate-images.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 function walk(dir, acc) {
   let entries;

@@ -34,9 +34,9 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries, inquiryClockMs } from './lib/coconala-guards.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[check-coconala-orders]';
-const ROOT = process.cwd();
 const SNAPSHOT_PATH = join(ROOT, datasetPath('coconala.orders-snapshot'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
 // 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）

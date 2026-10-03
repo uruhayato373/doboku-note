@@ -41,10 +41,10 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync, existsSync, writeSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_OUT = process.argv.includes('--json');
 const daysArg = process.argv.indexOf('--days');
 const DAYS = daysArg >= 0 ? Number(process.argv[daysArg + 1]) : 30;

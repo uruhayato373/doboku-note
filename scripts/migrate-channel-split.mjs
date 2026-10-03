@@ -14,9 +14,8 @@
 import { readdirSync, existsSync, mkdirSync, writeFileSync, statSync } from "fs";
 import { execSync } from "child_process";
 import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = join(fileURLToPath(import.meta.url), "../../");
 const X_DRAFT = join(ROOT, "docs/x-posts/draft");
 
 function ensureDir(p) {

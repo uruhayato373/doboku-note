@@ -19,10 +19,9 @@
 
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BASELINE = join(ROOT, ".claude/state/quality/knip-baseline.json");
 const UPDATE = process.argv.includes("--update-baseline");
 

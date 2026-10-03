@@ -6,11 +6,10 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FONTS = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 // ココナラのカバー crop は約 2560×840（≈3.05:1）。同比率で作り左右トリムを無くす（文字クリップ防止）。
 const W = 1600, H = 525;

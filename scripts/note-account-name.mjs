@@ -32,12 +32,11 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

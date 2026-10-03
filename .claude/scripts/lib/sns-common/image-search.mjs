@@ -22,14 +22,10 @@ export async function fetchImageForKeyword({ slug, title, category }) {
 }
 
 import { readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { SITE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 import { R2_PUBLIC_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-// .claude/scripts/lib/sns-common/ → プロジェクトルート
-const PROJECT_ROOT = join(__dirname, '../../../..');
 const R2_BASE = `${R2_PUBLIC_ORIGIN}/posts`;
 
 async function fetchR2Image(slug, category) {

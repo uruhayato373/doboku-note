@@ -23,13 +23,13 @@
  */
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
-import { join, relative, dirname, extname } from 'node:path';
+import { join, relative, extname } from 'node:path';
 import matter from 'gray-matter';
 import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 import { pathToFileURL } from 'node:url';
 import { DESCRIPTION_LINT_MAX, DESCRIPTION_MAX, DESCRIPTION_MIN, TITLE_MAX } from '../../scripts/lib/seo-thresholds.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 

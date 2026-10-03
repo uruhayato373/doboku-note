@@ -6,11 +6,9 @@
 import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
-import { fileURLToPath } from 'url';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 import { jstMonth, todayJst } from './lib/jst-date.mjs';
-
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 function currentISOWeek() {
   const date = new Date(`${todayJst()}T00:00:00Z`); // 日本時間の今日（週の境界を JST で数える）

@@ -16,14 +16,13 @@
  *   node scripts/check-note-cover-fit.mjs --all       # 違反一覧だけ出して exit 0（バーンダウン）
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { coverFitIssues } from './lib/note-character-cover.mjs';
 import { loadCoverSources, collectArticleFiles, buildArticleTarget, buildMagazineTargets } from './lib/note-cover-inventory.mjs';
 import { MAGAZINES } from './generate-magazine-covers.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = 'content/note';
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');

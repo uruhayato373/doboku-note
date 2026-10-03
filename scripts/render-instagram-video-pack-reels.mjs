@@ -9,7 +9,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
@@ -17,8 +17,8 @@ import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { IG_DESIGN, IG_CTA_NARRATION, instagramLogo, instagramCtaNode, instagramReelCover, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
 import { subtitleChunks } from './lib/video-subtitles.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 const W = 1080;
 const H = 1920;

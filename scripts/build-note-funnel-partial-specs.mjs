@@ -10,8 +10,8 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ? argv[index + 1] : null; };
 const BASE = getArg('--base') || 'HEAD';

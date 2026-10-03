@@ -14,11 +14,9 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
-import { join, dirname, basename, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = resolve(__dirname, '..', '..', '..', '..', '..');
 
 // writeMdxFile のロード
 const mdxIoPath = join(REPO_ROOT, '.claude/scripts/lib/mdx-io.mjs');

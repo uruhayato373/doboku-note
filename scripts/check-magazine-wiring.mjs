@@ -20,8 +20,8 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const BASES = [
   'content/note/1級・2級土木/1級土木/magazines',
   'content/note/1級・2級土木/2級土木/magazines',

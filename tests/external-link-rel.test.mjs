@@ -1,10 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * note.com へのリンクだけ referrer を渡す（note ダッシュボード「記事の流入元」で

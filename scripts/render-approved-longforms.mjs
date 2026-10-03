@@ -2,10 +2,9 @@
 /** Render approved longform packs in publishAt order. Safe to resume. */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const OUT_ROOT = join(ROOT, '.tmp/video-render');

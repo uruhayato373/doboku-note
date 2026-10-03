@@ -24,12 +24,11 @@
  *   「対象0件」と「異常0件」を必ず区別して出力する（CLAUDE.md §9）。
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { loadConfig } from './lib/video-content-check.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
 const maxAgeIdx = argv.indexOf('--max-age-days');

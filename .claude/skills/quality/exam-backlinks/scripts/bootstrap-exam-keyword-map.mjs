@@ -15,8 +15,8 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const IN_FILE = path.join(ROOT, 'src/config/exam-question-keywords.json');
 const OUT_FILE = path.join(ROOT, '.claude/state/exam-keyword-map.json');
 

@@ -33,8 +33,8 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 import dotenv from 'dotenv';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 const OUT_ROOT = path.join(ROOT, 'public', 'images', 'guide-covers');
 const W = 1024, H = 576;

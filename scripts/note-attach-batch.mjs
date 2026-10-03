@@ -22,10 +22,9 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MISSING = join(ROOT, '.claude/state/note-attachments-missing.json');
 const DONE = join(ROOT, '.claude/state/note-attach-done.json');
 

@@ -2,10 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync } from 'node:fs';
-import { join, dirname, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { join, extname } from 'node:path';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * DN-0103 Phase 02: docs/ の 3 軸分類（doc-taxonomy.ts）と Obsidian callout / table wrapper

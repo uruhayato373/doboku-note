@@ -14,12 +14,11 @@
  * 進捗は「自己申告」ではなく baseline の実データから導出する（陳腐化しない）。
  */
 import { readFileSync, appendFileSync, existsSync, mkdirSync } from "node:fs";
-import { join, resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, dirname } from "node:path";
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), ".."));
 const BASELINE = join(ROOT, ".claude", "state", "quality", "lint-baseline.json");
 const HISTORY = join(ROOT, ".claude", "state", "quality", "history.jsonl");
 const RULES = join(ROOT, datasetPath("config.content-rules"));

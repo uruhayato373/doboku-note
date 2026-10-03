@@ -19,15 +19,14 @@
 
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 import { addDays } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM_FIELDS } from './lib/cloudflare-analytics.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[fetch-cloudflare-analytics]';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** GraphQL エラーメッセージ（トークンを含み得ない Cloudflare 側の文言）を 200 字へ切る。 */
 const truncateMessage = (message) => String(message ?? '').slice(0, 200);

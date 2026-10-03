@@ -10,13 +10,11 @@
 // 使い方:
 //   node scripts/render-figure-essay-persona-river-consultant.mjs
 
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'content/note/技術士総監/magazines/総監模範論文-河川コンサル/img');
 mkdirSync(OUT_DIR, { recursive: true });
 

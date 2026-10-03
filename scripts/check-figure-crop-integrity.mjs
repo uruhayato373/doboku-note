@@ -40,9 +40,8 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, relative, dirname } from 'node:path';
 import sharp from 'sharp';
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'figure-crop-baseline.json');
 const REPORT = join(ROOT, '.claude', 'state', 'quality', 'figure-crop-report.json');

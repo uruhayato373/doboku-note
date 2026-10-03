@@ -31,10 +31,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
-
-const ROOT = path.resolve(fileURLToPath(import.meta.url), '../../..');
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 const SHEET = 600; // 答案用紙 1 枚 = 600 字
 const WARN_RATIO = 0.97; // 上限の 97% 以上で WARN（余白が僅少）

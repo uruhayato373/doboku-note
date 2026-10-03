@@ -20,15 +20,13 @@
 
 import { readFileSync } from 'node:fs';
 import { join, dirname, relative, basename, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { listNoteArticleFiles, normalizeRepoPath } from '../../scripts/lib/note-content-type.mjs';
 import { parseSoT } from '../../scripts/check-magazine-membership.mjs';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 import { readDataset } from '../../scripts/lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..', '..');
 const OUT_PATH = join(ROOT, '.claude/state/note-published.json');
 
 function extractH1(body) {

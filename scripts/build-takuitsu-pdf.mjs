@@ -16,11 +16,10 @@
 //     build-pe1-kindle.mjs から複製（共通 lib 化は前回 mdToXhtml 統合で回帰したため意図的に避ける）
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
-import { resolve, basename, dirname, join } from 'node:path'
+import { resolve, basename, dirname } from 'node:path'
 import { chromium } from 'playwright'
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
+import { REPO_ROOT as REPO, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 const AUTHOR = 'doboku-note'
 const DEFAULT_EXAM = '技術士第一次試験'
 const DEFAULT_ISSUER = '公益社団法人 日本技術士会'

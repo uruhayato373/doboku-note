@@ -7,8 +7,8 @@ import {
   renderQuizPremiumFunnelMarkdown,
   summarizeQuizPremiumFunnel,
 } from './lib/quiz-premium-funnel.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const OUT = datasetPath('analysis.quiz-premium-funnel');
 const argv = process.argv.slice(2);
 const inputIndex = argv.indexOf('--input');

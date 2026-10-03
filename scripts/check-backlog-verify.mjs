@@ -40,12 +40,11 @@
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { parseBacklog, TODO_DIR } from './lib/backlog-lib.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = join(ROOT, TODO_DIR, 'backlog.md');
 const STATE = join(ROOT, '.claude/state/backlog/verify-status.json');
 const JSON_OUT = process.argv.includes('--json');

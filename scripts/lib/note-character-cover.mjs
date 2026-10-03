@@ -1,14 +1,13 @@
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import satori from 'satori';
 import sharp from 'sharp';
 import opentype from '@shuding/opentype.js';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { loadRegistry, qualificationBadgeLabel, qualificationLabel, qualificationShortLabel } from './qualification-registry.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
 
-const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 let namesSource = null;
 
 /**

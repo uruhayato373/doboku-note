@@ -37,11 +37,10 @@
  * 真実源: .claude/knowledge/reference/information-architecture.md ／ todo-standards.md
  */
 import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
-import { join, dirname, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative, sep } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT_DIR = join(ROOT, 'docs');
 const BACKLOG = '.claude/todo/backlog.md';
 

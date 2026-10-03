@@ -1,12 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // UI-008: MDX の <Callout type> の typo は Callout.tsx が黙って note へ落とすため、
 // content lint（check-callout-types）が fixture の typo を実際に検出できることを固定する。
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = join(ROOT, 'scripts/check-callout-types.mjs');
 const FIXTURES = 'tests/fixtures/callout-types';
 

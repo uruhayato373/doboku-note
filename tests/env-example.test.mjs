@@ -3,10 +3,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
-const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SCAN_ROOTS = ['scripts', '.claude/scripts', '.claude/skills', 'tools/admin-app/src'];
 const EXT = new Set(['.mjs', '.cjs', '.js', '.ts', '.tsx', '.mts']);
 // 実行環境が与える変数（このリポジトリの設定ではない）

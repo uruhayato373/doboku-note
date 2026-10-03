@@ -30,9 +30,8 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync, statSync } from 'node:fs';
-import { join, dirname, basename } from 'node:path';
+import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -41,8 +40,8 @@ import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-commo
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');

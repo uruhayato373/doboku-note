@@ -24,14 +24,13 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
 import { NOTE_CREATOR } from './site-identity.mjs';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+export { ROOT };
 
 /** 全 note-*.mjs / check-note-*.mjs が共有する永続プロファイル（note ログインセッション）。 */
 // 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（CI の quality-audit）まで

@@ -7,13 +7,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, statSync, rmSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { hookBodyHash, installedHookHash, decideHookInstall } from '../scripts/lib/hook-install-guard.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = 'scripts/install-pre-commit.mjs';
 
 test('decideHookInstall: 古いツリーからは上書きしない／新しいゲートを足す途中なら入れる', () => {

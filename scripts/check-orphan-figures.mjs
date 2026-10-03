@@ -25,11 +25,9 @@
  */
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname, basename } from "node:path";
-import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS = SITE_CONTENT_ROOT;
 const staged = process.argv.includes("--staged");
 const listOnly = process.argv.includes("--list");

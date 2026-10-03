@@ -27,15 +27,13 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { checkCompleteReadiness, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
 import { liveDocsReferencing, readProjectDocs } from './check-project-task-refs.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = '.claude/todo/backlog.md';
 const MONTHLY = '.claude/todo/monthly.md';
 const WEEKLY = '.claude/todo/weekly.md';

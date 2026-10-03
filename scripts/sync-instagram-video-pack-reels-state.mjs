@@ -3,8 +3,8 @@
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');

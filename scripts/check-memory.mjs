@@ -18,12 +18,10 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, lstatSync, readdirSync, readFileSync, realpathSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 import { claudeProjectKey, defaultMemoryTarget, setupMemoryLink } from './setup-memory-link.mjs';
-
-const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[\\/]$/, '');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 /** Claude Code が毎セッション読み込む MEMORY.md の上限（先頭 200 行・25KB。超えた分は読まれない） */
 export const INDEX_MAX_LINES = 200;

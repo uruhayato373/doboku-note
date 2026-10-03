@@ -31,12 +31,11 @@
  */
 import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
 import { join, dirname, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard } from './lib/x-character-spec.mjs';
 import { isXCardPng, listScopedXCardPngs } from './lib/x-card-render-scope.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
 const X_DIR = join(ROOT, 'content/sns/x');
 const JSON_OUT = process.argv.includes('--json');

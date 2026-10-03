@@ -19,15 +19,14 @@ import {
   existsSync,
 } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
 import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
 import { leanContextOptions } from "./playwright-launch.mjs";
 import { attachCISession } from "./playwright-auth-state.mjs";
 import { datasetPath } from "./datasets.mjs";
 import { GSC_PROPERTY } from "./site-identity.mjs";
+import { REPO_ROOT } from "./repository-paths.mjs";
 
-const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const CONFIG_PATH = datasetPath("config.google-console-automation");
 
 export function loadConfig() {

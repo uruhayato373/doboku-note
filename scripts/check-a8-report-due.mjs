@@ -32,14 +32,12 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 
 import { classifyCrossCheck } from "./lib/report-honesty.mjs";
 import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
 const LOG = join(ROOT, datasetPath("a8.report-log"));
 const REVIEW = "/a8-report（ローカル・要 A8 ログイン）";

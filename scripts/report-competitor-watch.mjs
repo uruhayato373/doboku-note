@@ -17,11 +17,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { datasetPath, latestFile } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
 
 /** 追跡候補にする関連サービスの販売実績の下限（件）。追加した 8 社の下限（6〜27 件）より上の、明らかに伸びている相手だけを出す。 */

@@ -33,8 +33,7 @@ import {
   parseNameStatus,
   strayAtRoot,
 } from '../lib/agent-hooks.mjs';
-
-const ROOT = fileURLToPath(new URL('../..', import.meta.url)).replace(/[\\/]$/, '');
+import { REPO_ROOT as ROOT } from '../lib/repository-paths.mjs';
 
 function readStdin() {
   if (process.stdin.isTTY) return '';

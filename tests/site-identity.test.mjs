@@ -7,16 +7,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import * as shared from '../src/config/site-identity.mjs';
 import * as scriptSide from '../scripts/lib/site-identity.mjs';
 import { SITE_ORIGIN as siteLinksOrigin } from '../scripts/lib/site-links.mjs';
 import { SITE_ORIGIN as seoChecksOrigin } from '../scripts/lib/seo-checks.mjs';
 import { findIdentityLiterals, isIdentityScanTarget } from '../scripts/lib/identity-literals.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 
 test('サイトの識別子は host から導かれ、末尾スラッシュを持たない', () => {

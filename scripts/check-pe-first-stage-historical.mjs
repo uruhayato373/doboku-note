@@ -6,8 +6,8 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const YEARS = ['h23', 'h24', 'h25', 'h26', 'h27', 'h28', 'h29', 'h30'];
 const SUBJECTS = {
   basic: 30,

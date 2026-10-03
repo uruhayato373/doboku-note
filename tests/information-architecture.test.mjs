@@ -1,13 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import {
   auditPath, auditDualSsot, auditStalePathLiterals, listTargets, loadConfig, movedFromPaths, withMovedPaths,
 } from '../scripts/check-information-architecture.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // JSON の旧パス＋repository-paths.mjs の移動表（検査が実際に使う設定）
 const CFG = loadConfig();
 

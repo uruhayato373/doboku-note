@@ -35,8 +35,7 @@
  * 真実源: .claude/todo/backlog.md 冒頭の凡例 ／ .claude/knowledge/reference/information-architecture.md
  */
 import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadDomains } from './lib/domains.mjs';
 import {
@@ -50,8 +49,8 @@ import {
   TODO_DIR,
 } from './lib/backlog-lib.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = '.claude/todo/backlog.md';
 const BASELINE = '.claude/config/backlog-vocab-baseline.json';
 const TODO_LAYERS = TODO_LAYER_FILES;

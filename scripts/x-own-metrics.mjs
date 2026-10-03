@@ -28,14 +28,12 @@
  */
 import { spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { datasetPath, latestFile } from './lib/datasets.mjs';
 import { X_HANDLE as HANDLE } from './lib/site-identity.mjs';
 import { jstClock } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 
 const argv = process.argv.slice(2);
 const REPORT_ONLY = argv.includes('--report');

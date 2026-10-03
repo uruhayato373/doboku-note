@@ -35,8 +35,8 @@
 import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const WRAPPER = join(ROOT, '.claude', 'scripts', 'notebooklm-cross-query.mjs');
 
 const args = process.argv.slice(2);

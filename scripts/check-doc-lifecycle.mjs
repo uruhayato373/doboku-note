@@ -24,8 +24,8 @@
 
 import { readdirSync, readFileSync, statSync, writeSync } from 'node:fs';
 import { join, basename, extname, relative, sep } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
 const daysIdx = argv.indexOf('--days');

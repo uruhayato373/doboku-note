@@ -31,11 +31,10 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
-const ROOT=join(dirname(fileURLToPath(import.meta.url)),'..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 const PROXY=process.env.HTTPS_PROXY||process.env.HTTP_PROXY||'';
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
 const ROOM=process.argv[2];

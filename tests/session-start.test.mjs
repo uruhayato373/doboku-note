@@ -11,11 +11,10 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { CHECKS, runCheck } from '../scripts/session-start.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('CHECKS の全 script が run() を export している（import で CLI が走らない）', async () => {
   assert.ok(CHECKS.length >= 8, `CHECKS が ${CHECKS.length} 件しかない`);

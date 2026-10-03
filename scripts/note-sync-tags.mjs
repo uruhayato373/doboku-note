@@ -32,8 +32,8 @@ import { publishLive } from './lib/note-live-publish.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');

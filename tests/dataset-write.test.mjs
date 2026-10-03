@@ -12,8 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { appendDataset, writeDataset } from '../scripts/lib/dataset-write.mjs';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
 import { datasetFiles } from '../scripts/lib/datasets.mjs';
-
-const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
 function withRoot(fn) {
   const root = mkdtempSync(join(tmpdir(), 'dataset-write-'));

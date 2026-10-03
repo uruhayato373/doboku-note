@@ -4,11 +4,10 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { datasetPath } from '../scripts/lib/datasets.mjs';
 import { expandEntry, indexHistory, latestIndexAsOf, qualificationIdsIn, qualificationRatios } from '../scripts/lib/index-coverage.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const row = (url, verdict, extra = {}) => ({ url: `https://doboku-note.com${url}`, index: verdict ? { verdict, coverage_state: verdict === 'PASS' ? '送信して登録されました' : '検出 - インデックス未登録' } : undefined, ...extra });
 
 const ROWS = [

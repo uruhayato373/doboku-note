@@ -5,8 +5,8 @@ import { extname, join, relative } from "node:path";
 import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
 import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const SSOT_PATH = join(ROOT, datasetPath("config.exam-calendar"));
 const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 

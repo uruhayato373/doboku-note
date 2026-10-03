@@ -18,13 +18,12 @@
 //   node scripts/audit-note-funnel.mjs --live --ci # D5/取得失敗率を含む CI ゲート
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
 // --live: 公開記事の CTA が「ライブ note に反映済みか」を note 公開 API(body+embedded)で機械検証する（D5）。
 // ソースのマーカー(D1)はあってもライブ未反映＝再投稿もれ、を検出する（2026-06-18 に総監19本で実害化）。

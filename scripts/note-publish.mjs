@@ -43,7 +43,6 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { join, dirname, basename, resolve, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
@@ -51,8 +50,8 @@ import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 

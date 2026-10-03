@@ -8,8 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, cpSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import {
   checkAll,
@@ -17,8 +16,8 @@ import {
   hasVerbatimOverlap,
   loadConfig,
 } from '../scripts/lib/video-content-check.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURES = join(REPO_ROOT, 'tests', 'fixtures', 'video-content');
 const config = loadConfig(REPO_ROOT);
 

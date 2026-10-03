@@ -5,17 +5,17 @@
 //   - 重要ポイント 5 本（2026-09-30 公開）は試験系ガイドとして精読ガイドを冒頭に出す
 // 実 resolvePlacement を esbuild でトランスパイルして呼ぶ（note-membership-funnel.test.mjs と同じ方式）。
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { buildSync } from 'esbuild';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 async function loadPlacement() {
-  const ts = readFileSync(ROOT + 'src/lib/magazine-placement.ts', 'utf8');
+  const ts = readFileSync(join(ROOT, 'src/lib/magazine-placement.ts'), 'utf8');
   const js = buildSync({
-    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    stdin: { contents: ts, loader: 'ts', resolveDir: join(ROOT, 'src/lib') },
     bundle: true,
     write: false,
     format: 'esm',
@@ -24,7 +24,7 @@ async function loadPlacement() {
   return import('data:text/javascript,' + encodeURIComponent(js));
 }
 
-const calendar = JSON.parse(readFileSync(ROOT + 'config/exam-calendar.json', 'utf8'));
+const calendar = JSON.parse(readFileSync(join(ROOT, 'config/exam-calendar.json'), 'utf8'));
 const examDate = calendar.exams['civil-construction-2'].events.second.date;
 const examDayStartMs = Date.parse(`${examDate}T00:00:00+09:00`);
 
@@ -55,7 +55,7 @@ test('2級 年度別ページ: 試験の前後どちらでも、二次まるご�
     const p = topAt(resolvePlacement, 'civil-construction-2-secondary-r07', nowMs);
     const ids = [p.top, ...p.inline].map((s) => s.magazineId);
     assert.ok(ids.includes('civil-2-niji-marugoto-pack'), '二次まるごとが年度別ページから消えている');
-    const body = readFileSync(ROOT + "content/site/civil-construction-2/secondary-r07/article.mdx", "utf8").replace(/^---[\s\S]*?\n---\n/, "");
+    const body = readFileSync(join(ROOT, "content/site/civil-construction-2/secondary-r07/article.mdx"), "utf8").replace(/^---[\s\S]*?\n---\n/, "");
     const mid = resolveArticleMidNoteSlot(p, "secondary", body, true);
     assert.ok(mid, '中間 CTA が無い');
     assert.notEqual(mid.magazineId, p.top?.magazineId);

@@ -25,15 +25,14 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
 import { addDays } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { createIgGraphClient, mediaToLive } from './lib/ig-graph.mjs';
 import { normHead, localPacks, reconcile, driftCount, buildSnapshot } from './lib/ig-reconcile-core.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[fetch-ig-insights]';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 // ─── 引数 ────────────────────────────────────────────────────
 function parseArgs(argv) {

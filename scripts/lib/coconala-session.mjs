@@ -17,15 +17,15 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { todayJst } from './jst-date.mjs';
 import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
 import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+export { ROOT };
 // 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（check-coconala-blog 等・CI の
 // quality-audit）まで CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
 export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });

@@ -1,14 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { z } from 'zod';
 import * as SCHEMAS from '../scripts/lib/dataset-schemas.mjs';
 import { DATASETS, listAreaFiles, matchFiles } from '../scripts/lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const { isMonday, sumEquals, uniqueBy, versioned } = SCHEMAS;
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /** 台帳の行の型。行は型を名前の文字列かオブジェクトで持つ */
 const schemaFor = (d) => (typeof d.schema === 'string' ? SCHEMAS[d.schema] : d.schema);

@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const COMMIT = process.argv.includes('--commit');

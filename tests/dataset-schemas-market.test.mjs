@@ -1,12 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import * as SCHEMAS from '../scripts/lib/dataset-schemas.mjs';
 import { listAreaFiles, matchFiles } from '../scripts/lib/datasets.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 違反を「場所: 内容」の行にする（通れば空） */
 const issues = (schema, value) => {

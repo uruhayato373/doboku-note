@@ -8,12 +8,11 @@
  */
 import { strict as assert } from 'node:assert';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
 import { allowReason, countByRule, evaluateBlobs, extOf, ratchet } from '../scripts/check-git-binary-policy.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const POLICY = JSON.parse(readFileSync(join(ROOT, 'config/git-binary-policy.json'), 'utf-8'));
 
 const MiB = 1048576;

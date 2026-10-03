@@ -10,9 +10,9 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { basename, dirname, join } from 'node:path';
+import { dirname, join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const SOURCE_ROOT = join(ROOT, '.tmp', 'mlit-national-transcription');
 const OUTPUT_ROOT = join(SOURCE_ROOT, 'output');
 const MASTER_MANIFEST = join(SOURCE_ROOT, '全国版_manifest.json');

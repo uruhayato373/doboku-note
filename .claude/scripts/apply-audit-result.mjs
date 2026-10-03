@@ -23,8 +23,8 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, '.claude/state/exam-keyword-map.json');
 
 function parseArgs(argv) {

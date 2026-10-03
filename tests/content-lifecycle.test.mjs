@@ -7,8 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import {
   STAGES, STAGE_LABELS, emptyCounts, tally,
@@ -16,8 +15,7 @@ import {
   kindleStatusToStage, xTweetStatusToStage,
   youtubeScheduleStatusToStage, igPackToStage,
 } from '../scripts/lib/content-lifecycle.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('STAGES は進行順の 6 値で、全てにラベルがある', () => {
   assert.deepEqual(STAGES, ['planned', 'draft', 'review', 'scheduled', 'published', 'retired']);

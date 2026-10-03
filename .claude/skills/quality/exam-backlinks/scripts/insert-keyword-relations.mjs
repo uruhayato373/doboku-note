@@ -25,8 +25,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CATEGORY_DIR = path.join(ROOT, 'content/site/pe-comprehensive-management');
 const IN_RELATIONS = path.join(ROOT, 'src/config/keyword-relations.json');
 

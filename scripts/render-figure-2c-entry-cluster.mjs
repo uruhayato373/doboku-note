@@ -2,13 +2,11 @@
 // 2級土木 集客クラスター B層(受験入口 B1-B5)の本文用 PNG 図版を生成。
 // note-svg-policy.md 準拠（W=1200・本文 font 22+・余白 40/24・右下ブランド）。
 //   node scripts/render-figure-2c-entry-cluster.mjs
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const NOTE = join(ROOT, 'content/note/1級・2級土木/2級土木');
 
 const BRAND = '#2e6da4';

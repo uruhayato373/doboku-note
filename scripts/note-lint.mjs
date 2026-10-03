@@ -34,15 +34,14 @@
  */
 import { execSync, execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { checkLineEndings } from './lib/line-endings.mjs';
 import { findAnswerStartLine, isAnswerPart } from './lib/note-answer-zone.mjs';
 import { findDuplicateImages } from './lib/note-duplicate-images.mjs';
 import { findInlineCode } from './lib/note-inline-code.mjs';
 import { findDuplicateCoconala } from './lib/note-duplicate-coconala.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
 const MAG_CTA_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-magazine-cta.mjs');
 const SET_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-3set.mjs');

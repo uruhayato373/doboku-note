@@ -4,10 +4,9 @@
  * 呼び出し元は本文編集を完了し、保存前ゲートを通したあとに呼ぶこと。
  * 「公開に進む」→境界処理→「更新する」→通知「いいえ」までを担当する。
  */
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**

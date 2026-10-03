@@ -2,6 +2,7 @@
 import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { relative, resolve, join } from 'node:path';
 import { parseNoteArticle } from './lib/note-frontmatter.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 /**
  * 公開済み note の同一文言を部分更新する spec 群を、ローカル原稿から生成する。
@@ -11,7 +12,6 @@ import { parseNoteArticle } from './lib/note-frontmatter.mjs';
  *   --scope content/note/1級・2級土木 --from '旧文言' --to '新文言' --name civil-150
  */
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ? argv[index + 1] : null; };
 const SCOPE_ARG = getArg('--scope');

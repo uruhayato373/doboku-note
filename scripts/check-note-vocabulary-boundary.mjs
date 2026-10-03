@@ -36,11 +36,10 @@
  */
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));

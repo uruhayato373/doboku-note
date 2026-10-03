@@ -4,10 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('--file 実行で exit 0 かつ stderr に git の fatal が出ない', () => {
   const r = spawnSync(process.execPath, ['scripts/check-scheduled-exec-branch.mjs', '--file', 'package.json'], {

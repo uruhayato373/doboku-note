@@ -9,12 +9,10 @@
  * コードの資格 id（または別名）→ 日本語の対応表を 1 件でも見つけたら止める。判定は scripts/lib/qualification-ssot.mjs。
  * 検査した件数を必ず出し、0 件なら検査不成立（exit 1）にする（CLAUDE.md §9）。
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import { auditQualificationSsot, ALLOW_PATH, ALLOW_MARKER } from './lib/qualification-ssot.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const r = auditQualificationSsot(ROOT);
 const failed = r.config.violations.length + r.derived.diffs.length + r.code.hits.length;
 const empty = r.config.files === 0 || r.code.files === 0;

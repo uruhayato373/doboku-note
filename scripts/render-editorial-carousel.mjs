@@ -13,12 +13,10 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { resolve, join } from 'node:path';
 import { parseArgs } from 'node:util';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
 
 const { values: args } = parseArgs({
   args: process.argv.slice(2),

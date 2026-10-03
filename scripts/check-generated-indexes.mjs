@@ -11,10 +11,8 @@
  * 実行前から手元で変更中のファイルは判定できないので「未判定」と出す（CI はきれいな checkout）。
  */
 import { execFileSync, spawnSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const git = (...args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args], { cwd: ROOT, encoding: 'utf8' });
 const changed = () => new Set(git('diff', '--name-only', 'HEAD').split('\n').filter(Boolean));
 

@@ -13,8 +13,8 @@ import { resolve } from 'node:path'
 import { homedir } from 'node:os'
 import { todayJst } from './lib/jst-date.mjs'
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 const PROFILE = resolveProfileDir('kdp', { cwd: REPO, repoRoot: REPO })

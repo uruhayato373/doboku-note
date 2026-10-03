@@ -25,12 +25,11 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  */
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const NOTE = process.argv[2];
 const BODY = readFileSync(process.argv[3], 'utf8').trim();

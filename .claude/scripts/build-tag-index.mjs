@@ -22,8 +22,8 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 const OUT_PATH = join(ROOT, 'src/config/tag-dictionary.json');

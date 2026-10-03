@@ -31,10 +31,9 @@ import path from 'node:path'
 import {
   resolveVaultRoot, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, realBytesAndHashes, toVaultRel,
 } from './lib/drive-vault.mjs'
-import { REPO_ROOT } from './lib/repository-paths.mjs'
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
 import { imageSize } from './lib/asset-storage.mjs'
 
-const ROOT = REPO_ROOT
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
 // provenance（manifest.json）だけを repo に置く。ページ画像・テキストの実体は Drive vault の
 // 原本 PDF の隣（同名フォルダ）。置き場ルール: 人しか読まない派生物は Drive（asset-storage-policy.md §1）

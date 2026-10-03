@@ -30,12 +30,12 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
 const JSON_OUT = join(OUT_DIR, 'audit-latest.json');
 const MD_OUT = join(OUT_DIR, 'audit-latest.md');

@@ -1,12 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import * as SCHEMAS from '../scripts/lib/dataset-schemas.mjs';
 import { listAreaFiles, matchFiles } from '../scripts/lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const files = ['config', 'data'].flatMap((area) => listAreaFiles(ROOT, area, { tracked: true }));
 const { byId: filesById } = matchFiles(files);
 const all = (id) => {

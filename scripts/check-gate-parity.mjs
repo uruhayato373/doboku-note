@@ -22,10 +22,9 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, relative, sep } from 'node:path';
+import { join, relative, sep } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
 const BASELINE_PATH = join(ROOT, '.claude/config/gate-parity-baseline.json');
 

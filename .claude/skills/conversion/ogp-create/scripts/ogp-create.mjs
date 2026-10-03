@@ -115,11 +115,10 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
-import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
 // 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。

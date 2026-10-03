@@ -24,8 +24,8 @@ import { getAllPublicDocRoutes } from '../src/lib/content-routes';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct } from '../src/lib/sidebar-discovery';
 import { hasStaticToolNoteCta } from './lib/sns-landing-cta.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const SITE = join(ROOT, 'content/site');
 const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, 'content/sns/x/campaigns')];

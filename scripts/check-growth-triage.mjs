@@ -16,12 +16,12 @@
  * exit: 0 すべて反映 / 1 未処分・未反映あり / 2 検査不成立（ダイジェストやレビューが無い・ダイジェストが古い）
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { pendingItems } from './lib/growth-triage.mjs';
 import { datasetDir, datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[check-growth-triage]';
 const MAX_DIGEST_AGE_DAYS = freshnessDays('analysis.growth-digest', 'failDays'); // 台帳の値（scripts/lib/datasets.mjs）
 

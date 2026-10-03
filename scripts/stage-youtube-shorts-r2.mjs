@@ -8,8 +8,8 @@ import { createReadStream, existsSync, readFileSync, readdirSync, statSync } fro
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const RENDER_ROOT = join(ROOT, '.tmp/video-render');
 const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));

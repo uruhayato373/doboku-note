@@ -23,8 +23,8 @@ import { readFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, basename } from 'node:path'
 import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 import { mdToXhtml } from './lib/kindle-md.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
 const DEFAULT_EXAM = '技術士第二次試験'
