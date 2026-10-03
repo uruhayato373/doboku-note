@@ -7,7 +7,7 @@ import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { report, readWatchConfig, readJson, LEDGER, HISTORY, KIND, hash, dateJst, statusOf, latestMeasurement, readMeasurements, recordAction, updateLedger, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
 import { validateAgentResult, applyReplacements, waitingReason } from './lib/seo-rank-watch-ci.mjs';
 
-const root = process.cwd(), args = process.argv.slice(2), command = args[0];
+const root = process.cwd(), args = process.argv.slice(2), command = args[0]; // root-ok: テストが一時ディレクトリを cwd にして実行する
 const dirArg = args.indexOf('--dir');
 const dir = resolve(dirArg >= 0 && args[dirArg + 1] ? args[dirArg + 1] : '.tmp/seo-rank-watch-ci');
 const json = file => JSON.parse(readFileSync(join(dir, file), 'utf8'));

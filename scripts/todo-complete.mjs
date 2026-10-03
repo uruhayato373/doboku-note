@@ -27,17 +27,18 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { join, relative } from 'node:path';
 import { checkCompleteReadiness, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
 import { liveDocsReferencing, readProjectDocs } from './check-project-task-refs.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, STATE_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
-const BACKLOG = '.claude/todo/backlog.md';
-const MONTHLY = '.claude/todo/monthly.md';
-const WEEKLY = '.claude/todo/weekly.md';
-const DISPATCH_LOG = '.claude/state/dispatch/dispatch-log.json';
+const BACKLOG = join(TODO_ROOT, 'backlog.md');
+const MONTHLY = join(TODO_ROOT, 'monthly.md');
+const WEEKLY = join(TODO_ROOT, 'weekly.md');
+const DISPATCH_LOG = join(STATE_ROOT, 'dispatch/dispatch-log.json');
 
 const argv = process.argv.slice(2);
 const id = argv[0];
@@ -95,7 +96,7 @@ for (const path of [MONTHLY, WEEKLY]) {
   const kept = lines.filter((l) => !l.includes(id));
   if (kept.length !== lines.length) {
     writeFileSync(path, kept.join(eol), 'utf8');
-    console.log(`[todo-complete] ${path} から ${id} を含む行を ${lines.length - kept.length} 行削除`);
+    console.log(`[todo-complete] ${relative(ROOT, path).split('\\').join('/')} から ${id} を含む行を ${lines.length - kept.length} 行削除`);
   }
 }
 

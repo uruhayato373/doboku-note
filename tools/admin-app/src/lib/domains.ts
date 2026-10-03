@@ -13,10 +13,11 @@ export function domainList(): Domain[] {
   }
 }
 
-import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { documentDomain } from '../../../../scripts/lib/domains.mjs';
 import { parseBacklog } from '../../../../scripts/lib/backlog-lib.mjs';
+import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
 import { loadAgents, loadSkills } from './registry';
 
 export interface DomainOverview {
@@ -53,20 +54,13 @@ export function domainOverview(id: string): DomainOverview | null {
     items.filter((x) => inDomain(x.domain)).map(({ name, description }) => ({ name, description }));
 
   const documents: string[] = [];
-  const walk = (dir: string) => {
-    if (!existsSync(dir)) return;
-    for (const n of readdirSync(dir)) {
-      const p = join(dir, n);
-      if (statSync(p).isDirectory()) walk(p);
-      else if (n.endsWith('.md')) {
-        const rel = relative(root, p).split('\\').join('/');
-        if (/^docs\/(reviews|handoffs)\//.test(rel)) continue;
-        if (documentDomain(cfg, rel) === domain.id) documents.push(rel);
-      }
+  for (const dir of [join(root, 'docs'), join(root, '.claude/knowledge/reference')]) {
+    for (const p of listFiles(dir, { allowMissing: true, followLinks: true, ext: '.md' })) {
+      const rel = relative(root, p).split('\\').join('/');
+      if (/^docs\/(reviews|handoffs)\//.test(rel)) continue;
+      if (documentDomain(cfg, rel) === domain.id) documents.push(rel);
     }
-  };
-  walk(join(root, 'docs'));
-  walk(join(root, '.claude/knowledge/reference'));
+  }
 
   return { domain, cards, skills: pick(loadSkills().items), agents: pick(loadAgents().items), documents: documents.sort() };
 }

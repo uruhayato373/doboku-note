@@ -13,7 +13,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const ROOT = process.cwd();
+const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
 const STATUS_PATH = path.join(DRAFT_DIR, "status.json");
 const TEMPLATE_PATH = path.join(DRAFT_DIR, "teasers.template.md");

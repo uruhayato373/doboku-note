@@ -13,7 +13,7 @@ import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 import { sha256File as sha256 } from './lib/asset-storage.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 
-const ROOT = process.cwd();
+const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const BASE = join(ROOT, '.tmp/video-render');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');

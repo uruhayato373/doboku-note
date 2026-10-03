@@ -12,7 +12,7 @@
  *   npm run product -- import-note --qualification <id> [--commit]                  # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
  * exit: 0 成功 / 1 検査・差分・書き込み失敗 / 2 引数不正
  */
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
@@ -20,6 +20,7 @@ import {
   renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const cmd = argv[0];
@@ -70,18 +71,11 @@ async function readCatalog() {
 /** content/note の記事: noteId → リポジトリ相対パス */
 function articleIndex() {
   const idx = new Map();
-  const walk = (dir) => {
-    for (const e of readdirSync(dir)) {
-      const p = join(dir, e);
-      if (statSync(p).isDirectory()) walk(p);
-      else if (/^article(-[^/\\]+)?\.md$/.test(e)) {
-        const raw = readFileSync(p, 'utf8');
-        const id = raw.match(/^noteId:\s*"?(n[0-9a-f]+)"?\s*$/m)?.[1] ?? raw.match(/^noteUrl:\s*"?https:\/\/note\.com\/[^/]+\/n\/(n[0-9a-f]+)/m)?.[1];
-        if (id && !idx.has(id)) idx.set(id, relative(ROOT, p).split('\\').join('/'));
-      }
-    }
-  };
-  walk(join(ROOT, 'content', 'note'));
+  for (const p of listFiles(join(ROOT, 'content', 'note'), { followLinks: true, match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+    const raw = readFileSync(p, 'utf8');
+    const id = raw.match(/^noteId:\s*"?(n[0-9a-f]+)"?\s*$/m)?.[1] ?? raw.match(/^noteUrl:\s*"?https:\/\/note\.com\/[^/]+\/n\/(n[0-9a-f]+)/m)?.[1];
+    if (id && !idx.has(id)) idx.set(id, relative(ROOT, p).split('\\').join('/'));
+  }
   return idx;
 }
 

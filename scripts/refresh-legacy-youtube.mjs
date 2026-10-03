@@ -11,8 +11,9 @@ import { loadVideoBrand } from './lib/video-brand.mjs';
 import { MIGRATION, sha256 } from './lib/youtube-migration.mjs';
 import { synthesize } from '../.claude/scripts/lib/sns-common/tts-client.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = process.cwd(), input = JSON.parse(fs.readFileSync('content/sns/youtube/legacy-refresh.json'));
+const input = JSON.parse(fs.readFileSync('content/sns/youtube/legacy-refresh.json'));
 const covers = JSON.parse(fs.readFileSync('content/sns/youtube/cover-design.json')).covers;
 const brand = await loadVideoBrand(root), out = '.tmp/video-render/legacy-brand-a';
 fs.mkdirSync(out, { recursive: true });

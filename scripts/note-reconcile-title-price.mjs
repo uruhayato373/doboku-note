@@ -25,32 +25,26 @@
  *   node scripts/note-reconcile-title-price.mjs --adopt-live --commit   # note を正として原稿を書き換える（一回きりの整理）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, writeSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, metaHash, titleHash, TITLE_LIVE_MISMATCH, loadState, saveState } from './lib/note-republish-hash.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
+import { NOTE_CONTENT_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
 
 const args = process.argv.slice(2);
 const COMMIT = args.includes('--commit');
 const ADOPT_LIVE = args.includes('--adopt-live');
 const JSON_OUT = args.includes('--json');
 const FILTER = args.includes('--filter') ? args[args.indexOf('--filter') + 1] : null;
-const ROOT = 'content/note';
-const SOT = 'src/lib/note-magazines.ts';
+const ROOT = NOTE_CONTENT_ROOT;
+const SOT = join(REPO_ROOT, 'src/lib/note-magazines.ts');
 const THROTTLE_MS = 250;
 
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name).replaceAll('\\', '/');
-    if (e.isDirectory()) walk(p, acc);
-    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
 const sleep = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
 function curlJson(url) {
   let last = 'unknown';
@@ -89,14 +83,15 @@ function setField(src, key, val) {
 
 // ---- 記事 ----
 const targets = [];
-for (const f of walk(ROOT)) {
+for (const abs of listFiles(ROOT, { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+  const f = relative(REPO_ROOT, abs).split('\\').join('/');
   if (FILTER && !f.includes(FILTER)) continue;
-  const raw = readFileSync(f, 'utf8');
+  const raw = readFileSync(abs, 'utf8');
   const fm = fmBlock(toLf(raw));
   if (!fm) continue;
   const id = fmField(fm, 'noteId') || fmField(fm, 'noteUrl').match(/n[0-9a-f]{10,}/)?.[0];
   if (!id) continue; // 未公開
-  targets.push({ f, raw, fm, id });
+  targets.push({ f, abs, raw, fm, id });
 }
 
 const st = loadState();
@@ -137,7 +132,7 @@ targets.forEach((t, i) => {
     if (COMMIT) {
       const metaWasSynced = st.metaHashes[t.f] !== undefined && st.metaHashes[t.f] === metaHash(t.raw);
       const bodyWasSynced = st.hashes?.[t.f] !== undefined && st.hashes[t.f] === bodyHash(t.raw);
-      writeFileSync(t.f, next);
+      writeFileSync(t.abs, next);
       // 原稿へ入れた値は note と同じなので、変更前に同期済みだった記録は進める（未反映の変更は隠さない）
       if (metaWasSynced && (!paid || price === livePrice)) st.metaHashes[t.f] = metaHash(next);
       if (fixH1 && bodyWasSynced) st.hashes[t.f] = bodyHash(next);

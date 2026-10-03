@@ -11,8 +11,9 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join, relative, resolve } from 'node:path';
 import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
+const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const DRIVE_CONFIG = join(ROOT, datasetPath('config.drive-vault'));
@@ -30,15 +31,6 @@ const now = Date.now();
 const maxTime = now + 29 * 24 * 60 * 60 * 1000;
 
 function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
-function walkMeta(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walkMeta(path, out);
-    else if (name === 'meta.json' && dirname(path).endsWith('/reels')) out.push(path);
-  }
-  return out;
-}
 function clearIntermediates(dir) {
   let files = 0;
   let bytes = 0;
@@ -89,7 +81,7 @@ if (verifyCloud) {
 } else {
   verified = new Set(readFileSync(verifiedListPath, 'utf8').split(/\r?\n/u).filter(Boolean));
 }
-const rows = walkMeta(BASE).map((metaPath) => {
+const rows = listFiles(BASE, { allowMissing: true, followLinks: true, match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels') }).map((metaPath) => {
   const reelsDir = dirname(metaPath);
   const packDir = dirname(reelsDir);
   const videoPath = join(reelsDir, 'video.mp4');

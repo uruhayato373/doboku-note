@@ -26,17 +26,18 @@
  */
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
 import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 import { latestFile } from "./lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "./lib/metric-reports.mjs";
 import { listUnitSsot, rawDir, readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
-import { REPO_ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT, STATE_ROOT } from "./lib/repository-paths.mjs";
 import { SITE_ORIGIN } from "./lib/site-identity.mjs";
 
-const OUT_DIR = ".claude/state/improvements";
+const OUT_DIR = join(STATE_ROOT, "improvements");
+const relOut = (p) => relative(REPO_ROOT, p).split("\\").join("/");
 
 const argv = process.argv.slice(2);
 const LIVE_HTTP = argv.includes("--live-http");
@@ -48,7 +49,7 @@ function latest(dir, prefix) {
   const files = readdirSync(dir).filter((f) => f.startsWith(prefix) && f.endsWith(".json")).sort();
   return files.length ? join(dir, files[files.length - 1]) : null;
 }
-function readJson(p, def = null) {
+function readJsonOr(p, def = null) {
   try {
     return JSON.parse(readFileSync(p, "utf-8"));
   } catch {
@@ -110,7 +111,7 @@ function loadGscUi() {
   out.runId = runs[runs.length - 1];
   if (!existsSync(normDir)) return out;
   for (const f of readdirSync(normDir).filter((f) => f.endsWith(".json") && !f.endsWith(".rejects.json"))) {
-    const norm = readJson(join(normDir, f));
+    const norm = readJsonOr(join(normDir, f));
     if (norm) collect(norm, "run-normalized");
   }
   return out;
@@ -122,7 +123,7 @@ function loadInspection() {
   const f = latestFile(REPO_ROOT, "gsc.url-inspection") || latestFile(REPO_ROOT, "gsc.url-inspection-single");
   const map = new Map();
   if (!f) return { map, file: null };
-  const j = readJson(join(REPO_ROOT, f));
+  const j = readJsonOr(join(REPO_ROOT, f));
   const results = j?.results || [];
   for (const r of results) {
     if (!r.url) continue;
@@ -303,7 +304,7 @@ function localHtmlInfo(joinKey) {
 
 /** doc-meta-index → slug→{category, group, title}。 */
 function loadDocMeta() {
-  const j = readJson("src/config/doc-meta-index.json", { docs: {} });
+  const j = readJsonOr("src/config/doc-meta-index.json", { docs: {} });
   return j.docs || {};
 }
 
@@ -352,7 +353,7 @@ function loadDraftSlugs() {
 
 /** 内部リンク流入数（best-effort・keyword-relations.json が target として持つ回数）。無ければ null。 */
 function loadInternalInbound() {
-  const j = readJson("src/config/keyword-relations.json", null);
+  const j = readJsonOr("src/config/keyword-relations.json", null);
   if (!j) return null;
   const counts = new Map();
   const bump = (slug) => counts.set(slug, (counts.get(slug) || 0) + 1);
@@ -639,8 +640,8 @@ async function main() {
     process.exitCode = 2;
   }
   console.log(`  ` + ACTIONS.map((a) => `${a}:${counts[a]}`).join(" / "));
-  console.log(`  → ${jsonPath}`);
-  console.log(`  → ${join(OUT_DIR, "search-growth-latest.md")}`);
+  console.log(`  → ${relOut(jsonPath)}`);
+  console.log(`  → ${relOut(join(OUT_DIR, "search-growth-latest.md"))}`);
 }
 
 function familyFromKey(jk) {
@@ -657,7 +658,7 @@ function findPrevReport(currentRunId) {
     .sort();
   const prev = files.filter((f) => !f.includes(currentRunId));
   if (!prev.length) return null;
-  return readJson(join(OUT_DIR, prev[prev.length - 1]))?.meta || null;
+  return readJsonOr(join(OUT_DIR, prev[prev.length - 1]))?.meta || null;
 }
 
 function fmtPct(v) {

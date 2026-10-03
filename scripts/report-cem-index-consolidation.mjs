@@ -27,7 +27,7 @@ const CEM_PREFIX = "pe-comprehensive-management-";
 const NOW = new Date();
 const DATE = jstDayOf(NOW);
 
-function readJson(path, fallback = null) {
+function readJsonOr(path, fallback = null) {
   try {
     return JSON.parse(readFileSync(path, "utf8"));
   } catch {
@@ -94,7 +94,7 @@ function loadInspectionMaps() {
     .map((rel) => {
       const name = rel.split("/").pop();
       const dir = join(ROOT, rel.slice(0, -name.length - 1));
-      const json = readJson(join(dir, name), { results: [] });
+      const json = readJsonOr(join(dir, name), { results: [] });
       const states = new Map();
       for (const row of json.results || []) {
         if (!row.url) continue;
@@ -207,11 +207,11 @@ function renderMarkdown(report) {
 function main() {
   const searchGrowthPath = latestFile(IMPROVEMENTS, "search-growth-");
   if (!searchGrowthPath) throw new Error("search-growth JSON がありません。先に npm run search-growth:report を実行してください");
-  const searchGrowth = readJson(searchGrowthPath);
-  const docs = readJson(join(ROOT, "src/config/doc-meta-index.json"), { docs: {} }).docs || {};
-  const relationDoc = readJson(join(ROOT, "src/config/keyword-relations.json"), { relations: {} });
+  const searchGrowth = readJsonOr(searchGrowthPath);
+  const docs = readJsonOr(join(ROOT, "src/config/doc-meta-index.json"), { docs: {} }).docs || {};
+  const relationDoc = readJsonOr(join(ROOT, "src/config/keyword-relations.json"), { relations: {} });
   const relations = relationDoc.relations || {};
-  const examBacklinks = readJson(join(ROOT, "src/config/past-exam-backlinks.json"), {});
+  const examBacklinks = readJsonOr(join(ROOT, "src/config/past-exam-backlinks.json"), {});
   const inbound = loadInbound(relations);
   const cutoff = new Date(NOW.getTime() - 95 * 86_400_000);
   const gscFiles = datedFiles("gsc.page-query", cutoff);

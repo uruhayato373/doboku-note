@@ -14,6 +14,7 @@ import fs from "fs";
 import path from "path";
 import { readScheduledQueue, isTweetInQueue } from "./lib/x-scheduled-queue.mjs";
 import { createOutput, isCliEntry, runAsCli } from "./lib/cli-run.mjs";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
 // ── 2. status.json 収集 ─────────────────────────────────────────────────────
 function loadAllStatuses(ROOT) {
@@ -41,7 +42,7 @@ function loadAllStatuses(ROOT) {
 
 // ── main ────────────────────────────────────────────────────────────────────
 // session-start.mjs は import して run({ argv: ['--dry'], quiet: true, root }) を呼ぶ（DN-0236・子の node を立てない）
-export async function run({ argv = [], quiet = false, root = process.cwd() } = {}) {
+export async function run({ argv = [], quiet = false, root = REPO_ROOT } = {}) {
   const out = createOutput({ quiet });
   const ROOT = root;
   const DRY = argv.includes("--dry");

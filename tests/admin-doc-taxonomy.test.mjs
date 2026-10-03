@@ -1,9 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { readFileSync, readdirSync } from 'node:fs';
-import { join, extname } from 'node:path';
+import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
 /**
  * DN-0103 Phase 02: docs/ の 3 軸分類（doc-taxonomy.ts）と Obsidian callout / table wrapper
@@ -87,22 +87,14 @@ test('不正な値は unknown へ握りつぶさず、既定値へフォール�
 
 test('現行 docs/**/*.md は全て有効な frontmatter 値を持つ（決定的ゲート・不正値の混入を検知）', () => {
   const out = tsx(`
-    import { readFileSync, readdirSync } from 'node:fs';
-    import { join, extname } from 'node:path';
+    import { readFileSync } from 'node:fs';
     import matter from 'gray-matter';
     import { classifyDocument } from './tools/admin-app/src/lib/doc-taxonomy.ts';
+    import { listFiles } from './scripts/lib/fs-walk.mjs';
 
-    function walk(dir, out = []) {
-      for (const e of readdirSync(dir, { withFileTypes: true })) {
-        const p = join(dir, e.name);
-        if (e.isDirectory()) walk(p, out);
-        else if (extname(e.name) === '.md') out.push(p);
-      }
-      return out;
-    }
     const sectionOf = (rel) => (rel.includes('/') ? rel.split('/')[0] : 'root');
 
-    const files = walk('docs');
+    const files = listFiles('docs', { ext: '.md' });
     const invalid = [];
     for (const f of files) {
       const { data } = matter(readFileSync(f, 'utf8'));
@@ -215,15 +207,7 @@ test('callout 変換後も見出し目次の id は本文 HTML の id と一致�
 });
 
 test('docs/**/*.md 全件が例外なくレンダリングできる（callout/table 変換の実データ smoke）', () => {
-  function walk(dir, out = []) {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p, out);
-      else if (extname(e.name) === '.md') out.push(p);
-    }
-    return out;
-  }
-  const files = walk(join(ROOT, 'docs'));
+  const files = listFiles(join(ROOT, 'docs'), { ext: '.md' });
   assert.ok(files.length > 30, `docs 対象数が想定より少ない: ${files.length}`);
   const out = tsx(`
     import { readFileSync } from 'node:fs';

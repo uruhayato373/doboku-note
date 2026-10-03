@@ -3,12 +3,13 @@
  * video-pack 派生 Instagram Reels を、Meta の29日予約窓内だけ Business Suite へ投入する。
  * 既定 dry-run（先頭1件で最終確定直前まで）。--commit で予約する。
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const campaign = assertInstagramPublicationReady(ROOT);
 const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
@@ -24,7 +25,6 @@ const max = Math.max(1, Number(arg('--max', commit ? '999' : '1')) || 1);
 const now = Date.now();
 const minTime = now + 20 * 60 * 1000;
 const maxTime = now + 29 * 24 * 60 * 60 * 1000;
-const metaPaths = [];
 function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
 function hydrateVideo(videoPath) {
   if (existsSync(videoPath)) return;
@@ -36,15 +36,7 @@ function hydrateVideo(videoPath) {
   });
   if (result.status !== 0 || !existsSync(videoPath)) throw new Error(`${rel}: Driveから復元できません`);
 }
-function walk(dir) {
-  if (!existsSync(dir)) return;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walk(path);
-    else if (name === 'meta.json' && dirname(path).endsWith('/reels')) metaPaths.push(path);
-  }
-}
-walk(BASE);
+const metaPaths = listFiles(BASE, { allowMissing: true, followLinks: true, match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels') });
 
 const candidates = metaPaths.map((metaPath) => {
   const reelsDir = dirname(metaPath);

@@ -1,11 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { classifyNote, loadThemes } from '../scripts/lib/content-theme.mjs';
 import { buildNoteCoverCategories, classifyNoteCover, loadNoteCoverCategories, noteCoverCategoryLabel } from '../scripts/lib/note-cover-category.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
 const ctx = buildNoteCoverCategories({
   categories: [
@@ -47,20 +48,14 @@ test('実際の note 記事はすべてカバー分類を持つ', () => {
   const noteRoot = join(ROOT, 'content', 'note');
   const unclassified = [];
   let checked = 0;
-  const walk = (dir) => {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      if (entry.isDirectory()) { if (entry.name !== 'img') walk(join(dir, entry.name)); continue; }
-      if (!/^article(-[^/\\]+)?\.md$/.test(entry.name)) continue;
-      const abs = join(dir, entry.name);
-      const rel = relative(noteRoot, abs);
-      const fm = matter(readFileSync(abs, 'utf8')).data;
-      const themeId = classifyNote(themes, rel, fm);
-      const themeKind = themeId ? themes.themes.get(themeId)?.kind ?? null : null;
-      checked += 1;
-      if (!classifyNoteCover(covers, rel, fm, themeId, themeKind)) unclassified.push(rel);
-    }
-  };
-  walk(noteRoot);
+  for (const abs of listFiles(noteRoot, { skipDir: (_p, name) => name === 'img', match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+    const rel = relative(noteRoot, abs);
+    const fm = matter(readFileSync(abs, 'utf8')).data;
+    const themeId = classifyNote(themes, rel, fm);
+    const themeKind = themeId ? themes.themes.get(themeId)?.kind ?? null : null;
+    checked += 1;
+    if (!classifyNoteCover(covers, rel, fm, themeId, themeKind)) unclassified.push(rel);
+  }
   assert.ok(checked > 500, `検査対象が少なすぎる（${checked} 本）`);
   assert.deepEqual(unclassified, []);
 });

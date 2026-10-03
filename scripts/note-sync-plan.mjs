@@ -16,13 +16,14 @@
  */
 import { writeFileSync } from 'node:fs';
 import { BLOCKERS, buildSyncPlan, orderForRun } from './lib/note-sync-plan.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const argv = process.argv.slice(2);
 const arg = (n, d = null) => { const i = argv.indexOf(n); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
 const OUT = arg('--out');
 const LIMIT = Number(arg('--limit', '200')) || 200;
 
-const plan = await buildSyncPlan(process.cwd());
+const plan = await buildSyncPlan(REPO_ROOT);
 if (argv.includes('--json')) {
   process.stdout.write(JSON.stringify({ counts: plan.counts, design: plan.design, blockers: BLOCKERS, items: plan.items.filter((i) => i.status !== 'synced') }, null, 2) + '\n');
 } else {

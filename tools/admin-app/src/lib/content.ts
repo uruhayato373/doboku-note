@@ -1,9 +1,10 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+import { basename, dirname, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 import { findRepoRoot, repoPath } from './repo-root';
 import { NOTE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
 import { classifyNote, loadThemes, themeLabel } from '../../../../scripts/lib/content-theme.mjs';
 
@@ -170,48 +171,41 @@ export function noteArticles(): NoteArticle[] {
   const NOTE = NOTE_CONTENT_ROOT;
   const items: NoteArticle[] = [];
   const themes = loadThemes(findRepoRoot());
-  const walk = (absDir: string, rel: string) => {
-    let entries;
+  const articles = listFiles(NOTE, {
+    allowMissing: true,
+    skipDir: (_p: string, name: string) => name === 'img',
+    match: (_p: string, name: string) => /^article[A-Za-z0-9-]*\.md$/.test(name),
+  });
+  for (const abs of articles) {
+    const name = basename(abs);
+    const rel = relative(NOTE, dirname(abs)).split(sep).join('/');
+    let fm: Record<string, unknown> = {};
+    let ctas: string[] = [];
     try {
-      entries = readdirSync(absDir, { withFileTypes: true });
+      const raw = readFileSync(abs, 'utf8');
+      fm = (matter(raw).data as Record<string, unknown>) ?? {};
+      ctas = [...new Set([...raw.matchAll(/<!-- cta:([a-z0-9-]+) -->/g)].map((m) => m[1]))];
     } catch {
-      return;
+      /* skip */
     }
-    for (const e of entries) {
-      if (e.isDirectory()) {
-        if (e.name === 'img') continue;
-        walk(join(absDir, e.name), rel ? `${rel}/${e.name}` : e.name);
-      } else if (/^article[A-Za-z0-9-]*\.md$/.test(e.name)) {
-        let fm: Record<string, unknown> = {};
-        let ctas: string[] = [];
-        try {
-          const raw = readFileSync(join(absDir, e.name), 'utf8');
-          fm = (matter(raw).data as Record<string, unknown>) ?? {};
-          ctas = [...new Set([...raw.matchAll(/<!-- cta:([a-z0-9-]+) -->/g)].map((m) => m[1]))];
-        } catch {
-          /* skip */
-        }
-        items.push({
-          rel: `${rel}/${e.name}`,
-          dir: rel,
-          file: e.name,
-          title: (fm.title as string) || rel.split('/').pop() || rel,
-          contentType: (fm.noteContentType as string) || 'unknown',
-          pricing: (fm.notePricing as string) || 'unknown',
-          magazine: (fm.noteMagazine as string) || null,
-          noteUrl: (fm.noteUrl as string) || null,
-          published: !!fm.noteUrl, // noteUrl があれば公開済みと見なす
-          exam: rel.split('/')[0] ?? '',
-          ...(() => {
-            const theme = classifyNote(themes, `${rel}/${e.name}`, fm) as string | null;
-            return { theme, themeLabel: themeLabel(themes, theme) as string };
-          })(),
-          ctas,
-        });
-      }
-    }
-  };
-  if (existsSync(NOTE)) walk(NOTE, '');
+    items.push({
+      rel: `${rel}/${name}`,
+      dir: rel,
+      file: name,
+      title: (fm.title as string) || rel.split('/').pop() || rel,
+      contentType: (fm.noteContentType as string) || 'unknown',
+      pricing: (fm.notePricing as string) || 'unknown',
+      magazine: (fm.noteMagazine as string) || null,
+      noteUrl: (fm.noteUrl as string) || null,
+      published: !!fm.noteUrl, // noteUrl があれば公開済みと見なす
+      exam: rel.split('/')[0] ?? '',
+      ...(() => {
+        const theme = classifyNote(themes, `${rel}/${name}`, fm) as string | null;
+        return { theme, themeLabel: themeLabel(themes, theme) as string };
+      })(),
+      ctas,
+    });
+  }
   items.sort((a, b) => a.rel.localeCompare(b.rel));
   return items;
 }

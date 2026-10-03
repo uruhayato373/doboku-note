@@ -23,7 +23,8 @@ const BASELINE = join(ROOT, ".claude", "state", "quality", "lint-baseline.json")
 const HISTORY = join(ROOT, ".claude", "state", "quality", "history.jsonl");
 const RULES = join(ROOT, datasetPath("config.content-rules"));
 
-function readJson(p, fallback) {
+// 壊れていても落とさず fallback を返す（best-effort。壊れたら落とすなら json-io の readJson）
+function readJsonOr(p, fallback) {
   try { return JSON.parse(readFileSync(p, "utf8")); } catch { return fallback; }
 }
 
@@ -34,12 +35,12 @@ function isoDate(arg) {
 }
 
 function main() {
-  const baseline = readJson(BASELINE, null);
+  const baseline = readJsonOr(BASELINE, null);
   if (!baseline || !baseline.counts) {
     console.error("baseline が見つかりません。先に npm run update-content-quality-baseline を実行してください。");
     process.exit(1);
   }
-  const sev = (readJson(RULES, { defaults: {} }).defaults) || {};
+  const sev = (readJsonOr(RULES, { defaults: {} }).defaults) || {};
 
   const totals = { HIGH: 0, MEDIUM: 0, LOW: 0 };
   const byExam = {};

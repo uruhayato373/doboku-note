@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 import { readFileSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values } = parseArgs({ options: { spec: { type: 'string' }, key: { type: 'string' } } });
 if (!values.spec) throw new Error('Usage: node scripts/render-youtube-covers.mjs --spec <cover-design.json> [--key longform]');
 const design = validateCoverDesign(JSON.parse(readFileSync(resolve(values.spec), 'utf8')));

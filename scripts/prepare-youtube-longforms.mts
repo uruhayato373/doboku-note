@@ -9,7 +9,7 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
@@ -18,6 +18,7 @@ import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readJson } from './lib/json-io.mjs';
 
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
@@ -49,10 +50,6 @@ const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render'))
 const onlyPackId = val('--pack-id', '');
 const scope = val('--scope', 'civil');
 
-function readJson(path: string) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
-
 function writeJson(path: string, value: unknown) {
   writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
 }
@@ -62,7 +59,7 @@ function loadPacks(exam: TargetExam) {
     .filter((entry) => entry.isDirectory())
     .map((entry) => {
       const dir = join(PACKS_ROOT, exam, entry.name);
-      return { dir, manifest: readJson(join(dir, 'video-pack.json')) as Manifest };
+      return { dir, manifest: readJson(dir, 'video-pack.json') as Manifest };
     })
     .filter(({ manifest }) => manifest.exam === exam);
 }
@@ -233,7 +230,7 @@ function assertMedia(packId: string) {
   for (const path of [video, thumbnail, renderManifest]) {
     if (!existsSync(path) || statSync(path).size === 0) throw new Error(`${packId}: レンダー実体がありません ${path}`);
   }
-  const rendered = readJson(renderManifest);
+  const rendered = readJson(dir, 'render-manifest.json');
   if (!rendered.tts || rendered.mp4 !== 'video.mp4' || rendered.totalSec < 60 || rendered.totalSec > 1200) {
     throw new Error(`${packId}: render-manifest が公開条件を満たしません`);
   }
@@ -302,7 +299,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
 function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
   if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete] [--render-root PATH]');
-  const state = readJson(STATE_PATH);
+  const state = readJson(dirname(STATE_PATH), basename(STATE_PATH));
   const schedule = buildSchedule(state);
   const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
   if (onlyPackId && targets.length !== 1) throw new Error(`対象 packId が予約にありません: ${onlyPackId}`);
@@ -327,7 +324,7 @@ function main() {
       };
     } else {
       const youtubePath = join(item.dir, 'youtube.json');
-      const existing = existsSync(youtubePath) ? readJson(youtubePath) : null;
+      const existing = existsSync(youtubePath) ? readJson(item.dir, 'youtube.json') : null;
       writeJson(youtubePath, makeYoutube(item.manifest, item.publishAt, existing));
       state.packs[packId].derivatives.longform = {
         ...derivative, status: 'rendered', approvedBy: 'user', renderedAt: now, publishAt: item.publishAt,

@@ -1,10 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { buildThemes, classifyNote, classifyNoteStage, loadThemes, stageTheme, stageThemeIds, themeLabel, themeShortLabel } from '../scripts/lib/content-theme.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
 const registry = {
   qualifications: [
@@ -59,17 +60,11 @@ test('実際の note の記事はすべてテーマに分類できる（新し�
   const noteRoot = join(ROOT, 'content', 'note');
   const unclassified = [];
   let checked = 0;
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      if (e.isDirectory()) { if (e.name !== 'img') walk(join(dir, e.name)); continue; }
-      if (!/^article(-[^/\\]+)?\.md$/.test(e.name)) continue;
-      const abs = join(dir, e.name);
-      const rel = relative(noteRoot, abs);
-      checked += 1;
-      if (!classifyNote(real, rel, matter(readFileSync(abs, 'utf8')).data)) unclassified.push(rel);
-    }
-  };
-  walk(noteRoot);
+  for (const abs of listFiles(noteRoot, { skipDir: (_p, name) => name === 'img', match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+    const rel = relative(noteRoot, abs);
+    checked += 1;
+    if (!classifyNote(real, rel, matter(readFileSync(abs, 'utf8')).data)) unclassified.push(rel);
+  }
   assert.ok(checked > 500, `検査対象が少なすぎる（${checked} 本）`);
   assert.deepEqual(unclassified, []);
 });

@@ -21,13 +21,14 @@
  * 正典: .claude/knowledge/reference/author-authority-banner.md「1級 note の冒頭・末尾の標準形」
  * ---------------------------------------------------------------------------
  */
-import { readdirSync, statSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
+import { existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
@@ -120,20 +121,11 @@ export function dropTailBanners(rest) {
     .replace(/\n{3,}/g, '\n\n');
 }
 
-function walk(dir, out = []) {
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^article(-[^/\\]+)?\.md$/.test(e)) out.push(p);
-  }
-  return out;
-}
-
 function main() {
   let changed = 0, same = 0, reviewed = 0, scanned = 0;
   // include があれば root 直下のそのフォルダだけ（1級・2級土木/ 直下の横断記事用）
   const roots = CONFIG.include ? CONFIG.include.map((d) => join(ROOT, d)) : [ROOT];
-  for (const file of roots.flatMap((r) => walk(r))) {
+  for (const file of roots.flatMap((r) => listFiles(r, { followLinks: true, match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) }))) {
     const rel = relative(ROOT, file).split('\\').join('/');
     if (ONLY && !rel.includes(ONLY)) continue;
     const { raw, eol } = readMdxFile(file);

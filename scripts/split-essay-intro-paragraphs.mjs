@@ -9,9 +9,11 @@
 //   node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当 --dry    # 変更せずプレビュー
 //   node scripts/split-essay-intro-paragraphs.mjs content/note/.../R03/article.md  # 単一ファイル
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { NOTE_CONTENT_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = 'content/note/技術士総監/magazines';
+const ROOT = join(NOTE_CONTENT_ROOT, '技術士総監/magazines');
+const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
 const target = args.find((a) => !a.startsWith('--'));
@@ -47,21 +49,21 @@ function splitIntro(file) {
 
 const files = [];
 if (target.endsWith('.md')) {
-  files.push(target);
+  files.push({ path: target, shown: target });
 } else {
   const dir = join(ROOT, target.startsWith('総監模範論文-') ? target : `総監模範論文-${target}`);
-  if (!existsSync(dir)) { console.error(`ペルソナdir不在: ${dir}`); process.exit(2); }
+  if (!existsSync(dir)) { console.error(`ペルソナdir不在: ${rel(dir)}`); process.exit(2); }
   for (const slug of readdirSync(dir)) {
     const f = join(dir, slug, 'article.md');
-    if (existsSync(f) && statSync(f).isFile()) files.push(f);
+    if (existsSync(f) && statSync(f).isFile()) files.push({ path: f, shown: rel(f) });
   }
 }
 
 let n = 0;
 for (const f of files) {
-  const r = splitIntro(f);
-  if (r.reason) { console.log(`- ${f}: SKIP (${r.reason})`); continue; }
-  console.log(`${r.changed ? (DRY ? '[dry] 変更あり' : '分割') : '変更なし'}: ${f.replace(/\\/g, '/')}`);
+  const r = splitIntro(f.path);
+  if (r.reason) { console.log(`- ${f.shown}: SKIP (${r.reason})`); continue; }
+  console.log(`${r.changed ? (DRY ? '[dry] 変更あり' : '分割') : '変更なし'}: ${f.shown.replace(/\\/g, '/')}`);
   if (r.changed) n++;
 }
 console.log(`\n${DRY ? '(dry) ' : ''}導入部分割: ${n} ファイル`);

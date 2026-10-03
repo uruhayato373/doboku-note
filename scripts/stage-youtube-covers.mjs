@@ -9,6 +9,7 @@ import { GetObjectCommand, PutObjectCommand, DeleteObjectCommand, HeadObjectComm
 import { loadEnvLocal, makeS3 } from './lib/asset-storage.mjs';
 import { loadCoverSources } from './lib/youtube-cover-rollout.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
 const BUCKET = 'doboku-note-archive';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -36,7 +37,6 @@ export function verifyCoverBytes(bytes, expected) {
 async function main() {
   const { values: args } = parseArgs({ options: { pull: { type: 'boolean' }, delete: { type: 'boolean' }, commit: { type: 'boolean' } } });
   if (args.pull && (args.delete || args.commit)) throw new Error('--pull cannot combine with --delete/--commit');
-  const root = process.cwd();
   const rows = approvedCoverTransfers(loadCoverSources(root));
   const mode = args.pull ? 'pull' : args.delete ? 'delete' : 'stage';
   // Validate every local input before the first upload.

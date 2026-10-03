@@ -25,8 +25,9 @@
 import fs from "fs";
 import path from "path";
 import { DAY_MS, parseDatesFromRaw, summarizeStatus } from "./lib/x-queue-lib.mjs";
+import { SNS_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 
-const DRAFT_DIR = path.resolve(process.cwd(), "content/sns/x/draft");
+const DRAFT_DIR = path.join(SNS_CONTENT_ROOT, "x/draft");
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes("--json");
 const flag = (name, def) => {

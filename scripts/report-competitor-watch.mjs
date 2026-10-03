@@ -32,7 +32,7 @@ const RELEVANT = /土木施工|土木.*経験記述|経験記述|経験論文|�
 /** 技術士でも自社が扱わない部門だけのサービスは除く。 */
 const OTHER_FIELD = /機械|情報工学|化学|金属|電気電子|電気工事|農業|IPA|情報処理|構造設計|法人様/;
 
-function readJson(rel) {
+function readJsonOrNull(rel) {
   try {
     return JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
   } catch {
@@ -41,10 +41,10 @@ function readJson(rel) {
 }
 
 const latestSnapshot = latestFile(ROOT, 'coconala.competitors');
-const snapshot = latestSnapshot ? readJson(latestSnapshot) : null;
-const research = readJson(datasetPath('coconala.market-research'));
-const config = readJson(datasetPath('config.competitors'))?.coconala;
-const account = readJson(datasetPath('config.coconala-account'));
+const snapshot = latestSnapshot ? readJsonOrNull(latestSnapshot) : null;
+const research = readJsonOrNull(datasetPath('coconala.market-research'));
+const config = readJsonOrNull(datasetPath('config.competitors'))?.coconala;
+const account = readJsonOrNull(datasetPath('config.coconala-account'));
 if (!snapshot?.competitors || !research?.queries || !Array.isArray(research.services) || !config?.competitors) {
   console.error('[report-competitor-watch] 入力が読めない（競合の時系列の最新 / market-research / coconala-competitors）— 検査不成立');
   process.exit(2);

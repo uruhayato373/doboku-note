@@ -1,25 +1,17 @@
 #!/usr/bin/env node
 /** 派生 Reels の meta/status/media を video-content-status.json へ集約する。 */
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const write = process.argv.includes('--write');
-const metaPaths = [];
 function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
-function walk(dir) {
-  if (!existsSync(dir)) return;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walk(path);
-    else if (name === 'meta.json' && dirname(path).endsWith('/reels')) metaPaths.push(path);
-  }
-}
-walk(BASE);
+const metaPaths = listFiles(BASE, { allowMissing: true, followLinks: true, match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels') });
 const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, 'utf8')) : { schemaVersion: 1, packs: {} };
 const driveManifest = existsSync(DRIVE_MANIFEST_PATH)
   ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))
