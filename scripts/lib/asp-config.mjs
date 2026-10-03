@@ -8,13 +8,14 @@
  * 写しが書かれていたら（合成の結果が黙って上書きされるので）例外で止める。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync } from 'node:fs';
-import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
 
 /** a8 の接続の写しとして書いてはいけない（a8-report-automation.json の a8 から来る）キー */
 const SHARED_KEYS = ['baseUrl', 'homePath', 'reAuthPattern', 'accountId'];
 
-const readDataset = (id) => JSON.parse(readFileSync(datasetPath(id), 'utf-8'));
+/** 台帳の id → 設定（リポジトリのルートから読む。cwd に依らない） */
+const readConfig = (id) => readDataset(REPO_ROOT, id);
 
 /**
  * `asps.a8.connectionFrom`（台帳の id）が指す設定から、a8 の baseUrl・homePath・reAuthPattern・accountId（＝mediaId）・browser を足す。
@@ -22,7 +23,7 @@ const readDataset = (id) => JSON.parse(readFileSync(datasetPath(id), 'utf-8'));
  * @param {any} cfg affiliate-asp.json の中身
  * @param {(id: string) => any} read 台帳の id → 設定（テストで差し替える）
  */
-export function withSharedConnection(cfg, read = readDataset) {
+export function withSharedConnection(cfg, read = readConfig) {
   const a8 = cfg?.asps?.a8;
   if (!a8?.connectionFrom) return cfg;
   const src = read(a8.connectionFrom);

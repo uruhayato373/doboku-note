@@ -14,6 +14,7 @@ import { parseArgs } from 'node:util';
 
 import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
 import { IG_HANDLE as ACCOUNT } from './lib/site-identity.mjs';
+import { todayJst as jstToday } from './lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -41,9 +42,7 @@ const EXAMS = {
   },
 };
 
-const todayJst = new Intl.DateTimeFormat('sv-SE', {
-  timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit',
-}).format(new Date());
+const todayJst = jstToday();
 const { values: args } = parseArgs({
   args: process.argv.slice(2),
   options: {

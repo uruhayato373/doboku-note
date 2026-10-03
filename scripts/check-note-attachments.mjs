@@ -36,6 +36,8 @@ import { fileURLToPath } from 'node:url';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
 import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles } from './lib/note-attachments.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
@@ -160,7 +162,7 @@ console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査�
 const ATTACH_SEL = 'a[href*="api/v2/attachments/download"]';
 // JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
 // 常に「1日古い」と誤警告する。
-const JST_TODAY = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const JST_TODAY = todayJst();
 const SETTLE_MS = Number(process.env.NOTE_ATTACH_SETTLE_MS || 2500);
 const CONFIRM_SETTLE_MS = Number(process.env.NOTE_ATTACH_CONFIRM_SETTLE_MS || 8000);
 const CONFIRM_WAIT_MS = Number(process.env.NOTE_ATTACH_CONFIRM_WAIT_MS || 15000);
@@ -250,5 +252,5 @@ if (short.length) {
     for (const p of s.expected) console.error(`      node scripts/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
   }
 }
-if (fetchFail.length / need.length > 0.2) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); process.exit(1); }
+if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); process.exit(1); }
 process.exit(short.length ? 1 : 0);

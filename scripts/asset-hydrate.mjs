@@ -21,16 +21,16 @@
 //
 // exit 0 = 全件解決 / exit 1 = 解決できないものがある or 検査不成立
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, statSync, statfsSync, unlinkSync, utimesSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, renameSync, statSync, statfsSync, unlinkSync, utimesSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   loadConfig, loadManifest, loadEnvLocal, makeS3, hasR2Credentials,
   cachePathFor, cacheDirFor, sha256File, fileBytes, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { datasetPath } from './lib/datasets.mjs';
 import { downloadVerified } from './lib/verified-download.mjs';
 import { acquireLock } from './lib/local-resources.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -94,7 +94,7 @@ async function main() {
   console.log('  復元予定容量 MiB : ' + mib(restoreBytes));
   if (!DRY && restoreBytes > maxBytes) throw new Error('Restore exceeds limit: narrow --path or explicitly raise --max-mib');
   const disk = statfsSync(REPO_ROOT);
-  const resourcePolicy = JSON.parse(readFileSync(join(REPO_ROOT, datasetPath('config.local-resources')), 'utf8'));
+  const resourcePolicy = readDataset(REPO_ROOT, 'config.local-resources');
   const reserveBytes = (process.env.CI ? 1 : resourcePolicy.minFreeDiskGiB) * 1073741824;
   if (!DRY && disk.bavail * disk.bsize < restoreBytes * 2 + reserveBytes) throw new Error('Insufficient free disk for restore');
 

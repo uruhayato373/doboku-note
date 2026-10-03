@@ -12,7 +12,7 @@ paths:
 # 運用状態・機械設定・販売カタログを触るときの規約
 
 - 置き場は 4 つ（2026-10-02 に分離）: `config/`＝事業・試験・商品の正本とスクリプト・CI・サイトの設定（人が判断して変える値）／`data/`＝外から取ってきた・発生した事業の記録（売上・計測・市場・受注・実験。追記で増える事実）／`.claude/state/`＝エージェントの作業状態（品質サイクル・監査結果・ロールアウト進捗・生成索引）／`.claude/config/`＝エージェント運用と品質ゲートの基準・許可リスト、CI 書き込み・認証の許可リスト（`.claude/` の書き込み保護下に置く）。どれも JSON が基本で、真実源の doc へのポインタを `_doc` に書く。**`.claude/state/*.md`・`data/*.md` の新規作成禁止**（人向けの出力は admin が JSON を読んで表示する）。パスの定数は `scripts/lib/repository-paths.mjs`（`CONFIG_ROOT`・`DATA_ROOT`・`STATE_ROOT`・`AGENT_CONFIG_ROOT`）
-- 運用記録の日付は JST（`npm run check-jst-date`・UTC で前日付になる事故）。実験台帳の再計測/close 期限は `npm run check-experiment-due`。予約・計画・期日の横断ビューは `npm run schedule-view`
+- 運用記録の日付は JST（`npm run check-jst-date`・UTC で前日付になる事故）。JST の日付・月・壁時計は `scripts/lib/jst-date.mjs`（`todayJst`・`jstMonth`・`jstDayOf`・`jstClock`）だけで出し、`+ 9 * 3600 * 1000` や `Intl` の Asia/Tokyo を各所に書かない。記録の日時は UTC の ISO 8601（末尾 Z）。実験台帳の再計測/close 期限は `npm run check-experiment-due`。予約・計画・期日の横断ビューは `npm run schedule-view`
 
 ## 計測（GSC / GA4 / PSI）
 

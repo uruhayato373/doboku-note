@@ -22,6 +22,7 @@
  */
 import { readdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, extname, dirname } from 'node:path';
+import { todayJst } from '../../scripts/lib/jst-date.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
@@ -272,7 +273,7 @@ function main() {
   writeFileSync(OUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
 
   // census 専用の履歴に1行 append（date + totals のみ・全 articles は census.json 側に残る）
-  const jstDate = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const jstDate = todayJst();
   appendFileSync(
     HISTORY_PATH,
     JSON.stringify({ date: jstDate, generated_at: output.generated_at, totals: output.totals }) + '\n',

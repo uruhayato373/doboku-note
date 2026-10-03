@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { validateQualificationRegistry } from '../../../../scripts/lib/qualification-registry.mjs';
 import { repoPath } from './repo-root';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 
 /**
  * qualifications.ts — `/strategy/qualifications`（read-only・人が見る画面）の表示モデル。
@@ -126,7 +127,7 @@ export function loadQualificationsView(): QualificationsView {
   const calendar = readConfig<{ exams: Record<string, CalExam> }>('config.exam-calendar');
   const examStats = readConfig<{ exams: Record<string, { latest: Latest | null }>; peSecondaryDivisions: Record<string, { totals?: { excludingCem20?: StatRow } }> }>('config.exam-stats');
   const errors = validateQualificationRegistry({ registry, calendar, examStats }) as string[];
-  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo' }).format(new Date());
+  const today = todayJst();
 
   const view = (q: RegistryEntry, latest: Latest | null): QualificationView => {
     const counts = (latest?.stages ? Object.values(latest.stages) : latest ? [latest] : [])

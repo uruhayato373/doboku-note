@@ -31,11 +31,11 @@ import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
+import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = 'content/note';
 const CONFIG = '.claude/config/note-live-tags-allow.json';
 const GOAL = 90;
-const MAX_FETCH_FAIL_RATE = 0.2;
 const THROTTLE_MS = 250;
 
 const argv = process.argv.slice(2);
@@ -129,7 +129,7 @@ for (const t of targets) {
 // （混ぜると「検査した」ように見えてしまう＝CLAUDE.md §9）。
 const inspected = targets.length - fetchFail - unmeasurable.length;
 const failRate = targets.length ? fetchFail / targets.length : 0;
-const notConclusive = targets.length > 0 && failRate > MAX_FETCH_FAIL_RATE;
+const notConclusive = fetchFailDominant(fetchFail, targets.length);
 
 if (JSON_OUT) {
   writeSync(1, JSON.stringify({ checked: targets.length, inspected, fetchFail, unmeasurable, notConclusive, goal: GOAL, short, waived }, null, 2) + '\n');

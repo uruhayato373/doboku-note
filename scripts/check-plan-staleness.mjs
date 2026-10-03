@@ -8,12 +8,12 @@ import path from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { jstMonth, todayJst } from './lib/jst-date.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 function currentISOWeek() {
-  const now = new Date();
-  const date = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  const date = new Date(`${todayJst()}T00:00:00Z`); // 日本時間の今日（週の境界を JST で数える）
   const dayNum = date.getUTCDay() || 7;
   date.setUTCDate(date.getUTCDate() + 4 - dayNum);
   const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
@@ -22,8 +22,7 @@ function currentISOWeek() {
 }
 
 function currentYearMonth() {
-  const now = new Date();
-  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+  return jstMonth();
 }
 
 // ── deploy ドリフト検知 ─────────────────────────────

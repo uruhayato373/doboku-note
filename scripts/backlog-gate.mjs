@@ -10,6 +10,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { buildGate } from './lib/backlog-gate.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const TAG = '[backlog-gate]';
 const PATH = '.claude/todo/backlog.md';
@@ -22,7 +23,7 @@ function main() {
     return 2;
   }
   const i = args.indexOf('--today');
-  const today = i >= 0 ? args[i + 1] : new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
+  const today = i >= 0 ? args[i + 1] : todayJst();
   const g = buildGate(readFileSync(PATH, 'utf8'), today);
   const scope = args.includes('--monthly') ? 'monthly' : args.includes('--weekly') ? 'weekly' : 'both';
   if (args.includes('--json')) {

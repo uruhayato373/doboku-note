@@ -19,7 +19,11 @@ const daysBetween = (fromIso, nowMs) => {
   const ms = Date.parse(fromIso ?? '');
   return Number.isFinite(ms) ? Math.floor((nowMs - ms) / 86400000) : null;
 };
-const lastHistoryDate = (e) => e.history?.at(-1)?.date ?? e.started_at ?? e.created_at ?? null;
+/** 最後に手を入れた日（history の行は date か at のどちらかを持つ。EXP-009 以降は at） */
+const lastHistoryDate = (e) => {
+  const last = e.history?.at(-1);
+  return last?.date ?? last?.at ?? e.started_at ?? e.created_at ?? null;
+};
 
 /** 1 実験の判定。nowMs は基準時刻（テストで固定する）。 */
 export function judgeExperiment(e, nowMs = Date.now(), t = DEFAULT_THRESHOLDS) {

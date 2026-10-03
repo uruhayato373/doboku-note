@@ -1,4 +1,5 @@
 import type { LedgerRow } from './ledger';
+import { jstClock } from '../../../../scripts/lib/jst-date.mjs';
 
 /**
  * コンテンツ台帳（/content/ledger）の状態判定。画面の部品から切り離した純関数だけを置く。
@@ -39,7 +40,7 @@ const CTA_DRIFT = new Set(['missing', 'order', 'position']);
 /** ISO 時刻を JST の「MM/DD HH:MM」に。 */
 export function jst(iso: string | null | undefined): string {
   if (!iso) return '?';
-  const d = new Date(Date.parse(iso) + 9 * 3_600_000).toISOString();
+  const d = jstClock(iso).toISOString(); // JST の壁時計（MM/DD HH:MM に切るだけ。記録には使わない）
   return `${d.slice(5, 10).replace('-', '/')} ${d.slice(11, 16)}`;
 }
 

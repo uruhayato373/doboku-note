@@ -28,6 +28,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
+import { jstClock } from "./lib/jst-date.mjs";
 import { X_HANDLE as ACCOUNT } from "./lib/site-identity.mjs"; // 運用アカウント（x-post-policy §2）
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -166,7 +167,7 @@ async function screenshot(page, label) {
 
 function markDone(item) {
   const data = JSON.parse(fs.readFileSync(item.statusPath, "utf-8"));
-  const nowJst = new Date(Date.now() + 9 * 3600 * 1000).toISOString().replace("Z", "+09:00");
+  const nowJst = jstClock().toISOString().replace("Z", "+09:00");
   data.tweets[item.num].thread.replies_posted_at = nowJst;
   data.updated_at = nowJst;
   fs.writeFileSync(item.statusPath, JSON.stringify(data, null, 2) + "\n", "utf-8");

@@ -27,6 +27,7 @@ import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchNote, fetchMagazine } from './lib/note-api.mjs';
 import { extractNoteRefs } from './lib/note-refs.mjs';
+import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-outbound-links';
@@ -36,7 +37,6 @@ const LIMIT = Number(arg('--limit', '0')) || 0;
 const SCOPE = arg('--scope');
 const JSON_OUT = argv.includes('--json');
 const THROTTLE_MS = 220;
-const MAX_FETCH_FAIL_RATE = 0.2;
 
 const SCOPES = ['site', 'note', 'sns', 'coconala'];
 const toPosix = (p) => p.split(sep).join('/');
@@ -110,7 +110,7 @@ if (declared === 0) {
   console.error(`[${NAME}] ✗ 検査不成立: 送客先 URL が 1 件も見つからない。0 件を「異常なし」と読まない。`);
   process.exit(1);
 }
-if (targets.length && unknown / targets.length > MAX_FETCH_FAIL_RATE) {
+if (fetchFailDominant(unknown, targets.length)) {
   console.error(`[${NAME}] ✗ 検査不成立: ${targets.length} 件中 ${unknown} 件が取得できず`
     + `（${Math.round((unknown / targets.length) * 100)}%）。取得失敗は「生きている」ではない。`);
   process.exit(1);

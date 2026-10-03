@@ -17,7 +17,7 @@
  *   5. orders.json にあって snapshot に無い → 警告（talkroomId 誤り or 取引が消えた）
  *
  * 「検査ゼロを PASS と呼ばない」:
- *   - snapshot が無い / status:'partial' / SNAPSHOT_STALE_DAYS より古い → **検査不成立で exit 2**。
+ *   - snapshot が無い / status:'partial' / 台帳 coconala.orders-snapshot の freshness.failDays より古い → **検査不成立で exit 2**。
  *     「取引 0 件だから緑」と「1件も見ていないから緑」を区別する。
  *
  * 使い方:
@@ -43,8 +43,7 @@ const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
 const RESOLVED_PATH = join(ROOT, datasetPath('coconala.resolved-inquiries'));
 
 const REPLY_WARN_HOURS = 24;      // 返信期限の何時間前から要対応にするか
-const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか
-const SNAPSHOT_STALE_DAYS = 7;    // snapshot が何日古いと検査不成立にするか
+const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか（受注の状態の滞留。snapshot の鮮度ではない）
 
 const staged = process.argv.includes('--staged');
 const noFreshness = process.argv.includes('--no-freshness');
@@ -73,7 +72,8 @@ const snap = readJson(SNAPSHOT_PATH);
 const log = readJson(ORDERS_PATH);
 
 // --- 検査成立性の判定（緑の意味を守る）→ 判定は coconala-guards（テスト済み） ---
-const health = assessSnapshot(snap, Date.now(), { staleDays: SNAPSHOT_STALE_DAYS, checkFreshness: !noFreshness });
+// snapshot の鮮度の上限は assessSnapshot の既定（台帳 coconala.orders-snapshot の freshness.failDays）
+const health = assessSnapshot(snap, Date.now(), { checkFreshness: !noFreshness });
 if (!health.ok) {
   // --json の呼び出し元（週次レビュー surfacer）は**クラウドで走る**。実体の再取得は
   // Playwright＋ログイン済みプロファイルが要るローカル作業なので、クラウドでは snapshot が

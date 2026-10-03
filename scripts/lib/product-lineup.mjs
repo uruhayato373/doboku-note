@@ -7,13 +7,13 @@
  * どのルールにも当たらない商品は `unclassified` に残し、黙って落とさない（CLAUDE.md §9）。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadExamStages } from './exam-stages.mjs';
 import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 import { datasetPath } from './datasets.mjs';
+import { readDataset } from './dataset-io.mjs';
 import { classifyProduct } from '../../src/lib/product-classification.mjs';
 export { classifyProduct } from '../../src/lib/product-classification.mjs';
 
@@ -25,7 +25,7 @@ export const LINEUP_CONFIG_PATH = join(ROOT, datasetPath('config.product-lineup'
  * 各資格の試験区分（exam-formats.json の stages）を付けて返す
  */
 export function loadLineupConfig(root = ROOT) {
-  const config = JSON.parse(readFileSync(join(root, datasetPath('config.product-lineup')), 'utf8'));
+  const config = readDataset(root, 'config.product-lineup');
   return withStages(withQualifications(config, loadRegistry(root)), loadExamStages(root));
 }
 

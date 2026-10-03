@@ -39,7 +39,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { WRITE_PLAN_HASH_ENV, stableStringify } from './lib/ci-write-gate.mjs';
-import { nowJstIso } from './lib/jst-date.mjs';
+import { jstDayOf, todayJst } from './lib/jst-date.mjs';
 import {
   evaluateXFrequencyGate,
   selectDueTweet,
@@ -129,18 +129,10 @@ export async function readOwnTimeline(page, account) {
     return { ok: true, accountState: 'locked', todayCount: null };
   }
 
-  const todayJst = nowJstIso().slice(0, 10);
-  const todayCount = await page.evaluate((today) => {
-    const times = Array.from(document.querySelectorAll('article time[datetime]'));
-    let count = 0;
-    for (const t of times) {
-      const iso = t.getAttribute('datetime');
-      if (!iso) continue;
-      const jst = new Date(new Date(iso).getTime() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
-      if (jst === today) count++;
-    }
-    return count;
-  }, todayJst);
+  // ブラウザ内では JST の計算をしない（lib を import できない）。時刻だけ取り、日付への変換は Node 側の jstDayOf で行う
+  const datetimes = await page.evaluate(() => Array.from(document.querySelectorAll('article time[datetime]')).map((t) => t.getAttribute('datetime')).filter(Boolean));
+  const today = todayJst();
+  const todayCount = datetimes.filter((iso) => jstDayOf(iso) === today).length;
 
   return { ok: true, accountState: 'ok', todayCount };
 }
@@ -239,7 +231,7 @@ export async function run(opts = {}) {
   const PLAN_ONLY = argv.includes('--plan-only'); // 候補選定と plan hash まで（Playwright を開かない・plan-x job 用）
   const JSON_OUT = argv.includes('--json');
   const nowArgIdx = argv.indexOf('--now');
-  const NOW = nowArgIdx >= 0 ? argv[nowArgIdx + 1] : nowJstIso();
+  const NOW = nowArgIdx >= 0 ? argv[nowArgIdx + 1] : new Date().toISOString(); // 台帳の時刻は UTC の ISO 8601（Z）。--now は JST の ISO（+09:00）も受ける
 
   const emit = (summary) => {
     log(JSON_OUT ? JSON.stringify(summary) : `[${NAME}] ${summary.result}: ${summary.detail ?? ''}`);

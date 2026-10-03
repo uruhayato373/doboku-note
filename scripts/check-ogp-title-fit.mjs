@@ -23,7 +23,8 @@ import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const FLOOR = 56; // これ未満のフォント（px）は「長すぎて小さく出る」＝NG
 const ROOT = 'content/site';
@@ -31,7 +32,7 @@ const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const textConfig = JSON.parse(readFileSync(datasetPath('config.ogp-settings'), 'utf8')).text;
+const textConfig = readDataset(REPO_ROOT, 'config.ogp-settings').text;
 const categories = JSON.parse(readFileSync('src/config/categories.json', 'utf8'));
 const catLabel = new Map(categories.map((c) => [c.slug, c.label]));
 

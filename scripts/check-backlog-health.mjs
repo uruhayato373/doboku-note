@@ -46,16 +46,18 @@ import {
   TODO_LAYER_FILES,
   parseWhen,
 } from './lib/backlog-lib.mjs';
+import { STALE_DAYS } from './lib/backlog-gate.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TODO_LAYERS = new Set(TODO_LAYER_FILES);
 
 const AUDIT_LOG = '.claude/state/backlog/audit-log.json';
-/** --days の値（既定 90）。run() が argv から読む（session-start.mjs は in-process で呼ぶ・DN-0236） */
+/** --days の値（既定は scripts/lib/backlog-gate.mjs の STALE_DAYS＝90。月次の関門と同じ値）。run() が argv から読む（session-start.mjs は in-process で呼ぶ・DN-0236） */
 const daysOption = (argv) => {
   const i = argv.indexOf('--days');
   const n = i >= 0 ? Number(argv[i + 1]) : NaN;
-  return Number.isFinite(n) ? n : 90;
+  return Number.isFinite(n) ? n : STALE_DAYS;
 };
 
 /**
@@ -137,7 +139,7 @@ const DUE_RULES = (DAYS) => [
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
 function jstToday() {
-  return new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  return todayJst();
 }
 
 function readAuditLog() {

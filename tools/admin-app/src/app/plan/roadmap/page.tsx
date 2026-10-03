@@ -11,6 +11,7 @@ import { datasetPath } from '../../../../../../scripts/lib/datasets.mjs';
 import { loadMarketInputs } from '../../../../../../scripts/lib/market-inputs.mjs';
 import { salesByQualification } from '../../../../../../scripts/lib/qualification-market.mjs';
 import { parseBacklog, parseWhen } from '../../../../../../scripts/lib/backlog-lib.mjs';
+import { jstMonth } from '../../../../../../scripts/lib/jst-date.mjs';
 
 export const dynamic = 'force-dynamic';
 
@@ -47,7 +48,7 @@ export default function RoadmapPage() {
     const i = domains.findIndex((d) => d.label === label);
     return i < 0 ? 99 : i;
   };
-  const thisMonth = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 7);
+  const thisMonth = jstMonth();
   const lastYear = lastYearSalesByMonth(salesByQualification(loadMarketInputs(root)), months) as Record<
     string,
     { month: string; total: number; items: { id: string; yen: number }[] }
