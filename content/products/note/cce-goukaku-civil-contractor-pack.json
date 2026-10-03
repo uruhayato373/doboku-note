@@ -1,0 +1,31 @@
+{
+  "id": "cce-goukaku-civil-contractor-pack",
+  "channel": "note",
+  "qualification": "concrete-chief-engineer",
+  "stage": "written",
+  "series": "cross",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "cce-goukaku-civil-contractor-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/ma8f11487f4cc",
+    "noteTitle": "主任技士 合格パック｜ゼネコン土木施工の択一＋小論文",
+    "title": "コンクリート主任技士 合格パック｜ゼネコン土木施工（択一直前3点＋小論文5テーマ）",
+    "description": "コンクリート主任技士試験を、四肢択一と小論文の両方で仕上げるゼネコン土木施工向けのパック。択一は令和8年度 四肢択一 予想50問・配合計算 実戦演習12問・直前暗記ノート（一問一答157問）の3点、小論文はゼネコン土木施工の立場で書いた令和形式5テーマの模範答案と無料の出題傾向分析を収録。単品合計¥9,340が¥3,980。他の立場の答案も読みたい方は全40答案集かまるごとパックへ。予想問題・答案はオリジナルで、実在過去問の逐語再現ではありません。",
+    "shortTitle": "主任技士 合格パック ゼネコン土木施工",
+    "shortDescription": "択一直前3点＋ゼネコン土木施工の小論文5テーマ。単品合計¥9,340が¥3,980。",
+    "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥9,340）",
+    "badge": "note 限定 合格パック"
+  },
+  "members": [],
+  "includes": [
+    "cce-reiwa-civil-contractor-pack",
+    "cce-anki-note",
+    "cce-mix-calculation-practice",
+    "cce-r8-mc-50"
+  ],
+  "memo": [
+    "2026-10-03（DN-0523）: 立場別5テーマ（cce-reiwa-*-pack）と択一直前3点（予想50問・配合計算・暗記ノート）をまとめた合格パック。単品合計¥9,340。"
+  ]
+}

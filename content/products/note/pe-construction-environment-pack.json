@@ -1,0 +1,29 @@
+{
+  "id": "pe-construction-environment-pack",
+  "channel": "note",
+  "qualification": "pe-construction",
+  "stage": "written",
+  "series": "other",
+  "tier": "pack",
+  "persona": null,
+  "catalog": {
+    "id": "pe-construction-environment-pack",
+    "published": true,
+    "noteUrl": "https://note.com/dobokunote/m/me506e9bdde6a",
+    "noteTitle": "建設部門2次｜建設環境まるごと合格パック",
+    "title": "技術士 建設部門 2次｜建設環境 まるごと合格パック（必須科目I＋建設環境 選択科目）",
+    "description": "必須科目I 模範解答集（R03-R07＋R8予想・全11記事）と建設環境 選択科目 模範解答集（R03-R07＋R8予想・全18記事）を束ねた合格パック。単品合計¥6,460が¥4,980。元・地方自治体の土木職（発注者）視点で、本番で実際に解く「必須I＋建設環境」の組み合わせをそのまま収録。",
+    "shortTitle": "建設部門2次｜建設環境 合格パック",
+    "shortDescription": "必須I＋建設環境 全29記事。単品合計¥6,460が¥4,980（約23%OFF）。",
+    "price": "¥4,980（必須I＋建設環境 2マガジン・単品合計¥6,460、約23%OFF）",
+    "badge": "note 限定 合格パック"
+  },
+  "members": [],
+  "includes": [
+    "pe-construction-environment-magazine",
+    "pe-construction-required-magazine"
+  ],
+  "memo": [
+    "batch B/C（DN-0241）。2026-09-16 公開: note にマガジン作成（key me506e9bdde6a）→ 必須I 11＋建設環境 18＝29 記事を API で収録確認 → カバー SET。"
+  ]
+}

@@ -12,7 +12,7 @@
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
 | コンクリート主任技士 note 商品構成（立場別の再収録） | `コンクリート主任技士/noteコンテンツ計画.md` |
 | 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
-| 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
+| 実価格・noteUrl・公開状態 | `content/products/note/<id>.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `gen` で生成。照合は `npm run verify-note-magazines`） |
 | 全記事を横断して引く（URL・ID・状態・価格・所属マガジン） | `.claude/state/note-published.json`（frontmatter と note-magazines.ts から生成。`npm run build-note-catalog`） |
 | 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
@@ -103,7 +103,7 @@ content/note/
 
 - **小論文**（`コンクリート主任技士/magazines/`）: 1立場×1テーマの令和形式答案40本（単品）を、立場別5テーマ（`cce-reiwa-{立場}-pack`・8誌）・立場別合格パック（`cce-goukaku-{立場}-pack`・択一直前3点を足した8誌）・全40答案（`cce-essay-reiwa-pack`）・まるごとパック（`cce-marugoto-pack`）へ再収録する（2026-10-03 DN-0523）。無料の出題傾向分析は全マガジンに入る。構成の判断理由と立場の対応表は `コンクリート主任技士/noteコンテンツ計画.md`
 - **択一**: 四肢択一 R8予想50問（`cce-r8-mc-50`）／配合計算 実戦演習（`cce-mix-calculation-practice`）／直前暗記ノート（`cce-anki-note`）／択一 直前パック（`cce-takuitsu-chokuzen-pack`）。L2 は `コンクリート資格もくじ`（技士・主任技士・診断士 共用）
-- 実価格と URL は `src/lib/note-magazines.ts`。旧版（模範答案集・実務立場別・立場別4テーマ・テーマ別8立場）は 2026-10-01、テーマ別5本（1本に8立場）は 2026-10-03 に note から削除した
+- 実価格と URL は `content/products/note/<id>.json`（生成先 `src/lib/note-magazines.ts`）。旧版（模範答案集・実務立場別・立場別4テーマ・テーマ別8立場）は 2026-10-01、テーマ別5本（1本に8立場）は 2026-10-03 に note から削除した
 - **サイト側の宿題**: 商品拡充が実現した時点で L2 もくじ（concrete 系の資格別もくじ）をサイトへ新設する（旧 backlog DN-0041 P7 を撤収）
 
 ### コンクリート診断士（`コンクリート診断士/`）
@@ -129,7 +129,7 @@ utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
 
-題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `src/lib/note-magazines.ts` の `noteTitle` / `price`。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
+題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `content/products/note/<id>.json` の `catalog.noteTitle` / `catalog.price`（`note-magazines.ts` は生成物）。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
 
 - 題名・価格を変える: 原稿を直して commit する。題名は週次の Mac `note-sync-routine` が自動で note へ反映する。価格は同期画面に「止まっている」と出るので `note-article-price-sweep` で反映する
 - note 側で直接変わった（ずれた）: 週次 CI（`note-live-audit.yml`）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る
