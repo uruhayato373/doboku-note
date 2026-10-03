@@ -23,6 +23,7 @@
  */
 import { writeFileSync, mkdirSync, appendFileSync } from "node:fs";
 import { join } from "node:path";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 
 import {
   loadAspConfig,
@@ -48,17 +49,20 @@ const CIVIL = /建設|施工|土木|現場|ゼネコン|設備工事|電気工�
 const DEFAULT_QUERIES = ["施工管理", "建設", "土木", "現場", "設備"];
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const o = { rel: "non", maxPages: 45, all: false, mode: "search", queries: null };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--rel") o.rel = a[++i];
-    else if (a[i] === "--max-pages") o.maxPages = parseInt(a[++i], 10) || 45;
-    else if (a[i] === "--all") o.all = true;
-    else if (a[i] === "--mode") o.mode = a[++i]; // search（既定） | crawl
-    else if (a[i] === "--query") o.queries = a[++i].split(",").map((s) => s.trim()).filter(Boolean);
-  }
-  if (!o.queries) o.queries = DEFAULT_QUERIES;
-  return o;
+  const f = parseCliArgs({
+    rel: { type: "string", default: "non" },
+    "max-pages": { type: "string" },
+    all: { type: "boolean" },
+    mode: { type: "string", default: "search" }, // search（既定） | crawl
+    query: { type: "string" },
+  });
+  return {
+    rel: f.rel,
+    maxPages: parseInt(f.maxPages, 10) || 45,
+    all: f.all,
+    mode: f.mode,
+    queries: f.query === null ? DEFAULT_QUERIES : f.query.split(",").map((s) => s.trim()).filter(Boolean),
+  };
 }
 
 /** 【PID:N】ブロック単位で解析する（行 grep だと 4 行構造を取りこぼす）。 */

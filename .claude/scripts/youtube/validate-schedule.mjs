@@ -12,8 +12,10 @@
  */
 
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { STATE_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const LEDGER = '.claude/state/youtube-schedule.json';
+const LEDGER = join(STATE_ROOT, 'youtube-schedule.json');
 const ledger = JSON.parse(readFileSync(LEDGER, 'utf8'));
 const { meta, items } = ledger;
 const PER_DAY = meta?.perDay ?? 3;

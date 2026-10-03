@@ -1,10 +1,12 @@
 #!/usr/bin/env tsx
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { getAllPublicDocRoutes, getPublicDocPath } from '../src/lib/content-routes';
 import { getAllCategories, getCategoryHubPath } from '../src/lib/categories';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const path = 'public/_redirects';
+const path = join(REPO_ROOT, 'public/_redirects');
 const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
 const endMarker = '# END GENERATED PUBLIC ROUTES';
 const source = readFileSync(path, 'utf8');

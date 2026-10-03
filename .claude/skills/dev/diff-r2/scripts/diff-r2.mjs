@@ -14,9 +14,8 @@
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
-import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
-
-const root = process.cwd();
+import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../../../../scripts/lib/fs-walk.mjs';
 
 // Load .env.local
 const envPath = path.join(root, '.env.local');
@@ -63,21 +62,15 @@ function shouldInclude(type) {
   return type === 'image' || type === 'mdx';
 }
 
-function walkLocal(dir, base = '') {
+function walkLocal(dir) {
   const map = new Map();
-  if (!fs.existsSync(dir)) return map;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const rel = base ? `${base}/${entry.name}` : entry.name;
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      for (const [k, v] of walkLocal(full, rel)) map.set(k, v);
-    } else {
-      const type = classify(rel);
-      if (!shouldInclude(type)) continue;
-      if (filterPrefix && !rel.startsWith(filterPrefix)) continue;
-      const size = fs.statSync(full).size;
-      map.set(rel, { size, type });
-    }
+  for (const full of listFiles(dir, { allowMissing: true })) {
+    const rel = path.relative(dir, full).split(path.sep).join('/');
+    const type = classify(rel);
+    if (!shouldInclude(type)) continue;
+    if (filterPrefix && !rel.startsWith(filterPrefix)) continue;
+    const size = fs.statSync(full).size;
+    map.set(rel, { size, type });
   }
   return map;
 }

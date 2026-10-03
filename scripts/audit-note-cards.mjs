@@ -23,22 +23,12 @@
 // 前提: ネットワーク到達（note 公開 API・doboku-note）。会社PCのプロキシ下では不可（Mac 推奨）。
 // read-only（投稿も編集もしない）。
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, relative } from 'node:path';
 import { SITE_HOST } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    // 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式のため、
-    // article.md 固定では建設部門マガジンのカードが丸ごと監査対象外だった（2026-07-28 修正）。
-    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
+import { listFiles } from './lib/fs-walk.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
 const JSON_OUT = process.argv.includes('--json');
@@ -61,7 +51,9 @@ function httpStatus(url, timeout = 20) {
 }
 
 // 1. 公開済み + noteId(または noteUrl) を持つ記事を収集
-const files = walk(NOTE_DIR);
+// 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式のため、
+// article.md 固定では建設部門マガジンのカードが丸ごと監査対象外だった（2026-07-28 修正）。
+const files = listFiles(NOTE_DIR, { match: (_path, name) => /^article(-[^/\\]+)?\.md$/.test(name) });
 const arts = [];
 for (const p of files) {
   const head = readFileSync(p, 'utf8').slice(0, 2500);

@@ -12,6 +12,7 @@ import {
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseJson } from './lib/json-io.mjs';
 
 const SOURCE_ROOT = join(ROOT, '.tmp', 'mlit-national-transcription');
 const OUTPUT_ROOT = join(SOURCE_ROOT, 'output');
@@ -25,10 +26,6 @@ function fail(message) {
   process.exit(1);
 }
 
-function readJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
-
 function sha256(path) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
@@ -37,8 +34,8 @@ if (!existsSync(MASTER_MANIFEST) || !existsSync(MASTER_QA)) {
   fail('全国版の manifest / QA がありません。文字起こし最終成果物を先に復元してください。');
 }
 
-const master = readJson(MASTER_MANIFEST);
-const qa = readJson(MASTER_QA);
+const master = parseJson(readFileSync(MASTER_MANIFEST, 'utf8'), MASTER_MANIFEST);
+const qa = parseJson(readFileSync(MASTER_QA, 'utf8'), MASTER_QA);
 if (!String(master.status).startsWith('PASS') || !String(qa.status).startsWith('PASS')) {
   fail(`QA が公開ゲートを満たしていません: manifest=${master.status}, qa=${qa.status}`);
 }
@@ -64,7 +61,7 @@ let copiedBytes = 0;
 for (const document of master.documents) {
   const manifestPath = join(OUTPUT_ROOT, document.agencyId, document.documentId, 'manifest.json');
   if (!existsSync(manifestPath)) fail(`文書 manifest がありません: ${manifestPath}`);
-  const manifest = readJson(manifestPath);
+  const manifest = parseJson(readFileSync(manifestPath, 'utf8'), manifestPath);
   const manifestParts = manifest.transcription?.parts ?? manifest.parts;
   if (!Array.isArray(manifestParts)) fail(`part 一覧がありません: ${manifestPath}`);
   const parts = [];

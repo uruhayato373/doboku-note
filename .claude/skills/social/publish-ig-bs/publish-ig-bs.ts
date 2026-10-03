@@ -52,6 +52,7 @@ import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mj
 import { IG_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
+import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const IG_DIR = path.join(PROJECT_ROOT, "content/sns/instagram");
@@ -1193,31 +1194,26 @@ function parseArgs(): Cli {
     process.exit(1);
   }
 
-  let when: Date | null = null;
-  let now = false;
-  let keepFb = false;
-  let reel = false;
+  const flags = parseCliArgs({
+    "dry-run": { type: "boolean" },
+    pause: { type: "boolean" },
+    "keep-fb": { type: "boolean" },
+    reel: { type: "boolean" },
+    now: { type: "boolean" },
+    schedule: { type: "string" },
+  }, args.slice(2));
+  if (flags.dryRun) IS_DRY_RUN = true;
+  if (flags.pause) IS_PAUSE = true;
+  const { keepFb, reel, now } = flags;
 
-  for (let i = 2; i < args.length; i++) {
-    const a = args[i];
-    if (a === "--dry-run") {
-      IS_DRY_RUN = true;
-    } else if (a === "--pause") {
-      IS_PAUSE = true;
-    } else if (a === "--keep-fb") {
-      keepFb = true;
-    } else if (a === "--reel") {
-      reel = true;
-    } else if (a === "--now") {
-      now = true;
-    } else if (a === "--schedule") {
-      const v = args[++i];
-      if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v || "")) {
-        console.error(`🚨 --schedule は YYYY-MM-DDTHH:MM 形式（JST）: ${v}`);
-        process.exit(1);
-      }
-      when = new Date(v + "+09:00");
+  let when: Date | null = null;
+  if (flags.schedule !== null) {
+    const v = flags.schedule;
+    if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v || "")) {
+      console.error(`🚨 --schedule は YYYY-MM-DDTHH:MM 形式（JST）: ${v}`);
+      process.exit(1);
     }
+    when = new Date(v + "+09:00");
   }
 
   if (!now && !when) {

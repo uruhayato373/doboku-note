@@ -16,6 +16,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join } from 'node:path';
 import { REPO_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
 
 // writeMdxFile のロード
@@ -23,13 +24,13 @@ const mdxIoPath = join(REPO_ROOT, '.claude/scripts/lib/mdx-io.mjs');
 const { readMdxFile, writeMdxFile } = await import(mdxIoPath);
 
 function parseArgs(argv) {
-  const args = {};
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--mdx') args.mdx = argv[++i];
-    else if (a === '--spec') args.spec = argv[++i];
-    else if (a === '--dry-run') args.dryRun = true;
-  }
+  const flags = parseCliArgs({
+    mdx: { type: 'string' },
+    spec: { type: 'string' },
+    'dry-run': { type: 'boolean' },
+  }, argv.slice(2));
+  const args = { mdx: flags.mdx, spec: flags.spec };
+  if (flags.dryRun) args.dryRun = true;
   if (!args.mdx || !args.spec) {
     console.error('Usage: inject-img-mdx.mjs --mdx <path> --spec <path> [--dry-run]');
     process.exit(2);

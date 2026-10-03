@@ -28,15 +28,16 @@
 import { readFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join } from 'node:path';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
 function parseArgs(argv) {
-  const args = {};
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--spec') args.spec = argv[++i];
-    else if (a === '--out-dir') args.outDir = argv[++i];
-    else if (a === '--dry-run') args.dryRun = true;
-  }
+  const flags = parseCliArgs({
+    spec: { type: 'string' },
+    'out-dir': { type: 'string' },
+    'dry-run': { type: 'boolean' },
+  }, argv.slice(2));
+  const args = { spec: flags.spec, outDir: flags.outDir };
+  if (flags.dryRun) args.dryRun = true;
   if (!args.spec || !args.outDir) {
     console.error('Usage: run-crop.mjs --spec <path> --out-dir <path> [--dry-run]');
     process.exit(2);

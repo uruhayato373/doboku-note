@@ -30,10 +30,12 @@
  *   verify   : リライト後を cem-qa で再評価 → state 更新
  */
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { execSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { loadSiteRoutes, siteUrlForSlug } from '../../../../../scripts/lib/site-links.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 import {
   readScreen,
   writeScreen,
@@ -46,13 +48,14 @@ import {
   writeFlagship,
   writeReviewQueue,
   PATHS,
+  displayPath,
 } from './lib/quality-state.mjs';
 import { buildCemQaPrompt, buildRewriterPrompt } from './lib/cem-qa-prompt.mjs';
 
 // ── 定数 ────────────────────────────────────────────────────────
 
-const BASE_DIR = 'content/site/pe-comprehensive-management';
-const LINT_SCRIPT = '.claude/scripts/lint-mdx-mobile.mjs';
+const BASE_DIR = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
+const LINT_SCRIPT = join(REPO_ROOT, '.claude/scripts/lint-mdx-mobile.mjs');
 const HUB_SLUG = 'pe-comprehensive-management-keyword-2026';
 const FLAGSHIP_COUNT = 100;
 const DEFAULT_TOP = 200;
@@ -62,22 +65,30 @@ const DEFAULT_THRESHOLD = 2.5;
 // ── CLI 引数パース ──────────────────────────────────────────────
 
 function parseArgs(argv) {
-  const args = { mode: null };
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--mode') args.mode = argv[++i];
-    else if (a === '--top') args.top = parseInt(argv[++i], 10);
-    else if (a === '--threshold') args.threshold = parseFloat(argv[++i]);
-    else if (a === '--min-weighted') args.minWeighted = parseFloat(argv[++i]);
-    else if (a === '--max') args.max = parseInt(argv[++i], 10);
-    else if (a === '--flagship-only') args.flagshipOnly = true;
-    else if (a === '--batch') args.batch = parseInt(argv[++i], 10);
-    else if (a === '--order') args.order = argv[++i];
-    else if (a === '--slug') args.slug = argv[++i];
-    else if (a === '--section') args.section = argv[++i];
-    else if (a === '--dry-run') args.dryRun = true;
-    else if (a === '--help' || a === '-h') args.help = true;
+  const flags = parseCliArgs({
+    mode: { type: 'string' },
+    top: { type: 'string' },
+    threshold: { type: 'string' },
+    'min-weighted': { type: 'string' },
+    max: { type: 'string' },
+    'flagship-only': { type: 'boolean' },
+    batch: { type: 'string' },
+    order: { type: 'string' },
+    slug: { type: 'string' },
+    section: { type: 'string' },
+    'dry-run': { type: 'boolean' },
+    help: { type: 'boolean', alias: '-h' },
+  }, argv.slice(2));
+  // 指定されたフラグだけをキーにする（minWeighted は undefined で「指定なし」を判定している）
+  const int = (v) => parseInt(v, 10);
+  const text = (v) => v;
+  const args = { mode: flags.mode };
+  for (const [key, convert] of [['top', int], ['threshold', parseFloat], ['minWeighted', parseFloat], ['max', int], ['batch', int], ['order', text], ['slug', text], ['section', text]]) {
+    if (flags[key] !== null) args[key] = convert(flags[key]);
   }
+  if (flags.flagshipOnly) args.flagshipOnly = true;
+  if (flags.dryRun) args.dryRun = true;
+  if (flags.help) args.help = true;
   return args;
 }
 
@@ -173,7 +184,8 @@ function runScreen() {
   console.log('[screen] lint-mdx-mobile.mjs 実行中...');
   let lintOutput = '';
   try {
-    lintOutput = execSync(`node ${LINT_SCRIPT} ${BASE_DIR}/`, {
+    lintOutput = execSync(`node ${displayPath(LINT_SCRIPT)} ${displayPath(BASE_DIR)}/`, {
+      cwd: REPO_ROOT,
       encoding: 'utf-8',
       maxBuffer: 50 * 1024 * 1024,
     });
@@ -238,7 +250,7 @@ function runScreen() {
   }
 
   writeScreen(result);
-  console.log(`[screen] ✓ ${PATHS.SCREEN} に ${Object.keys(result.pages).length} 件出力`);
+  console.log(`[screen] ✓ ${displayPath(PATHS.SCREEN)} に ${Object.keys(result.pages).length} 件出力`);
 
   // サマリ
   const scores = Object.values(result.pages).map((p) => p.candidate_score);
@@ -271,7 +283,7 @@ function runFlagship() {
   const flagshipSlugs = sorted.map(([slug]) => slug);
   writeFlagship(flagshipSlugs);
 
-  console.log(`[flagship] ✓ ${PATHS.FLAGSHIP} に ${flagshipSlugs.length} 件出力`);
+  console.log(`[flagship] ✓ ${displayPath(PATHS.FLAGSHIP)} に ${flagshipSlugs.length} 件出力`);
   console.log(`\n上位 10 件:`);
   sorted.slice(0, 10).forEach(([slug, p], i) => {
     console.log(`  ${i + 1}. ${slug.padEnd(40)} score=${p.candidate_score.toFixed(2)} chars=${p.body_chars}`);
@@ -518,7 +530,7 @@ function runReview() {
   });
 
   writeReviewQueue(md);
-  console.log(`[review] ✓ ${PATHS.REVIEW_QUEUE} に ${targets.length} 件出力`);
+  console.log(`[review] ✓ ${displayPath(PATHS.REVIEW_QUEUE)} に ${targets.length} 件出力`);
 }
 
 // ── mode: report (ダッシュボード) ──────────────────────────────

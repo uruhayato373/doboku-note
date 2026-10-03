@@ -31,17 +31,17 @@ import {
 
 import { detectFalseNegative } from "./lib/asp-falsenegative-guard.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { parseCliArgs } from "./lib/cli-args.mjs";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
 const CATALOG = datasetPath("affiliate.catalog");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const o = { asps: null, write: false };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--asp") o.asps = a[++i].split(",").map((s) => s.trim());
-    else if (a[i] === "--write") o.write = true;
-  }
-  return o;
+  const f = parseCliArgs({
+    asp: { type: "string" },
+    write: { type: "boolean" },
+  });
+  return { asps: f.asp === null ? null : f.asp.split(",").map((s) => s.trim()), write: f.write };
 }
 
 /** 実機の一覧テキストから「この ASP で提携済み/申請中の識別子」を集める。 */
@@ -101,7 +101,7 @@ async function main() {
   const catalog = JSON.parse(readFileSync(CATALOG, "utf-8"));
   const targets = opts.asps ?? Object.keys(root.asps);
 
-  const debugDir = join(process.cwd(), ".local/affiliate-status");
+  const debugDir = join(REPO_ROOT, ".local/affiliate-status");
   mkdirSync(debugDir, { recursive: true });
   const logPath = join(debugDir, "status.log");
   writeFileSync(logPath, "", "utf-8");

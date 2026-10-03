@@ -36,18 +36,21 @@ import { join, dirname } from 'node:path';
 import { execSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { loadSiteRoutes, siteUrlForSlug } from '../../../../../scripts/lib/site-links.mjs';
+import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 import {
   readScores,
   readState,
   writeReviewQueue,
   computeWeighted,
   PATHS,
+  displayPath,
 } from './lib/civil-state.mjs';
 import { buildReviewPrompt, buildRewriterPrompt } from './lib/civil-prompts.mjs';
 
 // ── 定数 ────────────────────────────────────────────────────────
 
-const BASE_DIR = 'content/site/civil-construction-1';
+const BASE_DIR = join(SITE_CONTENT_ROOT, 'civil-construction-1');
 const TARGET_GROUPS = new Set(['textbook', 'guide']);
 const DEFAULT_BATCH = 3;
 const DEFAULT_THRESHOLD = 2.5;
@@ -55,21 +58,29 @@ const DEFAULT_THRESHOLD = 2.5;
 // ── CLI 引数パース ──────────────────────────────────────────────
 
 function parseArgs(argv) {
-  const args = { mode: null };
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--mode') args.mode = argv[++i];
-    else if (a === '--threshold') args.threshold = parseFloat(argv[++i]);
-    else if (a === '--min-weighted') args.minWeighted = parseFloat(argv[++i]);
-    else if (a === '--max') args.max = parseInt(argv[++i], 10);
-    else if (a === '--batch') args.batch = parseInt(argv[++i], 10);
-    else if (a === '--order') args.order = argv[++i];
-    else if (a === '--slug') args.slug = argv[++i];
-    else if (a === '--round') args.round = parseInt(argv[++i], 10);
-    else if (a === '--create') args.create = true;
-    else if (a === '--dry-run') args.dryRun = true;
-    else if (a === '--help' || a === '-h') args.help = true;
+  const flags = parseCliArgs({
+    mode: { type: 'string' },
+    threshold: { type: 'string' },
+    'min-weighted': { type: 'string' },
+    max: { type: 'string' },
+    batch: { type: 'string' },
+    order: { type: 'string' },
+    slug: { type: 'string' },
+    round: { type: 'string' },
+    create: { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+    help: { type: 'boolean', alias: '-h' },
+  }, argv.slice(2));
+  // 指定されたフラグだけをキーにする
+  const int = (v) => parseInt(v, 10);
+  const text = (v) => v;
+  const args = { mode: flags.mode };
+  for (const [key, convert] of [['threshold', parseFloat], ['minWeighted', parseFloat], ['max', int], ['batch', int], ['order', text], ['slug', text], ['round', int]]) {
+    if (flags[key] !== null) args[key] = convert(flags[key]);
   }
+  if (flags.create) args.create = true;
+  if (flags.dryRun) args.dryRun = true;
+  if (flags.help) args.help = true;
   return args;
 }
 
@@ -78,7 +89,7 @@ function printHelp() {
 Civil Textbook Cycle Orchestrator
 
 Modes (機械的・subagent 不要):
-  --mode review          人間レビュー待ちリストを出力 → ${PATHS.REVIEW_QUEUE}
+  --mode review          人間レビュー待ちリストを出力 → ${displayPath(PATHS.REVIEW_QUEUE)}
   --mode report          ダッシュボード表示
   --mode issue           リライト候補から markdown レポートを生成
                          → .tmp/civil-textbook-cycle-report.md（Issue は廃止）
@@ -109,7 +120,7 @@ Options:
 
 function listTargetPages() {
   if (!existsSync(BASE_DIR)) {
-    console.error(`[civil-cycle] ${BASE_DIR} が存在しません`);
+    console.error(`[civil-cycle] ${displayPath(BASE_DIR)} が存在しません`);
     return [];
   }
   const dirs = readdirSync(BASE_DIR).filter((entry) => {
@@ -180,7 +191,7 @@ function runScore(args) {
   console.log(`     各タスクの prompt で civil-construction-review subagent を並列起動`);
   console.log(`  2. 各 subagent の返す JSON 配列を /tmp/civil-score-results.json に保存`);
   console.log(`  3. node .claude/skills/quality/quality-cycle/scripts/merge-scores.mjs /tmp/civil-score-results.json`);
-  console.log(`     で ${PATHS.SCORES} にマージ`);
+  console.log(`     で ${displayPath(PATHS.SCORES)} にマージ`);
   console.log(`\n=== タスクリスト (JSON) ===`);
   console.log(
     JSON.stringify(
@@ -203,7 +214,7 @@ function runRewrite(args) {
   const scores = readScores();
   if (Object.keys(scores.pages).length === 0) {
     console.error(
-      `[rewrite] ${PATHS.SCORES} が空です。先に --mode score を実行してください。`,
+      `[rewrite] ${displayPath(PATHS.SCORES)} が空です。先に --mode score を実行してください。`,
     );
     process.exit(1);
   }
@@ -388,7 +399,7 @@ function runReview() {
   });
 
   writeReviewQueue(md);
-  console.log(`[review] ✓ ${PATHS.REVIEW_QUEUE} に ${targets.length} 件出力`);
+  console.log(`[review] ✓ ${displayPath(PATHS.REVIEW_QUEUE)} に ${targets.length} 件出力`);
 }
 
 // ── mode: report (ダッシュボード) ──────────────────────────────
@@ -462,7 +473,7 @@ function runIssue(args) {
   const scores = readScores();
   if (Object.keys(scores.pages).length === 0) {
     console.error(
-      `[issue] ${PATHS.SCORES} が空です。先に --mode score を実行してください。`,
+      `[issue] ${displayPath(PATHS.SCORES)} が空です。先に --mode score を実行してください。`,
     );
     process.exit(1);
   }

@@ -14,27 +14,17 @@
 // 注意: --fix-safe は数式スパン内の全角演算子・全角記号・U+2212・% コメントのみ置換する
 //   （数式の意味・prose・正答・公式数値は不変）。CJK in math 等は報告のみ（手修正対象）。
 
-import { readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { relative } from 'node:path';
 import { auditContent, applySafeFix } from '#lib/katex-audit.mjs';
 import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/site';
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
 const STRICT = args.includes('--strict');
 const FIX_SAFE = args.includes('--fix-safe');
 const fileArgs = args.filter((a) => !a.startsWith('--'));
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (e.endsWith('.mdx')) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 
 const suggestionFor = (code) => {
   switch (code) {
@@ -53,7 +43,8 @@ const suggestionFor = (code) => {
   }
 };
 
-const files = fileArgs.length > 0 ? fileArgs : walk(ROOT);
+// 出力に出すパスは従来どおりリポジトリルートからの相対パス（content/site/...）
+const files = fileArgs.length > 0 ? fileArgs : listFiles(SITE_CONTENT_ROOT, { ext: '.mdx', followLinks: true, allowMissing: true }).map((p) => relative(REPO_ROOT, p).split('\\').join('/'));
 
 let totalWarnings = 0;
 let fixedFiles = 0;

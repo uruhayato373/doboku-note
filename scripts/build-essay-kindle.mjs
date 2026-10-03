@@ -24,6 +24,7 @@ import { resolve, basename } from 'node:path'
 import { writeEpub, xhtmlDoc, xesc } from './lib/epub-writer.mjs'
 import { mdToXhtml } from './lib/kindle-md.mjs'
 import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
+import { parseCliArgs } from './lib/cli-args.mjs'
 
 const AUTHOR = 'doboku-note'
 const PUBLISHER = 'doboku-note'
@@ -40,13 +41,9 @@ const DISCLAIMER =
 const DEFAULT_DROP = [/^印刷用PDF/, /^必須科目Ⅰ?I? ?を全年度/, /^必須科目Ⅰ?I? ?の対策/]
 
 function parseArgs(argv) {
-  const a = { spec: null, outDir: null }
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--spec') a.spec = argv[++i]
-    else if (argv[i] === '--outDir') a.outDir = argv[++i]
-  }
-  if (!a.spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
-  return a
+  const { spec, outDir } = parseCliArgs({ spec: { type: 'string' }, outDir: { type: 'string' } }, argv)
+  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  return { spec, outDir }
 }
 
 function splitFrontmatter(raw) {

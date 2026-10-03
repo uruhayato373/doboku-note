@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -10,8 +9,8 @@ import { loadCoverSources, specDigest } from './lib/youtube-cover-rollout.mjs';
 import { readApprovedCover, coverInputDigest } from './lib/youtube-approved-cover.mjs';
 import { coverFonts, COVER_FORMATS } from './lib/youtube-cover.mjs';
 import { loadVideoBrand, brandedCoverNode, brandedCtaNode } from './lib/video-brand.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const commit = process.argv.includes('--commit');
 const preview = process.argv.includes('--preview');
 const sources = loadCoverSources(root);

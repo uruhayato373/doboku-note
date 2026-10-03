@@ -27,16 +27,18 @@
 
 import { readFileSync, existsSync, statSync, mkdirSync, readdirSync } from 'node:fs';
 import { execFileSync, execSync } from 'node:child_process';
-import { resolve, dirname, basename, join, extname } from 'node:path';
+import { resolve, dirname, basename, join, extname, relative } from 'node:path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
-import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT, TEXTBOOK_SOURCES_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../../../../scripts/lib/fs-walk.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
 // ----------------------------------------------------------------
 // 定数
 // ----------------------------------------------------------------
 
-const PDF_ROOT = 'content/sources/textbook/１級土木施工管理技士';
+const PDF_ROOT = join(TEXTBOOK_SOURCES_ROOT, '１級土木施工管理技士');
 const TMP_ROOT = '/tmp/verify-pdf-mdx';
 const DEFAULT_DPI = 150;
 
@@ -67,22 +69,19 @@ const SLUG_PDF_HINTS = {
 // ----------------------------------------------------------------
 
 function parseArgs(argv) {
-  const args = {
-    mdx: null,
-    pdf: null,
-    render: false,
-    dpi: DEFAULT_DPI,
-    expectedFigures: null,
+  const flags = parseCliArgs({
+    pdf: { type: 'string' },
+    render: { type: 'boolean' },
+    dpi: { type: 'string', default: String(DEFAULT_DPI) },
+    'expected-figures': { type: 'string' },
+  }, argv.slice(2));
+  return {
+    mdx: flags._[0] ?? null,
+    pdf: flags.pdf,
+    render: flags.render,
+    dpi: parseInt(flags.dpi, 10),
+    expectedFigures: flags.expectedFigures === null ? null : parseInt(flags.expectedFigures, 10),
   };
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--pdf') args.pdf = argv[++i];
-    else if (a === '--render') args.render = true;
-    else if (a === '--dpi') args.dpi = parseInt(argv[++i], 10);
-    else if (a === '--expected-figures') args.expectedFigures = parseInt(argv[++i], 10);
-    else if (!args.mdx) args.mdx = a;
-  }
-  return args;
 }
 
 const args = parseArgs(process.argv);
@@ -261,17 +260,9 @@ function extractTopTopics(text, limit = 10) {
 // ----------------------------------------------------------------
 
 function findAllPdfs(root) {
-  if (!existsSync(root)) return [];
-  const out = [];
-  const walk = (dir) => {
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, entry.name);
-      if (entry.isDirectory()) walk(p);
-      else if (entry.isFile() && extname(entry.name).toLowerCase() === '.pdf') out.push(p);
-    }
-  };
-  walk(root);
-  return out;
+  // 出力（JSON の path・hint_candidates）は従来どおりリポジトリルートからの相対パス
+  return listFiles(root, { allowMissing: true, match: (_path, name) => extname(name).toLowerCase() === '.pdf' })
+    .map((p) => relative(REPO_ROOT, p).split('\\').join('/'));
 }
 
 function discoverPdf(slug, title, group) {

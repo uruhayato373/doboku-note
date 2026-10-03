@@ -23,12 +23,13 @@
 // 出力: GITHUB_OUTPUT へ groups（空白区切り）と count。
 // exit 0 = 全件配置 / exit 1 = 検証失敗・対象ゼロ
 
-import { createReadStream, existsSync, readFileSync, mkdirSync, copyFileSync, statSync, appendFileSync, readdirSync } from 'node:fs';
+import { createReadStream, existsSync, readFileSync, mkdirSync, copyFileSync, statSync, appendFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join, dirname, isAbsolute, relative } from 'node:path';
 import { loadConfig, groupFor, toPosix } from './lib/asset-storage.mjs';
 import { loadDriveConfig, driveGroupFor } from './lib/drive-vault.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const val = (n, d = null) => { const i = argv.indexOf(n); return i >= 0 && argv[i + 1] ? argv[i + 1] : d; };
@@ -42,17 +43,6 @@ function sha256(abs) {
     const h = createHash('sha256');
     createReadStream(abs).on('data', (c) => h.update(c)).on('end', () => res(h.digest('hex'))).on('error', rej);
   });
-}
-
-/** 展開ディレクトリ配下の全ファイルを repo 相対っぽいパスで列挙する。 */
-function walk(dir, base = dir) {
-  const out = [];
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) out.push(...walk(p, base));
-    else if (e.isFile()) out.push(toPosix(relative(base, p)));
-  }
-  return out;
 }
 
 async function main() {
@@ -69,7 +59,8 @@ async function main() {
   const dcfg = loadDriveConfig();
   const meta = JSON.parse(readFileSync(META, 'utf8'));
   const declared = new Map((meta.files || []).map((f) => [toPosix(f.path), f]));
-  const found = walk(UNPACKED);
+  // 展開ディレクトリ配下の全ファイルを repo 相対っぽいパスで列挙する
+  const found = listFiles(UNPACKED).map((p) => toPosix(relative(UNPACKED, p)));
 
   console.log(`[${NAME}] inbox.json 宣言 ${declared.size} 件 / 展開物 ${found.length} 件`);
 

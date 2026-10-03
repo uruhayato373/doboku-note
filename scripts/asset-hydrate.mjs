@@ -21,13 +21,14 @@
 //
 // exit 0 = 全件解決 / exit 1 = 解決できないものがある or 検査不成立
 
-import { copyFileSync, existsSync, mkdirSync, readdirSync, renameSync, statSync, statfsSync, unlinkSync, utimesSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, renameSync, statSync, statfsSync, unlinkSync, utimesSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import {
   loadConfig, loadManifest, loadEnvLocal, makeS3, hasR2Credentials,
   cachePathFor, cacheDirFor, sha256File, fileBytes, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 import { downloadVerified } from './lib/verified-download.mjs';
 import { acquireLock } from './lib/local-resources.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
@@ -206,7 +207,9 @@ function pruneCache(cfg) {
   const dir = cacheDirFor(cfg);
   if (!existsSync(dir)) return;
   const files = [];
-  walk(dir, files);
+  for (const p of listFiles(dir)) {
+    try { const st = statSync(p); files.push({ path: p, size: st.size, atime: st.atimeMs }); } catch { /* skip */ }
+  }
   let total = files.reduce((s, f) => s + f.size, 0);
   if (total <= cap) return;
   files.sort((a, b) => a.atime - b.atime);
@@ -218,15 +221,6 @@ function pruneCache(cfg) {
   console.log('  cache が上限 ' + mib(cap) + ' MiB を超えたため、古い ' + removed + ' 件を落とした');
 }
 
-function walk(dir, out) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else {
-      try { const st = statSync(p); out.push({ path: p, size: st.size, atime: st.atimeMs }); } catch { /* skip */ }
-    }
-  }
-}
 const release = acquireLock(REPO_ROOT, 'hydrate');
 main().catch((e) => {
   console.error('[asset-hydrate] FAIL: ' + String(e.message || e).slice(0, 300));

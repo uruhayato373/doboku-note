@@ -34,6 +34,7 @@ import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.m
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
+import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
@@ -266,28 +267,29 @@ function parseArgs(): PostJob[] {
   const draftArg = args[0];
   let tweetFilter: number | null = null;
   let tweetRange: { from: number; to: number } | null = null;
-  let immediate = false;
-  const dates: string[] = [];
 
-  for (let i = 1; i < args.length; i++) {
-    if (args[i] === "--dry-run") {
-      IS_DRY_RUN = true;
-      console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
-    } else if (args[i] === "--immediate") {
-      immediate = true;
-    } else if (args[i] === "--head-only") {
-      HEAD_ONLY = true;
-    } else if (args[i] === "--tweet") {
-      tweetFilter = parseInt(args[++i], 10);
-    } else if (args[i] === "--tweets") {
-      const spec = args[++i];
-      const m = spec.match(/^(\d+)-(\d+)$/);
-      if (!m) throw new Error(`--tweets は N-M 形式で指定: ${spec}`);
-      tweetRange = { from: parseInt(m[1], 10), to: parseInt(m[2], 10) };
-    } else if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(args[i])) {
-      dates.push(args[i]);
-    }
+  const flags = parseCliArgs({
+    "dry-run": { type: "boolean" },
+    immediate: { type: "boolean" },
+    "head-only": { type: "boolean" },
+    tweet: { type: "string" },
+    tweets: { type: "string" },
+  }, args.slice(1));
+  if (flags.dryRun) {
+    IS_DRY_RUN = true;
+    console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
   }
+  if (flags.headOnly) HEAD_ONLY = true;
+  const { immediate } = flags;
+  if (flags.tweet !== null) tweetFilter = parseInt(flags.tweet, 10);
+  if (flags.tweets !== null) {
+    const spec = flags.tweets;
+    const m = spec.match(/^(\d+)-(\d+)$/);
+    if (!m) throw new Error(`--tweets は N-M 形式で指定: ${spec}`);
+    tweetRange = { from: parseInt(m[1], 10), to: parseInt(m[2], 10) };
+  }
+  // 日時は位置引数（YYYY-MM-DDTHH:MM）。それ以外の位置引数は無視する
+  const dates: string[] = flags._.filter((a: string) => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(a));
 
   const draftDir = resolveDraftDir(draftArg);
   const allTweets = parseTweetMd(draftDir);

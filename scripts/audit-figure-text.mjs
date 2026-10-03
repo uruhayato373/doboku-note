@@ -25,6 +25,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = path.join(ROOT, ".claude", "state", "figure-text-audit.json");
@@ -40,22 +41,13 @@ const STEM = /どれか/;
 const optSentenceRe = /[（(][1-4１-４][)）][ぁ-んァ-ヶ一-龠]{3,}/g;
 const IMG_RE = /\/img\/[^/]+\.(png|webp|jpg|jpeg)$/i;
 
-function walk(dir, acc = []) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory()) walk(full, acc);
-    else acc.push(full);
-  }
-  return acc;
-}
-
 if (!fs.existsSync(POSTS)) {
   console.error(`[audit-figure-text] posts dir 不在: ${POSTS}`);
   process.exit(2);
 }
 
 // ラスタ図を basename（{dir}/{name拡張子抜き}）で dedupe。ogp は除外。
-const all = walk(POSTS)
+const all = listFiles(POSTS)
   .map((p) => path.relative(POSTS, p).split(path.sep).join("/"))
   .filter((rel) => IMG_RE.test(rel) && !/\/ogp\.(png|webp)$/i.test(rel));
 

@@ -26,14 +26,16 @@ import path from "node:path";
 import matter from "gray-matter";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = path.join(ROOT, ".claude", "state", "figure-provenance.json");
 const quiet = process.argv.includes("--json");
-const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+// 無い・壊れているときは null（任意の入力。無くても出所ヒントなしで進める）
+const readJsonOrNull = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 
-const audit = readJson(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
-const sourcesDoc = readJson(path.join(ROOT, datasetPath("config.figure-sources")));
+const audit = readJsonOrNull(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
+const sourcesDoc = readJsonOrNull(path.join(ROOT, datasetPath("config.figure-sources")));
 const sources = sourcesDoc?.categories || {};
 const manualNeeds = Array.isArray(sourcesDoc?.manual_needs) ? sourcesDoc.manual_needs : [];
 const resolveSrc = (cat) => {
@@ -43,14 +45,6 @@ const resolveSrc = (cat) => {
 };
 
 const IMG_RE = /\/img\/[^/]+\.(png|webp|jpg|jpeg)$/i;
-function walk(dir, acc = []) {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory()) walk(full, acc);
-    else acc.push(full);
-  }
-  return acc;
-}
 
 // 記事(slug=cat/localSlug)ごとに MDX を 1 回読み published / content をキャッシュ。
 const artCache = new Map();
@@ -75,7 +69,7 @@ function article(slug) {
   return info;
 }
 
-const all = walk(POSTS)
+const all = listFiles(POSTS)
   .map((p) => path.relative(POSTS, p).split(path.sep).join("/"))
   .filter((rel) => IMG_RE.test(rel) && !/\/ogp\.(png|webp)$/i.test(rel));
 
