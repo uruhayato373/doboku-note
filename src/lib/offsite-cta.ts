@@ -103,8 +103,18 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
     coconalaCatch: '字数が収まったら、次は中身。自分の答案を見てほしい方へ。',
   },
   {
+    test: /^civil-construction-2-secondary-grading-and-partial-credit$/,
+    coconala: ['coconala-2kyu-tensaku-3theme'],
+    coconalaCatch: '施工経験記述の答案を、設問への適合と具体性から確かめたい方へ。',
+  },
+  {
+    test: /^concrete-chief-engineer-guide-trends$/,
+    coconala: ['coconala-cce-full-pdf'],
+    coconalaCatch: '択一の傾向を確認したら、印刷用教材で全体を仕上げたい方へ。',
+  },
+  {
     // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削とまとめ買いの完全パック。
-    test: /^concrete-chief-engineer(-guide-essay)?$/,
+    test: /^concrete-chief-engineer(-guide-(essay|overview))?$/,
     coconala: ['coconala-cce-essay-tensaku', 'coconala-cce-full-pdf'],
     coconalaCatch: '小論文を人の目で確かめたい方・まとめて仕上げたい方へ。',
   },

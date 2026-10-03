@@ -50,12 +50,13 @@ test('2級二次の冒頭: 試験当日までは直前パック、翌日から�
 });
 
 test('2級 年度別ページ: 試験の前後どちらでも、二次まるごとと中間 CTA（top と別）がある', async () => {
-  const { resolvePlacement, resolveMidNoteSlot } = await loadPlacement();
+  const { resolvePlacement, resolveArticleMidNoteSlot } = await loadPlacement();
   for (const nowMs of [examDayStartMs - 1, examDayStartMs + 86_400_000]) {
     const p = topAt(resolvePlacement, 'civil-construction-2-secondary-r07', nowMs);
     const ids = [p.top, ...p.inline].map((s) => s.magazineId);
     assert.ok(ids.includes('civil-2-niji-marugoto-pack'), '二次まるごとが年度別ページから消えている');
-    const mid = resolveMidNoteSlot(p);
+    const body = readFileSync(ROOT + "content/site/civil-construction-2/secondary-r07/article.mdx", "utf8").replace(/^---[\s\S]*?\n---\n/, "");
+    const mid = resolveArticleMidNoteSlot(p, "secondary", body, true);
     assert.ok(mid, '中間 CTA が無い');
     assert.notEqual(mid.magazineId, p.top?.magazineId);
   }

@@ -45,9 +45,9 @@
 1. **ヒーローバンド**: アバター + アカウント名 + キャッチコピー1行 + 名乗り（資格数は `EXAM_CARDS.length` から。保有資格は `sm` 以上だけ）+ **グループチップ**（`#group-{id}` へジャンプ。`EXAM_GROUPS` から導出）+ **運営者の導線 1 行**（X・note もくじ〔L1〕・`/about`）。スマホも横並びの小型版
 2. **資格カード**（`ExamCardView`）: `EXAM_GROUPS` 配下に置き、モバイル1列／`sm` 2列／3枚のグループは`lg` 3列。1枚は資格ブランド帯 + 見出し + tagline + **最大3行**。スマホでは帯をテーマ色の線だけにし（イラストは `sm` 以上）、グループの説明文も省く
    - ①**サイトで無料学習** → `/exam/{...}`（内部リンク）
-   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）
-   - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（コンクリート 3 資格は現在 2 行）
-   - 技術士第一次は現在、①サイト行だけを表示する（2026-09-24 時点）
+   - ②**note もくじ（L2）** → `config/note-funnel.json` の `exams.{key}.L2` を参照（**存在時のみ**。URLをページに直書きしない）。L2 未作成の技術士第一次は、`note-magazines.ts` の `pe1-chokuzen-pack` を実商品の教材行として表示する
+   - ③**個別サービス** → 資格に紐づく listed のココナラから**代表 1 件**。`pickCoconalaFor`（`src/lib/exam-key-bridge.ts`）が選ぶ。**0 件なら行ごと省略**（主任技士は添削を含む 3 行、技士・診断士は 2 行）
+   - 技術士第一次は①サイト行と②直前パックの教材行を表示する（2026-10-03）
    - 各行はアイコン（`ServiceIcon`）+ リンク名 + チャネル小ラベル + 特徴 1 行。特徴は `line-clamp: 2`（商品 `description` は 170〜210 字あり、素で出すと 1 行だけ 220px になる）
    - **マガジンの個別列挙は廃止**し L2 もくじへ集約した。商品を追加しても /links の改修は不要
 3. **教材の特徴**（`VALUE_PILLARS`・差別化 3 本柱）: カードの後ろ。行の並び順の意味（無料で読む → note 教材 → 添削・キット）は「資格別コンテンツ」の説明 1 行で示す（旧チャネル凡例・末尾の運営者カードは 2026-09-24 に廃止。カード内の各行にチャネル小ラベルがあり、運営者はヒーローの導線と `/about` に集約）
@@ -66,7 +66,7 @@
 | **資格ブランド（ラベル・テーマ色・背景イラスト）** | `src/lib/exam-brand.ts`（`EXAM_BRAND` / `examKeyOf`） | カード頭の帯 |
 | ココナラ単発サービス（状態・価格・URL） | `src/lib/coconala-services.ts`（`listedCoconalaServices()`） | 各資格カードの③ 行（`pickCoconalaFor` が代表 1 件を選ぶ） |
 | 資格キーの対応（`ExamKey` ⇄ 商品カタログの `examScope`） | `src/lib/exam-key-bridge.ts` | ③ 行の突合（`tankan` ⇄ `pe-comprehensive-management` 等） |
-| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | **/links からは直接参照しない**（もくじへ集約したため）。記事内 CTA・サイドバーでは引き続き使用 |
+| 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | 技術士第一次の L2 未作成時の教材行。その他の資格は L2 に集約。記事内 CTA・サイドバーでも使用 |
 
 **M2（白書R7 完全対応集）の現在地**: 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ転換され、`NoteMagazine` 型（badge / price 前提）に乗せていない単独無料記事。**資格カード化（2026-07-28）で /links からの直リンクは外し、総監もくじ（L2）経由の導線に一本化した**（カードを 3 行に保つため）。M2 自体は note 上で稼働中。経緯は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md`。
 
@@ -79,7 +79,7 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 | **note もくじ（L2）**（2026-07-28〜） | `links` | `referral` | `link-hub` | `mokuji-{examKey}` |
 | **note もくじ（L1・ヒーローの導線）**（2026-09-24〜） | `links` | `referral` | `link-hub` | `note-top` |
 | M2 完全無料 | `links` | `referral` | `link-hub` | `m2-free-whitepaper` |
-| 有料マガジン（現在 /links からは直リンクしない） | `doboku-note` | `referral` | `note-magazine` | `link-hub-{magazine-id}` |
+| 個別教材（L2 未作成の技術士第一次） | `doboku-note` | `referral` | `note-magazine` | `link-hub-{magazine-id}` |
 
 **`utm_content` に `link-hub-` 接頭辞を使わない理由**: 下の「有料マガジン全体」クエリが `utm_content LIKE 'link-hub-%'` で集計しているため、もくじを `link-hub-mokuji-*` にすると既存 KPI に混ざる。もくじは別系統として `mokuji-{examKey}` にした。1級・2級は同じ L2 記事を指すので、この `utm_content` だけが流入元を区別する手段になる。
 

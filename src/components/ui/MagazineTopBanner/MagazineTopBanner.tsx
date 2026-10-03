@@ -6,6 +6,7 @@ import { NOTE_LINK_REL } from "@/lib/external-link-rel";
 
 interface MagazineTopBannerProps {
   readonly magazineId: string;
+  readonly scopeNotice?: string | undefined;
   readonly url: string;
   /** マガジンの短縮タイトル（shortTitle） */
   readonly title: string;
@@ -27,6 +28,7 @@ interface MagazineTopBannerProps {
  */
 export default function MagazineTopBanner({
   magazineId,
+  scopeNotice,
   url,
   title,
   price,
@@ -34,7 +36,7 @@ export default function MagazineTopBanner({
   trackLabel,
 }: MagazineTopBannerProps) {
   const image = noteCtaImage(magazineId, 'body');
-  if (image) return <NoteImageCta href={url} image={image}
+  if (image) return <NoteImageCta href={url} image={image} scopeNotice={scopeNotice}
     trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} className="mb-8" />;
   const brand = brandOf(magazineId);
   // コンパクト型なので価格は先頭の金額だけを出す。catalog の price は「¥2,480（模試3回＋暗記ノート＋
