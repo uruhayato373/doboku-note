@@ -36,13 +36,13 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, readdirSync } from "node:fs";
-import { basename, join } from "node:path";
+import { basename, join, relative } from "node:path";
 import { latestFile } from "./lib/datasets.mjs";
 import { latestReport } from "./lib/metric-reports.mjs";
-import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT as ROOT, KNOWLEDGE_ROOT } from "./lib/repository-paths.mjs";
 
 
-const LOG_PATH = ".claude/knowledge/reference/gsc-management.md";
+const LOG_PATH = join(KNOWLEDGE_ROOT, "reference/gsc-management.md");
 const ROUTINE = "doboku-note GSC auto review（クラウドルーティン・金 12:00 JST）";
 /** ログが肥大化したら年次アーカイブを促す観測点（無限成長の早期警戒）。 */
 const BLOAT_LINES = 800;
@@ -85,7 +85,7 @@ function daysSince(dateStr) {
 let md = null;
 let readError = null;
 try {
-  md = readFileSync(join(ROOT, LOG_PATH), "utf-8");
+  md = readFileSync(LOG_PATH, "utf-8");
 } catch (e) {
   readError = e.message;
 }
@@ -222,7 +222,7 @@ const result = {
   thresholdDays: THRESHOLD,
   anyDue: channels.some((c) => c.due),
   scannedHeadings: headings.length,
-  logPath: LOG_PATH,
+  logPath: relative(ROOT, LOG_PATH).split("\\").join("/"),
   logLines,
   bloat,
   latestBatch,

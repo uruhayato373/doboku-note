@@ -32,6 +32,7 @@
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 import dotenv from "dotenv";
 import { resolveWindow } from "./lib/ga4-snapshot.mjs";
 import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
@@ -76,63 +77,41 @@ const EVENT_NAMES = [
 ];
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    days: DEFAULT_DAYS,
-    japanOnly: true,
-    byDevice: false,
-    byLabel: false,
-    byPlacement: false,
-    keyEvents: false,
+  const a = parseCliArgs({
+    days: { type: "integer", default: DEFAULT_DAYS },
     // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
     // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
     // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
-    month: null,
-    startDate: null,
-    endDate: null,
+    // 例: --month 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）
+    month: { type: "string" },
+    start: { type: "string", key: "startDate" },
+    end: { type: "string", key: "endDate" },
+    "no-japan-only": { type: "boolean" },
+    // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
+    // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
+    // downstream（report-monetization-coverage = page 別）は非破壊。
+    "by-device": { type: "boolean" },
+    // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
+    // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
+    // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
+    "by-label": { type: "boolean" },
+    // アフィリエイトの可視 impression / click を配置別に取得する。
+    // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
+    "by-placement": { type: "boolean" },
+    // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
+    "key-events": { type: "boolean" },
+  });
+  return {
+    days: a.days,
+    japanOnly: !a.noJapanOnly,
+    byDevice: a.byDevice,
+    byLabel: a.byLabel,
+    byPlacement: a.byPlacement,
+    keyEvents: a.keyEvents,
+    month: a.month,
+    startDate: a.startDate,
+    endDate: a.endDate,
   };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--days":
-        opts.days = parseInt(args[++i], 10);
-        break;
-      case "--month":
-        // 例: --month 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）
-        opts.month = args[++i];
-        break;
-      case "--start":
-        opts.startDate = args[++i];
-        break;
-      case "--end":
-        opts.endDate = args[++i];
-        break;
-      case "--no-japan-only":
-        opts.japanOnly = false;
-        break;
-      case "--by-device":
-        // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
-        // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
-        // downstream（report-monetization-coverage = page 別）は非破壊。
-        opts.byDevice = true;
-        break;
-      case "--by-label":
-        // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
-        // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
-        // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
-        opts.byLabel = true;
-        break;
-      case "--by-placement":
-        // アフィリエイトの可視 impression / click を配置別に取得する。
-        // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
-        opts.byPlacement = true;
-        break;
-      case "--key-events":
-        // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
-        opts.keyEvents = true;
-        break;
-    }
-  }
-  return opts;
 }
 
 async function fetchCtaClicks(client, propertyId, opts) {

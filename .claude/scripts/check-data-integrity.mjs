@@ -23,6 +23,7 @@ import { join } from "node:path";
 import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { assessGscPerformanceSnapshot } from "../../scripts/lib/gsc-data-integrity.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 const THRESHOLDS = {
   shortWindow: { days: 7, maxMissing: 2 },
@@ -32,13 +33,10 @@ const THRESHOLDS = {
 // ── CLI ──
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { json: false, reportPath: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--json") opts.json = true;
-    else if (args[i] === "--report") opts.reportPath = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    json: { type: "boolean" },
+    report: { type: "string", key: "reportPath" },
+  });
 }
 
 // ── Helpers ──

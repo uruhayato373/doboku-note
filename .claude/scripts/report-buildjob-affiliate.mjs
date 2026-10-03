@@ -68,10 +68,6 @@ function latestByLabel() {
   return pickByLabelSnapshot(".");
 }
 
-function readJson(path) {
-  return readJsonOrReport(".", path);
-}
-
 function fmtInt(n) {
   return Number(n).toLocaleString("en-US");
 }
@@ -100,7 +96,7 @@ let labelUnavailable = false;
 let labelWindowKind = "days";
 
 if (labelFile) {
-  const data = readJson(labelFile);
+  const data = readJsonOrReport(".", labelFile);
   labelPeriod = data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null;
   labelPeriodStart = data.meta?.startDate ?? null;
   labelWindowKind = data.meta?.windowKind ?? "days";
@@ -130,7 +126,7 @@ const pageFile = latestReportRef(".", "ga4.cta-clicks");
 const pageRows = [];
 let pagePeriod = null;
 if (pageFile) {
-  const data = readJson(pageFile);
+  const data = readJsonOrReport(".", pageFile);
   pagePeriod = data.meta ? `${data.meta.startDate}〜${data.meta.endDate}` : null;
   for (const r of data.rows) {
     if (r.eventName !== "affiliate_cta_click") continue;
@@ -142,7 +138,7 @@ if (pageFile) {
 
 // ---- 3. A8 成果スナップショットと突合（推定 EPC） --------------------------
 const a8LogFile = datasetPath("a8.report-log");
-const a8 = { records: existsSync(a8LogFile) ? resultsFromReportLog(readJson(a8LogFile)) : [] };
+const a8 = { records: existsSync(a8LogFile) ? resultsFromReportLog(readJsonOrReport(".", a8LogFile)) : [] };
 
 // ★ 分子（A8 確定報酬）と分母（GA4 クリック）の期間を揃える。
 //   揃えないと「全期間の報酬 ÷ 直近 28 日のクリック」になり EPC を過大評価する

@@ -18,10 +18,11 @@
  */
 
 import { readdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { transformMdxFile } from "./lib/mdx-io.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const POSTS_DIR = "content/site";
+const POSTS_DIR = SITE_CONTENT_ROOT;
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
 
@@ -73,7 +74,7 @@ for (const file of files) {
     changedFiles++;
     totalReplacements += fileReplacements;
     if (fileReplacements >= 5) {
-      console.log(`  ${file}: ${fileReplacements} refs`);
+      console.log(`  ${relative(REPO_ROOT, file).split("\\").join("/")}: ${fileReplacements} refs`);
     }
   }
 }

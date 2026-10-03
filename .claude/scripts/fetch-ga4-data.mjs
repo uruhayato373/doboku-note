@@ -31,6 +31,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 import dotenv from "dotenv";
 import { SPAM_REFERRAL_SOURCES } from "./lib/ga4-client.mjs";
 
@@ -92,56 +93,30 @@ const DEFAULT_METRICS = [
 // ── CLI args ──
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    days: DEFAULT_DAYS,
-    dimension: DEFAULT_DIMENSION,
-    limit: DEFAULT_LIMIT,
-    metrics: DEFAULT_METRICS,
-    organicOnly: false,
-    snsOnly: false,
+  const a = parseCliArgs({
+    days: { type: "integer", default: DEFAULT_DAYS },
+    dimension: { type: "string", default: DEFAULT_DIMENSION },
+    limit: { type: "integer", default: DEFAULT_LIMIT },
+    metrics: { type: "string", alias: "--metric" },
+    "organic-only": { type: "boolean" },
+    // SNS 流入のみ（sessionSource を utm-templates.json の SNS source 集合に絞る）
+    "sns-only": { type: "boolean" },
+    // 過去仕様（フィルタなし）に戻す。bot 由来か否かを生で確認したい時に使う
+    "include-all": { type: "boolean" },
+    "no-japan-only": { type: "boolean" },
+    "no-exclude-spam": { type: "boolean" },
+  });
+  return {
+    days: a.days,
+    dimension: a.dimension,
+    limit: a.limit,
+    metrics: a.metrics === null ? DEFAULT_METRICS : a.metrics.split(",").map((m) => m.trim()),
+    organicOnly: a.organicOnly,
+    snsOnly: a.snsOnly,
     // 既定で日本・bot 除外を ON（measurement-incidents.md 2026-04-26 参照）
-    japanOnly: true,
-    excludeSpam: true,
+    japanOnly: !(a.includeAll || a.noJapanOnly),
+    excludeSpam: !(a.includeAll || a.noExcludeSpam),
   };
-
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--days":
-        opts.days = parseInt(args[++i], 10);
-        break;
-      case "--dimension":
-        opts.dimension = args[++i];
-        break;
-      case "--limit":
-        opts.limit = parseInt(args[++i], 10);
-        break;
-      case "--metric":
-      case "--metrics":
-        opts.metrics = args[++i].split(",").map((m) => m.trim());
-        break;
-      case "--organic-only":
-        opts.organicOnly = true;
-        break;
-      case "--sns-only":
-        // SNS 流入のみ（sessionSource を utm-templates.json の SNS source 集合に絞る）
-        opts.snsOnly = true;
-        break;
-      case "--include-all":
-        // 過去仕様（フィルタなし）に戻す。bot 由来か否かを生で確認したい時に使う
-        opts.japanOnly = false;
-        opts.excludeSpam = false;
-        break;
-      case "--no-japan-only":
-        opts.japanOnly = false;
-        break;
-      case "--no-exclude-spam":
-        opts.excludeSpam = false;
-        break;
-    }
-  }
-
-  return opts;
 }
 
 // ── Auth ──

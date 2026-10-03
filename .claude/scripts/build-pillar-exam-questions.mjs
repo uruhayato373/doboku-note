@@ -18,13 +18,17 @@
  */
 
 import { readFileSync, writeFileSync } from "node:fs";
+import { join, relative } from "node:path";
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
 // ── Config ──
 
-const KEYWORD_2026_PATH = "content/site/pe-comprehensive-management/keyword-2026/article.mdx";
-const EXAM_KW_JSON = "src/config/exam-question-keywords.json";
-const OUT_PATH = "src/config/pillar-exam-questions.json";
+const KEYWORD_2026_PATH = join(SITE_CONTENT_ROOT, "pe-comprehensive-management/keyword-2026/article.mdx");
+const EXAM_KW_JSON = join(REPO_ROOT, "src/config/exam-question-keywords.json");
+const OUT_PATH = join(REPO_ROOT, "src/config/pillar-exam-questions.json");
+// 出力 JSON と表示には従来どおりリポジトリ相対パスを書く
+const repoRel = (p) => relative(REPO_ROOT, p).split("\\").join("/");
 
 const PILLAR_INFO = {
   economic: { label: "経済性管理", slug: "pe-comprehensive-management-economic-management-pillar" },
@@ -221,13 +225,13 @@ function main() {
     version: 1,
     generated_at: new Date().toISOString(),
     source: {
-      exam_question_keywords: EXAM_KW_JSON,
-      keyword_2026: KEYWORD_2026_PATH,
+      exam_question_keywords: repoRel(EXAM_KW_JSON),
+      keyword_2026: repoRel(KEYWORD_2026_PATH),
     },
     pillars,
   };
   writeJsonIfChanged(OUT_PATH, out);
-  console.log(`出力: ${OUT_PATH}`);
+  console.log(`出力: ${repoRel(OUT_PATH)}`);
 }
 
 main();

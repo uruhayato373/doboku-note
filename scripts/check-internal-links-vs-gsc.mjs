@@ -26,13 +26,15 @@
  * exit 0=OK / 1=壊れた内部リンクあり or 検査不成立
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
+import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join, sep } from "node:path";
 import { readUnitSsot, urlsPath } from "./lib/google-console-ssot.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { listFiles } from "./lib/fs-walk.mjs";
 
 const SSOT = urlsPath("gsc-ui");
-const META = "src/config/doc-meta-index.json";
-const SCAN_ROOTS = ["content/site", "src"];
+const META = join(REPO_ROOT, "src/config/doc-meta-index.json");
+const SCAN_ROOTS = [SITE_CONTENT_ROOT, join(REPO_ROOT, "src")];
 const WANT_JSON = process.argv.includes("--json");
 
 function loadSsotSlugs(key) {
@@ -49,16 +51,8 @@ function loadSsotSlugs(key) {
   return out;
 }
 
-function walk(dir, exts, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) {
-      if (e.name === "node_modules" || e.name === ".next") continue;
-      walk(p, exts, acc);
-    } else if (exts.some((x) => e.name.endsWith(x))) acc.push(p);
-  }
-  return acc;
+function walk(dir, exts) {
+  return listFiles(dir, { ext: exts, skipDir: (_p, name) => name === "node_modules" || name === ".next", allowMissing: true });
 }
 
 const notFound = loadSsotSlugs("notFound--allKnownPages");

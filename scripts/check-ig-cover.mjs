@@ -21,39 +21,38 @@
 //   node scripts/check-ig-cover.mjs --staged   # git staged のみ（pre-commit 用）
 // 違反が 1 件でもあれば exit 1。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { REPO_ROOT, SNS_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
-const ROOT = 'content/sns/instagram';
+const ROOT = join(SNS_CONTENT_ROOT, 'instagram');
+// 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
+const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const ROOT_REL = repoRel(ROOT);
 // 試験dir以外（非パック）は対象外
 const NON_EXAM = new Set(['_dev', 'highlights', 'stories', 'profile.md', 'README.md', '_keyword-findings.md']);
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (e === '00-cover.svg') out.push(p.split('\\').join('/'));
-  }
-  return out;
+function walk(dir) {
+  return listFiles(dir, { match: (_p, name) => name === '00-cover.svg', followLinks: true, allowMissing: true }).map(repoRel);
 }
 
 let files;
 if (STAGED) {
   const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n').map((s) => s.trim()).filter(Boolean);
-  files = staged.filter((f) => existsSync(f) && f.startsWith(`${ROOT}/`) && f.endsWith('00-cover.svg'));
+  files = staged.filter((f) => existsSync(join(REPO_ROOT, f)) && f.startsWith(`${ROOT_REL}/`) && f.endsWith('00-cover.svg'));
 } else {
   files = walk(ROOT);
 }
 
 const problems = [];
 for (const f of files) {
-  const svg = readFileSync(f, 'utf8');
-  const rel = f.slice(`${ROOT}/`.length); // 例: cem/herzberg-.../carousel/img/00-cover.svg
+  const svg = readFileSync(join(REPO_ROOT, f), 'utf8');
+  const rel = f.slice(`${ROOT_REL}/`.length); // 例: cem/herzberg-.../carousel/img/00-cover.svg
   const examDir = rel.split('/')[0];
   let labels;
   try { labels = figurePackLabels(examDir); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
@@ -82,8 +81,8 @@ for (const f of files) {
   // 7. 同パックの 01-figure.svg は全面背景rectが必須
   //    サイト図はページ白背景前提で背景を持たない → PNG化で透明 → Instagram が黒表示（2026-06-24 発覚、8中5パック）
   const figPath = f.replace('00-cover.svg', '01-figure.svg');
-  if (existsSync(figPath)) {
-    const fig = readFileSync(figPath, 'utf8');
+  if (existsSync(join(REPO_ROOT, figPath))) {
+    const fig = readFileSync(join(REPO_ROOT, figPath), 'utf8');
     if (!/<rect[^>]*width="400"[^>]*height="500"[^>]*fill="#(fff|ffffff)"|<rect[^>]*fill="#(fff|ffffff)"[^>]*width="400"[^>]*height="500"/.test(fig)) {
       problems.push(`${figPath}: 全面の白背景rectが無い（透明PNG→Instagramで黒地に。<rect width="400" height="500" fill="#ffffff"/> を <svg> 直後に追加）`);
     }

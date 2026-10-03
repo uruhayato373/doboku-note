@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import { expansionReport } from './lib/content-expansion.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 const LINKED = process.argv.includes('--linked');
 try {
-  const report = expansionReport(process.cwd());
+  const report = expansionReport(REPO_ROOT);
   if (process.argv.includes('--json')) console.log(JSON.stringify(report, null, 2));
   else {
     const s = report.summary;

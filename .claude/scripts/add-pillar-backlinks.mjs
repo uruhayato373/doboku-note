@@ -19,10 +19,12 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
+import { SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
 // ── Config ──
 
-const PE_ROOT = "content/site/pe-comprehensive-management";
+const PE_ROOT = join(SITE_CONTENT_ROOT, "pe-comprehensive-management");
 const KEYWORD_2026_PATH = join(PE_ROOT, "keyword-2026/article.mdx");
 
 const PILLAR_INFO = {
@@ -72,13 +74,10 @@ const EXCLUDE_SLUGS = new Set([
 // ── CLI args ──
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { dryRun: false, singleSlug: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--dry-run") opts.dryRun = true;
-    else if (args[i] === "--slug") opts.singleSlug = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    "dry-run": { type: "boolean" },
+    slug: { type: "string", key: "singleSlug" },
+  });
 }
 
 // ── keyword-2026 から slug → area マップを抽出 ──

@@ -24,18 +24,18 @@
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
  * 評価サイクル: data/business/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
+import { listFiles } from "../../scripts/lib/fs-walk.mjs";
 
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 
-const readJson = (p) => readJsonOrReport(ROOT, p);
 const toPosix = (p) => p.split("\\").join("/");
 const relative = (p) => toPosix(p).slice(toPosix(ROOT).length + 1);
 
@@ -137,7 +137,7 @@ export function sumA8(rows) {
 // ---- 収集 -------------------------------------------------------------------
 
 function collectCareerDocs(cfg) {
-  const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+  const index = readJsonOrReport(ROOT, join(ROOT, "src/config/doc-meta-index.json"));
   const docs = [];
   for (const [slug, m] of Object.entries(index.docs)) {
     if (!(m.tags ?? []).includes("career")) continue;
@@ -166,15 +166,7 @@ const EXTRA_LINK_SOURCES = ["src/config/career-pathways.ts"];
 
 /** content/site の全 MDX を読み、career slug への literal 内部リンクと CareerAffiliate 出現を数える。 */
 function scanSiteSources(careerSlugs) {
-  const files = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith(".mdx")) files.push(p);
-    }
-  };
-  walk(SITE_DIR);
+  const files = listFiles(SITE_DIR, { ext: ".mdx" });
 
   const inboundLinks = new Map(careerSlugs.map((s) => [s, 0]));
   const affiliateBySlug = new Map(careerSlugs.map((s) => [s, { careerAffiliate: 0, placements: [] }]));
@@ -226,27 +218,20 @@ function collectNoteCareer(cfg) {
     const m = new RegExp(`^${key}:\\s*"?([^"\\r\\n]+)"?`, "m").exec(head);
     return m ? m[1].trim() : null;
   };
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
-      else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) {
-        const head = readFileSync(p, "utf8").slice(0, 2000);
-        const utm = field(head, "utmCampaign");
-        if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
-        out.push({
-          path: relative(p),
-          utmCampaign: utm,
-          noteId: field(head, "noteId"),
-          noteUrl: field(head, "noteUrl"),
-          noteStatus: field(head, "noteStatus"),
-          notePricing: field(head, "notePricing"),
-        });
-      }
-    }
-  };
-  walk(NOTE_DIR);
+  // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
+  for (const p of listFiles(NOTE_DIR, { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+    const head = readFileSync(p, "utf8").slice(0, 2000);
+    const utm = field(head, "utmCampaign");
+    if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
+    out.push({
+      path: relative(p),
+      utmCampaign: utm,
+      noteId: field(head, "noteId"),
+      noteUrl: field(head, "noteUrl"),
+      noteStatus: field(head, "noteStatus"),
+      notePricing: field(head, "notePricing"),
+    });
+  }
   out.sort((a, b) => a.utmCampaign.localeCompare(b.utmCampaign));
   return out;
 }
@@ -260,7 +245,7 @@ function main() {
   const say = jsonOut ? console.error : console.log;
   const warnings = [];
 
-  const cfg = readJson(CONFIG);
+  const cfg = readJsonOrReport(ROOT, CONFIG);
 
   const inputs = {
     ga4Label: latestSnapshot("ga4.cta-clicks-by-label"),
@@ -282,12 +267,12 @@ function main() {
     process.exit(2);
   }
 
-  const ga4Label = readJson(inputs.ga4Label);
-  const ga4Placement = inputs.ga4Placement ? readJson(inputs.ga4Placement) : { meta: null, rows: [] };
-  const ga4Page = inputs.ga4Page ? readJson(inputs.ga4Page) : { meta: null, rows: [] };
-  const gscPageQuery = readJson(inputs.gscPageQuery);
-  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
-  const afb = inputs.afb ? readJson(inputs.afb) : null;
+  const ga4Label = readJsonOrReport(ROOT, inputs.ga4Label);
+  const ga4Placement = inputs.ga4Placement ? readJsonOrReport(ROOT, inputs.ga4Placement) : { meta: null, rows: [] };
+  const ga4Page = inputs.ga4Page ? readJsonOrReport(ROOT, inputs.ga4Page) : { meta: null, rows: [] };
+  const gscPageQuery = readJsonOrReport(ROOT, inputs.gscPageQuery);
+  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJsonOrReport(ROOT, inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
+  const afb = inputs.afb ? readJsonOrReport(ROOT, inputs.afb) : null;
 
   const windows = checkWindows(ga4Label.meta, gscPageQuery.meta);
   if (!windows.aligned) {

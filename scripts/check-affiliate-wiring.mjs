@@ -17,16 +17,19 @@
  *   node scripts/check-affiliate-wiring.mjs --staged
  */
 import { readFileSync, existsSync } from "node:fs";
+import { join, relative } from "node:path";
 import { execSync } from "node:child_process";
 import { datasetPath } from "./lib/datasets.mjs";
 import { withSharedConnection } from "./lib/asp-config.mjs";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
-const MATS = "src/config/affiliate-mats.json";
+const MATS = join(REPO_ROOT, "src/config/affiliate-mats.json");
+const rel = (p) => relative(REPO_ROOT, p).split("\\").join("/");
 const CATALOG = datasetPath("affiliate.catalog");
 const A8_CONFIG = datasetPath("config.a8-report-automation");
 const ASP_CONFIG = datasetPath("config.affiliate-asp");
-const CONSUMER = ".claude/scripts/report-buildjob-affiliate.mjs";
-const WATCHED = [MATS, CATALOG, A8_CONFIG, ASP_CONFIG, CONSUMER];
+const CONSUMER = join(REPO_ROOT, ".claude/scripts/report-buildjob-affiliate.mjs");
+const WATCHED = [rel(MATS), CATALOG, A8_CONFIG, ASP_CONFIG, rel(CONSUMER)];
 const KNOWLEDGE = ".claude/knowledge/reference/affiliate-operations.md";
 
 const STATUS_VOCAB = new Set(["approved", "applying", "none", "unavailable", "unknown"]);
@@ -47,11 +50,11 @@ if (process.argv.includes("--staged")) {
 
 const errors = [];
 const warns = [];
-const readJson = (p) => {
+const readJsonOrReport = (p) => {
   try {
     return JSON.parse(readFileSync(p, "utf-8"));
   } catch (e) {
-    errors.push(`${p} が JSON として読めない: ${e.message}`);
+    errors.push(`${rel(p)} が JSON として読めない: ${e.message}`);
     return null;
   }
 };
@@ -59,13 +62,13 @@ const readJson = (p) => {
 // ── 1. mats（サイトに置いた広告）
 let matPrograms = new Set();
 if (existsSync(MATS)) {
-  const raw = readJson(MATS);
+  const raw = readJsonOrReport(MATS);
   const mats = Array.isArray(raw) ? raw : (raw?.mats ?? []);
   matPrograms = new Set(mats.map((m) => m.program).filter(Boolean));
 }
 
 // ── 2. カタログ（3 ASP 横断）
-const catalog = existsSync(CATALOG) ? readJson(CATALOG) : null;
+const catalog = existsSync(CATALOG) ? readJsonOrReport(CATALOG) : null;
 const catPrograms = new Map(Object.entries(catalog?.programs ?? {}));
 
 if (catalog) {
@@ -84,7 +87,7 @@ if (catalog) {
     }
     // サイトに配置しているなら mats に mat が要る
     if (p.placement === "active" && !matPrograms.has(key)) {
-      errors.push(`catalog.${key}: placement=active だが ${MATS} に program="${key}" の mat が無い（配置の実体が無い）`);
+      errors.push(`catalog.${key}: placement=active だが ${rel(MATS)} に program="${key}" の mat が無い（配置の実体が無い）`);
     }
     // Red Line 該当を配置していないこと
     if (p.redLine === true && p.placement === "active") {
@@ -94,14 +97,14 @@ if (catalog) {
   // 逆方向: サイトに置いているのにカタログに無い＝取りこぼし
   for (const prog of matPrograms) {
     if (!catPrograms.has(prog)) {
-      errors.push(`${MATS} に掲載中の "${prog}" が ${CATALOG} に無い＝**取りこぼし**（配置しているのに横断管理から漏れる）`);
+      errors.push(`${rel(MATS)} に掲載中の "${prog}" が ${CATALOG} に無い＝**取りこぼし**（配置しているのに横断管理から漏れる）`);
     }
   }
 }
 
 // ── 3. A8 成果取込の programIdMap
 if (existsSync(A8_CONFIG)) {
-  const a8 = readJson(A8_CONFIG)?.a8 ?? {};
+  const a8 = readJsonOrReport(A8_CONFIG)?.a8 ?? {};
   for (const [field, v] of Object.entries(a8.columnAliases ?? {})) {
     if (!Array.isArray(v)) errors.push(`a8.columnAliases.${field} が配列でない（解説キーは columnAliases の外へ）`);
   }
@@ -124,11 +127,11 @@ if (existsSync(A8_CONFIG)) {
   );
   for (const prog of matPrograms) {
     if (!mapValues.has(prog)) {
-      errors.push(`${MATS} に掲載中の "${prog}" が a8.programIdMap に無い＝A8 レポート集計から漏れる`);
+      errors.push(`${rel(MATS)} に掲載中の "${prog}" が a8.programIdMap に無い＝A8 レポート集計から漏れる`);
     }
   }
   for (const v of mapValues) {
-    if (!matPrograms.has(v)) warns.push(`a8.programIdMap の "${v}" が ${MATS} に無い（掲載終了の取り残し？）`);
+    if (!matPrograms.has(v)) warns.push(`a8.programIdMap の "${v}" が ${rel(MATS)} に無い（掲載終了の取り残し？）`);
   }
   // カタログの A8 programId と programIdMap の整合
   for (const [key, p] of catPrograms) {
@@ -144,7 +147,7 @@ if (existsSync(A8_CONFIG)) {
 // ── 4. ASP 接続設定
 if (existsSync(ASP_CONFIG)) {
   // A8 の URL・口座・ブラウザの共通部分は a8-report-automation.json が正本（読み出しと同じ合成をしてから検査する。写しが書かれていれば例外）
-  let asp = readJson(ASP_CONFIG);
+  let asp = readJsonOrReport(ASP_CONFIG);
   try {
     asp = withSharedConnection(asp);
   } catch (e) {
@@ -170,7 +173,7 @@ if (existsSync(ASP_CONFIG)) {
 if (existsSync(CONSUMER)) {
   const src = readFileSync(CONSUMER, "utf-8");
   for (const prog of matPrograms) {
-    if (!src.includes(`"${prog}"`)) warns.push(`"${prog}" が ${CONSUMER} に現れない（EPC レポートの分類に載らない）`);
+    if (!src.includes(`"${prog}"`)) warns.push(`"${prog}" が ${rel(CONSUMER)} に現れない（EPC レポートの分類に載らない）`);
   }
 }
 
@@ -179,10 +182,10 @@ if (errors.length > 0) {
   for (const e of errors) console.error(`[check-affiliate-wiring] ERROR: ${e}`);
   console.error(
     `\n対処: 4 つの真実源を一致させる。\n` +
-      `  ${MATS}（サイトに置いた広告・program 語彙の SSOT）\n` +
+      `  ${rel(MATS)}（サイトに置いた広告・program 語彙の SSOT）\n` +
       `  ${CATALOG}（3 ASP 横断の提携カタログ）\n` +
       `  ${A8_CONFIG}（A8 成果取込の programIdMap）\n` +
-      `  ${CONSUMER}（EPC 消費側）\n` +
+      `  ${rel(CONSUMER)}（EPC 消費側）\n` +
       `ルール: ${KNOWLEDGE}`,
   );
   process.exit(1);

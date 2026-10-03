@@ -21,16 +21,14 @@ import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
 import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { json: false, reportPath: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--json") opts.json = true;
-    else if (args[i] === "--report") opts.reportPath = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    json: { type: "boolean" },
+    report: { type: "string", key: "reportPath" },
+  });
 }
 
 function findLatestDateFile() {

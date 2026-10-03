@@ -23,14 +23,15 @@ const path = require('path');
 const { google } = require('googleapis');
 const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 
-const LEDGER = '.claude/state/youtube-schedule.json';
+const ROOT = path.resolve(__dirname, '../../..'); // root-ok: CJS（ファイルの場所から決めている）
+const LEDGER = path.join(ROOT, '.claude/state/youtube-schedule.json');
 const DRY = process.argv.includes('--dry-run');
 const maxIdx = process.argv.indexOf('--max');
 const MAX_OVERRIDE = maxIdx !== -1 ? Number(process.argv[maxIdx + 1]) : null;
 
 function loadEnv() {
   const env = { ...process.env };
-  const p = path.join(process.cwd(), '.env.local');
+  const p = path.join(ROOT, '.env.local');
   if (fs.existsSync(p)) {
     for (const line of fs.readFileSync(p, 'utf8').split('\n')) {
       const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
@@ -48,7 +49,7 @@ function requireEnv(keys) {
 requireEnv(['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN',
   'CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_R2_ACCESS_KEY_ID', 'CLOUDFLARE_R2_SECRET_ACCESS_KEY']);
 
-if (!fs.existsSync(LEDGER)) { console.error(`Error: 台帳がありません: ${LEDGER}（先に build-schedule.mjs）`); process.exit(1); }
+if (!fs.existsSync(LEDGER)) { console.error(`Error: 台帳がありません: ${path.relative(ROOT, LEDGER).split(path.sep).join('/')}（先に build-schedule.mjs）`); process.exit(1); }
 const ledger = JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
 const meta = ledger.meta || {};
 const LEAD_MS = (meta.leadDays ?? 4) * 86400000;

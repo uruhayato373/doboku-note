@@ -20,9 +20,10 @@
  *       CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
  */
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
+import { REPO_ROOT, SNS_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 function loadEnv() {
   const env = { ...process.env };
@@ -53,7 +54,7 @@ const keyIdx = process.argv.indexOf('--key');
 const targetKey = keyIdx !== -1 ? process.argv[keyIdx + 1] : null;
 
 const W = 1080;
-const EXAM_DIR = 'content/sns/instagram/cem/exam-packs/技術士総監';
+const EXAM_DIR = join(SNS_CONTENT_ROOT, 'instagram/cem/exam-packs/技術士総監');
 
 const { renderExamCoverIg } = await import(pathToFileURL(resolve('.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib/svg-to-png.mjs')).href);
@@ -99,7 +100,7 @@ for (const it of items) {
 
   // slide-data.json を読む
   const slideFile = join(EXAM_DIR, year, `pack-${packNum}`, 'slide-data.json');
-  if (!existsSync(slideFile)) { console.log(`  ⚠ slide-data.json なし: ${slideFile}`); fail++; continue; }
+  if (!existsSync(slideFile)) { console.log(`  ⚠ slide-data.json なし: ${relative(REPO_ROOT, slideFile).split('\\').join('/')}`); fail++; continue; }
   const slideData = JSON.parse(readFileSync(slideFile, 'utf8'));
 
   const topic = topicFromTitle(it.title);

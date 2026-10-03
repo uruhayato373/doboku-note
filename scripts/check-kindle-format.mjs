@@ -28,6 +28,7 @@
 import { execSync } from 'node:child_process'
 import { readdirSync, existsSync } from 'node:fs'
 import { join, basename } from 'node:path'
+import { REPO_ROOT } from './lib/repository-paths.mjs'
 
 const MIN_LINE_HEIGHT = 1.5
 
@@ -120,7 +121,7 @@ function checkEpub(epub) {
 const args = process.argv.slice(2)
 let targets = args
 if (targets.length === 0) {
-  const dir = join(process.cwd(), 'scripts/kindle-published')
+  const dir = join(REPO_ROOT, 'scripts/kindle-published')
   targets = existsSync(dir)
     ? readdirSync(dir).filter((f) => f.endsWith('.epub')).map((f) => join(dir, f))
     : []

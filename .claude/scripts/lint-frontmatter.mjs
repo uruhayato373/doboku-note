@@ -21,7 +21,7 @@
  *   1 : HIGH 1 件以上
  *   2 : 引数エラー
  */
-import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, relative, extname } from 'node:path';
 import matter from 'gray-matter';
@@ -29,6 +29,7 @@ import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 import { pathToFileURL } from 'node:url';
 import { DESCRIPTION_LINT_MAX, DESCRIPTION_MAX, DESCRIPTION_MIN, TITLE_MAX } from '../../scripts/lib/seo-thresholds.mjs';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
@@ -61,14 +62,7 @@ function parseArgs(argv) {
 // ── MDX 列挙 ────────────────────────────────────────────────────
 
 function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walkMdx(p));
-    else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') out.push(p);
-  }
-  return out;
+  return listFiles(dir, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
 }
 
 function expandTargets(args) {

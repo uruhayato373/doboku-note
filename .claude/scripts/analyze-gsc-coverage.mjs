@@ -18,27 +18,18 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync } from 
 import { join, basename } from "path";
 import { datasetDir } from "../../scripts/lib/datasets.mjs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 import { glob } from "glob";
 
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    inspectionGlob: null,
-    pageData: null,
-    queryData: null,
-    brandQueryData: null,
-    urlDir: ".tmp/gsc-urls/",
-  };
-  for (let i = 0; i < args.length; i++) {
-    const k = args[i];
-    if (k === "--inspection-glob") opts.inspectionGlob = args[++i];
-    else if (k === "--page-data") opts.pageData = args[++i];
-    else if (k === "--query-data") opts.queryData = args[++i];
-    else if (k === "--brand-query-data") opts.brandQueryData = args[++i];
-    else if (k === "--url-dir") opts.urlDir = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    "inspection-glob": { type: "string" },
+    "page-data": { type: "string" },
+    "query-data": { type: "string" },
+    "brand-query-data": { type: "string" },
+    "url-dir": { type: "string", default: ".tmp/gsc-urls/" },
+  });
 }
 
 async function loadInspections(globPattern) {

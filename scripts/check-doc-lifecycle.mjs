@@ -25,6 +25,7 @@
 import { readdirSync, readFileSync, statSync, writeSync } from 'node:fs';
 import { join, basename, extname, relative, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -37,26 +38,14 @@ const HANDOFF_DIR = join(ROOT, 'docs/handoffs');
 const CORPUS_ROOTS = ['docs', '.claude'];
 const CORPUS_EXCLUDE = ['node_modules', '.git', 'out', '_archive'];
 
-function walk(dir, acc) {
-  let entries;
-  try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return acc;
-  }
-  for (const e of entries) {
-    if (e.name.startsWith('.') && e.name !== '.claude') continue;
-    if (CORPUS_EXCLUDE.includes(e.name)) continue;
-    const full = join(dir, e.name);
-    if (e.isDirectory()) walk(full, acc);
-    else if (extname(e.name) === '.md') acc.push(full);
-  }
-  return acc;
-}
-
 // コーパス（active .md 全文を 1 つに連結し、basename の出現で参照判定）。
-const corpusFiles = [];
-for (const r of CORPUS_ROOTS) walk(join(ROOT, r), corpusFiles);
+const corpusFiles = CORPUS_ROOTS.flatMap((r) =>
+  listFiles(join(ROOT, r), {
+    match: (_p, name) => extname(name) === '.md' && !name.startsWith('.'),
+    skipDir: (_p, name) => (name.startsWith('.') && name !== '.claude') || CORPUS_EXCLUDE.includes(name),
+    allowMissing: true,
+  }),
+);
 const claudeMd = join(ROOT, 'CLAUDE.md');
 try {
   statSync(claudeMd);

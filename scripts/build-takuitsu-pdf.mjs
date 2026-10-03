@@ -19,6 +19,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, basename, dirname } from 'node:path'
 import { chromium } from 'playwright'
 import { REPO_ROOT as REPO, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
+import { parseCliArgs } from './lib/cli-args.mjs'
 
 const AUTHOR = 'doboku-note'
 const DEFAULT_EXAM = '技術士第一次試験'
@@ -29,15 +30,12 @@ const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
 function parseArgs(argv) {
-  const a = { spec: null, out: null, sample: false, split: false }
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--spec') a.spec = argv[++i]
-    else if (argv[i] === '--out') a.out = argv[++i]
-    else if (argv[i] === '--sample') a.sample = true
-    else if (argv[i] === '--split') a.split = true
-  }
-  if (!a.spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
-  return a
+  const { spec, out, sample, split } = parseCliArgs(
+    { spec: { type: 'string' }, out: { type: 'string' }, sample: { type: 'boolean' }, split: { type: 'boolean' } },
+    argv,
+  )
+  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  return { spec, out, sample, split }
 }
 
 // ---- xml/html エスケープ（epub-writer.xesc と同等）--------------------------

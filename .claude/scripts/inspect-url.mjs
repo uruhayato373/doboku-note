@@ -24,6 +24,7 @@ import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
 import { GSC_PROPERTY, SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -48,38 +49,22 @@ const EXIT_INTERRUPTED = 3;
 // ── CLI args ──
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    url: null,
-    file: null,
-    top: null,
-    json: false,
-    concurrency: Number(process.env.INSPECT_CONCURRENCY) || DEFAULT_CONCURRENCY,
-    checkpointEvery: DEFAULT_CHECKPOINT_EVERY,
+  const a = parseCliArgs({
+    url: { type: "string" },
+    file: { type: "string" },
+    top: { type: "integer" },
+    json: { type: "boolean" },
+    concurrency: { type: "integer" },
+    "checkpoint-every": { type: "integer" },
+  });
+  return {
+    url: a.url,
+    file: a.file,
+    top: a.top,
+    json: a.json,
+    concurrency: a.concurrency === null ? Number(process.env.INSPECT_CONCURRENCY) || DEFAULT_CONCURRENCY : Math.max(1, a.concurrency || 1),
+    checkpointEvery: a.checkpointEvery === null ? DEFAULT_CHECKPOINT_EVERY : Math.max(1, a.checkpointEvery || 1),
   };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--url":
-        opts.url = args[++i];
-        break;
-      case "--file":
-        opts.file = args[++i];
-        break;
-      case "--top":
-        opts.top = parseInt(args[++i], 10);
-        break;
-      case "--json":
-        opts.json = true;
-        break;
-      case "--concurrency":
-        opts.concurrency = Math.max(1, parseInt(args[++i], 10) || 1);
-        break;
-      case "--checkpoint-every":
-        opts.checkpointEvery = Math.max(1, parseInt(args[++i], 10) || 1);
-        break;
-    }
-  }
-  return opts;
 }
 
 // ── Auth ──

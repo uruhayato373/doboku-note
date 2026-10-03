@@ -657,6 +657,23 @@ export const ConfigKdpMemo = z
   .strict()
   .meta({ title: 'KDP 入稿の設定' });
 
+// ---- 技術士 第二次 筆記の答案用紙（config/pe-answer-sheets.json） ----------------------------------
+
+/** 技術士 第二次試験 筆記の答案用紙 1 枚の字数と、区分ごとの枚数。check-note-charlimits・essay-shisaku-charcount が読む */
+export const ConfigPeAnswerSheets = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    charsPerSheet: positiveInt.describe('答案用紙 1 枚の字数'),
+    targetRatio: z.number().gt(0).max(1).describe('上限のこの割合を超えたら警告する'),
+    _targetRatio: text,
+    sheets: z.record(QID, z.record(text, positiveInt)).describe('資格 id → 区分 → 枚数'),
+    _sheets: text,
+    sources: z.array(z.string().url()).min(1),
+  })
+  .strict()
+  .meta({ title: '技術士の答案用紙' });
+
 // ---- 経験記述の解答欄の字数上限（config/keiken-answer-sheet-limits.json） -------------------------
 
 const LIMIT_KEYS = ['current2_q1', 'current2_q2', 'legacy3_q1', 'legacy3_q2', 'legacy3_q3', 'yosou'];
@@ -792,6 +809,7 @@ export const ConfigContentRules = z
       .catchall(z.record(text, z.object({ _note: text.optional() }).catchall(ruleOverride)))
       .describe('資格（category）×種別（group か *）ごとの無効化・重大度の上書き。overrides[資格][種別][ルール id]'),
     fullScan: z.object({ _doc: text, rules: z.array(RULE_ID).min(1).superRefine(uniqueBy((r) => r, 'ルール')) }).strict().describe('週次 CI のラチェットが追跡するルール'),
+    lengths: z.object({ _doc: text, guideMinChars: positiveInt.describe('ガイド記事の本文の下限（字）') }).strict().describe('本文の長さの下限'),
   })
   .strict()
   .superRefine((c, ctx) => {

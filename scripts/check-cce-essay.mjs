@@ -17,13 +17,13 @@
 //   node scripts/check-cce-essay.mjs <path...>        # 指定ファイル（writer/qa の返却前ゲート）
 //   node scripts/check-cce-essay.mjs --fix            # 出題履歴ブロックを SSOT から再生成
 // exit: 0 合格 / 1 違反あり / 2 検査不成立（全件モードで対象 0 件）
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { evaluateCceEssay, extractHistoryBlocks, syncHistoryBlock } from './lib/cce-essay.mjs';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ROOTS = ['content/note/コンクリート主任技士', 'content/site/concrete-chief-engineer'];
 const SSOT = datasetPath('config.cce-essay-history');
@@ -32,14 +32,8 @@ const FIX = process.argv.includes('--fix');
 const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const isTarget = (f) => /(^|\/)(article(-[^/]+)?\.md|[^/]+\.mdx)$/.test(f);
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (isTarget(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
+function walk(dir) {
+  return listFiles(dir, { match: (_p, name) => isTarget(name), followLinks: true, allowMissing: true }).map((p) => p.split('\\').join('/'));
 }
 
 const history = JSON.parse(readFileSync(SSOT, 'utf8'));

@@ -15,30 +15,14 @@
  * Usage:
  *   node .claude/scripts/migrate-title-seo.mjs [--dry-run]
  */
-import { readdirSync, existsSync } from 'node:fs';
 import { join, extname } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
 const POSTS_ROOT = join(ROOT, 'content/site');
 const DRY_RUN = process.argv.includes('--dry-run');
-
-// ── MDX 列挙 ────────────────────────────────────────────────────
-
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      out.push(...walkMdx(p));
-    } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') {
-      out.push(p);
-    }
-  }
-  return out;
-}
 
 // ── seoTitle 生成ルール ──────────────────────────────────────────
 
@@ -80,7 +64,7 @@ function computeCleanTitle(data) {
 // ── メイン処理 ─────────────────────────────────────────────────
 
 function main() {
-  const files = walkMdx(POSTS_ROOT);
+  const files = listFiles(POSTS_ROOT, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
   console.log(`[migrate-title] ${files.length} MDX を走査${DRY_RUN ? '（dry-run）' : ''}`);
 
   let modified = 0;

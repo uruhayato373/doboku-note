@@ -21,26 +21,16 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { qualificationIdsIn, qualificationRatios } from "../../scripts/lib/index-coverage.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const o = {
-    batch: null,
-    date: null,
-    sitemapCount: null,
-    notes: "",
-    history: datasetPath("gsc.index-coverage-history"),
-  };
-  for (let i = 0; i < a.length; i++) {
-    switch (a[i]) {
-      case "--batch": o.batch = a[++i]; break;
-      case "--date": o.date = a[++i]; break;
-      case "--sitemap-count": o.sitemapCount = parseInt(a[++i], 10); break;
-      case "--notes": o.notes = a[++i]; break;
-      case "--history": o.history = a[++i]; break;
-    }
-  }
-  return o;
+  return parseCliArgs({
+    batch: { type: "string" },
+    date: { type: "string" },
+    "sitemap-count": { type: "integer" },
+    notes: { type: "string", default: "" },
+    history: { type: "string", default: datasetPath("gsc.index-coverage-history") },
+  });
 }
 
 // coverage_state（日本語/英語ロケール両対応）を SSOT バケットへ写像

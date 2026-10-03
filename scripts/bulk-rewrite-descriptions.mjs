@@ -22,8 +22,9 @@ import { join, basename, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, transformMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { DESCRIPTION_MAX } from './lib/seo-thresholds.mjs';
+import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const BASE = 'content/site/pe-comprehensive-management';
+const BASE = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 const MAX_LEN = DESCRIPTION_MAX; // 検索結果に出る長さの上限（config/seo-meta-config.json の thresholds.description.max_length）
 // 書き換え結果の合格下限（この書き換え専用の値）。70 未満なら情報量不足として fail（core が極端に短いケース）。
 // lint の下限（thresholds.description.min_length）とは別の目的の数字なので、config には並べずここに置く。

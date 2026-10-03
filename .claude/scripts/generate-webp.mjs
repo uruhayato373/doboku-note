@@ -14,11 +14,13 @@
  * 品質: webp quality=80（サイズ/見栄えのバランス点）
  */
 
-import { readdirSync, statSync, existsSync, readFileSync, writeFileSync } from "node:fs";
-import { join, extname, dirname, sep } from "node:path";
+import { statSync, existsSync, readFileSync, writeFileSync } from "node:fs";
+import { extname, dirname, relative, sep } from "node:path";
 import sharp from "sharp";
+import { listFiles } from "../../scripts/lib/fs-walk.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const POSTS_DIR = "content/site";
+const POSTS_DIR = SITE_CONTENT_ROOT;
 const QUALITY = 80;
 const SUPPORTED = new Set([".png", ".jpg", ".jpeg"]);
 
@@ -29,26 +31,9 @@ const limitIdx = args.indexOf("--limit");
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
 // img/ 配下のみ対象（ogp.png 等の記事直下ファイルは対象外。
-// walk 自体は content/site を再帰するが、収集時に "img" セグメントを含むパスだけ採用する）
+// 走査自体は content/site を再帰するが、収集時に "img" セグメントを含むパスだけ採用する）
 function isUnderImgDir(full) {
   return full.split(sep).includes("img");
-}
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walk(full, out);
-    } else if (
-      entry.isFile() &&
-      SUPPORTED.has(extname(entry.name).toLowerCase()) &&
-      isUnderImgDir(full)
-    ) {
-      out.push(full);
-    }
-  }
-  return out;
 }
 
 function webpPath(src) {
@@ -84,7 +69,10 @@ async function convertOne(src) {
 // ── main ──
 
 console.log(`=== generate-webp ${DRY_RUN ? "(DRY RUN)" : ""} ${FORCE ? "[FORCE]" : ""} ===`);
-const files = walk(POSTS_DIR).slice(0, LIMIT);
+const files = listFiles(POSTS_DIR, {
+  allowMissing: true,
+  match: (full, name) => SUPPORTED.has(extname(name).toLowerCase()) && isUnderImgDir(relative(POSTS_DIR, full)),
+}).slice(0, LIMIT);
 console.log(`対象: ${files.length} ファイル (png/jpg/jpeg)`);
 
 let converted = 0;
@@ -104,7 +92,7 @@ for (let i = 0; i < files.length; i++) {
     skipped++;
   } else {
     errors++;
-    console.error(`[error] ${r.src}: ${r.error}`);
+    console.error(`[error] ${relative(REPO_ROOT, r.src).split("\\").join("/")}: ${r.error}`);
   }
   if ((i + 1) % 50 === 0) {
     console.log(`  ${i + 1} / ${files.length} processed (converted=${converted}, skipped=${skipped})`);

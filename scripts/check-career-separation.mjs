@@ -23,6 +23,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const BUILT = process.argv.includes('--built');
 
@@ -94,15 +95,7 @@ if (!BUILT) {
     );
     process.exit(1);
   }
-  const htmlFiles = [];
-  const walk = (dir) => {
-    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-      const p = path.join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith('.html')) htmlFiles.push(p);
-    }
-  };
-  for (const d of outDirs) walk(d);
+  const htmlFiles = outDirs.flatMap((d) => listFiles(d, { ext: '.html' }));
 
   let listsFound = 0;
   for (const file of htmlFiles) {

@@ -26,6 +26,7 @@
 
 import { readMdxFile, transformMdxFile } from './lib/mdx-io.mjs';
 import { resolve } from 'node:path';
+import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 const BASE = resolve('content/site/civil-construction-1');
 
@@ -253,7 +254,7 @@ if (waveArg) {
 
 let grandTotal = 0;
 for (const fp of files) {
-  const rel = fp.replace(process.cwd() + '/', '');
+  const rel = fp.replace(REPO_ROOT + '/', '');
   if (dryRun) {
     const { raw } = readMdxFile(fp);
     const out = transformContent(raw);

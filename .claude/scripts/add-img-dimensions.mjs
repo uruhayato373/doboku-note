@@ -14,10 +14,11 @@
 
 import { readdirSync, statSync, existsSync } from "fs";
 import { execSync } from "child_process";
-import { join } from "path";
+import { join, relative } from "path";
 import { transformMdxFile, readMdxFile } from "./lib/mdx-io.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = "content/site";
+const ROOT = SITE_CONTENT_ROOT;
 const DRY = process.argv.includes("--dry-run");
 
 function findMdx(dir, out = []) {
@@ -99,13 +100,13 @@ for (const f of files) {
     const newRaw = transform(raw);
     if (raw !== newRaw) {
       changed++;
-      console.log(`  WOULD CHANGE: ${f}`);
+      console.log(`  WOULD CHANGE: ${relative(REPO_ROOT, f).split("\\").join("/")}`);
     }
   } else {
     const did = transformMdxFile(f, transform);
     if (did) {
       changed++;
-      console.log(`  changed: ${f}`);
+      console.log(`  changed: ${relative(REPO_ROOT, f).split("\\").join("/")}`);
     }
   }
 }

@@ -25,9 +25,11 @@
  * exit: 0=健全 / 1=allowlist 外の違反 or 検査不成立
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { execSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 export const ROOTS = ['scripts', '.claude', 'tools'];
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'out', 'worktrees']);
@@ -89,22 +91,12 @@ export function isAllowed(file, kind, allow = ALLOW) {
   return typeof entry === 'string' || entry.kinds.includes(kind);
 }
 
-const walk = (d, out = []) => {
-  if (!existsSync(d)) return out;
-  for (const e of readdirSync(d, { withFileTypes: true })) {
-    const p = join(d, e.name);
-    if (e.isDirectory()) {
-      if (!SKIP_DIRS.has(e.name)) walk(p, out);
-    } else if (CODE_FILE.test(e.name)) out.push(p);
-  }
-  return out;
-};
+const walk = (d) => listFiles(d, { match: (_p, name) => CODE_FILE.test(name), skipDir: (_p, name) => SKIP_DIRS.has(name), allowMissing: true });
 
 const isMain = process.argv[1] && process.argv[1].endsWith('check-jst-date.mjs');
 
 if (isMain) {
   const STAGED = process.argv.includes('--staged');
-  const ROOT = process.cwd();
 
   let files;
   if (STAGED) {

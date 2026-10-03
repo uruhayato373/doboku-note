@@ -21,44 +21,40 @@
 //   node scripts/check-ig-cta.mjs --staged   # git staged のみ（pre-commit 用）
 // 違反が 1 件でもあれば exit 1。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
+import { REPO_ROOT, SNS_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
-const ROOT = 'content/sns/instagram';
+const ROOT = join(SNS_CONTENT_ROOT, 'instagram');
+// 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
+const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const ROOT_REL = repoRel(ROOT);
 const CTA_RE = /\d{2}-cta\.svg$/;
 // 実パック（{exam}/.../carousel/img/）のみ対象。_dev 等のスクラッチは除外
 const isPack = (f) => CTA_RE.test(f) && f.includes('/carousel/') && !f.includes('/_dev/');
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else {
-      const rel = p.split('\\').join('/');
-      if (isPack(rel)) out.push(rel);
-    }
-  }
-  return out;
+function walk(dir) {
+  return listFiles(dir, { match: (p) => isPack(repoRel(p)), followLinks: true, allowMissing: true }).map(repoRel);
 }
 
 let files;
 if (STAGED) {
   const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n').map((s) => s.trim()).filter(Boolean);
-  files = staged.filter((f) => existsSync(f) && f.startsWith(`${ROOT}/`) && isPack(f));
+  files = staged.filter((f) => existsSync(join(REPO_ROOT, f)) && f.startsWith(`${ROOT_REL}/`) && isPack(f));
 } else {
   files = walk(ROOT);
 }
 
 const problems = [];
 for (const f of files) {
-  const svg = readFileSync(f, 'utf8');
+  const svg = readFileSync(join(REPO_ROOT, f), 'utf8');
   let labels;
-  try { labels = figurePackLabels(f.slice(`${ROOT}/`.length).split('/')[0]); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
+  try { labels = figurePackLabels(f.slice(`${ROOT_REL}/`.length).split('/')[0]); } catch (error) { problems.push(`${f}: ${error.message}`); continue; }
   if (!/viewBox="0 0 400 500"/.test(svg)) problems.push(`${f}: viewBox="0 0 400 500" が必要`);
   if (!svg.includes('もっと深く学びたい方へ')) problems.push(`${f}: 見出し「もっと深く学びたい方へ」が無い（旧 maslow 系 CTA の様式。新標準テンプレを使う）`);
   if (!svg.includes('doboku-note.com')) problems.push(`${f}: URL ボタン "doboku-note.com" が無い`);

@@ -20,9 +20,10 @@
  * ---------------------------------------------------------------------------
  */
 
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { listFiles, skipHiddenAndNodeModules } from "./lib/fs-walk.mjs";
 
 const CALLOUT_SRC = join(ROOT, "src/components/ui/Callout/Callout.tsx");
 const DEFAULT_TARGETS = ["content"];
@@ -41,25 +42,6 @@ function extractAllowedTypes() {
     : [];
 
   return { kinds, legacy, allowed: new Set([...kinds, ...legacy]) };
-}
-
-function walk(dir, exts, out = []) {
-  let entries;
-  try {
-    entries = readdirSync(dir, { withFileTypes: true });
-  } catch {
-    return out;
-  }
-  for (const entry of entries) {
-    const full = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
-      walk(full, exts, out);
-    } else if (exts.some((ext) => entry.name.endsWith(ext))) {
-      out.push(full);
-    }
-  }
-  return out;
 }
 
 function lineOf(content, index) {
@@ -92,7 +74,7 @@ function main() {
       continue;
     }
     if (st.isDirectory()) {
-      walk(full, [".mdx", ".md"], files);
+      files.push(...listFiles(full, { ext: [".mdx", ".md"], skipDir: skipHiddenAndNodeModules }));
     } else {
       files.push(full);
     }

@@ -35,7 +35,7 @@
  * 真実源: .claude/todo/backlog.md 冒頭の凡例 ／ .claude/knowledge/reference/information-architecture.md
  */
 import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { loadDomains } from './lib/domains.mjs';
 import {
@@ -49,10 +49,13 @@ import {
   TODO_DIR,
 } from './lib/backlog-lib.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, TODO_ROOT, AGENT_CONFIG_ROOT } from './lib/repository-paths.mjs';
 
-const BACKLOG = '.claude/todo/backlog.md';
-const BASELINE = '.claude/config/backlog-vocab-baseline.json';
+const BACKLOG = join(TODO_ROOT, 'backlog.md');
+const BASELINE = join(AGENT_CONFIG_ROOT, 'backlog-vocab-baseline.json');
+// 表示・git の pathspec・ステージ内容の照合に使う、リポジトリルートからの相対パス
+const BACKLOG_REL = relative(ROOT, BACKLOG).split('\\').join('/');
+const BASELINE_REL = relative(ROOT, BASELINE).split('\\').join('/');
 const TODO_LAYERS = TODO_LAYER_FILES;
 
 /** 完了を「報告」する形。allowlist はこれから完了させるための記述で backlog にあるべきもの。 */
@@ -67,7 +70,7 @@ const DONE_ALLOW = /完了条件|完了したら|完了検知|完了率|完了�
 export function validateCards(cards, orphans, opts) {
   const { rawHeadingCount, npmScripts, allowedCategories, domainLabels } = opts;
   const v = [];
-  const at = (c) => `${BACKLOG}:${c.line}`;
+  const at = (c) => `${BACKLOG_REL}:${c.line}`;
 
   // ID は 2026-08-18 に必須化（monthly/weekly と docs/ の恒久文書が ID で結線するため）。
   const seenIds = new Map();
@@ -121,12 +124,12 @@ export function validateCards(cards, orphans, opts) {
   // 優先度（🔴🟡🟢🟣）の見出しの外にあるカードは admin にも sweep にも出ない（2026-09-26: 凡例の表の
   // 「## 🔴 高」の直後へ誤挿入した 16 枚が、件数の突合だけでは素通りした）
   for (const o of orphans) {
-    v.push({ rule: 'orphan', at: `${BACKLOG}:${o.line}`, msg: `「${o.title.slice(0, 40)}」が優先度の見出し（## 🔴/🟡/🟢/🟣）の外にある` });
+    v.push({ rule: 'orphan', at: `${BACKLOG_REL}:${o.line}`, msg: `「${o.title.slice(0, 40)}」が優先度の見出し（## 🔴/🟡/🟢/🟣）の外にある` });
   }
   if (rawHeadingCount !== cards.length + orphans.length) {
     v.push({
       rule: 'parser',
-      at: BACKLOG,
+      at: BACKLOG_REL,
       msg: `生 ### ${rawHeadingCount} 行 ≠ カード ${cards.length} + orphan ${orphans.length}（パーサ退行・フェンス事故を疑う）`,
     });
   }
@@ -185,7 +188,7 @@ export function validateStagedLines(addedLines, addedTodoFiles, cards = [], know
     if (missing.length) {
       v.push({
         rule: 'new-card-tokens',
-        at: `${BACKLOG}:${c.line}`,
+        at: `${BACKLOG_REL}:${c.line}`,
         msg: `新規カード「${c.title.slice(0, 40)}」に ${missing.join(' / ')} が無い`,
       });
     }
@@ -225,9 +228,9 @@ function main() {
   const STAGED = process.argv.includes('--staged');
   const JSON_OUT = process.argv.includes('--json');
 
-  const backlogPath = join(ROOT, BACKLOG);
+  const backlogPath = BACKLOG;
   if (!existsSync(backlogPath)) {
-    console.error(`✗ 検査不成立: ${BACKLOG} が無い`);
+    console.error(`✗ 検査不成立: ${BACKLOG_REL} が無い`);
     process.exit(2);
   }
   let pkg;
@@ -246,8 +249,8 @@ function main() {
     process.exit(2);
   }
 
-  const baseline = existsSync(join(ROOT, BASELINE))
-    ? JSON.parse(readFileSync(join(ROOT, BASELINE), 'utf8'))
+  const baseline = existsSync(BASELINE)
+    ? JSON.parse(readFileSync(BASELINE, 'utf8'))
     : { categories: {} };
   const allowedCategories = new Set([...CANONICAL_CATEGORIES, ...Object.keys(baseline.categories ?? {})]);
 
@@ -275,14 +278,14 @@ function main() {
 
   let stagedChecked = 0;
   if (STAGED) {
-    const diff = gitStaged(['diff', '--cached', '-U0', '--', BACKLOG]);
+    const diff = gitStaged(['diff', '--cached', '-U0', '--', BACKLOG_REL]);
     const addedLines = [];
     if (diff) {
       let ln = 0;
       for (const l of diff.split('\n')) {
         const h = l.match(/^@@ -\d+(?:,\d+)? \+(\d+)/);
         if (h) { ln = Number(h[1]); continue; }
-        if (l.startsWith('+') && !l.startsWith('+++')) { addedLines.push({ file: BACKLOG, line: ln, text: l.slice(1) }); ln += 1; }
+        if (l.startsWith('+') && !l.startsWith('+++')) { addedLines.push({ file: BACKLOG_REL, line: ln, text: l.slice(1) }); ln += 1; }
       }
     }
     stagedChecked = addedLines.length;
@@ -292,7 +295,7 @@ function main() {
       .map((s) => s.trim())
       .filter((s) => /^\.claude\/todo\/[^/]+\.md$/.test(s) && !TODO_LAYERS.includes(s.split('/').pop()));
     let knownTitles = null;
-    const headRaw = gitStaged(['show', `HEAD:${BACKLOG}`]);
+    const headRaw = gitStaged(['show', `HEAD:${BACKLOG_REL}`]);
     if (headRaw) knownTitles = new Set(parseBacklog(headRaw).map((c) => c.title));
     violations.push(...validateStagedLines(addedLines, addedTodoFiles, cards, knownTitles));
   }
@@ -313,7 +316,7 @@ function main() {
   for (const v of violations) console.error(`  [${v.rule}] ${v.at}  ${v.msg}`);
   console.error(
     '\n語彙は .claude/todo/backlog.md 冒頭の凡例が真実源。既存の別名カテゴリは ' +
-      `${BASELINE} に理由付きで登録して漸減させる（新規の語彙外は増やさない）。\n` +
+      `${BASELINE_REL} に理由付きで登録して漸減させる（新規の語彙外は増やさない）。\n` +
       '緊急回避: SKIP_BACKLOG_SCHEMA=1\n',
   );
   process.exit(1);

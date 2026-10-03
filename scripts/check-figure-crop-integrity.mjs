@@ -37,10 +37,12 @@
  *   node scripts/check-figure-crop-integrity.mjs --update-baseline
  *   node scripts/check-figure-crop-integrity.mjs --file <img>     # 1枚だけ検査（figure-recrop の自己検証用）
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, relative, dirname } from 'node:path';
 import sharp from 'sharp';
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'figure-crop-baseline.json');
@@ -65,32 +67,25 @@ const EDGE_CUT_TAPER = 0.5;     // margin=0 で 縁2行/内側4行 の密度比�
 const EDGE_LINE_FRAC = 0.6;     // 縁行のインクが内容スパンのこの比以上＝罫線/軸/枠の bbox 一致(LOW)
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  return {
-    ci: a.includes('--ci'),
-    updateBaseline: a.includes('--update-baseline'),
-    file: a.includes('--file') ? a[a.indexOf('--file') + 1] : null,
-  };
+  const { ci, updateBaseline, file } = parseCliArgs({
+    ci: { type: 'boolean' },
+    'update-baseline': { type: 'boolean' },
+    file: { type: 'string' },
+  });
+  return { ci, updateBaseline, file };
 }
 
 /** 対象画像を列挙（png を正典とし webp ペアは重複走査しない。jpg/jpeg も対象）。 */
 function listTargets() {
-  const out = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) { walk(p); continue; }
-      if (!/\/img\/|\\img\\/.test(p)) continue;
-      if (/\.png$/i.test(e.name)) out.push(p);
-      else if (/\.(jpe?g)$/i.test(e.name)) out.push(p);
-      else if (/\.webp$/i.test(e.name)) {
-        // png ペアが無い webp のみ対象（ペアがあれば png 側で1回だけ検査）
-        if (!existsSync(p.replace(/\.webp$/i, '.png'))) out.push(p);
-      }
-    }
-  };
-  walk(POSTS_DIR);
-  return out;
+  return listFiles(POSTS_DIR, {
+    match: (p, name) => {
+      if (!/\/img\/|\\img\\/.test(p)) return false;
+      if (/\.png$/i.test(name)) return true;
+      if (/\.(jpe?g)$/i.test(name)) return true;
+      // png ペアが無い webp のみ対象（ペアがあれば png 側で1回だけ検査）
+      return /\.webp$/i.test(name) && !existsSync(p.replace(/\.webp$/i, '.png'));
+    },
+  });
 }
 
 /** 1枚を解析して violations / 分類を返す。 */

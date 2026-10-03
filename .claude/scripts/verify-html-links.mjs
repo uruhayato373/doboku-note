@@ -15,15 +15,14 @@
 
 import { writeSync } from 'node:fs';
 import { readFileSync, writeFileSync, existsSync } from "fs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { urls: null, sample: 30, concurrency: 5 };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--urls") opts.urls = args[++i];
-    else if (args[i] === "--sample") opts.sample = parseInt(args[++i], 10);
-    else if (args[i] === "--concurrency") opts.concurrency = parseInt(args[++i], 10);
-  }
+  const opts = parseCliArgs({
+    urls: { type: "string" },
+    sample: { type: "integer", default: 30 },
+    concurrency: { type: "integer", default: 5 },
+  });
   if (!opts.urls) {
     console.error("Usage: --urls <file> [--sample N] [--concurrency N]");
     process.exit(2);

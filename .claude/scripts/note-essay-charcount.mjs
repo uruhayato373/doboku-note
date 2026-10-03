@@ -33,6 +33,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
 const SHEET = 600; // 答案用紙 1 枚 = 600 字
 const WARN_RATIO = 0.97; // 上限の 97% 以上で WARN（余白が僅少）
@@ -203,13 +204,7 @@ function analyze(file) {
 
 /** ディレクトリを再帰走査して article.md を集める */
 function walkArticles(dir) {
-  const out = [];
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, e.name);
-    if (e.isDirectory() && e.name !== 'img') out.push(...walkArticles(p));
-    else if (e.isFile() && e.name === 'article.md') out.push(p);
-  }
-  return out;
+  return listFiles(dir, { match: (_p, name) => name === 'article.md', skipDir: (_p, name) => name === 'img' });
 }
 
 /** 対象ファイル一覧（引数はファイルでもディレクトリでも可） */

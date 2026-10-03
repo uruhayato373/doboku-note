@@ -19,8 +19,9 @@ import { join, basename, dirname } from 'node:path';
 import matter from 'gray-matter';
 import { transformMdxFile, readMdxFile } from '#lib/mdx-io.mjs';
 import { DESCRIPTION_MIN } from '#seo/seo-thresholds.mjs';
+import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const BASE = 'content/site/pe-comprehensive-management';
+const BASE = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 const MIN_LEN = DESCRIPTION_MIN; // lint-frontmatter の desc-short と同じ下限（config/seo-meta-config.json）
 const TARGET_LEN = 90;
 

@@ -16,11 +16,12 @@
  *   node scripts/check-image-assets.mjs --ci            # C1 新規/増加 + C2 のみで exit 1・レポート書込なし
  *   node scripts/check-image-assets.mjs --update-baseline
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, lstatSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, lstatSync, existsSync } from 'node:fs';
 import { join, dirname, relative, basename } from 'node:path';
 import { classifyBySize, isDangerousName, diffBaseline, buildBaseline, fmtBytes, extOf } from '#lib/image-audit.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const CONFIG = join(ROOT, datasetPath('config.image-limits'));
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'image-baseline.json');
@@ -34,21 +35,7 @@ const UPDATE = argv.includes('--update-baseline');
 const IMG_EXT = /\.(svg|png|jpg|jpeg|webp|gif)$/i;
 const IGNORE_DIRS = new Set(['node_modules', '.git', 'out', '.next']);
 
-function readJson(p, fb) { try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return fb; } }
-
-// symlink を辿らない再帰 walk（public/posts 等の symlink 二重計上を防ぐ）
-function walk(dir, onFile) {
-  if (!existsSync(dir)) return;
-  for (const e of readdirSync(dir)) {
-    if (IGNORE_DIRS.has(e)) continue;
-    const p = join(dir, e);
-    let st;
-    try { st = lstatSync(p); } catch { continue; }
-    if (st.isSymbolicLink()) continue;
-    if (st.isDirectory()) walk(p, onFile);
-    else onFile(p, st);
-  }
-}
+function readJsonOr(p, fb) { try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return fb; } }
 
 // baseline は git が保存する LF 基準のバイト数で記録されている。autocrlf の作業ツリー
 // （Windows）では SVG が CRLF に展開され、1 行あたり 1 バイト増えるので、実体をそのまま
@@ -67,13 +54,13 @@ function collectImages(cfg) {
   const files = []; // { rel, bytes }
   for (const root of cfg.roots) {
     const base = join(ROOT, root.dir);
-    walk(base, (p, st) => {
-      if (!IMG_EXT.test(p)) return;
+    // symlink を辿らない再帰 walk（public/posts 等の symlink 二重計上を防ぐ）
+    for (const p of listFiles(base, { match: (path) => IMG_EXT.test(path), skipDir: (_p, name) => IGNORE_DIRS.has(name), allowMissing: true })) {
       const rel = relative(ROOT, p).split('\\').join('/');
       // match: "img" が指定されたら /img/ 配下のみ
-      if (root.match === 'img' && !/\/img\//.test(rel)) return;
-      files.push({ rel, bytes: measuredBytes(p, st) });
-    });
+      if (root.match === 'img' && !/\/img\//.test(rel)) continue;
+      files.push({ rel, bytes: measuredBytes(p, lstatSync(p)) });
+    }
   }
   return files;
 }
@@ -94,9 +81,9 @@ function isReferenced(absImg) {
 }
 
 function main() {
-  const cfg = readJson(CONFIG, null);
+  const cfg = readJsonOr(CONFIG, null);
   if (!cfg) { console.error('image-limits.json が読めません'); process.exit(2); }
-  const baseline = readJson(BASELINE, {});
+  const baseline = readJsonOr(BASELINE, {});
   const examRe = new RegExp(cfg.examDirPattern);
   const unrefExRe = new RegExp(cfg.unreferencedExcludePattern);
 

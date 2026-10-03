@@ -230,5 +230,9 @@
       "15-2",
       "15-3"
     ]
+  },
+  "lengths": {
+    "_doc": "本文の長さの下限。guideMinChars は published の group: guide の本文（frontmatter を除き空白を除いた字数）の下限で、scripts/check-guide-length.mjs が読む（根拠は content-principles.md §25）。",
+    "guideMinChars": 3000
   }
 }

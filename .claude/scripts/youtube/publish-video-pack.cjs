@@ -10,7 +10,7 @@ const crypto = require('node:crypto');
 const { google } = require('googleapis');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
-const ROOT = path.resolve(__dirname, '../../..');
+const ROOT = path.resolve(__dirname, '../../..'); // root-ok: CJS（ファイルの場所から決めている）
 const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
 const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(

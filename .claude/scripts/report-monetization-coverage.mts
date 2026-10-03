@@ -30,13 +30,13 @@ import {
   writeFileSync,
   mkdirSync,
   existsSync,
-  readdirSync,
 } from "fs";
 // basename を使う: Windows では join() が円記号区切りを返すため split("/") ではファイル名を
 // 切り出せず、生成物に絶対パスがそのまま焼き込まれて commit される（2026-08-18 修正）。
 // check-note-site-utm が Windows で常に 0 件になった事故（2026-07-28）と同型。
 import { basename, join, sep } from "path";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
+import { listFiles } from "../../scripts/lib/fs-walk.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
 import { resolvePlacement, resolveArticleMidNoteSlot, renderedMagazineCardIds } from "../../src/lib/magazine-placement.ts";
@@ -50,7 +50,7 @@ import {
   resolveDocsCareerSidebarAd,
 } from "../../src/config/affiliate-creatives.ts";
 
-const ROOT = process.cwd();
+const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const OUT_DIR = join(ROOT, datasetDir("analysis.monetization-coverage"));
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const SALES_LOG = join(ROOT, datasetPath("note.sales"));
@@ -92,17 +92,9 @@ function deriveAffiliate(category: string, slug: string): string | null {
 // 本文には <MagazineCard> が 3 枚あって導線は生きている。
 function indexBodyMagazineCards(): Map<string, { body: string; ids: string[] }> {
   const out = new Map<string, { body: string; ids: string[] }>();
-  const walk = (dir: string, acc: string[] = []): string[] => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p, acc);
-      else if (e.name.endsWith(".mdx")) acc.push(p);
-    }
-    return acc;
-  };
   const siteDir = join(ROOT, "content/site");
   if (!existsSync(siteDir)) return out;
-  for (const abs of walk(siteDir)) {
+  for (const abs of listFiles(siteDir, { ext: ".mdx" })) {
     const src = readFileSync(abs, "utf-8");
     const body = src.replace(/^---[\s\S]*?\n---\n/, "");
     const ids = [...new Set(renderedMagazineCardIds(body))];

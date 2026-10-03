@@ -21,9 +21,12 @@
  */
 
 import { readFileSync } from "node:fs";
+import { join, relative } from "node:path";
+import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
-const CATEGORIES = "src/config/categories.json";
-const HOME_CARDS = "src/config/home-exam-cards.json";
+const CATEGORIES = join(REPO_ROOT, "src/config/categories.json");
+const HOME_CARDS = join(REPO_ROOT, "src/config/home-exam-cards.json");
+const rel = (p) => relative(REPO_ROOT, p).split("\\").join("/");
 // カードが持つのは並びと名前だけ（画面に出すのは名前のみ。説明文・試験日・件数は持たない）
 const REQUIRED_FIELDS = ["slug", "order", "label"];
 
@@ -31,7 +34,7 @@ function load(path) {
   try {
     return JSON.parse(readFileSync(path, "utf8"));
   } catch (e) {
-    console.error(`[check-home-exam-coverage] ✗ ${path} を読めません: ${e.message}`);
+    console.error(`[check-home-exam-coverage] ✗ ${rel(path)} を読めません: ${e.message}`);
     process.exit(1);
   }
 }
@@ -52,7 +55,7 @@ for (const c of categories) {
   if (NON_EXAM_VARIANTS.has(c.variant)) continue;
   if (!homeSlugs.has(c.slug)) {
     errors.push(
-      `カテゴリ "${c.slug}"（visible・variant=${c.variant}）が ${HOME_CARDS} に未掲載 ` +
+      `カテゴリ "${c.slug}"（visible・variant=${c.variant}）が ${rel(HOME_CARDS)} に未掲載 ` +
         `→ トップの資格カードに出ません。意図的に出さない場合は categories.json で visible:false に。`,
     );
   }
@@ -62,17 +65,17 @@ for (const c of categories) {
 for (const card of homeCards) {
   const cat = catBySlug.get(card.slug);
   if (!cat) {
-    errors.push(`${HOME_CARDS} の "${card.slug}" が ${CATEGORIES} に存在しません。`);
+    errors.push(`${rel(HOME_CARDS)} の "${card.slug}" が ${rel(CATEGORIES)} に存在しません。`);
   } else {
     if (cat.visible === false) {
-      errors.push(`${HOME_CARDS} の "${card.slug}" は categories.json で visible:false（トップに出すべきでない）。`);
+      errors.push(`${rel(HOME_CARDS)} の "${card.slug}" は categories.json で visible:false（トップに出すべきでない）。`);
     }
     if (NON_EXAM_VARIANTS.has(cat.variant)) {
-      errors.push(`${HOME_CARDS} の "${card.slug}" は variant=${cat.variant}（資格カードに不適）。`);
+      errors.push(`${rel(HOME_CARDS)} の "${card.slug}" は variant=${cat.variant}（資格カードに不適）。`);
     }
   }
   for (const f of REQUIRED_FIELDS) {
-    if (card[f] === undefined) errors.push(`${HOME_CARDS} の "${card.slug}" に必須フィールド "${f}" が欠落。`);
+    if (card[f] === undefined) errors.push(`${rel(HOME_CARDS)} の "${card.slug}" に必須フィールド "${f}" が欠落。`);
   }
 }
 
@@ -80,7 +83,7 @@ for (const card of homeCards) {
 const seenOrder = new Map();
 for (const card of homeCards) {
   if (seenOrder.has(card.order)) {
-    errors.push(`${HOME_CARDS} の order=${card.order} が重複（"${seenOrder.get(card.order)}" と "${card.slug}"）。`);
+    errors.push(`${rel(HOME_CARDS)} の order=${card.order} が重複（"${seenOrder.get(card.order)}" と "${card.slug}"）。`);
   } else {
     seenOrder.set(card.order, card.slug);
   }

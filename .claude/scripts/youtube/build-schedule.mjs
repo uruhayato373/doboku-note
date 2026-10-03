@@ -15,8 +15,9 @@
  *   （--preserve: 既存台帳の status/videoId/uploadedAt を key 単位で引き継ぐ）
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, statSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import { R2_PUBLIC_ORIGIN } from '../../../scripts/lib/site-identity.mjs';
+import { REPO_ROOT, SNS_CONTENT_ROOT, STATE_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 const args = process.argv.slice(2);
 const getArg = (k, def) => { const i = args.indexOf(k); return i !== -1 ? args[i + 1] : def; };
@@ -25,7 +26,7 @@ const perDay = Number(getArg('--per-day', '3'));
 const slotsJST = ['07:30', '12:30', '20:00'].slice(0, perDay);
 const preserve = args.includes('--preserve');
 const R2_PUBLIC_BASE = `${R2_PUBLIC_ORIGIN}/sns/youtube-shorts/`;
-const LEDGER = '.claude/state/youtube-schedule.json';
+const LEDGER = join(STATE_ROOT, 'youtube-schedule.json');
 
 if (!startStr || !/^\d{4}-\d{2}-\d{2}$/.test(startStr)) {
   console.error('Error: --start YYYY-MM-DD（公開開始日・JST）が必須');
@@ -49,7 +50,7 @@ const prev = preserve && existsSync(LEDGER) ? JSON.parse(readFileSync(LEDGER, 'u
 const prevByKey = {};
 if (prev) for (const it of prev.items || []) prevByKey[it.key] = it;
 
-const root = 'content/sns/youtube';
+const root = join(SNS_CONTENT_ROOT, 'youtube');
 const dirs = readdirSync(root).filter((d) => /-q\d+$/.test(d) && statSync(join(root, d)).isDirectory());
 // 安定キーで一意化＋ソート（同一 key の重複 dir は最後を採用）
 const byKey = {};
@@ -96,7 +97,7 @@ const ledger = {
 mkdirSync(dirname(LEDGER), { recursive: true });
 writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
 const lastDay = Math.ceil(items.length / perDay) - 1;
-console.log(`台帳生成: ${items.length} 本 → ${LEDGER}`);
+console.log(`台帳生成: ${items.length} 本 → ${relative(REPO_ROOT, LEDGER).split('\\').join('/')}`);
 console.log(`  公開: ${perDay}本/日 × スロット ${slotsJST.join('/')} JST`);
 console.log(`  期間: ${startStr} 〜 ${addDays(startStr, lastDay)}（${lastDay + 1}日間）`);
 console.log(`  引き継ぎ status: ${items.filter((x) => x.status !== 'pending').length} 本`);

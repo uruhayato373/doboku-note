@@ -91,6 +91,7 @@ export const DATASETS = [
   d('config.coconala-blog', 'config/coconala-blog.json', 'config', 'product', 'ココナラブログの偵察対象と運用値', { schema: 'ConfigCoconalaBlog' }),
   d('config.kdp-memo', 'config/kdp-memo.json', 'config', 'product', 'KDP 入稿の既定値と各本の情報', { schema: 'ConfigKdpMemo' }),
   d('config.keiken-answer-sheet-limits', 'config/keiken-answer-sheet-limits.json', 'config', 'product', '経験記述の解答欄の字数上限', { schema: 'ConfigKeikenAnswerSheetLimits' }),
+  d('config.pe-answer-sheets', 'config/pe-answer-sheets.json', 'config', 'product', '技術士 第二次 筆記の答案用紙の字数と区分ごとの枚数', { schema: 'ConfigPeAnswerSheets' }),
   d('config.cce-essay-history', 'config/cce-essay-history.json', 'config', 'product', 'コンクリート主任技士 小論文の出題履歴とテーマ分類', { schema: 'ConfigCceEssayHistory' }),
   // アフィリエイト
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定', { schema: 'ConfigAffiliateAsp' }),

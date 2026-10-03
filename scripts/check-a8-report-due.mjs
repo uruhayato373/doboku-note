@@ -50,7 +50,7 @@ const parsedDays = di >= 0 && args[di + 1] != null ? Number.parseInt(args[di + 1
 // 既定は台帳 a8.ui-last-run の freshness.warnDays（--days で一時的に変えられる）
 const THRESHOLD = Number.isFinite(parsedDays) && parsedDays >= 0 ? parsedDays : freshnessDays("a8.ui-last-run", "warnDays");
 
-const readJson = (p) => {
+const readJsonOrNull = (p) => {
   try {
     return JSON.parse(readFileSync(p, "utf-8"));
   } catch {
@@ -58,8 +58,8 @@ const readJson = (p) => {
   }
 };
 
-const marker = readJson(MARKER);
-const log = readJson(LOG);
+const marker = readJsonOrNull(MARKER);
+const log = readJsonOrNull(LOG);
 
 const lastIso = marker?.collectedAt || marker?.lastRun || null;
 const lastMs = lastIso

@@ -9,23 +9,14 @@
 // 対象: content/site/pe-comprehensive-management/**/article.mdx
 // 改行コードは元ファイル準拠（transformMdxFile が保持）。
 
-import { readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { transformMdxFile } from './lib/mdx-io.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = 'content/site/pe-comprehensive-management';
+const ROOT = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 
-function walkMdx(dir) {
-  const out = [];
-  for (const entry of readdirSync(dir)) {
-    const p = join(dir, entry);
-    if (statSync(p).isDirectory()) out.push(...walkMdx(p));
-    else if (p.endsWith('.mdx')) out.push(p);
-  }
-  return out;
-}
-
-const files = walkMdx(ROOT);
+const files = listFiles(ROOT, { ext: '.mdx', followLinks: true });
 let totalReplaced = 0;
 const changedFiles = [];
 
@@ -50,7 +41,7 @@ for (const file of files) {
   });
 
   if (changed) {
-    console.log(`  ${file}: ${countInFile} replacements`);
+    console.log(`  ${relative(REPO_ROOT, file).split('\\').join('/')}: ${countInFile} replacements`);
     totalReplaced += countInFile;
     changedFiles.push(file);
   }

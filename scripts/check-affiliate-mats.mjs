@@ -22,16 +22,19 @@
 //   node scripts/check-affiliate-mats.mjs            # src/ + content/site + content/note 全体
 //   node scripts/check-affiliate-mats.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
-const REGISTRY = 'src/config/affiliate-mats.json';
+const REGISTRY = join(ROOT, 'src/config/affiliate-mats.json');
+const rel = (p) => relative(ROOT, p).split('\\').join('/');
 
 if (!existsSync(REGISTRY)) {
-  console.error(`[check-affiliate-mats] ${REGISTRY} が無いため検証をスキップ`);
+  console.error(`[check-affiliate-mats] ${rel(REGISTRY)} が無いため検証をスキップ`);
   process.exit(0);
 }
 
@@ -46,17 +49,6 @@ const SCAN_DIRS = ['src', 'content/site', 'content/note'];
 const NOTE_SURFACE = 'note-article';
 const SCAN_EXT = /\.(ts|tsx|mjs|mts|js|jsx|md|mdx|json)$/;
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, out);
-    else if (SCAN_EXT.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
-
 let files;
 if (STAGED) {
   const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
@@ -65,10 +57,12 @@ if (STAGED) {
     .map((s) => s.trim())
     .filter(Boolean);
   files = staged.filter(
-    (f) => existsSync(f) && SCAN_EXT.test(f) && SCAN_DIRS.some((d) => f.startsWith(d + '/')),
+    (f) => existsSync(join(ROOT, f)) && SCAN_EXT.test(f) && SCAN_DIRS.some((d) => f.startsWith(d + '/')),
   );
 } else {
-  files = SCAN_DIRS.flatMap((d) => walk(d));
+  files = SCAN_DIRS.flatMap((d) =>
+    listFiles(join(ROOT, d), { match: (_p, name) => SCAN_EXT.test(name), followLinks: true, allowMissing: true }).map(rel),
+  );
 }
 
 const unknown = []; // { file, mat }  src/ で許可リスト外
@@ -80,7 +74,7 @@ const seenKnown = new Set();
 for (const file of files) {
   let text;
   try {
-    text = readFileSync(file, 'utf8');
+    text = readFileSync(join(ROOT, file), 'utf8');
   } catch {
     continue;
   }
@@ -135,7 +129,7 @@ if (noteDisallowed.length > 0) {
 
 if (unknown.length > 0) {
   console.error(
-    `[check-affiliate-mats] ✗ 許可リスト(${REGISTRY})に無い mat が ${unknown.length} 件見つかりました:`,
+    `[check-affiliate-mats] ✗ 許可リスト(${rel(REGISTRY)})に無い mat が ${unknown.length} 件見つかりました:`,
   );
   for (const u of unknown) console.error(`  - ${u.mat}  (${u.file})`);
   console.error(
