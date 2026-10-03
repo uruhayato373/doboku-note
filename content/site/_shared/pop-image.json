@@ -2338,9 +2338,24 @@
   },
   "storage": {
     "delivery": "public R2 / doboku-note / posts/",
-    "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（original.filenameのPNGを保持）"
+    "originals": "Codex generated_images/01a0fc35-4744-7150-9e1f-b300eec2b28c/（original.filenameのPNGを保持）",
+    "verifiedAt": "2026-10-03T01:56:23.447Z",
+    "verification": "採用画像50件すべてのバージョン付きR2公開URLを読み戻し、SHA-256がoutput.sha256と一致（50対象・50検査・50成功）。",
+    "syncWorkflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37089615665"
   },
   "publication": {
-    "status": "未反映"
+    "status": "反映済み",
+    "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+    "relatedUrls": [
+      "https://doboku-note.com/exam/pe-first-stage/primary/r07-basic",
+      "https://doboku-note.com/exam/pe-construction/guide/pe-secondary-essay-guide",
+      "https://doboku-note.com/exam/civil-construction-1",
+      "https://doboku-note.com/exam/pe-comprehensive-management/pillar/information-management-pillar"
+    ],
+    "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/851",
+    "deployCommit": "90dddbb19089cdbff721782a099849c636532556",
+    "workflow": "https://github.com/uruhayato373/doboku-note/actions/runs/37089615672",
+    "verifiedAt": "2026-10-03T02:29:13.102Z",
+    "verification": "本番SSR2URLはexit0。公開4ページ×PC/375px×light/darkの16表示で、画像読込・原寸比率・横スクロールなしを確認。本文中央・末尾・サイドバー・単品カードを目視。CI E2E130成功・22skip。"
   }
 }
