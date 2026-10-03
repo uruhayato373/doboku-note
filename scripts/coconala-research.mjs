@@ -144,7 +144,7 @@ function buildSummary(result) {
         }
       : null;
   return {
-    version: 1,
+    schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     fetchedAt: result.fetchedAt,
     source: datasetPath('coconala.market-research'),
@@ -205,7 +205,7 @@ async function main() {
 
   const prev = loadPrev();
   const result = prev ?? {
-    version: RESEARCH_VERSION,
+    schemaVersion: RESEARCH_VERSION,
     fetchedAt: new Date().toISOString(),
     method: 'playwright(channel:chrome, headless)',
     note: '公開・ログイン不要ページの read-only 調査。運用KPI（ログイン必須）の取得ではない（coconala-operations.md §4 と直交）。',

@@ -356,7 +356,7 @@ function saveJson(summaries) {
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   const filepath = summaries.length > 1 ? datasetPath("psi.batch", { ts: timestamp }) : join(".tmp", `psi-single-${timestamp}.json`);
   if (!existsSync(dirname(filepath))) mkdirSync(dirname(filepath), { recursive: true });
-  writeFileSync(filepath, JSON.stringify({ version: 1, generated_at: new Date().toISOString(), results: summaries }, null, 2), "utf-8");
+  writeFileSync(filepath, JSON.stringify({ schemaVersion: 1, generated_at: new Date().toISOString(), results: summaries }, null, 2), "utf-8");
   return filepath;
 }
 

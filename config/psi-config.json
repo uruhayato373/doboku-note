@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "schemaVersion": 1,
   "description": "PageSpeed Insights 定期計測の判定の設定（しきい値と field/lab の判定原則）。計測対象 URL は psi-urls.txt、strategy は package.json の fetch-psi-audit、頻度は psi-audit.yml が持つ。読むのは .claude/scripts/psi-threshold-check.mjs。",
   "judgment": {
     "doc": ".claude/knowledge/reference/measurement-incidents.md「2026-07-27: lab と field の判定原則」「2026-09-14: PSI field_data のキー存在を『field あり』と読んだ（W36 週次レビューの偽復旧）」",

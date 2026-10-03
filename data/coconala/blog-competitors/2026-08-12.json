@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "fetchedAt": "2026-08-12T01:37:03.045Z",
   "platform": "coconala-blog",
   "caveat": "公開ページの read-only 取得。検索は部分一致のためヒット数はノイズを含む。",

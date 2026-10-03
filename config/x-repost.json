@@ -1,4 +1,5 @@
 {
+  "schemaVersion": 1,
   "_comment": "x-repost（X 引用リポスト curation）の設定。queries/閾値/blocklist を編集してチューニングする。真実源: .claude/skills/social/x-repost/SKILL.md",
   "maxPerRun": 3,
   "_maxPerRun_note": "1 回の exec で引用RPする最大件数（1日2-3件運用の上限）。",

@@ -1,5 +1,7 @@
 /**
  * dataset-schemas.mjs — 設定・記録の型（zod）。正本はここで、JSON Schema は z.toJSONSchema で生成する。
+ * 取得元ごとの型は dataset-schemas-{market,search,analysis}.mjs、設定の型は dataset-schemas-config-{business,ops,media}.mjs に分け、末尾の export * で束ねる（引く側はここだけを読む）。
+ * 部品（日時・金額・不変条件・版）は dataset-schema-parts.mjs。
  *
  * どのファイルにどの型を当てるかは datasets.mjs の台帳が決める（ここはパスを知らない）。
  * 型を足すときの約束（data-storage-decision.md「設定・記録の構成と型の正本」）:
@@ -14,74 +16,13 @@
  *   - 版を上げるときは versioned() に新しい版の型を足し、旧版は消さない（過去のファイル・過去の記録が落ちない）
  */
 import { z } from 'zod';
-import { jstDayTime, todayJst } from './jst-date.mjs';
+import { todayJst } from './jst-date.mjs';
+import {
+  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256,
+} from './dataset-schema-parts.mjs';
 
-const jstDate = (what) => z.iso.date().describe(`${what}（JST の YYYY-MM-DD）`);
-/** 取得・記録の時刻。末尾 Z の UTC だけ通す（+09:00 や存在しない日時は通さない）。時差つきで書かれると Date.parse は通るが日付が 1 日ずれる */
-const utcTime = (what) => z.iso.datetime().describe(`${what}（UTC の ISO 8601・末尾 Z）`);
-/** 時差つきの ISO 8601（Z か ±HH:MM）。予定の時刻のように JST の +09:00 で書く欄だけ使い、理由を .describe() に書く */
-const offsetTime = (what) => z.iso.datetime({ offset: true }).describe(`${what}（時差つきの ISO 8601。JST の +09:00 を含む）`);
-const month = z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/, 'YYYY-MM（月は 01〜12）');
-const yen = (what) => z.number().int().min(0).describe(`${what}（円）`);
-/** 返品・調整で負になりうる金額（KDP のロイヤリティ） */
-const signedYen = (what) => z.number().int().describe(`${what}（円・返品で負になりうる）`);
-const count = (what) => z.number().int().min(0).describe(what);
-/** null を許す型。説明は元の説明に null の意味を足す（管理画面の表は外側の説明を出す） */
-const orNull = (schema, why) => schema.nullable().describe(`${schema.description}。${why}`);
-/** 日付か UTC の時刻（実験の開始日のように、日付だけで書かれた古い行と時刻つきの新しい行が混ざる欄） */
-const jstDateOrUtcTime = (what) =>
-  z
-    .string()
-    .refine((s) => z.iso.date().safeParse(s).success || z.iso.datetime().safeParse(s).success, 'YYYY-MM-DD か UTC の ISO 8601（末尾 Z）')
-    .describe(`${what}（JST の日付か UTC の ISO 8601）`);
+export { uniqueBy, sumEquals, isMonday, versioned };
 
-// ---- 不変条件の部品（superRefine から使う） ----------------------------------------------
-
-const flag = (ctx, path, message) => ctx.addIssue({ code: 'custom', path, message });
-
-/**
- * 配列の行が key（欄の名前か、行から値を作る関数）で一意であること。2 行目以降の重複を、その行を指して報告する。
- * 使い方: z.array(行).superRefine(uniqueBy('talkroomId'))。key の値が null・undefined の行は数えない
- */
-export const uniqueBy = (key, what = typeof key === 'string' ? key : '値') => {
-  const keyOf = typeof key === 'function' ? key : (row) => row?.[key];
-  return (rows, ctx) => {
-    const first = new Map();
-    rows.forEach((row, i) => {
-      const k = keyOf(row);
-      if (k === undefined || k === null) return;
-      if (first.has(k)) flag(ctx, [i], `${what}「${k}」が重複（${first.get(k) + 1} 行目と同じ）`);
-      else first.set(k, i);
-    });
-  };
-};
-
-/** 部分の合計が total に一致するか。丸めで数円ずれる集計は tolerance（円）で許す */
-export const sumEquals = (parts, total, tolerance = 0) => Math.abs(parts.reduce((a, b) => a + b, 0) - total) <= tolerance;
-
-/** YYYY-MM-DD が月曜か（暦の計算なので時差に依らない） */
-export const isMonday = (date) => new Date(`${date}T00:00:00Z`).getUTCDay() === 1;
-
-/** YYYY-MM の月末日（28〜31） */
-const lastDayOfMonth = (m) => new Date(Date.UTC(Number(m.slice(0, 4)), Number(m.slice(5, 7)), 0)).getUTCDate();
-
-/** ISO 8601 の日時の JST の日付。時差の無い値は JST の壁時計とみなす（人が書く台帳の日時は JST） */
-const jstDayOf = (s) => jstDayTime(/(?:Z|[+-]\d{2}:\d{2})$/.test(s) ? s : `${s}+09:00`)?.date ?? null;
-
-/** ISO 8601 の日時のエポックミリ秒。時差の無い値は JST の壁時計とみなす */
-const toMs = (s) => Date.parse(/(?:Z|[+-]\d{2}:\d{2})$/.test(s) ? s : `${s}+09:00`);
-
-const mondayDate = (what) => jstDate(what).refine(isMonday, '月曜日の日付ではない');
-
-/**
- * 版つきの型。版の欄（field）の値で型を選ぶ判別共用体で、versions は { 版: その版の z.object（版の欄は書かない） }。
- * 版を上げるときは新しい版を足して旧版は残す（その版で書かれた過去のファイル・不変の台帳の過去の記録が落ちない）。
- * 版の欄は schemaVersion に揃える（既存ファイルの version 等は移すときに揃え、それまでは今の名前を渡す）
- */
-export function versioned(field, versions) {
-  const members = Object.entries(versions).map(([v, shape]) => shape.extend({ [field]: z.literal(Number(v)) }));
-  return z.discriminatedUnion(field, members);
-}
 
 /** 販売価格の上限（円）。実データの最大は 11,800。桁違いの記録ミスを止める上限で、これを超える商品を売るときはここを上げる */
 const NOTE_PRICE_MAX = 50_000;
@@ -232,18 +173,6 @@ export const KdpRoyalties = z
   })
   .meta({ title: 'KDP のロイヤリティ' });
 
-// 人が手で書く台帳の日時は JST の時差つき・分まで（例 2026-08-05T11:59+09:00）。秒は省略可。存在しない日時は通さない（2026-99-99T99:99 も 2026-02-30T10:00 も）。
-// 時差の無い値は読み手の実行環境のタイムゾーンで解釈される（CI は UTC で 9 時間ずれる）ので、時差は必須。画面の表示をそのまま取る欄だけ zone: false で省略を許す
-const ISO_TIME = /^(\d{4}-\d{2}-\d{2})T([01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(Z|[+-](?:[01]\d|2[0-3]):[0-5]\d)?$/;
-const isoTime = (what, { zone = true } = {}) =>
-  z
-    .string()
-    .regex(ISO_TIME, `ISO 8601 の日時（時刻は 00:00〜23:59${zone ? '・時差つき（+09:00 か Z）' : ''}）`)
-    .refine((s) => z.iso.date().safeParse(s.slice(0, 10)).success, '存在しない日付')
-    .refine((s) => !zone || /(?:Z|[+-]\d{2}:\d{2})$/.test(s), '時差（+09:00 か Z）が要る')
-    .describe(`${what}（ISO 8601・分まで可${zone ? '・時差つき' : '・時差は省略可（JST の壁時計）'}）`);
-const period = z.object({ startDate: jstDate('開始日'), endDate: jstDate('終了日') }).strict().describe('対象期間（両端を含む）');
-const sha256 = z.string().regex(/^[0-9a-f]{64}$/, 'SHA-256（16 進 64 桁）');
 
 /** 受注 1 件の型（版の欄を除く）。版つきの型 CoconalaOrders がこれに版の欄を足す */
 const CoconalaOrderRow = z
@@ -1461,3 +1390,11 @@ export const WeeklyMetrics = z
     notes: z.array(z.string()),
   })
   .meta({ title: '週次の計測' });
+
+// 取得元ごとの型（同じ名前を 2 つのファイルで export しない。export * は重複した名前を黙って落とす）
+export * from './dataset-schemas-market.mjs';
+export * from './dataset-schemas-search.mjs';
+export * from './dataset-schemas-analysis.mjs';
+export * from './dataset-schemas-config-business.mjs';
+export * from './dataset-schemas-config-ops.mjs';
+export * from './dataset-schemas-config-media.mjs';

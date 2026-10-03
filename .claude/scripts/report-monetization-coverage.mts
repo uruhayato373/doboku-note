@@ -520,6 +520,7 @@ if (noteLabelSales.length) {
 
 const md = lines.join("\n");
 const report = {
+  schemaVersion: 1,
   meta: {
     trafficWindow: { start: pageData.meta.startDate, end: pageData.meta.endDate },
     clickWindow: clickData ? { start: clickData.meta.startDate, end: clickData.meta.endDate } : null,
