@@ -8,7 +8,7 @@ import process from 'node:process';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (rel) => readFileSync(ROOT + rel, 'utf8');
 
-test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商品名・価格・計測を保つ', () => {
+test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商品名・計測を保ち、改定の多い価格を表示しない', () => {
   const rows = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
     import React from 'react';
     import {renderToStaticMarkup} from 'react-dom/server';
@@ -30,9 +30,35 @@ test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商�
     assert.match(row.html, /cta-reading-body-v1\.webp/);
     assert.ok(row.html.includes(row.url.split('?')[0]));
     assert.ok(row.html.includes(row.title));
-    assert.ok(row.html.includes(row.price));
+    assert.ok(!row.html.includes(row.price));
     assert.match(row.html, /data-cta="note"/);
     assert.match(row.html, /data-cta-placement="article-body"/);
+  }
+});
+
+test('完成画像のバナーに価格・説明を添えず、商品一覧は識別名だけを表示する', () => {
+  const rows = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+    import React from 'react';
+    import {renderToStaticMarkup} from 'react-dom/server';
+    import Cta from './src/components/ui/NoteImageCta/NoteImageCta.tsx';
+    globalThis.React=React;
+    const rows=[false,true].flatMap(compact=>['¥1,480','¥2,980'].map(price=>({compact,price,
+      html:renderToStaticMarkup(React.createElement(Cta,{href:'https://note.com/example',
+        image:{src:'https://storage.doboku-note.com/posts/test.webp',width:1600,height:800,alt:'教材の内容を見る',
+          caption:{title:'年度別PDF教材',description:'商品説明の重複を表示しない',price}},
+        trackLabel:'price-change-test',placement:'article-mid',compact}))})));
+    process.stdout.write(JSON.stringify(rows));
+  `], {cwd:ROOT,encoding:'utf8'}));
+  assert.equal(rows.length, 4);
+  for (const row of rows) {
+    assert.ok(!row.html.includes(row.price));
+    assert.ok(!row.html.includes('商品説明の重複を表示しない'));
+    const content = row.html.match(/<a\b[^>]*>([\s\S]*?)<\/a>/)[1];
+    const visibleText = Array.from(content.matchAll(/>([^<]+)</g), ([, text]) => text).join('').trim();
+    assert.equal(visibleText, row.compact ? '年度別PDF教材' : '');
+    assert.match(content, /<img /);
+    assert.match(row.html, /alt="教材の内容を見る"/);
+    assert.match(row.html, /data-cta-placement="article-mid"/);
   }
 });
 

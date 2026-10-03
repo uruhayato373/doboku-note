@@ -32,7 +32,7 @@
 
 主任技士・診断士・一次のトップにも公開教材を1点表示する（`sidebar-discovery.ts`）。記事の個別教材は既存 `magazine-placement` の主教材に合わせ、HUB教材と重ねない。記事の運営者紹介は開閉式、教材・広告は通常フロー、目次・復習・無料ツールのみ末尾の追従クラスタに置く。6カテゴリの新しい復習ナビは同分野／科目・同年度を優先し、スマホでは末尾の開閉ナビで共用。基準章の実務リンクは章名が対応する分野に限る。
 
-個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。商品名・説明・価格は商品台帳からキャプションに併記する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
+個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。通常は画像のみ、`compact`では商品名だけを併記する。価格は改定が多いため完成画像CTAへ表示せず、リンク先で確認する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
 
 1. **ドキュメントサイト** — ダッシュボードやデータ可視化ではなく、長文テキスト・数式・図表・過去問の閲覧が主目的。
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
@@ -171,10 +171,10 @@
 | `DisclosureChevron`（`ui/DisclosureChevron.tsx`） | **アコーディオン（`<details>`）開閉アイコンの単一実装**（細線シェブロン・右向き→開くと 90°回転）。FAQCard・CurriculumList（テキスト章）共通。回転は `.disclosure-chevron`（globals.css の素の CSS）。**Tailwind の transform 変種は正常に効く**（2026-08-20 実測。旧記述は測定ミス＝hidden タブで transition が進まない）ので、素の CSS を使う理由は prose 記事内 `<details>` と見た目を 1 箇所で共有するため。prose 記事内 `<details>` も同一 path を `--disclosure-chevron` マスク＋`[open]` 回転で使う（path の真実源は DisclosureChevron） | `className`（色・サイズ passthrough） |
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
 | `QualificationBridge`（`ui/QualificationBridge/QualificationBridge.tsx`） | 実務記事（`civil-practice`）の記事末と共通仕様書の章末に置く「業務経験 → 資格」カード。資格を意識していない読者に立場 3 択（発注者／施工会社／迷っている）で既存の資格ページへの入口を示す。本文に試験文脈を入れない規約は維持し、本文の外に 1 枚だけ置く。対象・文言・遷移先は `src/config/qualification-bridge.ts`。GA4 は root の `data-cta="qualification-bridge"` で表示（`qualification_bridge_impression`）、各リンクの `data-cta-label`（立場）でクリック（`qualification_bridge_click`）。EXP-012 | `placement` |
-| `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像＋台帳キャプション、平時は資格共通画像＋教材一覧の説明を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
-| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。商品ごとの名称・説明・価格は台帳キャプションとして表示し、`compact` は画像と商品名を横並びにする。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` |
+| `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像、平時は資格共通画像を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
+| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名だけを横並びにする。説明文・価格は表示しない。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | 記事中間・MDX本文の強CTA。完成画像を `NoteImageCta` で表示し、未登録時は資格背景＋円形アバターのHTML意匠へフォールバックする。複数商品の列挙は `variant="inline"`＝`MagazineInlineCard` のcompact表示を使う。公開判定は `getMagazine()`、GA4は商品ID入りラベル・配置・表示インプレッションを共用 | `id`（`MagazineId`）/ `utmContent` / `placement` |
-| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。完成画像＋台帳キャプションを優先し、未登録時は短縮タイトル・価格の1行HTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` |
+| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。完成画像のみの表示を優先し、未登録時は短縮タイトル・価格の1行HTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` |
 
 **共通フッター**: 資格・実務リンクは既存カテゴリ索引から解決し、PCでは最大3列で表示、スマホでは native `<details>` に折りたたむ。サイト案内は横並び・折り返しとし、紹介文は1行に絞る。広告表記・著作権表示を残し、技術構成の表示は置かない。リンクの操作領域は44px以上を維持する。
 
