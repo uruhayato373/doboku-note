@@ -560,6 +560,50 @@
         "/exam/concrete-engineer/primary/construction",
         "/exam/concrete-engineer/primary/mix-design"
       ]
+    },
+    {
+      "runId": "2026-10-04T01-30-09Z",
+      "collectedAt": "2026-10-04T01:30:09.948Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 16,
+      "accepted": 10,
+      "alreadyIndexed": 6,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/concrete-engineer/primary/production-qc",
+        "/exam/concrete-engineer/primary/properties-testing",
+        "/exam/concrete-engineer/textbook/construction",
+        "/exam/concrete-engineer/textbook/materials",
+        "/exam/concrete-engineer/textbook/mix-design",
+        "/exam/concrete-engineer/textbook/production-qc",
+        "/exam/concrete-engineer/textbook/properties-testing",
+        "/exam/pavement/guide/study-plan",
+        "/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-engineer/primary/production-qc",
+        "/exam/concrete-engineer/primary/properties-testing",
+        "/exam/concrete-engineer/textbook/construction",
+        "/exam/concrete-engineer/textbook/materials",
+        "/exam/concrete-engineer/textbook/mix-design",
+        "/exam/concrete-engineer/textbook/production-qc",
+        "/exam/concrete-engineer/textbook/properties-testing",
+        "/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr"
+      ]
     }
   ]
 }
