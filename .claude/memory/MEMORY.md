@@ -10,6 +10,7 @@
 - [管理画面UI](feedback_admin_ui_for_humans.md) — 人が見る画面、必要値のみ
 - [アフィリ転職のみ](feedback_affiliate_career_only.md) — 講座廃止・同一matピクセル監査
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
+- [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
 - [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル

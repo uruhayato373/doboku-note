@@ -1,16 +1,66 @@
 {
-  "srcDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式",
+  "srcDir": "content/sources/cce-persona-essays/令和形式テーマ別-8立場",
   "outDir": ".tmp/cce-essay-reiwa-pdf",
   "articles": [
     {
-      "src": "00-出題傾向分析/article.md",
+      "src": "../../../note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析/article.md",
       "out": "00_主任技士小論文_出題傾向と答え方",
-      "include": [{ "from": "^## 問題文は公開されていない", "to": "^## テーマ別の模範答案" }]
+      "include": [
+        {
+          "from": "^## 問題文は公開されていない",
+          "to": "^## 立場別の模範答案"
+        }
+      ]
     },
-    { "src": "01-環境負荷低減/article.md", "out": "01_環境負荷低減_模範答案", "include": [{ "from": "^## このテーマの出題実績", "to": null }] },
-    { "src": "02-耐久性の向上/article.md", "out": "02_耐久性の向上_模範答案", "include": [{ "from": "^## このテーマの出題実績", "to": null }] },
-    { "src": "03-生産性向上DX/article.md", "out": "03_生産性向上DX_模範答案", "include": [{ "from": "^## このテーマの出題実績", "to": null }] },
-    { "src": "04-気候変動と品質確保/article.md", "out": "04_気候変動と品質確保_模範答案", "include": [{ "from": "^## このテーマの出題実績", "to": null }] },
-    { "src": "05-担い手不足と品質確保/article.md", "out": "05_担い手不足と品質確保_模範答案", "include": [{ "from": "^## このテーマの出題実績", "to": null }] }
+    {
+      "src": "01-環境負荷低減/article.md",
+      "out": "01_環境負荷低減_模範答案",
+      "include": [
+        {
+          "from": "^## このテーマの出題実績",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "02-耐久性の向上/article.md",
+      "out": "02_耐久性の向上_模範答案",
+      "include": [
+        {
+          "from": "^## このテーマの出題実績",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "03-生産性向上DX/article.md",
+      "out": "03_生産性向上DX_模範答案",
+      "include": [
+        {
+          "from": "^## このテーマの出題実績",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "04-気候変動と品質確保/article.md",
+      "out": "04_気候変動と品質確保_模範答案",
+      "include": [
+        {
+          "from": "^## このテーマの出題実績",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "05-担い手不足と品質確保/article.md",
+      "out": "05_担い手不足と品質確保_模範答案",
+      "include": [
+        {
+          "from": "^## このテーマの出題実績",
+          "to": null
+        }
+      ]
+    }
   ]
 }

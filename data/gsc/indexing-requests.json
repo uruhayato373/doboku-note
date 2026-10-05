@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-03T01-30-11Z",
-  "collectedAt": "2026-10-03T01:30:11.034Z",
+  "runId": "2026-10-05T01-30-06Z",
+  "collectedAt": "2026-10-05T01:30:06.726Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "39b58f02c",
+  "scriptVersion": "f5ad3a476",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 271,
+  "targetCount": 251,
   "items": [
     {
       "slug": "/exam/pe-comprehensive-management/keywords/end-of-pipe",
@@ -98,8 +98,77 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/guide/textbooks",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/textbooks",
+      "slug": "/exam/pavement/guide/study-plan",
+      "url": "https://doboku-note.com/exam/pavement/guide/study-plan",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/eco-action-21",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/eco-action-21",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/hierarchical-training",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/hierarchical-training",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/initial-investment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/initial-investment",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 17:42:49",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/jit-production",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/jit-production",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -115,8 +184,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r04-kouki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r04-kouki",
+      "slug": "/exam/pe-comprehensive-management/keywords/job-analysis",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-analysis",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -132,8 +201,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r05-kouki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-kouki",
+      "slug": "/exam/pe-comprehensive-management/keywords/job-execution-ability",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/job-execution-ability",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -149,8 +218,42 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r05-zenki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r05-zenki",
+      "slug": "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 19:18:45",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 18:46:46",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -166,15 +269,32 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r06-kouki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-kouki",
+      "slug": "/exam/pe-comprehensive-management/keywords/redundancy-safety",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/redundancy-safety",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/sexual-harassment",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/08/30 19:17:39",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
       },
       "request": {
         "requested": true,
@@ -183,83 +303,15 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/civil-construction-2/primary/r06-zenki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r06-zenki",
+      "slug": "/exam/pe-comprehensive-management/past-exams/h21-secondary",
+      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h21-secondary",
       "inspected": {
         "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
+        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
+        "lastCrawl": "2026/09/01 9:49:16",
         "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/primary/r07-zenki",
-      "url": "https://doboku-note.com/exam/civil-construction-2/primary/r07-zenki",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/secondary/experience-writing-by-theme",
-      "url": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-by-theme",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/concrete-engineer/primary/construction",
-      "url": "https://doboku-note.com/exam/concrete-engineer/primary/construction",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/concrete-engineer/primary/mix-design",
-      "url": "https://doboku-note.com/exam/concrete-engineer/primary/mix-design",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
+        "crawlAllowed": true,
+        "indexingAllowed": true
       },
       "request": {
         "requested": true,
@@ -270,9 +322,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 15,
+    "inspected": 18,
     "accepted": 10,
-    "alreadyIndexed": 5,
+    "alreadyIndexed": 7,
     "unreadable": 0
   }
 }

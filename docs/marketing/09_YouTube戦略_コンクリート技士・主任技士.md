@@ -53,7 +53,7 @@
 - 二層構造・制作パイプライン・実行環境分担は 05 §3/§5 と共通（同一チャンネル・同一 TTS 基盤）。公開状態は `.claude/state/video-content-status.json` に一元化
 - UTM: `utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content=longform|shorts`（video-content-policy 準拠）
 - Shortsは各動画パックから2本を直接生成し、APIでprivate upload→Studioで関連通常動画を設定→API予約の順で公開する
-- **1動画1主CTA**: 分野別・予想系→`cce-r8-mc-50`（配合計算のみ `cce-mix-calculation-practice`）／小論文系→`cce-essay-reiwa-pack`（¥2,480 を入口とし、上位の persona-pack ¥5,980 は誌面内で上げる）／技士の計算・JIS 系→`ce-mix-jis-practice`／ガイド・キャリア系→`/links`（コンクリートの note もくじハブは未整備のため）
+- **1動画1主CTA**: 分野別・予想系→`cce-r8-mc-50`（配合計算のみ `cce-mix-calculation-practice`）／小論文系→`cce-essay-reiwa-pack`（全40答案 ¥5,980。立場が決まっている視聴者の入口は立場別5テーマ ¥2,480 で、全40答案の誌面と L2 もくじから案内する・2026-10-03）／技士の計算・JIS 系→`ce-mix-jis-practice`／ガイド・キャリア系→`/links`（コンクリートの note もくじハブは未整備のため）
 
 ## 4. コンテンツピラー（企画 28 パック・2026-09-01 登録）
 

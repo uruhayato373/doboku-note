@@ -1,7 +1,7 @@
 ---
 name: cce-essay-cycle
 description: >
-  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・テーマ別模範答案（令和形式・8立場）・PDF/ココナラ展開を一本化する統括スキル。
+  コンクリート主任技士 小論文の出題履歴 SSOT・サイト/note の傾向記事・令和形式の模範答案（テーマ別・立場別）・PDF/ココナラ展開を一本化する統括スキル。
   新年度の出題追記（history）→ 傾向記事の再生成 → writer/qa で答案作成（draft）→ PDF 化と配線（product）へルーティングする。
   Use when user asks to [主任技士 小論文, コンクリート主任技士 小論文の傾向, 小論文テーマ別答案, 主任技士 小論文 新年度追記, /cce-essay-cycle].
 user-invocable: true
@@ -33,12 +33,12 @@ domain: product
 
 1. 出題を 2 出典以上で確認する（JCI は問題文を公開しない。書籍・合格者記事を突合）。主担当が原文を読んでから書く（サブエージェントの要約を正本へそのまま入れない）。
 2. SSOT の `years` 先頭に追記（`options[].theme` を `themes` の id へ対応づけ、`items`・`confidence`・`sources` を必ず付ける）。新しいテーマ系統なら `themes` に追加し、商品の要否を判断する。
-3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（テーマ別記事の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
+3. `node scripts/check-cce-essay.mjs --fix` で全ての出題履歴ブロックを再生成 → `node scripts/check-cce-essay.mjs` が exit 0（立場別記事40本の `cceSourceYears` 不一致もここで赤になるので、該当記事の frontmatter を更新）。
 4. サイトは `npm run refresh-indexes`、note は再同期（note-sync）。
 
-### draft — テーマ別模範答案を作る
+### draft — 模範答案を作る
 
-1. `cce-essay-writer`（`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。
+1. `cce-essay-writer`（`magazine`・`slug`・`theme`）で 1 記事ずつ生成。同時起動は 3 体まで。立場別記事（1立場×1テーマ）は親が下書きを用意し、writer をテーマ単位で8本ずつ走らせる（立場と置き場の対応は `content/note/コンクリート主任技士/noteコンテンツ計画.md`）。
 2. `cce-essay-qa` で採点。平均 ≥ 2.0・全軸 ≥ 1・決定論ゲート全通過で合格。不合格は issues を writer へ渡して再走。
 3. 親が技術事実の抜き取り照合（各記事 3 箇所以上）をしてから commit。
 
@@ -46,8 +46,8 @@ domain: product
 
 1. `magazine-pdf-builder` で PDF 化（`/magazine-to-pdf`）。
 2. `note-magazines.ts` に SoT を追加（`published: false` のまま）、`magazine-placement.ts` の `concrete-chief-engineer-guide-essay` を新商品へ。
-3. ココナラは `coconala-services.ts` に `status: 'draft'` で登録（PDF は note 価格×1.1）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
-4. 旧商品（序論本論結論型）は販売履歴があるため非公開にしない。案内文を追記して導線だけ切り替える。
+3. ココナラは `coconala-services.ts` に `status: 'draft'` で登録（PDF は note 価格×1.1。note に同じ中身が無い PDF は `notePriceExempt` に理由を書く＝K3 が該当）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
+4. 商品の組み替えで旧版を note から削除するときは、販売記録（`data/note/sales.json`）で0件を確かめてから行い、原稿は `content/sources/cce-persona-essays/` へ移す（2026-10-01 序論本論結論型・2026-10-03 テーマ別5本）。
 
 ## 担当外
 
