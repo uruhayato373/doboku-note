@@ -2035,6 +2035,18 @@
       "commit": "20182ab35112",
       "verification": "past-exam-qa OK（全材料・全肢を再検算）・validate-mdx・lint-mdx-mobile HIGH 0・本番 HTML に「平成24年度 問題17」",
       "note": "最後の H24問17 を原典から収録し、JIS A 5308 9.2.2 b) の丸め規定で正答1を確定。分野別の択一過去問は全334問（出題数と一致）。本番の製造・品質管理ページで表示を確認"
+    },
+    {
+      "id": "DN-0250",
+      "at": "2026-10-06",
+      "task": "1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1cc510f04060",
+      "verification": "audit-note-funnel --live ずれなし（exit 0）、公開 API で 6 本とも完成答案集→完全攻略パックの順、無料記事は is_limited=false で題名・4418735・土木もくじを確認",
+      "note": "10/6 のユーザー決定で 1級は低価格先出しを採用。入口記事 6 本の冒頭を完成答案集→完全攻略パックの順にし（note-intro-standard の entry・PR #870）、note-update-body で反映（[5g] で本文更新を確認）。試験後の無料記事（1級）を受検の手引で照合のうえ公開（n90feba1be8ae）。2級分は DN-0544 へ切り出し"
     }
   ]
 }
