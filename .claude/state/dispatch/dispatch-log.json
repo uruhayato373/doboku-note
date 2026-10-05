@@ -1905,6 +1905,18 @@
       "note": "todo-complete.mjs 経由で完了処理"
     },
     {
+      "id": "DN-0540",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士の完全パック PDF（services/4426935）をライブで休止してアーカイブする",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c3a6dccb7280",
+      "verification": "coconala-pause で 4426935 の休止・アーカイブを実測確認、小論文添削の本文・お願い・オプション名・FAQ をライブ反映し公開ページで旧表記 0 件、check-coconala-live 一致 4/4",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
       "id": "DN-0528",
       "at": "2026-10-05",
       "task": "コンクリート主任技士 小論文の note 記事に、ココナラ添削への導線と無料域のもくじリンクを戻す",
