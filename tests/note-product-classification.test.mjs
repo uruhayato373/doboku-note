@@ -150,6 +150,6 @@ test('主任技士は受付中の同資格ココナラへ接続し、追加3ペ�
   `);
   assert.equal(result.chief.id, 'coconala-cce-essay-tensaku'); assert.equal(result.chief.status, 'listed'); assert.equal(result.empty, null);
   assert.deepEqual(result.grading.map(i=>i.trackLabel), ['offsite-coconala-2kyu-tensaku-3theme']);
-  assert.equal(result.overview.length, 2);
-  assert.deepEqual(result.trends.map(i=>i.trackLabel), ['offsite-coconala-cce-full-pdf']);
+  assert.deepEqual(result.overview.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
+  assert.deepEqual(result.trends.map(i=>i.trackLabel), ['offsite-coconala-cce-essay-tensaku']);
 });
