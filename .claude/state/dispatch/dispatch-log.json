@@ -1879,6 +1879,18 @@
       "commit": "ac830d02caa8",
       "verification": "PR #857 の CI（audit・build・e2e・lighthouse）成功 / 本番 guide/essay に新16誌のリンク 16/16 / npm run check-production-ssr exit 0",
       "note": "PR #857 の衝突（data/note/magazines.json）を解消し、マージ後の正本で取り直して SoT ズレ 0。develop へマージ（88d049b）し、main 3e024d6 で本番デプロイ（run 37273407618 成功）。ユーザー指示によるマージ・デプロイ"
+    },
+    {
+      "id": "DN-0264",
+      "at": "2026-10-05",
+      "task": "土木二次の本試験後（10/25以降）のオフ期に、ココナラの添削・指導の棚を据え置くか休止するかを決める",
+      "tier": "hold",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0b8190df6cd2",
+      "verification": "決定は ココナラ展開キット.md §2（2026-10-05）・残作業は DN-0538",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
