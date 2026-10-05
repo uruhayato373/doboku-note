@@ -453,6 +453,7 @@ const introVariant = z
       })
       .strict(),
     magazines: z.record(text, introMagazine).describe('マガジン id → 導線の url・題名・説明'),
+    entryLead: z.record(text, text).optional().describe('入口商品（rules[].entry）ごとの案内文。入口→上位パックの順に 1 つの案内として出す'),
     rules: z
       .array(
         z
@@ -460,6 +461,7 @@ const introVariant = z
             match: z.string().describe('記事のパスに含まれる文字列。上から順に最初の一致（空文字は全記事に一致）'),
             home: z.string().nullable().describe('この記事が収録されているマガジン id（無ければ null）'),
             upper: z.string().nullable().describe('上位の束ね商品のマガジン id（無ければ null）'),
+            entry: z.string().optional().describe('上位パックより先に案内する入口の商品のマガジン id（低価格先出し。upper と一緒に 1 つの案内にする）'),
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
             _why: text.optional(),
@@ -473,6 +475,12 @@ const introVariant = z
     v.rules.forEach((r, i) => {
       for (const k of ['home', 'upper']) if (r[k] !== null && !(r[k] in v.magazines)) flag(ctx, ['rules', i, k], `magazines に無いマガジン id「${r[k]}」`);
       if (r.coconalaLead !== undefined && !(r.coconalaLead in v.coconala.lead)) flag(ctx, ['rules', i, 'coconalaLead'], `coconala.lead に無いキー「${r.coconalaLead}」`);
+      if (r.entry !== undefined) {
+        if (!(r.entry in v.magazines)) flag(ctx, ['rules', i, 'entry'], `magazines に無いマガジン id「${r.entry}」`);
+        if (!v.entryLead || !(r.entry in v.entryLead)) flag(ctx, ['rules', i, 'entry'], `entryLead に「${r.entry}」の案内文が無い`);
+        if (r.upper === null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は上位パック（upper）と組で使う');
+        if (r.home !== null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は収録元マガジン（home）の無い記事にだけ使う');
+      }
     });
   });
 
