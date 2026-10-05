@@ -1,23 +1,47 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-09-30T07:39:46.214Z",
-  "tracked": 612,
+  "fetchedAt": "2026-10-05T01:47:42.041Z",
+  "tracked": 589,
   "untracked": 329,
-  "noId": 22,
-  "fetchTargets": 590,
-  "inspected": 590,
+  "noId": 19,
+  "fetchTargets": 570,
+  "inspected": 570,
   "fetchFail": 0,
   "fetchFailRate": 0,
   "notConclusive": false,
-  "drift": [
+  "drift": [],
+  "warn": [
     {
-      "rel": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/11_直前総点検-2テーマ組合せとヤマ/article.md",
-      "noteId": "n64f9653dc30c",
-      "status": "reserved",
-      "live": "published"
+      "rel": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/01-環境負荷低減/article.md",
+      "noteId": "na25bfcb7de24",
+      "status": "published",
+      "live": "404"
+    },
+    {
+      "rel": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/02-耐久性の向上/article.md",
+      "noteId": "n1ee271fc0696",
+      "status": "published",
+      "live": "404"
+    },
+    {
+      "rel": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/03-生産性向上DX/article.md",
+      "noteId": "nc653f78e53a0",
+      "status": "published",
+      "live": "404"
+    },
+    {
+      "rel": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/04-気候変動と品質確保/article.md",
+      "noteId": "n949330dc6720",
+      "status": "published",
+      "live": "404"
+    },
+    {
+      "rel": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/05-担い手不足と品質確保/article.md",
+      "noteId": "n3abbb17381a4",
+      "status": "published",
+      "live": "404"
     }
   ],
-  "warn": [],
   "noLive": [],
   "fixed": 0
 }
