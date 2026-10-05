@@ -1951,6 +1951,30 @@
       "commit": "c897ccfb2b31",
       "verification": "原典ページ画像と1問ずつ目視照合・past-exam-qa で7問監査し指摘7点を反映・check-figure-embed-dims OK・refresh-indexes・開発サーバーで6ページ表示確認",
       "note": "34問を原典の問題ページで照合: 原典どおり22問、選択肢の作り直し4問（H25問11・18、H24問11・27）、図の描き直し4枚（H24問11・22・29、H25問28図2）、語句5問。分野別8ページの description を平成24年度〜に更新。本番確認は DN-0543"
+    },
+    {
+      "id": "DN-0461",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 小論文の一本化の仕上げ: 本番反映を確かめ、ココナラ K3 を出品して旧 K1/K2 を休止する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20df1a4ac181",
+      "verification": "curl 本番 /exam/concrete-chief-engineer/guide/essay に cce-essay-reiwa-pack・m97a0049a10de あり、coconala-services の cce 3件 status=paused/retired、check-coconala-wiring exit 0",
+      "note": "本番の guide-essay に cce-essay-reiwa-pack（全40答案 m97a0049a10de）の CTA が出ていることを確認。ココナラ K3 の出品と K1/K2 の休止は 2026-10-05 の決定（主任技士は PDF から撤退し添削1件に集約・DN-0540）で不要になり、K1/K2/K3 はすべて retired。共有 pre-commit フックに check-cce-essay --staged が入っていることを確認"
+    },
+    {
+      "id": "DN-0388",
+      "at": "2026-10-05",
+      "task": "KPI・検索戦略・レビューの PR（#661 → #662 → #664 → #665、続けて #666＝DN-0397）を順にマージし、週次レビューが新しい手順で動くことを確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20df1a4ac181",
+      "verification": "gh pr view 661/662/664/665/666 の状態、data/business/records/review-2026-10-01 の findings/decision、docs/reviews/weekly/2026-W39-review.md",
+      "note": "#665（#661・#662・#664 を含む）と #666 は 2026-09-27 に develop へマージ済み（#661・#662・#664 は #665 に吸収されて close）。マージ後の 10/01 の月次レビュー記録に受取額 74,218円と目標（月10万円・10/1 適用）の扱い、検索の改善候補は W39 週次レビュー（DN-0338）と 10/05 の DN-0532〜0534 で起票済み"
     }
   ]
 }
