@@ -145,7 +145,7 @@
 
 **起点**: 2026-10-05 の 2級土木の SNS 配線の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿・全件 ready）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` には `x-article-*` しか無く、launchd にも無い。video-packs の `status.json` は 9/11 以降更新が無い（ライブの Planner は未照合）。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、X は 2級を主力へ切り替えた（DN-0445）のに Instagram の 2級は 0 本。プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。
 
-**やること**: (1) Mac の Business Suite ログインで `/ig-reconcile` を回し、9/20 以降の予約・公開の実体を確かめる。(2) 2級の直前向けテーマ（`content/sns/instagram/video-packs/civil-construction-2/` の経験記述・学科記述・聞き流しまとめなど）を 10/24 までの枠へ前倒しする案を一覧にし、ユーザー承認後に `publish-ig-bs` で予約する（1 回 9 件まで・dry-run 先行）。年度・時期に依存するテーマは配信日に合うか確かめる。(3) 補充の定期処理を作り直すか、instagram-campaign.md を実態（手動補充）に直す。(4) プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いは DN-0363 と合わせて決める。
+**やること**: (0) 2026-10-05 に運営者が Facebook へログインできず、Business Suite のプロファイルが expired のまま（`npm run auth:status -- --service instagram`）。まずログインを復旧する。(1) Mac の Business Suite ログインで `/ig-reconcile` を回し、9/20 以降の予約・公開の実体を確かめる。(2) 2級の直前向けテーマ（`content/sns/instagram/video-packs/civil-construction-2/` の経験記述・学科記述・聞き流しまとめなど）を 10/24 までの枠へ前倒しする案を一覧にし、ユーザー承認後に `publish-ig-bs` で予約する（1 回 9 件まで・dry-run 先行）。年度・時期に依存するテーマは配信日に合うか確かめる。(3) 補充の定期処理を作り直すか、instagram-campaign.md を実態（手動補充）に直す。(4) プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いは DN-0363 と合わせて決める。
 
 **完了条件**: 10/24 までの Instagram に 2級の投稿が予約され、Planner で実体を確かめて `status.json` に記録し、補充の仕組みと instagram-campaign.md の記述が一致している。
 
