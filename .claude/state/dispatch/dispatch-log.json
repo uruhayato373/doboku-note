@@ -2011,6 +2011,30 @@
       "commit": "153db6957a1a",
       "verification": "3つの取得データを空にした状態で dataset-schemas の analysis・search テスト 24件 pass",
       "note": "growth-digest・seo-meta・indexing-requests の配列が空のときは tests/fixtures/dataset-samples の固定サンプルを失敗例の元にする。PR #869"
+    },
+    {
+      "id": "DN-0543",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 平成24・25年度の過去問の修正（16問・図4枚）を本番で確かめる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20182ab35112",
+      "verification": "npm run check-production-ssr exit 0（pages.dev・doboku-note.com とも 200・<main あり）、curl 本番 HTML と storage.doboku-note.com の SVG を実査",
+      "note": "deploy 9e1156d53（run 37318068118 success）の後、本番 6 ページで H25問23 の正答4の解説・H25問6/問2/問11/問18 の原典の本文・H24問27/問29 の修正を確認。R2 の h24-q11/h24-q22/h24-q29/h25-q28-fig2.svg が新版"
+    },
+    {
+      "id": "DN-0462",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士の択一過去問の欠け31問を原典ページから補う",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20182ab35112",
+      "verification": "past-exam-qa OK（全材料・全肢を再検算）・validate-mdx・lint-mdx-mobile HIGH 0・本番 HTML に「平成24年度 問題17」",
+      "note": "最後の H24問17 を原典から収録し、JIS A 5308 9.2.2 b) の丸め規定で正答1を確定。分野別の択一過去問は全334問（出題数と一致）。本番の製造・品質管理ページで表示を確認"
     }
   ]
 }
