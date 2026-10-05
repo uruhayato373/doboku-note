@@ -33,14 +33,6 @@
 
 **完了条件**: 公開 API で主任技士の小論文 40 本すべての無料域に services/4425046 と nd59f471c9214 のリンクがあり、出題傾向分析から立場別セット・もくじ・添削へ進める。
 
-### [DN-0530] PR #857（主任技士 小論文の立場別組み替え）の衝突を解いて develop へ入れ、本番へ出す
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-10]
-
-**起点**: note では 10/03 に立場別 40 本と新 16 誌を公開し、全40答案 `cce-essay-reiwa-pack` を ¥5,980、まるごと `cce-marugoto-pack` を ¥7,980 に組み替えた。正本側の変更は PR #857（feat/cce-reiwa-persona）にあり、develop に入っていない（衝突は自動取得の `data/note/magazines.json` の1ファイルだけ）。10/05 の週次取得（af09aeb49）がライブの状態を記録したため、develop の CI `audit` が magazine-membership（cce-essay-reiwa-pack 期待6・ライブ41、cce-marugoto-pack 期待10・ライブ45）と products（未収録5本・意図に無い収録40本）で赤い。本番サイトは 10/01 の構成のままで、立場別16誌への入口が無い（取得データの issues に未配線16件・価格ずれ2件）。
-
-**やること**: (1) #857 に develop をマージし、`data/note/magazines.json` は develop 側（10/05 の取得）を採る。(2) `node scripts/check-magazine-membership.mjs --ci`・`npm run check-products`・`npm run verify-note-magazines` を通す（ずれが残れば `npm run verify-note-magazines -- --contents --json` で取得し直す）。(3) develop へマージして `/deploy` し、`npm run check-production-ssr` を実行する。
-
-**完了条件**: develop の CI `audit` で magazine-membership と products が通り、本番 `/exam/concrete-chief-engineer/guide/essay` に立場別5テーマと立場別合格パックのカードが出て、`check-production-ssr` が exit 0。
 
 ### [DN-0502] 技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [期日:2026-10-04]
