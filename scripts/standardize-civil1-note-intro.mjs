@@ -79,6 +79,18 @@ function magBlock(id, kind) {
 }
 
 /**
+ * 入口の商品（低価格）→ 上位パックの順に、1 つの案内（pack-top 1 つ・カード 2 枚）として出す（2026-10-06 DN-0250）。
+ * 上位パックの案内を別ブロックで重ねない（同じ記事に pack-top が 2 つ並ぶと監査と読者の両方が迷う）。
+ */
+export function ladderBlock(entryId, upperId) {
+  const entry = CONFIG.magazines[entryId];
+  const upper = CONFIG.magazines[upperId];
+  const lead = CONFIG.entryLead?.[entryId];
+  if (!entry || !upper || !lead) throw new Error(`入口の案内に必要な設定が無い: entry=${entryId} upper=${upperId}`);
+  return ['<!-- cta:pack-top -->\n' + lead, entry.url, upper.url];
+}
+
+/**
  * 冒頭を組み直す。戻り値 { intro, review[] }。review が空でなければ書き込まない。
  */
 export function rebuildIntro(introRaw, rel) {
@@ -105,7 +117,8 @@ export function rebuildIntro(introRaw, rel) {
   const lead = CONFIG.coconala.lead[rule.coconalaLead || 'default'];
   const commerce = ['<!-- cta:coconala-custom -->\n' + lead, ...CONFIG.coconala.urls];
   if (rule.home) commerce.push(...magBlock(rule.home, 'home'));
-  if (rule.upper) commerce.push(...magBlock(rule.upper, 'upper'));
+  if (rule.entry) commerce.push(...ladderBlock(rule.entry, rule.upper));
+  else if (rule.upper) commerce.push(...magBlock(rule.upper, 'upper'));
   const out = [bs[0], `![](img/${CONFIG.banner})`, P1, P2, ...keep, '---', ...commerce, ...dq, ...mokuji];
   return { intro: out.join('\n\n') + '\n\n', review };
 }

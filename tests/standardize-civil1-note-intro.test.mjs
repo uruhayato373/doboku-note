@@ -79,3 +79,41 @@ test('2回当てても変わらない（単品カードの URL を迷子にし�
   assert.equal(twice, once);
   assert.equal((once.match(/nec34238ca6d6/g) || []).length, 1);
 });
+
+// 2026-10-06 DN-0250: 1級二次の後は低価格先出し。収録元の無い入口記事（既定の規則）は
+// 完成答案集を先に、完全攻略パックを次に、1 つの案内（pack-top 1 つ・カード 2 枚）として出す。
+import { readFileSync } from 'node:fs';
+import { ladderBlock } from '../scripts/standardize-civil1-note-intro.mjs';
+
+const ENTRY = '1級経験記述テーマ選び5管理/article.md';
+const ENTRY_URL = 'https://note.com/dobokunote/m/m150c9db08902';
+const UPPER_URL = 'https://note.com/dobokunote/m/m8290970a7f05';
+
+const entryLegacy = [
+  '# 題名',
+  '![](img/figure-author-authority-pop.png)',
+  '**こんな人のための記事です**\n\n- A',
+  '<!-- cta:pack-top -->\n想定工事150件から自分の工事に近いものを選び、5管理の完成答案を書き分けられる買い切りパックもあります。',
+  UPPER_URL,
+].join('\n\n') + '\n\n';
+
+test('入口記事（既定の規則）は完成答案集→完全攻略パックの順に、pack-top 1 つで案内する', () => {
+  const { intro, review } = rebuildIntro(entryLegacy, ENTRY);
+  assert.deepEqual(review, []);
+  assert.equal(intro.split('<!-- cta:pack-top -->').length - 1, 1, 'pack-top が 1 つでない');
+  assert.ok(intro.indexOf(ENTRY_URL) >= 0 && intro.indexOf(ENTRY_URL) < intro.indexOf(UPPER_URL), '完成答案集が完全攻略パックより先に無い');
+  assert.ok(!/完成答案集」の収録記事です/.test(intro), '収録していない記事に「収録記事です」と書いている');
+});
+
+test('入口記事の組み直しは 2 回目で変わらない', () => {
+  const once = rebuildIntro(entryLegacy, ENTRY).intro;
+  assert.equal(rebuildIntro(once, ENTRY).intro, once);
+});
+
+test('note-funnel の 1級 pack-top の文面は、標準化スクリプトが書く入口の案内と同じ', () => {
+  const funnel = JSON.parse(readFileSync(new URL('../config/note-funnel.json', import.meta.url), 'utf8'));
+  const exams = funnel.exams || funnel;
+  const ovr = Object.values(exams).flatMap((ex) => ex?.topCtaOverrides || []).find((o) => o.dirPrefix === '1級土木/');
+  assert.ok(ovr, 'note-funnel に 1級土木/ の topCtaOverrides が無い');
+  assert.equal(ovr.text, ladderBlock('civil-1-experience-essay', 'civil-1-keiken-complete-pack').join('\n\n'));
+});
