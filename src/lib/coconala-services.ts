@@ -854,6 +854,7 @@ const SERVICES_RAW = {
     id: 'coconala-cce-full-pdf',
     status: 'paused',
     pauseReason: 'retired',
+    archivedAt: '2026-10-05',
     serviceUrl: 'https://coconala.com/services/4426935',
     title: 'コンクリート主任技士の完全パックを送ります',
     shortTitle: 'コンクリート主任技士 完全パック PDF',
