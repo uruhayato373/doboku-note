@@ -14,7 +14,8 @@ title: 著者オーソリティ 汎用バナー 運用ポリシー
 | `content/note/共通/著者オーソリティ/img/base-keyart-concrete.png` | concrete 用キーアート（Codex MCP 生成・brand-image-system §5 プロンプト接頭辞・tint #0f6e6e） |
 | `content/note/共通/著者オーソリティ/img/figure-author-authority.png` | civil 完成バナー（1280×1280、下部約380pxのみキーアート） |
 | `content/note/共通/著者オーソリティ/img/figure-author-authority-concrete.png` | concrete 完成バナー（同上、キーアートは base-keyart-concrete.png） |
-| `content/note/共通/著者オーソリティ/img/figure-author-authority-pop.png` | 2級土木用のキャラクターPOP版（1280×1280・緑主色）。コピー・SHA・目視結果は同階層の `pop-image.json`。1級へは流用しない（DN-0450） |
+| `content/note/共通/著者オーソリティ/img/figure-author-authority-pop.png` | 1級・2級土木用のキャラクターPOP版（1280×1280・緑主色）。コピー・SHA・目視結果は同階層の `pop-image.json`（DN-0450。2026-09-30 に1級も同じ版へ統一） |
+| `content/note/共通/著者オーソリティ/img/figure-author-authority-concrete-pop.png` | コンクリート3資格用のキャラクターPOP版（1280×1280・紫主色・3本柱の3つ目は「主任技士・診断士｜当事者性」）。記録は同階層の `pop-image-concrete.json`（2026-10-04） |
 | `scripts/render-note-author-authority.mjs` | キーアート＋コピー合成。`--variant civil\|concrete` で対象切替（`node scripts/render-note-author-authority.mjs --variant concrete` で再生成） |
 | `scripts/distribute-author-authority-banner.mjs` | 各 note 商品 article.md へ画像配布＋top/bottom 挿入（冪等）。`--exam civil\|concrete`／`--migrate` 対応 |
 | `scripts/note-swap-author-banner.mjs` | 既公開記事のライブ反映（バナー画像＋説明文2段落のみ差替。全文置換はしない） |
@@ -68,14 +69,14 @@ title: 著者オーソリティ 汎用バナー 運用ポリシー
 ## コンクリート適用範囲
 
 - 対象ディレクトリ: `content/note/コンクリート技士/` `content/note/コンクリート主任技士/` `content/note/コンクリート診断士/` の全 article.md（3資格まとめて `--exam concrete`）
-- バナー画像: `figure-author-authority-concrete.png`（civil 用 `figure-author-authority.png` と混在させない）
+- バナー画像: `figure-author-authority-concrete-pop.png`（2026-10-04 から。旧 `figure-author-authority-concrete.png` は差し替え元の照合用に原本を残す）。civil 用の画像と混在させない
 - **当事者ワードの厳守**: 運営者が実際に保有するのは**コンクリート主任技士・コンクリート診断士**のみ（`src/config/author.ts` の `qualifications`）。**コンクリート技士**は保有していないため、「技士に合格」のような表現をコンクリート技士ページも含めて使わない。当事者性の文言は常に「主任技士・診断士」で統一する
 
-## 2級土木のPOP版（DN-0450）
+## POP版（土木 DN-0450・コンクリート 2026-10-04）
 
-`content/note/1級・2級土木/2級土木/` 配下は `figure-author-authority-pop.png` を使う。`distribute-author-authority-banner.mjs` は同配下へ自動でPOP版を配り、版を問わず著者バナー行があれば配布済みとみなす。
+`content/note/1級・2級土木/` 配下は `figure-author-authority-pop.png`、コンクリート3資格は `figure-author-authority-concrete-pop.png` を使う。`distribute-author-authority-banner.mjs` は自動でPOP版を配り、版を問わず著者バナー行があれば配布済みとみなす。
 
-標準版とPOP版はどちらも正方形で比率では区別できない。`note-swap-author-banner` は原稿の先頭バナーがPOP版のとき、エディタ上の正方形バナーを取得して原本2枚と縮小画素で照合し、標準版を差し替え対象にする（照合できない画像があれば保存しない）。16:9画像はどのモードでも、旧キャプション付きか旧版原本 `legacy-author-authority-16x9.png` と画素で一致したものだけを差し替え対象にし、H2より前の本文図を消さない（照合は `scripts/lib/author-banner-match.mjs`・回帰テスト `tests/author-banner-match.test.mjs`、DN-0455）。公開後は公開APIの画像を同じ方法で照合し、POP 1枚・標準版0枚を確かめる。
+標準版とPOP版はどちらも正方形で比率では区別できない。`note-swap-author-banner` は原稿の先頭バナーがPOP版のとき、エディタ上の正方形バナーを取得して原本（土木の標準・POP、コンクリートの標準・POP）と縮小画素で照合し、記事のPOP版以外の正方形版を差し替え対象にする（照合できない画像があれば保存しない）。土木とコンクリートのPOP版は構図が同じため画素差は約18と小さいが、照合は最も近い版を選ぶ（`tests/author-banner-match.test.mjs`）。既公開記事の差し替えは `--image-only`（本文の説明文は既に新しい）。16:9画像はどのモードでも、旧キャプション付きか旧版原本 `legacy-author-authority-16x9.png` と画素で一致したものだけを差し替え対象にし、H2より前の本文図を消さない（照合は `scripts/lib/author-banner-match.mjs`・回帰テスト `tests/author-banner-match.test.mjs`、DN-0455）。公開後は公開APIの画像を同じ方法で照合し、記事のPOP版1枚・他の正方形版0枚を確かめる。
 
 無料記事が会員特典マガジンに入っていると公開処理が中断する（全文会員限定を防ぐ）。誰でも読める状態で出すときは `--trial-line-bottom` を付ける。公開直前で止まった記事は下書きだけ差し替え済みになり次回 already-done と判定されるので、`--publish-draft` で下書きを公開する（公開APIで古いと確かめた記事だけ）。
 

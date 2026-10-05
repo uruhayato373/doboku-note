@@ -1,0 +1,77 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": {
+    "productId": "concrete-author-authority",
+    "article": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック/article.md",
+    "channel": "note",
+    "purpose": "article-authority-banner",
+    "format": {
+      "width": 1280,
+      "height": 1280
+    }
+  },
+  "copy": {
+    "eyebrow": "この教材、誰がつくってる？",
+    "headline": "答案を読む 3つの視点",
+    "proofs": [
+      {
+        "credential": "総監（技術士）",
+        "role": "分析力"
+      },
+      {
+        "credential": "元発注者（自治体）",
+        "role": "審査の目"
+      },
+      {
+        "credential": "主任技士・診断士",
+        "role": "当事者性"
+      }
+    ],
+    "synthesis": "分析 × 審査 × 当事者性"
+  },
+  "evidence": [
+    ".claude/knowledge/reference/author-authority-banner.md",
+    "src/config/author.ts",
+    ".claude/knowledge/design-system/note-cover-tokens.json"
+  ],
+  "references": [
+    {
+      "path": "content/note/共通/著者オーソリティ/img/figure-author-authority-pop.png",
+      "sha256": "7dfa2292af8cfeaf7934687b3179bc238d24ef35fd76242a57885dcceff582fc",
+      "role": "layout and style"
+    },
+    {
+      "path": "content/sns/_assets/character/explaining.png",
+      "sha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f",
+      "role": "character identity"
+    },
+    {
+      "path": "content/note/共通/著者オーソリティ/img/figure-author-authority-concrete.png",
+      "sha256": "7614ed1a562c8037546bd0ea6c3a03ab5abb2bc7cc2695f4afb5c908895d50bb",
+      "role": "factual hierarchy"
+    }
+  ],
+  "generator": "Codex CLI 0.154.0 built-in image_gen ($imagegen skill, model gpt-6-astra, ChatGPT plan; no API key)",
+  "prompt": "Use case: ads-marketing\nAsset type: square in-article authority banner for a Japanese note.com exam-prep article, 1:1 composition\nInput images: Image 1 is the approved civil-engineering POP banner whose layout, typography style, card structure and energy must be followed (but its green color and its third credential must NOT be copied); Image 2 is the approved doboku-note teacher character whose identity, face, glasses, short dark hair, light beard, navy workwear, white helmet and gold reflective vest must be preserved; Image 3 is the existing concrete-qualification banner whose factual hierarchy (three credentials) must be preserved.\nPrimary request: create the concrete-qualification version of Image 1. A brighter, pop, catchy but trustworthy Japanese educational graphic for concrete-engineering exam candidates (コンクリート主任技士・コンクリート診断士). It must look like a polished modern study-service advertisement, not a government brochure.\nComposition: 1:1 square. Put the teacher character large on the right, waist-up, presenting toward the left. Put text and three rounded proof cards on the left. Keep all text and face well inside a generous mobile-safe area. Use bold Japanese typography, high contrast, thick clean shapes, small check marks and subtle concrete-structure motifs (concrete bridge piers, formwork, test cylinders, blueprint lines). No tiny URL.\nColor palette: concrete plum #6E3A8C as the main color (deep plum #522A69 for the ribbon and headline accents), deep navy #16365C for trust, warm yellow for highlights, white and very pale lavender background. Avoid excessive saturation.\nText (verbatim; do not add, omit, translate, paraphrase, or misspell any text):\n「この教材、誰がつくってる？」\n「答案を読む 3つの視点」\nCard 1: 「総監（技術士）」 / 「分析力」\nCard 2: 「元発注者（自治体）」 / 「審査の目」\nCard 3: 「主任技士・診断士」 / 「当事者性」\nBottom ribbon: 「分析 × 審査 × 当事者性」\nConstraints: clearly separate the three credentials; never say 採点者 or 採点眼; never say 施工管理技士 or コンクリート技士; no claims of guaranteed success; no price; no brand URL; do not imply that the former public owner graded the certification exam. Plain white helmet logo text \"doboku-note\" may stay as in Image 2. Preserve the exact character identity from Image 2. Japanese characters must be clean and correctly rendered. No watermark.",
+  "output": {
+    "canonicalPath": "content/note/共通/著者オーソリティ/img/figure-author-authority-concrete-pop.png",
+    "sha256": "97d9b05a542873bdcb05986b2c564a2b63c5441850430b6c003fd47c999df7c9",
+    "note": "生成 1254×1254 を 1280×1280 へ拡大し 256 色へ減色（613KB）"
+  },
+  "review": {
+    "reviewedAt": "2026-10-04",
+    "originalSize": "PASS: all specified copy is legible and uncut",
+    "mobile360": "PASS: headline, three credentials, roles, and synthesis ribbon remain legible",
+    "factAlignment": "PASS: credentials separated; 主任技士・診断士 only (no コンクリート技士, no 施工管理技士); no grading or success-guarantee claim",
+    "characterIdentity": "PASS: approved explaining pose identity preserved"
+  },
+  "storage": {
+    "canonical": "git-tracked shared authority asset",
+    "articleCopy": "local generated copy; ignored by repository policy"
+  },
+  "publication": {
+    "status": "in-progress",
+    "articles": ".tmp list of 56 published concrete articles (note-swap-author-banner --image-only)"
+  }
+}

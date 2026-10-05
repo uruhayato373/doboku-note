@@ -23,9 +23,9 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname, resolve, relative } from 'node:path';
+import { join, dirname, resolve, relative, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadBannerReferences, matchBannerBuffer } from './lib/author-banner-match.mjs';
+import { loadBannerReferences, matchBannerBuffer, POP_BANNER_VARIANTS, SQUARE_BANNER_VARIANTS } from './lib/author-banner-match.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { countEditorImages, uploadAtCaret, settleUploads } from './lib/note-images.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
@@ -44,7 +44,6 @@ const OLD_CAPTION = '技術士（総合技術監理部門）を持つ元発注�
 const OLD_CAPTION_PREFIX = '技術士（総合技術監理部門）を持つ元発注者が';
 const BOTTOM_PROSE_PREFIX = '上位資格の分析力';
 const BANNER_REFERENCE_DIR = join(ROOT, 'content/note/共通/著者オーソリティ/img');
-const POP_BANNER_NAME = 'figure-author-authority-pop.png';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
@@ -144,7 +143,8 @@ function parseArticle(articlePath) {
     boundary,
     banners,
     prose,
-    popTarget: banners[0].rel.endsWith(POP_BANNER_NAME),
+    // POP 版の記事なら、その版（pop／concrete-pop）。標準版の記事は null
+    popTarget: POP_BANNER_VARIANTS[basename(banners[0].rel)] ?? null,
   };
 }
 
@@ -295,7 +295,7 @@ async function probeBannerFigures(page, article = null) {
     bottomPrefix: BOTTOM_PROSE_PREFIX,
     newProsePrefix: NEW_PROSE_PREFIX,
   });
-  await classifyFigures(raw.figures, Boolean(article?.popTarget));
+  await classifyFigures(raw.figures, article?.popTarget ?? null);
   return summarizeProbe(raw);
 }
 
@@ -355,10 +355,10 @@ async function classifyFigures(figures, popTarget) {
       continue;
     }
     if (figure.class !== 'new' || !popTarget) continue;
-    // POP 版の記事: 正方形のうち標準版を差し替え対象にする
+    // POP 版の記事: 正方形のうち記事の POP 版だけを残し、他の正方形版（標準版・別資格の POP 版）を差し替え対象にする
     const result = await classifyBannerImage(figure.src);
     figure.variant = result.variant;
-    figure.class = result.variant === 'pop' ? 'new' : result.variant === 'standard' ? 'old' : 'unknown';
+    figure.class = result.variant === popTarget ? 'new' : SQUARE_BANNER_VARIANTS.includes(result.variant) ? 'old' : 'unknown';
   }
 }
 
@@ -991,7 +991,7 @@ async function inspectExistingTopProse(page, prose) {
   }, prose);
 }
 
-async function verifyPublishedBody(noteId, { requireNewProse = true, requirePop = false } = {}) {
+async function verifyPublishedBody(noteId, { requireNewProse = true, requirePop = null } = {}) {
   const live = await fetchNoteBody(noteId);
   if (live.error) {
     console.log(`[5e] raw error=${JSON.stringify(live.error)} unmeasurable=${Boolean(live.unmeasurable)} httpStatus=${live.httpStatus ?? live.statusCode ?? 'n/a'}`);
@@ -1010,10 +1010,10 @@ async function verifyPublishedBody(noteId, { requireNewProse = true, requirePop 
       const { variant } = await classifyBannerImage(src);
       if (variant !== 'unknown') variants.push(variant);
     }
-    const pop = variants.filter((variant) => variant === 'pop').length;
-    const standard = variants.filter((variant) => variant === 'standard').length;
-    console.log(`[5e] public API banners: pop=${pop} standard=${standard}`);
-    if (pop !== 1 || standard !== 0) return { ok: false, reason: `公開本文のバナーが POP 1 枚になっていない（pop=${pop}, standard=${standard}）` };
+    const pop = variants.filter((variant) => variant === requirePop).length;
+    const others = variants.filter((variant) => variant !== requirePop && SQUARE_BANNER_VARIANTS.includes(variant)).length;
+    console.log(`[5e] public API banners: ${requirePop}=${pop} other-square=${others}`);
+    if (pop !== 1 || others !== 0) return { ok: false, reason: `公開本文のバナーが ${requirePop} 1 枚になっていない（${requirePop}=${pop}, 他の正方形版=${others}）` };
   }
   return { ok: true };
 }
