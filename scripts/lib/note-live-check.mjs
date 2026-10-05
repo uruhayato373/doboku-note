@@ -346,3 +346,60 @@ export function findBrokenSiteLinks(html, routes = loadSiteRoutes()) {
   }
   return [...bad];
 }
+
+// ---- 本文が実際に更新されたかの確認（2026-10-05 DN-0542） ----
+// 「更新する」を押しても note 側で確定しないことがある（会員特典マガジン内の無料記事で、試し読みラインを
+// 引かずに更新した場合など）。[5e] は構造の崩れしか見ないので、旧版のままでも OK を出していた。
+// 更新前の公開本文に無く、新しい原稿の「公開範囲」にある文が、更新後の公開本文に出ているかで確かめる。
+
+const squashText = (s) => (s || '').replace(/\s+/g, '');
+/** 公開 API の本文 HTML を比較用のテキストにする。 */
+export function liveBodyText(html) {
+  return decodeEntities(stripTags(html || ''));
+}
+
+/**
+ * 原稿のうち、未購入・未ログインの読者に見える範囲の行（比較に使える長さの文だけ）。
+ * 有料記事は境界の H2 より前、試し読みラインを末尾直前に置く記事は最後の数行（会員限定の尻尾）を除く。
+ * URL だけの行（リンクカード）・画像・コメント・表は公開本文で形が変わるので使わない。
+ */
+export function visibleProbeLines(markdown, { isPaid = false, boundary = null, trialTail = false } = {}) {
+  let lines = (markdown || '').split(/\r?\n/);
+  if (isPaid && boundary) {
+    let re = null;
+    try { re = new RegExp('^##\\s+(' + boundary + ')'); } catch { re = null; }
+    const idx = re ? lines.findIndex((l) => re.test(l.trim())) : -1;
+    if (idx >= 0) lines = lines.slice(0, idx);
+  }
+  const out = lines
+    .map((l) => l.trim())
+    .filter((l) => l && !/^(<!--|https?:\/\/|\||〔〔IMG|!\[|---|```|\$\$|<)/.test(l))
+    .map((l) => l
+      .replace(/^#{1,6}\s+/, '').replace(/^[-*]\s+/, '').replace(/^\d+\.\s+/, '').replace(/^>\s*/, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*/g, '').replace(/`/g, ''))
+    .filter((l) => squashText(l).length >= 16);
+  return trialTail ? out.slice(0, -2) : out;
+}
+
+/** 新しい原稿の公開範囲の文のうち、更新前の公開本文に無いものから確認用の断片（先頭20字）を選ぶ。 */
+export function pickUpdateProbes(lines, preText, limit = 3) {
+  const pre = squashText(preText);
+  const probes = [];
+  for (const line of lines) {
+    const frag = squashText(line).slice(0, 20);
+    if (frag.length < 12 || pre.includes(frag) || probes.includes(frag)) continue;
+    probes.push(frag);
+    if (probes.length >= limit) break;
+  }
+  return probes;
+}
+
+/**
+ * @returns {'no-visible-change'|'updated'|'not-updated'}
+ *   no-visible-change: 公開範囲に新しい文が無い（見える部分は変わらない更新）＝確かめようがない
+ */
+export function updateVerdict(probes, postText) {
+  if (!probes.length) return 'no-visible-change';
+  const post = squashText(postText);
+  return probes.some((p) => post.includes(p)) ? 'updated' : 'not-updated';
+}
