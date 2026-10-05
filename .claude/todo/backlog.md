@@ -85,14 +85,6 @@
 
 **完了条件**: 17誌とも note の公開 API で POP カバーが付き、各誌の dir に `cover-pop-20261005/pop-image.json`（プロンプト・SHA・360px の確認結果）がある。
 
-### [DN-0540] コンクリート主任技士の完全パック PDF（services/4426935）をライブで休止してアーカイブする
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-05] [期日:2026-10-12]
-
-**起点**: 2026-10-05 のユーザー決定で、ココナラの主任技士は PDF から撤退し、小論文添削（骨子からの指導はオプション）の 1 件にした。カタログは `coconala-cce-full-pdf` を `paused`・`retired` にし、サイトの導線も添削へ付け替えたが、ライブは公開中のまま。エージェントからのライブ休止は権限で止まるため、運営者が行う。
-
-**やること**: `npm run coconala-pause -- --service coconala-cce-full-pdf --commit` で休止し、`--archive --service coconala-cce-full-pdf --commit` でアーカイブする。あわせて小論文添削のオプション名と本文・FAQ（「指導：骨子から組み立てる」）を `node scripts/coconala-edit.mjs --service coconala-cce-essay-tensaku --commit` で反映し、オプションは編集画面で手入力する。
-
-**完了条件**: 4426935 がココナラの出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-live` が通る。
 
 
 
