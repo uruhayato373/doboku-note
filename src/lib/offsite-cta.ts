@@ -109,14 +109,14 @@ const OFFSITE_RULES: readonly OffsiteRule[] = [
   },
   {
     test: /^concrete-chief-engineer-guide-trends$/,
-    coconala: ['coconala-cce-full-pdf'],
-    coconalaCatch: '択一の傾向を確認したら、印刷用教材で全体を仕上げたい方へ。',
+    coconala: ['coconala-cce-essay-tensaku'],
+    coconalaCatch: '傾向を確認したら、小論文を人の目で確かめたい方へ。',
   },
   {
-    // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削とまとめ買いの完全パック。
+    // コンクリート主任技士: 資格トップと小論文ガイド。小論文の添削（骨子からの指導はオプション）。
     test: /^concrete-chief-engineer(-guide-(essay|overview))?$/,
-    coconala: ['coconala-cce-essay-tensaku', 'coconala-cce-full-pdf'],
-    coconalaCatch: '小論文を人の目で確かめたい方・まとめて仕上げたい方へ。',
+    coconala: ['coconala-cce-essay-tensaku'],
+    coconalaCatch: '小論文を人の目で確かめたい方・骨子から一緒に組み立てたい方へ。',
   },
 ];
 

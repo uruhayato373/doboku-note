@@ -1891,6 +1891,18 @@
       "commit": "0b8190df6cd2",
       "verification": "決定は ココナラ展開キット.md §2（2026-10-05）・残作業は DN-0538",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0526",
+      "at": "2026-10-05",
+      "task": "ココナラ K3（主任技士 完全パック PDF）の価格を note の組み替えに合わせて見直す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "edceba409b14",
+      "verification": "2026-10-05 ユーザー決定で主任技士の PDF から撤退し価格見直しが不要化。ライブの休止は DN-0539",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
