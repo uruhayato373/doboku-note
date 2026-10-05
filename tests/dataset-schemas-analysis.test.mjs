@@ -19,6 +19,8 @@ const issues = (schema, value) => {
   return r.success ? [] : r.error.issues.map((i) => `${i.path.join('.') || '(全体)'}: ${i.message}`);
 };
 const assertOk = (schema, value) => assert.deepEqual(issues(schema, value), []);
+/** 週次・日次の取得で配列が空になる週でも失敗例を作れるよう、最新データが使えないときだけ固定サンプルを元にする（DN-0536） */
+const sample = (name) => JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/dataset-samples', name + '.json'), 'utf8'));
 const assertFails = (schema, value, pattern) => {
   const found = issues(schema, value);
   assert.ok(found.some((l) => pattern.test(l)), `${pattern} が出ない: ${JSON.stringify(found.slice(0, 5))}`);
@@ -56,8 +58,10 @@ test('GrowthPack: 実データの全週が通り、欠け・窓・区画の誤�
 test('GrowthDigest: 実データの全週が通り、語彙・件数・窓の誤りが落ちる', () => {
   const S = SCHEMAS.GrowthDigest;
   for (const f of filesById.get('analysis.growth-digest')) assertOk(S, JSON.parse(readFileSync(join(ROOT, f), 'utf8')));
-  const d = latest('analysis.growth-digest');
-  assert.ok(d.surfaced.length > 0, '失敗例の元にする機会が無い');
+  const latestDigest = latest('analysis.growth-digest');
+  assertOk(S, sample('growth-digest'));
+  // 機会が 0 件の週は最新データから失敗例を作れないので、固定サンプルを元にする
+  const d = latestDigest.surfaced.length > 0 ? latestDigest : sample('growth-digest');
   assertFails(S, broken(d, (x) => { delete x.kpis; }), /kpis/);
   assertFails(S, broken(d, (x) => { x.surfaced[0].category = 'misc'; }), /category/);
   assertFails(S, broken(d, (x) => { x.surfaced[0].id = 'OPP-xyz'; }), /OPP-/);
@@ -139,8 +143,11 @@ test('CareerFunnel: 実データが通り、集計の食い違いと欠けが落
 
 test('SeoMeta: 実データが通り、版・件数・重大度の食い違いが落ちる', () => {
   const S = SCHEMAS.SeoMeta;
-  const m = latest('analysis.seo-meta');
-  assertOk(S, m);
+  const latestMeta = latest('analysis.seo-meta');
+  assertOk(S, latestMeta);
+  assertOk(S, sample('seo-meta'));
+  // 違反 0 件の回（results が空）は最新データから失敗例を作れないので、固定サンプルを元にする
+  const m = latestMeta.results.length > 0 && latestMeta.results[0].violations.length > 0 ? latestMeta : sample('seo-meta');
   assertFails(S, broken(m, (x) => { delete x.summary; }), /summary/);
   assertFails(S, { ...broken(m, (x) => { delete x.schemaVersion; }), version: 3 }, /schemaVersion/);
   assertFails(S, broken(m, (x) => { x.generated_at = '2026-09-29T11:48:08+09:00'; }), /generated_at/);

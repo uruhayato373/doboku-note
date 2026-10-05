@@ -1867,6 +1867,114 @@
       "commit": "724a433cd1e8",
       "verification": "check-cce-essay 40件違反0 / check-magazine-membership --ci 全40答案41・まるごと45・新16誌一致 / verify-note-magazines SoTズレ0 / audit-note-funnel・check-note-paid-cta exit0 / npm test 2683件 fail0",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0530",
+      "at": "2026-10-05",
+      "task": "PR #857（主任技士 小論文の立場別組み替え）の衝突を解いて develop へ入れ、本番へ出す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac830d02caa8",
+      "verification": "PR #857 の CI（audit・build・e2e・lighthouse）成功 / 本番 guide/essay に新16誌のリンク 16/16 / npm run check-production-ssr exit 0",
+      "note": "PR #857 の衝突（data/note/magazines.json）を解消し、マージ後の正本で取り直して SoT ズレ 0。develop へマージ（88d049b）し、main 3e024d6 で本番デプロイ（run 37273407618 成功）。ユーザー指示によるマージ・デプロイ"
+    },
+    {
+      "id": "DN-0264",
+      "at": "2026-10-05",
+      "task": "土木二次の本試験後（10/25以降）のオフ期に、ココナラの添削・指導の棚を据え置くか休止するかを決める",
+      "tier": "hold",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0b8190df6cd2",
+      "verification": "決定は ココナラ展開キット.md §2（2026-10-05）・残作業は DN-0538",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0526",
+      "at": "2026-10-05",
+      "task": "ココナラ K3（主任技士 完全パック PDF）の価格を note の組み替えに合わせて見直す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "edceba409b14",
+      "verification": "2026-10-05 ユーザー決定で主任技士の PDF から撤退し価格見直しが不要化。ライブの休止は DN-0539",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0540",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士の完全パック PDF（services/4426935）をライブで休止してアーカイブする",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c3a6dccb7280",
+      "verification": "coconala-pause で 4426935 の休止・アーカイブを実測確認、小論文添削の本文・お願い・オプション名・FAQ をライブ反映し公開ページで旧表記 0 件、check-coconala-live 一致 4/4",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0528",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 小論文の note 記事に、ココナラ添削への導線と無料域のもくじリンクを戻す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "de1a01cfe266",
+      "verification": "公開 API（/api/v3/notes）で41本を実検査: 無料部分に services/4425046 と nd59f471c9214 のカード 41/41・取得失敗0（出題傾向分析は1回目が偽完了で再実行後に確認）",
+      "note": "立場別40本の冒頭（無料部分）に添削 4425046 の導線を戻し、note-update-body の全置換でもくじカードの有料域落ち17本も解消。出題傾向分析に立場別5テーマ8誌・全40答案・添削・もくじのカードを追加。DN-0265 の効果判定の起点を 2026-10-05 に書き換え。試し読み画面の偽完了は DN-0542 に抽出"
+    },
+    {
+      "id": "DN-0539",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 平成25年度 問題23（運搬・圧送）の正答キーを原典で照合する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c897ccfb2b31",
+      "verification": "原典画像で解答一覧と問題文を目視照合・JIS A 5308:2019 本文で解説の事実を確認・past-exam-qa 4問 OK・開発サーバーで表示確認",
+      "note": "原典の解答一覧（2022年版 p.276・p.291）と H24・H25 全問の正答を突き合わせ、H25問23（1→4）・H25問6（4→2・問題文も原典へ差し替え）・H24問24（1→3）を修正。H25問2 の問題文作り直しも原典へ差し替え。未照合34問は DN-0541、本番確認は DN-0543"
+    },
+    {
+      "id": "DN-0541",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 平成24・25年度の択一過去問のうち、原典と未照合の34問を原典ページで照合する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c897ccfb2b31",
+      "verification": "原典ページ画像と1問ずつ目視照合・past-exam-qa で7問監査し指摘7点を反映・check-figure-embed-dims OK・refresh-indexes・開発サーバーで6ページ表示確認",
+      "note": "34問を原典の問題ページで照合: 原典どおり22問、選択肢の作り直し4問（H25問11・18、H24問11・27）、図の描き直し4枚（H24問11・22・29、H25問28図2）、語句5問。分野別8ページの description を平成24年度〜に更新。本番確認は DN-0543"
+    },
+    {
+      "id": "DN-0461",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 小論文の一本化の仕上げ: 本番反映を確かめ、ココナラ K3 を出品して旧 K1/K2 を休止する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20df1a4ac181",
+      "verification": "curl 本番 /exam/concrete-chief-engineer/guide/essay に cce-essay-reiwa-pack・m97a0049a10de あり、coconala-services の cce 3件 status=paused/retired、check-coconala-wiring exit 0",
+      "note": "本番の guide-essay に cce-essay-reiwa-pack（全40答案 m97a0049a10de）の CTA が出ていることを確認。ココナラ K3 の出品と K1/K2 の休止は 2026-10-05 の決定（主任技士は PDF から撤退し添削1件に集約・DN-0540）で不要になり、K1/K2/K3 はすべて retired。共有 pre-commit フックに check-cce-essay --staged が入っていることを確認"
+    },
+    {
+      "id": "DN-0388",
+      "at": "2026-10-05",
+      "task": "KPI・検索戦略・レビューの PR（#661 → #662 → #664 → #665、続けて #666＝DN-0397）を順にマージし、週次レビューが新しい手順で動くことを確かめる",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20df1a4ac181",
+      "verification": "gh pr view 661/662/664/665/666 の状態、data/business/records/review-2026-10-01 の findings/decision、docs/reviews/weekly/2026-W39-review.md",
+      "note": "#665（#661・#662・#664 を含む）と #666 は 2026-09-27 に develop へマージ済み（#661・#662・#664 は #665 に吸収されて close）。マージ後の 10/01 の月次レビュー記録に受取額 74,218円と目標（月10万円・10/1 適用）の扱い、検索の改善候補は W39 週次レビュー（DN-0338）と 10/05 の DN-0532〜0534 で起票済み"
     }
   ]
 }

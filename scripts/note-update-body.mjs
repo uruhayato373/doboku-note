@@ -83,7 +83,7 @@ import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { designVersions, readLedger, recordCover, sameImage, writeLedger } from './lib/note-cover-live.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages, settleAbortReason } from './lib/note-images.mjs';
-import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
+import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues, fetchNoteBody, liveBodyText, visibleProbeLines, pickUpdateProbes, updateVerdict } from './lib/note-live-check.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -435,6 +435,15 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   };
   const trialLineBottom = TRIAL_LINE_BOTTOM || article.memberTrial === 'bottom';
   const memberLock = KEEP_MEMBER_LOCK || article.memberTrial === 'lock';
+  // [5g] の材料: 更新前の公開本文に無く、新しい原稿の公開範囲にある文（DN-0542）。
+  // 「更新する」を押しても note 側で確定しないことがあり、[5e] の構造検査だけでは旧版のままでも OK になる。
+  let updateProbes = [];
+  if (doBody && COMMIT && !IMAGES_ONLY) {
+    const pre = await fetchNoteBody(noteId);
+    if (!pre.error && !pre.unmeasurable) {
+      updateProbes = pickUpdateProbes(visibleProbeLines(body, { isPaid, boundary, trialTail: trialLineBottom }), liveBodyText(pre.body));
+    }
+  }
   console.log(`\n[article] ${noteId} — ${abs.split(/[/\\]/).slice(-2).join('/')}${parts.join(',') === 'body' ? '' : `（${parts.join('・')}）`}`);
 
   // 2. 編集 URL へ遷移
@@ -781,6 +790,24 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     return false;
   } else {
     console.log(`[5e] API 実体検証 OK（URL見出し0 空引用0 太字記号0 リンク切れ0 img=${chk.imgLive}）`);
+  }
+  // 5g. 本文が実際に新しくなったか（DN-0542）。新しい文が 1 つも公開本文に出なければ、更新は確定していない。
+  if (!chk.fetchError) {
+    let verdict = updateVerdict(updateProbes, '');
+    for (let i = 0; i < 3 && verdict === 'not-updated'; i++) {
+      if (i) await sleep(5000);
+      const post = await fetchNoteBody(noteId);
+      if (post.error || post.unmeasurable) { verdict = 'unknown'; break; }
+      verdict = updateVerdict(updateProbes, liveBodyText(post.body));
+    }
+    if (verdict === 'not-updated') {
+      console.error(`[5g] FAIL: 公開本文が新しくなっていない（新しい原稿の文 ${updateProbes.length} 件がどれも出ていない）。`
+        + ' note 側で更新が確定していない。.tmp の nu-done スクリーンショットで公開設定の画面を確かめて再実行する: ' + noteId);
+      return false;
+    }
+    if (verdict === 'updated') console.log(`[5g] 本文の更新を確認（新しい文 ${updateProbes.length} 件のうち一致あり）`);
+    else if (verdict === 'unknown') console.log('[5g] WARN: 更新後の公開本文を取得できず、更新を確かめられない → 手動確認');
+    else console.log('[5g] 公開範囲に新しい文が無い更新（見える本文は変わらない）→ 更新確認は省略');
   }
   console.log(`[OK] ${noteId} ライブ反映完了`);
   return true;

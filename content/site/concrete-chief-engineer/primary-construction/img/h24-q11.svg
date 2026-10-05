@@ -1,13 +1,16 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の壁状構造物の立体図。既存自作SVGの幾何を保ったまま配色・フォントのみブランド化。書籍図の複製・トレースではない -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="スラブと壁が一体となったL字形コンクリート部材の等角投影図">
-  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style></defs>
-  <!-- horizontal slab top face -->
-  <path d="M60 140 L200 70 L340 140 L200 210 Z" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
-  <!-- slab front face -->
-  <path d="M60 140 L200 210 L200 235 L60 165 Z" fill="#ffffff" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
-  <!-- slab right face -->
-  <path d="M200 210 L340 140 L340 165 L200 235 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
-  <!-- vertical wall rising from left edge of slab -->
-  <path d="M60 140 L60 40 L100 20 L100 120 Z" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
-  <path d="M100 20 L200 70 L100 120 Z" fill="#d7d7d7" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+<!-- authored 2026-09-30 doboku-note 自作。2026-10-05 に原典の問題図と照合し、底版と壁からなる壁状構造物と、壁前面の天端付近のセパレータ締付け部（小円）に生じる沈みひび割れを原図に合わせて描き直した（原図を目視で再構成。書籍図の複製・トレースではない） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="max-width:400px;width:100%" role="img" aria-label="底版の上に立つ壁状構造物の立体図。壁前面の天端付近に並ぶセパレータ締付け部と、その周りに生じる沈みひび割れを示す">
+  <path d="M40 200 L240 100 L330 145 L130 245 Z" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M130 245 L330 145 L330 171 L130 271 Z" fill="#ffffff" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M40 200 L130 245 L130 271 L40 226 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M40 200 L64 212 L64 117 L40 105 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M40 105 L240 5 L264 17 L64 117 Z" fill="#d7d7d7" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <path d="M64 212 L264 112 L264 17 L64 117 Z" fill="#ffffff" stroke="#2e6da4" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="94" cy="118" r="3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <circle cx="134" cy="98" r="3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <circle cx="174" cy="78" r="3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <circle cx="214" cy="58" r="3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <path d="M76 124 q3 -5 6 -1 t6 -3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <path d="M156 84 q3 -5 6 -1 t6 -3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
+  <path d="M196 64 q3 -5 6 -1 t6 -3" fill="none" stroke="#1a3a5c" stroke-width="1.2"/>
 </svg>

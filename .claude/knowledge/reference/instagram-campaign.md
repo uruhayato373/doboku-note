@@ -38,7 +38,7 @@ npm run instagram-campaign -- --schedule
 
 予約はローカルのMeta Business Suiteログインを使い、完成済み素材から順次登録する。リールは29日先までなので、224日分の計画を一度に外部予約したとは扱わない。次の14日以内を上限に、1回最大9件を補充する。すでに予約した分はMeta側で時刻に公開される。未登録分の補充はMacとCodexが稼働する時に行う。
 
-Codexの定期処理 `instagram`（Instagram新シリーズの予約補充）が毎日10:00 JSTにこの手順を実行する。変更なしでは通知せず、完了・失敗・人の操作が必要な場合に知らせる。
+補充を自動で回す定期処理は無い（2026-10-05 確認: Codex の定期処理 `instagram` は存在せず、launchd にも無い。予約は 9/20 を最後に途切れていた）。Business Suite のログインが切れやすく（`npm run auth:status -- --service instagram`）、再ログインは人が行うため、補充は Mac の対話セッションで次の手順を手で回す。試験の直前期は、その資格のテーマを配信順より前に出してよい（年度・時期の適合確認は下記 3 のとおり）。
 
 1. 全件の `instagram-campaign --check --media` を通し、`--schedule` で現在の設定から日程を作る。
 2. 各候補の `status.json` とライブの予約・公開実体を照合する。 配信記録 `.claude/state/ig-reconcile/campaign-publication-*.json` の `pending` は未予約の引継ぎ候補として確認し、改めて実体と照合する。同じパック・形式の `scheduled` / `posted` は再送しない。不確かな送信結果は読み取りで確認する。
