@@ -808,6 +808,9 @@ function resolvePlacementRaw(
   //      published:false の間は slot() が空になり、公開前リンクは露出しない。
   //      2026-09-17: 試験概要・傾向の 2 本は 択一 直前パック（予想50問＋配合計算＋暗記ノート ¥2,980）を top に昇格。
   //      分野別過去問は予想50問のまま。体系テキスト 7 章（mix-design 除く）は直前暗記ノートを top に置く。
+  //      2026-10-05（DN-0529）: 分野別の過去問・テキストは択一商品を出す方針を正とし、後段にあった「textbook-production-qc・
+  //      primary-construction の top を小論文 全40答案にする」分岐（ここで先に return するため到達しなかった）を消した。
+  //      小論文の商品は guide-essay と全40答案の誌面で案内する。
   if (slug === 'concrete-chief-engineer-guide-overview' || slug === 'concrete-chief-engineer-guide-trends') {
     return {
       top: slot('cce-takuitsu-chokuzen-pack', slug, 'top'),
@@ -922,24 +925,6 @@ function resolvePlacementRaw(
   }
   if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
     return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
-  }
-
-  // コンクリート主任技士 テキスト/過去問 → 小論文 全40答案（cce-essay-reiwa-pack）。
-  // 立場別5テーマ（8誌）は読者の立場がページから決まらないため、全40答案の誌面と guide-essay で案内する。
-  // テーマ接続（令和形式の5テーマ）:
-  //   - textbook-production-qc（製造・品質管理／検査）→「生産性向上・DX」「担い手不足と品質確保」に接続
-  //   - primary-construction（過去問 施工）→「気候変動と品質確保」（暑中・寒中）に接続
-  if (
-    slug === 'concrete-chief-engineer-textbook-production-qc' ||
-    slug === 'concrete-chief-engineer-primary-construction'
-  ) {
-    // inline は h2>=5 かつ 8,000 字を満たす textbook のみ意味を持つ。
-    // mix-design は h2=4 で発火せず、primary-construction は group が mid 対象外。
-    const midOk = slug === 'concrete-chief-engineer-textbook-production-qc';
-    return {
-      top: slot('cce-essay-reiwa-pack', slug, 'top'),
-      inline: midOk ? [slot('cce-essay-reiwa-pack', slug, 'inline-1')] : [],
-    };
   }
 
   // コンクリート診断士 試験概要（19users・非HUB で商品到達性ゼロだった）→ 記述式 模範答案集。
