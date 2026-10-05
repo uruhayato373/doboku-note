@@ -155,10 +155,9 @@
 **起点**: 2026-10-05 のユーザー決定（ココナラ展開キット.md §2 決定ログ「10/26 以降の年間の棚」）。添削・指導を級・テーマ数・形式で 8 商品に分けたため閲覧とレビューが散り、人の作業の受注は 1 件だけ。旧 DN-0264（本試験後の棚を据え置くか休止するか）はこの設計で答えたので統合した。
 
 **やること**（2級本試験 10/25 の翌日以降）:
-1. 10/26 に 2級の値下げ実験（全3テーマ ¥5,000・骨子 ¥6,500）の受注件数と、10月の閲覧・注文（`npm run coconala-analytics`）を記録し、§2 の価格案（基本 ¥6,000＋オプション）を確定する。
-2. `src/lib/coconala-services.ts` と `config/coconala-listings.json` で `coconala-tensaku-4theme`（4418735）を統合商品へ書き換える（id・serviceUrl は不変・`priceHistory` を残す）。オプションの数量・上限はライブの編集画面で先に確かめる。
-3. note・サイト（`src/lib/offsite-cta.ts` ほか）・ココナラブログの送り先を 4350199・4418778・4418785・4317375・4317796 から 4418735 へ付け替える。note はライブ反映の一括更新に載せ、ブログは `coconala-blog-publish --update --commit`。
-4. 運営者の判断で、統合商品をライブへ反映（`coconala-edit --service coconala-tensaku-4theme --commit`）し、旧 7 商品と `1kyu-premium` を `coconala-pause` で休止→アーカイブする。
+1. 10/26 に 2級の値下げ実験（全3テーマ ¥5,000・骨子 ¥6,500）の受注件数と、10月の閲覧・注文（`npm run coconala-analytics`）を記録し、カタログに入れた価格（基本 ¥6,000＋オプション・`coconala-listings.json` の options）を据え置くか直すか決める。オプションの数量・上限はライブの編集画面で確かめる。
+2. note・サイト（`src/lib/offsite-cta.ts` ほか）・ココナラブログの送り先を 4350199・4418778・4418785・4317375・4317796 から 4418735 へ付け替える。note はライブ反映の一括更新に載せ、ブログは `coconala-blog-publish --update --commit`。
+3. 運営者の判断で、統合商品をライブへ反映（`coconala-edit --service coconala-tensaku-4theme --commit`）し、旧 7 商品と `1kyu-premium` を `coconala-pause` で休止→アーカイブする。
 
 **完了条件**: ココナラの経験記述添削の公開が 4418735 の 1 件だけになり、`npm run check-coconala-wiring`・`npm run check-coconala-blog`・`npm run check-coconala-live` が通り、リポジトリに旧 5 商品の URL への送客が残っていない。
 
