@@ -1867,6 +1867,18 @@
       "commit": "724a433cd1e8",
       "verification": "check-cce-essay 40件違反0 / check-magazine-membership --ci 全40答案41・まるごと45・新16誌一致 / verify-note-magazines SoTズレ0 / audit-note-funnel・check-note-paid-cta exit0 / npm test 2683件 fail0",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0530",
+      "at": "2026-10-05",
+      "task": "PR #857（主任技士 小論文の立場別組み替え）の衝突を解いて develop へ入れ、本番へ出す",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac830d02caa8",
+      "verification": "PR #857 の CI（audit・build・e2e・lighthouse）成功 / 本番 guide/essay に新16誌のリンク 16/16 / npm run check-production-ssr exit 0",
+      "note": "PR #857 の衝突（data/note/magazines.json）を解消し、マージ後の正本で取り直して SoT ズレ 0。develop へマージ（88d049b）し、main 3e024d6 で本番デプロイ（run 37273407618 成功）。ユーザー指示によるマージ・デプロイ"
     }
   ]
 }
