@@ -66,6 +66,25 @@
 
 **完了条件**: 両 workflow が成功し、`npm run check-workflow-health` で cloudflare-metrics が ✓。
 
+### [DN-0535] 主任技士 小論文の新マガジン17誌に POP カバーを付ける（Codex で画像生成）
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-05] [期日:2026-11-15]
+
+**起点**: DN-0523 で公開した全40答案・立場別5テーマ8誌・立場別合格パック8誌のカバーは従来の自動生成器（V5）で作り、POP 意匠になっていない。10/3 の全40答案の POP 案は削除したテーマ別5本前提の「PDFダウンロード」帯つきで使えない。画像生成は Codex が担当する（2026-10-05 ユーザー指示）。
+
+**やること**: plan `.claude/plans/DN-0535-cce-pop-magazine-covers.md` のプロンプトと誌ごとの文言で1誌1枚を作り、`note-magazine-cover --commit` で反映する。
+
+**完了条件**: 17誌とも note の公開 API で POP カバーが付き、各誌の dir に `cover-pop-20261005/pop-image.json`（プロンプト・SHA・360px の確認結果）がある。
+
+### [DN-0526] ココナラ K3（主任技士 完全パック PDF）の価格を note の組み替えに合わせて見直す
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:改善] [起票:2026-10-03] [期日:2026-10-31]
+
+**起点**: DN-0523 で note の主任技士 小論文を 1立場1本の40本へ組み替え、全40答案 ¥5,980・まるごと ¥7,980 にした。K3（¥8,000・出品中）の小論文はテーマ別5冊（1冊に8立場）で、note から同じ形式が無くなったため `coconala-services.ts` で価格ルールの対象外（`notePriceExempt`）にした。中身の答案はまるごとと大きく重なるので、価格ルールに沿うならまるごと ¥7,980×1.1 で ¥9,000 になる。2026-10-03 はユーザー指示でココナラ作業をスキップした。
+
+**やること**: ¥9,000 へ上げるか ¥8,000 で据え置くかをユーザーが決める。上げるなら `src/lib/coconala-services.ts` の K3 を `priceYen: 9000`・`notePriceBasis: 'cce-marugoto-pack | cce-essay-reiwa-pack + cce-takuitsu-chokuzen-pack'` に戻して `notePriceExempt` を消し、`node scripts/coconala-edit.mjs --service coconala-cce-full-pdf --fields price --commit` で反映する（ログの `selected "9,000円"` を確認）。
+
+**完了条件**: K3 のライブ価格とカタログが一致し、`npm run check-coconala-wiring` が exit 0。
+
+
 ### [DN-0461] コンクリート主任技士 小論文の一本化の仕上げ: 本番反映を確かめ、ココナラ K3 を出品して旧 K1/K2 を休止する
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-30] [期日:2026-10-31] [進行中]
 

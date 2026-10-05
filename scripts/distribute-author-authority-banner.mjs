@@ -28,7 +28,8 @@ const EXAM_CONFIG = {
       join(NOTE_CONTENT_ROOT, 'コンクリート主任技士'),
       join(NOTE_CONTENT_ROOT, 'コンクリート診断士'),
     ],
-    bannerName: 'figure-author-authority-concrete.png',
+    // 2026-10-04: コンクリート3資格も紫のキャラクターPOP版へ（旧 figure-author-authority-concrete.png は差し替え元として原本を残す）
+    bannerName: 'figure-author-authority-concrete-pop.png',
     proseP1:
       'この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。',
   },

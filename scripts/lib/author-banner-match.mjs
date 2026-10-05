@@ -12,8 +12,18 @@ import sharp from 'sharp';
 export const BANNER_REFERENCE_FILES = {
   pop: 'figure-author-authority-pop.png',
   standard: 'figure-author-authority.png',
+  'concrete-pop': 'figure-author-authority-concrete-pop.png',
+  concrete: 'figure-author-authority-concrete.png',
   legacy: 'legacy-author-authority-16x9.png',
 };
+
+/** POP 版の原本ファイル名 → 版。記事の先頭バナーがこれなら、それ以外の正方形版（SQUARE_BANNER_VARIANTS）を差し替え対象にする。 */
+export const POP_BANNER_VARIANTS = {
+  'figure-author-authority-pop.png': 'pop',
+  'figure-author-authority-concrete-pop.png': 'concrete-pop',
+};
+/** 正方形の著者バナーの版（標準版と POP 版。土木とコンクリート）。 */
+export const SQUARE_BANNER_VARIANTS = ['pop', 'standard', 'concrete-pop', 'concrete'];
 export const BANNER_MATCH_MAX_DISTANCE = 25;
 
 export async function imageSignature(buffer) {

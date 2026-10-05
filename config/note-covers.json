@@ -217,6 +217,142 @@
         "magazineName": "経験記述 模範答案集",
         "proof": "工程・品質・安全の3本",
         "benefit": "工種別の置換え表つき"
+      },
+      {
+        "id": "cce-essay-reiwa-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "全40答案",
+        "proof": "令和形式 5テーマ×8立場",
+        "benefit": "自分の立場の答案が見つかる"
+      },
+      {
+        "id": "cce-reiwa-namacon-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "生コン工場",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-precast-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "プレキャスト工場",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-civil-contractor-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "土木施工",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-maintenance-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "維持管理・補修",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-owner-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "発注者・監督員",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-building-contractor-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "建築施工",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-design-consultant-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "設計コンサル",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-reiwa-testing-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関",
+        "qualifier": "コンクリート主任技士｜小論文",
+        "magazineName": "試験・検査機関",
+        "proof": "令和形式の5テーマ",
+        "benefit": "自分の立場で1,000字を書く"
+      },
+      {
+        "id": "cce-goukaku-namacon-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-01-生コン工場",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "生コン工場",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-precast-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-02-プレキャスト工場",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "プレキャスト工場",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-civil-contractor-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-03-ゼネコン土木施工",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "土木施工",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-maintenance-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-04-維持管理補修",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "維持管理・補修",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-owner-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-05-発注者監督員",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "発注者・監督員",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-building-contractor-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-06-ゼネコン建築施工",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "建築施工",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-design-consultant-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-07-設計コンサル",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "設計コンサル",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
+      },
+      {
+        "id": "cce-goukaku-testing-pack",
+        "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-08-試験検査機関",
+        "qualifier": "コンクリート主任技士｜合格パック",
+        "magazineName": "試験・検査機関",
+        "proof": "択一直前3点＋小論文5テーマ",
+        "benefit": "自分の立場で択一も小論文も"
       }
     ]
   },
