@@ -90,7 +90,7 @@
 - [RCCM展開](project_rccm_launch_2026_09.md) — note5商品・サイト稼働
 
 ## Reference
-- [note実機反映](reference_note_update_body_gotchas.md) — blockquote脱落・境界・カード不可
+- [note実機反映](reference_note_update_body_gotchas.md) — blockquote脱落・境界・カード不可・会員記事の偽完了
 - [note live修復](reference_note_live_audit_gotchas_2026_09.md) — 偽陽性・CDN待ち・一括反映
 - [note公開手順](reference_note_publish_price_field.md) — price必須・会員限定・PDF・バンドル
 - [note照合系](reference_note_status_reconciler.md) — ステータス/再公開ドリフト/タグ
