@@ -591,25 +591,40 @@
       "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
     "pe-first-stage/h29-construction/img/q05-fig": {
-      "sha": "6d520d2f9dc30cc5",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で断面④の寸法 1.5d の寸法線と補助線、左端で断面番号①④の丸の左半分、右端で断面③の図心軸の点線が切れている",
-      "reviewedAt": "2026-10-06T09:40:15.247Z"
+      "sha": "470c7f0dfa6acf5e",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H29 建設部門 p.3（Ⅲ-5）から 300dpi で切り出し直し（1690x1129→1754x1121）。下端の 1.5d の寸法線と補助線、左端の断面番号①④、右端の断面③の図心軸を復元。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:40:12.187Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+        "page": 3,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h29-construction/img/q07-fig": {
-      "sha": "62d0b756212e8be3",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で注記『集中荷重』の『重』と『P [N]』の閉じ括弧が切れている",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "df12901ffabdb395",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H29 建設部門 p.4（Ⅲ-7）から 300dpi で切り出し直し（1319x743→1405x750）。右縁で切れていた『集中荷重』の『重』と『P [N]』を復元。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:40:12.189Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h30-basic/img/q-I2-2": {
-      "sha": "f388fb838f5e9818",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で空欄ラベル (a) の枠の上辺が欠け、『現在階をチェック』の文字も上余白なし。右縁で (d) の枠の縦線が約 1px 欠け。下部の図番号キャプション『図 エレベータの状態遷移図』は切り出し直しの際に除く",
-      "reviewedAt": "2026-10-06T09:40:15.247Z"
+      "sha": "8bce87f73362fdd4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H30 基礎科目 p.7（Ⅰ-2-2）から 300dpi で切り出し直し（1764x874→1893x836）。上端の (a) の枠上辺と、右端で切れていた『目的階]』を復元し、図番号キャプションを除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:40:12.190Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_基礎科目.pdf",
+        "page": 7,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h30-basic/img/q-I2-5": {
       "sha": "03e3717a6167b6bc",
@@ -633,11 +648,16 @@
       "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
     "pe-first-stage/h30-construction/img/q05-fig": {
-      "sha": "ab33189f47d6ce8f",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で一点鎖線の軸の左端ラベル『軸』の偏が切れ、その前の語も欠けている可能性が高い",
-      "reviewedAt": "2026-10-06T10:24:51.421Z"
+      "sha": "c989e6a31ff40b00",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H30 建設部門 p.3（Ⅲ-5）から 300dpi で切り出し直し（573x360→599x383）。左縁で切れていた『軸』のラベルを復元。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:40:12.191Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_専門_09建設部門.pdf",
+        "page": 3,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "sha": "b529a79495696b71",
