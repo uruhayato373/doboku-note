@@ -8,6 +8,17 @@ export const OFFICIAL_QUESTION_PAGE =
 
 const QUESTION_HEADING = /^##\s+(?:[ⅠⅡⅢⅣ]-\d|問題\s*No\.\s*\d)/;
 
+/** 解説の選択肢行のうち、設問の選択肢を引用している長さ（引用でなければ 0）。
+ * 設問の文末の「。」を落とした引用（「…2か所設ける ✅」）や、末尾だけ言い換えた引用（「…構造とし，上側鉄筋には…」→「…構造とする ✅」）も
+ * 原文の引用として扱う。共通の頭が設問の 8 割に満たなければ自前の解説（言い換え）として表記統一の対象に残す（2026-10-06 primary-h28-a）。 */
+const QUOTE_MIN_RATIO = 0.8;
+function quotedLength(questionOption, explanation) {
+  const q = questionOption.replace(/。$/, '');
+  let i = 0;
+  while (i < q.length && q[i] === explanation[i]) i++;
+  return i >= q.length * QUOTE_MIN_RATIO ? i : 0;
+}
+
 /**
  * @param {string} text MDX 本文
  * @returns {Map<number, number>} 行番号（1 始まり）→ 原文が続く最後の桁（1 始まり・行全体なら Infinity）
@@ -27,8 +38,9 @@ export function officialTextRanges(text) {
     if (inQuestion) {
       ranges.set(index + 1, Infinity);
       if (option) options.set(option[1], option[2].trim());
-    } else if (option && options.get(option[1]) && option[2].startsWith(options.get(option[1]))) {
-      ranges.set(index + 1, line.indexOf(option[2]) + options.get(option[1]).length);
+    } else if (option && options.get(option[1])) {
+      const quoted = quotedLength(options.get(option[1]), option[2]);
+      if (quoted > 0) ranges.set(index + 1, line.indexOf(option[2]) + quoted);
     }
   });
   return ranges;
