@@ -33,6 +33,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-12": {
+      "sha": "452c9c3abe0c275b",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で注記ラベル『築堤』の上部（竹冠と『堤』の上）が切れている。下部に図番号キャプション『図 キャンバー盛土』、左側に大きな空白もある",
+      "reviewedAt": "2026-10-06T11:02:54.217Z"
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
       "sha": "77e9c41b0b37400e",
       "verdict": "ok",
@@ -44,6 +51,13 @@
         "page": 44,
         "dpi": 300
       }
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-03": {
+      "sha": "36dc78833d402da5",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で切土斜面の勾配線 2 本と切土のハッチングが切れている。下部に図番号キャプション、左側に約 640px の空白と綴じ影もある",
+      "reviewedAt": "2026-10-06T11:02:54.217Z"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-05": {
       "sha": "d75c96e0c7cfdb93",
@@ -277,6 +291,13 @@
       "action": "recrop",
       "reason": "下端で上半分だけ見えていた図番号キャプション『図4.8 各部分工事の工程計画の作成手順』と左右の過大な余白を除いて切り直し（650x450→411x398）。フローチャートの 5 つの箱・矢印・ループ線は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:40:15.249Z"
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
+      "sha": "8b66b7a60689af65",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁でクローラクレーンのブーム先端（滑車部と吊りワイヤの上端）が切れている。下部に図番号キャプション『図4.9 仮設備配置図の例』・『(全周回転オールケーシング工法)』・出典『(画像提供:植田基工株式会社)』が写り込み。切り出し直しでは出典を記事の caption に残すこと",
+      "reviewedAt": "2026-10-06T11:02:54.216Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "sha": "bb2d998271433e8f",
@@ -561,6 +582,13 @@
       "reason": "下端に写り込んでいた次の表の表題『集落等間の交通量（トリップ数/日）』の上半分と左右の余白を除いて切り直し（1100x480→822x384）。集落 A〜D・市街地 E・橋 1〜5・距離ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:49:08.227Z"
     },
+    "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
+      "sha": "c29c26a987d49e9a",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁でノード①の円の左半分が欠けている。上縁には本文の断片（『…ればよいか。』の下半分）も写り込んでいる（H28 Ⅰ-1-5）",
+      "reviewedAt": "2026-10-06T11:02:54.216Z"
+    },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
       "sha": "0600507f1a9e7cd3",
       "verdict": "needs-source",
@@ -677,6 +705,13 @@
         "page": 12,
         "dpi": 300
       }
+    },
+    "pe-first-stage/h29-construction/img/q03-fig": {
+      "sha": "0540797dad08dbcd",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で引出しラベル『容器Ⅰ』の『容』が半分欠け、右縁で『流量 Q』が縁に接し、上縁で給水パイプの斜線 2 本が途切れている。写り込みは無い",
+      "reviewedAt": "2026-10-06T11:02:54.216Z"
     },
     "pe-first-stage/h29-construction/img/q05-fig": {
       "sha": "470c7f0dfa6acf5e",
@@ -850,6 +885,13 @@
       "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
       "reviewedAt": "2026-10-06T09:33:45.503Z"
     },
+    "pe-first-stage/r06-construction/img/q19-fig": {
+      "sha": "7af7cca61a7f9e0a",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端に写り込んでいた選択肢の表見出し『a b c d』の断片・左右端のスキャンの点・左右の過大な余白を除いて切り直し（1676x754→1160x658）。エネルギー線・動水勾配線・管路・Ⅰ Ⅱ のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:02:54.217Z"
+    },
     "pe-first-stage/r07-basic/img/q33-fig": {
       "sha": "602227834b173094",
       "verdict": "needs-source",
@@ -863,6 +905,13 @@
       "action": "none",
       "reason": "左縁で引き出しラベル『容器Ⅰ』の『容』と寸法ラベル『L』の字形が切れている。背景全体にスキャンの裏写り、下半分は空白",
       "reviewedAt": "2026-10-06T10:24:51.418Z"
+    },
+    "pe-first-stage/r07-construction/img/q05-fig": {
+      "sha": "4772ccd67329aa2f",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "片持ちばりの固定端側（左縁）が切れ、梁の太線と寸法線 a・L が x=0 まで走っている。固定端の記号と寸法線の起点が無い。下側に約 330px の空白もある",
+      "reviewedAt": "2026-10-06T11:02:54.216Z"
     },
     "pe-first-stage/r07-construction/img/q06-fig": {
       "sha": "85ca856b8c43ffce",
@@ -891,6 +940,13 @@
       "action": "none",
       "reason": "右縁で方位記号（N の円・文字・矢印）、河川・等高線・地点 B 周辺が切れ、地図の枠線も無い。出典は R07 測量士補 No.21 の図",
       "reviewedAt": "2026-10-06T09:43:30.760Z"
+    },
+    "surveyor/primary-r07/img/q27-fig": {
+      "sha": "bb0881a794ac4988",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端に写り込んでいた図番号キャプション『図27』の上半分の断片だけを白で消し、下縁に接していた B の黒丸の下に 12px・右に 6px の余白を足した（914x678→920x690）。図本体は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:02:54.215Z"
     }
   }
 }
