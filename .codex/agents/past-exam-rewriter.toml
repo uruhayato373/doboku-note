@@ -76,7 +76,7 @@ Edit 適用後、メモリ上の対象 ExamPoint について以下を自己点�
 - 「各選択肢の検証：」見出しの残存 0 件
 - U+FFFD 0 件
 
-> **Bash 不可**: lint-mdx-mobile / validate-mdx の最終確認とコミットは**親が実行**する（memory `agent-bash-permission`）。本エージェントは Read + Edit のみ。返却時に「親が lint 9-11 と validate-mdx を確認すべき」と明記する。
+> **Bash 不可**: lint-mdx-mobile / validate-mdx の最終確認とコミットは**親が実行**する（memory `agent-bash-permission`）。本エージェントは Read + Edit のみ。返却時に「親が lint 9-11 と validate-mdx、`npx textlint <file>` 0 件（lint-ja はファイル全体を検査）、構造だけ変えた箇所の `npm run check-mdx-facts -- <file>` を確認すべき」と明記する。
 
 ## やってはいけないこと
 

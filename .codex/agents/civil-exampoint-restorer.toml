@@ -130,6 +130,7 @@ frontmatter の `category` が `civil-construction-1` または `civil-construct
 - 全 `<ExamPoint items>` 内に句読点を含む文字列が **0 件**
 - 全 `<ExamPoint items>` が 1〜3 個（4 個以上は禁止）
 - 全 item の長さ ≤60 字
+- `npx textlint <file>` が 0 件（pre-commit の lint-ja はファイル全体を検査し、触っていない既存行の全角数字・prh も commit を止める）。構造だけを変えた箇所は `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0（content-authoring.md「書き終えたときの決定的ゲート」）
 
 検証が通らない場合は当該 ExamPoint のみ再生成を 1 回だけリトライ。2 回失敗したら該当 ExamPoint をそのまま残してレポートに記録。
 
