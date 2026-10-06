@@ -9,7 +9,7 @@
  * が needs:ok / textStatus:clean のまま素通りしていた。本スクリプトは画素レベルで検出する。
  *
  * ルール（★=CI ブロッキング / それ以外は情報のみ・baseline 追跡はするが CI は落とさない）:
- *   ★ STRAY_SLIVER (HIGH) … 上下端の極薄インク島（≤6px かつ ≤1%H）が白ギャップで本体から分離＝
+ *   ★ STRAY_SLIVER (HIGH) … 上下端の極薄インク島（≤6px かつ ≤1%H）が白ギャップで本体から分離（縦の線で本体へ繋がる島は除く）＝
  *                          隣接図の切れ端＝写り込み。フルハイトの正当ラベル/軸と分離できる唯一の
  *                          高精度シグナル（fig-04=5px/fig13=3px を捕捉、15-38px の正当ラベルを落とす）。
  *   EDGE_CUT (HIGH表示)    … margin=0 で縁2行/内側4行の密度比≥0.5＝ストローク中割りの疑い。ただし
@@ -180,6 +180,17 @@ export async function analyzeImage(absPath) {
     }
   }
 
+  // 行 from〜to（縁から数えた位置・両端を含む）を、ある列（±1px の傾きまで）のインクが途切れずに通るか
+  const isInk = (x, y) => x >= 0 && x < W && data[y * W + x] < INK_THRESHOLD;
+  const strokeCrossesGap = (from, to, idx) => {
+    for (let x = 0; x < W; x++) {
+      let k = from;
+      while (k <= to && (isInk(x, idx(k)) || isInk(x - 1, idx(k)) || isInk(x + 1, idx(k)))) k++;
+      if (k > to) return true;
+    }
+    return false;
+  };
+
   // 断片写り込み（上端・下端）: 縁側の小インク島が白ギャップで本体と分離
   const strayCheck = (fromTop) => {
     const idx = (i) => (fromTop ? i : H - 1 - i);
@@ -197,6 +208,9 @@ export async function analyzeImage(absPath) {
     const inkFrac = blockInk / totalInk;
     const gapOk = gap >= Math.max(STRAY_MIN_GAP_PX, blockH * 1.2);
     const side = fromTop ? 'top' : 'bottom';
+    // 島から本体まで縦の線が途切れずに通っていれば図の一部（ギャップの行は細い縦線だけなので白ラインに数えられる）。
+    // 2026-10-07: 図5.4 の上端の帰還矢印（横線が左の縦線と下向き矢印で本体に繋がる）を切れ端と誤判定した
+    if (gapOk && strokeCrossesGap(blockEnd - 1, blockEnd + gap, idx)) return null;
     // 極薄スライバー（高精度・CI ブロッキング）: 隣接図の切れ端
     if (blockH <= Math.max(SLIVER_MAX_H_PX, H * SLIVER_MAX_H_FRAC) && inkFrac <= SLIVER_MAX_INK_FRAC && gapOk) {
       return { rule: 'STRAY_SLIVER', severity: 'HIGH', side,
