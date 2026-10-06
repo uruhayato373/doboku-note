@@ -1480,6 +1480,13 @@
       "reason": "上端の設問本文の断片『準に従うものとする。』と余白を除いて切り直し（1333x593→828x479）。点 A・B・C・すべり面 AB・角度 α・長さ l・W/c/φ のラベル・地盤ハッチは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T10:09:04.339Z"
     },
+    "pe-first-stage/r04-water-supply/img/q16-source": {
+      "sha": "8be955504abf3c30",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "多目的貯水池の断面図で空欄ア〜ウは空欄のまま、四辺とも縁に接するものはなく写り込みなし。OCR の兆候は図内ラベル",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
+    },
     "pe-first-stage/r05-aptitude/img/q08-fig": {
       "sha": "9630e51d0cdade2b",
       "verdict": "ok",
@@ -1635,6 +1642,20 @@
         "dpi": 200
       }
     },
+    "surveyor/primary-r04/img/q07-fig": {
+      "sha": "7a1fbe1092c80315",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "偏心観測の図（点 A・B・C・偏心点 P・e・S・T・T′・Φ・障害物・凡例）で四辺に余白があり写り込みなし。OCR の兆候は図中ラベル",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
+    },
+    "surveyor/primary-r04/img/q21-fig": {
+      "sha": "d2121e7eca798e7a",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "電子地形図の抜粋で地図の枠線が 4 辺とも完結し写り込みなし。上端・右端で地名が切れているのは原図の抜粋範囲",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
+    },
     "surveyor/primary-r05/img/q07-fig": {
       "sha": "e03e9dffeb0f0c5b",
       "verdict": "ok",
@@ -1703,6 +1724,27 @@
       "action": "recrop",
       "reason": "下端で見切れていた図番号キャプション『図 3』と四辺の過大な余白を除き、下に 8px の白余白を足した（860x634→828x622）。三角形 ABC・頂点ラベル・辺長・角の円弧は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:12:57.315Z"
+    },
+    "surveyor/primary-r08/img/q12-fig": {
+      "sha": "bf4bef389ee03b48",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "水準点 A・固定点 (1)〜(3)・水準点 B の路線の模式図で四辺に 15〜32px の余白があり写り込みなし",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
+    },
+    "surveyor/primary-r08/img/q20-fig": {
+      "sha": "c66d0cc5c6cc13e8",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "格子・水部・オリジナルデータ・凡例の図で四辺とも欠けなし（下の余白 3px だが凡例枠の下罫線は閉じている）。写り込みなし",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
+    },
+    "surveyor/primary-r08/img/q21-fig": {
+      "sha": "65852c47bf5a8154",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "電子地形図の抜粋と縮尺バーで地図の枠線は 4 辺とも閉じ写り込みなし。右端で地名が切れているのは原図の抜粋範囲",
+      "reviewedAt": "2026-10-06T12:07:58.863Z"
     },
     "surveyor/primary-r08/img/q27-fig": {
       "sha": "a719fc3d19b778af",
