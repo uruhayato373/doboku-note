@@ -2047,6 +2047,18 @@
       "commit": "1cc510f04060",
       "verification": "audit-note-funnel --live ずれなし（exit 0）、公開 API で 6 本とも完成答案集→完全攻略パックの順、無料記事は is_limited=false で題名・4418735・土木もくじを確認",
       "note": "10/6 のユーザー決定で 1級は低価格先出しを採用。入口記事 6 本の冒頭を完成答案集→完全攻略パックの順にし（note-intro-standard の entry・PR #870）、note-update-body で反映（[5g] で本文更新を確認）。試験後の無料記事（1級）を受検の手引で照合のうえ公開（n90feba1be8ae）。2級分は DN-0544 へ切り出し"
+    },
+    {
+      "id": "DN-0546",
+      "at": "2026-10-06",
+      "task": "2級土木・主任技士の値上げ（2026-10-06 に原稿だけ変更済み）を note のライブ価格へ反映し、EXP-015・EXP-016 を開始する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e3273dba62c7",
+      "verification": "verify-note-magazines: 109件 SoTズレ0 / note-reconcile-title-price: 記事933本・マガジン109件で価格ずれ0",
+      "note": "2026-10-06 エージェントが note へ反映: マガジン22誌（note-edit-magazine・API で価格一致）、主任技士単品40本 ¥980→¥1,480（note-article-price-sweep・40/40）、有料境界40本を再設定（note-reanchor-boundary・無料プレビュー非空 40/40）。EXP-015/016 を running に。本番デプロイは運営者の判断で別途"
     }
   ]
 }
