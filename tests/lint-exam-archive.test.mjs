@@ -52,3 +52,23 @@ test('2級土木の過去問（primary-*/secondary-*）も過去問として扱�
   }
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+test('1級・2級土木の二次過去問は「問題 N」の設問文を 15-x から外し、解説とガイドは検査を残す（2026-10-06）',()=>{
+ // 1級 secondary-r03 の法令条文の穴埋め（公式の設問文）に 15-2 が 3 件出ていた
+ const root=mkdtempSync(join(tmpdir(),'dn-exam-prose-civil-'));
+ try{
+  const long='判断に必要な施工条件を確認するための文章'.repeat(10)+'。';
+  for(const category of ['civil-construction-1','civil-construction-2']){
+   const header='---\ntitle: 試験\ncategory: '+category+'\ngroup: secondary\n---\n';
+   const dir=join(root,category,'secondary-r03');mkdirSync(dir,{recursive:true});const file=join(dir,'article.mdx');
+   writeFileSync(file,header+'## 問題 6\n\n'+long+'\n\n<details>\n<summary>解説</summary>\n短い説明。\n</details>\n');
+   let r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),false,r.stdout);
+   for(const body of ['## 問題 6\n\n原文。\n\n<details>\n<summary>解説</summary>\n'+long+'\n</details>\n','## 学習のポイント\n\n'+long+'\n']){
+    writeFileSync(file,header+body);
+    r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),true,r.stdout);
+   }
+   const guideDir=join(root,category,'guide-secondary');mkdirSync(guideDir,{recursive:true});const guide=join(guideDir,'article.mdx');
+   writeFileSync(guide,header+'## 問題 6\n\n'+long+'\n');
+   r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',guide],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),true,r.stdout);
+  }
+ }finally{rmSync(root,{recursive:true,force:true});}
+});
