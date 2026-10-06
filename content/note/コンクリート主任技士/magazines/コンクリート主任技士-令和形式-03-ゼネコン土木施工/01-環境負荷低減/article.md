@@ -1,7 +1,7 @@
 ---
 title: "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜環境負荷低減｜令和形式"
 notePricing: paid
-price: 980
+price: 1480
 paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product
