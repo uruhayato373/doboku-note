@@ -1073,32 +1073,48 @@
       "reviewedAt": "2026-10-06T11:51:32.486Z"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
-      "sha": "bd6746158998b14c",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で 2022 年度のドーナツ円グラフの右半分と『がれき類 49件 36.6%』の末尾、上部の凡例『建設系廃棄物 計101件』の末尾が切れている",
-      "reviewedAt": "2026-10-06T09:33:45.511Z"
+      "sha": "c9f3868bf635d4da",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた 2022 年度のドーナツグラフの右半分・がれき類 49 件 36.6%・凡例『建設系廃棄物 計 101 件 75.4%』を、論文対策キーワードのスキャン（source/007.pdf p.20＝pages/p0265）から傾きを補正して切り出し直して戻した（760x372→1100x560）。図外の本文と図の出典行は除き、原図内の注と資料行は残した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:42:03.913Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
+        "page": 20
+      }
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig26": {
-      "sha": "6c81e4d7d538b129",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右上の単位表記『(単位：トン』が右端で文字ごと切れている。左上に指か影の汚れ、下端に出典行の上端の断片",
-      "reviewedAt": "2026-10-06T10:09:04.336Z"
+      "sha": "0650bbc6aef688b3",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右端で切れていた単位表記『(単位：トン)』を、論文対策キーワードのスキャン（source/007.pdf p.20＝pages/p0265）から切り出し直して戻した（690x450→800x682）。左上の指・影と下端の出典行の断片は除いた（出典は記事の caption）。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:42:03.916Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
+        "page": 20
+      }
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
-      "sha": "65f27b01b2780a15",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "棒グラフの右側のプロット領域に裏ページの文字が透けて写っている（裏写り）。左端に撮影時の黄ばみと影、下端にキャプションの上半分。裏写りは切り直しで除けない",
-      "reviewedAt": "2026-10-06T09:46:19.912Z"
+      "sha": "1758affe3c4ff057",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右のプロット領域の裏写り・左端の黄ばみと影・下端の図題の写り込みを、論文対策キーワードのスキャン（source/003.pdf p.5＝pages/p0066）から明暗ムラと傾きを補正して切り出し直して除いた（902x538→1200x736）。棒の数値は旧画像・記事の表と一致し、図内の出典 2 行は残した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:42:03.918Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
+        "page": 5
+      }
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
-      "sha": "803b198bd9a2d136",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で最上段の箱『インフラ長寿命化基本計画（国）』の上辺の罫線が画像外。書籍を斜めに撮影した写真で、右半分に裏写り、左端に綴じ部の影、右下の出典表記が右端で切れている",
-      "reviewedAt": "2026-10-06T09:56:02.171Z"
+      "sha": "a83bb9e0daa492d2",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていた最上段の箱の上辺と、右下で切れていた出典表記『図の出典：国土交通白書 2022』を、論文対策キーワードのスキャン（source/003.pdf p.9＝pages/p0074）から傾きを補正して切り出し直して戻した（903x685→1100x960）。綴じ影・指・本文・図番号キャプション・裏写りは除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:42:03.919Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
+        "page": 9
+      }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "sha": "a6978e6aa7d03008",
