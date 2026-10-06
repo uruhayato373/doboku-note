@@ -743,11 +743,16 @@
       }
     },
     "pe-first-stage/h29-basic/img/q-I3-5": {
-      "sha": "67bd26fc4f983b4f",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁でラベル『棒部材BC（A_2, E）』の E の右側と閉じ括弧が切れ、左縁で『棒部材AC』の『棒』が縁に接し、下縁で荷重 P の字の足が縁に接している（H29 基礎 Ⅰ-3-5）",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "ab7180f6f943ca84",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていたラベル『棒部材BC（A_2, E）』の E と閉じ括弧を、技術士第一次 H29 基礎科目の公式問題 PDF p.13（Ⅰ-3-5）から 300dpi で切り出し直して戻した（1086x443→1140x466）。左縁の『棒』と下縁の荷重 P にも余白を確保。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:10:40.539Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_基礎科目.pdf",
+        "page": 13,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h29-construction/img/q03-fig": {
       "sha": "0540797dad08dbcd",
@@ -852,11 +857,16 @@
       "reviewedAt": "2026-10-06T10:17:23.094Z"
     },
     "pe-first-stage/r01-construction/img/q01-fig": {
-      "sha": "c99f3233723c17a8",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で三相モデルの直方体の上面と奥の辺（左右の斜辺・右奥の垂直線）が切れている。写り込みは無い（R01 建設 Ⅲ-1）",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "d70e2640604fb594",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた三相モデルの直方体の上面と奥の辺を、技術士第一次 R01 建設部門の公式問題 PDF p.1（Ⅲ-1）から 300dpi で切り出し直して戻した（1161x459→930x578）。ラベルは旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:10:40.542Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R01/R01_専門_09建設部門.pdf",
+        "page": 1,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "sha": "e68a7e62c934b921",
@@ -866,11 +876,16 @@
       "reviewedAt": "2026-10-06T09:33:45.509Z"
     },
     "pe-first-stage/r02-construction/img/q6-fig": {
-      "sha": "2a977627fd63ea44",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で寸法ラベル『h』（全高）の左側の払いが切れている。写り込みは無い（R02 建設 Ⅲ-6）",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "6322d715f3465fd9",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていた寸法ラベル h を、技術士第一次 R02 建設部門の公式問題 PDF p.4（Ⅲ-6）から 300dpi で切り出し直して戻した（839x687→952x700）。I 形断面と h・w・t・b・x-x 軸は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:10:40.543Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R02/R02_専門_09建設部門.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r03-basic/img/q-I1-2": {
       "sha": "e4fd9fa17ee83b97",
@@ -997,11 +1012,16 @@
       "reviewedAt": "2026-10-06T10:31:57.738Z"
     },
     "surveyor/primary-r07/img/q07-fig": {
-      "sha": "ed233339f54b09bf",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で既知点 C 周りの方向角 Tc の大円弧の底、上縁で既知点 A の三角形の頂点が切れている（測量士補 R07 No.7）",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "3123b83e8fb87011",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた既知点 A の三角形の頂点と、下縁で切れていた方向角 Tc の大円弧の底を、測量士補 R07 の公式問題 PDF p.8（No.7）から 300dpi で切り出し直して戻した（1150x540→1699x864）。図番号『図 7』は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:10:40.544Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
+        "page": 8,
+        "dpi": 300
+      }
     },
     "surveyor/primary-r07/img/q13-fig": {
       "sha": "b19b70c03a282b8e",
