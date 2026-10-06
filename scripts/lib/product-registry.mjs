@@ -22,7 +22,7 @@ export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
 export const SNAPSHOT = join(ROOT, datasetPath('note.magazines'));
 export const PRODUCTS_DOC = '商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」';
 
-const KEY_ORDER = ['id', 'channel', 'qualification', 'stage', 'series', 'tier', 'persona', 'catalog', 'members', 'includes', 'memo'];
+const KEY_ORDER = ['id', 'channel', 'qualification', 'stage', 'series', 'tier', 'persona', 'order', 'catalog', 'members', 'includes', 'memo'];
 
 function ordered(product) {
   const out = {};
@@ -37,26 +37,33 @@ export function canonicalJson(product) {
 
 const byChannelId = (a, b) => a.channel.localeCompare(b.channel) || a.id.localeCompare(b.id);
 
-/** 正本ファイル全体の正規化した JSON（並び channel → id・字下げ 2・LF・末尾改行）。Windows / Mac で同じバイト列になる */
-export function canonicalFile(products) {
-  return JSON.stringify({ schemaVersion: 1, _doc: PRODUCTS_DOC, products: [...products].sort(byChannelId).map(ordered) }, null, 2) + '\n';
+/**
+ * 正本ファイル全体の正規化した JSON（並び channel → id・字下げ 2・LF・末尾改行）。Windows / Mac で同じバイト列になる。
+ * channels はチャネルごとの生成物の付帯情報（Kindle カタログの先頭の欄など）。空なら書かない
+ */
+export function canonicalFile(products, channels = {}) {
+  const body = { schemaVersion: 1, _doc: PRODUCTS_DOC };
+  if (Object.keys(channels).length) body.channels = channels;
+  body.products = [...products].sort(byChannelId).map(ordered);
+  return JSON.stringify(body, null, 2) + '\n';
 }
 
 /** 正本を全部読む。型エラーは throw せず errors に集める（検査は件数を出して止める） */
 export function loadProducts() {
   const products = [];
   const errors = [];
-  if (!existsSync(PRODUCTS_FILE)) return { products, errors: [`${PRODUCTS_REL} が無い`] };
+  if (!existsSync(PRODUCTS_FILE)) return { products, channels: {}, errors: [`${PRODUCTS_REL} が無い`] };
   let raw;
   let json;
   try {
     raw = readFileSync(PRODUCTS_FILE, 'utf8');
     json = JSON.parse(raw);
   } catch (e) {
-    return { products, errors: [`${PRODUCTS_REL}: 読めない・JSON でない ${e.message}`] };
+    return { products, channels: {}, errors: [`${PRODUCTS_REL}: 読めない・JSON でない ${e.message}`] };
   }
+  const channels = json?.channels ?? {};
   if (json?.schemaVersion !== 1) errors.push(`${PRODUCTS_REL}: schemaVersion が 1 でない`);
-  if (!Array.isArray(json?.products)) return { products, errors: [...errors, `${PRODUCTS_REL}: products が配列でない`] };
+  if (!Array.isArray(json?.products)) return { products, channels, errors: [...errors, `${PRODUCTS_REL}: products が配列でない`] };
   const seen = new Set();
   for (const item of json.products) {
     const label = `${PRODUCTS_REL}#${item?.id ?? '?'}`;
@@ -68,22 +75,27 @@ export function loadProducts() {
     const p = parsed.data;
     if (seen.has(p.id)) errors.push(`${label}: id が重複`);
     seen.add(p.id);
-    if (p.catalog.id !== p.id) errors.push(`${label}: catalog.id（${p.catalog.id}）と id が違う`);
+    if (p.channel === 'note' && p.catalog.id !== p.id) errors.push(`${label}: catalog.id（${p.catalog.id}）と id が違う`);
+    if (p.channel === 'kindle' && p.id !== kindleProductId(p.catalog.id)) errors.push(`${label}: id は ${kindleProductId(p.catalog.id)}（書籍 id ${p.catalog.id} の小文字に kindle- を付ける）`);
     products.push(p);
   }
-  if (!errors.length && raw !== canonicalFile(products)) errors.push(`${PRODUCTS_REL}: 正規化されていない（npm run product -- fmt）`);
-  return { products, errors };
+  const kindleOrders = products.filter((p) => p.channel === 'kindle').map((p) => p.order);
+  if (new Set(kindleOrders).size !== kindleOrders.length) errors.push(`${PRODUCTS_REL}: Kindle の order が重複`);
+  if (!errors.length && raw !== canonicalFile(products, channels)) errors.push(`${PRODUCTS_REL}: 正規化されていない（npm run product -- fmt）`);
+  return { products, channels, errors };
 }
 
+const blockingErrors = (errors) => errors.filter((e) => !/正規化されていない/.test(e));
+
 /** 商品を足す・置き換える（id で照合）。正本に正規化以外の問題があれば書かない。書いたファイルのパスを返す */
-export function saveProducts(list) {
+export function saveProducts(list, { channels: nextChannels } = {}) {
   const next = list.map((p) => Product.parse(p));
-  const { products, errors } = loadProducts();
-  const blocking = errors.filter((e) => !/正規化されていない/.test(e));
+  const { products, channels, errors } = loadProducts();
+  const blocking = blockingErrors(errors);
   if (blocking.length) throw new Error(`正本に問題があるので書かない（npm run check-products）:\n  ${blocking.join('\n  ')}`);
   const byId = new Map(products.map((p) => [p.id, p]));
   for (const p of next) byId.set(p.id, p);
-  writeFileSync(PRODUCTS_FILE, canonicalFile([...byId.values()]));
+  writeFileSync(PRODUCTS_FILE, canonicalFile([...byId.values()], nextChannels ?? channels));
   return PRODUCTS_FILE;
 }
 
@@ -93,11 +105,61 @@ export function saveProduct(product) {
 
 /** 正本を正規化して書き直す（型エラーの商品は落とさないよう、問題があれば書かない） */
 export function formatProducts() {
-  const { products, errors } = loadProducts();
-  const blocking = errors.filter((e) => !/正規化されていない/.test(e));
+  const { products, channels, errors } = loadProducts();
+  const blocking = blockingErrors(errors);
   if (blocking.length) return { written: 0, errors: blocking };
-  writeFileSync(PRODUCTS_FILE, canonicalFile(products));
+  writeFileSync(PRODUCTS_FILE, canonicalFile(products, channels));
   return { written: products.length, errors: [] };
+}
+
+// ---- Kindle カタログ（scripts/kindle-published/catalog.json は正本から作る生成物） ----
+
+export const KINDLE_CATALOG_FILE = join(ROOT, 'scripts', 'kindle-published', 'catalog.json');
+export const kindleProductId = (bookId) => `kindle-${String(bookId).toLowerCase()}`;
+
+/** Kindle カタログの全文（books は order の順・字下げ 2・LF・末尾改行。読み手は今までどおりこのファイルを読む） */
+export function renderKindleCatalog(products, channels) {
+  const meta = channels?.kindle;
+  if (!meta) throw new Error(`${PRODUCTS_REL} に channels.kindle が無い`);
+  const books = products.filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order).map((p) => p.catalog);
+  return JSON.stringify({ _comment: meta.catalogComment, schemaVersion: meta.catalogSchemaVersion, updatedAt: meta.updatedAt, books }, null, 2) + '\n';
+}
+
+/**
+ * Kindle カタログを書き換える唯一の入口（KDP の提出・価格改定・原稿差し替えの記録）。
+ * mutator はカタログと同じ形 { _comment, schemaVersion, updatedAt, books } を受け取り、その場で書き換える。
+ * 書き換えた books を正本（config/products.json）へ戻し、カタログを作り直す。正本に無い書籍は足さない（npm run product で先に足す）
+ */
+export function updateKindleCatalog(mutator) {
+  const { products, channels, errors } = loadProducts();
+  const blocking = blockingErrors(errors);
+  if (blocking.length) throw new Error(`正本に問題があるので書かない（npm run check-products）:\n  ${blocking.join('\n  ')}`);
+  const kindle = products.filter((p) => p.channel === 'kindle').sort((a, b) => a.order - b.order);
+  const meta = channels.kindle;
+  const c = structuredClone({ _comment: meta.catalogComment, schemaVersion: meta.catalogSchemaVersion, updatedAt: meta.updatedAt, books: kindle.map((p) => p.catalog) });
+  const result = mutator(c);
+  const byBook = new Map(kindle.map((p) => [p.catalog.id, p]));
+  const changed = [];
+  for (const b of c.books) {
+    const p = byBook.get(b.id);
+    if (!p) throw new Error(`Kindle の書籍 ${b.id} が正本に無い（npm run product で ${kindleProductId(b.id)} を足す）`);
+    if (JSON.stringify(p.catalog) !== JSON.stringify(b)) changed.push({ ...p, catalog: b });
+  }
+  const nextChannels = { ...channels, kindle: { ...meta, catalogComment: c._comment, catalogSchemaVersion: c.schemaVersion, updatedAt: c.updatedAt } };
+  saveProducts(changed, { channels: nextChannels });
+  writeKindleCatalog();
+  return result;
+}
+
+/** 正本から Kindle カタログを書く（gen と updateKindleCatalog が呼ぶ）。書いたら true */
+export function writeKindleCatalog({ check = false } = {}) {
+  const { products, channels } = loadProducts();
+  const next = renderKindleCatalog(products, channels);
+  const cur = existsSync(KINDLE_CATALOG_FILE) ? readFileSync(KINDLE_CATALOG_FILE, 'utf8').replace(/\r\n/g, '\n') : null;
+  if (cur === next) return false;
+  if (check) return true;
+  writeFileSync(KINDLE_CATALOG_FILE, next);
+  return true;
 }
 
 // ---- 収録の意図 ----
@@ -131,7 +193,7 @@ export function expectedMembers(product, byId, seen = new Set()) {
   const ids = new Set();
   const pending = [];
   const missing = [];
-  if (seen.has(product.id)) return { ids, pending, missing };
+  if (product.channel !== 'note' || seen.has(product.id)) return { ids, pending, missing };
   seen.add(product.id);
   const single = singleKeyOf(product.catalog.noteUrl);
   if (single) ids.add(single);

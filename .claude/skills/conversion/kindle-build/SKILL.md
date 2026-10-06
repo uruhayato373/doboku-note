@@ -124,7 +124,7 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 - **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
 - **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローは `config/kdp-memo.json` の defaults＝真実源、読取りは `scripts/lib/kdp-common.mjs`、固有値は books[id]、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`。**KDP への実入稿・出版は後工程の `/kdp-publish`（`kdp-operator`）が自動化**
 - **配布物 git 追跡**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
-- **提出後**: catalog.json の `asin`＋`status=live` を更新、`strategy.md` の該当シリーズ表に ASIN/出版日を追記
+- **提出後**: `npm run product -- set kindle-<書籍id> catalog.asin '"B0…"'` と `catalog.status '"live"'` で正本（config/products.json）を更新し（catalog.json は自動で作り直す）、`strategy.md` の該当シリーズ表に ASIN/出版日を追記
 
 ## 参照
 

@@ -835,11 +835,11 @@ const productCatalog = z
   .object({ id: z.string(), published: z.boolean(), noteUrl: z.string() })
   .catchall(z.union([productCatalogValue, z.array(productCatalogValue), z.record(z.string(), productCatalogValue)]));
 
-/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
-export const Product = z
+/** note の 1 商品（マガジン・パック・単品 SKU・会員） */
+export const NoteProduct = z
   .object({
     id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
-    channel: z.enum(['note']),
+    channel: z.literal('note'),
     qualification: z.string(),
     stage: z.string(),
     /** 系列: 経験記述・学科記述・横断・一次 など */
@@ -861,11 +861,56 @@ export const Product = z
   })
   .strict();
 
+/**
+ * Kindle の 1 冊の行（scripts/kindle-published/catalog.json の books[] へそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物のキー順を変えない）
+ */
+const kindleBook = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((b, ctx) => {
+    if (b.priceJpy !== undefined && !(Number.isInteger(b.priceJpy) && b.priceJpy > 0)) flag(ctx, ['priceJpy'], 'priceJpy は正の整数（円）');
+  });
+
+/** Kindle の 1 冊（id は kindle-<書籍 id の小文字>） */
+export const KindleProduct = z
+  .object({
+    id: z.string().regex(/^kindle-[a-z0-9-]+$/, 'kindle- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('kindle'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('book'),
+    persona: z.string().nullable().default(null),
+    /** catalog.json の books[] の並び（人が決めた順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: kindleBook,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
+export const Product = z.discriminatedUnion('channel', [NoteProduct, KindleProduct]);
+
+/** チャネルごとの生成物の付帯情報（商品の行に属さない欄） */
+const productChannels = z
+  .object({
+    kindle: z
+      .object({ catalogComment: text, catalogSchemaVersion: z.number().int(), updatedAt: text })
+      .strict()
+      .describe('scripts/kindle-published/catalog.json の先頭の欄（_comment・schemaVersion・updatedAt）'),
+  })
+  .partial()
+  .strict();
+
 /** 全チャネルの商品を 1 ファイルに集めた正本（並びは channel → id。書き換えは npm run product） */
 export const ConfigProducts = z
   .object({
     schemaVersion: z.literal(1),
     _doc: text,
+    channels: productChannels.optional(),
     products: z.array(Product).superRefine(uniqueBy('id', '商品 id')),
   })
   .strict()

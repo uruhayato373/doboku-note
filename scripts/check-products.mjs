@@ -15,6 +15,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, NOTE_ONLY_MEMBER, productGroups, blockGroupsIn, loadProducts, expectedMembers, renderBlock, replaceBlock, BLOCK_BEGIN, noteKeyOf,
+  writeKindleCatalog,
 } from './lib/product-registry.mjs';
 
 const { products, errors } = loadProducts();
@@ -53,6 +54,14 @@ for (const [group, mine] of groups) {
   if (replaceBlock(ts, group, renderBlock(group, mine)) !== ts) violations.push(`note-magazines.ts の生成ブロックが正本と違う（${group}）→ npm run product -- gen`);
 }
 
+// 3b. Kindle の catalog.json（正本からの生成物）
+const kindleCount = products.filter((p) => p.channel === 'kindle').length;
+try {
+  if (kindleCount && writeKindleCatalog({ check: true })) violations.push('scripts/kindle-published/catalog.json が正本と違う → npm run product -- gen');
+} catch (e) {
+  violations.push(`Kindle カタログを作れない（${e.message}）`);
+}
+
 // 4. 収録の意図 × コミット済みの収録記録
 let snap = null;
 try {
@@ -64,6 +73,7 @@ const live = new Map((snap?.magazines ?? []).map((m) => [m.key, new Set((m.notes
 let compared = 0;
 let pendingTotal = 0;
 for (const p of products) {
+  if (p.channel !== 'note') continue;
   const key = noteKeyOf(p.catalog.noteUrl);
   if (!key || !p.catalog.published || p.catalog.retiredAt || p.tier === 'membership') continue;
   const { ids, pending, missing } = expectedMembers(p, byId);
@@ -81,7 +91,7 @@ for (const p of products) {
   if (extra.length) violations.push(`${p.id}: 意図に無い収録 ${extra.length} 本（${extra.slice(0, 5).join(', ')}${extra.length > 5 ? ' …' : ''}）`);
 }
 
-console.log(`[check-products] 正本 ${products.length} 件 / 生成ブロック ${blocks} / 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 原稿と結び付かない収録 ${noteOnly.length} 本 / 違反 ${violations.length} 件`);
+console.log(`[check-products] 正本 ${products.length} 件（Kindle ${kindleCount} 冊）/ 生成ブロック ${blocks} / 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 原稿と結び付かない収録 ${noteOnly.length} 本 / 違反 ${violations.length} 件`);
 if (noteOnly.length) console.log(`[check-products] 原稿の noteId と結び付かない収録（note 上で同じ題名の別 ID が入っているなど）:\n  ${noteOnly.join("\n  ")}`);
 if (violations.length) {
   for (const v of violations) console.error(`  ✗ ${v}`);

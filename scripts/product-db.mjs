@@ -64,7 +64,10 @@ n.products = ins(
   'INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
   products.map((p) => [
     p.id, p.channel, p.qualification, p.stage, p.series, p.tier, p.persona, p.catalog.title ?? null, p.catalog.noteTitle ?? null,
-    p.catalog.price ?? null, yen(p.catalog.price), p.catalog.published ? 1 : 0, p.catalog.retiredAt ?? null, p.catalog.noteUrl || null, noteKeyOf(p.catalog.noteUrl),
+    // Kindle は catalog.priceJpy（円の数値）・status が live のものを公開中とみなす。noteUrl は note だけ
+    p.catalog.price ?? (p.catalog.priceJpy != null ? `¥${p.catalog.priceJpy}` : null), p.catalog.priceJpy ?? yen(p.catalog.price),
+    p.channel === 'kindle' ? (p.catalog.status === 'live' ? 1 : 0) : p.catalog.published ? 1 : 0, p.catalog.retiredAt ?? null,
+    p.catalog.noteUrl || null, p.catalog.noteUrl ? noteKeyOf(p.catalog.noteUrl) : null,
   ]),
 );
 n.members = ins('INSERT INTO product_members VALUES (?,?,?)', products.flatMap((p) => p.members.map((m) => [p.id, m, articleNoteId(m) || null])));

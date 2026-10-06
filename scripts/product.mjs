@@ -5,10 +5,10 @@
  * 使い方:
  *   npm run product -- list [--qualification <id>] [--tier pack|magazine|single]   # 一覧（id・層・系列・価格・収録数）
  *   npm run product -- show <id>                                                   # 1 商品の正本を表示
- *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'
+ *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'（Kindle は kindle-<書籍id> で catalog.json も作り直す）
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
  *   npm run product -- fmt                                                          # 正本ファイルを正規化して書き直す
- *   npm run product -- gen [--check]                                                # note-magazines.ts の生成ブロックを書く（--check は差分で exit 1）
+ *   npm run product -- gen [--check]                                                # 生成物を書く: note-magazines.ts の生成ブロック・Kindle の catalog.json（--check は差分で exit 1）
  *   npm run product -- import-note --qualification <id> [--ids a,b] [--commit]      # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
  *                                                                                  # 複数の資格にまたがる商品は --ids で選び、--qualification に group id か主な資格を書く
  * exit: 0 成功 / 1 検査・差分・書き込み失敗 / 2 引数不正
@@ -18,7 +18,7 @@ import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
-  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf,
+  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
 
@@ -200,6 +200,10 @@ function gen() {
     console.log(`[product] ${group}: ${mine.length} 件`);
   }
   if (!check) writeFileSync(NOTE_MAGAZINES_TS, ts);
+  const kindleChanged = writeKindleCatalog({ check });
+  if (check && kindleChanged) die(`${relative(ROOT, KINDLE_CATALOG_FILE)} が正本と違う。npm run product -- gen を実行する`, 1);
+  const kindle = products.filter((p) => p.channel === 'kindle').length;
+  console.log(`[product] kindle: ${kindle} 冊${kindleChanged ? '（catalog.json を書いた）' : ''}`);
 }
 
 switch (cmd) {
@@ -208,7 +212,7 @@ switch (cmd) {
     const q = arg('--qualification');
     const t = arg('--tier');
     for (const p of products.filter((x) => (!q || x.qualification === q) && (!t || x.tier === t))) {
-      console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${String(p.catalog.price ?? '').slice(0, 14).padEnd(14)} m=${String(p.members.length).padStart(3)} i=${p.includes.length}  ${p.id}`);
+      console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${String(p.catalog.price ?? (p.catalog.priceJpy != null ? `¥${p.catalog.priceJpy}` : '')).slice(0, 14).padEnd(14)} m=${String(p.members.length).padStart(3)} i=${p.includes.length}  ${p.id}`);
     }
     if (errors.length) die(`正本に問題 ${errors.length} 件（npm run check-products）`, 1);
     break;
@@ -228,6 +232,8 @@ switch (cmd) {
     }
     setPath(p, path, value);
     console.log(`[product] ${relative(ROOT, saveProduct(p))}`);
+    // Kindle の catalog.json は正本からの生成物なので、書き換えたらその場で作り直す
+    if (p.channel === 'kindle' && writeKindleCatalog()) console.log(`[product] ${relative(ROOT, KINDLE_CATALOG_FILE)}`);
     break;
   }
   case 'add-member':

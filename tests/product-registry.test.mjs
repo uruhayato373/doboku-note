@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  Product, canonicalJson, canonicalFile, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
+  Product, canonicalJson, canonicalFile, renderKindleCatalog, kindleProductId, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
 } from '../scripts/lib/product-registry.mjs';
 
 const base = {
@@ -70,4 +70,19 @@ test('canonicalFile は全商品を channel → id の順に並べ、schemaVersi
   assert.deepEqual(Object.keys(json), ['schemaVersion', '_doc', 'products']);
   assert.deepEqual(json.products.map((p) => p.id), ['civil-2-a', 'civil-2-sample-pack']);
   assert.ok(out.endsWith('}\n') && !out.includes('\r'));
+});
+
+test('Kindle の商品は書籍の欄の並びを保ち、catalog.json は order の順で books を作る', () => {
+  const book = (id, order) => Product.parse({
+    id: kindleProductId(id), channel: 'kindle', qualification: 'rccm', stage: 'written', series: 'other', tier: 'book', order,
+    catalog: { id, asin: 'B0X', title: `t-${id}`, priceJpy: 1250, status: 'live' },
+  });
+  const a = book('h-01', 1);
+  const b = book('A-00', 0);
+  assert.equal(b.id, 'kindle-a-00');
+  assert.deepEqual(Object.keys(a.catalog), ['id', 'asin', 'title', 'priceJpy', 'status']);
+  const out = JSON.parse(renderKindleCatalog([a, b], { kindle: { catalogComment: 'c', catalogSchemaVersion: 1, updatedAt: '2026-10-06' } }));
+  assert.deepEqual(Object.keys(out), ['_comment', 'schemaVersion', 'updatedAt', 'books']);
+  assert.deepEqual(out.books.map((x) => x.id), ['A-00', 'h-01']);
+  assert.equal(Product.safeParse({ ...a, catalog: { ...a.catalog, priceJpy: -1 } }).success, false);
 });
