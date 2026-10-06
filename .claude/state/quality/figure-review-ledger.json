@@ -9,6 +9,13 @@
       "reason": "上端に写り込んでいた前ページの本文最終行（『…したがって，(2)は適当でない。』＝答え漏らし）・左の綴じ部の影・図番号キャプション『図 ドレーン工の基本的な構造』・余白を除いて切り直し（1674x433→1194x254）。堤体・浸潤面・ドレーン工のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:49:08.224Z"
     },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
+      "sha": "2e43775301060de1",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で地すべり排土工の施工モデル図の上半分（排土前の地表・頭部域）が切れ、地表の輪郭線と引き出し線が上縁で途切れている。下部にキャプション『図 排土工の施工モデル』と左右の大きな空白",
+      "reviewedAt": "2026-10-06T10:17:23.086Z"
+    },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
       "sha": "ed0e26b0c64ed730",
       "verdict": "ok",
@@ -52,6 +59,20 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-12": {
+      "sha": "45fd4ad926d189fe",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で左の『さや管工法』図の斜めの管・地表線・矩形・滑車、右の『製管工法』図の坑口・噴出表現・機器が切れ、右端でも機器が切れている。下部にキャプション 2 つ。fig-13 と同じ 2 図並びの画像",
+      "reviewedAt": "2026-10-06T10:17:23.092Z"
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
+      "sha": "b329c0bbf37fc7ba",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で左図（さや管工法）の供給管、右図（製管工法）の立坑・ライニングベルトの上部、右上の引き出し線と注記が上縁・右縁で切れている",
+      "reviewedAt": "2026-10-06T10:17:23.092Z"
+    },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
       "verdict": "ok",
@@ -91,6 +112,13 @@
       "action": "none",
       "reason": "下端で右図の図内ラベル『道路橋壁高欄の乾燥収縮によるひび割れの例』の字形の下部が切れている。上端に前の図（沈下ひび割れ）の切れ端、左縁にスキャンの影",
       "reviewedAt": "2026-10-06T09:53:21.098Z"
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
+      "sha": "d01d1e4afa80303a",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁でトンネル覆工の立体図のアーチ外形線と破線、注記『トンネルの覆工コンクリ…』が切れ、トンネル図の右半分が欠けている。上部に見出し『⑦ 記号 B17 不適当な打重ねの例』、左に行番号",
+      "reviewedAt": "2026-10-06T10:17:23.090Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
       "sha": "5b4bfcb03152a2bd",
@@ -147,6 +175,13 @@
       "action": "none",
       "reason": "下縁でコンクリート張りの法面・寸法 1,000・法尻の基礎ブロックが切れ、左縁で隣接図の断片（砂利）が切れている。上部に前の図の下端とキャプション『図2.23 モルタル吹付け工の例』、右縁に行番号 15/20。切り出し範囲が上にずれている",
       "reviewedAt": "2026-10-06T09:49:08.228Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
+      "sha": "57ca8da0af92ffe3",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上部のランニングヘッド断片『章 土 工』・右の行番号 5・右端の章タブ・上下の余白を除いて切り直し（530x380→457x224）。グラウンドアンカー断面と引出し線ラベルは欠けなし（ラベルの無い引出し線は原図どおり）。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:17:23.092Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
       "sha": "3a257b4f6b698198",
@@ -217,6 +252,13 @@
       "action": "none",
       "reason": "下端で下段グラフ（強度と含水比）の曲線・矢印・縦軸・最適含水比の線が切れ、横軸と軸ラベルが丸ごと欠けている。左に本文の断片、上にランニングヘッド、右に章タブと行番号",
       "reviewedAt": "2026-10-06T10:09:04.339Z"
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
+      "sha": "ced2c0b8e78841c3",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で左のフロー図の矢印の先、中央の盛土断面の『盛土』の文字と地盤の下半分、右の『沈下量から品質を判断』の文字の下半分が切れている（ICT 情報化施工の概念図の下半分が無い）。上部に約 90px の空白",
+      "reviewedAt": "2026-10-06T10:17:23.093Z"
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
       "sha": "0bdc9ec94f012982",
@@ -365,6 +407,13 @@
       "reason": "上端で凡例『■全産業死亡者数 ○建設業死亡者数』の文字の上半分が切れている。左下に撮影時の指、右側にスキャン裏写りの汚損もある",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig19": {
+      "sha": "f1255896abeabec2",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "折れ線グラフ本体は欠けていないが、プロット領域全体に裏ページの文字の裏写りが重なり、撮影の傾き（台形歪み）と上端のページ湾曲影もある。図内部の汚損は切り直しで除けない",
+      "reviewedAt": "2026-10-06T10:17:23.093Z"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
       "sha": "63305220cbe6baaa",
       "verdict": "needs-source",
@@ -413,6 +462,13 @@
       "action": "none",
       "reason": "ニュートン・ラフソン法のフローチャートだけで写り込みなし。EDGE_CUT(bottom) は最下部の端子『終了』の下辺の罫線（3px・他の罫線と同じ太さ）が下端に接しているだけで欠けなし",
       "reviewedAt": "2026-10-06T09:43:30.757Z"
+    },
+    "pe-first-stage/r01-basic/img/q3-5-fig": {
+      "sha": "5e9bf3cb2c8e199b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端で切れていた図番号キャプション『図 荷重を受けている棒』・左右の空白・塵を除いて切り直し（1682x460→522x312）。壁・棒・荷重 P・寸法 l は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:17:23.094Z"
     },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "sha": "e68a7e62c934b921",
