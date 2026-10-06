@@ -215,11 +215,16 @@
       "reviewedAt": "2026-10-06T11:26:27.359Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
-      "sha": "9b22967d441ec81b",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で右の断面図の配力鉄筋と充填材のハッチ台形、部材厚 d の軸線が切れている。左余白に行番号 30・35、下部に図番号キャプション『図 3.10 ひび割れ誘発目地の例』の写り込みもある",
-      "reviewedAt": "2026-10-06T11:12:57.312Z"
+      "sha": "ac416ef53ef2d575",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた断面図の配力鉄筋・充填材のハッチ台形・部材厚 d の軸線を、二次問題解説集2021 p.202（180 度回転を戻す）から 300dpi で切り出し直して戻した（930x350→1000x442）。行番号と図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:17:40.844Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 202,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
       "sha": "423e1be7f1a44828",
@@ -561,18 +566,28 @@
       "reviewedAt": "2026-10-06T09:40:15.246Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-43": {
-      "sha": "0a75a7490b4012d8",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁でラベル『すべり面』の『すべ』と地盤面の曲線・すべり面の円弧が切れている。右側に章見出し帯と行番号 5/10、下部に図番号キャプション『図2.43 軟弱地盤における盛土補強工法』",
-      "reviewedAt": "2026-10-06T09:56:02.171Z"
+      "sha": "11dc58c14e7d85e4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていた『すべり面』のラベルと地盤面の曲線・すべり面の円弧を、二次問題解説集2021 p.123（180 度回転を戻す）から 300dpi で切り出し直して戻した（480x280→965x377）。章見出し帯・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:17:40.847Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 123,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
-      "sha": "e5bf67dc41cbe627",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で②貫入のロッド・改良地盤の砂杭の点描・③④の杭範囲が切れている。上部にランニングヘッド『第2章 土 工』の写り込みもある",
-      "reviewedAt": "2026-10-06T10:53:04.917Z"
+      "sha": "a9f73a18c74b51f4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた②貫入のロッド先端・砂杭の点描・③④の杭範囲を、二次問題解説集2021 p.127（180 度回転を戻す）から 300dpi で切り出し直して戻した（900x420→984x710）。ランニングヘッド・行番号・図番号キャプションは除いた。原典の図題は『図2.50 ロッドコンパクション工法の施工順序』で、記事の alt（重錘落下締固め工法の施工順序）が誤っていたので alt と caption を原典どおりに直した（節の配置のずれは DN-0550）。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:17:40.848Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 127,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
       "sha": "62b8b9d50d35ee4b",
@@ -589,11 +604,16 @@
       "reviewedAt": "2026-10-06T09:00:29.888Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-54": {
-      "sha": "2b4fa92975e89188",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁でポンプ筒・井戸の破線 2 本・寸法線・引き出し線のラベルが切れている。上部に前の図のキャプション『図2.53 釜場排水工法』、右縁に行番号 15/20 の写り込み",
-      "reviewedAt": "2026-10-06T09:43:30.759Z"
+      "sha": "e0eb1bbfbb137496",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていたポンプ筒・井戸の破線・寸法線・水中ポンプの引出し線を、二次問題解説集2021 p.129（180 度回転を戻す）から 300dpi で切り出し直して戻した（420x360→707x697）。図2.53 のキャプション・行番号・綴じ影・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:17:40.849Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 129,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
       "sha": "184191abb1a31065",
