@@ -20,8 +20,9 @@ function repoWithBumpingHook({ postCommit }) {
   git(repo, 'add', '.');
   git(repo, 'commit', '-q', '-m', 'init');
   const hooks = mkdtempSync(join(tmpdir(), 'dn-sync-index-hooks-'));
-  // backfill-mdx-dates --staged の代わり: staged の a.mdx の日付を進めて stage し直す
-  writeFileSync(join(hooks, 'pre-commit'), '#!/bin/sh\nif git diff --cached --name-only | grep -q a.mdx; then sed -i "s/2026-09-01/2026-10-06/" a.mdx && git add a.mdx; fi\n');
+  // backfill-mdx-dates --staged の代わり: staged の a.mdx の日付を進めて stage し直す。
+  // sed -i はバックアップの拡張子を付ける（macOS の BSD sed は -i の直後を拡張子と読み、ファイル名を命令と取り違えて落ちる）
+  writeFileSync(join(hooks, 'pre-commit'), '#!/bin/sh\nif git diff --cached --name-only | grep -q a.mdx; then sed -i.bak "s/2026-09-01/2026-10-06/" a.mdx && rm -f a.mdx.bak && git add a.mdx; fi\n');
   chmodSync(join(hooks, 'pre-commit'), 0o755);
   if (postCommit) {
     writeFileSync(join(hooks, 'post-commit'), `#!/bin/sh\nnode ${JSON.stringify(SCRIPT)} || true\n`);
