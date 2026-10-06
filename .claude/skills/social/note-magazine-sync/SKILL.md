@@ -69,8 +69,8 @@ node scripts/verify-note-magazines.mjs --contents
 
 ```bash
 npm run refresh-indexes
-git diff --cached --name-only   # staged 確認（note-magazines.ts のみのはず）
-git add src/lib/note-magazines.ts
+git diff --cached --name-only   # staged 確認（note-magazines.ts と記事カタログ note-published.json）
+git add src/lib/note-magazines.ts .claude/state/note-published.json
 git commit -m "fix(note): SoT 配線・価格を note 現実に同期
 
 Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>"

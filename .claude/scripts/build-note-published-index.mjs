@@ -11,20 +11,23 @@
 //
 // 使い方:
 //   node .claude/scripts/build-note-published-index.mjs          # 生成（中身が同じなら書かない）
-//   node .claude/scripts/build-note-published-index.mjs --check  # 検査のみ（書き込みなし）
+//   node .claude/scripts/build-note-published-index.mjs --check  # 検査のみ（書き込みなし。生成物が古ければ exit 1）
+//   node .claude/scripts/build-note-published-index.mjs --check --staged  # 加えて、作り直した生成物の stage 漏れも exit 1
 // npm run refresh-indexes に含まれ、コミット漏れは check-generated-indexes（CI）が止める。
-// exit 0 = 成功 / 1 = contentType の無い公開記事あり / 2 = 検査不成立（記事 0 件）
+// --check --staged は pre-commit（scripts/pre-commit-ci-gates.mjs）も note の原稿を stage したときに回す。
+// exit 0 = 成功 / 1 = contentType の無い公開記事あり・--check で生成物が古い / 2 = 検査不成立（記事 0 件）
 //
 // 他 note 記事を本文中で参照する時は、対象記事 frontmatter の noteUrl を
 // 直書きする運用とする（slug → noteUrl の逆引きは本 JSON で行える）。
 
+import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join, dirname, relative, basename, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { listNoteArticleFiles, normalizeRepoPath } from '../../scripts/lib/note-content-type.mjs';
 import { parseSoT } from '../../scripts/check-magazine-membership.mjs';
-import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { jsonMatches, writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
 import { readDataset } from '../../scripts/lib/dataset-io.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -118,10 +121,23 @@ function main() {
     console.error('  ✗ 検査不成立: content/note に記事が 1 件も見つからない');
     process.exit(2);
   }
-  if (!checkOnly) {
-    const out = { version: 3, updatedAt: new Date().toISOString(), items, unpublished, magazines };
+  const out = { version: 3, updatedAt: new Date().toISOString(), items, unpublished, magazines };
+  const outRel = normalizeRepoPath(relative(ROOT, OUT_PATH));
+  if (checkOnly) {
+    // 原稿の題名・公開状態を変えて作り直しを忘れると develop の CI（generated-indexes）が赤くなる（2026-10-06 に 2 回）
+    if (!jsonMatches(OUT_PATH, out, { volatileKeys: ['updatedAt'] })) {
+      console.error(`  FAIL: ${outRel} が記事（frontmatter・H1）と食い違う（npm run build-note-catalog で作り直してコミットする）`);
+      process.exitCode = 1;
+    } else if (process.argv.includes('--staged') && spawnSync('git', ['diff', '--quiet', '--', outRel], { cwd: ROOT }).status !== 0) {
+      // 作業ツリーのカタログは新しいが stage していない（pre-commit 用。commit される中身は index 側）
+      console.error(`  FAIL: 作り直した ${outRel} が stage されていない（git add ${outRel}）`);
+      process.exitCode = 1;
+    } else {
+      console.log(`  一致: ${outRel}`);
+    }
+  } else {
     const wrote = writeJsonIfChanged(OUT_PATH, out, { volatileKeys: ['updatedAt'] });
-    console.log(`  ${wrote ? '出力' : '変更なし'}: ${normalizeRepoPath(relative(ROOT, OUT_PATH))}`);
+    console.log(`  ${wrote ? '出力' : '変更なし'}: ${outRel}`);
   }
   const noType = items.filter((item) => !item.contentType);
   if (noType.length) {

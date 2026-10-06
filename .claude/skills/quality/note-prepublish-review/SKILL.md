@@ -316,7 +316,7 @@ utmCampaign: 90-soukan-analysis   # add-note-utm.mjs が消費
 npm run build-note-catalog
 ```
 
-`.claude/state/note-published.json`（記事カタログ）が frontmatter から作り直される。`note-publish.mjs` は公開時の書き戻しで自動実行し、`npm run refresh-indexes` にも含まれる。コミット漏れは CI の `check-generated-indexes` が止める。
+`.claude/state/note-published.json`（記事カタログ）が frontmatter から作り直される。`note-publish.mjs` は公開時の書き戻しで自動実行し、`npm run refresh-indexes` にも含まれる。作り直し漏れと stage 漏れは、note 原稿を stage した commit の pre-commit（`build-note-published-index.mjs --check --staged`）と CI の `check-generated-indexes` が止める。
 
 ### 4. doboku-note サイト側に動線追加（任意・記事性質に応じて）
 
