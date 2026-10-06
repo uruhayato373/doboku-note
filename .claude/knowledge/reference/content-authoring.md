@@ -13,7 +13,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
 - CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・`writeMdxFile` 経由・絵文字禁止）だけを残し、編集時の詳細は `.claude/rules/content-site.md` が `content/site/**` を開いたときに載せる
 
-`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。
+`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。技術士一次の MDX を stage した commit では、pre-commit が dateModified を進めた後に演習データを作り直して stage する（`scripts/lib/quiz-restage.mjs`・DN-0548）。
 
 ## ペルソナ・コンテンツ原則
 
