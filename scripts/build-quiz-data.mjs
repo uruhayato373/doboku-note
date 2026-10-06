@@ -314,7 +314,8 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   for (const articleDir of articleDirs) {
     const [, year, subject] = articleDir.match(articlePattern);
     const file = resolve(baseDir, articleDir, 'article.mdx');
-    const parsed = matter(readFileSync(file, 'utf8'));
+    // autocrlf の作業ツリー（Windows）は CRLF。以降の解析は \n 前提なので読み込み時に揃える
+    const parsed = matter(readFileSync(file, 'utf8').replace(/\r\n/g, '\n'));
     if (parsed.data.dateModified) modifiedDates.push(toJstDate(parsed.data.dateModified));
     const sections = splitQuestionSections(parsed.content);
     const expected = pe1ExpectedPerYear(year, subject);

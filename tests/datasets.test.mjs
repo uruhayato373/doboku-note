@@ -143,6 +143,7 @@ test('findPathLiterals: 文字列・テンプレート・正規表現・join の
   assert.deepEqual(lines("const a = join(ROOT, 'public/data/x.csv');\nconst u = '/data/x.csv';"), []);
   assert.deepEqual(lines("// data/note/sales.json を読む\n * data/note/sales.json\nf(); // data/note/sales.json"), []);
   assert.deepEqual(lines("const old = 'data/metrics/x.json'; // path-literal-ok: 旧パスの読み替え"), []);
+  assert.deepEqual(lines("f(); // config/seo-meta-config.json\r\nconst a = 'data/note/sales.json';\r\n"), [2], 'CRLF でも行末コメントは読まない・行番号はずれない');
 });
 
 test('findPathLiterals: config/ も拾い、src/config・コマンド引数・gtag の config は拾わない', () => {

@@ -69,6 +69,8 @@ function callArgs(source, open) {
  * @returns {{ line: number, text: string }[]}
  */
 export function findPathLiterals(source, { basenames } = {}) {
+  // CRLF（Windows の autocrlf 作業ツリー）だと `.*$` が \r で止まり、行末コメントを外せず偽の違反になる
+  source = source.replace(/\r\n/g, '\n');
   const lines = source.split('\n');
   const skip = (line) => IS_COMMENT.test(line) || ALLOWED.test(line);
   const hits = new Map();
