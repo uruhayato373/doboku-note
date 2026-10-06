@@ -833,11 +833,16 @@
       }
     },
     "pe-first-stage/h29-construction/img/q03-fig": {
-      "sha": "0540797dad08dbcd",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で引出しラベル『容器Ⅰ』の『容』が半分欠け、右縁で『流量 Q』が縁に接し、上縁で給水パイプの斜線 2 本が途切れている。写り込みは無い",
-      "reviewedAt": "2026-10-06T11:02:54.216Z"
+      "sha": "e97c41512072d12d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁の『容器Ⅰ』、右縁の『流量 Q』、上縁の給水パイプの斜線を、技術士第一次 H29 建設部門の公式問題 PDF p.2（Ⅲ-3）から 300dpi で切り出し直して戻した（1002x966→1055x963）。ラベルと記号は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:22:08.087Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+        "page": 2,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h29-construction/img/q05-fig": {
       "sha": "470c7f0dfa6acf5e",
@@ -1039,11 +1044,16 @@
       }
     },
     "pe-first-stage/r05-basic/img/q112-fig": {
-      "sha": "7945147d32f422f1",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で荷重の矢印の軸が切れている。下部に設問文の断片と選択肢表（ウ・エ列）の断片が写り込み、左右縁でも文字が切れている",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "70e917a78efe6045",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた荷重矢印の軸と『圧縮荷重』ラベルを戻し、下部の図キャプション・設問文・選択肢表の断片を除いて、技術士第一次 R05 基礎科目の公式問題 PDF p.2（Ⅰ-1-2）から 300dpi で切り出し直した（839x970→391x809）。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:22:08.088Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R05/R05_基礎科目.pdf",
+        "page": 2,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r05-basic/img/q114-fig": {
       "sha": "66d4ebee51fe58ed",
@@ -1074,11 +1084,16 @@
       "reviewedAt": "2026-10-06T09:43:30.757Z"
     },
     "pe-first-stage/r06-basic/img/q3-3-fig": {
-      "sha": "91531f97e3ec8e40",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁でフローチャート先頭の端子記号『開始』の角丸枠の上辺が切れている。写り込みは無い（R06 基礎 Ⅰ-3-3）",
-      "reviewedAt": "2026-10-06T11:19:11.890Z"
+      "sha": "e9e7451ae1b7e56a",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた開始端子の角丸枠の上辺を、技術士第一次 R06 基礎科目の公式問題 PDF p.11（Ⅰ-3-3）から 300dpi で切り出し直して戻した（1295x1131→1328x1485）。フローチャートのラベルは旧画像と一致し、図番号キャプションは含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:22:08.089Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_基礎科目.pdf",
+        "page": 11,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r06-basic/img/q3-6-fig": {
       "sha": "bfb72d5773797c60",
@@ -1116,11 +1131,16 @@
       "reviewedAt": "2026-10-06T10:24:51.418Z"
     },
     "pe-first-stage/r07-construction/img/q05-fig": {
-      "sha": "4772ccd67329aa2f",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "片持ちばりの固定端側（左縁）が切れ、梁の太線と寸法線 a・L が x=0 まで走っている。固定端の記号と寸法線の起点が無い。下側に約 330px の空白もある",
-      "reviewedAt": "2026-10-06T11:02:54.216Z"
+      "sha": "7a9cade96a098815",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていた片持ちばりの固定端（壁の縦線とハッチ）と寸法線 a・L の起点を、技術士第一次 R07 建設部門の公式問題 PDF p.3（Ⅲ-5）から 300dpi で切り出し直して戻した（972x674→1344x498）。下側の空白も除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:22:08.090Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+        "page": 3,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r07-construction/img/q06-fig": {
       "sha": "85ca856b8c43ffce",
