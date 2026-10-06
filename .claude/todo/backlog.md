@@ -507,6 +507,8 @@
 
 **やること**: `content/site/civil-construction-2/primary-r07-zenki` と `primary-r03-kouki`〜`primary-r07-kouki`、`content/site/civil-construction-1/primary-*`（h26〜r07・a/b）の全問について、設問文・選択肢を公式の問題（全国建設研修センターの公表 PDF、現行ページが 404 なら Wayback Machine。1級は docs/textbook 配下の原典 PDF も可）と照合し、ずれを直す。正答は公式の正答表と照合し、変わる場合は解説と ExamPoint も合わせる。年度ごとに commit し、`past-exam-qa` で監査する。原典が取れない年度は理由を残す。
 
+**手がかり（2026-10-06）**: (a) r07 前期 No.63（足場の数値の組合せ）は正答 (1) の作業床幅を「30 cm 以上」とし、解説が「条文上 40 cm が原則だが小規模特例あり」と補っている。労働安全衛生規則 第563条は作業床の幅 40 cm 以上・支持物 2 以上なので、今の選択肢表ではどれも条文と合わない＝転記の崩れが疑わしい（r08 前期 No.53 の公式正答でも「作業床の幅は 30 cm 以上」は誤り）。最優先で原典と照合する。(b) 2級の PDF は poppler（pdftotext/pdftoppm）だと太字＝設問番号と「適当でないもの」等の極性語が落ち、ふりがなが混入する。照合は pypdfium2（`python3 -I`）で描画した画像で行う（DN-0547 で確認）。r07 前期の公式 PDF は現行ページに無く、jctc.jp の wp-content/uploads/2025/06 の推測 URL も 404、web.archive.org はクラウドのセッションから届かないので、手元の端末で原典を取る。
+
 **完了条件**: 対象の全年度で照合済み（照合できなかった年度・問題は理由つきで列挙）、`past-exam-qa` で転記起因の指摘が 0、`npm run refresh-indexes` 済み。
 
 
