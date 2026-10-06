@@ -1239,11 +1239,16 @@
       }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
-      "sha": "a6978e6aa7d03008",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で凡例 1 行目（政府投資額）・ピーク注記の吹き出し 2 つ・右軸の最上目盛・棒の上部が切れ、右縁で吹き出し『許可業者数ピーク時比▲19.5%』と右軸ラベルが指の影で欠けている。下端に出典行と次行の本文の切れ端",
-      "reviewedAt": "2026-10-06T09:49:08.230Z"
+      "sha": "9eac08d37a79545d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていた凡例・ピーク注記の吹き出し・右軸の最上目盛と、右縁で指に隠れていた吹き出し・右軸ラベル、下端の出典と注を戻した（990x372→1400x740）。書籍スキャンは指が図に被っていて使えないため、記事の caption と同じ出典の令和7年版 国土交通白書 関連データ集 p.6 の原画（カラー）を使った（取得は運営者が了承済み・2026-10-07）。数値・吹き出し・軸・注は書籍の図と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:28:24.035Z",
+      "source": {
+        "pdf": "https://www.mlit.go.jp/statistics/content/001896709.pdf",
+        "page": 6,
+        "dpi": 300
+      }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
       "sha": "7ee48a2bdedc318c",
