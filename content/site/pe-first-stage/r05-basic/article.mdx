@@ -18,7 +18,7 @@ ogp:
   title: "基礎科目"
   subtitle: "令和5年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-03
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和5年度
   - labor-safety-act
@@ -200,11 +200,15 @@ CFRPに対する鉄鋼の倍率は $\dfrac{3.16\times10^{-4}}{7.81\times10^{-5}}
 
 各要素の信頼度を $p=0.7$ とする。2/3多数決冗長系の信頼度 $R$ は「3個中ちょうど2個が正常」と「3個すべて正常」の確率の和である。
 
-$$R = \binom{3}{2}p^2(1-p) + p^3 = 3p^2(1-p) + p^3$$
+$$
+R = \binom{3}{2}p^2(1-p) + p^3 = 3p^2(1-p) + p^3
+$$
 
 $p=0.7$ を代入すると、
 
-$$R = 3\times 0.49\times 0.3 + 0.343 = 0.441 + 0.343 = 0.784$$
+$$
+R = 3\times 0.49\times 0.3 + 0.343 = 0.441 + 0.343 = 0.784
+$$
 
 よって $R\approx 0.784$ であり、「0.75以上0.8未満」の範囲に入る。
 
@@ -399,7 +403,9 @@ $$R = 3\times 0.49\times 0.3 + 0.343 = 0.441 + 0.343 = 0.784$$
 
 国際書籍番号ISBN-13は13個の0から9の数字 $a_{13},a_{12},a_{11},a_{10},a_9,a_8,a_7,a_6,a_5,a_4,a_3,a_2,a_1$ を用いて $a_{13}a_{12}a_{11}\text{-}a_{10}\text{-}a_9a_8a_7\text{-}a_6a_5a_4a_3a_2\text{-}a_1$ のように表され、次の規則に従っている。
 
-$$a_{13}+3a_{12}+a_{11}+3a_{10}+a_9+3a_8+a_7+3a_6+a_5+3a_4+a_3+3a_2+a_1 \equiv 0 \pmod{10}$$
+$$
+a_{13}+3a_{12}+a_{11}+3a_{10}+a_9+3a_8+a_7+3a_6+a_5+3a_4+a_3+3a_2+a_1 \equiv 0 \pmod{10}
+$$
 
 ここに、ある書籍のISBN-13の番号が「978-4-103-34194-X」となっており、Xと記された箇所が読めなくなっている。このXの値として、適切なものはどれか。
 
@@ -431,7 +437,9 @@ $9,7,8,4,1,0,3,3,4,1,9,4,X$。
 
 これが $\equiv 0 \pmod{10}$ となるには $91+X$ の一の位が0、すなわち $X=9$。
 
-$$91 + 9 = 100 \equiv 0 \pmod{10}$$
+$$
+91 + 9 = 100 \equiv 0 \pmod{10}
+$$
 
 1. $91+1=92$ で割り切れず誤り ❌
 2. $91+3=94$ で割り切れず誤り ❌
@@ -492,21 +500,33 @@ $$91 + 9 = 100 \equiv 0 \pmod{10}$$
 
 2つの単一ビット $a,b$ に対する排他的論理和演算 $a\oplus b$ 及び論理積演算 $a\cdot b$ に対して、2つの $n$ ビット列 $A=a_1a_2\dots a_n$、$B=b_1b_2\dots b_n$ の排他的論理和演算 $A\oplus B$ 及び論理積演算 $A\cdot B$ は下記で定義される。
 
-$$A\oplus B = (a_1\oplus b_1)(a_2\oplus b_2)\dots(a_n\oplus b_n)$$
+$$
+A\oplus B = (a_1\oplus b_1)(a_2\oplus b_2)\dots(a_n\oplus b_n)
+$$
 
-$$A\cdot B = (a_1\cdot b_1)(a_2\cdot b_2)\dots(a_n\cdot b_n)$$
+$$
+A\cdot B = (a_1\cdot b_1)(a_2\cdot b_2)\dots(a_n\cdot b_n)
+$$
 
 例えば
 
-$$1010\oplus0110 = 1100$$
+$$
+1010\oplus0110 = 1100
+$$
 
-$$1010\cdot0110 = 0010$$
+$$
+1010\cdot0110 = 0010
+$$
 
 である。ここで2つの8ビット列
 
-$$A = 01011101$$
+$$
+A = 01011101
+$$
 
-$$B = 10101101$$
+$$
+B = 10101101
+$$
 
 に対して、下記演算によって得られるビット列 $C$ として、適切なものはどれか。
 
@@ -586,13 +606,19 @@ $\overline{A}\cap\overline{B}\cap\overline{C}$ の元の個数が400のとき、
 
 包除原理により、$A\cup B\cup C$ の元の個数は
 
-$$|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\cap C|$$
+$$
+|A\cup B\cup C| = |A|+|B|+|C| - |A\cap B| - |A\cap C| - |B\cap C| + |A\cap B\cap C|
+$$
 
-$$= 300+180+120 - 60 - 40 - 20 + 10 = 490$$
+$$
+= 300+180+120 - 60 - 40 - 20 + 10 = 490
+$$
 
 $\overline{A}\cap\overline{B}\cap\overline{C}$ は $A\cup B\cup C$ の補集合（いずれにも属さない元）で400個。よって
 
-$$|V| = |A\cup B\cup C| + |\overline{A}\cap\overline{B}\cap\overline{C}| = 490 + 400 = 890$$
+$$
+|V| = |A\cup B\cup C| + |\overline{A}\cap\overline{B}\cap\overline{C}| = 490 + 400 = 890
+$$
 
 1. 計算が合わず誤り ❌
 2. 計算が合わず誤り ❌
@@ -682,11 +708,15 @@ $$|V| = |A\cup B\cup C| + |\overline{A}\cap\overline{B}\cap\overline{C}| = 490 +
 
 領域 $R$ は第1象限の単位円の内部（$x^2+y^2\leq1,\ x\geq0,\ y\geq0$）である。$y$ について先に積分する。
 
-$$\iint_R x\,dx\,dy = \int_0^1 x\left(\int_0^{\sqrt{1-x^2}} dy\right)dx = \int_0^1 x\sqrt{1-x^2}\,dx$$
+$$
+\iint_R x\,dx\,dy = \int_0^1 x\left(\int_0^{\sqrt{1-x^2}} dy\right)dx = \int_0^1 x\sqrt{1-x^2}\,dx
+$$
 
 $u=1-x^2,\ du=-2x\,dx$ と置換すると、
 
-$$\int_0^1 x\sqrt{1-x^2}\,dx = \left[-\frac{1}{3}(1-x^2)^{3/2}\right]_0^1 = -\frac{1}{3}(0-1) = \frac{1}{3}$$
+$$
+\int_0^1 x\sqrt{1-x^2}\,dx = \left[-\frac{1}{3}(1-x^2)^{3/2}\right]_0^1 = -\frac{1}{3}(0-1) = \frac{1}{3}
+$$
 
 1. 値が異なるため誤り ❌
 2. $\dfrac{1}{3}$ で正しい ✅
@@ -771,9 +801,13 @@ $$\int_0^1 x\sqrt{1-x^2}\,dx = \left[-\frac{1}{3}(1-x^2)^{3/2}\right]_0^1 = -\fr
 - 断面積 $A = 1.2\times10^2\ \text{mm}^2 = 1.2\times10^{-4}\ \text{m}^2$
 - ヤング率 $E = 2.0\times10^2\ \text{GPa} = 2.0\times10^{11}\ \text{Pa}$
 
-$$\Delta L = \frac{PL}{AE} = \frac{(2.0\times10^3)(2.4)}{(1.2\times10^{-4})(2.0\times10^{11})}$$
+$$
+\Delta L = \frac{PL}{AE} = \frac{(2.0\times10^3)(2.4)}{(1.2\times10^{-4})(2.0\times10^{11})}
+$$
 
-$$= \frac{4.8\times10^3}{2.4\times10^7} = 2.0\times10^{-4}\ \text{m} = 0.20\ \text{mm}$$
+$$
+= \frac{4.8\times10^3}{2.4\times10^7} = 2.0\times10^{-4}\ \text{m} = 0.20\ \text{mm}
+$$
 
 1. 値が異なるため誤り ❌
 2. 値が異なるため誤り ❌
@@ -821,11 +855,15 @@ $$= \frac{4.8\times10^3}{2.4\times10^7} = 2.0\times10^{-4}\ \text{m} = 0.20\ \te
 
 円盤を増速させるのに必要なトルク（出力軸側）は、回転運動方程式より
 
-$$\tau_{\text{out}} = I\dot{\omega} = I\cdot\frac{\omega_2-\omega_1}{T}$$
+$$
+\tau_{\text{out}} = I\dot{\omega} = I\cdot\frac{\omega_2-\omega_1}{T}
+$$
 
 変速機の入力軸：出力軸の回転速度比が $1:1/n$（$n>1$）なので、出力軸は入力軸の $1/n$ の回転速度、すなわち減速比 $n$ の減速機である。効率1の変速機ではトルクは回転速度比の逆比となるため、出力軸トルクは入力軸トルクの $n$ 倍。よって入力軸（モータ出力軸）に必要なトルクは出力軸トルクの $1/n$ 倍。
 
-$$\tau = \frac{1}{n}\,\tau_{\text{out}} = \frac{1}{n}\,I\cdot\frac{\omega_2-\omega_1}{T}$$
+$$
+\tau = \frac{1}{n}\,\tau_{\text{out}} = \frac{1}{n}\,I\cdot\frac{\omega_2-\omega_1}{T}
+$$
 
 1. $1/n^2$ 倍で誤り ❌
 2. $\tau = (1/n)\times I\times(\omega_2-\omega_1)/T$ で正しい ✅
@@ -1266,11 +1304,15 @@ PCR（ポリメラーゼ連鎖反応）法は、細胞や血液サンプルか�
 
 0℃・1気圧（標準状態）における理想気体1molの体積は22.4［L］。メタン（CH₄）の分子量は16なので、気体メタンの密度は
 
-$$\rho_{\text{gas}} = \frac{16\ \text{g}}{22.4\ \text{L}} \approx 0.714\ \text{g/L} = 0.714\ \text{kg/m}^3$$
+$$
+\rho_{\text{gas}} = \frac{16\ \text{g}}{22.4\ \text{L}} \approx 0.714\ \text{g/L} = 0.714\ \text{kg/m}^3
+$$
 
 LNG（液体）の密度は425［kg/m³］なので、体積比（液化後／気体）は密度の逆比となる。
 
-$$\frac{V_{\text{liquid}}}{V_{\text{gas}}} = \frac{\rho_{\text{gas}}}{\rho_{\text{liquid}}} = \frac{0.714}{425} \approx \frac{1}{595}$$
+$$
+\frac{V_{\text{liquid}}}{V_{\text{gas}}} = \frac{\rho_{\text{gas}}}{\rho_{\text{liquid}}} = \frac{0.714}{425} \approx \frac{1}{595}
+$$
 
 よって体積は約 $1/600$ になる。
 

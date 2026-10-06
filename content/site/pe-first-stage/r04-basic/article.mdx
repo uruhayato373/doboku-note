@@ -18,7 +18,7 @@ ogp:
   title: "基礎科目"
   subtitle: "令和4年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-03
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和4年度
   - energy-white-paper
@@ -149,7 +149,9 @@ sources:
 
 合力が200N以上となる確率を求める。標準化すると
 
-$$z = \frac{200 - 100}{50} = 2.0$$
+$$
+z = \frac{200 - 100}{50} = 2.0
+$$
 
 上側確率の表より $x=2.0$ で 2.28%。これは「1%以上5%未満」に該当する。
 
@@ -192,13 +194,19 @@ $$z = \frac{200 - 100}{50} = 2.0$$
 
 総コスト $C(x)$ は、期待損失額と製造コストの和で表される。
 
-$$C(x) = 9 \cdot \frac{1}{1+x} + x$$
+$$
+C(x) = 9 \cdot \frac{1}{1+x} + x
+$$
 
 最小化するため $x$ で微分して0とおく。
 
-$$\frac{dC}{dx} = -\frac{9}{(1+x)^2} + 1 = 0$$
+$$
+\frac{dC}{dx} = -\frac{9}{(1+x)^2} + 1 = 0
+$$
 
-$$(1+x)^2 = 9 \quad\Rightarrow\quad 1+x = 3 \quad\Rightarrow\quad x = 2.0$$
+$$
+(1+x)^2 = 9 \quad\Rightarrow\quad 1+x = 3 \quad\Rightarrow\quad x = 2.0
+$$
 
 $x>1$ を満たす解は $x=2.0$。このとき総コストは $9/3 + 2 = 5$ 億円で最小となる。
 
@@ -398,13 +406,19 @@ $x>1$ を満たす解は $x=2.0$。このとき総コストは $9/3 + 2 = 5$ 億
 
 包除原理（包含と排除の原理）を用いる。4集合の和集合の要素数は
 
-$$|A\cup B\cup C\cup D| = \sum|A_i| - \sum|A_i\cap A_j| + \sum|A_i\cap A_j\cap A_k| - |A\cap B\cap C\cap D|$$
+$$
+|A\cup B\cup C\cup D| = \sum|A_i| - \sum|A_i\cap A_j| + \sum|A_i\cap A_j\cap A_k| - |A\cap B\cap C\cap D|
+$$
 
 各項の個数：1個ずつの和は $\binom{4}{1}=4$ 通り、2つの積は $\binom{4}{2}=6$ 通り、3つの積は $\binom{4}{3}=4$ 通り。条件より
 
-$$16 = 4\times11 - 6\times7 + 4\times4 - |A\cap B\cap C\cap D|$$
+$$
+16 = 4\times11 - 6\times7 + 4\times4 - |A\cap B\cap C\cap D|
+$$
 
-$$16 = 44 - 42 + 16 - x = 18 - x$$
+$$
+16 = 44 - 42 + 16 - x = 18 - x
+$$
 
 よって $x = 18 - 16 = 2$。4集合すべての積集合の要素数は2。
 
@@ -430,7 +444,9 @@ $$16 = 44 - 42 + 16 - x = 18 - x$$
 
 仮想記憶のページ置換手法としてLRU（Least Recently Used）が使われており、主記憶に格納できるページ数が3、ページの主記憶からのアクセス時間が H［秒］、外部記憶からのアクセス時間が M［秒］であるとする（H は M よりはるかに小さいものとする）。ここでLRUとは最も長くアクセスされなかったページを置換対象とする方式であり、仮想記憶にページが何も格納されていない状態から開始し、プログラムが次の順序でページ番号を参照する場合の総アクセス時間として、適切なものはどれか。
 
-$$2 \Rightarrow 1 \Rightarrow 3 \Rightarrow 2 \Rightarrow 3 \Rightarrow 4 \Rightarrow 1 \Rightarrow 3 \Rightarrow 4$$
+$$
+2 \Rightarrow 1 \Rightarrow 3 \Rightarrow 2 \Rightarrow 3 \Rightarrow 4 \Rightarrow 1 \Rightarrow 3 \Rightarrow 4
+$$
 
 なお、主記憶のページ数が1であり、$2\Rightarrow2\Rightarrow1\Rightarrow2$ の順序でページ番号を参照する場合、最初のページ2へのアクセスは外部記憶からのアクセスとなり、同時に主記憶にページ2が格納される。以降ページ2、ページ1、ページ2への参照はそれぞれ主記憶、外部記憶、外部記憶へのアクセスとなり、総アクセス時間は3M＋1H［秒］となる。
 
@@ -548,11 +564,15 @@ $X5$ のみ不一致なので、誤りは検査ビット $X5$ にあり、情報
 
 $n$ を0又は正の整数、$a_i\in\{0,1\}$（$i=0,1,\cdots,n$）とする。図は2進数 $(a_n a_{n-1}\cdots a_1 a_0)$ を10進数 $s$ に変換するアルゴリズムの流れ図である。このアルゴリズムを用いて2進数 $(1011)_2$ を10進数 $s$ に変換すると、$s$ は初めに1が代入され、その後、順に2、5と更新され、最後に11となり終了する。このように $s$ が更新される過程を
 
-$$1 \rightarrow 2 \rightarrow 5 \rightarrow 11$$
+$$
+1 \rightarrow 2 \rightarrow 5 \rightarrow 11
+$$
 
 と表す。同様に、2進数 $(11001011)_2$ を10進数 $s$ に変換すると、$s$ は次のように更新される。
 
-$$1 \rightarrow 3 \rightarrow 6 \rightarrow \boxed{\text{ア}} \rightarrow \boxed{\text{イ}} \rightarrow \boxed{\text{ウ}} \rightarrow \boxed{\text{エ}} \rightarrow 203$$
+$$
+1 \rightarrow 3 \rightarrow 6 \rightarrow \boxed{\text{ア}} \rightarrow \boxed{\text{イ}} \rightarrow \boxed{\text{ウ}} \rightarrow \boxed{\text{エ}} \rightarrow 203
+$$
 
 |  | ア | イ | ウ | エ |
 |---|---|---|---|---|
@@ -625,7 +645,9 @@ IPv4は32ビット、IPv6は128ビットでアドレスを表す。表現でき�
 
 倍率は
 
-$$\frac{2^{128}}{2^{32}} = 2^{128-32} = 2^{96}$$
+$$
+\frac{2^{128}}{2^{32}} = 2^{128-32} = 2^{96}
+$$
 
 よってIPv6はIPv4の $2^{96}$ 倍のアドレス数を表現できる。
 
@@ -792,7 +814,9 @@ $x=x_i$ における導関数 $\dfrac{df}{dx}$ の差分表現として、誤っ
 
 水平方向の式より
 
-$$N_1\cdot\frac{\sqrt{3}}{2} = N_2\cdot\frac{1}{2} \quad\Rightarrow\quad \frac{N_1}{N_2} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}}$$
+$$
+N_1\cdot\frac{\sqrt{3}}{2} = N_2\cdot\frac{1}{2} \quad\Rightarrow\quad \frac{N_1}{N_2} = \frac{1/2}{\sqrt{3}/2} = \frac{1}{\sqrt{3}}
+$$
 
 よって $\dfrac{N_1}{N_2}=\dfrac{1}{\sqrt{3}}$。
 
@@ -837,11 +861,15 @@ $$N_1\cdot\frac{\sqrt{3}}{2} = N_2\cdot\frac{1}{2} \quad\Rightarrow\quad \frac{N
 
 角加速度は
 
-$$\alpha = \frac{\omega_2-\omega_1}{T}$$
+$$
+\alpha = \frac{\omega_2-\omega_1}{T}
+$$
 
 したがって必要なトルクは
 
-$$\tau = I\alpha = I\cdot\frac{\omega_2-\omega_1}{T} = \frac{I(\omega_2-\omega_1)}{T}$$
+$$
+\tau = I\alpha = I\cdot\frac{\omega_2-\omega_1}{T} = \frac{I(\omega_2-\omega_1)}{T}
+$$
 
 1. 角加速度ではなく角速度差のみで誤り ❌
 2. 時間で割るべきところを掛けており誤り ❌
@@ -884,23 +912,33 @@ $$\tau = I\alpha = I\cdot\frac{\omega_2-\omega_1}{T} = \frac{I(\omega_2-\omega_1
 
 中央の物体に働く復元力は、微小変位 $x$ のとき $\sin\theta\approx x/L$ より
 
-$$F = -2T\sin\theta \approx -2T\cdot\frac{x}{L}$$
+$$
+F = -2T\sin\theta \approx -2T\cdot\frac{x}{L}
+$$
 
 これはばね定数 $k=\dfrac{2T}{L}$ の単振動とみなせる。固有振動数は
 
-$$f = \frac{1}{2\pi}\sqrt{\frac{k}{m}}$$
+$$
+f = \frac{1}{2\pi}\sqrt{\frac{k}{m}}
+$$
 
 系（a）：片側の糸の長さが $L$、質量 $m$。$k_a=\dfrac{2T}{L}$ より
 
-$$f_a = \frac{1}{2\pi}\sqrt{\frac{2T}{mL}}$$
+$$
+f_a = \frac{1}{2\pi}\sqrt{\frac{2T}{mL}}
+$$
 
 系（b）：糸の長さ $4L$（中央までの片側長さが $2L$）、質量 $2m$。$k_b=\dfrac{2T}{2L}=\dfrac{T}{L}$ より
 
-$$f_b = \frac{1}{2\pi}\sqrt{\frac{k_b}{2m}} = \frac{1}{2\pi}\sqrt{\frac{T/L}{2m}} = \frac{1}{2\pi}\sqrt{\frac{T}{2mL}}$$
+$$
+f_b = \frac{1}{2\pi}\sqrt{\frac{k_b}{2m}} = \frac{1}{2\pi}\sqrt{\frac{T/L}{2m}} = \frac{1}{2\pi}\sqrt{\frac{T}{2mL}}
+$$
 
 比をとると
 
-$$\frac{f_a}{f_b} = \sqrt{\frac{2T/(mL)}{T/(2mL)}} = \sqrt{\frac{2T}{mL}\cdot\frac{2mL}{T}} = \sqrt{4} = 2$$
+$$
+\frac{f_a}{f_b} = \sqrt{\frac{2T/(mL)}{T/(2mL)}} = \sqrt{\frac{2T}{mL}\cdot\frac{2mL}{T}} = \sqrt{4} = 2
+$$
 
 よって $f_a:f_b = 2:1$。
 
@@ -1033,21 +1071,29 @@ $$\frac{f_a}{f_b} = \sqrt{\frac{2T/(mL)}{T/(2mL)}} = \sqrt{\frac{2T}{mL}\cdot\fr
 
 （イ）ニッケルめっき層の体積は
 
-$$V_{\text{Ni}} = 0.50\,\text{m}\times1.0\,\text{m}\times(10\times10^{-6}\,\text{m}) = 5.0\times10^{-6}\,\text{m}^3$$
+$$
+V_{\text{Ni}} = 0.50\,\text{m}\times1.0\,\text{m}\times(10\times10^{-6}\,\text{m}) = 5.0\times10^{-6}\,\text{m}^3
+$$
 
 質量は
 
-$$m_{\text{Ni}} = 8.9\times10^3 \times 5.0\times10^{-6} = 4.45\times10^{-2}\,\text{kg}$$
+$$
+m_{\text{Ni}} = 8.9\times10^3 \times 5.0\times10^{-6} = 4.45\times10^{-2}\,\text{kg}
+$$
 
 めっき体積は $5.0\times10^{-6}\,\text{m}^3$、質量は $4.45\times10^{-2}\,\text{kg} \approx 4.5\times10^{-2}\,\text{kg}$ となる。イ＝4.5×10⁻²
 
 鋼板の質量は
 
-$$m_{\text{steel}} = 7.9\times10^3 \times (0.50\times1.0\times6.0\times10^{-4}) = 7.9\times10^3 \times 3.0\times10^{-4} = 2.37\,\text{kg}$$
+$$
+m_{\text{steel}} = 7.9\times10^3 \times (0.50\times1.0\times6.0\times10^{-4}) = 7.9\times10^3 \times 3.0\times10^{-4} = 2.37\,\text{kg}
+$$
 
 （ウ）ニッケルの質量百分率は
 
-$$\frac{m_{\text{Ni}}}{m_{\text{Ni}}+m_{\text{steel}}}\times100 \approx \frac{4.45\times10^{-2}}{4.45\times10^{-2}+2.37}\times100 \approx 1.84\%\approx1.8\%$$
+$$
+\frac{m_{\text{Ni}}}{m_{\text{Ni}}+m_{\text{steel}}}\times100 \approx \frac{4.45\times10^{-2}}{4.45\times10^{-2}+2.37}\times100 \approx 1.84\%\approx1.8\%
+$$
 
 設問の正答はア＝レアメタル・イ＝4.5×10⁻²・ウ＝1.8 の組合せとされ、めっき質量とその質量百分率の桁感に整合する選択肢①が正答となる。
 

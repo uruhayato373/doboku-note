@@ -18,7 +18,7 @@ ogp:
   title: "基礎科目"
   subtitle: "令和7年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-02
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和7年度
   - env-white-paper
@@ -240,15 +240,21 @@ PDCAは Plan（計画）・Do（実行）・Check（評価・点検）・Act（�
 
 トラフィック密度（利用率）：
 
-$$\rho = \frac{\lambda}{\mu} = \frac{0.01}{0.02} = 0.5$$
+$$
+\rho = \frac{\lambda}{\mu} = \frac{0.01}{0.02} = 0.5
+$$
 
 平均系内列長：
 
-$$L = \frac{\rho}{1-\rho} = \frac{0.5}{1-0.5} = 1$$
+$$
+L = \frac{\rho}{1-\rho} = \frac{0.5}{1-0.5} = 1
+$$
 
 平均系内滞在時間：
 
-$$W = \frac{L}{\lambda} = \frac{1}{0.01} = 100\ \text{秒}$$
+$$
+W = \frac{L}{\lambda} = \frac{1}{0.01} = 100\ \text{秒}
+$$
 
 1. 計算値と異なるため誤り ❌
 2. 計算値と異なるため誤り ❌
@@ -330,7 +336,9 @@ $$W = \frac{L}{\lambda} = \frac{1}{0.01} = 100\ \text{秒}$$
 
 定義域 $A\times B$ の要素数は $|A|\times|B| = 3\times 2 = 6$、終域 $C$ の要素数は $|C| = 2$ である。
 
-$$|C|^{|A\times B|} = 2^{6} = 64$$
+$$
+|C|^{|A\times B|} = 2^{6} = 64
+$$
 
 1. 計算値と異なるため誤り ❌
 2. 計算値と異なるため誤り ❌
@@ -467,7 +475,9 @@ TCPのふくそう制御に関する次の記述のうち、最も不適切な�
 
 通信回線を用いてデータを伝送する際に必要となる時間を伝送時間と呼び、伝送時間を求めるには、次の計算式を用いる。
 
-$$\text{伝送時間} = \frac{\text{伝送データ量（ビット）}}{\text{データ伝送速度（ビット/秒）}\times\text{回線利用率}}$$
+$$
+\text{伝送時間} = \frac{\text{伝送データ量（ビット）}}{\text{データ伝送速度（ビット/秒）}\times\text{回線利用率}}
+$$
 
 ここで、データ伝送速度は通信回線が1秒間に送ることができるデータ量を、回線利用率は伝送可能な最大データ量のうちの実際のデータ伝送量の割合を表す。
 
@@ -492,13 +502,19 @@ $$\text{伝送時間} = \frac{\text{伝送データ量（ビット）}}{\text{�
 
 伝送データ量を求める。250Mバイトを10分の8に圧縮するので $250\times\dfrac{8}{10}=200$ Mバイト。1バイト＝8ビットなので、
 
-$$\text{伝送データ量} = 200\times10^{6}\times 8 = 1600\times10^{6}\ \text{ビット} = 1600\ \text{Mビット}$$
+$$
+\text{伝送データ量} = 200\times10^{6}\times 8 = 1600\times10^{6}\ \text{ビット} = 1600\ \text{Mビット}
+$$
 
 伝送時間の式を回線利用率について解くと、
 
-$$\text{回線利用率} = \frac{\text{伝送データ量}}{\text{伝送速度}\times\text{伝送時間}} = \frac{1600\times10^{6}}{100\times10^{6}\times 25}$$
+$$
+\text{回線利用率} = \frac{\text{伝送データ量}}{\text{伝送速度}\times\text{伝送時間}} = \frac{1600\times10^{6}}{100\times10^{6}\times 25}
+$$
 
-$$= \frac{1600}{2500} = 0.64 = 64\%$$
+$$
+= \frac{1600}{2500} = 0.64 = 64\%
+$$
 
 1. 計算値と異なるため誤り ❌
 2. 計算値と異なるため誤り ❌
@@ -551,11 +567,17 @@ $$
 
 $A(1,n)=n+2$ となること（$A(1,0)=A(0,1)=2$、以降 $A(1,n+1)=A(0,A(1,n))=A(1,n)+1$）を使うと計算が速い。
 
-$$A(2,0) = A(1,1) = 1+2 = 3$$
+$$
+A(2,0) = A(1,1) = 1+2 = 3
+$$
 
-$$A(2,1) = A(1, A(2,0)) = A(1,3) = 3+2 = 5$$
+$$
+A(2,1) = A(1, A(2,0)) = A(1,3) = 3+2 = 5
+$$
 
-$$A(2,2) = A(1, A(2,1)) = A(1,5) = 5+2 = 7$$
+$$
+A(2,2) = A(1, A(2,1)) = A(1,5) = 5+2 = 7
+$$
 
 1. $A(2,2)=7$ で正しい ✅
 2. 計算値と異なるため誤り ❌
@@ -646,15 +668,21 @@ $$A(2,2) = A(1, A(2,1)) = A(1,5) = 5+2 = 7$$
 
 偏微分を計算する。
 
-$$\frac{\partial f}{\partial x} = 4x+y,\qquad \frac{\partial f}{\partial y} = x-2y$$
+$$
+\frac{\partial f}{\partial x} = 4x+y,\qquad \frac{\partial f}{\partial y} = x-2y
+$$
 
 $(x,y)=(2,1)$ を代入すると、
 
-$$\frac{\partial f}{\partial x} = 4\cdot2+1 = 9,\qquad \frac{\partial f}{\partial y} = 2-2\cdot1 = 0$$
+$$
+\frac{\partial f}{\partial x} = 4\cdot2+1 = 9,\qquad \frac{\partial f}{\partial y} = 2-2\cdot1 = 0
+$$
 
 よって勾配ベクトルは $\mathrm{grad}f=(9,0)$ となり、最急勾配の長さ（ノルム）は、
 
-$$\|\mathrm{grad}f\| = \sqrt{9^{2}+0^{2}} = \sqrt{81} = 9$$
+$$
+\|\mathrm{grad}f\| = \sqrt{9^{2}+0^{2}} = \sqrt{81} = 9
+$$
 
 1. 勾配の長さ $9$ で正しい ✅
 2. 計算値と異なるため誤り ❌
@@ -697,7 +725,9 @@ $$\|\mathrm{grad}f\| = \sqrt{9^{2}+0^{2}} = \sqrt{81} = 9$$
 
 シンプソンの公式（2次ニュートン・コーツの閉公式）は、刻み幅 $h$ の3点 $a,b,c$ を用いて、
 
-$$\int_{a}^{c} f(x)\,dx \approx \frac{h}{3}\bigl(f(a)+4f(b)+f(c)\bigr)$$
+$$
+\int_{a}^{c} f(x)\,dx \approx \frac{h}{3}\bigl(f(a)+4f(b)+f(c)\bigr)
+$$
 
 と表される。両端の係数が1、中央の係数が4、全体に $\dfrac{h}{3}$ が掛かる形である。
 
@@ -749,11 +779,15 @@ $$\int_{a}^{c} f(x)\,dx \approx \frac{h}{3}\bigl(f(a)+4f(b)+f(c)\bigr)$$
 
 力の釣合いより $P_{\mathrm{A}}+P_{\mathrm{B}}+P=0$。変位の適合条件は、AC部とCB部の伸び（縮み）の和がゼロ、すなわち軸剛性 $EA$ 共通で、
 
-$$\frac{N_{\mathrm{AC}}\cdot L}{EA} + \frac{N_{\mathrm{CB}}\cdot 4L}{EA} = 0$$
+$$
+\frac{N_{\mathrm{AC}}\cdot L}{EA} + \frac{N_{\mathrm{CB}}\cdot 4L}{EA} = 0
+$$
 
 反力（軸力）は区間長に反比例して分配されるため、点Cに作用する力 $P$ は、長さ $L$ 側（A側）に $\dfrac{4L}{L+4L}=\dfrac{4}{5}$、長さ $4L$ 側（B側）に $\dfrac{L}{L+4L}=\dfrac{1}{5}$ の割合で分担される。力 $P$ は右向き（正）なので、両支点の反力は左向き（負）となり、
 
-$$P_{\mathrm{A}}=-\frac{4}{5}P,\qquad P_{\mathrm{B}}=-\frac{1}{5}P$$
+$$
+P_{\mathrm{A}}=-\frac{4}{5}P,\qquad P_{\mathrm{B}}=-\frac{1}{5}P
+$$
 
 1. 全体釣合いと適合条件を満たさないため誤り ❌
 2. $P_{\mathrm{A}}=-\dfrac{4}{5}P,\ P_{\mathrm{B}}=-\dfrac{1}{5}P$ で正しい ✅
@@ -848,15 +882,21 @@ $$P_{\mathrm{A}}=-\frac{4}{5}P,\qquad P_{\mathrm{B}}=-\frac{1}{5}P$$
 
 導体abが速度 $v$ で動くと誘導起電力 $V=BLv$ が生じ、回路に流れる電流は、
 
-$$I = \frac{V}{R} = \frac{BLv}{R}$$
+$$
+I = \frac{V}{R} = \frac{BLv}{R}
+$$
 
 この電流が磁界中で受ける力（おもりの落下を妨げる向き）は、
 
-$$F = BIL = B\cdot\frac{BLv}{R}\cdot L = \frac{B^{2}L^{2}v}{R}$$
+$$
+F = BIL = B\cdot\frac{BLv}{R}\cdot L = \frac{B^{2}L^{2}v}{R}
+$$
 
 等速条件 $F=Mg$ より、
 
-$$\frac{(BL)^{2}v}{R} = Mg \quad\Longrightarrow\quad v = \frac{MgR}{(BL)^{2}}$$
+$$
+\frac{(BL)^{2}v}{R} = Mg \quad\Longrightarrow\quad v = \frac{MgR}{(BL)^{2}}
+$$
 
 1. $v=\dfrac{MgR}{(BL)^{2}}$ で正しい ✅
 2. 分子分母が逆で誤り ❌
@@ -1033,17 +1073,25 @@ $$\frac{(BL)^{2}v}{R} = Mg \quad\Longrightarrow\quad v = \frac{MgR}{(BL)^{2}}$$
 
 各成分の物質量（モル数、100gあたり）を質量÷原子量で求める。
 
-$$n_{\text{すず}} = \frac{96.5}{118.7} = 0.8130,\quad n_{\text{銀}} = \frac{3.00}{107.8} = 0.02783,\quad n_{\text{銅}} = \frac{0.500}{63.5} = 0.007874$$
+$$
+n_{\text{すず}} = \frac{96.5}{118.7} = 0.8130,\quad n_{\text{銀}} = \frac{3.00}{107.8} = 0.02783,\quad n_{\text{銅}} = \frac{0.500}{63.5} = 0.007874
+$$
 
 合計 $n = 0.8130+0.02783+0.007874 = 0.84870$。
 
 モル分率は、
 
-$$\text{すず}=\frac{0.8130}{0.84870}\times100 \approx 95.8\%$$
+$$
+\text{すず}=\frac{0.8130}{0.84870}\times100 \approx 95.8\%
+$$
 
-$$\text{銀}=\frac{0.02783}{0.84870}\times100 \approx 3.28\%$$
+$$
+\text{銀}=\frac{0.02783}{0.84870}\times100 \approx 3.28\%
+$$
 
-$$\text{銅}=\frac{0.007874}{0.84870}\times100 \approx 0.928\%$$
+$$
+\text{銅}=\frac{0.007874}{0.84870}\times100 \approx 0.928\%
+$$
 
 1. 計算値と異なるため誤り ❌
 2. 計算値と異なるため誤り ❌

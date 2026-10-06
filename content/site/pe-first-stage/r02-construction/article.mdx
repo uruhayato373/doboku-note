@@ -18,7 +18,7 @@ ogp:
   title: "専門科目（建設部門）"
   subtitle: "令和2年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-03
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和2年度
   - circular-society-basic-act
@@ -126,7 +126,9 @@ sources:
 
 ダルシーの法則は、動水勾配 $i = h/L$、断面積 $A$、透水係数 $k$ を用いて流量 $Q = k \cdot i \cdot A = k \cdot \dfrac{h}{L} \cdot A$ で表される。これを $k$ について解くと
 
-$$k = \frac{QL}{hA}$$
+$$
+k = \frac{QL}{hA}
+$$
 
 となる。
 
@@ -218,11 +220,15 @@ $$k = \frac{QL}{hA}$$
 
 等分布荷重 $q$ を受ける単純ばりの支点反力は、左右対称より
 
-$$R_A = R_B = \frac{ql}{2}$$
+$$
+R_A = R_B = \frac{ql}{2}
+$$
 
 中央（スパン中央 $x = l/2$）の曲げモーメントは
 
-$$M_C = R_A \cdot \frac{l}{2} - q \cdot \frac{l}{2} \cdot \frac{l}{4} = \frac{ql}{2}\cdot\frac{l}{2} - \frac{ql^2}{8} = \frac{ql^2}{4} - \frac{ql^2}{8} = \frac{ql^2}{8}$$
+$$
+M_C = R_A \cdot \frac{l}{2} - q \cdot \frac{l}{2} \cdot \frac{l}{4} = \frac{ql}{2}\cdot\frac{l}{2} - \frac{ql^2}{8} = \frac{ql^2}{4} - \frac{ql^2}{8} = \frac{ql^2}{8}
+$$
 
 となり、最大曲げモーメントは中央で $ql^2/8$ となる。
 
@@ -267,7 +273,9 @@ $$M_C = R_A \cdot \frac{l}{2} - q \cdot \frac{l}{2} \cdot \frac{l}{4} = \frac{ql
 
 x-x軸（図心軸）まわりの I 形断面の断面二次モーメントは、外形の大きな長方形（幅 $b$・高さ $h$）から、左右のえぐられた部分（合わせて幅 $b-t$・高さ $w$ の長方形）を差し引いて求める。長方形の図心軸まわりの断面二次モーメントは $\dfrac{(\text{幅})(\text{高さ})^3}{12}$ なので
 
-$$I_x = \frac{b\,h^3}{12} - \frac{(b-t)\,w^3}{12} = \frac{b h^3 - (b-t)w^3}{12}$$
+$$
+I_x = \frac{b\,h^3}{12} - \frac{(b-t)\,w^3}{12} = \frac{b h^3 - (b-t)w^3}{12}
+$$
 
 となる。
 
@@ -663,7 +671,9 @@ $$I_x = \frac{b\,h^3}{12} - \frac{(b-t)\,w^3}{12} = \frac{b h^3 - (b-t)w^3}{12}$
 
 非圧縮性完全流体の定常流れでは、流線上で次式のベルヌーイの定理が成立する。
 
-$$\frac{v^2}{2g} + z + \frac{p}{\rho \cdot g} = \text{一定}$$
+$$
+\frac{v^2}{2g} + z + \frac{p}{\rho \cdot g} = \text{一定}
+$$
 
 ここで、$g$ は重力加速度、$\rho$ は水の密度、$v$ は高さ $z$ の点における流速、$p$ は高さ $z$ の点における水圧である。下図のように、水面の水位変化が無視できる十分広い水槽から、水槽に鉛直に取り付けられた断面積一定の細い管路で排水する場合、点Bと点Cの流速は等しくなる。このとき管路中心線上の点Bにおける水の圧力を、ベルヌーイの定理を適用して算出すると最も適切なものはどれか。
 
@@ -686,17 +696,25 @@ $$\frac{v^2}{2g} + z + \frac{p}{\rho \cdot g} = \text{一定}$$
 
 点A（水面、流速ほぼ0、圧力は大気圧0）と点B（流速 $v_B$、圧力 $p_B$）でベルヌーイの定理を適用する。点Bと点Cの流速が等しいので、点Cが大気開放（圧力0）であることから、点Cと点Aの関係より
 
-$$z_A = \frac{v_C^2}{2g} + z_C \quad\Rightarrow\quad \frac{v_C^2}{2g} = z_A - z_C$$
+$$
+z_A = \frac{v_C^2}{2g} + z_C \quad\Rightarrow\quad \frac{v_C^2}{2g} = z_A - z_C
+$$
 
 点Bでは $v_B = v_C$ なので、点Aと点Bのベルヌーイより
 
-$$z_A = \frac{v_B^2}{2g} + z_B + \frac{p_B}{\rho g} = (z_A - z_C) + z_B + \frac{p_B}{\rho g}$$
+$$
+z_A = \frac{v_B^2}{2g} + z_B + \frac{p_B}{\rho g} = (z_A - z_C) + z_B + \frac{p_B}{\rho g}
+$$
 
-$$\frac{p_B}{\rho g} = z_C - z_B \cdots$$
+$$
+\frac{p_B}{\rho g} = z_C - z_B \cdots
+$$
 
 を整理すると、点Aと点Bを直接結ぶ表現として、水面からの位置水頭の差により
 
-$$p_B = \rho \cdot g \cdot (z_C - z_B)$$
+$$
+p_B = \rho \cdot g \cdot (z_C - z_B)
+$$
 
 が得られる。
 
