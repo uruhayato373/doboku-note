@@ -1,0 +1,69 @@
+name: Auto-merge on green (automerge label)
+
+# develop 向け PR に automerge ラベルを付けると、head コミットの全チェックが緑になった時点で squash マージする。
+#
+# GitHub の auto-merge は必須チェックが無いと予約できない（「unstable status」で拒否）。一方、必須チェックの
+# ruleset は個人リポジトリだと GitHub Actions を例外にできず（API が 422）、GITHUB_TOKEN で develop へ
+# 書き戻す bot が止まる（2026-10-06 実測）。そこで必須チェックは付けず、このワークフローでマージする。
+#
+# - workflow_run は既定ブランチ（main）版の workflow で動く＝main へ deploy して初めて効く
+# - GITHUB_TOKEN のマージは develop の push CI を起動しない（PR 上で同じ検査が緑になったものだけをマージする）
+on:
+  workflow_run:
+    workflows: ["Pre-merge check (quality audit + build)", "Playwright E2E", "Lighthouse CI"]
+    types: [completed]
+  pull_request:
+    types: [labeled]
+    branches: [develop]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+concurrency:
+  group: automerge
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.event == 'pull_request') ||
+      (github.event_name == 'pull_request' && github.event.label.name == 'automerge')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      # 1 つでも未完了なら何もしない（残りの workflow の完了で再び起動される）。失敗が 1 つでもあればマージしない。
+      - name: Merge when every check on the head commit is green
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          prs=$(gh api "repos/$REPO/commits/$SHA/pulls" --jq '.[] | select(.state == "open" and .base.ref == "develop" and any(.labels[]; .name == "automerge")) | .number')
+          if [ -z "$prs" ]; then
+            echo "automerge ラベル付きの open PR なし（$SHA）"
+            exit 0
+          fi
+          # 自分自身（このジョブ merge）は数えない
+          runs=$(gh api --paginate "repos/$REPO/commits/$SHA/check-runs?per_page=100" \
+            --jq '.check_runs[] | select(.name != "merge") | [.name, .status, (.conclusion // "")] | @tsv')
+          printf '%s\n' "$runs"
+          total=$(printf '%s\n' "$runs" | grep -c . || true)
+          pending=$(printf '%s\n' "$runs" | awk -F'\t' '$2 != "completed"' | grep -c . || true)
+          bad=$(printf '%s\n' "$runs" | awk -F'\t' '$2 == "completed" && $3 != "success" && $3 != "skipped" && $3 != "neutral"' | grep -c . || true)
+          echo "check-runs ${total} 件 / 未完了 ${pending} / 失敗 ${bad}"
+          for need in audit build; do
+            if ! printf '%s\n' "$runs" | awk -F'\t' -v n="$need" '$1 == n && $3 == "success"' | grep -q .; then
+              echo "${need} がまだ success でない → 待つ"
+              exit 0
+            fi
+          done
+          if [ "$pending" -gt 0 ] || [ "$bad" -gt 0 ]; then
+            exit 0
+          fi
+          for pr in $prs; do
+            gh pr merge "$pr" --repo "$REPO" --squash --match-head-commit "$SHA"
+          done
