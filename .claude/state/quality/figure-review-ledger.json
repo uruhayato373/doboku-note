@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "note": "図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/figure-review-queue.mjs record を使う）",
   "figures": {
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
+      "sha": "1db12db1a9e180e2",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左半分が空白で、上縁で寸法線 75 の矢印と舗装層、右縁で『既存コ…』と舗装帯が切れ、下端に図番号キャプションの断片。問題解説集2021 p.379 の左の図が完全な形で残っている",
+      "reviewedAt": "2026-10-06T09:33:45.508Z"
+    },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-08": {
       "sha": "c66ab5d7260154d7",
       "verdict": "ok",
@@ -20,6 +27,13 @@
       "action": "none",
       "reason": "手元の唯一の原典（1級土木第一次検定問題解説集2021 p.379）でも図の上端（舗装ラベル・寸法 50 の上端）が元から切れており、上半分は復元できない。H28 の原典問題 PDF は Drive に無い（過去問は H30〜R08）。切り出し直しで直るのは下端のキャプション断片と左端の隣図寸法の混入だけ。別原典の入手か描き直しの判断待ち",
       "reviewedAt": "2026-10-06T09:10:27.242Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
+      "sha": "62b8b9d50d35ee4b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端で見切れた図番号キャプション『図2.51 重錘落下締固め工法の施工機械』・右余白の行番号 15・20・過大な余白を除いて切り直し（430x350→310x266）。クローラクレーンと G.L の地面ハッチは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:33:45.511Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
       "sha": "3d2e6b28456d5c2b",
@@ -49,6 +63,41 @@
       "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
       "reviewedAt": "2026-10-06T09:02:06.089Z"
     },
+    "civil-construction-2/primary-r07-kouki/img/q36-fig": {
+      "sha": "ae2e0ae68312b67f",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "砂基礎・はしご胴木基礎・鉄筋コンクリート基礎の 3 断面と名称がそろい写り込みなし。EDGE_CUT(left) は砂基礎ブロックの枠線が x=0 に 1px 接するだけで、枠は上下に連続し角も閉じている",
+      "reviewedAt": "2026-10-06T09:33:45.509Z"
+    },
+    "civil-construction-2/primary-r07-kouki/img/q5-fig": {
+      "sha": "c83b48952af2a5df",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "拡大管の図で写り込みなし。EDGE_CUT は 50cm 寸法の補助線と太管下辺の罫線が最終行にあるだけで、楕円は管軸に対し上下対称、左縁は『20 cm』の 2 の底辺が触れるだけで字形は欠けていない",
+      "reviewedAt": "2026-10-06T09:33:45.508Z"
+    },
+    "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
+      "sha": "01380dbdbca64a2d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で最下段 X1 ボックスの左辺の縦罫線が画像外、下縁で最下段 4 ボックスの下辺罫線が最終 2 行で途切れている。出典は H21 技術士第一次 総合技術監理部門 Ⅱ-1-31",
+      "reviewedAt": "2026-10-06T09:33:45.509Z"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
+      "sha": "bd6746158998b14c",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で 2022 年度のドーナツ円グラフの右半分と『がれき類 49件 36.6%』の末尾、上部の凡例『建設系廃棄物 計101件』の末尾が切れている",
+      "reviewedAt": "2026-10-06T09:33:45.511Z"
+    },
+    "pe-first-stage/r01-construction/img/q05-fig": {
+      "sha": "e68a7e62c934b921",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で辺 AD の寸法線（2L）の両矢印が上半分だけ写り、寸法線と『2L』ラベルが画像外。設問に必要な寸法が読めない。下部に選択肢①〜⑤と大きな空白の写り込みもある",
+      "reviewedAt": "2026-10-06T09:33:45.509Z"
+    },
     "pe-first-stage/r03-construction/img/q07-fig": {
       "sha": "5609f6d6811bbc02",
       "verdict": "ok",
@@ -67,6 +116,13 @@
         "page": 8,
         "dpi": 300
       }
+    },
+    "pe-first-stage/r06-construction/img/q17-fig": {
+      "sha": "5ce74cb2174a16db",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
+      "reviewedAt": "2026-10-06T09:33:45.503Z"
     }
   }
 }
