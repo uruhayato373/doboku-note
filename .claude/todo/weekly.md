@@ -37,7 +37,7 @@
 | DN-0135 | #12 KDP Select 自動更新オフ（A-00〜A-06）を KDP 管理画面で実施 | **期限は今日 2026-10-06**（独占明け）。10/6 を過ぎて自動更新されなければ制約は消える。他の行は backlog の表を参照 |
 | DN-0310 | ココナラへ再ログインし、`node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` で 1級の受付を休止。続けて経験記述ブログ 12 本へ `coconala-blog-publish --update --commit` | **判断期日は今日 2026-10-06**。受付停止の決定は 10/4 済み（カタログは paused）。残りはライブ反映だけ |
 | DN-0502 | GSC（sc-domain:doboku-note.com）で技術士一次の主要 10 URL をインデックス登録リクエスト | 期日 10/4 を超過。11/22 の試験前に検索の入口を開ける。URL 一覧はカードにある |
-| — | `/weekly-review`（2026-W40 分・`check-weekly-review-due` が未作成）→ `/monthly-review`（2026-09 分）の順に実行 | ローカルの対話セッション。月次の中で今月の `[時期:]` の付け直しと `npm run roll-backlog-when -- --write` を行う。`check-backlog-due` も月初の棚卸しが未実施で、期日超過に DN-0312・DN-0502 が出ている |
+| — | `/weekly-review`（2026-W40 分・`check-weekly-review-due` が未作成）→ `/monthly-review`（2026-09 分）の順に実行 | ローカルの対話セッション。月次の中で今月の `[時期:]` の付け直しと `npm run roll-backlog-when -- --write` を行う。`check-backlog-due` も月初の棚卸しが未実施で、期日超過に DN-0312・DN-0502 が出ている。W39 ダイジェストの triage では、OPP-8028130bb4（2級 試験概要の CTA）と OPP-57ad840c93（コストドライバーの題名）は 10/6 に対応済み（cfd04f598・57bd3f43d）なので defer（28 日後に効果確認）、OPP-aeb5940b4c は DN-0338 へ bundle、OPP-e13377d736 は W38 と同じ理由で reject が目安 |
 | DN-0537 | Facebook ログインを復旧（`npm run auth:status -- --service instagram`）→ `/ig-reconcile` で 9/20 以降の実体を確認 → 上の予約案を承認 → `publish-ig-bs` を dry-run 先行で予約 | 2級 10/25 まで 2 週間余り。ココナラ・KDP の再ログインと同じ日にまとめる |
 | DN-0262 | KDP で再認証してから `node scripts/kdp-batch.mjs j-02 j-11 j-12 j-13 j-14 j-15 i-04 i-01`。第2弾（i-02 ほか10冊）は 10/7 以降 | 期日 10/17。2級の J 系を先に出して 10/25 前に LIVE にする。手順の詳細はカード |
 | DN-0344 | 技術士 口頭「全部門共通版」の価格（¥1,980 仮置き）と表示する資格ブランドの2点を決める | 期日 11/3。決まれば `examKeyOf` の修正と PR #776 のマージは当方（クラウド可）で進める |
