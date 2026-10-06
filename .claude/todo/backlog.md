@@ -260,6 +260,23 @@
 
 **完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
 
+### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
+タグ: [インフラ・計測] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
+
+**起点**: 置き場の方針（asset-storage-policy.md §1）は「誰が使うかで決める」で、人が使うものは Drive、CI が読むものは R2 に置く。`scripts/kindle-dist` だけは例外として Git に入っている（138 件・90MB、EPUB 65・表紙 jpg 72）。
+- `config/drive-vault.json` の理由は `coexistWithGit: true`「Git が正本（CI の check-kindle-format が blob を読む）で、Drive は控え」。
+- 「CI が読む」は、方針では `ci`＝R2 の行に当たり、Git に置く理由にならない。
+- 作り直すたびに履歴に積まれる。履歴の切り詰め（2026-08-22）以降で 286 版・159MB あり、記事画像 1,569 版・99MB より重い。
+- Drive の控えは台帳 76 件と sha256 が 1 件も合わず、控えになっていない（DN-0451）。
+
+**やること**:
+1. 正本の置き場を決める。第一案は private R2 で、`kindle-format` の検査（quality-audit の `ci: true`）が R2 から読む。人が入稿に使う控えは Drive。
+2. asset-storage-policy.md §4 の手順で `git rm --cached` し、`.gitignore` に拡張子で足す。台帳（R2 の manifest か drive-manifest）に登録し、空の復元先から復元して sha256 を照合する。
+3. `check-kindle-format`・`kdp-publish.mjs`・`kindle-build` の読み書き先を新しい置き場に合わせる。CI は R2 から取り寄せて検査し、取り寄せに失敗したら検査不成立にする。
+4. `config/drive-vault.json` の `coexistWithGit` を外し、asset-storage-policy.md の表を直す。DN-0451 の同期と順番を合わせる。
+
+**完了条件**: `git ls-files scripts/kindle-dist` が README だけになり、CI の `kindle-format` が新しい置き場から全 EPUB を読んで通る。復元経路で全件の sha256 が一致する。
+
 ### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
 
