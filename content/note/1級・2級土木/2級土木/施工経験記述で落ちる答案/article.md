@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: 2c-essay-fail
 noteUrl: "https://note.com/dobokunote/n/na5e045a1c6f8"
 noteId: "na5e045a1c6f8"
-title: "2級土木 施工経験記述｜落ちる答案の共通点 — 添削する側から見た4つの型"
+title: "2級土木 施工経験記述｜落ちる答案の共通点 — 元発注者の視点で見た4つの型"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 施工経験記述で
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "の型"
   benefit: "元発注者の目で分かる"
 ---
-# 2級土木 施工経験記述｜落ちる答案の共通点 — 添削する側から見た4つの型
+# 2級土木 施工経験記述｜落ちる答案の共通点 — 元発注者の視点で見た4つの型
 
 ![](img/figure-author-authority-pop.png)
 
