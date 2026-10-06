@@ -1339,11 +1339,16 @@
       "reviewedAt": "2026-10-06T11:19:11.892Z"
     },
     "pe-first-stage/r06-construction/img/q17-fig": {
-      "sha": "5ce74cb2174a16db",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
-      "reviewedAt": "2026-10-06T09:33:45.503Z"
+      "sha": "00546d451c21ecad",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた地盤のハッチ帯を、技術士第一次 R06 建設部門の公式問題 PDF p.9（Ⅲ-17）から 400dpi で切り出し直して全高で戻した（1670x706→1480x752）。上・左右の空白とスキャンのゴミ点も除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:48:31.862Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_専門_09建設部門.pdf",
+        "page": 9,
+        "dpi": 400
+      }
     },
     "pe-first-stage/r06-construction/img/q19-fig": {
       "sha": "7af7cca61a7f9e0a",
@@ -1360,11 +1365,16 @@
       "reviewedAt": "2026-10-06T10:42:41.146Z"
     },
     "pe-first-stage/r07-construction/img/q01-fig": {
-      "sha": "674a1a46c4202b8d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で引き出しラベル『容器Ⅰ』の『容』と寸法ラベル『L』の字形が切れている。背景全体にスキャンの裏写り、下半分は空白",
-      "reviewedAt": "2026-10-06T10:24:51.418Z"
+      "sha": "53d65e21228739fa",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていた『容器Ⅰ』と寸法ラベル L を、技術士第一次 R07 建設部門の公式問題 PDF p.1（Ⅲ-1）から 200dpi で切り出し直して戻し、下半分の空白を詰めた（895x1023→617x565）。背景の裏写りは原スキャンにあり、裏写りの文字が容器の灰色塗りより濃いため濃さでは除けない（親 QA で濃度分布を確認）。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:48:31.863Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+        "page": 1,
+        "dpi": 200
+      }
     },
     "pe-first-stage/r07-construction/img/q05-fig": {
       "sha": "7a9cade96a098815",
@@ -1379,11 +1389,16 @@
       }
     },
     "pe-first-stage/r07-construction/img/q06-fig": {
-      "sha": "85ca856b8c43ffce",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で支点 A・B の反力矢印（V_A・V_B）と添え字・支間長 L・支点 B の三角形の下の線、左縁で支点 A の三角形の左半分が切れている。上部に約 130px の空白",
-      "reviewedAt": "2026-10-06T10:42:41.147Z"
+      "sha": "b5eb1da082b40c73",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた V_A・V_B の矢印と添え字・支間長 L の寸法線、左縁の支点 A の三角形を、技術士第一次 R07 建設部門の公式問題 PDF p.4（Ⅲ-6）から 300dpi で切り出し直して戻した（981x404→998x408）。上部の空白も除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:48:31.864Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r07-construction/img/q17-fig": {
       "sha": "999f5f21237ae312",
@@ -1429,11 +1444,16 @@
       }
     },
     "surveyor/primary-r07/img/q13-fig": {
-      "sha": "b19b70c03a282b8e",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で点 C のラベル『標高123.8 m』が『標高12』で切れている。出典は R07 測量士補 No.13",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "21c4a95a4345bdd5",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で『標高12』までで切れていた点 C のラベル『標高123.8 m』を、測量士補 R07 の公式問題 PDF p.14（No.13）から 300dpi で切り出し直して戻した（1070x294→1726x431）。図番号『図13』は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:48:31.865Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
+        "page": 14,
+        "dpi": 300
+      }
     },
     "surveyor/primary-r07/img/q21-fig": {
       "sha": "f08ab9134d04b480",
