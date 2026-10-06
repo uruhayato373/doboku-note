@@ -186,11 +186,16 @@
       "reviewedAt": "2026-10-06T10:24:51.419Z"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
-      "sha": "f9c328fc9d477822",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で C 点・D 点の集中荷重の矢印の軸が切れ、荷重記号 P のラベルが画像に無い（alt は『集中荷重P』）。梁・寸法線は欠けなし",
-      "reviewedAt": "2026-10-06T11:12:57.312Z"
+      "sha": "c13842afd79ea734",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた C・D 点の荷重矢印の軸と荷重記号 P のラベル 2 つを、1級土木 R06 第一次検定 問題A の公式 PDF p.4（No.3）から 300dpi で切り出し直して戻した（1215x287→1040x520）。梁・支点・寸法は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:00:30.062Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第一次検定_問題A.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
       "sha": "ada4a5997b90cced",
@@ -857,11 +862,16 @@
       "reviewedAt": "2026-10-06T11:45:18.499Z"
     },
     "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
-      "sha": "01380dbdbca64a2d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で最下段 X1 ボックスの左辺の縦罫線が画像外、下縁で最下段 4 ボックスの下辺罫線が最終 2 行で途切れている。出典は H21 技術士第一次 総合技術監理部門 Ⅱ-1-31",
-      "reviewedAt": "2026-10-06T09:33:45.509Z"
+      "sha": "f313400b9ecb1fb9",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁の最下段 X1 ボックスの左辺と、下縁の最下段 4 ボックスの下辺罫線を、総監 H21 択一式の公式問題 PDF p.13（Ⅱ-1-31）から 300dpi で切り出し直して戻した（600x540→800x716）。ツリー構造は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:00:30.064Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（総監）/H21/H21_試験問題_択一式.pdf",
+        "page": 13,
+        "dpi": 300
+      }
     },
     "pe-comprehensive-management/h25-primary/img/i-1-7-network-diagram": {
       "sha": "6c260ef470eec522",
@@ -890,11 +900,16 @@
       }
     },
     "pe-comprehensive-management/r01-primary/img/i-1-30-risk-mgmt-flowchart": {
-      "sha": "4ef53be11ced229c",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で『組織の状況の確定』へ入る縦の接続線と、右の『モニタリング及びレビュー』枠の上へ伸びる縦線が切れている。下部に図番号キャプション『図 リスクマネジメントプロセス』の写り込みもある（総監 R01 Ⅰ-1-30）",
-      "reviewedAt": "2026-10-06T11:33:43.673Z"
+      "sha": "36799ec6f89fa594",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた上部のループ線（モニタリング及びレビューから組織の状況の確定へ戻る線）を、総監 R01 択一式の公式問題 PDF p.18（Ⅰ-1-30）から 300dpi で切り出し直して戻した（970x590→1100x773）。図番号キャプションは含めず、図内の出典行『JIS Q 31000:2010 … 指針より』は残した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:00:30.065Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（総監）/R01/R01_試験問題_択一式.pdf",
+        "page": 18,
+        "dpi": 300
+      }
     },
     "pe-comprehensive-management/r06-primary/img/i-1-31-system-diagram": {
       "sha": "d7ab289069cdd84d",
@@ -1091,11 +1106,16 @@
       "reviewedAt": "2026-10-06T11:57:37.332Z"
     },
     "pe-first-stage/h26-basic/img/q21-source": {
-      "sha": "b39f4001d9849d95",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で作業ラベル『(エ)』の括弧の下半分（約 6〜7px）が切れている。写り込みは無い（H26 基礎）",
-      "reviewedAt": "2026-10-06T11:33:43.674Z"
+      "sha": "da115611872949ed",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた (エ) の括弧の下半分を、技術士第一次 H26 基礎科目の公式問題 PDF p.5（Ⅰ-2-1）から 400dpi で切り出し直して戻した（650x240→1000x334）。アローダイアグラムは旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:00:30.066Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H26/H26_基礎科目.pdf",
+        "page": 5,
+        "dpi": 400
+      }
     },
     "pe-first-stage/h26-construction/img/q8-source": {
       "sha": "90ddc3ff7218e507",
