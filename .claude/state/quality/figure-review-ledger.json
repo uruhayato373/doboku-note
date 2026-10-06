@@ -234,11 +234,16 @@
       "reviewedAt": "2026-10-06T10:42:41.147Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-15": {
-      "sha": "1ec9050fedd5bb06",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で切断線の右側のスラブの水平線が画像端で途切れている。上端に本文断片、左余白に行番号 20・25、下端に図番号キャプション『図3.15 鉄筋のあきおよびかぶり』の写り込みもある",
-      "reviewedAt": "2026-10-06T11:19:11.888Z"
+      "sha": "daddeda271c1cf1d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていたスラブの水平線・破断線・かぶり c の寸法を、二次問題解説集2021 p.208（180 度回転を戻す）から 300dpi で切り出し直して戻した（450x310→782x459）。本文断片・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:23:38.285Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 208,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
@@ -360,11 +365,16 @@
       "reviewedAt": "2026-10-06T10:31:57.737Z"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
-      "sha": "7d23e6674d08609d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上辺で先頭の工程ボックス『既設部測量』の上罫線と文字上端、右辺で断面図の『主桁』の『桁』と床版・斜線が切れている。図番号キャプション『図4.7 床版の施工図の例』の写り込みもある",
-      "reviewedAt": "2026-10-06T11:39:55.837Z"
+      "sha": "6804ddb8f999caee",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上辺で切れていた先頭の工程ボックス『既設部測量』と、右辺で切れていた断面図の『主桁』・床版・斜線を、二次問題解説集2021 p.261（180 度回転を戻す）から 300dpi で切り出し直して戻した（804x726→1594x1336）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:23:38.287Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 261,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
@@ -374,11 +384,16 @@
       "reviewedAt": "2026-10-06T09:40:15.249Z"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
-      "sha": "8b66b7a60689af65",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁でクローラクレーンのブーム先端（滑車部と吊りワイヤの上端）が切れている。下部に図番号キャプション『図4.9 仮設備配置図の例』・『(全周回転オールケーシング工法)』・出典『(画像提供:植田基工株式会社)』が写り込み。切り出し直しでは出典を記事の caption に残すこと",
-      "reviewedAt": "2026-10-06T11:02:54.216Z"
+      "sha": "d6ef686b037dcf9d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていたクローラクレーンのブーム先端・滑車部・吊りワイヤを、二次問題解説集2021 p.267（180 度回転を戻す）から 300dpi で切り出し直して戻した（880x650→880x720）。図番号・工法名・出典『画像提供：植田基工株式会社』は画像から除き、記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:23:38.288Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 267,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "sha": "bb2d998271433e8f",
@@ -630,11 +645,16 @@
       "reviewedAt": "2026-10-06T11:26:27.357Z"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
-      "sha": "5e80d1dfc5dd6848",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で下段グラフ（強度と含水比）の曲線・矢印・縦軸・最適含水比の線が切れ、横軸と軸ラベルが丸ごと欠けている。左に本文の断片、上にランニングヘッド、右に章タブと行番号",
-      "reviewedAt": "2026-10-06T10:09:04.339Z"
+      "sha": "1912852a69b4a45b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下端で切れていた下段グラフ（強度と含水比）の曲線・縦軸・最適含水比の線・横軸・w_opt・含水比 w と浸水後の注記を、二次問題解説集2021 p.311（180 度回転を戻す）から 300dpi で切り出し直して戻した（550x530→652x903）。ランニングヘッド・本文断片・章タブ・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:23:38.289Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 311,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
       "sha": "ced2c0b8e78841c3",
