@@ -311,6 +311,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
+      "sha": "5951bb07a04687ed",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で右下の地盤線と地盤ハッチが途切れている（左側のハッチより約 8px 以上短い）。下部に図番号キャプション『図 2.12 盛土補強工法の概念図』の写り込みもある",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
       "sha": "939a5519f0eb774d",
       "verdict": "needs-source",
@@ -458,6 +465,13 @@
       "reason": "下縁で左のフロー図の矢印の先、中央の盛土断面の『盛土』の文字と地盤の下半分、右の『沈下量から品質を判断』の文字の下半分が切れている（ICT 情報化施工の概念図の下半分が無い）。上部に約 90px の空白",
       "reviewedAt": "2026-10-06T10:17:23.093Z"
     },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
+      "sha": "36de0ae5b8238256",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で縦軸ラベル『乾燥密度 ρd (g/cm3)』の単位とゼロ空気間隙曲線、右縁で横軸ラベル『含水比(%)』と曲線の端が切れている",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
+    },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
       "sha": "0bdc9ec94f012982",
       "verdict": "needs-source",
@@ -492,6 +506,13 @@
       "action": "none",
       "reason": "クローラクレーン全体の写真。EDGE_CUT は空・地面の写真テクスチャの誤検出で、クローラ・ジブ・フックは縁の内側に収まり欠けなし（濃淡エントロピー 6.42 で写真判定の閾値 6.5 をわずかに下回った）",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
+    },
+    "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
+      "sha": "01f04f846e801b0f",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ラフテレーンクレーンの写真で、ブーム・フック・キャビン・車体は全体が写っている。EDGE_CUT(left) は左下のアウトリガー梁が写真の縁をまたぐ構図で、図本体の欠けではない。写り込みなし",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "sha": "e94b8b6dca213f5d",
@@ -721,6 +742,13 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/h29-basic/img/q-I3-5": {
+      "sha": "67bd26fc4f983b4f",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁でラベル『棒部材BC（A_2, E）』の E の右側と閉じ括弧が切れ、左縁で『棒部材AC』の『棒』が縁に接し、下縁で荷重 P の字の足が縁に接している（H29 基礎 Ⅰ-3-5）",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
+    },
     "pe-first-stage/h29-construction/img/q03-fig": {
       "sha": "0540797dad08dbcd",
       "verdict": "needs-source",
@@ -823,12 +851,26 @@
       "reason": "下端で切れていた図番号キャプション『図 荷重を受けている棒』・左右の空白・塵を除いて切り直し（1682x460→522x312）。壁・棒・荷重 P・寸法 l は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T10:17:23.094Z"
     },
+    "pe-first-stage/r01-construction/img/q01-fig": {
+      "sha": "c99f3233723c17a8",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で三相モデルの直方体の上面と奥の辺（左右の斜辺・右奥の垂直線）が切れている。写り込みは無い（R01 建設 Ⅲ-1）",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
+    },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "sha": "e68a7e62c934b921",
       "verdict": "needs-source",
       "action": "none",
       "reason": "上縁で辺 AD の寸法線（2L）の両矢印が上半分だけ写り、寸法線と『2L』ラベルが画像外。設問に必要な寸法が読めない。下部に選択肢①〜⑤と大きな空白の写り込みもある",
       "reviewedAt": "2026-10-06T09:33:45.509Z"
+    },
+    "pe-first-stage/r02-construction/img/q6-fig": {
+      "sha": "2a977627fd63ea44",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で寸法ラベル『h』（全高）の左側の払いが切れている。写り込みは無い（R02 建設 Ⅲ-6）",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
     "pe-first-stage/r03-basic/img/q-I1-2": {
       "sha": "e4fd9fa17ee83b97",
@@ -876,6 +918,13 @@
         "page": 8,
         "dpi": 300
       }
+    },
+    "pe-first-stage/r05-basic/img/q112-fig": {
+      "sha": "7945147d32f422f1",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で荷重の矢印の軸が切れている。下部に設問文の断片と選択肢表（ウ・エ列）の断片が写り込み、左右縁でも文字が切れている",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
     "pe-first-stage/r05-basic/img/q3-5-fig": {
       "sha": "f8443a86fbef5959",
@@ -946,6 +995,13 @@
       "action": "none",
       "reason": "レベル・三脚・標尺 2 本・0.210 m の寸法線・地盤線だけで写り込みなし。EDGE_CUT(bottom) は地盤線の曲線の最下点が最終行に接しているだけで、線幅は他と同じ約 3px で欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
+    "surveyor/primary-r07/img/q07-fig": {
+      "sha": "ed233339f54b09bf",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で既知点 C 周りの方向角 Tc の大円弧の底、上縁で既知点 A の三角形の頂点が切れている（測量士補 R07 No.7）",
+      "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
     "surveyor/primary-r07/img/q13-fig": {
       "sha": "b19b70c03a282b8e",
