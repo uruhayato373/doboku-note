@@ -1124,25 +1124,37 @@
       "reviewedAt": "2026-10-06T09:49:08.230Z"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
-      "sha": "f7375db1081dd08f",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で凡例『■全産業死亡者数 ○建設業死亡者数』の文字の上半分が切れている。左下に撮影時の指、右側にスキャン裏写りの汚損もある",
-      "reviewedAt": "2026-10-06T09:40:15.247Z"
+      "sha": "7ee48a2bdedc318c",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていた凡例『全産業死亡者数／建設業死亡者数』と軸ラベル『(年)』を、論文対策キーワードのスキャン（source/005.pdf p.20＝pages/p0187）から切り出し直して戻した（860x348→1000x545）。左下の指・右側の裏写り・紙の黄ばみは除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:49:11.415Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+        "page": 20
+      }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig19": {
-      "sha": "f1255896abeabec2",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "折れ線グラフ本体は欠けていないが、プロット領域全体に裏ページの文字の裏写りが重なり、撮影の傾き（台形歪み）と上端のページ湾曲影もある。図内部の汚損は切り直しで除けない",
-      "reviewedAt": "2026-10-06T10:17:23.093Z"
+      "sha": "fcb9595a7f4dd99d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "プロット全体の裏写り・撮影の台形歪み・上端のページ湾曲影を、論文対策キーワードのスキャン（source/005.pdf p.20＝pages/p0188）から軸を基準に傾きと湾曲を補正して切り出し直して除いた（915x620→1100x740）。補正後の読み値（2024 年の就業者数 約485 万人・技能者 約306 万人）は旧画像（約513・約335）より公表値に近い。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:49:11.417Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+        "page": 20
+      }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
-      "sha": "63305220cbe6baaa",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で横軸の年ラベル（2002〜24）の下半分が切れ、軸タイトル・出典も入っていない。背景全体に裏写りの汚れ、左端に綴じ部の影",
-      "reviewedAt": "2026-10-06T09:56:02.171Z"
+      "sha": "cdaa79ccf97e7aa4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下端で切れていた横軸の年ラベルと軸タイトル『(年)』を、論文対策キーワードのスキャン（source/005.pdf p.20＝pages/p0188）から傾きを補正して切り出し直して戻した（900x460→1200x578）。上の図19 の図題・下の資料出所行・指・綴じ影・裏写りは除いた。補正後の読み値（2024 年の建設業 55 歳以上 約36%）は旧画像（約38.7%）より公表値（約36.7%）に近い。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:49:11.419Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+        "page": 20
+      }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig21": {
       "sha": "22911c8ebec6de83",
