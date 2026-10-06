@@ -10,13 +10,15 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
     'content/note/magazines/x/article.md',
     'src/lib/foo.ts',
   ]);
-  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta']);
+  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
   assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['x-review']);
   assert.deepEqual(planGates(['config/note-funnel.json']).map((g) => g.id), ['note-paid-cta']);
   assert.deepEqual(planGates(['docs/README.md', 'content/site/a/img/x.svg']), []);
+  assert.deepEqual(planGates(['config/products.json']).map((g) => g.id), ['products']);
+  assert.deepEqual(planGates(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']).map((g) => g.id), ['products']);
 });
 
 test('pre-commit の検査は quality-audit の ci:true と同じ id（CI の全量検査と食い違わない）', () => {

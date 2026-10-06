@@ -943,6 +943,14 @@ export const ConfigProducts = z
     _doc: text,
     channels: productChannels.optional(),
     products: z.array(Product).superRefine(uniqueBy('id', '商品 id')),
+    /**
+     * note の記事 1 本ごとの単品価格（円）。キーはリポジトリ相対の article.md パス。記事の frontmatter の price は
+     * ここからの写し（npm run product -- gen が書く）。新しい記事の price は gen がここへ取り込む
+     */
+    articlePrices: z
+      .record(z.string().regex(/^content\/note\/.+\/article(-[^/]+)?\.md$/, 'content/note/…/article.md'), z.number().int().nonnegative())
+      .optional()
+      .describe('note の記事ごとの単品価格（キーは記事のパス・値は円）'),
   })
   .strict()
   .meta({ title: '商品の正本' });

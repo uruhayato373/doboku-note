@@ -8,7 +8,9 @@
  *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'（Kindle は kindle-<書籍id> で catalog.json も作り直す）
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
  *   npm run product -- fmt                                                          # 正本ファイルを正規化して書き直す
- *   npm run product -- gen [--check]                                                # 生成物を書く: note-magazines.ts の生成ブロック・Kindle の catalog.json（--check は差分で exit 1）
+ *   npm run product -- gen [--check]                                                # 生成物を書く: note-magazines.ts の生成ブロック・Kindle の catalog.json・ココナラの coconala-services.ts・
+ *                                                                                  #   記事の frontmatter の price（新しい記事の price は正本へ取り込む）・掲載文の機械用の欄（--check は差分で exit 1）
+ *   npm run product -- price <content/note/…/article.md> <円>                      # note の記事の単品価格を変える（正本と frontmatter を同時に書く）
  *   npm run product -- import-note --qualification <id> [--ids a,b] [--commit]      # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
  *                                                                                  # 複数の資格にまたがる商品は --ids で選び、--qualification に group id か主な資格を書く
  * exit: 0 成功 / 1 検査・差分・書き込み失敗 / 2 引数不正
@@ -18,7 +20,7 @@ import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
-  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE, writeCoconalaBlock, COCONALA_TS,
+  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE, writeCoconalaBlock, COCONALA_TS, syncArticlePrices, syncMagazineTexts, setArticlePrices,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
 
@@ -215,6 +217,16 @@ function gen() {
   if (check && coconalaChanged) die(`${relative(ROOT, COCONALA_TS)} の生成ブロックが正本と違う。npm run product -- gen を実行する`, 1);
   const coconala = products.filter((p) => p.channel === 'coconala').length;
   console.log(`[product] coconala: ${coconala} 件${coconalaChanged ? '（coconala-services.ts を書いた）' : ''}`);
+  // note の記事ごとの単品価格（frontmatter の price は正本の写し。新しい記事の price は正本へ取り込む）
+  const a = syncArticlePrices({ check });
+  if (check && (a.mismatch.length || a.unregistered.length || a.missingFile.length)) {
+    die(`記事の価格が正本とずれている（ずれ ${a.mismatch.length}・未登録 ${a.unregistered.length}・記事無し ${a.missingFile.length}）。npm run product -- gen を実行する`, 1);
+  }
+  console.log(`[product] 記事の単品価格: ${a.registered + a.unregistered.length} 本${a.unregistered.length ? `（新しく取り込んだ ${a.unregistered.length} 本）` : ''}${a.rewritten ? `（frontmatter を直した ${a.rewritten} 本）` : ''}${a.missingFile.length ? `（記事の無い ${a.missingFile.length} 件を外した）` : ''}`);
+  // マガジンの掲載文の機械用の欄（セット価格・単品価格）
+  const m = syncMagazineTexts({ check });
+  if (check && m.mismatch.length) die(`note掲載文.txt の機械用の欄が正本と違う（${m.mismatch.map((x) => x.rel).join(', ')}）。npm run product -- gen を実行する`, 1);
+  console.log(`[product] 掲載文: ${m.matched}/${m.files} 本を照合${m.rewritten ? `（機械用の欄を直した ${m.rewritten} 本）` : ''}`);
 }
 
 switch (cmd) {
@@ -273,9 +285,17 @@ switch (cmd) {
   case 'gen':
     gen();
     break;
+  case 'price': {
+    // note の記事の単品価格を変える（正本の articlePrices と frontmatter の price を同時に書く）。続けて gen で掲載文も合わせる
+    const [, path, yen] = argv;
+    if (!path || yen === undefined || !/^\d+$/.test(yen)) die('使い方: price <content/note/…/article.md> <円>');
+    setArticlePrices([{ path, price: Number(yen) }]);
+    console.log(`[product] ${path} = ¥${Number(yen).toLocaleString('en-US')}（正本と frontmatter）。掲載文・単品合計は npm run product -- gen と check-products で確かめる`);
+    break;
+  }
   case 'import-note':
     await importNote();
     break;
   default:
-    die('使い方: list | show | set | add-member | remove-member | fmt | gen [--check] | import-note --qualification <id> [--commit]');
+    die('使い方: list | show | set | add-member | remove-member | fmt | gen [--check] | price <article.md> <円> | import-note --qualification <id> [--commit]');
 }

@@ -19,6 +19,7 @@ import { execFileSync } from "node:child_process";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { NOTE_CREATOR as CREATOR } from "./lib/site-identity.mjs";
+import { setArticlePrices } from "./lib/product-registry.mjs";
 
 const APPLY = process.argv.includes("--apply");
 
@@ -162,16 +163,21 @@ if (unmatched.length) {
 
 if (APPLY) {
   let wrote = 0;
+  const filled = [];
   for (const { f, hit } of plan) {
     let t = readFileSync(f, "utf8");
+    const priceWasEmpty = /^price:\s*(""|0)\s*$/m.test(t);
     t = t
       .replace(/^noteUrl:\s*("")?\s*$/m, `noteUrl: ${hit.url}`)
       .replace(/^noteId:\s*("")?\s*$/m, `noteId: ${hit.id}`)
       .replace(/^notePublishedAt:\s*("")?\s*$/m, `notePublishedAt: ${hit.date}`)
       .replace(/^price:\s*(""|0)\s*$/m, `price: ${hit.price}`);
     writeFileSync(f, t);
+    // 単品価格の正本は config/products.json の articlePrices（frontmatter は写し）。埋めた価格は正本にも書く
+    if (priceWasEmpty && Number(hit.price) > 0) filled.push({ path: f, price: Number(hit.price) });
     wrote++;
   }
+  if (filled.length) setArticlePrices(filled);
   console.log(`\n✅ applied: ${wrote} files`);
 } else {
   console.log("\n(dry-run。書き込むには --apply)");
