@@ -37,11 +37,11 @@ node scripts/figure-review-queue.mjs
 - `⚠ OCR 未監査 N 枚` が出たら先に `npm run audit-figures`（OCR・数分）を実行してから集計し直す（答え・本文の写り込みの兆候が欠けるため）。
 - **「判定待ち・切り出し直し待ちとも 0」なら完了**。残数を報告して終わる（`/loop` 中なら次を予約せず止める）。
 
-判定待ちがあれば判定待ちを、無ければ切り出し直し待ちを取る:
+判定待ちを 8 枚ずつ回す。ただし切り出し直し待ちが 8 件以上たまったら、次の周は切り出し直しを 4 件回す（判定だけ進んで実際の修正が止まらないように交互にする）。判定待ちが 0 なら切り出し直しだけ:
 ```bash
 mkdir -p .tmp/figure-loop
 node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
-# 判定待ちが 0 のとき: --stage reextract --next 4
+# 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
 ```
 
 ### 2. ワーカーを並列で回す
