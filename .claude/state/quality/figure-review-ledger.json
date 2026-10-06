@@ -10,11 +10,16 @@
       "reviewedAt": "2026-10-06T09:49:08.224Z"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
-      "sha": "1db12db1a9e180e2",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左半分が空白で、上縁で寸法線 75 の矢印と舗装層、右縁で『既存コ…』と舗装帯が切れ、下端に図番号キャプションの断片。問題解説集2021 p.379 の左の図が完全な形で残っている",
-      "reviewedAt": "2026-10-06T09:33:45.508Z"
+      "sha": "ed0e26b0c64ed730",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.379 の『上面増厚工法（補強鉄筋なし）』を 300dpi で切り出し直し（519x188→610x214）。左半分の空白と、上縁・右縁で切れていた寸法 75・舗装層・既存コンクリートを復元し、キャプション断片と右隣の図の寸法ラベルを除いた。alt を 3 図分の説明から『補強鉄筋なし』だけに直した。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:00:34.655Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 379,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-08": {
       "sha": "c66ab5d7260154d7",
@@ -36,25 +41,16 @@
       "reviewedAt": "2026-10-06T09:37:26.602Z"
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-11": {
-      "sha": "3650c183af2b6117",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で上段 2 図（中詰を用いる場合・同重量の捨石を用いる場合）の捨石・中詰の上部、寸法『1.0m以上』、勾配『1:1.5』、床固め・堰堤の上部が切れている。左側約 500px が空白、下部にキャプション『図 根固工の種類の例』",
-      "reviewedAt": "2026-10-06T09:46:19.916Z"
-    },
-    "civil-construction-1/primary-h29-a/img/h29-a-fig-04": {
-      "sha": "dc69bab32136bf79",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端でジャッキ上部の円形部品（圧力計）の円弧と、ダイヤルゲージの引き出し線の上側・注記ラベルが切れている。下部にキャプション『図 平板載荷試験』と本文断片、左側約 780px が空白",
-      "reviewedAt": "2026-10-06T09:46:19.916Z"
-    },
-    "civil-construction-1/primary-h29-a/img/h29-a-fig-05": {
-      "sha": "1280b43a31d377b7",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端でつり上げ用の梁からクレーンへ向かうワイヤの線が途切れ、その上が白で埋められている（前回の切り出しで上を切った疑い）。下端に図番号キャプション『図 鉄筋かごの水平移動』の上半分、左右に広い空白",
-      "reviewedAt": "2026-10-06T09:49:08.227Z"
+      "sha": "a541482a0318fc24",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.394（H28 No.37 解説）の『根固工の種類の例』を 300dpi で切り出し直し（1674x443→1635x778）。上段 2 図の捨石・中詰・寸法 2.0〜5.0m／3個以上／1.0m以上・勾配 1:1.5〜1:3・堰堤上部を復元し、左の空白とキャプションを除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:00:34.663Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 394,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "662ff80b5a34e26e",
