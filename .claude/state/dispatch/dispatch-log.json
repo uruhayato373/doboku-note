@@ -2119,6 +2119,18 @@
       "commit": "2e43df53d2ed",
       "verification": "note-fact-checker 照合 68 件・High 0・Medium 2 と Low 5 を反映 / note-lint 2 記事 OK / check-keiken-answer-split ✓ / check-note-site-utm 違反 0",
       "note": "再開条件: 著者バナー画像の複製 → 運営者が note-publish で公開 → check-note-structure。3 本目（添削の実例）は運営者の素材待ち"
+    },
+    {
+      "id": "DN-0547",
+      "at": "2026-10-06",
+      "task": "2級土木 一次 R8 前期の過去問ページ",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "b32d0acfaf1f",
+      "verification": "正答 66/66 が公式正答表と一致 / past-exam-qa 転記起因 0（66/66 を誌面画像で照合）・解説の MEDIUM 3・LOW 4 を反映 / refresh-indexes・check-generated-indexes ✓ / dev サーバーで 200・<main>",
+      "note": "再開条件: 運営者の /deploy 後に check-production-ssr exit 0 を確かめる（10/25 の一次後期より前）"
     }
   ]
 }

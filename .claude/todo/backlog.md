@@ -239,13 +239,13 @@
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0547] 2級土木 第1次検定 令和8年度 前期の過去問ページを公式問題から作り、一次（後期・10/25）の受検者が解けるようにする
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-06] [期日:2026-10-18] [進行中]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-06] [期日:2026-10-18]
 
 **起点**: 2026-10-06 の週次計画で見つけた。公式の問題と正答（全国建設研修センター `20260608d_mondai.pdf`・`20260608d_seitou.pdf`）は 9/29 に取得済み（`data/pastexams/inventory.json`）なのに、サイトの 2級一次は `primary-r03〜r07` までで `primary-r08-zenki` が無い。一次（後期）は二次と同じ 10/25 で、直近の本試験の問題が無料演習に無い。
 
-**やること**: `/exam-questions-import --exam civil-primary-2 --year r08 --sub zenki` の手順で `content/site/civil-construction-2/primary-r08-zenki/article.mdx` を作る。2級の PDF はふりがな付きでテキスト層の転記が崩れやすい（DN-0473 で前期 r03〜r06 に数百行の崩れ）ため、設問文・選択肢はページ画像と突き合わせて逐語で起こし、正答は公式の正答表と照合する。図のある設問は図をクロップして載せる。`past-exam-qa` で監査し、`npm run refresh-indexes` を通す。
+**やること**: develop にある `content/site/civil-construction-2/primary-r08-zenki/`（66 問・図 8 枚。正答 66/66 が公式と一致・`past-exam-qa` で転記起因 0・解説の指摘は反映済み・refresh-indexes 済み）を、運営者の `/deploy` で本番へ出し、`npm run check-production-ssr` が exit 0 になることと `/exam/civil-construction-2/primary/r08-zenki` の表示を確かめる。一次（後期）の 10/25 より前に出す。鉄道の 2 問（No.32・No.33）の解説は二次情報との整合までで、一次の保安標準は未確認。
 
-**完了条件**: `primary-r08-zenki` が公開され、全問の正答が公式の正答表と一致し、`past-exam-qa` で転記起因の指摘が 0、`npm run refresh-indexes` 済み。
+**完了条件**: 本番で `primary-r08-zenki` が表示され、`npm run check-production-ssr` が exit 0。
 
 
 
