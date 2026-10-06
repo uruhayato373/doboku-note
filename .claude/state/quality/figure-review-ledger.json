@@ -10,11 +10,16 @@
       "reviewedAt": "2026-10-06T09:49:08.224Z"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
-      "sha": "2e43775301060de1",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で地すべり排土工の施工モデル図の上半分（排土前の地表・頭部域）が切れ、地表の輪郭線と引き出し線が上縁で途切れている。下部にキャプション『図 排土工の施工モデル』と左右の大きな空白",
-      "reviewedAt": "2026-10-06T10:17:23.086Z"
+      "sha": "77e9c41b0b37400e",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H26 No.25 解説ページ（p.551）は原本でも図の上部が欠けていたため、同じ図が全体入りで載る問題解説集2021 p.44 から 300dpi で切り出し直し（1674x279→853x571）。排土前地表・排土・頭部域の輪郭を復元し、キャプションと左右の空白を除いた。alt に排土前地表と排土を足した。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:22:21.023Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 44,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
       "sha": "ed0e26b0c64ed730",
@@ -60,18 +65,23 @@
       }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-12": {
-      "sha": "45fd4ad926d189fe",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で左の『さや管工法』図の斜めの管・地表線・矩形・滑車、右の『製管工法』図の坑口・噴出表現・機器が切れ、右端でも機器が切れている。下部にキャプション 2 つ。fig-13 と同じ 2 図並びの画像",
-      "reviewedAt": "2026-10-06T10:17:23.092Z"
+      "sha": "73eb10a0152b244c",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.403（H28 No.47）からさや管工法の図だけを 300dpi で切り出し直し（1674x277→1020x326）。旧画像はさや管・製管の 2 図並びで上端が切れていた。斜めの管・地表線・滑車・坑口を復元し、製管工法の図とキャプションは入れていない。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:22:21.026Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 403,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
-      "sha": "b329c0bbf37fc7ba",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で左図（さや管工法）の供給管、右図（製管工法）の立坑・ライニングベルトの上部、右上の引き出し線と注記が上縁・右縁で切れている",
-      "reviewedAt": "2026-10-06T10:17:23.092Z"
+      "sha": "a76d01cff4c6cf1a",
+      "verdict": "source-unavailable",
+      "action": "recrop",
+      "reason": "唯一の原典（問題解説集2021 p.403）でも頁上部が切れていて、製管工法の立坑上部と右上の注記は復元できない。H28 の問題 PDF は手元に無い。キャプションと合わない左のさや管工法の図（fig-12 と重複）と下のキャプションを除いて製管工法の図だけに切り直した（1674x279→389x225・上端の欠けは残る）",
+      "reviewedAt": "2026-10-06T10:22:21.028Z"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
@@ -93,11 +103,16 @@
       "reviewedAt": "2026-10-06T09:43:30.759Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-20": {
-      "sha": "0fe9a06b8a43ff2e",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で縦バタ列の外側の座金・横バタ（上下 2 か所）が半分欠けている（右側の対称な金物は完全）。上端に本文の断片、下端にキャプション『図3.20 型枠締付け金物の取付け例』とページ番号",
-      "reviewedAt": "2026-10-06T09:46:19.913Z"
+      "sha": "be80dc7a1da5c916",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "1級土木第二次検定問題解説集2021 p.214（図3.20・スキャンが 180 度回転）から回転を戻して 300dpi で切り出し直し（480x620→905x892）。左縁で欠けていた座金・横バタ（上下 2 か所）とフォームタイ先端を復元し、本文断片・キャプション・ページ番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:22:21.027Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 214,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
       "sha": "45bd7e32f4963ee5",
