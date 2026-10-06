@@ -239,7 +239,7 @@
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0548] 技術士一次の過去問を直すと、pre-commit が進めた dateModified で演習データ（public/quiz/pe-first-stage.json）が古くなり develop の CI が赤くなる
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-06]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-06] [進行中]
 
 **起点**: 2026-10-06 に技術士一次 12 本の数式を直した commit（0e3b23f99）で、`refresh-indexes` を回してから commit したのに、直後の `check-generated-indexes` が `public/quiz/pe-first-stage.json` の食い違いを出した。`scripts/build-quiz-data.mjs` は pe-first-stage の `generatedAt` を「元記事の dateModified の最大値」で作る（L427）。本文を変えた commit では pre-commit の `backfill-mdx-dates --staged` が dateModified を今日へ進めるので、commit 前に作った演習データの generatedAt が 1 日古いまま入る。後続の commit（9ab0a9257）で作り直して push したので CI は赤にならなかったが、1 本だけ直して push すると generated-indexes で赤くなる。
 
