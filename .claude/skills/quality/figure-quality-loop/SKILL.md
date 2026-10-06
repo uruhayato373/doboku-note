@@ -77,6 +77,7 @@ node scripts/figure-review-queue.mjs record .tmp/figure-loop/verdicts.json
 
 ### 5. commit して進捗を出す
 ```bash
+npm run check-image-assets:ci               # 画像サイズの上限（config/image-limits.json・webp 150KB 等）。超えたら縮小して record し直す（CI の audit がここで落ちる）
 npm run refresh-indexes                     # MDX の寸法を変えたときだけ
 grep -c "�" <変えた MDX>                     # 文字化け 0
 git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json   # 明示指定（git add -A 禁止）
