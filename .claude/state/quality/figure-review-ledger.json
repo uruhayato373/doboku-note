@@ -70,6 +70,13 @@
       "reason": "上端で (a)(b) の杭の側面線、(c) の 4 本の杭、(d) の斜杭とフーチングの上辺が切れている。下部に図番号キャプション『図 支持機構による杭の分類』",
       "reviewedAt": "2026-10-06T09:49:08.228Z"
     },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-08": {
+      "sha": "91ac0ace5f1d1161",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で右側の図（置換え土）の『軟弱層』ラベルの『層』と掘削斜面の外側の地表線・地盤線が切れている",
+      "reviewedAt": "2026-10-06T09:53:21.095Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
       "verdict": "ok",
@@ -83,6 +90,20 @@
       "action": "none",
       "reason": "左縁で縦バタ列の外側の座金・横バタ（上下 2 か所）が半分欠けている（右側の対称な金物は完全）。上端に本文の断片、下端にキャプション『図3.20 型枠締付け金物の取付け例』とページ番号",
       "reviewedAt": "2026-10-06T09:46:19.913Z"
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
+      "sha": "a55761eea7f2a689",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で右図の図内ラベル『道路橋壁高欄の乾燥収縮によるひび割れの例』の字形の下部が切れている。上端に前の図（沈下ひび割れ）の切れ端、左縁にスキャンの影",
+      "reviewedAt": "2026-10-06T09:53:21.098Z"
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
+      "sha": "5b4bfcb03152a2bd",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で中央の小図の説明『型枠・配筋の拘束度の相違や…』の下半分と続きの行が切れている。上部に大きな空白、元資料の見出し『⑤ 記号B5 急速な打込みの例』、左余白のページ番号の写り込み",
+      "reviewedAt": "2026-10-06T09:53:21.096Z"
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
@@ -105,12 +126,26 @@
       "reason": "上部の隣接図キャプション『図 2.14 張芝工』・下部の『図 2.17 筋芝工』・左余白の行番号 10/15・最下端の本文見出し断片を除いて切り直し（310x330→228x163）。法面・芝の筋・耳芝・切芝のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:43:30.760Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
+      "sha": "22de7dc15eb884f1",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右端で斜面のブロック列・粘質土の破線・『裏込め栗石または切込砕石』の文字、下端で基礎コンクリートとそのラベル・寸法 300・栗石が切れている。上部約 1/3 は前の図2.22 の下半分とキャプションの写り込み",
+      "reviewedAt": "2026-10-06T09:53:21.094Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
       "sha": "a9fbc65a34af91dd",
       "verdict": "needs-source",
       "action": "none",
       "reason": "下縁でコンクリート張りの法面・寸法 1,000・法尻の基礎ブロックが切れ、左縁で隣接図の断片（砂利）が切れている。上部に前の図の下端とキャプション『図2.23 モルタル吹付け工の例』、右縁に行番号 15/20。切り出し範囲が上にずれている",
       "reviewedAt": "2026-10-06T09:49:08.228Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
+      "sha": "3a257b4f6b698198",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の本文断片・右側の章タブ『第2章 土工 基礎解説』と行番号 5/10・下端のキャプション断片・余白を除いて切り直し（530x350→418x318）。A-A'・B-B' の平面図と断面図・ℓ 記号・ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:53:21.098Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
       "sha": "955d312cd75ef986",
@@ -160,6 +195,13 @@
       "action": "recrop",
       "reason": "上部の前図（図2.5）の下端断片とキャプション・図番号キャプション『図2.6 切り盛り境のすり付け例』・下端の次段落の断片・左右の余白を除いて切り直し（750x770→468x543）。(a)(b)(c) の断面と小図ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:46:19.914Z"
+    },
+    "civil-construction-1/secondary-r04/img/i-9-crack-types": {
+      "sha": "3de3f655ecddf8a0",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の設問文の断片・右上のページ端の線・ページ番号『― 7 ―』・フッタ印字とトンボを除いて切り直し（1369x900→968x643）。①〜④ の 4 小図と小図番号・タイトル・ふりがなは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:53:21.094Z"
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
@@ -294,6 +336,13 @@
       "reason": "上縁で辺 AD の寸法線（2L）の両矢印が上半分だけ写り、寸法線と『2L』ラベルが画像外。設問に必要な寸法が読めない。下部に選択肢①〜⑤と大きな空白の写り込みもある",
       "reviewedAt": "2026-10-06T09:33:45.509Z"
     },
+    "pe-first-stage/r03-basic/img/q-I1-2": {
+      "sha": "e4fd9fa17ee83b97",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端で上半分だけ見えていた図番号キャプション『図 システム構成図と各要素の信頼度』・右端の孤立ノイズ・余白を除いて切り直し（1523x647→1215x527）。システム A〜E の構成図とラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T09:53:21.089Z"
+    },
     "pe-first-stage/r03-construction/img/q07-fig": {
       "sha": "5609f6d6811bbc02",
       "verdict": "ok",
@@ -326,6 +375,13 @@
       "action": "recrop",
       "reason": "下端で切れていた図番号キャプション『図 モータ，変速機，円盤から構成される回転軸系』・偏った余白・点状ノイズを除いて切り直し（1760x900→892x780）。モータ・変速機・円盤・軸ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T09:46:19.915Z"
+    },
+    "pe-first-stage/r05-construction/img/q04-fig": {
+      "sha": "9a0e41ad36d24b92",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の設問本文の断片と、下端〜左端で切れていた選択肢表（MDX 本文に表として別掲済み）を除いて切り直し（1143x1023→860x610）。土圧-壁体変位のグラフ・a/b の枠・静止土圧・軸ラベル・矢印は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:53:21.097Z"
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
       "sha": "25afcc7746eac540",
