@@ -55,6 +55,8 @@ Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop
 1. `node scripts/check-figure-crop-integrity.mjs --file <img>` で `STRAY_SLIVER` が無く、新しい `EDGE_CUT`（図本体の切断）を作っていないこと。
 2. png に変換して Read し、写り込みが消えて図本体が欠けていないこと。reextract は旧画像（`git show HEAD:<img>`）と並べて、同じ図で欠けが戻っていること。
 
+写り込みとして出典表記（「〜より」「資料：」）や図番号キャプションを除いた図は、記事で出典・図名がまだ見えるか（`ArticleImage` の `caption` か直後の `<p>`。`alt` は画面に出ない）を見て、出典が消えるなら `caption` に足す。
+
 不合格（切り過ぎ・写り込み残り・別の図）は原画に戻し（`git checkout -- <追跡中の png> <webp>`。未追跡の png を pathspec に混ぜると全体が止まる）、その図は**記録しない**（次の周で再判定される）。`ok` で `clean` の図はそのまま記録する。
 
 ### 4. 判定を記録する
