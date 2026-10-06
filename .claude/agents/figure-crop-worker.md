@@ -122,7 +122,7 @@ PDF が見つからない・ページが特定できない・図がベクター�
 ```bash
 cd "$(git rev-parse --show-toplevel)" && python3 -c "from PIL import Image; im=Image.open('$W/page-P.png').convert('RGB'); c=im.crop((L,T,R,B)); c.save('$W/new.png'); print(c.width,c.height)"
 ```
-配信形式に合わせて書き出す（png があれば png を置き換えて webp を再生成、webp だけなら webp に書き出す）。300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した webp が上限（`config/image-limits.json`・webp は 150KB）を超えたら幅を縮めて書き直す:
+配信形式に合わせて書き出す（png があれば png を置き換えて webp を再生成、webp だけなら webp に書き出す）。300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した画像が上限（`config/image-limits.json`・webp 150KB／png 100KB）を超えたら、webp は幅を縮めて、png は 16 色パレットにして（`sharp(p).png({palette:true,colors:16,compressionLevel:9})`）書き直す:
 ```bash
 cd "$(git rev-parse --show-toplevel)" && cp $W/new.png REL.png   # png がある図のみ
 cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('$W/new.png').webp({quality:80}).toFile('REL.webp').then(i=>console.log(i.width+'x'+i.height))"
