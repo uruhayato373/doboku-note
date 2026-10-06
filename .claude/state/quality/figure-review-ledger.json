@@ -1138,6 +1138,27 @@
       "reason": "左右・下の大きな空白と右下のスキャンの点を除いた（1600x1295→1188x1020）。はり1・はり2と断面・寸法・荷重 P は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:57:37.333Z"
     },
+    "pe-first-stage/h27-construction/img/q04-fig": {
+      "sha": "71f9acc4355902a4",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "地表面・地下水面・寸法・単位体積重量・σ'v・点 A だけで写り込みなし。四辺とも欠けなし。OCR の兆候は図内ラベル",
+      "reviewedAt": "2026-10-06T12:02:49.570Z"
+    },
+    "pe-first-stage/h27-construction/img/q05-fig": {
+      "sha": "140b06d320d374af",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で矩形断面（4a×3a）の左右の縦辺・一点鎖線・寸法矢印 3a と 3a/2 が切れ、矩形の下辺と下側の寸法補助線が無い。上縁の STRAY_LABEL は寸法ラベル『4 a』（H27 建設 Ⅲ-5）",
+      "reviewedAt": "2026-10-06T12:02:49.570Z"
+    },
+    "pe-first-stage/h27-construction/img/q07-fig": {
+      "sha": "7183b54c0a4275ff",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "四辺の過大な余白と左端のスキャン汚れを除いた（1600x820→1428x597）。等分布荷重 q の単純ばり・点 C・L/4・L は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:02:49.572Z"
+    },
     "pe-first-stage/h28-basic/img/q08-table": {
       "sha": "f776d311e05bce66",
       "verdict": "ok",
@@ -1149,6 +1170,13 @@
         "page": 8,
         "dpi": 600
       }
+    },
+    "pe-first-stage/h28-construction/img/q17-fig": {
+      "sha": "769c00ab150d074b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "右・下の大きな余白を詰めた（1600x1214→1507x1096）。水槽・Z_A〜Z_C・小穴の断面積 a・中心線・基準面は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:02:49.573Z"
     },
     "pe-first-stage/h29-basic/img/q-I1-3": {
       "sha": "1ed5ca4e32243ef6",
@@ -1248,6 +1276,13 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/h29-water-supply/img/q13-source": {
+      "sha": "536cbc78fccacde0",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "漏水防止対策の体系表で外枠 4 辺とも完結し写り込みなし。OCR の兆候は表内の文字",
+      "reviewedAt": "2026-10-06T12:02:49.573Z"
+    },
     "pe-first-stage/h30-basic/img/q-I1-1": {
       "sha": "51715cc7fa3aba37",
       "verdict": "ok",
@@ -1312,6 +1347,13 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/h30-water-supply/img/q1-source": {
+      "sha": "e416763c1dfeac53",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "計画一日最大給水量の算定手順の流れ図で四辺とも欠けなし・写り込みなし。OCR の兆候は縦書き文字の誤検出",
+      "reviewedAt": "2026-10-06T12:02:49.573Z"
+    },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "sha": "b529a79495696b71",
       "verdict": "ok",
@@ -1357,6 +1399,13 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/r01-retry-water-supply/img/q13-source": {
+      "sha": "912a1cae097aad86",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "配水池構造形式の特徴表で外枠 4 辺とも閉じ写り込みなし。OCR の兆候は表内の文字",
+      "reviewedAt": "2026-10-06T12:02:49.573Z"
+    },
     "pe-first-stage/r02-construction/img/q6-fig": {
       "sha": "6322d715f3465fd9",
       "verdict": "ok",
@@ -1368,6 +1417,13 @@
         "page": 4,
         "dpi": 300
       }
+    },
+    "pe-first-stage/r02-water-supply/img/q16-source": {
+      "sha": "ab145e886105b61c",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "多目的貯水池の水位・容量関係図で四辺とも欠けなし・写り込みなし。OCR の兆候は図内ラベル",
+      "reviewedAt": "2026-10-06T12:02:49.573Z"
     },
     "pe-first-stage/r03-basic/img/q-I1-2": {
       "sha": "e4fd9fa17ee83b97",
