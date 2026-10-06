@@ -128,6 +128,13 @@
       "reason": "上端で地表より上の装置（やぐら・三脚の脚・ロッドとケーシングの頭部）が切れている。下部にキャプション『図 標準貫入試験』、左に空白と汚れ",
       "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
+      "sha": "26f009cb5fa111e7",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で右下の詳細図 (g)（鉄板 t=0.6〜1.2mm・配力鉄筋・止水板・充てん材の断面）が上辺の枠線の途中で切れている。上と左に大きな空白。同記事の fig-11 が同じ図の完全版の可能性",
+      "reviewedAt": "2026-10-06T10:42:41.146Z"
+    },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
       "verdict": "ok",
@@ -154,12 +161,26 @@
       "reason": "上縁で引き出しラベル『隅金物』『隅火打材』の文字の上半分が切れている。下部に図番号キャプション『図 矢板土留め工構造図の例』",
       "reviewedAt": "2026-10-06T10:24:51.419Z"
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
+      "sha": "423e1be7f1a44828",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左端の隣の本文カラムの文字断片・図番号キャプション『図 3.14 スペーサの用い方』・左右の余白を除いて切り直し（350x280→284x190）。鉄筋・スペーサ・引き出し線・各ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:42:41.147Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
       "verdict": "ok",
       "action": "recrop",
       "reason": "図番号キャプション『図3.16 束ねて配置する鉄筋』・下端の次項見出し断片・左余白の行番号 30・右上の隣接図の断片を除いて切り直し（550x250→387x157）。(a) はり・(b) 柱の断面は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:43:30.759Z"
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-2": {
+      "sha": "10766a3482ca4663",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "余白の行番号 30/35・図番号キャプション『図3.2 ベルトコンベア使用上の注意』・ページ番号の断片・右の余白を除いて切り直し（500x320→410x228）。(a) 正しい例・(b) 誤った例・60cm以上の寸法線・注記は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:42:41.145Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-20": {
       "sha": "be80dc7a1da5c916",
@@ -196,6 +217,13 @@
         "page": 185,
         "dpi": 300
       }
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
+      "sha": "79653abc3f13aaad",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の隣接図のキャプション断片・行番号 10/15・MDX と重複する見出し『⑥ 記号 B10 …』・左右の空白を除いて切り直し（900x310→600x187）。3 つの小図と『漏水』『打継ぎ目部のひび割れ』『ハンチ下の打継ぎ処理』は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:42:41.147Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
       "sha": "0df700a785d3204e",
@@ -401,6 +429,13 @@
       "reason": "上端の設問文の断片・右上のページ端の線・ページ番号『― 7 ―』・フッタ印字とトンボを除いて切り直し（1369x900→968x643）。①〜④ の 4 小図と小図番号・タイトル・ふりがなは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.094Z"
     },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
+      "sha": "0986eb0079959ef8",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "PDCA サイクル図の円の下半分と右下の回転矢印が下端で、円の左半分（Plan/Act 側）が左側で切れている。上部約 330px が空白",
+      "reviewedAt": "2026-10-06T10:42:41.147Z"
+    },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
       "verdict": "ok",
@@ -590,6 +625,13 @@
       "reason": "下端に写り込んでいた選択肢表の見出し『ア　イ』の断片と孤立ドットを除いて切り直し（1769x1619→1769x1490）。左縁のループ戻り線と右縁の平行四辺形の角は縁に接するが欠けていない（EDGE_CUT は正当な縁接触）。親 QA 合格（新旧比較・左縁を拡大して確認）",
       "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
+    "pe-first-stage/h29-basic/img/q-I3-4": {
+      "sha": "bd7d8376598a0b35",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で回路 (a) の菱形の左頂点と斜線、右縁で回路 (c) の端子ラベル『B』の半分、下縁で小図ラベル (a)(b)(c) の下半分が切れている",
+      "reviewedAt": "2026-10-06T10:42:41.146Z"
+    },
     "pe-first-stage/h29-construction/img/q05-fig": {
       "sha": "470c7f0dfa6acf5e",
       "verdict": "ok",
@@ -755,12 +797,26 @@
       "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
       "reviewedAt": "2026-10-06T09:33:45.503Z"
     },
+    "pe-first-stage/r07-basic/img/q33-fig": {
+      "sha": "602227834b173094",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で関数ラベル『f(x)』の上部が切れている。下部に図番号キャプション『図 関数 y=f(x)と点 a, b, c』、左下に選択肢本文の断片『(c))』",
+      "reviewedAt": "2026-10-06T10:42:41.146Z"
+    },
     "pe-first-stage/r07-construction/img/q01-fig": {
       "sha": "674a1a46c4202b8d",
       "verdict": "needs-source",
       "action": "none",
       "reason": "左縁で引き出しラベル『容器Ⅰ』の『容』と寸法ラベル『L』の字形が切れている。背景全体にスキャンの裏写り、下半分は空白",
       "reviewedAt": "2026-10-06T10:24:51.418Z"
+    },
+    "pe-first-stage/r07-construction/img/q06-fig": {
+      "sha": "85ca856b8c43ffce",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で支点 A・B の反力矢印（V_A・V_B）と添え字・支間長 L・支点 B の三角形の下の線、左縁で支点 A の三角形の左半分が切れている。上部に約 130px の空白",
+      "reviewedAt": "2026-10-06T10:42:41.147Z"
     },
     "surveyor/primary-r05/img/q12-fig": {
       "sha": "83c414aa8e3df3a9",
