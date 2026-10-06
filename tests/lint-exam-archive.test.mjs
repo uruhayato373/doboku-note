@@ -72,3 +72,50 @@ test('1級・2級土木の二次過去問は「問題 N」の設問文を 15-x �
   }
  }finally{rmSync(root,{recursive:true,force:true});}
 });
+
+test('DN-0549: 公式問題の中の表は 1-3 の対象外、解説の表とガイドの表は検査する／測量士の過去問の正答記号は 9-6 にしない', () => {
+  const root = mkdtempSync(join(tmpdir(), 'dn-official-table-'));
+  const run = (file) => spawnSync(process.execPath, ['.claude/scripts/lint-mdx-mobile.mjs', file], { encoding: 'utf8' }).stdout;
+  try {
+    const table = '| 作業 | 所要日数 | 先行作業 | 備考 |\n|---|---|---|---|\n| A | 5 | なし | - |\n| B | 2 | A | - |\n';
+    const write = (category, slug, body) => {
+      const dir = join(root, category, slug);
+      mkdirSync(dir, { recursive: true });
+      const file = join(dir, 'article.mdx');
+      writeFileSync(file, '---\ntitle: 試験\ncategory: ' + category + '\ngroup: primary\n---\n\n導入文です。\n\n' + body);
+      return file;
+    };
+    // 総監の択一: 問題の中の表は対象外、<details> の解説の表は検査する
+    let out = run(write('pe-comprehensive-management', 'r05-primary', '## Ⅰ-1-1\n\n次の表について答えよ。\n\n' + table + '\n<details>\n<summary>解説</summary>\n\n**正答：1**\n\n</details>\n'));
+    assert.equal(/\(1-3\)/.test(out), false, out);
+    out = run(write('pe-comprehensive-management', 'r06-primary', '## Ⅰ-1-1\n\n設問。\n\n<details>\n<summary>解説</summary>\n\n解説の表は次のとおり。\n\n' + table + '\n</details>\n'));
+    assert.equal(/\(1-3\)/.test(out), true, out);
+    // 測量士の過去問: 問題の表は対象外・正答記号は 9-6 にしない
+    out = run(write('surveyor', 'primary-r07', '## No.1\n\n次の表について答えよ。\n\n' + table + '\n<details>\n<summary>解答・解説</summary>\n\n**正答：2**\n\n</details>\n'));
+    assert.equal(/\(1-3\)|\(9-6\)/.test(out), false, out);
+    // ガイドは表も正答記号も検査を残す（インラインコードの書式説明だけは 9-6 にしない）
+    out = run(write('surveyor', 'guide-overview', '## 表\n\n次の表のとおり。\n\n' + table + '\n正答：2 のように書く。\n\n書式は `**正答：N**` とする。\n'));
+    assert.equal(/\(1-3\)/.test(out), true, out);
+    assert.equal((out.match(/\(9-6\)/g) || []).length, 1, out);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('15-1 の文末の連続は見出しで区切る', () => {
+  const root = mkdtempSync(join(tmpdir(), 'dn-prose-heading-'));
+  try {
+    const dir = join(root, 'civil-construction-1', 'guide-x');
+    mkdirSync(dir, { recursive: true });
+    const file = join(dir, 'article.mdx');
+    const head = '---\ntitle: ガイド\ncategory: civil-construction-1\ngroup: guide\n---\n\n';
+    writeFileSync(file, head + '## 前半\n\n一つ目です。二つ目です。\n\n## 後半\n\n三つ目です。四つ目です。\n');
+    let out = spawnSync(process.execPath, ['.claude/scripts/lint-mdx-mobile.mjs', file], { encoding: 'utf8' }).stdout;
+    assert.equal(/\(15-1\)/.test(out), false, out);
+    writeFileSync(file, head + '## 前半\n\n一つ目です。二つ目です。三つ目です。\n');
+    out = spawnSync(process.execPath, ['.claude/scripts/lint-mdx-mobile.mjs', file], { encoding: 'utf8' }).stdout;
+    assert.equal(/\(15-1\)/.test(out), true, out);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
