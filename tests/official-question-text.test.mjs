@@ -96,3 +96,33 @@ test('測量士の問題見出し（## No.N）も問題の始まり、文体検�
   const lines = ['## No.3', '設問文。', '<details>', '解説。'];
   assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/surveyor/primary-r07/article.mdx'), ['## No.3', '', '<details>', '解説。']);
 });
+
+test('1級土木 二次の分野別過去問（DN-0553）: 年度の見出し（## と ###）から <details> までが設問の逐語', () => {
+  // 2026-10-07: secondary-earthwork-past-problems の図の寸法を直したら、設問文の転記（「締め固めに適した状態」「仕上がり厚さ」
+  // 「取付け部」）を prh が止めた。試験の原文は直さず、解説の自前の表記は従来どおり揃える
+  for (const p of [
+    'content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx',
+    'content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx',
+    'content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx',
+    'content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx',
+  ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), true, p);
+  assert.equal(OFFICIAL_QUESTION_PAGE.test('content/site/civil-construction-1/secondary-earthwork-basics/article.mdx'), false);
+  const r = officialTextRanges([
+    '## 出題傾向', // 1
+    '仕上がり厚さ', // 2
+    '## 令和2年度〔問題1〕', // 3
+    '**【No.7】** 構造物と盛土の取付け部に…', // 4
+    '<details>', // 5
+    '構造物と盛土の取付け部に踏掛版を設ける', // 6
+    '</details>', // 7
+    '### 令和元年度 No.3', // 8
+    '裏込め材を薄い仕上がり厚さで締め固める。', // 9
+    '<details>', // 10
+    '薄い仕上がり厚さにする', // 11
+  ].join('\n'));
+  assert.equal(r.has(2), false, '出題傾向は自著');
+  assert.equal(r.get(4), Infinity);
+  assert.equal(r.has(6), false, '解説は自著');
+  assert.equal(r.get(9), Infinity, 'h3 の年度見出しも設問の始まり');
+  assert.equal(r.has(11), false);
+});
