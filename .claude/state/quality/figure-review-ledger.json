@@ -52,6 +52,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
+      "sha": "ade1dbee8b91161c",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右下の凡例『△：支承』の『承』の右側が切り出し範囲の端で断ち切られている（その右は空白）。桁・ブロック ⓐ〜ⓓ・『コンクリート床板』・支点記号は欠けなし",
+      "reviewedAt": "2026-10-06T11:39:55.837Z"
+    },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-03": {
       "sha": "36dc78833d402da5",
       "verdict": "needs-source",
@@ -327,6 +334,13 @@
       "reason": "上端のランニングヘッド『第4章 施工計画』・下端の図番号キャプションと出典『（国土交通省資料より）』・左右の余白を除いて切り直し（870x760→619x611）。フロー図の各ボックス・段階確認の枠・凡例は欠けなし。画像から消えた出典を ArticleImage の caption で表示するようにした。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T10:31:57.737Z"
     },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
+      "sha": "7d23e6674d08609d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上辺で先頭の工程ボックス『既設部測量』の上罫線と文字上端、右辺で断面図の『主桁』の『桁』と床版・斜線が切れている。図番号キャプション『図4.7 床版の施工図の例』の写り込みもある",
+      "reviewedAt": "2026-10-06T11:39:55.837Z"
+    },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
       "verdict": "ok",
@@ -387,6 +401,13 @@
       "action": "recrop",
       "reason": "上端に写り込んでいた前図の注記断片『0 m程度)』・下部の図番号キャプション『図2.2 サンドマットによる地盤処理』・余白を除いて切り直し（450x210→341x95）。盛土・サンドマット・ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T10:53:04.919Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-21": {
+      "sha": "01412a98b38c687f",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左余白の行番号 30・35・図番号キャプション『図2.21 じゃかご工の例』・左右の空白を除いて切り直し（850x310→464x197）。(a) じゃかご・(b) ふとんかごの断面と小図ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:39:55.839Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
       "sha": "ae8e1f5a04cfce47",
@@ -605,12 +626,26 @@
       "reason": "全面写真（GNSS アンテナと受信機を三脚に据えた写真）。EDGE_CUT は空と地面が縁まで続くのを拾った誤検出で、機材は縁の内側で欠けなし。worker の判定は並列 worker と一時ファイルを共有して別の図を読んでいたため無効とし、親が目視で判定",
       "reviewedAt": "2026-10-06T09:00:29.885Z"
     },
+    "civil-construction-1/textbook-scraper/img/scraper-dozer": {
+      "sha": "058a604b2496318d",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "スクレープドーザの現場写真で写り込みなし。OCR の兆候は車体の『CAT』ロゴ（写真内の実物表示）",
+      "reviewedAt": "2026-10-06T11:39:55.840Z"
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "sha": "5bc70ec39f8ae6d5",
       "verdict": "ok",
       "action": "none",
       "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
       "reviewedAt": "2026-10-06T09:02:06.089Z"
+    },
+    "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
+      "sha": "4ea990bedf7fe9ed",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ポータブルベルトコンベヤの現場写真で写り込みなし。縁に接するベルトの端・脚は写真の構図どおり。OCR の兆候は機体ラベルのピクトグラムへの誤検出",
+      "reviewedAt": "2026-10-06T11:39:55.840Z"
     },
     "civil-construction-2/primary-r03-kouki/img/q43-fig": {
       "sha": "39ee975faf66def5",
@@ -642,6 +677,13 @@
       "action": "none",
       "reason": "ネットワーク式工程表（節点 0〜6・作業 A〜G・日数）がそろい写り込みなし。EDGE_CUT 4 辺は要素が縁に接しているだけで、上端の文字・下端の『日』・左右の節点の円は図内の同種要素と同じ大きさで欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
+    "civil-construction-2/primary-r03-kouki/img/q60-fig": {
+      "sha": "6179704d6f7f6afd",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で A 工区・B 工区の縦軸が最下端まで続き、横軸（基線）と目盛『0』が写っていない（目盛間隔から 0 は画像の外）。写り込みは無い（R03 後期 No.60）",
+      "reviewedAt": "2026-10-06T11:39:55.837Z"
     },
     "civil-construction-2/primary-r05-zenki/img/q57-fig": {
       "sha": "eae3b1e408a7c41d",
@@ -735,6 +777,13 @@
       "action": "none",
       "reason": "ネットワーク式工程表（ノード 0〜6・作業 A〜H・日数）だけで写り込みなし。EDGE_CUT 4 辺は線や円が余白なく縁に接しているだけで、上端の横線・下端の『日』・左右の円は同じ図内の要素と同じ太さ・大きさで欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.735Z"
+    },
+    "civil-construction-2/primary-r07-zenki/img/q04-fig": {
+      "sha": "3cb468cbe27d2806",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で P1・P2 の作用線（縦の実線）が最下行まで続いて切れている。上側は 63px の余白で線が閉じている。写り込みは無い（R07 前期 No.4）",
+      "reviewedAt": "2026-10-06T11:39:55.837Z"
     },
     "civil-construction-2/primary-r07-zenki/img/q50-fig": {
       "sha": "e0f18d214ccab418",
@@ -940,6 +989,13 @@
         "page": 13,
         "dpi": 300
       }
+    },
+    "pe-first-stage/h29-basic/img/q-I3-6": {
+      "sha": "bfde4d560444e395",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で小図 (c) の厚さの寸法ラベル『d』が左半分しか写っていない。下端に選択肢文『① (a)と(b)』の写り込みもある（H29 基礎 Ⅰ-3-6）",
+      "reviewedAt": "2026-10-06T11:39:55.837Z"
     },
     "pe-first-stage/h29-construction/img/q03-fig": {
       "sha": "e97c41512072d12d",
