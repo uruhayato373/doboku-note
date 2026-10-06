@@ -45,6 +45,20 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-05": {
+      "sha": "1515c09b76c2f20d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で図1（二重腹起し）の土留め壁の縦線・斜めブレース・引出線、図2 の腹起し断面と寸法矢印、図3 の寸法線が切れている。下部にキャプション",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-06": {
+      "sha": "d3e3fef706880563",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で図1（二重腹起し）の斜材と縦線、図2 の寸法線・壁線・水平材の縦罫が切れている。下部にキャプション",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
+    },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
       "sha": "ed0e26b0c64ed730",
       "verdict": "ok",
@@ -107,6 +121,13 @@
       "reason": "唯一の原典（問題解説集2021 p.403）でも頁上部が切れていて、製管工法の立坑上部と右上の注記は復元できない。H28 の問題 PDF は手元に無い。キャプションと合わない左のさや管工法の図（fig-12 と重複）と下のキャプションを除いて製管工法の図だけに切り直した（1674x279→389x225・上端の欠けは残る）",
       "reviewedAt": "2026-10-06T10:22:21.028Z"
     },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
+      "sha": "62b0668c0bc388f6",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で地表より上の装置（やぐら・三脚の脚・ロッドとケーシングの頭部）が切れている。下部にキャプション『図 標準貫入試験』、左に空白と汚れ",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
+    },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
       "verdict": "ok",
@@ -118,6 +139,13 @@
         "page": 112,
         "dpi": 300
       }
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-02": {
+      "sha": "ad96aeb4bc0254f4",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で引出注記（『荷重計』が『荷』まで・ジャッキと載荷円板の注記は無い）、上部の横梁・載荷装置の枠・地面のハッチ線が切れている。左約 45% が空白、下部にキャプション『図 平板載荷試験』",
+      "reviewedAt": "2026-10-06T10:37:39.029Z"
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
       "sha": "e7df915cd216c1f2",
@@ -281,6 +309,13 @@
       "action": "recrop",
       "reason": "上端の本文断片・右側の章タブ『第2章 土工 基礎解説』と行番号 5/10・下端のキャプション断片・余白を除いて切り直し（530x350→418x318）。A-A'・B-B' の平面図と断面図・ℓ 記号・ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.098Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
+      "sha": "05e71695c49ad6be",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で 3 段グラフの最下段（V_A・V_B の曲線・破線・ラベル）が切れ、横軸と下半分が無い。左縁で軸ラベルと縦軸線も見切れ気味",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
       "sha": "955d312cd75ef986",
@@ -562,6 +597,13 @@
       "reason": "下端で断面④の寸法 1.5d の寸法線と補助線、左端で断面番号①④の丸の左半分、右端で断面③の図心軸の点線が切れている",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "pe-first-stage/h29-construction/img/q07-fig": {
+      "sha": "62d0b756212e8be3",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で注記『集中荷重』の『重』と『P [N]』の閉じ括弧が切れている",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
+    },
     "pe-first-stage/h30-basic/img/q-I2-2": {
       "sha": "f388fb838f5e9818",
       "verdict": "needs-source",
@@ -582,6 +624,13 @@
       "action": "none",
       "reason": "ニュートン・ラフソン法のフローチャートだけで写り込みなし。EDGE_CUT(bottom) は最下部の端子『終了』の下辺の罫線（3px・他の罫線と同じ太さ）が下端に接しているだけで欠けなし",
       "reviewedAt": "2026-10-06T09:43:30.757Z"
+    },
+    "pe-first-stage/h30-basic/img/q-I3-5": {
+      "sha": "02df175752e9f81a",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "天井のハッチ・バネ k・質点 m・基準線と変位 u・矢印だけで写り込みなし。EDGE_CUT(left/right) は固定支持の天井ハッチが左右端まで描かれているだけで欠けなし",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
     "pe-first-stage/h30-construction/img/q05-fig": {
       "sha": "ab33189f47d6ce8f",
@@ -699,6 +748,13 @@
       "action": "none",
       "reason": "レベル・三脚・標尺 2 本・0.210 m の寸法線・地盤線だけで写り込みなし。EDGE_CUT(bottom) は地盤線の曲線の最下点が最終行に接しているだけで、線幅は他と同じ約 3px で欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
+    "surveyor/primary-r07/img/q13-fig": {
+      "sha": "b19b70c03a282b8e",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で点 C のラベル『標高123.8 m』が『標高12』で切れている。出典は R07 測量士補 No.13",
+      "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
     "surveyor/primary-r07/img/q21-fig": {
       "sha": "f08ab9134d04b480",
