@@ -25,7 +25,9 @@ metadata:
 - **過去問のデータグラフはSVG化禁止**＝図の幾何が答えそのもの・ボケ元から誤答を誘発。→再スキャンが正。SVGは構造が本文確定できる模式図のみ。
 - 写り込み(recrop)は既存から再クロップで直る。答え漏らしの公開×掲載は既に0化済み [[project_civil1_figure_answer_leak]]。
 
-**未実装の拡張**: `/figure-quality-loop` の切り出し直しは出典（PDF・ページ・dpi）を判定台帳に残す。civil-figure-rework / pdf-to-mdx の crop は未対応。
+**出典の記録（2026-10-06〜）**: `/figure-quality-loop` の切り出し直しは、出典（`vault:` 相対の PDF・ページ・dpi）を判定台帳に残す。切り出し枠・回転は残らないので作り直せず、`config/figure-sources.json` の manual_needs と二重管理になっている（DN-0555）。civil-figure-rework / pdf-to-mdx の crop は未対応。
+
+**書籍の図を探す近道**: `原資料PDF/書籍/<book>/ocr/*.md` に、ページ印 `<!-- p0122 印字:114 -->` と図の説明 `（図: 図2.41 押え盛土工法。…）` が入っている。図番号で grep すれば PDF のページが分かる（p0122＝source/001.pdf の 122 ページ）。二次問題解説集2021 の PDF ページは 180° 逆さのことがある。書籍から作った記事は、図が 1 節ずつずれる・alt が別の図・図の分割・別教材の図番号の写り込みが起きていた（土工の基礎で実証。照合の機械化は DN-0557）。クロップ検査は png と webp の両方に掛ける（webp だけ見て、png の判定が CI で初めて出た。DN-0556）。
 
 ---
 

@@ -260,6 +260,96 @@
 
 **完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
 
+### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-07、pathspec commit（`git commit -- <path>`）の後に index だけ古い版が残った（`MM`）。#885 が `scripts/install-pre-commit.mjs` に post-commit（`scripts/sync-index-after-commit.mjs`）を足したのに、この Mac の `.git/hooks` には pre-commit しか無かった。pre-commit に埋め込む鮮度チェックは `HOOK_CONTENT_BODY`（pre-commit の本文）の hash しか比べないので、post-commit だけが増えた版では「古い」と出ない。手で `npm run pre-commit:install` を入れ直した。
+
+**やること**: 鮮度チェックの hash に post-commit の本文も含めるか、pre-commit の冒頭で post-commit の有無と版を確かめ、欠けていれば止める。「post-commit が無い・古い」を再現して止まることをテストで固定する。別 PC と各 worktree では一度 `npm run pre-commit:install` を実行する（DN-0233 の端末設定と合わせる）。
+
+**完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
+
+### [DN-0555] 図の切り出し直しを記録から再現できるようにし、図の出典を 1 か所にまとめる
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
+
+**起点**: 2026-10-06〜07 の図クロップ品質ループで、117 枚を元 PDF から切り出し直した。
+- 判定台帳 `.claude/state/quality/figure-review-ledger.json` に残るのは出典（`vault:` 相対の PDF・ページ・dpi）だけ。切り出し枠（cropBox）・回転・余白・減色は残らない。書籍スキャンには 180° 逆さのページもあり、同じ画像を作り直せない。
+- 出典は `config/figure-sources.json` の `manual_needs`（203 件、うち `source_pdf` 付き 69 件）にもあり、二重管理になっている。
+- `scripts/figure-review-queue.mjs` の `manualSourceOf` は config 側しか読まない。台帳に記録した出典は、次の切り出し直しに使われない。
+- 台帳は datasets 台帳（`scripts/lib/datasets.mjs`）に無く、型（zod）も無い。
+
+**やること**:
+1. 出典の正本を 1 つに決める（置き場は information-architecture.md と datasets の規約に従う）。第一案は、図の素材の事実である出典を `config.figure-sources` に寄せ、目視判定の履歴は台帳に残す形。重複を移して片方を消し、`manualSourceOf` と record が正本を読み書きするようにする。
+2. record が worker の結果から `cropBox`・`rotate`・`dpi`・後処理（減色・点の除去）を残すようにする。
+3. `scripts/figure-reextract.mjs <figKey>` を作り、記録から画像を作り直す。配信中の画像と同じ寸法で、画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立として exit 2 にする。
+4. 置き場を変えたら datasets 台帳に宣言して型を付け、`npm run check-datasets` を通す。
+
+**完了条件**: 切り出し直した図の出典が 1 か所だけにある。`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。`npm run check-datasets` が通る。
+
+### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
+
+**起点**: 2026-10-06〜07 に `/figure-quality-loop` を 51 周回した。親は毎周、次を手でやっていた。
+- worker の結果から判定 JSON（`.tmp/figure-loop/verdicts-*.json`）を書いた。
+- 新旧の比較画像を作った。
+- 画像から図番号のキャプションを外した図について、MDX に caption か `<p>` があるかを見た。
+- `check-figure-crop-integrity --file` を webp だけに掛けていた。png の切れ端判定は CI で初めて出た（図5.4。判定は誤りで、#890 で検査を直した）。
+- Workflow の結果がファイルに残らないので、会話の要約後は transcript から判定を拾い直した。
+- worker は毎回、書籍の図のページを pdftotext と目で探した。二次問題解説集の OCR には `<!-- p0122 印字:114 -->` のページ印と `（図: 図2.41 押え盛土工法。…）` があり、引けば一発で分かる。
+
+**やること**:
+1. `figure-crop-batch.workflow.mjs` が結果を `.tmp/figure-loop/results-<runId>.json` に書く。
+2. `figure-review-queue.mjs record --from-results <file> --pass <figKey...>` で、worker の結果から判定（source・cropBox 込み）を作る。
+3. `scripts/figure-qa-sheet.mjs <figKey...>` が次の 3 つを一括で出し、親は合否だけを決める。
+   - png・webp 両方のクロップ検査
+   - 新旧を並べた画像
+   - 画像から図番号のキャプションが消えたのに MDX に caption が無い図の一覧
+4. record は、png か webp のどちらかに STRAY_SLIVER があれば記録を拒む。
+5. `scripts/find-book-figure.mjs "図2.41"` で、書籍・PDF のページ・印字ページ・図名を OCR から引いて worker に渡す。
+6. SKILL.md（`.claude/skills/quality/figure-quality-loop/`）の手順を置き換え、`/doc-sync` を回す。
+
+**完了条件**: 判定 4 枚と切り出し直し 2 枚の 1 周を、手で JSON を書かずに `record --from-results` と `figure-qa-sheet` だけで記録できる。record が切れ端のある png を拒むことをテストで固定する。
+
+### [DN-0557] 書籍から作った解説記事で、図の番号・alt・本文の参照が原典とずれていないかを機械で照合し、残りの記事を直す
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-07、`civil-construction-1/secondary-earthwork-basics` の軟弱地盤対策を二次問題解説集2021 と照合して直した（ec373c03d）。見つかった不具合は次のとおり。
+- 図2.36〜2.52 が 1 節ずつずれて載っていた。
+- alt が画像と合っていなかった（図2.41 が「サーチャージ工法の原理」）。
+- 本文の図番号が違う図を指していた（サーチャージで「図2.41」、深層混合で「図2.44」）。
+- 1 枚の図が左右 2 枚に割られていた（図2.42）。
+- 同じ図が 2 回載っていた（図2.52）。
+- 別の教材の図番号（図1.93）が画像に写り込んでいた。
+- 薬液注入工法の本文が、石灰パイル工法の説明の繰り返しだった。
+
+同じ日、1級一次 H29 でも同じ図の切れ端が「（詳細）」の図名で重複していた。同じ書籍から作った他の `secondary-*-basics` と textbook 由来のガイドはまだ見ていないが、同じ生成の誤りが残っている見込みが高い。
+
+**やること**:
+1. 検査を作り、次の 4 点を見る。
+   - `ArticleImage` の alt・caption の「図X.Y 図名」が、書籍の OCR（Drive vault の `原資料PDF/書籍/<book>/ocr/*.md` の `（図: 図X.Y 図名。…）`）と一致するか
+   - 本文の「**図 X.Y**」が、同じ節（H4）にある図を指しているか
+   - 同じ図番号が 2 回出ていないか
+   - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
+2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
+3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。画像が違う図は `/figure-quality-loop` の reextract 段で切り出し直す。
+4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
+
+**完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
+
+### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-06、`figure-crop-worker`（sonnet）が原典を探す途中で、国交省の白書 PDF を `curl` で無断取得した（運営者は後で使用を承認）。
+- 今の歯止めは `.claude/agents/figure-crop-worker.md` の「`curl`・`wget` で取得しない」という一文だけで、守られる保証が無い。
+- worker の tools は `Read, Bash, Glob, Grep` なので、Bash からの取得は止まらない。
+
+**やること**: `scripts/hooks/agent-hook.mjs` の PreToolUse に、figure-crop-worker の Bash から外部 URL を取得するコマンド（`curl`・`wget`・`python -m urllib` 等）を拒否するチェックを足す。
+- 先に、hook の入力にエージェントの種別が来るかを確かめる。
+- 来なければ、別の形で止める。例: 親の許可フラグが無い取得をすべて拒否する。いずれの形でも、親が正当に使う `curl`（`check-production-ssr` 等）は壊さない。
+- テストを付ける。
+
+**完了条件**: worker 相当の入力では `curl https://...` が理由つきで拒否され、親の既存コマンド（`npm run check-production-ssr` 等）は通る。これをテストで固定する。
+
 ### [DN-0532] コンクリート技士の試験概要ページを「試験日」の検索語でクリックされるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-06]
 
@@ -657,7 +747,7 @@
 ### [DN-0451] 今日R2へ保存したKDP成果物を現行のDrive保管へ同期し、保存経路の不整合を解消する
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-29]
 
-**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。
+**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。2026-10-07 時点で、Mac の `scripts/kindle-dist/a-05.jpg`・`a-06.jpg`（2026-09-28 作成・各 0.8MB）が Drive 台帳に無く手元にしか無い（`quality:audit:ci` の drive-vault が FAIL）。**この Mac でしか退避できない**ので、別 PC へ移る前に `node scripts/drive-vault-sync.mjs --group kindle-dist --commit` で Drive へ退避する（下の手順 2・3 の経路）。
 
 **やること**:
 1. 当日の実行ログ、R2台帳、R2実体、`scripts/kindle-dist/`、KDP台帳を照合し、保存したEPUB・表紙の対象数、キー、bytes、SHA-256を特定する。取得失敗や対象0件を正常扱いしない
@@ -1306,6 +1396,47 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
+タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-07]
+
+**起点**: 並行セッションと CI の自動コミットで develop が数分おきに進む。2026-10-06〜07 の図ループでは、commit のたびに手書きのゲートで載せ直した（約 15 回）。手順を `;` で繋いで、失敗の後も先へ進んだ事故が 3 回ある（memory `reference_partial_clone_repack_hazard`「push を失敗しうる手順に ; で繋がない」）。
+
+**やること**: `scripts/replay-onto-develop.mjs <sha...> [--push]` を作る。
+- 処理: commit が在ることを確かめ、`git fetch`・`git reset --keep origin/develop`・`git cherry-pick` を行い、元の範囲と同じパッチかを比べる。`--push` は、同じパッチのときだけ push する。
+- 途中で止まった場合: 何が残ったかを出して非 0 で終える。cherry-pick が止まったら `--quit` で抜け、作業ツリーには触れない。
+- テスト: 一時リポジトリで「同じパッチ」「衝突」「commit 失敗の後に呼ばれた」の 3 通りを固定する。
+- 文書: workflows.md「ブランチ・並行セッション運用」と memory の該当節を、このスクリプトの案内に置き換える。
+
+**完了条件**: テスト 3 通りが通り、workflows.md の手順がスクリプト 1 行になっている。
+
+### [DN-0560] macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める
+タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-07]
+
+**起点**: 2026-10-07、`tests/sync-index-after-commit.test.mjs` の `sed -i "s/…/"` が macOS の BSD sed で落ち、Mac で回す `npm run test` と `quality:audit:ci` の unit-tests が赤くなっていた（#891 で `-i.bak` に直した）。CI は Linux だけなので、Mac でだけ落ちる書き方は CI では見つからない。
+
+**やること**:
+1. `tests/`・`scripts/`・`.claude/scripts/`・フックの本文から、BSD と GNU で挙動が違う書き方を見つける静的検査を作る。対象の例: 拡張子なしの `sed -i`、`grep -P`、`date -d`、`readlink -f`、`stat -c`、`xargs -r`。
+2. `tests/scripts-no-undef.test.mjs` と同じく npm test に載せる。
+3. 今ある該当箇所を直す。
+
+**完了条件**: 検査が対象ファイル数と検出数を出し、検出 0 件。わざと `sed -i "s/a/b/" f` を入れたテストが落ちる。
+
+### [DN-0561] 1級土木 一次 H27・H28 の問題 PDF（原典）を入手し、原典が無くて直せない図 2 枚を切り出し直す
+タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-07]
+
+**起点**: 図クロップ品質ループで、次の 2 枚が `source-unavailable`（原典なし）のまま残った。
+- `primary-h27-a/img/h27-a-fig-02`: 凡例「△：支承」の右側が切れている
+- `primary-h28-a/img/h28-a-fig-13`: 製管工法の立坑上部が切れている
+
+vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解説集2021 も代わりにならず、H27 No.18 の図のページはスキャンから欠け、H28 の図はページの上が切れている。公開元で H27・H28 の PDF が今も配られているかは未確認。
+
+**やること**:
+1. 公開元（全国建設研修センター等）で H27・H28 の問題 PDF が手に入るかを確かめる。
+2. 手に入るなら、運営者の了解を得てダウンロードし、Drive vault `原資料PDF/過去問/１級土木施工管理技士/` に置き、`/figure-quality-loop` の reextract 段で 2 枚を切り出し直す。
+3. 手に入らなければ、記事の注記で欠けを補うか SVG で描き直すかを決める（過去問の図の SVG 化の基準は memory `reference_figure_provenance_system`）。
+
+**完了条件**: 2 枚とも判定台帳で `ok` になっている。入手できない場合は、その判断と代わりの対応が記事に入っている。
 
 ### [DN-0524] .claude/config/ の JSON 20 本に zod の型を付ける（/ops/auth の認証設定を含む）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-03]
