@@ -296,6 +296,13 @@
       "reason": "上部の隣接図キャプション『図 2.14 張芝工』・下部の『図 2.17 筋芝工』・左余白の行番号 10/15・最下端の本文見出し断片を除いて切り直し（310x330→228x163）。法面・芝の筋・耳芝・切芝のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:43:30.760Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
+      "sha": "70c1ce460ce4d336",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端に写り込んでいた前図の注記断片『0 m程度)』・下部の図番号キャプション『図2.2 サンドマットによる地盤処理』・余白を除いて切り直し（450x210→341x95）。盛土・サンドマット・ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:53:04.919Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
       "sha": "ae8e1f5a04cfce47",
       "verdict": "needs-source",
@@ -372,6 +379,13 @@
       "action": "none",
       "reason": "左縁でラベル『すべり面』の『すべ』と地盤面の曲線・すべり面の円弧が切れている。右側に章見出し帯と行番号 5/10、下部に図番号キャプション『図2.43 軟弱地盤における盛土補強工法』",
       "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
+      "sha": "e5bf67dc41cbe627",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で②貫入のロッド・改良地盤の砂杭の点描・③④の杭範囲が切れている。上部にランニングヘッド『第2章 土 工』の写り込みもある",
+      "reviewedAt": "2026-10-06T10:53:04.917Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
       "sha": "62b8b9d50d35ee4b",
@@ -482,6 +496,27 @@
       "action": "none",
       "reason": "ネットワーク式工程表（節点 0〜6・作業 A〜G・日数）がそろい写り込みなし。EDGE_CUT 4 辺は要素が縁に接しているだけで、上端の文字・下端の『日』・左右の節点の円は図内の同種要素と同じ大きさで欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
+    "civil-construction-2/primary-r05-zenki/img/q57-fig": {
+      "sha": "638c7f7b9dd03514",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で工程表の終端ノード⑥の円の右側の弧が切れている（直径 40px のうち右端 1px しか残らない）。左と下に図の無い大きな余白もあり、切り出し直しで詰める",
+      "reviewedAt": "2026-10-06T10:53:04.919Z"
+    },
+    "civil-construction-2/primary-r06-zenki/img/q01-fig": {
+      "sha": "5abf9cfa9d3609f6",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で図見出しのルビ（体積『たいせき』・質量『しつりょう』）が上半分で切れている。土の三相モデル本体は欠けなし",
+      "reviewedAt": "2026-10-06T10:53:04.919Z"
+    },
+    "civil-construction-2/primary-r07-kouki/img/q3-fig": {
+      "sha": "065a5b2504dab29d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で左右の寸法補助線、左縁で左支点（ピン）の地面線、右縁で右支点（ローラー）の二重線が切れ、上縁で荷重記号 P の上端が縁に接している（R07 後期 No.3）",
+      "reviewedAt": "2026-10-06T10:53:04.919Z"
     },
     "civil-construction-2/primary-r07-kouki/img/q36-fig": {
       "sha": "ae2e0ae68312b67f",
@@ -609,6 +644,13 @@
       "reason": "下縁で X 軸の軸ラベル『事業領域』の下半分と縦軸端の『官』の下部が切れている。左縁に撮影時の指、右上に隣接する本文の滲み",
       "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
+    "pe-first-stage/h29-basic/img/q-I1-3": {
+      "sha": "1ed5ca4e32243ef6",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "デシジョンツリー本体と確率・損失額ラベルだけで写り込みなし。EDGE_CUT(top) は右上『結果R1』の『結』の縦画の先端 2px、EDGE_CUT(left) は左端の決定ノード□の左辺が縁に接するだけで、判読に影響しない",
+      "reviewedAt": "2026-10-06T10:53:04.916Z"
+    },
     "pe-first-stage/h29-basic/img/q-I2-3": {
       "sha": "8ee9678d8538770e",
       "verdict": "ok",
@@ -651,6 +693,13 @@
         "page": 4,
         "dpi": 300
       }
+    },
+    "pe-first-stage/h29-construction/img/q17-fig": {
+      "sha": "4901a1facb789c8b",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で垂直平板（斜線ハッチの壁）の上端、下縁と右縁で地盤のハッチ帯が輪郭線なしに切れている。写り込みはなく切り直しでは直らない（技術士第一次 H29 建設部門 Ⅲ-17）",
+      "reviewedAt": "2026-10-06T10:53:04.917Z"
     },
     "pe-first-stage/h30-basic/img/q-I2-2": {
       "sha": "8bce87f73362fdd4",
