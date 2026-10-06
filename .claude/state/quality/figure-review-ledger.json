@@ -1055,12 +1055,68 @@
       "reason": "右側と下端に偏っていた余白と下端の薄い点を除いた（560x662→520x657）。上の軸タイトル『管外径 : D [m]』は図の一部として残した。作図線と文字は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:51:32.489Z"
     },
+    "pe-first-stage/h24-basic/img/q13-source": {
+      "sha": "505103fcf1fcf7b3",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "品質表の外枠罫線が 4 辺とも閉じて収まり写り込みなし。OCR の兆候は表内の文字",
+      "reviewedAt": "2026-10-06T11:57:37.329Z"
+    },
+    "pe-first-stage/h24-construction/img/q9-source": {
+      "sha": "5de20c60fe0aefaf",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "5 つの小図（①〜⑤の荷重図と曲げモーメント図）と凡例の注記だけで写り込みなし。上・左の余白は 2px だが①の丸数字も欠けていない",
+      "reviewedAt": "2026-10-06T11:57:37.329Z"
+    },
+    "pe-first-stage/h24-water-supply/img/q13-source": {
+      "sha": "bdf97da19ac6be32",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "管種・継手ごとの耐震適合性の表で外枠が 4 辺とも収まり写り込みなし。上端の表見出しは設問が参照する表の一部",
+      "reviewedAt": "2026-10-06T11:57:37.330Z"
+    },
+    "pe-first-stage/h25-basic/img/q14-source": {
+      "sha": "3895ff44042938ba",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "右・左・下に偏っていた余白とスキャンの黒点を除いた（650x705→544x651）。作業表とアローダイアグラム、図の小見出し『アローダイアグラム』は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:57:37.331Z"
+    },
+    "pe-first-stage/h25-basic/img/q32-source": {
+      "sha": "1747029167c363d0",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左右・下の過大な余白と左端のスキャン汚れを除いた（850x790→765x735）。3 種のはりと断面・(a)(b)(c)・軸・寸法ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:57:37.332Z"
+    },
     "pe-first-stage/h26-basic/img/q21-source": {
       "sha": "b39f4001d9849d95",
       "verdict": "needs-source",
       "action": "none",
       "reason": "下縁で作業ラベル『(エ)』の括弧の下半分（約 6〜7px）が切れている。写り込みは無い（H26 基礎）",
       "reviewedAt": "2026-10-06T11:33:43.674Z"
+    },
+    "pe-first-stage/h26-construction/img/q8-source": {
+      "sha": "90ddc3ff7218e507",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "5 つの単純ばりと曲げモーメント図で縁に接するものはなく写り込みなし。OCR の兆候は図内の見出しとラベル",
+      "reviewedAt": "2026-10-06T11:57:37.332Z"
+    },
+    "pe-first-stage/h26-water-supply/img/q9-source": {
+      "sha": "5a91c75bbef11003",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "膜の適用範囲の図で外枠罫線が 4 辺とも完結し、空欄ウ〜オも欠けなし。写り込みなし",
+      "reviewedAt": "2026-10-06T11:57:37.332Z"
+    },
+    "pe-first-stage/h27-basic/img/q18-fig": {
+      "sha": "81bcb10b7b963c1a",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左右・下の大きな空白と右下のスキャンの点を除いた（1600x1295→1188x1020）。はり1・はり2と断面・寸法・荷重 P は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:57:37.333Z"
     },
     "pe-first-stage/h28-basic/img/q08-table": {
       "sha": "f776d311e05bce66",
