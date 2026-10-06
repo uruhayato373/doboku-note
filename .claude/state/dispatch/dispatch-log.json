@@ -2107,6 +2107,18 @@
       "commit": "2c5a02276376",
       "verification": "check-x-campaign-plan OK（2026-11-pe-oral.json 27件・WARN 0／全 9 ファイル 261 件）/ 合否決定基準の表を文部科学省 HTML の rowspan で確認 / 配点 50+50 を受験申込み案内 PDF で確認",
       "note": "再開条件: 11/4 の公式掲載を確かめて運営者が無料2本を公開・L2 配線。funnel を note へ切り替える前に無料2本のカタログ登録かゲート例外を決め、tweets.md を作る"
+    },
+    {
+      "id": "DN-0445",
+      "at": "2026-10-06",
+      "task": "2級二次の直前受注 — note 無料記事 2 本の下書き",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "2e43df53d2ed",
+      "verification": "note-fact-checker 照合 68 件・High 0・Medium 2 と Low 5 を反映 / note-lint 2 記事 OK / check-keiken-answer-split ✓ / check-note-site-utm 違反 0",
+      "note": "再開条件: 著者バナー画像の複製 → 運営者が note-publish で公開 → check-note-structure。3 本目（添削の実例）は運営者の素材待ち"
     }
   ]
 }
