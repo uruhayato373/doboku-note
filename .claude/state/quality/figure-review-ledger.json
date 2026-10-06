@@ -929,6 +929,13 @@
       "reason": "右縁で角丸ボックス『緑に関する法制の抜本…』と本文行・右の矢印ボックス、下縁で 2 つの角丸ボックスの下半分が切れている。左縁にスキャン時の指、紙面の影と傾き",
       "reviewedAt": "2026-10-06T09:43:30.759Z"
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24": {
+      "sha": "df9fcbc1ff447b8b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "本のページの撮影写真から、右下の撮影者の指・左端の本の縁・右端の綴じ部の影とページ端・下端の隣接本文の断片を除いて切り直し（1094x393→904x368・指の食い込みは図要素の無い隅だけ白塗り）。棒グラフ・折れ線・両軸・凡例・年度ラベルは欠けなし。プロット上部の薄い裏写りは残る。出典は記事の caption にある。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:51:32.486Z"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
       "sha": "bd6746158998b14c",
       "verdict": "needs-source",
@@ -992,12 +999,61 @@
       "reason": "右縁で 3 本の折れ線（全産業・製造業・建設業）の最新年の端が、下縁で縦軸の下端・横軸・年の目盛りが切れている。左縁に撮影時の指",
       "reviewedAt": "2026-10-06T09:46:19.916Z"
     },
+    "pe-construction/r08-construction-planning/img/question-ii-2-1": {
+      "sha": "ad5e5a0bf2f75924",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "模式図の本体が欠けなく収まり写り込みなし。下部の『模式図』は原図の図内タイトル。OCR の兆候は図中の日本語ラベル",
+      "reviewedAt": "2026-10-06T11:51:32.487Z"
+    },
+    "pe-construction/r08-geotechnical/img/question-ii-2-1-section": {
+      "sha": "7bca3a2edd89086a",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "道路トンネルの断面図で四辺とも欠けなし・写り込みなし。下部の『【断面図】』は原図の図種ラベル",
+      "reviewedAt": "2026-10-06T11:51:32.487Z"
+    },
+    "pe-construction/r08-geotechnical/img/question-ii-2-2-plan": {
+      "sha": "f38fa3f33440498c",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "平面図で四辺とも欠けなし・写り込みなし。STRAY_LABEL(bottom) は原図の図種ラベル『【平面図】』",
+      "reviewedAt": "2026-10-06T11:51:32.487Z"
+    },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "sha": "2876d0b4e1552c93",
       "verdict": "needs-source",
       "action": "none",
       "reason": "下縁で X 軸の軸ラベル『事業領域』の下半分と縦軸端の『官』の下部が切れている。左縁に撮影時の指、右上に隣接する本文の滲み",
       "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
+    "pe-first-stage/h23-basic/img/q13-source": {
+      "sha": "a9a0ee2602b0e752",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端の図番号キャプション『図 アローダイアグラム』と右の余白を除いて切り直し（700x757→686x702）。上端の表見出しはデータ表の見出しとして残した。表とアローダイアグラムは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:51:32.488Z"
+    },
+    "pe-first-stage/h23-basic/img/q14-source": {
+      "sha": "efcb65634d3c22d7",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "売上高の利得表が四辺とも余白を残して収まり写り込みなし。STRAY_LABEL(top) は表見出し『表 売上高の利得表』",
+      "reviewedAt": "2026-10-06T11:51:32.488Z"
+    },
+    "pe-first-stage/h23-water-supply/img/q12-source": {
+      "sha": "3f9a6e16bd4ad97c",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "漏水防止の表（空欄ア〜オ）で外枠 4 辺とも収まり写り込みなし。OCR の兆候は表内の文字",
+      "reviewedAt": "2026-10-06T11:51:32.488Z"
+    },
+    "pe-first-stage/h23-water-supply/img/q24-source": {
+      "sha": "c88fc507845c52a6",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "右側と下端に偏っていた余白と下端の薄い点を除いた（560x662→520x657）。上の軸タイトル『管外径 : D [m]』は図の一部として残した。作図線と文字は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:51:32.489Z"
     },
     "pe-first-stage/h26-basic/img/q21-source": {
       "sha": "b39f4001d9849d95",
