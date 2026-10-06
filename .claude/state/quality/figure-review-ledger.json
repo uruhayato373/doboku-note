@@ -63,6 +63,13 @@
       "reason": "上端で (a) の盛土の引き出しラベル（『盛土の場合の沈下』等）の上半分と盛土頂部の線、(b) の地すべり地の斜面と EPS ブロックの積層上部が切れている。下端に図番号キャプション『図 軽量盛土工法』",
       "reviewedAt": "2026-10-06T09:49:08.230Z"
     },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
+      "sha": "3722d5fab949647d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で RI 計器本体の上部（破線枠の電源・増幅器と上の機器・線源棒の筒）、右縁で引き出し注記『地表面を平…／計器を設…』と凡例『ガンマ…』『中性子…』が切れている。下部にキャプション『図 RI計器による土の密度試験』",
+      "reviewedAt": "2026-10-06T09:56:02.169Z"
+    },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
       "sha": "979f56a38fb32a36",
       "verdict": "needs-source",
@@ -168,6 +175,13 @@
       "reason": "左縁で盛土台形の左のり面と左側の置換溝が切れ、(b) の左半分が欠けている。fig-2-42a と合わせて原図『図2.42 置換工法』を横に分割した切れ端。下部にキャプション断片。記事 alt『半真盛土工法』は画像（置換工法）と合わない疑い",
       "reviewedAt": "2026-10-06T09:40:15.246Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-43": {
+      "sha": "0a75a7490b4012d8",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁でラベル『すべり面』の『すべ』と地盤面の曲線・すべり面の円弧が切れている。右側に章見出し帯と行番号 5/10、下部に図番号キャプション『図2.43 軟弱地盤における盛土補強工法』",
+      "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
       "sha": "62b8b9d50d35ee4b",
       "verdict": "ok",
@@ -231,6 +245,20 @@
       "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
       "reviewedAt": "2026-10-06T09:02:06.089Z"
     },
+    "civil-construction-2/primary-r05-kouki/img/q45-fig": {
+      "sha": "8fe77561cba4565b",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で地盤（灰色塗りとハッチ）が余白なく切れ、地盤の下側の輪郭線が閉じていない。右下の杭の下の地盤とハッチも縁で途切れる。出典は R05 後期 問45",
+      "reviewedAt": "2026-10-06T09:56:02.168Z"
+    },
+    "civil-construction-2/primary-r06-kouki/img/q50-fig": {
+      "sha": "2be8250fb999a36d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で左橋脚の基礎の柱体・中央橋脚下の杭 3 本・左下と右下の地盤ハッチと地層線が断ち切られている。上部の寸法線 (イ)(ロ)(ハ)(ニ) と水位記号は欠けなし",
+      "reviewedAt": "2026-10-06T09:56:02.169Z"
+    },
     "civil-construction-2/primary-r07-kouki/img/q36-fig": {
       "sha": "ae2e0ae68312b67f",
       "verdict": "ok",
@@ -287,6 +315,13 @@
       "reason": "棒グラフの右側のプロット領域に裏ページの文字が透けて写っている（裏写り）。左端に撮影時の黄ばみと影、下端にキャプションの上半分。裏写りは切り直しで除けない",
       "reviewedAt": "2026-10-06T09:46:19.912Z"
     },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
+      "sha": "803b198bd9a2d136",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で最上段の箱『インフラ長寿命化基本計画（国）』の上辺の罫線が画像外。書籍を斜めに撮影した写真で、右半分に裏写り、左端に綴じ部の影、右下の出典表記が右端で切れている",
+      "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "sha": "a6978e6aa7d03008",
       "verdict": "needs-source",
@@ -301,12 +336,33 @@
       "reason": "上端で凡例『■全産業死亡者数 ○建設業死亡者数』の文字の上半分が切れている。左下に撮影時の指、右側にスキャン裏写りの汚損もある",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
+      "sha": "63305220cbe6baaa",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で横軸の年ラベル（2002〜24）の下半分が切れ、軸タイトル・出典も入っていない。背景全体に裏写りの汚れ、左端に綴じ部の影",
+      "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig21": {
       "sha": "22911c8ebec6de83",
       "verdict": "needs-source",
       "action": "none",
       "reason": "右縁で 3 本の折れ線（全産業・製造業・建設業）の最新年の端が、下縁で縦軸の下端・横軸・年の目盛りが切れている。左縁に撮影時の指",
       "reviewedAt": "2026-10-06T09:46:19.916Z"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
+      "sha": "2876d0b4e1552c93",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で X 軸の軸ラベル『事業領域』の下半分と縦軸端の『官』の下部が切れている。左縁に撮影時の指、右上に隣接する本文の滲み",
+      "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
+    "pe-first-stage/h29-basic/img/q-I2-3": {
+      "sha": "8ee9678d8538770e",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端に写り込んでいた選択肢表の見出し『ア　イ』の断片と孤立ドットを除いて切り直し（1769x1619→1769x1490）。左縁のループ戻り線と右縁の平行四辺形の角は縁に接するが欠けていない（EDGE_CUT は正当な縁接触）。親 QA 合格（新旧比較・左縁を拡大して確認）",
+      "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
     "pe-first-stage/h29-construction/img/q05-fig": {
       "sha": "6d520d2f9dc30cc5",
