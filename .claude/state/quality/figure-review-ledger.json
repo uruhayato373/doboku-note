@@ -672,25 +672,28 @@
       }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
-      "sha": "955d312cd75ef986",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で地盤線・サンド層・点線、左端で『II すべり面』『弱層』のラベルと円弧が切れ、押え盛土工法の断面の下半分だけ。下部にキャプション『図 2.41 押え盛土工法』と次図の枠断片。記事 alt『サーチャージ工法の原理』と画像（押え盛土工法）が合わない疑い",
-      "reviewedAt": "2026-10-06T09:40:15.247Z"
+      "sha": "d23069db32da7931",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下半分だけだった図2.41 押え盛土工法を二次問題解説集2021 印字 p.114 から全体で切り出し直した（図番号キャプションは記事側）。alt の取り違え（サーチャージ工法）を直し、押え盛土工法の節へ移した（DN-0550）。親 QA 合格（crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:48:37.025Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 122,
+        "dpi": 300
+      }
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42a": {
-      "sha": "2c2af9f4272823b8",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "図2.42『置換工法』の横長の 1 枚図を左右に割った左半分で、右端で (b) との間の引出ラベル『良質土』が切れ、左端で置換部の左上と地盤線が縁に接している。下部にキャプション断片。fig-2-42b と合わせて 1 枚で切り出し直す（alt の取り違えは DN-0550）",
-      "reviewedAt": "2026-10-06T09:43:30.760Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42b": {
-      "sha": "a5ddeceb7d4e54bd",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で盛土台形の左のり面と左側の置換溝が切れ、(b) の左半分が欠けている。fig-2-42a と合わせて原図『図2.42 置換工法』を横に分割した切れ端。下部にキャプション断片。記事 alt『半真盛土工法』は画像（置換工法）と合わない疑い",
-      "reviewedAt": "2026-10-06T09:40:15.246Z"
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42": {
+      "sha": "16113afea1cd2383",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左右に分割された切れ端（旧 fig-2-42a・fig-2-42b）だった図2.42 置換工法を、二次問題解説集2021 印字 p.114 から (a)(b) を含む 1 枚で切り出し直した。置換工法の節へ移した（DN-0550）。親 QA 合格（crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:48:37.029Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 122,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-43": {
       "sha": "11dc58c14e7d85e4",
@@ -703,6 +706,13 @@
         "page": 123,
         "dpi": 300
       }
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-47": {
+      "sha": "55e589e8075cc6f1",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下に写り込んでいた別教材の図番号キャプション『図1.93 ペーパードレーン工法（PVD工法）の施工順序』を切り落とし、図名は記事の caption に書いた。親 QA 合格（crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:48:37.031Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
       "sha": "a9f73a18c74b51f4",
