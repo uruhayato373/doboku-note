@@ -647,18 +647,28 @@
       "reviewedAt": "2026-10-06T09:49:08.227Z"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
-      "sha": "c29c26a987d49e9a",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁でノード①の円の左半分が欠けている。上縁には本文の断片（『…ればよいか。』の下半分）も写り込んでいる（H28 Ⅰ-1-5）",
-      "reviewedAt": "2026-10-06T11:02:54.216Z"
+      "sha": "acc568d02e833c2f",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で欠けていたノード①を戻し、上縁の本文断片を除いて、総監 H28 択一式の公式問題 PDF p.3（Ⅰ-1-5）から 300dpi で切り出し直した（540x290→720x393）。作業 A〜G と作業時間は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:16:16.043Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（総監）/H28/H28_試験問題_択一式.pdf",
+        "page": 3,
+        "dpi": 300
+      }
     },
     "pe-comprehensive-management/r06-primary/img/i-1-31-system-diagram": {
-      "sha": "1426f973c4b5c61e",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁でユニット1・ユニット2 の箱の上辺が無く、側面の縦線が上端まで続いている。下部に図番号キャプション『図 システム構成と各ユニットの信頼度』と空白もある（R06 Ⅰ-1-31）",
-      "reviewedAt": "2026-10-06T11:12:57.314Z"
+      "sha": "d7ab289069cdd84d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で欠けていたユニット1・2 の箱の上辺を戻し、図番号キャプションと下の空白を除いて、総監 R06 択一式の公式問題 PDF p.20（Ⅰ-1-31）から 300dpi で切り出し直した（750x350→900x322）。ユニット 1〜4 と信頼度は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:16:16.045Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（総監）/R06/R06_試験問題_択一式.pdf",
+        "page": 20,
+        "dpi": 300
+      }
     },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
       "sha": "0600507f1a9e7cd3",
@@ -752,11 +762,16 @@
       "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
     "pe-first-stage/h28-basic/img/q08-table": {
-      "sha": "88fda9c7e85e8f32",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で真理値表の下枠と最終行（A=1, B=1）の下側が切れ、縦罫線 4 本が最下行まで続いている。上部に約 155px の空白もある（H28 基礎 Ⅰ-2-2）",
-      "reviewedAt": "2026-10-06T11:12:57.314Z"
+      "sha": "f776d311e05bce66",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた真理値表の下枠と最終行（1, 1, 0）を戻し、上の空白を詰めて、技術士第一次 H28 基礎科目の公式問題 PDF p.8（Ⅰ-2-2）から 600dpi で切り出し直した（1500x1050→1295x985）。表の値は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:16:16.047Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H28/H28_基礎科目.pdf",
+        "page": 8,
+        "dpi": 600
+      }
     },
     "pe-first-stage/h29-basic/img/q-I1-3": {
       "sha": "1ed5ca4e32243ef6",
@@ -885,11 +900,16 @@
       }
     },
     "pe-first-stage/h30-construction/img/q19-fig": {
-      "sha": "0cc0b5bd57f2a2fc",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で基準線の注記『基準面』が『基』の左半分しか写っておらず、左縁でも基準線が x=0 まで続いている（H30 建設 Ⅲ-19）",
-      "reviewedAt": "2026-10-06T11:12:57.314Z"
+      "sha": "9c7abfb2fa548d78",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた注記『基準面』と左縁の基準線の端を戻し、技術士第一次 H30 建設部門の公式問題 PDF p.9（Ⅲ-19）から 300dpi で切り出し直した（1209x1161→1345x982）。点 A〜C・z_A〜z_C・水槽・管路・流速 v_C は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:16:16.048Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_専門_09建設部門.pdf",
+        "page": 9,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "sha": "b529a79495696b71",
