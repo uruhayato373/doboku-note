@@ -1,110 +1,103 @@
 /**
- * product-registry.mjs — 商品の正本（content/products/<channel>/<id>.json・1商品1ファイル）の唯一の実装（DN-0492）。
+ * product-registry.mjs — 商品の正本（config/products.json・全チャネルの全商品を 1 ファイル）の唯一の実装（DN-0492）。
  * ---------------------------------------------------------------------------
- * 正本は Git 上の JSON。SQLite（npm run product:db）は検索用の生成物で、正本ではない。
- * ここに置くもの: 型（zod）・読み込み・正規化した書き出し（キー順・字下げ 2・LF）・収録の意図の解決・
- * note-magazines.ts の生成ブロック（段階1は読み手を変えないため、正本から TS の該当エントリを書き出す）。
+ * 正本は Git 上の JSON 1 ファイル（2026-10-06 に content/products/<channel>/<id>.json の 1 商品 1 ファイルから集約）。
+ * SQLite（npm run product:db）は検索用の生成物で、正本ではない。型（zod）は dataset-schemas-config-business.mjs の
+ * Product・ConfigProducts（台帳 config.products）。
+ * ここに置くもの: 読み込み・正規化した書き出し（並び channel → id・キー順・字下げ 2・LF）・収録の意図の解決・
+ * note-magazines.ts の生成ブロック（読み手は変えないため、正本から TS の該当エントリを書き出す）。
  * 判定はこの lib に集約し、CLI（scripts/product.mjs）・検査（scripts/check-products.mjs）・DB 生成から呼ぶ。
  */
-import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { z } from 'zod';
 import { datasetPath } from './datasets.mjs';
+import { Product } from './dataset-schemas-config-business.mjs';
 
+export { Product };
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PRODUCTS_DIR = join(ROOT, 'content', 'products');
+export const PRODUCTS_REL = datasetPath('config.products');
+export const PRODUCTS_FILE = join(ROOT, PRODUCTS_REL);
 export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
 export const SNAPSHOT = join(ROOT, datasetPath('note.magazines'));
-
-/** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
-const CatalogValue = z.union([z.string(), z.number(), z.boolean(), z.null()]);
-const Catalog = z
-  .object({ id: z.string(), published: z.boolean(), noteUrl: z.string() })
-  .catchall(z.union([CatalogValue, z.array(CatalogValue), z.record(z.string(), CatalogValue)]));
-
-export const Product = z
-  .object({
-    id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
-    channel: z.enum(['note']),
-    qualification: z.string(),
-    stage: z.string(),
-    /** 系列: 経験記述・学科記述・横断・一次 など */
-    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
-    /** 設計上の層 */
-    tier: z.enum(['pack', 'magazine', 'single', 'membership']),
-    persona: z.string().nullable().default(null),
-    /** note-magazines.ts の該当エントリ（そのまま書き出す） */
-    catalog: Catalog,
-    /**
-     * note 上で収録すべき記事（リポジトリ相対の article.md パス）。原稿の noteId と結び付かない note 上の記事は
-     * `note:<noteId>`（同じ題名の別 ID が収録されているなど。check-products が件数を出す）
-     */
-    members: z.array(z.string()).default([]),
-    /** 丸ごと含む商品の id（パックが含むマガジン・単品） */
-    includes: z.array(z.string()).default([]),
-    /** 経緯のメモ（旧 note-magazines.ts のコメント） */
-    memo: z.array(z.string()).default([]),
-  })
-  .strict();
+export const PRODUCTS_DOC = '商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」';
 
 const KEY_ORDER = ['id', 'channel', 'qualification', 'stage', 'series', 'tier', 'persona', 'catalog', 'members', 'includes', 'memo'];
 
-/** 正規化した JSON（キー順を固定・字下げ 2・LF・末尾改行）。Windows / Mac で同じバイト列になる */
-export function canonicalJson(product) {
-  const ordered = {};
-  for (const k of KEY_ORDER) if (k in product) ordered[k] = product[k];
-  return JSON.stringify(ordered, null, 2) + '\n';
+function ordered(product) {
+  const out = {};
+  for (const k of KEY_ORDER) if (k in product) out[k] = product[k];
+  return out;
 }
 
-export function productPath(channel, id) {
-  return join(PRODUCTS_DIR, channel, `${id}.json`);
+/** 1 商品の正規化した JSON（キー順を固定・字下げ 2・LF・末尾改行）。show の表示用 */
+export function canonicalJson(product) {
+  return JSON.stringify(ordered(product), null, 2) + '\n';
+}
+
+const byChannelId = (a, b) => a.channel.localeCompare(b.channel) || a.id.localeCompare(b.id);
+
+/** 正本ファイル全体の正規化した JSON（並び channel → id・字下げ 2・LF・末尾改行）。Windows / Mac で同じバイト列になる */
+export function canonicalFile(products) {
+  return JSON.stringify({ schemaVersion: 1, _doc: PRODUCTS_DOC, products: [...products].sort(byChannelId).map(ordered) }, null, 2) + '\n';
 }
 
 /** 正本を全部読む。型エラーは throw せず errors に集める（検査は件数を出して止める） */
 export function loadProducts() {
   const products = [];
   const errors = [];
-  if (!existsSync(PRODUCTS_DIR)) return { products, errors: ['content/products/ が無い'] };
-  for (const channel of readdirSync(PRODUCTS_DIR, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name)) {
-    for (const f of readdirSync(join(PRODUCTS_DIR, channel)).filter((x) => x.endsWith('.json')).sort()) {
-      const rel = `content/products/${channel}/${f}`;
-      let raw;
-      try {
-        raw = readFileSync(join(PRODUCTS_DIR, channel, f), 'utf8');
-      } catch (e) {
-        errors.push(`${rel}: 読めない ${e.message}`);
-        continue;
-      }
-      let json;
-      try {
-        json = JSON.parse(raw);
-      } catch (e) {
-        errors.push(`${rel}: JSON でない ${e.message}`);
-        continue;
-      }
-      const parsed = Product.safeParse(json);
-      if (!parsed.success) {
-        errors.push(`${rel}: ${parsed.error.issues.map((i) => `${i.path.join('.')} ${i.message}`).join(' / ')}`);
-        continue;
-      }
-      const p = parsed.data;
-      if (f !== `${p.id}.json`) errors.push(`${rel}: ファイル名と id（${p.id}）が違う`);
-      if (p.catalog.id !== p.id) errors.push(`${rel}: catalog.id（${p.catalog.id}）と id が違う`);
-      if (p.channel !== channel) errors.push(`${rel}: channel（${p.channel}）と置き場が違う`);
-      if (raw !== canonicalJson(p)) errors.push(`${rel}: 正規化されていない（npm run product -- fmt）`);
-      products.push(p);
-    }
+  if (!existsSync(PRODUCTS_FILE)) return { products, errors: [`${PRODUCTS_REL} が無い`] };
+  let raw;
+  let json;
+  try {
+    raw = readFileSync(PRODUCTS_FILE, 'utf8');
+    json = JSON.parse(raw);
+  } catch (e) {
+    return { products, errors: [`${PRODUCTS_REL}: 読めない・JSON でない ${e.message}`] };
   }
+  if (json?.schemaVersion !== 1) errors.push(`${PRODUCTS_REL}: schemaVersion が 1 でない`);
+  if (!Array.isArray(json?.products)) return { products, errors: [...errors, `${PRODUCTS_REL}: products が配列でない`] };
+  const seen = new Set();
+  for (const item of json.products) {
+    const label = `${PRODUCTS_REL}#${item?.id ?? '?'}`;
+    const parsed = Product.safeParse(item);
+    if (!parsed.success) {
+      errors.push(`${label}: ${parsed.error.issues.map((i) => `${i.path.join('.')} ${i.message}`).join(' / ')}`);
+      continue;
+    }
+    const p = parsed.data;
+    if (seen.has(p.id)) errors.push(`${label}: id が重複`);
+    seen.add(p.id);
+    if (p.catalog.id !== p.id) errors.push(`${label}: catalog.id（${p.catalog.id}）と id が違う`);
+    products.push(p);
+  }
+  if (!errors.length && raw !== canonicalFile(products)) errors.push(`${PRODUCTS_REL}: 正規化されていない（npm run product -- fmt）`);
   return { products, errors };
 }
 
+/** 商品を足す・置き換える（id で照合）。正本に正規化以外の問題があれば書かない。書いたファイルのパスを返す */
+export function saveProducts(list) {
+  const next = list.map((p) => Product.parse(p));
+  const { products, errors } = loadProducts();
+  const blocking = errors.filter((e) => !/正規化されていない/.test(e));
+  if (blocking.length) throw new Error(`正本に問題があるので書かない（npm run check-products）:\n  ${blocking.join('\n  ')}`);
+  const byId = new Map(products.map((p) => [p.id, p]));
+  for (const p of next) byId.set(p.id, p);
+  writeFileSync(PRODUCTS_FILE, canonicalFile([...byId.values()]));
+  return PRODUCTS_FILE;
+}
+
 export function saveProduct(product) {
-  const p = Product.parse(product);
-  const path = productPath(p.channel, p.id);
-  mkdirSync(dirname(path), { recursive: true });
-  writeFileSync(path, canonicalJson(p));
-  return path;
+  return saveProducts([product]);
+}
+
+/** 正本を正規化して書き直す（型エラーの商品は落とさないよう、問題があれば書かない） */
+export function formatProducts() {
+  const { products, errors } = loadProducts();
+  const blocking = errors.filter((e) => !/正規化されていない/.test(e));
+  if (blocking.length) return { written: 0, errors: blocking };
+  writeFileSync(PRODUCTS_FILE, canonicalFile(products));
+  return { written: products.length, errors: [] };
 }
 
 // ---- 収録の意図 ----
@@ -185,7 +178,7 @@ export function renderCatalogEntry(product) {
   return lines.join('\n');
 }
 
-export const BLOCK_BEGIN = (group) => `  // <generated:products ${group}> content/products から生成（npm run product -- gen）。手で直さない`;
+export const BLOCK_BEGIN = (group) => `  // <generated:products ${group}> config/products.json から生成（npm run product -- gen）。手で直さない`;
 export const BLOCK_END = (group) => `  // </generated:products ${group}>`;
 
 /** 生成ブロックの中身（id 順で決定的） */

@@ -271,6 +271,8 @@ export const RESTRUCTURED_PATHS = [
   ["config/instagram-campaign.json", "content/sns/instagram/campaign.json"],
   ["config/pe-first-stage-historical-sources.json", "data/pastexams/inventory.json"],
   [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
+  // 2026-10-06: 商品の正本を 1 商品 1 ファイルから全チャネル 1 ファイルへ集約（DN-0492）
+  [/^content\/products\/[a-z]+\/([a-z0-9-]+)\.json$/, "config/products.json#$1"],
 ];
 
 const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];
