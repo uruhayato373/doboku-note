@@ -23,10 +23,10 @@
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-09": {
       "sha": "929ebdb62fd95916",
-      "verdict": "source-unavailable",
+      "verdict": "ok",
       "action": "none",
-      "reason": "手元の唯一の原典（1級土木第一次検定問題解説集2021 p.379）でも図の上端（舗装ラベル・寸法 50 の上端）が元から切れており、上半分は復元できない。H28 の原典問題 PDF は Drive に無い（過去問は H30〜R08）。切り出し直しで直るのは下端のキャプション断片と左端の隣図寸法の混入だけ。別原典の入手か描き直しの判断待ち",
-      "reviewedAt": "2026-10-06T09:10:27.242Z"
+      "reason": "原典でも上端が切れていたため、問題解説集2021 p.379 の図の層構成と寸法（既存の舗装75・既存コンクリートを10下げた面に接着材・鋼繊維補強コンクリート60・舗装50・合計110）から h28-a-fig-09.svg を描き直し、記事は SVG を参照するようにした（raster は不使用・ユーザー判断 2026-10-06）",
+      "reviewedAt": "2026-10-06T09:37:26.602Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
       "sha": "62b8b9d50d35ee4b",
