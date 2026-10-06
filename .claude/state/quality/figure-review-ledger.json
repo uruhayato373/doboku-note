@@ -163,11 +163,15 @@
       "reviewedAt": "2026-10-06T10:22:21.028Z"
     },
     "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
-      "sha": "62b0668c0bc388f6",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で地表より上の装置（やぐら・三脚の脚・ロッドとケーシングの頭部）が切れている。下部にキャプション『図 標準貫入試験』、左に空白と汚れ",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "63e7d978bb9b7314",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていたやぐら・ハンマー部を一次問題解説集2021 p.271（pages/p0271.jpg）から切り出し直し、図番号キャプションは本文の <p> に任せた。重複していた断片 fig-02 の掲載は外した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:36:16.935Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 271
+      }
     },
     "civil-construction-1/primary-h29-a/img/h29-a-fig-04": {
       "sha": "42820aafe8bccde0",
@@ -230,11 +234,16 @@
       }
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-02": {
-      "sha": "ad96aeb4bc0254f4",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で引出注記（『荷重計』が『荷』まで・ジャッキと載荷円板の注記は無い）、上部の横梁・載荷装置の枠・地面のハッチ線が切れている。左約 45% が空白、下部にキャプション『図 平板載荷試験』",
-      "reviewedAt": "2026-10-06T10:37:39.029Z"
+      "sha": "fcc2061f8b5447ae",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた荷重計・ジャッキ・載荷円板の注記を一次問題解説集2021 p.22 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:36:16.943Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 22,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
       "sha": "2a0d71dc4cb830b5",
@@ -261,11 +270,16 @@
       }
     },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
-      "sha": "e7df915cd216c1f2",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で引き出しラベル『隅金物』『隅火打材』の文字の上半分が切れている。下部に図番号キャプション『図 矢板土留め工構造図の例』",
-      "reviewedAt": "2026-10-06T10:24:51.419Z"
+      "sha": "6561aec9ae811f5b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた『隅金物』『隅火打材』の注記を一次問題解説集2021 p.36 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:36:16.945Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 36,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-r05-a/img/r05-a-fig-01": {
       "sha": "800714f6c1c156db",
