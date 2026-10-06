@@ -3,11 +3,16 @@
   "note": "図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/figure-review-queue.mjs record を使う）",
   "figures": {
     "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
-      "sha": "b6d01aecc03c9319",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で左右のビットの軸と、右上の注記へ向かう引き出し線が切れ、注記の文字が画像に無い。左約 780px が空白、下部にキャプション『図 掘削ビットの標準形状例』",
-      "reviewedAt": "2026-10-06T10:24:51.421Z"
+      "sha": "bda63e006f77e7a2",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.538（H26 No.12 解説）の『掘削ビットの標準形状例』を 300dpi で切り出し直し（1674x444→854x666）。上端で切れていた左右ビットの軸頭部と『ジョイント』の注記・引き出し線を復元し、キャプションと左の空白を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:28:10.119Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 538,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-09": {
       "sha": "cb81a816de2bd055",
@@ -129,25 +134,40 @@
       }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
-      "sha": "45bd7e32f4963ee5",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で『下り側梁下面』『上り側梁下面』の 2 小図の枠の下辺が切れ、ひび割れ線が縁まで続いている。左縁に影、上端に隣接図の切れ端、上部に見出し行（MDX の太字見出しと重複）",
-      "reviewedAt": "2026-10-06T10:09:04.339Z"
+      "sha": "3e6c579b4116433a",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A6 反応性骨材の例』を切り出し直し（700x237→475x400）。下端で切れていた『下り側梁下面』『上り側梁下面』の枠の下辺を復元し、MDX と重複する見出し行・左縁の影・隣接図の切れ端を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:28:10.121Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 185,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
-      "sha": "a55761eea7f2a689",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で右図の図内ラベル『道路橋壁高欄の乾燥収縮によるひび割れの例』の字形の下部が切れている。上端に前の図（沈下ひび割れ）の切れ端、左縁にスキャンの影",
-      "reviewedAt": "2026-10-06T09:53:21.098Z"
+      "sha": "e943bcbda2793cde",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A9 乾燥収縮の例』を切り出し直し（900x340→1200x326）。右図ラベル『道路橋壁高欄の乾燥収縮によるひび割れの例』の下端を復元し、前の図の切れ端・影・重複する見出しを除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:28:10.122Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 185,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
-      "sha": "d01d1e4afa80303a",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁でトンネル覆工の立体図のアーチ外形線と破線、注記『トンネルの覆工コンクリ…』が切れ、トンネル図の右半分が欠けている。上部に見出し『⑦ 記号 B17 不適当な打重ねの例』、左に行番号",
-      "reviewedAt": "2026-10-06T10:17:23.090Z"
+      "sha": "0df700a785d3204e",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "第二次検定問題解説集2021 p.186（180 度回転）の『記号 B17 不適当な打重ねの例』を切り出し直し（700x370→1088x453）。右縁で切れていたトンネル覆工の立体図の右半分と注記『トンネルの覆工コンクリート』を復元し、重複する見出しと行番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:28:10.122Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 186,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
       "sha": "5b4bfcb03152a2bd",
