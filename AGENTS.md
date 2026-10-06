@@ -62,7 +62,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 | [workflows.md](.claude/knowledge/reference/workflows.md) | 週次 PDCA・PDF→MDX 変換フロー・ブランチ/並行セッション運用 |
 | [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) | 計測データの異常・外部検証の罠・ローカルで API を叩く前 |
 | [tools/admin-app/README.md](tools/admin-app/README.md) / `.claude/config/` | 管理画面の起動・改修／OGP・PSI・自動化ツールのルール・閾値 |
-| [docs/strategy/README.md](docs/strategy/README.md) / `content/note/README.md` | 戦略の入口／note 記事 SSOT 索引（実価格は `content/products/note/`） |
+| [docs/strategy/README.md](docs/strategy/README.md) / `content/note/README.md` | 戦略の入口／note 記事 SSOT 索引（実価格は `config/products.json`） |
 
 ## 12 原則
 > Karpathy's LLM coding habits — distilled for this project.

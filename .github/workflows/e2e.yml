@@ -7,6 +7,11 @@ on:
       - "public/**"
       - "content/**"
       - "scripts/**"
+      # 画面に出ない検査・フック系だけの変更では E2E を回さない（build 自体の破損は ci.yml の build が見る）
+      - "!scripts/check-*.mjs"
+      - "!scripts/pre-commit-*.mjs"
+      - "!scripts/install-pre-commit.mjs"
+      - "!scripts/quality-audit.mjs"
       - "package.json"
       - "package-lock.json"
       - "next.config.mjs"
@@ -61,6 +66,15 @@ jobs:
       # dev だと初めて踏むルートがリクエスト時にコンパイルされ、落ちるテストが実行ごとに
       # 入れ替わる（実装は正しいのに赤）。さらに旧 /category/ /docs/ は Cloudflare の
       # _redirects でしか存在せず dev では必ず 404 になり、リダイレクト検査が成立しない。
+      # ci.yml の build と同じキー（同じ Next.js のビルドキャッシュを共有する）
+      - name: Cache Next.js build
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx', 'src/**/*.mjs', 'next.config.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+
       - name: Build
         run: npm run build
 

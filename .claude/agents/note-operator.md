@@ -44,7 +44,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 |---|---|---|
 | `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note）。**⚠ カスタム paidBoundary を持つ記事の境界を先頭リセット＝全ロック化する**（civil経験記述58本で実損）→ 対象にpaidBoundary持ちが含まれると既定ABORT(exit9)。`--allow-boundary-risk` で上書き時は事後に境界再設定＋実査が必須。**PDF 添付の保存前ゲート付き**（エディタ遷移を3回までリトライ／期待本数を下回れば保存せず skip／保存後に減れば note-attachment-loss.json へ記録） |
 | `note-convert-to-paid.mjs` | **無料で公開済みの記事を有料化**（price+paidBoundary設定→更新→API検証） | `{--list <file>｜--article <path>} --commit`。**背景**: note-publish は `isPaid = notePricing==='paid' && price>0` 判定のため、`price:` 欄が無い paid 記事を**無料公開**する事故がある（2026-07-24、完全攻略パック等21本）。本ツールで既存無料note を有料化（note-publish は noteUrl あると skip＝新規専用のため既存有料化には本ツールが必要）。要 `price:`(>0)+`paidBoundary` frontmatter |
-| `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--commit]` |
+| `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--dry-run]`。**既定で保存する**（`--commit` は無い。試すときは `--dry-run`） |
 
 ### マガジン操作
 
@@ -142,7 +142,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 ## 安全弁
 
-1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
+1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。**例外: `note-edit-magazine` は既定で保存し、`--dry-run` で止める**（2026-10-06 に空打ちのつもりで保存された）。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
 2. **account ゲート**: 全スクリプトは `dobokunote` アカウントを検証
 3. **検証必須**: 公開側の変更後は note API で実体検証。`note-attach-file --draft-only`は非公開なので、保存後のエディタ再読込でPDFカードを検証
 4. **SoT 整合**: スクリプト実行後は必ず `note-magazines.ts` を更新

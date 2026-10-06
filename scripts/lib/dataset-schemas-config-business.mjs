@@ -453,6 +453,7 @@ const introVariant = z
       })
       .strict(),
     magazines: z.record(text, introMagazine).describe('マガジン id → 導線の url・題名・説明'),
+    entryLead: z.record(text, text).optional().describe('入口商品（rules[].entry）ごとの案内文。入口→上位パックの順に 1 つの案内として出す'),
     rules: z
       .array(
         z
@@ -460,6 +461,7 @@ const introVariant = z
             match: z.string().describe('記事のパスに含まれる文字列。上から順に最初の一致（空文字は全記事に一致）'),
             home: z.string().nullable().describe('この記事が収録されているマガジン id（無ければ null）'),
             upper: z.string().nullable().describe('上位の束ね商品のマガジン id（無ければ null）'),
+            entry: z.string().optional().describe('上位パックより先に案内する入口の商品のマガジン id（低価格先出し。upper と一緒に 1 つの案内にする）'),
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
             _why: text.optional(),
@@ -473,6 +475,12 @@ const introVariant = z
     v.rules.forEach((r, i) => {
       for (const k of ['home', 'upper']) if (r[k] !== null && !(r[k] in v.magazines)) flag(ctx, ['rules', i, k], `magazines に無いマガジン id「${r[k]}」`);
       if (r.coconalaLead !== undefined && !(r.coconalaLead in v.coconala.lead)) flag(ctx, ['rules', i, 'coconalaLead'], `coconala.lead に無いキー「${r.coconalaLead}」`);
+      if (r.entry !== undefined) {
+        if (!(r.entry in v.magazines)) flag(ctx, ['rules', i, 'entry'], `magazines に無いマガジン id「${r.entry}」`);
+        if (!v.entryLead || !(r.entry in v.entryLead)) flag(ctx, ['rules', i, 'entry'], `entryLead に「${r.entry}」の案内文が無い`);
+        if (r.upper === null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は上位パック（upper）と組で使う');
+        if (r.home !== null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は収録元マガジン（home）の無い記事にだけ使う');
+      }
     });
   });
 
@@ -818,3 +826,47 @@ export const ConfigContentRules = z
     }
   })
   .meta({ title: '記事の機械品質ルール' });
+
+// ---- 商品の正本（config/products.json・DN-0492） ----------------------------------------------
+
+/** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
+const productCatalogValue = z.union([z.string(), z.number(), z.boolean(), z.null()]);
+const productCatalog = z
+  .object({ id: z.string(), published: z.boolean(), noteUrl: z.string() })
+  .catchall(z.union([productCatalogValue, z.array(productCatalogValue), z.record(z.string(), productCatalogValue)]));
+
+/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
+export const Product = z
+  .object({
+    id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
+    channel: z.enum(['note']),
+    qualification: z.string(),
+    stage: z.string(),
+    /** 系列: 経験記述・学科記述・横断・一次 など */
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    /** 設計上の層 */
+    tier: z.enum(['pack', 'magazine', 'single', 'membership']),
+    persona: z.string().nullable().default(null),
+    /** note-magazines.ts の該当エントリ（そのまま書き出す） */
+    catalog: productCatalog,
+    /**
+     * note 上で収録すべき記事（リポジトリ相対の article.md パス）。原稿の noteId と結び付かない note 上の記事は
+     * `note:<noteId>`（同じ題名の別 ID が収録されているなど。check-products が件数を出す）
+     */
+    members: z.array(z.string()).default([]),
+    /** 丸ごと含む商品の id（パックが含むマガジン・単品） */
+    includes: z.array(z.string()).default([]),
+    /** 経緯のメモ（旧 note-magazines.ts のコメント） */
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/** 全チャネルの商品を 1 ファイルに集めた正本（並びは channel → id。書き換えは npm run product） */
+export const ConfigProducts = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    products: z.array(Product).superRefine(uniqueBy('id', '商品 id')),
+  })
+  .strict()
+  .meta({ title: '商品の正本' });

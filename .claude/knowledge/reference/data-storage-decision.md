@@ -67,11 +67,12 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 上の決定はサイト記事（MDX）についてのもの。商品（note・ココナラ・Kindle の商品カタログ）は別に決めた。
 
-**決定: 正本は Git 上の 1 商品 1 ファイルの JSON（`content/products/<channel>/<id>.json`）。SQLite（`npm run product:db` → `.tmp/products.db`）は検索・集計用の生成物で、正本ではない。**
+**決定: 正本は Git 上の JSON 1 ファイル `config/products.json`（全チャネルの全商品・台帳 `config.products`・型は `dataset-schemas-config-business.mjs` の `ConfigProducts`）。SQLite（`npm run product:db` → `.tmp/products.db`）は検索・集計用の生成物で、正本ではない。**
 
 - **なぜ DB を正本にしないか**: PR の差分に CI のゲート（`check-products`・収録の三軸照合）を掛けられなくなる／全セッションに Cloudflare の API トークンが要る（エージェントは資格情報を読まない方針）／worktree ごとの並行作業を PR でまとめる運用と合わない。会社 PC から R2 へは届く（ネットワークは理由ではない。D1 の API へ届くかは未確認）
-- **なぜ 1 商品 1 ファイルか**: 並行セッションの衝突を減らす。書き換えは `npm run product`（型の検査・キー順・字下げ 2・LF）で行い、手で書かない
-- **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `content/products/**/*.json` を LF 固定
+- **なぜ 1 ファイルか（2026-10-06 に運営者が決定）**: 2026-10-01 の当初は並行セッションの衝突を減らすため 1 商品 1 ファイル（`content/products/<channel>/<id>.json`）にしたが、価格を変えるたびに置き場が散って追いにくく、運営者が「商品データは 1 ファイルに集約する」と決めた。並びを channel → id に固定し、書き換えは `npm run product`（型の検査・並び・キー順・字下げ 2・LF）だけで行うので、別々の商品を触る並行セッションの差分は別の行に出る。同じ商品を同時に触ったときは Git の衝突として表に出る（黙って上書きされない）。旧パスは `repository-paths.mjs` の移動表で `config/products.json#<id>` に読み替える
+- **全チャネル**: note（段階1・2026-10-04 に全 159 件）に続き、Kindle（`scripts/kindle-published/catalog.json`）・ココナラ（`src/lib/coconala-services.ts`）・note の単品記事の価格もこのファイルへ移し、既存のカタログは生成物にする（段階2〜4）
+- **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `config/products.json` を LF 固定
 - **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他チャネル、読み手の JSON 直読み）は段階2以降
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。

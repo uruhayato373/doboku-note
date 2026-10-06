@@ -34,6 +34,7 @@ npm run schedule-view     # 予約・計画・期日の横断ビュー（読み�
 ```bash
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
 npm run lint:ja               # 日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json。過去問（技術士一次・土木の第1次検定）の公式問題の逐語と、解説で選択肢の原文を引いた部分は対象外（`scripts/lib/official-question-text.mjs`）
+npm run pre-commit:ci-gates    # CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review は該当パスを stage したときだけ全量）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests・generated-indexes は遅いので CI に残す
 npm run lint:ja:all           # 全件 report（1,280 ファイルを 100 件ずつバッチ実行・OOM 回避。ゲートしない。件数を減らしたいときは辞書 prh.yml に語を足す）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
@@ -118,7 +119,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
-`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `content/products/` を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
+`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `config/products.json`（全チャネル・1 ファイル）を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
 
 `npm run check-products` — 商品の正本のゲート（型・id・参照先・生成ブロックの一致・収録の意図×コミット済みの収録記録。ネットワーク不使用・ci:true）
 

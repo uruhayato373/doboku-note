@@ -420,6 +420,7 @@
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "place-civil-keiken-pdfs": "node scripts/place-civil-keiken-pdfs.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
+    "pre-commit:ci-gates": "node scripts/pre-commit-ci-gates.mjs",
     "pre-push:install": "node scripts/install-pre-push.mjs",
     "prebuild": "npm run check-public-bloat && npm run generate-webp && npm run update-image-refs",
     "preadmin": "npm run policy:check && node scripts/ensure-local-media.mjs && node scripts/build-content-ledger.mjs --spawn-if-stale 6",

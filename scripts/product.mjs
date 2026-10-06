@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * product.mjs — 商品の正本（content/products/）を扱う CLI（DN-0492）。正本は直接手で書かず、これで読み書きする。
+ * product.mjs — 商品の正本（config/products.json）を扱う CLI（DN-0492）。正本は直接手で書かず、これで読み書きする。
  * ---------------------------------------------------------------------------
  * 使い方:
  *   npm run product -- list [--qualification <id>] [--tier pack|magazine|single]   # 一覧（id・層・系列・価格・収録数）
  *   npm run product -- show <id>                                                   # 1 商品の正本を表示
  *   npm run product -- set <id> <path> <json値>                                     # 例: set civil-2-x catalog.price '"¥2,480（8工事セット）"'
  *   npm run product -- add-member <id> <article.md> [...]  / remove-member <id> <article.md> [...]
- *   npm run product -- fmt                                                          # 全ファイルを正規化して書き直す
+ *   npm run product -- fmt                                                          # 正本ファイルを正規化して書き直す
  *   npm run product -- gen [--check]                                                # note-magazines.ts の生成ブロックを書く（--check は差分で exit 1）
  *   npm run product -- import-note --qualification <id> [--ids a,b] [--commit]      # 現行の note-magazines.ts と note の収録から正本を作る（移行用・既定 dry-run）
  *                                                                                  # 複数の資格にまたがる商品は --ids で選び、--qualification に group id か主な資格を書く
@@ -17,7 +17,7 @@ import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from '
 import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
-  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, canonicalJson, productPath,
+  ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
   renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
@@ -150,8 +150,8 @@ async function importNote() {
   const unknown = out.flatMap((p) => p.members.filter((x) => x.startsWith('note:')).map((x) => `${p.id}: ${x}`));
   for (const p of out) console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${p.id}  members=${p.members.length} includes=${p.includes.length}`);
   if (unknown.length) console.log(`[product] 原稿の noteId と結び付かない収録 ${unknown.length} 件（note:<noteId> で正本に入れる）:\n  ${unknown.join('\n  ')}`);
-  if (!commit) return console.log(`[product] dry-run: ${out.length} 件（--commit で content/products/note/ へ書く）`);
-  for (const p of out) saveProduct(p);
+  if (!commit) return console.log(`[product] dry-run: ${out.length} 件（--commit で ${PRODUCTS_REL} へ書く）`);
+  saveProducts(out);
   console.log(`[product] ${out.length} 件を書いた。次に gen でブロックを作る（初回は --init-block）`);
 }
 
@@ -247,9 +247,9 @@ switch (cmd) {
     break;
   }
   case 'fmt': {
-    const { products, errors } = loadProducts();
-    for (const p of products) writeFileSync(productPath(p.channel, p.id), canonicalJson(p));
-    console.log(`[product] ${products.length} 件を正規化（型エラー ${errors.filter((e) => !/正規化/.test(e)).length} 件は書き直していない）`);
+    const { written, errors } = formatProducts();
+    if (errors.length) die(`正本に問題があるので書き直さない（npm run check-products）:\n  ${errors.join('\n  ')}`, 1);
+    console.log(`[product] ${PRODUCTS_REL} の ${written} 件を正規化`);
     break;
   }
   case 'gen':

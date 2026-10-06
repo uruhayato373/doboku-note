@@ -1,7 +1,7 @@
 ---
 title: "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜担い手不足と品質確保｜令和形式"
 notePricing: paid
-price: 980
+price: 1480
 paidBoundary: "模範答案"
 noteSeries: コンクリート主任技士-令和形式-立場別
 noteContentType: product

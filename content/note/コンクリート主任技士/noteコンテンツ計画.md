@@ -12,7 +12,7 @@
 
 ## 商品ラダー
 
-実価格・noteUrl・公開状態の正本は `content/products/note/<id>.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `npm run product -- gen` で生成）。収録数の期待値は `config/note-magazine-membership.json`。
+実価格・noteUrl・公開状態の正本は `config/products.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `npm run product -- gen` で生成）。収録数の期待値は `config/note-magazine-membership.json`。
 
 | 段 | 商品 | 中身 |
 |---|---|---|

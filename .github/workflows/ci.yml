@@ -89,6 +89,16 @@ jobs:
       - name: Build doc meta index
         run: node .claude/scripts/build-doc-meta-index.mjs --ci
 
+      # Next.js のビルドキャッシュ（Turbopack のファイルシステムキャッシュ）を実行間で引き継ぐ。
+      # 形は node_modules/next/dist/docs/01-app/02-guides/ci-build-caching.md の GitHub Actions 例。
+      - name: Cache Next.js build
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx', 'src/**/*.mjs', 'next.config.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+
       - name: Build
         run: npm run build
 

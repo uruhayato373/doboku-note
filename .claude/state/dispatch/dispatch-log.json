@@ -1975,6 +1975,90 @@
       "commit": "20df1a4ac181",
       "verification": "gh pr view 661/662/664/665/666 の状態、data/business/records/review-2026-10-01 の findings/decision、docs/reviews/weekly/2026-W39-review.md",
       "note": "#665（#661・#662・#664 を含む）と #666 は 2026-09-27 に develop へマージ済み（#661・#662・#664 は #665 に吸収されて close）。マージ後の 10/01 の月次レビュー記録に受取額 74,218円と目標（月10万円・10/1 適用）の扱い、検索の改善候補は W39 週次レビュー（DN-0338）と 10/05 の DN-0532〜0534 で起票済み"
+    },
+    {
+      "id": "DN-0542",
+      "at": "2026-10-05",
+      "task": "note-update-body が会員特典マガジンの無料記事で試し読みラインを引かずに更新し、反映されないまま「完了」と出すのを直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "153db6957a1a",
+      "verification": "tests/note-trial-flow.test.mjs・tests/note-live-update-verify.test.mjs（試し読み画面が直接開く場合・本文が更新されない場合を失敗として検出）・全テスト 2698 件 fail 0",
+      "note": "試し読みの画面が直接開いても memberTrial に従ってラインを置くか中断し（trialSettingsAction）、反映後に [5g] で新しい原稿の文が公開本文に出たかを確かめる。PR #869 で develop・本番へ"
+    },
+    {
+      "id": "DN-0529",
+      "at": "2026-10-05",
+      "task": "サイトの主任技士 小論文の配置分岐（textbook-production-qc・primary-construction）が到達不能になっているのを解消する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "153db6957a1a",
+      "verification": "tests/cce-placement.test.mjs 3件 pass・本番 HTML の2面 top は択一商品（予想50問・直前暗記ノート）で変わらず",
+      "note": "9/17 の方針（分野別の過去問・テキストは択一商品）を正として到達しない小論文分岐を削除。2面・試験概要・配合設計の top を tests/cce-placement.test.mjs で固定。PR #869"
+    },
+    {
+      "id": "DN-0536",
+      "at": "2026-10-05",
+      "task": "データの型テストのうち、週次取得で空になり得る配列の先頭要素を書き換えるものを直す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "153db6957a1a",
+      "verification": "3つの取得データを空にした状態で dataset-schemas の analysis・search テスト 24件 pass",
+      "note": "growth-digest・seo-meta・indexing-requests の配列が空のときは tests/fixtures/dataset-samples の固定サンプルを失敗例の元にする。PR #869"
+    },
+    {
+      "id": "DN-0543",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士 平成24・25年度の過去問の修正（16問・図4枚）を本番で確かめる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20182ab35112",
+      "verification": "npm run check-production-ssr exit 0（pages.dev・doboku-note.com とも 200・<main あり）、curl 本番 HTML と storage.doboku-note.com の SVG を実査",
+      "note": "deploy 9e1156d53（run 37318068118 success）の後、本番 6 ページで H25問23 の正答4の解説・H25問6/問2/問11/問18 の原典の本文・H24問27/問29 の修正を確認。R2 の h24-q11/h24-q22/h24-q29/h25-q28-fig2.svg が新版"
+    },
+    {
+      "id": "DN-0462",
+      "at": "2026-10-05",
+      "task": "コンクリート主任技士の択一過去問の欠け31問を原典ページから補う",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20182ab35112",
+      "verification": "past-exam-qa OK（全材料・全肢を再検算）・validate-mdx・lint-mdx-mobile HIGH 0・本番 HTML に「平成24年度 問題17」",
+      "note": "最後の H24問17 を原典から収録し、JIS A 5308 9.2.2 b) の丸め規定で正答1を確定。分野別の択一過去問は全334問（出題数と一致）。本番の製造・品質管理ページで表示を確認"
+    },
+    {
+      "id": "DN-0250",
+      "at": "2026-10-06",
+      "task": "1級・2級 二次直前の note CTA 切替（〜10/4・〜10/25）と試験後の無料フォロー記事",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1cc510f04060",
+      "verification": "audit-note-funnel --live ずれなし（exit 0）、公開 API で 6 本とも完成答案集→完全攻略パックの順、無料記事は is_limited=false で題名・4418735・土木もくじを確認",
+      "note": "10/6 のユーザー決定で 1級は低価格先出しを採用。入口記事 6 本の冒頭を完成答案集→完全攻略パックの順にし（note-intro-standard の entry・PR #870）、note-update-body で反映（[5g] で本文更新を確認）。試験後の無料記事（1級）を受検の手引で照合のうえ公開（n90feba1be8ae）。2級分は DN-0544 へ切り出し"
+    },
+    {
+      "id": "DN-0546",
+      "at": "2026-10-06",
+      "task": "2級土木・主任技士の値上げ（2026-10-06 に原稿だけ変更済み）を note のライブ価格へ反映し、EXP-015・EXP-016 を開始する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e3273dba62c7",
+      "verification": "verify-note-magazines: 109件 SoTズレ0 / note-reconcile-title-price: 記事933本・マガジン109件で価格ずれ0",
+      "note": "2026-10-06 エージェントが note へ反映: マガジン22誌（note-edit-magazine・API で価格一致）、主任技士単品40本 ¥980→¥1,480（note-article-price-sweep・40/40）、有料境界40本を再設定（note-reanchor-boundary・無料プレビュー非空 40/40）。EXP-015/016 を running に。本番デプロイは運営者の判断で別途"
     }
   ]
 }

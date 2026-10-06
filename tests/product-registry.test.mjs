@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  Product, canonicalJson, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
+  Product, canonicalJson, canonicalFile, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
 } from '../scripts/lib/product-registry.mjs';
 
 const base = {
@@ -59,4 +59,15 @@ test('productGroups は正本にある資格ごとに id 順でまとめ、block
 test('原稿と結び付かない note 上の収録は note:<noteId> で書き、その noteId を返す', () => {
   assert.equal(articleNoteId('note:n123cf1c5f8f0'), 'n123cf1c5f8f0');
   assert.equal(articleNoteId('content/note/does-not-exist/article.md'), null);
+});
+
+test('canonicalFile は全商品を channel → id の順に並べ、schemaVersion と _doc を先頭に LF で書く（入力の順に依らない）', () => {
+  const a = Product.parse(base);
+  const b = Product.parse({ ...base, id: 'civil-2-a', catalog: { ...base.catalog, id: 'civil-2-a' } });
+  const out = canonicalFile([a, b]);
+  assert.equal(out, canonicalFile([b, a]));
+  const json = JSON.parse(out);
+  assert.deepEqual(Object.keys(json), ['schemaVersion', '_doc', 'products']);
+  assert.deepEqual(json.products.map((p) => p.id), ['civil-2-a', 'civil-2-sample-pack']);
+  assert.ok(out.endsWith('}\n') && !out.includes('\r'));
 });
