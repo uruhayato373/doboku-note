@@ -260,6 +260,45 @@
 
 **完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
 
+### [DN-0563] 記事と原典の結線を config で引けるようにする（sources の宣言もれ 18 件・切り出し直しの候補 PDF・書籍の印字ページ）
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-07 に土工の基礎を照合したとき、どの書籍から作った記事かを引けず、1級土木の書籍 4 冊の OCR を grep して特定した。引けない理由は 4 つある。
+- **sources の宣言もれ**: 判定台帳では 20 組の「記事×書籍」で図を切り出しているが、うち 18 組は記事の `sources:` に書籍が無い。
+  - `secondary-{concrete,construction-plan,earthwork,quality-management}-basics` は `sources:` 自体が無い。
+  - 過去問 `primary-h26-a`〜`r02-a`・`secondary-*-past-problems` は `cecc-past-exams` だけで、図の出典の問題解説集が無い。
+  - `pe-construction/*-ronbun-keyword` 5 本には `pe-construction-keyword-book` が無い。
+- **候補 PDF を引かない**: `scripts/figure-review-queue.mjs` の `sourceRoots()` は vault の固定 3 フォルダを渡すだけ。記事の `sources:` →  `config/reference-sources.json`（vaultDir・renderProfile.rotation・transcriptDir）を引かないので、worker は毎回 pdftotext で原典を探す。
+- **印字ページが空**: 書籍台帳 `content/sources/books/*/book-manifest.json` の `printedPage` は 324 頁すべて null（OCR には `<!-- p0122 印字:114 -->` がある）。
+- **図の登録先が空**: 同じ台帳の `crops` も空。
+
+**やること**:
+1. 上の 18 組を `sources:` に足す。先に、`class: commercial-book`・`access: internal-only` の文献が記事の参考文献として表示されるかを確かめ、表示されるなら非表示にする扱いを決める。
+2. 「図の出典の書籍が記事の `sources:` に無い」を止める検査を作る（判定台帳と frontmatter を突き合わせる）。
+3. queue の reextract 項目に、記事の `sources:` から引いた候補（PDF の実パス・回転・OCR の場所）を入れる。固定の roots はその後ろの予備にする。
+4. 書籍台帳の生成処理で、`printedPage` を OCR のページ印から埋める。
+5. 書籍の図の切り出しを `crops` に登録するかを、DN-0555（出典の正本）と合わせて決める。
+
+**完了条件**: 検査が「記事×書籍」の対象数を出し、宣言もれ 0 件。queue の reextract 項目に候補 PDF と回転が出る。書籍台帳の `printedPage` が埋まっている。
+
+### [DN-0564] Drive の原資料PDF/白書（33 件）を台帳・参考文献・原典探索につなぐ
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-06、figure-crop-worker が国土交通白書の関連データ集 PDF をネットから無断で取得した（DN-0558）。Drive vault には `原資料PDF/白書/`（`国土交通白書（令和７年度）.pdf` ほか 33 件）があるのに、3 か所ともつながっていなかった。
+- `config/drive-vault.json` に白書の group が無く、台帳登録・sha256・復元経路が無い。
+- `config/reference-sources.json` の `mlit-white-paper` は `origin.kind: external`（URL だけ）で、vault の写しを指さない。
+- `scripts/figure-review-queue.mjs` の `sourceRoots()` は `原資料PDF/{過去問,教材,書籍}` に固定で、`白書`・`共通仕様書`・`資格試験` を探さない。
+
+fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳の出典は URL のままで、使った PDF はどこにも保存されておらず、作り直せない。
+
+**やること**:
+1. `drive-vault.json` に白書の group（audience: human）を足し、33 件を台帳へ登録する（sha256・復元確認は asset-storage-policy.md の手順）。
+2. `reference-sources.json` の白書系の文献に、年度版ごとの vault のパスを足す。URL は公開元として残す。
+3. `sourceRoots()` を `drive-vault.json` の原資料系 group から導き、固定のフォルダ一覧をやめる。
+4. fig15 に使った関連データ集 PDF を、運営者の了解を得て vault の `白書/` に置き、台帳の出典を `vault:` 相対に直す。
+
+**完了条件**: `白書/` の全件が台帳に載り sha256 で照合済み。queue の原典候補に白書が出る。fig15 の出典が `vault:` 相対になっている。
+
 ### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
@@ -1413,6 +1452,18 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0565] 「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す
+タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-07]
+
+**起点**: lint-ja・lint-mdx-mobile は、公式問題の逐語を表記統一から外すページを、`scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（パスの正規表現）で決めている。分類の正本 `src/config/content-taxonomy.json` の group `secondary` は記述式の解説（`*-basics`）と過去問（`*-past-problems`）の両方を含むので、分類からは引けない。正規表現に無い種類のページは黙って対象外になり、`secondary-*-past-problems` は 2026-10-07（DN-0553・#889）まで設問の転記が commit を止めていた。
+
+**やること**:
+1. 分類（`content-taxonomy.json` の flags か、frontmatter の印）に「公式の設問を含む」を持たせる。
+2. `official-question-text.mjs` がその印を読むようにする。
+3. 置き換え前の正規表現と対象ページの集合が一致することをテストで確かめてから、正規表現を消す。
+
+**完了条件**: `OFFICIAL_QUESTION_PAGE` の正規表現が無くなる。判定対象のページ集合が置き換え前と一致する（テスト）。
 
 ### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
 タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-07]
