@@ -239,6 +239,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-3": {
+      "sha": "a7e44ec20c451366",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下部の図番号キャプション『図 3.3 斜めシュート使用上の注意』と上・右の空白を除いて切り直し（450x320→412x261）。左端に接しているのは (a) の堆積山の斜線が地面線と合わさる端点で、図の欠けではない（親 QA で拡大確認）。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:33:43.677Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-4": {
       "sha": "c1d13aa974ee2fc5",
       "verdict": "needs-source",
@@ -691,6 +698,13 @@
       "reason": "砂基礎・はしご胴木基礎・鉄筋コンクリート基礎の 3 断面と名称がそろい写り込みなし。EDGE_CUT(left) は砂基礎ブロックの枠線が x=0 に 1px 接するだけで、枠は上下に連続し角も閉じている",
       "reviewedAt": "2026-10-06T09:33:45.509Z"
     },
+    "civil-construction-2/primary-r07-kouki/img/q4-fig": {
+      "sha": "eed2de13fa1d9e38",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "力 P1・P2 の作用線が上端・下端とも縁に接したまま途切れている（元 PDF R07 後期 p.5 では上に約 11px・下に約 52px 長い）",
+      "reviewedAt": "2026-10-06T11:33:43.678Z"
+    },
     "civil-construction-2/primary-r07-kouki/img/q5-fig": {
       "sha": "c83b48952af2a5df",
       "verdict": "ok",
@@ -698,12 +712,26 @@
       "reason": "拡大管の図で写り込みなし。EDGE_CUT は 50cm 寸法の補助線と太管下辺の罫線が最終行にあるだけで、楕円は管軸に対し上下対称、左縁は『20 cm』の 2 の底辺が触れるだけで字形は欠けていない",
       "reviewedAt": "2026-10-06T09:33:45.508Z"
     },
+    "civil-construction-2/primary-r07-kouki/img/q50-fig": {
+      "sha": "7f3aceb2c63b05ad",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で (ロ) ラベルの括弧の先端が 1〜2px 欠け、上縁で壁高欄の頂点が縁に接している。写り込みは無い",
+      "reviewedAt": "2026-10-06T11:33:43.678Z"
+    },
     "civil-construction-2/primary-r07-kouki/img/q62-fig": {
       "sha": "d5ce37d15ab9c63e",
       "verdict": "ok",
       "action": "none",
       "reason": "ネットワーク式工程表（ノード 0〜6・作業 A〜H・日数）だけで写り込みなし。EDGE_CUT 4 辺は線や円が余白なく縁に接しているだけで、上端の横線・下端の『日』・左右の円は同じ図内の要素と同じ太さ・大きさで欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.735Z"
+    },
+    "civil-construction-2/primary-r07-zenki/img/q50-fig": {
+      "sha": "9c70cd198a65cc37",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で底版の下へ伸びる縦線 2 本が切れ、その下の寸法線と『擁壁底面幅 B』のラベルが画像に無い（元 PDF R07 前期 p.21 No.50 にある）",
+      "reviewedAt": "2026-10-06T11:33:43.678Z"
     },
     "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
       "sha": "01380dbdbca64a2d",
@@ -730,6 +758,13 @@
         "page": 3,
         "dpi": 300
       }
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-30-risk-mgmt-flowchart": {
+      "sha": "4ef53be11ced229c",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で『組織の状況の確定』へ入る縦の接続線と、右の『モニタリング及びレビュー』枠の上へ伸びる縦線が切れている。下部に図番号キャプション『図 リスクマネジメントプロセス』の写り込みもある（総監 R01 Ⅰ-1-30）",
+      "reviewedAt": "2026-10-06T11:33:43.673Z"
     },
     "pe-comprehensive-management/r06-primary/img/i-1-31-system-diagram": {
       "sha": "d7ab289069cdd84d",
@@ -833,6 +868,13 @@
       "action": "none",
       "reason": "下縁で X 軸の軸ラベル『事業領域』の下半分と縦軸端の『官』の下部が切れている。左縁に撮影時の指、右上に隣接する本文の滲み",
       "reviewedAt": "2026-10-06T09:56:02.171Z"
+    },
+    "pe-first-stage/h26-basic/img/q21-source": {
+      "sha": "b39f4001d9849d95",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で作業ラベル『(エ)』の括弧の下半分（約 6〜7px）が切れている。写り込みは無い（H26 基礎）",
+      "reviewedAt": "2026-10-06T11:33:43.674Z"
     },
     "pe-first-stage/h28-basic/img/q08-table": {
       "sha": "f776d311e05bce66",
@@ -1212,6 +1254,13 @@
         "page": 10,
         "dpi": 200
       }
+    },
+    "surveyor/primary-r05/img/q07-fig": {
+      "sha": "f2de881f56129435",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で左下の地表曲線（既知点 A 側の斜面）が画像端まで続いて切れている。写り込みは無い（測量士補 R05 No.7）",
+      "reviewedAt": "2026-10-06T11:33:43.674Z"
     },
     "surveyor/primary-r05/img/q12-fig": {
       "sha": "83c414aa8e3df3a9",
