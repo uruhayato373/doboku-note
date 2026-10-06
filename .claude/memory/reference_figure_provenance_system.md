@@ -4,27 +4,28 @@ description: "図・画像・OGP資産の運用。図の出所/品質台帳(audi
 metadata:
   type: reference
 ---
-記事図クロップの品質改善を「毎回手で辿らず」継続するための土台（2026-07-08 構築）。真実源 `docs/reference/figure-provenance.md`。
+記事図クロップの品質改善を「毎回手で辿らず」継続するための土台（2026-07-08 構築）。真実源 `.claude/knowledge/reference/figure-provenance.md`。
 
-**3層**:
+**層**（④は 2026-10-06 追加）:
 - `config/figure-sources.json` … 資格別ソース台帳（元素材の所在・種別・品質・再スキャン要否）。**手動SSOT**。
 - `.claude/state/figure-text-audit.json` … 機械監査＝**写り込み**(OCR: leak/prose/maybe/clean)＋**画質**(ラプラシアン分散 sharp/soft/blurry)。`npm run audit-figure-text`。
-- `.claude/state/figure-provenance.json` … 上2つ＋命名年度＋公開/掲載を join し各図の **needs** を算出。`npm run build-figure-provenance`。
+- `.claude/state/figure-provenance.json` … 上2つ＋命名年度＋公開/掲載＋④を join し各図の **needs** を算出。`npm run build-figure-provenance`。
+- `.claude/state/quality/figure-review-ledger.json` … ④目視判定の台帳（`/figure-quality-loop` が `npm run figure-review-queue -- record` で書く）。画像の sha と一致する記録だけが効く。
 
 **一括**: `npm run audit-figures`（図を直したら実行して更新）。
 
-**needs（次アクション）**: recrop-urgent(答え漏らし)／recrop(写り込み・画質OK)／rescan(ボケ＋再スキャン可)／rescan-need-source／rescan-or-svg／ok。
+**needs（次アクション）**: recrop-urgent(答え漏らし)／recrop(写り込み・画質OK)／rescan(ボケ＋再スキャン可)／rescan-need-source／rescan-or-svg／reextract(縁で切れた図＝元PDFから切り出し直し)／ok。
 
 **manual_needs（machine-blind 欠陥の per-figure 上書き・2026-07-09 追加）**: OCR/sharpnessで検出不能な欠陥は `figure-sources.json` の `manual_needs` 配列（`{figure:baseRel末尾, needs, reason, verified}`）に書く→build-figure-provenanceが末尾一致で needs 上書き＋`manualReason`出力→ギャラリー対応バッジ tooltip に理由表示。用途は**双方向**: ①見切れ図の upgrade（例 civil-1 工程表 r04-b/r05-b/r01-b/r07-b/r06-b-fig-02＝作業/ノード/ラベル欠落で鮮明clean判定だが `rescan-need-source`）②writein/prose 誤検出の ok 下押し（例 pe cost-variance図の(1)(2)下位図キャプション・化学式OCRノイズ・図の●凡例）。見切れは再クロップ不可＝要元スキャン。
 
-**運用**: `npm run admin`→記事図版タブ→フィルタ「対応」で needs 別に絞る。カードに needs バッジ＋再スキャン図は source_dir ツールチップ。MDXリンクで開いて修正。
+**運用**: `/loop /figure-quality-loop` で判定待ち（画素検査＋OCR − 判定済み）を 0 まで回す（2026-10-06〜）。管理画面の記事図版タブは目視確認専用（needs のバッジ・絞り込みは 2026-09-30 に廃止）。
 
 **重要な判断（この土台で確定した方針）**:
 - ボケ図＝ラプラシアン分散で機械検出可（digital 800+/スキャン 18-118）。**rescan33は全てconcrete-chief**（PDF無し・書籍スキャン低品質）。civil/pe はゼロ（鮮明）。
 - **過去問のデータグラフはSVG化禁止**＝図の幾何が答えそのもの・ボケ元から誤答を誘発。→再スキャンが正。SVGは構造が本文確定できる模式図のみ。
 - 写り込み(recrop)は既存から再クロップで直る。答え漏らしの公開×掲載は既に0化済み [[project_civil1_figure_answer_leak]]。
 
-**未実装の拡張**: クロップpipeline(civil-figure-rework/pdf-to-mdx)が切る時にsource PDF/page/bboxをprovenanceに書けば完全決定化。今は資格レベルのsource_dirのみ。
+**未実装の拡張**: `/figure-quality-loop` の切り出し直しは出典（PDF・ページ・dpi）を判定台帳に残す。civil-figure-rework / pdf-to-mdx の crop は未対応。
 
 ---
 

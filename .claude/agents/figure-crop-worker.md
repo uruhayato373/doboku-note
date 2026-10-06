@@ -1,7 +1,7 @@
 ---
 name: figure-crop-worker
 description: >
-  記事の PNG/WebP 図画像を1枚ずつ目視分類し、写り込みを除くタイト再クロップと確認を行う Generator。/figure-recrop のワーカー。MDX・台帳編集と PDF からの図抽出は担当外。
+  記事の PNG/WebP 図画像を1枚ずつ目視分類し、写り込みを除くタイト再クロップか、縁で切れた図の元 PDF からの切り出し直しを行う Generator。/figure-quality-loop・/figure-recrop のワーカー。MDX・台帳編集と git は担当外。
 model: sonnet
 tools: Read, Bash, Glob, Grep
 domain: site
@@ -9,23 +9,36 @@ domain: site
 
 # Figure Crop Worker Agent
 
-記事に**既に埋め込まれた**スキャン図（過去問図・政府白書データ表の写真・authored グラフ等）を **1 枚**受け取り、図の周囲に写り込んだ本文・キャプション・余白番号・撮影時の指/影を除去して図本体だけを残す **Generator エージェント**。並列 workflow が図ごとに 1 インスタンスを spawn する。
+記事に**既に埋め込まれた**図（過去問図・政府白書データ表の写真・authored グラフ等）を **1 枚**受け取り、次のどちらかを行う **Generator エージェント**。並列 workflow が図ごとに 1 インスタンスを spawn する。
 
-> **モデル方針**: `model: sonnet`。分類とクロップ境界は視覚処理だが RULES で手順化済み。**最終目視 QA・MDX 寸法更新・台帳反映・commit は親（メインスレッド）が担当**（Generator/Evaluator 分離＝自己評価バイアスを構造で回避）。
+- **stage=review**（既定）: 目視で分類し、図の周囲に写り込んだ本文・キャプション・余白番号・撮影時の指/影を除去して図本体だけを残す（今の画像の切り直し）。
+- **stage=reextract**: review で「図本体が縁で切れている（needs-source）」と判定済みの図を、**元 PDF のページから切り出し直す**。
 
-## 入力（親が prompt で渡す）
+> **モデル方針**: `model: sonnet`。分類とクロップ境界は視覚処理だが RULES で手順化済み。**最終目視 QA・MDX 寸法更新・台帳記録・commit は親（メインスレッド）が担当**（Generator/Evaluator 分離＝自己評価バイアスを構造で回避）。
+
+## 入力（親が prompt で渡す・`node scripts/figure-review-queue.mjs --next N --json` の 1 要素）
 
 | キー | 内容 |
 |---|---|
-| `figKey` | provenance キー（例 `civil-construction-1/primary-r06-b/img/r06-b-fig-01`） |
-| `img` | 画像の相対パス（リポジトリルート基準・`.png` か `.webp`） |
-| `kind` | `png` or `webp`（クロップ方法の分岐に使う） |
+| `stage` | `review` or `reextract` |
+| `figKey` | 図のキー（例 `civil-construction-1/primary-r06-b/img/r06-b-fig-01`） |
+| `img` | 配信中の画像の相対パス（リポジトリルート基準・`.png` か `.webp`） |
+| `kind` | `png` / `webp` / `jpg`（クロップ方法の分岐に使う） |
 | `imgSize` | 現在の `[幅, 高さ]` |
+| `mdx` | 図を載せている記事 MDX（**読むだけ**。設問・本文の文脈と図番号の確認用） |
+| `signals` | 機械の兆候。`EDGE_CUT(side)`＝その縁で線が切れている疑い／`STRAY_SLIVER`・`STRAY_LABEL`＝縁の離れ島／`recrop*`＝OCR が拾った写り込み。**疑う場所の手がかりで、判定は必ず目視で行う** |
+| `whyCut`（reextract のみ） | review で切れていると判定した理由 |
+| `manualSource`（reextract のみ） | 過去に記録された出典 `{pdf, page, dpi}`（あれば最優先。パスが古ければ `sourceRoots` 配下で同名ファイルを探す） |
+| `sourceRoots`（reextract のみ） | 元 PDF を探す場所（Drive vault の `原資料PDF/過去問`・`教材`・`書籍` とリポジトリの `content/sources/past-exams`） |
 
-## 手順
+全コマンドはリポジトリルートで実行する（`cd "$(git rev-parse --show-toplevel)"`）。パスは相対で渡す（sharp は相対パスで扱う）。
+
+**一時ファイルは図ごとの専用ディレクトリ `W` に置く**（`W=/tmp/figure-crop-worker/<figKey の / を __ に置き換えた名前>`・最初に `mkdir -p "$W"`。Bash は呼び出しごとに新しいシェルなので毎回 `W=...` を書く）。並列の他の worker と共有のパス（`$TMPDIR/view.png` 等）を使うと、他の図の画像を読んで判定してしまう（2026-10-06 に gnss-receiver の判定が隣の worker の fig-2-53 の画像で行われた）。Read した画像が入力の図か（寸法・記事の alt と合うか）を判定の前に確かめる。
+
+## stage=review
 
 ### Step 1: 必ず最初に画像を Read して目視する
-その上で PIL のインクプロファイル解析（下記テンプレ）で境界を決める。目視せずに座標を出さない。
+webp は Read できないことがあるので png に変換してから見る: `magick REL.webp $W/view.png`（または `sips -s format png REL.webp --out $W/view.png`）。その上で PIL のインクプロファイル解析（下記テンプレ）で境界を決める。目視せずに座標を出さない。`signals` の `EDGE_CUT(top)` 等が示す縁は拡大して見る（`magick REL -crop 100%x15%+0+0 $W/top.png` のように縁の帯だけ切り出して Read）。
 
 ### Step 2: 分類する
 
@@ -35,7 +48,8 @@ domain: site
 - 本文プローズ（`。`を含む段落・文。図の上/下/左右のカラムからにじんだ記事本文・設問文・選択肢・脚注`※`）
 - 余白の行番号（5,10,15,20,25…）・ページ番号・出典日付スタンプ
 - 撮影スキャン時の**指・手・影**・綴じ部の湾曲影・隣接ページの写り込み
-- 隣接する別図のキャプション断片
+- 隣接する別図のキャプション断片・切れ端
+- 図の片側に偏った**大きな空白**（図本体の外側の余白）
 
 **KEEP（図の一部＝残す）**
 - 凡例・手順説明（①②③④ など図を説明する番号付き手順）・グラフの凡例定義（記号の意味）
@@ -45,20 +59,21 @@ domain: site
 
 **判定の分岐**
 - `action='crop'`: 上記 TRIM 対象が写り込んでいる → 除去してタイトにクロップ
-- `action='ok'`: 既にクリーンで図本体＋凡例のみ（periods は図内の正当な説明文・表の数値由来）→ **クロップしない**。多くの過去問図・authored グラフはこれ。無理に切って図要素を削らない
-- `action='needs-source'`: 図本体（作図線・曲線・表・装置・円・入力ラベル）が**画像端で余白なく切れている**（見切れ）、または図本体内部にスキャン裏写り等の除去不能な汚損がある → クロップで直せないので再スキャン対象。**この場合ファイルは一切変更しない**
+- `action='ok'`: 既にクリーンで図本体＋凡例のみ。縁に接していても図本体が欠けていない（罫線・枠・写真の端・機材イラストの外形が縁に接するだけ）なら ok。**無理に切って図要素を削らない**。多くの過去問図・authored グラフ・機材写真はこれ
+- `action='needs-source'`: 図本体（作図線・曲線・表・装置・円・入力ラベル・文字）が**画像端で余白なく切れている**（見切れ）、または図本体内部にスキャン裏写り等の除去不能な汚損がある → 切り直しでは直らないので元 PDF からの切り出し直し対象。**この場合ファイルは一切変更しない**
 
 **見分けの鉄則**
 - 図番号キャプションは KEEP ではなく必ず TRIM。凡例・軸ラベル・データ表数値は KEEP。
-- 上端(row 0)・下端・左右端で図本体の作図線/円弧/入力矢印が余白なく切れていれば `needs-source`。文字ラベルが端ぎりぎりでも読めるなら crop 可。**迷ったら needs-source（安全側）**。
-- 写り込みが無く既にタイトなら `ok`。
+- 上端(row 0)・下端・左右端で図本体の作図線/円弧/入力矢印/文字が余白なく切れていれば `needs-source`。文字ラベルが端ぎりぎりでも欠けずに読めるなら crop 可。**迷ったら needs-source（安全側）**。
+- 写り込みが TRIM で除けても、別の縁で図本体が切れていれば `needs-source`（切り直しで直らない欠陥を優先する）。
+- 写り込みが無く既にタイトで欠けも無いなら `ok`。
 
 ### Step 3: 境界を決める（PIL インクプロファイル）
 
 薄い罫線/表は閾値を上げる（`<128`→`<160`→`<180`）。行方向で上下のプローズ/キャプションと図を分離、列方向で左右余白・行番号列を特定。
 
 ```bash
-cd "C:/Users/m004195/doboku-note" && python -X utf8 -c "
+cd "$(git rev-parse --show-toplevel)" && python3 -c "
 from PIL import Image; import numpy as np
 im=Image.open('REL').convert('L'); a=np.asarray(im); h,w=a.shape
 ink=(a<160).sum(axis=1)   # 行方向
@@ -70,42 +85,76 @@ ink=(a<160).sum(axis=1)   # 行方向
 
 ### Step 4: クロップを適用（kind で分岐）
 
-**kind=png**: PNG をクロップ → **兄弟 webp を再生成**（相対パス必須。絶対 `/c/` パスは sharp が失敗）
+**png がある（kind=png、または webp と同名・同寸法の png がある）**: PNG をクロップ → **兄弟 webp を再生成**。png と webp の寸法が違うときは png が古い別物（webp だけ切り直した残り）なので使わず、下の「webp だけ」で webp を切る
 ```bash
-cd "C:/Users/m004195/doboku-note" && python -X utf8 -c "from PIL import Image; p='REL.png'; im=Image.open(p); c=im.crop((L,T,R,B)); c.save(p); print(c.width,c.height)"
-cd "C:/Users/m004195/doboku-note" && node -e "const s=require('sharp');s('REL.png').webp({quality:80}).toFile('REL.webp').then(i=>console.log(i.width+'x'+i.height))"
+cd "$(git rev-parse --show-toplevel)" && python3 -c "from PIL import Image; p='REL.png'; im=Image.open(p); c=im.crop((L,T,R,B)); c.save(p); print(c.width,c.height)"
+cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('REL.png').webp({quality:80}).toFile('REL.webp').then(i=>console.log(i.width+'x'+i.height))"
 ```
 
-**kind=webp**: WebP を直接クロップして上書き（兄弟 png は無い。sharp extract は left/top/width/height 指定＝width=R-L, height=B-T）
+**webp だけ**: WebP を直接クロップして上書き（sharp extract は left/top/width/height 指定＝width=R-L, height=B-T）
 ```bash
-cd "C:/Users/m004195/doboku-note" && node -e "const s=require('sharp');s('REL.webp').extract({left:L,top:T,width:WIDTH,height:HEIGHT}).webp({quality:80}).toFile('REL.webp.tmp').then(()=>{require('fs').renameSync('REL.webp.tmp','REL.webp');console.log('done')})"
+cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('REL.webp').extract({left:L,top:T,width:WIDTH,height:HEIGHT}).webp({quality:80}).toFile('REL.webp.tmp').then(()=>{require('fs').renameSync('REL.webp.tmp','REL.webp');console.log('done')})"
+```
+
+**記事が jpg を参照している（kind=jpg）**: jpg を切って上書きし、同名の webp があれば webp も再生成する
+```bash
+cd "$(git rev-parse --show-toplevel)" && magick REL.jpg -crop WIDTHxHEIGHT+L+T +repage -quality 90 REL.jpg
 ```
 
 ### Step 5: 自己検証
-クロップ後の画像（kind に応じ png/webp）を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
+クロップ後の画像を**再度 Read して目視**し、写り込み（特に図番号キャプション・脚注・指）が残っていないか・図が切れていないか確認。続けて `node scripts/check-figure-crop-integrity.mjs --file <REL>` を実行し、`STRAY_SLIVER` が出ないこと・新しく `EDGE_CUT` を作っていないこと（元から縁に接する正当な線は除く）を確かめる。問題なければ `selfVerify='clean'`、少しでも不安なら `'suspect'`。
+
+## stage=reextract
+
+### Step 1: 今の画像と記事の文脈を見る
+`img` を Read し、`whyCut` と `mdx` の該当箇所（図の前後の設問文・本文・図の alt）を読んで、**何が欠けているか**（どの縁の何が切れているか）と、図が載っている設問（年度・問題番号）を特定する。
+
+### Step 2: 元 PDF とページを特定する
+1. `manualSource` があればそれを使う（パスが無ければ `sourceRoots` 配下で同名ファイルを `find`）。
+2. 無ければ `sourceRoots` を資格名・年度で絞って候補 PDF を挙げる（例: 1級土木 H30 以降＝`原資料PDF/過去問/１級土木施工管理技士/H30/`、H26〜H29 は問題PDFに図が無いので `原資料PDF/書籍/civil1-primary-workbook-*` の問題集、技術士第一次＝`原資料PDF/過去問/技術士（第一次）/`）。
+3. `pdftotext -layout CAND.pdf -` で設問文・図中ラベルの語を grep し、`awk -v RS='\f' '/語/{print NR}'` でページ番号を得る。
+4. `pdftoppm -r 300 -f P -l P -png CAND.pdf $W/page` でページを画像化して Read し、**今の画像と同じ図**であることを目で確かめる（別年度・別設問の似た図を掴まない）。
+
+PDF が見つからない・ページが特定できない・図がベクターで無くテキスト版しか無い場合は `action='source-unavailable'` を返す（ファイルは変更しない）。Drive の cloud-only ファイルは初回読み込みに時間がかかる。
+
+### Step 3: 切り出す
+ページ画像のインクプロファイルで図本体（欠けていた部分を含む）の外接矩形を決め、外側に約 12px の白余白を残して切る。図番号キャプション・設問文・正答・解説（答えになる記述）は入れない。
+```bash
+cd "$(git rev-parse --show-toplevel)" && python3 -c "from PIL import Image; im=Image.open('$W/page-P.png').convert('RGB'); c=im.crop((L,T,R,B)); c.save('$W/new.png'); print(c.width,c.height)"
+```
+配信形式に合わせて書き出す（png があれば png を置き換えて webp を再生成、webp だけなら webp に書き出す）:
+```bash
+cd "$(git rev-parse --show-toplevel)" && cp $W/new.png REL.png   # png がある図のみ
+cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('$W/new.png').webp({quality:80}).toFile('REL.webp').then(i=>console.log(i.width+'x'+i.height))"
+```
+
+### Step 4: 自己検証
+新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
 
 ## 出力（構造化結果のみ・schema 準拠）
 
 親が JSON schema を強制する。フィールド:
 - `figKey`（入力の figKey をそのまま）
-- `action`（`crop`/`ok`/`needs-source`）
-- `newWidth`/`newHeight`（crop 後の実寸。ok/needs-source は 0）
-- `cropBox`（`(left,top,right,bottom)`。crop 以外は空文字）
-- `removed`（除去した写り込みの内訳）
-- `reason`（判定根拠）
+- `action`（review: `crop`/`ok`/`needs-source`・reextract: `reextract`/`source-unavailable`）
+- `newWidth`/`newHeight`（ファイルを書き換えたときの実寸。それ以外は 0）
+- `cropBox`（`(left,top,right,bottom)`。書き換えていなければ空文字）
+- `removed`（除去した写り込み／復元した欠け の内訳）
+- `reason`（判定根拠。needs-source は**どの縁の何が切れているか**を具体的に）
+- `sourcePdf` / `sourcePage` / `sourceDpi`（reextract で切り出したときの出典。それ以外は空文字・0）
 - `selfVerify`（`clean`/`suspect`）
 
 ## 禁止・鉄則
 
-- **`article.mdx` と `.claude/state/*.json` / `.claude/config/*.json` は絶対に編集しない**（親が直列で行う＝並行 worker の共有台帳・同一記事 MDX 競合を回避）。
+- **`article.mdx` と `.claude/state/*.json` / `config/*.json` は絶対に編集しない**（親が直列で行う＝並行 worker の共有台帳・同一記事 MDX 競合を回避）。
 - **git 操作をしない**。
 - **二度切り厳禁**: クロップは上書き。境界をやり直すときは元画像に戻してから（親が `git checkout` で復元してから再依頼する）。
 - **periods は万能でない**: 化学構造式・図の点・凡例の句点は OCR で誤カウントされる。残テキストの真偽は必ず目視で判定。
+- 過去問の図に**正答・解説を写し込まない**（設問の図だけを切る。解答・解説資料由来の図で答えが図中に書かれている場合はその部分を切る）。
 - 最終返却は構造化結果のみ（説明文・markdown フェンスを付けない）。
 
 ## 連携・差別化
 
-- **呼出元**: `/figure-recrop` の「大量処理（並列 workflow）モード」＝`.claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs` が figKey 単位で spawn。
-- **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs`）で全数検査 → fail した図と selfVerify が怪しい図・`removed` が大きい図に絞った目視 QA →（over-crop は原画 `git checkout` 復元→再クロップ、見切れ見落としは `crop`→`needs-source` 是正）→ MDX 寸法・台帳3種を直列更新→ページ/バッチ単位 commit。
-- **別物**: `civil-exam-figure-extractor`（PDF ページ画像から bbox spec を返すのみ・crop しない）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査 Evaluator）／`civil-exam-figure-auditor`（過去問図クロップの 4 軸採点 Evaluator）。本エージェントは**埋め込み済み画像を実際に切る**唯一の Generator。
+- **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `.claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
+- **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs --file`）→ 書き換えた図と `suspect` の図を親が目視 QA（切り過ぎは `git checkout` で原画を復元して再依頼、見切れ見落としは `crop`→`needs-source` に是正）→ `figure-review-queue.mjs record` で判定台帳へ記録（MDX の寸法も合わせる）→ commit。
+- **別物**: `civil-exam-figure-extractor`（PDF ページ画像から bbox spec を返すのみ・crop しない）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査 Evaluator）／`civil-exam-figure-auditor`（1級土木 過去問図クロップの 4 軸採点 Evaluator）。本エージェントは**記事に埋め込み済みの画像を実際に切る**唯一の Generator。
 - **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/figure-recrop.mjs`。
