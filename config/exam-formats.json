@@ -198,7 +198,7 @@
       "stages": [
         {
           "key": "written",
-          "label": "試験A・試験B(1日でCBT実施)",
+          "label": "試験A・試験B(CBT・同日または別日に受験)",
           "shortLabel": "筆記",
           "types": [
             "experience",
@@ -211,15 +211,13 @@
       "pastExams": {
         "questions": "partial",
         "answers": "none",
-        "note": "問題III（管理技術力）の出題テーマだけ試験前に公表。過去問・正答の公式公開は無い",
+        "note": "問題III（管理技術力）の出題テーマだけ試験前に公表。過去問・正答の公式公開は無い（トップページに掲載なし。令和8年度 受験の手引き〔juken-no-tebiki26.pdf〕の本文にも公開・配布の記載なし。CBT で私物の持ち込み不可）",
         "source": "https://www.rccm-cpd.com/rccm/rccmtop.html"
       },
       "verification": {
-        "checkedAt": "2026-09-26",
+        "checkedAt": "2026-10-06",
         "checkedBy": "self",
-        "unresolved": [
-          "過去の試験問題を公式に公開していないことは、RCCM 試験のトップページに掲載が無いことからの判断（受験の手引き PDF の本文は未読）"
-        ],
+        "unresolved": [],
         "pending": [],
         "notPublished": []
       }

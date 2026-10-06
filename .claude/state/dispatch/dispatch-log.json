@@ -2059,6 +2059,54 @@
       "commit": "e3273dba62c7",
       "verification": "verify-note-magazines: 109件 SoTズレ0 / note-reconcile-title-price: 記事933本・マガジン109件で価格ずれ0",
       "note": "2026-10-06 エージェントが note へ反映: マガジン22誌（note-edit-magazine・API で価格一致）、主任技士単品40本 ¥980→¥1,480（note-article-price-sweep・40/40）、有料境界40本を再設定（note-reanchor-boundary・無料プレビュー非空 40/40）。EXP-015/016 を running に。本番デプロイは運営者の判断で別途"
+    },
+    {
+      "id": "DN-0398",
+      "at": "2026-10-06",
+      "task": "note 監査の残り — 落ちる答案2本の題名回帰",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "57c4af4bfb5e",
+      "verification": "カードの grep（添削する側|採点する立場|発注者・添削視点）0件 / check-note-republish の題名 drift に2本 / check-note-price-consistency ✓",
+      "note": "10/1 の PR #798（--adopt-live）で戻った題名・H1 を原稿で直した。再開条件: 10/11 の Mac note-sync で反映後、公開ページ nfea4a39cf108・na5e045a1c6f8 を照合（ローカル）。動画パックの再レンダリング要否も残る"
+    },
+    {
+      "id": "DN-0486",
+      "at": "2026-10-06",
+      "task": "資格の正本の要対応を公式で照合 — RCCM",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "38eb0df54674",
+      "verification": "exam-ssot-status 要対応 57→56（RCCM が要対応から消えた）/ check-exam-calendar OK / check-datasets ✓",
+      "note": "受験の手引き R8 で RCCM を照合。再開条件: 測量士・測量士補の次年度日程を国土地理院の公式で確認（gsi.go.jp がクラウドから届かないためローカル）"
+    },
+    {
+      "id": "DN-0537",
+      "at": "2026-10-06",
+      "task": "Instagram 2級直前の予約再開 — 前倒し案の一覧",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": null,
+      "verification": "campaign.json・video-packs/civil-construction-2 の 18 テーマを確認し、9 テーマ×3 投稿の案をカードへ記入（年度依存は #1 のみ）",
+      "note": "再開条件: Facebook ログイン復旧 → /ig-reconcile で 10/7〜10/24 の枠を照合 → ユーザー承認 → publish-ig-bs で 9 件ずつ予約（ローカル）"
+    },
+    {
+      "id": "DN-0248",
+      "at": "2026-10-06",
+      "task": "技術士 口頭の無料導入2本 — 成績区分の照合と X 11月計画",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "2c5a02276376",
+      "verification": "check-x-campaign-plan OK（2026-11-pe-oral.json 27件・WARN 0／全 9 ファイル 261 件）/ 合否決定基準の表を文部科学省 HTML の rowspan で確認 / 配点 50+50 を受験申込み案内 PDF で確認",
+      "note": "再開条件: 11/4 の公式掲載を確かめて運営者が無料2本を公開・L2 配線。funnel を note へ切り替える前に無料2本のカタログ登録かゲート例外を決め、tweets.md を作る"
     }
   ]
 }

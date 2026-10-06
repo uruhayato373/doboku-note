@@ -98,7 +98,7 @@
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。`https://note.com/dobokunote/membership/join` が加入画面を出さない。
 
 ### [DN-0445] 2級二次（10/25）の直前受注を、ココナラ 24時間の添削・骨子と note 導線で拾い切る
-タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-29] [期日:2026-10-25]
+タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-29] [期日:2026-10-25] [進行中]
 
 **起点**: 2026-09-29 の 2級立て直しの検討。2級は記述の受験者 21,111 人と 1級（24,667 人）並みなのに、6〜9月の売上は 16 件・¥31,480（1級は ¥145,280）。note の 2級記事は 9/1〜15 で 617 PV・78 本（1 本平均 8 PV）で、読まれるのは R8 予想模試（38 PV）と過去問模範答案に集中し、受験資格などの無料記事は読まれていない。売上の中心は note とココナラで、GSC（サイトの検索）は判断に使わない。
 
@@ -120,6 +120,19 @@
 **起点**: 2026-10-05 の 2級土木の SNS 配線の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿・全件 ready）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` には `x-article-*` しか無く、launchd にも無い。video-packs の `status.json` は 9/11 以降更新が無い（ライブの Planner は未照合）。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、X は 2級を主力へ切り替えた（DN-0445）のに Instagram の 2級は 0 本。プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。
 
 **やること**: (0) 2026-10-05 に運営者が Facebook へログインできず、Business Suite のプロファイルが expired のまま（`npm run auth:status -- --service instagram`）。まずログインを復旧する。(1) Mac の Business Suite ログインで `/ig-reconcile` を回し、9/20 以降の予約・公開の実体を確かめる。(2) 2級の直前向けテーマ（`content/sns/instagram/video-packs/civil-construction-2/` の経験記述・学科記述・聞き流しまとめなど）を 10/24 までの枠へ前倒しする案を一覧にし、ユーザー承認後に `publish-ig-bs` で予約する（1 回 9 件まで・dry-run 先行）。年度・時期に依存するテーマは配信日に合うか確かめる。(3) 補充の定期処理を作り直すか、instagram-campaign.md を実態（手動補充）に直す。(4) プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いは DN-0363 と合わせて決める。
+
+**(2) の前倒し案（2026-10-06・ユーザー承認待ち）**: 2級 9 テーマ×3 投稿＝27 件。各テーマは campaign.json の cadence どおり「初日 12:30 リール1 → 翌日 12:30 カルーセル → 翌日 19:00 リール2」（リール1/2 は `reels` 配列の順・`scripts/lib/instagram-campaign.mjs:48`）。`publish-ig-bs` は 9 件ずつ 3 回: 第1回 #1〜3・第2回 #4〜6 は即予約可、第3回 #7〜9 は 14 日先の制約で 10/10 以降。開始が遅れたら後ろの日付は動かさず #2・#3 から間引く。
+1. 10/7 `keiken-nendo-keiko-2kyu`（出題傾向）— **年度依存あり**（「令和3〜7年度」「R06〜R07：2テーマ必答」等。10/24 までは直近5年＝R03〜R07 で合う・10/25 以降へずらせない）
+2. 10/9 `keiken-gaiyo-2kyu`（工事概要）
+3. 10/11 `gakka-2kyu-concrete`（学科 コンクリート。batch02 の pending 引継ぎ）
+4. 10/13 `keiken-hinshitsu-kakikata`（品質管理）
+5. 10/15 `keiken-kotei-kakikata`（工程管理）
+6. 10/17 `keiken-anzen-2kyu-kakikata`（安全管理）
+7. 10/19 `kikinagashi-2kyu-matome`（聞き流しまとめ）
+8. 10/21 `gakka-kijutsu-2kyu`（学科記述の型）
+9. 10/23 `keiken-genten-kyotsuten`（減点される答案の共通点）
+
+#2〜#9 は年度・時期に依存する表現なし（campaign.json の `timeSensitive` は 2級 18 テーマとも false）。除外: `anzen-ippanron-3riyu`（9/14・15 予約済み・公開は未照合）、`nikyuu-gaiyo-roadmap`・`study-plan-2kyu`（入門・長期計画向けで旧シリーズの下書きが残る）、`keiken-koji-ga-nai`・`keiken-2kyu-level`・`gakka-2kyu-{doko,hoki,kiso,sekokeikaku}`（初期向け・#7 と重複・一次向け）。予約前に Mac で `instagram-campaign --check --media`（9/11 以降の素材の変化を確認）と、手順 (1) で 10/7〜10/24 の枠の空きをライブの Planner で照合する。
 
 **完了条件**: 10/24 までの Instagram に 2級の投稿が予約され、Planner で実体を確かめて `status.json` に記録し、補充の仕組みと instagram-campaign.md の記述が一致している。
 
@@ -194,7 +207,7 @@
 
 **起点**: 7月の購入者へ、筆記の結果に応じた次の準備を案内する。送客先の有料教材と価格・公開URLは `src/lib/note-magazines.ts` の `tankan-oral-complete` / `pe-construction-oral-guide` を参照する。
 
-**やること**: 無料2本は 2026-09-30 に日本技術士会・文部科学省の公式で照合し、口頭教材の公開URLへ配線した draft（`content/note/技術士{総監,建設部門}/筆記合格発表後にやること-無料/`）。残りは (1) 総監の成績の評価区分（A/B/C）を日本技術士会の成績通知の見方で照合する（未確認のため本文は「公式の区分ではない」と断っている）(2) 発表日D（11/4 予定）を公式掲載で確かめ、D当日に運営者が2本を公開してL2（総監・建設部門もくじ）へ配線する (3) X告知の `2026-11-pe-oral.json` を作る。
+**やること**: 無料2本は 2026-09-30 に日本技術士会・文部科学省の公式で照合し、口頭教材の公開URLへ配線した draft（`content/note/技術士{総監,建設部門}/筆記合格発表後にやること-無料/`）。残りは (1) 発表日D（11/4 予定）を公式掲載で確かめ、D当日に運営者が2本を公開してL2（総監・建設部門もくじ）へ配線する (2) X告知 `content/sns/x/campaigns/2026-11-pe-oral.json`（27本・`check-x-campaign-plan` 緑）の無料記事宛て4本は、未公開のため linkless・`pendingNoteArticle` で置いてある。公開後に funnel を note へ切り替える前に、無料2本を `config/products.json`（→ note-magazines.ts）へ登録するかゲートに例外を足すかを決める（未登録のまま切り替えるとゲートが赤になる見込み・未試行）(3) 投稿原稿（tweets.md）を作る。成績の評価区分（A/B/C）は日本技術士会・文部科学省の公式に区分の定義が無いことを確かめ、本文の「公式の区分ではない」の断りを維持した。
 
 **完了条件**: 無料2本がライブ、有料教材へのリンクが公開URLと一致、`audit-note-funnel` ドリフト0、X11月計画が `check-x-campaign-plan` 緑。
 
@@ -224,6 +237,15 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0547] 2級土木 第1次検定 令和8年度 前期の過去問ページを公式問題から作り、一次（後期・10/25）の受検者が解けるようにする
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-06] [期日:2026-10-18] [進行中]
+
+**起点**: 2026-10-06 の週次計画で見つけた。公式の問題と正答（全国建設研修センター `20260608d_mondai.pdf`・`20260608d_seitou.pdf`）は 9/29 に取得済み（`data/pastexams/inventory.json`）なのに、サイトの 2級一次は `primary-r03〜r07` までで `primary-r08-zenki` が無い。一次（後期）は二次と同じ 10/25 で、直近の本試験の問題が無料演習に無い。
+
+**やること**: `/exam-questions-import --exam civil-primary-2 --year r08 --sub zenki` の手順で `content/site/civil-construction-2/primary-r08-zenki/article.mdx` を作る。2級の PDF はふりがな付きでテキスト層の転記が崩れやすい（DN-0473 で前期 r03〜r06 に数百行の崩れ）ため、設問文・選択肢はページ画像と突き合わせて逐語で起こし、正答は公式の正答表と照合する。図のある設問は図をクロップして載せる。`past-exam-qa` で監査し、`npm run refresh-indexes` を通す。
+
+**完了条件**: `primary-r08-zenki` が公開され、全問の正答が公式の正答表と一致し、`past-exam-qa` で転記起因の指摘が 0、`npm run refresh-indexes` 済み。
 
 
 
@@ -390,6 +412,8 @@
 **やること**: 展開中（active）の資格から順に、実施機関の公式ページ・公式 PDF を主担当が読み、`qualification-registry.json`・`exam-calendar.json`・`exam-stats.json` の `verification`（照合日・checkedBy・unresolved/pending/notPublished）を書き換える。更新後に `npm run check-exam-calendar` を通す。1 回の月次で全部やらず、active の資格を優先して残りは翌月へ回す。
 
 **完了条件**: `npm run exam-ssot-status` の要対応が active 資格で 0 件。
+
+**残り（2026-10-06 時点・全体 56 件）**: active で残るのは測量士・測量士補の次年度日程の 2 件だけ（国土地理院の令和9年の公式発表を確かめて `exam-calendar.json` を更新。gsi.go.jp はクラウドのセッションから届かないので手元の端末で確認する）。
 
 ### [DN-0487] 過去問の年度在庫で「取得済みなのに Drive 台帳にも手元にも無い」2,112 件を、実在に合わせて直すか取得し直す
 タグ: [コンテンツ品質] [領域:戦略] [時期:2026-10] [種類:不具合] [起票:2026-10-01]
@@ -1249,7 +1273,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-09-27）**: P0「著者属性と異なる表現」は済み。「採点する側／採点する立場／発注者側＝採点する側」を note 4 本（原稿と公開ページ）で直し、公開ページで全文を照合した。「添削」はココナラで添削を販売しているため残す（運営者判断）。残りは同じ監査の他の指摘で、`npm run audit-note-funnel -- --exam civil --live` で今の状態を実査してから直す。
 
 
-**進捗（2026-09-30）**: 置換表どおりに5ファイル（1級/2級「落ちる答案」の H1・H2・カバー benefit・「採点は〜で決まります」の断定、2級集客クラスター、1級動画パックの台本と絵コンテ）を直し、カードの grep は 0 件（048ddeb9b）。`audit-note-funnel --exam civil --live` は公開114本でドリフトなし＝監査の残り（ライブ CTA 未反映・CTA 重複）は現存しない。残りは note 2本の本文・カバーの live 反映（週次 note-sync で反映→公開ページで表現が消えたことを照合）と、動画パックの再レンダリング要否の判断。
+**残り（2026-10-06 時点）**: 原稿はカードの grep 0 件。監査の残り（ライブ CTA 未反映・CTA 重複）は現存しない。(1) 1級/2級「落ちる答案」2本の題名・本文・カバーを note へ反映し（10/11 日曜の Mac note-sync。`check-note-republish` の題名 drift に 2 本とも出ている）、公開ページ（`nfea4a39cf108`・`na5e045a1c6f8`）から表現が消えたことを照合する。**反映前に `--adopt-live` を回すと公開側の旧題名で原稿が戻る**（10/1 の PR #798 で一度戻った）。(2) 1級動画パックの再レンダリング要否を決める。
 
 ### [DN-0397] 実ユーザー計測（#666）を本番で立ち上げ、表示速度の「計測→起票→改善」を閉じる
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27] [期日:2026-10-17]
