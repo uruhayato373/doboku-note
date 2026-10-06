@@ -21,6 +21,13 @@
       "reason": "上端に写り込んでいた前ページの本文最終行（『…したがって，(2)は適当でない。』＝答え漏らし）・左の綴じ部の影・図番号キャプション『図 ドレーン工の基本的な構造』・余白を除いて切り直し（1674x433→1194x254）。堤体・浸潤面・ドレーン工のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:49:08.224Z"
     },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-11": {
+      "sha": "681d4a90fa28451a",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で上段図（ふとんかご）の寸法値ラベル、『天端工』の引出し文字の上半分、右上の引出し線が切れている。左約 650px が空白、下端にキャプション『図 天端工および天端保護工』",
+      "reviewedAt": "2026-10-06T10:31:57.736Z"
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
       "sha": "77e9c41b0b37400e",
       "verdict": "ok",
@@ -183,6 +190,13 @@
       "reason": "下端で左右 2 つの擁壁・フーチング図の下半分（フーチングの下辺と側面）が切れている。上部に前の図の残りとキャプション、中段に見出し『③ 記号 A8 …』、左縁に綴じ部の影",
       "reviewedAt": "2026-10-06T10:09:04.339Z"
     },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
+      "sha": "01314471480bde28",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端のランニングヘッド『第4章 施工計画』・下端の図番号キャプションと出典『（国土交通省資料より）』・左右の余白を除いて切り直し（870x760→619x611）。フロー図の各ボックス・段階確認の枠・凡例は欠けなし。画像から消えた出典を ArticleImage の caption で表示するようにした。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:31:57.737Z"
+    },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
       "verdict": "ok",
@@ -238,6 +252,13 @@
       "action": "none",
       "reason": "下縁でコンクリート張りの法面・寸法 1,000・法尻の基礎ブロックが切れ、左縁で隣接図の断片（砂利）が切れている。上部に前の図の下端とキャプション『図2.23 モルタル吹付け工の例』、右縁に行番号 15/20。切り出し範囲が上にずれている",
       "reviewedAt": "2026-10-06T09:49:08.228Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-26": {
+      "sha": "ae7c408f37c343a5",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で右下の拡大詳細図（モルタル吹付け・アンカーバー D32・注記・寸法 400/500・コンクリート断面の下半分）が切れている。上と左に大きな余白、左に行番号",
+      "reviewedAt": "2026-10-06T10:31:57.736Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
       "sha": "57ca8da0af92ffe3",
@@ -372,6 +393,13 @@
       "reason": "下端で左手前の橋脚・支承・橋台ブロックの輪郭線が寸断され、左端で『(ハ)』の開き括弧が欠けている",
       "reviewedAt": "2026-10-06T10:24:51.421Z"
     },
+    "civil-construction-2/primary-r03-kouki/img/q57-fig": {
+      "sha": "3e7274204abf0a35",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ネットワーク式工程表（節点 0〜6・作業 A〜G・日数）がそろい写り込みなし。EDGE_CUT 4 辺は要素が縁に接しているだけで、上端の文字・下端の『日』・左右の節点の円は図内の同種要素と同じ大きさで欠けなし",
+      "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
     "civil-construction-2/primary-r05-kouki/img/q45-fig": {
       "sha": "8fe77561cba4565b",
       "verdict": "needs-source",
@@ -399,6 +427,13 @@
       "action": "none",
       "reason": "拡大管の図で写り込みなし。EDGE_CUT は 50cm 寸法の補助線と太管下辺の罫線が最終行にあるだけで、楕円は管軸に対し上下対称、左縁は『20 cm』の 2 の底辺が触れるだけで字形は欠けていない",
       "reviewedAt": "2026-10-06T09:33:45.508Z"
+    },
+    "civil-construction-2/primary-r07-kouki/img/q62-fig": {
+      "sha": "d5ce37d15ab9c63e",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ネットワーク式工程表（ノード 0〜6・作業 A〜H・日数）だけで写り込みなし。EDGE_CUT 4 辺は線や円が余白なく縁に接しているだけで、上端の横線・下端の『日』・左右の円は同じ図内の要素と同じ太さ・大きさで欠けなし",
+      "reviewedAt": "2026-10-06T10:31:57.735Z"
     },
     "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
       "sha": "01380dbdbca64a2d",
@@ -526,6 +561,13 @@
       "reason": "上端で空欄ラベル (a) の枠の上辺が欠け、『現在階をチェック』の文字も上余白なし。右縁で (d) の枠の縦線が約 1px 欠け。下部の図番号キャプション『図 エレベータの状態遷移図』は切り出し直しの際に除く",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "pe-first-stage/h30-basic/img/q-I2-5": {
+      "sha": "03e3717a6167b6bc",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下部の図番号キャプション『図 式(a+b)×(c+d)の2分木と後置記法への変換』と上端の点ノイズを除き、縁に接していた左右に白余白 12px を足した（1634x899→1658x757）。左端の曲線・右端の矢じりは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:31:57.738Z"
+    },
     "pe-first-stage/h30-basic/img/q-I3-4": {
       "sha": "063eb7d974e9173c",
       "verdict": "ok",
@@ -539,6 +581,13 @@
       "action": "none",
       "reason": "左縁で一点鎖線の軸の左端ラベル『軸』の偏が切れ、その前の語も欠けている可能性が高い",
       "reviewedAt": "2026-10-06T10:24:51.421Z"
+    },
+    "pe-first-stage/r01-basic/img/q1-4-fig": {
+      "sha": "b529a79495696b71",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下部の説明文（右端で切れていた・同じ文は記事の alt と設問文にある）と左右の大きな余白・点ノイズを除いて切り直し（1280x1140→421x897）。圧縮荷重の矢印・細い針金・固定端のハッチ・ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:31:57.739Z"
     },
     "pe-first-stage/r01-basic/img/q3-5-fig": {
       "sha": "5e9bf3cb2c8e199b",
@@ -635,6 +684,13 @@
       "action": "none",
       "reason": "左縁で引き出しラベル『容器Ⅰ』の『容』と寸法ラベル『L』の字形が切れている。背景全体にスキャンの裏写り、下半分は空白",
       "reviewedAt": "2026-10-06T10:24:51.418Z"
+    },
+    "surveyor/primary-r05/img/q12-fig": {
+      "sha": "83c414aa8e3df3a9",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "レベル・三脚・標尺 2 本・0.210 m の寸法線・地盤線だけで写り込みなし。EDGE_CUT(bottom) は地盤線の曲線の最下点が最終行に接しているだけで、線幅は他と同じ約 3px で欠けなし",
+      "reviewedAt": "2026-10-06T10:31:57.738Z"
     },
     "surveyor/primary-r07/img/q21-fig": {
       "sha": "f08ab9134d04b480",
