@@ -2068,7 +2068,7 @@
       "executor": "claude-cloud",
       "outcome": "blocked",
       "plan": null,
-      "commit": "57c4af4bfb6e",
+      "commit": "57c4af4bfb5e",
       "verification": "カードの grep（添削する側|採点する立場|発注者・添削視点）0件 / check-note-republish の題名 drift に2本 / check-note-price-consistency ✓",
       "note": "10/1 の PR #798（--adopt-live）で戻った題名・H1 を原稿で直した。再開条件: 10/11 の Mac note-sync で反映後、公開ページ nfea4a39cf108・na5e045a1c6f8 を照合（ローカル）。動画パックの再レンダリング要否も残る"
     },
