@@ -2131,6 +2131,18 @@
       "commit": "b32d0acfaf1f",
       "verification": "正答 66/66 が公式正答表と一致 / past-exam-qa 転記起因 0（66/66 を誌面画像で照合）・解説の MEDIUM 3・LOW 4 を反映 / refresh-indexes・check-generated-indexes ✓ / dev サーバーで 200・<main>",
       "note": "再開条件: 運営者の /deploy 後に check-production-ssr exit 0 を確かめる（10/25 の一次後期より前）"
+    },
+    {
+      "id": "DN-0548",
+      "at": "2026-10-06",
+      "task": "技術士一次の過去問を直すと、pre-commit が進めた dateModified で演習データ（public/quiz/pe-first-stage.json）が古くなり develop の CI が赤くなる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20b056cde392",
+      "verification": "PR #881 (0e3fd86ff) merged; on merged develop, editing a pe-first-stage MDX -> refresh-indexes -> commit ran [quiz-restage] and check-generated-indexes passed; tests/quiz-restage.test.mjs passes",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

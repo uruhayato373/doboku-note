@@ -238,23 +238,6 @@
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0548] 技術士一次の過去問を直すと、pre-commit が進めた dateModified で演習データ（public/quiz/pe-first-stage.json）が古くなり develop の CI が赤くなる
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-06] [進行中]
-
-**起点**: 2026-10-06 に技術士一次 12 本の数式を直した commit（0e3b23f99）で、`refresh-indexes` を回してから commit したのに、直後の `check-generated-indexes` が `public/quiz/pe-first-stage.json` の食い違いを出した。`scripts/build-quiz-data.mjs` は pe-first-stage の `generatedAt` を「元記事の dateModified の最大値」で作る（L427）。本文を変えた commit では pre-commit の `backfill-mdx-dates --staged` が dateModified を今日へ進めるので、commit 前に作った演習データの generatedAt が 1 日古いまま入る。後続の commit（9ab0a9257）で作り直して push したので CI は赤にならなかったが、1 本だけ直して push すると generated-indexes で赤くなる。
-
-**やること**: 次のどれかで「commit 前に refresh-indexes を回せば一致する」状態にする。(a) pre-commit で backfill-mdx-dates の後に、pe-first-stage の MDX が staged なら build-quiz-data を回して `public/quiz/` を stage する（`scripts/pre-commit-mdx.mjs`）。(b) generatedAt を dateModified から切り離す（演習アプリが generatedAt を「データの更新日」として表示しているかを先に確かめる）。(c) backfill-mdx-dates を refresh-indexes より前に手元で回す手順にする（機械で守れないので最後の手段）。ほかの資格の演習データ（`public/quiz/*.json`）に同じ作りが無いかも見る。
-
-**完了条件**: pe-first-stage の MDX の本文を 1 か所変えて `npm run refresh-indexes` → commit した直後に `npm run check-generated-indexes` が ✓（回帰テスト付き）。
-
- 2級土木 第1次検定 令和8年度 前期の過去問ページを公式問題から作り、一次（後期・10/25）の受検者が解けるようにする
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-06] [期日:2026-10-18]
-
-**起点**: 2026-10-06 の週次計画で見つけた。公式の問題と正答（全国建設研修センター `20260608d_mondai.pdf`・`20260608d_seitou.pdf`）は 9/29 に取得済み（`data/pastexams/inventory.json`）なのに、サイトの 2級一次は `primary-r03〜r07` までで `primary-r08-zenki` が無い。一次（後期）は二次と同じ 10/25 で、直近の本試験の問題が無料演習に無い。
-
-**やること**: develop にある `content/site/civil-construction-2/primary-r08-zenki/`（66 問・図 8 枚。正答 66/66 が公式と一致・`past-exam-qa` で転記起因 0・解説の指摘は反映済み・refresh-indexes 済み）を、運営者の `/deploy` で本番へ出し、`npm run check-production-ssr` が exit 0 になることと `/exam/civil-construction-2/primary/r08-zenki` の表示を確かめる。一次（後期）の 10/25 より前に出す。鉄道の 2 問（No.32・No.33）の解説は二次情報との整合までで、一次の保安標準は未確認。
-
-**完了条件**: 本番で `primary-r08-zenki` が表示され、`npm run check-production-ssr` が exit 0。
 
 
 
