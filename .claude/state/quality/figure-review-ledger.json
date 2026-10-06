@@ -185,6 +185,13 @@
       "reason": "上縁で C 点・D 点の集中荷重の矢印の軸が切れ、荷重記号 P のラベルが画像に無い（alt は『集中荷重P』）。梁・寸法線は欠けなし",
       "reviewedAt": "2026-10-06T11:12:57.312Z"
     },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
+      "sha": "ada4a5997b90cced",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端左下に写り込んでいた数字の断片と、左・上の過大な余白を除いて切り直し（506x315→298x200）。管路断面・D・D/2 の寸法線は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:26:27.359Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
       "sha": "9b22967d441ec81b",
       "verdict": "needs-source",
@@ -231,6 +238,13 @@
         "page": 214,
         "dpi": 300
       }
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-4": {
+      "sha": "c1d13aa974ee2fc5",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で (b) 不可の左端の棒状バイブレータのホース先端の曲がりが切れている。右余白に行番号 5・10、下部に図番号キャプション『図 3.4 棒状バイブレータの扱い方』の写り込みもある",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
       "sha": "3e6c579b4116433a",
@@ -416,6 +430,13 @@
       "reason": "右縁の隣接図の水平線断片・左余白の行番号 30/35・図番号キャプション『図 2.33 地下排水溝の例』・下部の空白を除いて切り直し（500x380→377x183）。地下排水溝・小段排水溝・のり肩排水溝と道路の断面は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:12:57.314Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-34": {
+      "sha": "0e5df72d4515dd94",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で左下の『道路』の路面線が切れている。下部に図番号キャプション『図 2.34 水平排水孔の例』の写り込みもある",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
       "sha": "3a257b4f6b698198",
       "verdict": "ok",
@@ -492,6 +513,13 @@
       "action": "recrop",
       "reason": "上部の前図（図2.5）の下端断片とキャプション・図番号キャプション『図2.6 切り盛り境のすり付け例』・下端の次段落の断片・左右の余白を除いて切り直し（750x770→468x543）。(a)(b)(c) の断面と小図ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:46:19.914Z"
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-retaining-wall": {
+      "sha": "a71b2abf78af3528",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で地表面線と地下水位線が画像端まで続いて切れている。下端に図タイトル『山留工概略図』の写り込みと左右非対称の余白もある",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
       "sha": "5e80d1dfc5dd6848",
@@ -577,6 +605,13 @@
       "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
       "reviewedAt": "2026-10-06T09:02:06.089Z"
     },
+    "civil-construction-2/primary-r03-kouki/img/q43-fig": {
+      "sha": "81ef0a2ebcbcd75f",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁で No.0〜No.3 から下へ伸びる寸法補助線 4 本の下端が約 25px 欠けている（元 PDF R03 後期 p.15 の図の外接矩形との比較）。写り込みは無い",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
+    },
     "civil-construction-2/primary-r03-kouki/img/q45-fig": {
       "sha": "d54ee2f006d60304",
       "verdict": "ok",
@@ -619,6 +654,13 @@
         "page": 2,
         "dpi": 300
       }
+    },
+    "civil-construction-2/primary-r06-zenki/img/q50-fig": {
+      "sha": "5d5ffe8aa703841b",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で上部の地盤面の水平線と地盤ハッチが余白 0 で途切れている（他の三辺は約 20px の余白）。断面図本体（ブロック・裏込め・L1・L2・N1・N2）は欠けなし。元 PDF と照合して右端を確かめる",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
     },
     "civil-construction-2/primary-r07-kouki/img/q3-fig": {
       "sha": "edc98a4580754502",
@@ -1149,6 +1191,13 @@
       "reason": "下縁で支点 A・B の反力矢印（V_A・V_B）と添え字・支間長 L・支点 B の三角形の下の線、左縁で支点 A の三角形の左半分が切れている。上部に約 130px の空白",
       "reviewedAt": "2026-10-06T10:42:41.147Z"
     },
+    "pe-first-stage/r07-construction/img/q17-fig": {
+      "sha": "04cc227d16b1c12d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で点 B・点 C の高さの破線と基準面の実線が切れている。背景全体に裏ページの本文が薄く写り込んでいて、図の内側に重なっているためクロップでは除けない（R07 建設 Ⅲ-17）",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
+    },
     "surveyor/primary-r05/img/q12-fig": {
       "sha": "83c414aa8e3df3a9",
       "verdict": "ok",
@@ -1195,6 +1244,13 @@
       "action": "recrop",
       "reason": "下端で見切れていた図番号キャプション『図 3』と四辺の過大な余白を除き、下に 8px の白余白を足した（860x634→828x622）。三角形 ABC・頂点ラベル・辺長・角の円弧は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:12:57.315Z"
+    },
+    "surveyor/primary-r08/img/q27-fig": {
+      "sha": "de3c9cc442f61cdc",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で道路の灰色帯の上端が約 5px 欠けている（元 PDF R08 p.29 と照合）。他の要素は欠けなし",
+      "reviewedAt": "2026-10-06T11:26:27.357Z"
     }
   }
 }
