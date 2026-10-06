@@ -53,32 +53,16 @@
       }
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
-      "sha": "662ff80b5a34e26e",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で (a) の盛土の引き出しラベル（『盛土の場合の沈下』等）の上半分と盛土頂部の線、(b) の地すべり地の斜面と EPS ブロックの積層上部が切れている。下端に図番号キャプション『図 軽量盛土工法』",
-      "reviewedAt": "2026-10-06T09:49:08.230Z"
-    },
-    "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
-      "sha": "3722d5fab949647d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で RI 計器本体の上部（破線枠の電源・増幅器と上の機器・線源棒の筒）、右縁で引き出し注記『地表面を平…／計器を設…』と凡例『ガンマ…』『中性子…』が切れている。下部にキャプション『図 RI計器による土の密度試験』",
-      "reviewedAt": "2026-10-06T09:56:02.169Z"
-    },
-    "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
-      "sha": "979f56a38fb32a36",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で (a)(b) の杭の側面線、(c) の 4 本の杭、(d) の斜杭とフーチングの上辺が切れている。下部に図番号キャプション『図 支持機構による杭の分類』",
-      "reviewedAt": "2026-10-06T09:49:08.228Z"
-    },
-    "civil-construction-1/primary-r02-a/img/r02-a-fig-08": {
-      "sha": "91ac0ace5f1d1161",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で右側の図（置換え土）の『軟弱層』ラベルの『層』と掘削斜面の外側の地表線・地盤線が切れている",
-      "reviewedAt": "2026-10-06T09:53:21.095Z"
+      "sha": "c806d6c73c06c920",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.112（R01 No.5 解説）の『軽量盛土工法』4 ケースを 300dpi で切り出し直し（1456x764→1456x945）。(a) の引き出しラベル上半分と盛土頂部の線、(b) の斜面と EPS ブロック積層上部・『盛土』ラベルを復元し、キャプションと【正解】は入れていない。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:12:17.921Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 112,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
