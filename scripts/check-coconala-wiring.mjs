@@ -36,6 +36,7 @@ import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { loadProducts } from './lib/product-registry.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -60,6 +61,7 @@ if (staged) {
   const relevant = changed.split('\n').some(
     (p) =>
       p.includes('src/lib/coconala-services.ts') ||
+      p.includes(datasetPath('config.products')) ||
       p.includes(`${dirname(datasetPath('coconala.orders'))}/`) ||
       p.includes(datasetPath('config.coconala-account')) ||
       p.includes(datasetPath('config.coconala-listings')) ||
@@ -76,44 +78,32 @@ if (!existsSync(CATALOG_PATH)) {
   process.exit(1);
 }
 
-/** カタログ（SoT）から id / status / serviceUrl / priceYen を抽出。
- *  id → status → serviceUrl の順はファイル規約（verify-note-magazines.mjs の parseSoT 同型）。 */
+/**
+ * カタログを正本（config/products.json の channel coconala）から読む。以前は coconala-services.ts を
+ * 「id → status → serviceUrl が連続する」正規表現で切り出していたため、欄の並びが違う
+ * coconala-cce-full-pdf（id → status → pauseReason → archivedAt → serviceUrl）が黙って検査から外れていた（2026-10-06）。
+ */
 function parseCatalog() {
-  const ts = readFileSync(CATALOG_PATH, 'utf-8');
-  // interface 定義部を除外し、SERVICES_RAW 本体だけを対象にする
-  const rawStart = ts.indexOf('const SERVICES_RAW');
-  const body = rawStart >= 0 ? ts.slice(rawStart) : ts;
-  const re = /id:\s*'([^']+)',\s*status:\s*'([^']+)',\s*serviceUrl:\s*'([^']*)'/g;
-  const hits = [];
-  let m;
-  while ((m = re.exec(body)) !== null) {
-    hits.push({ id: m[1], status: m[2], serviceUrl: m[3], at: m.index });
+  const { products, errors } = loadProducts();
+  if (errors.length) {
+    console.error(`[check-coconala-wiring] ✗ 商品の正本を読めない（npm run check-products）:\n  ${errors.join('\n  ')}`);
+    process.exit(1);
   }
-  return hits.map((cur, i) => {
-    const next = hits[i + 1];
-    const slice = body.slice(cur.at, next ? next.at : body.length);
-    const pm = slice.match(/priceYen:\s*(\d+)/);
-    const lm = slice.match(/listedAt:\s*'([^']*)'/);
-    const rm = slice.match(/pauseReason:\s*'([^']*)'/);
-    const om = slice.match(/resumeOn:\s*'([^']*)'/);
-    // 価格改定の履歴（旧定価と有効最終日）。過去受注を受注日時点の定価で突合するために使う
-    const hm = slice.match(/priceHistory:\s*\[([^\]]*)\]/);
-    const priceHistory = hm
-      ? [...hm[1].matchAll(/priceYen:\s*(\d+),\s*until:\s*'([^']+)'/g)].map((x) => ({ priceYen: parseInt(x[1], 10), until: x[2] }))
-      : [];
-    return {
-      id: cur.id,
-      status: cur.status,
-      serviceUrl: cur.serviceUrl,
-      priceYen: pm ? parseInt(pm[1], 10) : null,
-      listedAt: lm ? lm[1] : null,
-      pauseReason: rm ? rm[1] : null,
-      resumeOn: om ? om[1] : null,
-      priceHistory,
-      notePriceBasis: (slice.match(/notePriceBasis:\s*'([^']*)'/) || [])[1] ?? null,
-      notePriceExempt: (slice.match(/notePriceExempt:\s*'([^']*)'/) || [])[1] ?? null,
-    };
-  });
+  return products
+    .filter((p) => p.channel === 'coconala')
+    .sort((a, b) => a.order - b.order)
+    .map(({ catalog: s }) => ({
+      id: s.id,
+      status: s.status,
+      serviceUrl: s.serviceUrl ?? '',
+      priceYen: s.priceYen ?? null,
+      listedAt: s.listedAt ?? null,
+      pauseReason: s.pauseReason ?? null,
+      resumeOn: s.resumeOn ?? null,
+      priceHistory: (s.priceHistory ?? []).map((h) => ({ priceYen: h.priceYen, until: h.until })),
+      notePriceBasis: s.notePriceBasis ?? null,
+      notePriceExempt: s.notePriceExempt ?? null,
+    }));
 }
 
 function readJson(path) {

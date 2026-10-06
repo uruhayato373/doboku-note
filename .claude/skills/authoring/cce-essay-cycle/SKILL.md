@@ -46,7 +46,7 @@ domain: product
 
 1. `magazine-pdf-builder` で PDF 化（`/magazine-to-pdf`）。
 2. `note-magazines.ts` に SoT を追加（`published: false` のまま）、`magazine-placement.ts` の `concrete-chief-engineer-guide-essay` を新商品へ。
-3. ココナラは `coconala-services.ts` に `status: 'draft'` で登録（PDF は note 価格×1.1。note に同じ中身が無い PDF は `notePriceExempt` に理由を書く＝K3 が該当）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
+3. ココナラは商品の正本 `config/products.json` に `npm run product` で `status: 'draft'` として登録（`coconala-services.ts` は生成物）（PDF は note 価格×1.1。note に同じ中身が無い PDF は `notePriceExempt` に理由を書く＝K3 が該当）。出品・note 公開は運営者が文面を確認してから（公開は取り消せない）。
 4. 商品の組み替えで旧版を note から削除するときは、販売記録（`data/note/sales.json`）で0件を確かめてから行い、原稿は `content/sources/cce-persona-essays/` へ移す（2026-10-01 序論本論結論型・2026-10-03 テーマ別5本）。
 
 ## 担当外

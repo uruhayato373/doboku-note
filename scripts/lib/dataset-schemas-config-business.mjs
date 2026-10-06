@@ -835,11 +835,11 @@ const productCatalog = z
   .object({ id: z.string(), published: z.boolean(), noteUrl: z.string() })
   .catchall(z.union([productCatalogValue, z.array(productCatalogValue), z.record(z.string(), productCatalogValue)]));
 
-/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
-export const Product = z
+/** note の 1 商品（マガジン・パック・単品 SKU・会員） */
+export const NoteProduct = z
   .object({
     id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
-    channel: z.enum(['note']),
+    channel: z.literal('note'),
     qualification: z.string(),
     stage: z.string(),
     /** 系列: 経験記述・学科記述・横断・一次 など */
@@ -861,12 +861,96 @@ export const Product = z
   })
   .strict();
 
+/**
+ * Kindle の 1 冊の行（scripts/kindle-published/catalog.json の books[] へそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物のキー順を変えない）
+ */
+const kindleBook = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((b, ctx) => {
+    if (b.priceJpy !== undefined && !(Number.isInteger(b.priceJpy) && b.priceJpy > 0)) flag(ctx, ['priceJpy'], 'priceJpy は正の整数（円）');
+  });
+
+/** Kindle の 1 冊（id は kindle-<書籍 id の小文字>） */
+export const KindleProduct = z
+  .object({
+    id: z.string().regex(/^kindle-[a-z0-9-]+$/, 'kindle- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('kindle'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('book'),
+    persona: z.string().nullable().default(null),
+    /** catalog.json の books[] の並び（人が決めた順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: kindleBook,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/**
+ * ココナラの 1 サービスの行（src/lib/coconala-services.ts の SERVICES_RAW の生成ブロックへそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物の欄の順を変えない）
+ */
+const coconalaService = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((s, ctx) => {
+    if (!(Number.isInteger(s.priceYen) && s.priceYen > 0)) flag(ctx, ['priceYen'], 'priceYen は正の整数（円）。ココナラの価格の正本');
+  });
+
+/** ココナラの 1 サービス（id は catalog.id と同じ coconala-…） */
+export const CoconalaProduct = z
+  .object({
+    id: z.string().regex(/^coconala-[a-z0-9-]+$/, 'coconala- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('coconala'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('service'),
+    persona: z.string().nullable().default(null),
+    /** SERVICES_RAW の並び（サイトの表示順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: coconalaService,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    /** 経緯のメモ（旧 coconala-services.ts のエントリのコメント） */
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
+export const Product = z.discriminatedUnion('channel', [NoteProduct, KindleProduct, CoconalaProduct]);
+
+/** チャネルごとの生成物の付帯情報（商品の行に属さない欄） */
+const productChannels = z
+  .object({
+    kindle: z
+      .object({ catalogComment: text, catalogSchemaVersion: z.number().int(), updatedAt: text })
+      .strict()
+      .describe('scripts/kindle-published/catalog.json の先頭の欄（_comment・schemaVersion・updatedAt）'),
+  })
+  .partial()
+  .strict();
+
 /** 全チャネルの商品を 1 ファイルに集めた正本（並びは channel → id。書き換えは npm run product） */
 export const ConfigProducts = z
   .object({
     schemaVersion: z.literal(1),
     _doc: text,
+    channels: productChannels.optional(),
     products: z.array(Product).superRefine(uniqueBy('id', '商品 id')),
+    /**
+     * note の記事 1 本ごとの単品価格（円）。キーはリポジトリ相対の article.md パス。記事の frontmatter の price は
+     * ここからの写し（npm run product -- gen が書く）。新しい記事の price は gen がここへ取り込む
+     */
+    articlePrices: z
+      .record(z.string().regex(/^content\/note\/.+\/article(-[^/]+)?\.md$/, 'content/note/…/article.md'), z.number().int().nonnegative())
+      .optional()
+      .describe('note の記事ごとの単品価格（キーは記事のパス・値は円）'),
   })
   .strict()
   .meta({ title: '商品の正本' });

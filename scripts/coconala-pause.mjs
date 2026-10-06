@@ -40,7 +40,6 @@
  * 真実源: .claude/knowledge/reference/coconala-operations.md §8
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   launchContext,
@@ -49,8 +48,8 @@ import {
   readCatalog,
   sleep,
   ROOT,
-  CATALOG_PATH,
 } from './lib/coconala-session.mjs';
+import { updateCoconalaService } from './lib/product-registry.mjs';
 import { selectTargets, selectAbsenceResume } from './lib/coconala-guards.mjs';
 
 const TAG = '[coconala-pause]';
@@ -92,29 +91,22 @@ if (ALL_PAUSED) ids = Object.values(catalog).filter((s) => s.status === 'paused'
 if (ALL_LISTED) ids = Object.values(catalog).filter((s) => s.status === 'listed').map((s) => s.id);
 if (ALL_RETIRED) ids = Object.values(catalog).filter((s) => s.status === 'paused' && s.pauseReason === 'retired').map((s) => s.id);
 
-/** paused+absence を listed へ戻し pauseReason/resumeOn を除去する（--resume --absence 用） */
+/**
+ * paused+absence を listed へ戻し pauseReason/resumeOn を除去する（--resume --absence 用）。
+ * カタログ（coconala-services.ts）は config/products.json からの生成物なので、正本を updateCoconalaService で書き換える
+ */
 function restoreAbsenceInCatalog(targetIds) {
-  const ts = readFileSync(CATALOG_PATH, 'utf-8');
-  const crlf = ts.includes('\r\n');
-  let body = crlf ? ts.split('\r\n').join('\n') : ts;
   let n = 0;
   for (const id of targetIds) {
-    // 正規表現を組み立てず文字列探索でブロックを切り出す（id のエスケープ事故を避ける）。
-    const head = `id: '${id}',`;
-    const at = body.indexOf(head);
-    if (at < 0) continue;
-    const close = body.indexOf('\n  },', at);
-    if (close < 0) continue;
-    const block = body.slice(at, close);
-    if (!/pauseReason:\s*'absence'/.test(block)) continue; // retired は構造的に触らない
-    const next = block
-      .replace(/status: 'paused'/, "status: 'listed'")
-      .replace(/\n\s*pauseReason: 'absence',/, '')
-      .replace(/\n\s*resumeOn: '[^']*',/, '');
-    body = body.slice(0, at) + next + body.slice(close);
-    n++;
+    const done = updateCoconalaService(id, (s) => {
+      if (s.pauseReason !== 'absence') return false; // retired は構造的に触らない
+      if (s.status === 'paused') s.status = 'listed';
+      delete s.pauseReason;
+      delete s.resumeOn;
+      return true;
+    });
+    if (done) n++;
   }
-  writeFileSync(CATALOG_PATH, crlf ? body.split('\n').join('\r\n') : body);
   return n;
 }
 

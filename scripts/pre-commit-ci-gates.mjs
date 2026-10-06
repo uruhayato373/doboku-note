@@ -6,6 +6,7 @@
  * コンテンツは PR を通らず develop へ直 push されるので、CI で初めて落ちると develop が赤いまま
  * 無関係な PR まで巻き込む（2026-09-30〜10-05 の develop push 200 回中 26 回が赤。
  * note-paid-cta 9 連続・katex-warnings 4 連続・x-review 1 回）。ここに置くのは手元で数秒の検査だけ。
+ * products（商品の正本 config/products.json と、その写し・生成物）は 2026-10-06 に足した（記事の price を手で直すと正本とずれる）。
  * unit-tests（手元 286 秒）・generated-indexes（62 秒・Windows では検査不成立）は CI に残す。
  *
  * 検査の id は scripts/quality-audit.mjs の CHECKS と同じ名前にする（CI で同じものが全量で走る）。
@@ -32,6 +33,16 @@ export const GATES = [
     id: 'x-review',
     match: (f) => f.startsWith('content/sns/x/'),
     cmd: () => ['node', 'scripts/check-x-review.mjs'],
+  },
+  {
+    id: 'products',
+    // 商品の正本（全チャネル・記事の単品価格）と、その写し・生成物（記事の price・掲載文・note-magazines.ts・coconala-services.ts・Kindle の catalog.json）
+    match: (f) =>
+      f === datasetPath('config.products') ||
+      /^content\/note\/.+\/(article(-[^/]+)?\.md|note掲載文\.txt)$/.test(f) ||
+      ['src/lib/note-magazines.ts', 'src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json'].includes(f),
+    // ファイル指定が無いので全量（手元 7 秒）
+    cmd: () => ['node', 'scripts/check-products.mjs'],
   },
 ];
 
