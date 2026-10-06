@@ -199,6 +199,13 @@
       "reason": "左端の隣の本文カラムの文字断片・図番号キャプション『図 3.14 スペーサの用い方』・左右の余白を除いて切り直し（350x280→284x190）。鉄筋・スペーサ・引き出し線・各ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T10:42:41.147Z"
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-15": {
+      "sha": "1ec9050fedd5bb06",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で切断線の右側のスラブの水平線が画像端で途切れている。上端に本文断片、左余白に行番号 20・25、下端に図番号キャプション『図3.15 鉄筋のあきおよびかぶり』の写り込みもある",
+      "reviewedAt": "2026-10-06T11:19:11.888Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
       "verdict": "ok",
@@ -388,6 +395,13 @@
       "reason": "下縁で右下の拡大詳細図（モルタル吹付け・アンカーバー D32・注記・寸法 400/500・コンクリート断面の下半分）が切れている。上と左に大きな余白、左に行番号",
       "reviewedAt": "2026-10-06T10:31:57.736Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-27": {
+      "sha": "2452970c32c90b7a",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上部の前図（図2.26）のキャプション断片と円弧の切れ端・左余白の行番号 25/30/35・図番号キャプション『図2.27 ブロック積擁壁工の例』・余白を除いて切り直し（470x580→334x382）。擁壁断面・寸法・注記は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:19:11.890Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
       "sha": "57ca8da0af92ffe3",
       "verdict": "ok",
@@ -541,6 +555,13 @@
       "action": "none",
       "reason": "ラフテレーンクレーンの写真で、ブーム・フック・キャビン・車体は全体が写っている。EDGE_CUT(left) は左下のアウトリガー梁が写真の縁をまたぐ構図で、図本体の欠けではない。写り込みなし",
       "reviewedAt": "2026-10-06T11:08:05.011Z"
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-4": {
+      "sha": "28d08e74e24aac55",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で柱の左右の縦線と左の壁のギザギザが切れている。右側に余白番号『35』、下部に図番号キャプション『図6.4 ワイヤソーイング工法』、左に大きな空白もある",
+      "reviewedAt": "2026-10-06T11:19:11.890Z"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "sha": "e94b8b6dca213f5d",
@@ -854,6 +875,13 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/h30-basic/img/q-I1-1": {
+      "sha": "51715cc7fa3aba37",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ブロック図（0.950・並列の X 2 個・0.950 と直列の X 3 個）は全て揃っている。EDGE_CUT は入出力の接続線が画像端まで伸びている図の仕様と罫線の太さへの反応で、欠けではない。写り込みなし",
+      "reviewedAt": "2026-10-06T11:19:11.890Z"
+    },
     "pe-first-stage/h30-basic/img/q-I2-2": {
       "sha": "8bce87f73362fdd4",
       "verdict": "ok",
@@ -924,6 +952,13 @@
       "action": "recrop",
       "reason": "下端で切れていた図番号キャプション『図 荷重を受けている棒』・左右の空白・塵を除いて切り直し（1682x460→522x312）。壁・棒・荷重 P・寸法 l は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T10:17:23.094Z"
+    },
+    "pe-first-stage/r01-basic/img/q3-6-fig": {
+      "sha": "96cde01cf0fac99f",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "下端に写り込んでいた次の選択肢の根号の上辺断片・図番号キャプション『図 剛体振り子』・左右の空白・スキャンの点を除いて切り直し（1240x1000→380x655）。棒・支点・鉛直破線・l・θ は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:19:11.890Z"
     },
     "pe-first-stage/r01-construction/img/q01-fig": {
       "sha": "d70e2640604fb594",
@@ -1010,6 +1045,13 @@
       "reason": "上縁で荷重の矢印の軸が切れている。下部に設問文の断片と選択肢表（ウ・エ列）の断片が写り込み、左右縁でも文字が切れている",
       "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
+    "pe-first-stage/r05-basic/img/q114-fig": {
+      "sha": "66d4ebee51fe58ed",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左上隅の本文断片『り。』・図番号キャプション『図 システム構成図と各要素の信頼度』・余白を除いて切り直し（1133x675→605x382）。3 並列の 0.7 ブロックと 2/3 多数決選択スイッチの注記は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:19:11.891Z"
+    },
     "pe-first-stage/r05-basic/img/q3-5-fig": {
       "sha": "f8443a86fbef5959",
       "verdict": "ok",
@@ -1030,6 +1072,20 @@
       "action": "none",
       "reason": "上縁で旧 JIS マークと現行 JIS マークの外円の上部・J 字ストロークが切れている。下縁に次の設問の断片『⑤ 2』。出典は R06 技術士第一次 適性科目 問12 の図−1",
       "reviewedAt": "2026-10-06T09:43:30.757Z"
+    },
+    "pe-first-stage/r06-basic/img/q3-3-fig": {
+      "sha": "91531f97e3ec8e40",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁でフローチャート先頭の端子記号『開始』の角丸枠の上辺が切れている。写り込みは無い（R06 基礎 Ⅰ-3-3）",
+      "reviewedAt": "2026-10-06T11:19:11.890Z"
+    },
+    "pe-first-stage/r06-basic/img/q3-6-fig": {
+      "sha": "bfb72d5773797c60",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "図の下に写り込んでいた図番号キャプション『図 回路図』と選択肢行（記事本文に同じ選択肢がある）・余白を除いて切り直し（1067x1077→756x672）。ブリッジ回路・a・b・各 1Ω・接続点は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件・下端の接続点も余白 13px）",
+      "reviewedAt": "2026-10-06T11:19:11.892Z"
     },
     "pe-first-stage/r06-construction/img/q17-fig": {
       "sha": "5ce74cb2174a16db",
