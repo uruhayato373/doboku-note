@@ -28,6 +28,13 @@
       "reason": "原典でも上端が切れていたため、問題解説集2021 p.379 の図の層構成と寸法（既存の舗装75・既存コンクリートを10下げた面に接着材・鋼繊維補強コンクリート60・舗装50・合計110）から h28-a-fig-09.svg を描き直し、記事は SVG を参照するようにした（raster は不使用・ユーザー判断 2026-10-06）",
       "reviewedAt": "2026-10-06T09:37:26.602Z"
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
+      "sha": "391e5ce288187513",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "図番号キャプション『図3.16 束ねて配置する鉄筋』・下端の次項見出し断片・左余白の行番号 30・右上の隣接図の断片を除いて切り直し（550x250→387x157）。(a) はり・(b) 柱の断面は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:43:30.759Z"
+    },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
       "verdict": "ok",
@@ -42,12 +49,26 @@
       "reason": "上縁で注記『排水溝（深さ…』と引き出し線・区画上部、右縁で注記の続き、下縁で縦排水溝の線と下の区画が切れている。キャプション・行番号 35・次見出しの断片も写り込み",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
+      "sha": "4153ce7319e4db08",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上部の隣接図キャプション『図 2.14 張芝工』・下部の『図 2.17 筋芝工』・左余白の行番号 10/15・最下端の本文見出し断片を除いて切り直し（310x330→228x163）。法面・芝の筋・耳芝・切芝のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:43:30.760Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
       "sha": "955d312cd75ef986",
       "verdict": "needs-source",
       "action": "none",
       "reason": "上端で地盤線・サンド層・点線、左端で『II すべり面』『弱層』のラベルと円弧が切れ、押え盛土工法の断面の下半分だけ。下部にキャプション『図 2.41 押え盛土工法』と次図の枠断片。記事 alt『サーチャージ工法の原理』と画像（押え盛土工法）が合わない疑い",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42a": {
+      "sha": "2c2af9f4272823b8",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "図2.42『置換工法』の横長の 1 枚図を左右に割った左半分で、右端で (b) との間の引出ラベル『良質土』が切れ、左端で置換部の左上と地盤線が縁に接している。下部にキャプション断片。fig-2-42b と合わせて 1 枚で切り出し直す（alt の取り違えは DN-0550）",
+      "reviewedAt": "2026-10-06T09:43:30.760Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-42b": {
       "sha": "a5ddeceb7d4e54bd",
@@ -69,6 +90,13 @@
       "action": "recrop",
       "reason": "上部の本文断片・下部の図番号キャプション『図 2.53 釜場排水工法』・右余白の行番号と綴じ部の影を除去して切り直し（420x400→357x272）。矢板・水・釜場・ポンプ・溝は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T09:00:29.888Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-54": {
+      "sha": "2b4fa92975e89188",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下縁でポンプ筒・井戸の破線 2 本・寸法線・引き出し線のラベルが切れている。上部に前の図のキャプション『図2.53 釜場排水工法』、右縁に行番号 15/20 の写り込み",
+      "reviewedAt": "2026-10-06T09:43:30.759Z"
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
@@ -119,6 +147,13 @@
       "reason": "左縁で最下段 X1 ボックスの左辺の縦罫線が画像外、下縁で最下段 4 ボックスの下辺罫線が最終 2 行で途切れている。出典は H21 技術士第一次 総合技術監理部門 Ⅱ-1-31",
       "reviewedAt": "2026-10-06T09:33:45.509Z"
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
+      "sha": "66a7196bd3d73727",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で角丸ボックス『緑に関する法制の抜本…』と本文行・右の矢印ボックス、下縁で 2 つの角丸ボックスの下半分が切れている。左縁にスキャン時の指、紙面の影と傾き",
+      "reviewedAt": "2026-10-06T09:43:30.759Z"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
       "sha": "bd6746158998b14c",
       "verdict": "needs-source",
@@ -147,6 +182,13 @@
       "reason": "上端で空欄ラベル (a) の枠の上辺が欠け、『現在階をチェック』の文字も上余白なし。右縁で (d) の枠の縦線が約 1px 欠け。下部の図番号キャプション『図 エレベータの状態遷移図』は切り出し直しの際に除く",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
     },
+    "pe-first-stage/h30-basic/img/q-I3-4": {
+      "sha": "063eb7d974e9173c",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ニュートン・ラフソン法のフローチャートだけで写り込みなし。EDGE_CUT(bottom) は最下部の端子『終了』の下辺の罫線（3px・他の罫線と同じ太さ）が下端に接しているだけで欠けなし",
+      "reviewedAt": "2026-10-06T09:43:30.757Z"
+    },
     "pe-first-stage/r01-construction/img/q05-fig": {
       "sha": "e68a7e62c934b921",
       "verdict": "needs-source",
@@ -173,12 +215,26 @@
         "dpi": 300
       }
     },
+    "pe-first-stage/r06-aptitude/img/q12-fig": {
+      "sha": "25afcc7746eac540",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で旧 JIS マークと現行 JIS マークの外円の上部・J 字ストロークが切れている。下縁に次の設問の断片『⑤ 2』。出典は R06 技術士第一次 適性科目 問12 の図−1",
+      "reviewedAt": "2026-10-06T09:43:30.757Z"
+    },
     "pe-first-stage/r06-construction/img/q17-fig": {
       "sha": "5ce74cb2174a16db",
       "verdict": "needs-source",
       "action": "none",
       "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
       "reviewedAt": "2026-10-06T09:33:45.503Z"
+    },
+    "surveyor/primary-r07/img/q21-fig": {
+      "sha": "f08ab9134d04b480",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で方位記号（N の円・文字・矢印）、河川・等高線・地点 B 周辺が切れ、地図の枠線も無い。出典は R07 測量士補 No.21 の図",
+      "reviewedAt": "2026-10-06T09:43:30.760Z"
     }
   }
 }
