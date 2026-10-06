@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * check-products.mjs — 商品の正本（content/products/）のゲート（DN-0492・quality-audit ci:true）。
+ * check-products.mjs — 商品の正本（config/products.json）のゲート（DN-0492・quality-audit ci:true）。
  * ---------------------------------------------------------------------------
  * 結果は PR の差分（正本・note-magazines.ts・コミット済みの収録記録 data/note/magazines.json・原稿）だけで決まる。
  * ネットワークは使わない（note の実物との照合は verify-note-magazines の担当）。
- *   1. 型・ファイル名と id・正規化（canonicalJson）
+ *   1. 型・id の重複・正規化（canonicalFile）
  *   2. id の重複・includes の参照先・members の原稿の実在
  *   3. note-magazines.ts の生成ブロックが正本と一致（npm run product -- gen --check と同じ判定）
  *   4. 収録の意図（members＋includes を展開）と、コミット済みの収録記録の突き合わせ（公開中のマガジンだけ）

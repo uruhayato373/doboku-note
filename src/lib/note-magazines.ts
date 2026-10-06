@@ -3,7 +3,7 @@ import { withNoteUtm } from './note-utm';
 /**
  * note 有料マガジン・単品の定義（サイトが読む形）
  *
- * 正本は content/products/note/<id>.json（1 商品 1 ファイル・DN-0492）。下の MAGAZINES_RAW の中身は
+ * 正本は config/products.json（全チャネルの全商品を 1 ファイル・DN-0492）。下の MAGAZINES_RAW の中身は
  * 資格ごとの `<generated:products …>` ブロックで、`npm run product -- gen` が正本から書く（手で直さない・
  * `npm run check-products` が止める）。page.tsx と magazine-placement.ts から参照される。
  *
@@ -82,7 +82,7 @@ export interface NoteMagazine {
  *   5. 変更後は /doc-sync を1回回して prose 陳腐化を点検（CLAUDE.md §8）
  */
 const MAGAZINES_RAW = {
-  // <generated:products pe-comprehensive-management> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products pe-comprehensive-management> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-06-15 に9ペルソナ63記事＋精読6記事を収録し note 上で122記事に拡張
   // （note-magazine-add + note-edit-magazine、API実体検証済）。
   // 価格は 2026-06-20 に ¥9,800 へ改定（旧 ¥14,800）。単品合計¥44,640相当（約78%OFF）。
@@ -474,7 +474,7 @@ const MAGAZINES_RAW = {
   //     SoT エントリと magazine-placement.ts の配線を削除した（whitepaper-r7-strategy と同様の退役）。
   //     原稿（content/note/技術士総監/解答テンプレ3D/）も 2026-06-01 削除（記述式対策は他コンテンツで網羅のため）。
 
-  // <generated:products civil-construction-2> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products civil-construction-2> config/products.json から生成（npm run product -- gen）。手で直さない
   // P3b: 2級 学科記述 直前暗記ノート（どぼくじら¥500×500部超の低価格エントリー枠に対抗）
   'civil-2-anki-note': {
     id: 'civil-2-anki-note',
@@ -812,7 +812,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products civil-construction-2>
 
-  // <generated:products civil-construction-1> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products civil-construction-1> config/products.json から生成（npm run product -- gen）。手で直さない
   // P3a: 1級 学科記述 直前暗記ノート（P1副産物・赤シート対応PDF添付・エントリー層）
   'civil-1-anki-note': {
     id: 'civil-1-anki-note',
@@ -1104,7 +1104,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products civil-construction-1>
 
-  // <generated:products civil-construction-1-2> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products civil-construction-1-2> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-09-30 撤退（メンバーシップ廃止）。published:false で getMagazine が null を返し、全 CTA が消える。
   'civil-membership-lab': {
     id: 'civil-membership-lab',
@@ -1150,7 +1150,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products civil-construction-1-2>
 
-  // <generated:products concrete-diagnostician> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products concrete-diagnostician> config/products.json から生成（npm run product -- gen）。手で直さない
   'cd-building-facility-pack': {
     id: 'cd-building-facility-pack',
     published: true,
@@ -1278,7 +1278,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products concrete-diagnostician>
 
-  // <generated:products concrete-chief-engineer> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products concrete-chief-engineer> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-09-17 公開（n25197277c5a9・¥980・境界=コンクリートの性質）。予想50問・配合計算12問・体系テキスト8章から一問一答 157 問へ再構成（note-fact-checker 155/157 一致）。
   'cce-anki-note': {
     id: 'cce-anki-note',
@@ -1795,7 +1795,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products concrete-chief-engineer>
 
-  // <generated:products concrete-engineer> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products concrete-engineer> config/products.json から生成（npm run product -- gen）。手で直さない
   // コンクリート技士 直前暗記ノート（2026-09-17・n0bbd4a5a8b57・¥780・境界=コンクリートの性質と試験）。技士テキスト 6 章＋配合計算・JIS判断 12 問から一問一答へ再構成。
   'ce-anki-note': {
     id: 'ce-anki-note',
@@ -1840,7 +1840,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products concrete-engineer>
 
-  // <generated:products rccm> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products rccm> config/products.json から生成（npm run product -- gen）。手で直さない
   // 2026-09-17 公開（n6a82c25cc9de・¥980・境界=問題II｜品確法・入札契約・照査）。論点集予想50問の解説から一問一答 159 問へ再構成（note-fact-checker 158/159 一致・技術管理者の兼任表現を是正）。
   'rccm-anki-note': {
     id: 'rccm-anki-note',
@@ -1983,7 +1983,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products rccm>
 
-  // <generated:products pe-construction> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products pe-construction> config/products.json から生成（npm run product -- gen）。手で直さない
   'pe-construction-construction-planning-magazine': {
     id: 'pe-construction-construction-planning-magazine',
     published: true,
@@ -2305,7 +2305,7 @@ const MAGAZINES_RAW = {
   },
   // </generated:products pe-construction>
 
-  // <generated:products pe-first-stage> content/products から生成（npm run product -- gen）。手で直さない
+  // <generated:products pe-first-stage> config/products.json から生成（npm run product -- gen）。手で直さない
   // 技術士 第一次 直前暗記ノート（2026-09-17・n7b4f17a09d3f・¥980・境界=適性科目｜技術士法と倫理）。基礎 5 群・適性・専門建設部門のガイド 6 本から一問一答へ再構成。
   'pe1-anki-note': {
     id: 'pe1-anki-note',

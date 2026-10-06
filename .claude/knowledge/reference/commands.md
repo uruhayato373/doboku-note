@@ -119,7 +119,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run note-magazine-delete -- --keys m1,m2 [--commit]` — note マガジンを削除する（既定 PROBE・収録記事は消えない・削除後に公開 API の 404 を確認）。記事の削除は `node scripts/note-delete-note.mjs --notes k1,k2 --commit`（一覧を下へ読み進めて古い記事も探す）。
 
-`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `content/products/` を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
+`npm run product -- list|show|set|add-member|fmt|gen` — 商品の正本 `config/products.json`（全チャネル・1 ファイル）を読み書きする（JSON を手で書かない。`gen` で `note-magazines.ts` の生成ブロックを更新・`gen --check` は差分で exit 1。初回の移行は `import-note --qualification <id> [--ids a,b] --commit`・複数資格の商品は `--ids` で選ぶ・DN-0492）
 
 `npm run check-products` — 商品の正本のゲート（型・id・参照先・生成ブロックの一致・収録の意図×コミット済みの収録記録。ネットワーク不使用・ci:true）
 
