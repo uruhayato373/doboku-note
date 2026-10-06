@@ -94,6 +94,13 @@
       "reason": "左縁で縦バタ列の外側の座金・横バタ（上下 2 か所）が半分欠けている（右側の対称な金物は完全）。上端に本文の断片、下端にキャプション『図3.20 型枠締付け金物の取付け例』とページ番号",
       "reviewedAt": "2026-10-06T09:46:19.913Z"
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
+      "sha": "45bd7e32f4963ee5",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で『下り側梁下面』『上り側梁下面』の 2 小図の枠の下辺が切れ、ひび割れ線が縁まで続いている。左縁に影、上端に隣接図の切れ端、上部に見出し行（MDX の太字見出しと重複）",
+      "reviewedAt": "2026-10-06T10:09:04.339Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
       "sha": "a55761eea7f2a689",
       "verdict": "needs-source",
@@ -108,6 +115,13 @@
       "reason": "下端で中央の小図の説明『型枠・配筋の拘束度の相違や…』の下半分と続きの行が切れている。上部に大きな空白、元資料の見出し『⑤ 記号B5 急速な打込みの例』、左余白のページ番号の写り込み",
       "reviewedAt": "2026-10-06T09:53:21.096Z"
     },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-settlement-bleeding": {
+      "sha": "ecef774d0e981a0a",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で左右 2 つの擁壁・フーチング図の下半分（フーチングの下辺と側面）が切れている。上部に前の図の残りとキャプション、中段に見出し『③ 記号 A8 …』、左縁に綴じ部の影",
+      "reviewedAt": "2026-10-06T10:09:04.339Z"
+    },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
       "sha": "3f9d1c771fcb9a9e",
       "verdict": "ok",
@@ -121,6 +135,13 @@
       "action": "none",
       "reason": "上縁で注記『排水溝（深さ…』と引き出し線・区画上部、右縁で注記の続き、下縁で縦排水溝の線と下の区画が切れている。キャプション・行番号 35・次見出しの断片も写り込み",
       "reviewedAt": "2026-10-06T09:40:15.247Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
+      "sha": "939a5519f0eb774d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁でのり面の斜線と植生筋のハッチが切れている。上部約 148 行が空白、下部にキャプション『図 2.16 植生筋工』",
+      "reviewedAt": "2026-10-06T10:09:04.335Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
       "sha": "4153ce7319e4db08",
@@ -206,6 +227,20 @@
       "reason": "上部の前図（図2.5）の下端断片とキャプション・図番号キャプション『図2.6 切り盛り境のすり付け例』・下端の次段落の断片・左右の余白を除いて切り直し（750x770→468x543）。(a)(b)(c) の断面と小図ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:46:19.914Z"
     },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
+      "sha": "5e80d1dfc5dd6848",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で下段グラフ（強度と含水比）の曲線・矢印・縦軸・最適含水比の線が切れ、横軸と軸ラベルが丸ごと欠けている。左に本文の断片、上にランニングヘッド、右に章タブと行番号",
+      "reviewedAt": "2026-10-06T10:09:04.339Z"
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
+      "sha": "0bdc9ec94f012982",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で締固め曲線が画像外へ出ており、含水比 20 より先のグリッド線と右端の枠が無い。左に約 190px の空白",
+      "reviewedAt": "2026-10-06T10:09:04.339Z"
+    },
     "civil-construction-1/secondary-r04/img/i-9-crack-types": {
       "sha": "3de3f655ecddf8a0",
       "verdict": "ok",
@@ -283,6 +318,13 @@
       "reason": "下端に写り込んでいた次の表の表題『集落等間の交通量（トリップ数/日）』の上半分と左右の余白を除いて切り直し（1100x480→822x384）。集落 A〜D・市街地 E・橋 1〜5・距離ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:49:08.227Z"
     },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
+      "sha": "0600507f1a9e7cd3",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で東日本大震災の棒が突き抜け Y 軸 20,000 より上と枠上辺が画像外、右端で横軸の年ラベル（令和5年以降）と棒が切れている。左に綴じ・ページ端の影、図内部に裏写り",
+      "reviewedAt": "2026-10-06T10:09:04.340Z"
+    },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig14": {
       "sha": "2e0d4c5c04dcfcd5",
       "verdict": "ok",
@@ -303,6 +345,13 @@
       "action": "none",
       "reason": "右縁で 2022 年度のドーナツ円グラフの右半分と『がれき類 49件 36.6%』の末尾、上部の凡例『建設系廃棄物 計101件』の末尾が切れている",
       "reviewedAt": "2026-10-06T09:33:45.511Z"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig26": {
+      "sha": "6c81e4d7d538b129",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右上の単位表記『(単位：トン』が右端で文字ごと切れている。左上に指か影の汚れ、下端に出典行の上端の断片",
+      "reviewedAt": "2026-10-06T10:09:04.336Z"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
       "sha": "65f27b01b2780a15",
@@ -408,6 +457,13 @@
       "action": "recrop",
       "reason": "上端で切れていた設問本文の断片と左右の偏った余白を除いて切り直し（1694x754→924x615）。(a)(b)・拡大図・L/2L・m/2m・θ/x/T のラベルは欠けなし。crop 検査の STRAY_LABEL(bottom) は小図ラベル (a)(b) で図の一部。親 QA 合格（新旧比較）",
       "reviewedAt": "2026-10-06T09:46:19.917Z"
+    },
+    "pe-first-stage/r04-construction/img/q04-fig": {
+      "sha": "c4fef6fe6c5b092e",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の設問本文の断片『準に従うものとする。』と余白を除いて切り直し（1333x593→828x479）。点 A・B・C・すべり面 AB・角度 α・長さ l・W/c/φ のラベル・地盤ハッチは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:09:04.339Z"
     },
     "pe-first-stage/r05-aptitude/img/q08-fig": {
       "sha": "9630e51d0cdade2b",
