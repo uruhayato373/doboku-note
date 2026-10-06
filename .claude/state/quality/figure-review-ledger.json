@@ -465,11 +465,16 @@
       "reviewedAt": "2026-10-06T09:02:06.089Z"
     },
     "civil-construction-2/primary-r03-kouki/img/q45-fig": {
-      "sha": "5f79cd3004882b6b",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で左手前の橋脚・支承・橋台ブロックの輪郭線が寸断され、左端で『(ハ)』の開き括弧が欠けている",
-      "reviewedAt": "2026-10-06T10:24:51.421Z"
+      "sha": "d54ee2f006d60304",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "R03 2級 第一次 後期 p.16（No.45）から 300dpi で切り出し直し（664x482→800x672）。下端の橋脚・支承・橋台ブロックの輪郭と左端の『(ハ)』を復元。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:47:40.091Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf",
+        "page": 16,
+        "dpi": 300
+      }
     },
     "civil-construction-2/primary-r03-kouki/img/q57-fig": {
       "sha": "3e7274204abf0a35",
@@ -477,20 +482,6 @@
       "action": "none",
       "reason": "ネットワーク式工程表（節点 0〜6・作業 A〜G・日数）がそろい写り込みなし。EDGE_CUT 4 辺は要素が縁に接しているだけで、上端の文字・下端の『日』・左右の節点の円は図内の同種要素と同じ大きさで欠けなし",
       "reviewedAt": "2026-10-06T10:31:57.738Z"
-    },
-    "civil-construction-2/primary-r05-kouki/img/q45-fig": {
-      "sha": "8fe77561cba4565b",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で地盤（灰色塗りとハッチ）が余白なく切れ、地盤の下側の輪郭線が閉じていない。右下の杭の下の地盤とハッチも縁で途切れる。出典は R05 後期 問45",
-      "reviewedAt": "2026-10-06T09:56:02.168Z"
-    },
-    "civil-construction-2/primary-r06-kouki/img/q50-fig": {
-      "sha": "2be8250fb999a36d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で左橋脚の基礎の柱体・中央橋脚下の杭 3 本・左下と右下の地盤ハッチと地層線が断ち切られている。上部の寸法線 (イ)(ロ)(ハ)(ニ) と水位記号は欠けなし",
-      "reviewedAt": "2026-10-06T09:56:02.169Z"
     },
     "civil-construction-2/primary-r07-kouki/img/q36-fig": {
       "sha": "ae2e0ae68312b67f",
@@ -626,11 +617,16 @@
       "reviewedAt": "2026-10-06T09:56:02.171Z"
     },
     "pe-first-stage/h29-basic/img/q-I3-4": {
-      "sha": "bd7d8376598a0b35",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で回路 (a) の菱形の左頂点と斜線、右縁で回路 (c) の端子ラベル『B』の半分、下縁で小図ラベル (a)(b)(c) の下半分が切れている",
-      "reviewedAt": "2026-10-06T10:42:41.146Z"
+      "sha": "9f290bb65d590e26",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "H29 基礎科目 p.12（Ⅰ-3-4）から 300dpi で切り出し直し（1674x629→1755x661）。(a) の端子 A と菱形の左頂点、(c) の端子 B、小図ラベル (a)(b)(c) の下半分を復元。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:47:40.096Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_基礎科目.pdf",
+        "page": 12,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h29-construction/img/q05-fig": {
       "sha": "470c7f0dfa6acf5e",
