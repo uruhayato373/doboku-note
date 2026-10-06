@@ -93,6 +93,7 @@
 4. 「はじめに-合格ラボ」（加入の勧誘記事）を非公開にする。
 5. 2プラン（`4956c2d4f928`・`f9567e03949d`）とメンバーシップ自体を削除する（会員0人でないと削除できないかは未確認。画面で確かめる）。
 6. 22記事の `memberTrial: bottom` と末尾の「以上、今回の〜でした。」を外し、`note-update-body --list` で反映する。
+7. 1級・2級の二次まるごとパックの説明（`content/products/note/civil-1-niji-marugoto-pack.json`・`civil-2-niji-marugoto-pack.json` の description と各 `note掲載文.txt`）にある「メンバーシップ『土木セコカン合格ラボ』が別途あります」を消し、`npm run product -- gen` と `note-edit-magazine` で反映する（受付停止後もサイトと note で加入を案内している・2026-10-06 確認）。
 7. `note-membership.json`・`check-note-membership.mjs`（退役済みは SKIP する形に済み）・`tests/check-note-membership.test.mjs`・`tests/note-membership-funnel.test.mjs` を撤去後の状態に合わせる（コード変更は PR）。
 
 **完了条件**: 公開 API で22記事が `is_limited=false`、`mbe07bd5cecda` と「はじめに-合格ラボ」が取得できない。有料6誌は公開 API で販売中のまま。`https://note.com/dobokunote/membership/join` が加入画面を出さない。
