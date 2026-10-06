@@ -82,9 +82,12 @@ npm run refresh-indexes                     # MDX の寸法を変えたときだ
 grep -c "�" <変えた MDX>                     # 文字化け 0
 git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json   # 明示指定（git add -A 禁止）
 git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
-git push origin develop                     # 拒否されたら git pull --rebase origin develop → push
+git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
+git push origin develop                     # 載せ直し・検証とは別の呼び出しにする
 node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
 ```
+- MDX の寸法を変えると pre-commit の lint-ja がその記事全体を見るので、既存の表記ゆれ（「締め固め」「打ち込み」等）でコミットが止まることがある。設問の選択肢を引用した行は原文として除外されるので、止まった行は自前の解説。設問の表記に合わせて直してから同じコミットに入れる（`--no-verify` で飛ばさない）。
+- `develop` が先に進んでいたら、作業ツリーに他のセッションの変更があっても `git reset --keep origin/develop` → `git cherry-pick <自分の sha>` で載せ直し、元のパッチと同じか確かめてから push する（`git rebase` は他人の未コミットの変更で拒否される・stash は共有なので使わない）。
 
 ## /loop での回し方
 
