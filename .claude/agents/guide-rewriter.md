@@ -46,6 +46,7 @@ domain: site
 ## 自己検証（返却前必須）
 
 `node .claude/scripts/lint-mdx-mobile.mjs <file>` で **(15-1)/(6-2)/(6-3)/(6-4)/(6-5)/(6-6)/(9-14)/(9-15)/(9-16)/(7-1)/(0-2) が全て0件**、本文 3,000 字以上、U+FFFD なしを確認。
+- `npx textlint <file>` が 0 件（pre-commit の lint-ja はファイル全体を検査し、触っていない既存行の全角数字・prh も commit を止める）。構造だけを変えた箇所は `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0（content-authoring.md「書き終えたときの決定的ゲート」）
 
 ## 連携パターン
 

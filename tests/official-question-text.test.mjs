@@ -3,20 +3,24 @@
 // 技術士一次だけだった例外を、土木施工管理の第1次検定（## 問題 No.N）にも広げた。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { OFFICIAL_QUESTION_PAGE, officialTextRanges } from '../scripts/lib/official-question-text.mjs';
+import { OFFICIAL_QUESTION_PAGE, officialTextRanges, blankOfficialQuestionLines } from '../scripts/lib/official-question-text.mjs';
 
-test('対象ページ: 技術士一次と土木施工管理の第1次検定だけ（ガイド・第2次検定は対象外）', () => {
+test('対象ページ: 技術士一次・建設部門の年度別、土木施工管理の第1次・第2次検定（ガイドは対象外）', () => {
   for (const p of [
     'content/site/pe-first-stage/r07-construction/article.mdx',
     'content/site/pe-first-stage/r01-retry-basic/article.mdx',
     'content/site/civil-construction-2/primary-r05-zenki/article.mdx',
     'content/site/civil-construction-1/primary-h26-a/article.mdx',
     'content\\site\\civil-construction-2\\primary-r03-kouki\\article.mdx',
+    // 2026-10-06: lint-mdx-mobile（15-x）と判定を一本化して足した 2 種
+    'content/site/civil-construction-1/secondary-r07/article.mdx',
+    'content/site/pe-construction/r06-urban-planning/article.mdx',
   ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), true, p);
   for (const p of [
     'content/site/pe-first-stage/guide-basic/article.mdx',
     'content/site/civil-construction-2/guide-overview/article.mdx',
-    'content/site/civil-construction-1/secondary-r07/article.mdx',
+    'content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx',
+    'content/site/pe-construction/guide-career/article.mdx',
   ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), false, p);
 });
 
@@ -64,4 +68,18 @@ test('技術士一次の見出し（## Ⅰ-1-1）は従来どおり、問題見�
   assert.equal(r.get(2), Infinity);
   assert.equal(r.has(4), false);
   assert.equal(r.has(6), false);
+});
+
+test('第2次検定（## 問題 N）と建設部門（## II-1 の ASCII 表記）も問題見出し、### 解説 で自著に戻る', () => {
+  const r = officialTextRanges(['## 問題 2', '受け入れ', '### 解説', '受け入れ', '## II-1', '2か所', '<details open>', '2か所'].join('\n'));
+  assert.equal(r.get(2), Infinity);
+  assert.equal(r.has(4), false, '問題見出しの下でも ### 解説 からは自著');
+  assert.equal(r.get(6), Infinity);
+  assert.equal(r.has(8), false, '<details open> も解説の始まり');
+});
+
+test('blankOfficialQuestionLines: 対象ページだけ公式問題の行を空にする（lint-mdx-mobile の 15-x 用）', () => {
+  const lines = ['導入。', '## 問題 1', '設問文。', '<details>', '解説。'];
+  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/secondary-r05/article.mdx'), ['導入。', '', '', '<details>', '解説。']);
+  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/guide-overview/article.mdx'), lines);
 });

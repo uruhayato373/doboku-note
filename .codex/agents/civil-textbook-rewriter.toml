@@ -95,6 +95,7 @@ developer_instructions = """
 ### 品質ガード
 
 - リライト後、**`lint-mdx-mobile.mjs` のカテゴリ 0/1/9 HIGH 違反を新たに引き起こさないこと**
+- `npx textlint <file>` が 0 件（pre-commit の lint-ja はファイル全体を検査し、触っていない既存行の全角数字・prh も commit を止める）。構造だけを変えた箇所は `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0（content-authoring.md「書き終えたときの決定的ゲート」）
 - MDX 構文を壊さない（既存の `<details>`、`<ExamPoint>`、表を尊重）
 - **R パターン（参考資料）適用時**:
   - 公的（go.jp/or.jp/ac.jp）＋民間の両方を最低1件ずつ

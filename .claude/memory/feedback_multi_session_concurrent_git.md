@@ -15,7 +15,7 @@ doboku-note では**複数の Claude Code セッションが同じワークツ�
 
 **How to apply:**
 - **驚かない・切り分ける**: reflog・develop 先頭・未コミットが自分と無関係に動くのは正常。原因は「自分のツール呼び出し履歴に該当 git コマンドがあるか」「committer 時刻」「`.git/logs/HEAD` 生ログ（`<old> <new> <committer> <email> <unix-ts> <tz>\t<msg>`）」で見る。
-- **pathspec commit 厳守**: `git commit -m "..." -- <pathspec>`（`-m` は `--` の前）。bare `git commit` / `git add -A` / `git add .` 禁止。`src/app/docs/[...slug]/page.tsx` はグロブ文字を含むので `--literal-pathspecs` か `:(literal)` を付ける。
+- **pathspec commit 厳守**: `git commit -m "..." -- <pathspec>`（`-m` は `--` の前）。bare `git commit` / `git add -A` / `git add .` 禁止。`src/app/docs/[...slug]/page.tsx` はグロブ文字を含むので `--literal-pathspecs` か `:(literal)` を付ける。pathspec commit では pre-commit が書き換えた内容（dateModified 等）が index に入らず古い版が残るので、post-commit（`scripts/sync-index-after-commit.mjs`）が HEAD に揃える。フックが古くて `MM` が残ったら `git reset -q -- <path>`（2026-10-06）。
 - **commit 前に `git diff --cached --name-only` で staged 一覧を確認**（5ファイル以上・ディレクトリ単位 add・並行稼働中は必須。単一ファイルは省略可）。想定外は `git restore --staged <file>`。
 - **他セッションの変更は触らない**: 想定外の diff は無視してそのまま残す。自分の産物以外を `checkout --`/`restore` で復元しない。
 - **重要ファイルは編集即 commit**（5分以内）。大量生成は生成完了直後に commit。追跡性が失われたら `git commit --allow-empty -m "説明"` で後追い記録。
