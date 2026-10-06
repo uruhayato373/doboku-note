@@ -693,11 +693,16 @@
       "reviewedAt": "2026-10-06T09:53:21.094Z"
     },
     "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
-      "sha": "0986eb0079959ef8",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "PDCA サイクル図の円の下半分と右下の回転矢印が下端で、円の左半分（Plan/Act 側）が左側で切れている。上部約 330px が空白",
-      "reviewedAt": "2026-10-06T10:42:41.147Z"
+      "sha": "10e0b5733916a884",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下端と左側で切れていた PDCA サイクルの円・左の回転矢印・右下の回転矢印を、土木施工管理技術テキスト 施工管理・法規編 第1章 p.5（図1.3）から 300dpi で切り出し直して戻した（850x850→736x594）。上の空白・キャプション・本文・行番号は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:35:54.715Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/001.pdf",
+        "page": 5,
+        "dpi": 300
+      }
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
@@ -721,11 +726,16 @@
       "reviewedAt": "2026-10-06T11:08:05.011Z"
     },
     "civil-construction-1/textbook-demolition/img/fig-6-4": {
-      "sha": "28d08e74e24aac55",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で柱の左右の縦線と左の壁のギザギザが切れている。右側に余白番号『35』、下部に図番号キャプション『図6.4 ワイヤソーイング工法』、左に大きな空白もある",
-      "reviewedAt": "2026-10-06T11:19:11.890Z"
+      "sha": "7d25a576e018dd24",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた柱の縦線の上端と左壁のギザギザを、土木施工管理技術テキスト 土木一般編 第6章 p.3（図6.4）から 300dpi で切り出し直して戻した（1200x600→707x730）。図番号キャプション・行番号・左の空白は除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:35:54.718Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/006.pdf",
+        "page": 3,
+        "dpi": 300
+      }
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "sha": "e94b8b6dca213f5d",
@@ -1027,11 +1037,15 @@
       }
     },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
-      "sha": "0600507f1a9e7cd3",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で東日本大震災の棒が突き抜け Y 軸 20,000 より上と枠上辺が画像外、右端で横軸の年ラベル（令和5年以降）と棒が切れている。左に綴じ・ページ端の影、図内部に裏写り",
-      "reviewedAt": "2026-10-06T10:09:04.340Z"
+      "sha": "349dc94f33f093f9",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていた東日本大震災の棒の頭・Y 軸 20,000 より上・枠上辺と、右端で切れていた令和 5 年までの年ラベル・最終棒・枠右辺を、技術士建設部門 論文対策キーワードのスキャン（source/004.pdf p.3＝pages/p0106）から切り出し直して戻した（955x471→1400x956）。綴じ影・指影・裏写りは濃淡補正で除いた。原図内の注と出典の行は残した（記事の caption『出典: 令和7年版 防災白書』はそのまま）。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:35:54.719Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/004.pdf",
+        "page": 3
+      }
     },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig14": {
       "sha": "2e0d4c5c04dcfcd5",
@@ -1041,11 +1055,15 @@
       "reviewedAt": "2026-10-06T09:49:08.230Z"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
-      "sha": "66a7196bd3d73727",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で角丸ボックス『緑に関する法制の抜本…』と本文行・右の矢印ボックス、下縁で 2 つの角丸ボックスの下半分が切れている。左縁にスキャン時の指、紙面の影と傾き",
-      "reviewedAt": "2026-10-06T09:43:30.759Z"
+      "sha": "12b154f98a2d0d85",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた『緑に関する法制の抜本的見直し』のボックスと右の矢印ボックス、下縁で切れていた下段の角丸ボックスを、技術士建設部門 論文対策キーワードのスキャン（pages/p0263）から傾きを補正して切り出し直して戻した（795x500→1010x586）。左縁の指・図の外の本文・図の出典行は除いた。うっすら裏写りが残るが読み取りに支障はない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:35:54.721Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0263.jpg",
+        "page": 263
+      }
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24": {
       "sha": "df9fcbc1ff447b8b",
