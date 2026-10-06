@@ -1,9 +1,13 @@
 ---
 name: reference_partial_clone_repack_hazard
-description: "git の重い/壊れる操作の罠。push を失敗しうる手順に ; で繋ぐ・zsh の単語分割、blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）"
+description: git の重い/壊れる操作の罠。push を失敗しうる手順に ; で繋ぐ・zsh の単語分割、blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）
 metadata:
+  node_type: memory
   type: reference
+  originSessionId: dbedeb81-cdb5-44da-b970-0513ad32e184
+  modified: 2026-10-06T11:35:29.325Z
 ---
+
 `doboku-note` のローカル `.git` は **`blob:none` の partial clone**（`remote.origin.promisor=true` / `partialclonefilter=blob:none`）。普通の clone と挙動が違い、肥大化を直しに行くと逆に壊す罠が 3 つある。
 
 **罠1: `git rev-list --objects --all` を素で回すと履歴を再ダウンロードする。**
@@ -102,4 +106,5 @@ feature ブランチを最新 develop へ載せ直すとき、`git reset --keep 
 1. **zsh は未クォート変数を単語分割しない**: `C=$(git rev-list ... | tr '\n' ' ')` を `git cherry-pick $C` に渡すと SHA 4 本が 1 引数になり `fatal: bad revision`。bash の感覚で書かない（SHA は直書きするか `${=C}`）。
 2. **`;` の後の push は前の失敗を無視して走る**: cherry-pick が失敗したまま、ブランチが develop と同じ状態で force push した → GitHub は head＝base になった PR を**自動で閉じる**（`gh pr reopen` で戻る）。1 回目も `git rebase`（作業ツリーの他人の変更で拒否）の失敗後に `&&` の手前で `| tail -1` を挟んだため、tail の成功で push まで進んだ。
 - **How to apply:** 載せ直し → 検証 → push は別の呼び出しに分け、push の前に「元の範囲と同じパッチか」（`diff <(git diff <元の base> <元の head>) <(git diff origin/develop HEAD)`）を見てから押す。`| tail` で失敗を飲み込む位置に `&&` を置かない。作業ツリーに他人の変更があると `git rebase` は拒否するので `git reset --keep` + `git cherry-pick <sha...>` を使う（stash は共有なので使わない）。
+3. **commit の失敗も同じ（2026-10-06 3 回目）**: `git commit ... ; echo rc=$?; ... c=$(git rev-parse HEAD); git reset --keep origin/develop && git cherry-pick $c` と書き、lint-ja で commit が止まったのに載せ直しへ進んだ。`c` は既に push 済みの 1 つ前のコミットになり、空の cherry-pick が途中で止まった（ステージした変更はアンステージされ作業ツリーには残った）。後始末は作業ツリーに触れない `git cherry-pick --quit`（`--abort`/`--skip` は reset を伴う）。**載せ直しは commit の成功（rc=0 と新しい sha）を確かめた次の呼び出しで、sha を直書きして行う**。
 
