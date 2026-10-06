@@ -46,18 +46,28 @@
       }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-05": {
-      "sha": "1515c09b76c2f20d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で図1（二重腹起し）の土留め壁の縦線・斜めブレース・引出線、図2 の腹起し断面と寸法矢印、図3 の寸法線が切れている。下部にキャプション",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "d75c96e0c7cfdb93",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上端で切れていた図1（二重腹起し）の土留め壁・腹起し押えブラケット、図2（二段腹起し）の裏込め材・腹起し・間隔保持材の引出線と寸法矢印を、問題解説集2021 p.374 から 300dpi で切り出し直して戻した（1674x444→1810x850）。解説本文は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:57:22.447Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 374,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-06": {
-      "sha": "d3e3fef706880563",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上端で図1（二重腹起し）の斜材と縦線、図2 の寸法線・壁線・水平材の縦罫が切れている。下部にキャプション",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "d75c96e0c7cfdb93",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "No.21 でも同じ図（二重腹起し・二段腹起し）を使う。fig-05 と同じく問題解説集2021 p.374 から 300dpi で切り出し直し、上端の欠けを戻した（1674x444→1810x850）。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:57:22.450Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 374,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
       "sha": "ed0e26b0c64ed730",
@@ -127,13 +137,6 @@
       "action": "none",
       "reason": "上端で地表より上の装置（やぐら・三脚の脚・ロッドとケーシングの頭部）が切れている。下部にキャプション『図 標準貫入試験』、左に空白と汚れ",
       "reviewedAt": "2026-10-06T10:37:39.030Z"
-    },
-    "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
-      "sha": "26f009cb5fa111e7",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で右下の詳細図 (g)（鉄板 t=0.6〜1.2mm・配力鉄筋・止水板・充てん材の断面）が上辺の枠線の途中で切れている。上と左に大きな空白。同記事の fig-11 が同じ図の完全版の可能性",
-      "reviewedAt": "2026-10-06T10:42:41.146Z"
     },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
@@ -276,11 +279,16 @@
       "reviewedAt": "2026-10-06T09:40:15.249Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
-      "sha": "69fb2f2854ebb2e0",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で注記『排水溝（深さ…』と引き出し線・区画上部、右縁で注記の続き、下縁で縦排水溝の線と下の区画が切れている。キャプション・行番号 35・次見出しの断片も写り込み",
-      "reviewedAt": "2026-10-06T09:40:15.247Z"
+      "sha": "bb2d998271433e8f",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "平面図の一部しか無く上縁の盛土断面図と注記『排水溝（深さ0.5〜1.0 m程度）』が欠けていたので、二次問題解説集2021 p.100（180 度回転を戻す）から図2.1 全体を 300dpi で切り出し直した（430x230→802x426）。キャプション・行番号・隣の図2.2 の断片は含めていない。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:57:22.452Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 100,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
       "sha": "939a5519f0eb774d",

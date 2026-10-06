@@ -260,6 +260,15 @@
 
 **完了条件**: 3 図（fig-2-41・fig-2-42a・fig-2-42b）とも alt・本文・画像の内容が一致し、固結工法の各節に、その工法の図と本文が載っている（fig-2-52 の重複が無い）。3 図とも `node scripts/figure-review-queue.mjs` の判定待ち・切り出し直し待ちに残っていない。
 
+### [DN-0552] 1級土木 一次の過去問演習データへ、記事の図の修正を反映する
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-06]
+
+**起点**: 2026-10-06 の図クロップ品質ループ（`/figure-quality-loop`）で、1級土木 一次の過去問記事の図を切り出し直すと、過去問演習（`/tools/kakomon-quiz`）のデータには反映されないと分かった。演習データ `src/config/civil-1-exam-questions.json`（→ `npm run build-quiz-data` → `public/quiz/civil-1.json`）は記事の MDX から `.claude/scripts/sns/parse-civil-1-questions.mjs` で作るが、2026-07-16 から作り直されていない。図 50 枚のうち 10 枚で width/height が記事と違い、H30 問題A No.10 は、切り出し直した h30-a-fig-10 が図の全体になったので、記事では縮小版の h30-a-fig-11 と図名「（上部）」を外す（PR #887 の後に入る）が、演習データには重複したまま残る。画像のパスは同じなので、演習でも直した画像は出ている。
+
+**やること**: `parse-civil-1-questions.mjs` が既存の年度も記事から作り直せるかを確かめて（見出しに「追加のみ」とある）、記事の図・寸法の変更が演習データに入るようにする。作り直すか、`refresh-indexes` か検査で記事との差を止めるかを選ぶ。作り直したら、どの記事からも演習データからも参照されなくなった `content/site/civil-construction-1/primary-h30-a/img/h30-a-fig-11.{png,webp}` を消す（Kindle の EPUB `scripts/kindle-dist/e-02.epub` にも入っているので、EPUB の作り直しと合わせる）。
+
+**完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
+
 ### [DN-0532] コンクリート技士の試験概要ページを「試験日」の検索語でクリックされるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-06]
 
