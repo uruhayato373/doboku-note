@@ -14,7 +14,8 @@
  *                          高精度シグナル（fig-04=5px/fig13=3px を捕捉、15-38px の正当ラベルを落とす）。
  *   EDGE_CUT (HIGH表示)    … margin=0 で縁2行/内側4行の密度比≥0.5＝ストローク中割りの疑い。ただし
  *                          finished 図では tight-crop（正当な密着）と幾何で判別不能（実測 538/643 が
- *                          縁接触＝旧常態）。**情報のみ**。真価は下記の予防フックで発揮する。
+ *                          縁接触＝旧常態）。CI では**情報のみ**。真価は下記の予防フックと、
+ *                          figure-review-queue.mjs（/figure-quality-loop の判定待ち・目視判定を台帳に残す）が読むこと。
  *   EDGE_LINE / EDGE_TIGHT (LOW) … 縁の直線（罫線/軸/枠）/ 先細り接触（端点タイトトリム）。正当。
  *   STRAY_LABEL (LOW)     … スライバーより厚い分離島（小見出し/軸/写り込みのいずれか・要目視）。
  *   THIN_MARGIN (LOW)     … 白マージンが 4px 未満の辺。切断予備軍の注意喚起。
@@ -41,6 +42,7 @@ import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 
 import { join, resolve, relative, dirname } from 'node:path';
 import sharp from 'sharp';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -171,7 +173,7 @@ export async function analyzeImage(absPath) {
       if (edgeLineFrac >= EDGE_LINE_FRAC) {
         violations.push({ rule: 'EDGE_LINE', severity: 'LOW', side, detail: `${side}縁の直線が内容スパンの${(edgeLineFrac * 100).toFixed(0)}%＝罫線/軸/枠の bbox 一致（内容は完全）` });
       } else if (taper >= EDGE_CUT_TAPER) {
-        violations.push({ rule: 'EDGE_CUT', severity: 'HIGH', side, detail: `${side}縁でストローク中割りの疑い（縁2行/内側4行の密度比 ${(taper * 100).toFixed(0)}%≥${EDGE_CUT_TAPER * 100}%・縁幅 ${(edgeLineFrac * 100).toFixed(0)}%）` });
+        violations.push({ rule: 'EDGE_CUT', severity: 'HIGH', side, edgeFrac: Number(edgeLineFrac.toFixed(3)), detail: `${side}縁でストローク中割りの疑い（縁2行/内側4行の密度比 ${(taper * 100).toFixed(0)}%≥${EDGE_CUT_TAPER * 100}%・縁幅 ${(edgeLineFrac * 100).toFixed(0)}%）` });
       } else {
         violations.push({ rule: 'EDGE_TIGHT', severity: 'LOW', side, detail: `${side}縁で先細り接触＝端点タイトトリム（密度比 ${(taper * 100).toFixed(0)}%<${EDGE_CUT_TAPER * 100}%）` });
       }
@@ -288,4 +290,5 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// import（figure-recrop.mjs・figure-review-queue.mjs が analyzeImage を使う）では全件走査とレポート上書きを走らせない
+if (isCliEntry(import.meta.url)) main().catch((e) => { console.error(e); process.exit(1); });

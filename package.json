@@ -20,6 +20,7 @@
     "affiliate:status": "node scripts/affiliate-status.mjs",
     "audit-figure-text": "node scripts/audit-figure-text.mjs",
     "audit-figures": "npm run audit-figure-text && npm run build-figure-provenance",
+    "figure-review-queue": "node scripts/figure-review-queue.mjs",
     "audit-ga4-bot-ratio": "node .claude/scripts/audit-ga4-bot-ratio.mjs",
     "audit-repo-assets": "node scripts/audit-repository-assets.mjs",
     "disk-hygiene:fix": "node scripts/disk-hygiene.mjs --fix",

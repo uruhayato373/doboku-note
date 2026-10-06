@@ -1,6 +1,6 @@
 ---
 name: reference_partial_clone_repack_hazard
-description: "git の重い/壊れる操作の罠。blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）"
+description: "git の重い/壊れる操作の罠。push を失敗しうる手順に ; で繋ぐ・zsh の単語分割、blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）"
 metadata:
   type: reference
 ---
@@ -96,3 +96,10 @@ metadata:
 書式が全ページで変わる。日付キーは `.slice(0, 10)` で `YYYY-MM-DD` に揃えること。
 
 関連: [[reference_quality_audit_system]] / [[reference_partial_clone_repack_hazard]] / [[project_asset_audience_routing]]
+
+## push を失敗しうる手順に `;` で繋がない（2026-10-06）
+feature ブランチを最新 develop へ載せ直すとき、`git reset --keep origin/develop && git cherry-pick $C ...; git push --force-with-lease ...` と書いて 2 回事故った。
+1. **zsh は未クォート変数を単語分割しない**: `C=$(git rev-list ... | tr '\n' ' ')` を `git cherry-pick $C` に渡すと SHA 4 本が 1 引数になり `fatal: bad revision`。bash の感覚で書かない（SHA は直書きするか `${=C}`）。
+2. **`;` の後の push は前の失敗を無視して走る**: cherry-pick が失敗したまま、ブランチが develop と同じ状態で force push した → GitHub は head＝base になった PR を**自動で閉じる**（`gh pr reopen` で戻る）。1 回目も `git rebase`（作業ツリーの他人の変更で拒否）の失敗後に `&&` の手前で `| tail -1` を挟んだため、tail の成功で push まで進んだ。
+- **How to apply:** 載せ直し → 検証 → push は別の呼び出しに分け、push の前に「元の範囲と同じパッチか」（`diff <(git diff <元の base> <元の head>) <(git diff origin/develop HEAD)`）を見てから押す。`| tail` で失敗を飲み込む位置に `&&` を置かない。作業ツリーに他人の変更があると `git rebase` は拒否するので `git reset --keep` + `git cherry-pick <sha...>` を使う（stash は共有なので使わない）。
+
