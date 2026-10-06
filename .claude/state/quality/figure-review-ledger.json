@@ -169,6 +169,42 @@
       "reason": "上端で地表より上の装置（やぐら・三脚の脚・ロッドとケーシングの頭部）が切れている。下部にキャプション『図 標準貫入試験』、左に空白と汚れ",
       "reviewedAt": "2026-10-06T10:37:39.030Z"
     },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-04": {
+      "sha": "42820aafe8bccde0",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を一次問題解説集2021 p.272 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.977Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 272,
+        "dpi": 300
+      }
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-05": {
+      "sha": "1cc9ad274c9d191e",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を一次問題解説集2021 p.285 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.985Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 285,
+        "dpi": 300
+      }
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
+      "sha": "89f69d07ca25bb71",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた詳細図 (g) を含む『ひび割れ誘発目地の例』の全体を一次問題解説集2021 p.200 から切り出し直した（1456x576→1102x868）。同じ図の縮小版 fig-11 は重複になるため記事から外した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.995Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 200,
+        "dpi": 300
+      }
+    },
     "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
       "sha": "c806d6c73c06c920",
       "verdict": "ok",
@@ -181,6 +217,18 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
+      "sha": "74cf833119e81756",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を一次問題解説集2021 p.21 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.987Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 21,
+        "dpi": 300
+      }
+    },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-02": {
       "sha": "ad96aeb4bc0254f4",
       "verdict": "needs-source",
@@ -188,12 +236,43 @@
       "reason": "右縁で引出注記（『荷重計』が『荷』まで・ジャッキと載荷円板の注記は無い）、上部の横梁・載荷装置の枠・地面のハッチ線が切れている。左約 45% が空白、下部にキャプション『図 平板載荷試験』",
       "reviewedAt": "2026-10-06T10:37:39.029Z"
     },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
+      "sha": "2a0d71dc4cb830b5",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を一次問題解説集2021 p.33 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.989Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 33,
+        "dpi": 300
+      }
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-08": {
+      "sha": "c596ed9517a4b5e5",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を一次問題解説集2021 p.34 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.990Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 34,
+        "dpi": 300
+      }
+    },
     "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
       "sha": "e7df915cd216c1f2",
       "verdict": "needs-source",
       "action": "none",
       "reason": "上縁で引き出しラベル『隅金物』『隅火打材』の文字の上半分が切れている。下部に図番号キャプション『図 矢板土留め工構造図の例』",
       "reviewedAt": "2026-10-06T10:24:51.419Z"
+    },
+    "civil-construction-1/primary-r05-a/img/r05-a-fig-01": {
+      "sha": "800714f6c1c156db",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "左右の過大な空白（左 222px・右 336px）を詰めた（1721x688→1163x688）。上端に接しているのは (2) の注記『セパレータ』の字の先端 1px 程度で、親 QA で拡大して全字が読めることを確認。ひび割れパターン (1)〜(4) と寸法は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.997Z"
     },
     "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
       "sha": "c13842afd79ea734",
@@ -392,6 +471,25 @@
       "source": {
         "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
         "page": 267,
+        "dpi": 300
+      }
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
+      "sha": "48785072dc7e3fc0",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上部のランニングヘッド『第4章 施工計画』・下部の図番号キャプション『図 カルバートの施工の流れ』・本文の行・余白を除いて切り直し（830x640→588x428）。フローチャートの箱・矢印・仮排水設備・注記は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.996Z"
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
+      "sha": "87dae0d5e49341c5",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた L 型擁壁の図を二次問題解説集2021 p.239（180 度回転を戻す）から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.991Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 239,
         "dpi": 300
       }
     },
@@ -808,6 +906,18 @@
         "dpi": 300
       }
     },
+    "civil-construction-2/primary-r05-kouki/img/q45-fig": {
+      "sha": "bc987a391d4cce21",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を R05 後期の公式問題 PDF p.16 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.992Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_後期.pdf",
+        "page": 16,
+        "dpi": 300
+      }
+    },
     "civil-construction-2/primary-r05-zenki/img/q56-fig": {
       "sha": "ed01025b9838d4b5",
       "verdict": "ok",
@@ -824,6 +934,18 @@
       "source": {
         "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_前期.pdf",
         "page": 22,
+        "dpi": 300
+      }
+    },
+    "civil-construction-2/primary-r06-kouki/img/q50-fig": {
+      "sha": "8a91ab65a6d82739",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "縁で切れていた図本体を R06 後期の公式問題 PDF p.20 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:26:41.993Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_後期.pdf",
+        "page": 20,
         "dpi": 300
       }
     },
