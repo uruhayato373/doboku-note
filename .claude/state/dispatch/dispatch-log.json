@@ -2095,6 +2095,18 @@
       "commit": null,
       "verification": "campaign.json・video-packs/civil-construction-2 の 18 テーマを確認し、9 テーマ×3 投稿の案をカードへ記入（年度依存は #1 のみ）",
       "note": "再開条件: Facebook ログイン復旧 → /ig-reconcile で 10/7〜10/24 の枠を照合 → ユーザー承認 → publish-ig-bs で 9 件ずつ予約（ローカル）"
+    },
+    {
+      "id": "DN-0248",
+      "at": "2026-10-06",
+      "task": "技術士 口頭の無料導入2本 — 成績区分の照合と X 11月計画",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "2c5a02276376",
+      "verification": "check-x-campaign-plan OK（2026-11-pe-oral.json 27件・WARN 0／全 9 ファイル 261 件）/ 合否決定基準の表を文部科学省 HTML の rowspan で確認 / 配点 50+50 を受験申込み案内 PDF で確認",
+      "note": "再開条件: 11/4 の公式掲載を確かめて運営者が無料2本を公開・L2 配線。funnel を note へ切り替える前に無料2本のカタログ登録かゲート例外を決め、tweets.md を作る"
     }
   ]
 }
