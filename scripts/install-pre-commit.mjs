@@ -1,7 +1,8 @@
 /**
  * pre-commitフック設置スクリプト
  *
- * .git/hooks/pre-commit にMDX検証フックを設置する。
+ * .git/hooks/pre-commit にMDX検証フックを、.git/hooks/post-commit に pathspec commit 後の
+ * index 同期（scripts/sync-index-after-commit.mjs）を設置する。
  *
  * Usage:
  *   npm run pre-commit:install
@@ -642,3 +643,24 @@ try {
 
 console.log(`✓ pre-commit hook installed at ${HOOK_PATH}`);
 console.log("  MDX files will be validated before each commit.");
+
+// post-commit: pathspec commit（git commit -- <path>）では、pre-commit が書き換えて stage した内容
+// （backfill-mdx-dates の dateModified 等）が本物の index に入らず、index にだけ古い版が残る（2026-10-06 実測）。
+// 今 commit したファイルのうち「作業ツリー＝HEAD なのに index だけ違う」ものを HEAD に揃える。
+// スクリプトが無い古いツリー（worktree）では何もしない。
+const POST_COMMIT_PATH = join(HOOKS_DIR, "post-commit");
+const POST_COMMIT_CONTENT = `#!/bin/sh
+# Installed by: npm run pre-commit:install
+if [ -f scripts/sync-index-after-commit.mjs ]; then
+  node scripts/sync-index-after-commit.mjs || true
+fi
+`;
+const POST_COMMIT_TMP = `${POST_COMMIT_PATH}.tmp-${process.pid}`;
+writeFileSync(POST_COMMIT_TMP, POST_COMMIT_CONTENT, { mode: 0o755 });
+renameSync(POST_COMMIT_TMP, POST_COMMIT_PATH);
+try {
+  chmodSync(POST_COMMIT_PATH, 0o755);
+} catch {
+  // Ignore chmod errors on Windows
+}
+console.log(`✓ post-commit hook installed at ${POST_COMMIT_PATH}`);
