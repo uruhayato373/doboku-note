@@ -64,7 +64,12 @@ n.products = ins(
   'INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
   products.map((p) => [
     p.id, p.channel, p.qualification, p.stage, p.series, p.tier, p.persona, p.catalog.title ?? null, p.catalog.noteTitle ?? null,
-    p.catalog.price ?? null, yen(p.catalog.price), p.catalog.published ? 1 : 0, p.catalog.retiredAt ?? null, p.catalog.noteUrl || null, noteKeyOf(p.catalog.noteUrl),
+    // Kindle は catalog.priceJpy・status が live、ココナラは priceYen・status が listed のものを公開中とみなす。noteUrl は note だけ
+    p.catalog.price ?? ((p.catalog.priceJpy ?? p.catalog.priceYen) != null ? `¥${p.catalog.priceJpy ?? p.catalog.priceYen}` : null),
+    p.catalog.priceJpy ?? p.catalog.priceYen ?? yen(p.catalog.price),
+    p.channel === 'kindle' ? (p.catalog.status === 'live' ? 1 : 0) : p.channel === 'coconala' ? (p.catalog.status === 'listed' ? 1 : 0) : p.catalog.published ? 1 : 0,
+    p.catalog.retiredAt ?? p.catalog.archivedAt ?? null,
+    p.catalog.noteUrl || null, p.catalog.noteUrl ? noteKeyOf(p.catalog.noteUrl) : null,
   ]),
 );
 n.members = ins('INSERT INTO product_members VALUES (?,?,?)', products.flatMap((p) => p.members.map((m) => [p.id, m, articleNoteId(m) || null])));

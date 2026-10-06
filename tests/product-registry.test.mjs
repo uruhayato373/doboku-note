@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  Product, canonicalJson, canonicalFile, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
+  Product, canonicalJson, canonicalFile, renderKindleCatalog, kindleProductId, renderCoconalaBlock, frontmatterPrice, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
 } from '../scripts/lib/product-registry.mjs';
 
 const base = {
@@ -70,4 +70,47 @@ test('canonicalFile は全商品を channel → id の順に並べ、schemaVersi
   assert.deepEqual(Object.keys(json), ['schemaVersion', '_doc', 'products']);
   assert.deepEqual(json.products.map((p) => p.id), ['civil-2-a', 'civil-2-sample-pack']);
   assert.ok(out.endsWith('}\n') && !out.includes('\r'));
+});
+
+test('Kindle の商品は書籍の欄の並びを保ち、catalog.json は order の順で books を作る', () => {
+  const book = (id, order) => Product.parse({
+    id: kindleProductId(id), channel: 'kindle', qualification: 'rccm', stage: 'written', series: 'other', tier: 'book', order,
+    catalog: { id, asin: 'B0X', title: `t-${id}`, priceJpy: 1250, status: 'live' },
+  });
+  const a = book('h-01', 1);
+  const b = book('A-00', 0);
+  assert.equal(b.id, 'kindle-a-00');
+  assert.deepEqual(Object.keys(a.catalog), ['id', 'asin', 'title', 'priceJpy', 'status']);
+  const out = JSON.parse(renderKindleCatalog([a, b], { kindle: { catalogComment: 'c', catalogSchemaVersion: 1, updatedAt: '2026-10-06' } }));
+  assert.deepEqual(Object.keys(out), ['_comment', 'schemaVersion', 'updatedAt', 'books']);
+  assert.deepEqual(out.books.map((x) => x.id), ['A-00', 'h-01']);
+  assert.equal(Product.safeParse({ ...a, catalog: { ...a.catalog, priceJpy: -1 } }).success, false);
+});
+
+test('ココナラの生成ブロックは order の順で、読み手（parseCatalog）が欄を切り出せる書式で書く', async () => {
+  const { parseCatalog } = await import('../scripts/lib/coconala-catalog.mjs');
+  const svc = (id, order, extra = {}) => Product.parse({
+    id, channel: 'coconala', qualification: 'rccm', stage: 'written', series: 'other', tier: 'service', order,
+    catalog: { id, status: 'listed', serviceUrl: `https://coconala.com/services/${order + 1}`, title: `題名${order}ます`, shortTitle: 's', priceYen: 5000, examScope: ['rccm'], weeklyCapacity: 2, ...extra },
+    memo: ['経緯のメモ'],
+  });
+  const a = svc('coconala-b', 1, { pauseReason: 'absence' });
+  const b = svc('coconala-a', 0);
+  const block = renderCoconalaBlock([a, b]);
+  assert.ok(block.indexOf("'coconala-a': {") < block.indexOf("'coconala-b': {"), 'order の順でない');
+  assert.match(block, /^ {2}\/\/ 経緯のメモ$/m);
+  const parsed = parseCatalog(`const SERVICES_RAW = {\n${block}\n} as const;`);
+  assert.deepEqual(Object.keys(parsed), ['coconala-a', 'coconala-b']);
+  assert.equal(parsed['coconala-b'].priceYen, 5000);
+  assert.equal(parsed['coconala-b'].pauseReason, 'absence');
+  assert.equal(Product.safeParse({ ...a, catalog: { ...a.catalog, priceYen: 0 } }).success, false, 'priceYen 0 を通した');
+});
+
+test('記事の単品価格: frontmatter の price を読み（CRLF でも）、正本の articlePrices はキーの順に並べて書く', () => {
+  assert.equal(frontmatterPrice('---\r\ntitle: "x"\r\nprice: 1480\r\n---\r\n本文 price: 9999\r\n'), 1480);
+  assert.equal(frontmatterPrice('---\ntitle: x\n---\nprice: 1480\n'), null, '本文の price を拾った');
+  const out = JSON.parse(canonicalFile([Product.parse(base)], {}, { 'content/note/b/article.md': 980, 'content/note/a/article.md': 1480 }));
+  assert.deepEqual(Object.keys(out), ['schemaVersion', '_doc', 'products', 'articlePrices']);
+  assert.deepEqual(Object.keys(out.articlePrices), ['content/note/a/article.md', 'content/note/b/article.md']);
+  assert.ok(!('articlePrices' in JSON.parse(canonicalFile([Product.parse(base)]))), '空の articlePrices を書いた');
 });

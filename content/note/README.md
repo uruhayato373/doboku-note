@@ -129,7 +129,7 @@ utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
 
-題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `config/products.json` の `catalog.noteTitle` / `catalog.price`（`note-magazines.ts` は生成物）。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
+題名の正本は frontmatter の `title`（見出し 1 は `title` と同じにする）。単品価格の正本は `config/products.json` の `articlePrices`（frontmatter の `price` はその写しで、変えるときは `npm run product -- price <article.md> <円>`）。マガジンは `config/products.json` の `catalog.noteTitle` / `catalog.price`（`note-magazines.ts` は生成物）。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
 
 - 題名・価格を変える: 原稿を直して commit する。題名は週次の Mac `note-sync-routine` が自動で note へ反映する。価格は同期画面に「止まっている」と出るので `note-article-price-sweep` で反映する
 - note 側で直接変わった（ずれた）: 週次 CI（`note-live-audit.yml`）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る

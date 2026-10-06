@@ -182,7 +182,7 @@ jobs:
           git reset --hard origin/develop
           npm run pre-commit:install
           node scripts/note-reconcile-title-price.mjs --commit | tee .tmp/note-reconcile.log
-          git add content/note src/lib/note-magazines.ts .claude/state/note-republish-hashes.json
+          git add content/note config/products.json src/lib/note-magazines.ts .claude/state/note-republish-hashes.json
           if git diff --cached --quiet; then
             echo "No title/price drift to reconcile"
             exit 0

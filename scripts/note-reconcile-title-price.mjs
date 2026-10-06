@@ -2,7 +2,7 @@
 /**
  * note-reconcile-title-price.mjs — note 商品の題名・価格を、公開中の note と照合して原稿（正本）へ揃える準備をする
  * ---------------------------------------------------------------------------
- * 正本は原稿（2026-10-01 決定）。記事＝frontmatter の title / price（見出し 1 は title と同じ）、マガジン＝note-magazines.ts の noteTitle / price。
+ * 正本は原稿（2026-10-01 決定）。記事＝frontmatter の title / price（見出し 1 は title と同じ）、マガジン＝config/products.json の noteTitle / price（note-magazines.ts はその生成物）。記事の価格の正本は config/products.json の articlePrices で、frontmatter の price は写し（埋めた価格は両方に書く）。
  * note の値は原稿へ取り込まない。食い違いを見つけたら「note へ未反映」に戻し、原稿の値で note を上げ直させる。
  *
  *   題名が違う → 再公開台帳の titleHashes を外す（live-mismatch）→ 週次の Mac note-sync-routine が
@@ -27,8 +27,9 @@
  */
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, metaHash, titleHash, TITLE_LIVE_MISMATCH, loadState, saveState } from './lib/note-republish-hash.mjs';
+import { loadProducts, saveProducts, setArticlePrices, noteKeyOf } from './lib/product-registry.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
@@ -40,7 +41,6 @@ const ADOPT_LIVE = args.includes('--adopt-live');
 const JSON_OUT = args.includes('--json');
 const FILTER = args.includes('--filter') ? args[args.indexOf('--filter') + 1] : null;
 const ROOT = 'content/note';
-const SOT = 'src/lib/note-magazines.ts';
 const THROTTLE_MS = 250;
 
 function walk(dir, acc = []) {
@@ -104,6 +104,8 @@ const routes = loadSiteRoutes();
 st.titleHashes ||= {};
 st.metaHashes ||= {};
 const r = { checked: targets.length, fetchFail: 0, edited: [], toPush: [], pending: [], titleRecorded: 0 };
+/** 原稿へ書いた単品価格（最後にまとめて正本の articlePrices へ書く） */
+const priceChanged = [];
 targets.forEach((t, i) => {
   if (i) sleep(THROTTLE_MS);
   if (!JSON_OUT && i && i % 100 === 0) process.stderr.write(`  ...${i}/${targets.length}\n`);
@@ -138,6 +140,8 @@ targets.forEach((t, i) => {
       const metaWasSynced = st.metaHashes[t.f] !== undefined && st.metaHashes[t.f] === metaHash(t.raw);
       const bodyWasSynced = st.hashes?.[t.f] !== undefined && st.hashes[t.f] === bodyHash(t.raw);
       writeFileSync(t.f, next);
+      // 単品価格の正本は config/products.json の articlePrices（frontmatter は写し）。埋めた・合わせた価格は正本にも書く
+      if (price !== curPrice) priceChanged.push({ path: t.f, price });
       // 原稿へ入れた値は note と同じなので、変更前に同期済みだった記録は進める（未反映の変更は隠さない）
       if (metaWasSynced && (!paid || price === livePrice)) st.metaHashes[t.f] = metaHash(next);
       if (fixH1 && bodyWasSynced) st.hashes[t.f] = bodyHash(next);
@@ -162,6 +166,8 @@ targets.forEach((t, i) => {
   }
 });
 
+if (COMMIT && priceChanged.length) setArticlePrices(priceChanged);
+
 // ---- マガジン（noteTitle）----
 const mags = { checked: 0, differs: [], missingOnNote: [], adopted: 0 };
 let magFetchOk = true;
@@ -174,25 +180,30 @@ if (!FILTER) {
     if (data.isLastPage || !(data.contents ?? []).length) break;
   }
   if (magFetchOk && live.size) {
-    const raw = readFileSync(SOT, 'utf8');
-    const src = toLf(raw).replace(/\n {2}'([a-z0-9-]+)': \{\n([\s\S]*?)\n {2}\},/g, (whole, id, body) => {
-      const key = body.match(/noteUrl:\s*'https:\/\/note\.com\/[^/]+\/m\/(m[0-9a-f]+)'/)?.[1];
-      if (!key || /\n {4}retiredAt:/.test('\n' + body)) return whole;
+    // マガジンの正本は config/products.json（note-magazines.ts はそこからの生成物なので直接書かない）
+    const { products } = loadProducts();
+    const updated = [];
+    for (const p of products.filter((x) => x.channel === 'note')) {
+      const key = noteKeyOf(p.catalog.noteUrl ?? '');
+      if (!key || p.catalog.retiredAt) continue;
       mags.checked++;
       const name = live.get(key);
-      if (!name) { mags.missingOnNote.push(id); return whole; }
-      const cur = body.match(/\n {4}noteTitle: '((?:[^'\\]|\\.)*)',/)?.[1]?.replace(/\\(.)/g, '$1');
-      if (cur === name) return whole;
-      mags.differs.push({ id, source: cur ?? null, live: name });
+      if (!name) { mags.missingOnNote.push(p.id); continue; }
+      const cur = p.catalog.noteTitle;
+      if (cur === name) continue;
+      mags.differs.push({ id: p.id, source: cur ?? null, live: name });
       // 原稿が正なので書き換えるのは「無い」ときと --adopt-live のときだけ
-      if (cur !== undefined && !ADOPT_LIVE) return whole;
+      if (cur !== undefined && !ADOPT_LIVE) continue;
       mags.adopted++;
-      const esc = name.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-      return cur === undefined
-        ? whole.replace(/(\n {4}noteUrl:[^\n]*)/, `$1\n    noteTitle: '${esc}',`)
-        : whole.replace(/\n {4}noteTitle: '(?:[^'\\]|\\.)*',/, `\n    noteTitle: '${esc}',`);
-    });
-    if (COMMIT && mags.adopted) writeFileSync(SOT, /\r\n/.test(raw) ? src.replace(/\n/g, '\r\n') : src);
+      // noteTitle は noteUrl の直後に置く（生成物の欄の並びを保つ）
+      const entries = Object.entries(p.catalog).filter(([k]) => k !== 'noteTitle');
+      entries.splice(entries.findIndex(([k]) => k === 'noteUrl') + 1, 0, ['noteTitle', name]);
+      updated.push({ ...p, catalog: Object.fromEntries(entries) });
+    }
+    if (COMMIT && updated.length) {
+      saveProducts(updated);
+      execFileSync(process.execPath, ['scripts/product.mjs', 'gen'], { stdio: 'ignore' });
+    }
   } else magFetchOk = false;
 }
 
