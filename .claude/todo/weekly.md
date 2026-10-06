@@ -25,7 +25,7 @@
 | check-coconala-orders | **当方（ローカル）** snapshot が 8.7 日前（上限 7 日）で検査不成立。`npm run coconala-orders`（要ココナラのログイン）で取り直す。room 18351970 は 9/28 に5テーマを納品済み・評価送信済み。DM 新着が無ければ orders.json を closed にし、期日超過の DN-0312 を削除する |
 | x-queue-surfacer | **当方（ローカル）** `107-civil2-coconala-2026-10`（10/7〜10/14・2本・あと1日）と `095-pe-first-stage-2026-10`（10/11〜・21本・あと5日）が DUE。X セッションのある端末で `x-schedule-guard` 緑 → `publish-x` → `x-sync-status` で昇格数を実査。判定不能の 096〜103 は DN-0220 側 |
 | check-note-republish | 本文 drift 3（総監コスト2・主任技士 R8予想50問）・メタ drift 40・アセット drift 336。10/11 日曜の Mac note-sync に載る。DN-0398 の題名2本が加わる |
-| check-note-delivery-due | **当方（クラウド可）** live 実査が 17 日前（上限 14）。`npm run check-note-attachments:live`（公開 API・ログイン不要）で 575 件を取り直し、不足 0 を確かめる |
+| check-note-delivery-due | **当方（ローカル）** live 実査が 17 日前（上限 14）。`npm run check-note-attachments:live` で 575 件を取り直し、不足 0 を確かめる。note のログイン済みプロファイルとシステムの Chrome が要る（`launchNoteContext` が note.com/settings/account を開く）ので、クラウドでは動かない（10/6 に実行して確認） |
 | verify-ig-status（ig-reconcile） | **当方（ローカル）** snapshot が 9/19（17 日前・上限 7）。DN-0537 のログイン復旧後に再実行する |
 | check-experiment-due | EXP-009・EXP-011 は next_check_date 10/1 を超過。**運営者** Mac の `note-sales-fetch`（sales.json は 10/2 まで）を取り込んでから `/nsm-experiment measure`（取り込み前は欠測と明記）。EXP-008 は 10/20 判定（A8 成果取込と `report-career-funnel` が要人手）、EXP-014・EXP-015 は 10/26 |
 | KDP 定常運用 | **当方（ローカル）** `npm run kdp-report -- --month 2026-09` で9月推計を取得（要 KDP ログイン）。書籍別行の catalog 紐付けを確認する |
