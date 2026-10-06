@@ -37,11 +37,11 @@ node scripts/figure-review-queue.mjs
 - `⚠ OCR 未監査 N 枚` が出たら先に `npm run audit-figures`（OCR・数分）を実行してから集計し直す（答え・本文の写り込みの兆候が欠けるため）。
 - **「判定待ち・切り出し直し待ちとも 0」なら完了**。残数を報告して終わる（`/loop` 中なら次を予約せず止める）。
 
-判定待ちがあれば判定待ちを、無ければ切り出し直し待ちを取る:
+判定待ちを 8 枚ずつ回す。ただし切り出し直し待ちが 8 件以上たまったら、次の周は切り出し直しを 4 件回す（判定だけ進んで実際の修正が止まらないように交互にする）。判定待ちが 0 なら切り出し直しだけ:
 ```bash
 mkdir -p .tmp/figure-loop
 node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
-# 判定待ちが 0 のとき: --stage reextract --next 4
+# 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
 ```
 
 ### 2. ワーカーを並列で回す
@@ -82,9 +82,12 @@ npm run refresh-indexes                     # MDX の寸法を変えたときだ
 grep -c "�" <変えた MDX>                     # 文字化け 0
 git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json   # 明示指定（git add -A 禁止）
 git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
-git push origin develop                     # 拒否されたら git pull --rebase origin develop → push
+git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
+git push origin develop                     # 載せ直し・検証とは別の呼び出しにする
 node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
 ```
+- MDX の寸法を変えると pre-commit の lint-ja がその記事全体を見るので、既存の表記ゆれ（「締め固め」「打ち込み」等）でコミットが止まることがある。設問の選択肢を引用した行は原文として除外されるので、止まった行は自前の解説。設問の表記に合わせて直してから同じコミットに入れる（`--no-verify` で飛ばさない）。
+- `develop` が先に進んでいたら、作業ツリーに他のセッションの変更があっても `git reset --keep origin/develop` → `git cherry-pick <自分の sha>` で載せ直し、元のパッチと同じか確かめてから push する（`git rebase` は他人の未コミットの変更で拒否される・stash は共有なので使わない）。
 
 ## /loop での回し方
 
