@@ -251,15 +251,6 @@
 
 
 
-### [DN-0553] 1級土木 二次の分野別過去問ページの設問文を、lint-ja の表記統一から外す
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-06]
-
-**起点**: 2026-10-06 の図クロップ品質ループで、`content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx` の図の寸法を直すと、pre-commit の lint-ja が設問文の転記（「締め固めに適した状態」「仕上がり厚さ」「取付け部」）を prh 違反として止めた。lint-ja が公式問題の逐語として除外するのは `scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（年度別の `secondary-[rh]\d{2}` など）と `QUESTION_HEADING`（`## 問題 N` 等）に当たるページだけで、分野別の過去問ページ（`secondary-*-past-problems`・見出し `### 平成25年度 No.14`・設問は `**【No.7】**`）は対象外。そのため図や寸法を直すたびに試験の原文を書き換えるか、コミットを諦めるかになる。山留工概略図（fig-retaining-wall）は切り出し直したが、この理由で保留している。
-
-**やること**: 分野別過去問ページの設問の範囲（問題見出しから `<details>` まで）を公式問題の逐語として扱えるよう、`OFFICIAL_QUESTION_PAGE` と `QUESTION_HEADING` を広げる（feature ブランチ＋PR）。`tests/official-question-text.test.mjs` に分野別ページの例を足す。マージ後、保留中の fig-retaining-wall を `node scripts/figure-review-queue.mjs record` で記録してコミットする（手順は図クロップ品質ループの保留メモ）。
-
-**完了条件**: `secondary-earthwork-past-problems/article.mdx` を stage した `npm run lint:ja`（`node scripts/lint-ja.mjs --staged`）が、設問文の行（103・319・323 行目付近）を指摘せず、自前の解説の行は従来どおり指摘する（テストで両方を確かめる）。
-
 ### [DN-0552] 1級土木 一次の過去問演習データへ、記事の図の修正を反映する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-06]
 

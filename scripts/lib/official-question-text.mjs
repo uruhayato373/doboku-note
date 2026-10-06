@@ -4,6 +4,7 @@
 //
 // 問題見出しから解説の始まり（<details> か「### 解答・解説・学習」の見出し）までが公式問題の逐語。
 //   技術士一次 ## Ⅰ-1-1 ／ 建設部門 ## Ⅰ-1・Ⅱ-1-1 ／ 総監 ## Ⅰ-1-1 ／ 土木施工管理の第1次検定 ## 問題 No.N ／ 第2次検定 ## 問題 N ／ 測量士 ## No.N
+//   1級土木 二次の分野別過去問（secondary-*-past-problems）は年度の見出し ## 令和2年度〔問題1〕・### 令和2年度 No.1 から
 // 解説の「N. ＜選択肢の原文＞ 理由」の行頭も同じ原文の引用。原文の表記（「受け入れ」「2か所」「土止め支保工」
 // 全角の「Ｈ形鋼」等）は表記統一の対象にしない＝その範囲（行 → 末尾の桁）に出た指摘だけ除く。
 
@@ -14,7 +15,7 @@ export const OFFICIAL_QUESTION_PAGE = new RegExp(
   String.raw`[\\/](?:` +
     String.raw`pe-first-stage[\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)` +
     String.raw`|pe-construction[\\/]r\d{2}-(?:${PE_CONSTRUCTION_SUBJECTS})` +
-    String.raw`|civil-construction-[12][\\/](?:primary-[a-z0-9-]+|secondary-[rh]\d{2})` +
+    String.raw`|civil-construction-[12][\\/](?:primary-[a-z0-9-]+|secondary-[rh]\d{2}|secondary-[a-z-]+-past-problems)` +
     // 2026-10-06（DN-0549）: 総監の択一（## Ⅰ-1-1）と測量士の択一（## No.N）も同じ逐語の範囲を持つ
     String.raw`|pe-comprehensive-management[\\/][hr]\d{2}-primary` +
     String.raw`|surveyor[\\/]primary-r\d{2}` +
@@ -22,6 +23,8 @@ export const OFFICIAL_QUESTION_PAGE = new RegExp(
 );
 
 const QUESTION_HEADING = /^##\s+(?:[ⅠⅡⅢⅣIVX]+[-－]\d|問題\s*(?:No\.\s*)?\d|No\.\s*\d)/;
+// 分野別過去問の設問見出し（h2 と h3 がある）。2026-10-07（DN-0553）: 設問文の転記が prh に止められ、図の寸法も直せなかった
+const PAST_PROBLEM_HEADING = /^#{2,3}\s+(?:令和|平成)(?:\d+|元)年度/;
 const COMMENTARY_START = /^<details\b|^#{2,4}\s+(?:解答|解説|学習)/;
 
 /** 解説の選択肢行のうち、設問の選択肢を引用している長さ（引用でなければ 0）。
@@ -44,8 +47,8 @@ export function officialTextRanges(text) {
   let inQuestion = false;
   let options = new Map();
   text.split(/\r?\n/).forEach((line, index) => {
-    if (/^##\s/.test(line)) {
-      inQuestion = QUESTION_HEADING.test(line);
+    if (/^##\s/.test(line) || PAST_PROBLEM_HEADING.test(line)) {
+      inQuestion = QUESTION_HEADING.test(line) || PAST_PROBLEM_HEADING.test(line);
       options = new Map();
     }
     if (COMMENTARY_START.test(line)) inQuestion = false;
