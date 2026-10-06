@@ -388,18 +388,28 @@
       }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
-      "sha": "5951bb07a04687ed",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で右下の地盤線と地盤ハッチが途切れている（左側のハッチより約 8px 以上短い）。下部に図番号キャプション『図 2.12 盛土補強工法の概念図』の写り込みもある",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "6bdabd0ced7f63a8",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で途切れていた右下の地盤線と地盤ハッチを、二次問題解説集2021 p.107（180 度回転を戻す）から 300dpi で切り出し直して戻した（650x300→1016x395）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:11:18.650Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 107,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
-      "sha": "939a5519f0eb774d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁でのり面の斜線と植生筋のハッチが切れている。上部約 148 行が空白、下部にキャプション『図 2.16 植生筋工』",
-      "reviewedAt": "2026-10-06T10:09:04.335Z"
+      "sha": "66524df691f2846f",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていたのり面の斜線と植生筋のハッチを、二次問題解説集2021 p.110（180 度回転を戻す）から 300dpi で切り出し直して戻した（310x360→436x306）。上の空白・図番号キャプション・隣の図2.15 の断片は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:11:18.652Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 110,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
       "sha": "4153ce7319e4db08",
@@ -430,18 +440,28 @@
       "reviewedAt": "2026-10-06T11:39:55.839Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
-      "sha": "ae8e1f5a04cfce47",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で (a)(b) の平面詳細図（寸法 1,000・150 150・550・100・900 と格子）、下縁で (b) の断面図の勾配線・基礎・『すべり止め杭や鉄筋』の引出し線が切れている。上部に章見出し、左縁に綴じ部の影",
-      "reviewedAt": "2026-10-06T10:24:51.421Z"
+      "sha": "df858912985d2688",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた (a)(b) の平面詳細図の寸法と格子、下縁で切れていた (b) の断面図を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x460→1006x869）。章見出し・綴じ影・図番号キャプション・隣の図2.23 は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:11:18.653Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 113,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
-      "sha": "22de7dc15eb884f1",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右端で斜面のブロック列・粘質土の破線・『裏込め栗石または切込砕石』の文字、下端で基礎コンクリートとそのラベル・寸法 300・栗石が切れている。上部約 1/3 は前の図2.22 の下半分とキャプションの写り込み",
-      "reviewedAt": "2026-10-06T09:53:21.094Z"
+      "sha": "40fc4a2ab9b39f1f",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右端と下端で切れていたブロック列・粘質土の破線・裏込めのラベル・基礎コンクリートと基礎栗石・寸法を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→720x441）。上部の図2.22 の写り込みと図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:11:18.654Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 113,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
       "sha": "a9fbc65a34af91dd",
