@@ -690,6 +690,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-2/primary-r05-zenki/img/q56-fig": {
+      "sha": "ed01025b9838d4b5",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "3 つの小図（斜線式・グラフ式・出来高累計曲線）で四辺に 20〜40px の余白があり欠けなし。下の『図1〜図3』は設問が参照する小図ラベルなので残す。写り込みなし",
+      "reviewedAt": "2026-10-06T11:45:18.498Z"
+    },
     "civil-construction-2/primary-r05-zenki/img/q57-fig": {
       "sha": "eae3b1e408a7c41d",
       "verdict": "ok",
@@ -713,6 +720,13 @@
         "page": 2,
         "dpi": 300
       }
+    },
+    "civil-construction-2/primary-r06-zenki/img/q04-fig": {
+      "sha": "55f674556d88a6e6",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "逆 T 型断面・図心 G・x/y 軸・原点 O だけで写り込みなし。STRAY_LABEL(top) は y 軸の矢印の先端。四辺に約 20px の余白",
+      "reviewedAt": "2026-10-06T11:45:18.498Z"
     },
     "civil-construction-2/primary-r06-zenki/img/q50-fig": {
       "sha": "5f18481abfc378c5",
@@ -807,6 +821,41 @@
         "dpi": 300
       }
     },
+    "civil-construction-2/primary-r08-zenki/img/q04-fig": {
+      "sha": "b95946f41f23a463",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "シーソーの釣り合いの図で四辺に 22〜27px の余白があり欠けなし。OCR の兆候は図内ラベルとふりがな",
+      "reviewedAt": "2026-10-06T11:45:18.498Z"
+    },
+    "civil-construction-2/primary-r08-zenki/img/q48-fig": {
+      "sha": "75439a39f5d0d918",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "TS 測量の模式図で四辺に 22〜27px の余白があり欠けなし。OCR の兆候は図内ラベルとルビ（既知点・新点・基準面）",
+      "reviewedAt": "2026-10-06T11:45:18.498Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9a-fig": {
+      "sha": "39519c8156080239",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "RC 床版下面の亀甲状ひび割れの全面写真で写り込みなし。OCR の兆候は写真の模様の誤認",
+      "reviewedAt": "2026-10-06T11:45:18.499Z"
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-03": {
+      "sha": "d0054a4348ff21b4",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "橋脚側面の ASR ひび割れの画像（記事上は AI 生成画像）で写り込みなし。縁に接するのは構図。OCR の兆候は質感の誤検出",
+      "reviewedAt": "2026-10-06T11:45:18.499Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-04": {
+      "sha": "074f41330a744953",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "擁壁のエフロレッセンスの画像（AI 生成）で写り込みなし。OCR の兆候はひび割れ・析出筋の模様の誤認",
+      "reviewedAt": "2026-10-06T11:45:18.499Z"
+    },
     "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
       "sha": "01380dbdbca64a2d",
       "verdict": "needs-source",
@@ -820,6 +869,13 @@
       "action": "recrop",
       "reason": "下端に写り込んでいた次の表の表題『集落等間の交通量（トリップ数/日）』の上半分と左右の余白を除いて切り直し（1100x480→822x384）。集落 A〜D・市街地 E・橋 1〜5・距離ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:49:08.227Z"
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-18-iot-scatter": {
+      "sha": "ef687e2567a0acec",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "散布図本体と軸ラベルだけで写り込みなし。STRAY_LABEL は縦軸の単位『(%)』と横軸タイトル『IoTデバイス数（2014年）』で図の一部",
+      "reviewedAt": "2026-10-06T11:45:18.499Z"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
       "sha": "acc568d02e833c2f",
