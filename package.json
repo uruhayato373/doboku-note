@@ -208,6 +208,7 @@
     "audit-sns-landing-cta": "tsx scripts/audit-sns-landing-cta.ts",
     "audit-sns-landing-cta:ci": "tsx scripts/audit-sns-landing-cta.ts --ci",
     "check-mdx-dates": "node scripts/check-mdx-dates.mjs",
+    "check-mdx-facts": "node scripts/check-mdx-facts.mjs",
     "lint:ja": "node scripts/lint-ja.mjs --staged",
     "lint:ja:all": "node scripts/lint-ja.mjs --all",
     "check-memory": "node scripts/check-memory.mjs",
