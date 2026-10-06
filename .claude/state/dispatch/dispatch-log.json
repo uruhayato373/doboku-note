@@ -2083,6 +2083,18 @@
       "commit": "38eb0df54674",
       "verification": "exam-ssot-status 要対応 57→56（RCCM が要対応から消えた）/ check-exam-calendar OK / check-datasets ✓",
       "note": "受験の手引き R8 で RCCM を照合。再開条件: 測量士・測量士補の次年度日程を国土地理院の公式で確認（gsi.go.jp がクラウドから届かないためローカル）"
+    },
+    {
+      "id": "DN-0537",
+      "at": "2026-10-06",
+      "task": "Instagram 2級直前の予約再開 — 前倒し案の一覧",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": null,
+      "verification": "campaign.json・video-packs/civil-construction-2 の 18 テーマを確認し、9 テーマ×3 投稿の案をカードへ記入（年度依存は #1 のみ）",
+      "note": "再開条件: Facebook ログイン復旧 → /ig-reconcile で 10/7〜10/24 の枠を照合 → ユーザー承認 → publish-ig-bs で 9 件ずつ予約（ローカル）"
     }
   ]
 }

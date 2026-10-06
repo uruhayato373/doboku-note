@@ -115,11 +115,24 @@
 **締切（旧 DN-0280 から移管）**: ココナラ添削の受付締切日を決め（x-post-policy §5.4 は本試験1週間前＝10/18 を標準とする）、`2026-10-civil-final.json` の販促投稿の文面へ入れて `npm run check-x-campaign-plan` を通す。
 
 ### [DN-0537] Instagram の予約補充が 9/20 で止まっているので、2級（10/25）直前のテーマから予約を再開する
-タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24] [進行中]
+タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24]
 
 **起点**: 2026-10-05 の 2級土木の SNS 配線の点検で、Instagram 新シリーズ（`content/sns/instagram/campaign.json`・112 テーマ／336 投稿・全件 ready）の予約が 9/20 12:30 を最後に途切れていると分かった。`.claude/knowledge/reference/instagram-campaign.md`（予約と継続配信）は Codex の定期処理 `instagram` が毎日 10:00 に補充すると書くが、`~/.codex/automations/` には `x-article-*` しか無く、launchd にも無い。video-packs の `status.json` は 9/11 以降更新が無い（ライブの Planner は未照合）。2級のテーマ 18 のうち配信済みは `anzen-ippanron-3riyu` だけで、X は 2級を主力へ切り替えた（DN-0445）のに Instagram の 2級は 0 本。プロフィール（`config/ig-account.json` の displayName・bio）も「技術士・1級土木」のまま。
 
 **やること**: (0) 2026-10-05 に運営者が Facebook へログインできず、Business Suite のプロファイルが expired のまま（`npm run auth:status -- --service instagram`）。まずログインを復旧する。(1) Mac の Business Suite ログインで `/ig-reconcile` を回し、9/20 以降の予約・公開の実体を確かめる。(2) 2級の直前向けテーマ（`content/sns/instagram/video-packs/civil-construction-2/` の経験記述・学科記述・聞き流しまとめなど）を 10/24 までの枠へ前倒しする案を一覧にし、ユーザー承認後に `publish-ig-bs` で予約する（1 回 9 件まで・dry-run 先行）。年度・時期に依存するテーマは配信日に合うか確かめる。(3) 補充の定期処理を作り直すか、instagram-campaign.md を実態（手動補充）に直す。(4) プロフィールの 2級表記と、試験が終わった 1級直前ハイライト（07_civil-1）の扱いは DN-0363 と合わせて決める。
+
+**(2) の前倒し案（2026-10-06・ユーザー承認待ち）**: 2級 9 テーマ×3 投稿＝27 件。各テーマは campaign.json の cadence どおり「初日 12:30 リール1 → 翌日 12:30 カルーセル → 翌日 19:00 リール2」（リール1/2 は `reels` 配列の順・`scripts/lib/instagram-campaign.mjs:48`）。`publish-ig-bs` は 9 件ずつ 3 回: 第1回 #1〜3・第2回 #4〜6 は即予約可、第3回 #7〜9 は 14 日先の制約で 10/10 以降。開始が遅れたら後ろの日付は動かさず #2・#3 から間引く。
+1. 10/7 `keiken-nendo-keiko-2kyu`（出題傾向）— **年度依存あり**（「令和3〜7年度」「R06〜R07：2テーマ必答」等。10/24 までは直近5年＝R03〜R07 で合う・10/25 以降へずらせない）
+2. 10/9 `keiken-gaiyo-2kyu`（工事概要）
+3. 10/11 `gakka-2kyu-concrete`（学科 コンクリート。batch02 の pending 引継ぎ）
+4. 10/13 `keiken-hinshitsu-kakikata`（品質管理）
+5. 10/15 `keiken-kotei-kakikata`（工程管理）
+6. 10/17 `keiken-anzen-2kyu-kakikata`（安全管理）
+7. 10/19 `kikinagashi-2kyu-matome`（聞き流しまとめ）
+8. 10/21 `gakka-kijutsu-2kyu`（学科記述の型）
+9. 10/23 `keiken-genten-kyotsuten`（減点される答案の共通点）
+
+#2〜#9 は年度・時期に依存する表現なし（campaign.json の `timeSensitive` は 2級 18 テーマとも false）。除外: `anzen-ippanron-3riyu`（9/14・15 予約済み・公開は未照合）、`nikyuu-gaiyo-roadmap`・`study-plan-2kyu`（入門・長期計画向けで旧シリーズの下書きが残る）、`keiken-koji-ga-nai`・`keiken-2kyu-level`・`gakka-2kyu-{doko,hoki,kiso,sekokeikaku}`（初期向け・#7 と重複・一次向け）。予約前に Mac で `instagram-campaign --check --media`（9/11 以降の素材の変化を確認）と、手順 (1) で 10/7〜10/24 の枠の空きをライブの Planner で照合する。
 
 **完了条件**: 10/24 までの Instagram に 2級の投稿が予約され、Planner で実体を確かめて `status.json` に記録し、補充の仕組みと instagram-campaign.md の記述が一致している。
 
