@@ -1607,7 +1607,8 @@
       "actions": [
         "2026-10-02: PR #841（feat/civil2-funnel）で magazine-placement の 2級二次冒頭を差し替え（resolveCivil2SecondaryLead で試験翌日に二次まるごとへ自動復帰）、MagazineTopBanner の価格を先頭金額のみに、CTA ゼロだった記事 7 本を配線、ページ単位の CTA ゼロ検査を追加",
         "2026-10-02: PR #841 を develop へマージ（11428fe）し main へ昇格、cloudflare-deploy run 37012387601 成功・check-production-ssr exit 0。本番で 2級 R7 の冒頭＝直前パック・中間＝二次まるごと、書き方の冒頭＝完成答案集、直前2週間ページの冒頭バナーが高さ 92px・タイトル幅 293px・価格「¥2,480」に是正されたことを確認。反映は 10/02 22:20 JST なので anchor は 2026-10-03 のまま",
-        "2026-10-06: 交絡の記録。クラウドのセッションで 2級二次の過去問ページ secondary-r03〜r07 の表と重複見出しをモバイル向けに整形（解答表の長文セル→箇条書き・見出しに問題番号）。冒頭 CTA（-top）と本文の CTA カードの配置・文言は変えていない。develop 反映のみで本番は運営者の /deploy 後。判定時は本番反映日以降の本文 CTA のクリックに整形の影響があり得ることを考慮する"
+        "2026-10-06: 交絡の記録。クラウドのセッションで 2級二次の過去問ページ secondary-r03〜r07 の表と重複見出しをモバイル向けに整形（解答表の長文セル→箇条書き・見出しに問題番号）。冒頭 CTA（-top）と本文の CTA カードの配置・文言は変えていない。develop 反映のみで本番は運営者の /deploy 後。判定時は本番反映日以降の本文 CTA のクリックに整形の影響があり得ることを考慮する",
+        "2026-10-06: 交絡の追記。同じ整形を 2級二次の経験記述ガイド（secondary-experience-writing-guide）にも行った（年度別表の箇条書き化・本文を担う Callout 4 つを地の文へ・表の導入文）。MagazineCard 3 枚・CTA・CareerAffiliate の配置と文言は不変"
       ],
       "next_check_date": "2026-10-26",
       "resume_criteria": null,
