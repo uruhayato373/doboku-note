@@ -15,12 +15,17 @@ test('対象ページ: 技術士一次・建設部門の年度別、土木施工
     // 2026-10-06: lint-mdx-mobile（15-x）と判定を一本化して足した 2 種
     'content/site/civil-construction-1/secondary-r07/article.mdx',
     'content/site/pe-construction/r06-urban-planning/article.mdx',
+    // DN-0549: 総監の択一と測量士の択一
+    'content/site/pe-comprehensive-management/r05-primary/article.mdx',
+    'content/site/surveyor/primary-r07/article.mdx',
   ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), true, p);
   for (const p of [
     'content/site/pe-first-stage/guide-basic/article.mdx',
     'content/site/civil-construction-2/guide-overview/article.mdx',
     'content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx',
     'content/site/pe-construction/guide-career/article.mdx',
+    'content/site/surveyor/guide-overview/article.mdx',
+    'content/site/pe-comprehensive-management/primary-statistics-2026/article.mdx',
   ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), false, p);
 });
 
@@ -78,8 +83,16 @@ test('第2次検定（## 問題 N）と建設部門（## II-1 の ASCII 表記�
   assert.equal(r.has(8), false, '<details open> も解説の始まり');
 });
 
-test('blankOfficialQuestionLines: 対象ページだけ公式問題の行を空にする（lint-mdx-mobile の 15-x 用）', () => {
+test('blankOfficialQuestionLines: 対象ページだけ公式問題の行を空にする（見出しは残す・lint-mdx-mobile の 15-x 用）', () => {
   const lines = ['導入。', '## 問題 1', '設問文。', '<details>', '解説。'];
-  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/secondary-r05/article.mdx'), ['導入。', '', '', '<details>', '解説。']);
+  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/secondary-r05/article.mdx'), ['導入。', '## 問題 1', '', '<details>', '解説。']);
   assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/guide-overview/article.mdx'), lines);
+});
+
+test('測量士の問題見出し（## No.N）も問題の始まり、文体検査用の空白化では見出し行を残す', () => {
+  const r = officialTextRanges(['## No.3', '次の文は，測量法に規定された事項である。', '<details>', '解説。'].join('\n'));
+  assert.equal(r.get(2), Infinity);
+  assert.equal(r.has(4), false);
+  const lines = ['## No.3', '設問文。', '<details>', '解説。'];
+  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/surveyor/primary-r07/article.mdx'), ['## No.3', '', '<details>', '解説。']);
 });
