@@ -2,6 +2,13 @@
   "schemaVersion": 1,
   "note": "図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/figure-review-queue.mjs record を使う）",
   "figures": {
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
+      "sha": "b6d01aecc03c9319",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上端で左右のビットの軸と、右上の注記へ向かう引き出し線が切れ、注記の文字が画像に無い。左約 780px が空白、下部にキャプション『図 掘削ビットの標準形状例』",
+      "reviewedAt": "2026-10-06T10:24:51.421Z"
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-09": {
       "sha": "cb81a816de2bd055",
       "verdict": "ok",
@@ -95,6 +102,13 @@
         "dpi": 300
       }
     },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
+      "sha": "e7df915cd216c1f2",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "上縁で引き出しラベル『隅金物』『隅火打材』の文字の上半分が切れている。下部に図番号キャプション『図 矢板土留め工構造図の例』",
+      "reviewedAt": "2026-10-06T10:24:51.419Z"
+    },
     "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
       "sha": "391e5ce288187513",
       "verdict": "ok",
@@ -156,6 +170,13 @@
       "reason": "下端で上半分だけ見えていた図番号キャプション『図4.8 各部分工事の工程計画の作成手順』と左右の過大な余白を除いて切り直し（650x450→411x398）。フローチャートの 5 つの箱・矢印・ループ線は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:40:15.249Z"
     },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
+      "sha": "b492056c39ab38c5",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で L 型擁壁の底版下の基礎砕石層が上半分だけで途切れ、床掘りの斜め掘削線 2 本も下端で切れている",
+      "reviewedAt": "2026-10-06T10:24:51.419Z"
+    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "sha": "69fb2f2854ebb2e0",
       "verdict": "needs-source",
@@ -176,6 +197,13 @@
       "action": "recrop",
       "reason": "上部の隣接図キャプション『図 2.14 張芝工』・下部の『図 2.17 筋芝工』・左余白の行番号 10/15・最下端の本文見出し断片を除いて切り直し（310x330→228x163）。法面・芝の筋・耳芝・切芝のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:43:30.760Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
+      "sha": "ae8e1f5a04cfce47",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "右縁で (a)(b) の平面詳細図（寸法 1,000・150 150・550・100・900 と格子）、下縁で (b) の断面図の勾配線・基礎・『すべり止め杭や鉄筋』の引出し線が切れている。上部に章見出し、左縁に綴じ部の影",
+      "reviewedAt": "2026-10-06T10:24:51.421Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
       "sha": "22de7dc15eb884f1",
@@ -316,6 +344,13 @@
       "action": "none",
       "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
       "reviewedAt": "2026-10-06T09:02:06.089Z"
+    },
+    "civil-construction-2/primary-r03-kouki/img/q45-fig": {
+      "sha": "5f79cd3004882b6b",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "下端で左手前の橋脚・支承・橋台ブロックの輪郭線が寸断され、左端で『(ハ)』の開き括弧が欠けている",
+      "reviewedAt": "2026-10-06T10:24:51.421Z"
     },
     "civil-construction-2/primary-r05-kouki/img/q45-fig": {
       "sha": "8fe77561cba4565b",
@@ -478,6 +513,13 @@
       "reason": "ニュートン・ラフソン法のフローチャートだけで写り込みなし。EDGE_CUT(bottom) は最下部の端子『終了』の下辺の罫線（3px・他の罫線と同じ太さ）が下端に接しているだけで欠けなし",
       "reviewedAt": "2026-10-06T09:43:30.757Z"
     },
+    "pe-first-stage/h30-construction/img/q05-fig": {
+      "sha": "ab33189f47d6ce8f",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で一点鎖線の軸の左端ラベル『軸』の偏が切れ、その前の語も欠けている可能性が高い",
+      "reviewedAt": "2026-10-06T10:24:51.421Z"
+    },
     "pe-first-stage/r01-basic/img/q3-5-fig": {
       "sha": "5e9bf3cb2c8e199b",
       "verdict": "ok",
@@ -498,6 +540,13 @@
       "action": "recrop",
       "reason": "下端で上半分だけ見えていた図番号キャプション『図 システム構成図と各要素の信頼度』・右端の孤立ノイズ・余白を除いて切り直し（1523x647→1215x527）。システム A〜E の構成図とラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.089Z"
+    },
+    "pe-first-stage/r03-basic/img/q-I2-4": {
+      "sha": "0b803ec98e11021b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上端の本文断片『ないことを表す。』・右下のページ番号の切れ端・下部と右側の余白を除いて切り直し、画像サイズ上限に収めるため幅 1000 に縮小（1333x1844→1000x1390）。決定表 ①〜⑤ は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T10:24:51.421Z"
     },
     "pe-first-stage/r03-construction/img/q07-fig": {
       "sha": "5609f6d6811bbc02",
@@ -559,6 +608,13 @@
       "action": "none",
       "reason": "下縁で地盤のハッチ帯が余白なく切れている（元 PDF では帯 39px@400dpi、現画像は縮尺換算で 3〜4px 不足）。上・左右に大きな空白。出典の目安は R06 技術士第一次 建設部門 PDF の 9 ページ Ⅲ-17",
       "reviewedAt": "2026-10-06T09:33:45.503Z"
+    },
+    "pe-first-stage/r07-construction/img/q01-fig": {
+      "sha": "674a1a46c4202b8d",
+      "verdict": "needs-source",
+      "action": "none",
+      "reason": "左縁で引き出しラベル『容器Ⅰ』の『容』と寸法ラベル『L』の字形が切れている。背景全体にスキャンの裏写り、下半分は空白",
+      "reviewedAt": "2026-10-06T10:24:51.418Z"
     },
     "surveyor/primary-r07/img/q21-fig": {
       "sha": "f08ab9134d04b480",
