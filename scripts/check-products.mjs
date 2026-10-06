@@ -41,7 +41,8 @@ for (const p of products) {
 }
 
 // 3. 生成ブロック
-const ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
+// Windows の作業ツリーは CRLF なので、改行を揃えて比べる（生成ブロックは LF で作る）
+const ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8').replace(/\r\n/g, '\n');
 let blocks = 0;
 const groups = productGroups(products);
 for (const g of blockGroupsIn(ts)) if (!groups.some(([q]) => q === g)) violations.push(`note-magazines.ts に正本の無い資格の生成ブロックが残っている（${g}）`);

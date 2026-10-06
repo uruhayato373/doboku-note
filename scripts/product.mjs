@@ -193,7 +193,10 @@ function gen() {
   const check = argv.includes('--check');
   const { products, errors } = loadProducts();
   if (errors.length) die(`正本に問題がある:\n  ${errors.join('\n  ')}`, 1);
-  let ts = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
+  // Windows の作業ツリーは CRLF なので、改行を揃えて比べ、元の改行で書き戻す（LF の生成ブロックを混ぜない）
+  const rawTs = readFileSync(NOTE_MAGAZINES_TS, 'utf8');
+  const crlf = rawTs.includes('\r\n');
+  let ts = rawTs.replace(/\r\n/g, '\n');
   const groups = productGroups(products);
   const stale = blockGroupsIn(ts).filter((g) => !groups.some(([q]) => q === g));
   if (stale.length) die(`正本に商品が無い資格の生成ブロックが残っている（${stale.join(', ')}）。ブロックを消す`, 1);
@@ -208,7 +211,7 @@ function gen() {
     ts = next;
     console.log(`[product] ${group}: ${mine.length} 件`);
   }
-  if (!check) writeFileSync(NOTE_MAGAZINES_TS, ts);
+  if (!check && ts !== rawTs.replace(/\r\n/g, '\n')) writeFileSync(NOTE_MAGAZINES_TS, crlf ? ts.replace(/\n/g, '\r\n') : ts);
   const kindleChanged = writeKindleCatalog({ check });
   if (check && kindleChanged) die(`${relative(ROOT, KINDLE_CATALOG_FILE)} が正本と違う。npm run product -- gen を実行する`, 1);
   const kindle = products.filter((p) => p.channel === 'kindle').length;
