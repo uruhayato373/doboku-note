@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T13:55:15.457Z",
+  "generated_at": "2026-10-06T05:40:21.582Z",
   "summary": {
-    "total_mdx_files": 1349,
-    "with_exams_field": 55,
+    "total_mdx_files": 1350,
+    "with_exams_field": 56,
     "cross_exam_count": 0,
     "by_exam": {
       "civil-construction-1": 29,
-      "civil-construction-2": 26
+      "civil-construction-2": 27
     }
   },
   "by_exam": {
@@ -777,6 +777,21 @@
           "civil-construction-2"
         ],
         "source_path": "content/site/civil-construction-2/primary-r07-zenki/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-primary-r08-zenki",
+        "title": "令和8年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": "content/site/civil-construction-2/primary-r08-zenki/article.mdx"
       },
       {
         "slug": "civil-construction-2-secondary-r03",

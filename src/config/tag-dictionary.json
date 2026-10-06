@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-02T13:55:16.111Z",
+  "generated_at": "2026-10-06T05:40:22.151Z",
   "summary": {
-    "total_mdx_files": 1349,
+    "total_mdx_files": 1350,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1300,7 +1300,7 @@
     },
     {
       "name": "past-questions",
-      "count": 177,
+      "count": 178,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1342,6 +1342,7 @@
         "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
         "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-primary-r08-zenki",
         "civil-construction-2-secondary-r03",
         "civil-construction-2-secondary-r04",
         "civil-construction-2-secondary-r05",
@@ -3091,7 +3092,7 @@
     },
     {
       "name": "primary",
-      "count": 56,
+      "count": 57,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -3128,6 +3129,7 @@
         "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
         "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-primary-r08-zenki",
         "concrete-chief-engineer-primary-construction",
         "concrete-chief-engineer-primary-durability",
         "concrete-chief-engineer-primary-materials",
