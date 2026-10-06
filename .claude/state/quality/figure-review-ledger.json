@@ -637,13 +637,6 @@
       "reason": "上部の前図（図2.5）の下端断片とキャプション・図番号キャプション『図2.6 切り盛り境のすり付け例』・下端の次段落の断片・左右の余白を除いて切り直し（750x770→468x543）。(a)(b)(c) の断面と小図ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:46:19.914Z"
     },
-    "civil-construction-1/secondary-earthwork-past-problems/img/fig-retaining-wall": {
-      "sha": "a71b2abf78af3528",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で地表面線と地下水位線が画像端まで続いて切れている。下端に図タイトル『山留工概略図』の写り込みと左右非対称の余白もある",
-      "reviewedAt": "2026-10-06T11:26:27.357Z"
-    },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
       "sha": "1912852a69b4a45b",
       "verdict": "ok",
@@ -657,25 +650,40 @@
       }
     },
     "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
-      "sha": "ced2c0b8e78841c3",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で左のフロー図の矢印の先、中央の盛土断面の『盛土』の文字と地盤の下半分、右の『沈下量から品質を判断』の文字の下半分が切れている（ICT 情報化施工の概念図の下半分が無い）。上部に約 90px の空白",
-      "reviewedAt": "2026-10-06T10:17:23.093Z"
+      "sha": "abaecbf422407997",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていたフロー図の下端と矢印・盛土断面・『沈下量から品質を判断』・下端の注記を、二次問題解説集2021 p.314（180 度回転を戻す）から 300dpi で切り出し直して戻した（950x380→1110x699）。上の空白・行番号・図番号キャプション・後続の見出しは除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:27:53.045Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 314,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
-      "sha": "36de0ae5b8238256",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で縦軸ラベル『乾燥密度 ρd (g/cm3)』の単位とゼロ空気間隙曲線、右縁で横軸ラベル『含水比(%)』と曲線の端が切れている",
-      "reviewedAt": "2026-10-06T11:08:05.011Z"
+      "sha": "e3a644243ced826c",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた縦軸ラベルの単位とゼロ空気間隙曲線の上端、右縁で切れていた『含水比 w (%)』と曲線の右端を、二次問題解説集2021 p.293（H27 問題4 No.10 の設問図・180 度回転を戻す）から 600dpi で切り出し直して戻した（600x380→900x671）。空欄 (ニ) は空欄のまま。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:27:53.046Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 293,
+        "dpi": 600
+      }
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
-      "sha": "0bdc9ec94f012982",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で締固め曲線が画像外へ出ており、含水比 20 より先のグリッド線と右端の枠が無い。左に約 190px の空白",
-      "reviewedAt": "2026-10-06T10:09:04.339Z"
+      "sha": "091333045c61f3c5",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた締固め曲線の終端（含水比 22% の点）・右側のグリッドと枠・『(%)』を、二次問題解説集2021 p.301（180 度回転を戻す）から 300dpi で切り出し直して戻し、左の約 190px の空白を詰めた（570x385→975x671）。10%・18% の破線は解説の図の要素で、記事でも解答・解説の中に置かれている。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:27:53.047Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 301,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-r04/img/i-9-crack-types": {
       "sha": "3de3f655ecddf8a0",
