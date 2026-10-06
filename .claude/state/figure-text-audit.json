@@ -1,21 +1,93 @@
 {
-  "generated_at": "2026-08-25T11:42:41.215Z",
+  "generated_at": "2026-10-06T09:07:12.433Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 549,
-  "file_count": 980,
+  "base_count": 688,
+  "file_count": 1128,
   "summary": {
     "leak": 0,
-    "writein": 3,
-    "maybe": 125,
-    "clean": 421
+    "writein": 2,
+    "maybe": 151,
+    "clean": 535
   },
   "quality_summary": {
-    "sharp": 537,
-    "soft": 6,
-    "blurry": 6,
+    "sharp": 686,
+    "soft": 2,
+    "blurry": 0,
     "unknown": 0
   },
   "figures": {
+    "civil-construction-1/_shared/img/cta-membership-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 898.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-membership-tile-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1133.71,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-notes-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 852.06,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 846.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-pdf-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 787.87,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-practice-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 913.47,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-reading-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 859.34,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 795.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-1/_shared/img/cta-written-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 873.06,
+      "quality": "sharp",
+      "variants": 1
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
       "status": "clean",
       "periods": 0,
@@ -388,7 +460,7 @@
       "status": "maybe",
       "periods": 10,
       "markers": [],
-      "sharpness": 4006.26,
+      "sharpness": 4003.39,
       "quality": "sharp",
       "variants": 2
     },
@@ -450,9 +522,9 @@
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-14": {
       "status": "maybe",
-      "periods": 21,
+      "periods": 20,
       "markers": [],
-      "sharpness": 6293.72,
+      "sharpness": 6278.78,
       "quality": "sharp",
       "variants": 2
     },
@@ -516,7 +588,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3586,
+      "sharpness": 3590.58,
       "quality": "sharp",
       "variants": 2
     },
@@ -548,7 +620,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 6326.27,
+      "sharpness": 6338.85,
       "quality": "sharp",
       "variants": 2
     },
@@ -644,7 +716,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 6278.8,
+      "sharpness": 6279.3,
       "quality": "sharp",
       "variants": 2
     },
@@ -668,7 +740,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 6490.58,
+      "sharpness": 6475.31,
       "quality": "sharp",
       "variants": 2
     },
@@ -1684,7 +1756,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2580.54,
+      "sharpness": 2916.66,
       "quality": "sharp",
       "variants": 2
     },
@@ -2097,18 +2169,18 @@
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2466.48,
+      "sharpness": 525.3,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/boom-lift": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 8965.65,
+      "sharpness": 757.59,
       "quality": "sharp",
       "variants": 2
     },
@@ -2116,7 +2188,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2184.06,
+      "sharpness": 1352.68,
       "quality": "sharp",
       "variants": 2
     },
@@ -2124,15 +2196,15 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3759.45,
+      "sharpness": 702.12,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-crane/img/loader-crane": {
       "status": "maybe",
-      "periods": 2,
+      "periods": 1,
       "markers": [],
-      "sharpness": 6051.26,
+      "sharpness": 344.57,
       "quality": "sharp",
       "variants": 2
     },
@@ -2140,7 +2212,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2076.09,
+      "sharpness": 548.89,
       "quality": "sharp",
       "variants": 2
     },
@@ -2148,7 +2220,7 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 6838.23,
+      "sharpness": 1109.76,
       "quality": "sharp",
       "variants": 2
     },
@@ -2209,10 +2281,10 @@
       "variants": 2
     },
     "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 804.79,
+      "sharpness": 227.23,
       "quality": "sharp",
       "variants": 2
     },
@@ -2220,7 +2292,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2653.12,
+      "sharpness": 264.35,
       "quality": "sharp",
       "variants": 2
     },
@@ -2228,23 +2300,23 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3158.43,
+      "sharpness": 429.33,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-distance-angle/img/total-station": {
       "status": "maybe",
-      "periods": 1,
+      "periods": 2,
       "markers": [],
-      "sharpness": 3916.65,
+      "sharpness": 408.54,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 6681.84,
+      "sharpness": 6561.32,
       "quality": "sharp",
       "variants": 2
     },
@@ -2252,23 +2324,23 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 4280.64,
+      "sharpness": 710.98,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 5287.46,
+      "sharpness": 297.68,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
       "status": "maybe",
-      "periods": 3,
+      "periods": 1,
       "markers": [],
-      "sharpness": 3184.55,
+      "sharpness": 352.81,
       "quality": "sharp",
       "variants": 2
     },
@@ -2276,7 +2348,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2281.41,
+      "sharpness": 870.75,
       "quality": "sharp",
       "variants": 2
     },
@@ -2284,7 +2356,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1501.45,
+      "sharpness": 805.83,
       "quality": "sharp",
       "variants": 2
     },
@@ -2292,7 +2364,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3680.34,
+      "sharpness": 335.23,
       "quality": "sharp",
       "variants": 2
     },
@@ -2300,15 +2372,15 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2991.06,
+      "sharpness": 1956.8,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-scraper/img/scraper-dozer": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 7593.67,
+      "sharpness": 3852.22,
       "quality": "sharp",
       "variants": 2
     },
@@ -2316,23 +2388,23 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1963.52,
+      "sharpness": 782.91,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 6153.04,
+      "sharpness": 840.33,
       "quality": "sharp",
       "variants": 2
     },
     "civil-construction-1/textbook-transport-machinery/img/dump-truck": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 7353.32,
+      "sharpness": 1894.88,
       "quality": "sharp",
       "variants": 2
     },
@@ -2340,9 +2412,65 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 4064.3,
+      "sharpness": 475.68,
       "quality": "sharp",
       "variants": 2
+    },
+    "civil-construction-2/_shared/img/cta-notes-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 899.94,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 808.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-pdf-body-v1": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 782.62,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-practice-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 827.41,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-reading-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 877.21,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 950.95,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "civil-construction-2/_shared/img/cta-written-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 849.57,
+      "quality": "sharp",
+      "variants": 1
     },
     "civil-construction-2/primary-r03-kouki/img/q11-fig": {
       "status": "clean",
@@ -2517,6 +2645,14 @@
       "periods": 0,
       "markers": [],
       "sharpness": 2226.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q56-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 6486.85,
       "quality": "sharp",
       "variants": 2
     },
@@ -2808,6 +2944,70 @@
       "quality": "sharp",
       "variants": 2
     },
+    "civil-construction-2/primary-r08-zenki/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2593.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q02-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6076.71,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2199.92,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q04-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2032.69,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2863.72,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q48-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3794.12,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q50-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2125.85,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r08-zenki/img/q62-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1907.03,
+      "quality": "sharp",
+      "variants": 2
+    },
     "civil-construction-2/secondary-r05/img/q09-fig": {
       "status": "clean",
       "periods": 0,
@@ -2816,443 +3016,75 @@
       "quality": "sharp",
       "variants": 2
     },
-    "concrete-chief-engineer/primary-construction/img/bingham-shear-r04": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 35.5,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/form-pressure-h27": {
+    "concrete-chief-engineer/_shared/img/cta-notes-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1472.59,
+      "sharpness": 846.34,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
+    "concrete-chief-engineer/_shared/img/cta-pack-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 474.48,
+      "sharpness": 818.18,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-construction/img/form-pressure-r02": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 763.33,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/h24-q11": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 21.9,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/h24-q22": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 33.83,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/h25-q28-fig1": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 31.11,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/h25-q28-fig2": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 43.03,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/marine-joint-r01": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 661.53,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 869.42,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 498.95,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/placing-order-coldjoint-h28": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 2829.55,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/pump-longdistance-h27": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 832.32,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/pump-piping-h26": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1120.53,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/pump-pressure-h30": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 2269.5,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/pump-pressure-r01": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 691.5,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/pump-pressure-r05": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 330.48,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-construction/img/strength-dev-r02": {
+    "concrete-chief-engineer/_shared/img/cta-practice-body-v1": {
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 359.34,
+      "sharpness": 895.46,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-construction/img/temp-history-r02": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 1238.83,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-materials/img/cement-r01-composition": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 710.67,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-materials/img/h24-q5": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 59.05,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28": {
+    "concrete-chief-engineer/_shared/img/cta-tile-tile-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1276.5,
+      "sharpness": 828,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29": {
+    "concrete-chief-engineer/_shared/img/cta-written-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 357.35,
+      "sharpness": 905.31,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
+    "concrete-diagnostician/_shared/img/cta-pack-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 719.87,
+      "sharpness": 819.83,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-mix-design/img/h24-q8": {
+    "concrete-diagnostician/_shared/img/cta-pdf-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 52.99,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 822.08,
+      "sharpness": 874.1,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h26": {
+    "concrete-diagnostician/_shared/img/cta-tile-tile-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2054.35,
+      "sharpness": 920.18,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28": {
+    "concrete-diagnostician/_shared/img/cta-written-body-v1": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1376.43,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 719.91,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 1855.66,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 2353.81,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/bingham-flow-h26": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1806.72,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 277.43,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/bingham-flow-r01": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 552.36,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/creep-strain-h29": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 490.27,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/creep-strain-r04": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 762.49,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/h24-q10": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 77.11,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/h24-q12": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 53.39,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-properties/img/strain-unload-h30": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 659.22,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/beam-design-h29": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1014.13,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1176.15,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 697.04,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1141.44,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1633.52,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 423.07,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 417.01,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/h24-q29": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 23.02,
-      "quality": "blurry",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 79.72,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/load-displacement-h26": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 862.28,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 882.15,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 896.51,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/pc-section-h27": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1265.02,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1416.56,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1112.83,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 3096.98,
+      "sharpness": 923.75,
       "quality": "sharp",
       "variants": 1
     },
@@ -3320,6 +3152,38 @@
       "quality": "sharp",
       "variants": 1
     },
+    "concrete-engineer/_shared/img/cta-notes-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 820.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-engineer/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 787.01,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-engineer/_shared/img/cta-practice-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 865.21,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-engineer/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 841.29,
+      "quality": "sharp",
+      "variants": 1
+    },
     "note/_magazines/img/tankan-magazine-cover": {
       "status": "clean",
       "periods": 0,
@@ -3328,19 +3192,75 @@
       "quality": "sharp",
       "variants": 2
     },
+    "pe-comprehensive-management/_shared/img/cta-oral-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1097.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 969.71,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-pdf-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 991.96,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-practice-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 974.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-reading-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1020.54,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1121.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-comprehensive-management/_shared/img/cta-written-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1038.25,
+      "quality": "sharp",
+      "variants": 1
+    },
     "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
       "status": "maybe",
-      "periods": 4,
+      "periods": 3,
       "markers": [],
-      "sharpness": 1.33838e+27,
+      "sharpness": 5375.35,
       "quality": "sharp",
       "variants": 2
     },
     "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 939.24,
+      "sharpness": 934.9,
       "quality": "sharp",
       "variants": 2
     },
@@ -3354,9 +3274,9 @@
     },
     "pe-comprehensive-management/climate-change-adaptation-act/img/figure-5-10-alert-levels": {
       "status": "maybe",
-      "periods": 4,
+      "periods": 3,
       "markers": [],
-      "sharpness": 1.33838e+27,
+      "sharpness": 5375.35,
       "quality": "sharp",
       "variants": 2
     },
@@ -3420,7 +3340,7 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 17928.4,
+      "sharpness": 18223.2,
       "quality": "sharp",
       "variants": 2
     },
@@ -3612,7 +3532,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1510.75,
+      "sharpness": 1389.49,
       "quality": "sharp",
       "variants": 2
     },
@@ -3623,6 +3543,38 @@
       "sharpness": 6.28525e+26,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-construction/_shared/img/cta-oral-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 994.23,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 939.79,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 977.31,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/_shared/img/cta-written-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1014.84,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig12": {
       "status": "clean",
@@ -3641,10 +3593,10 @@
       "variants": 2
     },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig14": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 1534.86,
+      "sharpness": 1537.49,
       "quality": "sharp",
       "variants": 2
     },
@@ -3652,15 +3604,15 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3704.46,
+      "sharpness": 3713.42,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 1632.71,
+      "sharpness": 1638.24,
       "quality": "sharp",
       "variants": 2
     },
@@ -3668,7 +3620,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2082.88,
+      "sharpness": 2087.82,
       "quality": "sharp",
       "variants": 2
     },
@@ -3676,7 +3628,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1086.48,
+      "sharpness": 1094.65,
       "quality": "sharp",
       "variants": 2
     },
@@ -3684,15 +3636,15 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 1477.66,
+      "sharpness": 1483.31,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 5003.48,
+      "sharpness": 5015.12,
       "quality": "sharp",
       "variants": 2
     },
@@ -3708,31 +3660,31 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2202.2,
+      "sharpness": 2207.24,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
       "status": "maybe",
-      "periods": 3,
+      "periods": 5,
       "markers": [],
-      "sharpness": 3513.71,
+      "sharpness": 3518.52,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
       "status": "maybe",
-      "periods": 5,
+      "periods": 2,
       "markers": [],
-      "sharpness": 2252.01,
+      "sharpness": 2258.54,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 2501.31,
+      "sharpness": 2506.59,
       "quality": "sharp",
       "variants": 2
     },
@@ -3740,7 +3692,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1876.37,
+      "sharpness": 1877.54,
       "quality": "sharp",
       "variants": 2
     },
@@ -3748,15 +3700,15 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2507.86,
+      "sharpness": 2513.5,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 2,
       "markers": [],
-      "sharpness": 2862.44,
+      "sharpness": 2869.16,
       "quality": "sharp",
       "variants": 2
     },
@@ -3769,10 +3721,10 @@
       "variants": 2
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 3303.84,
+      "sharpness": 3314.08,
       "quality": "sharp",
       "variants": 2
     },
@@ -3788,15 +3740,15 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 942.5,
+      "sharpness": 955.54,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 1258.71,
+      "sharpness": 1266.62,
       "quality": "sharp",
       "variants": 2
     },
@@ -3812,15 +3764,55 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 2156.38,
+      "sharpness": 2158.17,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-construction/r08-construction-planning/img/question-ii-2-1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5543.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/r08-construction-planning/img/question-ii-2-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3224.97,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/r08-geotechnical/img/question-ii-2-1-section": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 4027.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/r08-geotechnical/img/question-ii-2-2-plan": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6350.45,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-construction/r08-geotechnical/img/question-ii-2-2-section": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3868.94,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1102.61,
+      "sharpness": 1104.35,
       "quality": "sharp",
       "variants": 2
     },
@@ -3836,17 +3828,761 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 6090.8,
+      "sharpness": 6091.97,
       "quality": "sharp",
       "variants": 2
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
       "status": "maybe",
-      "periods": 2,
+      "periods": 3,
       "markers": [],
-      "sharpness": 2282.31,
+      "sharpness": 2285.83,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-first-stage/_shared/img/cta-notes-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1000.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 945.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/_shared/img/cta-pdf-body": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1176.26,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/_shared/img/cta-pdf-sidebar": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1300.26,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/_shared/img/cta-pdf-sidebar-v2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1110.65,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1007.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q13-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3205.11,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q14-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8145.31,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q22-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1697,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q32-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1527.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q33-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7577.24,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-basic/img/q34-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1540.78,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-construction/img/q5-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4143.62,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-construction/img/q7-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5012.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-water-supply/img/q12-source": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 6709.27,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h23-water-supply/img/q24-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2389.38,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q11-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4460.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q13-source": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 10922.2,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q15-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 10264.8,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q23-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2473.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q32-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3118.52,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-basic/img/q35-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3558.73,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-construction/img/q7-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3472.58,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-construction/img/q9-source": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3578.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h24-water-supply/img/q13-source": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 5541.25,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-basic/img/q14-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5231.4,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-basic/img/q22-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2316.4,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-basic/img/q32-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2463.41,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-construction/img/q2-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 13089.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-construction/img/q3-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5896.78,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-construction/img/q7-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 11578.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-construction/img/q8-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2794.26,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-construction/img/q9-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2951.29,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-water-supply/img/q10-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2301.58,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h25-water-supply/img/q13-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2339.22,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q14-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5780.73,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q21-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2838.16,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q22-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4864.13,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q25-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3627.75,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q26-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2653.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-basic/img/q35-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3340.6,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-construction/img/q33-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5166.28,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-construction/img/q6-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 9467.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-construction/img/q8-source": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3740.36,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-water-supply/img/q13-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2173.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-water-supply/img/q2-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4377.9,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h26-water-supply/img/q9-source": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5965.63,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 950.16,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q05-table": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2836.64,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q12-example1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1830.3,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q12-example2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1848.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q12-target": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2167.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q16-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 125.31,
+      "quality": "soft",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5334.61,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-basic/img/q18-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 812.42,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-construction/img/q04-fig": {
+      "status": "maybe",
+      "periods": 7,
+      "markers": [],
+      "sharpness": 36193.2,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1113.65,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h27-construction/img/q07-fig": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 954.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1151.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1449.64,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1887.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q07-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 702.81,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q08-table": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3064.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q09-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1078.82,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 439.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q18-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1156.12,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-basic/img/q25-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2403.24,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 781.29,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-construction/img/q07-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1929.85,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h28-construction/img/q17-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1891.3,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I1-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3188.75,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I1-6": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3087.3,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I2-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2122.42,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I3-4": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1876.68,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I3-5": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3003.22,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-basic/img/q-I3-6": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2372.84,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-construction/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5038.47,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-construction/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 319.91,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1942.72,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-construction/img/q07-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3378.2,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5675.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-water-supply/img/q13-source": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 7667.64,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h29-water-supply/img/q14-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3231.25,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I1-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3196.01,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I1-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2288.07,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I2-2": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2836.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I2-5": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2031.23,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I3-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2302.08,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-basic/img/q-I3-5": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4470.81,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4016.25,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-construction/img/q19-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1637.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-water-supply/img/q1-source": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 5782.54,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/h30-water-supply/img/q5-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2845.44,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-first-stage/r01-basic/img/q1-4-fig": {
       "status": "clean",
@@ -3919,6 +4655,70 @@
       "sharpness": 1222.11,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-first-stage/r01-retry-basic/img/q-1-3-fta": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1964.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-basic/img/q-3-6-ellipse": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1824.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-construction/img/q-02-groundwater": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 587.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-construction/img/q-06-buckling": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2317.07,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-construction/img/q-08-beam": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1976.43,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-construction/img/q-17-hydrostatic": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3991.19,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-retry-water-supply/img/q13-source": {
+      "status": "maybe",
+      "periods": 13,
+      "markers": [],
+      "sharpness": 8691.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-water-supply/img/q5-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 9860.1,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-first-stage/r02-aptitude/img/q7-fig": {
       "status": "clean",
@@ -4016,6 +4816,14 @@
       "quality": "sharp",
       "variants": 1
     },
+    "pe-first-stage/r02-water-supply/img/q16-source": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3669.95,
+      "quality": "sharp",
+      "variants": 1
+    },
     "pe-first-stage/r03-basic/img/q-I1-2": {
       "status": "clean",
       "periods": 0,
@@ -4089,10 +4897,10 @@
       "variants": 2
     },
     "pe-first-stage/r03-construction/img/q07-fig": {
-      "status": "writein",
-      "periods": 3,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1094.55,
+      "sharpness": 1090.2,
       "quality": "sharp",
       "variants": 2
     },
@@ -4103,6 +4911,14 @@
       "sharpness": 1513.21,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-first-stage/r03-water-supply/img/q14-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1809.42,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-first-stage/r04-basic/img/q34-fig": {
       "status": "clean",
@@ -4160,11 +4976,27 @@
       "quality": "sharp",
       "variants": 1
     },
-    "pe-first-stage/r05-aptitude/img/q08-fig": {
+    "pe-first-stage/r04-water-supply/img/q16-source": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4569.05,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-water-supply/img/q8-source": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 4148.91,
+      "sharpness": 5573.4,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-aptitude/img/q08-fig": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 10366.7,
       "quality": "sharp",
       "variants": 1
     },
@@ -4247,6 +5079,14 @@
       "sharpness": 1970,
       "quality": "sharp",
       "variants": 2
+    },
+    "pe-first-stage/r05-water-supply/img/q13-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1420.77,
+      "quality": "sharp",
+      "variants": 1
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
       "status": "clean",
@@ -4336,6 +5176,14 @@
       "quality": "sharp",
       "variants": 1
     },
+    "pe-first-stage/r06-water-supply/img/q1-source": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6883.87,
+      "quality": "sharp",
+      "variants": 1
+    },
     "pe-first-stage/r07-aptitude/img/alarp-carrot-diagram": {
       "status": "clean",
       "periods": 0,
@@ -4405,6 +5253,270 @@
       "periods": 0,
       "markers": [],
       "sharpness": 459.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "rccm/_shared/img/cta-notes-body-v1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 961.27,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "rccm/_shared/img/cta-pack-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 853.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "rccm/_shared/img/cta-practice-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 844.07,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "rccm/_shared/img/cta-tile-tile-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 820.28,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "rccm/_shared/img/cta-written-body-v1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 839.17,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q07-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2804.12,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q12-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1243.41,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q13-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2492.09,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6222.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q21-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4140.37,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r04/img/q25-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3024.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q07-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3963.28,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q12-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2162.93,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q14-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3269.68,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q21-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5585.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q25-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 787.34,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r05/img/q27-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1640.36,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r06/img/q21-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 12843,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r06/img/q26-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 902.06,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r06/img/q27-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2138.45,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q07-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 625.93,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q10-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2189.09,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q13-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2767.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q21-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7616.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q26-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 947.92,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r07/img/q27-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1154.11,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 688.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q07-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2586.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q12-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3694.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q20-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4237.61,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q21-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4574.3,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q26-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2032.46,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "surveyor/primary-r08/img/q27-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2341.28,
       "quality": "sharp",
       "variants": 1
     }

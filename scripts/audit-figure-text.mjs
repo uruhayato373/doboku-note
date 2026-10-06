@@ -12,12 +12,14 @@
  *   maybe … 句点 1 つ＝要目視
  *   clean … ラベルのみ（句点なし・答え語なし）＝良好
  *
- * png/webp ペアは同一内容なので basename（拡張子抜き）で 1 回だけ OCR し両方に適用する。
+ * png/webp ペアは basename（拡張子抜き）で 1 回だけ OCR し両方に適用する。読むのは記事が参照している（＝読者に配信している）画像で、
+ * 同じ寸法の png があれば可逆の png を読む。寸法がずれたペア（webp だけ切り直して png が古いまま等）で配信していない方を読まないため
+ * （2026-10-06 q07-fig: 未クロップの png を読んで recrop の偽陽性）。
  * webp/jpg は tesseract が直接読めないことがあるので magick で一時 png へ変換して OCR。
  *
  * Usage:
  *   node scripts/audit-figure-text.mjs            # 全ラスタ図を監査して JSON 出力
- *   node scripts/audit-figure-text.mjs --limit 20 # 先頭 20 base のみ（動作確認用）
+ *   node scripts/audit-figure-text.mjs --limit 20 # 先頭 20 base のみ（動作確認用・結果ファイルは書かない）
  *   node scripts/audit-figure-text.mjs --json     # 進捗を出さず結果サマリのみ
  */
 import { execSync } from "node:child_process";
@@ -25,6 +27,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { articleInfo, referencedExt, servedExt } from './lib/figure-review.mjs';
 
 const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
@@ -69,6 +72,7 @@ for (const rel of all) {
 
 const bases = [...byBase.keys()].sort().slice(0, limit);
 const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "figtext-"));
+const artCache = new Map();
 const figures = {};
 const summary = { leak: 0, writein: 0, maybe: 0, clean: 0 };
 const qualitySummary = { sharp: 0, soft: 0, blurry: 0, unknown: 0 };
@@ -76,11 +80,19 @@ let done = 0;
 
 for (const baseRel of bases) {
   const variants = byBase.get(baseRel);
-  // OCR ソース: png 優先。無ければ webp/jpg を一時 png へ変換。
-  const png = variants.find((v) => /\.png$/i.test(v));
-  let src = png ? path.join(POSTS, png) : null;
+  // OCR ソース: 記事が参照している（配信している）画像。png ならそのまま、webp/jpg は一時 png へ変換。
+  const parts = baseRel.split("/");
+  const art = articleInfo(POSTS, parts.slice(0, 2).join("/"), artCache);
+  const ext = servedExt(path.join(POSTS, baseRel), art.found ? referencedExt(art.content, parts[parts.length - 1]) : null);
+  const served = ext ? `${baseRel}.${ext}` : variants[0];
+  // 配信中の画像と同じ寸法の png があればそれを読む（同じ画像の可逆版。webp は非可逆で OCR が句点を拾い直す:
+  // 2026-10-06 実測で png→webp に替えると同じ画像で clean→maybe 47 件・maybe→clean 15 件）。寸法が違う png は古い別物なので読まない
+  const pngRel = variants.find((v) => /\.png$/i.test(v));
+  const dims = (rel) => { try { return execSync(`magick identify -format "%w %h" "${path.join(POSTS, rel)}[0]"`, { encoding: "utf8" }).trim(); } catch { return null; } };
+  const chosen = pngRel && (pngRel === served || dims(pngRel) === dims(served)) ? pngRel : served;
+  let src = /\.png$/i.test(chosen) ? path.join(POSTS, chosen) : null;
   if (!src) {
-    const other = variants[0];
+    const other = chosen;
     src = path.join(tmpDir, baseRel.replace(/\//g, "__") + ".png");
     try {
       execSync(`magick "${path.join(POSTS, other)}" "${src}"`, { stdio: "pipe" });
@@ -147,10 +159,14 @@ const payload = {
   quality_summary: qualitySummary,
   figures,
 };
-fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
+// --limit は動作確認用: 一部だけの結果で全件の監査結果（provenance の入力）を上書きしない（2026-10-06 に上書きして全件を取り直した）
+const partial = Number.isFinite(limit);
+if (!partial) {
+  fs.mkdirSync(path.dirname(OUT), { recursive: true });
+  fs.writeFileSync(OUT, JSON.stringify(payload, null, 2));
+}
 
 if (!quiet) process.stderr.write("\r");
-console.log(`[audit-figure-text] ${bases.length} base（${all.length} ファイル）監査 → ${path.relative(ROOT, OUT)}`);
+console.log(`[audit-figure-text] ${bases.length} base（${all.length} ファイル）監査 → ${partial ? "--limit のため書き込みなし" : path.relative(ROOT, OUT)}`);
 console.log(`  leak(答え漏らし): ${summary.leak} / writein(問題文写り込み): ${summary.writein} / maybe(要目視): ${summary.maybe} / clean: ${summary.clean}`);
 console.log(`  画質 sharp: ${qualitySummary.sharp} / soft: ${qualitySummary.soft} / blurry(ボケ): ${qualitySummary.blurry} / unknown: ${qualitySummary.unknown}`);

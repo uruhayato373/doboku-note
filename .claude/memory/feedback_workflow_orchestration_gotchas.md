@@ -1,6 +1,6 @@
 ---
 name: feedback_workflow_orchestration_gotchas
-description: "Workflow/サブエージェント運用の罠: args文字列化・新agentType未解決・重いdoc Readでストール・writerが勝手にcommit・並行2本まで・Bash不可・夜間一括・機械作業は直接処理"
+description: "Workflow/サブエージェント運用の罠: 並列ワーカーの一時パス共有・args文字列化・新agentType未解決・重いdoc Readでストール・writerが勝手にcommit・並行2本まで・Bash不可・夜間一括・機械作業は直接処理"
 metadata:
   type: feedback
 ---
@@ -9,6 +9,7 @@ metadata:
 
 ## Workflow の罠
 - **args は文字列化されて渡る**: 先頭で `const items = typeof args === 'string' ? JSON.parse(args) : args` のガード必須（無いと `items.map is not a function` で即死）。
+- **並列ワーカーに共有の一時パスを書かせない**（2026-10-06）: 図の worker 定義が `$TMPDIR/view.png` に変換して Read させていたため、同時に走った 2 体が互いの画像を読み、gnss-receiver を隣の fig-2-53 の画像で判定した（判定理由に入力と違う図の内容が書かれて発覚）。一時ファイルは入力ごとの専用ディレクトリ（figKey 等から作る）に置かせ、判定前に「読んだ画像が入力か（寸法・alt）」を確かめさせる。親は理由文が入力と合っているかを見る。
 - **セッション途中で作成した agent は agentType で解決できない**（"agent type not found"）: agentType を外しルーブリック/指示をプロンプトに完全埋め込み。次セッションから登録される。
 - **fan-out subagent に重い doc の全 Read を課すとストール**（content-principles 全文1000+行を並列 Read させたら無編集のまま停止）: doc は読ませずルールをプロンプトに埋め込む。civil-textbook-rewriter 等は system prompt に規約を持つので Read 不要で安定。
 - **bulk subagent は必ず Sonnet**: `model:inherit` の Evaluator(guide-qa 等)を親 Opus 下で大量 fan-out すると Opus 実行になりセッション上限直撃（19本で停止）。bulk は `model:'sonnet'` を明示 override、Opus は判断/fact-fix/フラグシップのみ（[[feedback_opus_sonnet_split]]）。

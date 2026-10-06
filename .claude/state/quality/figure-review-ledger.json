@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "note": "図クロップを目で判定した記録（/figure-quality-loop が書く）。sha が今の画像と一致する記録だけが効く。手で編集しない（scripts/figure-review-queue.mjs record を使う）",
+  "figures": {
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-08": {
+      "sha": "c66ab5d7260154d7",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題集（1級土木第一次検定問題解説集2021）p.379 の H28 No.32 の図から『補強鉄筋を配置』の断面だけを 300dpi で切り出し直し（519x188→605x215）。上・左右で欠けていた舗装・鋼繊維補強コンクリートと鉄筋・寸法 75/100/140/10 を復元し、隣の図の断片とキャプションを除いた。親 QA 合格（alt と一致・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T09:06:59.569Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 379,
+        "dpi": 300
+      }
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-09": {
+      "sha": "929ebdb62fd95916",
+      "verdict": "source-unavailable",
+      "action": "none",
+      "reason": "手元の唯一の原典（1級土木第一次検定問題解説集2021 p.379）でも図の上端（舗装ラベル・寸法 50 の上端）が元から切れており、上半分は復元できない。H28 の原典問題 PDF は Drive に無い（過去問は H30〜R08）。切り出し直しで直るのは下端のキャプション断片と左端の隣図寸法の混入だけ。別原典の入手か描き直しの判断待ち",
+      "reviewedAt": "2026-10-06T09:10:27.242Z"
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
+      "sha": "3d2e6b28456d5c2b",
+      "verdict": "ok",
+      "action": "recrop",
+      "reason": "上部の本文断片・下部の図番号キャプション『図 2.53 釜場排水工法』・右余白の行番号と綴じ部の影を除去して切り直し（420x400→357x272）。矢板・水・釜場・ポンプ・溝は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T09:00:29.888Z"
+    },
+    "civil-construction-1/textbook-crane/img/boom-lift": {
+      "sha": "b5ea66b2c026033c",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "全面写真（伸縮ブーム型高所作業車）。EDGE_CUT は空・柱・地面が縁まで続くのを拾った誤検出で、車体・ブーム・作業床は縁の内側で欠けなし",
+      "reviewedAt": "2026-10-06T09:00:29.885Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
+      "sha": "e94b8b6dca213f5d",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "全面写真（GNSS アンテナと受信機を三脚に据えた写真）。EDGE_CUT は空と地面が縁まで続くのを拾った誤検出で、機材は縁の内側で欠けなし。worker の判定は並列 worker と一時ファイルを共有して別の図を読んでいたため無効とし、親が目視で判定",
+      "reviewedAt": "2026-10-06T09:00:29.885Z"
+    },
+    "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
+      "sha": "5bc70ec39f8ae6d5",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "ブルドーザの全景写真。EDGE_CUT は空・地面が縁まで続くのを拾った誤検出で、ブレード先端とクローラは縁の内側（約18〜20px）に収まり欠けなし",
+      "reviewedAt": "2026-10-06T09:02:06.089Z"
+    },
+    "pe-first-stage/r03-construction/img/q07-fig": {
+      "sha": "5609f6d6811bbc02",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "配信中の webp は応力要素図とラベルだけで写り込み・欠けなし。OCR の recrop は未クロップのまま残った同名 png（問題文を含む・記事は参照していない）を読んだ偽陽性",
+      "reviewedAt": "2026-10-06T09:00:29.883Z"
+    },
+    "pe-first-stage/r05-aptitude/img/q08-fig": {
+      "sha": "9630e51d0cdade2b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "元 PDF（R05 適性科目 p.8 Ⅱ-8 図1）を 300dpi で切り出し直し、右縁・下縁で欠けていた外周の円と右側の矢印型突起を復元。画像サイズ上限 150KB に収めるため幅 900 に縮小（835x841→900x889・114KB）。キャプション・設問文は入れていない。親 QA 合格（全周とラベルを目視・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T09:25:43.147Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R05/R05_適性科目.pdf",
+        "page": 8,
+        "dpi": 300
+      }
+    }
+  }
+}

@@ -72,6 +72,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/coconala-blog` | ココナラブログ（記事型）の企画〜公開（`coconala-blog-writer`→`coconala-blog-qa`→`coconala-blog-publish`）。ココナラ内 SEO/回遊から自出品へ送客。**外部リンク禁止**・送客は `service:<id>` のサービスカード・draft-first＋`--commit` gate・公開後はログアウト状態でライブ実査（G6） | `ココナラブログを書く`, `ココナラブログを公開`, `ブログで送客`, `/coconala-blog` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
 | `/figure-recrop` | 既存の記事図クロップ（`content/site/**/img/`）を**タイト再クロップ**して写り込み（答え/本文/問題文）を除去。provenance の needs=recrop を対象・視覚で切り位置を決め `scripts/figure-recrop.mjs`（crop+webp+MDX+OCR）で機械適用。画質不足(ボケ)は対象外＝rescan。**大量処理（並列 workflow）モード**＝`figure-crop-worker`（Generator）を図ごとに spawn し親が最終目視QA→MDX/台帳を直列適用（png/webp両対応・2026-07-09 確立）。civil-figure-rework(問題PDF抽出)とは別 | `図の写り込みを除く`, `図を再クロップ`, `大量の図をまとめて再クロップ`, `/figure-recrop` |
+| `/figure-quality-loop` | 記事図クロップの品質ループ（1 周＝最大 8 枚）。`npm run figure-review-queue` が画素検査（EDGE_CUT/STRAY_*）＋OCR の needs から判定待ちを作り、`figure-crop-worker` が並列で目視判定→写り込みの切り直し／縁で切れた図は元 PDF のページから切り出し直し→親が QA→判定台帳に画像のハッシュつきで記録（判定済みは二度と上がらない・差し替えると再判定）。`/loop /figure-quality-loop` で判定待ち 0 まで自走 | `図クロップの品質ループ`, `図の品質チェックと改善`, `切れた図を直す`, `/figure-quality-loop` |
 | `/audit-pe-first-stage` | 技術士第一次試験全21ページの正答照合・原典視覚突合・構造検査（3軸監査） | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage [--year R07] [--sub aptitude]` |
 
 ### SNS 運用（social）
