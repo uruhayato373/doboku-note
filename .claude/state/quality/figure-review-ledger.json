@@ -22,11 +22,16 @@
       "reviewedAt": "2026-10-06T09:49:08.224Z"
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-11": {
-      "sha": "681d4a90fa28451a",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で上段図（ふとんかご）の寸法値ラベル、『天端工』の引出し文字の上半分、右上の引出し線が切れている。左約 650px が空白、下端にキャプション『図 天端工および天端保護工』",
-      "reviewedAt": "2026-10-06T10:31:57.736Z"
+      "sha": "1b1f09804edec7d4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "問題解説集2021 p.548 の『天端工および天端保護工』を 300dpi で切り出し直し（1674x444→1092x626）。上縁で切れていた寸法 1.0〜2.0m／1.5〜3.0m・『天端工』『天端保護工』のラベルと引出し線を復元し、左の空白とキャプションを除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:35:22.905Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+        "page": 548,
+        "dpi": 300
+      }
     },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
       "sha": "77e9c41b0b37400e",
@@ -177,18 +182,28 @@
       }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
-      "sha": "5b4bfcb03152a2bd",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で中央の小図の説明『型枠・配筋の拘束度の相違や…』の下半分と続きの行が切れている。上部に大きな空白、元資料の見出し『⑤ 記号B5 急速な打込みの例』、左余白のページ番号の写り込み",
-      "reviewedAt": "2026-10-06T09:53:21.096Z"
+      "sha": "8af9881e27e8785b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "第二次検定問題解説集2021 p.186（180 度回転）の『記号 B5 急速な打込みの例』を切り出し直し（900x370→1100x361）。下端で切れていた中央と右の小図の説明を復元し、重複する見出しとページ番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:35:22.908Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 186,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-concrete-basics/img/fig-crack-settlement-bleeding": {
-      "sha": "ecef774d0e981a0a",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で左右 2 つの擁壁・フーチング図の下半分（フーチングの下辺と側面）が切れている。上部に前の図の残りとキャプション、中段に見出し『③ 記号 A8 …』、左縁に綴じ部の影",
-      "reviewedAt": "2026-10-06T10:09:04.339Z"
+      "sha": "28653781a6b93047",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A8 沈下・ブリーディングの例』を切り出し直し（780x240→902x447）。左右の擁壁・フーチングの下辺と各小図の説明を復元し、前の図の残り・重複する見出し・綴じ部の影を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
+      "reviewedAt": "2026-10-06T10:35:22.909Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 185,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
       "sha": "01314471480bde28",
@@ -203,13 +218,6 @@
       "action": "recrop",
       "reason": "下端で上半分だけ見えていた図番号キャプション『図4.8 各部分工事の工程計画の作成手順』と左右の過大な余白を除いて切り直し（650x450→411x398）。フローチャートの 5 つの箱・矢印・ループ線は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:40:15.249Z"
-    },
-    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
-      "sha": "b492056c39ab38c5",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下端で L 型擁壁の底版下の基礎砕石層が上半分だけで途切れ、床掘りの斜め掘削線 2 本も下端で切れている",
-      "reviewedAt": "2026-10-06T10:24:51.419Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
       "sha": "69fb2f2854ebb2e0",
