@@ -36,3 +36,7 @@ metadata:
 - 作業開始時 `git branch --show-current`、commit 前 `git diff --cached --name-only`（[[feedback_multi_session_concurrent_git]]）。白書数値の検証は `.claude/scripts/whitepaper-grep-check.mjs`（[[feedback_factcheck_guide_facts]] / [[project_kettei2026_r8_evergreen]]）。
 
 関連: [[feedback_gate_zero_coverage_false_pass]] [[feedback_ssot_no_hand_copies_self_verify]]
+
+## 検査の「復元不能」「ここにしか無い」を、緊急の理由として運営者へ渡す前に実体で確かめる
+- **Why:** 2026-10-07、`check-drive-vault` の「ローカルにしか無い。このマシンを失うと復元不能」をそのまま引き、「別 PC へ移る前にこの Mac で退避が必要」と勧めて承認をもらった。実際は 2 枚とも git で追跡済み（origin/develop と同一）で、承認された同期は 2 枚でなく 137 件（Drive の同名 110 件を上書き）だった。`git cat-file -e origin/develop:<path>` と dry-run を 1 回ずつ回せば分かった。
+- **How to apply:** 「失われる」「急ぐ」を理由に操作を勧める前に、その主張（git・R2・Drive に在るか）と、操作の実際の範囲（dry-run の件数・上書きの有無）を確かめる。承認後に範囲が説明より大きいと分かったら、実行せずに説明し直す。

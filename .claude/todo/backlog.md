@@ -747,7 +747,7 @@
 ### [DN-0451] 今日R2へ保存したKDP成果物を現行のDrive保管へ同期し、保存経路の不整合を解消する
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-29]
 
-**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。2026-10-07 時点で、Mac の `scripts/kindle-dist/a-05.jpg`・`a-06.jpg`（2026-09-28 作成・各 0.8MB）が Drive 台帳に無く手元にしか無い（`quality:audit:ci` の drive-vault が FAIL）。**この Mac でしか退避できない**ので、別 PC へ移る前に `node scripts/drive-vault-sync.mjs --group kindle-dist --commit` で Drive へ退避する（下の手順 2・3 の経路）。
+**起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。2026-10-07 時点で `quality:audit:ci` の drive-vault が `scripts/kindle-dist/a-05.jpg`・`a-06.jpg` を「ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能」と FAIL にする。ただし 2 枚とも git で追跡済みで origin/develop と同じ中身なので、実際は復元できる（`check-drive-vault.mjs` は git の追跡を見ずに「復元不能」と書く。文言を直すか、git 追跡済みを区別する）。`node scripts/drive-vault-sync.mjs --group kindle-dist` の dry-run は 138 件中 137 件を対象にし（台帳 `kindle-dist` の 76 件と sha256 が 1 件も合わない）、Drive の `制作物/Kindle` には同名の 110 件が既にある。`--commit` は同名を上書きするので、先に同名の sha256 を比べて差分だけにする（手順 2）。
 
 **やること**:
 1. 当日の実行ログ、R2台帳、R2実体、`scripts/kindle-dist/`、KDP台帳を照合し、保存したEPUB・表紙の対象数、キー、bytes、SHA-256を特定する。取得失敗や対象0件を正常扱いしない
