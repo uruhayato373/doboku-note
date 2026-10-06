@@ -527,25 +527,40 @@
       "reviewedAt": "2026-10-06T10:31:57.738Z"
     },
     "civil-construction-2/primary-r05-zenki/img/q57-fig": {
-      "sha": "638c7f7b9dd03514",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で工程表の終端ノード⑥の円の右側の弧が切れている（直径 40px のうち右端 1px しか残らない）。左と下に図の無い大きな余白もあり、切り出し直しで詰める",
-      "reviewedAt": "2026-10-06T10:53:04.919Z"
+      "sha": "eae3b1e408a7c41d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた工程表の終端ノード⑥を含め、R05 前期の公式問題 PDF p.22（No.57）から 300dpi で切り出し直した（1475x600→1008x487）。左の約 490px の空白も詰めた。作業 A〜G・日数・ダミーは旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:05:47.208Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_前期.pdf",
+        "page": 22,
+        "dpi": 300
+      }
     },
     "civil-construction-2/primary-r06-zenki/img/q01-fig": {
-      "sha": "5abf9cfa9d3609f6",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で図見出しのルビ（体積『たいせき』・質量『しつりょう』）が上半分で切れている。土の三相モデル本体は欠けなし",
-      "reviewedAt": "2026-10-06T10:53:04.919Z"
+      "sha": "8b986dc4a7e780b2",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた図見出しのルビ『たいせき』『しつりょう』を、R06 前期の公式問題 PDF p.2（No.1）から 300dpi で切り出し直して戻した（899x465→873x474）。土の三相モデルと記号は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:05:47.210Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_前期.pdf",
+        "page": 2,
+        "dpi": 300
+      }
     },
     "civil-construction-2/primary-r07-kouki/img/q3-fig": {
-      "sha": "065a5b2504dab29d",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で左右の寸法補助線、左縁で左支点（ピン）の地面線、右縁で右支点（ローラー）の二重線が切れ、上縁で荷重記号 P の上端が縁に接している（R07 後期 No.3）",
-      "reviewedAt": "2026-10-06T10:53:04.919Z"
+      "sha": "edc98a4580754502",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "四辺で切れていた単純梁の図（荷重 P・ピン支点とローラー支点・寸法 L/2・L/2・L）を、R07 後期の公式問題 PDF p.4（No.3）から 300dpi で切り出し直した（507x288→786x466）。選択肢の曲げモーメント図は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:05:47.211Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_後期.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "civil-construction-2/primary-r07-kouki/img/q36-fig": {
       "sha": "ae2e0ae68312b67f",
@@ -738,11 +753,16 @@
       }
     },
     "pe-first-stage/h29-construction/img/q17-fig": {
-      "sha": "4901a1facb789c8b",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で垂直平板（斜線ハッチの壁）の上端、下縁と右縁で地盤のハッチ帯が輪郭線なしに切れている。写り込みはなく切り直しでは直らない（技術士第一次 H29 建設部門 Ⅲ-17）",
-      "reviewedAt": "2026-10-06T10:53:04.917Z"
+      "sha": "57442ca69ec10afb",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた垂直平板の上端と、下縁・右縁で切れていた地盤のハッチ帯を、技術士第一次 H29 建設部門の公式問題 PDF p.9（Ⅲ-17）から 300dpi で切り出し直した（1090x545→1111x568）。水面記号と h の寸法は旧画像と一致。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:05:47.212Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+        "page": 9,
+        "dpi": 300
+      }
     },
     "pe-first-stage/h30-basic/img/q-I2-2": {
       "sha": "8bce87f73362fdd4",
