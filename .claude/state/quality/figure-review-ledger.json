@@ -464,18 +464,28 @@
       }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
-      "sha": "a9fbc65a34af91dd",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁でコンクリート張りの法面・寸法 1,000・法尻の基礎ブロックが切れ、左縁で隣接図の断片（砂利）が切れている。上部に前の図の下端とキャプション『図2.23 モルタル吹付け工の例』、右縁に行番号 15/20。切り出し範囲が上にずれている",
-      "reviewedAt": "2026-10-06T09:49:08.228Z"
+      "sha": "524bbb810ccc398b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上にずれていた切り出し範囲を直し、下縁で切れていた法尻の基礎コンクリートと寸法 1,000 を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→678x530）。図2.23 の写り込み・行番号・隣接図の断片・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:14:21.993Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 113,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-26": {
-      "sha": "ae7c408f37c343a5",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で右下の拡大詳細図（モルタル吹付け・アンカーバー D32・注記・寸法 400/500・コンクリート断面の下半分）が切れている。上と左に大きな余白、左に行番号",
-      "reviewedAt": "2026-10-06T10:31:57.736Z"
+      "sha": "8cf5fdf97437888b",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた右下の拡大詳細図（モルタル吹付け・アンカーバー D32・寸法 400/500・断面下半分）を、二次問題解説集2021 p.114（180 度回転を戻す）から 300dpi で切り出し直して戻した（900x720→1068x1437）。上の空白・行番号・図番号キャプション・下の図2.27/2.28 は除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:14:21.996Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 114,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-27": {
       "sha": "2452970c32c90b7a",
@@ -499,11 +509,16 @@
       "reviewedAt": "2026-10-06T11:12:57.314Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-34": {
-      "sha": "0e5df72d4515dd94",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "左縁で左下の『道路』の路面線が切れている。下部に図番号キャプション『図 2.34 水平排水孔の例』の写り込みもある",
-      "reviewedAt": "2026-10-06T11:26:27.357Z"
+      "sha": "389ca3c1dabda42a",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "左縁で切れていた『道路』の路面線を、二次問題解説集2021 p.116（180 度回転を戻す）から 300dpi で切り出し直して戻した（520x380→844x452）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:14:21.997Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 116,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
       "sha": "3a257b4f6b698198",
@@ -513,11 +528,16 @@
       "reviewedAt": "2026-10-06T09:53:21.098Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
-      "sha": "05e71695c49ad6be",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で 3 段グラフの最下段（V_A・V_B の曲線・破線・ラベル）が切れ、横軸と下半分が無い。左縁で軸ラベルと縦軸線も見切れ気味",
-      "reviewedAt": "2026-10-06T10:37:39.030Z"
+      "sha": "38fbd97d2d175c34",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた 3 段グラフの最下段（安全率 V_A・V_B・F_S・横軸・時間 t・凡例）と左縁の軸ラベルを、二次問題解説集2021 p.122（180 度回転を戻す）から 300dpi で切り出し直して戻した（460x350→790x872）。図番号キャプションと前後の図の断片は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:14:21.998Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+        "page": 122,
+        "dpi": 300
+      }
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
       "sha": "955d312cd75ef986",
