@@ -90,6 +90,7 @@ import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
+import { blankOfficialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
 
 const CELL_MAX = 15;
 
@@ -1870,22 +1871,6 @@ function lintNestedList(lines, findings) {
   flush(lines.length);
 }
 
-// 公式問題の文体を短文化させない。原文は保持し、導入・解説・学習案内を採点する。
-function proseLinesOutsideOfficialQuestions(lines, filePath) {
-  const normalized = filePath.replace(/\\/g, '/');
-  const firstStage = /\/pe-first-stage\/(?:h|r)\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)\/article\.mdx$/.test(normalized);
-  const construction = /\/pe-construction\/r\d{2}-(?:required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment)\/article\.mdx$/.test(normalized);
-  // 1級・2級土木の二次過去問（secondary-r0X）の設問文も公式の文言（2026-10-06: 1級 r03 の法令条文の穴埋め 3 件が 15-2 に出ていた）
-  const civilSecondary = /\/civil-construction-[12]\/secondary-[rh]\d{2}\/article\.mdx$/.test(normalized);
-  if (!firstStage && !construction && !civilSecondary) return lines;
-  let question = false;
-  return lines.map(line => {
-    if (/^##\s/.test(line)) question = /^##\s+[ⅠⅡⅢIVX]+[-－]\d/.test(line) || (civilSecondary && /^##\s+問題\s*\d+/.test(line));
-    if (/^<details\b|^#{2,4}\s+(?:解答|解説|学習)/.test(line)) question = false;
-    return question ? '' : line;
-  });
-}
-
 function lintProseStyle(lines, findings) {
   const cleanInline = (s) =>
     s
@@ -2054,7 +2039,8 @@ function lintFile(filePath) {
   lintNestedList(lines, findings);
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
-  lintProseStyle(proseLinesOutsideOfficialQuestions(lines, filePath), findings);
+  // 公式問題の逐語（設問文）は原文を保持するので 15-x の対象外。範囲の判定は lib に一本化（lint-ja と共有）
+  lintProseStyle(blankOfficialQuestionLines(lines, filePath), findings);
 
   // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
   lintMdxHygiene(lines, findings);
