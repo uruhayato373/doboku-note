@@ -1157,11 +1157,15 @@
       }
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig21": {
-      "sha": "22911c8ebec6de83",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で 3 本の折れ線（全産業・製造業・建設業）の最新年の端が、下縁で縦軸の下端・横軸・年の目盛りが切れている。左縁に撮影時の指",
-      "reviewedAt": "2026-10-06T09:46:19.916Z"
+      "sha": "a799e716dc2fac8c",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた 3 本の折れ線の最新年の端と、下縁で切れていた縦軸の下端・横軸・年目盛り・『(年)』を、論文対策キーワードのスキャン（source/005.pdf p.21＝pages/p0189）から切り出し直して戻した（850x462→1200x839）。左縁の指・黄ばみ・裏写り・図の出典行は除き、原図内の注と資料出所は残した。ネットからの取得なし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:54:25.652Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+        "page": 21
+      }
     },
     "pe-construction/r08-construction-planning/img/question-ii-2-1": {
       "sha": "ad5e5a0bf2f75924",
@@ -1185,11 +1189,15 @@
       "reviewedAt": "2026-10-06T11:51:32.487Z"
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
-      "sha": "2876d0b4e1552c93",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "下縁で X 軸の軸ラベル『事業領域』の下半分と縦軸端の『官』の下部が切れている。左縁に撮影時の指、右上に隣接する本文の滲み",
-      "reviewedAt": "2026-10-06T09:56:02.171Z"
+      "sha": "129f190042fab49f",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた X 軸ラベル『事業運営』と『官』、原図内の注を、論文対策キーワードのスキャン（pages/p0013＝source/001.pdf p.7 左）から傾きを補正して切り出し直して戻した（913x575→1100x731）。左縁の指・右上の隣接本文の滲み・綴じ影・裏写り・図の出典行は除いた。ネットからの取得なし。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T12:54:25.655Z",
+      "source": {
+        "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0013.jpg",
+        "page": 13
+      }
     },
     "pe-first-stage/h23-basic/img/q13-source": {
       "sha": "a9a0ee2602b0e752",
