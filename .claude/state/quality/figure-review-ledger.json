@@ -1270,11 +1270,16 @@
       }
     },
     "pe-first-stage/r01-construction/img/q05-fig": {
-      "sha": "e68a7e62c934b921",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で辺 AD の寸法線（2L）の両矢印が上半分だけ写り、寸法線と『2L』ラベルが画像外。設問に必要な寸法が読めない。下部に選択肢①〜⑤と大きな空白の写り込みもある",
-      "reviewedAt": "2026-10-06T09:33:45.509Z"
+      "sha": "f95517097ee42095",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた辺 AD の寸法線（両矢印）と『2L』ラベルを、技術士第一次 R01 建設部門の公式問題 PDF p.4（Ⅲ-5）から 300dpi で切り出し直して戻した（1143x1131→1038x934）。下部の選択肢①〜⑤と空白は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:55:15.044Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R01/R01_専門_09建設部門.pdf",
+        "page": 4,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r02-construction/img/q6-fig": {
       "sha": "6322d715f3465fd9",
@@ -1369,11 +1374,16 @@
       "reviewedAt": "2026-10-06T09:53:21.097Z"
     },
     "pe-first-stage/r06-aptitude/img/q12-fig": {
-      "sha": "25afcc7746eac540",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で旧 JIS マークと現行 JIS マークの外円の上部・J 字ストロークが切れている。下縁に次の設問の断片『⑤ 2』。出典は R06 技術士第一次 適性科目 問12 の図−1",
-      "reviewedAt": "2026-10-06T09:43:30.757Z"
+      "sha": "acbc709c5033a1ab",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた旧 JIS マークと現行 JIS マークの外円上部と J 字を、技術士第一次 R06 適性科目の公式問題 PDF p.12（Ⅱ-12 図−1）から 400dpi で切り出し直して戻した（1068x475→1109x441）。下縁の次の設問の断片『⑤ 2』と図番号キャプションは含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:55:15.046Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_適性科目.pdf",
+        "page": 12,
+        "dpi": 400
+      }
     },
     "pe-first-stage/r06-basic/img/q3-3-fig": {
       "sha": "e9e7451ae1b7e56a",
@@ -1414,11 +1424,16 @@
       "reviewedAt": "2026-10-06T11:02:54.217Z"
     },
     "pe-first-stage/r07-basic/img/q33-fig": {
-      "sha": "602227834b173094",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "上縁で関数ラベル『f(x)』の上部が切れている。下部に図番号キャプション『図 関数 y=f(x)と点 a, b, c』、左下に選択肢本文の断片『(c))』",
-      "reviewedAt": "2026-10-06T10:42:41.146Z"
+      "sha": "2e848ca422935821",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた f(x) のラベルを、技術士第一次 R07 基礎科目の公式問題 PDF p.9（Ⅰ-3-3）から 300dpi で切り出し直して戻した（839x754→988x684）。図番号キャプションと選択肢の断片『(c))』は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:55:15.047Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_基礎科目.pdf",
+        "page": 9,
+        "dpi": 300
+      }
     },
     "pe-first-stage/r07-construction/img/q01-fig": {
       "sha": "53d65e21228739fa",
@@ -1512,11 +1527,16 @@
       }
     },
     "surveyor/primary-r07/img/q21-fig": {
-      "sha": "f08ab9134d04b480",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "右縁で方位記号（N の円・文字・矢印）、河川・等高線・地点 B 周辺が切れ、地図の枠線も無い。出典は R07 測量士補 No.21 の図",
-      "reviewedAt": "2026-10-06T09:43:30.760Z"
+      "sha": "da6031bd3f7a9184",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "右縁で切れていた方位記号 N・右側の河川と等高線・地点 B 周辺・地図の枠線を、測量士補 R07 の公式問題 PDF（問題2）p.6（No.21）から 300dpi で切り出し直して戻した（1000x608→900x526・縮尺バーを含む・150KB の上限内に収めるため幅 900・グレースケール）。地名と記号は読める。図番号『図 21』は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T11:55:15.048Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題2.pdf",
+        "page": 6,
+        "dpi": 300
+      }
     },
     "surveyor/primary-r07/img/q27-fig": {
       "sha": "bb0881a794ac4988",
