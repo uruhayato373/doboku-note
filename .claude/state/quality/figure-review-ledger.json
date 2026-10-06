@@ -932,6 +932,18 @@
         "dpi": 300
       }
     },
+    "civil-construction-2/primary-r05-kouki/img/q57-fig": {
+      "sha": "d60dfb475d9b4168",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "下縁で切れていた作業Fの日数ラベル『6日』を R05 第一次検定（後期）問題 PDF p.21 から 300dpi で切り出し直し、左右の過大な空白も詰めた。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:39:40.556Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_後期.pdf",
+        "page": 21,
+        "dpi": 300
+      }
+    },
     "civil-construction-2/primary-r05-zenki/img/q56-fig": {
       "sha": "ed01025b9838d4b5",
       "verdict": "ok",
@@ -948,6 +960,18 @@
       "source": {
         "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_前期.pdf",
         "page": 22,
+        "dpi": 300
+      }
+    },
+    "civil-construction-2/primary-r06-kouki/img/q02-fig": {
+      "sha": "f79f75377c71b84d",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "上縁で切れていた見出しと粒径のルビを R06 第一次検定（後期）問題 PDF p.2 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
+      "reviewedAt": "2026-10-06T21:39:40.558Z",
+      "source": {
+        "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_後期.pdf",
+        "page": 2,
         "dpi": 300
       }
     },
