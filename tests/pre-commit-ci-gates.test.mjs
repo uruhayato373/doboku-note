@@ -10,7 +10,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
     'content/note/magazines/x/article.md',
     'src/lib/foo.ts',
   ]);
-  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products']);
+  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
@@ -19,6 +19,19 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(planGates(['docs/README.md', 'content/site/a/img/x.svg']), []);
   assert.deepEqual(planGates(['config/products.json']).map((g) => g.id), ['products']);
   assert.deepEqual(planGates(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']).map((g) => g.id), ['products']);
+});
+
+test('note の原稿・マガジンの写し・収録の期待値を stage したら note 記事カタログの古さを見る', () => {
+  // 2026-10-06: 題名の変更（57c4af4bf）と下書きの追加（5cf185c9a）でカタログの作り直しを忘れ、develop の CI が 2 回赤くなった
+  const ids = (files) => planGates(files).map((g) => g.id);
+  assert.ok(ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md']).includes('generated-indexes'));
+  assert.ok(ids(['content/note/技術士総監/x/article-2.md']).includes('generated-indexes'));
+  assert.ok(ids(['src/lib/note-magazines.ts']).includes('generated-indexes'));
+  assert.deepEqual(ids(['config/note-magazine-membership.json']), ['generated-indexes']);
+  assert.ok(!ids(['content/note/1級・2級土木/2級土木/R8二次の出題予想/hashtags.txt']).includes('generated-indexes'));
+  const gate = GATES.find((g) => g.id === 'generated-indexes');
+  assert.deepEqual(gate.cmd([]), ['node', '.claude/scripts/build-note-published-index.mjs', '--check', '--staged']);
+  assert.ok(ids(['content/note/x/y/Article.md']).includes('generated-indexes'), 'isNoteArticleFile と同じく大文字小文字を区別しない');
 });
 
 test('pre-commit の検査は quality-audit の ci:true と同じ id（CI の全量検査と食い違わない）', () => {

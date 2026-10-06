@@ -169,7 +169,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 
 ## 関連ツール（パス前提）
 
-- 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査）
+- 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査。記事を stage した commit では pre-commit も `build-note-published-index.mjs --check --staged` で作り直し漏れと stage 漏れを止める。題名は本文の H1 から取るので、H1 を変えたら作り直す）
 - 紙用 PDF 変換: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`
 - カバー画像生成: `node scripts/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
 - UTM 付与: `node scripts/add-note-utm.mjs <slug|prefix>`

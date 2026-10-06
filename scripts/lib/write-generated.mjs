@@ -21,14 +21,24 @@ const strip = (obj, keys) => {
  * @returns {boolean} 書いたら true（中身が同じで書かなかったら false）
  */
 export function writeJsonIfChanged(path, data, { volatileKeys = ['generated_at'], trailingNewline = true } = {}) {
-  if (existsSync(path)) {
-    try {
-      const prev = JSON.parse(readFileSync(path, 'utf8'));
-      if (JSON.stringify(strip(prev, volatileKeys)) === JSON.stringify(strip(data, volatileKeys))) return false;
-    } catch {
-      // 壊れた既存ファイルは上書きする
-    }
-  }
+  if (jsonMatches(path, data, { volatileKeys })) return false;
   writeFileSync(path, JSON.stringify(data, null, 2) + (trailingNewline ? '\n' : ''), 'utf8');
   return true;
+}
+
+/**
+ * 既存ファイルの中身が data と同じか（生成時刻などの volatileKeys は比べない）。
+ * 生成物の `--check`（書かずに古さだけ見る）で使う。ファイルが無い・壊れているときは false。
+ * @param {string} path
+ * @param {object} data
+ * @param {{ volatileKeys?: string[] }} [opts]
+ */
+export function jsonMatches(path, data, { volatileKeys = ['generated_at'] } = {}) {
+  if (!existsSync(path)) return false;
+  try {
+    const prev = JSON.parse(readFileSync(path, 'utf8'));
+    return JSON.stringify(strip(prev, volatileKeys)) === JSON.stringify(strip(data, volatileKeys));
+  } catch {
+    return false;
+  }
 }

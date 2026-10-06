@@ -7,7 +7,9 @@
  * 無関係な PR まで巻き込む（2026-09-30〜10-05 の develop push 200 回中 26 回が赤。
  * note-paid-cta 9 連続・katex-warnings 4 連続・x-review 1 回）。ここに置くのは手元で数秒の検査だけ。
  * products（商品の正本 config/products.json と、その写し・生成物）は 2026-10-06 に足した（記事の price を手で直すと正本とずれる）。
- * unit-tests（手元 286 秒）・generated-indexes（62 秒・Windows では検査不成立）は CI に残す。
+ * unit-tests（手元 286 秒）は CI に残す。generated-indexes（全量 62 秒・Windows では検査不成立）も全量は CI に残し、
+ * ここでは note 記事カタログ（.claude/state/note-published.json・0.5 秒）だけを見る（2026-10-06 に note の題名変更と
+ * 下書きの追加で作り直しを忘れ、develop を 2 回赤くした）。
  *
  * 検査の id は scripts/quality-audit.mjs の CHECKS と同じ名前にする（CI で同じものが全量で走る）。
  */
@@ -43,6 +45,15 @@ export const GATES = [
       ['src/lib/note-magazines.ts', 'src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json'].includes(f),
     // ファイル指定が無いので全量（手元 7 秒）
     cmd: () => ['node', 'scripts/check-products.mjs'],
+  },
+  {
+    id: 'generated-indexes',
+    // note 記事カタログの入力（記事の frontmatter・マガジンの正本の生成物・収録の期待値）。カタログ以外の生成物は CI の全量に任せる
+    match: (f) =>
+      /^content\/note\/.+\/article(-[^/]+)?\.md$/i.test(f) ||
+      f === 'src/lib/note-magazines.ts' ||
+      f === datasetPath('config.note-magazine-membership'),
+    cmd: () => ['node', '.claude/scripts/build-note-published-index.mjs', '--check', '--staged'],
   },
 ];
 
