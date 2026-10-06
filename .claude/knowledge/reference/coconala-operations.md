@@ -12,7 +12,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > [!important] 守備範囲の切り分け（重複 SSOT を作らない）
 > - **本書** = 運用（受注フロー・KPI 記録・スキーマ・ドリフト検知・安全弁）
 > - [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) = **戦略・出品文面**（競合分析・価格設計・出品文面・ヒアリングシート・撤退ライン）
-> - `src/lib/coconala-services.ts` = **価格・状態・URL の機械可読 SoT**（文章側に価格を書かない）
+> - `config/products.json`（channel coconala）= **価格・状態・URL の機械可読 SoT**（文章側に価格を書かない）。`src/lib/coconala-services.ts` はその生成物（`npm run product -- gen`・書き換えは `npm run product -- set <id> catalog.<欄>`、出品・休止スクリプトは `updateCoconalaService`）
 
 **いつ読むか**: ココナラの受注を処理する／KPI を記録する／出品状態を変える／スキーマを触るとき。
 
@@ -34,7 +34,9 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ## 2. 3スキーマ
 
-### 2.1 カタログ（SoT）: `src/lib/coconala-services.ts`
+### 2.1 カタログ（SoT）: `config/products.json`（channel coconala）→ 生成物 `src/lib/coconala-services.ts`
+
+欄は下表のとおり（`catalog` の中身）。2026-10-06 に TS の直書きから商品の正本へ移した（DN-0492 段階3）。
 
 | フィールド | 用途 |
 |---|---|

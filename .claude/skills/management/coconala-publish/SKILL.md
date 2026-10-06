@@ -2,7 +2,7 @@
 name: coconala-publish
 description: >
   ココナラ出品サービスを Playwright で「新規出品」「内容修正」「受付休止/再開/アーカイブ」するスキル。カタログ
-  （src/lib/coconala-services.ts＝価格/状態/URL）と listings（config/coconala-listings.json
+  （config/products.json の channel coconala＝価格/状態/URL・生成物 src/lib/coconala-services.ts）と listings（config/coconala-listings.json
   ＝本文/カテゴリ/納期/ジャンル）を真実源に、ログイン済みプロファイルで出品フォームへ流し込む。
   安全弁＝account assert（sellerName=dobokunote）／既定は「下書きで保存」で実公開は --commit 必須／
   価格・カテゴリの充填 warning があれば公開せず下書き退避。公開成功時はカタログへ status:'listed'＋
@@ -131,6 +131,6 @@ profile の真実源は `coconala-account.json` の `profile`。**自己紹介�
 
 - スクリプト: `scripts/coconala-publish.mjs` / `scripts/coconala-edit.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
 - 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets）
-- 価格/状態 SoT: `src/lib/coconala-services.ts` ／ アカウント: `config/coconala-account.json`
+- 価格/状態 SoT: `config/products.json`（channel coconala・生成物 `src/lib/coconala-services.ts`）／ アカウント: `config/coconala-account.json`
 - 運用 SSOT: `.claude/knowledge/reference/coconala-operations.md` ／ 戦略・文面: `content/note/1級・2級土木/ココナラ展開キット.md`
 - エージェント: `.claude/agents/coconala-operator.md` ／ KPI 照合: `/coconala-status` ／ 受注: `/coconala-order`

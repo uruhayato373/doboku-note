@@ -76,11 +76,14 @@ export function loadProducts() {
     if (seen.has(p.id)) errors.push(`${label}: id が重複`);
     seen.add(p.id);
     if (p.channel === 'note' && p.catalog.id !== p.id) errors.push(`${label}: catalog.id（${p.catalog.id}）と id が違う`);
+    if (p.channel === 'coconala' && p.catalog.id !== p.id) errors.push(`${label}: catalog.id（${p.catalog.id}）と id が違う`);
     if (p.channel === 'kindle' && p.id !== kindleProductId(p.catalog.id)) errors.push(`${label}: id は ${kindleProductId(p.catalog.id)}（書籍 id ${p.catalog.id} の小文字に kindle- を付ける）`);
     products.push(p);
   }
-  const kindleOrders = products.filter((p) => p.channel === 'kindle').map((p) => p.order);
-  if (new Set(kindleOrders).size !== kindleOrders.length) errors.push(`${PRODUCTS_REL}: Kindle の order が重複`);
+  for (const ch of ['kindle', 'coconala']) {
+    const orders = products.filter((p) => p.channel === ch).map((p) => p.order);
+    if (new Set(orders).size !== orders.length) errors.push(`${PRODUCTS_REL}: ${ch} の order が重複`);
+  }
   if (!errors.length && raw !== canonicalFile(products, channels)) errors.push(`${PRODUCTS_REL}: 正規化されていない（npm run product -- fmt）`);
   return { products, channels, errors };
 }
@@ -160,6 +163,59 @@ export function writeKindleCatalog({ check = false } = {}) {
   if (check) return true;
   writeFileSync(KINDLE_CATALOG_FILE, next);
   return true;
+}
+
+// ---- ココナラ（src/lib/coconala-services.ts の SERVICES_RAW の中身は正本から作る生成ブロック） ----
+
+export const COCONALA_TS = join(ROOT, 'src', 'lib', 'coconala-services.ts');
+export const COCONALA_GROUP = 'coconala';
+
+/** ココナラの生成ブロック（SERVICES_RAW の中身。order の順・読み手の正規表現が切り出せる書式＝キーは 2 字下げ・欄は 4 字下げ） */
+export function renderCoconalaBlock(products) {
+  const body = products
+    .filter((p) => p.channel === 'coconala')
+    .sort((a, b) => a.order - b.order)
+    .map((p) => {
+      const lines = p.memo.map((m) => `  // ${m}`);
+      lines.push(`  ${tsString(p.id)}: {`);
+      for (const [k, v] of Object.entries(p.catalog)) lines.push(`    ${k}: ${tsValue(v, 4)},`);
+      lines.push('  },');
+      return lines.join('\n');
+    })
+    .join('\n');
+  return `${BLOCK_BEGIN(COCONALA_GROUP)}\n${body}\n${BLOCK_END(COCONALA_GROUP)}`;
+}
+
+/** 正本から coconala-services.ts の生成ブロックを書く（check なら書かずに差分の有無だけ返す）。差分があれば true */
+export function writeCoconalaBlock({ check = false } = {}) {
+  const { products } = loadProducts();
+  const raw = readFileSync(COCONALA_TS, 'utf8');
+  const crlf = raw.includes('\r\n');
+  const ts = raw.replace(/\r\n/g, '\n');
+  const next = replaceBlock(ts, COCONALA_GROUP, renderCoconalaBlock(products));
+  if (next === null) throw new Error('coconala-services.ts に生成ブロックの枠が無い');
+  if (next === ts) return false;
+  if (!check) writeFileSync(COCONALA_TS, crlf ? next.replace(/\n/g, '\r\n') : next);
+  return true;
+}
+
+/**
+ * ココナラのサービスを書き換える唯一の入口（出品の書き戻し・休止/再開）。mutator は catalog（SERVICES_RAW の 1 エントリと
+ * 同じ形）を受け取りその場で書き換える。正本（config/products.json）へ戻し、生成ブロックを作り直す。mutator の戻り値を返す
+ */
+export function updateCoconalaService(id, mutator) {
+  const { products, errors } = loadProducts();
+  const blocking = blockingErrors(errors);
+  if (blocking.length) throw new Error(`正本に問題があるので書かない（npm run check-products）:\n  ${blocking.join('\n  ')}`);
+  const p = products.find((x) => x.channel === 'coconala' && x.id === id);
+  if (!p) return undefined;
+  const catalog = structuredClone(p.catalog);
+  const result = mutator(catalog);
+  if (JSON.stringify(catalog) !== JSON.stringify(p.catalog)) {
+    saveProducts([{ ...p, catalog }]);
+    writeCoconalaBlock();
+  }
+  return result;
 }
 
 // ---- 収録の意図 ----

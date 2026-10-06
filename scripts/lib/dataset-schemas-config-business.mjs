@@ -891,8 +891,39 @@ export const KindleProduct = z
   })
   .strict();
 
+/**
+ * ココナラの 1 サービスの行（src/lib/coconala-services.ts の SERVICES_RAW の生成ブロックへそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物の欄の順を変えない）
+ */
+const coconalaService = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((s, ctx) => {
+    if (!(Number.isInteger(s.priceYen) && s.priceYen > 0)) flag(ctx, ['priceYen'], 'priceYen は正の整数（円）。ココナラの価格の正本');
+  });
+
+/** ココナラの 1 サービス（id は catalog.id と同じ coconala-…） */
+export const CoconalaProduct = z
+  .object({
+    id: z.string().regex(/^coconala-[a-z0-9-]+$/, 'coconala- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('coconala'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('service'),
+    persona: z.string().nullable().default(null),
+    /** SERVICES_RAW の並び（サイトの表示順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: coconalaService,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    /** 経緯のメモ（旧 coconala-services.ts のエントリのコメント） */
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
 /** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
-export const Product = z.discriminatedUnion('channel', [NoteProduct, KindleProduct]);
+export const Product = z.discriminatedUnion('channel', [NoteProduct, KindleProduct, CoconalaProduct]);
 
 /** チャネルごとの生成物の付帯情報（商品の行に属さない欄） */
 const productChannels = z

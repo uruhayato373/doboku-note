@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  Product, canonicalJson, canonicalFile, renderKindleCatalog, kindleProductId, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
+  Product, canonicalJson, canonicalFile, renderKindleCatalog, kindleProductId, renderCoconalaBlock, renderCatalogEntry, renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, productGroups, blockGroupsIn, articleNoteId,
 } from '../scripts/lib/product-registry.mjs';
 
 const base = {
@@ -85,4 +85,23 @@ test('Kindle の商品は書籍の欄の並びを保ち、catalog.json は order
   assert.deepEqual(Object.keys(out), ['_comment', 'schemaVersion', 'updatedAt', 'books']);
   assert.deepEqual(out.books.map((x) => x.id), ['A-00', 'h-01']);
   assert.equal(Product.safeParse({ ...a, catalog: { ...a.catalog, priceJpy: -1 } }).success, false);
+});
+
+test('ココナラの生成ブロックは order の順で、読み手（parseCatalog）が欄を切り出せる書式で書く', async () => {
+  const { parseCatalog } = await import('../scripts/lib/coconala-catalog.mjs');
+  const svc = (id, order, extra = {}) => Product.parse({
+    id, channel: 'coconala', qualification: 'rccm', stage: 'written', series: 'other', tier: 'service', order,
+    catalog: { id, status: 'listed', serviceUrl: `https://coconala.com/services/${order + 1}`, title: `題名${order}ます`, shortTitle: 's', priceYen: 5000, examScope: ['rccm'], weeklyCapacity: 2, ...extra },
+    memo: ['経緯のメモ'],
+  });
+  const a = svc('coconala-b', 1, { pauseReason: 'absence' });
+  const b = svc('coconala-a', 0);
+  const block = renderCoconalaBlock([a, b]);
+  assert.ok(block.indexOf("'coconala-a': {") < block.indexOf("'coconala-b': {"), 'order の順でない');
+  assert.match(block, /^ {2}\/\/ 経緯のメモ$/m);
+  const parsed = parseCatalog(`const SERVICES_RAW = {\n${block}\n} as const;`);
+  assert.deepEqual(Object.keys(parsed), ['coconala-a', 'coconala-b']);
+  assert.equal(parsed['coconala-b'].priceYen, 5000);
+  assert.equal(parsed['coconala-b'].pauseReason, 'absence');
+  assert.equal(Product.safeParse({ ...a, catalog: { ...a.catalog, priceYen: 0 } }).success, false, 'priceYen 0 を通した');
 });

@@ -18,7 +18,7 @@ import { join, relative } from 'node:path';
 import { tsImport } from 'tsx/esm/api';
 import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, PRODUCTS_REL, productGroups, blockGroupsIn, Product, loadProducts, saveProduct, saveProducts, formatProducts, canonicalJson,
-  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE,
+  renderBlock, replaceBlock, BLOCK_BEGIN, BLOCK_END, noteKeyOf, singleKeyOf, writeKindleCatalog, KINDLE_CATALOG_FILE, writeCoconalaBlock, COCONALA_TS,
 } from './lib/product-registry.mjs';
 import { loadLineupConfig, classifyProduct } from './lib/product-lineup.mjs';
 
@@ -39,6 +39,13 @@ function byIdOrDie(id) {
   const p = products.find((x) => x.id === id);
   if (!p) die(`商品が無い: ${id}`, 1);
   return p;
+}
+
+/** 一覧の価格の表示（note は catalog.price の文字列・Kindle は priceJpy・ココナラは priceYen） */
+function priceLabel(p) {
+  if (p.catalog.price != null) return String(p.catalog.price);
+  const yen = p.catalog.priceJpy ?? p.catalog.priceYen;
+  return yen != null ? `¥${yen}` : '';
 }
 
 function setPath(obj, path, value) {
@@ -204,6 +211,10 @@ function gen() {
   if (check && kindleChanged) die(`${relative(ROOT, KINDLE_CATALOG_FILE)} が正本と違う。npm run product -- gen を実行する`, 1);
   const kindle = products.filter((p) => p.channel === 'kindle').length;
   console.log(`[product] kindle: ${kindle} 冊${kindleChanged ? '（catalog.json を書いた）' : ''}`);
+  const coconalaChanged = writeCoconalaBlock({ check });
+  if (check && coconalaChanged) die(`${relative(ROOT, COCONALA_TS)} の生成ブロックが正本と違う。npm run product -- gen を実行する`, 1);
+  const coconala = products.filter((p) => p.channel === 'coconala').length;
+  console.log(`[product] coconala: ${coconala} 件${coconalaChanged ? '（coconala-services.ts を書いた）' : ''}`);
 }
 
 switch (cmd) {
@@ -212,7 +223,7 @@ switch (cmd) {
     const q = arg('--qualification');
     const t = arg('--tier');
     for (const p of products.filter((x) => (!q || x.qualification === q) && (!t || x.tier === t))) {
-      console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${String(p.catalog.price ?? (p.catalog.priceJpy != null ? `¥${p.catalog.priceJpy}` : '')).slice(0, 14).padEnd(14)} m=${String(p.members.length).padStart(3)} i=${p.includes.length}  ${p.id}`);
+      console.log(`${p.tier.padEnd(10)} ${p.series.padEnd(7)} ${priceLabel(p).slice(0, 14).padEnd(14)} m=${String(p.members.length).padStart(3)} i=${p.includes.length}  ${p.id}`);
     }
     if (errors.length) die(`正本に問題 ${errors.length} 件（npm run check-products）`, 1);
     break;
@@ -232,8 +243,9 @@ switch (cmd) {
     }
     setPath(p, path, value);
     console.log(`[product] ${relative(ROOT, saveProduct(p))}`);
-    // Kindle の catalog.json は正本からの生成物なので、書き換えたらその場で作り直す
+    // Kindle の catalog.json・ココナラの coconala-services.ts は正本からの生成物なので、書き換えたらその場で作り直す
     if (p.channel === 'kindle' && writeKindleCatalog()) console.log(`[product] ${relative(ROOT, KINDLE_CATALOG_FILE)}`);
+    if (p.channel === 'coconala' && writeCoconalaBlock()) console.log(`[product] ${relative(ROOT, COCONALA_TS)}`);
     break;
   }
   case 'add-member':

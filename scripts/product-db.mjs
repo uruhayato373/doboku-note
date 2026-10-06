@@ -64,9 +64,11 @@ n.products = ins(
   'INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
   products.map((p) => [
     p.id, p.channel, p.qualification, p.stage, p.series, p.tier, p.persona, p.catalog.title ?? null, p.catalog.noteTitle ?? null,
-    // Kindle は catalog.priceJpy（円の数値）・status が live のものを公開中とみなす。noteUrl は note だけ
-    p.catalog.price ?? (p.catalog.priceJpy != null ? `¥${p.catalog.priceJpy}` : null), p.catalog.priceJpy ?? yen(p.catalog.price),
-    p.channel === 'kindle' ? (p.catalog.status === 'live' ? 1 : 0) : p.catalog.published ? 1 : 0, p.catalog.retiredAt ?? null,
+    // Kindle は catalog.priceJpy・status が live、ココナラは priceYen・status が listed のものを公開中とみなす。noteUrl は note だけ
+    p.catalog.price ?? ((p.catalog.priceJpy ?? p.catalog.priceYen) != null ? `¥${p.catalog.priceJpy ?? p.catalog.priceYen}` : null),
+    p.catalog.priceJpy ?? p.catalog.priceYen ?? yen(p.catalog.price),
+    p.channel === 'kindle' ? (p.catalog.status === 'live' ? 1 : 0) : p.channel === 'coconala' ? (p.catalog.status === 'listed' ? 1 : 0) : p.catalog.published ? 1 : 0,
+    p.catalog.retiredAt ?? p.catalog.archivedAt ?? null,
     p.catalog.noteUrl || null, p.catalog.noteUrl ? noteKeyOf(p.catalog.noteUrl) : null,
   ]),
 );
