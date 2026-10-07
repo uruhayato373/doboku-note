@@ -129,6 +129,7 @@ npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 | `/report/site`（サイト別） | `site-rows` | **可能**。サイト行から doboku-note だけ採る＝**実績の真実源** |
 | `/report/program/detail` | `account-wide` | 不可。`programIdMap` の allowlist で doboku 分を抽出 |
 | `/report/period/{monthly,daily}` | `account-wide` | 不可。トレンド把握のみ（水準は doboku 単独ではない） |
+| `/report/result`（成果別・`result-detail`） | `result-rows` | **可能**。1 成果 1 行でサイト列がある。期間は URL の `start_date`/`end_date` で指定でき、成果 0 件の期間は CSV ボタンが出ず「データがありません」だけ（0 件の取得として扱う）。`report-log` の `conversions` へ |
 
 **検算（両方向）**: `crossCheckAgainstSite` が allowlist 抽出とサイト別 doboku-note 行を突合する。
 - **超過**（picked > site）＝ stats47 混入の疑い
@@ -138,7 +139,7 @@ npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 - 2026-07-27 実測: **137/137 の完全一致**（buildjob 56 + dx-consulting 35 + gks 30 + kensetsu-jobs 16）。
   doboku-note のクリックが 4 プログラムで過不足なく説明でき、混入も取りこぼしも無いことが数値で確認できた
 
-**ページ単位の成果の出どころ**は `/report/result`（成果別）の「リファラ」で見る（1 成果 1 行・クリック日時・デバイス付き）。広告リンクのリファラ方針を直した 2026-10-07 のデプロイ以降のクリックだけページの URL が残り、それ以前はドメインだけ（affiliate-operations.md §7・裁定ログ 2026-10-07）。`/report/site` 系では同じ A8 サイトの面を分けられない。
+**ページ単位の成果の出どころ**は `/report/result`（成果別）の「コンバージョンリファラ」で見る（1 成果 1 行・クリック日時・デバイス付き）。週次 CI が前月と当月を取り、`report-log` の `conversions`（`page`＝自サイトの path）に残す。広告リンクのリファラ方針を直した 2026-10-07 のデプロイ以降のクリックだけページの URL が残り、それ以前はドメインだけ（affiliate-operations.md §7・裁定ログ 2026-10-07）。`/report/site` 系では同じ A8 サイトの面を分けられない。
 
 検討して**捨てた**代替案: `/report/material`（素材別）の「素材ID」は `001`/`003`/`999` の 3 桁で、
 `affiliate-mats.json` の a8mat 第4トークン（`TSBE9` 等）とは別物。素材による分離はできない。

@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="のり面と水の流れ。雨水はのり肩排水溝と小段排水溝で受けて縦排水溝からのり尻へ流し、地中にしみ込んだ水は地下排水溝や水平排水孔で抜く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .wet    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：湿った土・帯水層 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土・構造物 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill */
+      .reinf  { stroke: #3a7d44; stroke-width: 3; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .push   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">のり面の排水工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">表面の水は溝で受け、しみ込んだ水は地中で抜く</text>
+  <polygon class="ground" points="16,340 70,340 170,230 214,230 314,120 384,120 384,360 16,360"/>
+  <polygon points="300,120 328,120 314,138" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="176,230 204,230 190,246" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="40,340 68,340 54,356" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="250" y1="186" x2="94" y2="330" stroke="#2e6da4" stroke-width="5" stroke-opacity="0.5"/>
+  <line class="water" x1="360" y1="84" x2="322" y2="114" marker-end="url(#aw)"/>
+  <line class="water" x1="280" y1="80" x2="250" y2="130" marker-end="url(#aw)"/>
+  <path class="wl" d="M 384 200 Q 300 220 230 300 Q 200 330 150 345"/>
+  <line class="water" x1="250" y1="290" x2="200" y2="290" marker-end="url(#aw)"/>
+  <line x1="160" y1="292" x2="240" y2="292" stroke="#2e6da4" stroke-width="3"/>
+  <text class="t-key" x="384" y="74" text-anchor="end">のり肩排水溝</text>
+  <text class="t-key" x="120" y="216" text-anchor="end">小段排水溝</text>
+  <line class="lead" x1="122" y1="214" x2="176" y2="236"/>
+  <text class="t-key" x="30" y="290">縦排水溝</text>
+  <line class="lead" x1="80" y1="286" x2="130" y2="292"/>
+  <text class="t-key" x="30" y="380">のり尻排水溝</text>
+  <line class="lead" x1="60" y1="368" x2="54" y2="356"/>
+  <text class="t-note" x="378" y="232" text-anchor="end">地下水・しみ込んだ水</text>
+  <text class="t-key" x="300" y="318" text-anchor="middle">水平排水孔</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">表面排水</text>
+  <text class="t-lab" x="104" y="414">のり肩・小段で受け、縦排水溝でのり尻へ</text>
+  <text class="t-key" x="30" y="440">地下排水</text>
+  <text class="t-lab" x="104" y="440">地下排水溝・水平排水孔で地中の水を抜く</text>
+  <text class="t-key" x="30" y="466">なぜ</text>
+  <text class="t-lab" x="104" y="466">のり面の崩壊はほとんど水が関係する</text>
+</svg>

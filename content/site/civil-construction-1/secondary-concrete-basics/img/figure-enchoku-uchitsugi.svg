@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉛直打継目の施工。打継面を粗にして十分吸水させ、直前にペーストなどを塗る。水密を要する場合は止水板を用い、型枠に金網や凹凸シートを貼る方法もある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="en-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="en-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="en-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">鉛直打継目の施工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">打継面を粗にして、新旧を一体にする</text>
+  <rect class="old" x="50" y="82" width="150" height="290"/>
+  <polygon class="con" points="200,82 350,82 350,372 200,372 204,360 196,348 204,336 196,324 204,312 196,300 204,288 196,276 204,264 196,252 204,240 196,228 204,216 196,204 204,192 196,180 204,168 196,156 204,144 196,132 204,120 196,108 204,96"/>
+  <polyline points="200,96 204,108 196,120 204,132 196,144 204,156 196,168 204,180 196,192 204,204 196,216 204,228 196,240 204,252 196,264 204,276 196,288 204,300 196,312 204,324 196,336 204,348 200,360" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+  <text class="t-lab" x="125" y="140" text-anchor="middle">旧コンクリート</text>
+  <text class="t-lab" x="275" y="140" text-anchor="middle">新コンクリート</text>
+  <text class="t-key" x="200" y="76" text-anchor="middle">打継面</text>
+  <rect class="good" x="172" y="236" width="56" height="9"/>
+  <text class="t-pos" x="240" y="262">止水板</text>
+  <text class="t-note" x="240" y="278">水密を要するとき</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">粗面化</text>
+  <text class="t-lab" x="104" y="416">ワイヤブラシ・チッピングで粗にして吸水</text>
+  <text class="t-key" x="30" y="442">直前に</text>
+  <text class="t-lab" x="104" y="442">ペースト・モルタル・エポキシ樹脂を塗る</text>
+  <text class="t-key" x="30" y="468">型枠側</text>
+  <text class="t-lab" x="104" y="468">金網・凹凸樹脂シートで面を粗にする</text>
+
+</svg>

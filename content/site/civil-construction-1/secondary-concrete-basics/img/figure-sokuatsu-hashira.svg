@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="柱の型枠にかかるコンクリートの側圧。打込み時の側圧はコンクリートの単位容積質量、打込み速度、打込み高さ、温度、セメントの種類で大きく変わる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="sk-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="sk-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="sk-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">型枠にかかる側圧（柱）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">打込み時、コンクリートが型枠を外へ押す</text>
+  <rect class="old" x="120" y="100" width="8" height="240"/>
+  <rect class="old" x="272" y="100" width="8" height="240"/>
+  <rect class="con" x="128" y="100" width="144" height="240"/>
+  <line class="dim" x1="92" y1="104" x2="92" y2="336" marker-start="url(#sk-s)" marker-end="url(#sk-a)"/>
+  <text class="t-note" x="16" y="212">打込み</text>
+  <text class="t-note" x="16" y="227">高さ</text>
+  <text class="t-key" x="200" y="124" text-anchor="middle">打込み面</text>
+  <line class="dim" x1="182" y1="140" x2="130" y2="140" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="194" y1="190" x2="130" y2="190" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="208" y1="240" x2="130" y2="240" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="222" y1="290" x2="130" y2="290" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="218" y1="140" x2="270" y2="140" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="206" y1="190" x2="270" y2="190" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="192" y1="240" x2="270" y2="240" marker-end="url(#sk-a)"/>
+  <line class="dim" x1="178" y1="290" x2="270" y2="290" marker-end="url(#sk-a)"/>
+  <text class="t-warn" x="200" y="322" text-anchor="middle">側圧</text>
+  <text class="t-note" x="296" y="214">型枠が</text>
+  <text class="t-note" x="296" y="229">外へ押される</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">要因</text>
+  <text class="t-lab" x="104" y="416">単位容積質量・打込み速度・打込み高さ</text>
+  <text class="t-key" x="30" y="442">ほか</text>
+  <text class="t-lab" x="104" y="442">コンクリートの温度・セメントの種類</text>
+  <text class="t-key" x="30" y="468">確認</text>
+  <text class="t-lab" x="104" y="468">型枠の剛性に応じ仮設の安全性を確認</text>
+
+</svg>

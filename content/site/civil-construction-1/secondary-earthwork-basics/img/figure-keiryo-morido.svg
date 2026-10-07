@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軽量盛土工法の比較。一般の盛土材では軟弱地盤にかかる荷重が大きいが、EPSブロックなど単位体積重量の軽い材料を使うと荷重が小さくなり、支持力不足に対する安全率を確保しやすい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="kl-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="kl-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="kl-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">軽量盛土工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">軽い材料で盛り、軟弱地盤への荷重を減らす</text>
+
+  <rect class="card" x="16" y="64" width="368" height="150" rx="6"/>
+  <rect class="card" x="16" y="226" width="368" height="150" rx="6"/>
+  <text class="t-key" x="28" y="84">一般の盛土材</text>
+  <rect class="warn" x="17" y="148" width="366" height="52"/>
+  <polygon class="brand" points="130,148 160,100 240,100 270,148" style="stroke-width:1.5"/>
+  <text class="t-lab" x="200" y="130" text-anchor="middle">盛土</text>
+  <line class="aD" x1="170" y1="152" x2="170" y2="190" marker-end="url(#kl-D)" style="stroke-width:3"/>
+  <line class="aD" x1="200" y1="152" x2="200" y2="190" marker-end="url(#kl-D)" style="stroke-width:3"/>
+  <line class="aD" x1="230" y1="152" x2="230" y2="190" marker-end="url(#kl-D)" style="stroke-width:3"/>
+  <text class="t-warn" x="300" y="170">荷重 大</text>
+  <text class="t-pos" x="28" y="246">軽量盛土（EPS ブロックなど）</text>
+  <rect class="warn" x="17" y="310" width="366" height="52"/>
+  <polygon class="pos" points="130,310 160,262 240,262 270,310" style="stroke-width:1.5"/>
+  <line x1="145" y1="286" x2="255" y2="286" stroke="#3a7d44" stroke-width="1"/>
+  <line x1="200" y1="262" x2="200" y2="310" stroke="#3a7d44" stroke-width="1"/>
+  <line class="aD" x1="185" y1="314" x2="185" y2="338" marker-end="url(#kl-D)" style="stroke-width:1.5"/>
+  <line class="aD" x1="215" y1="314" x2="215" y2="338" marker-end="url(#kl-D)" style="stroke-width:1.5"/>
+  <text class="t-pos" x="300" y="332">荷重 小</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">代表例</text>
+  <text class="t-lab" x="104" y="416">EPS ブロック工法・FCB 工法</text>
+  <text class="t-key" x="30" y="442"></text>
+  <text class="t-lab" x="104" y="442">発泡ビーズ混合軽量土工法</text>
+  <text class="t-key" x="30" y="468">重さ</text>
+  <text class="t-lab" x="104" y="468">EPS は約 0.2 kN/m³（1/100 以下）</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="サンドコンパクションパイル工法の施工順序。位置決めの後、振動または衝撃で貫入し、砂を入れて引き抜いて砂杭をつくり、周辺地盤を締め固める。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-sand-compaction-pile-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-sand-compaction-pile-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-sand-compaction-pile-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-sand-compaction-pile-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">サンドコンパクションパイル工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">砂杭をつくりながら、まわりの地盤も締め固める</text>
+  <rect class="card" x="16" y="64" width="176" height="150" rx="6"/>
+  <rect class="card" x="208" y="64" width="176" height="150" rx="6"/>
+  <rect class="card" x="16" y="224" width="176" height="150" rx="6"/>
+  <rect class="card" x="208" y="224" width="176" height="150" rx="6"/>
+  <rect class="soil" x="24" y="136" width="160" height="68"/>
+  <text class="t-key" x="28" y="86">1 位置決め</text>
+  <rect class="brand" x="94" y="98" width="20" height="38"/>
+  <text class="t-note" x="88" y="120" text-anchor="end">ケーシング</text>
+  <rect class="soil" x="216" y="136" width="160" height="68"/>
+  <text class="t-key" x="220" y="86">2 振動・衝撃で貫入</text>
+  <rect class="brand" x="286" y="98" width="20" height="94"/>
+  <path class="water" d="M 274 160 q -6 6 0 12 q 6 6 0 12"/>
+  <path class="water" d="M 318 160 q 6 6 0 12 q -6 6 0 12"/>
+
+  <rect class="soil" x="24" y="296" width="160" height="68"/>
+  <text class="t-key" x="28" y="246">3 砂を入れて引き抜く</text>
+  <rect class="brand" x="94" y="258" width="20" height="62"/>
+  <rect class="green" x="96" y="322" width="16" height="32"/>
+  <polygon class="weak" points="144,258 176,258 168,278 152,278"/>
+  <text class="t-note" x="160" y="273" text-anchor="middle">砂</text>
+  <line class="water" x1="78" y1="314" x2="78" y2="276" marker-end="url(#figure-sand-compaction-pile-ab)"/>
+  <text class="t-note" x="72" y="298" text-anchor="end">引抜き</text>
+  <rect class="soil" x="216" y="296" width="160" height="68"/>
+  <text class="t-key" x="220" y="246">4 砂杭の完成</text>
+  <ellipse class="green" cx="296" cy="332" rx="52" ry="32" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <rect class="green" x="288" y="296" width="16" height="64"/>
+  <text class="t-note" x="296" y="280" text-anchor="middle">砂杭と、締まった周辺地盤</text>
+  <line class="lead" x1="296" y1="284" x2="296" y2="296"/>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">方法</text>
+  <text class="t-lab" x="104" y="414">良質な砂を打ち込み、下方へ強制排出</text>
+  <text class="t-key" x="30" y="440">砂質地盤</text>
+  <text class="t-lab" x="104" y="440">締め固めて密度を増す</text>
+  <text class="t-key" x="30" y="466">粘性土地盤</text>
+  <text class="t-lab" x="104" y="466">砂杭と粘土の複合地盤で強度増</text>
+
+</svg>

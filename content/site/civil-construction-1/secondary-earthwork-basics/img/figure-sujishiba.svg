@@ -1,0 +1,112 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="筋芝工の正面図。盛土のり面に芝を水平の筋状に入れ、土羽打ちで転圧しながら施工する。野芝は生育が遅いため、生育を促す施肥が必要">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .gthin  { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">筋芝工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">芝を水平の筋にして、のり面を部分的に植生する</text>
+  <rect class="ground" x="60" y="76" width="230" height="280"/>
+  <text class="t-note" x="70" y="92">のり面を正面から見る</text>
+  <rect class="green" x="60" y="118" width="230" height="20"/>
+  <path d="M 70 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 92 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 114 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 136 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 158 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 180 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 202 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 224 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 246 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 268 134 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect class="green" x="60" y="168" width="230" height="20"/>
+  <path d="M 70 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 92 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 114 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 136 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 158 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 180 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 202 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 224 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 246 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 268 184 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect class="green" x="60" y="218" width="230" height="20"/>
+  <path d="M 70 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 92 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 114 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 136 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 158 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 180 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 202 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 224 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 246 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 268 234 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect class="green" x="60" y="268" width="230" height="20"/>
+  <path d="M 70 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 92 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 114 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 136 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 158 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 180 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 202 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 224 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 246 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 268 284 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect class="green" x="60" y="318" width="230" height="20"/>
+  <path d="M 70 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 92 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 114 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 136 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 158 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 180 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 202 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 224 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 246 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <path d="M 268 334 l 3 -8 l 3 8" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-pos" x="304" y="132" text-anchor="start">芝の筋</text>
+  <line class="lead" x1="300" y1="128" x2="292" y2="128"/>
+  <text class="t-note" x="304" y="190" text-anchor="start">筋と筋の</text>
+  <text class="t-note" x="304" y="206" text-anchor="start">間は土</text>
+  <text class="t-note" x="304" y="282" text-anchor="start">下から順に</text>
+  <text class="t-note" x="304" y="298" text-anchor="start">土羽打ち</text>
+  <line class="gthin" x1="324" y1="262" x2="324" y2="242" marker-end="url(#ag)"/>
+  <text class="t-warn" x="200" y="374" text-anchor="middle">野芝は生育が遅い</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="416">効果</text>
+  <text class="t-lab" x="104" y="416">土羽打ちで転圧され、浸食を防ぐ</text>
+  <text class="t-key" x="30" y="442">目的</text>
+  <text class="t-lab" x="104" y="442">盛土のり面の浸食防止・部分植生</text>
+  <text class="t-warn" x="30" y="468">施肥</text>
+  <text class="t-lab" x="104" y="468">野芝の生育を促すため施肥をする</text>
+</svg>

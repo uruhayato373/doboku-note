@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋のあきの確保。あきは鉄筋の外面どうしの間隔で、粗骨材の最大寸法の4/3倍、25mmの値を確保し、柱の鉛直鉄筋は40mm以上かつ4/3倍以上とする">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ak-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="ak-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="ak-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">鉄筋のあき</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">鉄筋どうしの間隔を余裕をもって確保する</text>
+  <text class="t-sec" x="16" y="78">(a) 梁などの鉄筋（断面）</text>
+  <rect class="con" x="100" y="90" width="200" height="76"/>
+  <circle class="bar" cx="160" cy="128" r="14"/><circle class="bar" cx="240" cy="128" r="14"/>
+  <line class="ext" x1="174" y1="136" x2="174" y2="190"/>
+  <line class="ext" x1="226" y1="136" x2="226" y2="190"/>
+  <line class="dim" x1="178" y1="184" x2="222" y2="184" marker-start="url(#ak-s)" marker-end="url(#ak-a)"/>
+  <text class="t-warn" x="200" y="206" text-anchor="middle">あき</text>
+  <text class="t-sec" x="16" y="244">(b) 柱の鉛直鉄筋（断面）</text>
+  <rect class="con" x="130" y="256" width="110" height="84"/>
+  <circle class="bar" cx="152" cy="276" r="9"/><circle class="bar" cx="218" cy="276" r="9"/>
+  <circle class="bar" cx="152" cy="320" r="9"/><circle class="bar" cx="218" cy="320" r="9"/>
+  <line class="ext" x1="227" y1="276" x2="264" y2="276"/>
+  <line class="ext" x1="227" y1="320" x2="264" y2="320"/>
+  <line class="dim" x1="260" y1="285" x2="260" y2="311" marker-start="url(#ak-s)" marker-end="url(#ak-a)"/>
+  <text class="t-warn" x="272" y="302">あき</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">(1)</text>
+  <text class="t-lab" x="104" y="416">粗骨材の最大寸法の 4/3 倍</text>
+  <text class="t-key" x="30" y="442">(2)</text>
+  <text class="t-lab" x="104" y="442">25 mm</text>
+  <text class="t-key" x="30" y="468">(3)</text>
+  <text class="t-lab" x="104" y="468">柱の鉛直鉄筋は 40 mm 以上、かつ 4/3 倍以上</text>
+
+</svg>

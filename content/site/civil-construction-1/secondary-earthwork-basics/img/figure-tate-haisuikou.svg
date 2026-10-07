@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="縦排水溝。小段排水溝やのり肩排水溝で集めた水を、のり面に沿って下るU形溝などでのり尻排水溝へ導く。下る水が溢れないよう、合流部やのり尻はますで受ける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .wet    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：湿った土・帯水層 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土・構造物 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill */
+      .reinf  { stroke: #3a7d44; stroke-width: 3; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .push   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">縦排水溝</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">集めた水を、のり面に沿ってのり尻へ下ろす</text>
+  <polygon class="ground" points="40,96 360,96 360,330 40,330"/>
+  <text class="t-note" x="52" y="114">のり面（正面）</text>
+  <rect x="40" y="150" width="320" height="14" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t-lab" x="356" y="146" text-anchor="end">小段排水溝</text>
+  <rect x="40" y="306" width="320" height="16" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t-lab" x="356" y="346" text-anchor="end">のり尻排水溝</text>
+  <rect x="186" y="164" width="28" height="142" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="180" y="146" width="40" height="22" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="180" y="296" width="40" height="30" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <line class="water" x1="80" y1="157" x2="172" y2="157" marker-end="url(#aw)"/>
+  <line class="water" x1="320" y1="157" x2="228" y2="157" marker-end="url(#aw)"/>
+  <line class="water" x1="200" y1="180" x2="200" y2="290" marker-end="url(#aw)"/>
+  <text class="t-key" x="232" y="236">縦排水溝（U形溝など）</text>
+  <text class="t-key" x="160" y="140" text-anchor="end" style="fill:#3a7d44">ます</text>
+  <line class="lead" x1="162" y1="137" x2="182" y2="150"/>
+  <text class="t-key" x="160" y="290" text-anchor="end" style="fill:#3a7d44">ます</text>
+  <line class="lead" x1="162" y1="287" x2="182" y2="300"/>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">材料</text>
+  <text class="t-lab" x="104" y="414">U形溝・鉄筋コンクリート管・石張り水路</text>
+  <text class="t-key" x="30" y="440">つなぎ目</text>
+  <text class="t-lab" x="104" y="440">合流部とのり尻はますで受け、溢れさせない</text>
+  <text class="t-key" x="30" y="466">据え付け</text>
+  <text class="t-lab" x="104" y="466">すき間から水が入らないよう据える</text>
+</svg>

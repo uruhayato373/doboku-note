@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工体系図の模式図。元請の下に一次下請、その下に二次下請と、請負関係の階層を木の形で示し、各社の技術者を載せる。工事現場の見やすい場所に掲げる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工体系図の例（請負関係の階層）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">元請から下請へ、請負の階層を一目で示す</text>
+  <rect class="b-brand" x="100" y="66" width="200" height="44" rx="6"/><text class="t-key" x="200" y="84" text-anchor="middle">元請</text><text class="t-note" x="200" y="100" text-anchor="middle">監理技術者</text>
+  <line class="ln" x1="200" y1="110" x2="200" y2="130"/>
+  <line class="ln" x1="104" y1="130" x2="296" y2="130"/>
+  <line class="arr" x1="104" y1="130" x2="104" y2="150" marker-end="url(#ar)"/>
+  <line class="arr" x1="296" y1="130" x2="296" y2="150" marker-end="url(#ar)"/>
+  <rect class="b-pos" x="16" y="150" width="176" height="40" rx="6"/><text class="t-lab" x="104" y="174" text-anchor="middle">一次下請（主任技術者）</text>
+  <rect class="b-pos" x="208" y="150" width="176" height="40" rx="6"/><text class="t-lab" x="296" y="174" text-anchor="middle">一次下請（主任技術者）</text>
+  <line class="ln" x1="28" y1="190" x2="28" y2="294"/>
+  <line class="ln" x1="28" y1="238" x2="40" y2="238"/>
+  <line class="ln" x1="28" y1="294" x2="40" y2="294"/>
+  <rect class="b-gray" x="40" y="218" width="152" height="40" rx="6"/><text class="t-lab" x="116" y="242" text-anchor="middle">二次下請（主任技術者）</text>
+  <rect class="b-gray" x="40" y="274" width="152" height="40" rx="6"/><text class="t-lab" x="116" y="298" text-anchor="middle">二次下請（主任技術者）</text>
+  <line class="ln" x1="220" y1="190" x2="220" y2="238"/>
+  <line class="ln" x1="220" y1="238" x2="232" y2="238"/>
+  <rect class="b-gray" x="232" y="218" width="152" height="40" rx="6"/><text class="t-lab" x="308" y="242" text-anchor="middle">二次下請（主任技術者）</text>
+  <rect class="box" x="16" y="354" width="368" height="68" rx="6"/><text class="t-key" x="30" y="382">示すもの</text><text class="t-lab" x="104" y="382">請負関係の階層と、各社の技術者</text><text class="t-key" x="30" y="406">掲示</text><text class="t-lab" x="104" y="406">工事現場の見やすい場所に掲げる</text>
+</svg>

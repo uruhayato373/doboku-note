@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="盛土のり面における補強土壁工の断面。壁面材から盛土の中へ補強材を水平に敷き、すべり土塊の滑動力に補強材の引張りで抵抗して、急な勾配でも盛土を安定させる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="hw-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="hw-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="hw-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">盛土のり面の補強土壁工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">補強材の引張りで、盛土を壁のように立てる</text>
+
+  <rect class="gray" x="16" y="330" width="368" height="42"/>
+  <rect class="brand" x="16" y="90" width="234" height="240" style="stroke-width:1.5"/>
+  <rect class="gray" x="250" y="90" width="16" height="40"/>
+  <rect class="gray" x="250" y="130" width="16" height="40"/>
+  <rect class="gray" x="250" y="170" width="16" height="40"/>
+  <rect class="gray" x="250" y="210" width="16" height="40"/>
+  <rect class="gray" x="250" y="250" width="16" height="40"/>
+  <rect class="gray" x="250" y="290" width="16" height="40"/>
+  <line class="rP" x1="266" y1="110" x2="100" y2="110"/>
+  <line class="rP" x1="266" y1="150" x2="100" y2="150"/>
+  <line class="rP" x1="266" y1="190" x2="100" y2="190"/>
+  <line class="rP" x1="266" y1="230" x2="100" y2="230"/>
+  <line class="rP" x1="266" y1="270" x2="100" y2="270"/>
+  <line class="rP" x1="266" y1="310" x2="100" y2="310"/>
+  <path class="slip" d="M 250 330 L 160 90"/>
+  <line class="aD" x1="196" y1="130" x2="238" y2="130" marker-end="url(#hw-D)"/>
+  <text class="t-lab" x="30" y="140">盛土</text>
+  <text class="t-note" x="30" y="356">地盤</text>
+  <text class="t-lab" x="276" y="118">壁面材</text>
+  <text class="t-lab" x="276" y="194">補強材</text>
+  <text class="t-pos" x="276" y="250">引張りで</text>
+  <text class="t-pos" x="276" y="266">抵抗する</text>
+  <text class="t-warn" x="276" y="310">すべり面</text>
+  <line class="ln" x1="272" y1="306" x2="238" y2="296" style="stroke:#b22234"/>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">すべり土塊の滑動力に対抗</text>
+  <text class="t-key" x="30" y="442">効果</text>
+  <text class="t-lab" x="104" y="442">より急な勾配でも盛土が安定</text>
+  <text class="t-key" x="30" y="468">適用</text>
+  <text class="t-lab" x="104" y="468">安定勾配を確保できない盛土</text>
+</svg>

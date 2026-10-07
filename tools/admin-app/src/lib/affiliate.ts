@@ -329,6 +329,7 @@ interface FunnelAffiliate {
   byRuleWindow?: { start: string; end: string; source: 'page' | 'placement' };
   unattributed?: { impressions: number; clicks: number };
   clickLog?: { date: string; page: string; label: string; placement: string; program: string | null; ruleId: string | null; clicks: number }[];
+  conversions?: { clickedAt: string; program: string | null; status: string; grossRevenueYen: number; revenueYen: number; device: string | null; page: string | null; candidates: { ruleId: string; slot: string }[] }[];
 }
 
 function readFunnelAffiliate(): FunnelAffiliate | null {
@@ -370,6 +371,20 @@ export function affiliateClickLog(): ClickLogRow[] {
     slotLabel: vocab[c.placement]?.label ?? c.placement,
     ruleId: c.ruleId,
     clicks: c.clicks,
+  }));
+}
+
+/** A8 の成果別（1 成果 1 行）をクリックしたページと候補の配置ルールで（report-career-funnel が寄せた結果）。 */
+export function affiliateConversions(): { clickedAt: string; program: string | null; status: string; grossRevenueYen: number; device: string | null; page: string | null; rules: string }[] {
+  const vocab = readPlacementVocab();
+  return (readFunnelAffiliate()?.conversions ?? []).map((c) => ({
+    clickedAt: c.clickedAt,
+    program: c.program,
+    status: c.status,
+    grossRevenueYen: c.grossRevenueYen,
+    device: c.device,
+    page: c.page,
+    rules: c.candidates.map((x) => `${x.ruleId}（${vocab[x.slot]?.label ?? x.slot}）`).join('・'),
   }));
 }
 

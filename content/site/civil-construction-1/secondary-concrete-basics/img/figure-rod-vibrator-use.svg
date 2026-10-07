@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="棒状バイブレータの使い方。なるべく鉛直に、間隔 50 cm 以下で差し込み、下層のコンクリートに 10 cm 程度入れて 1 箇所 5〜15 秒振動させる。引抜きは徐々に行い、横移動に使ってはならない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">棒状バイブレータの扱い方</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">鉛直に、間隔と挿入深さを守って締め固める</text>
+
+  <rect class="card" x="16" y="64" width="368" height="306" rx="6"/>
+  <rect class="gray" x="56" y="260" width="288" height="86"/>
+  <text class="t-key" x="200" y="336" text-anchor="middle">下層（打込み済み）</text>
+  <rect class="conc" x="56" y="176" width="288" height="84"/>
+  <text class="t-key" x="191" y="204" text-anchor="middle">打込み層</text>
+  <text class="t-note" x="191" y="222" text-anchor="middle">1 層は</text>
+  <text class="t-note" x="191" y="236" text-anchor="middle">40〜50 cm 以下</text>
+  <line class="dash" x1="56" y1="260" x2="344" y2="260"/>
+  <!-- バイブレータ -->
+  <rect class="bar" x="100" y="120" width="12" height="160"/>
+  <rect class="bar" x="270" y="120" width="12" height="160"/>
+  <rect class="gray" x="97" y="98" width="18" height="22" rx="3"/>
+  <rect class="gray" x="267" y="98" width="18" height="22" rx="3"/>
+  <text class="t-note" x="106" y="92" text-anchor="middle">鉛直に</text>
+  <text class="t-note" x="276" y="92" text-anchor="middle">鉛直に</text>
+  <!-- 間隔 -->
+  <line x1="130" y1="150" x2="254" y2="150" stroke="#2e6da4" stroke-width="2" marker-start="url(#mb)" marker-end="url(#mb)"/>
+  <text class="t-key" x="191" y="142" text-anchor="middle">50 cm 以下</text>
+  <!-- 下層への挿入 -->
+  <line class="lead" x1="294" y1="260" x2="294" y2="280"/>
+  <line class="lead" x1="288" y1="260" x2="300" y2="260"/>
+  <line class="lead" x1="288" y1="280" x2="300" y2="280"/>
+  <text class="t-note" x="304" y="272">下層へ</text>
+  <text class="t-note" x="304" y="286">10 cm</text>
+  <text class="t-note" x="304" y="300">程度</text>
+  <!-- 振動の及ぶ範囲 -->
+  <ellipse class="dash" cx="106" cy="230" rx="34" ry="64"/>
+  <ellipse class="dash" cx="276" cy="230" rx="34" ry="64"/>
+  <text class="t-note" x="200" y="362" text-anchor="middle">点線は振動が有効に及ぶ範囲のイメージ</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">時間</text>
+  <text class="t-lab" x="92" y="416">1 箇所 5〜15 秒。光沢が出るまで</text>
+  <text class="t-key" x="30" y="442">引抜き</text>
+  <text class="t-lab" x="92" y="442">徐々に。あとに穴を残さない</text>
+  <text class="t-warn" x="30" y="468">禁止</text>
+  <text class="t-lab" x="92" y="468">横に動かして流し込まない</text>
+
+</svg>

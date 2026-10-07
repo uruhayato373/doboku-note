@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="グラウンドアンカー工の断面。のり面の不安定な岩盤を、アンカー材で奥の堅固な基盤に直接つなぎ、崩落と剥落を防ぐ。頭部、自由長部、定着部からなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ga-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ga-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ga-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">グラウンドアンカー工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">不安定な岩盤を、堅固な基盤へ直接つなぐ</text>
+
+  <polygon class="gray" points="16,372 16,90 230,90 300,320 384,320 384,372"/>
+  <polygon class="warn" points="200,90 230,90 300,320 256,320"/>
+  <path class="slip" d="M 200 90 L 256 320"/>
+  <line x1="245.2" y1="140" x2="150" y2="178.1" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="150" y1="178.1" x2="110" y2="194.1" stroke="#3a7d44" stroke-width="8" stroke-linecap="round"/>
+  <rect class="pos" x="242.2" y="130" width="8" height="20" style="stroke-width:1.5"/>
+  <line x1="266.5" y1="210" x2="150" y2="256.6" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="150" y1="256.6" x2="110" y2="272.6" stroke="#3a7d44" stroke-width="8" stroke-linecap="round"/>
+  <rect class="pos" x="263.5" y="200" width="8" height="20" style="stroke-width:1.5"/>
+  <line x1="287.8" y1="280" x2="150" y2="335.1" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="150" y1="335.1" x2="110" y2="351.1" stroke="#3a7d44" stroke-width="8" stroke-linecap="round"/>
+  <rect class="pos" x="284.8" y="270" width="8" height="20" style="stroke-width:1.5"/>
+  <text class="t-warn" x="276" y="126">不安定な岩盤</text>
+  <line class="ln" x1="272" y1="122" x2="226" y2="122" style="stroke:#b22234"/>
+  <text class="t-lab" x="30" y="160">堅固な基盤</text>
+  <text class="t-note" x="140" y="214">自由長部</text>
+  <text class="t-pos" x="30" y="366">定着部</text>
+  <line class="ln" x1="82" y1="360" x2="106" y2="352" style="stroke:#3a7d44"/>
+  <text class="t-note" x="304" y="214">頭部</text>
+  <line class="ln" x1="302" y1="210" x2="274" y2="210"/>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">崩落・剥落の防止</text>
+  <text class="t-key" x="30" y="442">適用</text>
+  <text class="t-lab" x="104" y="442">亀裂のある硬岩・軟岩ののり面</text>
+  <text class="t-key" x="30" y="468">併用</text>
+  <text class="t-lab" x="104" y="468">枠工・コンクリート張工・擁壁工</text>
+</svg>

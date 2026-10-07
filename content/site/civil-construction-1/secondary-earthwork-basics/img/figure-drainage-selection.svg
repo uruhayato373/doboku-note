@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="排水工法の選定。電気浸透工法は10のマイナス5乗cm/sec以下、真空排水は10のマイナス2乗から10のマイナス5乗cm/sec程度、重力排水は10のマイナス1乗cm/secより大きい層に適用し、極めて大きいときは水中掘削が有利なこともある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-drainage-selection-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-drainage-selection-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-drainage-selection-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-drainage-selection-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">土の細かさと排水工法の適用範囲</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">透水係数が小さい土ほど、強制的な排水が必要になる</text>
+  <text class="t-note" x="28" y="76">土が細かい（透水係数が小さい）</text>
+  <text class="t-note" x="372" y="76" text-anchor="end">粗い（大きい）</text>
+  <line x1="40" y1="84" x2="360" y2="84" style="stroke:#8a8a8a;stroke-width:1.5" marker-end="url(#figure-drainage-selection-ak)"/>
+  <text class="t-key" x="50" y="104">電気浸透工法</text>
+  <rect x="50" y="110" width="53.33" height="16" rx="4" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t-note" x="50" y="142">10<tspan dy="-5" style="font-size:11px">−5</tspan><tspan dy="5"> </tspan> cm/sec 以下の土</text>
+  <text class="t-key" x="50" y="164">真空排水（ウェルポイントなど）</text>
+  <rect x="103.33" y="170" width="159.99" height="16" rx="4" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <text class="t-note" x="103.33" y="202">10<tspan dy="-5" style="font-size:11px">−2</tspan><tspan dy="5"> </tspan> ～ 10<tspan dy="-5" style="font-size:11px">−5</tspan><tspan dy="5"> </tspan> cm/sec 程度</text>
+  <text class="t-key" x="50" y="224">重力排水（釜場・深井戸など）</text>
+  <rect x="316.65" y="230" width="53.35000000000002" height="16" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t-note" x="370" y="262" text-anchor="end">10<tspan dy="-5" style="font-size:11px">−1</tspan><tspan dy="5"> </tspan> cm/sec より大きい</text>
+  <text class="t-key" x="50" y="284">水中掘削</text>
+  <rect x="348.64799999999997" y="290" width="21.352000000000032" height="16" rx="4" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="370" y="322" text-anchor="end">透水係数が極めて大きいとき</text>
+  <line x1="50" y1="350" x2="370" y2="350" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <line x1="103.33" y1="346" x2="103.33" y2="354" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="103.33" y="368" text-anchor="middle">10<tspan dy="-5" style="font-size:11px">−5</tspan><tspan dy="5"> </tspan></text>
+  <line x1="156.66" y1="346" x2="156.66" y2="354" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="156.66" y="368" text-anchor="middle">10<tspan dy="-5" style="font-size:11px">−4</tspan><tspan dy="5"> </tspan></text>
+  <line x1="209.99" y1="346" x2="209.99" y2="354" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="209.99" y="368" text-anchor="middle">10<tspan dy="-5" style="font-size:11px">−3</tspan><tspan dy="5"> </tspan></text>
+  <line x1="263.32" y1="346" x2="263.32" y2="354" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="263.32" y="368" text-anchor="middle">10<tspan dy="-5" style="font-size:11px">−2</tspan><tspan dy="5"> </tspan></text>
+  <line x1="316.65" y1="346" x2="316.65" y2="354" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="316.65" y="368" text-anchor="middle">10<tspan dy="-5" style="font-size:11px">−1</tspan><tspan dy="5"> </tspan></text>
+  <text class="t-note" x="372" y="340" text-anchor="end">透水係数（cm/sec）</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">選び方</text>
+  <text class="t-lab" x="104" y="414">土の透水性に合わせて工法を選ぶ</text>
+  <text class="t-key" x="30" y="440">重力排水</text>
+  <text class="t-lab" x="104" y="440">透水係数が大きい層に適用</text>
+  <text class="t-key" x="30" y="466">強制排水</text>
+  <text class="t-lab" x="104" y="466">細かい土は真空力で水を集める</text>
+
+</svg>

@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スランプ試験の手順。湿らせたコーンをプレートに据え、ほぼ等しい3層に分けて各層を突き棒で25回ずつ突き、コーンを静かに引き上げて、コーン上面からの下がりを0.5cm単位で測る。下がりが大きいほど軟らかい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="sl-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="sl-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="sl-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="sl-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="sl-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="sl-rs" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">スランプ試験</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">コンシステンシーを「下がり」で見る</text>
+  <g transform="translate(16,62)">
+    <rect class="card" x="0" y="0" width="176" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">1</text>
+    <text class="t-key" x="34" y="22">コーンを据える</text>
+    <rect class="gry" x="24" y="108" width="128" height="8"/>
+    <polygon class="brand" points="46,108 114,108 98,48 62,48"/>
+    <text class="t-note" x="88" y="134" text-anchor="middle">内側を湿らせる</text>
+    <text class="t-note" x="88" y="148" text-anchor="middle">コーンをプレートへ</text>
+  </g>
+  <g transform="translate(208,62)">
+    <rect class="card" x="0" y="0" width="176" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">2</text>
+    <text class="t-key" x="34" y="22">3層に詰める</text>
+    <rect class="gry" x="24" y="108" width="128" height="8"/>
+    <polygon class="brand" points="46,108 114,108 98,48 62,48"/>
+    <line class="thin" x1="66" y1="68" x2="110" y2="68"/><line class="thin" x1="58" y1="88" x2="118" y2="88"/>
+    <line class="c-pos" x1="130" y1="30" x2="94" y2="76"/>
+    <text class="t-note" x="88" y="134" text-anchor="middle">ほぼ等しい3層に分け</text>
+    <text class="t-note" x="88" y="148" text-anchor="middle">各層を 25 回ずつ突く</text>
+  </g>
+  <g transform="translate(16,224)">
+    <rect class="card" x="0" y="0" width="176" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">3</text>
+    <text class="t-key" x="34" y="22">引き上げる</text>
+    <rect class="gry" x="24" y="108" width="128" height="8"/>
+    <path class="wrn" d="M 36 108 C 36 92 54 84 62 84 L 94 84 C 104 84 120 92 120 108 Z"/>
+    <polygon class="card" points="130,100 160,100 154,60 136,60" stroke-dasharray="4 3"/>
+    <line class="ar-b" x1="145" y1="52" x2="145" y2="34" marker-end="url(#sl-b)"/>
+    <text class="t-note" x="88" y="134" text-anchor="middle">コーンを静かに</text>
+    <text class="t-note" x="88" y="148" text-anchor="middle">真上へ引き上げる</text>
+  </g>
+  <g transform="translate(208,224)">
+    <rect class="card" x="0" y="0" width="176" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">4</text>
+    <text class="t-key" x="34" y="22">下がりを測る</text>
+    <rect class="gry" x="24" y="108" width="128" height="8"/>
+    <polygon points="46,108 114,108 98,48 62,48" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <path class="wrn" d="M 40 108 C 40 94 54 86 66 86 L 94 86 C 106 86 120 94 120 108 Z"/>
+    <line class="dash" x1="98" y1="48" x2="132" y2="48"/><line class="dash" x1="100" y1="86" x2="132" y2="86"/>
+    <line class="ar-r" x1="120" y1="52" x2="120" y2="84" marker-end="url(#sl-r)" marker-start="url(#sl-rs)"/>
+    <text class="t-warn" x="132" y="72">下がり</text>
+    <text class="t-note" x="88" y="134" text-anchor="middle">0.5 cm 単位で記録</text>
+  </g>
+  <rect class="box" x="16" y="392" width="368" height="68" rx="6"/>
+  <text class="t-key" x="30" y="416">判断</text>
+  <text class="t-lab" x="70" y="416">スランプが大きいほどコンクリートは軟らかい</text>
+  <text class="t-key" x="30" y="442">併用</text>
+  <text class="t-lab" x="70" y="442">高強度では広がりのフロー値も使う</text>
+
+</svg>

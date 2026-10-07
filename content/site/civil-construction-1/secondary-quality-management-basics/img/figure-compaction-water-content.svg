@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ土を同じ締固めエネルギーで試験すると、最適含水比で乾燥密度が最大になる。現場では乾燥密度と施工含水比の両方を仕様書の基準と照合する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #555; font-size: 13px; }
+      .key { fill: #1a3a5c; font-weight: bold; font-size: 14px; } /* brand / ink-body */
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .curve { fill: none; stroke: #2e6da4; stroke-width: 3; } /* brand */
+      .guide { fill: none; stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 4; } /* danger */
+      .box { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+    </style>
+    <marker id="comp-axis" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7Z" fill="#555"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <text x="200" y="25" text-anchor="middle">同じ土・同じ締固めエネルギーで比較</text>
+  <path class="axis" d="M65 285V62" marker-end="url(#comp-axis)"/>
+  <path class="axis" d="M65 285H376" marker-end="url(#comp-axis)"/>
+  <text class="key" x="22" y="50">乾燥密度</text>
+  <text class="key" x="377" y="309" text-anchor="end">含水比 →</text>
+  <path class="curve" d="M86 250C125 204 157 135 218 132C277 130 318 201 359 249"/>
+  <path class="guide" d="M65 132H218V285"/>
+  <circle cx="218" cy="132" r="5" fill="#b22234"/>
+  <text class="key" x="239" y="101">最大乾燥密度</text>
+  <path class="axis" d="M242 109L223 126"/>
+  <text class="key" x="218" y="309" text-anchor="middle">最適含水比</text>
+  <text x="124" y="275" text-anchor="middle">乾燥側</text>
+  <text x="313" y="275" text-anchor="middle">湿潤側</text>
+  <rect class="box" x="20" y="338" width="360" height="76" rx="8"/>
+  <text class="key" x="200" y="365" text-anchor="middle">現場で確認するのは、密度と水分</text>
+  <text x="200" y="393" text-anchor="middle">締固め度 ＋ 施工含水比の規定範囲</text>
+  <text x="200" y="448" text-anchor="middle">水が少なすぎても、多すぎても</text>
+  <text class="key" x="200" y="475" text-anchor="middle">同じエネルギーでは乾燥密度が下がる</text>
+</svg>

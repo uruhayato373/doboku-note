@@ -41,6 +41,8 @@ test('classifyCtaLive: 順番どおり・見出しの前なら ok、無い・逆
   assert.equal(classifyCtaLive('<p>services/4418775</p><p>services/4418781</p><h2>x</h2>', e).state, 'ok');
   assert.deepEqual(classifyCtaLive('<p>services/4418775</p><h2>x</h2>', e), { state: 'missing', missing: ['https://coconala.com/services/4418781'] });
   assert.equal(classifyCtaLive('<p>services/4418781</p><p>services/4418775</p><h2>x</h2>', e).state, 'order');
+  // 同じリンク先が導線より前にもある（冒頭の紹介文）だけなら、導線の中の順番で見る（2026-10-07 の誤判定）
+  assert.equal(classifyCtaLive('<p>services/4418781</p><p>services/4418775</p><p>services/4418781</p><h2>x</h2>', e).state, 'ok');
   assert.equal(classifyCtaLive('<h2>x</h2><p>services/4418775</p><p>services/4418781</p>', e).state, 'position');
 });
 

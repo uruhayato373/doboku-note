@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="各部分工事の工程計画の作成手順。施工方法の選定、作業可能日数の算定、1日平均施工量の算定、施工速度の算定を経て実施工程表を作成し、必要に応じて見直す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">各部分工事の工程計画の作成手順</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">部分ごとに日数と施工量を決め、工程表にまとめる</text>
+  <rect class="b-brand" x="56" y="66" width="220" height="44" rx="6"/>
+  <text class="t-lab" x="166" y="85" text-anchor="middle">施工方法の選定</text>
+  <text class="t-note" x="166" y="101" text-anchor="middle">機械の選定・組合せを含む</text>
+  <circle cx="36" cy="88" r="11" class="b-gray"/>
+  <text class="t-key" x="36" y="92" text-anchor="middle">1</text>
+  <line class="arr" x1="166" y1="110" x2="166" y2="130" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="56" y="130" width="220" height="44" rx="6"/>
+  <text class="t-lab" x="166" y="157" text-anchor="middle">作業可能日数の算定</text>
+  <circle cx="36" cy="152" r="11" class="b-gray"/>
+  <text class="t-key" x="36" y="156" text-anchor="middle">2</text>
+  <line class="arr" x1="166" y1="174" x2="166" y2="194" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="56" y="194" width="220" height="44" rx="6"/>
+  <text class="t-lab" x="166" y="221" text-anchor="middle">1日平均施工量の算定</text>
+  <circle cx="36" cy="216" r="11" class="b-gray"/>
+  <text class="t-key" x="36" y="220" text-anchor="middle">3</text>
+  <line class="arr" x1="166" y1="238" x2="166" y2="258" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="56" y="258" width="220" height="44" rx="6"/>
+  <text class="t-lab" x="166" y="285" text-anchor="middle">施工速度の算定</text>
+  <circle cx="36" cy="280" r="11" class="b-gray"/>
+  <text class="t-key" x="36" y="284" text-anchor="middle">4</text>
+  <line class="arr" x1="166" y1="302" x2="166" y2="322" marker-end="url(#ar)"/>
+  <rect class="b-pos" x="56" y="322" width="220" height="44" rx="6"/>
+  <text class="t-pos" x="166" y="349" text-anchor="middle">実施工程表の作成</text>
+  <circle cx="36" cy="344" r="11" class="b-gray"/>
+  <text class="t-key" x="36" y="348" text-anchor="middle">5</text>
+  <path class="dash" d="M 276 344 L 328 344 L 328 88 L 280 88" marker-end="url(#ar)"/>
+  <text class="t-note" x="336" y="230">見直し</text>
+  <rect class="box" x="16" y="396" width="368" height="68" rx="6"/><text class="t-key" x="30" y="424">目的</text><text class="t-lab" x="104" y="424">順序・作業日数・機械の組合せを決める</text><text class="t-key" x="30" y="448">結果</text><text class="t-lab" x="104" y="448">各部分を総合して全体の実施工程表へ</text>
+</svg>

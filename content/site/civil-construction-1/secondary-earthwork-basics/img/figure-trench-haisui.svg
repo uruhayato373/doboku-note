@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="表層排水工法の断面。盛土の施工前に地表面付近へトレンチを掘り、表層の水を溝に集めて排除して含水比を下げる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="tr-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="tr-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="tr-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">表層排水工法（トレンチ排水）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">盛土の前に溝を掘り、表層の水を抜く</text>
+
+  <rect class="gray" x="16" y="190" width="368" height="160"/>
+  <rect class="warn" x="16" y="190" width="368" height="80"/>
+  <polygon points="100,190 150,128 250,128 300,190" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="t-note" x="200" y="162" text-anchor="middle">このあと盛土</text>
+  <rect class="white" x="60" y="190" width="30" height="60"/>
+  <rect x="61" y="234" width="28" height="15" fill="#e8f0fe"/>
+  <rect class="white" x="185" y="190" width="30" height="60"/>
+  <rect x="186" y="234" width="28" height="15" fill="#e8f0fe"/>
+  <rect class="white" x="310" y="190" width="30" height="60"/>
+  <rect x="311" y="234" width="28" height="15" fill="#e8f0fe"/>
+  <text class="t-key" x="16" y="182">トレンチ（溝）</text>
+  <line class="aB" x1="120" y1="214" x2="94" y2="214" marker-end="url(#tr-B)"/>
+  <line class="aB" x1="155" y1="214" x2="181" y2="214" marker-end="url(#tr-B)"/>
+  <line class="aB" x1="250" y1="214" x2="219" y2="214" marker-end="url(#tr-B)"/>
+  <line class="aB" x1="280" y1="214" x2="306" y2="214" marker-end="url(#tr-B)"/>
+  <text class="t-note" x="200" y="266" text-anchor="middle">含水比の高い表層</text>
+  <text class="t-note" x="200" y="326" text-anchor="middle">溝に集まった水は排水路へ流す</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">含水比を下げ、コーン指数を改良</text>
+  <text class="t-key" x="30" y="442">効果</text>
+  <text class="t-lab" x="104" y="442">建設機械のトラフィカビリティ確保</text>
+  <text class="t-key" x="30" y="468">手順</text>
+  <text class="t-lab" x="104" y="468">盛土の前にトレンチを掘削して排水</text>
+</svg>

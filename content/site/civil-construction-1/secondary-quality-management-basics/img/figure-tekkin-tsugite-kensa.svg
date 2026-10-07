@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋の継手の検査。ガス圧接はふくらみの直径が鉄筋径の1.4倍以上、ふくらみの長さが1.1倍以上、圧接面のずれが鉄筋径の4分の1以下。重ね継手は鉄筋径の差が7mmを超える組合せを設けず、溶接継手は鉄筋軸に直角を原則とし、機械式継手はメーカー仕様に基づく">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="rj-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="rj-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="rj-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="rj-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="rj-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">鉄筋の継手部の検査</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">継手の種類ごとに見る項目が違う</text>
+  <text class="t-sec" x="16" y="74">ガス圧接の外観検査</text>
+  <path class="brand" d="M 60 138 H 150 C 160 138 165 126 175 126 C 195 126 208 138 216 138 H 250 V 198 H 216 C 208 198 195 210 175 210 C 165 210 160 198 150 198 H 60"/>
+  <line class="dash" x1="190" y1="116" x2="190" y2="218"/>
+  <line class="dash" x1="175" y1="116" x2="175" y2="126"/>
+  <line class="ar-k" x1="175" y1="116" x2="190" y2="116"/>
+  <text class="t-warn" x="183" y="94" text-anchor="middle">ずれ D/4 以下</text>
+  <text class="t-note" x="198" y="114">圧接面</text>
+  <line class="ar-k" x1="50" y1="138" x2="50" y2="198" marker-end="url(#rj-k)" marker-start="url(#rj-ks)"/>
+  <text class="t-key" x="36" y="172" text-anchor="middle">D</text>
+  <line class="dash" x1="175" y1="126" x2="290" y2="126"/><line class="dash" x1="175" y1="210" x2="290" y2="210"/>
+  <line class="ar-k" x1="290" y1="126" x2="290" y2="210" marker-end="url(#rj-k)" marker-start="url(#rj-ks)"/>
+  <text class="t-key" x="298" y="164">ふくらみの</text>
+  <text class="t-key" x="298" y="180">直径 1.4D 以上</text>
+  <line class="dash" x1="150" y1="198" x2="150" y2="236"/><line class="dash" x1="216" y1="210" x2="216" y2="236"/>
+  <line class="ar-k" x1="150" y1="232" x2="216" y2="232" marker-end="url(#rj-k)" marker-start="url(#rj-ks)"/>
+  <text class="t-key" x="183" y="254" text-anchor="middle">長さ 1.1D 以上</text>
+  <text class="t-sec" x="16" y="286">ほかの継手</text>
+  <rect class="card" x="16" y="296" width="368" height="48" rx="6"/>
+  <text class="t-key" x="28" y="325">重ね継手</text>
+  <text class="t-note" x="112" y="317">鉄筋径の差が 7 mm を超える</text>
+  <text class="t-note" x="112" y="334">組合せの重ね継手は設けない</text>
+  <rect class="card" x="16" y="352" width="368" height="48" rx="6"/>
+  <text class="t-key" x="28" y="381">溶接継手</text>
+  <text class="t-note" x="112" y="373">原則として鉄筋軸に直角</text>
+  <text class="t-note" x="112" y="390">溶接の種類に応じた検査</text>
+  <rect class="card" x="16" y="408" width="368" height="48" rx="6"/>
+  <text class="t-key" x="28" y="437">機械式継手</text>
+  <text class="t-note" x="112" y="429">継手メーカーの仕様に基づき</text>
+  <text class="t-note" x="112" y="446">適切に施工・検査する</text>
+
+</svg>

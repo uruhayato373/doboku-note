@@ -198,132 +198,6 @@
       "reason": "下端左下に写り込んでいた数字の断片と、左・上の過大な余白を除いて切り直し（506x315→298x200）。管路断面・D・D/2 の寸法線は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:26:27.359Z"
     },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
-      "sha": "ac416ef53ef2d575",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていた断面図の配力鉄筋・充填材のハッチ台形・部材厚 d の軸線を、二次問題解説集2021 p.202（180 度回転を戻す）から 300dpi で切り出し直して戻した（930x350→1000x442）。行番号と図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:17:40.844Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
-      "sha": "423e1be7f1a44828",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "左端の隣の本文カラムの文字断片・図番号キャプション『図 3.14 スペーサの用い方』・左右の余白を除いて切り直し（350x280→284x190）。鉄筋・スペーサ・引き出し線・各ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:42:41.147Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-15": {
-      "sha": "daddeda271c1cf1d",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右縁で切れていたスラブの水平線・破断線・かぶり c の寸法を、二次問題解説集2021 p.208（180 度回転を戻す）から 300dpi で切り出し直して戻した（450x310→782x459）。本文断片・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.285Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
-      "sha": "391e5ce288187513",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "図番号キャプション『図3.16 束ねて配置する鉄筋』・下端の次項見出し断片・左余白の行番号 30・右上の隣接図の断片を除いて切り直し（550x250→387x157）。(a) はり・(b) 柱の断面は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:43:30.759Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-2": {
-      "sha": "10766a3482ca4663",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "余白の行番号 30/35・図番号キャプション『図3.2 ベルトコンベア使用上の注意』・ページ番号の断片・右の余白を除いて切り直し（500x320→410x228）。(a) 正しい例・(b) 誤った例・60cm以上の寸法線・注記は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:42:41.145Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-20": {
-      "sha": "be80dc7a1da5c916",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "1級土木第二次検定問題解説集2021 p.214（図3.20・スキャンが 180 度回転）から回転を戻して 300dpi で切り出し直し（480x620→905x892）。左縁で欠けていた座金・横バタ（上下 2 か所）とフォームタイ先端を復元し、本文断片・キャプション・ページ番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:22:21.027Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-3": {
-      "sha": "a7e44ec20c451366",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "下部の図番号キャプション『図 3.3 斜めシュート使用上の注意』と上・右の空白を除いて切り直し（450x320→412x261）。左端に接しているのは (a) の堆積山の斜線が地面線と合わさる端点で、図の欠けではない（親 QA で拡大確認）。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T11:33:43.677Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-3-4": {
-      "sha": "7eb509f271daaefc",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていた (a)(b) の棒状バイブレータのホース先端を、二次問題解説集2021 p.199（180 度回転を戻す）から 600dpi で切り出し直して戻した（560x280→1000x423）。行番号・図番号キャプション・左カラムの本文は含めず、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:06:04.322Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
-      "sha": "3e6c579b4116433a",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A6 反応性骨材の例』を切り出し直し（700x237→475x400）。下端で切れていた『下り側梁下面』『上り側梁下面』の枠の下辺を復元し、MDX と重複する見出し行・左縁の影・隣接図の切れ端を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:28:10.121Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
-      "sha": "e943bcbda2793cde",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A9 乾燥収縮の例』を切り出し直し（900x340→1200x326）。右図ラベル『道路橋壁高欄の乾燥収縮によるひび割れの例』の下端を復元し、前の図の切れ端・影・重複する見出しを除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:28:10.122Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
-      "sha": "79653abc3f13aaad",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上端の隣接図のキャプション断片・行番号 10/15・MDX と重複する見出し『⑥ 記号 B10 …』・左右の空白を除いて切り直し（900x310→600x187）。3 つの小図と『漏水』『打継ぎ目部のひび割れ』『ハンチ下の打継ぎ処理』は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:42:41.147Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
-      "sha": "0df700a785d3204e",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "第二次検定問題解説集2021 p.186（180 度回転）の『記号 B17 不適当な打重ねの例』を切り出し直し（700x370→1088x453）。右縁で切れていたトンネル覆工の立体図の右半分と注記『トンネルの覆工コンクリート』を復元し、重複する見出しと行番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:28:10.122Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
-      "sha": "8af9881e27e8785b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "第二次検定問題解説集2021 p.186（180 度回転）の『記号 B5 急速な打込みの例』を切り出し直し（900x370→1100x361）。下端で切れていた中央と右の小図の説明を復元し、重複する見出しとページ番号を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:35:22.908Z"
-    },
-    "civil-construction-1/secondary-concrete-basics/img/fig-crack-settlement-bleeding": {
-      "sha": "28653781a6b93047",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "第二次検定問題解説集2021 p.185（180 度回転）の『記号 A8 沈下・ブリーディングの例』を切り出し直し（780x240→902x447）。左右の擁壁・フーチングの下辺と各小図の説明を復元し、前の図の残り・重複する見出し・綴じ部の影を除いた。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:35:22.909Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
-      "sha": "01314471480bde28",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上端のランニングヘッド『第4章 施工計画』・下端の図番号キャプションと出典『（国土交通省資料より）』・左右の余白を除いて切り直し（870x760→619x611）。フロー図の各ボックス・段階確認の枠・凡例は欠けなし。画像から消えた出典を ArticleImage の caption で表示するようにした。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:31:57.737Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
-      "sha": "6804ddb8f999caee",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上辺で切れていた先頭の工程ボックス『既設部測量』と、右辺で切れていた断面図の『主桁』・床版・斜線を、二次問題解説集2021 p.261（180 度回転を戻す）から 300dpi で切り出し直して戻した（804x726→1594x1336）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.287Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
-      "sha": "3f9d1c771fcb9a9e",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "下端で上半分だけ見えていた図番号キャプション『図4.8 各部分工事の工程計画の作成手順』と左右の過大な余白を除いて切り直し（650x450→411x398）。フローチャートの 5 つの箱・矢印・ループ線は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:40:15.249Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
-      "sha": "d6ef686b037dcf9d",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていたクローラクレーンのブーム先端・滑車部・吊りワイヤを、二次問題解説集2021 p.267（180 度回転を戻す）から 300dpi で切り出し直して戻した（880x650→880x720）。図番号・工法名・出典『画像提供：植田基工株式会社』は画像から除き、記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.288Z"
-    },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
       "sha": "48785072dc7e3fc0",
       "verdict": "ok",
@@ -338,166 +212,12 @@
       "reason": "縁で切れていた L 型擁壁の図を二次問題解説集2021 p.239（180 度回転を戻す）から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T21:26:41.991Z"
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
-      "sha": "bb2d998271433e8f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "平面図の一部しか無く上縁の盛土断面図と注記『排水溝（深さ0.5〜1.0 m程度）』が欠けていたので、二次問題解説集2021 p.100（180 度回転を戻す）から図2.1 全体を 300dpi で切り出し直した（430x230→802x426）。キャプション・行番号・隣の図2.2 の断片は含めていない。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T10:57:22.452Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
-      "sha": "6bdabd0ced7f63a8",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右縁で途切れていた右下の地盤線と地盤ハッチを、二次問題解説集2021 p.107（180 度回転を戻す）から 300dpi で切り出し直して戻した（650x300→1016x395）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.650Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
-      "sha": "66524df691f2846f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左縁で切れていたのり面の斜線と植生筋のハッチを、二次問題解説集2021 p.110（180 度回転を戻す）から 300dpi で切り出し直して戻した（310x360→436x306）。上の空白・図番号キャプション・隣の図2.15 の断片は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.652Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
-      "sha": "4153ce7319e4db08",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部の隣接図キャプション『図 2.14 張芝工』・下部の『図 2.17 筋芝工』・左余白の行番号 10/15・最下端の本文見出し断片を除いて切り直し（310x330→228x163）。法面・芝の筋・耳芝・切芝のラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:43:30.760Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-18": {
-      "sha": "9b64366b8bc7e030",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部の隣接図見出し『図2.15 植生マット工』・下部の図番号キャプション『図2.18 植生土のう工』・右縁の隣接図の断片・余白を除いて切り直し（310x330→183x164）。斜面断面と『植生土のう』『枠』は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T11:12:57.314Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
-      "sha": "70c1ce460ce4d336",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上端に写り込んでいた前図の注記断片『0 m程度)』・下部の図番号キャプション『図2.2 サンドマットによる地盤処理』・余白を除いて切り直し（450x210→341x95）。盛土・サンドマット・ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T10:53:04.919Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-21": {
-      "sha": "01412a98b38c687f",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "左余白の行番号 30・35・図番号キャプション『図2.21 じゃかご工の例』・左右の空白を除いて切り直し（850x310→464x197）。(a) じゃかご・(b) ふとんかごの断面と小図ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T11:39:55.839Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
-      "sha": "df858912985d2688",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右縁で切れていた (a)(b) の平面詳細図の寸法と格子、下縁で切れていた (b) の断面図を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x460→1006x869）。章見出し・綴じ影・図番号キャプション・隣の図2.23 は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.653Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
-      "sha": "40fc4a2ab9b39f1f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右端と下端で切れていたブロック列・粘質土の破線・裏込めのラベル・基礎コンクリートと基礎栗石・寸法を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→720x441）。上部の図2.22 の写り込みと図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.654Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
-      "sha": "524bbb810ccc398b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上にずれていた切り出し範囲を直し、下縁で切れていた法尻の基礎コンクリートと寸法 1,000 を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→678x530）。図2.23 の写り込み・行番号・隣接図の断片・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.993Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-26": {
-      "sha": "8cf5fdf97437888b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていた右下の拡大詳細図（モルタル吹付け・アンカーバー D32・寸法 400/500・断面下半分）を、二次問題解説集2021 p.114（180 度回転を戻す）から 300dpi で切り出し直して戻した（900x720→1068x1437）。上の空白・行番号・図番号キャプション・下の図2.27/2.28 は除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.996Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-27": {
-      "sha": "2452970c32c90b7a",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部の前図（図2.26）のキャプション断片と円弧の切れ端・左余白の行番号 25/30/35・図番号キャプション『図2.27 ブロック積擁壁工の例』・余白を除いて切り直し（470x580→334x382）。擁壁断面・寸法・注記は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T11:19:11.890Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
-      "sha": "57ca8da0af92ffe3",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部のランニングヘッド断片『章 土 工』・右の行番号 5・右端の章タブ・上下の余白を除いて切り直し（530x380→457x224）。グラウンドアンカー断面と引出し線ラベルは欠けなし（ラベルの無い引出し線は原図どおり）。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:17:23.092Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-33": {
-      "sha": "183a1e0deb77ec96",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "右縁の隣接図の水平線断片・左余白の行番号 30/35・図番号キャプション『図 2.33 地下排水溝の例』・下部の空白を除いて切り直し（500x380→377x183）。地下排水溝・小段排水溝・のり肩排水溝と道路の断面は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T11:12:57.314Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-34": {
-      "sha": "389ca3c1dabda42a",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左縁で切れていた『道路』の路面線を、二次問題解説集2021 p.116（180 度回転を戻す）から 300dpi で切り出し直して戻した（520x380→844x452）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.997Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
-      "sha": "3a257b4f6b698198",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上端の本文断片・右側の章タブ『第2章 土工 基礎解説』と行番号 5/10・下端のキャプション断片・余白を除いて切り直し（530x350→418x318）。A-A'・B-B' の平面図と断面図・ℓ 記号・ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:53:21.098Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
-      "sha": "62b8b9d50d35ee4b",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "下端で見切れた図番号キャプション『図2.51 重錘落下締固め工法の施工機械』・右余白の行番号 15・20・過大な余白を除いて切り直し（430x350→310x266）。クローラクレーンと G.L の地面ハッチは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:33:45.511Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
-      "sha": "3d2e6b28456d5c2b",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部の本文断片・下部の図番号キャプション『図 2.53 釜場排水工法』・右余白の行番号と綴じ部の影を除去して切り直し（420x400→357x272）。矢板・水・釜場・ポンプ・溝は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T09:00:29.888Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-54": {
-      "sha": "e0eb1bbfbb137496",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていたポンプ筒・井戸の破線・寸法線・水中ポンプの引出し線を、二次問題解説集2021 p.129（180 度回転を戻す）から 300dpi で切り出し直して戻した（420x360→707x697）。図2.53 のキャプション・行番号・綴じ影・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:17:40.849Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
-      "sha": "184191abb1a31065",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上部の前図（図2.5）の下端断片とキャプション・図番号キャプション『図2.6 切り盛り境のすり付け例』・下端の次段落の断片・左右の余白を除いて切り直し（750x770→468x543）。(a)(b)(c) の断面と小図ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:46:19.914Z"
-    },
     "civil-construction-1/secondary-earthwork-past-problems/img/fig-retaining-wall": {
       "sha": "b2cec54f5005beec",
       "verdict": "ok",
       "action": "reextract",
       "reason": "右縁で切れていた地表面線と地下水位線を、二次問題解説集2021 p.84（H26 問題2 No.13 の設問図・180 度回転を戻す）から 300dpi で切り出し直して戻した（550x400→720x558）。図タイトル『山留工概略図』は除いた（設問文が『下図のような山留工法』と指す）。解答例のページは使っていない。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T21:50:41.335Z"
-    },
-    "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
-      "sha": "1912852a69b4a45b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下端で切れていた下段グラフ（強度と含水比）の曲線・縦軸・最適含水比の線・横軸・w_opt・含水比 w と浸水後の注記を、二次問題解説集2021 p.311（180 度回転を戻す）から 300dpi で切り出し直して戻した（550x530→652x903）。ランニングヘッド・本文断片・章タブ・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.289Z"
-    },
-    "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
-      "sha": "abaecbf422407997",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていたフロー図の下端と矢印・盛土断面・『沈下量から品質を判断』・下端の注記を、二次問題解説集2021 p.314（180 度回転を戻す）から 300dpi で切り出し直して戻した（950x380→1110x699）。上の空白・行番号・図番号キャプション・後続の見出しは除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:27:53.045Z"
     },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
       "sha": "e3a644243ced826c",
@@ -520,13 +240,6 @@
       "reason": "上端の設問文の断片・右上のページ端の線・ページ番号『― 7 ―』・フッタ印字とトンボを除いて切り直し（1369x900→968x643）。①〜④ の 4 小図と小図番号・タイトル・ふりがなは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.094Z"
     },
-    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
-      "sha": "10e0b5733916a884",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下端と左側で切れていた PDCA サイクルの円・左の回転矢印・右下の回転矢印を、土木施工管理技術テキスト 施工管理・法規編 第1章 p.5（図1.3）から 300dpi で切り出し直して戻した（850x850→736x594）。上の空白・キャプション・本文・行番号は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:35:54.715Z"
-    },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
       "verdict": "ok",
@@ -547,13 +260,6 @@
       "action": "none",
       "reason": "ラフテレーンクレーンの写真で、ブーム・フック・キャビン・車体は全体が写っている。EDGE_CUT(left) は左下のアウトリガー梁が写真の縁をまたぐ構図で、図本体の欠けではない。写り込みなし",
       "reviewedAt": "2026-10-06T11:08:05.011Z"
-    },
-    "civil-construction-1/textbook-demolition/img/fig-6-4": {
-      "sha": "7d25a576e018dd24",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていた柱の縦線の上端と左壁のギザギザを、土木施工管理技術テキスト 土木一般編 第6章 p.3（図6.4）から 300dpi で切り出し直して戻した（1200x600→707x730）。図番号キャプション・行番号・左の空白は除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:35:54.718Z"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "sha": "e94b8b6dca213f5d",

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋コンクリート構造物の施工フロー例。準備工から脱型・埋戻しまで7段階を順に並べ、各段階に主な作業内容、使用機械、品質・出来形の確認項目、施工上の留意事項を記入する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工フローの例1（鉄筋コンクリート構造物）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">段階ごとに作業・機械・確認項目を書き込む</text>
+  <rect class="b-gray" x="16" y="64" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="83" text-anchor="middle">準備工・測量</text>
+  <line class="arr" x1="102" y1="94" x2="102" y2="110" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="110" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="129" text-anchor="middle">床掘り・基礎工</text>
+  <line class="arr" x1="102" y1="140" x2="102" y2="156" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="156" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="175" text-anchor="middle">鉄筋の組立</text>
+  <line class="arr" x1="102" y1="186" x2="102" y2="202" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="202" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="221" text-anchor="middle">型枠の組立</text>
+  <line class="arr" x1="102" y1="232" x2="102" y2="248" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="248" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="267" text-anchor="middle">コンクリート打設</text>
+  <line class="arr" x1="102" y1="278" x2="102" y2="294" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="294" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="313" text-anchor="middle">養生</text>
+  <line class="arr" x1="102" y1="324" x2="102" y2="340" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="340" width="172" height="30" rx="6"/><text class="t-lab" x="102" y="359" text-anchor="middle">脱型・埋戻し</text>
+  <rect class="b-pos" x="204" y="64" width="180" height="256" rx="6"/>
+  <text class="t-sec" x="294" y="88" text-anchor="middle">各段階に書くこと</text>
+  <rect class="b-gray" x="216" y="100" width="156" height="34" rx="6"/><text class="t-lab" x="294" y="121" text-anchor="middle">主な作業内容</text>
+  <rect class="b-gray" x="216" y="148" width="156" height="34" rx="6"/><text class="t-lab" x="294" y="169" text-anchor="middle">使用機械</text>
+  <rect class="b-gray" x="216" y="196" width="156" height="46" rx="6"/><text class="t-lab" x="294" y="215" text-anchor="middle">品質・出来形の</text><text class="t-lab" x="294" y="231" text-anchor="middle">確認項目</text>
+  <rect class="b-gray" x="216" y="256" width="156" height="46" rx="6"/><text class="t-lab" x="294" y="275" text-anchor="middle">施工上の具体的な</text><text class="t-lab" x="294" y="291" text-anchor="middle">留意事項</text>
+  <line class="dash" x1="188" y1="192" x2="204" y2="192"/>
+  <text class="t-note" x="212" y="342">用語は設計図書・数量総括表の</text>
+  <text class="t-note" x="212" y="358">表記に従う</text>
+  <rect class="box" x="16" y="396" width="368" height="68" rx="6"/><text class="t-key" x="30" y="424">整合</text><text class="t-lab" x="104" y="424">段階確認・品質証明は施工フローと整合</text><text class="t-key" x="30" y="448">出題</text><text class="t-lab" x="104" y="448">穴埋め問題で、作業内容・機械・確認項目</text>
+</svg>

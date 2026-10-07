@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軟弱地盤上の盛土の余盛り。圧密沈下量を予測して天端を沈下量分だけ高く、のり面勾配を急に仕上げておくと、沈下後に計画の高さと形になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">軟弱地盤上の盛土の余盛り</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">沈下する分を見込んで、高く・急に仕上げておく</text>
+  <path class="soft" d="M16,276 L80,284 Q200,326 320,284 L384,276 L384,350 L16,350 Z"/>
+  <text class="t-note" x="28" y="340">軟弱地盤</text>
+  <path class="emb" d="M 80,284 L 150,190 L 250,190 L 320,284 Q 200,326 80,284 Z"/>
+  <path class="redd" d="M 80,276 L 142,170 L 258,170 L 320,276"/>
+  <line class="lead" stroke-dasharray="4 4" x1="16" y1="276" x2="384" y2="276"/>
+  <text class="t-note" x="372" y="268" text-anchor="end">元の地盤高</text>
+  <text class="t-key" x="200" y="158" text-anchor="middle">施工時（余盛りして急なのり面）</text>
+  <text class="t-lab" x="200" y="236" text-anchor="middle">沈下後</text>
+  <text class="t-lab" x="200" y="252" text-anchor="middle">計画の高さ</text>
+  <text class="t-warn" x="276" y="184" text-anchor="start">余盛り</text>
+  <line class="water" x1="200" y1="280" x2="200" y2="312" marker-end="url(#aw)"/>
+  <text class="t-note" x="200" y="330" text-anchor="middle">圧密沈下量</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="416">天端</text>
+  <text class="t-lab" x="104" y="416">沈下量分だけ余分に仕上げる（余盛り）</text>
+  <text class="t-key" x="30" y="442">のり面</text>
+  <text class="t-lab" x="104" y="442">余盛りに合わせて勾配を急にする</text>
+  <text class="t-key" x="30" y="468">前提</text>
+  <text class="t-lab" x="104" y="468">盛土荷重による圧密沈下量を予測する</text>
+</svg>

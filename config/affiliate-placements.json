@@ -623,6 +623,125 @@
       },
       "experiment": "EXP-017",
       "note": "ツールの結果の下（字数チェック・受験資格チェック・EXP-017）。"
+    },
+    {
+      "id": "PL-0035",
+      "program": "buildjob",
+      "slot": "standards-list-end",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "公的基準の章以外（一覧・地域・文書・分冊・比較・データ）の本文末（EXP-018）。章ページは PL-0032（EXP-017）。"
+    },
+    {
+      "id": "PL-0036",
+      "program": "buildjob",
+      "slot": "topic-end",
+      "target": {
+        "pageKind": "topic"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "横断トピック（一覧と各トピック）の末尾（EXP-018）。"
+    },
+    {
+      "id": "PL-0037",
+      "program": "buildjob",
+      "slot": "tool-end",
+      "target": {
+        "pageKind": "tool"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "実務ツール 8 本・ツール一覧・過去問クイズのページ末（EXP-018）。字数チェック・受験資格チェックは tool-inline（PL-0034・EXP-017）。"
+    },
+    {
+      "id": "PL-0038",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の記事の本文中間（抜けていた資格・EXP-018）。"
+    },
+    {
+      "id": "PL-0039",
+      "program": "buildjob",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の記事末（EXP-018）。"
+    },
+    {
+      "id": "PL-0040",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の資格トップ（EXP-018）。"
+    },
+    {
+      "id": "PL-0041",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の資格トップ（モバイル・EXP-018）。"
     }
   ]
 }

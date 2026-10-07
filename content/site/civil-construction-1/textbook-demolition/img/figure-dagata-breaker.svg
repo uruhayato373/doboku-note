@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="打撃工法の油圧ブレーカ。油圧ショベルのアーム先端にブレーカユニットを付け、ノミであるチゼルでコンクリートを打撃して割る。ハンドブレーカ工法と大型ブレーカ工法がある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="br-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="br-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="br-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="br-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="br-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">打撃工法（油圧ブレーカ）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">チゼルでコンクリートを打って割る</text>
+  <g transform="translate(0,28)">
+  <polygon class="gry" points="24,92 30,76 150,112 146,132"/>
+  <text class="t-note" x="40" y="68">油圧ショベルのアーム</text>
+  <rect class="brand" x="140" y="110" width="56" height="66"/>
+  <text class="t-lab" x="206" y="146">ブレーカ</text>
+  <text class="t-lab" x="206" y="162">ユニット</text>
+  <polygon class="gry" points="162,176 174,176 174,226 168,240 162,226"/>
+  <text class="t-lab" x="186" y="214">チゼル（ノミ）</text>
+  <line class="ar-r" x1="132" y1="180" x2="132" y2="226" marker-end="url(#br-r)"/>
+  <text class="t-warn" x="84" y="208">打撃</text>
+  <rect class="gry" x="60" y="240" width="240" height="60"/>
+  <text class="t-lab" x="76" y="286">コンクリート</text>
+  <path class="c-dng" d="M 168 240 L 160 262 L 172 280 L 164 300 M 160 262 L 138 276 M 172 280 L 196 292"/>
+  <text class="t-warn" x="226" y="266">割れて破砕</text>
+  </g>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">原理</text>
+  <text class="t-lab" x="90" y="416">チゼルでコンクリートを打撃して破砕</text>
+  <text class="t-key" x="30" y="442">種類</text>
+  <text class="t-lab" x="90" y="442">ハンドブレーカ工法と大型ブレーカ工法</text>
+  <text class="t-key" x="30" y="468">大型</text>
+  <text class="t-lab" x="90" y="468">油圧ショベルにブレーカユニットを装着</text>
+
+</svg>

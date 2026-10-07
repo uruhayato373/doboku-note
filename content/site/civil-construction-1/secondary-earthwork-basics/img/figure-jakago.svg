@@ -1,0 +1,102 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="じゃかご工。金網のかごに自然石を詰めた構造物で、普通じゃかごと平たいふとんじゃかごがある。のり尻に置くと湧水は通し、土砂の流出は止める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="jk-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="jk-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="jk-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">じゃかご工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">金網のかごに自然石を詰め、土砂の流出を抑える</text>
+
+  <rect class="card" x="16" y="64" width="176" height="168" rx="6"/>
+  <rect class="card" x="208" y="64" width="176" height="168" rx="6"/>
+  <text class="t-key" x="104" y="84" text-anchor="middle">普通じゃかご</text>
+  <text class="t-key" x="296" y="84" text-anchor="middle">ふとんじゃかご</text>
+  <circle class="white" cx="76" cy="168" r="26" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="67" cy="160" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="85" cy="160" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="76" cy="170" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="66" cy="180" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="86" cy="180" r="5" style="stroke-width:1"/>
+  <circle class="white" cx="132" cy="168" r="26" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="123" cy="160" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="141" cy="160" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="132" cy="170" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="122" cy="180" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="142" cy="180" r="5" style="stroke-width:1"/>
+  <circle class="white" cx="104" cy="120" r="26" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="95" cy="112" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="113" cy="112" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="104" cy="122" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="94" cy="132" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="114" cy="132" r="5" style="stroke-width:1"/>
+  <rect class="white" x="236" y="150" width="120" height="28" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="246" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="260.3" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="274.6" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="288.9" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="303.2" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="317.5" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="331.8" cy="164" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="346.1" cy="164" r="5" style="stroke-width:1"/>
+  <rect class="white" x="236" y="178" width="120" height="28" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="246" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="260.3" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="274.6" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="288.9" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="303.2" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="317.5" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="331.8" cy="192" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="346.1" cy="192" r="5" style="stroke-width:1"/>
+  <text class="t-note" x="104" y="222" text-anchor="middle">湧水・地下すべりの復旧</text>
+  <text class="t-note" x="296" y="222" text-anchor="middle">平たい形のかご</text>
+  <text class="t-key" x="16" y="256">のり尻での使い方</text>
+  <polygon class="gray" points="16,372 16,282 150,282 270,340 384,340 384,372"/>
+  <rect class="white" x="266" y="316" width="60" height="24" style="stroke:#2e6da4;stroke-width:2"/>
+  <circle class="gray" cx="276" cy="328" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="292" cy="328" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="308" cy="328" r="5" style="stroke-width:1"/>
+  <circle class="gray" cx="320" cy="328" r="5" style="stroke-width:1"/>
+  <text class="t-note" x="24" y="306">地山</text>
+  <text class="t-note" x="150" y="272">水は通し、土砂は止める</text>
+  <line class="aB" x1="190" y1="330" x2="262" y2="330" marker-end="url(#jk-B)"/>
+  <line class="aB" x1="328" y1="330" x2="372" y2="330" marker-end="url(#jk-B)"/>
+  <text class="t-note" x="186" y="322" text-anchor="middle">湧水</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">材料</text>
+  <text class="t-lab" x="104" y="416">金網のかご＋自然石</text>
+  <text class="t-key" x="30" y="442">種類</text>
+  <text class="t-lab" x="104" y="442">普通じゃかご・ふとんじゃかご</text>
+  <text class="t-key" x="30" y="468">用途</text>
+  <text class="t-lab" x="104" y="468">表層の浸食・土砂流出の抑制</text>
+</svg>

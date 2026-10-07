@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="編柵工を正面から見た図。のり面に打ち込んだ木杭に竹、そだ、ネットなどを横に編んで土留めとし、すべり土塊の滑動力に対抗する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="as-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="as-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="as-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">編柵工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">木杭に竹・そだ・ネットを編んで土留めにする</text>
+
+  <!-- のり面を正面から見た図 -->
+  <rect class="gray" x="16" y="66" width="284" height="306"/>
+  <text class="t-note" x="26" y="84">のり面を正面から見た図</text>
+  <rect class="pos" x="16" y="110" width="284" height="16" style="stroke-width:1.5"/>
+  <path d="M16,118 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <line x1="46" y1="98" x2="46" y2="140" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="106" y1="98" x2="106" y2="140" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="166" y1="98" x2="166" y2="140" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="226" y1="98" x2="226" y2="140" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="286" y1="98" x2="286" y2="140" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <rect class="pos" x="16" y="180" width="284" height="16" style="stroke-width:1.5"/>
+  <path d="M16,188 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <line x1="46" y1="168" x2="46" y2="210" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="106" y1="168" x2="106" y2="210" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="166" y1="168" x2="166" y2="210" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="226" y1="168" x2="226" y2="210" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="286" y1="168" x2="286" y2="210" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <rect class="pos" x="16" y="250" width="284" height="16" style="stroke-width:1.5"/>
+  <path d="M16,258 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <line x1="46" y1="238" x2="46" y2="280" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="106" y1="238" x2="106" y2="280" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="166" y1="238" x2="166" y2="280" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="226" y1="238" x2="226" y2="280" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="286" y1="238" x2="286" y2="280" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <rect class="pos" x="16" y="320" width="284" height="16" style="stroke-width:1.5"/>
+  <path d="M16,328 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0 q10,-7 20,0 t20,0" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <line x1="46" y1="308" x2="46" y2="350" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="106" y1="308" x2="106" y2="350" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="166" y1="308" x2="166" y2="350" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="226" y1="308" x2="226" y2="350" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <line x1="286" y1="308" x2="286" y2="350" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+  <text class="t-lab" x="312" y="106">木杭</text>
+  <line class="ln" x1="308" y1="102" x2="291" y2="108"/>
+  <text class="t-lab" x="312" y="184">竹・そだ</text>
+  <text class="t-lab" x="312" y="200">ネットなど</text>
+  <line class="ln" x1="300" y1="188" x2="308" y2="188"/>
+  <line class="aD" x1="340" y1="222" x2="340" y2="256" marker-end="url(#as-D)"/>
+  <text class="t-warn" x="312" y="276">滑動力</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">すべり土塊の滑動力に対抗</text>
+  <text class="t-key" x="30" y="442">効果</text>
+  <text class="t-lab" x="104" y="442">完成と同時に保護効果がある</text>
+  <text class="t-key" x="30" y="468">材料</text>
+  <text class="t-lab" x="104" y="468">竹・そだ・高分子ネットなど</text>
+</svg>

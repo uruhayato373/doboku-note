@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="釜場排水工法。掘削時に浸透してくる水を、掘削面より深く設けた釜場の集水マスに集めて水中ポンプで排水する。小規模で湧水量が少ない掘削に向き、深くなると釜場底でボイリングが生じることがある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-kamaba-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-kamaba-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-kamaba-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-kamaba-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">釜場排水工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">掘削面より深い穴に水を集め、ポンプでくみ出す</text>
+  <rect class="soil" x="16" y="110" width="368" height="240"/>
+  <line class="wl" x1="16" y1="150" x2="384" y2="150"/>
+  <polygon points="90,110 130,240 190,240 190,290 230,290 230,240 270,240 310,110" style="fill:#ffffff;stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="t-note" x="24" y="144">もとの地下水位</text>
+  <rect x="192" y="244" width="36" height="44" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:2;stroke-dasharray:4 3"/>
+  <rect class="green" x="200" y="262" width="20" height="20" rx="2"/>
+  <line x1="210" y1="262" x2="210" y2="96" style="stroke:#3a7d44;stroke-width:2.5"/>
+  <line class="water" x1="210" y1="96" x2="330" y2="96" marker-end="url(#figure-kamaba-ab)"/>
+  <text class="t-lab" x="270" y="88" text-anchor="middle">場外へ排水</text>
+  <line class="water" x1="50" y1="206" x2="116" y2="206" marker-end="url(#figure-kamaba-ab)"/>
+  <line class="water" x1="350" y1="206" x2="284" y2="206" marker-end="url(#figure-kamaba-ab)"/>
+  <line class="water" x1="250" y1="326" x2="224" y2="294" marker-end="url(#figure-kamaba-ab)"/>
+  <text class="t-note" x="28" y="226">浸透する水</text>
+  <text class="t-key" x="150" y="196">掘削面</text>
+  <text class="t-key" x="268" y="332">釜場（集水マス）</text>
+  <text class="t-pos" x="150" y="268" text-anchor="end">水中ポンプ</text>
+  <line class="lead" x1="154" y1="264" x2="200" y2="270"/>
+  <line class="lead" x1="234" y1="120" x2="216" y2="266" style="display:none"/>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">適する</text>
+  <text class="t-lab" x="104" y="414">小規模掘削で湧水量が少ない場合</text>
+  <text class="t-key" x="30" y="440">方法</text>
+  <text class="t-lab" x="104" y="440">掘削面より深い釜場に水を集める</text>
+  <text class="t-warn" x="30" y="466">注意</text>
+  <text class="t-lab" x="104" y="466">深いと釜場底でボイリングが生じる</text>
+
+</svg>

@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="張芝工の比較。芝を張る前ののり面は雨で浸食されるが、芝をのり面に張り付けると完成と同時に保護効果が得られる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">張芝工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">芝を張り付けて、浸食されやすいのり面をすぐ守る</text>
+  <rect class="card" x="16" y="66" width="368" height="148" rx="6"/>
+  <polygon class="ground" points="28,110 200,186 200,202 28,202"/>
+  <path class="redd" d="M 70 138.5581395348837 l 20 9 M 120 160.65116279069767 l 20 9"/>
+  <line class="water" x1="78" y1="80" x2="70" y2="100" marker-end="url(#aw)"/>
+  <line class="water" x1="118" y1="80" x2="110" y2="100" marker-end="url(#aw)"/>
+  <line class="water" x1="158" y1="80" x2="150" y2="100" marker-end="url(#aw)"/>
+  <text class="t-warn" x="222" y="100">張る前</text>
+  <text class="t-lab" x="222" y="120">雨で浸食されやすい</text>
+  <text class="t-note" x="222" y="138">のり面が裸のまま</text>
+  <rect class="card" x="16" y="224" width="368" height="148" rx="6"/>
+  <polygon class="ground" points="28,268 200,344 200,360 28,360"/>
+  <line x1="28" y1="264.5" x2="59" y2="278.19767441860466" stroke="#3a7d44" stroke-width="7"/>
+  <line x1="63" y1="279.9651162790698" x2="94" y2="293.66279069767444" stroke="#3a7d44" stroke-width="7"/>
+  <line x1="98" y1="295.43023255813955" x2="129" y2="309.12790697674416" stroke="#3a7d44" stroke-width="7"/>
+  <line x1="133" y1="310.8953488372093" x2="164" y2="324.59302325581393" stroke="#3a7d44" stroke-width="7"/>
+  <line x1="168" y1="326.3604651162791" x2="199" y2="340.0581395348837" stroke="#3a7d44" stroke-width="7"/>
+  <line class="water" x1="78" y1="238" x2="70" y2="258" marker-end="url(#aw)"/>
+  <line class="water" x1="118" y1="238" x2="110" y2="258" marker-end="url(#aw)"/>
+  <line class="water" x1="158" y1="238" x2="150" y2="258" marker-end="url(#aw)"/>
+  <text class="t-pos" x="222" y="258">張芝後</text>
+  <text class="t-lab" x="222" y="278">完成と同時に</text>
+  <text class="t-lab" x="222" y="296">保護効果が出る</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="72" rx="6"/>
+  <text class="t-key" x="30" y="416">向くのり面</text>
+  <text class="t-lab" x="104" y="416">浸食されやすいのり面</text>
+  <text class="t-key" x="30" y="442">注意</text>
+  <text class="t-lab" x="104" y="442">養分の少ない土は化学肥料を散布する</text>
+</svg>

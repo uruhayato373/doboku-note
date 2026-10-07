@@ -112,7 +112,7 @@ if (existsSync(A8_CONFIG)) {
   }
   const scopes = Object.entries(a8.reports ?? {}).map(([k, v]) => [k, v.siteScope]);
   for (const [k, sc] of scopes) {
-    if (!["site-rows", "account-wide"].includes(sc)) errors.push(`a8.reports.${k}.siteScope が不正: ${JSON.stringify(sc)}`);
+    if (!["site-rows", "account-wide", "result-rows"].includes(sc)) errors.push(`a8.reports.${k}.siteScope が不正: ${JSON.stringify(sc)}`);
   }
   if (!scopes.some(([, sc]) => sc === "site-rows")) {
     errors.push("a8: siteScope=site-rows のレポートが無い＝doboku-note に分離された実績を取る経路が消えている");

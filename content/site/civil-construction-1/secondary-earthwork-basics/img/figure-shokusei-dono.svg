@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="植生土のう工の断面。種子と肥料を詰めた土のうを、のり面に設けた水平な溝やのり枠内に据えて固定する。土のうに包まれているので流出が少なく、地盤と密着しやすい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">植生土のう工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">土のうを水平な溝に据え、種子ごとのり面に固定する</text>
+  <polygon class="ground" points="16,90 44,90 44,120 88,120 114,148 114,176 158,176 184,204 184,232 228,232 254,256 384,256 384,330 16,330"/>
+  <rect x="46" y="96" width="40" height="24" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <circle cx="58" cy="108" r="1.8" fill="#3a7d44"/><circle cx="68" cy="112" r="1.8" fill="#3a7d44"/><circle cx="76" cy="106" r="1.8" fill="#3a7d44"/>
+  <rect x="116" y="152" width="40" height="24" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <circle cx="128" cy="164" r="1.8" fill="#3a7d44"/><circle cx="138" cy="168" r="1.8" fill="#3a7d44"/><circle cx="146" cy="162" r="1.8" fill="#3a7d44"/>
+  <rect x="186" y="208" width="40" height="24" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <circle cx="198" cy="220" r="1.8" fill="#3a7d44"/><circle cx="208" cy="224" r="1.8" fill="#3a7d44"/><circle cx="216" cy="218" r="1.8" fill="#3a7d44"/>
+  <text class="t-key" x="250" y="100">種子と肥料を詰めた</text>
+  <text class="t-key" x="250" y="116">土のうを据える</text>
+  <line class="lead" x1="248" y1="112" x2="160" y2="160"/>
+  <text class="t-lab" x="250" y="184">水平な溝か</text>
+  <text class="t-lab" x="250" y="200">のり枠内に固定</text>
+  <line class="lead" x1="248" y1="196" x2="232" y2="214"/>
+  <text class="t-note" x="300" y="300" text-anchor="middle">不良土・硬質土のり面</text>
+  <text class="t-note" x="28" y="320">地山</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">不良土・硬質土のり面の浸食防止</text>
+  <text class="t-key" x="30" y="442">利点</text>
+  <text class="t-lab" x="104" y="442">土のうに包まれ、種子と肥料が流出しにくい</text>
+  <text class="t-key" x="30" y="468">利点</text>
+  <text class="t-lab" x="104" y="468">地盤との密着がしやすい</text>
+</svg>

@@ -161,7 +161,10 @@ const a8Report = z
   .object({
     label: text,
     path: z.string().regex(/^\//, '/ で始まるパス'),
-    siteScope: z.enum(['site-rows', 'account-wide']).describe('site-rows＝サイト列で分離できる・account-wide＝口座横断で分離できない'),
+    siteScope: z.enum(['site-rows', 'account-wide', 'result-rows']).describe('site-rows＝サイト列で分離できる・account-wide＝口座横断で分離できない・result-rows＝1 成果 1 行でサイト列があり 0 行もある'),
+    periodQuery: z.boolean().optional().describe('期間を URL の start_date / end_date で指定する（画面のフォームを操作しない）'),
+    emptyOk: z.boolean().optional().describe('0 行を正常とする（成果の無い月）'),
+    noDataText: text.optional().describe('データが無い期間に A8 が出す文言（CSV ボタンが出ない）。emptyOk のとき 0 件として扱う'),
     _note: note,
   })
   .strict();
@@ -224,7 +227,7 @@ export const ConfigA8ReportAutomation = z
 /** 転職アフィリエイトの配置ルール（config/affiliate-placements.json）。判定は src/lib/affiliate-placement-core.mjs と同じ関数を使う */
 const PlacementTarget = z
   .object({
-    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'home']).describe('ページの種類（standards＝公的基準の章ページ・home＝トップ）'),
+    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'standards-list', 'topic', 'home']).describe('ページの種類（standards＝公的基準の章ページ・standards-list＝章以外の公的基準〔一覧・地域・文書・分冊・比較・データ〕・topic＝横断トピック・home＝トップ）'),
     categories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('対象のカテゴリ。書かなければ全カテゴリ'),
     excludeCategories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('除くカテゴリ'),
     careerDoc: z.enum(['any', 'only', 'exclude']).optional().describe('キャリア記事（tags: [career]）の扱い。doc だけ'),
@@ -288,7 +291,7 @@ const CtaPlacement = z
     label: text.describe('管理画面・報告に出す名前'),
     status: z.enum(['active', 'retired']).describe('active＝今の配置／retired＝撤去済み（GA4 の過去の窓には残る）'),
     retiredAt: jstDate('撤去日').optional().describe('撤去日が分かっているときだけ'),
-    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'home', 'links']).describe('配置のあるページの種類'),
+    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'standards-list', 'topic', 'home', 'links']).describe('配置のあるページの種類'),
     pixelPriority: z.number().int().min(1).nullable().describe('1 ページ 1 ピクセルの発火源の優先順（小さいほど優先・null は発火源にならない）'),
     program: z.string().regex(/^[a-z][a-z0-9-]*$/).optional().describe('この配置に出す案件が決まっているとき（affiliate.catalog の id）'),
   })

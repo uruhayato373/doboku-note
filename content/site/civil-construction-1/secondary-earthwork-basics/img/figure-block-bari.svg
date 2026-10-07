@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="石張工・ブロック張工。1:1.0 より緩いのり面に、石やコンクリートブロックを張り並べ、裏込め材を挟んで基礎で受ける。風化・浸食と軽い崩れを防ぐ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山 */
+      .rock   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：風化しやすい岩・土 */
+      .layer  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：保護工 */
+      .frame  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：枠材 */
+      .fill   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }     /* 中詰め */
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .pipe   { stroke: #2e6da4; stroke-width: 2.5; }
+    </style>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">石張工・ブロック張工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">石やブロックを、のり面に張り並べる</text>
+  <polygon class="rock" points="16.0,320.0 60.0,320.0 300.0,110.0 384.0,110.0 384.0,360.0 16.0,360.0"/>
+  <polygon class="fill" points="60.0,320.0 292.5,116.6 287.2,110.6 54.7,314.0"/>
+  <polygon class="layer" points="60.7,308.7 90.8,282.4 73.7,262.8 43.6,289.2"/>
+  <polygon class="layer" points="93.8,279.8 123.9,253.4 106.8,233.9 76.7,260.2"/>
+  <polygon class="layer" points="126.9,250.8 157.1,224.4 139.9,204.9 109.8,231.2"/>
+  <polygon class="layer" points="160.1,221.8 190.2,195.5 173.0,175.9 142.9,202.2"/>
+  <polygon class="layer" points="193.2,192.8 223.3,166.5 206.2,146.9 176.1,173.3"/>
+  <polygon class="layer" points="226.3,163.9 256.4,137.5 239.3,118.0 209.2,144.3"/>
+  <polygon class="layer" points="259.4,134.9 289.5,108.5 272.4,89.0 242.3,115.3"/>
+  <rect class="frame" x="35.5" y="318.0" width="44" height="26"/>
+  <line class="lead" x1="24" y1="99" x2="108" y2="99"/>
+  <line class="lead" x1="153.1" y1="198.6" x2="108" y2="99"/>
+  <text class="t-lab" x="24" y="96">ブロック（石）</text>
+  <line class="lead" x1="222.9" y1="172.1" x2="318" y2="253"/>
+  <text class="t-lab" x="320" y="254">裏込め材</text>
+  <text class="t-key" x="85.5" y="354.0" style="fill:#3a7d44">基礎</text>
+  <rect class="box" x="16" y="380" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="418">適用</text>
+  <text class="t-lab" x="104" y="418">1:1.0 より緩い、崩れやすい土・粘土ののり面</text>
+  <text class="t-key" x="30" y="444">目的</text>
+  <text class="t-lab" x="104" y="444">風化・浸食、軽い剥離や崩れを防ぐ</text>
+  <text class="t-key" x="30" y="470">規模</text>
+  <text class="t-lab" x="104" y="470">高さ・のり長の小さいのり面向き</text>
+</svg>

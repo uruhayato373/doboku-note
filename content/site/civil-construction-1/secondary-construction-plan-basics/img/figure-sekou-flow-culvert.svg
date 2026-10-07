@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="カルバートの施工フロー例。準備工、掘削・床付け、基礎工のあと、本体工は場所打ちとプレキャストの2通りに分かれ、埋戻し・裏込めで合流する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工フローの例2（カルバート）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">本体工で、場所打ちとプレキャストに分かれる</text>
+  <rect class="b-gray" x="100" y="64" width="200" height="32" rx="6"/><text class="t-lab" x="200" y="84" text-anchor="middle">準備工</text>
+  <line class="arr" x1="200" y1="96" x2="200" y2="116" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="100" y="116" width="200" height="32" rx="6"/><text class="t-lab" x="200" y="136" text-anchor="middle">掘削・床付け</text>
+  <line class="arr" x1="200" y1="148" x2="200" y2="168" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="100" y="168" width="200" height="32" rx="6"/><text class="t-lab" x="200" y="188" text-anchor="middle">基礎工（砕石・均し）</text>
+  <line class="ln" x1="200" y1="200" x2="200" y2="212"/>
+  <line class="ln" x1="104" y1="212" x2="296" y2="212"/>
+  <line class="arr" x1="104" y1="212" x2="104" y2="230" marker-end="url(#ar)"/>
+  <line class="arr" x1="296" y1="212" x2="296" y2="230" marker-end="url(#ar)"/>
+  <rect class="b-pos" x="16" y="230" width="176" height="60" rx="6"/><text class="t-key" x="104" y="256" text-anchor="middle">場所打ち</text><text class="t-note" x="104" y="272" text-anchor="middle">鉄筋・型枠・打設・養生</text>
+  <rect class="b-pos" x="208" y="230" width="176" height="60" rx="6"/><text class="t-key" x="296" y="256" text-anchor="middle">プレキャスト</text><text class="t-note" x="296" y="272" text-anchor="middle">運搬・据付・目地処理</text>
+  <line class="ln" x1="104" y1="290" x2="104" y2="302"/>
+  <line class="ln" x1="296" y1="290" x2="296" y2="302"/>
+  <line class="ln" x1="104" y1="302" x2="296" y2="302"/>
+  <line class="arr" x1="200" y1="302" x2="200" y2="320" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="100" y="320" width="200" height="32" rx="6"/><text class="t-lab" x="200" y="340" text-anchor="middle">埋戻し・裏込め</text>
+  <rect class="box" x="16" y="380" width="368" height="68" rx="6"/><text class="t-key" x="30" y="408">本体工</text><text class="t-lab" x="104" y="408">場所打ちかプレキャストかで手順が分かれる</text><text class="t-key" x="30" y="432">確認</text><text class="t-lab" x="104" y="432">各段階の品質・出来形の確認項目を記入</text>
+</svg>

@@ -7,6 +7,7 @@ import { BookOpen, FlaskConical, HardHat } from "lucide-react";
 import type { Metadata } from "next";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 
 export const metadata: Metadata = {
   title: "無料ツール一覧｜土木・技術士の試験対策",
@@ -73,6 +74,8 @@ export default function ToolsIndexPage() {
         </div>
         </section>)}
       </SectionBlock>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

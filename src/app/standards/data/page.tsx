@@ -10,6 +10,7 @@ import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 import { getStandardChapters } from '@/lib/standards-articles';
 import { getStandardsComparison } from '@/lib/standards-comparison';
 import { buildStandardsDatasetStructuredData } from '@/lib/standards-structured-data';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木工事共通仕様書のJSON-LD・Markdownデータ',
@@ -212,6 +213,8 @@ export default function StandardsDataPage() {
           本データは各発行機関の公式サービスではありません。出典資料をdoboku-noteが加工した二次利用物です。公共データ利用規約（第1.0版）に基づき、出典と加工内容を表示しています。
         </p>
       </SectionBlock>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }
