@@ -1,10 +1,10 @@
 # キャリアファネル基線レポート
 
-生成: 2026-09-28T05:21:03.008Z
+生成: 2026-10-07T02:53:10.063Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
-> GA4 2026-08-01〜2026-08-31 ／ GSC 2026-08-28〜2026-09-24
+> GA4 2026-09-04〜2026-10-01 ／ GSC 2026-09-01〜2026-09-28
 
 ## 実検査の内訳
 
@@ -12,13 +12,13 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 
 | 対象 | 件数 |
 |---|---|
-| docMetaIndexTotal | 1261 |
-| careerArticles | 43 |
-| siteMdxScanned | 1280 |
+| docMetaIndexTotal | 1309 |
+| careerArticles | 45 |
+| siteMdxScanned | 1350 |
 | extraLinkSourcesScanned | 1 |
-| gscRowsTotal | 1150 |
-| gscRowsMatchedCareer | 5 |
-| ga4LabelRowsMatched | 13 |
+| gscRowsTotal | 1372 |
+| gscRowsMatchedCareer | 3 |
+| ga4LabelRowsMatched | 15 |
 | ga4PlacementRowsMatched | 9 |
 | careerArticlesInGa4Top | 0 |
 | noteCareerArticles | 24 |
@@ -26,39 +26,38 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
-- 窓が不一致（GA4 2026-08-01〜2026-08-31 / GSC 2026-08-28〜2026-09-24）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
-- GA4 の窓の終端が 28 日前。計測 CI の供給停止を疑う（fetch-metrics の直近 run を見る）
+- 窓が不一致（GA4 2026-09-04〜2026-10-01 / GSC 2026-09-01〜2026-09-28）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
 - GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない
 
 ## 漏斗
 
 ### 1. 高意図 query（GSC 窓）
 
-表示 51 ／ クリック 1
+表示 96 ／ クリック 1
 
 語彙: 転職・辞めたい・やめたい・年収・市場価値・評判・口コミ・エージェント・求人・ホワイト・公務員・発注者支援
 
 | query | 表示 | クリック | 順位 |
 |---|---|---|---|
+| 土木施工管理技士 年収 | 7 | 0 | 5.9 |
+| 公務員 土木 資格 おすすめ | 7 | 0 | 9.1 |
 | 技術士転職 | 7 | 0 | 72.9 |
+| 施工管理から転職 | 6 | 0 | 20.3 |
 | 土木公務員 資格 | 6 | 0 | 11.3 |
-| 公務員 土木職 資格 | 3 | 0 | 9.0 |
-| 技術 士 年収 | 3 | 0 | 77.7 |
-| 技術士 年収 | 3 | 0 | 73.0 |
+| 土木施工管理技士年収 | 5 | 0 | 6.0 |
+| 公務員 土木職 資格 | 5 | 0 | 8.2 |
+| 施工管理 転職エージェント | 4 | 0 | 17.5 |
+| 施工管理が転職エージェントを活用する方法 | 3 | 0 | 8.0 |
+| 土木 公務員 資格 | 3 | 0 | 9.7 |
 | 技術士総合技術監理部門年収 | 3 | 0 | 29.3 |
+| rccm 受験資格 公務員 | 2 | 1 | 12.5 |
 | 土木施工管理 年収 | 2 | 0 | 96.0 |
-| 公務員 土木 資格 おすすめ | 2 | 0 | 11.0 |
-| 土木 公務員 資格 | 2 | 0 | 10.0 |
-| 技術士 総合技術監理部門 年収 | 2 | 0 | 30.0 |
-| rccm 受験資格 公務員 | 1 | 1 | 15.0 |
-| 施工管理job 評判 | 1 | 0 | 68.0 |
-| 施工管理 転職エージェント | 1 | 0 | 18.0 |
-| 1級土木施工管理技士年収 | 1 | 0 | 70.0 |
-| 1級土木施工管理技士補 年収 | 1 | 0 | 86.0 |
+| 施工管理転職エージェント | 2 | 0 | 19.5 |
+| 未経験 施工管理 転職エージェント | 2 | 0 | 16.0 |
 
 ### 2. キャリアページの流入（GA4 窓）
 
-GA4 上位ページに入った career 記事: 0 / 43 本
+GA4 上位ページに入った career 記事: 0 / 45 本
 
 ### 3. 柱ごとの検索と内部リンク
 
@@ -66,7 +65,7 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 | 柱 | 記事 | GSC 表示 | GSC クリック | 被リンク |
 |---|---|---|---|---|
-| career-path | 19 | 8 | 0 | 44 |
+| career-path | 21 | 6 | 0 | 44 |
 | market-value | 9 | 0 | 0 | 29 |
 | service-choice | 5 | 0 | 0 | 2 |
 | quit | 5 | 0 | 0 | 4 |
@@ -74,31 +73,33 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 ### 4. affiliate CTA（GA4 窓）
 
-表示 24832 ／ クリック 15 ／ CTR 0.06%
+表示 24472 ／ クリック 16 ／ CTR 0.07%
 
 | placement | 表示 | クリック | CTR |
 |---|---|---|---|
-| sidebar | 13616 | 2 | 0.01% |
-| article-inline | 4228 | 10 | 0.24% |
-| article-end | 3483 | 0 | 0.00% |
-| article-mid | 2759 | 3 | 0.11% |
-| category-sidebar | 666 | 0 | 0.00% |
-| category-mobile | 80 | 0 | 0.00% |
+| sidebar | 11504 | 2 | 0.02% |
+| article-inline | 5394 | 10 | 0.19% |
+| article-end | 3960 | 0 | 0.00% |
+| article-mid | 2890 | 4 | 0.14% |
+| category-sidebar | 634 | 0 | 0.00% |
+| category-mobile | 90 | 0 | 0.00% |
 
 | label | 表示 | クリック |
 |---|---|---|
-| BuildJob-sidebar | 5573 | 4 |
-| DXConsulting-sidebar | 2894 | 0 |
-| ビルドジョブ | 2831 | 4 |
-| BuildJob-endbanner | 1791 | 0 |
-| ハイクラス DX・コンサル転職 | 1140 | 5 |
-| DXConsulting-endbanner | 828 | 1 |
-| KensetsuJobs-sidebar | 322 | 1 |
-| BuildJob-hubcareer | 5 | 0 |
+| BuildJob-sidebar | 7917 | 1 |
+| ビルドジョブ | 6506 | 7 |
+| BuildJob-endbanner | 2936 | 0 |
+| DXConsulting-sidebar | 2761 | 1 |
+| KensetsuJobs-sidebar | 1504 | 0 |
+| ハイクラス DX・コンサル転職 | 1000 | 3 |
+| 建設JOBs | 778 | 4 |
+| DXConsulting-endbanner | 660 | 0 |
+| KensetsuJobs-endbanner | 364 | 0 |
+| GKS-sidebar | 46 | 0 |
 
 ### 5. A8 成果
 
-窓内（2026-08）: 発生 0 ／ 確定 0 ／ 確定報酬 ¥0
+窓内（2026-09）: 発生 0 ／ 確定 0 ／ 確定報酬 ¥0
 累計: 発生 1 ／ 確定 0 ／ 確定報酬 ¥0
 
 _A8 管理画面のクリックは口座共用（stats47 と同居）のため分母に使わない。分母は GA4。_
@@ -109,15 +110,15 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 ## 起票時基線からのずれ（±30% 超）
 
-- affiliate 表示: 起票時 7370 → 今回 24832（337%）
-- 高意図 query 表示: 起票時 10 → 今回 51（510%）
+- affiliate 表示: 起票時 7370 → 今回 24472（332%）
+- 高意図 query 表示: 起票時 10 → 今回 96（960%）
 
 ## 記事台帳
 
 | slug | 柱 | 公開 | GSC 表示 | クリック | 順位 | 被リンク | CTA |
 |---|---|---|---|---|---|---|---|
-| civil-construction-1-guide-company-types | career-path | ○ | 7 | 0 | 60.4 | 0 | 1 |
-| civil-construction-1-guide-age-career | career-path | ○ | 1 | 0 | 63 | 0 | 1 |
+| civil-construction-1-guide-company-types | career-path | ○ | 6 | 0 | 50.3 | 0 | 1 |
+| civil-construction-1-guide-age-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-allowance | market-value | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-career | career-path | ○ | 0 | 0 | — | 13 | 1 |
@@ -137,6 +138,7 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 | civil-construction-1-guide-public-engineer-exam-study | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-public-engineer-salary-table | market-value | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-public-servant | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-public-servant-or-private | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-quit-honne | quit | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-guide-quit-public-engineer | quit | ○ | 0 | 0 | — | 0 | 1 |
@@ -157,6 +159,7 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 | civil-construction-2-guide-resume | application | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-2-guide-salary | market-value | ○ | 0 | 0 | — | 4 | 1 |
 | civil-construction-2-guide-young-career | career-path | ○ | 0 | 0 | — | 1 | 1 |
+| pe-construction-fukugyou-dokuritsu | career-path | ○ | 0 | 0 | — | 0 | 0 |
 | pe-construction-guide-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | rccm-guide-career-value | career-path | ○ | 0 | 0 | — | 0 | 1 |
 

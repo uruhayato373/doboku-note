@@ -1,50 +1,71 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-28T05:21:03.008Z",
+  "generatedAt": "2026-10-07T02:53:10.063Z",
   "windows": {
     "ga4": {
-      "start": "2026-08-01",
-      "end": "2026-08-31"
+      "start": "2026-09-04",
+      "end": "2026-10-01"
     },
     "gsc": {
-      "start": "2026-08-28",
-      "end": "2026-09-24"
+      "start": "2026-09-01",
+      "end": "2026-09-28"
     },
     "aligned": false,
     "usable": true
   },
   "inputs": {
-    "ga4Label": "data/metrics/ga4/ga4-cta-clicks-by-label-2026-09-27T11-52-30.json",
-    "ga4Placement": "data/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-27T11-52-26.json",
-    "ga4Device": "data/metrics/ga4/ga4-cta-clicks-by-device-2026-09-27T11-52-23.json",
-    "ga4Page": "data/metrics/ga4/ga4-page-2026-09-27T11-52-20.json",
-    "gscPageQuery": "data/metrics/gsc/gsc-page-query-2026-09-27T11-52-17.json",
-    "a8": "data/metrics/affiliate/a8-results.json",
+    "ga4Label": "data/ga4/reports/2026-10-02.json#cta-clicks-by-label",
+    "ga4Placement": "data/ga4/reports/2026-10-02.json#cta-clicks-by-placement",
+    "ga4Device": "data/ga4/reports/2026-10-02.json#cta-clicks-by-device",
+    "ga4Page": "data/ga4/reports/2026-10-02.json#page",
+    "gscPageQuery": "data/gsc/reports/2026-10-02.json#page-query",
+    "a8": "data/a8/report-log.json",
     "afb": null
   },
   "coverage": {
-    "docMetaIndexTotal": 1261,
-    "careerArticles": 43,
-    "siteMdxScanned": 1280,
+    "docMetaIndexTotal": 1309,
+    "careerArticles": 45,
+    "siteMdxScanned": 1350,
     "extraLinkSourcesScanned": 1,
-    "gscRowsTotal": 1150,
-    "gscRowsMatchedCareer": 5,
-    "ga4LabelRowsMatched": 13,
+    "gscRowsTotal": 1372,
+    "gscRowsMatchedCareer": 3,
+    "ga4LabelRowsMatched": 15,
     "ga4PlacementRowsMatched": 9,
     "careerArticlesInGa4Top": 0,
     "noteCareerArticles": 24
   },
   "funnel": {
     "highIntentQuery": {
-      "impressions": 51,
+      "impressions": 96,
       "clicks": 1,
       "rows": [
+        {
+          "query": "土木施工管理技士 年収",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/salary",
+          "impressions": 7,
+          "clicks": 0,
+          "position": 5.857142857142857
+        },
+        {
+          "query": "公務員 土木 資格 おすすめ",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 7,
+          "clicks": 0,
+          "position": 9.142857142857142
+        },
         {
           "query": "技術士転職",
           "url": "https://doboku-note.com/exam/pe-construction/guide/career",
           "impressions": 7,
           "clicks": 0,
           "position": 72.85714285714286
+        },
+        {
+          "query": "施工管理から転職",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien",
+          "impressions": 6,
+          "clicks": 0,
+          "position": 20.333333333333332
         },
         {
           "query": "土木公務員 資格",
@@ -54,25 +75,39 @@
           "position": 11.333333333333334
         },
         {
+          "query": "土木施工管理技士年収",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/salary",
+          "impressions": 5,
+          "clicks": 0,
+          "position": 6
+        },
+        {
           "query": "公務員 土木職 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 5,
+          "clicks": 0,
+          "position": 8.2
+        },
+        {
+          "query": "施工管理 転職エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
+          "impressions": 4,
+          "clicks": 0,
+          "position": 17.5
+        },
+        {
+          "query": "施工管理が転職エージェントを活用する方法",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-agents",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 8
+        },
+        {
+          "query": "土木 公務員 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
           "impressions": 3,
           "clicks": 0,
-          "position": 9
-        },
-        {
-          "query": "技術 士 年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 3,
-          "clicks": 0,
-          "position": 77.66666666666667
-        },
-        {
-          "query": "技術士 年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 3,
-          "clicks": 0,
-          "position": 73
+          "position": 9.666666666666666
         },
         {
           "query": "技術士総合技術監理部門年収",
@@ -82,6 +117,13 @@
           "position": 29.333333333333332
         },
         {
+          "query": "rccm 受験資格 公務員",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 2,
+          "clicks": 1,
+          "position": 12.5
+        },
+        {
           "query": "土木施工管理 年収",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
           "impressions": 2,
@@ -89,18 +131,53 @@
           "position": 96
         },
         {
-          "query": "公務員 土木 資格 おすすめ",
+          "query": "施工管理転職エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 19.5
+        },
+        {
+          "query": "未経験 施工管理 転職エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 16
+        },
+        {
+          "query": "施工管理 転職 タイミング",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/young-career",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 15
+        },
+        {
+          "query": "rccm 公務員",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 13.5
+        },
+        {
+          "query": "公務員 土木 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
           "impressions": 2,
           "clicks": 0,
           "position": 11
         },
         {
-          "query": "土木 公務員 資格",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "query": "技術 士 年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
           "impressions": 2,
           "clicks": 0,
-          "position": 10
+          "position": 79
+        },
+        {
+          "query": "技術士 年収",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
+          "impressions": 2,
+          "clicks": 0,
+          "position": 72.5
         },
         {
           "query": "技術士 総合技術監理部門 年収",
@@ -108,13 +185,6 @@
           "impressions": 2,
           "clicks": 0,
           "position": 30
-        },
-        {
-          "query": "rccm 受験資格 公務員",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 1,
-          "clicks": 1,
-          "position": 15
         },
         {
           "query": "施工管理job 評判",
@@ -131,88 +201,18 @@
           "position": 18
         },
         {
+          "query": "施工管理 転職 エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-agents",
+          "impressions": 1,
+          "clicks": 0,
+          "position": 80
+        },
+        {
           "query": "1級土木施工管理技士年収",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
           "impressions": 1,
           "clicks": 0,
           "position": 70
-        },
-        {
-          "query": "1級土木施工管理技士補 年収",
-          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 86
-        },
-        {
-          "query": "一級土木施工管理技士 年収",
-          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 61
-        },
-        {
-          "query": "土木施工管理技士 年収",
-          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 69
-        },
-        {
-          "query": "土木施工管理技士1級 平均年収",
-          "url": "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 67
-        },
-        {
-          "query": "施工管理 転職 理由",
-          "url": "https://doboku-note.com/exam/civil-construction-1/guide/interview",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 18
-        },
-        {
-          "query": "土木 施工管理 転職",
-          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-change",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 55
-        },
-        {
-          "query": "土木施工管理 転職",
-          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-change",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 55
-        },
-        {
-          "query": "土木施工管理技士 年収",
-          "url": "https://doboku-note.com/exam/civil-construction-2/guide/salary",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 5
-        },
-        {
-          "query": "1級土木施工管理技士 実務経験 公務員",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 23
-        },
-        {
-          "query": "公務員 土木 資格",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 11
-        },
-        {
-          "query": "技術士 転職",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 63
         }
       ]
     },
@@ -226,92 +226,100 @@
     "affiliateCta": {
       "byPlacement": {
         "sidebar": {
-          "impressions": 13616,
+          "impressions": 11504,
           "clicks": 2
         },
         "article-inline": {
-          "impressions": 4228,
+          "impressions": 5394,
           "clicks": 10
         },
         "article-end": {
-          "impressions": 3483,
+          "impressions": 3960,
           "clicks": 0
         },
         "article-mid": {
-          "impressions": 2759,
-          "clicks": 3
+          "impressions": 2890,
+          "clicks": 4
         },
         "category-sidebar": {
-          "impressions": 666,
+          "impressions": 634,
           "clicks": 0
         },
         "category-mobile": {
-          "impressions": 80,
+          "impressions": 90,
           "clicks": 0
         }
       },
       "byLabel": {
         "BuildJob-sidebar": {
-          "impressions": 5573,
-          "clicks": 4
-        },
-        "DXConsulting-sidebar": {
-          "impressions": 2894,
-          "clicks": 0
+          "impressions": 7917,
+          "clicks": 1
         },
         "ビルドジョブ": {
-          "impressions": 2831,
-          "clicks": 4
+          "impressions": 6506,
+          "clicks": 7
         },
         "BuildJob-endbanner": {
-          "impressions": 1791,
+          "impressions": 2936,
           "clicks": 0
         },
-        "ハイクラス DX・コンサル転職": {
-          "impressions": 1140,
-          "clicks": 5
-        },
-        "DXConsulting-endbanner": {
-          "impressions": 828,
+        "DXConsulting-sidebar": {
+          "impressions": 2761,
           "clicks": 1
         },
         "KensetsuJobs-sidebar": {
-          "impressions": 322,
-          "clicks": 1
+          "impressions": 1504,
+          "clicks": 0
         },
-        "BuildJob-hubcareer": {
-          "impressions": 5,
+        "ハイクラス DX・コンサル転職": {
+          "impressions": 1000,
+          "clicks": 3
+        },
+        "建設JOBs": {
+          "impressions": 778,
+          "clicks": 4
+        },
+        "DXConsulting-endbanner": {
+          "impressions": 660,
+          "clicks": 0
+        },
+        "KensetsuJobs-endbanner": {
+          "impressions": 364,
+          "clicks": 0
+        },
+        "GKS-sidebar": {
+          "impressions": 46,
           "clicks": 0
         }
       },
-      "totalImpressions": 24832,
-      "totalClicks": 15,
-      "ctr": 0.0006040592783505155,
+      "totalImpressions": 24472,
+      "totalClicks": 16,
+      "ctr": 0.0006538084341288003,
       "notSet": []
     },
     "a8": {
       "window": {
-        "clicks": 63,
+        "clicks": 58,
         "conversions": 0,
         "approved": 0,
         "revenueYen": 0
       },
       "allTime": {
-        "clicks": 203,
+        "clicks": 261,
         "conversions": 1,
         "approved": 0,
         "revenueYen": 0
       },
       "monthsInWindow": [
-        "2026-08"
+        "2026-09"
       ]
     },
     "afb": null
   },
   "pillars": {
     "career-path": {
-      "articles": 19,
-      "gscImpressions": 8,
+      "articles": 21,
+      "gscImpressions": 6,
       "gscClicks": 0,
       "inboundLinks": 44
     },
@@ -349,16 +357,10 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 1,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 63,
-      "topQueries": [
-        {
-          "query": "施工管理 50代",
-          "impressions": 1,
-          "clicks": 0
-        }
-      ],
+      "gscPosition": null,
+      "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
       "inboundLiteralLinks": 0,
@@ -537,9 +539,9 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 7,
+      "gscImpressions": 6,
       "gscClicks": 0,
-      "gscPosition": 60.4,
+      "gscPosition": 50.3,
       "topQueries": [
         {
           "query": "ゼネコン コンサル",
@@ -552,7 +554,7 @@
           "clicks": 0
         },
         {
-          "query": "サブコン ゼネコン",
+          "query": "ゼネコン サブコン",
           "impressions": 1,
           "clicks": 0
         }
@@ -731,6 +733,24 @@
       "title": "公務員（土木職）への転職",
       "published": true,
       "reviewStatus": "approved",
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 1,
+      "placements": []
+    },
+    {
+      "slug": "civil-construction-1-guide-public-servant-or-private",
+      "category": "civil-construction-1",
+      "title": "公務員土木か民間か",
+      "published": true,
+      "reviewStatus": null,
       "group": "guide",
       "pillar": "career-path",
       "gscImpressions": 0,
@@ -1104,6 +1124,24 @@
       "placements": []
     },
     {
+      "slug": "pe-construction-fukugyou-dokuritsu",
+      "category": "pe-construction",
+      "title": "技術士の副業と独立",
+      "published": true,
+      "reviewStatus": null,
+      "group": "guide",
+      "pillar": "career-path",
+      "gscImpressions": 0,
+      "gscClicks": 0,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": null,
+      "ga4Sessions": null,
+      "inboundLiteralLinks": 0,
+      "careerAffiliateCount": 0,
+      "placements": []
+    },
+    {
       "slug": "pe-construction-guide-career",
       "category": "pe-construction",
       "title": "建設部門技術士のキャリア",
@@ -1335,13 +1373,12 @@
     }
   ],
   "baselineDrift": [
-    "affiliate 表示: 起票時 7370 → 今回 24832（337%）",
-    "高意図 query 表示: 起票時 10 → 今回 51（510%）"
+    "affiliate 表示: 起票時 7370 → 今回 24472（332%）",
+    "高意図 query 表示: 起票時 10 → 今回 96（960%）"
   ],
   "warnings": [
     "入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）",
-    "窓が不一致（GA4 2026-08-01〜2026-08-31 / GSC 2026-08-28〜2026-09-24）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと",
-    "GA4 の窓の終端が 28 日前。計測 CI の供給停止を疑う（fetch-metrics の直近 run を見る）",
+    "窓が不一致（GA4 2026-09-04〜2026-10-01 / GSC 2026-09-01〜2026-09-28）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと",
     "GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない"
   ]
 }
