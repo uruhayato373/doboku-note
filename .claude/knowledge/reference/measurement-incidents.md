@@ -8,6 +8,14 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-07 — 管理画面でSVG検査器を静的importして500になった
+
+- 現象: 図解素材の管理画面で `@resvg/resvg-js` のネイティブ拡張がTurbopackへ取り込まれ、`non-ecmascript placeable asset` で `/sns` が500になった。
+- 原因: 既存の画像生成スクリプトを静的importした。型検査だけでは、実行時のネイティブ拡張のバンドル失敗は検出できなかった。
+- 検出・対策: 起動後のHTTP検査で発見し、既存のSNS集計と同様に `turbopackIgnore` 付きdynamic importでNode側から検査器を読む構成へ修正した。
+- 再発検査: `npx playwright test --config playwright.admin.config.ts sns-figures.spec.ts --workers=1` で、管理画面のHTTP 200、図解素材の表示、元SVGの取得成功を確認する。
+- 教訓: ネイティブ拡張を含むスクリプトの再利用は、型検査に加えて実際のページ表示で確かめる。
+
 ## 2026-10-07 — SNS試作の生成失敗後に文字数検査0件が表示された
 
 - 現象: X下書きの生成が失敗した後も後続コマンドが走り、文字数検査が「0 tweets / 0 violations」、シェルの終了コードが0になった。
