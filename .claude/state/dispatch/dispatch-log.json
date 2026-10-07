@@ -2157,6 +2157,45 @@
       "commit": "1236ca9e378b",
       "verification": "PR #886 (1236ca9e3) merged; lint-mdx-mobile 全 1,310 ページの前後比較で公式問題内の 1-1/1-3/1-4 が対象外・解説の表は検査継続; 関係テスト pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0578",
+      "at": "2026-10-08",
+      "task": "1級土木テキスト 8 記事の AI 生成に見える機械の写真 24 枚に出所を記録し、実物と形が違うものを差し替える",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cc8b31b6d662",
+      "verification": "npm run check-image-origin",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0574",
+      "at": "2026-10-08",
+      "task": "公開記事のラスター画像すべてに出所（種別）を必須にし、記録のない 40 枚を埋める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cc8b31b6d662",
+      "verification": "npm run check-image-origin",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0577",
+      "at": "2026-10-08",
+      "task": "低解像度の図（長辺 500px 未満の 11 枚）を機械で拾い、品質ループで切り出し直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cc8b31b6d662",
+      "verification": "npm run check-image-origin",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
