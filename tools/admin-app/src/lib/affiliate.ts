@@ -297,7 +297,7 @@ export function affiliatePlacements(): PlacementView {
   }
 }
 
-/** 配置ルール（config/affiliate-placements.json）ごとの面の数字（data/analysis/career-funnel.json の byRule）。窓は配置別と同じ */
+/** 配置ルール（config/affiliate-placements.json）ごとの面の数字（data/analysis/career-funnel.json の byRule） */
 export interface RuleRow {
   ruleId: string;
   program: string;
@@ -305,30 +305,72 @@ export interface RuleRow {
   open: boolean;
   impressions: number;
   clicks: number;
-  /** 窓の一部だけ有効（窓の残りの日の数字も混ざる） */
+  /** 前後のルールと分けられない表示・クリック（ページ別のときだけ。閉じて開き直した窓） */
+  impressionsShared: number;
+  clicksShared: number;
+  /** 窓の一部だけ有効（面の合計のときは窓の残りの日の数字も混ざる） */
   partial: boolean;
-  /** 同じ窓に同じ面を分け合ったルール（数字はそれらと分けられない） */
+  /** 数字を分けられないルール */
   sharedWith: string[];
 }
-export function affiliateRules(): RuleRow[] {
+
+/** クリックの出どころ（日付・ページ・広告・ルール） */
+export interface ClickLogRow {
+  date: string;
+  page: string;
+  program: string | null;
+  slotLabel: string;
+  ruleId: string | null;
+  clicks: number;
+}
+
+interface FunnelAffiliate {
+  byRule?: { ruleId: string; program: string; slot: string; until: string | null; ga4: { coveredDays: number; windowDays: number; impressions: number; clicks: number; impressionsShared?: number; clicksShared?: number; sharedWith: string[] } }[];
+  byRuleWindow?: { start: string; end: string; source: 'page' | 'placement' };
+  unattributed?: { impressions: number; clicks: number };
+  clickLog?: { date: string; page: string; label: string; placement: string; program: string | null; ruleId: string | null; clicks: number }[];
+}
+
+function readFunnelAffiliate(): FunnelAffiliate | null {
   try {
-    const j = JSON.parse(readFileSync(repoPath(datasetPath('analysis.career-funnel')), 'utf8')) as {
-      funnel?: { affiliateCta?: { byRule?: { ruleId: string; program: string; slot: string; until: string | null; ga4: { coveredDays: number; windowDays: number; impressions: number; clicks: number; sharedWith: string[] } }[] } };
-    };
-    const vocab = readPlacementVocab();
-    return (j.funnel?.affiliateCta?.byRule ?? []).map((r) => ({
+    const j = JSON.parse(readFileSync(repoPath(datasetPath('analysis.career-funnel')), 'utf8')) as { funnel?: { affiliateCta?: FunnelAffiliate } };
+    return j.funnel?.affiliateCta ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function affiliateRules(): { rows: RuleRow[]; window: FunnelAffiliate['byRuleWindow'] | null; unattributed: FunnelAffiliate['unattributed'] | null } {
+  const a = readFunnelAffiliate();
+  const vocab = readPlacementVocab();
+  return {
+    rows: (a?.byRule ?? []).map((r) => ({
       ruleId: r.ruleId,
       program: r.program,
       slotLabel: vocab[r.slot]?.label ?? r.slot,
       open: r.until == null,
       impressions: r.ga4.impressions,
       clicks: r.ga4.clicks,
+      impressionsShared: r.ga4.impressionsShared ?? 0,
+      clicksShared: r.ga4.clicksShared ?? 0,
       partial: r.ga4.coveredDays < r.ga4.windowDays,
       sharedWith: r.ga4.sharedWith,
-    }));
-  } catch {
-    return [];
-  }
+    })),
+    window: a?.byRuleWindow ?? null,
+    unattributed: a?.unattributed ?? null,
+  };
+}
+
+export function affiliateClickLog(): ClickLogRow[] {
+  const vocab = readPlacementVocab();
+  return (readFunnelAffiliate()?.clickLog ?? []).map((c) => ({
+    date: c.date,
+    page: c.page,
+    program: c.program,
+    slotLabel: vocab[c.placement]?.label ?? c.placement,
+    ruleId: c.ruleId,
+    clicks: c.clicks,
+  }));
 }
 
 /** アフィリエイトに関わる実行中の実験と次の判定日（data/business/experiments.json）。 */

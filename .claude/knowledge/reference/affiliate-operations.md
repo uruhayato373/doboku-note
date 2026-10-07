@@ -546,6 +546,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
 | `config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
 | `config/affiliate-placements.json` | **配置ルールの真実源**（案件 × 面 × 対象 × 期間 × 実験）。検証 `npm run check-affiliate-placements` |
+| GA4 のページ別（`fetch-ga4-cta-clicks --by-page`・週次） | アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。`report-career-funnel` がページの文脈・面・案件・日付で配置ルールを一意に決めて `byRule` を数え、`clickLog` に日付つきのクリックを残す（2026-10-07〜）。**どの面のどの広告から成果が出たかは、A8 の発生日と clickLog を突き合わせて候補を絞る**（A8 は同じ A8 サイトの面を分けられない） |
 | `config/cta-placements.json` | 面（GA4 の `cta_placement`）の名前・撤去・1 ページ 1 ピクセルの優先順 |
 | `src/config/affiliate-creatives.ts` | 案件の素材（バナー・本文カードの文言・悩み別 CTA）。`PROGRAM_ASSETS` を案件 id で引く |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |

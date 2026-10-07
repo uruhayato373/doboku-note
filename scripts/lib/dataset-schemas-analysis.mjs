@@ -334,7 +334,7 @@ const careerFunnelShape = (legacy) => {
     windows: z.object({ ga4: OptWindow, gsc: OptWindow, aligned: z.boolean().describe('GA4 と GSC の窓が一致'), usable: z.boolean().describe('両方の窓がある') }).strict(),
     inputs: z
       .object({
-        ga4Label: z.string().nullable(), ga4Placement: z.string().nullable(), ga4Device: z.string().nullable(), ga4Page: z.string().nullable(),
+        ga4Label: z.string().nullable(), ga4Placement: z.string().nullable(), ga4ByPage: z.string().nullable().optional(), ga4Device: z.string().nullable(), ga4Page: z.string().nullable(),
         gscPageQuery: z.string().nullable(), a8: z.string().nullable(), afb: later(z.string().nullable()),
       })
       .strict()
@@ -376,12 +376,15 @@ const careerFunnelShape = (legacy) => {
                     until: z.string().nullable(),
                     ga4: z
                       .object({
+                        source: z.enum(['page', 'placement']).optional().describe('page＝ページ別からルールを一意に決めた数字／placement＝面の合計（古い記録は placement）'),
                         coveredDays: count('窓のうちルールが有効だった日数'),
                         windowDays: count('窓の日数'),
-                        impressions: count('面の表示（窓の合計）'),
-                        clicks: count('面のクリック（窓の合計）'),
+                        impressions: count('このルールの表示（placement は面の合計）'),
+                        clicks: count('このルールのクリック（placement は面の合計）'),
+                        impressionsShared: count('閉じて開き直した前後のルールと分けられない表示（page のみ）').optional(),
+                        clicksShared: count('境界の日で分けられないクリック（page のみ）').optional(),
                         ctr: z.number().nullable(),
-                        sharedWith: z.array(z.string()).describe('同じ窓に同じ面にあったルール（数字はそれらと分けられない）'),
+                        sharedWith: z.array(z.string()).describe('数字を分けられないルール（placement は同じ窓・同じ面、page は *Shared の相手）'),
                       })
                       .strict(),
                     a8: z.object({ scope: z.literal('program'), months: z.array(month), conversions: count('発生'), approved: count('確定'), revenueYen: count('確定報酬（円）') }).strict(),
@@ -391,6 +394,32 @@ const careerFunnelShape = (legacy) => {
               .superRefine(uniqueBy('ruleId', 'ルール id'))
               .optional()
               .describe('配置ルール（台帳 config.affiliate-placements）ごとの面の数字と A8（2026-10-07〜）'),
+            byRuleWindow: z
+              .strictObject({ start: jstDate('開始日'), end: jstDate('終了日'), source: z.enum(['page', 'placement']) })
+              .optional()
+              .describe('byRule の窓（page＝ページ別の窓・placement＝配置別の窓）'),
+            unattributed: z
+              .strictObject({
+                impressions: count('どのルールにも当たらない表示'),
+                clicks: count('どのルールにも当たらないクリック'),
+                top: z.array(z.strictObject({ page: z.string(), label: z.string(), placement: z.string(), impressions: count('表示'), clicks: count('クリック') })).max(10),
+              })
+              .optional()
+              .describe('ページ別の行のうち配置ルールに当たらないもの（撤去前の面・ラベル未登録・ページ不明）'),
+            clickLog: z
+              .array(
+                z.strictObject({
+                  date: jstDate('クリックの日'),
+                  page: z.string(),
+                  label: z.string(),
+                  placement: z.string(),
+                  program: z.string().nullable().describe('ラベルから引いた案件（catalog の ctaLabels に無ければ null）'),
+                  ruleId: z.string().regex(/^PL-\d{4}$/).nullable().describe('一意に決まった配置ルール（決まらなければ null）'),
+                  clicks: count('クリック'),
+                }),
+              )
+              .optional()
+              .describe('アフィリエイトのクリックを日付・ページ・広告ごとに（成果の発生日と突き合わせる）'),
           })
           .strict(),
         a8: z.object({ window: A8Sum, allTime: A8Sum, monthsInWindow: z.array(month) }).strict(),
