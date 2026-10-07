@@ -28,7 +28,7 @@ title: 計測・検証事故の記録
 - 現象: ビルドジョブの発生 1 件（¥13,534・未確定）について、どの広告から出たかを調べた。A8 の成果別レポート（`/report/result`）には、クリック 2026/10/05 10:37:13・申込 10:38:03・PC が出ていた。ただし「リファラ」は `https://doboku-note.com/` だけだった。GA4 の `affiliate_cta_click`（`data/ga4/reports/2026-10-07.json` の affiliate-by-page）は 10/04〜10/06 が 0 件で、このクリック自体が残っていない。広告の表示（impression）の行は窓の合計で日付が無く、その日に広告を出したページからも絞れない。
 - 原因: (1) サイト既定の Referrer-Policy（`public/_headers` の `strict-origin-when-cross-origin`）により、他ドメインへのリンクではドメインまでしか送られない。広告リンクにも同じ方針が効いていた。(2) GA4 の取りこぼし。経路は特定できない。候補は、広告ブロッカー等でタグが動かない訪問者と、中クリックで開いたリンク（`click` が発火せず `auxclick` だけが飛ぶのに、計測が `click` しか聞いていなかった）。
 - 検出経緯: 引き継ぎの「A8 の発生日時と GA4 の clickLog を日付で突き合わせる」を実行し、A8 の日時に対応する GA4 の行が無いことで分かった。時間帯別の GA4 を取りに行こうとしたが、この Mac にはサービスアカウント鍵の設定が無く、打ち切った。
-- 対策: 広告リンクに `referrerPolicy="no-referrer-when-downgrade"` を付けた（`AFFILIATE_LINK_REFERRER_POLICY`。rel と対で付けることを `tests/affiliate-link-referrer.test.mjs` が止める）。デプロイ以後のクリックは、A8 の成果別レポートにページの URL が残る。クリック計測は `auxclick`（中ボタン）も拾う。成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母として使う（affiliate-operations.md 裁定ログ 2026-10-07）。
+- 対策: 広告リンクに `referrerPolicy="no-referrer-when-downgrade"` を付けた（`AFFILIATE_LINK_REFERRER_POLICY`。rel と対で付けることを `tests/affiliate-link-referrer.test.mjs` が止める）。デプロイ以後のクリックは、A8 の成果別レポートにページの URL が残る。クリック計測は `auxclick`（中ボタン）も拾う。成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母として使う（affiliate-operations.md 裁定ログ 2026-10-07）。成果別レポートは週次 CI で自動取得して `report-log` の `conversions` に残し（誰かが A8 を開かなくても記録される）、URL を渡すようになった後の成果でページが取れなければ `report-career-funnel` が警告する。
 - 教訓: GA4 は「ASP が数えたクリック」を全部は持っていない（9/26 の時点で A8 のサイト別クリックが GA4 より大きかったのと同じ根）。成果をページへ帰属させる情報は、成果を数える側（ASP）に残るように作る。サイト全体のプライバシー方針を変えずに、外へ出すリンクの種類ごとに方針を決める。
 
 ## 2026-10-07 — A8 の 9 月分が CI の型検査で 3 回捨てられ、会社 PC では CSV の download が時間切れになる（DN-0566）

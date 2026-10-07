@@ -2,18 +2,18 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 917,
+    "total": 916,
     "embedded": 916,
-    "orphan": 1,
+    "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 806,
-      "conforming": 806,
+      "total": 805,
+      "conforming": 805,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 325,
+      "civil-construction-1": 324,
       "civil-construction-2": 20,
       "civil-practice": 27,
       "concrete-chief-engineer": 115,
@@ -2521,24 +2521,6 @@
       "fitStatus": "conforming",
       "hasWideVariant": false,
       "embedded": true,
-      "audit": {
-        "high": 0,
-        "medium": 0,
-        "low": 0
-      }
-    },
-    {
-      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-kansou-mitsudo-kisei.svg",
-      "category": "civil-construction-1",
-      "slug": "secondary-quality-management-basics",
-      "name": "figure-kansou-mitsudo-kisei.svg",
-      "concept": "締固め曲線の模式図。含水比に対して乾燥密度は山形になり、頂点が最大乾燥密度で、そのときの含水比が最適含水比。締固め度は現場の乾燥密度を室内試験の最大乾燥密度で割った百分率で、盛土の用途に応じて最適含水比かそのやや乾燥側で施工する",
-      "viewBox": "0 0 400 500",
-      "aspect": 0.8,
-      "canvas": "feed",
-      "fitStatus": "conforming",
-      "hasWideVariant": false,
-      "embedded": false,
       "audit": {
         "high": 0,
         "medium": 0,

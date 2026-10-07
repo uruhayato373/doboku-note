@@ -196,12 +196,12 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 | 案件 | 現行の面 | 適用 |
 |---|---|---|
-| ビルドジョブ | 1級・建設部門・コンクリート系・一次・RCCM・実務（/practice）の記事とカテゴリ hub、2級はキャリア記事だけ。公的基準の章末（`standards-end`）・トップ（`home-section`）・ツール（`tool-inline`・`career-tool`）。面ごとの対象カテゴリ（本文カードは 1級・建設部門・RCCM だけ、実務は本文中間・記事末だけ等）は配置ルールが正 | 2026-09-08 JST 以降のビルドで通常条件。実務・RCCM の資格トップ・公的基準・トップ・ツール・コンクリート技士と RCCM の本文中間は 2026-10-07 17:00 から（EXP-017） |
+| ビルドジョブ | 1級・建設部門・コンクリート系・一次・RCCM・実務（/practice）の記事とカテゴリ hub、2級はキャリア記事だけ。公的基準の章末（`standards-end`）・トップ（`home-section`）・ツール（`tool-inline`・`career-tool`）。2026-10-07 20:00 からは公的基準の章以外（`standards-list-end`）・トピック（`topic-end`）・実務ツール等（`tool-end`）・測量士・舗装・建築の記事と資格トップも（EXP-018）。面ごとの対象カテゴリ（本文カードは 1級・建設部門・RCCM だけ、実務は本文中間・記事末だけ等）は配置ルールが正 | 2026-09-08 JST 以降のビルドで通常条件。実務・RCCM の資格トップ・公的基準・トップ・ツール・コンクリート技士と RCCM の本文中間は 2026-10-07 17:00 から（EXP-017） |
 | 建設JOBs | 2級の学習ページ（本文カード・本文中間・記事末）と 2級の資格トップ | 2026-10-07 17:00 から再開（EXP-017・裁定ログ 2026-10-07）。キャリア記事はビルドジョブのまま |
 | GKSキャリア | 一般配置停止。creativeは過去分岐として保持 | A8終了予定2026-09-28を実機確認 |
 | ハイクラス DX・コンサル | 総監の記事末・hub（記事サイドバーは 2026-09-26 撤去） | 既存配置継続。今回の条件照合対象外 |
 
-公的基準の章ページは右のナビ欄（`StandardsNavigation`）には広告を置かず、本文末に 1 枠だけ置く。トップ・ツール・公的基準は面が 1 つなので、`AffiliateSlot` がその面でピクセルを 1 発出す。
+公的基準のページ（章・章以外とも）は右のナビ欄（`StandardsNavigation`）には広告を置かず、本文末に 1 枠だけ置く。トップ・ツール・公的基準・トピックは面が 1 つなので、`AffiliateSlot` がその面でピクセルを 1 発出す。2026-10-07 の本番実測で広告の無かったページは運営ページ（about・contact・privacy・terms・links・search・sitemap-keywords）と `/exam` だけ。
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
@@ -341,7 +341,7 @@ gh workflow run cloudflare-deploy.yml --ref main
 ### A8 の月次成果は UI 取得が実装済み（手入力ではない）
 
 ```bash
-npm run a8-ui:fetch -- --month 2026-08 --reports site-summary,program-detail
+npm run a8-ui:fetch -- --month 2026-08 --reports site-summary,program-detail,result-detail
 npm run a8-ui:normalize -- --latest
 ```
 
@@ -530,6 +530,8 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 
 - **判断**: A8 の発生 1 件（ビルドジョブ ¥13,534・未確定）を機に、アクセスがあるのに広告の無い面（実務・公的基準の章末・トップ・ツール・コンクリート技士と RCCM の本文中間）へ広げた（運営者の指示）。2級の学習ページと資格トップは建設JOBs に替えた。2級の二次の受験者は実務経験があり、若い層が多いので、建設JOBs の条件（20〜30 代・経験者）に合う。9/08 に一般配置を止めた理由（対象年齢・経験・電話確認の条件）は、条件に合う読者層に絞って出すことで解く。キャリア記事はビルドジョブのまま。判定は EXP-017（28 日・確定 3 件まで案件の勝敗は決めない）。
 - **10 月の 1 件の出どころ（未特定）**: A8 の成果別レポート（`/report/result`）では、クリック 2026/10/05 10:37:13・申込 10:38:03・PC。リファラは `https://doboku-note.com/` で、ドメインまでしか残っていなかった。GA4 では 10/04〜10/06 の `affiliate_cta_click` が 0 件で、このクリックを取りこぼしている。ページは特定できない（9/08 以降の GA4 のクリックはほぼ二次試験の年度別ページの本文カード＝最有力だが推定）。
+- **残りの面へ展開（EXP-018）**: 本番の全 1,622 ページを取得すると、転職広告の無いページが 272 あった（公的基準の章以外 218・トピック 16・測量士・舗装・建築 19・ツール 11・運営ページ 8）。運営ページを除く 264 ページへ、EXP-017 と面・カテゴリを分けた配置ルール PL-0035〜0041 で広げた（運営者の指示・2026-10-07 20:00 から）。測量士・舗装・建築を外していた理由の記録は無く、#904 で配置ルールにした時点の状態をテストが固定していただけだった。
+- **記録**: A8 の成果別（1 成果 1 行・クリックしたページ付き）を週次 CI（login-collectors の a8）で取り、`data/a8/report-log.json` の `conversions` に残す。`report-career-funnel` が成果をページ・案件・クリック時刻で配置ルールへ寄せ、管理画面 `/affiliate` の「成果の出どころ」に出す。
 - **再発防止**: (1) 広告リンクにリファラ方針を付け、A8 の成果別レポートにクリックしたページの URL が残るようにした（必須ルール 7）。以後の成果はページまで A8 だけで分かる。(2) クリック計測が中クリック（`auxclick`）も拾うようにした。広告ブロッカー等で GA4 が送れない分は残るので、成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母に使う（役割分担は 9/26 のとおり）。
 
 ---
@@ -554,11 +556,11 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
 | `config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
 | `config/affiliate-placements.json` | **配置ルールの真実源**（案件 × 面 × 対象 × 期間 × 実験）。検証 `npm run check-affiliate-placements` |
-| GA4 のページ別（`fetch-ga4-cta-clicks --by-page`・週次） | アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。`report-career-funnel` がページの文脈・面・案件・日付で配置ルールを一意に決めて `byRule` を数え、`clickLog` に日付つきのクリックを残す（2026-10-07〜）。成果ごとのページは **A8 の成果別レポート（`/report/result`）の「リファラ」**で分かる（広告リンクのリファラ方針・2026-10-07 のデプロイ以降のクリック）。それ以前の成果は A8 の発生日と clickLog を突き合わせて候補を絞るしかない（A8 のサイト別・プログラム別は同じ A8 サイトの面を分けられない） |
+| GA4 のページ別（`fetch-ga4-cta-clicks --by-page`・週次） | アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。`report-career-funnel` がページの文脈・面・案件・日付で配置ルールを一意に決めて `byRule` を数え、`clickLog` に日付つきのクリックを残す（2026-10-07〜）。成果ごとのページは **A8 の成果別（`report-log` の `conversions`・週次 CI）**で分かり、`report-career-funnel` が候補の配置ルールへ寄せる（`affiliateCta.conversions`・2026-10-07 20:00 JST 以降のクリック）。それ以前の成果は A8 の発生日と clickLog を突き合わせて候補を絞るしかない（A8 のサイト別・プログラム別は同じ A8 サイトの面を分けられない） |
 | `config/cta-placements.json` | 面（GA4 の `cta_placement`）の名前・撤去・1 ページ 1 ピクセルの優先順 |
 | `src/config/affiliate-creatives.ts` | 案件の素材（バナー・本文カードの文言・悩み別 CTA）。`PROGRAM_ASSETS` を案件 id で引く |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
-| `data/a8/report-log.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `siteSummary`。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
+| `data/a8/report-log.json` | **A8 成果**（`/a8-report` と週次 CI の login-collectors が upsert）。doboku 分離は `siteSummary`。**`conversions` は成果別（1 成果 1 行・サイト列で分離・`page` がクリックしたページ）＝成果の出どころの真実源**（2026-10-07〜）。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
 | `data/afb/outcomes/（日付別の最新）` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
 | `npm run report-buildjob-affiliate` | BuildJob クリック/EPC 週次レポート |
 | 各 MDX | 実際の埋め込み（本文・文面の真実源） |

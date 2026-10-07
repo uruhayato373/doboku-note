@@ -96,8 +96,8 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 転職アフィリ（BuildJob・建設JOBs〔2級の学習ページと資格トップ〕・総監のハイクラス DX・コンサル）のクリック実績を週次で確認する。どの面に何を出すかは配置ルール `config/affiliate-placements.json` が正（2026-10-07〜）。この Phase は親が直接実行する（単純な JSON 読み + 算術のため metrics-analyzer には委譲しない）。
 
 1. **配置ルール別に読む**: `data/analysis/career-funnel.json` の `funnel.affiliateCta`（fetch-metrics が週次で生成）。`byRule` がルールごとの表示・クリック（窓の中でルールを閉じて開き直したページの表示は `*Shared` に入り、推測で分けない）、`clickLog` が日付つきのクリック。新しいルールで表示 1,000 以上・クリック 0 が 2 窓続いたら、その面を閉じる候補として挙げる（EXP-017 の target_delta）。
-   - 面（GA4 の `cta_placement`）は `article-inline`・`article-mid`・`article-end`・`category-sidebar`・`category-mobile`・`standards-end`・`home-section`・`tool-inline`・`career-tool`。名前と 1 ページ 1 ピクセルの優先順は `config/cta-placements.json`。記事サイドバーは 2026-09-26 に撤去済み。
-2. **成果の出どころ**: A8 で発生があれば、成果別レポート（`/report/result`）の「リファラ」でページを確かめる（2026-10-07 のデプロイ以降のクリック）。GA4 はクリックを取りこぼすことがあるので（measurement-incidents.md 2026-10-07）、帰属は A8 のリファラを正とする。
+   - 面（GA4 の `cta_placement`）は `article-inline`・`article-mid`・`article-end`・`category-sidebar`・`category-mobile`・`standards-end`・`standards-list-end`・`topic-end`・`home-section`・`tool-inline`・`tool-end`・`career-tool`。名前と 1 ページ 1 ピクセルの優先順は `config/cta-placements.json`。記事サイドバーは 2026-09-26 に撤去済み。
+2. **成果の出どころ**: 同じ `funnel.affiliateCta.conversions`（A8 の成果別・週次 CI）に成果ごとのクリックしたページと候補の配置ルールが入る（2026-10-07 20:00 以降のクリック）。`warnings` に「ページが取れない」が出たら広告リンクのリファラ方針の退行を疑う。GA4 はクリックを取りこぼすことがあるので（measurement-incidents.md 2026-10-07）、帰属は A8 のリファラを正とする。
 3. **EPC 判定への布石**: A8 成果（`data/a8/report-log.json` の単月の期間から導く月×案件。`/a8-report` で自動収集）÷ GA4 クリックで案件別 EPC を出す。本 Phase は「クリックの推移を追う」までで、成果転記と EPC 確定は月次で行う。
    - **判定基準は `affiliate-operations.md` §6.5「成果ドリブンの見直し基準」に従う**。特に
      (a) ASP 公開 EPC（市場平均）と自サイト実測 EPC を混同しない

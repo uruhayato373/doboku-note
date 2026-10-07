@@ -16,7 +16,9 @@ const AFTER_SIDEBAR = Date.parse('2026-09-27T12:00:00+09:00');
 // ビルドジョブの施工管理系（2級は建設JOBs）
 const CIVIL = ['civil-construction-1', 'pe-construction', 'concrete-chief-engineer', 'concrete-diagnostician', 'pe-first-stage'];
 const CIVIL2 = 'civil-construction-2';
-const NO_AD = ['reference-materials', 'surveyor', 'pavement', 'building-construction', null];
+const NO_AD = ['reference-materials', null];
+// 2026-10-07 20:00 から転職広告を出す（EXP-018・それまでは出していなかった）
+const WAVE2_CATEGORIES = ['surveyor', 'pavement', 'building-construction'];
 
 const programs = (r) => Object.fromEntries(Object.entries(r).map(([slot, v]) => [slot, v.program]));
 
@@ -47,12 +49,31 @@ test('総監は全部の面でハイクラス DX・コンサル（施工管理�
   }
 });
 
-test('測量・舗装・建築・参考資料、カテゴリの無い記事には何も出さない', async () => {
+test('参考資料・カテゴリの無い記事には何も出さない', async () => {
   const { resolvePlacements } = await load();
   for (const category of NO_AD) {
     assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category, isCareerDoc: false }, NOW)), {}, String(category));
     assert.deepEqual(programs(resolvePlacements({ pageKind: 'category', category }, NOW)), {}, String(category));
   }
+});
+
+test('測量士・舗装・建築は 2026-10-07 20:00 から本文中間・記事末・資格トップに BuildJob（EXP-018）、それより前は出さない', async () => {
+  const { resolvePlacements } = await load();
+  const before = Date.parse('2026-10-07T19:59:00+09:00');
+  for (const category of WAVE2_CATEGORIES) {
+    const doc = programs(resolvePlacements({ pageKind: 'doc', category, isCareerDoc: false }, NOW));
+    assert.deepEqual(doc, { 'article-mid': 'buildjob', 'article-end': 'buildjob' }, category);
+    assert.deepEqual(programs(resolvePlacements({ pageKind: 'category', category }, NOW)), { 'category-sidebar': 'buildjob', 'category-mobile': 'buildjob' }, category);
+    assert.deepEqual(programs(resolvePlacements({ pageKind: 'doc', category, isCareerDoc: false }, before)), {}, category);
+  }
+});
+
+test('公的基準の章以外・トピック・ツールのページ末は BuildJob（EXP-018）。章ページ・字数チェック等の面とは別の面', async () => {
+  const { resolvePlacements } = await load();
+  assert.equal(resolvePlacements({ pageKind: 'standards-list' }, NOW)['standards-list-end']?.program, 'buildjob');
+  assert.equal(resolvePlacements({ pageKind: 'topic' }, NOW)['topic-end']?.program, 'buildjob');
+  assert.equal(resolvePlacements({ pageKind: 'tool' }, NOW)['tool-end']?.program, 'buildjob');
+  assert.equal(resolvePlacements({ pageKind: 'standards' }, NOW)['standards-list-end'], undefined);
 });
 
 test('本文の手書き転職カード（article-inline）は MDX にある 4 カテゴリだけ（2級の学習ページは建設JOBs）。技士・RCCM は本文中間と記事末が BuildJob', async () => {

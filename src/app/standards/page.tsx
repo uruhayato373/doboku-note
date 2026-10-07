@@ -7,6 +7,7 @@ import StandardsExplore from '@/components/standards/StandardsExplore';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsCatalog } from '@/lib/standards';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木工事共通仕様書・工事必携 全文検索ライブラリ',
@@ -57,6 +58,8 @@ export default function StandardsPage() {
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsExplore />
         </div>
+        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
+        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
         <StandardsAttribution />
       </TwoColumnShell>
     </PageShell>

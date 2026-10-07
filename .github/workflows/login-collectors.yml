@@ -212,6 +212,7 @@ jobs:
           # ただし rc は 2 のまま返して run を赤にし、欠けたレポート名を Issue に残す（部分取得を緑と呼ばない）。
           # period-daily は headless で期間入力欄（placeholder="開始月"）が見つからず取れない（2026-09-21 run 35606444641）。
           # CI では 3 レポートに絞って status=ok で完走させ、period-daily は月次のローカル儀式（a8-report）に残す。
+          # result-detail（成果別・1 成果 1 行・クリックしたページ付き）も取る。期間は URL で指定でき、成果 0 件の月は 0 件で正常（2026-10-07〜）。
           # 対象月は JST の前月と当月（成果の確定は発生月へ遡って反映されるので、前月も毎週取り直す。upsert は期間×サイト／案件で冪等）。
           # 当月を後に回して report-log の period を当月にする。手動実行は month 入力で任意の 1 か月。
           if [ -n "$MONTH_INPUT" ]; then
@@ -229,7 +230,7 @@ jobs:
           rc=0
           for m in $months; do
             echo "::group::a8 ${m}"
-            npm run a8-ui:fetch -- --month "$m" --reports site-summary,program-detail,period-monthly
+            npm run a8-ui:fetch -- --month "$m" --reports site-summary,program-detail,period-monthly,result-detail
             frc=$?
             nrc=0
             if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then

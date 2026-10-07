@@ -8,6 +8,7 @@ import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 type Params = { agency: string };
 
@@ -84,6 +85,8 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} variant="mobile" />
         </div>
+        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
+        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
         {commonDoc ? <StandardsAttribution document={commonDoc} /> : <StandardsAttribution />}
       </TwoColumnShell>
     </PageShell>

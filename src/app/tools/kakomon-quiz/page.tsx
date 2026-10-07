@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import KakomonQuizClient from "./KakomonQuizClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 
 export const metadata: Metadata = {
   title: "1級土木 過去問 無料演習｜第一次検定 全1,098問を4択クイズ",
@@ -43,6 +44,8 @@ export default function KakomonQuizPage() {
       />
 
       <KakomonQuizClient />
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

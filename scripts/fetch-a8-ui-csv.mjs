@@ -43,7 +43,7 @@ import {
   findUniqueByLabels,
   makeRunId,
 } from "./lib/a8-report-browser.mjs";
-import { decodeCsvBuffer, parsePeriodFromFilename } from "./lib/a8-report-csv.mjs";
+import { decodeCsvBuffer, parsePeriodFromFilename, periodQueryFor } from "./lib/a8-report-csv.mjs";
 import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
@@ -99,8 +99,9 @@ function writeLastRunMarker(manifest) {
 }
 
 /** レポート画面へ移動して描画を待つ。 */
-async function openReport(page, cfg, reportKey) {
-  const url = reportUrl(cfg, reportKey);
+async function openReport(page, cfg, reportKey, { month = null } = {}) {
+  const spec = cfg.a8.reports[reportKey];
+  const url = reportUrl(cfg, reportKey) + (spec?.periodQuery ? periodQueryFor(month) : "");
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: cfg.browser.timeoutMs }).catch(() => {});
   await page.waitForTimeout(2000);
   return url;
@@ -207,7 +208,7 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     error: null,
   };
 
-  unit.reportUrl = await openReport(page, cfg, reportKey);
+  unit.reportUrl = await openReport(page, cfg, reportKey, { month });
 
   // レポート画面に到達しているか。
   //
@@ -230,6 +231,23 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
       .filter({ visible: true })
       .count()
       .catch(() => 0);
+  }
+  // 成果別は成果の無い期間に CSV ボタンを出さず「データがありません」だけを出す。それは 0 件の取得として扱う
+  if (onReportUrl && exportVisible === 0 && spec.emptyOk && spec.noDataText) {
+    const body = await page.innerText("body").catch(() => "");
+    if (body.includes(spec.noDataText)) {
+      const q = new URL(unit.reportUrl).searchParams;
+      unit.period = parsePeriodFromFilename(`${q.get("start_date")?.replaceAll("-", "")}-${q.get("end_date")?.replaceAll("-", "")}`);
+      if (month && unit.period?.singleMonth !== month) {
+        unit.status = "period-mismatch";
+        unit.error = `要求 ${month} に対し URL の期間は ${unit.period?.raw ?? "不明"}`;
+        return unit;
+      }
+      unit.csvRows = 0;
+      unit.status = "downloaded";
+      unit.noData = true;
+      return unit;
+    }
   }
   if (!onReportUrl || exportVisible === 0) {
     await dumpFailure(page, cfg, runId, {
@@ -263,7 +281,7 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
 
   // ★ 単月指定（--month）。既定は A8 の累計期間なので、指定が無ければ何もしない。
   //   期間を変えると表が再描画されるので、export ボタンを掴む前に済ませる。
-  if (month) {
+  if (month && !spec.periodQuery) {
     const set = await setPeriodMonth(page, cfg, { month });
     unit.periodSet = set;
     if (!set.ok) {
@@ -338,8 +356,9 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     const { headers, rows } = parseCsv(decoded.text);
     unit.csvHeaders = headers;
     unit.csvRows = rows.length;
-    unit.status = rows.length > 0 ? "downloaded" : "empty-download";
-    if (rows.length === 0) unit.error = "CSV は取得できたが行が 0";
+    // 成果別は成果の無い月が 0 行で正常（emptyOk）。他のレポートの 0 行は取得の失敗を疑う
+    unit.status = rows.length > 0 || spec.emptyOk ? "downloaded" : "empty-download";
+    if (rows.length === 0 && !spec.emptyOk) unit.error = "CSV は取得できたが行が 0";
   } catch (e) {
     await dumpFailure(page, cfg, runId, { step: "download", message: e?.message || String(e) });
     unit.status = "download-failed";

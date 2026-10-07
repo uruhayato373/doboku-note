@@ -64,6 +64,24 @@
       "pageKind": "standards",
       "pixelPriority": 1
     },
+    "standards-list-end": {
+      "label": "公的基準 一覧・文書の末尾",
+      "status": "active",
+      "pageKind": "standards-list",
+      "pixelPriority": 1
+    },
+    "topic-end": {
+      "label": "トピック 末尾",
+      "status": "active",
+      "pageKind": "topic",
+      "pixelPriority": 1
+    },
+    "tool-end": {
+      "label": "ツール ページ末",
+      "status": "active",
+      "pageKind": "tool",
+      "pixelPriority": 1
+    },
     "home-section": {
       "label": "トップ 区画",
       "status": "active",

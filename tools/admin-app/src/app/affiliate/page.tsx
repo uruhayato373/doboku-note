@@ -1,7 +1,7 @@
 import { DataTable, PanelCard, StatusBadge } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
-import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules, affiliateClickLog } from '@/lib/affiliate';
+import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules, affiliateClickLog, affiliateConversions } from '@/lib/affiliate';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,6 +23,7 @@ export default function AffiliatePage() {
   const experiments = affiliateExperiments();
   const { rows: rules, window: ruleWindow, unattributed } = affiliateRules();
   const clickLog = affiliateClickLog();
+  const conversions = affiliateConversions();
   const active = placements.rows.filter((r) => !r.retired);
   const clicks = active.reduce((s, r) => s + r.clicks, 0);
   const imps = active.reduce((s, r) => s + r.impressions, 0);
@@ -193,6 +194,31 @@ export default function AffiliatePage() {
             })}
             filter="ルール・案件・面で絞り込み"
             emptyText="未計測（fetch-metrics が週次で生成）"
+          />
+        </PanelCard>
+
+        <PanelCard title="成果の出どころ" description="A8 の成果別（1 成果 1 行・週次 CI）。ページは広告をクリックしたページ（2026-10-07 20:00 より前のクリックはドメインしか残らず不明）。候補が 1 つなら面まで決まる">
+          <DataTable
+            columns={[
+              { key: 'clickedAt', label: 'クリック' },
+              { key: 'program', label: '案件' },
+              { key: 'status', label: '状態' },
+              { key: 'gross', label: '発生額', num: true },
+              { key: 'page', label: 'ページ', wrap: true },
+              { key: 'rules', label: '候補の配置ルール', wrap: true },
+            ]}
+            rows={conversions.map((c, i) => ({
+              id: `${c.clickedAt}-${i}`,
+              values: {
+                clickedAt: c.clickedAt.slice(5, 16).replace('-', '/').replace('T', ' '),
+                program: c.program ?? '（不明）',
+                status: c.status,
+                gross: yen(c.grossRevenueYen),
+                page: c.page ?? '（不明）',
+                rules: c.rules || '—',
+              },
+            }))}
+            emptyText="成果なし（A8 の成果別は週次 CI の login-collectors が取得）"
           />
         </PanelCard>
 
