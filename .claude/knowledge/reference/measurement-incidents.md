@@ -8,6 +8,12 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-07 — SVG単図監査の引数区切りを誤り全件走査になった
+
+- 現象: `--file <path> --out <path>` を渡したが、単図レポートが作られず916枚の全件監査になった。
+- 原因: このCLIは `--file=<path>` の形式だけを解析し、`--out` は未対応。
+- 対策: 自分の実行が更新した全件レポートを戻し、`--file=content/site/civil-construction-1/textbook-concrete-materials/img/figure-prestress-stress-balance.svg --fail-on=HIGH` と標準出力の保存で再実行した。走査1枚・所見0件を確認した。
+
 ## 2026-10-07 — 管理画面でSVG検査器を静的importして500になった
 
 - 現象: 図解素材の管理画面で `@resvg/resvg-js` のネイティブ拡張がTurbopackへ取り込まれ、`non-ecmascript placeable asset` で `/sns` が500になった。
