@@ -1,7 +1,7 @@
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroupKey, isCareerDoc } from '@/lib/doc-classifier';
 import { type ReferenceItem } from '@/lib/extract-references';
-import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
+import { type ResolvedPlacement } from '@/lib/affiliate-placement';
 import CareerNextStepNav from '@/components/ui/CareerNextStepNav/CareerNextStepNav';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
@@ -26,6 +26,8 @@ import { shouldShowQualificationBridge } from '@/config/qualification-bridge';
 import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 
 interface ArticleFooterProps {
+  /** 記事末の転職バナー（config/affiliate-placements.json の article-end のルール。無ければ置かない）。DocPage が解決して渡す */
+  readonly endBanner?: ResolvedPlacement | null | undefined;
   /** 記事末バナーに付ける A8 計測ピクセル。本文側で既に 1 発出すページは undefined（1 ページ 1 ピクセル）。 */
   readonly careerPixelSrc?: string | undefined;
   readonly references: ReferenceItem[];
@@ -56,6 +58,7 @@ interface ArticleFooterProps {
  * 関連記事／著者」の構成を出し分ける。ロジックは抽出前と不変。
  */
 export default function ArticleFooter({
+  endBanner: endBannerAd = null,
   careerPixelSrc,
   references,
   category,
@@ -71,44 +74,20 @@ export default function ArticleFooter({
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
-  // 記事末は **300×250 のディスプレイバナー**。訴求文言主体のテキストカード（CareerAffiliate）は
-  // 本文中間（MidArticleCta）の役割で、記事末には置かない（2026-07-28 に整理）。
-  // 隣に並ぶ note もくじタイルが 300px 幅 × aspect-[6/5]＝300×250 なので、同じ寸法の
-  // ディスプレイ枠を並べると 2 タイルが揃う。
-  //
-  // creative は resolveDocsCareerSidebarAd がサイドバーと同じ解決（キャンペーン/総監の
-  // 出し分け込み）を返す。pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで
-  // ここが唯一の発火源になる＝「1 ページ 1 ピクセル」。記事サイドバー広告は 2026-09-26 撤去）。
-  // trackLabel はサイドバーと分離して面別に集計できるようにする（*-sidebar → *-endbanner）。
-  // キャリア記事の記事末は **広告を置かない**。2026-07-16〜08-12 の実測で
-  // 記事末バナーは 975 表示 0 クリック（CTR 0.00%）だったため、悩みに対応する柱と hub へ戻す
-  // 内部導線（CareerNextStepNav）へ置き換える。転職 CTA は本文中間（実測 0.41%＝最良）に集約する。
-  // 非キャリア記事の挙動はこの Phase では変えない。
+  // 記事末は **300×250 のディスプレイバナー**（隣の note もくじタイルと同寸）。訴求文言のカードは本文中間の役割。
+  // どのページに出すか（カテゴリ・キャリア記事を除く）は config/affiliate-placements.json の article-end のルールで、DocPage が解決して渡す。
+  // pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで唯一の発火源＝1 ページ 1 ピクセル）。
+  // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
   const isCareer = isCareerDoc(meta);
-  const endBannerCategories = new Set([
-    'civil-construction-1',
-    'civil-construction-2',
-    'pe-construction',
-    'concrete-engineer',
-    'concrete-chief-engineer',
-    'concrete-diagnostician',
-    'pe-first-stage',
-    'pe-comprehensive-management',
-    'rccm',
-  ]);
-  const endBannerAd =
-    !isCareer && category && endBannerCategories.has(category)
-      ? resolveDocsCareerSidebarAd(category, slugStr)
-      : null;
   const endBanner = endBannerAd ? (
     <SidebarAdBanner
-      href={endBannerAd.creative.href}
-      imageSrc={endBannerAd.creative.imageSrc}
-      alt={endBannerAd.creative.alt}
-      width={endBannerAd.creative.width}
-      height={endBannerAd.creative.height}
+      href={endBannerAd.banner.href}
+      imageSrc={endBannerAd.banner.imageSrc}
+      alt={endBannerAd.banner.alt}
+      width={endBannerAd.banner.width}
+      height={endBannerAd.banner.height}
       pixelSrc={careerPixelSrc}
-      trackLabel={endBannerAd.trackLabel.replace(/-sidebar$/, '-endbanner')}
+      trackLabel={endBannerAd.trackLabel}
       placement="article-end"
     />
   ) : null;

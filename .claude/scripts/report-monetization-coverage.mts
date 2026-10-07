@@ -45,10 +45,7 @@ import { getCategoryBySlug, getCategoryHubPath } from "../../src/lib/categories.
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
 import { getMagazine, NOTE_MAGAZINES } from "../../src/lib/note-magazines.ts";
 import { sidebarProduct } from "../../src/lib/sidebar-discovery.ts";
-import {
-  resolveCategoryCareerAds,
-  resolveDocsCareerSidebarAd,
-} from "../../src/config/affiliate-creatives.ts";
+import { resolvePlacements } from "../../src/lib/affiliate-placement.ts";
 
 const ROOT = process.cwd();
 const OUT_DIR = join(ROOT, datasetDir("analysis.monetization-coverage"));
@@ -76,12 +73,13 @@ function normPath(p: string): string {
   return p.replace(/\/+$/, "") || "/";
 }
 
-// ── アフィリエイト サイドバー配置の導出（page.tsx のミラー。SoT は page.tsx） ──
-// 記事の転職creativeはカテゴリ・slugで出し分ける（記事末・中間で共用）。
-// 2026-09-26に記事サイドバーの広告は撤去された。
-function deriveAffiliate(category: string, slug: string): string | null {
-  // サイドバー転職枠のプログラム名（"BuildJob" / "GKS" / "DXConsulting"）。trackLabel = "{program}-sidebar"。
-  return resolveDocsCareerSidebarAd(category, slug).trackLabel.replace(/-sidebar$/, "");
+// ── アフィリエイト配置の導出（配置ルール config/affiliate-placements.json をサイトと同じ関数で解く） ──
+// 記事は記事末・本文中間・手書きのどれかに転職広告が出るカテゴリなら、その案件の名前（"BuildJob" / "DXConsulting"）。
+// 2026-10-07 まではカテゴリに関係なく全記事に案件名を付けていた（実務・基準の記事も「アフィリあり」に数えていた）。
+function deriveAffiliate(category: string, isCareer: boolean): string | null {
+  const r = resolvePlacements({ pageKind: "doc", category, isCareerDoc: isCareer });
+  const hit = r["article-end"] ?? r["article-mid"] ?? r["article-inline"];
+  return hit ? hit.trackLabel.replace(/-(sidebar|endbanner)$/, "") : null;
 }
 
 // ── 本文に直接置かれた <MagazineCard>（MDX 内・placement を経由しない note 導線） ──
@@ -316,7 +314,7 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
         ...(hubTile ? [hubTile.trackLabel] : []),
       ]),
     ];
-    const affiliate = deriveAffiliate(meta.category, slug);
+    const affiliate = deriveAffiliate(meta.category, isCareerDoc(meta as any));
 
     // **OR 判定は「どれか 1 つでもあれば合格」なので、アフィリ枠さえあれば note ゼロが隠れる**。
     // 総合判定（monetized）は従来どおり残しつつ、チャネル別の穴を独立して持つ。
@@ -369,12 +367,9 @@ for (const [page, t] of traffic) {
     // mode:'product' は特定マガジンへの直リンク、mode:'mokuji' は L2 もくじへの集約。
     const hub = resolveHubCta(category);
     noteCta = hub ? [hub.trackLabel] : [];
-    // 転職プログラム名（"DXConsulting" / "BuildJob" / "GKS" / "KensetsuJobs"）。trackLabel = "{program}-sidebar"。
-    // カテゴリ hub は両方表示（show-both）= 複数になり得るため "+" 連結（例 "KensetsuJobs+BuildJob"）。
-    const affs = resolveCategoryCareerAds(category);
-    affiliate = affs.length
-      ? affs.map((a) => a.trackLabel.replace(/-sidebar$/, "")).join("+")
-      : null;
+    // 転職プログラム名（"DXConsulting" / "BuildJob"）。資格トップは 1 枠（配置ルールの category-sidebar）。
+    const hubAd = resolvePlacements({ pageKind: "category", category })["category-sidebar"];
+    affiliate = hubAd ? hubAd.trackLabel.replace(/-sidebar$/, "") : null;
   } else {
     continue;
   }

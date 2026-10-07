@@ -24,7 +24,7 @@ import { resolveHubCta } from '@/lib/hub-cta';
 import { resolveOffsiteCta } from '@/lib/offsite-cta';
 import OffsiteCta from '@/components/ui/OffsiteCta/OffsiteCta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
+import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 import CategoryStudyNav from '@/components/category/CategoryStudyNav';
 import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
@@ -67,13 +67,13 @@ export default async function CategoryPage({
   // 計測実績のある記事のみ・データ未生成や該当なしは空配列＝各コンポーネントで graceful 非表示。
   const popularDocs = getPopularDocs(docs, 5);
 
-  // 転職アフィリ（資格別セグメント）。カテゴリ hub は **両方表示（show-both）**: civil/建設部門は
-  // 建設JOBs（登録 ¥4,500）＋ビルドジョブ（面談 ¥50,000）の補完 2 案件を出し、読者に選ばせる。
-  // PC は右サイドバーに縦積み、モバイルは記事カードの隙間（グループ境界）に配置して可視化する。
-  // ピクセルは PC サイドバー側のみ発火（モバイルは href のみ）＝各プログラム 1 ピクセルずつ。
-  // 戻り値 []＝転職枠なし（総監以外の非建設カテゴリのみ）。civil/建設部門/concrete/pe-first-stage は
-  // 建設業界読者ゆえ [建設JOBs, BuildJob/GKS] を返す（2026-07-06 拡大）。記事ページは別途 A/B（直交）。
-  const careerAds = resolveCategoryCareerAds(slug);
+  // 転職アフィリ（資格別セグメント）。PC は右サイドバー、モバイルは記事カードの隙間（グループ境界）に置く。
+  // どの案件を出すかは config/affiliate-placements.json のルール（資格トップのサイドバーとモバイルに 1 枠ずつ）。
+  // ピクセルは PC サイドバー側だけ（cta-placements の pixelPriority。モバイルは href のみ）。
+  const placements = resolvePlacements({ pageKind: 'category', category: slug });
+  const sidebarAd = placements['category-sidebar'] ?? null;
+  const mobileAd = placements['category-mobile'] ?? null;
+  const sidebarPixel = pixelFor(placements, sidebarAd ? ['category-sidebar'] : []);
   // note CTA（資格別リッチ背景×HTML文字）。幅広面はもくじへ集約、直前期は特定商品へ直リンク。
   // 本文・PC サイドバー・モバイルの 3 面に同一内容を出し、utm で面分離する（旧 上位3誌直リンクを廃止し
   // 「もくじ集約」に一本化・2026-07）。HUB 非対応資格（concrete/一次）は null → 非表示。
@@ -87,19 +87,21 @@ export default async function CategoryPage({
   const offsiteCta = resolveOffsiteCta(slug);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   // 各案件を 1 枚ずつの node にしてビューのグループ境界に分散配置する（カードの隙間に「両方」）。
-  const mobileCareerAds = careerAds.map((ad, i) => (
-    <div key={ad.trackLabel + i} className="zenn-desktop:hidden my-10">
-      <SidebarAdBanner
-        href={ad.creative.href}
-        imageSrc={ad.creative.imageSrc}
-        alt={ad.creative.alt}
-        width={ad.creative.width}
-        height={ad.creative.height}
-        trackLabel={ad.trackLabel}
-        placement="category-mobile"
-      />
-    </div>
-  ));
+  const mobileCareerAds = mobileAd
+    ? [
+        <div key={mobileAd.ruleId} className="zenn-desktop:hidden my-10">
+          <SidebarAdBanner
+            href={mobileAd.banner.href}
+            imageSrc={mobileAd.banner.imageSrc}
+            alt={mobileAd.banner.alt}
+            width={mobileAd.banner.width}
+            height={mobileAd.banner.height}
+            trackLabel={mobileAd.trackLabel}
+            placement="category-mobile"
+          />
+        </div>,
+      ]
+    : [];
 
   // 右サイドバー（PC ≥993px・TwoColumnShell の aside prop へ渡す）。上から
   // 技士は学習→教材→関連リンクを先頭にまとめる。他資格は演習・復習ナビ。
@@ -113,14 +115,18 @@ export default async function CategoryPage({
         <ConcreteEngineerRelated />
       </> : <CategoryStudyNav category={slug} />}
       {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
-      {careerAds.map((ad, i) => (
+      {sidebarAd && (
         <SidebarAdBanner
-          key={ad.trackLabel + i}
-          {...ad.creative}
-          trackLabel={ad.trackLabel}
+          href={sidebarAd.banner.href}
+          imageSrc={sidebarAd.banner.imageSrc}
+          alt={sidebarAd.banner.alt}
+          width={sidebarAd.banner.width}
+          height={sidebarAd.banner.height}
+          pixelSrc={sidebarPixel?.slot === 'category-sidebar' ? sidebarPixel.pixelSrc : undefined}
+          trackLabel={sidebarAd.trackLabel}
           placement="category-sidebar"
         />
-      ))}
+      )}
       <AuthorSidebarCard />
       {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
       <PopularRanking items={popularDocs} />

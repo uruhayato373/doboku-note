@@ -8,6 +8,9 @@ import { getPublicDocPath } from '@/lib/content-routes';
 import { DEFAULT_OG_IMAGE } from '@/lib/metadata';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
 
+/** ビルド時刻（SSG）。診断ツールの転職案件は配置ルールの期間をこの時刻で判定する */
+const BUILT_AT = Date.now();
+
 export const metadata: Metadata = {
   title: "土木施工管理キャリア整理ツール｜資格・工種・工事規模・立場を棚卸しする",
   description:
@@ -56,7 +59,7 @@ export default function CareerCheckPage() {
         }
       />
 
-      <CareerCheckClient />
+      <CareerCheckClient builtAt={BUILT_AT} />
 
       {/*
         JavaScript が無効でも、hub と 5 本の柱へ到達できるようにする素のリンク。

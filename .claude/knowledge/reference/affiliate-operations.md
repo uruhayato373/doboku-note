@@ -147,7 +147,8 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | afb の未提携案件を探す | `npm run afb:scan -- --query 建設,現場` | 検索モード既定。crawl モードは 38 ページで実用的でない |
 | A8 の案件開拓 | `/scout-asp` | A8 専用。こちらとは別系統 |
 | A8 の成果 CSV 取込 | `/a8-report` | [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md) |
-| 配線の整合検査 | `npm run check-affiliate-wiring` | pre-commit |
+| 配線の整合検査 | `npm run check-affiliate-placements` | 配置ルールが案件（catalog の active・Red Line でない）・期限内の mat・面の語彙・カテゴリ・実験と整合し、同じ面に重なるルールが無いか。MDX の手書き `<CareerAffiliate program=…>` のカテゴリがルールに覆われているか。`--upcoming` は 7 日以内の境界 | pre-commit（pre-commit-ci-gates）・quality-audit ci／`--upcoming` は ops |
+| `npm run check-affiliate-wiring` | pre-commit |
 
 ### 安全弁
 
@@ -187,9 +188,11 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 5. `alt` を埋める
 6. **A8 の JavaScript 型バナーは使わない** — Next.js で動かない。「旧版を表示する」でシンプルな `<a><img/></a>` を取得
 
-### 現在の配置（真実源はコード）
+### 現在の配置（真実源は配置ルール）
 
-配置ロジックの真実源は `src/config/affiliate-creatives.ts`。本ドキュメントは方針のみ持ち、creative の URL・mat・出し分け条件はコードとレジストリを正とする。
+どの案件をどのページのどの面にいつ出すかの真実源は **`config/affiliate-placements.json`**（案件 × 面＝GA4 の `cta_placement` × 対象＝ページの種類・カテゴリ・キャリア記事 × 期間 × 実験。2026-10-07 にコードの日付・カテゴリ分岐から移した）。解決は `src/lib/affiliate-placement.ts`、案件の見た目（バナー・本文カードの文言）は `src/config/affiliate-creatives.ts` の `PROGRAM_ASSETS`、面の名前と 1 ページ 1 ピクセルの優先順は `config/cta-placements.json`。本ドキュメントは方針だけを持つ。
+
+**配置を変えるとき**: ルールを足すか、`until` を入れて閉じる（消さない。GA4 の配置別の窓とルールを結ぶ履歴になる）。同じ面に期間と対象が重なる 2 ルールは `npm run check-affiliate-placements` と型が止める。境界の日時を過ぎても本番の再ビルドまで切り替わらない（下の「期間限定案件の境界」）。
 
 | 案件 | 現行の面 | 適用 |
 |---|---|---|
@@ -200,7 +203,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 ビルドジョブ指名記事（civil-1/civil-2）は期間に関係なく同社の広告に揃える。既存mat NTZCH/NTJWYは9/8にA8広告作成画面のdoboku-note（websiteId=002）と一致を確認。8/31は増額終了日で、リンクの失効日ではない。現行のBuildJob報酬は13,534円、60歳未満・WEB申込後30日以内の無料面談完了が条件。
 
-以下の8/4変更は9/1〜9/7に適用した旧方針。9/8以降は `isReviewedCareerPolicyActive()` が優先し、`POST_CAMPAIGN_AB_ENABLED` だけを変更しても現行配置は切り替わらない。
+以下の 8/4・7/28 の変更は 9/7 までの旧方針の記録。当時の日付・slug ハッシュの分岐（`POST_CAMPAIGN_AB_ENABLED` 等）は 2026-10-07 にコードから削除し、9/8 以降の配置だけを配置ルールで表す。
 
 **2026-08-04 の変更**（9/1 復帰後の arm 設計・前倒し決定）:
 
@@ -318,8 +321,8 @@ career の GSC クリックが 0 から動き、hub → 柱の遷移が観測で
 
 ### 期間限定案件の境界はビルド時に固定される（SSG の制約）
 
-`isCampaignActive()`（`src/config/affiliate-creatives.ts`）は `Date.now()` を**ビルド時に 1 回だけ**
-評価する。本サイトは `output: 'export'` の SSG なので、判定結果はそのまま HTML へ焼き込まれる。
+配置ルールの期間（`period.from` / `until`）は `resolvePlacements` が `Date.now()` を**ビルド時に 1 回だけ**
+評価して判定する。本サイトは `output: 'export'` の SSG なので、判定結果はそのまま HTML へ焼き込まれる。
 `cloudflare-deploy.yml` の trigger は `push: branches:[main]` と `workflow_dispatch` だけで cron が無い。
 
 つまり**期間の切れ目をまたいでも、本番を再ビルドするまで終了済み案件を配信し続ける**。
@@ -330,8 +333,8 @@ career の GSC クリックが 0 から動き、hub → 柱の遷移が観測で
 gh workflow run cloudflare-deploy.yml --ref main
 ```
 
-日付ゲートを持つ creative を入れるたびに再発する制約なので、期間限定案件を追加する際は
-終了日の翌日に再ビルドする段取りまで含めて決める。
+期間を持つルールを入れるたびに再発する制約なので、7 日以内に境界があると日次の ops 点検
+（`npm run check-affiliate-placements -- --upcoming`）が知らせる。境界の後に再ビルドを 1 回打つ。
 
 ### A8 の月次成果は UI 取得が実装済み（手入力ではない）
 
@@ -542,7 +545,9 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 |---|---|
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
 | `config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
-| `src/config/affiliate-creatives.ts` | creative 定数と出し分けロジックの真実源 |
+| `config/affiliate-placements.json` | **配置ルールの真実源**（案件 × 面 × 対象 × 期間 × 実験）。検証 `npm run check-affiliate-placements` |
+| `config/cta-placements.json` | 面（GA4 の `cta_placement`）の名前・撤去・1 ページ 1 ピクセルの優先順 |
+| `src/config/affiliate-creatives.ts` | 案件の素材（バナー・本文カードの文言・悩み別 CTA）。`PROGRAM_ASSETS` を案件 id で引く |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
 | `data/a8/report-log.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `siteSummary`。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |
 | `data/afb/outcomes/（日付別の最新）` | **afb 成果**（公式 API・`fetch-afb-outcomes.mjs --commit` が週次で上書き）。サイト分離は行ごとの `assertSiteOrThrow` |
