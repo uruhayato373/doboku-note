@@ -44,6 +44,7 @@
   → reference-sources.json へ登録
   → 文字起こしに source frontmatter を付けて source-transcript group で同期
   → 記事 frontmatter の sources から ID で参照し、class 所定の粒度で出典を書く
+  → 展開の網羅は audit-reference-book-coverage で章・節ごとに確かめる（手元専用・出力 .claude/state/book-coverage/ は git 管理外）
   → check-reference-sources（通常／staged／deep）で鎖と利用条件を検査
 ```
 

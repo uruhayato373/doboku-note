@@ -30,6 +30,7 @@
 | `mechanical-screen.json` | 全ページの機械的指標（CEM 版 Tier 1 screen 出力） | `/quality-cycle --mode screen` |
 | `quality-scores.json` | CEM 版 Tier 2 質的評価結果（5 軸ルーブリック） | `/quality-cycle --mode score` |
 | `quality-cycle-state.json` | CEM 版 各ページの状態遷移履歴 | `/quality-cycle --mode rewrite/verify/approve` |
+| `book-coverage/`（git 管理外） | 書籍の章・節がサイトのどこで扱われているかの候補表と、その意味判定（`<id>.json`・`<id>.verdict.json`）。市販書籍の見出しを含む | `npm run audit-reference-book-coverage`・判定は Evaluator |
 | `civil-quality-scores.json` | 1級土木版の評価結果 | `/civil-textbook-cycle --mode score` |
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
 | `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-config-audit.yml`（月次） |
