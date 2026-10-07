@@ -16,3 +16,24 @@ test('frontmatter・コードブロックは数えず、別の出品は重複と
     'https://coconala.com/services/1', '```', 'https://coconala.com/services/3'].join('\n');
   assert.deepEqual(findDuplicateCoconala(md), []);
 });
+
+test('有料ラインより後ろの cta:coconala-buyer ブロックは重複に数えない（2026-10-07）', () => {
+  const md = ['---', 'paidBoundary: "模範答案"', '---', 'https://coconala.com/services/1', '## 模範答案', '本文',
+    '<!-- cta:coconala-buyer -->', '添削します。', '', 'https://coconala.com/services/1'].join('\n');
+  assert.deepEqual(findDuplicateCoconala(md), []);
+});
+
+test('有料ラインより前の buyer マーカーと、paidBoundary の無い記事では例外にしない', () => {
+  const before = ['---', 'paidBoundary: "模範答案"', '---', 'https://coconala.com/services/1',
+    '<!-- cta:coconala-buyer -->', 'https://coconala.com/services/1', '## 模範答案'].join('\n');
+  assert.deepEqual(findDuplicateCoconala(before), [{ line: 6, id: '1', firstLine: 4 }]);
+  const free = ['---', 'title: x', '---', 'https://coconala.com/services/1', '## 模範答案',
+    '<!-- cta:coconala-buyer -->', 'https://coconala.com/services/1'].join('\n');
+  assert.deepEqual(findDuplicateCoconala(free), [{ line: 7, id: '1', firstLine: 4 }]);
+});
+
+test('buyer ブロックは次の見出しで終わり、その後の重複は数える', () => {
+  const md = ['---', 'paidBoundary: 模範答案', '---', 'https://coconala.com/services/1', '## 模範答案',
+    '<!-- cta:coconala-buyer -->', 'https://coconala.com/services/1', '## 次', 'https://coconala.com/services/1'].join('\n');
+  assert.deepEqual(findDuplicateCoconala(md), [{ line: 9, id: '1', firstLine: 4 }]);
+});
