@@ -1,11 +1,10 @@
 {
-  "generated_at": "2026-10-07T12:15:19.849Z",
+  "generated_at": "2026-10-07T22:25:07.285Z",
   "note": "図provenance。needs=次アクション。真実源: figure-sources.json(台帳)+figure-text-audit.json(品質)。再生成可。",
-  "figure_count": 550,
+  "figure_count": 545,
   "summary": {
-    "ok": 523,
+    "ok": 527,
     "recrop-review": 16,
-    "rescan-need-source": 9,
     "rescan-or-svg": 2
   },
   "figures": {
@@ -359,37 +358,6 @@
       "needs": "ok",
       "manualReason": "workflow並列クロップ→親目視QA合格で写り込み除去 2026-07-09"
     },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-01": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h27-a",
-      "year": "h27",
-      "published": true,
-      "referenced": false,
-      "quality": "sharp",
-      "sharpness": 2683.19,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "土量の変化図。問題集(分野別収録)にH27版は非収録(R02/R01/H30版のみ)＝再抽出不可。要H27原典入手。(2026-07-10確認)"
-    },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h27-a",
-      "year": "h27",
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 1398.01,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "reviewVerdict": "source-unavailable",
-      "reviewReason": "右下の凡例『△：支承』の『承』の右側が切れている。1級土木 H27 の公式問題 PDF は vault に無く（H30 以降のみ）、一次問題解説集2021 は H27 No.18 の設問枠と図のページがスキャンから欠落しているため切り出し直せない。H27 の原典の入手待ち"
-    },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-h27-a",
@@ -604,22 +572,6 @@
       "reviewVerdict": "ok",
       "reviewReason": "問題解説集2021 p.403（H28 No.47）からさや管工法の図だけを 300dpi で切り出し直し（1674x277→1020x326）。旧画像はさや管・製管の 2 図並びで上端が切れていた。斜めの管・地表線・滑車・坑口を復元し、製管工法の図とキャプションは入れていない。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）"
     },
-    "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h28-a",
-      "year": "h28",
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 7852.56,
-      "textStatus": "clean",
-      "source_dir": "content/sources/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "reviewVerdict": "source-unavailable",
-      "reviewReason": "唯一の原典（問題解説集2021 p.403）でも頁上部が切れていて、製管工法の立坑上部と右上の注記は復元できない。H28 の問題 PDF は手元に無い。キャプションと合わない左のさや管工法の図（fig-12 と重複）と下のキャプションを除いて製管工法の図だけに切り直した（1674x279→389x225・上端の欠けは残る）"
-    },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-01": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-h28-b",
@@ -755,21 +707,6 @@
       "needs": "ok",
       "reviewVerdict": "ok",
       "reviewReason": "縁で切れていた図本体を一次問題解説集2021 p.285 から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）"
-    },
-    "civil-construction-1/primary-h29-b/img/h29-b-fig-02": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-h29-b",
-      "year": "h29",
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 3860.75,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "逆T型擁壁配筋図。旧画像は4図(一般図/底版伏図/断面図/たて壁)完全だがパネルタイトルが上端見切れ。問題集版は断面図+たて壁の2図のみで一般図/伏図欠落＝劣化のため不採用。旧4図維持。要H29第2次B原典で上端補完。(2026-07-10確認)"
     },
     "civil-construction-1/primary-h29-b/img/h29-b-fig-03": {
       "category": "civil-construction-1",
@@ -1630,21 +1567,6 @@
       "rescannable": "needs-source",
       "needs": "ok"
     },
-    "civil-construction-1/primary-r07-a/img/r07-a-fig-02": {
-      "category": "civil-construction-1",
-      "slug": "civil-construction-1/primary-r07-a",
-      "year": "r07",
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 3221.44,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/１級土木施工管理技士",
-      "figure_origin": "answer-booklet",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "下端切断でX軸下の収縮限界/塑性限界/液性限界の名称ラベル＋範囲ブラケットが欠落（コンシステンシー限界図）。2026-07-09 QA は写り込みのみ確認し切断を見落とし ok と誤記録。鮮明かつ写り込みなしのため機械 needs:ok・check-figure-crop も白枠付加済みで縁接触が消え検出不能（machine-blind）。answer-booklet 版が要入手、または textbook 第1章_土工.pdf の同等図から下端まで含めて再抽出。2026-07-16 目視確認。"
-    },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
       "category": "civil-construction-1",
       "slug": "civil-construction-1/primary-r07-a",
@@ -2102,12 +2024,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2430.05,
-      "textStatus": "maybe",
+      "sharpness": 2382.54,
+      "textStatus": "clean",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-crane/img/crawler-crane": {
       "category": "civil-construction-1",
@@ -2189,7 +2111,7 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 3775.88,
+      "sharpness": 3694.22,
       "textStatus": "clean",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
@@ -2247,7 +2169,7 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2296.68,
+      "sharpness": 2222.54,
       "textStatus": "clean",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
@@ -2319,7 +2241,7 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2294.23,
+      "sharpness": 2183.78,
       "textStatus": "maybe",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
@@ -2333,12 +2255,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2155.23,
-      "textStatus": "maybe",
+      "sharpness": 1473.22,
+      "textStatus": "clean",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-scraper/img/scraper-dozer": {
       "category": "civil-construction-1",
@@ -2347,7 +2269,7 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2196.19,
+      "sharpness": 2462.15,
       "textStatus": "maybe",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
@@ -2361,12 +2283,12 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1980.7,
-      "textStatus": "maybe",
+      "sharpness": 1911.43,
+      "textStatus": "clean",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
       "rescannable": "needs-source",
-      "needs": "recrop-review"
+      "needs": "ok"
     },
     "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
       "category": "civil-construction-1",
@@ -2389,7 +2311,7 @@
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 1807.28,
+      "sharpness": 1753.79,
       "textStatus": "maybe",
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
       "figure_origin": "answer-booklet",
@@ -4572,6 +4494,20 @@
       "reviewVerdict": "ok",
       "reviewReason": "上部のランニングヘッド罫線と裏写り文字・下端の脚注『※1：…』の切れ端・左下の指・左右の余白を除いて切り直し（965x838→887x754）。8 つの円グラフ・凡例・ラベルは欠けなし。右側に薄い裏写りが残るがラベルは判読できる。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）"
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
+      "category": "pe-construction",
+      "slug": "pe-construction/datsutanso-kankyo-ronbun-keyword",
+      "year": null,
+      "published": true,
+      "referenced": true,
+      "quality": "sharp",
+      "sharpness": 2632.81,
+      "textStatus": "clean",
+      "source_dir": "content/sources/textbook/技術士（建設部門）",
+      "figure_origin": "unknown",
+      "rescannable": "needs-source",
+      "needs": "ok"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
       "category": "pe-construction",
       "slug": "pe-construction/datsutanso-kankyo-ronbun-keyword",
@@ -4635,21 +4571,6 @@
       "needs": "ok",
       "reviewVerdict": "ok",
       "reviewReason": "右端で切れていた単位表記『(単位：トン)』を、論文対策キーワードのスキャン（source/007.pdf p.20＝pages/p0265）から切り出し直して戻した（690x450→800x682）。左上の指・影と下端の出典行の断片は除いた（出典は記事の caption）。親 QA 合格（新旧比較・crop 検査 0 件）"
-    },
-    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27": {
-      "category": "pe-construction",
-      "slug": "pe-construction/datsutanso-kankyo-ronbun-keyword",
-      "year": null,
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 1483.31,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/技術士（建設部門）",
-      "figure_origin": "unknown",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
       "category": "pe-construction",
@@ -4773,6 +4694,20 @@
       "reviewVerdict": "ok",
       "reviewReason": "上端で切れていた最上段の箱の上辺と、右下で切れていた出典表記『図の出典：国土交通白書 2022』を、論文対策キーワードのスキャン（source/003.pdf p.9＝pages/p0074）から傾きを補正して切り出し直して戻した（903x685→1100x960）。綴じ影・指・本文・図番号キャプション・裏写りは除いた。親 QA 合格（新旧比較・crop 検査 0 件）"
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "category": "pe-construction",
+      "slug": "pe-construction/ninaite-dx-ronbun-keyword",
+      "year": null,
+      "published": true,
+      "referenced": true,
+      "quality": "sharp",
+      "sharpness": 3506.89,
+      "textStatus": "maybe",
+      "source_dir": "content/sources/textbook/技術士（建設部門）",
+      "figure_origin": "unknown",
+      "rescannable": "needs-source",
+      "needs": "recrop-review"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "category": "pe-construction",
       "slug": "pe-construction/ninaite-dx-ronbun-keyword",
@@ -4883,21 +4818,6 @@
       "reviewVerdict": "ok",
       "reviewReason": "右縁で切れていた 3 本の折れ線の最新年の端と、下縁で切れていた縦軸の下端・横軸・年目盛り・『(年)』を、論文対策キーワードのスキャン（source/005.pdf p.21＝pages/p0189）から切り出し直して戻した（850x462→1200x839）。左縁の指・黄ばみ・裏写り・図の出典行は除き、原図内の注と資料出所は残した。ネットからの取得なし。親 QA 合格（新旧比較・crop 検査 0 件）"
     },
-    "pe-construction/ninaite-dx-ronbun-keyword/img/fig22": {
-      "category": "pe-construction",
-      "slug": "pe-construction/ninaite-dx-ronbun-keyword",
-      "year": null,
-      "published": true,
-      "referenced": true,
-      "quality": "sharp",
-      "sharpness": 2158.17,
-      "textStatus": "maybe",
-      "source_dir": "content/sources/textbook/技術士（建設部門）",
-      "figure_origin": "unknown",
-      "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
-    },
     "pe-construction/r08-construction-planning/img/question-ii-2-1": {
       "category": "pe-construction",
       "slug": "pe-construction/r08-construction-planning",
@@ -5005,35 +4925,33 @@
       "needs": "ok",
       "manualReason": "workflow並列クロップ→親目視QA合格（写り込み除去/余白タイト化）2026-07-09"
     },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
       "category": "pe-construction",
       "slug": "pe-construction/shakai-shihon-ronbun-keyword",
       "year": null,
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 6091.97,
+      "sharpness": 3609.2,
       "textStatus": "maybe",
       "source_dir": "content/sources/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "recrop-review"
     },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
       "category": "pe-construction",
       "slug": "pe-construction/shakai-shihon-ronbun-keyword",
       "year": null,
       "published": true,
       "referenced": true,
       "quality": "sharp",
-      "sharpness": 2285.83,
+      "sharpness": 3658.05,
       "textStatus": "maybe",
       "source_dir": "content/sources/textbook/技術士（建設部門）",
       "figure_origin": "unknown",
       "rescannable": "needs-source",
-      "needs": "rescan-need-source",
-      "manualReason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09"
+      "needs": "recrop-review"
     },
     "pe-first-stage/_shared/img/cta-notes-body-v1": {
       "category": "pe-first-stage",

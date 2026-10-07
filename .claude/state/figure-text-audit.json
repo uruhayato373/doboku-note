@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-07T12:15:19.290Z",
+  "generated_at": "2026-10-07T22:25:06.656Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 550,
-  "file_count": 828,
+  "base_count": 545,
+  "file_count": 814,
   "summary": {
     "leak": 0,
     "writein": 1,
-    "maybe": 133,
-    "clean": 416
+    "maybe": 125,
+    "clean": 419
   },
   "quality_summary": {
-    "sharp": 548,
+    "sharp": 543,
     "soft": 2,
     "blurry": 0,
     "unknown": 0
@@ -208,22 +208,6 @@
       "quality": "sharp",
       "variants": 2
     },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-01": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 2683.19,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 1398.01,
-      "quality": "sharp",
-      "variants": 2
-    },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "status": "clean",
       "periods": 0,
@@ -336,14 +320,6 @@
       "quality": "sharp",
       "variants": 2
     },
-    "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 7852.56,
-      "quality": "sharp",
-      "variants": 2
-    },
     "civil-construction-1/primary-h28-b/img/h28-b-fig-01": {
       "status": "clean",
       "periods": 0,
@@ -413,14 +389,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 8894.77,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "civil-construction-1/primary-h29-b/img/h29-b-fig-02": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 3860.75,
       "quality": "sharp",
       "variants": 2
     },
@@ -888,14 +856,6 @@
       "quality": "sharp",
       "variants": 2
     },
-    "civil-construction-1/primary-r07-a/img/r07-a-fig-02": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 3221.44,
-      "quality": "sharp",
-      "variants": 2
-    },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
       "status": "maybe",
       "periods": 3,
@@ -1137,10 +1097,10 @@
       "variants": 1
     },
     "civil-construction-1/textbook-crane/img/cable-crane": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2430.05,
+      "sharpness": 2382.54,
       "quality": "sharp",
       "variants": 1
     },
@@ -1188,7 +1148,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 3775.88,
+      "sharpness": 3694.22,
       "quality": "sharp",
       "variants": 1
     },
@@ -1220,7 +1180,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2296.68,
+      "sharpness": 2222.54,
       "quality": "sharp",
       "variants": 1
     },
@@ -1260,31 +1220,31 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 2294.23,
+      "sharpness": 2183.78,
       "quality": "sharp",
       "variants": 1
     },
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
-      "status": "maybe",
-      "periods": 1,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 2155.23,
+      "sharpness": 1473.22,
       "quality": "sharp",
       "variants": 1
     },
     "civil-construction-1/textbook-scraper/img/scraper-dozer": {
       "status": "maybe",
-      "periods": 1,
+      "periods": 2,
       "markers": [],
-      "sharpness": 2196.19,
+      "sharpness": 2462.15,
       "quality": "sharp",
       "variants": 1
     },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
-      "status": "maybe",
-      "periods": 2,
+      "status": "clean",
+      "periods": 0,
       "markers": [],
-      "sharpness": 1980.7,
+      "sharpness": 1911.43,
       "quality": "sharp",
       "variants": 1
     },
@@ -1300,7 +1260,7 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 1807.28,
+      "sharpness": 1753.79,
       "quality": "sharp",
       "variants": 1
     },
@@ -2496,6 +2456,14 @@
       "quality": "sharp",
       "variants": 2
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2632.81,
+      "quality": "sharp",
+      "variants": 1
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
       "status": "maybe",
       "periods": 1,
@@ -2525,14 +2493,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 375.05,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 1483.31,
       "quality": "sharp",
       "variants": 2
     },
@@ -2600,6 +2560,14 @@
       "quality": "sharp",
       "variants": 2
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3506.89,
+      "quality": "sharp",
+      "variants": 1
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "status": "maybe",
       "periods": 2,
@@ -2653,14 +2621,6 @@
       "periods": 0,
       "markers": [],
       "sharpness": 975.2,
-      "quality": "sharp",
-      "variants": 2
-    },
-    "pe-construction/ninaite-dx-ronbun-keyword/img/fig22": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 2158.17,
       "quality": "sharp",
       "variants": 2
     },
@@ -2720,21 +2680,21 @@
       "quality": "sharp",
       "variants": 2
     },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 6091.97,
+      "sharpness": 3609.2,
       "quality": "sharp",
-      "variants": 2
+      "variants": 1
     },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
       "status": "maybe",
-      "periods": 3,
+      "periods": 10,
       "markers": [],
-      "sharpness": 2285.83,
+      "sharpness": 3658.05,
       "quality": "sharp",
-      "variants": 2
+      "variants": 1
     },
     "pe-first-stage/_shared/img/cta-notes-body-v1": {
       "status": "maybe",
