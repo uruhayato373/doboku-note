@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="切土のり面における補強土工の断面。地山に補強材を挿入し、すべり面をまたいで安定した地盤とつなぎ、斜面全体の安定性を高める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="kr-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="kr-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="kr-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">切土のり面の補強土工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">地山に補強材を入れて、斜面全体を安定させる</text>
+
+  <polygon class="gray" points="16,372 16,90 240,90 310,330 384,330 384,372"/>
+  <path class="slip" d="M 120 90 C 150 250, 230 320, 304 330"/>
+  <line class="rP" x1="251.7" y1="130" x2="111.7" y2="158"/>
+  <rect class="pos" x="248.7" y="122" width="8" height="16" style="stroke-width:1.5"/>
+  <line class="rP" x1="269.2" y1="190" x2="129.2" y2="218"/>
+  <rect class="pos" x="266.2" y="182" width="8" height="16" style="stroke-width:1.5"/>
+  <line class="rP" x1="286.7" y1="250" x2="146.7" y2="278"/>
+  <rect class="pos" x="283.7" y="242" width="8" height="16" style="stroke-width:1.5"/>
+  <line class="rP" x1="304.2" y1="310" x2="164.2" y2="338"/>
+  <rect class="pos" x="301.2" y="302" width="8" height="16" style="stroke-width:1.5"/>
+  <text class="t-warn" x="24" y="114">想定すべり面</text>
+  <text class="t-lab" x="300" y="150">切土のり面</text>
+  <text class="t-pos" x="30" y="330">補強材</text>
+  <line class="ln" x1="74" y1="326" x2="160" y2="336" style="stroke:#3a7d44"/>
+  <text class="t-note" x="304" y="200">頭部</text>
+  <line class="ln" x1="302" y1="196" x2="274" y2="192"/>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">すべり土塊の滑動力に対抗</text>
+  <text class="t-key" x="30" y="442">方法</text>
+  <text class="t-lab" x="104" y="442">地山に補強材を挿入して一体化</text>
+  <text class="t-key" x="30" y="468">効果</text>
+  <text class="t-lab" x="104" y="468">斜面全体の安定性を高める</text>
+</svg>

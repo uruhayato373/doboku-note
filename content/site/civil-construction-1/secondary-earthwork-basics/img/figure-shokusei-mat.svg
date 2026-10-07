@@ -1,0 +1,74 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="植生マット工と植生シート工。種子や肥料を付けたマットやシートでのり面を被覆し、マットの保温効果で芝の生育を助け、芝が生育する間はのり面の安定を保つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .gthin  { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">植生マット工・植生シート工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">芝が育つまでの間、マットでのり面を覆って守る</text>
+  <polygon class="ground" points="28,110 300,250 300,296 28,296"/>
+  <polygon fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" points="28,110 300,250 300,262 28,122"/>
+  <circle cx="44" cy="123.23529411764706" r="1.8" fill="#3a7d44"/>
+  <circle cx="74" cy="138.6764705882353" r="1.8" fill="#3a7d44"/>
+  <circle cx="104" cy="154.11764705882354" r="1.8" fill="#3a7d44"/>
+  <circle cx="134" cy="169.55882352941177" r="1.8" fill="#3a7d44"/>
+  <circle cx="164" cy="185" r="1.8" fill="#3a7d44"/>
+  <circle cx="194" cy="200.44117647058823" r="1.8" fill="#3a7d44"/>
+  <circle cx="224" cy="215.88235294117646" r="1.8" fill="#3a7d44"/>
+  <circle cx="254" cy="231.3235294117647" r="1.8" fill="#3a7d44"/>
+  <circle cx="284" cy="246.76470588235293" r="1.8" fill="#3a7d44"/>
+  <text class="t-key" x="210" y="118">種子・肥料つきの</text>
+  <text class="t-key" x="210" y="134">マット・シート</text>
+  <line class="lead" x1="250" y1="140" x2="208" y2="200"/>
+  <text class="t-note" x="330" y="176" text-anchor="middle">マットの</text>
+  <text class="t-note" x="330" y="192" text-anchor="middle">保温効果</text>
+  <text class="t-note" x="40" y="286">のり面</text>
+  <text class="t-key" x="16" y="326">時間の流れ</text>
+  <rect class="card" x="16" y="336" width="112" height="44" rx="6"/>
+  <text class="t-key" x="72" y="354" text-anchor="middle">敷設</text>
+  <text class="t-note" x="72" y="372" text-anchor="middle">マットで被覆</text>
+  <line class="gthin" x1="128" y1="358" x2="144" y2="358" marker-end="url(#ag)"/>
+  <rect class="green" x="144" y="336" width="112" height="44" rx="6"/>
+  <text class="t-key" x="200" y="354" text-anchor="middle">芝が生育する間</text>
+  <text class="t-note" x="200" y="372" text-anchor="middle">保護と保温</text>
+  <line class="gthin" x1="256" y1="358" x2="272" y2="358" marker-end="url(#ag)"/>
+  <rect class="card" x="272" y="336" width="112" height="44" rx="6"/>
+  <text class="t-key" x="328" y="354" text-anchor="middle">植生が育つ</text>
+  <text class="t-note" x="328" y="372" text-anchor="middle">自力で安定</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="72" rx="6"/>
+  <text class="t-key" x="30" y="416">効果</text>
+  <text class="t-lab" x="104" y="416">保温効果があり、生育の間もいちおう安定</text>
+  <text class="t-key" x="30" y="442">目的</text>
+  <text class="t-lab" x="104" y="442">のり面に植物を繁茂させ、自力で安定させる</text>
+</svg>

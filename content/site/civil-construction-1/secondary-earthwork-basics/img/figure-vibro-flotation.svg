@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="バイブロフローテーション工法。棒状の振動体を水の噴射と振動でゆるい砂地盤へ貫入させて締め固め、できた空隙に砂や砂利を補給して地盤を改良し、地震時の液状化に備える。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-vibro-flotation-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-vibro-flotation-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-vibro-flotation-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-vibro-flotation-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">バイブロフローテーション工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">棒状の振動体で締め固め、できた空隙へ砂や砂利を補給する</text>
+  <rect class="soil" x="16" y="150" width="368" height="190"/>
+  <text class="t-note" x="28" y="330">ゆるい砂地盤</text>
+  <ellipse cx="120" cy="244" rx="64" ry="86" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5;stroke-dasharray:5 4"/>
+  <rect class="green" x="110" y="150" width="20" height="170"/>
+  <text class="t-pos" x="120" y="372" text-anchor="middle">造成ずみの砂利杭と締まった範囲</text>
+  <rect x="236" y="76" width="8" height="190" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <rect class="brand" x="228" y="236" width="24" height="52" rx="4"/>
+  <line class="water" x1="240" y1="296" x2="240" y2="322" marker-end="url(#figure-vibro-flotation-ab)"/>
+  <line class="water" x1="226" y1="290" x2="204" y2="312" marker-end="url(#figure-vibro-flotation-ab)"/>
+  <line class="water" x1="254" y1="290" x2="276" y2="312" marker-end="url(#figure-vibro-flotation-ab)"/>
+  <text class="t-note" x="284" y="330">水の噴射</text>
+  <path class="water" d="M 214 240 q -6 6 0 12 q 6 6 0 12"/>
+  <path class="water" d="M 266 240 q 6 6 0 12 q -6 6 0 12"/>
+  <text class="t-key" x="250" y="72" text-anchor="middle">バイブロフロット</text>
+  <text class="t-note" x="262" y="232">振動</text>
+  <polygon class="weak" points="300,100 346,100 336,122 310,122"/>
+  <text class="t-note" x="323" y="94" text-anchor="middle">砂・砂利</text>
+  <line class="water" x1="323" y1="124" x2="323" y2="146" marker-end="url(#figure-vibro-flotation-ag)" style="stroke:#3a7d44"/>
+  <text class="t-note" x="323" y="168" text-anchor="middle">孔へ補給</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">施工</text>
+  <text class="t-lab" x="104" y="414">水の噴射と振動で貫入し、砂を補給</text>
+  <text class="t-key" x="30" y="440">対象</text>
+  <text class="t-lab" x="104" y="440">ゆるい砂地盤の締固め</text>
+  <text class="t-key" x="30" y="466">目的</text>
+  <text class="t-lab" x="104" y="466">地震時の液状化対策</text>
+
+</svg>
