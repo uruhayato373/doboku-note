@@ -71,10 +71,17 @@ export function DataTable({
         header: ({ column }) => {
           if (!column.getCanSort()) return c.label;
           const dir = column.getIsSorted();
-          return (
-            <Button variant="ghost" onClick={column.getToggleSortingHandler()}>
+          const icon = dir === 'asc' ? <ArrowUp /> : dir === 'desc' ? <ArrowDown /> : <ArrowUpDown className="opacity-50" />;
+          // 見出しの文字をセルの文字と同じ端にそろえる（ボタンの内側の余白ぶん外へずらす。セルの余白 px-2 を越えると表が横にスクロールするので 2 まで。数値の列は右端）
+          return c.num ? (
+            <Button variant="ghost" size="sm" className="-mr-2" onClick={column.getToggleSortingHandler()}>
+              {icon}
               {c.label}
-              {dir === 'asc' ? <ArrowUp /> : dir === 'desc' ? <ArrowDown /> : <ArrowUpDown />}
+            </Button>
+          ) : (
+            <Button variant="ghost" size="sm" className="-ml-2" onClick={column.getToggleSortingHandler()}>
+              {c.label}
+              {icon}
             </Button>
           );
         },
