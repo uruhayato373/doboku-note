@@ -338,27 +338,6 @@
       "reason": "縁で切れていた L 型擁壁の図を二次問題解説集2021 p.239（180 度回転を戻す）から 300dpi で切り出し直した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T21:26:41.991Z"
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
-      "sha": "bb2d998271433e8f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "平面図の一部しか無く上縁の盛土断面図と注記『排水溝（深さ0.5〜1.0 m程度）』が欠けていたので、二次問題解説集2021 p.100（180 度回転を戻す）から図2.1 全体を 300dpi で切り出し直した（430x230→802x426）。キャプション・行番号・隣の図2.2 の断片は含めていない。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T10:57:22.452Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
-      "sha": "6bdabd0ced7f63a8",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右縁で途切れていた右下の地盤線と地盤ハッチを、二次問題解説集2021 p.107（180 度回転を戻す）から 300dpi で切り出し直して戻した（650x300→1016x395）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.650Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
-      "sha": "66524df691f2846f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左縁で切れていたのり面の斜線と植生筋のハッチを、二次問題解説集2021 p.110（180 度回転を戻す）から 300dpi で切り出し直して戻した（310x360→436x306）。上の空白・図番号キャプション・隣の図2.15 の断片は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.652Z"
-    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
       "sha": "4153ce7319e4db08",
       "verdict": "ok",
@@ -408,13 +387,6 @@
       "reason": "右縁の隣接図の水平線断片・左余白の行番号 30/35・図番号キャプション『図 2.33 地下排水溝の例』・下部の空白を除いて切り直し（500x380→377x183）。地下排水溝・小段排水溝・のり肩排水溝と道路の断面は欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:12:57.314Z"
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-34": {
-      "sha": "389ca3c1dabda42a",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左縁で切れていた『道路』の路面線を、二次問題解説集2021 p.116（180 度回転を戻す）から 300dpi で切り出し直して戻した（520x380→844x452）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.997Z"
-    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
       "sha": "3a257b4f6b698198",
       "verdict": "ok",
@@ -435,13 +407,6 @@
       "action": "recrop",
       "reason": "上部の本文断片・下部の図番号キャプション『図 2.53 釜場排水工法』・右余白の行番号と綴じ部の影を除去して切り直し（420x400→357x272）。矢板・水・釜場・ポンプ・溝は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T09:00:29.888Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-54": {
-      "sha": "e0eb1bbfbb137496",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていたポンプ筒・井戸の破線・寸法線・水中ポンプの引出し線を、二次問題解説集2021 p.129（180 度回転を戻す）から 300dpi で切り出し直して戻した（420x360→707x697）。図2.53 のキャプション・行番号・綴じ影・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:17:40.849Z"
     },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
       "sha": "184191abb1a31065",
