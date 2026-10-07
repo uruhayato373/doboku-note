@@ -101,3 +101,25 @@ export function isMeasurementWindowAligned(snapshotStartDate, measurementSince) 
   }
   return { aligned: true, reason: "分子と分母が同じ窓" };
 }
+
+/**
+ * 取得のマーカー（ui-last-run）と台帳（report-log）を比べ、「取得はしたが台帳に載っていない」を見つける。
+ *
+ * normalize は fetch の直後に走って台帳の updatedAt を進めるので、正常なら collectedAt ≦ updatedAt。
+ * collectedAt の方が新しいのは、正規化か書き戻しが止まった（2026-10-04〜06 の a8 は取得・正規化が成功し、
+ * 書き戻しが型で落ちて 9 月分が台帳に入らなかった・DN-0566）か、取得が 1 本も取れなかったとき。
+ * 最新の取得が ok でないこと（partial・error）も別に返す。どちらも「取り込みが進んでいる」とは呼ばない。
+ *
+ * @param {{collectedAt?: string|null, status?: string|null}|null} marker
+ * @param {{updatedAt?: string|null}|null} log
+ * @returns {{gap: boolean, markerAt: string|null, logAt: string|null, lastStatus: string|null, lastRunOk: boolean}}
+ */
+export function collectPublishGap(marker, log) {
+  const markerAt = marker?.collectedAt ?? null;
+  const logAt = log?.updatedAt ?? null;
+  const m = markerAt ? Date.parse(markerAt) : NaN;
+  const l = logAt ? Date.parse(logAt) : NaN;
+  const gap = Number.isFinite(m) && (!Number.isFinite(l) || m > l);
+  const lastStatus = marker?.status ?? null;
+  return { gap, markerAt, logAt, lastStatus, lastRunOk: lastStatus === "ok" };
+}
