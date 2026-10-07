@@ -1629,6 +1629,16 @@
       "page": 21,
       "dpi": 300
     },
+    "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
+    },
+    "civil-practice/steel-material-properties/img/photo-charpy-tester": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A pendulum-type Charpy impact testing machine in a steel materials testing laboratory, side view. A tall rigid steel frame with a pivot near the top; a long pendulum arm hangs from the pivot down to the base, so that the heavy hammer at the end of the arm would strike a specimen resting on the anvil supports at the very bottom of the machine. In this photo the pendulum is raised and latched at its starting angle to one side (about 140 degrees from the hanging position), the arm length clearly reaching from the pivot to the anvil level. A notched square steel test specimen lies on the two anvil supports at the bottom centre inside a transparent safety guard. An analogue dial gauge near the pivot without readable numbers. On a small bench in the foreground lie three square-section steel specimens (10 x 10 x 55 mm) with a V notch at mid-length and two broken halves, one with a bright crystalline flat fracture surface and one with a dull fibrous torn surface. Even indoor lighting, no people, no text, no logos."
+    },
     "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
       "ref": "jcia-past-exams",
       "pdf": "vault:原資料PDF/書籍/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024/source/014.pdf",
@@ -1801,6 +1811,16 @@
       "pdf": "vault:原資料PDF/書籍/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024/source/014.pdf",
       "page": 236,
       "dpi": 0
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Slump flow test of self-compacting (high-fluidity) concrete at a ready-mixed concrete plant test area, viewed from above at an angle. A large flat square steel base plate with a thin concentric circle marking. The fresh grey concrete has spread from the centre of the plate into a nearly perfect circular pancake about 60 cm in diameter with a smooth glossy surface and no water or aggregate separation at the edge. The steel slump cone is NOT on the plate: it is held high in the air above the centre of the spread by a gloved hand, clearly lifted at least 30 cm above the plate, its open bottom facing down, a few drips of concrete falling from its rim. A folding ruler laid across the spread without readable numbers. Daylight, no faces, no text, no logos."
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-steel-fiber-concrete": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of fresh steel-fibre-reinforced concrete in a wheelbarrow or mixing pan at a construction site, with a gloved hand scooping a handful: many short thin steel fibres (about 30 to 60 mm long, with hooked ends) are evenly dispersed throughout the grey concrete and protrude slightly from the surface, no balling or clumps of fibres. Daylight, no faces, no text, no logos."
     },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
       "kind": "ai-generated",

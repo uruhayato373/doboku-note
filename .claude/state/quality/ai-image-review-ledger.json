@@ -218,6 +218,42 @@
       "reason": "ラグ付きのゴムクローラ（転輪・遊動輪・起動輪）の上に、前に運転室、後ろにダンプ式荷台。本文の「ゴムクローラの走行装置上に運転室と荷台」と合う",
       "reviewedAt": "2026-10-07T12:10:51.842Z"
     },
+    "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
+      "sha": "39f471b54ef86064",
+      "promptSha": "244bca8db81b6643",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:34:01.073Z",
+      "verdict": "ok",
+      "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
+      "reviewedAt": "2026-10-07T23:41:24.071Z"
+    },
+    "civil-practice/steel-material-properties/img/photo-charpy-tester": {
+      "sha": "be28c5582b209cd9",
+      "promptSha": "f2f9c48ae6c1e478",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:47:02.484Z",
+      "verdict": "ok",
+      "reason": "柱頭部の軸から伸びる振り子アームが斜め上に持ち上がり、軸から台座の試験片支持台までの距離とアーム長がほぼ等しく、下ろせばハンマーが試験片位置に届く。支持台・ダイヤル・V ノッチ角棒 3 本と破断片 2 本が本文と一致し、読める文字や崩れた部位も無い",
+      "reviewedAt": "2026-10-07T23:50:42.581Z"
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
+      "sha": "1c6acb88729ce5a0",
+      "promptSha": "5efbbbb4c241e82c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:43:09.181Z",
+      "verdict": "ok",
+      "reason": "鋼製の平板の上に同心円の目盛線に沿って滑らかに円形に広がったコンクリートがあり、スランプコーンは底を下にして手で広がりの上へ持ち上げられ（縁の滴り付き）、alt の「引き上げた後」と一致する。折尺・軍手の手の形に崩れや読める文字は無い",
+      "reviewedAt": "2026-10-07T23:50:42.582Z"
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-steel-fiber-concrete": {
+      "sha": "cd8f360b688b9808",
+      "promptSha": "18951599f97d3467",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:27:01.055Z",
+      "verdict": "ok",
+      "reason": "金属容器の中と軍手で掬った手の上に、細く短い鋼線状の繊維が塊にならず全体に分散して表面から突き出し、本文の「分散補強材」と一致する。軍手と指の形、背景の型枠・砕石に崩れは無く、読める文字も無い",
+      "reviewedAt": "2026-10-07T23:41:24.071Z"
+    },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
       "sha": "85e632d3d029d318",
       "verdict": "ok",
