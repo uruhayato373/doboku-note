@@ -18,7 +18,7 @@
  *
  * 終了コード: 0 = 配置した / 1 = 入力・仕様の不備 / 3 = 生成に失敗（画像が出てこない）
  */
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
@@ -49,18 +49,26 @@ function generateWithCodex(fullPrompt, model) {
   return out ? join(dir, out) : null;
 }
 
-/** 中央で aspect に切り、width に縮めた webp のバッファと寸法 */
-export async function fitPhoto(input, { aspect, width }) {
+/**
+ * 中央で aspect に切り、width に縮めた webp のバッファと寸法。maxBytes（image-limits の webp 上限）を超えたら画質を下げて書き直す
+ * （2026-10-07: 写真 4 枚が quality 82 で 150KB を超え、check-image-assets:ci で止まった）。
+ */
+export async function fitPhoto(input, { aspect, width }, maxBytes = Infinity) {
   const { width: w, height: h } = await sharp(input).metadata();
   const want = aspect[0] / aspect[1];
   const cw = w / h > want ? Math.round(h * want) : w;
   const ch = w / h > want ? h : Math.round(w / want);
   const height = Math.round(width / want);
-  const buf = await sharp(input)
+  const resized = await sharp(input)
     .extract({ left: Math.floor((w - cw) / 2), top: Math.floor((h - ch) / 2), width: cw, height: ch })
     .resize(width, height)
-    .webp({ quality: 82 })
     .toBuffer();
+  let buf;
+  for (const quality of [82, 76, 70, 64, 58]) {
+    buf = await sharp(resized).webp({ quality }).toBuffer();
+    if (buf.length <= maxBytes) break;
+  }
+  if (buf.length > maxBytes) throw new Error(`画質 58 でも ${Math.round(buf.length / 1024)}KB で上限 ${Math.round(maxBytes / 1024)}KB を超える`);
   return { buf, width, height };
 }
 
@@ -99,9 +107,9 @@ export async function run(argv = process.argv.slice(2)) {
     if (!input) { console.error(`✗ ${figKey}: 画像が生成されなかった（codex のログを確認）`); return 3; }
   } else if (!existsSync(input)) { console.error(`✗ --from ${input} が無い`); return 1; }
 
-  const { buf, width, height } = await fitPhoto(input, aiPhoto);
+  const { buf, width, height } = await fitPhoto(input, aiPhoto, limits.maxBytes?.webp ?? Infinity);
   const target = join(SITE_CONTENT_ROOT, `${figKey}.webp`);
-  await sharp(buf).toFile(target);
+  writeFileSync(target, buf); // sharp(buf).toFile は再エンコードして上限に収めた画質が戻る
   const changed = rewireMdx(join(ROOT, fig.mdx), fig.name, width, height);
 
   sourcesDoc.provenance[figKey] = { kind: 'ai-generated', tool, prompt, ...(prev?.note && prev?.kind === 'ai-generated' ? { note: prev.note } : {}) };

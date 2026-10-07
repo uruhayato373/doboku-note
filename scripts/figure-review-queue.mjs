@@ -79,10 +79,15 @@ async function collect() {
     }
   }
   const live = figs.filter((f) => f.live);
-  const flaggedNoLedger = live.filter((f) => !ledger.figures?.[f.figKey] || ledger.figures[f.figKey].sha !== f.sha);
+  // 写真（AI 生成画像）は切り出し図ではない。実物どおりかは AI 画像の台帳と check-image-origin が見る（OCR は写真の模様を文字と誤読する・2026-10-07）
+  const provenanceCfg = readJsonIf(ROOT, datasetPath('config.figure-sources'))?.provenance ?? {};
+  const photos = live.filter((f) => provenanceCfg[f.figKey]?.kind === 'ai-generated');
+  const crops = live.filter((f) => provenanceCfg[f.figKey]?.kind !== 'ai-generated');
+  const flaggedNoLedger = crops.filter((f) => !ledger.figures?.[f.figKey] || ledger.figures[f.figKey].sha !== f.sha);
   const trusted = trustedManual(flaggedNoLedger);
   const minLongSide = readJsonIf(ROOT, datasetPath('config.image-limits'))?.figureMinLongSide ?? 0;
-  const queue = buildQueue({ figures: live, ledger, trusted, minLongSide });
+  const queue = buildQueue({ figures: crops, ledger, trusted, minLongSide });
+  queue.counts.photos = photos.length;
   // 試験ページでない記事で、原典が流用不可（figureReuse: false）の書籍しか無い図は切り出し直さない（DN-0563）
   queue.reuseForbidden = [];
   queue.reextract = queue.reextract.filter((f) => {
@@ -164,7 +169,7 @@ async function runSummary(argv) {
   const say = json ? (...a) => console.error(...a) : (...a) => console.log(...a);
   const { figs, live, analyzed, failed, prov, queue } = await collect();
   const c = queue.counts;
-  say(`[figure-review] 図 ${figs.length} 枚を走査（公開記事で使用中 ${live.length}・画素検査 ${analyzed}・失敗 ${failed}）`);
+  say(`[figure-review] 図 ${figs.length} 枚を走査（公開記事で使用中 ${live.length}・画素検査 ${analyzed}・失敗 ${failed}）。うち写真（AI 生成）${c.photos} 枚は check-image-origin が見るので判定待ちに入れない`);
   if (live.length === 0 || fetchFailDominant(failed, live.length)) {
     console.error('✗ 検査不成立: 公開記事の図を 1 枚も検査できていない、または画素検査の失敗が多すぎる');
     return 2;

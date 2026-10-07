@@ -236,18 +236,16 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 新規記事: `<ArticleImage>` を使う
 
 ```mdx
-{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:... */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
-  alt="クローラクレーン（日立 CX900HD）"
-  caption="Wikimedia Commons, CC0"
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.webp"
+  alt="クローラクレーン"
   width={960}
   height={720}
 />
 ```
 
 - `<figure>` セマンティクスと Next.js `<Image>` 最適化が自動で効く
-- **caption の用途は帰属情報のみ**（出典ライセンス・機種名など、60 字以内）
+- **caption の用途は帰属情報のみ**（公的資料の提供者と利用規約など、60 字以内）。写真は AI 生成で caption 不要
 - caption に **図の説明・構造の解説を書くのは禁止**（本文と重複するため）
 - `alt` は簡潔な識別情報のみ、**80 字以内**
 - 機種の詳細・図の読み方は **本文** で説明する
@@ -256,7 +254,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 既存 `<img>` との互換
 
 - 既存の生 `<img>` を使った記事はリライト時に順次 `<ArticleImage>` へ移行
-- 移行が未完了の記事で `<img>` を使う場合も `alt` と `{/* source: */}` コメントは必須
+- 移行が未完了の記事で `<img>` を使う場合も `alt` は必須。出所は `config/figure-sources.json` の `provenance`（`npm run check-image-origin`）
 
 **重要 — 新規 SVG/画像で raw `<img>` を絶対に使わない**:
 
@@ -270,9 +268,9 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
 
-### CC/PD 写真の取得・出典表記
+### 写真（AI 生成）と出所の記録
 
-詳細は [image-policy.md](./image-policy.md) 参照（Wikimedia Commons からの取得、ライセンス判定、出典コメントフォーマット）。
+写真は AI で生成した画像だけを使い、4:3（960×720）にそろえる。仕様（`provenance` の `prompt`）→ `npm run gen-article-photo` → `ai-image-fidelity-auditor` → `check-image-origin record-ai` の順。詳細は [image-policy.md](./image-policy.md)「写真は AI で生成する」。
 
 ## frontmatter テンプレート
 

@@ -31,6 +31,8 @@ metadata:
 
 ---
 
+**画像の出所と写真（2026-10-07〜・DN-0574/0578）**: `provenance` は切り出し図だけでなく公開記事の**全ラスター画像**の出所の正本になった（`kind`: pdf-crop・exam-official・ai-generated・public-data・own-book-scan）。**写真は AI 生成だけ・4:3**（運営者決定）。仕様＝`provenance` の `prompt`、実績＝`.claude/state/quality/ai-image-review-ledger.json`（sha・promptSha・判定）から状態（未生成・未監査・不合格・合格）を導く。生成と配置は `npm run gen-article-photo`、判定は `ai-image-fidelity-auditor` → `check-image-origin record-ai`、`npm run check-image-origin` が CI で止める。試験ページの免除は設問側の図だけで、`<details>` の解説欄の書籍の図は流用の検査にかかる。真実源 `.claude/knowledge/reference/image-policy.md`「写真は AI で生成する」。
+
 ## 孤児 OGP の機械検知 check-orphan-ogp
 
 孤児 OGP（記事 MDX が無いのに `ogp.png`/`ogp.webp` が git に残る死に資産）の機械検知は `npm run check-orphan-ogp`。`check-ogp-coverage`（記事あるがOGP無し）の逆方向。

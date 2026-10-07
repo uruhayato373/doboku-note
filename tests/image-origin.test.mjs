@@ -101,4 +101,8 @@ test('fitPhoto は中央で 4:3 に切り、配信幅に縮める', async () => 
     const m = await sharp(buf).metadata();
     assert.deepEqual([m.width, m.height, width, height, m.format], [960, 720, 960, 720, 'webp']);
   }
+  const noisy = await sharp(Buffer.from(Array.from({ length: 1536 * 1152 * 3 }, () => Math.floor(Math.random() * 256))), { raw: { width: 1536, height: 1152, channels: 3 } }).png().toBuffer();
+  const { buf } = await fitPhoto(noisy, aiPhoto, 400 * 1024);
+  assert.ok(buf.length <= 400 * 1024, '上限を超えたら画質を下げて収める');
+  await assert.rejects(fitPhoto(noisy, aiPhoto, 1024), /上限/);
 });

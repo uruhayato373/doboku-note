@@ -101,6 +101,7 @@ node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
 ## 鉄則
 
 - **判定は目視**。機械の兆候（`signals`）は疑う場所の手がかりで、EDGE_CUT の大半は罫線・写真・機材イラストが縁に接しているだけ（正当）。兆候があるというだけで切らない。
+- **写真（provenance の kind が ai-generated）は判定待ちに入れない**。切り出し図ではなく、実物どおりかは AI 画像の台帳と `check-image-origin` が見る（OCR が写真の模様を文字と誤読して recrop-review を出すため・2026-10-07）。
 - **LOW_RES**（長辺が `config/image-limits.json` の `figureMinLongSide` 未満）は、原典 PDF から高い dpi で切り出し直す（`needs-source`）。原典の解像度が上限で直らないと確かめたら `ok` で理由に書く。記録には判定したときの画素数（`px`）が残り、それが無い古い ok は判定し直しになる。
 - **二度切り厳禁**（やり直しは原画に戻してから）・**過去問の図に正答・解説を写し込まない**・**過去問のデータグラフを SVG に描き直さない**（図の幾何が答え＝誤答誘発。[figure-provenance.md](../../../knowledge/reference/figure-provenance.md)）。
 - worker は MDX・台帳・git に触らない。記録・MDX・commit は親が直列で行う（同じ記事の MDX に複数の図があるため）。

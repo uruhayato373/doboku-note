@@ -103,7 +103,7 @@ developer_instructions = """
   - URL は推測禁止。実在確認の責任はリライト実行者が負う（WebFetch で HEAD 確認推奨）
 - **I パターン（画像移行）適用時**:
   - alt は ≤80字、caption は帰属情報のみ（≤60字）
-  - CC/PD 画像なら `{/* source: URL, license */}` コメント
+  - 写真は AI 生成だけ（`npm run gen-article-photo`。実写の CC/PD 写真は使わない）。公的資料の図なら `{/* source: 提供者, 利用規約, URL */}` コメントと caption の提供者
   - 画像ファイルが `public/posts/` または R2 上に実在することを前提とする
   - 新規画像生成はしない（既存画像のコンポーネント移行のみ）
 - **G パターン（表変換）適用時**:
