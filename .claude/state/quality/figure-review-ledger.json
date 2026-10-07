@@ -387,34 +387,6 @@
       "reason": "左余白の行番号 30・35・図番号キャプション『図2.21 じゃかご工の例』・左右の空白を除いて切り直し（850x310→464x197）。(a) じゃかご・(b) ふとんかごの断面と小図ラベルは欠けなし。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:39:55.839Z"
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
-      "sha": "df858912985d2688",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右縁で切れていた (a)(b) の平面詳細図の寸法と格子、下縁で切れていた (b) の断面図を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x460→1006x869）。章見出し・綴じ影・図番号キャプション・隣の図2.23 は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.653Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
-      "sha": "40fc4a2ab9b39f1f",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "右端と下端で切れていたブロック列・粘質土の破線・裏込めのラベル・基礎コンクリートと基礎栗石・寸法を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→720x441）。上部の図2.22 の写り込みと図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:11:18.654Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
-      "sha": "524bbb810ccc398b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上にずれていた切り出し範囲を直し、下縁で切れていた法尻の基礎コンクリートと寸法 1,000 を、二次問題解説集2021 p.113（180 度回転を戻す）から 300dpi で切り出し直して戻した（510x430→678x530）。図2.23 の写り込み・行番号・隣接図の断片・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.993Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-26": {
-      "sha": "8cf5fdf97437888b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていた右下の拡大詳細図（モルタル吹付け・アンカーバー D32・寸法 400/500・断面下半分）を、二次問題解説集2021 p.114（180 度回転を戻す）から 300dpi で切り出し直して戻した（900x720→1068x1437）。上の空白・行番号・図番号キャプション・下の図2.27/2.28 は除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.996Z"
-    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-27": {
       "sha": "2452970c32c90b7a",
       "verdict": "ok",
