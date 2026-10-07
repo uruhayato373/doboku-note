@@ -97,12 +97,24 @@ function parseRun(text) {
 async function syncArticles(items) {
   const updated = []; const failed = [];
   for (let i = 0; i < items.length; i += CHUNK) {
-    const chunk = items.slice(i, i + CHUNK);
-    // 本文を上げ直す記事の配布 PDF を Drive から取り寄せる（無ければ note-update-body が本文を触らず止める）
-    for (const item of chunk.filter((x) => x.needsPdfPull)) {
-      const r = node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`]);
-      if (r.status !== 0) problems.push(`PDF を Drive から取り寄せられない: ${item.path}`);
+    // 本文を上げ直す記事の配布 PDF を Drive から取り寄せる。取り寄せられなかった記事は note へ送らない
+    // （送ると note-update-body が「添付がローカルに無い」で 1 本ずつ失敗し、5 本続くと残り全部が止まる。
+    //   2026-10-04 の週次は BK-01 道路の 7 本でこれに当たり、以降の記事とマガジンが反映されなかった）
+    const pulled = [];
+    for (const item of items.slice(i, i + CHUNK)) {
+      if (item.needsPdfPull) {
+        const r = node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`]);
+        if (r.status !== 0) {
+          const why = r.out.split('\n').filter((l) => /FAIL|vault に無い|コピー失敗|台帳と違う|マウント/.test(l)).slice(0, 2).join(' / ').trim().slice(0, 300);
+          problems.push(`PDF を Drive から取り寄せられない: ${item.path}${why ? `（${why}）` : ''}`);
+          failed.push({ path: item.path, parts: item.parts, reason: `配布 PDF を取り寄せられない${why ? `: ${why}` : ''}` });
+          continue;
+        }
+      }
+      pulled.push(item);
     }
+    const chunk = pulled;
+    if (!chunk.length) continue;
     mkdirSync(WORK, { recursive: true });
     const list = join(WORK, `list-${stamp()}.txt`);
     writeFileSync(list, chunk.map((x) => x.path).join('\n') + '\n');
