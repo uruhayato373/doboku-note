@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ベルトコンベヤで運ぶときの注意。終端からそのまま落とすと材料分離を起こすので、終端にバッフルプレート（当て板）や漏斗管を付ける。終端は移し、勾配は 30 度未満とする。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">ベルトコンベヤ使用上の注意</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">終端の落とし方で、材料分離を防ぐ</text>
+
+  <rect class="card" x="16" y="64" width="368" height="162" rx="6"/>
+  <rect class="card" x="16" y="236" width="368" height="162" rx="6"/>
+  <text class="t-warn" x="30" y="86">× 終端からそのまま落とす</text>
+  <polygon class="gray" points="36,104 226,130 226,146 36,120"/>
+  <circle class="gray" cx="226" cy="138" r="10"/>
+  <text class="t-note" x="40" y="140">コンベヤ</text>
+  <line class="arr" x1="238" y1="148" x2="238" y2="196" marker-end="url(#mr)"/>
+  <polygon class="warn" points="206,214 238,176 270,214"/>
+  <circle cx="190" cy="209" r="4" fill="#fff" stroke="#b22234" stroke-width="1.5"/>
+  <circle cx="178" cy="212" r="3.5" fill="#fff" stroke="#b22234" stroke-width="1.5"/>
+  <circle cx="284" cy="210" r="4" fill="#fff" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-warn" x="296" y="186">材料分離</text>
+  <text class="t-note" x="296" y="202">粗骨材が転がる</text>
+  <text class="t-ok" x="30" y="258">○ 終端に当て板か漏斗管を付ける</text>
+  <polygon class="gray" points="36,276 226,302 226,318 36,292"/>
+  <circle class="gray" cx="226" cy="310" r="10"/>
+  <text class="t-note" x="40" y="312">コンベヤ</text>
+  <line x1="258" y1="302" x2="258" y2="336" stroke="#2e6da4" stroke-width="4"/>
+  <text class="t-note" x="270" y="318">バッフル</text>
+  <text class="t-note" x="270" y="332">プレート</text>
+  <polygon class="conc" points="222,336 250,336 244,358 228,358"/>
+  <line class="arg" x1="236" y1="358" x2="236" y2="372" marker-end="url(#mg)"/>
+  <polygon class="good" points="210,386 236,372 262,386"/>
+  <text class="t-note" x="204" y="350" text-anchor="end">漏斗管</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="404" width="368" height="80" rx="6"/>
+  <text class="t-key" x="30" y="428">勾配</text>
+  <text class="t-lab" x="92" y="428">30°以上になると運搬できない</text>
+  <text class="t-key" x="30" y="450">終端</text>
+  <text class="t-lab" x="92" y="450">適宜に移し、1 箇所に落とさない</text>
+  <text class="t-key" x="30" y="472">覆い</text>
+  <text class="t-lab" x="92" y="472">運搬距離が長いときは乾燥を防ぐ</text>
+
+</svg>

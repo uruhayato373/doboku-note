@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="急速な打込みによるひび割れの出方。壁の型枠へコンクリートを速く打ち上げると、型枠に大きな圧力がかかり、上部にブリーディング水がたまって、上部の水平鉄筋の上にひび割れが入る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">急速な打込みによるひび割れ</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">打上がり速度が速いと、上部の品質が落ちて割れやすい</text>
+
+  <rect class="card" x="16" y="64" width="368" height="312" rx="6"/>
+  <!-- 型枠 -->
+  <line x1="130" y1="90" x2="130" y2="346" stroke="#8a8a8a" stroke-width="4"/>
+  <line x1="270" y1="90" x2="270" y2="346" stroke="#8a8a8a" stroke-width="4"/>
+  <line x1="130" y1="346" x2="270" y2="346" stroke="#8a8a8a" stroke-width="4"/>
+  <rect class="conc" x="132" y="150" width="136" height="194"/>
+  <!-- ブリーディング水 -->
+  <rect x="132" y="150" width="136" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" stroke-dasharray="3 3"/>
+  <text class="t-note" x="124" y="158" text-anchor="end">ブリーディング水</text>
+  <!-- 水平鉄筋とひび割れ -->
+  <circle class="bar" cx="170" cy="196" r="6"/>
+  <circle class="bar" cx="200" cy="196" r="6"/>
+  <circle class="bar" cx="230" cy="196" r="6"/>
+  <path class="crack" d="M 170 164 L 166 180 L 170 188"/>
+  <path class="crack" d="M 230 164 L 234 180 L 230 188"/>
+  <text class="t-warn" x="124" y="196" text-anchor="end">ひび割れ</text>
+  <line class="lead" x1="130" y1="192" x2="162" y2="178"/>
+  <!-- 型枠への圧力 -->
+  <line class="arr" x1="206" y1="290" x2="252" y2="290" marker-end="url(#mr)"/>
+  <line class="arr" x1="194" y1="290" x2="148" y2="290" marker-end="url(#mr)"/>
+  <text class="t-note" x="276" y="294">型枠への圧力大</text>
+  <!-- 打上がり -->
+  <line class="arb" x1="326" y1="330" x2="326" y2="150" marker-end="url(#mb)"/>
+  <text class="t-note" x="326" y="142" text-anchor="middle">速く打ち上げる</text>
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">原因</text>
+  <text class="t-lab" x="92" y="416">打上がり速度が速すぎる</text>
+  <text class="t-key" x="30" y="442">影響</text>
+  <text class="t-lab" x="92" y="442">型枠の圧力大・ブリーディングが増える</text>
+  <text class="t-key" x="30" y="468">目安</text>
+  <text class="t-lab" x="92" y="468">30 分につき 1〜1.5 m 程度</text>
+
+</svg>

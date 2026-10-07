@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="アルカリシリカ反応によるひび割れの出方。上は壁の表面に入る膨張ひび割れ、下はその拡大で、反応性のある骨材のまわりに膨張性の物質ができ、コンクリートを押し広げてひび割れる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">アルカリシリカ反応によるひび割れ</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">骨材が内側から膨らんで、コンクリートを押し広げる</text>
+
+  <rect class="card" x="16" y="64" width="368" height="312" rx="6"/>
+  <text class="t-key" x="30" y="86">壁の表面</text>
+  <rect class="conc" x="30" y="94" width="340" height="104"/>
+  <path class="crack" d="M 70 94 L 92 128 L 84 160 L 110 198"/>
+  <path class="crack" d="M 92 128 L 150 132 L 186 112 L 210 94"/>
+  <path class="crack" d="M 150 132 L 160 170 L 214 182 L 236 198"/>
+  <path class="crack" d="M 186 112 L 250 126 L 282 110 L 300 94"/>
+  <path class="crack" d="M 250 126 L 262 164 L 322 176 L 340 198"/>
+  <path class="crack" d="M 214 182 L 230 150 L 250 126"/>
+  <text class="t-warn" x="366" y="214" text-anchor="end">膨張によるひび割れ</text>
+  <text class="t-key" x="30" y="236">骨材のまわり（拡大）</text>
+  <rect class="conc" x="30" y="244" width="340" height="112"/>
+  <circle class="warn" cx="120" cy="300" r="36"/>
+  <circle class="gray" cx="120" cy="300" r="22"/>
+  <circle class="warn" cx="280" cy="300" r="36"/>
+  <circle class="gray" cx="280" cy="300" r="22"/>
+  <path class="crack" d="M 154 292 L 176 296 L 190 288 L 206 298 L 224 292 L 246 300"/>
+  <text class="t-note" x="120" y="304" text-anchor="middle">骨材</text>
+  <text class="t-note" x="280" y="304" text-anchor="middle">骨材</text>
+  <text class="t-note" x="200" y="350" text-anchor="middle">黄色は反応で生じた膨張性の物質</text>
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">原因</text>
+  <text class="t-lab" x="92" y="416">骨材のシリカとアルカリ分が反応する</text>
+  <text class="t-key" x="30" y="442">条件</text>
+  <text class="t-lab" x="92" y="442">反応性のある骨材を使うと起こる</text>
+  <text class="t-key" x="30" y="468">対策</text>
+  <text class="t-lab" x="92" y="468">アルカリ総量を 3 kg/m³ 以下にする</text>
+
+</svg>

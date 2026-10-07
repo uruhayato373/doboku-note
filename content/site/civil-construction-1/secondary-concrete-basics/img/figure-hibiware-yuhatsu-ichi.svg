@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ひび割れ誘発目地の働き。壁面にあらかじめ断面を小さくした目地を設けると、ひび割れがそこに集中し、ほかの部分に有害なひび割れが出ない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="hy-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="hy-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="hy-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">ひび割れ誘発目地</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">割れる位置をあらかじめ定めておく</text>
+  <rect class="con" x="40" y="110" width="320" height="180"/>
+  <polygon class="warn" points="121,110 139,110 130,130"/>
+  <polygon class="warn" points="121,290 139,290 130,270"/>
+  <path class="crack" d="M 130 130 L 133 170 L 127 210 L 133 250 L 130 270"/>
+  <text class="t-key" x="130" y="98" text-anchor="middle">誘発目地</text>
+  <text class="t-warn" x="130" y="316" text-anchor="middle">ここに集中</text>
+  <polygon class="warn" points="261,110 279,110 270,130"/>
+  <polygon class="warn" points="261,290 279,290 270,270"/>
+  <path class="crack" d="M 270 130 L 273 170 L 267 210 L 273 250 L 270 270"/>
+  <text class="t-key" x="270" y="98" text-anchor="middle">誘発目地</text>
+  <text class="t-warn" x="270" y="316" text-anchor="middle">ここに集中</text>
+  <text class="t-lab" x="200" y="196" text-anchor="middle">ほかの部分は</text>
+  <text class="t-lab" x="200" y="214" text-anchor="middle">割れを防ぐ</text>
+  <rect class="box" x="16" y="392" width="368" height="66" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">割れる位置をあらかじめ決めて集中させる</text>
+  <text class="t-key" x="30" y="442">効果</text>
+  <text class="t-lab" x="104" y="442">その他の部分の有害な割れの発生を防ぐ</text>
+
+</svg>

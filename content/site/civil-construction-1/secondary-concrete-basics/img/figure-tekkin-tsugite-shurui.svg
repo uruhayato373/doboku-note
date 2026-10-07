@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="主な鉄筋継手の3種類。重ね継手、アーク溶接や抵抗溶接による溶接継手、スリーブ圧着やモルタル充填などの機械式継手">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ts-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="ts-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="ts-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">主な鉄筋継手</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">継ぎ方の違いで 3 種類に分けて覚える</text>
+  <text class="t-sec" x="16" y="78">(a)</text>
+  <path class="rod" d="M 30 110 H 120"/><path class="rod" d="M 80 128 H 170"/>
+  <text class="t-key" x="200" y="114">重ね継手</text>
+  <text class="t-note" x="200" y="132">鉄筋を重ね合わせて継ぐ</text>
+  <line class="rule" x1="16" y1="156" x2="384" y2="156"/>
+  <text class="t-sec" x="16" y="178">(b)</text>
+  <path class="rod" d="M 30 210 H 98"/><path class="rod" d="M 106 210 H 170"/>
+  <ellipse class="warn" cx="102" cy="210" rx="12" ry="10"/>
+  <text class="t-key" x="200" y="206">溶接継手</text>
+  <text class="t-note" x="200" y="224">アーク溶接・抵抗溶接</text>
+  <line class="rule" x1="16" y1="246" x2="384" y2="246"/>
+  <text class="t-sec" x="16" y="268">(c)</text>
+  <path class="rod" d="M 30 300 H 96"/><path class="rod" d="M 112 300 H 170"/>
+  <rect class="con" x="84" y="288" width="40" height="24" rx="4"/>
+  <text class="t-key" x="200" y="296">機械式継手</text>
+  <text class="t-note" x="200" y="314">スリーブ圧着・モルタル充填など</text>
+  <rect class="box" x="16" y="376" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="400">位置</text>
+  <text class="t-lab" x="104" y="400">応力の大きい断面を避け、同一断面に集めない</text>
+  <text class="t-key" x="30" y="426">ずらし</text>
+  <text class="t-lab" x="104" y="426">継手長さに鉄筋直径の 25 倍を加えた長さ以上</text>
+  <text class="t-key" x="30" y="452">あき</text>
+  <text class="t-lab" x="104" y="452">継手部のあきは粗骨材の最大寸法以上</text>
+
+</svg>
