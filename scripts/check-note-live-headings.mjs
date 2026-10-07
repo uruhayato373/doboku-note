@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-note-live-headings.mjs — note 公開記事の live 本文整合性 横断検査（3検査）
+ * check-note-live-headings.mjs — note 公開記事の live 本文整合性 横断検査（10検査）
  *
  * SoT（content/note/⋆⋆/article.md frontmatter noteStatus=published）の全記事について
  * note public API で live 本文を取得し、次の破損を検出する:
@@ -14,7 +14,8 @@
  *   (7) リンク切れ   — ライブ本文のサイト内リンクが存在しないページを指す（404。2026-09-24 追加）
  *   (8) 割れ見出し   — 1〜2 字の段落の直後にリンクカード（見出しの途中に URL が入った痕跡。DN-0272・2026-09-30 追加）
  *   (9) 長い見出し   — 60 字超の h2/h3 が原稿より多い（本文の文が見出しに化けた形。DN-0272・2026-09-30 追加）
- *   (8) は全記事、(4)〜(7)・(9) は再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 /docs → 新 URL の張り替えだけの記事を含む）
+ *  (10) 切れたリンク — 原稿の URL が途中で切れたリンク（https://coconala.com/servi。カード化の痕跡・2026-10-07 追加）
+ *   (8) は全記事、(4)〜(7)・(9)・(10) は再公開台帳と本文ハッシュが一致する記事（301 等価＝旧 /docs → 新 URL の張り替えだけの記事を含む）
  *   だけを見る。原稿を直して未再公開の記事は
  *   ライブが古いのが正常で、そちらは check-note-republish（同じ週次ジョブ）が要再公開として出す。
  *
@@ -33,7 +34,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, stripHtmlComments, findSplitBeforeCard, findLongHeadings, countSotLongHeadings } from './lib/note-live-check.mjs';
+import { fetchNoteBody, findUrlHeadings, countEmptyBlockquotes, countImgs, sotH2s, liveH2s, diffHeadings, findLiteralStars, findBrokenSiteLinks, extractSourceUrls, findTruncatedLinks, stripHtmlComments, findSplitBeforeCard, findLongHeadings, countSotLongHeadings } from './lib/note-live-check.mjs';
 import { bodyHash, canonBodyHash, loadState } from './lib/note-republish-hash.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
@@ -116,14 +117,15 @@ for (const f of walk(join(ROOT, 'content/note'), [])) {
     noteId: m[1], path, expectedImgs: expectedImagesOf(raw), inSync,
     sotHeadings: inSync && limit != null ? sotH2s(md, limit) : null,
     sotLongHeadings: inSync && limit != null ? countSotLongHeadings(md, limit) : null,
+    sourceUrls: inSync ? extractSourceUrls(stripHtmlComments(md)) : [],
   });
 }
 if (!PATHS_ONLY) {
   console.log(`[check-note-live-headings] published ${targets.length} 件を検査（予約中 ${reserved} 件は go-live 前のため対象外）`);
-  console.log(`  見出し・太字記号・画像過多・リンク切れの検査は再公開台帳と一致する ${targets.length - driftSkipped} 件（301 等価を含む・要再公開 ${driftSkipped} 件はライブが古いのが正常なので除外）`);
+  console.log(`  見出し・太字記号・画像過多・リンク切れ・切れたリンクの検査は再公開台帳と一致する ${targets.length - driftSkipped} 件（301 等価を含む・要再公開 ${driftSkipped} 件はライブが古いのが正常なので除外）`);
 }
 
-async function check({ noteId, path, expectedImgs, sotHeadings, sotLongHeadings, inSync }) {
+async function check({ noteId, path, expectedImgs, sotHeadings, sotLongHeadings, inSync, sourceUrls }) {
   const { body, error, unmeasurable } = await fetchNoteBody(noteId, { retries: 2, delayMs: 2000 });
   if (error) return { noteId, path, status: 'FETCH_ERR', labels: [], err: error.slice(0, 50) };
   // 未ログインで中身が返らない記事（メンバーシップ限定等）は body='' なので、そのまま検査すると
@@ -170,6 +172,11 @@ async function check({ noteId, path, expectedImgs, sotHeadings, sotLongHeadings,
       labels.push(`[リンク切れ ${broken.length}]`);
       details.push(...broken.slice(0, 3).map((x) => `404: ${x}`));
     }
+    const cut = findTruncatedLinks(body, sourceUrls);
+    if (cut.length) {
+      labels.push(`[切れたリンク ${cut.length}]`);
+      details.push(...cut.slice(0, 3).map((x) => `切れた URL: ${x}`));
+    }
   }
   return { noteId, path, status: labels.length ? 'BAD' : (partial && expectedImgs !== 0 ? 'PARTIAL' : 'OK'), labels, urlH: details };
 }
@@ -201,7 +208,7 @@ if (unmeas.length) {
 if (errs.length) console.log(`  WARN: FETCH_ERR ${errs.length} 件（ネットワーク未達・再実行かプロキシ外で確認）: ${errs.slice(0, 3).map((r) => r.noteId).join(', ')}${errs.length > 3 ? '…' : ''}`);
 
 if (bad.length) {
-  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
+  console.error(`[check-note-live-headings] ✗ live 本文に不整合 ${bad.length} 件（URL見出し/空引用/画像欠落/見出し食い違い/太字記号/画像過多/リンク切れ/割れ見出し/長い見出し/切れたリンク）。修復: node scripts/note-update-body.mjs --article <path> --commit`);
   process.exit(1);
 }
 

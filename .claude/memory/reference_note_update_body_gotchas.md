@@ -1,6 +1,6 @@
 ---
 name: reference_note_update_body_gotchas
-description: "note 公開済み記事のライブ反映（note-update-body / note-append-cta）の非自明な挙動。複数行blockquote脱落・画像自動アップロード・有料記事の[5e]偽陰性・会員記事の試し読みライン・price-sweep境界破壊・タグ確定・URL見出し化・OGPカード削除不可・doboku-note.comカード化失敗"
+description: "note 公開済み記事のライブ反映（note-update-body / note-append-cta）の非自明な挙動。カード化でURLが切れる・複数行blockquote脱落・画像自動アップロード・有料記事の[5e]偽陰性・会員記事の試し読みライン・price-sweep境界破壊・タグ確定・URL見出し化・OGPカード削除不可・doboku-note.comカード化失敗"
 metadata:
   type: reference
 ---
@@ -56,6 +56,12 @@ note 公開済み記事のライブ反映ツール（`scripts/note-update-body.m
 - **鉄則**: 有料エリア設定/試し読みビューに入ったら**必ずライン再設定してから更新**する。price変更のためだけに境界ビューを開いて素通り更新しない。
 - **防衛3層（実装済）**: ①`note-article-price-sweep` にガード＝対象noteIdをソース逆引きし paidBoundary持ちが含まれたら既定ABORT(exit9)・`--allow-boundary-risk`で上書き。②`check-note-boundary.mjs`（pre-commit＋CI全量）＝paid published の paidBoundary 解決可能性を事前ゲート（RULE_GAP再発防止）。③`check-note-structure.mjs --ci`（週次/月次・note API）＝ライブ無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK を検出、`.claude/config/note-structure-allow.json` の allowlist でBK/総監の境界定義ズレ偽陽性20本をWAIVED。
 - 修復: 全ロック記事は `note-update-body --commit`（paidBoundary で境界H2再設定・価格は不変）。公開APIの無料テキスト長が0→回復で確認。バナーも全ロックの中に隠れて「PR画像未挿入」に見えるが境界修復で連動復活。
+
+## 2026-10-07 追記: カード化で URL が途中で切れて公開される・冒頭導線の差し込みの罠
+- **切れた URL**: 経験記述の無料記事（n1a0cef1de78b）で、原稿の `https://coconala.com/services/4418735` が公開本文では `https://coconala.com/servi`（素のリンク）になっていた。[5e] は自サイト宛てのリンクしか見ず通っていた。`assertLiveBody` に原稿 URL を渡し、原稿のどれとも一致せず途中で切れた href を FAIL にした（`findTruncatedLinks`・`tests/note-live-truncated-links.test.mjs`。無料 145 本の実走査で誤検出 0）。直し方は全文置換（無料なら `note-update-body --commit`）。見つけたのはコンテンツ台帳の導線照合（`npm run content-ledger -- --refresh-cta` の `missing`）。
+- **`note-append-cta --before-first-h2` は差し込むたびにパックのカード直後へ入る**: 2 段（添削→骨子）にしたいときは **骨子 → 添削 の順に**入れる。古い文面・逆順は `note-update-partial` の `removeBlock` で消してから入れる（2026-09-28 のココナラ導線一括）。
+- **「更新完了」でも公開されていない**: 前回の実行で下書きにだけ入り、次の実行が「既にある」で skip して終わる（上の 4 と同型）。公開 API に無ければ `--save-only --keep-boundary --text x --url <URL> --commit` で下書きを公開する。
+- ページ読み込みが遅いと `account != dobokunote` で止まるが、ログイン切れではない（`node scripts/playwright-auth.mjs status --service note` で確認）。リンクカードの後ろの空段落は note が保存時に自動で足すので、消しても戻る。
 
 ## 2026-09-23 追記: 「CDN確定待ちタイムアウト」の一部は画像消失
 - 確定=2/3 等で毎回 1 枚足りない記事は、待ち時間(480〜720s)を伸ばしても通らなかった。タイムアウト時のエディタ内 img を出すと 3 枚挿入のはずが 1 枚しか無かった＝blob 待ちではなく挿入画像が消えている。**待ちを戻して単発で再実行したら 3/3 で通った**（3 本とも）。延長を重ねず単発再実行を先に試す。分類の改修は DN-0273。
