@@ -248,6 +248,7 @@ content/site/{slug}/img/
 
 - SVG: 10KB 以内（過度な装飾を避ける）
 - JPG: 200KB 以内（モバイル回線で 2 秒以内に読める）
+- WebP: 150KB 以内（写真は `gen-article-photo` が画質を下げて収める）
 - PNG: 100KB 以内（重い PNG は WebP 変換も検討）
 
 ## 図クロップの機械検査（`check-figure-crop`）
@@ -280,7 +281,7 @@ EDGE_CUT・STRAY_LABEL は CI では落とさないが、`/figure-quality-loop` 
 
 ### 置換履歴の追跡
 
-置換作業の所要時間・CC ヒット率・削除比率は、パイロット記事（textbook-network-schedule / textbook-crane / textbook-leveling）で実測し、全体展開計画の判断材料とする。
+（2026-07 時点の記録）置換作業の所要時間・CC ヒット率・削除比率は、パイロット記事（textbook-network-schedule / textbook-crane / textbook-leveling）で実測し、全体展開計画の判断材料とする。
 
 ## 政府系サイト（go.jp）の画像を利用する場合
 

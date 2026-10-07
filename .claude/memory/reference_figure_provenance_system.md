@@ -25,7 +25,7 @@ metadata:
 - **過去問のデータグラフはSVG化禁止**＝図の幾何が答えそのもの・ボケ元から誤答を誘発。→再スキャンが正。SVGは構造が本文確定できる模式図のみ。
 - 写り込み(recrop)は既存から再クロップで直る。答え漏らしの公開×掲載は既に0化済み [[project_civil1_figure_answer_leak]]。
 
-**出典の正本（2026-10-07〜）**: 図ごとの出典（`vault:` 相対の PDF・ページ・dpi）は `config/figure-sources.json` の `provenance` だけが持つ（判定台帳と manual_needs から 186 件を移した。判定台帳は合否と理由だけ）。`figure-review-queue -- record` が書く。切り出し枠・回転はまだ残らないので同じ画像は作り直せない（DN-0555）。原典の候補は記事の `sources:` → `config/reference-sources.json`（書籍の PDF・向き・OCR、白書の `vaultCopies`）から `scripts/lib/figure-source-wiring.mjs` が引く。
+**出典の正本（2026-10-07〜）**: 図ごとの出典（`vault:` 相対の PDF・ページ・dpi）は `config/figure-sources.json` の `provenance` だけが持つ（判定台帳と manual_needs から 186 件を移した。判定台帳は合否・理由・判定したときの画素数（px）だけ）。`figure-review-queue -- record` が書く。切り出し枠・回転はまだ残らないので同じ画像は作り直せない（DN-0555）。原典の候補は記事の `sources:` → `config/reference-sources.json`（書籍の PDF・向き・OCR、白書の `vaultCopies`）から `scripts/lib/figure-source-wiring.mjs` が引く。
 
 **書籍の図を探す近道**: `原資料PDF/書籍/<book>/ocr/*.md` に、ページ印 `<!-- p0122 印字:114 -->` と図の説明 `（図: 図2.41 押え盛土工法。…）` が入っている。図番号で grep すれば PDF のページが分かる（p0122＝source/001.pdf の 122 ページ）。二次問題解説集2021 の PDF ページは 180° 逆さのことがある。書籍から作った記事は、図が 1 節ずつずれる・alt が別の図・図の分割・別教材の図番号の写り込みが起きていた（土工の基礎で実証。照合の機械化は DN-0557）。クロップ検査は png と webp の両方に掛ける（webp だけ見て、png の判定が CI で初めて出た。DN-0556）。
 

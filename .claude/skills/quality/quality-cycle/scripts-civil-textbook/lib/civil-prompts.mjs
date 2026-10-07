@@ -91,7 +91,7 @@ export function buildRewriterPrompt(slug, group, weakAxes, expansionPatterns) {
 
 本文中の生 \`<img>\` を \`<ArticleImage>\` に置換する:
 - alt は ≤80字、caption は**帰属情報のみ（≤60字）**。説明型 caption は禁止（\`.claude/content-principles.md\` §8）
-- CC/PD 画像なら \`{/* source: URL, license */}\` コメントを \`<ArticleImage>\` の直前に付ける
+- 写真は AI 生成だけ（実写の CC/PD 写真は使わない）。公的資料の図なら \`{/* source: 提供者, 利用規約, URL */}\` コメントを \`<ArticleImage>\` の直前に付け、caption に提供者を出す
 - 画像ファイル（public/posts/... または R2）の存在確認はしなくてよい（既存 src を維持）
 - 元の \`<img>\` の alt / caption に長い説明がある場合、説明は本文に散文化して移し、caption は帰属情報だけに短縮する
 `);

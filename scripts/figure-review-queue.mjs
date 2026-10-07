@@ -27,7 +27,7 @@ import { writeDataset } from './lib/dataset-write.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import matter from 'gray-matter';
 import { driveGroupFor, loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultRelFor } from './lib/drive-vault.mjs';
-import { sourceCandidatesFor, sourceIdsOf } from './lib/figure-source-wiring.mjs';
+import { figuresInExplanation, sourceCandidatesFor, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { analyzeImage } from './check-figure-crop-integrity.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
@@ -121,6 +121,7 @@ let referenceCfg = null;
 let figureCategories = null;
 let pastExamDirs = null;
 const articleSourcesCache = new Map();
+const articleExplanationCache = new Map();
 
 /** 図の記事の sources（と試験ページなら資格の scanReferences）から原典候補を作る。 */
 function wiringOf(f) {
@@ -129,8 +130,14 @@ function wiringOf(f) {
   const articleDir = f.figKey.split('/img/')[0];
   if (!articleSourcesCache.has(articleDir)) {
     let ids = [];
-    try { ids = sourceIdsOf(matter(readFileSync(join(ROOT, f.mdx), 'utf8')).data.sources); } catch { /* 記事が読めなければ候補なし */ }
+    let explanation = new Set();
+    try {
+      const raw = readFileSync(join(ROOT, f.mdx), 'utf8');
+      ids = sourceIdsOf(matter(raw).data.sources);
+      explanation = figuresInExplanation(raw);
+    } catch { /* 記事が読めなければ候補なし */ }
     articleSourcesCache.set(articleDir, ids);
+    articleExplanationCache.set(articleDir, explanation);
   }
   if (!pastExamDirs) {
     // 公式過去問の原本フォルダ（content/sources/past-exams/{資格} ↔ vault 原資料PDF/過去問/{資格}）
@@ -144,10 +151,11 @@ function wiringOf(f) {
     articleDir, sourceIds: articleSourcesCache.get(articleDir), cfg: referenceCfg,
     vaultRoot: resolveVaultRoot().root ?? null, scanRefIds: figureCategories[qualification]?.scanReferences ?? [],
     examDir: pastExamDirs.get(qualification) ?? null,
+    inExplanation: articleExplanationCache.get(articleDir)?.has(f.name) ?? false,
   });
 }
 
-/** 記録済みの出典（config/figure-sources.json の provenance）。vault: は手元のマウント先の絶対パスへ開く */
+/** 記録済みの出典（config/figure-sources.json の provenance の pdf）。vault: は手元のマウント先の絶対パスへ開く */
 function recordedSourceOf(figKey) {
   const src = readJsonIf(ROOT, datasetPath('config.figure-sources'))?.provenance?.[figKey];
   if (!src?.pdf) return null; // AI 生成・CC 写真などの出所（kind）は切り出し直しの原典ではない

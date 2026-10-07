@@ -37,7 +37,7 @@ paths:
 
 ## 図版・写真のポリシー
 
-- 図/写真を追加・置換するとき（図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止） → [image-policy.md](../knowledge/reference/image-policy.md)。図の出所・品質の記録は `npm run audit-figures`、図クロップの品質ループ（判定待ち→目視判定・修正→判定台帳）は `/figure-quality-loop`
+- 図/写真を追加・置換するとき（図版種別判定フロー・写真は AI 生成（`gen-article-photo`・`check-image-origin`）・出典表記・写真 SVG 化禁止） → [image-policy.md](../knowledge/reference/image-policy.md)。図の出所・品質の記録は `npm run audit-figures`、図クロップの品質ループ（判定待ち→目視判定・修正→判定台帳）は `/figure-quality-loop`
 - サイト図版 `figure-*.svg` の固定キャンバス（feed 4:5 `400×500`／landscape 16:9 `640×360` `--wide`・概念名タイトル禁止・記事+SNS 両用） → [figure-canvas-policy.md](../knowledge/reference/figure-canvas-policy.md)。機械可読 `config/figure-canvas.json`、ガード `npm run check-figure-canvas`、整形 `svg-canvas-fitter`、SNS 書き出し `npm run render-figure-sns`
 - SVG の色は `src/styles/globals.css` の `--color-*` が真実源 → [design-system.md](../knowledge/design-system/design-system.md)。過去問の問題図に解答情報を入れない。過去問データのグラフは SVG 化しない
 - note 記事用 図解 → [note-svg-policy.md](../knowledge/reference/note-svg-policy.md)。hero/OGP/note カバー/カード/バナーの背景写真（wide/square の 2 マスター→クロップ展開） → [brand-image-system.md](../knowledge/reference/brand-image-system.md)

@@ -157,14 +157,15 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 
 ## 6. 図の原典の結線と、流用不可の図
 
-図ごとの出典の正本は `config/figure-sources.json` の `provenance`（図キー → 原典 PDF・ページ）。`check-reference-sources` は
-次を見る（2026-10-07・DN-0563）。
+図・写真ごとの出所の正本は `config/figure-sources.json` の `provenance`（図キー → 種別 `kind` と種別ごとの必須欄。PDF からの切り出しは原典 PDF・ページ。種別の一覧は [figure-provenance.md](./figure-provenance.md) ⑤・[image-policy.md](./image-policy.md)）。`check-reference-sources` は
+次を見る（2026-10-07・DN-0563・DN-0574）。
 
 - 出典が参考文献に当たる図の記事は、その参考文献を `sources:` に書く（宣言もれは FAIL）
-- 試験ページ（公式の設問を含むページ）の図は試験の図で、問題解説集のスキャンは媒体にすぎない。記事が試験の原典（`exam-official`）を
-  `sources:` に書いていればよく、市販の問題解説集からの切り出しも許す
-- 試験ページでない記事へ `figureReuse: false`（`commercial-book`）の原典から切り出した図は、
+- 試験ページ（公式の設問を含むページ）の**設問側の図**は試験の図で、問題解説集のスキャンは媒体にすぎない。記事が試験の原典（`exam-official`）を
+  `sources:` に書いていればよく、市販の問題解説集からの切り出しも許す。**解答・解説（`<details>`）の中の図は試験の図ではない**（問題解説集・テキストの図）ので、
+  この免除は効かず、次の流用の規則に当たる（2026-10-07: 解説欄の書籍の図 12 枚がページ単位の免除で素通りしていた）
+- 試験ページでない記事か試験ページの解説欄へ `figureReuse: false`（`commercial-book`）の原典から切り出した図は、
   `.claude/config/reference-sources-baseline.json` の `figureReuseDebt` に載っている既存分だけを許す（増えたら FAIL）。
-  返済は §5 の前例どおり自作の図への置き換えか削除。`figure-review-queue` はこの図を切り出し直しに回さない
+  返済は §5 の前例どおり自作の図への置き換えか削除。`figure-review-queue` はこの図を切り出し直しに回さない（解説欄の図も同じ）
 
 展開先（guide・textbook・keyword・practice・primary・past-exam・standards・note）ごとの加工ルール表と、commercial-book → guide/textbook の標準手順（原文を渡さない brief 方式）は [content-taxonomy.md](./content-taxonomy.md) §7 を参照する。

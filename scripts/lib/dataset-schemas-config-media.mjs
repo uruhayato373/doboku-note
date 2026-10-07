@@ -171,7 +171,7 @@ export const ConfigFigureSources = z
         z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/]+$/, '資格/記事/img/名前（拡張子なし）'),
         FigureProvenance,
       )
-      .describe('図・写真ごとの出所の正本（切り出した原典 PDF・ページ、または AI 生成・CC 写真などの種別）。figure-review-queue record が PDF の出典を書き、切り出し直し・参考文献の結線検査・check-image-origin が読む'),
+      .describe('図・写真ごとの出所の正本（切り出した原典 PDF・ページ、または AI 生成・公的資料・自社書籍スキャンなどの種別）。figure-review-queue record が PDF の出典を書き、切り出し直し・参考文献の結線検査・check-image-origin が読む'),
     categories: z
       .record(
         z.string().min(1),

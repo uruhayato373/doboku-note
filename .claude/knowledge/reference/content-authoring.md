@@ -103,7 +103,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 ## 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
-- 図表: SVG（模式図）/ PNG（写真・複雑なイラスト）
+- 図表: SVG（模式図）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）
 - スクリーンショット・図版: `content/site/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/authoring/create-svg/SKILL.md`）を参照
 
@@ -342,7 +342,7 @@ faqs:
 - **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<SpecSheetList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
 - **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
-- **図表**: SVG（模式図・フロー）/ PNG（写真・複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
+- **図表**: SVG（模式図・フロー）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
 - **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない

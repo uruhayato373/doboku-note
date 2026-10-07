@@ -21,7 +21,7 @@ developer_instructions = """
 | `kind` | `png` / `webp` / `jpg`（クロップ方法の分岐に使う） |
 | `imgSize` | 現在の `[幅, 高さ]` |
 | `mdx` | 図を載せている記事 MDX（**読むだけ**。設問・本文の文脈と図番号の確認用） |
-| `signals` | 機械の兆候。`EDGE_CUT(side)`＝その縁で線が切れている疑い／`STRAY_SLIVER`・`STRAY_LABEL`＝縁の離れ島／`recrop*`＝OCR が拾った写り込み。**疑う場所の手がかりで、判定は必ず目視で行う** |
+| `signals` | 機械の兆候。`EDGE_CUT(side)`＝その縁で線が切れている疑い／`STRAY_SLIVER`・`STRAY_LABEL`＝縁の離れ島／`recrop*`＝OCR が拾った写り込み／`LOW_RES`＝長辺が `config/image-limits.json` の `figureMinLongSide` 未満（スマホ 2x 表示でぼやける）。**疑う場所の手がかりで、判定は必ず目視で行う** |
 | `whyCut`（reextract のみ） | review で切れていると判定した理由 |
 | `recordedSource`（reextract のみ） | 記録済みの出典 `{pdf, page, dpi}`（正本は `config/figure-sources.json` の `provenance`。あれば最優先） |
 | `sourceCandidates`（reextract のみ） | 記事の `sources:` から引いた原典候補。各候補に PDF の実パス（`files`）・ページの向き（`rotation`・度）・文字起こしの場所（`ocrDir`）・公開元（`url`） |
@@ -57,6 +57,7 @@ webp は Read できないことがあるので png に変換してから見る:
 - `action='crop'`: 上記 TRIM 対象が写り込んでいる → 除去してタイトにクロップ
 - `action='ok'`: 既にクリーンで図本体＋凡例のみ。縁に接していても図本体が欠けていない（罫線・枠・写真の端・機材イラストの外形が縁に接するだけ）なら ok。**無理に切って図要素を削らない**。多くの過去問図・authored グラフ・機材写真はこれ
 - `action='needs-source'`: 図本体（作図線・曲線・表・装置・円・入力ラベル・文字）が**画像端で余白なく切れている**（見切れ）、または図本体内部にスキャン裏写り等の除去不能な汚損がある → 切り直しでは直らないので元 PDF からの切り出し直し対象。**この場合ファイルは一切変更しない**
+- `LOW_RES` の図は、切り直しでは画素が増えないので `needs-source`（元 PDF から高い dpi で同じ範囲を切り出し直す）。reextract で原典の図がもともと粗く、高い dpi でも細部が増えないと確かめたら `source-unavailable` にして reason に「原典の解像度が上限」と書く（2026-10-07・DN-0577）
 
 **見分けの鉄則**
 - 図番号キャプションは KEEP ではなく必ず TRIM。凡例・軸ラベル・データ表数値は KEEP。

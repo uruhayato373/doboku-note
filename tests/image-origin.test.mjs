@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import sharp from 'sharp';
-import { figureSourceFindings, figuresInExplanation } from '../scripts/lib/figure-source-wiring.mjs';
+import { figureSourceFindings, figuresInExplanation, sourceCandidatesFor } from '../scripts/lib/figure-source-wiring.mjs';
 import {
   aiPhotoStatus, aspectOk, captionFor, commentKind, originFindings, originOf, promptSha, sourceCommentFor,
 } from '../scripts/lib/image-origin.mjs';
@@ -105,4 +105,13 @@ test('fitPhoto は中央で 4:3 に切り、配信幅に縮める', async () => 
   const { buf } = await fitPhoto(noisy, aiPhoto, 400 * 1024);
   assert.ok(buf.length <= 400 * 1024, '上限を超えたら画質を下げて収める');
   await assert.rejects(fitPhoto(noisy, aiPhoto, 1024), /上限/);
+});
+
+test('切り出し直しの原典候補: 試験ページの解説欄の図は流用不可の書籍を候補にしない', () => {
+  const base = { articleDir: 'civil-construction-1/secondary-earthwork-past-problems', sourceIds: ['cecc-past-exams'], cfg, vaultRoot: null, scanRefIds: ['workbook'] };
+  assert.deepEqual(sourceCandidatesFor(base).forbidden, []);
+  assert.ok(sourceCandidatesFor(base).candidates.some((c) => c.id === 'workbook'), '設問側の図は問題解説集を媒体として使える');
+  const exp = sourceCandidatesFor({ ...base, inExplanation: true });
+  assert.equal(exp.exam, false);
+  assert.ok(!exp.candidates.some((c) => c.id === 'workbook'), '解説欄の図は問題解説集から切り出さない');
 });

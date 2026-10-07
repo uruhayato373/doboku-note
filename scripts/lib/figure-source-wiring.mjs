@@ -105,8 +105,8 @@ const pad3 = (n) => String(n).padStart(3, '0');
  * @param {{ articleDir: string, sourceIds: string[], cfg: object, vaultRoot: string|null, scanRefIds?: string[], examDir?: string|null }} input
  *   examDir は公式過去問の原本のフォルダ（vault 相対・過去問の在庫 pastexams.inventory の dir から導く）
  */
-export function sourceCandidatesFor({ articleDir, sourceIds, cfg, vaultRoot, scanRefIds = [], examDir = null }) {
-  const exam = isExamArticle(articleDir);
+export function sourceCandidatesFor({ articleDir, sourceIds, cfg, vaultRoot, scanRefIds = [], examDir = null, inExplanation = false }) {
+  const exam = isExamArticle(articleDir) && !inExplanation; // 解答・解説（<details>）の図は試験の図でない（figuresInExplanation）
   const ids = [...new Set([...sourceIds, ...(exam ? scanRefIds : [])])];
   const abs = (rel) => (vaultRoot ? `${vaultRoot}/${rel}` : `vault:${rel}`);
   const candidates = [];
