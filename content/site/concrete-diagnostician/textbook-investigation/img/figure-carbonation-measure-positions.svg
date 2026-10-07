@@ -1,0 +1,76 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は JIS A 1152 のフェノールフタレイン法における割裂面の測定位置。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コア割裂面にフェノールフタレイン溶液を噴霧した断面の模式図。構造物表面から赤紫に呈色した部分の縁までの距離を、一定間隔の複数位置で測り、最大値も別に測る。粗骨材粒子の位置では両端の呈色の縁を結んだ直線上で測る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-lab   { font-size: 11px; fill: #1a3a5c; }
+      .t-num   { font-size: 11px; fill: #1a3a5c; font-weight: 700; }
+      .t-leg   { font-size: 12px; fill: #222; }
+      .t-b     { font-size: 13px; fill: #1a3a5c; font-weight: 700; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .line-max { stroke: #b22234; stroke-width: 2; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+    <marker id="arrr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">割裂面を表面側から読む（模式・縮尺なし）</text>
+
+  <text class="t-lab" x="135" y="44" text-anchor="middle">構造物の表面</text>
+
+  <!-- 呈色部（赤紫の代用として danger-fill） -->
+  <rect x="40" y="56" width="190" height="244" fill="#f8d7da" />
+  <!-- 無色部（中性化した部分） -->
+  <path d="M40,56 L40,132 C42.5,131.0 47.5,124.7 55.0,126.0 C62.5,127.3 75.0,140.3 85.0,140.0 C95.0,139.7 105.0,119.3 115.0,124.0 C125.0,128.7 137.7,162.3 145.0,168.0 C152.3,173.7 156.7,159.7 159.0,158.0 L191,142 C193.3,140.7 198.5,134.3 205.0,134.0 C211.5,133.7 225.8,139.0 230.0,140.0 L230,56 Z" fill="#f5f5f5" />
+  <!-- 呈色の縁 -->
+  <path d="M40,132 C42.5,131.0 47.5,124.7 55.0,126.0 C62.5,127.3 75.0,140.3 85.0,140.0 C95.0,139.7 105.0,119.3 115.0,124.0 C125.0,128.7 137.7,162.3 145.0,168.0 C152.3,173.7 156.7,159.7 159.0,158.0" fill="none" stroke="#b22234" stroke-width="2" />
+  <path d="M191,142 C193.3,140.7 198.5,134.3 205.0,134.0 C211.5,133.7 225.8,139.0 230.0,140.0" fill="none" stroke="#b22234" stroke-width="2" />
+  <!-- 骨材粒子：両端の縁を結ぶ破線 -->
+  <ellipse cx="175" cy="150" rx="17" ry="13" fill="#fff" stroke="#8a8a8a" stroke-width="1.5" />
+  <line x1="159" y1="158" x2="191" y2="142" stroke="#222" stroke-width="1.5" stroke-dasharray="4 3" />
+  <rect x="40" y="56" width="190" height="244" fill="none" stroke="#555" stroke-width="1.5" />
+
+  <!-- 測定線（表面から縁まで） -->
+  <line class="line-arr" x1="55" y1="58" x2="55" y2="124" marker-end="url(#arr)" />
+  <line class="line-arr" x1="85" y1="58" x2="85" y2="138" marker-end="url(#arr)" />
+  <line class="line-arr" x1="115" y1="58" x2="115" y2="122" marker-end="url(#arr)" />
+  <line class="line-max" x1="145" y1="58" x2="145" y2="166" marker-end="url(#arrr)" />
+  <line class="line-arr" x1="175" y1="58" x2="175" y2="148" marker-end="url(#arr)" />
+  <line class="line-arr" x1="205" y1="58" x2="205" y2="132" marker-end="url(#arr)" />
+
+  <!-- 番号 -->
+  <circle cx="70" cy="80" r="9" fill="#fff" stroke="#1a3a5c" stroke-width="1.2" />
+  <text class="t-num" x="70" y="84" text-anchor="middle">1</text>
+  <circle cx="165" cy="96" r="9" fill="#fff" stroke="#b22234" stroke-width="1.2" />
+  <text class="t-num" x="165" y="100" text-anchor="middle">2</text>
+  <circle cx="175" cy="178" r="9" fill="#fff" stroke="#1a3a5c" stroke-width="1.2" />
+  <text class="t-num" x="175" y="182" text-anchor="middle">3</text>
+
+  <!-- 領域ラベル -->
+  <text class="t-lab" x="245" y="86">無色（中性化した部分）</text>
+  <text class="t-lab" x="245" y="226">赤紫に呈色</text>
+  <text class="t-lab" x="245" y="242">（未中性化の部分）</text>
+  <text class="t-lab" x="245" y="152">呈色の縁</text>
+  <line x1="243" y1="148" x2="232" y2="141" stroke="#8a8a8a" stroke-width="1" />
+  <line class="line-arr" x1="100" y1="236" x2="100" y2="290" marker-end="url(#arr)" />
+  <text class="t-lab" x="100" y="226" text-anchor="middle">内部へ</text>
+
+  <!-- 凡例 -->
+  <rect class="box" x="20" y="318" width="360" height="164" rx="6" />
+  <text class="t-b" x="34" y="342">読み方の順番</text>
+  <circle cx="42" cy="364" r="9" fill="#fff" stroke="#1a3a5c" stroke-width="1.2" />
+  <text class="t-num" x="42" y="368" text-anchor="middle">1</text>
+  <text class="t-leg" x="58" y="368">表面から縁までを 10〜15 mm 間隔で測る</text>
+  <circle cx="42" cy="394" r="9" fill="#fff" stroke="#b22234" stroke-width="1.2" />
+  <text class="t-num" x="42" y="398" text-anchor="middle">2</text>
+  <text class="t-leg" x="58" y="398">平均値とは別に、最大値も測る</text>
+  <circle cx="42" cy="424" r="9" fill="#fff" stroke="#1a3a5c" stroke-width="1.2" />
+  <text class="t-num" x="42" y="428" text-anchor="middle">3</text>
+  <text class="t-leg" x="58" y="428">骨材粒子は、両端の縁を結ぶ線上で測る</text>
+  <text class="t-lead" x="34" y="458">呈色が安定してから読む（広がる場合は再噴霧）</text>
+  <text class="t-lead" x="34" y="474">薄赤紫の部分があれば、その位置も併せて記録する</text>
+</svg>

@@ -1,0 +1,88 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は水銀圧入法とガス吸着法の測定できる細孔径の範囲（対数軸の概略）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="細孔直径の対数軸上で、水銀圧入法は数 nm から数百 μm、ガス吸着法は JIS Z 8831-2 のおよそ 2〜100 nm（2 nm 以下のミクロ孔は第3部）を測れる範囲として並べた比較図。数 nm から 100 nm は両方で測れ、ゲル空隙はガス吸着法、大きな毛細管空隙以上は水銀圧入法が受け持つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-lab   { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-leg   { font-size: 12px; fill: #222; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">細孔の大きさ（対数軸）と測れる範囲の目安</text>
+
+  <!-- 孔径の分類（IUPAC） -->
+  <text class="t-lead" x="32" y="36">孔径の分類（IUPAC）</text>
+  <rect x="32" y="42" width="62.4" height="38" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1" />
+  <rect x="94.4" y="42" width="67.2" height="38" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <rect x="161.6" y="42" width="206.4" height="38" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1" />
+  <text class="t-lab" x="63.2" y="58" text-anchor="middle">ミクロ孔</text>
+  <text class="t-lab" x="63.2" y="73" text-anchor="middle">2 nm 未満</text>
+  <text class="t-lab" x="128" y="58" text-anchor="middle">メソ孔</text>
+  <text class="t-lab" x="128" y="73" text-anchor="middle">2〜50 nm</text>
+  <text class="t-lab" x="264.8" y="58" text-anchor="middle">マクロ孔</text>
+  <text class="t-lab" x="264.8" y="73" text-anchor="middle">50 nm 超</text>
+
+  <!-- 補助線（0.1 nm から 1 mm を 1 桁 48px） -->
+  <line class="line-grid" x1="32" y1="84" x2="32" y2="292" />
+  <line class="line-grid" x1="80" y1="84" x2="80" y2="292" />
+  <line class="line-grid" x1="128" y1="84" x2="128" y2="292" />
+  <line class="line-grid" x1="176" y1="84" x2="176" y2="292" />
+  <line class="line-grid" x1="224" y1="84" x2="224" y2="292" />
+  <line class="line-grid" x1="272" y1="84" x2="272" y2="292" />
+  <line class="line-grid" x1="320" y1="84" x2="320" y2="292" />
+  <line class="line-grid" x1="368" y1="84" x2="368" y2="292" />
+
+  <!-- 両方で測れる領域 -->
+  <rect x="108.8" y="96" width="67.2" height="110" fill="#fff3cd" />
+
+  <!-- 水銀圧入法 -->
+  <rect x="108.8" y="100" width="240" height="28" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text class="t-b" x="228.8" y="119" text-anchor="middle">水銀圧入法</text>
+  <text class="t-lab" x="228.8" y="143" text-anchor="middle">数 nm から数百 μm</text>
+
+  <!-- ガス吸着法 -->
+  <rect x="64" y="156" width="30.4" height="28" rx="4" fill="#fff" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="3 2" />
+  <rect x="94.4" y="156" width="81.6" height="28" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" />
+  <text class="t-b" x="135.2" y="175" text-anchor="middle">ガス吸着法</text>
+  <text class="t-lab" x="135.2" y="199" text-anchor="middle">2〜100 nm（第2部）</text>
+  <text class="t-lab" x="64" y="216">2 nm 以下は第3部</text>
+
+  <!-- 硬化体の空隙の大きさ（概略） -->
+  <text class="t-lead" x="32" y="246">セメント硬化体の空隙の大きさ（概略）</text>
+  <rect x="65.6" y="254" width="62.4" height="28" rx="4" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.2" />
+  <rect x="128" y="254" width="129.6" height="28" rx="4" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.2" />
+  <rect x="305.6" y="254" width="62.4" height="28" rx="4" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.2" />
+  <text class="t-lab" x="96.8" y="272" text-anchor="middle">ゲル空隙</text>
+  <text class="t-lab" x="192.8" y="272" text-anchor="middle">毛細管空隙</text>
+  <text class="t-lab" x="336.8" y="272" text-anchor="middle">連行空気泡</text>
+
+  <!-- x 軸 -->
+  <line class="line-ax" x1="32" y1="296" x2="368" y2="296" />
+  <text class="t-axis" x="32" y="312" text-anchor="middle">0.1 nm</text>
+  <text class="t-axis" x="80" y="312" text-anchor="middle">1 nm</text>
+  <text class="t-axis" x="128" y="312" text-anchor="middle">10 nm</text>
+  <text class="t-axis" x="176" y="312" text-anchor="middle">100 nm</text>
+  <text class="t-axis" x="224" y="312" text-anchor="middle">1 μm</text>
+  <text class="t-axis" x="272" y="312" text-anchor="middle">10 μm</text>
+  <text class="t-axis" x="320" y="312" text-anchor="middle">100 μm</text>
+  <text class="t-axis" x="368" y="312" text-anchor="middle">1 mm</text>
+  <text class="t-lead" x="200" y="330" text-anchor="middle">細孔直径（装置・解析法で範囲は多少異なる）</text>
+
+  <!-- 使い分け -->
+  <rect class="box" x="20" y="346" width="360" height="136" rx="6" />
+  <text class="t-b" x="34" y="368">どちらで測るか</text>
+  <text class="t-leg" x="34" y="392">ゲル空隙・微細な毛細管空隙 → ガス吸着法</text>
+  <text class="t-leg" x="34" y="414">毛細管空隙から大きな空隙 → 水銀圧入法</text>
+  <text class="t-lead" x="34" y="440">どちらも乾燥した試料で測る（乾燥法で細孔が変わる）</text>
+  <text class="t-lead" x="34" y="460">測定法と前処理が違う結果は、並べて比べない</text>
+  <rect x="260" y="356" width="14" height="14" fill="#fff3cd" stroke="#d4a017" stroke-width="1" />
+  <text class="t-lead" x="280" y="368">両方で測れる領域</text>
+</svg>

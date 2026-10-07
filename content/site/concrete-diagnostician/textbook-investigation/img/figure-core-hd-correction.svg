@@ -1,0 +1,80 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は JIS A 1107 のコア供試体の高さ直径比と補正係数。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コア供試体の高さと直径の比 h/d と補正係数 k の関係を示すグラフ。h/d が 1.00 から 1.90 に近づくほど k は 1 に近づき、1.90 から 2.10 は補正が要らない範囲（k＝1）、1.00 未満は採用しない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-val   { font-size: 11px; fill: #1a3a5c; font-weight: 700; }
+      .t-leg   { font-size: 12px; fill: #222; }
+      .t-b     { font-size: 13px; fill: #1a3a5c; font-weight: 700; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .line-grid { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .curve   { stroke: #2e6da4; stroke-width: 2.5; fill: none; stroke-linejoin: round; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">短いコアほど強度が高く出る分を、k を乗じて戻す</text>
+
+  <!-- ゾーン: 採用しない(danger-fill) / 補正して使う(brand-fill) / 原則の範囲(positive-fill) -->
+  <rect x="60" y="70" width="23.8" height="230" fill="#f8d7da" />
+  <rect x="83.8" y="70" width="214.7" height="230" fill="#e8f0fe" />
+  <rect x="298.5" y="70" width="47.7" height="230" fill="#d0e8d0" />
+
+  <!-- 目盛りの補助線 -->
+  <line class="line-grid" x1="60" y1="95.6" x2="370" y2="95.6" />
+  <line class="line-grid" x1="60" y1="159.4" x2="370" y2="159.4" />
+  <line class="line-grid" x1="60" y1="223.3" x2="370" y2="223.3" />
+
+  <!-- 軸 -->
+  <line class="line-ax" x1="60" y1="300" x2="370" y2="300" />
+  <line class="line-ax" x1="60" y1="70" x2="60" y2="300" />
+
+  <!-- x 目盛り -->
+  <line class="line-ax" x1="83.8" y1="300" x2="83.8" y2="305" />
+  <line class="line-ax" x1="143.5" y1="300" x2="143.5" y2="305" />
+  <line class="line-ax" x1="203.1" y1="300" x2="203.1" y2="305" />
+  <line class="line-ax" x1="262.7" y1="300" x2="262.7" y2="305" />
+  <line class="line-ax" x1="322.3" y1="300" x2="322.3" y2="305" />
+  <text class="t-axis" x="83.8" y="319" text-anchor="middle">1.00</text>
+  <text class="t-axis" x="143.5" y="319" text-anchor="middle">1.25</text>
+  <text class="t-axis" x="203.1" y="319" text-anchor="middle">1.50</text>
+  <text class="t-axis" x="262.7" y="319" text-anchor="middle">1.75</text>
+  <text class="t-axis" x="322.3" y="319" text-anchor="middle">2.00</text>
+  <text class="t-axis" x="215" y="338" text-anchor="middle">高さと直径の比 h/d</text>
+
+  <!-- y 目盛り -->
+  <text class="t-axis" x="54" y="99.6" text-anchor="end">1.00</text>
+  <text class="t-axis" x="54" y="163.4" text-anchor="end">0.95</text>
+  <text class="t-axis" x="54" y="227.3" text-anchor="end">0.90</text>
+  <text class="t-axis" x="22" y="185" text-anchor="middle" transform="rotate(-90 22 185)">補正係数 k</text>
+
+  <!-- 曲線（h/d = 1.00, 1.25, 1.50, 1.75, 2.00 の点を結ぶ） -->
+  <polyline class="curve" points="83.8,261.7 143.5,185.0 203.1,146.7 262.7,121.1 298.5,105.8" />
+  <circle cx="298.5" cy="105.8" r="3" fill="#2e6da4" />
+  <line x1="298.5" y1="95.6" x2="346.2" y2="95.6" stroke="#3a7d44" stroke-width="2" stroke-dasharray="4 3" />
+  <circle cx="83.8" cy="261.7" r="4" fill="#fff" stroke="#2e6da4" stroke-width="2" />
+  <circle cx="143.5" cy="185.0" r="4" fill="#fff" stroke="#2e6da4" stroke-width="2" />
+  <circle cx="203.1" cy="146.7" r="4" fill="#fff" stroke="#2e6da4" stroke-width="2" />
+  <circle cx="262.7" cy="121.1" r="4" fill="#fff" stroke="#2e6da4" stroke-width="2" />
+  <text class="t-val" x="96" y="256">0.87</text>
+  <text class="t-val" x="155" y="190">0.93</text>
+  <text class="t-val" x="214" y="152">0.96</text>
+  <text class="t-val" x="272" y="136">0.98</text>
+  <text class="t-val" x="322.3" y="180" text-anchor="middle">補正</text>
+  <text class="t-val" x="322.3" y="194" text-anchor="middle">しない</text>
+
+  <!-- 凡例 -->
+  <rect class="box" x="20" y="352" width="360" height="132" rx="6" />
+  <rect x="34" y="366" width="14" height="14" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" />
+  <text class="t-leg" x="56" y="378">1.90〜2.10：原則の範囲（補正しない・k＝1）</text>
+  <rect x="34" y="388" width="14" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" />
+  <text class="t-leg" x="56" y="400">1.00 以上 1.90 未満：k を乗じる</text>
+  <rect x="34" y="410" width="14" height="14" fill="#f8d7da" stroke="#b22234" stroke-width="1" />
+  <text class="t-leg" x="56" y="422">1.00 未満：採用しない</text>
+  <text class="t-b" x="34" y="448">補正後の強度 ＝ 補正前の強度 × k</text>
+  <text class="t-lead" x="34" y="470">表の中間の h/d は補間で求める（k は 1 以下）</text>
+</svg>
