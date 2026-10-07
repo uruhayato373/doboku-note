@@ -2,18 +2,18 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 885,
-    "embedded": 885,
-    "orphan": 0,
+    "total": 917,
+    "embedded": 916,
+    "orphan": 1,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 774,
-      "conforming": 774,
+      "total": 806,
+      "conforming": 806,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 293,
+      "civil-construction-1": 325,
       "civil-construction-2": 20,
       "civil-practice": 27,
       "concrete-chief-engineer": 115,
@@ -1021,6 +1021,276 @@
       "slug": "secondary-concrete-basics",
       "name": "figure-uchitsugime-yukagumi.svg",
       "concept": "床組みの打継目の位置。スラブやはりの打継目は、圧縮力の作用方向と直角になるよう、せん断力の小さいスパン中央付近に設け、支点付近のせん断力が大きい位置には設けない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-anzen-kanri-soshiki.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-anzen-kanri-soshiki.svg",
+      "concept": "安全管理組織の例。元請の統括安全衛生責任者の下に元方安全衛生管理者を置き、下請各社の安全衛生責任者と協議会で結ぶ。元請が組織の中心になる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-bar-chart-kiso.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-bar-chart-kiso.svg",
+      "concept": "横線式工程表の例。基礎工事の作業を上から順に並べ、本文の条件の所要日数を横棒で示す。掘削工3日、砕石基礎工3日、鉄筋工＋型枠工4日、コンクリート打設工2日、養生工3日、型枠脱型工5日、埋戻し工2日",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-genba-kanri-soshiki.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-genba-kanri-soshiki.svg",
+      "concept": "現場管理組織の考え方。現場代理人と主任技術者または監理技術者の下で、計画・調達・施工・管理の機能を分担する組織を編成し、役割と権限を明確にして管理サイクルで回す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-genba-soshikihyo.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-genba-soshikihyo.svg",
+      "concept": "現場組織表の構成。現場代理人の下に監理技術者または主任技術者を置き、その下に担当技術者・専門技術者（置く工事のみ）と職長・作業員が続く。指揮命令系統と責任・権限、業務分担を明確に記載する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-genka-kanri-pdca.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-genka-kanri-pdca.svg",
+      "concept": "原価管理の流れをPDCAで示す。実行予算を設定し、施工しながら実績原価を把握し、実行予算と対比して差額を分析し、是正して再び回す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-karisetsubi-haichi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-karisetsubi-haichi.svg",
+      "concept": "仮設備配置の模式図（平面）。敷地の中に、工事用道路・築造ヤード・資材ヤードなどの直接仮設と、仮設建物・電力・通信・給排水などの共通仮設を、道路から出入りしやすいように配置する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-kiso-kadai-sokko.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-kiso-kadai-sokko.svg",
+      "concept": "基礎工事の課題図。現場打ちコンクリート側溝の断面で、下に砕石基礎、両側に埋戻し土を置く。この構造について、各作業の所要日数から工程表を作る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-kobu-koutei-sakusei.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-kobu-koutei-sakusei.svg",
+      "concept": "各部分工事の工程計画の作成手順。施工方法の選定、作業可能日数の算定、1日平均施工量の算定、施工速度の算定を経て実施工程表を作成し、必要に応じて見直す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-flow-culvert.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-flow-culvert.svg",
+      "concept": "カルバートの施工フロー例。準備工、掘削・床付け、基礎工のあと、本体工は場所打ちとプレキャストの2通りに分かれ、埋戻し・裏込めで合流する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-flow-rc.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-flow-rc.svg",
+      "concept": "鉄筋コンクリート構造物の施工フロー例。準備工から脱型・埋戻しまで7段階を順に並べ、各段階に主な作業内容、使用機械、品質・出来形の確認項目、施工上の留意事項を記入する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-houhou-kettei.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-houhou-kettei.svg",
+      "concept": "施工方法と施工手順を決める流れ。設計図と事前調査の整理、複数案の選定、手順と機械の組合せの検討、工程・工費・安全性の総合評価を経て最適な方法と手順を決める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-keikaku-tejun.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-keikaku-tejun.svg",
+      "concept": "施工計画の作成手順。事前調査、基本計画、詳細計画、管理計画の順に進める。事前調査で契約条件と現場条件を把握し、詳細計画で機械・人員・仮設・工程・調達・積算を決め、管理計画で組織・資金・安全衛生・実行予算を定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-taikeizu.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-taikeizu.svg",
+      "concept": "施工体系図の模式図。元請の下に一次下請、その下に二次下請と、請負関係の階層を木の形で示し、各社の技術者を載せる。工事現場の見やすい場所に掲げる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-sekou-taisei-daicho.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-sekou-taisei-daicho.svg",
+      "concept": "施工体制台帳に載せる項目の構成。会社、工事、技術者、作業員の4つの区分で整理し、平成27年4月以降は外国人建設就労者・技能実習生の従事も確認して記載する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-construction-plan-basics/img/figure-yukaban-sekou-tejun.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-construction-plan-basics",
+      "name": "figure-yukaban-sekou-tejun.svg",
+      "concept": "床版の施工手順を4つのコマで示す。準備、型枠・鉄筋、打設・養生、撤去・仕上げの順に進み、型枠と鉄筋は次の工程へ進む前に検査する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -2240,6 +2510,132 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-ict-seko.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-ict-seko.svg",
+      "concept": "盛土工の情報化施工。TSやGNSSで位置を測り、ブルドーザの敷均しはマシンガイダンス、締固めはローラの走行軌跡を面的に管理、出来形はTSやGNSSで測った3次元座標から幅員・のり長・高さを求める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-kansou-mitsudo-kisei.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-kansou-mitsudo-kisei.svg",
+      "concept": "締固め曲線の模式図。含水比に対して乾燥密度は山形になり、頂点が最大乾燥密度で、そのときの含水比が最適含水比。締固め度は現場の乾燥密度を室内試験の最大乾燥密度で割った百分率で、盛土の用途に応じて最適含水比かそのやや乾燥側で施工する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-kotame-kyodo.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-kotame-kyodo.svg",
+      "concept": "乾燥密度は最適含水比で最大になるが、締固め直後の強度は最適含水比よりやや乾燥側で最大になる。乾燥側で締め固めた土は水に浸かると強度が落ち、上載荷重で沈下することもある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-kyodo-gouhi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-kyodo-gouhi.svg",
+      "concept": "圧縮強度の合否判定。1回の試験結果は3台の運搬車から1個ずつ採った供試体3個の平均で、各回が呼び強度の85%以上、かつ3回の試験結果の平均が呼び強度以上であれば合格",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-saitekiryoiki.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-saitekiryoiki.svg",
+      "concept": "突固めエネルギーを変えると、同じ土でも最大乾燥密度と最適含水比の異なる締固め曲線が得られる。それぞれの最大乾燥密度を含む範囲に土が最も安定した状態があり、これを最適領域として空気間げき率や飽和度で規定し、含水比の上限はトラフィカビリティや力学的性質の限界で定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-slump-shiken.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-slump-shiken.svg",
+      "concept": "スランプ試験の手順。湿らせたコーンをプレートに据え、ほぼ等しい3層に分けて各層を突き棒で25回ずつ突き、コーンを静かに引き上げて、コーン上面からの下がりを0.5cm単位で測る。下がりが大きいほど軟らかい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-tekkin-tsugite-kensa.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-tekkin-tsugite-kensa.svg",
+      "concept": "鉄筋の継手の検査。ガス圧接はふくらみの直径が鉄筋径の1.4倍以上、ふくらみの長さが1.1倍以上、圧接面のずれが鉄筋径の4分の1以下。重ね継手は鉄筋径の差が7mmを超える組合せを設けず、溶接継手は鉄筋軸に直角を原則とし、機械式継手はメーカー仕様に基づく",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-building-standards/img/figure-numeric-standards.svg",
       "category": "civil-construction-1",
       "slug": "textbook-building-standards",
@@ -2456,6 +2852,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-5m-shudan.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-5m-shudan.svg",
+      "concept": "施工管理の5つの施工手段5M。人、材料、方法、機械、資金の5要素が中心の施工手段を支える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-kensetsu-process.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-kensetsu-process.svg",
+      "concept": "建設事業は調査・計画、設計・積算、発注・契約・監督、供用・維持管理の4段階で進む。第3段階では発注者が監督・検査を行い、請負者が施工計画から施工、内部検査までを担い、この請負者側の管理技術が施工管理",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-management-structure.svg",
       "category": "civil-construction-1",
       "slug": "textbook-construction-mgmt-overview",
@@ -2497,6 +2929,42 @@
       "slug": "textbook-construction-mgmt-overview",
       "name": "figure-pdca-key-points.svg",
       "concept": "PDCA各段階の要点。計画では安全を前提に基準値を適切に設定し、実施では調査記録を正確に取り、検討では記録データを工学的に判断して問題の所在を明確にし、処置では最小の費用で最大の効果を得られる方法を見つける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-sankan-sogo-kankei.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-sankan-sogo-kankei.svg",
+      "concept": "工程と原価の関係は谷型で、施工を早めると原価は下がるがさらに早めると上昇に転じ、採算面で最適な速度が存在する。品質を良くすると原価は高くなり、施工速度は遅くなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-sekokanri-cycle.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-sekokanri-cycle.svg",
+      "concept": "施工計画、工程管理、品質管理、原価管理、安全管理、環境保全管理の各管理項目は、Plan、Do、Check、Actの4段階を繰り返して行う。是正処置だけで足りないときは計画を修正して再び最初の段階から回す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -2762,6 +3230,78 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-assai-koho.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-assai-koho.svg",
+      "concept": "圧砕工法。ベースマシンのアーム先端の圧砕機が、油圧で圧砕アームを開いてコンクリートを挟み、閉じて圧砕する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-assai-shurui.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-assai-shurui.svg",
+      "concept": "油圧圧砕機の種類。圧砕機には手持式の小型から、ベースマシンに搭載して使う大型まで多くの種類があり、いずれも油圧で圧砕アームを開閉する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-chijo-kaitai.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-chijo-kaitai.svg",
+      "concept": "地上解体工法。ロングブーム圧砕機が地上から、建物を上の階から順に解体する。建物の周囲には養生足場を設ける。ブームとアームの長さの合計が12m以上のものは特定解体用機械として規制を受ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-dagata-breaker.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-dagata-breaker.svg",
+      "concept": "打撃工法の油圧ブレーカ。油圧ショベルのアーム先端にブレーカユニットを付け、ノミであるチゼルでコンクリートを打撃して割る。ハンドブレーカ工法と大型ブレーカ工法がある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-demolition/img/figure-demolition-flow.svg",
       "category": "civil-construction-1",
       "slug": "textbook-demolition",
@@ -2803,6 +3343,42 @@
       "slug": "textbook-demolition",
       "name": "figure-demolition-methods.svg",
       "concept": "解体工法の分類。解体原理では打撃・圧砕・切断・静的破砕剤・転倒の5工法に分かれ、切断工法はさらにカッタ・ワイヤソーイング・コアドリル・ウォータージェットに分かれる。施工要領では地上解体工法と階上解体工法に分かれる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-kaijo-kaitai.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-kaijo-kaitai.svg",
+      "concept": "階上解体工法。クレーンで解体用機械を建物の屋上へ上げ、上から順に解体する。床版と梁に支保工を設置し、建物の周囲には足場を設ける。隣接構造物との離隔が小さい都市部で多く採用される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-wire-saw.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-wire-saw.svg",
+      "concept": "ワイヤソーイング工法。ダイアモンドビーズを埋め込んだワイヤを構造物に回し掛け、駆動装置で走らせてコンクリートを切断する。石切り用の装置を改良した工法",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -6177,7 +6753,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6196,7 +6772,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6213,8 +6789,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 0
+        "medium": 4,
+        "low": 11
       }
     },
     {
@@ -6231,8 +6807,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -6249,8 +6825,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 6,
+        "low": 19
       }
     },
     {
@@ -6285,7 +6861,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0
       }
     },
@@ -6304,7 +6880,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 0
+        "low": 12
       }
     },
     {
@@ -6375,7 +6951,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6393,8 +6969,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 3,
+        "low": 1
       }
     },
     {
@@ -6411,8 +6987,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 2,
+        "low": 22
       }
     },
     {
@@ -6429,8 +7005,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 21
       }
     },
     {
@@ -6483,8 +7059,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 0
+        "medium": 5,
+        "low": 33
       }
     },
     {
@@ -6501,8 +7077,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 0
+        "medium": 7,
+        "low": 26
       }
     },
     {
@@ -6520,7 +7096,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -6538,7 +7114,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -6555,7 +7131,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 0
       }
     },
@@ -6573,8 +7149,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 4,
+        "low": 34
       }
     },
     {
@@ -6592,7 +7168,7 @@
       "audit": {
         "high": 0,
         "medium": 2,
-        "low": 0
+        "low": 5
       }
     },
     {
@@ -6627,7 +7203,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 2,
         "low": 3
       }
     },
@@ -6646,7 +7222,7 @@
       "audit": {
         "high": 0,
         "medium": 2,
-        "low": 0
+        "low": 5
       }
     },
     {
@@ -6663,8 +7239,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 3,
+        "low": 8
       }
     },
     {
@@ -6681,8 +7257,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 2,
+        "low": 26
       }
     },
     {
@@ -6700,7 +7276,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6735,8 +7311,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -6753,8 +7329,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -6808,7 +7384,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -6825,8 +7401,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 1
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -6843,8 +7419,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 0
+        "medium": 7,
+        "low": 68
       }
     },
     {
@@ -6879,7 +7455,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -6933,7 +7509,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7095,8 +7671,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 0,
+        "low": 3
       }
     },
     {
@@ -7113,7 +7689,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7240,7 +7816,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 0
+        "low": 21
       }
     },
     {
@@ -7294,7 +7870,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -7401,7 +7977,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7419,7 +7995,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7492,7 +8068,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -7527,7 +8103,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7563,7 +8139,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7581,7 +8157,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7600,7 +8176,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -7725,7 +8301,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -7870,7 +8446,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -8176,7 +8752,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -8355,7 +8931,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -8373,7 +8949,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -8859,7 +9435,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -9471,7 +10047,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -9597,7 +10173,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -9957,7 +10533,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10065,7 +10641,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10317,7 +10893,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10335,7 +10911,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10353,7 +10929,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10371,7 +10947,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10389,7 +10965,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10407,7 +10983,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10767,7 +11343,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -10911,7 +11487,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
+        "medium": 0,
         "low": 0
       }
     },

@@ -1,0 +1,88 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工計画、工程管理、品質管理、原価管理、安全管理、環境保全管理の各管理項目は、Plan、Do、Check、Actの4段階を繰り返して行う。是正処置だけで足りないときは計画を修正して再び最初の段階から回す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="sc-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="sc-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="sc-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="sc-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="sc-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工管理のサイクル</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">管理項目はどれも P-D-C-A で回す</text>
+  <rect class="brand" x="16" y="62" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="104" y="78" text-anchor="middle">施工計画</text>
+  <rect class="brand" x="208" y="62" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="296" y="78" text-anchor="middle">工程管理</text>
+  <rect class="brand" x="16" y="90" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="104" y="106" text-anchor="middle">品質管理</text>
+  <rect class="brand" x="208" y="90" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="296" y="106" text-anchor="middle">原価管理</text>
+  <rect class="brand" x="16" y="118" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="104" y="134" text-anchor="middle">安全管理</text>
+  <rect class="brand" x="208" y="118" width="176" height="24" rx="5"/>
+  <text class="t-lab" x="296" y="134" text-anchor="middle">環境保全管理</text>
+
+  <line class="ar-b" x1="200" y1="148" x2="200" y2="166" marker-end="url(#sc-b)"/>
+  <text class="t-note" x="212" y="162">サイクルに基づいて管理</text>
+  <rect class="pos" x="28" y="176" width="240" height="40" rx="6"/>
+  <text class="t-key" x="40" y="193">① Plan  計画</text>
+  <text class="t-note" x="40" y="208">品質・原価・工程の優れた計画を立てる</text>
+  <line class="ar-b" x1="148" y1="216" x2="148" y2="227" marker-end="url(#sc-b)"/>
+  <rect class="gry" x="28" y="228" width="240" height="40" rx="6"/>
+  <text class="t-key" x="40" y="245">② Do  実施</text>
+  <text class="t-note" x="40" y="260">設計図に沿って施工し、記録を正確に取る</text>
+  <line class="ar-b" x1="148" y1="268" x2="148" y2="279" marker-end="url(#sc-b)"/>
+  <rect class="gry" x="28" y="280" width="240" height="40" rx="6"/>
+  <text class="t-key" x="40" y="297">③ Check  検討</text>
+  <text class="t-note" x="40" y="312">実施結果を計画と比べ問題点を明確に</text>
+  <line class="ar-b" x1="148" y1="320" x2="148" y2="331" marker-end="url(#sc-b)"/>
+  <rect class="gry" x="28" y="332" width="240" height="40" rx="6"/>
+  <text class="t-key" x="40" y="349">④ Act  処置</text>
+  <text class="t-note" x="40" y="364">検討結果をもとに適切な処置をとる</text>
+
+  <path class="ar-r" d="M 268 352 H 300 V 196 H 272" marker-end="url(#sc-r)"/>
+  <text class="t-note" x="308" y="262">是正のみで</text><text class="t-note" x="308" y="278">足りなければ</text><text class="t-note" x="308" y="294">計画を修正し</text><text class="t-note" x="308" y="310">再び Plan へ</text>
+  <rect class="box" x="16" y="392" width="368" height="68" rx="6"/>
+  <text class="t-key" x="30" y="416">Check</text>
+  <text class="t-lab" x="90" y="416">「確認」でなく「検討」と訳す</text>
+  <text class="t-key" x="30" y="442">Act</text>
+  <text class="t-lab" x="90" y="442">「改善」でなく「処置」と訳す</text>
+
+</svg>

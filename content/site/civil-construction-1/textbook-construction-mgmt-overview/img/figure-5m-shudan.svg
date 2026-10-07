@@ -1,0 +1,82 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工管理の5つの施工手段5M。人、材料、方法、機械、資金の5要素が中心の施工手段を支える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="fm-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="fm-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="fm-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="fm-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="fm-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">5つの施工手段（5M）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">5つの要素の組合せで工事を進める</text>
+  <g transform="translate(0,24)">
+  <line class="thin" x1="200" y1="196" x2="200" y2="100"/>
+  <line class="thin" x1="200" y1="196" x2="295" y2="169"/>
+  <line class="thin" x1="200" y1="196" x2="259" y2="281"/>
+  <line class="thin" x1="200" y1="196" x2="141" y2="281"/>
+  <line class="thin" x1="200" y1="196" x2="105" y2="169"/>
+  <circle class="pos" cx="200" cy="196" r="40"/>
+  <text class="t-key" x="200" y="194" text-anchor="middle" style="fill:#3a7d44">施工</text>
+  <text class="t-key" x="200" y="210" text-anchor="middle" style="fill:#3a7d44">手段</text>
+  <rect class="brand" x="148" y="78" width="104" height="44" rx="8"/>
+  <text class="t-key" x="200" y="97" text-anchor="middle">人</text>
+  <text class="t-note" x="200" y="114" text-anchor="middle">Men</text>
+  <rect class="brand" x="243" y="147" width="104" height="44" rx="8"/>
+  <text class="t-key" x="295" y="166" text-anchor="middle">材料</text>
+  <text class="t-note" x="295" y="183" text-anchor="middle">Materials</text>
+  <rect class="brand" x="207" y="259" width="104" height="44" rx="8"/>
+  <text class="t-key" x="259" y="278" text-anchor="middle">方法</text>
+  <text class="t-note" x="259" y="295" text-anchor="middle">Methods</text>
+  <rect class="brand" x="89" y="259" width="104" height="44" rx="8"/>
+  <text class="t-key" x="141" y="278" text-anchor="middle">機械</text>
+  <text class="t-note" x="141" y="295" text-anchor="middle">Machinery</text>
+  <rect class="brand" x="53" y="147" width="104" height="44" rx="8"/>
+  <text class="t-key" x="105" y="166" text-anchor="middle">資金</text>
+  <text class="t-note" x="105" y="183" text-anchor="middle">Money</text>
+  </g>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">5M</text>
+  <text class="t-lab" x="104" y="416">人・材料・方法・機械・資金</text>
+  <text class="t-key" x="30" y="442">目的</text>
+  <text class="t-lab" x="104" y="442">品質・価格・工期の3要素を満たす</text>
+  <text class="t-key" x="30" y="468">三大管理</text>
+  <text class="t-lab" x="104" y="468">品質管理・原価管理・工程管理</text>
+
+</svg>

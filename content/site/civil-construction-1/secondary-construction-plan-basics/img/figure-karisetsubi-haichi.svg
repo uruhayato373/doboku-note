@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="仮設備配置の模式図（平面）。敷地の中に、工事用道路・築造ヤード・資材ヤードなどの直接仮設と、仮設建物・電力・通信・給排水などの共通仮設を、道路から出入りしやすいように配置する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">仮設備配置図の例</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">直接仮設と共通仮設を、平面で配置する</text>
+  <rect class="b-gray" x="16" y="66" width="368" height="250" rx="6"/>
+  <text class="t-note" x="366" y="84" text-anchor="end">敷地</text>
+  <rect class="b-brand" x="28" y="94" width="104" height="44" rx="6"/><text class="t-lab" x="80" y="120" text-anchor="middle">仮設建物</text>
+  <rect class="b-brand" x="28" y="148" width="104" height="36" rx="6"/><text class="t-lab" x="80" y="170" text-anchor="middle">電力・通信</text>
+  <rect class="b-brand" x="28" y="194" width="104" height="36" rx="6"/><text class="t-lab" x="80" y="216" text-anchor="middle">給排水</text>
+  <rect class="b-pos" x="148" y="94" width="224" height="92" rx="6"/><text class="t-pos" x="260" y="136" text-anchor="middle">築造ヤード</text><text class="t-note" x="260" y="152" text-anchor="middle">足場・土留めなどもここに</text>
+  <rect class="b-pos" x="148" y="196" width="224" height="48" rx="6"/><text class="t-pos" x="260" y="224" text-anchor="middle">資材ヤード</text>
+  <rect class="box" x="28" y="256" width="344" height="44" rx="4"/>
+  <line class="dash" x1="40" y1="288" x2="360" y2="288"/>
+  <text class="t-lab" x="200" y="274" text-anchor="middle">工事用道路・場内運搬路</text>
+  <line class="arr" x1="60" y1="346" x2="60" y2="316" marker-end="url(#ar)"/>
+  <text class="t-lab" x="74" y="338">取付道路から出入口へ</text>
+  <rect class="box" x="16" y="364" width="368" height="92" rx="6"/>
+  <rect class="b-pos" x="30" y="380" width="18" height="14" rx="3"/>
+  <text class="t-key" x="58" y="392">直接仮設</text>
+  <text class="t-lab" x="134" y="392">道路・ヤード・足場・土留めなど</text>
+  <rect class="b-brand" x="30" y="410" width="18" height="14" rx="3"/>
+  <text class="t-key" x="58" y="422">共通仮設</text>
+  <text class="t-lab" x="134" y="422">建物・電力・給排水・通信など</text>
+  <text class="t-note" x="30" y="446">指定仮設か任意仮設かは、設計図書の指定で分かれる</text>
+</svg>
