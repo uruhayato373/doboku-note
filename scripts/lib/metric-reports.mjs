@@ -74,8 +74,12 @@ export function writeReport(root, id, data, { stamp = nowStamp() } = {}) {
   return { file, ref: `${file}#${section}` };
 }
 
-/** その種類のレポートを新しい順に返す。{ id, file, ref, stamp, data }（data は書いたときの { meta, rows, ... }） */
-export function listReports(root, id) {
+/**
+ * その種類のレポートを新しい順に返す。{ id, file, ref, stamp, data }（data は書いたときの { meta, rows, ... }）
+ * windowKind を渡すと meta.windowKind が一致するものだけ（by-label は同じ日に 28 日窓と暦月の 2 枠があり、
+ * 暦月の方が後に書かれる＝新しい順の先頭が暦月になる。28 日窓の配置別と並べる読み手は 'days' を指定する）
+ */
+export function listReports(root, id, { windowKind } = {}) {
   const k = kindOf(id);
   const out = [];
   for (const file of datasetFiles(root, `${k.source}.reports`)) {
@@ -88,6 +92,7 @@ export function listReports(root, id) {
     for (const [section, report] of Object.entries(day?.reports ?? {})) {
       if (section !== k.section && section !== k.section + MONTH_SUFFIX) continue;
       const { stamp, ...data } = report;
+      if (windowKind && (data?.meta?.windowKind ?? 'days') !== windowKind) continue;
       out.push({ id, file, ref: `${file}#${section}`, stamp, data });
     }
   }
@@ -95,7 +100,7 @@ export function listReports(root, id) {
 }
 
 /** その種類の最新のレポート（無ければ null） */
-export const latestReport = (root, id) => listReports(root, id)[0] ?? null;
+export const latestReport = (root, id, opts) => listReports(root, id, opts)[0] ?? null;
 
 const LEGACY_RE = /^data\/metrics\/(ga4|gsc)\/((?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})Z?\.json$/; // path-literal-ok: 移す前の名前を読み替える
 
@@ -120,7 +125,7 @@ export function readReportRef(root, ref) {
 }
 
 /** その種類の最新の参照「ファイル#枠」（無ければ null）。従来の「最新ファイルのパス」の置き換え */
-export const latestReportRef = (root, id) => latestReport(root, id)?.ref ?? null;
+export const latestReportRef = (root, id, opts) => latestReport(root, id, opts)?.ref ?? null;
 
 /** 参照が「ファイル#枠」か */
 export const isReportRef = (p) => /#[^/\\]+$/.test(String(p ?? ''));

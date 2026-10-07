@@ -220,6 +220,30 @@ export const ConfigA8ReportAutomation = z
 // ---- config.career-funnel ----------------------------------------------------------------------
 
 /** 転職アフィリエイトのファネルの設定（config/career-funnel.json） */
+/** サイト内の広告・送客の配置の語彙（config/cta-placements.json）。GA4 の cta_placement の値と同じ id を使う */
+const CtaPlacement = z
+  .object({
+    label: text.describe('管理画面・報告に出す名前'),
+    status: z.enum(['active', 'retired']).describe('active＝今の配置／retired＝撤去済み（GA4 の過去の窓には残る）'),
+    retiredAt: jstDate('撤去日').optional().describe('撤去日が分かっているときだけ'),
+    pageKind: z.enum(['doc', 'category', 'tool', 'links']).describe('配置のあるページの種類'),
+    pixelPriority: z.number().int().min(1).nullable().describe('1 ページ 1 ピクセルの発火源の優先順（小さいほど優先・null は発火源にならない）'),
+    program: z.string().regex(/^[a-z][a-z0-9-]*$/).optional().describe('この配置に出す案件が決まっているとき（affiliate.catalog の id）'),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    if (v.retiredAt && v.status !== 'retired') flag(ctx, ['retiredAt'], 'retiredAt があるのに status が retired でない');
+    if (v.status === 'retired' && v.pixelPriority !== null) flag(ctx, ['pixelPriority'], '撤去済みの配置は発火源にならない（null にする）');
+  });
+export const ConfigCtaPlacements = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: note,
+    affiliate: z.record(z.string().regex(/^[a-z][a-z0-9-]*$/, 'GA4 の cta_placement の値'), CtaPlacement).describe('配置 id → 名前・状態'),
+  })
+  .strict()
+  .meta({ title: 'サイトの広告・送客の配置の語彙' });
+
 export const ConfigCareerFunnel = z
   .object({
     schemaVersion: z.literal(1),

@@ -38,10 +38,15 @@ const NOTE_DIR = join(ROOT, "content/note");
 
 const readJson = (p) => readJsonOrReport(ROOT, p);
 const toPosix = (p) => p.split("\\").join("/");
-const relative = (p) => toPosix(p).slice(toPosix(ROOT).length + 1);
+/** リポジトリ相対のパス。既に相対（GA4・GSC の「ファイル#枠」の参照など）ならそのまま返す（先頭を切ると 2026-10-02 以降の参照が「son#…」に壊れていた） */
+const relative = (p) => {
+  const posix = toPosix(p);
+  const root = toPosix(ROOT);
+  return posix.startsWith(`${root}/`) ? posix.slice(root.length + 1) : posix;
+};
 
 /** 種類の最新レポートの参照（「ファイル#枠」）。GA4・GSC は日ごとの 1 ファイルに入っている */
-export const latestSnapshot = (id) => latestReportRef(ROOT, id);
+export const latestSnapshot = (id, opts) => latestReportRef(ROOT, id, opts);
 
 // ---- 純関数（テストから使う）------------------------------------------------
 
@@ -264,7 +269,8 @@ function main() {
   const cfg = readJson(CONFIG);
 
   const inputs = {
-    ga4Label: latestSnapshot("ga4.cta-clicks-by-label"),
+    // by-label は同じ日に 28 日窓と暦月の 2 枠がある。配置別（28 日窓）と並べるので 28 日窓を選ぶ（暦月の方が後に書かれて先頭に来る）
+    ga4Label: latestSnapshot("ga4.cta-clicks-by-label", { windowKind: "days" }),
     ga4Placement: latestSnapshot("ga4.cta-clicks-by-placement"),
     ga4Device: latestSnapshot("ga4.cta-clicks-by-device"),
     ga4Page: latestSnapshot("ga4.page"),
@@ -290,7 +296,13 @@ function main() {
   const a8 = { records: inputs.a8 ? resultsFromReportLog(readJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
   const afb = inputs.afb ? readJson(inputs.afb) : null;
 
-  const windows = checkWindows(ga4Label.meta, gscPageQuery.meta);
+  // GA4 の窓は配置別の窓（管理画面が配置別の表と並べて出す）。ラベル別の窓が違えば WARN（同じ run で取るので普通は一致する）
+  const windows = checkWindows(ga4Placement.meta ?? ga4Label.meta, gscPageQuery.meta);
+  if (ga4Placement.meta && ga4Label.meta && (ga4Placement.meta.startDate !== ga4Label.meta.startDate || ga4Placement.meta.endDate !== ga4Label.meta.endDate)) {
+    warnings.push(
+      `GA4 のラベル別（${ga4Label.meta.startDate}〜${ga4Label.meta.endDate}）と配置別（${ga4Placement.meta.startDate}〜${ga4Placement.meta.endDate}）の窓が違う。ラベル別の数字を配置別と並べて割らない`,
+    );
+  }
   if (!windows.aligned) {
     warnings.push(
       `窓が不一致（GA4 ${windows.ga4.start}〜${windows.ga4.end} / GSC ${windows.gsc.start}〜${windows.gsc.end}）。` +
@@ -396,6 +408,19 @@ function main() {
   });
   const totalImpr = [...byPlacement.map.values()].reduce((s, v) => s + v.impressions, 0);
   const totalClicks = [...byPlacement.map.values()].reduce((s, v) => s + v.clicks, 0);
+
+  // 配置の語彙（台帳 config.cta-placements）と照らす。語彙に無い配置は数字を残したまま WARN（落とすと凍結した基線との合計がずれる）。
+  // 撤去済みの配置に表示があるのは、窓が撤去日をまたいでいるだけなので異常ではない（窓が撤去日を過ぎれば消える）
+  const vocab = readJson(join(ROOT, datasetPath("config.cta-placements"))).affiliate;
+  for (const [placement, v] of byPlacement.map.entries()) {
+    if (placement === "(not set)" || placement === "") continue;
+    const known = vocab[placement];
+    if (!known) {
+      warnings.push(`配置の語彙（${datasetPath("config.cta-placements")}）に無い placement: ${placement}（表示 ${v.impressions} / クリック ${v.clicks}）。新しい配置なら語彙に足す`);
+    } else if (known.status === "retired" && v.impressions + v.clicks > 0) {
+      say(`  INFO 撤去済みの配置 ${placement}（${known.label}${known.retiredAt ? `・${known.retiredAt} 撤去` : ""}）に窓内の表示 ${v.impressions} / クリック ${v.clicks}（窓が撤去日をまたいでいる）`);
+    }
+  }
 
   // (not set) は label / placement の**両方**を見る。片方だけ見ると、
   // 「表示には placement が付くがクリックには付かない」面（= クリックの帰属が丸ごと消える）を見逃す。
