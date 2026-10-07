@@ -17,6 +17,9 @@ const nextConfig = {
   turbopack: {
     root: repoRoot,
   },
+  // 別 PC から Tailscale（`tailscale serve`）経由で開くときの <mac>.<tailnet>.ts.net を許可する。
+  // 待ち受けは 127.0.0.1 のままなので、届くのは Mac 自身と tailnet 内の端末だけ。
+  allowedDevOrigins: ['**.ts.net'],
 };
 
 export default nextConfig;
