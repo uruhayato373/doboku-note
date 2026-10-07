@@ -73,7 +73,7 @@ export default async function GscPage({
       <PanelCard title="検索クエリ別" description={<Freshness snapshot={querySnap} />}>
         <Stack gap="sm">
           <SnapshotPicker basePath="/metrics/gsc" files={queryHistory} current={querySnap?.file ?? ''} />
-          <DataTable cols={gscCols('クエリ')} rows={queryRows} />
+          <DataTable cols={gscCols('クエリ')} rows={queryRows} filter="クエリで絞り込み" />
         </Stack>
       </PanelCard>
 
@@ -85,7 +85,7 @@ export default async function GscPage({
           </>
         }
       >
-        <DataTable cols={gscCols('ページ')} rows={pageRows} />
+        <DataTable cols={gscCols('ページ')} rows={pageRows} filter="ページで絞り込み" />
       </PanelCard>
       </Stack>
     </>
