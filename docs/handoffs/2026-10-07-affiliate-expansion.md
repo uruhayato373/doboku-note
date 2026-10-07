@@ -23,7 +23,8 @@
 
 ## 次にやること（順番）
 
-1. **10 月の 1 件の候補を出す**: run 37593507340 の後、`data/ga4/reports/<日付>.json` に `affiliate-by-page` があり、`npm run report-career-funnel` の `clickLog` にビルドジョブのクリックが日付・ページつきで並ぶ（管理画面 `/affiliate` の「クリックの出どころ」）。A8 の画面で発生日時を見て突き合わせ、候補をユーザーへ報告する。
+1. **10 月の 1 件の出どころを絞る**: run 37593507340 で取得済み（窓 2026-08-23〜10-06・`data/analysis/career-funnel.json` の `clickLog`・管理画面 `/affiliate` の「クリックの出どころ」）。9/08 以降のビルドジョブのクリックは、9/19 の記事サイドバー 1 件を除いて全部が二次試験の年度別ページの本文カード（10/02 1級 r03・2級 r04、10/01 2級 r07、9/28 1級 r05、9/26 1級 r07・2級 r07・建設部門キャリア、9/25・9/16 1級 r07）。ユーザーに A8 の発生日時を聞いて日付で突き合わせ、ページまで絞る。
+   - この run は全体が赤（Issue #912）。原因は水曜の手動実行で成長パックが「GSC 確定前」の検査不成立になったことで、今回の改修とは無関係。金曜の定期実行が通れば自動で閉じる。
 2. **#911 を仕上げる**
    - develop（#910 入り）へ rebase し、`.claude/scripts/report-career-funnel.mjs` の `pageContextOf` に `/`（home）と `/standards/…`（standards）を足す（テストは `tests/career-funnel-report.test.mjs`）。
    - HTML での確認: 本体のチェックアウトで `npm run dev`（worktree の dev は Turbopack が node_modules の junction を拒む）。/practice の記事と実務トップ・/standards の章ページ・トップ・/tools/keiken-charcount・/tools/juken-shikaku・2級の学習ページとキャリア記事で、広告枠（`data-cta-placement`）とピクセル（`0.gif?a8mat=` が mat ごとに 1 発）を確かめる。
