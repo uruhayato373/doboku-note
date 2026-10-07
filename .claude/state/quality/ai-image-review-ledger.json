@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "note": "AI 画像の実績（どの指示から作って配置したか＝promptSha・実物どおりかの判定＝verdict）。sha が今の画像と一致する記録だけが効く。手で編集しない（生成と配置は npm run gen-article-photo、判定は node scripts/check-image-origin.mjs record-ai）",
+  "figures": {
+    "civil-construction-1/textbook-crane/img/all-terrain-crane": {
+      "sha": "f6ca7b337b1478d5",
+      "promptSha": "a98dc5ef590326e7",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:38.717Z",
+      "verdict": "ok",
+      "reason": "片側 6 輪（6 軸）の多軸キャリヤ、前部の走行用運転室と旋回体側の別のクレーン運転室、箱形テレスコピックブーム、4 本のアウトリガ、後部のカウンタウエイトがそろい、本文の「運転室が別」と一致する（軸数は親が拡大して数え直した）",
+      "reviewedAt": "2026-10-07T12:03:02.020Z"
+    },
+    "civil-construction-1/textbook-crane/img/boom-lift": {
+      "sha": "ef9ec50daea9a290",
+      "promptSha": "291131f678c161cd",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:38.953Z",
+      "verdict": "ok",
+      "reason": "軽トラックの旋回台から折れ曲がりのない直線の伸縮ブームが伸び、先端に防護柵付きの作業床があり、アウトリガは張り出し済み。人物は小さく顔も見えず、本文の「まっすぐ伸びる」伸縮ブーム型に合う",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/cable-crane": {
+      "sha": "9afec0abcb60245c",
+      "promptSha": "22b0e2c07292197d",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:38.668Z",
+      "verdict": "ok",
+      "reason": "谷の両岸に格子鉄塔が立ち、塔頂間の主索に走行台車が載り、巻上げ索でコンクリートバケットをつる。下に施工中のダム躯体があり、本文の「両端のタワー間のワイヤロープ」「ダム工事」と矛盾しない",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/crawler-crane": {
+      "sha": "cce8286a5ab6329e",
+      "promptSha": "0d5ccff4aa8566f3",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:50:31.459Z",
+      "verdict": "ok",
+      "reason": "左右 2 本の履帯、旋回体の運転室と後部のカウンタウエイト、起伏ロープ、先端から吊るフックブロックがあり、ブームは本文どおり開いたラチス（形鋼トラス）構造",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/loader-crane": {
+      "sha": "78125fcd71e381fc",
+      "promptSha": "6d254dd6739c1c92",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:39.718Z",
+      "verdict": "ok",
+      "reason": "運転室と荷台の間に油圧クレーン（コラム・起伏シリンダ・直線テレスコピックブーム）があり、小型アウトリガを張り出して鋼管の束を荷台へ吊る。本文の「運転室と荷台の間」「クレーンと貨物運搬の双機能」と一致する",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
+      "sha": "8dadb940059fa77b",
+      "promptSha": "680c0e0087dc9645",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:39.177Z",
+      "verdict": "ok",
+      "reason": "同径の大型オフロードタイヤ 4 輪の 2 軸、旋回体上の運転室は 1 つだけ、箱形テレスコピックブーム、フロート付きアウトリガ 4 本で、本文の「運転手 1 人で走行とクレーン作業」と合う",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/tower-crane": {
+      "sha": "fa6e32d9dcee5ade",
+      "promptSha": "fcaebf38cecea3ec",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:40.108Z",
+      "verdict": "ok",
+      "reason": "格子マストが躯体内に立ち、支持枠で数層ごとに躯体へ連結されている。頂部に水平ジブ・トロリとフック・カウンタジブ・運転室があり、本文の「建物躯体を利用してせり上がる」クライミング方式として成り立つ",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
+      "sha": "0da6c197e1ce4200",
+      "promptSha": "b0975a484d8a387c",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:59:13.273Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
+      "sha": "b9432e3fbef90a0e",
+      "promptSha": "d5d65e9aca403af1",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:59:55.916Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/theodolite": {
+      "sha": "7bc78611942ec168",
+      "promptSha": "c21a8404689c7692",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:39.239Z",
+      "verdict": "ok",
+      "reason": "望遠鏡を U 字の 2 本の支柱（アリダード）で挟み、上部に取っ手、支柱面に液晶とキー、側面に鉛直クランプ、整準ねじ 3 個の整準台を三脚の頭部に据えた、実在の電子セオドライトの構成",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/total-station": {
+      "sha": "812342d95bc7866f",
+      "promptSha": "4534741ba0403e73",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:01:06.105Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
+      "sha": "ad8b062a8b2a05af",
+      "promptSha": "df6f7c74730c6aa3",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:04:00.424Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
+      "sha": "00b7bd1a21ff99ba",
+      "promptSha": "ce3ad713ca42115c",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:04:00.746Z"
+    },
+    "civil-construction-1/textbook-leveling/img/automatic-level": {
+      "sha": "7ea40092866f1f9a",
+      "promptSha": "40d67ed9d356587d",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:39.548Z",
+      "verdict": "ok",
+      "reason": "対物レンズと接眼部を備えた短い水平望遠鏡本体、合焦ノブ、水平微動ねじ、3 個の整準ねじを三脚へ据えた自動レベル（ティルティング用の長い気泡管なし）で、本文と矛盾しない",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-loader/img/wheel-loader": {
+      "sha": "519b12b60b44ead6",
+      "promptSha": "b2b41f1539e37465",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:01:06.420Z"
+    },
+    "civil-construction-1/textbook-scraper/img/motor-scraper": {
+      "sha": "bef3f92ade5c1a52",
+      "promptSha": "1a7ffa2b02303c50",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:04:01.372Z"
+    },
+    "civil-construction-1/textbook-scraper/img/scraper-dozer": {
+      "sha": "782ce3f3b01f0fc8",
+      "promptSha": "e0124267928fd337",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:04:01.056Z"
+    },
+    "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
+      "sha": "be55a84064c5d8fa",
+      "promptSha": "2db65000b407e399",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:59:13.595Z"
+    }
+  }
+}

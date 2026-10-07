@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="プレキャストボックスカルバートの施工手順。準備工（丁張）のあと、(1)床掘工、基礎工（砕石基礎工・均しコンクリート工・敷きモルタル工）、(2)本体工（据付工）、(3)埋戻し工、後片づけ工の順に進む">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arr     { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">ボックスカルバートの施工手順</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">床掘工→基礎工→据付工→埋戻し工の順に進める</text>
+
+  <rect class="b-brand" x="16" y="64" width="150" height="28" rx="6"/><text class="t-lab" x="91" y="82" text-anchor="middle">準備工（丁張）</text>
+  <line class="arr" x1="91" y1="92" x2="91" y2="108" marker-end="url(#ar)"/>
+
+  <rect class="b-pos" x="16" y="108" width="150" height="44" rx="6"/><text class="t-pos" x="91" y="134" text-anchor="middle">(1) 床掘工</text>
+  <line class="ln" x1="166" y1="130" x2="178" y2="130"/>
+  <rect class="box" x="178" y="108" width="206" height="44" rx="6"/>
+  <text class="t-note" x="188" y="127">地山を乱さず不陸を生じさせない</text>
+  <text class="t-note" x="188" y="142">湧水・滞水はポンプ等で排除する</text>
+  <line class="arr" x1="91" y1="152" x2="91" y2="168" marker-end="url(#ar)"/>
+
+  <rect class="b-brand" x="16" y="168" width="150" height="28" rx="6"/><text class="t-lab" x="91" y="186" text-anchor="middle">砕石基礎工</text>
+  <line class="arr" x1="91" y1="196" x2="91" y2="212" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="212" width="150" height="28" rx="6"/><text class="t-lab" x="91" y="230" text-anchor="middle">均しコンクリート工</text>
+  <line class="arr" x1="91" y1="240" x2="91" y2="256" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="256" width="150" height="28" rx="6"/><text class="t-lab" x="91" y="274" text-anchor="middle">敷きモルタル工</text>
+  <path class="ln" d="M172 172 H180 V280 H172"/>
+  <text class="t-key" x="192" y="222">基礎工</text>
+  <text class="t-sub" x="192" y="240">砕石基礎工から敷きモルタル工まで</text>
+  <line class="arr" x1="91" y1="284" x2="91" y2="300" marker-end="url(#ar)"/>
+
+  <rect class="b-pos" x="16" y="300" width="150" height="44" rx="6"/><text class="t-pos" x="91" y="326" text-anchor="middle">(2) 本体工（据付工）</text>
+  <line class="ln" x1="166" y1="322" x2="178" y2="322"/>
+  <rect class="box" x="178" y="300" width="206" height="44" rx="6"/>
+  <text class="t-note" x="188" y="319">基礎の低い方から高い方へ敷設</text>
+  <text class="t-note" x="188" y="334">急激な緊張や偏荷重をかけない</text>
+  <line class="arr" x1="91" y1="344" x2="91" y2="360" marker-end="url(#ar)"/>
+
+  <rect class="b-pos" x="16" y="360" width="150" height="56" rx="6"/><text class="t-pos" x="91" y="392" text-anchor="middle">(3) 埋戻し工</text>
+  <line class="ln" x1="166" y1="388" x2="178" y2="388"/>
+  <rect class="box" x="178" y="360" width="206" height="56" rx="6"/>
+  <text class="t-note" x="188" y="377">一層の仕上り厚30cm以下で締固め</text>
+  <text class="t-note" x="188" y="392">偏土圧防止のため左右均等に埋戻す</text>
+  <text class="t-note" x="188" y="407">良質な土質材料を使用</text>
+  <line class="arr" x1="91" y1="416" x2="91" y2="432" marker-end="url(#ar)"/>
+
+  <rect class="b-brand" x="16" y="432" width="150" height="28" rx="6"/><text class="t-lab" x="91" y="450" text-anchor="middle">後片づけ工</text>
+
+  <rect class="b-pos" x="40" y="474" width="12" height="12" rx="2"/><text class="t-sub" x="58" y="485">設問(1)〜(3)の解答</text>
+  <rect class="b-brand" x="226" y="474" width="12" height="12" rx="2"/><text class="t-sub" x="244" y="485">表に示された工種</text>
+</svg>
