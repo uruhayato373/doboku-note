@@ -7,7 +7,8 @@
  * indexnow・workflow-health は npm ci をしないワークフローが読む。読み手にこの型を import しない（型は check-datasets が検査する）。
  */
 import { z } from 'zod';
-import { jstDate, utcTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, utcTime, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { findOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
 
@@ -220,6 +221,42 @@ export const ConfigA8ReportAutomation = z
 // ---- config.career-funnel ----------------------------------------------------------------------
 
 /** 転職アフィリエイトのファネルの設定（config/career-funnel.json） */
+/** 転職アフィリエイトの配置ルール（config/affiliate-placements.json）。判定は src/lib/affiliate-placement-core.mjs と同じ関数を使う */
+const PlacementTarget = z
+  .object({
+    pageKind: z.enum(['doc', 'category', 'tool']).describe('ページの種類'),
+    categories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('対象のカテゴリ。書かなければ全カテゴリ'),
+    excludeCategories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('除くカテゴリ'),
+    careerDoc: z.enum(['any', 'only', 'exclude']).optional().describe('キャリア記事（tags: [career]）の扱い。doc だけ'),
+  })
+  .strict();
+const PlacementRule = z
+  .object({
+    id: z.string().regex(/^PL-\d{4}$/),
+    program: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('案件の id（affiliate.catalog）'),
+    slot: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('面（台帳 config.cta-placements の affiliate のキー＝GA4 の cta_placement）'),
+    target: PlacementTarget,
+    period: z.object({ from: offsetTime('開始'), until: offsetTime('終了（この時刻を含まない）').nullable() }).strict(),
+    experiment: z.string().regex(/^EXP-\d{3}$/).nullable().describe('関わる実験の id'),
+    note: z.string().min(1).optional(),
+  })
+  .strict()
+  .superRefine((r, ctx) => {
+    if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
+    if (r.target.pageKind !== 'doc' && r.target.careerDoc) flag(ctx, ['target', 'careerDoc'], 'careerDoc は記事（doc）だけ');
+  });
+export const ConfigAffiliatePlacements = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: note,
+    rules: z.array(PlacementRule).min(1).superRefine(uniqueBy('id', 'ルール id')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    for (const [a, b] of findOverlaps(c.rules)) flag(ctx, ['rules'], `${a} と ${b} が同じ面・重なる期間・交わる対象（1 ページ 1 面 1 案件にならない）`);
+  })
+  .meta({ title: '転職アフィリエイトの配置ルール' });
+
 /** A8 の広告リンク（mat）の許可リスト（config/affiliate-mats.json）。check-affiliate-mats が src・content の a8mat= をここと突き合わせる */
 export const ConfigAffiliateMats = z
   .object({

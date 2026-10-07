@@ -297,6 +297,40 @@ export function affiliatePlacements(): PlacementView {
   }
 }
 
+/** 配置ルール（config/affiliate-placements.json）ごとの面の数字（data/analysis/career-funnel.json の byRule）。窓は配置別と同じ */
+export interface RuleRow {
+  ruleId: string;
+  program: string;
+  slotLabel: string;
+  open: boolean;
+  impressions: number;
+  clicks: number;
+  /** 窓の一部だけ有効（窓の残りの日の数字も混ざる） */
+  partial: boolean;
+  /** 同じ窓に同じ面を分け合ったルール（数字はそれらと分けられない） */
+  sharedWith: string[];
+}
+export function affiliateRules(): RuleRow[] {
+  try {
+    const j = JSON.parse(readFileSync(repoPath(datasetPath('analysis.career-funnel')), 'utf8')) as {
+      funnel?: { affiliateCta?: { byRule?: { ruleId: string; program: string; slot: string; until: string | null; ga4: { coveredDays: number; windowDays: number; impressions: number; clicks: number; sharedWith: string[] } }[] } };
+    };
+    const vocab = readPlacementVocab();
+    return (j.funnel?.affiliateCta?.byRule ?? []).map((r) => ({
+      ruleId: r.ruleId,
+      program: r.program,
+      slotLabel: vocab[r.slot]?.label ?? r.slot,
+      open: r.until == null,
+      impressions: r.ga4.impressions,
+      clicks: r.ga4.clicks,
+      partial: r.ga4.coveredDays < r.ga4.windowDays,
+      sharedWith: r.ga4.sharedWith,
+    }));
+  } catch {
+    return [];
+  }
+}
+
 /** アフィリエイトに関わる実行中の実験と次の判定日（data/business/experiments.json）。 */
 export function affiliateExperiments(): { id: string; title: string; nextCheck: string | null }[] {
   try {

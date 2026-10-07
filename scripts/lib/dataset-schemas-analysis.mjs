@@ -364,6 +364,33 @@ const careerFunnelShape = (legacy) => {
             totalClicks: count('配置別のクリック合計'),
             ctr: z.number().nullable().describe('クリック ÷ 表示。表示 0 は null'),
             notSet: later(z.array(z.looseObject({ dim: z.enum(['label', 'placement']), param: z.string(), clicks: count('クリック'), impressions: count('表示'), registeredAt: jstDate('カスタムディメンションの作成日').nullable(), kind: z.enum(['unknown', 'wiring-gap', 'pre-registration']), cause: z.string() })).describe('(not set) の原因の切り分け')),
+            byRule: z
+              .array(
+                z
+                  .object({
+                    ruleId: z.string().regex(/^PL-\d{4}$/),
+                    program: z.string().min(1),
+                    slot: z.string().min(1),
+                    experiment: z.string().nullable(),
+                    from: z.string().min(1),
+                    until: z.string().nullable(),
+                    ga4: z
+                      .object({
+                        coveredDays: count('窓のうちルールが有効だった日数'),
+                        windowDays: count('窓の日数'),
+                        impressions: count('面の表示（窓の合計）'),
+                        clicks: count('面のクリック（窓の合計）'),
+                        ctr: z.number().nullable(),
+                        sharedWith: z.array(z.string()).describe('同じ窓に同じ面にあったルール（数字はそれらと分けられない）'),
+                      })
+                      .strict(),
+                    a8: z.object({ scope: z.literal('program'), months: z.array(month), conversions: count('発生'), approved: count('確定'), revenueYen: count('確定報酬（円）') }).strict(),
+                  })
+                  .strict(),
+              )
+              .superRefine(uniqueBy('ruleId', 'ルール id'))
+              .optional()
+              .describe('配置ルール（台帳 config.affiliate-placements）ごとの面の数字と A8（2026-10-07〜）'),
           })
           .strict(),
         a8: z.object({ window: A8Sum, allTime: A8Sum, monthsInWindow: z.array(month) }).strict(),

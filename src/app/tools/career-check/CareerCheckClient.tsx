@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import CareerAffiliate from "@/components/ui/CareerAffiliate/CareerAffiliate";
+import { resolvePlacements } from '@/lib/affiliate-placement';
 import * as gtag from "@/lib/gtag";
 import {
   CHANGE_WANT_LABEL,
@@ -107,7 +108,12 @@ function Choice<T extends string>({
 const toOptions = <T extends string>(rec: Readonly<Record<T, string>>) =>
   (Object.entries(rec) as Array<[T, string]>).map(([value, label]) => ({ value, label }));
 
-export default function CareerCheckClient() {
+/**
+ * builtAt: ページ（サーバー）が渡すビルド時刻。配置ルール（config/affiliate-placements.json の career-tool）の期間を
+ * ブラウザの時刻でなくビルド時刻で判定する（SSG の他のページと同じ時点で切り替わる・hydration で食い違わない）。
+ */
+export default function CareerCheckClient({ builtAt }: { builtAt: number }) {
+  const careerToolAd = resolvePlacements({ pageKind: 'tool' }, builtAt)['career-tool'] ?? null;
   const [concern, setConcern] = useState<Concern>("quit-or-stay");
   const [qualification, setQualification] = useState<Qualification>("civil-1");
   const [experience, setExperience] = useState<ExperienceBand>("7to15");
@@ -328,7 +334,8 @@ export default function CareerCheckClient() {
                 <CareerAffiliate
                   service="施工管理の転職・求人サービス"
                   category="転職エージェント（建設・土木）"
-                  program="gks"
+                  program="career"
+                  inlineCard={careerToolAd}
                   placement="career-tool"
                   need={result.need}
                 />

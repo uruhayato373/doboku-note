@@ -42,11 +42,7 @@ import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import { rankRelated } from '@/lib/related-score';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import {
-  resolveDocsCareerSidebarAd,
-  resolveCareerArticleEndCard,
-  resolvePeConsultingArticleEndCard,
-} from '@/config/affiliate-creatives';
+import { pixelFor, resolvePlacements } from '@/lib/affiliate-placement';
 import type React from 'react';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { externalLinkRel } from '@/lib/external-link-rel';
@@ -282,10 +278,9 @@ export async function renderDocPage(slugStr: string) {
   // 通すため未公開マガジン（会員ラボ等）は自動非表示。末尾の画像カードと重複してよい。
   const topSlot = magazinePlacement.top;
   const topMagazine = topSlot ? getMagazine(topSlot.magazineId) : null;
-  // 転職枠の creative（slug ハッシュ A/B: 建設JOBs ↔ ビルドジョブ/GKS）。記事サイドバーの広告は
-  // 2026-09-26 に撤去（GA4 4 週で表示 12,673・クリック 0／DN-0322）。ここでは A8 計測ピクセルの
-  // 供給にだけ使う（記事末バナー・本文中間カードは同じ解決で同じ案件を出す）。
-  const careerAd = resolveDocsCareerSidebarAd(category ?? '', slugStr);
+  // 転職アフィリエイトをどの面に出すか（案件 × 面 × カテゴリ × キャリア記事 × 期間）は config/affiliate-placements.json の
+  // ルールが決める（src/lib/affiliate-placement.ts）。記事の長さで枠を出すか・何枠かはこのページが決める。
+  const careerPlacements = resolvePlacements({ pageKind: 'doc', category: category ?? null, isCareerDoc: isCareerDoc(doc.meta) });
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
@@ -321,24 +316,13 @@ export async function renderDocPage(slugStr: string) {
     docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'textbook' || isCivilSecondary;
   const midEnabled = midEligibleGroup && midH2Count >= 5 && midBodyLen >= 8000;
 
-  // 転職ネイティブカード。従来は career タグ記事限定だったが、記事末から本文中間へ移した分
-  // 対象を転職アフィリ対象カテゴリ全体へ広げる（学習記事の読者も受験→転職の潜在層）。
+  // 転職ネイティブカード（本文中間）。出すカテゴリと案件は article-mid のルール。
   // 既に本文へ手書き inline <CareerAffiliate> がある記事は二重表示になるため除外する。
   const hasInlineCareerCard = /\bCareerAffiliate\b/.test(strippedContent);
-  const careerCategory =
-    category === 'civil-construction-1' ||
-    category === 'civil-construction-2' ||
-    category === 'pe-construction' ||
-    category === 'concrete-chief-engineer' ||
-    category === 'concrete-diagnostician' ||
-    category === 'pe-first-stage';
+  const inlineCareerAd = hasInlineCareerCard ? (careerPlacements['article-inline'] ?? null) : null;
   const careerMidCard =
     !hasInlineCareerCard && midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
-      ? careerCategory
-        ? resolveCareerArticleEndCard(slugStr)
-        : category === 'pe-comprehensive-management'
-          ? resolvePeConsultingArticleEndCard()
-          : null
+      ? (careerPlacements['article-mid']?.card(slugStr) ?? null)
       : null;
 
   // 枠数: 記事が長いほど増やす（h2 3 本ごと / 4,000 字ごとの少ない方・上限 3）。
@@ -374,9 +358,15 @@ export async function renderDocPage(slugStr: string) {
 
   // 実際に使う枠数＝用意できた中身と容量の小さい方。
   const midSlots = midRenderers.slice(0, midSlotCapacity);
-  // A8 計測ピクセルは 1 ページ 1 発（affiliate-operations.md）。本文に転職広告（手書き inline／中間カード）が
-  // 出るページは本文側で 1 発、出ないページは記事末バナーが出るときだけそこで 1 発にする。
-  const bodyHasCareerAd = hasInlineCareerCard || (careerMidIndex >= 0 && careerMidIndex < midSlotCapacity);
+  // A8 計測ピクセルは 1 ページ 1 発（affiliate-operations.md）。実際に描画する面のうち優先順（config/cta-placements.json の
+  // pixelPriority: 手書き > 本文中間 > 記事末）の最も高い面の案件で 1 発。本文側なら本文の後に、記事末なら記事末バナーに付ける。
+  const renderedCareerSlots = [
+    ...(inlineCareerAd ? ['article-inline'] : []),
+    ...(careerMidIndex >= 0 && careerMidIndex < midSlotCapacity ? ['article-mid'] : []),
+    ...(careerPlacements['article-end'] ? ['article-end'] : []),
+  ];
+  const careerPixel = pixelFor(careerPlacements, renderedCareerSlots);
+  const bodyPixelSrc = careerPixel && careerPixel.slot !== 'article-end' ? careerPixel.pixelSrc : null;
   // 位置: h2 境界に均等配分。先頭セクション直後（0）と最終 h2（まとめ）直前は避ける。
   const midPositions = midSlots.map((_, i) =>
     Math.min(
@@ -399,7 +389,7 @@ export async function renderDocPage(slugStr: string) {
     // MDX 本文に手書きした <CareerAffiliate> へ、現在の slug を自動で渡す。
     // slug が無いと悩み別 CTA が解決できず既定文言に倒れる（既存 168 箇所を書き換えずに配線する）。
     CareerAffiliate: (p: React.ComponentProps<typeof CareerAffiliate>) => (
-      <CareerAffiliate slug={slugStr} {...p} />
+      <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} />
     ),
   };
   const componentsWithMid =
@@ -492,9 +482,9 @@ export async function renderDocPage(slugStr: string) {
               />
             </article>
 
-            {bodyHasCareerAd && (
+            {bodyPixelSrc && (
               <img
-                src={careerAd.creative.pixelSrc}
+                src={bodyPixelSrc}
                 width={1}
                 height={1}
                 alt=""
@@ -504,7 +494,8 @@ export async function renderDocPage(slugStr: string) {
               />
             )}
             <ArticleFooter
-              careerPixelSrc={bodyHasCareerAd ? undefined : careerAd.creative.pixelSrc}
+              endBanner={careerPlacements['article-end'] ?? null}
+              careerPixelSrc={careerPixel?.slot === 'article-end' ? careerPixel.pixelSrc : undefined}
               references={references}
               category={category}
               docGroup={docGroup}
