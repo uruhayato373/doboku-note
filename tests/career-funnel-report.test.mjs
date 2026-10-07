@@ -14,8 +14,10 @@ import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 import {
+  attributeByPage,
   checkWindows,
   joinRulesToWindow,
+  pageContextOf,
   classifyNotSet,
   classifyPillar,
   foldEvents,
@@ -24,6 +26,7 @@ import {
   summarizeAfb,
   sumA8,
 } from "../.claude/scripts/report-career-funnel.mjs";
+import { matchesPage } from "../src/lib/affiliate-placement-core.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const cfg = JSON.parse(readFileSync(join(ROOT, "config/career-funnel.json"), "utf8"));
@@ -222,9 +225,58 @@ test("joinRulesToWindow: ルールを GA4 の配置別の窓と A8 の月へ結�
   const got = joinRulesToWindow(rules, { start: "2026-09-04", end: "2026-10-01" }, byPlacement, a8);
   assert.deepEqual(got.map((r) => r.ruleId), ["PL-0001", "PL-0002", "PL-0003"], "窓に掛からないルール（11 月から）は出さない");
   const [end, , sidebar] = got;
-  assert.deepEqual(end.ga4, { coveredDays: 24, windowDays: 28, impressions: 3960, clicks: 0, ctr: 0, sharedWith: ["PL-0002"] });
+  assert.deepEqual(end.ga4, { source: "placement", coveredDays: 24, windowDays: 28, impressions: 3960, clicks: 0, impressionsShared: 0, clicksShared: 0, ctr: 0, sharedWith: ["PL-0002"] });
   assert.equal(sidebar.ga4.coveredDays, 18, "9/8〜9/25 の 18 日");
   assert.deepEqual(end.a8.months, ["2026-09"], "窓の端の 1 日（10/1）だけで 10 月の成果を拾わない");
   assert.equal(end.a8.conversions, 0);
   assert.deepEqual(joinRulesToWindow(rules, null, byPlacement, a8), [], "窓が無ければ空");
+});
+
+test("pageContextOf: 記事はカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、分からなければ null", () => {
+  const index = { docs: { "civil-construction-1-secondary-r07": { category: "civil-construction-1", tags: ["試験"] }, "civil-construction-1-guide-resume": { category: "civil-construction-1", tags: ["career"] } } };
+  const slugOf = (p) => ({ "/exam/civil-construction-1/secondary/r07": "civil-construction-1-secondary-r07", "/exam/civil-construction-1/guide/resume": "civil-construction-1-guide-resume" })[p] ?? null;
+  assert.deepEqual(pageContextOf("/exam/civil-construction-1/secondary/r07", index, slugOf), { pageKind: "doc", category: "civil-construction-1", isCareerDoc: false });
+  assert.equal(pageContextOf("/exam/civil-construction-1/guide/resume", index, slugOf).isCareerDoc, true);
+  assert.deepEqual(pageContextOf("/exam/rccm/", index, slugOf), { pageKind: "category", category: "rccm", isCareerDoc: false });
+  assert.equal(pageContextOf("/practice", index, slugOf).category, "civil-practice");
+  assert.equal(pageContextOf("/tools/career-check", index, slugOf).pageKind, "tool");
+  assert.equal(pageContextOf("/about", index, slugOf), null);
+});
+
+test("attributeByPage: ページ・面・案件・日付でルールを 1 つに決め、決まらないものは推測で分けない", () => {
+  const civil1 = ["civil-construction-1"];
+  const rules = [
+    // 同じ面（本文カード）・同じ案件を 9/20 に閉じて開き直した前後のルール
+    { id: "PL-0001", program: "buildjob", slot: "article-inline", target: { pageKind: "doc", categories: civil1 }, experiment: "EXP-008", period: { from: "2026-09-08T00:00:00+09:00", until: "2026-09-20T12:00:00+09:00" } },
+    { id: "PL-0002", program: "buildjob", slot: "article-inline", target: { pageKind: "doc", categories: civil1 }, experiment: "EXP-017", period: { from: "2026-09-20T12:00:00+09:00", until: null } },
+    // 同じ面の別案件（総監だけ）
+    { id: "PL-0003", program: "dx-consulting", slot: "article-inline", target: { pageKind: "doc", categories: ["pe-comprehensive-management"] }, experiment: null, period: { from: "2026-09-08T00:00:00+09:00", until: null } },
+  ];
+  const ctx = (p) => (p.startsWith("/exam/civil-construction-1/") ? { pageKind: "doc", category: "civil-construction-1", isCareerDoc: false } : p.startsWith("/exam/pe-") ? { pageKind: "doc", category: "pe-comprehensive-management", isCareerDoc: false } : null);
+  const labels = new Map([["ビルドジョブ", "buildjob"], ["ハイクラス DX・コンサル転職", "dx-consulting"]]);
+  const row = (page, label, date, eventName, eventCount) => ({ page, label, placement: "article-inline", date, eventName, eventCount });
+  const rows = [
+    row("/exam/civil-construction-1/secondary/r07", "ビルドジョブ", "2026-09-10", "affiliate_cta_click", 2), // 閉じる前 → PL-0001
+    row("/exam/civil-construction-1/secondary/r07", "ビルドジョブ", "2026-09-28", "affiliate_cta_click", 1), // 開き直した後 → PL-0002
+    row("/exam/civil-construction-1/secondary/r07", "ビルドジョブ", "2026-09-20", "affiliate_cta_click", 1), // 境界の日 → 両方の clicksShared
+    row("/exam/civil-construction-1/secondary/r07", "ビルドジョブ", null, "affiliate_cta_impression", 500), // 表示は日付なし → 両方の impressionsShared
+    row("/exam/pe-comprehensive-management/keywords/x", "ハイクラス DX・コンサル転職", null, "affiliate_cta_impression", 80), // → PL-0003
+    row("/exam/pe-comprehensive-management/keywords/x", "ハイクラス DX・コンサル転職", "2026-09-15", "affiliate_cta_click", 1),
+    row("/about", "ビルドジョブ", "2026-09-12", "affiliate_cta_click", 1), // ページ不明 → unattributed
+    row("/exam/civil-construction-1/secondary/r07", "BuildJob-sidebar", null, "affiliate_cta_impression", 30), // ラベル未登録 → unattributed
+  ];
+  const a8 = [{ month: "2026-09", program: "buildjob", conversions: 1, approved: 0, revenueYen: 0 }];
+  const got = attributeByPage(rules, { start: "2026-09-04", end: "2026-10-01" }, rows, ctx, labels, a8, { matchesPage });
+  const by = Object.fromEntries(got.byRule.map((r) => [r.ruleId, r.ga4]));
+  assert.deepEqual([by["PL-0001"].clicks, by["PL-0001"].clicksShared, by["PL-0001"].impressions, by["PL-0001"].impressionsShared], [2, 1, 0, 500]);
+  assert.deepEqual([by["PL-0002"].clicks, by["PL-0002"].clicksShared, by["PL-0002"].impressionsShared], [1, 1, 500]);
+  assert.deepEqual(by["PL-0001"].sharedWith, ["PL-0002"]);
+  assert.equal(by["PL-0001"].ctr, null, "分けられない数字があるルールの率は出さない");
+  assert.deepEqual([by["PL-0003"].impressions, by["PL-0003"].clicks, by["PL-0003"].ctr, by["PL-0003"].source], [80, 1, 1 / 80, "page"]);
+  assert.deepEqual([got.unattributed.clicks, got.unattributed.impressions], [1, 30]);
+  assert.equal(got.clickLog.length, 5, "クリックは全部日付つきで残す（ルールに当たらないものも）");
+  assert.equal(got.clickLog[0].date, "2026-09-28", "新しい順");
+  assert.equal(got.clickLog.find((c) => c.date === "2026-09-20").ruleId, null, "境界の日はルールを決めない");
+  assert.equal(got.clickLog.find((c) => c.date === "2026-09-10").ruleId, "PL-0001");
+  assert.deepEqual(got.byRule.find((r) => r.ruleId === "PL-0001").a8.months, ["2026-09"]);
 });

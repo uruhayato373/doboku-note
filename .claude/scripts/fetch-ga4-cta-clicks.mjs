@@ -21,6 +21,8 @@
  *                                                #   → ga4-cta-clicks-by-label-*.json。要 GA4 カスタムディメンション
  *                                                #     （イベントスコープ・パラメータ event_label）を先に管理画面で登録。
  *                                                #     未登録なら API がエラー→登録手順を表示して exit 0（CI 非破壊）。
+ *   npm run fetch-ga4-cta-clicks -- --by-page    # アフィリエイトだけ。クリックは pagePath × event_label × cta_placement × date、
+ *                                                #   表示は日付なしの窓の合計（どのページのどの広告が押されたか。A8 の発生日と突き合わせる）
  *   npm run fetch-ga4-cta-clicks -- --key-events # pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標）
  *                                                #   → ga4-key-events-by-page-*.json。イベント名では絞らない（キーイベント定義は
  *                                                #     GA4 側＝ga4-admin-desired-state.json）。0 行はサイト全体 0 セッションで異常のため exit 1。
@@ -40,6 +42,11 @@ import {
   parseKeyEventsByPageRows,
   summarizeKeyEvents,
 } from "./lib/ga4-key-events.mjs";
+import {
+  buildAffiliateByPageRequests,
+  parseAffiliateByPageRows,
+  summarizeAffiliateByPage,
+} from "./lib/ga4-affiliate-by-page.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -84,6 +91,7 @@ function parseArgs() {
     byLabel: false,
     byPlacement: false,
     keyEvents: false,
+    byPage: false,
     // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
     // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
     // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
@@ -125,6 +133,10 @@ function parseArgs() {
         // アフィリエイトの可視 impression / click を配置別に取得する。
         // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
         opts.byPlacement = true;
+        break;
+      case "--by-page":
+        // アフィリエイトの表示・クリックをページ × ラベル × 面（クリックは日付も）で取る。
+        opts.byPage = true;
         break;
       case "--key-events":
         // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
@@ -253,12 +265,49 @@ async function mainKeyEvents(client, propertyId, opts, stamp) {
   console.log(`出力: ${outPath}`);
 }
 
+async function mainAffiliateByPage(client, propertyId, opts, stamp) {
+  const { startDate, endDate, windowKind } = resolveWindow(opts);
+  const req = buildAffiliateByPageRequests({ propertyId, startDate, endDate, japanOnly: opts.japanOnly });
+  const clicks = await runReportAll(client, req.clicks);
+  const impressions = await runReportAll(client, req.impressions);
+  const rows = parseAffiliateByPageRows(clicks.rows, impressions.rows);
+  const data = {
+    meta: {
+      startDate,
+      endDate,
+      windowKind,
+      mode: "affiliate-by-page",
+      japanOnly: opts.japanOnly,
+      propertyId,
+      rowCount: clicks.rowCount + impressions.rowCount,
+      truncated: clicks.truncated || impressions.truncated,
+    },
+    rows,
+  };
+  const sum = summarizeAffiliateByPage(rows);
+  console.log(`
+期間: ${startDate} 〜 ${endDate}（アフィリエイト・ページ × ラベル × 面）`);
+  console.log(`件数: ${rows.length} 行 / クリック ${sum.clicks}（${sum.clickPages} ページ）/ 表示 ${sum.impressions}${data.meta.truncated ? "（上限で打ち切り）" : ""}`);
+  if (sum.impressions === 0) {
+    // 全サイトで表示 0 は広告が 1 枚も出ていないか取得の異常。0 と記録しない（検査ゼロを PASS と呼ばない）
+    console.error("[fetch-ga4-cta-clicks] by-page: 表示が 0 件。広告の計測か取得の異常。出力しない。");
+    process.exitCode = 1;
+    return;
+  }
+  const outPath = writeReport(".", "ga4.affiliate-by-page", data, { stamp }).ref;
+  console.log(`出力: ${outPath}`);
+}
+
 async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   if (opts.keyEvents) {
     await mainKeyEvents(client, propertyId, opts, stamp);
+    return;
+  }
+  if (opts.byPage) {
+    await mainAffiliateByPage(client, propertyId, opts, stamp);
     return;
   }
   const data = await fetchCtaClicks(client, propertyId, opts);
@@ -306,7 +355,7 @@ main().catch((e) => {
   const msg = String(e?.message || e);
   // カスタムディメンション未登録の救済は by-label / by-placement だけ。標準指標の --key-events の失敗は exit 1。
   if (!process.argv.includes("--key-events") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
-    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : "event_label";
+    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : process.argv.includes("--by-page") ? "event_label・cta_placement" : "event_label";
     console.warn(
       `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +
         "  GA4 管理画面 → 管理 → データ表示 → カスタム定義 → カスタムディメンション作成:\n" +
