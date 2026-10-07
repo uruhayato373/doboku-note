@@ -21,7 +21,7 @@ MDX 本文の転職枠は `program="career"` だけを書く。案件・リン�
 <CareerAffiliate program="career" />
 ```
 
-面が 1 つだけのページ（公的基準の章末・トップ・ツール）は `src/components/ui/AffiliateSlot/AffiliateSlot.tsx` を使う（ルールを引いてこのカードを描き、その面でピクセルを 1 発出す）。記事・カテゴリの面は DocPage・CategoryPage が並べる。
+面が 1 つだけのページ（公的基準・トピック・トップ・ツール）は `src/components/ui/AffiliateSlot/AffiliateSlot.tsx` を使う（ルールを引いてこのカードを描き、その面でピクセルを 1 発出す）。記事・カテゴリの面は DocPage・CategoryPage が並べる。
 
 以下は配置ルールを通さず直接渡す旧来の形（新しく書かない）。
 
