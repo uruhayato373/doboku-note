@@ -14,6 +14,8 @@
 //   node scripts/drive-vault-sync.mjs --group X --verify [--deep] [--cloud] --out .tmp/x-ok.txt
 //                                                                                   # local ↔ 台帳 ↔ vault（--cloud で Drive API の md5 も）
 //   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/'  # vault → repo
+//   node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit
+//                                                                                   # vault にだけある原本をその場で読み、台帳へ登録する（vault へは書かない）
 //
 // exit 0 = 成功（dry-run 含む） / exit 1 = 検証失敗・対象 0 件・マウント無しで書けない・リモート未設定で --cloud
 //
@@ -25,7 +27,7 @@ import { dirname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, vaultAbsFor,
-  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel,
+  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault,
 } from './lib/drive-vault.mjs';
 import { loadManifest as loadR2Manifest, loadConfig as loadR2Config, loadEnvLocal, makeS3, hasR2Credentials, imageSize } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
@@ -38,6 +40,7 @@ const GROUP_ID = val('--group');
 const PATH_PREFIX = val('--path');
 const COMMIT = flag('--commit');
 const FROM_R2 = flag('--from-r2');
+const FROM_VAULT = flag('--from-vault');
 const DEDUPE = flag('--dedupe-by-sha');
 const VERIFY = flag('--verify');
 const DEEP = flag('--deep');
@@ -110,13 +113,41 @@ function listR2Targets(cfg, group) {
   return out;
 }
 
+/**
+ * vault の group.vaultDir 配下にだけある原本を列挙する（--from-vault）。repo 側のキーは keyFrom の逆で導く。
+ * 2026-10-07: 原資料PDF/白書 の 44 件が台帳に無く、図の原典探しが白書をネットから取得した（DN-0564）。
+ */
+function listVaultTargets(cfg, group, mount) {
+  if (!group) die('--from-vault には --group が要る');
+  if (!mount.root) die('vault のマウントが無いので読めない。' + mount.reason);
+  const base = vaultAbsFor(mount.root, group.vaultDir);
+  if (!existsSync(base)) die('vault に ' + group.vaultDir + ' が無い');
+  const out = [];
+  const skipped = [];
+  const walk = (abs, relDir) => {
+    for (const d of readdirSync(abs, { withFileTypes: true })) {
+      if (d.name.startsWith('.')) continue;
+      const childRel = relDir ? relDir + '/' + d.name : d.name;
+      if (d.isDirectory()) { walk(join(abs, d.name), childRel); continue; }
+      const vaultRel = toVaultRel(group.vaultDir).replace(/\/+$/, '') + '/' + toVaultRel(childRel);
+      const rel = repoRelForVault(vaultRel, group, cfg);
+      if (!rel) { skipped.push(vaultRel); continue; }
+      if (PATH_PREFIX && !rel.startsWith(toVaultRel(PATH_PREFIX))) continue;
+      out.push({ rel, group, source: 'vault', abs: join(abs, d.name) });
+    }
+  };
+  walk(base, '');
+  if (skipped.length) console.log('  group の pathRegex に合わないので登録しない: ' + skipped.length + ' 件（例: ' + skipped.slice(0, 3).join(' / ') + '）');
+  return out;
+}
+
 // ------------------------------------------------------------------ push（repo/R2 → vault）
 
 async function push(cfg, group, mount, manifest) {
-  let targets = FROM_R2 ? listR2Targets(cfg, group) : listLocalTargets(cfg, group);
+  let targets = FROM_R2 ? listR2Targets(cfg, group) : FROM_VAULT ? listVaultTargets(cfg, group, mount) : listLocalTargets(cfg, group);
   const totalCount = targets.length;
   if (totalCount === 0) {
-    console.error('[' + NAME + '] 対象 0 件（source=' + (FROM_R2 ? 'R2 台帳' : 'ローカル') + (group ? ' / group=' + group.id : '') + (PATH_PREFIX ? ' / path=' + PATH_PREFIX : '') + '）。');
+    console.error('[' + NAME + '] 対象 0 件（source=' + (FROM_R2 ? 'R2 台帳' : FROM_VAULT ? 'vault' : 'ローカル') + (group ? ' / group=' + group.id : '') + (PATH_PREFIX ? ' / path=' + PATH_PREFIX : '') + '）。');
     if (group) console.error('  pathRegex: ' + group.match.pathRegex);
     console.error('  既に同期済みか、指定が実体と合っていない。検査不成立として exit 1。' + (FROM_R2 ? '' : ' R2 にしか無いものは --from-r2。'));
     process.exit(1);
@@ -134,7 +165,7 @@ async function push(cfg, group, mount, manifest) {
     if (before !== targets.length) console.log('  台帳と sha256 が一致するため省いた: ' + (before - targets.length) + ' 件（--force で作り直す）');
   }
 
-  console.log('[' + NAME + '] source=' + (FROM_R2 ? 'R2 台帳' : 'ローカル') + ' / 対象 ' + totalCount + ' 件 / mode=' + (COMMIT ? 'COMMIT（vault へ書く）' : 'DRY-RUN'));
+  console.log('[' + NAME + '] source=' + (FROM_R2 ? 'R2 台帳' : FROM_VAULT ? 'vault（その場で読んで登録）' : 'ローカル') + ' / 対象 ' + totalCount + ' 件 / mode=' + (COMMIT ? 'COMMIT（vault へ書く）' : 'DRY-RUN'));
   console.log('  mount: ' + (mount.root ? mount.root + '（' + mount.source + '）' : '無し — ' + mount.reason));
 
   // 計画（vault 相対パス）を先に組む。keyFrom の導出に失敗するものはここで落ちる。
@@ -191,7 +222,7 @@ async function push(cfg, group, mount, manifest) {
     ({ GetObjectCommand } = await import('@aws-sdk/client-s3'));
   }
 
-  let copied = 0, adopted = 0, unchanged = 0;
+  let copied = 0, adopted = 0, unchanged = 0, registered = 0;
   const failures = [];
   let sinceCheckpoint = 0;
   const checkpoint = () => { if (sinceCheckpoint) { writeDriveManifestAtomic(manifest); sinceCheckpoint = 0; } };
@@ -203,18 +234,29 @@ async function push(cfg, group, mount, manifest) {
       ...(extra.dims || {}),
     });
     sinceCheckpoint++;
-    if (sinceCheckpoint >= 50) { checkpoint(); console.log('  ... ' + (copied + adopted + unchanged) + '/' + rows.length + '（台帳へ中間保存）'); }
+    if (sinceCheckpoint >= 50) { checkpoint(); console.log('  ... ' + (copied + adopted + unchanged + registered) + '/' + rows.length + '（台帳へ中間保存）'); }
   };
 
   async function processOne(r) {
     // 期待値（sha256/bytes）。ローカル源は実測、R2 源は R2 台帳の値。
     let expected;
-    if (r.source === 'local') expected = await realBytesAndHashes(r.abs);
+    if (r.source === 'local' || r.source === 'vault') expected = await realBytesAndHashes(r.abs);
     else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
 
     const cur = manifest.entries[r.rel];
     if (!FORCE && cur && cur.sha256 === expected.sha256 && existsSync(vaultAbsFor(mount.root, cur.vaultPath))) { unchanged++; return; }
     if (cur?.adopted && expected.sha256 !== cur.sha256) throw new Error(r.rel + ': 正本への別名参照から内容を変更できない。正本キーを使うこと');
+
+    // --from-vault: 読んだ実体そのものを登録する（vault へは書かない・同じ原本を 2 度読まない）
+    if (r.source === 'vault') {
+      if (toVaultRel(vaultAbsFor(mount.root, r.vaultRel)) !== toVaultRel(r.abs)) {
+        failures.push({ rel: r.rel, stage: 'plan', msg: '台帳のキーから導いた vault パスが実体と違う: ' + r.vaultRel });
+        return;
+      }
+      record(r, expected, { vaultPath: r.vaultRel, dims: null });
+      registered++;
+      return;
+    }
 
     // dedupe: 同じ sha256 が vault のどこかに既にあれば、コピーせずその場所を採用する
     if (dedupeIndex && dedupeIndex.has(expected.sha256)) {
@@ -271,12 +313,16 @@ async function push(cfg, group, mount, manifest) {
   checkpoint();
   const total = writeDriveManifestAtomic(manifest);
 
-  console.log('\n[' + NAME + '] コピー ' + copied + ' / 既存採用(adopt) ' + adopted + ' / 変更なし ' + unchanged + ' / 失敗 ' + failures.length + ' — 台帳 ' + total + ' エントリ');
+  console.log('\n[' + NAME + '] コピー ' + copied + ' / 既存採用(adopt) ' + adopted + ' / 変更なし ' + unchanged + (FROM_VAULT ? ' / vault から登録 ' + registered : '') + ' / 失敗 ' + failures.length + ' — 台帳 ' + total + ' エントリ');
   if (failures.length) {
     for (const f of failures.slice(0, 15)) console.error('  [' + f.stage + '] ' + f.rel + ' — ' + f.msg);
     if (failures.length > 15) console.error('  ... ほか ' + (failures.length - 15) + ' 件');
     console.error('  失敗したものは台帳に載せていない＝まだ vault に無い。ローカルも R2 も消さないこと。');
     process.exit(1);
+  }
+  if (FROM_VAULT) {
+    console.log('  ✓ vault の実体を読んで sha256 を台帳へ登録した（vault へは書いていない）。');
+    return;
   }
   console.log('  ✓ 全件が vault 側の読み直しで sha256 一致。');
   console.log('  次: R2 側を消す前に `--verify --cloud`（Drive API の md5 照合）を通すこと。マウントへ書けた＝クラウドに上がった、ではない。');

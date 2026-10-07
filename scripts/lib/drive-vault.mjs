@@ -186,6 +186,23 @@ export function vaultRelFor(repoRelPath, group, { readManifest = defaultStandard
 }
 
 /**
+ * vaultRelFor の逆。vault にだけある原本（白書など）を台帳へ登録するとき、repo 側のキーを導く。
+ * 逆に引けるのは stripPrefix と repoRelative だけ。導いたキーが同じ group に戻らなければ null。
+ */
+export function repoRelForVault(vaultRel, group, cfg) {
+  const v = toVaultRel(vaultRel);
+  const dir = toVaultRel(group.vaultDir).replace(/\/+$/, '');
+  if (!v.startsWith(dir + '/')) return null;
+  const rest = v.slice(dir.length + 1);
+  const kf = group.keyFrom || 'repoRelative';
+  let rel = null;
+  if (kf === 'repoRelative') rel = rest;
+  else if (kf.startsWith('stripPrefix:')) rel = kf.slice('stripPrefix:'.length) + rest;
+  if (!rel) return null;
+  return driveGroupFor(rel, cfg, { includePending: false })?.id === group.id ? rel : null;
+}
+
+/**
  * 1 つの repo パスがどの tier の group に一致するかを列挙する（衝突検査の純関数）。
  * R2 側（asset-storage.json）と Drive 側（drive-vault.json）を同時に見る。
  * 期待される正常形は「R2 1 件」か「Drive active 1 件」か「どれにも一致しない」のいずれか。

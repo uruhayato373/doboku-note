@@ -60,6 +60,9 @@ content/sources/textbook/**/*.PDF
 # 在庫は data/pastexams/inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
 content/sources/past-exams/**/*.pdf
 content/sources/past-exams/**/*.PDF
+# 白書・年次報告の原本 PDF（content/sources/white-papers）— 実体は Google Drive vault の white-paper-source-pdf group（原資料PDF/白書）。
+content/sources/white-papers/**/*.pdf
+content/sources/white-papers/**/*.PDF
 # PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。
 # 追跡済みの content/sources/textbook/**/*.md（自前の文字起こし）とは別物なので Text/ だけを外す。
 content/sources/textbook/**/Text/
