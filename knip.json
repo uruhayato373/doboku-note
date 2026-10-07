@@ -20,6 +20,7 @@
   ],
   "ignoreBinaries": [
     "cmd.exe",
+    "codex",
     "du",
     "ffmpeg",
     "ffprobe",
