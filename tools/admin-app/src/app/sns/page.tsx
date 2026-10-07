@@ -2,7 +2,7 @@ import Link from 'next/link';
 import UpcomingEvents from '@/components/UpcomingEvents';
 import { numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
-import { snsBoard } from '@/lib/sns-board';
+import { snsBoard, figureBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
 import { derivativeLabel } from '@/lib/video-outcomes';
 import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
@@ -24,6 +24,7 @@ const SCHED_KEYS: [string, string][] = [
 export default async function SnsBoardPage() {
   const { ig, x, schedule } = await snsBoard();
   const join = videoSnsJoin();
+  const figures = await figureBoard();
 
   const today = todayJst();
   const upcoming: { date: string; label: string; slug: string }[] = [];
@@ -40,6 +41,7 @@ export default async function SnsBoardPage() {
       <PageHead title="投稿状況" />
       {/* SNS はサイドバーの枝にせずこのページの節にする（domains.json navRules）。素材の作業場はここから開く */}
       <nav className="filterbar" style={{ marginBottom: 12 }}>
+        <a className="chip" href="#figures">図解素材</a>
         <a className="chip" href="#instagram">Instagram</a>
         <a className="chip" href="#x">X</a>
         <a className="chip" href="#video">YouTube・動画</a>
@@ -50,6 +52,42 @@ export default async function SnsBoardPage() {
         </span>
       </nav>
       <UpcomingEvents domain="sns" />
+
+      <div id="figures" className="mb-4">
+        <PanelCard title="図解素材" description={`元図・記事とSNS原稿を照合 ${figures.checkedCount} / ${figures.sourceCount} 件。保存はDrive台帳との照合結果。`}>
+          {figures.errors.map(error => <p key={error} className="text-sm text-destructive">{error}</p>)}
+          <TableFrame>
+            <TableHeader><TableRow>
+              <TableHead>学習テーマ・元図</TableHead><TableHead>投稿文・画像</TableHead><TableHead>保存</TableHead><TableHead>制作・投稿状態</TableHead>
+            </TableRow></TableHeader>
+            <TableBody>{figures.rows.map(row => <TableRow key={row.pack}>
+              <TableCell className="max-w-sm">
+                <a href={row.nextStep}>{row.needs}</a>
+                {row.figure && <div className="text-xs"><a href={`/media/posts/${row.figure.slice('content/site/'.length)}`}>元図を開く</a></div>}
+              </TableCell>
+              <TableCell>
+                <Link href={`/content/content~sns/${row.dir.slice('content/sns/'.length)}`}>Instagram原稿</Link>
+                <div className="flex flex-wrap gap-2 text-xs">
+                  {row.assets.filter(asset => asset.rel.startsWith(row.dir)).map((asset, i) => asset.local
+                    ? <a key={asset.rel} href={`/media/sns/${asset.rel.slice('content/sns/'.length)}`}>{i + 1}枚目</a>
+                    : <span key={asset.rel}>{i + 1}枚目 要復元</span>)}
+                </div>
+                {row.x.map(item => <div key={`${item.draft}-${item.tweet}`} className="text-xs">
+                  <Link href={`/content/content~sns/x/draft/${item.draft}/tweets.md`}>X原稿 #{item.tweet}</Link>
+                  {row.assets.find(asset => asset.rel === `content/sns/x/draft/${item.draft}/${item.file}`)?.local && <a className="ml-2" href={`/media/sns/x/draft/${item.draft}/${item.file}`}>画像</a>}
+                </div>)}
+              </TableCell>
+              <TableCell className="text-xs">Drive {row.archivedCount} / {row.assets.length}<br/>手元 {row.localCount} / {row.assets.length}</TableCell>
+              <TableCell>
+                <StatusBadge tone={row.readiness === 'ready' ? 'good' : 'warn'}>{row.readiness === 'ready' ? '素材準備済' : row.readiness === 'restore' ? 'Driveから要復元' : '要確認'}</StatusBadge>
+                <div className="mt-1 text-xs">IG {row.igStatus} / X {row.x.map(item => item.status).join(', ') || '未作成'}</div>
+                {row.issues.length > 0 && <details className="mt-1 text-xs"><summary>確認事項 {row.issues.length} 件</summary><ul className="list-disc pl-4">{row.issues.map(issue => <li key={issue}>{issue}</li>)}</ul></details>}
+              </TableCell>
+            </TableRow>)}</TableBody>
+          </TableFrame>
+          <p className="text-xs text-muted-foreground">素材準備済は投稿文・元データ・保存画像の照合結果です。公開・予約は各チャネルの既存投稿手順で行います。元の記事や図が変わると「要確認」になります。</p>
+        </PanelCard>
+      </div>
 
       <div id="instagram" className="mb-4">
       <PanelCard title="Instagram 進捗" description={`いずれか投稿済み ${ig.totalDone} / ${ig.total}`}>

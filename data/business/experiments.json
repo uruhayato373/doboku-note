@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:08:02.348Z",
+  "updated_at": "2026-10-07T11:47:04.180Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1950,12 +1950,12 @@
         "minVolume": 10,
         "note": "新しい面の最大は公的基準の章以外（218 ページ）。ほかの面（トピック・ツール・測量士・舗装・建築）は byRule の PL-0035〜0041 で読む。anchor は本番デプロイ日"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-07T11:08:02.348Z",
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": null,
+      "next_check_date": "2026-11-04",
       "pending_user_actions": [],
       "actions": [
         "2026-10-07: 配置ルール PL-0035〜PL-0041 を追加（面 standards-list-end・topic-end・tool-end、測量士・舗装・建築の記事と資格トップ）。EXP-017 のルールとは面・カテゴリを分け、数字を混ぜない（運営者の指示）"
@@ -1966,8 +1966,14 @@
           "at": "2026-10-07T11:08:02.348Z",
           "event": "propose",
           "note": "運営者の指示で残りの面へ展開（2026-10-07）"
+        },
+        {
+          "at": "2026-10-07T11:47:04.180Z",
+          "event": "start",
+          "note": "本番デプロイ（cloudflare-deploy run 37615478580）。check-production-ssr 合格。本番の全 1,622 ページ中 1,614 に転職広告（残りは運営ページ 6・/exam・キャリア診断〔結果画面でクライアント描画〕）"
         }
-      ]
+      ],
+      "started_at": "2026-10-07T11:44:23.000Z"
     }
   ]
 }
