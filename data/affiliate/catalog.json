@@ -85,8 +85,8 @@
     "kensetsu-jobs": {
       "label": "建設JOBs（施工管理・建設業界 転職サイト）",
       "vertical": "civil-career",
-      "placement": "none",
-      "decision": "2026-09-08一般配置を停止。20〜30代の建設経験者と電話本人確認が条件で、全年齢記事に会員登録だけのサービスとして配置する前提を撤回。再配置は対象が明確な記事を選定する場合に限る。",
+      "placement": "active",
+      "decision": "2026-09-08一般配置を停止。20〜30代の建設経験者と電話本人確認が条件で、全年齢記事に会員登録だけのサービスとして配置する前提を撤回。2026-10-07 に対象を 2級土木（civil-construction-2）の学習ページへ絞って再配置（EXP-017。受験者が若く、二次の受験者は実務経験がある）。カードに対象（20〜30代・建設業界の経験者）を明記する。",
       "ctaLabels": [
         "KensetsuJobs-sidebar",
         "KensetsuJobs-endbanner",
