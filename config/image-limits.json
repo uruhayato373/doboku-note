@@ -16,5 +16,12 @@
   "filenamePattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
   "examDirPattern": "/(h\\d+-primary|primary-h\\d+[^/]*|primary-[a-z0-9-]*)/",
   "unreferencedExcludeBasenames": ["ogp.png", "ogp.webp", "cover.png", "cover.webp"],
-  "unreferencedExcludePattern": "^figure-"
+  "unreferencedExcludePattern": "^figure-",
+  "figureMinLongSide": 500,
+  "aiPhoto": {
+    "aspect": [4, 3],
+    "tolerance": 0.01,
+    "width": 960,
+    "style": "Create ONE photorealistic documentary photograph, landscape 4:3 aspect ratio (for example 1448x1086). Outdoor civil engineering construction site in Japan, daylight, natural colours, sharp focus. The whole subject is fully visible with some margin on all sides, three-quarter side view at eye level unless stated otherwise. It must look like a real, currently manufactured machine or instrument of the stated type - correct number of wheels/drums/tracks and correct placement of parts. No text, no logos, no brand names, no readable signage, labels or license plates. No people unless stated; an operator may appear only small inside the cab."
+  }
 }

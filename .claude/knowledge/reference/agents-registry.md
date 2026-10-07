@@ -8,7 +8,7 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **85**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **86**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
@@ -66,6 +66,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 | UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
+| `check-image-origin --ai-queue`（AI 画像の判定待ち・親が起動） | `ai-image-fidelity-auditor` | 写真（AI 生成画像）が実物どおりかを本文と生成の指示に照らして ok / fail。親が `record-ai` で台帳へ記録し、CI が ok の無い AI 画像を止める |
 | `/backlog-sweep --audit`（台帳の棚卸し時に親が起動）      | `backlog-curator`                                              | backlog カードを KEEP/RETAG/TRIM/MERGE/DELETE/RESEED/SPLIT に分類（tier セクションをシャードに同時3体まで・適用は親・sweep が到達できない 49/98 枚を埋めるのが目的） |
 | `/doc-declutter`（doc 棚卸し時に親が起動）            | `doc-curator`                                                  | 候補 doc を KEEP/TRIM/DELETE/CONSOLIDATE に分類（親が渡す外部実体の検証済みシグナルに基づく・適用は親・handoff は extract→削除が既定） |
 | `/record-sales`                                      | （委譲なし・親が直接処理）                                       | 正規化＋JSON 追記は決定的な小作業のため 2026-07-27 に委譲を廃止。`sales-recorder` は他経路向けに残置 |
@@ -141,6 +142,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `civil-exam-figure-auditor`    | 1級土木 primary 図 PNG の 4 軸ルーブリック品質評価（クリップ純度・本文重複・alt 精度・MDX 結線）。次反復用 feedback JSON 返却 | Evaluator | sonnet | `/civil-figure-rework` 連携、`svg-figure-auditor` の 4 軸構造を参考 | ✅ 運用中（2026-05-28 起動） |
 | `scanned-figure-crop-auditor`  | スキャン教材（`content/sources/textbook/**` 内部リファレンス）の図クロップ PNG を 4 軸（クリップ純度45/図完全性30/正図同定15/alt10）で採点し `adjust_bbox`（相対調整値）を返す Evaluator。`pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ用。locate 単発の緩い枠（本文写り込み・切れ）を実 PNG 監査で締める。別図掴みは relocate でエスカレーション。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` のスキャン教材版。`scripts/scanned/figure_crop_audit.workflow.js` 連携 | ✅ 新設（2026-06-24 起動） |
 | `pe-exam-figure-auditor`       | 総監 primary（h2x-primary）試験図 SVG の 4 軸ルーブリック品質評価（概念・構造の正確性・ラベル整合・可読性・MDX 結線）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用（試験原図はサイズ自由）。audit-only | Evaluator | sonnet | `civil-exam-figure-auditor` の PE 版。`svg-audit.json` の `.exam_crops` が対象 SVG 一覧 | ✅ 新設（2026-06-23） |
+| `ai-image-fidelity-auditor`   | 記事の写真（すべて AI 生成画像。機械・器械・変状）を種別・構造・本文整合・生成の破綻の 4 軸で判定し ok / fail を返す。生成の指示（`prompt`）も照らす。判定の記録は親が `check-image-origin record-ai`（画像のハッシュつき）。audit-only | Evaluator | sonnet | `check-image-origin` 連携（`ai-unreviewed` を CI で止める）。2026-10-07 にセオドライトが実在しない形のまま公開されていたのを受けて新設 | ✅ 新設（2026-10-07） |
 | `ig-reels-writer`              | Instagram Reels の `reels/script.json`（読み上げ台本・想定秒数・無音 pause）+ `caption.txt`（ネタバレなし・ハッシュタグ 3 階層 mix）を 1 パックずつ執筆。`angle` パラメータで6切り口の冒頭 Hook を制御 | Generator    | sonnet  | `.claude/knowledge/reference/ig-reels-policy.md` + `.claude/shared-policy/REPURPOSE.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
 | `ig-reels-qa`                  | Instagram Reels の **5 軸**ルーブリック品質評価（尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線）。「スワイプで」等カルーセル流用 CTA を重大減点 | Evaluator    | sonnet  | `.claude/knowledge/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
 | `ig-stories-writer`            | Instagram Stories の `stories/caption.txt` と `stories/note.md` をパック固有にキュレーション。投票/質問ステッカー文言・リンクスタンプ URL 確定。`angle` パラメータで6切り口の4枚ストーリー弧を制御 | Generator    | sonnet  | `.claude/knowledge/reference/ig-stories-policy.md` + `.claude/shared-policy/REPURPOSE.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
@@ -222,6 +224,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **civil-exam-figure-auditor** | `content/site/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
 | **scanned-figure-crop-auditor** | `content/sources/textbook/**/img/*.png`（スキャン教材クロップ）+ 出所ページ画像 | クリップ純度45/図完全性30/正図同定15/alt10（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格）。`adjust_bbox` を返し再クロップ反復、別図掴みは relocate | `pdf-to-mdx --scanned` 経路Bの図 audit/refine ループ、初期クロップ直後 |
 | **pe-exam-figure-auditor** | `content/site/pe-comprehensive-management/h*-primary/img/*.svg` + 該当 MDX（問題文） | 概念・構造の正確性・ラベル整合・可読性・MDX 結線（4軸）。MDX 問題文を真実源として SVG 忠実度を採点。P1-P8・キャンバス標準は非適用。`svg-audit.json.exam_crops` が対象一覧 | 総監 h2x-primary 過去問ページ SVG を新規作成・修正後 |
+| **ai-image-fidelity-auditor** | `content/site/**/img/*` のうち写真（AI 生成画像・`check-image-origin --ai-queue --json`）＋生成の指示＋記事の該当節 | 種別・構造・本文整合・生成の破綻（4 軸、すべて満たすときだけ ok）。背景・色・アングルは問わない | AI 画像を足した・差し替えた後（`check-image-origin` の `ai-unreviewed`） |
 | **svg-figure-auditor** | site: `content/site/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `content/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。**過去問クロップ（h*-primary）は対象外** | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |

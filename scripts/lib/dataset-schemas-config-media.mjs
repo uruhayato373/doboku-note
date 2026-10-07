@@ -110,6 +110,42 @@ const FigureSourceCategory = z
   })
   .strict();
 
+/**
+ * 記事のラスター画像の出所の種別（check-image-origin が公開記事の全画像に求める）。2026-10-07（DN-0574）
+ * kind を省いた記録は pdf-crop（pdf から切り出した図）。試験ページの設問の図は記事の sources: の公式問題から導くので書かなくてよい。
+ * 写真は AI で生成した画像だけを使う（CC・自前撮影の実写や、実写を AI で描き直した画像は使わない・2026-10-07 運営者決定）。
+ */
+export const IMAGE_ORIGIN_KINDS = ['pdf-crop', 'exam-official', 'ai-generated', 'public-data', 'own-book-scan'];
+/** 種別ごとに要る欄（出所を辿り直さずに済む最小限） */
+const ORIGIN_REQUIRED = {
+  'pdf-crop': ['pdf'],
+  'exam-official': [],
+  'ai-generated': ['tool'],
+  'public-data': ['license', 'credit'],
+  'own-book-scan': ['ref'],
+};
+
+const FigureProvenance = z
+  .object({
+    kind: z.enum(IMAGE_ORIGIN_KINDS).optional().describe('出所の種別（省略は pdf-crop）'),
+    pdf: z.string().regex(/^(?:vault:原資料PDF\/.+|https:\/\/.+)$/, 'vault:原資料PDF/… か https の URL').optional().describe('図を切り出した原典'),
+    page: z.number().int().min(1).optional().describe('PDF のページ（特定していなければ書かない）'),
+    dpi: z.number().int().min(0).optional().describe('切り出しの解像度（0 は PDF でなく画像から切り出した）'),
+    url: z.string().regex(/^https:\/\/.+/).optional().describe('公的資料の元のページ'),
+    license: z.string().min(1).optional().describe('利用条件（公共データ利用規約 1.0・政府標準利用規約 など）'),
+    credit: z.string().min(1).optional().describe('提供者（caption に出典として出す名前）'),
+    tool: z.string().min(1).optional().describe('生成に使った AI（Codex（gpt-6-astra）・ChatGPT など）'),
+    prompt: z.string().min(1).optional().describe('生成に使った指示（同じ画像を作り直すとき・実物と照らすときに読む）'),
+    ref: z.string().regex(/^[a-z0-9][a-z0-9-]*$/).optional().describe('自社書籍スキャンの参考文献 id（参考文献の台帳）'),
+    note: doc('補足').optional(),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    const kind = v.kind ?? 'pdf-crop';
+    for (const k of ORIGIN_REQUIRED[kind]) if (v[k] === undefined) flag(ctx, [k], `${kind} には ${k} が要る`);
+    if (kind !== 'pdf-crop' && kind !== 'exam-official' && (v.page !== undefined || v.dpi !== undefined)) flag(ctx, ['page'], 'page・dpi は PDF から切り出した図（pdf-crop・exam-official）だけに書く');
+  });
+
 export const ConfigFigureSources = z
   .object({
     schemaVersion: schemaVersion1,
@@ -133,15 +169,9 @@ export const ConfigFigureSources = z
     provenance: z
       .record(
         z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/]+$/, '資格/記事/img/名前（拡張子なし）'),
-        z
-          .object({
-            pdf: z.string().regex(/^(?:vault:原資料PDF\/.+|https:\/\/.+)$/, 'vault:原資料PDF/… か https の URL').describe('図を切り出した原典'),
-            page: z.number().int().min(1).optional().describe('PDF のページ（特定していなければ書かない）'),
-            dpi: z.number().int().min(0).optional().describe('切り出しの解像度（0 は PDF でなく画像から切り出した）'),
-          })
-          .strict(),
+        FigureProvenance,
       )
-      .describe('図ごとの出典の正本（図を切り出した原典 PDF・ページ）。figure-review-queue record が書き、切り出し直しと参考文献の結線検査が読む'),
+      .describe('図・写真ごとの出所の正本（切り出した原典 PDF・ページ、または AI 生成・CC 写真などの種別）。figure-review-queue record が PDF の出典を書き、切り出し直し・参考文献の結線検査・check-image-origin が読む'),
     categories: z
       .record(
         z.string().min(1),
@@ -174,6 +204,16 @@ export const ConfigImageLimits = z
     examDirPattern: regexString('試験の過去問ディレクトリを見分ける正規表現'),
     unreferencedExcludeBasenames: z.array(z.string().min(1)).describe('どの記事からも参照されなくても検査から除くファイル名'),
     unreferencedExcludePattern: regexString('参照されなくても除くファイル名の正規表現'),
+    figureMinLongSide: z.number().int().positive().describe('記事の図（切り出し画像）の長辺の下限 px。下回ると figure-review-queue の LOW_RES（判定待ち）になる（2026-10-07・DN-0577）'),
+    aiPhoto: z
+      .object({
+        aspect: z.tuple([z.number().int().positive(), z.number().int().positive()]).describe('幅:高さ（写真はすべてこの比率）'),
+        tolerance: z.number().min(0).max(0.05).describe('比率の許容差（割合）'),
+        width: z.number().int().positive().describe('配信する幅（px）。gen-article-photo がこの幅に縮める'),
+        style: z.string().min(40).describe('全写真に共通する生成の指示（比率・写実・文字やロゴを入れない・実在の機種の形）。写真ごとの被写体は provenance の prompt'),
+      })
+      .strict()
+      .describe('記事の写真（AI 生成画像）の形。check-image-origin が比率を検査する（2026-10-07・DN-0578）'),
   })
   .strict()
   .meta({ title: '画像アセットの品質ガード' });

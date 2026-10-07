@@ -14,7 +14,7 @@ domain: site
 記事に載っている図クロップを 1 周ぶん（最大 8 枚）判定し、直せるものは直して、判定を台帳に記録する。`/loop /figure-quality-loop` で繰り返すと、判定待ちが 0 になったところで止まる。
 
 ```
-検出（機械）: figure-review-queue.mjs ─ 画素検査（EDGE_CUT / STRAY_*）＋ OCR の needs − 判定済み
+検出（機械）: figure-review-queue.mjs ─ 画素検査（EDGE_CUT / STRAY_* / LOW_RES）＋ OCR の needs − 判定済み
   → 判定・修正（figure-crop-worker を並列）: ok ／ 写り込みを切り直す ／ 図本体が切れている（needs-source）
   → 親の QA（書き換えた図と suspect を目視＋ check-figure-crop-integrity --file）
   → 記録（figure-review-queue.mjs record: 画像のハッシュつき・MDX の寸法も合わせる）→ commit
@@ -101,6 +101,7 @@ node scripts/figure-review-queue.mjs        # 残数を 1 行で報告
 ## 鉄則
 
 - **判定は目視**。機械の兆候（`signals`）は疑う場所の手がかりで、EDGE_CUT の大半は罫線・写真・機材イラストが縁に接しているだけ（正当）。兆候があるというだけで切らない。
+- **LOW_RES**（長辺が `config/image-limits.json` の `figureMinLongSide` 未満）は、原典 PDF から高い dpi で切り出し直す（`needs-source`）。原典の解像度が上限で直らないと確かめたら `ok` で理由に書く。記録には判定したときの画素数（`px`）が残り、それが無い古い ok は判定し直しになる。
 - **二度切り厳禁**（やり直しは原画に戻してから）・**過去問の図に正答・解説を写し込まない**・**過去問のデータグラフを SVG に描き直さない**（図の幾何が答え＝誤答誘発。[figure-provenance.md](../../../knowledge/reference/figure-provenance.md)）。
 - worker は MDX・台帳・git に触らない。記録・MDX・commit は親が直列で行う（同じ記事の MDX に複数の図があるため）。
 - provenance（`.claude/state/figure-provenance.json`）は台帳を読んで needs を上書きする。毎周の再生成は不要で、OCR 未監査の警告が出たときに `npm run audit-figures` で作り直す。

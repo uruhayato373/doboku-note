@@ -17,8 +17,8 @@
  *
  * 終了コード: 0 = 完走（判定待ちが残っていても 0）/ 1 = record の入力が不正 / 2 = 検査不成立（走査 0 枚・画素検査の失敗が支配的）
  */
-import { readdirSync, readFileSync } from 'node:fs';
-import { join, relative, resolve, sep } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { join, resolve, sep } from 'node:path';
 import sharp from 'sharp';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -32,7 +32,7 @@ import { isCliEntry } from './lib/cli-run.mjs';
 import { analyzeImage } from './check-figure-crop-integrity.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import {
-  LEDGER_FILE, emptyLedger, fileSha, buildQueue, articleInfo, referencedExt, servedExt,
+  LEDGER_FILE, emptyLedger, fileSha, buildQueue, listFigureKeys, describeFigure,
   syncImageDims, validateVerdict,
 } from './lib/figure-review.mjs';
 
@@ -40,39 +40,8 @@ const ROOT = resolve(import.meta.dirname, '..');
 const PROVENANCE_FILE = '.claude/state/figure-provenance.json';
 const toPosix = (p) => p.split(sep).join('/');
 
-function listFigureBases() {
-  const bases = new Set();
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const full = join(dir, e.name);
-      if (e.isDirectory()) { walk(full); continue; }
-      if (!/\.(png|webp|jpg|jpeg)$/i.test(e.name) || /^ogp\./i.test(e.name)) continue;
-      const rel = toPosix(relative(SITE_CONTENT_ROOT, full));
-      if (!/\/img\/[^/]+$/.test(rel)) continue;
-      bases.add(rel.replace(/\.(png|webp|jpg|jpeg)$/i, ''));
-    }
-  };
-  walk(SITE_CONTENT_ROOT);
-  return [...bases].sort();
-}
-
-/** 図 1 枚の基本情報（公開記事で使用中か・配信している画像・ハッシュ） */
-function describe(figKey, cache) {
-  const parts = figKey.split('/');
-  const slug = parts.slice(0, 2).join('/');
-  const name = parts[parts.length - 1];
-  const art = articleInfo(SITE_CONTENT_ROOT, slug, cache);
-  const refExt = art.found ? referencedExt(art.content, name) : null;
-  const baseAbs = join(SITE_CONTENT_ROOT, figKey);
-  const ext = servedExt(baseAbs, refExt);
-  const abs = ext ? `${baseAbs}.${ext}` : null;
-  return {
-    figKey, name, ext, abs,
-    img: abs ? toPosix(relative(ROOT, abs)) : null,
-    mdx: art.path ? toPosix(relative(ROOT, art.path)) : null,
-    live: Boolean(art.published && refExt && refExt !== 'svg' && abs),
-  };
-}
+const listFigureBases = () => listFigureKeys(SITE_CONTENT_ROOT);
+const describe = (figKey, cache) => describeFigure({ siteRoot: SITE_CONTENT_ROOT, repoRoot: ROOT, figKey, cache });
 
 /** manual_needs の目視判定（figKey → needs）。台帳に記録が無い図だけに効く */
 function trustedManual(figs) {
@@ -112,7 +81,8 @@ async function collect() {
   const live = figs.filter((f) => f.live);
   const flaggedNoLedger = live.filter((f) => !ledger.figures?.[f.figKey] || ledger.figures[f.figKey].sha !== f.sha);
   const trusted = trustedManual(flaggedNoLedger);
-  const queue = buildQueue({ figures: live, ledger, trusted });
+  const minLongSide = readJsonIf(ROOT, datasetPath('config.image-limits'))?.figureMinLongSide ?? 0;
+  const queue = buildQueue({ figures: live, ledger, trusted, minLongSide });
   // 試験ページでない記事で、原典が流用不可（figureReuse: false）の書籍しか無い図は切り出し直さない（DN-0563）
   queue.reuseForbidden = [];
   queue.reextract = queue.reextract.filter((f) => {
@@ -175,7 +145,7 @@ function wiringOf(f) {
 /** 記録済みの出典（config/figure-sources.json の provenance）。vault: は手元のマウント先の絶対パスへ開く */
 function recordedSourceOf(figKey) {
   const src = readJsonIf(ROOT, datasetPath('config.figure-sources'))?.provenance?.[figKey];
-  if (!src) return null;
+  if (!src?.pdf) return null; // AI 生成・CC 写真などの出所（kind）は切り出し直しの原典ではない
   const root = resolveVaultRoot().root;
   const pdf = src.pdf.startsWith('vault:') && root ? `${root}/${src.pdf.slice('vault:'.length)}` : src.pdf;
   return { pdf, page: src.page ?? null, dpi: src.dpi ?? null };
@@ -269,8 +239,8 @@ async function runRecord(file) {
   let mdxUpdated = 0;
   for (const { v, f } of described) {
     const action = v.action ?? 'none';
+    const { width, height } = await sharp(f.abs).metadata();
     if (action !== 'none' && f.mdx) {
-      const { width, height } = await sharp(f.abs).metadata();
       const abs = join(ROOT, f.mdx);
       const { raw, eol } = readMdxFile(abs);
       const r = syncImageDims(raw, f.name, width, height);
@@ -278,11 +248,13 @@ async function runRecord(file) {
     }
     ledger.figures[v.figKey] = {
       sha: fileSha(f.abs), verdict: v.verdict, action, reason: v.reason.trim(),
+      px: [width, height], // 判定したときの画素数（LOW_RES を見た判定の印）
       reviewedAt: new Date().toISOString(),
     };
     if (v.source) {
       const { pdf, page, dpi } = v.source;
-      sourcesDoc.provenance[v.figKey] = { pdf: portablePath(pdf), ...(page >= 1 ? { page } : {}), ...(Number.isInteger(dpi) ? { dpi } : {}) };
+      const keepKind = sourcesDoc.provenance[v.figKey]?.kind === 'exam-official' ? { kind: 'exam-official' } : {}; // PDF から切り出した図は pdf-crop（kind 省略）か試験の図
+      sourcesDoc.provenance[v.figKey] = { ...keepKind, pdf: portablePath(pdf), ...(page >= 1 ? { page } : {}), ...(Number.isInteger(dpi) ? { dpi } : {}) };
       provenanceUpdated++;
     }
   }

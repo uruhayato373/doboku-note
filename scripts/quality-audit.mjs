@@ -183,6 +183,7 @@ const CHECKS = [
   { id: 'kdp-category-coverage', npm: 'check-kdp-category-coverage', timeout: 30_000, ci: true, note: '新刊(buildSpec持ち)の id 接頭辞が categoryAssign に明示登録されているか（2026-08-28・g-01実測: 未登録は警告なく既定「技術士」へ入稿される）' },
   { id: 'kindle-prices', npm: 'check-kindle-prices', timeout: 30_000, ci: true, note: 'spec.price と catalog.priceJpy の一致・royalty 0.7 の本が 70% 帯（¥250〜¥1,650）内か（2026-09-23: 価格改定で片側だけ直すと --set-price が旧値へ戻す／台帳が実売と食い違う）' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
+  { id: 'image-origin', npm: 'check-image-origin', timeout: 180_000, ci: true, note: '公開記事のラスター画像すべてに出所（provenance の kind）があり、写真（AI 生成画像のみ）は 4:3・仕様の指示から生成・実物どおりの判定まで済んでいるか（2026-10-07・DN-0574/0578: 出所なし 56 枚・CC 実写の AI 描き直しで実在しない器械）' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
   { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },

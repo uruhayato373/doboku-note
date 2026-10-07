@@ -16,8 +16,8 @@
  *   source-unavailable … 元 PDF から切り出し直そうとしたが原典が手元に無い（入手待ち・ループの対象外）
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 
 export const LEDGER_FILE = '.claude/state/quality/figure-review-ledger.json';
@@ -30,6 +30,7 @@ export const SIGNAL_PRIORITY = {
   recrop: 1, // OCR: 問題文・選択肢の写り込み
   STRAY_SLIVER: 1, // 画素: 隣の図の切れ端
   EDGE_CUT: 2, // 画素: 縁で線が切れている疑い
+  LOW_RES: 2, // 画素数: 長辺が image-limits の figureMinLongSide 未満（スマホ 2x 表示でぼやける・DN-0577）
   'recrop-review': 3, // OCR: 句点あり（凡例の可能性）
   STRAY_LABEL: 3, // 画素: 縁の離れ島（見出し・軸・写り込みのいずれか）
 };
@@ -68,10 +69,14 @@ export function needsFromVerdict(verdict) {
   return { ok: 'ok', 'needs-source': 'reextract', 'source-unavailable': 'rescan-need-source' }[verdict] ?? null;
 }
 
-/** 1 枚の兆候。needs は provenance（OCR）、violations は画素検査（analyzeImage）の結果。写真（entropy ≥ PHOTO_ENTROPY）は画素の兆候を使わない */
-export function signalsOf({ needs = null, violations = [], entropy = 0 }) {
+/**
+ * 1 枚の兆候。needs は provenance（OCR）、violations は画素検査（analyzeImage）の結果。写真（entropy ≥ PHOTO_ENTROPY）は画素の兆候を使わない。
+ * imgSize と minLongSide を渡すと、長辺が minLongSide 未満の図に LOW_RES を付ける（2026-10-07: 260×280 の図が「sharp」判定で素通りしていた）。
+ */
+export function signalsOf({ needs = null, violations = [], entropy = 0, imgSize = null, minLongSide = 0 }) {
   const out = [];
   if (needs && SIGNAL_PRIORITY[needs]) out.push({ signal: needs, detail: 'OCR（figure-text-audit）' });
+  if (imgSize && minLongSide && Math.max(...imgSize) < minLongSide) out.push({ signal: 'LOW_RES', detail: `長辺 ${Math.max(...imgSize)}px < ${minLongSide}px（${imgSize.join('×')}）` });
   if (entropy >= PHOTO_ENTROPY) return out;
   for (const v of violations) {
     if (SIGNAL_PRIORITY[v.rule]) out.push({ signal: v.rule, side: v.side, detail: v.detail, ...(v.edgeFrac != null ? { edgeFrac: v.edgeFrac } : {}) });
@@ -91,7 +96,7 @@ export function priorityOf(signals) {
  * figures: [{ figKey, sha, live, needs, violations }]（live = 公開記事が本文で参照している）
  * trusted: Map<figKey, needs> … 画像が変わっていない手動判定（figure-sources.json の manual_needs）
  */
-export function buildQueue({ figures, ledger, trusted = new Map() }) {
+export function buildQueue({ figures, ledger, trusted = new Map(), minLongSide = 0 }) {
   const review = [];
   const reextract = [];
   const counts = {
@@ -102,10 +107,12 @@ export function buildQueue({ figures, ledger, trusted = new Map() }) {
   for (const f of figures) {
     if (!f.live) continue;
     counts.live++;
-    const signals = signalsOf(f);
+    const signals = signalsOf({ ...f, minLongSide });
     if (signals.length) counts.flagged++;
     const entry = validEntry(ledger, f.figKey, f.sha);
-    if (entry) {
+    // 画素数（px）を残していない判定は LOW_RES を見ていない（2026-10-07 より前の記録）→ 低解像度なら判定し直す
+    const lowResUnseen = entry?.verdict === 'ok' && !entry.px && signals.some((s) => s.signal === 'LOW_RES');
+    if (entry && !lowResUnseen) {
       if (entry.verdict === 'ok') counts.ok++;
       else if (entry.verdict === 'needs-source') { counts.needsSource++; reextract.push({ ...f, signals, entry }); }
       else counts.sourceUnavailable++;
@@ -114,7 +121,8 @@ export function buildQueue({ figures, ledger, trusted = new Map() }) {
     if (ledger?.figures?.[f.figKey]) counts.stale++; // 記録はあるが画像が変わった
     if (!signals.length) continue;
     const manual = trusted.get(f.figKey);
-    if (manual) {
+    // manual_needs の ok は LOW_RES より前の目視（画素数を見ていない）→ 低解像度なら判定し直す
+    if (manual && !(manual === 'ok' && signals.some((s) => s.signal === 'LOW_RES'))) {
       if (manual === 'rescan-need-source') counts.sourceUnavailable++;
       else counts.trusted++;
       continue;
@@ -161,6 +169,43 @@ export function referencedExt(content, name) {
 export function servedExt(baseAbs, refExt, exists = existsSync) {
   if (refExt && IMG_EXT.includes(refExt) && exists(`${baseAbs}.${refExt}`)) return refExt;
   return IMG_EXT.find((e) => exists(`${baseAbs}.${e}`)) ?? null;
+}
+
+const toPosix = (p) => p.split(sep).join('/');
+
+/** 記事の img/ にあるラスター画像（png/webp/jpg）の図キー（資格/記事/img/名前・拡張子なし）。ogp は除く */
+export function listFigureKeys(siteRoot) {
+  const bases = new Set();
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const full = join(dir, e.name);
+      if (e.isDirectory()) { walk(full); continue; }
+      if (!/\.(png|webp|jpg|jpeg)$/i.test(e.name) || /^ogp\./i.test(e.name)) continue;
+      const rel = toPosix(relative(siteRoot, full));
+      if (!/\/img\/[^/]+$/.test(rel)) continue;
+      bases.add(rel.replace(/\.(png|webp|jpg|jpeg)$/i, ''));
+    }
+  };
+  walk(siteRoot);
+  return [...bases].sort();
+}
+
+/** 図 1 枚の基本情報（公開記事で使用中か・配信している画像）。live = 公開記事の本文がラスター画像として参照している */
+export function describeFigure({ siteRoot, repoRoot, figKey, cache = new Map() }) {
+  const parts = figKey.split('/');
+  const slug = parts.slice(0, 2).join('/');
+  const name = parts[parts.length - 1];
+  const art = articleInfo(siteRoot, slug, cache);
+  const refExt = art.found ? referencedExt(art.content, name) : null;
+  const baseAbs = join(siteRoot, figKey);
+  const ext = servedExt(baseAbs, refExt);
+  const abs = ext ? `${baseAbs}.${ext}` : null;
+  return {
+    figKey, name, ext, abs, slug,
+    img: abs ? toPosix(relative(repoRoot, abs)) : null,
+    mdx: art.path ? toPosix(relative(repoRoot, art.path)) : null,
+    live: Boolean(art.published && refExt && refExt !== 'svg' && abs),
+  };
 }
 
 /** MDX 本文で name の <img>/<ArticleImage> の width/height を w×h に合わせる。変えた数と新しい本文を返す */

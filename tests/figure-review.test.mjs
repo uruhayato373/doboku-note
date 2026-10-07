@@ -131,3 +131,18 @@ test('画像のハッシュ: 中身が変われば変わる', () => {
   assert.notEqual(fileSha(p), a);
   assert.equal(a.length, 16);
 });
+
+test('LOW_RES: 画素数を見ていない古い ok（台帳・manual_needs）は低解像度なら判定し直す', () => {
+  const small = { figKey: 'c/a/img/small', sha: 's1', live: true, imgSize: [298, 200], violations: [] };
+  const big = { figKey: 'c/a/img/big', sha: 's2', live: true, imgSize: [900, 600], violations: [] };
+  const manual = { figKey: 'c/a/img/manual', sha: 's3', live: true, imgSize: [374, 279], violations: [] };
+  const ledger = { figures: {
+    'c/a/img/small': { sha: 's1', verdict: 'ok' },
+    'c/a/img/big': { sha: 's2', verdict: 'ok' },
+  } };
+  const q = buildQueue({ figures: [small, big, manual], ledger, trusted: new Map([['c/a/img/manual', 'ok']]), minLongSide: 500 });
+  assert.deepEqual(q.review.map((f) => f.figKey).sort(), ['c/a/img/manual', 'c/a/img/small']);
+  ledger.figures['c/a/img/small'].px = [298, 200]; // LOW_RES を見たうえでの ok
+  const q2 = buildQueue({ figures: [small], ledger, minLongSide: 500 });
+  assert.equal(q2.review.length, 0);
+});

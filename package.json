@@ -151,6 +151,8 @@
     "check-experiment-due": "node scripts/check-experiment-due.mjs",
     "check-figure-canvas": "node scripts/check-figure-canvas.mjs",
     "check-figure-crop": "node scripts/check-figure-crop-integrity.mjs",
+    "check-image-origin": "node scripts/check-image-origin.mjs",
+    "gen-article-photo": "node scripts/gen-article-photo.mjs",
     "check-figure-crop:ci": "node scripts/check-figure-crop-integrity.mjs --ci",
     "check-figure-embed-dims": "node scripts/check-figure-embed-dims.mjs",
     "check-ga4-dimensions": "node scripts/check-ga4-custom-dimensions.mjs",

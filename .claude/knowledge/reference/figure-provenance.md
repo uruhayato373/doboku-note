@@ -18,6 +18,7 @@ title: 図 provenance システム（出所・品質・次アクションの恒�
 | ②' クロップ検査（機械・画素ジオメトリ） | `.claude/state/quality/figure-crop-report.json` | ②の OCR が見ない**画素**の不良: 隣接図の切れ端の写り込み(STRAY_SLIVER)・縁接触分類(EDGE_*)。②で `clean` でも縁の写り込みを捕捉（例 r07-a-fig-04） | `npm run check-figure-crop`。CI は STRAY_SLIVER の新規のみ gate（baseline ratchet）。詳細 → [image-policy.md](image-policy.md)「図クロップの機械検査」 |
 | ③ provenance マニフェスト（機械・join） | `.claude/state/figure-provenance.json` | ①②＋命名(年度)＋公開/掲載＋④ を join し、各図の **needs（次アクション）** を算出 | `npm run build-figure-provenance` |
 | ④ 判定台帳（目視・ハッシュつき） | `.claude/state/quality/figure-review-ledger.json` | `/figure-quality-loop` が目で判定した結果（ok / needs-source / source-unavailable）と理由を**今の画像の sha256** と一緒に記録。sha が一致する記録だけが効く＝画像を差し替えると自動で再判定に戻る。出典は持たない（①の `provenance` が正本・2026-10-07 に移した） | `npm run figure-review-queue -- record <verdicts.json>`（手で編集しない） |
+| ⑤ 出所の種別と写真の実績（2026-10-07） | ①の `provenance` の `kind`（`pdf-crop`・`exam-official`・`ai-generated`・`public-data`・`own-book-scan`）＋ `.claude/state/quality/ai-image-review-ledger.json`（写真＝AI 生成画像の sha・どの指示から作ったか＝promptSha・実物どおりかの判定） | 公開記事のラスター画像すべての出所と、写真の状態（未生成・未監査・不合格・合格）。`npm run check-image-origin` が CI で出所なし・実写・4:3 でない・未監査を止める。写真の作り方は [image-policy.md](image-policy.md)「写真は AI で生成する」 | `npm run gen-article-photo`（生成・配置・実績）／`check-image-origin record-ai`（判定）。手で編集しない |
 
 **一括更新**: `npm run audit-figures`（② → ③ を順に再生成）。図を直したら実行すると provenance JSON と `--list <needs>` の出力が最新化する。②'（クロップ検査）は独立ゲートで `check-figure-crop` を別途実行（②の OCR とは検出面が直交＝内容 vs 画素）。
 

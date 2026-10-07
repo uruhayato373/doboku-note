@@ -20,6 +20,23 @@ export function isExamArticle(articleDir) {
   return OFFICIAL_QUESTION_PAGE.test(`content/site/${articleDir}/article.mdx`);
 }
 
+/**
+ * 本文の解答・解説（<details>…</details>。content-authoring の過去問の書き方）の中で参照している画像の名前（拡張子なし）。
+ * 試験ページでも解説の図は試験の図ではない（問題解説集・テキストの図）。試験ページの免除は設問側の図だけに効かせる（2026-10-07・DN-0574）。
+ */
+export function figuresInExplanation(raw) {
+  const names = new Set();
+  let depth = 0;
+  const re = /<details\b|<\/details>|\/img\/([^/"'\s)]+)\.(?:webp|png|jpg|jpeg)\b/g;
+  let m;
+  while ((m = re.exec(raw))) {
+    if (m[0].startsWith('<details')) depth++;
+    else if (m[0] === '</details>') depth = Math.max(0, depth - 1);
+    else if (depth > 0) names.add(m[1]);
+  }
+  return names;
+}
+
 /** frontmatter の sources（"id#詳細" を含む）から id だけを取り出す。 */
 export function sourceIdsOf(sources) {
   return (Array.isArray(sources) ? sources : []).filter((s) => typeof s === 'string').map((s) => s.split('#')[0].trim());
@@ -48,18 +65,18 @@ export function refForVaultPath(pdfPath, cfg) {
  *   provenance は config/figure-sources.json の図ごとの出典。articleSources は記事ディレクトリ → sources の id（記事が無ければ無い）
  * @returns {{ checked: number, findings: Array<{ kind: string, figKey: string, articleDir: string, refId: string, detail: string }> }}
  */
-export function figureSourceFindings({ provenance, cfg, articleSources }) {
+export function figureSourceFindings({ provenance, cfg, articleSources, explanationFigs = new Set() }) {
   const findings = [];
   let checked = 0;
   for (const [figKey, src] of Object.entries(provenance || {})) {
-    const ref = refForVaultPath(src?.pdf, cfg);
+    const ref = src?.ref ? cfg.sources.find((s) => s.id === src.ref) ?? null : refForVaultPath(src?.pdf, cfg); // ref = 自社書籍スキャンの参考文献 id
     if (!ref) continue;
     const articleDir = figKey.split('/img/')[0];
     const declared = articleSources.get(articleDir);
     if (declared == null) continue; // 記事が無い（削除済み）図は対象外
     checked++;
     const rule = cfg.classes?.[ref.class];
-    if (isExamArticle(articleDir)) {
+    if (isExamArticle(articleDir) && !explanationFigs.has(figKey)) { // 解説欄の図は試験の図でない＝下の流用の規則を当てる
       const examDeclared = declared.some((id) => cfg.sources.find((s) => s.id === id)?.class === 'exam-official');
       if (ref.class !== 'exam-official' && !examDeclared) {
         findings.push({ kind: 'figure-source-exam-undeclared', figKey, articleDir, refId: ref.id,
@@ -73,7 +90,7 @@ export function figureSourceFindings({ provenance, cfg, articleSources }) {
     }
     if (rule?.figureReuse === false) {
       findings.push({ kind: 'figure-reuse-forbidden', figKey, articleDir, refId: ref.id,
-        detail: `${ref.id}（${ref.class}）は図の流用不可なのに、試験ページでない記事へ図を切り出した` });
+        detail: `${ref.id}（${ref.class}）は図の流用不可なのに、試験ページでない記事か試験ページの解説欄へ図を切り出した` });
     }
   }
   return { checked, findings };
