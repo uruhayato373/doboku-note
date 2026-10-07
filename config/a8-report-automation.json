@@ -50,6 +50,15 @@
         "siteScope": "account-wide",
         "_note": "口座横断。月次トレンドの参考値（doboku 単独の月次は取れない＝期間フォーム対応後に site-summary を月ごとに取る）"
       },
+      "result-detail": {
+        "label": "成果別",
+        "path": "/report/result",
+        "siteScope": "result-rows",
+        "periodQuery": true,
+        "emptyOk": true,
+        "noDataText": "指定された条件で表示できるレポートデータがありません",
+        "_note": "成果 0 件の期間は A8 が CSV ボタンを出さず noDataText だけを表示する（2026-10-07 実機確認・9 月）。1 成果 1 行（クリック日時・申込日時・状態・サイト・コンバージョンリファラ）。**期間は URL の start_date / end_date で指定できる**（2026-10-07 実機確認・ファイル名 result_YYYYMMDD-YYYYMMDD_*.csv）。サイト列で行ごとに doboku-note 分だけ残す。リファラはクリックしたページ（広告リンクのリファラ方針を直した 2026-10-07 のデプロイ以降はページの URL・それ以前はドメインだけ）。成果 0 件の月は 0 行で正常"
+      },
       "period-daily": {
         "label": "期間別（日別）",
         "path": "/report/period/daily",

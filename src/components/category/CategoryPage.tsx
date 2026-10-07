@@ -196,18 +196,25 @@ export default async function CategoryPage({
               ) : slug === 'civil-practice' ? (
                 <PracticeView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : (
-                groups.map(group => (
-                  <DocSection key={group.title} group={group} />
-                ))
+                <>
+                  {groups.map(group => (
+                    <DocSection key={group.title} group={group} />
+                  ))}
+                  {/* 専用ビューの無い資格（建築など）もモバイルの転職枠を出す（2026-10-07・EXP-018） */}
+                  {mobileCareerAds}
+                </>
               )}
             </div>
           ) : (
             /* Default flat grid for other categories */
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {docs.map(doc => (
-                <DocCard key={doc.slug} doc={doc} />
-              ))}
-            </div>
+            <>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {docs.map(doc => (
+                  <DocCard key={doc.slug} doc={doc} />
+                ))}
+              </div>
+              {mobileCareerAds}
+            </>
           )}
             {popularDocs.length > 0 && (
               <div className="mt-10"><PopularShowcase items={popularDocs.slice(0, 2)} /></div>

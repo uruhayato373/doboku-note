@@ -24,6 +24,7 @@ import {
 } from '@/lib/standards-articles';
 import { getTopicsForStandardDocument } from '@/lib/topics';
 import { buildStandardDocumentStructuredData } from '@/lib/standards-structured-data';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 type Params = { agency: string; document: string };
 
@@ -171,6 +172,8 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         <div className="mt-6 zenn-desktop:hidden">
           <StandardsNavigation agencyId={agency} currentDocument={entry} variant="mobile" />
         </div>
+        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
+        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
         <StandardsAttribution document={entry} />
       </TwoColumnShell>
     </PageShell>

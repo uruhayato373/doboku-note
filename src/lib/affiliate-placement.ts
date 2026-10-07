@@ -12,7 +12,7 @@ import { choosePixelCarrier, resolveSlots } from './affiliate-placement-core.mjs
 import { PROGRAM_ASSETS, type CareerArticleEndCard, type SidebarAdCreative } from '@/config/affiliate-creatives';
 import type { CareerNeed } from '@/config/career-pathways';
 
-type PlacementPageKind = 'doc' | 'category' | 'tool' | 'standards' | 'home';
+type PlacementPageKind = 'doc' | 'category' | 'tool' | 'standards' | 'standards-list' | 'topic' | 'home';
 export type PlacementPage = {
   readonly pageKind: PlacementPageKind;
   readonly category?: string | null;

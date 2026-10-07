@@ -29,7 +29,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
-import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
+import { REFERRER_FULL_SINCE, resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
 import { slugFromKey } from "../../scripts/lib/url-normalization.mjs";
 import { matchesPage } from "../../src/lib/affiliate-placement-core.mjs";
@@ -187,7 +187,7 @@ export function joinRulesToWindow(rules, win, byPlacement, a8Records) {
 
 /**
  * GA4 のページパス → 配置ルールの照合に使うページの文脈（affiliate-placement-core の matchesPage が読む形）。
- * 記事は doc-meta-index のカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準は standards、トップは home。分からないページは null。
+ * 記事は doc-meta-index のカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準の章は standards・章以外は standards-list、トピックは topic、トップは home。分からないページは null。
  * @param {string} path GA4 の pagePath
  * @param {{docs: Record<string, {category?: string, tags?: string[]}>}} index doc-meta-index
  * @param {(path: string) => string|null} slugOf 公開パス → 記事 slug（scripts/lib/url-normalization.mjs の slugFromKey）
@@ -201,12 +201,49 @@ export function pageContextOf(path, index, slugOf) {
   if (exam) return { pageKind: "category", category: exam[1], isCareerDoc: false };
   if (p === "/practice") return { pageKind: "category", category: "civil-practice", isCareerDoc: false };
   if (p.startsWith("/tools/")) return { pageKind: "tool", category: null, isCareerDoc: false };
-  if (p.startsWith("/standards/")) return { pageKind: "standards", category: null, isCareerDoc: false };
+  if (/^\/standards\/[^/]+\/[^/]+\/chapters\//.test(p)) return { pageKind: "standards", category: null, isCareerDoc: false };
+  if (p === "/standards" || p.startsWith("/standards/")) return { pageKind: "standards-list", category: null, isCareerDoc: false };
+  if (p === "/topics" || p.startsWith("/topics/")) return { pageKind: "topic", category: null, isCareerDoc: false };
+  if (p === "/tools") return { pageKind: "tool", category: null, isCareerDoc: false };
   if (p === "/") return { pageKind: "home", category: null, isCareerDoc: false };
   return null;
 }
 
 const jstDayStart = (d) => Date.parse(`${d}T00:00:00+09:00`);
+
+/**
+ * A8 の成果別（report-log の conversions・1 成果 1 行）を、クリックしたページと案件で配置ルールへ寄せる（2026-10-07〜）。
+ * A8 はページまでしか分からず面は分からないので、そのページ・案件・クリック時刻で有効だったルールを候補として全部並べる
+ * （1 つなら面まで決まる）。page が null（ページの URL を渡す前のクリック）は候補を出さない。
+ * @param {object[]} conversions
+ * @param {object[]} rules 配置ルール
+ * @param {(path: string) => object|null} pageCtx
+ * @param {{matchesPage: Function}} core
+ */
+export function attributeConversions(conversions, rules, pageCtx, { matchesPage }) {
+  return (conversions ?? [])
+    .map((c) => {
+      const ctx = c.page ? pageCtx(c.page) : null;
+      const at = Date.parse(c.clickedAt);
+      const candidates = ctx
+        ? rules.filter((r) => r.program === c.program && matchesPage(r, ctx) && Date.parse(r.period.from) <= at && (!r.period.until || Date.parse(r.period.until) > at)).map((r) => ({ ruleId: r.id, slot: r.slot }))
+        : [];
+      return {
+        clickedAt: c.clickedAt,
+        program: c.program,
+        status: c.status,
+        grossRevenueYen: c.grossRevenueYen,
+        revenueYen: c.revenueYen,
+        device: c.device,
+        site: c.site,
+        page: c.page,
+        pageKnown: c.page != null,
+        candidates,
+        ruleId: candidates.length === 1 ? candidates[0].ruleId : null,
+      };
+    })
+    .sort((x, y) => y.clickedAt.localeCompare(x.clickedAt));
+}
 
 /**
  * GA4 のページ × ラベル × 面（クリックは日付も）を配置ルールへ割り当てる（ルール単位の結果・2026-10-07〜）。
@@ -720,6 +757,16 @@ function main() {
     };
   }
 
+  // A8 の成果別（1 成果 1 行）をページと案件で配置ルールへ寄せる。成果の出どころの真実源（GA4 の clickLog は取りこぼす）
+  {
+    const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+    const reportLog = inputs.a8 ? readJson(inputs.a8) : {};
+    byRuleSection.conversions = attributeConversions(reportLog.conversions ?? [], placementRules, (path) => pageContextOf(path, index, slugFromKey), { matchesPage });
+    // 広告リンクがページの URL を渡すようになった後の成果でページが取れないのは、リファラ方針の退行か他サイト経由
+    const lost = byRuleSection.conversions.filter((c) => !c.pageKnown && Date.parse(c.clickedAt) >= Date.parse(REFERRER_FULL_SINCE));
+    if (lost.length > 0) warnings.push(`A8 の成果 ${lost.length} 件でクリックしたページが取れない（${REFERRER_FULL_SINCE} 以降のクリック）。広告リンクの referrerPolicy が外れていないか（tests/affiliate-link-referrer.test.mjs）・リファラが他サイトでないかを見る`);
+  }
+
   const result = {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
@@ -884,6 +931,12 @@ function renderMarkdown(r, cfg) {
   }
 
   L.push("### 5. A8 成果", "");
+  const conv = r.funnel.affiliateCta.conversions ?? [];
+  if (conv.length) {
+    L.push("成果の出どころ（A8 の成果別・1 成果 1 行。ページはクリックしたページ）", "", "| クリック | 案件 | 状態 | 発生額 | ページ | 候補ルール |", "|---|---|---|---|---|---|");
+    for (const c of conv) L.push(`| ${c.clickedAt.slice(0, 16).replace("T", " ")} | ${c.program ?? "—"} | ${c.status} | ¥${c.grossRevenueYen} | ${c.page ?? "（不明・ページの URL を渡す前）"} | ${c.candidates.map((x) => `${x.ruleId}（${x.slot}）`).join("・") || "—"} |`);
+    L.push("");
+  }
   const w = r.funnel.a8.window;
   const a = r.funnel.a8.allTime;
   L.push(

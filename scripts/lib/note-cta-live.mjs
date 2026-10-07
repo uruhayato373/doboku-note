@@ -59,11 +59,17 @@ function linkKey(url) {
  * @returns {{ state: 'ok'|'missing'|'order'|'position', missing: string[] }}
  */
 export function classifyCtaLive(liveHtml, expected) {
-  const positions = expected.links.map((u) => ({ u, at: liveHtml.indexOf(linkKey(u)) }));
-  const missing = positions.filter((p) => p.at < 0).map((p) => p.u);
+  const missing = expected.links.filter((u) => liveHtml.indexOf(linkKey(u)) < 0);
   if (missing.length) return { state: 'missing', missing };
-  for (let i = 1; i < positions.length; i++) {
-    if (positions[i].at < positions[i - 1].at) return { state: 'order', missing: [] };
+  // 原稿の順に「前のリンクより後ろ」で探す。同じリンク先が導線より前の別の場所（冒頭の紹介文など）にもあると、
+  // 最初の出現どうしを比べて「順番違い」と誤判定していた（2026-10-07・RCCM の 2 本）。
+  const positions = [];
+  let from = 0;
+  for (const u of expected.links) {
+    const at = liveHtml.indexOf(linkKey(u), from);
+    if (at < 0) return { state: 'order', missing: [] };
+    positions.push({ u, at });
+    from = at + 1;
   }
   const h2 = liveHtml.search(/<h2[\s>]/);
   if (expected.beforeFirstHeading && h2 >= 0 && positions[0] && positions[0].at > h2) return { state: 'position', missing: [] };

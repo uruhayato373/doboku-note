@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T10:41:52.177Z",
+  "updated_at": "2026-10-07T11:08:02.348Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1918,6 +1918,56 @@
         }
       ],
       "started_at": "2026-10-07T10:35:24.000Z"
+    },
+    {
+      "id": "EXP-018",
+      "title": "転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サイト全体のクリックと発生が増えるかを見る",
+      "hypothesis": "2026-10-07 の本番実測で、1,622 ページのうち転職広告が無いのは 272 ページ（公的基準の章以外 218・トピック 16・測量士・舗装・建築 19・ツール 11・運営ページ 8）。運営ページを除く 264 ページは土木の実務者が読む面で、ビルドジョブ（建設業界特化）の対象に合う。出すとサイト全体のクリックと発生が増える",
+      "target_metric": "配置ルール別のクリック（report-career-funnel の byRule・PL-0035〜0041）と、A8 の成果別（report-log の conversions・クリックしたページ）",
+      "target_delta": "面ごとに、表示 1,000 以上・クリック 0 が 2 窓続いたら閉じる（面の問題）。案件の勝敗は確定 3 件まで決めない（affiliate-operations.md §6.5）",
+      "baseline": {
+        "measured_at": "2026-10-07",
+        "note": "本番 1,622 ページ中、転職広告ありは 1,350。新しい面（PL-0035〜0041）の対象ページは表示・クリックとも 0（広告が無かった）",
+        "source": "本番の全ページ取得（2026-10-07・sitemap.xml）"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "施工管理の経験を生かせる職場を探したい（資格を取った先のキャリアの悩み）",
+        "verifiedGap": "公的基準の章以外・トピック・実務ツール・測量士・舗装・建築に転職の導線が無かった（2026-10-07 の本番実測）",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:affiliate_cta_click",
+        "scope": {
+          "pagePrefix": "/standards"
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 0,
+        "direction": "increase",
+        "minVolume": 10,
+        "note": "新しい面の最大は公的基準の章以外（218 ページ）。ほかの面（トピック・ツール・測量士・舗装・建築）は byRule の PL-0035〜0041 で読む。anchor は本番デプロイ日"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-07T11:08:02.348Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": null,
+      "pending_user_actions": [],
+      "actions": [
+        "2026-10-07: 配置ルール PL-0035〜PL-0041 を追加（面 standards-list-end・topic-end・tool-end、測量士・舗装・建築の記事と資格トップ）。EXP-017 のルールとは面・カテゴリを分け、数字を混ぜない（運営者の指示）"
+      ],
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-07T11:08:02.348Z",
+          "event": "propose",
+          "note": "運営者の指示で残りの面へ展開（2026-10-07）"
+        }
+      ]
     }
   ]
 }

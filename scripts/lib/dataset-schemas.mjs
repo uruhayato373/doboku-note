@@ -271,6 +271,31 @@ export const A8ReportLog = z
     programPeriod: z
       .array(z.object({ ...a8Program, program: z.string().nullable().describe('提携案件の id（台帳 affiliate.catalog の programs のキー）。対応が無いものは null'), accountWide: z.literal(true), ...a8Amounts }).strict())
       .describe('口座全体のプログラム別。案件に対応した行（全期間）と、当期の対応の無い行（他サイト分）だけ。月次の成果はここの単月の期間から導く'),
+    conversions: z
+      .array(
+        z
+          .object({
+            orderId: z.string().min(1),
+            ...a8Program,
+            program: z.string().nullable().describe('提携案件の id。対応が無いものは null'),
+            status: z.string().describe('A8 のステータス（未確定・確定・否認）'),
+            kind: z.string().nullable(),
+            clickedAt: z.string().describe('クリック日時（JST・ISO）'),
+            orderedAt: z.string().nullable().describe('申込日時（JST・ISO）'),
+            confirmedAt: z.string().nullable().describe('確定日時（JST・ISO）'),
+            grossRevenueYen: yen('発生金額'),
+            revenueYen: yen('確定金額'),
+            materialId: z.string().nullable(),
+            device: z.string().nullable(),
+            site: z.enum(['doboku-note', 'doboku-note（note）']),
+            referrer: z.string().nullable().describe('コンバージョンリファラ（クリックしたページ）'),
+            page: z.string().nullable().describe('自サイトのページの path。広告リンクがページの URL を渡す前（2026-10-07 20:00 JST より前）のクリックは null'),
+            fetchedAt: utcTime('取得時刻'),
+          })
+          .strict(),
+      )
+      .optional()
+      .describe('成果別（1 成果 1 行・このサイトと副サイトだけ）。どのページの広告から成果が出たかの真実源（2026-10-07〜）'),
     crossCheck: z.looseObject({ comparable: z.boolean(), period: z.string() }).describe('サイト実績とプログラム別の突き合わせ'),
     notAttributable: z.array(z.unknown()).describe('対象期間が単月でなく月次の成果に写せなかった行'),
     missingProgramCandidates: z.array(z.object({ ...a8Program, clicks: count('クリック数'), grossRevenueYen: yen('発生報酬') }).strict()).describe('取りこぼしの疑い（サイト別を説明しきれないときだけ・他サイト分を除いた候補）'),

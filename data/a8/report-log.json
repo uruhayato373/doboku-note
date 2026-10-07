@@ -1,10 +1,10 @@
 {
   "schemaVersion": 3,
   "_comment": "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
-  "_siteScopeNote": "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。",
+  "_siteScopeNote": "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。conversions は成果別（1 成果 1 行・サイト列で分離済み）で、page がクリックしたページ（2026-10-07 20:00 JST 以降のクリック）。",
   "site": "doboku-note",
-  "updatedAt": "2026-10-07T03:18:14.002Z",
-  "lastRun": "2026-10-07T03-17-38Z",
+  "updatedAt": "2026-10-07T11:01:21.325Z",
+  "lastRun": "2026-10-07T11-01-13Z",
   "period": {
     "raw": "202610-202610",
     "start": "2026-10",
@@ -2235,5 +2235,26 @@
   },
   "notAttributable": [],
   "missingProgramCandidates": [],
-  "unmappedCount": 54
+  "unmappedCount": 54,
+  "conversions": [
+    {
+      "orderId": "261005482101",
+      "programId": "s00000024757004",
+      "programRaw": "ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談",
+      "program": "buildjob",
+      "status": "未確定",
+      "kind": "掲載広告",
+      "clickedAt": "2026-10-05T10:37:13+09:00",
+      "orderedAt": "2026-10-05T10:38:03+09:00",
+      "confirmedAt": null,
+      "grossRevenueYen": 13534,
+      "revenueYen": 0,
+      "materialId": "003",
+      "device": "PC",
+      "site": "doboku-note",
+      "referrer": "https://doboku-note.com/",
+      "page": null,
+      "fetchedAt": "2026-10-07T11:01:13.587Z"
+    }
+  ]
 }

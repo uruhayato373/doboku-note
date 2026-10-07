@@ -242,6 +242,10 @@ test("pageContextOf: 記事はカテゴリとキャリア記事か、資格ト�
   assert.equal(pageContextOf("/tools/career-check", index, slugOf).pageKind, "tool");
   assert.deepEqual(pageContextOf("/standards/mlit/doboku-kyotsu-shiyosho/chapters/1-1", index, slugOf), { pageKind: "standards", category: null, isCareerDoc: false });
   assert.deepEqual(pageContextOf("/", index, slugOf), { pageKind: "home", category: null, isCareerDoc: false });
+  assert.equal(pageContextOf("/standards/kanto/common", index, slugOf).pageKind, "standards-list");
+  assert.equal(pageContextOf("/standards", index, slugOf).pageKind, "standards-list");
+  assert.equal(pageContextOf("/topics/concrete", index, slugOf).pageKind, "topic");
+  assert.equal(pageContextOf("/tools", index, slugOf).pageKind, "tool");
   assert.equal(pageContextOf("/about", index, slugOf), null);
 });
 
