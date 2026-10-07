@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工体制台帳に載せる項目の構成。会社、工事、技術者、作業員の4つの区分で整理し、平成27年4月以降は外国人建設就労者・技能実習生の従事も確認して記載する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工体制台帳の例（記載項目の構成）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">元請が作成し、4つの区分で整理する</text>
+  <rect class="b-brand" x="80" y="66" width="240" height="50" rx="6"/><text class="t-sec" x="200" y="87" text-anchor="middle">施工体制台帳</text><text class="t-note" x="200" y="103" text-anchor="middle">元請業者が作成する</text>
+  <line class="ln" x1="200" y1="116" x2="200" y2="132"/>
+  <rect class="b-gray" x="16" y="132" width="176" height="110" rx="6"/>
+  <text class="t-sec" x="30" y="158">会社</text>
+  <text class="t-lab" x="30" y="184">建設業の許可</text>
+  <text class="t-lab" x="30" y="204">社会保険の加入状況</text>
+  <rect class="b-gray" x="208" y="132" width="176" height="110" rx="6"/>
+  <text class="t-sec" x="222" y="158">工事</text>
+  <text class="t-lab" x="222" y="184">工事名・内容</text>
+  <text class="t-lab" x="222" y="204">請負契約の日・工期</text>
+  <rect class="b-gray" x="16" y="254" width="176" height="110" rx="6"/>
+  <text class="t-sec" x="30" y="280">技術者</text>
+  <text class="t-lab" x="30" y="306">監理技術者・主任技術者</text>
+  <text class="t-lab" x="30" y="326">専門技術者</text>
+  <rect class="b-gray" x="208" y="254" width="176" height="110" rx="6"/>
+  <text class="t-sec" x="222" y="280">作業員</text>
+  <text class="t-lab" x="222" y="306">外国人建設就労者</text>
+  <text class="t-lab" x="222" y="326">外国人技能実習生</text>
+  <text class="t-lab" x="222" y="346">の従事も確認し記載</text>
+  <rect class="box" x="16" y="388" width="368" height="68" rx="6"/><text class="t-key" x="30" y="416">作成</text><text class="t-lab" x="104" y="416">元請業者が、下請の分も含めて整える</text><text class="t-key" x="30" y="440">追加</text><text class="t-lab" x="104" y="440">平成27年4月以降、外国人の従事も記載</text>
+</svg>

@@ -198,34 +198,6 @@
       "reason": "下端左下に写り込んでいた数字の断片と、左・上の過大な余白を除いて切り直し（506x315→298x200）。管路断面・D・D/2 の寸法線は欠けなし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T11:26:27.359Z"
     },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
-      "sha": "01314471480bde28",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "上端のランニングヘッド『第4章 施工計画』・下端の図番号キャプションと出典『（国土交通省資料より）』・左右の余白を除いて切り直し（870x760→619x611）。フロー図の各ボックス・段階確認の枠・凡例は欠けなし。画像から消えた出典を ArticleImage の caption で表示するようにした。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T10:31:57.737Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
-      "sha": "6804ddb8f999caee",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上辺で切れていた先頭の工程ボックス『既設部測量』と、右辺で切れていた断面図の『主桁』・床版・斜線を、二次問題解説集2021 p.261（180 度回転を戻す）から 300dpi で切り出し直して戻した（804x726→1594x1336）。図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.287Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
-      "sha": "3f9d1c771fcb9a9e",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "下端で上半分だけ見えていた図番号キャプション『図4.8 各部分工事の工程計画の作成手順』と左右の過大な余白を除いて切り直し（650x450→411x398）。フローチャートの 5 つの箱・矢印・ループ線は欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
-      "reviewedAt": "2026-10-06T09:40:15.249Z"
-    },
-    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
-      "sha": "d6ef686b037dcf9d",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていたクローラクレーンのブーム先端・滑車部・吊りワイヤを、二次問題解説集2021 p.267（180 度回転を戻す）から 300dpi で切り出し直して戻した（880x650→880x720）。図番号・工法名・出典『画像提供：植田基工株式会社』は画像から除き、記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.288Z"
-    },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
       "sha": "48785072dc7e3fc0",
       "verdict": "ok",

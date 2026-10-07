@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="床版の施工手順を4つのコマで示す。準備、型枠・鉄筋、打設・養生、撤去・仕上げの順に進み、型枠と鉄筋は次の工程へ進む前に検査する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">床版の施工手順（施工図の例）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">工種ごとに手順を図にして関係者へ説明する</text>
+  <rect class="b-brand" x="16" y="70" width="168" height="140" rx="6"/>
+  <circle cx="38" cy="94" r="11" class="b-gray"/>
+  <text class="t-key" x="38" y="98" text-anchor="middle">1</text>
+  <text class="t-sec" x="58" y="99">準備</text>
+  <text class="t-lab" x="32" y="132">既設部の測量</text>
+  <text class="t-lab" x="32" y="156">防護・足場の設置</text>
+  <rect class="b-warn" x="216" y="70" width="168" height="140" rx="6"/>
+  <circle cx="238" cy="94" r="11" class="b-gray"/>
+  <text class="t-key" x="238" y="98" text-anchor="middle">2</text>
+  <text class="t-sec" x="258" y="99">型枠・鉄筋</text>
+  <text class="t-lab" x="232" y="132">型枠支保工の組立</text>
+  <text class="t-lab" x="232" y="156">鉄筋の加工・組立</text>
+  <text class="t-lab" x="232" y="180">型枠・鉄筋の検査</text>
+  <rect class="b-brand" x="216" y="238" width="168" height="140" rx="6"/>
+  <circle cx="238" cy="262" r="11" class="b-gray"/>
+  <text class="t-key" x="238" y="266" text-anchor="middle">3</text>
+  <text class="t-sec" x="258" y="267">打設・養生</text>
+  <text class="t-lab" x="232" y="300">床版コンクリート打設</text>
+  <text class="t-lab" x="232" y="324">養生</text>
+  <rect class="b-brand" x="16" y="238" width="168" height="140" rx="6"/>
+  <circle cx="38" cy="262" r="11" class="b-gray"/>
+  <text class="t-key" x="38" y="266" text-anchor="middle">4</text>
+  <text class="t-sec" x="58" y="267">撤去・仕上げ</text>
+  <text class="t-lab" x="32" y="300">地覆・高欄工</text>
+  <text class="t-lab" x="32" y="324">支保工・足場の解体</text>
+  <text class="t-lab" x="32" y="348">片付け</text>
+  <line class="arr" x1="184" y1="140" x2="216" y2="140" marker-end="url(#ar)"/>
+  <line class="arr" x1="300" y1="210" x2="300" y2="238" marker-end="url(#ar)"/>
+  <line class="arr" x1="216" y1="308" x2="184" y2="308" marker-end="url(#ar)"/>
+  <rect class="box" x="16" y="396" width="368" height="68" rx="6"/><text class="t-key" x="30" y="424">検査</text><text class="t-lab" x="104" y="424">型枠・鉄筋は、次の工程へ進む前に検査する</text><text class="t-key" x="30" y="448">手順図</text><text class="t-lab" x="104" y="448">全体フロー図と主要工種の手順図を作る</text>
+</svg>

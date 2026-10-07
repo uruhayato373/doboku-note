@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工計画の作成手順。事前調査、基本計画、詳細計画、管理計画の順に進める。事前調査で契約条件と現場条件を把握し、詳細計画で機械・人員・仮設・工程・調達・積算を決め、管理計画で組織・資金・安全衛生・実行予算を定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">施工計画作成の手順</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">事前調査から管理計画まで、4段階で組み立てる</text>
+  <rect class="b-warn" x="16" y="66" width="368" height="64" rx="6"/>
+  <text class="t-sec" x="30" y="92">1　事前調査</text>
+  <text class="t-lab" x="30" y="114">契約条件と現場の諸条件を十分に把握する</text>
+  <line class="arr" x1="200" y1="130" x2="200" y2="148" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="148" width="368" height="64" rx="6"/>
+  <text class="t-sec" x="30" y="174">2　基本計画</text>
+  <text class="t-lab" x="30" y="196">主要工種の施工方法・手順を技術と経済性で比較</text>
+  <line class="arr" x1="200" y1="212" x2="200" y2="230" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="16" y="230" width="368" height="64" rx="6"/>
+  <text class="t-sec" x="30" y="256">3　詳細計画</text>
+  <text class="t-lab" x="30" y="278">機械・人員・仮設・詳細工程・調達・積算を決める</text>
+  <line class="arr" x1="200" y1="294" x2="200" y2="312" marker-end="url(#ar)"/>
+  <rect class="b-pos" x="16" y="312" width="368" height="64" rx="6"/>
+  <text class="t-sec" x="30" y="338">4　管理計画</text>
+  <text class="t-lab" x="30" y="360">現場組織・資金・安全衛生・実行予算を計画する</text>
+  <rect class="box" x="16" y="396" width="368" height="92" rx="6"/><text class="t-key" x="30" y="424">前提</text><text class="t-lab" x="104" y="424">事前調査が計画全体の土台になる</text><text class="t-key" x="30" y="448">比較</text><text class="t-lab" x="104" y="448">代案を作り、経済性・施工性・安全性で選ぶ</text><text class="t-key" x="30" y="472">目的</text><text class="t-lab" x="104" y="472">品質・工期・価格・安全・環境の調和</text>
+</svg>

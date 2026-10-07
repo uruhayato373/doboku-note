@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="安全管理組織の例。元請の統括安全衛生責任者の下に元方安全衛生管理者を置き、下請各社の安全衛生責任者と協議会で結ぶ。元請が組織の中心になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">安全管理組織の例</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">下請混在の現場は、元請を中心に組織する</text>
+  <rect class="frame" x="16" y="66" width="368" height="152" rx="6"/>
+  <text class="t-key" x="30" y="86">元請（特定元方事業者）</text>
+  <rect class="b-brand" x="100" y="96" width="200" height="40" rx="6"/><text class="t-key" x="200" y="120" text-anchor="middle">統括安全衛生責任者</text>
+  <line class="arr" x1="200" y1="136" x2="200" y2="160" marker-end="url(#ar)"/>
+  <rect class="b-brand" x="100" y="160" width="200" height="40" rx="6"/><text class="t-key" x="200" y="184" text-anchor="middle">元方安全衛生管理者</text>
+  <line class="arr" x1="200" y1="218" x2="200" y2="240" marker-end="url(#ar)"/>
+  <rect class="frame" x="16" y="240" width="368" height="80" rx="6"/>
+  <text class="t-key" x="30" y="260">下請各社</text>
+  <rect class="b-pos" x="100" y="250" width="200" height="52" rx="6"/><text class="t-key" x="200" y="272" text-anchor="middle">下請各社の</text><text class="t-key" x="200" y="288" text-anchor="middle">安全衛生責任者</text>
+  <line class="ln" x1="200" y1="320" x2="200" y2="338"/>
+  <rect class="dash" x="100" y="338" width="200" height="36" rx="18"/>
+  <text class="t-lab" x="200" y="361" text-anchor="middle">協議会（元請・下請が参加）</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/><text class="t-key" x="30" y="420">対象</text><text class="t-lab" x="104" y="420">常時50人以上の下請混在現場</text><text class="t-note" x="104" y="444">トンネル・圧気・特定の橋梁は常時30人以上</text><text class="t-key" x="30" y="468">中心</text><text class="t-lab" x="104" y="468">元請（特定元方事業者）が組織の中心</text>
+</svg>

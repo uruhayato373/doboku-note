@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="基礎工事の課題図。現場打ちコンクリート側溝の断面で、下に砕石基礎、両側に埋戻し土を置く。この構造について、各作業の所要日数から工程表を作る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">基礎工事の課題図（側溝の構造）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">工程表づくりの対象になる構造の断面</text>
+  <path class="b-gray" d="M16 110 L70 110 L70 282 L330 282 L330 110 L384 110 L384 300 L16 300 Z"/>
+  <rect class="b-warn" x="70" y="110" width="40" height="152"/>
+  <rect class="b-warn" x="290" y="110" width="40" height="152"/>
+  <rect class="b-gray" x="70" y="262" width="260" height="20"/>
+  <circle cx="90" cy="272" r="3" class="b-gray"/>
+  <circle cx="130" cy="272" r="3" class="b-gray"/>
+  <circle cx="170" cy="272" r="3" class="b-gray"/>
+  <circle cx="210" cy="272" r="3" class="b-gray"/>
+  <circle cx="250" cy="272" r="3" class="b-gray"/>
+  <circle cx="290" cy="272" r="3" class="b-gray"/>
+  <circle cx="320" cy="272" r="3" class="b-gray"/>
+  <path class="b-brand" d="M110 110 L138 110 L138 240 L262 240 L262 110 L290 110 L290 262 L110 262 Z"/>
+  <text class="t-note" x="43" y="150" text-anchor="middle">地盤</text>
+  <text class="t-note" x="357" y="150" text-anchor="middle">地盤</text>
+  <rect class="b-brand" x="30" y="320" width="18" height="14" rx="3"/>
+  <text class="t-lab" x="58" y="332">現場打ちコンクリート側溝（側壁・底版）</text>
+  <rect class="b-gray" x="30" y="344" width="18" height="14" rx="3"/>
+  <text class="t-lab" x="58" y="356">砕石基礎</text>
+  <rect class="b-warn" x="30" y="368" width="18" height="14" rx="3"/>
+  <text class="t-lab" x="58" y="380">埋戻し土</text>
+  <rect class="box" x="16" y="398" width="368" height="92" rx="6"/><text class="t-key" x="30" y="426">作業</text><text class="t-lab" x="104" y="426">砕石基礎工・鉄筋工・型枠工・養生工</text><text class="t-lab" x="104" y="450">埋戻し工・型枠脱型工など</text><text class="t-key" x="30" y="474">条件</text><text class="t-lab" x="104" y="474">作業班は1班で施工する</text>
+</svg>
