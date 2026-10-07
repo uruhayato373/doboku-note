@@ -11,6 +11,7 @@
  *   - 未知プログラム名は握り潰さず rejects に出す（取りこぼしを黙って捨てない）
  */
 import { parseCsv, stripBom } from "./google-console-csv.mjs";
+import { todayJst } from "./jst-date.mjs";
 
 /** Shift_JIS / UTF-8 のバイト列を文字列へ。config の csvEncoding を既定に、文字化けなら UTF-8 で再試行。 */
 export function decodeCsvBuffer(buf, encoding = "shift_jis") {
@@ -293,12 +294,121 @@ export function upsertBy(existing, incoming, keyFn) {
 }
 
 /** upsert キー。period は「その run が対象とした期間」（CSV ファイル名由来・例 202601-202607）。 */
+/**
+ * URL で期間を指定するレポート（成果別）の期間。単月 → その月の 1 日〜末日（当月は今日まで）。
+ * 指定が無ければ JST の当月 1 日〜今日。A8 は YYYY-MM-DD を受け取り、画面とファイル名に反映する（2026-10-07 実機確認）。
+ */
+export function periodQueryFor(month, now = new Date()) {
+  const today = todayJst(now.getTime());
+  const m = month ?? today.slice(0, 7);
+  const [y, mo] = m.split("-").map(Number);
+  const last = new Date(Date.UTC(y, mo, 0)).toISOString().slice(0, 10);
+  const end = last < today ? last : today;
+  return `?start_date=${m}-01&end_date=${end}`;
+}
+
+/**
+ * 成果別レポート（/report/result）の CSV → 1 成果 1 行（2026-10-07〜）。
+ *
+ * サイト列で行ごとに targetSite / relatedSites だけを残す（他サイトの成果は静かに除外）。
+ * 「コンバージョンリファラ」はクリックしたページ。自サイトのホストなら path を page に入れる。
+ * 2026-10-07 のデプロイより前のクリックはドメインだけ（page = "/"）で、ページは分からない。
+ * 必須列が無ければ fatal（列名が変わった＝推測で埋めない）。
+ */
+const RESULT_COLUMNS = {
+  programId: "プログラムID",
+  programRaw: "プログラム名",
+  status: "ステータス",
+  kind: "成果種別",
+  clickedAt: "クリック日",
+  orderedAt: "注文日",
+  confirmedAt: "確定日",
+  grossRevenueYen: "発生金額",
+  revenueYen: "確定金額",
+  orderId: "注文ID",
+  materialId: "素材ID",
+  device: "デバイス",
+  site: "サイト",
+  referrer: "コンバージョンリファラ",
+};
+const SITE_HOSTS = ["doboku-note.com", "www.doboku-note.com", "doboku-note.pages.dev"];
+/**
+ * 広告リンクがページの URL を渡すようになった時刻（本番デプロイ run 37608403630 の完了後・余裕をみて JST 20:00）。
+ * これより前のクリックはリファラがドメインだけ（`https://doboku-note.com/`）で、トップの広告と区別できないので page は null。
+ */
+export const REFERRER_FULL_SINCE = "2026-10-07T20:00:00+09:00";
+
+const a8Time = (v) => {
+  const m = String(v ?? "").trim().match(/^(\d{4})[-/](\d{2})[-/](\d{2})[ T](\d{2}):(\d{2}):(\d{2})$/);
+  return m ? `${m[1]}-${m[2]}-${m[3]}T${m[4]}:${m[5]}:${m[6]}+09:00` : null;
+};
+const yenOf = (v) => {
+  const n = Number(String(v ?? "").replace(/[,円\s]/g, ""));
+  return Number.isFinite(n) ? n : null;
+};
+
+/** リファラ → 自サイトのページの path（クエリ・フラグメントは落とす）。他サイト・空は null */
+export function sitePageOf(referrer) {
+  try {
+    const u = new URL(String(referrer ?? "").trim());
+    return SITE_HOSTS.includes(u.hostname) ? decodeURIComponent(u.pathname) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function normalizeA8ResultCsv(csvText, { cfg, fetchedAt = null } = {}) {
+  const a8 = cfg.a8;
+  const { headers, rows } = parseCsv(csvText);
+  const missing = ["programId", "status", "clickedAt", "orderId", "site", "referrer"].filter((k) => !headers.includes(RESULT_COLUMNS[k]));
+  if (missing.length) {
+    return { rows: [], rejects: [], headers, fatal: `必須列が見つからない: ${missing.map((k) => RESULT_COLUMNS[k]).join(",")}` };
+  }
+  const sites = [a8.targetSite, ...(a8.relatedSites ?? [])];
+  const out = [];
+  const rejects = [];
+  rows.forEach((r, i) => {
+    const get = (k) => (r[headers.indexOf(RESULT_COLUMNS[k])] ?? "").toString().trim();
+    const site = get("site");
+    if (!sites.includes(site)) return;
+    const clickedAt = a8Time(get("clickedAt"));
+    const orderId = get("orderId");
+    if (!clickedAt || !orderId) {
+      rejects.push({ line: i + 2, reason: "クリック日時か注文IDを読めない", raw: r });
+      return;
+    }
+    const programId = get("programId");
+    const referrer = get("referrer") || null;
+    out.push({
+      orderId,
+      programId,
+      programRaw: get("programRaw").replace(/\s+/g, " "),
+      program: resolveProgram(get("programRaw"), a8.programIdMap, programId),
+      status: get("status"),
+      kind: get("kind") || null,
+      clickedAt,
+      orderedAt: a8Time(get("orderedAt")),
+      confirmedAt: a8Time(get("confirmedAt")),
+      grossRevenueYen: yenOf(get("grossRevenueYen")) ?? 0,
+      revenueYen: yenOf(get("revenueYen")) ?? 0,
+      materialId: get("materialId") || null,
+      device: get("device") || null,
+      site,
+      referrer,
+      page: Date.parse(clickedAt) >= Date.parse(REFERRER_FULL_SINCE) ? sitePageOf(referrer) : null,
+      fetchedAt,
+    });
+  });
+  return { rows: out, rejects, headers, fatal: null };
+}
+
 export const KEY = {
   siteSummary: (r) => `${r.period ?? "current"}::${r.site}`,
   monthly: (r) => r.month,
   daily: (r) => r.date,
   programPeriod: (r) => `${r.period ?? "current"}::${r.programId ?? r.programRaw}`,
   results: (r) => `${r.month}::${r.program}`,
+  conversions: (r) => `${r.programId}::${r.orderId}`,
 };
 
 /**
@@ -377,7 +487,7 @@ export const REPORT_LOG_NOTES = {
   _comment:
     "A8 レポート CSV（fetch-a8-ui-csv.mjs）の正規化 SSOT。A8 は確定処理で過去分が遡及変化するため upsert 運用（最新 fetch が正）。手で編集しない。",
   _siteScopeNote:
-    "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。",
+    "siteSummary のみ doboku-note に完全分離された実績（真実源）。monthly / daily は **口座横断**（stats47 込み）。programPeriod は口座横断のプログラム別で、programIdMap の allowlist で doboku 分と判定できた行（program あり・全期間）と、当期の他サイト分の行だけを残す。crossCheck が siteSummary との突合結果。月次の成果（月×案件）は programPeriod の単月の期間から読み手が導く（resultsFromReportLog）。conversions は成果別（1 成果 1 行・サイト列で分離済み）で、page がクリックしたページ（2026-10-07 20:00 JST 以降のクリック）。",
 };
 
 /**

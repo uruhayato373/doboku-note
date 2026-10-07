@@ -161,7 +161,10 @@ const a8Report = z
   .object({
     label: text,
     path: z.string().regex(/^\//, '/ で始まるパス'),
-    siteScope: z.enum(['site-rows', 'account-wide']).describe('site-rows＝サイト列で分離できる・account-wide＝口座横断で分離できない'),
+    siteScope: z.enum(['site-rows', 'account-wide', 'result-rows']).describe('site-rows＝サイト列で分離できる・account-wide＝口座横断で分離できない・result-rows＝1 成果 1 行でサイト列があり 0 行もある'),
+    periodQuery: z.boolean().optional().describe('期間を URL の start_date / end_date で指定する（画面のフォームを操作しない）'),
+    emptyOk: z.boolean().optional().describe('0 行を正常とする（成果の無い月）'),
+    noDataText: text.optional().describe('データが無い期間に A8 が出す文言（CSV ボタンが出ない）。emptyOk のとき 0 件として扱う'),
     _note: note,
   })
   .strict();
