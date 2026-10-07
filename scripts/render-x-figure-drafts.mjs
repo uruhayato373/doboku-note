@@ -8,11 +8,12 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { splitTweets, tweetLength } from './check-x-length.mjs';
 import { renderFigureSns } from '../.claude/scripts/sns/render-figure-sns.mjs';
 const ROOT=resolve(dirname(fileURLToPath(import.meta.url)),'..');
-export function validateXFigureDraft(draft,root=ROOT) {
+export function validateXFigureDraft(draft,root=ROOT,{onlyTweet}={}) {
   if(!/^\d{3}-[a-z0-9-]+$/.test(draft))throw Error('draftは番号付き下書き名で指定');
   const dir=join(root,'content/sns/x/draft',draft);
-  const items=JSON.parse(readFileSync(join(dir,'images.json'),'utf8'));
+  let items=JSON.parse(readFileSync(join(dir,'images.json'),'utf8'));
   if(!Array.isArray(items)||!items.length)throw Error('図解の制作入力が0件');
+  if(onlyTweet!==undefined){items=items.filter(item=>String(item.tweet)===String(onlyTweet));if(!items.length)throw Error('指定した投稿の制作入力が0件');}
   const files=new Set(),tweets=new Set();
   const bodies=splitTweets(readFileSync(join(dir,'tweets.md'),'utf8'));
   if(new Set(bodies.map(t=>t.num)).size!==bodies.length)throw Error('本文の投稿番号が重複しています');

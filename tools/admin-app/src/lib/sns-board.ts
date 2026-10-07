@@ -138,7 +138,10 @@ export function xBoard(): XBoard {
       postedAt: t.posted_at ?? null,
     }));
     const counts: Record<string, number> = { draft: 0, scheduled: 0, queued: 0, posted: 0, other: 0 };
-    for (const t of tweets) t.status in counts ? counts[t.status]!++ : counts.other!++;
+    for (const t of tweets) {
+      if (t.status in counts) counts[t.status]!++;
+      else counts.other!++;
+    }
     drafts.push({
       name,
       rel: `x/draft/${name}`,
@@ -173,4 +176,11 @@ export interface SnsBoard {
 
 export async function snsBoard(): Promise<SnsBoard> {
   return { ig: await igBoard(), x: xBoard(), schedule: readSchedule() };
+}
+
+export async function figureBoard() {
+  // 既存のSVG検査器が使うネイティブレンダラーをTurbopackへバンドルしない。
+  const url = pathToFileURL(repoPath('tools', 'admin-app', 'src', 'lib', 'figure-sns-board.mjs')).href;
+  const module = await import(/* turbopackIgnore: true */ url) as typeof import('./figure-sns-board.mjs');
+  return module.figureSnsBoard(repoPath());
 }
