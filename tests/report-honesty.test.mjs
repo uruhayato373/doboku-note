@@ -14,6 +14,7 @@ import {
   collectFailedRequests,
   classifyCrossCheck,
   isMeasurementWindowAligned,
+  collectPublishGap,
 } from '../scripts/lib/report-honesty.mjs';
 
 // ── classifyRun: 例外が出なかったことを ok と呼ばない ────────────────────────
@@ -113,4 +114,23 @@ test('isMeasurementWindowAligned: 同日以降なら整合', () => {
 
 test('isMeasurementWindowAligned: 開始日不明を整合と扱わない', () => {
   assert.equal(isMeasurementWindowAligned(null, '2026-07-25').aligned, false);
+});
+
+// ── collectPublishGap: 取得したのに台帳に載っていない（DN-0566）────────────────
+test('collectPublishGap: 正規化が取得の後に台帳を進めていれば gap なし', () => {
+  const r = collectPublishGap({ collectedAt: '2026-09-28T08:58:17.754Z', status: 'ok' }, { updatedAt: '2026-09-28T08:58:54.439Z' });
+  assert.equal(r.gap, false);
+  assert.equal(r.lastRunOk, true);
+});
+
+test('collectPublishGap: 取得の方が新しい＝正規化か書き戻しが止まった', () => {
+  const r = collectPublishGap({ collectedAt: '2026-10-07T00:29:28.939Z', status: 'partial' }, { updatedAt: '2026-09-28T08:58:54.439Z' });
+  assert.equal(r.gap, true);
+  assert.equal(r.lastRunOk, false);
+  assert.equal(r.lastStatus, 'partial');
+});
+
+test('collectPublishGap: 台帳が無ければ取得があっても gap、マーカーが無ければ gap にしない（未実施は due 側が見る）', () => {
+  assert.equal(collectPublishGap({ collectedAt: '2026-10-07T00:00:00Z', status: 'ok' }, null).gap, true);
+  assert.equal(collectPublishGap(null, { updatedAt: '2026-10-07T00:00:00Z' }).gap, false);
 });
