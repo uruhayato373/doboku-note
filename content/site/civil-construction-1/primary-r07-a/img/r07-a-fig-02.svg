@@ -1,0 +1,30 @@
+<!-- Created by doboku-note, 2026-10-08 -->
+<svg style="max-width:756px;width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 756 520" width="756" height="520" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" fill="#1f2937">
+<rect width="756" height="520" fill="#fff"/>
+<rect x="62" y="348" width="593" height="72" fill="#e5e7eb" stroke="#1f2937" stroke-dasharray="5 3" stroke-width="1.2"/>
+<g fill="none" stroke="#1f2937" stroke-width="1.6">
+<path d="M62 8V440H700"/>
+<path d="M62 262H160Q190 262 205 252L585 18" stroke-width="2.6"/>
+<path d="M62 350L200 262" stroke-dasharray="6 4" stroke-width="1.2"/>
+<path d="M200 258V440M338 175V440M473 85V440"/>
+<rect x="348" y="355" width="117" height="44" fill="#fff" stroke-width="3"/>
+<path d="M340 412H471" stroke-width="1.4"/><path d="M340 412l9-5v10zM471 412l-9-5v10z" fill="#1f2937"/>
+<rect x="316" y="440" width="44" height="40" fill="#fff"/><rect x="452" y="440" width="44" height="40" fill="#fff"/>
+<g stroke-width="1.4"><path d="M66 490v4q0 6 6 6h118q6 0 6-6v-4M204 490v4q0 6 6 6h120q6 0 6-6v-4M342 490v4q0 6 6 6h117q6 0 6-6v-4M477 490v4q0 6 6 6h166q6 0 6-6v-4"/></g>
+</g>
+<g font-size="22" text-anchor="middle" stroke="none">
+<text x="30" y="198">土の</text><text x="30" y="238">体積</text>
+<text x="105" y="325">(空気)</text>
+<text x="140" y="372">固体</text><text x="140" y="402">状</text>
+<text x="270" y="290">半固</text><text x="270" y="320">体状</text>
+<text x="406" y="240">塑性</text><text x="406" y="270">状</text>
+<text x="565" y="185">液</text><text x="565" y="215">状</text>
+<text x="607" y="338">(水)</text>
+<text x="555" y="392">(土粒子)</text>
+<text x="406" y="385" font-size="20">(ハ)</text>
+<text x="338" y="466" font-size="16">(ロ)</text><text x="474" y="466" font-size="16">(イ)</text>
+<text x="200" y="466" font-size="19">収縮限界</text>
+<text x="62" y="462">0</text>
+<text x="620" y="462">含水比</text><text x="726" y="462">[%]</text>
+</g>
+</svg>

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: content/sources/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
-  "_updated": "2026-10-07",
+  "_updated": "2026-10-08",
   "_fields": {
     "source_dir": "元素材のディレクトリ（content/sources/textbook 配下）",
     "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
@@ -631,12 +631,6 @@
       "verified": "2026-07-09"
     },
     {
-      "figure": "civil-construction-1/primary-r07-a/img/r07-a-fig-02",
-      "needs": "rescan-need-source",
-      "reason": "下端切断でX軸下の収縮限界/塑性限界/液性限界の名称ラベル＋範囲ブラケットが欠落（コンシステンシー限界図）。2026-07-09 QA は写り込みのみ確認し切断を見落とし ok と誤記録。鮮明かつ写り込みなしのため機械 needs:ok・check-figure-crop も白枠付加済みで縁接触が消え検出不能（machine-blind）。answer-booklet 版が要入手、または textbook 第1章_土工.pdf の同等図から下端まで含めて再抽出。2026-07-16 目視確認。",
-      "verified": "2026-07-16"
-    },
-    {
       "figure": "civil-construction-1/primary-r06-a/img/r06-a-fig-02",
       "needs": "ok",
       "reason": "workflow判定=既にクリーン（親QA確認・写り込みなし）2026-07-09",
@@ -667,12 +661,6 @@
       "verified": "2026-07-09"
     },
     {
-      "figure": "civil-construction-1/primary-h29-b/img/h29-b-fig-02",
-      "needs": "rescan-need-source",
-      "reason": "逆T型擁壁配筋図。旧画像は4図(一般図/底版伏図/断面図/たて壁)完全だがパネルタイトルが上端見切れ。問題集版は断面図+たて壁の2図のみで一般図/伏図欠落＝劣化のため不採用。旧4図維持。要H29第2次B原典で上端補完。(2026-07-10確認)",
-      "verified": "2026-07-10"
-    },
-    {
       "figure": "civil-construction-1/primary-h27-b/img/h27-b-fig-02",
       "needs": "ok",
       "reason": "分野別問題集PDF(p.160)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下半分が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
@@ -695,12 +683,6 @@
       "needs": "ok",
       "reason": "元PDF(H30第一次B p.7)からフル再抽出＝施工体制図。旧画像は右下断片のみで組織図大部分が欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
       "verified": "2026-07-09"
-    },
-    {
-      "figure": "civil-construction-1/primary-h27-a/img/h27-a-fig-01",
-      "needs": "rescan-need-source",
-      "reason": "土量の変化図。問題集(分野別収録)にH27版は非収録(R02/R01/H30版のみ)＝再抽出不可。要H27原典入手。(2026-07-10確認)",
-      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-5",
@@ -979,27 +961,9 @@
       "verified": "2026-07-09"
     },
     {
-      "figure": "pe-construction/ninaite-dx-ronbun-keyword/img/fig22",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
-    },
-    {
-      "figure": "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
-      "verified": "2026-07-09"
-    },
-    {
       "figure": "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve",
       "needs": "ok",
       "reason": "元PDF(p.17)からフル再抽出＝FN曲線+統計表(与件)。旧画像は図表見出しが欠落。設問選択肢は図の上にあり非混入。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09"
-    },
-    {
-      "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig04",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
       "verified": "2026-07-09"
     },
     {
@@ -1036,12 +1000,6 @@
       "figure": "pe-first-stage/r07-basic/img/q35-fig",
       "needs": "ok",
       "reason": "元PDF(p.11)からフル再抽出＝正四面体回路(a)(b)(c)。旧画像は入力矢印Iが途切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09"
-    },
-    {
-      "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig05",
-      "needs": "rescan-need-source",
-      "reason": "図本体/入力ラベルが画像端で見切れ・原典再スキャン要（親QA確認、q35/fig05は原画も上端切断）2026-07-09",
       "verified": "2026-07-09"
     },
     {
@@ -1972,11 +1930,6 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
       "page": 20
     },
-    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27": {
-      "kind": "own-book-scan",
-      "ref": "pe-construction-keyword-book",
-      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
-    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
       "kind": "own-book-scan",
       "ref": "pe-construction-keyword-book",
@@ -2049,26 +2002,11 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
       "page": 21
     },
-    "pe-construction/ninaite-dx-ronbun-keyword/img/fig22": {
-      "kind": "own-book-scan",
-      "ref": "pe-construction-keyword-book",
-      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
-    },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0013.jpg",
       "page": 13
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig03": {
-      "kind": "own-book-scan",
-      "ref": "pe-construction-keyword-book",
-      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
-      "kind": "own-book-scan",
-      "ref": "pe-construction-keyword-book",
-      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
       "kind": "own-book-scan",
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
@@ -2272,6 +2210,34 @@
       "pdf": "vault:原資料PDF/過去問/測量士補/R08/R08_問題.pdf",
       "page": 29,
       "dpi": 300
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/report/press/joho04_hh_001319.html",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。令和7年度建設投資見通しの数値"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/common/000109627.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。重点整備地区における移動等の円滑化のイメージ"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
+      "kind": "public-data",
+      "credit": "内閣府",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/zenbun/pdf/1s1s_01.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。高齢社会白書 図1-1-2 の数値"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/policy/shingikai/content/001764885.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。第5次社会資本整備重点計画の概要 p.2"
     }
   },
   "categories": {

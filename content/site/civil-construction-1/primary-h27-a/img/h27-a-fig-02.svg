@@ -1,0 +1,19 @@
+<!-- Created by doboku-note, 2026-10-08 -->
+<svg style="max-width:640px;width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" width="640" height="260" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" fill="#1f2937">
+<rect width="640" height="260" fill="#fff"/>
+<g fill="none" stroke="#1f2937" stroke-width="1.4">
+<rect x="41.6" y="87.4" width="496" height="36.6" stroke-width="2"/>
+<rect x="41.6" y="124" width="496" height="44"/>
+<g stroke-dasharray="3 2" stroke-width="1"><path d="M74.6 88V124M195.8 88V124M228.8 88V124M349.8 88V124M383 88V124M504 88V124"/></g>
+<path d="M479 57H585M479 57L437 86"/><path d="M437 86L447 75M437 86L450 83"/>
+<path d="M58 168L50 189H66ZM212 168L204 189H220ZM366 168L358 189H374ZM521 168L513 189H529Z"/>
+<path d="M560 214L551 236H569Z"/>
+<g stroke-width="1.2"><circle cx="58" cy="105.6" r="10"/><circle cx="135" cy="105.6" r="10"/><circle cx="212" cy="105.6" r="10"/><circle cx="289" cy="105.6" r="10"/><circle cx="366" cy="105.6" r="10"/><circle cx="443" cy="105.6" r="10"/><circle cx="521" cy="105.6" r="10"/></g>
+</g>
+<g font-size="15" text-anchor="middle" stroke="none">
+<text x="58" y="110.6">a</text><text x="135" y="110.6">b</text><text x="212" y="110.6">c</text><text x="289" y="110.6">d</text><text x="366" y="110.6">c</text><text x="443" y="110.6">b</text><text x="521" y="110.6">a</text>
+<text x="289" y="153" font-size="18">3径間連続非合成鋼板桁</text>
+</g>
+<text x="532" y="52" font-size="16" text-anchor="middle">コンクリート床板</text>
+<text x="574" y="231" font-size="16">：支承</text>
+</svg>

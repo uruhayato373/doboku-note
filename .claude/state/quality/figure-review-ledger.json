@@ -37,13 +37,6 @@
       "reason": "H26 No.25 解説ページ（p.551）は原本でも図の上部が欠けていたため、同じ図が全体入りで載る問題解説集2021 p.44 から 300dpi で切り出し直し（1674x279→853x571）。排土前地表・排土・頭部域の輪郭を復元し、キャプションと左右の空白を除いた。alt に排土前地表と排土を足した。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T10:22:21.023Z"
     },
-    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
-      "sha": "ade1dbee8b91161c",
-      "verdict": "source-unavailable",
-      "action": "none",
-      "reason": "右下の凡例『△：支承』の『承』の右側が切れている。1級土木 H27 の公式問題 PDF は vault に無く（H30 以降のみ）、一次問題解説集2021 は H27 No.18 の設問枠と図のページがスキャンから欠落しているため切り出し直せない。H27 の原典の入手待ち",
-      "reviewedAt": "2026-10-06T11:43:18.082Z"
-    },
     "civil-construction-1/primary-h28-a/img/h28-a-fig-03": {
       "sha": "787b0d2ecf9d9e48",
       "verdict": "ok",
@@ -99,13 +92,6 @@
       "action": "reextract",
       "reason": "問題解説集2021 p.403（H28 No.47）からさや管工法の図だけを 300dpi で切り出し直し（1674x277→1020x326）。旧画像はさや管・製管の 2 図並びで上端が切れていた。斜めの管・地表線・滑車・坑口を復元し、製管工法の図とキャプションは入れていない。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T10:22:21.026Z"
-    },
-    "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
-      "sha": "a76d01cff4c6cf1a",
-      "verdict": "source-unavailable",
-      "action": "recrop",
-      "reason": "唯一の原典（問題解説集2021 p.403）でも頁上部が切れていて、製管工法の立坑上部と右上の注記は復元できない。H28 の問題 PDF は手元に無い。キャプションと合わない左のさや管工法の図（fig-12 と重複）と下のキャプションを除いて製管工法の図だけに切り直した（1674x279→389x225・上端の欠けは残る）",
-      "reviewedAt": "2026-10-06T10:22:21.028Z"
     },
     "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
       "sha": "63e7d978bb9b7314",
@@ -606,6 +592,17 @@
       "reason": "上端で切れていた最上段の箱の上辺と、右下で切れていた出典表記『図の出典：国土交通白書 2022』を、論文対策キーワードのスキャン（source/003.pdf p.9＝pages/p0074）から傾きを補正して切り出し直して戻した（903x685→1100x960）。綴じ影・指・本文・図番号キャプション・裏写りは除いた。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T12:42:03.919Z"
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "sha": "4603407a2f268ca6",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "公表資料（令和7年度建設投資見通し）の数値から自作した棒グラフ。OCR が拾うのは図内の注記と出典行で、写り込みではない。全 20 本の数値を一次資料と照合済み・目視で欠け無し",
+      "px": [
+        1600,
+        1040
+      ],
+      "reviewedAt": "2026-10-07T22:25:37.770Z"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "sha": "9eac08d37a79545d",
       "verdict": "ok",
@@ -668,6 +665,28 @@
       "action": "reextract",
       "reason": "下縁で切れていた X 軸ラベル『事業運営』と『官』、原図内の注を、論文対策キーワードのスキャン（pages/p0013＝source/001.pdf p.7 左）から傾きを補正して切り出し直して戻した（913x575→1100x731）。左縁の指・右上の隣接本文の滲み・綴じ影・裏写り・図の出典行は除いた。ネットからの取得なし。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T12:54:25.655Z"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
+      "sha": "5229928f4aca1c86",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "第5次社会資本整備重点計画の概要をもとに自作した構成図。下端の分離島は図内の出典行で、写り込みではない。目視で文字の欠け・重なり無し",
+      "px": [
+        1600,
+        1328
+      ],
+      "reviewedAt": "2026-10-07T22:25:37.772Z"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
+      "sha": "023f91f701d50990",
+      "verdict": "ok",
+      "action": "none",
+      "reason": "高齢社会白書 図1-1-2 の数値から自作したグラフ。OCR が拾うのは年・総人口・高齢化率の数値行と注記で、写り込みではない。区分和と総人口を検算済み・目視で欠け無し",
+      "px": [
+        1600,
+        1320
+      ],
+      "reviewedAt": "2026-10-07T22:25:37.773Z"
     },
     "pe-first-stage/h23-basic/img/q13-source": {
       "sha": "a9a0ee2602b0e752",
