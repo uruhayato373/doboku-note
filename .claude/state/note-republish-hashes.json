@@ -15666,6 +15666,87 @@
       "registeredAt": "2026-09-29T02:19:43.816Z",
       "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-実務立場別小論文集"
     },
+    "magazine:cce-essay-reiwa-pack": {
+      "noteKey": "m97a0049a10de",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "82a9d21836a9e8c5",
+      "sha256": "cc75d9cde06ccd8e7e4b89b5f5c908b950dd6cc4052b0387d24c5b3399e22269",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321788000/magazine_cover_landscape_76b74f9d989a38262b301fbf6cfe987b.png",
+      "registeredAt": "2026-10-07T07:57:44.492Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式"
+    },
+    "magazine:cce-goukaku-building-contractor-pack": {
+      "noteKey": "m8cc3e86d9862",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "717edcffb33123af",
+      "sha256": "dca787da9a98a3f5081a04ff509ce7831e394fc84d3850f398d38c40169849a8",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321793727/magazine_cover_landscape_9137c8629adcff85a4b1d9b4a2388cf0.png",
+      "registeredAt": "2026-10-07T08:16:14.563Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-06-ゼネコン建築施工"
+    },
+    "magazine:cce-goukaku-civil-contractor-pack": {
+      "noteKey": "ma8f11487f4cc",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "4f51398efec2b910",
+      "sha256": "9d0dff9b948d0a7f8f469178a9274f1c28d1bddfb16ff100c724fb34f8674585",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321792460/magazine_cover_landscape_6cfb8062ff937a221a031a3301fbe14b.png",
+      "registeredAt": "2026-10-07T08:12:12.852Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-03-ゼネコン土木施工"
+    },
+    "magazine:cce-goukaku-design-consultant-pack": {
+      "noteKey": "m4452b47516ca",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "bdb993f4f4744cfd",
+      "sha256": "89993bf819241e1e676525ca925f41a659b40a8deec5468d847d332a83a9584d",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321794137/magazine_cover_landscape_3f037b44ce4e0beb69b6f96b4b5a3861.png",
+      "registeredAt": "2026-10-07T08:17:38.910Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-07-設計コンサル"
+    },
+    "magazine:cce-goukaku-maintenance-pack": {
+      "noteKey": "mc91d56e58449",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "b3337f8b65d15666",
+      "sha256": "17faeb78519ef82be6c737925a8cf1c34603c5e923161638eff99419009a0b90",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321792871/magazine_cover_landscape_f7d36d248579460334e75618ba78980d.png",
+      "registeredAt": "2026-10-07T08:13:20.613Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-04-維持管理補修"
+    },
+    "magazine:cce-goukaku-namacon-pack": {
+      "noteKey": "mcb9747146a71",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "e49f5403544b04e7",
+      "sha256": "bc8244dcd45486e3d8220333949759b3d5699283506feec331a8a3789c488334",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321791782/magazine_cover_landscape_6471e9b84cb03c5c939c4fb63108f11f.png",
+      "registeredAt": "2026-10-07T08:09:32.748Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-01-生コン工場"
+    },
+    "magazine:cce-goukaku-owner-pack": {
+      "noteKey": "mb6f1286cfb21",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "40930aec5e33f5ff",
+      "sha256": "7b416cf11f54600429149380151c25a24763bfaa1a7ddd1919836d58eff35212",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321793286/magazine_cover_landscape_5d92c85241eee612562f62f35a8e2be7.png",
+      "registeredAt": "2026-10-07T08:14:49.846Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-05-発注者監督員"
+    },
+    "magazine:cce-goukaku-precast-pack": {
+      "noteKey": "m3daa98f03bef",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "c3a5593a9747abcc",
+      "sha256": "091c679cdab376f5be7aec9ddcfe5c3201bb3c27aef8c2929bf38235af8eae42",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321792142/magazine_cover_landscape_2d1bf17f3590721cef02f247c60134bf.png",
+      "registeredAt": "2026-10-07T08:10:52.323Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-02-プレキャスト工場"
+    },
+    "magazine:cce-goukaku-testing-pack": {
+      "noteKey": "m9f64a8b08855",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "8e233c3ed1fb8b5a",
+      "sha256": "24e0d92135cec07919e4e8a0e7702481b1f53382efdf331f26f8f5779b97e4c3",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321794524/magazine_cover_landscape_336016af2d655bdfba42042740f91b90.png",
+      "registeredAt": "2026-10-07T08:18:53.257Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-合格パック-08-試験検査機関"
+    },
     "magazine:cce-marugoto": {
       "noteKey": "m09d20bfd9738",
       "design": "2026-09-29-magazine-pop",
@@ -15746,6 +15827,78 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318755029/magazine_cover_landscape_ad28ee64abc01f6134736c045f07ac04.png",
       "registeredAt": "2026-09-29T02:23:38.445Z",
       "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-試験検査機関-4テーマ"
+    },
+    "magazine:cce-reiwa-building-contractor-pack": {
+      "noteKey": "m0595b4b179e0",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "f3abfbf411ac9f47",
+      "sha256": "836546fccd33baab5f09d507f648af3f62e8210f3a1ef5fe9b491c88394b84ee",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321790598/magazine_cover_landscape_0db26f1f149ce158fef566a19333ef5f.png",
+      "registeredAt": "2026-10-07T08:05:50.750Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工"
+    },
+    "magazine:cce-reiwa-civil-contractor-pack": {
+      "noteKey": "m1b555fe40131",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "12b52a90fc34f020",
+      "sha256": "e41c0b85726e3892a1f1c346cac6929a15391e303cacd604daa871116547d006",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321789417/magazine_cover_landscape_f31c6c90039693ab10b0681e77f16e6b.png",
+      "registeredAt": "2026-10-07T08:02:02.053Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工"
+    },
+    "magazine:cce-reiwa-design-consultant-pack": {
+      "noteKey": "m0dff629807db",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "7d8cc58597abb860",
+      "sha256": "c5ba9fb9e91920142c63de7f3fa8929af005e7efd140ada246b142c997563035",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321791024/magazine_cover_landscape_aed09b52ff679a7b378c80e3269f52b8.png",
+      "registeredAt": "2026-10-07T08:07:04.043Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル"
+    },
+    "magazine:cce-reiwa-maintenance-pack": {
+      "noteKey": "m155421580ea3",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "5a1ccd902330a1be",
+      "sha256": "ddbc3cc9f182108e09240088d58a708adfe21f6b3f79d3625e66619fc1600f2c",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321789793/magazine_cover_landscape_58c5abeb20d5335681319f6153584406.png",
+      "registeredAt": "2026-10-07T08:03:10.296Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修"
+    },
+    "magazine:cce-reiwa-namacon-pack": {
+      "noteKey": "m02a55d302f25",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "ab8cfba3132fa859",
+      "sha256": "018617d0f593bf0607a657c55754e80242308ace8c7937c2c16b8bcf278e7177",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321788268/magazine_cover_landscape_2b1f6c6a1d77dde4cc49143d28574c66.png",
+      "registeredAt": "2026-10-07T07:59:11.302Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場"
+    },
+    "magazine:cce-reiwa-owner-pack": {
+      "noteKey": "ma1d6fcf577bc",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "9d740a2ef310ecbb",
+      "sha256": "41a6661ad5d558647bab9d2965296512b4b3eca14dab1b904f195e0080eeb946",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321790226/magazine_cover_landscape_d16639a875f70508294c6a86e59ecfdf.png",
+      "registeredAt": "2026-10-07T08:04:22.860Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員"
+    },
+    "magazine:cce-reiwa-precast-pack": {
+      "noteKey": "m7937821e86a7",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "a8f973ad29789838",
+      "sha256": "4510655bfc0f97eb12ded8307de90896b487055fc401a4925df211e46454ec84",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321788750/magazine_cover_landscape_e4edf1befd24ea5fb8a43ac1625ee0c1.png",
+      "registeredAt": "2026-10-07T08:00:39.160Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場"
+    },
+    "magazine:cce-reiwa-testing-pack": {
+      "noteKey": "m43992b2f5503",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "ceea73457defc836",
+      "sha256": "8370a7a8c618ebaeaa4e27a0d4ac8a8dc89b8c6d4af46f4c313afa917ff6e33b",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321791367/magazine_cover_landscape_8e195e9061a0c9430e8b7d14fa058985.png",
+      "registeredAt": "2026-10-07T08:08:18.878Z",
+      "magazineDir": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関"
     },
     "magazine:cce-takuitsu-chokuzen-pack": {
       "noteKey": "mfdf781d7222b",
