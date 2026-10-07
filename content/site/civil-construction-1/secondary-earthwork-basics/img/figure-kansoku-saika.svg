@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="緩速載荷工法の考え方。盛土を一気に上げると地盤の強さが追いつかず安全率が 1 を下回るおそれがある。盛って放置する段階載荷では、放置の間に間隙水圧が消えて地盤が強くなり、安全率を保ったまま計画高まで上げられる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 11px; fill: #555; }
+      .t-key   { font-size: 12px; font-weight: bold; }
+      .ax    { stroke: #555; stroke-width: 1.5; fill: none; }
+      .grid  { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .slow  { stroke: #3a7d44; stroke-width: 2.5; fill: none; }      /* positive：段階載荷 */
+      .fast  { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 7 4; }  /* danger：急速載荷 */
+      .hold  { fill: #e8f0fe; }                                          /* brand-fill：放置期間 */
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">緩速載荷工法の考え方</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">盛っては待ち、地盤が強くなってから次を盛る</text>
+
+  <!-- 放置期間の帯（3 段のグラフ共通） -->
+  <rect class="hold" x="132" y="70" width="58" height="330"/>
+  <rect class="hold" x="246" y="70" width="58" height="330"/>
+  <text class="t-lab" x="161" y="84" text-anchor="middle">放置</text>
+  <text class="t-lab" x="275" y="84" text-anchor="middle">放置</text>
+
+  <!-- 1 段目：盛土高 -->
+  <text class="t-axis" x="20" y="110">盛土高</text>
+  <path class="ax" d="M 76 92 L 76 170 L 384 170"/>
+  <path class="slow" d="M 76 170 L 132 140 L 190 140 L 246 110 L 304 110 L 340 96 L 384 96"/>
+  <path class="fast" d="M 76 170 L 150 96 L 384 96"/>
+
+  <!-- 2 段目：地盤の強さ -->
+  <text class="t-axis" x="20" y="214">地盤の</text>
+  <text class="t-axis" x="20" y="230">強さ</text>
+  <path class="ax" d="M 76 196 L 76 274 L 384 274"/>
+  <path class="slow" d="M 76 262 L 132 258 L 190 238 L 246 234 L 304 212 L 384 206"/>
+  <path class="fast" d="M 76 262 L 150 258 L 260 244 L 384 228"/>
+
+  <!-- 3 段目：安全率 -->
+  <text class="t-axis" x="20" y="320">安全率</text>
+  <path class="ax" d="M 76 300 L 76 392 L 384 392"/>
+  <line class="grid" x1="76" y1="360" x2="384" y2="360"/>
+  <text class="t-lab" x="70" y="364" text-anchor="end">1.0</text>
+  <path class="slow" d="M 76 312 L 132 340 L 190 322 L 246 346 L 304 326 L 340 340 L 384 330"/>
+  <path class="fast" d="M 76 312 L 150 372 L 260 360 L 384 346"/>
+  <text class="t-lab" x="380" y="408" text-anchor="end">時間 →</text>
+
+  <!-- 凡例と要点 -->
+  <rect class="box" x="16" y="420" width="368" height="66" rx="6"/>
+  <line class="slow" x1="30" y1="444" x2="62" y2="444"/>
+  <text class="t-key" x="70" y="448" style="fill:#3a7d44">段階載荷</text>
+  <text class="t-lab" x="140" y="448">放置の間に間隙水圧が消え、強さが増す</text>
+  <line class="fast" x1="30" y1="470" x2="62" y2="470"/>
+  <text class="t-key" x="70" y="474" style="fill:#b22234">一気に盛る</text>
+  <text class="t-lab" x="150" y="474">強さが追いつかず、安全率が 1 を割る</text>
+</svg>

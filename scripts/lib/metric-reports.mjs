@@ -1,7 +1,7 @@
 /**
  * metric-reports.mjs — GA4・GSC の週次取得（レポート）を読み書きする唯一の実装（DN-0498 段階 3）。
  *
- * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 16＋4 種のレポートを
+ * 置き場: 取得した日（JST）ごとに 1 ファイル。1 回の取得（fetch-metrics.yml）が書く 17＋4 種のレポートを
  *   data/ga4/reports/<日付>.json・data/gsc/reports/<日付>.json の reports.<種類> に入れる。
  *   同じ日に同じ種類を取り直したら上書きする（以前は別名のファイルが増えていた）。
  *   GA4 の CTA ラベル別だけは「暦月の窓」の取得（meta.windowKind === 'month'）を別の枠 cta-clicks-by-label:month に置く。
@@ -22,7 +22,7 @@ export const REPORT_KINDS = Object.fromEntries([
   ['ga4.source', 'source'], ['ga4.source-medium-sns', 'sourceMedium-sns'], ['ga4.campaign', 'campaign'],
   ['ga4.host-name', 'hostName'], ['ga4.cta-clicks', 'cta-clicks'], ['ga4.cta-clicks-by-device', 'cta-clicks-by-device'],
   ['ga4.cta-clicks-by-label', 'cta-clicks-by-label'], ['ga4.cta-clicks-by-placement', 'cta-clicks-by-placement'],
-  ['ga4.key-events-by-page', 'key-events-by-page'], ['ga4.quiz-funnel', 'quiz-funnel'], ['ga4.bot-audit', 'bot-audit'],
+  ['ga4.key-events-by-page', 'key-events-by-page'], ['ga4.affiliate-by-page', 'affiliate-by-page'], ['ga4.quiz-funnel', 'quiz-funnel'], ['ga4.bot-audit', 'bot-audit'],
   ['gsc.page', 'page'], ['gsc.query', 'query'], ['gsc.page-query', 'page-query'], ['gsc.date', 'date'],
 ].map(([id, section]) => [id, { id, source: id.split('.')[0], section }]));
 
@@ -74,8 +74,12 @@ export function writeReport(root, id, data, { stamp = nowStamp() } = {}) {
   return { file, ref: `${file}#${section}` };
 }
 
-/** その種類のレポートを新しい順に返す。{ id, file, ref, stamp, data }（data は書いたときの { meta, rows, ... }） */
-export function listReports(root, id) {
+/**
+ * その種類のレポートを新しい順に返す。{ id, file, ref, stamp, data }（data は書いたときの { meta, rows, ... }）
+ * windowKind を渡すと meta.windowKind が一致するものだけ（by-label は同じ日に 28 日窓と暦月の 2 枠があり、
+ * 暦月の方が後に書かれる＝新しい順の先頭が暦月になる。28 日窓の配置別と並べる読み手は 'days' を指定する）
+ */
+export function listReports(root, id, { windowKind } = {}) {
   const k = kindOf(id);
   const out = [];
   for (const file of datasetFiles(root, `${k.source}.reports`)) {
@@ -88,6 +92,7 @@ export function listReports(root, id) {
     for (const [section, report] of Object.entries(day?.reports ?? {})) {
       if (section !== k.section && section !== k.section + MONTH_SUFFIX) continue;
       const { stamp, ...data } = report;
+      if (windowKind && (data?.meta?.windowKind ?? 'days') !== windowKind) continue;
       out.push({ id, file, ref: `${file}#${section}`, stamp, data });
     }
   }
@@ -95,7 +100,7 @@ export function listReports(root, id) {
 }
 
 /** その種類の最新のレポート（無ければ null） */
-export const latestReport = (root, id) => listReports(root, id)[0] ?? null;
+export const latestReport = (root, id, opts) => listReports(root, id, opts)[0] ?? null;
 
 const LEGACY_RE = /^data\/metrics\/(ga4|gsc)\/((?:ga4|gsc)-[A-Za-z-]+|bot-audit)-(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2})Z?\.json$/; // path-literal-ok: 移す前の名前を読み替える
 
@@ -120,7 +125,7 @@ export function readReportRef(root, ref) {
 }
 
 /** その種類の最新の参照「ファイル#枠」（無ければ null）。従来の「最新ファイルのパス」の置き換え */
-export const latestReportRef = (root, id) => latestReport(root, id)?.ref ?? null;
+export const latestReportRef = (root, id, opts) => latestReport(root, id, opts)?.ref ?? null;
 
 /** 参照が「ファイル#枠」か */
 export const isReportRef = (p) => /#[^/\\]+$/.test(String(p ?? ''));

@@ -31,3 +31,11 @@ test('outcome=failは4語彙目としてPASS（backlog-sweep手順6の既存記�
 test('entries配列が無ければnull(検査不成立)', () => {
   assert.equal(validateDispatchLog({}), null);
 });
+test('不具合の完了は prevention 必須（type 語彙と ref）。不具合以外・done 以外は問わない', () => {
+  const base = { id: 'DN-0567', at: '2026-10-07', task: 't', outcome: 'done', kind: '不具合' };
+  assert.equal(validateDispatchLog(ok([base])).violations.length, 1);
+  assert.equal(validateDispatchLog(ok([{ ...base, prevention: { type: 'gate', ref: 'check-note-sync' } }])).violations.length, 0);
+  assert.equal(validateDispatchLog(ok([{ ...base, prevention: { type: 'fix', ref: 'x' } }])).violations.length, 1);
+  assert.equal(validateDispatchLog(ok([{ ...base, kind: '改善' }])).violations.length, 0);
+  assert.equal(validateDispatchLog(ok([{ ...base, outcome: 'swept' }])).violations.length, 0);
+});

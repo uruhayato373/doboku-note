@@ -143,3 +143,10 @@ https://note.com/dobokunote/n/nd59f471c9214
 ## 参考にした一次情報
 
 - 国土交通省「i-Construction 2.0 ～建設現場のオートメーション化～」（令和6年4月）: https://www.mlit.go.jp/tec/constplan/content/001738240.pdf
+
+---
+
+<!-- cta:coconala-buyer -->
+自分の案件に置き換えて小論文を書いたら、ココナラの添削で赤入れを受けられます（書き直し1回込み）。何を題材にするか決まらない場合は、骨子から一緒に組み立てるオプションもあります。
+
+https://coconala.com/services/4425046

@@ -166,7 +166,8 @@ export function normalizeA8Csv(csvText, { reportKey, cfg, fetchedAt = null } = {
         rejects.push({ line, reason: "サイト列が空（帰属を確定できない）", raw: r });
         return;
       }
-      if (!String(siteRaw).includes(a8.targetSite)) return; // 他サイト行は静かに除外（異常ではない）
+      // 他サイト行は静かに除外（異常ではない）。サイト名は完全一致で照合する（_relatedSitesNote）
+      if (![a8.targetSite, ...(a8.relatedSites ?? [])].includes(String(siteRaw).trim())) return;
     }
 
     const month = parseMonth(get(r, "month")) ?? parseMonth(get(r, "date"));
@@ -385,6 +386,38 @@ export const REPORT_LOG_NOTES = {
  */
 export function keepProgramRows(rows, currentPeriod) {
   return (rows ?? []).filter((r) => r.program || r.period === currentPeriod);
+}
+
+/**
+ * report-log のサイト別（siteSummary・サイトに分離できる唯一の実績）から、単月の行を月 × 掲載先で返す。
+ * 単月＝期間が YYYYMM-YYYYMM で両端が同じもの。累計の期間（202601-202607 など）は混ぜない。
+ * 新しい月から months か月分。同じ月の中は sites の順（サイト → note）。読み手: 管理画面 /affiliate。
+ * @param {{siteSummary?: object[]}} log
+ * @param {{sites: string[], months?: number}} opts sites は完全一致（targetSite と relatedSites）
+ */
+export function siteMonthsFromReportLog(log, { sites, months = 3 }) {
+  const rows = [];
+  for (const r of log?.siteSummary ?? []) {
+    const site = String(r.site ?? "").trim();
+    if (!sites.includes(site)) continue;
+    const m = /^(\d{4})(\d{2})-(\d{4})(\d{2})$/.exec(r.period ?? "");
+    if (!m || m[1] !== m[3] || m[2] !== m[4]) continue;
+    rows.push({
+      month: `${m[1]}-${m[2]}`,
+      site,
+      clicks: r.clicks ?? null,
+      conversions: r.conversions ?? null,
+      grossRevenueYen: r.grossRevenueYen ?? null,
+      approved: r.approved ?? null,
+      pendingCount: r.pendingCount ?? null,
+      cancelledCount: r.cancelledCount ?? null,
+      revenueYen: r.revenueYen ?? null,
+    });
+  }
+  const keep = [...new Set(rows.map((x) => x.month))].sort().reverse().slice(0, months);
+  return rows
+    .filter((x) => keep.includes(x.month))
+    .sort((a, b) => b.month.localeCompare(a.month) || sites.indexOf(a.site) - sites.indexOf(b.site));
 }
 
 /**

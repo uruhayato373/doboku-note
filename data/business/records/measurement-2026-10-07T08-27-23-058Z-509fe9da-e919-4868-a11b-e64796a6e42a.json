@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-comprehensive-management",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+  "values": {
+    "gscClicks": 10
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-10-07T08:27:23.058Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}

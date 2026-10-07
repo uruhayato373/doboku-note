@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, 
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { add, changedFiles, restore, save, validateStaged } from '../scripts/ci-data.mjs';
+import { add, changedFiles, restore, save, validateSaved, validateStaged } from '../scripts/ci-data.mjs';
 import { datasetDir, datasetPath, latestFile, resolveDataset } from '../scripts/lib/datasets.mjs';
 import { REPORT_KINDS } from '../scripts/lib/metric-reports.mjs';
 
@@ -155,3 +155,37 @@ test('validateStaged: 型のあるデータセットの stage 済みファイル
   }
 });
 
+test('validateSaved: 退避した記録を型で検査し、collect の時点で違反を返す（publish で初めて落ちない・DN-0566）', () => {
+  const root = mkdtempSync(join(tmpdir(), 'ci-data-saved-'));
+  const dir = mkdtempSync(join(tmpdir(), 'ci-data-saved-out-'));
+  try {
+    git(root, 'init', '-q');
+    put(root, 'content/a.txt', 'a\n');
+    git(root, 'add', '-A');
+    git(root, 'commit', '-q', '-m', 'init');
+    const log = datasetPath('a8.report-log');
+    const real = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', log), 'utf8'));
+    put(root, log, `${JSON.stringify(real, null, 2)}\n`);
+    put(root, 'data/a8/ui/2026-10-07T00-00-00Z/manifest.json', '{"v":1}\n'); // a8.ui-raw（型なし）
+    save(root, dir, { paths: ['data'], name: 'a8' });
+    let r = validateSaved(dir);
+    assert.equal(r.files, 2, '退避したファイルを数える');
+    assert.equal(r.checked, 1, '型のある a8.report-log だけを検査する');
+    assert.deepEqual(r.errors, []);
+
+    // 型が知らないサイト名の行（2026-10-04〜06 に実際に落ちた形）
+    const broken = structuredClone(real);
+    broken.siteSummary.push({ ...broken.siteSummary[0], site: '統計で見る都道府県' });
+    put(root, log, `${JSON.stringify(broken, null, 2)}\n`);
+    rmSync(dir, { recursive: true, force: true });
+    save(root, dir, { paths: ['data'], name: 'a8' });
+    r = validateSaved(dir);
+    assert.equal(r.checked, 1);
+    assert.ok(r.errors.length > 0 && r.errors.every((e) => e.includes('a8.report-log')), '型に合わない記録を返す');
+
+    assert.deepEqual(validateSaved(join(dir, 'no-such')), { files: 0, checked: 0, errors: [] }, '退避が無ければ検査 0 件と返す');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

@@ -1,6 +1,6 @@
 ---
 name: feedback_affiliate_career_only
-description: "アフィリは転職一本(GKS/ビルドジョブ/DXコンサル)・講座/教材/添削/書籍は2026-06-25廃止・例外=自社ココナラ出品へのA8リンク(09-24)。creativeを新スロットへ昇格するときは同一matのピクセルを監査(1ページ1発火)"
+description: "アフィリは転職一本(ビルドジョブ/建設JOBs/DXコンサル・GKSは09-28終了)・講座/教材/添削/書籍は2026-06-25廃止・例外=自社ココナラ出品へのA8リンク(09-24)。creativeを新スロットへ昇格するときは同一matのピクセルを監査(1ページ1発火)"
 metadata:
   type: feedback
 ---
@@ -8,7 +8,8 @@ metadata:
 ## アフィリは転職のみ（2026-06-25 ユーザー判断・PR #272）
 **講座/教材/添削（SAT・独学サポート）と書籍（BookCard）アフィリを完全廃止**。サイトに残すアフィリは**転職のみ**（GKS/ビルドジョブ/DXコンサル）。
 - **Why**: 講座/添削/書籍は「学習にお金を払う財布」を取りに行くが、その財布は note 有料商品（模範論文・過去問解説・経験記述添削）と同一でカニバる。note 有料は月¥114k の実証済みエンジン、講座/書籍アフィリはクリック≒0・収益実質0だった。転職は「キャリアの財布」で note と別＝競合しない。関連 [[project_revenue_diagnosis_2026_06]]
-- **How to apply**: 学習・受験意図ページ＝**note CTA が独占**（講座/教材/添削/書籍アフィリを置く提案をしない。私自身このセッションで一度誤提案して撤回）。キャリア意図ページ（年収・転職・市場価値）＝転職アフィリ（CareerAffiliate / SidebarAdBanner）。
+- **How to apply**: 学習・受験意図ページ＝**note CTA が独占**（講座/教材/添削/書籍アフィリを置く提案をしない。私自身このセッションで一度誤提案して撤回）。キャリア意図ページ（年収・転職・市場価値）＝転職アフィリ（CareerAffiliate / AffiliateSlot・配置は `config/affiliate-placements.json`）。
+- **2026-10-07〜（運営者指示・EXP-017）**: 転職アフィリは学習・実務・公的基準・トップ・ツールの面にも出す。禁じるのは講座/教材/添削/書籍の**外部**アフィリで、転職は財布が別なので学習ページに出してよい。「学習ページだから転職広告を外す」提案をしない。
 - 撤去済み: CourseAffiliate/SchoolAffiliate/DokugakuBanner/SatTextLink/DokugakuKeikenLink/BookCard/BookSection、SCHOOL_SAT/HOME_AFFILIATE、affiliate-flags.ts/affiliate-books.json。真実源 `docs/project/04_運営/02_アフィリエイト提携状況.md`。書籍台帳 book-list.md は歴史資料化。
 - **PR#272 はコンポーネント撤去のみで prose の再提案を取りこぼしていた**（2026-06-27 発見）: 記事本文に「添削サービスも選択肢」「通信講座(SAT)」「スタディング/アガルート実名」「対策手段の選び方＝3手段」等が7ページ残存→全削除し、穴は note 模範論文/完成答案＋勉強仲間/職場の有資格者の目で埋める表現へ統一。除外2件＝studying.jp 出典引用(vta-method)・自己啓発の試験コンテンツ(self-development)。
 - **対象外で残る正当ケース**: 過去問・試験制度の説明で「通信講座/講座」が登場するもの（self-development の自己啓発分類等）は試験コンテンツなので消さない。判定は「学習導線で講座/添削を**推奨**しているか」。

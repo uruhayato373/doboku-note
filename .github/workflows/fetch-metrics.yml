@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "0 21 * * 4" # JST 06:00 Friday (UTC 21:00 Thursday)
   workflow_dispatch:
+    inputs:
+      affiliate_days:
+        description: "アフィリエイトのページ別の窓（日数・既定 28）。成果の出どころをさかのぼるときに延ばす"
+        required: false
+        default: "28"
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
 # 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
@@ -206,6 +211,23 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-placement
 
+      # アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も）。どのページのどの広告が押されたかを
+      # A8 の発生日と突き合わせ、配置ルール単位の数字（report-career-funnel の byRule）にする。表示 0 は異常として exit 1。
+      - name: Fetch GA4 (affiliate impressions/clicks by page x label x placement)
+        id: affiliatebypage
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          AFFILIATE_DAYS: ${{ inputs.affiliate_days || '28' }}
+        run: |
+          set +e
+          case "$AFFILIATE_DAYS" in
+            ''|*[!0-9]*) echo "affiliate_days は日数（数字）: $AFFILIATE_DAYS"; echo "rc=2" >> "$GITHUB_OUTPUT"; exit 0 ;;
+          esac
+          npm run fetch-ga4-cta-clicks -- --by-page --days "$AFFILIATE_DAYS"
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       # 実ユーザー計測（RUM）: サイトの web_vitals イベントをページの型×端末×指標×評価で取り、良好率で判定する
       # （CrUX が訪問不足で供給されないための代わり）。カスタムディメンション未登録の間は status: dimensions-missing で exit 0。
       # 台帳 rum.web-vitals。週次レビューが npm run report-web-vitals で読む。
@@ -271,6 +293,17 @@ jobs:
       - name: Generate monetization coverage report
         continue-on-error: true
         run: npm run report-monetization-coverage
+
+      # 転職アフィリエイトのファネル（配置別の表示・クリック × A8 の成果）。管理画面 /affiliate と月次レビューが読む。
+      # 従来は手動だけで 2026-09-28 の生成から止まり、管理画面が撤去済みの配置と古い窓を出していた（DN-0566 の続き）。
+      # 入力（GA4 の配置別・ラベル別、GSC、A8 の台帳）は上の取得と develop の記録。rc=2 は入力が揃わず検査不成立。
+      - name: Generate career funnel report
+        id: careerfunnel
+        continue-on-error: true
+        run: |
+          set +e
+          npm run report-career-funnel
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
 
       # bot 混入監視: Japan フィルタ後も残る bot 署名（高外国比率・低engagement の参照元）を surface し
       # bot-audit-*.json を ga4/ に出力（新規スパム候補は STDOUT）。従来 CI 未配線＝2026-05-17 以降実行ゼロ。
@@ -406,6 +439,8 @@ jobs:
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
           BING_RC: ${{ steps.bing.outputs.rc }}
           GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
+          CAREER_FUNNEL_RC: ${{ steps.careerfunnel.outputs.rc }}
+          AFFILIATE_BY_PAGE_RC: ${{ steps.affiliatebypage.outputs.rc }}
           DIGEST_RC: ${{ steps.publish.outputs.digest_rc }}
           MEASURE_RC: ${{ steps.publish.outputs.measure_rc }}
           PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
@@ -418,6 +453,10 @@ jobs:
           [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
           [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
           [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$CAREER_FUNNEL_RC" = "1" ] && anomalies+=("転職アフィリエイトのファネル（report-career-funnel）の生成失敗")
+          [ "$CAREER_FUNNEL_RC" = "2" ] && invalid+=("転職アフィリエイトのファネル: GA4 ラベル別か GSC が無く検査不成立")
+          [ "$AFFILIATE_BY_PAGE_RC" = "1" ] && anomalies+=("アフィリエイトのページ別（fetch-ga4-cta-clicks --by-page）の取得失敗か表示 0 件")
+          [ "$AFFILIATE_BY_PAGE_RC" = "2" ] && invalid+=("アフィリエイトのページ別: affiliate_days が日数でない")
           [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
           [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")
           [ "$MEASURE_RC" = "2" ] && invalid+=("実験の自動計測: measure 仕様が不正、または認証なし")

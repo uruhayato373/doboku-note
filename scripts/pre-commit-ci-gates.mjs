@@ -47,6 +47,22 @@ export const GATES = [
     cmd: () => ['node', 'scripts/check-products.mjs'],
   },
   {
+    id: 'affiliate-placements',
+    // 転職アフィリエイトの配置ルールと、それが突き合わせる正本（案件・広告リンク・面の語彙・カテゴリ・実験・素材・MDX の手書きカード）
+    match: (f) =>
+      [
+        datasetPath('config.affiliate-placements'),
+        datasetPath('config.affiliate-mats'),
+        datasetPath('config.cta-placements'),
+        datasetPath('affiliate.catalog'),
+        datasetPath('business.experiments'),
+        'src/config/categories.json',
+        'src/config/affiliate-creatives.ts',
+      ].includes(f) || /^content\/site\/.+\.mdx$/.test(f),
+    // ファイル指定が無いので全量（手元 1 秒・MDX 1,350 件の走査込み）。MDX は手書きの <CareerAffiliate> がルールに覆われているかを見る
+    cmd: () => ['node', 'scripts/check-affiliate-placements.mjs'],
+  },
+  {
     id: 'generated-indexes',
     // note 記事カタログの入力（記事の frontmatter・マガジンの正本の生成物・収録の期待値）。カタログ以外の生成物は CI の全量に任せる
     match: (f) =>

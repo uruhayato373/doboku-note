@@ -48,6 +48,9 @@ import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = datasetDir("a8.ui-raw");
+// download が来なかったレポートは、ページを開き直して最大この回数まで試す（DN-0566）
+const DOWNLOAD_ATTEMPTS = 3;
+const MODULE_IMPORT_FAILED = "CSV 生成用 JS の読み込みに失敗";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -298,8 +301,24 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
   }
 
   const dest = join(runDir, `${reportKey}--${runId}.csv`);
+  // CSV ボタンは押したときに CSV 生成用の JS を S3 から動的 import する。社内プロキシ経由だと
+  // この応答に CORS ヘッダーが付かず import が失敗し、download が来ないまま時間切れになる
+  // ことがある（2026-10-07 実測・DN-0566）。失敗はこのページでは直らないので、待たずに打ち切って
+  // 呼び出し側の再試行（ページを開き直す）に回す。
+  let onPageError;
+  const importFailed = new Promise((_, reject) => {
+    onPageError = (err) => {
+      if (/dynamically imported module/i.test(String(err?.message || err))) {
+        reject(new Error(`${MODULE_IMPORT_FAILED}: ${String(err?.message || err).slice(0, 160)}`));
+      }
+    };
+    page.on("pageerror", onPageError);
+  });
+  importFailed.catch(() => {});
   try {
-    const dl = await downloadTo(page, () => locator.click(), dest, { timeout: cfg.browser.timeoutMs });
+    const pending = downloadTo(page, () => locator.click(), dest, { timeout: cfg.browser.timeoutMs });
+    pending.catch(() => {});
+    const dl = await Promise.race([pending, importFailed]);
     unit.rawFile = dest;
     unit.sha256 = dl.sha256;
     // A8 はファイル名に対象期間を入れる（例 site_202601-202607_20260727105756.csv）。
@@ -325,6 +344,8 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     await dumpFailure(page, cfg, runId, { step: "download", message: e?.message || String(e) });
     unit.status = "download-failed";
     unit.error = String(e?.message || e).slice(0, 200);
+  } finally {
+    page.off("pageerror", onPageError);
   }
   return unit;
 }
@@ -364,7 +385,7 @@ async function main() {
     const session = await restoreA8Session(ctx, cfg);
     if (!session.ok) console.warn(`[warn] セッション未復元（${session.reason}）— ログイン待ちになります`);
 
-    const page = ctx.pages()[0] ?? (await ctx.newPage());
+    let page = ctx.pages()[0] ?? (await ctx.newPage());
     await page.goto(`${cfg.a8.baseUrl}${cfg.a8.homePath}`, {
       waitUntil: "domcontentloaded",
       timeout: cfg.browser.timeoutMs,
@@ -438,11 +459,28 @@ async function main() {
         console.warn(`[warn] 未知の reportKey: ${reportKey}（config に無し・スキップ）`);
         continue;
       }
-      const unit = await processReport(page, cfg, runId, runDir, {
-        reportKey,
-        dryRun: opts.dryRun,
-        month: opts.month,
-      });
+      let unit;
+      const attemptErrors = [];
+      for (let attempt = 1; attempt <= DOWNLOAD_ATTEMPTS; attempt++) {
+        // 1 回の試行の例外で run 全体を落とさない（2026-10-07 の CI: 当月の site-summary の再試行が例外で止まり、
+        // どのレポートも記録されず理由も残らなかった）。試行ごとに理由を残し、ページが閉じていれば開き直す
+        try {
+          if (page.isClosed()) page = await ctx.newPage();
+          unit = await processReport(page, cfg, runId, runDir, {
+            reportKey,
+            dryRun: opts.dryRun,
+            month: opts.month,
+          });
+        } catch (e) {
+          unit = { reportKey, status: "error", error: String(e?.message || e).slice(0, 200) };
+        }
+        unit.attempts = attempt;
+        if (unit.status !== "download-failed" && unit.status !== "error") break;
+        const reason = `${unit.status}${unit.error ? ` — ${unit.error.split("\n")[0]}` : ""}`;
+        attemptErrors.push(`${attempt}: ${reason}`);
+        console.log(`  ${reportKey}: ${reason}（${attempt}/${DOWNLOAD_ATTEMPTS}）${attempt < DOWNLOAD_ATTEMPTS ? " → 開き直して再試行" : ""}`);
+      }
+      if (attemptErrors.length) unit.attemptErrors = attemptErrors;
       manifest.units.push(unit);
       console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }
@@ -454,7 +492,7 @@ async function main() {
     const run = classifyRun(manifest.units);
     manifest.status = run.status;
     if (run.failed.length > 0) {
-      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.error }));
+      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.attemptErrors?.join(" / ") ?? u.error }));
     }
   } catch (e) {
     const page = ctx.pages()[0];
@@ -469,6 +507,7 @@ async function main() {
   if (!opts.dryRun) writeLastRunMarker(manifest);
   const ok = manifest.units.filter((u) => u.status === "downloaded").length;
   console.log(`\n完了: status=${manifest.status} / download 成功 ${ok}/${manifest.units.length}`);
+  if (manifest.error) console.log(`⚠ 途中で止まった: ${manifest.error}`);
   if (manifest.failed?.length) {
     console.log(`⚠ 取得できなかったレポート ${manifest.failed.length} 件:`);
     for (const f of manifest.failed) console.log(`  ${f.reportKey}: ${f.status}${f.error ? ` — ${f.error}` : ""}`);

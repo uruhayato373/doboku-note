@@ -650,6 +650,54 @@
         "/exam/pe-comprehensive-management/keywords/sexual-harassment",
         "/exam/pe-comprehensive-management/past-exams/h21-secondary"
       ]
+    },
+    {
+      "runId": "2026-10-07T01-30-12Z",
+      "collectedAt": "2026-10-07T01:30:12.150Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 20,
+      "accepted": 10,
+      "alreadyIndexed": 10,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/pavement/guide/study-plan",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/redundancy-safety",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/guide/aimai-hyougen-sahou",
+        "/exam/pe-construction/guide/keyword-note-tsukurikata",
+        "/exam/pe-construction/guide/setsumon-bunkai",
+        "/exam/pe-construction/guide/shiken-toujitsu-tejun",
+        "/exam/pe-construction/guide/suikou-checklist",
+        "/exam/pe-construction/guide/toan-kousei-template",
+        "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+        "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+        "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+        "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+        "/exam/pe-construction/keywords/infra-roukyuuka-iji"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-construction/guide/keyword-note-tsukurikata",
+        "/exam/pe-construction/guide/setsumon-bunkai",
+        "/exam/pe-construction/guide/shiken-toujitsu-tejun",
+        "/exam/pe-construction/guide/toan-kousei-template",
+        "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+        "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+        "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+        "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+        "/exam/pe-construction/keywords/infra-roukyuuka-iji"
+      ]
     }
   ]
 }

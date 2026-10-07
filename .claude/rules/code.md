@@ -38,7 +38,7 @@ paths:
 ## 管理画面・データ・CI
 
 - `tools/admin-app/`（`npm run admin`・`http://127.0.0.1:3021`・RSC ファースト・ルート node_modules 再利用・dev 専用でビルド/デプロイなし・投稿は既存 CLI を child_process 実行しガードは CLI 側） → [tools/admin-app/README.md](../../tools/admin-app/README.md)。E2E は `npm run test:e2e:admin`（CI の e2e には載せない）。サイトの E2E は `npm run serve`（3025）を既定ターゲットにし、叩く URL は `npm run check-e2e-targets` で out/ に実在させる
-- 管理画面のページは `tools/admin-app/src/components/admin`（表＝`TableFrame`＋shadcn の Table 部品・Card で囲まない／題名つき区画＝`PanelCard`／状態＝`StatusBadge`／絞り込み＝`FacetShell`）で組み、生の `<table>`・`className="card"`・`className="badge …"` を増やさない（`npm run check-admin-ui-debt` のラチェット）
+- 管理画面のページは `tools/admin-app/src/components/admin`（表＝`DataTable`（shadcn の Data Table）・形の違う表だけ `TableFrame`・Card で囲まない／題名つき区画＝`PanelCard`／状態＝`StatusBadge`／絞り込み＝`FacetShell`）で組み、生の `<table>`・`className="card"`・`className="badge …"` を増やさない（`npm run check-admin-ui-debt` のラチェット）
 - 管理画面の UI 部品は shadcn/ui 公式のまま使う（自作・「互換」の手書きをしない）。公式との差は `npm run check-shadcn-parity` が止め、意図した差だけ `.claude/config/shadcn-parity-allow.json` に理由付きで登録する。新しい部品は `npm run sync-shadcn-reference -- <name>` で参照を取ってから足す（DN-0432）
 - DB は導入しない（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー） → [data-storage-decision.md](../knowledge/reference/data-storage-decision.md)
 - `config/`・`data/` に新しい設定・記録を足すときは、先に台帳 `scripts/lib/datasets.mjs` に 1 行宣言する（id は「取得元.データセット」・種類・領域・説明。まだ 1 件も無い置き場は `planned: true`、手元だけの生データは `local: true`）。型は `scripts/lib/dataset-schemas.mjs` の zod に書き、台帳の `schema` に型の名前（文字列）で結ぶ（台帳は依存ゼロ。検査は `scripts/lib/dataset-validate.mjs`）（version 欄は `schemaVersion`・キーは camelCase・日時は UTC の ISO 8601・日付だけは JST）。`npm run check-datasets` が未宣言・重なり・型の違反・id の取得元と合わない置き場（config.* は config/、他は data/<取得元>/）を止める

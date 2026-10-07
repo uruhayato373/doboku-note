@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "$comment": "サイト内の広告・送客の配置（GA4 の cta_placement の値）の語彙。集計（report-career-funnel）・管理画面・配置ルールの検査がここから名前と状態を引く。撤去した配置も GA4 の過去の窓に残るので消さずに status を retired にし、撤去日が分かれば retiredAt（JST の日付）を書く。pixelPriority は 1 ページ 1 ピクセルの発火源の優先順（小さいほど優先・null は発火源にならない）。方針の真実源は .claude/knowledge/reference/affiliate-operations.md「6. 配置ポリシー」。",
+  "affiliate": {
+    "article-inline": {
+      "label": "本文中（手書き）",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 1
+    },
+    "article-mid": {
+      "label": "本文中間",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 2
+    },
+    "article-end": {
+      "label": "記事末",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": 3
+    },
+    "sidebar": {
+      "label": "記事サイドバー",
+      "status": "retired",
+      "retiredAt": "2026-09-26",
+      "pageKind": "doc",
+      "pixelPriority": null
+    },
+    "article-end-mobile": {
+      "label": "記事末（モバイル）",
+      "status": "retired",
+      "pageKind": "doc",
+      "pixelPriority": null
+    },
+    "category-sidebar": {
+      "label": "カテゴリ サイドバー",
+      "status": "active",
+      "pageKind": "category",
+      "pixelPriority": 1
+    },
+    "category-mobile": {
+      "label": "カテゴリ モバイル",
+      "status": "active",
+      "pageKind": "category",
+      "pixelPriority": null
+    },
+    "category-career-section": {
+      "label": "カテゴリ キャリア欄",
+      "status": "retired",
+      "retiredAt": "2026-08-31",
+      "pageKind": "category",
+      "pixelPriority": null
+    },
+    "career-tool": {
+      "label": "キャリア診断ツール",
+      "status": "active",
+      "pageKind": "tool",
+      "pixelPriority": null
+    },
+    "standards-end": {
+      "label": "公的基準 章末",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 1
+    },
+    "home-section": {
+      "label": "トップ 区画",
+      "status": "active",
+      "pageKind": "home",
+      "pixelPriority": 1
+    },
+    "tool-inline": {
+      "label": "ツール 結果の下",
+      "status": "active",
+      "pageKind": "tool",
+      "pixelPriority": 1
+    },
+    "article-end-offsite": {
+      "label": "記事末（ココナラ）",
+      "status": "active",
+      "pageKind": "doc",
+      "pixelPriority": null,
+      "program": "coconala"
+    },
+    "links-hub": {
+      "label": "リンク集（ココナラ）",
+      "status": "active",
+      "pageKind": "links",
+      "pixelPriority": null,
+      "program": "coconala"
+    }
+  }
+}

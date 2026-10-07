@@ -172,7 +172,7 @@ function buildPrompt(card: TodoCard): string {
     '実行者: claude-code',
     `着手前: npm run todo:claim -- ${cardId} --owner claude-code`,
     `検証: ${card.verify ?? 'カード本文の完了条件に従う'}`,
-    `完了: npm run todo:complete -- ${cardId} --confirm-conditions --commit`,
+    `完了: npm run todo:complete -- ${cardId} --confirm-conditions --commit${card.kind === '不具合' ? ' --prevention gate:…|memory:…|doc:…|none:理由' : ''}`,
     '停止条件: 外部公開・課金・削除・deploy・破壊的操作はユーザー承認を得るまで実行しない',
   ].join('\n');
 }

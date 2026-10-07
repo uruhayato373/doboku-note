@@ -97,6 +97,9 @@ export const DATASETS = [
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定', { schema: 'ConfigAffiliateAsp' }),
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定', { schema: 'ConfigA8ReportAutomation' }),
   d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定', { schema: 'ConfigCareerFunnel' }),
+  d('config.affiliate-mats', 'config/affiliate-mats.json', 'config', 'affiliate', 'A8 の広告リンク（mat）の許可リスト', { schema: 'ConfigAffiliateMats' }),
+  d('config.affiliate-placements', 'config/affiliate-placements.json', 'config', 'affiliate', '転職アフィリエイトの配置ルール（案件×面×対象×期間）', { schema: 'ConfigAffiliatePlacements' }),
+  d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
@@ -170,13 +173,13 @@ export const DATASETS = [
   // A8・アフィリエイト
   d('a8.report-log', 'data/a8/report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）', { schema: 'A8ReportLog' }),
   d('a8.catalog', 'data/a8/catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧', { schema: 'A8Catalog' }),
-  d('a8.ui-last-run', 'data/a8/ui-last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録', { freshness: { warnDays: 30 }, schema: 'A8UiLastRun' }),
+  d('a8.ui-last-run', 'data/a8/ui-last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録（login-collectors が週次で更新。週 1 回＋2 日を超えたら止まっている）', { freshness: { warnDays: 9 }, schema: 'A8UiLastRun' }),
   d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果', { local: true }),
   d('a8.inventory', 'data/a8/inventory.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true }, freshness: { failDays: 10 } }),
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧', { schema: 'AffiliateCatalog' }),
   // GA4
-  d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得した日ごとに 1 ファイル・16 種のレポート。読み書きは scripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } }, freshness: { warnDays: 10 }, schema: 'Ga4Reports' }),
+  d('ga4.reports', 'data/ga4/reports/{date}.json', 'series', 'site', 'GA4 の週次取得（取得した日ごとに 1 ファイル・17 種のレポート。読み書きは scripts/lib/metric-reports.mjs）', { retain: { family: 'ga4', maxAgeDays: 90, keepNewestPerSection: true, alsoKeepNewestWhere: { path: ['reports', 'cta-clicks-by-label:month', 'meta', 'windowKind'], equals: 'month' } }, freshness: { warnDays: 10 }, schema: 'Ga4Reports' }),
   d('ga4.admin-history', 'data/ga4/admin-history.json', 'ledger', 'site', 'GA4 管理画面の設定の点検の記録', { schema: 'Ga4AdminHistory' }),
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新', { freshness: { warnDays: 90 }, schema: 'Ga4AdminInventory' }),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
@@ -217,6 +220,8 @@ export const DATASETS = [
   d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksMonthly' }),
   d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true, schema: 'BusinessChecksWeekly' }),
   d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments' }),
+  // 受け箱（別リポジトリの obsidian mail-triage が毎日 develop へ直接書く。売上の正本ではない）
+  d('inbox.mail-events', 'data/inbox/mail-events.json', 'state', 'ops', 'メールから拾ったイベントの受け箱（obsidian mail-triage が書く・最大 500 件）', { schema: 'InboxMailEvents' }),
   d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ（窓は確定した月〜日・ファイル名の週はその窓の ISO 週）', { retain: { family: 'weekly-metrics', keepNewest: 26 }, schema: 'WeeklyMetrics' }),
 
   // ===== data/: 記録から計算した結果・文書が引く調査 =====
@@ -226,7 +231,7 @@ export const DATASETS = [
   d('analysis.growth-digest', 'data/analysis/growth/digest-{week}.json', 'series', 'site', '成長サイクルの週次ダイジェスト', { retain: { family: 'growth', keepNewest: 26 }, freshness: { failDays: 10 }, schema: 'GrowthDigest' }),
   d('analysis.growth-triage', 'data/analysis/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録', { schema: 'GrowthTriage' }),
   d('analysis.quiz-premium-funnel', 'data/analysis/quiz-premium-funnel.json', 'state', 'site', '演習アプリの有料化のファネル', { schema: 'QuizPremiumFunnel' }),
-  d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル', { schema: 'CareerFunnel' }),
+  d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル（fetch-metrics が週次で作る）', { schema: 'CareerFunnel', freshness: { warnDays: 10, failDays: 21 } }),
   d('analysis.career-funnel-report', 'data/analysis/career-funnel.md', 'report', 'affiliate', '同上の報告（月次レビューが読む）'),
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true }, schema: 'CareerFunnelBaseline' }),
   d('analysis.buildjob-report', 'data/analysis/buildjob-report.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),

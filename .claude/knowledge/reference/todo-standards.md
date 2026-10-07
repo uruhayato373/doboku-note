@@ -177,5 +177,5 @@ vault の `.claude/scripts/todo/setup-todo-links.mjs` で張る。SSOT は常に
 - doboku-note 側: `scripts/lib/backlog-lib.mjs` / `tools/admin-app/src/lib/todo.ts` /
   agent `todo-planner`・`backlog-curator` / skill `/backlog-sweep`
 - doboku-note のライフサイクル契約 (task→plan→claim→verify→complete): [todo-lifecycle.md](todo-lifecycle.md)。
-  CLI は `scripts/todo-{claim,release,complete}.mjs` (`npm run todo:claim`等)、検査は
+  CLI は `scripts/todo-{add,claim,release,complete}.mjs` (`npm run todo:add`等。不具合の完了は `--prevention` 必須)、検査は
   `npm run check-task-plan-links` / `npm run check-dispatch-log`

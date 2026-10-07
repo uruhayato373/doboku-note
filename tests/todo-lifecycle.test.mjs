@@ -9,6 +9,7 @@ import {
   claimTask,
   releaseTask,
   checkCompleteReadiness,
+  parsePrevention,
   readClaimsStore,
   emptyClaimsStore,
 } from '../scripts/lib/todo-lifecycle.mjs';
@@ -184,4 +185,33 @@ test('listPlanUnits: dir型で00-master.mdが無ければ00-*.mdへフォール�
 test('listPlanUnits: .claude/plans/ が無ければ空配列', () => {
   const root = mkdtempSync(join(tmpdir(), 'plan-units-test-'));
   assert.deepEqual(listPlanUnits(root), []);
+});
+
+// --- 不具合の再発防止 -----------------------------------------------------------
+
+test('parsePrevention: gate は実在する npm script かパス、doc は実在するパス、none は理由が要る', () => {
+  const env = { npmScripts: new Set(['check-note-sync']), pathExists: (p) => ['docs/x.md', '.claude/memory/feedback_x.md'].includes(p) };
+  assert.deepEqual(parsePrevention('gate:check-note-sync', env), { ok: true, type: 'gate', ref: 'check-note-sync' });
+  assert.equal(parsePrevention('gate:no-such', env).ok, false);
+  assert.equal(parsePrevention('doc:docs/x.md#見出し', env).ok, true);
+  assert.equal(parsePrevention('doc:docs/none.md', env).ok, false);
+  assert.equal(parsePrevention('memory:feedback_x', env).ok, true);
+  assert.equal(parsePrevention('memory:feedback_x.md', env).ok, true);
+  assert.equal(parsePrevention('memory:feedback_missing', env).ok, false);
+  assert.equal(parsePrevention('none:短い', env).ok, false);
+  assert.equal(parsePrevention('none:一回きりの外部障害で再発しない', env).ok, true);
+  assert.equal(parsePrevention('fix it', env).ok, false);
+});
+
+test('checkCompleteReadiness: 不具合は再発防止が無ければ hard fail、あれば通る。不具合以外は問わない', () => {
+  const claimed = claimTask(sampleBacklog(), null, 'DN-0002', 'claude-code');
+  const claims = JSON.stringify(claimed.claimsStore);
+  const without = checkCompleteReadiness(claimed.text, claims, 'DN-0002');
+  assert.equal(without.ok, false);
+  assert.equal(without.checks.find((c) => c.label === 'prevention').pass, false);
+  const withIt = checkCompleteReadiness(claimed.text, claims, 'DN-0002', { prevention: { ok: true, type: 'memory', ref: 'feedback_x' } });
+  assert.equal(withIt.ok, true);
+  const improve = claimTask(sampleBacklog(), null, 'DN-0001', 'claude-code');
+  const r = checkCompleteReadiness(improve.text, JSON.stringify(improve.claimsStore), 'DN-0001');
+  assert.equal(r.checks.some((c) => c.label === 'prevention'), false);
 });

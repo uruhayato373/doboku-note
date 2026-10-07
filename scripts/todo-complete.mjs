@@ -22,6 +22,8 @@
  * Usage:
  *   node scripts/todo-complete.mjs DN-####                          # dry-run（チェックリスト表示のみ）
  *   node scripts/todo-complete.mjs DN-#### --confirm-conditions --commit --note "..." --verify "..."
+ *   [種類:不具合] は --prevention gate:<検査> / memory:<名前> / doc:<パス> / none:<理由> が必須（直した不具合を学びに変える。
+ *   dispatch-log に kind と prevention を残し、週次レビューが report-defect-learning で数える）
  *
  * exit: 0 成功（dry-runの表示含む）/ 1 commit条件未達・カード不在 / 2 引数不正
  */
@@ -29,7 +31,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkCompleteReadiness, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
+import { checkCompleteReadiness, parsePrevention, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
@@ -49,16 +51,19 @@ const arg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : nu
 const note = arg('--note') || '';
 const owner = arg('--owner') || 'claude-code';
 const verify = arg('--verify');
+const preventionRaw = arg('--prevention');
 
 if (!id || !/^DN-\d{4}$/.test(id)) {
-  console.error('使い方: node scripts/todo-complete.mjs <DN-####> [--confirm-conditions --commit --note "..." --verify "..."]');
+  console.error('使い方: node scripts/todo-complete.mjs <DN-####> [--confirm-conditions --commit --note "..." --verify "..." --prevention gate:…|memory:…|doc:…|none:…]');
   process.exit(2);
 }
 
 const backlogText = readFileSync(BACKLOG, 'utf8');
 const claimsRaw = existsSync(CLAIMS_PATH) ? readFileSync(CLAIMS_PATH, 'utf8') : null;
 
-const readiness = checkCompleteReadiness(backlogText, claimsRaw, id);
+const npmScripts = new Set(Object.keys(JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).scripts ?? {}));
+const prevention = preventionRaw == null ? null : parsePrevention(preventionRaw, { npmScripts, pathExists: (p) => existsSync(join(ROOT, p)) });
+const readiness = checkCompleteReadiness(backlogText, claimsRaw, id, { prevention });
 console.log(`[todo-complete] ${id} readiness check`);
 for (const c of readiness.checks) {
   const mark = c.pass === true ? '✓' : c.pass === false ? '✗' : '?';
@@ -134,6 +139,8 @@ dispatch.entries.push({
   at: todayJst(),
   task: card.title,
   tier: card.tier,
+  ...(card.kind ? { kind: card.kind } : {}),
+  ...(prevention?.ok ? { prevention: { type: prevention.type, ref: prevention.ref } } : {}),
   executor: owner,
   outcome: 'done',
   plan: planUnit?.path ?? null,

@@ -8,6 +8,22 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-07 — A8 の成果 1 件がどのページから出たか分からない（A8 のリファラはドメインだけ・GA4 はクリックを取りこぼし）
+
+- 現象: ビルドジョブの発生 1 件（¥13,534・未確定）について、どの広告から出たかを調べた。A8 の成果別レポート（`/report/result`）には、クリック 2026/10/05 10:37:13・申込 10:38:03・PC が出ていた。ただし「リファラ」は `https://doboku-note.com/` だけだった。GA4 の `affiliate_cta_click`（`data/ga4/reports/2026-10-07.json` の affiliate-by-page）は 10/04〜10/06 が 0 件で、このクリック自体が残っていない。広告の表示（impression）の行は窓の合計で日付が無く、その日に広告を出したページからも絞れない。
+- 原因: (1) サイト既定の Referrer-Policy（`public/_headers` の `strict-origin-when-cross-origin`）により、他ドメインへのリンクではドメインまでしか送られない。広告リンクにも同じ方針が効いていた。(2) GA4 の取りこぼし。経路は特定できない。候補は、広告ブロッカー等でタグが動かない訪問者と、中クリックで開いたリンク（`click` が発火せず `auxclick` だけが飛ぶのに、計測が `click` しか聞いていなかった）。
+- 検出経緯: 引き継ぎの「A8 の発生日時と GA4 の clickLog を日付で突き合わせる」を実行し、A8 の日時に対応する GA4 の行が無いことで分かった。時間帯別の GA4 を取りに行こうとしたが、この Mac にはサービスアカウント鍵の設定が無く、打ち切った。
+- 対策: 広告リンクに `referrerPolicy="no-referrer-when-downgrade"` を付けた（`AFFILIATE_LINK_REFERRER_POLICY`。rel と対で付けることを `tests/affiliate-link-referrer.test.mjs` が止める）。デプロイ以後のクリックは、A8 の成果別レポートにページの URL が残る。クリック計測は `auxclick`（中ボタン）も拾う。成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母として使う（affiliate-operations.md 裁定ログ 2026-10-07）。
+- 教訓: GA4 は「ASP が数えたクリック」を全部は持っていない（9/26 の時点で A8 のサイト別クリックが GA4 より大きかったのと同じ根）。成果をページへ帰属させる情報は、成果を数える側（ASP）に残るように作る。サイト全体のプライバシー方針を変えずに、外へ出すリンクの種類ごとに方針を決める。
+
+## 2026-10-07 — A8 の 9 月分が CI の型検査で 3 回捨てられ、会社 PC では CSV の download が時間切れになる（DN-0566）
+
+- 現象: A8 で成果 1 件（10 月）を確かめたが、`data/a8/report-log.json` は 8 月分で止まっていた。`login-collectors`（a8）は 10/4〜10/6 に 9 月分を 3/3 取得・正規化していたが、publish の `ci-data add` が `siteSummary.6.site: expected "doboku-note"` で落ち、一度も commit されていなかった。会社 PC で `fetch-a8-ui-csv.mjs` を走らせると、ログインと口座確認は通るが `waitForEvent("download")` が 30 秒で時間切れになった。
+- 原因: (1) 2026-09-26 に note を A8 の副サイト（`relatedSites`）として登録し、サイト別レポートに `doboku-note（note）` の行が増えた。正規化はこの行を採る作りだったが、10/3 に足した型は `site` を `doboku-note` だけに固定していた。(2) A8 の CSV ボタンは押したときに S3（`a8mc-public`）から生成用 JS を動的 import する。会社 PC の社内プロキシは HTTPS を中継していて（応答に `Proxy-Connection`）、この JS が時々 CORS ヘッダー抜きで返る。import が失敗すると download は来ない。同じ URL を curl で取ると CORS ヘッダーは付いていた。プロキシを通らない CI では起きない。
+- 検出経緯: 管理画面 `/affiliate` が 8 月のままだったので、CI のログ（run 37400895490）の publish を読んで型エラーを見つけた。ローカルは CDP で `Network.loadingFailed` と `pageerror`（`Failed to fetch dynamically imported module`）を取って切り分けた。調査中、0 本しか取れていない run を正規化して SSOT を上書きした（期間が null・当期外の行が消えた）ので、git から戻した。
+- 対策: 型の `site` を targetSite と relatedSites の 2 値にし、サイト名の照合を部分一致から完全一致にした（`tests/a8-report-csv.test.mjs` が副サイトの採用・似た名前の除外・型の通過を検証）。fetch は import の失敗を検知したら待たずに打ち切り、ページを開き直して最大 3 回試す。normalize は取得できたレポートが 0 本なら書き込まずに exit 1。
+- 教訓: 型を足すときは、直近の設定変更（副サイトの追加など）で増えた値を実データで通してから入れる。CI の collect が緑でも publish が赤なら、記録には何も入っていない。会社 PC の A8 取得は当てにせず、CI の `login-collectors` を正とする。
+
 ## 2026-10-03 — 収益導線レポートが旧URLだけを照合して流入ページを落とす
 
 - 現象: GA4に1,196 URLの記録がある一方、収益導線レポートでは流入のあるページが5件だけだった。

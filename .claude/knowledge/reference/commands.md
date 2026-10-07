@@ -58,7 +58,7 @@ npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレク
 
 ```bash
 npm run generate-webp     # png/jpg → webp 変換
-npm run figure-review-queue # 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record <verdicts.json>`＝判定を記録し直した図の MDX 寸法を合わせる。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
+npm run figure-review-queue # 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record <verdicts.json>`＝判定を台帳へ、出典を config/figure-sources.json の provenance へ書き、直した図の MDX 寸法を合わせる。reextract の項目は記録済みの出典（recordedSource）と記事の sources から引いた原典候補（sourceCandidates）を持ち、試験ページでない記事で流用不可の書籍しか原典が無い図は切り出し直しに回さない。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
 npm run upload-images-r2  # 画像を R2 にアップロード
 npm run audit-repo-assets    # リポジトリ肥大化の read-only 監査（ワークツリー/HEAD/pack の3指標を分けて計測→KEEP_GIT/R2_PUBLIC/R2_PRIVATE/REGENERATE/REVIEW へ分類。--history は要キャッシュ・DN-0111 Phase 0）
 npm run prune-state-snapshots # CI が積む日付付き snapshot（psi/ga4/gsc/url-inspection/monetization/weekly-metrics）を寿命表で消す（既定 dry-run・`--commit`・`--family a,b`・`--check-coverage`＝未宣言の日付付きファイル 0 件か〔quality:audit ci:true〕。business/** と gsc/rank-watch/** は不変台帳で除外・seo-watchwords の evidence.source は pin。削除は書き手 workflow の commit 直前で実行し、別 commit では消さない〔reset --hard + copy-back に戻される〕）
@@ -66,9 +66,9 @@ npm run check-git-binary-policy # 生成物・著作権物・巨大blob・拡張
 npm run asset-offload         # 追跡アセットを R2 へ退避（既定 dry-run・--commit で実行。upload 後に bytes と sha256 を R2 から読み直して検証してから manifest へ記録。ローカル削除と untrack はしない。**--verify** で追跡解除前の全件照合〔ローカル実体・manifest・R2 の 3 者一致〕を行い、--out に untrack できる一覧を書く。1 件でも欠ければ exit 1）
 npm run asset-hydrate         # 退避したアセットを取り戻す（ローカル→cache→R2→generator の順・--offline で cache のみ・--path で部分取得）
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
-npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
+npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--from-vault＝vault にだけある原本をその場で読んで台帳へ登録・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only（Drive 管轄ファイルの再追跡を検知。`coexistWithGit: true` の group＝kindle-dist は Git が正本なので対象外・2026-09-17）＋ quality:audit
-npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
+npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェット・図の原典（vaultCopies が Drive 台帳にあるか・図の出典の書籍が記事の sources にあるか・流用不可の書籍の図 figureReuseDebt）を検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-disk-hygiene    # ローカル容量の surfacer（macOS / Windows 両対応・他 OS 専用項目は n/a。exit 2 は「検査できるはずの項目に材料が無い」）
 npm run disk-hygiene:fix      # 再生成可能な滞留物をガード付きで削除（日次実行の実体。dry-run は node scripts/disk-hygiene.mjs --dry-run）
@@ -128,7 +128,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run product:db -- --query "<SQL>"` — 正本・収録記録・販売ログから検索用 SQLite `.tmp/products.db`（生成物・Git 管理外・sql.js）を作って問い合わせる。`--check` は書き出さずに完走だけ確かめる
 
-`npm run note-sync:install` — Mac の launchd に note の週次同期を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。試験直前に 1 資格だけ先に流すなら `bash scripts/scheduled/note-sync.sh --only 'content/note/1級・2級土木/1級土木/'`（専用 worktree で同じ手順・マガジンのカバーは触らない）。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
+`npm run note-sync:install` — Mac の launchd に note の週次同期を入れる（毎週日曜 3:00・寝ていた週は起床時に 1 回）。専用 worktree（`.claude/worktrees/note-sync`・lock 済み）で `scripts/note-sync-routine.mjs` が、反映計画の順に最大 200 記事を `note-update-body --sync` で 1 記事 1 回更新し（配布 PDF は Drive から取り寄せる）、マガジンのカバーも登録して、台帳・実行記録（`data/note/sync-log.json`）・R2・Drive を更新して develop へ push。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は note にログイン済みのプロファイル。計画だけ見るなら `npm run note-sync-routine -- --dry-run`（どの checkout でも可）。試験直前に 1 資格だけ先に流すなら `bash scripts/scheduled/note-sync.sh --only 'content/note/1級・2級土木/1級土木/'`（専用 worktree で同じ手順・マガジンのカバーは触らない）。マガジンのカバーだけなら `--magazines-only`（記事は読まない）。マガジンは記事の連続失敗では止めず、止めるのはログイン切れだけ。手で `note-update-body --list` を流さない（PDF 取り寄せ・台帳 push・二重起動の防止を通らない）。罠: 見た目を変えたら `note-cover-tokens.json` の `designVersion` を上げないとカバーは再登録されない。上げると全件が数週に分けて登録し直される。
 
 ```bash
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→data/kdp/royalties.json（読み取り専用・当月/前月のみ・定期取得は login-collectors.yml）
@@ -216,7 +216,7 @@ npm run check-gsc-ui-due       # GSC/GA4 UI 取得の月次期限＋前回の完
 npm run check-google-ui-ssot   # UI CSV 情報の追跡 SSOT の整合ゲート（marker↔history↔urls・検査ゼロを FAIL）
 npm run ga4-admin:check        # GA4 管理画面の設定を desired state と突合（dry-run／:apply で不足カスタムディメンションを作成）
 npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_label/cta_placement）のドリフト検知（オフライン）
-npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）
+npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）/ `--by-page`＝アフィリエイトのページ × ラベル × 面（クリックは日付も・枠 affiliate-by-page・表示 0 は exit 1。成果の出どころを辿るときは fetch-metrics を `-f affiliate_days=45` で手動実行）
 npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して data/rum/web-vitals/*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
 npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は data/gsc/indexing-priority.txt を :request に渡すだけ）
@@ -227,14 +227,17 @@ npm run gsc-local:install     # Mac の launchd に GSC のブラウザ作業を
 npm run indexnow:submit        # sitemap の lastmod が直近 7 日の URL を IndexNow（Bing 等・Google 非対応）へ通知。CI は deploy 成功後に自動（indexnow-submit.yml）。`-- --dry-run` で対象だけ。会社 PC は Node fetch がプロキシを通らず exit 2
 npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と要人手（pending_user_actions）を surface（計測→記録→改善→再計測の最後の輪。2026-09-19 に旧 check-experiments-due を統合＝判定は scripts/lib/experiment-due.mjs が唯一。`-- --json` で issues も出す）
 npm run check-jst-date    # 運用記録の日付が UTC・実行環境のタイムゾーン（getFullYear/getMonth/getDate）・+9 時間の自前計算で出ていないか（scripts・.claude・tools を走査。JST の日付は scripts/lib/jst-date.mjs の todayJst・jstMonth・jstDayOf・jstClock だけ。JST 09:00 前の実行事故・pre-commit 同梱）
+npm run check-affiliate-placements # 転職アフィリエイトの配置ルール（config/affiliate-placements.json＝案件×面×対象×期間）を catalog・広告リンク・面の語彙・カテゴリ・実験・MDX の手書きカードと突合し、同じ面の重なりを止める（pre-commit・quality-audit ci）。`-- --upcoming` は 7 日以内の境界で exit 1（ops。SSG は境界の後に再ビルドが要る）
 npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
 npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/business/records/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
-npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
+npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（fetch-metrics が週次で生成・GA4 の窓は配置別の 28 日窓・配置の名前と撤去は config/cta-placements.json。`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
 ## 台帳・ドキュメント整合
 
 ```bash
+npm run todo:add -- --title … --tier 高|中|低|判断待ち --kind 不具合|改善|意思決定|制作 --domain <領域> (--body "…" | --body-file <path>) [--category …] [--when YYYY-MM] [--due YYYY-MM-DD] [--verify <npm script>] [--trailer "…"] [--commit] # backlog へ 1 枚起票（採番・重要度の見出しへの差し込み・check-backlog-schema と同じ検査）し、origin/develop へ直接 commit・push する。作業ツリー・index・今のブランチに触れないので、共有 checkout で別セッションがブランチを切り替えていても別ブランチへ載らない。既定は dry-run・最後の行が ID。手元へは git pull。罠: `--kind 定期` は backlog に置けないので拒否する
+npm run report-defect-learning -- --since YYYY-MM-DD # 期間内に起票・完了した不具合と、完了時の再発防止（検査 / memory / 正典 / 残すもの無し）の内訳。読み手は /weekly-review の backlog 消化サマリ。不具合の完了は todo:complete --prevention が必須（check-dispatch-log が止める）
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
 npm run check-codex-compat   # AGENTS.md（共通規約＋rules参照索引）/ .agents/skills / .codex/agents / .codex/hooks.json が正典（CLAUDE.md + .claude/rules / .claude/skills / .claude/agents / .claude/settings.json）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged はGit blob一括取得＋変更したindexのruntime参照、通常/CIは全域走査 ＋ quality:audit・再生成は sync-codex-compat。2026-09-14 から agent toml と hooks.json も生成物＝手で編集しない）

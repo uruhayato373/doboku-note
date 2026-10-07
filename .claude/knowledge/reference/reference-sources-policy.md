@@ -130,12 +130,17 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 | 原本 PDF | `原資料PDF/書籍/{referenceId}__{短い書名}/source/` | `reference-sources.json` の `origin` ＋ `reference-book-source-pdf` |
 | 原本ページ画像・クロップ | 同ディレクトリの `pages/`・`crops/` | `reference-book-page-image` ＋ `book-manifest.json` |
 | 文字起こし・校正 | 同ディレクトリの `ocr/` | `source-transcript`（README を除く `.md`）＋ `book-manifest.json` |
+| 白書・年次報告の原本 PDF | `原資料PDF/白書/` | `reference-sources.json` の `vaultCopies`（参考文献 ID → vault のパス）＋ `white-paper-source-pdf`（2026-10-07） |
 
 文字起こしの `source` が参考文献 ID、`sourcePdfs` が原本 PDF の Drive キーを保持する。これにより Drive の
 フォルダ名を人が読める状態に保ちながら、記事までの機械的な追跡は安定した ID で行える。
 従来の `content/sources/textbook/` 論理キーは `transcriptDir` として互換維持し、物理的には原資料の `ocr/` を指す。
 新規 OCR は `bookBundle.transcriptDir` を使う。原本未入手の資料は明示した `transcriptVaultDir` に置き、
 原本があるように装わない。旧 PDF キーは台帳で正本へ向け、同一内容の PDF を複製しない。
+
+白書は公開元が正本（`origin.kind: external`）で、図を切り出した版を `vaultCopies` に置く。`check-reference-sources` は
+`vaultCopies` が Drive 台帳に載っていることを確かめる。vault の実体を台帳へ載せるのは
+`node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit`（vault へは書かない）。
 
 共通仕様書の旧文字起こしは `原資料PDF/共通仕様書/{整備局}/{PDF名}/ocr/` へ統合した。
 公開 `standards-library` / `standards-articles` は repo 側を入力とするため、Drive の物理移動には依存しない。
@@ -149,5 +154,17 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 2026-07-31 のコンクリート診断士では、技報堂のスキャン教材から作ったテキストを独自散文に再構成し、
 原典図 25 枚を自作図等へ置換した。さらに、教材由来の 98 問は論点だけを保った自作演習へ書き換えた。
 これは市販書籍由来コンテンツを公開可能な形へ直した前例であり、構成も含めて独自編集へ転換する際の基準とする。
+
+## 6. 図の原典の結線と、流用不可の図
+
+図ごとの出典の正本は `config/figure-sources.json` の `provenance`（図キー → 原典 PDF・ページ）。`check-reference-sources` は
+次を見る（2026-10-07・DN-0563）。
+
+- 出典が参考文献に当たる図の記事は、その参考文献を `sources:` に書く（宣言もれは FAIL）
+- 試験ページ（公式の設問を含むページ）の図は試験の図で、問題解説集のスキャンは媒体にすぎない。記事が試験の原典（`exam-official`）を
+  `sources:` に書いていればよく、市販の問題解説集からの切り出しも許す
+- 試験ページでない記事へ `figureReuse: false`（`commercial-book`）の原典から切り出した図は、
+  `.claude/config/reference-sources-baseline.json` の `figureReuseDebt` に載っている既存分だけを許す（増えたら FAIL）。
+  返済は §5 の前例どおり自作の図への置き換えか削除。`figure-review-queue` はこの図を切り出し直しに回さない
 
 展開先（guide・textbook・keyword・practice・primary・past-exam・standards・note）ごとの加工ルール表と、commercial-book → guide/textbook の標準手順（原文を渡さない brief 方式）は [content-taxonomy.md](./content-taxonomy.md) §7 を参照する。

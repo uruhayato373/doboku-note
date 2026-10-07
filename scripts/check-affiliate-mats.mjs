@@ -4,7 +4,7 @@
 // 背景: GKS 等の転職 mat は本文インライン `<CareerAffiliate href>` で約 90 MDX に直書きされる。
 // mat 変更時の取りこぼし・タイポ・未申告の新規 mat が
 // 機械検知されないため（既存 check-* にアフィリ用は無かった）、SSOT 許可リスト
-// src/config/affiliate-mats.json と src/** ・ content/site/** の a8mat= を突合する。
+// config/affiliate-mats.json（台帳 config.affiliate-mats）と src/** ・ content/site/** の a8mat= を突合する。
 //
 // 判定:
 //   - 許可リストに無い mat が出現 → ERROR（exit 1）。タイポ or 未申告の新規案件。
@@ -26,9 +26,10 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { todayJst } from './lib/jst-date.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const STAGED = process.argv.includes('--staged');
-const REGISTRY = 'src/config/affiliate-mats.json';
+const REGISTRY = datasetPath('config.affiliate-mats');
 
 if (!existsSync(REGISTRY)) {
   console.error(`[check-affiliate-mats] ${REGISTRY} が無いため検証をスキップ`);

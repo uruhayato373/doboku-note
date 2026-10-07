@@ -10,7 +10,7 @@
 //
 // args の各要素: figure-review-queue.mjs --next の 1 要素
 //   { stage('review'|'reextract'), figKey, img(相対 .png|.webp), kind, imgSize:[幅,高さ], mdx, signals,
-//     whyCut?, manualSource?, sourceRoots? }
+//     whyCut?, recordedSource?, sourceCandidates?, sourceRoots? }
 // 旧形式 { figKey, name, img, kind, imgSize }（/figure-recrop の recrop-review 一覧）も stage=review として受ける。
 // 判定の RULES は figure-crop-worker.md（agent の system prompt）に集約＝ここでは入力を渡すだけ。
 
@@ -63,8 +63,9 @@ const promptOf = (it) => {
   }
   if (stageOf(it) === 'reextract') {
     lines.push(`切れていると判定した理由: ${it.whyCut || '（記録なし）'}`)
-    lines.push(`過去に記録された出典: ${it.manualSource ? JSON.stringify(it.manualSource) : 'なし'}`)
-    lines.push(`元 PDF を探す場所: ${(it.sourceRoots || []).join(' | ')}`)
+    lines.push(`記録済みの出典: ${it.recordedSource ? JSON.stringify(it.recordedSource) : 'なし'}`)
+    lines.push(`原典候補（記事の sources から。まずここを見る）: ${it.sourceCandidates?.length ? JSON.stringify(it.sourceCandidates) : 'なし'}`)
+    lines.push(`候補で見つからないときだけ探す場所: ${(it.sourceRoots || []).join(' | ')}`)
     if (it.vaultNote) lines.push(`注意: ${it.vaultNote}`)
   }
   return lines.join('\n')

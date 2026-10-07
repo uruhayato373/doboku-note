@@ -18,7 +18,7 @@
 import { z } from 'zod';
 import { todayJst } from './jst-date.mjs';
 import {
-  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256,
+  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256, BUSINESS_CHANNELS,
 } from './dataset-schema-parts.mjs';
 
 export { uniqueBy, sumEquals, isMonday, versioned };
@@ -264,7 +264,8 @@ export const A8ReportLog = z
     updatedAt: utcTime('最終更新'),
     lastRun: z.string().describe('最後の取得の実行 id'),
     period: z.object({ raw: z.string(), start: month, end: month, granularity: z.enum(['month', 'day']), singleMonth: month.nullable().optional() }).strict(),
-    siteSummary: z.array(z.object({ site: z.literal('doboku-note'), ...a8Amounts }).strict()).describe('このサイトの実績（期間ごと）'),
+    // site は config/a8-report-automation.json の targetSite と relatedSites（2026-09-26 に note を副サイトとして登録）
+    siteSummary: z.array(z.object({ site: z.enum(['doboku-note', 'doboku-note（note）']), ...a8Amounts }).strict()).describe('このサイトと副サイトの実績（期間ごと）'),
     monthly: z.array(z.object({ month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の月別'),
     daily: z.array(z.object({ date: jstDate('日付'), month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の日別'),
     programPeriod: z
@@ -294,7 +295,7 @@ export const BusinessMeasurement = z
   .object({
     kind: z.literal('measurement'),
     ...recordBase,
-    channel: z.enum(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare']),
+    channel: z.enum(BUSINESS_CHANNELS),
     subject: z.string().min(1).describe('aggregate か指標 id'),
     coverage: z.enum(['complete', 'partial']),
     source: z.string().min(1).max(500).describe('出典（秘密情報・URL クエリを含めない）'),
@@ -1070,9 +1071,19 @@ export const AffiliateCatalog = z
         placement: z.enum(['active', 'none']).describe('サイトに置いているか（active）・置いていないか（none）'),
         decision: z.string().min(1).describe('配置の判断とその日付'),
         redLine: z.boolean().optional().describe('講座・教材など配置してはいけない案件'),
+        ctaLabels: z.array(z.string().min(1)).optional().describe('GA4 の data-cta-label のうちこの案件のもの（面ごとの trackLabel と本文カードの service 名）。対応の唯一の正本（scripts/lib/affiliate-labels.mjs が読む）'),
         asps: z.strictObject({ a8: aspEntry.optional(), moshimo: aspEntry.optional(), afb: aspEntry.optional() }),
       }),
     ),
+  })
+  .superRefine((c, ctx) => {
+    const owner = new Map();
+    for (const [id, p] of Object.entries(c.programs)) {
+      for (const label of p.ctaLabels ?? []) {
+        if (owner.has(label) && owner.get(label) !== id) flag(ctx, ['programs', id, 'ctaLabels'], `ラベル ${label} が ${owner.get(label)} にもある`);
+        owner.set(label, id);
+      }
+    }
   })
   .meta({ title: '3 ASP の提携案件' });
 
@@ -1390,6 +1401,29 @@ export const WeeklyMetrics = z
     notes: z.array(z.string()),
   })
   .meta({ title: '週次の計測' });
+
+/**
+ * メールの受け箱（data/inbox/mail-events.json）。書き手は別リポジトリ（obsidian の .claude/scripts/mail/triage.mjs・毎日 cron・
+ * GitHub contents API で develop へ直接書く）。売上の正本ではなく、メールから拾った通知の写し（正本は各取得スクリプトの記録）。
+ * イベントごとの欄（month・amountYen 等）は obsidian の辞書（.claude/mail-rules.json）で増えるので、共通の欄だけを固定し
+ * 残りは受け入れる（ここを strict にすると、辞書に種類を足しただけで doboku-note の書き戻しが全部止まる）。
+ */
+const MailEvent = z.looseObject({
+  id: z.string().regex(/^[0-9a-f]+$/, 'Gmail のメッセージ id').describe('Gmail のメッセージ id'),
+  receivedAt: utcTime('受信時刻'),
+  account: z.string().min(1).describe('受信した Gmail（obsidian の辞書のアカウント名）'),
+  kind: z.string().regex(/^[a-z0-9-]+$/).describe('イベントの種類（obsidian の辞書のキー）'),
+  label: z.string().min(1).describe('種類の表示名'),
+});
+export const InboxMailEvents = z
+  .object({
+    schemaVersion: z.literal(1),
+    description: z.string().describe('ファイルの説明'),
+    updatedAt: utcTime('最終更新'),
+    events: z.array(MailEvent).max(500).superRefine(uniqueBy('id', 'メッセージ id')).describe('新しい順・最大 500 件'),
+  })
+  .strict()
+  .meta({ title: 'メールの受け箱' });
 
 // 取得元ごとの型（同じ名前を 2 つのファイルで export しない。export * は重複した名前を黙って落とす）
 export * from './dataset-schemas-market.mjs';

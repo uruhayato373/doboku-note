@@ -30,29 +30,11 @@ import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-repo
 import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 
 import { isMeasurementWindowAligned } from "../../scripts/lib/report-honesty.mjs";
+import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
 
 
-/** プログラム分類: data-cta-label（面別 trackLabel or CareerAffiliate の service 名）→ プログラム。 */
-const PROGRAM_BY_LABEL = new Map([
-  // BuildJob（面別 trackLabel）
-  ["BuildJob-sidebar", "buildjob"],
-  ["BuildJob-endbanner", "buildjob"], // 記事末 300×250（2026-07-28〜）
-  ["BuildJob-midtext", "buildjob"],
-  ["BuildJob-hubcareer", "buildjob"],
-  // BuildJob / GKS（CareerAffiliate の service 名がラベルになる：記事末カード・inline preset）
-  ["ビルドジョブ", "buildjob"],
-  ["GKSキャリア", "gks"],
-  ["GKS-sidebar", "gks"],
-  ["GKS-endbanner", "gks"],
-  // 建設JOBs（A/B 対抗案件）
-  ["KensetsuJobs-sidebar", "kensetsu-jobs"],
-  ["KensetsuJobs-endbanner", "kensetsu-jobs"],
-  ["建設JOBs", "kensetsu-jobs"],
-  // ハイクラス DX/コンサル（総監）
-  ["DXConsulting-sidebar", "dx-consulting"],
-  ["DXConsulting-endbanner", "dx-consulting"],
-  ["ハイクラス DX・コンサル転職", "dx-consulting"],
-]);
+/** プログラム分類: data-cta-label（面別 trackLabel or CareerAffiliate の service 名）→ プログラム。正本は catalog の ctaLabels（scripts/lib/affiliate-labels.mjs） */
+const PROGRAM_BY_LABEL = readLabelProgramMap(process.cwd()); // このスクリプトはリポジトリのルートで動かす（他の読み込みも相対パス）
 
 /** BuildJob の面別ラベル（面内訳の並び順を固定するため）。 */
 const BUILDJOB_SURFACE_LABELS = [
@@ -323,7 +305,7 @@ lines.push("");
 lines.push(
   "- **2026-07-28 以降、キャンペーン中（〜08-31）は civil セグメント全ページが BuildJob 100%**（高意図 36 slug 限定をやめた。" +
     "GA4 実測でその 36 slug は流入上位に 1 つも入らず、実流入の学習系ページが 50/50 A/B のまま低 EPC 側に半分流れていたため）。" +
-    "9/1 以降は `isCampaignActive()`=false で slug ハッシュ A/B へ自動復帰するが、GKS(457) < 建設JOBs(709) と逆転するため復帰後の arm 設計は要見直し。",
+    "2026-09-08 から通常条件の BuildJob。2026-10-07 17:00 から 2級の学習ページ・資格トップは建設JOBs（EXP-017）。今の配置は配置ルール（台帳 config.affiliate-placements）。",
 );
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
 lines.push(`- 推定 EPC は A8 の月次の成果（\`${a8LogFile}\` の単月の期間）に成果が入ってから有効。A8 は API 無しのため \`/a8-report\`（Playwright・要ローカルログイン）で取り込む。`);

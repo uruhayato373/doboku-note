@@ -35,6 +35,7 @@
 | ID | 出口 | 備考 |
 |---|---|---|
 | DN-0135 | #12 KDP Select 自動更新オフ（A-00〜A-06）を KDP 管理画面で実施 | **期限は今日 2026-10-06**（独占明け）。10/6 を過ぎて自動更新されなければ制約は消える。他の行は backlog の表を参照 |
+| DN-0567 | Mac の `~/Library/Logs/doboku-note/note-sync.log`（10/04 分）を読み、配布 PDF を Drive から取り寄せられない原因を決める。続けて `npm run note-sync:install -- --run-now` で記事カバー 8 本も反映し、`sync-log.json` の problems に理由が出るか確かめる | 期日 10/12・Drive をマウントした Mac |
 | DN-0310 | ココナラへ再ログインし、`node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` で 1級の受付を休止。続けて経験記述ブログ 12 本へ `coconala-blog-publish --update --commit` | **判断期日は今日 2026-10-06**。受付停止の決定は 10/4 済み（カタログは paused）。残りはライブ反映だけ |
 | DN-0502 | GSC（sc-domain:doboku-note.com）で技術士一次の主要 10 URL をインデックス登録リクエスト | 期日 10/4 を超過。11/22 の試験前に検索の入口を開ける。URL 一覧はカードにある |
 | — | `/weekly-review`（2026-W40 分・`check-weekly-review-due` が未作成）→ `/monthly-review`（2026-09 分）の順に実行 | ローカルの対話セッション。月次の中で今月の `[時期:]` の付け直しと `npm run roll-backlog-when -- --write` を行う。`check-backlog-due` も月初の棚卸しが未実施で、期日超過に DN-0312・DN-0502 が出ている。W39 ダイジェストの triage では、OPP-8028130bb4（2級 試験概要の CTA）と OPP-57ad840c93（コストドライバーの題名）は 10/6 に対応済み（cfd04f598・57bd3f43d）なので defer（28 日後に効果確認）、OPP-aeb5940b4c は DN-0338 へ bundle、OPP-e13377d736 は W38 と同じ理由で reject が目安 |

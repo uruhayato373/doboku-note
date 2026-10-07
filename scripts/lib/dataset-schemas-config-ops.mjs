@@ -7,7 +7,8 @@
  * indexnow・workflow-health は npm ci をしないワークフローが読む。読み手にこの型を import しない（型は check-datasets が検査する）。
  */
 import { z } from 'zod';
-import { jstDate, utcTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, utcTime, offsetTime, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { findOverlaps } from '../../src/lib/affiliate-placement-core.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
 
@@ -220,6 +221,91 @@ export const ConfigA8ReportAutomation = z
 // ---- config.career-funnel ----------------------------------------------------------------------
 
 /** 転職アフィリエイトのファネルの設定（config/career-funnel.json） */
+/** 転職アフィリエイトの配置ルール（config/affiliate-placements.json）。判定は src/lib/affiliate-placement-core.mjs と同じ関数を使う */
+const PlacementTarget = z
+  .object({
+    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'home']).describe('ページの種類（standards＝公的基準の章ページ・home＝トップ）'),
+    categories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('対象のカテゴリ。書かなければ全カテゴリ'),
+    excludeCategories: z.array(z.string().regex(/^[a-z][a-z0-9-]*$/)).min(1).optional().describe('除くカテゴリ'),
+    careerDoc: z.enum(['any', 'only', 'exclude']).optional().describe('キャリア記事（tags: [career]）の扱い。doc だけ'),
+  })
+  .strict();
+const PlacementRule = z
+  .object({
+    id: z.string().regex(/^PL-\d{4}$/),
+    program: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('案件の id（affiliate.catalog）'),
+    slot: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('面（台帳 config.cta-placements の affiliate のキー＝GA4 の cta_placement）'),
+    target: PlacementTarget,
+    period: z.object({ from: offsetTime('開始'), until: offsetTime('終了（この時刻を含まない）').nullable() }).strict(),
+    experiment: z.string().regex(/^EXP-\d{3}$/).nullable().describe('関わる実験の id'),
+    note: z.string().min(1).optional(),
+  })
+  .strict()
+  .superRefine((r, ctx) => {
+    if (r.period.until && Date.parse(r.period.until) <= Date.parse(r.period.from)) flag(ctx, ['period', 'until'], 'until が from より前');
+    if (r.target.pageKind !== 'doc' && r.target.careerDoc) flag(ctx, ['target', 'careerDoc'], 'careerDoc は記事（doc）だけ');
+  });
+export const ConfigAffiliatePlacements = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: note,
+    rules: z.array(PlacementRule).min(1).superRefine(uniqueBy('id', 'ルール id')),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    for (const [a, b] of findOverlaps(c.rules)) flag(ctx, ['rules'], `${a} と ${b} が同じ面・重なる期間・交わる対象（1 ページ 1 面 1 案件にならない）`);
+  })
+  .meta({ title: '転職アフィリエイトの配置ルール' });
+
+/** A8 の広告リンク（mat）の許可リスト（config/affiliate-mats.json）。check-affiliate-mats が src・content の a8mat= をここと突き合わせる */
+export const ConfigAffiliateMats = z
+  .object({
+    schemaVersion: z.literal(1),
+    _comment: text,
+    mats: z
+      .array(
+        z
+          .object({
+            mat: z.string().regex(/^[0-9A-Z]+(\+[0-9A-Z]+){3}$/, 'A8 の a8mat（4 つのトークンを + でつなぐ）'),
+            program: z.string().regex(/^[a-z][a-z0-9-]*$/).describe('案件の id（affiliate.catalog の programs のキー）'),
+            label: text.describe('案件の表示名'),
+            surfaces: z.array(text).describe('この mat を置く面（sidebar・inline・article-end・note-article・links）。未配線の予備は空'),
+            definedIn: text.describe('リンクを書いている場所'),
+            expiresAt: jstDate('リンクの終了日').nullable().describe('A8 で確かめた終了日。未定は null'),
+            note: text.describe('確認の記録・成果条件'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .superRefine(uniqueBy('mat', 'mat')),
+  })
+  .strict()
+  .meta({ title: 'A8 の広告リンク（mat）の許可リスト' });
+
+/** サイト内の広告・送客の配置の語彙（config/cta-placements.json）。GA4 の cta_placement の値と同じ id を使う */
+const CtaPlacement = z
+  .object({
+    label: text.describe('管理画面・報告に出す名前'),
+    status: z.enum(['active', 'retired']).describe('active＝今の配置／retired＝撤去済み（GA4 の過去の窓には残る）'),
+    retiredAt: jstDate('撤去日').optional().describe('撤去日が分かっているときだけ'),
+    pageKind: z.enum(['doc', 'category', 'tool', 'standards', 'home', 'links']).describe('配置のあるページの種類'),
+    pixelPriority: z.number().int().min(1).nullable().describe('1 ページ 1 ピクセルの発火源の優先順（小さいほど優先・null は発火源にならない）'),
+    program: z.string().regex(/^[a-z][a-z0-9-]*$/).optional().describe('この配置に出す案件が決まっているとき（affiliate.catalog の id）'),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    if (v.retiredAt && v.status !== 'retired') flag(ctx, ['retiredAt'], 'retiredAt があるのに status が retired でない');
+    if (v.status === 'retired' && v.pixelPriority !== null) flag(ctx, ['pixelPriority'], '撤去済みの配置は発火源にならない（null にする）');
+  });
+export const ConfigCtaPlacements = z
+  .object({
+    schemaVersion: z.literal(1),
+    $comment: note,
+    affiliate: z.record(z.string().regex(/^[a-z][a-z0-9-]*$/, 'GA4 の cta_placement の値'), CtaPlacement).describe('配置 id → 名前・状態'),
+  })
+  .strict()
+  .meta({ title: 'サイトの広告・送客の配置の語彙' });
+
 export const ConfigCareerFunnel = z
   .object({
     schemaVersion: z.literal(1),
@@ -243,15 +329,13 @@ export const ConfigCareerFunnel = z
     $dimensionComment: note,
     dimensionRegisteredAt: z.record(z.string(), jstDate('GA4 カスタムディメンションの作成日')).describe('パラメータ名 → 作成日。この日より前のイベントには遡及されない'),
     $baselineComment: note,
-    reportedBaseline: z
+    baseline: z
       .object({
-        affiliateImpressions: z.number().int().min(0),
-        affiliateClicks: z.number().int().min(0),
-        highIntentQueryImpressions: z.number().int().min(0),
-        a8ConfirmedRewardYen: z.number().int().min(0).describe('A8 の確定報酬（円）'),
+        dataset: z.literal('analysis.career-funnel-baseline').describe('凍結した基線の台帳 id'),
+        date: jstDate('凍結した基線の日（GA4 の窓の終端）'),
       })
       .strict()
-      .describe('起票時の基線'),
+      .describe('起票時の基線（凍結ファイルへの参照。数字はここに写さない）'),
     $forbiddenComment: note,
     forbiddenCtaPhrases: nonEmptyStrings.describe('CTA 文言に混ぜてはいけない短絡表現'),
   })

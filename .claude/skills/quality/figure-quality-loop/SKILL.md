@@ -19,6 +19,7 @@ domain: site
   → 親の QA（書き換えた図と suspect を目視＋ check-figure-crop-integrity --file）
   → 記録（figure-review-queue.mjs record: 画像のハッシュつき・MDX の寸法も合わせる）→ commit
 needs-source の図は次の段（stage=reextract）で元 PDF のページから切り出し直す。原典が無ければ source-unavailable（入手待ち）
+切り出し直しの依頼には、記事の `sources:` から引いた原典候補（PDF・向き・OCR）が付く。試験ページでない記事で原典が流用不可の市販書籍しか無い図は、切り出し直しに回らない（自作の図への置き換えか削除を運営者へ上げる・reference-sources-policy.md §6）
 ```
 
 真実源: 判定待ちと台帳の仕組み＝`scripts/figure-review-queue.mjs`・`scripts/lib/figure-review.mjs`、台帳＝`.claude/state/quality/figure-review-ledger.json`、図の出所と needs＝[figure-provenance.md](../../../knowledge/reference/figure-provenance.md)。
@@ -71,7 +72,7 @@ Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop
 | `source-unavailable` | — | `source-unavailable` | `none` |
 | `error`・QA 不合格 | — | 記録しない | — |
 
-各要素は `{ figKey, verdict, action, reason, source? }`（reason は worker の reason を基に、何を直したか・何が切れているかを具体的に）。
+各要素は `{ figKey, verdict, action, reason, source? }`（reason は worker の reason を基に、何を直したか・何が切れているかを具体的に）。record は判定を判定台帳へ、`source` を `config/figure-sources.json` の `provenance`（図ごとの出典の正本）へ書く。
 ```bash
 node scripts/figure-review-queue.mjs record .tmp/figure-loop/verdicts.json
 ```
@@ -82,7 +83,7 @@ node scripts/figure-review-queue.mjs record .tmp/figure-loop/verdicts.json
 npm run check-image-assets:ci               # 画像サイズの上限（config/image-limits.json・webp 150KB 等）。超えたら縮小して record し直す（CI の audit がここで落ちる）
 npm run refresh-indexes                     # MDX の寸法を変えたときだけ
 grep -c "�" <変えた MDX>                     # 文字化け 0
-git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json   # 明示指定（git add -A 禁止）
+git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json config/figure-sources.json   # 明示指定（git add -A 禁止）。出典は figure-sources.json の provenance に入る
 git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
 git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
 git push origin develop                     # 載せ直し・検証とは別の呼び出しにする
