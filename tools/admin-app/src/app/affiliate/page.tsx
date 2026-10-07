@@ -1,7 +1,7 @@
 import { DataTable, PanelCard, StatusBadge } from '@/components/admin';
 import { Grid, Stack } from '@/components/layout';
 import { PageHead, Kpi } from '@/components/ui';
-import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules } from '@/lib/affiliate';
+import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules, affiliateClickLog } from '@/lib/affiliate';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,14 +21,18 @@ export default function AffiliatePage() {
   const sumOf = (f: 'conversions' | 'revenueYen') => (got.length ? got.reduce((a, x) => a + (x[f] ?? 0), 0) : null);
   const placements = affiliatePlacements();
   const experiments = affiliateExperiments();
-  const rules = affiliateRules();
+  const { rows: rules, window: ruleWindow, unattributed } = affiliateRules();
+  const clickLog = affiliateClickLog();
   const active = placements.rows.filter((r) => !r.retired);
   const clicks = active.reduce((s, r) => s + r.clicks, 0);
   const imps = active.reduce((s, r) => s + r.impressions, 0);
   const win = placements.window ? `${md(placements.window.start)}〜${md(placements.window.end)}` : null;
   const month = period?.singleMonth ?? '';
-  // 全ルールが窓の途中から有効なら、行ごとの印は情報にならないので説明へ出す
-  const allPartial = rules.length > 0 && rules.every((r) => r.partial);
+  // ページ別から数えた窓は、ルールごとに数字が分かれている（面の合計ではない）
+  const byPage = ruleWindow?.source === 'page';
+  const ruleWin = ruleWindow ? `${md(ruleWindow.start)}〜${md(ruleWindow.end)}` : null;
+  // 面の合計の窓で全ルールが窓の途中から有効なら、行ごとの印は情報にならないので説明へ出す
+  const allPartial = !byPage && rules.length > 0 && rules.every((r) => r.partial);
   const nextChecks = experiments.map((x) => `次の判定 ${x.nextCheck ? md(x.nextCheck) : '未設定'}（${x.id}）`).join('・');
 
   return (
@@ -136,7 +140,17 @@ export default function AffiliatePage() {
 
         <PanelCard
           title="配置ルール別"
-          description={`GA4 ${win ?? '未計測'}・同じ面を分け合うルールの数字は面の合計${allPartial ? '・どのルールも窓の途中から有効（窓の残りの日の数字も混ざる）' : ''}`}
+          description={
+            <>
+              GA4 {ruleWin ?? '未計測'}・
+              {byPage ? 'ページ別からルールごとに数えた数字' : `同じ面を分け合うルールの数字は面の合計${allPartial ? '・どのルールも窓の途中から有効（窓の残りの日の数字も混ざる）' : ''}`}{' '}
+              {unattributed && unattributed.clicks > 0 && (
+                <StatusBadge tone="warn" title="撤去前の面・ラベル未登録・ページ不明。内訳は転職ファネルの集計（analysis.career-funnel）の unattributed.top">
+                  ルールに当たらないクリック {unattributed.clicks}
+                </StatusBadge>
+              )}
+            </>
+          }
         >
           <DataTable
             columns={[
@@ -147,30 +161,57 @@ export default function AffiliatePage() {
               { key: 'clicks', label: 'クリック', num: true },
               { key: 'rate', label: '率', num: true },
             ]}
-            rows={rules.map((r) => ({
-              id: r.ruleId,
-              values: {
-                ruleId: r.ruleId,
-                program: r.program,
-                slot: r.slotLabel,
-                impressions: r.impressions,
-                clicks: r.clicks,
-                rate: r.impressions ? r.clicks / r.impressions : null,
-              },
-              cells: {
-                ruleId: (
-                  <>
-                    {r.ruleId}{' '}
-                    {!r.open && <StatusBadge tone="neutral">終了</StatusBadge>}{' '}
-                    {r.partial && !allPartial && <StatusBadge tone="info" title="窓の一部の日だけ有効。窓の残りの日の数字も混ざる">窓の一部</StatusBadge>}{' '}
-                    {r.sharedWith.length > 0 && <StatusBadge tone="info" title={`同じ面を分け合ったルール: ${r.sharedWith.join('・')}（数字はそれらとの合計）`}>面を共有</StatusBadge>}
-                  </>
-                ),
-                rate: rate(r.clicks, r.impressions),
-              },
-            }))}
+            rows={rules.map((r) => {
+              const shared = r.impressionsShared + r.clicksShared > 0;
+              return {
+                id: r.ruleId,
+                values: {
+                  ruleId: r.ruleId,
+                  program: r.program,
+                  slot: r.slotLabel,
+                  impressions: r.impressions,
+                  clicks: r.clicks,
+                  rate: r.impressions && !shared ? r.clicks / r.impressions : null,
+                },
+                cells: {
+                  ruleId: (
+                    <>
+                      {r.ruleId}{' '}
+                      {!r.open && <StatusBadge tone="neutral">終了</StatusBadge>}{' '}
+                      {!byPage && r.partial && !allPartial && <StatusBadge tone="info" title="窓の一部の日だけ有効。窓の残りの日の数字も混ざる">窓の一部</StatusBadge>}{' '}
+                      {!byPage && r.sharedWith.length > 0 && <StatusBadge tone="info" title={`同じ面を分け合ったルール: ${r.sharedWith.join('・')}（数字はそれらとの合計）`}>面を共有</StatusBadge>}
+                      {byPage && shared && (
+                        <StatusBadge tone="info" title={`${r.sharedWith.join('・')} と分けられない表示 ${r.impressionsShared}・クリック ${r.clicksShared}（窓の途中で閉じて開き直した）`}>
+                          前後と分けられない分あり
+                        </StatusBadge>
+                      )}
+                    </>
+                  ),
+                  rate: shared ? '—' : rate(r.clicks, r.impressions),
+                },
+              };
+            })}
             filter="ルール・案件・面で絞り込み"
             emptyText="未計測（fetch-metrics が週次で生成）"
+          />
+        </PanelCard>
+
+        <PanelCard title="クリックの出どころ" description={`GA4 ${ruleWin ?? '未計測'}・日付は JST。A8 の発生日と突き合わせて、どこから成果が出たかの候補を見る`}>
+          <DataTable
+            columns={[
+              { key: 'date', label: '日付' },
+              { key: 'page', label: 'ページ', wrap: true },
+              { key: 'program', label: '案件' },
+              { key: 'slot', label: '面' },
+              { key: 'ruleId', label: 'ルール' },
+              { key: 'clicks', label: 'クリック', num: true },
+            ]}
+            rows={clickLog.map((c, i) => ({
+              id: `${c.date}-${c.page}-${c.slotLabel}-${i}`,
+              values: { date: c.date, page: c.page, program: c.program ?? '（不明）', slot: c.slotLabel, ruleId: c.ruleId ?? '—', clicks: c.clicks },
+            }))}
+            filter="ページ・案件・面で絞り込み"
+            emptyText={byPage ? 'この窓のクリックなし' : '未計測（fetch-metrics のページ別が週次で生成）'}
           />
         </PanelCard>
       </Stack>
