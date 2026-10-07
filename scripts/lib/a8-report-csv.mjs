@@ -166,7 +166,8 @@ export function normalizeA8Csv(csvText, { reportKey, cfg, fetchedAt = null } = {
         rejects.push({ line, reason: "サイト列が空（帰属を確定できない）", raw: r });
         return;
       }
-      if (!String(siteRaw).includes(a8.targetSite)) return; // 他サイト行は静かに除外（異常ではない）
+      // 他サイト行は静かに除外（異常ではない）。サイト名は完全一致で照合する（_relatedSitesNote）
+      if (![a8.targetSite, ...(a8.relatedSites ?? [])].includes(String(siteRaw).trim())) return;
     }
 
     const month = parseMonth(get(r, "month")) ?? parseMonth(get(r, "date"));

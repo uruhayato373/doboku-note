@@ -117,6 +117,13 @@ function main() {
     process.exit(5);
   }
 
+  // 1 本も取れていない run を取り込むと、期間が null になり当期外の行が消えた SSOT で上書きしてしまう
+  // （2026-10-07 実測・DN-0566）。何も書かずに止める。
+  if (!(manifest.units || []).some((u) => u.status === "downloaded")) {
+    console.error(`取得できたレポートが 0 本（${(manifest.units || []).map((u) => `${u.reportKey}=${u.status}`).join(", ") || "units なし"}）。SSOT は書き換えません。`);
+    process.exit(1);
+  }
+
   const outDir = join(runDir, "normalized");
   mkdirSync(outDir, { recursive: true });
 

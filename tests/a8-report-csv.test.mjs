@@ -298,3 +298,18 @@ test('sumSiteRows: サイト名は完全一致で合計し、doboku-note が not
   assert.equal(both.revenueYen, 100);
   assert.equal(sumSiteRows(rows, ['無い']), null);
 });
+
+test("normalizeA8Csv[site-summary]: 副サイト（relatedSites）の行も採り、名前が似た他サイトは完全一致で除く（DN-0566）", async () => {
+  const csv = [
+    SITE_CSV.split("\n")[0],
+    '"doboku-note（note）",0,2,"-",0,0,0,0,0,"-",0,0,0,0',
+    '"KAZU（kazu-note）",0,24,"-",0,0,0,0,0,"-",0,0,0,0',
+    '"doboku-note",89016,49,0.06,0,0,0,0,0,"-",0,0,0,0',
+  ].join("\n");
+  const { rows } = normalizeA8Csv(csv, { reportKey: "site-summary", cfg });
+  assert.deepEqual(rows.map((r) => r.site).sort(), ["doboku-note", "doboku-note（note）"]);
+  // 正規化した行は report-log の型を通る（2026-10-04〜06 の CI 書き戻しは note 行で型に落ちていた）
+  const { A8ReportLog } = await import("../scripts/lib/dataset-schemas.mjs");
+  const row = A8ReportLog.shape.siteSummary.element;
+  for (const r of rows) assert.equal(row.safeParse({ ...r, fetchedAt: "2026-10-06T01:50:28.000Z", period: "202609-202609" }).success, true, r.site);
+});
