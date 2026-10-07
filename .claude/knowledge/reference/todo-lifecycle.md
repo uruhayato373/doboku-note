@@ -24,16 +24,17 @@ frontmatter は taskId / type: implementation-plan / createdAt / deleteOnComplet
 - blocked になったら `todo:release` で解除し、dispatch-log へ id・理由・再開条件を残す
 
 ## complete（完了）
-- `npm run todo:complete -- DN-#### --confirm-conditions --commit [--verify "..."]`。dry-run が既定
+- `npm run todo:complete -- DN-#### --confirm-conditions --commit [--verify "..."] [--prevention …]`。dry-run が既定
 - `[種類:不具合]` は `--prevention` が必須: `gate:<npm script かパス>`（検査で止める）／`memory:<.claude/memory の名前>`（作業規律）／`doc:<パス>`（正典へ書く）／`none:<理由>`。dispatch-log に kind と prevention を残し、`check-dispatch-log` が欠けを止め、週次レビューが `report-defect-learning` で数える
 - 削除前の検査 `doc-refs`: `docs/` の live 文書（週次スナップショット除く）がその ID を参照していたら止める。閉じると `check-project-task-refs` の dangling-id で CI が赤くなるため、参照を完了扱いへ書き換えてから閉じる
-- 一括で閉じるもの: backlog カード削除・monthly/weekly 行削除・claims 解除・dispatch-log 追記（id/at/task/tier/executor/outcome/plan/commit/verification）・事後検査（schema+task-plan-links+dispatch-log）
+- 一括で閉じるもの: backlog カード削除・monthly/weekly 行削除・claims 解除・dispatch-log 追記（id/at/task/tier/kind/executor/outcome/plan/commit/verification/prevention）・事後検査（schema+task-plan-links+dispatch-log）
 - plan unit は自動削除しない。受入条件を確認して手で削除し、`check-backlog-schema`・`check-task-plan-links`・`check-dispatch-log`をすべて通して完了とする。planを残した`todo:complete`は事後検査のorphan-planでexit 1になるため、plan削除を`&&`で後続に置かず、別の操作で行う。
 - **どれか1つでも失敗したらカードと plan を保持し、完了扱いにしない**
 
 ## dispatch-log
 - 日付キーは `at`（date は禁止・check-dispatch-log が FAIL にする）。id は DN-#### 必須（2026-08-18 以前の11件のみ legacy 許容）
 - outcome は done|swept|blocked|fail
+- kind=不具合 で outcome=done のエントリは prevention（gate|memory|doc|none と ref）必須（check-dispatch-log が FAIL にする）
 - 台帳外の作業を記録したくなったら、先にカードを起票してから記録する
 
 ## handoff prompt（UI 生成）
@@ -53,5 +54,5 @@ UI はコピーまで（実行はしない）。
 - UI・CLI・Agent は同じ parser（backlog-lib.mjs）と状態導出（todo.ts deriveStatus）・plan 発見（plan-units.mjs）を使い、同じルールを再実装しない
 
 ## 実装の所在
-scripts/todo-{claim,release,complete}.mjs／scripts/lib/todo-lifecycle.mjs／scripts/lib/plan-units.mjs／
+scripts/todo-{add,claim,release,complete}.mjs／scripts/lib/git-direct-commit.mjs／scripts/report-defect-learning.mjs／scripts/lib/agent-hooks.mjs（check-capture）／scripts/lib/todo-lifecycle.mjs／scripts/lib/plan-units.mjs／
 scripts/check-task-plan-links.mjs／scripts/check-dispatch-log.mjs／tools/admin-app/src/lib/todo.ts

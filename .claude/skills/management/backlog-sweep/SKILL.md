@@ -152,7 +152,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 | `[種類:制作]` | 新しい成果物（記事・図・書籍・投稿・商品）が増える |
 | `[種類:改善]` | 上のどれでもない（動いているものをより良くする） |
 
-**新規カードを起票するとき**は見出しを `### [DN-####] タイトル` にする（ID は必須・欠番は再利用しない）。
+**新規カードを起票するとき**は `npm run todo:add`（採番・タグ・検査・origin/develop への push まで）を使う。手で書くなら見出しは `### [DN-####] タイトル`（ID は必須・欠番は再利用しない）で、
 `[種類:]` `[起票:]` も同時に付ける（`check-backlog-schema --staged` が欠落を止める）。ユーザーの手・
 対話・別環境が要るタスクはタグでなく**本文に書く**（例: 「KDP 画面での提出はユーザー」）。
 余力があれば `[検証:cmd]` も併せて付ける。
@@ -164,7 +164,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
   （`backlog-edit.mjs --delete` → `--next-id` で新カードへ）。通常サイクルで触ったカードもその場で
   再スコープしてよい（確認不要・DELETE/RESEED は外部実体で裏取りできた場合のみ。基準は
   `.claude/knowledge/reference/todo-standards.md`「カード品質基準と再スコープ」）
-- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`。**`id`（DN-####）と`at`（JST日付）は必須**（`_schema`準拠・idの無い追記はcheck-dispatch-logがFAILにする）
+- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`。**`id`（DN-####）と`at`（JST日付）は必須**（`_schema`準拠・idの無い追記はcheck-dispatch-logがFAILにする）。**不具合を done で閉じるときは `todo:complete --prevention` を使う**（手で追記するなら `kind: "不具合"` と `prevention` を入れる。無いと check-dispatch-log が FAIL・report-defect-learning の集計から漏れる）。下の出口ゲートの答えをそのまま `--prevention` にする
 
 ### 7. 出口ゲート（再発防止の3問）
 

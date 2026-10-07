@@ -182,6 +182,12 @@
           "role": "判断"
         },
         {
+          "command": "node:report-defect-learning",
+          "label": "不具合の再発防止の内訳",
+          "stage": "計画・運用",
+          "role": "判断"
+        },
+        {
           "command": "roll-backlog-when",
           "label": "時期の翌月繰り越し",
           "stage": "計画・運用",
