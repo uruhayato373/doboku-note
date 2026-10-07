@@ -19,7 +19,7 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/disk-hygiene.md](./disk-hygiene.md) | ローカル容量の運用 SSOT（何が溜まるかの実測・**worktree の置き場と後始末**・`--fix` が消すものとガード・報告のみに留める履歴・launchd の導入/確認/解除・⚠ 行の対処）。機械可読は `config/disk-hygiene.json`、検査は `npm run check-disk-hygiene` | `[disk-hygiene] ⚠` が出たとき・worktree を切る/畳むとき・空き容量が減ったとき |
 | [.claude/knowledge/reference/reference-sources-policy.md](./reference-sources-policy.md) | 参考文献6区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive文字起こし→記事 `sources` ID→検査のライフサイクル SSOT | 原本・一次資料から文字起こしや記事を作るとき／参考文献を追加・変更するとき |
 | [.claude/knowledge/reference/docs-markdown-style.md](./docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/{領域}/ / .claude/knowledge/reference/ の .md を書くとき |
-| [.claude/knowledge/reference/image-policy.md](./image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
+| [.claude/knowledge/reference/image-policy.md](./image-policy.md) | 図版種別判定フロー・写真は AI 生成（`gen-article-photo`・`check-image-origin`）・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
 | [pop-image-policy.md](./pop-image-policy.md) | キャラクターPOP表紙の共通方針・承認原本・生成履歴の管理 | note・SNS・ココナラの表紙制作 |
 | [.claude/knowledge/reference/brand-image-system.md](./brand-image-system.md) | 資格別ブランド写真プールの多フォーマット展開＋サイト色スキーム統一の SSOT（wide/square の2マスター→hero/OGP/note カバー/カード/300×250 バナーへクロップ展開・色ターゲット・Codex 生成プロンプト・生成→保存→反映パイプライン） | hero/OGP/note カバー/カード/広告バナーの背景写真を新規作成・差替・統一するとき |
 | [.claude/knowledge/reference/note-svg-policy.md](./note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `content/note/**/img/figure-*` を作成・修正するとき |

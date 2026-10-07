@@ -103,7 +103,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 ## 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
-- 図表: SVG（模式図）/ PNG（写真・複雑なイラスト）
+- 図表: SVG（模式図）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）
 - スクリーンショット・図版: `content/site/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/authoring/create-svg/SKILL.md`）を参照
 
@@ -236,18 +236,16 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 新規記事: `<ArticleImage>` を使う
 
 ```mdx
-{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:... */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
-  alt="クローラクレーン（日立 CX900HD）"
-  caption="Wikimedia Commons, CC0"
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.webp"
+  alt="クローラクレーン"
   width={960}
   height={720}
 />
 ```
 
 - `<figure>` セマンティクスと Next.js `<Image>` 最適化が自動で効く
-- **caption の用途は帰属情報のみ**（出典ライセンス・機種名など、60 字以内）
+- **caption の用途は帰属情報のみ**（公的資料の提供者と利用規約など、60 字以内）。写真は AI 生成で caption 不要
 - caption に **図の説明・構造の解説を書くのは禁止**（本文と重複するため）
 - `alt` は簡潔な識別情報のみ、**80 字以内**
 - 機種の詳細・図の読み方は **本文** で説明する
@@ -256,7 +254,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 既存 `<img>` との互換
 
 - 既存の生 `<img>` を使った記事はリライト時に順次 `<ArticleImage>` へ移行
-- 移行が未完了の記事で `<img>` を使う場合も `alt` と `{/* source: */}` コメントは必須
+- 移行が未完了の記事で `<img>` を使う場合も `alt` は必須。出所は `config/figure-sources.json` の `provenance`（`npm run check-image-origin`）
 
 **重要 — 新規 SVG/画像で raw `<img>` を絶対に使わない**:
 
@@ -270,9 +268,9 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
 
-### CC/PD 写真の取得・出典表記
+### 写真（AI 生成）と出所の記録
 
-詳細は [image-policy.md](./image-policy.md) 参照（Wikimedia Commons からの取得、ライセンス判定、出典コメントフォーマット）。
+写真は AI で生成した画像だけを使い、4:3（960×720）にそろえる。仕様（`provenance` の `prompt`）→ `npm run gen-article-photo` → `ai-image-fidelity-auditor` → `check-image-origin record-ai` の順。詳細は [image-policy.md](./image-policy.md)「写真は AI で生成する」。
 
 ## frontmatter テンプレート
 
@@ -344,7 +342,7 @@ faqs:
 - **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<SpecSheetList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
 - **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
-- **図表**: SVG（模式図・フロー）/ PNG（写真・複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
+- **図表**: SVG（模式図・フロー）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
 - **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない

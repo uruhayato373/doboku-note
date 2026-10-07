@@ -31,7 +31,7 @@ import {
   transcriptDirsForSource,
   VERBATIM_MIN_RUN,
 } from './lib/reference-sources.mjs';
-import { figureSourceFindings, sourceIdsOf } from './lib/figure-source-wiring.mjs';
+import { figureSourceFindings, figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -258,21 +258,23 @@ function checkFigureWiring({ cfg, manifest, inputs, baseline }) {
   }
   const provenance = JSON.parse(readFileSync(sourcesAbs, 'utf8')).provenance || {};
   const articleSources = new Map();
+  const explanationFigs = new Set();
   for (const { relPath, raw } of inputs) {
     const m = /^content\/site\/(.+)\/article\.mdx$/.exec(relPath);
     if (!m) continue;
     let data = {};
     try { data = matter(raw).data; } catch { continue; }
     articleSources.set(m[1], sourceIdsOf(data.sources));
+    for (const name of figuresInExplanation(raw)) explanationFigs.add(`${m[1]}/img/${name}`);
   }
-  const { checked, findings } = figureSourceFindings({ provenance, cfg, articleSources });
+  const { checked, findings } = figureSourceFindings({ provenance, cfg, articleSources, explanationFigs });
   const debt = [];
   for (const f of findings) {
     if (f.kind === 'figure-reuse-forbidden') { debt.push(f.figKey); continue; }
     fail(f.kind, `content/site/${f.articleDir}/article.mdx`, `${f.figKey}: ${f.detail}`);
   }
   const ratchet = evaluateMissingSourcesRatchet(debt, baseline.figureReuseDebt || []);
-  for (const figKey of ratchet.increased) fail('figure-reuse-forbidden', figKey, '流用不可（figureReuse: false）の書籍から、試験ページでない記事へ図を切り出した。切り出し直さず、自作の図への置き換えか削除にする（baseline にも無い）');
+  for (const figKey of ratchet.increased) fail('figure-reuse-forbidden', figKey, '流用不可（figureReuse: false）の書籍から、試験ページでない記事か試験ページの解説欄へ図を切り出した。切り出し直さず、自作の図への置き換えか削除にする（baseline にも無い）');
   for (const figKey of ratchet.repaid) warn('figure-reuse-repaid', figKey, '流用不可の書籍の図が出典の台帳から消えた。reference-sources-baseline.json の figureReuseDebt から削る');
   return { vaultCopies, figureChecks: checked, reuseDebt: debt.length };
 }

@@ -1321,6 +1321,16 @@
       "page": 285,
       "dpi": 300
     },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 190,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-09": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 197,
+      "dpi": 300
+    },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
       "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
       "page": 200,
@@ -1411,14 +1421,14 @@
       "page": 5,
       "dpi": 300
     },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第一次検定_問題A.pdf",
+      "page": 6,
+      "dpi": 600
+    },
     "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第一次検定_問題B.pdf",
       "page": 5,
-      "dpi": 300
-    },
-    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23": {
-      "pdf": "vault:原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/002.pdf",
-      "page": 27,
       "dpi": 300
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
@@ -1436,15 +1446,15 @@
       "page": 293,
       "dpi": 600
     },
-    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
-      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
-      "page": 301,
-      "dpi": 300
-    },
     "civil-construction-1/secondary-r03/img/i-11-culvert-section": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R03/R03_第二次検定.pdf",
       "page": 10,
       "dpi": 300
+    },
+    "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R04/R04_第二次検定.pdf",
+      "page": 8,
+      "dpi": 400
     },
     "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第二次検定.pdf",
@@ -1455,6 +1465,126 @@
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第二次検定.pdf",
       "page": 10,
       "dpi": 300
+    },
+    "civil-construction-1/textbook-crane/img/all-terrain-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "An all-terrain crane (large mobile crane): a multi-axle wheeled carrier with 5 axles and 10 large road tires, a separate driver's cab at the front of the carrier and a separate crane operator's cab on the rotating superstructure, a telescopic box-section boom partly extended, four outriggers extended onto pads, counterweight at the rear."
+    },
+    "civil-construction-1/textbook-crane/img/boom-lift": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A telescopic-boom aerial work platform truck: a light truck with a straight telescopic boom extended upward at an angle, a work platform (basket) with guardrails at the boom tip next to a street lighting pole, outriggers extended. One worker in the basket wearing a helmet and harness, small and seen from a distance, face not visible."
+    },
+    "civil-construction-1/textbook-crane/img/cable-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A cable crane at a large concrete dam construction site in a mountain valley: steel towers on both sides of the valley with main track wire ropes spanned across the valley between them, a carriage (trolley) running on the cables with a large concrete bucket hanging from hoist ropes, the dam body under construction below. Wide view."
+    },
+    "civil-construction-1/textbook-crane/img/crawler-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A crawler crane: full-hydraulic machine on two long steel crawler track frames, a rotating upper structure with operator cab and rear counterweight, a long LATTICE-structure boom (open steel truss) raised at about 60 degrees with hoist wire ropes, pendant lines and a hook block hanging from the boom tip. Unpaved soil ground."
+    },
+    "civil-construction-1/textbook-crane/img/loader-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A truck-mounted loader crane (about 3 t class cargo crane truck): an ordinary flatbed cargo truck with a small hydraulic telescopic straight-boom crane mounted BETWEEN the truck cab and the cargo bed, small outriggers extended, the boom lifting a bundle of steel pipes with slings onto the bed."
+    },
+    "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A rough-terrain crane: a short two-axle carrier with four large off-road tires of equal size, a SINGLE cab on the rotating upper structure (one operator both drives and operates the crane), a telescopic box-section boom, four outriggers extended with floats on the ground, on an unpaved site."
+    },
+    "civil-construction-1/textbook-crane/img/tower-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A climbing tower crane on a high-rise building under construction: a lattice steel tower mast standing inside / attached to the building frame, a horizontal lattice jib with a trolley and hook, a counter-jib with concrete counterweight blocks and the operator cab at the top. Viewed from ground level at a distance so the whole crane is in frame."
+    },
+    "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A surveying reflector prism on a prism pole for electronic distance measurement: a round glass corner-cube prism in a holder with a target plate, mounted on top of a red-and-white graduated prism pole with a small circular bubble level, the pole held vertical by a bipod over a survey point. Frame from the prism down to mid-pole."
+    },
+    "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A GNSS (satellite positioning) surveying receiver set up on a tripod: a white dome-shaped GNSS antenna/receiver unit on a tribrach on top of a surveying tripod, with a small handheld data controller clipped to a tripod leg, under clear open sky on a construction site."
+    },
+    "civil-construction-1/textbook-distance-angle/img/theodolite": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A modern electronic theodolite (digital transit) mounted on a yellow aluminium surveying tripod. It must look like a real contemporary electronic theodolite: a telescope (with objective lens) held between two vertical standards (a U-shaped alidade), a small LCD keypad display on the alidade face, a horizontal circle housing below, a tribrach with three leveling screws seated on the tripod head, and a vertical clamp/tangent knob on the standard. The whole instrument and the top half of the tripod legs are visible."
+    },
+    "civil-construction-1/textbook-distance-angle/img/total-station": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A modern total station on a surveying tripod: a telescope with built-in electronic distance meter between two standards, a carrying handle on top, LCD displays with keypads on both faces of the alidade, a tribrach with three leveling screws, on a yellow tripod at a construction site."
+    },
+    "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A macadam road roller - a three-wheel static steel roller with a FIXED (rigid) frame: ONE wide steel drum at the front used for steering, and TWO large-diameter steel drive rolls at the rear, one on each side, operator seat between them, compacting a crushed-stone base course of a road."
+    },
+    "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A motor grader: a long-wheelbase frame with a long blade (moldboard) mounted under the MIDDLE of the frame between the front and rear axles, a single front axle with two tires, rear TANDEM axles with four tires, the cab at the rear above the engine, grading a gravel road."
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A sheepsfoot tamping roller (soil compactor): a self-propelled compactor whose front steel drum is covered with many protruding sheep's-foot pads (rod-like feet), compacting a clay embankment fill."
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A two-axle static tandem road roller: two SMOOTH steel drums of nearly the same width and diameter, one at the front and one at the rear, operator platform in the middle, finishing a freshly laid asphalt pavement."
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A pneumatic tire roller: a compactor with a row of smooth rubber tires at the front (4 tires) and a row at the rear (5 tires) staggered so their tracks overlap, a box-shaped ballast body, operator seat with canopy on top, compacting asphalt pavement."
+    },
+    "civil-construction-1/textbook-leveling/img/automatic-level": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "An automatic level (auto level) for surveying on a tripod: a compact horizontal telescope body with objective lens and eyepiece, a focusing knob, a circular bubble level, three leveling screws on the base plate, mounted on an aluminium tripod; a levelling staff stands in the soft-focus background."
+    },
+    "civil-construction-1/textbook-loader/img/wheel-loader": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A wheel loader: articulated frame, four large tires of equal size, a front bucket on lift arms, the cab in the middle and engine at the rear, loading gravel from a stockpile."
+    },
+    "civil-construction-1/textbook-scraper/img/motor-scraper": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A self-propelled wheeled motor scraper with two axles in total: a single-axle tractor unit at the front carrying the cab and engine, connected by a gooseneck to a rear scraper bowl unit on its own axle, with the apron, cutting edge and ejector visible, large earthmover tires, cutting and loading soil while moving at an earthworks site."
+    },
+    "civil-construction-1/textbook-scraper/img/scraper-dozer": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A scrape dozer - a Japanese crawler-type earthmoving machine that combines a scraper and a bulldozer. Two CONTINUOUS steel crawler tracks run the full length of the machine on the left and right sides, unbroken from front idler to rear sprocket. A large open scraper BOWL loaded with soil sits in the MIDDLE of the machine, BETWEEN the left and right tracks, where an ordinary bulldozer would have its engine. A straight dozer blade is mounted at the front. The engine compartment with a radiator grille is at the REAR. The operator seat is on a raised platform above the bowl and faces SIDEWAYS (perpendicular to the direction of travel), with hydraulic control levers in front of the seat under a simple canopy. Spreading soil on soft ground. Side view from slightly above so that the full-length track and the bowl between the tracks are both visible."
+    },
+    "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A medium-size crawler bulldozer (15 to 21 t class): steel crawler tracks, a straight dozer blade at the front, a single-shank ripper at the rear, a cab with ROPS, pushing soil at an earthworks site."
+    },
+    "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A portable belt conveyor: a short wheeled conveyor frame inclined at about 20 degrees, a rubber belt carrying sand and gravel, a small electric motor at the head pulley, discharging onto a pile at a small construction site."
+    },
+    "civil-construction-1/textbook-transport-machinery/img/dump-truck": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "An articulated dump truck: a front tractor unit with the cab and one axle, an articulation (hinge) joint behind the cab, and a rear dump body on TWO axles - six large off-road tires in total - hauling earth on a rough haul road at an earthworks site."
+    },
+    "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
+      "kind": "ai-generated",
+      "tool": "Codex（gpt-6-astra）",
+      "prompt": "A rubber-track crawler carrier (rough-terrain dumper): rubber crawler tracks, a small operator cab at the front and a rear tipping dump bed carrying soil, on muddy uneven ground at a construction site."
     },
     "civil-construction-2/primary-r03-kouki/img/q43-fig": {
       "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf",
@@ -1685,10 +1815,70 @@
       "page": 236,
       "dpi": 0
     },
+    "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
+      "kind": "ai-generated",
+      "tool": "ChatGPT"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9a-fig": {
+      "kind": "ai-generated",
+      "tool": "ChatGPT"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9b-fig": {
+      "kind": "ai-generated",
+      "tool": "ChatGPT"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9c-fig": {
+      "kind": "ai-generated",
+      "tool": "ChatGPT"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9d-fig": {
+      "kind": "ai-generated",
+      "tool": "ChatGPT"
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-03": {
+      "kind": "ai-generated",
+      "tool": "Codex"
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-05": {
+      "kind": "ai-generated",
+      "tool": "Codex"
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-04": {
+      "kind": "ai-generated",
+      "tool": "Codex"
+    },
+    "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
+      "kind": "public-data",
+      "credit": "気象庁",
+      "license": "公共データ利用規約 1.0",
+      "url": "https://www.jma.go.jp/jma/kishou/know/bosai/alertlevel.html"
+    },
+    "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
+      "kind": "public-data",
+      "credit": "環境省",
+      "license": "公共データ利用規約 1.0",
+      "url": "https://www.env.go.jp/earth/ccs/ccus-tech.html"
+    },
+    "pe-comprehensive-management/circular-economy/img/figure-5-6-material-flow": {
+      "kind": "public-data",
+      "credit": "環境省",
+      "license": "公共データ利用規約 1.0",
+      "url": "https://www.env.go.jp/policy/hakusyo/r02/html/hj20020301.html"
+    },
+    "pe-comprehensive-management/climate-change-adaptation-act/img/figure-5-10-alert-levels": {
+      "kind": "public-data",
+      "credit": "気象庁",
+      "license": "公共データ利用規約 1.0",
+      "url": "https://www.jma.go.jp/jma/kishou/know/bosai/alertlevel.html"
+    },
     "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
       "pdf": "vault:原資料PDF/過去問/技術士（総監）/H21/H21_試験問題_択一式.pdf",
       "page": 13,
       "dpi": 300
+    },
+    "pe-comprehensive-management/h21-secondary/img/i-2-1-incident-cases": {
+      "kind": "exam-official",
+      "note": "平成21年度 技術士第二次試験 総合技術監理部門 必須科目 I-2-1 の問題文の図（日本技術士会）"
     },
     "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve": {
       "pdf": "vault:原資料PDF/過去問/技術士（総監）/H28/H28_試験問題_択一式.pdf",
@@ -1710,13 +1900,40 @@
       "page": 20,
       "dpi": 300
     },
+    "pe-comprehensive-management/sdgs/img/figure-5-1-sdgs-poster": {
+      "kind": "public-data",
+      "credit": "国連広報センター",
+      "license": "情報目的・教育用途は申請不要（国連広報センター SDGs ロゴ利用条件）",
+      "url": "https://www.unic.or.jp/activities/economic_social_development/sustainable_development/2030agenda/sdgs_logo/"
+    },
+    "pe-comprehensive-management/waste-management-act/img/figure-5-5-waste-categories": {
+      "kind": "public-data",
+      "credit": "環境省",
+      "license": "公共データ利用規約 1.0",
+      "url": "https://www.env.go.jp/recycle/kosei_press/h000404a/c000404a/c000404a-2.html"
+    },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig12": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
     "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/004.pdf",
       "page": 3
     },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig14": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0263.jpg",
       "page": 263
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
     },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
@@ -1726,9 +1943,47 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
       "page": 20
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig31": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig06": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約",
+      "note": "道路メンテナンス年報（令和6年度）"
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約",
+      "note": "道路メンテナンス年報（令和6年度）"
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約",
+      "note": "道路メンテナンス年報（令和6年度）"
+    },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
       "page": 5
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig10": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約"
     },
     "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
@@ -1738,6 +1993,16 @@
       "pdf": "vault:原資料PDF/白書/国土交通白書（令和７年度）関連データ集.pdf",
       "page": 6,
       "dpi": 300
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig16": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
     },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
@@ -1755,9 +2020,44 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
       "page": 21
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig22": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0013.jpg",
       "page": 13
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig03": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
+      "kind": "own-book-scan",
+      "ref": "pe-construction-keyword-book",
+      "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-first-stage/h23-construction/img/q7-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H23/H23_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/h24-basic/img/q11-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H24/H24_基礎科目.pdf",
+      "page": 1,
+      "dpi": 300
+    },
+    "pe-first-stage/h24-construction/img/q7-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H24/H24_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
     },
     "pe-first-stage/h26-basic/img/q21-source": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H26/H26_基礎科目.pdf",

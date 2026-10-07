@@ -1,0 +1,80 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="締固め試験の結果から描いた締固め曲線。含水比14.0%で乾燥密度が最大の2.000 g/cm3になり、最大乾燥密度の90%にあたる1.800 g/cm3以上となる施工含水比の範囲は10.0%から18.0%">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-tick  { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .axis    { fill: none; stroke: #555; stroke-width: 1.5; }
+      .tick    { stroke: #555; stroke-width: 1.5; }
+      .curve   { fill: none; stroke: #2e6da4; stroke-width: 3; }
+      .g-red   { fill: none; stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .g-pos   { fill: none; stroke: #3a7d44; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .band    { fill: #d0e8d0; fill-opacity: 0.6; }
+      .brk     { stroke: #555; stroke-width: 1.5; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bracket { fill: none; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ax" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">締固め曲線と施工含水比の範囲</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">最大乾燥密度の90%以上となる含水比の範囲を読む</text>
+
+  <text class="t-key" x="14" y="70">乾燥密度（g/cm3）</text>
+
+  <rect class="band" x="150" y="183" width="120" height="137"/>
+
+  <line class="axis" x1="60" y1="320" x2="60" y2="78" marker-end="url(#ax)"/>
+  <line class="axis" x1="60" y1="320" x2="372" y2="320" marker-end="url(#ax)"/>
+  <line class="brk" x1="53" y1="308" x2="67" y2="302"/>
+  <line class="brk" x1="53" y1="314" x2="67" y2="308"/>
+
+  <path class="g-red" d="M60 114 H210 V320"/>
+  <path class="g-pos" d="M60 183 H270 M150 183 V320 M270 183 V320"/>
+
+  <path class="curve" d="M90 286 C110 252 130 212 150 183 C170 154 190 114 210 114 C230 114 250 154 270 183 C290 212 310 252 330 286"/>
+  <circle cx="90" cy="286" r="4" fill="#2e6da4"/>
+  <circle cx="150" cy="183" r="4" fill="#2e6da4"/>
+  <circle cx="270" cy="183" r="4" fill="#2e6da4"/>
+  <circle cx="330" cy="286" r="4" fill="#2e6da4"/>
+  <circle cx="210" cy="114" r="5" fill="#b22234"/>
+
+  <text class="t-tick" x="52" y="118" text-anchor="end">2.000</text>
+  <text class="t-tick" x="52" y="187" text-anchor="end">1.800</text>
+  <line class="tick" x1="90" y1="320" x2="90" y2="325"/>
+  <line class="tick" x1="150" y1="320" x2="150" y2="325"/>
+  <line class="tick" x1="210" y1="320" x2="210" y2="325"/>
+  <line class="tick" x1="270" y1="320" x2="270" y2="325"/>
+  <line class="tick" x1="330" y1="320" x2="330" y2="325"/>
+  <text class="t-tick" x="90" y="338" text-anchor="middle">6.0</text>
+  <text class="t-tick" x="150" y="338" text-anchor="middle">10.0</text>
+  <text class="t-tick" x="210" y="338" text-anchor="middle">14.0</text>
+  <text class="t-tick" x="270" y="338" text-anchor="middle">18.0</text>
+  <text class="t-tick" x="330" y="338" text-anchor="middle">22.0</text>
+  <text class="t-key" x="372" y="310" text-anchor="end">含水比（%）</text>
+
+  <text class="t-warn" x="224" y="104">最大乾燥密度 2.000 g/cm3</text>
+  <text class="t-pos" x="66" y="150">最大乾燥密度</text>
+  <text class="t-pos" x="66" y="166">の90%</text>
+  <circle cx="294" cy="136" r="4" fill="#2e6da4"/>
+  <text class="t-note" x="304" y="140">測定値</text>
+
+  <path class="bracket" d="M150 346 V354 H270 V346"/>
+  <text class="t-pos" x="210" y="372" text-anchor="middle">施工含水比 10.0〜18.0%</text>
+
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="418">頂点</text><text class="t-lab" x="104" y="418">最大乾燥密度2.000 g/cm3（含水比14.0%）</text>
+  <text class="t-key" x="30" y="442">基準</text><text class="t-lab" x="104" y="442">締固め度90%以上＝1.800 g/cm3以上</text>
+  <text class="t-key" x="30" y="466">読み</text><text class="t-lab" x="104" y="466">曲線が1.800の線より上の含水比の範囲を読む</text>
+</svg>

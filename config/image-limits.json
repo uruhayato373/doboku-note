@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "_doc": "画像アセット品質ガード(check-image-assets.mjs)の閾値 SSOT。真実源は .claude/knowledge/reference/image-policy.md のサイズ目安(SVG 10KB/JPG 200KB/PNG 100KB)。既存の超過分(2026-07-14 実測 PNG 102 / JPG 15 / SVG 1 / WebP 17)は .claude/state/quality/image-baseline.json で grandfather し、--ci は baseline に無い新規超過とバイト増のみブロックする。figure-*.svg の孤立は check-orphan-figures、ogp.* は check-orphan-ogp、figure 寸法は check-figure-canvas が担当（本ガードは対象外）。",
+  "_doc": "画像アセット品質ガード(check-image-assets.mjs)の閾値 SSOT。figureMinLongSide は figure-review-queue（LOW_RES）、aiPhoto は check-image-origin と gen-article-photo が読む。真実源は .claude/knowledge/reference/image-policy.md のサイズ目安(SVG 10KB/JPG 200KB/PNG 100KB)。既存の超過分(2026-07-14 実測 PNG 102 / JPG 15 / SVG 1 / WebP 17)は .claude/state/quality/image-baseline.json で grandfather し、--ci は baseline に無い新規超過とバイト増のみブロックする。figure-*.svg の孤立は check-orphan-figures、ogp.* は check-orphan-ogp、figure 寸法は check-figure-canvas が担当（本ガードは対象外）。",
   "roots": [
     { "dir": "content/site", "match": "img" },
     { "dir": "public/images" }
@@ -16,5 +16,12 @@
   "filenamePattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
   "examDirPattern": "/(h\\d+-primary|primary-h\\d+[^/]*|primary-[a-z0-9-]*)/",
   "unreferencedExcludeBasenames": ["ogp.png", "ogp.webp", "cover.png", "cover.webp"],
-  "unreferencedExcludePattern": "^figure-"
+  "unreferencedExcludePattern": "^figure-",
+  "figureMinLongSide": 500,
+  "aiPhoto": {
+    "aspect": [4, 3],
+    "tolerance": 0.01,
+    "width": 960,
+    "style": "Create ONE photorealistic documentary photograph, landscape 4:3 aspect ratio (for example 1448x1086). Outdoor civil engineering construction site in Japan, daylight, natural colours, sharp focus. The whole subject is fully visible with some margin on all sides, three-quarter side view at eye level unless stated otherwise. It must look like a real, currently manufactured machine or instrument of the stated type - correct number of wheels/drums/tracks and correct placement of parts. No text, no logos, no brand names, no readable signage, labels or license plates. No people unless stated; an operator may appear only small inside the cab."
+  }
 }
