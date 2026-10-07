@@ -1876,6 +1876,16 @@
       "kind": "ai-generated",
       "tool": "Codex"
     },
+    "concrete-diagnostician/textbook-variation/img/photo-cold-joint": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of the side face of a cast-in-place reinforced concrete retaining wall several years after construction, no machines. A clearly visible cold joint: a single roughly horizontal, slightly wavy discontinuity line running across the wall at mid-height where a lower concrete lift and an upper lift did not bond. Slight colour difference between the lift above and below the line, faint white efflorescence and a damp water stain seeping from the joint line. Form-tie holes in a regular grid. Grey weathered concrete, overcast daylight, no people, no text."
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-surface-bubbles": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a freshly stripped formed concrete surface on the sloped (haunch) part of a concrete box culvert wall, no machines. The inclined face is covered with many small surface voids (bug holes, 2 to 10 mm diameter) concentrated on the downward-facing slope, while the vertical face below is smooth. Smooth grey formed concrete texture, plywood form panel joint lines faintly visible, daylight, no people, no text."
+    },
     "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
       "kind": "public-data",
       "credit": "気象庁",

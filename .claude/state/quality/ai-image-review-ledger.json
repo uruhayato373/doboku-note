@@ -265,6 +265,24 @@
       "verdict": "ok",
       "reason": "擁壁の水平打継ぎ目とひび割れから白色の析出物が滲み、壁面を筋状・つらら状に流下する。本文（打継ぎ面を通じた水の移動の跡）と一致する",
       "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-cold-joint": {
+      "sha": "3a13fbc869ad5049",
+      "promptSha": "6907710e2cb41db5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T22:45:33.260Z",
+      "verdict": "ok",
+      "reason": "擁壁の側面に打重ね層に沿う水平な不連続線が1本通り、線の下に析出物と湿った流下汚れが出ている。セパレータ孔が規則的な格子に並び、文字や二重の部位などの崩れも無く、本文の水平線の特徴と矛盾しない",
+      "reviewedAt": "2026-10-07T22:52:26.082Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-surface-bubbles": {
+      "sha": "b22b0732bad8821e",
+      "promptSha": "773bcae4e26e3717",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T22:46:32.787Z",
+      "verdict": "ok",
+      "reason": "ボックスカルバートのハンチ斜面に径数mmから10mm程度の表面気泡が集中し、下の鉛直壁は平滑で、型枠パネルの目地も見える。alt と本文（型枠面に残る巻込み空気）と一致し、構造や生成の崩れも無い",
+      "reviewedAt": "2026-10-07T22:52:26.083Z"
     }
   }
 }

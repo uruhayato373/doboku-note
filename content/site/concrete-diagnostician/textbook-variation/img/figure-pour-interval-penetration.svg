@@ -1,0 +1,63 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート診断士教材の凝結と打重ね時間。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="練混ぜからの経過時間に対する貫入抵抗の概念グラフ。貫入抵抗3.5 N/mm2に達する点が始発、28.0 N/mm2に達する点が終結で、許容打重ね時間間隔の上限は始発より手前に置き、上限から先は付着が落ちて一体化しにくくなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 11px; fill: #1a3a5c; }
+      .t-red   { font-size: 11px; fill: #b22234; }
+      .t-grn   { font-size: 11px; fill: #3a7d44; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .line-grn { stroke: #3a7d44; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .c-blue { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .dot { fill: #b22234; stroke: #b22234; stroke-width: 1; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .z-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .z-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .z-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝練混ぜからの時間、縦軸＝貫入抵抗（縮尺なし）</text>
+  <line class="line-ax" x1="60" y1="40" x2="60" y2="270" />
+  <line class="line-ax" x1="60" y1="270" x2="350" y2="270" />
+  <text class="t-axis" x="64" y="34">貫入抵抗 N/mm²</text>
+  <text class="t-axis" x="346" y="288" text-anchor="end">経過時間</text>
+
+  <line class="line-dash" x1="60" y1="225" x2="200" y2="225" />
+  <line class="line-dash" x1="60" y1="95" x2="300" y2="95" />
+  <text class="t-axis" x="56" y="229" text-anchor="end">3.5</text>
+  <text class="t-axis" x="56" y="99" text-anchor="end">28.0</text>
+  <line class="line-dash" x1="200" y1="225" x2="200" y2="270" />
+  <line class="line-dash" x1="300" y1="95" x2="300" y2="270" />
+
+  <path class="c-blue" d="M60,264 C110,264 165,258 200,225 C235,192 270,150 300,95 C320,62 335,52 345,48" />
+  <circle class="dot" cx="200" cy="225" r="4" />
+  <circle class="dot" cx="300" cy="95" r="4" />
+  <text class="t-red" x="208" y="216">始発</text>
+  <text class="t-red" x="262" y="86">終結</text>
+
+  <line class="line-grn" x1="165" y1="130" x2="165" y2="270" />
+  <text class="t-grn" x="159" y="150" text-anchor="end">許容打重ね</text>
+  <text class="t-grn" x="159" y="166" text-anchor="end">時間間隔の上限</text>
+  <text class="t-grn" x="159" y="182" text-anchor="end">始発より手前</text>
+
+  <rect class="z-g" x="60" y="304" width="105" height="30" rx="4" />
+  <text class="t-label" x="112" y="323" text-anchor="middle">重ねてよい範囲</text>
+  <rect class="z-w" x="165" y="304" width="135" height="30" rx="4" />
+  <text class="t-label" x="232" y="323" text-anchor="middle">付着低下→一体化しない</text>
+  <rect class="z-r" x="300" y="304" width="50" height="30" rx="4" />
+  <text class="t-label" x="325" y="323" text-anchor="middle">硬化</text>
+
+  <rect class="box" x="20" y="358" width="360" height="124" rx="6" />
+  <text class="t-desc" x="34" y="384">始発：貫入抵抗が 3.5 N/mm² に達した時点</text>
+  <text class="t-desc" x="34" y="406">終結：貫入抵抗が 28.0 N/mm² に達した時点</text>
+  <text class="t-desc" x="34" y="428">試験方法は JIS A 1147（プロクター貫入抵抗）</text>
+  <text class="t-desc" x="34" y="450">付着は始発の手前から落ち始めるので、</text>
+  <text class="t-desc" x="34" y="468">上層は上限より手前で余裕をもって重ねる</text>
+</svg>
