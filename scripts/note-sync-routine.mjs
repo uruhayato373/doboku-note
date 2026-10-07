@@ -136,6 +136,15 @@ async function syncArticles(items) {
   return { updated, failed, stopped: false };
 }
 
+async function liveMagazine(noteKey) {
+  try {
+    return (await fetchCreatorMagazines(NOTE_CREATOR)).find((m) => m.key === noteKey);
+  } catch {
+    await new Promise((r) => setTimeout(r, 5000));
+    return (await fetchCreatorMagazines(NOTE_CREATOR)).find((m) => m.key === noteKey);
+  }
+}
+
 async function syncMagazines(items, byKey, design) {
   const updated = []; const failed = [];
   const ledger = readLedger();
@@ -151,7 +160,15 @@ async function syncMagazines(items, byKey, design) {
     const run = node(['scripts/note-magazine-cover.mjs', '--key', item.noteKey, '--dir', dir, '--commit'], join(WORK, `mag-${item.noteKey}-${stamp()}.log`));
     if (run.status === 2) { problems.push('note にログインできていない（account gate で停止）'); notify('note のログインが切れています。同期を止めました'); break; }
     if (run.status !== 0) { failed.push({ key: item.key, reason: `登録失敗（exit ${run.status}）` }); continue; }
-    const live = (await fetchCreatorMagazines(NOTE_CREATOR)).find((m) => m.key === item.noteKey);
+    // 登録後の確認で一覧を読む。会社 PC のプロキシは一時的に 407 を返すので 1 回だけ読み直し、それでも読めなければ
+    // その誌だけ失敗にして次へ進む（例外で全体が落ちると台帳が push されない。2026-10-07 に 40 誌目で落ちた）
+    let live;
+    try {
+      live = await liveMagazine(item.noteKey);
+    } catch (error) {
+      failed.push({ key: item.key, reason: `登録後の確認で一覧を読めない: ${String(error.message).slice(0, 120)}` });
+      continue;
+    }
     if (!live?.cover || sameImage(live.cover, item.liveUrl)) { failed.push({ key: item.key, reason: '登録後も画像 URL が変わらない' }); continue; }
     recordCover(ledger, target, { design: design.magazine, noteKey: item.noteKey, liveUrl: live.cover, sha256: createHash('sha256').update(readFileSync(join(ROOT, target.imagePath))).digest('hex') });
     writeLedger(ROOT, ledger);
