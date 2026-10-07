@@ -129,26 +129,26 @@
       "reviewedAt": "2026-10-06T21:26:41.985Z"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
-      "sha": "433fb77320806814",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "e70704036ffaadb3",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（411×409）を原典（問題解説集 p.190・600dpi 2 値）から 300dpi で切り出し直し 823×679 に。図番号キャプションは記事の <p> にあるので図からは外した。図の中身は旧画像と同じ",
       "px": [
-        411,
-        409
+        823,
+        679
       ],
-      "reviewedAt": "2026-10-07T11:58:34.410Z"
+      "reviewedAt": "2026-10-07T12:11:52.164Z"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-09": {
-      "sha": "fa866af3db8f5dad",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "1777d1a32021b086",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（389×155）を原典（問題解説集 p.197）から 300dpi で切り出し直し 788×447 に。旧画像で上端の「ハンチ」ラベルと左のスラブ部が見切れていたのも戻った",
       "px": [
-        389,
-        155
+        788,
+        447
       ],
-      "reviewedAt": "2026-10-07T11:58:34.411Z"
+      "reviewedAt": "2026-10-07T12:11:52.166Z"
     },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
       "sha": "89f69d07ca25bb71",
@@ -214,15 +214,15 @@
       "reviewedAt": "2026-10-06T12:00:30.062Z"
     },
     "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
-      "sha": "ada4a5997b90cced",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "763b774f2dbefad7",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（298×200）を公式の問題 PDF（ベクター）から 600dpi で同じ範囲を切り出し直し 836×543 に",
       "px": [
-        298,
-        200
+        836,
+        543
       ],
-      "reviewedAt": "2026-10-07T11:58:34.411Z"
+      "reviewedAt": "2026-10-07T12:11:52.168Z"
     },
     "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
       "sha": "48785072dc7e3fc0",
@@ -260,15 +260,15 @@
       "reviewedAt": "2026-10-06T12:27:53.047Z"
     },
     "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
-      "sha": "1452af9258d9b992",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "b5725d05f66bca19",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（374×279）を公式の問題 PDF（ベクター）から 600dpi で描画し 2/3 に縮めて 1057×710 に。旧画像で左縁の地表線が切れていたのも戻った",
       "px": [
-        374,
-        279
+        1057,
+        710
       ],
-      "reviewedAt": "2026-10-07T11:58:34.408Z"
+      "reviewedAt": "2026-10-07T12:11:52.168Z"
     },
     "civil-construction-1/secondary-r04/img/i-9-crack-types": {
       "sha": "3de3f655ecddf8a0",
@@ -684,15 +684,15 @@
       "reviewedAt": "2026-10-06T11:51:32.488Z"
     },
     "pe-first-stage/h23-construction/img/q7-source": {
-      "sha": "bdf03d605fa16568",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "c849f2f0971fdb71",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（440×315）を公式の問題 PDF（600dpi 2 値スキャン）から 300dpi で同じ範囲を切り出し直し 847×604 に",
       "px": [
-        440,
-        315
+        847,
+        604
       ],
-      "reviewedAt": "2026-10-07T11:58:34.412Z"
+      "reviewedAt": "2026-10-07T12:11:52.170Z"
     },
     "pe-first-stage/h23-water-supply/img/q12-source": {
       "sha": "3f9a6e16bd4ad97c",
@@ -709,15 +709,15 @@
       "reviewedAt": "2026-10-06T11:51:32.489Z"
     },
     "pe-first-stage/h24-basic/img/q11-source": {
-      "sha": "f7217bb47b7127fe",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "e87ed82b4c920e95",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（390×260）を公式の問題 PDF（300dpi 2 値スキャン）から 300dpi で同じ範囲を切り出し直し 763×513 に",
       "px": [
-        390,
-        260
+        763,
+        513
       ],
-      "reviewedAt": "2026-10-07T11:58:34.412Z"
+      "reviewedAt": "2026-10-07T12:11:52.172Z"
     },
     "pe-first-stage/h24-basic/img/q13-source": {
       "sha": "505103fcf1fcf7b3",
@@ -727,15 +727,15 @@
       "reviewedAt": "2026-10-06T11:57:37.329Z"
     },
     "pe-first-stage/h24-construction/img/q7-source": {
-      "sha": "13bc0ae9f681046c",
-      "verdict": "needs-source",
-      "action": "none",
-      "reason": "長辺が 500px 未満（LOW_RES）でスマホの 2x 表示に足りない。原典 PDF から高い dpi で切り出し直す（DN-0577）",
+      "sha": "b9ae2260d27830f4",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "LOW_RES（360×335）を公式の問題 PDF（300dpi 2 値スキャン）から 300dpi で同じ範囲を切り出し直し 710×644 に",
       "px": [
-        360,
-        335
+        710,
+        644
       ],
-      "reviewedAt": "2026-10-07T11:58:34.412Z"
+      "reviewedAt": "2026-10-07T12:11:52.173Z"
     },
     "pe-first-stage/h24-construction/img/q9-source": {
       "sha": "5de20c60fe0aefaf",

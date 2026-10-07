@@ -1321,6 +1321,16 @@
       "page": 285,
       "dpi": 300
     },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 190,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-09": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 197,
+      "dpi": 300
+    },
     "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
       "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
       "page": 200,
@@ -1411,6 +1421,11 @@
       "page": 5,
       "dpi": 300
     },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第一次検定_問題A.pdf",
+      "page": 6,
+      "dpi": 600
+    },
     "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第一次検定_問題B.pdf",
       "page": 5,
@@ -1435,6 +1450,11 @@
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R03/R03_第二次検定.pdf",
       "page": 10,
       "dpi": 300
+    },
+    "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R04/R04_第二次検定.pdf",
+      "page": 8,
+      "dpi": 400
     },
     "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第二次検定.pdf",
@@ -1539,12 +1559,12 @@
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
-      "prompt": "A self-propelled wheeled motor scraper: a two-axle tractor unit at the front with cab and engine, connected by a gooseneck to a rear scraper bowl unit with apron and ejector, large tires, cutting and loading soil while moving at an earthworks site."
+      "prompt": "A self-propelled wheeled motor scraper with two axles in total: a single-axle tractor unit at the front carrying the cab and engine, connected by a gooseneck to a rear scraper bowl unit on its own axle, with the apron, cutting edge and ejector visible, large earthmover tires, cutting and loading soil while moving at an earthworks site."
     },
     "civil-construction-1/textbook-scraper/img/scraper-dozer": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
-      "prompt": "A scrape dozer (a Japanese crawler earthmover combining a scraper and a bulldozer): steel crawler tracks, a dozer blade at the front, a scraper BOWL built into the MIDDLE of the body where a bulldozer's engine would be, the engine at the rear, and a raised operator seat facing sideways, spreading soil on soft ground."
+      "prompt": "A scrape dozer - a Japanese crawler-type earthmoving machine that combines a scraper and a bulldozer. Two CONTINUOUS steel crawler tracks run the full length of the machine on the left and right sides, unbroken from front idler to rear sprocket. A large open scraper BOWL loaded with soil sits in the MIDDLE of the machine, BETWEEN the left and right tracks, where an ordinary bulldozer would have its engine. A straight dozer blade is mounted at the front. The engine compartment with a radiator grille is at the REAR. The operator seat is on a raised platform above the bowl and faces SIDEWAYS (perpendicular to the direction of travel), with hydraulic control levers in front of the seat under a simple canopy. Spreading soil on soft ground. Side view from slightly above so that the full-length track and the bowl between the tracks are both visible."
     },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "kind": "ai-generated",
@@ -2023,6 +2043,21 @@
       "kind": "own-book-scan",
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-first-stage/h23-construction/img/q7-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H23/H23_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/h24-basic/img/q11-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H24/H24_基礎科目.pdf",
+      "page": 1,
+      "dpi": 300
+    },
+    "pe-first-stage/h24-construction/img/q7-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H24/H24_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
     },
     "pe-first-stage/h26-basic/img/q21-source": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H26/H26_基礎科目.pdf",
