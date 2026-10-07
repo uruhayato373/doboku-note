@@ -217,6 +217,8 @@ export const DATASETS = [
   d('business.checks-monthly', 'data/business/records/checks-monthly-{month}{rerun}.json', 'evidence', 'strategy', '月次レビューの点検の振り分け', { immutable: true, schema: 'BusinessChecksMonthly' }),
   d('business.checks-weekly', 'data/business/records/checks-weekly-{week}{rerun}.json', 'evidence', 'strategy', '週次レビューの点検の振り分け', { immutable: true, planned: true, schema: 'BusinessChecksWeekly' }),
   d('business.experiments', 'data/business/experiments.json', 'state', 'strategy', '実験の台帳（仮説・期間・判定）', { schema: 'Experiments' }),
+  // 受け箱（別リポジトリの obsidian mail-triage が毎日 develop へ直接書く。売上の正本ではない）
+  d('inbox.mail-events', 'data/inbox/mail-events.json', 'state', 'ops', 'メールから拾ったイベントの受け箱（obsidian mail-triage が書く・最大 500 件）', { schema: 'InboxMailEvents' }),
   d('business.weekly', 'data/business/weekly/{week}.json', 'series', 'strategy', '週次レビュー用の計測のまとめ（窓は確定した月〜日・ファイル名の週はその窓の ISO 週）', { retain: { family: 'weekly-metrics', keepNewest: 26 }, schema: 'WeeklyMetrics' }),
 
   // ===== data/: 記録から計算した結果・文書が引く調査 =====
