@@ -7,10 +7,10 @@
  * このサブシステムは 4 つの真実源が一致していて初めて意味を持つ。どれかがズレると
  * **静かに間違った EPC** が出る（取り込みは成功し数字も出るが、対象が違う）。機械で止める。
  *
- *   1. `src/config/affiliate-mats.json`            … サイトに実際に置いた広告（program 語彙の de-facto SSOT）
+ *   1. `config/affiliate-mats.json`                … サイトに実際に置いた広告（program 語彙の de-facto SSOT）
  *   2. `data/affiliate/catalog.json`  … 3 ASP 横断の提携カタログ
  *   3. `config/a8-report-automation.json`  … A8 成果取込の programIdMap
- *   4. `.claude/scripts/report-buildjob-affiliate.mjs` … EPC 消費側の語彙
+ *   4. `data/affiliate/catalog.json` の ctaLabels       … GA4 のラベル → 案件（EPC レポートの分類。scripts/lib/affiliate-labels.mjs）
  *
  * usage:
  *   node scripts/check-affiliate-wiring.mjs
@@ -20,13 +20,14 @@ import { readFileSync, existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { datasetPath } from "./lib/datasets.mjs";
 import { withSharedConnection } from "./lib/asp-config.mjs";
+import { labelProgramMap } from "./lib/affiliate-labels.mjs";
 
-const MATS = "src/config/affiliate-mats.json";
+const MATS = datasetPath("config.affiliate-mats");
 const CATALOG = datasetPath("affiliate.catalog");
 const A8_CONFIG = datasetPath("config.a8-report-automation");
 const ASP_CONFIG = datasetPath("config.affiliate-asp");
-const CONSUMER = ".claude/scripts/report-buildjob-affiliate.mjs";
-const WATCHED = [MATS, CATALOG, A8_CONFIG, ASP_CONFIG, CONSUMER];
+const CREATIVES = "src/config/affiliate-creatives.ts";
+const WATCHED = [MATS, CATALOG, A8_CONFIG, ASP_CONFIG, CREATIVES];
 const KNOWLEDGE = ".claude/knowledge/reference/affiliate-operations.md";
 
 const STATUS_VOCAB = new Set(["approved", "applying", "none", "unavailable", "unknown"]);
@@ -166,12 +167,31 @@ if (existsSync(ASP_CONFIG)) {
   }
 }
 
-// ── 5. 消費側の語彙
-if (existsSync(CONSUMER)) {
-  const src = readFileSync(CONSUMER, "utf-8");
-  for (const prog of matPrograms) {
-    if (!src.includes(`"${prog}"`)) warns.push(`"${prog}" が ${CONSUMER} に現れない（EPC レポートの分類に載らない）`);
+// ── 5. GA4 のラベル → 案件（正本は catalog の ctaLabels・scripts/lib/affiliate-labels.mjs）
+// (a) コードに書いたラベル（面ごとの trackLabel と本文カードの service 名）が全部 catalog で案件に解決できる。
+//     解決できないラベルのクリックは EPC レポートの分類から黙って落ちる
+// (b) mat を持つ転職案件（vertical あり）は ctaLabels を持つ（ココナラは別イベント coconala_cta_click なので対象外）
+let labelsChecked = 0;
+try {
+  const labelMap = labelProgramMap(catalog ?? {});
+  const code = existsSync(CREATIVES) ? readFileSync(CREATIVES, "utf-8") : "";
+  const literals = new Set();
+  for (const m of code.matchAll(/trackLabel: "([^"]+)"/g)) {
+    literals.add(m[1]);
+    if (m[1].endsWith("-sidebar")) literals.add(m[1].replace(/-sidebar$/, "-endbanner")); // 記事末は -sidebar を -endbanner に置き換えて出す（ArticleFooter）
   }
+  for (const m of code.matchAll(/service: "([^"]+)"/g)) literals.add(m[1]);
+  if (literals.size === 0) errors.push(`${CREATIVES} からラベルを 1 つも読めない（書式が変わった？検査不成立）`);
+  for (const label of literals) {
+    labelsChecked++;
+    if (!labelMap.has(label)) errors.push(`ラベル "${label}"（${CREATIVES}）が ${CATALOG} のどの案件の ctaLabels にも無い（EPC レポートの分類から落ちる）`);
+  }
+  for (const prog of matPrograms) {
+    const p = catalog?.programs?.[prog];
+    if (p?.vertical && !(p.ctaLabels ?? []).length) errors.push(`${CATALOG}: 転職案件 ${prog} は mat があるのに ctaLabels が無い`);
+  }
+} catch (e) {
+  errors.push(`${CATALOG}: ctaLabels — ${e.message}`);
 }
 
 for (const w of warns) console.warn(`[check-affiliate-wiring] WARN: ${w}`);
@@ -182,12 +202,12 @@ if (errors.length > 0) {
       `  ${MATS}（サイトに置いた広告・program 語彙の SSOT）\n` +
       `  ${CATALOG}（3 ASP 横断の提携カタログ）\n` +
       `  ${A8_CONFIG}（A8 成果取込の programIdMap）\n` +
-      `  ${CONSUMER}（EPC 消費側）\n` +
+      `  ${CATALOG} の ctaLabels（GA4 のラベル → 案件）\n` +
       `ルール: ${KNOWLEDGE}`,
   );
   process.exit(1);
 }
 console.log(
-  `[check-affiliate-wiring] ✓ mats ${matPrograms.size} 種 / catalog ${catPrograms.size} 件 が整合（WARN ${warns.length}）`,
+  `[check-affiliate-wiring] ✓ mats ${matPrograms.size} 種 / catalog ${catPrograms.size} 件 / コードのラベル ${labelsChecked} 件 が整合（WARN ${warns.length}）`,
 );
 process.exit(0);

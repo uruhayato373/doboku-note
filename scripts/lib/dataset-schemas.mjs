@@ -18,7 +18,7 @@
 import { z } from 'zod';
 import { todayJst } from './jst-date.mjs';
 import {
-  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256,
+  jstDate, utcTime, offsetTime, month, yen, signedYen, count, orNull, jstDateOrUtcTime, flag, uniqueBy, sumEquals, isMonday, lastDayOfMonth, jstDayOf, toMs, mondayDate, versioned, ISO_TIME, isoTime, period, sha256, BUSINESS_CHANNELS,
 } from './dataset-schema-parts.mjs';
 
 export { uniqueBy, sumEquals, isMonday, versioned };
@@ -295,7 +295,7 @@ export const BusinessMeasurement = z
   .object({
     kind: z.literal('measurement'),
     ...recordBase,
-    channel: z.enum(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare']),
+    channel: z.enum(BUSINESS_CHANNELS),
     subject: z.string().min(1).describe('aggregate か指標 id'),
     coverage: z.enum(['complete', 'partial']),
     source: z.string().min(1).max(500).describe('出典（秘密情報・URL クエリを含めない）'),
@@ -1071,9 +1071,19 @@ export const AffiliateCatalog = z
         placement: z.enum(['active', 'none']).describe('サイトに置いているか（active）・置いていないか（none）'),
         decision: z.string().min(1).describe('配置の判断とその日付'),
         redLine: z.boolean().optional().describe('講座・教材など配置してはいけない案件'),
+        ctaLabels: z.array(z.string().min(1)).optional().describe('GA4 の data-cta-label のうちこの案件のもの（面ごとの trackLabel と本文カードの service 名）。対応の唯一の正本（scripts/lib/affiliate-labels.mjs が読む）'),
         asps: z.strictObject({ a8: aspEntry.optional(), moshimo: aspEntry.optional(), afb: aspEntry.optional() }),
       }),
     ),
+  })
+  .superRefine((c, ctx) => {
+    const owner = new Map();
+    for (const [id, p] of Object.entries(c.programs)) {
+      for (const label of p.ctaLabels ?? []) {
+        if (owner.has(label) && owner.get(label) !== id) flag(ctx, ['programs', id, 'ctaLabels'], `ラベル ${label} が ${owner.get(label)} にもある`);
+        owner.set(label, id);
+      }
+    }
   })
   .meta({ title: '3 ASP の提携案件' });
 

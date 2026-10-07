@@ -271,7 +271,7 @@ export function affiliateExperiments(): { id: string; title: string; nextCheck: 
 /** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
 export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
 
-/** 提携・案件（data/affiliate/catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+/** 提携・案件（data/affiliate/catalog.json）＋リンクの期限（config/affiliate-mats.json）。 */
 export interface ProgramCatalogRow {
   id: string;
   label: string;
@@ -284,7 +284,7 @@ export function affiliateCatalog(): ProgramCatalogRow[] {
     const c = JSON.parse(readFileSync(repoPath(datasetPath('affiliate.catalog')), 'utf8')) as {
       programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
     };
-    const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];
+    const mats = JSON.parse(readFileSync(repoPath(datasetPath('config.affiliate-mats')), 'utf8')).mats as { program: string; expiresAt: string | null }[];
     return Object.entries(c.programs).map(([id, p]) => {
       const dates = mats.filter((m) => m.program === id).map((m) => m.expiresAt);
       return {

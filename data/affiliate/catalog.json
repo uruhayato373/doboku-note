@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "_comment": "3 ASP（A8 / もしも / afb）横断の提携カタログ。**自社が配置する / 配置を検討する案件だけ**を持つ。同一案件が複数 ASP に存在するため、ASP 間の単価・確定率・EPC を比較できることがこのファイルの存在理由。`npm run affiliate:status` が実機と突合し、`check-affiliate-wiring` が src/config/affiliate-mats.json との整合を検査する。手編集は可（実機値は status が上書きする）。運用 SSOT → .claude/knowledge/reference/affiliate-operations.md",
+  "_comment": "3 ASP（A8 / もしも / afb）横断の提携カタログ。**自社が配置する / 配置を検討する案件だけ**を持つ。同一案件が複数 ASP に存在するため、ASP 間の単価・確定率・EPC を比較できることがこのファイルの存在理由。`npm run affiliate:status` が実機と突合し、`check-affiliate-wiring` が config/affiliate-mats.json との整合を検査する。手編集は可（実機値は status が上書きする）。運用 SSOT → .claude/knowledge/reference/affiliate-operations.md",
   "_notMergedWith": "`data/ads/a8-catalog.json` は A8 scout の状態機械（143 件・大半が stats47 の口座横断 approved）で役割が違うためマージしない。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。",
   "_statusVocab": {
     "approved": "提携済み（広告リンクを発行できる）",
@@ -18,6 +18,13 @@
       "vertical": "civil-career",
       "placement": "active",
       "decision": "2026-09-08: A8通常条件で一般配置を継続。既存doboku-note用matを現物照合済み。もしも13,847円との差313円だけでASPを切り替えず、既存計測・リンクの帰属を維持。優劣の成果実証ではなく対象条件と運用整合に基づく。",
+      "ctaLabels": [
+        "BuildJob-sidebar",
+        "BuildJob-endbanner",
+        "BuildJob-midtext",
+        "BuildJob-hubcareer",
+        "ビルドジョブ"
+      ],
       "asps": {
         "a8": {
           "programId": "s00000024757004",
@@ -50,6 +57,11 @@
       "vertical": "civil-career",
       "placement": "none",
       "decision": "2026-09-08以降の一般配置を停止。対象年齢・地域が限定され9/28終了予定。過去分岐とcreativeのみコード保持。",
+      "ctaLabels": [
+        "GKSキャリア",
+        "GKS-sidebar",
+        "GKS-endbanner"
+      ],
       "asps": {
         "a8": {
           "programId": "s00000022176005",
@@ -75,6 +87,11 @@
       "vertical": "civil-career",
       "placement": "none",
       "decision": "2026-09-08一般配置を停止。20〜30代の建設経験者と電話本人確認が条件で、全年齢記事に会員登録だけのサービスとして配置する前提を撤回。再配置は対象が明確な記事を選定する場合に限る。",
+      "ctaLabels": [
+        "KensetsuJobs-sidebar",
+        "KensetsuJobs-endbanner",
+        "建設JOBs"
+      ],
       "asps": {
         "a8": {
           "programId": "s00000023057002",
@@ -99,6 +116,11 @@
       "vertical": "pe-career",
       "placement": "active",
       "decision": "A8 で運用。pe-comprehensive-management カテゴリ hub 専用（GKS は 20 代未経験向けで総監読者にミスマッチ）。",
+      "ctaLabels": [
+        "DXConsulting-sidebar",
+        "DXConsulting-endbanner",
+        "ハイクラス DX・コンサル転職"
+      ],
       "asps": {
         "a8": {
           "programId": "s00000022413004",

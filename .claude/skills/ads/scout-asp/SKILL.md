@@ -104,4 +104,4 @@ npm run test:ads                                                 # 純関数コ�
 - コア: `.claude/scripts/ads/lib/{a8-scout-core,a8-code-core}.mjs` / 申請上限 `.claude/scripts/ads/check-a8-apply-budget.cjs`
 - ブラウザ: `.claude/skills/ads/scout-asp/scripts/{a8-browser.ts,login.mjs}`
 - カタログ: `data/a8/catalog.json`（状態機械）/ curated: `.claude/scripts/ads/data/a8-curated.json`
-- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
+- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`

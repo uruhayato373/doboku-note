@@ -462,7 +462,13 @@ function main() {
   const a8InWindow = a8All.filter((r) => r.month >= startMonth && r.month <= endMonth);
 
   // --- 起票時基線との比較 ---
-  const base = cfg.reportedBaseline;
+  // 基線は凍結ファイル（config の baseline が指す日）から読む。数字を config に写さない
+  const frozenBase = readJson(join(ROOT, datasetPath(cfg.baseline.dataset, { date: cfg.baseline.date })));
+  const base = {
+    affiliateImpressions: frozenBase.funnel.affiliateCta.totalImpressions,
+    affiliateClicks: frozenBase.funnel.affiliateCta.totalClicks,
+    highIntentQueryImpressions: frozenBase.funnel.highIntentQuery.impressions,
+  };
   const drift = [];
   const cmp = (name, now, was) => {
     if (!was) return;

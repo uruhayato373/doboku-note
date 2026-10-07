@@ -13,6 +13,7 @@ import { classifyProduct, classifySale } from './product-lineup.mjs';
 import { qualificationKey } from './sales-by-qualification.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { writeDataset } from './dataset-write.mjs';
+import { BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
 
 export const DIRECTION = datasetPath('config.business-direction');
 export const RECORDS = datasetDir('business.measurement');
@@ -116,7 +117,7 @@ export function validateRecord(record, config, history = [], now = new Date()) {
     if (r.kind === 'target') required(old.metric === r.metric, '指標が異なります');
   }
   if (r.kind === 'measurement') {
-    required(['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare'].includes(r.channel), '計測元が不正です');
+    required(BUSINESS_CHANNELS.includes(r.channel), '計測元が不正です');
     required(nonempty(r.source) && r.source.length <= 500 && !/[?]|(?:token|password|secret|BEGIN PRIVATE KEY)/i.test(r.source), '出典は秘密情報・URLクエリを含めず記録してください');
     required(nonempty(r.subject) && ['complete', 'partial'].includes(r.coverage), '計測対象と完全性を指定してください');
     required(r.values && Object.keys(r.values).length > 0, '計測値がありません');
