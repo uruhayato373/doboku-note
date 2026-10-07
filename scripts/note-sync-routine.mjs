@@ -22,6 +22,8 @@
  *   node scripts/note-sync-routine.mjs --no-push       # commit まで
  *   node scripts/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'
  *       # 記事をパスの先頭で絞る（試験直前にその資格だけ先に流す）。マガジンのカバーは触らない。note から読むのも対象の記事だけ
+ *   node scripts/note-sync-routine.mjs --magazines-only
+ *       # マガジンのカバーだけ登録する（記事は読まない・触らない）
  * exit: 0 = 全部できた（更新するものが無かったも含む）/ 1 = どこかで失敗・要ログイン
  * ---------------------------------------------------------------------------
  */
@@ -48,6 +50,8 @@ const NO_PUSH = args.includes('--no-push');
 const MAX = Number(args[args.indexOf('--max') + 1]) || 200;
 const ONLY = args.includes('--only') ? args[args.indexOf('--only') + 1] : null;
 if (args.includes('--only') && !ONLY) { console.error('--only にはパスの先頭（例: content/note/1級・2級土木/1級土木/）が要る'); process.exit(2); }
+const MAGAZINES_ONLY = args.includes('--magazines-only');
+if (ONLY && MAGAZINES_ONLY) { console.error('--only と --magazines-only は同時に使えない'); process.exit(2); }
 const CHUNK = 25;
 const WORK = join(ROOT, '.tmp/note-sync-routine');
 const SYNC_LOG = datasetPath('note.sync-log');
@@ -106,7 +110,7 @@ async function syncArticles(items) {
     if (run.status === 2) { // account gate（dobokunote 未ログイン）
       problems.push('note にログインできていない（account gate で停止）');
       notify('note のログインが切れています。同期を止めました');
-      return { updated, failed, stopped: true };
+      return { updated, failed, stopped: true, loggedOut: true };
     }
     const results = parseRun(run.out);
     for (const item of chunk) {
@@ -168,7 +172,7 @@ function commitAndPush() {
 
 // ---- 1. 計画
 const startedAt = new Date().toISOString();
-const plan = await buildSyncPlan(ROOT);
+const plan = MAGAZINES_ONLY ? { items: [] } : await buildSyncPlan(ROOT);
 const { targets } = await loadNoteCoverInventory(ROOT);
 const byKey = new Map(targets.map((t) => [t.key, t]));
 const design = designVersions(ROOT);
@@ -176,7 +180,7 @@ const design = designVersions(ROOT);
 // 全件だと約 900 件 × 250ms 待ち＋会社 PC のプロキシで 10 分超かかり、40 本の反映が始まらなかった（2026-10-07）。
 // 集計（counts）と実行記録の plan も対象の範囲だけになる（記録には only を残す）。
 if (ONLY) plan.items = plan.items.filter((i) => i.path.startsWith(ONLY));
-const liveArticles = await fetchLiveArticles(ONLY ? targets.filter((t) => t.key.startsWith(ONLY)) : targets);
+const liveArticles = MAGAZINES_ONLY ? {} : await fetchLiveArticles(ONLY ? targets.filter((t) => t.key.startsWith(ONLY)) : targets);
 withLiveCovers(plan, liveArticles);
 const counts = countPlan(plan.items);
 const articles = orderForRun(plan.items).slice(0, MAX);
@@ -194,7 +198,9 @@ if (DRY) {
 
 // ---- 2〜4. 更新
 const art = articles.length ? await syncArticles(articles) : { updated: [], failed: [], stopped: false };
-const mag = art.stopped || !magPlan.pending.length ? { updated: [], failed: [] } : await syncMagazines(magPlan.pending, byKey, design);
+// マガジンは記事と別の設定画面なので、記事の連続失敗（PDF 欠落など）では止めない。止めるのはログイン切れだけ。
+// 以前は art.stopped で飛ばしており、BK-01 道路の PDF 欠落が毎週マガジン 38 誌の登録を止めていた（2026-10-07）。
+const mag = art.loggedOut || !magPlan.pending.length ? { updated: [], failed: [] } : await syncMagazines(magPlan.pending, byKey, design);
 
 // ---- 5. 保存・記録
 if (art.updated.some((x) => x.parts.includes('cover'))) {
@@ -207,7 +213,7 @@ if (mag.updated.length) {
 }
 appendSyncLog({
   startedAt, finishedAt: new Date().toISOString(),
-  plan: { synced: counts.synced, ready: counts.ready, blocked: counts.blocked, blockers: counts.blockers, ...(ONLY ? { only: ONLY } : {}) },
+  plan: { synced: counts.synced, ready: counts.ready, blocked: counts.blocked, blockers: counts.blockers, ...(ONLY ? { only: ONLY } : {}), ...(MAGAZINES_ONLY ? { magazinesOnly: true } : {}) },
   articles: { attempted: articles.length, updated: art.updated, failed: art.failed },
   magazines: { attempted: magPlan.pending.length, updated: mag.updated, failed: mag.failed },
   problems,
