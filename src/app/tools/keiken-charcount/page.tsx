@@ -5,6 +5,7 @@ import KeikenCharcountClient, { type KeikenLimits } from "./KeikenCharcountClien
 import limitsConfig from "../../../../config/keiken-answer-sheet-limits.json";
 import OffsiteCta from "@/components/ui/OffsiteCta/OffsiteCta";
 import { resolveOffsiteCta } from "@/lib/offsite-cta";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magazines";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
@@ -100,6 +101,8 @@ export default function KeikenCharcountPage() {
           })}
         </div>
         <OffsiteCta items={resolveOffsiteCta("tools-keiken-charcount")} heading="答案を見てほしい方へ" />
+        {/* 転職の案内（結果と教材の下に 1 枠。案件は配置ルール） */}
+        <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className="mt-8" />
       </div>
     </PageShell>
   );

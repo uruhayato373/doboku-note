@@ -2,6 +2,7 @@ import { Check } from "lucide-react";
 import type { CareerNeed } from "@/config/career-pathways";
 import type { ResolvedPlacement } from "@/lib/affiliate-placement";
 import {
+  AFFILIATE_LINK_REFERRER_POLICY,
   AFFILIATE_LINK_REL,
   AffiliateCta,
   AffiliatePrBadge,
@@ -105,6 +106,7 @@ export default function CareerAffiliate({
       <a
         href={resolvedHref}
         rel={AFFILIATE_LINK_REL}
+        referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}
         target="_blank"
         data-cta="affiliate"
         data-cta-label={effService}

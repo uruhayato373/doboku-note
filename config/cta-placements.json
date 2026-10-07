@@ -58,6 +58,24 @@
       "pageKind": "tool",
       "pixelPriority": null
     },
+    "standards-end": {
+      "label": "公的基準 章末",
+      "status": "active",
+      "pageKind": "standards",
+      "pixelPriority": 1
+    },
+    "home-section": {
+      "label": "トップ 区画",
+      "status": "active",
+      "pageKind": "home",
+      "pixelPriority": 1
+    },
+    "tool-inline": {
+      "label": "ツール 結果の下",
+      "status": "active",
+      "pageKind": "tool",
+      "pixelPriority": 1
+    },
     "article-end-offsite": {
       "label": "記事末（ココナラ）",
       "status": "active",

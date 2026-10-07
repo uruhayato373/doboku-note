@@ -13,6 +13,7 @@ import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import SourceRef from '@/components/standards/SourceRef';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -183,6 +184,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
+          {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
+          <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
           <StandardsAttribution document={entry} />
         </SectionCard>
       </TwoColumnShell>
