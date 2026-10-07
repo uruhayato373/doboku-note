@@ -300,45 +300,6 @@
 
 **完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
 
-### [DN-0563] 記事と原典の結線を config で引けるようにする（sources の宣言もれ 18 件・切り出し直しの候補 PDF・書籍の印字ページ）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07 に土工の基礎を照合したとき、どの書籍から作った記事かを引けず、1級土木の書籍 4 冊の OCR を grep して特定した。引けない理由は 4 つある。
-- **sources の宣言もれ**: 判定台帳では 20 組の「記事×書籍」で図を切り出しているが、うち 18 組は記事の `sources:` に書籍が無い。
-  - `secondary-{concrete,construction-plan,earthwork,quality-management}-basics` は `sources:` 自体が無い。
-  - 過去問 `primary-h26-a`〜`r02-a`・`secondary-*-past-problems` は `cecc-past-exams` だけで、図の出典の問題解説集が無い。
-  - `pe-construction/*-ronbun-keyword` 5 本には `pe-construction-keyword-book` が無い。
-- **候補 PDF を引かない**: `scripts/figure-review-queue.mjs` の `sourceRoots()` は vault の固定 3 フォルダを渡すだけ。記事の `sources:` →  `config/reference-sources.json`（vaultDir・renderProfile.rotation・transcriptDir）を引かないので、worker は毎回 pdftotext で原典を探す。
-- **印字ページが空**: 書籍台帳 `content/sources/books/*/book-manifest.json` の `printedPage` は 324 頁すべて null（OCR には `<!-- p0122 印字:114 -->` がある）。
-- **図の登録先が空**: 同じ台帳の `crops` も空。
-
-**やること**:
-1. 上の 18 組を `sources:` に足す。先に、`class: commercial-book`・`access: internal-only` の文献が記事の参考文献として表示されるかを確かめ、表示されるなら非表示にする扱いを決める。
-2. 「図の出典の書籍が記事の `sources:` に無い」を止める検査を作る（判定台帳と frontmatter を突き合わせる）。
-3. queue の reextract 項目に、記事の `sources:` から引いた候補（PDF の実パス・回転・OCR の場所）を入れる。固定の roots はその後ろの予備にする。
-4. 書籍台帳の生成処理で、`printedPage` を OCR のページ印から埋める。
-5. 書籍の図の切り出しを `crops` に登録するかを、DN-0555（出典の正本）と合わせて決める。
-
-**完了条件**: 検査が「記事×書籍」の対象数を出し、宣言もれ 0 件。queue の reextract 項目に候補 PDF と回転が出る。書籍台帳の `printedPage` が埋まっている。
-
-### [DN-0564] Drive の原資料PDF/白書（33 件）を台帳・参考文献・原典探索につなぐ
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-06、figure-crop-worker が国土交通白書の関連データ集 PDF をネットから無断で取得した（DN-0558）。Drive vault には `原資料PDF/白書/`（`国土交通白書（令和７年度）.pdf` ほか 33 件）があるのに、3 か所ともつながっていなかった。
-- `config/drive-vault.json` に白書の group が無く、台帳登録・sha256・復元経路が無い。
-- `config/reference-sources.json` の `mlit-white-paper` は `origin.kind: external`（URL だけ）で、vault の写しを指さない。
-- `scripts/figure-review-queue.mjs` の `sourceRoots()` は `原資料PDF/{過去問,教材,書籍}` に固定で、`白書`・`共通仕様書`・`資格試験` を探さない。
-
-fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳の出典は URL のままで、使った PDF はどこにも保存されておらず、作り直せない。
-
-**やること**:
-1. `drive-vault.json` に白書の group（audience: human）を足し、33 件を台帳へ登録する（sha256・復元確認は asset-storage-policy.md の手順）。
-2. `reference-sources.json` の白書系の文献に、年度版ごとの vault のパスを足す。URL は公開元として残す。
-3. `sourceRoots()` を `drive-vault.json` の原資料系 group から導き、固定のフォルダ一覧をやめる。
-4. fig15 に使った関連データ集 PDF を、運営者の了解を得て vault の `白書/` に置き、台帳の出典を `vault:` 相対に直す。
-
-**完了条件**: `白書/` の全件が台帳に載り sha256 で照合済み。queue の原典候補に白書が出る。fig15 の出典が `vault:` 相対になっている。
-
 ### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
@@ -365,22 +326,32 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
 
 **完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
-### [DN-0555] 図の切り出し直しを記録から再現できるようにし、図の出典を 1 か所にまとめる
+### [DN-0570] 図の切り出し直しを、記録（切り出し枠・回転）から同じ画像に作り直せるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
-**起点**: 2026-10-06〜07 の図クロップ品質ループで、117 枚を元 PDF から切り出し直した。
-- 判定台帳 `.claude/state/quality/figure-review-ledger.json` に残るのは出典（`vault:` 相対の PDF・ページ・dpi）だけ。切り出し枠（cropBox）・回転・余白・減色は残らない。書籍スキャンには 180° 逆さのページもあり、同じ画像を作り直せない。
-- 出典は `config/figure-sources.json` の `manual_needs`（203 件、うち `source_pdf` 付き 69 件）にもあり、二重管理になっている。
-- `scripts/figure-review-queue.mjs` の `manualSourceOf` は config 側しか読まない。台帳に記録した出典は、次の切り出し直しに使われない。
-- 台帳は datasets 台帳（`scripts/lib/datasets.mjs`）に無く、型（zod）も無い。
+**起点**: 図ごとの出典は 2026-10-07（PR #914）に `config/figure-sources.json` の `provenance`（186 件）へ一本化した。ただし残るのは原典の PDF・ページ・dpi だけで、切り出し枠（cropBox）・回転（書籍スキャンは 180° 逆さのページがある）・余白・減色は残らない。そのため、同じ画像を作り直せない。
 
 **やること**:
-1. 出典の正本を 1 つに決める（置き場は information-architecture.md と datasets の規約に従う）。第一案は、図の素材の事実である出典を `config.figure-sources` に寄せ、目視判定の履歴は台帳に残す形。重複を移して片方を消し、`manualSourceOf` と record が正本を読み書きするようにする。
-2. record が worker の結果から `cropBox`・`rotate`・`dpi`・後処理（減色・点の除去）を残すようにする。
-3. `scripts/figure-reextract.mjs <figKey>` を作り、記録から画像を作り直す。配信中の画像と同じ寸法で、画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立として exit 2 にする。
-4. 置き場を変えたら datasets 台帳に宣言して型を付け、`npm run check-datasets` を通す。
+1. record が worker の結果から `cropBox`・`rotate`・後処理（減色・点の除去）を `provenance` に残すようにする（型を足す）。
+2. `scripts/figure-reextract.mjs <figKey>` で記録から画像を作り直し、配信中の画像と同じ寸法・画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立で exit 2 にする。
 
-**完了条件**: 切り出し直した図の出典が 1 か所だけにある。`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。`npm run check-datasets` が通る。
+**完了条件**: 新しく切り出し直した図は `provenance` に枠と回転があり、`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。
+
+### [DN-0571] 市販書籍から試験ページ以外の記事へ流用している図（判定済み 41 枚）を、自作の図に置き換える
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 参考文献台帳では、市販書籍（`commercial-book`）は図の流用不可（`figureReuse: false`）。画像方針でも「他社書籍・教材のスキャン」は禁止ソースになっている。それでも、次の記事には市販の問題解説集・テキストのスキャン図が載っている。
+- 1級土木 二次の `secondary-{concrete,construction-plan,earthwork,quality-management}-basics`（4 本で画像 113 枚、うち出典を確かめた図 38 枚）
+- `textbook-demolition`・`textbook-construction-mgmt-overview`
+
+2026-10-07（PR #914）に `check-reference-sources` が検出するようにした。出典を確かめた 41 枚は `.claude/config/reference-sources-baseline.json` の `figureReuseDebt` に載せてあり、増えれば FAIL になる。図クロップ品質ループはこれらを切り出し直さない。2026-10-06 のループでは、そうと知らずに 図2.41・2.42 などを書籍から切り出し直していた。
+
+**やること**:
+1. 運営者の決定（2026-10-07）: **自作の図に置き換える**。画像生成が要る図は Codex を使ってよい。描き直しは書籍の図を写さず、本文の論点から独自に構成する（図の配置・ラベルも原典をなぞらない）。SVG 図版の規約（design-system.md・4:5 キャンバス）に従い、`svg-figure-auditor` で検査する。前例は 2026-07-31 のコンクリート診断士で、原典図 25 枚を自作図へ置き換えた（reference-sources-policy.md §5）。
+2. 置き換え・削除した図は、`figureReuseDebt` と `provenance` から外す。
+3. 4 本の「基礎」記事の出典未確認のスキャン図（約 75 枚）も、同じ書籍由来かを確かめて同じ扱いにする。
+
+**完了条件**: `figureReuseDebt` が 0 件。4 本の「基礎」記事に市販書籍のスキャン図が残っていない。
 
 ### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
@@ -427,7 +398,7 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
    - 同じ図番号が 2 回出ていないか
    - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
 2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
-3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。画像が違う図は `/figure-quality-loop` の reextract 段で切り出し直す。
+3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。市販書籍（流用不可）の図は切り出し直さない（DN-0571 で自作の図に置き換える）。図番号・alt・本文の参照のずれだけを直す。
 4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
 
 **完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
