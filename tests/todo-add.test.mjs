@@ -4,7 +4,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { buildCard, insertCard, resolveTier, validateNewCard } from '../scripts/todo-add.mjs';
+import { buildCard, filingWarnings, insertCard, resolveTier, validateNewCard } from '../scripts/todo-add.mjs';
 import { commitFileToRemoteBranch } from '../scripts/lib/git-direct-commit.mjs';
 
 const BACKLOG = [
@@ -127,4 +127,11 @@ test('push で先を越されたら最新を取り直してやり直す', () => 
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('不具合を 🟢/🟣 に置くときだけ注意を出す（S2 の予防）', () => {
+  assert.equal(filingWarnings({ kind: '不具合', tierEmoji: '🟢' }).length, 1);
+  assert.equal(filingWarnings({ kind: '不具合', tierEmoji: '🟣' }).length, 1);
+  assert.equal(filingWarnings({ kind: '不具合', tierEmoji: '🟡' }).length, 0);
+  assert.equal(filingWarnings({ kind: '改善', tierEmoji: '🟢' }).length, 0);
 });
