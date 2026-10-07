@@ -845,8 +845,10 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
 2. レイアウト部品：`Stack` / `Grid` / `Section` を足し、並べ方の余白は親の `gap` で持つ。`.card + .card` を廃止する
 3. 枠：`sidebar` と `dashboard-01` の雛形で左ナビ＋本文を作り直し、KPI 画面から移す。残りの画面は数回に分けて移し、移した分の `globals.css` を削る
 4. ゲート：ページ（`tools/admin-app/src/app/**`）の生 `className="card"` とインライン `style` の件数を lint で数え、基準値より増えたら落とす
+5. 表：`TableFrame` を直に置いている 37 ページを `components/admin` の `DataTable`（shadcn の Data Table）へ移す。行ごとに形が違う表は除く
 
 **完了条件**: KPI 画面が shadcn 部品とレイアウト部品だけで書かれ、`.card + .card` が無い。全画面の移行後、ページの生 `className="card"` とインライン `style` が 0（または lint の基準値以下）で、ゲートが CI にある。
+
 
 ### [DN-0423] テーマ（/topics）15 ページを検索の入口として働くように作り直す
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-27]
