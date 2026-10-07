@@ -47,7 +47,7 @@ import { fileURLToPath } from 'node:url';
 import { recordPublishedHash, recordPublishedTagHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders } from './lib/note-images.mjs';
-import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues } from './lib/note-live-check.mjs';
+import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIssues } from './lib/note-live-check.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
@@ -650,7 +650,7 @@ try {
       // [13] 公開後 API 実体検証: URL見出し / 空引用 / 画像の欠落・過多 / 太字記号 / 存在しないサイトリンク（偽成功ガードの一部）
       const pubId = (publishedUrl.match(/n[0-9a-f]{12}/) || [])[0];
       if (pubId) {
-        const chk = await assertLiveBody(pubId, { expectedImgs, paid: isPaid, minFreeChars });
+        const chk = await assertLiveBody(pubId, { expectedImgs, paid: isPaid, minFreeChars, sourceUrls: extractSourceUrls(body) });
         if (chk.fetchError) console.log(`[13] WARN: API検証未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${pubId}`);
         else if (!chk.ok) {
           console.error(`[13] FAIL: 公開本文に不整合: ${formatLiveIssues(chk, expectedImgs)} → note-update-body --commit で修復`); process.exitCode = 2;

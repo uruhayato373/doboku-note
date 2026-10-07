@@ -165,8 +165,8 @@ export function textLen(html) {
  * 公開直後の 1 本ごとの検査では素通りだった）。
  * @returns {Promise<{ok:boolean, urlHeadings:string[], emptyBq:number, imgLive:number, imgShort:boolean, imgExcess:boolean, literalStars:string[], brokenLinks:string[], freeChars:number, freeShort:boolean, fetchError:string|null}>}
  */
-export async function assertLiveBody(noteId, { expectedImgs = null, paid = false, minFreeChars = MIN_FREE_PREVIEW_CHARS } = {}) {
-  const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, imgExcess: false, literalStars: [], brokenLinks: [], freeChars: 0, freeShort: false };
+export async function assertLiveBody(noteId, { expectedImgs = null, paid = false, minFreeChars = MIN_FREE_PREVIEW_CHARS, sourceUrls = [] } = {}) {
+  const base = { urlHeadings: [], emptyBq: 0, imgLive: 0, imgShort: false, imgExcess: false, literalStars: [], brokenLinks: [], truncatedLinks: [], freeChars: 0, freeShort: false };
   const { body, error, unmeasurable, isLimited } = await fetchNoteBody(noteId);
   if (error) return { ok: false, ...base, unmeasurable: false, isLimited: null, fetchError: error };
   // 未ログインで中身が返らない記事は「破損なし」でも「破損あり」でもなく計測不能。
@@ -180,12 +180,13 @@ export async function assertLiveBody(noteId, { expectedImgs = null, paid = false
   const imgExcess = expectedImgs != null && imgLive > expectedImgs;
   const literalStars = findLiteralStars(body);
   const brokenLinks = findBrokenSiteLinks(body);
+  const truncatedLinks = findTruncatedLinks(body, sourceUrls);
   const freeChars = textLen(body);
   // 有料記事のときだけ見る。無料記事は body 全文が返るので短くても事故ではない。
   const freeShort = paid && freeChars < minFreeChars;
   const ok = urlHeadings.length === 0 && emptyBq === 0 && !imgShort && !imgExcess
-    && literalStars.length === 0 && brokenLinks.length === 0 && !freeShort;
-  return { ok, urlHeadings, emptyBq, imgLive, imgShort, imgExcess, literalStars, brokenLinks, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
+    && literalStars.length === 0 && brokenLinks.length === 0 && truncatedLinks.length === 0 && !freeShort;
+  return { ok, urlHeadings, emptyBq, imgLive, imgShort, imgExcess, literalStars, brokenLinks, truncatedLinks, freeChars, freeShort, unmeasurable: false, isLimited, fetchError: null };
 }
 
 /** assertLiveBody の不整合を 1 行に整形する（note-update-body [5e]・note-publish [13] が共用）。 */
@@ -198,6 +199,7 @@ export function formatLiveIssues(chk, expectedImgs = null) {
   if (chk.imgExcess) parts.push(`画像過多(live=${chk.imgLive}${exp}＝重複の疑い)`);
   if (chk.literalStars?.length) parts.push(`太字記号${chk.literalStars.length}件[${chk.literalStars.slice(0, 2).join(' / ')}]`);
   if (chk.brokenLinks?.length) parts.push(`存在しないサイトリンク[${chk.brokenLinks.join(' / ')}]`);
+  if (chk.truncatedLinks?.length) parts.push(`途中で切れたリンク[${chk.truncatedLinks.join(' / ')}]`);
   if (chk.freeShort) parts.push(`無料プレビュー崩壊(${chk.freeChars}字＝有料境界が冒頭へ動いた疑い)`);
   return parts.join(' / ') || 'なし';
 }
@@ -343,6 +345,36 @@ export function findBrokenSiteLinks(html, routes = loadSiteRoutes()) {
   for (const m of decodeEntities(html || '').matchAll(siteLinkRegex())) {
     const c = classifySitePath(m[1], routes);
     if (c.kind === 'unknown' || (c.kind === 'legacy' && !c.to)) bad.add(c.path);
+  }
+  return [...bad];
+}
+
+// ---- 途中で切れたリンク（2026-10-07） ----
+// 貼り付け後のカード化で URL が途中で切れ、`https://coconala.com/servi` のような死んだリンクが公開本文に残った
+// （経験記述の無料記事 1 本。原稿どおりの 4 本のうち 1 本が切れ、[5e] は自サイト宛てしか見ないので通っていた）。
+
+/** 原稿 Markdown に書かれた外部 URL（リンクカードの行・本文リンクの両方）。 */
+export function extractSourceUrls(markdown) {
+  const urls = new Set();
+  for (const m of (markdown || '').matchAll(/https?:\/\/[^\s)<>"'\]]+/g)) urls.add(m[0].replace(/[。、，．,.)）]+$/, ''));
+  return [...urls];
+}
+
+/**
+ * 公開本文のリンク（href・カードの data-src）のうち、原稿のどの URL とも一致せず、ある原稿 URL の途中で切れたもの。
+ * 切れ目の前後が区切り（`/` `?` `#` `&`）のときは（`https://note.com/dobokunote` と `…/n/xxx`、`https://doboku-note.com/` と
+ * `…/exam/…` のような）別の正しい URL なので拾わない。
+ */
+export function findTruncatedLinks(html, sourceUrls = []) {
+  if (!sourceUrls.length) return [];
+  const source = new Set(sourceUrls);
+  const bad = new Set();
+  for (const m of decodeEntities(html || '').matchAll(/(?:href|data-src)="([^"]+)"/g)) {
+    const href = m[1];
+    // 区切り（/ ? # & =）で終わる href は完結した URL（サイトのトップ `https://doboku-note.com/` 等）なので切れ端と見なさない
+    if (source.has(href) || !/^https?:\/\//.test(href) || /[/?#&=]$/.test(href)) continue;
+    const cut = sourceUrls.find((u) => u.length > href.length && u.startsWith(href) && !/[/?#&]/.test(u[href.length]));
+    if (cut) bad.add(href);
   }
   return [...bad];
 }
