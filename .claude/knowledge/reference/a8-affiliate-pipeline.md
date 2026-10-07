@@ -160,7 +160,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 
 | 装備 | 実体 | いつ効くか |
 |---|---|---|
-| cadence surfacer | `npm run check-a8-report-due`（既定30日） | 週次 PDCA（`/weekly-review`）が DUE と `issues[]` を毎週 surface。A8 は API 無し＝cron 化できないので「思い出させる」方式 |
+| cadence surfacer | `npm run check-a8-report-due`（台帳 `a8.ui-last-run` の warnDays＝9 日） | 取得は `login-collectors.yml`（週次・火 06:20 JST・JST の前月と当月。手動は `gh workflow run login-collectors.yml -f service=a8 -f month=YYYY-MM`）。日次の ops 点検が DUE・取得後に台帳が進んでいない（書き戻しの失敗）・最新の取得が ok でない、を `automation-failure` Issue に出す。前月より古い月の確定の遡及は `month` 入力で取り直す |
 | 配線ドリフト検知 | `npm run check-affiliate-wiring`（pre-commit） | `affiliate-mats.json` ↔ `affiliate-catalog.json` ↔ `programIdMap` ↔ 消費側の 4 点がズレたら commit を止める。**初回実行で dx-consulting の取りこぼしを実検出**（2026-07-27 に 3 ASP 横断へ拡張・旧 `check-a8-wiring` を統合） |
 | 取りこぼし検知 | `crossCheck.hasShortfall` → `missingProgramCandidates` | 掲載しているのに集計されていない広告を、サイト別との差分で炙り出す |
 | 誤アカウント防止 | 口座 assert（`mediaId`）→ exit 5 | 別口座でログインしていたら 1 バイトも取り込まない |
