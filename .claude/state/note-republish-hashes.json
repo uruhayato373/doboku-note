@@ -15540,6 +15540,78 @@
     }
   },
   "magazineCovers": {
+    "magazine:bk-01-road": {
+      "noteKey": "m9e825cfd8348",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "03315db66c80b885",
+      "sha256": "255c1dcdada6709ac1ccc66fee3e01bd275a5e48e42876e0923d32b9fdfa6546",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321778852/magazine_cover_landscape_af73a8145f9ad20fe7f53e0d73b5a475.png",
+      "registeredAt": "2026-10-07T07:23:51.382Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-01_道路"
+    },
+    "magazine:bk-02-river": {
+      "noteKey": "mba17c3f8b894",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "2b2688285200abe2",
+      "sha256": "959d242366cca16cde92e518a52d8705ed9ca425847b3db328abd9c863996c63",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321779201/magazine_cover_landscape_bc700941767ddae6ecb1d1f08a28eda5.png",
+      "registeredAt": "2026-10-07T07:25:01.791Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-02_河川砂防"
+    },
+    "magazine:bk-03-urban": {
+      "noteKey": "mc8bd949f1f51",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "6d423f3f8562f8f9",
+      "sha256": "75c84b49234721f5bf613b3885146c19b6fa2105ef14e02680a79dbd798b85c2",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321779514/magazine_cover_landscape_ccd9fc9708a6facdd34cbdf9d313d252.png",
+      "registeredAt": "2026-10-07T07:26:12.067Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-03_都市計画"
+    },
+    "magazine:bk-04-geotech": {
+      "noteKey": "me7ebb48b319e",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "94ef95f760788327",
+      "sha256": "193e74dc6fcac8a90622c1bd6124d239e288325099c33364530ee950a014d5e9",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321779849/magazine_cover_landscape_cc4acb76633c4fe7bdb419b6a3898516.png",
+      "registeredAt": "2026-10-07T07:27:24.305Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎"
+    },
+    "magazine:bk-05-steel": {
+      "noteKey": "md38f1de30c31",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "ab0da85e54824f0d",
+      "sha256": "063521c1ff278d384b3c75a98babae8f9ed53fdfc1bd31e4013686d5046f5449",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321780189/magazine_cover_landscape_5a31af1410e54c90ea9f154b63eee009.png",
+      "registeredAt": "2026-10-07T07:28:39.048Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート"
+    },
+    "magazine:bk-06-construction": {
+      "noteKey": "m1562f66d9654",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "f139d193f0b36a19",
+      "sha256": "6404331e1ad9e1c0f3e8a3905af8a78716557cd26666a1e8c739082566d8ad38",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321780502/magazine_cover_landscape_db3b5372a3b3249d88d17c49d1d9758f.png",
+      "registeredAt": "2026-10-07T07:29:52.166Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-06_施工計画"
+    },
+    "magazine:bk-07-environment": {
+      "noteKey": "m76f1e545c541",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "e3ceffbf7cc5a7d1",
+      "sha256": "960d7e374750839eb00b985cad3bc1f62d65c942c0533def65ba1f8ff0e1eb7a",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321780889/magazine_cover_landscape_43468d893f04515553f192c35bc94226.png",
+      "registeredAt": "2026-10-07T07:31:25.528Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-07_建設環境"
+    },
+    "magazine:bk-08-port": {
+      "noteKey": "m55096ddb1af6",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "c4072653826c0b36",
+      "sha256": "7b7871dbbd6e4cb2208b34ffc15910175eab06d3581e2f8c0bb0c194eb08f6d7",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321781374/magazine_cover_landscape_769e30b8fba763572d9e22430d96a122.png",
+      "registeredAt": "2026-10-07T07:32:36.296Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港"
+    },
     "magazine:bk-09-power": {
       "noteKey": "ma87d182c8113",
       "design": "2026-09-29-magazine-pop",
@@ -15557,6 +15629,24 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318748083/magazine_cover_landscape_9bb826fc38b4ccb1cd40370f25e9e842.png",
       "registeredAt": "2026-09-29T02:00:44.551Z",
       "magazineDir": "content/note/技術士建設部門/magazines/BK-10_鉄道"
+    },
+    "magazine:bk-11-tunnel": {
+      "noteKey": "m5da4b560d8be",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "5e421cb8f7a91567",
+      "sha256": "e14572ca9e5084de26bd6033cb2f7a9b8de7f1ca4325ce0bb62de393efa74d6b",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321781814/magazine_cover_landscape_5b05093229abed498c8aa4a6c7d9816b.png",
+      "registeredAt": "2026-10-07T07:33:46.844Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-11_トンネル"
+    },
+    "magazine:bk-i-required": {
+      "noteKey": "m0f3bc3933454",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "a918a7e75a1958f5",
+      "sha256": "0defe735f069194e4b9fa0e46558491e1c1423b538941054e946947b937dbc05",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321778250/magazine_cover_landscape_86a78751898a898523b93c6e5dcc934a.png",
+      "registeredAt": "2026-10-07T07:22:40.831Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/BK-I_必須科目I"
     },
     "magazine:cce-essay-magazine": {
       "noteKey": "m758aba129301",
@@ -15801,6 +15891,33 @@
       "registeredAt": "2026-09-29T02:14:16.342Z",
       "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次直前総仕上げパック"
     },
+    "magazine:civil-1-combo": {
+      "noteKey": "m74cfd7c695d6",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "06b7fa1e86e24a58",
+      "sha256": "3ccdc27d453064f98f8690ef7c9ec6eda4943770d55fee0d1d0a5fce0c557d86",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321777759/magazine_cover_landscape_1fccf6124e43f68203f43e7d196289c2.png",
+      "registeredAt": "2026-10-07T07:21:30.012Z",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全"
+    },
+    "magazine:civil-1-experience": {
+      "noteKey": "m150c9db08902",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "f568d82b4833dccf",
+      "sha256": "fd9aef7d47a4f25d740dfca98aa411dd2f25d00c5230db36a70e5b97b97b8773",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321776466/magazine_cover_landscape_d65a1485dac29a9ec92802d4bb5ea20f.png",
+      "registeredAt": "2026-10-07T07:17:35.120Z",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集"
+    },
+    "magazine:civil-1-gakka": {
+      "noteKey": "mcfe1059b3335",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "e12c8a75141ab329",
+      "sha256": "0a7302ac810e805959015a8dff09c28f595b963b4804f0497c8be2eebd97db88",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321775722/magazine_cover_landscape_1c51d34a5786aba642f650829f73d08b.png",
+      "registeredAt": "2026-10-07T07:15:09.029Z",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順"
+    },
     "magazine:civil-1-keiken-bridge-maintenance-pack": {
       "noteKey": "mbcc9f67baf80",
       "design": "2026-09-29-magazine-pop",
@@ -15855,6 +15972,15 @@
       "registeredAt": "2026-09-29T01:44:29.760Z",
       "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック"
     },
+    "magazine:civil-1-pastexam": {
+      "noteKey": "m3a578194a0a9",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "8a0893cde0d3289c",
+      "sha256": "20bcf00d2d9834cabeec0220884cb9fad49f81efc176cde27a90db8641df5cfe",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321777373/magazine_cover_landscape_2a2eabaf09c4acc8a9a7eddbab58f696.png",
+      "registeredAt": "2026-10-07T07:20:14.270Z",
+      "magazineDir": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集"
+    },
     "magazine:civil-2-chokuzen-pack": {
       "noteKey": "md3518107aa97",
       "design": "2026-09-29-magazine-pop",
@@ -15864,14 +15990,104 @@
       "registeredAt": "2026-09-29T02:16:43.537Z",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次直前総仕上げパック"
     },
+    "magazine:civil-2-experience": {
+      "noteKey": "m1881a9578027",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "17beaa583192ce1a",
+      "sha256": "7ac4290ca3546c981e89e781884709d79f2bdeecc86a2f58b63869fa45809015",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321776859/magazine_cover_landscape_6147f9c5e6700d1aa75fee1e1df9dd10.png",
+      "registeredAt": "2026-10-07T07:19:02.844Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集"
+    },
+    "magazine:civil-2-gakka": {
+      "noteKey": "m9a09a8982734",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "9d7151b14c1d7c9a",
+      "sha256": "cbfaf1a7707440c7229dfbe64a94cd5a99fb72cae1f28333383f0b6a2b143597",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321776099/magazine_cover_landscape_a479dff70294b90c85268784fa5e0f46.png",
+      "registeredAt": "2026-10-07T07:16:23.308Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順"
+    },
+    "magazine:civil-2-keiken-agri-forest-pack": {
+      "noteKey": "m24071c117a1e",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "0e0a20f27db0a8fa",
+      "sha256": "830774aa2d1996e2c47a313a8d4e6db37911353d230d0dff910258c981fd4a7a",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321784036/magazine_cover_landscape_9ffb12d3010c7141fc119f49e94d80e2.png",
+      "registeredAt": "2026-10-07T07:42:38.289Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-農業土木林道8工事"
+    },
+    "magazine:civil-2-keiken-bridge-repair-pack": {
+      "noteKey": "mb33e9f68712d",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "34fab75de53a3c56",
+      "sha256": "687132c785e44a547cbb3a9a39231f23fe4309021531e85185094a093d44534e",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321784308/magazine_cover_landscape_42b1d34c3d27427a76748e7bb1ee104b.png",
+      "registeredAt": "2026-10-07T07:43:49.876Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-橋梁構造物補修7工事"
+    },
+    "magazine:civil-2-keiken-concrete-foundation-pack": {
+      "noteKey": "mb7cb41324739",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "f78df0668ae7c6bf",
+      "sha256": "b55f1822967dfa77188a9053112da64f622dadca8488182e79f5df0e5bef494f",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321783639/magazine_cover_landscape_73bb54af9dfbddf496b0c3d24b8447e6.png",
+      "registeredAt": "2026-10-07T07:41:28.197Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-コンクリート構造物基礎10工事"
+    },
+    "magazine:civil-2-keiken-earthwork-slope-pack": {
+      "noteKey": "mb1ccc0d85c16",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "8cb89cea50ff65f4",
+      "sha256": "50c289b7d58ff12211b72026990d38a6bd36a2a25c748d683e31fba85d72e100",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321785252/magazine_cover_landscape_a6faf8ae5cee97bb6464fbcaeb2849d2.png",
+      "registeredAt": "2026-10-07T07:47:20.165Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-土工造成法面10工事"
+    },
     "magazine:civil-2-keiken-local-road-pack": {
       "noteKey": "m0c3962036eb8",
       "design": "2026-09-29-magazine-pop",
-      "inputHash": "fdf41524459a6455",
-      "sha256": "cf9683cc85cb88d776768e7094aa829240cb256d6b0acf40bb01e274e935a4cb",
-      "liveUrl": "https://assets.st-note.com/production/uploads/images/318755732/magazine_cover_landscape_bc6f34d3721c70bd855384c17c9eaf2d.png",
-      "registeredAt": "2026-09-29T02:26:10.293Z",
+      "inputHash": "1b91de89f2b5f126",
+      "sha256": "953c3549024f2e74ed12f9c1837197ab1db465ba76bb34170d09afa8d956dda3",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321783040/magazine_cover_landscape_d3e4c93942ec495576b93507c72f58d9.png",
+      "registeredAt": "2026-10-07T07:38:34.793Z",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-地域道路付帯施設10工事"
+    },
+    "magazine:civil-2-keiken-park-private-pack": {
+      "noteKey": "mbb2f9f5640a8",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "3841792ade228409",
+      "sha256": "752fd5ad6ef0a47449c1599a00047b8329faa18ae7a08332805b466df2cd2fb6",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321784977/magazine_cover_landscape_88c006030bd8b6380f5a3e71896f8bc3.png",
+      "registeredAt": "2026-10-07T07:46:10.576Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-公園施設民間外構6工事"
+    },
+    "magazine:civil-2-keiken-paving-pack": {
+      "noteKey": "me4f3ba651008",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "4c5417b3f38360ae",
+      "sha256": "d8f1e3fa2ea32476ad45053044af2cfbb4bf81259e6ee98cfc2edc7212e349d9",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321785919/magazine_cover_landscape_19ed62cdb1c692f8fe53ac302d009f71.png",
+      "registeredAt": "2026-10-07T07:49:48.336Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-舗装会社の新設修繕9工事"
+    },
+    "magazine:civil-2-keiken-port-coast-pack": {
+      "noteKey": "m8614644643c5",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "cfd58c9a4c810732",
+      "sha256": "33562cb1e630504f1fd5dbdc860dd0de23bde5b99e0bb59179531b7d8de7e066",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321784645/magazine_cover_landscape_c139c4b028fa57a8ec5aff67951bc718.png",
+      "registeredAt": "2026-10-07T07:45:00.615Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-港湾漁港海岸5工事"
+    },
+    "magazine:civil-2-keiken-river-disaster-pack": {
+      "noteKey": "mc702bb8ad034",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "83a5625cccbf9374",
+      "sha256": "869da6f4ab474033f28b0683a2b38caca72f13cf63961e47008a59542e57ae42",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321785528/magazine_cover_landscape_b6ed9aa2bd8481e62c47b10d99cdecc8.png",
+      "registeredAt": "2026-10-07T07:48:32.405Z",
+      "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川砂防災害復旧10工事"
     },
     "magazine:civil-2-keiken-river-rural-park-pack": {
       "noteKey": "m22183b1034b2",
@@ -15885,10 +16101,10 @@
     "magazine:civil-2-keiken-water-drainage-pack": {
       "noteKey": "m605fc37bee01",
       "design": "2026-09-29-magazine-pop",
-      "inputHash": "e1a60b1a06f8c8d6",
-      "sha256": "76b056a16b47b3229772418cb813b64df67bb9658f323362c146d2c2f71c4557",
-      "liveUrl": "https://assets.st-note.com/production/uploads/images/318755847/magazine_cover_landscape_88e0f96ddf1b7963d492fea0c3ec8e3b.png",
-      "registeredAt": "2026-09-29T02:26:40.464Z",
+      "inputHash": "313d54126f463cc0",
+      "sha256": "f1263711bc4417566811c337b08f5e6dfcd1f07d5583a4d4e4c55edd79080994",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321783334/magazine_cover_landscape_b9d93767075b34944648cb4074b7e4c2.png",
+      "registeredAt": "2026-10-07T07:39:56.866Z",
       "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-上下水道排水5工事"
     },
     "magazine:civil-2-koji-bank": {
@@ -15935,6 +16151,15 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318743067/magazine_cover_landscape_572d89f5950a62c0e8dbc6104ef41841.png",
       "registeredAt": "2026-09-29T01:40:46.645Z",
       "magazineDir": "content/note/技術士総監/magazines/総監記述式-完全パック"
+    },
+    "magazine:essay-core-pack": {
+      "noteKey": "m6e7de5e4ea3d",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "66fe591ca3b44be8",
+      "sha256": "11353c3853c11bbda933e62706e8f8b66245089c119fad6d92feff503e023639",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321775335/magazine_cover_landscape_2c05bcb606d5fe2c20764f8c05072b05.png",
+      "registeredAt": "2026-10-07T07:13:54.157Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監記述式-コアパック"
     },
     "magazine:essay-geotechnical-consultant-magazine": {
       "noteKey": "mcfcab1d96ed4",
@@ -15999,6 +16224,15 @@
       "registeredAt": "2026-09-29T01:27:52.634Z",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-ゼネコン"
     },
+    "magazine:park-municipality": {
+      "noteKey": "m6d1810e50b0a",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "de503d49a8aa2ad7",
+      "sha256": "bebbf9e494263f42f9aac663034b97221ed49b7bb7bd26e16cce19e70c9a9731",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321774116/magazine_cover_landscape_b3c5fb08c22b7b7b89d297684c1db59d.png",
+      "registeredAt": "2026-10-07T07:10:11.695Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当"
+    },
     "magazine:pe-construction-construction-planning-pack": {
       "noteKey": "m8bc3c8660afb",
       "design": "2026-09-29-magazine-pop",
@@ -16062,6 +16296,15 @@
       "registeredAt": "2026-09-29T02:10:01.614Z",
       "magazineDir": "content/note/技術士建設部門/magazines/PACK-04_河川砂防まるごと合格パック"
     },
+    "magazine:pe-construction-road-pack": {
+      "noteKey": "mebca45bcc745",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "45b16df6fd2fecd5",
+      "sha256": "26bd8687e4d6403ae5ed71d94505bac7e7cff044d5e9f9ed8d14cca70655b31f",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321782091/magazine_cover_landscape_b3a68991b7d7aef61bb4700d59ac0bb6.png",
+      "registeredAt": "2026-10-07T07:34:58.913Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/PACK-01_道路まるごと合格パック"
+    },
     "magazine:pe-construction-steel-concrete-pack": {
       "noteKey": "m56b2dcc4cca2",
       "design": "2026-09-29-magazine-pop",
@@ -16070,6 +16313,15 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318751547/magazine_cover_landscape_5469b9058566a6118263b96b1e9025f3.png",
       "registeredAt": "2026-09-29T02:10:29.765Z",
       "magazineDir": "content/note/技術士建設部門/magazines/PACK-05_鋼コンまるごと合格パック"
+    },
+    "magazine:pe-construction-tunnel-pack": {
+      "noteKey": "m2029e394e260",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "4de4d250c0dabf6e",
+      "sha256": "74a76626eef597111c18027b02c286136d49ce8e13d839c78748f5adfa907fd2",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321782374/magazine_cover_landscape_b2bf283c45ff41c51042f90c45a3b9d3.png",
+      "registeredAt": "2026-10-07T07:36:12.047Z",
+      "magazineDir": "content/note/技術士建設部門/magazines/PACK-02_トンネルまるごと合格パック"
     },
     "magazine:pe-construction-urban-planning-pack": {
       "noteKey": "m5f63da67c0f3",
@@ -16097,6 +16349,15 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318741408/magazine_cover_landscape_284b04b0eea82c026960eb4e2320b429.png",
       "registeredAt": "2026-09-29T01:34:53.497Z",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当"
+    },
+    "magazine:procurement-municipality": {
+      "noteKey": "m55b930cbfcf9",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "2902fb838a6aee34",
+      "sha256": "7a452e6a595a2f3ed8f17c036ac1068f6fffc28bfa4fc0efd53b40727d129e15",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321771564/magazine_cover_landscape_6a759211ffac08d2116c210f0ea6f2ec.png",
+      "registeredAt": "2026-10-07T07:03:37.151Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当"
     },
     "magazine:r8-essay-forecast": {
       "noteKey": "m6854c7437d4d",
@@ -16134,6 +16395,15 @@
       "registeredAt": "2026-09-29T01:27:23.357Z",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-河川コンサル"
     },
+    "magazine:river-municipality": {
+      "noteKey": "m32a8a5b3b473",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "7376f4b827bf5f98",
+      "sha256": "ec0c098568d01bd5c6f8e7e50e77be9b419d67a814d76a223f3aecc1b10da089",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321772672/magazine_cover_landscape_0ffff48d0f7fae9d45e002f31a851a13.png",
+      "registeredAt": "2026-10-07T07:06:28.965Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当"
+    },
     "magazine:road-consultant": {
       "noteKey": "m09440aa379cf",
       "design": "2026-09-29-magazine-pop",
@@ -16152,6 +16422,15 @@
       "registeredAt": "2026-09-29T01:28:22.082Z",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当"
     },
+    "magazine:sabo-municipality": {
+      "noteKey": "m7cd44bf57187",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "995ad602cf16d5ec",
+      "sha256": "43f8273f05ad391f749289c4e10e8e2bd59d68b1b9886bae82e1a4ca00d4532d",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321773733/magazine_cover_landscape_b5e58e1520a3f7702b4d2e45b922c084.png",
+      "registeredAt": "2026-10-07T07:08:55.251Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当"
+    },
     "magazine:setsumon3-policy-bank": {
       "noteKey": "m91516dfc27ac",
       "design": "2026-09-29-magazine-pop",
@@ -16160,6 +16439,42 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318742867/magazine_cover_landscape_e22b44531ae5b53d7f42113788c61eb2.png",
       "registeredAt": "2026-09-29T01:40:16.977Z",
       "magazineDir": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク"
+    },
+    "magazine:sewage-municipality": {
+      "noteKey": "mf1cbc32d53aa",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "0b9f956fcdc240b0",
+      "sha256": "7276bc6f89eeeb94e180490fd237cb589c43c654dfe99a591a76f1f0ca2cdca8",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321773136/magazine_cover_landscape_5b3c36a0cfd93cfe57be086bb6100f4c.png",
+      "registeredAt": "2026-10-07T07:07:41.452Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当"
+    },
+    "magazine:standards-municipality": {
+      "noteKey": "mf9f281e2cb32",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "44dd4d80e1d9096b",
+      "sha256": "e8fae998f6d8b0d7cfcf6fb0758b2602a094cb8fdd036019c12e7faf600ab8c1",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321772138/magazine_cover_landscape_cdedfff40e8ba50052a2ba33ffb6ba13.png",
+      "registeredAt": "2026-10-07T07:05:14.891Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当"
+    },
+    "magazine:tankan-reading-guide": {
+      "noteKey": "m607bf095b02a",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "5d6fa11a0b3f7bfb",
+      "sha256": "3892670f600d2be2b182703b2176ab7f49973821953ab73702a9f71e11bc5e91",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321782697/magazine_cover_landscape_3db104fd68d2e7240244d8b605d4040b.png",
+      "registeredAt": "2026-10-07T07:37:27.065Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監テキスト精読ガイド"
+    },
+    "magazine:tradeoff-5kanri": {
+      "noteKey": "m921fbe060575",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "38834711ba12b9e1",
+      "sha256": "ff2fc36b4b64199c078363e5bcdea101df64f42bac2183813b6f02f3d1a4391b",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321774945/magazine_cover_landscape_08bc85f24c7e9bc13ac2856d128dd313.png",
+      "registeredAt": "2026-10-07T07:12:36.394Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ"
     },
     "magazine:urban-consultant": {
       "noteKey": "mf0f98993407f",
@@ -16178,6 +16493,15 @@
       "liveUrl": "https://assets.st-note.com/production/uploads/images/318740773/magazine_cover_landscape_ba624224ce884ff14fc7fc5dd83b60ce.png",
       "registeredAt": "2026-09-29T01:32:11.646Z",
       "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当"
+    },
+    "magazine:water-municipality": {
+      "noteKey": "mf4c6792b4f9c",
+      "design": "2026-09-29-magazine-pop",
+      "inputHash": "d16145868f35c98e",
+      "sha256": "bee22a427095927a332509d0352b55866369bd257d89cc9651bee75efade806b",
+      "liveUrl": "https://assets.st-note.com/production/uploads/images/321774575/magazine_cover_landscape_be2aefd19742fbc3c45288431f080467.png",
+      "registeredAt": "2026-10-07T07:11:22.720Z",
+      "magazineDir": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当"
     }
   },
   "titleHashes": {
