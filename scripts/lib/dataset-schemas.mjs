@@ -1392,6 +1392,29 @@ export const WeeklyMetrics = z
   })
   .meta({ title: '週次の計測' });
 
+/**
+ * メールの受け箱（data/inbox/mail-events.json）。書き手は別リポジトリ（obsidian の .claude/scripts/mail/triage.mjs・毎日 cron・
+ * GitHub contents API で develop へ直接書く）。売上の正本ではなく、メールから拾った通知の写し（正本は各取得スクリプトの記録）。
+ * イベントごとの欄（month・amountYen 等）は obsidian の辞書（.claude/mail-rules.json）で増えるので、共通の欄だけを固定し
+ * 残りは受け入れる（ここを strict にすると、辞書に種類を足しただけで doboku-note の書き戻しが全部止まる）。
+ */
+const MailEvent = z.looseObject({
+  id: z.string().regex(/^[0-9a-f]+$/, 'Gmail のメッセージ id').describe('Gmail のメッセージ id'),
+  receivedAt: utcTime('受信時刻'),
+  account: z.string().min(1).describe('受信した Gmail（obsidian の辞書のアカウント名）'),
+  kind: z.string().regex(/^[a-z0-9-]+$/).describe('イベントの種類（obsidian の辞書のキー）'),
+  label: z.string().min(1).describe('種類の表示名'),
+});
+export const InboxMailEvents = z
+  .object({
+    schemaVersion: z.literal(1),
+    description: z.string().describe('ファイルの説明'),
+    updatedAt: utcTime('最終更新'),
+    events: z.array(MailEvent).max(500).superRefine(uniqueBy('id', 'メッセージ id')).describe('新しい順・最大 500 件'),
+  })
+  .strict()
+  .meta({ title: 'メールの受け箱' });
+
 // 取得元ごとの型（同じ名前を 2 つのファイルで export しない。export * は重複した名前を黙って落とす）
 export * from './dataset-schemas-market.mjs';
 export * from './dataset-schemas-search.mjs';
