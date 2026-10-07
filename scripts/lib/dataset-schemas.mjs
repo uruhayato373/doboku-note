@@ -264,7 +264,8 @@ export const A8ReportLog = z
     updatedAt: utcTime('最終更新'),
     lastRun: z.string().describe('最後の取得の実行 id'),
     period: z.object({ raw: z.string(), start: month, end: month, granularity: z.enum(['month', 'day']), singleMonth: month.nullable().optional() }).strict(),
-    siteSummary: z.array(z.object({ site: z.literal('doboku-note'), ...a8Amounts }).strict()).describe('このサイトの実績（期間ごと）'),
+    // site は config/a8-report-automation.json の targetSite と relatedSites（2026-09-26 に note を副サイトとして登録）
+    siteSummary: z.array(z.object({ site: z.enum(['doboku-note', 'doboku-note（note）']), ...a8Amounts }).strict()).describe('このサイトと副サイトの実績（期間ごと）'),
     monthly: z.array(z.object({ month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の月別'),
     daily: z.array(z.object({ date: jstDate('日付'), month, accountWide: z.literal(true), ...a8Amounts }).strict()).describe('口座全体の日別'),
     programPeriod: z

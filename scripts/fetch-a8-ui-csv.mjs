@@ -48,6 +48,9 @@ import { classifyRun } from "./lib/report-honesty.mjs";
 import { parseCsv } from "./lib/google-console-csv.mjs";
 
 const STATE_DIR = datasetDir("a8.ui-raw");
+// download が来なかったレポートは、ページを開き直して最大この回数まで試す（DN-0566）
+const DOWNLOAD_ATTEMPTS = 3;
+const MODULE_IMPORT_FAILED = "CSV 生成用 JS の読み込みに失敗";
 
 function parseArgs() {
   const a = process.argv.slice(2);
@@ -298,8 +301,24 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
   }
 
   const dest = join(runDir, `${reportKey}--${runId}.csv`);
+  // CSV ボタンは押したときに CSV 生成用の JS を S3 から動的 import する。社内プロキシ経由だと
+  // この応答に CORS ヘッダーが付かず import が失敗し、download が来ないまま時間切れになる
+  // ことがある（2026-10-07 実測・DN-0566）。失敗はこのページでは直らないので、待たずに打ち切って
+  // 呼び出し側の再試行（ページを開き直す）に回す。
+  let onPageError;
+  const importFailed = new Promise((_, reject) => {
+    onPageError = (err) => {
+      if (/dynamically imported module/i.test(String(err?.message || err))) {
+        reject(new Error(`${MODULE_IMPORT_FAILED}: ${String(err?.message || err).slice(0, 160)}`));
+      }
+    };
+    page.on("pageerror", onPageError);
+  });
+  importFailed.catch(() => {});
   try {
-    const dl = await downloadTo(page, () => locator.click(), dest, { timeout: cfg.browser.timeoutMs });
+    const pending = downloadTo(page, () => locator.click(), dest, { timeout: cfg.browser.timeoutMs });
+    pending.catch(() => {});
+    const dl = await Promise.race([pending, importFailed]);
     unit.rawFile = dest;
     unit.sha256 = dl.sha256;
     // A8 はファイル名に対象期間を入れる（例 site_202601-202607_20260727105756.csv）。
@@ -325,6 +344,8 @@ async function processReport(page, cfg, runId, runDir, { reportKey, dryRun, mont
     await dumpFailure(page, cfg, runId, { step: "download", message: e?.message || String(e) });
     unit.status = "download-failed";
     unit.error = String(e?.message || e).slice(0, 200);
+  } finally {
+    page.off("pageerror", onPageError);
   }
   return unit;
 }
@@ -438,11 +459,17 @@ async function main() {
         console.warn(`[warn] 未知の reportKey: ${reportKey}（config に無し・スキップ）`);
         continue;
       }
-      const unit = await processReport(page, cfg, runId, runDir, {
-        reportKey,
-        dryRun: opts.dryRun,
-        month: opts.month,
-      });
+      let unit;
+      for (let attempt = 1; attempt <= DOWNLOAD_ATTEMPTS; attempt++) {
+        unit = await processReport(page, cfg, runId, runDir, {
+          reportKey,
+          dryRun: opts.dryRun,
+          month: opts.month,
+        });
+        unit.attempts = attempt;
+        if (unit.status !== "download-failed") break;
+        if (attempt < DOWNLOAD_ATTEMPTS) console.log(`  ${reportKey}: download-failed（${attempt}/${DOWNLOAD_ATTEMPTS}）→ 開き直して再試行`);
+      }
       manifest.units.push(unit);
       console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }
