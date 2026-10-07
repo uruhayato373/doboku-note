@@ -450,48 +450,6 @@
       "reason": "上端の本文断片・右側の章タブ『第2章 土工 基礎解説』と行番号 5/10・下端のキャプション断片・余白を除いて切り直し（530x350→418x318）。A-A'・B-B' の平面図と断面図・ℓ 記号・ラベルは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.098Z"
     },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
-      "sha": "38fbd97d2d175c34",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていた 3 段グラフの最下段（安全率 V_A・V_B・F_S・横軸・時間 t・凡例）と左縁の軸ラベルを、二次問題解説集2021 p.122（180 度回転を戻す）から 300dpi で切り出し直して戻した（460x350→790x872）。図番号キャプションと前後の図の断片は除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:14:21.998Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
-      "sha": "d23069db32da7931",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下半分だけだった図2.41 押え盛土工法を二次問題解説集2021 印字 p.114 から全体で切り出し直した（図番号キャプションは記事側）。alt の取り違え（サーチャージ工法）を直し、押え盛土工法の節へ移した（DN-0550）。親 QA 合格（crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T21:48:37.025Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42": {
-      "sha": "16113afea1cd2383",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左右に分割された切れ端（旧 fig-2-42a・fig-2-42b）だった図2.42 置換工法を、二次問題解説集2021 印字 p.114 から (a)(b) を含む 1 枚で切り出し直した。置換工法の節へ移した（DN-0550）。親 QA 合格（crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T21:48:37.029Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-43": {
-      "sha": "11dc58c14e7d85e4",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "左縁で切れていた『すべり面』のラベルと地盤面の曲線・すべり面の円弧を、二次問題解説集2021 p.123（180 度回転を戻す）から 300dpi で切り出し直して戻した（480x280→965x377）。章見出し帯・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:17:40.847Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-47": {
-      "sha": "55e589e8075cc6f1",
-      "verdict": "ok",
-      "action": "recrop",
-      "reason": "下に写り込んでいた別教材の図番号キャプション『図1.93 ペーパードレーン工法（PVD工法）の施工順序』を切り落とし、図名は記事の caption に書いた。親 QA 合格（crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T21:48:37.031Z"
-    },
-    "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
-      "sha": "a9f73a18c74b51f4",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていた②貫入のロッド先端・砂杭の点描・③④の杭範囲を、二次問題解説集2021 p.127（180 度回転を戻す）から 300dpi で切り出し直して戻した（900x420→984x710）。ランニングヘッド・行番号・図番号キャプションは除いた。原典の図題は『図2.50 ロッドコンパクション工法の施工順序』で、記事の alt（重錘落下締固め工法の施工順序）が誤っていたので alt と caption を原典どおりに直した（節の配置のずれは DN-0550）。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:17:40.848Z"
-    },
     "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
       "sha": "62b8b9d50d35ee4b",
       "verdict": "ok",

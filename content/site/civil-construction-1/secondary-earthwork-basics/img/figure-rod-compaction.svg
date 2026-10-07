@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ロッドコンパクション工法の流れ。クレーンで吊ったロッドをバイブロハンマで振動させながらゆるい砂地盤へ貫入し、引き抜きと再貫入を繰り返しながら沈んだ孔へ砂や砂利を補給して、周りの地盤を締め固める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .sand  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill：ゆるい砂 */
+      .dense { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill：締め固まった範囲 */
+      .rod   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+      .vib   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill：バイブロハンマ */
+      .wave  { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .feed  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.2; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="rc-a" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">ロッドコンパクション工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">ロッドの振動で、ゆるい砂地盤を締め固める</text>
+
+  <!-- 2×2 のコマ -->
+  <rect class="card" x="16" y="64" width="176" height="200" rx="6"/>
+  <rect class="card" x="208" y="64" width="176" height="200" rx="6"/>
+  <rect class="card" x="16" y="276" width="176" height="200" rx="6"/>
+  <rect class="card" x="208" y="276" width="176" height="200" rx="6"/>
+
+  <!-- 1 位置決め -->
+  <text class="t-lab" x="28" y="86">1 位置決め</text>
+  <rect class="sand" x="24" y="172" width="160" height="80"/>
+  <rect class="vib" x="88" y="104" width="32" height="22" rx="3"/>
+  <rect class="rod" x="101" y="126" width="6" height="44"/>
+  <text class="t-note" x="84" y="119" text-anchor="end">ハンマ</text>
+  <text class="t-note" x="96" y="152" text-anchor="end">ロッド</text>
+
+  <!-- 2 貫入 -->
+  <text class="t-lab" x="220" y="86">2 振動させて貫入</text>
+  <rect class="sand" x="216" y="172" width="160" height="80"/>
+  <rect class="vib" x="280" y="104" width="32" height="22" rx="3"/>
+  <rect class="rod" x="293" y="126" width="6" height="116"/>
+  <path class="wave" d="M 276 200 q -6 6 0 12 q 6 6 0 12"/>
+  <path class="wave" d="M 316 200 q 6 6 0 12 q -6 6 0 12"/>
+  <text class="t-note" x="370" y="164" text-anchor="end">振動が地盤へ</text>
+
+  <!-- 3 引抜き・補給・再貫入 -->
+  <text class="t-lab" x="28" y="298">3 引抜き・補給を繰り返す</text>
+  <rect class="sand" x="24" y="384" width="160" height="80"/>
+  <ellipse class="dense" cx="104" cy="424" rx="40" ry="34"/>
+  <rect class="vib" x="88" y="316" width="32" height="22" rx="3"/>
+  <rect class="rod" x="101" y="338" width="6" height="84"/>
+  <text class="t-note" x="84" y="331" text-anchor="end">↑↓ 繰り返す</text>
+  <polygon class="feed" points="140,360 166,360 158,380 148,380"/>
+  <text class="t-note" x="153" y="354" text-anchor="middle">砂・砂利</text>
+
+  <!-- 4 完了 -->
+  <text class="t-lab" x="220" y="298">4 引き抜いて完了</text>
+  <rect class="sand" x="216" y="384" width="160" height="80"/>
+  <ellipse class="dense" cx="296" cy="424" rx="44" ry="38"/>
+  <text class="t-note" x="296" y="374" text-anchor="middle" style="font-size:11px">緑＝締め固まった範囲</text>
+  <text class="t-note" x="296" y="340" text-anchor="middle">ロッドを抜き、次の位置へ</text>
+</svg>

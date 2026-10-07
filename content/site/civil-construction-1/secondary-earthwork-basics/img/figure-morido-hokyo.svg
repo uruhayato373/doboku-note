@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軟弱地盤の盛土補強工法。盛土の底部に補強材を何層か敷き、すべり面を横切る補強材の引張りで盛土のすべりと側方への広がりを抑える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .soft  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn：軟弱層 */
+      .emb   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：盛土 */
+      .reinf { stroke: #3a7d44; stroke-width: 3; }                     /* positive：補強材 */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .ten   { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="mh-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">盛土補強工法（軟弱地盤）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">盛土の底に補強材を敷き、引張りですべりを止める</text>
+
+  <rect class="soft" x="16" y="268" width="368" height="96"/>
+  <text class="t-lab" x="28" y="352">軟弱層</text>
+
+  <polygon class="emb" points="40,268 150,110 250,110 360,268"/>
+  <text class="t-key" x="200" y="160" text-anchor="middle">盛土</text>
+
+  <!-- 底部の補強材（3 層） -->
+  <line class="reinf" x1="58" y1="262" x2="342" y2="262"/>
+  <line class="reinf" x1="80" y1="236" x2="320" y2="236"/>
+  <line class="reinf" x1="101" y1="210" x2="299" y2="210"/>
+  <text class="t-key" x="140" y="292" text-anchor="middle" style="fill:#3a7d44">↑ 補強材（ジオテキスタイル・鋼製など）</text>
+
+  <!-- すべり面：補強材を横切る -->
+  <path class="slip" d="M 232 110 Q 250 330 360 268"/>
+  <text class="t-warn" x="300" y="326" text-anchor="middle">想定すべり面</text>
+
+  <!-- 補強材の引張り（すべりに逆らう向き） -->
+  <line class="ten" x1="300" y1="250" x2="252" y2="250" marker-end="url(#mh-a)"/>
+  <line class="ten" x1="282" y1="224" x2="234" y2="224" marker-end="url(#mh-a)"/>
+  <text class="t-key" x="176" y="190" text-anchor="middle" style="fill:#3a7d44">← 引張りで抵抗</text>
+
+  <rect class="box" x="16" y="384" width="368" height="100" rx="6"/>
+  <text class="t-key" x="30" y="408">働き</text>
+  <text class="t-lab" x="86" y="408">すべり面を横切る補強材が引張りで抵抗</text>
+  <text class="t-key" x="30" y="434">ほかの効果</text>
+  <text class="t-lab" x="112" y="434">盛土の側方への広がりを抑える</text>
+  <text class="t-key" x="30" y="460">併用</text>
+  <text class="t-lab" x="86" y="460">軟弱層が厚いときは深層の改良と組み合わせる</text>
+</svg>
