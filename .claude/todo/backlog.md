@@ -247,6 +247,19 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0579] Windows PC から Tailscale 経由で管理画面が開けるか確認する
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
+
+別 PC（Windows）から Mac 上の管理画面（`npm run admin`・127.0.0.1:3021）を Tailscale 経由で開けるか確認する。Mac 側の設定は 2026-10-08 に完了済み（PR #924 で `allowedDevOrigins: ['**.ts.net']`、`tailscale serve --bg 3021` 実行済み・Mac からの取得は 200 を確認）。
+
+- 開く URL: https://node.tail967299.ts.net/ （tailnet 内だけ。インターネット非公開）
+- Windows 側の手順: Tailscale をインストールし、Mac と同じアカウント（uruhayato373）でログイン → ブラウザで上の URL を開く
+- 開けない時の確認: (1) Mac がスリープしていない (2) Mac で `npm run admin` が起動中 (3) Windows の Tailscale が Connected (4) Mac で `/Applications/Tailscale.app/Contents/MacOS/Tailscale serve status` が `proxy http://127.0.0.1:3021` を表示
+- 解除: Mac で `/Applications/Tailscale.app/Contents/MacOS/Tailscale serve reset`（Mac App 版は `tailscale` コマンドが PATH に無いのでフルパス）
+- 完了条件: Windows のブラウザで管理画面のトップ（KPI）が表示され、別ページへ遷移しても崩れない
+- 手順の正本: tools/admin-app/README.md「別 PC から開く（Tailscale）」
+
+
 ### [DN-0578] 1級土木テキスト 8 記事の AI 生成に見える機械の写真 24 枚に出所を記録し、実物と形が違うものを差し替える
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-07] [進行中]
 
