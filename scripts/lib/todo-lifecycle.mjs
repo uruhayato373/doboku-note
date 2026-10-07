@@ -114,7 +114,7 @@ export function releaseTask(text, claimsRaw, id, opts = {}) {
  * 人間判断が要る項目は `requiresConfirmation: true` で明示する。
  * @returns {{ok:boolean, id:string, checks:Array<{label:string,pass:boolean|null,detail:string}>}}
  */
-export function checkCompleteReadiness(text, claimsRaw, id) {
+export function checkCompleteReadiness(text, claimsRaw, id, { prevention = null } = {}) {
   const found = findCard(text, id);
   const checks = [];
   if (found.error) {
@@ -149,6 +149,35 @@ export function checkCompleteReadiness(text, claimsRaw, id) {
     pass: null,
     detail: '要人間/Agent確認: 残件は別のDN-####へ抽出済みか（--confirm-conditionsで明示）',
   });
+  // 不具合は再発防止を決めてから閉じる（prevention は parsePrevention の結果。不具合以外は問わない）
+  if (card.kind === '不具合') {
+    checks.push({
+      label: 'prevention',
+      pass: Boolean(prevention?.ok),
+      detail: prevention?.ok ? `${prevention.type}:${prevention.ref}` : `不具合は --prevention gate:… / memory:… / doc:… / none:理由 が必須${prevention?.error ? `（${prevention.error}）` : ''}`,
+    });
+  }
   const hardFails = checks.filter((c) => c.pass === false);
   return { ok: hardFails.length === 0, id, checks, card };
+}
+
+/**
+ * 不具合を閉じるときの再発防止（2026-10-07〜）。直した不具合が「学び」に変わったかを数えられるようにする。
+ *   gate:<npm script か repo 内のパス>  … 機械の検査・テストで止める（CLAUDE.md §9 の決定的ゲート）
+ *   memory:<memory の名前>             … エージェントの作業規律として残す（.claude/memory/<名前>.md・feedback / reference）
+ *   doc:<repo 内のパス>                … 正典（reference・measurement-incidents など）へ書く
+ *   none:<理由>                        … 再発しない・一回きりなど、残すものが無い理由
+ * @returns {{ ok: true, type: string, ref: string } | { ok: false, error: string }}
+ */
+export const PREVENTION_TYPES = ['gate', 'memory', 'doc', 'none'];
+export function parsePrevention(raw, { npmScripts = new Set(), pathExists = () => false } = {}) {
+  const m = String(raw ?? '').match(/^(gate|memory|doc|none):\s*(.+)$/s);
+  if (!m) return { ok: false, error: `--prevention は ${PREVENTION_TYPES.map((t) => `${t}:…`).join(' / ')} のどれか（指定: ${raw ?? 'なし'}）` };
+  const [, type, ref] = m;
+  const r = ref.trim();
+  if (type === 'gate' && !npmScripts.has(r) && !pathExists(r)) return { ok: false, error: `gate:${r} は package.json の scripts にもリポジトリのパスにも無い` };
+  if (type === 'doc' && !pathExists(r.split('#')[0])) return { ok: false, error: `doc:${r} のファイルが無い` };
+  if (type === 'memory' && !pathExists(`.claude/memory/${r.replace(/\.md$/, '')}.md`)) return { ok: false, error: `memory:${r} が .claude/memory に無い（先に memory を書く）` };
+  if (type === 'none' && r.length < 5) return { ok: false, error: 'none: には残すものが無い理由を書く' };
+  return { ok: true, type, ref: r };
 }

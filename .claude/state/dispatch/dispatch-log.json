@@ -5,11 +5,13 @@
     "at": "YYYY-MM-DD (JST)",
     "task": "string",
     "tier": "high|mid|low|hold|null",
+    "kind": "カードの [種類:]（省略可）",
     "executor": "string|null",
     "outcome": "done|swept|blocked|fail",
     "plan": ".claude/plans/ の unit パス|null",
     "commit": "完了時 HEAD sha 先頭12桁|null",
     "verification": "実行した検証コマンドと結果|null",
+    "prevention": "{type: gate|memory|doc|none, ref}（kind=不具合 で outcome=done は必須。check-dispatch-log が止める）",
     "note": "string"
   },
   "_note": "outcome=swept は成果として数える。台帳の陳腐化を消すこと自体が backlog を減らす（2026-08-17 の実測で1日6件の陳腐化）。",

@@ -7,28 +7,35 @@
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
 //     check-disk-hygiene       Stop               check-disk-hygiene.mjs --quick --stop を stderr へ
+//     check-capture            Stop               最後の報告に未確認・未対応があるのに DN-#### が無ければ 1 セッション 1 回だけ止めて起票を促す
 //     decision-doc-checkpoint  PreCompact/SessionEnd  決定/ポリシー文書の未コミット変更を列挙
 //
 // 入力は stdin の JSON（tool_input.command / tool_input.file_path）。env（CLAUDE_TOOL_INPUT / TOOL_INPUT_FILE_PATH）は
 // フォールバック。リポジトリルートはこのファイルの位置から決める（cwd や git に依存しない＝worktree でも正しい）。
-// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake だけ。
+// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake（exit 2）と
+// check-capture（stdout の decision:block・1 セッション 1 回）だけ。
 //
 // 呼び手: .claude/settings.json（正典）と .codex/hooks.json（sync-codex-compat が生成）。両方とも相対パスで呼ぶ。
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import {
   GEMINI_ASK_PAYLOAD,
   STRAY_GLOBS,
+  captureMarkers,
+  captureReason,
   classifyStaged,
   decisionDocsChanged,
   docSyncMessages,
+  finalAssistantText,
   hasReplacementChar,
   isGeminiBilling,
   isGitCommitCommand,
   isMdxPath,
+  needsCapture,
   parseHookInput,
   parseNameStatus,
   strayAtRoot,
@@ -104,6 +111,21 @@ const HANDLERS = {
     // 毎ターン鳴るので --stop で「いま効く 2 件」（空き逼迫・マージ済み worktree）に絞る。掃除の実体は日次（launchd / schtasks）
     const r = spawnSync(process.execPath, [join(ROOT, 'scripts', 'check-disk-hygiene.mjs'), '--quick', '--stop'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     if (r.stdout) process.stderr.write(r.stdout);
+    return 0;
+  },
+
+  'check-capture'({ json }) {
+    // block で続けた後の Stop（stop_hook_active）では止めない。止めるのは 1 セッション 1 回（印は OS の一時ディレクトリ）
+    if (!json || json.stop_hook_active) return 0;
+    const session = String(json.session_id || json.transcript_path || '').replace(/[^A-Za-z0-9_-]/g, '').slice(-64);
+    if (!session) return 0;
+    const flag = join(tmpdir(), `doboku-capture-${session}.flag`);
+    if (existsSync(flag)) return 0;
+    let text = typeof json.last_assistant_message === 'string' ? json.last_assistant_message : '';
+    if (!text && json.transcript_path && existsSync(json.transcript_path)) text = finalAssistantText(readFileSync(json.transcript_path, 'utf8'));
+    if (!needsCapture(text)) return 0;
+    writeFileSync(flag, new Date().toISOString());
+    process.stdout.write(JSON.stringify({ decision: 'block', reason: captureReason(captureMarkers(text)) }));
     return 0;
   },
 

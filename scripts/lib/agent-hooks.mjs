@@ -149,3 +149,70 @@ export function decisionDocsChanged(porcelainText) {
     .map((p) => (p.includes(' -> ') ? p.split(' -> ').pop() : p))
     .filter((p) => RE_CHECKPOINT.test(p));
 }
+
+// ---- check-capture（Stop）----------------------------------------------------------------------
+//
+// 「その場で直さない不具合・未確認は同じセッションで起票し、報告はカード番号で書く」（CLAUDE.md §12）を、
+// 最後の報告の文面で確かめる。未確認・未対応・別途などを書いたのに DN-#### が 1 つも無ければ、
+// 1 セッションに 1 回だけ終了を止めて起票を促す（2026-10-07: 未確認を報告しながら起票を忘れ、ユーザーに指摘された）。
+// 言葉で判定するので誤検知はありうる。止めるのは 1 回だけで、「起票不要: 理由」を書けば通る。
+
+/** 先送り・未確認を表す言い回し。報告に残ったら起票先（DN-####）が要る */
+const CAPTURE_MARKERS = [
+  /未確認/, /未検証/, /確かめていない/, /確認できていない/, /原因(?:は)?(?:まだ)?(?:不明|分かっていない|わかっていない|分からない|わからない)/,
+  /未対応/, /直していない/, /手を付けていない/, /対応していない/, /別途/, /後日/, /今後の課題/, /残課題/, /スコープ外/, /範囲外/,
+  /別の\s*PR\s*で/, /起票(?:していない|せず|が必要|すべき)/, /\bTODO\b/,
+];
+
+/** 文中の先送りの言い回し（重複なし・出現順） */
+export function captureMarkers(text) {
+  const out = [];
+  for (const re of CAPTURE_MARKERS) {
+    const m = String(text ?? '').match(re);
+    if (m && !out.includes(m[0])) out.push(m[0]);
+  }
+  return out;
+}
+
+/** 起票を促すべきか: 先送りの言い回しがあり、カード番号も「起票不要」も無い */
+export function needsCapture(text) {
+  const t = String(text ?? '');
+  if (!t.trim() || /DN-\d{4}/.test(t) || /起票不要/.test(t)) return false;
+  return captureMarkers(t).length > 0;
+}
+
+/**
+ * transcript（JSONL）から最後のターンの assistant の文章を取り出す。最後の利用者の発言（文字列の user。
+ * tool_result は除く）より後の assistant の text を連結する。Claude Code と Codex（response_item）の両方を読む。
+ */
+export function finalAssistantText(jsonl) {
+  let parts = [];
+  for (const line of String(jsonl ?? '').split(/\r?\n/)) {
+    if (!line.trim()) continue;
+    let j;
+    try { j = JSON.parse(line); } catch { continue; }
+    if (j.isSidechain) continue;
+    // Codex: { type: 'response_item', payload: { type: 'message', role, content: [{ type: 'output_text'|'input_text', text }] } }
+    const msg = j.type === 'response_item' && j.payload?.type === 'message' ? j.payload : j.message;
+    const role = msg?.role ?? j.type;
+    const content = msg?.content;
+    if (role === 'user') {
+      const isToolResult = Array.isArray(content) && content.some((c) => c?.type === 'tool_result');
+      if (!isToolResult) parts = [];
+      continue;
+    }
+    if (role !== 'assistant') continue;
+    if (typeof content === 'string') parts.push(content);
+    else if (Array.isArray(content)) for (const c of content) if ((c?.type === 'text' || c?.type === 'output_text') && c.text) parts.push(c.text);
+  }
+  return parts.join('\n');
+}
+
+/** Stop で返す block の理由（モデルへ渡る） */
+export function captureReason(markers) {
+  return [
+    `最後の報告に「${markers.slice(0, 3).join('」「')}」とありますが、カード番号（DN-####）がありません。`,
+    'その場で直さない不具合・改善・未確認は `npm run todo:add -- --title … --tier … --kind … --domain … --body-file … --commit` で起票し、報告にカード番号を書いてください（CLAUDE.md §12）。',
+    '起票が要らないなら「起票不要: 理由」を 1 行書いて終えてください。このセッションで止めるのはこの 1 回だけです。',
+  ].join('\n');
+}
