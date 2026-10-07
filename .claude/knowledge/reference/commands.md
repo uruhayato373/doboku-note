@@ -229,7 +229,7 @@ npm run check-experiment-due   # 実験台帳の再計測/close/decide 期限と
 npm run check-jst-date    # 運用記録の日付が UTC・実行環境のタイムゾーン（getFullYear/getMonth/getDate）・+9 時間の自前計算で出ていないか（scripts・.claude・tools を走査。JST の日付は scripts/lib/jst-date.mjs の todayJst・jstMonth・jstDayOf・jstClock だけ。JST 09:00 前の実行事故・pre-commit 同梱）
 npm run report-buildjob-affiliate # BuildJob クリック×A8 成果の EPC レポート→data/analysis/buildjob-report.md（月次レビューが読む。`-- --check` は書かずに完走だけ＝quality-audit ci）
 npm run report-site-to-sales      # 暦月×note 商品で「サイトの note_cta_click → note のサイト経由閲覧 → 販売」を突合→data/business/records/site-to-sales-YYYY-MM.json（既定は直近の完了月・`-- --month YYYY-MM`。台帳は追記専用なので内容が変われば `-rN` を足す。GA4 は 28 日窓しか無いと window-mismatch・note 流入元は商品別に出ない＝unresolvable。`--check` は書かずに完走だけ＝quality-audit ci）
-npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
+npm run report-career-funnel      # キャリアファネル（流入→回遊→CTA→成果）→data/analysis/career-funnel.{json,md}（fetch-metrics が週次で生成・GA4 の窓は配置別の 28 日窓・配置の名前と撤去は config/cta-placements.json。`--freeze` で基線凍結＝**既存があれば exit 1 で中止**し latest も書かない。撮り直しは `--refreeze`。`--json`・`--check` は書かずに完走だけ＝quality-audit ci。GA4 と GSC は窓が違うので出所を跨いで割らない）
 ```
 
 ## 台帳・ドキュメント整合

@@ -97,6 +97,7 @@ export const DATASETS = [
   d('config.affiliate-asp', 'config/affiliate-asp.json', 'config', 'affiliate', '3 ASP（A8・もしも・afb）の提携運用の接続設定', { schema: 'ConfigAffiliateAsp' }),
   d('config.a8-report-automation', 'config/a8-report-automation.json', 'config', 'affiliate', 'A8 のレポート CSV 取得の設定', { schema: 'ConfigA8ReportAutomation' }),
   d('config.career-funnel', 'config/career-funnel.json', 'config', 'affiliate', '転職アフィリエイトのファネルの設定', { schema: 'ConfigCareerFunnel' }),
+  d('config.cta-placements', 'config/cta-placements.json', 'config', 'affiliate', 'サイトの広告・送客の配置（GA4 の cta_placement）の語彙と状態', { schema: 'ConfigCtaPlacements' }),
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
@@ -228,7 +229,7 @@ export const DATASETS = [
   d('analysis.growth-digest', 'data/analysis/growth/digest-{week}.json', 'series', 'site', '成長サイクルの週次ダイジェスト', { retain: { family: 'growth', keepNewest: 26 }, freshness: { failDays: 10 }, schema: 'GrowthDigest' }),
   d('analysis.growth-triage', 'data/analysis/growth/triage-log.json', 'ledger', 'site', 'ダイジェストの処分の記録', { schema: 'GrowthTriage' }),
   d('analysis.quiz-premium-funnel', 'data/analysis/quiz-premium-funnel.json', 'state', 'site', '演習アプリの有料化のファネル', { schema: 'QuizPremiumFunnel' }),
-  d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル', { schema: 'CareerFunnel' }),
+  d('analysis.career-funnel', 'data/analysis/career-funnel.json', 'state', 'affiliate', '転職アフィリエイトのファネル（fetch-metrics が週次で作る）', { schema: 'CareerFunnel', freshness: { warnDays: 10, failDays: 21 } }),
   d('analysis.career-funnel-report', 'data/analysis/career-funnel.md', 'report', 'affiliate', '同上の報告（月次レビューが読む）'),
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true }, schema: 'CareerFunnelBaseline' }),
   d('analysis.buildjob-report', 'data/analysis/buildjob-report.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),

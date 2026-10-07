@@ -272,6 +272,17 @@ jobs:
         continue-on-error: true
         run: npm run report-monetization-coverage
 
+      # 転職アフィリエイトのファネル（配置別の表示・クリック × A8 の成果）。管理画面 /affiliate と月次レビューが読む。
+      # 従来は手動だけで 2026-09-28 の生成から止まり、管理画面が撤去済みの配置と古い窓を出していた（DN-0566 の続き）。
+      # 入力（GA4 の配置別・ラベル別、GSC、A8 の台帳）は上の取得と develop の記録。rc=2 は入力が揃わず検査不成立。
+      - name: Generate career funnel report
+        id: careerfunnel
+        continue-on-error: true
+        run: |
+          set +e
+          npm run report-career-funnel
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       # bot 混入監視: Japan フィルタ後も残る bot 署名（高外国比率・低engagement の参照元）を surface し
       # bot-audit-*.json を ga4/ に出力（新規スパム候補は STDOUT）。従来 CI 未配線＝2026-05-17 以降実行ゼロ。
       - name: Audit GA4 bot ratio
@@ -406,6 +417,7 @@ jobs:
           GROWTH_RC: ${{ steps.growth.outputs.rc }}
           BING_RC: ${{ steps.bing.outputs.rc }}
           GA4ADMIN_RC: ${{ steps.ga4admin.outputs.rc }}
+          CAREER_FUNNEL_RC: ${{ steps.careerfunnel.outputs.rc }}
           DIGEST_RC: ${{ steps.publish.outputs.digest_rc }}
           MEASURE_RC: ${{ steps.publish.outputs.measure_rc }}
           PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
@@ -418,6 +430,8 @@ jobs:
           [ "$GROWTH_RC" = "1" ] && anomalies+=("成長パック（fetch-growth-pack）の取得失敗（区画ごとの error は pack の sections を参照）")
           [ "$BING_RC" = "1" ] && anomalies+=("Bing Webmaster の取得失敗")
           [ "$GA4ADMIN_RC" = "1" ] && anomalies+=("GA4 Admin API の観測失敗")
+          [ "$CAREER_FUNNEL_RC" = "1" ] && anomalies+=("転職アフィリエイトのファネル（report-career-funnel）の生成失敗")
+          [ "$CAREER_FUNNEL_RC" = "2" ] && invalid+=("転職アフィリエイトのファネル: GA4 ラベル別か GSC が無く検査不成立")
           [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
           [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")
           [ "$MEASURE_RC" = "2" ] && invalid+=("実験の自動計測: measure 仕様が不正、または認証なし")
