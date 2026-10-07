@@ -2,18 +2,18 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 794,
-    "embedded": 794,
+    "total": 885,
+    "embedded": 885,
     "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 683,
-      "conforming": 683,
+      "total": 774,
+      "conforming": 774,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 202,
+      "civil-construction-1": 293,
       "civil-construction-2": 20,
       "civil-practice": 27,
       "concrete-chief-engineer": 115,
@@ -566,6 +566,1626 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-aki-kakuho.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-aki-kakuho.svg",
+      "concept": "鉄筋のあきの確保。あきは鉄筋の外面どうしの間隔で、粗骨材の最大寸法の4/3倍、25mmの値を確保し、柱の鉛直鉄筋は40mm以上かつ4/3倍以上とする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-asr-process-4step.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-asr-process-4step.svg",
+      "concept": "アルカリ骨材反応の進み方。骨材中のシリカ分がセメントなどのアルカリ性の水分と反応して骨材表面に膨張性の物質ができ、吸水して膨張し、コンクリートにひび割れが生じる。対策はアルカリ総量 3.0 kg/m³ 以下、抑制効果のあるセメント、無害と確認された骨材のうちどれか 1 つ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-belt-conveyor-end.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-belt-conveyor-end.svg",
+      "concept": "ベルトコンベヤで運ぶときの注意。終端からそのまま落とすと材料分離を起こすので、終端にバッフルプレート（当て板）や漏斗管を付ける。終端は移し、勾配は 30 度未満とする。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-chute-tate-naname.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-chute-tate-naname.svg",
+      "concept": "シュートの使い方。高いところからは縦シュートが標準で、下端と打込み面の距離は 1.5 m 以下。やむを得ず斜めシュートを使うときは、傾きを水平 2 に対して鉛直 1 程度とし、吐き口に漏斗管やバッフルプレートを付ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a2-hydration-heat.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-a2-hydration-heat.svg",
+      "concept": "水和熱によるひび割れの出方。厚い壁の内部に水和熱がこもり、温度が下がるときの縮みを下の既設コンクリートが拘束して、壁に縦のひび割れが入る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a6-alkali-silica.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-a6-alkali-silica.svg",
+      "concept": "アルカリシリカ反応によるひび割れの出方。上は壁の表面に入る膨張ひび割れ、下はその拡大で、反応性のある骨材のまわりに膨張性の物質ができ、コンクリートを押し広げてひび割れる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a8-settlement-bleeding.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-a8-settlement-bleeding.svg",
+      "concept": "沈下・ブリーディングによるひび割れの出方。打ち込んだコンクリートが沈むとき、上側の鉄筋が沈みを拘束するので、鉄筋の真上の表面にひび割れが入る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a9-drying-shrinkage.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-a9-drying-shrinkage.svg",
+      "concept": "乾燥収縮によるひび割れの出方。柱にはさまれた壁が乾いて縮もうとするが、両側の柱が動かないので、壁の中央付近に縦のひび割れが入る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-b10-improper-joint.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-b10-improper-joint.svg",
+      "concept": "不適当な打継ぎ処理によるひび割れの出方。古いコンクリートの上面にレイタンスや緩んだ骨材粒が残ったまま新しいコンクリートを打つと、新旧が一体にならず、打継目に沿ってひび割れが入る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-b17-improper-overlay.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-b17-improper-overlay.svg",
+      "concept": "不適当な打重ねによるひび割れの出方。2 層に分けて打つとき、下層が固まり始めたあとに上層を打つと、層の境にコールドジョイントができてひび割れる。許容打重ね時間間隔は外気温 25 度以下で 2.5 時間、25 度を超えると 2.0 時間。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-b5-rapid-placing.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-crack-b5-rapid-placing.svg",
+      "concept": "急速な打込みによるひび割れの出方。壁の型枠へコンクリートを速く打ち上げると、型枠に大きな圧力がかかり、上部にブリーディング水がたまって、上部の水平鉄筋の上にひび割れが入る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-enchoku-uchitsugi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-enchoku-uchitsugi.svg",
+      "concept": "鉛直打継目の施工。打継面を粗にして十分吸水させ、直前にペーストなどを塗る。水密を要する場合は止水板を用い、型枠に金網や凹凸シートを貼る方法もある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-gyaku-uchi-sukima.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-gyaku-uchi-sukima.svg",
+      "concept": "逆打ちコンクリートの打継目。新コンクリートは旧コンクリートの下面に打ち継がれ、ブリーディング水の上昇や沈下で打継目に隙間ができやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-hibiware-yuhatsu-ichi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-hibiware-yuhatsu-ichi.svg",
+      "concept": "ひび割れ誘発目地の働き。壁面にあらかじめ断面を小さくした目地を設けると、ひび割れがそこに集中し、ほかの部分に有害なひび割れが出ない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-hibiware-yuhatsu-kentou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-hibiware-yuhatsu-kentou.svg",
+      "concept": "ひび割れ誘発目地を検討する場面。水和熱による温度変化や乾燥収縮から生じる温度応力が引張強度を上回ると予想されるとき、誘発目地の設置を検討する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-katawaku-shimetsuke.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-katawaku-shimetsuke.svg",
+      "concept": "型枠締付け金物の取付け例。対向するせき板をセパレータでつなぎ、外側のフォームタイで締め付けて型枠の位置を固定する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-rod-vibrator-use.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-rod-vibrator-use.svg",
+      "concept": "棒状バイブレータの使い方。なるべく鉛直に、間隔 50 cm 以下で差し込み、下層のコンクリートに 10 cm 程度入れて 1 箇所 5〜15 秒振動させる。引抜きは徐々に行い、横移動に使ってはならない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-slab-after-wall-column.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-slab-after-wall-column.svg",
+      "concept": "スラブやはりの打込み時期。壁や柱と続けて打つと、壁・柱が沈むときにスラブやはりに沈下ひび割れが生じる。壁・柱の沈下収縮がほぼ終わってからスラブやはりを打つ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-sokuatsu-hashira.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-sokuatsu-hashira.svg",
+      "concept": "柱の型枠にかかるコンクリートの側圧。打込み時の側圧はコンクリートの単位容積質量、打込み速度、打込み高さ、温度、セメントの種類で大きく変わる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-spacer-kaburi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-spacer-kaburi.svg",
+      "concept": "スペーサの用い方。せき板と鉄筋の間にスペーサを挟み、鉄筋の外面からコンクリート表面までの最短距離であるかぶりを確保する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-suihei-uchitsugi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-suihei-uchitsugi.svg",
+      "concept": "水平打継目の施工断面。旧コンクリートの表面を粗にして吸水させ、本体と同等品質の敷モルタルを敷いてから新コンクリートを打ち継ぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-tabane-tekkin.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-tabane-tekkin.svg",
+      "concept": "束ねて配置する鉄筋。複数本の鉄筋を束にして配置する。束ねた鉄筋でも、スペーサでかぶりを確保し、組み立て精度とあきを確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-tekkin-hook.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-tekkin-hook.svg",
+      "concept": "鉄筋端部のフックの2形状。半円形フックと、スターラップや帯鉄筋に用いる鋭角フック。鋭角フックは折り曲げてから鉄筋直径の6倍以上で6cm以上まっすぐ延ばす",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-tekkin-mage-hankei.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-tekkin-mage-hankei.svg",
+      "concept": "鉄筋の曲げ内半径の3場面。折曲鉄筋は5φ以上、ラーメン隅角部の外側は10φ以上。隅角部やハンチの内側は鉄筋を曲げず別の直線鉄筋を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-tekkin-tsugite-shurui.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-tekkin-tsugite-shurui.svg",
+      "concept": "主な鉄筋継手の3種類。重ね継手、アーク溶接や抵抗溶接による溶接継手、スリーブ圧着やモルタル充填などの機械式継手",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-uchitsugime-yukagumi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-concrete-basics",
+      "name": "figure-uchitsugime-yukagumi.svg",
+      "concept": "床組みの打継目の位置。スラブやはりの打継目は、圧縮力の作用方向と直角になるよう、せん断力の小さいスパン中央付近に設け、支点付近のせん断力が大きい位置には設けない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-ami-saku.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-ami-saku.svg",
+      "concept": "編柵工を正面から見た図。のり面に打ち込んだ木杭に竹、そだ、ネットなどを横に編んで土留めとし、すべり土塊の滑動力に対抗する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-area-volume-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-area-volume-methods.svg",
+      "concept": "宅地造成など二次元的に広がる地区の土量計算方法。平均断面法、格状法、等高線法がある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-block-bari.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-block-bari.svg",
+      "concept": "石張工・ブロック張工。1:1.0 より緩いのり面に、石やコンクリートブロックを張り並べ、裏込め材を挟んで基礎で受ける。風化・浸食と軽い崩れを防ぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-block-zumi-youheki.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-block-zumi-youheki.svg",
+      "concept": "ブロック積擁壁工の断面。のり面の土を壁状のブロックで押さえ、背面に裏込め材を置き、水抜き孔から水を抜き、基礎で支える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-box-ushirogome-haisui.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-box-ushirogome-haisui.svg",
+      "concept": "湧水が多い場合のボックスカルバート。構造物の壁面に沿って栗石や透水性の合成繊維材による裏込め排水工を設け、水抜き穴で盛土の外へ排水して、盛土内の水位上昇と間隙水圧の発生を防ぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-box-ushirogome-sekou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-box-ushirogome-sekou.svg",
+      "concept": "ボックスカルバートの裏込めの施工。構造物の両側から同じ高さで薄層ずつ締め固めて偏土圧を避け、壁ぎわの狭い所は小型の締固め機械を使う",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-chika-haisuikou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-chika-haisuikou.svg",
+      "concept": "地下排水溝。地表に掘った溝に砂利や粗砂を詰めて土をかぶせ、浸透水を集める。溝はW形や矢はず形に配置し、穴あき管を入れると排水能力が増す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-chikan.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-chikan.svg",
+      "concept": "置換工法の 2 つの場合。軟弱層を全部掘って良質土に置き換える場合と、上の一部だけを置き換える場合。全部置き換えると沈下はほぼ残らず、一部だと残る軟弱層の沈下を見込む",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-concrete-bari.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-concrete-bari.svg",
+      "concept": "コンクリート張工。割れ目の多い岩などで吹付けや枠工では安定が保てないのり面に、無筋または鉄筋のコンクリートを張る。吹付工ともたれ式擁壁の中間の働きを期待する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-dankiri.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-dankiri.svg",
+      "concept": "傾斜地盤上の盛土の断面。原地盤の傾斜が1対4より急な場合は階段状に段切りを行い、盛土が地山の上をすべらないようにする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-deep-mixing.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-deep-mixing.svg",
+      "concept": "深層混合処理工法の施工順序。位置決めの後、安定処理材を吐出しながら撹拌して貫入し、引き上げながら軟弱土と混合して、固結した安定処理杭をつくる。支持杭または摩擦杭として使う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-deep-well.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-deep-well.svg",
+      "concept": "深井戸排水工法。径 600mm 程度の井戸を深く掘って据え、井戸に集まった地下水を水中ポンプでくみ上げて、まわりの地下水位を広く下げる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-drainage-selection.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-drainage-selection.svg",
+      "concept": "排水工法の選定。電気浸透工法は10のマイナス5乗cm/sec以下、真空排水は10のマイナス2乗から10のマイナス5乗cm/sec程度、重力排水は10のマイナス1乗cm/secより大きい層に適用し、極めて大きいときは水中掘削が有利なこともある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-earth-pressure-shoring.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-earth-pressure-shoring.svg",
+      "concept": "土留め壁に作用する土圧。断面計算には切ばり位置での多数の実測例から定められた経験値の土圧を用い、根入れ長さの安定計算にはランキン・レザールの土圧を多く用いる。標準的な地盤と掘削深さの場合の値なので、地盤の乱れや砂層と粘土層の互層に配慮する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-earthwork-plan.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-earthwork-plan.svg",
+      "concept": "土工計画の検討の流れ。各種調査結果を踏まえ、土量の算定と配分、施工法と機械の選定を行い、最も経済的に施工できるかを評価して工事実施計画に進む。不経済なら見直す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-economic-haul.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-economic-haul.svg",
+      "concept": "機械ごとの経済的運搬距離の考え方。運搬距離が長くなるにつれ、ブルドーザ、スクレーパ、ショベル・ダンプトラックの順に施工単価が安い機械が入れ替わる。入れ替わる距離が、各機械の経済的運搬距離となる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-fukitsuke-3shu.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-fukitsuke-3shu.svg",
+      "concept": "散布工・吹付工の比較。種子散布工は緩勾配で透水性のよい安定したのり面に、客土吹付工と植生基材吹付工は切土のり面や急勾配ののり面に用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-fukitsuke.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-fukitsuke.svg",
+      "concept": "モルタル・コンクリート吹付工。風化しやすい岩ののり面に、モルタルは 8〜10cm、コンクリートは 10〜20cm を吹き付け、風化と剥落を防ぐ。水抜き孔で裏の水を逃がす",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-fusetsuzai-kyodo.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-fusetsuzai-kyodo.svg",
+      "concept": "敷設材工法の挙動の比較。敷設材がないと荷重で地盤が局部的に沈み側方へ変形するが、ジオテキスタイルなどを敷くと引張強さで荷重が分散される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-genbauchi-waku.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-genbauchi-waku.svg",
+      "concept": "現場打ちコンクリート枠工と吹付枠工。のり面に格子状の鉄筋コンクリート枠を現場で打つか吹き付けてつくり、枠の中は植生・吹付け・張りで覆う。必要に応じてアンカーで地山とつなぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-ground-anchor.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-ground-anchor.svg",
+      "concept": "グラウンドアンカー工の断面。のり面の不安定な岩盤を、アンカー材で奥の堅固な基盤に直接つなぎ、崩落と剥落を防ぐ。頭部、自由長部、定着部からなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-harazuke-dankiri.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-harazuke-dankiri.svg",
+      "concept": "腹付け盛土の断面。既設盛土を拡幅するとき、既設盛土ののり面に段切りを行って新しい盛土をかみ合わせ、境界部のすべりや不等沈下を防ぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-harishiba.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-harishiba.svg",
+      "concept": "張芝工の比較。芝を張る前ののり面は雨で浸食されるが、芝をのり面に張り付けると完成と同時に保護効果が得られる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-haul-zones.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-haul-zones.svg",
+      "concept": "土積図による土量配分。基線を引いて切土と盛土が釣り合う区間を結ぶと、その長さが運搬距離を表す。運搬距離が最も短くなるように配分し、ショベル・ダンプトラック工法区とそれ以外の機械の採算的な運搬距離を比べて工区を分ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-hokyodo-gainen.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-hokyodo-gainen.svg",
+      "concept": "補強土の考え方。盛土の中に補強材を層状に敷き、補強材と盛土材の摩擦で引抜きに抵抗させる。前に押し出そうとする土圧を補強材が引き留め、急な壁面でも盛土が立つ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-hokyodo-kabe.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-hokyodo-kabe.svg",
+      "concept": "盛土のり面における補強土壁工の断面。壁面材から盛土の中へ補強材を水平に敷き、すべり土塊の滑動力に補強材の引張りで抵抗して、急な勾配でも盛土を安定させる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-hokyozai-ichi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-hokyozai-ichi.svg",
+      "concept": "補強土工法で補強材を置く場所。鉄筋・帯鋼・ジオテキスタイルなどの補強材を、盛土内、地盤と盛土の境界部、地山の3か所に配置して、土圧の軽減や盛土・斜面の安定、地盤の支持力の増大を図る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-jakago.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-jakago.svg",
+      "concept": "じゃかご工。金網のかごに自然石を詰めた構造物で、普通じゃかごと平たいふとんじゃかごがある。のり尻に置くと湧水は通し、土砂の流出は止める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kamaba.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kamaba.svg",
+      "concept": "釜場排水工法。掘削時に浸透してくる水を、掘削面より深く設けた釜場の集水マスに集めて水中ポンプで排水する。小規模で湧水量が少ない掘削に向き、深くなると釜場底でボイリングが生じることがある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kangansui-shikiharashi.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kangansui-shikiharashi.svg",
+      "concept": "高含水比の盛土材料の敷均し。スクレーパやショベルダンプトラックは盛土の荷おろし箇所に直接入れないので、盛土上の運搬路付近から盛土箇所まで材料を二次運搬する。盛土内には水平排水層を設けて含水比を下げることもある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kansoku-saika-danmen.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kansoku-saika-danmen.svg",
+      "concept": "緩速載荷工法の断面。盛土を1段目、2段目、3段目と段階的に盛り、各段のあいだに休止して軟弱地盤の過剰間隙水圧が消えるのを待つ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kansoku-saika.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kansoku-saika.svg",
+      "concept": "緩速載荷工法の考え方。盛土を一気に上げると地盤の強さが追いつかず安全率が 1 を下回るおそれがある。盛って放置する段階載荷では、放置の間に間隙水圧が消えて地盤が強くなり、安全率を保ったまま計画高まで上げられる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-keiryo-morido.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-keiryo-morido.svg",
+      "concept": "軽量盛土工法の比較。一般の盛土材では軟弱地盤にかかる荷重が大きいが、EPSブロックなど単位体積重量の軽い材料を使うと荷重が小さくなり、支持力不足に対する安全率を確保しやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kirido-hokyo.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kirido-hokyo.svg",
+      "concept": "切土のり面における補強土工の断面。地山に補強材を挿入し、すべり面をまたいで安定した地盤とつなぎ、斜面全体の安定性を高める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-kirimori-surituke.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-kirimori-surituke.svg",
+      "concept": "切土と盛土の接続部（縦断方向）の比較。すり付けがないと支持力が不連続になり路面に亀裂が生じやすい。すりつけ切土勾配を1対4程度にして良質土で入念に締め固めると、段差をなくせる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-mass-curve.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-mass-curve.svg",
+      "concept": "土積図の考え方。切土を正、盛土を負として土量を測点順に累加した曲線で、上りは切土、下りは盛土を表す。基線と交わる2点の間は切土と盛土が釣り合い、土量配分に使う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-morido-hokyo.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-morido-hokyo.svg",
+      "concept": "軟弱地盤の盛土補強工法。盛土の底部に補強材を何層か敷き、すべり面を横切る補強材の引張りで盛土のすべりと側方への広がりを抑える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-norimen-mizu.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-norimen-mizu.svg",
+      "concept": "のり面と水の流れ。雨水はのり肩排水溝と小段排水溝で受けて縦排水溝からのり尻へ流し、地中にしみ込んだ水は地下排水溝や水平排水孔で抜く",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-oshae-morido.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-oshae-morido.svg",
+      "concept": "押え盛土工法の断面。本体盛土の両側の足もとに低い押え盛土を置き、その重さで軟弱層のすべりに抵抗する。押え盛土は本体盛土より先か同時に施工し、用地と土砂が余分に要る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-paper-drain.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-paper-drain.svg",
+      "concept": "ペーパードレーン工法。軟弱な粘土にカードボードのドレーン材を鉛直に打ち込むと、粘土の水は近くのドレーンへ横に流れてから上のサンドマットへ抜け、圧密が早く進む。施工はマンドレルにドレーン材を通して据え、押し込み、ドレーン材を残して引き抜き、地表で切って次へ移る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-precast-waku.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-precast-waku.svg",
+      "concept": "プレキャスト枠工。1:1.0 より緩いのり面に、プラスチック・鋼・コンクリートブロックなどの枠材を組み、枠の中を土・砂利や客土吹付けで詰める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-rod-compaction.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-rod-compaction.svg",
+      "concept": "ロッドコンパクション工法の流れ。クレーンで吊ったロッドをバイブロハンマで振動させながらゆるい砂地盤へ貫入し、引き抜きと再貫入を繰り返しながら沈んだ孔へ砂や砂利を補給して、周りの地盤を締め固める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sand-compaction-pile.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sand-compaction-pile.svg",
+      "concept": "サンドコンパクションパイル工法の施工順序。位置決めの後、振動または衝撃で貫入し、砂を入れて引き抜いて砂杭をつくり、周辺地盤を締め固める。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sand-drain-sekou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sand-drain-sekou.svg",
+      "concept": "サンドドレーン工法の施工順序。マンドレルを据え、所定の深さまで打ち込み、管内に砂を投入し、マンドレルを引き抜いて砂の柱を軟弱粘土の中に残す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sand-mat.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sand-mat.svg",
+      "concept": "サンドマット工法の断面。軟弱地盤の上に厚さ0.5〜1.2m程度の砂層を敷き、重機の走行を支え、盛土の水を横へ逃がし、バーチカルドレーンと併用するときは排水層になる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sandmat.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sandmat.svg",
+      "concept": "サンドマットの断面。水田などの軟弱な基礎地盤の上に砂や切込み砂利のサンドマットを敷くと、初期の盛土作業のトラフィカビリティを確保でき、盛土荷重で上がる地下水も盛土敷の外へ排水できる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sheet-pile-layout.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sheet-pile-layout.svg",
+      "concept": "矢板土留め工の構成。断面では両側の矢板に腹起しを当て、切ばりで支える。中間杭は切ばりの自重と施工時の荷重を支え、座屈や滑動を防ぐ。平面では腹起しと切ばり、隅角部の火打ちの配置を示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-shokusai.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-shokusai.svg",
+      "concept": "植栽工の断面。のり面に植樹し周辺環境との調和と景観の向上を図る。のり面を不安定にしないよう、支柱などの倒木対策と排水処理を考える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-shokusei-dono.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-shokusei-dono.svg",
+      "concept": "植生土のう工の断面。種子と肥料を詰めた土のうを、のり面に設けた水平な溝やのり枠内に据えて固定する。土のうに包まれているので流出が少なく、地盤と密着しやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-shokusei-mat.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-shokusei-mat.svg",
+      "concept": "植生マット工と植生シート工。種子や肥料を付けたマットやシートでのり面を被覆し、マットの保温効果で芝の生育を助け、芝が生育する間はのり面の安定を保つ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-shokusei-suji.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-shokusei-suji.svg",
+      "concept": "植生筋工。種子と肥料を付けた帯状の材料を、盛土のり面を締め固めるときに水平に挟み込み、筋状に草を生やして浸食を防ぐ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-soil-volume-change.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-soil-volume-change.svg",
+      "concept": "土量の変化。地山の土量を基準に、ほぐした土量は地山より多くL＞1.0、締め固めた土量は地山より少なくC＜1.0となる。Lは運搬計画、Cは配分計画に使う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-subori-haisuikou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-subori-haisuikou.svg",
+      "concept": "水田などの基礎地盤の素掘り排水溝。盛土をする範囲の両側や中に溝を掘って水を集めて外へ流し、表層の含水比を下げて重機が走れるようにする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-suihei-haisuikou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-suihei-haisuikou.svg",
+      "concept": "水平排水孔。湧水のあるのり面に、やや上向きの横孔をあけて穴あき管を挿し、地中の水を抜いて地下水位を下げる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-suihei-haisuisou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-suihei-haisuisou.svg",
+      "concept": "盛土内の水平排水層。高含水比の粘性土の高盛土では盛土の中に砂の層を水平に入れ、間隙水圧を下げてのり面の安定を保つ。のり先にはじゃかごを置く",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-sujishiba.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-sujishiba.svg",
+      "concept": "筋芝工の正面図。盛土のり面に芝を水平の筋状に入れ、土羽打ちで転圧しながら施工する。野芝は生育が遅いため、生育を促す施肥が必要",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-surcharge-chinka.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-surcharge-chinka.svg",
+      "concept": "サーチャージ工法の沈下曲線。計画盛土の荷重Pに余盛りΔPを加えて載せると沈下が早く進み、余盛りを取り除く時点で目標の沈下に近づくため、除荷後の残留沈下が小さくなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-takamaki.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-takamaki.svg",
+      "concept": "敷均しの比較。水平の層に薄く敷均して均等に締め固める施工と、一度に高く盛る高まきでは中が締まらない。ブルドーザ作業では敷均し厚さが把握しにくく高まきになりやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-tate-haisuikou.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-tate-haisuikou.svg",
+      "concept": "縦排水溝。小段排水溝やのり肩排水溝で集めた水を、のり面に沿って下るU形溝などでのり尻排水溝へ導く。下る水が溢れないよう、合流部やのり尻はますで受ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-trench-haisui.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-trench-haisui.svg",
+      "concept": "表層排水工法の断面。盛土の施工前に地表面付近へトレンチを掘り、表層の水を溝に集めて排除して含水比を下げる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-vibro-flotation.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-vibro-flotation.svg",
+      "concept": "バイブロフローテーション工法。棒状の振動体を水の噴射と振動でゆるい砂地盤へ貫入させて締め固め、できた空隙に砂や砂利を補給して地盤を改良し、地震時の液状化に備える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-weight-drop.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-weight-drop.svg",
+      "concept": "重錘落下締固め工法。クレーンで吊り下げた重錘を高い場所から自由落下させ、衝撃で地盤を締め固める。振動・騒音の問題から使用が限られる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-wellpoint.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-wellpoint.svg",
+      "concept": "ウェルポイント工法。掘削箇所の両側および周辺を吸水装置のウェルポイントで取り囲み、先端の吸水部から地下水を真空ポンプで強制的に排水して地下水位を下げる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-yomori.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-earthwork-basics",
+      "name": "figure-yomori.svg",
+      "concept": "軟弱地盤上の盛土の余盛り。圧密沈下量を予測して天端を沈下量分だけ高く、のり面勾配を急に仕上げておくと、沈下後に計画の高さと形になる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/secondary-experience-writing-guide/img/figure-answer-compartments.svg",
       "category": "civil-construction-1",
       "slug": "secondary-experience-writing-guide",
@@ -589,6 +2209,24 @@
       "slug": "secondary-experience-writing-guide",
       "name": "figure-direct-orderer.svg",
       "concept": "元請Bの発注者はA、一次下請Cの発注者はB、二次下請Dの発注者はC。発注機関に所属する場合は所属機関名を記入する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-compaction-water-content.svg",
+      "category": "civil-construction-1",
+      "slug": "secondary-quality-management-basics",
+      "name": "figure-compaction-water-content.svg",
+      "concept": "同じ土を同じ締固めエネルギーで試験すると、最適含水比で乾燥密度が最大になる。現場では乾燥密度と施工含水比の両方を仕様書の基準と照合する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -4539,7 +6177,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4558,7 +6196,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -4575,8 +6213,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 11
+        "medium": 2,
+        "low": 0
       }
     },
     {
@@ -4593,8 +6231,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4611,8 +6249,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
-        "low": 19
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -4647,7 +6285,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4666,7 +6304,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 12
+        "low": 0
       }
     },
     {
@@ -4737,7 +6375,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4755,8 +6393,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 1
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -4773,8 +6411,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 22
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -4791,8 +6429,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 21
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4845,8 +6483,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 33
+        "medium": 2,
+        "low": 0
       }
     },
     {
@@ -4863,8 +6501,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 7,
-        "low": 26
+        "medium": 2,
+        "low": 0
       }
     },
     {
@@ -4882,7 +6520,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 13
+        "low": 0
       }
     },
     {
@@ -4900,7 +6538,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 13
+        "low": 0
       }
     },
     {
@@ -4917,7 +6555,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4935,8 +6573,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 34
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -4954,7 +6592,7 @@
       "audit": {
         "high": 0,
         "medium": 2,
-        "low": 5
+        "low": 0
       }
     },
     {
@@ -4989,7 +6627,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 1,
         "low": 3
       }
     },
@@ -5008,7 +6646,7 @@
       "audit": {
         "high": 0,
         "medium": 2,
-        "low": 5
+        "low": 0
       }
     },
     {
@@ -5025,8 +6663,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 8
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -5043,8 +6681,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 26
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -5062,7 +6700,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -5097,8 +6735,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 1
       }
     },
     {
@@ -5115,8 +6753,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 5
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -5170,7 +6808,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -5187,8 +6825,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 0
+        "medium": 0,
+        "low": 1
       }
     },
     {
@@ -5205,8 +6843,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 7,
-        "low": 68
+        "medium": 4,
+        "low": 0
       }
     },
     {
@@ -5241,7 +6879,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5295,7 +6933,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -5457,8 +7095,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 3
+        "medium": 1,
+        "low": 0
       }
     },
     {
@@ -5475,7 +7113,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5602,7 +7240,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 21
+        "low": 0
       }
     },
     {
@@ -5656,7 +7294,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -5763,7 +7401,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5781,7 +7419,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5854,7 +7492,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -5889,7 +7527,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5925,7 +7563,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5943,7 +7581,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5962,7 +7600,7 @@
       "audit": {
         "high": 0,
         "medium": 1,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -6087,7 +7725,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -6232,7 +7870,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -6538,7 +8176,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -6717,7 +8355,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6735,7 +8373,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -7221,7 +8859,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7833,7 +9471,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -7959,7 +9597,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8319,7 +9957,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8427,7 +10065,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8679,7 +10317,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8697,7 +10335,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8715,7 +10353,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8733,7 +10371,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8751,7 +10389,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8769,7 +10407,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -9129,7 +10767,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -9273,7 +10911,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 6,
         "low": 0
       }
     },
