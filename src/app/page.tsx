@@ -10,6 +10,7 @@ import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 import Link from 'next/link';
 import SectionBlock from '@/components/layout/SectionBlock';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 const categories = categoriesData as CategoryDef[];
 
@@ -102,6 +103,10 @@ export default async function HomePage() {
         </div>
       </SectionBlock>
       <LatestArticles articles={latest} />
+      {/* 転職の案内（ファーストビューより下に 1 枠。案件は配置ルール） */}
+      <SectionBlock space="sm" ariaLabel="転職の相談先">
+        <AffiliateSlot page={{ pageKind: 'home' }} slot="home-section" />
+      </SectionBlock>
       <AboutSection />
       {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。
           ブランド背景＋HTML文字のヒーロー（PremiumNoteHero）。data-cta="note" で計測。 */}

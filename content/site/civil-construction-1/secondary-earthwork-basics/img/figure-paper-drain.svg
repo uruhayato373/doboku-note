@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ペーパードレーン工法。軟弱な粘土にカードボードのドレーン材を鉛直に打ち込むと、粘土の水は近くのドレーンへ横に流れてから上のサンドマットへ抜け、圧密が早く進む。施工はマンドレルにドレーン材を通して据え、押し込み、ドレーン材を残して引き抜き、地表で切って次へ移る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .clay  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill：軟弱粘土 */
+      .mat   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }  /* surface：サンドマット */
+      .emb   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }    /* brand-fill：盛土 */
+      .drain { stroke: #3a7d44; stroke-width: 4; }                    /* positive：ドレーン材 */
+      .flow  { stroke: #2e6da4; stroke-width: 1.8; fill: none; }      /* brand：水の流れ */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="pd-a" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">ペーパードレーン工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">水の通り道を鉛直に入れ、圧密を早める</text>
+
+  <!-- 断面：水の抜け方 -->
+  <polygon class="emb" points="40,96 100,70 300,70 360,96"/>
+  <text class="t-lab" x="200" y="88" text-anchor="middle">盛土（載荷）</text>
+  <rect class="mat" x="16" y="96" width="368" height="18"/>
+  <text class="t-note" x="372" y="109" text-anchor="end">サンドマット</text>
+  <rect class="clay" x="16" y="114" width="368" height="140"/>
+  <text class="t-note" x="28" y="246">軟弱粘土</text>
+  <line class="drain" x1="110" y1="114" x2="110" y2="240"/>
+  <line class="drain" x1="200" y1="114" x2="200" y2="240"/>
+  <line class="drain" x1="290" y1="114" x2="290" y2="240"/>
+  <!-- 横に寄って上へ抜ける -->
+  <line class="flow" x1="150" y1="170" x2="118" y2="170" marker-end="url(#pd-a)"/>
+  <line class="flow" x1="160" y1="200" x2="192" y2="200" marker-end="url(#pd-a)"/>
+  <line class="flow" x1="250" y1="170" x2="282" y2="170" marker-end="url(#pd-a)"/>
+  <line class="flow" x1="240" y1="200" x2="208" y2="200" marker-end="url(#pd-a)"/>
+  <line class="flow" x1="200" y1="150" x2="200" y2="120" marker-end="url(#pd-a)"/>
+  <text class="t-note" x="300" y="146">ドレーン材</text>
+  <text class="t-note" x="200" y="272" text-anchor="middle">水は近くのドレーンへ横に寄り、上へ抜ける</text>
+
+  <!-- 施工の 4 段階 -->
+  <text class="t-sec" x="16" y="304">施工の流れ</text>
+  <rect class="card" x="16" y="314" width="176" height="80" rx="6"/>
+  <rect class="card" x="208" y="314" width="176" height="80" rx="6"/>
+  <rect class="card" x="16" y="404" width="176" height="80" rx="6"/>
+  <rect class="card" x="208" y="404" width="176" height="80" rx="6"/>
+  <circle class="num" cx="34" cy="334" r="10"/><text class="t-lab" x="34" y="338" text-anchor="middle">1</text>
+  <circle class="num" cx="226" cy="334" r="10"/><text class="t-lab" x="226" y="338" text-anchor="middle">2</text>
+  <circle class="num" cx="34" cy="424" r="10"/><text class="t-lab" x="34" y="428" text-anchor="middle">3</text>
+  <circle class="num" cx="226" cy="424" r="10"/><text class="t-lab" x="226" y="428" text-anchor="middle">4</text>
+  <text class="t-lab" x="52" y="338">据える</text>
+  <text class="t-note" x="30" y="360">マンドレル（鋼管）に</text>
+  <text class="t-note" x="30" y="378">ドレーン材を通して立てる</text>
+  <text class="t-lab" x="244" y="338">押し込む</text>
+  <text class="t-note" x="222" y="360">所定の深さまで</text>
+  <text class="t-note" x="222" y="378">マンドレルごと貫入</text>
+  <text class="t-lab" x="52" y="428">引き抜く</text>
+  <text class="t-note" x="30" y="450">ドレーン材を地中に残し</text>
+  <text class="t-note" x="30" y="468">マンドレルだけを抜く</text>
+  <text class="t-lab" x="244" y="428">切って移る</text>
+  <text class="t-note" x="222" y="450">地表でドレーン材を切り</text>
+  <text class="t-note" x="222" y="468">次の打設位置へ</text>
+</svg>

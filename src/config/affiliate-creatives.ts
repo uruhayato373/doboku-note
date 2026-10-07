@@ -3,7 +3,7 @@
  *
  * どのページのどの面にどの案件を出すかはここに書かない。正本は config/affiliate-placements.json（案件 × 面 × 対象 × 期間）で、
  * src/lib/affiliate-placement.ts が解決し、案件 id で PROGRAM_ASSETS を引く（2026-10-07 に日付・カテゴリ・slug の分岐を
- * ここからルールへ移した。それ以前の増額キャンペーン・slug ハッシュの A/B・GKS／建設JOBs の素材は git 履歴）。
+ * ここからルールへ移した。それ以前の増額キャンペーン・slug ハッシュの A/B・GKS の素材は git 履歴。建設JOBs は同日 2級へ絞って戻した）。
  *
  * 1 ページ 1 ピクセル: 同一ページで同じ a8mat のピクセルを 2 回発火させない。発火源の面は config/cta-placements.json の
  * pixelPriority で決まる（解決は affiliate-placement.ts の pixelFor）。
@@ -38,6 +38,22 @@ const BUILDJOB_CAREER_AD = {
     "https://www21.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",
   pixelSrc: "https://www15.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
   alt: "建設業界特化 転職エージェント ビルドジョブ",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
+ * 建設JOBs（リアルエステートWORKS・施工管理/建設業界特化の転職サイト・A8.net）。300×250 + pixel。
+ * 成果条件は新規登録 ¥4,500（20〜30代・建設業界の経験・WEB 登録後 30 日以内の電話本人確認。2026-09-08 A8 実機）。
+ * 全年齢の記事に出す前提は 2026-09-08 に撤回し、2026-10-07 に 2級土木の学習ページへ絞って戻した（EXP-017）。
+ * 素材は 2026-09-08 までの配置と同じ（A8 の doboku-note・websiteId=002）。
+ */
+const KENSETSU_JOBS_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+  imageSrc:
+    "https://www27.a8.net/svt/bgt?aid=260529673996&wid=002&eno=01&mid=s00000023057002003000&mc=1",
+  pixelSrc: "https://www10.a8.net/0.gif?a8mat=4B41ZD+GGZS2I+4XWQ+BXB8X",
+  alt: "建設JOBs 施工管理・建設業界の転職サイト",
   width: 300,
   height: 250,
 } as const;
@@ -210,6 +226,26 @@ function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArt
 }
 
 /**
+ * 建設JOBs の本文カードの文言。成果点は会員登録（ServiceOutcome は registration）なので、登録後の流れ（電話の本人確認・
+ * カウンセリング・求人紹介）を書き、対象（20〜30代・建設業界の経験者）をカードの見出しに出す（対象外の読者が登録して否認されないように）。
+ */
+function resolveKensetsuJobsCopy(slug?: string, need?: CareerNeed | null): CareerArticleEndCard {
+  return {
+    service: "建設JOBs",
+    category: "施工管理・建設業界の転職支援（20〜30代の経験者向け）",
+    description:
+      "建設業界で働いた経験がある 20〜30 代の方向けの転職サービスです。登録後は電話での本人確認と担当者とのカウンセリングを経て、求人紹介へ進みます。",
+    href: KENSETSU_JOBS_CAREER_AD.href,
+    points: [
+      "施工管理・建設業界に特化した転職支援",
+      "登録・相談は無料",
+      "希望条件の確認・書類作成・面接をサポート",
+    ],
+    cta: resolveNeedCta(slug, "registration", "経験と希望条件を無料で相談する", need),
+  };
+}
+
+/**
  * 総監の本文カード（ハイクラス DX・コンサル）の文言。文言は creative の公称ターゲティング（シニア技術者・管理職・DX/コンサル・
  * 無料相談）に限定し、未確認のブランド名・数値は記載しない（真実源: .claude/knowledge/reference/affiliate-operations.md）。
  */
@@ -243,4 +279,5 @@ export type ProgramAsset = {
 export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
   buildjob: { banner: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar", card: (slug, need) => resolveBuildJobCopy(slug, need) },
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
+  "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
 };

@@ -69,6 +69,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
 | `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 確認済みPNGを別端末へ渡す。制作時の書体が必要なため再生成を前提にしない |
+| `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
@@ -90,7 +91,8 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 マイドライブ/doboku-note/
 ├── README.md                    # 貼り紙。Drive を開いた人が最初に読む
 ├── 原資料PDF/                   # 原本と、その資料に由来する画像・OCR・校正
-│   ├── 白書/ 資格試験/           # 手で整えた既存
+│   ├── 白書/                     # white-paper-source-pdf（台帳あり）
+│   ├── 資格試験/                 # 手で整えた既存（台帳なし）
 │   ├── 書籍/{referenceId}__{短い書名}/
 │   │   ├── source/001.pdf        # 分冊も1冊の下へ集約
 │   │   ├── pages/p0001.jpg       # 書籍全体の通しページ

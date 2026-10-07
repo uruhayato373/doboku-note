@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-> **現状（2026-10-07）**: 下の増額キャンペーンと 9/1 の GKS 自動復帰は過去の話。2026-09-08 から通常条件の BuildJob（¥13,534・60 歳未満・30 日以内の面談・公開 EPC 319.52 円）へ集約し、GKS は 2026-09-28 で終了、建設JOBs の一般配置は停止。記事サイドバーは 2026-09-26 に撤去。A8 の成果は `data/a8/report-log.json`（`login-collectors` が週次で前月と当月を取る）、配置別のクリックは `data/analysis/career-funnel.json`。判定は EXP-008（2026-10-20）と affiliate-operations.md §6.5。
+> **現状（2026-10-07）**: 下の増額キャンペーンと 9/1 の GKS 自動復帰は過去の話。2026-09-08 から通常条件の BuildJob（¥13,534・60 歳未満・30 日以内の面談・公開 EPC 319.52 円）。GKS は 2026-09-28 で終了、記事サイドバーは 2026-09-26 に撤去。**2026-10-07 17:00 から**建設JOBs を 2級の学習ページ・資格トップで再開し（2級のキャリア記事は BuildJob のまま）、BuildJob を実務・公的基準の章末・トップ・ツール・コンクリート技士と RCCM の本文中間へ広げた（EXP-017・配置の真実源 `config/affiliate-placements.json`）。成果のページ帰属は A8 の成果別レポート（`/report/result`）の「リファラ」が正で、GA4 は配置判断の分母（affiliate-operations.md 裁定ログ 2026-10-07）。A8 の成果は `data/a8/report-log.json`（`login-collectors` が週次で前月と当月を取る）、配置別のクリックは `data/analysis/career-funnel.json`。判定は EXP-008（2026-10-20）・EXP-017 と affiliate-operations.md §6.5。
 
 ビルドジョブ（A8・建設転職エージェント・無料キャリア面談）の露出最大化施策（2026-07-06 実施）。**〜2026-08-31 は成果 ¥50,000/件の増額キャンペーン＝8週間の期限付き**。9/1（=8/31 15:00 UTC）に全 BuildJob 面が GKS へ自動復帰（SSG・ビルド時刻で確定）。
 

@@ -14,7 +14,7 @@ import { getMagazine, buildMagazineUrl } from "@/lib/note-magazines";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
-import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
+import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-creatives";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
@@ -281,6 +281,7 @@ function CardRow({
       href={href}
       target="_blank"
       rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(href)}
+      referrerPolicy={affiliate ? AFFILIATE_LINK_REFERRER_POLICY : undefined}
       data-cta={cta}
       data-cta-label={ctaLabel}
       data-cta-placement={PLACEMENT}

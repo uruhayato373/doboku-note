@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンクリート張工。割れ目の多い岩などで吹付けや枠工では安定が保てないのり面に、無筋または鉄筋のコンクリートを張る。吹付工ともたれ式擁壁の中間の働きを期待する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山 */
+      .rock   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：風化しやすい岩・土 */
+      .layer  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：保護工 */
+      .frame  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：枠材 */
+      .fill   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }     /* 中詰め */
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .pipe   { stroke: #2e6da4; stroke-width: 2.5; }
+    </style>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">コンクリート張工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">厚いコンクリートで、のり面を押さえる</text>
+  <polygon class="rock" points="16.0,320.0 60.0,320.0 300.0,110.0 384.0,110.0 384.0,360.0 16.0,360.0"/>
+  <polygon class="layer" points="60.0,320.0 300.0,110.0 280.2,87.4 40.2,297.4"/>
+  <line stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3" x1="114.9" y1="261.3" x2="137.5" y2="241.5"/>
+  <line stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3" x1="182.7" y1="202.0" x2="205.2" y2="182.3"/>
+  <line stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3" x1="242.9" y1="149.4" x2="265.5" y2="129.6"/>
+  <rect class="frame" x="30.0" y="317.3" width="50" height="30"/>
+  <line class="lead" x1="24" y1="99" x2="156" y2="99"/>
+  <line class="lead" x1="130.6" y1="218.4" x2="156" y2="99"/>
+  <text class="t-lab" x="24" y="96">無筋・鉄筋コンクリート</text>
+  <line class="lead" x1="205.2" y1="182.3" x2="328" y2="253"/>
+  <text class="t-lab" x="330" y="254">鉄筋</text>
+  <text class="t-note" x="240" y="300">割れ目の多い岩</text>
+  <rect class="box" x="16" y="380" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="418">使う場面</text>
+  <text class="t-lab" x="104" y="418">吹付けや枠工では安定が保てない岩</text>
+  <text class="t-key" x="30" y="444">働き</text>
+  <text class="t-lab" x="104" y="444">吹付工ともたれ式擁壁の中間</text>
+  <text class="t-key" x="30" y="470">あわせて</text>
+  <text class="t-lab" x="104" y="470">水抜き孔・目地を設ける</text>
+</svg>

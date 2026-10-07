@@ -2,6 +2,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import type { Metadata } from "next";
 import JukenShikakuClient from "./JukenShikakuClient";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 
@@ -46,6 +47,8 @@ export default function JukenShikakuPage() {
       />
 
       <JukenShikakuClient />
+      {/* 転職の案内（結果の下に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-inline" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

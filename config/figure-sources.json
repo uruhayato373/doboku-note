@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_comment": "図ソース台帳（SSOT）。資格(category slug)ごとに、記事図クロップの元素材の所在・種別・品質・再スキャン要否を1度記録する。build-figure-provenance.mjs が図の provenance を組むときに参照。図の実ソースを毎回手で辿らないための恒久記録。更新: content/sources/textbook 実体 + 図品質監査(sharpness) を根拠に随時。",
-  "_updated": "2026-09-12",
+  "_updated": "2026-10-07",
   "_fields": {
     "source_dir": "元素材のディレクトリ（content/sources/textbook 配下）",
     "source_kind": "pdf-vector(図がPDFにベクター/画像で入る) | pdf-textonly(問題PDFは図なしテキスト版) | scan-image(書籍スキャンpngのみ・PDF無し) | mixed",
@@ -16,46 +16,31 @@
       "figure": "civil-construction-1/primary-r04-b/img/r04-b-fig-02",
       "needs": "ok",
       "reason": "元PDF(R04第一次B p.5 No.6)から上枝含め再抽出＝作業B・D・イベント①を復元(737x366→1069x636)。旧判定『元図が見切れ・要ソース再取得』は誤りで、元PDFは鮮明ベクターで完全な図を保持。r05-b-fig-02と同一図。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R04/R04_第一次検定_問題B.pdf",
-      "page": 5,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-02",
       "needs": "ok",
       "reason": "R05第一次B p.5 No.6の図はR04と完全同一(設問のみF/4日差)。r04-b-fig-02と同じ再抽出クロップを適用し作業B・D復元。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
-      "page": 5,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-03",
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.7)からフル再抽出＝ネットワーク図。旧画像は上段枝と作業ラベルA-Fが欠落＋設問写り込み。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
-      "page": 7,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r07-b/img/r07-b-fig-02",
       "needs": "ok",
       "reason": "元PDF(R07第一次B p.5)からフル再抽出＝ネットワーク図。旧画像はノード③が上端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R07/R07_第一次検定_問題B.pdf",
-      "page": 5,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r06-b/img/r06-b-fig-02",
       "needs": "ok",
       "reason": "元PDF(R06第一次B p.5)からフル再抽出＝ネットワーク図。旧画像は上枝作業Dが上端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R06/R06_第一次検定_問題B.pdf",
-      "page": 5,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-comprehensive-management/r02-primary/img/i-1-6-cost-variance-diagram",
@@ -127,28 +112,19 @@
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝表3.51 ガス圧接継手の検査。旧画像は備考の2寸法図が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
-      "dpi": 300,
-      "page": 88
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-6",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図3.42 強度試験の合否判定。旧画像は判定条件(b)が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
-      "dpi": 300,
-      "page": 86
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-h28-a/img/h28-a-fig-01",
       "needs": "ok",
       "reason": "分野別問題集PDF(p.359)からフル再抽出＝図 粒径加積曲線。旧画像は上部目盛/ラベル/均等係数式/凡例が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
-      "page": 359,
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-48",
@@ -160,10 +136,7 @@
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-47",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.93 ペーパードレーン工法施工順序。旧画像はクレーン左端が欠落(作画は元教材準拠)。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300,
-      "page": 76
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-20",
@@ -337,27 +310,19 @@
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-32",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.83 U形溝縦排水溝。旧画像は寸法/勾配表が欠落(簡略再描画版を原典に置換)。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300,
-      "page": 67
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-23",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.74 モルタル吹付工。旧画像は下部(金網/アンカー)が見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300,
-      "page": 64
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-earthwork-basics/img/fig-2-31",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.82 道路法面と水の流れ。教材からフル再抽出。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-7",
@@ -417,18 +382,13 @@
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-6",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図3.22 床組みの打継目の位置。旧画像は下部断面が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
-      "dpi": 300,
-      "page": 53
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-concrete-basics/img/fig-3-17",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図3.33 束ねた鉄筋のあきおよびかぶり。教材からフル再抽出。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/textbook-crane/img/all-terrain-crane",
@@ -692,28 +652,19 @@
       "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-04",
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.8)からフル再抽出＝施工体制図。旧画像はE社断片のみで5社系統図が欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
-      "page": 8,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図2.4 施工フロー例2(カルバート)。旧画像は埋戻し工/キャプションが見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（施工管理・法規編）/第２章_施工計画.pdf",
-      "dpi": 300,
-      "page": 27
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-r01-b/img/r01-b-fig-02",
       "needs": "ok",
       "reason": "元PDF(R01第一次B p.3)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下端見切れで鉄筋記号・単位欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
-      "page": 3,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-h29-b/img/h29-b-fig-02",
@@ -725,37 +676,25 @@
       "figure": "civil-construction-1/primary-h27-b/img/h27-b-fig-02",
       "needs": "ok",
       "reason": "分野別問題集PDF(p.160)からフル再抽出＝ボックスカルバート配筋図4図。旧画像は側壁/断面図の下半分が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
-      "page": 160,
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-1",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.35 締固め曲線。旧画像は縦軸ラベルが見切れ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300,
-      "page": 39
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-h28-b/img/h28-b-fig-03",
       "needs": "ok",
       "reason": "分野別問題集PDF(p.170)からフル再抽出＝施工体制図(発注者→A→B/C→D/E)。旧画像は選択肢テキストのみの誤抽出だった。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
-      "page": 170,
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-h30-b/img/h30-b-fig-03",
       "needs": "ok",
       "reason": "元PDF(H30第一次B p.7)からフル再抽出＝施工体制図。旧画像は右下断片のみで組織図大部分が欠落。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/H30/H30_第一次検定_問題B.pdf",
-      "page": 7,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-h27-a/img/h27-a-fig-01",
@@ -767,82 +706,55 @@
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-5",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図3.6 スランプ試験。旧画像は下半分(測定/フロー試験)が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf",
-      "dpi": 300,
-      "page": 20
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-r03/img/i-11-culvert-section",
       "needs": "ok",
       "reason": "元PDF(p.10)からフル再抽出＝管渠断面図。旧画像は下半分(管渠円・基礎・寸法)が欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R03/R03_第二次検定.pdf",
-      "page": 10,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/secondary-quality-management-basics/img/fig-5-2",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図1.36 最適領域の説明。旧画像は凡例が欠落。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第１章_土工.pdf",
-      "dpi": 300,
-      "page": 40
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/primary-h26-a/img/h26-a-fig-06",
       "needs": "ok",
       "reason": "分野別問題集PDF(p.536)からフル再抽出＝図 スランプ10cm以下コンクリートの側圧(柱)。旧画像は左/上部(T=0-20曲線・0-120目盛)が欠落。並行workflow＋親の新旧比較QA。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
-      "page": 536,
-      "dpi": 300
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-r07/img/i-10-machinery-scene",
       "needs": "ok",
       "reason": "元PDF(p.10)からフル再抽出＝車両系機械作業図。旧画像は運転席左端と合図者足元が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R07/R07_第二次検定.pdf",
-      "page": 10,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/textbook-demolition/img/fig-6-2",
       "needs": "ok",
       "reason": "教材PDFからフル再抽出＝図6.2 ベースマシンに搭載した圧砕機。柱/行番号除去で再クロップ。並行workflow＋親目視QA(切れ/写り込み/余白確認)。再クロップ済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第６章_解体工事.pdf",
-      "dpi": 300,
-      "page": 2
+      "verified": "2026-07-10"
     },
     {
       "figure": "civil-construction-1/secondary-r06/img/i-8-shoring-section",
       "needs": "ok",
       "reason": "元PDF(p.9)からフル再抽出＝土留め支保工断面。旧画像は左右見切れ＋前問文写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R06/R06_第二次検定.pdf",
-      "page": 9,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r03-b/img/r03-b-fig-01",
       "needs": "ok",
       "reason": "元PDF(R03第一次B p.3)からフル再抽出＝L型擁壁配筋図4図。旧画像は断面図②D13が下端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R03/R03_第一次検定_問題B.pdf",
-      "page": 3,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-1/primary-r05-b/img/r05-b-fig-01",
       "needs": "ok",
       "reason": "元PDF(R05第一次B p.3)からフル再抽出＝擁壁配筋図4図。旧画像は断面図の鉄筋ラベル・寸法が下端見切れ。並行workflow抽出→親目視QA合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
-      "page": 3,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-2/primary-r06-kouki/img/q04-fig",
@@ -1058,19 +970,13 @@
       "figure": "civil-construction-2/primary-r07-zenki/img/q05-fig",
       "needs": "ok",
       "reason": "元PDF(p.6)からフル再抽出＝ベルヌーイの定理図。旧画像は下部キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
-      "page": 6,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "civil-construction-2/primary-r07-zenki/img/q02-fig",
       "needs": "ok",
       "reason": "元PDF(p.3)からフル再抽出＝3サウンディング試験図。旧画像は右端キャプションが見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
-      "page": 3,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-construction/ninaite-dx-ronbun-keyword/img/fig22",
@@ -1088,10 +994,7 @@
       "figure": "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve",
       "needs": "ok",
       "reason": "元PDF(p.17)からフル再抽出＝FN曲線+統計表(与件)。旧画像は図表見出しが欠落。設問選択肢は図の上にあり非混入。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/past-exams/技術士（総監）/H28/H28_試験問題_択一式.pdf",
-      "page": 17,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig04",
@@ -1103,55 +1006,37 @@
       "figure": "pe-first-stage/r01-construction/img/q17-fig",
       "needs": "ok",
       "reason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水面線・水槽ラベルが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R01/R01-建設.pdf",
-      "page": 11,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-first-stage/r02-basic/img/q34-fig",
       "needs": "ok",
       "reason": "元PDF(p.12)からフル再抽出＝△ABC・点P図。旧画像は頂点A上部が見切れ＋選択肢写り込み。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R02/R02-基礎.pdf",
-      "page": 12,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-first-stage/r05-construction/img/q17-fig",
       "needs": "ok",
       "reason": "元PDF(p.11)からフル再抽出＝水槽オリフィス図。旧画像は水槽上部と水面が見切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R05/R05-建設.pdf",
-      "page": 11,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-first-stage/r06-basic/img/q5-3-fig",
       "needs": "ok",
       "reason": "元PDF(p.19)からフル再抽出＝CO2排出量積み上げ棒グラフ。旧画像は右端凡例D/C/B/Aが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R06/R06-基礎.pdf",
-      "page": 19,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-first-stage/r07-basic/img/q36-fig",
       "needs": "ok",
       "reason": "元PDF(p.12)からフル再抽出＝平行導線・導体ab図。旧画像は右端の滑車と重りMが欠落。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R07/R07-基礎.pdf",
-      "page": 12,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-first-stage/r07-basic/img/q35-fig",
       "needs": "ok",
       "reason": "元PDF(p.11)からフル再抽出＝正四面体回路(a)(b)(c)。旧画像は入力矢印Iが途切れ。並行workflow抽出→親目視QA(余白タイト化・切れ確認)合格。再クロップ済 2026-07-09。",
-      "verified": "2026-07-09",
-      "source_pdf": "content/sources/textbook/技術士第一次試験/R07/R07-基礎.pdf",
-      "page": 11,
-      "dpi": 300
+      "verified": "2026-07-09"
     },
     {
       "figure": "pe-construction/shakai-shihon-ronbun-keyword/img/fig05",
@@ -1162,135 +1047,90 @@
     {
       "figure": "civil-construction-1/primary-h30-a/img/h30-a-fig-12",
       "needs": "ok",
-      "source_pdf": "content/sources/past-exams/１級土木施工管理技士/H30/H30_第一次検定_問題A.pdf",
-      "page": 5,
-      "dpi": 300,
       "reason": "図 側圧分布(イ)(ロ)(ハ)(ニ)。旧画像は【正解】(1)の答え漏らし＋No.11設問文写り込み＋4図が下端見切れの三重欠陥だった。元PDF(H30第一次A p.5)から4図のみをフル再抽出(設問文/選択肢/正解/トンボ除去)。再クロップ済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-materials/img/cement-r01-composition",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 14.pdf",
-      "page": 34,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 14.pdf・書籍p.34)からフル再抽出＝旧は指で左端隠れ+ボケ→5棒+凡例完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/bingham-flow-r01",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
-      "page": 64,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.64)からフル再抽出＝旧は縦軸ラベル・ア欠落+ボケ→全要素復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/creep-strain-r04",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
-      "page": 69,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.69)からフル再抽出＝旧は全体ボケ→載荷/除荷/数値鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
-      "page": 97,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.97)からフル再抽出＝旧は低解像度ボケ→①-④/全ラベル鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 15.pdf",
-      "page": 99,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 15.pdf・書籍p.99)からフル再抽出＝旧は左端欠け+黒帯+ボケ→表+図1図2完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-production-qc/img/normal-dist-r05",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
-      "page": 120,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.120)からフル再抽出＝旧は左端見切れ(ε斜線部)+ボケ→完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-r01",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
-      "page": 143,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.143)からフル再抽出＝旧はボケ+綴じ黒線→軸数値鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-r05",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 16.pdf",
-      "page": 136,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 16.pdf・書籍p.136)からフル再抽出＝旧は指写り込み+ボケ→除去・鮮明化。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/strength-dev-r02",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
-      "page": 148,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.148)からフル再抽出＝旧は指が左半分に大写り+ボケ→完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/marine-joint-r01",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
-      "page": 179,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.179)からフル再抽出＝旧はボケ→橋脚/打継目a-d/潮位鮮明。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/form-pressure-r02",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
-      "page": 153,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.153)からフル再抽出＝旧はボケ。新は5グラフ完全(設問見出し写り込みは白塗り除去)。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/temp-history-r02",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 17.pdf",
-      "page": 166,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 17.pdf・書籍p.166)からフル再抽出＝旧はほぼ判読不能→全要素鮮明(指影は白塗り除去)。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
-      "page": 199,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.199)からフル再抽出＝旧は指+ボケ+右端見切れ→5図完全。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03",
       "needs": "ok",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
-      "page": 196,
-      "dpi": 0,
       "reason": "高品質再スキャン(スキャンした書類 18.pdf・書籍p.196)からフル再抽出＝旧は(a)(b)のみ不鮮明→(a)-(d)全4図復元。並行workflow+親の新旧比較QA。差替済 2026-07-10。",
       "verified": "2026-07-10"
     },
@@ -1298,19 +1138,13 @@
       "figure": "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29",
       "needs": "ok",
       "reason": "追加再スキャン(年度別パート)からフル再抽出＝H29問7 含有炭素量-引張強さ/降伏点/伸びグラフ(A-C)。旧画像は横倒し+手書きの答え書込み(答え漏らし)+設問文/選択肢表混入→グラフのみ正立で抽出。親目視QA。差替済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 222,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/bingham-flow-h30",
       "needs": "ok",
       "reason": "追加再スキャン(年度別パート)からフル再抽出＝H30問7 ビンガム流体グラフ(A-D)。前回は項目別章のみ探索し年度別パートを見逃し→今回p206から抽出。旧画像は横倒し+設問文写り込み+ボケ。親目視QA。差替済 2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 18.pdf",
-      "page": 206,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/bingham-shear-r04",
@@ -1322,120 +1156,909 @@
       "figure": "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問3 表面水率試験の器具写真4点(ア-エ)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 220,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/creep-strain-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問13 クリープ試験の時間-ひずみグラフ(εa/εe/εs)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 225,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/form-pressure-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問22 柱型枠の側圧分布図(実線/点線・H1・Pmax)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 231,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問25 スラブ状マスコン断面図+温度応力分布候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 233,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/beam-design-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問28 RC梁の断面図+側面図(主筋①②・スターラップS)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 234,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問29 帯筋量の異なる4本のRC柱a-d+断面図。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 235,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H29問30 PC梁 図1(側面/断面・A点B点)+図2(荷重-載荷点変位①-⑤)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 2.pdf",
-      "page": 236,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-properties/img/strain-unload-h30",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問9 載荷-除荷の時間-ひずみ変化候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
-      "page": 208,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/pump-pressure-h30",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問14 図1配管状況+図2吐出量-管内圧力損失(スランプ別)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
-      "page": 211,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問19 配合の容積百分率 帯グラフ(一般+a-d)。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
-      "page": 213,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問21 岩盤上スラブ断面図+温度応力履歴候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
-      "page": 214,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30",
       "needs": "ok",
       "reason": "年度別過去問転記(H29/H30 未収録6分野+材料/性質)で新規クロップ＝H30問25 片持ち梁の引張主筋配置候補a-d。並列subagentクロップ+親の全数目視QA(答え情報なし・選択肢/指写り込みなし確認)。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 3.pdf",
-      "page": 216,
-      "dpi": 0
+      "verified": "2026-07-10"
     },
     {
       "figure": "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28",
       "needs": "ok",
       "reason": "H28 X̄管理図(A群〜D群)。管理図はデータそのもの＝答え漏らし無し・本文/選択肢の写り込み無しを親目視で確認。OCRが軸ラベル『UCL』を『UCL5。』と誤読し句点1つ→maybe(recrop-review)偽陽性化していたため ok で確定。2026-07-10。",
-      "verified": "2026-07-10",
-      "source_pdf": "content/sources/textbook/コンクリート主任技師2024/スキャンした書類 4.pdf",
-      "page": 0,
-      "dpi": 0
+      "verified": "2026-07-10"
     }
   ],
+  "provenance": {
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 536,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 538,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-11": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 548,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-12": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 549,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 44,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h27-b/img/h27-b-fig-02": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 160,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-01": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 359,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-03": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 362,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-05": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 374,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-06": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 374,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 379,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-08": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 379,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-11": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 394,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-12": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 403,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h28-b/img/h28-b-fig-03": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 170,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 271
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-04": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 272,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-05": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 285,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 200,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-12": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/H30/H30_第一次検定_問題A.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-h30-b/img/h30-b-fig-03": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/H30/H30_第一次検定_問題B.pdf",
+      "page": 7,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 112,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-02": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-03": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
+      "page": 7,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-04": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R01/R01_第一次検定_問題B.pdf",
+      "page": 8,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 21,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-02": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 22,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 33,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-08": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 34,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
+      "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "page": 36,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r03-b/img/r03-b-fig-01": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R03/R03_第一次検定_問題B.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r04-b/img/r04-b-fig-02": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R04/R04_第一次検定_問題B.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r05-b/img/r05-b-fig-01": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第一次検定_問題A.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r06-b/img/r06-b-fig-02": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第一次検定_問題B.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第一次検定_問題B.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 202,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-15": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 208,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-17": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-20": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 214,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-4": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 199,
+      "dpi": 600
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-6": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "page": 53,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 185,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 185,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 186,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 186,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-settlement-bleeding": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 185,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 261,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 267,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/002.pdf",
+      "page": 27,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 239,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-retaining-wall": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 84,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-1": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/001.pdf",
+      "page": 39,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-2": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/001.pdf",
+      "page": 40,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 311,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 314,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-5": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "page": 20,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-6": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "page": 86,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "page": 88,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 293,
+      "dpi": 600
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
+      "pdf": "vault:原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "page": 301,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-r03/img/i-11-culvert-section": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R03/R03_第二次検定.pdf",
+      "page": 10,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R06/R06_第二次検定.pdf",
+      "page": 9,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-r07/img/i-10-machinery-scene": {
+      "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R07/R07_第二次検定.pdf",
+      "page": 10,
+      "dpi": 300
+    },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/001.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-2": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/006.pdf",
+      "page": 2,
+      "dpi": 300
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-4": {
+      "pdf": "vault:原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/006.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r03-kouki/img/q43-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf",
+      "page": 15,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r03-kouki/img/q45-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf",
+      "page": 16,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r03-kouki/img/q60-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R03/R03_第一次検定_後期.pdf",
+      "page": 23,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r05-kouki/img/q45-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_後期.pdf",
+      "page": 16,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r05-kouki/img/q57-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_後期.pdf",
+      "page": 21,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r05-zenki/img/q57-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R05/R05_第一次検定_前期.pdf",
+      "page": 22,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r06-kouki/img/q02-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_後期.pdf",
+      "page": 2,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r06-kouki/img/q50-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_後期.pdf",
+      "page": 20,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r06-zenki/img/q01-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_前期.pdf",
+      "page": 2,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r06-zenki/img/q50-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第一次検定_前期.pdf",
+      "page": 19,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-kouki/img/q3-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_後期.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-kouki/img/q4-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_後期.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-kouki/img/q50-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_後期.pdf",
+      "page": 19,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-zenki/img/q02-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-zenki/img/q04-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
+      "page": 5,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-zenki/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
+      "page": 6,
+      "dpi": 300
+    },
+    "civil-construction-2/primary-r07-zenki/img/q50-fig": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
+      "page": 21,
+      "dpi": 300
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 231,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-r02": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 153,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/marine-joint-r01": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 179,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 233,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 214,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 211,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-r01": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 143,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-r05": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 136,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/strength-dev-r02": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 148,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-construction/img/temp-history-r02": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 17.pdf",
+      "page": 166,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-materials/img/cement-r01-composition": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 14.pdf",
+      "page": 34,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 220,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 222,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 213,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 97,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 99,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-production-qc/img/normal-dist-r05": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 16.pdf",
+      "page": 120,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 4.pdf",
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 206,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-r01": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 64,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-properties/img/creep-strain-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 225,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-properties/img/creep-strain-r04": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 15.pdf",
+      "page": 69,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-properties/img/strain-unload-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 208,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/beam-design-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 234,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+      "page": 216,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 235,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 199,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 18.pdf",
+      "page": 196,
+      "dpi": 0
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29": {
+      "pdf": "vault:原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+      "page": 236,
+      "dpi": 0
+    },
+    "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
+      "pdf": "vault:原資料PDF/過去問/技術士（総監）/H21/H21_試験問題_択一式.pdf",
+      "page": 13,
+      "dpi": 300
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve": {
+      "pdf": "vault:原資料PDF/過去問/技術士（総監）/H28/H28_試験問題_択一式.pdf",
+      "page": 17,
+      "dpi": 300
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
+      "pdf": "vault:原資料PDF/過去問/技術士（総監）/H28/H28_試験問題_択一式.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-30-risk-mgmt-flowchart": {
+      "pdf": "vault:原資料PDF/過去問/技術士（総監）/R01/R01_試験問題_択一式.pdf",
+      "page": 18,
+      "dpi": 300
+    },
+    "pe-comprehensive-management/r06-primary/img/i-1-31-system-diagram": {
+      "pdf": "vault:原資料PDF/過去問/技術士（総監）/R06/R06_試験問題_択一式.pdf",
+      "page": 20,
+      "dpi": 300
+    },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/004.pdf",
+      "page": 3
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0263.jpg",
+      "page": 263
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
+      "page": 20
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig26": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
+      "page": 20
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
+      "page": 5
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
+      "page": 9
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
+      "pdf": "vault:原資料PDF/白書/国土交通白書（令和７年度）関連データ集.pdf",
+      "page": 6,
+      "dpi": 300
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+      "page": 20
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig19": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+      "page": 20
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+      "page": 20
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig21": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+      "page": 21
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
+      "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0013.jpg",
+      "page": 13
+    },
+    "pe-first-stage/h26-basic/img/q21-source": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H26/H26_基礎科目.pdf",
+      "page": 5,
+      "dpi": 400
+    },
+    "pe-first-stage/h27-construction/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H27/H27_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 400
+    },
+    "pe-first-stage/h28-basic/img/q08-table": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H28/H28_基礎科目.pdf",
+      "page": 8,
+      "dpi": 600
+    },
+    "pe-first-stage/h29-basic/img/q-I3-4": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_基礎科目.pdf",
+      "page": 12,
+      "dpi": 300
+    },
+    "pe-first-stage/h29-basic/img/q-I3-5": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_基礎科目.pdf",
+      "page": 13,
+      "dpi": 300
+    },
+    "pe-first-stage/h29-basic/img/q-I3-6": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_基礎科目.pdf",
+      "page": 14,
+      "dpi": 400
+    },
+    "pe-first-stage/h29-construction/img/q03-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+      "page": 2,
+      "dpi": 300
+    },
+    "pe-first-stage/h29-construction/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "pe-first-stage/h29-construction/img/q07-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/h29-construction/img/q17-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H29/H29_専門_09建設部門.pdf",
+      "page": 9,
+      "dpi": 300
+    },
+    "pe-first-stage/h30-basic/img/q-I2-2": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_基礎科目.pdf",
+      "page": 7,
+      "dpi": 300
+    },
+    "pe-first-stage/h30-construction/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_専門_09建設部門.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "pe-first-stage/h30-construction/img/q19-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H30/H30_専門_09建設部門.pdf",
+      "page": 9,
+      "dpi": 300
+    },
+    "pe-first-stage/r01-construction/img/q01-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R01/R01_専門_09建設部門.pdf",
+      "page": 1,
+      "dpi": 300
+    },
+    "pe-first-stage/r01-construction/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R01/R01_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/r01-construction/img/q17-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R01/R01-建設.pdf",
+      "page": 11,
+      "dpi": 300
+    },
+    "pe-first-stage/r02-basic/img/q34-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R02/R02-基礎.pdf",
+      "page": 12,
+      "dpi": 300
+    },
+    "pe-first-stage/r02-construction/img/q6-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R02/R02_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/r05-aptitude/img/q08-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R05/R05_適性科目.pdf",
+      "page": 8,
+      "dpi": 300
+    },
+    "pe-first-stage/r05-basic/img/q112-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R05/R05_基礎科目.pdf",
+      "page": 2,
+      "dpi": 300
+    },
+    "pe-first-stage/r05-construction/img/q17-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R05/R05-建設.pdf",
+      "page": 11,
+      "dpi": 300
+    },
+    "pe-first-stage/r06-aptitude/img/q12-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_適性科目.pdf",
+      "page": 12,
+      "dpi": 400
+    },
+    "pe-first-stage/r06-basic/img/q3-3-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_基礎科目.pdf",
+      "page": 11,
+      "dpi": 300
+    },
+    "pe-first-stage/r06-basic/img/q5-3-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R06/R06-基礎.pdf",
+      "page": 19,
+      "dpi": 300
+    },
+    "pe-first-stage/r06-construction/img/q17-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R06/R06_専門_09建設部門.pdf",
+      "page": 9,
+      "dpi": 400
+    },
+    "pe-first-stage/r07-basic/img/q33-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_基礎科目.pdf",
+      "page": 9,
+      "dpi": 300
+    },
+    "pe-first-stage/r07-basic/img/q35-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R07/R07-基礎.pdf",
+      "page": 11,
+      "dpi": 300
+    },
+    "pe-first-stage/r07-basic/img/q36-fig": {
+      "pdf": "vault:原資料PDF/教材/技術士第一次試験/R07/R07-基礎.pdf",
+      "page": 12,
+      "dpi": 300
+    },
+    "pe-first-stage/r07-construction/img/q01-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+      "page": 1,
+      "dpi": 200
+    },
+    "pe-first-stage/r07-construction/img/q05-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+      "page": 3,
+      "dpi": 300
+    },
+    "pe-first-stage/r07-construction/img/q06-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+      "page": 4,
+      "dpi": 300
+    },
+    "pe-first-stage/r07-construction/img/q17-fig": {
+      "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
+      "page": 10,
+      "dpi": 200
+    },
+    "surveyor/primary-r05/img/q07-fig": {
+      "pdf": "vault:原資料PDF/過去問/測量士補/R05/R05_問題.pdf",
+      "page": 8,
+      "dpi": 300
+    },
+    "surveyor/primary-r07/img/q07-fig": {
+      "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
+      "page": 8,
+      "dpi": 300
+    },
+    "surveyor/primary-r07/img/q13-fig": {
+      "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
+      "page": 14,
+      "dpi": 300
+    },
+    "surveyor/primary-r07/img/q21-fig": {
+      "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題2.pdf",
+      "page": 6,
+      "dpi": 300
+    },
+    "surveyor/primary-r08/img/q27-fig": {
+      "pdf": "vault:原資料PDF/過去問/測量士補/R08/R08_問題.pdf",
+      "page": 29,
+      "dpi": 300
+    }
+  },
   "categories": {
     "civil-construction-1": {
       "source_dir": "content/sources/textbook/１級土木施工管理技士",
@@ -1443,7 +2066,11 @@
       "figure_origin": "answer-booklet",
       "quality": "print-clean",
       "rescannable": "needs-source",
-      "note": "過去問1次の図は問題PDF(過去問/{年}/問題A・B)に無い(図なしテキスト版=DHP-A.smd)。図は別の解答・解説資料由来で未特定・リポ未収録。textbook(土木一般編/施工管理編)章PDFには図あり。過半は写り込み(recrop)で対応可＝画質は概ね鮮明。"
+      "scanReferences": [
+        "civil1-primary-workbook-2021",
+        "civil1-secondary-workbook-2021"
+      ],
+      "note": "過去問1次の図は、H30 以降は公式の問題 PDF（原資料PDF/過去問/１級土木施工管理技士/{年度}/）から、公式 PDF に図が無い H26〜H29 は一次問題解説集2021（civil1-primary-workbook-2021）のスキャンから切り出す。二次の過去問の図は二次問題解説集2021（civil1-secondary-workbook-2021）から。どちらも試験の図を写した媒体で、試験ページでない記事へ書籍の図を流用しない（commercial-book は figureReuse: false）。2026-10-07 に図クロップ品質ループで出典を判定台帳へ記録済み。"
     },
     "civil-construction-2": {
       "source_dir": "content/sources/textbook/２級土木施工管理技士",

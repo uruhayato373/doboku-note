@@ -247,6 +247,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0573] note の建設部門もくじ（6 本）と pack-top（3 本）の導線ずれを公開記事へ反映する
+タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 2026-10-07 にコンテンツ台帳の導線照合（`node scripts/build-content-ledger.mjs --refresh-cta`）を回すと、ココナラ以外の導線にずれが 9 本残っていた。建設部門もくじ（`pe-construction-mokuji`・リンク先 n7279ca0d926f）が公開記事に出ていない 6 本（BK-03 都市計画 R06 II-2、BK-09 電力土木 R08 予想 II-1・II-2、BK-10 鉄道 R08 予想 II-1・II-2・III）、`pack-top` の順番違い 2 本（RCCM 問題I テンプレ・RCCM 問題II-IV 論点集）、`pack-top` の位置違い 1 本（技術士建設部門 河川海岸の論文キーワード）。
+
+**やること**: 管理画面のコンテンツ台帳で状態「導線ずれ」に絞って 9 本を確かめ、原稿が正しいかを見てから公開記事へ反映する。有料記事は全文置換を使わず `note-update-partial` か `note-append-cta --keep-boundary` で有料境界を動かさない。反映直後は `--refresh-cta` で照合し直す。
+
+**完了条件**: `--refresh-cta` 後の台帳で `pe-construction-mokuji` と `pack-top` のずれが 0。
+
+
 ### [DN-0568] note のログイン確認が一度失敗しただけで、週次のマガジンのカバー登録が残り全部止まる
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
 
@@ -290,45 +300,6 @@
 
 **完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
 
-### [DN-0563] 記事と原典の結線を config で引けるようにする（sources の宣言もれ 18 件・切り出し直しの候補 PDF・書籍の印字ページ）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07 に土工の基礎を照合したとき、どの書籍から作った記事かを引けず、1級土木の書籍 4 冊の OCR を grep して特定した。引けない理由は 4 つある。
-- **sources の宣言もれ**: 判定台帳では 20 組の「記事×書籍」で図を切り出しているが、うち 18 組は記事の `sources:` に書籍が無い。
-  - `secondary-{concrete,construction-plan,earthwork,quality-management}-basics` は `sources:` 自体が無い。
-  - 過去問 `primary-h26-a`〜`r02-a`・`secondary-*-past-problems` は `cecc-past-exams` だけで、図の出典の問題解説集が無い。
-  - `pe-construction/*-ronbun-keyword` 5 本には `pe-construction-keyword-book` が無い。
-- **候補 PDF を引かない**: `scripts/figure-review-queue.mjs` の `sourceRoots()` は vault の固定 3 フォルダを渡すだけ。記事の `sources:` →  `config/reference-sources.json`（vaultDir・renderProfile.rotation・transcriptDir）を引かないので、worker は毎回 pdftotext で原典を探す。
-- **印字ページが空**: 書籍台帳 `content/sources/books/*/book-manifest.json` の `printedPage` は 324 頁すべて null（OCR には `<!-- p0122 印字:114 -->` がある）。
-- **図の登録先が空**: 同じ台帳の `crops` も空。
-
-**やること**:
-1. 上の 18 組を `sources:` に足す。先に、`class: commercial-book`・`access: internal-only` の文献が記事の参考文献として表示されるかを確かめ、表示されるなら非表示にする扱いを決める。
-2. 「図の出典の書籍が記事の `sources:` に無い」を止める検査を作る（判定台帳と frontmatter を突き合わせる）。
-3. queue の reextract 項目に、記事の `sources:` から引いた候補（PDF の実パス・回転・OCR の場所）を入れる。固定の roots はその後ろの予備にする。
-4. 書籍台帳の生成処理で、`printedPage` を OCR のページ印から埋める。
-5. 書籍の図の切り出しを `crops` に登録するかを、DN-0555（出典の正本）と合わせて決める。
-
-**完了条件**: 検査が「記事×書籍」の対象数を出し、宣言もれ 0 件。queue の reextract 項目に候補 PDF と回転が出る。書籍台帳の `printedPage` が埋まっている。
-
-### [DN-0564] Drive の原資料PDF/白書（33 件）を台帳・参考文献・原典探索につなぐ
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-06、figure-crop-worker が国土交通白書の関連データ集 PDF をネットから無断で取得した（DN-0558）。Drive vault には `原資料PDF/白書/`（`国土交通白書（令和７年度）.pdf` ほか 33 件）があるのに、3 か所ともつながっていなかった。
-- `config/drive-vault.json` に白書の group が無く、台帳登録・sha256・復元経路が無い。
-- `config/reference-sources.json` の `mlit-white-paper` は `origin.kind: external`（URL だけ）で、vault の写しを指さない。
-- `scripts/figure-review-queue.mjs` の `sourceRoots()` は `原資料PDF/{過去問,教材,書籍}` に固定で、`白書`・`共通仕様書`・`資格試験` を探さない。
-
-fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳の出典は URL のままで、使った PDF はどこにも保存されておらず、作り直せない。
-
-**やること**:
-1. `drive-vault.json` に白書の group（audience: human）を足し、33 件を台帳へ登録する（sha256・復元確認は asset-storage-policy.md の手順）。
-2. `reference-sources.json` の白書系の文献に、年度版ごとの vault のパスを足す。URL は公開元として残す。
-3. `sourceRoots()` を `drive-vault.json` の原資料系 group から導き、固定のフォルダ一覧をやめる。
-4. fig15 に使った関連データ集 PDF を、運営者の了解を得て vault の `白書/` に置き、台帳の出典を `vault:` 相対に直す。
-
-**完了条件**: `白書/` の全件が台帳に載り sha256 で照合済み。queue の原典候補に白書が出る。fig15 の出典が `vault:` 相対になっている。
-
 ### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
 タグ: [インフラ・計測] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
@@ -355,22 +326,32 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
 
 **完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
-### [DN-0555] 図の切り出し直しを記録から再現できるようにし、図の出典を 1 か所にまとめる
+### [DN-0570] 図の切り出し直しを、記録（切り出し枠・回転）から同じ画像に作り直せるようにする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
-**起点**: 2026-10-06〜07 の図クロップ品質ループで、117 枚を元 PDF から切り出し直した。
-- 判定台帳 `.claude/state/quality/figure-review-ledger.json` に残るのは出典（`vault:` 相対の PDF・ページ・dpi）だけ。切り出し枠（cropBox）・回転・余白・減色は残らない。書籍スキャンには 180° 逆さのページもあり、同じ画像を作り直せない。
-- 出典は `config/figure-sources.json` の `manual_needs`（203 件、うち `source_pdf` 付き 69 件）にもあり、二重管理になっている。
-- `scripts/figure-review-queue.mjs` の `manualSourceOf` は config 側しか読まない。台帳に記録した出典は、次の切り出し直しに使われない。
-- 台帳は datasets 台帳（`scripts/lib/datasets.mjs`）に無く、型（zod）も無い。
+**起点**: 図ごとの出典は 2026-10-07（PR #914）に `config/figure-sources.json` の `provenance`（186 件）へ一本化した。ただし残るのは原典の PDF・ページ・dpi だけで、切り出し枠（cropBox）・回転（書籍スキャンは 180° 逆さのページがある）・余白・減色は残らない。そのため、同じ画像を作り直せない。
 
 **やること**:
-1. 出典の正本を 1 つに決める（置き場は information-architecture.md と datasets の規約に従う）。第一案は、図の素材の事実である出典を `config.figure-sources` に寄せ、目視判定の履歴は台帳に残す形。重複を移して片方を消し、`manualSourceOf` と record が正本を読み書きするようにする。
-2. record が worker の結果から `cropBox`・`rotate`・`dpi`・後処理（減色・点の除去）を残すようにする。
-3. `scripts/figure-reextract.mjs <figKey>` を作り、記録から画像を作り直す。配信中の画像と同じ寸法で、画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立として exit 2 にする。
-4. 置き場を変えたら datasets 台帳に宣言して型を付け、`npm run check-datasets` を通す。
+1. record が worker の結果から `cropBox`・`rotate`・後処理（減色・点の除去）を `provenance` に残すようにする（型を足す）。
+2. `scripts/figure-reextract.mjs <figKey>` で記録から画像を作り直し、配信中の画像と同じ寸法・画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立で exit 2 にする。
 
-**完了条件**: 切り出し直した図の出典が 1 か所だけにある。`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。`npm run check-datasets` が通る。
+**完了条件**: 新しく切り出し直した図は `provenance` に枠と回転があり、`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。
+
+### [DN-0571] 市販書籍から試験ページ以外の記事へ流用している図（判定済み 41 枚）を、自作の図に置き換える
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
+
+**起点**: 参考文献台帳では、市販書籍（`commercial-book`）は図の流用不可（`figureReuse: false`）。画像方針でも「他社書籍・教材のスキャン」は禁止ソースになっている。それでも、次の記事には市販の問題解説集・テキストのスキャン図が載っている。
+- 1級土木 二次の `secondary-{concrete,construction-plan,earthwork,quality-management}-basics`（4 本で画像 113 枚、うち出典を確かめた図 38 枚）
+- `textbook-demolition`・`textbook-construction-mgmt-overview`
+
+2026-10-07（PR #914）に `check-reference-sources` が検出するようにした。出典を確かめた 41 枚は `.claude/config/reference-sources-baseline.json` の `figureReuseDebt` に載せてあり、増えれば FAIL になる。図クロップ品質ループはこれらを切り出し直さない。2026-10-06 のループでは、そうと知らずに 図2.41・2.42 などを書籍から切り出し直していた。
+
+**やること**:
+1. 運営者の決定（2026-10-07）: **自作の図に置き換える**。画像生成が要る図は Codex を使ってよい。描き直しは書籍の図を写さず、本文の論点から独自に構成する（図の配置・ラベルも原典をなぞらない）。SVG 図版の規約（design-system.md・4:5 キャンバス）に従い、`svg-figure-auditor` で検査する。前例は 2026-07-31 のコンクリート診断士で、原典図 25 枚を自作図へ置き換えた（reference-sources-policy.md §5）。
+2. 置き換え・削除した図は、`figureReuseDebt` と `provenance` から外す。
+3. 4 本の「基礎」記事の出典未確認のスキャン図（約 75 枚）も、同じ書籍由来かを確かめて同じ扱いにする。
+
+**完了条件**: `figureReuseDebt` が 0 件。4 本の「基礎」記事に市販書籍のスキャン図が残っていない。
 
 ### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
@@ -417,7 +398,7 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
    - 同じ図番号が 2 回出ていないか
    - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
 2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
-3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。画像が違う図は `/figure-quality-loop` の reextract 段で切り出し直す。
+3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。市販書籍（流用不可）の図は切り出し直さない（DN-0571 で自作の図に置き換える）。図番号・alt・本文の参照のずれだけを直す。
 4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
 
 **完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
@@ -1056,16 +1037,6 @@ fig15（`pe-construction/ninaite-dx-ronbun-keyword/img/fig15`）の判定台帳�
 **完了条件**: 上の比較を 1 回行い、18 本を再公開した（`check-note-republish` の drift から消えた）か、再公開しないと決めて本カードを削除した。
 
 
-### [DN-0268] 土木の有料 note 記事末尾の合格ラボ添削 CTA の横に、ココナラ単発添削の案内を並べるか決めて配線する
-タグ: [収益化] [領域:商品] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-23]
-
-**起点**: 2026-09-23 に「添削はココナラ（単発）と合格ラボ（毎週）の両方を維持し、note から導線を置く」とユーザーが決め、無料記事3本と土木もくじに導線を置いた（ココナラ展開キット.md §2 決定ログ）。一方、土木二次の有料記事は `wire-note-paid-cta.mjs` が末尾（有料域）に合格ラボの添削 CTA を置いており、「答案を書き換えた直後に第三者の目がほしい」購入者に最も近い位置だが、ココナラの単発添削は並んでいない。公開中の有料記事は約250本あり、全文置換での反映は有料境界の事故の実績がある（reference: note 有料境界の事故）。
-
-**やること**: まず有料記事の購入者の多いマガジンに絞るか全件かを決める。配線は `wire-note-paid-cta.mjs` の会員 CTA ブロックへココナラの一文とカードを足す形にし、ライブ反映は `note-update-partial` の insertAfter で有料境界を動かさずに行う（全文置換は使わない）。
-
-**完了条件**: 対象記事の原稿と公開記事の両方にココナラの案内があり、`node scripts/wire-note-paid-cta.mjs --check` が通る。反映後30日のココナラ添削・診断の閲覧と注文を kpi.json で読む（欠測は0と扱わない）。
-
-**進捗（2026-09-28）**: 置き場所は末尾ではなく冒頭（最初の見出しの直前・無料部分）に決めた（オーナー判断）。マーカー `<!-- cta:coconala-custom -->`・2 段（添削カード＋骨子カード）。原稿は 1級 有料答案 139 本（添削 4317375・骨子 4317796）と 2級 有料答案 69 本（添削 4418775・骨子 4418781）に反映済み。公開記事は 1級 111 本を一括更新中（`.tmp/run-coconala-cta.mjs`）、2級 61 本は未反映。完了条件の `wire-note-paid-cta.mjs --check` は末尾 CTA 用なので、冒頭導線の確認は公開 API で両 URL の有無と順番を見る。
 
 ### [DN-0239] 日本語校正（textlint + prh）の偽陽性ゼロを2週間観察する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-17]
@@ -1484,6 +1455,16 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]
+
+**起点**: DN-0268 で、1級・2級土木の有料答案と無料の解説記事の冒頭（最初の見出しの直前・無料部分）に、ココナラの「添削」と「骨子」への 2 段の導線を置いた。2026-10-07 にコンテンツ台帳の導線照合で `coconala-custom` が 345 本すべて ok になり、原稿と公開記事がそろった（最後の 1 本 n1a0cef1de78b は切れたリンクを全文置換で直した）。
+
+**やること**: 反映がそろった 2026-10-07 から 30 日の、ココナラの添削・骨子・診断の閲覧と注文を、反映前の 30 日と並べて読む（`npm run coconala-analytics` が週次で書く `data/coconala/kpi.json`）。note 側の流入元が分かるならそれも見る。欠測は 0 と扱わない。
+
+**完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
+
 
 
 

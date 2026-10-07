@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="押え盛土工法の断面。本体盛土の両側の足もとに低い押え盛土を置き、その重さで軟弱層のすべりに抵抗する。押え盛土は本体盛土より先か同時に施工し、用地と土砂が余分に要る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soft  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn：軟弱層 */
+      .base  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：支持層 */
+      .emb   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：本体盛土 */
+      .berm  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive：押え盛土 */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .arrow { stroke: #3a7d44; stroke-width: 2.5; fill: none; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="om-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">押え盛土工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">足もとに重さを置いて、すべりに抵抗させる</text>
+
+  <!-- 地盤 -->
+  <rect class="soft" x="16" y="250" width="368" height="90"/>
+  <rect class="base" x="16" y="340" width="368" height="34"/>
+  <text class="t-lab" x="28" y="272">軟弱層</text>
+  <text class="t-note" x="28" y="362">支持層</text>
+
+  <!-- 押え盛土（両側の低い盛土） -->
+  <polygon class="berm" points="30,250 58,222 120,222 132,250"/>
+  <polygon class="berm" points="268,250 280,222 342,222 370,250"/>
+  <!-- 本体盛土 -->
+  <polygon class="emb" points="120,250 172,130 228,130 280,250"/>
+
+  <text class="t-key" x="200" y="196" text-anchor="middle">本体盛土</text>
+  <text class="t-key" x="78" y="244" text-anchor="middle" style="fill:#3a7d44">押え盛土</text>
+  <text class="t-key" x="322" y="244" text-anchor="middle" style="fill:#3a7d44">押え盛土</text>
+
+  <!-- 想定すべり面（本体盛土の右のり先から軟弱層をくぐる円弧） -->
+  <path class="slip" d="M 236 132 C 246 330, 344 336, 372 250"/>
+  <text class="t-warn" x="300" y="324" text-anchor="middle">想定すべり面</text>
+
+  <!-- 押え盛土の重さが抵抗する向き -->
+  <line class="arrow" x1="322" y1="184" x2="322" y2="216" marker-end="url(#om-a)"/>
+  <line class="arrow" x1="78" y1="184" x2="78" y2="216" marker-end="url(#om-a)"/>
+  <text class="t-note" x="322" y="176" text-anchor="middle">重さで押さえる</text>
+  <text class="t-note" x="78" y="176" text-anchor="middle">重さで押さえる</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">効く場面</text>
+  <text class="t-lab" x="104" y="416">軟弱層が厚く、支持力が大きく足りない</text>
+  <text class="t-key" x="30" y="442">施工順序</text>
+  <text class="t-lab" x="104" y="442">押え盛土は本体盛土より先か、同時に</text>
+  <text class="t-warn" x="30" y="468">注意</text>
+  <text class="t-lab" x="104" y="468">用地と土砂が余分に要る</text>
+</svg>

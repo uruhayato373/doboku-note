@@ -63,6 +63,8 @@ export default function AnalyticsProvider() {
       "qualification-bridge": "qualification-bridge",
     };
     const onClick = (e: MouseEvent) => {
+      // 中クリック（新しいタブで開く）は click ではなく auxclick だけが飛ぶ。右ボタン等は数えない。
+      if (e.type === "auxclick" && e.button !== 1) return;
       const start = e.target as Element | null;
       // 実リンク（<a>）のクリックのみ計上（root に data-cta を付けた nav で見出しクリックを除外）。
       const anchor = start?.closest?.("a") as HTMLAnchorElement | null;
@@ -85,8 +87,14 @@ export default function AnalyticsProvider() {
       });
     };
     // capture フェーズ: 子要素が stopPropagation しても確実に拾う。
+    // auxclick: PC で中クリックして開いたリンクは click が飛ばず GA4 に残らない。2026-10-05 のビルドジョブ成果は
+    // A8 にクリックがあるのに GA4 では 0 件で、その取りこぼし経路の 1 つ（measurement-incidents.md 2026-10-07）。
     document.addEventListener("click", onClick, { capture: true });
-    return () => document.removeEventListener("click", onClick, { capture: true });
+    document.addEventListener("auxclick", onClick, { capture: true });
+    return () => {
+      document.removeEventListener("click", onClick, { capture: true });
+      document.removeEventListener("auxclick", onClick, { capture: true });
+    };
   }, []);
 
   // 過去問ページの「解答・解説」（MDX の素の <details>）を開いた回数（2026-10-02 新設）。

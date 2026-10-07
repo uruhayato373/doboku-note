@@ -28,8 +28,9 @@ domain: site
 | `mdx` | 図を載せている記事 MDX（**読むだけ**。設問・本文の文脈と図番号の確認用） |
 | `signals` | 機械の兆候。`EDGE_CUT(side)`＝その縁で線が切れている疑い／`STRAY_SLIVER`・`STRAY_LABEL`＝縁の離れ島／`recrop*`＝OCR が拾った写り込み。**疑う場所の手がかりで、判定は必ず目視で行う** |
 | `whyCut`（reextract のみ） | review で切れていると判定した理由 |
-| `manualSource`（reextract のみ） | 過去に記録された出典 `{pdf, page, dpi}`（あれば最優先。パスが古ければ `sourceRoots` 配下で同名ファイルを探す） |
-| `sourceRoots`（reextract のみ） | 元 PDF を探す場所（Drive vault の `原資料PDF/過去問`・`教材`・`書籍` とリポジトリの `content/sources/past-exams`） |
+| `recordedSource`（reextract のみ） | 記録済みの出典 `{pdf, page, dpi}`（正本は `config/figure-sources.json` の `provenance`。あれば最優先） |
+| `sourceCandidates`（reextract のみ） | 記事の `sources:` から引いた原典候補。各候補に PDF の実パス（`files`）・ページの向き（`rotation`・度）・文字起こしの場所（`ocrDir`）・公開元（`url`） |
+| `sourceRoots`（reextract のみ） | 候補で見つからないときだけ探す場所（Drive 台帳の原資料系 group＝`原資料PDF/` の過去問・教材・書籍・共通仕様書・白書 と、リポジトリの `content/sources/past-exams`） |
 
 全コマンドはリポジトリルートで実行する（`cd "$(git rev-parse --show-toplevel)"`）。パスは相対で渡す（sharp は相対パスで扱う）。
 
@@ -110,14 +111,15 @@ cd "$(git rev-parse --show-toplevel)" && magick REL.jpg -crop WIDTHxHEIGHT+L+T +
 `img` を Read し、`whyCut` と `mdx` の該当箇所（図の前後の設問文・本文・図の alt）を読んで、**何が欠けているか**（どの縁の何が切れているか）と、図が載っている設問（年度・問題番号）を特定する。
 
 ### Step 2: 元 PDF とページを特定する
-1. `manualSource` があればそれを使う（パスが無ければ `sourceRoots` 配下で同名ファイルを `find`）。
-2. 無ければ `sourceRoots` を資格名・年度で絞って候補 PDF を挙げる（例: 1級土木 H30 以降＝`原資料PDF/過去問/１級土木施工管理技士/H30/`、H26〜H29 は問題PDFに図が無いので `原資料PDF/書籍/civil1-primary-workbook-*` の問題集、技術士第一次＝`原資料PDF/過去問/技術士（第一次）/`）。
-3. `pdftotext -layout CAND.pdf -` で設問文・図中ラベルの語を grep し、`awk -v RS='\f' '/語/{print NR}'` でページ番号を得る。
-4. `pdftoppm -r 300 -f P -l P -png CAND.pdf $W/page` でページを画像化して Read し、**今の画像と同じ図**であることを目で確かめる（別年度・別設問の似た図を掴まない）。
+1. `recordedSource` があればそれを使う。
+2. 無ければ `sourceCandidates` の `files` から探す。書籍は `ocrDir` の文字起こしを図番号（例「図2.41」）で grep すると、ページ冒頭の `<!-- p0122 印字:114 -->` で PDF のページが分かる。`rotation` が 180 なら描画後に回す。
+3. 候補で見つからなければ `sourceRoots` を資格名・年度で絞って候補 PDF を挙げる（例: 1級土木 H30 以降＝`原資料PDF/過去問/１級土木施工管理技士/H30/`、H26〜H29 は問題PDFに図が無いので `原資料PDF/書籍/civil1-primary-workbook-*` の問題集、技術士第一次＝`原資料PDF/過去問/技術士（第一次）/`）。
+4. `pdftotext -layout CAND.pdf -` で設問文・図中ラベルの語を grep し、`awk -v RS='\f' '/語/{print NR}'` でページ番号を得る。
+5. `pdftoppm -r 300 -f P -l P -png CAND.pdf $W/page` でページを画像化して Read し、**今の画像と同じ図**であることを目で確かめる（別年度・別設問の似た図を掴まない）。
 
 PDF が見つからない・ページが特定できない・図がベクターで無くテキスト版しか無い場合は `action='source-unavailable'` を返す（ファイルは変更しない）。Drive の cloud-only ファイルは初回読み込みに時間がかかる。
 
-原典は `sourceRoots` の中だけで探す。`curl`・`wget` などでネットから取得しない（ファイルのダウンロードは運営者の了解が要る。2026-10-06 に白書の PDF を無断で取得した）。手元に無ければ `source-unavailable` にし、公開元の URL が分かれば `reason` に書く。
+原典は `sourceCandidates` と `sourceRoots` の中だけで探す。候補に `url` しか無い原典（vault に写しが無い）も取得しない。`curl`・`wget` などでネットから取得しない（ファイルのダウンロードは運営者の了解が要る。2026-10-06 に白書の PDF を無断で取得した）。手元に無ければ `source-unavailable` にし、公開元の URL が分かれば `reason` に書く。
 
 書籍の撮影写真から切り出すとき、傾き・湾曲を変形で補正するとグラフの点の位置（読める値）が変わる。補正したら、旧画像と記事本文の数値と比べて値が原典どおりに読めるかを確かめ、ずれたら `reason` に書く。
 

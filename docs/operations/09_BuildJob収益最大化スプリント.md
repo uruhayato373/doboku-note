@@ -1,7 +1,7 @@
 # BuildJob 収益最大化スプリント
 
-> [!important] 2026-09-08以降の現行方針
-> civil等の一般転職枠はBuildJob通常条件へ集約し、カテゴリhubは1枠。建設JOBsとGKSの一般配置は停止。BuildJob指名記事2本は同社に固定する。実機確認した対象条件・配置・成果の真実源は[affiliate-operations](../../.claude/knowledge/reference/affiliate-operations.md)。以下のキャンペーン・復帰先・低摩擦という説明は当時の検討記録であり、現行の配置・単価や再実行手順として使わない。
+> [!important] 現行方針（2026-10-07 更新）
+> 2026-09-08 から civil 等の一般転職枠は BuildJob 通常条件、カテゴリ hub は 1 枠。GKS は 2026-09-28 で終了。2026-10-07 17:00 から建設JOBs を 2級の学習ページ・資格トップで再開し、BuildJob を実務・公的基準・トップ・ツールへ広げた（EXP-017）。BuildJob 指名記事 2 本は同社に固定する。実機確認した対象条件・配置・成果の真実源は[affiliate-operations](../../.claude/knowledge/reference/affiliate-operations.md)。以下のキャンペーン・復帰先・低摩擦という説明は当時の検討記録であり、現行の配置・単価や再実行手順として使わない。
 
 作成日: 2026-07-14  
 対象期間: 2026-07-14〜2026-08-31（BuildJob 増額キャンペーン終了予定まで）  

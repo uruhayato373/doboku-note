@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="現場打ちコンクリート枠工と吹付枠工。のり面に格子状の鉄筋コンクリート枠を現場で打つか吹き付けてつくり、枠の中は植生・吹付け・張りで覆う。必要に応じてアンカーで地山とつなぐ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山 */
+      .rock   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：風化しやすい岩・土 */
+      .layer  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：保護工 */
+      .frame  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：枠材 */
+      .fill   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }     /* 中詰め */
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .pipe   { stroke: #2e6da4; stroke-width: 2.5; }
+    </style>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">現場打ちコンクリート枠工・吹付枠工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">のり面に格子の枠を現場でつくる</text>
+  <polygon class="rock" points="16.0,320.0 60.0,320.0 300.0,110.0 384.0,110.0 384.0,360.0 16.0,360.0"/>
+  <polygon class="frame" points="75.1,306.8 87.1,296.3 70.0,276.7 57.9,287.3"/>
+  <polygon class="layer" points="87.1,296.3 133.8,255.5 127.2,247.9 80.5,288.8"/>
+  <line class="pipe" stroke="#3a7d44" x1="81.1" y1="301.6" x2="111.4" y2="336.2" style="stroke:#3a7d44;stroke-dasharray:5 3"/>
+  <polygon class="frame" points="133.8,255.5 145.8,244.9 128.7,225.4 116.6,235.9"/>
+  <polygon class="layer" points="145.8,244.9 192.5,204.1 185.9,196.6 139.2,237.4"/>
+  <line class="pipe" stroke="#3a7d44" x1="139.8" y1="250.2" x2="170.1" y2="284.8" style="stroke:#3a7d44;stroke-dasharray:5 3"/>
+  <polygon class="frame" points="192.5,204.1 204.5,193.6 187.4,174.0 175.3,184.5"/>
+  <polygon class="layer" points="204.5,193.6 251.2,152.7 244.6,145.2 197.9,186.0"/>
+  <line class="pipe" stroke="#3a7d44" x1="198.5" y1="198.8" x2="228.8" y2="233.5" style="stroke:#3a7d44;stroke-dasharray:5 3"/>
+  <polygon class="frame" points="251.2,152.7 263.2,142.2 246.1,122.6 234.0,133.2"/>
+  <polygon class="layer" points="263.2,142.2 309.9,101.4 303.3,93.9 256.6,134.7"/>
+  <line class="pipe" stroke="#3a7d44" x1="257.2" y1="147.5" x2="287.5" y2="182.1" style="stroke:#3a7d44;stroke-dasharray:5 3"/>
+  <line class="lead" x1="24" y1="99" x2="144" y2="99"/>
+  <line class="lead" x1="64.0" y1="282.0" x2="144" y2="99"/>
+  <text class="t-lab" x="24" y="96">鉄筋コンクリートの枠</text>
+  <line class="lead" x1="158.8" y1="220.3" x2="318" y2="253"/>
+  <text class="t-lab" x="320" y="254">枠の中</text>
+  <text class="t-note" x="376" y="300" text-anchor="end">点線＝アンカー（必要に応じて）</text>
+  <rect class="box" x="16" y="380" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="418">使う場面</text>
+  <text class="t-lab" x="104" y="418">湧水のある風化岩・長大なのり面</text>
+  <text class="t-key" x="30" y="444">吹付枠工</text>
+  <text class="t-lab" x="104" y="444">金網の型枠に吹き付ける。凹凸に合う</text>
+  <text class="t-key" x="30" y="470">現場打ち</text>
+  <text class="t-lab" x="104" y="470">型枠を組み、鉄筋コンクリートを打つ</text>
+</svg>

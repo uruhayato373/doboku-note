@@ -83,7 +83,7 @@ import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { designVersions, readLedger, recordCover, sameImage, writeLedger } from './lib/note-cover-live.mjs';
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages, settleAbortReason } from './lib/note-images.mjs';
-import { assertLiveBody, expectedFreePreviewMin, formatLiveIssues, fetchNoteBody, liveBodyText, visibleProbeLines, pickUpdateProbes, updateVerdict } from './lib/note-live-check.mjs';
+import { assertLiveBody, expectedFreePreviewMin, extractSourceUrls, formatLiveIssues, fetchNoteBody, liveBodyText, visibleProbeLines, pickUpdateProbes, updateVerdict } from './lib/note-live-check.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -491,10 +491,10 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
       membershipLock: isMembership || memberLock,
     });
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
-    const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars });
+    const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars, sourceUrls: extractSourceUrls(body) });
     if (chk.fetchError) console.log(`[5e] WARN: API検証未達（${chk.fetchError}）→ 手動確認`);
     else if (!chk.ok) { console.error(`[5e] FAIL: live不整合 ${formatLiveIssues(chk, expectedImgs)} → 手動確認`); return false; }
-    else console.log(`[5e] API 実体検証 OK（img=${chk.imgLive} 空引用0 URL見出し0 太字記号0 リンク切れ0）`);
+    else console.log(`[5e] API 実体検証 OK（img=${chk.imgLive} 空引用0 URL見出し0 太字記号0 リンク切れ0 切れたURL0）`);
     console.log(`[OK] ${noteId} 画像のみ反映完了`);
     return true;
   }
@@ -778,7 +778,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
 
   // 5e. 公開後 API 実体検証（自動化）: URL見出し / 空引用 / 画像の欠落・過多 / 太字記号 / 存在しないサイトリンク。
   //     ネットワーク失敗は WARN（手動確認へフォールバック）、検出は FAIL。
-  const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars });
+  const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars, sourceUrls: extractSourceUrls(body) });
   if (chk.fetchError) {
     console.log(`[5e] WARN: API検証がネットワークで未達（${chk.fetchError}）→ 手動確認: curl --ssl-no-revoke https://note.com/api/v3/notes/${noteId}`);
   } else if (!chk.ok) {
@@ -789,7 +789,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     console.error(`[5e] FAIL: 無料記事が会員限定（is_limited=true）で公開された。--trial-line-bottom で再実行して読める状態に戻す: ${noteId}`);
     return false;
   } else {
-    console.log(`[5e] API 実体検証 OK（URL見出し0 空引用0 太字記号0 リンク切れ0 img=${chk.imgLive}）`);
+    console.log(`[5e] API 実体検証 OK（URL見出し0 空引用0 太字記号0 リンク切れ0 切れたURL0 img=${chk.imgLive}）`);
   }
   // 5g. 本文が実際に新しくなったか（DN-0542）。新しい文が 1 つも公開本文に出なければ、更新は確定していない。
   if (!chk.fetchError) {

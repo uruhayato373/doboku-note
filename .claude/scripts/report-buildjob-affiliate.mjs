@@ -305,7 +305,7 @@ lines.push("");
 lines.push(
   "- **2026-07-28 以降、キャンペーン中（〜08-31）は civil セグメント全ページが BuildJob 100%**（高意図 36 slug 限定をやめた。" +
     "GA4 実測でその 36 slug は流入上位に 1 つも入らず、実流入の学習系ページが 50/50 A/B のまま低 EPC 側に半分流れていたため）。" +
-    "2026-09-08 以降は通常条件の BuildJob に集約（GKS・建設JOBs の一般配置は停止）。今の配置は配置ルール（台帳 config.affiliate-placements）。",
+    "2026-09-08 から通常条件の BuildJob。2026-10-07 17:00 から 2級の学習ページ・資格トップは建設JOBs（EXP-017）。今の配置は配置ルール（台帳 config.affiliate-placements）。",
 );
 lines.push("- 期間中は高意図面が A/B 母集団から抜けるため、**建設JOBs vs BuildJob の EPC 比較は低意図面・hub のみで解釈**する。");
 lines.push(`- 推定 EPC は A8 の月次の成果（\`${a8LogFile}\` の単月の期間）に成果が入ってから有効。A8 は API 無しのため \`/a8-report\`（Playwright・要ローカルログイン）で取り込む。`);
