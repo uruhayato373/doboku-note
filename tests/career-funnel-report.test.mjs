@@ -232,7 +232,7 @@ test("joinRulesToWindow: ルールを GA4 の配置別の窓と A8 の月へ結�
   assert.deepEqual(joinRulesToWindow(rules, null, byPlacement, a8), [], "窓が無ければ空");
 });
 
-test("pageContextOf: 記事はカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、分からなければ null", () => {
+test("pageContextOf: 記事はカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準は standards、トップは home、分からなければ null", () => {
   const index = { docs: { "civil-construction-1-secondary-r07": { category: "civil-construction-1", tags: ["試験"] }, "civil-construction-1-guide-resume": { category: "civil-construction-1", tags: ["career"] } } };
   const slugOf = (p) => ({ "/exam/civil-construction-1/secondary/r07": "civil-construction-1-secondary-r07", "/exam/civil-construction-1/guide/resume": "civil-construction-1-guide-resume" })[p] ?? null;
   assert.deepEqual(pageContextOf("/exam/civil-construction-1/secondary/r07", index, slugOf), { pageKind: "doc", category: "civil-construction-1", isCareerDoc: false });
@@ -240,6 +240,8 @@ test("pageContextOf: 記事はカテゴリとキャリア記事か、資格ト�
   assert.deepEqual(pageContextOf("/exam/rccm/", index, slugOf), { pageKind: "category", category: "rccm", isCareerDoc: false });
   assert.equal(pageContextOf("/practice", index, slugOf).category, "civil-practice");
   assert.equal(pageContextOf("/tools/career-check", index, slugOf).pageKind, "tool");
+  assert.deepEqual(pageContextOf("/standards/mlit/doboku-kyotsu-shiyosho/chapters/1-1", index, slugOf), { pageKind: "standards", category: null, isCareerDoc: false });
+  assert.deepEqual(pageContextOf("/", index, slugOf), { pageKind: "home", category: null, isCareerDoc: false });
   assert.equal(pageContextOf("/about", index, slugOf), null);
 });
 

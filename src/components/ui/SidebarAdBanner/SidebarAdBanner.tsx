@@ -1,3 +1,5 @@
+import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
+
 interface SidebarAdBannerProps {
   readonly href: string;
   readonly imageSrc: string;
@@ -46,7 +48,8 @@ export default function SidebarAdBanner({
         </span>
         <a
           href={href}
-          rel="nofollow sponsored noopener"
+          rel={AFFILIATE_LINK_REL}
+          referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}
           target="_blank"
           data-cta="affiliate"
           data-cta-label={trackLabel}

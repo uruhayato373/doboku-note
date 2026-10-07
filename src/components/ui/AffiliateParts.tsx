@@ -3,6 +3,15 @@ import type { ReactNode } from "react";
 
 export const AFFILIATE_LINK_REL = "nofollow sponsored noopener";
 
+/**
+ * 広告リンクだけはクリックしたページの URL を丸ごと ASP へ渡す。
+ * サイト既定の Referrer-Policy（public/_headers の strict-origin-when-cross-origin）のままだと
+ * ASP にはドメインしか届かず、A8 の成果別レポートの「リファラ」が `https://doboku-note.com/` になって
+ * どのページの広告から成果が出たか分からない（2026-10-05 のビルドジョブ 1 件で発生。GA4 もクリックを取りこぼしていた）。
+ * ページの URL に個人情報は含まないので、広告リンクに限って緩める。rel と必ず対で付ける（tests/affiliate-link-referrer.test.mjs）。
+ */
+export const AFFILIATE_LINK_REFERRER_POLICY = "no-referrer-when-downgrade";
+
 export function AffiliatePrBadge({ className = "" }: { readonly className?: string }) {
   return (
     <span

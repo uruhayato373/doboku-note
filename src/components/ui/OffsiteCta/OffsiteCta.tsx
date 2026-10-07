@@ -1,5 +1,5 @@
 import type { OffsiteCtaItem, OffsiteChannel } from '@/lib/offsite-cta';
-import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/components/ui/AffiliateParts';
+import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from '@/components/ui/AffiliateParts';
 import { COCONALA_A8_PIXEL } from '@/config/affiliate-creatives';
 
 /**
@@ -33,6 +33,7 @@ export default function OffsiteCta({
               href={it.href}
               target="_blank"
               rel={it.affiliate ? AFFILIATE_LINK_REL : 'noopener nofollow'}
+              referrerPolicy={it.affiliate ? AFFILIATE_LINK_REFERRER_POLICY : undefined}
               data-cta={it.channel}
               data-cta-label={it.trackLabel}
               data-cta-placement="article-end-offsite"
