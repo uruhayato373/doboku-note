@@ -21,7 +21,7 @@
  *   node scripts/note-sync-routine.mjs --max 100       # 1 回に更新する記事の上限（既定 200・マガジンは全件）
  *   node scripts/note-sync-routine.mjs --no-push       # commit まで
  *   node scripts/note-sync-routine.mjs --only 'content/note/1級・2級土木/1級土木/'
- *       # 記事をパスの先頭で絞る（試験直前にその資格だけ先に流す）。マガジンのカバーは触らない
+ *       # 記事をパスの先頭で絞る（試験直前にその資格だけ先に流す）。マガジンのカバーは触らない。note から読むのも対象の記事だけ
  * exit: 0 = 全部できた（更新するものが無かったも含む）/ 1 = どこかで失敗・要ログイン
  * ---------------------------------------------------------------------------
  */
@@ -172,14 +172,19 @@ const plan = await buildSyncPlan(ROOT);
 const { targets } = await loadNoteCoverInventory(ROOT);
 const byKey = new Map(targets.map((t) => [t.key, t]));
 const design = designVersions(ROOT);
-const liveArticles = await fetchLiveArticles(targets);
+// --only のときは対象の記事だけを note から読む（全件の読み込みは週次の全件同期だけでよい）。
+// 全件だと約 900 件 × 250ms 待ち＋会社 PC のプロキシで 10 分超かかり、40 本の反映が始まらなかった（2026-10-07）。
+// 集計（counts）と実行記録の plan も対象の範囲だけになる（記録には only を残す）。
+if (ONLY) plan.items = plan.items.filter((i) => i.path.startsWith(ONLY));
+const liveArticles = await fetchLiveArticles(ONLY ? targets.filter((t) => t.key.startsWith(ONLY)) : targets);
 withLiveCovers(plan, liveArticles);
 const counts = countPlan(plan.items);
-const articles = orderForRun(plan.items).filter((i) => !ONLY || i.path.startsWith(ONLY)).slice(0, MAX);
+const articles = orderForRun(plan.items).slice(0, MAX);
 const ledger = readLedger();
-const liveMagazines = await fetchLiveMagazines(ROOT, targets, ledger);
+// --only はマガジンのカバーを触らないので、マガジンの一覧も読まない
+const liveMagazines = ONLY ? {} : await fetchLiveMagazines(ROOT, targets, ledger);
 const magPlan = planCoverWork({ targets: ONLY ? [] : targets.filter((t) => t.kind === 'magazine'), ledger, design, liveArticles: {}, liveMagazines });
-console.log(`${TAG} 記事: 反映済み ${counts.synced} / 反映待ち ${counts.ready}（今回 ${articles.length}${ONLY ? `・${ONLY} のみ` : ''}）/ 止まっている ${counts.blocked} ${JSON.stringify(counts.blockers)}`);
+console.log(`${TAG} 記事${ONLY ? `（${ONLY} の範囲）` : ''}: 反映済み ${counts.synced} / 反映待ち ${counts.ready}（今回 ${articles.length}${ONLY ? `・${ONLY} のみ` : ''}）/ 止まっている ${counts.blocked} ${JSON.stringify(counts.blockers)}`);
 console.log(`${TAG} 部品: ${JSON.stringify(counts.parts)} / PDF 取り寄せ ${counts.pdfPull} / マガジン 要登録 ${magPlan.pending.length}・保留 ${magPlan.hold.length}`);
 
 if (DRY) {
@@ -202,7 +207,7 @@ if (mag.updated.length) {
 }
 appendSyncLog({
   startedAt, finishedAt: new Date().toISOString(),
-  plan: { synced: counts.synced, ready: counts.ready, blocked: counts.blocked, blockers: counts.blockers },
+  plan: { synced: counts.synced, ready: counts.ready, blocked: counts.blocked, blockers: counts.blockers, ...(ONLY ? { only: ONLY } : {}) },
   articles: { attempted: articles.length, updated: art.updated, failed: art.failed },
   magazines: { attempted: magPlan.pending.length, updated: mag.updated, failed: mag.failed },
   problems,

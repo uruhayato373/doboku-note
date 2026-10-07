@@ -385,7 +385,7 @@ async function main() {
     const session = await restoreA8Session(ctx, cfg);
     if (!session.ok) console.warn(`[warn] セッション未復元（${session.reason}）— ログイン待ちになります`);
 
-    const page = ctx.pages()[0] ?? (await ctx.newPage());
+    let page = ctx.pages()[0] ?? (await ctx.newPage());
     await page.goto(`${cfg.a8.baseUrl}${cfg.a8.homePath}`, {
       waitUntil: "domcontentloaded",
       timeout: cfg.browser.timeoutMs,
@@ -460,16 +460,27 @@ async function main() {
         continue;
       }
       let unit;
+      const attemptErrors = [];
       for (let attempt = 1; attempt <= DOWNLOAD_ATTEMPTS; attempt++) {
-        unit = await processReport(page, cfg, runId, runDir, {
-          reportKey,
-          dryRun: opts.dryRun,
-          month: opts.month,
-        });
+        // 1 回の試行の例外で run 全体を落とさない（2026-10-07 の CI: 当月の site-summary の再試行が例外で止まり、
+        // どのレポートも記録されず理由も残らなかった）。試行ごとに理由を残し、ページが閉じていれば開き直す
+        try {
+          if (page.isClosed()) page = await ctx.newPage();
+          unit = await processReport(page, cfg, runId, runDir, {
+            reportKey,
+            dryRun: opts.dryRun,
+            month: opts.month,
+          });
+        } catch (e) {
+          unit = { reportKey, status: "error", error: String(e?.message || e).slice(0, 200) };
+        }
         unit.attempts = attempt;
-        if (unit.status !== "download-failed") break;
-        if (attempt < DOWNLOAD_ATTEMPTS) console.log(`  ${reportKey}: download-failed（${attempt}/${DOWNLOAD_ATTEMPTS}）→ 開き直して再試行`);
+        if (unit.status !== "download-failed" && unit.status !== "error") break;
+        const reason = `${unit.status}${unit.error ? ` — ${unit.error.split("\n")[0]}` : ""}`;
+        attemptErrors.push(`${attempt}: ${reason}`);
+        console.log(`  ${reportKey}: ${reason}（${attempt}/${DOWNLOAD_ATTEMPTS}）${attempt < DOWNLOAD_ATTEMPTS ? " → 開き直して再試行" : ""}`);
       }
+      if (attemptErrors.length) unit.attemptErrors = attemptErrors;
       manifest.units.push(unit);
       console.log(`  ${reportKey}: ${unit.status}${unit.csvRows != null ? ` (${unit.csvRows} 行)` : ""}`);
     }
@@ -481,7 +492,7 @@ async function main() {
     const run = classifyRun(manifest.units);
     manifest.status = run.status;
     if (run.failed.length > 0) {
-      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.error }));
+      manifest.failed = run.failed.map((u) => ({ reportKey: u.reportKey, status: u.status, error: u.attemptErrors?.join(" / ") ?? u.error }));
     }
   } catch (e) {
     const page = ctx.pages()[0];
@@ -496,6 +507,7 @@ async function main() {
   if (!opts.dryRun) writeLastRunMarker(manifest);
   const ok = manifest.units.filter((u) => u.status === "downloaded").length;
   console.log(`\n完了: status=${manifest.status} / download 成功 ${ok}/${manifest.units.length}`);
+  if (manifest.error) console.log(`⚠ 途中で止まった: ${manifest.error}`);
   if (manifest.failed?.length) {
     console.log(`⚠ 取得できなかったレポート ${manifest.failed.length} 件:`);
     for (const f of manifest.failed) console.log(`  ${f.reportKey}: ${f.status}${f.error ? ` — ${f.error}` : ""}`);
