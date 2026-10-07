@@ -82,6 +82,12 @@ cover:
 
 民間の発注者支援を候補にする場合は、[仕事内容と担当範囲のガイド](https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-work-history&utm_content=role-guide)も確認してください。
 
+**PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
+
+照合した項目を持って、建設業界の求人に詳しい担当者へ「この経験で応募できる求人があるか」を聞く方法もあります。下のリンクは転職相談の案内につながります。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
+
 ## 一つの業務を、別の部署の人へ説明してみる
 
 完成した文章を読み、「自治体名や部署名を知らない人にも、自分の担当が分かるか」を確かめます。略称や内輪の呼び方は、必要な範囲で説明を添えます。

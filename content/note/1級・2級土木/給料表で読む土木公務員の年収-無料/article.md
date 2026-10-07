@@ -101,6 +101,12 @@ title: 給料表で読む土木公務員の年収｜級・号給から給料月�
 
 なお、民間側の内訳をどう分解するかは[土木施工管理の年収の見直し方](https://doboku-note.com/exam/civil-construction-1/guide/career-salary?utm_source=note&utm_medium=referral&utm_campaign=civil-career-salary-table&utm_content=career-salary)で整理しています。公務員側を給料表で固めたら、民間側は同じ粒度まで分解してから並べてください。
 
+**PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
+
+右側の欄に入れる民間の提示額は、実際の求人で確かめるのが確実です。下のリンクは建設業界の転職相談の案内につながります。提示額に固定残業代や賞与が含まれるかも、その場で確認してください。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
+
 ## 給料表だけでは分からないこと
 
 最後に、表からは読めない部分を書いておきます。
