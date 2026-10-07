@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T08:28:25.252Z",
+  "updated_at": "2026-10-07T10:41:52.177Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1885,16 +1885,13 @@
         "minVolume": 10,
         "note": "anchor は本番デプロイ日（started_at）。2級の試験（10/25）前後で流入が動くので、増減は配置ルール別（byRule）と並べて読む"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-07T08:13:49.576Z",
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": null,
+      "next_check_date": "2026-11-04",
       "pending_user_actions": [
-        {
-          "action": "develop を本番へ出す（/deploy）。実験はデプロイした時点から始まる。デプロイした日に status を running・started_at・next_check_date（28 日後）を入れる"
-        },
         {
           "action": "（任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で見たいときだけ"
         }
@@ -1904,7 +1901,8 @@
         "2026-10-07: 経験記述の書き方・例文 4 ページに本文カード（program=\"career\"）を追加（develop 03f957a80）。転職系の無料 note 3 本にビルドジョブの note 用リンク（develop 97d6f605a）",
         "2026-10-07: アフィリエイトのページ別の計測（fetch-ga4-cta-clicks --by-page・PR #910）。どの面のどの広告から成果が出たかは clickLog と A8 の発生日で絞る",
         "2026-10-07: 展開は週次・月次レビューの外で運営者の指示により決めた（A8 の発生 1 件を機に）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
-        "2026-10-07: 10 月の 1 件は A8 の成果別レポートでクリック 10/05 10:37・PC・リファラ https://doboku-note.com/（ドメインだけ）。GA4 は 10/04〜06 のクリック 0 件で取りこぼし、ページは特定できない。再発防止として広告リンクに referrerPolicy=no-referrer-when-downgrade（A8 にページの URL が残る）と、クリック計測に中クリック（auxclick）を足した（#911）"
+        "2026-10-07: 10 月の 1 件は A8 の成果別レポートでクリック 10/05 10:37・PC・リファラ https://doboku-note.com/（ドメインだけ）。GA4 は 10/04〜06 のクリック 0 件で取りこぼし、ページは特定できない。再発防止として広告リンクに referrerPolicy=no-referrer-when-downgrade（A8 にページの URL が残る）と、クリック計測に中クリック（auxclick）を足した（#911）",
+        "2026-10-07: 本番へデプロイ（run 37608403630）。本番で中クリック（auxclick）が affiliate_cta_click として送られることを window.gtag の差し替えで確認（GA4 には送っていない）"
       ],
       "measurements": [],
       "history": [
@@ -1912,8 +1910,14 @@
           "at": "2026-10-07T08:13:49.576Z",
           "event": "propose",
           "note": "A8 の発生 1 件（2026-10）を機に、運営者の指示で展開（2026-10-07）"
+        },
+        {
+          "at": "2026-10-07T10:41:52.177Z",
+          "event": "start",
+          "note": "本番デプロイ（cloudflare-deploy run 37608403630・main da252f501）。check-production-ssr 合格、本番 HTML で広告枠・リファラ方針・ピクセル 1 発を確認"
         }
-      ]
+      ],
+      "started_at": "2026-10-07T10:35:24.000Z"
     }
   ]
 }
