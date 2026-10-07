@@ -31,6 +31,8 @@ import {
   transcriptDirsForSource,
   VERBATIM_MIN_RUN,
 } from './lib/reference-sources.mjs';
+import { figureSourceFindings, sourceIdsOf } from './lib/figure-source-wiring.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const ARGS = process.argv.slice(2);
@@ -233,6 +235,48 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits };
 }
 
+/**
+ * 図の原典の結線（DN-0563・DN-0564）。
+ *   - 白書などの vaultCopies が Drive 台帳に載っているか
+ *   - 原典から切り出した図（config/figure-sources.json の provenance）の記事が、その原典を sources に書いているか
+ *   - 流用不可（figureReuse: false）の書籍から、試験ページでない記事へ切り出した図（baseline ラチェット）
+ */
+function checkFigureWiring({ cfg, manifest, inputs, baseline }) {
+  const vaultPaths = new Set(Object.values(manifest.entries || {}).map((e) => String(e.vaultPath || '').normalize('NFC')));
+  let vaultCopies = 0;
+  for (const s of cfg.sources || []) {
+    for (const c of s.vaultCopies || []) {
+      vaultCopies += 1;
+      if (!vaultPaths.has(c.path.normalize('NFC'))) fail('vault-copy-unregistered', s.id, `${c.path} が drive-manifest に無い（drive-vault-sync --group white-paper-source-pdf --from-vault で登録する）`);
+    }
+  }
+  const sourcesRel = datasetPath('config.figure-sources');
+  const sourcesAbs = join(REPO_ROOT, sourcesRel);
+  if (!existsSync(sourcesAbs)) {
+    fail('figure-provenance', sourcesRel, '図の出典の台帳が無く、図の原典の結線を検査できない');
+    return { vaultCopies, figureChecks: 0, reuseDebt: 0 };
+  }
+  const provenance = JSON.parse(readFileSync(sourcesAbs, 'utf8')).provenance || {};
+  const articleSources = new Map();
+  for (const { relPath, raw } of inputs) {
+    const m = /^content\/site\/(.+)\/article\.mdx$/.exec(relPath);
+    if (!m) continue;
+    let data = {};
+    try { data = matter(raw).data; } catch { continue; }
+    articleSources.set(m[1], sourceIdsOf(data.sources));
+  }
+  const { checked, findings } = figureSourceFindings({ provenance, cfg, articleSources });
+  const debt = [];
+  for (const f of findings) {
+    if (f.kind === 'figure-reuse-forbidden') { debt.push(f.figKey); continue; }
+    fail(f.kind, `content/site/${f.articleDir}/article.mdx`, `${f.figKey}: ${f.detail}`);
+  }
+  const ratchet = evaluateMissingSourcesRatchet(debt, baseline.figureReuseDebt || []);
+  for (const figKey of ratchet.increased) fail('figure-reuse-forbidden', figKey, '流用不可（figureReuse: false）の書籍から、試験ページでない記事へ図を切り出した。切り出し直さず、自作の図への置き換えか削除にする（baseline にも無い）');
+  for (const figKey of ratchet.repaid) warn('figure-reuse-repaid', figKey, '流用不可の書籍の図が出典の台帳から消えた。reference-sources-baseline.json の figureReuseDebt から削る');
+  return { vaultCopies, figureChecks: checked, reuseDebt: debt.length };
+}
+
 function printProblems() {
   for (const problem of [...failures, ...warnings].slice(0, 80)) {
     const label = failures.includes(problem) ? 'FAIL' : 'WARN';
@@ -282,8 +326,10 @@ function main() {
   const checked = checkArticles(inputs, { cfg, index, manifest, checkMissing: !STAGED });
 
   let baselineCount = 0;
+  let wiring = null;
   if (!STAGED) {
     const baseline = loadReferenceBaseline();
+    wiring = checkFigureWiring({ cfg, manifest, inputs, baseline });
     baselineCount = Array.isArray(baseline.missingSources) ? baseline.missingSources.length : 0;
     const ratchet = evaluateMissingSourcesRatchet(checked.currentMissing, baseline.missingSources || []);
     for (const path of ratchet.increased) fail('baseline-increased', path, 'appliesTo に一致するのに sources が無く、baseline にも無い');
@@ -294,6 +340,7 @@ function main() {
   if (DEEP) deep = checkDeepTranscripts({ cfg, index, manifest, articles: checked.articles });
 
   console.log(`[${NAME}${STAGED ? ' --staged' : DEEP ? ' --deep' : ''}] 台帳 ${registryEntries} 件 / 記事 ${checked.parsedArticles} 件を実検査 / sources ${checked.sourceRefs} 参照 / citation ${checked.citationChecks} 件 / 漏洩 ${checked.leakChecks} 組 / baseline ${baselineCount} 件`);
+  if (wiring) console.log(`  図の原典: 白書などの vault の写し ${wiring.vaultCopies} 件 / 出典のある図×記事 ${wiring.figureChecks} 件を実検査 / 流用不可の書籍の図 ${wiring.reuseDebt} 件（baseline 管理）`);
   if (DEEP && deep?.transcriptFiles === 0) console.log('  deep 実体検査 0 件（CI/別端末許容）');
   printProblems();
   if (failures.length > 0) {

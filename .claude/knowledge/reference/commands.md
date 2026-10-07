@@ -58,7 +58,7 @@ npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレク
 
 ```bash
 npm run generate-webp     # png/jpg → webp 変換
-npm run figure-review-queue # 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record <verdicts.json>`＝判定を記録し直した図の MDX 寸法を合わせる。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
+npm run figure-review-queue # 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record <verdicts.json>`＝判定を台帳へ、出典を config/figure-sources.json の provenance へ書き、直した図の MDX 寸法を合わせる。reextract の項目は記録済みの出典（recordedSource）と記事の sources から引いた原典候補（sourceCandidates）を持ち、試験ページでない記事で流用不可の書籍しか原典が無い図は切り出し直しに回さない。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
 npm run upload-images-r2  # 画像を R2 にアップロード
 npm run audit-repo-assets    # リポジトリ肥大化の read-only 監査（ワークツリー/HEAD/pack の3指標を分けて計測→KEEP_GIT/R2_PUBLIC/R2_PRIVATE/REGENERATE/REVIEW へ分類。--history は要キャッシュ・DN-0111 Phase 0）
 npm run prune-state-snapshots # CI が積む日付付き snapshot（psi/ga4/gsc/url-inspection/monetization/weekly-metrics）を寿命表で消す（既定 dry-run・`--commit`・`--family a,b`・`--check-coverage`＝未宣言の日付付きファイル 0 件か〔quality:audit ci:true〕。business/** と gsc/rank-watch/** は不変台帳で除外・seo-watchwords の evidence.source は pin。削除は書き手 workflow の commit 直前で実行し、別 commit では消さない〔reset --hard + copy-back に戻される〕）
@@ -66,9 +66,9 @@ npm run check-git-binary-policy # 生成物・著作権物・巨大blob・拡張
 npm run asset-offload         # 追跡アセットを R2 へ退避（既定 dry-run・--commit で実行。upload 後に bytes と sha256 を R2 から読み直して検証してから manifest へ記録。ローカル削除と untrack はしない。**--verify** で追跡解除前の全件照合〔ローカル実体・manifest・R2 の 3 者一致〕を行い、--out に untrack できる一覧を書く。1 件でも欠ければ exit 1）
 npm run asset-hydrate         # 退避したアセットを取り戻す（ローカル→cache→R2→generator の順・--offline で cache のみ・--path で部分取得）
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
-npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
+npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--from-vault＝vault にだけある原本をその場で読んで台帳へ登録・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only（Drive 管轄ファイルの再追跡を検知。`coexistWithGit: true` の group＝kindle-dist は Git が正本なので対象外・2026-09-17）＋ quality:audit
-npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
+npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェット・図の原典（vaultCopies が Drive 台帳にあるか・図の出典の書籍が記事の sources にあるか・流用不可の書籍の図 figureReuseDebt）を検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-disk-hygiene    # ローカル容量の surfacer（macOS / Windows 両対応・他 OS 専用項目は n/a。exit 2 は「検査できるはずの項目に材料が無い」）
 npm run disk-hygiene:fix      # 再生成可能な滞留物をガード付きで削除（日次実行の実体。dry-run は node scripts/disk-hygiene.mjs --dry-run）

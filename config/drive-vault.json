@@ -84,6 +84,23 @@
       "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は data/pastexams/inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
     },
     {
+      "id": "white-paper-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/white-papers/.+\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/白書",
+      "keyFrom": "stripPrefix:content/sources/white-papers/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "config/reference-sources.json の vaultCopies（白書の手元の写し）",
+        "scripts/figure-review-queue.mjs（図の切り出し直しの原典候補）"
+      ],
+      "reason": "省庁が公開する白書・年次報告の原本 PDF。公開元から取り直せるが年度ごとに差し替わり、図を切り出した版が消えるので regenerable=false。人と手元のスクリプト（図の切り出し直し・論文対策の根拠確認）だけが読む。2026-10-07 まで台帳に無く、図の原典探しが白書をネットから取得した（DN-0564）。"
+    },
+    {
       "id": "textbook-source-pdf",
       "status": "active",
       "audience": "human",

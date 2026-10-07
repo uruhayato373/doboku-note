@@ -2426,6 +2426,11 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/statistics/file000004.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/国土交通白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "国土交通白書": "mlit-white-paper"
       }
@@ -2438,6 +2443,11 @@
         "kind": "external",
         "url": "https://www.soumu.go.jp/johotsusintokei/whitepaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/情報通信白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "情報通信白書": "ict-white-paper"
       }
@@ -2450,6 +2460,11 @@
         "kind": "external",
         "url": "https://www.env.go.jp/policy/hakusyo/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/環境白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "環境・循環型社会・生物多様性白書": "env-white-paper",
         "環境白書": "env-white-paper"
@@ -2463,6 +2478,11 @@
         "kind": "external",
         "url": "https://www.bousai.go.jp/kaigirep/hakusho/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/防災白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "防災白書": "bousai-white-paper"
       }
@@ -2475,6 +2495,11 @@
         "kind": "external",
         "url": "https://www5.cao.go.jp/keizai3/whitepaper.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/経済財政白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "経済財政白書": "keizai-zaisei-white-paper"
       }
@@ -2487,6 +2512,26 @@
         "kind": "external",
         "url": "https://www.meti.go.jp/report/whitepaper/index_mono.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）01.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）02.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）03.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）04.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）05.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）01.pdf"
+        }
+      ],
       "aliases": {
         "ものづくり白書": "monodukuri-white-paper",
         "製造基盤白書": "monodukuri-white-paper"
@@ -2500,6 +2545,11 @@
         "kind": "external",
         "url": "https://www.meti.go.jp/report/whitepaper/index_tuhaku.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/通商白書（令和７年度版）.pdf"
+        }
+      ],
       "aliases": {
         "通商白書": "tsusho-white-paper"
       }
@@ -2512,6 +2562,11 @@
         "kind": "external",
         "url": "https://www.enecho.meti.go.jp/about/whitepaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/エネルギー白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "エネルギー白書": "energy-white-paper"
       }
@@ -2524,6 +2579,11 @@
         "kind": "external",
         "url": "https://www.fdma.go.jp/publication/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/消防白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "消防白書": "shobo-white-paper"
       }
@@ -2536,6 +2596,29 @@
         "kind": "external",
         "url": "https://www.mext.go.jp/b_menu/hakusho/html/kagaku.htm"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-4.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-5.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-6.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-7.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-8.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-9.pdf"
+        }
+      ],
       "aliases": {
         "科学技術・イノベーション白書": "kagaku-gijutsu-white-paper"
       }
@@ -2548,6 +2631,11 @@
         "kind": "external",
         "url": "https://www.cas.go.jp/jp/seisaku/mizu_junkan/materials/materials/white_paper.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/水循環白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "水循環白書": "mizu-junkan-white-paper"
       }
@@ -2560,6 +2648,11 @@
         "kind": "external",
         "url": "https://www8.cao.go.jp/kourei/whitepaper/index-w.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/高齢社会白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "高齢社会白書": "kourei-shakai-white-paper"
       }
@@ -2572,6 +2665,11 @@
         "kind": "external",
         "url": "https://www8.cao.go.jp/koutu/taisaku/index-t.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/交通安全白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "交通安全白書": "koutsu-anzen-white-paper"
       }
@@ -2584,6 +2682,11 @@
         "kind": "external",
         "url": "https://www.ipa.go.jp/publish/wp-security/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/情報セキュリティ白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "情報セキュリティ白書": "joho-security-white-paper"
       }
@@ -2596,6 +2699,20 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000138529.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586366.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586367.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586370.pdf"
+        }
+      ],
       "aliases": {
         "過労死等防止対策白書": "karoushi-white-paper"
       }
@@ -2608,6 +2725,11 @@
         "kind": "external",
         "url": "https://www.maff.go.jp/j/wpaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/食料・農業・農村白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "食料・農業・農村白書": "shokuryo-nogyo-white-paper"
       }
@@ -2620,6 +2742,11 @@
         "kind": "external",
         "url": "https://www.jfa.maff.go.jp/j/kikaku/wpaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/水産白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "水産白書": "suisan-white-paper"
       }
@@ -2632,6 +2759,11 @@
         "kind": "external",
         "url": "https://www.rinya.maff.go.jp/j/kikaku/hakusyo/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/森林・林業白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "森林・林業白書": "shinrin-ringyo-white-paper"
       }
@@ -2644,6 +2776,11 @@
         "kind": "external",
         "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/地方財政白書（令和８年度）.pdf"
+        }
+      ],
       "aliases": {
         "地方財政白書": "chihou-zaisei-white-paper"
       }
@@ -2656,6 +2793,11 @@
         "kind": "external",
         "url": "https://www.gender.go.jp/about_danjo/whitepaper/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/男女共同参画白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "男女共同参画白書": "danjo-kyodo-white-paper"
       }
@@ -2668,6 +2810,11 @@
         "kind": "external",
         "url": "https://www.chusho.meti.go.jp/koukai/chousa/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/中小企業白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "中小企業白書": "chusho-kigyo-white-paper"
       }
@@ -2680,6 +2827,11 @@
         "kind": "external",
         "url": "https://www.npa.go.jp/publications/whitepaper/index_keisatsu.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/警察白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "警察白書": "keisatsu-white-paper"
       }
@@ -2692,6 +2844,11 @@
         "kind": "external",
         "url": "https://www.cfa.go.jp/resources/white-paper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/こども白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "こども白書": "kodomo-white-paper"
       }
@@ -2704,6 +2861,11 @@
         "kind": "external",
         "url": "https://www.aec.go.jp/kettei/hakusho/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/原子力白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "原子力白書": "genshiryoku-white-paper"
       }
@@ -2716,6 +2878,11 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/toukei_hakusho/hakusho/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/厚生労働白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "厚生労働白書": "kousei-roudou-white-paper"
       }
@@ -2728,6 +2895,11 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/wp/hakusyo/roudou/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/労働経済白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "労働経済白書": "roudou-keizai-white-paper"
       }

@@ -101,6 +101,11 @@ const FigureSourceCategory = z
     figure_origin: z.enum(['question-pdf', 'answer-booklet', 'textbook-scan', 'ai-generated', 'unknown']).describe('図クロップの実際の出所'),
     quality: z.enum(['print-clean', 'scan-low', 'mixed']).describe('元素材の品質'),
     rescannable: z.enum(['true', 'needs-source', 'na']).describe('高解像度の再スキャンで改善できるか（文字列の true / needs-source / na）'),
+    scanReferences: z
+      .array(z.string().regex(/^[a-z0-9][a-z0-9-]*$/))
+      .min(1)
+      .optional()
+      .describe('試験ページの図を切り出す媒体の参考文献 id（公式 PDF に図が無い年度の問題解説集など）。figure-review-queue が原典候補に足す'),
     note: doc('運用メモ'),
   })
   .strict();
@@ -120,14 +125,23 @@ export const ConfigFigureSources = z
             needs: z.enum(FIGURE_NEEDS).describe('機械監査の判定を上書きする次の作業'),
             reason: z.string().min(1),
             verified: jstDate('目視確認日'),
-            source_pdf: z.string().optional(),
-            page: z.number().int().min(0).optional().describe('PDF のページ（0 は特定していない）'),
-            dpi: z.number().int().min(0).optional().describe('再抽出の解像度（0 は PDF ではなく画像から再抽出）'),
           })
           .strict(),
       )
       .superRefine(uniqueBy('figure', '図'))
       .describe('機械監査で見つけられない図の欠陥の図ごとの上書き'),
+    provenance: z
+      .record(
+        z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/]+$/, '資格/記事/img/名前（拡張子なし）'),
+        z
+          .object({
+            pdf: z.string().regex(/^(?:vault:原資料PDF\/.+|https:\/\/.+)$/, 'vault:原資料PDF/… か https の URL').describe('図を切り出した原典'),
+            page: z.number().int().min(1).optional().describe('PDF のページ（特定していなければ書かない）'),
+            dpi: z.number().int().min(0).optional().describe('切り出しの解像度（0 は PDF でなく画像から切り出した）'),
+          })
+          .strict(),
+      )
+      .describe('図ごとの出典の正本（図を切り出した原典 PDF・ページ）。figure-review-queue record が書き、切り出し直しと参考文献の結線検査が読む'),
     categories: z
       .record(
         z.string().min(1),
@@ -737,6 +751,17 @@ const ReferenceSource = z
     transcriptDir: z.string().startsWith('content/sources/').optional().describe('既存配置の文字起こしの置き場'),
     transcriptVaultDir: z.string().min(1).optional().describe('Drive vault に留める文字起こしの置き場'),
     bookBundle: BookBundle.optional(),
+    vaultCopies: z
+      .array(
+        z
+          .object({
+            path: z.string().startsWith('原資料PDF/').describe('Drive vault の中のパス（台帳 drive-manifest に載っていること。版はファイル名が持つ）'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .optional()
+      .describe('公開元から取得して Drive vault に置いた写し（白書など）。図の切り出し直しの原典候補になる'),
     appliesTo: z.array(z.string().startsWith('content/')).optional().describe('この原本から作った記事の glob。一致する記事は sources が必須'),
     aliases: z.record(z.string().min(1), z.string().min(1)).optional().describe('移行前の書名 → 正しい参照（id か id#詳細）'),
     notes: z.string().min(1).optional(),
