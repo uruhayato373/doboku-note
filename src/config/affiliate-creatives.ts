@@ -609,3 +609,19 @@ export function resolveCareerSmallBanner(): SmallBannerCreative | null {
     trackLabel: "BuildJob-hubcareer",
   };
 }
+
+/**
+ * 案件 id → 素材（バナー・計測ラベル・本文カード）。どの面・どのページに出すかは config/affiliate-placements.json の
+ * ルールが決め（src/lib/affiliate-placement.ts が解決する）、ここは「出すと決まった案件の見た目」だけを持つ。
+ * trackLabel はバナーの GA4 ラベル（記事末では -sidebar を -endbanner に置き換える＝既存の集計との連続性）。
+ * 本文カードの GA4 ラベルは service 名（CareerAffiliate の data-cta-label）。どちらも catalog の ctaLabels にある。
+ */
+export type ProgramAsset = {
+  readonly banner: SidebarAdCreative;
+  readonly trackLabel: string;
+  readonly card: (slug?: string, need?: CareerNeed | null) => CareerArticleEndCard;
+};
+export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
+  buildjob: { banner: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar", card: (slug, need) => resolveBuildJobCopy(slug, need) },
+  "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
+};

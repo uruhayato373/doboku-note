@@ -10,7 +10,7 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
     'content/note/magazines/x/article.md',
     'src/lib/foo.ts',
   ]);
-  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'generated-indexes']);
+  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
@@ -19,6 +19,10 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
   assert.deepEqual(planGates(['docs/README.md', 'content/site/a/img/x.svg']), []);
   assert.deepEqual(planGates(['config/products.json']).map((g) => g.id), ['products']);
   assert.deepEqual(planGates(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']).map((g) => g.id), ['products']);
+  // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
+  for (const f of ['config/affiliate-placements.json', 'config/affiliate-mats.json', 'config/cta-placements.json', 'data/affiliate/catalog.json', 'src/config/affiliate-creatives.ts']) {
+    assert.deepEqual(planGates([f]).map((g) => g.id), ['affiliate-placements'], f);
+  }
 });
 
 test('note の原稿・マガジンの写し・収録の期待値を stage したら note 記事カタログの古さを見る', () => {
