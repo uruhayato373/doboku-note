@@ -7,7 +7,7 @@ metadata:
 
 アフィリエイト SSOT 整備（PR #253、2026-06-16）。
 
-- **mat の SSOT** = `src/config/affiliate-mats.json`（A8 mat 8種・program/surface/expiresAt）。`scripts/check-affiliate-mats.mjs` が src/** と .local/r2/posts/** の `a8mat=` を突合し**未登録mat=ERROR / MDX(.local/r2/posts)への生mat直書き=ERROR / 失効(expiresAt経過)配置=WARN**。pre-commit installer と `npm run check-affiliate-mats` に配線済み（**ゲート有効化は各環境で `npm run pre-commit:install` が必要**、CI 未組込）。新規 mat は json に追加必須。
+- **mat の SSOT** = `config/affiliate-mats.json`（A8 mat 8種・program/surface/expiresAt）。`scripts/check-affiliate-mats.mjs` が src/** と .local/r2/posts/** の `a8mat=` を突合し**未登録mat=ERROR / MDX(.local/r2/posts)への生mat直書き=ERROR / 失効(expiresAt経過)配置=WARN**。pre-commit installer と `npm run check-affiliate-mats` に配線済み（**ゲート有効化は各環境で `npm run pre-commit:install` が必要**、CI 未組込）。新規 mat は json に追加必須。
 - **MDX の生 mat = 0（全 creative はコンポーネント/config 集約）**: GKS=`<CareerAffiliate program="gks">`、独学カード/SAT技術士=`<CourseAffiliate program="dokugaku-keiken"|"sat-gijutsusi" withPixel>`、独学インライン=`<DokugakuKeikenLink>`(新規)、独学468バナー=`<DokugakuBanner>`、SATテキスト=`<SatTextLink>`。mat変更は各component/config 1箇所で全配置反映。MDXに mat/生ピクセル<img>を直書きしない（lintがERROR）。
 - **サイドバー転職枠は期間切替**: `resolveCareerSidebarAd()`（affiliate-creatives.ts）が **〜2026-08-31(JST) はビルドジョブ(無料面談¥50,000=GKSの2倍)／9-01 以降 GKS に自動復帰**。SSG のため 9/1 以降の再ビルドで反映。
 - **2026-06-29 セッション(未merge・branch feat/inline-career-buildjob)**: サイト本文inline `<CareerAffiliate program="gks">`(civil 1/2＋建設部門 計162枚)も**期間連動化**＝campaign中ビルドジョブ/9-01 GKS。CareerAffiliate が program="gks" 時に `resolveCareerArticleEndCard()` 解決(href+コピー上書き)。MDX未変更。旧「inline/記事末は GKS据え置き」は是正。href のみ=ピクセルはサイドバー1発火維持。

@@ -8,6 +8,9 @@ import { jstDayTime } from './jst-date.mjs';
 
 export const jstDate = (what) => z.iso.date().describe(`${what}（JST の YYYY-MM-DD）`);
 /** 取得・記録の時刻。末尾 Z の UTC だけ通す（+09:00 や存在しない日時は通さない）。時差つきで書かれると Date.parse は通るが日付が 1 日ずれる */
+/** 事業の計測（config/business-direction.json の指標・計測の記録）の取得元。型 2 つと business-direction.mjs の検査がここを引く（2026-10-07 まで 3 か所に写していた） */
+export const BUSINESS_CHANNELS = ['GA4', 'GSC', 'note', 'KDP', 'coconala', 'A8', 'operations', 'instagram', 'cloudflare'];
+
 export const utcTime = (what) => z.iso.datetime().describe(`${what}（UTC の ISO 8601・末尾 Z）`);
 /** 時差つきの ISO 8601（Z か ±HH:MM）。予定の時刻のように JST の +09:00 で書く欄だけ使い、理由を .describe() に書く */
 export const offsetTime = (what) => z.iso.datetime({ offset: true }).describe(`${what}（時差つきの ISO 8601。JST の +09:00 を含む）`);

@@ -5,7 +5,7 @@ A8 / もしも / afb の 3 ASP を横断する。
 
 - **提携カタログ（機械可読）**: `data/affiliate/catalog.json`
 - **ASP 接続設定（機械可読）**: `config/affiliate-asp.json`（A8 の URL・口座・ブラウザの共通部分は `config/a8-report-automation.json` が正本で、`scripts/lib/asp-config.mjs` が読み出し時に合成する。a8 に写しを書くと例外で止まる）
-- **mat レジストリ（機械可読）**: `src/config/affiliate-mats.json`
+- **mat レジストリ（機械可読）**: `config/affiliate-mats.json`
 - **A8 の成果取込**: [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md)（scout ＋ report。役割が違うので分離）
 
 最終更新: 2026-10-07（§6.5 の公開 EPC・目安クリック・現状を 2026-09-08 検証の条件と 9 月の取込に合わせた）
@@ -541,7 +541,7 @@ A8 側の `clicks` は参考値）。A8 から取るのは**成果（発生件�
 | 場所 | 役割 |
 |---|---|
 | 各 ASP 管理画面 | creative・mat 値・クリック/成果レポートの真実源 |
-| `src/config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
+| `config/affiliate-mats.json` | **mat レジストリ（SSOT）**。検証 `npm run check-affiliate-mats` |
 | `src/config/affiliate-creatives.ts` | creative 定数と出し分けロジックの真実源 |
 | `data/affiliate/catalog.json` | **どの案件をどの ASP で運用するか**の真実源 |
 | `data/a8/report-log.json` | **A8 成果**（`/a8-report` が upsert）。doboku 分離は `siteSummary`。月次の成果（月×案件）は持たず、`programPeriod` の単月の期間から導く（`resultsFromReportLog`・2026-10 に `results.json` を廃止） |

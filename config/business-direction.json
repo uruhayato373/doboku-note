@@ -202,6 +202,17 @@
       ]
     },
     {
+      "id": "a8ConfirmedYen",
+      "stage": "販売",
+      "label": "A8 確定報酬",
+      "unit": "円",
+      "definition": "A8 のサイト別レポート（doboku-note と note）の確定金額の月合計（data/a8/report-log.json の単月の期間）。発生・未確定は含めない。確定は発生月へ遡って反映されるので、前月は翌月の取得まで変わりうる。",
+      "channel": "A8",
+      "appliesTo": [
+        "all"
+      ]
+    },
+    {
       "id": "netReceipts",
       "stage": "運営",
       "label": "手数料等控除後の受取額",

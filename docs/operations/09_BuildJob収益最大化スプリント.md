@@ -341,7 +341,7 @@ BuildJob 100% 寄せは短期収益施策であり、恒久設計ではない。
 ## 実装制約
 
 - `git add -A` 禁止。変更ファイルだけ明示。
-- A8 mat の MDX 直書き禁止。`src/config/affiliate-creatives.ts` と `src/config/affiliate-mats.json` を真実源にする。
+- A8 mat の MDX 直書き禁止。`src/config/affiliate-creatives.ts` と `config/affiliate-mats.json` を真実源にする。
 - `rel="nofollow sponsored noopener"` を維持。
 - PR 表記を維持。
 - 同一 mat の 1ページ1ピクセル原則を維持。

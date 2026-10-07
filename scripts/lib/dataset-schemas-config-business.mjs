@@ -7,7 +7,7 @@
  * 既存の check-*（check-exam-calendar・check-qualification-market・check-magazine-membership ほか）に残し、型は形と 1 ファイル内の不変条件だけを持つ。
  */
 import { z } from 'zod';
-import { jstDate, month, yen, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, month, yen, flag, uniqueBy, BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
 
 /** 資格・ファミリー・テーマなどの id（英小文字・数字・ハイフン） */
 const QID = z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ');
@@ -18,7 +18,7 @@ const strList = z.array(text);
 // ---- 事業方針（config/business-direction.json） ----------------------------------------------
 
 const DIRECTION_STAGES = ['集客', '学習', '送客', '販売', '運営', '品質'];
-const DIRECTION_CHANNELS = ['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare'];
+const DIRECTION_CHANNELS = BUSINESS_CHANNELS;
 const DIRECTION_UNITS = ['人', '回', '件', '円', '分', '人日'];
 
 /** 事業方針（重点資格・北極星・指標の定義・レビュー周期）。判定（資格 id の重複・appliesTo の実在）は scripts/lib/business-direction.mjs の direction() が見る */

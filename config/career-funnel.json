@@ -83,12 +83,10 @@
     "event_label": "2026-07-07",
     "cta_placement": "2026-07-25"
   },
-  "$baselineComment": "起票時（2026-08-21）の基線。レポートがこの値から大きくずれたら理由を説明する。凍結済みの完全な基線は data/analysis/career-funnel-baseline/2026-08-12.json、評価は experiments.json の EXP-008。",
-  "reportedBaseline": {
-    "affiliateImpressions": 7370,
-    "affiliateClicks": 19,
-    "highIntentQueryImpressions": 10,
-    "a8ConfirmedRewardYen": 0
+  "$baselineComment": "起票時（2026-08-21）の基線は凍結ファイル（台帳 analysis.career-funnel-baseline の date の日）を正とし、ここには数字を写さない（2026-10-07 まで affiliateImpressions 等を写していて、凍結ファイルと高意図 query 表示が 10 と 7 でずれていた）。評価は experiments.json の EXP-008。",
+  "baseline": {
+    "dataset": "analysis.career-funnel-baseline",
+    "date": "2026-08-12"
   },
   "$forbiddenComment": "CTA 文言に混ぜてはいけない短絡表現。src/config/career-pathways.ts の affiliateCta / nextStep 文言をテストが機械検査する。",
   "forbiddenCtaPhrases": [

@@ -227,7 +227,7 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - カタログ（状態機械）: `data/a8/catalog.json`
 - 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
   テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用
-- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `src/config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
+- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
 - 配線の回帰テスト: `tests/affiliate-arm-routing.test.mjs`（キャンペーン境界の案件切替を固定）
 
 ## 関連

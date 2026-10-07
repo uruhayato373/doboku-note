@@ -67,7 +67,7 @@ check('ConfigA8ReportAutomation', 'config.a8-report-automation', [
 check('ConfigCareerFunnel', 'config.career-funnel', [
   [(d) => { d.pillarRules.push(d.pillarRules[0]); }, /柱「/],
   [(d) => { d.dimensionRegisteredAt.event_label = '2026/07/07'; }, /dimensionRegisteredAt/],
-  [(d) => { delete d.reportedBaseline.affiliateClicks; }, /reportedBaseline\.affiliateClicks/],
+  [(d) => { delete d.baseline.date; }, /baseline\.date/],
   [(d) => { d.forbiddenCtaPhrases = []; }, /forbiddenCtaPhrases/],
 ]);
 
