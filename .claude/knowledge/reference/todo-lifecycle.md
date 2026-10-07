@@ -14,6 +14,10 @@
 frontmatter は taskId / type: implementation-plan / createdAt / deleteOnComplete: true の4キーのみ（状態・進捗を書かない）。
 命名は DN-####-slug（dir型=00-master.md 持ち、無ければ 00-*.md で代用／file型=単一.md）。発見の唯一の実装は scripts/lib/plan-units.mjs。
 
+## 起票（作業中に見つけたもの）
+- その場で直さない不具合・改善・未確認は、同じセッションで `npm run todo:add -- … --commit` で起票し、報告にカード番号を書く（CLAUDE.md §12）。採番・差し込み・検査・origin/develop への push を 1 コマンドで行い、作業ツリーとブランチに触れない（2026-10-07: 共有 checkout で commit したカードが別セッションのブランチへ載った）
+- 最後の報告に未確認・未対応・別途などがあるのに DN-#### が無いと、Stop フック `check-capture` が 1 セッションに 1 回だけ止めて起票を促す。要らないときは「起票不要: 理由」を書く
+
 ## claim（実装開始）
 - 実装前に必ず `npm run todo:claim -- DN-#### --owner <name>`。二重 claim は拒否される
 - 選定器（pickTasks）は wip を必ず除外する
@@ -21,6 +25,7 @@ frontmatter は taskId / type: implementation-plan / createdAt / deleteOnComplet
 
 ## complete（完了）
 - `npm run todo:complete -- DN-#### --confirm-conditions --commit [--verify "..."]`。dry-run が既定
+- `[種類:不具合]` は `--prevention` が必須: `gate:<npm script かパス>`（検査で止める）／`memory:<.claude/memory の名前>`（作業規律）／`doc:<パス>`（正典へ書く）／`none:<理由>`。dispatch-log に kind と prevention を残し、`check-dispatch-log` が欠けを止め、週次レビューが `report-defect-learning` で数える
 - 削除前の検査 `doc-refs`: `docs/` の live 文書（週次スナップショット除く）がその ID を参照していたら止める。閉じると `check-project-task-refs` の dangling-id で CI が赤くなるため、参照を完了扱いへ書き換えてから閉じる
 - 一括で閉じるもの: backlog カード削除・monthly/weekly 行削除・claims 解除・dispatch-log 追記（id/at/task/tier/executor/outcome/plan/commit/verification）・事後検査（schema+task-plan-links+dispatch-log）
 - plan unit は自動削除しない。受入条件を確認して手で削除し、`check-backlog-schema`・`check-task-plan-links`・`check-dispatch-log`をすべて通して完了とする。planを残した`todo:complete`は事後検査のorphan-planでexit 1になるため、plan削除を`&&`で後続に置かず、別の操作で行う。

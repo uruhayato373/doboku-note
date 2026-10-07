@@ -10,7 +10,7 @@ paths:
 
 ## `.claude/todo/`（CLAUDE.md §8）
 
-- backlog がマスタ・ID は `DN-####`。新しい ID は `node scripts/backlog-edit.mjs --next-id`（`git fetch` の後）で取る。backlog の全ブランチの履歴から最大＋1 を出すので、完了して消えたカードの番号も使い回さない（2026-10-02 に DN-0511 が二重になった。2026-10-07 には、着手記録の無いまま完了して消えた DN-0553 を「backlog と dispatch-log の最大＋1」で数えると再利用しかけた）。**やる月はカードの `[時期:]`** で決め、年間（管理画面 年間ロードマップ）と月間（`[時期:]` が今月を含むカード）はそこから導出する。`monthly.md` は成果目標だけ、`annual.md` は方針の文章だけ。週初に今月のカードから weekly へ pull（`/plan-weekly`・`todo-planner`）。閲覧は admin 計画
+- backlog がマスタ・ID は `DN-####`。起票は `npm run todo:add`（採番・検査・origin/develop への push まで。手で書くときは `node scripts/backlog-edit.mjs --next-id` を `git fetch` の後に）。backlog の全ブランチの履歴から最大＋1 を出すので、完了して消えたカードの番号も使い回さない（2026-10-02 に DN-0511 が二重になった。2026-10-07 には、着手記録の無いまま完了して消えた DN-0553 を「backlog と dispatch-log の最大＋1」で数えると再利用しかけた）。**やる月はカードの `[時期:]`** で決め、年間（管理画面 年間ロードマップ）と月間（`[時期:]` が今月を含むカード）はそこから導出する。`monthly.md` は成果目標だけ、`annual.md` は方針の文章だけ。週初に今月のカードから weekly へ pull（`/plan-weekly`・`todo-planner`）。閲覧は admin 計画
 - **backlog に置くのは単発で完了がある未着手タスクだけ** — チャネル状態の複製・反復する運用サイクル・コンテンツ制作企画は置かない。行き先は [todo-standards.md](../knowledge/reference/todo-standards.md) §1-2
 - **カードに触れたら完了 prose を足さず残作業へ再スコープ**（部分完了は TRIM、タイトルが残作業と乖離したら旧削除＋新 ID で RESEED。確認不要・基準は todo-standards.md「5. 残す条件と削除条件」）してから commit する
 - 週次レビューの申し送りは backlog へ `DN-####` 起票まで完了とする。定期作業は置かない。`[検証:]` に surfacer を書かない
