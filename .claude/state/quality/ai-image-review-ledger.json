@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "note": "AI 画像の実績（どの指示から作って配置したか＝promptSha・実物どおりかの判定＝verdict）。sha が今の画像と一致する記録だけが効く。手で編集しない（生成と配置は npm run gen-article-photo、判定は node scripts/check-image-origin.mjs record-ai）",
+  "figures": {
+    "civil-construction-1/textbook-crane/img/all-terrain-crane": {
+      "sha": "f6ca7b337b1478d5",
+      "promptSha": "a98dc5ef590326e7",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:38.717Z",
+      "verdict": "ok",
+      "reason": "片側 6 輪（6 軸）の多軸キャリヤ、前部の走行用運転室と旋回体側の別のクレーン運転室、箱形テレスコピックブーム、4 本のアウトリガ、後部のカウンタウエイトがそろい、本文の「運転室が別」と一致する（軸数は親が拡大して数え直した）",
+      "reviewedAt": "2026-10-07T12:03:02.020Z"
+    },
+    "civil-construction-1/textbook-crane/img/boom-lift": {
+      "sha": "ef9ec50daea9a290",
+      "promptSha": "291131f678c161cd",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:38.953Z",
+      "verdict": "ok",
+      "reason": "軽トラックの旋回台から折れ曲がりのない直線の伸縮ブームが伸び、先端に防護柵付きの作業床があり、アウトリガは張り出し済み。人物は小さく顔も見えず、本文の「まっすぐ伸びる」伸縮ブーム型に合う",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/cable-crane": {
+      "sha": "cbf940e0fb8a8c5e",
+      "promptSha": "22b0e2c07292197d",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:40.864Z",
+      "verdict": "ok",
+      "reason": "両岸の鋼製トラス塔・塔間の主索・横行トロリと吊り下げたコンクリートバケット・施工中のダム堤体がそろい、圧縮後も部位が読める",
+      "reviewedAt": "2026-10-07T12:17:17.062Z"
+    },
+    "civil-construction-1/textbook-crane/img/crawler-crane": {
+      "sha": "cce8286a5ab6329e",
+      "promptSha": "0d5ccff4aa8566f3",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:50:31.459Z",
+      "verdict": "ok",
+      "reason": "左右 2 本の履帯、旋回体の運転室と後部のカウンタウエイト、起伏ロープ、先端から吊るフックブロックがあり、ブームは本文どおり開いたラチス（形鋼トラス）構造",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/loader-crane": {
+      "sha": "78125fcd71e381fc",
+      "promptSha": "6d254dd6739c1c92",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:39.718Z",
+      "verdict": "ok",
+      "reason": "運転室と荷台の間に油圧クレーン（コラム・起伏シリンダ・直線テレスコピックブーム）があり、小型アウトリガを張り出して鋼管の束を荷台へ吊る。本文の「運転室と荷台の間」「クレーンと貨物運搬の双機能」と一致する",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
+      "sha": "8dadb940059fa77b",
+      "promptSha": "680c0e0087dc9645",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:39.177Z",
+      "verdict": "ok",
+      "reason": "同径の大型オフロードタイヤ 4 輪の 2 軸、旋回体上の運転室は 1 つだけ、箱形テレスコピックブーム、フロート付きアウトリガ 4 本で、本文の「運転手 1 人で走行とクレーン作業」と合う",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-crane/img/tower-crane": {
+      "sha": "fa6e32d9dcee5ade",
+      "promptSha": "fcaebf38cecea3ec",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:53:40.108Z",
+      "verdict": "ok",
+      "reason": "格子マストが躯体内に立ち、支持枠で数層ごとに躯体へ連結されている。頂部に水平ジブ・トロリとフック・カウンタジブ・運転室があり、本文の「建物躯体を利用してせり上がる」クライミング方式として成り立つ",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
+      "sha": "0da6c197e1ce4200",
+      "promptSha": "b0975a484d8a387c",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:59:13.273Z",
+      "verdict": "ok",
+      "reason": "コーナーキューブ型の円形ガラスプリズムが U 字ホルダーに入り、視準板が付く。紅白目盛のポールに円形気泡管があり、二脚で垂直に保持されている。本文の反射プリズムと一致する",
+      "reviewedAt": "2026-10-07T12:09:22.125Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
+      "sha": "29467882dbd18484",
+      "promptSha": "d5d65e9aca403af1",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:40.131Z",
+      "verdict": "ok",
+      "reason": "三脚の上に整準台とドーム形の GNSS アンテナ、脚にデータコントローラ。3 本脚とも足先まで揃い、圧縮の劣化なし",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/theodolite": {
+      "sha": "7bc78611942ec168",
+      "promptSha": "c21a8404689c7692",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:39.239Z",
+      "verdict": "ok",
+      "reason": "望遠鏡を U 字の 2 本の支柱（アリダード）で挟み、上部に取っ手、支柱面に液晶とキー、側面に鉛直クランプ、整準ねじ 3 個の整準台を三脚の頭部に据えた、実在の電子セオドライトの構成",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/total-station": {
+      "sha": "812342d95bc7866f",
+      "promptSha": "4534741ba0403e73",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:01:06.105Z",
+      "verdict": "ok",
+      "reason": "取っ手・対物レンズ・表示部とキーパッド・整準台の整準ねじを備えた一体型の器械を三脚に据えた、現行のトータルステーションの形で本文と矛盾しない",
+      "reviewedAt": "2026-10-07T12:09:22.126Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
+      "sha": "4ac34a4bf116b917",
+      "promptSha": "a2bbc110990bafa3",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:08:15.967Z",
+      "verdict": "ok",
+      "reason": "前に幅広の鉄輪 1 本、後ろに左右 2 本の大径の鉄輪の計 3 輪で、運転席は後輪の間。屈折の継手は無く固定フレームの一体の車体で、本文の「3 輪・固定フレーム式」と合う",
+      "reviewedAt": "2026-10-07T12:10:51.841Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
+      "sha": "3f6ffc7fe1f6df85",
+      "promptSha": "df6f7c74730c6aa3",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:41.336Z",
+      "verdict": "ok",
+      "reason": "前輪 2 本・後部のタンデム後 4 輪・軸距中央の下のブレード・後部の運転室とエンジンで、本文の「長い軸距の中央にブレード」と一致。圧縮後も潰れていない",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
+      "sha": "00b7bd1a21ff99ba",
+      "promptSha": "ce3ad713ca42115c",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:04:00.746Z",
+      "verdict": "ok",
+      "reason": "前部に突起（パッド）を多数並べた鉄輪ドラムが 1 本、後部は空気タイヤの自走式。突起で荷重を集中させる本文の説明に合う",
+      "reviewedAt": "2026-10-07T12:09:22.126Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
+      "sha": "896c5bb0a93fa358",
+      "promptSha": "65ef5eeedefed6b4",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:06:58.019Z",
+      "verdict": "ok",
+      "reason": "前後に同程度の径の平滑な鉄輪が 2 本で、運転台は中央。本文の「前後輪の幅はほぼ等しい」タンデムローラ（2 軸式）と矛盾しない",
+      "reviewedAt": "2026-10-07T12:10:51.842Z"
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
+      "sha": "37da5647deca462a",
+      "promptSha": "bbb02b9093cd2bff",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:07:38.075Z",
+      "verdict": "ok",
+      "reason": "前に平滑なゴムタイヤが 4 本、後ろにも列があり鉄輪は無い。箱形のバラスト車体と屋根付きの運転席で、本文の「空気圧・バラスト調整式」と合う",
+      "reviewedAt": "2026-10-07T12:10:51.842Z"
+    },
+    "civil-construction-1/textbook-leveling/img/automatic-level": {
+      "sha": "7ea40092866f1f9a",
+      "promptSha": "40d67ed9d356587d",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T11:57:39.548Z",
+      "verdict": "ok",
+      "reason": "対物レンズと接眼部を備えた短い水平望遠鏡本体、合焦ノブ、水平微動ねじ、3 個の整準ねじを三脚へ据えた自動レベル（ティルティング用の長い気泡管なし）で、本文と矛盾しない",
+      "reviewedAt": "2026-10-07T12:03:02.032Z"
+    },
+    "civil-construction-1/textbook-loader/img/wheel-loader": {
+      "sha": "099fb3cff9645f65",
+      "promptSha": "b2b41f1539e37465",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:40.465Z",
+      "verdict": "ok",
+      "reason": "同径の 4 輪・リフトアームとリンクで支えた前部バケット・運転室とエンジンで、ホイール式ローダとして成り立つ。圧縮後も読める",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-scraper/img/motor-scraper": {
+      "sha": "1b15e03a581b4380",
+      "promptSha": "3a97513936d54a14",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:18:34.106Z",
+      "verdict": "ok",
+      "reason": "前に運転席・エンジン付きの 1 軸トラクタ、グースネックでつながる後ろのボウルが自前の 1 軸（計 2 軸）で、エプロン・カッティングエッジ・積込み土砂が見える。ボウル右上の模様は格子枠と無地の板で、読める商標や崩れた文字列は無い",
+      "reviewedAt": "2026-10-07T12:19:35.109Z"
+    },
+    "civil-construction-1/textbook-scraper/img/scraper-dozer": {
+      "sha": "c396bf67a5a2d60f",
+      "promptSha": "c72abb7f26619a30",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:56.984Z",
+      "verdict": "ok",
+      "reason": "途切れない履帯・左右の履帯の間の土を積んだボウル・前部のブレード・後部のラジエータ付きエンジン・ボウル上方の運転席が本文と合う。座席の向きは角度から断定できない",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
+      "sha": "344d34816879ded1",
+      "promptSha": "2db65000b407e399",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:56.061Z",
+      "verdict": "ok",
+      "reason": "鋼製履帯・前部のストレートブレード・後部の 1 本爪リッパ・ROPS 付き運転室の中型ブルドーザ。圧縮後も読める",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
+      "sha": "e0c91371f1e479fb",
+      "promptSha": "26fb336a9f6d21af",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:06:59.128Z",
+      "verdict": "ok",
+      "reason": "車輪付きの短い傾斜フレームに受けホッパと頭部のモータがあり、先端から砂利が山に落ちる。本文の「小型ポータブル型」と一致する",
+      "reviewedAt": "2026-10-07T12:10:51.842Z"
+    },
+    "civil-construction-1/textbook-transport-machinery/img/dump-truck": {
+      "sha": "76d628601084ec32",
+      "promptSha": "d1b599982142de38",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:13:56.403Z",
+      "verdict": "ok",
+      "reason": "運転室と 1 軸の前部車体・屈折ヒンジ・ダンプボディを支える後 2 軸の 6 輪構成で、アーティキュレート式ダンプトラックとして成り立つ",
+      "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
+      "sha": "eccb121550657238",
+      "promptSha": "a4afc5b404520f56",
+      "tool": "Codex（gpt-6-astra）",
+      "generatedAt": "2026-10-07T12:06:58.358Z",
+      "verdict": "ok",
+      "reason": "ラグ付きのゴムクローラ（転輪・遊動輪・起動輪）の上に、前に運転室、後ろにダンプ式荷台。本文の「ゴムクローラの走行装置上に運転室と荷台」と合う",
+      "reviewedAt": "2026-10-07T12:10:51.842Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
+      "sha": "85e632d3d029d318",
+      "verdict": "ok",
+      "reason": "こて仕上げの床スラブ面で、薄い表層が不定形にめくれて縁が反り上がり、下の粗い面が露出している。設問が問う表層剥離そのもので、ひび割れ・析出など別の変状には見えない",
+      "reviewedAt": "2026-10-07T12:06:51.904Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9a-fig": {
+      "sha": "39519c8156080239",
+      "verdict": "ok",
+      "reason": "床版下面の全面に亀甲状ひび割れが密に走り、ひび割れ沿いに赤褐色の錆汁が流れる。小さな剥落が 1 か所あるが、解説の III（亀甲状・錆汁・かぶりの浮き）と矛盾せず、IV と取り違える程ではない",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9b-fig": {
+      "sha": "47f7f78e5164e00c",
+      "verdict": "ok",
+      "reason": "張出し床版の下面に細い線状ひび割れが数本あるだけで、錆汁・剥落・鉄筋露出は無い。解説の II（軽微・経過観察）と一致する",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9c-fig": {
+      "sha": "f92c8fab4a1f2d04",
+      "verdict": "ok",
+      "reason": "桁側面の一部にだけ細かいひび割れと褐色の変色があり、周囲は健全な平滑面が続く。解説の局所的な II と一致し、高欄・地覆・橋脚の位置関係も実在の橋として成り立つ",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q9d-fig": {
+      "sha": "26560885310381af",
+      "verdict": "ok",
+      "reason": "桁下面の隅でかぶりが大きく剥落し、主鉄筋とスターラップが露出して激しく腐食している。配筋の配置が実在の RC 桁として成り立ち、解説の IV と一致する",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-03": {
+      "sha": "d0054a4348ff21b4",
+      "verdict": "ok",
+      "reason": "橋脚側面に方向性のない亀甲状・地図状のひび割れが広がり、縁に沿って白色の析出物が滲んで流下する。本文の ASR の特徴（亀甲状・地図状、白色ゲル滲出）と一致する",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-05": {
+      "sha": "4b8a3b80571932ff",
+      "verdict": "ok",
+      "reason": "SEM らしい白黒像で、滑らかな骨材面と界面、繊維状・板状の水和物が絡むマトリクスと大小の空隙が見え、alt・本文（骨材界面・反応生成物の形態観察）と一致する",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-04": {
+      "sha": "074f41330a744953",
+      "verdict": "ok",
+      "reason": "擁壁の水平打継ぎ目とひび割れから白色の析出物が滲み、壁面を筋状・つらら状に流下する。本文（打継ぎ面を通じた水の移動の跡）と一致する",
+      "reviewedAt": "2026-10-07T12:06:51.905Z"
+    }
+  }
+}

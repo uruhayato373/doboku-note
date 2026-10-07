@@ -21,7 +21,7 @@ npm run dev
 
 - [`.claude/knowledge/reference/content-principles.md`](./.claude/knowledge/reference/content-principles.md) — コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種の使い分け等）
 - [`.claude/knowledge/reference/content-authoring.md`](./.claude/knowledge/reference/content-authoring.md) — MDX コンポーネント・過去問構造・モバイル視認性詳細・frontmatter テンプレ
-- [`.claude/knowledge/reference/image-policy.md`](./.claude/knowledge/reference/image-policy.md) — 図版種別判定フロー・CC/PD 写真ソース・出典表記
+- [`.claude/knowledge/reference/image-policy.md`](./.claude/knowledge/reference/image-policy.md) — 図版種別判定フロー・写真は AI 生成（`gen-article-photo`・`check-image-origin`）・出典表記
 
 ### UI コンポーネント視覚リファレンス
 

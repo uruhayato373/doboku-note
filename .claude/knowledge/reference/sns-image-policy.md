@@ -32,6 +32,10 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 
 Xは `cards.json` を持つドラフトの指定番号へ先生付きテンプレートを適用できる。入力・生成・内部ブラウザ確認は [X投稿ポリシー §7](./x-post-policy.md) を参照。既存の予約キューは画像再生成だけでは更新されない。
 
+## 0.0 写真は AI 生成だけ（2026-10-08 運営者決定）
+
+SNS（YouTube・Shorts/Reels・Instagram・X・note の図）に載せる機械・現場・変状の写真も、記事と同じく **AI で生成した画像だけ**を使う。Wikimedia Commons などの実写・ストックフォトは使わない（キャラクターと本人写真は §0 のとおり）。記事の写真を流用するときは、`npm run check-image-origin` が合格の画像（`config/figure-sources.json` の `provenance` が `ai-generated`）だけを使う。作り方と監査は [image-policy.md](./image-policy.md)「写真は AI で生成する」。`.claude/scripts/lib/sns-common/image-search.mjs` の Wikimedia 自動検索は外した。
+
 ## 0.1 予約済み・公開済み素材の更新
 
 ローカル再生成と外部投稿の更新を別々に記録する。最初に投稿 ID / URL・アカウント・公開状態・予約日時（JST）・現在の素材・変更する項目を照合する。

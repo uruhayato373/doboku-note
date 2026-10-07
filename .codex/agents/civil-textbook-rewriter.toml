@@ -45,7 +45,7 @@ developer_instructions = """
 | ID | パターン | 内容 | 対象軸 |
 |---|---|---|---|
 | **G** | モバイル視認性修正 | 既存の 4列以上または 3列×長セル超過の表を、情報量を保ったまま階層化箇条書き（`- **列1**: 列2 — 列3`）に変換。**追加型ではなく既存構造の in-place 変更** | mobile |
-| **I** | 画像コンポーネント移行 | 本文中の生 `<img>` を `<ArticleImage>` に置換。alt は ≤80字、caption は**帰属情報のみ（≤60字）**、説明は本文に書く。CC/PD 画像なら `{/* source: URL, license */}` コメントを付ける | figures |
+| **I** | 画像コンポーネント移行 | 本文中の生 `<img>` を `<ArticleImage>` に置換。alt は ≤80字、caption は**帰属情報のみ（≤60字）**、説明は本文に書く。公的資料の図なら `{/* source: 提供者, 利用規約, URL */}` コメントと caption の提供者を付ける（写真は AI 生成だけ・実写の CC/PD 写真は使わない） | figures |
 | **R** | 参考資料節補完 | `## 参考資料` 節が欠落なら新設し、**公的（go.jp/or.jp/ac.jp）＋民間（Wikipedia/業界団体/ブログ等）の両方を最低1件ずつ**記載。法令名は本文から e-Gov 内部リンクに差し替える | reference |
 | **B** | 過去問バックリンク追加 | H2 セクション単位で、対応する過去問ページ（`/docs/civil-construction-1-primary-*` / `/docs/civil-construction-1-secondary-*`）へのインラインリンクを追加。**guide モード限定** | principle（guide）/ figures（guide）|
 | **S** | 構造整理 | H2/H3 階層の整合、frontmatter 必須6項目（title/seoTitle/description/category/tags/published/group）の補完 | structure |
@@ -103,9 +103,9 @@ developer_instructions = """
   - URL は推測禁止。実在確認の責任はリライト実行者が負う（WebFetch で HEAD 確認推奨）
 - **I パターン（画像移行）適用時**:
   - alt は ≤80字、caption は帰属情報のみ（≤60字）
-  - CC/PD 画像なら `{/* source: URL, license */}` コメント
+  - 写真は AI 生成だけ（`npm run gen-article-photo`。実写の CC/PD 写真は使わない）。公的資料の図なら `{/* source: 提供者, 利用規約, URL */}` コメントと caption の提供者
   - 画像ファイルが `public/posts/` または R2 上に実在することを前提とする
-  - 新規画像生成はしない（既存画像のコンポーネント移行のみ）
+  - 新規画像生成はしない（既存画像のコンポーネント移行のみ）。写真の差し替えが要るときは、親が `npm run gen-article-photo` の別作業で行う
 - **G パターン（表変換）適用時**:
   - **情報量ゼロロス**: 元の表の全セルの文言が、変換後の箇条書きのいずれかに 1対1 で出現すること
   - 対象: 4列以上の表 / 3列×いずれかセル15字超の表
