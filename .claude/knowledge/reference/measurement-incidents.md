@@ -1010,3 +1010,18 @@ DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth
   - `note-update-cover` の「新カバー未確認」は**中断＝安全ではない**。出た記事は公開 API（`fetchNoteDetails`）で `eyecatch` を確かめ、同じ記事を再実行する（CLI ヘッダに明記）。load 確認の待ち時間は 12 秒→45 秒へ延長。
   - 長時間の逐次実行は `caffeinate -i -w <pid>` と AC 給電で回す（スリープ復帰直後のページは遅く、確認が落ちる）。
   - 公開反映の完了判定は CLI の `ok=` ではなく、前後スナップショットの `eyecatch` 変化・`price`/`status`/`is_limited` 不変で行う（[note-cover-character-v5.md](../design-system/note-cover-character-v5.md)）。
+
+## 2026-10-06 — Actions の実行一覧の先頭を「最新」と読み、develop の CI を赤と誤報した
+
+PR を 3 本マージした後、`GET /repos/uruhayato373/doboku-note/actions/workflows/ci.yml/runs?branch=develop&per_page=6` の結果を
+上から並べて「その後の 6 コミットが failure」と報告した。並んでいたのは 2026-09-11〜12 の古い実行で、自分の push
+（`4526bdf28`）の実行は success、その後に develop へ入ったのは `[skip ci]` の台帳 1 件だけだった。数分前に同じ
+エンドポイントを `per_page=5` で引いたときは最新の実行が含まれていて、同じ URL でも順序をあてにできなかった
+（原因は未特定。クラウドのプロキシ経由・未認証の API）。
+
+**教訓**:
+
+- CI の成否は**確かめたい commit の `head_sha` で実行を特定して**読む。一覧の先頭を最新とみなさない。並べて見せるときは
+  `created_at` を必ず一緒に出し、確かめたい push より古い行が混ざっていないかを見る。
+- 「その後のコミット」を語る前に `git log <確かめた SHA>..origin/develop` で実在を確かめる（今回は 1 件で `[skip ci]` だった）。
+- 誤報に気づいたら同じターンで訂正し、どの数字が誤りだったかを書く（§12）。

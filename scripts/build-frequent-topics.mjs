@@ -154,25 +154,19 @@ const byFreq = (a, b) => b.count - a.count || b.yearsCount - a.yearsCount || a.t
 const ranked = [...topics].sort(byFreq);
 
 // --- 3. MDX 生成 ---
+// 順位表は 5 列（lint 1-3/1-4 違反）になるため、順位付き番号リスト 1 行に畳む（2026-10 モバイル可読性）
 const row = (i, t) =>
-  `| ${i} | [${t.title}](${publicKeywordPath(t.slug)}) | ${t.count} | ${t.yearsCount} | ${t.latestYear} |`;
+  `${i}. [${t.title}](${publicKeywordPath(t.slug)}) — 出現 ${t.count}・出題年度数 ${t.yearsCount}・直近出題 ${t.latestYear}`;
 
-const overallTable = [
-  "| 順位 | 論点 | 出現 | 出題年度数 | 直近出題 |",
-  "|---|---|---|---|---|",
-  ...ranked.slice(0, 30).map((t, i) => row(i + 1, t)),
-].join("\n");
+const overallList = ranked.slice(0, 30).map((t, i) => row(i + 1, t)).join("\n");
 
 const kanriBlocks = kanriSections
   .map((k) => {
     const list = ranked.filter((t) => t.kanri === k).slice(0, 10);
     if (!list.length) return "";
-    const table = [
-      "| 順位 | 論点 | 出現 | 出題年度数 | 直近出題 |",
-      "|---|---|---|---|---|",
-      ...list.map((t, i) => row(i + 1, t)),
-    ].join("\n");
-    return `### ${k}\n\n${table}\n`;
+    const items = list.map((t, i) => row(i + 1, t)).join("\n");
+    // 見出し直下にいきなり箇条書きを置かない（lint 6-2 / §2）。列の読み方を言い直す導入文を置く
+    return `### ${k}\n\n${k}の TOP10 を、順位順に論点・出現・出題年度数・直近出題の組で示す。\n\n${items}\n`;
   })
   .filter(Boolean)
   .join("\n");
@@ -196,7 +190,7 @@ created: ${preservedCreated || todayJST()}
 dateModified: ${todayJST()}${preservedOgpBlock ? `\n${preservedOgpBlock}` : ""}
 ---`;
 
-const body = `本ページは、技術士総合技術監理部門の**第一次・択一式（必須科目Ⅰ）過去問を${yearRange}の${yearSpan}年度分**にわたり収集し、各設問を論点キーワードに分類して**出現頻度を集計した独自の出題傾向データ**である。対象は ${totalQuestions} 問、分類した論点は ${totalTopics}、延べ ${totalLinks} 件の論点–設問リンクを基礎データとする。
+const body = `本ページは、技術士総合技術監理部門の第一次・択一式（必須科目Ⅰ）過去問を**${yearRange}の${yearSpan}年度分**にわたり収集し、各設問を論点キーワードに分類して**出現頻度を集計した独自の出題傾向データ**である。対象は ${totalQuestions} 問、分類した論点は ${totalTopics}、延べ ${totalLinks} 件の論点–設問リンクを基礎データとする。
 
 <Callout type="info" title="このデータの読み方">
 - **出現**: その論点が過去問設問に紐づいた延べ件数。1 設問が複数論点にまたがる場合は各論点で計上するため、設問数とは一致しない。
@@ -206,9 +200,9 @@ const body = `本ページは、技術士総合技術監理部門の**第一次�
 
 ## 全体 頻出論点ランキング TOP30
 
-5 管理を横断した出現頻度の上位 30 論点。**出題年度数が多い（＝ほぼ毎年問われる）論点から優先的に押さえる**のが得点効率の高い学習順序となる。
+5 管理を横断した出現頻度の上位 30 論点。**出題年度数が多い**（＝ほぼ毎年問われる）論点から優先的に押さえるのが得点効率の高い学習順序となる。
 
-${overallTable}
+${overallList}
 
 ## 5 管理別 頻出論点 TOP10
 
@@ -217,6 +211,8 @@ ${overallTable}
 ${kanriBlocks}
 
 ## 出典と方法論
+
+本データの基礎データ・集計方法・カバー率・ダウンロード方法を、次の項目に分けて記す。
 
 - **基礎データ**: 当サイトが文字起こしした技術士総合技術監理部門 択一過去問（${yearRange}）。各設問は[総合技術監理 キーワード集 2026](${PUBLIC_KEYWORD_GUIDE})の論点体系に沿って分類した。
 - **集計**: 論点ごとの設問紐づけ件数・出題年度を機械集計（\`scripts/build-frequent-topics.mjs\`）。新年度の過去問を追加すると自動で更新される。

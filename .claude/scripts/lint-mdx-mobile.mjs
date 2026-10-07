@@ -90,6 +90,7 @@ import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
+import { blankOfficialQuestionLines, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
 
 const CELL_MAX = 15;
 
@@ -927,6 +928,8 @@ function isExamArchive(filePath) {
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
   if (/civil-construction-[12][\\\/](?:primary|secondary)-/.test(filePath)) return true;
+  // 年度付きの過去問（測量士 surveyor/primary-r07/ 等）。2026-10-06: 測量士の正答記号に 9-6 の誤検知 HIGH が 140 件出ていた
+  if (/[\\\/](?:primary|secondary)-(?:r|h)\d{2}(?:[\\\/]|-)/.test(filePath)) return true;
   // コンクリート主任技士 形式: 分野別過去問 primary-materials/, primary-construction/ 等
   if (/concrete-chief-engineer[\\\/]primary-/.test(filePath)) return true;
   // コンクリート診断士 形式: 分野別過去問 primary-deterioration/, primary-investigation/ 等
@@ -1063,7 +1066,8 @@ function lintComponentPrinciples(lines, filePath, findings) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     // <ExamPoint> ブロック内・details ブロック内は別ルール（9-3）でカバー
-    const m = line.match(/(正答[：:]|代表的な誤り|❌|✅)/);
+    // インラインコード（`**正答：N**` の書式説明など）は判定記号ではない
+    const m = line.replace(/`[^`]*`/g, '').match(/(正答[：:]|代表的な誤り|❌|✅)/);
     if (m) {
       findings.push({
         severity: 'HIGH',
@@ -1870,20 +1874,6 @@ function lintNestedList(lines, findings) {
   flush(lines.length);
 }
 
-// 公式問題の文体を短文化させない。原文は保持し、導入・解説・学習案内を採点する。
-function proseLinesOutsideOfficialQuestions(lines, filePath) {
-  const normalized = filePath.replace(/\\/g, '/');
-  const firstStage = /\/pe-first-stage\/(?:h|r)\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)\/article\.mdx$/.test(normalized);
-  const construction = /\/pe-construction\/r\d{2}-(?:required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment)\/article\.mdx$/.test(normalized);
-  if (!firstStage && !construction) return lines;
-  let question = false;
-  return lines.map(line => {
-    if (/^##\s/.test(line)) question = /^##\s+[ⅠⅡⅢIVX]+[-－]\d/.test(line);
-    if (/^<details\b|^#{2,4}\s+(?:解答|解説|学習)/.test(line)) question = false;
-    return question ? '' : line;
-  });
-}
-
 function lintProseStyle(lines, findings) {
   const cleanInline = (s) =>
     s
@@ -1912,6 +1902,12 @@ function lintProseStyle(lines, findings) {
     // 複数行 JSX コンポーネントブロックの開始（同一行で閉じないもの）
     if (/^<[A-Z][A-Za-z]*/.test(trimmed) && !/\/>\s*$|<\/[A-Za-z]/.test(trimmed)) {
       inJsx = true;
+      continue;
+    }
+    // 見出しで文末の連続（15-1）を区切る。節をまたいだ文は続けて読まれないので単調さの対象にしない
+    // （2026-10-06: 試験問題の逐語を空にすると、問題 N と問題 N+1 の解説が 1 本の連続として数えられていた）
+    if (/^#{1,6}\s/.test(line)) {
+      sentences.push({ line: idx + 1, ending: null });
       continue;
     }
     if (!isProseLine(line)) continue;
@@ -2052,13 +2048,20 @@ function lintFile(filePath) {
   lintNestedList(lines, findings);
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
-  lintProseStyle(proseLinesOutsideOfficialQuestions(lines, filePath), findings);
+  // 公式問題の逐語（設問文）は原文を保持するので 15-x の対象外。範囲の判定は lib に一本化（lint-ja と共有）
+  lintProseStyle(blankOfficialQuestionLines(lines, filePath), findings);
 
   // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
   lintMdxHygiene(lines, findings);
 
+  // 公式問題の逐語の中の表（選択肢の組合せ・作業日数・試験データの表）は原文の構造を変えられないので
+  // 1-1/1-3/1-4 の対象外（DN-0549）。範囲は lint-ja・15-x と同じ lib の判定。解説（<details> 内）の表は従来どおり。
+  const officialLines = officialQuestionLines(lines, filePath);
+  const OFFICIAL_TABLE_RULES = new Set(['1-1', '1-3', '1-4']);
+  const outsideOfficial = findings.filter((f) => !(OFFICIAL_TABLE_RULES.has(f.rule) && officialLines.has(f.line)));
+
   // config（content-rules.json）の重大度・資格×種別の有効/無効を適用
-  const scoped = applyContentRules(findings, parseScope(raw));
+  const scoped = applyContentRules(outsideOfficial, parseScope(raw));
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of scoped) {

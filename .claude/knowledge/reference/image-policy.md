@@ -266,13 +266,15 @@ content/site/{slug}/img/
 
 スキャン過去問・教材から切り出した図クロップ（`content/site/**/img/`）の**画素ジオメトリ**を検査する機械ゲート。既存の図監査は OCR ベース（`audit-figure-text` = 答え/本文テキスト、`build-figure-provenance` = 鮮明度・出所）で「テキストの内容」しか見ないため、クロップ縁の切断・隣接図の写り込みを取りこぼしていた（例: `r07-a-fig-04` 下端に隣接図のルビ写り込みが `textStatus:clean` で素通り）。本ゲートが画素で補完する。
 
-実行: `npm run check-figure-crop`（全走査＋`.claude/state/quality/figure-crop-report.json` 出力）/ `check-figure-crop:ci`（baseline 比の新規のみ exit 1）/ `--file <img>`（1枚検査・figure-recrop の自己検証用）。写真（白率<50%）は自動スキップ。
+実行: `npm run check-figure-crop`（全走査＋`.claude/state/quality/figure-crop-report.json` 出力）/ `check-figure-crop:ci`（baseline 比の新規のみ exit 1）/ `--file <img>`（1枚検査・figure-recrop の自己検証と `/figure-quality-loop` の QA 用）。写真（白率<50%）は自動スキップ。
 
 | ルール | 扱い | 意味 |
 |---|---|---|
-| **STRAY_SLIVER** | **CI ブロッキング（HIGH）** | 上下端の**極薄インク島**（≤6px かつ ≤1%H）が白ギャップで本体から分離＝**隣接図の切れ端＝写り込み**。フルハイトの正当ラベル/軸と分離できる唯一の高精度シグナル（実測 precision ≈ 8/10） |
+| **STRAY_SLIVER** | **CI ブロッキング（HIGH）** | 上下端の**極薄インク島**（≤6px かつ ≤1%H）が白ギャップで本体から分離＝**隣接図の切れ端＝写り込み**（縦の線で本体へ繋がる島＝帰還矢印・軸の矢じりは除く）。フルハイトの正当ラベル/軸と分離できる唯一の高精度シグナル（実測 precision ≈ 8/10） |
 | EDGE_CUT / EDGE_LINE / EDGE_TIGHT | 情報のみ | 縁接触の分類。finished 図では tight-crop（正当な密着・実測 538/643 が該当）と切断を幾何で判別できないため gate にしない |
 | STRAY_LABEL / THIN_MARGIN | 情報のみ | 厚めの分離島（小見出し/軸/写り込みのいずれか・要目視）/ 極薄マージン |
+
+EDGE_CUT・STRAY_LABEL は CI では落とさないが、`/figure-quality-loop` の判定待ち（`npm run figure-review-queue` の優先2・3）が毎回読み、目視判定を台帳に残す（写真は除く）→ [figure-provenance.md](figure-provenance.md)。
 
 **運用**: content-quality-ratchet と同方式。既存債務は `--update-baseline` で `figure-crop-baseline.json` に棚卸し登録し、`--ci` は baseline に無い**新規 STRAY_SLIVER のみ** fail。是正したら再度 `--update-baseline` で刈り込む。CI では `quality:audit:ci` の `figure-crop-integrity` チェックが 0 件を enforce。
 

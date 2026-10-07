@@ -18,7 +18,7 @@ ogp:
   title: "基礎科目"
   subtitle: "令和元年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-03
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和1年度
   - air-pollution-control-act
@@ -108,15 +108,21 @@ $K = 20{,}000$ ［円］、$d = 1{,}350$ ［単位］、$h = 15{,}000$ ［円／
 
 年間総費用は、年間総発注費用 $K\cdot\dfrac{d}{q}$ と年間在庫維持費用 $h\cdot\dfrac{q}{2}$ の和で表される。
 
-$$C(q) = K\frac{d}{q} + h\frac{q}{2}$$
+$$
+C(q) = K\frac{d}{q} + h\frac{q}{2}
+$$
 
 $\dfrac{dC}{dq}=0$ より経済的発注量（EOQ）は
 
-$$q^* = \sqrt{\frac{2Kd}{h}}$$
+$$
+q^* = \sqrt{\frac{2Kd}{h}}
+$$
 
 数値を代入すると
 
-$$q^* = \sqrt{\frac{2 \times 20000 \times 1350}{15000}} = \sqrt{3600} = 60 \text{［単位］}$$
+$$
+q^* = \sqrt{\frac{2 \times 20000 \times 1350}{15000}} = \sqrt{3600} = 60 \text{［単位］}
+$$
 
 1. $q=50$ では最小にならず誤り ❌
 2. $q=60$ 単位でEOQと一致し正しい ✅
@@ -193,7 +199,7 @@ $$q^* = \sqrt{\frac{2 \times 20000 \times 1350}{15000}} = \sqrt{3600} = 60 \text
 
 ## Ⅰ-1-4
 
-<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q1-4-fig.webp" alt="上端に圧縮荷重を加えた場合の水平面に垂直に固定した細い針金の図。上端に下向き矢印（圧縮荷重）、中央に縦に伸びる針金（細い針金）、下端に固定端のハッチング" width={1280} height={1140} />
+<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q1-4-fig.webp" alt="上端に圧縮荷重を加えた場合の水平面に垂直に固定した細い針金の図。上端に下向き矢印（圧縮荷重）、中央に縦に伸びる針金（細い針金）、下端に固定端のハッチング" width={421} height={897} />
 
 材料の強度に関する次の記述の、　　　　に入る語句の組合せとして、最も適切なものはどれか。
 
@@ -273,15 +279,21 @@ M/M/1待ち行列の問題である。到着率とサービス率を同じ単位
 
 トラフィック密度（利用率）は
 
-$$\rho = \frac{\lambda}{\mu} = \frac{1/90}{1/40} = \frac{40}{90} = \frac{4}{9} \approx 0.444$$
+$$
+\rho = \frac{\lambda}{\mu} = \frac{1/90}{1/40} = \frac{40}{90} = \frac{4}{9} \approx 0.444
+$$
 
 平均系内列長は
 
-$$L = \frac{\rho}{1-\rho} = \frac{4/9}{5/9} = \frac{4}{5} = 0.8$$
+$$
+L = \frac{\rho}{1-\rho} = \frac{4/9}{5/9} = \frac{4}{5} = 0.8
+$$
 
 平均系内滞在時間は
 
-$$W = \frac{L}{\lambda} = 0.8 \times 90 = 72 \text{［秒］}$$
+$$
+W = \frac{L}{\lambda} = 0.8 \times 90 = 72 \text{［秒］}
+$$
 
 1. 計算値と一致せず誤り ❌
 2. 72秒で計算値と一致し正しい ✅
@@ -307,13 +319,17 @@ $$W = \frac{L}{\lambda} = 0.8 \times 90 = 72 \text{［秒］}$$
 
 （ア）ある1変数関数 $f(x)$ が $x=0$ の近傍において何回でも微分可能であり、適当な条件の下で以下の式
 
-$$f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k$$
+$$
+f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k
+$$
 
 が与えられる。
 
 （イ）ネイピア数（自然対数の底）を $e$ 、円周率を $\pi$ 、虚数単位（ $-1$ の平方根）を $i$ とすると、このとき
 
-$$e^{i\pi}+1=0$$
+$$
+e^{i\pi}+1=0
+$$
 
 の関係が与えられる。
 
@@ -613,9 +629,17 @@ $$
 
 次に（イ）。受信ビット列「1001010」について、情報ビット部 X1X2X3X4＝1001 からパリティを計算する。
 
-$$X5 = X2+X3+X4 \bmod 2 = 0+0+1 = 1$$
-$$X6 = X1+X3+X4 \bmod 2 = 1+0+1 = 0$$
-$$X7 = X1+X2+X4 \bmod 2 = 1+0+1 = 0$$
+$$
+X5 = X2+X3+X4 \bmod 2 = 0+0+1 = 1
+$$
+
+$$
+X6 = X1+X3+X4 \bmod 2 = 1+0+1 = 0
+$$
+
+$$
+X7 = X1+X2+X4 \bmod 2 = 1+0+1 = 0
+$$
 
 高々1ビット誤りの仮定の下で、受信「1001010」とのハミング距離が1以下となる正しい符号語を全16通りの符号語から探すと、情報ビット X3 を 0 から 1 に訂正した X1X2X3X4＝1011 が該当する。このとき X5＝1、X6＝0、X7＝0 となり符号語は「1011010」（受信とX3の1ビットのみ相違）。よって送信ビット列は「1011010」である。
 
@@ -704,7 +728,9 @@ PUSH 1, PUSH 2, PUSH 3, PUSH 4, POP, POP, PUSH 5, POP, POP
 
 3次元直交座標系 $(x,y,z)$ におけるベクトル
 
-$$\mathbf{V}=(V_x,V_y,V_z)=\bigl(\sin(x+y+z),\ \cos(x+y+z),\ z\bigr)$$
+$$
+\mathbf{V}=(V_x,V_y,V_z)=\bigl(\sin(x+y+z),\ \cos(x+y+z),\ z\bigr)
+$$
 
 の $(x,y,z)=(2\pi,0,0)$ における発散 $\mathrm{div}\,\mathbf{V}=\dfrac{\partial V_x}{\partial x}+\dfrac{\partial V_y}{\partial y}+\dfrac{\partial V_z}{\partial z}$ の値として、最も適切なものはどれか。
 
@@ -725,15 +751,21 @@ $$\mathbf{V}=(V_x,V_y,V_z)=\bigl(\sin(x+y+z),\ \cos(x+y+z),\ z\bigr)$$
 
 各成分を偏微分する。
 
-$$\frac{\partial V_x}{\partial x}=\cos(x+y+z),\quad \frac{\partial V_y}{\partial y}=-\sin(x+y+z),\quad \frac{\partial V_z}{\partial z}=1$$
+$$
+\frac{\partial V_x}{\partial x}=\cos(x+y+z),\quad \frac{\partial V_y}{\partial y}=-\sin(x+y+z),\quad \frac{\partial V_z}{\partial z}=1
+$$
 
 よって発散は
 
-$$\mathrm{div}\,\mathbf{V}=\cos(x+y+z)-\sin(x+y+z)+1$$
+$$
+\mathrm{div}\,\mathbf{V}=\cos(x+y+z)-\sin(x+y+z)+1
+$$
 
 $(x,y,z)=(2\pi,0,0)$ を代入すると $x+y+z=2\pi$ なので
 
-$$\mathrm{div}\,\mathbf{V}=\cos 2\pi-\sin 2\pi+1=1-0+1=2$$
+$$
+\mathrm{div}\,\mathbf{V}=\cos 2\pi-\sin 2\pi+1=1-0+1=2
+$$
 
 1. 計算値と一致せず誤り ❌
 2. 計算値と一致せず誤り ❌
@@ -757,12 +789,19 @@ $$\mathrm{div}\,\mathbf{V}=\cos 2\pi-\sin 2\pi+1=1-0+1=2$$
 
 座標 $(x,y)$ と変数 $r,s$ の間には、次の関係があるとする。
 
-$$x=g(r,s)$$
-$$y=h(r,s)$$
+$$
+x=g(r,s)
+$$
+
+$$
+y=h(r,s)
+$$
 
 このとき、関数 $z=f(x,y)$ の $x,y$ による偏微分と $r,s$ による偏微分は、次式によって関連付けられる。
 
-$$\begin{bmatrix}\dfrac{\partial z}{\partial r}\\[2mm]\dfrac{\partial z}{\partial s}\end{bmatrix}=[J]\begin{bmatrix}\dfrac{\partial z}{\partial x}\\[2mm]\dfrac{\partial z}{\partial y}\end{bmatrix}$$
+$$
+\begin{bmatrix}\dfrac{\partial z}{\partial r}\\[2mm]\dfrac{\partial z}{\partial s}\end{bmatrix}=[J]\begin{bmatrix}\dfrac{\partial z}{\partial x}\\[2mm]\dfrac{\partial z}{\partial y}\end{bmatrix}
+$$
 
 ここに $[J]$ はヤコビ行列と呼ばれる2行2列の行列である。$[J]$ の行列式として、最も適切なものはどれか。
 
@@ -783,15 +822,21 @@ $$\begin{bmatrix}\dfrac{\partial z}{\partial r}\\[2mm]\dfrac{\partial z}{\partia
 
 連鎖律より
 
-$$\frac{\partial z}{\partial r}=\frac{\partial x}{\partial r}\frac{\partial z}{\partial x}+\frac{\partial y}{\partial r}\frac{\partial z}{\partial y},\quad \frac{\partial z}{\partial s}=\frac{\partial x}{\partial s}\frac{\partial z}{\partial x}+\frac{\partial y}{\partial s}\frac{\partial z}{\partial y}$$
+$$
+\frac{\partial z}{\partial r}=\frac{\partial x}{\partial r}\frac{\partial z}{\partial x}+\frac{\partial y}{\partial r}\frac{\partial z}{\partial y},\quad \frac{\partial z}{\partial s}=\frac{\partial x}{\partial s}\frac{\partial z}{\partial x}+\frac{\partial y}{\partial s}\frac{\partial z}{\partial y}
+$$
 
 これを行列で表すとヤコビ行列は
 
-$$[J]=\begin{bmatrix}\dfrac{\partial x}{\partial r}&\dfrac{\partial y}{\partial r}\\[2mm]\dfrac{\partial x}{\partial s}&\dfrac{\partial y}{\partial s}\end{bmatrix}$$
+$$
+[J]=\begin{bmatrix}\dfrac{\partial x}{\partial r}&\dfrac{\partial y}{\partial r}\\[2mm]\dfrac{\partial x}{\partial s}&\dfrac{\partial y}{\partial s}\end{bmatrix}
+$$
 
 その行列式は
 
-$$\det[J]=\frac{\partial x}{\partial r}\frac{\partial y}{\partial s}-\frac{\partial y}{\partial r}\frac{\partial x}{\partial s}$$
+$$
+\det[J]=\frac{\partial x}{\partial r}\frac{\partial y}{\partial s}-\frac{\partial y}{\partial r}\frac{\partial x}{\partial s}
+$$
 
 1. 形が異なり誤り ❌
 2. 形が異なり誤り ❌
@@ -802,7 +847,7 @@ $$\det[J]=\frac{\partial x}{\partial r}\frac{\partial y}{\partial s}-\frac{\part
 <ExamPoint
   summary="ヤコビ行列の行列式は連鎖律から導かれる対角項の積−非対角項の積"
   items={[
-    "連鎖律 ∂z/∂r、∂z/∂s を ∂z/∂x、∂z/∂y で展開する",
+    "連鎖律 ∂z/∂r、∂z/∂s を ∂z/∂x と ∂z/∂y で展開する",
     "ヤコビ行列は偏微分係数を成分とする2×2行列",
     "行列式 = (∂x/∂r)(∂y/∂s) − (∂y/∂r)(∂x/∂s)",
   ]}
@@ -815,7 +860,9 @@ $$\det[J]=\frac{\partial x}{\partial r}\frac{\partial y}{\partial s}-\frac{\part
 
 物体が粘性のある流体中を低速で落下運動するとき、物体はその速度に比例する抵抗力を受けるとする。そのとき、物体の速度を $v$ 、物体の質量を $m$ 、重力加速度を $g$ 、抵抗力の比例定数を $k$ 、時間を $t$ とすると、次の方程式が得られる。
 
-$$m\frac{dv}{dt}=mg-kv$$
+$$
+m\frac{dv}{dt}=mg-kv
+$$
 
 ただし $m$ 、$g$ 、$k$ は正の定数である。物体の初速度がどんな値でも、十分時間が経つと一定の速度に近づく。この速度として最も適切なものはどれか。
 
@@ -836,11 +883,15 @@ $$m\frac{dv}{dt}=mg-kv$$
 
 十分時間が経つと速度は一定（終端速度）になり、加速度 $\dfrac{dv}{dt}=0$ となる。このとき方程式は
 
-$$0=mg-kv$$
+$$
+0=mg-kv
+$$
 
 これを $v$ について解くと
 
-$$v=\frac{mg}{k}$$
+$$
+v=\frac{mg}{k}
+$$
 
 1. $\dfrac{mg}{k}$ で終端速度と一致し正しい ✅
 2. 係数2が余分で誤り ❌
@@ -885,15 +936,21 @@ $$v=\frac{mg}{k}$$
 
 例として $x$ 軸方向のみに垂直応力 $\sigma_{xx}$ が働く場合を考える。各方向のひずみは
 
-$$\varepsilon_{xx}=\frac{\sigma_{xx}}{E},\quad \varepsilon_{yy}=\varepsilon_{zz}=-\frac{\nu\sigma_{xx}}{E}$$
+$$
+\varepsilon_{xx}=\frac{\sigma_{xx}}{E},\quad \varepsilon_{yy}=\varepsilon_{zz}=-\frac{\nu\sigma_{xx}}{E}
+$$
 
 体積ひずみは3成分の和なので
 
-$$\varepsilon_{xx}+\varepsilon_{yy}+\varepsilon_{zz}=\frac{\sigma_{xx}}{E}(1-2\nu)$$
+$$
+\varepsilon_{xx}+\varepsilon_{yy}+\varepsilon_{zz}=\frac{\sigma_{xx}}{E}(1-2\nu)
+$$
 
 いかなる応力でも体積が変化しないためにはこれが恒等的に0となる必要があり、
 
-$$1-2\nu=0 \ \Rightarrow\ \nu=\frac{1}{2}$$
+$$
+1-2\nu=0 \ \Rightarrow\ \nu=\frac{1}{2}
+$$
 
 1. 体積変化が0にならず誤り ❌
 2. 体積変化が0にならず誤り ❌
@@ -915,7 +972,7 @@ $$1-2\nu=0 \ \Rightarrow\ \nu=\frac{1}{2}$$
 
 ## Ⅰ-3-5
 
-<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q3-5-fig.webp" alt="荷重を受けている棒の図。左端固定、右端に荷重Pが作用する長さlの棒" width={1682} height={460} />
+<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q3-5-fig.webp" alt="荷重を受けている棒の図。左端固定、右端に荷重Pが作用する長さlの棒" width={522} height={312} />
 
 下図に示すように、左端を固定された長さ $l$ 、断面積 $A$ の棒が右端に荷重 $P$ を受けている。この棒のヤング率を $E$ としたとき、棒全体に蓄えられるひずみエネルギーはどのように表示されるか。次のうち、最も適切なものはどれか。
 
@@ -936,11 +993,15 @@ $$1-2\nu=0 \ \Rightarrow\ \nu=\frac{1}{2}$$
 
 軸方向荷重 $P$ を受ける棒の伸び $\delta$ は
 
-$$\delta=\frac{Pl}{EA}$$
+$$
+\delta=\frac{Pl}{EA}
+$$
 
 線形弾性体に蓄えられるひずみエネルギー $U$ は、荷重と変位の積の半分で与えられる。
 
-$$U=\frac{1}{2}P\delta=\frac{1}{2}P\cdot\frac{Pl}{EA}=\frac{P^2l}{2EA}$$
+$$
+U=\frac{1}{2}P\delta=\frac{1}{2}P\cdot\frac{Pl}{EA}=\frac{P^2l}{2EA}
+$$
 
 1. 単位・形が合わず誤り ❌
 2. 形が異なり誤り ❌
@@ -962,15 +1023,19 @@ $$U=\frac{1}{2}P\delta=\frac{1}{2}P\cdot\frac{Pl}{EA}=\frac{P^2l}{2EA}$$
 
 ## Ⅰ-3-6
 
-<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q3-6-fig.webp" alt="剛体振り子の図。長さlの棒の一端を支点とし、角度θで傾いた状態を示す" width={1240} height={1000} />
+<ArticleImage src="/posts/pe-first-stage/r01-basic/img/q3-6-fig.webp" alt="剛体振り子の図。長さlの棒の一端を支点とし、角度θで傾いた状態を示す" width={380} height={655} />
 
 下図に示すように長さ $l$ 、質量 $M$ の一様な細長い棒の一端を支点とする剛体振り子がある。重力加速度を $g$ 、振り子の角度を $\theta$ 、支点周りの剛体の慣性モーメントを $I$ とする。剛体振り子が微小振動するときの運動方程式は
 
-$$I\frac{d^2\theta}{dt^2}=-Mg\frac{l}{2}\theta$$
+$$
+I\frac{d^2\theta}{dt^2}=-Mg\frac{l}{2}\theta
+$$
 
 となる。これより角振動数は
 
-$$\omega=\sqrt{\frac{Mgl}{2I}}$$
+$$
+\omega=\sqrt{\frac{Mgl}{2I}}
+$$
 
 となる。この剛体振り子の周期として、最も適切なものはどれか。
 
@@ -991,15 +1056,21 @@ $$\omega=\sqrt{\frac{Mgl}{2I}}$$
 
 一様な細長い棒の一端を支点とするときの慣性モーメントは
 
-$$I=\frac{1}{3}Ml^2$$
+$$
+I=\frac{1}{3}Ml^2
+$$
 
 これを角振動数の式に代入する。
 
-$$\omega=\sqrt{\frac{Mgl}{2I}}=\sqrt{\frac{Mgl}{2\cdot\frac{1}{3}Ml^2}}=\sqrt{\frac{3g}{2l}}$$
+$$
+\omega=\sqrt{\frac{Mgl}{2I}}=\sqrt{\frac{Mgl}{2\cdot\frac{1}{3}Ml^2}}=\sqrt{\frac{3g}{2l}}
+$$
 
 周期は $T=\dfrac{2\pi}{\omega}$ なので
 
-$$T=2\pi\sqrt{\frac{2l}{3g}}$$
+$$
+T=2\pi\sqrt{\frac{2l}{3g}}
+$$
 
 1. 形が異なり誤り ❌
 2. 形が異なり誤り ❌
@@ -1149,12 +1220,19 @@ $$T=2\pi\sqrt{\frac{2l}{3g}}$$
 
 質量100gとして各元素の物質量（mol）を計算する。
 
-$$n_{\text{Al}}=\frac{95.5}{27.0}=3.537\ \text{mol},\quad n_{\text{Cu}}=\frac{4.50}{63.5}=0.0709\ \text{mol}$$
+$$
+n_{\text{Al}}=\frac{95.5}{27.0}=3.537\ \text{mol},\quad n_{\text{Cu}}=\frac{4.50}{63.5}=0.0709\ \text{mol}
+$$
 
 物質量分率は
 
-$$\text{Al}\%=\frac{3.537}{3.537+0.0709}\times100=\frac{3.537}{3.608}\times100\approx98.0\ \%$$
-$$\text{Cu}\%=\frac{0.0709}{3.608}\times100\approx1.96\ \%$$
+$$
+\text{Al}\%=\frac{3.537}{3.537+0.0709}\times100=\frac{3.537}{3.608}\times100\approx98.0\ \%
+$$
+
+$$
+\text{Cu}\%=\frac{0.0709}{3.608}\times100\approx1.96\ \%
+$$
 
 1. 数値が一致せず誤り ❌
 2. 数値が一致せず誤り ❌
@@ -1422,7 +1500,7 @@ DNA二重らせんの2本の鎖は、相補的な塩基対間の　ア　によ�
   summary="2030年度ミックスの目安：再エネ22〜24%、原子力20〜22%、LNG27%、石炭26%"
   items={[
     "再生可能エネルギー22〜24%、原子力20〜22%",
-    "石炭火力約26%、LNG火力約27%、石油約3%",
+    "石炭火力約26%・LNG火力約27%・石油約3%",
     "省エネで最終エネルギー消費を低減、自給率は震災前水準（約25%）を目標",
   ]}
 />
@@ -1457,7 +1535,9 @@ DNA二重らせんの2本の鎖は、相補的な塩基対間の　ア　によ�
 
 炭素量の合計は約 $3.05\times10^8$ t−C。これをCO₂換算すると
 
-$$3.05\times10^8\times\frac{44}{12}\approx1.12\times10^9\ \text{t-CO}_2 = 1{,}120\ \text{Mt-CO}_2$$
+$$
+3.05\times10^8\times\frac{44}{12}\approx1.12\times10^9\ \text{t-CO}_2 = 1{,}120\ \text{Mt-CO}_2
+$$
 
 最も近いのは1,100 Mt−CO₂。
 

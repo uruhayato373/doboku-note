@@ -166,9 +166,9 @@ grep -rE "U\+FFFD|﹖|�" docs/
 該当 0 件であれば OK（CLAUDE.md §11 準拠）。
 
 > [!warning] 検出器そのものが持つ U+FFFD を「破損」と誤認して消さない
-> `.claude/` 配下には U+FFFD の実文字を含むファイルが 7 件ある（本ファイル・
+> `.claude/` 配下には U+FFFD の実文字を含むファイルが複数ある（本ファイル・
 > `agents/kindle-book-qa.md`・`skills/{authoring/keyword-page, quality/consolidate-duplicate-keyword,
-> quality/exam-backlinks, quality/figure-recrop, social/social-post}`）。
+> quality/exam-backlinks, quality/figure-recrop, quality/figure-quality-loop, social/social-post}` など）。
 > これらは**文字化けを検出する grep の検索パターンそのもの**で、消すと検出器が
 > 「空パターン＝全件マッチ」になって壊れる。リポジトリ全体を U+FFFD 走査すると
 > 破損に見えるが、`content/` を走査する既存ゲート（note-lint / lint-mdx-mobile）は

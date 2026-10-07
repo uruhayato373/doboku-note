@@ -13,7 +13,12 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
 - CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・`writeMdxFile` 経由・絵文字禁止）だけを残し、編集時の詳細は `.claude/rules/content-site.md` が `content/site/**` を開いたときに載せる
 
-`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。
+`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。技術士一次の MDX を stage した commit では、pre-commit が dateModified を進めた後に演習データを作り直して stage する（`scripts/lib/quiz-restage.mjs`・DN-0548）。
+
+**書き終えたときの決定的ゲート**（2026-10-06・サブエージェントの整形が pre-commit で 67 件止まった）:
+- `npx textlint <file>` を 0 件にする。pre-commit の `lint-ja --staged` は**ファイル全体**を見るので、触っていない既存行の全角数字・prh も commit を止める。`--fix` は prh と全角数字を直すが、送り仮名の置換が動詞の活用（〜ります・〜て）に当たっていないか diff を見る
+- 表→箇条書き・長文の分割など構造だけを変えた編集は `npm run check-mdx-facts -- <file>` で数値と「」の語の減少 0 を確かめる（減少が説明できるなら commit に理由を書く）
+- サブエージェントに MDX の整形を任せるときは、この 2 つと `node .claude/scripts/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
 
 ## ペルソナ・コンテンツ原則
 

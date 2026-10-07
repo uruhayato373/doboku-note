@@ -33,8 +33,10 @@ npm run schedule-view     # 予約・計画・期日の横断ビュー（読み�
 
 ```bash
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
-npm run lint:ja               # 日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json。過去問（技術士一次・土木の第1次検定）の公式問題の逐語と、解説で選択肢の原文を引いた部分は対象外（`scripts/lib/official-question-text.mjs`）
-npm run pre-commit:ci-gates    # CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests・generated-indexes は遅いので CI に残す
+node scripts/sync-index-after-commit.mjs # post-commit フックが呼ぶ（手で回す必要はない）。pathspec commit（git commit -- <path>）では pre-commit が書き換えて stage した内容（backfill-mdx-dates の dateModified 等）が本物の index に入らず、index にだけ古い版が残って status が MM になる。今 commit したファイルのうち「作業ツリー＝HEAD なのに index だけ違う」ものを HEAD に揃える。フックは npm run pre-commit:install（prepare）が入れる
+npm run check-mdx-facts -- <file...> [--base <rev>] # 構造だけを変えた編集（表→箇条書き・長文の分割・入れ子の平坦化）で、数値と「」『』の語が比較元（既定 HEAD）より減っていないか。減少で exit 1（説明できる減少なら commit に理由を書く）。frontmatter と全角・半角の差は見ない。サブエージェントに整形を任せたときの受入れにも使う
+npm run lint:ja               # 日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json。過去問（技術士一次・建設部門・総監・土木の第1次/第2次検定・1級土木 二次の分野別過去問・測量士）の公式問題の逐語と、解説で選択肢の原文を引いた部分は対象外（`scripts/lib/official-question-text.mjs`。lint-mdx-mobile の 15-x と同じ判定）
+npm run pre-commit:ci-gates    # CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。note の原稿・note-magazines.ts・収録の期待値を stage したときは generated-indexes のうち note 記事カタログだけを回す（`build-note-published-index.mjs --check --staged`＝作り直し漏れと stage 漏れ）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests と generated-indexes の残り（refresh-indexes 全体）は遅いので CI に残す
 npm run lint:ja:all           # 全件 report（1,280 ファイルを 100 件ずつバッチ実行・OOM 回避。ゲートしない。件数を減らしたいときは辞書 prh.yml に語を足す）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
@@ -56,6 +58,7 @@ npm run check-internal-links-vs-gsc # 公開ページが GSC 404/リダイレク
 
 ```bash
 npm run generate-webp     # png/jpg → webp 変換
+npm run figure-review-queue # 記事図クロップの品質ループ（/figure-quality-loop）の判定待ち。公開記事の図を毎回その場で画素検査（EDGE_CUT/STRAY_*）し OCR の needs と合わせ、判定台帳 .claude/state/quality/figure-review-ledger.json に今の画像のハッシュで記録がある図を除く。`--next N [--stage reextract] --json`＝次の一括（--json は標準出力が JSON だけ）・`record <verdicts.json>`＝判定を記録し直した図の MDX 寸法を合わせる。exit 2＝検査不成立。罠: 画像を差し替えると記録は効かなくなり兆候があれば判定待ちへ戻る。manual_needs の目視判定はハッシュを持たないので日付に関係なく確認済み扱い（git 履歴は 2026-08-22 に切り詰め済みでコミット日は使えない）
 npm run upload-images-r2  # 画像を R2 にアップロード
 npm run audit-repo-assets    # リポジトリ肥大化の read-only 監査（ワークツリー/HEAD/pack の3指標を分けて計測→KEEP_GIT/R2_PUBLIC/R2_PRIVATE/REGENERATE/REVIEW へ分類。--history は要キャッシュ・DN-0111 Phase 0）
 npm run prune-state-snapshots # CI が積む日付付き snapshot（psi/ga4/gsc/url-inspection/monetization/weekly-metrics）を寿命表で消す（既定 dry-run・`--commit`・`--family a,b`・`--check-coverage`＝未宣言の日付付きファイル 0 件か〔quality:audit ci:true〕。business/** と gsc/rank-watch/** は不変台帳で除外・seo-watchwords の evidence.source は pin。削除は書き手 workflow の commit 直前で実行し、別 commit では消さない〔reset --hard + copy-back に戻される〕）

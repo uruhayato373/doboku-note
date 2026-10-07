@@ -2107,6 +2107,54 @@
       "commit": "2c5a02276376",
       "verification": "check-x-campaign-plan OK（2026-11-pe-oral.json 27件・WARN 0／全 9 ファイル 261 件）/ 合否決定基準の表を文部科学省 HTML の rowspan で確認 / 配点 50+50 を受験申込み案内 PDF で確認",
       "note": "再開条件: 11/4 の公式掲載を確かめて運営者が無料2本を公開・L2 配線。funnel を note へ切り替える前に無料2本のカタログ登録かゲート例外を決め、tweets.md を作る"
+    },
+    {
+      "id": "DN-0445",
+      "at": "2026-10-06",
+      "task": "2級二次の直前受注 — note 無料記事 2 本の下書き",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "2e43df53d2ed",
+      "verification": "note-fact-checker 照合 68 件・High 0・Medium 2 と Low 5 を反映 / note-lint 2 記事 OK / check-keiken-answer-split ✓ / check-note-site-utm 違反 0",
+      "note": "再開条件: 著者バナー画像の複製 → 運営者が note-publish で公開 → check-note-structure。3 本目（添削の実例）は運営者の素材待ち"
+    },
+    {
+      "id": "DN-0547",
+      "at": "2026-10-06",
+      "task": "2級土木 一次 R8 前期の過去問ページ",
+      "tier": null,
+      "executor": "claude-cloud",
+      "outcome": "blocked",
+      "plan": null,
+      "commit": "b32d0acfaf1f",
+      "verification": "正答 66/66 が公式正答表と一致 / past-exam-qa 転記起因 0（66/66 を誌面画像で照合）・解説の MEDIUM 3・LOW 4 を反映 / refresh-indexes・check-generated-indexes ✓ / dev サーバーで 200・<main>",
+      "note": "再開条件: 運営者の /deploy 後に check-production-ssr exit 0 を確かめる（10/25 の一次後期より前）"
+    },
+    {
+      "id": "DN-0548",
+      "at": "2026-10-06",
+      "task": "技術士一次の過去問を直すと、pre-commit が進めた dateModified で演習データ（public/quiz/pe-first-stage.json）が古くなり develop の CI が赤くなる",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20b056cde392",
+      "verification": "PR #881 (0e3fd86ff) merged; on merged develop, editing a pe-first-stage MDX -> refresh-indexes -> commit ran [quiz-restage] and check-generated-indexes passed; tests/quiz-restage.test.mjs passes",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0549",
+      "at": "2026-10-06",
+      "task": "過去問の公式問題に含まれる表（選択肢の組合せ・作業日数表）を lint 1-3/1-4 の対象から外す",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1236ca9e378b",
+      "verification": "PR #886 (1236ca9e3) merged; lint-mdx-mobile 全 1,310 ページの前後比較で公式問題内の 1-1/1-3/1-4 が対象外・解説の表は検査継続; 関係テスト pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

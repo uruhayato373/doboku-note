@@ -22,6 +22,7 @@ import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scrip
 import { checkLineEndings } from "./lib/line-endings.mjs";
 import { checkImages } from "./lib/check-mdx-images.mjs";
 import { runGates } from "./pre-commit-ci-gates.mjs";
+import { restageQuiz } from "./lib/quiz-restage.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -180,6 +181,9 @@ async function main() {
 
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
+
+  // 演習データの元記事を stage したら、フックの backfill-mdx-dates が進めた dateModified で作り直して stage する（DN-0548）
+  if (!restageQuiz(files).ok) process.exit(1);
 
   if (files.length === 0 && svgFiles.length === 0) {
     process.exit(0); // Nothing to validate
