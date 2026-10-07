@@ -260,6 +260,33 @@
       "reason": "SEM らしい白黒像で、滑らかな骨材面と界面、繊維状・板状の水和物が絡むマトリクスと大小の空隙が見え、alt・本文（骨材界面・反応生成物の形態観察）と一致する",
       "reviewedAt": "2026-10-07T12:06:51.905Z"
     },
+    "concrete-diagnostician/textbook-investigation/img/photo-phenolphthalein-core": {
+      "sha": "ac67ea19ad4030f5",
+      "promptSha": "035e16cd402753d9",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:05:25.418Z",
+      "verdict": "ok",
+      "reason": "割裂した円柱コア2片の割裂面の内部が赤紫に呈色し、端面側に約2cm幅の無色の帯が表面と平行に残る。粗骨材が見え、目盛のみの定規が添い、本文の中性化深さの縁の読み方と矛盾せず生成の崩れも無い",
+      "reviewedAt": "2026-10-07T23:10:40.543Z"
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-deck-shotblast": {
+      "sha": "168a8c0728471bde",
+      "promptSha": "bf7a08656c272287",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:13:28.072Z",
+      "verdict": "ok",
+      "reason": "切削・研掃後の床版上面として、粗骨材が点在して露出した一様に粗い灰色の面、切削目の筋、地覆と高欄の支柱、車線を横切る目地線、遠方のコーンが見え、本文の床版上面増厚の下地と矛盾せず、読める文字や溶けた部品も無い",
+      "reviewedAt": "2026-10-07T23:16:54.059Z"
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-steel-jacket-pier-base": {
+      "sha": "750de481137c71eb",
+      "promptSha": "27989b95ce6d16e0",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:12:35.279Z",
+      "verdict": "ok",
+      "reason": "縦の溶接継ぎ目とボルト頭の列を持つ灰色の鋼板巻立てが矩形の橋脚を覆い、鋼板の下端とフーチング上面の間に既設の躯体面を見せる数cmの間隙が水平に通り、根巻き未施工の状態が alt と一致する。フーチングも柱より大きく、崩れは無い",
+      "reviewedAt": "2026-10-07T23:16:54.059Z"
+    },
     "concrete-diagnostician/textbook-variation/img/figure-04": {
       "sha": "074f41330a744953",
       "verdict": "ok",
@@ -283,6 +310,24 @@
       "verdict": "ok",
       "reason": "ボックスカルバートのハンチ斜面に径数mmから10mm程度の表面気泡が集中し、下の鉛直壁は平滑で、型枠パネルの目地も見える。alt と本文（型枠面に残る巻込み空気）と一致し、構造や生成の崩れも無い",
       "reviewedAt": "2026-10-07T22:52:26.083Z"
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebar-scanner": {
+      "sha": "082ca2118b6b5234",
+      "promptSha": "4b359d145220267d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:07:22.313Z",
+      "verdict": "ok",
+      "reason": "表示部と握り、車輪を備えた矩形の電磁誘導式鉄筋探査機をコンクリート壁面に当てており、壁面にチョークの縦横の格子線が引かれて、探査した鉄筋位置の表示として本文の電磁誘導法と矛盾しない。読める文字や指の崩れは無い",
+      "reviewedAt": "2026-10-07T23:10:40.546Z"
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebound-hammer": {
+      "sha": "e8eb729cb9b22a9e",
+      "promptSha": "764b55e54bc752ed",
+      "tool": "Codex",
+      "generatedAt": "2026-10-07T23:06:15.083Z",
+      "verdict": "ok",
+      "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
+      "reviewedAt": "2026-10-07T23:10:40.546Z"
     }
   }
 }

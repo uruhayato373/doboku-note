@@ -1830,6 +1830,21 @@
       "kind": "ai-generated",
       "tool": "Codex"
     },
+    "concrete-diagnostician/textbook-investigation/img/photo-phenolphthalein-core": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a concrete core specimen (about 100 mm diameter, about 200 mm long) split lengthwise into two halves, lying on a plain grey laboratory bench indoors, no machines. The split faces have been sprayed with phenolphthalein solution: the inner part of each face is vivid red-purple (magenta), while a band about 15 to 25 mm deep from the original outer surface end of the core remains uncoloured grey, showing a clear carbonation front parallel to that surface. Coarse aggregate visible in the split faces. A plain steel ruler without readable numbers beside it. Soft even indoor lighting, no people, no text, no labels."
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-deck-shotblast": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Top surface of a reinforced concrete road bridge deck slab after the asphalt pavement has been removed and the concrete surface has been milled and shot-blasted for an overlay: a uniformly rough grey concrete surface with exposed coarse aggregate across the whole lane width, slightly dusty, with the raised concrete curb (wheel guard) and railing posts along one edge and a straight construction joint line across the lane. Traffic cones in the distance on the closed lane, no machines in the foreground. Daylight, no people, no text, no logos."
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-steel-jacket-pier-base": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Lower part of a rectangular reinforced concrete highway bridge pier that has been seismically retrofitted with steel plate jacketing: the pier column is fully wrapped in grey-painted steel plates with visible vertical weld seams and anchor bolt heads in rows, and at the very bottom there is a clear horizontal gap of about 5 cm between the lower edge of the steel jacket and the top surface of the concrete footing, so the steel does not touch the footing. The footing top surface is visible as a wider concrete block at ground level, the root-covering concrete not yet placed. Daylight, river bank setting, no people, no text, no logos."
+    },
     "concrete-diagnostician/textbook-variation/img/figure-04": {
       "kind": "ai-generated",
       "tool": "Codex"
@@ -1843,6 +1858,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Close-up of a freshly stripped formed concrete surface on the sloped (haunch) part of a concrete box culvert wall, no machines. The inclined face is covered with many small surface voids (bug holes, 2 to 10 mm diameter) concentrated on the downward-facing slope, while the vertical face below is smooth. Smooth grey formed concrete texture, plywood form panel joint lines faintly visible, daylight, no people, no text."
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebar-scanner": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A technician's gloved hands sliding a handheld electromagnetic rebar locator (a compact rectangular scanner about 20 cm wide with small wheels and a small display, no readable text) horizontally across a smooth vertical concrete wall, outdoors at a civil engineering structure. Faint chalk lines on the wall mark detected bar positions as a grid of vertical and horizontal lines spaced regularly. Only hands and forearms visible. Daylight, no faces, no text, no logos, no readable screen content."
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebound-hammer": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A technician's gloved hands holding a concrete test hammer (rebound hammer / Schmidt hammer: a cylindrical steel-and-grey instrument about 30 cm long with a plunger at the tip) pressed perpendicular against a smooth vertical concrete wall of a bridge abutment, outdoors. On the wall, a small grid of 9 pencil or chalk dots about 3 cm apart is drawn inside a square, with the plunger touching one dot. Only the hands and forearms of the technician are visible, wearing a work jacket sleeve. Daylight, no faces, no text, no logos."
     },
     "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
       "kind": "public-data",
@@ -1923,6 +1948,13 @@
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/common/000109627.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。重点整備地区における移動等の円滑化のイメージ"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0263.jpg",
       "page": 263
@@ -1981,6 +2013,13 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
       "page": 9
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/report/press/joho04_hh_001319.html",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。令和7年度建設投資見通しの数値"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "pdf": "vault:原資料PDF/白書/国土交通白書（令和７年度）関連データ集.pdf",
       "page": 6,
@@ -2020,6 +2059,20 @@
       "kind": "own-book-scan",
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/policy/shingikai/content/001764885.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。第5次社会資本整備重点計画の概要 p.2"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
+      "kind": "public-data",
+      "credit": "内閣府",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/zenbun/pdf/1s1s_01.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。高齢社会白書 図1-1-2 の数値"
     },
     "pe-first-stage/h23-construction/img/q7-source": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H23/H23_専門_09建設部門.pdf",
@@ -2220,34 +2273,6 @@
       "pdf": "vault:原資料PDF/過去問/測量士補/R08/R08_問題.pdf",
       "page": 29,
       "dpi": 300
-    },
-    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/report/press/joho04_hh_001319.html",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。令和7年度建設投資見通しの数値"
-    },
-    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/common/000109627.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。重点整備地区における移動等の円滑化のイメージ"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
-      "kind": "public-data",
-      "credit": "内閣府",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/zenbun/pdf/1s1s_01.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。高齢社会白書 図1-1-2 の数値"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/policy/shingikai/content/001764885.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。第5次社会資本整備重点計画の概要 p.2"
     }
   },
   "categories": {
