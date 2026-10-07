@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T05:57:35.710Z",
+  "updated_at": "2026-10-07T08:28:25.252Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1233,6 +1233,28 @@
           "salesLedgerThrough": "2026-09-27",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.132Z",
+          "specHash": "5ad8dbe14f9d",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-19",
+            "endDate": "2026-09-15",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-16",
+            "endDate": "2026-10-03",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1394,6 +1416,28 @@
           "salesLedgerThrough": "2026-09-27",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.134Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-10-03",
+            "value": 5940,
+            "volume": 3
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1491,7 +1535,29 @@
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.755Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-10-03",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-09-25T00:00:00.000Z",
@@ -1612,7 +1678,29 @@
       ],
       "next_check_date": "2026-10-26",
       "resume_criteria": null,
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:25.252Z",
+          "specHash": "a9136128862a",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-05",
+            "endDate": "2026-10-02",
+            "value": 186,
+            "volume": 186
+          },
+          "post": {
+            "startDate": "2026-10-03",
+            "endDate": "2026-10-03",
+            "value": 6,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": -9.7,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-10-02T13:02:16.547Z",

@@ -10,24 +10,24 @@
     "endDate": "2026-09-20",
     "days": 28
   },
-  "generatedAt": "2026-10-02T00:22:11.222Z",
-  "pack": "data/metrics/growth/pack-2026-W39.json",
+  "generatedAt": "2026-10-07T08:28:25.650Z",
+  "pack": "data/analysis/growth/pack-2026-W39.json",
   "inputs": [
     {
       "name": "growth-pack",
-      "file": "data/metrics/growth/pack-2026-W39.json",
+      "file": "data/analysis/growth/pack-2026-W39.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "monetization-coverage",
-      "file": "data/metrics/monetization/coverage-2026-10-02T00-21-57.json",
+      "file": "data/analysis/monetization/coverage-2026-10-07T08-28-13.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "bing-webmaster",
-      "file": "data/metrics/bing/bing-2026-10-02.json",
+      "file": "data/bing/snapshots/2026-10-07.json",
       "coverage": "complete",
       "note": null
     }
@@ -237,11 +237,11 @@
       }
     ]
   },
-  "candidates": 43,
+  "candidates": 71,
   "suppressed": 7,
   "notSurfaced": {
     "seo": 0,
-    "revenue": 28
+    "revenue": 56
   },
   "surfaced": [
     {

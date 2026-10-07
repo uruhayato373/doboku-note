@@ -1,10 +1,10 @@
 # キャリアファネル基線レポート
 
-生成: 2026-10-07T05:10:41.216Z
+生成: 2026-10-07T08:28:14.064Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
-> GA4 2026-09-04〜2026-10-01 ／ GSC 2026-09-01〜2026-09-28
+> GA4 2026-09-09〜2026-10-06 ／ GSC 2026-09-07〜2026-10-04
 
 ## 実検査の内訳
 
@@ -16,9 +16,9 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 | careerArticles | 45 |
 | siteMdxScanned | 1350 |
 | extraLinkSourcesScanned | 1 |
-| gscRowsTotal | 1372 |
-| gscRowsMatchedCareer | 3 |
-| ga4LabelRowsMatched | 15 |
+| gscRowsTotal | 1489 |
+| gscRowsMatchedCareer | 0 |
+| ga4LabelRowsMatched | 11 |
 | ga4PlacementRowsMatched | 9 |
 | careerArticlesInGa4Top | 0 |
 | noteCareerArticles | 24 |
@@ -26,34 +26,35 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
-- 窓が不一致（GA4 2026-09-04〜2026-10-01 / GSC 2026-09-01〜2026-09-28）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
+- 窓が不一致（GA4 2026-09-09〜2026-10-06 / GSC 2026-09-07〜2026-10-04）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
 - GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない
+- ページ別のクリック 8 件がどの配置ルールにも当たらない（撤去前の面・ラベル未登録・ページ不明。unattributed.top を見る）
 
 ## 漏斗
 
 ### 1. 高意図 query（GSC 窓）
 
-表示 96 ／ クリック 1
+表示 133 ／ クリック 2
 
 語彙: 転職・辞めたい・やめたい・年収・市場価値・評判・口コミ・エージェント・求人・ホワイト・公務員・発注者支援
 
 | query | 表示 | クリック | 順位 |
 |---|---|---|---|
-| 土木施工管理技士 年収 | 7 | 0 | 5.9 |
-| 公務員 土木 資格 おすすめ | 7 | 0 | 9.1 |
-| 技術士転職 | 7 | 0 | 72.9 |
-| 施工管理から転職 | 6 | 0 | 20.3 |
-| 土木公務員 資格 | 6 | 0 | 11.3 |
-| 土木施工管理技士年収 | 5 | 0 | 6.0 |
-| 公務員 土木職 資格 | 5 | 0 | 8.2 |
-| 施工管理 転職エージェント | 4 | 0 | 17.5 |
+| 施工管理から転職 | 13 | 0 | 20.6 |
+| 土木施工管理技士 年収 | 13 | 0 | 5.8 |
+| 公務員 土木 資格 おすすめ | 10 | 0 | 8.8 |
+| 土木公務員 資格 | 8 | 1 | 11.9 |
+| 土木施工管理技士年収 | 8 | 0 | 6.3 |
+| 公務員 土木職 資格 | 8 | 0 | 8.0 |
+| 施工管理 転職エージェント | 7 | 0 | 17.3 |
+| rccm 公務員 | 5 | 0 | 11.6 |
+| 土木 公務員 資格 | 5 | 0 | 16.2 |
+| 公務員 土木 資格 | 4 | 0 | 9.3 |
 | 施工管理が転職エージェントを活用する方法 | 3 | 0 | 8.0 |
-| 土木 公務員 資格 | 3 | 0 | 9.7 |
 | 技術士総合技術監理部門年収 | 3 | 0 | 29.3 |
+| 技術士転職 | 3 | 0 | 66.0 |
 | rccm 受験資格 公務員 | 2 | 1 | 12.5 |
 | 土木施工管理 年収 | 2 | 0 | 96.0 |
-| 施工管理転職エージェント | 2 | 0 | 19.5 |
-| 未経験 施工管理 転職エージェント | 2 | 0 | 16.0 |
 
 ### 2. キャリアページの流入（GA4 窓）
 
@@ -65,7 +66,7 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 | 柱 | 記事 | GSC 表示 | GSC クリック | 被リンク |
 |---|---|---|---|---|
-| career-path | 21 | 6 | 0 | 44 |
+| career-path | 21 | 0 | 0 | 44 |
 | market-value | 9 | 0 | 0 | 29 |
 | service-choice | 5 | 0 | 0 | 2 |
 | quit | 5 | 0 | 0 | 4 |
@@ -73,29 +74,71 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 ### 4. affiliate CTA（GA4 窓）
 
-表示 24472 ／ クリック 16 ／ CTR 0.07%
+表示 23027 ／ クリック 15 ／ CTR 0.07%
 
 | placement | 表示 | クリック | CTR |
 |---|---|---|---|
-| sidebar | 11504 | 2 | 0.02% |
-| article-inline | 5394 | 10 | 0.19% |
-| article-end | 3960 | 0 | 0.00% |
-| article-mid | 2890 | 4 | 0.14% |
-| category-sidebar | 634 | 0 | 0.00% |
-| category-mobile | 90 | 0 | 0.00% |
+| sidebar | 9039 | 2 | 0.02% |
+| article-inline | 6147 | 9 | 0.15% |
+| article-end | 4128 | 0 | 0.00% |
+| article-mid | 3000 | 4 | 0.13% |
+| category-sidebar | 611 | 0 | 0.00% |
+| category-mobile | 102 | 0 | 0.00% |
 
 | label | 表示 | クリック |
 |---|---|---|
-| BuildJob-sidebar | 7917 | 1 |
-| ビルドジョブ | 6506 | 7 |
-| BuildJob-endbanner | 2936 | 0 |
-| DXConsulting-sidebar | 2761 | 1 |
-| KensetsuJobs-sidebar | 1504 | 0 |
-| ハイクラス DX・コンサル転職 | 1000 | 3 |
-| 建設JOBs | 778 | 4 |
-| DXConsulting-endbanner | 660 | 0 |
-| KensetsuJobs-endbanner | 364 | 0 |
-| GKS-sidebar | 46 | 0 |
+| ビルドジョブ | 8156 | 9 |
+| BuildJob-sidebar | 7464 | 1 |
+| BuildJob-endbanner | 3502 | 0 |
+| DXConsulting-sidebar | 2286 | 1 |
+| ハイクラス DX・コンサル転職 | 991 | 4 |
+| DXConsulting-endbanner | 626 | 0 |
+| KensetsuJobs-sidebar | 2 | 0 |
+
+配置ルール別（2026-08-23〜2026-10-06・ページ別からルールを一意に決めた数字）
+
+| ルール | 案件 | 面 | 表示 | クリック | 分けられない表示/クリック |
+|---|---|---|---|---|---|
+| PL-0001 | buildjob | article-mid | 2345 | 0 | 0/0 |
+| PL-0002 | dx-consulting | article-mid | 1611 | 4 | 0/0 |
+| PL-0003 | buildjob | article-inline | 6919 | 9 | 0/0 |
+| PL-0004 | buildjob | article-end | 4185 | 0 | 0/0 |
+| PL-0005 | dx-consulting | article-end | 1007 | 0 | 0/0 |
+| PL-0006 | buildjob | category-sidebar | 116 | 0 | 0/0 |
+| PL-0007 | buildjob | category-mobile | 59 | 0 | 0/0 |
+| PL-0008 | dx-consulting | category-sidebar | 157 | 0 | 0/0 |
+| PL-0009 | dx-consulting | category-mobile | 1 | 0 | 0/0 |
+| PL-0010 | buildjob | career-tool | 0 | 0 | 0/0 |
+| PL-0011 | buildjob | sidebar | 9505 | 1 | 0/0 |
+| PL-0012 | dx-consulting | sidebar | 3463 | 1 | 0/0 |
+
+クリックの出どころ（A8 の発生日と突き合わせる）
+
+| 日付 | ページ | 案件 | 面 | ルール | クリック |
+|---|---|---|---|---|---|
+| 2026-10-03 | /exam/pe-comprehensive-management/past-exams/r08-primary | dx-consulting | article-mid | PL-0002 | 1 |
+| 2026-10-02 | /exam/civil-construction-1/secondary/r03 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-10-02 | /exam/civil-construction-2/secondary/r04 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-10-01 | /exam/civil-construction-2/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-28 | /exam/civil-construction-1/secondary/r05 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-28 | /exam/pe-comprehensive-management/guide/frequent-topics | dx-consulting | article-mid | PL-0002 | 1 |
+| 2026-09-26 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-26 | /exam/civil-construction-2/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-26 | /exam/pe-construction/guide/career | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-25 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-23 | /exam/pe-comprehensive-management/keywords/personal-info-protection | dx-consulting | article-mid | PL-0002 | 1 |
+| 2026-09-19 | /exam/civil-construction-1/secondary/r07 | buildjob | sidebar | PL-0011 | 1 |
+| 2026-09-17 | /exam/pe-comprehensive-management/past-exams/r08-primary | dx-consulting | sidebar | PL-0012 | 1 |
+| 2026-09-16 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
+| 2026-09-12 | /exam/pe-comprehensive-management/guide/course-selection-guide | dx-consulting | article-mid | PL-0002 | 1 |
+| 2026-09-07 | /exam/civil-construction-1 | kensetsu-jobs | article-inline | — | 1 |
+| 2026-09-07 | /exam/civil-construction-1/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
+| 2026-09-04 | /exam/civil-construction-1/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
+| 2026-09-04 | /exam/concrete-chief-engineer | kensetsu-jobs | article-mid | — | 1 |
+| 2026-09-01 | /exam/civil-construction-2/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
+| 2026-08-31 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | — | 1 |
+| 2026-08-28 | /docs/civil-construction-2-guide-study-plan | buildjob | article-inline | — | 1 |
+| 2026-08-28 | /docs/concrete-chief-engineer-guide-overview | buildjob | article-mid | — | 1 |
 
 ### 5. A8 成果
 
@@ -110,14 +153,13 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 ## 起票時基線からのずれ（±30% 超）
 
-- affiliate 表示: 起票時 7370 → 今回 24472（332%）
-- 高意図 query 表示: 起票時 7 → 今回 96（1371%）
+- affiliate 表示: 起票時 7370 → 今回 23027（312%）
+- 高意図 query 表示: 起票時 7 → 今回 133（1900%）
 
 ## 記事台帳
 
 | slug | 柱 | 公開 | GSC 表示 | クリック | 順位 | 被リンク | CTA |
 |---|---|---|---|---|---|---|---|
-| civil-construction-1-guide-company-types | career-path | ○ | 6 | 0 | 50.3 | 0 | 1 |
 | civil-construction-1-guide-age-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-allowance | market-value | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 0 | 1 |
@@ -128,6 +170,7 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 | civil-construction-1-guide-career-consultation-before-quit | quit | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-career-path | career-path | ○ | 0 | 0 | — | 10 | 1 |
 | civil-construction-1-guide-career-salary | market-value | ○ | 0 | 0 | — | 3 | 0 |
+| civil-construction-1-guide-company-types | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-consultant | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-dx-jobs | career-path | ○ | 0 | 0 | — | 0 | 1 |
 | civil-construction-1-guide-future | career-path | ○ | 0 | 0 | — | 1 | 1 |
