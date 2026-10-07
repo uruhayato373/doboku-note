@@ -9,6 +9,12 @@
 npm run admin   # http://127.0.0.1:3021
 ```
 
+**別 PC から開く（Tailscale）**: Mac と別 PC を同じ Tailscale アカウントで tailnet に入れ、Mac で 1 回だけ次を実行する。以後は別 PC のブラウザで `https://<Mac のマシン名>.<tailnet>.ts.net/` を開く（URL は `tailscale serve status` で確認）。インターネットには公開されず、待ち受けも `127.0.0.1` のまま。Mac がスリープ中・`npm run admin` 未起動のときは開けない。
+
+```bash
+tailscale serve --bg 3021   # 解除は tailscale serve reset
+```
+
 ## タブ一覧
 
 | タブ | データソース | 備考 |
