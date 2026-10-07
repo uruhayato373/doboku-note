@@ -15,10 +15,11 @@ doboku=転職一本へ移植・スリム化）。
 ## doboku 固有の設計（stats47 との違い）
 
 > [!important] register は手キュレーション（自動一括配置しない）
-> stats47 の register 先は `AFFILIATE_ADS[]`（10-vertical intent-hub・R2 snapshot 配信）。doboku の creative SSOT は
-> `src/config/affiliate-creatives.ts`（**3枠・意図配置・カニバリ回避・campaign 窓**）で、自動追記機構は持たない。
+> stats47 の register 先は `AFFILIATE_ADS[]`（10-vertical intent-hub・R2 snapshot 配信）。doboku は素材を
+> `src/config/affiliate-creatives.ts`（`PROGRAM_ASSETS`）、どのページのどの面にいつ出すかを `config/affiliate-placements.json`
+> （配置ルール・案件 × 面 × 対象 × 期間）に分けて人が書き、自動追記機構は持たない。
 > よって **harvest は「配置候補（`SidebarAdCreative` 形 + `affiliate-mats.json` 追記案）を catalog の `adDraft` に出力」
-> するまでで止め、確定配置は人が判断**する。1ページ1ピクセル・vertical セグメント・campaign 窓を機械で壊さないため。
+> するまでで止め、確定配置は人が判断**する（配置ルールを足すか `until` で閉じる）。1ページ1ピクセル・カニバリ回避を機械で壊さないため。
 
 > [!warning] 転職一本の Red Line を機械強制
 > doboku は 2026-06-25 に講座/教材/書籍/添削アフィリを完全廃止（note 有料商品とのカニバリ回避・memory
@@ -137,6 +138,8 @@ npm run report-buildjob-affiliate → GA4 クリック × A8 成果 の EPC
 - 2026-07-27 実測: **137/137 の完全一致**（buildjob 56 + dx-consulting 35 + gks 30 + kensetsu-jobs 16）。
   doboku-note のクリックが 4 プログラムで過不足なく説明でき、混入も取りこぼしも無いことが数値で確認できた
 
+**ページ単位の成果の出どころ**は `/report/result`（成果別）の「リファラ」で見る（1 成果 1 行・クリック日時・デバイス付き）。広告リンクのリファラ方針を直した 2026-10-07 のデプロイ以降のクリックだけページの URL が残り、それ以前はドメインだけ（affiliate-operations.md §7・裁定ログ 2026-10-07）。`/report/site` 系では同じ A8 サイトの面を分けられない。
+
 検討して**捨てた**代替案: `/report/material`（素材別）の「素材ID」は `001`/`003`/`999` の 3 桁で、
 `affiliate-mats.json` の a8mat 第4トークン（`TSBE9` 等）とは別物。素材による分離はできない。
 
@@ -227,8 +230,8 @@ append すると同じ期間が二重に積まれるため、SSOT は `period+si
 - カタログ（状態機械）: `data/a8/catalog.json`
 - 実行の正直さ判定（純関数）: `scripts/lib/report-honesty.mjs`（`classifyRun` / `classifyCrossCheck` 等）。
   テスト `tests/report-honesty.test.mjs`（`npm test`）。GSC 側の `gsc-request-indexing` と共用
-- 配置先 SSOT: `src/config/affiliate-creatives.ts` / `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
-- 配線の回帰テスト: `tests/affiliate-arm-routing.test.mjs`（キャンペーン境界の案件切替を固定）
+- 配置先 SSOT: `config/affiliate-placements.json`（配置ルール）/ `src/config/affiliate-creatives.ts`（素材）/ `config/affiliate-mats.json` / `.claude/knowledge/reference/affiliate-operations.md`
+- 配線の回帰: `npm run check-affiliate-placements`（配置ルール）・`tests/affiliate-placement-rules.test.mjs`・`tests/affiliate-link-referrer.test.mjs`（広告リンクの rel とリファラ方針）
 
 ## 関連
 
