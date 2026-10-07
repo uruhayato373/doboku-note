@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="圧砕工法。ベースマシンのアーム先端の圧砕機が、油圧で圧砕アームを開いてコンクリートを挟み、閉じて圧砕する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="cr-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="cr-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="cr-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="cr-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="cr-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">圧砕工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">圧砕アームを開いて挟み、閉じて割る</text>
+  <g transform="translate(16,62)">
+    <rect class="card" x="0" y="0" width="368" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">1</text>
+    <text class="t-key" x="34" y="22">圧砕アームを開く</text>
+    <polygon class="gry" points="20,68 150,68 150,88 20,88"/>
+    <text class="t-note" x="20" y="112">ベースマシンのアーム</text>
+    <polygon class="gry" points="140,66 160,62 272,34 272,48 160,78"/><polygon class="gry" points="140,90 160,94 272,122 272,108 160,78"/><rect class="wrn" x="215" y="66" width="47" height="24"/>
+    <line class="ar-b" x1="300" y1="40" x2="300" y2="30" marker-end="url(#cr-b)"/><line class="ar-b" x1="300" y1="116" x2="300" y2="126" marker-end="url(#cr-b)"/>
+    <line class="thin" x1="262" y1="78" x2="270" y2="78"/><text class="t-note" x="274" y="82">コンクリート</text>
+    <text class="t-note" x="184" y="146">コンクリートを挟む位置へ</text>
+  </g>
+  <g transform="translate(16,224)">
+    <rect class="card" x="0" y="0" width="368" height="154" rx="6"/>
+    <circle class="brand" cx="18" cy="18" r="10"/><text class="t-lab" x="18" y="22" text-anchor="middle">2</text>
+    <text class="t-key" x="34" y="22">油圧で閉じて圧砕</text>
+    <polygon class="gry" points="20,68 150,68 150,88 20,88"/>
+    <text class="t-note" x="20" y="112">ベースマシンのアーム</text>
+    <polygon class="gry" points="140,66 160,62 262,60 262,72 160,78"/><polygon class="gry" points="140,90 160,94 262,96 262,84 160,78"/><polygon class="wrn" points="215,72 228,74 240,72 254,74 262,72 262,84 250,82 238,84 226,82 215,84"/><path class="c-dng" d="M 228 72 L 230 84 M 246 72 L 244 84"/>
+    <line class="ar-r" x1="300" y1="44" x2="300" y2="62" marker-end="url(#cr-r)"/><line class="ar-r" x1="300" y1="112" x2="300" y2="94" marker-end="url(#cr-r)"/>
+    <line class="thin" x1="262" y1="78" x2="270" y2="78"/><text class="t-note" x="274" y="82">コンクリート</text>
+    <text class="t-note" x="184" y="146">閉じる力でコンクリートを砕く</text>
+  </g>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">駆動</text>
+  <text class="t-lab" x="90" y="416">油圧で圧砕アームを開閉する</text>
+  <text class="t-key" x="30" y="442">主流</text>
+  <text class="t-lab" x="90" y="442">昭和50年頃から主流の工法</text>
+  <text class="t-key" x="30" y="468">種類</text>
+  <text class="t-lab" x="90" y="468">手持式から大型まで多くの種類がある</text>
+
+</svg>

@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="突固めエネルギーを変えると、同じ土でも最大乾燥密度と最適含水比の異なる締固め曲線が得られる。それぞれの最大乾燥密度を含む範囲に土が最も安定した状態があり、これを最適領域として空気間げき率や飽和度で規定し、含水比の上限はトラフィカビリティや力学的性質の限界で定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="sr-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="sr-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="sr-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="sr-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="sr-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">最適領域の考え方</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">エネルギーを変えた曲線の頂点を含む範囲が安定領域</text>
+  <line class="axis" x1="50" y1="330" x2="372" y2="330" marker-end="url(#sr-k)"/>
+  <line class="axis" x1="50" y1="330" x2="50" y2="72"/>
+  <text class="t-note" x="58" y="76">乾燥密度</text>
+  <text class="t-note" x="368" y="348" text-anchor="end">含水比</text>
+  <polygon class="pos" points="118,100 150,94 275,190 262,222 235,222 112,125" opacity="0.85"/>
+  <path class="c-brand" d="M 65 205 C 95 200 110 110 140 110 C 170 110 185 170 210 215"/>
+  <path class="c-brand" d="M 115 245 C 145 240 160 150 190 150 C 220 150 235 210 260 255"/>
+  <path class="c-brand" d="M 175 295 C 205 290 220 200 250 200 C 280 200 295 260 320 305"/>
+  <circle class="dot-g" cx="140" cy="110" r="4"/>
+  <circle class="dot-g" cx="190" cy="150" r="4"/>
+  <circle class="dot-g" cx="250" cy="200" r="4"/>
+  <text class="t-lab" x="56" y="228">エネルギー大</text>
+  <text class="t-lab" x="150" y="326">エネルギー小</text>
+  <line class="c-dngd" x1="340" y1="90" x2="340" y2="330"/>
+  <text class="t-warn" x="340" y="80" text-anchor="middle">含水比の上限</text>
+  <text class="t-pos" x="260" y="120">最適領域</text>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">最適領域</text>
+  <text class="t-lab" x="90" y="416">各曲線の最大乾燥密度を含む安定した範囲</text>
+  <text class="t-key" x="30" y="442">規定</text>
+  <text class="t-lab" x="90" y="442">空気間げき率または飽和度で範囲を決める</text>
+  <text class="t-key" x="30" y="468">上限</text>
+  <text class="t-lab" x="90" y="468">トラフィカビリティなどを満たす限界で定める</text>
+
+</svg>

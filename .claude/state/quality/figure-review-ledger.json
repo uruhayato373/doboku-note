@@ -219,20 +219,6 @@
       "reason": "右縁で切れていた地表面線と地下水位線を、二次問題解説集2021 p.84（H26 問題2 No.13 の設問図・180 度回転を戻す）から 300dpi で切り出し直して戻した（550x400→720x558）。図タイトル『山留工概略図』は除いた（設問文が『下図のような山留工法』と指す）。解答例のページは使っていない。親 QA 合格（新旧比較・crop 検査 0 件）",
       "reviewedAt": "2026-10-06T21:50:41.335Z"
     },
-    "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
-      "sha": "1912852a69b4a45b",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下端で切れていた下段グラフ（強度と含水比）の曲線・縦軸・最適含水比の線・横軸・w_opt・含水比 w と浸水後の注記を、二次問題解説集2021 p.311（180 度回転を戻す）から 300dpi で切り出し直して戻した（550x530→652x903）。ランニングヘッド・本文断片・章タブ・行番号・図番号キャプションは除いた。図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:23:38.289Z"
-    },
-    "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
-      "sha": "abaecbf422407997",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下縁で切れていたフロー図の下端と矢印・盛土断面・『沈下量から品質を判断』・下端の注記を、二次問題解説集2021 p.314（180 度回転を戻す）から 300dpi で切り出し直して戻した（950x380→1110x699）。上の空白・行番号・図番号キャプション・後続の見出しは除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:27:53.045Z"
-    },
     "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
       "sha": "e3a644243ced826c",
       "verdict": "ok",
@@ -254,13 +240,6 @@
       "reason": "上端の設問文の断片・右上のページ端の線・ページ番号『― 7 ―』・フッタ印字とトンボを除いて切り直し（1369x900→968x643）。①〜④ の 4 小図と小図番号・タイトル・ふりがなは欠けなし。親 QA 合格（新旧比較・crop 検査 png/webp とも 0 件）",
       "reviewedAt": "2026-10-06T09:53:21.094Z"
     },
-    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
-      "sha": "10e0b5733916a884",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "下端と左側で切れていた PDCA サイクルの円・左の回転矢印・右下の回転矢印を、土木施工管理技術テキスト 施工管理・法規編 第1章 p.5（図1.3）から 300dpi で切り出し直して戻した（850x850→736x594）。上の空白・キャプション・本文・行番号は含めていない。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:35:54.715Z"
-    },
     "civil-construction-1/textbook-crane/img/boom-lift": {
       "sha": "b5ea66b2c026033c",
       "verdict": "ok",
@@ -281,13 +260,6 @@
       "action": "none",
       "reason": "ラフテレーンクレーンの写真で、ブーム・フック・キャビン・車体は全体が写っている。EDGE_CUT(left) は左下のアウトリガー梁が写真の縁をまたぐ構図で、図本体の欠けではない。写り込みなし",
       "reviewedAt": "2026-10-06T11:08:05.011Z"
-    },
-    "civil-construction-1/textbook-demolition/img/fig-6-4": {
-      "sha": "7d25a576e018dd24",
-      "verdict": "ok",
-      "action": "reextract",
-      "reason": "上縁で切れていた柱の縦線の上端と左壁のギザギザを、土木施工管理技術テキスト 土木一般編 第6章 p.3（図6.4）から 300dpi で切り出し直して戻した（1200x600→707x730）。図番号キャプション・行番号・左の空白は除き、図番号は記事の caption に移した。親 QA 合格（新旧比較・crop 検査 0 件）",
-      "reviewedAt": "2026-10-06T12:35:54.718Z"
     },
     "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
       "sha": "e94b8b6dca213f5d",

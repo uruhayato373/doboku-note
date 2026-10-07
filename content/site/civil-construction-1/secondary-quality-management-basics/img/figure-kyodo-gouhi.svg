@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="圧縮強度の合否判定。1回の試験結果は3台の運搬車から1個ずつ採った供試体3個の平均で、各回が呼び強度の85%以上、かつ3回の試験結果の平均が呼び強度以上であれば合格">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="kg-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="kg-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="kg-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="kg-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="kg-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">強度試験の合否判定</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">「各回」と「3回の平均」の2つの条件を両方満たす</text>
+  <line class="axis" x1="100" y1="300" x2="372" y2="300"/>
+  <line class="axis" x1="100" y1="300" x2="100" y2="84"/>
+  <rect class="brand" x="110" y="144" width="50" height="156"/>
+  <text class="t-lab" x="135" y="318" text-anchor="middle">1回目</text>
+  <rect class="brand" x="200" y="104" width="50" height="196"/>
+  <text class="t-lab" x="225" y="318" text-anchor="middle">2回目</text>
+  <rect class="brand" x="290" y="124" width="50" height="176"/>
+  <text class="t-lab" x="315" y="318" text-anchor="middle">3回目</text>
+
+  <line class="c-pos" x1="100" y1="130" x2="372" y2="130"/>
+  <line class="c-dngd" x1="100" y1="155.5" x2="372" y2="155.5"/>
+  <line class="dash" x1="100" y1="124" x2="372" y2="124"/>
+  <text class="t-pos" x="94" y="134" text-anchor="end">呼び強度</text>
+  <text class="t-warn" x="94" y="160" text-anchor="end">85%</text>
+  <text class="t-note" x="378" y="116" text-anchor="end">3回の平均</text>
+  <text class="t-note" x="200" y="336" text-anchor="middle">1回の結果 = 供試体3個の平均</text>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">各回</text>
+  <text class="t-lab" x="70" y="416">呼び強度の 85% 以上（赤い破線の上）</text>
+  <text class="t-key" x="30" y="442">平均</text>
+  <text class="t-lab" x="70" y="442">3回の平均が呼び強度以上（緑の線の上）</text>
+  <text class="t-key" x="30" y="468">採取</text>
+  <text class="t-lab" x="70" y="468">適当な間隔の運搬車3台から1個ずつ</text>
+
+</svg>
