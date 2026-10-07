@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="応力範囲と繰返し回数の関係を継手の等級別に示すS-N線図と、高強度鋼と水素と引張応力が重なると遅れ破壊が起きる三条件の図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .big { font-size: 24px; font-weight: bold; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .guide { fill: none; stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="50" y="22" class="s">応力範囲Δσ（対数）</text>
+  <path class="axis" d="M50,30 V300 H372" />
+  <path d="M50,300 v5" stroke="#555" stroke-width="1" />
+  <text x="50" y="321" class="m">10<tspan dy="-5" font-size="11">4</tspan></text>
+  <path d="M130,300 v5" stroke="#555" stroke-width="1" />
+  <text x="130" y="321" class="m">10<tspan dy="-5" font-size="11">5</tspan></text>
+  <path d="M210,300 v5" stroke="#555" stroke-width="1" />
+  <text x="210" y="321" class="m">10<tspan dy="-5" font-size="11">6</tspan></text>
+  <path d="M290,300 v5" stroke="#555" stroke-width="1" />
+  <text x="290" y="321" class="m">10<tspan dy="-5" font-size="11">7</tspan></text>
+  <path d="M370,300 v5" stroke="#555" stroke-width="1" />
+  <text x="370" y="321" class="m">10<tspan dy="-5" font-size="11">8</tspan></text>
+  <text x="210" y="340" class="s m">繰返し回数 N（対数）</text>
+  <path d="M50,60 L290,170 H372" fill="none" stroke="#2e6da4" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="331" y="164" class="s m">高等級</text>
+  <path d="M50,115 L290,225 H372" fill="none" stroke="#2e6da4" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="331" y="219" class="s m">中等級</text>
+  <path d="M50,170 L290,280 H372" fill="none" stroke="#2e6da4" stroke-width="2.5" stroke-linejoin="round" />
+  <text x="331" y="274" class="s m">低等級</text>
+  <path d="M290,40 V300" class="guide" />
+  <text x="284" y="44" class="s e">疲労限度</text>
+  <text x="20" y="378" class="h">遅れ破壊が起きる三つの条件</text>
+  <rect class="warn" x="20" y="390" width="104" height="40" rx="6" />
+  <text x="72" y="415" class="h m">高強度の鋼</text>
+  <rect class="warn" x="148" y="390" width="104" height="40" rx="6" />
+  <text x="200" y="415" class="h m">水素の侵入</text>
+  <rect class="warn" x="276" y="390" width="104" height="40" rx="6" />
+  <text x="328" y="415" class="h m">引張応力</text>
+  <text x="136" y="415" class="h m">＋</text>
+  <text x="264" y="415" class="h m">＋</text>
+  <path class="arrow" d="M200,436 V458" />
+  <rect class="danger" x="120" y="462" width="160" height="30" rx="6" />
+  <text x="200" y="482" class="h m">遅れ破壊</text>
+</svg>
