@@ -128,6 +128,72 @@ export function summarizeAfb(afb) {
 }
 
 /** A8 レコード配列を合算する。 */
+const DAY_MS = 86400000;
+
+/**
+ * 配置ルール（config/affiliate-placements.json）を GA4 の配置別の窓と A8 の月×案件へ結ぶ（ルール単位の結果）。
+ *
+ * GA4 の配置別（cta_placement）には案件・ページの次元が無いので、数字は「面 × 窓」の合計しか取れない。
+ * - 同じ窓に同じ面のルールが他にもあれば sharedWith に並べる（その面の数字はそれらの合計で、このルールだけには分けられない）
+ * - ルールの期間が窓の一部だけなら coveredDays < windowDays（窓の残りの日の数字も混ざる）
+ * A8 は面を分けられない（scope: program）。窓と半分以上重なる月のその案件の合計。
+ * @param {object[]} rules 配置ルール
+ * @param {{start: string, end: string}|null} win GA4 の窓（JST の日付・両端含む）
+ * @param {Map<string, {impressions: number, clicks: number}>} byPlacement
+ * @param {{month: string, program: string, conversions?: number, approved?: number, revenueYen?: number}[]} a8Records
+ */
+export function joinRulesToWindow(rules, win, byPlacement, a8Records) {
+  if (!win) return [];
+  const winStart = Date.parse(`${win.start}T00:00:00+09:00`);
+  const winEnd = Date.parse(`${win.end}T00:00:00+09:00`) + DAY_MS;
+  const windowDays = Math.round((winEnd - winStart) / DAY_MS);
+  const active = rules
+    .map((r) => {
+      const from = Math.max(Date.parse(r.period.from), winStart);
+      const until = Math.min(r.period.until ? Date.parse(r.period.until) : Infinity, winEnd);
+      return { r, days: until > from ? Math.round((until - from) / DAY_MS) : 0 };
+    })
+    .filter((x) => x.days > 0);
+  // A8 は月単位。窓と半分以上重なる月だけを数える（28 日窓の端の 1 日で翌月の成果を丸ごと拾わない）
+  const months = [];
+  for (let m = win.start.slice(0, 7); m <= win.end.slice(0, 7); ) {
+    const [y, mo] = m.split('-').map(Number);
+    const next = mo === 12 ? `${y + 1}-01` : `${y}-${String(mo + 1).padStart(2, '0')}`;
+    const mStart = Date.parse(`${m}-01T00:00:00+09:00`);
+    const mEnd = Date.parse(`${next}-01T00:00:00+09:00`);
+    const overlap = Math.min(mEnd, winEnd) - Math.max(mStart, winStart);
+    if (overlap * 2 >= mEnd - mStart) months.push(m);
+    m = next;
+  }
+  return active.map(({ r, days }) => {
+    const g = byPlacement.get(r.slot) ?? { impressions: 0, clicks: 0 };
+    const a8Rows = a8Records.filter((x) => x.program === r.program && months.includes(x.month));
+    return {
+      ruleId: r.id,
+      program: r.program,
+      slot: r.slot,
+      experiment: r.experiment ?? null,
+      from: r.period.from,
+      until: r.period.until,
+      ga4: {
+        coveredDays: days,
+        windowDays,
+        impressions: g.impressions,
+        clicks: g.clicks,
+        ctr: g.impressions ? g.clicks / g.impressions : null,
+        sharedWith: active.filter((x) => x.r.slot === r.slot && x.r.id !== r.id).map((x) => x.r.id),
+      },
+      a8: {
+        scope: 'program',
+        months: [...new Set(a8Rows.map((x) => x.month))].sort(),
+        conversions: a8Rows.reduce((a, x) => a + (x.conversions ?? 0), 0),
+        approved: a8Rows.reduce((a, x) => a + (x.approved ?? 0), 0),
+        revenueYen: a8Rows.reduce((a, x) => a + (x.revenueYen ?? 0), 0),
+      },
+    };
+  });
+}
+
 export function sumA8(rows) {
   return rows.reduce(
     (acc, r) => ({
@@ -519,6 +585,12 @@ function main() {
         totalClicks: totalClicks,
         ctr: totalImpr ? totalClicks / totalImpr : null,
         notSet: notSetFindings,
+        byRule: joinRulesToWindow(
+          readJson(join(ROOT, datasetPath("config.affiliate-placements"))).rules,
+          ga4Placement.meta ? { start: ga4Placement.meta.startDate, end: ga4Placement.meta.endDate } : null,
+          byPlacement.map,
+          a8All,
+        ),
       },
       a8: {
         window: sumA8(a8InWindow),

@@ -15,6 +15,7 @@ import { fileURLToPath } from "node:url";
 
 import {
   checkWindows,
+  joinRulesToWindow,
   classifyNotSet,
   classifyPillar,
   foldEvents,
@@ -204,4 +205,26 @@ test("設定のディメンション作成日が GA4 desired state と一致す�
     assert.ok(observed.includes(param), `${param} が ga4-admin-desired-state.json に無い`);
     assert.ok(observed.includes(date.replace(/-/g, "-")), `${param} の作成日 ${date} が実機観測値と食い違う`);
   }
+});
+
+test("joinRulesToWindow: ルールを GA4 の配置別の窓と A8 の月へ結び、同じ面を分け合うルールと窓の一部だけ有効なルールを明示する", () => {
+  const rules = [
+    { id: "PL-0001", program: "buildjob", slot: "article-end", experiment: "EXP-008", period: { from: "2026-09-08T00:00:00+09:00", until: null } },
+    { id: "PL-0002", program: "dx-consulting", slot: "article-end", experiment: null, period: { from: "2026-09-08T00:00:00+09:00", until: null } },
+    { id: "PL-0003", program: "buildjob", slot: "sidebar", experiment: null, period: { from: "2026-09-08T00:00:00+09:00", until: "2026-09-26T00:00:00+09:00" } },
+    { id: "PL-0004", program: "buildjob", slot: "article-mid", experiment: null, period: { from: "2026-11-01T00:00:00+09:00", until: null } },
+  ];
+  const byPlacement = new Map([["article-end", { impressions: 3960, clicks: 0 }], ["sidebar", { impressions: 11504, clicks: 2 }]]);
+  const a8 = [
+    { month: "2026-09", program: "buildjob", conversions: 0, approved: 0, revenueYen: 0 },
+    { month: "2026-10", program: "buildjob", conversions: 1, approved: 0, revenueYen: 0 },
+  ];
+  const got = joinRulesToWindow(rules, { start: "2026-09-04", end: "2026-10-01" }, byPlacement, a8);
+  assert.deepEqual(got.map((r) => r.ruleId), ["PL-0001", "PL-0002", "PL-0003"], "窓に掛からないルール（11 月から）は出さない");
+  const [end, , sidebar] = got;
+  assert.deepEqual(end.ga4, { coveredDays: 24, windowDays: 28, impressions: 3960, clicks: 0, ctr: 0, sharedWith: ["PL-0002"] });
+  assert.equal(sidebar.ga4.coveredDays, 18, "9/8〜9/25 の 18 日");
+  assert.deepEqual(end.a8.months, ["2026-09"], "窓の端の 1 日（10/1）だけで 10 月の成果を拾わない");
+  assert.equal(end.a8.conversions, 0);
+  assert.deepEqual(joinRulesToWindow(rules, null, byPlacement, a8), [], "窓が無ければ空");
 });

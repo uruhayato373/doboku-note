@@ -1,6 +1,6 @@
 import { EmptyRow, numCol, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead, Kpi } from '@/components/ui';
-import { affiliateSummary, affiliatePlacements, affiliateExperiments } from '@/lib/affiliate';
+import { affiliateSummary, affiliatePlacements, affiliateExperiments, affiliateRules } from '@/lib/affiliate';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,6 +20,7 @@ export default function AffiliatePage() {
   const sumOf = (f: 'conversions' | 'revenueYen') => (got.length ? got.reduce((a, x) => a + (x[f] ?? 0), 0) : null);
   const placements = affiliatePlacements();
   const experiments = affiliateExperiments();
+  const rules = affiliateRules();
   const active = placements.rows.filter((r) => !r.retired);
   const clicks = active.reduce((s, r) => s + r.clicks, 0);
   const imps = active.reduce((s, r) => s + r.impressions, 0);
@@ -123,6 +124,37 @@ export default function AffiliatePage() {
             </TableRow>
           ))}
           {siteMonths.length === 0 && <EmptyRow colSpan={8}>{collected ? '単月の取得なし' : '未取得（login-collectors の a8）'}</EmptyRow>}
+        </TableBody>
+      </TableFrame>
+
+      <TableFrame>
+        <TableHeader>
+          <TableRow>
+            <TableHead>配置ルール{placements.window ? ` ${md(placements.window.start)}〜${md(placements.window.end)}` : ''}</TableHead>
+            <TableHead>案件</TableHead>
+            <TableHead>面</TableHead>
+            <TableHead className={numCol}>表示</TableHead>
+            <TableHead className={numCol}>クリック</TableHead>
+            <TableHead className={numCol}>率</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {rules.map((r) => (
+            <TableRow key={r.ruleId}>
+              <TableCell>
+                {r.ruleId}{' '}
+                {!r.open && <StatusBadge tone="neutral">終了</StatusBadge>}{' '}
+                {r.partial && <StatusBadge tone="info" title="窓の一部の日だけ有効。窓の残りの日の数字も混ざる">窓の一部</StatusBadge>}{' '}
+                {r.sharedWith.length > 0 && <StatusBadge tone="info" title={`同じ面を分け合ったルール: ${r.sharedWith.join('・')}（数字はそれらとの合計）`}>面を共有</StatusBadge>}
+              </TableCell>
+              <TableCell>{r.program}</TableCell>
+              <TableCell>{r.slotLabel}</TableCell>
+              <TableCell className={numCol}>{num(r.impressions)}</TableCell>
+              <TableCell className={numCol}>{r.clicks}</TableCell>
+              <TableCell className={numCol}>{rate(r.clicks, r.impressions)}</TableCell>
+            </TableRow>
+          ))}
+          {rules.length === 0 && <EmptyRow colSpan={6}>未計測（fetch-metrics が週次で生成）</EmptyRow>}
         </TableBody>
       </TableFrame>
     </>
