@@ -37,6 +37,18 @@ export function resolveTier(raw) {
   return TIER_ALIASES[String(raw ?? '').trim()] ?? null;
 }
 
+/**
+ * 起票前の注意（止めはしない）。不具合を 🟢・🟣 に置くと check-backlog-health の S2（沈んだ不具合）に出る
+ * （2026-10-07 に DN-0568・DN-0569 を 🟢 へ起票し、同日に 🟡 へ上げ直した）。
+ */
+export function filingWarnings({ kind, tierEmoji }) {
+  const out = [];
+  if (kind === '不具合' && (tierEmoji === '🟢' || tierEmoji === '🟣')) {
+    out.push('不具合を 🟢/🟣 に置くと check-backlog-health の S2（沈んだ不具合）に出る。今も壊れているなら --tier 中 以上（[時期:] は自動で付く）、壊れていないなら --kind 改善 にする');
+  }
+  return out;
+}
+
 /** カードの Markdown（行の配列）を組み立てる。値の検査は validateNewCard が行う。 */
 export function buildCard({ id, title, kind, domain, category, when, due, verify, today, body }) {
   const tags = [category && `[${category}]`, `[領域:${domain}]`, when && `[時期:${when}]`, `[種類:${kind}]`, verify && `[検証:${verify}]`, `[起票:${today}]`, due && `[期日:${due}]`].filter(Boolean);
@@ -95,6 +107,7 @@ function main() {
   if (!tierEmoji) usage(`--tier は 高 / 中 / 低 / 判断待ち（指定: ${a.tier ?? 'なし'}）`);
   if (!KINDS.includes(a.kind)) usage(`--kind は ${KINDS.join(' / ')}（指定: ${a.kind ?? 'なし'}）`);
   if (a.kind === '定期') usage('定期の作業は backlog に置かない（todo-standards.md §1-2）');
+  for (const w of filingWarnings({ kind: a.kind, tierEmoji })) console.error(`[todo-add] 注意: ${w}`);
   const body = a['body-file'] ? readFileSync(a['body-file'], 'utf8') : a.body;
   if (!body || !body.trim()) usage('--body か --body-file で本文（起点・やること・完了条件）を書く');
   const today = todayJst();
