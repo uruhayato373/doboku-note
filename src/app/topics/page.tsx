@@ -6,6 +6,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getAllTopics, getTopicDocs, getTopicStandards } from '@/lib/topics';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '土木技術のテーマ別索引',
@@ -44,6 +45,8 @@ export default function TopicsPage() {
           })}
         </div>
       </SectionBlock>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

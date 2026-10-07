@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import WaterContentClient from "./WaterContentClient";
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 
 export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
@@ -51,6 +52,8 @@ export default function WaterContentPage() {
       />
 
       <WaterContentClient />
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

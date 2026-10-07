@@ -11,6 +11,7 @@ import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getAllTopics, getTopicBySlug, getTopicDocs, getTopicStandards } from '@/lib/topics';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 type Params = { slug: string };
 
@@ -85,6 +86,8 @@ export default async function TopicPage({ params }: { params: Promise<Params> })
           </div>
         </SectionBlock>
       )}
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: 'topic' }} slot="topic-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

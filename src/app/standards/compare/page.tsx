@@ -9,6 +9,7 @@ import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsComparison, inferStandardEdition } from '@/lib/standards-comparison';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 export const metadata: Metadata = buildPageMetadata({
   title: '地方整備局別 土木工事共通仕様書の差分比較',
@@ -228,6 +229,8 @@ export default function StandardsComparePage() {
           </div>
         </SectionCard>
       </SectionBlock>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

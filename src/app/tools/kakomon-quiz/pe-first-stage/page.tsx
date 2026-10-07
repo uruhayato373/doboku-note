@@ -9,6 +9,7 @@ import { buildMagazineUrl, getMagazine, type MagazineId } from "@/lib/note-magaz
 import { DEFAULT_OG_IMAGE } from "@/lib/metadata";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
+import AffiliateSlot from "@/components/ui/AffiliateSlot/AffiliateSlot";
 
 // 演習画面は結果表示後にしか note 導線が出ず、SSR の HTML には導線が無かった
 // （2026-09-27 配線監査 DN-0364）。演習の下に静的な note 商品カードを置く。
@@ -138,6 +139,8 @@ export default function PeFirstStageQuizPage() {
           })}
         </div>
       </div>
+      {/* 転職の案内（ページ末に 1 枠。案件は配置ルール） */}
+      <AffiliateSlot page={{ pageKind: "tool" }} slot="tool-end" className="max-w-[760px] mx-auto px-4 sm:px-6 pb-10" />
     </PageShell>
   );
 }

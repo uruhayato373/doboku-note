@@ -19,6 +19,7 @@ import {
 } from '@/lib/standards';
 import { hasStandardChapters } from '@/lib/standards-articles';
 import { getTopicsForStandardText } from '@/lib/topics';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
 type Params = { agency: string; document: string; part: string };
 
@@ -191,6 +192,8 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
           </nav>
 
           <StandardTopicLinks topics={relatedTopics} />
+        {/* 転職の案内は本文の外の末尾に 1 枠（章ページ以外の公的基準・右のナビ欄には置かない）。案件は配置ルール */}
+        <AffiliateSlot page={{ pageKind: 'standards-list' }} slot="standards-list-end" className="mt-6" />
         <StandardsAttribution document={entry} part={entryPart} />
         </SectionCard>
       </TwoColumnShell>
