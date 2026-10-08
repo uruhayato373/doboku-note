@@ -260,6 +260,12 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
+
+
 ### [DN-0587] 引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
 
