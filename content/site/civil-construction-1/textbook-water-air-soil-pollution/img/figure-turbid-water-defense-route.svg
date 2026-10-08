@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="河川工事の濁水対策の流れ。法面や裸地で濁りを出さず、現場内の沈殿池で捕まえ、河川側で定時に見張り、異常な濁りが出たら放流を止めて原因を調べる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-text { font-size: 12px; fill: #222; }
+      .t-sub { font-size: 12px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .link { stroke: #555; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 1 出さない -->
+  <rect class="box-positive" x="40" y="24" width="320" height="96" rx="8"/>
+  <text class="t-title" text-anchor="middle" x="200" y="50">1. 出さない（発生源）</text>
+  <text class="t-text" text-anchor="middle" x="200" y="73">法面・裸地の面積と露出期間を減らす</text>
+  <text class="t-sub" text-anchor="middle" x="200" y="95">シート養生・種子吹付・コンクリート吹付</text>
+  <line class="link" x1="200" y1="120" x2="200" y2="142" marker-end="url(#arrow)"/>
+
+  <!-- 2 捕まえる -->
+  <rect class="box-brand" x="40" y="144" width="320" height="96" rx="8"/>
+  <text class="t-title" text-anchor="middle" x="200" y="170">2. 捕まえる（現場内）</text>
+  <text class="t-text" text-anchor="middle" x="200" y="193">釜場で凝集 → 水路 → 沈砂池・沈殿池</text>
+  <text class="t-sub" text-anchor="middle" x="200" y="215">清水は濁水と分けて、処理量を増やさない</text>
+  <line class="link" x1="200" y1="240" x2="200" y2="262" marker-end="url(#arrow)"/>
+
+  <!-- 3 見張る -->
+  <rect class="box-warn" x="40" y="264" width="320" height="96" rx="8"/>
+  <text class="t-title" text-anchor="middle" x="200" y="290">3. 見張る（河川側）</text>
+  <text class="t-text" text-anchor="middle" x="200" y="313">汚濁防止膜の外側と放流口を定時に確認</text>
+  <text class="t-sub" text-anchor="middle" x="200" y="335">夜間・増水時はカメラや濁度計で補う</text>
+  <line class="link" x1="200" y1="360" x2="200" y2="382" marker-end="url(#arrow)"/>
+
+  <!-- 4 異常時 -->
+  <rect class="box-danger" x="40" y="384" width="320" height="96" rx="8"/>
+  <text class="t-title" text-anchor="middle" x="200" y="410">4. 異常な濁りが出たら</text>
+  <text class="t-text" text-anchor="middle" x="200" y="433">放流を止めて、原因を調べる</text>
+  <text class="t-sub" text-anchor="middle" x="200" y="455">薄めて数値を合わせることはしない</text>
+</svg>
