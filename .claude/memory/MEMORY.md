@@ -101,7 +101,7 @@
 - [売れる型SSOT](reference_note_selling_structures.md) — 9型＋6部品・誠実ガード
 - [サイトCTA配線](reference_site_magazine_cta_firing.md) — 発火条件・career CTA確認
 - [worktree罠](reference_shared_worktree_autostash_hazard.md) — autostash・hook・Turbopack
-- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源・push前の;連結
+- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源・push前の;連結・誤shallow
 - [Win Bash罠](reference_git_show_ref_path_false_pass.md) — git show偽PASS・gh jq
 - [容量・速度](reference_mac_disk_reclaim.md) — check-disk-hygiene・EDRビルド
 - [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延

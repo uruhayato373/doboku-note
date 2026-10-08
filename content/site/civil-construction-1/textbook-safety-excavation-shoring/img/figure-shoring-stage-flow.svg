@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="土止め支保工の段階施工と異常時の対応。部材を取り付け、取付け完了を確認してから次の段階を掘削する。存置中に異常を認めたら作業員全員を避難させ、対策後に再開する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .t-label { font-size: 12px; font-weight: bold; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 区分ラベル：掘削と取り付けの繰り返し -->
+  <text class="t-label" x="30" y="22">段ごとに繰り返す</text>
+
+  <!-- 1 取り付け -->
+  <rect class="box-brand" x="30" y="30" width="340" height="52" rx="6"/> <!-- brand-fill / brand -->
+  <text class="t-title" x="200" y="51" text-anchor="middle">組立図の順序で部材を取り付ける</text>
+  <text class="t-sub" x="200" y="69" text-anchor="middle">切りばり・腹起しは矢板・くい等へ確実に固定</text>
+  <line x1="200" y1="82" x2="200" y2="98" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2 確認 -->
+  <rect class="box-brand" x="30" y="100" width="340" height="52" rx="6"/>
+  <text class="t-title" x="200" y="121" text-anchor="middle">必要な部材が所定の位置にあるか確認</text>
+  <text class="t-sub" x="200" y="139" text-anchor="middle">確認が済んでから次の作業へ進む</text>
+  <line x1="200" y1="152" x2="200" y2="168" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3 掘削 -->
+  <rect class="box-brand" x="30" y="170" width="340" height="52" rx="6"/>
+  <text class="t-title" x="200" y="191" text-anchor="middle">確認できたら次の段階を掘削</text>
+  <text class="t-sub" x="200" y="209" text-anchor="middle">取り付けが終わるまで次の段は掘らない</text>
+
+  <!-- 区切り -->
+  <line x1="30" y1="244" x2="370" y2="244" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="30" y="264">存置している間</text>
+
+  <!-- 4 点検・測定 -->
+  <rect class="box-brand" x="30" y="272" width="340" height="52" rx="6"/>
+  <text class="t-title" x="200" y="293" text-anchor="middle">点検員が点検し、必要に応じて測定</text>
+  <text class="t-sub" x="200" y="311" text-anchor="middle">土圧・変位・地下水位・周辺地盤</text>
+  <line x1="200" y1="324" x2="200" y2="340" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 5 異常 -->
+  <rect class="box-danger" x="30" y="342" width="340" height="66" rx="6"/> <!-- danger-fill / danger -->
+  <text class="t-title" x="200" y="363" text-anchor="middle">異常を認めたら作業員全員を直ちに避難</text>
+  <text class="t-sub" x="200" y="381" text-anchor="middle">部材の変形・緊結部のゆるみ</text>
+  <text class="t-sub" x="200" y="397" text-anchor="middle">地下水位や周辺地盤の変化</text>
+  <line x1="200" y1="408" x2="200" y2="424" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 6 再開 -->
+  <rect class="box-positive" x="30" y="426" width="340" height="52" rx="6"/> <!-- positive-fill / positive -->
+  <text class="t-title" x="200" y="447" text-anchor="middle">事故防止対策を講じてから再開</text>
+  <text class="t-sub" x="200" y="465" text-anchor="middle">対策の前に次の段階の施工はしない</text>
+</svg>
