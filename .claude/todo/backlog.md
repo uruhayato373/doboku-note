@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0591] 書籍 27 冊の網羅を判定し、棚ごとに優先順でサイトへ展開する（進み具合は state.book-coverage と --status）
+タグ: [領域:教材] [時期:2026-10] [種類:制作] [起票:2026-10-08]
+
+2026-10-08 開始。進み具合の正本は .claude/state/book-coverage.json（台帳 state.book-coverage・書籍ごとの候補表・判定の件数・展開した記事とコミット）で、一覧は npm run audit-reference-book-coverage -- --status（PR #927 のマージまでは PR の作業ツリーから）。見出しを含む候補表・判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（drive-vault-sync --group reference-book-coverage）。判定の手順は .claude/knowledge/reference/book-coverage-judging.md、展開は content-taxonomy.md §7。
+段取り: (1) 判定 21 冊を workflow で一括（コンクリート 4 冊＋建設材料 1 冊は判定・展開済み）。(2) 展開は棚ごとに重点資格の順: 1級・2級土木（5 冊・DN-0580 の逐語一致 80 件も同じ記事群で直す）→ 技術士（6 冊）→ 土木実務（3 冊）→ 防災・業界・DX・AI（8 冊・判定を見て展開するか決める）。同じ記事に効く複数の本の計画は、棚の中で記事ごとにまとめてから 1 記事 1 回で展開する。(3) 最後にコンクリート 5 冊を --rejudge で判定し直し、網羅を確かめる。
+前提: pe-cem-essay-guide（総監の論文の本・18 ページ）は文字起こしが未着手（book-manifest で pending 18）。判定の前に pdf-to-mdx --scanned で文字起こしする。
+完了条件: --status で全 27 冊が「判定済み（展開不要）」か「展開済み」・展開した記事は sources 宣言と check-reference-sources:deep の逐語一致 0
+
+
 ### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
 
