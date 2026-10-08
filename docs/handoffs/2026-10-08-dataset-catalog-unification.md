@@ -21,5 +21,5 @@
 - コンクリート系5冊の網羅→展開は完了。22記事（追記20・新規2）を develop へ push 済み。sources 宣言 24/24、逐語一致 0、AI 写真 49/49 合格。
 - **網羅の詳細は、この Mac の `.claude/state/book-coverage/` にしかない**（`<id>.json`＝候補表・`<id>.verdict.json`＝意味判定、5冊分）。段階1で Drive vault へ移して台帳に登録する。git 管理外（PR #927 の `.gitignore`）。
 - 展開の作業ファイル（brief・指示書）は `.tmp/book-coverage/`（破棄してよい。手順は content-taxonomy.md §7 と memory `project_book_to_guide_expansion` に記録済み）。
-- **PR #927**（`audit-reference-book-coverage` スクリプト・feat/book-coverage-audit・worktree `.claude/worktrees/book-coverage-audit`）は open。knip・gate-parity は修正 push 済み。CI の残りの赤 image-assets は develop 側の別件（DN-0581）。マージは運営者の判断。段階1の実装で出力先と `.gitignore` の扱いを変えるので、PR #927 のマージ後に着手するか、同じブランチに積むかを最初に決める。
-- 関連カード: DN-0580（1級土木の既存4記事の逐語一致80件）、DN-0581（H29 第一次B の SVG 容量超過で CI の audit が赤）。
+- **PR #927**（`audit-reference-book-coverage` スクリプト・feat/book-coverage-audit・worktree `.claude/worktrees/book-coverage-audit`）は open。knip・gate-parity は修正 push 済み。develop 側の image-assets 容量超過は修正済み（PR #928、複雑な試験図1枚を容量例外へ追加・検査合格）。マージは運営者の判断。段階1の実装で出力先と `.gitignore` の扱いを変えるので、PR #927 のマージ後に着手するか、同じブランチに積むかを最初に決める。
+- 関連カード: DN-0580（1級土木の既存4記事の逐語一致80件）。
