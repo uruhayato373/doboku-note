@@ -21,6 +21,7 @@ import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { voicevoxCredit } from './lib/voicevox-credit.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -53,8 +54,6 @@ const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render'))
 const onlyPackId = val('--pack-id', '');
 const scope = val('--scope', 'civil');
 const publishAtArg = val('--publish-at', '');
-// VOICEVOX は話者ごとに「VOICEVOX:キャラクター名」のクレジットが利用条件（エンジンの speaker_info で確認）
-const VOICEVOX_CREDIT: Record<number, string> = { 13: '青山龍星' };
 
 function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -316,8 +315,7 @@ function compilationChapters(dir: string, rendered: any) {
 function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existing: any) {
   const compilation = existsSync(join(dir, 'compilation.json'));
   const artifact = assertMedia(manifest.packId, compilation ? 3600 : 1200);
-  const credit = VOICEVOX_CREDIT[artifact.rendered.speaker];
-  if (!credit) throw new Error(`${manifest.packId}: VOICEVOX 話者 ${artifact.rendered.speaker} のクレジットが未定義`);
+  const credit = voicevoxCredit(artifact.rendered.speaker);
   const exam = examMeta(manifest.exam);
   const link = cta(manifest);
   const title = `【${exam.label}】${manifest.title}`;
@@ -331,7 +329,7 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
     PRODUCTION_DISCLOSURE.authorityNotice, '',
     ...(compilation ? [] : [`▼ ${link.label}`, link.url, '']),
     '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。',
-    `音声：VOICEVOX:${credit}`, '',
+    `音声：${credit}`, '',
     exam.hashtags,
   ].join('\n');
   const intentTags: Record<string, string[]> = {

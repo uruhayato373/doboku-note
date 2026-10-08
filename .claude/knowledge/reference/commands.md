@@ -193,6 +193,10 @@ npm run check-video-content    # 動画パック（DN-0110）の整合ゲート�
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
 npm run brand-video-pack        # 動画パック1本の表紙（cover-design.json）と締め画像をブランドのロゴ・背景で描き、.tmp/video-render/youtube-covers-{exam}/{packId}-{key}.png・youtube-cta-{exam}/{packId}-longform.png へ書く（--pack-dir 必須・既定 dry-run・--commit で design json も更新）。画像は git に入れず drive-vault-sync で Drive へ
+npm run registry               # コンテンツ台帳（content/registry・content-registry.md）の CLI: list / show <ID> / index（.tmp/content-registry/index.json）/ import-video-pack --pack-dir …（既定 dry-run・--commit）
+npm run media                  # 素材の CLI: promote --pub <公開ID>（作業場の成果物を .tmp/media/{exam}/{work}/… へ sha 入りの名前で取り込み台帳へ）/ sync・verify・pull --work <exam>/<work>（Drive の group content-media・書き換えない）。promote・sync・pull は既定 dry-run
+npm run check-content-registry # コンテンツ台帳の検査 R01〜R10（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・今の台帳との一致・AI 素材の判定）。FAIL で exit 1
+npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）

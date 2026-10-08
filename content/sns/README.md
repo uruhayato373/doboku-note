@@ -1,6 +1,8 @@
 # SNS 投稿管理 SSOT
 
-このディレクトリが全 SNS 投稿の唯一の真実源（SSOT）です。
+このディレクトリは SNS 投稿の中身（台本・文面・デザインの指定）の置き場です。公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）は
+コンテンツ台帳 `content/registry/` へ段階的に移します（2026-10-09 決定・[content-registry.md](../../.claude/knowledge/reference/content-registry.md)）。
+切り替え前のチャネルは、下の表の置き場と各状態ファイルが今の正本です。
 
 ## チャネル別 SSOT
 

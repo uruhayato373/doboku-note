@@ -27,8 +27,7 @@ import { dirname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, vaultAbsFor,
-  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault,
-} from './lib/drive-vault.mjs';
+  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault, immutableConflict } from './lib/drive-vault.mjs';
 import { loadManifest as loadR2Manifest, loadConfig as loadR2Config, loadEnvLocal, makeS3, hasR2Credentials, imageSize } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -144,6 +143,8 @@ function listVaultTargets(cfg, group, mount) {
 // ------------------------------------------------------------------ push（repo/R2 → vault）
 
 async function push(cfg, group, mount, manifest) {
+  // 書き換えない group（immutable）は、名前に中身の sha を入れて別名で置く前提。上書きの経路を作らない（DN-0589 の再発防止）
+  if (FORCE && group?.immutable) die('--force は書き換えない group（' + group.id + '）では使えない。描き直したものは別名（sha 入り）で置く');
   let targets = FROM_R2 ? listR2Targets(cfg, group) : FROM_VAULT ? listVaultTargets(cfg, group, mount) : listLocalTargets(cfg, group);
   const totalCount = targets.length;
   if (totalCount === 0) {
@@ -244,6 +245,8 @@ async function push(cfg, group, mount, manifest) {
     else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
 
     const cur = manifest.entries[r.rel];
+    const conflict = immutableConflict(r.group, r.rel, expected.sha256, cur);
+    if (conflict) { failures.push({ rel: r.rel, stage: 'immutable', msg: conflict }); return; }
     if (!FORCE && cur && cur.sha256 === expected.sha256 && existsSync(vaultAbsFor(mount.root, cur.vaultPath))) { unchanged++; return; }
     if (cur?.adopted && expected.sha256 !== cur.sha256) throw new Error(r.rel + ': 正本への別名参照から内容を変更できない。正本キーを使うこと');
 
@@ -278,6 +281,7 @@ async function push(cfg, group, mount, manifest) {
         unchanged++;
         return;
       }
+      if (r.group?.immutable) { failures.push({ rel: r.rel, stage: 'immutable', msg: 'vault に別の中身がある。書き換えない group なので上書きしない' }); return; }
     }
 
     mkdirSync(dirname(dst), { recursive: true });
