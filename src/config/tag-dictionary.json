@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T22:18:37.583Z",
+  "generated_at": "2026-10-08T22:28:32.478Z",
   "summary": {
-    "total_mdx_files": 1356,
+    "total_mdx_files": 1357,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 209,
+      "count": 210,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1202,6 +1202,7 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-lifting-equipment-selection",
+        "civil-practice-nature-conservation-mitigation",
         "civil-practice-oshms-pdca-site-operation",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
@@ -2529,7 +2530,7 @@
     },
     {
       "name": "環境保全",
-      "count": 88,
+      "count": 89,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2540,6 +2541,7 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-practice-environment-neighborhood",
+        "civil-practice-nature-conservation-mitigation",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
         "pe-comprehensive-management-agenda-21",
@@ -3652,6 +3654,32 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 19,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-nature-conservation-mitigation",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "コンクリート診断士",
       "count": 18,
       "inAllowlist": true,
@@ -3824,31 +3852,6 @@
         "pe-construction-r08-required",
         "pe-construction-required-exam-themes",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 18,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-h21-essay-river-consultant",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
