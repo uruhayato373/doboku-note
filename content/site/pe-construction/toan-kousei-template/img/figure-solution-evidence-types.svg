@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="解決策の根拠を、読み手の五つの問いに対応づけた図。国の方向は計画や白書、技術の確かさは基準や指針、効果は数値と実例、実行は自分の業務の現状、受容は立場の違う人の見方。各問いの下に答案での書き出しの形を示し、最後に解決策1本につき根拠は1〜2型に絞ると示す。">
+<defs>
+<style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.hd{font-size:11px;fill:#8a8a8a} /* ink-muted */
+.q{font-size:13px;font-weight:bold;fill:#1a3a5c} /* brand text */
+.tag{font-size:12px;fill:#1a3a5c} /* brand text */
+.pre{font-size:11px;fill:#8a8a8a} /* ink-muted */
+.ph{font-size:11px;fill:#555} /* ink-body */
+.card{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.ex{fill:#ffffff;stroke:#d7d7d7;stroke-width:1} /* token-border */
+.sum{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.link{stroke:#2e6da4;stroke-width:1.5;fill:none} /* brand */
+</style>
+<marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+<polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/><!-- brand -->
+</marker>
+</defs>
+
+<text x="32" y="26" class="hd">読み手の問い</text>
+<text x="366" y="26" text-anchor="end" class="hd">根拠に使う材料</text>
+
+<rect x="18" y="36" width="364" height="62" rx="8" class="card"/>
+<text x="32" y="58" class="q">国の方向と合っているか</text>
+<text x="366" y="58" text-anchor="end" class="tag">計画・ガイドライン・白書</text>
+<rect x="28" y="66" width="344" height="24" rx="4" class="ex"/>
+<text x="36" y="82" class="pre">書き出し</text>
+<text x="92" y="82" class="ph">「〇〇計画（令和〇年）が△△を掲げ、」</text>
+
+<rect x="18" y="108" width="364" height="62" rx="8" class="card"/>
+<text x="32" y="130" class="q">技術として確かか</text>
+<text x="366" y="130" text-anchor="end" class="tag">基準・指針・学会の知見</text>
+<rect x="28" y="138" width="344" height="24" rx="4" class="ex"/>
+<text x="36" y="154" class="pre">書き出し</text>
+<text x="92" y="154" class="ph">「〇〇基準では△△と定められ、」</text>
+
+<rect x="18" y="180" width="364" height="62" rx="8" class="card"/>
+<text x="32" y="202" class="q">どれほど効くのか</text>
+<text x="366" y="202" text-anchor="end" class="tag">数値と実例</text>
+<rect x="28" y="210" width="344" height="24" rx="4" class="ex"/>
+<text x="36" y="226" class="pre">書き出し</text>
+<text x="92" y="226" class="ph">「△△は〇％（令和〇年、〇〇白書）で、」</text>
+
+<rect x="18" y="252" width="364" height="62" rx="8" class="card"/>
+<text x="32" y="274" class="q">自分の現場で回るのか</text>
+<text x="366" y="274" text-anchor="end" class="tag">自分の業務の現状</text>
+<rect x="28" y="282" width="344" height="24" rx="4" class="ex"/>
+<text x="36" y="298" class="pre">書き出し</text>
+<text x="92" y="298" class="ph">「発注・監督の段階では△△が壁で、」</text>
+
+<rect x="18" y="324" width="364" height="62" rx="8" class="card"/>
+<text x="32" y="346" class="q">他の立場は受け入れるか</text>
+<text x="366" y="346" text-anchor="end" class="tag">立場の違う人の見方</text>
+<rect x="28" y="354" width="344" height="24" rx="4" class="ex"/>
+<text x="36" y="370" class="pre">書き出し</text>
+<text x="92" y="370" class="ph">「△△の立場では〇〇が懸念されるが、」</text>
+
+<path class="link" d="M200 390V414" marker-end="url(#arrow)"/>
+
+<rect x="18" y="420" width="364" height="68" rx="8" class="sum"/>
+<text x="200" y="448" text-anchor="middle" style="font-size:14px;font-weight:bold;fill:#1a3a5c">解決策1本につき、根拠は1〜2型</text>
+<text x="200" y="471" text-anchor="middle" style="font-size:12px;fill:#555">使わない型は、別の解決策へ回す</text>
+</svg>
