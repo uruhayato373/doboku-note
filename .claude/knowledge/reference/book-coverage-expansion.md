@@ -61,6 +61,7 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 - `node .claude/scripts/lint-mdx-mobile.mjs <article.mdx>`: 追記で増えた指摘が 0。
 - `npx textlint <article.mdx>`: 指摘 0（`npx textlint --fix` で機械修正できる）。
 - `node scripts/check-figure-canvas.mjs`: 通る。
+- `node scripts/check-image-assets.mjs --ci`: この記事の図に `size-new`（サイズ上限 10KB 超え）が無い。超えたら、同じ値の属性（`font-size`・`text-anchor` など）を親の `<g>` にまとめ、既定値の属性（`stroke-width="1"`）を省いて軽くする。指定の無かった要素が親の値を受け継がないよう、元の既定値は明示する（2026-10-09 に 2 枚が CI で落ちた）。
 - `node scripts/check-reference-sources.mjs --deep 2>&1 | grep <記事のパス>`: 一致 0。40 字以上の一致があれば言い換える。
 - 文字化け（U+FFFD）が 0。
 - 新しい記事なら `npm run check-guide-length` と `npm run check-content-taxonomy` も回す。
