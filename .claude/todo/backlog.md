@@ -2140,6 +2140,16 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0598] 経営の指標（business-direction）に YouTube の KPI を足すか、何を主 KPI にするかを決める
+タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-08]
+
+**起点**: `config/business-direction.json` の metrics に YouTube が無い（Instagram は igReach・igFollowers がある）。週次レビューは GA4 の youtube/video 流入（2026-09-17〜23 は0人）を本文で読むだけで、管理画面 `/metrics/business` にも月次の判断にも出ない。2026-10-08 時点で通常動画70本の再生中央値は4回（`data/youtube/own-videos/2026-10-08.json`）。
+**決めること**:
+1. 主 KPI を何にするか。06 §9 の方針は「送客（utm_source=youtube のサイト・note 流入、ココナラへの遷移）が主、登録者・広告収益は主にしない」。候補: YouTube 経由のサイト利用者（GA4・utm_source=youtube）・通常動画の再生の増分（own-videos の合計の差分）・登録者（期末）
+2. 目標を置くか。置くなら実測の期間・対象・理由を添える（business-direction の rules）
+**決めたら**: business-direction.json の metrics に足し、月次・週次のスナップショットを作るスクリプトに取得元を足して `/metrics/business` と `/weekly-review`・`/monthly-review` が読むようにする（欠測を0にしない）。
+
+
 ### [DN-0594] YouTube の作り方を、図解版の比較公開・総まとめ（聞き流し）・一問一答のどれから進めるか決める
 タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-08]
 
