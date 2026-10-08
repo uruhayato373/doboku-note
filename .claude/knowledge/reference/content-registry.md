@@ -46,7 +46,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | exam | `qualification-registry.json` の資格 id か group id | `civil-construction-2` |
 | Work | `[a-z][a-z0-9-]{2,59}`。全チャネルで一意（`utm_campaign` と同じ値） | `matome-2kyu-chokuzen` |
 | Publication | `{exam}/{work}/{channel}.{format}[.{variant}]` | `civil-construction-2/matome-2kyu-chokuzen/youtube.longform` |
-| Media | `{pubId}/{role}`・作品で共有は `{exam}/{work}/work/{role}`・ブランド共通は `brand/{name}` | `civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover` |
+| Media | `{pubId}/{role}`・作品で共有は `{exam}/{work}/work/{role}`・ブランド共通は `brand/{design}/{role}`（置き場は `_brand/{design}/{role}.{sha8}.{ext}`） | `civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover` |
 
 - channel.format の語彙は `config/content-registry.json`（youtube＝longform・short、instagram＝carousel・reel・story・highlight、x＝post・thread・article、threads＝post、tiktok＝video）。
 - 新しく作る ID では、日付（`\d{8}`・`20\d{2}`・`\d{4}-\d{2}`）・先頭の `NNN-`・`pack-NN`・末尾の連番を使わない。中身を表す数字（`r03`・`7items`）は単語にくっつけてよい。
@@ -57,18 +57,18 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 `config/content-registry.json` の `status` が全チャネル共通の語彙。
 
-| status | 誰が動かすか | 必須の欄 |
+| status | 誰が動かすか | 必須の欄（**太字**は P1 で検査済み。他は P2 で強制） |
 |---|---|---|
 | `draft` | 作り手 | — |
 | `qa_blocked`・`qa_passed` | QA | `qa`（作品側） |
-| `approved` | **運営者だけ**（CLI） | `approval.by='user'`・`approval.contentSha256` |
+| `approved` | **運営者だけ**（CLI） | **`approval.by='user'`**（approved 以降すべて）・`approval.contentSha256` |
 | `rendered` | 描画スクリプト | 役割の素材がそろっている |
 | `uploaded_private` | 投稿スクリプト | `platform.id` |
-| `scheduled` | 投稿スクリプト | `publishAt`・`platform.id` |
-| `published` | **CI の照合**（観測の証拠）か、即時投稿のライブ確認 | `platform.id`・`platform.publishedAt`・`platform.evidence` |
+| `scheduled` | 投稿スクリプト | **`publishAt`**・`platform.id` |
+| `published` | **CI の照合**（観測の証拠）か、即時投稿のライブ確認、今の台帳からの取り込み（`import`・証拠つき） | **`platform.id`**・`platform.publishedAt`・**`platform.evidence`** |
 | `failed` | 投稿スクリプト | `error` |
 | `refresh_due` | 運営者・エージェント | `reason` |
-| `stopped` | 運営者だけ | `stopReason`（`user-decision`・`superseded`・`gone`・`unverified-legacy`） |
+| `stopped` | 運営者だけ | **`stopReason`**（`user-decision`・`superseded`・`gone`・`unverified-legacy`） |
 
 - `measured` は保存しない（計測があるかは `data/` から導く）。
 - 照合の書き込みは前進（`scheduled→published`）だけ。後戻り・結び付かない公開・重複は `.claude/state/registry-reconcile/` に所見として出し、人が決める。資格情報が無いときは記録を書かずに exit 2。
@@ -93,17 +93,17 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## 検査
 
-`npm run check-content-registry`（`ci: true`）。切り替え前のチャネル（`config/content-registry.json` の `cutover` に無いもの）は、孤児と件数の一致を WARN に留める。
+`npm run check-content-registry`（`ci: true`）。切り替え前のチャネル（`config/content-registry.json` の `cutover` に無いもの）は、台帳に無い動画パックを INFO、件数の不一致を WARN に留める。
 
 | id | 検査 |
 |---|---|
-| R01 | 型（zod）。有効なチャネルで 0 件なら FAIL |
+| R01 | 件数（台帳全体が 0 件、または切り替え済みのチャネルが 0 件なら FAIL。型は check-datasets） |
 | R02 | ID の一意と形・禁止の語・`idException` の上限 |
 | R03 | 予約以上の行の削除・改名（`--base <ref>` と比べる） |
 | R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
 | R05 | `video-pack.json` の `outputs` と公開の数の一致 |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
-| R07 | 状態の遷移の必須欄・承認ハッシュ |
+| R07 | 状態の必須欄（下の状態表の「P1 で強制」）・承認ハッシュ。遷移（`transitions`・`setBy`）の検査は approve・stop の CLI と一緒に P2 で足す |
 | R08 | 外部 ID の重複・Shorts の関連動画 |
 | R09 | 切り替え前のチャネルで、台帳の行が今の台帳（`video-content-status.json`・`youtube.json`）と一致 |
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |
@@ -118,6 +118,7 @@ npm run registry -- index
 npm run check-content-registry
 npm run media -- promote --pub civil-construction-2/matome-2kyu-chokuzen/youtube.longform
 npm run media -- sync --work civil-construction-2/matome-2kyu-chokuzen
+npm run media -- verify --work civil-construction-2/matome-2kyu-chokuzen   # 台帳・vault・クラウドの 3 者照合
 npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 ```
 

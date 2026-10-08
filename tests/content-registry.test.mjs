@@ -116,3 +116,10 @@ test('書き換えない group は、名前の sha8 と台帳の中身が違え�
   assert.match(immutableConflict(g, `.tmp/media/${PUB}/cover.aaaaaaaa.png`, SHA, { sha256: 'c'.repeat(64) }), /台帳/);
   assert.equal(immutableConflict({}, 'x.png', SHA, { sha256: 'c'.repeat(64) }), null);
 });
+
+test('areaOf は 2 階層の置き場（content/registry）も引ける', async () => {
+  const { areaOf, datasetById, datasetFiles } = await import('../scripts/lib/datasets.mjs');
+  assert.equal(areaOf(datasetById('registry.works')), 'registry');
+  assert.equal(areaOf(datasetById('config.content-registry')), 'config');
+  assert.ok(datasetFiles(ROOT, 'registry.works').length >= 1);
+});

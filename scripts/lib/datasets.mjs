@@ -272,7 +272,8 @@ export function patternOf(path) {
   return compiled.get(path);
 }
 
-export const areaOf = (dataset) => dataset.path.split('/')[0];
+/** データセットの置き場（AREAS のキー）。content/registry のように 2 階層の置き場もあるので dir の前方一致で引く */
+export const areaOf = (dataset) => Object.entries(AREAS).find(([, a]) => dataset.path.startsWith(`${a.dir}/`))?.[0] ?? dataset.path.split('/')[0];
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
 /**

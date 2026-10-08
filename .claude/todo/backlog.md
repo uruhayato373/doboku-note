@@ -63,7 +63,7 @@
 3. `registry-reconcile.yml`（毎日・videos.list で予約→公開を証拠つきで前進。後戻りは所見だけ）
 4. 表紙と締め画像を ID の置き場へ移す（画素は変えない・sha 一致。DN-0607 を吸収）
 5. 毎日の配信 CI（post-youtube-scheduled.yml の deliver・ref 固定）には触らない
-**完了条件**: 照合で公開中の動画が published になり実際の公開数と一致。総まとめが予約→公開へ自動で進む。配信 CI が 3 日続けて緑。表紙 346 件の sha が新旧で一致。
+**完了条件**: 照合で公開中の動画が published になり実際の公開数と一致。総まとめが予約→公開へ自動で進む。配信 CI が 3 日続けて緑。表紙 346 件の sha が新旧で一致。「状態は video-content-status.json」と書く文書（docs/marketing/06 §6.2・07・08・09、content-lifecycle.md、tools/admin-app/README.md）を台帳へ書き換える。
 
 
 ### [DN-0605] YouTube の予約・公開済み動画の概要欄に VOICEVOX のクレジット（VOICEVOX:青山龍星）を入れる
