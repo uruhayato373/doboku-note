@@ -1,28 +1,28 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T23:07:03.245Z",
+    "generated_at": "2026-10-08T00:29:55.312Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 940,
-    "matched_files": 940,
+    "scanned_files": 961,
+    "matched_files": 961,
     "parse_errors": 0,
     "exam_crops_high_only": 24,
-    "files_with_issues": 128,
-    "total_findings": 296,
+    "files_with_issues": 131,
+    "total_findings": 299,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 123,
+      "MEDIUM": 126,
       "LOW": 173
     },
     "by_pattern": {
       "P11-concept-title": 37,
       "P4-tiny-font": 133,
-      "P9-text-rect-overflow": 62,
+      "P9-text-rect-overflow": 64,
       "P5-wide-viewbox": 44,
-      "P2-text-overlap": 13,
+      "P2-text-overlap": 14,
       "P9-text-shape-overlap": 2,
       "P7-missing-font-family": 1,
       "P3-missing-role": 1,
@@ -1105,6 +1105,12 @@
       "detail": "「（空隙が残る）」が rect(x=40,w=140) 右端 x=180 を超過（bbox 右端 x=195）"
     },
     {
+      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-deck-overlay-steps.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「施工目地と地覆の際に額縁状に。」が rect(x=30,w=340) 右端 x=370 を超過（bbox 右端 x=377）"
+    },
+    {
       "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-thermography-temperature.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
@@ -1126,7 +1132,7 @@
       "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-pore-measure-range.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
-      "detail": "「1 nm 未満から 100 n」が rect(x=108.8,w=67.2) 右端 x=176 を超過（bbox 右端 x=198）"
+      "detail": "「2〜100 nm（第2部）」が rect(x=108.8,w=67.2) 右端 x=176 を超過（bbox 右端 x=192）"
     },
     {
       "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-carbonation-humidity-curve.svg",
@@ -1673,6 +1679,18 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「壁の断面（打込み後、まだ固まる」が rect(x=110,w=130) 右端 x=240 を超過（bbox 右端 x=303）"
+    },
+    {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-corrosion-cell.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「（空気から）」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=391）"
+    },
+    {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-charpy-transition.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「実線：吸収エネルギー（J）」と「破線：脆性破面率（%）」の bbox が重複"
     },
     {
       "file": "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
