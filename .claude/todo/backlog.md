@@ -260,6 +260,12 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0585] 台帳の id でデータを一覧・取得・絞り込みする共通の入口を作る（npm run data -- list/get/query。管理画面からも）
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
+
+段階2（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。DB を置かずに SELECT 相当を台帳 scripts/lib/datasets.mjs の id で引けるようにする。list <id>（ファイル一覧と件数）・get <id> [--values]（中身）・query <id> --where <欄=値>（JSON の配列・対応表の行を絞る）。Drive vault の写し（drive）が手元に無ければ drive-vault-sync --pull を案内する。管理画面 /ops/store の詳細から同じ関数を呼ぶ。完了条件: 3 つの操作のテスト・commands.md に 1 行・管理画面で 1 データセットを絞り込める。前提: 段階1（PR #927 に積んだ .claude/state の台帳化）がマージ済み
+
+
 ### [DN-0584] 過去問と共通仕様書の読み始め・表のUIを改善する
 タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:type-check] [起票:2026-10-08] [進行中]
 
