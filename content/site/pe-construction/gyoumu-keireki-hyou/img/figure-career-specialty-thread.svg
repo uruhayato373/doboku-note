@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="専門とする事項から経歴の1件を選び、業務内容の詳細の課題と成果を同じ語でつなぐ流れ" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:16px;font-weight:bold}.t{font-size:13px}.s{font-size:12px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.f{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5} /* surface */
+.r{fill:#ffffff;stroke:#d7d7d7;stroke-width:1.5} /* surface line */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)} /* brand */
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="40" y="24" width="320" height="76" rx="8" class="b"/>
+<text x="200" y="56" text-anchor="middle" class="h">専門とする事項</text>
+<text x="200" y="80" text-anchor="middle" class="t">科目表の語を使い、30字以内</text>
+<path d="M200 100 V132" class="a"/>
+<text x="214" y="121" class="s">関連する1件を選ぶ</text>
+<rect x="40" y="138" width="320" height="168" rx="8" class="f"/>
+<text x="56" y="162" class="h">業務経歴の欄</text>
+<rect x="56" y="174" width="288" height="34" rx="6" class="r"/>
+<text x="72" y="196" class="t">経歴の行 1</text>
+<rect x="56" y="214" width="288" height="34" rx="6" class="r"/>
+<text x="72" y="236" class="t">経歴の行 2</text>
+<rect x="56" y="254" width="288" height="36" rx="6" class="w"/>
+<text x="72" y="277" class="t">経歴の行 3</text>
+<text x="328" y="277" text-anchor="end" class="t" style="font-weight:bold">○ 詳細に選ぶ</text>
+<path d="M200 290 V340" class="a"/>
+<text x="214" y="328" class="s">同じ語でつなぐ</text>
+<rect x="40" y="346" width="320" height="110" rx="8" class="g"/>
+<text x="200" y="372" text-anchor="middle" class="h">業務内容の詳細（720字）</text>
+<rect x="56" y="386" width="140" height="56" rx="6" class="r"/>
+<text x="126" y="410" text-anchor="middle" class="h">課題</text>
+<text x="126" y="430" text-anchor="middle" class="s">事項の語で説明</text>
+<rect x="204" y="386" width="140" height="56" rx="6" class="r"/>
+<text x="274" y="410" text-anchor="middle" class="h">成果</text>
+<text x="274" y="430" text-anchor="middle" class="s">事項の語で評価</text>
+<text x="200" y="486" text-anchor="middle" class="t" style="fill:#555">三つの欄で同じ語が出てくるかを確かめる</text>
+</svg>
