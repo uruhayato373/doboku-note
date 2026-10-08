@@ -219,6 +219,7 @@ npm run check-google-ui-ssot   # UI CSV 情報の追跡 SSOT の整合ゲート�
 npm run ga4-admin:check        # GA4 管理画面の設定を desired state と突合（dry-run／:apply で不足カスタムディメンションを作成）
 npm run check-ga4-dimensions   # GA4 カスタムディメンション（event_label/cta_placement）のドリフト検知（オフライン）
 npm run fetch-ga4-cta-clicks   # CTA イベント × pagePath（28 日・CI 週次）。`--by-device` / `--by-label` / `--by-placement`（後 2 つは要カスタムディメンション・未登録は exit 0）/ `--key-events`＝pagePath × sessions/keyEvents/sessionKeyEventRate（ga4-key-events-by-page-*.json・0 行は exit 1）/ `--by-page`＝アフィリエイトのページ × ラベル × 面（クリックは日付も・枠 affiliate-by-page・表示 0 は exit 1。成果の出どころを辿るときは fetch-metrics を `-f affiliate_days=45` で手動実行）
+npm run fetch-ga4-cta-clicks -- --by-experiment # EXP-019の案×案件×面×ページ×端末×日を取得。ga4.affiliate-experimentへ保存、既存のevent_labelを使用。0行はawaiting-data、打切り・しきい値制限はexit 1。週次のmeasure-experimentsが台帳へ追記する
 npm run fetch-ga4-web-vitals  # 実ユーザー計測（RUM）: サイトの web_vitals イベント（LCP・INP・CLS）を ページの型×端末×指標×評価 の件数で取り、良好率 75%/不良 25% 超で判定して data/rum/web-vitals/*.json へ（28 日・CI 週次）。要 GA4 カスタムディメンション metric_name・metric_rating（未登録は status: dimensions-missing で exit 0）。`--check`＝fixture で完走だけ確認（CI）
 npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run／:request で登録リクエスト・上限10件/回。`-- --urls /exam/a,/standards/b` か `-- --file list.txt` で正規パス指定。旧 /docs/slug は _redirects の 301 先へ自動変換）
 npm run gsc-indexing:priority  # 最新 URL 検査 batch × GSC page 実績から登録リクエストの順位表を作る（CI が週次で commit。人間は data/gsc/indexing-priority.txt を :request に渡すだけ）
@@ -259,7 +260,7 @@ npm run fetch-bing-webmaster   # Bing Webmaster API（query/page/日次traffic�
 npm run ga4-admin-api:check    # GA4 Admin API でカスタムディメンション・キーイベント・データ保持を観測（--commit で ga4-admin/inventory-latest.json）。閲覧者で可。API未有効化/権限不足は exit 2
 npm run ga4-admin-api:apply    # desired state の不足キーイベントを作成（既定 dry-run・--commit で作成）。要: サービスアカウントを GA4 編集者に
 npm run growth-digest          # 機会ダイジェスト: 成長パック×収益カバレッジ×Bing×実験台帳×triage-log から週次トリアージ対象を安定ID付きで抽出 → growth/digest-YYYY-Www.json。--print で週次レビュー埋め込み用 Markdown（書かない）、--week で指定週、--check は書かずに完走確認。罠: パックが無ければ exit 2
-npm run measure-experiments    # measure 仕様を持つ running/measuring 実験を前後の窓で自動計測（GA4/GSC/売上台帳）。既定 dry-run・--commit で measurements[] へ追記（冪等）。CI は fetch-metrics の publish 内で実行。罠: 売上は窓にかかる月がすべて note の確定日（翌月 2 日）以降に取得・検算された月（sales.json の months[YYYY-MM].finalized）になるまで確定扱いにせず、途中の計測しか無い窓は確定したときに測り直す
+npm run measure-experiments    # measure仕様の前後比較と、measurementPlan.kind=affiliate-designの案別実測を追記。後者は保存済みga4.affiliate-experimentを使用し、未取得・打切り・同じ取得は追記しない。既定dry-run、--commitで台帳へ書く。CIはfetch-metricsのpublish内。売上は窓にかかる全月が確定・検算されるまで途中扱い
 npm run growth-triage          # 週次レビュー（ローカル）で機会ダイジェストを全件処分: list [--json] → apply --decisions .tmp/growth-triage-YYYY-Www.json [--commit]（backlog/実験/watchword/裁定/束ね/却下/保留を採番・起票・triage-log 記録）。罠: DN 採番に git 全履歴が要る（shallow clone は exit 2）・全件を先に検証し 1 件でも不正なら何も書かない
 npm run check-growth-triage    # 月曜 guard: 最新ダイジェストの未処分 0・レビューにマーカー（申し送りの振り分けは check-handoff-extraction）。exit 1 未反映 / 2 ダイジェスト/レビュー無しか古い
 npm run check-business-direction # 事業方針・指標・履歴・追記専用の検査
