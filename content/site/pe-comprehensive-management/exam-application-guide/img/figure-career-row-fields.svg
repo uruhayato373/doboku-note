@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img" aria-label="業務経歴の1行を、勤務先・所在地・地位職名・業務内容・従事期間・詳細の欄に分け、架空の記入例と書き方の注意を並べた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }            /* ink-muted */
+      .t-label { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-ex    { font-size: 13px; fill: #222; }                /* ink-strong */
+      .t-note  { font-size: 12px; fill: #555; }                /* ink-body */
+      .box-label { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .box-value { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface */
+      .box-key   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn */
+    </style>
+  </defs>
+
+  <text class="t-sub" x="20" y="22">架空の1行を、欄ごとに分けた記入例</text>
+
+  <!-- 1 勤務先 -->
+  <rect class="box-label" x="20" y="34" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="73" text-anchor="middle">勤務先</text>
+  <rect class="box-value" x="112" y="34" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="62">○○市 建設部 道路課</text>
+  <text class="t-note" x="126" y="86">組織名のあと、部課名まで書く</text>
+
+  <!-- 2 所在地 -->
+  <rect class="box-label" x="20" y="108" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="147" text-anchor="middle">所在地</text>
+  <rect class="box-value" x="112" y="108" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="136">○○県 ○○市</text>
+  <text class="t-note" x="126" y="160">市区町村まで書く</text>
+
+  <!-- 3 地位・職名 -->
+  <rect class="box-label" x="20" y="182" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="221" text-anchor="middle">地位・職名</text>
+  <rect class="box-value" x="112" y="182" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="210">主査</text>
+  <text class="t-note" x="126" y="234">当時の地位。詳細欄の立場と一致</text>
+
+  <!-- 4 業務内容 (key) -->
+  <rect class="box-key" x="20" y="256" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="295" text-anchor="middle">業務内容</text>
+  <rect class="box-value" x="112" y="256" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="284">橋梁更新の監督。工程と安全の調整</text>
+  <text class="t-note" x="126" y="308">対象・関与・調整の順で簡潔に</text>
+
+  <!-- 5 従事期間 -->
+  <rect class="box-label" x="20" y="330" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="369" text-anchor="middle">従事期間</text>
+  <rect class="box-value" x="112" y="330" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="358">20XX年4月〜20XX年3月</text>
+  <text class="t-note" x="126" y="382">西暦で年代順。最終行は提出月の前月</text>
+
+  <!-- 6 詳細 (key) -->
+  <rect class="box-key" x="20" y="404" width="84" height="68" rx="6"/>
+  <text class="t-label" x="62" y="443" text-anchor="middle">詳細</text>
+  <rect class="box-value" x="112" y="404" width="268" height="68" rx="6"/>
+  <text class="t-ex" x="126" y="432">○</text>
+  <text class="t-note" x="126" y="456">全行のうち1行だけ。詳細欄の業務と対応</text>
+</svg>
