@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T21:22:45.557Z",
+  "generated_at": "2026-10-08T22:18:37.583Z",
   "summary": {
-    "total_mdx_files": 1355,
+    "total_mdx_files": 1356,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1489,12 +1489,13 @@
     },
     {
       "name": "安全管理",
-      "count": 151,
+      "count": 152,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
         "civil-construction-1-guide-safety-management",
         "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-foundation-bridge",
         "civil-construction-1-textbook-safety-industrial-safety-law",
         "civil-construction-1-textbook-safety-machinery-crane",
         "civil-construction-1-textbook-safety-management-system",
@@ -3034,7 +3035,7 @@
     },
     {
       "name": "textbook",
-      "count": 59,
+      "count": 60,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
@@ -3079,6 +3080,7 @@
         "civil-construction-1-textbook-road-act",
         "civil-construction-1-textbook-road-earthwork-subbase",
         "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-foundation-bridge",
         "civil-construction-1-textbook-safety-machinery-crane",
         "civil-construction-1-textbook-safety-scaffolding",
         "civil-construction-1-textbook-safety-work-environment",
@@ -4561,6 +4563,20 @@
       ]
     },
     {
+      "name": "基礎工",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-foundation",
+        "civil-construction-1-textbook-cast-in-place-pile",
+        "civil-construction-1-textbook-earth-retaining-cofferdam",
+        "civil-construction-1-textbook-foundation-overview-survey",
+        "civil-construction-1-textbook-pile-foundation-precast",
+        "civil-construction-1-textbook-safety-foundation-bridge",
+        "civil-construction-2-guide-foundation-key-points"
+      ]
+    },
+    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4597,19 +4613,6 @@
         "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
         "pe-construction-bosai-kokudo-kyoujinka",
         "pe-construction-bousai-genseigai-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "基礎工",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-foundation",
-        "civil-construction-1-textbook-cast-in-place-pile",
-        "civil-construction-1-textbook-earth-retaining-cofferdam",
-        "civil-construction-1-textbook-foundation-overview-survey",
-        "civil-construction-1-textbook-pile-foundation-precast",
-        "civil-construction-2-guide-foundation-key-points"
       ]
     },
     {
