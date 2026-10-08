@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="循環基本計画が役割を示す国・地方公共団体・事業者・金融機関・国民・NPO・大学等の7主体を、持つ手段で3群に分けて一行ずつ示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-band  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-actor { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-role  { font-size: 12px; fill: #222; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .box-law  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-plan { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-role { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 群A: 規則と調整を握る主体 (brand = 基本法に責務規定あり) -->
+  <text class="t-band" x="14" y="20">規則と調整を握る主体</text>
+
+  <rect class="box-law" x="14" y="28" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="58" text-anchor="middle">国</text>
+  <rect class="box-role" x="132" y="28" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="49">規制・経済的措置で総合的に推進</text>
+  <text class="t-role" x="142" y="67">自らもグリーン購入を率先</text>
+
+  <rect class="box-law" x="14" y="84" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="114" text-anchor="middle">地方公共団体</text>
+  <rect class="box-role" x="132" y="84" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="105">地域の中核・各主体の調整役</text>
+  <text class="t-role" x="142" y="123">分別収集と適正処理を担う</text>
+
+  <!-- 群B: モノと資金を動かす主体 -->
+  <text class="t-band" x="14" y="156">モノと資金を動かす主体</text>
+
+  <rect class="box-law" x="14" y="164" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="194" text-anchor="middle">事業者</text>
+  <rect class="box-role" x="132" y="164" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="185">環境配慮設計・排出事業者責任</text>
+  <text class="t-role" x="142" y="203">処理業者は資源として回収</text>
+
+  <!-- 金融機関は計画上、事業者の節に含まれる (ink-body の折れ線) -->
+  <line x1="22" y1="214" x2="22" y2="245" stroke="#555" stroke-width="1.5"/>
+  <line x1="22" y1="245" x2="30" y2="245" stroke="#555" stroke-width="1.5"/>
+  <rect class="box-plan" x="30" y="220" width="96" height="50" rx="6"/>
+  <text class="t-actor" x="78" y="241" text-anchor="middle">金融機関・</text>
+  <text class="t-actor" x="78" y="258" text-anchor="middle">投資家</text>
+  <rect class="box-role" x="132" y="220" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="241">循環に取り組む企業・NPOへ</text>
+  <text class="t-role" x="142" y="259">資金を供給し事業者をつなぐ</text>
+
+  <!-- 群C: 暮らし・橋渡し・根拠を担う主体 -->
+  <text class="t-band" x="14" y="292">暮らし・橋渡し・根拠を担う主体</text>
+
+  <rect class="box-law" x="14" y="300" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="330" text-anchor="middle">国民</text>
+  <rect class="box-role" x="132" y="300" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="321">排出者であり担い手でもある</text>
+  <text class="t-role" x="142" y="339">消費行動と分別排出で関わる</text>
+
+  <rect class="box-plan" x="14" y="356" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="386" text-anchor="middle">NPO・NGO等</text>
+  <rect class="box-role" x="132" y="356" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="377">取組を評価し連携をつなぐ</text>
+  <text class="t-role" x="142" y="395">リユース・食品ロス削減を促す</text>
+
+  <rect class="box-plan" x="14" y="412" width="112" height="50" rx="6"/>
+  <text class="t-actor" x="70" y="442" text-anchor="middle">大学等</text>
+  <rect class="box-role" x="132" y="412" width="254" height="50" rx="6"/>
+  <text class="t-role" x="142" y="433">客観的で信頼できる情報を提供</text>
+  <text class="t-role" x="142" y="451">研究・技術開発で政策を支える</text>
+
+  <!-- 凡例 -->
+  <rect class="box-law" x="14" y="477" width="11" height="11" rx="2"/>
+  <text class="t-leg" x="31" y="487">循環基本法に責務の条文あり</text>
+  <rect class="box-plan" x="196" y="477" width="11" height="11" rx="2"/>
+  <text class="t-leg" x="213" y="487">基本計画で役割を追加</text>
+</svg>
