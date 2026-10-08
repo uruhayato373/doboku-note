@@ -11,11 +11,12 @@ interface NoteImageCtaProps {
   placement: string;
   scopeNotice?: string | undefined;
   compact?: boolean;
+  actionLabel?: string | undefined;
   className?: string;
 }
 
 /** バナーは完成画像のみ。商品一覧のcompactは識別用の商品名だけ添える。 */
-export default function NoteImageCta({ href, image, trackLabel, placement, compact = false, scopeNotice, className = '' }: NoteImageCtaProps) {
+export default function NoteImageCta({ href, image, trackLabel, placement, compact = false, actionLabel, scopeNotice, className = '' }: NoteImageCtaProps) {
   return <>
     {scopeNotice && <p className="not-prose mb-2 text-sm leading-relaxed text-(--ink-body)">{scopeNotice}</p>}
     <a href={href} target="_blank" rel={NOTE_LINK_REL}
@@ -25,6 +26,7 @@ export default function NoteImageCta({ href, image, trackLabel, placement, compa
       unoptimized className={compact ? 'block h-auto w-28 shrink-0 sm:w-44' : 'block h-auto w-full'} />
     {compact && image.caption && <span className="block min-w-0 bg-(--paper) px-4 py-3 text-(--ink)">
       <span className="block text-sm font-bold leading-relaxed">{image.caption.title}</span>
+      {actionLabel && <span className="mt-2 block text-[13px] font-bold text-(--accent)">{actionLabel}</span>}
     </span>}
   </a></>;
 }

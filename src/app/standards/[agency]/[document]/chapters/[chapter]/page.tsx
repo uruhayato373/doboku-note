@@ -7,6 +7,7 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
+import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
@@ -101,6 +102,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus] },
   };
   const components = {
+    pre: StandardVerbatimTable,
     // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
@@ -140,6 +142,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             ]}
             label={`第${target.bookNumber}編 ${target.bookTitle}`}
             title={`第${target.chapterNumber}章 ${target.chapterTitle}`}
+            meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter((item): item is string => Boolean(item))}
           />
 
           <div className="mt-6 zenn-desktop:hidden">

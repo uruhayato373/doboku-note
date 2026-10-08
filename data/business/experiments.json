@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T01:25:03.834Z",
+  "updated_at": "2026-10-08T02:31:46.811Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -2021,7 +2021,7 @@
         "metricId": "a8ConfirmedYen",
         "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
       },
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-08T01:01:51.918Z",
       "closed_at": null,
       "result": null,
@@ -2031,7 +2031,7 @@
       "actions": [
         "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
         "GA4の専用イベントを案×案件×面×ページ×端末×日でCI取得。週次measure-experimentsが保存済みレポートを台帳へ追記する。",
-        "本番デプロイとSSR・意匠を確認した時点でrunningと開始日を記録する。現在はawaiting-deployment。",
+        "本番公開・SSR・3案件×A/B/Cの実表示と送信待ちイベントを確認。週次CIが案別実測を取得・記録する。",
         "公開7日後に取得・配分・表示を確認、28日後にCTR・note送客・A8発生/確定を再検討。少数なら判定保留。",
         "キャリア記事は訴求設計の10月計画（相談→待遇→転身→若手/PE）に沿って週2本以内の既存記事改稿を行う。改稿URLと日時を履歴に残す。"
       ],
@@ -2077,7 +2077,7 @@
       ],
       "measurementPlan": {
         "kind": "affiliate-design",
-        "status": "awaiting-deployment",
+        "status": "observing-awaiting-data",
         "firstRound": [
           "A",
           "B",
@@ -2106,7 +2106,10 @@
         "minClicksPerVariant": 20,
         "minImpressionsPerVariant": 1000,
         "noteGuardrail": "案別note表示・クリックと全経路売上を併記。案別のA8成果帰属は未取得。CTRと前後の売上の因果を断定しない",
-        "concurrentExperimentException": "運営者がA/B/C展開と実験開始を明示。本件だけ上限の例外。EXP-017/018は配置展開の観察として残し、前後比較を本実験の意匠差に使わない。"
+        "concurrentExperimentException": "運営者がA/B/C展開と実験開始を明示。本件だけ上限の例外。EXP-017/018は配置展開の観察として残し、前後比較を本実験の意匠差に使わない。",
+        "startDate": "2026-10-08",
+        "firstCheckDate": "2026-10-15",
+        "reviewDate": "2026-11-05"
       },
       "priorityAssessment": {
         "impact": 3,
@@ -2127,8 +2130,23 @@
           "at": "2026-10-08T01:25:03.834Z",
           "event": "implement",
           "note": "運営者の追加指示でA/BからA/B/Cの3案同率へ変更。案別計測とCI取得・週次記録、キャリア記事計画を実装。公開前のためstatusはproposed。"
+        },
+        {
+          "at": "2026-10-08T02:31:46.811Z",
+          "event": "start",
+          "note": "運営者のA/B/C展開指示に基づき開始。本番SSR・実表示9条件と広告/noteのイベント発火を確認（検証時のGA4送信と広告遷移は抑止）。本番の実測値は次の取得待ち。A/B/Cを同率配信し、案を再訪でも固定。",
+          "commit": "93863fda8474877e7df480feaa4ba89b82fb0561",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37717577722"
         }
-      ]
+      ],
+      "started_at": "2026-10-08T02:31:46.811Z",
+      "deployment": {
+        "commit": "93863fda8474877e7df480feaa4ba89b82fb0561",
+        "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37717577722",
+        "verifiedAt": "2026-10-08T02:31:46.811Z",
+        "productionBrowserCases": 9,
+        "localBrowserCases": 36
+      }
     }
   ]
 }
