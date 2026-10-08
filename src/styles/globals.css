@@ -765,6 +765,10 @@
     --color-brand-fill: #e8f0fe;
     --color-brand-deep: #1a3a5c;
 
+    /* EXP-019: 紺の広告面と白文字はライト／ダーク共通。 */
+    --color-affiliate-panel: #0f2742;
+    --color-affiliate-on-panel: #ffffff;
+
     --color-positive: #3a7d44;
     --color-positive-fill: #d0e8d0;
     --color-warn: #d4a017;
