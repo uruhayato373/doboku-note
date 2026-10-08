@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0616] 1級土木の textbook に追加した SVG 2 枚が画像サイズの上限（10KB）を超え、develop と全 PR の CI（image-assets）が落ちる
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-image-assets] [起票:2026-10-09]
+
+**起点**: 2026-10-09、PR #937 の audit が check-image-assets の size-new で落ちた。原因は develop に入った 2 枚（content/site/civil-construction-1/textbook-safety-industrial-safety-law/img/figure-qualification-boundary.svg 12,389B・164f118d0、textbook-safety-machinery-crane/img/figure-dump-haul-route.svg 10,401B・bda183fae）。develop の先頭（3a4c4975c）でも同じ大きさで、develop を取り込んだ全 PR が赤になる。書籍の網羅の追記を進めている別セッションの成果物なので、PR 側では直していない。
+**やること**: 2 枚を圧縮して 10KB 以下にする（svgo 等・描画は変えない）か、許容するなら npm run update-image-baseline で基準に入れる。どちらにするかは記事の担当が決める。
+**完了条件**: npm run check-image-assets が新規超過 0 で通り、develop の audit が緑。
+
+
 ### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
 
