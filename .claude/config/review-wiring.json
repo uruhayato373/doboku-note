@@ -375,6 +375,12 @@
           "role": "判断"
         },
         {
+          "command": "youtube-own-metrics",
+          "label": "自社 YouTube の動画ごとの再生・尺（月次の記録・型ごとの増分）",
+          "stage": "SNS",
+          "role": "判断"
+        },
+        {
           "command": "qualification-market",
           "label": "資格別の展開の判断材料",
           "stage": "商品・品質",

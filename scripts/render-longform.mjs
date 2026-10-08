@@ -30,6 +30,7 @@ import {
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
+import { renderCharacterFrame } from './lib/character-framing.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -89,6 +90,20 @@ async function loadVisualAsset(scene) {
   return `data:image/png;base64,${png.toString('base64')}`;
 }
 
+// visual.character: 確認済み（quality: ready）のポーズだけを台帳の切り取りで読む。
+const characterImages = new Map();
+async function loadCharacter(scene) {
+  const character = scene.visual?.character;
+  if (!character) return null;
+  const frame = character.frame ?? 'waist';
+  const key = `${character.pose}:${frame}`;
+  if (!characterImages.has(key)) {
+    const image = await renderCharacterFrame(ROOT, { pose: character.pose, frame, width: 440 });
+    characterImages.set(key, { uri: `data:image/png;base64,${image.buffer.toString('base64')}`, width: image.width, height: image.height });
+  }
+  return characterImages.get(key);
+}
+
 // ─── 依存（TTS/ffmpeg は mp4 を作るときだけ要求） ─────────────
 const { isRunning, synthesize } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
@@ -141,7 +156,7 @@ async function main() {
       writeFileSync(join(outDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');
     } else if (!args['skip-png'] && !(args.resume && !args['refresh-png'] && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
-      const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
+      const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene), character: await loadCharacter(scene) });
       const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });
       writeFileSync(pngPath, new Resvg(svg, { fitTo: { mode: 'width', value: LONGFORM_W } }).render().asPng());
       console.log('✓');

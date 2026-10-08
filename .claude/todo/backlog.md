@@ -21,6 +21,15 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0591] 書籍 27 冊の網羅を判定し、棚ごとに優先順でサイトへ展開する（進み具合は state.book-coverage と --status）
+タグ: [領域:教材] [時期:2026-10] [種類:制作] [起票:2026-10-08]
+
+2026-10-08 開始。進み具合の正本は .claude/state/book-coverage.json（台帳 state.book-coverage・書籍ごとの候補表・判定の件数・展開した記事とコミット）で、一覧は npm run audit-reference-book-coverage -- --status（PR #927 のマージまでは PR の作業ツリーから）。見出しを含む候補表・判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（drive-vault-sync --group reference-book-coverage）。判定の手順は .claude/knowledge/reference/book-coverage-judging.md、展開は content-taxonomy.md §7。
+段取り: (1) 判定 21 冊を workflow で一括（コンクリート 4 冊＋建設材料 1 冊は判定・展開済み）。(2) 展開は棚ごとに重点資格の順: 1級・2級土木（5 冊・DN-0580 の逐語一致 80 件も同じ記事群で直す）→ 技術士（6 冊）→ 土木実務（3 冊）→ 防災・業界・DX・AI（8 冊・判定を見て展開するか決める）。同じ記事に効く複数の本の計画は、棚の中で記事ごとにまとめてから 1 記事 1 回で展開する。(3) 最後にコンクリート 5 冊を --rejudge で判定し直し、網羅を確かめる。
+前提: pe-cem-essay-guide（総監の論文の本・18 ページ）は文字起こしが未着手（book-manifest で pending 18）。判定の前に pdf-to-mdx --scanned で文字起こしする。
+完了条件: --status で全 27 冊が「判定済み（展開不要）」か「展開済み」・展開した記事は sources 宣言と check-reference-sources:deep の逐語一致 0
+
+
 ### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
 
@@ -260,26 +269,70 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-08]
+
+**起点**: 一覧から取れるのは累計の再生数と尺だけ（`data/youtube/own-videos/` の caveat）。DN-0110 の6週間判定（Shorts→関連動画の流入・視聴維持）と DN-0594 の図解版の比較（28日の視聴維持）には YouTube Analytics が要る。いまは数値が無く、判定できない。
+**やること**:
+1. GitHub Actions の YouTube API の資格情報（投稿・予約に使っているもの）に `yt-analytics.readonly` のスコープがあるか確かめる。無ければ運営者が OAuth を取り直す（スコープの追加は運営者の操作）
+2. 動画ごとの views・averageViewDuration・averageViewPercentage・impressions・impressionsClickThroughRate・trafficSourceType（Shorts の関連動画・YouTube 検索・ブラウジングを分ける）を週次で取り、`data/youtube/analytics/{date}.json` へ。台帳（`scripts/lib/datasets.mjs`）に宣言し、型（zod）を付ける
+3. 管理画面 `/metrics/video` で packId と結合して表示し、未取得は「未取得」と出す（0 件と混ぜない）
+**前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。資格情報が無いときは記録を書かず exit 2（検査不成立）。インプレッションのクリック率は公開から48時間ほど遅れる。
+**完了条件**: 記録が2週続けて増え、DN-0110 と DN-0594 の判定に要る指標（Shorts→関連動画の視聴回数、通常動画の平均視聴率）が欠測なく読める。
+
+
+### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [検証:check-competitor-scan-due] [起票:2026-10-08]
+
+**起点**: 2026-10-08 に YouTube の数値の正本として台帳 `youtube.own-videos`（自社・月次）と `youtube.competitors`（競合・四半期）、取得スクリプト `npm run youtube-own-metrics`・`npm run scout-youtube-competitors` を作り、初回の記録を `data/youtube/` に置いた。今は手元で回すだけで、取り忘れると前回比が切れる。
+**やること**:
+1. 競合: `competitor-scan.yml`（四半期・note/coconala/ig を自動取得）に youtube を足す。先に GitHub Actions のランナーで yt-dlp の一覧（`--flat-playlist`）が取れるかを probe で2回確かめる。動画の再生用 API（player）と映像は使わない
+2. 自社: 月次の workflow（毎月1日・JST）で `youtube-own-metrics` を回し、`ci-data add` で `data/youtube/own-videos/` へ書き戻す
+3. `scripts/check-competitor-scan-due.mjs` の youtube を `automation: 'ci'` にする。自社の月次の鮮度（台帳の `freshness.warnDays` 35）を読む検査を `quality-audit.mjs` の ops に足し、`note:` に読み手を書く
+4. 失敗は `scripts/report-automation-failure.mjs` へ（取得 0 件は exit 1・検査不成立を緑にしない）
+**罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
+**完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
+
+
+### [DN-0595] 1級土木のサイトの記述と市販の教本の食い違いを、一次資料で確かめて直す（測量の許容差・分野別出題数・実務経験の可否・二次過去問の設問）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08 の書籍の網羅の判定（DN-0591）で、Evaluator がサイトの記述と教本の食い違いを指摘した。どちらが正しいかは未確認（教本は 2021 年版や OCR の誤りもありうる）。一次資料（公式の過去問 PDF・受検の手引・JIS・測量の作業規程）で確かめ、サイトが誤っていれば直す。
+- civil-construction-1 の測量（textbook-leveling ほか）: 鋼巻尺の許容差、セオドライトの目盛誤差を正反観測で消せるか（civil1-textbook-general の判定）
+- civil-construction-1/guide-strategy: 分野別の出題数（ダム・トンネルの欠落、土木一般 5/5/5、労働安全衛生法 3〜4 問）と、実務経験として認められる工事の表（解体・杭）（civil1-primary-workbook-2021 の判定）
+- civil-construction-1 の二次過去問: H29 問題2・H30 問題1 などで設問・選択肢が教本と合わない（civil1-secondary-workbook-2021 の判定）。公式 PDF と視覚照合する（memory feedback_exam_pdf_cross_reference）
+詳細は Drive vault の 原資料PDF/書籍/<dir>/coverage/verdict.json（手元は drive-vault-sync --pull）。完了条件: 3 項目それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
+
+
+### [DN-0593] 総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+**現象**: 総監の動画パック `content/sns/video-packs/pe-comprehensive-management/monbun-yomikata` の scene `layers` が「説明画面の要点を分割してください: layers」で描画できない（2026-10-08、全パック 2,482 場面の描画比較で 1 件。変更前のコードでも同じ）。状態は qa_passed。
+**影響**: このパックの mp4 を作り直すとき `render-longform` が止まる（backlog の原本照合カードで「monbun-yomikata は原稿を直したので mp4 を再生成」とある）。
+**やること**: `layers` の items を2場面に分けるか短くし、`node scripts/render-longform.mjs --pack-dir content/sns/video-packs/pe-comprehensive-management/monbun-yomikata --skip-tts` が完走することを確かめる。台本の意味は変えない。
+**完了条件**: 上のコマンドが exit 0、`npm run check-video-content` PASS。
+
+
+### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
+
+
+### [DN-0587] 引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
+
+
 ### [DN-0585] 台帳の id でデータを一覧・取得・絞り込みする共通の入口を作る（npm run data -- list/get/query。管理画面からも）
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
 
 段階2（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。DB を置かずに SELECT 相当を台帳 scripts/lib/datasets.mjs の id で引けるようにする。list <id>（ファイル一覧と件数）・get <id> [--values]（中身）・query <id> --where <欄=値>（JSON の配列・対応表の行を絞る）。Drive vault の写し（drive）が手元に無ければ drive-vault-sync --pull を案内する。管理画面 /ops/store の詳細から同じ関数を呼ぶ。完了条件: 3 つの操作のテスト・commands.md に 1 行・管理画面で 1 データセットを絞り込める。前提: 段階1（PR #927 に積んだ .claude/state の台帳化）がマージ済み
 
 
-### [DN-0584] 過去問と共通仕様書の読み始め・表のUIを改善する
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:type-check] [起票:2026-10-08] [進行中]
-
-画面比較で合意した番号ナビの折りたたみ・44px化、過去問冒頭の商品画像コンパクト化、仕様書表の明暗対応と横スクロール案内、発行機関・版・原本ページの表示を実装する。スマホ/PC×明暗の8条件で確認し、CI通過後に本番反映する。
 
 
-### [DN-0583] 過去問R07問題Aの61問・66問の表示不整合を原典と照合して直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08] [進行中]
-
-起点: 2026-10-08に公開UIをPC・スマホ、light/darkで撮影。1級土木の令和7年度問題A `/exam/civil-construction-1/primary/r07-a` は説明に「全61問」、本文・サイドバーの問題番号ナビに「全66問」と表示している。MDXのdescriptionとseoTitleは61問、本文見出しはNo.1〜No.66（`content/site/civil-construction-1/primary-r07-a/article.mdx:2`、`:24`、`:1616`）。原典の実問数はこのUI確認では照合していない。
-
-やること: 公式問題Aと現行設問を照合して正しい対象問題数を決め、description・seoTitle・番号ナビを一致させる。同じ不整合が他の年度ページにないか対象を明示して確認する。手書きの紹介文と見出し由来のナビ件数がずれる原因を残す。
-
-完了条件: 当該ページの本文見出し・説明・SEO概要・問題番号ナビが、公式の収録範囲と一致する。過去問の設問本文や正答を、件数だけに合わせて削除・変更しない。
 
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
@@ -1500,6 +1553,83 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする
+タグ: [領域:SNS] [種類:改善] [起票:2026-10-08]
+
+**起点**: 公開前の画面確認（設計尺の無音プレビュー→10秒ごとに1枚）は video-content-policy §4 の3つのコマンドを手で回す形で、数値（直前と同じ画面の割合など）は 2026-10-08 にその場の Python で出しただけ。人によって見落としが出る。
+**やること**:
+1. `render-longform` に `--preview`（または `scripts/video-preview-sheet.mjs`）を足し、無音プレビュー・10秒ごとのコンタクトシート・数値（直前と同じ画面の割合・冒頭の表紙の秒数・20秒以上同じ画面が続く箇所）を `.tmp/video-render/{packId}/` に出す（Git に入れない）
+2. 判定の閾値（例: 冒頭の表紙は5秒以内、同じ画面は20秒まで）は `config/video-content.json` に置き、checker とプレビューが同じ値を読む
+3. approved に上げる前に、この数値と画像を確認したことを状態の記録に残す
+**完了条件**: 既存パック1本と図解版で数値が出て、判定ロジックを tests で固定する。
+
+
+### [DN-0602] 競合動画を Mac で10秒ごとに切り出して画面の切り替え間隔を測り、07c §3 を埋める
+タグ: [領域:SNS] [種類:改善] [起票:2026-10-08]
+
+**起点**: 2026-10-08、クラウドの調査環境では競合動画の映像を取れなかった（web 系はロボット確認、android は映像が 403。[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3 の todo）。競合の画面が何秒ごとに変わるかは、サムネと自動の3コマからの推定にとどまる。
+**やること**: Mac で 07c §6 の手順（deno と最新の yt-dlp・memory の reference_competitors_civil「競合YouTube動画の映像解析の手順と罠」）で、次の6本を10秒ごとに切り出して目視する。土木マン「経験記述は型で書け」（6HJFfA1dlkc）、日建学院「1級土木実地試験 経験記述の書き方」（hk6FP82vFOA）、ちゃんさと「経験記述NG例」（oWQmFoe-7z0）、雅「1級第2次 コンクリート」（R34hnuS-jHU）、建設資格データ研究所「全189問 約90分で総まとめ」（TM3eoT0TvMY・先頭3分と以降は数分おき）、ひげごろー「2級経験記述」（ct5SznUfGVM）。見るのは、画面の切り替え間隔、人物（講師・キャラクター）と図の出方、冒頭10秒の見せ方。
+**著作権**: 切り出した画像は分析後に削除し、07c には要旨だけを書く。
+**完了条件**: 07c §3 の todo を消し、自社の旧形式・図解版と同じ物差し（10秒ごとの比較で直前と同じ画面の割合）で競合6本の値を表に入れる。
+
+
+### [DN-0601] 図解版の試作 koji-gaiyo-sheet-zukai を音声付きで公開し、旧版と28日の再生・視聴維持を比べる
+タグ: [領域:SNS] [種類:制作] [検証:check-video-content] [起票:2026-10-08]
+
+**起点**: 図解版の試作パック `content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai/`（先生の常駐・解答用紙の図・悪い例と良い例、約3分20秒・音声なし）は、10秒ごとの比較で「直前と同じ画面」が旧形式40回中32回→19回中2回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3）。再生と視聴維持で効くかはまだ分からない。`config/youtube-formats.json` の `single-topic-zukai`（trial）。採否は DN-0594。
+**やること**（DN-0594 で採用されたら）:
+1. 表紙と締めを採用画像にする（cover-design.json・cta-design.json を足す。sns-image-policy §0.1）
+2. Mac で `node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
+3. video-content-qa（6軸）→ youtube.json（題名・概要欄・UTM `utm_campaign=koji-gaiyo-sheet-zukai`）→ ユーザー承認 → 公開
+4. 28日後に旧版 `koji-gaiyo-7items` と、再生・平均視聴率（DN-0597 の YouTube Analytics）を比べる
+**完了条件**: 比べた結果を 07 §11 に1段落で残し、`single-topic-zukai` を active か rejected にする。active なら公開済みパックの作り直しの順番を決める。
+
+
+### [DN-0600] 一問一答（読み上げ）の動画の型を作る（過去問記事から論点の穴埋めと答えのカード）
+タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
+
+**起点**: 建設資格データ研究所が VOICEVOX の読み上げで一問一答を作り、90分・24,735回再生。日建学院の「一問一答」10本は再生中央値51,500回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1・§2）。自社は VOICEVOX と過去問の記事を両方持つ。`config/youtube-formats.json` の `quiz-tts`（proposed）。採否は DN-0594。
+**やること**（DN-0594 で採用されたら）:
+1. サイトの過去問記事から「論点の穴埋め→答え→根拠1行」を作る生成器を作る。過去問の問題文は全文を写さず、論点の一問一答に組み直す（07 §10 の Red Line）
+2. render-longform に `kind: 'quiz'`（問題・考える間・答えのカード）を足す。字幕と読み上げを合わせる
+3. 20〜90分に束ね、分野ごとのチャプターを付ける。送り先は一次の頻出論点の note・過去問 PDF・模試（DN-0279 と同じ線）
+**完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
+
+
+### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き30〜60分）を作る仕組みを足す
+タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
+
+**起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。自社に無い型で、`config/youtube-formats.json` の `compilation`（proposed）。採否は DN-0594。
+**やること**（DN-0594 で採用されたら）:
+1. 承認済みパックの音声（wav）と画面（PNG・render-manifest の実尺）を、冒頭・区切り・締めの画面を足してチャプター付きの1本に連結する仕組みを作る。台本は新しく書かない
+2. 概要欄のチャプター（0:00 形式）を render-manifest から作る
+3. 候補: 2級の直前総まとめ（2級の18パック・2級二次10/25 の前）、1級二次の経験記述 howto 15本、1級一次の学科 exam-point 37本（2027-07 の一次の前）
+4. 10秒プレビュー（video-content-policy §4）で目視 → video-content-qa → ユーザー承認 → 公開
+**前提**: 元パックの mp4・wav は Mac と Drive vault（`video-render-artifact`）にあるので、Mac で回す。公開はユーザー承認後だけ。
+**完了条件**: 1本を作って承認待ちで止め、`config/youtube-formats.json` の compilation を trial にする。
+
+
+### [DN-0592] 通常動画の字幕で行頭に「。」が来る区切りを直す
+タグ: [領域:SNS] [種類:不具合] [起票:2026-10-08]
+
+**現象**: 通常動画の字幕が、行頭に「。」が来る区切りで出る。例: 図解版 `koji-gaiyo-sheet-zukai` の step2-sheet で「。書いたら、1番の施工量と見比べて、この数量をこ」（2026-10-08 に10秒ごとの切り出しで確認）。
+**原因の見込み**: `scripts/lib/longform-render.mjs` の `chunkJpBalanced` が文字数だけで均等に切り、句読点・語の切れ目を見ていない。
+**やること**: 字幕の区切りで、行頭の句読点を前の行へ寄せ、できれば「、」「。」の直後で切る。既存の公開済み字幕を作り直すかは別に判断する（字幕だけの差し替えは動画の再アップロードが要らない経路を確かめてから）。
+**完了条件**: `tests/longform-render.test.mjs` に行頭句読点の回帰テストを足し、全パックの ASS で行頭に「。」「、」が 0 件。
+
+
+### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
+タグ: [領域:管理] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
+
+
+### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
+タグ: [領域:管理] [種類:改善] [起票:2026-10-08]
+
+2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
+
+
 ### [DN-0586] 台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査にする（外部キー相当）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
@@ -2065,6 +2195,39 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0604] YouTube の解答速報（試験当日・直後）をやるか、やるなら対象・形・正答の確かめ方を決める
+タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-08]
+
+**起点**: 試験当日・直後の解答速報は、競合で再生が集まる型（ひげごろーの1級二次の解答速報ライブ 24,205回・日建学院も実施）。07a §3 が「10/4・10/25 の直後は YouTube でも解答速報の窓」と指摘したまま、自社では検討していない。`config/youtube-formats.json` の `exam-sokuho`（proposed・判断カード未定）。
+**決めること**:
+1. やるか。やるなら対象（2級二次 10/25 の直後か、2027年の1級一次・二次から）と形（ライブか、当日夜の録画か）
+2. 正答の確かめ方（誤答の公開は信頼を大きく損なう）。公式の正答公表前は「速報・暫定」と明示し、訂正の出し方を決める
+3. 当日の制作時間を取れるか（運営者は在職中）
+**決めたら**: `config/youtube-formats.json` の `exam-sokuho` の status と decision を更新する。
+
+
+### [DN-0598] 経営の指標（business-direction）に YouTube の KPI を足すか、何を主 KPI にするかを決める
+タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-08]
+
+**起点**: `config/business-direction.json` の metrics に YouTube が無い（Instagram は igReach・igFollowers がある）。週次レビューは GA4 の youtube/video 流入（2026-09-17〜23 は0人）を本文で読むだけで、管理画面 `/metrics/business` にも月次の判断にも出ない。2026-10-08 時点で通常動画70本の再生中央値は4回（`data/youtube/own-videos/2026-10-08.json`）。
+**決めること**:
+1. 主 KPI を何にするか。06 §9 の方針は「送客（utm_source=youtube のサイト・note 流入、ココナラへの遷移）が主、登録者・広告収益は主にしない」。候補: YouTube 経由のサイト利用者（GA4・utm_source=youtube）・通常動画の再生の増分（own-videos の合計の差分）・登録者（期末）
+2. 目標を置くか。置くなら実測の期間・対象・理由を添える（business-direction の rules）
+**決めたら**: business-direction.json の metrics に足し、月次・週次のスナップショットを作るスクリプトに取得元を足して `/metrics/business` と `/weekly-review`・`/monthly-review` が読むようにする（欠測を0にしない）。
+
+
+### [DN-0594] YouTube の作り方を、図解版の比較公開・総まとめ（聞き流し）・一問一答のどれから進めるか決める
+タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-08]
+
+**起点**: [07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)（2026-10-08）。公開済み通常動画70本の再生中央値は4回・尺の中央値2.5分。競合の土木の動画321本は尺が長いほど再生が多く（30〜60分で中央値21,000回）、「聞き流し」「一問一答」の題名が最も多い。
+**決めること**（どれを、どの順でやるか）:
+1. 図解版の試作 `koji-gaiyo-sheet-zukai`（先生の常駐・解答用紙の図・悪い例と良い例の対比、約3.3分）を Mac で音声付きに生成し、1本公開して旧版 `koji-gaiyo-7items` と28日の視聴維持・再生を比べるか
+2. 承認済みパックを束ねた30〜60分の「総まとめ・聞き流し」（1級二次 経験記述 howto 15本、1級一次 学科 exam-point 37本など）を作るか。新しい台本は要らず、連結とチャプターだけ
+3. 過去問の一問一答（VOICEVOX 読み上げ・穴埋め→答えのカード）の型を作るか。送り先は一次の頻出論点・過去問 PDF・模試（DN-0279 と同じ線）
+**前提**: 公開はユーザー承認後。DN-0110（Shorts 222本の関連動画設定）と並行できるか、運営時間で判断する。
+**正本と実行カード**: 型ごとの状態（active/trial/proposed）は `config/youtube-formats.json` が正本で、決めたらその status を書き換える。1 は DN-0601（比べる指標は DN-0597 の YouTube Analytics）、2 は DN-0599、3 は DN-0600。添削の見本（tensaku-demo）もこの判断に含める。解答速報は DN-0604、KPI は DN-0598。数値の記録は `data/youtube/own-videos/`・`data/youtube/competitors/`（定期取得は DN-0596）。
+
 
 ### [DN-0507] 「解答・解説」の開封計測を見て、過去問の解説を有料側（note・KDP）へ移すかを決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-02]

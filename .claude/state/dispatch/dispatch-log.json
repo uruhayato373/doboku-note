@@ -2213,6 +2213,36 @@
       "commit": "a07e72071257",
       "verification": "node scripts/check-image-assets.mjs --ci: 新規超過0・肥大0・危険名0",
       "note": "複雑な擁壁配筋図の寸法・線・注記を保持するため、29,364 bytesの既存SVGだけを容量例外へ追加。gzipでは4,734 bytes。図本体と他の許容値は変更なし。"
+    },
+    {
+      "id": "DN-0583",
+      "at": "2026-10-08",
+      "task": "過去問R07問題Aの61問・66問の表示不整合を原典と照合して直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/civil-primary-question-count.test.mjs"
+      },
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9c615d4688e0",
+      "verification": "JCTC正答表No.1–66と本文66問、概要・ナビを照合。24年度別ページの本文件数と明示された概要件数の不整合0。件数回帰テスト1件・CI品質監査・本番8条件・外部SSR 2 URL exit 0。",
+      "note": "手書きのSEO紹介文61問と見出し由来ナビ66問が別管理だった。正答表は必答5問＋選択61問で全66問。設問・図・正答は保持し、概要を修正して回帰テストを追加。PR #930、本番27e1261e6、deploy run 37732697682。"
+    },
+    {
+      "id": "DN-0584",
+      "at": "2026-10-08",
+      "task": "過去問と共通仕様書の読み始め・表のUIを改善する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9c615d4688e0",
+      "verification": "CI品質監査・build・E2E 136合格（既存条件付き22件skip）・Lighthouse・CodeQL成功。本番2ページ×PC/スマホ×明暗8条件成功、外部SSR 2 URL exit 0。比較画面の画像48表示状態を検査、EXP-019へ共通UI変更記録を追記。",
+      "note": "PR #930をmergeし、main 27e1261e6を本番反映。deploy run 37732697682成功。受入条件を確認して実装planを削除。既存商品画像を再利用し、案別割当・イベント・開始日時・実測は保持。ローカルSSRは社内プロキシで2/2接続不能のためCI外部検査で確認。"
     }
   ]
 }

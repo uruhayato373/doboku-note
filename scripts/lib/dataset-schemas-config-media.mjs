@@ -828,3 +828,42 @@ export const ConfigReferenceSources = z
     });
   })
   .meta({ title: '参考文献の区分と扱い' });
+
+// ---- YouTube の動画の型 --------------------------------------------------------------------
+
+const youtubeFormat = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/).describe('型の id（kebab-case）'),
+    label: z.string().min(1).describe('型の名前'),
+    status: z.enum(['active', 'trial', 'proposed', 'paused', 'rejected']).describe('採否の状態（active 公開中・trial 試作・proposed 未承認の提案・paused 止めた・rejected やらない）'),
+    role: z.enum(['発見', '理解', '送客']).describe('ファネルでの役割'),
+    lengthMinutes: z.object({ min: z.number().positive().describe('最短（分）'), max: z.number().positive().describe('最長（分）') }).strict().refine((r) => r.min <= r.max, '最短が最長を超えている').describe('尺の目安（分）'),
+    ctaKinds: z.array(z.string().min(1)).describe('主CTA の種類（台帳 config.video-content の cta.kindEnum）。Shorts のように関連動画で送る型は空'),
+    producedBy: z.string().min(1).describe('作り方（レンダラー・未実装ならその旨）'),
+    packIds: z.array(z.string().min(1)).optional().describe('この型で作った動画パックの packId（試作・置き換えの対象）'),
+    evidence: z.array(repoPath('根拠の文書')).describe('採否の根拠'),
+    decision: z.string().regex(/^DN-\d{4}$/).nullable().describe('採否を決める backlog カード。未起票なら null'),
+    note: z.string().describe('現状の数字と次の判断'),
+  })
+  .strict();
+
+/** YouTube の動画の型と採否・自社チャンネル（config/youtube-formats.json）。読み手は youtube-own-metrics・scout-youtube-competitors */
+export const ConfigYoutubeFormats = z
+  .object({
+    _doc: doc(),
+    schemaVersion: schemaVersion1,
+    updated: jstDate('最終更新日'),
+    description: doc(),
+    channel: z
+      .object({
+        id: z.string().regex(/^UC[A-Za-z0-9_-]{22}$/).describe('自社チャンネルの ID（UC…）'),
+        handle: z.string().regex(/^@/).describe('自社チャンネルのハンドル（@…）'),
+        title: z.string().min(1).describe('チャンネル名'),
+      })
+      .strict()
+      .describe('自社チャンネル'),
+    titleSignals: z.array(z.string().min(1)).min(1).describe('題名で型・題材を見分ける語。取得スクリプトが語ごとの再生中央値を集計する'),
+    formats: z.array(youtubeFormat).min(1).superRefine(uniqueBy('id', 'id')).describe('動画の型'),
+  })
+  .strict()
+  .meta({ title: 'YouTube の動画の型' });

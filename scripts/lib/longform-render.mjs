@@ -11,8 +11,10 @@ import { buildExplanationNode } from './video-explanation.mjs';
  *   - 試験色: .claude/scripts/sns/lib/exam-palette.mjs（note-cover-tokens.json の exams）
  *
  * scene の視覚要素（storyboard 追加フィールド・checker には additive）:
- *   visual: { kind?: 'cover'|'points'|'figure', heading: string, items?: string[], src?: string }
+ *   visual: { kind?: 'cover'|'points'|'figure'|'compare'|'sheet', heading: string, items?: string[], src?: string }
  *   visual 省略時は caption を大きく1枚に出すフォールバック。
+ *   任意（16:9 のみ）: character {pose, frame?, say?}・reveal（先頭N項目だけ表示）・focus（強調する項目の添字）、
+ *   compare は rows [{label?, ng, ok?}]、sheet は rows [{label, value?, state?, order?}]・sheetTitle。
  */
 
 export const LONGFORM_W = 1920;

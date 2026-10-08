@@ -1,0 +1,5563 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-08T08:51:33.561Z",
+  "platform": "youtube",
+  "source": "yt-dlp のチャンネル一覧（/videos・新しい順。日本語表示の題名と英語表示の再生数・登録者数を動画 ID で結合）",
+  "caveat": "通常動画の一覧の先頭 100 本だけ（Shorts・ライブは含まない）。再生数は累計で、古い動画・登録者の多いチャンネルほど大きい。投稿日は一覧に無いため cadence は null。登録者数は一覧ページの概数",
+  "driftBasis": null,
+  "drift": [],
+  "competitors": [
+    {
+      "handle": "UCI0JdmXJgCXyshWAnBbSMBw",
+      "label": "GET研究所",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2",
+        "landscape-1",
+        "building-construction-1",
+        "building-construction-2",
+        "pipe-work-1",
+        "pipe-work-2",
+        "electrical-work-1",
+        "electrical-work-2",
+        "pavement-1",
+        "pavement-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "GET研究所",
+        "subscriberCount": 35000
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 776332,
+        "medianViews": 6400,
+        "medianDurationSec": 1648
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 26,
+            "medianViews": 2550
+          },
+          {
+            "key": "15to30",
+            "videos": 27,
+            "medianViews": 7400
+          },
+          {
+            "key": "30to60",
+            "videos": 34,
+            "medianViews": 9350
+          },
+          {
+            "key": "over60",
+            "videos": 13,
+            "medianViews": 9500
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 2,
+            "medianViews": 5350
+          },
+          {
+            "word": "まとめ",
+            "videos": 2,
+            "medianViews": 5350
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 8,
+            "medianViews": 14000
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "4di8v4P-MJc",
+          "7MyK1_GwUEE",
+          "l04ESCdRN1M",
+          "nCcnOGBvDzE",
+          "yxEoJPzQMjk",
+          "gWBP12GN5-8",
+          "HwUnj3WT1wQ",
+          "cfbd3dvlN0U",
+          "lBgX6QROBSk",
+          "k2-6PTDz7XY",
+          "DxzcE6tdg2g",
+          "MXOeXuegmvg",
+          "2JInpJatVq0",
+          "9wXl_nGpB1s",
+          "sBNSPW1L8SY",
+          "WsqtdHC5_gA",
+          "1j6PTUCyscw",
+          "Hhj3f2Mfs6U",
+          "ywpzN0A1Ats",
+          "y5JBjJvVtp4",
+          "6w1mMCkOs9o",
+          "zCekBWgEpSk",
+          "KRwawdnA5d4",
+          "FB8vbOZ-1JI",
+          "7hcHe1dWvRU",
+          "uia16DrcZiU",
+          "2UIX0_QQRGg",
+          "WV8uWJcYZok",
+          "ERlEjCtQjdk",
+          "QHJzjrIPdtI"
+        ],
+        "top": [
+          {
+            "id": "O-gP8-YCgdc",
+            "title": "令和7年度 1級電気工事施工管理 第一次検定 分野別の要点解説",
+            "views": 30000,
+            "durationSec": 11442
+          },
+          {
+            "id": "DV5Udhx8I88",
+            "title": "1級電気工事施工管理 第二次検定 施工経験記述の考え方・書き方講習",
+            "views": 29000,
+            "durationSec": 3961
+          },
+          {
+            "id": "jUfUhfB5TBI",
+            "title": "令和7年度 1級管工事施工管理 第一次検定 分野別の要点解説",
+            "views": 22000,
+            "durationSec": 4547
+          },
+          {
+            "id": "MU7RE8UpRaU",
+            "title": "令和7年度 2級土木施工管理 第二次検定 完全合格のための学習法",
+            "views": 21000,
+            "durationSec": 2580
+          },
+          {
+            "id": "oLrjBcyB4vA",
+            "title": "令和6年度 土木施工管理（1級・2級） 第二次検定 施工経験記述問題の見直しについて",
+            "views": 21000,
+            "durationSec": 3380
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCGGdNWSWRHN91pOBcc5WLTg",
+      "label": "施工管理チャンネル by 株式会社ライズ",
+      "exams": [
+        "concrete-engineer",
+        "concrete-diagnostician",
+        "construction-machinery-1",
+        "landscape-2",
+        "pipe-work-2",
+        "electrical-work-2",
+        "pavement-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "施工管理チャンネル by 株式会社ライズ",
+        "subscriberCount": 33200
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 434137,
+        "medianViews": 1700,
+        "medianDurationSec": 547
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 3,
+            "medianViews": 1000
+          },
+          {
+            "key": "5to15",
+            "videos": 96,
+            "medianViews": 1700
+          },
+          {
+            "key": "15to30",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "30to60",
+            "videos": 1,
+            "medianViews": 1900
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 2,
+            "medianViews": 1050
+          },
+          {
+            "word": "まとめ",
+            "videos": 3,
+            "medianViews": 1000
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "ykPpBTgSS84",
+          "w-rG3e169yQ",
+          "7wAoS_NrDQM",
+          "ovKb3lkKM8I",
+          "Sjwt2WsvSKo",
+          "QMyhFynmVWY",
+          "OWjC9X7dypY",
+          "xn_VSxkyZRY",
+          "unehzhQoTxc",
+          "CWNNzL_xiuY",
+          "O9Nbwig0l9M",
+          "TTAJVchCxPc",
+          "_3bcG3iHcUU",
+          "IknLfQBn3CU",
+          "kAP2x7imsgk",
+          "JDbURSg9uBs",
+          "vhIfVbQeZPw",
+          "GnkMqYzTDuI",
+          "GYJr706QKz4",
+          "ZjosP8TvJY8",
+          "lg_wlv6OZ7A",
+          "nxBhpbxSI0U",
+          "zC0cZM-liAc",
+          "ySQKAjWI46o",
+          "GSN_9y4EOVg",
+          "fMfiOpFzZcE",
+          "1pe3ySxYP78",
+          "1Xl1dFv7rsQ",
+          "INKt6zQczSY",
+          "9KOPkWN9CPU"
+        ],
+        "top": [
+          {
+            "id": "DSH8gak4z0I",
+            "title": "知ってる？職人の労務費を安くして請負契約すると今年から違法になるよ！建設業法が改正されて職人の労務費に下限ができました！【改正建設業法2025年12月から施行される標準労務費って何だ？】",
+            "views": 45000,
+            "durationSec": 706
+          },
+          {
+            "id": "GBiX7CPKKwc",
+            "title": "改正建設業法で、国交省に労務費を決められ、材料費の転嫁を義務化され、総価契約も制限され… そもそもさ、工事の請負契約ってもう意味ないんじゃない？【建設業の契約が変わる!?　請負契約は時代遅れ？】",
+            "views": 38000,
+            "durationSec": 545
+          },
+          {
+            "id": "H7-qzno-NVc",
+            "title": "▶︎工事現場じゃ禁止になった？！ガラが悪い？！職人、特に鳶の代名詞だったあのニッカポッカは一体どこに消えたのか？【ニッカポッカ　消えた理由】",
+            "views": 34000,
+            "durationSec": 275
+          },
+          {
+            "id": "1Xl1dFv7rsQ",
+            "title": "建設業の超人手不足で職人の労務費も高騰！職人は何が稼げる？【職人単価上昇率ベスト10爆上がりは●●だった！】",
+            "views": 27000,
+            "durationSec": 429
+          },
+          {
+            "id": "ySQKAjWI46o",
+            "title": "知ってる？建設資材どれが爆上がりしてるか？えーっ！これが値上がり率1番なんだ！【爆上がり建設資材上昇率ランキング発表！第１位は意外にも●●だった！】",
+            "views": 15000,
+            "durationSec": 440
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCuSGRLcIrq20nw9gyisjlRg",
+      "label": "施工管理技士の学校【ひげごろー】",
+      "exams": [
+        "civil-construction-1",
+        "building-construction-1",
+        "building-construction-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "施工管理技士の学校【ひげごろー】",
+        "subscriberCount": 63500
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 96,
+        "totalViews": 5543164,
+        "medianViews": 20000,
+        "medianDurationSec": 887
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 9,
+            "medianViews": 3900
+          },
+          {
+            "key": "5to15",
+            "videos": 39,
+            "medianViews": 15000
+          },
+          {
+            "key": "15to30",
+            "videos": 31,
+            "medianViews": 20000
+          },
+          {
+            "key": "30to60",
+            "videos": 16,
+            "medianViews": 88000
+          },
+          {
+            "key": "over60",
+            "videos": 1,
+            "medianViews": 38000
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 2,
+            "medianViews": 63500
+          },
+          {
+            "word": "経験記述",
+            "videos": 12,
+            "medianViews": 34000
+          },
+          {
+            "word": "解答速報",
+            "videos": 1,
+            "medianViews": 11000
+          },
+          {
+            "word": "予想",
+            "videos": 36,
+            "medianViews": 30500
+          },
+          {
+            "word": "模擬",
+            "videos": 25,
+            "medianViews": 43000
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "huhZ3eOKQWg",
+          "uzg4YgF0klE",
+          "GCj19qi9W_o",
+          "eHzodocpuno",
+          "6POWHDGv6T8",
+          "1YOjOLIexMo",
+          "nL5yO-KC2-w",
+          "GTsEWZAHwnI",
+          "n3eii0_GRYc",
+          "h5J1A0RUIpA",
+          "NbgqgNWHnSw",
+          "kqq1OYP4wsU",
+          "wng_kRZHDSo",
+          "j-ocsaZL9TQ",
+          "sZ26Zv9oM0E",
+          "Q8zmOGKMEzY",
+          "H-f5s0PKkIU",
+          "SueA3WIOPVg",
+          "3X8RU9AKBQQ",
+          "BVW-lFVFtvk",
+          "0Y3zup90mGM",
+          "V3kTRg4PQ2M",
+          "RlCR0o1MrCI",
+          "cIf_knY1znk",
+          "hF-GoTOyNHY",
+          "ZfQ8GRqXlGU",
+          "ItVFTVGClno",
+          "bomA3NAHA84",
+          "qtMgYC4xbNI",
+          "IMjy-1D_R0o"
+        ],
+        "top": [
+          {
+            "id": "i7vV13YOze8",
+            "title": "足し算と引き算ができれば誰でも解けるネットワーク工程表解説【前編】クリィティカルパス 最早開始時刻 総所要日数 フロート（余裕日数）施工管理技術検定試験 公務員試験 頻出項目",
+            "views": 796000,
+            "durationSec": 948
+          },
+          {
+            "id": "wng_kRZHDSo",
+            "title": "２級土木施工管理 第１次検定 出題予想模擬試験＆出題傾向 [２人に１人は不合格に！]合格側になるための勉強法 試験の点数UPする授業を公開[コンクリートの施工][専門土木；鋼材の特徴]",
+            "views": 544000,
+            "durationSec": 1924
+          },
+          {
+            "id": "cIf_knY1znk",
+            "title": "令和7年度 1級建築施工 第2次試験対策 出題予想 ＆ 合格者は必ずやっている出題分析",
+            "views": 499000,
+            "durationSec": 1951
+          },
+          {
+            "id": "V3kTRg4PQ2M",
+            "title": "令和7年度 2級建築施工 第1次・2次試験対策 施工経験記述の変更点！施工管理用語出題予想！第1次検定独学で勉強するならここを押さえろ！",
+            "views": 368000,
+            "durationSec": 2316
+          },
+          {
+            "id": "RlCR0o1MrCI",
+            "title": "令和7年度2級土木 第2次検定 出題予想＆施工経験記述の書き方 [模擬試験の販売開始]",
+            "views": 337000,
+            "durationSec": 1607
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCc7akqTU6Jt79JctkeSorpA",
+      "label": "Taira〔電験二種解説〕",
+      "exams": [
+        "pe-first-stage",
+        "electrical-work-1",
+        "electrical-work-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "Taira〔電験二種解説〕",
+        "subscriberCount": 74600
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 769663,
+        "medianViews": 4150,
+        "medianDurationSec": 680
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 11,
+            "medianViews": 3600
+          },
+          {
+            "key": "5to15",
+            "videos": 52,
+            "medianViews": 3650
+          },
+          {
+            "key": "15to30",
+            "videos": 26,
+            "medianViews": 6150
+          },
+          {
+            "key": "30to60",
+            "videos": 9,
+            "medianViews": 6500
+          },
+          {
+            "key": "over60",
+            "videos": 2,
+            "medianViews": 2450
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 1,
+            "medianViews": 4700
+          },
+          {
+            "word": "まとめ",
+            "videos": 5,
+            "medianViews": 4100
+          },
+          {
+            "word": "過去問",
+            "videos": 12,
+            "medianViews": 2200
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 3,
+            "medianViews": 5100
+          },
+          {
+            "word": "予想",
+            "videos": 4,
+            "medianViews": 4700
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "dGXMhJnuQzM",
+          "psdI_kweOSw",
+          "S1CPkYwFlN8",
+          "ZwHdsy8wOjA",
+          "TQWqbDAWq0g",
+          "okN2ZO_YTcg",
+          "Wx5s_mvs1qo",
+          "Q_mcVhGZTTo",
+          "x-2utfjpUEw",
+          "yXeTLuan6-Q",
+          "TKGVmWOSAUg",
+          "GpU_T3QqL7o",
+          "TehKCtOB7tU",
+          "f5N-78F0uqg",
+          "_ngXIycy830",
+          "f4rfupo1Fyo",
+          "j7rkPjUp-h0",
+          "t-HaWR_eBLY",
+          "ZqvEe9VLVsw",
+          "zNVkAO08SuI",
+          "DVc7CxSRg5E",
+          "PRCFcj3iQcg",
+          "_zG38dBUK54",
+          "19U4yj23Dk4",
+          "WXy6W7oPohQ",
+          "qiWKpa50XoA",
+          "XO0woDAQYjc",
+          "CcDqwrrm2QE",
+          "5XlNWclwQwg",
+          "LLUG9cbjpdM"
+        ],
+        "top": [
+          {
+            "id": "6lbgKIC5Y4A",
+            "title": "【重要】2027年度　電気工事士試験が大幅に変更されます【第一種電気工事士・第二種電気工事士】",
+            "views": 183000,
+            "durationSec": 333
+          },
+          {
+            "id": "yXeTLuan6-Q",
+            "title": "【第二種電気工事士技能試験】「問題漏洩疑惑」発生　試験センターが調査結果を公表【電気主任技術者・電験受験者も必読】",
+            "views": 36000,
+            "durationSec": 933
+          },
+          {
+            "id": "f4rfupo1Fyo",
+            "title": "【即時失格に注意】電験で不正行為発生　試験センターが監視強化へ【電気主任技術者・電気工事士・電験受験者も必読】",
+            "views": 32000,
+            "durationSec": 610
+          },
+          {
+            "id": "TehKCtOB7tU",
+            "title": "【2026年度版】電験合格点発表　大幅下方修正!【電気主任技術者・電験受験者必見】（電験一種・電験二種・電験三種）",
+            "views": 21000,
+            "durationSec": 667
+          },
+          {
+            "id": "GpU_T3QqL7o",
+            "title": "【2026年度】エネルギー管理士試験　合格者3,000人台に回復【電験受験者にも役立つ】",
+            "views": 15000,
+            "durationSec": 487
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCcEHWJmPP1T70kjKQ_WVptw",
+      "label": "MA",
+      "exams": [
+        "concrete-engineer",
+        "concrete-chief-engineer",
+        "concrete-diagnostician"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "MA",
+        "subscriberCount": 4910
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 13853,
+        "medianViews": 117,
+        "medianDurationSec": 806
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 67,
+            "medianViews": 102
+          },
+          {
+            "key": "15to30",
+            "videos": 33,
+            "medianViews": 132
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 41,
+            "medianViews": 137
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "mRzn_Ah2HIE",
+          "KbFNRahOqA4",
+          "NN3X8JHZ1os",
+          "1um8Op9Leo8",
+          "VCP2r88hmvY",
+          "qqtbd9GljYQ",
+          "LZYVUpc7560",
+          "b7wo_4Atckg",
+          "fOvijtkOEIU",
+          "otfLVD3X1iU",
+          "QHzFk1abKcs",
+          "dzsqmGEp_uY",
+          "r0jebdSFAvM",
+          "qg_aE0ezctM",
+          "L-aBV6erkzU",
+          "3cR3Uxc79tY",
+          "yv79L-3ITyU",
+          "gv4VT5lYxMc",
+          "Z55IjX6o6UY",
+          "8NouEjJuMaY",
+          "0Eedoo5kkH8",
+          "K9N3l02mLpY",
+          "5R6KVtUFshY",
+          "mXGBcy-as6s",
+          "xQ35P_0PG4s",
+          "tSCiJKhLSzw",
+          "fMuq7GVhGB8",
+          "fjr8FjsZlVs",
+          "z7RRWhAuMhc",
+          "sg2MRwiFPFE"
+        ],
+        "top": [
+          {
+            "id": "L-aBV6erkzU",
+            "title": "コンクリート技士・主任技士_一問一答_Vol.2-19",
+            "views": 683,
+            "durationSec": 782
+          },
+          {
+            "id": "eHtw3nJ_KkE",
+            "title": "【No.2-12】WES溶接管理技術者試験対策",
+            "views": 430,
+            "durationSec": 700
+          },
+          {
+            "id": "EtsSWDhHrLw",
+            "title": "コンクリート診断士_一問一答_Vol.3-5",
+            "views": 381,
+            "durationSec": 592
+          },
+          {
+            "id": "ZM6GAgFc3wY",
+            "title": "コンクリート技士・主任技士_一問一答_Vol.2-1",
+            "views": 350,
+            "durationSec": 1005
+          },
+          {
+            "id": "YC80wxoCQlg",
+            "title": "【No.2-3】土地家屋調査士_一問一答",
+            "views": 315,
+            "durationSec": 1270
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCypWu8PM6lvPNWMC8l7_dhw",
+      "label": "【施工管理技士 過去問 解説】Yoko Hirano",
+      "exams": [
+        "civil-construction-1",
+        "building-construction-1",
+        "building-construction-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "【施工管理技士 過去問 解説】Yoko Hirano",
+        "subscriberCount": 25900
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 309496,
+        "medianViews": 932,
+        "medianDurationSec": 973
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 20,
+            "medianViews": 437
+          },
+          {
+            "key": "5to15",
+            "videos": 26,
+            "medianViews": 864
+          },
+          {
+            "key": "15to30",
+            "videos": 24,
+            "medianViews": 709
+          },
+          {
+            "key": "30to60",
+            "videos": 21,
+            "medianViews": 1800
+          },
+          {
+            "key": "over60",
+            "videos": 9,
+            "medianViews": 1900
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 16,
+            "medianViews": 841
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 13,
+            "medianViews": 526
+          },
+          {
+            "word": "過去問",
+            "videos": 52,
+            "medianViews": 981
+          },
+          {
+            "word": "経験記述",
+            "videos": 10,
+            "medianViews": 12500
+          },
+          {
+            "word": "解答速報",
+            "videos": 3,
+            "medianViews": 12000
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "58GQEDK9j_0",
+          "BL7y4Z1j0Ik",
+          "8tdBIRsUs-I",
+          "OjI_EyvPblw",
+          "LGwC6Tlcrdg",
+          "qGkS0Z6I8U0",
+          "ziMxuWe6xVI",
+          "jNhVQi6TNf0",
+          "ruL3XtSucT4",
+          "Zl0vBWMQilc",
+          "JKVjlLRqzAQ",
+          "krkr90Hzcx4",
+          "v8638vwi65c",
+          "456ot_Etr3w",
+          "02b7rZtRbCM",
+          "k8EAPOl9fs4",
+          "Rgcg-kY4WXs",
+          "E9_8KLIPRNg",
+          "ccn1mI2fEMk",
+          "E2TdISD9Y6M",
+          "mQZO2wTLOYQ",
+          "xWintt86I6Q",
+          "lxbWWLvbNq8",
+          "_T-Bn_vkJPM",
+          "Olr9g-rMQZY",
+          "m_d8Jn-rbYs",
+          "cIZ7EATC2hQ",
+          "Q9ek24GJDbk",
+          "ABI51NsQk7Q",
+          "xTs3LRGYgVA"
+        ],
+        "top": [
+          {
+            "id": "m1682y36qoI",
+            "title": "【初心者必見！】令和8年度 1級建築施工管理技士 1次検定 2次検定 攻略法 2026年版【過去問の傾向と分析、勉強法、経験記述など】",
+            "views": 31000,
+            "durationSec": 3103
+          },
+          {
+            "id": "CB6NVaU7ecY",
+            "title": "【初心者必見！1級土木施工管理技士 講師が教える】令和8年度 1次検定 2次検定 攻略法 2027年版【過去問の傾向と分析、勉強法、経験記述など】",
+            "views": 24000,
+            "durationSec": 3259
+          },
+          {
+            "id": "cIZ7EATC2hQ",
+            "title": "【この動画で全て完結！】2026年度版 1級建築施工管理技士 第二次検定 攻略法【令和8年度 経験記述 過去問分析 勉強法】",
+            "views": 22000,
+            "durationSec": 2872
+          },
+          {
+            "id": "OjI_EyvPblw",
+            "title": "【解説図付き】過去問と比較！令和8年度 1級土木施工管理技士 第二次検定 解答速報 問題2〜11 ※1スライド目 試験表→成績表です。",
+            "views": 16000,
+            "durationSec": 1254
+          },
+          {
+            "id": "EnPj2SK4HOw",
+            "title": "【初心者必見！2級建築施工管理技士】令和8年度 1次検定 2次検定 攻略法 2027年版【過去問の傾向と分析、勉強法、経験記述など】",
+            "views": 15000,
+            "durationSec": 3133
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCG8ueDd1v2gvwiu7GPLIp7w",
+      "label": "スライドで学ぶ建設工学by雅",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "スライドで学ぶ建設工学by雅",
+        "subscriberCount": 39100
+      },
+      "counts": {
+        "sampled": 83,
+        "withViews": 83,
+        "totalViews": 2931900,
+        "medianViews": 18000,
+        "medianDurationSec": 611
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 7,
+            "medianViews": 9700
+          },
+          {
+            "key": "5to15",
+            "videos": 52,
+            "medianViews": 19500
+          },
+          {
+            "key": "15to30",
+            "videos": 12,
+            "medianViews": 17500
+          },
+          {
+            "key": "30to60",
+            "videos": 8,
+            "medianViews": 17000
+          },
+          {
+            "key": "over60",
+            "videos": 4,
+            "medianViews": 29500
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 2,
+            "medianViews": 19500
+          },
+          {
+            "word": "過去問",
+            "videos": 15,
+            "medianViews": 9700
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 1,
+            "medianViews": 7800
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "uAEBAqtgG6c",
+          "LHJTTen82v4",
+          "FWnD1012oqw",
+          "1a2WK6mp76U",
+          "4wIb4BOOJL0",
+          "KezS6--HcgM",
+          "jAR2f2cvSI4",
+          "8GgjU6qUrjw",
+          "znUmDBym_8E",
+          "gyTL_C_Lvyk",
+          "n9GWRj7JxXk",
+          "TljzoPjruC0",
+          "h40XX39AUJ8",
+          "nsEZx2xRPCg",
+          "qq3KsWbnwqg",
+          "WAe9iLjlbHY",
+          "33krbqnz9UQ",
+          "3KsXJxM8Jsc",
+          "onYp5Tl2CIw",
+          "2PIF5T3UbbU",
+          "MAmsWjZK34k",
+          "oudw1OE1Z9Y",
+          "xHjPGe11q9s",
+          "tDvF1XdYYcg",
+          "dgVaNnUuQa4",
+          "5KKOirt3whs",
+          "Ou_zROQW-KM",
+          "dh3oqIPVflk",
+          "ZfDez4lyxu0",
+          "dzt0VfiDlFU"
+        ],
+        "top": [
+          {
+            "id": "hLVGYQ2ETcw",
+            "title": "2級土木施工管理技士「土木一般」～土工～",
+            "views": 314000,
+            "durationSec": 1000
+          },
+          {
+            "id": "x5oKYa7mFEA",
+            "title": "【令和7年度版】2級土木施工管理技士「第1次検定」～1 土木一般～",
+            "views": 220000,
+            "durationSec": 4203
+          },
+          {
+            "id": "-A4j_Ynhk38",
+            "title": "一級土木施工管理技士「一般土木」～土工分野（土質調査、土量変化）～",
+            "views": 161000,
+            "durationSec": 741
+          },
+          {
+            "id": "uhAG4--Mla4",
+            "title": "2級土木施工管理技士「土木一般」～コンクリート工～",
+            "views": 134000,
+            "durationSec": 1315
+          },
+          {
+            "id": "HCR8xvyc2fI",
+            "title": "1級土木施工管理技士「第2次検定」～出題傾向を踏まえた土工対策～",
+            "views": 112000,
+            "durationSec": 685
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCmFYf1O6xcc36SUuOWPw5gw",
+      "label": "株式会社アイベック",
+      "exams": [
+        "building-construction-1",
+        "building-construction-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "株式会社アイベック",
+        "subscriberCount": 33000
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 967774,
+        "medianViews": 5850,
+        "medianDurationSec": 1130
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 30,
+            "medianViews": 6100
+          },
+          {
+            "key": "15to30",
+            "videos": 52,
+            "medianViews": 5150
+          },
+          {
+            "key": "30to60",
+            "videos": 14,
+            "medianViews": 10800
+          },
+          {
+            "key": "over60",
+            "videos": 4,
+            "medianViews": 6100
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 16,
+            "medianViews": 6450
+          },
+          {
+            "word": "過去問",
+            "videos": 73,
+            "medianViews": 5000
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "fYTrILfzdD4",
+          "yRFjRd4lWSY",
+          "0rz-uuwqCu0",
+          "dgFvzj1Qv3w",
+          "Io2AMT-M4Yo",
+          "ocUpjhzk5k8",
+          "z9G9xSXxp6A",
+          "x5HXVM2rr2c",
+          "1iOJmWoIjjE",
+          "k36GhaGh5Xs",
+          "rx5u_0CPVHM",
+          "zq0qOuY887k",
+          "kbgEcqQw1Iw",
+          "SjzZce0zhQc",
+          "LJzDy-gcKyc",
+          "Vont7YtAsTs",
+          "RSgvV42H2Fo",
+          "HBW8-8zHKhc",
+          "AlUo2qbWDgg",
+          "DxSOSU3pBek",
+          "fRzxm8HKKIc",
+          "uvSVnx2edSo",
+          "Qq_KCwShyRY",
+          "hvISqTC5jT4",
+          "Mop37dcSAaQ",
+          "393e6imD7MI",
+          "W3YGBP8C_gg",
+          "cRSO6X1q_5o",
+          "BuKOLz7IQCM",
+          "Fm8TTzVriWQ"
+        ],
+        "top": [
+          {
+            "id": "kbgEcqQw1Iw",
+            "title": "【１級建築施工管理技士／２次検定対策#01／2026年度版】法規問題",
+            "views": 62000,
+            "durationSec": 1980
+          },
+          {
+            "id": "dcOWww-7h8g",
+            "title": "【１級建築施工管理技士】合格への進め方／効率的な勉強方法",
+            "views": 44000,
+            "durationSec": 836
+          },
+          {
+            "id": "CzK2kEDFc6U",
+            "title": "【１級建築施工管理技士／１次対策#42】施工管理①／施工計画／過去問7年分を一気に学習《修正版》",
+            "views": 31000,
+            "durationSec": 2170
+          },
+          {
+            "id": "hglpfOk85IY",
+            "title": "【２級建築施工管理技士】合格への進め方／効率的な勉強方法",
+            "views": 29000,
+            "durationSec": 867
+          },
+          {
+            "id": "rx5u_0CPVHM",
+            "title": "【２級建築施工管理技士／２次検定対策#01／２０２６年度版】用語の説明／３８語を厳選",
+            "views": 28000,
+            "durationSec": 759
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCAr038HhwXFgPV-X9QqnsSA",
+      "label": "ちゃんさと",
+      "exams": [
+        "civil-construction-1",
+        "civil-construction-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "ちゃんさと",
+        "subscriberCount": 13600
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 1468285,
+        "medianViews": 13000,
+        "medianDurationSec": 902
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 1,
+            "medianViews": 7500
+          },
+          {
+            "key": "5to15",
+            "videos": 49,
+            "medianViews": 11000
+          },
+          {
+            "key": "15to30",
+            "videos": 38,
+            "medianViews": 14000
+          },
+          {
+            "key": "30to60",
+            "videos": 10,
+            "medianViews": 28000
+          },
+          {
+            "key": "over60",
+            "videos": 2,
+            "medianViews": 13200
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 10,
+            "medianViews": 21000
+          },
+          {
+            "word": "一問一答",
+            "videos": 1,
+            "medianViews": 30000
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 6,
+            "medianViews": 11500
+          },
+          {
+            "word": "過去問",
+            "videos": 21,
+            "medianViews": 13000
+          },
+          {
+            "word": "経験記述",
+            "videos": 7,
+            "medianViews": 10000
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 5,
+            "medianViews": 15000
+          },
+          {
+            "word": "模擬",
+            "videos": 6,
+            "medianViews": 11000
+          },
+          {
+            "word": "図解",
+            "videos": 1,
+            "medianViews": 29000
+          }
+        ],
+        "recentIds": [
+          "z6DHf1d2Wo8",
+          "c5thLRfeAw0",
+          "2F2KBYx7xKA",
+          "YRxoM6SC-Es",
+          "SIr-LUvtZ7o",
+          "v2sMSkCH4F4",
+          "u2PFwDf-BW0",
+          "CryXTByrNto",
+          "ZV9rD22vI4M",
+          "i966nmogvrg",
+          "JW-qhp2mo7s",
+          "_L9e28Lh0bg",
+          "5TS4tbqXYQ4",
+          "OPg5fBEDit0",
+          "UFUollt_Yf8",
+          "RQ83trViex4",
+          "s2kWkRRXXRc",
+          "4dWEACHazko",
+          "rC5Mr9TnDEg",
+          "vyzJkgMEAZk",
+          "AulaitIDXJw",
+          "yuLxjmiceMo",
+          "eZJgfRVJq0U",
+          "7YOaAI8o3mk",
+          "XI9lRhXkP14",
+          "Aymy3xjQwnI",
+          "syHpmOTtMw8",
+          "oWQmFoe-7z0",
+          "jdd0TP2NyEw",
+          "KKUcBZ0I2Y8"
+        ],
+        "top": [
+          {
+            "id": "7crXQ54JR4I",
+            "title": "【アスファルト舗装】試験でも現場でも使える知識！30分ガッツリ講義",
+            "views": 53000,
+            "durationSec": 2125
+          },
+          {
+            "id": "H5Zq78ut9uo",
+            "title": "第二次検定★安全管理（1級土木＆2級土木対応）",
+            "views": 42000,
+            "durationSec": 1874
+          },
+          {
+            "id": "0UwnJ-BlvoQ",
+            "title": "1級土木の過去問解いてくよー！第一次検定対策（土木施工管理技士）",
+            "views": 36000,
+            "durationSec": 2750
+          },
+          {
+            "id": "ZV9rD22vI4M",
+            "title": "令和8年度【聞き流しOK】1級土木二次「コンクリート」を完全攻略｜重要問題＆ポイント解説",
+            "views": 30000,
+            "durationSec": 1193
+          },
+          {
+            "id": "MeGCqqNLw0o",
+            "title": "【最新】1級土木第二次検定・聞き流し動画（土工編）",
+            "views": 30000,
+            "durationSec": 1223
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCqaXKUagxeOtwhg5CVt3rNQ",
+      "label": "CIC日本建設情報センター 施工管理ベース",
+      "exams": [
+        "pipe-work-1",
+        "electrical-work-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "CIC日本建設情報センター 施工管理ベース",
+        "subscriberCount": 2300
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 251085,
+        "medianViews": 993,
+        "medianDurationSec": 395
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 43,
+            "medianViews": 203
+          },
+          {
+            "key": "5to15",
+            "videos": 44,
+            "medianViews": 1600
+          },
+          {
+            "key": "15to30",
+            "videos": 11,
+            "medianViews": 5000
+          },
+          {
+            "key": "30to60",
+            "videos": 2,
+            "medianViews": 7000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 2,
+            "medianViews": 3750
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 8,
+            "medianViews": 1350
+          },
+          {
+            "word": "過去問",
+            "videos": 8,
+            "medianViews": 1300
+          },
+          {
+            "word": "経験記述",
+            "videos": 7,
+            "medianViews": 1300
+          },
+          {
+            "word": "解答速報",
+            "videos": 3,
+            "medianViews": 18000
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "z0I25hYbbd0",
+          "Ri8vbM1-Zk0",
+          "KIEvZBC239c",
+          "-7zGsnsJ3MY",
+          "LMZus69wZzk",
+          "x6CfZ8qDIeo",
+          "5n6-Yk85gBE",
+          "cpZkGjIZQVI",
+          "LuBH9H01G4I",
+          "NUIVAhClqjg",
+          "f6okOhrgAog",
+          "lxfGUpazxBw",
+          "9OlE4wdOecI",
+          "doQ5MPFrbpo",
+          "GAOjKF6PuUk",
+          "X2nVtPi9XuM",
+          "Pc6aIZxZ2mQ",
+          "WNcUP4t-pU0",
+          "qrSQX6D_zY4",
+          "d7_8ZGwaYJg",
+          "ojw7aDlxpYM",
+          "dlHHkjzjM_w",
+          "vsf6fsjv0Fs",
+          "94GRjI0wIzI",
+          "Bd_CUMcabTM",
+          "INSIrjtK1VY",
+          "KiR0OjSBDpQ",
+          "P5rHLBat8Nk",
+          "koJnQym57sA",
+          "bhZb3bFVELY"
+        ],
+        "top": [
+          {
+            "id": "x8c9_QiZKOQ",
+            "title": "【必見!直前講義 1級建築施工管理技士 第一次検定 全科目網羅】試験開始30分前でも完結できる全科目厳選過去問マスター",
+            "views": 19000,
+            "durationSec": 1062
+          },
+          {
+            "id": "WNcUP4t-pU0",
+            "title": "【解答速報（問題B）】令和8年度 1級管工事施工管理技術検定 第一次検定｜正答番号＆注目問題を解説！",
+            "views": 18000,
+            "durationSec": 264
+          },
+          {
+            "id": "qrSQX6D_zY4",
+            "title": "【解答速報（問題A）】令和8年度 1級管工事施工管理技術検定 第一次検定｜正答番号＆注目問題を解説！",
+            "views": 18000,
+            "durationSec": 448
+          },
+          {
+            "id": "INSIrjtK1VY",
+            "title": "【1級土木施工管理技士 第二次検定 試験対策】選択問題対策 | 土工 問題演習",
+            "views": 11000,
+            "durationSec": 963
+          },
+          {
+            "id": "WeV2bJrFQY0",
+            "title": "【1級土木施工管理技士 第二次検定 試験対策】必須問題対策 | 安全管理・品質管理 問題演習",
+            "views": 10000,
+            "durationSec": 618
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCRVsgUaa2U6_rChtq4V34Lw",
+      "label": "ぐんまの匠",
+      "exams": [
+        "landscape-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "ぐんまの匠",
+        "subscriberCount": 1430
+      },
+      "counts": {
+        "sampled": 3,
+        "withViews": 3,
+        "totalViews": 217300,
+        "medianViews": 66000,
+        "medianDurationSec": 1873
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 1,
+            "medianViews": 1300
+          },
+          {
+            "key": "5to15",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "15to30",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "30to60",
+            "videos": 2,
+            "medianViews": 108000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "PbPwVUPVNSo",
+          "cNoUUOaZ-Dg",
+          "A6aYEpwFIWk"
+        ],
+        "top": [
+          {
+            "id": "cNoUUOaZ-Dg",
+            "title": "１級造園技能検定",
+            "views": 150000,
+            "durationSec": 2725
+          },
+          {
+            "id": "A6aYEpwFIWk",
+            "title": "２級造園技能検定",
+            "views": 66000,
+            "durationSec": 1873
+          },
+          {
+            "id": "PbPwVUPVNSo",
+            "title": "12.7めざましテレビ取材",
+            "views": 1300,
+            "durationSec": 104
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCmbCfKwjaJjWIacaAH9HuOg",
+      "label": "GET研究所アーカイブス",
+      "exams": [
+        "assistant-surveyor"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "GET研究所アーカイブス",
+        "subscriberCount": 4150
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 624085,
+        "medianViews": 3600,
+        "medianDurationSec": 1688
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 10,
+            "medianViews": 2700
+          },
+          {
+            "key": "15to30",
+            "videos": 46,
+            "medianViews": 2200
+          },
+          {
+            "key": "30to60",
+            "videos": 29,
+            "medianViews": 5900
+          },
+          {
+            "key": "over60",
+            "videos": 15,
+            "medianViews": 11000
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 1,
+            "medianViews": 1000
+          },
+          {
+            "word": "予想",
+            "videos": 17,
+            "medianViews": 3900
+          },
+          {
+            "word": "模擬",
+            "videos": 8,
+            "medianViews": 15000
+          },
+          {
+            "word": "図解",
+            "videos": 2,
+            "medianViews": 11000
+          }
+        ],
+        "recentIds": [
+          "QlBy03FvLj0",
+          "k2gIRAXmGeQ",
+          "71leg72jIDE",
+          "joZn6SHBZSM",
+          "rwyXUJMuH2o",
+          "86tcfINBGqU",
+          "E32UoKdQejk",
+          "X788SnSF1Ew",
+          "x9DqPbBtAnc",
+          "58cW6lYiRdU",
+          "HaUef1XDk1Q",
+          "KN7rddjy8WE",
+          "PgSuHZx-MkQ",
+          "5SCOzqAWcxM",
+          "wsUu8H5XyKs",
+          "cfSwGUWQic0",
+          "-Nkqn8ZUYRc",
+          "gkHxlNh6fb4",
+          "WMK3EVTPdSI",
+          "yYQl8VYFYI0",
+          "nUeHHPlJGIg",
+          "Sp2SjMy4bx4",
+          "d6hZcwu-lRs",
+          "KSpKW0-rywU",
+          "mwHWoU0mBSs",
+          "qJxj0XHyzdw",
+          "mTRuokuUcpU",
+          "qemrxVkYqTo",
+          "sB6AQNabApw",
+          "OIwLIRag7rg"
+        ],
+        "top": [
+          {
+            "id": "d6hZcwu-lRs",
+            "title": "測量士補試験に必要な計算問題の解き方【計算スキル10則】",
+            "views": 62000,
+            "durationSec": 2888
+          },
+          {
+            "id": "RyWk9F3r6Xk",
+            "title": "独学で資格を取ろう！　1級土木施工管理技術検定実地試験受検対策講義【平成26年度予想模擬試験解説】",
+            "views": 28000,
+            "durationSec": 4364
+          },
+          {
+            "id": "6unX3IcvJZM",
+            "title": "独学で資格を取ろう！　1級建築施工管理技術検定学科試験受検対策講義　【平成26年度完全予想精選模擬試験徹底解説】アーカイブス",
+            "views": 26000,
+            "durationSec": 5670
+          },
+          {
+            "id": "BV-lHah6gRE",
+            "title": "独学で資格を取ろう！　1級建築施工管理技術検定実地試験受験対策講座【完全攻略問題解説】",
+            "views": 24000,
+            "durationSec": 2908
+          },
+          {
+            "id": "F211qEGha9E",
+            "title": "独学で資格を取ろう！　【２級土木施工管理技術検定学科試験受検対策ガイダンス】　（平成25年度版スーパーテキスト用）",
+            "views": 23000,
+            "durationSec": 2950
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCybXPGCftgBmGaKKqwmD0lQ",
+      "label": "土木マン チャンネル",
+      "exams": [
+        "concrete-engineer"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "土木マン チャンネル",
+        "subscriberCount": 13800
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 1245369,
+        "medianViews": 8700,
+        "medianDurationSec": 677
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 6,
+            "medianViews": 5700
+          },
+          {
+            "key": "5to15",
+            "videos": 58,
+            "medianViews": 7100
+          },
+          {
+            "key": "15to30",
+            "videos": 25,
+            "medianViews": 11000
+          },
+          {
+            "key": "30to60",
+            "videos": 9,
+            "medianViews": 17000
+          },
+          {
+            "key": "over60",
+            "videos": 2,
+            "medianViews": 37000
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 2,
+            "medianViews": 13350
+          },
+          {
+            "word": "まとめ",
+            "videos": 7,
+            "medianViews": 13000
+          },
+          {
+            "word": "過去問",
+            "videos": 18,
+            "medianViews": 6850
+          },
+          {
+            "word": "経験記述",
+            "videos": 13,
+            "medianViews": 14000
+          },
+          {
+            "word": "解答速報",
+            "videos": 1,
+            "medianViews": 22000
+          },
+          {
+            "word": "予想",
+            "videos": 1,
+            "medianViews": 29000
+          },
+          {
+            "word": "模擬",
+            "videos": 1,
+            "medianViews": 2200
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "dLx7_XF_iOE",
+          "YUotPu_xegU",
+          "XxuFYZEtbak",
+          "rN01qZpVkW8",
+          "rlC-WiiXXzk",
+          "6HJFfA1dlkc",
+          "Ypl_pa_ecJo",
+          "bwVB_nH9DAE",
+          "w1hKj6wGqeM",
+          "KhtTZZVRzw0",
+          "g66PLhgkVqM",
+          "QQg1-niHVeE",
+          "_kApWSqMszM",
+          "pjvO-d2SyQE",
+          "64moTXfeFfM",
+          "aByqPdd6N28",
+          "qNhWRNpD8c8",
+          "BUzbVUj1hqM",
+          "s4uQOAC97uA",
+          "BJQAa2ETZnM",
+          "Au9KFb4jnAg",
+          "7SuTrn-D0r8",
+          "KCjcxmH704g",
+          "AmzkipGRp4c",
+          "JKhR7T2Xztw",
+          "nmvg-5cHNGw",
+          "puXH-Dr7Z2g",
+          "eg43Ch-Wtvo",
+          "lAQHOTOQeyQ",
+          "qQRbuynixzQ"
+        ],
+        "top": [
+          {
+            "id": "rlC-WiiXXzk",
+            "title": "穴埋め問題は、この動画だけでいい。過去10年を聞いて覚える【令和8年度 1級土木2次】",
+            "views": 61000,
+            "durationSec": 2996
+          },
+          {
+            "id": "s7X-lU8Lez4",
+            "title": "コンクリートの基本を９０分で全て解説してみた【コンクリート技士試験向けのまとめ】",
+            "views": 61000,
+            "durationSec": 5529
+          },
+          {
+            "id": "_kzLBohrbxg",
+            "title": "【２級土木２次】経験記述の書き方　誰でも書ける答案の型　《２級土木施工管理技士（種別：土木）対策》",
+            "views": 56000,
+            "durationSec": 1090
+          },
+          {
+            "id": "buA1l8xgquk",
+            "title": "【１級土木１次】専門土木の最速攻略法｜選ぶべきおすすめ１０問と重要ポイントの解説　《１級土木施工管理技士対策》",
+            "views": 49000,
+            "durationSec": 1315
+          },
+          {
+            "id": "7SuTrn-D0r8",
+            "title": "穴埋め問題10年分から“出題ポイントだけ”読み上げ！耳で覚えるマーキング講座｜【令和7年度】1級土木2次｜ 《1級土木施工管理技士対策》",
+            "views": 41000,
+            "durationSec": 3144
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCK_CBOhixLYF-QXFti_5mug",
+      "label": "ゆにーくライセンスちゃんねる",
+      "exams": [
+        "pipe-work-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "ゆにーくライセンスちゃんねる",
+        "subscriberCount": 3420
+      },
+      "counts": {
+        "sampled": 35,
+        "withViews": 35,
+        "totalViews": 319251,
+        "medianViews": 8100,
+        "medianDurationSec": 473
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 9,
+            "medianViews": 1100
+          },
+          {
+            "key": "5to15",
+            "videos": 26,
+            "medianViews": 8250
+          },
+          {
+            "key": "15to30",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 9,
+            "medianViews": 15000
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "c20p2KrC8FE",
+          "1bD5mwznu_o",
+          "jAzZENYOp8M",
+          "YS6QcWqj2YE",
+          "PRKM4xaZDyg",
+          "cDsuntSSAW8",
+          "khrinSdbWH4",
+          "6q-uffm0Zpk",
+          "r6g6gaieXxI",
+          "4lUX9p39kG4",
+          "JMr1GNVLCZw",
+          "sTrSWcJIWq4",
+          "YOQVNZDPKmA",
+          "rNsl8uUk_dM",
+          "-mWqugCvvEw",
+          "5ApSJcaeFhM",
+          "KgXM1f-3fXM",
+          "Nzy1nlYcBsk",
+          "98MbOd12rCs",
+          "P6GJY4f0r6w",
+          "IMpMu4rT8qQ",
+          "Pau9AlhfWDI",
+          "PrPE_dsLZYU",
+          "Bhs_RYe9pGY",
+          "3WWU7Zlx9hg",
+          "AA58cmZCyEQ",
+          "cg1a9Iev_Io",
+          "3j8O95JZohQ",
+          "B4sQ6qEK7WM",
+          "qsZ33-J_9sk"
+        ],
+        "top": [
+          {
+            "id": "3WWU7Zlx9hg",
+            "title": "(その1)  1級管工事施工管理技士  (聞き流しOK)",
+            "views": 58000,
+            "durationSec": 593
+          },
+          {
+            "id": "Nzy1nlYcBsk",
+            "title": "(その2) 1級管工事施工管理(聞き流しオーケー",
+            "views": 22000,
+            "durationSec": 442
+          },
+          {
+            "id": "4lUX9p39kG4",
+            "title": "1級管工事　2次試験　 参考動画　その1",
+            "views": 19000,
+            "durationSec": 458
+          },
+          {
+            "id": "B4sQ6qEK7WM",
+            "title": "(聞き流しオーケー)有機溶剤作業主任主任者　1部　是非ご覧ください",
+            "views": 18000,
+            "durationSec": 684
+          },
+          {
+            "id": "KgXM1f-3fXM",
+            "title": "(その3)  1級管工事施工管理　(聞き流しオーケー)",
+            "views": 16000,
+            "durationSec": 402
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCaeFQe_zESrw0r7HjT8yJWA",
+      "label": "土地家屋調査士合格ブログ",
+      "exams": [
+        "assistant-surveyor"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "土地家屋調査士合格ブログ",
+        "subscriberCount": 2000
+      },
+      "counts": {
+        "sampled": 37,
+        "withViews": 37,
+        "totalViews": 191340,
+        "medianViews": 2400,
+        "medianDurationSec": 401
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 7,
+            "medianViews": 1400
+          },
+          {
+            "key": "5to15",
+            "videos": 29,
+            "medianViews": 2800
+          },
+          {
+            "key": "15to30",
+            "videos": 1,
+            "medianViews": 15000
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 1,
+            "medianViews": 8700
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "8d5y_oXQ3EI",
+          "Wk33GjvfXs8",
+          "ukbu3HVJFqM",
+          "09OenefvB8Q",
+          "I8BVG05MYhs",
+          "AvQEYGv_WZw",
+          "NAbhkpfvjRU",
+          "vj83U0E8KeU",
+          "oLJVLDaq4Vw",
+          "kCKaWJSZxfw",
+          "Jdg9ibzD6do",
+          "erlmcNfXZFU",
+          "zgx1sbOIWbw",
+          "XECGXSgtY3U",
+          "ZHQsSw9qSDE",
+          "KnB7h47zQXY",
+          "I41dOBDRBXo",
+          "GbsNZ1PPJgo",
+          "kaXdM8TqAQo",
+          "QXCRZZVirhA",
+          "Ddz8VPciCDo",
+          "ntUUP7uNlpA",
+          "zw8VnFv2MSQ",
+          "RlAB_qIxx2s",
+          "NOgJ2cnNqMw",
+          "j9Gl3aROSZo",
+          "V01Cye01iOs",
+          "cGMi1qY1A9A",
+          "dako7_dpwu4",
+          "46DfVFjNFX8"
+        ],
+        "top": [
+          {
+            "id": "31XUJZnp04U",
+            "title": "【測量士補試験】独学で合格する方法を紹介",
+            "views": 48000,
+            "durationSec": 519
+          },
+          {
+            "id": "4DGGx3kznrM",
+            "title": "【土地家屋調査士試験】半年の独学で合格した勉強方法＆スケジュール",
+            "views": 21000,
+            "durationSec": 774
+          },
+          {
+            "id": "V01Cye01iOs",
+            "title": "【土地家屋調査士試験】独学で合格した勉強方法【1年計画】",
+            "views": 15000,
+            "durationSec": 998
+          },
+          {
+            "id": "erlmcNfXZFU",
+            "title": "【土地家屋調査士試験】何回も落ちる人の特徴《一発合格のコツも解説》",
+            "views": 11000,
+            "durationSec": 471
+          },
+          {
+            "id": "cGMi1qY1A9A",
+            "title": "【土地家屋調査士試験】複素数を使って最短で試験に合格する方法｜F 789SG SL",
+            "views": 10000,
+            "durationSec": 887
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UChhrbCj91Q0ioMvHK6Y7Tmw",
+      "label": "電気の資格",
+      "exams": [
+        "electrical-work-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "電気の資格",
+        "subscriberCount": 555
+      },
+      "counts": {
+        "sampled": 6,
+        "withViews": 6,
+        "totalViews": 46032,
+        "medianViews": 2250,
+        "medianDurationSec": 956
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 1,
+            "medianViews": 532
+          },
+          {
+            "key": "5to15",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "15to30",
+            "videos": 4,
+            "medianViews": 2250
+          },
+          {
+            "key": "30to60",
+            "videos": 1,
+            "medianViews": 35000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "zbo2tqLMOZA",
+          "Rg_mhDhNl6A",
+          "3nIIcEuMjJs",
+          "aJhNGzpyV7A",
+          "3BsTofpCVZE",
+          "G6rLI7hN6u0"
+        ],
+        "top": [
+          {
+            "id": "3nIIcEuMjJs",
+            "title": "2級電気工事施工管理技士受験の際に覚えておきたい電気設備用語",
+            "views": 35000,
+            "durationSec": 2746
+          },
+          {
+            "id": "Rg_mhDhNl6A",
+            "title": "平成30年前期 2級電気工事施工管理技士出題問題を基に作った、覚えておきたい用語等",
+            "views": 4600,
+            "durationSec": 943
+          },
+          {
+            "id": "3BsTofpCVZE",
+            "title": "平成29年 2級電気工事施工管理技士出題問題を基に作った、覚えておきたい用語等",
+            "views": 3000,
+            "durationSec": 1033
+          },
+          {
+            "id": "aJhNGzpyV7A",
+            "title": "平成27年 2級電気工事施工管理技士出題問題を基に作った、覚えておきたい用語等",
+            "views": 1500,
+            "durationSec": 957
+          },
+          {
+            "id": "G6rLI7hN6u0",
+            "title": "平成28年 2級電気工事施工管理技士出題問題を基に作った、覚えておきたい用語等",
+            "views": 1400,
+            "durationSec": 955
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCYnxfpH3-jFAno0kKemgISQ",
+      "label": "【公式】CIC日本建設情報センター",
+      "exams": [
+        "pipe-work-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "【公式】CIC日本建設情報センター",
+        "subscriberCount": 4090
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 498044,
+        "medianViews": 779,
+        "medianDurationSec": 276
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 54,
+            "medianViews": 399
+          },
+          {
+            "key": "5to15",
+            "videos": 30,
+            "medianViews": 983
+          },
+          {
+            "key": "15to30",
+            "videos": 12,
+            "medianViews": 7150
+          },
+          {
+            "key": "30to60",
+            "videos": 4,
+            "medianViews": 1900
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 6,
+            "medianViews": 2650
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 18,
+            "medianViews": 1600
+          },
+          {
+            "word": "経験記述",
+            "videos": 2,
+            "medianViews": 6350
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "bVTJgjqxPTI",
+          "cF8hwcdOnew",
+          "UZGYoFyqz28",
+          "GU30SWv4ZRs",
+          "0bM6RZBGRYg",
+          "j8S9exrBibI",
+          "u33VVjVwlgo",
+          "13ktu5T7RoA",
+          "8i1HSDKfkEM",
+          "TbgmJsHAWyU",
+          "m4JWIcK7Eno",
+          "PmrqHIYRtX8",
+          "ZaHErSVAFfw",
+          "K-9Xuu5Fe-A",
+          "vevJukvnq2c",
+          "KyCEGzI3lks",
+          "ydN8ARAyJOM",
+          "THlDDqE8984",
+          "werTxhGJ4-w",
+          "wwA4CLxTTCw",
+          "2Iu4oPNOnz8",
+          "InvytEstlS8",
+          "wdd47WoMXJI",
+          "amo3pHTA-YE",
+          "247FNXztH2g",
+          "iX3gbUNiEPI",
+          "MhsZi-ONjmk",
+          "qDKgfFGG4Oo",
+          "F5aG8A1AnqQ",
+          "-5mc7hC9skc"
+        ],
+        "top": [
+          {
+            "id": "K-9Xuu5Fe-A",
+            "title": "【新登場！】労災事例を動画×クイズで学ぶ「労災防止トレーニング講座」",
+            "views": 285000,
+            "durationSec": 48
+          },
+          {
+            "id": "7gBvrxeBinI",
+            "title": "【独学スコアUP】1級管工事施工管理技士第一次検定　1編_機械工学等【過去問解説】",
+            "views": 29000,
+            "durationSec": 2644
+          },
+          {
+            "id": "QC8Z9GwSFOc",
+            "title": "【独学スコアUP】1級電気工事施工管理技士第一次検定　1編_電気工学等【過去問解説】",
+            "views": 14000,
+            "durationSec": 1552
+          },
+          {
+            "id": "sC2pxam3I80",
+            "title": "【聞き流し】1級 土木施工管理技士［二次検定］耳で覚える試験対策　【ながら学習に最適】",
+            "views": 12000,
+            "durationSec": 1370
+          },
+          {
+            "id": "JZ2HDOW24C0",
+            "title": "【ながら学習に最適】1級 建築施工管理技士［二次検定］耳で覚える試験対策",
+            "views": 10000,
+            "durationSec": 1100
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCkPzQ2eOtwur4huFCeebDHA",
+      "label": "ヤンチャンネル(技術士 機械部門、プラント設計、プロジェクトマネジメント、バイク)",
+      "exams": [
+        "pipe-work-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "ヤンチャンネル(技術士 機械部門、プラント設計、プロジェクトマネジメント、バイク)",
+        "subscriberCount": 4800
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 332871,
+        "medianViews": 1150,
+        "medianDurationSec": 627
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 17,
+            "medianViews": 1100
+          },
+          {
+            "key": "5to15",
+            "videos": 56,
+            "medianViews": 1850
+          },
+          {
+            "key": "15to30",
+            "videos": 27,
+            "medianViews": 792
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 1,
+            "medianViews": 19000
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "eOh7JWiZbtc",
+          "ArBoTM4c9Pg",
+          "ik_lr0uajGA",
+          "oM4kw6EAYvM",
+          "YzN1Iaox3xo",
+          "s-TIQdbJBjE",
+          "tRtsL6NXbC4",
+          "RKeyfUyBSS0",
+          "P1duIQMYMLY",
+          "aJISbZlLSC4",
+          "ECicrBaDdDA",
+          "F9K0sSXIGaE",
+          "waN2NxUjIv4",
+          "Ce17oAMVMEU",
+          "HWdF1Ap7RBk",
+          "CI8KH1K80Kg",
+          "_oXvosM7_5I",
+          "gBQtiFPQYI4",
+          "GlWMEf2pi8o",
+          "xt2ZLr7ZBoQ",
+          "xw6Bw7NrAM8",
+          "J8D4X6zngAQ",
+          "aUj1a89Jj-g",
+          "zjygB84cvcg",
+          "qKvvgro891U",
+          "Hshb2F5PQRc",
+          "KIUiLkBtNJQ",
+          "1EJgx5B9yi4",
+          "IS-gQAWsKjs",
+          "n8_GWG1kV_4"
+        ],
+        "top": [
+          {
+            "id": "YzN1Iaox3xo",
+            "title": "【2年乗ったレビュー】SV650の良いところ・悪いところ #sv650",
+            "views": 25000,
+            "durationSec": 323
+          },
+          {
+            "id": "IUE8Ks_vX8k",
+            "title": "【プラント配管設計の解説#7】バルブの基礎知識！種類・用途・選定方法を解説！【10分で学ぶプラントエンジニアリング】#プラントエンジニア #プラントエンジニアリング #プラント設計",
+            "views": 25000,
+            "durationSec": 1023
+          },
+          {
+            "id": "DLfGJb-Yix0",
+            "title": "【初心者必見！】RIDE4で早く走るためのポイント3個（正確には4個）を紹介します！【死にゲー】",
+            "views": 20000,
+            "durationSec": 552
+          },
+          {
+            "id": "yTRgnRFMaHI",
+            "title": "【モトブログ】ARAI RX-7X購入！早速プロシェードシステムに交換してみた！【バイク用品、アライ、ヘルメット】",
+            "views": 20000,
+            "durationSec": 653
+          },
+          {
+            "id": "aUj1a89Jj-g",
+            "title": "【ゆっくり資格取得】1級管工事施工管理技士取得について！【勉強法・過去問】#1級管工事施工管理技士 #管工事施工管理技士 #プラント設計",
+            "views": 19000,
+            "durationSec": 858
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCj_yS-YKJ2DmBASVHCi_QEw",
+      "label": "技術系資格専門のSAT株式会社",
+      "exams": [
+        "construction-machinery-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "技術系資格専門のSAT株式会社",
+        "subscriberCount": 19700
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 139673,
+        "medianViews": 133,
+        "medianDurationSec": 659
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 5,
+            "medianViews": 24000
+          },
+          {
+            "key": "5to15",
+            "videos": 88,
+            "medianViews": 124
+          },
+          {
+            "key": "15to30",
+            "videos": 7,
+            "medianViews": 375
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "USDo_3DP5vA",
+          "AoKph6ilRFg",
+          "JzByLdwa5B4",
+          "PviXAq6itvM",
+          "PD8W4Zozm2k",
+          "WKo1J0sNj60",
+          "XJmPfccP4lg",
+          "BS1m6WJ7XLU",
+          "lvZFAigVblg",
+          "4G_nztlMJi8",
+          "y1vlgVSm_S4",
+          "Af22rXNbieI",
+          "DsWGdcmk9T0",
+          "mBZq8S1jejc",
+          "pSzCZUzy9Bk",
+          "yn4PJRT0fgQ",
+          "L6q2uxAf0W4",
+          "BiZYy2O_cdA",
+          "ftB_33tsKc0",
+          "ndpdJlDJCWQ",
+          "PSqOUFp3C9Q",
+          "VgJyG7oOqks",
+          "B_wOvGSa3SQ",
+          "bJYo-7NALNw",
+          "w2O3dvsKxkI",
+          "oLMLhThpavY",
+          "UJ1hYyb4A-0",
+          "cBdlt_t_1DM",
+          "8jjkBp7ZGbA",
+          "QLLYwnGZDqw"
+        ],
+        "top": [
+          {
+            "id": "YYhHOewtFF4",
+            "title": "【修了証即日発行！】職長・特別教育はSAT株式会社で",
+            "views": 42000,
+            "durationSec": 12
+          },
+          {
+            "id": "7YJfQmkpwu0",
+            "title": "忙しい人のための特別教育｜SAT株式会社",
+            "views": 37000,
+            "durationSec": 22
+          },
+          {
+            "id": "IkYR1s71-YM",
+            "title": "特別教育がWEB講座で受けられる！｜SAT株式会社",
+            "views": 24000,
+            "durationSec": 29
+          },
+          {
+            "id": "B_HHIjTLxoI",
+            "title": "職長・特別教育がスマホでいつでも受けられる！｜SAT",
+            "views": 12000,
+            "durationSec": 20
+          },
+          {
+            "id": "J4uTQVRiCx4",
+            "title": "2級ボイラー技士講座　サンプル動画",
+            "views": 4500,
+            "durationSec": 1789
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCqEUavmgDZKL0MvJLmWTEsw",
+      "label": "日建学院-Nikken Gakuin-",
+      "exams": [
+        "landscape-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "日建学院-Nikken Gakuin-",
+        "subscriberCount": 41100
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 6009791,
+        "medianViews": 2900,
+        "medianDurationSec": 338
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 46,
+            "medianViews": 1800
+          },
+          {
+            "key": "5to15",
+            "videos": 25,
+            "medianViews": 2900
+          },
+          {
+            "key": "15to30",
+            "videos": 12,
+            "medianViews": 5450
+          },
+          {
+            "key": "30to60",
+            "videos": 16,
+            "medianViews": 32500
+          },
+          {
+            "key": "over60",
+            "videos": 1,
+            "medianViews": 18000
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 9,
+            "medianViews": 55000
+          },
+          {
+            "word": "一問一答",
+            "videos": 10,
+            "medianViews": 52000
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 2,
+            "medianViews": 9650
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 7,
+            "medianViews": 136000
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 3,
+            "medianViews": 162000
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "vGAWwg_aCQk",
+          "uEhaAZPvz9w",
+          "44RkhxQKi2Q",
+          "STh-Mnco25w",
+          "RvpinIJ-oQA",
+          "ax3DTymu4gE",
+          "E8959H6vDkQ",
+          "lKupbDTovHo",
+          "OqewqpYZEGM",
+          "lvYzbG1KaG4",
+          "xpbjkYaLXNg",
+          "IAohLg57sqc",
+          "DbsXSKDEAxc",
+          "C_aTyg71wQg",
+          "ptUfP_Rin9c",
+          "NOej2sAQVgE",
+          "RVBWtKWjwJg",
+          "eLGaTo__5AY",
+          "Z_id9BwBrbk",
+          "Gmg0dC38HKk",
+          "eA_pmvPIsM4",
+          "yGv1dhjkNm0",
+          "1hF-5i-RbWc",
+          "w-5UuK7j9cQ",
+          "Dbn1EWTO3TA",
+          "C9I5cIfFSi8",
+          "XPdwMrLRQ8o",
+          "n39TwXnJMkM",
+          "J6yrdx70nao",
+          "19tj6Ix4gBk"
+        ],
+        "top": [
+          {
+            "id": "SsFd-MsNqQs",
+            "title": "日建学院　2024年度祝合格PV",
+            "views": 2900000,
+            "durationSec": 81
+          },
+          {
+            "id": "xpbjkYaLXNg",
+            "title": "2026年度1級建築士[学科]全国統一公開模擬試験 6/28(日)20:00- LIVE STREAMING CM",
+            "views": 449000,
+            "durationSec": 31
+          },
+          {
+            "id": "n39TwXnJMkM",
+            "title": "［10.19配信！］ 令和7年度宅建本試験　解答速報CM｜＜公式＞日建学院",
+            "views": 399000,
+            "durationSec": 34
+          },
+          {
+            "id": "vGAWwg_aCQk",
+            "title": "［10.18配信！］2026年度(令和8年度)宅建本試験　解答速報CM｜＜公式＞日建学院",
+            "views": 245000,
+            "durationSec": 31
+          },
+          {
+            "id": "OqewqpYZEGM",
+            "title": "[7.26配信] 令和8年度 1級建築士学科本試験 解答速報 告知CM｜＜公式＞日建学院",
+            "views": 198000,
+            "durationSec": 41
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UC7EPFbim9Kk0Vp6SZXvm6zA",
+      "label": "ましゅー先生の公務員研究室",
+      "exams": [
+        "civil-service-national-general-civil"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "ましゅー先生の公務員研究室",
+        "subscriberCount": 9200
+      },
+      "counts": {
+        "sampled": 64,
+        "withViews": 64,
+        "totalViews": 1181500,
+        "medianViews": 8800,
+        "medianDurationSec": 421
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 24,
+            "medianViews": 6300
+          },
+          {
+            "key": "5to15",
+            "videos": 29,
+            "medianViews": 9300
+          },
+          {
+            "key": "15to30",
+            "videos": 10,
+            "medianViews": 21500
+          },
+          {
+            "key": "30to60",
+            "videos": 1,
+            "medianViews": 70000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 1,
+            "medianViews": 170000
+          },
+          {
+            "word": "まとめ",
+            "videos": 6,
+            "medianViews": 9300
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 1,
+            "medianViews": 170000
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "PHZVJWJPDy4",
+          "glnKRO-YM14",
+          "6zvMk4QsC-Y",
+          "skUIllpns5s",
+          "R6NO6B8Wve4",
+          "SXG9CtzNgp4",
+          "Kfni2crNIi0",
+          "eILNNKh5PPg",
+          "S6O0L8UTgrY",
+          "uf-3uLZD_So",
+          "iF5EjCOshCY",
+          "fxyB_gsffN8",
+          "n7L90javLiw",
+          "LgK50AWjhY8",
+          "kdQZ8JFslwE",
+          "w_rrbl8gbFI",
+          "tyGRP41ewXw",
+          "D9uVE1_PMAg",
+          "jk05sUcd7RY",
+          "K2EjDRLta6w",
+          "a7SqXrya3Tg",
+          "vm4Nbclcpww",
+          "L1ocCgK9HAs",
+          "qIaLsdj_SJw",
+          "SsiDY3vmqfY",
+          "KP5gDJfIS6g",
+          "kbHlll6t-Y0",
+          "_NPfD6DEwZM",
+          "-x3W-Bv7EiA",
+          "X1WVQ46rTF4"
+        ],
+        "top": [
+          {
+            "id": "R6NO6B8Wve4",
+            "title": "【自宅で模擬面接】100％聞かれる頻出質問シリーズ総まとめ！不安解消&公務員試験合格率UP↑↑",
+            "views": 170000,
+            "durationSec": 734
+          },
+          {
+            "id": "dwqCTjUrCBw",
+            "title": "【数的推理の裏ワザ】感覚だけで択が...!?知らなきゃ絶対に損します！(超オススメ)【公務員試験】",
+            "views": 87000,
+            "durationSec": 532
+          },
+          {
+            "id": "A_al6HR8EMo",
+            "title": "【誰でも合格答案が作れる！】小論文の書き方・コツ、対策方法を徹底解説！【公務員試験用】",
+            "views": 82000,
+            "durationSec": 1786
+          },
+          {
+            "id": "48knn4Yki8o",
+            "title": "【なぜ民間ではなく公務員？】模範解答はNG？面接の頻出質問の回答ポイントを紹介！【公務員試験用】",
+            "views": 74000,
+            "durationSec": 546
+          },
+          {
+            "id": "2HL1jTH3mt8",
+            "title": "【完全版】A評価を目指す！公務員試験の面接カードの書き方・コツを主要項目ごとに徹底解説！",
+            "views": 70000,
+            "durationSec": 1990
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCCIRvndSLKweqluVG7IK4XQ",
+      "label": "親和コンサルタントyoutube",
+      "exams": [
+        "pe-first-stage"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "親和コンサルタントyoutube",
+        "subscriberCount": 1620
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 260163,
+        "medianViews": 1850,
+        "medianDurationSec": 125
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 83,
+            "medianViews": 1600
+          },
+          {
+            "key": "5to15",
+            "videos": 13,
+            "medianViews": 2900
+          },
+          {
+            "key": "15to30",
+            "videos": 1,
+            "medianViews": 14000
+          },
+          {
+            "key": "30to60",
+            "videos": 3,
+            "medianViews": 18000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 4,
+            "medianViews": 16000
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "wvaNCK1BX-k",
+          "DuUT7unbITs",
+          "SrOYrjTaLsg",
+          "41gKvkx-NJY",
+          "cWxM66AlpIE",
+          "zOJG_2FSMC4",
+          "JxQgU33yMlc",
+          "3yMHwqowsrE",
+          "38uGHKs6C28",
+          "R3SYE0_HLnQ",
+          "Jnbeua2oua8",
+          "hHGr_kTzNfg",
+          "aoBmpJJqzTg",
+          "zkNgxpAwo5g",
+          "ROYflZkeIbk",
+          "svq6n1aFKNk",
+          "DzGUH4ItQag",
+          "wJMNItvaQNs",
+          "2Mm2Buan74M",
+          "ErL4nI5qpSw",
+          "PGmsDn8FQxw",
+          "kM4sfjyonLU",
+          "aSqsLDthbEE",
+          "jHANpzLeAk8",
+          "ocg0JEo8QHM",
+          "APnsH89NzLA",
+          "5jvw28a-llM",
+          "rFQF5nFStYY",
+          "yPeuLjYQUFs",
+          "OTNTW5dGQfU"
+        ],
+        "top": [
+          {
+            "id": "DuUT7unbITs",
+            "title": "技術士一次試験　R4年基礎科目イッキ見（過去問解説）",
+            "views": 18000,
+            "durationSec": 2720
+          },
+          {
+            "id": "41gKvkx-NJY",
+            "title": "技術士一次試験　R3建設科目イッキ見（過去問解説）",
+            "views": 18000,
+            "durationSec": 3014
+          },
+          {
+            "id": "wvaNCK1BX-k",
+            "title": "技術士一次試験　R4建設科目イッキ見（過去問解説）",
+            "views": 14000,
+            "durationSec": 1690
+          },
+          {
+            "id": "SrOYrjTaLsg",
+            "title": "技術士一次試験　R2建設科目イッキ見（過去問解説）",
+            "views": 13000,
+            "durationSec": 3293
+          },
+          {
+            "id": "neQ7isXcZlA",
+            "title": "技術士一次　基礎R3 1-1（よく出る）",
+            "views": 8300,
+            "durationSec": 125
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCaGcOAhnQ_Of8hYr3eqkxEg",
+      "label": "通勤中の資格勉強チャンネル",
+      "exams": [
+        "pipe-work-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "通勤中の資格勉強チャンネル",
+        "subscriberCount": 446
+      },
+      "counts": {
+        "sampled": 15,
+        "withViews": 15,
+        "totalViews": 46168,
+        "medianViews": 1600,
+        "medianDurationSec": 1586
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "15to30",
+            "videos": 8,
+            "medianViews": 1450
+          },
+          {
+            "key": "30to60",
+            "videos": 7,
+            "medianViews": 1600
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 8,
+            "medianViews": 719
+          },
+          {
+            "word": "一問一答",
+            "videos": 3,
+            "medianViews": 1700
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 4,
+            "medianViews": 971
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "MT0zrZnw72w",
+          "DSgJqXJ6Itc",
+          "baDBnSuBbkE",
+          "q6rC0QAY_7s",
+          "AEt2t0LFFWk",
+          "TJ3zOEa16FM",
+          "QA3Sn3QRMTo",
+          "dWc2DcXukpI",
+          "PgNpp5zPJ7U",
+          "N38nhO6HXQY",
+          "niUIa1Wp-kU",
+          "klSRkDlO2Vs",
+          "B6JcTrvQ58M",
+          "usj6KxCcKaM",
+          "J_-jqyBTp3s"
+        ],
+        "top": [
+          {
+            "id": "TJ3zOEa16FM",
+            "title": "【基礎編】1級管工事施工管理技士 一次検定 ◯✕問題100問",
+            "views": 12000,
+            "durationSec": 2034
+          },
+          {
+            "id": "DSgJqXJ6Itc",
+            "title": "【聞き流し】1級管工事 施工管理法・応用能力対策◯✕60問|必須解答を攻略【2026年9月試験】",
+            "views": 9500,
+            "durationSec": 1283
+          },
+          {
+            "id": "AEt2t0LFFWk",
+            "title": "【実践編】1級管工事施工管理技士 過去問論点◯✕60問 |一次検定・応用能力対策も【2026年9月試験】",
+            "views": 7100,
+            "durationSec": 1434
+          },
+          {
+            "id": "J_-jqyBTp3s",
+            "title": "一級電気工事施工管理技士一次検定_頻出分野◯✕問題 前編1〜100",
+            "views": 4000,
+            "durationSec": 2099
+          },
+          {
+            "id": "QA3Sn3QRMTo",
+            "title": "二級ボイラー技士 ◯✕一問一答50問|構造・取扱い・燃焼・法令",
+            "views": 3200,
+            "durationSec": 1095
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UC1FqaL7yXzPkKo6lj86kLnA",
+      "label": "資格取得チャンネル",
+      "exams": [
+        "building-construction-1"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "資格取得チャンネル",
+        "subscriberCount": 4270
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 78751,
+        "medianViews": 159,
+        "medianDurationSec": 1066
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 33,
+            "medianViews": 100
+          },
+          {
+            "key": "15to30",
+            "videos": 59,
+            "medianViews": 160
+          },
+          {
+            "key": "30to60",
+            "videos": 3,
+            "medianViews": 805
+          },
+          {
+            "key": "over60",
+            "videos": 5,
+            "medianViews": 3900
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 10,
+            "medianViews": 606
+          },
+          {
+            "word": "まとめ",
+            "videos": 40,
+            "medianViews": 115
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 3,
+            "medianViews": 4900
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "sijK6qSBmbc",
+          "g1ofVqxkN4E",
+          "JkCBrxaGMO8",
+          "jw_PCy4N2j0",
+          "TqMPEKO6uL8",
+          "lgCk31GMriU",
+          "yBt1GVZNrlI",
+          "efYyc5a9BA4",
+          "pfUd0jooDns",
+          "Amd26a2xcsU",
+          "tWvbJ00glow",
+          "pMpJRjOhmRk",
+          "2Rxhls726RA",
+          "N2PFa-4Npyw",
+          "xPVfoMrkb2o",
+          "YkyjwgiI4dc",
+          "-XLpebeLuNA",
+          "Q_qwm87QmuA",
+          "pQgPW_7PlGI",
+          "mCqbB56wMYs",
+          "D7PP7poAH1A",
+          "D21RlqIxgpY",
+          "prV9PTNpXDo",
+          "iyMwR3iMLaU",
+          "t0UWXYHsTVE",
+          "NrcGDA8BgIE",
+          "7GxaByNN_R8",
+          "o_Yc1w25qSo",
+          "WxGUbLNjMxg",
+          "OJroT1VixNw"
+        ],
+        "top": [
+          {
+            "id": "g1ofVqxkN4E",
+            "title": "【一夜漬け専科　直前これだけ７２問】一級建築施工管理技士　お詫び　：　動画内で紹介しているPDF資料につきましては、諸事情により無料にはできませんでした。ご期待いただいた方へお詫びいたします。",
+            "views": 13000,
+            "durationSec": 7307
+          },
+          {
+            "id": "yTYA996g-Vw",
+            "title": "【経験記述　解答書式例】一級建築施工管理技士を　効率的にスキマ時間有効利用　でアウトプットを重視した独学講座",
+            "views": 12000,
+            "durationSec": 739
+          },
+          {
+            "id": "xUs23qsqSvk",
+            "title": "【一夜漬け　No1】一級建築施工管理技士を　効率的にスキマ時間有効利用　でアウトプットを重視した独学講座",
+            "views": 12000,
+            "durationSec": 5159
+          },
+          {
+            "id": "fH54lSLms5A",
+            "title": "【経験記述　問1－2完全攻略No1】一級建築施工管理技士を　効率的にスキマ時間有効利用　でアウトプットを重視した独学講座",
+            "views": 4900,
+            "durationSec": 676
+          },
+          {
+            "id": "YYMVMMpASH4",
+            "title": "【一夜漬け　No２】一級建築施工管理技士を　効率的にスキマ時間有効利用　でアウトプットを重視した独学講座",
+            "views": 3900,
+            "durationSec": 3611
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCoJyWQcKEv4ZM9rAPyObi5g",
+      "label": "資格に挑戦 えーちゃんねる",
+      "exams": [
+        "assistant-surveyor"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "資格に挑戦 えーちゃんねる",
+        "subscriberCount": 4000
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 430899,
+        "medianViews": 766,
+        "medianDurationSec": 535
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 20,
+            "medianViews": 475
+          },
+          {
+            "key": "5to15",
+            "videos": 56,
+            "medianViews": 845
+          },
+          {
+            "key": "15to30",
+            "videos": 23,
+            "medianViews": 4800
+          },
+          {
+            "key": "30to60",
+            "videos": 1,
+            "medianViews": 21000
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 1,
+            "medianViews": 151
+          },
+          {
+            "word": "まとめ",
+            "videos": 1,
+            "medianViews": 151
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 1,
+            "medianViews": 1800
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "YzZy-lP_Tx8",
+          "ydDeJRkwCPQ",
+          "xDnSfCI5daM",
+          "nTxt3Lh36po",
+          "bpXHUATYnZU",
+          "ykdm26nnNSI",
+          "U4Ig6ypVvpI",
+          "6ijmBKhgv3Y",
+          "u4YoBoF7wCA",
+          "SXaw86h5Vog",
+          "ZwkENRycsvA",
+          "0wWaJ_UG25I",
+          "aP1MsDoP4tM",
+          "p4-chUZZcqo",
+          "UZPJGDAip7M",
+          "SejJTsQ2CdM",
+          "6683LVxGKQw",
+          "iW5LUXmbINI",
+          "xjA5J19m7mE",
+          "l6MvELpKxIs",
+          "qsdlFU1rJ1o",
+          "M__h7423HZw",
+          "vD8P-Yzg07k",
+          "1a2xX6WWQCo",
+          "kzvAzIh57IQ",
+          "UlY54Hplh6g",
+          "QB3He--F8Zo",
+          "bNPCzTS8dCA",
+          "weoQCh1kOsQ",
+          "QgHkYFBcfdA"
+        ],
+        "top": [
+          {
+            "id": "5lSjzQd5gnY",
+            "title": "【知らないと損】電気工事士から“派生する資格”6選｜年収・仕事の幅が激変する　#電気工事士",
+            "views": 141000,
+            "durationSec": 593
+          },
+          {
+            "id": "ee_vpRU1gO4",
+            "title": "【第二種電気工事士】相性の良い資格7選！",
+            "views": 60000,
+            "durationSec": 1306
+          },
+          {
+            "id": "nTxt3Lh36po",
+            "title": "【1ヶ月で取れる資格7選】忙しい社会人でも狙える資格を徹底解説！",
+            "views": 21000,
+            "durationSec": 1901
+          },
+          {
+            "id": "A_TDzIh7yF0",
+            "title": "【宅地建物取引士】宅建士から“派生する資格”6選　年収・仕事の幅が激変する！",
+            "views": 19000,
+            "durationSec": 1409
+          },
+          {
+            "id": "LOc13nX4qbo",
+            "title": "【第二種電気工事士】コスパ最強！受験のススメ！",
+            "views": 14000,
+            "durationSec": 1426
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UC55tCoiZG_e5jlUrxR7bEKg",
+      "label": "誠文堂新光社",
+      "exams": [
+        "concrete-engineer"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "誠文堂新光社",
+        "subscriberCount": 12700
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 77421,
+        "medianViews": 437,
+        "medianDurationSec": 16
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 97,
+            "medianViews": 449
+          },
+          {
+            "key": "5to15",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "15to30",
+            "videos": 1,
+            "medianViews": 240
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 2,
+            "medianViews": 201
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 1,
+            "medianViews": 52
+          }
+        ],
+        "recentIds": [
+          "pEGGkdTdNOQ",
+          "FW0ZsSF0bJo",
+          "vrQIxwm0-d0",
+          "rdnIlYrIWHo",
+          "fLcOBASBgBs",
+          "gHyx1_RegP0",
+          "_D_OBmrGh1I",
+          "EQ0uv6ZnXMI",
+          "c6Xatn7alAA",
+          "BWuxCoqTLJg",
+          "HDOxTVjv77I",
+          "wmr2ZSewtZU",
+          "Vy352hfDLZ0",
+          "R3RCTeXd5WI",
+          "p0HCAkIysdo",
+          "VqgT_K2lzNk",
+          "EbNOAh4tSOk",
+          "stlmFGot8XA",
+          "JcrjdCLkvGM",
+          "k2XrWfSdRwU",
+          "K7sDvc5hCxA",
+          "di2jAS-BcJg",
+          "KTeII7czUEM",
+          "w186WM2RJkQ",
+          "OyPxh47_0ck",
+          "IHsRFH_BJZQ",
+          "H-evEkBvCz0",
+          "_dXaBu3MTjE",
+          "hYe1sBbUm88",
+          "Di9Qx_bhGsU"
+        ],
+        "top": [
+          {
+            "id": "X7uJALwY6cc",
+            "title": "ピピピピ♪ピーチボーイ CM15sr",
+            "views": 13000,
+            "durationSec": 16
+          },
+          {
+            "id": "9phX8DEViG0",
+            "title": "四つだたみ編みをマスターする クラフトバンドのバッグとかご 15秒CM",
+            "views": 11000,
+            "durationSec": 16
+          },
+          {
+            "id": "D2reMXrP__k",
+            "title": "小さなダーニング刺繍 15秒CM",
+            "views": 6200,
+            "durationSec": 16
+          },
+          {
+            "id": "aVMQEjG70RE",
+            "title": "泌尿器科医ママが伝えたい おちんちんの教科書 15秒CM",
+            "views": 3700,
+            "durationSec": 16
+          },
+          {
+            "id": "gNbzPK2BLt8",
+            "title": "刺し子ステッチで楽しむ服と小物 15秒CM",
+            "views": 2100,
+            "durationSec": 16
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCLAEcShfmfzHXkj2iIxYTdw",
+      "label": "建格Note",
+      "exams": [
+        "electrical-work-2"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "建格Note",
+        "subscriberCount": 1700
+      },
+      "counts": {
+        "sampled": 48,
+        "withViews": 48,
+        "totalViews": 181206,
+        "medianViews": 3450,
+        "medianDurationSec": 202
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 40,
+            "medianViews": 3000
+          },
+          {
+            "key": "5to15",
+            "videos": 8,
+            "medianViews": 4950
+          },
+          {
+            "key": "15to30",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 1,
+            "medianViews": 1100
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 17,
+            "medianViews": 3500
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "XGYd0VSboTo",
+          "cxNWx4MHPw8",
+          "s20jcYm1sPY",
+          "oZgBuu4mUzc",
+          "Marj_NIzShM",
+          "TwemShqoRMI",
+          "laZihteZydQ",
+          "tukSd_EZgLQ",
+          "asliNbdLt-w",
+          "g9DXyN9v9-0",
+          "S2kJTjdAGWo",
+          "g9_zpdkUDGg",
+          "f2AO6GgQpiU",
+          "qXrQoyYmFvI",
+          "54xLxtN8_ro",
+          "k8b4VunK2p8",
+          "UogKMM71ZqA",
+          "bwNvbi_6_6c",
+          "4xPHTDkJauM",
+          "VGwjmt_6UX8",
+          "TrvQEuJHhfY",
+          "NcilrniFYec",
+          "GN2iwhTo20Q",
+          "tyliKft3duM",
+          "cDTI8TTdVI8",
+          "k2NF7bK1ees",
+          "sWTvsi4P_NI",
+          "usLzXc7t5uE",
+          "camZYtywyI4",
+          "ruBYWfnk5hI"
+        ],
+        "top": [
+          {
+            "id": "cDTI8TTdVI8",
+            "title": "2級電気工事施工管理技士（2024年/1次検定）最短合格の勉強法",
+            "views": 10000,
+            "durationSec": 258
+          },
+          {
+            "id": "NcilrniFYec",
+            "title": "1級電気工事施工管理技士（2024年/1次検定）最短合格の勉強法",
+            "views": 9900,
+            "durationSec": 258
+          },
+          {
+            "id": "VGwjmt_6UX8",
+            "title": "1級電気工事施工管理技士（2024年/1次検定）R6直前対策_勉強法と予想問題",
+            "views": 8700,
+            "durationSec": 379
+          },
+          {
+            "id": "f2AO6GgQpiU",
+            "title": "1級電気工事施工管理技士（2025年1次検定）最短合格の勉強法",
+            "views": 8500,
+            "durationSec": 227
+          },
+          {
+            "id": "S2kJTjdAGWo",
+            "title": "1級電気工事施工管理技士（2025年1次検定）R7年度出題予想",
+            "views": 8100,
+            "durationSec": 186
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCSyAuJvpCX8h-7NKKarGegQ",
+      "label": "しのの土木・建築トピックス授業",
+      "exams": [
+        "concrete-chief-engineer"
+      ],
+      "note": "市場スキャン（npm run scan-qualification-market）で検出。対象資格はタイトル条件つき 1 万再生以上の動画がある資格",
+      "profile": {
+        "title": "しのの土木・建築トピックス授業",
+        "subscriberCount": 3090
+      },
+      "counts": {
+        "sampled": 72,
+        "withViews": 72,
+        "totalViews": 612081,
+        "medianViews": 7500,
+        "medianDurationSec": 676
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 4,
+            "medianViews": 148
+          },
+          {
+            "key": "5to15",
+            "videos": 48,
+            "medianViews": 7000
+          },
+          {
+            "key": "15to30",
+            "videos": 20,
+            "medianViews": 9900
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "QnVuXPfd560",
+          "dQnCNEX7xsI",
+          "0Dk4EyK2O4w",
+          "fnzLGglwvXM",
+          "Jdvlwbgfaug",
+          "pyAsKyglxzw",
+          "PfE5LhIMITk",
+          "weJ11PeeCNU",
+          "Joqpg3J-HQg",
+          "ktweVd-iN8Y",
+          "X3qFtZFsH6o",
+          "93KDyaQSL60",
+          "M1WrvpnRM-I",
+          "3E-4hgSdot0",
+          "CtZTIJsNfLI",
+          "T60B8lrn3Fo",
+          "SKGxB99UwfY",
+          "sivLGDdMz1M",
+          "vTLDzgwQPDQ",
+          "PMbNtLgKMXQ",
+          "px1zMrGX1UE",
+          "42iht74dhGA",
+          "qC7Idd_xqQM",
+          "JSe1oVfBeYI",
+          "FrS0VIbpY_Q",
+          "LTYKQW1_tZc",
+          "38INGfy0Ybc",
+          "uthwoEpEQK8",
+          "fyMbAgJCSys",
+          "oarNW17T1_k"
+        ],
+        "top": [
+          {
+            "id": "wFkYl7kFfUI",
+            "title": "【コンクリート】材料①(セメント)【コンクリート技士】",
+            "views": 42000,
+            "durationSec": 877
+          },
+          {
+            "id": "uGh9P_lzGYs",
+            "title": "【コンクリート】材料③(骨材その１)【コンクリート技士】",
+            "views": 26000,
+            "durationSec": 1600
+          },
+          {
+            "id": "qaI0-Vi4hes",
+            "title": "【コンクリート】配合計算・調合計算【コンクリート技士】",
+            "views": 21000,
+            "durationSec": 1255
+          },
+          {
+            "id": "dzC9Ct9WNa4",
+            "title": "【コンクリート】配合表と配合設計の基本【コンクリート技士】",
+            "views": 21000,
+            "durationSec": 1525
+          },
+          {
+            "id": "HXcKjE69oR4",
+            "title": "【コンクリート】耐久性③（アルカリシリカ反応）【コンクリート技士】",
+            "views": 19000,
+            "durationSec": 866
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCTUSxfs6ZpBTuDcf9gciglA",
+      "label": "4部門技術士ぺんたの「技術士合格セオリー」",
+      "exams": [
+        "pe-construction",
+        "pe-first-stage"
+      ],
+      "note": "08a で ID を訂正済み（旧 UCMQmkBuumbc7mBHhF14c6Yw は無関係の音楽ゲームチャンネル）",
+      "profile": {
+        "title": "4部門技術士ぺんたの「技術士合格セオリー」",
+        "subscriberCount": 5080
+      },
+      "counts": {
+        "sampled": 42,
+        "withViews": 42,
+        "totalViews": 308706,
+        "medianViews": 6150,
+        "medianDurationSec": 813
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 24,
+            "medianViews": 3550
+          },
+          {
+            "key": "15to30",
+            "videos": 17,
+            "medianViews": 9900
+          },
+          {
+            "key": "30to60",
+            "videos": 1,
+            "medianViews": 4800
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "oINyM5XzRzw",
+          "V91LycBEA4g",
+          "5kgdzTGbiZQ",
+          "hQCu6-7EJug",
+          "uJX9Xyofljg",
+          "DmxIV_t6a9k",
+          "bWilnGxAUMg",
+          "4t1cEVlRn9M",
+          "uVM_GvcW3gE",
+          "UsPioylavIA",
+          "It3oeQjWkbY",
+          "EXFwFVFDlpU",
+          "79vCoCqfXjk",
+          "g2WdYkfDdSk",
+          "dannZQqtAa0",
+          "t5lJxIGQLI4",
+          "SludRIl0AKE",
+          "Mtp8L6xLAA8",
+          "aybg-BwOnrI",
+          "KItv8Z5FnfY",
+          "fTHfLPZtW1U",
+          "i272xBrO9ns",
+          "dJOa5406RzE",
+          "BCf-hD8Sz6Y",
+          "YKrvSqjj0B0",
+          "YNg6ANAuDz8",
+          "L1xaL9fAmZs",
+          "gOAXFvL4IIo",
+          "Xs_HuVv7nqI",
+          "Vsl41iE6FcU"
+        ],
+        "top": [
+          {
+            "id": "LVwDxj9IU9M",
+            "title": "【技術士二次試験】キーワード学習方法ー効率的な分析法とは？",
+            "views": 29000,
+            "durationSec": 711
+          },
+          {
+            "id": "Xs_HuVv7nqI",
+            "title": "【技術士】必見！合格するための効率的な勉強方法とは?!",
+            "views": 28000,
+            "durationSec": 733
+          },
+          {
+            "id": "Vsl41iE6FcU",
+            "title": "【技術士】DXの傾向とは？具体的な解決策も紹介！",
+            "views": 17000,
+            "durationSec": 1405
+          },
+          {
+            "id": "MfebgczzYzg",
+            "title": "【技術士】必須Ⅰの傾向とA判定を取るための対策とは？！",
+            "views": 15000,
+            "durationSec": 1245
+          },
+          {
+            "id": "i272xBrO9ns",
+            "title": "【出題解答例】技術士・令和5年度【全部門の頻出キーワード】建設部門の必須科目Ⅰ",
+            "views": 13000,
+            "durationSec": 1377
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCrbmFXXZvrb1a-nbQm-MOig",
+      "label": "匠習作（技術士Lock-On）",
+      "exams": [
+        "pe-construction",
+        "pe-comprehensive-management"
+      ],
+      "note": "05a・08a。通信講座 技術士Lock-On へ誘導（note fine_takumi296 と同一主体）",
+      "profile": {
+        "title": "匠習作",
+        "subscriberCount": 3680
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 75434,
+        "medianViews": 722,
+        "medianDurationSec": 753
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 1,
+            "medianViews": 511
+          },
+          {
+            "key": "5to15",
+            "videos": 76,
+            "medianViews": 722
+          },
+          {
+            "key": "15to30",
+            "videos": 23,
+            "medianViews": 733
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 1,
+            "medianViews": 860
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 3,
+            "medianViews": 907
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "Dl-6dSnuSzo",
+          "oEAddq5MuPk",
+          "ZJ-NMoonxmc",
+          "pF1oD994jA4",
+          "DyUEy3mrYlY",
+          "pd3Q9OnGCkw",
+          "4Fvx7AD6MB8",
+          "12ZizFEXFe4",
+          "RmSSLFke0Mk",
+          "snj5dfLVT4Y",
+          "c68i4i35fJ8",
+          "var_7qiQbIo",
+          "heyOqR10bW0",
+          "eytEiDB3MXo",
+          "_cyBsG8eaIQ",
+          "ptnd6aylEsc",
+          "E6FCt1plh9o",
+          "OSPaPrrKgDI",
+          "6cZ_sLSE2-g",
+          "WZbg07lJsJ8",
+          "R2lxnyIKkkk",
+          "ODLqWpKw6Sg",
+          "px16ZlF_s3w",
+          "uqVkrITa1KY",
+          "zDHSrfUl6Yc",
+          "1x7cqJwPOsc",
+          "LLVZbDXVCRM",
+          "QafdpWCIiJc",
+          "7DCDC8t5mZU",
+          "oEnw1TeizhM"
+        ],
+        "top": [
+          {
+            "id": "PPz-xSj2T-Q",
+            "title": "【技術士二次試験】できることを確実に進めてください。終わってしまった試験のことを悩んでも仕方がありません。",
+            "views": 1500,
+            "durationSec": 625
+          },
+          {
+            "id": "uqVkrITa1KY",
+            "title": "【技術士二次試験】模擬口頭試験について、お問い合わせにお答えします。",
+            "views": 1200,
+            "durationSec": 1071
+          },
+          {
+            "id": "DsThhfVnQGU",
+            "title": "【技術士二次試験】Ⅱ－１の解答で注意すべきこと。知っていることを書くのではない。理解していることを見せるのがポイント。",
+            "views": 1200,
+            "durationSec": 875
+          },
+          {
+            "id": "px16ZlF_s3w",
+            "title": "【技術士二次試験】総合技術監理部門対策のための参考書を御紹介します。この手の本を読むのはまさに今です。本格的に試験対策を始める前に読んでおきましょう！",
+            "views": 1100,
+            "durationSec": 981
+          },
+          {
+            "id": "oz6ZB-8n8QA",
+            "title": "【技術士二次試験】受験した方の点数を公開します。受かっても受からなくても基本的にギリギリの方が多いです。",
+            "views": 1100,
+            "durationSec": 1024
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCaX_vHnFzw4iVOhTjvPtP5A",
+      "label": "技術士二次試験ラボ［建設部門］（BONTA）",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "08a（登録者数は scan-qualification-market が取る）",
+      "profile": {
+        "title": "技術士二次試験ラボ　　　　［建設部門］",
+        "subscriberCount": 4430
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 276898,
+        "medianViews": 1650,
+        "medianDurationSec": 721
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 5,
+            "medianViews": 430
+          },
+          {
+            "key": "5to15",
+            "videos": 62,
+            "medianViews": 1900
+          },
+          {
+            "key": "15to30",
+            "videos": 33,
+            "medianViews": 1000
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 1,
+            "medianViews": 4500
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 11,
+            "medianViews": 5800
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "djUxLqpu9bo",
+          "OFCPuLXl2D8",
+          "FI7x1mNWtj8",
+          "9LtU8ySBqAY",
+          "gV9bvxQ7MuI",
+          "efwrPJmbYLA",
+          "eJtI-c8SJTQ",
+          "4wwUE7XWokM",
+          "ElW-nJnjdss",
+          "jl72UGt3uPA",
+          "NsErxOKtHuY",
+          "BFJYdGCVZNk",
+          "15iUsS-lV3M",
+          "BR9V6Iv63ds",
+          "M-VtdcCXhOE",
+          "RTn3wlyBHN4",
+          "q3x1gDbAGYY",
+          "LD4KOi-xecc",
+          "2pN_V9at8eQ",
+          "-4sLiz9tGso",
+          "DD-SMjV17xc",
+          "72OuYAvWb_g",
+          "gXxIFJL6A0o",
+          "Ut1Uwq7ddQg",
+          "Lna0J-oUV-U",
+          "n3cHZ9YamXk",
+          "xA_nNfGcQkU",
+          "CmJMvEj8vFY",
+          "KKMIoNcOVVI",
+          "z94vatjjG5Y"
+        ],
+        "top": [
+          {
+            "id": "Sw1JjKGphAg",
+            "title": "【技術士二次試験 建設部門 筆記試験】2024年問題と働き方改革の論文対策｜国交省の重要施策と出題可能性を徹底解説",
+            "views": 9700,
+            "durationSec": 810
+          },
+          {
+            "id": "WeLnnRkVWVQ",
+            "title": "【技術士二次試験 建設部門 筆記試験】建設業のデジタル化の論文対策｜様々な場面で使える重要ポイントを徹底解説",
+            "views": 9400,
+            "durationSec": 906
+          },
+          {
+            "id": "25fQw9Bttqg",
+            "title": "【技術士二次試験 建設部門 筆記試験】担い手確保の現状と解決策｜論文対策で合格する書き方のポイントを徹底解説【2026年度 必須問題対策】",
+            "views": 9400,
+            "durationSec": 544
+          },
+          {
+            "id": "_tww4H_LsVA",
+            "title": "【技術士二次試験 建設部門 筆記試験】建設DXの論文対策｜建設業の課題を解決する重要施策を徹底解説【必須テーマ】",
+            "views": 8900,
+            "durationSec": 853
+          },
+          {
+            "id": "YLz2gLWpFPE",
+            "title": "【技術士二次試験 建設部門 筆記試験】令和7年度の必須Ⅰ出題予想｜過去6年間の国土交通白書と問題傾向を徹底分析【2025年対策】",
+            "views": 8300,
+            "durationSec": 875
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCZk6KCoGs-7OKrLvv6CG0dA",
+      "label": "技術士ライトハウス",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "05a・08a",
+      "profile": {
+        "title": "*技術士ライトハウス",
+        "subscriberCount": 3380
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 83191,
+        "medianViews": 702,
+        "medianDurationSec": 1172
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "5to15",
+            "videos": 10,
+            "medianViews": 604
+          },
+          {
+            "key": "15to30",
+            "videos": 90,
+            "medianViews": 715
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 1,
+            "medianViews": 396
+          },
+          {
+            "word": "まとめ",
+            "videos": 1,
+            "medianViews": 396
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 1,
+            "medianViews": 935
+          },
+          {
+            "word": "模擬",
+            "videos": 1,
+            "medianViews": 579
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "frIuxoWKgJk",
+          "tKuQiPjwN_A",
+          "l6TVZ-RRZww",
+          "cwQWe6dvnPU",
+          "faNaEO9slEM",
+          "X267nDUgLrQ",
+          "pN_sDgaYP5c",
+          "lzJ9w5LZ0I4",
+          "E3FD5ZL7imY",
+          "W944q1VxVj4",
+          "JQZ3gIr3ZyM",
+          "a1f7BKgf0xE",
+          "E-mYN8BDLmo",
+          "haa3GveZMUI",
+          "KeS0zr6m9XM",
+          "Qed8Za0JZeg",
+          "XEKRfJoPvD4",
+          "JhXvRkBzOe8",
+          "sR-a9ZimI-E",
+          "xBumFOvT0E4",
+          "1xe8c9dQgeQ",
+          "oZLszDwdMQA",
+          "0m5hxQBldLg",
+          "6f89LNhcT60",
+          "GbNh733gWWw",
+          "QLN1sfH8IDI",
+          "YnDDCyW48Zk",
+          "4I36F8Hd1IM",
+          "6aPfWo_lv5Y",
+          "NXVd_CmNDak"
+        ],
+        "top": [
+          {
+            "id": "wYYDNn3SdBQ",
+            "title": "必須Ⅰ、選択Ⅲの設問1の攻略法｜技術士第二次試験 筆記試験 戦略的アプローチ（一般部門）",
+            "views": 2700,
+            "durationSec": 1162
+          },
+          {
+            "id": "YgmuI1I4-AM",
+            "title": "口頭模試試験官がお送りする口頭試験に余裕で合格できる人、苦労する人とは？｜全21部門",
+            "views": 2200,
+            "durationSec": 1135
+          },
+          {
+            "id": "KOLVczTpSIQ",
+            "title": "埼玉県八潮市で発生した道路陥没事故に学ぶ｜コンピテンシーと５管理の観点からの一考察｜技術士第二次試験　全21部門",
+            "views": 2000,
+            "durationSec": 1144
+          },
+          {
+            "id": "29z-hMRY9CM",
+            "title": "必須Ⅰ、選択Ⅲの設問2の攻略法｜技術士第二次試験 筆記試験 戦略的アプローチ（一般部門）",
+            "views": 1900,
+            "durationSec": 1390
+          },
+          {
+            "id": "Eo2jVvbJLYM",
+            "title": "選択Ⅱー２　設問２の攻略法｜技術士第二次試験 筆記試験 戦略的アプローチ（一般部門）",
+            "views": 1700,
+            "durationSec": 1298
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCL3G4QfUyLD7DKdLA6l6X_Q",
+      "label": "技術士の学校（School of PE）",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "08a（登録者数は scan-qualification-market が取る）",
+      "profile": {
+        "title": "技術士の学校",
+        "subscriberCount": 935
+      },
+      "counts": {
+        "sampled": 20,
+        "withViews": 20,
+        "totalViews": 42908,
+        "medianViews": 1700,
+        "medianDurationSec": 531
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 4,
+            "medianViews": 1500
+          },
+          {
+            "key": "5to15",
+            "videos": 12,
+            "medianViews": 1500
+          },
+          {
+            "key": "15to30",
+            "videos": 4,
+            "medianViews": 2550
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "9-ILlvoyKJI",
+          "lqC5pJF0bYM",
+          "u2rW39tJ-5I",
+          "JWVPmpi19Hc",
+          "9v7vSLusnpI",
+          "FMowbqYWO7A",
+          "gty9FS1qwGw",
+          "aC9_YO92HD0",
+          "o4VQvq1BJ4s",
+          "ifugX2ei9nM",
+          "x9CWwNRJ7pE",
+          "mfyzK-Gz520",
+          "LnHDY9vdyNk",
+          "dYzzSVtFhRs",
+          "Ie07E3H5QfA",
+          "bYLacwFsxXc",
+          "UIGoQnPv4b4",
+          "BtWnQTHRuKk",
+          "GkTPCg3NWTc",
+          "AJzRJLqM1qU"
+        ],
+        "top": [
+          {
+            "id": "AJzRJLqM1qU",
+            "title": "技術士第二次試験  一瞬でわかる！合格する論文構成の考え方",
+            "views": 6100,
+            "durationSec": 215
+          },
+          {
+            "id": "9-ILlvoyKJI",
+            "title": "建設部門Ⅰ必須科目（令和8年度）　出題傾向と重要テーマ",
+            "views": 4400,
+            "durationSec": 697
+          },
+          {
+            "id": "bYLacwFsxXc",
+            "title": "技術士第二次試験  建設環境 Ⅱ選択科目対策 環境影響評価（環境アセスメント）2020【一部公開】",
+            "views": 3600,
+            "durationSec": 1108
+          },
+          {
+            "id": "FMowbqYWO7A",
+            "title": "【技術士の学校】合格の最短ルート！筆記試験のキーワード学習動画（サンプル）",
+            "views": 3400,
+            "durationSec": 461
+          },
+          {
+            "id": "gty9FS1qwGw",
+            "title": "【技術士の学校】筆記試験80%近い高得点の答案の例！高得点再現答案集 建設部門 Ⅰ必須科目（サンプル）",
+            "views": 3400,
+            "durationSec": 406
+          }
+        ]
+      }
+    },
+    {
+      "handle": "UCMY7e9Ri9Vh_syU8b7kuMdA",
+      "label": "技術士 総監約3〜10分チャンネル",
+      "exams": [
+        "pe-comprehensive-management"
+      ],
+      "note": "05a（総監特化）",
+      "profile": {
+        "title": "技術士 総監約3〜10分チャンネル",
+        "subscriberCount": 954
+      },
+      "counts": {
+        "sampled": 100,
+        "withViews": 100,
+        "totalViews": 127148,
+        "medianViews": 1100,
+        "medianDurationSec": 319
+      },
+      "cadence": null,
+      "platformExtra": {
+        "lengthBuckets": [
+          {
+            "key": "under5",
+            "videos": 27,
+            "medianViews": 932
+          },
+          {
+            "key": "5to15",
+            "videos": 72,
+            "medianViews": 1200
+          },
+          {
+            "key": "15to30",
+            "videos": 1,
+            "medianViews": 2400
+          },
+          {
+            "key": "30to60",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "key": "over60",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "titleSignals": [
+          {
+            "word": "聞き流し",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "一問一答",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "総まとめ",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "まとめ",
+            "videos": 1,
+            "medianViews": 1000
+          },
+          {
+            "word": "過去問",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "経験記述",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "解答速報",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "予想",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "模擬",
+            "videos": 0,
+            "medianViews": null
+          },
+          {
+            "word": "図解",
+            "videos": 0,
+            "medianViews": null
+          }
+        ],
+        "recentIds": [
+          "IlGpc-ep95s",
+          "Z6qxoFKnmTo",
+          "fnff4UyzIRM",
+          "bbeG1tRRnQk",
+          "WwD-5q8IKWA",
+          "iRUnnrBEB3I",
+          "q3dm9RrlvoQ",
+          "PcSp78UIUrQ",
+          "HjHhaPxfDKk",
+          "vkhOyuawY2A",
+          "IFf7mvSbxZg",
+          "pTxbSovaR9w",
+          "HubaSX2zksM",
+          "x9dnl1iRqq0",
+          "9vR4D-jb8og",
+          "-2UXQUGWWTI",
+          "_RP6U35sR8Y",
+          "toY8EmQAuZ8",
+          "eKrFs5DMejI",
+          "U3LDTztAkjo",
+          "ZlxZfpuVl8U",
+          "6CNu9SGkAH4",
+          "h-Nmmu4czOw",
+          "VSaQMWmuAGw",
+          "i3ETDwFhMME",
+          "xT_rO6Pd2NA",
+          "rc86KKGDimk",
+          "8AcRnMwd1Sg",
+          "pH-2rf8ttlw",
+          "6tI4vu3YavM"
+        ],
+        "top": [
+          {
+            "id": "Z6qxoFKnmTo",
+            "title": "174 令和３年度記述式問題の解き方",
+            "views": 2600,
+            "durationSec": 879
+          },
+          {
+            "id": "xT_rO6Pd2NA",
+            "title": "150  ファイナルチェック 社会環境管理",
+            "views": 2600,
+            "durationSec": 534
+          },
+          {
+            "id": "HjHhaPxfDKk",
+            "title": "167 択一高得点を目指そう！「 キーワード集2011」の重要性",
+            "views": 2500,
+            "durationSec": 357
+          },
+          {
+            "id": "HubaSX2zksM",
+            "title": "163 筆記試験に再挑戦する方々へ（その１択一編）",
+            "views": 2500,
+            "durationSec": 610
+          },
+          {
+            "id": "bbeG1tRRnQk",
+            "title": "172 令和2年度記述試験からみた傾向分析",
+            "views": 2400,
+            "durationSec": 929
+          }
+        ]
+      }
+    }
+  ]
+}
