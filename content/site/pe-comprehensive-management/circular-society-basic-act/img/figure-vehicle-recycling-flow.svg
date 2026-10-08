@@ -1,0 +1,114 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="自動車リサイクル法の流れ。使用済自動車は引取業者から破砕業者へ進み、3品目が自動車製造業者等に渡る。料金は資金管理法人に預託され、引取り後に払い出される。各事業者とメーカーは引取りや引渡しを情報管理センターへ移動報告する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }  /* brand text */
+      .t-sub   { font-size: 11px; fill: #555; }                        /* ink-body */
+      .t-subb  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* brand text */
+      .t-lab   { font-size: 11px; fill: #555; }                        /* ink-body */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .ln-flow  { fill: none; stroke: #2e6da4; stroke-width: 2; }                          /* 物の流れ */
+      .ln-money { fill: none; stroke: #d4a017; stroke-width: 2; stroke-dasharray: 6 4; }   /* お金の流れ */
+      .ln-info  { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 2 3; } /* 報告の記録 */
+      .divider  { stroke: #3a7d44; stroke-width: 1; }
+    </style>
+    <marker id="ar-flow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="ar-money" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#d4a017"/>
+    </marker>
+    <marker id="ar-info" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- legend -->
+  <line class="ln-flow" x1="14" y1="12" x2="38" y2="12" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="44" y="16">物の流れ</text>
+  <line class="ln-money" x1="104" y1="12" x2="128" y2="12" marker-end="url(#ar-money)"/>
+  <text class="t-lab" x="134" y="16">お金の流れ</text>
+  <line class="ln-info" x1="206" y1="12" x2="230" y2="12" marker-end="url(#ar-info)"/>
+  <text class="t-lab" x="236" y="16">移動報告</text>
+
+  <!-- left column: 物の流れ -->
+  <rect class="box-surface" x="36" y="30" width="150" height="50" rx="6"/>
+  <text class="t-title" x="111" y="52" text-anchor="middle">所有者</text>
+  <text class="t-sub" x="111" y="70" text-anchor="middle">料金を預け、車を渡す</text>
+
+  <rect class="box-brand" x="36" y="108" width="150" height="50" rx="6"/>
+  <text class="t-title" x="111" y="130" text-anchor="middle">引取業者</text>
+  <text class="t-sub" x="111" y="148" text-anchor="middle">登録制｜車を引き取る</text>
+
+  <rect class="box-brand" x="36" y="186" width="150" height="50" rx="6"/>
+  <text class="t-title" x="111" y="208" text-anchor="middle">フロン類回収業者</text>
+  <text class="t-sub" x="111" y="226" text-anchor="middle">登録制｜フロン類を回収</text>
+
+  <rect class="box-brand" x="36" y="264" width="150" height="50" rx="6"/>
+  <text class="t-title" x="111" y="286" text-anchor="middle">解体業者</text>
+  <text class="t-sub" x="111" y="304" text-anchor="middle">許可制｜エアバッグ回収</text>
+
+  <rect class="box-brand" x="36" y="342" width="150" height="50" rx="6"/>
+  <text class="t-title" x="111" y="364" text-anchor="middle">破砕業者</text>
+  <text class="t-sub" x="111" y="382" text-anchor="middle">許可制｜破砕・選別</text>
+
+  <!-- chain arrows -->
+  <line class="ln-flow" x1="111" y1="80" x2="111" y2="106" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="118" y="99">引渡し</text>
+  <line class="ln-flow" x1="111" y1="158" x2="111" y2="184" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="118" y="177">エアコンあり</text>
+  <line class="ln-flow" x1="111" y1="236" x2="111" y2="262" marker-end="url(#ar-flow)"/>
+  <line class="ln-flow" x1="111" y1="314" x2="111" y2="340" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="118" y="333">解体自動車</text>
+
+  <!-- bypass: エアコンなし -->
+  <path class="ln-flow" d="M36 133 H20 V289 H34" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="26" y="257">エアコンなし</text>
+
+  <!-- right column -->
+  <rect class="box-warn" x="266" y="30" width="122" height="50" rx="6"/>
+  <text class="t-title" x="327" y="52" text-anchor="middle">資金管理法人</text>
+  <text class="t-sub" x="327" y="70" text-anchor="middle">預託金を保管</text>
+
+  <rect class="box-positive" x="266" y="186" width="122" height="206" rx="6"/>
+  <text class="t-title" x="327" y="214" text-anchor="middle">自動車製造業者等</text>
+  <text class="t-sub" x="327" y="232" text-anchor="middle">メーカー・輸入業者</text>
+  <line class="divider" x1="278" y1="268" x2="376" y2="268"/>
+  <text class="t-subb" x="327" y="296" text-anchor="middle">引取り後の扱い</text>
+  <text class="t-sub" x="327" y="316" text-anchor="middle">フロン類＝破壊</text>
+  <text class="t-sub" x="327" y="334" text-anchor="middle">他は再資源化</text>
+
+  <!-- 預託 -->
+  <line class="ln-money" x1="188" y1="55" x2="264" y2="55" marker-end="url(#ar-money)"/>
+  <text class="t-lab" x="226" y="49" text-anchor="middle">料金を預託</text>
+
+  <!-- 払渡し -->
+  <line class="ln-money" x1="327" y1="82" x2="327" y2="184" marker-end="url(#ar-money)"/>
+  <text class="t-lab" x="321" y="140" text-anchor="end">引取り後に払渡し</text>
+
+  <!-- 3品目 -->
+  <line class="ln-flow" x1="188" y1="200" x2="264" y2="200" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="227" y="196" text-anchor="middle">フロン類</text>
+  <line class="ln-flow" x1="188" y1="278" x2="264" y2="278" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="227" y="274" text-anchor="middle">エアバッグ類</text>
+  <line class="ln-flow" x1="188" y1="367" x2="264" y2="367" marker-end="url(#ar-flow)"/>
+  <text class="t-lab" x="227" y="363" text-anchor="middle">破砕残さ</text>
+
+  <!-- 回収料金 -->
+  <line class="ln-money" x1="264" y1="224" x2="190" y2="224" marker-end="url(#ar-money)"/>
+  <text class="t-lab" x="227" y="220" text-anchor="middle">回収料金</text>
+  <line class="ln-money" x1="264" y1="302" x2="190" y2="302" marker-end="url(#ar-money)"/>
+  <text class="t-lab" x="227" y="298" text-anchor="middle">回収料金</text>
+
+  <!-- 情報管理センター -->
+  <line class="ln-info" x1="111" y1="394" x2="111" y2="422" marker-end="url(#ar-info)"/>
+  <text class="t-lab" x="118" y="414">各事業者が報告</text>
+  <line class="ln-info" x1="327" y1="394" x2="327" y2="422" marker-end="url(#ar-info)"/>
+  <text class="t-lab" x="321" y="414" text-anchor="end">引取りを報告</text>
+  <rect class="box-surface" x="36" y="424" width="352" height="56" rx="6"/>
+  <text class="t-title" x="212" y="446" text-anchor="middle">情報管理センター</text>
+  <text class="t-sub" x="212" y="466" text-anchor="middle">各事業者が引取り・引渡しのたびに車台番号で報告</text>
+</svg>

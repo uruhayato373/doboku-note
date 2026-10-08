@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="再生可能エネルギー・火力・原子力について、第7次エネルギー基本計画での位置づけ、条件、手立てを並べた比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-name  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }  /* brand text */
+      .t-mix   { font-size: 12px; fill: #555; }                        /* ink-body */
+      .t-axis  { font-size: 11px; font-weight: bold; fill: #555; }     /* ink-body */
+      .t-text  { font-size: 13px; fill: #222; }                        /* ink-strong */
+      .t-foot  { font-size: 12px; fill: #555; }                        /* ink-body */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .line-positive { stroke: #3a7d44; stroke-width: 1; }
+      .line-warn     { stroke: #d4a017; stroke-width: 1; }
+      .line-brand    { stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ===== 再生可能エネルギー ===== -->
+  <rect class="box-positive" x="20" y="12" width="360" height="146" rx="8"/>
+  <text class="t-name" x="34" y="36">再生可能エネルギー</text>
+  <text class="t-mix" x="366" y="35" text-anchor="end">2040年度 4～5割程度</text>
+  <line class="line-positive" x1="34" y1="46" x2="366" y2="46"/>
+  <text class="t-axis" x="34" y="72">位置づけ</text>
+  <text class="t-text" x="92" y="72">主力電源として最大限導入</text>
+  <text class="t-axis" x="34" y="107">条件</text>
+  <text class="t-text" x="92" y="107">地域との共生と国民負担の抑制</text>
+  <text class="t-axis" x="34" y="142">手立て</text>
+  <text class="t-text" x="92" y="142">FIP・入札、連系線整備、蓄電池</text>
+
+  <!-- ===== 火力 ===== -->
+  <rect class="box-warn" x="20" y="168" width="360" height="146" rx="8"/>
+  <text class="t-name" x="34" y="192">火力</text>
+  <text class="t-mix" x="366" y="191" text-anchor="end">2040年度 3～4割程度</text>
+  <line class="line-warn" x1="34" y1="202" x2="366" y2="202"/>
+  <text class="t-axis" x="34" y="228">位置づけ</text>
+  <text class="t-text" x="92" y="228">容量（kW）を維持し調整力を担う</text>
+  <text class="t-axis" x="34" y="263">条件</text>
+  <text class="t-text" x="92" y="263">非効率石炭は発電量（kWh）を減らす</text>
+  <text class="t-axis" x="34" y="298">手立て</text>
+  <text class="t-text" x="92" y="298">LNG移行、水素・アンモニア、CCUS</text>
+
+  <!-- ===== 原子力 ===== -->
+  <rect class="box-brand" x="20" y="324" width="360" height="146" rx="8"/>
+  <text class="t-name" x="34" y="348">原子力</text>
+  <text class="t-mix" x="366" y="347" text-anchor="end">2040年度 2割程度</text>
+  <line class="line-brand" x1="34" y1="358" x2="366" y2="358"/>
+  <text class="t-axis" x="34" y="384">位置づけ</text>
+  <text class="t-text" x="92" y="384">必要な規模を持続的に活用</text>
+  <text class="t-axis" x="34" y="419">条件</text>
+  <text class="t-text" x="92" y="419">安全性の確保を大前提に</text>
+  <text class="t-axis" x="34" y="454">手立て</text>
+  <text class="t-text" x="92" y="454">再稼働の加速、革新炉への建替え</text>
+
+  <!-- ===== 共通の前提 ===== -->
+  <text class="t-foot" x="200" y="490" text-anchor="middle">共通の前提：特定の電源や燃料源に過度に依存しない</text>
+</svg>

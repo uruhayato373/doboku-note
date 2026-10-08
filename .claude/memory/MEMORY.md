@@ -46,6 +46,7 @@
 - [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
 - [SSOT手書き禁止](feedback_ssot_no_hand_copies_self_verify.md) — 原文照合・仕様は実測
 - [SVG/画像生成の罠](feedback_svg_arrow_marker.md) — 矢印向き・再目視・auto-fit
+- [動画は音声前に画面確認](feedback_video_visual_check_before_audio.md) — 無音プレビュー・10秒シート
 - [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別

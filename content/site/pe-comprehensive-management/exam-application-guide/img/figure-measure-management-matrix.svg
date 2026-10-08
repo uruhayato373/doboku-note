@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img" aria-label="詳細欄に書く施策4つを行、5つの管理を列にした対応表。施策が属する管理と手当てした相手の管理を印で示し、印が1つだけの施策を黄色で強調した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }                    /* ink-muted */
+      .t-head  { font-size: 11px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-corner{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-row   { font-size: 12px; fill: #222; }                       /* ink-strong */
+      .t-leg   { font-size: 12px; fill: #222; }
+      .cell-head { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }  /* brand */
+      .cell      { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+      .cell-warn { fill: #fff3cd; stroke: #d7d7d7; stroke-width: 1; }  /* warn fill */
+      .mark-main { fill: #2e6da4; stroke: #2e6da4; stroke-width: 1.5; }
+      .mark-sub  { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <text class="t-sub" x="16" y="22">施策と5管理の対応表の例（架空・橋梁更新工事）</text>
+
+  <!-- header -->
+  <rect class="cell-head" x="16" y="34" width="100" height="54"/>
+  <text class="t-corner" x="66" y="66" text-anchor="middle">施策</text>
+  <rect class="cell-head" x="116" y="34" width="50" height="54"/>
+  <text class="t-head" x="141" y="57" text-anchor="middle">経済性</text>
+  <text class="t-head" x="141" y="73" text-anchor="middle">管理</text>
+  <rect class="cell-head" x="166" y="34" width="50" height="54"/>
+  <text class="t-head" x="191" y="57" text-anchor="middle">人的資源</text>
+  <text class="t-head" x="191" y="73" text-anchor="middle">管理</text>
+  <rect class="cell-head" x="216" y="34" width="50" height="54"/>
+  <text class="t-head" x="241" y="57" text-anchor="middle">情報</text>
+  <text class="t-head" x="241" y="73" text-anchor="middle">管理</text>
+  <rect class="cell-head" x="266" y="34" width="50" height="54"/>
+  <text class="t-head" x="291" y="57" text-anchor="middle">安全</text>
+  <text class="t-head" x="291" y="73" text-anchor="middle">管理</text>
+  <rect class="cell-head" x="316" y="34" width="50" height="54"/>
+  <text class="t-head" x="341" y="57" text-anchor="middle">社会環境</text>
+  <text class="t-head" x="341" y="73" text-anchor="middle">管理</text>
+
+  <!-- row 1 -->
+  <rect class="cell" x="16" y="88" width="100" height="66"/>
+  <text class="t-row" x="24" y="117">工区の分割と</text>
+  <text class="t-row" x="24" y="135">工程の組替え</text>
+  <rect class="cell" x="116" y="88" width="50" height="66"/>
+  <circle class="mark-main" cx="141" cy="121" r="9"/>
+  <rect class="cell" x="166" y="88" width="50" height="66"/>
+  <rect class="cell" x="216" y="88" width="50" height="66"/>
+  <rect class="cell" x="266" y="88" width="50" height="66"/>
+  <polygon class="mark-sub" points="291,111 301,121 291,131 281,121"/>
+  <rect class="cell" x="316" y="88" width="50" height="66"/>
+
+  <!-- row 2 -->
+  <rect class="cell" x="16" y="154" width="100" height="66"/>
+  <text class="t-row" x="24" y="183">交通規制の</text>
+  <text class="t-row" x="24" y="201">周知と窓口設置</text>
+  <rect class="cell" x="116" y="154" width="50" height="66"/>
+  <rect class="cell" x="166" y="154" width="50" height="66"/>
+  <rect class="cell" x="216" y="154" width="50" height="66"/>
+  <circle class="mark-main" cx="241" cy="187" r="9"/>
+  <rect class="cell" x="266" y="154" width="50" height="66"/>
+  <rect class="cell" x="316" y="154" width="50" height="66"/>
+  <polygon class="mark-sub" points="341,177 351,187 341,197 331,187"/>
+
+  <!-- row 3 -->
+  <rect class="cell" x="16" y="220" width="100" height="66"/>
+  <text class="t-row" x="24" y="249">現場教育と</text>
+  <text class="t-row" x="24" y="267">配置の見直し</text>
+  <rect class="cell" x="116" y="220" width="50" height="66"/>
+  <rect class="cell" x="166" y="220" width="50" height="66"/>
+  <circle class="mark-main" cx="191" cy="253" r="9"/>
+  <rect class="cell" x="216" y="220" width="50" height="66"/>
+  <rect class="cell" x="266" y="220" width="50" height="66"/>
+  <polygon class="mark-sub" points="291,243 301,253 291,263 281,253"/>
+  <rect class="cell" x="316" y="220" width="50" height="66"/>
+
+  <!-- row 4 (single-management measure) -->
+  <rect class="cell-warn" x="16" y="286" width="100" height="66"/>
+  <text class="t-row" x="24" y="315">工程表の</text>
+  <text class="t-row" x="24" y="333">再作成（単独）</text>
+  <rect class="cell-warn" x="116" y="286" width="50" height="66"/>
+  <circle class="mark-main" cx="141" cy="319" r="9"/>
+  <rect class="cell-warn" x="166" y="286" width="50" height="66"/>
+  <rect class="cell-warn" x="216" y="286" width="50" height="66"/>
+  <rect class="cell-warn" x="266" y="286" width="50" height="66"/>
+  <rect class="cell-warn" x="316" y="286" width="50" height="66"/>
+
+  <!-- legend -->
+  <circle class="mark-main" cx="30" cy="386" r="9"/>
+  <text class="t-leg" x="50" y="391">施策が属する管理</text>
+  <polygon class="mark-sub" points="30,406 40,416 30,426 20,416"/>
+  <text class="t-leg" x="50" y="421">手当てした相手の管理</text>
+  <rect class="cell-warn" x="21" y="441" width="18" height="18"/>
+  <text class="t-leg" x="50" y="451">黄色の行は、他の管理への手当てが</text>
+  <text class="t-leg" x="50" y="469">書かれていない単独の施策</text>
+</svg>
