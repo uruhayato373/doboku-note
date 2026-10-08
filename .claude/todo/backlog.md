@@ -269,6 +269,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0595] 1級土木のサイトの記述と市販の教本の食い違いを、一次資料で確かめて直す（測量の許容差・分野別出題数・実務経験の可否・二次過去問の設問）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08 の書籍の網羅の判定（DN-0591）で、Evaluator がサイトの記述と教本の食い違いを指摘した。どちらが正しいかは未確認（教本は 2021 年版や OCR の誤りもありうる）。一次資料（公式の過去問 PDF・受検の手引・JIS・測量の作業規程）で確かめ、サイトが誤っていれば直す。
+- civil-construction-1 の測量（textbook-leveling ほか）: 鋼巻尺の許容差、セオドライトの目盛誤差を正反観測で消せるか（civil1-textbook-general の判定）
+- civil-construction-1/guide-strategy: 分野別の出題数（ダム・トンネルの欠落、土木一般 5/5/5、労働安全衛生法 3〜4 問）と、実務経験として認められる工事の表（解体・杭）（civil1-primary-workbook-2021 の判定）
+- civil-construction-1 の二次過去問: H29 問題2・H30 問題1 などで設問・選択肢が教本と合わない（civil1-secondary-workbook-2021 の判定）。公式 PDF と視覚照合する（memory feedback_exam_pdf_cross_reference）
+詳細は Drive vault の 原資料PDF/書籍/<dir>/coverage/verdict.json（手元は drive-vault-sync --pull）。完了条件: 3 項目それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
+
+
 ### [DN-0593] 総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
 
