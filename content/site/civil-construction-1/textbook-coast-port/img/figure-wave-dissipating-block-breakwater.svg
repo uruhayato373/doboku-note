@@ -1,0 +1,89 @@
+<!-- authored 2026-10-08 doboku-note 自作。消波ブロック被覆堤の断面構成を示す概念図。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="消波ブロック被覆堤の断面。海側から消波ブロック、被覆石、ケーソンと上部工、基礎の捨石マウンドの順に構成される。沈下・散乱で被覆が不完全になると衝撃砕波圧が出るため、据付で空隙・粗度・天端を管理する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .leader { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .swl { stroke: #2e6da4; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+    <path id="blk" d="M-3,-8 L3,-8 L3,-3 L8,-3 L8,3 L3,3 L3,8 L-3,8 L-3,3 L-8,3 L-8,-3 L-3,-3 Z" fill="#f5f5f5" stroke="#555" stroke-width="1" stroke-linejoin="round"/>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">混成堤の前面に消波ブロックを積み、反射波・越波・波力を減らす</text>
+  <text class="t-desc" x="30" y="48">海側</text>
+  <text class="t-desc" x="336" y="48">港内</text>
+
+  <g transform="translate(0,-70)">
+  <!-- 海水と海底 -->
+  <rect x="20" y="232" width="360" height="118" fill="#e8f0fe"/>
+  <line class="swl" x1="20" y1="232" x2="380" y2="232"/>
+  <text class="t-desc" x="24" y="226">静水面</text>
+  <rect x="20" y="350" width="360" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 基礎捨石マウンド -->
+  <polygon points="30,350 80,280 320,280 370,350" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-desc" x="200" y="326" text-anchor="middle">捨石マウンド</text>
+
+  <!-- 被覆石 -->
+  <path d="M34,346 L80,284 L170,284" fill="none" stroke="#d4a017" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M250,284 L320,284 L366,346" fill="none" stroke="#d4a017" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ケーソンと上部工 -->
+  <rect x="170" y="204" width="80" height="76" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="170" y="180" width="80" height="24" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- 消波ブロック -->
+  <polygon points="170,204 146,204 80,280 170,280" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <use href="#blk" transform="translate(147,212) rotate(0)"/>
+  <use href="#blk" transform="translate(162,212) rotate(35)"/>
+  <use href="#blk" transform="translate(134,227) rotate(15)"/>
+  <use href="#blk" transform="translate(148,227) rotate(50)"/>
+  <use href="#blk" transform="translate(162,227) rotate(25)"/>
+  <use href="#blk" transform="translate(121,242) rotate(40)"/>
+  <use href="#blk" transform="translate(135,242) rotate(10)"/>
+  <use href="#blk" transform="translate(149,242) rotate(45)"/>
+  <use href="#blk" transform="translate(162,242) rotate(30)"/>
+  <use href="#blk" transform="translate(108,257) rotate(5)"/>
+  <use href="#blk" transform="translate(122,257) rotate(20)"/>
+  <use href="#blk" transform="translate(136,257) rotate(55)"/>
+  <use href="#blk" transform="translate(150,257) rotate(12)"/>
+  <use href="#blk" transform="translate(162,257) rotate(38)"/>
+  <use href="#blk" transform="translate(95,272) rotate(48)"/>
+  <use href="#blk" transform="translate(109,272) rotate(8)"/>
+  <use href="#blk" transform="translate(123,272) rotate(28)"/>
+  <use href="#blk" transform="translate(137,272) rotate(42)"/>
+  <use href="#blk" transform="translate(151,272) rotate(18)"/>
+  <use href="#blk" transform="translate(162,272) rotate(33)"/>
+
+  <!-- ラベル -->
+  <text class="t-name" x="24" y="168">消波ブロック</text>
+  <polyline class="leader" points="70,172 112,190 138,206"/>
+  <text class="t-name" x="262" y="246">ケーソン</text>
+  <text class="t-name" x="262" y="196">上部工</text>
+  <text class="t-name" x="22" y="300">被覆石</text>
+  <polyline class="leader" points="58,298 68,300"/>
+  <text class="t-name" x="292" y="270">被覆石</text>
+  <polyline class="leader" points="304,274 300,282"/>
+
+  </g>
+
+  <!-- まとめ -->
+  <rect class="box-b" x="20" y="312" width="360" height="52" rx="6"/>
+  <text class="t-name" x="36" y="334">沈下・散乱を点検で見つける</text>
+  <text class="t-desc" x="36" y="352">法先の洗掘と、マウンド下の砂の吸出しで沈下する</text>
+  <rect class="box-w" x="20" y="372" width="360" height="52" rx="6"/>
+  <text class="t-name" x="36" y="394">被覆が不完全だと衝撃砕波圧が出る</text>
+  <text class="t-desc" x="36" y="412">静水面の波圧が被覆なしの3倍以上になった実験がある</text>
+  <rect class="box-s" x="20" y="432" width="360" height="52" rx="6"/>
+  <text class="t-name" x="36" y="454">据付で空隙・粗度・天端を管理する</text>
+  <text class="t-desc" x="36" y="472">天端に極端な凹凸を作らず、波の規模に応じた空隙を持たせる</text>
+</svg>

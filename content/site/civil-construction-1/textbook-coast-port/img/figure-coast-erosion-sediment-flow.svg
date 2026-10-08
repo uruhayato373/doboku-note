@@ -1,0 +1,70 @@
+<!-- authored 2026-10-08 doboku-note 自作。上流からの土砂供給と沿岸漂砂の遮断による海岸侵食を示す概念図。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="海岸侵食の概念図。山地から河川を通って海岸に届く砂がダムや砂防堰堤、砂利採取で減り、沿岸漂砂が突堤や防波堤で遮られると、構造物の上手側に砂が堆積し下手側で侵食が起きる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-ero { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .sed { stroke: #2e6da4; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .drift { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="arr-b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">上流の砂が減り、沿岸の砂の流れが遮られると侵食が起きる</text>
+
+  <!-- 山地 -->
+  <rect class="box-b" x="20" y="30" width="170" height="40" rx="6"/>
+  <text class="t-name" x="105" y="55" text-anchor="middle">山地・上流（砂の源）</text>
+
+  <!-- 陸と海 -->
+  <rect x="20" y="70" width="360" height="220" fill="#f5f5f5"/>
+  <rect x="20" y="290" width="360" height="100" fill="#e8f0fe"/>
+
+  <!-- 河川 -->
+  <rect x="96" y="70" width="14" height="220" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line class="sed" x1="103" y1="78" x2="103" y2="284" marker-end="url(#arr-b)"/>
+  <rect x="86" y="130" width="34" height="8" fill="#555"/>
+  <text class="t-desc" x="128" y="138">ダム・砂防堰堤で砂が止まる</text>
+  <line x1="112" y1="210" x2="124" y2="210" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-desc" x="128" y="214">河川の砂利採取</text>
+  <line x1="112" y1="266" x2="124" y2="266" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-desc" x="128" y="270">河口へ届く砂が減る</text>
+  <line x1="122" y1="134" x2="124" y2="134" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-desc" x="346" y="98">陸</text>
+  <text class="t-desc" x="346" y="312">海</text>
+
+  <!-- 汀線 -->
+  <line x1="20" y1="290" x2="244" y2="290" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="258" y1="290" x2="352" y2="290" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M258,248 Q305,262 352,290" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="352" y1="290" x2="380" y2="290" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 堆積（上手側）と侵食（下手側） -->
+  <path d="M150,290 Q200,320 244,340 L244,290 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <path d="M258,290 L258,248 Q305,262 352,290 Z" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-name" x="214" y="308" text-anchor="middle">堆積</text>
+  <text class="t-ero" x="300" y="283" text-anchor="middle">侵食</text>
+
+  <!-- 沿岸漂砂 -->
+  <line class="drift" x1="40" y1="352" x2="360" y2="352" marker-end="url(#arr-b)"/>
+  <text class="t-desc" x="40" y="344">沿岸漂砂（波で運ばれる砂）</text>
+
+  <!-- 突堤・防波堤 -->
+  <rect x="244" y="290" width="14" height="64" fill="#555"/>
+  <text class="t-name" x="251" y="374" text-anchor="middle">突堤・防波堤</text>
+
+  <!-- まとめ -->
+  <rect class="box-b" x="20" y="396" width="360" height="88" rx="6"/>
+  <text class="t-name" x="36" y="420">① 上流の砂が減る：ダム・砂防堰堤・砂利採取</text>
+  <text class="t-name" x="36" y="444">② 沿岸の砂が遮られる：防波堤・突堤・埋立地</text>
+  <text class="t-desc" x="36" y="468">構造物の上手側に砂がたまり、下手側が侵食される</text>
+</svg>
