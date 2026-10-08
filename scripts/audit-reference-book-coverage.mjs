@@ -20,6 +20,9 @@
  *   node scripts/audit-reference-book-coverage.mjs --shelf コンクリート        # 棚の全書籍
  *   node scripts/audit-reference-book-coverage.mjs --source-id X --site-dir civil-practice   # 対象の資格を足す
  *   node scripts/audit-reference-book-coverage.mjs --summary [--source-id X]   # 要約だけ作り直す（kuromoji を読まない）
+ *   node scripts/audit-reference-book-coverage.mjs --source-id X --rejudge     # 判定済みの書籍の候補表を作り直す（手元の verdict.json を消す。判定はやり直す）
+ * 判定済み（coverage/verdict.json がある）書籍の候補表は、中身が変わるなら --rejudge なしでは上書きしない（判定の元になった候補表が消え、
+ * 要約が新しい候補表と古い判定を組み合わせてしまう。2026-10-08 に展開後の再実行で実際に上書きした）
  * 出力（置き場は台帳 scripts/lib/datasets.mjs）:
  *   候補表 vault.book-coverage-candidates＝content/sources/books/<dir>/coverage/candidates.json（決定的・generatedAt は --stamp のときだけ）。
  *     Evaluator の意味判定は同じ coverage/verdict.json（vault.book-coverage-verdict）。どちらも市販書籍の見出し・用語を含むので git 管理外で、
@@ -53,6 +56,7 @@ const SHELF = val('--shelf');
 const EXTRA_SITE_DIRS = vals('--site-dir');
 const STAMP = val('--stamp');
 const SUMMARY_ONLY = args.includes('--summary');
+const REJUDGE = args.includes('--rejudge');
 const TOP_TERMS = 12;
 const MIN_UNIT_CHARS = 150;
 const COVERED = 0.55;
@@ -296,8 +300,20 @@ for (const source of targets) {
     units: results,
   };
   const outPath = path.join(REPO_ROOT, datasetPath('vault.book-coverage-candidates', coverageValues(source).values));
+  const verdictPath = path.join(REPO_ROOT, datasetPath('vault.book-coverage-verdict', coverageValues(source).values));
+  const text = `${JSON.stringify(out, null, 2)}\n`;
+  const judged = fs.existsSync(verdictPath);
+  if (judged && fs.existsSync(outPath) && fs.readFileSync(outPath, 'utf8') !== text) {
+    if (!REJUDGE) {
+      console.error(`[${NAME}] ✗ ${source.id}: 判定済み（${path.relative(REPO_ROOT, verdictPath)}）の候補表が変わるので上書きしない。判定をやり直すなら --rejudge（手元の verdict.json を消す。Drive vault の写しは残る）`);
+      failed = true;
+      continue;
+    }
+    fs.unlinkSync(verdictPath);
+    console.log(`[${NAME}] ${source.id}: --rejudge のため手元の判定 ${path.relative(REPO_ROOT, verdictPath)} を消した（判定をやり直してから drive-vault-sync する）`);
+  }
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
-  fs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\n`);
+  fs.writeFileSync(outPath, text);
   summary.push(out);
   console.log(`[${NAME}] ${source.id}: 節 ${units.length}（本文 ${textUnits.length} を実検査・過去問 ${examUnits.length}・${MIN_UNIT_CHARS}字未満 ${shortUnits.length} は対象外）`
     + ` / サイト ${site.dirs.join('+')} の記事 ${site.articles}・節 ${site.sections.length}`
