@@ -260,6 +260,18 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-08]
+
+2026-10-08、Windows / Node 22 の独立 worktree で npm test を実行し、2,823 件中 2,806 成功・11 失敗・6 skip。追加したアフィリエイト実験テストは成功。失敗は既存領域で、区切り文字・file URL・CRLF・prh の API/前提に関するもの。
+
+対象: tests/admin-figure-sns-board.test.mjs（4件）、check-mdx-images（1）、content-expansion（1）、pre-commit-install-guard（1）、prh-verb-forms（2）、video-cache-prune（1）、write-all-sync（1）。
+
+やること: 未変更の develop と Linux CI の結果を突合し、Windows のパス/改行を正規化する。prh は現行 API の一次情報と使用箇所を確認する。実装と同じ文字列を照合するだけの検査に置き換えない。
+
+完了条件: Windows と Linux の npm test が実検査数を示して成功し、共有フックや入力 fixture の不変条件が維持される。
+
+
 ### [DN-0581] 1級土木 H29 第一次B の問題図 SVG が 29KB で画像容量の検査を超え、CI の audit が赤になっているのを直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-image-assets] [起票:2026-10-08]
 
