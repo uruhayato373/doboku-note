@@ -197,7 +197,8 @@ async function main() {
   if (!args['skip-tts']) {
     mp4Path = join(outDir, 'video.mp4');
     console.log('\n[ffmpeg] 動画合成中...');
-    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path });
+    // 総まとめ（compilation.json）は聞き流し用途なので音量を -16 LUFS へそろえる
+    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { loudnorm: existsSync(join(packDir, 'compilation.json')) } });
     totalSec = await probeDuration(mp4Path);
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }

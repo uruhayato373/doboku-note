@@ -21,7 +21,8 @@ export function estimateSceneSec(narration) {
 }
 
 function chapterScene(chapter, n, part, isFirstInPart) {
-  const lead = isFirstInPart && part.intro ? part.intro : '';
+  // 後半の頭は parts[].intro、章ごとの前置きは chapters[].intro（例: 復習の章の予告）
+  const lead = `${isFirstInPart && part.intro ? part.intro : ''}${chapter.intro ?? ''}`;
   return {
     sceneId: `c${String(n).padStart(2, '0')}-title`,
     narration: `${lead}第${n}章は、${chapter.title}です。`,

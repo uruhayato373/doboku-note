@@ -326,9 +326,10 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
     `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
     '',
     `この動画で分かること：${manifest.promise}`, '',
-    ...(compilation ? ['▼ チャプター', ...compilationChapters(dir, artifact.rendered), ''] : []),
+    // 総まとめはチャプターが長く、リンクが折りたたみの下に隠れるので先に置く
+    ...(compilation ? [`▼ ${link.label}`, link.url, '', '▼ チャプター', ...compilationChapters(dir, artifact.rendered), ''] : []),
     PRODUCTION_DISCLOSURE.authorityNotice, '',
-    `▼ ${link.label}`, link.url, '',
+    ...(compilation ? [] : [`▼ ${link.label}`, link.url, '']),
     '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。',
     `音声：VOICEVOX:${credit}`, '',
     exam.hashtags,
@@ -367,6 +368,7 @@ function main() {
   }
 
   const now = new Date().toISOString();
+  let updated = 0;
   for (const item of targets) {
     const { packId } = item.manifest;
     const derivative = state.packs?.[packId]?.derivatives?.longform;
@@ -378,6 +380,7 @@ function main() {
       state.packs[packId].derivatives.longform = {
         ...derivative, status: 'approved', approvedBy: 'user', approvedAt: now, publishAt: item.publishAt,
       };
+      updated += 1;
     } else {
       const youtubePath = join(item.dir, 'youtube.json');
       const existing = existsSync(youtubePath) ? readJson(youtubePath) : null;
@@ -390,10 +393,11 @@ function main() {
       state.packs[packId].derivatives.longform = {
         ...derivative, status: 'rendered', approvedBy: 'user', renderedAt: now, publishAt: item.publishAt,
       };
+      updated += 1;
     }
   }
   writeJson(STATE_PATH, state);
-  console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${targets.length}本`);
+  console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${updated}本（state を更新した本数）`);
   if (scope === 'compilation') {
     console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
   } else if (scope === 'civil') {

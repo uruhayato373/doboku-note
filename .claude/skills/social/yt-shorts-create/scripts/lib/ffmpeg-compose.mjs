@@ -12,7 +12,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process';
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -238,6 +238,14 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
   );
   await runFFmpeg(args);
+  // options.loudnorm: 聞き流し（総まとめ）は移動中に聞くので -16 LUFS へそろえる。既定は従来どおり音量を変えない。
+  // 262入力のグラフに loudnorm を入れると ffmpeg 9.0.1 が途中でシグナル終了したので（2026-10-08）、映像はコピーし音声だけ2回目に直す
+  if (options.loudnorm) {
+    const tmp = `${outPath}.loudnorm.mp4`;
+    await runFFmpeg(['-y', '-i', outPath, '-map', '0:v', '-map', '0:a', '-c:v', 'copy',
+      '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '24000', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', tmp]);
+    renameSync(tmp, outPath);
+  }
   return { mp4Path: outPath, durations };
 }
 
@@ -318,9 +326,9 @@ function runCommand(cmd, args) {
         reject(err);
       }
     });
-    proc.on('close', code => {
+    proc.on('close', (code, signal) => {
       if (code === 0) resolveP({ stdout, stderr });
-      else reject(new Error(`${cmd} exited with code ${code}\n${stderr.slice(-2000)}`));
+      else reject(new Error(`${cmd} exited with code ${code}${signal ? ` (signal ${signal})` : ''}\n${stderr.slice(-2000)}`));
     });
   });
 }

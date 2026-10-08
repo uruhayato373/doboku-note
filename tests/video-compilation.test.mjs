@@ -23,7 +23,7 @@ const spec = {
   opening: { narration: '総まとめです。', caption: '総まとめ', visual: { kind: 'cover', heading: '総まとめ' } },
   parts: [
     { label: '第一次', chapters: [{ packId: 'a', title: '土工' }] },
-    { label: '第二次', intro: 'ここから後半です。', chapters: [{ packId: 'b', title: '記述' }] },
+    { label: '第二次', intro: 'ここから後半です。', chapters: [{ packId: 'b', title: '記述', intro: '型を確かめます。' }] },
   ],
   closing: { narration: '以上です。', caption: '以上', visual: { kind: 'cover', heading: '以上' } },
 };
@@ -32,7 +32,7 @@ test('元パックの表紙と締めを外し、章の区切りと場面の出�
   const { storyboard, chapters } = assembleCompilation(spec, (id) => packs[id]);
   assert.deepEqual(storyboard.scenes.map((s) => s.sceneId), ['cover', 'c01-title', 'c01-premise', 'c02-title', 'c02-summary', 'cta']);
   assert.deepEqual(storyboard.scenes[2].from, { packId: 'a', sceneId: 'premise' });
-  assert.equal(storyboard.scenes[3].narration, 'ここから後半です。第2章は、記述です。');
+  assert.equal(storyboard.scenes[3].narration, 'ここから後半です。型を確かめます。第2章は、記述です。');
   assert.equal(storyboard.scenes[1].visual.items[0], '第一次');
   let end = 0;
   for (const s of storyboard.scenes) {

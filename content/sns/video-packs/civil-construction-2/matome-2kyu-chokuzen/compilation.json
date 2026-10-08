@@ -3,7 +3,7 @@
   "_doc": "総まとめ（聞き流し）の正本。元パックの場面は写さず、npm run build-video-compilation が storyboard.json を生成する（scripts/lib/video-compilation.mjs）。型の状態は config/youtube-formats.json の compilation、1本目の進行は backlog DN-0599。",
   "dropSceneIds": ["cover", "cta"],
   "opening": {
-    "narration": "2級土木の直前総まとめです。第一次の頻出点と第二次の記述を、聞き流しで確かめます。",
+    "narration": "2級土木の直前総まとめです。第一次の5分野と第二次の記述を、聞き流しで確かめます。",
     "caption": "2級土木 直前総まとめ（聞き流し）",
     "visual": { "kind": "cover", "heading": "2級土木 直前総まとめ", "items": ["第一次の頻出点・第二次の記述を聞き流しで"] }
   },
@@ -15,13 +15,13 @@
         { "packId": "gakka-2kyu-concrete", "title": "コンクリート" },
         { "packId": "gakka-2kyu-kiso", "title": "基礎工" },
         { "packId": "gakka-2kyu-hoki", "title": "法規" },
-        { "packId": "gakka-2kyu-sekokeikaku", "title": "施工管理法" },
-        { "packId": "kikinagashi-2kyu-matome", "title": "5分野の総ざらい" }
+        { "packId": "gakka-2kyu-sekokeikaku", "title": "施工計画" },
+        { "packId": "kikinagashi-2kyu-matome", "title": "5分野の総ざらい", "intro": "ここまでの5分野を、もう一度つないで聞き直します。" }
       ]
     },
     {
       "label": "第二次検定",
-      "intro": "ここから後半、第二次検定の記述です。",
+      "intro": "ここから後半、第二次検定の記述です。評価まで書くかどうかは、その年の設問の指示に合わせてください。",
       "chapters": [
         { "packId": "keiken-nendo-keiko-2kyu", "title": "出題傾向" },
         { "packId": "keiken-gaiyo-2kyu", "title": "工事概要の書き方" },
