@@ -1,6 +1,8 @@
 # SidebarAdBanner
 
-300×250 のアフィリエイト バナー（ディスプレイ枠）。名前は旧・記事右サイドバー用の名残で、記事サイドバーの広告は 2026-09-26 に撤去済み。いまは記事末（`ArticleFooter`・`article-end`）とカテゴリ hub（`CategoryPage`・`category-sidebar` / `category-mobile`）で使う。
+アフィリエイトの表示枠。名前は旧・記事右サイドバー用の名残で、記事サイドバーの広告は 2026-09-26 に撤去済み。いまは記事末（`ArticleFooter`・`article-end`）とカテゴリ hub（`CategoryPage`・`category-sidebar` / `category-mobile`）で使う。
+
+EXP-019 の登録済み3案件は `CareerAffiliateExperiment` に渡し、A（文章主体）・B（公式300×250バナー付き）・C（紺の面と短い見出し）を訪問者ごとに固定して表示する。バナーのURLと縦横比は支給素材のまま。未登録のリンクには従来のバナー表示を使う。実験の判断と計測は `docs/marketing/転職アフィリエイト訴求設計.md` §7。
 
 ## 使い方
 
