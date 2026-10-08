@@ -305,6 +305,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0611] コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P5。IG は status.json（予約後も変わらない）・posted.json・照合スナップショットに同じ事実が分かれ、動画パック派生のリールは 3 つの正本が食い違う（sync-instagram-video-pack-reels-state.mjs の回し直し漏れ）。カルーセル 112 本はほぼ状態が無い。
+**やること**: 動画パック派生の 336 本と旧パック（ストーリーズ・ハイライトを含む）を台帳へ取り込み、posted.json・status.json・照合の結果を突き合わせて DN-0339（公開済み未記録 48・異常 45）を証拠つきで解消する。publish-ig-bs・ig-status・ig-reconcile-core・verify-ig-status・publish-instagram-video-pack-reels を台帳の入口へ切り替え、sync-instagram-video-pack-reels-state.mjs を廃止する。旧パックのフォルダ名は変えない。
+**完了条件**: status.json・posted.json が 0 件。台帳の予約・公開が手元の照合（/ig-reconcile）と一致。
+
+
 ### [DN-0610] コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
 
