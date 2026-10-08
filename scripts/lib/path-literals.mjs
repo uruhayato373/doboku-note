@@ -172,7 +172,8 @@ export function findConfigPaths(source) {
 }
 
 /** .claude/state/ のパスの直書き（`'.claude/state/…'`・`join(ROOT, '.claude', 'state', …)`）。コメント行と行末の `// ` 以降・path-literal-ok の行は数えない */
-const STATE_LITERAL = new RegExp(`${AREAS.state.dir.replace(/[.]/g, '\\.')}/|['"\`]\\.claude['"\`]\\s*,\\s*['"\`]state['"\`]`);
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const STATE_LITERAL = new RegExp(`${escapeRegExp(AREAS.state.dir)}/|['"\`]\\.claude['"\`]\\s*,\\s*['"\`]state['"\`]`);
 /**
  * .claude/state/ のパスを直書きしている行。check-datasets が基準線（.claude/config/state-path-literal-baseline.json）と比べ、
  * 基準線に無いファイルで増えたら止め、直したファイルは基準線から外させる（一度に直さず段階的に減らす）
