@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { assembleCompilation } from './lib/video-compilation.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readJson } from './lib/json-io.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({
@@ -25,21 +26,20 @@ if (!args['pack-dir']) {
   process.exit(1);
 }
 
-const readJson = (p) => JSON.parse(readFileSync(p, 'utf8'));
 const packDir = resolve(ROOT, args['pack-dir']);
 const specPath = join(packDir, 'compilation.json');
 if (!existsSync(specPath)) {
   console.error(`compilation.json がありません: ${specPath}`);
   process.exit(1);
 }
-const config = readJson(join(ROOT, datasetPath('config.video-content')));
-const state = readJson(join(ROOT, config.paths.stateFile));
+const config = readJson(ROOT, datasetPath('config.video-content'));
+const state = readJson(ROOT, config.paths.stateFile);
 const examDir = dirname(packDir);
 
-const { storyboard, chapters } = assembleCompilation(readJson(specPath), (packId) => {
+const { storyboard, chapters } = assembleCompilation(readJson(packDir, 'compilation.json'), (packId) => {
   const sbPath = join(examDir, packId, 'storyboard.json');
   if (!existsSync(sbPath)) throw new Error(`元パックの storyboard.json がありません: ${packId}`);
-  return { storyboard: readJson(sbPath), longform: state.packs?.[packId]?.derivatives?.longform };
+  return { storyboard: readJson(examDir, join(packId, 'storyboard.json')), longform: state.packs?.[packId]?.derivatives?.longform };
 });
 
 const text = JSON.stringify(storyboard, null, 2) + '\n';
