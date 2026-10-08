@@ -34,7 +34,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | 表 | 1 行 | 持つもの | 持たないもの |
 |---|---|---|---|
 | Work | 1 つの主題の制作単位（動画パック・IG テーマパック・X の下書きの束・旧 Shorts の 1 問） | `id`・`kind`・`definition`（作品フォルダ）・`qa`・`theme` | 台本・文面 |
-| Publication | 1 チャネル・1 アカウントへの 1 投稿 | `id`・`work`・`account`・`format`・`copy`（`file#key`）・`status`・`publishAt`・`approval`・`review.visual`・`platform`（外部 ID・公開範囲・証拠）・`media`（役割→素材 ID）・`sync`・`campaigns` | 文面そのもの・再生数 |
+| Publication | 1 チャネル・1 アカウントへの 1 投稿 | `id`・`work`・`account`・`format`・`copy`（`file#key`）・`status`・`publishAt`・`approval`・`review.visual`・`platform`（外部 ID・公開範囲・証拠・関連動画）・`media`（役割→素材 ID）・`sync`・`times`（描画・アップロード・予約・同期の時刻）・`disclosure`・`thumbnail`・`campaigns` | 文面そのもの・再生数 |
 | Media | 採用した、または公開に使うバイナリ 1 つ | `id`・`role`・`type`・`sha256`・寸法・`store`（tier と path）・`provenance`（render・codex・photo）・`review` | 途中の生成物（場面ごとの wav・`slide-NN.mp4`・`work/`） |
 
 作品の状態は持たない（その作品の公開から導く）。
@@ -51,13 +51,13 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - channel.format の語彙は `config/content-registry.json`（youtube＝longform・short、instagram＝carousel・reel・story・highlight、x＝post・thread・article、threads＝post、tiktok＝video）。
 - 新しく作る ID では、日付（`\d{8}`・`20\d{2}`・`\d{4}-\d{2}`）・先頭の `NNN-`・`pack-NN`・末尾の連番を使わない。中身を表す数字（`r03`・`7items`）は単語にくっつけてよい。
 - 予約（`scheduled`）以上になった ID は変えない。改名は新しい行を作り、古い行に `renamedTo` を書く。消した ID は再利用しない。
-- 規則に合わない既存の ID は `idException: imported-before-cutover` を付けて残す。件数は `config/content-registry.json` の上限でラチェットにする。
+- 規則に合わない既存の ID は `idException: imported-before-cutover` を付けて残す。件数は `config/content-registry.json` の上限でラチェットにする（2026-10-09 の取り込みで Shorts の鍵 223 件。上限 223 から増やさない）。
 
 ## 状態
 
 `config/content-registry.json` の `status` が全チャネル共通の語彙。
 
-| status | 誰が動かすか | 必須の欄（**太字**は P1 で検査済み。他は P2 で強制） |
+| status | 誰が動かすか | 必須の欄（**太字**は検査済み。他は承認の CLI と一緒に P3 で強制） |
 |---|---|---|
 | `draft` | 作り手 | — |
 | `qa_blocked`・`qa_passed` | QA | `qa`（作品側） |
@@ -81,7 +81,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - `review.visual.digest`: 画面確認（音声なし）の素材（表紙・締め・場面・コンタクトシート）の `role:sha256` を並べたもの。
 - `approval.contentSha256`（最終）: 完成版の素材の `role:sha256` に、アカウント・形式・`publishAt`・解決した文面（題名・概要欄・タグ／キャプション／本文）を足したもの。
 - どれかが変わると承認は無効になる。未公開なら検査と stage が止め、公開済みなら「要同期」として出す（概要欄の表記漏れなどを機械で見つけるため）。
-- 過去の承認は `grandfathered: true`（ハッシュ無し）で取り込む。
+- ハッシュの無い承認は `grandfathered: true`・`contentSha256: null`。今の台帳の `approvedBy: user` を写したもの（過去の承認と、ハッシュつきの承認 CLI（P3）ができるまでの `prepare-youtube-longforms --schedule`）がこれになる。
 
 ## 素材の置き場
 
@@ -89,11 +89,26 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - `{sha8}` は中身の sha256 の先頭 8 桁。同じ名前で中身が違うことは起こらない（描き直すと別名になる）。immutable の group では上書きと `--force` を拒否する。
 - 描画の作業場 `.tmp/video-render/{packId}/` は使い捨て。成果物だけを `npm run media -- promote` で取り込む。
 - パスの組み立てと分解は `scripts/lib/media-paths.mjs` だけが行う。
-- CI が読む YouTube の転送用は private R2 の sha 名（`youtube-staging/{sha256}.mp4`・P2 から）。
+- CI が読む YouTube の転送用は private R2 の sha 名（`youtube-staging/{sha256}.mp4`）へ P3 で移す。
+
+## YouTube の切り替え（P2・2026-10-09）
+
+- `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。`.claude/state/video-content-status.json` の YouTube の部分（`derivatives.longform`・`derivatives.shorts`）は台帳から作り直す写しで、手で直さない。`instagramReel` は P5 まで今の台帳が正本。
+- 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
+- 書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState` で読み、`saveVideoState` で書く。台帳の行を先に書き、写しを作り直して書く。読むだけのスクリプトと管理画面は今のまま写しを読んでよい（R09 が一致を保証する）。
+- 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。
+- 一括の取り込みは `npm run registry -- import-video-packs`（既定 dry-run・2 回目は書く行 0）。公開中の一覧（`youtube.own-videos`）と突き合わせ、公開中なのに published でない本数を出す。
+
+## 照合（registry-reconcile）
+
+- `.github/workflows/registry-reconcile.yml`（毎日 00:43 JST）が `npm run registry-reconcile` を動かし、台帳の外部 ID を `videos.list` で観測する。
+- 予約（`scheduled`）の動画が public なら `published` へ進め、`platform.evidence`（`youtube-api`・`videos.list@時刻`）と `platform.publishedAt` を書く。台帳と写しを develop へ書き戻す（`ci-data add`）。
+- published なのに非公開・消えた動画は fail の所見、期日（`publishAt`＋`reconcileGraceDays`）を過ぎても非公開の予約と、予約を経ずに public の動画は warn の所見。所見は `.claude/state/registry-reconcile/youtube.json` に残し、状態は人が決める。
+- exit 0＝照合した・1＝fail の所見あり（automation-failure Issue の channel `registry-reconcile`）・2＝検査不成立（認証が無い・API の失敗。何も書かない）。手元に YouTube の認証は無いので、CI でだけ動く。
 
 ## 検査
 
-`npm run check-content-registry`（`ci: true`）。切り替え前のチャネル（`config/content-registry.json` の `cutover` に無いもの）は、台帳に無い動画パックを INFO、件数の不一致を WARN に留める。
+`npm run check-content-registry`（`ci: true`）。切り替え前のチャネル（`config/content-registry.json` の `cutover` に無いもの）は、台帳に無い動画パックを INFO、件数の不一致を WARN に留める（youtube は切り替え済みで FAIL）。
 
 | id | 検査 |
 |---|---|
@@ -101,11 +116,11 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R02 | ID の一意と形・禁止の語・`idException` の上限 |
 | R03 | 予約以上の行の削除・改名（`--base <ref>` と比べる） |
 | R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
-| R05 | `video-pack.json` の `outputs` と公開の数の一致 |
+| R05 | `video-pack.json` の `outputs` と公開の数の一致（Shorts が 1 本も無いのは未作成の INFO） |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
-| R07 | 状態の必須欄（下の状態表の「P1 で強制」）・承認ハッシュ。遷移（`transitions`・`setBy`）の検査は approve・stop の CLI と一緒に P2 で足す |
+| R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移（`transitions`・`setBy`）の検査は approve・stop の CLI と一緒に P3 で足す |
 | R08 | 外部 ID の重複・Shorts の関連動画 |
-| R09 | 切り替え前のチャネルで、台帳の行が今の台帳（`video-content-status.json`・`youtube.json`）と一致 |
+| R09 | 今の台帳（`video-content-status.json`）の YouTube の部分が、台帳から作り直したものと全欄で一致。切り替えの前後とも FAIL（前は台帳を写し直す・後は書き手で書く）。今の台帳にだけあるパックは切り替え前 INFO・後 FAIL |
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |
 
 ## コマンド
@@ -114,6 +129,8 @@ config/content-registry.json          チャネル×形式・アカウント・I
 npm run registry -- list --channel youtube --exam civil-construction-2
 npm run registry -- show civil-construction-2/matome-2kyu-chokuzen/youtube.longform
 npm run registry -- import-video-pack --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen
+npm run registry -- import-video-packs          # 全動画パック（own-videos と件数を突き合わせる）
+npm run registry-reconcile -- --dry             # YouTube の観測と照合（認証は CI。手元は exit 2）
 npm run registry -- index
 npm run check-content-registry
 npm run media -- promote --pub civil-construction-2/matome-2kyu-chokuzen/youtube.longform
@@ -122,4 +139,4 @@ npm run media -- verify --work civil-construction-2/matome-2kyu-chokuzen   # 台
 npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 ```
 
-`import-video-pack`・`promote` は既定で dry-run（`--commit` で書く）。
+`import-video-pack`・`import-video-packs`・`promote` は既定で dry-run（`--commit` で書く）。

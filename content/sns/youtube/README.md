@@ -9,7 +9,7 @@
 | 動画の企画（通常動画の企画バンク） | 管理画面の**動画パック ボード** `/content/video`（資格・段階で絞り込み）。ファイル実体は [`content/sns/video-packs/`](/content/content~sns/video-packs/README)、一覧 README は `npm run build-video-pack-index` で再生成 |
 | 全チャネルの企画→下書き→公開の横断 | 管理画面の**ライフサイクル** `/content/lifecycle`（真実源 `.claude/knowledge/reference/content-lifecycle.md`） |
 | Shorts 投稿台帳（公開済み・pending・予約） | `.claude/state/youtube-schedule.json` — 管理画面は [SNS状態板](/sns) |
-| 通常動画の制作状態（draft→qa→公開） | `.claude/state/video-content-status.json` |
+| 通常動画・Shorts の制作と公開の状態（draft→qa→公開） | コンテンツ台帳 `content/registry/publications/youtube/{exam}.json`（`.claude/state/video-content-status.json` は台帳から作り直す写し。[content-registry.md](../../../.claude/knowledge/reference/content-registry.md)） |
 | 公開実体の照合 | `npm run verify-yt-status` |
 
 ## 再びファイルが増えるとき

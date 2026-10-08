@@ -1,10 +1,10 @@
 # 動画パック 企画バンク（自動生成）
 
 > このファイルは生成物。手編集せず `npm run build-video-pack-index` で再生成する（パック追加・状態変更後）。
-> 真実源: 各 `video-pack.json` ＋ `.claude/state/video-content-status.json`。契約: `.claude/knowledge/reference/video-content-policy.md`
+> 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（状態の写し: `.claude/state/video-content-status.json`）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **157**（更新: 2026-10-08）
+パック数: **157**（更新: 2026-10-09）
 
 ## 1級土木施工管理技士（67）
 
@@ -98,7 +98,7 @@
 | `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | 予約 | 台本/構成 | `civil-2-pastexam-essay` |
 | `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | 予約 | 台本/構成 | `civil-2-takuitsu-pdf` |
-| `matome-2kyu-chokuzen` | 2級土木 直前総まとめ — 一次の頻出点と二次の記述を聞き流しで | 試験直前に全分野の頻出点と記述の型を見直したいが、まとまった時間が取れない | exam-point | 未登録 | 台本/構成 | `links-hub` |
+| `matome-2kyu-chokuzen` | 2級土木 直前総まとめ — 一次の頻出点と二次の記述を聞き流しで | 試験直前に全分野の頻出点と記述の型を見直したいが、まとまった時間が取れない | exam-point | レビュー | 台本/構成 | `links-hub` |
 | `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | 予約 | 台本/構成 | `links-hub` |
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 予約 | 台本/構成 | `links-hub` |
 

@@ -14,7 +14,7 @@ title: 動画コンテンツ運用ポリシー
 |---|---|---|
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
-| 公開・照合状態 | `.claude/state/video-content-status.json`（コンテンツ台帳 `content/registry/` への切り替え前の正本。台帳の行は写しで、R09 がずれを止める。切り替えは P2・DN-0608。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
+| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。`.claude/state/video-content-status.json` の YouTube の部分は台帳から作り直す写しで、書き手は `scripts/lib/registry-video-state.mjs` の入口だけを通す（R09 がずれを止める。IG リールは P5 まで今の台帳が正本。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 | 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
@@ -273,7 +273,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 **計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `ga4.campaign` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
 
-**Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、`video-content-status.json` の `derivatives.shorts[]` が実行状態を持つ。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
+**Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`video-content-status.json` の `derivatives.shorts[]` は写し）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
 APIへ非公開アップロード済みで関連動画設定待ちのShortsは `uploaded_private` とする。各Shortのアップロード成功直後に状態を書き、同一パックの2本目が日次上限で失敗しても1本目の`videoId`を失わない。
 
@@ -303,13 +303,13 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 再生確認、Shorts関連動画、依存リンク更新は、証拠がない間は待機理由として残す。CIはこれらの確認済みフラグを自作しない。削除前のAPI・サムネ実査は毎回CIが実行して証拠を保存するため、手書きの削除監査記録は不要。手動字幕がある対象は `captionVerification.tracks[]` の `oldId/newId/contentMatched/newLastUpdated` と実トラックを照合し、旧字幕の更新や未保存があれば停止する。旧版削除済みの未予約Shortsは、関連先IDの確認記録と公開/限定公開の実体を確認し、各 `youtube.json` の未来の日時へ予約する。過ぎた枠を一斉公開に読み替えず `expired-publication-slot` として停止する。移行中の公開Git台帳には旧IDが残るため、private台帳との参照更新を済ませるまでは依存リンク確認を完了扱いにしない。
 
-日次キューに入らない新規の承認済みパック（総まとめなど）は、同じ workflow を手動で `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` を付けて起動する（`gh workflow run post-youtube-scheduled.yml --ref develop -f pack_publish=…`）。PUBLISH なしは試運転。別ジョブ `publish-pack` が develop を checkout し、`publish-video-pack.cjs` が state の承認（`approvedBy: user`・`approved|rendered`）と5分より先の `publishAt` を確かめてから private で上げて予約し、予約状態を develop の state へ書き戻す（publishAt の無い即時公開はしない）。前段は `youtube-longform:prepare --schedule`（承認後）→ `--metadata` → `youtube-longform:stage --exam <試験> --commit`。総まとめは `--scope compilation --pack-id <id> --publish-at <ISO>` で、概要欄に章の開始時刻（チャプター）を入れる。概要欄には VOICEVOX の利用条件のクレジット（`音声：VOICEVOX:青山龍星`）を入れる（既存動画への反映は DN-0605）。
+日次キューに入らない新規の承認済みパック（総まとめなど）は、同じ workflow を手動で `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` を付けて起動する（`gh workflow run post-youtube-scheduled.yml --ref develop -f pack_publish=…`）。PUBLISH なしは試運転。別ジョブ `publish-pack` が develop を checkout し、`publish-video-pack.cjs` が台帳の承認（`approvedBy: user`・`approved|rendered`。読み書きは `registry-video-state.mjs` の入口）と5分より先の `publishAt` を確かめてから private で上げて予約し、予約状態を develop の台帳（`content/registry` と写しの state）へ書き戻す（publishAt の無い即時公開はしない）。前段は `youtube-longform:prepare --schedule`（承認後）→ `--metadata` → `youtube-longform:stage --exam <試験> --commit`。総まとめは `--scope compilation --pack-id <id> --publish-at <ISO>` で、概要欄に章の開始時刻（チャプター）を入れる。概要欄には VOICEVOX の利用条件のクレジット（`音声：VOICEVOX:青山龍星`）を入れる（既存動画への反映は DN-0605）。
 
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
 撤去完了の検査は `npm run check-youtube-delivery -- --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
+**公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える
