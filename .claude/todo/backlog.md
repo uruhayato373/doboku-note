@@ -280,6 +280,17 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0607] YouTube の採用表紙・締め画像の置き場を日付フォルダ・連番名から資格とパック ID の名前へ移す
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: 2026-10-08、ユーザーから「表紙・締め画像の置き場は日付ではなく資格や動画の ID で管理すべき」と指摘された。2026-09-09 の一括適用（`scripts/apply-video-brand.mjs`）は、採用表紙 347 件を `.tmp/video-render/youtube-covers-a-rollout-20260909/{連番}.png`、締め画像をパックごとに `youtube-cta-a-rollout-20260909/{packId}.png` へ置き、各パックの `cover-design.json`・`cta-design.json` がそのパスを持つ（Drive は `制作物/動画レンダー/採用カバー/` と `制作物/動画レンダー/`）。連番では、どのパックのどの表紙か名前から分からない。総まとめ（matome-2kyu-chokuzen）は新しい `npm run brand-video-pack` で `youtube-covers-{exam}/{packId}-{key}.png`・`youtube-cta-{exam}/{packId}-longform.png` に置いた。
+**やること**:
+1. 既存の採用表紙・締め画像を、画素を変えずに ID 名のパスへ写す移行スクリプトを作る（既定 dry-run。sha256 が同じことを確かめ、cover-design.json・cta-design.json・`.claude/state/youtube-thumbnail-designs.json` のパスを書き換える。legacy の `content/sns/youtube/cover-design.json` も対象）
+2. Drive へ新パスで置き（drive-vault-sync）、表紙はクラウドから読み戻して登録する（check-youtube-cover-handoff が通る）。旧パスの台帳を外し、Drive の旧ファイルはマウント上で削除する（ゴミ箱へ）
+3. 画像の中身は変えないので YouTube への再送はしない。読み手（render-longform・youtube-covers・stage-youtube-covers・thumbnail rollout）が新パスで動くことを確かめる
+**完了条件**: 全パックの cover-design.json・cta-design.json が ID 名のパスを指し、check-youtube-cover-handoff・check-drive-vault・check-video-content が通り、Drive に日付フォルダの旧ファイルが残らない。
+
+
 ### [DN-0606] 技術士の既存記事の誤りを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
 
