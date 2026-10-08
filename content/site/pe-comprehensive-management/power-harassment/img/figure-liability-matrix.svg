@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="パワハラの責任を、行為者と会社の主体別に刑事・民事・行政で整理した図。行為者は刑法の罪と不法行為責任、会社は使用者責任と債務不履行、行政上は措置義務違反への勧告と公表" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <!-- 列見出し：責任の種類 -->
+  <rect x="8" y="10" width="186" height="30" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="101" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">刑事上の責任</text>
+  <rect x="206" y="10" width="186" height="30" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="299" y="30" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">民事上の責任</text>
+
+  <!-- 行1：行為者 -->
+  <rect x="8" y="48" width="384" height="24" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="20" y="65" font-size="13" font-weight="bold" fill="#222">行為者（上司・同僚など個人）</text>
+
+  <rect x="8" y="76" width="186" height="140" rx="6" fill="#ffffff" stroke="#b22234" stroke-width="1.5"/>
+  <text x="20" y="100" font-size="13" font-weight="bold" fill="#1a3a5c">暴行罪・傷害罪</text>
+  <text x="20" y="116" font-size="11" fill="#555">刑法208条・204条</text>
+  <text x="20" y="144" font-size="13" font-weight="bold" fill="#1a3a5c">脅迫罪・強要罪</text>
+  <text x="20" y="160" font-size="11" fill="#555">刑法222条・223条</text>
+  <text x="20" y="188" font-size="13" font-weight="bold" fill="#1a3a5c">名誉毀損罪・侮辱罪</text>
+  <text x="20" y="204" font-size="11" fill="#555">刑法230条・231条</text>
+
+  <rect x="206" y="76" width="186" height="140" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="218" y="100" font-size="13" font-weight="bold" fill="#1a3a5c">不法行為責任</text>
+  <text x="218" y="116" font-size="11" fill="#555">民法709条</text>
+  <text x="218" y="140" font-size="11" fill="#222">故意・過失で他人の権利や</text>
+  <text x="218" y="156" font-size="11" fill="#222">利益を侵害した者が負う</text>
+  <line x1="218" y1="170" x2="380" y2="170" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="218" y="190" font-size="11" fill="#222">精神的苦痛への慰謝料も</text>
+  <text x="218" y="206" font-size="11" fill="#222">請求できる（710条）</text>
+
+  <!-- 行2：会社 -->
+  <rect x="8" y="224" width="384" height="24" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="20" y="241" font-size="13" font-weight="bold" fill="#222">会社（事業主）</text>
+
+  <rect x="8" y="252" width="186" height="150" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="20" y="276" font-size="13" font-weight="bold" fill="#222">原則として刑事罰なし</text>
+  <text x="20" y="298" font-size="11" fill="#555">刑法の罪に問われるのは</text>
+  <text x="20" y="314" font-size="11" fill="#555">行為者個人</text>
+  <line x1="20" y1="328" x2="182" y2="328" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="350" font-size="11" fill="#555">防止措置義務の違反にも</text>
+  <text x="20" y="366" font-size="11" fill="#555">罰則は置かれていない</text>
+
+  <rect x="206" y="252" width="186" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="218" y="276" font-size="13" font-weight="bold" fill="#1a3a5c">使用者責任（715条）</text>
+  <text x="218" y="296" font-size="11" fill="#555">行為者の不法行為の責任を</text>
+  <text x="218" y="312" font-size="11" fill="#555">会社が負う</text>
+
+  <rect x="206" y="332" width="186" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="218" y="356" font-size="13" font-weight="bold" fill="#1a3a5c">債務不履行（415条）</text>
+  <text x="218" y="376" font-size="11" fill="#555">会社自身の安全配慮義務</text>
+  <text x="218" y="392" font-size="11" fill="#555">違反（労働契約法5条）</text>
+
+  <!-- 行政上の対応 -->
+  <rect x="8" y="412" width="384" height="62" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="20" y="434" font-size="13" font-weight="bold" fill="#1a3a5c">行政上の対応（会社のみ）</text>
+  <text x="20" y="453" font-size="11" fill="#222">措置義務違反 → 助言・指導・勧告 → 従わなければ公表</text>
+  <text x="20" y="467" font-size="11" fill="#555">労働施策総合推進法第42条</text>
+
+  <text x="200" y="492" text-anchor="middle" font-size="11" fill="#555">責任は別々に問われ、同じ事案で重なって生じうる</text>
+</svg>
