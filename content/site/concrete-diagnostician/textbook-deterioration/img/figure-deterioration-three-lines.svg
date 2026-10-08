@@ -1,0 +1,54 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート診断士テキスト「劣化機構」の整理軸（最初に壊れるものでの3系統）。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="劣化機構を最初に壊れるものでA鋼材の防食、Bコンクリート自体、C繰返し荷重の3系統に分け、各系統の機構・外観・最初に測る項目と、ひび割れを通じて鋼材腐食が重なる派生を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mech { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-sm { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrD" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">最初に壊れるものは何か、で3系統に分けて見る</text>
+
+  <!-- A: 鋼材の防食が先に失われる -->
+  <rect class="box-brand" x="15" y="30" width="370" height="112" rx="8"/>
+  <text class="t-title" x="30" y="52">A　鋼材の防食が先に失われる</text>
+  <text class="t-mech" x="30" y="73">中性化・塩害</text>
+  <text class="t-sm" x="30" y="93">組織は保たれ、不動態被膜だけが壊れる</text>
+  <text class="t-sm" x="30" y="111">外観：鉄筋軸方向のひび割れ・さび汁</text>
+  <text class="t-sm" x="30" y="129">最初に測る：かぶり厚・中性化深さ・塩化物イオン量</text>
+
+  <!-- B: コンクリート自体が変質・膨張する -->
+  <rect class="box-warn" x="15" y="154" width="370" height="112" rx="8"/>
+  <text class="t-title" x="30" y="176">B　コンクリート自体が変質・膨張する</text>
+  <text class="t-mech" x="30" y="197">ASR・凍害・化学的侵食・火災</text>
+  <text class="t-sm" x="30" y="217">ゲル膨張・凍結膨張・溶出・加熱で組織が壊れる</text>
+  <text class="t-sm" x="30" y="235">外観：亀甲状ひび割れ・スケーリング・骨材露出</text>
+  <text class="t-sm" x="30" y="253">最初に測る：骨材の岩種・コア観察・成分分析</text>
+
+  <!-- C: 繰返し荷重で損傷が蓄積する -->
+  <rect class="box-surface" x="15" y="278" width="370" height="92" rx="8"/>
+  <text class="t-title" x="30" y="300">C　繰返し荷重で損傷が蓄積する</text>
+  <text class="t-mech" x="30" y="321">疲労</text>
+  <text class="t-sm" x="30" y="341">外観：格子状ひび割れ・剛性の低下</text>
+  <text class="t-sm" x="30" y="359">最初に測る：荷重履歴・たわみの経時変化</text>
+
+  <!-- 派生 -->
+  <line x1="200" y1="374" x2="200" y2="394" stroke="#b22234" stroke-width="1.5" marker-end="url(#arrD)"/>
+  <rect class="box-danger" x="15" y="398" width="370" height="84" rx="8"/>
+  <text class="t-title" x="30" y="420">派生：ひび割れが水と塩化物の通り道になる</text>
+  <text class="t-sm" x="30" y="441">BやCのひび割れから浸入し、Aの鋼材腐食が重なる</text>
+  <text class="t-sm" x="30" y="459">主たる機構と副次機構を分けて整理する（複合劣化）</text>
+</svg>
