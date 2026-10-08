@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:47:04.180Z",
+  "updated_at": "2026-10-08T01:01:51.918Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1974,6 +1974,141 @@
         }
       ],
       "started_at": "2026-10-07T11:44:23.000Z"
+    },
+    {
+      "id": "EXP-019",
+      "title": "転職アフィリエイトの太枠・大見出し・相談ボタンを整え、画像あり／なしを同じ面で比較する",
+      "designProposalKey": "affiliate-card-2026-10-08",
+      "hypothesis": "学習・実務の読者に資格・工事経験と働き方を結ぶ短い導入を置き、サービス名中心のカードを読者の利益が分かる大見出し・太枠・明確な相談入口へ替えると、適合する読者の相談クリックが増える。支給バナーを添えるBが文章のみのAより有効かは未検証。noteは目的を別表示し、表示・順序を固定して影響を測る。",
+      "target_metric": "GA4 affiliate_cta_click / affiliate_cta_impression（同一ページ・面・案件・端末の案別）。併せて対象ページの閲覧あたりクリック、note_cta_click / note_cta_impression、A8の成果別発生・確定、note販売額を読む。",
+      "target_delta": "同じ対象と表示判定でAとBの差を測り、noteへの送客を損なわず転職の適合クリックが増えること。28日を観察窓にし、少数クリックでは勝敗を決めない。必要標本数と停止・採用条件は開始前に確定し、案件の優劣は確定3件まで決めない。",
+      "baseline": {
+        "measured_at": "2026-10-08",
+        "source": "data/ga4/reports/2026-10-07.json#cta-clicks-by-placement",
+        "window": {
+          "start": "2026-09-09",
+          "end": "2026-10-06"
+        },
+        "aggregateReferenceOnly": true,
+        "images": {
+          "impressions": 13880,
+          "clicks": 2,
+          "ctr": 0.00014409221902017292
+        },
+        "text": {
+          "impressions": 9147,
+          "clicks": 13,
+          "ctr": 0.0014212310047009948
+        },
+        "note": [
+          {
+            "placement": "article-mid",
+            "impressions": 3618,
+            "clicks": 34
+          },
+          {
+            "placement": "article-footer",
+            "impressions": 3682,
+            "clicks": 12
+          }
+        ],
+        "noteText": "画像集計は撤去済み記事サイドバーを含む。位置・案件・読者が違うので、画像の因果効果の基準値にはしない。開始時に対象ページ・面の基準値を再取得する。"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "資格や工事経験が待遇・休日・勤務地にどう活きるかを知り、仕事の選択肢を相談したい（A:転職・成長、M:待遇）",
+        "verifiedGap": "2026-10-08の本番9ページ・12掲載例を48画面で確認。文章カードはサービス名が見出し、文字リンクが本文と同じ青系。公的基準・ツール末尾には転職へつなぐ導入がない。画像よりnoteに流れる原因は未検証。",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-08T01:01:51.918Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-10-15",
+      "pending_user_actions": [],
+      "actions": [
+        "2026-10-08: 本番画像を使う提案A/B/Cとnoteとの並置プレビューを作成。3案件・PC/スマホ・明暗の12条件で表示、画像読み込み、太枠切替、並び順を確認。本番未反映。",
+        "開始前: EXP-017/018など同じ面の既存施策・同時active実験上限を確認し、対象ページ・案件・面と開始日を確定。展開前後と意匠差の数字を混ぜない。",
+        "第1ラウンド: 大見出し・3px枠・濃い相談入口のAと、同じ見出しに支給画像を添えるBを50/50で比較。訪問者の案を固定し、noteの画像・リンク・位置・順序を固定する。Cは次ラウンド候補。",
+        "配信前: 案別の表示・クリックとCI集計を配線する。大きさが違うカード全体の50%表示だけでは分母が変わるため、共通の見出し・導入領域で表示判定し、対象ページの閲覧あたりクリックも併記する。提案画面の操作は本番データに含めない。",
+        "配信前: A8の支給画像・広告コードを改変しない。編集部の導入・外枠と広告を分け、新しい相談ボタンのリンク方法・文言は広告主の掲載条件と許可を確認する。素材が認められない場合は支給広告リンクをそのまま使う。",
+        "運用: 週次CIの記録を使い、28日経過時に案・面・端末ごとの表示/クリック、note送客、A8発生/確定を確認。少数時は判定保留。採用・継続・撤去の理由をこの台帳へ追記し次案へ進む。note販売額は全経路の記録で、カードのクリックと購入の個別帰属を断定しない。"
+      ],
+      "variants": [
+        {
+          "id": "A",
+          "format": "text",
+          "framePx": 3,
+          "headline": [
+            "その資格と経験、",
+            "いまの待遇に活きている？"
+          ],
+          "cta": "経験で狙える条件を無料で聞く",
+          "program": "buildjob",
+          "description": "年収・休日・勤務地。あなたの工事経験と希望条件を、担当者へ無料で相談できます。"
+        },
+        {
+          "id": "B",
+          "format": "supplied-banner-and-editorial-intro",
+          "framePx": 3,
+          "headline": [
+            "その資格と経験、",
+            "いまの待遇に活きている？"
+          ],
+          "cta": "経験で狙える条件を無料で聞く",
+          "program": "buildjob",
+          "creativeRef": "src/config/affiliate-creatives.ts:PROGRAM_ASSETS.buildjob.banner"
+        },
+        {
+          "id": "C",
+          "format": "dark-editorial-card",
+          "framePx": 3,
+          "headline": [
+            "頑張る場所まで、",
+            "変えていい。"
+          ],
+          "cta": "経験で狙える条件を無料で聞く",
+          "program": "buildjob",
+          "role": "キャリア意図のページ向け・次ラウンド候補"
+        }
+      ],
+      "measurementPlan": {
+        "status": "not-wired",
+        "firstRound": [
+          "A",
+          "B"
+        ],
+        "assignment": "同一対象の訪問者を50/50、訪問者内で固定",
+        "dimensions": [
+          "experiment",
+          "variant",
+          "page",
+          "placement",
+          "program",
+          "device",
+          "date"
+        ],
+        "reviewDays": 28,
+        "noteGuardrail": "同じ対象ページのnote表示・クリックと販売額を併記。noteクリック率の低下が継続する場合は対象・並置を見直す。売上差の原因を意匠だけに帰属しない。"
+      },
+      "priorityAssessment": {
+        "impact": 3,
+        "effort": 1,
+        "learning": 3,
+        "certainty": 1,
+        "weighted": 2.2,
+        "basis": "表示9,147/13,880件は実測。クリック増分は未予測。計測配線と許可確認を含むため工数を軽く見積もらない。"
+      },
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-08T01:01:51.918Z",
+          "event": "propose",
+          "note": "運営者の指示でキャッチーな見出し・太枠・画像の改善案とnote並置を画面化。まずA/Bを同一条件で比較する候補として保存。本番配信・計測は未開始。"
+        }
+      ]
     }
   ]
 }
