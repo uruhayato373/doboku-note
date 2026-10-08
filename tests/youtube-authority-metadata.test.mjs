@@ -18,7 +18,7 @@ function walk(dir, out = []) {
 
 test('全YouTubeメタデータが著者主体・AI制作補助の表記を持つ', () => {
   const files = walk(PACKS_ROOT);
-  assert.equal(files.length, 112);
+  assert.equal(files.length, 113); // DN-0110 の112パック＋総まとめ1本（matome-2kyu-chokuzen・Shorts なし）
   let videos = 0;
   for (const path of files) {
     const data = JSON.parse(readFileSync(path, 'utf8'));
@@ -27,6 +27,6 @@ test('全YouTubeメタデータが著者主体・AI制作補助の表記を持�
       assert.ok(item.description.includes(disclosure.authorityNotice), path);
     }
   }
-  assert.equal(videos, 336); // 112 longform + 112 packs × 2 Shorts
+  assert.equal(videos, 337); // 113 longform + 112 packs × 2 Shorts
   assert.equal(disclosure.containsSyntheticMedia, false);
 });

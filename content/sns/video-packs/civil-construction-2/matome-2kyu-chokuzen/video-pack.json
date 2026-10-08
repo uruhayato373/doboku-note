@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "packId": "matome-2kyu-chokuzen",
+  "exam": "civil-construction-2",
+  "title": "2級土木 直前総まとめ — 一次の頻出点と二次の記述を聞き流しで",
+  "audience": "直前期の2級土木（第一次後期・第二次）の受検者で、机に向かう時間が取れない人",
+  "pain": "試験直前に全分野の頻出点と記述の型を見直したいが、まとまった時間が取れない",
+  "promise": "第一次の5分野の頻出点と第二次の記述の型を、移動中の聞き流しで一通り確かめられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r03/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r04/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r05/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r06/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-safety-management/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "matome-2kyu-chokuzen"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

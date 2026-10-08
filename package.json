@@ -280,6 +280,8 @@
     "verify-video-publication": "node scripts/verify-video-publication.mjs",
     "render-longform": "node scripts/render-longform.mjs",
     "render-longform:approved": "node scripts/render-approved-longforms.mjs",
+    "build-video-compilation": "node scripts/build-video-compilation.mjs",
+    "brand-video-pack": "node scripts/brand-video-pack.mjs",
     "youtube-longform:prepare": "tsx scripts/prepare-youtube-longforms.mts",
     "youtube-shorts:prepare": "node scripts/prepare-video-pack-shorts.mjs",
     "youtube-shorts:render": "node scripts/render-video-pack-shorts.mjs",

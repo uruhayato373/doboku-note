@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
+
+**起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
+**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、この文を回帰の見本にする（テストつき）。本文は変えない。
+**完了条件**: develop で `npm run check-keiken-answer-split` が通り、上の文が違反に出ず、既存の真の違反の見本はこれまでどおり出る。
+
+
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
 タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
 
@@ -379,13 +387,13 @@
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
 タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-08]
 
-**起点**: 一覧から取れるのは累計の再生数と尺だけ（`data/youtube/own-videos/` の caveat）。DN-0110 の6週間判定（Shorts→関連動画の流入・視聴維持）と DN-0594 の図解版の比較（28日の視聴維持）には YouTube Analytics が要る。いまは数値が無く、判定できない。
+**起点**: 一覧から取れるのは累計の再生数と尺だけ（`data/youtube/own-videos/` の caveat）。DN-0110 の6週間判定（Shorts→関連動画の流入・視聴維持）と DN-0601 の図解版の比較（28日の視聴維持）には YouTube Analytics が要る。いまは数値が無く、判定できない。
 **やること**:
 1. GitHub Actions の YouTube API の資格情報（投稿・予約に使っているもの）に `yt-analytics.readonly` のスコープがあるか確かめる。無ければ運営者が OAuth を取り直す（スコープの追加は運営者の操作）
 2. 動画ごとの views・averageViewDuration・averageViewPercentage・impressions・impressionsClickThroughRate・trafficSourceType（Shorts の関連動画・YouTube 検索・ブラウジングを分ける）を週次で取り、`data/youtube/analytics/{date}.json` へ。台帳（`scripts/lib/datasets.mjs`）に宣言し、型（zod）を付ける
 3. 管理画面 `/metrics/video` で packId と結合して表示し、未取得は「未取得」と出す（0 件と混ぜない）
 **前提・罠**: 計測は CI 供給が正（会社 PC から API を叩かない・.claude/rules/operations.md）。資格情報が無いときは記録を書かず exit 2（検査不成立）。インプレッションのクリック率は公開から48時間ほど遅れる。
-**完了条件**: 記録が2週続けて増え、DN-0110 と DN-0594 の判定に要る指標（Shorts→関連動画の視聴回数、通常動画の平均視聴率）が欠測なく読める。
+**完了条件**: 記録が2週続けて増え、DN-0110 の判定と DN-0601 の比較に要る指標（Shorts→関連動画の視聴回数、通常動画の平均視聴率）が欠測なく読める。
 
 
 ### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
@@ -1683,8 +1691,8 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0601] 図解版の試作 koji-gaiyo-sheet-zukai を音声付きで公開し、旧版と28日の再生・視聴維持を比べる
 タグ: [領域:SNS] [種類:制作] [検証:check-video-content] [起票:2026-10-08]
 
-**起点**: 図解版の試作パック `content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai/`（先生の常駐・解答用紙の図・悪い例と良い例、約3分20秒・音声なし）は、10秒ごとの比較で「直前と同じ画面」が旧形式40回中32回→19回中2回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3）。再生と視聴維持で効くかはまだ分からない。`config/youtube-formats.json` の `single-topic-zukai`（trial）。採否は DN-0594。
-**やること**（DN-0594 で採用されたら）:
+**起点**: 図解版の試作パック `content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai/`（先生の常駐・解答用紙の図・悪い例と良い例、約3分20秒・音声なし）は、10秒ごとの比較で「直前と同じ画面」が旧形式40回中32回→19回中2回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3）。再生と視聴維持で効くかはまだ分からない。`config/youtube-formats.json` の `single-topic-zukai`（trial）。
+**やること**（2026-10-08 の判断: DN-0597 で視聴維持を取れるようになってから公開する）:
 1. 表紙と締めを採用画像にする（cover-design.json・cta-design.json を足す。sns-image-policy §0.1）
 2. Mac で `node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
 3. video-content-qa（6軸）→ youtube.json（題名・概要欄・UTM `utm_campaign=koji-gaiyo-sheet-zukai`）→ ユーザー承認 → 公開
@@ -1695,34 +1703,28 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0600] 一問一答（読み上げ）の動画の型を作る（過去問記事から論点の穴埋めと答えのカード）
 タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
 
-**起点**: 建設資格データ研究所が VOICEVOX の読み上げで一問一答を作り、90分・24,735回再生。日建学院の「一問一答」10本は再生中央値51,500回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1・§2）。自社は VOICEVOX と過去問の記事を両方持つ。`config/youtube-formats.json` の `quiz-tts`（proposed）。採否は DN-0594。
-**やること**（DN-0594 で採用されたら）:
+**起点**: 建設資格データ研究所が VOICEVOX の読み上げで一問一答を作り、90分・24,735回再生。日建学院の「一問一答」10本は再生中央値51,500回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1・§2）。自社は VOICEVOX と過去問の記事を両方持つ。`config/youtube-formats.json` の `quiz-tts`（proposed）。
+**やること**（2026-10-08 の判断: 2027年1〜3月に着手する）:
 1. サイトの過去問記事から「論点の穴埋め→答え→根拠1行」を作る生成器を作る。過去問の問題文は全文を写さず、論点の一問一答に組み直す（07 §10 の Red Line）
 2. render-longform に `kind: 'quiz'`（問題・考える間・答えのカード）を足す。字幕と読み上げを合わせる
 3. 20〜90分に束ね、分野ごとのチャプターを付ける。送り先は一次の頻出論点の note・過去問 PDF・模試（DN-0279 と同じ線）
 **完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
 
 
-### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き30〜60分）を作る仕組みを足す
-タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
+### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き）の1本目「2級 直前総まとめ」を音声付きにして承認・公開する
+タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08] [進行中]
 
-**起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。自社に無い型で、`config/youtube-formats.json` の `compilation`（proposed）。採否は DN-0594。
-**やること**（DN-0594 で採用されたら）:
-1. 承認済みパックの音声（wav）と画面（PNG・render-manifest の実尺）を、冒頭・区切り・締めの画面を足してチャプター付きの1本に連結する仕組みを作る。台本は新しく書かない
-2. 概要欄のチャプター（0:00 形式）を render-manifest から作る
-3. 候補: 2級の直前総まとめ（2級の18パック・2級二次10/25 の前）、1級二次の経験記述 howto 15本、1級一次の学科 exam-point 37本（2027-07 の一次の前）
-4. 10秒プレビュー（video-content-policy §4）で目視 → video-content-qa → ユーザー承認 → 公開
-**前提**: 元パックの mp4・wav は Mac と Drive vault（`video-render-artifact`）にあるので、Mac で回す。公開はユーザー承認後だけ。
-**完了条件**: 1本を作って承認待ちで止め、`config/youtube-formats.json` の compilation を trial にする。
+**起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。2026-10-08 にユーザーが試作に採用した（`config/youtube-formats.json` の `compilation` は trial）。
+**済み（2026-10-08）**: 組み立ての仕組み（`compilation.json` → `npm run build-video-compilation` → `render-longform`・`check-video-content` の K01/K02）。1本目のパック `content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/`（2級の承認済み15パック・15章・設計尺26分）。画面と字幕の無音プレビューを10秒ごとに目視した。
+**やること**:
+1. VOICEVOX のある環境で `npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen --speaker 13` を回す（この Mac には VOICEVOX が無い。字幕の焼き込みは libass 入りの ffmpeg が要る＝Mac は ffmpeg-full）。元パックの wav は使わない（Drive の wav は 2026-09-05 版で読みの辞書が古く、予約済み動画は 2026-09-09 版）
+2. 表紙と締めの採用画像（`cover-design.json`・`cta-design.json`）を作り、`youtube.json`（題名に「聞き流し」「総まとめ」、概要欄のチャプターは render-manifest の実尺から、UTM `utm_campaign=matome-2kyu-chokuzen`）を用意する
+3. video-content-qa → ユーザー承認 → 予約。2級の試験（10/25）の前、単体動画の予約が終わる 10/22 の翌日 10/23 を目安にする
+4. 公開28日後に再生・視聴維持を単体動画と比べ、`compilation` を active か rejected にする。次の候補は1級二次の経験記述 howto・1級一次の学科 exam-point（2027年の試験前）
+**前提**: 公開はユーザー承認後だけ。
+**完了条件**: 2級 直前総まとめが承認済みで予約・公開され、28日後の比較を 07 §11 に1段落で残して `compilation` の status を決める。
 
 
-### [DN-0592] 通常動画の字幕で行頭に「。」が来る区切りを直す
-タグ: [領域:SNS] [種類:不具合] [起票:2026-10-08]
-
-**現象**: 通常動画の字幕が、行頭に「。」が来る区切りで出る。例: 図解版 `koji-gaiyo-sheet-zukai` の step2-sheet で「。書いたら、1番の施工量と見比べて、この数量をこ」（2026-10-08 に10秒ごとの切り出しで確認）。
-**原因の見込み**: `scripts/lib/longform-render.mjs` の `chunkJpBalanced` が文字数だけで均等に切り、句読点・語の切れ目を見ていない。
-**やること**: 字幕の区切りで、行頭の句読点を前の行へ寄せ、できれば「、」「。」の直後で切る。既存の公開済み字幕を作り直すかは別に判断する（字幕だけの差し替えは動画の再アップロードが要らない経路を確かめてから）。
-**完了条件**: `tests/longform-render.test.mjs` に行頭句読点の回帰テストを足し、全パックの ASS で行頭に「。」「、」が 0 件。
 
 
 ### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
@@ -2324,16 +2326,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **決めたら**: business-direction.json の metrics に足し、月次・週次のスナップショットを作るスクリプトに取得元を足して `/metrics/business` と `/weekly-review`・`/monthly-review` が読むようにする（欠測を0にしない）。
 
 
-### [DN-0594] YouTube の作り方を、図解版の比較公開・総まとめ（聞き流し）・一問一答のどれから進めるか決める
-タグ: [領域:SNS] [種類:意思決定] [起票:2026-10-08]
-
-**起点**: [07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)（2026-10-08）。公開済み通常動画70本の再生中央値は4回・尺の中央値2.5分。競合の土木の動画321本は尺が長いほど再生が多く（30〜60分で中央値21,000回）、「聞き流し」「一問一答」の題名が最も多い。
-**決めること**（どれを、どの順でやるか）:
-1. 図解版の試作 `koji-gaiyo-sheet-zukai`（先生の常駐・解答用紙の図・悪い例と良い例の対比、約3.3分）を Mac で音声付きに生成し、1本公開して旧版 `koji-gaiyo-7items` と28日の視聴維持・再生を比べるか
-2. 承認済みパックを束ねた30〜60分の「総まとめ・聞き流し」（1級二次 経験記述 howto 15本、1級一次 学科 exam-point 37本など）を作るか。新しい台本は要らず、連結とチャプターだけ
-3. 過去問の一問一答（VOICEVOX 読み上げ・穴埋め→答えのカード）の型を作るか。送り先は一次の頻出論点・過去問 PDF・模試（DN-0279 と同じ線）
-**前提**: 公開はユーザー承認後。DN-0110（Shorts 222本の関連動画設定）と並行できるか、運営時間で判断する。
-**正本と実行カード**: 型ごとの状態（active/trial/proposed）は `config/youtube-formats.json` が正本で、決めたらその status を書き換える。1 は DN-0601（比べる指標は DN-0597 の YouTube Analytics）、2 は DN-0599、3 は DN-0600。添削の見本（tensaku-demo）もこの判断に含める。解答速報は DN-0604、KPI は DN-0598。数値の記録は `data/youtube/own-videos/`・`data/youtube/competitors/`（定期取得は DN-0596）。
 
 
 ### [DN-0507] 「解答・解説」の開封計測を見て、過去問の解説を有料側（note・KDP）へ移すかを決める

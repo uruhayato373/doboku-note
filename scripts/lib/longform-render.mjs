@@ -1,4 +1,5 @@
 import { buildExplanationNode } from './video-explanation.mjs';
+import { subtitleChunks } from './video-subtitles.mjs';
 /**
  * longform-render.mjs — 動画パック（DN-0110 Phase 1）の 16:9 通常動画レンダリング・ライブラリ。
  *
@@ -45,18 +46,6 @@ export function wrapJp(text, maxChars) {
   return lines;
 }
 
-/**
- * 字幕を1画面1行に収めつつ、末尾だけ1〜2文字になる不均衡を避ける。
- * 例: 30文字・上限28文字 → 15文字×2（28文字＋2文字にはしない）。
- */
-export function chunkJpBalanced(text, maxChars) {
-  const chars = [...(text ?? '')];
-  if (chars.length === 0) return [];
-  const chunkCount = Math.ceil(chars.length / maxChars);
-  const chunkSize = Math.ceil(chars.length / chunkCount);
-  return wrapJp(chars.join(''), chunkSize);
-}
-
 function assTime(sec) {
   const h = Math.floor(sec / 3600);
   const m = Math.floor((sec % 3600) / 60);
@@ -86,7 +75,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
   const lines = [header];
   scenes.forEach((scene, i) => {
     const dur = durations?.[i] ?? (scene.end - scene.start);
-    const chunks = chunkJpBalanced(scene.narration ?? '', 28);
+    // 語の途中・句読点の前で切らない（DN-0592）。Shorts・Reels と同じ区切り
+    const chunks = subtitleChunks(scene.narration ?? '', 28);
     let chunkStart = t;
     chunks.forEach((text, chunkIndex) => {
       const chunkEnd = chunkIndex === chunks.length - 1
