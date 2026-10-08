@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="第二次検定に入る三つの区分から一つを選んで申し込み、受験し、合格通知書（結果通知書）に同封の交付申請書で第二次検定合格証明書の交付を申請する流れ。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222}</style>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+</defs>
+<!-- brand / positive / surface fills; ink-strong text -->
+<rect x="12" y="8" width="376" height="226" rx="8" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+
+<rect x="24" y="20" width="352" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="36" y="42" font-size="13" font-weight="bold" fill="#1a3a5c">区分1　1級第一次検定の合格</text>
+<text x="36" y="62" font-size="12" fill="#555">入力：合格番号（または受検番号）と合格年度</text>
+
+<rect x="24" y="91" width="352" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="36" y="113" font-size="13" font-weight="bold" fill="#1a3a5c">区分2　2級第二次検定＋1級第一次検定の合格</text>
+<text x="36" y="133" font-size="12" fill="#555">入力：両方の合格番号と合格年度</text>
+
+<rect x="24" y="162" width="352" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="36" y="184" font-size="13" font-weight="bold" fill="#1a3a5c">区分3　技術士第二次試験の合格</text>
+<text x="36" y="204" font-size="12" fill="#555">提出：合格を証する書類（一次の番号は不要）</text>
+
+<path d="M200 234 L200 258" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="212" y="251" font-size="12" fill="#555">いずれか一つ</text>
+
+<rect x="24" y="260" width="352" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="200" y="283" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">第二次検定を受験</text>
+<text x="200" y="302" font-size="11" text-anchor="middle" fill="#555">実務経験は「個人ページ」に登録し、証明者の確認を受ける</text>
+<path d="M200 316 L200 338" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="24" y="340" width="352" height="56" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="200" y="363" font-size="14" font-weight="bold" text-anchor="middle" fill="#222">合格通知書（結果通知書）に同封</text>
+<text x="200" y="382" font-size="11" text-anchor="middle" fill="#555">交付申請書を受付期間内に国土交通省へ申請する</text>
+<path d="M200 396 L200 418" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="24" y="420" width="352" height="56" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="200" y="443" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">第二次検定合格証明書</text>
+<text x="200" y="462" font-size="11" text-anchor="middle" fill="#555">1級土木施工管理技士・顔写真つき</text>
+</svg>
