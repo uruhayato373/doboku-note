@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="巡視の指摘を危険度の高低と対策の難しさで四つに分ける表。高く易しいものはすぐ直し、高く難しいものは止めて計画し、低く易しいものはまとめて直し、低く難しいものは記録して見守る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 縦軸：危険度 -->
+  <text x="26" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#555">危険度</text>
+  <text x="26" y="138" text-anchor="middle" font-size="13" fill="#222">高い</text>
+  <text x="26" y="322" text-anchor="middle" font-size="13" fill="#222">低い</text>
+
+  <!-- 高 × 易 -->
+  <rect x="50" y="44" width="156" height="180" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn-fill / warn -->
+  <text x="62" y="76" font-size="15" font-weight="bold" fill="#1a3a5c">すぐ直す</text>
+  <text x="62" y="108" font-size="14" fill="#222">その日のうちに</text>
+  <text x="62" y="132" font-size="14" fill="#222">是正し、現場で</text>
+  <text x="62" y="156" font-size="14" fill="#222">完了を確かめる</text>
+
+  <!-- 高 × 難 -->
+  <rect x="210" y="44" width="156" height="180" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text x="222" y="76" font-size="15" font-weight="bold" fill="#1a3a5c">止めて計画する</text>
+  <text x="222" y="108" font-size="14" fill="#222">応急措置で</text>
+  <text x="222" y="132" font-size="14" fill="#222">危険を先に下げ、</text>
+  <text x="222" y="156" font-size="14" fill="#222">恒久対策は</text>
+  <text x="222" y="180" font-size="14" fill="#222">期限を置いて協議</text>
+
+  <!-- 低 × 易 -->
+  <rect x="50" y="228" width="156" height="180" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text x="62" y="260" font-size="15" font-weight="bold" fill="#1a3a5c">まとめて直す</text>
+  <text x="62" y="292" font-size="14" fill="#222">巡視の場か、</text>
+  <text x="62" y="316" font-size="14" fill="#222">期限内に直し、</text>
+  <text x="62" y="340" font-size="14" fill="#222">次回に再確認</text>
+
+  <!-- 低 × 難 -->
+  <rect x="210" y="228" width="156" height="180" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="222" y="260" font-size="15" font-weight="bold" fill="#1a3a5c">記録して見守る</text>
+  <text x="222" y="292" font-size="14" fill="#222">経過を記録し、</text>
+  <text x="222" y="316" font-size="14" fill="#222">次の工程や</text>
+  <text x="222" y="340" font-size="14" fill="#222">工事の計画に</text>
+  <text x="222" y="364" font-size="14" fill="#222">繰り入れる</text>
+
+  <!-- 横軸：対策の難しさ -->
+  <text x="128" y="432" text-anchor="middle" font-size="13" fill="#222">易しい</text>
+  <text x="288" y="432" text-anchor="middle" font-size="13" fill="#222">難しい</text>
+  <text x="208" y="454" text-anchor="middle" font-size="12" font-weight="bold" fill="#555">対策の難しさ（費用・工期・他工種との調整）</text>
+
+  <!-- 凡例：危険度の定義 -->
+  <text x="208" y="480" text-anchor="middle" font-size="12" font-weight="bold" fill="#555">危険度（被害の重さ × 起こりやすさ）</text>
+</svg>
