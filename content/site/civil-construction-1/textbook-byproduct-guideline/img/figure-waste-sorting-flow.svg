@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設廃棄物の分別と行き先の対応図。特定建設資材廃棄物と再資源化できる産業廃棄物は再資源化施設へ、安定型は安定型処分場、特別管理産業廃棄物は専門の処理、混合廃棄物は選別設備のある中間処理施設へ">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<text x="14" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">現場で分ける</text>
+<text x="214" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">行き先</text>
+<rect x="14" y="26" width="172" height="56" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="24" y="44" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">特定建設資材廃棄物</text>
+<text x="24" y="60" text-anchor="start" font-size="11" fill="#222">コンクリート塊</text>
+<text x="24" y="74" text-anchor="start" font-size="11" fill="#222">アスコン塊・木材</text>
+<line x1="190" y1="54.0" x2="206" y2="54.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 49.0 L205 59.0 L212 54.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="26" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="44" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">再資源化施設へ</text>
+<text x="224" y="60" text-anchor="start" font-size="11" fill="#222">対象工事では</text>
+<text x="224" y="74" text-anchor="start" font-size="11" fill="#222">再資源化が義務</text>
+<rect x="14" y="88" width="172" height="56" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="24" y="106" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">再資源化できる産廃</text>
+<text x="24" y="122" text-anchor="start" font-size="11" fill="#222">金属くず・廃プラ</text>
+<text x="24" y="136" text-anchor="start" font-size="11" fill="#222">廃石膏ボードなど</text>
+<line x1="190" y1="116.0" x2="206" y2="116.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 111.0 L205 121.0 L212 116.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="88" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="106" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">再資源化施設へ</text>
+<text x="224" y="122" text-anchor="start" font-size="11" fill="#222">受入条件に合わせ</text>
+<text x="224" y="136" text-anchor="start" font-size="11" fill="#222">破砕して分ける</text>
+<rect x="14" y="150" width="172" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="24" y="168" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">最終処分するもの</text>
+<text x="24" y="184" text-anchor="start" font-size="11" fill="#222">安定型の産廃と</text>
+<text x="24" y="198" text-anchor="start" font-size="11" fill="#222">それ以外を分ける</text>
+<line x1="190" y1="178.0" x2="206" y2="178.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 173.0 L205 183.0 L212 178.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="150" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="168" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">最終処分場へ</text>
+<text x="224" y="184" text-anchor="start" font-size="11" fill="#222">安定型は安定型処分場</text>
+<text x="224" y="198" text-anchor="start" font-size="11" fill="#222">それ以外は別の処分場</text>
+<rect x="14" y="212" width="172" height="56" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="24" y="230" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">特別管理産業廃棄物</text>
+<text x="24" y="246" text-anchor="start" font-size="11" fill="#222">飛散性アスベスト</text>
+<text x="24" y="260" text-anchor="start" font-size="11" fill="#222">PCB廃棄物など</text>
+<line x1="190" y1="240.0" x2="206" y2="240.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 235.0 L205 245.0 L212 240.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="212" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="230" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">専門の処理へ</text>
+<text x="224" y="246" text-anchor="start" font-size="11" fill="#222">廃棄物処理法に</text>
+<text x="224" y="260" text-anchor="start" font-size="11" fill="#222">基づき適正に処理</text>
+<rect x="14" y="274" width="172" height="56" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="24" y="292" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">一般廃棄物</text>
+<text x="24" y="308" text-anchor="start" font-size="11" fill="#222">現場事務所の</text>
+<text x="24" y="322" text-anchor="start" font-size="11" fill="#222">ごみなど</text>
+<line x1="190" y1="302.0" x2="206" y2="302.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 297.0 L205 307.0 L212 302.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="274" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="292" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">産廃と別に処理</text>
+<text x="224" y="308" text-anchor="start" font-size="11" fill="#222">産業廃棄物と</text>
+<text x="224" y="322" text-anchor="start" font-size="11" fill="#222">混ぜない</text>
+<rect x="14" y="336" width="172" height="56" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="24" y="354" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">分けきれない混合物</text>
+<text x="24" y="370" text-anchor="start" font-size="11" fill="#222">現場で分別できず</text>
+<text x="24" y="384" text-anchor="start" font-size="11" fill="#222">残ったもの</text>
+<line x1="190" y1="364.0" x2="206" y2="364.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M205 359.0 L205 369.0 L212 364.0 Z" fill="#8a8a8a"/>
+<rect x="214" y="336" width="172" height="56" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="224" y="354" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">中間処理施設へ</text>
+<text x="224" y="370" text-anchor="start" font-size="11" fill="#222">選別設備のある</text>
+<text x="224" y="384" text-anchor="start" font-size="11" fill="#222">施設を活用する</text>
+<rect x="14" y="402" width="372" height="88" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="424" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">引き渡しの要点</text>
+<text x="28" y="444" text-anchor="start" font-size="11" fill="#222">・元請が排出事業者。運搬と処分は別々に直接契約</text>
+<text x="28" y="461" text-anchor="start" font-size="11" fill="#222">・マニフェストで最終処分の完了まで確認する</text>
+<text x="28" y="478" text-anchor="start" font-size="11" fill="#222">・最終処分する混合物は選別し、熱しゃく減量5%以下へ</text>
+</svg>

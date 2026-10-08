@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="解く順番の4段階。必須の区画、土木一般、専門土木と法規、見直しの順に、各段階の判断基準と時間の目安を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-num  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-time { font-size: 11px; fill: #555; }
+      .t-rule { font-size: 12px; fill: #222; }
+      .t-sum  { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .must  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pick  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .check { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-must  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pick  { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-check { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .flow  { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 1 必須の区画 -->
+  <rect class="must" x="20" y="30" width="360" height="88" rx="8"/>  <!-- brand-fill / brand -->
+  <circle class="b-must" cx="44" cy="52" r="12"/>
+  <text class="t-num" x="44" y="57" text-anchor="middle">1</text>
+  <text class="t-name" x="64" y="57">必須の区画 — 24問すべて</text>
+  <text class="t-time" x="64" y="75">目安 約48分（1問2分）</text>
+  <text class="t-rule" x="64" y="94">見送りの選択肢はない。2分で絞れなければ</text>
+  <text class="t-rule" x="64" y="110">印を付けて仮の答えを塗り、先へ進む</text>
+
+  <line class="flow" x1="200" y1="120" x2="200" y2="142" marker-end="url(#arrow)"/>
+
+  <!-- 2 土木一般 -->
+  <rect class="pick" x="20" y="144" width="360" height="88" rx="8"/>  <!-- positive-fill / positive -->
+  <circle class="b-pick" cx="44" cy="166" r="12"/>
+  <text class="t-num" x="44" y="171" text-anchor="middle">2</text>
+  <text class="t-name" x="64" y="171">土木一般 — 11問中9問</text>
+  <text class="t-time" x="64" y="189">目安 約18分</text>
+  <text class="t-rule" x="64" y="208">外せるのは2問だけ</text>
+  <text class="t-rule" x="64" y="224">土工・コンクリート・基礎工の苦手分野から</text>
+
+  <line class="flow" x1="200" y1="234" x2="200" y2="256" marker-end="url(#arrow)"/>
+
+  <!-- 3 専門土木と法規 -->
+  <rect class="pick" x="20" y="258" width="360" height="88" rx="8"/>  <!-- positive-fill / positive -->
+  <circle class="b-pick" cx="44" cy="280" r="12"/>
+  <text class="t-num" x="44" y="285" text-anchor="middle">3</text>
+  <text class="t-name" x="64" y="285">専門土木 20問中6問・法規 11問中6問</text>
+  <text class="t-time" x="64" y="303">目安 約24分</text>
+  <text class="t-rule" x="64" y="322">題材を見渡して、触れた工種から選ぶ</text>
+  <text class="t-rule" x="64" y="338">法規は3法の問から先に選ぶ</text>
+
+  <line class="flow" x1="200" y1="348" x2="200" y2="370" marker-end="url(#arrow)"/>
+
+  <!-- 4 見直し -->
+  <rect class="check" x="20" y="372" width="360" height="88" rx="8"/>  <!-- warn-fill / warn -->
+  <circle class="b-check" cx="44" cy="394" r="12"/>
+  <text class="t-num" x="44" y="399" text-anchor="middle">4</text>
+  <text class="t-name" x="64" y="399">見直し</text>
+  <text class="t-time" x="64" y="417">残り 約40分（選ぶための読み比べを含む）</text>
+  <text class="t-rule" x="64" y="436">解答数を区画ごとに数え、上限超過がないか見る</text>
+  <text class="t-rule" x="64" y="452">印の問に戻り、マーク欄の行と番号を照合する</text>
+
+  <text class="t-sum" x="200" y="480" text-anchor="middle">1周目 約90分 ＋ 見直し 約40分 ＝ 130分</text>
+  <text class="t-note" x="200" y="495" text-anchor="middle">令和8年度前期の試験時間（130分）を、1問2分で配分した目安</text>
+</svg>

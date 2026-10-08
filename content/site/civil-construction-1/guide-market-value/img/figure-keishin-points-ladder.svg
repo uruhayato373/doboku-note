@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="経営事項審査で技術職員に付く持ち点の序列。監理技術者になれる1級が6点と5点、技士補が4点、基幹技能者が3点、2級が2点、実務経験が1点。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222}</style>
+</defs>
+<!-- positive: 監理技術者の資格 / warn: 補佐 / brand: 技能・主任技術者 / surface: 実務経験 -->
+<text x="14" y="26" font-size="11" fill="#555">上ほど持ち点が高い</text>
+
+<rect x="14" y="40" width="352" height="58" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="28" y="76" font-size="20" font-weight="bold" fill="#1a3a5c">6点</text>
+<text x="86" y="63" font-size="13" font-weight="bold" fill="#1a3a5c">監理技術者・講習が期限内</text>
+<text x="86" y="83" font-size="11" fill="#555">1級・技術士＋資格者証＋監理技術者講習</text>
+
+<rect x="14" y="108" width="336" height="58" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="28" y="144" font-size="20" font-weight="bold" fill="#1a3a5c">5点</text>
+<text x="86" y="129" font-size="13" font-weight="bold" fill="#1a3a5c">監理技術者の資格</text>
+<text x="86" y="146" font-size="11" fill="#555">1級・技術士で次のいずれか</text>
+<text x="86" y="159" font-size="11" fill="#555">資格者証なし・講習なし・期限切れ</text>
+
+<rect x="14" y="176" width="320" height="58" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="28" y="212" font-size="20" font-weight="bold" fill="#1a3a5c">4点</text>
+<text x="86" y="199" font-size="13" font-weight="bold" fill="#1a3a5c">監理技術者の補佐</text>
+<text x="86" y="219" font-size="11" fill="#555">1級技士補（主任技術者の要件も必要）</text>
+
+<rect x="14" y="244" width="304" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="280" font-size="20" font-weight="bold" fill="#1a3a5c">3点</text>
+<text x="86" y="267" font-size="13" font-weight="bold" fill="#1a3a5c">技能者の最上位</text>
+<text x="86" y="287" font-size="11" fill="#555">登録基幹技能者・CCUSレベル4</text>
+
+<rect x="14" y="312" width="288" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="348" font-size="20" font-weight="bold" fill="#1a3a5c">2点</text>
+<text x="86" y="335" font-size="13" font-weight="bold" fill="#1a3a5c">2級技術者と相当の技能者</text>
+<text x="86" y="355" font-size="11" fill="#555">2級・1級技能士・CCUSレベル3</text>
+
+<rect x="14" y="380" width="272" height="58" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="28" y="416" font-size="20" font-weight="bold" fill="#222">1点</text>
+<text x="86" y="403" font-size="13" font-weight="bold" fill="#222">実務経験の主任技術者</text>
+<text x="86" y="423" font-size="11" fill="#555">指定学科卒＋年数、または10年</text>
+
+<rect x="14" y="452" width="352" height="36" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="26" y="467" font-size="11" fill="#555">この持ち点を人数分足した値が、技術職員数の</text>
+<text x="26" y="481" font-size="11" fill="#555">評点（Z1）の元になる（令和8年7月時点）</text>
+</svg>

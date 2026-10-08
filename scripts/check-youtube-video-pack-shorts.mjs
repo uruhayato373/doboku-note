@@ -2,6 +2,7 @@
 /** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
 
 const ROOT = process.cwd();
@@ -21,6 +22,9 @@ const warnings = [];
 const titles = new Map();
 const slots = new Map();
 const daily = new Map();
+const pendingSlots = [];
+const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published']);
+const STATE = readDataset(ROOT, 'state.video-status', { values: { name: 'content-status' } });
 let packCount = 0;
 let shortsCount = 0;
 
@@ -48,6 +52,14 @@ for (const exam of EXAMS) {
     const storyboardPath = join(dir, 'storyboard.json');
     const youtubePath = join(dir, 'youtube.json');
     if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
+    // 総まとめ（compilation.json）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
+    // ユーザー承認後（approved 以降）の予約枠だけを公開枠の重複と1日の上限に数える。承認前の枠は下書きなので警告に留める
+    if (existsSync(join(dir, 'compilation.json'))) {
+      const publishAt = readJson(youtubePath).longform?.publishAt;
+      if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) addSlot(publishAt, `${packId}:longform`);
+      else if (publishAt) pendingSlots.push([publishAt, `${packId}:longform`]);
+      continue;
+    }
     packCount += 1;
     const manifest = readJson(manifestPath);
     const storyboard = readJson(storyboardPath);
@@ -100,6 +112,11 @@ for (const [day, count] of daily) {
   if (count > 3) errors.push(`${day}: 公開${count}本 (1日上限3本)`);
 }
 if ([...daily.values()].every((count) => count < 3)) warnings.push('1日3本の枠を使う日がありません');
+for (const [publishAt, label] of pendingSlots) {
+  const day = publishAt.slice(0, 10);
+  if (slots.has(publishAt)) warnings.push(`承認前の予定枠が重複: ${publishAt} (${slots.get(publishAt)}, ${label})`);
+  if ((daily.get(day) ?? 0) >= 3) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限3本を超える）: ${label}`);
+}
 
 console.log(`YouTube Shorts gate: packs=${packCount}, shorts=${shortsCount}, titles=${titles.size}, slots=${slots.size}`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);

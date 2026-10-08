@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T13:29:51.083Z",
+  "generated_at": "2026-10-08T21:22:45.557Z",
   "summary": {
-    "total_mdx_files": 1354,
+    "total_mdx_files": 1355,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -2528,11 +2528,12 @@
     },
     {
       "name": "環境保全",
-      "count": 87,
+      "count": 88,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
         "civil-construction-1-guide-four-management",
+        "civil-construction-1-textbook-byproduct-guideline",
         "civil-construction-1-textbook-construction-byproduct-recycle",
         "civil-construction-1-textbook-noise-vibration-regulation",
         "civil-construction-1-textbook-waste-disposal-manifest",
@@ -3033,11 +3034,12 @@
     },
     {
       "name": "textbook",
-      "count": 58,
+      "count": 59,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-asphalt-concrete-pavement",
         "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-byproduct-guideline",
         "civil-construction-1-textbook-cast-in-place-pile",
         "civil-construction-1-textbook-concrete-materials",
         "civil-construction-1-textbook-concrete-mix-design",

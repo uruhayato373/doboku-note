@@ -1,0 +1,59 @@
+<!-- authored 2026-10-08 doboku-note 自作。埋立の三つの土砂投入方式と環境配慮・手続を示す概念図。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="埋立の施工方式。外周護岸で囲んだ区画へ、濁りの出にくい順にダンプトラック、底開式土運船やガット船、ポンプ浚渫船と排砂管の三方式で土砂を入れる。余水吐で濁りを管理し、材料は廃棄物を混ぜず、公有水面埋立法の知事の免許（国は承認）を経る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">外周護岸で囲んだ区画へ、濁りの出にくい方式から並べる</text>
+
+  <!-- 土砂の入れ方 -->
+  <rect class="box-b" x="20" y="34" width="170" height="64" rx="6"/>
+  <text class="t-name" x="34" y="60">ダンプトラック</text>
+  <text class="t-desc" x="34" y="80">陸上から運搬し敷き均す</text>
+  <rect class="box-p" x="20" y="112" width="170" height="64" rx="6"/>
+  <text class="t-name" x="34" y="138">底開式土運船・ガット船</text>
+  <text class="t-desc" x="34" y="158">水面から直接投入</text>
+  <rect class="box-w" x="20" y="190" width="170" height="64" rx="6"/>
+  <text class="t-name" x="34" y="216">ポンプ浚渫船</text>
+  <text class="t-desc" x="34" y="236">排砂管で土砂を送る</text>
+
+  <line class="arrow" x1="192" y1="66" x2="226" y2="100" marker-end="url(#arr)"/>
+  <line class="arrow" x1="192" y1="144" x2="226" y2="144" marker-end="url(#arr)"/>
+  <line class="arrow" x1="192" y1="222" x2="226" y2="188" marker-end="url(#arr)"/>
+
+  <!-- 護岸で囲んだ区画 -->
+  <rect x="230" y="34" width="150" height="220" rx="4" fill="#f5f5f5" stroke="#555" stroke-width="5"/>
+  <text class="t-name" x="305" y="62" text-anchor="middle">外周護岸で囲んだ</text>
+  <text class="t-name" x="305" y="80" text-anchor="middle">埋立区画</text>
+  <rect x="244" y="102" width="122" height="62" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-desc" x="305" y="138" text-anchor="middle">投入した土砂が沈む</text>
+  <rect class="box-w" x="262" y="204" width="86" height="28" rx="4"/>
+  <text class="t-name" x="305" y="223" text-anchor="middle">余水吐</text>
+
+  <!-- 環境・材料・手続 -->
+  <rect class="box-s" x="20" y="282" width="360" height="56" rx="6"/>
+  <text class="t-name" x="36" y="304">濁り</text>
+  <text class="t-desc" x="36" y="324">余水吐で濁りを管理。膜の位置・範囲は現地の条件で決める</text>
+  <rect class="box-s" x="20" y="348" width="360" height="56" rx="6"/>
+  <text class="t-name" x="36" y="370">材料</text>
+  <text class="t-desc" x="36" y="390">浚渫土砂・建設発生土が中心。廃棄物は混ぜない</text>
+  <rect class="box-s" x="20" y="414" width="360" height="56" rx="6"/>
+  <text class="t-name" x="36" y="436">手続（公有水面埋立法）</text>
+  <text class="t-desc" x="36" y="456">知事の免許（国は承認）→ 工事 → 竣功</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="問題Aの法規12問を法令別に数えた出題数。令和3〜5年度と令和6〜8年度を比べると、建設業法が1問から2問に増え、火薬類取締法が1問から0問になり、他の8法令の問題数は変わらない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-leg  { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-law  { font-size: 12px; fill: #222; }
+      .t-lawb { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-val  { font-size: 11px; fill: #222; }
+      .t-chg  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-sum  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .bar-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .bar-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .chg   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .zero  { stroke: #3a7d44; stroke-width: 1.5; }
+      .rule  { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">問題Aの法規12問を法令別に数えた出題数</text>
+
+  <rect class="bar-a" x="24" y="30" width="14" height="10"/>
+  <text class="t-leg" x="44" y="39">令和3〜5年度（No.50〜61）</text>
+  <rect class="bar-b" x="24" y="47" width="14" height="10"/>
+  <text class="t-leg" x="44" y="56">令和6〜8年度（No.55〜66）</text>
+
+  <text class="t-sec" x="20" y="84">毎年同じ法令が出る10問</text>
+  <line class="rule" x1="20" y1="90" x2="380" y2="90"/>
+
+  <!-- 労働基準法 -->
+  <text class="t-law" x="20" y="113">労働基準法</text>
+  <rect class="bar-a" x="112" y="98" width="152" height="10"/>
+  <rect class="bar-b" x="112" y="110" width="152" height="10"/>
+  <text class="t-val" x="269" y="108">2問</text>
+  <text class="t-val" x="269" y="120">2問</text>
+
+  <!-- 労働安全衛生法 -->
+  <text class="t-law" x="20" y="143">労働安全衛生法</text>
+  <rect class="bar-a" x="112" y="128" width="152" height="10"/>
+  <rect class="bar-b" x="112" y="140" width="152" height="10"/>
+  <text class="t-val" x="269" y="138">2問</text>
+  <text class="t-val" x="269" y="150">2問</text>
+
+  <!-- 道路法 -->
+  <text class="t-law" x="20" y="173">道路法</text>
+  <rect class="bar-a" x="112" y="158" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="170" width="76" height="10"/>
+  <text class="t-val" x="193" y="168">1問</text>
+  <text class="t-val" x="193" y="180">1問</text>
+
+  <!-- 河川法 -->
+  <text class="t-law" x="20" y="203">河川法</text>
+  <rect class="bar-a" x="112" y="188" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="200" width="76" height="10"/>
+  <text class="t-val" x="193" y="198">1問</text>
+  <text class="t-val" x="193" y="210">1問</text>
+
+  <!-- 建築基準法 -->
+  <text class="t-law" x="20" y="233">建築基準法</text>
+  <rect class="bar-a" x="112" y="218" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="230" width="76" height="10"/>
+  <text class="t-val" x="193" y="228">1問</text>
+  <text class="t-val" x="193" y="240">1問</text>
+
+  <!-- 騒音規制法 -->
+  <text class="t-law" x="20" y="263">騒音規制法</text>
+  <rect class="bar-a" x="112" y="248" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="260" width="76" height="10"/>
+  <text class="t-val" x="193" y="258">1問</text>
+  <text class="t-val" x="193" y="270">1問</text>
+
+  <!-- 振動規制法 -->
+  <text class="t-law" x="20" y="293">振動規制法</text>
+  <rect class="bar-a" x="112" y="278" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="290" width="76" height="10"/>
+  <text class="t-val" x="193" y="288">1問</text>
+  <text class="t-val" x="193" y="300">1問</text>
+
+  <!-- 港則法 -->
+  <text class="t-law" x="20" y="323">港則法</text>
+  <rect class="bar-a" x="112" y="308" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="320" width="76" height="10"/>
+  <text class="t-val" x="193" y="318">1問</text>
+  <text class="t-val" x="193" y="330">1問</text>
+
+  <text class="t-sec" x="20" y="362">入れ替わる2問</text>
+  <line class="rule" x1="20" y1="368" x2="380" y2="368"/>
+
+  <!-- 建設業法 -->
+  <rect class="chg" x="12" y="373" width="376" height="28" rx="4"/>
+  <text class="t-lawb" x="20" y="391">建設業法</text>
+  <rect class="bar-a" x="112" y="376" width="76" height="10"/>
+  <rect class="bar-b" x="112" y="388" width="152" height="10"/>
+  <text class="t-val" x="193" y="386">1問</text>
+  <text class="t-val" x="269" y="398">2問</text>
+  <text class="t-chg" x="366" y="391" text-anchor="end">1問増</text>
+
+  <!-- 火薬類取締法 -->
+  <rect class="chg" x="12" y="403" width="376" height="28" rx="4"/>
+  <text class="t-lawb" x="20" y="421">火薬類取締法</text>
+  <rect class="bar-a" x="112" y="406" width="76" height="10"/>
+  <line class="zero" x1="112" y1="418" x2="112" y2="428"/>
+  <text class="t-val" x="193" y="416">1問</text>
+  <text class="t-val" x="118" y="428">0問</text>
+  <text class="t-chg" x="366" y="421" text-anchor="end">出題なし</text>
+
+  <line class="rule" x1="20" y1="446" x2="380" y2="446"/>
+  <text class="t-sum" x="200" y="467" text-anchor="middle">合計はどちらの期間も12問</text>
+  <text class="t-sub" x="200" y="485" text-anchor="middle">変わったのは建設業法と火薬類取締法の2問分だけ</text>
+</svg>

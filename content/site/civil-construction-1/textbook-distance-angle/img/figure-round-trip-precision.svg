@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="鋼巻尺の往復測定の流れ。往測と復測から較差と平均値を求め、較差÷平均値で精度を表し、要求精度で採否を決める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .t-step { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 12px; fill: #555; }
+      .t-formula { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #555; stroke-width: 1.5; }
+    </style>
+    <marker id="arw" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 1 往測と復測: brand -->
+  <rect class="box-brand" x="30" y="14" width="340" height="54" rx="6"/>
+  <text class="t-step" x="200" y="36" text-anchor="middle">往測と復測</text>
+  <text class="t-sub" x="200" y="55" text-anchor="middle">同じ尺・同じ張力で2回測る</text>
+  <line class="arrow" x1="200" y1="69" x2="200" y2="89" marker-end="url(#arw)"/>
+
+  <!-- 2 較差: brand -->
+  <rect class="box-brand" x="30" y="90" width="340" height="54" rx="6"/>
+  <text class="t-step" x="200" y="112" text-anchor="middle">較差</text>
+  <text class="t-sub" x="200" y="131" text-anchor="middle">往測値と復測値の差（絶対値）</text>
+  <line class="arrow" x1="200" y1="145" x2="200" y2="165" marker-end="url(#arw)"/>
+
+  <!-- 3 平均値: brand -->
+  <rect class="box-brand" x="30" y="166" width="340" height="54" rx="6"/>
+  <text class="t-step" x="200" y="188" text-anchor="middle">平均値</text>
+  <text class="t-sub" x="200" y="207" text-anchor="middle">往測値と復測値の平均を測線長とする</text>
+  <line class="arrow" x1="200" y1="221" x2="200" y2="241" marker-end="url(#arw)"/>
+
+  <!-- 4 精度の表し方: warn -->
+  <rect class="box-warn" x="30" y="242" width="340" height="62" rx="6"/>
+  <text class="t-step" x="200" y="264" text-anchor="middle">精度の表し方</text>
+  <text class="t-formula" x="200" y="288" text-anchor="middle">較差 ÷ 平均値 ＝ 1 / N</text>
+
+  <!-- 分岐 -->
+  <path class="arrow" d="M200 305 V318 H112 V333" marker-end="url(#arw)"/>
+  <path class="arrow" d="M200 305 V318 H288 V333" marker-end="url(#arw)"/>
+
+  <!-- 判定: positive / danger -->
+  <rect class="box-positive" x="30" y="334" width="165" height="64" rx="6"/>
+  <text class="t-step" x="112" y="360" text-anchor="middle">要求精度を満たす</text>
+  <text class="t-sub" x="112" y="381" text-anchor="middle">採用する</text>
+
+  <rect class="box-danger" x="205" y="334" width="165" height="64" rx="6"/>
+  <text class="t-step" x="287" y="360" text-anchor="middle">要求精度に届かない</text>
+  <text class="t-sub" x="287" y="381" text-anchor="middle">原因を探して再測</text>
+
+  <!-- まとめ: surface -->
+  <rect class="box-surface" x="30" y="416" width="340" height="70" rx="6"/>
+  <text class="t-sum" x="200" y="438" text-anchor="middle">N が大きいほど高精度</text>
+  <text class="t-sum" x="200" y="456" text-anchor="middle">1/10000 は 1/5000 より精度が高い</text>
+  <text class="t-note" x="200" y="475" text-anchor="middle">尺定数のずれは較差に現れない</text>
+</svg>

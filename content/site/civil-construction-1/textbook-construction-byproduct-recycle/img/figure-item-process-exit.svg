@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="品目ごとの再資源化の流れ。コンクリート塊は破砕して路盤材や裏込め材に、建設発生木材はチップにしてボードや紙の原料、堆肥、燃料に、アスコン塊は破砕して再生加熱アスファルト混合物や路盤材に、建設汚泥は脱水・乾燥・安定処理・焼成で処理土にして盛土材や埋戻し材に、混合廃棄物は選別して各品目へ戻す">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<text x="14" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">品目</text>
+<text x="144" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">加工の中身と戻り先</text>
+<rect x="14" y="26" width="102" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="65" y="66.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">コンクリート塊</text>
+<line x1="118" y1="62.0" x2="124" y2="62.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M132 62.0 l-8 -5 v10 z" fill="#8a8a8a"/>
+<rect x="134" y="26" width="252" height="72" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="144" y="50.0" text-anchor="start" font-size="11" fill="#222">加工：破砕して選別する</text>
+<text x="144" y="66.0" text-anchor="start" font-size="11" fill="#222">戻り先：路盤材（再生クラッシャラン）、</text>
+<text x="144" y="82.0" text-anchor="start" font-size="11" fill="#222">裏込め材、埋戻し材（再生砂）</text>
+<rect x="14" y="106" width="102" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="65" y="146.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設発生木材</text>
+<line x1="118" y1="142.0" x2="124" y2="142.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M132 142.0 l-8 -5 v10 z" fill="#8a8a8a"/>
+<rect x="134" y="106" width="252" height="72" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="144" y="130.0" text-anchor="start" font-size="11" fill="#222">加工：破砕してチップにする</text>
+<text x="144" y="146.0" text-anchor="start" font-size="11" fill="#222">戻り先：木質ボードや紙の原料、堆肥。</text>
+<text x="144" y="162.0" text-anchor="start" font-size="11" fill="#222">難しければ燃料にする（熱回収）</text>
+<rect x="14" y="186" width="102" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="65" y="226.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">アスコン塊</text>
+<line x1="118" y1="222.0" x2="124" y2="222.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M132 222.0 l-8 -5 v10 z" fill="#8a8a8a"/>
+<rect x="134" y="186" width="252" height="72" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="144" y="210.0" text-anchor="start" font-size="11" fill="#222">加工：破砕する。加熱して混合も</text>
+<text x="144" y="226.0" text-anchor="start" font-size="11" fill="#222">戻り先：再生加熱アスファルト</text>
+<text x="144" y="242.0" text-anchor="start" font-size="11" fill="#222">混合物、路盤材</text>
+<rect x="14" y="266" width="102" height="72" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="65" y="306.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設汚泥</text>
+<line x1="118" y1="302.0" x2="124" y2="302.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M132 302.0 l-8 -5 v10 z" fill="#8a8a8a"/>
+<rect x="134" y="266" width="252" height="72" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+<text x="144" y="290.0" text-anchor="start" font-size="11" fill="#222">加工：脱水・乾燥・安定処理・焼成</text>
+<text x="144" y="306.0" text-anchor="start" font-size="11" fill="#222">戻り先：処理土として盛土材、</text>
+<text x="144" y="322.0" text-anchor="start" font-size="11" fill="#222">埋戻し材、充填材</text>
+<rect x="14" y="346" width="102" height="72" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="65" y="379.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設混合</text>
+<text x="65" y="395.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">廃棄物</text>
+<line x1="118" y1="382.0" x2="124" y2="382.0" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M132 382.0 l-8 -5 v10 z" fill="#8a8a8a"/>
+<rect x="134" y="346" width="252" height="72" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+<text x="144" y="370.0" text-anchor="start" font-size="11" fill="#222">加工：中間処理施設で選別する</text>
+<text x="144" y="386.0" text-anchor="start" font-size="11" fill="#222">戻り先：選別後に各品目へ。</text>
+<text x="144" y="402.0" text-anchor="start" font-size="11" fill="#222">選別できない残りは最終処分</text>
+<text x="14" y="454" text-anchor="start" font-size="11" fill="#555">青＝特定建設資材廃棄物（建設リサイクル法で再資源化が義務）</text>
+<text x="14" y="472" text-anchor="start" font-size="11" fill="#555">黄＝建設リサイクル法の再資源化義務の対象外</text>
+<text x="14" y="488" text-anchor="start" font-size="11" fill="#555">（要綱・ガイドラインで再生利用に努める）</text>
+</svg>

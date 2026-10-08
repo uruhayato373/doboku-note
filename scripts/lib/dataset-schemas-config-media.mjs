@@ -706,6 +706,7 @@ export const ConfigVideoContent = z
         durationSeconds: z
           .object({
             longform: durationRange(),
+            compilation: durationRange().describe('総まとめ（compilation.json を持つ聞き流しパック）の総尺'),
             shorts: durationRange({ recommendedMin: count('推奨の最小秒数'), recommendedMax: count('推奨の最大秒数') }),
           })
           .strict(),
@@ -740,6 +741,7 @@ export const ConfigVideoContent = z
     if (!statuses.has(s.approvalRequiredFrom)) flag(ctx, ['state', 'approvalRequiredFrom'], `「${s.approvalRequiredFrom}」が statusEnum に無い`);
     const d = v.storyboard.durationSeconds;
     if (d.longform.min > d.longform.max) flag(ctx, ['storyboard', 'durationSeconds', 'longform'], '最小が最大を超えている');
+    if (d.compilation.min > d.compilation.max) flag(ctx, ['storyboard', 'durationSeconds', 'compilation'], '最小が最大を超えている');
     if (d.shorts.min > d.shorts.max) flag(ctx, ['storyboard', 'durationSeconds', 'shorts'], '最小が最大を超えている');
     if (!(d.shorts.min <= d.shorts.recommendedMin && d.shorts.recommendedMin <= d.shorts.recommendedMax && d.shorts.recommendedMax <= d.shorts.max)) {
       flag(ctx, ['storyboard', 'durationSeconds', 'shorts'], '推奨の範囲が許す範囲（min〜max）に収まっていない');

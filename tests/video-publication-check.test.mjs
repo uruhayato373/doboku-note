@@ -28,7 +28,7 @@ function runCheck({ state, record }) {
     mkdirSync(join(root, '.claude', 'config'), { recursive: true });
     mkdirSync(join(root, '.claude', 'state'), { recursive: true });
     cpSync(join(ROOT, 'scripts', 'check-video-publication.mjs'), join(root, 'scripts', 'check-video-publication.mjs'));
-    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs']) {
+    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'video-compilation.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
     }
     cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));

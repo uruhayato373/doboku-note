@@ -6,7 +6,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, cpSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, cpSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +17,7 @@ import {
   hasVerbatimOverlap,
   loadConfig,
 } from '../scripts/lib/video-content-check.mjs';
+import { assembleCompilation } from '../scripts/lib/video-compilation.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURES = join(REPO_ROOT, 'tests', 'fixtures', 'video-content');
@@ -120,6 +121,42 @@ test('state の parse 失敗は FAIL（status 取得失敗を PASS にしない�
     writeFileSync(join(root, '.claude', 'state', 'video-content-status.json'), '{ broken');
     const r = checkAll(root, { config });
     assert.ok(codesOf(r).has('T01'));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('総まとめ: 再組み立てと一致すれば K 系なし、ずれは K02、未承認の元パックは K01', () => {
+  const root = mkdtempSync(join(tmpdir(), 'vc-compilation-'));
+  try {
+    cpSync(join(FIXTURES, 'valid'), root, { recursive: true });
+    const examDir = join(root, 'content', 'sns', 'video-packs', 'civil-construction-1');
+    const statePath = join(root, '.claude', 'state', 'video-content-status.json');
+    const state = JSON.parse(readFileSync(statePath, 'utf8'));
+    state.packs['demo-keiken-overview'].derivatives.longform = { status: 'approved', approvedBy: 'user', approvedAt: '2026-10-08T00:00:00.000Z' };
+    writeFileSync(statePath, JSON.stringify(state));
+    const dir = join(examDir, 'demo-matome');
+    mkdirSync(dir);
+    const manifest = JSON.parse(readFileSync(join(examDir, 'demo-keiken-overview', 'video-pack.json'), 'utf8'));
+    writeFileSync(join(dir, 'video-pack.json'), JSON.stringify({ ...manifest, packId: 'demo-matome', primaryCta: { ...manifest.primaryCta, campaign: 'demo-matome' } }));
+    const spec = {
+      schemaVersion: 1,
+      opening: { narration: '総まとめです。', caption: '総まとめ', visual: { kind: 'cover', heading: '総まとめ' } },
+      parts: [{ label: '第二次検定', chapters: [{ packId: 'demo-keiken-overview', title: '工事概要' }] }],
+      closing: { narration: '以上です。', caption: '以上', visual: { kind: 'cover', heading: '以上' } },
+    };
+    writeFileSync(join(dir, 'compilation.json'), JSON.stringify(spec));
+    const readSource = (id) => ({ storyboard: JSON.parse(readFileSync(join(examDir, id, 'storyboard.json'), 'utf8')), longform: state.packs[id]?.derivatives?.longform });
+    const built = JSON.stringify(assembleCompilation(spec, readSource).storyboard, null, 2) + '\n';
+    writeFileSync(join(dir, 'storyboard.json'), built);
+    const kCodes = () => [...codesOf(checkAll(root, { config }))].filter((c) => c.startsWith('K'));
+    assert.deepEqual(kCodes(), []);
+    writeFileSync(join(dir, 'storyboard.json'), built.replace('総まとめです。', '総まとめだよ。'));
+    assert.deepEqual(kCodes(), ['K02']);
+    writeFileSync(join(dir, 'storyboard.json'), built);
+    state.packs['demo-keiken-overview'].derivatives.longform = { status: 'draft' };
+    writeFileSync(statePath, JSON.stringify(state));
+    assert.deepEqual(kCodes(), ['K01']);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

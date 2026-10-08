@@ -1,0 +1,108 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ボックスカルバート横断面の配筋の読み方。頂版・底版・側壁の外側と内側に主鉄筋が線で、延長方向の配力鉄筋が点で現れる。内空側の隅にハンチがあり、かぶりは最外縁の鉄筋の表面からコンクリート表面までの距離で測る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-part { font-size: 12px; font-weight: bold; fill: #555; }
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-leg  { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .conc { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }
+      .void { fill: #ffffff; stroke: #8a8a8a; stroke-width: 2; }
+      .main { fill: none; stroke: #2e6da4; stroke-width: 2; stroke-linejoin: round; }
+      .dot  { fill: #3a7d44; }
+      .dim  { stroke: #b22234; stroke-width: 1.5; fill: none; }
+      .ext  { stroke: #b22234; stroke-width: 1; }
+      .lead { stroke: #8a8a8a; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="bx-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">横断面で見る配筋（模式図）</text>
+
+  <text class="t-dim" x="60" y="40" text-anchor="middle">かぶり</text>
+  <line class="ext" x1="52" y1="66" x2="52" y2="48"/>
+  <line class="ext" x1="68" y1="82" x2="68" y2="48"/>
+  <line class="dim" x1="30" y1="54" x2="52" y2="54" marker-end="url(#bx-a)"/>
+  <line class="dim" x1="90" y1="54" x2="68" y2="54" marker-end="url(#bx-a)"/>
+
+  <text class="t-part" x="192" y="58" text-anchor="middle">頂版</text>
+
+  <rect class="conc" x="52" y="66" width="280" height="220" rx="2"/>
+  <polygon class="void" points="122,122 262,122 276,136 276,216 262,230 122,230 108,216 108,136"/>
+
+  <rect class="main" x="68" y="82" width="248" height="188"/>
+  <polygon class="main" points="115.4,106 268.6,106 292,129.4 292,222.6 268.6,246 115.4,246 92,222.6 92,129.4"/>
+
+  <circle class="dot" cx="84" cy="90" r="2.5"/>
+  <circle class="dot" cx="120" cy="90" r="2.5"/>
+  <circle class="dot" cx="156" cy="90" r="2.5"/>
+  <circle class="dot" cx="192" cy="90" r="2.5"/>
+  <circle class="dot" cx="228" cy="90" r="2.5"/>
+  <circle class="dot" cx="264" cy="90" r="2.5"/>
+  <circle class="dot" cx="300" cy="90" r="2.5"/>
+  <circle class="dot" cx="84" cy="98" r="2.5"/>
+  <circle class="dot" cx="120" cy="98" r="2.5"/>
+  <circle class="dot" cx="156" cy="98" r="2.5"/>
+  <circle class="dot" cx="192" cy="98" r="2.5"/>
+  <circle class="dot" cx="228" cy="98" r="2.5"/>
+  <circle class="dot" cx="264" cy="98" r="2.5"/>
+  <circle class="dot" cx="300" cy="98" r="2.5"/>
+
+  <circle class="dot" cx="84" cy="254" r="2.5"/>
+  <circle class="dot" cx="120" cy="254" r="2.5"/>
+  <circle class="dot" cx="156" cy="254" r="2.5"/>
+  <circle class="dot" cx="192" cy="254" r="2.5"/>
+  <circle class="dot" cx="228" cy="254" r="2.5"/>
+  <circle class="dot" cx="264" cy="254" r="2.5"/>
+  <circle class="dot" cx="300" cy="254" r="2.5"/>
+  <circle class="dot" cx="84" cy="262" r="2.5"/>
+  <circle class="dot" cx="120" cy="262" r="2.5"/>
+  <circle class="dot" cx="156" cy="262" r="2.5"/>
+  <circle class="dot" cx="192" cy="262" r="2.5"/>
+  <circle class="dot" cx="228" cy="262" r="2.5"/>
+  <circle class="dot" cx="264" cy="262" r="2.5"/>
+  <circle class="dot" cx="300" cy="262" r="2.5"/>
+
+  <circle class="dot" cx="76" cy="150" r="2.5"/>
+  <circle class="dot" cx="76" cy="176" r="2.5"/>
+  <circle class="dot" cx="76" cy="202" r="2.5"/>
+  <circle class="dot" cx="84" cy="150" r="2.5"/>
+  <circle class="dot" cx="84" cy="176" r="2.5"/>
+  <circle class="dot" cx="84" cy="202" r="2.5"/>
+  <circle class="dot" cx="300" cy="150" r="2.5"/>
+  <circle class="dot" cx="300" cy="176" r="2.5"/>
+  <circle class="dot" cx="300" cy="202" r="2.5"/>
+  <circle class="dot" cx="308" cy="150" r="2.5"/>
+  <circle class="dot" cx="308" cy="176" r="2.5"/>
+  <circle class="dot" cx="308" cy="202" r="2.5"/>
+
+  <text class="t-part" x="26" y="180" text-anchor="middle">側壁</text>
+  <text class="t-part" x="352" y="180" text-anchor="middle">側壁</text>
+  <text class="t-part" x="192" y="306" text-anchor="middle">底版</text>
+
+  <text class="t-leg" x="246" y="150" text-anchor="end">ハンチ</text>
+  <line class="lead" x1="248" y1="145" x2="266" y2="130"/>
+
+  <line class="main" x1="122" y1="172" x2="142" y2="172"/>
+  <text class="t-leg" x="150" y="176">線＝主鉄筋</text>
+  <circle class="dot" cx="132" cy="198" r="2.5"/>
+  <text class="t-leg" x="150" y="202">点＝配力鉄筋</text>
+
+  <rect class="box-surf" x="20" y="322" width="360" height="162" rx="6"/>
+  <text class="t-sec" x="200" y="343" text-anchor="middle">読む順序</text>
+  <line class="rule" x1="36" y1="352" x2="364" y2="352"/>
+  <text class="t-item" x="40" y="376">①一般図で内空寸法・部材厚・土被りを押さえる</text>
+  <text class="t-item" x="40" y="400">②配筋図で径と間隔を読む（例 D19@250）</text>
+  <text class="t-item" x="40" y="424">③断面の線は主鉄筋、点は延長方向の配力鉄筋</text>
+  <text class="t-item" x="40" y="448">④かぶりは最外縁の鉄筋の表面から測る</text>
+  <text class="t-item" x="40" y="472">⑤継手は引張応力の大きい断面を避ける</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="解体機械まわりの確認を人・機械・解体片・電源の四つに分け、確かめる時点と担い手、主な確認事項を対応させた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-axis { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-when { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 12px; fill: #222; }
+      .c-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .c-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .c-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .c-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .c-surf     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 人 -->
+  <rect class="c-brand" x="16" y="14" width="108" height="112" rx="6"/>
+  <text class="t-axis" x="70" y="58" text-anchor="middle">人</text>
+  <text class="t-sub" x="70" y="80" text-anchor="middle">立入・合図・搭乗</text>
+  <rect class="c-surf" x="132" y="14" width="252" height="112" rx="6"/>
+  <text class="t-when" x="144" y="36">着手前に　事業者が決める</text>
+  <text class="t-item" x="144" y="62">・運転者以外は立入禁止</text>
+  <text class="t-item" x="144" y="86">・誘導者を置くなら合図を決める</text>
+  <text class="t-item" x="144" y="110">・乗車席以外に人を乗せない</text>
+
+  <!-- 機械 -->
+  <rect class="c-warn" x="16" y="134" width="108" height="112" rx="6"/>
+  <text class="t-axis" x="70" y="178" text-anchor="middle">機械</text>
+  <text class="t-sub" x="70" y="198" text-anchor="middle">点検・用途</text>
+  <text class="t-sub" x="70" y="214" text-anchor="middle">逸走防止</text>
+  <rect class="c-surf" x="132" y="134" width="252" height="112" rx="6"/>
+  <text class="t-when" x="144" y="156">始業前と離れるとき　運転者</text>
+  <text class="t-item" x="144" y="182">・ブレーキ・クラッチを点検</text>
+  <text class="t-item" x="144" y="206">・主たる用途以外に使わない</text>
+  <text class="t-item" x="144" y="230">・離れるときは装置を下ろし停止</text>
+
+  <!-- 解体片 -->
+  <rect class="c-positive" x="16" y="254" width="108" height="112" rx="6"/>
+  <text class="t-axis" x="70" y="298" text-anchor="middle">解体片</text>
+  <text class="t-sub" x="70" y="320" text-anchor="middle">自立・積付け</text>
+  <rect class="c-surf" x="132" y="254" width="252" height="112" rx="6"/>
+  <text class="t-when" x="144" y="276">崩す・割る・積むたび　運転者と指揮者</text>
+  <text class="t-item" x="144" y="302">・自立部分は厚さの5倍以下</text>
+  <text class="t-item" x="144" y="326">・割る前に塊が転がらないか見る</text>
+  <text class="t-item" x="144" y="350">・積載重量を守り崩れない積付け</text>
+
+  <!-- 電源 -->
+  <rect class="c-danger" x="16" y="374" width="108" height="112" rx="6"/>
+  <text class="t-axis" x="70" y="418" text-anchor="middle">電源</text>
+  <text class="t-sub" x="70" y="440" text-anchor="middle">遮断・再通電</text>
+  <rect class="c-surf" x="132" y="374" width="252" height="112" rx="6"/>
+  <text class="t-when" x="144" y="396">停電作業の前と後　事業者が措置</text>
+  <text class="t-item" x="144" y="422">・開閉器に施錠か通電禁止の表示</text>
+  <text class="t-item" x="144" y="446">・監視人を置く方法もある</text>
+  <text class="t-item" x="144" y="470">・再通電は感電のおそれなしを確認</text>
+</svg>

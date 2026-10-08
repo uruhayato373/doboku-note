@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="2級土木の第一次検定は出題66問のうち45問を解く。問題番号1〜5の力学5問、48〜58の11問、59〜66の8問は全問を解く必須問題で合計24問。6〜16は11問中9問、17〜36は20問中6問、37〜47は11問中6問を選ぶ選択問題で合計21問。27問以上の正解が合格の目安">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-row  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-cnt  { font-size: 12px; fill: #222; }
+      .t-leg  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum  { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .must { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pick { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .skip { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sep  { stroke: #ffffff; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .frame { fill: none; stroke: #555; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">1マスが1問。問題番号の順に、出題数と解く数を並べた</text>
+
+  <!-- No.1〜5 力学（土質・構造・水理）: 出題5問・解答5問 -->
+  <text class="t-row" x="20" y="44">No.1〜5　力学（土質・構造・水理）</text>
+  <rect class="must" x="20" y="50" width="60" height="22" rx="3"/>  <!-- brand-fill / brand -->
+  <path class="sep" d="M32 52v18 M44 52v18 M56 52v18 M68 52v18"/>
+  <text class="t-cnt" x="88" y="66">5問すべて</text>
+
+  <!-- No.6〜16 土木一般: 出題11問・解答9問 -->
+  <text class="t-row" x="20" y="94">No.6〜16　土木一般</text>
+  <rect class="skip" x="20" y="100" width="132" height="22" rx="3"/>  <!-- surface -->
+  <rect class="pick" x="20" y="100" width="108" height="22" rx="3"/>  <!-- positive-fill / positive -->
+  <path class="sep" d="M32 102v18 M44 102v18 M56 102v18 M68 102v18 M80 102v18 M92 102v18 M104 102v18 M116 102v18 M128 102v18 M140 102v18"/>
+  <text class="t-cnt" x="160" y="116">11問中9問</text>
+
+  <!-- No.17〜36 専門土木: 出題20問・解答6問 -->
+  <text class="t-row" x="20" y="144">No.17〜36　専門土木</text>
+  <rect class="skip" x="20" y="150" width="240" height="22" rx="3"/>  <!-- surface -->
+  <rect class="pick" x="20" y="150" width="72" height="22" rx="3"/>  <!-- positive-fill / positive -->
+  <path class="sep" d="M32 152v18 M44 152v18 M56 152v18 M68 152v18 M80 152v18 M92 152v18 M104 152v18 M116 152v18 M128 152v18 M140 152v18 M152 152v18 M164 152v18 M176 152v18 M188 152v18 M200 152v18 M212 152v18 M224 152v18 M236 152v18 M248 152v18"/>
+  <text class="t-cnt" x="268" y="166">20問中6問</text>
+
+  <!-- No.37〜47 法規: 出題11問・解答6問 -->
+  <text class="t-row" x="20" y="194">No.37〜47　法規</text>
+  <rect class="skip" x="20" y="200" width="132" height="22" rx="3"/>  <!-- surface -->
+  <rect class="pick" x="20" y="200" width="72" height="22" rx="3"/>  <!-- positive-fill / positive -->
+  <path class="sep" d="M32 202v18 M44 202v18 M56 202v18 M68 202v18 M80 202v18 M92 202v18 M104 202v18 M116 202v18 M128 202v18 M140 202v18"/>
+  <text class="t-cnt" x="160" y="216">11問中6問</text>
+
+  <!-- No.48〜58 必須問題: 出題11問・解答11問 -->
+  <text class="t-row" x="20" y="244">No.48〜58　必須問題（測量・契約・施工管理ほか）</text>
+  <rect class="must" x="20" y="250" width="132" height="22" rx="3"/>  <!-- brand-fill / brand -->
+  <path class="sep" d="M32 252v18 M44 252v18 M56 252v18 M68 252v18 M80 252v18 M92 252v18 M104 252v18 M116 252v18 M128 252v18 M140 252v18"/>
+  <text class="t-cnt" x="160" y="266">11問すべて</text>
+
+  <!-- No.59〜66 施工管理法（基礎的な能力）: 出題8問・解答8問 -->
+  <text class="t-row" x="20" y="294">No.59〜66　施工管理法（基礎的な能力）</text>
+  <rect class="must" x="20" y="300" width="96" height="22" rx="3"/>  <!-- brand-fill / brand -->
+  <path class="sep" d="M32 302v18 M44 302v18 M56 302v18 M68 302v18 M80 302v18 M92 302v18 M104 302v18"/>
+  <text class="t-cnt" x="124" y="316">8問すべて</text>
+
+  <!-- 凡例 -->
+  <rect class="must" x="20" y="338" width="12" height="12" rx="2"/>
+  <text class="t-leg" x="38" y="348">必須（全問解く）</text>
+  <rect class="pick" x="148" y="338" width="12" height="12" rx="2"/>
+  <text class="t-leg" x="166" y="348">選んで解く</text>
+  <rect class="skip" x="252" y="338" width="12" height="12" rx="2"/>
+  <text class="t-leg" x="270" y="348">解かない</text>
+
+  <text class="t-sec" x="20" y="372">実際に解く45問の並び</text>
+  <rect class="must" x="20" y="380" width="40" height="26"/>
+  <rect class="pick" x="60" y="380" width="168" height="26"/>
+  <rect class="must" x="228" y="380" width="152" height="26"/>
+  <path class="sep" d="M28 382v22 M36 382v22 M44 382v22 M52 382v22 M60 382v22 M68 382v22 M76 382v22 M84 382v22 M92 382v22 M100 382v22 M108 382v22 M116 382v22 M124 382v22 M132 382v22 M140 382v22 M148 382v22 M156 382v22 M164 382v22 M172 382v22 M180 382v22 M188 382v22 M196 382v22 M204 382v22 M212 382v22 M220 382v22 M228 382v22 M236 382v22 M244 382v22 M252 382v22 M260 382v22 M268 382v22 M276 382v22 M284 382v22 M292 382v22 M300 382v22 M308 382v22 M316 382v22 M324 382v22 M332 382v22 M340 382v22 M348 382v22 M356 382v22 M364 382v22 M372 382v22"/>
+  <rect class="frame" x="20" y="380" width="360" height="26" rx="3"/>
+  <text class="t-cnt" x="40.0" y="424" text-anchor="middle">必須5</text>
+  <text class="t-cnt" x="144.0" y="424" text-anchor="middle">選択21</text>
+  <text class="t-cnt" x="304.0" y="424" text-anchor="middle">必須19</text>
+
+  <rect class="box-surf" x="20" y="440" width="360" height="46" rx="6"/>
+  <text class="t-sum" x="200" y="460" text-anchor="middle">必須24問 ＋ 選択21問 ＝ 45問</text>
+  <text class="t-note" x="200" y="477" text-anchor="middle">得点60%以上（27問以上の正解）が合格の基準</text>
+</svg>
