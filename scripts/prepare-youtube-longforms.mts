@@ -5,6 +5,9 @@
  * --schedule: QA 済みパックを approved にし、publishAt を確定する。
  * --metadata: レンダー実体を検証して youtube.json を生成し、status を rendered にする。
  * --report:   予約一覧を TSV で表示する（書き込みなし）。
+ * --scope compilation --pack-id ID --publish-at ISO: 総まとめ（compilation.json）1本を予約に載せる。
+ *   civil/concrete の予約（DN-0110 の承認済み112本）には総まとめを混ぜない。
+ *   承認前の --metadata は youtube.json だけを書き、state（approvedBy・rendered）は変えない。
  */
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -49,6 +52,9 @@ const val = (name: string, fallback: string) => {
 const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render')));
 const onlyPackId = val('--pack-id', '');
 const scope = val('--scope', 'civil');
+const publishAtArg = val('--publish-at', '');
+// VOICEVOX は話者ごとに「VOICEVOX:キャラクター名」のクレジットが利用条件（エンジンの speaker_info で確認）
+const VOICEVOX_CREDIT: Record<number, string> = { 13: '青山龍星' };
 
 function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -65,7 +71,19 @@ function loadPacks(exam: TargetExam) {
       const dir = join(PACKS_ROOT, exam, entry.name);
       return { dir, manifest: readJson(join(dir, 'video-pack.json')) as Manifest };
     })
-    .filter(({ manifest }) => manifest.exam === exam);
+    .filter(({ dir, manifest }) => manifest.exam === exam && !existsSync(join(dir, 'compilation.json')));
+}
+
+/** 総まとめ（compilation.json を持つパック）1本を、指定日時で予約に載せる */
+function buildCompilationSchedule() {
+  if (!onlyPackId || !publishAtArg) throw new Error('--scope compilation には --pack-id と --publish-at が要る');
+  if (!Number.isFinite(new Date(publishAtArg).getTime())) throw new Error(`--publish-at が ISO 日時ではない: ${publishAtArg}`);
+  for (const exam of TARGET_EXAMS) {
+    const dir = join(PACKS_ROOT, exam, onlyPackId);
+    if (!existsSync(join(dir, 'compilation.json'))) continue;
+    return [{ dir, manifest: readJson(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
+  }
+  throw new Error(`総まとめパックがない: ${onlyPackId}`);
 }
 
 const oneKyuEarly = [
@@ -192,7 +210,8 @@ function buildConcreteSchedule() {
 function buildSchedule(state: any) {
   if (scope === 'civil') return buildCivilSchedule(state);
   if (scope === 'concrete') return buildConcreteSchedule();
-  throw new Error(`未知の --scope: ${scope}（civil|concrete）`);
+  if (scope === 'compilation') return buildCompilationSchedule();
+  throw new Error(`未知の --scope: ${scope}（civil|concrete|compilation）`);
 }
 
 function cta(manifest: Manifest) {
@@ -226,7 +245,7 @@ function sha256(path: string) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
 
-function assertMedia(packId: string) {
+function assertMedia(packId: string, maxSec: number) {
   const dir = join(renderRoot, packId);
   const video = join(dir, 'video.mp4');
   const thumbnail = join(dir, 'img/00-cover.png');
@@ -235,7 +254,7 @@ function assertMedia(packId: string) {
     if (!existsSync(path) || statSync(path).size === 0) throw new Error(`${packId}: レンダー実体がありません ${path}`);
   }
   const rendered = readJson(renderManifest);
-  if (!rendered.tts || rendered.mp4 !== 'video.mp4' || rendered.totalSec < 60 || rendered.totalSec > 1200) {
+  if (!rendered.tts || rendered.mp4 !== 'video.mp4' || rendered.totalSec < 60 || rendered.totalSec > maxSec) {
     throw new Error(`${packId}: render-manifest が公開条件を満たしません`);
   }
   const probe = JSON.parse(execFileSync('ffprobe', [
@@ -266,8 +285,33 @@ function examMeta(exam: TargetExam) {
   return { label, tags, hashtags: `#${label} #${extra} #試験対策` };
 }
 
-function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
-  const artifact = assertMedia(manifest.packId);
+function clock(sec: number) {
+  const s = Math.floor(sec);
+  const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+  return h ? `${h}:${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}` : `${m}:${String(r).padStart(2, '0')}`;
+}
+
+/** 総まとめの概要欄チャプター（0:00 始まり）。章の区切り画面 cNN-title の実尺の開始時刻から作る */
+function compilationChapters(dir: string, rendered: any) {
+  const spec = readJson(join(dir, 'compilation.json'));
+  const titles = spec.parts.flatMap((part: any) => part.chapters.map((c: any) => c.title));
+  const lines = ['0:00 はじめに'];
+  let t = 0;
+  for (const scene of rendered.scenes) {
+    const m = /^c(\d{2})-title$/.exec(scene.sceneId);
+    if (m) lines.push(`${clock(t)} 第${Number(m[1])}章 ${titles[Number(m[1]) - 1]}`);
+    if (typeof scene.actualSec !== 'number') throw new Error(`${scene.sceneId}: 実尺がない（音声付きで描画してから）`);
+    t += scene.actualSec;
+  }
+  if (lines.length - 1 !== titles.length) throw new Error(`章の区切り画面の数（${lines.length - 1}）が章の数（${titles.length}）と違う`);
+  return lines;
+}
+
+function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existing: any) {
+  const compilation = existsSync(join(dir, 'compilation.json'));
+  const artifact = assertMedia(manifest.packId, compilation ? 3600 : 1200);
+  const credit = VOICEVOX_CREDIT[artifact.rendered.speaker];
+  if (!credit) throw new Error(`${manifest.packId}: VOICEVOX 話者 ${artifact.rendered.speaker} のクレジットが未定義`);
   const exam = examMeta(manifest.exam);
   const link = cta(manifest);
   const title = `【${exam.label}】${manifest.title}`;
@@ -276,9 +320,11 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
     `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
     '',
     `この動画で分かること：${manifest.promise}`, '',
+    ...(compilation ? ['▼ チャプター', ...compilationChapters(dir, artifact.rendered), ''] : []),
     PRODUCTION_DISCLOSURE.authorityNotice, '',
     `▼ ${link.label}`, link.url, '',
-    '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。', '',
+    '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。',
+    `音声：VOICEVOX:${credit}`, '',
     exam.hashtags,
   ].join('\n');
   const intentTags: Record<string, string[]> = {
@@ -290,7 +336,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
     channel: CHANNEL,
     longform: {
       key: 'longform', title, description,
-      tags: [...exam.tags, ...(intentTags[manifest.intent] ?? ['試験対策']), 'doboku-note'],
+      tags: [...exam.tags, ...(intentTags[manifest.intent] ?? ['試験対策']), ...(compilation ? ['聞き流し', '総まとめ'] : []), 'doboku-note'],
       categoryId: '27', publishAt,
       r2Key: `video/render/${manifest.packId}/video.mp4`,
       thumbnailR2Key: `video/render/${manifest.packId}/img/00-cover.png`,
@@ -302,7 +348,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
 
 function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
-  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete] [--render-root PATH]');
+  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
   const state = readJson(STATE_PATH);
   const schedule = buildSchedule(state);
   const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
@@ -329,7 +375,12 @@ function main() {
     } else {
       const youtubePath = join(item.dir, 'youtube.json');
       const existing = existsSync(youtubePath) ? readJson(youtubePath) : null;
-      writeJson(youtubePath, makeYoutube(item.manifest, item.publishAt, existing));
+      writeJson(youtubePath, makeYoutube(item.dir, item.manifest, item.publishAt, existing));
+      if (derivative.approvedBy !== 'user') {
+        // 承認前は youtube.json を見本として書くだけ。承認（--schedule）を飛ばして rendered にしない
+        console.log(`${packId}: youtube.json を書いた（承認待ち・state は変えない）`);
+        continue;
+      }
       state.packs[packId].derivatives.longform = {
         ...derivative, status: 'rendered', approvedBy: 'user', renderedAt: now, publishAt: item.publishAt,
       };
@@ -337,7 +388,9 @@ function main() {
   }
   writeJson(STATE_PATH, state);
   console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${targets.length}本`);
-  if (scope === 'civil') {
+  if (scope === 'compilation') {
+    console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
+  } else if (scope === 'civil') {
     console.log('1級: 2026-09-08〜2026-10-03 / 65本（既公開1本と合計66本）');
     console.log('2級: 2026-10-05〜2026-10-22 / 18本');
   } else {
