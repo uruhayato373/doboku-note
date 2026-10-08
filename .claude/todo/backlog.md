@@ -305,6 +305,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0610] コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P4。旧 YouTube Shorts は台帳が 3 本・キーが 2 系統（youtube-schedule.json の r03-pack-01-q2、legacy-*.json の r03-pfi、data/youtube/posted.jsonl 13 行）で、content/sns/schedule.json（720 行・2030 年まで）が死蔵されたまま管理画面に読まれている。
+**やること**: youtube-schedule.json（200）・posted.jsonl・旧 10 素材を台帳へ取り込む（公開の証拠があるものだけ published、無いものは理由つきの stopped）。文面は content/sns/youtube へ移し旧台帳を削除。content/sns/schedule.json を削除し、tools/admin-app の sns-board.ts を台帳へ切り替える。配信計画の legacy/{key} を台帳の ID と結ぶ。
+**完了条件**: 旧の公開 10 本が published、残りは理由つきの stopped、孤児 0。
+
+
 ### [DN-0607] YouTube の採用表紙・締め画像の置き場を日付フォルダ・連番名から資格とパック ID の名前へ移す
 タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
 
