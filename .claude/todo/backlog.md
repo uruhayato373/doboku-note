@@ -21,6 +21,43 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
+タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+
+**起点**: 2026-10-09 に運営者が「公開済みを含む全コンテンツ（YouTube・Shorts・IG・X・今後の Threads・TikTok）を content/ で ID 管理し、画像・動画は Drive、管理画面で目視確認」と決め、設計を承認した。いまはチャネルごとに台帳が 2〜4 本あり、実際の公開状態とずれている（通常動画は台帳で予約 111・公開 1、実際は公開 70）。この P1〜P7 の一連のカードが設計を段階に分けたもの。
+**決定事項**: 承認は管理画面で見て CLI で行う（画面は読むだけ）／公開前の YouTube 動画 ID は公開リポジトリの台帳に置いてよい／古い投稿も全件取り込む（証拠の無いものは理由つきの stopped）／Codex 画像は動画ごとに使うかを決め、使ったら来歴と ai-image-fidelity-auditor の判定 ok を必須にする（Gemini は使わない）／台帳はチャネル×資格ごとの JSON／素材は Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}`（書き換えない）／DB サーバーは置かず、型つき JSON が正本で SQLite は生成物。
+**やること（P1 土台）**:
+1. 設計書を `.claude/knowledge/reference/` に置く（3 つの表・ID 規則・状態と遷移・2 段階の承認ハッシュ・照合・素材の置き場・検査 R01〜R10）
+2. `config/content-registry.json`・型（dataset-schemas-content）・台帳（datasets.mjs の registry 置き場と行。PR #927 が先なら `AREAS.strict` の上に積む）・`scripts/lib/content-registry.mjs`・CLI `npm run registry`・`check-content-registry`（ci）・`check-registry-due`（ops）
+3. `scripts/lib/media-paths.mjs`・Drive group `content-media`（immutable）・`npm run media` の promote・sync・verify・pull
+**完了条件**: 空の registry で R01 が 0 件 FAIL、見本データで R01〜R10 の失敗例をテストで固定。総まとめ 1 作品で「描く→promote→sync→verify --cloud→空の場所へ pull して sha 一致」。
+
+
+### [DN-0609] コンテンツ台帳 P3: 画面確認と2段階承認の CLI、管理画面で作品ごとに表紙・動画を目視確認する画面を作る
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P3。管理画面の動画まわりは表と状態だけで、表紙・締め・動画を見られない。画像配信のルートは Range 非対応（mp4 のシーク・Safari 再生が壊れる）で realpath 検査も無い。
+**やること**:
+1. `npm run media -- preview`（DN-0603 を実装: 無音プレビュー・10 秒ごとのコンタクトシート・数値。閾値は config/video-content.json）
+2. 2 段階の承認 `npm run media -- approve --stage visual|final --expect <digest>` と、stage の final 関門
+3. tools/admin-app の画像配信ルート: 配信元 cmedia（.tmp/media）と vault（Drive の 制作物/コンテンツ）、Range（206・416・HEAD）、全配信元の realpath 検査、Drive の絶対パスと R2 のキーを HTML に出さない
+4. `/content/items`（一覧）と `/content/items/[exam]/[work]`（詳細: 表紙・締め・コンタクトシート・場面・無音プレビュー・完成動画・字幕・IG・X・公開と予約・承認・来歴・CopyButton のコマンド）。読むだけの契約は保つ
+**完了条件**: e2e が desktop と mobile で緑（書き込みボタン 0・秘密が出ない・Range で 206・`..` は 403）。Tailscale 経由の iPhone で再生とシーク。総まとめで全パネルが出る。
+
+
+### [DN-0608] コンテンツ台帳 P2: YouTube 動画パックを台帳へ移し、予約→公開を CI の照合で進め、表紙を ID の置き場へ移す
+タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P2（P1 の土台の上）。YouTube の通常動画は台帳で予約 111・公開 1 だが実際は 70 本が公開中で、予約→公開へ進める処理が無い。表紙 346 件は日付フォルダ・連番名。
+**やること**:
+1. 動画パック（通常 112・Shorts 224・総まとめ・QA 済み 43）を `content/registry` へ取り込むスクリプト（既定 dry-run・2 回流して同じ結果・own-videos と突き合わせた件数レポート）
+2. 書き手（publish-video-pack.cjs・prepare-youtube-longforms・render-longform・verify-video-publication・build-video-pack-index・手動予約の job）を同じ PR で台帳の入口へ切り替え、video-content-status.json は生成物（写し）にする
+3. `registry-reconcile.yml`（毎日・videos.list で予約→公開を証拠つきで前進。後戻りは所見だけ）
+4. 表紙と締め画像を ID の置き場へ移す（画素は変えない・sha 一致。DN-0607 を吸収）
+5. 毎日の配信 CI（post-youtube-scheduled.yml の deliver・ref 固定）には触らない
+**完了条件**: 照合で公開中の動画が published になり実際の公開数と一致。総まとめが予約→公開へ自動で進む。配信 CI が 3 日続けて緑。表紙 346 件の sha が新旧で一致。
+
+
 ### [DN-0605] YouTube の予約・公開済み動画の概要欄に VOICEVOX のクレジット（VOICEVOX:青山龍星）を入れる
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
 
@@ -279,6 +316,41 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0613] コンテンツ台帳 P7: Codex 画像の生成と監査を素材の台帳に結び、Threads・TikTok を入れて旧台帳を片付ける
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P7（仕上げ）。運営者の決定で、Codex 画像は動画ごとに使うかを決め、どの役割の素材にも使えるようにする（Gemini は使わない）。Threads・TikTok は outputs の旗だけで実体が無い。
+**やること**:
+1. gen-article-photo.mjs の generateWithCodex を scripts/lib/codex-image.mjs へ切り出し、`npm run media -- plate` で SNS・動画の素材を生成する。来歴を素材の行に、判定を AI 台帳（鍵 media:<id>）に記録し、判定 ok でない素材を参照する公開は承認へ進めない。文字入り画像に使うときは文字の誤りも監査する。旧 gen-image-gemini.mjs の新たな import をラチェットのテストで止める
+2. Threads・TikTok を planned の公開として入れる
+3. 移行中の写しを削除し、旧パスを RESTRUCTURED_PATHS に登録する。content-lifecycle の SNS の写像を 1 本にする
+**完了条件**: 判定の無い AI 素材で承認が止まることをテストで固定。旧台帳の復活を check-information-architecture が止める。
+
+
+### [DN-0612] コンテンツ台帳 P6: X の下書き・投稿を台帳へ移し、連番の鍵と本文の二重持ちをなくす
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P6。X は投稿済み 178 件のどれにも投稿 ID が無く、下書きの連番に重複（096・097）があり、本文を tweets.md と status.json に二重に持つ。アーカイブ側に未決着の予約 432 件。
+**やること**: 稼働中の下書きは作品 ID から `NNN-` を外し、tweets.md の見出しを鍵にする。アーカイブは名前を変えずに取り込み、予約 432 件は data/x/own-posts と本文ハッシュで結べたものだけ published（tweet ID つき）、残りは stopped（unverified-legacy）。review.json を承認へ移し、campaigns の posts[] を公開 ID に変える。x-publish-scheduled・x-sync-status・x-queue・check-x-*・schedule-events を同じ PR で切り替える（CI の投稿は今は停止中）。
+**完了条件**: status.json が 0 件。`--plan-only` が台帳から同じ候補とハッシュを出す。
+
+
+### [DN-0611] コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P5。IG は status.json（予約後も変わらない）・posted.json・照合スナップショットに同じ事実が分かれ、動画パック派生のリールは 3 つの正本が食い違う（sync-instagram-video-pack-reels-state.mjs の回し直し漏れ）。カルーセル 112 本はほぼ状態が無い。
+**やること**: 動画パック派生の 336 本と旧パック（ストーリーズ・ハイライトを含む）を台帳へ取り込み、posted.json・status.json・照合の結果を突き合わせて DN-0339（公開済み未記録 48・異常 45）を証拠つきで解消する。publish-ig-bs・ig-status・ig-reconcile-core・verify-ig-status・publish-instagram-video-pack-reels を台帳の入口へ切り替え、sync-instagram-video-pack-reels-state.mjs を廃止する。旧パックのフォルダ名は変えない。
+**完了条件**: status.json・posted.json が 0 件。台帳の予約・公開が手元の照合（/ig-reconcile）と一致。
+
+
+### [DN-0610] コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P4。旧 YouTube Shorts は台帳が 3 本・キーが 2 系統（youtube-schedule.json の r03-pack-01-q2、legacy-*.json の r03-pfi、data/youtube/posted.jsonl 13 行）で、content/sns/schedule.json（720 行・2030 年まで）が死蔵されたまま管理画面に読まれている。
+**やること**: youtube-schedule.json（200）・posted.jsonl・旧 10 素材を台帳へ取り込む（公開の証拠があるものだけ published、無いものは理由つきの stopped）。文面は content/sns/youtube へ移し旧台帳を削除。content/sns/schedule.json を削除し、tools/admin-app の sns-board.ts を台帳へ切り替える。配信計画の legacy/{key} を台帳の ID と結ぶ。
+**完了条件**: 旧の公開 10 本が published、残りは理由つきの stopped、孤児 0。
+
 
 ### [DN-0607] YouTube の採用表紙・締め画像の置き場を日付フォルダ・連番名から資格とパック ID の名前へ移す
 タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
