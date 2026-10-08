@@ -19,7 +19,13 @@
  *   node scripts/audit-reference-book-coverage.mjs --source-id concrete-basics-5th
  *   node scripts/audit-reference-book-coverage.mjs --shelf コンクリート        # 棚の全書籍
  *   node scripts/audit-reference-book-coverage.mjs --source-id X --site-dir civil-practice   # 対象の資格を足す
- * 出力: .claude/state/book-coverage/<source-id>.json（決定的・generatedAt は --stamp のときだけ。市販書籍の見出し・用語を含むので git 管理外）
+ *   node scripts/audit-reference-book-coverage.mjs --summary [--source-id X]   # 要約だけ作り直す（kuromoji を読まない）
+ * 出力（置き場は台帳 scripts/lib/datasets.mjs）:
+ *   候補表 vault.book-coverage-candidates＝content/sources/books/<dir>/coverage/candidates.json（決定的・generatedAt は --stamp のときだけ）。
+ *     Evaluator の意味判定は同じ coverage/verdict.json（vault.book-coverage-verdict）。どちらも市販書籍の見出し・用語を含むので git 管理外で、
+ *     実体は Drive vault（npm run drive-vault-sync -- --group reference-book-coverage --commit。ほかの PC は --pull）
+ *   要約 state.book-coverage＝.claude/state/book-coverage.json（git 管理・型付き・見出しを持たない）。候補表を書くたび、または --summary で
+ *     書籍ごとの件数・判定日・展開した記事を書き直す。記事のコミットは空のときだけ、判定日以降にその記事を変えたコミット（[skip ci] を除く）で埋める
  * quality-audit には登録しない: 文字起こしが Drive 由来の手元複製で CI に無く、読むのは書籍→サイト展開の着手時だけ（定期に読む人がいない）。
  * exit 0 = 出力した / 1 = 検査不成立（文字起こしが手元に無い・節が 0・サイトの記事が 0）/ 2 = 引数・依存の不足
  */
@@ -28,6 +34,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import matter from 'gray-matter';
+import { execFileSync } from 'node:child_process';
+import { datasetPath } from './lib/datasets.mjs';
+import { readDatasetIf } from './lib/dataset-io.mjs';
+import { writeDataset } from './lib/dataset-write.mjs';
+import { todayJst } from './lib/jst-date.mjs';
 import { bookRepoRoot } from './lib/reference-book-bundle.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
@@ -41,7 +52,7 @@ const SOURCE_IDS = vals('--source-id');
 const SHELF = val('--shelf');
 const EXTRA_SITE_DIRS = vals('--site-dir');
 const STAMP = val('--stamp');
-const OUT_DIR = path.join(REPO_ROOT, '.claude/state/book-coverage');
+const SUMMARY_ONLY = args.includes('--summary');
 const TOP_TERMS = 12;
 const MIN_UNIT_CHARS = 150;
 const COVERED = 0.55;
@@ -50,10 +61,65 @@ const PARTIAL = 0.3;
 const die = (msg, code = 1) => { console.error(`[${NAME}] ✗ ${msg}`); process.exit(code); };
 
 const refs = loadReferenceSources();
-let targets = refs.sources.filter((s) => s.bookBundle && (SOURCE_IDS.includes(s.id) || (SHELF && s.shelf === SHELF)));
-if (!SOURCE_IDS.length && !SHELF) die('--source-id か --shelf が必要', 2);
+const books = refs.sources.filter((s) => s.bookBundle);
+let targets = books.filter((s) => SOURCE_IDS.includes(s.id) || (SHELF && s.shelf === SHELF));
+if (!SOURCE_IDS.length && !SHELF && !SUMMARY_ONLY) die('--source-id か --shelf が必要', 2);
 const unknown = SOURCE_IDS.filter((id) => !targets.some((s) => s.id === id));
 if (unknown.length) die(`bookBundle を持つ参考文献に無い: ${unknown.join(', ')}`, 2);
+
+const coverageValues = (source) => ({ values: { name: source.bookBundle.directory } });
+/** 判定日以降にその記事を変えたコミット（新しい順・[skip ci] の自動コミットを除く） */
+const commitsOf = (article, since) => {
+  const sinceArg = `--since=${since}T00:00:00+09:00`;
+  const dir = `${path.relative(REPO_ROOT, SITE_CONTENT_ROOT)}/${article}/`;
+  const out = execFileSync('git', ['-C', REPO_ROOT, 'log', sinceArg, '--format=%h %s', '--', dir], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  return out.split('\n').filter((l) => l && !l.includes('[skip ci]')).map((l) => l.split(' ')[0]);
+};
+
+/**
+ * 要約（state.book-coverage）を書き直す。手元に候補表がある書籍だけを更新し、ほかの書籍の行と、記録済みの判定日・コミットは残す。
+ * @returns {number} 更新した書籍の数
+ */
+function writeSummary(sources) {
+  const prev = readDatasetIf(REPO_ROOT, 'state.book-coverage');
+  const rows = { ...(prev?.books ?? {}) };
+  let updated = 0;
+  for (const source of sources) {
+    const cand = readDatasetIf(REPO_ROOT, 'vault.book-coverage-candidates', coverageValues(source));
+    if (!cand) continue;
+    const verdict = readDatasetIf(REPO_ROOT, 'vault.book-coverage-verdict', coverageValues(source));
+    const old = rows[source.id];
+    const judgedAt = verdict ? (old?.judgedAt ?? todayJst()) : null;
+    const plan = verdict?.plan ?? [];
+    const v = verdict?.counts ?? {};
+    rows[source.id] = {
+      candidates: { generatedAt: cand.generatedAt, units: cand.book.units, textUnits: cand.book.textUnits, examUnits: cand.book.examUnits, ...cand.counts },
+      verdict: verdict
+        ? { judged: verdict.judged, covered: v.covered ?? 0, partial: v.partial ?? 0, gap: v.gap ?? 0, outOfScope: v['out-of-scope'] ?? 0, additions: plan.reduce((n, p) => n + (p.additions?.length ?? 0), 0) }
+        : null,
+      judgedAt,
+      expansions: [...new Set(plan.map((p) => p.article))].map((article) => {
+        const kept = old?.expansions.find((e) => e.article === article);
+        return kept?.commits.length ? kept : { article, commits: commitsOf(article, judgedAt) };
+      }),
+    };
+    updated++;
+  }
+  const sorted = Object.fromEntries(Object.keys(rows).sort().map((id) => [id, rows[id]]));
+  writeDataset(REPO_ROOT, 'state.book-coverage', {
+    schemaVersion: 1,
+    description: '書籍ごとの網羅の要約（audit-reference-book-coverage が書く）。市販書籍の見出しは持たない。見出しを含む候補表と意味判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（台帳 vault.book-coverage-*）',
+    books: sorted,
+  });
+  return updated;
+}
+
+if (SUMMARY_ONLY) {
+  const n = writeSummary(targets.length ? targets : books);
+  console.log(`[${NAME}] 要約 ${datasetPath('state.book-coverage')} を書いた（手元に候補表がある書籍 ${n} 冊を更新）`);
+  if (n === 0) die('手元に候補表がある書籍が 0（drive-vault-sync --pull で取り戻すか、候補表を作る）。検査不成立');
+  process.exit(0);
+}
 
 let kuromoji;
 try { kuromoji = require('kuromoji'); } catch { die('kuromoji が無い（npm ci）。検査不成立', 2); }
@@ -229,8 +295,8 @@ for (const source of targets) {
     examUnits: examUnits.map((u) => ({ id: u.id, file: u.file, page: u.page, heading: u.heading, chars: u.chars })),
     units: results,
   };
-  fs.mkdirSync(OUT_DIR, { recursive: true });
-  const outPath = path.join(OUT_DIR, `${source.id}.json`);
+  const outPath = path.join(REPO_ROOT, datasetPath('vault.book-coverage-candidates', coverageValues(source).values));
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, `${JSON.stringify(out, null, 2)}\n`);
   summary.push(out);
   console.log(`[${NAME}] ${source.id}: 節 ${units.length}（本文 ${textUnits.length} を実検査・過去問 ${examUnits.length}・${MIN_UNIT_CHARS}字未満 ${shortUnits.length} は対象外）`
@@ -238,5 +304,6 @@ for (const source of targets) {
     + ` → covered ${out.counts.covered} / partial ${out.counts.partial} / gap ${out.counts.gap}（暫定ヒント）`
     + `\n  → ${path.relative(REPO_ROOT, outPath)}`);
 }
+if (summary.length) console.log(`[${NAME}] 要約 ${datasetPath('state.book-coverage')} を更新（${writeSummary(summary.map((o) => targets.find((s) => s.id === o.sourceId)))} 冊）`);
 if (failed) process.exit(1);
 if (!summary.length) die('対象の書籍が 0（検査不成立）');

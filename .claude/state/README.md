@@ -15,6 +15,8 @@
 
 パスの定数は `scripts/lib/repository-paths.mjs`（`STATE_ROOT`・`DATA_ROOT`・`CONFIG_ROOT`・`AGENT_CONFIG_ROOT`）。
 
+**ここのファイルも台帳 `scripts/lib/datasets.mjs` に宣言する**（2026-10-08。id は `state.<データセット>`・型は任意。git 管理下のファイルが台帳に当たらなければ `npm run check-datasets` が止める）。新しいファイルを足すときは先に台帳へ 1 行。コードからは `datasetPath('state.…')` で引き、パスの直書きは増やさない（基準線 `.claude/config/state-path-literal-baseline.json`）。git に置けないものは手元に残さず Drive vault に置いて台帳に `drive` で宣言し、git 管理外（`local`）は作り直せる一時出力だけにする。管理画面 管理＞作業状態 がこの台帳を並べる。
+
 ### 禁止事項
 
 - **新規 `.md` ファイルを置かない**（本 README.md を除く）。状態・進捗は JSON か `docs/`・`.claude/knowledge/reference/` の md へ
@@ -30,7 +32,7 @@
 | `mechanical-screen.json` | 全ページの機械的指標（CEM 版 Tier 1 screen 出力） | `/quality-cycle --mode screen` |
 | `quality-scores.json` | CEM 版 Tier 2 質的評価結果（5 軸ルーブリック） | `/quality-cycle --mode score` |
 | `quality-cycle-state.json` | CEM 版 各ページの状態遷移履歴 | `/quality-cycle --mode rewrite/verify/approve` |
-| `book-coverage/`（git 管理外） | 書籍の章・節がサイトのどこで扱われているかの候補表と、その意味判定（`<id>.json`・`<id>.verdict.json`）。市販書籍の見出しを含む | `npm run audit-reference-book-coverage`・判定は Evaluator |
+| `book-coverage.json` | 書籍ごとの網羅の要約（判定件数・判定日・展開した記事とコミット。見出しは持たない）。見出しを含む候補表と意味判定は Drive vault の `原資料PDF/書籍/<dir>/coverage/`（repo 側の写しは `content/sources/books/<dir>/coverage/`・git 管理外） | `npm run audit-reference-book-coverage`・判定は Evaluator |
 | `civil-quality-scores.json` | 1級土木版の評価結果 | `/civil-textbook-cycle --mode score` |
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
 | `cloudflare/zone-config-latest.json` | Cloudflare ゾーン設定の最新スナップショット（ドリフト検知の基準） | `.github/workflows/cloudflare-config-audit.yml`（月次） |

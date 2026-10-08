@@ -1,9 +1,11 @@
 /**
- * datasets.mjs — 設定（config/）と記録（data/）の台帳。どのファイルが何のデータかを決める唯一の正本。
+ * datasets.mjs — 設定（config/）・記録（data/）・作業状態（.claude/state/）の台帳。どのファイルが何のデータかを決める唯一の正本。
+ * 置き場（フォルダ）は格納場所にすぎず、データの一覧・種類・型はここだけが持つ。git に置けないもの（市販書籍の見出しを含む判定など）は
+ * Google Drive vault に置き、ここで drive（config/drive-vault.json の group）を付けて宣言する（手元だけの置き場は作らない）。
  *
  * 1 データセット＝パス（下の SLOTS を使った型）・種類・領域・説明・型の名前（任意）。依存ゼロに保つ（npm ci をしないワークフローも
  * パスを引くために読む）。zod の型は dataset-schemas.mjs、型の検査は dataset-validate.mjs。
- * git 管理下の config/・data/ の全ファイルは、ちょうど 1 つのデータセットに当たらなければならない（npm run check-datasets・CI）。
+ * git 管理下の config/・data/・.claude/state/ の全ファイルは、ちょうど 1 つのデータセットに当たらなければならない（npm run check-datasets・CI）。
  * 新しい設定・記録を足すときは、先にここへ 1 行足す。型（dataset-schemas.mjs）があれば中身も検査する。
  * 管理画面 管理＞設定／データ（/ops/store）はこの台帳を並べる。判断の経緯は data-storage-decision.md
  * 「設定・記録の構成と型の正本」。
@@ -15,9 +17,14 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
+/**
+ * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
+ * .claude/state/ は型を任意にし、直書きはラチェット（.claude/config/state-path-literal-baseline.json）で減らす
+ */
 export const AREAS = {
-  config: { dir: 'config', label: '設定' },
-  data: { dir: 'data', label: 'データ' },
+  config: { dir: 'config', label: '設定', strict: true },
+  data: { dir: 'data', label: 'データ', strict: true },
+  state: { dir: '.claude/state', label: '作業状態', strict: false },
 };
 
 export const KINDS = {
@@ -42,11 +49,15 @@ const SLOTS = {
   '{rev}': '(?:-r\\d+)?',
   '{rerun}': '(?:-\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2}(?:-\\d{3})?Z?)?',
   '{name}': '[^/]+',
+  '{suffix}': '(?:-[^/]+)?',
   '{**}': '.+',
 };
 
 /**
- * 1 行 1 データセット。opts: schema（型の名前。zod の型は dataset-schemas.mjs・検査は dataset-validate.mjs）・immutable（中身を変えない台帳）・local（手元だけ・git 管理外）・
+ * 1 行 1 データセット。opts: schema（型の名前。zod の型は dataset-schemas.mjs・検査は dataset-validate.mjs）・immutable（中身を変えない台帳）・
+ * drive（実体は Google Drive vault。config/drive-vault.json の group id。path は repo 側の写しの置き場で git 管理外。drive-vault-sync で同期し、
+ *   ほかの PC は --pull で取り戻す）・local（git 管理外で、作り直せる一時出力だけ。記録・判定は置かない。regen に作り直し方が要る）・
+ * regen（作り直すコマンド・手順）・
  * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/prune-state-snapshots.mjs が消す）・
  * freshness（最新の記録の古さの閾値。検査と管理画面が freshnessOf・freshnessDays で引く）
  *
@@ -174,7 +185,7 @@ export const DATASETS = [
   d('a8.report-log', 'data/a8/report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）', { schema: 'A8ReportLog' }),
   d('a8.catalog', 'data/a8/catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧', { schema: 'A8Catalog' }),
   d('a8.ui-last-run', 'data/a8/ui-last-run.json', 'state', 'affiliate', 'A8 の画面取得を最後に回した記録（login-collectors が週次で更新。週 1 回＋2 日を超えたら止まっている）', { freshness: { warnDays: 9 }, schema: 'A8UiLastRun' }),
-  d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果', { local: true }),
+  d('a8.ui-raw', 'data/a8/ui/{ts}/{**}', 'raw', 'affiliate', 'A8 の画面から取った CSV と正規化結果（正規化した結果は data/a8/ の台帳へ書く）', { local: true, regen: 'npm run a8-ui:fetch（画面から取り直す）' }),
   d('a8.inventory', 'data/a8/inventory.json', 'state', 'affiliate', 'A8 の画面から取った案件の在庫', { planned: true }),
   d('afb.outcomes', 'data/afb/outcomes/{date}.json', 'series', 'affiliate', 'afb の成果（公式 API・日付別）', { planned: true, retain: { family: 'affiliate', keepAll: true }, freshness: { failDays: 10 } }),
   d('affiliate.catalog', 'data/affiliate/catalog.json', 'state', 'affiliate', '3 ASP の提携案件と広告素材の一覧', { schema: 'AffiliateCatalog' }),
@@ -184,7 +195,7 @@ export const DATASETS = [
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新', { freshness: { warnDays: 90 }, schema: 'Ga4AdminInventory' }),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録', { schema: 'Ga4UiLastRun' }),
-  d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true }),
+  d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true, regen: 'npm run ga4-ui:fetch（画面から取り直す）' }),
   // GSC
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true }, schema: 'GscReports' }),
   d('gsc.sitemaps', 'data/gsc/sitemaps.json', 'state', 'site', 'サイトマップの送信状態', { freshness: { warnDays: 10 }, schema: 'GscSitemaps' }),
@@ -200,8 +211,8 @@ export const DATASETS = [
   d('gsc.ui-history', 'data/gsc/ui-history.json', 'ledger', 'site', 'GSC の画面取得の結果の推移', { schema: 'GscUiHistory' }),
   d('gsc.ui-diff', 'data/gsc/ui-diff/{ts}.json', 'series', 'site', 'GSC の画面取得の前回との差', { retain: { family: 'gsc-ui', keepAll: true }, schema: 'GscUiDiff' }),
   d('gsc.ui-urls', 'data/gsc/ui-urls.json', 'state', 'site', 'GSC の未登録理由ごとの URL 一覧（理由×範囲ごとの最新を 1 ファイルに）', { schema: 'GscUiUrls' }),
-  d('gsc.ui-raw', 'data/gsc/ui/{ts}/{**}', 'raw', 'site', 'GSC の画面から取った CSV と正規化結果', { local: true }),
-  d('gsc.ui-adhoc', 'data/gsc/ui/_adhoc/{**}', 'raw', 'site', 'GSC の画面の CSV を単発で正規化した結果', { local: true }),
+  d('gsc.ui-raw', 'data/gsc/ui/{ts}/{**}', 'raw', 'site', 'GSC の画面から取った CSV と正規化結果（正規化した結果は data/gsc/ の台帳へ書く）', { local: true, regen: 'npm run gsc-ui:fetch（画面から取り直す）' }),
+  d('gsc.ui-adhoc', 'data/gsc/ui/_adhoc/{**}', 'raw', 'site', 'GSC の画面の CSV を単発で正規化した結果', { local: true, regen: 'npm run google-console:normalize' }),
   // Bing・PSI・実ユーザー・Cloudflare・自サイト
   d('bing.snapshots', 'data/bing/snapshots/{date}.json', 'series', 'site', 'Bing Webmaster の検索指標', { retain: { family: 'bing', maxAgeDays: 120 }, schema: 'BingSnapshots' }),
   d('psi.batch', 'data/psi/batch/{ts}.json', 'series', 'site', 'PageSpeed Insights の定期計測', { retain: { family: 'psi', keepNewest: 14 }, schema: 'PsiBatch' }),
@@ -241,6 +252,109 @@ export const DATASETS = [
   d('analysis.affiliate-research', 'data/analysis/affiliate-research/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateResearch' }),
   d('analysis.qualification-market', 'data/analysis/qualification-market/{date}.json', 'series', 'strategy', '資格ごとの市場（競合の混み具合）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'QualificationMarketScan' }),
   d('analysis.civil-service-applicants', 'data/analysis/civil-service-applicants.json', 'evidence', 'strategy', '公務員土木職の受験者数（文書が引用）', { schema: 'CivilServiceApplicants' }),
+
+  // ===== .claude/state/: エージェント・スキルの作業状態（品質サイクル・監査・ロールアウトの進み具合・生成索引） =====
+  // 型は任意（config/・data/ と違って必須にしない）。パスの直書きはラチェット（.claude/config/state-path-literal-baseline.json）で減らす
+  d('state.readme', '.claude/state/README.md', 'report', 'ops', 'この置き場の説明'),
+  // 計画・タスク
+  d('state.todo-claims', '.claude/state/todo-claims.json', 'state', 'plan', 'タスクの claim（二重着手の防止。todo:claim・todo:complete）'),
+  d('state.dispatch-log', '.claude/state/dispatch/dispatch-log.json', 'ledger', 'plan', 'タスクの実行記録'),
+  d('state.backlog-audit-log', '.claude/state/backlog/audit-log.json', 'ledger', 'plan', 'backlog 棚卸しの処分の記録'),
+  d('state.backlog-verify-status', '.claude/state/backlog/verify-status.json', 'state', 'plan', 'backlog カードの完了確認の状態'),
+  // 品質サイクル（技術士総監・1級土木）
+  d('state.mechanical-screen', '.claude/state/mechanical-screen.json', 'state', 'site', '全ページの機械的指標（/quality-cycle --mode screen）'),
+  d('state.quality-scores', '.claude/state/quality-scores.json', 'state', 'site', '技術士総監のキーワードページの採点（/quality-cycle --mode score）'),
+  d('state.quality-cycle-state', '.claude/state/quality-cycle-state.json', 'state', 'site', '同上の各ページの状態の移り変わり'),
+  d('state.civil-quality-scores', '.claude/state/civil-quality-scores.json', 'state', 'site', '1級土木の textbook/guide の採点（/civil-textbook-cycle）'),
+  d('state.civil-quality-cycle-state', '.claude/state/civil-quality-cycle-state.json', 'state', 'site', '同上の各ページの状態の移り変わり'),
+  d('state.broken-explanations', '.claude/state/broken-explanations.json', 'evidence', 'site', '壊れた過去問解説の検出結果'),
+  d('state.primary-answer-distribution', '.claude/state/primary-answer-distribution.json', 'state', 'site', '択一過去問の正答番号の分布'),
+  d('state.content-expansion', '.claude/state/content-expansion.json', 'state', 'site', '記事の拡充の進み具合'),
+  d('state.resurrection-candidates', '.claude/state/resurrection-candidates/{date}.md', 'report', 'site', '復活候補ページ（/resurrect-content）'),
+  d('state.proofread-learnings', '.claude/state/proofread-learnings/{date}.md', 'report', 'site', '校正の学びの蒸留（/distill-proofread-learnings）'),
+  d('state.pdf-mdx-audit', '.claude/state/pdf-mdx-audit/{date}{suffix}.json', 'evidence', 'site', 'PDF→MDX 変換の監査結果'),
+  d('state.civil-figure-rework-failures', '.claude/state/civil-figure-rework/failures.log', 'evidence', 'site', '1級土木の図の作り直しで失敗したものの記録'),
+  // 過去問起点のキーワード校正（技術士総監）
+  d('state.exam-keyword-cycles-progress', '.claude/state/exam-keyword-cycles/progress.json', 'state', 'site', '過去問起点の校正サイクルの進み具合（/exam-keyword-cycle）'),
+  d('state.exam-keyword-cycles-archive', '.claude/state/exam-keyword-cycles/logs-archive-2026-04/{**}', 'evidence', 'site', '同上の 2026-04 までのログ（凍結）'),
+  d('state.exam-keyword-umbrella-drafts', '.claude/state/exam-keyword-cycles/umbrella-drafts/{name}.md', 'raw', 'site', '同上の親キーワードの下書き', { local: true, regen: '/exam-keyword-cycle が作り直す' }),
+  d('state.exam-keyword-audits', '.claude/state/exam-keyword-audits/{name}/{**}', 'evidence', 'site', '過去問とキーワードの紐づけ監査（/audit-exam-mapping）'),
+  d('state.exam-keyword-map', '.claude/state/exam-keyword-map.json', 'state', 'site', '過去問→キーワードの対応（生成索引）'),
+  d('state.essay-keyword-frequency', '.claude/state/essay-keyword-frequency.json', 'state', 'site', '技術士総監の記述式に出たキーワードの頻度'),
+  d('state.keyword-summaries', '.claude/state/keyword-summaries.json', 'state', 'site', 'キーワードページの要約（生成索引）'),
+  d('state.pe-textbook-keyword-coverage', '.claude/state/pe-textbook-keyword-coverage.json', 'state', 'site', '技術士総監の教材→キーワードページの網羅'),
+  d('state.pe-textbook-keyword-coverage-candidates', '.claude/state/pe-textbook-keyword-coverage-candidates.json', 'state', 'site', '同上の候補'),
+  d('state.pe-first-stage-audit', '.claude/state/pe-first-stage-audit/{name}.json', 'evidence', 'site', '技術士第一次試験の過去問の監査（年度×科目と要約）'),
+  d('state.pe-essay-review', '.claude/state/pe-essay-review/{name}.md', 'report', 'site', '技術士総監の記述式答案のレビュー'),
+  // 図版
+  d('state.figure-audit', '.claude/state/figure-audit/{date}.json', 'evidence', 'site', '図版の監査結果'),
+  d('state.figure-audit-visual', '.claude/state/figure-audit-visual/{name}.json', 'evidence', 'site', '過去問の図の目視監査（年度ごと）'),
+  d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
+  d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
+  d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
+  d('state.svg-catalog', '.claude/state/svg-catalog.json', 'state', 'site', 'SVG の一覧（生成索引）'),
+  // 品質ゲートの基準と採点（quality/）
+  d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),
+  d('state.quality-scores-by-qualification', '.claude/state/quality/{name}-scores.json', 'state', 'site', '資格ごとの採点（1級土木一次・2級土木・コンクリート主任技士・建設部門・第一次試験・総監その他）'),
+  d('state.quality-history', '.claude/state/quality/history.jsonl', 'ledger', 'ops', 'quality:audit の結果の推移'),
+  d('state.quality-census', '.claude/state/quality/census.json', 'state', 'ops', '品質の棚卸し（census）の最新'),
+  d('state.quality-census-history', '.claude/state/quality/census-history.jsonl', 'ledger', 'ops', '同上の推移'),
+  d('state.quality-latest-report', '.claude/state/quality/latest-report.md', 'report', 'ops', 'quality:audit の最新の報告'),
+  d('state.quality-audit-latest', '.claude/state/quality/audit-latest.{name}', 'raw', 'ops', 'quality:audit の最新の生の結果', { local: true, regen: 'npm run quality:audit' }),
+  d('state.quality-env-inventory', '.claude/state/quality/env-inventory.json', 'raw', 'ops', '手元の環境の棚卸し', { local: true, regen: 'npm run quality:audit' }),
+  d('state.quality-image-audit', '.claude/state/quality/image-audit.{name}', 'raw', 'ops', '画像アセットの監査の最新', { local: true, regen: 'npm run quality:audit' }),
+  d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
+  d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
+  d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
+  d('state.civil-1-primary-official-keys', '.claude/state/quality/civil-1-primary-official-keys.json', 'evidence', 'site', '1級土木 第一次検定の公式正答（照合用）'),
+  d('state.civil-1-primary-tools', '.claude/state/quality/civil-1-primary-tools/{name}.mjs', 'evidence', 'site', '同上の照合に使った使い捨てのスクリプト'),
+  d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
+  d('state.playwright-auth-wiring', '.claude/state/quality/playwright-auth-wiring-last.json', 'state', 'ops', 'Playwright の認証の配線検査の最新'),
+  d('state.repo-assets-baseline', '.claude/state/repo-assets/baseline.json', 'config', 'ops', 'リポジトリのアセットの基準線'),
+  d('state.repo-assets-report', '.claude/state/repo-assets/audit-latest.md', 'report', 'ops', 'リポジトリのアセットの監査の最新の報告'),
+  d('state.repo-assets-audit', '.claude/state/repo-assets/audit-latest.json', 'raw', 'ops', '同上の生の結果', { local: true, regen: 'npm run quality:audit' }),
+  // リンク・改善
+  d('state.link-audit', '.claude/state/link-audit/audit-{ts}.json', 'series', 'site', '内部リンクの監査'),
+  d('state.link-audit-external', '.claude/state/link-audit/external-latest.json', 'state', 'site', '外部リンクの監査の最新'),
+  d('state.link-audit-report', '.claude/state/link-audit/latest-report.md', 'report', 'site', 'リンクの監査の最新の報告'),
+  d('state.improvements', '.claude/state/improvements/{date}{suffix}.md', 'report', 'site', '改善候補の報告（performance-auditor・調査）'),
+  d('state.improvements-evidence', '.claude/state/improvements/{name}-{date}.json', 'evidence', 'site', '改善候補の根拠（同じ名前の .md と対）'),
+  d('state.improvements-topic', '.claude/state/improvements/{name}-{date}.md', 'report', 'site', '主題ごとの改善候補の報告（同じ名前の .json と対）'),
+  d('state.search-growth-report', '.claude/state/improvements/search-growth-latest.md', 'report', 'site', '検索の成長の最新の報告'),
+  d('state.search-growth-raw', '.claude/state/improvements/search-growth-{ts}.json', 'raw', 'site', '同上の生の結果', { local: true, regen: '/google-search-growth' }),
+  d('state.content-ledger', '.claude/state/content-ledger.json', 'raw', 'site', '記事の台帳（生成索引）', { local: true, regen: 'npm run refresh-indexes' }),
+  // 教材・アセット
+  d('state.drive-manifest', '.claude/state/assets/drive-manifest.json', 'ledger', 'ops', 'Google Drive vault に置いたアセットの台帳（drive-vault-sync）'),
+  d('state.r2-manifest', '.claude/state/assets/manifest.json', 'ledger', 'ops', 'R2 に置いたアセットの台帳（asset-offload）'),
+  d('state.instagram-campaign-backup', '.claude/state/assets/instagram-campaign-backup.json', 'evidence', 'sns', 'Instagram のキャンペーンの素材を退避したときの記録'),
+  d('state.reference-book-occlusion-scan', '.claude/state/assets/reference-book-occlusion-scan.json', 'evidence', 'material', '書籍のページ画像の遮蔽の走査結果'),
+  d('state.reference-vault-consolidation', '.claude/state/assets/reference-vault-consolidation.json', 'evidence', 'material', '参考文献を Drive vault の 1 冊 1 フォルダへ統合したときの記録'),
+  d('state.standards-drive-map', '.claude/state/assets/standards-drive-map.json', 'state', 'material', '共通仕様書の原本と Drive vault の対応'),
+  d('state.ocr-audit', '.claude/state/ocr-audit/{**}', 'evidence', 'material', '文字起こしの監査の作業記録（市販書籍の本文を含むので Drive vault のアーカイブに置く）', { drive: 'repo-archive' }),
+  // note
+  d('state.note-published', '.claude/state/note-published.json', 'state', 'product', 'note の公開状態の生成索引（frontmatter から作る・手で直さない）'),
+  d('state.note-republish', '.claude/state/note-republish/{**}', 'state', 'product', 'note の再公開の進み具合と対象の一覧'),
+  d('state.note-publish-lists', '.claude/state/note-publish/{name}.txt', 'state', 'product', 'note の公開の対象の一覧'),
+  d('state.note-cover-v4', '.claude/state/note-cover-v4-{name}', 'state', 'product', 'note カバー V4 の差し替えの進み具合（記事・マガジン・目視の一覧）'),
+  d('state.note-attachments', '.claude/state/note-attach{name}.json', 'state', 'product', 'note の PDF 添付の反映・欠落の記録'),
+  d('state.note-remaining-lists', '.claude/state/note-{name}.txt', 'state', 'product', 'note の一括反映で残っている記事の一覧（タグ・UTM・タグ同期）'),
+  d('state.note-republish-hashes', '.claude/state/note-republish-hashes.json', 'state', 'product', 'note の再公開で反映した本文のハッシュ'),
+  d('state.note-swap-banner-done', '.claude/state/note-swap-banner-done.json', 'state', 'product', 'note のバナーの差し替えを終えた記事'),
+  d('state.note-update-aborted', '.claude/state/note-update-aborted.json', 'state', 'product', 'note の本文の反映を途中で止めた記事'),
+  // SNS・動画
+  d('state.youtube-schedule', '.claude/state/youtube-schedule.json', 'ledger', 'sns', 'YouTube の投稿予定と投稿済みの実績（build-schedule・post-from-schedule）'),
+  d('state.youtube-thumbnails', '.claude/state/youtube-thumbnail-{name}.json', 'state', 'sns', 'YouTube のサムネイルの意匠と差し替えの進み具合'),
+  d('state.video-status', '.claude/state/video-{name}.json', 'state', 'sns', '動画パックの状態・編集の指摘・公開の照合'),
+  d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),
+  d('state.x-posted-live', '.claude/state/x-posted-live/latest.json', 'state', 'sns', 'X の投稿の照合の最新'),
+  d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
+  d('state.instagram', '.claude/state/instagram-{name}.json', 'state', 'sns', 'Instagram のキャンペーンと編集の品質確認'),
+  d('state.ig-reconcile', '.claude/state/ig-reconcile/{name}.json', 'state', 'sns', 'Instagram の照合結果（verify-ig-status）'),
+  d('state.sns-progress', '.claude/state/sns/{name}.json', 'state', 'sns', 'SNS の品質キャンペーンとカードの描画の進み具合'),
+  // 書籍の網羅（要約は git・見出しを含む詳細は Drive vault。content-taxonomy.md §7）
+  d('state.book-coverage', '.claude/state/book-coverage.json', 'state', 'material', '書籍ごとの網羅の要約（判定の件数・判定日・展開した記事とコミット。市販書籍の見出しは持たない）', { schema: 'StateBookCoverage' }),
+  d('vault.book-coverage-candidates', 'content/sources/books/{name}/coverage/candidates.json', 'evidence', 'material', '書籍の節とサイトの節の候補表（audit-reference-book-coverage・市販書籍の見出しを含む）', { drive: 'reference-book-coverage', regen: 'npm run audit-reference-book-coverage' }),
+  d('vault.book-coverage-verdict', 'content/sources/books/{name}/coverage/verdict.json', 'evidence', 'material', '同上の意味判定と展開の計画（Evaluator が書く・市販書籍の見出しを含む）', { drive: 'reference-book-coverage' }),
 ];
 
 // ---- パスの照合 -----------------------------------------------------------------
@@ -258,7 +372,8 @@ export function patternOf(path) {
   return compiled.get(path);
 }
 
-export const areaOf = (dataset) => dataset.path.split('/')[0];
+/** データセットの置き場（AREAS のキー）。どの置き場にも無い（Drive vault の写しが content/ にある）ときは null */
+export const areaOf = (dataset) => Object.keys(AREAS).find((k) => dataset.path.startsWith(`${AREAS[k].dir}/`)) ?? null;
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
 /**
@@ -316,7 +431,7 @@ export function listAreaFiles(root, area, { tracked = false } = {}) {
   const { dir } = AREAS[area];
   if (tracked) {
     const out = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', '--', `${dir}/`], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
-    return out.split('\0').filter(Boolean);
+    return out.split('\0').filter((f) => f && !f.endsWith('/.gitkeep'));
   }
   const files = [];
   const walk = (rel) => {
@@ -393,10 +508,46 @@ export function freshnessProblems(freshness) {
   return problems;
 }
 
-/** データセットのファイル（リポジトリ相対・新しい順＝名前の降順。手元の git 管理外も含む） */
+/**
+ * 台帳のパスの型に当たる手元のファイル。可変部分の無い階層だけを下り、可変部分はその階層の名前で絞る（{**} から下は全部）。
+ * 置き場の外（Drive vault の写し）のデータセットを、書籍のページ画像のような大きな木を全部歩かずに引く
+ */
+function walkPattern(root, pattern) {
+  const parts = pattern.split('/');
+  const out = [];
+  const walk = (i, rel) => {
+    const abs = join(root, rel);
+    if (!existsSync(abs)) return;
+    if (parts[i].includes('{**}')) {
+      const all = [];
+      const deep = (r) => {
+        for (const e of readdirSync(join(root, r), { withFileTypes: true })) {
+          if (e.isDirectory()) deep(`${r}/${e.name}`);
+          else if (e.isFile()) all.push(`${r}/${e.name}`);
+        }
+      };
+      deep(rel);
+      out.push(...all.filter((f) => patternOf(pattern).test(f)));
+      return;
+    }
+    const last = i === parts.length - 1;
+    const seg = parts[i].includes('{') ? patternOf(parts[i]) : null;
+    for (const e of readdirSync(abs, { withFileTypes: true })) {
+      if (seg ? !seg.test(e.name) : e.name !== parts[i]) continue;
+      if (last && e.isFile()) out.push(`${rel}/${e.name}`);
+      else if (!last && e.isDirectory()) walk(i + 1, `${rel}/${e.name}`);
+    }
+  };
+  walk(1, parts[0]);
+  return out;
+}
+
+/** データセットのファイル（リポジトリ相対・新しい順＝名前の降順。手元の git 管理外・Drive vault の写しも含む） */
 export function datasetFiles(root, id) {
   const x = mustGet(id);
-  return matchFiles(listAreaFiles(root, areaOf(x))).byId.get(id) ?? [];
+  const area = areaOf(x);
+  const files = area ? listAreaFiles(root, area) : walkPattern(root, x.path);
+  return matchFiles(files).byId.get(id) ?? [];
 }
 
 /** 最新のファイル（無ければ null） */
@@ -406,12 +557,14 @@ export const latestFile = (root, id) => datasetFiles(root, id)[0] ?? null;
 export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATASETS.some((x) => areaOf(x) === area && x.domain === id));
 
 /**
- * 置き場が id の取得元と合うか（config.* は config/、それ以外は data/<取得元>/ か data/<取得元>.*）。
- * フォルダを取得元ごとにした（段階 3）ので、id と置き場がずれたら台帳か置き場のどちらかが古い
+ * 置き場が id の取得元と合うか（config.* は config/、state.* は .claude/state/、vault.* は Drive vault の写し（drive 付き・置き場は問わない）、
+ * それ以外は data/<取得元>/ か data/<取得元>.*）。フォルダを取得元ごとにした（段階 3）ので、id と置き場がずれたら台帳か置き場のどちらかが古い
  */
 export function pathMatchesId(dataset) {
   const source = dataset.id.split('.')[0];
   if (source === 'config') return dataset.path.startsWith('config/');
+  if (source === 'state') return dataset.path.startsWith(`${AREAS.state.dir}/`);
+  if (source === 'vault') return !!dataset.drive && areaOf(dataset) === null;
   return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
 }
 

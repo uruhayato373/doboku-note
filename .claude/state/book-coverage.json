@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "description": "書籍ごとの網羅の要約（audit-reference-book-coverage が書く）。市販書籍の見出しは持たない。見出しを含む候補表と意味判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（台帳 vault.book-coverage-*）",
+  "books": {
+    "concrete-basics-5th": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 377,
+        "textUnits": 314,
+        "examUnits": 0,
+        "covered": 14,
+        "partial": 101,
+        "gap": 199
+      },
+      "verdict": {
+        "judged": 301,
+        "covered": 137,
+        "partial": 16,
+        "gap": 23,
+        "outOfScope": 125,
+        "additions": 16
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "concrete-engineer/textbook-properties-testing",
+          "commits": [
+            "f171bd561"
+          ]
+        },
+        {
+          "article": "concrete-engineer/textbook-materials",
+          "commits": [
+            "b3e4ca6be"
+          ]
+        },
+        {
+          "article": "concrete-engineer/textbook-mix-design",
+          "commits": [
+            "b3e4ca6be"
+          ]
+        },
+        {
+          "article": "concrete-engineer/textbook-production-qc",
+          "commits": [
+            "b3e4ca6be"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-production-qc",
+          "commits": [
+            "89252f297"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-construction",
+          "commits": [
+            "c1b2382ab",
+            "7c5c26bc3"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-durability",
+          "commits": [
+            "7027b4e9e"
+          ]
+        }
+      ]
+    },
+    "concrete-chief-textbook-2022": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 422,
+        "textUnits": 144,
+        "examUnits": 162,
+        "covered": 34,
+        "partial": 31,
+        "gap": 79
+      },
+      "verdict": {
+        "judged": 110,
+        "covered": 17,
+        "partial": 0,
+        "gap": 1,
+        "outOfScope": 92,
+        "additions": 1
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "concrete-chief-engineer/guide-overview",
+          "commits": [
+            "c1b2382ab",
+            "cf278d2f2"
+          ]
+        }
+      ]
+    },
+    "concrete-chief-textbook-2024": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 313,
+        "textUnits": 139,
+        "examUnits": 95,
+        "covered": 58,
+        "partial": 23,
+        "gap": 58
+      },
+      "verdict": {
+        "judged": 81,
+        "covered": 12,
+        "partial": 7,
+        "gap": 2,
+        "outOfScope": 60,
+        "additions": 4
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "concrete-chief-engineer/guide-essay",
+          "commits": [
+            "c1b2382ab",
+            "cf278d2f2"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/guide-overview",
+          "commits": [
+            "c1b2382ab",
+            "cf278d2f2"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-mix-design",
+          "commits": [
+            "730b1d104"
+          ]
+        }
+      ]
+    },
+    "concrete-diagnostician-textbook": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 483,
+        "textUnits": 330,
+        "examUnits": 14,
+        "covered": 17,
+        "partial": 86,
+        "gap": 227
+      },
+      "verdict": {
+        "judged": 313,
+        "covered": 156,
+        "partial": 41,
+        "gap": 3,
+        "outOfScope": 113,
+        "additions": 23
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "concrete-diagnostician/textbook-variation",
+          "commits": [
+            "2516c91a4"
+          ]
+        },
+        {
+          "article": "concrete-diagnostician/textbook-deterioration",
+          "commits": [
+            "bf6d10ba9"
+          ]
+        },
+        {
+          "article": "concrete-diagnostician/textbook-investigation",
+          "commits": [
+            "52e9069d8"
+          ]
+        },
+        {
+          "article": "concrete-diagnostician/textbook-assessment",
+          "commits": [
+            "9aa4fa44f"
+          ]
+        },
+        {
+          "article": "concrete-diagnostician/textbook-repair",
+          "commits": [
+            "437d35e59"
+          ]
+        },
+        {
+          "article": "concrete-diagnostician/textbook-maintenance",
+          "commits": [
+            "bf6d10ba9"
+          ]
+        }
+      ]
+    },
+    "construction-materials-basics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 199,
+        "textUnits": 148,
+        "examUnits": 0,
+        "covered": 5,
+        "partial": 37,
+        "gap": 106
+      },
+      "verdict": {
+        "judged": 143,
+        "covered": 54,
+        "partial": 30,
+        "gap": 19,
+        "outOfScope": 40,
+        "additions": 28
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/material-selection-receiving",
+          "commits": [
+            "f8f32ae9c",
+            "2191721da"
+          ]
+        },
+        {
+          "article": "civil-practice/steel-material-properties",
+          "commits": [
+            "2191721da"
+          ]
+        },
+        {
+          "article": "civil-practice/asphalt-materials-types",
+          "commits": [
+            "2191721da"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-construction",
+          "commits": [
+            "c1b2382ab",
+            "7c5c26bc3"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-properties",
+          "commits": [
+            "c1b2382ab",
+            "7027b4e9e"
+          ]
+        },
+        {
+          "article": "concrete-chief-engineer/textbook-materials",
+          "commits": [
+            "7027b4e9e"
+          ]
+        },
+        {
+          "article": "civil-practice/subbase-subgrade-control",
+          "commits": [
+            "c1b2382ab",
+            "f8f32ae9c"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -435,5 +435,3 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 # 管理画面「コンテンツ台帳」の note 記事の索引（scripts/build-content-ledger.mjs が作る生成物・DN-0438）
 .claude/state/content-ledger.json
 
-# 書籍→サイトの網羅候補表（audit-reference-book-coverage）。市販書籍の見出し・用語を含むので public repo に出さない（手元で再生成できる）
-.claude/state/book-coverage/

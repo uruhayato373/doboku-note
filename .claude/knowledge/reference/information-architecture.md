@@ -100,7 +100,7 @@ content/
    反復する運用サイクル→weekly の定常運用節（surfacer から pull）・カードにしない ／
    コンテンツ制作企画→企画SSOT（`noteコンテンツ計画.md` / `content/kindle/strategy.md` 等）／
    それ以外の単発（不具合・改善・意思決定・計測）→ `.claude/todo/backlog.md`（ID は `DN-####`）
-6. **機械が読む設定・記録・状態か** → 事業・試験・商品の正本やツールの設定は `config/`／売上・計測・受注など事業の記録は `data/`／エージェントの作業状態・生成索引は `.claude/state/`／品質ゲートの基準・許可リストと CI 書き込み・認証の許可リストは `.claude/config/`（迷ったら「エージェントがいなくても事業として残すべきか」で分ける。残すべきなら `config/`・`data/`）。`config/`・`data/` に置くファイルは先に台帳 `scripts/lib/datasets.mjs` に 1 行宣言する（種類・領域・型。`npm run check-datasets` が未宣言・型の違反・id の取得元と合わない置き場を止める。構成と統合の基準は [data-storage-decision.md](./data-storage-decision.md)「設定・記録の構成と型の正本」）
+6. **機械が読む設定・記録・状態か** → 事業・試験・商品の正本やツールの設定は `config/`／売上・計測・受注など事業の記録は `data/`／エージェントの作業状態・生成索引は `.claude/state/`／品質ゲートの基準・許可リストと CI 書き込み・認証の許可リストは `.claude/config/`（迷ったら「エージェントがいなくても事業として残すべきか」で分ける。残すべきなら `config/`・`data/`）。`config/`・`data/`・`.claude/state/` に置くファイルは先に台帳 `scripts/lib/datasets.mjs` に 1 行宣言する（台帳は 1 本で、置き場は格納場所。種類・領域・型。`npm run check-datasets` が未宣言・型の違反・id の取得元と合わない置き場を止める。構成と統合の基準は [data-storage-decision.md](./data-storage-decision.md)「設定・記録の構成と型の正本」）。git に置けない記録・判定は手元に残さず Drive vault に置き、台帳に `drive` で宣言する（同「台帳を 1 本にして DB のように扱う」）
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
 8. **Git の外へ出すバイナリか**（画像・PDF・レンダー・原本）→ **誰が使うかで決める**: サイトが配信→public R2 ／
    GitHub Actions が読み書き→private R2 ／ 人か手元のスクリプトだけ→Google Drive vault

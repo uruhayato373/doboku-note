@@ -279,6 +279,15 @@
           }
         },
         {
+          "label": "作業状態",
+          "href": "/ops/store?k=state",
+          "kind": "inventory",
+          "match": "/ops/store",
+          "query": {
+            "k": "state"
+          }
+        },
+        {
           "label": "ナレッジ",
           "href": "/knowledge",
           "kind": "policy",
