@@ -12,9 +12,81 @@
         "partial": 78,
         "gap": 47
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 125,
+        "covered": 70,
+        "partial": 16,
+        "gap": 6,
+        "outOfScope": 33,
+        "additions": 24
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/pre-construction-process",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/reading-civil-drawings",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-foundation-overview-survey",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-pile-foundation-precast",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-business",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-work-environment",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-industrial-safety-law",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-scaffolding",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-rebar-formwork",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-machinery-crane",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-tunnel-natm",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-noise-vibration-regulation",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-water-air-soil-pollution",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-byproduct-recycle",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-steel-structures",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-histogram",
+          "commits": []
+        }
+      ]
     },
     "civil-industry-trends-3rd": {
       "candidates": {
@@ -26,9 +98,169 @@
         "partial": 83,
         "gap": 192
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 275,
+        "covered": 101,
+        "partial": 56,
+        "gap": 48,
+        "outOfScope": 70,
+        "additions": 59
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/public-works-bidding-methods",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/bidder-qualification-keishin-jv",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/public-works-delivery-methods",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-standard-contract",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/cost-and-design-change",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/ninaite-dx-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/shakai-shihon-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/river-coast-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-coast-port",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-steel-structures",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-tunnel-natm",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-river-works",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-river-act",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-road-act",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-water-sewer",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-business",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-market-value",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/construction-inspection-types",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/preventive-maintenance-diagnosis",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/netis-new-technology-use",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/seismic-damage-lessons",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/disaster-prevention",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/soil-contamination-act",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/power-civil-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/port-airport-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/ict-construction-workflow",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/quality-record-site-bcp",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/carbon-neutral-kensetsu",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/concrete-repair-leakage",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/risk-assessment-construction-workflow",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/iji-kanri-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/tunnel-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-law-compliance",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/ninaite-kakuho-seisansei",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/cost-benefit-analysis",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/value-engineering",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/datsutanso-kankyo-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/bid-rigging",
+          "commits": []
+        }
+      ]
     },
     "civil-informatics": {
       "candidates": {
@@ -40,9 +272,53 @@
         "partial": 3,
         "gap": 137
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 140,
+        "covered": 37,
+        "partial": 21,
+        "gap": 23,
+        "outOfScope": 59,
+        "additions": 29
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/gnss-positioning-basics",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/monitoring-sensor-selection",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/site-wireless-communication",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/ledger-data-design",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/ict-construction-workflow",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/bim-cim-site-practice",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/gis-layer-validation",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/numerical-model-review",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/quality-record-site-bcp",
+          "commits": []
+        }
+      ]
     },
     "civil-technology-basics": {
       "candidates": {
@@ -54,9 +330,89 @@
         "partial": 43,
         "gap": 189
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 232,
+        "covered": 49,
+        "partial": 23,
+        "gap": 34,
+        "outOfScope": 126,
+        "additions": 37
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/guide-structural-mechanics-basics",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-hydraulics-basics",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-coast-port",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-soil-investigation-methods",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-earth-retaining-cofferdam",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-cut-slope-protection",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-soft-ground-drainage",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-foundation-overview-survey",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/asphalt-materials-types",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/environmental-impact-assessment-flow",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/flood-season-river-work",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-river-works",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/nature-conservation-mitigation",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-water-sewer",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-waste-disposal-manifest",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/earthquake-tsunami-site-response",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/gis-layer-validation",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-future",
+          "commits": []
+        }
+      ]
     },
     "civil1-primary-workbook-2021": {
       "candidates": {
@@ -68,9 +424,57 @@
         "partial": 14,
         "gap": 7
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 21,
+        "covered": 2,
+        "partial": 17,
+        "gap": 0,
+        "outOfScope": 2,
+        "additions": 13
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/guide-strategy",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-law-key-points",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-four-management",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-work-environment",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-concrete-key-points",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-construction-plan",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-exam-overview",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-difficulty",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-market-value",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/secondary-experience-writing-guide",
+          "commits": []
+        }
+      ]
     },
     "civil1-secondary-workbook-2021": {
       "candidates": {
@@ -82,9 +486,33 @@
         "partial": 47,
         "gap": 18
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 65,
+        "covered": 13,
+        "partial": 8,
+        "gap": 0,
+        "outOfScope": 44,
+        "additions": 9
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/secondary-experience-writing-guide",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/secondary-quality-management-past-problems",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/secondary-quality-management-basics",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-exam-overview",
+          "commits": []
+        }
+      ]
     },
     "civil1-textbook-general": {
       "candidates": {
@@ -96,9 +524,41 @@
         "partial": 83,
         "gap": 14
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 97,
+        "covered": 82,
+        "partial": 12,
+        "gap": 0,
+        "outOfScope": 3,
+        "additions": 11
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/textbook-soil-investigation-methods",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-cut-slope-protection",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-asphalt-concrete-pavement",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-distance-angle",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-leveling",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-demolition",
+          "commits": []
+        }
+      ]
     },
     "civil1-textbook-management": {
       "candidates": {
@@ -110,9 +570,81 @@
         "partial": 92,
         "gap": 43
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 135,
+        "covered": 67,
+        "partial": 44,
+        "gap": 22,
+        "outOfScope": 2,
+        "additions": 48
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/textbook-safety-scaffolding",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-excavation-shoring",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-machinery-crane",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-work-environment",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-industrial-safety-law",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-management-system",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-risk-assessment",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-demolition",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-transport-machinery",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-concrete-placement",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-noise-vibration-regulation",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-water-air-soil-pollution",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-byproduct-recycle",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-business",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-byproduct-guideline",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-foundation-bridge",
+          "commits": []
+        }
+      ]
     },
     "civil2-first-exam-manga-2026": {
       "candidates": {
@@ -124,9 +656,45 @@
         "partial": 16,
         "gap": 8
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 24,
+        "covered": 10,
+        "partial": 5,
+        "gap": 0,
+        "outOfScope": 9,
+        "additions": 7
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-2/guide-exam-overview",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-2/guide-study-plan",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-2/guide-safety-management",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-scaffolding",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-2/guide-road-pavement-key-points",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-2/guide-water-sewer-key-points",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-railway-underground",
+          "commits": []
+        }
+      ]
     },
     "concrete-basics-5th": {
       "candidates": {
@@ -332,9 +900,21 @@
         "partial": 2,
         "gap": 91
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 93,
+        "covered": 9,
+        "partial": 0,
+        "gap": 2,
+        "outOfScope": 82,
+        "additions": 1
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/ai-document-verification",
+          "commits": []
+        }
+      ]
     },
     "construction-business-act-tips-3rd": {
       "candidates": {
@@ -346,9 +926,73 @@
         "partial": 104,
         "gap": 284
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 388,
+        "covered": 40,
+        "partial": 75,
+        "gap": 145,
+        "outOfScope": 128,
+        "additions": 86
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/textbook-construction-business",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-law-compliance",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-waste-disposal-manifest",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-standard-contract",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/ict-construction-workflow",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-engineer-assignment",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/license-scope-judgment",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/subcontract-instruction-boundary",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/cm-method-owner-support",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-exam-overview",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/cost-and-design-change",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/guide-keishin-basics",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/ccus-kentaikyo-site",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/foreign-workers-site-check",
+          "commits": []
+        }
+      ]
     },
     "construction-claude-code-guide": {
       "candidates": {
@@ -360,9 +1004,29 @@
         "partial": 2,
         "gap": 126
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 128,
+        "covered": 17,
+        "partial": 10,
+        "gap": 3,
+        "outOfScope": 98,
+        "additions": 9
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/ai-document-verification",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/quality-record-site-bcp",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/safety-document-cross-check",
+          "commits": []
+        }
+      ]
     },
     "construction-industry-trends-5th": {
       "candidates": {
@@ -374,9 +1038,165 @@
         "partial": 60,
         "gap": 170
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 230,
+        "covered": 60,
+        "partial": 50,
+        "gap": 57,
+        "outOfScope": 63,
+        "additions": 62
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-practice/public-works-bidding-methods",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/construction-industry-structure",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/ninaite-dx-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/ninaite-kakuho-seisansei",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-business",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/cost-and-design-change",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-coast-port",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/bosai-kokudo-kyoujinka",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/quality-record-site-bcp",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-building-standards",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-machinery-overview",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/income-statement",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-law-compliance",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-standard-contract",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-demolition",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-construction-byproduct-recycle",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-rebar-formwork",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/construction-inspection-types",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/preventive-maintenance-diagnosis",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/gis-layer-validation",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/asphalt-materials-types",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/bid-price-rules",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/contractor-rating-keishin",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/cost-benefit-analysis",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/energy-conservation-act",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/urban-planning-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/front-loading",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/bousai-genseigai-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/seismic-isolation-damping",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/power-civil-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/kensetsu-dx",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/tunnel-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/railway-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/infra-system-overseas",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/carbon-neutral-kensetsu",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/iji-kanri-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/liquefaction",
+          "commits": []
+        }
+      ]
     },
     "construction-materials-basics": {
       "candidates": {
@@ -456,9 +1276,105 @@
         "partial": 3,
         "gap": 122
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 125,
+        "covered": 28,
+        "partial": 41,
+        "gap": 21,
+        "outOfScope": 35,
+        "additions": 44
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "pe-comprehensive-management/disaster-prevention",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/disaster-countermeasures-act",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/hazard-map",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/all-hazard-approach",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/liquefaction",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-soft-ground-drainage",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-river-works",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/levee-failure-reinforcement",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/flood-control-facilities",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/flood-season-river-work",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/river-park-erosion-control",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/typhoon-forecast-work-planning",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-coast-port",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/earthquake-tsunami-site-response",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/seismic-design-levels",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/slope-protection-selection",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-sabo-landslide",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/rainfall-work-suspension",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/large-fill-landslide",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/volcanic-hazard-site-planning",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/river-coast-ronbun-keyword",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/iji-kanri-ronbun-keyword",
+          "commits": []
+        }
+      ]
     },
     "ipej-cem-keywords-2026": {
       "candidates": {
@@ -470,8 +1386,15 @@
         "partial": 3,
         "gap": 1
       },
-      "verdict": null,
-      "judgedAt": null,
+      "verdict": {
+        "judged": 4,
+        "covered": 4,
+        "partial": 0,
+        "gap": 0,
+        "outOfScope": 0,
+        "additions": 0
+      },
+      "judgedAt": "2026-10-08",
       "expansions": []
     },
     "pe-cem-exam-guide": {
@@ -484,9 +1407,33 @@
         "partial": 13,
         "gap": 3
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 16,
+        "covered": 4,
+        "partial": 7,
+        "gap": 0,
+        "outOfScope": 5,
+        "additions": 6
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "pe-comprehensive-management/exam-application-guide",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/exam-passing-strategy",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/environmental-impact-assessment",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/circular-society-basic-act",
+          "commits": []
+        }
+      ]
     },
     "pe-cem-textbook": {
       "candidates": {
@@ -498,9 +1445,61 @@
         "partial": 49,
         "gap": 1
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 50,
+        "covered": 40,
+        "partial": 9,
+        "gap": 0,
+        "outOfScope": 1,
+        "additions": 11
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "pe-comprehensive-management/climate-change-international",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/energy",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/carbon-neutral",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/green-infrastructure",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/environmental-communication",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/power-harassment",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/training-techniques",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/circular-economy",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/environmental-standards",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/diversity-management",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/accounting-principles",
+          "commits": []
+        }
+      ]
     },
     "pe-construction-keyword-book": {
       "candidates": {
@@ -512,8 +1511,15 @@
         "partial": 8,
         "gap": 0
       },
-      "verdict": null,
-      "judgedAt": null,
+      "verdict": {
+        "judged": 8,
+        "covered": 8,
+        "partial": 0,
+        "gap": 0,
+        "outOfScope": 0,
+        "additions": 0
+      },
+      "judgedAt": "2026-10-08",
       "expansions": []
     },
     "pe-essay-writing-guide": {
@@ -526,9 +1532,41 @@
         "partial": 27,
         "gap": 85
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 112,
+        "covered": 72,
+        "partial": 13,
+        "gap": 3,
+        "outOfScope": 24,
+        "additions": 11
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "pe-construction/sentaku-kamoku-kakiwake",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/toan-kousei-template",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/pe-secondary-essay-guide",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/gyoumu-keireki-hyou",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/aimai-hyougen-sahou",
+          "commits": []
+        },
+        {
+          "article": "pe-construction/shiken-toujitsu-tejun",
+          "commits": []
+        }
+      ]
     },
     "safety-management-all-7th": {
       "candidates": {
@@ -540,9 +1578,49 @@
         "partial": 8,
         "gap": 44
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 52,
+        "covered": 14,
+        "partial": 20,
+        "gap": 8,
+        "outOfScope": 10,
+        "additions": 20
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "civil-construction-1/textbook-safety-management-system",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-industrial-safety-law",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/safety-health-education-plan",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/safety-patrol-corrective-action",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/oshms-pdca-site-operation",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-risk-assessment",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/risk-assessment-construction-workflow",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/accident-first-response",
+          "commits": []
+        }
+      ]
     },
     "weather-disaster-basics": {
       "candidates": {
@@ -554,9 +1632,57 @@
         "partial": 10,
         "gap": 111
       },
-      "verdict": null,
-      "judgedAt": null,
-      "expansions": []
+      "verdict": {
+        "judged": 121,
+        "covered": 13,
+        "partial": 28,
+        "gap": 37,
+        "outOfScope": 43,
+        "additions": 28
+      },
+      "judgedAt": "2026-10-08",
+      "expansions": [
+        {
+          "article": "pe-comprehensive-management/disaster-weather-info",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/disaster-countermeasures-act",
+          "commits": []
+        },
+        {
+          "article": "pe-comprehensive-management/disaster-prevention",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/rainfall-work-suspension",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/typhoon-forecast-work-planning",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/flood-season-river-work",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/river-park-erosion-control",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/stacking-heat-machine-safety",
+          "commits": []
+        },
+        {
+          "article": "civil-practice/sheet-pile-snow-coating",
+          "commits": []
+        },
+        {
+          "article": "civil-construction-1/textbook-safety-work-environment",
+          "commits": []
+        }
+      ]
     }
   }
 }

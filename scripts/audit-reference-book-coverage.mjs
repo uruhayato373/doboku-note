@@ -32,7 +32,8 @@
  *     Evaluator の意味判定は同じ coverage/verdict.json（vault.book-coverage-verdict）。どちらも市販書籍の見出し・用語を含むので git 管理外で、
  *     実体は Drive vault（npm run drive-vault-sync -- --group reference-book-coverage --commit。ほかの PC は --pull）
  *   要約 state.book-coverage＝.claude/state/book-coverage.json（git 管理・型付き・見出しを持たない）。候補表を書くたび、または --summary で
- *     書籍ごとの件数・判定日・展開した記事を書き直す。記事のコミットは空のときだけ、判定日以降にその記事を変えたコミット（[skip ci] を除く）で埋める
+ *     書籍ごとの件数・判定日・展開した記事を書き直す。記事のコミットは空のときだけ、本文に trailer `Book-Coverage: <書籍 id>` を書いて
+ *     その記事を変えたコミットで埋める（展開のコミットには必ず trailer を書く）
  * quality-audit には登録しない: 文字起こしが Drive 由来の手元複製で CI に無く、読むのは書籍→サイト展開の着手時だけ（定期に読む人がいない）。
  * exit 0 = 出力した / 1 = 検査不成立（文字起こしが手元に無い・節が 0・サイトの記事が 0）/ 2 = 引数・依存の不足
  */
@@ -78,12 +79,18 @@ const unknown = SOURCE_IDS.filter((id) => !targets.some((s) => s.id === id));
 if (unknown.length) die(`bookBundle を持つ参考文献に無い: ${unknown.join(', ')}`, 2);
 
 const coverageValues = (source) => ({ values: { name: source.bookBundle.directory } });
-/** 判定日以降にその記事を変えたコミット（新しい順・[skip ci] の自動コミットを除く） */
-const commitsOf = (article, since) => {
-  const sinceArg = `--since=${since}T00:00:00+09:00`;
+/**
+ * その書籍からの展開としてその記事を変えたコミット（新しい順）。コミットの本文に `Book-Coverage: <書籍 id>`（複数は「,」区切り）の
+ * trailer を書いたものだけを数える（判定日以降に記事を変えたコミットを全部数えると、別の作業の変更まで「展開済み」になる。2026-10-08）
+ */
+const commitsOf = (article, sourceId) => {
   const dir = `${path.relative(REPO_ROOT, SITE_CONTENT_ROOT)}/${article}/`;
-  const out = execFileSync('git', ['-C', REPO_ROOT, 'log', sinceArg, '--format=%h %s', '--', dir], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-  return out.split('\n').filter((l) => l && !l.includes('[skip ci]')).map((l) => l.split(' ')[0]);
+  const out = execFileSync('git', ['-C', REPO_ROOT, 'log', '--grep=^Book-Coverage:', '--format=%h%x00%B%x01', '--', dir], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  return out.split('\x01').map((x) => x.trim()).filter(Boolean).flatMap((x) => {
+    const [hash, body = ''] = x.split('\0');
+    const ids = [...body.matchAll(/^Book-Coverage:\s*(.+)$/gm)].flatMap((m) => m[1].split(',').map((t) => t.trim()));
+    return ids.includes(sourceId) ? [hash] : [];
+  });
 };
 
 /**
@@ -110,7 +117,7 @@ function writeSummary(sources) {
       judgedAt,
       expansions: [...new Set(plan.map((p) => p.article))].map((article) => {
         const kept = old?.expansions.find((e) => e.article === article);
-        return kept?.commits.length ? kept : { article, commits: commitsOf(article, judgedAt) };
+        return kept?.commits.length ? kept : { article, commits: commitsOf(article, source.id) };
       }),
     };
     updated++;
@@ -214,7 +221,7 @@ if (STATUS) {
   for (const s of books) {
     const r = rows[s.id];
     const done = r ? r.expansions.filter((e) => e.commits.length).length : 0;
-    const stage = !r ? '未着手' : !r.verdict ? '候補表のみ' : !r.expansions.length ? '判定済み（展開不要）' : done === r.expansions.length ? '展開済み' : `展開中 ${done}/${r.expansions.length} 記事`;
+    const stage = !r ? '未着手' : !r.verdict ? '候補表のみ' : !r.expansions.length ? '判定済み（展開不要）' : done === r.expansions.length ? '展開済み' : done === 0 ? `展開待ち ${r.expansions.length} 記事` : `展開中 ${done}/${r.expansions.length} 記事`;
     const line = `  ${s.id.padEnd(36)} ${stage}${r?.verdict ? `（gap ${r.verdict.gap}・partial ${r.verdict.partial}・追記 ${r.verdict.additions}）` : r ? `（本文 ${r.candidates.textUnits} 節）` : ''}`;
     const k = s.shelf ?? '（棚なし）';
     if (!shelves.has(k)) shelves.set(k, []);
