@@ -282,7 +282,7 @@
 
 
 ### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [検証:scout-youtube-competitors] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [検証:check-competitor-scan-due] [起票:2026-10-08]
 
 **起点**: 2026-10-08 に YouTube の数値の正本として台帳 `youtube.own-videos`（自社・月次）と `youtube.competitors`（競合・四半期）、取得スクリプト `npm run youtube-own-metrics`・`npm run scout-youtube-competitors` を作り、初回の記録を `data/youtube/` に置いた。今は手元で回すだけで、取り忘れると前回比が切れる。
 **やること**:
@@ -1581,7 +1581,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 1. 表紙と締めを採用画像にする（cover-design.json・cta-design.json を足す。sns-image-policy §0.1）
 2. Mac で `node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai --speaker 13` で音声付きにし、10秒プレビューで目視
 3. video-content-qa（6軸）→ youtube.json（題名・概要欄・UTM `utm_campaign=koji-gaiyo-sheet-zukai`）→ ユーザー承認 → 公開
-4. 28日後に旧版 `koji-gaiyo-7items` と、再生・平均視聴率（YouTube Analytics の取得カード）を比べる
+4. 28日後に旧版 `koji-gaiyo-7items` と、再生・平均視聴率（DN-0597 の YouTube Analytics）を比べる
 **完了条件**: 比べた結果を 07 §11 に1段落で残し、`single-topic-zukai` を active か rejected にする。active なら公開済みパックの作り直しの順番を決める。
 
 
@@ -2226,6 +2226,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 2. 承認済みパックを束ねた30〜60分の「総まとめ・聞き流し」（1級二次 経験記述 howto 15本、1級一次 学科 exam-point 37本など）を作るか。新しい台本は要らず、連結とチャプターだけ
 3. 過去問の一問一答（VOICEVOX 読み上げ・穴埋め→答えのカード）の型を作るか。送り先は一次の頻出論点・過去問 PDF・模試（DN-0279 と同じ線）
 **前提**: 公開はユーザー承認後。DN-0110（Shorts 222本の関連動画設定）と並行できるか、運営時間で判断する。
+**正本と実行カード**: 型ごとの状態（active/trial/proposed）は `config/youtube-formats.json` が正本で、決めたらその status を書き換える。1 は DN-0601（比べる指標は DN-0597 の YouTube Analytics）、2 は DN-0599、3 は DN-0600。添削の見本（tensaku-demo）もこの判断に含める。解答速報は DN-0604、KPI は DN-0598。数値の記録は `data/youtube/own-videos/`・`data/youtube/competitors/`（定期取得は DN-0596）。
 
 
 ### [DN-0507] 「解答・解説」の開封計測を見て、過去問の解説を有料側（note・KDP）へ移すかを決める
