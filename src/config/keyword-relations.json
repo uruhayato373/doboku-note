@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generated_at": "2026-09-15T22:10:13.662Z",
+  "generated_at": "2026-10-08T13:29:51.903Z",
   "summary": {
-    "total_keywords": 660,
-    "published_keywords": 660,
-    "keywords_with_relations": 660,
+    "total_keywords": 662,
+    "published_keywords": 662,
+    "keywords_with_relations": 662,
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
@@ -4601,6 +4601,53 @@
         ]
       }
     ],
+    "accounting-principles": [
+      {
+        "slug": "balance-sheet",
+        "label": "貸借対照表（B/S）",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cash-flow-statement",
+        "label": "キャッシュ・フロー計算書（C/F）",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "depreciation",
+        "label": "減価償却",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "ifrs",
+        "label": "国際会計基準（IFRS）",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "income-statement",
+        "label": "損益計算書（P/L）",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      }
+    ],
     "cash-flow-statement": [
       {
         "slug": "balance-sheet",
@@ -4643,11 +4690,12 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 8,
+        "slug": "accounting-principles",
+        "label": "企業会計原則",
+        "score": 11,
         "signals": [
-          "exam"
+          "section",
+          "tag"
         ]
       }
     ],
@@ -4693,11 +4741,11 @@
         ]
       },
       {
-        "slug": "activity-abc",
-        "label": "活動基準原価計算（ABC）",
-        "score": 4,
+        "slug": "accounting-principles",
+        "label": "企業会計原則",
+        "score": 11,
         "signals": [
-          "chapter",
+          "section",
           "tag"
         ]
       }
@@ -4744,12 +4792,11 @@
         ]
       },
       {
-        "slug": "break-even-point",
-        "label": "損益分岐点・限界利益・優劣分岐点",
-        "score": 6,
+        "slug": "accounting-principles",
+        "label": "企業会計原則",
+        "score": 11,
         "signals": [
-          "chapter",
-          "exam",
+          "section",
           "tag"
         ]
       }
@@ -10912,8 +10959,8 @@
         ]
       },
       {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -10921,8 +10968,8 @@
         ]
       },
       {
-        "slug": "gender-gap",
-        "label": "ジェンダーギャップ",
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -11060,6 +11107,53 @@
         ]
       },
       {
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      }
+    ],
+    "diversity-management": [
+      {
+        "slug": "career-track-system",
+        "label": "総合職・一般職",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "continued-employment-system",
+        "label": "継続雇用制度",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "disability-employment",
+        "label": "障害者雇用",
+        "score": 11,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "formal-informal-organization",
         "label": "公式組織・非公式組織",
         "score": 11,
@@ -11117,8 +11211,8 @@
         ]
       },
       {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -11366,8 +11460,8 @@
         ]
       },
       {
-        "slug": "gender-gap",
-        "label": "ジェンダーギャップ",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -11453,8 +11547,8 @@
         ]
       },
       {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -11462,8 +11556,8 @@
         ]
       },
       {
-        "slug": "gender-gap",
-        "label": "ジェンダーギャップ",
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -11550,8 +11644,8 @@
         ]
       },
       {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -11559,8 +11653,8 @@
         ]
       },
       {
-        "slug": "gender-gap",
-        "label": "ジェンダーギャップ",
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -11801,8 +11895,8 @@
         ]
       },
       {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
+        "slug": "diversity-management",
+        "label": "ダイバーシティ・マネジメント",
         "score": 11,
         "signals": [
           "section",
@@ -11810,8 +11904,8 @@
         ]
       },
       {
-        "slug": "gender-gap",
-        "label": "ジェンダーギャップ",
+        "slug": "formal-informal-organization",
+        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
