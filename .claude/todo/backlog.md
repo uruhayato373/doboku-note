@@ -305,6 +305,17 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0613] コンテンツ台帳 P7: Codex 画像の生成と監査を素材の台帳に結び、Threads・TikTok を入れて旧台帳を片付ける
+タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P7（仕上げ）。運営者の決定で、Codex 画像は動画ごとに使うかを決め、どの役割の素材にも使えるようにする（Gemini は使わない）。Threads・TikTok は outputs の旗だけで実体が無い。
+**やること**:
+1. gen-article-photo.mjs の generateWithCodex を scripts/lib/codex-image.mjs へ切り出し、`npm run media -- plate` で SNS・動画の素材を生成する。来歴を素材の行に、判定を AI 台帳（鍵 media:<id>）に記録し、判定 ok でない素材を参照する公開は承認へ進めない。文字入り画像に使うときは文字の誤りも監査する。旧 gen-image-gemini.mjs の新たな import をラチェットのテストで止める
+2. Threads・TikTok を planned の公開として入れる
+3. 移行中の写しを削除し、旧パスを RESTRUCTURED_PATHS に登録する。content-lifecycle の SNS の写像を 1 本にする
+**完了条件**: 判定の無い AI 素材で承認が止まることをテストで固定。旧台帳の復活を check-information-architecture が止める。
+
+
 ### [DN-0612] コンテンツ台帳 P6: X の下書き・投稿を台帳へ移し、連番の鍵と本文の二重持ちをなくす
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
 
