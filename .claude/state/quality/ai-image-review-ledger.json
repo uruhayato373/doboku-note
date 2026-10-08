@@ -263,6 +263,15 @@
       "reason": "金属容器の中と軍手で掬った手の上に、細く短い鋼線状の繊維が塊にならず全体に分散して表面から突き出し、本文の「分散補強材」と一致する。軍手と指の形、背景の型枠・砕石に崩れは無く、読める文字も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
+    "concrete-chief-engineer/textbook-production-qc/img/photo-core-drilling": {
+      "sha": "190920508bb72171",
+      "promptSha": "46257ab8893af1e7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:41:02.777Z",
+      "verdict": "ok",
+      "reason": "ベースプレートを壁面へアンカーボルト固定し、壁に直角な水平ガイドレール沿いにモータ・コアビットが壁へ向かって送られる構造で、送りハンドル・給水ホース・足元のコアも成り立ち、本文と矛盾せず破綻も無い",
+      "reviewedAt": "2026-10-08T00:42:07.334Z"
+    },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
       "sha": "85e632d3d029d318",
       "verdict": "ok",
