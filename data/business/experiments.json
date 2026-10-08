@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T01:01:51.918Z",
+  "updated_at": "2026-10-08T01:25:03.834Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1977,11 +1977,11 @@
     },
     {
       "id": "EXP-019",
-      "title": "転職アフィリエイトの太枠・大見出し・相談ボタンを整え、画像あり／なしを同じ面で比較する",
+      "title": "転職アフィリエイトのA/B/C意匠を訪問者単位で比較し、キャリア記事の改善につなげる",
       "designProposalKey": "affiliate-card-2026-10-08",
-      "hypothesis": "学習・実務の読者に資格・工事経験と働き方を結ぶ短い導入を置き、サービス名中心のカードを読者の利益が分かる大見出し・太枠・明確な相談入口へ替えると、適合する読者の相談クリックが増える。支給バナーを添えるBが文章のみのAより有効かは未検証。noteは目的を別表示し、表示・順序を固定して影響を測る。",
-      "target_metric": "GA4 affiliate_cta_click / affiliate_cta_impression（同一ページ・面・案件・端末の案別）。併せて対象ページの閲覧あたりクリック、note_cta_click / note_cta_impression、A8の成果別発生・確定、note販売額を読む。",
-      "target_delta": "同じ対象と表示判定でAとBの差を測り、noteへの送客を損なわず転職の適合クリックが増えること。28日を観察窓にし、少数クリックでは勝敗を決めない。必要標本数と停止・採用条件は開始前に確定し、案件の優劣は確定3件まで決めない。",
+      "hypothesis": "資格・工事経験と働き方を結ぶ大見出し・太枠・相談入口を共用し、文章のA、同じ導入に支給バナーを添えるB、紺の面と短い訴求のCで、適合する読者の相談クリックを比較する。BはAとの画像差、Cは文言と配色をまとめた意匠差として評価する。noteは目的を別表示し、掲載・順序を固定して影響を測る。",
+      "target_metric": "affiliate_experiment_click / affiliate_experiment_impression、対象ページ閲覧あたりクリック。案×案件×面×ページ×端末×日別に読む。note_experimentの表示・クリックを併記し、A8成果は案件・ページで確認（案別帰属は不可）。",
+      "target_delta": "同じ対象でA/B/Cを比較する。28日で再検討するが、少数で勝敗を決めない。各案20クリック・1,000表示は人によるレビューの目安で統計的勝利条件ではない。note送客を損なわず、適合する相談クリックが増えるか確認する。",
       "baseline": {
         "measured_at": "2026-10-08",
         "source": "data/ga4/reports/2026-10-07.json#cta-clicks-by-placement",
@@ -2029,58 +2029,61 @@
       "next_check_date": "2026-10-15",
       "pending_user_actions": [],
       "actions": [
-        "2026-10-08: 本番画像を使う提案A/B/Cとnoteとの並置プレビューを作成。3案件・PC/スマホ・明暗の12条件で表示、画像読み込み、太枠切替、並び順を確認。本番未反映。",
-        "開始前: EXP-017/018など同じ面の既存施策・同時active実験上限を確認し、対象ページ・案件・面と開始日を確定。展開前後と意匠差の数字を混ぜない。",
-        "第1ラウンド: 大見出し・3px枠・濃い相談入口のAと、同じ見出しに支給画像を添えるBを50/50で比較。訪問者の案を固定し、noteの画像・リンク・位置・順序を固定する。Cは次ラウンド候補。",
-        "配信前: 案別の表示・クリックとCI集計を配線する。大きさが違うカード全体の50%表示だけでは分母が変わるため、共通の見出し・導入領域で表示判定し、対象ページの閲覧あたりクリックも併記する。提案画面の操作は本番データに含めない。",
-        "配信前: A8の支給画像・広告コードを改変しない。編集部の導入・外枠と広告を分け、新しい相談ボタンのリンク方法・文言は広告主の掲載条件と許可を確認する。素材が認められない場合は支給広告リンクをそのまま使う。",
-        "運用: 週次CIの記録を使い、28日経過時に案・面・端末ごとの表示/クリック、note送客、A8発生/確定を確認。少数時は判定保留。採用・継続・撤去の理由をこの台帳へ追記し次案へ進む。note販売額は全経路の記録で、カードのクリックと購入の個別帰属を断定しない。"
+        "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
+        "GA4の専用イベントを案×案件×面×ページ×端末×日でCI取得。週次measure-experimentsが保存済みレポートを台帳へ追記する。",
+        "本番デプロイとSSR・意匠を確認した時点でrunningと開始日を記録する。現在はawaiting-deployment。",
+        "公開7日後に取得・配分・表示を確認、28日後にCTR・note送客・A8発生/確定を再検討。少数なら判定保留。",
+        "キャリア記事は訴求設計の10月計画（相談→待遇→転身→若手/PE）に沿って週2本以内の既存記事改稿を行う。改稿URLと日時を履歴に残す。"
       ],
       "variants": [
         {
           "id": "A",
           "format": "text",
           "framePx": 3,
-          "headline": [
-            "その資格と経験、",
-            "いまの待遇に活きている？"
-          ],
-          "cta": "経験で狙える条件を無料で聞く",
-          "program": "buildjob",
-          "description": "年収・休日・勤務地。あなたの工事経験と希望条件を、担当者へ無料で相談できます。"
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
         },
         {
           "id": "B",
           "format": "supplied-banner-and-editorial-intro",
           "framePx": 3,
-          "headline": [
-            "その資格と経験、",
-            "いまの待遇に活きている？"
-          ],
-          "cta": "経験で狙える条件を無料で聞く",
-          "program": "buildjob",
-          "creativeRef": "src/config/affiliate-creatives.ts:PROGRAM_ASSETS.buildjob.banner"
+          "creativeRef": "src/config/affiliate-creatives.ts:PROGRAM_ASSETS.buildjob.banner",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
         },
         {
           "id": "C",
           "format": "dark-editorial-card",
           "framePx": 3,
-          "headline": [
-            "頑張る場所まで、",
-            "変えていい。"
-          ],
-          "cta": "経験で狙える条件を無料で聞く",
-          "program": "buildjob",
-          "role": "キャリア意図のページ向け・次ラウンド候補"
+          "role": "第1ラウンドの同率配信案",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
         }
       ],
       "measurementPlan": {
-        "status": "not-wired",
+        "kind": "affiliate-design",
+        "status": "awaiting-deployment",
         "firstRound": [
           "A",
-          "B"
+          "B",
+          "C"
         ],
-        "assignment": "同一対象の訪問者を50/50、訪問者内で固定",
+        "assignment": "訪問者を約1/3ずつ。localStorageで再訪も固定。保存不可時はページ内で固定",
         "dimensions": [
           "experiment",
           "variant",
@@ -2090,8 +2093,20 @@
           "device",
           "date"
         ],
+        "reportId": "ga4.affiliate-experiment",
+        "events": [
+          "affiliate_experiment_page_view",
+          "affiliate_experiment_impression",
+          "affiliate_experiment_click",
+          "note_experiment_impression",
+          "note_experiment_click"
+        ],
+        "exposure": "共通の見出し領域50%。割当前SSRのAを数えない",
         "reviewDays": 28,
-        "noteGuardrail": "同じ対象ページのnote表示・クリックと販売額を併記。noteクリック率の低下が継続する場合は対象・並置を見直す。売上差の原因を意匠だけに帰属しない。"
+        "minClicksPerVariant": 20,
+        "minImpressionsPerVariant": 1000,
+        "noteGuardrail": "案別note表示・クリックと全経路売上を併記。案別のA8成果帰属は未取得。CTRと前後の売上の因果を断定しない",
+        "concurrentExperimentException": "運営者がA/B/C展開と実験開始を明示。本件だけ上限の例外。EXP-017/018は配置展開の観察として残し、前後比較を本実験の意匠差に使わない。"
       },
       "priorityAssessment": {
         "impact": 3,
@@ -2107,6 +2122,11 @@
           "at": "2026-10-08T01:01:51.918Z",
           "event": "propose",
           "note": "運営者の指示でキャッチーな見出し・太枠・画像の改善案とnote並置を画面化。まずA/Bを同一条件で比較する候補として保存。本番配信・計測は未開始。"
+        },
+        {
+          "at": "2026-10-08T01:25:03.834Z",
+          "event": "implement",
+          "note": "運営者の追加指示でA/BからA/B/Cの3案同率へ変更。案別計測とCI取得・週次記録、キャリア記事計画を実装。公開前のためstatusはproposed。"
         }
       ]
     }

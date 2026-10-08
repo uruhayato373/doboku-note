@@ -1,4 +1,7 @@
 import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL } from "@/components/ui/AffiliateParts";
+import { TrackingPixel } from "@/components/ui/AffiliateParts";
+import { programAssetForHref } from "@/config/affiliate-creatives";
+import CareerAffiliateExperiment from "@/components/ui/CareerAffiliate/CareerAffiliateExperiment";
 
 interface SidebarAdBannerProps {
   readonly href: string;
@@ -34,6 +37,13 @@ export default function SidebarAdBanner({
   trackLabel,
   placement = "sidebar",
 }: SidebarAdBannerProps) {
+  const experiment = programAssetForHref(href);
+  if (experiment) return (
+    <div className="not-prose">
+      <CareerAffiliateExperiment card={experiment.asset.card()} banner={experiment.asset.banner} program={experiment.program} trackLabel={trackLabel ?? experiment.asset.trackLabel} placement={placement} />
+      <TrackingPixel src={pixelSrc} />
+    </div>
+  );
   return (
     // 縦スペーシングは親の責務（docs=div.mb-3 / category サイドバー=space-y-3 / category モバイル=my-10）。
     // 自前の mt を持たせるとサイドバー先頭がメインカードより下がり上端がズレる（2026-07 上端揃え）。
