@@ -16,6 +16,8 @@ interface MagazineTopBannerProps {
   readonly badge: string;
   /** GA4 クリック計測ラベル（通常は utm_content）。AnalyticsProvider のデリゲートが拾う。 */
   readonly trackLabel?: string;
+  /** 多問の過去問では画像を小さくし、本文の読み始めを優先する。 */
+  readonly compact?: boolean;
 }
 
 /**
@@ -34,10 +36,12 @@ export default function MagazineTopBanner({
   price,
   badge,
   trackLabel,
+  compact = false,
 }: MagazineTopBannerProps) {
   const image = noteCtaImage(magazineId, 'body');
-  if (image) return <NoteImageCta href={url} image={image} scopeNotice={scopeNotice}
-    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} className="mb-8" />;
+  if (image) return <NoteImageCta href={url} image={compact ? { ...image, caption: { ...image.caption, title } } : image} scopeNotice={scopeNotice}
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} compact={compact}
+    actionLabel={compact ? '教材の内容を見る（note） →' : undefined} className="mb-8" />;
   const brand = brandOf(magazineId);
   // コンパクト型なので価格は先頭の金額だけを出す。catalog の price は「¥2,480（模試3回＋暗記ノート＋
   // 出題分析・単品合計¥3,140、約21%OFF）」のように長いことがあり、縮まない価格欄が行幅を占有して

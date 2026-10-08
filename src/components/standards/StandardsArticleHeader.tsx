@@ -10,7 +10,7 @@ type StandardsArticleHeaderProps = {
   label: string;
   title: string;
   lead?: string;
-  meta?: string;
+  meta?: string | readonly string[];
 };
 
 /**
@@ -26,7 +26,7 @@ export default function StandardsArticleHeader({
   meta,
 }: StandardsArticleHeaderProps) {
   return (
-    <header className="border-b border-(--rule-soft) pb-6">
+    <header className="border-b border-(--rule-soft) pb-6 dark:border-(--rule-soft)">
       <nav
         aria-label="breadcrumb"
         className="mb-4 flex flex-wrap items-center gap-2 font-mono text-[11px] tracking-wide text-(--ink-muted)"
@@ -60,8 +60,12 @@ export default function StandardsArticleHeader({
         </p>
       )}
       {meta && (
-        <div className={`${lead ? 'mt-3' : 'mt-2'} font-mono text-[11px] leading-5 text-(--ink-muted)`}>
-          {meta}
+        <div className={`${lead ? 'mt-3' : 'mt-2'} text-balance text-[13px] leading-6 text-(--ink-muted)`}>
+          {typeof meta === 'string' ? meta : (
+            <div className="flex flex-wrap gap-x-3">
+              {meta.map(item => <span key={item} className="whitespace-nowrap">{item}</span>)}
+            </div>
+          )}
         </div>
       )}
     </header>

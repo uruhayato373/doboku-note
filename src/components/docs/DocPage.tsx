@@ -448,9 +448,9 @@ export async function renderDocPage(slugStr: string) {
                   <TableOfContents headings={headings} variant="mobile" />
                 </div>
               )}
-              {/* 年度別過去問: TOC の代わりに問題番号チップ（全ビューポート・5 問以上のときだけ） */}
+              {/* 年度別過去問: 問1へのリンクと折りたたみ番号一覧（5 問以上） */}
               {isQuestionSeries && <QuestionJumpNav headings={headings} />}
-              {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
+              {/* 記事冒頭 CTA。多問の過去問では画像をコンパクト表示。未公開は非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner
                   scopeNotice={magazinePlacement.scopeNotice}
@@ -460,6 +460,7 @@ export async function renderDocPage(slugStr: string) {
                   price={topMagazine.price}
                   badge={topMagazine.badge}
                   trackLabel={topSlot.utmContent}
+                  compact={isQuestionSeries}
                 />
               )}
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
