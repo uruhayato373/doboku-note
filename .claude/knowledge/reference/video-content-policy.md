@@ -95,9 +95,29 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src?, flow? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
 通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
+
+16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は変わらない）。
+
+| フィールド | 中身 | 使い所 |
+|---|---|---|
+| `visual.character` | `{pose, frame?, say?}`。`pose` は `config/character-poses.json` の `quality: ready` だけ、`frame` 既定は `waist`、`say` は吹き出し（12字×2行目安・`\n` で改行） | 右列に先生を立たせ、場面の役割を一言で言わせる |
+| `visual.reveal` | 先頭から表示する項目数（points・figure の items）。配置は全項目分で固定 | 1場面を約10秒の段階表示に分ける |
+| `visual.focus` | 強調する項目（compare は行）の添字。他は薄く表示。sheet は行の `state: 'focus'` を使う | いま話している項目を示す |
+| `kind: 'compare'` | `rows: [{label?, ng, ok?}]`（1〜4行）・`ngLabel`/`okLabel` | 記事の「悪い例／良い例」の表 |
+| `kind: 'sheet'` | `rows: [{label, value?, state?, order?}]`（1〜8行）・`sheetTitle`。`state` は `todo/done/focus/ng/ok` | 解答用紙（工事概要など）の記入イメージ |
+
+compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。`character`・`compare`・`sheet` の場面だけ、「、」「：」「・」「〜」と全角空白の後ろ、「（」「「」の前で改行し、行頭に「・」を置かない（既存画面の改行位置は変えない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
+
+公開前の画面確認は、`--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで行う（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
+
+```bash
+node -e 'const d=process.argv[1],m=require(`./${d}/render-manifest.json`),L=m.scenes.map(s=>`file img/${s.png}\nduration ${s.designSec}`);L.push(`file img/${m.scenes.at(-1).png}`);console.log(L.join("\n"))' <dir> > <dir>/preview.txt
+ffmpeg -f concat -safe 0 -i <dir>/preview.txt -vf "fps=10,ass=<dir>/subtitles.ass:fontsdir=.claude/skills/conversion/ogp-create/assets/fonts,format=yuv420p" <dir>/preview.mp4
+ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <dir>/preview-10s.jpg
+```
 
 通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
 
