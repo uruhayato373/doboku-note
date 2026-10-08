@@ -17,6 +17,8 @@ title: 動画コンテンツ運用ポリシー
 | 公開・照合状態 | `.claude/state/video-content-status.json` | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
+| 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
+| チャンネルの数値の記録 | `data/youtube/own-videos/{date}.json`（月次・`npm run youtube-own-metrics`）・`data/youtube/competitors/{date}.json`（四半期・`npm run scout-youtube-competitors`） | 動画ごとの累計再生・尺、型ごとの要約、競合の尺・題名の語ごとの再生中央値と前回比 |
 
 制作意図と可変状態を同じJSONに保存しない。既存 `.claude/state/youtube-schedule.json` はShorts投稿台帳として残し、reconcileで共通statusへjoinする。
 

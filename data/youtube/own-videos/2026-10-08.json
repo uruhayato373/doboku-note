@@ -1,0 +1,892 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-08T08:45:54.357Z",
+  "source": "yt-dlp のチャンネル一覧（/videos・/shorts。日本語表示の題名と英語表示の再生数を動画 ID で結合）",
+  "caveat": "再生数は累計で、公開日の新しい動画ほど小さい。視聴維持率・インプレッションのクリック率・流入元は一覧に無い（YouTube Analytics が要る）。Shorts の尺は一覧に出ないことがある",
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "handle": "@doboku-note",
+    "subscriberCount": 7
+  },
+  "summary": {
+    "longform": {
+      "sampled": 70,
+      "withViews": 70,
+      "totalViews": 1464,
+      "medianViews": 4,
+      "medianDurationSec": 147
+    },
+    "shorts": {
+      "sampled": 12,
+      "withViews": 12,
+      "totalViews": 1949,
+      "medianViews": 147,
+      "medianDurationSec": null
+    }
+  },
+  "lengthBuckets": [
+    {
+      "key": "under5",
+      "videos": 66,
+      "medianViews": 5
+    },
+    {
+      "key": "5to15",
+      "videos": 4,
+      "medianViews": 1
+    },
+    {
+      "key": "15to30",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "key": "30to60",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "key": "over60",
+      "videos": 0,
+      "medianViews": null
+    }
+  ],
+  "titleSignals": [
+    {
+      "word": "聞き流し",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "一問一答",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "総まとめ",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "まとめ",
+      "videos": 1,
+      "medianViews": 5
+    },
+    {
+      "word": "過去問",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "経験記述",
+      "videos": 11,
+      "medianViews": 19
+    },
+    {
+      "word": "解答速報",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "予想",
+      "videos": 1,
+      "medianViews": 2
+    },
+    {
+      "word": "模擬",
+      "videos": 0,
+      "medianViews": null
+    },
+    {
+      "word": "図解",
+      "videos": 0,
+      "medianViews": null
+    }
+  ],
+  "byFormat": [
+    {
+      "format": "single-topic-text",
+      "kind": "longform",
+      "stats": {
+        "sampled": 69,
+        "withViews": 69,
+        "totalViews": 1397,
+        "medianViews": 4,
+        "medianDurationSec": 147
+      }
+    },
+    {
+      "format": null,
+      "kind": "longform",
+      "stats": {
+        "sampled": 1,
+        "withViews": 1,
+        "totalViews": 67,
+        "medianViews": 67,
+        "medianDurationSec": 135
+      }
+    },
+    {
+      "format": "pack-shorts",
+      "kind": "short",
+      "stats": {
+        "sampled": 2,
+        "withViews": 2,
+        "totalViews": 471,
+        "medianViews": 236,
+        "medianDurationSec": null
+      }
+    },
+    {
+      "format": null,
+      "kind": "short",
+      "stats": {
+        "sampled": 10,
+        "withViews": 10,
+        "totalViews": 1478,
+        "medianViews": 101,
+        "medianDurationSec": null
+      }
+    }
+  ],
+  "videos": [
+    {
+      "id": "OcLmhVP5fho",
+      "title": "【2級土木】安全管理の答案が一般論になる3つの原因",
+      "views": 0,
+      "durationSec": 162,
+      "kind": "longform",
+      "packId": "anzen-ippanron-3riyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "agEnqsk8RIQ",
+      "title": "【2級土木】2級土木の勉強計画 — 仕事と両立する学習設計",
+      "views": 2,
+      "durationSec": 141,
+      "kind": "longform",
+      "packId": "study-plan-2kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Y3R-39rxwu8",
+      "title": "【2級土木】2級土木の全体像と学習順序",
+      "views": 21,
+      "durationSec": 138,
+      "kind": "longform",
+      "packId": "nikyuu-gaiyo-roadmap",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "VW9MNz-AWSk",
+      "title": "【1級土木】1級二次 直前チェック — 最後の1週間でやること",
+      "views": 12,
+      "durationSec": 147,
+      "kind": "longform",
+      "packId": "chokuzen-check-1kyu-niji",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "A0_P4nAaf_U",
+      "title": "【1級土木】落ちる答案の共通パターン — 内容以前の減点を消す",
+      "views": 22,
+      "durationSec": 151,
+      "kind": "longform",
+      "packId": "keiken-ochiru-toan-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "1EO4uiMFLQ0",
+      "title": "【1級土木】添削ビフォーアフターで学ぶ経験記述",
+      "views": 6,
+      "durationSec": 149,
+      "kind": "longform",
+      "packId": "keiken-kaizen-example",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "oxnsSi6zwnU",
+      "title": "【1級土木】独学添削の限界 — 自分の答案は自分で採点できない",
+      "views": 3,
+      "durationSec": 147,
+      "kind": "longform",
+      "packId": "keiken-dokugaku-genkai",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Zvl0sc9oXV0",
+      "title": "【1級土木】1級二次の出題傾向 — 5年分から読むテーマの流れ",
+      "views": 9,
+      "durationSec": 167,
+      "kind": "longform",
+      "packId": "keiken-nendo-keiko-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "sAz8gjHtU9w",
+      "title": "【1級土木】経験記述は予想問題で「書く練習」をする",
+      "views": 2,
+      "durationSec": 133,
+      "kind": "longform",
+      "packId": "keiken-yosou-renshu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "tkVRXXsX-OQ",
+      "title": "【1級土木】耳で覚える安全管理の数字 — 足場・掘削・クレーン・環境",
+      "views": 17,
+      "durationSec": 352,
+      "kind": "longform",
+      "packId": "kikinagashi-anzen-suchi",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "fjsCQ3eweR4",
+      "title": "【1級土木】耳で覚える法規の数字 — 労基法・安衛法・騒音振動",
+      "views": 1,
+      "durationSec": 370,
+      "kind": "longform",
+      "packId": "kikinagashi-hoki-suchi",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "nzZ4Qsf2E0E",
+      "title": "【1級土木】耳で覚える品質管理 — 検査・管理図・ヒストグラム",
+      "views": 1,
+      "durationSec": 313,
+      "kind": "longform",
+      "packId": "kikinagashi-hinshitsu-kikaku",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "8JJLbd21itQ",
+      "title": "【1級土木】耳で覚える土工の数字 — 盛土・法面・軟弱地盤",
+      "views": 1,
+      "durationSec": 349,
+      "kind": "longform",
+      "packId": "kikinagashi-doko-suchi",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "j6nCykloqpw",
+      "title": "【1級土木】施工管理の失敗談 — 現場で学んだ教訓",
+      "views": 82,
+      "durationSec": 105,
+      "kind": "longform",
+      "packId": "sekokan-shippaidan",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "GLG3HqvG68U",
+      "title": "【1級土木】辞める前に確認すること — 後悔しない退職判断",
+      "views": 2,
+      "durationSec": 110,
+      "kind": "longform",
+      "packId": "career-yameru-mae",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "3ekHqQ0K4bg",
+      "title": "【1級土木】ホワイトな建設会社の見分け方 — 求人票の読み方",
+      "views": 3,
+      "durationSec": 117,
+      "kind": "longform",
+      "packId": "career-white-kigyo",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "5E0l3Sp2oG4",
+      "title": "【1級土木】施工管理の転職タイミング — 資格取得前か後か",
+      "views": 46,
+      "durationSec": 121,
+      "kind": "longform",
+      "packId": "career-tenshoku-timing",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "je0zaLOdK5Q",
+      "title": "【1級土木】年収を上げる施工管理の動き方 — 資格の市場価値",
+      "views": 4,
+      "durationSec": 112,
+      "kind": "longform",
+      "packId": "career-nenshu-up",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "u8xbN7c-Fr4",
+      "title": "【1級土木】公務員土木か民間か — 発注者と受注者のリアル",
+      "views": 5,
+      "durationSec": 119,
+      "kind": "longform",
+      "packId": "career-komuin-minkan",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "lRuUWjU4Y-Q",
+      "title": "【1級土木】転職エージェントの使い方 — 施工管理向けの選び方",
+      "views": 1,
+      "durationSec": 109,
+      "kind": "longform",
+      "packId": "career-agent-katsuyo",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "LVBdvYH9gps",
+      "title": "【1級土木】運搬・敷均し・締固め機械の整理法",
+      "views": 0,
+      "durationSec": 139,
+      "kind": "longform",
+      "packId": "gakka-unpan-shimekatame-kikai",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "xnU5H9V6CwM",
+      "title": "【1級土木】公共工事標準請負契約約款は「誰の義務か」で読む",
+      "views": 0,
+      "durationSec": 133,
+      "kind": "longform",
+      "packId": "gakka-ukeoi-yakkan",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "qIL2YIrhb2w",
+      "title": "【1級土木】測量の頻出3テーマ — 基準・水準測量・距離と角度",
+      "views": 5,
+      "durationSec": 152,
+      "kind": "longform",
+      "packId": "gakka-sokuryo-3ten",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "9ZUFjsFv-lc",
+      "title": "【1級土木】施工計画の立て方 — 事前調査から仮設まで",
+      "views": 36,
+      "durationSec": 153,
+      "kind": "longform",
+      "packId": "gakka-sekokeikaku-kiso",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "3xWuFRaEuE8",
+      "title": "【1級土木】労働基準法の頻出 — 就業制限と労働時間",
+      "views": 0,
+      "durationSec": 154,
+      "kind": "longform",
+      "packId": "gakka-roudou-kijun",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "xPSSWdLeGZQ",
+      "title": "【1級土木】リスクアセスメントと作業環境の頻出点",
+      "views": 2,
+      "durationSec": 149,
+      "kind": "longform",
+      "packId": "gakka-risk-assessment",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "1u84bhpREhQ",
+      "title": "【1級土木】法面保護工の使い分け — 植生工か構造物工か",
+      "views": 4,
+      "durationSec": 152,
+      "kind": "longform",
+      "packId": "gakka-nori-hogoko",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "gNqsZBc_-sM",
+      "title": "【1級土木】ネットワーク式工程表の解き方",
+      "views": 3,
+      "durationSec": 196,
+      "kind": "longform",
+      "packId": "gakka-network-koteihyo",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "DDBHuEsPisE",
+      "title": "【1級土木】軟弱地盤対策工法の整理法",
+      "views": 77,
+      "durationSec": 218,
+      "kind": "longform",
+      "packId": "gakka-nanjaku-jiban",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "22qZhYmxtvA",
+      "title": "【1級土木】盛土の施工と締固め管理の頻出点",
+      "views": 7,
+      "durationSec": 174,
+      "kind": "longform",
+      "packId": "gakka-morido-shimekatame",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "iWWLLMIYJL4",
+      "title": "【1級土木】掘削・積込機械の適用整理 — ブルドーザ・ショベル系・ローダ",
+      "views": 0,
+      "durationSec": 161,
+      "kind": "longform",
+      "packId": "gakka-kussaku-tsumikomi-kikai",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "GxlAApDLSxw",
+      "title": "【1級土木】工程表の種類と使い分け — バーチャートから曲線式まで",
+      "views": 6,
+      "durationSec": 193,
+      "kind": "longform",
+      "packId": "gakka-kotei-kanri-kiso",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "rbZU7Z0bjcw",
+      "title": "【1級土木】建設機械の基礎 — 走行装置と原動機の頻出点",
+      "views": 5,
+      "durationSec": 150,
+      "kind": "longform",
+      "packId": "gakka-kikai-kiso",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "jG6m425QggM",
+      "title": "【1級土木】建設業法の頻出点 — 技術者配置と許可の数字",
+      "views": 3,
+      "durationSec": 141,
+      "kind": "longform",
+      "packId": "gakka-kensetsugyoho",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "joUOf152UjE",
+      "title": "【1級土木】管理図の読み方 — 異常判定のルール",
+      "views": 3,
+      "durationSec": 124,
+      "kind": "longform",
+      "packId": "gakka-kanrizu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Ljt1LwUB2Zo",
+      "title": "【1級土木】騒音・振動規制の数字と公害防止の頻出点",
+      "views": 0,
+      "durationSec": 133,
+      "kind": "longform",
+      "packId": "gakka-kankyo-hozen",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "t0P1QCqMv8c",
+      "title": "【1級土木】建築基準法・火薬類取締法の頻出点",
+      "views": 4,
+      "durationSec": 132,
+      "kind": "longform",
+      "packId": "gakka-hoki-kenchiku-kayaku",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "0KPHbjQIBMA",
+      "title": "【1級土木】河川法・道路法・港則法 — 許可と届出の整理",
+      "views": 1,
+      "durationSec": 120,
+      "kind": "longform",
+      "packId": "gakka-hoki-kasen-doro",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "llXxlLJVyTs",
+      "title": "【1級土木】ヒストグラムと工程能力図の読み方",
+      "views": 3,
+      "durationSec": 190,
+      "kind": "longform",
+      "packId": "gakka-histogram",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "G-17m7ArgU4",
+      "title": "【1級土木】品質管理の検査 — 全数・抜取の使い分け",
+      "views": 7,
+      "durationSec": 158,
+      "kind": "longform",
+      "packId": "gakka-hinshitsu-kensa",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "ZMJHcP7H3t8",
+      "title": "【1級土木】建設副産物・廃棄物処理の頻出点 — マニフェストと再資源化",
+      "views": 5,
+      "durationSec": 144,
+      "kind": "longform",
+      "packId": "gakka-haikibutsu-recycle",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "QB0k_U8BfTE",
+      "title": "【1級土木】土質調査は「何を知りたいか」で試験名を逆引きする",
+      "views": 1,
+      "durationSec": 136,
+      "kind": "longform",
+      "packId": "gakka-doshitsu-chosa",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "u9VDCoeGzas",
+      "title": "【1級土木】土止め支保工と明り掘削の安全基準",
+      "views": 62,
+      "durationSec": 142,
+      "kind": "longform",
+      "packId": "gakka-dodome-kussaku",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "7rNk0JGxDSg",
+      "title": "【1級土木】クレーン作業の頻出点 — 性能と安全規定をまとめて",
+      "views": 5,
+      "durationSec": 198,
+      "kind": "longform",
+      "packId": "gakka-crane-sogo",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "vkdS5O-vSCg",
+      "title": "【1級土木】足場の安全基準は数字で問われる",
+      "views": 4,
+      "durationSec": 146,
+      "kind": "longform",
+      "packId": "gakka-ashiba-kijun",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "ccuJn5GifKY",
+      "title": "【1級土木】安全管理体制の数字 — 選任要件と度数率・強度率",
+      "views": 5,
+      "durationSec": 151,
+      "kind": "longform",
+      "packId": "gakka-anzen-taisei",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "HhgKzMD3iLk",
+      "title": "【1級土木】1級土木の勉強計画 — 何をいつまでに",
+      "views": 2,
+      "durationSec": 140,
+      "kind": "longform",
+      "packId": "study-plan-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "hoB1VojQrpc",
+      "title": "【1級土木】1級土木の難易度 — 合格率の読み方と必要な学習量",
+      "views": 6,
+      "durationSec": 150,
+      "kind": "longform",
+      "packId": "roadmap-nanido-goukakuritsu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "ozBaFZAwsGc",
+      "title": "【1級土木】1級土木の受検資格と試験制度 — 全体像をつかむ",
+      "views": 149,
+      "durationSec": 147,
+      "kind": "longform",
+      "packId": "roadmap-juken-shikaku",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "qgFg-Halod4",
+      "title": "【1級土木】1級と2級どちらから受けるか — 判断基準",
+      "views": 3,
+      "durationSec": 145,
+      "kind": "longform",
+      "packId": "roadmap-1kyu-vs-2kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Hmn8lgiNOco",
+      "title": "【1級土木】AIに経験記述を丸投げすると落ちる理由と正しい使い方",
+      "views": 35,
+      "durationSec": 145,
+      "kind": "longform",
+      "packId": "keiken-ai-sekkei",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Fv6uUeLkGM8",
+      "title": "【1級土木】完成答案の正しい使い方 — 写すのではなく置き換える",
+      "views": 4,
+      "durationSec": 177,
+      "kind": "longform",
+      "packId": "keiken-soteikoji-katsuyo",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "XH-NX1b0hlg",
+      "title": "【1級土木】二次の学科記述 施工計画 — 計画立案の記述パターン",
+      "views": 2,
+      "durationSec": 110,
+      "kind": "longform",
+      "packId": "niji-kijutsu-sekokeikaku",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "iVzvIDrHYWE",
+      "title": "【1級土木】二次の学科記述 品質管理 — 試験名と規格値の対応",
+      "views": 1,
+      "durationSec": 115,
+      "kind": "longform",
+      "packId": "niji-kijutsu-hinshitsu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "m4Oac0tURAE",
+      "title": "【1級土木】二次の学科記述 コンクリート — 頻出規定の整理",
+      "views": 3,
+      "durationSec": 107,
+      "kind": "longform",
+      "packId": "niji-kijutsu-concrete",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "ZOmoMAjyQYo",
+      "title": "【1級土木】二次の学科記述 土工 — 穴埋めで問われる数字の型",
+      "views": 3,
+      "durationSec": 130,
+      "kind": "longform",
+      "packId": "niji-kijutsu-doko",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "iyWpJlLxJ4I",
+      "title": "【1級土木】施工計画テーマの経験記述 — 検討の幅で差をつける",
+      "views": 33,
+      "durationSec": 146,
+      "kind": "longform",
+      "packId": "keiken-sekokeikaku-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "rS5CvO_X3gs",
+      "title": "【1級土木】環境対策テーマの経験記述 — 出題されたら書けるか",
+      "views": 19,
+      "durationSec": 147,
+      "kind": "longform",
+      "packId": "keiken-kankyo-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "30fO67_VpMU",
+      "title": "【1級土木】工程管理テーマの経験記述 — 遅延の話で終わらせない",
+      "views": 291,
+      "durationSec": 143,
+      "kind": "longform",
+      "packId": "keiken-kotei-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "0I2T4m0Mt0M",
+      "title": "【1級土木】品質管理テーマの経験記述 — 課題・検討・対応の組み立て方",
+      "views": 17,
+      "durationSec": 160,
+      "kind": "longform",
+      "packId": "keiken-hinshitsu-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "3MLA_Ee54uQ",
+      "title": "【1級土木】工事概要7項目で失点しない｜施工経験記述",
+      "views": 67,
+      "durationSec": 135,
+      "kind": "longform",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "ZgATlAXz2NE",
+      "title": "【1級土木】安全管理テーマの経験記述 — 一般論にしない書き方",
+      "views": 15,
+      "durationSec": 152,
+      "kind": "longform",
+      "packId": "keiken-anzen-1kyu",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "wXY6ZTm0qdg",
+      "title": "【1級土木】対応処置と評価は数値で締める",
+      "views": 3,
+      "durationSec": 103,
+      "kind": "longform",
+      "packId": "keiken-taio-hyoka",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "0Ql8BfxfV9g",
+      "title": "【1級土木】検討項目の書き方 — 「解決方法」と書かない",
+      "views": 5,
+      "durationSec": 142,
+      "kind": "longform",
+      "packId": "keiken-kento-kakikata",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "qlcKQVNJGFk",
+      "title": "【1級土木】技術的課題は「現場条件→原因→課題」で書く",
+      "views": 3,
+      "durationSec": 129,
+      "kind": "longform",
+      "packId": "keiken-kadai-kakikata",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "Xi3vpgUopn4",
+      "title": "【1級土木】施工経験記述に書ける工事・書けない工事",
+      "views": 8,
+      "durationSec": 149,
+      "kind": "longform",
+      "packId": "keiken-taisho-koji",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "znkRLmsGkKY",
+      "title": "【1級土木】2テーマ指定への備え — 設問1と設問2の書き分け",
+      "views": 5,
+      "durationSec": 189,
+      "kind": "longform",
+      "packId": "keiken-2theme-heiki",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "IJh6o7FbD94",
+      "title": "【1級土木】令和6年度からの新形式 — 2テーマ指定への備え",
+      "views": 3,
+      "durationSec": 150,
+      "kind": "longform",
+      "packId": "keiken-r6-shinkeishiki",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "qphAHRJ73Mo",
+      "title": "【1級土木】一次のあとに始める二次検定ロードマップ",
+      "views": 16,
+      "durationSec": 156,
+      "kind": "longform",
+      "packId": "niji-junbi-roadmap",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "hJYV_U0qKvA",
+      "title": "【1級土木】工事概要7項目で失点しない｜施工経験記述",
+      "views": 283,
+      "durationSec": 171,
+      "kind": "longform",
+      "packId": "koji-gaiyo-7items",
+      "format": "single-topic-text"
+    },
+    {
+      "id": "HZs3Xls521s",
+      "title": "1級土木 施工経験記述｜工期と施工量の矛盾を防ぐ #Shorts",
+      "views": 223,
+      "durationSec": null,
+      "kind": "short",
+      "packId": "koji-gaiyo-7items",
+      "format": "pack-shorts"
+    },
+    {
+      "id": "8qhSsq9-x6k",
+      "title": "1級土木 施工経験記述｜工種と施工量は対で決める #Shorts",
+      "views": 248,
+      "durationSec": null,
+      "kind": "short",
+      "packId": "koji-gaiyo-7items",
+      "format": "pack-shorts"
+    },
+    {
+      "id": "crKjyiEBmbw",
+      "title": "技術士総監 令和3年度 択一｜設備管理と保全費の区分 #Shorts",
+      "views": 73,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "RnIFVpo-nhU",
+      "title": "技術士総監 令和3年度 択一｜間接法キャッシュフローの調整 #Shorts",
+      "views": 230,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "ScF0Qz7pHdQ",
+      "title": "技術士総監 令和3年度 択一｜損益分岐点と限界利益率計算 #Shorts",
+      "views": 187,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "bFapmbl1aok",
+      "title": "技術士総監 令和3年度 択一｜デカップリングポイントの分類 #Shorts",
+      "views": 70,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "465dt6TbPA0",
+      "title": "技術士総監 令和3年度 択一｜作業分割によるCP短縮計算 #Shorts",
+      "views": 73,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "GcA2C8yFFzk",
+      "title": "技術士総監 令和3年度 択一｜管理限界と抜取検査の前提 #Shorts",
+      "views": 86,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "LcUzdZBd5qk",
+      "title": "技術士総監 令和3年度 択一｜PFI・コンセッション方式 #Shorts",
+      "views": 106,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "3H9vbgiJAbU",
+      "title": "技術士総監 令和7年度 択一｜管理限界と規格値の違い #Shorts",
+      "views": 315,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "9fa5ax8DNmo",
+      "title": "【総監キーワード】多面評価",
+      "views": 96,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    },
+    {
+      "id": "znUgWDyct_o",
+      "title": "【総監キーワード】アクセス制御・アクセス権限設定",
+      "views": 242,
+      "durationSec": null,
+      "kind": "short",
+      "packId": null,
+      "format": null
+    }
+  ]
+}
