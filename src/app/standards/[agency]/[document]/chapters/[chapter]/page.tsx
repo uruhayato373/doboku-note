@@ -142,7 +142,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             ]}
             label={`第${target.bookNumber}編 ${target.bookTitle}`}
             title={`第${target.chapterNumber}章 ${target.chapterTitle}`}
-            meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter(Boolean).join(' · ')}
+            meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter((item): item is string => Boolean(item))}
           />
 
           <div className="mt-6 zenn-desktop:hidden">
