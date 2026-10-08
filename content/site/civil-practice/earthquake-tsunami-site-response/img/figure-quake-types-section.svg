@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="海のプレートが陸のプレートの下へ沈み込む断面で、プレート間、プレート内、活断層の三つの地震が起きる位置を示す図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="slab-head" markerWidth="10" markerHeight="9" refX="10" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 10,4.5 0,9" fill="#3a7d44"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <text x="20" y="40" font-size="12" fill="#555">海のプレートが沈み込み、陸側にひずみがたまる</text>
+
+  <!-- 海: brand-fill -->
+  <polygon points="20,100 163,100 100,185 20,185" fill="#e8f0fe"/>
+  <path d="M20 100 H163" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="62" y="140" text-anchor="middle" font-size="12" fill="#1a3a5c">海</text>
+
+  <!-- 陸のプレート: surface -->
+  <polygon points="172,88 380,88 380,345 100,185" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="300" y="214" text-anchor="middle" font-size="12" fill="#555">陸のプレート</text>
+
+  <!-- 海のプレート: positive -->
+  <polygon points="20,185 100,185 380,345 380,390 100,230 20,230" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="62" y="224" text-anchor="middle" font-size="11" fill="#1a3a5c">海のプレート</text>
+  <text x="100" y="176" text-anchor="middle" font-size="11" fill="#555">海溝</text>
+
+  <!-- 沈み込む向き -->
+  <path d="M120 268 L212 321" fill="none" stroke="#3a7d44" stroke-width="2" marker-end="url(#slab-head)"/>
+  <text x="108" y="300" text-anchor="end" font-size="11" fill="#555">沈み込む向き</text>
+
+  <!-- 3 活断層: 陸の浅い地殻（断層線） -->
+  <path d="M284 108 L318 162" fill="none" stroke="#b22234" stroke-width="2"/>
+  <circle cx="300" cy="136" r="11" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="300" y="141" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">3</text>
+
+  <!-- 1 プレート間: danger -->
+  <circle cx="204" cy="233" r="11" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <text x="204" y="238" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">1</text>
+
+  <!-- 2 プレート内: warn（沈み込む前・沈み込んだ後） -->
+  <circle cx="58" cy="198" r="10" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="58" y="203" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">2</text>
+  <circle cx="300" cy="334" r="11" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="300" y="339" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">2</text>
+
+  <!-- 凡例 -->
+  <circle cx="34" cy="418" r="10" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <text x="34" y="423" text-anchor="middle" font-size="12" font-weight="700" fill="#1a3a5c">1</text>
+  <text x="56" y="423" font-size="13" fill="#222">プレート間：海溝型。津波を伴いやすい</text>
+
+  <circle cx="34" cy="446" r="10" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="34" y="451" text-anchor="middle" font-size="12" font-weight="700" fill="#1a3a5c">2</text>
+  <text x="56" y="451" font-size="13" fill="#222">プレート内：沈み込む前後。海溝型に含む</text>
+
+  <circle cx="34" cy="474" r="10" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="34" y="479" text-anchor="middle" font-size="12" font-weight="700" fill="#1a3a5c">3</text>
+  <text x="56" y="479" font-size="13" fill="#222">活断層：陸の浅い地震。直上の揺れが強い</text>
+</svg>

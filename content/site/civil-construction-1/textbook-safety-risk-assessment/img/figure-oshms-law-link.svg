@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="OSHMS指針の項目と安衛則の規定の対応（目標の設定は対応なし）、および計画届の免除認定の流れを示した図">
+  <defs>
+    <style>
+    text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
+    .h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    .hb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+    .t  { font-size: 13px; fill: #222; }
+    .n  { font-size: 11px; fill: #222; }
+    .n12 { font-size: 12px; fill: #222; }
+    .m  { font-size: 11px; fill: #555; }
+    .big { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+    .badge { font-size: 26px; font-weight: bold; fill: #1a3a5c; }
+    .brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    .danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    .surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    .cell-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+    .cell-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .cell-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+    .dash { fill: none; stroke: #2e6da4; stroke-width: 2; stroke-dasharray: 4 3; }
+    .arrow { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    .noarrow { stroke: #8a8a8a; stroke-width: 2; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <text class="m" x="200" y="22" text-anchor="middle">OSHMS指針の項目と、安衛法令の対応する規定</text>
+  <text class="h" x="12" y="44">OSHMS指針の項目</text>
+  <text class="h" x="168" y="44">安衛法令の規定</text>
+  <rect class="brand" x="12" y="54" width="132" height="40" rx="6"/>
+  <text class="h" x="78" y="78" text-anchor="middle">方針の表明</text>
+  <line x1="146" y1="74" x2="164" y2="74" class="arrow" marker-end="url(#arrow)"/>
+  <rect class="positive" x="168" y="54" width="220" height="40" rx="6"/>
+  <text class="n" x="178" y="70">総括安全衛生管理者の業務</text>
+  <text class="n" x="178" y="86">（則3条の2第1号）</text>
+  <rect class="brand" x="12" y="102" width="132" height="96" rx="6"/>
+  <text class="h" x="78" y="146" text-anchor="middle">危険性又は有害性等</text>
+  <text class="h" x="78" y="162" text-anchor="middle">の調査と措置</text>
+  <line x1="146" y1="150" x2="164" y2="150" class="arrow" marker-end="url(#arrow)"/>
+  <rect class="positive" x="168" y="102" width="220" height="96" rx="6"/>
+  <text class="n" x="178" y="122">法28条の2（努力義務）</text>
+  <text class="n" x="178" y="138">法57条の3（化学物質は義務）</text>
+  <text class="n" x="178" y="154">総括安全衛生管理者の業務</text>
+  <text class="n" x="178" y="170">（則3条の2第2号）</text>
+  <text class="n" x="178" y="186">委員会の付議事項（則21・22条2号）</text>
+  <rect class="brand" x="12" y="206" width="132" height="40" rx="6"/>
+  <text class="h" x="78" y="230" text-anchor="middle">目標の設定</text>
+  <line x1="146" y1="226" x2="164" y2="226" class="noarrow"/>
+  <rect class="surface" x="168" y="206" width="220" height="40" rx="6"/>
+  <text class="n" x="178" y="223">対応する安衛則の規定はなし</text>
+  <text class="n" x="178" y="238">（則24条の2第3号は指針の事項）</text>
+  <rect class="brand" x="12" y="254" width="132" height="62" rx="6"/>
+  <text class="h" x="78" y="281" text-anchor="middle">計画の作成</text>
+  <text class="h" x="78" y="297" text-anchor="middle">実施・評価・改善</text>
+  <line x1="146" y1="285" x2="164" y2="285" class="arrow" marker-end="url(#arrow)"/>
+  <rect class="positive" x="168" y="254" width="220" height="62" rx="6"/>
+  <text class="n" x="178" y="274">総括安全衛生管理者の業務</text>
+  <text class="n" x="178" y="290">（則3条の2第3号）</text>
+  <text class="n" x="178" y="306">委員会の付議事項（則21・22条3号）</text>
+  <text class="h" x="12" y="334">OSHMSを実施する事業場の計画届の免除</text>
+  <rect class="brand" x="12" y="342" width="376" height="44" rx="6"/>
+  <text class="n12" x="24" y="362">指針（則24条の2）に従った自主的活動と、</text>
+  <text class="n" x="24" y="378">調査・措置を適切に実施している（則87条）</text>
+  <line x1="200" y1="386" x2="200" y2="398" class="arrow" marker-end="url(#arrow)"/>
+  <rect class="warn" x="12" y="400" width="376" height="44" rx="6"/>
+  <text class="n12" x="24" y="420">労働基準監督署長が事業場ごとに認定（則87条の2）</text>
+  <text class="n" x="24" y="436">災害率が業種平均を下回り、直近1年に重大災害なし（則87条の4）</text>
+  <line x1="200" y1="444" x2="200" y2="456" class="arrow" marker-end="url(#arrow)"/>
+  <rect class="positive" x="12" y="458" width="376" height="30" rx="6"/>
+  <text class="n12" x="24" y="478">機械等の設置・移転・変更の計画届（法88条1項）が免除</text>
+</svg>

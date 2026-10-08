@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="巡視で直ちに危険な状態を見つけてから、止める、伝える、直す、再開するまでの五段階の流れ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 1 見つける -->
+  <rect x="30" y="30" width="340" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="44" y="58" font-size="15" font-weight="bold" fill="#1a3a5c">1　見つける</text>
+  <text x="356" y="58" text-anchor="end" font-size="12" fill="#555">巡視者</text>
+  <text x="44" y="84" font-size="13" fill="#222">場所・状態・時刻を確かめる</text>
+
+  <line x1="200" y1="102" x2="200" y2="118" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 126 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 2 止める -->
+  <rect x="30" y="128" width="340" height="70" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text x="44" y="156" font-size="15" font-weight="bold" fill="#1a3a5c">2　止める</text>
+  <text x="356" y="156" text-anchor="end" font-size="12" fill="#555">巡視者・職長</text>
+  <text x="44" y="182" font-size="13" fill="#222">直ちに危険なら作業を中断し、立入を制限する</text>
+
+  <line x1="200" y1="200" x2="200" y2="216" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 224 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 3 伝える -->
+  <rect x="30" y="226" width="340" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="44" y="254" font-size="15" font-weight="bold" fill="#1a3a5c">3　伝える</text>
+  <text x="356" y="254" text-anchor="end" font-size="12" fill="#555">職長・統括安全衛生責任者</text>
+  <text x="44" y="280" font-size="13" fill="#222">場所・状態・応急措置を報告する</text>
+
+  <line x1="200" y1="298" x2="200" y2="314" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 322 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 4 直す -->
+  <rect x="30" y="324" width="340" height="70" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn-fill / warn -->
+  <text x="44" y="352" font-size="15" font-weight="bold" fill="#1a3a5c">4　直す</text>
+  <text x="356" y="352" text-anchor="end" font-size="12" fill="#555">請負人・元請の責任者</text>
+  <text x="44" y="378" font-size="13" fill="#222">応急措置のあと、原因を調べて恒久対策を決める</text>
+
+  <line x1="200" y1="396" x2="200" y2="412" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 420 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 5 再開する -->
+  <rect x="30" y="422" width="340" height="70" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text x="44" y="450" font-size="15" font-weight="bold" fill="#1a3a5c">5　再開する</text>
+  <text x="356" y="450" text-anchor="end" font-size="12" fill="#555">責任者</text>
+  <text x="44" y="476" font-size="13" fill="#222">是正を現場で確認した責任者が再開を判断する</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="重篤度と可能性の4×4マスに、マトリクスの点と加算の合計を並べ、優先度を色分けした図">
+  <defs>
+    <style>
+    text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
+    .h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    .hb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+    .t  { font-size: 13px; fill: #222; }
+    .n  { font-size: 11px; fill: #222; }
+    .n12 { font-size: 12px; fill: #222; }
+    .m  { font-size: 11px; fill: #555; }
+    .big { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+    .badge { font-size: 26px; font-weight: bold; fill: #1a3a5c; }
+    .brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    .danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    .surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    .cell-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+    .cell-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .cell-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+    .dash { fill: none; stroke: #2e6da4; stroke-width: 2; stroke-dasharray: 4 3; }
+    .arrow { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <text class="m" x="200" y="22" text-anchor="middle">上段＝マトリクスの点　下段＝加算の合計</text>
+  <text class="m" x="234" y="44" text-anchor="middle">重篤度（括弧内は配点）</text>
+  <text class="h" x="12" y="64">可能性</text>
+  <text class="m" x="12" y="79">（配点）</text>
+  <text class="h" x="129" y="64" text-anchor="middle">致命的</text>
+  <text class="m" x="129" y="79" text-anchor="middle">（30点）</text>
+  <text class="h" x="199" y="64" text-anchor="middle">重大</text>
+  <text class="m" x="199" y="79" text-anchor="middle">（20点）</text>
+  <text class="h" x="269" y="64" text-anchor="middle">中程度</text>
+  <text class="m" x="269" y="79" text-anchor="middle">（7点）</text>
+  <text class="h" x="339" y="64" text-anchor="middle">軽度</text>
+  <text class="m" x="339" y="79" text-anchor="middle">（2点）</text>
+  <text class="h" x="12" y="118">極めて高い</text>
+  <text class="m" x="12" y="135">（20点）</text>
+  <rect class="cell-danger" x="96" y="88" width="66" height="68" rx="4"/>
+  <text class="big" x="129" y="121" text-anchor="middle">5</text>
+  <text class="n" x="129" y="142" text-anchor="middle">50点</text>
+  <rect class="cell-danger" x="166" y="88" width="66" height="68" rx="4"/>
+  <text class="big" x="199" y="121" text-anchor="middle">5</text>
+  <text class="n" x="199" y="142" text-anchor="middle">40点</text>
+  <rect class="cell-danger" x="236" y="88" width="66" height="68" rx="4"/>
+  <text class="big" x="269" y="121" text-anchor="middle">4</text>
+  <text class="n" x="269" y="142" text-anchor="middle">27点＝中</text>
+  <rect class="dash" x="235" y="87" width="68" height="70" rx="5"/>
+  <rect class="cell-warn" x="306" y="88" width="66" height="68" rx="4"/>
+  <text class="big" x="339" y="121" text-anchor="middle">3</text>
+  <text class="n" x="339" y="142" text-anchor="middle">22点</text>
+  <text class="h" x="12" y="190">比較的高い</text>
+  <text class="m" x="12" y="207">（15点）</text>
+  <rect class="cell-danger" x="96" y="160" width="66" height="68" rx="4"/>
+  <text class="big" x="129" y="193" text-anchor="middle">5</text>
+  <text class="n" x="129" y="214" text-anchor="middle">45点</text>
+  <rect class="cell-danger" x="166" y="160" width="66" height="68" rx="4"/>
+  <text class="big" x="199" y="193" text-anchor="middle">4</text>
+  <text class="n" x="199" y="214" text-anchor="middle">35点</text>
+  <rect class="cell-warn" x="236" y="160" width="66" height="68" rx="4"/>
+  <text class="big" x="269" y="193" text-anchor="middle">3</text>
+  <text class="n" x="269" y="214" text-anchor="middle">22点</text>
+  <rect class="cell-warn" x="306" y="160" width="66" height="68" rx="4"/>
+  <text class="big" x="339" y="193" text-anchor="middle">2</text>
+  <text class="n" x="339" y="214" text-anchor="middle">17点</text>
+  <text class="h" x="12" y="262">可能性あり</text>
+  <text class="m" x="12" y="279">（7点）</text>
+  <rect class="cell-danger" x="96" y="232" width="66" height="68" rx="4"/>
+  <text class="big" x="129" y="265" text-anchor="middle">4</text>
+  <text class="n" x="129" y="286" text-anchor="middle">37点</text>
+  <rect class="cell-warn" x="166" y="232" width="66" height="68" rx="4"/>
+  <text class="big" x="199" y="265" text-anchor="middle">3</text>
+  <text class="n" x="199" y="286" text-anchor="middle">27点</text>
+  <rect class="cell-warn" x="236" y="232" width="66" height="68" rx="4"/>
+  <text class="big" x="269" y="265" text-anchor="middle">2</text>
+  <text class="n" x="269" y="286" text-anchor="middle">14点</text>
+  <rect class="cell-positive" x="306" y="232" width="66" height="68" rx="4"/>
+  <text class="big" x="339" y="265" text-anchor="middle">1</text>
+  <text class="n" x="339" y="286" text-anchor="middle">9点</text>
+  <text class="h" x="12" y="334">ほとんどない</text>
+  <text class="m" x="12" y="351">（2点）</text>
+  <rect class="cell-danger" x="96" y="304" width="66" height="68" rx="4"/>
+  <text class="big" x="129" y="337" text-anchor="middle">4</text>
+  <text class="n" x="129" y="358" text-anchor="middle">32点</text>
+  <rect class="cell-warn" x="166" y="304" width="66" height="68" rx="4"/>
+  <text class="big" x="199" y="337" text-anchor="middle">3</text>
+  <text class="n" x="199" y="358" text-anchor="middle">22点</text>
+  <rect class="cell-positive" x="236" y="304" width="66" height="68" rx="4"/>
+  <text class="big" x="269" y="337" text-anchor="middle">1</text>
+  <text class="n" x="269" y="358" text-anchor="middle">9点</text>
+  <rect class="cell-positive" x="306" y="304" width="66" height="68" rx="4"/>
+  <text class="big" x="339" y="337" text-anchor="middle">1</text>
+  <text class="n" x="339" y="358" text-anchor="middle">4点</text>
+  <rect class="cell-danger" x="14" y="396" width="16" height="16" rx="3"/>
+  <text class="n12" x="40" y="409"><tspan font-weight="bold">高</tspan>　マトリクス 4〜5 ／ 加算 30点以上</text>
+  <rect class="cell-warn" x="14" y="420" width="16" height="16" rx="3"/>
+  <text class="n12" x="40" y="433"><tspan font-weight="bold">中</tspan>　マトリクス 2〜3 ／ 加算 10〜29点</text>
+  <rect class="cell-positive" x="14" y="444" width="16" height="16" rx="3"/>
+  <text class="n12" x="40" y="457"><tspan font-weight="bold">低</tspan>　マトリクス 1 ／ 加算 10点未満</text>
+  <rect class="dash" x="14" y="472" width="16" height="16" rx="3"/>
+  <text class="n12" x="40" y="485">破線のマス＝判定が割れる唯一のマス（加算は「中」）</text>
+</svg>

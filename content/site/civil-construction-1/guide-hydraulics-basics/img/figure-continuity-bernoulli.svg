@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="上段は直径300mmから150mmに細くなる管で、断面積が4分の1になるので流速が1.0m/sから4.0m/sへ4倍になり、流量は0.071m³/sで一定。下段は高置水槽の水面と吐出口の全水頭を比べ、v＝√(2gh)で5mなら約9.9m/sになる例。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-b  { font-size: 12px; fill: #222; }
+      .t-bb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s  { font-size: 11px; fill: #555; }
+      .t-sd { font-size: 11px; fill: #222; }
+      .t-r  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .water { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .wall { stroke: #555; stroke-width: 2.5; fill: none; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .dim { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .guide { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+      .ln-ink { stroke: #222; stroke-width: 2.5; fill: none; }
+      .ln-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+    </style>
+    <marker id="ah-ink" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#222"/></marker>
+    <marker id="ah-brand" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="t-h" x="20" y="22">太さが変わる管（流量は同じ）</text>
+  <path class="water" d="M30,72 L120,72 L200,92 L366,92 L366,132 L200,132 L120,152 L30,152 Z"/>
+  <line class="guide" x1="60" y1="58" x2="60" y2="72"/>
+  <line class="guide" x1="60" y1="152" x2="60" y2="166"/>
+  <line class="guide" x1="240" y1="76" x2="240" y2="92"/>
+  <line class="guide" x1="240" y1="132" x2="240" y2="146"/>
+  <text class="t-sd" x="76" y="54" text-anchor="middle">① d₁ = 300 mm</text>
+  <text class="t-sd" x="240" y="70" text-anchor="middle">② d₂ = 150 mm</text>
+  <line class="ln-ink" x1="70" y1="112" x2="105" y2="112" marker-end="url(#ah-ink)"/>
+  <line class="ln-ink" x1="205" y1="112" x2="345" y2="112" marker-end="url(#ah-ink)"/>
+  <text class="t-b" x="88" y="140" text-anchor="middle">v₁ = 1.0 m/s</text>
+  <text class="t-b" x="305" y="154" text-anchor="middle">v₂ = 4.0 m/s</text>
+  <text class="t-bb" x="20" y="190">Q = A₁v₁ = A₂v₂ ≒ 0.071 m³/s</text>
+  <text class="t-s" x="20" y="208">直径が 1/2 なら断面積は 1/4 → 流速は 4 倍になる</text>
+
+  <line class="rule" x1="20" y1="222" x2="380" y2="222"/>
+
+  <text class="t-h" x="20" y="244">高置水槽からの流出（損失は無視）</text>
+  <rect x="90" y="282" width="100" height="78" fill="#e8f0fe"/>
+  <rect x="190" y="340" width="110" height="12" fill="#e8f0fe"/>
+  <polyline class="wall" points="90,264 90,360 190,360 190,352"/>
+  <polyline class="wall" points="190,264 190,340"/>
+  <line class="wall" x1="190" y1="340" x2="300" y2="340"/>
+  <line class="wall" x1="190" y1="352" x2="300" y2="352"/>
+  <line class="ln-brand" x1="94" y1="282" x2="186" y2="282"/>
+  <polygon points="134,270 146,270 140,280" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <line class="guide" x1="40" y1="346" x2="190" y2="346"/>
+  <line class="dim" x1="76" y1="282" x2="76" y2="346"/>
+  <line class="dim" x1="71" y1="282" x2="81" y2="282"/>
+  <line class="dim" x1="71" y1="346" x2="81" y2="346"/>
+  <text class="t-b" x="70" y="318" text-anchor="end">h = 5 m</text>
+  <line class="ln-brand" x1="302" y1="346" x2="352" y2="346" marker-end="url(#ah-brand)"/>
+  <text class="t-b" x="326" y="334" text-anchor="middle">v</text>
+  <text class="t-sd" x="200" y="280">位置水頭 h（水面）が</text>
+  <text class="t-sd" x="200" y="296">↓ 吐出口で速度水頭</text>
+  <text class="t-sd" x="200" y="312">v²/2g に変わる</text>
+  <text class="t-s" x="20" y="378">根拠: 水面は v ≒ 0・圧力 0、吐出口も圧力 0</text>
+
+  <line class="rule" x1="20" y1="396" x2="380" y2="396"/>
+  <text class="t-bb" x="20" y="424">h = v²/(2g) → v = √(2gh)</text>
+  <text class="t-b" x="20" y="448">h = 5 m: v = √(2 × 9.8 × 5) ≒ 9.9 m/s</text>
+  <text class="t-s" x="20" y="468">高さ h から物を落としたときの速さと同じ</text>
+</svg>

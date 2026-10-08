@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="高圧室内作業の流れ。作業計画、加圧、作業、減圧、減圧後の制限の順に管理し、事故や体調異常のときは退避して再圧室や気こう室で加圧するフロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 1 作業計画 -->
+  <rect x="30" y="16" width="340" height="62" rx="6" class="brand"/>
+  <text x="44" y="37" class="b">1 作業計画を定めて周知</text>
+  <text x="44" y="56" class="t">送気気体の成分・最高圧力・加減圧の速度・</text>
+  <text x="44" y="72" class="t">減圧停止の圧力と時間</text>
+  <line x1="200" y1="78" x2="200" y2="96" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 2 加圧 -->
+  <rect x="30" y="98" width="340" height="52" rx="6" class="brand"/>
+  <text x="44" y="119" class="b">2 加圧</text>
+  <text x="44" y="138" class="t">気こう室での加圧は毎分0.08MPa以下</text>
+  <line x1="200" y1="150" x2="200" y2="168" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 3 作業 -->
+  <rect x="30" y="170" width="340" height="78" rx="6" class="pos"/>
+  <text x="44" y="191" class="b">3 作業中の空気の管理</text>
+  <text x="44" y="210" class="t">酸素分圧：18kPa以上160kPa以下</text>
+  <text x="44" y="226" class="t">窒素分圧：400kPa以下　炭酸ガス分圧：0.5kPa以下</text>
+  <text x="44" y="242" class="s">有害ガスは換気と測定で抑える。連絡員を常時置く</text>
+  <line x1="200" y1="248" x2="200" y2="266" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 4 減圧 -->
+  <rect x="30" y="268" width="340" height="86" rx="6" class="warn"/>
+  <text x="44" y="289" class="b">4 減圧</text>
+  <text x="44" y="308" class="t">毎分0.08MPa以下。計画した圧力・時間の停止を守る</text>
+  <text x="44" y="326" class="s">気こう室の床面は照度20ルクス以上</text>
+  <text x="44" y="342" class="s">10度以下なら保温具、1時間を超えるなら休息用具</text>
+  <line x1="200" y1="354" x2="200" y2="372" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 5 減圧後 -->
+  <rect x="30" y="374" width="340" height="40" rx="6" class="warn"/>
+  <text x="44" y="399" class="t">5 減圧後14時間は重激な業務に就かせない</text>
+
+  <!-- 事故時 -->
+  <rect x="30" y="428" width="340" height="62" rx="6" class="dng"/>
+  <text x="44" y="448" class="b">事故・体調異常のとき</text>
+  <text x="44" y="466" class="t">退避・救出し、再圧室か気こう室で作業時の圧力まで</text>
+  <text x="44" y="482" class="t">加圧する（速度は毎分0.08MPa以下）</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="優先度の高・中・低ごとの措置の急ぎ方と、法令措置を土台とする関係を示した図">
+  <defs>
+    <style>
+    text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
+    .h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    .hb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+    .t  { font-size: 13px; fill: #222; }
+    .n  { font-size: 11px; fill: #222; }
+    .n12 { font-size: 12px; fill: #222; }
+    .m  { font-size: 11px; fill: #555; }
+    .big { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+    .badge { font-size: 26px; font-weight: bold; fill: #1a3a5c; }
+    .brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    .danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    .surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    .cell-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+    .cell-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .cell-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+    .dash { fill: none; stroke: #2e6da4; stroke-width: 2; stroke-dasharray: 4 3; }
+    .arrow { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <text class="m" x="200" y="22" text-anchor="middle">優先度ごとの措置の急ぎ方（別添4の例）</text>
+  <rect class="danger" x="12" y="36" width="376" height="104" rx="6"/>
+  <text class="badge" x="48" y="97" text-anchor="middle">高</text>
+  <line x1="82" y1="46" x2="82" y2="130" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="hb" x="96" y="62">直ちにリスク低減措置を講ずる</text>
+  <text class="t" x="96" y="84">措置を講ずるまで作業を停止する</text>
+  <text class="t" x="96" y="106">十分な経営資源を投入する</text>
+  <text class="m" x="96" y="128">マトリクス 4〜5 ／ 加算 30点以上</text>
+  <rect class="warn" x="12" y="148" width="376" height="104" rx="6"/>
+  <text class="badge" x="48" y="209" text-anchor="middle">中</text>
+  <line x1="82" y1="158" x2="82" y2="242" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="hb" x="96" y="174">速やかにリスク低減措置を講ずる</text>
+  <text class="t" x="96" y="196">措置を講ずるまで使用しないことが望ましい</text>
+  <text class="t" x="96" y="218">優先的に経営資源を投入する</text>
+  <text class="m" x="96" y="240">マトリクス 2〜3 ／ 加算 10〜29点</text>
+  <rect class="positive" x="12" y="260" width="376" height="66" rx="6"/>
+  <text class="badge" x="48" y="302" text-anchor="middle">低</text>
+  <line x1="82" y1="270" x2="82" y2="316" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="hb" x="96" y="286">必要に応じてリスク低減措置を実施する</text>
+  <text class="m" x="96" y="308">マトリクス 1 ／ 加算 10点未満</text>
+  <rect class="brand" x="12" y="338" width="376" height="72" rx="6"/>
+  <text class="h" x="24" y="360">死亡・後遺障害・重篤な疾病のおそれがあり、</text>
+  <text class="h" x="24" y="378">適切な措置に時間がかかるとき</text>
+  <text class="n12" x="24" y="397">暫定的な措置を直ちに講ずる（指針の10(3)）</text>
+  <rect class="surface" x="12" y="422" width="376" height="64" rx="6"/>
+  <text class="hb" x="24" y="446">土台　法令に定められた措置は必ず実施する</text>
+  <text class="m" x="24" y="468">見積りの結果が「低」でも省かない（指針の10(1)）</text>
+</svg>
