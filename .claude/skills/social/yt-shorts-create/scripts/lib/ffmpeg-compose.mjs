@@ -195,9 +195,13 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   const durations = [];
   for (const wav of wavPaths) durations.push(await probeDuration(wav));
 
+  // 入力ごとのデコーダと色変換がそれぞれスレッドを持つので、総まとめ（131場面・262入力）では
+  // 1プロセスのスレッド上限（macOS 2048）を超え「Resource temporarily unavailable」で止まった（2026-10-08）。
+  // 場面が多いときだけ、静止画の読み込みと色変換を1スレッドにする（出力は同じ）。
+  const many = pngPaths.length > 40;
   const args = ['-y'];
   for (let i = 0; i < pngPaths.length; i++) {
-    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), '-i', pngPaths[i], '-i', wavPaths[i]);
+    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), ...(many ? ['-threads', '1'] : []), '-i', pngPaths[i], '-i', wavPaths[i]);
   }
 
   const filters = [];
@@ -207,7 +211,7 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     const audioInput = videoInput + 1;
     // 1 fps の静止画入力をそのまま concat すると端数秒が場面ごとに延び、
     // WAV 実尺で組んだ字幕が先行する。映像も同じ実尺で切ってから連結する。
-    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,format=yuv420p,setsar=1[v${i}]`);
+    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,${many ? 'scale=threads=1,' : ''}format=yuv420p,setsar=1[v${i}]`);
     filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
     concatInputs.push(`[v${i}][a${i}]`);
   }

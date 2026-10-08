@@ -295,16 +295,22 @@ function clock(sec: number) {
 function compilationChapters(dir: string, rendered: any) {
   const spec = readJson(join(dir, 'compilation.json'));
   const titles = spec.parts.flatMap((part: any) => part.chapters.map((c: any) => c.title));
-  const lines = ['0:00 はじめに'];
+  const starts: Array<[number, string]> = [];
   let t = 0;
   for (const scene of rendered.scenes) {
     const m = /^c(\d{2})-title$/.exec(scene.sceneId);
-    if (m) lines.push(`${clock(t)} 第${Number(m[1])}章 ${titles[Number(m[1]) - 1]}`);
+    if (m) starts.push([t, `第${Number(m[1])}章 ${titles[Number(m[1]) - 1]}`]);
     if (typeof scene.actualSec !== 'number') throw new Error(`${scene.sceneId}: 実尺がない（音声付きで描画してから）`);
     t += scene.actualSec;
   }
-  if (lines.length - 1 !== titles.length) throw new Error(`章の区切り画面の数（${lines.length - 1}）が章の数（${titles.length}）と違う`);
-  return lines;
+  if (starts.length !== titles.length) throw new Error(`章の区切り画面の数（${starts.length}）が章の数（${titles.length}）と違う`);
+  // YouTube のチャプターは 0:00 始まり・各10秒以上でないと表示されない。冒頭が10秒未満なら第1章を 0:00 にする
+  if (starts[0][0] < 10) starts[0][0] = 0; else starts.unshift([0, 'はじめに']);
+  starts.forEach(([at], i) => {
+    const next = i + 1 < starts.length ? starts[i + 1][0] : t;
+    if (Math.floor(next) - Math.floor(at) < 10) throw new Error(`チャプター ${clock(at)} が10秒未満`);
+  });
+  return starts.map(([at, label]) => `${clock(at)} ${label}`);
 }
 
 function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existing: any) {
