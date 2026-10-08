@@ -12,7 +12,8 @@
  * 【やらないこと = Evaluator 層】
  *   - 意味として扱えているかの判定、展開する・しないの決定、優先度
  *
- * サイト側の対象は、記事 frontmatter の sources にこの書籍を書いている記事の資格ディレクトリ（content/site/<dir>/）全体。
+ * サイト側の対象は、config/reference-sources.json の bookBundle.coverageSiteDirs と、記事 frontmatter の sources にこの書籍を書いている記事の
+ * 資格ディレクトリ（content/site/<dir>/）全体。
  * 書籍を参照していない記事も、同じ資格の中なら「扱っている」と数える（書籍ごとに記事を分けて書いていないため）。
  *
  * Usage:
@@ -21,6 +22,9 @@
  *   node scripts/audit-reference-book-coverage.mjs --source-id X --site-dir civil-practice   # 対象の資格を足す
  *   node scripts/audit-reference-book-coverage.mjs --summary [--source-id X]   # 要約だけ作り直す（kuromoji を読まない）
  *   node scripts/audit-reference-book-coverage.mjs --source-id X --rejudge     # 判定済みの書籍の候補表を作り直す（手元の verdict.json を消す。判定はやり直す）
+ *   node scripts/audit-reference-book-coverage.mjs --check --source-id X       # Evaluator の verdict.json を候補表と照らす（判定もれ・語彙・記事の実在・件数）
+ *   node scripts/audit-reference-book-coverage.mjs --status                    # 全書籍の進み具合（候補表・判定・展開）を棚ごとに出す
+ * 候補表と一緒に判定資料 coverage/packet.md（サイトの記事と見出し・判定する節の一覧。Evaluator が読む・git 管理外・同期しない）も書く。
  * 判定済み（coverage/verdict.json がある）書籍の候補表は、中身が変わるなら --rejudge なしでは上書きしない（判定の元になった候補表が消え、
  * 要約が新しい候補表と古い判定を組み合わせてしまう。2026-10-08 に展開後の再実行で実際に上書きした）
  * 出力（置き場は台帳 scripts/lib/datasets.mjs）:
@@ -57,6 +61,8 @@ const EXTRA_SITE_DIRS = vals('--site-dir');
 const STAMP = val('--stamp');
 const SUMMARY_ONLY = args.includes('--summary');
 const REJUDGE = args.includes('--rejudge');
+const CHECK = args.includes('--check');
+const STATUS = args.includes('--status');
 const TOP_TERMS = 12;
 const MIN_UNIT_CHARS = 150;
 const COVERED = 0.55;
@@ -67,7 +73,7 @@ const die = (msg, code = 1) => { console.error(`[${NAME}] ✗ ${msg}`); process.
 const refs = loadReferenceSources();
 const books = refs.sources.filter((s) => s.bookBundle);
 let targets = books.filter((s) => SOURCE_IDS.includes(s.id) || (SHELF && s.shelf === SHELF));
-if (!SOURCE_IDS.length && !SHELF && !SUMMARY_ONLY) die('--source-id か --shelf が必要', 2);
+if (!SOURCE_IDS.length && !SHELF && !SUMMARY_ONLY && !STATUS) die('--source-id か --shelf が必要', 2);
 const unknown = SOURCE_IDS.filter((id) => !targets.some((s) => s.id === id));
 if (unknown.length) die(`bookBundle を持つ参考文献に無い: ${unknown.join(', ')}`, 2);
 
@@ -116,6 +122,112 @@ function writeSummary(sources) {
     books: sorted,
   });
   return updated;
+}
+
+const VERDICTS = ['covered', 'partial', 'gap', 'out-of-scope'];
+/** 判定する節（機械の暫定ヒントが covered でないもの）。packet.md と --check が同じ集合を使う */
+const unitsToJudge = (cand) => cand.units.filter((u) => u.statusHint !== 'covered');
+const siteArticleExists = (slug) => fs.existsSync(path.join(SITE_CONTENT_ROOT, slug, 'article.mdx')) || fs.existsSync(path.join(SITE_CONTENT_ROOT, `${slug}.mdx`));
+
+/** verdict.json を候補表と照らした違反（空なら合格）。Evaluator が書き終える前に回す決定的なゲート */
+function verdictProblems(source) {
+  const cand = readDatasetIf(REPO_ROOT, 'vault.book-coverage-candidates', coverageValues(source));
+  if (!cand) return ['候補表が無い（先に候補表を作る）'];
+  const verdict = readDatasetIf(REPO_ROOT, 'vault.book-coverage-verdict', coverageValues(source));
+  if (!verdict) return ['verdict.json が無い'];
+  const p = [];
+  const want = unitsToJudge(cand).map((u) => u.id);
+  const seen = new Map();
+  for (const u of verdict.units ?? []) {
+    seen.set(u.id, (seen.get(u.id) ?? 0) + 1);
+    if (!VERDICTS.includes(u.verdict)) p.push(`${u.id}: verdict「${u.verdict}」は ${VERDICTS.join('/')} のどれか`);
+    if (['covered', 'partial'].includes(u.verdict)) {
+      const slug = String(u.where ?? '').split('#')[0];
+      if (!slug || !siteArticleExists(slug)) p.push(`${u.id}: where「${u.where}」の記事が content/site/ に無い（<資格>/<slug>#見出し）`);
+    }
+    if (u.verdict === 'partial' && !(Array.isArray(u.missing) && u.missing.length)) p.push(`${u.id}: partial は missing（欠けている要素）が要る`);
+    if (u.verdict === 'out-of-scope' && !u.reason) p.push(`${u.id}: out-of-scope は reason が要る`);
+  }
+  const missing = want.filter((id) => !seen.has(id));
+  if (missing.length) p.push(`判定していない節 ${missing.length} 件: ${missing.slice(0, 10).join(', ')}${missing.length > 10 ? ' …' : ''}`);
+  const dup = [...seen].filter(([, n]) => n > 1).map(([id]) => id);
+  if (dup.length) p.push(`同じ節を 2 回以上判定: ${dup.join(', ')}`);
+  const tally = Object.fromEntries(VERDICTS.map((v) => [v, (verdict.units ?? []).filter((u) => u.verdict === v).length]));
+  for (const v of VERDICTS) if ((verdict.counts?.[v] ?? 0) !== tally[v]) p.push(`counts.${v}=${verdict.counts?.[v]} が units の件数 ${tally[v]} と合わない`);
+  if (verdict.judged !== (verdict.units ?? []).length) p.push(`judged=${verdict.judged} が units の件数 ${(verdict.units ?? []).length} と合わない`);
+  if (verdict.sourceId !== source.id) p.push(`sourceId「${verdict.sourceId}」が ${source.id} でない`);
+  const open = new Set((verdict.units ?? []).filter((u) => ['gap', 'partial'].includes(u.verdict)).map((u) => u.id));
+  const planned = new Set();
+  for (const a of verdict.plan ?? []) {
+    if (!a.new && !siteArticleExists(a.article)) p.push(`plan: 記事「${a.article}」が無い（新しい記事なら new: true と title）`);
+    if (a.new && !(a.title && /^[a-z0-9-]+\/[a-z0-9-]+$/.test(a.article))) p.push(`plan: 新しい記事「${a.article}」は <資格>/<slug> と title が要る`);
+    for (const x of a.additions ?? []) {
+      if (!['A', 'B', 'C'].includes(x.priority)) p.push(`plan ${a.article}「${x.heading}」: priority は A/B/C`);
+      for (const id of x.unitIds ?? []) {
+        if (!open.has(id)) p.push(`plan ${a.article}: unitIds の ${id} は gap/partial の節でない`);
+        planned.add(id);
+      }
+    }
+  }
+  const unplanned = [...open].filter((id) => !planned.has(id));
+  if (unplanned.length) p.push(`gap/partial なのに計画に入っていない節 ${unplanned.length} 件: ${unplanned.slice(0, 10).join(', ')}（展開しないなら out-of-scope にして reason を書く）`);
+  return p;
+}
+
+/** 判定資料（Evaluator が読む）。サイトの記事と見出し・判定する節。本の見出しを含むので候補表と同じ git 管理外の置き場 */
+function writePacket(source, cand, articles) {
+  const judge = unitsToJudge(cand);
+  // 見出しまで出すのは、判定する節の候補に挙がった記事だけ（資格によっては記事が 700 を超え、全部の見出しを並べると資料が 400KB を超える）
+  const near = new Set(judge.flatMap((u) => [...u.bestSections.map((b) => b.article), ...u.bestArticles.map((b) => b.article)]));
+  const nearList = articles.filter((a) => near.has(a.slug));
+  const others = articles.filter((a) => !near.has(a.slug));
+  const lines = [`# 判定資料: ${source.title}（${source.id}）`, '', `サイト側の対象: ${cand.site.dirs.join(' + ')}（記事 ${articles.length}。うち候補に挙がった ${nearList.length} 本は見出しまで）`, '', '## 候補に挙がった記事と見出し（H2/H3）', ''];
+  for (const a of nearList) lines.push(`- **${a.slug}**（${a.title}・${a.chars}字）: ${a.headings.map((h) => (h.level === 3 ? `　${h.heading}` : h.heading)).join(' / ')}`);
+  lines.push('', `## そのほかの記事（${others.length} 本。中身は content/site/<slug>/article.mdx を grep で探す）`, '');
+  lines.push(others.length > 200 ? others.map((a) => a.slug).join(' / ') : others.map((a) => `${a.slug}（${a.title}）`).join(' / '));
+  lines.push('', `## 本の節（gap / partial の暫定ヒントが付いたもの・${judge.length} 件）`, '', '各行: id・ページ・見出し・字数・暫定ヒント・上位語・サイト側の最有力節（score）', '');
+  for (const u of judge) {
+    const best = u.bestSections.slice(0, 2).map((b) => `${b.article}#${b.section} ${b.score}`).join(' | ');
+    lines.push(`- ${u.id} ${u.page ?? '-'} 「${u.heading}」${u.chars}字 [${u.statusHint}] 語=${u.topTerms.slice(0, 8).join(',')} 候補=${best}`);
+  }
+  const file = path.join(path.dirname(path.join(REPO_ROOT, datasetPath('vault.book-coverage-candidates', coverageValues(source).values))), 'packet.md');
+  fs.writeFileSync(file, `${lines.join('\n')}\n`);
+  return file;
+}
+
+if (CHECK) {
+  if (!targets.length) die('--check は --source-id か --shelf が要る', 2);
+  let bad = 0;
+  for (const source of targets) {
+    const p = verdictProblems(source);
+    if (p.length) bad++;
+    console.log(`[${NAME} --check] ${source.id}: ${p.length ? `✗ 違反 ${p.length} 件` : '✓ 判定もれ・語彙・記事の実在・件数・計画の割り当ては整合'}`);
+    for (const x of p.slice(0, 30)) console.log(`  - ${x}`);
+  }
+  console.log(`[${NAME} --check] ${targets.length} 冊を実検査 / 違反のある書籍 ${bad}`);
+  process.exit(bad ? 1 : 0);
+}
+
+if (STATUS) {
+  const rows = readDatasetIf(REPO_ROOT, 'state.book-coverage')?.books ?? {};
+  const shelves = new Map();
+  for (const s of books) {
+    const r = rows[s.id];
+    const done = r ? r.expansions.filter((e) => e.commits.length).length : 0;
+    const stage = !r ? '未着手' : !r.verdict ? '候補表のみ' : !r.expansions.length ? '判定済み（展開不要）' : done === r.expansions.length ? '展開済み' : `展開中 ${done}/${r.expansions.length} 記事`;
+    const line = `  ${s.id.padEnd(36)} ${stage}${r?.verdict ? `（gap ${r.verdict.gap}・partial ${r.verdict.partial}・追記 ${r.verdict.additions}）` : r ? `（本文 ${r.candidates.textUnits} 節）` : ''}`;
+    const k = s.shelf ?? '（棚なし）';
+    if (!shelves.has(k)) shelves.set(k, []);
+    shelves.get(k).push({ line, stage });
+  }
+  const all = [...shelves.values()].flat();
+  const count = (f) => all.filter((x) => f(x.stage)).length;
+  console.log(`[${NAME} --status] 書籍 ${all.length} 冊 / 判定済み ${count((x) => x.startsWith('判定済み') || x.startsWith('展開'))}（うち展開済み ${count((x) => x === '展開済み')}）/ 候補表のみ ${count((x) => x === '候補表のみ')} / 未着手 ${count((x) => x === '未着手')}（要約 ${datasetPath('state.book-coverage')}）`);
+  for (const [k, xs] of shelves) {
+    console.log(`${k}`);
+    for (const x of xs) console.log(x.line);
+  }
+  process.exit(0);
 }
 
 if (SUMMARY_ONLY) {
@@ -212,7 +324,9 @@ function loadBookUnits(source) {
 
 function sitePool(source) {
   const siteRoot = SITE_CONTENT_ROOT;
-  const dirs = new Set(EXTRA_SITE_DIRS);
+  const dirs = new Set([...EXTRA_SITE_DIRS, ...(source.bookBundle.coverageSiteDirs ?? [])]);
+  const missingDirs = [...dirs].filter((d) => !fs.existsSync(path.join(siteRoot, d)));
+  if (missingDirs.length) throw new Error(`${source.id}: coverageSiteDirs の資格ディレクトリが content/site/ に無い: ${missingDirs.join(', ')}`);
   const articles = [];
   const walk = (d) => {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
@@ -240,7 +354,13 @@ function sitePool(source) {
       sections.push({ article: slug, heading: s.heading, terms: termsOf(`${s.heading}\n${s.body}`) });
     }
   }
-  return { dirs: [...dirs].sort(), articles: pool.length, sections };
+  const list = pool.map((a) => {
+    const slug = a.rel.replace(/\/article\.mdx$|\.mdx$/, '');
+    const body = stripMdx(a.fm.content);
+    const headings = splitSections(body).filter((x) => x.heading !== '(冒頭)').map((x) => ({ level: x.level, heading: x.heading }));
+    return { slug, title: String(a.fm.data.title ?? slug), chars: body.replace(/\s/g, '').length, headings };
+  }).sort((x, y) => x.slug.localeCompare(y.slug));
+  return { dirs: [...dirs].sort(), articles: pool.length, sections, list };
 }
 
 const summary = [];
@@ -314,6 +434,7 @@ for (const source of targets) {
   }
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, text);
+  writePacket(source, out, site.list);
   summary.push(out);
   console.log(`[${NAME}] ${source.id}: 節 ${units.length}（本文 ${textUnits.length} を実検査・過去問 ${examUnits.length}・${MIN_UNIT_CHARS}字未満 ${shortUnits.length} は対象外）`
     + ` / サイト ${site.dirs.join('+')} の記事 ${site.articles}・節 ${site.sections.length}`

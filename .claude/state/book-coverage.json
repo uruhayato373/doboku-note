@@ -2,6 +2,132 @@
   "schemaVersion": 1,
   "description": "書籍ごとの網羅の要約（audit-reference-book-coverage が書く）。市販書籍の見出しは持たない。見出しを含む候補表と意味判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（台帳 vault.book-coverage-*）",
   "books": {
+    "civil-construction-basics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 285,
+        "textUnits": 178,
+        "examUnits": 0,
+        "covered": 53,
+        "partial": 78,
+        "gap": 47
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil-industry-trends-3rd": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 332,
+        "textUnits": 285,
+        "examUnits": 0,
+        "covered": 10,
+        "partial": 83,
+        "gap": 192
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil-informatics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 189,
+        "textUnits": 140,
+        "examUnits": 0,
+        "covered": 0,
+        "partial": 3,
+        "gap": 137
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil-technology-basics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 335,
+        "textUnits": 235,
+        "examUnits": 0,
+        "covered": 3,
+        "partial": 43,
+        "gap": 189
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil1-primary-workbook-2021": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 201,
+        "textUnits": 27,
+        "examUnits": 164,
+        "covered": 6,
+        "partial": 14,
+        "gap": 7
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil1-secondary-workbook-2021": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 265,
+        "textUnits": 199,
+        "examUnits": 11,
+        "covered": 134,
+        "partial": 47,
+        "gap": 18
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil1-textbook-general": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 398,
+        "textUnits": 300,
+        "examUnits": 0,
+        "covered": 203,
+        "partial": 83,
+        "gap": 14
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil1-textbook-management": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 399,
+        "textUnits": 294,
+        "examUnits": 0,
+        "covered": 159,
+        "partial": 92,
+        "gap": 43
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "civil2-first-exam-manga-2026": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 44,
+        "textUnits": 28,
+        "examUnits": 0,
+        "covered": 4,
+        "partial": 16,
+        "gap": 8
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
     "concrete-basics-5th": {
       "candidates": {
         "generatedAt": null,
@@ -196,6 +322,62 @@
         }
       ]
     },
+    "construction-ai-management": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 97,
+        "textUnits": 93,
+        "examUnits": 0,
+        "covered": 0,
+        "partial": 2,
+        "gap": 91
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "construction-business-act-tips-3rd": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 558,
+        "textUnits": 412,
+        "examUnits": 0,
+        "covered": 24,
+        "partial": 104,
+        "gap": 284
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "construction-claude-code-guide": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 247,
+        "textUnits": 128,
+        "examUnits": 1,
+        "covered": 0,
+        "partial": 2,
+        "gap": 126
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "construction-industry-trends-5th": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 269,
+        "textUnits": 240,
+        "examUnits": 0,
+        "covered": 10,
+        "partial": 60,
+        "gap": 170
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
     "construction-materials-basics": {
       "candidates": {
         "generatedAt": null,
@@ -263,6 +445,118 @@
           ]
         }
       ]
+    },
+    "disaster-civil-basics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 156,
+        "textUnits": 125,
+        "examUnits": 0,
+        "covered": 0,
+        "partial": 3,
+        "gap": 122
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "ipej-cem-keywords-2026": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 33,
+        "textUnits": 32,
+        "examUnits": 1,
+        "covered": 28,
+        "partial": 3,
+        "gap": 1
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "pe-cem-exam-guide": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 32,
+        "textUnits": 29,
+        "examUnits": 0,
+        "covered": 13,
+        "partial": 13,
+        "gap": 3
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "pe-cem-textbook": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 172,
+        "textUnits": 152,
+        "examUnits": 0,
+        "covered": 102,
+        "partial": 49,
+        "gap": 1
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "pe-construction-keyword-book": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 21,
+        "textUnits": 20,
+        "examUnits": 0,
+        "covered": 12,
+        "partial": 8,
+        "gap": 0
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "pe-essay-writing-guide": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 183,
+        "textUnits": 118,
+        "examUnits": 0,
+        "covered": 6,
+        "partial": 27,
+        "gap": 85
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "safety-management-all-7th": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 60,
+        "textUnits": 52,
+        "examUnits": 0,
+        "covered": 0,
+        "partial": 8,
+        "gap": 44
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
+    },
+    "weather-disaster-basics": {
+      "candidates": {
+        "generatedAt": null,
+        "units": 153,
+        "textUnits": 121,
+        "examUnits": 0,
+        "covered": 0,
+        "partial": 10,
+        "gap": 111
+      },
+      "verdict": null,
+      "judgedAt": null,
+      "expansions": []
     }
   }
 }
