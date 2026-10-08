@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="専門土木34問を7つの帯に分けた問題数の棒グラフと、土木一般15問の土工・コンクリート・基礎工の内訳。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222}</style>
+</defs>
+<!-- brand: 4〜5問の帯と土木一般 / positive: 6問の帯 / ink-strong・ink-body の文字 -->
+<text x="14" y="24" font-size="12" font-weight="bold" fill="#1a3a5c">専門土木 34問のうち10問を選ぶ</text>
+<text x="14" y="40" font-size="11" fill="#555">問題番号は令和6年度以降。令和3〜5年度は5つ小さい</text>
+
+<text x="14" y="64" font-size="12" font-weight="bold" fill="#222">鋼橋・コンクリート構造物</text>
+<text x="14" y="79" font-size="11" fill="#555">鋼橋3＋コンクリート2</text>
+<rect x="186" y="53" width="120" height="29" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="194" y="72" font-size="11" fill="#1a3a5c">No.21〜25</text>
+<text x="312" y="73" font-size="13" font-weight="bold" fill="#1a3a5c">5問</text>
+
+<text x="14" y="105" font-size="12" font-weight="bold" fill="#222">河川・砂防</text>
+<text x="14" y="120" font-size="11" fill="#555">河川3＋砂防3</text>
+<rect x="186" y="94" width="144" height="29" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="194" y="113" font-size="11" fill="#1a3a5c">No.26〜31</text>
+<text x="336" y="114" font-size="13" font-weight="bold" fill="#1a3a5c">6問</text>
+
+<text x="14" y="146" font-size="12" font-weight="bold" fill="#222">道路・舗装</text>
+<text x="14" y="161" font-size="11" fill="#555">アスファルト4＋他2</text>
+<rect x="186" y="135" width="144" height="29" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="194" y="154" font-size="11" fill="#1a3a5c">No.32〜37</text>
+<text x="336" y="155" font-size="13" font-weight="bold" fill="#1a3a5c">6問</text>
+
+<text x="14" y="187" font-size="12" font-weight="bold" fill="#222">ダム・トンネル</text>
+<text x="14" y="202" font-size="11" fill="#555">ダム2＋トンネル2</text>
+<rect x="186" y="176" width="96" height="29" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="194" y="195" font-size="11" fill="#1a3a5c">No.38〜41</text>
+<text x="288" y="196" font-size="13" font-weight="bold" fill="#1a3a5c">4問</text>
+
+<text x="14" y="228" font-size="12" font-weight="bold" fill="#222">海岸・港湾</text>
+<text x="14" y="243" font-size="11" fill="#555">海岸と港湾が各2問前後</text>
+<rect x="186" y="217" width="96" height="29" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="194" y="236" font-size="11" fill="#1a3a5c">No.42〜45</text>
+<text x="288" y="237" font-size="13" font-weight="bold" fill="#1a3a5c">4問</text>
+
+<text x="14" y="269" font-size="12" font-weight="bold" fill="#222">鉄道・シールド・塗装</text>
+<text x="14" y="284" font-size="11" fill="#555">鉄道3＋シールド1＋塗装1</text>
+<rect x="186" y="258" width="120" height="29" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="194" y="277" font-size="11" fill="#1a3a5c">No.46〜50</text>
+<text x="312" y="278" font-size="13" font-weight="bold" fill="#1a3a5c">5問</text>
+
+<text x="14" y="310" font-size="12" font-weight="bold" fill="#222">上水道・下水道・薬液注入</text>
+<text x="14" y="325" font-size="11" fill="#555">上水道1＋下水道2＋薬液注入1</text>
+<rect x="186" y="299" width="96" height="29" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="194" y="318" font-size="11" fill="#1a3a5c">No.51〜54</text>
+<text x="288" y="319" font-size="13" font-weight="bold" fill="#1a3a5c">4問</text>
+
+<rect x="14" y="343" width="14" height="10" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+<text x="34" y="352" font-size="11" fill="#555">6問の帯</text>
+<rect x="96" y="343" width="14" height="10" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<text x="116" y="352" font-size="11" fill="#555">4〜5問の帯</text>
+<text x="366" y="352" font-size="11" fill="#555" text-anchor="end">合計 34問</text>
+
+<path d="M14 366 L386 366" fill="none" stroke="#d7d7d7" stroke-width="1"/>
+
+<text x="14" y="388" font-size="12" font-weight="bold" fill="#1a3a5c">土木一般 15問のうち12問を選ぶ</text>
+<text x="14" y="404" font-size="11" fill="#555">令和6年度以降の番号。令和3〜5年度は No.1〜15</text>
+
+<rect x="20" y="414" width="120" height="46" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="80" y="433" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a3a5c">土工 5問</text>
+<text x="80" y="450" font-size="11" text-anchor="middle" fill="#555">No.6〜10</text>
+<rect x="140" y="414" width="144" height="46" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="212" y="433" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a3a5c">コンクリート 6問</text>
+<text x="212" y="450" font-size="11" text-anchor="middle" fill="#555">No.11〜16</text>
+<rect x="284" y="414" width="96" height="46" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="332" y="433" font-size="12" font-weight="bold" text-anchor="middle" fill="#1a3a5c">基礎工 4問</text>
+<text x="332" y="450" font-size="11" text-anchor="middle" fill="#555">No.17〜20</text>
+
+<text x="14" y="482" font-size="11" fill="#555">No.1〜5 は工学基礎の5問で、全問解答（上の15問には含まない）</text>
+</svg>
