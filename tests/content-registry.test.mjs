@@ -102,8 +102,9 @@ test('R09: 今の台帳と台帳が食い違えば、切り替えの前後とも
 
 test('R09: 今の台帳にだけある動画パックは、切り替え前は INFO・切り替え後は FAIL', () => {
   const st = { packs: { ...state().packs, 'other-pack': { derivatives: { longform: { status: 'scheduled', videoId: 'x' } } } } };
-  assert.ok(!codes(run({ st })).includes('R09'));
-  assert.ok(codes(run({ st }), 'INFO').includes('R09'));
+  const before = { ...cfg, cutover: [] };
+  assert.ok(!codes(run({ st, c: before })).includes('R09'));
+  assert.ok(codes(run({ st, c: before }), 'INFO').includes('R09'));
   assert.ok(codes(run({ st, c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
 });
 

@@ -44,6 +44,6 @@
     },
     "stopReasons": ["user-decision", "superseded", "gone", "unverified-legacy"]
   },
-  "cutover": [],
+  "cutover": ["youtube"],
   "reconcileGraceDays": { "youtube": 1, "x": 1, "instagram": 7 }
 }

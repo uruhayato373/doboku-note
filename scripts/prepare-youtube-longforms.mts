@@ -22,10 +22,10 @@ import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
+import { loadVideoState, saveVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
 const PRODUCTION_DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const TARGET_EXAMS = [
@@ -351,10 +351,11 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
   };
 }
 
-function main() {
+async function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
   if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
-  const state = readJson(STATE_PATH);
+  // 状態の正本はコンテンツ台帳。読み書きは台帳の入口（registry-video-state.mjs）だけを通す
+  const state = loadVideoState(ROOT);
   const schedule = buildSchedule(state);
   const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
   if (onlyPackId && targets.length !== 1) throw new Error(`対象 packId が予約にありません: ${onlyPackId}`);
@@ -394,7 +395,8 @@ function main() {
       updated += 1;
     }
   }
-  writeJson(STATE_PATH, state);
+  const touched = targets.map((t) => t.manifest.packId).filter((id) => state.packs?.[id]?.derivatives?.longform);
+  if (updated) await saveVideoState(ROOT, state, { writer: 'prepare-youtube-longforms', packIds: touched });
   console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${updated}本（state を更新した本数）`);
   if (scope === 'compilation') {
     console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
@@ -406,4 +408,4 @@ function main() {
   }
 }
 
-main();
+await main();
