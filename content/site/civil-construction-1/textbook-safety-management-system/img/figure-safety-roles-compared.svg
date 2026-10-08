@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="安全管理者・作業主任者・作業指揮者・職長を、置く単位・資格・働き方で比べた図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect x="20" y="14" width="360" height="102" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="41" font-size="14" font-weight="bold" fill="#1a3a5c">安全管理者</text>
+  <text x="366" y="41" text-anchor="end" font-size="11" font-weight="bold" fill="#555">スタッフ</text>
+  <text x="34" y="66" font-size="11" font-weight="bold" fill="#555">単位</text>
+  <text x="78" y="66" font-size="12" fill="#222">事業場（建設業は常時50人以上）</text>
+  <text x="34" y="86" font-size="11" font-weight="bold" fill="#555">資格</text>
+  <text x="78" y="86" font-size="12" fill="#222">学歴＋実務＋研修ほか（則第5条）</text>
+  <text x="34" y="106" font-size="11" font-weight="bold" fill="#555">働き方</text>
+  <text x="78" y="106" font-size="12" fill="#222">巡視して危険に措置を講じる（則第6条）</text>
+  <rect x="20" y="128" width="360" height="102" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="34" y="155" font-size="14" font-weight="bold" fill="#1a3a5c">作業主任者</text>
+  <text x="366" y="155" text-anchor="end" font-size="11" font-weight="bold" fill="#555">ライン</text>
+  <text x="34" y="180" font-size="11" font-weight="bold" fill="#555">単位</text>
+  <text x="78" y="180" font-size="12" fill="#222">令第6条の作業ごと</text>
+  <text x="34" y="200" font-size="11" font-weight="bold" fill="#555">資格</text>
+  <text x="78" y="200" font-size="12" fill="#222">免許または技能講習の修了</text>
+  <text x="34" y="220" font-size="11" font-weight="bold" fill="#555">働き方</text>
+  <text x="78" y="220" font-size="12" fill="#222">作業の労働者を指揮する（法第14条）</text>
+  <rect x="20" y="242" width="360" height="102" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="34" y="269" font-size="14" font-weight="bold" fill="#1a3a5c">作業指揮者</text>
+  <text x="366" y="269" text-anchor="end" font-size="11" font-weight="bold" fill="#555">ライン</text>
+  <text x="34" y="294" font-size="11" font-weight="bold" fill="#555">単位</text>
+  <text x="78" y="294" font-size="12" fill="#222">規則が定める作業ごと</text>
+  <text x="34" y="314" font-size="11" font-weight="bold" fill="#555">資格</text>
+  <text x="78" y="314" font-size="12" fill="#222">原則、法令上の定めなし（事業者が指名）</text>
+  <text x="34" y="334" font-size="11" font-weight="bold" fill="#555">働き方</text>
+  <text x="78" y="334" font-size="12" fill="#222">作業計画に基づいて指揮する</text>
+  <rect x="20" y="356" width="360" height="102" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="34" y="383" font-size="14" font-weight="bold" fill="#1a3a5c">職長</text>
+  <text x="366" y="383" text-anchor="end" font-size="11" font-weight="bold" fill="#555">ライン</text>
+  <text x="34" y="408" font-size="11" font-weight="bold" fill="#555">単位</text>
+  <text x="78" y="408" font-size="12" fill="#222">作業班（労働者に最も近い）</text>
+  <text x="34" y="428" font-size="11" font-weight="bold" fill="#555">資格</text>
+  <text x="78" y="428" font-size="12" fill="#222">選任資格なし（就任時に職長教育）</text>
+  <text x="34" y="448" font-size="11" font-weight="bold" fill="#555">働き方</text>
+  <text x="78" y="448" font-size="12" fill="#222">日々の作業を指導・監督する</text>
+  <text x="200" y="486" text-anchor="middle" font-size="11" fill="#8a8a8a">スタッフ＝横から支える　ライン＝施工の指揮系統</text>
+</svg>

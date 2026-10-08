@@ -1,0 +1,78 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="堤防の断面概念図。堤防高は計画高水位に余裕高を加えた値以上とし、余裕高と天端幅は計画高水流量が大きいほど大きくなる。盛土堤防ののり勾配は50パーセント以下">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-navy { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-blue { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-big  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-box  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 12px; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto-start-reverse">
+      <polygon points="0,0 6,2.5 0,5" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">堤防の高さと天端幅は計画高水流量で決まる</text>
+  <text class="t-sec" x="20" y="42">堤防の断面（概念図）</text>
+
+  <!-- 水（堤外側） -->
+  <polygon points="20,136 128,136 20,190" fill="#e8f0fe"/>
+  <!-- 堤体 -->
+  <polygon points="20,190 180,110 216,110 376,190" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- 地盤 -->
+  <line x1="20" y1="190" x2="380" y2="190" stroke="#555" stroke-width="1.5"/>
+
+  <!-- 計画高水位 -->
+  <line x1="20" y1="136" x2="128" y2="136" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="128" y1="136" x2="366" y2="136" stroke="#2e6da4" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="t-blue" x="300" y="116">計画高水位</text>
+  <text class="t-blue" x="300" y="128">（H.W.L.）</text>
+
+  <!-- 堤防高（天端高） -->
+  <line x1="20" y1="110" x2="180" y2="110" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <text class="t-navy" x="24" y="103">堤防高（天端高）</text>
+
+  <!-- 余裕高 -->
+  <line x1="100" y1="112" x2="100" y2="134" stroke="#1a3a5c" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text class="t-navy" x="92" y="127" text-anchor="end">余裕高</text>
+
+  <!-- 天端幅 -->
+  <line x1="180" y1="110" x2="180" y2="88" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="216" y1="110" x2="216" y2="88" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="182" y1="92" x2="214" y2="92" stroke="#1a3a5c" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text class="t-navy" x="198" y="82" text-anchor="middle">天端幅</text>
+
+  <!-- 堤体の説明 -->
+  <text class="t-part" x="198" y="152" text-anchor="middle">堤体（盛土）</text>
+  <text class="t-part" x="198" y="170" text-anchor="middle">のり勾配 50%以下</text>
+
+  <text class="t-part" x="24" y="212">堤外地（川側）</text>
+  <text class="t-part" x="366" y="212" text-anchor="end">堤内地（市街地側）</text>
+
+  <!-- 式と対応 -->
+  <rect class="box-b" x="20" y="244" width="360" height="56" rx="8"/>
+  <text class="t-big" x="200" y="278" text-anchor="middle">堤防高 ≧ 計画高水位 ＋ 余裕高</text>
+
+  <rect class="box-w" x="20" y="316" width="172" height="58" rx="8"/>
+  <text class="t-box" x="106" y="339" text-anchor="middle">余裕高</text>
+  <text class="t-part" x="106" y="358" text-anchor="middle">流量が大きいほど高く</text>
+  <rect class="box-p" x="208" y="316" width="172" height="58" rx="8"/>
+  <text class="t-box" x="294" y="339" text-anchor="middle">天端幅</text>
+  <text class="t-part" x="294" y="358" text-anchor="middle">流量が大きいほど広く</text>
+
+  <rect class="box-s" x="20" y="396" width="360" height="62" rx="8"/>
+  <text class="t-note" x="200" y="422" text-anchor="middle">例：計画高水流量 5,000以上10,000m³/s未満</text>
+  <text class="t-box" x="200" y="443" text-anchor="middle">余裕高 1.5m ・ 天端幅 6m以上</text>
+</svg>

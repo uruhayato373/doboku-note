@@ -1,0 +1,67 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="余盛りの断面概念図。計画断面の外側に、のり肩で余盛り高を上乗せした施工断面を盛り、のり尻で余盛りはゼロとする。天端には余盛り部分で排水の横断勾配をつける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-navy { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-box  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-row  { font-size: 13px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto-start-reverse">
+      <polygon points="0,0 6,2.5 0,5" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">沈下を見込んで、計画断面より高めに盛る</text>
+  <text class="t-sec" x="20" y="42">堤防の断面（概念図）</text>
+
+  <!-- 余盛り部分 -->
+  <polygon points="20,200 180,106 198,101 216,106 376,200 216,120 180,120" fill="#fff3cd"/>
+  <!-- 計画断面 -->
+  <polygon points="20,200 180,120 216,120 376,200" fill="#f5f5f5" stroke="#555" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- 施工断面（余盛り込み） -->
+  <polyline points="20,200 180,106 198,101 216,106 376,200" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3" stroke-linejoin="round"/>
+  <line x1="20" y1="200" x2="380" y2="200" stroke="#555" stroke-width="1.5"/>
+
+  <!-- 余盛り高 -->
+  <line x1="140" y1="106" x2="180" y2="106" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="140" y1="120" x2="180" y2="120" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="150" y1="107" x2="150" y2="119" stroke="#1a3a5c" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text class="t-navy" x="134" y="100" text-anchor="end">余盛り高</text>
+  <text class="t-part" x="134" y="113" text-anchor="end">（のり肩で測る）</text>
+
+  <!-- 天端の横断勾配 -->
+  <text class="t-navy" x="226" y="84">天端の横断勾配</text>
+  <text class="t-part" x="226" y="97">5〜10%（砕石天端）</text>
+  <text class="t-part" x="198" y="170" text-anchor="middle">計画断面</text>
+
+  <text class="t-part" x="24" y="220">のり尻で余盛りはゼロ</text>
+
+  <!-- 凡例 -->
+  <line x1="20" y1="244" x2="48" y2="244" stroke="#555" stroke-width="1.5"/>
+  <text class="t-part" x="56" y="248">実線：計画断面</text>
+  <line x1="170" y1="244" x2="198" y2="244" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text class="t-part" x="206" y="248">破線：施工断面（余盛り込み）</text>
+
+  <text class="t-part" x="20" y="268">※高さと勾配は分かりやすく誇張した概念図</text>
+
+  <text class="t-sec" x="20" y="288">余盛りで見込むもの</text>
+  <rect class="box-w" x="20" y="296" width="360" height="34" rx="6"/>
+  <text class="t-row" x="34" y="318">堤体の圧縮沈下</text>
+  <rect class="box-w" x="20" y="340" width="360" height="34" rx="6"/>
+  <text class="t-row" x="34" y="362">基礎地盤の圧密沈下</text>
+  <rect class="box-w" x="20" y="384" width="360" height="34" rx="6"/>
+  <text class="t-row" x="34" y="406">天端の風雨による損傷</text>
+
+  <rect class="box-b" x="20" y="434" width="360" height="50" rx="8"/>
+  <text class="t-box" x="200" y="456" text-anchor="middle">施工直後は計画より高く</text>
+  <text class="t-box" x="200" y="475" text-anchor="middle">沈下後に計画の高さへ収まる</text>
+</svg>

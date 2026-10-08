@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="つり上げ荷重3t以上の移動式クレーンの検査の流れ。製造検査、検査証の交付（有効期間2年）、設置報告書、自主検査、性能検査、有効期間の更新を順に示し、使用再開検査と変更検査を分岐として添える">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<defs>
+<marker id="arw" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+</defs>
+<rect x="30" y="14" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="190" y="34" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">製造許可・製造検査</text>
+<text x="190" y="51" text-anchor="middle" font-size="11" fill="#555">荷重試験と安定度試験（3t以上）</text>
+<line x1="190" y1="60" x2="190" y2="77" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="30" y="78" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="190" y="98" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">移動式クレーン検査証の交付</text>
+<text x="190" y="115" text-anchor="middle" font-size="11" fill="#555">有効期間は2年</text>
+<line x1="190" y1="124" x2="190" y2="141" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="30" y="142" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="190" y="162" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">設置報告書の提出</text>
+<text x="190" y="179" text-anchor="middle" font-size="11" fill="#555">使用の前に所轄の労働基準監督署長へ</text>
+<line x1="190" y1="188" x2="190" y2="205" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="30" y="206" width="320" height="46" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="190" y="226" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">月次・年次の自主検査</text>
+<text x="190" y="243" text-anchor="middle" font-size="11" fill="#555">1月以内ごと・1年以内ごと（記録は3年保存）</text>
+<line x1="190" y1="252" x2="190" y2="269" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="30" y="270" width="320" height="46" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="190" y="290" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">性能検査（荷重試験を含む）</text>
+<text x="190" y="307" text-anchor="middle" font-size="11" fill="#555">有効期間が切れる前に受ける</text>
+<line x1="190" y1="316" x2="190" y2="333" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<rect x="30" y="334" width="320" height="46" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="190" y="354" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">検査証の有効期間を更新</text>
+<text x="190" y="371" text-anchor="middle" font-size="11" fill="#555">結果により2年未満、または2年超3年以内</text>
+<path d="M350,357 H372 V229 H353" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arw)"/>
+<text x="196" y="394" text-anchor="middle" font-size="11" fill="#555">必要になったとき</text>
+<rect x="30" y="402" width="160" height="50" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="110" y="423" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">休止後に再び使う</text>
+<text x="110" y="441" text-anchor="middle" font-size="11" fill="#555">使用再開検査</text>
+<rect x="210" y="402" width="160" height="50" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="290" y="423" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">ジブ・台車を変更</text>
+<text x="290" y="441" text-anchor="middle" font-size="11" fill="#555">変更届と変更検査</text>
+<text x="200" y="480" text-anchor="middle" font-size="11" fill="#555">3t未満は検査証・性能検査なし（自主検査は共通）</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="作業主任者と作業指揮者の使い分け。作業主任者は令6条が列挙する作業で免許または技能講習の修了者から選任し、作業指揮者は規則が作業ごとに定め資格要件はない。教育は主任者が技能講習、指揮者が指名時教育">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="12" y="10" width="186" height="32" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="105" y="30.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">作業主任者（選任）</text>
+<rect x="202" y="10" width="186" height="32" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="295" y="30.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">作業指揮者（指名）</text>
+<text x="14" y="57" text-anchor="start" font-size="11" font-weight="bold" fill="#555">根拠</text>
+<rect x="12" y="61" width="186" height="38" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="105" y="76.85" text-anchor="middle" font-size="11" fill="#222">法14条・令6条が</text>
+<text x="105" y="90.85" text-anchor="middle" font-size="11" fill="#222">作業を列挙</text>
+<rect x="202" y="61" width="186" height="38" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="295" y="76.85" text-anchor="middle" font-size="11" fill="#222">安衛則・クレーン則が</text>
+<text x="295" y="90.85" text-anchor="middle" font-size="11" fill="#222">作業ごとに規定</text>
+<text x="14" y="114" text-anchor="start" font-size="11" font-weight="bold" fill="#555">資格</text>
+<rect x="12" y="118" width="186" height="52" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="105" y="133.85" text-anchor="middle" font-size="11" fill="#222">免許または技能講習の</text>
+<text x="105" y="147.85" text-anchor="middle" font-size="11" fill="#222">修了者から選任</text>
+<text x="105" y="161.85" text-anchor="middle" font-size="11" fill="#222">（則16条・別表第1）</text>
+<rect x="202" y="118" width="186" height="52" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="295" y="133.85" text-anchor="middle" font-size="11" fill="#222">資格の定めなし</text>
+<text x="295" y="147.85" text-anchor="middle" font-size="11" fill="#222">事業者が定め・指名する</text>
+<text x="295" y="161.85" text-anchor="middle" font-size="11" fill="#222">（発破は業務につける者）</text>
+<text x="14" y="185" text-anchor="start" font-size="11" font-weight="bold" fill="#555">主な作業</text>
+<rect x="12" y="189" width="186" height="66" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="105" y="211.85" text-anchor="middle" font-size="11" fill="#222">地山の掘削・土止め</text>
+<text x="105" y="225.85" text-anchor="middle" font-size="11" fill="#222">型枠支保工・足場</text>
+<text x="105" y="239.85" text-anchor="middle" font-size="11" fill="#222">ずい道・橋の架設</text>
+<rect x="202" y="189" width="186" height="66" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="295" y="204.85" text-anchor="middle" font-size="11" fill="#222">荷役運搬機械・高所作業車</text>
+<text x="295" y="218.85" text-anchor="middle" font-size="11" fill="#222">ロープ高所作業</text>
+<text x="295" y="232.85" text-anchor="middle" font-size="11" fill="#222">ポンプ車の輸送管の組立て</text>
+<text x="295" y="246.85" text-anchor="middle" font-size="11" fill="#222">クレーンの組立て・発破</text>
+<text x="14" y="270" text-anchor="start" font-size="11" font-weight="bold" fill="#555">職務</text>
+<rect x="12" y="274" width="186" height="52" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="105" y="289.85" text-anchor="middle" font-size="11" fill="#222">方法の決定と直接指揮</text>
+<text x="105" y="303.85" text-anchor="middle" font-size="11" fill="#222">材料・器具の点検</text>
+<text x="105" y="317.85" text-anchor="middle" font-size="11" fill="#222">保護具の使用状況の監視</text>
+<rect x="202" y="274" width="186" height="52" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="295" y="289.85" text-anchor="middle" font-size="11" fill="#222">作業計画・手順に沿って</text>
+<text x="295" y="303.85" text-anchor="middle" font-size="11" fill="#222">作業をまとめて指揮</text>
+<text x="295" y="317.85" text-anchor="middle" font-size="11" fill="#222">（条文ごとに内容が異なる）</text>
+<text x="14" y="341" text-anchor="start" font-size="11" font-weight="bold" fill="#555">教育</text>
+<rect x="12" y="345" width="186" height="52" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="105" y="360.85" text-anchor="middle" font-size="11" fill="#222">技能講習（免許は試験）</text>
+<text x="105" y="374.85" text-anchor="middle" font-size="11" fill="#222">能力向上教育は</text>
+<text x="105" y="388.85" text-anchor="middle" font-size="11" fill="#222">おおむね5年ごと</text>
+<rect x="202" y="345" width="186" height="52" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="295" y="360.85" text-anchor="middle" font-size="11" fill="#222">指名時教育</text>
+<text x="295" y="374.85" text-anchor="middle" font-size="11" fill="#222">（安全衛生教育等</text>
+<text x="295" y="388.85" text-anchor="middle" font-size="11" fill="#222">推進要綱）</text>
+<rect x="12" y="405" width="376" height="44" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="200" y="422.85" text-anchor="middle" font-size="11" fill="#222">選任＝法が危険作業と定めた作業に資格者を置く義務</text>
+<text x="200" y="438.85" text-anchor="middle" font-size="11" fill="#222">指名＝作業計画や手順の実行役を現場で定める</text>
+</svg>

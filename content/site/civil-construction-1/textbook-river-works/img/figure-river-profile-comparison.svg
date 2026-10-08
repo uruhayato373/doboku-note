@@ -1,0 +1,70 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="日本と大陸の河川の縦断形の比較。常願寺川は約56kmで標高差約3,000m、信濃川は367km、セーヌ川は776kmで勾配が緩い。洪水時の流量は平常時の約100倍の利根川に対し、ドナウ川は約4倍、ミシシッピ川は約3倍">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-tick { font-size: 11px; fill: #8a8a8a; }
+      .t-red  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-blue { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-grn  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-row  { font-size: 12px; fill: #222; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-box  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">日本の川は短く急で、洪水時の流量の振れ幅も大きい</text>
+  <text class="t-sec" x="20" y="40">河口からの距離と標高（概念図）</text>
+
+  <!-- 目盛りの補助線 -->
+  <line x1="50" y1="190" x2="356" y2="190" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="50" y1="130" x2="356" y2="130" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="50" y1="70" x2="356" y2="70" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 軸 -->
+  <line x1="50" y1="250" x2="50" y2="58" stroke="#555" stroke-width="1.5" marker-end="url(#ax)"/>
+  <line x1="50" y1="250" x2="360" y2="250" stroke="#555" stroke-width="1.5" marker-end="url(#ax)"/>
+  <text class="t-tick" x="44" y="254" text-anchor="end">0</text>
+  <text class="t-tick" x="44" y="194" text-anchor="end">1,000</text>
+  <text class="t-tick" x="44" y="134" text-anchor="end">2,000</text>
+  <text class="t-tick" x="44" y="74" text-anchor="end">3,000</text>
+  <text class="t-tick" x="125" y="266" text-anchor="middle">200</text>
+  <text class="t-tick" x="200" y="266" text-anchor="middle">400</text>
+  <text class="t-tick" x="275" y="266" text-anchor="middle">600</text>
+  <text class="t-tick" x="350" y="266" text-anchor="middle">800</text>
+  <text class="t-part" x="58" y="62">標高（m）</text>
+  <text class="t-part" x="356" y="283" text-anchor="end">河口からの距離（km）</text>
+
+  <!-- 河川の縦断形 -->
+  <polyline points="50.0,250.0 50.5,249.8 51.0,249.2 51.6,248.3 52.1,247.1 52.6,245.7 53.1,244.1 53.7,242.2 54.2,240.1 54.7,237.7 55.2,235.2 55.8,232.4 56.3,229.4 56.8,226.2 57.4,222.8 57.9,219.2 58.4,215.4 58.9,211.4 59.5,207.2 60.0,202.9 60.5,198.3 61.0,193.6 61.5,188.6 62.1,183.5 62.6,178.2 63.1,172.8 63.6,167.1 64.2,161.3 64.7,155.3 65.2,149.1 65.8,142.8 66.3,136.2 66.8,129.5 67.3,122.7 67.8,115.7 68.4,108.5 68.9,101.1 69.4,93.6 70.0,85.9 70.5,78.0 71.0,70.0" fill="none" stroke="#b22234" stroke-width="2.5" stroke-linejoin="round"/>
+  <polyline points="50.0,250.0 53.4,250.0 56.9,249.8 60.3,249.6 63.8,249.3 67.2,248.8 70.6,248.1 74.1,247.3 77.5,246.3 81.0,245.2 84.4,243.9 87.8,242.4 91.3,240.7 94.7,238.8 98.2,236.7 101.6,234.4 105.1,232.0 108.5,229.2 111.9,226.3 115.4,223.2 118.8,219.8 122.3,216.3 125.7,212.5 129.1,208.4 132.6,204.1 136.0,199.6 139.5,194.9 142.9,189.9 146.3,184.6 149.8,179.1 153.2,173.4 156.7,167.4 160.1,161.1 163.5,154.6 167.0,147.8 170.4,140.8 173.9,133.5 177.3,125.9 180.7,118.0 184.2,109.9 187.6,101.5" fill="none" stroke="#2e6da4" stroke-width="2.5" stroke-linejoin="round"/>
+  <polyline points="50.0,250.0 57.3,250.0 64.5,249.9 71.8,249.8 79.1,249.7 86.4,249.6 93.7,249.4 100.9,249.1 108.2,248.9 115.5,248.6 122.8,248.2 130.0,247.9 137.3,247.5 144.6,247.0 151.8,246.5 159.1,246.0 166.4,245.5 173.7,244.9 181.0,244.3 188.2,243.6 195.5,242.9 202.8,242.2 210.1,241.5 217.3,240.7 224.6,239.8 231.9,239.0 239.2,238.1 246.4,237.1 253.7,236.2 261.0,235.1 268.2,234.1 275.5,233.0 282.8,231.9 290.1,230.8 297.4,229.6 304.6,228.4 311.9,227.1 319.2,225.8 326.4,224.5 333.7,223.1 341.0,221.7" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linejoin="round"/>
+  <text class="t-red" x="80" y="86">常願寺川 約56km</text>
+  <text class="t-blue" x="196" y="110">信濃川 367km</text>
+  <text class="t-grn" x="352" y="208" text-anchor="end">セーヌ川 776km</text>
+
+  <text class="t-sec" x="20" y="318">洪水時の流量は平常時の何倍か</text>
+  <text class="t-row" x="20" y="347">利根川</text>
+  <rect x="104" y="332" width="246" height="22" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-val" x="112" y="348">約100倍</text>
+  <text class="t-row" x="20" y="377">ドナウ川</text>
+  <rect x="104" y="362" width="9.8" height="22" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-val" x="122" y="378">約4倍</text>
+  <text class="t-row" x="20" y="407">ミシシッピ川</text>
+  <rect x="104" y="392" width="7.4" height="22" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-val" x="120" y="408">約3倍</text>
+
+  <rect class="box-b" x="20" y="432" width="360" height="50" rx="8"/>
+  <text class="t-box" x="200" y="454" text-anchor="middle">河状係数 ＝ 年間の最大流量 ÷ 最小流量</text>
+  <text class="t-lead" x="200" y="472" text-anchor="middle">大きいほど洪水が大きく渇水も起きやすい（上の倍率とは別の指標）</text>
+</svg>

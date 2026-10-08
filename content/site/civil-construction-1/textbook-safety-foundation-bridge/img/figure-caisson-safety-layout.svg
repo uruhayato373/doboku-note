@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="潜函内の掘削作業の安全設備の配置。破線の枠は圧気の潜函だけに課される連絡員・通話装置・予備の圧縮機・刃口下方50cmの制限、実線の枠は大気圧にも共通する送気設備・昇降設備・沈下関係図・測定と、作業を止める条件を断面で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .t { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .b { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .pneu { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; stroke-dasharray: 5 3; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- 地盤 -->
+  <rect x="6" y="96" width="388" height="304" class="sur"/>
+  <line x1="6" y1="96" x2="394" y2="96" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="200" y="52" text-anchor="middle" class="s">シャフト</text>
+
+  <!-- 地上の設備（破線の枠は圧気のみ） -->
+  <rect x="14" y="10" width="150" height="38" rx="4" class="pneu"/> <!-- warn-fill / warn -->
+  <text x="89" y="24" text-anchor="middle" class="s">圧気のみ</text>
+  <text x="89" y="41" text-anchor="middle" class="t">連絡員を常時配置</text>
+  <rect x="14" y="54" width="150" height="38" rx="4" class="pneu"/>
+  <text x="89" y="68" text-anchor="middle" class="s">圧気のみ</text>
+  <text x="89" y="85" text-anchor="middle" class="t">通話装置ほか2系統以上</text>
+  <rect x="236" y="10" width="150" height="38" rx="4" class="brand"/> <!-- brand-fill / brand -->
+  <text x="311" y="34" text-anchor="middle" class="t">送気設備</text>
+  <rect x="236" y="54" width="150" height="38" rx="4" class="pneu"/>
+  <text x="311" y="68" text-anchor="middle" class="s">圧気のみ</text>
+  <text x="311" y="85" text-anchor="middle" class="t">予備の圧縮機</text>
+
+  <!-- シャフトと昇降設備 -->
+  <rect x="186" y="60" width="28" height="232" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <line x1="192" y1="66" x2="192" y2="286" stroke="#555" stroke-width="1.5"/>
+  <line x1="208" y1="66" x2="208" y2="286" stroke="#555" stroke-width="1.5"/>
+  <line x1="192" y1="76" x2="208" y2="76" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="90" x2="208" y2="90" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="104" x2="208" y2="104" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="118" x2="208" y2="118" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="132" x2="208" y2="132" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="146" x2="208" y2="146" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="160" x2="208" y2="160" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="174" x2="208" y2="174" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="188" x2="208" y2="188" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="202" x2="208" y2="202" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="216" x2="208" y2="216" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="230" x2="208" y2="230" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="244" x2="208" y2="244" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="258" x2="208" y2="258" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="272" x2="208" y2="272" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="192" y1="286" x2="208" y2="286" stroke="#8a8a8a" stroke-width="1"/>
+
+  <!-- 連絡線（破線）と送気管 -->
+  <path d="M164 73 L170 73 L170 290" fill="none" stroke="#2e6da4" stroke-width="2" stroke-dasharray="5 3"/>
+  <path d="M236 29 L230 29 L230 290" fill="none" stroke="#555" stroke-width="3"/>
+
+  <!-- 作業室と刃口 -->
+  <rect x="100" y="290" width="200" height="44" rx="4" class="brand"/>
+  <text x="200" y="317" text-anchor="middle" class="b">作業室</text>
+  <polygon points="100,334 300,334 288,350 112,350" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+  <text x="200" y="346" text-anchor="middle" class="s">刃口</text>
+
+  <!-- 刃口から天井までの高さ -->
+  <line x1="312" y1="316" x2="312" y2="292" stroke="#b22234" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="312" y1="316" x2="312" y2="348" stroke="#b22234" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="318" y="323" class="s">1.8m以上</text>
+
+  <!-- 刃口の下方の掘下げ制限 -->
+  <line x1="112" y1="366" x2="288" y2="366" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="150" y1="352" x2="150" y2="364" stroke="#b22234" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="200" y="386" text-anchor="middle" class="t">刃口の下方は50cm以上掘り下げない（圧気のみ）</text>
+
+  <!-- 注記ボックス（地盤中） -->
+  <rect x="10" y="106" width="154" height="58" rx="4" class="brand"/>
+  <text x="87" y="125" text-anchor="middle" class="b">掘下げが20m超</text>
+  <text x="87" y="142" text-anchor="middle" class="t">連絡設備と送気設備</text>
+  <text x="87" y="157" text-anchor="middle" class="t">を必ず設ける</text>
+  <rect x="236" y="106" width="154" height="58" rx="4" class="brand"/>
+  <text x="313" y="125" text-anchor="middle" class="b">昇降設備を設ける</text>
+  <text x="313" y="142" text-anchor="middle" class="t">酸素過剰のおそれは</text>
+  <text x="313" y="157" text-anchor="middle" class="t">測定者を指名して測る</text>
+  <rect x="10" y="176" width="154" height="46" rx="4" class="brand"/>
+  <text x="87" y="195" text-anchor="middle" class="t">掘削の方法と載荷量は</text>
+  <text x="87" y="212" text-anchor="middle" class="t">沈下関係図で定める</text>
+  <rect x="236" y="176" width="154" height="46" rx="4" class="brand"/>
+  <text x="313" y="195" text-anchor="middle" class="t">入坑前に酸素と</text>
+  <text x="313" y="212" text-anchor="middle" class="t">有害ガスを測定</text>
+
+  <!-- 凡例 -->
+  <rect x="14" y="236" width="20" height="12" rx="2" class="pneu"/>
+  <text x="40" y="246" class="s">圧気の潜函だけ</text>
+  <rect x="14" y="256" width="20" height="12" rx="2" class="brand"/>
+  <text x="40" y="266" class="s">大気圧にも共通</text>
+
+  <!-- 作業を止める条件 -->
+  <rect x="10" y="410" width="380" height="82" rx="6" class="danger"/> <!-- danger-fill / danger -->
+  <text x="200" y="429" text-anchor="middle" class="b">作業を止める・退避させる</text>
+  <text x="26" y="447" class="t">・昇降・連絡・送気の設備が故障したとき</text>
+  <text x="26" y="463" class="t">・多量の水が入るおそれのあるとき</text>
+  <text x="26" y="479" class="t">・沈下の合図は、退避を確認してから沈下</text>
+</svg>

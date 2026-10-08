@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="元請・発注者の義務を3場面で示す図。危険箇所では元方事業者が技術上の指導、契約・発注の段階では配慮と違法指示の禁止、混在作業では特定元方事業者が協議組織で統括する">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="12" y="10" width="376" height="150" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="22" y="32" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">危険箇所の場面</text>
+<text x="117" y="32" text-anchor="start" font-size="11" fill="#555">元方事業者（法29条の2）</text>
+<text x="22" y="54" text-anchor="start" font-size="12" fill="#222">・土砂崩壊・土石流のおそれがある場所</text>
+<text x="22" y="72" text-anchor="start" font-size="12" fill="#222">・基礎工事用機械・移動式クレーンの転倒のおそれ</text>
+<text x="22" y="90" text-anchor="start" font-size="12" fill="#222">・架空電線に近い場所</text>
+<text x="22" y="108" text-anchor="start" font-size="12" fill="#222">・埋設物・擁壁の近くの明り掘削</text>
+<text x="22" y="126" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">→ 関係請負人の危険防止措置が適正になる</text>
+<text x="36" y="144" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">よう技術上の指導（則634条の2）</text>
+<rect x="12" y="170" width="376" height="132" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="22" y="192" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">契約・発注の場面</text>
+<text x="130" y="192" text-anchor="start" font-size="11" fill="#555">注文者・発注者</text>
+<text x="22" y="214" text-anchor="start" font-size="12" fill="#222">・安全を損なう施工方法・工期などの条件を</text>
+<text x="36" y="232" text-anchor="start" font-size="12" fill="#222">付さないよう配慮する（法3条3項）</text>
+<text x="22" y="250" text-anchor="start" font-size="12" fill="#222">・法令違反となる指示をしない（法31条の4）</text>
+<text x="22" y="268" text-anchor="start" font-size="12" fill="#222">・対策の実施者と経費の負担者を契約で</text>
+<text x="36" y="286" text-anchor="start" font-size="12" fill="#222">明確にする（元方事業者の安全管理指針）</text>
+<rect x="12" y="312" width="376" height="132" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="22" y="334" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">混在作業の場面</text>
+<text x="117" y="334" text-anchor="start" font-size="11" fill="#555">特定元方事業者（法30条）</text>
+<text x="22" y="356" text-anchor="start" font-size="12" fill="#222">・協議組織：全関係請負人が参加し定期開催</text>
+<text x="36" y="374" text-anchor="start" font-size="12" fill="#222">（則635条）、毎月1回以上（安全管理指針）</text>
+<text x="22" y="392" text-anchor="start" font-size="12" fill="#222">・作業間の連絡調整・巡視・教育の援助</text>
+<text x="22" y="410" text-anchor="start" font-size="12" fill="#222">・店社安全衛生管理者が店社から現場を支援</text>
+<text x="36" y="428" text-anchor="start" font-size="12" fill="#222">（法15条の3）</text>
+<text x="200" y="472" text-anchor="middle" font-size="11" fill="#555">場面ごとに、義務を負う者と根拠の条文が違う</text>
+</svg>
