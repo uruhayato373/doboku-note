@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="空中写真、衛星画像、地図の三つを重ねる概念図。地図の道路線と写真の道路のずれの大きさを確認し、撮影日、座標系、正射変換の有無を記録する" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- 空中写真 -->
+  <rect x="20" y="16" width="360" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="32" y="28" width="96" height="52" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <path d="M32 62 L128 44 V54 L32 72 Z" fill="#d7d7d7"/>
+  <rect x="40" y="34" width="14" height="10" fill="#8a8a8a"/>
+  <rect x="60" y="32" width="10" height="8" fill="#8a8a8a"/>
+  <rect x="96" y="60" width="12" height="10" fill="#8a8a8a"/>
+  <rect x="112" y="64" width="10" height="9" fill="#8a8a8a"/>
+  <text x="144" y="46" font-size="13" font-weight="700" fill="#222">空中写真</text>
+  <text x="144" y="64" font-size="11" fill="#555">細かく判読できる</text>
+  <text x="144" y="80" font-size="11" fill="#555">撮影年は場所で異なる</text>
+
+  <!-- 衛星画像 -->
+  <rect x="20" y="102" width="360" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="32" y="114" width="24" height="17" fill="#d0e8d0"/>
+  <rect x="56" y="114" width="24" height="17" fill="#d0e8d0"/>
+  <rect x="80" y="114" width="24" height="17" fill="#e8f0fe"/>
+  <rect x="104" y="114" width="24" height="17" fill="#e8f0fe"/>
+  <rect x="32" y="131" width="24" height="18" fill="#d0e8d0"/>
+  <rect x="56" y="131" width="24" height="18" fill="#d7d7d7"/>
+  <rect x="80" y="131" width="24" height="18" fill="#e8f0fe"/>
+  <rect x="104" y="131" width="24" height="18" fill="#fff3cd"/>
+  <rect x="32" y="149" width="24" height="17" fill="#fff3cd"/>
+  <rect x="56" y="149" width="24" height="17" fill="#d7d7d7"/>
+  <rect x="80" y="149" width="24" height="17" fill="#d7d7d7"/>
+  <rect x="104" y="149" width="24" height="17" fill="#d0e8d0"/>
+  <rect x="32" y="114" width="96" height="52" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="144" y="132" font-size="13" font-weight="700" fill="#222">衛星画像</text>
+  <text x="144" y="150" font-size="11" fill="#555">広い範囲を同じ条件で見る</text>
+  <text x="144" y="166" font-size="11" fill="#555">画素より小さい物は読めない</text>
+
+  <!-- 地図（ベクタ） -->
+  <rect x="20" y="188" width="360" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="32" y="200" width="96" height="52" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <path d="M32 238 L128 220" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <rect x="42" y="206" width="14" height="10" fill="none" stroke="#555" stroke-width="1.5"/>
+  <rect x="98" y="236" width="12" height="10" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="144" y="218" font-size="13" font-weight="700" fill="#222">地図（ベクタ）</text>
+  <text x="144" y="236" font-size="11" fill="#555">図形に属性を結び付けられる</text>
+  <text x="144" y="252" font-size="11" fill="#555">作成時点を確認する</text>
+
+  <!-- 重ねる矢印 -->
+  <path d="M200 266 V280" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="200,292 192,280 208,280" fill="#2e6da4"/>
+
+  <!-- 重ね合わせ -->
+  <rect x="20" y="298" width="360" height="106" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <polygon points="20,374 380,350 380,370 20,394" fill="#d7d7d7"/>
+  <path d="M20 338 L380 314" fill="none" stroke="#2e6da4" stroke-width="3"/>
+  <text x="100" y="322" text-anchor="middle" font-size="11" fill="#1a3a5c">地図の道路線</text>
+  <text x="330" y="392" text-anchor="middle" font-size="11" fill="#555">写真の道路</text>
+
+  <!-- ずれの寸法線 -->
+  <path d="M230 332 V352" fill="none" stroke="#b22234" stroke-width="2"/>
+  <polygon points="230,326 224,334 236,334" fill="#b22234"/>
+  <polygon points="230,358 224,350 236,350" fill="#b22234"/>
+  <text x="242" y="346" font-size="12" font-weight="700" fill="#1a3a5c">ずれの確認</text>
+
+  <!-- 記録 -->
+  <rect x="20" y="414" width="360" height="76" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="200" y="436" text-anchor="middle" font-size="13" font-weight="700" fill="#1a3a5c">背景に使う画像に添える記録</text>
+  <text x="200" y="458" text-anchor="middle" font-size="12" fill="#1a3a5c">撮影日・取得元・解像度</text>
+  <text x="200" y="478" text-anchor="middle" font-size="12" fill="#1a3a5c">座標系と、正射変換の有無</text>
+</svg>
