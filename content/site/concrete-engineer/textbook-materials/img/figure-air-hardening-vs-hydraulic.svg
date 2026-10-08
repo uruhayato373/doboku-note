@@ -1,0 +1,59 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート技士教材の気硬性と水硬性。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="気硬性と水硬性の対比。気硬性は空気中で硬化し水中では硬化が進まず、消石灰や焼きせっこうが該当する。水硬性は水との水和反応で硬化し水中でも硬化が進み、ポルトランドセメントや混合セメントが該当する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-head  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-key   { font-size: 11px; fill: #555; }
+      .t-val   { font-size: 12px; fill: #222; }
+      .t-sum   { font-size: 12px; fill: #555; }
+      .box-w   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell    { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">固まる場所と、水中での強さで二つに分ける</text>
+
+  <rect class="box-w" x="16" y="32" width="180" height="36" rx="6" />
+  <text class="t-head" x="106" y="56" text-anchor="middle">気硬性</text>
+  <rect class="box-b" x="204" y="32" width="180" height="36" rx="6" />
+  <text class="t-head" x="294" y="56" text-anchor="middle">水硬性</text>
+
+  <text class="t-key" x="22" y="92">硬化が進む場所</text>
+  <rect class="cell" x="16" y="98" width="180" height="62" rx="6" />
+  <text class="t-val" x="106" y="124" text-anchor="middle">空気中</text>
+  <text class="t-val" x="106" y="144" text-anchor="middle">（乾燥した環境）</text>
+  <text class="t-key" x="210" y="92">硬化が進む場所</text>
+  <rect class="cell" x="204" y="98" width="180" height="62" rx="6" />
+  <text class="t-val" x="294" y="124" text-anchor="middle">水との水和反応</text>
+  <text class="t-val" x="294" y="144" text-anchor="middle">（空気中でも水中でも）</text>
+
+  <text class="t-key" x="22" y="184">水中に置いたとき</text>
+  <rect class="cell" x="16" y="190" width="180" height="62" rx="6" />
+  <text class="t-val" x="106" y="216" text-anchor="middle">硬化が進まない</text>
+  <text class="t-val" x="106" y="236" text-anchor="middle">水に弱い</text>
+  <text class="t-key" x="210" y="184">水中に置いたとき</text>
+  <rect class="cell" x="204" y="190" width="180" height="62" rx="6" />
+  <text class="t-val" x="294" y="216" text-anchor="middle">硬化が進む</text>
+  <text class="t-val" x="294" y="236" text-anchor="middle">強度を保てる</text>
+
+  <text class="t-key" x="22" y="276">材料の例</text>
+  <rect class="cell" x="16" y="282" width="180" height="84" rx="6" />
+  <text class="t-val" x="106" y="312" text-anchor="middle">消石灰</text>
+  <text class="t-val" x="106" y="336" text-anchor="middle">焼きせっこう</text>
+  <text class="t-key" x="210" y="276">材料の例</text>
+  <rect class="cell" x="204" y="282" width="180" height="84" rx="6" />
+  <text class="t-val" x="294" y="306" text-anchor="middle">ポルトランドセメント</text>
+  <text class="t-val" x="294" y="326" text-anchor="middle">混合セメント</text>
+  <text class="t-val" x="294" y="346" text-anchor="middle">アルミナセメント</text>
+
+  <rect class="box" x="16" y="388" width="368" height="92" rx="6" />
+  <text class="t-sum" x="30" y="412">消石灰も水で練るが、固める反応は</text>
+  <text class="t-sum" x="30" y="434">空気中のCO₂との炭酸化</text>
+  <text class="t-sum" x="30" y="456">水の有無ではなく、水中で固まるかで見分ける</text>
+</svg>

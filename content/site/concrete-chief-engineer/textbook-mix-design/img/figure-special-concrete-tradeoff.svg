@@ -1,0 +1,80 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は主任技士テキスト「配合設計」の特殊コンクリート論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="粉体と混和剤で流動性を上げる、水結合材比を下げる、材料を加える、材料を置き換えるという4つの動かし方と、引き換えに生じる現象を対にした図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-txt  { font-size: 12px; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .card   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-d  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arrow  { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/> <!-- ink-body -->
+    </marker>
+  </defs>
+
+  <text class="t-note" x="108" y="24" text-anchor="middle">配合で動かす要素</text>
+  <text class="t-note" x="292" y="24" text-anchor="middle">引き換えに生じる現象</text>
+
+
+  <!-- 粉体と混和剤で流動性を上げる（高流動） -->
+  <rect x="20" y="34" width="360" height="96" rx="6" class="card"/>
+  <text class="t-head" x="30" y="51">粉体と混和剤で流動性を上げる（高流動）</text>
+  <rect x="28" y="60" width="160" height="62" rx="6" class="box-b"/> <!-- brand -->
+  <rect x="212" y="60" width="160" height="62" rx="6" class="box-d"/> <!-- danger -->
+  <line x1="190" y1="91" x2="209" y2="91" class="arrow" marker-end="url(#ah)"/>
+  <text class="t-txt" x="36" y="77">粉体量 ↑ か増粘剤</text>
+  <text class="t-txt" x="36" y="93">粗骨材量 ↓</text>
+  <text class="t-txt" x="36" y="109">高性能AE減水剤 ↑</text>
+  <text class="t-txt" x="220" y="77">水和熱 ↑（粉体系）</text>
+  <text class="t-txt" x="220" y="93">凝結の遅れ</text>
+  <text class="t-txt" x="220" y="109">圧送抵抗・表面の乾き</text>
+
+  <!-- 水結合材比を下げる（高強度） -->
+  <rect x="20" y="140" width="360" height="96" rx="6" class="card"/>
+  <text class="t-head" x="30" y="157">水結合材比を下げる（高強度）</text>
+  <rect x="28" y="166" width="160" height="62" rx="6" class="box-b"/> <!-- brand -->
+  <rect x="212" y="166" width="160" height="62" rx="6" class="box-d"/> <!-- danger -->
+  <line x1="190" y1="197" x2="209" y2="197" class="arrow" marker-end="url(#ah)"/>
+  <text class="t-txt" x="36" y="183">水結合材比 ↓</text>
+  <text class="t-txt" x="36" y="199">結合材量 ↑</text>
+  <text class="t-txt" x="36" y="215">単位水量を小さく</text>
+  <text class="t-txt" x="220" y="183">自己収縮 ↑・水和熱 ↑</text>
+  <text class="t-txt" x="220" y="199">表面水率に敏感</text>
+  <text class="t-txt" x="220" y="215">使える材料の制限</text>
+
+  <!-- 材料を加える（繊維補強） -->
+  <rect x="20" y="246" width="360" height="96" rx="6" class="card"/>
+  <text class="t-head" x="30" y="263">材料を加える（繊維補強）</text>
+  <rect x="28" y="272" width="160" height="62" rx="6" class="box-b"/> <!-- brand -->
+  <rect x="212" y="272" width="160" height="62" rx="6" class="box-d"/> <!-- danger -->
+  <line x1="190" y1="303" x2="209" y2="303" class="arrow" marker-end="url(#ah)"/>
+  <text class="t-txt" x="36" y="289">繊維を第五の材料に</text>
+  <text class="t-txt" x="36" y="305">単位水量 ↑</text>
+  <text class="t-txt" x="36" y="321">細骨材率 ↑</text>
+  <text class="t-txt" x="220" y="289">流動性の低下</text>
+  <text class="t-txt" x="220" y="305">分散不良</text>
+  <text class="t-txt" x="220" y="321">混入率の上限</text>
+
+  <!-- 材料を置き換える（再生骨材） -->
+  <rect x="20" y="352" width="360" height="96" rx="6" class="card"/>
+  <text class="t-head" x="30" y="369">材料を置き換える（再生骨材）</text>
+  <rect x="28" y="378" width="160" height="62" rx="6" class="box-b"/> <!-- brand -->
+  <rect x="212" y="378" width="160" height="62" rx="6" class="box-d"/> <!-- danger -->
+  <line x1="190" y1="409" x2="209" y2="409" class="arrow" marker-end="url(#ah)"/>
+  <text class="t-txt" x="36" y="395">骨材の区分 H・M・L</text>
+  <text class="t-txt" x="36" y="411">原コンクリートを選別</text>
+  <text class="t-txt" x="36" y="427">用途・部位を限定</text>
+  <text class="t-txt" x="220" y="395">吸水率 ↑ 密度 ↓</text>
+  <text class="t-txt" x="220" y="411">乾燥収縮・クリープ ↑</text>
+  <text class="t-txt" x="220" y="427">JIS A 5308 は H のみ</text>
+
+  <text class="t-note" x="200" y="474" text-anchor="middle">得るもの：締固めの省力化・断面縮小・靭性・資源循環</text>
+  <text class="t-note" x="200" y="490" text-anchor="middle">右の現象を配合と施工で管理して初めて成立する</text>
+</svg>

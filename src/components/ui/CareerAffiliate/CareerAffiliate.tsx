@@ -1,4 +1,6 @@
 import { Check } from "lucide-react";
+import { programAssetForHref } from "@/config/affiliate-creatives";
+import CareerAffiliateExperiment from "./CareerAffiliateExperiment";
 import type { CareerNeed } from "@/config/career-pathways";
 import type { ResolvedPlacement } from "@/lib/affiliate-placement";
 import {
@@ -101,6 +103,16 @@ export default function CareerAffiliate({
   const effPoints = ruled?.points ?? points;
   const effCta = ruled?.cta ?? cta;
   const resolvedHref = ruled?.href ?? href;
+  const experiment = programAssetForHref(resolvedHref);
+  if (experiment && resolvedHref) {
+    const card = { service: effService, category: effCategory, description: effDescription ?? "", href: resolvedHref, points: effPoints ?? [], cta: effCta };
+    return (
+      <div className="not-prose my-6">
+        <CareerAffiliateExperiment card={card} banner={experiment.asset.banner} program={experiment.program} trackLabel={effService} placement={placement} />
+        <TrackingPixel src={trackingPixelUrl} />
+      </div>
+    );
+  }
   return (
     <div className="not-prose my-6">
       <a

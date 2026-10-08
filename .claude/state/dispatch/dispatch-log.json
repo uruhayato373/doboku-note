@@ -2196,6 +2196,23 @@
       "commit": "cc8b31b6d662",
       "verification": "npm run check-image-origin",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0581",
+      "at": "2026-10-08",
+      "task": "1級土木 H29 第一次B の問題図 SVG が 29KB で画像容量の検査を超え、CI の audit が赤になっているのを直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-image-assets"
+      },
+      "executor": "codex-affiliate-abc",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a07e72071257",
+      "verification": "node scripts/check-image-assets.mjs --ci: 新規超過0・肥大0・危険名0",
+      "note": "複雑な擁壁配筋図の寸法・線・注記を保持するため、29,364 bytesの既存SVGだけを容量例外へ追加。gzipでは4,734 bytes。図本体と他の許容値は変更なし。"
     }
   ]
 }

@@ -47,6 +47,7 @@ import {
   parseAffiliateByPageRows,
   summarizeAffiliateByPage,
 } from "./lib/ga4-affiliate-by-page.mjs";
+import { buildAffiliateExperimentRequest, parseAffiliateExperimentRows, summarizeAffiliateExperiment } from "../../scripts/lib/affiliate-experiment-report.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -92,6 +93,7 @@ function parseArgs() {
     byPlacement: false,
     keyEvents: false,
     byPage: false,
+    byExperiment: false,
     // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
     // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
     // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
@@ -137,6 +139,9 @@ function parseArgs() {
       case "--by-page":
         // アフィリエイトの表示・クリックをページ × ラベル × 面（クリックは日付も）で取る。
         opts.byPage = true;
+        break;
+      case "--by-experiment":
+        opts.byExperiment = true;
         break;
       case "--key-events":
         // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
@@ -302,6 +307,17 @@ async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  if (opts.byExperiment) {
+    const { startDate, endDate, windowKind } = resolveWindow(opts);
+    const response = await runReportAll(client, buildAffiliateExperimentRequest({ propertyId, startDate, endDate, japanOnly: opts.japanOnly }));
+    const rows = parseAffiliateExperimentRows(response.rows);
+    const data = { meta: { startDate, endDate, windowKind, japanOnly: opts.japanOnly, propertyId, rowCount: response.rowCount, truncated: response.truncated, limited: isLimited(response.metadata), status: rows.length ? "available" : "awaiting-data" }, rows, summary: summarizeAffiliateExperiment(rows) };
+    const out = writeReport(".", "ga4.affiliate-experiment", data, { stamp });
+    console.log(`[affiliate-experiment] API ${response.rowCount} 行 / 実集計 ${rows.length} 行 / ${data.meta.status} / ${out.ref}`);
+    console.log(JSON.stringify(data.summary));
+    if (data.meta.truncated || data.meta.limited) process.exitCode = 1;
+    return;
+  }
   if (opts.keyEvents) {
     await mainKeyEvents(client, propertyId, opts, stamp);
     return;
@@ -354,7 +370,7 @@ main().catch((e) => {
   // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
   const msg = String(e?.message || e);
   // カスタムディメンション未登録の救済は by-label / by-placement だけ。標準指標の --key-events の失敗は exit 1。
-  if (!process.argv.includes("--key-events") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
+  if (!process.argv.includes("--key-events") && !process.argv.includes("--by-experiment") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
     const parameter = process.argv.includes("--by-placement") ? "cta_placement" : process.argv.includes("--by-page") ? "event_label・cta_placement" : "event_label";
     console.warn(
       `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +

@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
+
+`npm run check-reference-sources:deep`（2026-10-08 実行）で、1級土木 第二次検定の基礎記事3本と過去問記事1本に、市販書籍の文字起こしと40字以上一致する箇所が計80件ある（FAIL は141件だが、記事×原本の組で数えて80件。コンクリート3資格の記事は0件）。
+
+- `content/site/civil-construction-1/secondary-concrete-basics/article.mdx` 40件（civil1-textbook-general・civil1-secondary-workbook-2021）
+- `content/site/civil-construction-1/secondary-earthwork-basics/article.mdx` 20件
+- `content/site/civil-construction-1/secondary-quality-management-basics/article.mdx` 18件
+- `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` 2件（576字・93字の一致。過去問の設問転記なら exam-official 側の扱いを確認）
+
+**やること**: 一致箇所を独自の表現に書き直す（commercial-book は逐語1文も不可・reference-sources-policy.md）。過去問記事の一致が公式の設問文なら、出典を exam-official（cecc-past-exams）に寄せて検査の扱いを確認する。直したら `npm run check-reference-sources:deep` で該当記事の一致 0 を確認する。
+
+
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
 
@@ -246,6 +259,36 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0584] 過去問と共通仕様書の読み始め・表のUIを改善する
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:type-check] [起票:2026-10-08]
+
+画面比較で合意した番号ナビの折りたたみ・44px化、過去問冒頭の商品画像コンパクト化、仕様書表の明暗対応と横スクロール案内、発行機関・版・原本ページの表示を実装する。スマホ/PC×明暗の8条件で確認し、CI通過後に本番反映する。
+
+
+### [DN-0583] 過去問R07問題Aの61問・66問の表示不整合を原典と照合して直す
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+
+起点: 2026-10-08に公開UIをPC・スマホ、light/darkで撮影。1級土木の令和7年度問題A `/exam/civil-construction-1/primary/r07-a` は説明に「全61問」、本文・サイドバーの問題番号ナビに「全66問」と表示している。MDXのdescriptionとseoTitleは61問、本文見出しはNo.1〜No.66（`content/site/civil-construction-1/primary-r07-a/article.mdx:2`、`:24`、`:1616`）。原典の実問数はこのUI確認では照合していない。
+
+やること: 公式問題Aと現行設問を照合して正しい対象問題数を決め、description・seoTitle・番号ナビを一致させる。同じ不整合が他の年度ページにないか対象を明示して確認する。手書きの紹介文と見出し由来のナビ件数がずれる原因を残す。
+
+完了条件: 当該ページの本文見出し・説明・SEO概要・問題番号ナビが、公式の収録範囲と一致する。過去問の設問本文や正答を、件数だけに合わせて削除・変更しない。
+
+
+### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-08]
+
+2026-10-08、Windows / Node 22 の独立 worktree で npm test を実行し、2,823 件中 2,806 成功・11 失敗・6 skip。追加したアフィリエイト実験テストは成功。失敗は既存領域で、区切り文字・file URL・CRLF・prh の API/前提に関するもの。
+
+対象: tests/admin-figure-sns-board.test.mjs（4件）、check-mdx-images（1）、content-expansion（1）、pre-commit-install-guard（1）、prh-verb-forms（2）、video-cache-prune（1）、write-all-sync（1）。
+
+やること: 未変更の develop と Linux CI の結果を突合し、Windows のパス/改行を正規化する。prh は現行 API の一次情報と使用箇所を確認する。実装と同じ文字列を照合するだけの検査に置き換えない。
+
+完了条件: Windows と Linux の npm test が実検査数を示して成功し、共有フックや入力 fixture の不変条件が維持される。
+
+
+
 
 ### [DN-0579] Windows PC から Tailscale 経由で管理画面が開けるか確認する
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]

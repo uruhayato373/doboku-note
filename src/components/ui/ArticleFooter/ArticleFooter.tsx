@@ -74,7 +74,7 @@ export default function ArticleFooter({
   hasCategoryNavCard,
   authorDates,
 }: ArticleFooterProps) {
-  // 記事末は **300×250 のディスプレイバナー**（隣の note もくじタイルと同寸）。訴求文言のカードは本文中間の役割。
+  // EXP-019: 記事末も3案の意匠を比較する。noteの位置・順序・幅は固定する。
   // どのページに出すか（カテゴリ・キャリア記事を除く）は config/affiliate-placements.json の article-end のルールで、DocPage が解決して渡す。
   // pixelSrc は DocPage が渡すときだけ付ける（本文に転職広告が無いページで唯一の発火源＝1 ページ 1 ピクセル）。
   // キャリア記事の記事末は内部導線（CareerNextStepNav）に置き換える（2026-08-21・記事末 975 表示 0 クリック）。
@@ -158,9 +158,10 @@ export default function ArticleFooter({
       {footerMokuji && endBanner ? (
         <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_300px] sm:justify-center">
           <div className="w-full max-w-[300px]">
+            <p className="mb-2 text-sm font-bold text-ink-strong">試験の準備を進めたい</p>
             <HubCtaBanner cta={footerMokuji} placement="article-footer" />
           </div>
-          <div className="w-full max-w-[300px]">{endBanner}</div>
+          <div className="w-full max-w-[300px]"><p className="mb-2 text-sm font-bold text-ink-strong">資格・経験を仕事に活かしたい</p>{endBanner}</div>
         </div>
       ) : footerMokuji ? (
         <div className="mt-8 flex justify-center">

@@ -1,0 +1,64 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は粉末X線回折（CuKα）で回折パターンから結晶相を同定する流れ。ピークは位置関係を示す模式で、強度は実測ではない。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="X 線回折の読み方の流れ。上段に回折パターンの模式（エトリンガイト、水酸化カルシウム、石英、炭酸カルシウムのピーク位置）、下段に粉末にして測る、ピーク位置を読む、参照データと複数ピークで照合する、結晶相から劣化因子を推定する、の 4 段階を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-lab   { font-size: 11px; fill: #1a3a5c; }
+      .t-b     { font-size: 13px; fill: #1a3a5c; font-weight: 700; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .line-ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .pat     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+      .line-arr { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">回折パターンの模式（CuKα 線・強度は相対）</text>
+
+  <!-- 回折パターン: 2θ = 5〜40°、x = 30 + (2θ-5)*9.71、ベースライン y=150 -->
+  <line class="line-ax" x1="30" y1="150" x2="370" y2="150" />
+  <polyline class="pat" points="30,150 64,150 70.8,112 77,150 150,150 158,70 166,150 232,150 240.6,50 249,150 260,150 267.8,88 276,150 306,150 313.5,104 321,150 370,150" />
+  <line class="line-ax" x1="78.5" y1="150" x2="78.5" y2="154" />
+  <line class="line-ax" x1="175.6" y1="150" x2="175.6" y2="154" />
+  <line class="line-ax" x1="272.7" y1="150" x2="272.7" y2="154" />
+  <line class="line-ax" x1="369.8" y1="150" x2="369.8" y2="154" />
+  <text class="t-axis" x="78.5" y="167" text-anchor="middle">10</text>
+  <text class="t-axis" x="175.6" y="167" text-anchor="middle">20</text>
+  <text class="t-axis" x="272.7" y="167" text-anchor="middle">30</text>
+  <text class="t-axis" x="365" y="167" text-anchor="middle">40</text>
+  <text class="t-axis" x="200" y="182" text-anchor="middle">回折角 2θ（度）</text>
+
+  <!-- ピークの名前 -->
+  <text class="t-lab" x="70.8" y="104" text-anchor="middle">エトリンガイト</text>
+  <text class="t-lab" x="158" y="62" text-anchor="middle">Ca(OH)₂</text>
+  <text class="t-lab" x="240.6" y="42" text-anchor="middle">石英</text>
+  <text class="t-lab" x="274" y="80" text-anchor="middle">CaCO₃</text>
+  <text class="t-lab" x="321" y="96" text-anchor="middle">Ca(OH)₂</text>
+
+  <!-- 手順 -->
+  <rect class="box-b" x="60" y="200" width="280" height="52" rx="8" />
+  <text class="t-b" x="200" y="222" text-anchor="middle">1  モルタル部を粉末にして測る</text>
+  <text class="t-sub" x="200" y="241" text-anchor="middle">骨材の石英が強く出るので、採る場所に注意</text>
+  <line class="line-arr" x1="200" y1="252" x2="200" y2="272" marker-end="url(#arr)" />
+
+  <rect class="box-b" x="60" y="274" width="280" height="52" rx="8" />
+  <text class="t-b" x="200" y="296" text-anchor="middle">2  ピークの位置（2θ）を読む</text>
+  <text class="t-sub" x="200" y="315" text-anchor="middle">位置で相の種類、高さで量の目安</text>
+  <line class="line-arr" x1="200" y1="326" x2="200" y2="346" marker-end="url(#arr)" />
+
+  <rect class="box-b" x="60" y="348" width="280" height="52" rx="8" />
+  <text class="t-b" x="200" y="370" text-anchor="middle">3  参照データと複数のピークで照合</text>
+  <text class="t-sub" x="200" y="389" text-anchor="middle">単一のピークだけでは決めない</text>
+  <line class="line-arr" x1="200" y1="400" x2="200" y2="420" marker-end="url(#arr)" />
+
+  <rect class="box-g" x="60" y="422" width="280" height="52" rx="8" />
+  <text class="t-b" x="200" y="444" text-anchor="middle">4  結晶相から劣化因子を推定</text>
+  <text class="t-sub" x="200" y="463" text-anchor="middle">炭酸化・塩害・硫酸塩の手がかりにする</text>
+  <text class="t-lead" x="200" y="492" text-anchor="middle">非晶質（C-S-H、ASR ゲル）は明瞭なピークが出ない</text>
+</svg>

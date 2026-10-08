@@ -1,0 +1,42 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート技士教材のミキサ電流による練上がりの判断。概念図で数値は載せない。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="練混ぜ時間とミキサ電流の関係を示す概念グラフ。投入後に電流値が上がってピークを越え、練混ぜが進むと下がって一定に近づく。一定になった範囲が練上がりの目安">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-sum   { font-size: 12px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .line-ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .zone-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .zone-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">概念図。曲線の形や電流値の水準はミキサや配合で異なる</text>
+
+  <rect class="zone-w" x="70" y="50" width="150" height="230" />
+  <rect class="zone-p" x="220" y="50" width="150" height="230" />
+  <line class="line-ax" x1="70" y1="280" x2="370" y2="280" />
+  <line class="line-ax" x1="70" y1="50" x2="70" y2="280" />
+  <text class="t-axis" x="20" y="44">ミキサ電流</text>
+  <text class="t-axis" x="370" y="300" text-anchor="end">練混ぜ時間</text>
+  <path class="line-main" d="M70,235 C100,215 120,110 155,92 C185,80 205,170 255,198 C275,208 290,210 305,210 L370,210" />
+  <line class="line-dash" x1="220" y1="50" x2="220" y2="280" />
+  <text class="t-label" x="145" y="72" text-anchor="middle">上がってピーク後に下がる</text>
+  <text class="t-label" x="295" y="72" text-anchor="middle">一定に近づく</text>
+  <text class="t-label" x="295" y="250" text-anchor="middle">練上がりの目安</text>
+
+  <rect class="box" x="16" y="320" width="368" height="164" rx="6" />
+  <text class="t-sum" x="30" y="350">基準の電流値は工場・ミキサ・配合ごとに</text>
+  <text class="t-sum" x="30" y="372">試し練りで決める</text>
+  <text class="t-sum" x="30" y="400">安定は均一さの目安であり、スランプや</text>
+  <text class="t-sum" x="30" y="422">空気量の保証ではない。測定と目視は省かない</text>
+  <text class="t-sum" x="30" y="450">普段の水準から外れたら、水量や表面水率の</text>
+  <text class="t-sum" x="30" y="470">補正を疑う</text>
+</svg>

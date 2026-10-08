@@ -1,0 +1,73 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は開口部下・立上り・耐震スリットまわりの締固め。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="締固めにくい3つの部位の断面概念図。開口部の下は空気がたまるため型枠振動機と木づちを併用する。立上り部は幅が狭く鉄筋が密なため細径の振動機を使う。耐震スリットは、振動機をスリット材に当てない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-sec  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-in   { font-size: 11px; fill: #1a3a5c; }
+      .box-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #ffffff; stroke: #555; stroke-width: 1.5; }
+      .vib { stroke: #2e6da4; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; }
+      .bar { fill: #8a8a8a; }
+      .ng { stroke: #b22234; stroke-width: 2; stroke-dasharray: 5 3; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- A 開口部の下 -->
+  <text class="t-sec" x="20" y="22">開口部の下</text>
+  <rect class="box-sur" x="80" y="32" width="220" height="100" rx="3"/>
+  <rect class="box-w" x="130" y="44" width="100" height="34"/>
+  <text class="t-desc" x="180" y="66" text-anchor="middle">開口部</text>
+  <rect class="box-warn" x="130" y="78" width="100" height="20"/>
+  <text class="t-in" x="180" y="92" text-anchor="middle">空隙がたまりやすい</text>
+  <line class="vib" x1="108" y1="30" x2="108" y2="104"/>
+  <rect class="box-pos" x="302" y="86" width="72" height="22" rx="3"/>
+  <text class="t-in" x="338" y="101" text-anchor="middle">型枠振動機</text>
+  <line class="arrow" x1="302" y1="88" x2="236" y2="88" marker-end="url(#ah)"/>
+  <text class="t-desc" x="22" y="100">木づち</text>
+  <line class="arrow" x1="58" y1="96" x2="78" y2="96" marker-end="url(#ah)"/>
+
+  <!-- B 立上り -->
+  <text class="t-sec" x="20" y="166">立上り部</text>
+  <rect class="box-sur" x="40" y="236" width="320" height="34"/>
+  <text class="t-desc" x="52" y="258">スラブ</text>
+  <rect class="box-sur" x="170" y="180" width="60" height="56"/>
+  <circle class="bar" cx="182" cy="196" r="3"/>
+  <circle class="bar" cx="218" cy="196" r="3"/>
+  <circle class="bar" cx="182" cy="222" r="3"/>
+  <circle class="bar" cx="218" cy="222" r="3"/>
+  <line class="vib" x1="200" y1="172" x2="200" y2="232"/>
+  <text class="t-desc" x="240" y="204">幅が狭く鉄筋が密</text>
+  <text class="t-desc" x="240" y="220">細径の振動機を選ぶ</text>
+  <text class="t-desc" x="22" y="204">下の部材の</text>
+  <text class="t-desc" x="22" y="220">沈降後に打つ</text>
+
+  <!-- C 耐震スリット -->
+  <text class="t-sec" x="20" y="300">耐震スリットまわり</text>
+  <rect class="box-sur" x="100" y="312" width="60" height="110"/>
+  <rect class="box-warn" x="160" y="312" width="14" height="110"/>
+  <rect class="box-sur" x="174" y="312" width="190" height="110"/>
+  <text class="t-desc" x="112" y="372" text-anchor="middle">柱</text>
+  <text class="t-desc" x="270" y="372" text-anchor="middle">壁</text>
+  <line class="vib" x1="130" y1="324" x2="130" y2="388"/>
+  <line class="vib" x1="220" y1="324" x2="220" y2="388"/>
+  <text class="t-desc" x="200" y="440" text-anchor="middle">スリット材に振動機や配管を当てない</text>
+
+  <!-- 凡例 -->
+  <line class="vib" x1="30" y1="474" x2="50" y2="474"/>
+  <text class="t-desc" x="58" y="478">棒形振動機</text>
+  <rect class="box-pos" x="150" y="467" width="14" height="14"/>
+  <text class="t-desc" x="172" y="478">型枠振動機</text>
+  <rect class="box-warn" x="262" y="467" width="14" height="14"/>
+  <text class="t-desc" x="284" y="478">空隙・スリット材</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="鋼の表面で鉄が溶けるアノードと酸素が反応するカソードが電池を作る腐食の仕組みと、塗装・めっき・電気防食・耐候性鋼がそれぞれ何を断つかを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .big { font-size: 24px; font-weight: bold; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .guide { fill: none; stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="20" y="26" class="s">鋼の表面に電池ができ、アノード側が錆びる</text>
+  <rect class="brand" x="20" y="40" width="360" height="100" rx="3" />
+  <text x="200" y="58" class="h m">水膜＋塩分（電解質）</text>
+  <path class="arrow" d="M170,146 V84" />
+  <text x="162" y="100" class="e">Fe<tspan dy="-5" font-size="11">2+</tspan><tspan dy="5">が溶け出す</tspan></text>
+  <path class="arrow" d="M300,70 V118" />
+  <text x="312" y="86" class="">酸素</text>
+  <text x="312" y="104" class="s">（空気から）</text>
+  <text x="26" y="134" class="s">Fe → Fe<tspan dy="-5" font-size="11">2+</tspan><tspan dy="5"> + 2e</tspan><tspan dy="-5" font-size="11">−</tspan></text>
+  <text x="214" y="134" class="s">O<tspan dy="3" font-size="11">2</tspan><tspan dy="-3"> + 2H</tspan><tspan dy="3" font-size="11">2</tspan><tspan dy="-3">O + 4e</tspan><tspan dy="-5" font-size="11">−</tspan><tspan dy="5"> → 4OH</tspan><tspan dy="-5" font-size="11">−</tspan></text>
+  <rect class="danger" x="20" y="140" width="180" height="68" rx="3" />
+  <rect class="positive" x="200" y="140" width="180" height="68" rx="3" />
+  <text x="110" y="158" class="h m">アノード部（錆びる）</text>
+  <text x="290" y="158" class="h m">カソード部</text>
+  <path class="arrow" d="M70,180 H330" />
+  <rect x="126" y="188" width="148" height="16" fill="#ffffff" />
+  <text x="200" y="200" class="s m">電子が鋼の中を移動</text>
+  <text x="20" y="236" class="h">防食は、この電池のどこかを断つ</text>
+  <rect class="brand" x="20" y="246" width="174" height="108" rx="6" />
+  <text x="32" y="270" class="h">塗装</text>
+  <text x="32" y="294" class="s">水と酸素を遮る膜。</text>
+  <text x="32" y="314" class="s">傷や端部から劣化し</text>
+  <text x="32" y="334" class="s">塗り替えで維持</text>
+  <rect class="positive" x="206" y="246" width="174" height="108" rx="6" />
+  <text x="218" y="270" class="h">めっき</text>
+  <text x="218" y="294" class="s">亜鉛が先に溶けて</text>
+  <text x="218" y="314" class="s">鋼を守る（犠牲防食）</text>
+  <text x="218" y="334" class="s">亜鉛の消耗が寿命</text>
+  <rect class="warn" x="20" y="366" width="174" height="108" rx="6" />
+  <text x="32" y="390" class="h">電気防食</text>
+  <text x="32" y="414" class="s">外から電子を送り</text>
+  <text x="32" y="434" class="s">鋼全体をカソードに</text>
+  <text x="32" y="454" class="s">電位で効きを確認</text>
+  <rect class="surface" x="206" y="366" width="174" height="108" rx="6" />
+  <text x="218" y="390" class="h">耐候性鋼</text>
+  <text x="218" y="414" class="s">緻密なさびが保護</text>
+  <text x="218" y="434" class="s">乾湿の繰返しと</text>
+  <text x="218" y="454" class="s">少ない塩分が前提</text>
+</svg>

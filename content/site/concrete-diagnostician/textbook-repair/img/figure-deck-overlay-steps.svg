@@ -1,0 +1,61 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は道路橋RC床版の上面増厚の施工順と、各工程で品質を決める点。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="上面増厚の施工順。舗装撤去と床版上面の切削、ショットブラストの研掃、施工端部への接着剤塗布、鋼繊維補強コンクリートの打設、養生と強度確認、防水層と舗装の六工程を縦に並べ、弱点になりやすいのは増厚コンクリートの施工端部であることを下段に示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-num { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .chip { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="box-b" x="30" y="8" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="35" r="11" /><text class="t-num" x="52" y="39" text-anchor="middle">1</text>
+  <text class="t-strong" x="74" y="29" text-anchor="start">舗装を撤去し、床版上面を切削する</text>
+  <text class="t-desc" x="74" y="47" text-anchor="start">切削は1cm程度。浮き・脆弱部ははつり取る</text>
+  <line class="line-main" x1="200" y1="62" x2="200" y2="72" marker-end="url(#ab)" />
+
+  <rect class="box-b" x="30" y="74" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="101" r="11" /><text class="t-num" x="52" y="105" text-anchor="middle">2</text>
+  <text class="t-strong" x="74" y="95" text-anchor="start">ショットブラストで研掃する</text>
+  <text class="t-desc" x="74" y="113" text-anchor="start">新旧の一体化の要。レイタンスなどを除く</text>
+  <line class="line-main" x1="200" y1="128" x2="200" y2="138" marker-end="url(#ab)" />
+
+  <rect class="box-w" x="30" y="140" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="167" r="11" /><text class="t-num" x="52" y="171" text-anchor="middle">3</text>
+  <text class="t-strong" x="74" y="161" text-anchor="start">施工端部へ接着剤を塗る</text>
+  <text class="t-desc" x="74" y="179" text-anchor="start">施工目地と地覆の際に額縁状に。温水・水浸に強い品種</text>
+  <line class="line-main" x1="200" y1="194" x2="200" y2="204" marker-end="url(#ab)" />
+
+  <rect class="box-b" x="30" y="206" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="233" r="11" /><text class="t-num" x="52" y="237" text-anchor="middle">4</text>
+  <text class="t-strong" x="74" y="227" text-anchor="start">鋼繊維補強コンクリートを打設する</text>
+  <text class="t-desc" x="74" y="245" text-anchor="start">硬練りを専用フィニッシャで敷きならし、締め固める</text>
+  <line class="line-main" x1="200" y1="260" x2="200" y2="270" marker-end="url(#ab)" />
+
+  <rect class="box-b" x="30" y="272" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="299" r="11" /><text class="t-num" x="52" y="303" text-anchor="middle">5</text>
+  <text class="t-strong" x="74" y="293" text-anchor="start">乾燥を防いで養生し、強度を確かめる</text>
+  <text class="t-desc" x="74" y="311" text-anchor="start">薄層は乾燥収縮に敏感。材齢で強度を確認して開放</text>
+  <line class="line-main" x1="200" y1="326" x2="200" y2="336" marker-end="url(#ab)" />
+
+  <rect class="box-g" x="30" y="338" width="340" height="54" rx="6" />
+  <circle class="chip" cx="52" cy="365" r="11" /><text class="t-num" x="52" y="369" text-anchor="middle">6</text>
+  <text class="t-strong" x="74" y="359" text-anchor="start">防水層と舗装を仕上げる</text>
+  <text class="t-desc" x="74" y="377" text-anchor="start">増厚と同時に防水工。排水設備もそろえる</text>
+
+  <rect class="box-r" x="30" y="414" width="340" height="72" rx="6" />
+  <text class="t-strong" x="200" y="438" text-anchor="middle">弱点は増厚コンクリートの施工端部</text>
+  <text class="t-desc" x="200" y="458" text-anchor="middle">目地や地覆の際は研掃・締固めが弱くなりやすい</text>
+  <text class="t-desc" x="200" y="474" text-anchor="middle">付着が切れると水みちになり、界面がはく離する</text>
+</svg>
