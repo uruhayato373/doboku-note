@@ -1,0 +1,102 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="1級土木施工管理技術検定の合格率の年度推移（平成26年度から令和8年度）。学科・第一次検定は平成29年度の66.2%が最高で、令和5年度以降は50%を下回り、令和7年度は43.1%、令和8年度は49.8%。実地・第二次検定は28.7%から45.3%の範囲で動く。基準点が37問だった年と、令和6年度の受検資格の緩和も示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .tick { font-size: 11px; fill: #555; }
+      .band { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .val-a { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .val-b { font-size: 12px; font-weight: bold; fill: #222; }
+      .leg { font-size: 12px; fill: #222; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; }
+      .line-a { fill: none; stroke: #2e6da4; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+      .line-b { fill: none; stroke: #555; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+      .dot-a { fill: #2e6da4; stroke: #2e6da4; stroke-width: 2; }
+      .dot-a-open { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .sq-b { fill: #555; stroke: #555; stroke-width: 1; }
+      .mark { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .legend-box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <text class="tick" x="42" y="40">合格率（%）</text>
+  <rect x="42" y="72" width="175" height="260" fill="#f5f5f5"/>  <!-- surface：旧制度の年度 -->
+  <text class="band" x="129.5" y="62" text-anchor="middle">旧制度（学科・実地）</text>
+  <text class="band" x="292.0" y="62" text-anchor="middle">現行（第一次・第二次）</text>
+  <line class="grid" x1="42" y1="332.0" x2="367" y2="332.0"/>
+  <text class="tick" x="36" y="336.0" text-anchor="end">20</text>
+  <line class="grid" x1="42" y1="280.0" x2="367" y2="280.0"/>
+  <text class="tick" x="36" y="284.0" text-anchor="end">30</text>
+  <line class="grid" x1="42" y1="228.0" x2="367" y2="228.0"/>
+  <text class="tick" x="36" y="232.0" text-anchor="end">40</text>
+  <line class="grid" x1="42" y1="176.0" x2="367" y2="176.0"/>
+  <text class="tick" x="36" y="180.0" text-anchor="end">50</text>
+  <line class="grid" x1="42" y1="124.0" x2="367" y2="124.0"/>
+  <text class="tick" x="36" y="128.0" text-anchor="end">60</text>
+  <line class="grid" x1="42" y1="72.0" x2="367" y2="72.0"/>
+  <text class="tick" x="36" y="76.0" text-anchor="end">70</text>
+  <line class="mark" x1="292" y1="72" x2="292" y2="332"/>
+  <polyline class="line-b" points="54.5,230.6 79.5,242.0 104.5,245.2 129.5,280.0 154.5,256.6 179.5,200.4 204.5,274.8 229.5,245.7 254.5,286.8 279.5,263.4 304.5,221.8 329.5,233.7"/>
+  <polyline class="line-a" points="54.5,131.8 79.5,152.1 104.5,150.0 129.5,91.8 154.5,142.2 179.5,151.6 204.5,123.5 229.5,120.9 254.5,152.1 279.5,178.6 304.5,205.1 329.5,211.9 354.5,177.0"/>
+  <rect class="sq-b" x="51.0" y="227.1" width="7" height="7"/>
+  <rect class="sq-b" x="76.0" y="238.5" width="7" height="7"/>
+  <rect class="sq-b" x="101.0" y="241.7" width="7" height="7"/>
+  <rect class="sq-b" x="126.0" y="276.5" width="7" height="7"/>
+  <rect class="sq-b" x="151.0" y="253.1" width="7" height="7"/>
+  <rect class="sq-b" x="176.0" y="196.9" width="7" height="7"/>
+  <rect class="sq-b" x="201.0" y="271.3" width="7" height="7"/>
+  <rect class="sq-b" x="226.0" y="242.2" width="7" height="7"/>
+  <rect class="sq-b" x="251.0" y="283.3" width="7" height="7"/>
+  <rect class="sq-b" x="276.0" y="259.9" width="7" height="7"/>
+  <rect class="sq-b" x="301.0" y="218.3" width="7" height="7"/>
+  <rect class="sq-b" x="326.0" y="230.2" width="7" height="7"/>
+  <circle class="dot-a-open" cx="54.5" cy="131.8" r="4"/>
+  <circle class="dot-a-open" cx="79.5" cy="152.1" r="4"/>
+  <circle class="dot-a-open" cx="104.5" cy="150.0" r="4"/>
+  <circle class="dot-a" cx="129.5" cy="91.8" r="4"/>
+  <circle class="dot-a-open" cx="154.5" cy="142.2" r="4"/>
+  <circle class="dot-a" cx="179.5" cy="151.6" r="4"/>
+  <circle class="dot-a" cx="204.5" cy="123.5" r="4"/>
+  <circle class="dot-a" cx="229.5" cy="120.9" r="4"/>
+  <circle class="dot-a" cx="254.5" cy="152.1" r="4"/>
+  <circle class="dot-a" cx="279.5" cy="178.6" r="4"/>
+  <circle class="dot-a" cx="304.5" cy="205.1" r="4"/>
+  <circle class="dot-a" cx="329.5" cy="211.9" r="4"/>
+  <circle class="dot-a" cx="354.5" cy="177.0" r="4"/>
+  <text class="val-a" x="129.5" y="82.8" text-anchor="middle">66.2</text>
+  <text class="val-a" x="337.5" y="220.9" text-anchor="start">43.1</text>
+  <text class="val-b" x="179.5" y="191.4" text-anchor="middle">45.3</text>
+  <text class="val-b" x="254.5" y="305.8" text-anchor="middle">28.7</text>
+  <text class="tick" x="54.5" y="349" text-anchor="middle">26</text>
+  <text class="tick" x="79.5" y="349" text-anchor="middle">27</text>
+  <text class="tick" x="104.5" y="349" text-anchor="middle">28</text>
+  <text class="tick" x="129.5" y="349" text-anchor="middle">29</text>
+  <text class="tick" x="154.5" y="349" text-anchor="middle">30</text>
+  <text class="tick" x="179.5" y="349" text-anchor="middle">元</text>
+  <text class="tick" x="204.5" y="349" text-anchor="middle">2</text>
+  <text class="tick" x="229.5" y="349" text-anchor="middle">3</text>
+  <text class="tick" x="254.5" y="349" text-anchor="middle">4</text>
+  <text class="tick" x="279.5" y="349" text-anchor="middle">5</text>
+  <text class="tick" x="304.5" y="349" text-anchor="middle">6</text>
+  <text class="tick" x="329.5" y="349" text-anchor="middle">7</text>
+  <text class="tick" x="354.5" y="349" text-anchor="middle">8</text>
+  <line class="grid" x1="44" y1="356" x2="165" y2="356"/>
+  <line class="grid" x1="169" y1="356" x2="365" y2="356"/>
+  <text class="tick" x="104.5" y="371" text-anchor="middle">平成（年度）</text>
+  <text class="tick" x="267.0" y="371" text-anchor="middle">令和（年度）</text>
+  <rect class="legend-box" x="20" y="384" width="360" height="108" rx="6"/>
+  <line class="line-a" x1="32" y1="402" x2="58" y2="402"/>
+  <circle class="dot-a" cx="45" cy="402" r="4"/>
+  <text class="leg" x="68" y="406">学科試験・第一次検定の合格率</text>
+  <line class="line-b" x1="32" y1="422" x2="58" y2="422"/>
+  <rect class="sq-b" x="41.5" y="418.5" width="7" height="7"/>
+  <text class="leg" x="68" y="426">実地試験・第二次検定の合格率</text>
+  <circle class="dot-a-open" cx="45" cy="442" r="4"/>
+  <text class="leg" x="68" y="446">学科の基準点が 37 問（56.9%）だった年</text>
+  <line class="mark" x1="45" y1="454" x2="45" y2="468"/>
+  <text class="leg" x="68" y="466">R6 から第一次の受検資格を緩和（19 歳以上）</text>
+  <text class="leg" x="68" y="486">R8 は第一次のみ（第二次は発表前）</text>
+</svg>
