@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="深さ方向の全応力・間隙水圧・有効応力の分布。地下水面より下で水圧が増え、有効応力は全応力より小さくなる。液状化時は水圧が全応力に近づき有効応力がほぼゼロになる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab  { font-size: 12px; font-weight: bold; }
+      .t-sm   { font-size: 11px; fill: #555; }
+      .t-in   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">全応力 σ ＝ 有効応力 σ' ＋ 間隙水圧 u</text>
+
+  <!-- 飽和域の背景（brand-fill） -->
+  <rect x="60" y="150" width="292" height="180" fill="#e8f0fe"/>
+  <!-- 地下水面 -->
+  <line x1="60" y1="150" x2="352" y2="150" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text class="t-sm" x="352" y="144" text-anchor="end">地下水面</text>
+
+  <!-- 軸 -->
+  <line x1="60" y1="60" x2="60" y2="340" stroke="#555" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="60" y1="60" x2="352" y2="60" stroke="#555" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text class="t-sm" x="20" y="84">深さ</text>
+  <text class="t-sm" x="352" y="52" text-anchor="end">応力</text>
+
+  <!-- 全応力 σ -->
+  <polyline points="60,60 340,330" fill="none" stroke="#222" stroke-width="2"/>
+  <!-- 間隙水圧 u -->
+  <polyline points="60,150 161,330" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <!-- 有効応力 σ' -->
+  <polyline points="60,60 153,150 239,330" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+
+  <text class="t-sm" x="140" y="108">地下水面より上は u＝0 で σ'＝σ</text>
+
+  <!-- 線端の凡例 -->
+  <text class="t-lab" x="161" y="352" text-anchor="middle" fill="#2e6da4">u 水圧</text>
+  <text class="t-lab" x="239" y="352" text-anchor="middle" fill="#3a7d44">σ' 有効</text>
+  <text class="t-lab" x="340" y="352" text-anchor="middle" fill="#222">σ 全応力</text>
+
+  <line x1="20" y1="368" x2="380" y2="368" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 同じ深さの砂の内訳 -->
+  <text class="t-sec" x="20" y="390">ある深さの砂が受ける全応力の内訳</text>
+
+  <text class="t-sm" x="20" y="418">地震前</text>
+  <rect x="84" y="402" width="190" height="24" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="274" y="402" width="86" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-in" x="179" y="419" text-anchor="middle">σ' 骨格が支える</text>
+  <text class="t-in" x="317" y="419" text-anchor="middle">u</text>
+
+  <text class="t-sm" x="20" y="462">液状化時</text>
+  <rect x="84" y="446" width="14" height="24" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <rect x="98" y="446" width="262" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-in" x="229" y="463" text-anchor="middle">u が全応力に近づく</text>
+  <text class="t-sm" x="84" y="488">σ'≒0：粒子の接触が荷重を受け持たない</text>
+</svg>

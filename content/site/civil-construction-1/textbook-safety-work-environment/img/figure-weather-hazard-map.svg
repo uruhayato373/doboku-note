@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="作業の場所を高所・吊り荷、斜面・法面・河川、水辺・海上、視界と路面の4つに分け、効く気象と最初に確かめること、気象庁の用語を対応させた概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 高所・吊り荷 -->
+  <rect x="30" y="14" width="340" height="108" rx="6" class="brand"/>
+  <text x="44" y="35" class="b">高所・吊り荷の作業</text>
+  <text x="44" y="52" class="t">効く気象：強風、突風、雷</text>
+  <line x1="44" y1="61" x2="356" y2="61" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="44" y="77" class="s">最初に確かめること</text>
+  <text x="44" y="94" class="t">クレーンの吊り荷、シートで養生した足場</text>
+  <text x="44" y="111" class="s">気象庁の用語：風害、雷害、ひょう害</text>
+
+  <!-- 斜面・法面・河川 -->
+  <rect x="30" y="132" width="340" height="108" rx="6" class="pos"/>
+  <text x="44" y="153" class="b">斜面・法面・河川の作業</text>
+  <text x="44" y="170" class="t">効く気象：大雨、融雪</text>
+  <line x1="44" y1="179" x2="356" y2="179" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="44" y="195" class="s">最初に確かめること</text>
+  <text x="44" y="212" class="t">降雨量と融雪、法面の変状、河川の水位</text>
+  <text x="44" y="229" class="s">気象庁の用語：大雨害、融雪害、土砂災害</text>
+
+  <!-- 水辺・海上 -->
+  <rect x="30" y="250" width="340" height="108" rx="6" class="warn"/>
+  <text x="44" y="271" class="b">水辺・海上の作業</text>
+  <text x="44" y="288" class="t">効く気象：台風、低気圧、潮位の異常</text>
+  <line x1="44" y1="297" x2="356" y2="297" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="44" y="313" class="s">最初に確かめること</text>
+  <text x="44" y="330" class="t">台船、仮桟橋、河口や海岸の仮設、締切り</text>
+  <text x="44" y="347" class="s">気象庁の用語：波浪害、高潮害、異常潮害</text>
+
+  <!-- 視界と路面 -->
+  <rect x="30" y="368" width="340" height="108" rx="6" class="dng"/>
+  <text x="44" y="389" class="b">視界と路面に関わる作業</text>
+  <text x="44" y="406" class="t">効く気象：霧、雨、雪、低温</text>
+  <line x1="44" y1="415" x2="356" y2="415" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="44" y="431" class="s">最初に確かめること</text>
+  <text x="44" y="448" class="t">見通し、路面の凍結、屋根や斜面の下の落雪</text>
+  <text x="44" y="465" class="s">気象庁の用語：視程不良害、凍害、落雪害、大雪害</text>
+</svg>

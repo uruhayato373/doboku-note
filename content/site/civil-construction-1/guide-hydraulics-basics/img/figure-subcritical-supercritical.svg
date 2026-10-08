@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水路を上から見て、石を落としたときの波の輪の広がり方を比べた図。流れが波より遅い常流では波が上流へも広がり、流れと波の速さが等しい限界流では波が石の位置で止まり、流れが波より速い射流では波が下流側のくさび形にしか広がらない。下段はフルード数の式と波の速さの例。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-h  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-b  { font-size: 12px; fill: #222; }
+      .t-bb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s  { font-size: 11px; fill: #555; }
+      .t-sd { font-size: 11px; fill: #222; }
+      .t-sb { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-r  { font-size: 11px; fill: #b22234; font-weight: bold; }
+      .chan { fill: #e8f0fe; stroke: none; }
+      .bank { stroke: #555; stroke-width: 2.5; fill: none; }
+      .ring { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .wedge { stroke: #b22234; stroke-width: 1.5; fill: none; stroke-dasharray: 5 3; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln-ink { stroke: #222; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah-ink" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#222"/></marker>
+  </defs>
+
+  <text class="t-h" x="30" y="24">常流（Fr が 1 未満）</text>
+  <text class="t-s" x="200" y="24">● 石を落とした点　○ 波の輪</text>
+  <rect class="chan" x="30" y="32" width="336" height="96"/>
+  <line class="bank" x1="30" y1="32" x2="366" y2="32"/>
+  <line class="bank" x1="30" y1="128" x2="366" y2="128"/>
+  <line class="ln-ink" x1="40" y1="80" x2="80" y2="80" marker-end="url(#ah-ink)"/>
+  <text class="t-s" x="60" y="72" text-anchor="middle">流れ</text>
+  <circle class="ring" cx="125.5" cy="80" r="15"/>
+  <circle class="ring" cx="133" cy="80" r="30"/>
+  <circle class="ring" cx="140.5" cy="80" r="45"/>
+  <circle cx="118" cy="80" r="4.5" fill="#b22234"/>
+  <text class="t-sb" x="252" y="58">v &lt; √(gh)</text>
+  <text class="t-s" x="252" y="74">例: Fr = 0.5</text>
+  <text class="t-sd" x="252" y="94">波は上流へも</text>
+  <text class="t-sd" x="252" y="110">広がる</text>
+  <text class="t-h" x="30" y="158">限界流（Fr が 1）</text>
+  <rect class="chan" x="30" y="166" width="336" height="96"/>
+  <line class="bank" x1="30" y1="166" x2="366" y2="166"/>
+  <line class="bank" x1="30" y1="262" x2="366" y2="262"/>
+  <line class="ln-ink" x1="40" y1="214" x2="80" y2="214" marker-end="url(#ah-ink)"/>
+  <text class="t-s" x="60" y="206" text-anchor="middle">流れ</text>
+  <circle class="ring" cx="133" cy="214" r="15"/>
+  <circle class="ring" cx="148" cy="214" r="30"/>
+  <circle class="ring" cx="163" cy="214" r="45"/>
+  <circle cx="118" cy="214" r="4.5" fill="#b22234"/>
+  <text class="t-sb" x="252" y="192">v = √(gh)</text>
+  <text class="t-s" x="252" y="208">例: Fr = 1.0</text>
+  <text class="t-sd" x="252" y="228">波は石の位置</text>
+  <text class="t-sd" x="252" y="244">で止まる</text>
+  <text class="t-h" x="30" y="292">射流（Fr が 1 超）</text>
+  <rect class="chan" x="30" y="300" width="336" height="96"/>
+  <line class="bank" x1="30" y1="300" x2="366" y2="300"/>
+  <line class="bank" x1="30" y1="396" x2="366" y2="396"/>
+  <line class="ln-ink" x1="40" y1="348" x2="80" y2="348" marker-end="url(#ah-ink)"/>
+  <text class="t-s" x="60" y="340" text-anchor="middle">流れ</text>
+  <circle class="ring" cx="140.5" cy="348" r="15"/>
+  <circle class="ring" cx="163" cy="348" r="30"/>
+  <circle class="ring" cx="185.5" cy="348" r="45"/>
+  <line class="wedge" x1="118" y1="348" x2="159.7" y2="310.7"/>
+  <line class="wedge" x1="118" y1="348" x2="159.7" y2="385.3"/>
+  <circle cx="118" cy="348" r="4.5" fill="#b22234"/>
+  <text class="t-sb" x="252" y="326">v &gt; √(gh)</text>
+  <text class="t-s" x="252" y="342">例: Fr = 1.5</text>
+  <text class="t-sd" x="252" y="362">波は下流側へ</text>
+  <text class="t-sd" x="252" y="378">流される</text>
+  <text class="t-r" x="30" y="388">赤破線: 波の境目</text>
+
+  <line class="rule" x1="20" y1="418" x2="380" y2="418"/>
+  <text class="t-bb" x="20" y="438">Fr = v ÷ √(g h)</text>
+  <text class="t-b" x="20" y="456">v: 平均流速　h: 水深　g: 重力加速度 9.8 m/s²</text>
+  <text class="t-b" x="20" y="472">√(g h) は水面の波（長波）が進む速さ</text>
+  <text class="t-s" x="20" y="488">例: 水深 1.0 m の波の速さは √(9.8 × 1.0) ≒ 3.1 m/s</text>
+</svg>

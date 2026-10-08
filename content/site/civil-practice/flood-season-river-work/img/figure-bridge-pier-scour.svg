@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="橋脚まわりの断面図。上流側の流れが橋脚前面で下降流となり、河床で渦を作って土砂を巻き上げ、洗掘孔がフーチングの下へ広がる。橋脚の上流側には流木が引っかかる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="arr-blue" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0,0 10,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0,0 10,4 0,8" fill="#b22234"/></marker>
+  </defs>
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+
+  <!-- 向き : ink-body -->
+  <text x="24" y="50" font-size="12" fill="#555">上流</text>
+  <text x="344" y="50" font-size="12" fill="#555" text-anchor="end">下流</text>
+
+  <!-- 水 : brand-fill -->
+  <rect x="20" y="116" width="360" height="240" fill="#e8f0fe"/>
+  <line x1="20" y1="116" x2="380" y2="116" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 河床（洗掘後） : surface -->
+  <polygon points="20,300 90,300 124,314 150,342 190,354 214,354 214,334 236,300 380,300 380,392 20,392" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <!-- 洗掘前の河床 -->
+  <line x1="90" y1="300" x2="200" y2="300" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- 橋桁・橋脚・フーチング : surface -->
+  <rect x="30" y="62" width="340" height="18" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <rect x="200" y="80" width="36" height="232" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <rect x="190" y="310" width="56" height="24" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="218" y="190" font-size="11" fill="#222" text-anchor="middle">橋脚</text>
+
+  <!-- 流木 : surface -->
+  <polygon points="152,112 194,106 196,113 154,119" fill="#f5f5f5" stroke="#555" stroke-width="1.2"/>
+  <polygon points="146,122 191,120 192,127 147,129" fill="#f5f5f5" stroke="#555" stroke-width="1.2"/>
+  <polygon points="158,132 195,131 196,138 159,139" fill="#f5f5f5" stroke="#555" stroke-width="1.2"/>
+  <text x="104" y="124" font-size="11" fill="#222">流木</text>
+
+  <!-- 上流側の流れ -->
+  <line x1="36" y1="146" x2="104" y2="146" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="36" y1="184" x2="104" y2="184" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="36" y1="222" x2="104" y2="222" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+
+  <!-- 下降流と馬蹄形渦 : danger -->
+  <line x1="184" y1="150" x2="184" y2="290" stroke="#b22234" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <path d="M 184 296 C 146 296 132 330 160 340" fill="none" stroke="#b22234" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <text x="136" y="206" font-size="11" fill="#222">下降流</text>
+  <text x="92" y="286" font-size="11" fill="#222">馬蹄形渦</text>
+
+  <!-- 洗掘の名称 -->
+  <text x="60" y="348" font-size="11" fill="#222">洗掘孔</text>
+  <line x1="98" y1="346" x2="138" y2="329" stroke="#555" stroke-width="1"/>
+  <text x="24" y="292" font-size="11" fill="#555">元の河床</text>
+  <text x="252" y="326" font-size="11" fill="#222">フーチング</text>
+  <text x="104" y="382" font-size="11" fill="#222">基礎の下が掘られる</text>
+  <line x1="180" y1="372" x2="202" y2="346" stroke="#555" stroke-width="1"/>
+
+  <!-- 凡例 : surface -->
+  <rect x="20" y="410" width="360" height="78" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <line x1="34" y1="430" x2="58" y2="430" stroke="#b22234" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <text x="70" y="434" font-size="12" fill="#222">下降流と渦が河床の土砂を巻き上げる</text>
+  <line x1="34" y1="451" x2="58" y2="451" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="70" y="455" font-size="12" fill="#222">洗掘前の河床</text>
+  <line x1="34" y1="472" x2="58" y2="472" stroke="#555" stroke-width="1.5"/>
+  <text x="70" y="476" font-size="12" fill="#222">洗掘後の河床</text>
+</svg>

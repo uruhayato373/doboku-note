@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="足場の点検の流れ。毎日の作業前と、悪天候・地震・組み立て変更の後に、点検者が落ちる・崩れる・倒れるの3系統を点検し、異常は補修して記録を保存する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 契機 -->
+  <text x="30" y="20" font-size="11" fill="#8a8a8a">点検する契機（点検は作業の開始前）</text>
+  <rect x="30" y="28" width="340" height="28" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="200" y="47" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">毎日の作業前：手すり等の取外し・脱落</text>
+  <rect x="30" y="62" width="340" height="28" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn-fill / warn -->
+  <text x="200" y="81" text-anchor="middle" font-size="12" fill="#1a3a5c">強風・大雨・大雪等の悪天候、中震以上の地震の後</text>
+  <rect x="30" y="96" width="340" height="28" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="200" y="115" text-anchor="middle" font-size="12" fill="#1a3a5c">足場の組み立て・一部解体・変更の後</text>
+
+  <!-- 矢印1 -->
+  <line x1="200" y1="126" x2="200" y2="140" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 142 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 点検者 -->
+  <rect x="30" y="144" width="340" height="34" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="166" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">点検者を指名し、作業の開始前に点検させる</text>
+
+  <!-- 矢印2 -->
+  <line x1="200" y1="180" x2="200" y2="194" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 196 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 見る箇所 -->
+  <text x="30" y="212" font-size="11" fill="#8a8a8a">見る箇所（毎日は手すり等のみ、出来事の後は9項目）</text>
+  <rect x="30" y="218" width="340" height="28" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <rect x="40" y="228" width="8" height="8" rx="2" fill="#b22234"/>
+  <text x="54" y="237" font-size="12" font-weight="bold" fill="#222">落ちる</text>
+  <text fill="#222" x="100" y="237" font-size="12">床材・手すり等・幅木等の状態</text>
+  <rect x="30" y="252" width="340" height="28" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="40" y="262" width="8" height="8" rx="2" fill="#d4a017"/>
+  <text x="54" y="271" font-size="12" font-weight="bold" fill="#222">崩れる</text>
+  <text fill="#222" x="100" y="271" font-size="12">緊結部の緩み・金具の損傷や腐食</text>
+  <rect x="30" y="286" width="340" height="28" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="40" y="296" width="8" height="8" rx="2" fill="#2e6da4"/>
+  <text x="54" y="305" font-size="12" font-weight="bold" fill="#222">倒れる</text>
+  <text fill="#222" x="100" y="305" font-size="12">脚部の沈下・滑動、筋かい・壁つなぎ</text>
+
+  <!-- 矢印3 -->
+  <line x1="200" y1="316" x2="200" y2="330" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 332 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 補修 -->
+  <rect x="30" y="334" width="340" height="28" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text x="200" y="353" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">異常を認めたら直ちに補修</text>
+
+  <!-- 矢印4 -->
+  <line x1="200" y1="364" x2="200" y2="378" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 380 l-4 -8 h8 z" fill="#2e6da4"/>
+
+  <!-- 記録 -->
+  <rect x="30" y="382" width="340" height="56" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text x="200" y="402" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">記録して保存する</text>
+  <text x="200" y="419" text-anchor="middle" font-size="12" fill="#222">点検の結果・点検者の氏名・補修の内容</text>
+  <text x="200" y="433" text-anchor="middle" font-size="11" fill="#555">足場を使う仕事が終わるまで</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="452" width="340" height="40" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="468" text-anchor="middle" font-size="11" fill="#222">足場：点検者の指名と氏名の記録がある（第567条）</text>
+  <text x="200" y="484" text-anchor="middle" font-size="11" fill="#222">作業構台：指名・氏名の定めはない（第575条の8）</text>
+</svg>

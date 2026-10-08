@@ -1,0 +1,135 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鋼管矢板基礎の概念図。平面では鋼管矢板を継手でつないで井筒をつくり、断面では頂版が矢板の頭部を結んで支持層へ根入れし、継手部は管内に中詰材を充填する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; fill: #1a3a5c; }
+      .t-lyr  { font-size: 11px; fill: #3a7d44; }
+      .panel  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+      .lead   { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .soil   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .brg    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .strc   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pipe   { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .pile   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .joint  { fill: #d4a017; stroke: none; }
+      .plug   { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1; }
+      .fill   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+    </style>
+  </defs>
+
+  <!-- A: 平面 -->
+  <rect class="panel" x="10" y="10" width="380" height="140" rx="6"/>
+  <text class="t-head" x="22" y="30">平面</text>
+  <text class="t-sub" x="60" y="30">継手でつなぎ、閉じた井筒をつくる</text>
+  <line class="rule" x1="22" y1="38" x2="378" y2="38"/>
+  <rect x="96" y="66" width="208" height="48" fill="#f5f5f5"/>
+  <circle class="pile" cx="96" cy="66" r="8"/>
+  <circle class="pile" cx="112" cy="66" r="8"/>
+  <circle class="pile" cx="128" cy="66" r="8"/>
+  <circle class="pile" cx="144" cy="66" r="8"/>
+  <circle class="pile" cx="160" cy="66" r="8"/>
+  <circle class="pile" cx="176" cy="66" r="8"/>
+  <circle class="pile" cx="192" cy="66" r="8"/>
+  <circle class="pile" cx="208" cy="66" r="8"/>
+  <circle class="pile" cx="224" cy="66" r="8"/>
+  <circle class="pile" cx="240" cy="66" r="8"/>
+  <circle class="pile" cx="256" cy="66" r="8"/>
+  <circle class="pile" cx="272" cy="66" r="8"/>
+  <circle class="pile" cx="288" cy="66" r="8"/>
+  <circle class="pile" cx="304" cy="66" r="8"/>
+  <circle class="pile" cx="96" cy="114" r="8"/>
+  <circle class="pile" cx="112" cy="114" r="8"/>
+  <circle class="pile" cx="128" cy="114" r="8"/>
+  <circle class="pile" cx="144" cy="114" r="8"/>
+  <circle class="pile" cx="160" cy="114" r="8"/>
+  <circle class="pile" cx="176" cy="114" r="8"/>
+  <circle class="pile" cx="192" cy="114" r="8"/>
+  <circle class="pile" cx="208" cy="114" r="8"/>
+  <circle class="pile" cx="224" cy="114" r="8"/>
+  <circle class="pile" cx="240" cy="114" r="8"/>
+  <circle class="pile" cx="256" cy="114" r="8"/>
+  <circle class="pile" cx="272" cy="114" r="8"/>
+  <circle class="pile" cx="288" cy="114" r="8"/>
+  <circle class="pile" cx="304" cy="114" r="8"/>
+  <circle class="pile" cx="96" cy="82" r="8"/>
+  <circle class="pile" cx="96" cy="98" r="8"/>
+  <circle class="pile" cx="304" cy="82" r="8"/>
+  <circle class="pile" cx="304" cy="98" r="8"/>
+  <circle class="joint" cx="104" cy="66" r="2.5"/>
+  <circle class="joint" cx="104" cy="114" r="2.5"/>
+  <circle class="joint" cx="120" cy="66" r="2.5"/>
+  <circle class="joint" cx="120" cy="114" r="2.5"/>
+  <circle class="joint" cx="136" cy="66" r="2.5"/>
+  <circle class="joint" cx="136" cy="114" r="2.5"/>
+  <circle class="joint" cx="152" cy="66" r="2.5"/>
+  <circle class="joint" cx="152" cy="114" r="2.5"/>
+  <circle class="joint" cx="168" cy="66" r="2.5"/>
+  <circle class="joint" cx="168" cy="114" r="2.5"/>
+  <circle class="joint" cx="184" cy="66" r="2.5"/>
+  <circle class="joint" cx="184" cy="114" r="2.5"/>
+  <circle class="joint" cx="200" cy="66" r="2.5"/>
+  <circle class="joint" cx="200" cy="114" r="2.5"/>
+  <circle class="joint" cx="216" cy="66" r="2.5"/>
+  <circle class="joint" cx="216" cy="114" r="2.5"/>
+  <circle class="joint" cx="232" cy="66" r="2.5"/>
+  <circle class="joint" cx="232" cy="114" r="2.5"/>
+  <circle class="joint" cx="248" cy="66" r="2.5"/>
+  <circle class="joint" cx="248" cy="114" r="2.5"/>
+  <circle class="joint" cx="264" cy="66" r="2.5"/>
+  <circle class="joint" cx="264" cy="114" r="2.5"/>
+  <circle class="joint" cx="280" cy="66" r="2.5"/>
+  <circle class="joint" cx="280" cy="114" r="2.5"/>
+  <circle class="joint" cx="296" cy="66" r="2.5"/>
+  <circle class="joint" cx="296" cy="114" r="2.5"/>
+  <circle class="joint" cx="96" cy="74" r="2.5"/>
+  <circle class="joint" cx="96" cy="90" r="2.5"/>
+  <circle class="joint" cx="96" cy="106" r="2.5"/>
+  <circle class="joint" cx="304" cy="74" r="2.5"/>
+  <circle class="joint" cx="304" cy="90" r="2.5"/>
+  <circle class="joint" cx="304" cy="106" r="2.5"/>
+  <text class="t-sub" x="200" y="94" text-anchor="middle">井筒の内側</text>
+  <text class="t-lbl" x="22" y="70">鋼管矢板</text>
+  <line class="lead" x1="68" y1="66" x2="87" y2="66"/>
+  <text class="t-lbl" x="326" y="58">継手</text>
+  <line class="lead" x1="324" y1="55" x2="297" y2="64"/>
+
+  <!-- B: 断面 -->
+  <rect class="panel" x="10" y="158" width="380" height="164" rx="6"/>
+  <text class="t-head" x="22" y="178">断面</text>
+  <text class="t-sub" x="60" y="178">頂版で矢板の頭部を結び、支持層へ根入れする</text>
+  <line class="rule" x1="22" y1="186" x2="378" y2="186"/>
+  <rect class="soil" x="24" y="226" width="352" height="88"/>
+  <rect class="brg" x="24" y="288" width="352" height="26"/>
+  <text class="t-lyr" x="30" y="306">支持層</text>
+  <rect x="130" y="226" width="140" height="46" fill="#ffffff"/>
+  <rect class="plug" x="130" y="272" width="140" height="16"/>
+  <text class="t-lbl" x="200" y="284" text-anchor="middle">底盤コンクリート</text>
+  <rect class="strc" x="110" y="198" width="180" height="28"/>
+  <text class="t-lbl" x="200" y="216" text-anchor="middle">頂版</text>
+  <rect class="pipe" x="116" y="208" width="14" height="94"/>
+  <rect class="pipe" x="270" y="208" width="14" height="94"/>
+  <text class="t-lbl" x="30" y="256">鋼管矢板</text>
+  <line class="lead" x1="76" y1="253" x2="115" y2="253"/>
+  <text class="t-sub" x="200" y="248" text-anchor="middle">掘削した井筒内</text>
+
+  <!-- C: 継手部の拡大 -->
+  <rect class="panel" x="10" y="330" width="380" height="160" rx="6"/>
+  <text class="t-head" x="22" y="350">継手部（拡大）</text>
+  <text class="t-sub" x="112" y="350">平面で見た二本の矢板の接点</text>
+  <line class="rule" x1="22" y1="358" x2="378" y2="358"/>
+  <circle class="pipe" cx="118" cy="414" r="26"/>
+  <circle class="pipe" cx="170" cy="414" r="26"/>
+  <circle class="fill" cx="141" cy="414" r="9"/>
+  <circle class="fill" cx="147" cy="414" r="9"/>
+  <text class="t-lbl" x="144" y="462" text-anchor="middle">鋼管矢板</text>
+  <rect class="fill" x="226" y="392" width="12" height="12"/>
+  <text class="t-lbl" x="246" y="402">継手管内の中詰材</text>
+  <text class="t-sub" x="226" y="426">排土したあと、直ちに</text>
+  <text class="t-sub" x="226" y="444">充填する</text>
+</svg>
