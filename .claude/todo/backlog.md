@@ -305,6 +305,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0612] コンテンツ台帳 P6: X の下書き・投稿を台帳へ移し、連番の鍵と本文の二重持ちをなくす
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P6。X は投稿済み 178 件のどれにも投稿 ID が無く、下書きの連番に重複（096・097）があり、本文を tweets.md と status.json に二重に持つ。アーカイブ側に未決着の予約 432 件。
+**やること**: 稼働中の下書きは作品 ID から `NNN-` を外し、tweets.md の見出しを鍵にする。アーカイブは名前を変えずに取り込み、予約 432 件は data/x/own-posts と本文ハッシュで結べたものだけ published（tweet ID つき）、残りは stopped（unverified-legacy）。review.json を承認へ移し、campaigns の posts[] を公開 ID に変える。x-publish-scheduled・x-sync-status・x-queue・check-x-*・schedule-events を同じ PR で切り替える（CI の投稿は今は停止中）。
+**完了条件**: status.json が 0 件。`--plan-only` が台帳から同じ候補とハッシュを出す。
+
+
 ### [DN-0611] コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
 
