@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="対象建設工事の手続を4段に束ねた流れ図。着手前の事前調査と計画、契約と届出と下請への告知、施工計画の掲示と分別施工、完了報告と記録保存">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="14" y="12" width="372" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="36" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">① 着手前に調べて計画する</text>
+<rect x="280" y="20" width="82" height="20" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="321.0" y="34" text-anchor="middle" font-size="11" fill="#1a3a5c">元請になる者</text>
+<text x="28" y="61" text-anchor="start" font-size="11" fill="#222">事前調査（周辺・作業場所・搬出経路など）</text>
+<text x="28" y="79" text-anchor="start" font-size="11" fill="#222">調査の結果から分別解体等の計画を作成</text>
+<text x="28" y="97" text-anchor="start" font-size="11" fill="#222">計画を書面で交付して発注者に説明</text>
+<line x1="200" y1="112" x2="200" y2="126" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M195 125 L205 125 L200 132 Z" fill="#8a8a8a"/>
+<rect x="14" y="132" width="372" height="100" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="28" y="156" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">② 契約し、届け出て、下請に伝える</text>
+<rect x="280" y="140" width="82" height="20" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="321.0" y="154" text-anchor="middle" font-size="11" fill="#1a3a5c">発注者・元請</text>
+<text x="28" y="181" text-anchor="start" font-size="11" fill="#222">契約書面に分別解体の方法・費用・施設などを記載</text>
+<text x="28" y="199" text-anchor="start" font-size="11" fill="#222">発注者が着手の7日前までに知事等へ届出</text>
+<text x="28" y="217" text-anchor="start" font-size="11" fill="#222">元請は届出事項を下請に告げる</text>
+<line x1="200" y1="232" x2="200" y2="246" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M195 245 L205 245 L200 252 Z" fill="#8a8a8a"/>
+<rect x="14" y="252" width="372" height="100" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="28" y="276" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">③ 計画を掲げ、分けながら施工する</text>
+<rect x="324" y="260" width="38" height="20" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="343.0" y="274" text-anchor="middle" font-size="11" fill="#1a3a5c">元請</text>
+<text x="28" y="301" text-anchor="start" font-size="11" fill="#222">再生資源利用（促進）計画を作成。廃棄物処理計画は努める</text>
+<text x="28" y="319" text-anchor="start" font-size="11" fill="#222">再生資源の2計画は発注者へ提出・説明し、現場に掲示</text>
+<text x="28" y="337" text-anchor="start" font-size="11" fill="#222">作業場所・搬出経路を確保し、分別して施工</text>
+<line x1="200" y1="352" x2="200" y2="366" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M195 365 L205 365 L200 372 Z" fill="#8a8a8a"/>
+<rect x="14" y="372" width="372" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="396" text-anchor="start" font-size="13" font-weight="bold" fill="#1a3a5c">④ 完了を報告し、記録を残す</text>
+<rect x="324" y="380" width="38" height="20" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+<text x="343.0" y="394" text-anchor="middle" font-size="11" fill="#1a3a5c">元請</text>
+<text x="28" y="421" text-anchor="start" font-size="11" fill="#222">再資源化等の完了を書面で発注者へ報告</text>
+<text x="28" y="439" text-anchor="start" font-size="11" fill="#222">完了日・施設の名称と所在地・費用を記載</text>
+<text x="28" y="457" text-anchor="start" font-size="11" fill="#222">計画と実施状況の記録は工事完成後5年保存</text>
+</svg>
