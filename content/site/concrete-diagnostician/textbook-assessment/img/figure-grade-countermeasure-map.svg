@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="中性化・塩害の外観上のグレードⅠからⅣについて、外観の状態と対策の方向を対応させた図">
+  <style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style>
+  <text x="200" y="16" text-anchor="middle" font-size="11" fill="#555">外観上のグレードごとの、外観の状態と対策の方向</text>
+  <rect x="10" y="26" width="380" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="18" y="34" width="86" height="70" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="61" y="62" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">潜伏期</text>
+  <text x="61" y="82" text-anchor="middle" font-size="12" fill="#1a3a5c">グレードⅠ</text>
+  <text x="114" y="50" font-size="11" font-weight="bold" fill="#1a3a5c">外観</text>
+  <text x="144" y="50" font-size="11" fill="#222">変化なし。測定値は限界の手前</text>
+  <text x="144" y="65" font-size="11" fill="#555">（中性化残り・塩化物イオン量）</text>
+  <line x1="114" y1="72" x2="382" y2="72" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="114" y="88" font-size="11" font-weight="bold" fill="#1a3a5c">対策</text>
+  <text x="144" y="88" font-size="11" fill="#222">水・CO2・塩分の侵入を抑える</text>
+  <text x="144" y="103" font-size="11" fill="#555">予防（表面被覆・表面含浸）</text>
+  <rect x="10" y="116" width="380" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="18" y="124" width="86" height="70" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="61" y="152" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">進展期</text>
+  <text x="61" y="172" text-anchor="middle" font-size="12" fill="#1a3a5c">グレードⅡ</text>
+  <text x="114" y="140" font-size="11" font-weight="bold" fill="#1a3a5c">外観</text>
+  <text x="144" y="140" font-size="11" fill="#222">変化なし。ただし腐食は始まる</text>
+  <text x="144" y="155" font-size="11" fill="#555">（残り不足・限界濃度超え）</text>
+  <line x1="114" y1="162" x2="382" y2="162" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="114" y="178" font-size="11" font-weight="bold" fill="#1a3a5c">対策</text>
+  <text x="144" y="178" font-size="11" fill="#222">腐食の有無を確かめ、遮断と</text>
+  <text x="144" y="193" font-size="11" fill="#555">腐食抑制を併せて検討</text>
+  <rect x="10" y="206" width="380" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="18" y="214" width="86" height="70" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="61" y="242" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">加速期前期</text>
+  <text x="61" y="262" text-anchor="middle" font-size="12" fill="#1a3a5c">グレードⅢ-1</text>
+  <text x="114" y="230" font-size="11" font-weight="bold" fill="#1a3a5c">外観</text>
+  <text x="144" y="230" font-size="11" fill="#222">腐食ひび割れ、さび汁が出る</text>
+  <text x="144" y="245" font-size="11" fill="#555">（外観で気づく最初の段階）</text>
+  <line x1="114" y1="252" x2="382" y2="252" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="114" y="268" font-size="11" font-weight="bold" fill="#1a3a5c">対策</text>
+  <text x="144" y="268" font-size="11" fill="#222">断面修復・電気防食など</text>
+  <text x="144" y="283" font-size="11" fill="#555">原因を取り除く補修</text>
+  <rect x="10" y="296" width="380" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="18" y="304" width="86" height="70" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="61" y="332" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">加速期後期</text>
+  <text x="61" y="352" text-anchor="middle" font-size="12" fill="#1a3a5c">グレードⅢ-2</text>
+  <text x="114" y="320" font-size="11" font-weight="bold" fill="#1a3a5c">外観</text>
+  <text x="144" y="320" font-size="11" fill="#222">ひび割れ多数、部分的な剥離・剥落</text>
+  <text x="144" y="335" font-size="11" fill="#555">（著しい断面欠損はまだない）</text>
+  <line x1="114" y1="342" x2="382" y2="342" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="114" y="358" font-size="11" font-weight="bold" fill="#1a3a5c">対策</text>
+  <text x="144" y="358" font-size="11" fill="#222">剥落対策を急ぎ、補修と補強の</text>
+  <text x="144" y="373" font-size="11" fill="#555">要否を耐荷力から判断</text>
+  <rect x="10" y="386" width="380" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="18" y="394" width="86" height="70" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="61" y="422" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">劣化期</text>
+  <text x="61" y="442" text-anchor="middle" font-size="12" fill="#1a3a5c">グレードⅣ</text>
+  <text x="114" y="410" font-size="11" font-weight="bold" fill="#1a3a5c">外観</text>
+  <text x="144" y="410" font-size="11" fill="#222">大規模な剥落、鋼材の断面欠損</text>
+  <text x="144" y="425" font-size="11" fill="#555">（変位・たわみが大きい例も）</text>
+  <line x1="114" y1="432" x2="382" y2="432" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="114" y="448" font-size="11" font-weight="bold" fill="#1a3a5c">対策</text>
+  <text x="144" y="448" font-size="11" fill="#222">補強、または更新を検討</text>
+  <text x="144" y="463" font-size="11" fill="#555">（第三者影響の応急措置を先行）</text>
+  <text x="200" y="488" text-anchor="middle" font-size="11" fill="#555">ⅠとⅡは外観で見分けられず、測定値で分ける</text>
+</svg>

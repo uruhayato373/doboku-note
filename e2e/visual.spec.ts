@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { representativeRoutes } from './routes';
+import { AFFILIATE_VARIANT_KEY } from '../src/lib/affiliate-experiment.mjs';
 
 /**
  * ビジュアルリグレッション（DN-0238）。
@@ -18,6 +19,11 @@ import { representativeRoutes } from './routes';
  * ローカル生成の基準を commit すると CI 側で常に赤くなる）。
  */
 const visualRoutes = [...representativeRoutes, '/links'] as const;
+
+// EXP-019 のランダム配信で基準画像が揺れないよう、画像付きの B を固定する。
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(key => localStorage.setItem(key, 'B'), AFFILIATE_VARIANT_KEY);
+});
 
 // アニメーション・キャレット点滅を止める（スピナー等の途中状態でスクリーンショットが揺れるのを防ぐ）。
 async function freezeMotion(page: import('@playwright/test').Page) {

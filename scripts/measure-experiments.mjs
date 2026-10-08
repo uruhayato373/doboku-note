@@ -16,13 +16,17 @@
  *
  * exit: 0 成功（対象 0 件を含む・件数を出力）/ 1 取得失敗あり / 2 検査不成立（API が要るのに認証なし・仕様不正）
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import dotenv from 'dotenv';
 import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
 import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
 import { buildContentIndex } from './build-growth-digest.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
+import { writeDataset } from './lib/dataset-write.mjs';
+import { latestReport } from './lib/metric-reports.mjs';
+import { recordAffiliateExperimentMeasurements } from './lib/affiliate-experiment-report.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 
@@ -71,7 +75,7 @@ async function gscValue(auth, spec, windows, legacy) {
 
 async function main() {
   const commit = process.argv.includes('--commit');
-  const ledger = JSON.parse(readFileSync(LEDGER, 'utf8'));
+  const ledger = readDataset('.', 'business.experiments');
   const today = jst();
   const targets = ledger.experiments.filter((e) => ['running', 'measuring'].includes(e.status) && e.measure);
   const invalid = targets.map((e) => [e.id, specErrors(e.measure)]).filter(([, errs]) => errs.length);
@@ -92,7 +96,9 @@ async function main() {
   // 売上は note の確定日（翌月 2 日）以降に取得・検算された月だけを確定扱いにする（未確定を target-missed と誤読しない）
   const salesThrough = sales.reduce((a, s) => (s.date > a ? s.date : a), '');
 
-  let appended = 0, skipped = 0, waiting = 0;
+  const design = recordAffiliateExperimentMeasurements(ledger, latestReport('.', 'ga4.affiliate-experiment'), new Date().toISOString());
+  console.log(`${TAG} 意匠実験: 対象 ${design.targets} 件 / 追記 ${design.appended} / データ待ち・取得済み ${design.waiting}`);
+  let appended = design.appended, skipped = 0, waiting = 0;
   const failures = [];
   for (const e of targets) {
     const spec = e.measure;
@@ -122,7 +128,7 @@ async function main() {
   console.log(`${TAG} 対象 ${targets.length} 件（measure 仕様あり）/ 追記 ${appended} / 計測済みで省略 ${skipped} / 事後窓待ち ${waiting} / 失敗 ${failures.length}`);
   if (appended && commit) {
     ledger.updated_at = new Date().toISOString();
-    writeFileSync(LEDGER, `${JSON.stringify(ledger, null, 2)}\n`);
+    writeDataset('.', 'business.experiments', ledger);
     console.log(`${TAG} → ${LEDGER}`);
   } else if (appended) console.log(`${TAG} dry-run（--commit で台帳へ追記）`);
   return failures.length ? 1 : 0;

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T11:47:04.180Z",
+  "updated_at": "2026-10-08T01:25:03.834Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1974,6 +1974,161 @@
         }
       ],
       "started_at": "2026-10-07T11:44:23.000Z"
+    },
+    {
+      "id": "EXP-019",
+      "title": "転職アフィリエイトのA/B/C意匠を訪問者単位で比較し、キャリア記事の改善につなげる",
+      "designProposalKey": "affiliate-card-2026-10-08",
+      "hypothesis": "資格・工事経験と働き方を結ぶ大見出し・太枠・相談入口を共用し、文章のA、同じ導入に支給バナーを添えるB、紺の面と短い訴求のCで、適合する読者の相談クリックを比較する。BはAとの画像差、Cは文言と配色をまとめた意匠差として評価する。noteは目的を別表示し、掲載・順序を固定して影響を測る。",
+      "target_metric": "affiliate_experiment_click / affiliate_experiment_impression、対象ページ閲覧あたりクリック。案×案件×面×ページ×端末×日別に読む。note_experimentの表示・クリックを併記し、A8成果は案件・ページで確認（案別帰属は不可）。",
+      "target_delta": "同じ対象でA/B/Cを比較する。28日で再検討するが、少数で勝敗を決めない。各案20クリック・1,000表示は人によるレビューの目安で統計的勝利条件ではない。note送客を損なわず、適合する相談クリックが増えるか確認する。",
+      "baseline": {
+        "measured_at": "2026-10-08",
+        "source": "data/ga4/reports/2026-10-07.json#cta-clicks-by-placement",
+        "window": {
+          "start": "2026-09-09",
+          "end": "2026-10-06"
+        },
+        "aggregateReferenceOnly": true,
+        "images": {
+          "impressions": 13880,
+          "clicks": 2,
+          "ctr": 0.00014409221902017292
+        },
+        "text": {
+          "impressions": 9147,
+          "clicks": 13,
+          "ctr": 0.0014212310047009948
+        },
+        "note": [
+          {
+            "placement": "article-mid",
+            "impressions": 3618,
+            "clicks": 34
+          },
+          {
+            "placement": "article-footer",
+            "impressions": 3682,
+            "clicks": 12
+          }
+        ],
+        "noteText": "画像集計は撤去済み記事サイドバーを含む。位置・案件・読者が違うので、画像の因果効果の基準値にはしない。開始時に対象ページ・面の基準値を再取得する。"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "資格や工事経験が待遇・休日・勤務地にどう活きるかを知り、仕事の選択肢を相談したい（A:転職・成長、M:待遇）",
+        "verifiedGap": "2026-10-08の本番9ページ・12掲載例を48画面で確認。文章カードはサービス名が見出し、文字リンクが本文と同じ青系。公的基準・ツール末尾には転職へつなぐ導入がない。画像よりnoteに流れる原因は未検証。",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "status": "proposed",
+      "created_at": "2026-10-08T01:01:51.918Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-10-15",
+      "pending_user_actions": [],
+      "actions": [
+        "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
+        "GA4の専用イベントを案×案件×面×ページ×端末×日でCI取得。週次measure-experimentsが保存済みレポートを台帳へ追記する。",
+        "本番デプロイとSSR・意匠を確認した時点でrunningと開始日を記録する。現在はawaiting-deployment。",
+        "公開7日後に取得・配分・表示を確認、28日後にCTR・note送客・A8発生/確定を再検討。少数なら判定保留。",
+        "キャリア記事は訴求設計の10月計画（相談→待遇→転身→若手/PE）に沿って週2本以内の既存記事改稿を行う。改稿URLと日時を履歴に残す。"
+      ],
+      "variants": [
+        {
+          "id": "A",
+          "format": "text",
+          "framePx": 3,
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        },
+        {
+          "id": "B",
+          "format": "supplied-banner-and-editorial-intro",
+          "framePx": 3,
+          "creativeRef": "src/config/affiliate-creatives.ts:PROGRAM_ASSETS.buildjob.banner",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        },
+        {
+          "id": "C",
+          "format": "dark-editorial-card",
+          "framePx": 3,
+          "role": "第1ラウンドの同率配信案",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        }
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-design",
+        "status": "awaiting-deployment",
+        "firstRound": [
+          "A",
+          "B",
+          "C"
+        ],
+        "assignment": "訪問者を約1/3ずつ。localStorageで再訪も固定。保存不可時はページ内で固定",
+        "dimensions": [
+          "experiment",
+          "variant",
+          "page",
+          "placement",
+          "program",
+          "device",
+          "date"
+        ],
+        "reportId": "ga4.affiliate-experiment",
+        "events": [
+          "affiliate_experiment_page_view",
+          "affiliate_experiment_impression",
+          "affiliate_experiment_click",
+          "note_experiment_impression",
+          "note_experiment_click"
+        ],
+        "exposure": "共通の見出し領域50%。割当前SSRのAを数えない",
+        "reviewDays": 28,
+        "minClicksPerVariant": 20,
+        "minImpressionsPerVariant": 1000,
+        "noteGuardrail": "案別note表示・クリックと全経路売上を併記。案別のA8成果帰属は未取得。CTRと前後の売上の因果を断定しない",
+        "concurrentExperimentException": "運営者がA/B/C展開と実験開始を明示。本件だけ上限の例外。EXP-017/018は配置展開の観察として残し、前後比較を本実験の意匠差に使わない。"
+      },
+      "priorityAssessment": {
+        "impact": 3,
+        "effort": 1,
+        "learning": 3,
+        "certainty": 1,
+        "weighted": 2.2,
+        "basis": "表示9,147/13,880件は実測。クリック増分は未予測。計測配線と許可確認を含むため工数を軽く見積もらない。"
+      },
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-08T01:01:51.918Z",
+          "event": "propose",
+          "note": "運営者の指示でキャッチーな見出し・太枠・画像の改善案とnote並置を画面化。まずA/Bを同一条件で比較する候補として保存。本番配信・計測は未開始。"
+        },
+        {
+          "at": "2026-10-08T01:25:03.834Z",
+          "event": "implement",
+          "note": "運営者の追加指示でA/BからA/B/Cの3案同率へ変更。案別計測とCI取得・週次記録、キャリア記事計画を実装。公開前のためstatusはproposed。"
+        }
+      ]
     }
   ]
 }

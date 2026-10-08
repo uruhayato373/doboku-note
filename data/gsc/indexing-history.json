@@ -698,6 +698,48 @@
         "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
         "/exam/pe-construction/keywords/infra-roukyuuka-iji"
       ]
+    },
+    {
+      "runId": "2026-10-08T01-30-11Z",
+      "collectedAt": "2026-10-08T01:30:11.333Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 14,
+      "accepted": 10,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/pe-construction/past-exams/r04-river-coast",
+        "/exam/building-construction",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/civil-construction-2/guide/structures-key-points",
+        "/exam/civil-construction-2/guide/water-sewer-key-points",
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/concrete-chief-engineer/textbook/products"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/pe-construction/past-exams/r04-river-coast",
+        "/exam/building-construction",
+        "/exam/civil-construction-2/guide/structures-key-points",
+        "/exam/civil-construction-2/guide/water-sewer-key-points",
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/concrete-chief-engineer/textbook/products"
+      ]
     }
   ]
 }

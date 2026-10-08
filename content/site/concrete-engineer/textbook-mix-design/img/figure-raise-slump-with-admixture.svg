@@ -1,0 +1,60 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート技士教材のスランプを上げる方法（水を増やす場合と混和剤を使う場合）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スランプを上げる二つの方法の比較。水を増やすと単位水量が増え水セメント比が大きくなり強度と耐久性が下がるおそれがある。混和剤を使うと単位水量と水セメント比を変えずに保てる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-head  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-key   { font-size: 11px; fill: #555; }
+      .t-val   { font-size: 12px; fill: #222; }
+      .t-sum   { font-size: 12px; fill: #555; }
+      .box-d   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell    { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">同じ流動性でも、上げ方で配合の中身が変わる</text>
+
+  <rect class="box-d" x="16" y="30" width="180" height="40" rx="6" />
+  <text class="t-head" x="106" y="55" text-anchor="middle">水を増やして上げる</text>
+  <rect class="box-p" x="204" y="30" width="180" height="40" rx="6" />
+  <text class="t-head" x="294" y="55" text-anchor="middle">混和剤で上げる</text>
+
+  <text class="t-key" x="22" y="92">単位水量</text>
+  <rect class="cell" x="16" y="98" width="180" height="40" rx="6" />
+  <text class="t-val" x="106" y="123" text-anchor="middle">増える</text>
+  <text class="t-key" x="210" y="92">単位水量</text>
+  <rect class="cell" x="204" y="98" width="180" height="40" rx="6" />
+  <text class="t-val" x="294" y="123" text-anchor="middle">増やさない</text>
+
+  <text class="t-key" x="22" y="162">水セメント比</text>
+  <rect class="cell" x="16" y="168" width="180" height="40" rx="6" />
+  <text class="t-val" x="106" y="193" text-anchor="middle">緩む（大きくなる）</text>
+  <text class="t-key" x="210" y="162">水セメント比</text>
+  <rect class="cell" x="204" y="168" width="180" height="40" rx="6" />
+  <text class="t-val" x="294" y="193" text-anchor="middle">変えない</text>
+
+  <text class="t-key" x="22" y="232">強度・耐久性</text>
+  <rect class="cell" x="16" y="238" width="180" height="40" rx="6" />
+  <text class="t-val" x="106" y="263" text-anchor="middle">下がるおそれ</text>
+  <text class="t-key" x="210" y="232">強度・耐久性</text>
+  <rect class="cell" x="204" y="238" width="180" height="40" rx="6" />
+  <text class="t-val" x="294" y="263" text-anchor="middle">保てる</text>
+
+  <text class="t-key" x="22" y="302">乾燥収縮・ブリーディング</text>
+  <rect class="cell" x="16" y="308" width="180" height="40" rx="6" />
+  <text class="t-val" x="106" y="333" text-anchor="middle">増えやすい</text>
+  <text class="t-key" x="210" y="302">乾燥収縮・ブリーディング</text>
+  <rect class="cell" x="204" y="308" width="180" height="40" rx="6" />
+  <text class="t-val" x="294" y="333" text-anchor="middle">増やさずに済む</text>
+
+  <rect class="box" x="16" y="372" width="368" height="108" rx="6" />
+  <text class="t-sum" x="30" y="398">一般的な鉄筋コンクリート構造物のスランプ</text>
+  <text class="t-sum" x="30" y="420">従来は8 cm、国交省の参考値は12 cm</text>
+  <text class="t-sum" x="30" y="448">12 cmでも単位水量・単位セメント量・</text>
+  <text class="t-sum" x="30" y="468">水セメント比を配合計画書で確認する</text>
+</svg>

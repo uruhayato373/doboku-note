@@ -1,0 +1,77 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は主任技士テキスト「durability」の補強工法の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="巻立て・鋼板接着・繊維シート接着・増厚の4工法を断面模式で並べ、効く性能・足すもの・引き換えの制約を対応づける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 11px; fill: #555; }
+      .t-in    { font-size: 11px; fill: #1a3a5c; }
+      .t-row   { font-size: 12px; fill: #222; }
+      .k-eff   { font-weight: bold; fill: #1a3a5c; }
+      .k-add   { font-weight: bold; fill: #2e6da4; }
+      .k-cost  { font-weight: bold; fill: #b22234; }
+      .panel   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc    { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .l-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .l-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .l-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bar     { fill: #555; }
+    </style>
+  </defs>
+
+  <!-- 巻立て -->
+  <rect class="panel" x="14" y="14" width="178" height="228" rx="6" />
+  <text class="t-name" x="103" y="38" text-anchor="middle">巻立て</text>
+  <rect class="l-brand" x="63" y="54" width="80" height="80" />
+  <rect class="conc" x="78" y="69" width="50" height="50" />
+  <circle class="bar" cx="86" cy="77" r="3" />
+  <circle class="bar" cx="120" cy="77" r="3" />
+  <circle class="bar" cx="86" cy="111" r="3" />
+  <circle class="bar" cx="120" cy="111" r="3" />
+  <text class="t-in" x="103" y="98" text-anchor="middle">既設柱</text>
+  <text class="t-lab" x="103" y="160" text-anchor="middle">RC・鋼板・繊維材で囲む</text>
+  <text class="t-row" x="103" y="184" text-anchor="middle"><tspan class="k-eff">効く：</tspan>せん断・じん性</text>
+  <text class="t-row" x="103" y="204" text-anchor="middle"><tspan class="k-add">足す：</tspan>拘束と耐力</text>
+  <text class="t-row" x="103" y="224" text-anchor="middle"><tspan class="k-cost">代償：</tspan>自重増または防食</text>
+
+  <!-- 鋼板接着 -->
+  <rect class="panel" x="208" y="14" width="178" height="228" rx="6" />
+  <text class="t-name" x="297" y="38" text-anchor="middle">鋼板接着</text>
+  <rect class="conc" x="242" y="64" width="110" height="56" />
+  <text class="t-lab" x="297" y="95" text-anchor="middle">既設部材</text>
+  <rect class="l-warn" x="242" y="120" width="110" height="9" />
+  <circle class="bar" cx="262" cy="124.5" r="2.5" />
+  <circle class="bar" cx="332" cy="124.5" r="2.5" />
+  <text class="t-lab" x="297" y="160" text-anchor="middle">鋼板（下面）＋アンカー</text>
+  <text class="t-row" x="297" y="184" text-anchor="middle"><tspan class="k-eff">効く：</tspan>曲げ</text>
+  <text class="t-row" x="297" y="204" text-anchor="middle"><tspan class="k-add">足す：</tspan>引張側の鋼板</text>
+  <text class="t-row" x="297" y="224" text-anchor="middle"><tspan class="k-cost">代償：</tspan>防食が必要</text>
+
+  <!-- 繊維シート接着 -->
+  <rect class="panel" x="14" y="258" width="178" height="228" rx="6" />
+  <text class="t-name" x="103" y="282" text-anchor="middle">繊維シート接着</text>
+  <rect class="conc" x="48" y="308" width="110" height="56" />
+  <text class="t-lab" x="103" y="339" text-anchor="middle">既設部材</text>
+  <rect class="l-pos" x="48" y="364" width="110" height="5" />
+  <text class="t-lab" x="103" y="404" text-anchor="middle">繊維シート（下面）</text>
+  <text class="t-row" x="103" y="428" text-anchor="middle"><tspan class="k-eff">効く：</tspan>曲げ</text>
+  <text class="t-row" x="103" y="448" text-anchor="middle"><tspan class="k-add">足す：</tspan>軽い引張材</text>
+  <text class="t-row" x="103" y="468" text-anchor="middle"><tspan class="k-cost">代償：</tspan>伸びが小さい</text>
+
+  <!-- 増厚 -->
+  <rect class="panel" x="208" y="258" width="178" height="228" rx="6" />
+  <text class="t-name" x="297" y="282" text-anchor="middle">増厚</text>
+  <rect class="conc" x="242" y="306" width="110" height="56" />
+  <text class="t-lab" x="297" y="337" text-anchor="middle">既設部材</text>
+  <rect class="l-brand" x="242" y="362" width="110" height="26" />
+  <circle class="bar" cx="262" cy="375" r="3" />
+  <circle class="bar" cx="297" cy="375" r="3" />
+  <circle class="bar" cx="332" cy="375" r="3" />
+  <text class="t-lab" x="297" y="404" text-anchor="middle">打ち増し部（下面）</text>
+  <text class="t-row" x="297" y="428" text-anchor="middle"><tspan class="k-eff">効く：</tspan>床版などの耐荷力</text>
+  <text class="t-row" x="297" y="448" text-anchor="middle"><tspan class="k-add">足す：</tspan>断面そのもの</text>
+  <text class="t-row" x="297" y="468" text-anchor="middle"><tspan class="k-cost">代償：</tspan>自重が増える</text>
+</svg>

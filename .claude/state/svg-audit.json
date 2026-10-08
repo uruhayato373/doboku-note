@@ -1,30 +1,33 @@
 {
   "meta": {
-    "generated_at": "2026-10-07T11:59:43.992Z",
+    "generated_at": "2026-10-08T00:29:55.312Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 917,
-    "matched_files": 917,
+    "scanned_files": 961,
+    "matched_files": 961,
     "parse_errors": 0,
-    "exam_crops_high_only": 21,
-    "files_with_issues": 126,
-    "total_findings": 290,
+    "exam_crops_high_only": 24,
+    "files_with_issues": 131,
+    "total_findings": 299,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 117,
+      "MEDIUM": 126,
       "LOW": 173
     },
     "by_pattern": {
       "P11-concept-title": 37,
       "P4-tiny-font": 133,
-      "P9-text-rect-overflow": 61,
-      "P5-wide-viewbox": 43,
-      "P2-text-overlap": 13,
+      "P9-text-rect-overflow": 64,
+      "P5-wide-viewbox": 44,
+      "P2-text-overlap": 14,
       "P9-text-shape-overlap": 2,
-      "P7-missing-font-family": 1
+      "P7-missing-font-family": 1,
+      "P3-missing-role": 1,
+      "P3-missing-aria": 1,
+      "P6-color-drift": 2
     }
   },
   "findings": [
@@ -1102,6 +1105,12 @@
       "detail": "「（空隙が残る）」が rect(x=40,w=140) 右端 x=180 を超過（bbox 右端 x=195）"
     },
     {
+      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-deck-overlay-steps.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「施工目地と地覆の際に額縁状に。」が rect(x=30,w=340) 右端 x=370 を超過（bbox 右端 x=377）"
+    },
+    {
       "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-thermography-temperature.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
@@ -1118,6 +1127,12 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「コーン状破壊」が rect(x=60,w=280) 右端 x=340 を超過（bbox 右端 x=373）"
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-pore-measure-range.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「2〜100 nm（第2部）」が rect(x=108.8,w=67.2) 右端 x=176 を超過（bbox 右端 x=192）"
     },
     {
       "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-carbonation-humidity-curve.svg",
@@ -1666,6 +1681,18 @@
       "detail": "「壁の断面（打込み後、まだ固まる」が rect(x=110,w=130) 右端 x=240 を超過（bbox 右端 x=303）"
     },
     {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-corrosion-cell.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「（空気から）」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=391）"
+    },
+    {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-charpy-transition.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「実線：吸収エネルギー（J）」と「破線：脆性破面率（%）」の bbox が重複"
+    },
+    {
       "file": "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
@@ -1937,6 +1964,36 @@
       "severity": "MEDIUM",
       "text": "土砂の出口と孔壁の支え方を比べる",
       "detail": "最上部中央の大見出し「土砂の出口と孔壁の支え方を比べる」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",
+      "pattern": "P3-missing-role",
+      "severity": "MEDIUM",
+      "detail": "role=\"img\" が未設定"
+    },
+    {
+      "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",
+      "pattern": "P3-missing-aria",
+      "severity": "MEDIUM",
+      "detail": "aria-label が未設定"
+    },
+    {
+      "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 756px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #1f2937（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
+      "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #e5e7eb（svg-tokens.json の colorsAllowList 参照）"
     }
   ],
   "parse_errors": [],
@@ -1957,9 +2014,12 @@
     "content/site/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
     "content/site/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg",
     "content/site/civil-construction-1/primary-h29-b/img/h29-b-fig-03-cp.svg",
+    "content/site/civil-construction-1/primary-h29-b/img/h29-b-fig-02.svg",
+    "content/site/civil-construction-1/primary-h28-a/img/h28-a-fig-13.svg",
     "content/site/civil-construction-1/primary-h28-a/img/h28-a-fig-09.svg",
     "content/site/civil-construction-1/primary-h27-b/img/h27-b-fig-03.svg",
     "content/site/civil-construction-1/primary-h27-b/img/h27-b-fig-03-cp.svg",
+    "content/site/civil-construction-1/primary-h27-a/img/h27-a-fig-02.svg",
     "content/site/civil-construction-1/primary-h26-b/img/h26-b-fig-02.svg",
     "content/site/civil-construction-1/primary-h26-b/img/h26-b-fig-02-cp.svg"
   ]

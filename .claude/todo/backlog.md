@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
+
+`npm run check-reference-sources:deep`（2026-10-08 実行）で、1級土木 第二次検定の基礎記事3本と過去問記事1本に、市販書籍の文字起こしと40字以上一致する箇所が計80件ある（FAIL は141件だが、記事×原本の組で数えて80件。コンクリート3資格の記事は0件）。
+
+- `content/site/civil-construction-1/secondary-concrete-basics/article.mdx` 40件（civil1-textbook-general・civil1-secondary-workbook-2021）
+- `content/site/civil-construction-1/secondary-earthwork-basics/article.mdx` 20件
+- `content/site/civil-construction-1/secondary-quality-management-basics/article.mdx` 18件
+- `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` 2件（576字・93字の一致。過去問の設問転記なら exam-official 側の扱いを確認）
+
+**やること**: 一致箇所を独自の表現に書き直す（commercial-book は逐語1文も不可・reference-sources-policy.md）。過去問記事の一致が公式の設問文なら、出典を exam-official（cecc-past-exams）に寄せて検査の扱いを確認する。直したら `npm run check-reference-sources:deep` で該当記事の一致 0 を確認する。
+
+
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
 
@@ -246,6 +259,20 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-08]
+
+2026-10-08、Windows / Node 22 の独立 worktree で npm test を実行し、2,823 件中 2,806 成功・11 失敗・6 skip。追加したアフィリエイト実験テストは成功。失敗は既存領域で、区切り文字・file URL・CRLF・prh の API/前提に関するもの。
+
+対象: tests/admin-figure-sns-board.test.mjs（4件）、check-mdx-images（1）、content-expansion（1）、pre-commit-install-guard（1）、prh-verb-forms（2）、video-cache-prune（1）、write-all-sync（1）。
+
+やること: 未変更の develop と Linux CI の結果を突合し、Windows のパス/改行を正規化する。prh は現行 API の一次情報と使用箇所を確認する。実装と同じ文字列を照合するだけの検査に置き換えない。
+
+完了条件: Windows と Linux の npm test が実検査数を示して成功し、共有フックや入力 fixture の不変条件が維持される。
+
+
+
 
 ### [DN-0579] Windows PC から Tailscale 経由で管理画面が開けるか確認する
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]

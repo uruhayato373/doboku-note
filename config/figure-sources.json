@@ -1629,6 +1629,26 @@
       "page": 21,
       "dpi": 300
     },
+    "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
+    },
+    "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A Japanese stone masonry retaining wall beside a rural road: dressed granite 'kenchi' stones, each with a roughly square face about 30 cm across, laid in a diagonal (valley-laid, tanizumi) pattern so the joints run diagonally, the wall leaning back against the slope at a steep batter. Concrete coping on top, grass and shrubs above, an asphalt road in the foreground. Daylight, no people, no text, no signs."
+    },
+    "civil-practice/material-selection-receiving/img/photo-wood-grain": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "On a plain workbench at a timber yard, the cut end of a softwood log (cedar) showing clear concentric growth rings, placed next to two sawn boards seen end-on: one flat-sawn board whose end grain shows the growth rings as long curved arcs running across the board width (tangential cut), and one quarter-sawn board whose end grain shows the rings as short straight parallel lines running through the thickness (radial cut). Natural wood colours, soft daylight, no people, no text, no labels."
+    },
+    "civil-practice/steel-material-properties/img/photo-charpy-tester": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A pendulum-type Charpy impact testing machine in a steel materials testing laboratory, side view. A tall rigid steel frame with a pivot near the top; a long pendulum arm hangs from the pivot down to the base, so that the heavy hammer at the end of the arm would strike a specimen resting on the anvil supports at the very bottom of the machine. In this photo the pendulum is raised and latched at its starting angle to one side (about 140 degrees from the hanging position), the arm length clearly reaching from the pivot to the anvil level. A notched square steel test specimen lies on the two anvil supports at the bottom centre inside a transparent safety guard. An analogue dial gauge near the pivot without readable numbers. On a small bench in the foreground lie three square-section steel specimens (10 x 10 x 55 mm) with a V notch at mid-length and two broken halves, one with a bright crystalline flat fracture surface and one with a dull fibrous torn surface. Even indoor lighting, no people, no text, no logos."
+    },
     "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
       "ref": "jcia-past-exams",
       "pdf": "vault:原資料PDF/書籍/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024/source/014.pdf",
@@ -1802,6 +1822,26 @@
       "page": 236,
       "dpi": 0
     },
+    "concrete-chief-engineer/textbook-construction/img/photo-shotcrete-tunnel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Inside a mountain road tunnel under construction (NATM), at the excavation face, lit by work lights: a wet-mix shotcrete spraying machine with a long hydraulic boom holds a nozzle about 1.5 m from the tunnel arch. A thick, dense, dark-grey stream of wet concrete shoots from the nozzle and splatters onto the rock surface, visibly building a rough grey concrete layer over steel arch ribs and wire mesh; the freshly sprayed area is wet dark grey while unsprayed rock is lighter brown-grey. A little rebound material falling below the spray point and some dust haze, but the concrete jet itself is clearly a heavy grey material, not white mist or water. The operator is small and distant at the controls, helmet on, face not visible. No text, no logos."
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Slump flow test of self-compacting (high-fluidity) concrete at a ready-mixed concrete plant test area, viewed from above at an angle. A large flat square steel base plate with a thin concentric circle marking. The fresh grey concrete has spread from the centre of the plate into a nearly perfect circular pancake about 60 cm in diameter with a smooth glossy surface and no water or aggregate separation at the edge. The steel slump cone is NOT on the plate: it is held high in the air above the centre of the spread by a gloved hand, clearly lifted at least 30 cm above the plate, its open bottom facing down, a few drips of concrete falling from its rim. A folding ruler laid across the spread without readable numbers. Daylight, no faces, no text, no logos."
+    },
+    "concrete-chief-engineer/textbook-mix-design/img/photo-steel-fiber-concrete": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of fresh steel-fibre-reinforced concrete in a wheelbarrow or mixing pan at a construction site, with a gloved hand scooping a handful: many short thin steel fibres (about 30 to 60 mm long, with hooked ends) are evenly dispersed throughout the grey concrete and protrude slightly from the surface, no balling or clumps of fibres. Daylight, no faces, no text, no logos."
+    },
+    "concrete-chief-engineer/textbook-production-qc/img/photo-core-drilling": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Horizontal core drilling into the vertical side face of a reinforced concrete wall of a civil structure. A core drilling rig is bolted to the wall itself: its base plate is anchored flat against the wall surface with an anchor bolt, and its guide column sticks straight out from the wall, horizontal and perpendicular to the wall face. The electric drill motor rides on this horizontal column and feeds the diamond core bit (about 100 mm diameter, pointing horizontally into the wall) toward the concrete. A water hose is attached for wet drilling and a little grey slurry runs down the wall below the bit. On the ground below lies one extracted cylindrical concrete core (about 100 mm diameter, 200 mm long). Only the gloved hands of a worker are visible on the feed handle. Daylight, no faces, no text, no logos."
+    },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
       "kind": "ai-generated",
       "tool": "ChatGPT"
@@ -1830,9 +1870,54 @@
       "kind": "ai-generated",
       "tool": "Codex"
     },
+    "concrete-diagnostician/textbook-investigation/img/photo-phenolphthalein-core": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a concrete core specimen (about 100 mm diameter, about 200 mm long) split lengthwise into two halves, lying on a plain grey laboratory bench indoors, no machines. The split faces have been sprayed with phenolphthalein solution: the inner part of each face is vivid red-purple (magenta), while a band about 15 to 25 mm deep from the original outer surface end of the core remains uncoloured grey, showing a clear carbonation front parallel to that surface. Coarse aggregate visible in the split faces. A plain steel ruler without readable numbers beside it. Soft even indoor lighting, no people, no text, no labels."
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-deck-shotblast": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Top surface of a reinforced concrete road bridge deck slab after the asphalt pavement has been removed and the concrete surface has been milled and shot-blasted for an overlay: a uniformly rough grey concrete surface with exposed coarse aggregate across the whole lane width, slightly dusty, with the raised concrete curb (wheel guard) and railing posts along one edge and a straight construction joint line across the lane. Traffic cones in the distance on the closed lane, no machines in the foreground. Daylight, no people, no text, no logos."
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-steel-jacket-pier-base": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Lower part of a rectangular reinforced concrete highway bridge pier that has been seismically retrofitted with steel plate jacketing: the pier column is fully wrapped in grey-painted steel plates with visible vertical weld seams and anchor bolt heads in rows, and at the very bottom there is a clear horizontal gap of about 5 cm between the lower edge of the steel jacket and the top surface of the concrete footing, so the steel does not touch the footing. The footing top surface is visible as a wider concrete block at ground level, the root-covering concrete not yet placed. Daylight, river bank setting, no people, no text, no logos."
+    },
     "concrete-diagnostician/textbook-variation/img/figure-04": {
       "kind": "ai-generated",
       "tool": "Codex"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-cold-joint": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of the side face of a cast-in-place reinforced concrete retaining wall several years after construction, no machines. A clearly visible cold joint: a single roughly horizontal, slightly wavy discontinuity line running across the wall at mid-height where a lower concrete lift and an upper lift did not bond. Slight colour difference between the lift above and below the line, faint white efflorescence and a damp water stain seeping from the joint line. Form-tie holes in a regular grid. Grey weathered concrete, overcast daylight, no people, no text."
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-surface-bubbles": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a freshly stripped formed concrete surface on the sloped (haunch) part of a concrete box culvert wall, no machines. The inclined face is covered with many small surface voids (bug holes, 2 to 10 mm diameter) concentrated on the downward-facing slope, while the vertical face below is smooth. Smooth grey formed concrete texture, plywood form panel joint lines faintly visible, daylight, no people, no text."
+    },
+    "concrete-engineer/textbook-materials/img/photo-popout": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a smooth grey concrete wall surface showing three pop-outs: small shallow conical craters 2 to 5 cm across where a near-surface aggregate particle expanded and pushed off a cone-shaped piece of the surface mortar. At the bottom of each crater a broken, split aggregate particle (porous, slightly darker, with a whitish rim) is visible. The surrounding surface is plain, smooth and uniform. Shallow depth of field: only the craters in sharp focus, the rest of the wall softly blurred. Soft overcast daylight, no people, no text, no coins or scale objects."
+    },
+    "concrete-engineer/textbook-production-qc/img/photo-mixer-drum-cover": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A Japanese concrete truck mixer (truck agitator: a cab-over truck with a rotating mixing drum on the back) parked at a ready-mixed concrete plant on a hot sunny summer day. The drum is wrapped with a white, damp heat-insulating cover sheet strapped around it, the sheet slightly darker where it is wet. Correct number of wheels and normal drum shape, chute at the rear. No people, no text, no logos, no licence plate readable."
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebar-scanner": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A technician's gloved hands sliding a handheld electromagnetic rebar locator (a compact rectangular scanner about 20 cm wide with small wheels and a small display, no readable text) horizontally across a smooth vertical concrete wall, outdoors at a civil engineering structure. Faint chalk lines on the wall mark detected bar positions as a grid of vertical and horizontal lines spaced regularly. Only hands and forearms visible. Daylight, no faces, no text, no logos, no readable screen content."
+    },
+    "concrete-engineer/textbook-properties-testing/img/photo-rebound-hammer": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A technician's gloved hands holding a concrete test hammer (rebound hammer / Schmidt hammer: a cylindrical steel-and-grey instrument about 30 cm long with a plunger at the tip) pressed perpendicular against a smooth vertical concrete wall of a bridge abutment, outdoors. On the wall, a small grid of 9 pencil or chalk dots about 3 cm apart is drawn inside a square, with the plunger touching one dot. Only the hands and forearms of the technician are visible, wearing a work jacket sleeve. Daylight, no faces, no text, no logos."
     },
     "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
       "kind": "public-data",
@@ -1913,6 +1998,13 @@
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
     },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/common/000109627.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。重点整備地区における移動等の円滑化のイメージ"
+    },
     "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0263.jpg",
       "page": 263
@@ -1971,6 +2063,13 @@
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
       "page": 9
     },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/report/press/joho04_hh_001319.html",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。令和7年度建設投資見通しの数値"
+    },
     "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
       "pdf": "vault:原資料PDF/白書/国土交通白書（令和７年度）関連データ集.pdf",
       "page": 6,
@@ -2010,6 +2109,20 @@
       "kind": "own-book-scan",
       "ref": "pe-construction-keyword-book",
       "note": "運営者が著作権を持つ書籍のスキャン。元データの出典は caption"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
+      "kind": "public-data",
+      "credit": "国土交通省",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www.mlit.go.jp/policy/shingikai/content/001764885.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。第5次社会資本整備重点計画の概要 p.2"
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
+      "kind": "public-data",
+      "credit": "内閣府",
+      "license": "政府標準利用規約（第2.0版）",
+      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/zenbun/pdf/1s1s_01.pdf",
+      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。高齢社会白書 図1-1-2 の数値"
     },
     "pe-first-stage/h23-construction/img/q7-source": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/H23/H23_専門_09建設部門.pdf",
@@ -2210,34 +2323,6 @@
       "pdf": "vault:原資料PDF/過去問/測量士補/R08/R08_問題.pdf",
       "page": 29,
       "dpi": 300
-    },
-    "pe-construction/ninaite-dx-ronbun-keyword/img/construction-investment-trend": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/report/press/joho04_hh_001319.html",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。令和7年度建設投資見通しの数値"
-    },
-    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/barrier-free-basic-plan": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/common/000109627.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。重点整備地区における移動等の円滑化のイメージ"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/population-aging-trend": {
-      "kind": "public-data",
-      "credit": "内閣府",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www8.cao.go.jp/kourei/whitepaper/w-2025/zenbun/pdf/1s1s_01.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。高齢社会白書 図1-1-2 の数値"
-    },
-    "pe-construction/shakai-shihon-ronbun-keyword/img/infra-plan-5th-overview": {
-      "kind": "public-data",
-      "credit": "国土交通省",
-      "license": "政府標準利用規約（第2.0版）",
-      "url": "https://www.mlit.go.jp/policy/shingikai/content/001764885.pdf",
-      "note": "公表資料をもとに doboku-note が作図（2026-10-08）。第5次社会資本整備重点計画の概要 p.2"
     }
   },
   "categories": {

@@ -1,0 +1,75 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート診断士教材のひび割れと鋼材腐食の順序。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="耐久性上有害なひび割れの二系統。ひび割れ先行型はひび割れが先に生じ、そこから水や塩分が入って鋼材腐食へ進む。鋼材腐食先行型は中性化や塩害で鋼材腐食が先に進み、腐食膨張でひび割れと剥落が生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-head  { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .t-box   { font-size: 11px; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arr   { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#1a3a5c" /></marker>
+  </defs>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">上から下へ時間が進む。出発点がどちらかで調べる順が変わる</text>
+
+  <text class="t-head" x="100" y="46" text-anchor="middle">ひび割れ先行型</text>
+  <text class="t-head" x="300" y="46" text-anchor="middle">鋼材腐食先行型</text>
+
+  <rect class="box-b" x="15" y="58" width="170" height="60" rx="6" />
+  <text class="t-box" x="100" y="84" text-anchor="middle">ひび割れが先に発生</text>
+  <text class="t-box" x="100" y="102" text-anchor="middle">（収縮・沈下・荷重など）</text>
+  <line class="arr" x1="100" y1="119" x2="100" y2="142" marker-end="url(#ar)" />
+
+  <rect class="box-b" x="15" y="144" width="170" height="60" rx="6" />
+  <text class="t-box" x="100" y="170" text-anchor="middle">水・酸素・塩化物イオン</text>
+  <text class="t-box" x="100" y="188" text-anchor="middle">・二酸化炭素が鋼材へ</text>
+  <line class="arr" x1="100" y1="205" x2="100" y2="228" marker-end="url(#ar)" />
+
+  <rect class="box-w" x="15" y="230" width="170" height="60" rx="6" />
+  <text class="t-box" x="100" y="256" text-anchor="middle">鋼材腐食が始まる</text>
+  <text class="t-box" x="100" y="274" text-anchor="middle">ひび割れ位置が起点</text>
+  <line class="arr" x1="100" y1="291" x2="100" y2="314" marker-end="url(#ar)" />
+
+  <rect class="box-r" x="15" y="316" width="170" height="60" rx="6" />
+  <text class="t-box" x="100" y="342" text-anchor="middle">錆汁の流出と</text>
+  <text class="t-box" x="100" y="360" text-anchor="middle">ひび割れの拡大</text>
+
+  <rect class="box-b" x="215" y="58" width="170" height="60" rx="6" />
+  <text class="t-box" x="300" y="84" text-anchor="middle">中性化・塩化物イオン</text>
+  <text class="t-box" x="300" y="102" text-anchor="middle">がかぶりを通って進行</text>
+  <line class="arr" x1="300" y1="119" x2="300" y2="142" marker-end="url(#ar)" />
+
+  <rect class="box-b" x="215" y="144" width="170" height="60" rx="6" />
+  <text class="t-box" x="300" y="170" text-anchor="middle">鋼材位置で不動態被膜</text>
+  <text class="t-box" x="300" y="188" text-anchor="middle">が失われ腐食が始まる</text>
+  <line class="arr" x1="300" y1="205" x2="300" y2="228" marker-end="url(#ar)" />
+
+  <rect class="box-w" x="215" y="230" width="170" height="60" rx="6" />
+  <text class="t-box" x="300" y="256" text-anchor="middle">腐食生成物が体積膨張</text>
+  <text class="t-box" x="300" y="274" text-anchor="middle">（かぶりを押し出す）</text>
+  <line class="arr" x1="300" y1="291" x2="300" y2="314" marker-end="url(#ar)" />
+
+  <rect class="box-r" x="215" y="316" width="170" height="60" rx="6" />
+  <text class="t-box" x="300" y="342" text-anchor="middle">鉄筋軸方向のひび割れ</text>
+  <text class="t-box" x="300" y="360" text-anchor="middle">から浮き・剥離・剥落へ</text>
+
+  <rect class="box" x="15" y="396" width="170" height="88" rx="6" />
+  <text class="t-desc" x="100" y="418" text-anchor="middle">ひび割れが原因</text>
+  <text class="t-desc" x="100" y="436" text-anchor="middle">幅・貫通性・活動性で</text>
+  <text class="t-desc" x="100" y="454" text-anchor="middle">水や塩分の通り道に</text>
+  <text class="t-desc" x="100" y="472" text-anchor="middle">なっているかを見る</text>
+
+  <rect class="box" x="215" y="396" width="170" height="88" rx="6" />
+  <text class="t-desc" x="300" y="418" text-anchor="middle">ひび割れは結果</text>
+  <text class="t-desc" x="300" y="436" text-anchor="middle">見えた時点で腐食は</text>
+  <text class="t-desc" x="300" y="454" text-anchor="middle">進行している。腐食量と</text>
+  <text class="t-desc" x="300" y="472" text-anchor="middle">かぶりの状態を調べる</text>
+</svg>

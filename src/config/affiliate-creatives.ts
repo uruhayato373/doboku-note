@@ -281,3 +281,9 @@ export const PROGRAM_ASSETS: Readonly<Record<string, ProgramAsset>> = {
   "dx-consulting": { banner: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar", card: () => resolvePeConsultingArticleEndCard() },
   "kensetsu-jobs": { banner: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar", card: (slug, need) => resolveKensetsuJobsCopy(slug, need) },
 };
+
+/** 既存の許可済みリンクに対応する案件だけを意匠実験へ渡す。 */
+export function programAssetForHref(href: string | undefined): { program: string; asset: ProgramAsset } | null {
+  const match = Object.entries(PROGRAM_ASSETS).find(([, asset]) => asset.banner.href === href);
+  return match ? { program: match[0], asset: match[1] } : null;
+}

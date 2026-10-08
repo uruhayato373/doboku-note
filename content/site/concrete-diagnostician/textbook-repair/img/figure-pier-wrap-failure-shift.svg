@@ -1,0 +1,78 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は橋脚の巻立て補強で「どの破壊の形から、どれへ移すか」と、巻立て材ごとの施工の急所。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="橋脚の巻立て補強の考え方。せん断破壊型は先にせん断補強で止めて基部の曲げ破壊型へ移し、残留変位が大きいときだけ軸方向鉄筋をフーチングへ定着して曲げ耐力を上げる。下段にRC巻立て、鋼板巻立て、繊維シート巻立ての断面と、それぞれ施工で品質が決まる点を並べる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-strong { font-size: 12px; fill: #222; font-weight: 700; }
+      .t-small { font-size: 11px; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .line-warn { stroke: #d4a017; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+      .line-div { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .steel { fill: none; stroke: #2e6da4; stroke-width: 4; }
+      .sheet { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 2; }
+      .bar { fill: #555; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#d4a017"/></marker>
+  </defs>
+
+  <!-- 上段: 破壊の形の移し方 -->
+  <rect class="box-r" x="30" y="8" width="340" height="50" rx="6" />
+  <text class="t-strong" x="200" y="28" text-anchor="middle">せん断破壊型・曲げ損傷後にせん断破壊へ移る型</text>
+  <text class="t-desc" x="200" y="46" text-anchor="middle">耐力が急に落ちる</text>
+
+  <line class="line-main" x1="200" y1="58" x2="200" y2="84" marker-end="url(#ab)" />
+  <text class="t-small" x="210" y="76" text-anchor="start">先にせん断補強で止める</text>
+
+  <rect class="box-g" x="30" y="86" width="340" height="50" rx="6" />
+  <text class="t-strong" x="200" y="106" text-anchor="middle">橋脚基部で曲げ破壊する型</text>
+  <text class="t-desc" x="200" y="124" text-anchor="middle">帯鉄筋や鋼板の拘束でじん性を上げる</text>
+
+  <line class="line-warn" x1="200" y1="136" x2="200" y2="160" marker-end="url(#aw)" />
+  <text class="t-small" x="210" y="153" text-anchor="start">残留変位が大きいときだけ</text>
+
+  <rect class="box-w" x="30" y="162" width="340" height="50" rx="6" />
+  <text class="t-strong" x="200" y="182" text-anchor="middle">軸方向鉄筋をフーチングへ定着する</text>
+  <text class="t-desc" x="200" y="200" text-anchor="middle">曲げ耐力を上げる。基礎が支える範囲まで</text>
+
+  <line class="line-div" x1="20" y1="228" x2="380" y2="228" />
+
+  <!-- 下段1: RC巻立て -->
+  <rect class="box-s" x="24" y="244" width="76" height="68" rx="4" />
+  <rect class="box-b" x="24" y="244" width="76" height="68" rx="4" />
+  <rect class="box-s" x="44" y="262" width="36" height="32" />
+  <circle class="bar" cx="31" cy="251" r="2.5" /><circle class="bar" cx="93" cy="251" r="2.5" />
+  <circle class="bar" cx="31" cy="305" r="2.5" /><circle class="bar" cx="93" cy="305" r="2.5" />
+  <circle class="bar" cx="62" cy="251" r="2.5" /><circle class="bar" cx="62" cy="305" r="2.5" />
+  <text class="t-strong" x="116" y="260" text-anchor="start">RC巻立て</text>
+  <text class="t-desc" x="116" y="278" text-anchor="start">骨材が出るまで下地を荒らす</text>
+  <text class="t-desc" x="116" y="294" text-anchor="start">断面は250mm程度以上ふえる</text>
+  <text class="t-desc" x="116" y="310" text-anchor="start">乾燥収縮のひび割れに注意</text>
+
+  <!-- 下段2: 鋼板巻立て -->
+  <rect class="steel" x="26" y="330" width="72" height="64" rx="2" />
+  <rect class="box-s" x="30" y="334" width="64" height="56" />
+  <rect class="box-s" x="44" y="346" width="36" height="32" />
+  <text class="t-strong" x="116" y="346" text-anchor="start">鋼板巻立て</text>
+  <text class="t-desc" x="116" y="364" text-anchor="start">すき間へ無収縮モルタルを密実に</text>
+  <text class="t-desc" x="116" y="380" text-anchor="start">基部は50〜100mm程度あける</text>
+  <text class="t-desc" x="116" y="396" text-anchor="start">鋼板の防食が長期の課題</text>
+
+  <!-- 下段3: 繊維シート巻立て -->
+  <rect class="sheet" x="40" y="420" width="44" height="40" />
+  <rect class="box-s" x="44" y="424" width="36" height="32" />
+  <text class="t-strong" x="116" y="430" text-anchor="start">繊維シート巻立て</text>
+  <text class="t-desc" x="116" y="448" text-anchor="start">下地を平滑にし、樹脂をしみ込ませる</text>
+  <text class="t-desc" x="116" y="464" text-anchor="start">断面はほぼ変わらない</text>
+  <text class="t-desc" x="116" y="480" text-anchor="start">基部の曲げ補強には向かない</text>
+</svg>

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-06T05:40:22.151Z",
+  "generated_at": "2026-10-07T23:50:03.003Z",
   "summary": {
-    "total_mdx_files": 1350,
+    "total_mdx_files": 1352,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -3259,7 +3259,7 @@
     },
     {
       "name": "品質管理",
-      "count": 41,
+      "count": 43,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3271,6 +3271,7 @@
         "civil-construction-1-textbook-quality-inspection",
         "civil-construction-1-textbook-quality-overview",
         "civil-construction-2-guide-quality-management",
+        "civil-practice-asphalt-materials-types",
         "civil-practice-board-of-audit-inspection",
         "civil-practice-construction-inspection-types",
         "civil-practice-material-selection-receiving",
@@ -3278,6 +3279,7 @@
         "civil-practice-quality-record-site-bcp",
         "civil-practice-reference-values",
         "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-steel-material-properties",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
         "concrete-engineer-textbook-production-qc",
@@ -3441,10 +3443,11 @@
     },
     {
       "name": "道路",
-      "count": 29,
+      "count": 30,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
+        "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-schedule-and-road-permit",
@@ -4640,6 +4643,18 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-steel-material-properties",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "測量",
       "count": 5,
       "inAllowlist": true,
@@ -4887,16 +4902,6 @@
       ]
     },
     {
-      "name": "材料",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-engineer-textbook-materials"
-      ]
-    },
-    {
       "name": "生産性向上",
       "count": 3,
       "inAllowlist": true,
@@ -4924,6 +4929,16 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection"
+      ]
+    },
+    {
+      "name": "鋼構造物",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-steel-structures",
+        "civil-construction-2-guide-structures-key-points",
+        "civil-practice-steel-material-properties"
       ]
     },
     {
@@ -5032,15 +5047,6 @@
       "usedIn": [
         "civil-construction-1-guide-demolition",
         "civil-construction-1-textbook-demolition"
-      ]
-    },
-    {
-      "name": "鋼構造物",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-steel-structures",
-        "civil-construction-2-guide-structures-key-points"
       ]
     },
     {
