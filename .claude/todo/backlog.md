@@ -1500,6 +1500,12 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
+タグ: [領域:管理] [種類:不具合] [起票:2026-10-08]
+
+2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
+
+
 ### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
 タグ: [領域:管理] [種類:改善] [起票:2026-10-08]
 
