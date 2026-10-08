@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "pe-first-stage",
+  "publications": [
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform",
+      "work": "pe1-zentaizou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
+}

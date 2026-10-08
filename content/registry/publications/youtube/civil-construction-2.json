@@ -4,18 +4,1460 @@
   "exam": "civil-construction-2",
   "publications": [
     {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.longform",
+      "work": "anzen-ippanron-3riyu",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-07T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "OcLmhVP5fho",
+        "url": "https://www.youtube.com/watch?v=OcLmhVP5fho",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T02:19:26.424Z",
+        "scheduled": "2026-09-05T02:23:13.594Z",
+        "metadataSynced": "2026-09-05T13:00:34.549Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1",
+      "work": "anzen-ippanron-3riyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-cause1-1",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#shorts/point-cause1-1",
+      "relatedTo": "civil-construction-2/anzen-ippanron-3riyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "aUdejUmJBaQ",
+        "url": "https://www.youtube.com/watch?v=aUdejUmJBaQ",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "OcLmhVP5fho"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:32.014Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2",
+      "work": "anzen-ippanron-3riyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-cause2-2",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#shorts/point-cause2-2",
+      "relatedTo": "civil-construction-2/anzen-ippanron-3riyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "d0cDATMjpJk",
+        "url": "https://www.youtube.com/watch?v=d0cDATMjpJk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "OcLmhVP5fho"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:32.703Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
+      "work": "gakka-2kyu-concrete",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-10T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "xX9zcjzLrAA",
+        "url": "https://www.youtube.com/watch?v=xX9zcjzLrAA",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:31:27.208Z",
+        "scheduled": "2026-09-05T05:33:02.244Z",
+        "metadataSynced": "2026-09-05T13:00:41.698Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2",
+      "work": "gakka-2kyu-concrete",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-block1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#shorts/point-block1-2",
+      "relatedTo": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "1DIyMBq6qzk",
+        "url": "https://www.youtube.com/watch?v=1DIyMBq6qzk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "xX9zcjzLrAA"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:36.811Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1",
+      "work": "gakka-2kyu-concrete",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#shorts/point-overview-1",
+      "relatedTo": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "rPLeEAVhyhY",
+        "url": "https://www.youtube.com/watch?v=rPLeEAVhyhY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "xX9zcjzLrAA"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:01.555Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "work": "gakka-2kyu-doko",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-08T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "sqkP7vheZ_Q",
+        "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:01:43.773Z",
+        "scheduled": "2026-09-05T05:04:29.138Z",
+        "metadataSynced": "2026-09-05T13:00:37.296Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+      "work": "gakka-2kyu-doko",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-block1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-block1-2",
+      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "lb5HDoptayQ",
+        "url": "https://www.youtube.com/watch?v=lb5HDoptayQ",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "sqkP7vheZ_Q"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:41.866Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+      "work": "gakka-2kyu-doko",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-overview-1",
+      "relatedTo": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "g86O04mXoVM",
+        "url": "https://www.youtube.com/watch?v=g86O04mXoVM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "sqkP7vheZ_Q"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:41.866Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/youtube.longform",
+      "work": "gakka-2kyu-hoki",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-16T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "reNIefkFy0M",
+        "url": "https://www.youtube.com/watch?v=reNIefkFy0M",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:31:29.687Z",
+        "scheduled": "2026-09-05T05:33:34.770Z",
+        "metadataSynced": "2026-09-05T13:00:58.335Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2",
+      "work": "gakka-2kyu-hoki",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-block1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/youtube.json#shorts/point-block1-2",
+      "relatedTo": "civil-construction-2/gakka-2kyu-hoki/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Kduso7RhZxA",
+        "url": "https://www.youtube.com/watch?v=Kduso7RhZxA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "reNIefkFy0M"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:46.113Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1",
+      "work": "gakka-2kyu-hoki",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/youtube.json#shorts/point-overview-1",
+      "relatedTo": "civil-construction-2/gakka-2kyu-hoki/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Up4nH_eJChY",
+        "url": "https://www.youtube.com/watch?v=Up4nH_eJChY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "reNIefkFy0M"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:57.323Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/youtube.longform",
+      "work": "gakka-2kyu-kiso",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-12T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "EaGr39dA7c8",
+        "url": "https://www.youtube.com/watch?v=EaGr39dA7c8",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:31:28.856Z",
+        "scheduled": "2026-09-05T05:33:15.321Z",
+        "metadataSynced": "2026-09-05T13:00:47.502Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2",
+      "work": "gakka-2kyu-kiso",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-block1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/youtube.json#shorts/point-block1-2",
+      "relatedTo": "civil-construction-2/gakka-2kyu-kiso/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Z6bXHth1FE0",
+        "url": "https://www.youtube.com/watch?v=Z6bXHth1FE0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "EaGr39dA7c8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:21.531Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1",
+      "work": "gakka-2kyu-kiso",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/youtube.json#shorts/point-overview-1",
+      "relatedTo": "civil-construction-2/gakka-2kyu-kiso/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "1MKUGiMPxCM",
+        "url": "https://www.youtube.com/watch?v=1MKUGiMPxCM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "EaGr39dA7c8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:21.531Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-14T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "JXEL3opmEE0",
+        "url": "https://www.youtube.com/watch?v=JXEL3opmEE0",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:31:30.732Z",
+        "scheduled": "2026-09-05T05:33:23.780Z",
+        "metadataSynced": "2026-09-05T13:00:53.295Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-block1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.json#shorts/point-block1-2",
+      "relatedTo": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "XDN2WpUXIEs",
+        "url": "https://www.youtube.com/watch?v=XDN2WpUXIEs",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "JXEL3opmEE0"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:38.817Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.json#shorts/point-overview-1",
+      "relatedTo": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "QiY7-TTCSL0",
+        "url": "https://www.youtube.com/watch?v=QiY7-TTCSL0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "JXEL3opmEE0"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:38.817Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-17T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "rnZwT4kxuw4",
+        "url": "https://www.youtube.com/watch?v=rnZwT4kxuw4",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T03:42:26.658Z",
+        "scheduled": "2026-09-05T03:44:35.522Z",
+        "metadataSynced": "2026-09-05T13:01:00.589Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-fields-1",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/youtube.json#shorts/point-fields-1",
+      "relatedTo": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Q7jyqmBrrGA",
+        "url": "https://www.youtube.com/watch?v=Q7jyqmBrrGA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "rnZwT4kxuw4"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:07.427Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-pattern1-2",
+      "copy": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/youtube.json#shorts/point-pattern1-2",
+      "relatedTo": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "87OW9UKqqQk",
+        "url": "https://www.youtube.com/watch?v=87OW9UKqqQk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "rnZwT4kxuw4"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:07.427Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/youtube.longform",
+      "work": "keiken-2kyu-level",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-18T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "MZD0aYZDZ9c",
+        "url": "https://www.youtube.com/watch?v=MZD0aYZDZ9c",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:51:58.976Z",
+        "scheduled": "2026-09-05T05:53:25.206Z",
+        "metadataSynced": "2026-09-05T13:01:03.283Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2",
+      "work": "keiken-2kyu-level",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kata-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/youtube.json#shorts/point-kata-2",
+      "relatedTo": "civil-construction-2/keiken-2kyu-level/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "TXLz11gXQtE",
+        "url": "https://www.youtube.com/watch?v=TXLz11gXQtE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "MZD0aYZDZ9c"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:17.617Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1",
+      "work": "keiken-2kyu-level",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-level-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/youtube.json#shorts/point-level-1",
+      "relatedTo": "civil-construction-2/keiken-2kyu-level/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "EHSrBu0VR-s",
+        "url": "https://www.youtube.com/watch?v=EHSrBu0VR-s",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "MZD0aYZDZ9c"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:17.617Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-11T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "FjhdM9A5vkw",
+        "url": "https://www.youtube.com/watch?v=FjhdM9A5vkw",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:21:41.253Z",
+        "scheduled": "2026-09-05T05:23:20.580Z",
+        "metadataSynced": "2026-09-05T13:00:44.830Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.json#shorts/point-step1-1",
+      "relatedTo": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "hdk4s_47o1U",
+        "url": "https://www.youtube.com/watch?v=hdk4s_47o1U",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "FjhdM9A5vkw"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:11.324Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.json#shorts/point-step2-2",
+      "relatedTo": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "NevinH7znKk",
+        "url": "https://www.youtube.com/watch?v=NevinH7znKk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "FjhdM9A5vkw"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:11.324Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-09T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "KYikQB6NJn4",
+        "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T03:33:54.864Z",
+        "scheduled": "2026-09-05T03:36:15.814Z",
+        "metadataSynced": "2026-09-05T13:00:39.733Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/youtube.json#shorts/point-step1-1",
+      "relatedTo": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "YXHlYnY1vGE",
+        "url": "https://www.youtube.com/watch?v=YXHlYnY1vGE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "KYikQB6NJn4"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:52.047Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/youtube.json#shorts/point-step2-2",
+      "relatedTo": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "7fUEBoeeLQw",
+        "url": "https://www.youtube.com/watch?v=7fUEBoeeLQw",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "KYikQB6NJn4"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:34.810Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform",
+      "work": "keiken-genten-kyotsuten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-20T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "RzMqSUAqaYA",
+        "url": "https://www.youtube.com/watch?v=RzMqSUAqaYA",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:51:56.062Z",
+        "scheduled": "2026-09-05T05:53:43.995Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2",
+      "work": "keiken-genten-kyotsuten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kaigyo-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#shorts/point-kaigyo-2",
+      "relatedTo": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "E_KQDRUJq68",
+        "url": "https://www.youtube.com/watch?v=E_KQDRUJq68",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "RzMqSUAqaYA"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:32.996Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1",
+      "work": "keiken-genten-kyotsuten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-taisai-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#shorts/point-taisai-1",
+      "relatedTo": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "0XqXePu1Rgw",
+        "url": "https://www.youtube.com/watch?v=0XqXePu1Rgw",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "RzMqSUAqaYA"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:32.996Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-13T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "ySo7PYMJ1-k",
+        "url": "https://www.youtube.com/watch?v=ySo7PYMJ1-k",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T03:33:40.924Z",
+        "scheduled": "2026-09-05T03:36:24.502Z",
+        "metadataSynced": "2026-09-05T13:00:50.873Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kadai-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#shorts/point-kadai-2",
+      "relatedTo": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "6uUMq0pdgUI",
+        "url": "https://www.youtube.com/watch?v=6uUMq0pdgUI",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "ySo7PYMJ1-k"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:31.504Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-nagare-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#shorts/point-nagare-1",
+      "relatedTo": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "jTSQzEvUthI",
+        "url": "https://www.youtube.com/watch?v=jTSQzEvUthI",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "ySo7PYMJ1-k"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:31.504Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/youtube.longform",
+      "work": "keiken-koji-ga-nai",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-19T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "XePxJSqRIVc",
+        "url": "https://www.youtube.com/watch?v=XePxJSqRIVc",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:51:58.183Z",
+        "scheduled": "2026-09-05T05:53:35.306Z",
+        "metadataSynced": "2026-09-05T13:01:05.920Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1",
+      "work": "keiken-koji-ga-nai",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-taisho-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/youtube.json#shorts/point-taisho-1",
+      "relatedTo": "civil-construction-2/keiken-koji-ga-nai/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "tMRNDZYrWqM",
+        "url": "https://www.youtube.com/watch?v=tMRNDZYrWqM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "XePxJSqRIVc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:47.695Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2",
+      "work": "keiken-koji-ga-nai",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-taishogai-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/youtube.json#shorts/point-taishogai-2",
+      "relatedTo": "civil-construction-2/keiken-koji-ga-nai/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "_M1Fvem0sqI",
+        "url": "https://www.youtube.com/watch?v=_M1Fvem0sqI",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "XePxJSqRIVc"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:58:49.586Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/youtube.longform",
+      "work": "keiken-kotei-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-15T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "1LN_U2iF3Dw",
+        "url": "https://www.youtube.com/watch?v=1LN_U2iF3Dw",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:51:57.393Z",
+        "scheduled": "2026-09-05T05:53:15.540Z",
+        "metadataSynced": "2026-09-05T13:00:55.588Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1",
+      "work": "keiken-kotei-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-nagare-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/youtube.json#shorts/point-nagare-1",
+      "relatedTo": "civil-construction-2/keiken-kotei-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "hvt0PlGaPb0",
+        "url": "https://www.youtube.com/watch?v=hvt0PlGaPb0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "1LN_U2iF3Dw"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:46.599Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2",
+      "work": "keiken-kotei-kakikata",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tenko-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/youtube.json#shorts/point-tenko-2",
+      "relatedTo": "civil-construction-2/keiken-kotei-kakikata/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "HNecw6Gqq-0",
+        "url": "https://www.youtube.com/watch?v=HNecw6Gqq-0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "1LN_U2iF3Dw"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:18:46.599Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-21T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "XoRkjNH0XCI",
+        "url": "https://www.youtube.com/watch?v=XoRkjNH0XCI",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T03:42:24.225Z",
+        "scheduled": "2026-09-05T03:46:40.083Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-gakka-fields-2",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.json#shorts/point-gakka-fields-2",
+      "relatedTo": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "8ehtpycMPKg",
+        "url": "https://www.youtube.com/watch?v=8ehtpycMPKg",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "XoRkjNH0XCI"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:55.129Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-theme-shift-1",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-theme-shift-1",
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.json#shorts/point-theme-shift-1",
+      "relatedTo": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "y40BxgHdGq4",
+        "url": "https://www.youtube.com/watch?v=y40BxgHdGq4",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "XoRkjNH0XCI"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:43.167Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-22T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DSXvla-qsYQ",
+        "url": "https://www.youtube.com/watch?v=DSXvla-qsYQ",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:51:59.687Z",
+        "scheduled": "2026-09-05T05:53:51.815Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-soil-tests-1",
+      "copy": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/youtube.json#shorts/point-soil-tests-1",
+      "relatedTo": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "324BqmmDkbk",
+        "url": "https://www.youtube.com/watch?v=324BqmmDkbk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "DSXvla-qsYQ"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:53:56.564Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-volume-2",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-soil-volume-2",
+      "copy": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/youtube.json#shorts/point-soil-volume-2",
+      "relatedTo": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "pqgTgxwbnyw",
+        "url": "https://www.youtube.com/watch?v=pqgTgxwbnyw",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "DSXvla-qsYQ"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:58:51.854Z"
+      }
+    },
+    {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
       "work": "matome-2kyu-chokuzen",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed",
       "copy": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/youtube.json#longform",
-      "publishAt": "2026-10-23T20:00:00+09:00",
       "media": {
         "cover": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover",
         "cta": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cta",
         "video": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video",
         "subtitles": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/subtitles"
+      },
+      "status": "qa_passed"
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-05T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Y3R-39rxwu8",
+        "url": "https://www.youtube.com/watch?v=Y3R-39rxwu8",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:01:43.104Z",
+        "scheduled": "2026-09-05T05:04:20.653Z",
+        "metadataSynced": "2026-09-05T13:00:29.592Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-qualification-2",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-qualification-2",
+      "copy": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.json#shorts/point-qualification-2",
+      "relatedTo": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "KfzSYuEPMGA",
+        "url": "https://www.youtube.com/watch?v=KfzSYuEPMGA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "Y3R-39rxwu8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:12.470Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-stage-1",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-stage-1",
+      "copy": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.json#shorts/point-stage-1",
+      "relatedTo": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "yCl4e-wN-i0",
+        "url": "https://www.youtube.com/watch?v=yCl4e-wN-i0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "Y3R-39rxwu8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:12.470Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/youtube.longform",
+      "work": "study-plan-2kyu",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-06T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "agEnqsk8RIQ",
+        "url": "https://www.youtube.com/watch?v=agEnqsk8RIQ",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T05:21:41.714Z",
+        "scheduled": "2026-09-05T05:23:12.324Z",
+        "metadataSynced": "2026-09-05T13:00:32.259Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
+      }
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/youtube.short.point-step1-1",
+      "work": "study-plan-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/youtube.json#shorts/point-step1-1",
+      "relatedTo": "civil-construction-2/study-plan-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2yIMlSK6mY8",
+        "url": "https://www.youtube.com/watch?v=2yIMlSK6mY8",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "agEnqsk8RIQ"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:22.120Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/youtube.short.point-step2-2",
+      "work": "study-plan-2kyu",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/youtube.json#shorts/point-step2-2",
+      "relatedTo": "civil-construction-2/study-plan-2kyu/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "LAdnsoG0EtE",
+        "url": "https://www.youtube.com/watch?v=LAdnsoG0EtE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "agEnqsk8RIQ"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:17:22.120Z"
       }
     }
   ]

@@ -1,0 +1,1276 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "concrete-chief-engineer",
+  "publications": [
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-18T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "HlDYdjBXCMs",
+        "url": "https://www.youtube.com/watch?v=HlDYdjBXCMs",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:16:02.958Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-tanni-saikotsu-kuuki-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.json#shorts/point-tanni-saikotsu-kuuki-2",
+      "relatedTo": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "YnOFx25pBaA",
+        "url": "https://www.youtube.com/watch?v=YnOFx25pBaA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "HlDYdjBXCMs"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:59:12.442Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-wc-ratio-1",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-wc-ratio-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.json#shorts/point-wc-ratio-1",
+      "relatedTo": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "VPbmtpZ0Igo",
+        "url": "https://www.youtube.com/watch?v=VPbmtpZ0Igo",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "HlDYdjBXCMs"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:59:12.442Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-19T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "RpdNdRh78eg",
+        "url": "https://www.youtube.com/watch?v=RpdNdRh78eg",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:16:06.409Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "NpgO2p2hhuQ",
+        "url": "https://www.youtube.com/watch?v=NpgO2p2hhuQ",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "RpdNdRh78eg"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:56:18.130Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step2-2",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "D2a6c8aGAO0",
+        "url": "https://www.youtube.com/watch?v=D2a6c8aGAO0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "RpdNdRh78eg"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:59:20.218Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform",
+      "work": "shunin-construction-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-05T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "SguaNU_H2vE",
+        "url": "https://www.youtube.com/watch?v=SguaNU_H2vE",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:15.620Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-overview-1",
+      "work": "shunin-construction-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "qhgcDSsm7dw",
+        "url": "https://www.youtube.com/watch?v=qhgcDSsm7dw",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "SguaNU_H2vE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:40.182Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-step1-2",
+      "work": "shunin-construction-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/youtube.json#shorts/point-step1-2",
+      "relatedTo": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "LhG_1GldMwE",
+        "url": "https://www.youtube.com/watch?v=LhG_1GldMwE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "SguaNU_H2vE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:40.182Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform",
+      "work": "shunin-durability-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-07T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "LI3NnSqSDws",
+        "url": "https://www.youtube.com/watch?v=LI3NnSqSDws",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:22.846Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-carbonation-1",
+      "work": "shunin-durability-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-carbonation-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/youtube.json#shorts/point-carbonation-1",
+      "relatedTo": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "mCPwoqlrhSs",
+        "url": "https://www.youtube.com/watch?v=mCPwoqlrhSs",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "LI3NnSqSDws"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:56.163Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-salt-2",
+      "work": "shunin-durability-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-salt-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/youtube.json#shorts/point-salt-2",
+      "relatedTo": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "bGhBxkgppUU",
+        "url": "https://www.youtube.com/watch?v=bGhBxkgppUU",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "LI3NnSqSDws"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:56.163Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-26T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "fSBec6DK6ng",
+        "url": "https://www.youtube.com/watch?v=fSBec6DK6ng",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:45.815Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-06T12:16:16.280Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "AZ4W2i5-wTE",
+        "url": "https://www.youtube.com/watch?v=AZ4W2i5-wTE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "fSBec6DK6ng"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:09.501Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-step1-2",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.json#shorts/point-step1-2",
+      "relatedTo": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "I-veg2fFaio",
+        "url": "https://www.youtube.com/watch?v=I-veg2fFaio",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "fSBec6DK6ng"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:09.501Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform",
+      "work": "shunin-materials-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-28T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "osT2Ja5ye7I",
+        "url": "https://www.youtube.com/watch?v=osT2Ja5ye7I",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:50.508Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-09T12:59:22.126Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-cement-types-2",
+      "work": "shunin-materials-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-cement-types-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/youtube.json#shorts/point-cement-types-2",
+      "relatedTo": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "L-1kNUQOLtM",
+        "url": "https://www.youtube.com/watch?v=L-1kNUQOLtM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "osT2Ja5ye7I"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:33.478Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-clinker-1",
+      "work": "shunin-materials-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-clinker-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/youtube.json#shorts/point-clinker-1",
+      "relatedTo": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "w3EdjliSBwg",
+        "url": "https://www.youtube.com/watch?v=w3EdjliSBwg",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "osT2Ja5ye7I"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:33.478Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform",
+      "work": "shunin-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-01T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "gtFUtgVhNsc",
+        "url": "https://www.youtube.com/watch?v=gtFUtgVhNsc",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:03.217Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-09T12:59:40.180Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-overview-1",
+      "work": "shunin-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "b0AifnZcFlc",
+        "url": "https://www.youtube.com/watch?v=b0AifnZcFlc",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "gtFUtgVhNsc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:36.532Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-step1-2",
+      "work": "shunin-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/youtube.json#shorts/point-step1-2",
+      "relatedTo": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "VeGwQruEH8M",
+        "url": "https://www.youtube.com/watch?v=VeGwQruEH8M",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "gtFUtgVhNsc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:36.532Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-16T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "CBNGHtxSuc4",
+        "url": "https://www.youtube.com/watch?v=CBNGHtxSuc4",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:55.577Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-chusho-2",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-chusho-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.json#shorts/point-chusho-2",
+      "relatedTo": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "dmoG5fjdFEk",
+        "url": "https://www.youtube.com/watch?v=dmoG5fjdFEk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "CBNGHtxSuc4"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:59:04.932Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-ippan-1",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ippan-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.json#shorts/point-ippan-1",
+      "relatedTo": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "j9NcClJn2oI",
+        "url": "https://www.youtube.com/watch?v=j9NcClJn2oI",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "CBNGHtxSuc4"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:59:04.932Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform",
+      "work": "shunin-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-03T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "14M2HnI8oK0",
+        "url": "https://www.youtube.com/watch?v=14M2HnI8oK0",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:08.441Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-overview-1",
+      "work": "shunin-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "fD9lw7q9__A",
+        "url": "https://www.youtube.com/watch?v=fD9lw7q9__A",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "14M2HnI8oK0"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:18.375Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-step1-2",
+      "work": "shunin-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/youtube.json#shorts/point-step1-2",
+      "relatedTo": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "xO6FtXKJBys",
+        "url": "https://www.youtube.com/watch?v=xO6FtXKJBys",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "14M2HnI8oK0"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:49.972Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.longform",
+      "work": "shunin-products-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-09T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "wJXw3fUKrl4",
+        "url": "https://www.youtube.com/watch?v=wJXw3fUKrl4",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:30.046Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.short.point-method-match-2",
+      "work": "shunin-products-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-method-match-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/youtube.json#shorts/point-method-match-2",
+      "relatedTo": "concrete-chief-engineer/shunin-products-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "-3p_zd0nuuo",
+        "url": "https://www.youtube.com/watch?v=-3p_zd0nuuo",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "wJXw3fUKrl4"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:04.127Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.short.point-overview-1",
+      "work": "shunin-products-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-products-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "VNTTfGO9FSA",
+        "url": "https://www.youtube.com/watch?v=VNTTfGO9FSA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "wJXw3fUKrl4"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:04.127Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform",
+      "work": "shunin-properties-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-30T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "kfxid99mS4s",
+        "url": "https://www.youtube.com/watch?v=kfxid99mS4s",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:55.565Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-09T12:59:30.235Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2",
+      "work": "shunin-properties-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-bingham-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#shorts/point-bingham-2",
+      "relatedTo": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "4R1ZLTqdNNU",
+        "url": "https://www.youtube.com/watch?v=4R1ZLTqdNNU",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "kfxid99mS4s"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:23.191Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1",
+      "work": "shunin-properties-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-consistency-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#shorts/point-consistency-1",
+      "relatedTo": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "p1gkJFU5Gk0",
+        "url": "https://www.youtube.com/watch?v=p1gkJFU5Gk0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "kfxid99mS4s"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:23.191Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
+      "work": "shunin-r8-juuten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-17T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "_kaEo6ArXnQ",
+        "url": "https://www.youtube.com/watch?v=_kaEo6ArXnQ",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:59.081Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2",
+      "work": "shunin-r8-juuten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-four-tiers-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.json#shorts/point-four-tiers-2",
+      "relatedTo": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "bZXocacB0fo",
+        "url": "https://www.youtube.com/watch?v=bZXocacB0fo",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_kaEo6ArXnQ"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:56:01.938Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-overview-1",
+      "work": "shunin-r8-juuten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "jXUmm_j0knA",
+        "url": "https://www.youtube.com/watch?v=jXUmm_j0knA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_kaEo6ArXnQ"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:56:01.938Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
+      "work": "shunin-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-24T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "I7BzF7nWqLc",
+        "url": "https://www.youtube.com/watch?v=I7BzF7nWqLc",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:38.863Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-06T12:16:05.351Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1",
+      "work": "shunin-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-overview-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.json#shorts/point-overview-1",
+      "relatedTo": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "JoyVE9KC1jY",
+        "url": "https://www.youtube.com/watch?v=JoyVE9KC1jY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "I7BzF7nWqLc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:03.177Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2",
+      "work": "shunin-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.json#shorts/point-step1-2",
+      "relatedTo": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "buc9u3n2ugY",
+        "url": "https://www.youtube.com/watch?v=buc9u3n2ugY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "I7BzF7nWqLc"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:58:53.712Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+      "work": "shunin-shouronbun-kousei",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-15T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "uPJUE0ceQLs",
+        "url": "https://www.youtube.com/watch?v=uPJUE0ceQLs",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:51.182Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kanten-1",
+      "work": "shunin-shouronbun-kousei",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kanten-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.json#shorts/point-kanten-1",
+      "relatedTo": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "GZcGVV_d6CU",
+        "url": "https://www.youtube.com/watch?v=GZcGVV_d6CU",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "uPJUE0ceQLs"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:45.349Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kousei-2",
+      "work": "shunin-shouronbun-kousei",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-kousei-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.json#shorts/point-kousei-2",
+      "relatedTo": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "E4DrsXO4nCg",
+        "url": "https://www.youtube.com/watch?v=E4DrsXO4nCg",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "uPJUE0ceQLs"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:45.349Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform",
+      "work": "shunin-shouronbun-theme",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-13T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "7Af19FPD4EY",
+        "url": "https://www.youtube.com/watch?v=7Af19FPD4EY",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:44.166Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1",
+      "work": "shunin-shouronbun-theme",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-nendo-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/youtube.json#shorts/point-nendo-1",
+      "relatedTo": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "ds6mpCbkfgY",
+        "url": "https://www.youtube.com/watch?v=ds6mpCbkfgY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "7Af19FPD4EY"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:27.745Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-ryouiki-2",
+      "work": "shunin-shouronbun-theme",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-ryouiki-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/youtube.json#shorts/point-ryouiki-2",
+      "relatedTo": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Wtpotn7eQIk",
+        "url": "https://www.youtube.com/watch?v=Wtpotn7eQIk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "7Af19FPD4EY"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:27.745Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform",
+      "work": "shunin-structural-design-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-11T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "iNORco5krB8",
+        "url": "https://www.youtube.com/watch?v=iNORco5krB8",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:37.333Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-bending-assumptions-1",
+      "work": "shunin-structural-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-bending-assumptions-1",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/youtube.json#shorts/point-bending-assumptions-1",
+      "relatedTo": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "zUy8flE_Q2Y",
+        "url": "https://www.youtube.com/watch?v=zUy8flE_Q2Y",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "iNORco5krB8"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:10.389Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-shear-capacity-2",
+      "work": "shunin-structural-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-shear-capacity-2",
+      "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/youtube.json#shorts/point-shear-capacity-2",
+      "relatedTo": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "VkFzyEFO_GE",
+        "url": "https://www.youtube.com/watch?v=VkFzyEFO_GE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "iNORco5krB8"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:10.389Z"
+      }
+    }
+  ]
+}

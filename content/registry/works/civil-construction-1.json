@@ -1,0 +1,737 @@
+{
+  "schemaVersion": 1,
+  "exam": "civil-construction-1",
+  "works": [
+    {
+      "id": "career-agent-katsuyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "career-komuin-minkan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-komuin-minkan",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "career-nenshu-up",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-nenshu-up",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "career-tenshoku-timing",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "career-white-kigyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-white-kigyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "career-yameru-mae",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/career-yameru-mae",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "chokuzen-check-1kyu-niji",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-anzen-taisei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-ashiba-kijun",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-crane-sogo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-dodome-kussaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-doshitsu-chosa",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-haikibutsu-recycle",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-hinshitsu-kensa",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-histogram",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-histogram",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-hoki-kasen-doro",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-hoki-kenchiku-kayaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kankyo-hozen",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kanrizu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kanrizu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kensetsugyoho",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kikai-kiso",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kotei-kanri-kiso",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kussaku-tsumikomi-kikai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-morido-shimekatame",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-nanjaku-jiban",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-network-koteihyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-nori-hogoko",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-risk-assessment",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-roudou-kijun",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-sekokeikaku-kiso",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-sokuryo-3ten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-ukeoi-yakkan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-unpan-shimekatame-kikai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-2theme-heiki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-ai-sekkei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-anzen-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-dokugaku-genkai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-hinshitsu-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kadai-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kaizen-example",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kankyo-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kento-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kotei-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-nendo-keiko-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-ochiru-toan-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-r6-shinkeishiki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-sekokeikaku-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-soteikoji-katsuyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-taio-hyoka",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-taisho-koji",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-yosou-renshu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-anzen-suchi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-doko-suchi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-hinshitsu-kikaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-hoki-suchi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "koji-gaiyo-7items",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-08-28",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "koji-gaiyo-sheet-zukai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai"
+    },
+    {
+      "id": "niji-junbi-roadmap",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "niji-kijutsu-concrete",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "niji-kijutsu-doko",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "niji-kijutsu-hinshitsu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "niji-kijutsu-sekokeikaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "roadmap-1kyu-vs-2kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "roadmap-juken-shikaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "roadmap-nanido-goukakuritsu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sekokan-shippaidan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "study-plan-1kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-1/study-plan-1kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}
