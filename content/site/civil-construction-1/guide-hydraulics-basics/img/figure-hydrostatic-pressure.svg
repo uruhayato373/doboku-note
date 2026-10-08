@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水深4mの水槽の壁にかかる水圧は水面で0、底で39.2kN/m²の三角形に分布し、合力は底から水深の3分の1の位置に作用する。深い位置の穴ほど水の噴き出す速さが大きい。下段は容器の形が違っても同じ水深なら底の圧力は同じことを示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-b  { font-size: 12px; fill: #222; }
+      .t-bb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s  { font-size: 11px; fill: #555; }
+      .t-sd { font-size: 11px; fill: #222; }
+      .t-r  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .tri  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 5 3; }
+      .wall { stroke: #555; stroke-width: 2.5; fill: none; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .dim  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .guide { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+      .ln-ink { stroke: #222; stroke-width: 2; fill: none; }
+      .ln-brand { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln-neg { stroke: #b22234; stroke-width: 3.5; fill: none; }
+      .vessel { fill: none; stroke: #555; stroke-width: 2.5; }
+    </style>
+    <marker id="ah-ink" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#222"/></marker>
+    <marker id="ah-brand" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ah-neg" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="10" refX="12" refY="5" orient="auto"><polygon points="0,0 12,5 0,10" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-s" x="20" y="22">水圧は深さに比例し、壁に垂直にかかる</text>
+
+  <!-- 水槽: 水面 y=50, 底 y=250 (4 m, 50px/m), 壁 x=50 と x=180 -->
+  <polygon class="tri" points="180,50 180,250 68,250"/>
+  <line class="ln-brand" x1="54" y1="50" x2="176" y2="50"/>
+  <polygon points="108,38 120,38 114,48" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <polyline class="wall" points="50,32 50,250 180,250"/>
+  <polyline class="wall" points="180,32 180,94"/>
+  <polyline class="wall" points="180,106 180,144"/>
+  <polyline class="wall" points="180,156 180,194"/>
+  <polyline class="wall" points="180,206 180,250"/>
+
+  <!-- 深さの目盛り -->
+  <line class="dim" x1="44" y1="100" x2="50" y2="100"/>
+  <line class="dim" x1="44" y1="150" x2="50" y2="150"/>
+  <line class="dim" x1="44" y1="200" x2="50" y2="200"/>
+  <line class="dim" x1="44" y1="250" x2="50" y2="250"/>
+  <text class="t-s" x="41" y="104" text-anchor="end">1 m</text>
+  <text class="t-s" x="41" y="154" text-anchor="end">2 m</text>
+  <text class="t-s" x="41" y="204" text-anchor="end">3 m</text>
+  <text class="t-s" x="41" y="254" text-anchor="end">4 m</text>
+
+  <!-- 圧力の矢印（長さ ∝ 深さ） -->
+  <line class="ln-brand" x1="152" y1="100" x2="178" y2="100" marker-end="url(#ah-brand)"/>
+  <line class="ln-brand" x1="124" y1="150" x2="178" y2="150" marker-end="url(#ah-brand)"/>
+  <line class="ln-brand" x1="96" y1="200" x2="178" y2="200" marker-end="url(#ah-brand)"/>
+  <line class="ln-brand" x1="75" y1="242" x2="178" y2="242" marker-end="url(#ah-brand)"/>
+  <!-- 合力（底から水深の 1/3） -->
+  <line class="ln-neg" x1="112" y1="183" x2="178" y2="183" marker-end="url(#ah-neg)"/>
+  <text class="t-r" x="98" y="187" text-anchor="end">P</text>
+
+  <!-- 穴から出る水（速さ ∝ √深さ） -->
+  <text class="t-sd" x="198" y="84">噴き出す速さ v = √(2gz)</text>
+  <line class="ln-ink" x1="182" y1="100" x2="222" y2="100" marker-end="url(#ah-ink)"/>
+  <line class="ln-ink" x1="182" y1="150" x2="239" y2="150" marker-end="url(#ah-ink)"/>
+  <line class="ln-ink" x1="182" y1="200" x2="251" y2="200" marker-end="url(#ah-ink)"/>
+  <text class="t-sd" x="260" y="104">1 m → 4.4 m/s</text>
+  <text class="t-sd" x="260" y="154">2 m → 6.3 m/s</text>
+  <text class="t-sd" x="260" y="204">3 m → 7.7 m/s</text>
+
+  <text class="t-b" x="50" y="272">底面: p = 9.8 × 4 = 39.2 kN/m²</text>
+  <text class="t-bb" x="20" y="302">p = w z（w = 9.8 kN/m³）</text>
+  <text class="t-b" x="20" y="322">壁 1 m 幅の合力 P = ½ × 39.2 × 4 = 78.4 kN</text>
+  <text class="t-r" x="20" y="340">赤: 作用点は底から水深の 1/3 ≒ 1.33 m</text>
+
+  <line class="rule" x1="20" y1="354" x2="380" y2="354"/>
+
+  <!-- 容器の形が違っても、同じ水深なら底の圧力は同じ -->
+  <polygon points="40,390 100,390 100,452 40,452" fill="#e8f0fe"/>
+  <polyline class="vessel" points="40,372 40,452 100,452 100,372"/>
+  <polygon points="137.3,390 232.7,390 242,452 128,452" fill="#e8f0fe"/>
+  <polyline class="vessel" points="140,372 128,452 242,452 230,372"/>
+  <polygon points="294.5,390 345.5,390 330,452 310,452" fill="#e8f0fe"/>
+  <polyline class="vessel" points="290,372 310,452 330,452 350,372"/>
+  <line class="guide" x1="30" y1="390" x2="366" y2="390"/>
+  <text class="t-s" x="366" y="368" text-anchor="end">水面の高さは同じ</text>
+  <text class="t-b" x="20" y="478">容器の形が違っても、同じ水深なら底の圧力は同じ</text>
+</svg>
