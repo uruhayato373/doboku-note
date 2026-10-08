@@ -1,0 +1,84 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="二つの橋脚のうち片方が弱い地盤で大きく沈むと桁が傾き、基礎ごとの沈下差が桁や壁の変形となって、段差、ひび割れ、支承の異常として現れる流れの概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; fill: #1a3a5c; }
+      .t-bad  { font-size: 11px; fill: #b22234; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 12px; fill: #222; }
+      .panel  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .soil   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .weak   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.2; }
+      .strc   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .girder { fill: #ffffff; stroke: #1a3a5c; stroke-width: 1.5; }
+      .brgng  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .lead   { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ghost  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .arrow-r { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ar); }
+      .arrow-b { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ab); }
+      .bx-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bx-w   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bx-d   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 断面の概念図 -->
+  <rect class="panel" x="10" y="10" width="380" height="250" rx="6"/>
+  <rect class="soil" x="18" y="160" width="364" height="66"/>
+  <rect class="weak" x="250" y="162" width="122" height="60" rx="6"/>
+
+  <!-- 沈む前の位置（点線） -->
+  <rect class="ghost" x="70" y="56" width="252" height="12"/>
+  <rect class="ghost" x="276" y="76" width="20" height="70"/>
+  <rect class="ghost" x="262" y="146" width="48" height="14"/>
+
+  <!-- 左の橋脚: 沈下が小さい -->
+  <rect class="strc" x="96" y="76" width="20" height="70"/>
+  <rect class="strc" x="82" y="146" width="48" height="14"/>
+  <rect class="brgng" x="98" y="68" width="16" height="8"/>
+
+  <!-- 右の橋脚: 弱い地盤で大きく沈む -->
+  <rect class="strc" x="276" y="92" width="20" height="70"/>
+  <rect class="strc" x="262" y="162" width="48" height="14"/>
+  <rect class="brgng" x="278" y="84" width="16" height="8"/>
+
+  <!-- 桁（右へ傾く） -->
+  <polygon class="girder" points="70,53 322,75 322,87 70,65"/>
+
+  <text class="t-lbl" x="74" y="44">桁</text>
+  <text class="t-lbl" x="56" y="90">支承</text>
+  <line class="lead" x1="80" y1="85" x2="98" y2="74"/>
+  <text class="t-lbl" x="50" y="116">橋脚</text>
+  <line class="lead" x1="76" y1="112" x2="95" y2="112"/>
+  <text class="t-lbl" x="106" y="196" text-anchor="middle">沈下 小</text>
+  <text class="t-bad" x="286" y="202" text-anchor="middle">沈下 大</text>
+  <text class="t-bad" x="342" y="202" text-anchor="middle">弱い地盤</text>
+  <line class="arrow-r" x1="322" y1="128" x2="322" y2="160"/>
+  <text class="t-bad" x="330" y="148">沈下差</text>
+  <text class="t-sub" x="22" y="250">点線は沈む前の位置</text>
+
+  <!-- 沈下差が上部構造へ伝わる流れ -->
+  <rect class="bx-b" x="14" y="274" width="372" height="56" rx="6"/>
+  <text class="t-name" x="30" y="297">基礎ごとに沈下量が違う</text>
+  <text class="t-desc" x="30" y="316">軟弱層の厚さや基礎形式の違いから生じる</text>
+  <line class="arrow-b" x1="200" y1="331" x2="200" y2="351"/>
+
+  <rect class="bx-w" x="14" y="352" width="372" height="56" rx="6"/>
+  <text class="t-name" x="30" y="375">桁や壁に強制的な変形が加わる</text>
+  <text class="t-desc" x="30" y="394">桁が傾き、支承に無理な力がかかる</text>
+  <line class="arrow-b" x1="200" y1="409" x2="200" y2="429"/>
+
+  <rect class="bx-d" x="14" y="430" width="372" height="56" rx="6"/>
+  <text class="t-name" x="30" y="453">上部構造の変状として現れる</text>
+  <text class="t-desc" x="30" y="472">桁端の段差、ひび割れ、支承の異常</text>
+</svg>
