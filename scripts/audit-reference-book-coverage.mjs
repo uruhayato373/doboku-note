@@ -28,8 +28,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import matter from 'gray-matter';
+import { bookRepoRoot } from './lib/reference-book-bundle.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
 const NAME = 'audit-reference-book-coverage';
@@ -123,7 +124,7 @@ const isExamUnit = (heading, body) => /〔正解|【正解|正解\s*[（(]\d/.te
   || /^(平成|令和)\S*年度?\s*問題/.test(heading);
 
 function loadBookUnits(source) {
-  const dir = path.join(REPO_ROOT, 'content/sources/books', source.bookBundle.directory, 'ocr');
+  const dir = path.join(REPO_ROOT, bookRepoRoot(source), 'ocr');
   const pull = `npm run drive-vault-sync -- --pull --path '${path.relative(REPO_ROOT, dir)}/' で Drive から取得`;
   if (!fs.existsSync(dir)) return { error: `${dir} が無い（${pull}）` };
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'README.md').sort();
@@ -140,7 +141,7 @@ function loadBookUnits(source) {
 }
 
 function sitePool(source) {
-  const siteRoot = path.join(REPO_ROOT, 'content/site');
+  const siteRoot = SITE_CONTENT_ROOT;
   const dirs = new Set(EXTRA_SITE_DIRS);
   const articles = [];
   const walk = (d) => {
