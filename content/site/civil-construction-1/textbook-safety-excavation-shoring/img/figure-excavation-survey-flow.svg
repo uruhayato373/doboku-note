@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="明り掘削の事前調査から埋設物の防護までの手順。地山の調査、掘削の時期と順序の決定、台帳確認と試掘、管理者との協議、防護が済んでからの掘削。管理者不明の埋設物は再調査して安全確認後に措置する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .t-text { font-size: 12px; fill: #222; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 1 地山の調査 -->
+  <rect class="box-brand" x="30" y="14" width="340" height="68" rx="6"/> <!-- brand-fill / brand -->
+  <text class="t-title" x="200" y="35" text-anchor="middle">地山とその周辺を調べる</text>
+  <text class="t-sub" x="200" y="53" text-anchor="middle">形状・地質・地層／き裂・含水・湧水・凍結</text>
+  <text class="t-sub" x="200" y="70" text-anchor="middle">埋設物の有無／高温のガス・蒸気</text>
+  <line x1="200" y1="82" x2="200" y2="100" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 2 時期と順序 -->
+  <rect class="box-brand" x="30" y="102" width="340" height="52" rx="6"/>
+  <text class="t-title" x="200" y="123" text-anchor="middle">調査結果に合う掘削の時期と順序を定める</text>
+  <text class="t-sub" x="200" y="141" text-anchor="middle">定めたとおりに作業する（第355条）</text>
+  <line x1="200" y1="154" x2="200" y2="172" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 3 台帳と試掘 -->
+  <rect class="box-brand" x="30" y="174" width="340" height="60" rx="6"/>
+  <text class="t-title" x="200" y="193" text-anchor="middle">台帳で位置を絞り、試掘して目視で確認</text>
+  <text class="t-sub" x="200" y="210" text-anchor="middle">種類・位置（平面と深さ）・規格・構造</text>
+  <text class="t-sub" x="200" y="225" text-anchor="middle">確認したら道路管理者と埋設物管理者へ報告</text>
+  <line x1="200" y1="234" x2="200" y2="252" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 4 協議 -->
+  <rect class="box-warn" x="30" y="254" width="340" height="60" rx="6"/> <!-- warn-fill / warn -->
+  <text class="t-title" x="200" y="273" text-anchor="middle">管理者・関係機関と協議して決める</text>
+  <text class="t-sub" x="200" y="290" text-anchor="middle">防護の方法・立会いの有無・緊急時の連絡先</text>
+  <text class="t-sub" x="200" y="305" text-anchor="middle">措置の実施区分・標示板で工事関係者へ周知</text>
+  <line x1="200" y1="314" x2="200" y2="332" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 5 掘削 -->
+  <rect class="box-positive" x="30" y="334" width="340" height="60" rx="6"/> <!-- positive-fill / positive -->
+  <text class="t-title" x="200" y="353" text-anchor="middle">補強・移設などの防護が済んでから掘削</text>
+  <text class="t-sub" x="200" y="370" text-anchor="middle">済む前は作業しない（第362条）</text>
+  <text class="t-sub" x="200" y="385" text-anchor="middle">機械で損壊するおそれがあれば機械を使わない（第363条）</text>
+
+  <!-- 管理者不明の埋設物 -->
+  <rect class="box-danger" x="30" y="414" width="340" height="72" rx="6"/> <!-- danger-fill / danger -->
+  <text class="t-title" x="200" y="436" text-anchor="middle">掘削中に管理者不明の埋設物が出たら</text>
+  <text class="t-text" x="200" y="456" text-anchor="middle">必要に応じて専門家の立会いを求め再調査</text>
+  <text class="t-text" x="200" y="474" text-anchor="middle">安全を確認してから措置する</text>
+</svg>

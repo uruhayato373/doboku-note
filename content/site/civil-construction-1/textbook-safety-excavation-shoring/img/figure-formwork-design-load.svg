@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="型枠支保工の設計荷重と水平荷重の概念図。設計荷重は支える物の重量に作業荷重を加えたもの。支柱の上端に作用する水平荷重は、鋼管枠で設計荷重の2.5%、それ以外で5%">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-text { font-size: 12px; fill: #222; }
+      .t-body { font-size: 13px; fill: #222; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-blue" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-red" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- 設計荷重の内訳（上段：作業荷重 / 下段：支える物の重量） -->
+  <rect class="box-brand" x="40" y="18" width="240" height="34" rx="6"/> <!-- brand-fill / brand -->
+  <text class="t-text" x="160" y="40" text-anchor="middle">作業荷重　型枠1m²につき150kg以上</text>
+  <rect class="box-surface" x="40" y="52" width="240" height="46" rx="6"/> <!-- surface -->
+  <text class="t-body" x="160" y="72" text-anchor="middle">支える物の重量</text>
+  <text class="t-sub" x="160" y="89" text-anchor="middle">コンクリート・型枠・鉄筋など</text>
+
+  <!-- 合計の括り -->
+  <path d="M286 18 h8 v80 h-8" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-title" x="302" y="54">設計荷重</text>
+  <text class="t-text" x="302" y="72">W = 合計</text>
+
+  <!-- 鉛直荷重の矢印 -->
+  <line x1="160" y1="102" x2="160" y2="122" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#arrow-blue)"/>
+
+  <!-- 型枠 -->
+  <rect x="40" y="126" width="240" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 支柱 -->
+  <rect x="70" y="140" width="10" height="190" fill="#555"/>
+  <rect x="240" y="140" width="10" height="190" fill="#555"/>
+
+  <!-- 水平つなぎ -->
+  <rect x="80" y="236" width="160" height="7" fill="#2e6da4"/>
+
+  <!-- 地盤 -->
+  <line x1="30" y1="330" x2="290" y2="330" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M42 330 v8 M72 330 v8 M102 330 v8 M132 330 v8 M162 330 v8 M192 330 v8 M222 330 v8 M252 330 v8" stroke="#8a8a8a" stroke-width="1"/>
+
+  <!-- 水平荷重（支柱上端） -->
+  <text class="t-text" x="6" y="114">水平荷重 H</text>
+  <line x1="6" y1="133" x2="37" y2="133" stroke="#b22234" stroke-width="2.5" marker-end="url(#arrow-red)"/>
+  <text class="t-sub" x="6" y="154">上端に作用</text>
+
+  <!-- 部材名 -->
+  <line x1="280" y1="133" x2="292" y2="133" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-text" x="296" y="137">型枠</text>
+  <line x1="240" y1="240" x2="292" y2="240" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-text" x="296" y="244">水平つなぎ</text>
+  <line x1="250" y1="290" x2="292" y2="290" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-text" x="296" y="294">支柱</text>
+
+  <!-- 水平荷重の大きさ -->
+  <text class="t-sub" x="30" y="362">水平荷重の大きさ（設計荷重に対する割合）</text>
+  <rect class="box-brand" x="30" y="372" width="340" height="52" rx="6"/>
+  <text class="t-body" x="200" y="394" text-anchor="middle">鋼管枠を支柱に用いるとき</text>
+  <text class="t-title" x="200" y="414" text-anchor="middle">H = 0.025 W（2.5%）</text>
+  <rect class="box-warn" x="30" y="434" width="340" height="52" rx="6"/> <!-- warn-fill / warn -->
+  <text class="t-body" x="200" y="456" text-anchor="middle">鋼管枠以外を支柱に用いるとき</text>
+  <text class="t-title" x="200" y="476" text-anchor="middle">H = 0.05 W（5%）</text>
+</svg>
