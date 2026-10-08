@@ -21,6 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
+タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+
+**起点**: 2026-10-09 に運営者が「公開済みを含む全コンテンツ（YouTube・Shorts・IG・X・今後の Threads・TikTok）を content/ で ID 管理し、画像・動画は Drive、管理画面で目視確認」と決め、設計を承認した。いまはチャネルごとに台帳が 2〜4 本あり、実際の公開状態とずれている（通常動画は台帳で予約 111・公開 1、実際は公開 70）。この P1〜P7 の一連のカードが設計を段階に分けたもの。
+**決定事項**: 承認は管理画面で見て CLI で行う（画面は読むだけ）／公開前の YouTube 動画 ID は公開リポジトリの台帳に置いてよい／古い投稿も全件取り込む（証拠の無いものは理由つきの stopped）／Codex 画像は動画ごとに使うかを決め、使ったら来歴と ai-image-fidelity-auditor の判定 ok を必須にする（Gemini は使わない）／台帳はチャネル×資格ごとの JSON／素材は Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}`（書き換えない）／DB サーバーは置かず、型つき JSON が正本で SQLite は生成物。
+**やること（P1 土台）**:
+1. 設計書を `.claude/knowledge/reference/` に置く（3 つの表・ID 規則・状態と遷移・2 段階の承認ハッシュ・照合・素材の置き場・検査 R01〜R10）
+2. `config/content-registry.json`・型（dataset-schemas-content）・台帳（datasets.mjs の registry 置き場と行。PR #927 が先なら `AREAS.strict` の上に積む）・`scripts/lib/content-registry.mjs`・CLI `npm run registry`・`check-content-registry`（ci）・`check-registry-due`（ops）
+3. `scripts/lib/media-paths.mjs`・Drive group `content-media`（immutable）・`npm run media` の promote・sync・verify・pull
+**完了条件**: 空の registry で R01 が 0 件 FAIL、見本データで R01〜R10 の失敗例をテストで固定。総まとめ 1 作品で「描く→promote→sync→verify --cloud→空の場所へ pull して sha 一致」。
+
+
 ### [DN-0609] コンテンツ台帳 P3: 画面確認と2段階承認の CLI、管理画面で作品ごとに表紙・動画を目視確認する画面を作る
 タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
 
