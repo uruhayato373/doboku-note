@@ -1,0 +1,64 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート技士教材のコンクリートの名前の付き方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンクリートの名前の付き方を3つに分けた図。求める性質で付く軽量・重量・繊維補強・プレストレスト・ポリマー・アスファルト、施工条件で付く暑中・寒中・マス・水中・高流動、供給の仕方で付くレディーミクスト・現場練り・プレキャスト">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-band  { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-chip  { font-size: 12px; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .t-sum   { font-size: 12px; fill: #555; }
+      .band    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .chip-b  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .chip-w  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .chip-g  { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">名前は「何を求めたか」「どう打つか」「どう届けるか」で付く</text>
+
+  <rect class="band" x="16" y="30" width="368" height="142" rx="6" />
+  <text class="t-band" x="30" y="52">求める性質で付く名前</text>
+  <rect class="chip-b" x="30" y="62" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="81" text-anchor="middle">軽量（自重を減らす）</text>
+  <rect class="chip-b" x="206" y="62" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="81" text-anchor="middle">重量（遮へい）</text>
+  <rect class="chip-b" x="30" y="96" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="115" text-anchor="middle">繊維補強（粘り強さ）</text>
+  <rect class="chip-b" x="206" y="96" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="115" text-anchor="middle">PC（圧縮力を導入）</text>
+  <rect class="chip-b" x="30" y="130" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="149" text-anchor="middle">ポリマー（接着・耐薬品）</text>
+  <rect class="chip-b" x="206" y="130" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="149" text-anchor="middle">アスファルト（舗装用）</text>
+
+  <rect class="band" x="16" y="180" width="368" height="142" rx="6" />
+  <text class="t-band" x="30" y="202">施工条件で付く名前</text>
+  <rect class="chip-w" x="30" y="212" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="231" text-anchor="middle">暑中（高温）</text>
+  <rect class="chip-w" x="206" y="212" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="231" text-anchor="middle">寒中（低温）</text>
+  <rect class="chip-w" x="30" y="246" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="265" text-anchor="middle">マス（水和熱）</text>
+  <rect class="chip-w" x="206" y="246" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="265" text-anchor="middle">水中（水中で打つ）</text>
+  <rect class="chip-w" x="30" y="280" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="299" text-anchor="middle">高流動（充填性）</text>
+  <text class="t-note" x="206" y="299">材料の種類は表さない</text>
+
+  <rect class="band" x="16" y="330" width="368" height="106" rx="6" />
+  <text class="t-band" x="30" y="352">供給の仕方で付く名前</text>
+  <rect class="chip-g" x="30" y="362" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="381" text-anchor="middle">レディーミクスト</text>
+  <rect class="chip-g" x="206" y="362" width="168" height="28" rx="6" />
+  <text class="t-chip" x="290" y="381" text-anchor="middle">現場練り</text>
+  <rect class="chip-g" x="30" y="396" width="168" height="28" rx="6" />
+  <text class="t-chip" x="114" y="415" text-anchor="middle">プレキャスト</text>
+  <text class="t-note" x="206" y="415">工場で製品化して組立</text>
+
+  <rect class="box-b" x="16" y="448" width="368" height="40" rx="6" />
+  <text class="t-sum" x="30" y="473">名前は重なる例：プレキャストのプレストレスト</text>
+</svg>
