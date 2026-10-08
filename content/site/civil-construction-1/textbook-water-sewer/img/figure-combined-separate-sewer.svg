@@ -1,0 +1,118 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「上下水道」の論点（合流式と分流式の雨天時の行き先）。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="合流式と分流式の晴天時と雨天時の流れの比較。合流式は雨天時に管が1本のため一定量を超えた汚水と雨水が未処理で川や海へ越流する。分流式は汚水管が処理場へ向かい、雨水管の水は処理せず川や海へ放流される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-head { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-band { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #555; }
+      .t-red { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-warn { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-res { font-size: 11px; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-idle { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .box-ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .band { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .a-blue { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .a-red { stroke: #b22234; stroke-width: 2; fill: none; }
+      .a-amber { stroke: #d4a017; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-red" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="arrow-amber" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <!-- 列見出し -->
+  <text class="t-head" x="102" y="18" text-anchor="middle">合流式</text>
+  <text class="t-head" x="297" y="18" text-anchor="middle">分流式</text>
+  <line x1="10" y1="24" x2="194" y2="24" stroke="#2e6da4" stroke-width="2"/> <!-- brand -->
+  <line x1="206" y1="24" x2="390" y2="24" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 晴天時 -->
+  <rect class="band" x="10" y="32" width="380" height="18" rx="3"/>
+  <text class="t-band" x="200" y="45" text-anchor="middle">晴天時</text>
+
+  <rect class="box-brand" x="52" y="58" width="100" height="32" rx="6"/>
+  <text class="t-name" x="102" y="78" text-anchor="middle">汚水</text>
+  <rect class="box-brand" x="14" y="112" width="176" height="36" rx="6"/>
+  <text class="t-name" x="102" y="134" text-anchor="middle">合流管（1系統）</text>
+  <rect class="box-ok" x="52" y="170" width="100" height="32" rx="6"/>
+  <text class="t-name" x="102" y="190" text-anchor="middle">処理場</text>
+
+  <rect class="box-brand" x="210" y="58" width="86" height="32" rx="6"/>
+  <text class="t-name" x="253" y="78" text-anchor="middle">汚水</text>
+  <rect class="box-brand" x="210" y="112" width="86" height="36" rx="6"/>
+  <text class="t-name" x="253" y="134" text-anchor="middle">汚水管</text>
+  <rect class="box-idle" x="304" y="112" width="86" height="36" rx="6"/>
+  <text class="t-note" x="347" y="134" text-anchor="middle">雨水管（空）</text>
+  <rect class="box-ok" x="210" y="170" width="86" height="32" rx="6"/>
+  <text class="t-name" x="253" y="190" text-anchor="middle">処理場</text>
+
+  <!-- 雨天時 -->
+  <rect class="band" x="10" y="216" width="380" height="18" rx="3"/>
+  <text class="t-band" x="200" y="229" text-anchor="middle">雨天時</text>
+
+  <rect class="box-brand" x="14" y="242" width="84" height="32" rx="6"/>
+  <text class="t-name" x="56" y="262" text-anchor="middle">汚水</text>
+  <rect class="box-brand" x="108" y="242" width="84" height="32" rx="6"/>
+  <text class="t-name" x="150" y="262" text-anchor="middle">雨水</text>
+  <rect class="box-brand" x="14" y="300" width="176" height="36" rx="6"/>
+  <text class="t-name" x="102" y="322" text-anchor="middle">合流管（1系統）</text>
+  <rect class="box-ok" x="14" y="364" width="84" height="36" rx="6"/>
+  <text class="t-name" x="56" y="386" text-anchor="middle">処理場</text>
+  <rect class="box-danger" x="108" y="364" width="84" height="36" rx="6"/>
+  <text class="t-name" x="150" y="386" text-anchor="middle">川・海</text>
+
+  <rect class="box-brand" x="210" y="242" width="86" height="32" rx="6"/>
+  <text class="t-name" x="253" y="262" text-anchor="middle">汚水</text>
+  <rect class="box-brand" x="304" y="242" width="86" height="32" rx="6"/>
+  <text class="t-name" x="347" y="262" text-anchor="middle">雨水</text>
+  <rect class="box-brand" x="210" y="300" width="86" height="36" rx="6"/>
+  <text class="t-name" x="253" y="322" text-anchor="middle">汚水管</text>
+  <rect class="box-brand" x="304" y="300" width="86" height="36" rx="6"/>
+  <text class="t-name" x="347" y="322" text-anchor="middle">雨水管</text>
+  <rect class="box-ok" x="210" y="364" width="86" height="36" rx="6"/>
+  <text class="t-name" x="253" y="386" text-anchor="middle">処理場</text>
+  <rect class="box-warn" x="304" y="364" width="86" height="36" rx="6"/>
+  <text class="t-name" x="347" y="386" text-anchor="middle">川・海</text>
+
+  <!-- 結論の帯 -->
+  <rect class="box-danger" x="14" y="414" width="176" height="56" rx="6"/>
+  <text class="t-res" x="102" y="437" text-anchor="middle">超えた分は汚水ごと</text>
+  <text class="t-res" x="102" y="455" text-anchor="middle">未処理で川や海へ出る</text>
+  <rect class="box-warn" x="210" y="414" width="180" height="56" rx="6"/>
+  <text class="t-res" x="300" y="437" text-anchor="middle">汚水は処理場へ向かうが</text>
+  <text class="t-res" x="300" y="455" text-anchor="middle">雨水は処理せず放流</text>
+
+  <!-- ラベル -->
+  <text class="t-note" x="62" y="353">一定量まで</text>
+  <text class="t-red" x="156" y="353">越流</text>
+  <text class="t-warn" x="353" y="353">未処理</text>
+
+  <!-- 矢印（箱の上に重ねる） -->
+  <line class="a-blue" x1="102" y1="90" x2="102" y2="112" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="102" y1="148" x2="102" y2="170" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="253" y1="90" x2="253" y2="112" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="253" y1="148" x2="253" y2="170" marker-end="url(#arrow)"/>
+
+  <line class="a-blue" x1="56" y1="274" x2="56" y2="300" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="150" y1="274" x2="150" y2="300" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="56" y1="336" x2="56" y2="364" marker-end="url(#arrow)"/>
+  <line class="a-red" x1="150" y1="336" x2="150" y2="364" marker-end="url(#arrow-red)"/>
+  <line class="a-blue" x1="253" y1="274" x2="253" y2="300" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="347" y1="274" x2="347" y2="300" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="253" y1="336" x2="253" y2="364" marker-end="url(#arrow)"/>
+  <line class="a-amber" x1="347" y1="336" x2="347" y2="364" marker-end="url(#arrow-amber)"/>
+</svg>
