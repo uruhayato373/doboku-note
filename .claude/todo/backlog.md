@@ -1500,6 +1500,12 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0586] 台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査にする（外部キー相当）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
+
+段階3（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。各データセットの行に refs（JSON の場所 → qualification・product・article）を宣言し、check-datasets が参照先（qualification-registry.json・products.json・content/site の記事）の実在を検査する。既存の個別検査（check-qualification-ssot など）のうち汎用の検査で置き換えられるものを洗い出す。最初の対象は state.book-coverage の expansions[].article。完了条件: 宣言のある全データセットで参照切れ 0・検査した参照の件数を出力・検査ゼロを PASS にしない。前提: 段階2
+
+
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]
 
