@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="生物多様性の3つのレベル（生態系・種・遺伝子）と、現場で確かめる問いを3段のカードで示した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+
+  <!-- 1 生態系 : brand -->
+  <rect x="20" y="20" width="360" height="112" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="36" y="46" font-size="14" font-weight="700" fill="#1a3a5c">生態系の多様性</text>
+  <text x="36" y="68" font-size="12" fill="#555">森・川・湿地など、タイプの違う自然がある</text>
+  <text x="36" y="94" font-size="11" fill="#8a8a8a">現場の問い</text>
+  <text x="36" y="114" font-size="13" font-weight="700" fill="#222">この場所のつながりを残せるか</text>
+  <!-- 小さな絵 : 木と水 -->
+  <circle cx="322" cy="52" r="13" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="320" y="64" width="4" height="12" fill="#3a7d44"/>
+  <path d="M 334 84 q 6 -6 12 0 t 12 0" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M 334 92 q 6 -6 12 0 t 12 0" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 2 種 : positive -->
+  <rect x="20" y="152" width="360" height="112" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="36" y="178" font-size="14" font-weight="700" fill="#1a3a5c">種の多様性</text>
+  <text x="36" y="200" font-size="12" fill="#555">動物・植物・微生物など、種類が多い</text>
+  <text x="36" y="226" font-size="11" fill="#8a8a8a">現場の問い</text>
+  <text x="36" y="246" font-size="13" font-weight="700" fill="#222">この種は消えていないか</text>
+  <!-- 小さな絵 : 形の違う3つ -->
+  <circle cx="316" cy="198" r="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="332" y="187" width="22" height="22" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="334,242 346,222 358,242" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+
+  <!-- 3 遺伝子 : warn -->
+  <rect x="20" y="284" width="360" height="112" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="36" y="310" font-size="14" font-weight="700" fill="#1a3a5c">遺伝子の多様性</text>
+  <text x="36" y="332" font-size="12" fill="#555">同じ種でも、地域や個体で遺伝子が違う</text>
+  <text x="36" y="358" font-size="11" fill="#8a8a8a">現場の問い</text>
+  <text x="36" y="378" font-size="13" font-weight="700" fill="#222">産地の違う個体を混ぜていないか</text>
+  <!-- 小さな絵 : 同じ形で色が違う3つ -->
+  <circle cx="318" cy="324" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="340" cy="324" r="9" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="329" cy="346" r="9" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+
+  <!-- まとめ : surface -->
+  <rect x="20" y="412" width="360" height="68" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="438" font-size="13" font-weight="700" fill="#222">レッドリストが物差しにするのは「種」</text>
+  <text x="36" y="460" font-size="12" fill="#555">生態系と遺伝子のレベルは、別に確かめる</text>
+</svg>

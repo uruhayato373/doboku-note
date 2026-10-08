@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="災害防止の三層。店社が計画と審査と巡視、現場が統括と調整、協力会社が作業の指揮を分担する図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect x="20" y="14" width="360" height="148" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="40" font-size="14" font-weight="bold" fill="#1a3a5c">店社（本店・支店・営業所）</text>
+  <text x="34" y="64" font-size="12" fill="#222">・年間の安全衛生管理計画をつくる</text>
+  <text x="34" y="86" font-size="12" fill="#222">・施工計画を安全面から事前に審査する</text>
+  <text x="34" y="108" font-size="12" fill="#222">・パトロールと災害の原因調査を行う</text>
+  <text x="34" y="130" font-size="12" fill="#222">・協力会社の安全管理状況を評価する</text>
+  <line x1="110" y1="162" x2="110" y2="194" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="122" y="183" font-size="11" fill="#555">指導・支援</text>
+  <line x1="290" y1="194" x2="290" y2="162" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="278" y="183" text-anchor="end" font-size="11" fill="#555">報告</text>
+  <rect x="20" y="198" width="360" height="148" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="34" y="224" font-size="14" font-weight="bold" fill="#1a3a5c">現場（元請）</text>
+  <text x="34" y="248" font-size="12" fill="#222">・統括安全衛生責任者に現場の統括者を充てる</text>
+  <text x="34" y="270" font-size="12" fill="#222">・元方安全衛生管理者が技術面を管理する</text>
+  <text x="34" y="292" font-size="12" fill="#222">・協議組織・巡視・連絡調整を回す</text>
+  <text x="34" y="314" font-size="12" fill="#222">・安全施工サイクルで施工と一体に運用する</text>
+  <line x1="110" y1="346" x2="110" y2="378" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="122" y="367" font-size="11" fill="#555">統括・調整</text>
+  <line x1="290" y1="378" x2="290" y2="346" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="278" y="367" text-anchor="end" font-size="11" fill="#555">連絡・報告</text>
+  <rect x="20" y="382" width="360" height="104" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="34" y="408" font-size="14" font-weight="bold" fill="#1a3a5c">協力会社（関係請負人）</text>
+  <text x="34" y="432" font-size="12" fill="#222">・安全衛生責任者が元請と連絡する</text>
+  <text x="34" y="454" font-size="12" fill="#222">・作業主任者や職長が作業を指揮する</text>
+  <text x="34" y="476" font-size="12" fill="#222">・協議組織の会議に毎回参加する</text>
+</svg>

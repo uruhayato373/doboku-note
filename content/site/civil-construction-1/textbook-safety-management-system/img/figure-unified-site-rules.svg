@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="元請が統一して定める合図・標識・警報・避難訓練を関係請負人に周知させ、全員が同じものを使う流れ" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect x="60" y="14" width="280" height="68" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="40" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">特定元方事業者（元請）</text>
+  <text x="200" y="64" text-anchor="middle" font-size="12" fill="#222">現場共通のルールを統一的に定める</text>
+  <line x1="200" y1="82" x2="200" y2="112" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="20" y="118" width="176" height="92" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="108" y="146" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">合図</text>
+  <text x="108" y="170" text-anchor="middle" font-size="12" fill="#222">クレーン等の運転</text>
+  <text x="108" y="192" text-anchor="middle" font-size="11" fill="#555">則第639条</text>
+  <rect x="204" y="118" width="176" height="92" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="292" y="146" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">標識</text>
+  <text x="292" y="170" text-anchor="middle" font-size="12" fill="#222">事故現場・酸欠場所など</text>
+  <text x="292" y="192" text-anchor="middle" font-size="11" fill="#555">則第640条</text>
+  <rect x="20" y="222" width="176" height="92" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="108" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">警報</text>
+  <text x="108" y="274" text-anchor="middle" font-size="12" fill="#222">発破・火災・崩壊など</text>
+  <text x="108" y="296" text-anchor="middle" font-size="11" fill="#555">則第642条</text>
+  <rect x="204" y="222" width="176" height="92" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="292" y="250" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">避難等の訓練</text>
+  <text x="292" y="274" text-anchor="middle" font-size="12" fill="#222">ずい道等の時期・方法</text>
+  <text x="292" y="296" text-anchor="middle" font-size="11" fill="#555">則第642条の2</text>
+  <line x1="200" y1="314" x2="200" y2="348" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="214" y="336" font-size="12" fill="#555">関係請負人に周知させる</text>
+  <rect x="20" y="354" width="360" height="76" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="200" y="384" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">元請も関係請負人も同じものを使う</text>
+  <text x="200" y="410" text-anchor="middle" font-size="12" fill="#222">自社流の合図や標識を別に作らない</text>
+  <text x="200" y="462" text-anchor="middle" font-size="11" fill="#8a8a8a">前提：元請と関係請負人の作業が</text>
+  <text x="200" y="480" text-anchor="middle" font-size="11" fill="#8a8a8a">同じ場所で行われること</text>
+</svg>

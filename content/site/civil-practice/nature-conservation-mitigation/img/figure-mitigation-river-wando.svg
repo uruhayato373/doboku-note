@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="川の改修でワンドと河畔林が残る区間を例に、回避は広げる側を対岸にずらす、低減は護岸を必要な区間に絞る、代償は埋めるワンドを別の場所に新設する様子を平面で並べた図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+
+  <!-- 1 回避 : positive  (カード上端 y=20) -->
+  <rect x="20" y="20" width="360" height="128" rx="6" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="40" cy="42" r="10" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="40" y="46" font-size="12" font-weight="700" fill="#222" text-anchor="middle">1</text>
+  <text x="58" y="47" font-size="14" font-weight="700" fill="#1a3a5c">回避</text>
+  <text x="98" y="47" font-size="12" fill="#555">広げる側を対岸にずらし、手をつけない</text>
+  <!-- 本流 -->
+  <rect x="36" y="92" width="328" height="22" fill="#e8f0fe"/>
+  <line x1="36" y1="92" x2="364" y2="92" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="36" y1="114" x2="364" y2="114" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="344" y="107" font-size="11" fill="#222" text-anchor="middle">本流</text>
+  <!-- ワンド : 本流の北側に開いた入り江 -->
+  <path d="M 82 92 C 82 66 138 66 138 92" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="84" y1="92" x2="136" y2="92" stroke="#e8f0fe" stroke-width="3"/>
+  <text x="110" y="87" font-size="11" fill="#222" text-anchor="middle">ワンド</text>
+  <!-- 河畔林 -->
+  <ellipse cx="210" cy="79" rx="44" ry="12" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="210" y="83" font-size="11" fill="#222" text-anchor="middle">河畔林</text>
+  <!-- 広げる範囲（対岸側） -->
+  <rect x="96" y="122" width="208" height="20" rx="3" fill="#f5f5f5" stroke="#555" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="200" y="136" font-size="11" fill="#222" text-anchor="middle">ここを広げる</text>
+
+  <!-- 2 低減 : brand (カード上端 y=156) -->
+  <rect x="20" y="156" width="360" height="128" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="40" cy="178" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="40" y="182" font-size="12" font-weight="700" fill="#222" text-anchor="middle">2</text>
+  <text x="58" y="183" font-size="14" font-weight="700" fill="#1a3a5c">低減</text>
+  <text x="98" y="183" font-size="12" fill="#555">護岸を必要な区間に絞り、影響を小さくする</text>
+  <!-- 本流 -->
+  <rect x="36" y="228" width="328" height="22" fill="#e8f0fe"/>
+  <line x1="36" y1="228" x2="364" y2="228" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="36" y1="250" x2="364" y2="250" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="344" y="243" font-size="11" fill="#222" text-anchor="middle">本流</text>
+  <!-- ワンド -->
+  <path d="M 82 228 C 82 202 138 202 138 228" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="84" y1="228" x2="136" y2="228" stroke="#e8f0fe" stroke-width="3"/>
+  <text x="110" y="223" font-size="11" fill="#222" text-anchor="middle">ワンド</text>
+  <!-- 河畔林 -->
+  <ellipse cx="210" cy="215" rx="44" ry="12" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="210" y="219" font-size="11" fill="#222" text-anchor="middle">河畔林</text>
+  <!-- 護岸 : 必要な区間だけ -->
+  <line x1="250" y1="250" x2="330" y2="250" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <text x="290" y="270" font-size="11" fill="#222" text-anchor="middle">護岸は必要な区間だけ</text>
+
+  <!-- 3 代償 : warn (カード上端 y=292) -->
+  <rect x="20" y="292" width="360" height="128" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="40" cy="314" r="10" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="40" y="318" font-size="12" font-weight="700" fill="#222" text-anchor="middle">3</text>
+  <text x="58" y="319" font-size="14" font-weight="700" fill="#1a3a5c">代償</text>
+  <text x="98" y="319" font-size="12" fill="#555">残る損失を、同種の環境をつくって補う</text>
+  <!-- 本流 -->
+  <rect x="36" y="364" width="328" height="22" fill="#e8f0fe"/>
+  <line x1="36" y1="364" x2="364" y2="364" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="36" y1="386" x2="364" y2="386" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="344" y="379" font-size="11" fill="#222" text-anchor="middle">本流</text>
+  <!-- 埋めるワンド -->
+  <path d="M 82 364 C 82 338 138 338 138 364" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="110" y="359" font-size="11" fill="#222" text-anchor="middle">埋める</text>
+  <!-- 新設するワンド : 別の場所・点線 -->
+  <path d="M 240 386 C 240 424 320 424 320 386" fill="#e8f0fe" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="242" y1="386" x2="318" y2="386" stroke="#e8f0fe" stroke-width="3"/>
+  <text x="280" y="401" font-size="11" fill="#222" text-anchor="middle">新設ワンド</text>
+
+  <!-- まとめ : surface -->
+  <rect x="20" y="432" width="360" height="56" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="456" font-size="13" font-weight="700" fill="#222">検討の順番は 回避 → 低減 → 代償</text>
+  <text x="36" y="476" font-size="12" fill="#555">代償は、尽くしても残る影響にだけ使う</text>
+</svg>

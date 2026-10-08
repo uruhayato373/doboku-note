@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="架空線等上空施設の防護を側面から見た図。出入口の高さ制限装置とダンプの荷台上昇時の高さ、架空線の防護カバー、ブームと架空線の離隔、旋回・立入禁止区域と監視員を示す">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+
+<!-- 上段：出入口（正面から見た図） -->
+<rect x="20" y="12" width="360" height="222" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="32" y="32" font-size="11" fill="#555">出入口（正面から）</text>
+
+<!-- 地面 -->
+<rect x="21" y="206" width="358" height="27" fill="#f5f5f5"/>
+<line x1="21" y1="206" x2="379" y2="206" stroke="#555" stroke-width="1.5"/>
+
+<!-- 電柱と架空線 -->
+<rect x="44" y="62" width="7" height="144" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="349" y="62" width="7" height="144" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<line x1="47" y1="70" x2="353" y2="70" stroke="#222" stroke-width="1.5"/>
+<rect x="130" y="65" width="140" height="10" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="200" y="58" text-anchor="middle" font-size="11" fill="#1a3a5c">防護カバー</text>
+
+<!-- 看板 -->
+<rect x="58" y="154" width="60" height="42" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="88" y="172" text-anchor="middle" font-size="11" fill="#1a3a5c">架空線</text>
+<text x="88" y="188" text-anchor="middle" font-size="11" fill="#1a3a5c">注意</text>
+
+<!-- 高さ制限装置（ゲート） -->
+<rect x="128" y="126" width="6" height="80" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<rect x="266" y="126" width="6" height="80" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<rect x="128" y="124" width="144" height="12" rx="2" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<line x1="150" y1="124" x2="142" y2="136" stroke="#b22234" stroke-width="1.5"/>
+<line x1="176" y1="124" x2="168" y2="136" stroke="#b22234" stroke-width="1.5"/>
+<line x1="202" y1="124" x2="194" y2="136" stroke="#b22234" stroke-width="1.5"/>
+<line x1="228" y1="124" x2="220" y2="136" stroke="#b22234" stroke-width="1.5"/>
+<line x1="254" y1="124" x2="246" y2="136" stroke="#b22234" stroke-width="1.5"/>
+<text x="32" y="128" font-size="11" fill="#1a3a5c">高さ制限装置</text>
+<line x1="100" y1="124" x2="127" y2="128" stroke="#8a8a8a" stroke-width="1"/>
+
+<!-- ダンプ（後方から）：荷台を下げた状態 -->
+<circle cx="170" cy="196" r="9" fill="#555" stroke="#222" stroke-width="1"/>
+<circle cx="230" cy="196" r="9" fill="#555" stroke="#222" stroke-width="1"/>
+<rect x="158" y="176" width="84" height="12" rx="2" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="160" y="154" width="80" height="22" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+
+<text x="200" y="226" text-anchor="middle" font-size="11" fill="#555">ダンプ（後方から）</text>
+
+<!-- 荷台を上げたときの高さ（破線） -->
+<rect x="162" y="96" width="76" height="80" rx="2" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3"/>
+<text x="32" y="100" font-size="11" fill="#1a3a5c">荷台を上げた高さ</text>
+<line x1="122" y1="97" x2="161" y2="100" stroke="#8a8a8a" stroke-width="1"/>
+
+<!-- 余裕の寸法線 -->
+<line x1="330" y1="78" x2="330" y2="122" stroke="#2e6da4" stroke-width="1"/>
+<path d="M330 78 l-3 7 h6 z" fill="#2e6da4"/>
+<path d="M330 122 l-3 -7 h6 z" fill="#2e6da4"/>
+<text x="322" y="104" text-anchor="end" font-size="11" fill="#1a3a5c">架空線との余裕</text>
+
+<!-- 下段：作業ヤード（側面から見た図） -->
+<rect x="20" y="246" width="360" height="222" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="32" y="266" font-size="11" fill="#555">作業ヤード（側面から）</text>
+
+<!-- 地面 -->
+<rect x="21" y="436" width="358" height="31" fill="#f5f5f5"/>
+<line x1="21" y1="436" x2="379" y2="436" stroke="#555" stroke-width="1.5"/>
+
+<!-- 電柱と架空線 -->
+<rect x="44" y="296" width="7" height="140" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="349" y="296" width="7" height="140" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<line x1="47" y1="304" x2="353" y2="304" stroke="#222" stroke-width="1.5"/>
+<rect x="150" y="299" width="100" height="10" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="200" y="291" text-anchor="middle" font-size="11" fill="#1a3a5c">防護カバー</text>
+
+<!-- バックホウ -->
+<rect x="62" y="414" width="96" height="20" rx="8" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="76" y="384" width="54" height="30" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="126" y1="392" x2="196" y2="336" stroke="#2e6da4" stroke-width="6" stroke-linecap="round"/>
+<line x1="196" y1="336" x2="232" y2="378" stroke="#2e6da4" stroke-width="5" stroke-linecap="round"/>
+<text x="62" y="360" font-size="11" fill="#1a3a5c">ブーム</text>
+
+<!-- ブーム先端の高さと離隔 -->
+<line x1="170" y1="332" x2="280" y2="332" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="266" y1="310" x2="266" y2="332" stroke="#2e6da4" stroke-width="1"/>
+<path d="M266 310 l-3 7 h6 z" fill="#2e6da4"/>
+<path d="M266 332 l-3 -7 h6 z" fill="#2e6da4"/>
+<text x="274" y="325" font-size="11" fill="#1a3a5c">離隔を確保</text>
+
+<!-- 旋回・立入禁止区域 -->
+<line x1="170" y1="436" x2="290" y2="436" stroke="#b22234" stroke-width="3" stroke-dasharray="7 4"/>
+<text x="180" y="456" font-size="11" fill="#1a3a5c">旋回・立入禁止区域</text>
+
+<!-- 監視員 -->
+<circle cx="322" cy="406" r="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="322" y1="412" x2="322" y2="432" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="322" y1="418" x2="312" y2="426" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="322" y1="418" x2="332" y2="426" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="322" y1="432" x2="316" y2="436" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="322" y1="432" x2="328" y2="436" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="322" y="394" text-anchor="middle" font-size="11" fill="#1a3a5c">監視員</text>
+
+<text x="200" y="488" text-anchor="middle" font-size="11" fill="#555">現場に合わせて防護・制限・表示・区域・監視を組み合わせる</text>
+</svg>
