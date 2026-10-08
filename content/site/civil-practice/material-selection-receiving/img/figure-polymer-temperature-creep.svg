@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="温度が上がると樹脂の弾性率がガラス転移域で大きく下がること、一定荷重でひずみが時間とともに増えるクリープが高温ほど大きいことを示す概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .band { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .c1 { fill: none; stroke: #2e6da4; stroke-width: 2.5; }
+      .c2 { fill: none; stroke: #b22234; stroke-width: 2.5; }
+      .guide { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="20" y="24" class="h">温度と弾性率</text>
+  <rect class="band" x="145" y="40" width="84" height="160" />
+  <text x="187" y="56" class="s m">ガラス転移域</text>
+  <path class="axis" d="M50,36 V200 H372" />
+  <text x="56" y="48" class="s">弾性率</text>
+  <text x="370" y="218" class="s e">温度</text>
+  <path class="c1" d="M50,72 C100,72 140,78 160,92 C180,116 192,160 217,172 C240,180 300,182 370,184" />
+  <text x="58" y="64" class="s">硬いガラス状</text>
+  <text x="238" y="162" class="s">軟らかいゴム状</text>
+  <text x="20" y="240" class="s">転移域の近くでは常温の試験値を使えない</text>
+  <text x="20" y="268" class="h">一定荷重のひずみ</text>
+  <path class="axis" d="M50,284 V450 H372" />
+  <text x="56" y="296" class="s">ひずみ</text>
+  <text x="370" y="468" class="s e">時間</text>
+  <path class="c2" d="M50,450 V362 C100,336 200,318 360,304" />
+  <path class="c1" d="M50,450 V400 C100,388 200,378 360,368" />
+  <text x="150" y="324" class="s">高温</text>
+  <text x="150" y="362" class="s">低温</text>
+  <text x="62" y="436" class="s">瞬時の弾性ひずみ</text>
+  <text x="20" y="490" class="s">ひずみを一定にすると、応力が下がる（応力緩和）</text>
+</svg>

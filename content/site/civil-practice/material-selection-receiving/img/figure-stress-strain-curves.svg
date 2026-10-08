@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="成績表の降伏点、引張強さ、伸びの欄が軟鋼の応力-ひずみ曲線のどの点に当たるかを矢印で結び、弾性係数と耐力の扱いを補足した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .curve { fill: none; stroke: #2e6da4; stroke-width: 2.5; stroke-linejoin: round; }
+      .guide { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #b22234; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <!-- 成績表の欄 -->
+  <rect class="brand" x="10" y="40" width="116" height="40" rx="6" />
+  <text x="68" y="65" class="h m">引張強さ</text>
+  <rect class="brand" x="10" y="130" width="116" height="40" rx="6" />
+  <text x="68" y="155" class="h m">降伏点・耐力</text>
+  <rect class="brand" x="10" y="240" width="116" height="40" rx="6" />
+  <text x="68" y="265" class="h m">伸び</text>
+  <!-- 曲線 -->
+  <path class="axis" d="M170,48 V300 H380" />
+  <text x="178" y="42" class="s">応力</text>
+  <text x="380" y="344" class="s e">ひずみ</text>
+  <path class="curve" d="M170,300 L186,200 L188,210 L192,206 L197,211 L225,208 C255,207 285,170 320,152 C335,146 343,154 350,178" />
+  <path class="guide" d="M350,178 L330,300" />
+  <path class="guide" d="M170,306 V322 M330,306 V322 M170,316 H330" />
+  <text x="250" y="338" class="s m">破断後に残る伸び</text>
+  <circle cx="210" cy="209" r="4" fill="#ffffff" stroke="#b22234" stroke-width="2" />
+  <circle cx="329" cy="149" r="4" fill="#ffffff" stroke="#b22234" stroke-width="2" />
+  <!-- 矢印 -->
+  <path class="arrow" d="M126,60 L322,146" />
+  <path class="arrow" d="M126,152 L203,207" />
+  <path class="arrow" d="M126,262 L166,314" />
+  <!-- 成績表に載らない値 -->
+  <rect class="surface" x="10" y="368" width="380" height="118" rx="6" />
+  <text x="22" y="392" class="h">成績表に載らない値と、折れ点のない鋼</text>
+  <text x="22" y="416">弾性域の傾き＝弾性係数：基準の値を引く</text>
+  <text x="22" y="438">横ひずみ／縦ひずみ＝ポアソン比：同じく引く</text>
+  <text x="22" y="460">折れ点のない鋼：0.2%耐力を降伏点の代わりに</text>
+</svg>

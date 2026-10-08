@@ -227,6 +227,24 @@
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
+    "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
+      "sha": "f88fc06af1f90597",
+      "promptSha": "140fa911160e9046",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:49:29.945Z",
+      "verdict": "ok",
+      "reason": "ほぼ正方形の面の間知石が45度に傾いた菱形に並び、目地が斜めに通る谷積みで、天端のコンクリート笠木・のり面・舗装路も成り立ち、本文の石積みの面に使う間知石と矛盾せず破綻も無い",
+      "reviewedAt": "2026-10-08T00:50:20.889Z"
+    },
+    "civil-practice/material-selection-receiving/img/photo-wood-grain": {
+      "sha": "fcc14f9bf39b1f8f",
+      "promptSha": "acc83114855f1bb3",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:48:27.982Z",
+      "verdict": "ok",
+      "reason": "丸太の木口は同心円の年輪で、左の板は木口に年輪が幅方向へ横切る弧（板目）、右の板は年輪が厚さ方向に通る細い平行線（柾目）となり本文の板目と柾目の説明と一致、逆転や溶けた部品も無い",
+      "reviewedAt": "2026-10-08T00:50:20.889Z"
+    },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "sha": "be28c5582b209cd9",
       "promptSha": "f2f9c48ae6c1e478",

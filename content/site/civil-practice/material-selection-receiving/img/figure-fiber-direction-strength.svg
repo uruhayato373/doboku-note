@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="繊維補強樹脂を繊維方向に引く場合と直交方向に引く場合の違いと、仮定した弾性係数の比較を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .matrix { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fiber { fill: none; stroke: #1a3a5c; stroke-width: 2; }
+      .arrow { fill: none; stroke: #b22234; stroke-width: 3; marker-end: url(#arrow); }
+      .bar1 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bar2 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="20" y="28" class="h">繊維方向に引く</text>
+  <rect class="matrix" x="110" y="42" width="180" height="70" rx="3" />
+  <path class="fiber" d="M110,56 H290 M110,72 H290 M110,88 H290 M110,104 H290" />
+  <path class="arrow" d="M110,77 H56" />
+  <path class="arrow" d="M290,77 H344" />
+  <text x="200" y="134" class="s m">繊維が荷重を担う：強く、変形しにくい</text>
+  <text x="20" y="168" class="h">直角方向に引く</text>
+  <rect class="matrix" x="110" y="204" width="180" height="62" rx="3" />
+  <path class="fiber" d="M110,216 H290 M110,230 H290 M110,244 H290 M110,258 H290" />
+  <path class="arrow" d="M200,204 V180" />
+  <path class="arrow" d="M200,266 V290" />
+  <text x="200" y="316" class="s m">樹脂と繊維の界面が担う：弱く、変形しやすい</text>
+  <text x="20" y="352" class="h">仮定値の弾性係数</text>
+  <text x="20" y="378" class="s">繊維方向</text>
+  <rect class="bar1" x="90" y="364" width="250" height="20" />
+  <text x="346" y="379" class="s">116GPa</text>
+  <text x="20" y="412" class="s">直角方向</text>
+  <rect class="bar2" x="90" y="398" width="13" height="20" />
+  <text x="110" y="413" class="s">6GPa</text>
+  <text x="20" y="448" class="s">繊維50%、繊維230GPa、樹脂3GPaの場合</text>
+  <text x="20" y="472" class="s">向きを施工図と合わせないと、補強効果は出ない</text>
+</svg>
