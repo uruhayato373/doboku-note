@@ -1,0 +1,81 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はプレパックドコンクリートの粗骨材先詰めとモルタル注入。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="プレパックドコンクリートの断面模式図。型枠に粗骨材を先に詰め、注入管から下方よりモルタルを注入し、モルタル面が下から上へ上がって骨材の隙間を満たす。注入管は水平間隔2m以下に配置する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .form { fill: #ffffff; stroke: #555; stroke-width: 2; }
+      .mortar { fill: #e8f0fe; stroke: none; }
+      .agg { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pipe { stroke: #2e6da4; stroke-width: 4; fill: none; stroke-linecap: round; }
+      .level { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; fill: none; }
+      .arrow { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .dim { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+    <marker id="dm" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 型枠 -->
+  <rect class="form" x="50" y="70" width="300" height="250"/>
+  <rect class="mortar" x="52" y="200" width="296" height="118"/>
+
+  <!-- 粗骨材 上段（モルタル前） -->
+  <circle class="agg" cx="76" cy="92" r="17"/><circle class="agg" cx="112" cy="90" r="15"/><circle class="agg" cx="152" cy="94" r="18"/>
+  <circle class="agg" cx="190" cy="90" r="14"/><circle class="agg" cx="224" cy="94" r="17"/><circle class="agg" cx="262" cy="90" r="15"/>
+  <circle class="agg" cx="298" cy="94" r="17"/><circle class="agg" cx="330" cy="92" r="13"/>
+  <circle class="agg" cx="92" cy="126" r="16"/><circle class="agg" cx="130" cy="128" r="17"/><circle class="agg" cx="172" cy="126" r="15"/>
+  <circle class="agg" cx="208" cy="128" r="17"/><circle class="agg" cx="246" cy="126" r="16"/><circle class="agg" cx="284" cy="128" r="15"/><circle class="agg" cx="322" cy="126" r="16"/>
+  <circle class="agg" cx="72" cy="160" r="16"/><circle class="agg" cx="110" cy="162" r="15"/><circle class="agg" cx="150" cy="160" r="17"/>
+  <circle class="agg" cx="190" cy="162" r="15"/><circle class="agg" cx="228" cy="160" r="16"/><circle class="agg" cx="266" cy="162" r="17"/><circle class="agg" cx="304" cy="160" r="15"/><circle class="agg" cx="334" cy="164" r="12"/>
+  <!-- 中段・下段 -->
+  <circle class="agg" cx="90" cy="194" r="16"/><circle class="agg" cx="130" cy="196" r="17"/><circle class="agg" cx="172" cy="194" r="15"/>
+  <circle class="agg" cx="210" cy="196" r="16"/><circle class="agg" cx="248" cy="194" r="17"/><circle class="agg" cx="288" cy="196" r="15"/><circle class="agg" cx="324" cy="194" r="16"/>
+  <circle class="agg" cx="72" cy="228" r="16"/><circle class="agg" cx="110" cy="230" r="15"/><circle class="agg" cx="150" cy="228" r="17"/>
+  <circle class="agg" cx="190" cy="230" r="15"/><circle class="agg" cx="228" cy="228" r="16"/><circle class="agg" cx="266" cy="230" r="17"/><circle class="agg" cx="304" cy="228" r="15"/><circle class="agg" cx="334" cy="232" r="12"/>
+  <circle class="agg" cx="92" cy="262" r="16"/><circle class="agg" cx="130" cy="264" r="17"/><circle class="agg" cx="172" cy="262" r="15"/>
+  <circle class="agg" cx="210" cy="264" r="16"/><circle class="agg" cx="248" cy="262" r="17"/><circle class="agg" cx="288" cy="264" r="15"/><circle class="agg" cx="324" cy="262" r="16"/>
+  <circle class="agg" cx="72" cy="298" r="16"/><circle class="agg" cx="110" cy="300" r="15"/><circle class="agg" cx="150" cy="298" r="17"/>
+  <circle class="agg" cx="190" cy="300" r="15"/><circle class="agg" cx="228" cy="298" r="16"/><circle class="agg" cx="266" cy="300" r="17"/><circle class="agg" cx="304" cy="298" r="15"/><circle class="agg" cx="334" cy="300" r="12"/>
+
+  <!-- 注入管 -->
+  <line class="pipe" x1="140" y1="40" x2="140" y2="306"/>
+  <line class="pipe" x1="260" y1="40" x2="260" y2="306"/>
+  <line class="pipe" x1="140" y1="40" x2="260" y2="40"/>
+
+  <!-- モルタル上面 -->
+  <line class="level" x1="50" y1="200" x2="350" y2="200"/>
+  <line class="arrow" x1="368" y1="262" x2="368" y2="214" marker-end="url(#ah)"/>
+  <text class="t-desc" x="368" y="284" text-anchor="middle">上昇</text>
+
+  <!-- 水平間隔 -->
+  <line class="dim" x1="200" y1="54" x2="146" y2="54" marker-end="url(#dm)"/>
+  <line class="dim" x1="200" y1="54" x2="254" y2="54" marker-end="url(#dm)"/>
+  <text class="t-desc" x="200" y="66" text-anchor="middle">2 m 以下</text>
+
+  <text class="t-name" x="96" y="46" text-anchor="middle">注入管</text>
+  <text class="t-name" x="366" y="132" text-anchor="middle">粗骨材</text>
+  <line class="dim" x1="356" y1="128" x2="344" y2="124"/>
+  <text class="t-name" x="366" y="178" text-anchor="middle">モルタル</text>
+  <text class="t-name" x="366" y="192" text-anchor="middle">上面</text>
+  <!-- ラベル -->
+  <rect class="box-sur" x="20" y="342" width="170" height="52" rx="6"/>
+  <text class="t-name" x="105" y="364" text-anchor="middle">先に粗骨材を詰める</text>
+  <text class="t-desc" x="105" y="382" text-anchor="middle">注入管も先に配置</text>
+  <rect class="box-sur" x="210" y="342" width="170" height="52" rx="6"/>
+  <text class="t-name" x="295" y="364" text-anchor="middle">下からモルタル注入</text>
+  <text class="t-desc" x="295" y="382" text-anchor="middle">空気を巻き込まず連続で</text>
+  <rect class="box-warn" x="20" y="410" width="360" height="52" rx="6"/>
+  <text class="t-name" x="200" y="432" text-anchor="middle">注入管は先端を埋めたまま引き抜く</text>
+  <text class="t-desc" x="200" y="450" text-anchor="middle">モルタル上面の位置を測れるようにしておく</text>
+</svg>

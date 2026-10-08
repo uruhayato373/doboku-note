@@ -1812,6 +1812,11 @@
       "page": 236,
       "dpi": 0
     },
+    "concrete-chief-engineer/textbook-construction/img/photo-shotcrete-tunnel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Inside a mountain road tunnel under construction (NATM), at the excavation face, lit by work lights: a wet-mix shotcrete spraying machine with a long hydraulic boom holds a nozzle about 1.5 m from the tunnel arch. A thick, dense, dark-grey stream of wet concrete shoots from the nozzle and splatters onto the rock surface, visibly building a rough grey concrete layer over steel arch ribs and wire mesh; the freshly sprayed area is wet dark grey while unsprayed rock is lighter brown-grey. A little rebound material falling below the spray point and some dust haze, but the concrete jet itself is clearly a heavy grey material, not white mist or water. The operator is small and distant at the controls, helmet on, face not visible. No text, no logos."
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1878,6 +1883,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Close-up of a freshly stripped formed concrete surface on the sloped (haunch) part of a concrete box culvert wall, no machines. The inclined face is covered with many small surface voids (bug holes, 2 to 10 mm diameter) concentrated on the downward-facing slope, while the vertical face below is smooth. Smooth grey formed concrete texture, plywood form panel joint lines faintly visible, daylight, no people, no text."
+    },
+    "concrete-engineer/textbook-materials/img/photo-popout": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a smooth grey concrete wall surface showing three pop-outs: small shallow conical craters 2 to 5 cm across where a near-surface aggregate particle expanded and pushed off a cone-shaped piece of the surface mortar. At the bottom of each crater a broken, split aggregate particle (porous, slightly darker, with a whitish rim) is visible. The surrounding surface is plain, smooth and uniform. Shallow depth of field: only the craters in sharp focus, the rest of the wall softly blurred. Soft overcast daylight, no people, no text, no coins or scale objects."
+    },
+    "concrete-engineer/textbook-production-qc/img/photo-mixer-drum-cover": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A Japanese concrete truck mixer (truck agitator: a cab-over truck with a rotating mixing drum on the back) parked at a ready-mixed concrete plant on a hot sunny summer day. The drum is wrapped with a white, damp heat-insulating cover sheet strapped around it, the sheet slightly darker where it is wet. Correct number of wheels and normal drum shape, chute at the rear. No people, no text, no logos, no licence plate readable."
     },
     "concrete-engineer/textbook-properties-testing/img/photo-rebar-scanner": {
       "kind": "ai-generated",

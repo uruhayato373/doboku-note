@@ -236,6 +236,15 @@
       "reason": "柱頭部の軸から伸びる振り子アームが斜め上に持ち上がり、軸から台座の試験片支持台までの距離とアーム長がほぼ等しく、下ろせばハンマーが試験片位置に届く。支持台・ダイヤル・V ノッチ角棒 3 本と破断片 2 本が本文と一致し、読める文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:50:42.581Z"
     },
+    "concrete-chief-engineer/textbook-construction/img/photo-shotcrete-tunnel": {
+      "sha": "c94a157bd95a2d63",
+      "promptSha": "543fec40f6340c1c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:21:30.030Z",
+      "verdict": "ok",
+      "reason": "確認: 受入れホッパ付き台車・多関節ブーム・先端ノズル・ホースの構成が実物どおりで、ノズルの噴流は灰色の粉塵を伴い、金網と鋼製支保の面に灰色の厚い付着層とはね返りが見え、前回の白い霧の描写は解消している",
+      "reviewedAt": "2026-10-08T00:27:47.822Z"
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "sha": "1c6acb88729ce5a0",
       "promptSha": "5efbbbb4c241e82c",
@@ -346,6 +355,24 @@
       "verdict": "ok",
       "reason": "ボックスカルバートのハンチ斜面に径数mmから10mm程度の表面気泡が集中し、下の鉛直壁は平滑で、型枠パネルの目地も見える。alt と本文（型枠面に残る巻込み空気）と一致し、構造や生成の崩れも無い",
       "reviewedAt": "2026-10-07T22:52:26.083Z"
+    },
+    "concrete-engineer/textbook-materials/img/photo-popout": {
+      "sha": "398f635b30850f38",
+      "promptSha": "832863baceca0ae1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:26:34.772Z",
+      "verdict": "ok",
+      "reason": "確認: 平滑なコンクリート面に、円錐状にはがれた浅いくぼみが3か所あり、底に割れた骨材粒子が見える。本文の「表面近くの骨材が膨張して円錐状に剥がれる」と一致し、崩れや文字もない",
+      "reviewedAt": "2026-10-08T00:27:47.823Z"
+    },
+    "concrete-engineer/textbook-production-qc/img/photo-mixer-drum-cover": {
+      "sha": "a01ec761ada250b6",
+      "promptSha": "15b0818656492f01",
+      "tool": "Codex",
+      "generatedAt": "2026-10-08T00:24:21.478Z",
+      "verdict": "ok",
+      "reason": "確認: 前1軸・後2軸の車輪を持つキャブ付きトラックの荷台に傾斜したドラムが載り、後部にシュートがある。ドラム全体を白いカバーがベルトで覆い、濡れた濃淡も見え、本文の「湿らせたカバーで覆う」と一致する",
+      "reviewedAt": "2026-10-08T00:27:47.823Z"
     },
     "concrete-engineer/textbook-properties-testing/img/photo-rebar-scanner": {
       "sha": "082ca2118b6b5234",
