@@ -109,6 +109,37 @@ test('develop へ push しなければ対象外', () => {
   assert.equal(r.ok, true);
 });
 
+const PINNED_PLUS_PUBLISH = (publishRef) => `
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+jobs:
+  deliver:
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: 1dd9e3b8332688184eaf9ae99774e9af2a7e116a
+      - run: node scripts/youtube-delivery.mjs
+  publish-pack:
+    steps:
+      - uses: actions/checkout@v5
+${publishRef ? `        with:\n          ref: ${publishRef}\n` : ''}      - run: git push origin HEAD:develop
+`;
+
+test('push しない別ジョブが ref を固定していても、push するジョブが develop なら合格', () => {
+  const r = auditWorkflow('pinned.yml', PINNED_PLUS_PUBLISH('develop'));
+  assert.equal(r.applicable, true);
+  assert.equal(r.ok, true);
+});
+
+test('push するジョブ自身が develop を checkout しなければ落ちる（別ジョブの ref では救わない）', () => {
+  assert.equal(auditWorkflow('pinned-bad.yml', PINNED_PLUS_PUBLISH(null)).ok, false);
+  const wrong = auditWorkflow('pinned-main.yml', PINNED_PLUS_PUBLISH('main'));
+  assert.equal(wrong.ok, false);
+  assert.equal(wrong.ref, 'main');
+});
+
 test('現物の workflow が全て合格し、対象が 0 件ではない', () => {
   const files = readdirSync(WORKFLOW_DIR).filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'));
   assert.ok(files.length >= 10, `workflow が ${files.length} 本しか取れていない（走査の破損を疑う）`);

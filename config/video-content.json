@@ -2,7 +2,7 @@
   "$schema": "https://doboku-note.com/schema/video-content.json",
   "description": "動画パック（DN-0110）の機械可読契約。人間向け真実源は .claude/knowledge/reference/video-content-policy.md、戦略は docs/marketing/06_動画コンテンツ運用設計.md。checker(check-video-content)・fixture(tests/fixtures/video-content)・将来の admin parser が参照する。",
   "schemaVersion": 1,
-  "updated": "2026-09-06",
+  "updated": "2026-10-08",
   "paths": {
     "packsRoot": "content/sns/video-packs",
     "stateFile": ".claude/state/video-content-status.json"
@@ -70,9 +70,10 @@
     "captionMaxChars": 60,
     "durationSeconds": {
       "longform": { "min": 60, "max": 1200 },
+      "compilation": { "min": 1200, "max": 3600 },
       "shorts": { "min": 15, "max": 180, "recommendedMin": 30, "recommendedMax": 60 }
     },
-    "note_": "shorts の 180 秒はプラットフォーム成立条件・30-60 秒はプロジェクト推奨尺（真実源 yt-shorts-publisher-policy.md §3）。longform の min/max は sanity bound であり品質基準ではない。"
+    "note_": "shorts の 180 秒はプラットフォーム成立条件・30-60 秒はプロジェクト推奨尺（真実源 yt-shorts-publisher-policy.md §3）。longform の min/max は sanity bound であり品質基準ではない。compilation は compilation.json を持つ総まとめ（聞き流し）パックの範囲（config/youtube-formats.json の compilation）。"
   },
   "verbatim": {
     "windowChars": 80,

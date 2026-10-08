@@ -323,6 +323,19 @@ async function syncAuthorityMetadata(youtube, videoId, item) {
   throw new Error(`${item.key}: 著者表記・AI開示のAPI実査に失敗 ${videoId}`);
 }
 
+/**
+ * 通常動画を YouTube へ上げる前の関門。ユーザー承認（state の approvedBy: user）と、
+ * 5分より先の予約日時が無ければ上げない（publishAt が無いと即時公開になるため）。
+ */
+function assertLongformPublishable(derivative, item, now = Date.now()) {
+  if (derivative?.approvedBy !== 'user' || !['approved', 'rendered'].includes(derivative?.status)) {
+    throw new Error(`${item.key}: ユーザー承認の済んだ通常動画ではありません（status=${derivative?.status ?? 'なし'}・approvedBy=${derivative?.approvedBy ?? 'なし'}）`);
+  }
+  if (!item.publishAt || new Date(item.publishAt).getTime() <= now + 5 * 60 * 1000) {
+    throw new Error(`${item.key}: 5分より先の publishAt が要ります（即時公開はしない）: ${item.publishAt ?? 'なし'}`);
+  }
+}
+
 async function main() {
   if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
@@ -342,6 +355,7 @@ async function main() {
   for (const item of selected) assertMetadata(item, PACK_ID);
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
+  if (PHASE === 'longform') assertLongformPublishable(loadState().packs?.[PACK_ID]?.derivatives?.longform, publish.longform);
   if (DRY) return console.log('[dry-run] API/R2/state は変更しません');
   if (PHASE === 'shorts-publish' && !RELATED_CONFIRMED) throw new Error('Shorts公開には --related-confirmed が必要です');
 
@@ -470,4 +484,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { videoSnippet, videoStatus };
+module.exports = { videoSnippet, videoStatus, assertLongformPublishable };
