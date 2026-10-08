@@ -34,7 +34,7 @@
 
 主任技士・診断士・一次のトップにも公開教材を1点表示する（`sidebar-discovery.ts`）。記事の個別教材は既存 `magazine-placement` の主教材に合わせ、HUB教材と重ねない。記事の運営者紹介は開閉式、教材・広告は通常フロー、目次・復習・無料ツールのみ末尾の追従クラスタに置く。6カテゴリの新しい復習ナビは同分野／科目・同年度を優先し、スマホでは末尾の開閉ナビで共用。基準章の実務リンクは章名が対応する分野に限る。
 
-個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。通常は画像のみ、`compact`では商品名だけを併記する。価格は改定が多いため完成画像CTAへ表示せず、リンク先で確認する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
+個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。通常は画像のみ、`compact`では商品名を併記し、`actionLabel`指定時は内容を見る案内を添える。価格は改定が多いため完成画像CTAへ表示せず、リンク先で確認する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
 
 1. **ドキュメントサイト** — ダッシュボードやデータ可視化ではなく、長文テキスト・数式・図表・過去問の閲覧が主目的。
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
@@ -158,7 +158,8 @@
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
 | `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
 | `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、文書ページ＝同機関の文書＋分冊、文字起こしページ＝分冊＋当該 PDF ページアンカーへ文脈に応じて切替。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。ナビ欄には広告・著者情報を置かず、公共資料の閲覧ナビに限定する（転職広告は本文末に `AffiliateSlot` で 1 枠。章ページは `standards-end`、章以外は `standards-list-end`・2026-10-07〜） | `agencyId` / `currentDocument?` / `currentPart?` / `pageNumbers?` / `variant`（sidebar/mobile） |
-| `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・逐語文字起こし用の記事内ヘッダー。通常記事と同じゴシック見出しを使い、章記事では編ラベル＋章名だけに絞る（文書名・構造説明・原本ページ・分冊内部名の反復は禁止）。原本情報は記事末尾の出典欄へ集約し、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?` |
+| `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・逐語文字起こし用の記事内ヘッダー。編ラベル＋章名を見出しとし、機関名・版・原本PDFページを13pxのメタ情報に併記する。文書名・構造説明・分冊内部名は反復しない。詳細な原本情報は末尾の出典欄に置き、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?` |
+| `StandardVerbatimTable`（`standards/StandardVerbatimTable.tsx`） | 章記事の逐語表を原文の空白・改行のまま表示する。背景`--paper`・文字`--ink-body`。横に続く表だけスクロール案内を表示し、キーボードでも読める | `pre`のprops |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -174,9 +175,9 @@
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
 | `QualificationBridge`（`ui/QualificationBridge/QualificationBridge.tsx`） | 実務記事（`civil-practice`）の記事末と共通仕様書の章末に置く「業務経験 → 資格」カード。資格を意識していない読者に立場 3 択（発注者／施工会社／迷っている）で既存の資格ページへの入口を示す。本文に試験文脈を入れない規約は維持し、本文の外に 1 枚だけ置く。対象・文言・遷移先は `src/config/qualification-bridge.ts`。GA4 は root の `data-cta="qualification-bridge"` で表示（`qualification_bridge_impression`）、各リンクの `data-cta-label`（立場）でクリック（`qualification_bridge_click`）。EXP-012 | `placement` |
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像、平時は資格共通画像を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
-| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名だけを横並びにする。説明文・価格は表示しない。収録範囲の誤認を防ぐ `scopeNotice` がある場合だけ、画像の直前に短い注記を表示する。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` / `className?` / `scopeNotice?` |
+| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名を横並びにし、`actionLabel`指定時は案内を添える。説明文・価格は表示しない。収録範囲の誤認を防ぐ `scopeNotice` がある場合だけ、画像の直前に短い注記を表示する。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` / `actionLabel?` / `className?` / `scopeNotice?` |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | 記事中間・MDX本文の強CTA。完成画像を `NoteImageCta` で表示し、未登録時は資格背景＋円形アバターのHTML意匠へフォールバックする。複数商品の列挙は `variant="inline"`＝`MagazineInlineCard` のcompact表示を使う。公開判定は `getMagazine()`、GA4は商品ID入りラベル・配置・表示インプレッションを共用 | `id`（`MagazineId`）/ `utmContent` / `placement` |
-| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。完成画像のみの表示を優先し、未登録時は短縮タイトル・価格の1行HTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` |
+| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。通常は完成画像のみを優先し、多問の過去問では`compact`で小さな画像・短縮タイトル・内容を見る案内を横並びにする。画像未登録時は短縮タイトル・価格のHTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` / `compact?` |
 
 **共通フッター**: 資格・実務リンクは既存カテゴリ索引から解決し、PCでは最大3列で表示、スマホでは native `<details>` に折りたたむ。サイト案内は横並び・折り返しとし、紹介文は1行に絞る。広告表記・著作権表示を残し、技術構成の表示は置かない。リンクの操作領域は44px以上を維持する。
 
@@ -253,6 +254,7 @@
 - **リンク**: `color: var(--accent)` + 半透明 accent アンダーライン（offset 4px、hover で濃く）。
 - **表**: soft border（`--rule-soft`）+ thead 背景 `--accent-fill` + th はモノスペース・大文字・11px・letter-spacing。`rounded-card-content`。最初列（ラベル列慣習）は `white-space: nowrap`。
 - **details / blockquote / code / pre**: editorial soft rule（`--rule-soft`）。インラインコードは `--accent-fill` 背景 + `--accent` 文字。
+- **多問の過去問**: 本文前に問1へ直行するリンクと閉じた番号一覧を置く。番号は本文・右ナビとも44px以上。native `details`でJavaScriptなしでも番号を選べる。
 - **モバイル（≤576px）**: 本文 16px、見出しは em 比例で縮小、table/blockquote/pre はフルブリード化（左右 margin 0）。details（設問カード）は `--article-gutter-sp` を負マージンで相殺して記事カード端まで真の全幅化＋内側同値 padding の単層構成（table 等の単純 margin 0 とは別メカニズム・詳細 → §3.2）。
 - **KaTeX**: 本文サイズに揃える（`.katex { font-size: inherit }`）。display 式は `--color-surface` 背景 + `overflow-x: auto`。長い式は横スクロール。
 
