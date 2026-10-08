@@ -21,6 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0609] コンテンツ台帳 P3: 画面確認と2段階承認の CLI、管理画面で作品ごとに表紙・動画を目視確認する画面を作る
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
+
+**起点**: コンテンツ台帳の P3。管理画面の動画まわりは表と状態だけで、表紙・締め・動画を見られない。画像配信のルートは Range 非対応（mp4 のシーク・Safari 再生が壊れる）で realpath 検査も無い。
+**やること**:
+1. `npm run media -- preview`（DN-0603 を実装: 無音プレビュー・10 秒ごとのコンタクトシート・数値。閾値は config/video-content.json）
+2. 2 段階の承認 `npm run media -- approve --stage visual|final --expect <digest>` と、stage の final 関門
+3. tools/admin-app の画像配信ルート: 配信元 cmedia（.tmp/media）と vault（Drive の 制作物/コンテンツ）、Range（206・416・HEAD）、全配信元の realpath 検査、Drive の絶対パスと R2 のキーを HTML に出さない
+4. `/content/items`（一覧）と `/content/items/[exam]/[work]`（詳細: 表紙・締め・コンタクトシート・場面・無音プレビュー・完成動画・字幕・IG・X・公開と予約・承認・来歴・CopyButton のコマンド）。読むだけの契約は保つ
+**完了条件**: e2e が desktop と mobile で緑（書き込みボタン 0・秘密が出ない・Range で 206・`..` は 403）。Tailscale 経由の iPhone で再生とシーク。総まとめで全パネルが出る。
+
+
 ### [DN-0608] コンテンツ台帳 P2: YouTube 動画パックを台帳へ移し、予約→公開を CI の照合で進め、表紙を ID の置き場へ移す
 タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
 
