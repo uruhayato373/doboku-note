@@ -94,18 +94,17 @@
 完了条件: --status で全 27 冊が「判定済み（展開不要）」か「展開済み」・展開した記事は sources 宣言と check-reference-sources:deep の逐語一致 0
 
 
-### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
+### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
 
-`npm run check-reference-sources:deep`（2026-10-08 実行）で、1級土木 第二次検定の基礎記事3本と過去問記事1本に、市販書籍の文字起こしと40字以上一致する箇所が計80件ある（FAIL は141件だが、記事×原本の組で数えて80件。コンクリート3資格の記事は0件）。
+2026-10-09 の書籍の網羅の展開（DN-0591）で、コンクリート・土工・品質管理の基礎 3 本の一致は書き直して 0 になった。残りは、展開の前から本文にあった一致で、記事の `sources` に civil1-secondary-workbook-2021 が入ったことで検査の対象に入ったもの。
 
-- `content/site/civil-construction-1/secondary-concrete-basics/article.mdx` 40件（civil1-textbook-general・civil1-secondary-workbook-2021）
-- `content/site/civil-construction-1/secondary-earthwork-basics/article.mdx` 20件
-- `content/site/civil-construction-1/secondary-quality-management-basics/article.mdx` 18件
-- `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` 2件（576字・93字の一致。過去問の設問転記なら exam-official 側の扱いを確認）
+- `content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx` 20 件（最大 552 字。「施工計画の目的」「作成時の留意点」「作成の手順」などの段落）
+- `content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx` 15 件（最大 456 字。安全管理の対策の列挙、工期・工事場所の記入要領など）。受検の手引・設問の公式文と重なる部分は書き換えず、公式の出典に寄せる
+- 過去問の記事（secondary-quality-management-past-problems 10 件・secondary-concrete-past-problems 2 件）は公式の設問文の一致。書き換えず、検査の扱いを DN-0617 で直す
 
-**やること**: 一致箇所を独自の表現に書き直す（commercial-book は逐語1文も不可・reference-sources-policy.md）。過去問記事の一致が公式の設問文なら、出典を exam-official（cecc-past-exams）に寄せて検査の扱いを確認する。直したら `npm run check-reference-sources:deep` で該当記事の一致 0 を確認する。
-
+**やること**: 書籍の文の一致を独自の表現に書き直す（commercial-book は逐語 1 文も不可・reference-sources-policy.md）。公式の文章（受検の手引・設問）だけの一致は残し、出典を公式に寄せる。
+**完了条件**: Drive をマウントして `npm run check-reference-sources:deep` で、上の 2 記事の書籍の文の一致が 0（公式の文章だけが残る）。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
