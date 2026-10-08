@@ -21,12 +21,20 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0616] 1級土木の textbook に追加した SVG 2 枚が画像サイズの上限（10KB）を超え、develop と全 PR の CI（image-assets）が落ちる
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-image-assets] [起票:2026-10-09]
+
+**起点**: 2026-10-09、PR #937 の audit が check-image-assets の size-new で落ちた。原因は develop に入った 2 枚（content/site/civil-construction-1/textbook-safety-industrial-safety-law/img/figure-qualification-boundary.svg 12,389B・164f118d0、textbook-safety-machinery-crane/img/figure-dump-haul-route.svg 10,401B・bda183fae）。develop の先頭（3a4c4975c）でも同じ大きさで、develop を取り込んだ全 PR が赤になる。書籍の網羅の追記を進めている別セッションの成果物なので、PR 側では直していない。
+**やること**: 2 枚を圧縮して 10KB 以下にする（svgo 等・描画は変えない）か、許容するなら npm run update-image-baseline で基準に入れる。どちらにするかは記事の担当が決める。
+**完了条件**: npm run check-image-assets が新規超過 0 で通り、develop の audit が緑。
+
+
 ### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
 
 **起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
-**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、この文を回帰の見本にする（テストつき）。本文は変えない。
-**完了条件**: develop で `npm run check-keiken-answer-split` が通り、上の文が違反に出ず、既存の真の違反の見本はこれまでどおり出る。
+**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、上の文を回帰の見本にする（テストつき）。記事の本文は 2026-10-09 に言い換えて CI を通したので（b202397f3）、見本はテストの中に置く。
+**完了条件**: 上の文をテストに入れて違反に出ず、既存の真の違反の見本はこれまでどおり出る。
 
 
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
@@ -54,7 +62,7 @@
 
 
 ### [DN-0608] コンテンツ台帳 P2: YouTube 動画パックを台帳へ移し、予約→公開を CI の照合で進め、表紙を ID の置き場へ移す
-タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: コンテンツ台帳の P2（P1 の土台の上）。YouTube の通常動画は台帳で予約 111・公開 1 だが実際は 70 本が公開中で、予約→公開へ進める処理が無い。表紙 346 件は日付フォルダ・連番名。
 **やること**:
@@ -86,18 +94,17 @@
 完了条件: --status で全 27 冊が「判定済み（展開不要）」か「展開済み」・展開した記事は sources 宣言と check-reference-sources:deep の逐語一致 0
 
 
-### [DN-0580] 1級土木 第二次の基礎記事3本・過去問1本の、市販書籍との40字以上の一致80件を書き直す
+### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
 
-`npm run check-reference-sources:deep`（2026-10-08 実行）で、1級土木 第二次検定の基礎記事3本と過去問記事1本に、市販書籍の文字起こしと40字以上一致する箇所が計80件ある（FAIL は141件だが、記事×原本の組で数えて80件。コンクリート3資格の記事は0件）。
+2026-10-09 の書籍の網羅の展開（DN-0591）で、コンクリート・土工・品質管理の基礎 3 本の一致は書き直して 0 になった。残りは、展開の前から本文にあった一致で、記事の `sources` に civil1-secondary-workbook-2021 が入ったことで検査の対象に入ったもの。
 
-- `content/site/civil-construction-1/secondary-concrete-basics/article.mdx` 40件（civil1-textbook-general・civil1-secondary-workbook-2021）
-- `content/site/civil-construction-1/secondary-earthwork-basics/article.mdx` 20件
-- `content/site/civil-construction-1/secondary-quality-management-basics/article.mdx` 18件
-- `content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx` 2件（576字・93字の一致。過去問の設問転記なら exam-official 側の扱いを確認）
+- `content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx` 20 件（最大 552 字。「施工計画の目的」「作成時の留意点」「作成の手順」などの段落）
+- `content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx` 15 件（最大 456 字。安全管理の対策の列挙、工期・工事場所の記入要領など）。受検の手引・設問の公式文と重なる部分は書き換えず、公式の出典に寄せる
+- 過去問の記事（secondary-quality-management-past-problems 10 件・secondary-concrete-past-problems 2 件）は公式の設問文の一致。書き換えず、検査の扱いを DN-0617 で直す
 
-**やること**: 一致箇所を独自の表現に書き直す（commercial-book は逐語1文も不可・reference-sources-policy.md）。過去問記事の一致が公式の設問文なら、出典を exam-official（cecc-past-exams）に寄せて検査の扱いを確認する。直したら `npm run check-reference-sources:deep` で該当記事の一致 0 を確認する。
-
+**やること**: 書籍の文の一致を独自の表現に書き直す（commercial-book は逐語 1 文も不可・reference-sources-policy.md）。公式の文章（受検の手引・設問）だけの一致は残し、出典を公式に寄せる。
+**完了条件**: Drive をマウントして `npm run check-reference-sources:deep` で、上の 2 記事の書籍の文の一致が 0（公式の文章だけが残る）。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -324,6 +331,27 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0618] 1級土木の既存記事の誤り・食い違いを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
+
+2026-10-09 の書籍の網羅の展開（DN-0591・1級・2級土木の棚）で、QA が追記の範囲外にある既存の記述の誤り・食い違いを指摘した。追記の担当は範囲外を編集しないので残っている。一次資料で確かめてから直す。
+- civil-construction-1/guide-strategy: 法規の出題数（L145〜155・L208〜214。労安は毎年 2 問、建設業法は令和 5 年度まで 1 問・令和 6 年度以降 2 問など）と、問題 A の問題数（令和 6 年度から工学基礎 5 問が加わり 66 問）を、追記した guide-law-key-points・同記事の実測と揃える（FAQ の JSON-LD も）
+- civil-construction-1/primary-h29-b: 4 番の解説「想定される箇所には防水処理を行わなければならない」が設問の選択肢と食い違う
+- civil-construction-1/primary-r03-b: L530（No.19）の解説「再資源化が困難なら縮減」「第 16 条」（建設副産物適正処理推進要綱の条と順位で訂正）
+- civil-construction-1/guide-environment-management: L29（FAQ）・L145 の再生資源利用計画等の保存期間（省令では完成後 5 年）
+- civil-construction-1/secondary-experience-writing-guide: 既存の「対象とは認められない工事」表の行（工場製作の鋼構造物製作・解体・ビル建築の杭・基礎・区画線）を令和 8 年度の受検の手引と照らす
+- civil-construction-1/secondary-quality-management-past-problems: R1 No.3 の本文（TS・GNSS を品質規定方式の項目に入れている・(イ) を最適含水比としている）を公式の問題・解答と照らす
+完了条件: 6 件それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
+
+
+### [DN-0617] 逐語一致の検査が、書籍と共通の公式の文章（過去問の設問・受検の手引・法令や指針の正式名称）を書籍の写しとして拾う
+タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+
+2026-10-09、書籍の網羅の展開（DN-0591）で記事の sources に書籍の id を足したところ、check-reference-sources --deep が公式の文章の一致を書籍の写しとして拾った。例: 過去問の設問文（secondary-quality-management-past-problems 10 件・最大 272 字、secondary-concrete-past-problems 2 件）、パワハラ防止指針の正式名称（power-harassment 54 字）、エシカル消費の定義（environmental-communication 47 字）。書籍も同じ公式の文章を載せているための一致で、言い換えられない。scripts/lib/reference-sources.mjs の VERBATIM_MIN_RUN の注記にある方針（閾値を上げず、規格名・法令名を比較対象から外す）に沿って直す。
+**やること**: (1) 公式の過去問の文字起こし（exam-official の原本）や公式資料に同じ連続文字列があれば、書籍との一致から除く（共通部分の差し引き）。(2) 法令・指針・規格の正式名称を除く。(3) 除いた件数を出力し、検査ゼロを PASS と呼ばない。
+**完了条件**: 上の 4 記事の公式の文章の一致が出なくなり、書籍の文の一致（DN-0580 の施工計画の基礎など）はこれまでどおり出る（回帰テストつき）
+
 
 ### [DN-0613] コンテンツ台帳 P7: Codex 画像の生成と監査を素材の台帳に結び、Threads・TikTok を入れて旧台帳を片付ける
 タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-09]

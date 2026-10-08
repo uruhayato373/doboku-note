@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="作業別の点検の時期。足場は作業開始前と悪天候・地震・組立て変更後、型枠支保工はコンクリート打設日の開始前、ずい道支保工は毎日、クレーンは作業開始前と月1回・年1回の自主検査、強風は屋外のみ・地震は屋内外とも。点検の契機は4種類に整理できる">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="12" y="10" width="94" height="63" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="37.7" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">足場</text>
+<text x="59" y="53.35" text-anchor="middle" font-size="11" fill="#555">則567条</text>
+<rect x="110" y="10" width="278" height="63" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="30.35" text-anchor="start" font-size="11" fill="#222">作業開始前：墜落防止設備の取り外し・脱落</text>
+<text x="118" y="45.35" text-anchor="start" font-size="11" fill="#222">悪天候・中震以上の地震・組立て等の後に9項目</text>
+<text x="118" y="60.35" text-anchor="start" font-size="11" fill="#222">点検者を指名、結果は作業終了まで保存</text>
+<rect x="12" y="78" width="94" height="63" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="105.7" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">作業構台</text>
+<text x="59" y="121.35" text-anchor="middle" font-size="11" fill="#555">則575条の8</text>
+<rect x="110" y="78" width="278" height="63" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="98.35" text-anchor="start" font-size="11" fill="#222">作業開始前：手すり等の取り外し・脱落</text>
+<text x="118" y="113.35" text-anchor="start" font-size="11" fill="#222">悪天候・中震以上の地震・組立て等の後に7項目</text>
+<text x="118" y="128.35" text-anchor="start" font-size="11" fill="#222">結果は作業終了まで保存</text>
+<rect x="12" y="146" width="94" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="166.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">型枠支保工</text>
+<text x="59" y="181.85" text-anchor="middle" font-size="11" fill="#555">則244条</text>
+<rect x="110" y="146" width="278" height="48" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="166.35" text-anchor="start" font-size="11" fill="#222">コンクリート打設の日の作業開始前に点検</text>
+<text x="118" y="181.35" text-anchor="start" font-size="11" fill="#222">異状は補修、作業中止の措置も事前に用意</text>
+<rect x="12" y="199" width="94" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="219.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">ずい道支保工</text>
+<text x="59" y="234.85" text-anchor="middle" font-size="11" fill="#555">則396条</text>
+<rect x="110" y="199" width="278" height="48" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="219.35" text-anchor="start" font-size="11" fill="#222">設けた後は毎日、中震以上の地震の後</text>
+<text x="118" y="234.35" text-anchor="start" font-size="11" fill="#222">部材の損傷・脱落、緊圧、脚部の沈下など</text>
+<rect x="12" y="252" width="94" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="272.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">土止め・掘削</text>
+<text x="59" y="287.85" text-anchor="middle" font-size="11" fill="#555">則373・358条</text>
+<rect x="110" y="252" width="278" height="48" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="272.35" text-anchor="start" font-size="11" fill="#222">土止め支保工：7日以内ごと、中震・大雨の後</text>
+<text x="118" y="287.35" text-anchor="start" font-size="11" fill="#222">明り掘削：開始前・大雨後・中震後・発破後</text>
+<rect x="12" y="305" width="94" height="78" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="59" y="340.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">クレーン等</text>
+<text x="59" y="355.85" text-anchor="middle" font-size="11" fill="#555">クレーン則</text>
+<rect x="110" y="305" width="278" height="78" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="118" y="325.35" text-anchor="start" font-size="11" fill="#222">作業開始前：巻過防止装置・ブレーキ等</text>
+<text x="118" y="340.35" text-anchor="start" font-size="11" fill="#222">強風：屋外クレーンで瞬間風速30m/s超の後</text>
+<text x="118" y="355.35" text-anchor="start" font-size="11" fill="#222">地震：中震以上の後（屋内外とも）</text>
+<text x="118" y="370.35" text-anchor="start" font-size="11" fill="#222">自主検査：1月以内ごと・1年以内ごと</text>
+<rect x="12" y="394" width="184" height="40" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="104" y="410.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">作業開始前</text>
+<text x="104" y="425.85" text-anchor="middle" font-size="11" fill="#222">その日の日常点検</text>
+<rect x="204" y="394" width="184" height="40" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="296" y="410.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">事象の後</text>
+<text x="296" y="425.85" text-anchor="middle" font-size="11" fill="#222">悪天候・中震以上の地震・発破</text>
+<rect x="12" y="440" width="184" height="40" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="104" y="456.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">状態が変わった後</text>
+<text x="104" y="471.85" text-anchor="middle" font-size="11" fill="#222">組立て・一部解体・変更</text>
+<rect x="204" y="440" width="184" height="40" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="296" y="456.2" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">期間ごと</text>
+<text x="296" y="471.85" text-anchor="middle" font-size="11" fill="#222">毎日・7日・月・年</text>
+</svg>

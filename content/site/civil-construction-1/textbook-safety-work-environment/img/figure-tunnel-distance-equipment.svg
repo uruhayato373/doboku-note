@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ずい道の知らせる、逃げる、救うの三つの役割ごとに、切羽までの距離100m、500m、出入口から1,000mの節目で必要になる設備を整理した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 知らせる -->
+  <rect x="30" y="14" width="340" height="96" rx="6" class="brand"/>
+  <text x="44" y="35" class="b">知らせる：警報設備と通話装置（切羽までの距離）</text>
+  <text x="44" y="59" class="b">100m</text>
+  <text x="98" y="59" class="t">サイレン・非常ベルなどの警報設備</text>
+  <text x="44" y="81" class="b">500m</text>
+  <text x="98" y="81" class="t">警報設備＋坑外と通話できる通話装置</text>
+  <text x="44" y="101" class="s">どちらも常に作動する状態に保ち、予備電源を備える</text>
+
+  <!-- 逃げる -->
+  <rect x="30" y="122" width="340" height="136" rx="6" class="warn"/>
+  <text x="44" y="143" class="b">逃げる：避難用器具（切羽までの距離）</text>
+  <text x="44" y="167" class="b">100m</text>
+  <text x="98" y="167" class="t">携帯用照明器具など</text>
+  <text x="98" y="184" class="s">可燃性ガスのおそれがあれば、呼吸用保護具も</text>
+  <text x="44" y="206" class="b">500m</text>
+  <text x="98" y="206" class="t">呼吸用保護具＋携帯用照明器具（全ずい道）</text>
+  <text x="44" y="230" class="s">保護具・照明とも、同時就業者数以上</text>
+  <text x="44" y="246" class="s">（出入口付近の作業者は人数から除く）</text>
+
+  <!-- 救う -->
+  <rect x="30" y="270" width="340" height="92" rx="6" class="dng"/>
+  <text x="44" y="291" class="b">救う：救護の体制（出入口からの距離）</text>
+  <text x="44" y="315" class="b">1,000m</text>
+  <text x="108" y="315" class="t">救護の技術的事項を管理する者を選任</text>
+  <text x="108" y="332" class="s">立坑は深さ50mが節目</text>
+  <text x="44" y="350" class="s">空気呼吸器などを備え、救護訓練は1年以内ごと</text>
+
+  <!-- 訓練 -->
+  <rect x="30" y="374" width="340" height="90" rx="6" class="sur"/>
+  <text x="44" y="395" class="b">訓練：避難と消火</text>
+  <text x="44" y="417" class="t">切羽まで100m（ガスのおそれなしは500m）</text>
+  <text x="44" y="435" class="t">に達するまでに1回、以後は6か月以内ごと</text>
+  <text x="44" y="454" class="s">実施日・受講者・内容を記録し、3年保存</text>
+</svg>

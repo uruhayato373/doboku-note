@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="鋼橋架設の安全措置の流れ。現地と地盤の調査、作業計画の作成と周知、作業主任者の直接指揮と立入禁止、横取り・降下・移動の手順、降下の前後を含む各段階での計測と管理値の比較、超過時の作業停止とあらかじめ定めた対処">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-red" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- 調べる -->
+  <rect class="box-brand" x="24" y="10" width="352" height="62" rx="6"/> <!-- brand-fill / brand -->
+  <text class="t-title" x="200" y="30" text-anchor="middle">現地と地盤を調べる</text>
+  <text class="t-sub" x="200" y="47" text-anchor="middle">気象・海象／交通・供用中の道路／水深・流速・潮位</text>
+  <text class="t-sub" x="200" y="62" text-anchor="middle">ベント・鉄塔・アンカーの設置場所の地耐力</text>
+  <line x1="200" y1="72" x2="200" y2="90" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 作業計画 -->
+  <rect class="box-brand" x="24" y="92" width="352" height="62" rx="6"/>
+  <text class="t-title" x="200" y="112" text-anchor="middle">作業計画を定め、関係労働者に周知する</text>
+  <text class="t-sub" x="200" y="129" text-anchor="middle">作業の方法と順序／部材の落下・倒壊の防止方法</text>
+  <text class="t-sub" x="200" y="144" text-anchor="middle">墜落防止設備の設置方法／使う機械の種類と能力</text>
+  <line x1="200" y1="154" x2="200" y2="172" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 作業主任者の指揮 -->
+  <rect class="box-positive" x="24" y="174" width="352" height="62" rx="6"/> <!-- positive-fill / positive -->
+  <text class="t-title" x="200" y="194" text-anchor="middle">作業主任者が配置を決め、直接指揮する</text>
+  <text class="t-sub" x="200" y="211" text-anchor="middle">立入禁止の表示／保護帽の着用／つり綱・つり袋</text>
+  <text class="t-sub" x="200" y="226" text-anchor="middle">強風・大雨・大雪などで危険が予想されたら中止</text>
+  <line x1="200" y1="236" x2="200" y2="254" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 横取り・降下 -->
+  <rect class="box-warn" x="24" y="256" width="352" height="76" rx="6"/> <!-- warn-fill / warn -->
+  <text class="t-title" x="200" y="276" text-anchor="middle">横取り・降下・移動は一手ずつ進める</text>
+  <text class="t-sub" x="200" y="293" text-anchor="middle">桁の両端を同時におろさない／多橋脚は一橋脚ずつ</text>
+  <text class="t-sub" x="200" y="308" text-anchor="middle">複数ジャッキの降下速度は同一にする</text>
+  <text class="t-sub" x="200" y="323" text-anchor="middle">控えのワイヤロープと逸走防止装置を設ける</text>
+  <line x1="200" y1="332" x2="200" y2="350" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 計測（降下の前後を含め、各段階で繰り返す） -->
+  <rect class="box-brand" x="24" y="352" width="352" height="74" rx="6"/>
+  <text class="t-title" x="200" y="372" text-anchor="middle">作業の間じゅう、段階ごとに計測する</text>
+  <text class="t-sub" x="200" y="389" text-anchor="middle">降下の前後も含めて、管理値と比べる</text>
+  <text class="t-sub" x="200" y="404" text-anchor="middle">変位・倒れ・反力／頻度と記録方法を事前に決める</text>
+  <text class="t-sub" x="200" y="419" text-anchor="middle">常時監視し、現場責任者へ即座に伝える</text>
+  <path d="M376 389 L392 389 L392 294 L378 294" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="200" y1="426" x2="200" y2="444" stroke="#b22234" stroke-width="2" marker-end="url(#arrow-red)"/>
+
+  <!-- 超過時 -->
+  <rect class="box-danger" x="24" y="446" width="352" height="46" rx="6"/> <!-- danger-fill / danger -->
+  <text class="t-title" x="200" y="466" text-anchor="middle">管理値を超えたら作業を止める</text>
+  <text class="t-sub" x="200" y="483" text-anchor="middle">あらかじめ定めた対処に従う</text>
+</svg>

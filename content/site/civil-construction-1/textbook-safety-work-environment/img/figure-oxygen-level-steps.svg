@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="空気中の酸素濃度が21%から6%へ下がるにつれて、安全限界の18%、頭痛の16%、めまいの12%、失神の8%、昏倒の6%と症状が重くなる段階図。硫化水素は10ppmが酸欠則の境で、学会の許容濃度は5ppm">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; }
+      .b { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 21% -->
+  <text x="30" y="40" class="b">21%</text>
+  <text x="84" y="38" class="t">通常の空気</text>
+  <rect x="84" y="46" width="273" height="9" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+
+  <!-- 18% -->
+  <text x="30" y="98" class="b">18%</text>
+  <text x="84" y="96" class="t">安全限界。ただし連続した換気が必要</text>
+  <rect x="84" y="104" width="234" height="9" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+
+  <!-- 16% -->
+  <text x="30" y="156" class="b">16%</text>
+  <text x="84" y="154" class="t">頭痛、吐き気</text>
+  <rect x="84" y="162" width="208" height="9" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+
+  <!-- 12% -->
+  <text x="30" y="214" class="b">12%</text>
+  <text x="84" y="212" class="t">目まい、筋力の低下</text>
+  <rect x="84" y="220" width="156" height="9" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+
+  <!-- 8% -->
+  <text x="30" y="272" class="b">8%</text>
+  <text x="84" y="270" class="t">失神・昏倒。7〜8分以内に死亡</text>
+  <rect x="84" y="278" width="104" height="9" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+
+  <!-- 6% -->
+  <text x="30" y="330" class="b">6%</text>
+  <text x="84" y="328" class="t">瞬時に昏倒、呼吸停止、死亡</text>
+  <rect x="84" y="336" width="78" height="9" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+
+  <!-- 硫化水素 -->
+  <rect x="30" y="360" width="340" height="126" rx="6" class="sur"/>
+  <text x="44" y="381" class="b">硫化水素（第2種で加わる危険）</text>
+  <text x="44" y="402" class="t">10ppm：酸欠則が硫化水素中毒の境とする濃度</text>
+  <text x="44" y="418" class="s">眼の粘膜への刺激が出始める目安（学会の許容濃度は5ppm）</text>
+  <text x="44" y="438" class="t">350ppm：生命の危機　700ppm：呼吸麻痺・死亡</text>
+  <text x="44" y="458" class="s">高濃度では嗅覚が麻痺し、腐卵臭で気づけなくなる</text>
+  <text x="44" y="474" class="s">臭いを頼りにせず、測定器で濃度を確かめる</text>
+</svg>

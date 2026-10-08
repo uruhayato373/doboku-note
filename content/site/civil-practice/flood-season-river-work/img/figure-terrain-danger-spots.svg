@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="洪水時に危険が集まる4つの地形を平面で示した図。湾曲部の外側、狭さく部と橋の上流、合流点、旧河道を横切る堤防" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="arr-blue" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="arr-red" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+  <!-- Panel1 湾曲部の外側 -->
+  <rect x="14" y="12" width="178" height="214" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="26" y="34" font-size="12" font-weight="700" fill="#222">湾曲部の外側（水衝部）</text>
+  <text x="26" y="180" font-size="11" fill="#555">流れが外側に当たり</text>
+  <text x="26" y="197" font-size="11" fill="#555">堤防の前面で</text>
+  <text x="26" y="214" font-size="11" fill="#555">河床が深く掘れる</text>
+  <path d="M 54 52 L 54 98 Q 54 126 82 126 L 182 126" fill="none" stroke="#2e6da4" stroke-width="32"/>
+  <path d="M 54 52 L 54 98 Q 54 126 82 126 L 182 126" fill="none" stroke="#e8f0fe" stroke-width="29"/>
+  <path d="M 30 70 L 30 98 Q 30 150 82 150 L 118 150" fill="none" stroke="#8a8a8a" stroke-width="5"/>
+  <path d="M 39 84 L 39 98 Q 39 141 82 141 L 106 141" fill="none" stroke="#b22234" stroke-width="3"/>
+  <line x1="54" y1="60" x2="54" y2="92" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="70" y1="108" x2="48" y2="132" stroke="#b22234" stroke-width="2" marker-end="url(#arr-red)"/>
+  <line x1="100" y1="118" x2="144" y2="118" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <text x="76" y="82" font-size="11" fill="#555">流れ</text>
+  <text x="126" y="155" font-size="11" fill="#555">堤防</text>
+  <!-- Panel2 合流点（左下へ） -->
+  <g transform="translate(-194 226)">
+  <rect x="208" y="12" width="178" height="214" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="220" y="34" font-size="12" font-weight="700" fill="#222">合流点</text>
+  <text x="220" y="180" font-size="11" fill="#555">本川の水位が高いと</text>
+  <text x="220" y="197" font-size="11" fill="#555">支川の水が出られず</text>
+  <text x="220" y="214" font-size="11" fill="#555">合流点付近で水位が上がる</text>
+  <path d="M 320 50 L 320 158" fill="none" stroke="#2e6da4" stroke-width="34"/>
+  <path d="M 320 50 L 320 158" fill="none" stroke="#e8f0fe" stroke-width="31"/>
+  <path d="M 216 104 L 320 104" fill="none" stroke="#2e6da4" stroke-width="24"/>
+  <path d="M 216 104 L 320 104" fill="none" stroke="#e8f0fe" stroke-width="21"/>
+  <line x1="320" y1="58" x2="320" y2="86" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="320" y1="120" x2="320" y2="150" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="228" y1="99" x2="270" y2="99" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="298" y1="110" x2="248" y2="110" stroke="#b22234" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="218" y="84" font-size="11" fill="#555">支川</text>
+  <text x="344" y="76" font-size="11" fill="#555">本川</text>
+  <text x="218" y="134" font-size="11" fill="#b22234">背水</text>
+  </g>
+  <!-- Panel3 狭さく部・橋の上流（右上へ） -->
+  <g transform="translate(194 -226)">
+  <rect x="14" y="238" width="178" height="214" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="26" y="260" font-size="12" font-weight="700" fill="#222">狭さく部・橋の上流</text>
+  <text x="26" y="406" font-size="11" fill="#555">川幅が狭まる所では</text>
+  <text x="26" y="423" font-size="11" fill="#555">上流側で水位が上がる</text>
+  <text x="26" y="440" font-size="11" fill="#555">橋の上流側も同じ</text>
+  <polygon points="50,274 142,274 142,300 110,326 110,342 142,368 142,378 50,378 50,368 82,342 82,326 50,300" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="122" y1="282" x2="122" y2="312" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="96" y1="350" x2="96" y2="372" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <line x1="66" y1="334" x2="126" y2="334" stroke="#8a8a8a" stroke-width="5"/>
+  <text x="132" y="338" font-size="11" fill="#555">橋</text>
+  <text x="54" y="294" font-size="11" fill="#b22234">せき上げ</text>
+  </g>
+  <!-- Panel4 旧河道を横切る堤防 -->
+  <rect x="208" y="238" width="178" height="214" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="220" y="260" font-size="12" font-weight="700" fill="#222">旧河道を横切る堤防</text>
+  <text x="220" y="406" font-size="11" fill="#555">堤防が旧河道を</text>
+  <text x="220" y="423" font-size="11" fill="#555">横切る所は</text>
+  <text x="220" y="440" font-size="11" fill="#555">漏水が出やすい</text>
+  <path d="M 228 274 L 228 382" fill="none" stroke="#2e6da4" stroke-width="30"/>
+  <path d="M 228 274 L 228 382" fill="none" stroke="#e8f0fe" stroke-width="27"/>
+  <path d="M 244 316 L 278 316 Q 320 316 336 344 Q 348 364 378 366" fill="none" stroke="#d4a017" stroke-width="25" stroke-dasharray="5 3"/>
+  <path d="M 244 316 L 278 316 Q 320 316 336 344 Q 348 364 378 366" fill="none" stroke="#fff3cd" stroke-width="22"/>
+  <line x1="254" y1="274" x2="254" y2="382" stroke="#8a8a8a" stroke-width="6"/>
+  <line x1="238" y1="310" x2="280" y2="310" stroke="#b22234" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arr-red)"/>
+  <text x="294" y="302" font-size="11" fill="#555">旧河道</text>
+  <text x="264" y="286" font-size="11" fill="#555">堤防</text>
+  <!-- 凡例 -->
+  <line x1="22" y1="474" x2="40" y2="474" stroke="#8a8a8a" stroke-width="5"/>
+  <text x="46" y="478" font-size="11" fill="#555">堤防</text>
+  <line x1="100" y1="474" x2="118" y2="474" stroke="#b22234" stroke-width="3"/>
+  <text x="124" y="478" font-size="11" fill="#555">危険な箇所・水の動き</text>
+</svg>
