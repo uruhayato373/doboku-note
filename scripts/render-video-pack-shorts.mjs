@@ -15,6 +15,7 @@ import { parseArgs } from 'node:util';
 import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
+import { subtitleChunks } from './lib/video-subtitles.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
 import { narrationInput, reusableNarration, sha256 as bytesSha256 } from './lib/video-narration-cache.mjs';
@@ -171,7 +172,7 @@ function buildAss(segments) {
   const header = `[Script Info]\nScriptType: v4.00+\nPlayResX: ${W}\nPlayResY: ${H}\n\n[V4+ Styles]\nFormat: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\nStyle: Default,Noto Sans JP,54,&H00FFFFFF,&H000000FF,&H00000000,&H98000000,1,0,0,0,100,100,0,0,3,3,0,2,64,64,420,1\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`;
   const lines = [];
   for (const segment of segments) {
-    const chunks = chunkJpBalanced(segment.text, 19);
+    const chunks = subtitleChunks(segment.text, 19);
     const totalChars = [...segment.text].length || 1;
     let at = segment.start;
     for (const [index, chunk] of chunks.entries()) {

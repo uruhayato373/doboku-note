@@ -101,7 +101,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
-16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は変わらない）。
+16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。
 
 | フィールド | 中身 | 使い所 |
 |---|---|---|
@@ -111,9 +111,9 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 | `kind: 'compare'` | `rows: [{label?, ng, ok?}]`（1〜4行）・`ngLabel`/`okLabel` | 記事の「悪い例／良い例」の表 |
 | `kind: 'sheet'` | `rows: [{label, value?, state?, order?}]`（1〜8行）・`sheetTitle`。`state` は `todo/done/focus/ng/ok` | 解答用紙（工事概要など）の記入イメージ |
 
-compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。`character`・`compare`・`sheet` の場面だけ、「、」「：」「・」「〜」と全角空白の後ろ、「（」「「」の前で改行し、行頭に「・」を置かない（既存画面の改行位置は変えない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
+compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。改行は全場面で、「、」「：」「・」「〜」「／」「→」と全角空白の後ろ、「（」「「」の前を優先し、無ければ語の切れ目で行う（英数字の並び「1,500m3」は分けない）。行頭に句読点と「・」を置かない（2026-10-08 に全場面へ広げた。それまでの character・compare・sheet 以外は文字数での改行で「リ/スク」「1,500m/3」が出ていた）。語の切れ目ではどの文字サイズでも収まらない狭い枠だけ、文字数での改行に戻す（描画できていた画面を止めない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
 
-公開前の画面確認は、`--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで行う（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
+公開前の画面確認は、`--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで行う（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる。Mac の Homebrew 版 ffmpeg は libass を持たず `ass` フィルタが無いので、`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` を使う）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
 
 ```bash
 node -e 'const d=process.argv[1],m=require(`./${d}/render-manifest.json`),L=m.scenes.map(s=>`file img/${s.png}\nduration ${s.designSec}`);L.push(`file img/${m.scenes.at(-1).png}`);console.log(L.join("\n"))' <dir> > <dir>/preview.txt
@@ -121,7 +121,7 @@ ffmpeg -f concat -safe 0 -i <dir>/preview.txt -vf "fps=10,ass=<dir>/subtitles.as
 ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <dir>/preview-10s.jpg
 ```
 
-通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
+通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。字幕の区切りは通常動画・Shorts・Reels とも `scripts/lib/video-subtitles.mjs` の `subtitleChunks` で、語の途中と句読点の前で切らず、「。」「、」の直後を優先する（2026-10-08）。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
 
 通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
 
@@ -140,6 +140,16 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 `scheduled` / `published` のパックと再生成可能な派生物だけを削除し、QA 待ち・`rendered` の通常動画と
 サムネイルは作業セットとして保持する。台帳外・クラウド未到達・ローカル hash 不一致は削除せず停止する。
 安全ゲートは `tests/video-cache-prune.test.mjs` で機械検証する。
+
+### 総まとめ（聞き流し）パック
+
+承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。
+
+- 元パックは通常動画をユーザーが承認したもの（state の `longform.approvedBy: 'user'`）だけ
+- 場面は `c{NN}-{元の sceneId}` と `from: {packId, sceneId}` を持ち、ラベル（押さえるポイント・まとめ）は元の sceneId で決まる
+- 設計尺は語りの字数を1秒5.77字（2026-09-09 版の実尺）で割った見積もりで、無音プレビューが実尺に近い。描画は `render-longform` のまま、音声は今の読み辞書で読み直す（Drive の元パックの wav は版がずれていることがある）
+- `check-video-content` は再生成し忘れ（K02）と、未承認・組み立て不能（K01）を止め、総尺は `durationSeconds.compilation` で見る
+- 長い動画のコンタクトシートは `-frames:v 1` を外し、出力名を `preview-10s-%02d.jpg` にして複数枚に出す
 
 ### 人物付き表紙（パック単位で採用）
 
@@ -227,6 +237,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 - mp4/wavのGit混入
 - statusの孤児、videoId重複、公開URL不整合、鮮度
 - ShortのrelatedVideoIdと通常動画公開状態
+- 総まとめ（compilation.json）: storyboard.json が元パックからの再組み立てと一致し、元パックはユーザー承認済み
 
 完成動画の機械検査はffprobe等で、解像度、尺、音声stream、無音、黒画面、末尾切れ、字幕範囲を確認する。
 

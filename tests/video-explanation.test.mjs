@@ -73,12 +73,29 @@ test('reveal は先頭N項目だけを描き、character は画像が無けれ�
   assert.throws(() => buildExplanationNode(richScenes[2], { theme }), /character の画像データがありません/);
   assert.throws(() => buildExplanationNode(richScenes[0], { theme, portrait: true }), /16:9専用/);
 });
-test('語句単位の改行は character・compare・sheet の場面だけで使う', () => {
+test('改行は語句・語の切れ目で行い、行頭に句読点や「・」を置かない（全場面）', () => {
   const heading = '仕上げ　概要と本文の一貫チェック';
   const scene = (extra) => ({ sceneId: 'a', visual: { heading, items: ['本文にだけ出る工種は、概要へ足す'], ...extra } });
   const withCharacter = texts(buildExplanationNode(scene({ character: { pose: 'good-sign' } }), { theme, character }));
   assert.ok(withCharacter.includes('仕上げ　\n概要と本文の一貫チェック'), withCharacter.join('|'));
-  // 同じ幅（右列 440＋余白 40 を rightMargin で空ける）でも character が無ければ従来の文字数での改行のまま。
+  // character の無い場面も同じ規則（2026-10-08 に全場面へ広げた）。
   const plain = texts(buildExplanationNode(scene({}), { theme, rightMargin: 88 + 440 + 40 }));
-  assert.ok(plain.includes('仕上げ　概要と本文の一貫チェッ\nク'), plain.join('|'));
+  assert.ok(plain.includes('仕上げ　\n概要と本文の一貫チェック'), plain.join('|'));
+  // 2級の通常動画で語の途中で折れていた項目（「リ/スク」「1,500m/3」「・」始まり）。
+  const scenes = [
+    ['強度・耐久性は向上する', '一方で流動性が下がり締固め不足のリスク'],
+    ['悪い例：護岸工　一式', '良い例：延長120m・掘削土量1,500m3'],
+    ['原因：乾燥収縮・水和熱・沈下・鉄筋腐食', '対策：水セメント比↓・単位水量↓・養生・打継ぎ処理'],
+  ];
+  const out = scenes.flatMap((items) => texts(buildExplanationNode({ sceneId: 'b', visual: { heading: '要点', items } }, { theme })));
+  const wrapped = out.filter((t) => t.includes('\n'));
+  assert.equal(wrapped.length, 3, out.join('|'));
+  for (const t of wrapped) {
+    for (const row of t.split('\n').slice(1)) assert.ok(!/^[、。・）」』]/u.test(row), t);
+    assert.ok(!/リ\nスク|1,500m\n3|1,500\nm3/u.test(t), t);
+  }
+});
+test('総まとめの場面は元パックの sceneId でラベルを決める', () => {
+  const node = buildExplanationNode({ sceneId: 'c01-premise', from: { packId: 'x', sceneId: 'premise' }, visual: { heading: '誤解：範囲が広い', items: ['出題は用語の対応'] } }, { theme });
+  assert.ok(texts(node).includes('押さえるポイント'), texts(node).join('|'));
 });

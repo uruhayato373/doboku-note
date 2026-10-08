@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "_doc": "総まとめ（聞き流し）の正本。元パックの場面は写さず、npm run build-video-compilation が storyboard.json を生成する（scripts/lib/video-compilation.mjs）。型の状態は config/youtube-formats.json の compilation、1本目の進行は backlog DN-0599。",
+  "dropSceneIds": ["cover", "cta"],
+  "opening": {
+    "narration": "2級土木の直前総まとめです。第一次の頻出点と第二次の記述を、聞き流しで確かめます。",
+    "caption": "2級土木 直前総まとめ（聞き流し）",
+    "visual": { "kind": "cover", "heading": "2級土木 直前総まとめ", "items": ["第一次の頻出点・第二次の記述を聞き流しで"] }
+  },
+  "parts": [
+    {
+      "label": "第一次検定",
+      "chapters": [
+        { "packId": "gakka-2kyu-doko", "title": "土工" },
+        { "packId": "gakka-2kyu-concrete", "title": "コンクリート" },
+        { "packId": "gakka-2kyu-kiso", "title": "基礎工" },
+        { "packId": "gakka-2kyu-hoki", "title": "法規" },
+        { "packId": "gakka-2kyu-sekokeikaku", "title": "施工管理法" },
+        { "packId": "kikinagashi-2kyu-matome", "title": "5分野の総ざらい" }
+      ]
+    },
+    {
+      "label": "第二次検定",
+      "intro": "ここから後半、第二次検定の記述です。",
+      "chapters": [
+        { "packId": "keiken-nendo-keiko-2kyu", "title": "出題傾向" },
+        { "packId": "keiken-gaiyo-2kyu", "title": "工事概要の書き方" },
+        { "packId": "keiken-hinshitsu-kakikata", "title": "品質管理の組み立て方" },
+        { "packId": "keiken-kotei-kakikata", "title": "工程管理の組み立て方" },
+        { "packId": "keiken-anzen-2kyu-kakikata", "title": "安全管理の書き方" },
+        { "packId": "anzen-ippanron-3riyu", "title": "安全管理が一般論になる原因" },
+        { "packId": "keiken-genten-kyotsuten", "title": "減点される答案の共通点" },
+        { "packId": "keiken-2kyu-level", "title": "2級で求められる記述レベル" },
+        { "packId": "gakka-kijutsu-2kyu", "title": "学科記述の型" }
+      ]
+    }
+  ],
+  "closing": {
+    "narration": "総まとめは以上です。過去問と経験記述の教材は、概要欄のリンクからまとめて開けます。本番では、落ち着いて一問ずつ確かめてください。",
+    "caption": "教材は概要欄のリンクから",
+    "visual": { "kind": "cover", "heading": "過去問と経験記述の教材へ", "items": ["概要欄のリンクから"] }
+  }
+}

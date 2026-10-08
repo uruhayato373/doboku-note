@@ -191,6 +191,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
 npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）

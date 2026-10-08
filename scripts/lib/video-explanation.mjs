@@ -8,26 +8,39 @@ const box = (style, children) => ({ type: 'div', props: { style: { display: 'fle
 function units(value) {
   return [...value].reduce((sum, ch) => sum + (/^[\x20-\x7e]$/.test(ch) ? 0.62 : 1), 0);
 }
-// Phrase-aware breaking is opted into per scene (character / compare / sheet)
-// so the line breaks of already-published layouts do not move.
-let phraseWrap = false;
-function phraseBreak(line) {
+// A wrapped line never starts with closing punctuation or 「・」, and never splits a
+// word such as 「リスク」 or a Latin/number run such as 「1,500m3」 (2026-10-08).
+const CLOSING = /[、。，．！？：；・）］」』]/u;
+const LATIN = /[A-Za-z0-9.,:/%+\-²³℃°]/u;
+const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
+// Index in the line where the next line should start (chars.length = before `next`), or -1.
+// Phrase breaks win: the nearest one looking back up to 3/4 of the line, so a heading such as
+// 「仕上げ　概要と本文の一貫チェック」 breaks at the space instead of orphaning 「ク」.
+// Otherwise the nearest word boundary in the latter half of the line.
+function breakPoint(line, next) {
   const chars = [...line];
-  // Nearest break point wins; look back up to 3/4 of the line so a heading such as
-  // 「仕上げ　概要と本文の一貫チェック」 breaks at the space instead of orphaning 「ク」.
-  for (let i = chars.length - 1; i >= Math.max(2, Math.floor(chars.length / 4)); i--) {
-    if (/[、：・〜～／）」』　]/u.test(chars[i - 1]) || /[（「『]/u.test(chars[i])) return i;
+  const at = (i) => (i < chars.length ? chars[i] : next);
+  for (let i = chars.length; i >= Math.max(2, Math.floor(chars.length / 4)); i--) {
+    if (CLOSING.test(at(i))) continue;
+    if (/[、：・〜～／→）」』　]/u.test(chars[i - 1]) || /[（「『]/u.test(at(i))) return i;
+  }
+  const bounds = new Set(); let pos = 0;
+  for (const { segment } of segmenter.segment(line + next)) { bounds.add(pos); pos += [...segment].length; }
+  for (let i = chars.length; i >= Math.ceil(chars.length / 2); i--) {
+    if (!bounds.has(i) || CLOSING.test(at(i)) || (LATIN.test(chars[i - 1]) && LATIN.test(at(i)))) continue;
+    return i;
   }
   return -1;
 }
-function lines(value, capacity) {
+// loose: the earlier per-character wrapping, used only when word-aware lines cannot fit
+// a cramped card at any size (so a screen that rendered before never starts failing).
+function lines(value, capacity, loose = false) {
   const result = []; let line = '';
   for (const ch of value) {
     if (ch === '\n') { result.push(line); line = ''; continue; }
     if (line && units(line + ch) > capacity) {
-      // 「・」 is kept off the line start only in phrase mode, so published layouts keep their breaks.
-      const closing = phraseWrap ? /[、。，．！？：；・）］」』]/u : /[、。，．！？：；）］」』]/u;
-      const cut = phraseWrap && !closing.test(ch) ? phraseBreak(line) : -1;
+      const closing = loose ? /[、。，．！？：；）］」』]/u : CLOSING;
+      const cut = loose ? -1 : breakPoint(line, ch);
       if (cut > 0) {
         const chars = [...line]; result.push(chars.slice(0, cut).join('')); line = chars.slice(cut).join('');
       // Keep closing punctuation with the preceding character without exceeding
@@ -42,9 +55,11 @@ function lines(value, capacity) {
   return result;
 }
 function fit(value, width, height, max, min, lineHeight = 1.35) {
-  for (let size = max; size >= min; size -= 2) {
-    const wrapped = lines(value, (width - size * 0.6) / size);
-    if (wrapped.length * size * lineHeight <= height) return { value: wrapped.join('\n'), size, lineHeight };
+  for (const loose of [false, true]) {
+    for (let size = max; size >= min; size -= 2) {
+      const wrapped = lines(value, (width - size * 0.6) / size, loose);
+      if (wrapped.length * size * lineHeight <= height) return { value: wrapped.join('\n'), size, lineHeight };
+    }
   }
   throw new Error(`説明画面に収まりません（内容を分割してください）: ${value}`);
 }
@@ -185,13 +200,14 @@ export function buildExplanationNode(scene, { theme, portrait = false, assetData
   const W = portrait ? 1080 : 1920, H = portrait ? 1920 : 1080;
   const character = !portrait && visual.character ? visual.character : null;
   if (character && !characterImage) throw new Error(`character の画像データがありません: ${scene.sceneId}`);
-  phraseWrap = Boolean(character) || visual.kind === 'compare' || visual.kind === 'sheet';
   const margin = portrait ? 64 : 88;
   const fullW = W - margin - (rightMargin ?? margin);
   const contentW = character ? W - margin * 2 - CHARACTER_COLUMN_W - CHARACTER_GAP : fullW;
   const originalHeading = visual.heading || scene.caption || '';
   const prefix = originalHeading.match(/^(STEP\s*\d+|原因\s*\d+|ポイント\s*\d+|\d+)[\s　.:：、．-]+(.+)$/iu);
-  const label = prefix?.[1] ?? (scene.sceneId === 'summary' ? 'まとめ' : scene.sceneId === 'premise' ? '押さえるポイント' : '解説');
+  // 総まとめ（video-compilation）の場面は元パックの sceneId でラベルを決める
+  const baseId = scene.from?.sceneId ?? scene.sceneId;
+  const label = prefix?.[1] ?? (baseId === 'summary' ? 'まとめ' : baseId === 'premise' ? '押さえるポイント' : '解説');
   const heading = originalHeading === 'まとめ' && scene.caption ? scene.caption : prefix?.[2] ?? originalHeading;
   const kind = portrait ? 'points' : visual.kind ?? 'points';
   if ((visual.kind === 'compare' || visual.kind === 'sheet') && portrait) throw new Error(`${visual.kind} は16:9専用です: ${scene.sceneId}`);
@@ -218,15 +234,18 @@ export function buildExplanationNode(scene, { theme, portrait = false, assetData
   const maxSize = portrait ? 74 : figure ? 64 : columns === 2 ? 74 : items.length <= 2 ? 90 : 78;
   const minSize = portrait ? 56 : figure ? 48 : 58;
   let cardFont = maxSize, heights;
-  for (; cardFont >= minSize; cardFont -= 2) {
-    const needs = items.map(item => {
-      const numberW = /^[①②③④⑤⑥⑦⑧⑨⑩]/u.test(item) ? 0 : (portrait ? 66 : 74);
-      const capacity = (cardW - inset * 2 - numberW - cardFont * 0.6) / cardFont;
-      return lines(item, capacity).length * cardFont * 1.35 + inset * 2;
-    });
-    const rowNeeds = Array.from({ length: rows }, (_, row) => Math.max(0, ...needs.slice(row * columns, (row + 1) * columns)));
-    const required = rowNeeds.reduce((a, b) => a + b, 0) + gap * (rows - 1);
-    if (required <= bodyH) { heights = rowNeeds.map(h => h + (bodyH - required) / rows); break; }
+  for (const loose of [false, true]) {
+    for (cardFont = maxSize; cardFont >= minSize; cardFont -= 2) {
+      const needs = items.map(item => {
+        const numberW = /^[①②③④⑤⑥⑦⑧⑨⑩]/u.test(item) ? 0 : (portrait ? 66 : 74);
+        const capacity = (cardW - inset * 2 - numberW - cardFont * 0.6) / cardFont;
+        return lines(item, capacity, loose).length * cardFont * 1.35 + inset * 2;
+      });
+      const rowNeeds = Array.from({ length: rows }, (_, row) => Math.max(0, ...needs.slice(row * columns, (row + 1) * columns)));
+      const required = rowNeeds.reduce((a, b) => a + b, 0) + gap * (rows - 1);
+      if (required <= bodyH) { heights = rowNeeds.map(h => h + (bodyH - required) / rows); break; }
+    }
+    if (heights) break;
   }
   if (!heights) throw new Error(`説明画面の要点を分割してください: ${scene.sceneId}`);
   const cards = items.slice(0, reveal).map((item, index) => {

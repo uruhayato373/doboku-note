@@ -18,7 +18,18 @@ export function subtitleChunks(value, maxUnits = 15) {
   const rows = []; let row = [], width = 0;
   for (const token of tokens) {
     const size = units(token);
-    if (row.length && width + size > target) { rows.push(row); row = []; width = 0; }
+    // A token ending in 「。」「、」 may stretch the row up to maxUnits, so 「結び付け／ます。」 stays whole.
+    const closesRow = width + size <= maxUnits && /[、。]$/u.test(token);
+    if (row.length && width + size > target && !closesRow) {
+      // Prefer ending the row right after 「。」「、」 when that row is not too short (DN-0592).
+      let cut = row.length;
+      for (let i = row.length - 1, w = width; i > 0 && !/[、。]$/u.test(row.at(-1)); i--) {
+        w -= units(row[i]);
+        if (w < target * 0.4) break;
+        if (/[、。]$/u.test(row[i - 1])) { cut = i; break; }
+      }
+      rows.push(row.slice(0, cut)); row = row.slice(cut); width = units(row.join(''));
+    }
     row.push(token); width += size;
   }
   if (row.length) rows.push(row);
