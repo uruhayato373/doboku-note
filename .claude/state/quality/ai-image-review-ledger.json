@@ -362,6 +362,12 @@
       "reason": "ラグ付きのゴムクローラ（転輪・遊動輪・起動輪）の上に、前に運転室、後ろにダンプ式荷台。本文の「ゴムクローラの走行装置上に運転室と荷台」と合う",
       "reviewedAt": "2026-10-07T12:10:51.842Z"
     },
+    "civil-construction-1/textbook-water-sewer/img/photo-sewage-reaction-tank-clarifier": {
+      "sha": "0dd5e2ff6ce5b1ba",
+      "promptSha": "7776b982c598df39",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:16:00.820Z"
+    },
     "civil-construction-2/guide-road-pavement-key-points/img/photo-roadside-gutter-grating": {
       "sha": "ca3d386ef9d75e29",
       "promptSha": "9593698070de50db",
@@ -433,6 +439,15 @@
       "verdict": "ok",
       "reason": "丸太の木口は同心円の年輪で、左の板は木口に年輪が幅方向へ横切る弧（板目）、右の板は年輪が厚さ方向に通る細い平行線（柾目）となり本文の板目と柾目の説明と一致、逆転や溶けた部品も無い",
       "reviewedAt": "2026-10-08T00:50:20.889Z"
+    },
+    "civil-practice/nature-conservation-mitigation/img/photo-black-locust-riverbed": {
+      "sha": "8d68b7bad87d4f16",
+      "promptSha": "76fe7749f012509a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:13:14.107Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:16:25.721Z"
     },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "sha": "be28c5582b209cd9",
