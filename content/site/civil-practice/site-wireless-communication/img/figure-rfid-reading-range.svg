@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="無線タグの方式別に読取り距離と、水分、金属、汚れへの強さをバーコードと比べた図。920MHz帯は数mまで読めるが金属と水分に弱い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .m { text-anchor: middle; }
+      .row { fill: #f5f5f5; }
+      .bar { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; }
+      .o { fill: #e8f0fe; }
+      .w { fill: #fff3cd; }
+      .x { fill: #f8d7da; }
+    </style>
+  </defs>
+  <text class="s" x="15" y="24">読取り距離（バーは目安）と、環境への強さ</text>
+  <text class="s" x="120" y="46">読取り距離</text>
+  <text class="s m" x="275" y="46">水分</text>
+  <text class="s m" x="313" y="46">金属</text>
+  <text class="s m" x="351" y="46">汚れ</text>
+  <g>
+    <rect class="row" x="15" y="54" width="370" height="50" rx="6"/>
+    <text class="b" x="22" y="75">LF帯</text>
+    <text class="s" x="22" y="93">135kHz未満</text>
+    <rect class="bar" x="120" y="66" width="14" height="14" rx="3"/>
+    <text class="s" x="196" y="78">〜10cm</text>
+    <g class="m"><rect class="g" x="258" y="64" width="34" height="22" rx="4"/><text x="275" y="80">◎</text>
+    <rect class="x" x="296" y="64" width="34" height="22" rx="4"/><text x="313" y="80">×</text>
+    <rect class="g" x="334" y="64" width="34" height="22" rx="4"/><text x="351" y="80">◎</text></g>
+  </g>
+  <g>
+    <rect class="row" x="15" y="112" width="370" height="50" rx="6"/>
+    <text class="b" x="22" y="133">HF帯</text>
+    <text class="s" x="22" y="151">13.56MHz</text>
+    <rect class="bar" x="120" y="124" width="28" height="14" rx="3"/>
+    <text class="s" x="196" y="136">〜数十cm</text>
+    <g class="m"><rect class="g" x="258" y="122" width="34" height="22" rx="4"/><text x="275" y="138">◎</text>
+    <rect class="x" x="296" y="122" width="34" height="22" rx="4"/><text x="313" y="138">×</text>
+    <rect class="g" x="334" y="122" width="34" height="22" rx="4"/><text x="351" y="138">◎</text></g>
+  </g>
+  <g>
+    <rect class="row" x="15" y="170" width="370" height="50" rx="6"/>
+    <text class="b" x="22" y="191">UHF帯</text>
+    <text class="s" x="22" y="209">920MHz帯</text>
+    <rect class="bar" x="120" y="182" width="70" height="14" rx="3"/>
+    <text class="s" x="196" y="194">〜数m</text>
+    <g class="m"><rect class="w" x="258" y="180" width="34" height="22" rx="4"/><text x="275" y="196">△</text>
+    <rect class="x" x="296" y="180" width="34" height="22" rx="4"/><text x="313" y="196">×</text>
+    <rect class="g" x="334" y="180" width="34" height="22" rx="4"/><text x="351" y="196">◎</text></g>
+  </g>
+  <g>
+    <rect class="row" x="15" y="228" width="370" height="50" rx="6"/>
+    <text class="b" x="22" y="257">2.45GHz帯</text>
+    <rect class="bar" x="120" y="240" width="56" height="14" rx="3"/>
+    <text class="s" x="196" y="252">〜2m</text>
+    <g class="m"><rect class="w" x="258" y="238" width="34" height="22" rx="4"/><text x="275" y="254">△</text>
+    <rect class="x" x="296" y="238" width="34" height="22" rx="4"/><text x="313" y="254">×</text>
+    <rect class="g" x="334" y="238" width="34" height="22" rx="4"/><text x="351" y="254">◎</text></g>
+  </g>
+  <g>
+    <rect class="row" x="15" y="286" width="370" height="50" rx="6"/>
+    <text class="b" x="22" y="307">バーコード</text>
+    <text class="s" x="22" y="325">一次元</text>
+    <rect class="bar" x="120" y="298" width="42" height="14" rx="3"/>
+    <text class="s" x="196" y="310">〜1m</text>
+    <g class="m"><rect class="w" x="258" y="296" width="34" height="22" rx="4"/><text x="275" y="312">△</text>
+    <rect class="g" x="296" y="296" width="34" height="22" rx="4"/><text x="313" y="312">◎</text>
+    <rect class="x" x="334" y="296" width="34" height="22" rx="4"/><text x="351" y="312">×</text></g>
+  </g>
+  <text class="s" x="15" y="356">◎強い　△弱い　×性能が落ちる（金属は貼り付け時）</text>
+  <rect x="15" y="372" width="370" height="54" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="b" x="27" y="394">金属に貼る</text>
+  <text x="27" y="414">金属対応タグか、スペーサで金属面から離す</text>
+  <rect x="15" y="434" width="370" height="54" rx="8" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="b" x="27" y="456">水分の陰になる</text>
+  <text x="27" y="476">電磁誘導方式を選ぶか、水分から離して置く</text>
+</svg>
