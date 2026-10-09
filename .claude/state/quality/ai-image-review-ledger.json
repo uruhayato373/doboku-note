@@ -569,6 +569,12 @@
       "reason": "種別・構造: 桁下面を見上げる構図で、コンクリート桁、橋脚、遠景の別の橋が実在の橋として成り立つ。ドローンは中央本体から左右へ腕が伸び、各腕の先にモーター（回転で羽根はぼやける）、本体下に脚、前方にカメラ雲台があり、桁下面の近くにホバリングしている。本文: 桁下に回り込む点検、河川敷にいる操縦者が小さく後ろ向きで、白ヘルメットと黄色い反射ベストを着けており、記事の場面と一致する。破綻: 文字・ロゴ・二重の部位・溶けた部品は無く、羽根の描写が薄いのは回転ブレとして許容できる。",
       "reviewedAt": "2026-10-09T09:53:43.391Z"
     },
+    "civil-practice/quality-record-site-bcp/img/photo-blackboard-revetment-shot": {
+      "sha": "c12f987f41150ad3",
+      "promptSha": "82dfc6f05413f46d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:04:26.308Z"
+    },
     "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
       "sha": "3a500c6d40eb9a70",
       "promptSha": "203347751b098922",
@@ -778,6 +784,15 @@
       "verdict": "ok",
       "reason": "種別・構造: 路面から約 30 cm 突き出たコンクリート製の円筒状マンホール躯体と円形の蓋が一つだけ描かれ、周囲のアスファルトが割れて持ち上がり、浮上したマンホールとして成り立つ。本文: 周辺の灰褐色の砂（噴砂）と水たまり、舗装のひびと沈下が見え、「路面から突き出し、周辺に沈下や噴砂が伴う」と一致する。破綻: 文字・看板・人物・車両は無く、蓋や縁石、塀に崩れや二重の部位は無い。蓋の表面に鋳出し模様が無い点は教材として誤解を招かない",
       "reviewedAt": "2026-10-09T09:59:50.076Z"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/photo-bridge-types-river": {
+      "sha": "fa28ca2960809c5d",
+      "promptSha": "9963adbc497419dc",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:02:31.304Z",
+      "verdict": "ok",
+      "reason": "遠景の吊橋は二本の主塔の間に主ケーブルが垂れ、補剛桁が通る実在の形。中景の斜張橋は単一の主塔から桁へ扇形のステイケーブルが張られ、塔は橋脚上にある。手前のコンクリートアーチ橋は、アーチリブから支柱が桁を支え、両端に橋台と橋脚がある。本文の景観比較表（アーチ・斜張・吊橋）と矛盾せず、文字・ロゴ・人物・車両もなく、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T10:04:54.598Z"
     },
     "pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up": {
       "sha": "1a1fd12a080d1683",
