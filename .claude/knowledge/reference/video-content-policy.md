@@ -150,7 +150,7 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 - 設計尺は語りの字数を1秒5.77字（2026-09-09 版の実尺）で割った見積もりで、無音プレビューが実尺に近い。描画は `render-longform` のまま、音声は今の読み辞書で読み直す（Drive の元パックの wav は版がずれていることがある）
 - `check-video-content` は再生成し忘れ（K02）と、未承認・組み立て不能（K01）を止め、総尺は `durationSeconds.compilation` で見る
 - 長い動画のコンタクトシートは `-frames:v 1` を外し、出力名を `preview-10s-%02d.jpg` にして複数枚に出す
-- 表紙と締め画像は `npm run brand-video-pack -- --pack-dir <パック> --commit` で描き、資格とパック ID で引ける置き場（`.tmp/video-render/youtube-covers-{exam}/{packId}-{key}.png`・`youtube-cta-{exam}/{packId}-longform.png`）へ書く。画像は git に入れず Drive へ置き、表紙はクラウドから読み戻して登録する（`check-youtube-cover-handoff`）。2026-09-09 の一括適用は日付フォルダ・連番名（`youtube-covers-a-rollout-20260909/243.png`）で、ID へ移すのは DN-0607
+- 表紙と締め画像は `npm run brand-video-pack -- --pack-dir <パック> --commit` で描き、公開 ID と中身の sha で引ける置き場（`.tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/{cover|cta}.{sha8}.png`）へ書く。画像は git に入れず Drive（group content-media）へ置き、`--verify --deep --cloud --commit` で Drive のファイル ID を記録する（`check-youtube-cover-handoff`）。2026-09-09 の一括適用の日付フォルダ・連番名（`youtube-covers-a-rollout-20260909/243.png`）は、2026-10-09 に `npm run media -- adopt-video-brand` で同じ画素のまま ID の置き場へ移した（DN-0607）
 - 合成時に音量を -16 LUFS へそろえる（移動中の聞き流し用途。単体の通常動画は従来どおり）。章ごとの前置きは `chapters[].intro`、後半の頭は `parts[].intro`
 - 概要欄は、リンクをチャプターより前に置く（チャプターが長くリンクが折りたたみの下に隠れるため）。チャプターは 0:00 始まり・各10秒以上（YouTube の表示条件）
 

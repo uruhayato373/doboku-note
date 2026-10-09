@@ -9,6 +9,7 @@
  *   npm run media -- sync    --work <exam>/<work> [--commit]
  *   npm run media -- verify  --work <exam>/<work>          # 台帳・vault・クラウドの 3 者を照合（rclone）
  *   npm run media -- pull    --work <exam>/<work> [--commit]
+ *   npm run media -- adopt-video-brand [--commit]          # 2026-09-09 の日付フォルダ・連番名の採用表紙・締め画像を ID の置き場へ（DN-0607）
  *
  * promote・sync・pull は既定で dry-run。置いた素材は書き換えない（描き直したものは別名で置く）。
  */
@@ -100,15 +101,30 @@ function vault(extra) {
   process.exitCode = r.status ?? 1;
 }
 
+async function adoptVideoBrand() {
+  const { applyAdoptVideoBrand, planAdoptVideoBrand } = await import('./lib/media-adopt-video-brand.mjs');
+  const plan = await planAdoptVideoBrand(ROOT);
+  const copies = plan.items.filter((i) => i.row);
+  const byRole = copies.reduce((m, i) => ({ ...m, [i.role]: (m[i.role] ?? 0) + 1 }), {});
+  console.log(`移す素材 ${copies.length} 件（${Object.entries(byRole).map(([r, n]) => `${r} ${n}`).join('・') || 'なし'}）/ パスだけ書き換える Shorts の締め画像の参照 ${plan.items.length - copies.length} 件 / Drive のマウント: ${plan.mount ? 'あり' : 'なし'}`);
+  if (plan.missing.length) console.log(`  元の画像が手元にも Drive にも無い ${plan.missing.length} 件: ${plan.missing.slice(0, 5).join(', ')}`);
+  if (plan.mismatched.length) console.log(`  sha256 が違う ${plan.mismatched.length} 件: ${plan.mismatched.slice(0, 5).join(', ')}`);
+  if (plan.missing.length || plan.mismatched.length) { process.exitCode = 1; console.log('止めた（画素を変えずに移せることを全件で確かめられない）'); return; }
+  if (!args.commit) { console.log('dry-run（書いていない）。書くときは --commit'); return; }
+  const r = await applyAdoptVideoBrand(ROOT, plan);
+  console.log(`写した ${r.copied} 件・素材の行 ${r.mediaRows} 件・公開の行 ${r.publications} 件・書き換えた JSON ${r.rewritten} ファイル。次は Drive へ: node scripts/drive-vault-sync.mjs --group content-media --commit`);
+}
+
 const commands = {
   promote,
+  'adopt-video-brand': adoptVideoBrand,
   sync: () => vault(args.commit ? ['--commit'] : []),
   verify: () => vault(['--verify', '--deep', '--cloud']),
   pull: () => vault(['--pull', ...(args.commit ? ['--commit'] : ['--dry-run'])]),
 };
 const [command] = positionals;
 if (!commands[command]) {
-  console.error('Usage: npm run media -- promote|sync|verify|pull …');
+  console.error('Usage: npm run media -- promote|sync|verify|pull|adopt-video-brand …');
   process.exit(2);
 }
 await commands[command]();

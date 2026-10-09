@@ -88,7 +88,8 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - 手元 `.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` → Drive `制作物/コンテンツ/` の同じ相対パス（drive-vault の group `content-media`・`immutable`）。ブランド共通は `.tmp/media/_brand/{design}/{role}.{sha8}.{ext}`。
 - `{sha8}` は中身の sha256 の先頭 8 桁。同じ名前で中身が違うことは起こらない（描き直すと別名になる）。immutable の group では上書きと `--force` を拒否する。
 - 描画の作業場 `.tmp/video-render/{packId}/` は使い捨て。成果物だけを `npm run media -- promote` で取り込む。
-- パスの組み立てと分解は `scripts/lib/media-paths.mjs` だけが行う。
+- パスの組み立てと分解は `scripts/lib/media-paths.mjs` だけが行う。採用 PNG として読んでよいパスの判定（`isAdoptedPngPath`）もここにあり、表紙・締め画像の読み手（`youtube-approved-cover.mjs`・`stage-youtube-covers.mjs`・`video-cta.mjs`）が使う。
+- 2026-10-09 に、2026-09-09 の一括適用で日付フォルダ・連番名に置いた採用表紙 337・締め画像 113・ブランド素材 3（ロゴ・背景・Shorts の締め画像＝`_brand/bridge-notebook-a/`）を、画素を変えずにこの置き場へ移した（`npm run media -- adopt-video-brand`・DN-0607）。Shorts の公開の `media.cta` はブランド共通の素材 `brand/bridge-notebook-a/cta-shorts` を指す。旧 Shorts の 10 件（`content/sns/youtube/cover-design.json`）は台帳の ID ができる P4 で移す。
 - CI が読む YouTube の転送用は private R2 の sha 名（`youtube-staging/{sha256}.mp4`）へ P3 で移す。
 
 ## YouTube の切り替え（P2・2026-10-09）

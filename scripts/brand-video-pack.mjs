@@ -3,8 +3,9 @@
  * brand-video-pack.mjs — 動画パック1本の表紙（cover-design.json）と締め画像（storyboard の cta 場面）を、
  * 採用ブランド（config/video-brand.json・bridge-notebook-a）のロゴ・背景で描き、資格とパック ID で引ける置き場へ書く。
  *
- *   表紙: .tmp/video-render/youtube-covers-{exam}/{packId}-{key}.png  → Drive「制作物/動画レンダー/採用カバー/」
- *   締め: .tmp/video-render/youtube-cta-{exam}/{packId}-longform.png  → Drive「制作物/動画レンダー/」
+ *   表紙: .tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/cover.{sha8}.png  → Drive「制作物/コンテンツ/」（group content-media）
+ *   締め: .tmp/media/{exam}/{packId}/youtube.longform/cta.{sha8}.png
+ *   置き場の名前は公開 ID と中身の sha（scripts/lib/media-paths.mjs・content-registry.md「素材の置き場」）。描き直すと別名になる。
  *
  * cover-design.json の approvedImage と cta-design.json を書き換える。画像は git に入れず Drive vault に置く
  * （asset-storage-policy §1）。ここで書く approvedImage は採用候補で、公開の承認はパックの公開ゲートで行う。
@@ -13,7 +14,8 @@
  * 使い方:
  *   node scripts/brand-video-pack.mjs --pack-dir content/sns/video-packs/{exam}/{packId}            # dry-run
  *   node scripts/brand-video-pack.mjs --pack-dir content/sns/video-packs/{exam}/{packId} --commit   # 書き込み
- * 書いたあとは drive-vault-sync で Drive へ置き、表紙はクラウドからの読み戻しを登録する（check-youtube-cover-handoff）。
+ * 書いたあとは npm run media -- sync --work {exam}/{packId} --commit で Drive へ置き、
+ * node scripts/drive-vault-sync.mjs --group content-media --verify --deep --cloud --commit で Drive のファイル ID を記録する（check-youtube-cover-handoff）。
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
@@ -27,6 +29,8 @@ import { COVER_FORMATS, coverFonts, renderYoutubeCover, validateCoverDesign } fr
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
 import { loadVideoBrand, brandedCoverNode, brandedCtaNode } from './lib/video-brand.mjs';
 import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
+import { mediaPath } from './lib/media-paths.mjs';
+import { pubIdOf } from './lib/content-registry.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { 'pack-dir': { type: 'string' }, commit: { type: 'boolean' } } });
@@ -63,7 +67,8 @@ if (existsSync(designPath)) {
     const raw = (await renderYoutubeCover(ROOT, fresh)).buffer;
     const png = await render(brandedCoverNode(raw, layout, brand.logo), layout);
     if (png.length > 2 * 1024 * 1024) throw new Error(`${key}: 表紙が YouTube の上限 2MB を超える`);
-    const rel = `.tmp/video-render/youtube-covers-${exam}/${packId}-${key}.png`;
+    const pubId = pubIdOf({ exam, work: packId, channel: 'youtube', format: key === 'longform' ? 'longform' : 'short', variant: key === 'longform' ? null : key });
+    const rel = mediaPath({ pubId, role: 'cover', sha256: hash(png), ext: 'png' });
     write(rel, png);
     spec.approvedImage = { path: rel, sha256: hash(png), specSha256: coverInputDigest(spec) };
     results.push({ kind: 'cover', key, path: rel, bytes: png.length });
@@ -75,7 +80,7 @@ if (existsSync(designPath)) {
 const scene = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8')).scenes.find((s) => s.sceneId === 'cta');
 if (!scene?.visual?.heading) throw new Error('storyboard に cta 場面（visual.heading）がない');
 const cta = await render(brandedCtaNode(scene, brand), { width: 1920, height: 1080 });
-const ctaRel = `.tmp/video-render/youtube-cta-${exam}/${packId}-longform.png`;
+const ctaRel = mediaPath({ pubId: pubIdOf({ exam, work: packId, channel: 'youtube', format: 'longform' }), role: 'cta', sha256: hash(cta), ext: 'png' });
 write(ctaRel, cta);
 const ctaPath = join(packDir, 'cta-design.json');
 const previous = existsSync(ctaPath) ? JSON.parse(readFileSync(ctaPath, 'utf8')) : {};
