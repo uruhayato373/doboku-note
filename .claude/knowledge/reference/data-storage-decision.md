@@ -128,7 +128,7 @@ data/analysis/<データセット>/   記録から計算した結果・文書が
 - 取得元を軸にする: 書き手（取得スクリプト）が取得元ごとに 1 つで、データは複数の領域から使われるため。領域は台帳が持つ
 - 1 データセット＝1 フォルダ（または 1 ファイル）。時系列はファイル名を時刻だけにし、種類は名前で表す（時系列は `<時刻>.json`、最新状態は `latest.json`、追記の台帳は `.jsonl`）
 - 人が読む md は `analysis/` だけ、手書きのメモは `docs/`。手元だけの生データは `<取得元>/ui/` で git 管理外
-- `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify` と投稿キュー `youtube-schedule.json`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02）
+- `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02。旧 Shorts の投稿キュー `youtube-schedule.json` はコンテンツ台帳へ移して 2026-10-09 に消した）
 - config/ に紛れた計画・作業記録は段階 4 で見直した（2026-10-02）: X の月次計画は `content/sns/x/campaigns/`、X 原稿の確認台帳は `content/sns/x/review.json`（計画と同じ列挙に入らないよう外に置く）、ココナラのサムネイル承認は `data/coconala/thumb-approved.json`。`r2-delete-list.txt`（R2 の削除の作業記録）は `data/r2/delete-list.txt`、`past-exam-inventory`（取得スクリプトが書き換える台帳）は `data/pastexams/inventory.json`、Instagram の 112 テーマの計画 `instagram-campaign` は `content/sns/instagram/campaign.json` へ移した（2026-10-02・段階 4 の続き。当初は「main のワークフローが読む入力・取得スクリプトの対象一覧」として config/ に残したが、どちらも人が決める設定でなく作業の記録・計画なので改めた。`r2-delete.yml` の既定の入力も新しい置き場に直した。データの id の取得元は 1 語（ハイフン不可）なので過去問は `pastexams`）
 
 ### 統合の基準（JSON ファイルを減らす）
