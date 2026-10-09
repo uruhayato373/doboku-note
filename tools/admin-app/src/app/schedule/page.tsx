@@ -297,7 +297,7 @@ function OverdueCard({
               <TableCell className="schedule-yt-aggregate">
                 公開予約時刻を経過・公開実体は未検証の動画が <strong>{ytOverdue.length}件</strong>（DN-0131）
               </TableCell>
-              <TableCell className="font-mono text-xs">.claude/state/youtube-schedule.json</TableCell>
+              <TableCell className="font-mono text-xs">content/registry（旧 Shorts）</TableCell>
             </TableRow>
           ) : null}
           {overdue.map((e) => (

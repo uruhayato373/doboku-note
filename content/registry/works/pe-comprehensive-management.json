@@ -3,6 +3,1016 @@
   "exam": "pe-comprehensive-management",
   "works": [
     {
+      "id": "cem-kw-access-control",
+      "kind": "legacy-short",
+      "definition": "content/site/pe-comprehensive-management/access-control"
+    },
+    {
+      "id": "cem-kw-multisource-evaluation",
+      "kind": "legacy-short",
+      "definition": "content/site/pe-comprehensive-management/360-degree-evaluation"
+    },
+    {
+      "id": "cem-r03-p01-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
+    },
+    {
+      "id": "cem-r03-p01-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
+    },
+    {
+      "id": "cem-r03-p01-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
+    },
+    {
+      "id": "cem-r03-p01-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-01"
+    },
+    {
+      "id": "cem-r03-p02-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
+    },
+    {
+      "id": "cem-r03-p02-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
+    },
+    {
+      "id": "cem-r03-p02-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
+    },
+    {
+      "id": "cem-r03-p02-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-02"
+    },
+    {
+      "id": "cem-r03-p03-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
+    },
+    {
+      "id": "cem-r03-p03-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
+    },
+    {
+      "id": "cem-r03-p03-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
+    },
+    {
+      "id": "cem-r03-p03-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-03"
+    },
+    {
+      "id": "cem-r03-p04-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
+    },
+    {
+      "id": "cem-r03-p04-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
+    },
+    {
+      "id": "cem-r03-p04-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
+    },
+    {
+      "id": "cem-r03-p04-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-04"
+    },
+    {
+      "id": "cem-r03-p05-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
+    },
+    {
+      "id": "cem-r03-p05-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
+    },
+    {
+      "id": "cem-r03-p05-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
+    },
+    {
+      "id": "cem-r03-p05-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-05"
+    },
+    {
+      "id": "cem-r03-p06-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
+    },
+    {
+      "id": "cem-r03-p06-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
+    },
+    {
+      "id": "cem-r03-p06-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
+    },
+    {
+      "id": "cem-r03-p06-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-06"
+    },
+    {
+      "id": "cem-r03-p07-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
+    },
+    {
+      "id": "cem-r03-p07-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
+    },
+    {
+      "id": "cem-r03-p07-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
+    },
+    {
+      "id": "cem-r03-p07-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-07"
+    },
+    {
+      "id": "cem-r03-p08-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
+    },
+    {
+      "id": "cem-r03-p08-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
+    },
+    {
+      "id": "cem-r03-p08-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
+    },
+    {
+      "id": "cem-r03-p08-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-08"
+    },
+    {
+      "id": "cem-r03-p09-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
+    },
+    {
+      "id": "cem-r03-p09-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
+    },
+    {
+      "id": "cem-r03-p09-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
+    },
+    {
+      "id": "cem-r03-p09-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-09"
+    },
+    {
+      "id": "cem-r03-p10-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
+    },
+    {
+      "id": "cem-r03-p10-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
+    },
+    {
+      "id": "cem-r03-p10-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
+    },
+    {
+      "id": "cem-r03-p10-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r03/pack-10"
+    },
+    {
+      "id": "cem-r04-p01-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
+    },
+    {
+      "id": "cem-r04-p01-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
+    },
+    {
+      "id": "cem-r04-p01-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
+    },
+    {
+      "id": "cem-r04-p01-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-01"
+    },
+    {
+      "id": "cem-r04-p02-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
+    },
+    {
+      "id": "cem-r04-p02-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
+    },
+    {
+      "id": "cem-r04-p02-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
+    },
+    {
+      "id": "cem-r04-p02-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-02"
+    },
+    {
+      "id": "cem-r04-p03-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
+    },
+    {
+      "id": "cem-r04-p03-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
+    },
+    {
+      "id": "cem-r04-p03-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
+    },
+    {
+      "id": "cem-r04-p03-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-03"
+    },
+    {
+      "id": "cem-r04-p04-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
+    },
+    {
+      "id": "cem-r04-p04-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
+    },
+    {
+      "id": "cem-r04-p04-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
+    },
+    {
+      "id": "cem-r04-p04-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-04"
+    },
+    {
+      "id": "cem-r04-p05-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
+    },
+    {
+      "id": "cem-r04-p05-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
+    },
+    {
+      "id": "cem-r04-p05-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
+    },
+    {
+      "id": "cem-r04-p05-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-05"
+    },
+    {
+      "id": "cem-r04-p06-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
+    },
+    {
+      "id": "cem-r04-p06-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
+    },
+    {
+      "id": "cem-r04-p06-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
+    },
+    {
+      "id": "cem-r04-p06-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-06"
+    },
+    {
+      "id": "cem-r04-p07-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
+    },
+    {
+      "id": "cem-r04-p07-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
+    },
+    {
+      "id": "cem-r04-p07-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
+    },
+    {
+      "id": "cem-r04-p07-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-07"
+    },
+    {
+      "id": "cem-r04-p08-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
+    },
+    {
+      "id": "cem-r04-p08-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
+    },
+    {
+      "id": "cem-r04-p08-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
+    },
+    {
+      "id": "cem-r04-p08-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-08"
+    },
+    {
+      "id": "cem-r04-p09-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
+    },
+    {
+      "id": "cem-r04-p09-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
+    },
+    {
+      "id": "cem-r04-p09-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
+    },
+    {
+      "id": "cem-r04-p09-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-09"
+    },
+    {
+      "id": "cem-r04-p10-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
+    },
+    {
+      "id": "cem-r04-p10-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
+    },
+    {
+      "id": "cem-r04-p10-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
+    },
+    {
+      "id": "cem-r04-p10-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r04/pack-10"
+    },
+    {
+      "id": "cem-r05-p01-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
+    },
+    {
+      "id": "cem-r05-p01-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
+    },
+    {
+      "id": "cem-r05-p01-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
+    },
+    {
+      "id": "cem-r05-p01-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-01"
+    },
+    {
+      "id": "cem-r05-p02-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
+    },
+    {
+      "id": "cem-r05-p02-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
+    },
+    {
+      "id": "cem-r05-p02-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
+    },
+    {
+      "id": "cem-r05-p02-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-02"
+    },
+    {
+      "id": "cem-r05-p03-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
+    },
+    {
+      "id": "cem-r05-p03-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
+    },
+    {
+      "id": "cem-r05-p03-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
+    },
+    {
+      "id": "cem-r05-p03-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-03"
+    },
+    {
+      "id": "cem-r05-p04-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
+    },
+    {
+      "id": "cem-r05-p04-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
+    },
+    {
+      "id": "cem-r05-p04-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
+    },
+    {
+      "id": "cem-r05-p04-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-04"
+    },
+    {
+      "id": "cem-r05-p05-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
+    },
+    {
+      "id": "cem-r05-p05-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
+    },
+    {
+      "id": "cem-r05-p05-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
+    },
+    {
+      "id": "cem-r05-p05-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-05"
+    },
+    {
+      "id": "cem-r05-p06-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
+    },
+    {
+      "id": "cem-r05-p06-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
+    },
+    {
+      "id": "cem-r05-p06-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
+    },
+    {
+      "id": "cem-r05-p06-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-06"
+    },
+    {
+      "id": "cem-r05-p07-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
+    },
+    {
+      "id": "cem-r05-p07-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
+    },
+    {
+      "id": "cem-r05-p07-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
+    },
+    {
+      "id": "cem-r05-p07-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-07"
+    },
+    {
+      "id": "cem-r05-p08-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
+    },
+    {
+      "id": "cem-r05-p08-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
+    },
+    {
+      "id": "cem-r05-p08-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
+    },
+    {
+      "id": "cem-r05-p08-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-08"
+    },
+    {
+      "id": "cem-r05-p09-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
+    },
+    {
+      "id": "cem-r05-p09-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
+    },
+    {
+      "id": "cem-r05-p09-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
+    },
+    {
+      "id": "cem-r05-p09-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-09"
+    },
+    {
+      "id": "cem-r05-p10-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
+    },
+    {
+      "id": "cem-r05-p10-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
+    },
+    {
+      "id": "cem-r05-p10-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
+    },
+    {
+      "id": "cem-r05-p10-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r05/pack-10"
+    },
+    {
+      "id": "cem-r06-p01-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
+    },
+    {
+      "id": "cem-r06-p01-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
+    },
+    {
+      "id": "cem-r06-p01-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
+    },
+    {
+      "id": "cem-r06-p01-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-01"
+    },
+    {
+      "id": "cem-r06-p02-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
+    },
+    {
+      "id": "cem-r06-p02-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
+    },
+    {
+      "id": "cem-r06-p02-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
+    },
+    {
+      "id": "cem-r06-p02-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-02"
+    },
+    {
+      "id": "cem-r06-p03-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
+    },
+    {
+      "id": "cem-r06-p03-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
+    },
+    {
+      "id": "cem-r06-p03-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
+    },
+    {
+      "id": "cem-r06-p03-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-03"
+    },
+    {
+      "id": "cem-r06-p04-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
+    },
+    {
+      "id": "cem-r06-p04-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
+    },
+    {
+      "id": "cem-r06-p04-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
+    },
+    {
+      "id": "cem-r06-p04-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-04"
+    },
+    {
+      "id": "cem-r06-p05-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
+    },
+    {
+      "id": "cem-r06-p05-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
+    },
+    {
+      "id": "cem-r06-p05-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
+    },
+    {
+      "id": "cem-r06-p05-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-05"
+    },
+    {
+      "id": "cem-r06-p06-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
+    },
+    {
+      "id": "cem-r06-p06-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
+    },
+    {
+      "id": "cem-r06-p06-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
+    },
+    {
+      "id": "cem-r06-p06-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-06"
+    },
+    {
+      "id": "cem-r06-p07-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
+    },
+    {
+      "id": "cem-r06-p07-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
+    },
+    {
+      "id": "cem-r06-p07-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
+    },
+    {
+      "id": "cem-r06-p07-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-07"
+    },
+    {
+      "id": "cem-r06-p08-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
+    },
+    {
+      "id": "cem-r06-p08-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
+    },
+    {
+      "id": "cem-r06-p08-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
+    },
+    {
+      "id": "cem-r06-p08-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-08"
+    },
+    {
+      "id": "cem-r06-p09-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
+    },
+    {
+      "id": "cem-r06-p09-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
+    },
+    {
+      "id": "cem-r06-p09-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
+    },
+    {
+      "id": "cem-r06-p09-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-09"
+    },
+    {
+      "id": "cem-r06-p10-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
+    },
+    {
+      "id": "cem-r06-p10-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
+    },
+    {
+      "id": "cem-r06-p10-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
+    },
+    {
+      "id": "cem-r06-p10-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r06/pack-10"
+    },
+    {
+      "id": "cem-r07-p01-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
+    },
+    {
+      "id": "cem-r07-p01-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
+    },
+    {
+      "id": "cem-r07-p01-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
+    },
+    {
+      "id": "cem-r07-p01-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01"
+    },
+    {
+      "id": "cem-r07-p02-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
+    },
+    {
+      "id": "cem-r07-p02-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
+    },
+    {
+      "id": "cem-r07-p02-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
+    },
+    {
+      "id": "cem-r07-p02-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-02"
+    },
+    {
+      "id": "cem-r07-p03-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
+    },
+    {
+      "id": "cem-r07-p03-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
+    },
+    {
+      "id": "cem-r07-p03-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
+    },
+    {
+      "id": "cem-r07-p03-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-03"
+    },
+    {
+      "id": "cem-r07-p04-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
+    },
+    {
+      "id": "cem-r07-p04-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
+    },
+    {
+      "id": "cem-r07-p04-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
+    },
+    {
+      "id": "cem-r07-p04-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-04"
+    },
+    {
+      "id": "cem-r07-p05-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
+    },
+    {
+      "id": "cem-r07-p05-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
+    },
+    {
+      "id": "cem-r07-p05-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
+    },
+    {
+      "id": "cem-r07-p05-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-05"
+    },
+    {
+      "id": "cem-r07-p06-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
+    },
+    {
+      "id": "cem-r07-p06-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
+    },
+    {
+      "id": "cem-r07-p06-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
+    },
+    {
+      "id": "cem-r07-p06-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06"
+    },
+    {
+      "id": "cem-r07-p07-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
+    },
+    {
+      "id": "cem-r07-p07-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
+    },
+    {
+      "id": "cem-r07-p07-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
+    },
+    {
+      "id": "cem-r07-p07-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07"
+    },
+    {
+      "id": "cem-r07-p08-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
+    },
+    {
+      "id": "cem-r07-p08-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
+    },
+    {
+      "id": "cem-r07-p08-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
+    },
+    {
+      "id": "cem-r07-p08-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08"
+    },
+    {
+      "id": "cem-r07-p09-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
+    },
+    {
+      "id": "cem-r07-p09-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
+    },
+    {
+      "id": "cem-r07-p09-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
+    },
+    {
+      "id": "cem-r07-p09-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09"
+    },
+    {
+      "id": "cem-r07-p10-q1",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
+    },
+    {
+      "id": "cem-r07-p10-q2",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
+    },
+    {
+      "id": "cem-r07-p10-q3",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
+    },
+    {
+      "id": "cem-r07-p10-q4",
+      "kind": "legacy-short",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-10"
+    },
+    {
       "id": "gokanri-tradeoff",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff",

@@ -16,12 +16,12 @@
  *   - x-campaign      … content/sns/x/campaigns/*.json（X 計画枠）
  *   - x-status        … content/sns/x/draft/*\/status.json（X 実予約・実投稿）
  *   - ig-status       … content/sns/instagram/**\/status.json（IG 実予約・実投稿）
- *   - youtube-schedule… .claude/state/youtube-schedule.json（YouTube 予約）
+ *   - youtube-schedule… コンテンツ台帳（content/registry・kind legacy-short の旧 Shorts の公開。youtube-schedule.json は凍結した旧台帳）
  *   - backlog         … .claude/todo/backlog.md の `[期日:]`（タスク期日）
  *
  * 不採用ソース（触らない・読み込まない。理由を明記する）:
- *   - content/sns/schedule.json … 2026-05 世代の古い計画・実績系。ig-status/x-status と
- *     重複しており、真実源が二重化する。sns-board.ts（/sns タブ）が引き続き読む。
+ *   - content/sns/schedule.json … 2026-05 世代の古い計画・実績系（DN-0610 で削除済み）。ig-status/x-status と
+ *     重複しており真実源が二重化していた。
  *   - .github/workflows の cron 定義 … 「いつ実行されるか」であって「いつ何が公開されるか」の
  *     予定表ではない。集約対象のドメインが異なる。
  *
@@ -41,6 +41,7 @@ import { basename, join } from 'node:path';
 import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
+import { youtubePublications } from './registry-youtube-view.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -305,20 +306,23 @@ export function mapIgStatus(packRel, json, nowMs) {
 }
 
 /**
- * youtube-schedule.json の items[] → ScheduleEvent[]。
- * publishAt 過去は一律 overdue（uploaded でも公開検証フィールドが無い以上 posted と呼ばない・§9）。
+ * 台帳の YouTube の公開（youtubePublications の行・旧 Shorts）→ ScheduleEvent[]。
+ * 予定として扱うのは publishAt を持つ未停止の行だけ（stopped は予定ではない・publishAt の無い published も対象外）。
+ * publishAt 過去は一律 overdue（published でも公開検証フィールドが無い以上 posted と呼ばない・§9）。
+ * @param {{ id: string, legacyKey?: string|null, status: string, publishAt?: string|null, title?: string|null }[]} pubs
  * @returns {{events: ScheduleEvent[], skipped: number}}
  */
-export function mapYoutubeSchedule(json, relPath, nowMs) {
-  const items = Array.isArray(json?.items) ? json.items : [];
+export function mapYoutubeSchedule(pubs, relPath, nowMs) {
   const events = [];
   let skipped = 0;
-  for (const item of items) {
+  for (const item of Array.isArray(pubs) ? pubs : []) {
+    if (item?.status === 'stopped') continue;
+    if (!item?.publishAt && item?.status === 'published') continue;
     const dt = jstDayTime(item?.publishAt);
     if (!dt) { skipped += 1; continue; }
-    const ref = item.key ?? `${dt.date}-${dt.time}`;
+    const ref = item.legacyKey ?? item.id ?? `${dt.date}-${dt.time}`;
     const past = isPastJst(dt.date, dt.time, nowMs);
-    const status = past ? 'overdue' : item.status === 'uploaded' ? 'reserved' : 'planned';
+    const status = past ? 'overdue' : item.status === 'published' ? 'reserved' : 'planned';
     events.push({
       id: `youtube-schedule:${ref}`,
       date: dt.date,
@@ -691,10 +695,10 @@ function readIgStatus(rootDir, nowMs) {
 }
 
 function readYoutubeSchedule(rootDir, nowMs) {
-  const relPath = '.claude/state/youtube-schedule.json';
+  const relPath = datasetDir('registry.youtube');
   try {
-    const json = readJsonFile(join(rootDir, relPath));
-    const { events, skipped } = mapYoutubeSchedule(json, relPath, nowMs);
+    const pubs = youtubePublications(rootDir, { legacyOnly: true });
+    const { events, skipped } = mapYoutubeSchedule(pubs, relPath, nowMs);
     const errors = skipped > 0
       ? [{ path: relPath, message: `${skipped} 件の item が不正な publishAt でスキップ` }]
       : [];

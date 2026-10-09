@@ -4,14 +4,14 @@ import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
 } from '../../../../scripts/lib/video-content-check.mjs';
-import { youtubeScheduleStatusToStage } from '../../../../scripts/lib/content-lifecycle.mjs';
+import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
 
 import { findRepoRoot, repoPath } from './repo-root';
 
 /**
  * video-sns-join.ts — SNS 投稿状況と動画パックの join（read-only）。
  *
- * なぜ必要か（DN-0110 Phase 3）: Shorts 台帳 `.claude/state/youtube-schedule.json` は
+ * なぜ必要か（DN-0110 Phase 3）: Shorts 台帳 `content/registry（kind legacy-short）` は
  * IG 過去問パック由来の既存 200 本を持つが、**動画パック（video-pack）とは無関係**で、
  * 台帳の item には packId も relatedVideoId も無い。一方 DN-0110 以降の派生 Shorts は
  * `.claude/state/video-content-status.json` の `derivatives.shorts[]` に入る。
@@ -25,8 +25,6 @@ export interface ShortsLedgerSummary {
   reason: string | null;
   total: number;
   byStage: Record<string, number>;
-  /** 台帳側で packId を持つ item 数（現状 0＝レガシーのみ） */
-  packLinked: number;
 }
 
 export interface PackDerivativeSummary {
@@ -97,28 +95,17 @@ export function videoSnsJoin(): VideoSnsJoin {
     }
   }
 
-  // ── レガシー Shorts 台帳側 ──
-  const ledgerPath = repoPath('.claude', 'state', 'youtube-schedule.json');
+  // ── レガシー Shorts（台帳 content/registry の kind legacy-short）──
   let legacyShorts: ShortsLedgerSummary;
-  if (!existsSync(ledgerPath)) {
-    legacyShorts = { ok: false, reason: '台帳が無い', total: 0, byStage: {}, packLinked: 0 };
-  } else {
-    try {
-      const j = JSON.parse(readFileSync(ledgerPath, 'utf8')) as {
-        items?: { status?: string; sourcePackId?: string }[];
-      };
-      const items = j.items ?? [];
-      const byStage: Record<string, number> = {};
-      let packLinked = 0;
-      for (const it of items) {
-        const stage = youtubeScheduleStatusToStage(it.status ?? '') ?? 'unknown';
-        byStage[stage] = (byStage[stage] ?? 0) + 1;
-        if (it.sourcePackId) packLinked += 1;
-      }
-      legacyShorts = { ok: true, reason: null, total: items.length, byStage, packLinked };
-    } catch (e) {
-      legacyShorts = { ok: false, reason: (e as Error).message, total: 0, byStage: {}, packLinked: 0 };
-    }
+  try {
+    const items = youtubePublications(findRepoRoot(), { legacyOnly: true }) as { stage: string }[];
+    const byStage: Record<string, number> = {};
+    for (const it of items) byStage[it.stage] = (byStage[it.stage] ?? 0) + 1;
+    legacyShorts = items.length === 0
+      ? { ok: false, reason: '台帳に旧 Shorts が 1 件も無い', total: 0, byStage: {} }
+      : { ok: true, reason: null, total: items.length, byStage };
+  } catch (e) {
+    legacyShorts = { ok: false, reason: (e as Error).message, total: 0, byStage: {} };
   }
 
   return { packDerivatives, packTotal: packs.length, legacyShorts };
