@@ -461,6 +461,15 @@
       "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
       "reviewedAt": "2026-10-09T09:02:31.742Z"
     },
+    "civil-practice/license-scope-judgment/img/photo-crane-machine-setting": {
+      "sha": "a5165cede32747ec",
+      "promptSha": "55a66c0aff663640",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:38:27.065Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 鋼製フレームの共通架台にモーター（冷却ファンカバー付き）とフランジ付きの渦巻ポンプを載せた据付前の機械ユニットで、実在の形として成り立つ。吊り: フック・吊りブロックから 2 本のワイヤロープが架台上部の吊りラグへ掛かり、機械の上に三角形をなす。基礎: 下のコンクリート基礎から鉛直にアンカーボルトが 4 本立ち、架台底部の穴位置と概ね合う。右上にクレーンのブーム（黄色の連結金具付き）が見える。本文: 重量物をクレーンで所定の位置へ揚重して据える、とび・土工・コンクリート工事の説明と矛盾しない。破綻: 文字・ロゴ・人物は無く、部品の溶けや二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:40:21.079Z"
+    },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
       "promptSha": "140fa911160e9046",
@@ -523,6 +532,12 @@
       "verdict": "ok",
       "reason": "4機器とも本文の順に実在の形で並ぶ。照度計は黄色の手持ち型で、上面に白い球状の受光部と液晶表示を備える。検電器はペン型で赤黒の胴・クリップ・透明の先端を持つ。巻尺は黄色ケースにロックボタンがあり、鉤付きのテープが少し出ている。カメラはレンズ付きのコンパクト機で、背景に白いヘルメットと現場の窓外がある。文字・ロゴ・人物・部品の崩れは見当たらない。",
       "reviewedAt": "2026-10-09T09:21:39.525Z"
+    },
+    "civil-practice/site-wireless-communication/img/photo-rfid-tag-rebar-reader": {
+      "sha": "4b521d795fe4f366",
+      "promptSha": "b1e0f55d4f589e68",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:40:02.629Z"
     },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "sha": "be28c5582b209cd9",
