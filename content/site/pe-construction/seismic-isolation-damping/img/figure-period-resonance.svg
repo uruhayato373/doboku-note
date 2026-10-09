@@ -1,0 +1,41 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="建物の固有周期が地震動の周期とそろうと共振して揺れが大きくなる概念図。低層は短い周期、超高層は長周期地震動の周期帯に固有周期をもつ">
+<defs>
+<style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; font-size: 13px; }
+.t { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+.s { font-size: 11px; fill: #555; }
+.m { text-anchor: middle; }
+.p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+.gr { fill: #d7d7d7; }
+.bd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+.iso { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+.dm { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+.ar { stroke: #555; stroke-width: 1.5; fill: none; }
+.fr { stroke: #b22234; stroke-width: 1.5; fill: none; }
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+<marker id="r" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+</defs>
+<rect x="225" y="62" width="100" height="238" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text class="s m" x="275" y="56">長周期地震動が強い周期帯</text>
+<line class="ar" x1="40" y1="300" x2="360" y2="300" marker-end="url(#a)"/>
+<line class="ar" x1="40" y1="300" x2="40" y2="44" marker-end="url(#a)"/>
+<text class="s" x="46" y="44">建物の揺れの大きさ</text>
+<g fill="none" stroke-width="2.5">
+<path stroke="#2e6da4" d="M 50 300 C 80 300 92 120 112 120 C 132 120 144 300 174 300"/>
+<path stroke="#b22234" d="M 210 300 C 240 300 252 120 272 120 C 292 120 304 300 334 300"/>
+</g>
+<g class="m">
+<text x="112" y="108">低層の建物</text>
+<text x="272" y="108">超高層ビル</text>
+</g>
+<text class="s" x="40" y="322">短い</text>
+<text class="s" x="360" y="322" style="text-anchor:end">長い</text>
+<text class="s m" x="200" y="322">地震動の周期</text>
+<rect x="20" y="344" width="360" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="36" y="370" style="font-weight:bold">低層はずれている</text>
+<text class="s" x="36" y="392">低層は共振せず、揺れは増えにくい</text>
+<rect x="20" y="420" width="360" height="62" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="36" y="446" style="font-weight:bold">超高層はそろう（共振）</text>
+<text class="s" x="36" y="468">超高層は大きく、長く揺れ続ける</text>
+</svg>
