@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="火山防災の体系。観測と区分、噴火警報とレベル、地域の警戒避難体制、避難施設と降灰対策の四つの層を順に確認する">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; text-anchor: middle; }
+    .h { font-size: 17px; font-weight: bold; } .b { font-size: 14px; }
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+  </style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <g text-anchor="middle">
+  <!-- Four layers, top to bottom; each layer has a different place to check. -->
+  <rect x="24" y="16" width="352" height="96" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="46" class="h">観測と区分</text>
+  <text x="200" y="72" class="b">活火山 → 常時観測火山</text>
+  <text x="200" y="96" class="b">山ごとに観測の厚みが違う</text>
+  <path d="M200 114V138" class="a" />
+  <rect x="24" y="142" width="352" height="96" rx="8" fill="#fff3cd" stroke="#d4a017" />
+  <text x="200" y="172" class="h">噴火警報とレベル</text>
+  <text x="200" y="198" class="b">常時観測火山の多くで運用</text>
+  <text x="200" y="222" class="b">運用外の山は別の情報源で確認</text>
+  <path d="M200 240V264" class="a" />
+  <rect x="24" y="268" width="352" height="96" rx="8" fill="#e8f0fe" stroke="#2e6da4" />
+  <text x="200" y="298" class="h">地域の警戒避難体制</text>
+  <text x="200" y="324" class="b">火山防災協議会・地域防災計画</text>
+  <text x="200" y="348" class="b">集客施設の避難確保計画（同法の改正）</text>
+  <path d="M200 366V390" class="a" />
+  <rect x="24" y="394" width="352" height="96" rx="8" fill="#d0e8d0" stroke="#3a7d44" />
+  <text x="200" y="424" class="h">避難施設と降灰対策</text>
+  <text x="200" y="450" class="b">活動火山対策特別措置法が根拠</text>
+  <text x="200" y="474" class="b">避難施設・退避壕・降灰の除去</text>
+  </g>
+</svg>
