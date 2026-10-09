@@ -21,10 +21,11 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const APPLY = process.argv.includes('--apply');
-const OUT_DIR = 'scripts/pdf-specs';
+const OUT_DIR = join(REPO_ROOT, 'scripts/pdf-specs');
 
 const MAGAZINES = [
   // 工事件数を商品表示と一致させるため、総合案内や横断付録は個別工事 PDF に含めない。
@@ -84,7 +85,7 @@ for (const mag of MAGAZINES) {
   const spec = { srcDir: mag.dir, articles };
   const outPath = join(OUT_DIR, mag.spec + '.json');
   if (APPLY) writeFileSync(outPath, JSON.stringify(spec, null, 2) + '\n', 'utf8');
-  console.log(`${mag.spec}: ${articles.length} 記事${skipped.length ? ` / skip ${skipped.length}` : ''} -> ${outPath}${APPLY ? '' : '（dry-run）'}`);
+  console.log(`${mag.spec}: ${articles.length} 記事${skipped.length ? ` / skip ${skipped.length}` : ''} -> ${relative(REPO_ROOT, outPath).split('\\').join('/')}${APPLY ? '' : '（dry-run）'}`);
   skipped.forEach((s) => console.log('    skip:', s));
 }
 

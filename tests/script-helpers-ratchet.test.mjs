@@ -25,7 +25,7 @@ const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mj
 
 /** ルートを自分で計算する定義（行単位。root-ok の行は数えない） */
 export const DEFINES_ROOT = /^[ \t]*(?:export\s+)?(?:const|let|var)\s+(?:ROOT|REPO_ROOT|REPO|PROJECT_ROOT|repoRoot|root|ownRoot)\s*=[^\n]*(?:import\.meta\.(?:url|dirname)|__dirname|process\.cwd\(\))/;
-/** walk で始まる関数の定義 */
+/** walk で始まる関数の定義（本文でディレクトリを読むものだけ数える） */
 export const DEFINES_WALK = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s*\*?\s*walk\w*\s*\(|const\s+walk\w*\s*=\s*(?:async\s*)?(?:\(|function|[\w$]+\s*=>))/;
 /** parseArgs の定義 */
 export const DEFINES_PARSE_ARGS = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s+parseArgs\s*\(|const\s+parseArgs\s*=)/;
@@ -42,7 +42,8 @@ export function findDefinitions(text) {
   const hits = { root: [], walk: [], parseArgs: [] };
   lines.forEach((l, i) => {
     if (DEFINES_ROOT.test(l) && !/\/\/\s*root-ok:/.test(l)) hits.root.push(i + 1);
-    if (DEFINES_WALK.test(l) && !/\blistFiles\(/.test(bodyFrom(lines, i))) hits.walk.push(i + 1);
+    // walk という名前でもディレクトリを読まないもの（構文木をたどる visitor など）は数えない
+    if (DEFINES_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\blistFiles\(/.test(bodyFrom(lines, i))) hits.walk.push(i + 1);
     if (DEFINES_PARSE_ARGS.test(l) && !/\bparseCliArgs\(/.test(bodyFrom(lines, i))) hits.parseArgs.push(i + 1);
   });
   return hits;
@@ -87,7 +88,8 @@ test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶ�
   assert.deepEqual(count('const ROOT = process.cwd(); // root-ok: テストが一時 cwd で走らせる'), { root: 0, walk: 0, parseArgs: 0 });
   assert.deepEqual(count("import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';"), { root: 0, walk: 0, parseArgs: 0 });
   assert.deepEqual(count('function walk(dir) {\n  for (const e of readdirSync(dir)) out.push(e);\n}'), { root: 0, walk: 1, parseArgs: 0 });
-  assert.deepEqual(count('const walkMdx = (dir) => {\n  return [];\n};'), { root: 0, walk: 1, parseArgs: 0 });
+  assert.deepEqual(count('const walkMdx = (dir) => {\n  return readdirSync(dir);\n};'), { root: 0, walk: 1, parseArgs: 0 });
+  assert.deepEqual(count('function walk(node) {\n  for (const c of node.children) walk(c);\n}'), { root: 0, walk: 0, parseArgs: 0 });
   assert.deepEqual(count("function walkMdx(dir) {\n  return listFiles(dir, { ext: '.mdx' });\n}"), { root: 0, walk: 0, parseArgs: 0 });
   assert.deepEqual(count('function parseArgs() {\n  const args = process.argv.slice(2);\n}'), { root: 0, walk: 0, parseArgs: 1 });
   assert.deepEqual(count("export function parseArgs(argv) {\n  return parseCliArgs({ json: { type: 'boolean' } }, argv);\n}"), { root: 0, walk: 0, parseArgs: 0 });

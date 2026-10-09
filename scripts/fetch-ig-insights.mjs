@@ -31,23 +31,28 @@ import { datasetPath } from './lib/datasets.mjs';
 import { createIgGraphClient, mediaToLive } from './lib/ig-graph.mjs';
 import { normHead, localPacks, reconcile, driftCount, buildSnapshot } from './lib/ig-reconcile-core.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 
 const TAG = '[fetch-ig-insights]';
 
 // ─── 引数 ────────────────────────────────────────────────────
 function parseArgs(argv) {
-  const num = (flag, def) => {
-    const raw = (argv.find((a) => a.startsWith(`${flag}=`)) || '').split('=')[1];
-    const n = Number(raw);
-    return Number.isFinite(n) && n > 0 ? n : def;
-  };
+  const a = parseCliArgs({
+    days: { type: 'number' },
+    'insights-since-days': { type: 'number' },
+    'max-media': { type: 'number' },
+    reconcile: { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+    json: { type: 'boolean' },
+  }, argv);
+  const num = (n, def) => (Number.isFinite(n) && n > 0 ? n : def);
   return {
-    days: num('--days', 30),
-    insightsSinceDays: num('--insights-since-days', 90),
-    maxMedia: num('--max-media', 200),
-    reconcile: argv.includes('--reconcile'),
-    dryRun: argv.includes('--dry-run'),
-    json: argv.includes('--json'),
+    days: num(a.days, 30),
+    insightsSinceDays: num(a.insightsSinceDays, 90),
+    maxMedia: num(a.maxMedia, 200),
+    reconcile: a.reconcile,
+    dryRun: a.dryRun,
+    json: a.json,
   };
 }
 

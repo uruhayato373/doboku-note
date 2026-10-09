@@ -34,6 +34,7 @@ import path from 'path';
 import sharp from 'sharp';
 import dotenv from 'dotenv';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 const OUT_ROOT = path.join(ROOT, 'public', 'images', 'guide-covers');
@@ -100,16 +101,14 @@ const COVERS = {
 };
 
 function parseArgs(argv) {
-  const a = { all: false, category: null, force: false, dryRun: false, mode: 'imagen', model: null };
-  for (let i = 0; i < argv.length; i++) {
-    const t = argv[i];
-    if (t === '--all') a.all = true;
-    else if (t === '--force') a.force = true;
-    else if (t === '--dry-run') a.dryRun = true;
-    else if (t === '--category') a.category = argv[++i];
-    else if (t === '--mode') a.mode = argv[++i];
-    else if (t === '--model') a.model = argv[++i];
-  }
+  const a = parseCliArgs({
+    all: { type: 'boolean' },
+    force: { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+    category: { type: 'string' },
+    mode: { type: 'string', default: 'imagen' },
+    model: { type: 'string' },
+  }, argv);
   if (!a.all && !a.category) a.all = true;
   return a;
 }
