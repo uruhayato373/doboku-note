@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T05:55:20.440Z",
+  "generated_at": "2026-10-09T06:12:04.099Z",
   "summary": {
-    "total_mdx_files": 1376,
+    "total_mdx_files": 1377,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -4649,6 +4649,20 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-reading-civil-drawings"
+      ]
+    },
+    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4659,6 +4673,19 @@
         "pe-comprehensive-management-green-transformation",
         "pe-comprehensive-management-long-term-strategy-2050",
         "pe-construction-carbon-neutral-kensetsu"
+      ]
+    },
+    {
+      "name": "i-Construction",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-site-wireless-communication",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4696,31 +4723,6 @@
         "civil-practice-ledger-data-design",
         "civil-practice-site-wireless-communication",
         "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-reading-civil-drawings"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-site-wireless-communication",
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
       ]
