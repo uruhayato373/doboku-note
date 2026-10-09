@@ -66,7 +66,7 @@ npm run build-standards-page-images              # role=common を全整備局�
 npm run build-standards-page-images -- --role all # companion 62 文書も含む
 npm run check-standards-page-images              # provenance 整合。quality:audit にも同梱
 npm run check-drive-vault                        # Drive 台帳と実体の整合
-npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/   # 手元に作業コピーが要るとき
+npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/ --commit   # 手元に作業コピーが要るとき
 ```
 
 生成には Google ドライブ vault（`原資料PDF/共通仕様書/`）の原本 PDF と poppler（`brew install poppler`）が要る。Drive のマウントは `scripts/lib/drive-vault.mjs` が Mac / Windows / 環境変数 `DOBOKU_DRIVE_VAULT` の順に解決する。

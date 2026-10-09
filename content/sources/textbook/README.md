@@ -18,8 +18,8 @@
 新しい端末で作業する場合:
 
 1. Google Drive デスクトップアプリでこの端末のアカウントにログインし、`マイドライブ/doboku-note/原資料PDF/` を同期する
-2. `npm run drive-vault-sync -- --group source-transcript --pull` で台帳にある `.md` を対応する論理キーへ戻す（旧分は `content/sources/textbook/`、新規は `content/sources/books/{bookDir}/ocr/`）
-3. PDF・ページ画像が必要な場合は別途 `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'` で Drive から取得する（マウントが要る・ネット不要）
+2. `npm run drive-vault-sync -- --group source-transcript --pull --commit` で台帳にある `.md` を対応する論理キーへ戻す（旧分は `content/sources/textbook/`、新規は `content/sources/books/{bookDir}/ocr/`）
+3. PDF・ページ画像が必要な場合は別途 `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/' --commit` で Drive から取得する（マウントが要る・ネット不要）
 
 文字起こしの先頭には `source` / `sourcePdfs` / `pdfPages` / `method` 等の frontmatter を付ける。原本から
 記事までの ID 対応と公開条件は [reference-sources-policy.md](../../../.claude/knowledge/reference/reference-sources-policy.md) を参照する。

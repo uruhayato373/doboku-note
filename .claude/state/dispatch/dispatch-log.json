@@ -2400,6 +2400,19 @@
       "note": "todo-complete.mjs 経由で完了処理"
     },
     {
+      "id": "DN-0631",
+      "at": "2026-10-10",
+      "task": "drive-vault-sync の --pull を既定で dry-run にし、送る側と台帳の約束（sync は既定 dry-run）にそろえる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/drive-vault.test.mjs: --commit なしの --pull は exit 0・mode=DRY-RUN・取り戻す予定 N 件（MiB）を出し手元へ書かない、--commit で取り戻しに行く。check-command-guidance: drive-vault-sync の取り戻しの案内 48 件すべて --commit 付き（無いと壊れとして exit 1）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
       "id": "DN-0621",
       "at": "2026-10-10",
       "task": "書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す",

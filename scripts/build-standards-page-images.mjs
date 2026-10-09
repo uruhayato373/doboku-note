@@ -295,7 +295,7 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
         title: doc.title,
         edition: doc.edition ?? null,
         sourceFile: toVaultRel(path.relative(VAULT, pdf)),
-        pagesLocation: { tier: 'drive-vault', vaultDir: vaultDocRel, note: '実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/' + doc.agencyId + '/' },
+        pagesLocation: { tier: 'drive-vault', vaultDir: vaultDocRel, note: '実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/' + doc.agencyId + '/ --commit' },
         sourceSha256: doc.sourceSha256,
         pages: realPages,
         render: { tool: 'pdftoppm', dpi: DPI, format: 'jpeg', quality: QUALITY },

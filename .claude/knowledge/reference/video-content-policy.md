@@ -130,7 +130,7 @@ ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <di
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact
 npm run drive-vault-sync -- --group video-render-artifact --commit
-npm run drive-vault-sync -- --pull --group video-render-artifact
+npm run drive-vault-sync -- --pull --group video-render-artifact --commit
 npm run youtube-renders:prune -- --cloud                         # dry-run
 npm run youtube-renders:prune -- --cloud --commit                # Drive一致＋公開済み派生物だけ削除
 ```
