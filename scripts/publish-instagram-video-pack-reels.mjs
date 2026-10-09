@@ -8,6 +8,8 @@ import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
+import { readIgPublication, recordIg } from './lib/registry-ig-store.mjs';
+import { isSchedulableLedgerRow } from './ig-status.mjs';
 
 const ROOT = process.cwd();
 const campaign = assertInstagramPublicationReady(ROOT);
@@ -36,6 +38,12 @@ function hydrateVideo(videoPath) {
   });
   if (result.status !== 0 || !existsSync(videoPath)) throw new Error(`${rel}: Driveから復元できません`);
 }
+// 予約したら台帳へ（書けなければ投げて止める）
+async function recordScheduled(row) {
+  const rel = relative(ROOT, row.packDir).replace(/\\/g, '/');
+  await recordIg(ROOT, rel, 'reel', 'scheduled', { publishAt: row.meta.publishAt });
+  console.log(`[ig-video-pack-reels] 台帳更新: ${rel} → scheduled`);
+}
 function walk(dir) {
   if (!existsSync(dir)) return;
   for (const name of readdirSync(dir)) {
@@ -46,7 +54,7 @@ function walk(dir) {
 }
 walk(BASE);
 
-const candidates = metaPaths.map((metaPath) => {
+const candidates = (await Promise.all(metaPaths.map(async (metaPath) => {
   const reelsDir = dirname(metaPath);
   const packDir = dirname(reelsDir);
   const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
@@ -55,12 +63,13 @@ const candidates = metaPaths.map((metaPath) => {
     if (!scheduledAt) throw new Error(`固定キャンペーンにないリールです: ${relative(ROOT, packDir)}`);
     meta.publishAt = scheduledAt;
   }
-  const statusPath = join(packDir, 'status.json');
-  const status = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
-  return { meta, packDir, reelsDir, status };
-}).filter((row) => {
+  // 予約してよいかは台帳（正本）で決める。status.json は見ない
+  const ledger = await readIgPublication(ROOT, relative(ROOT, packDir).replace(/\\/g, '/'), 'reel');
+  return { meta, packDir, reelsDir, ledger };
+}))).filter((row) => {
   const at = new Date(row.meta.publishAt).getTime();
-  return !['scheduled', 'posted'].includes(row.status?.status) && at >= minTime && at <= maxTime;
+  if (!row.ledger) { console.warn(`[ig-video-pack-reels] 台帳に行が無いので対象外: ${relative(ROOT, row.packDir)}`); return false; }
+  return isSchedulableLedgerRow(row.ledger) && at >= minTime && at <= maxTime;
 }).sort((a, b) => a.meta.publishAt.localeCompare(b.meta.publishAt)).slice(0, max);
 
 console.log(`[ig-video-pack-reels] ${commit ? 'commit' : 'dry-run'} 対象 ${candidates.length}本（Meta 29日窓）`);
@@ -89,6 +98,7 @@ if (commit && candidates.length > 1) {
   })) }, null, 2)}\n`);
   const result = spawnSync('npx', ['tsx', PUBLISHER, 'batch', batchFile], { cwd: ROOT, stdio: 'inherit' });
   if (result.status !== 0) throw new Error('Business Suite 一括予約失敗');
+  for (const row of candidates) await recordScheduled(row);
 } else for (const [index, row] of candidates.entries()) {
   const dt = row.meta.publishAt.slice(0, 16);
   const command = ['tsx', PUBLISHER, 'post', row.packDir, '--reel', '--schedule', dt];
@@ -96,5 +106,6 @@ if (commit && candidates.length > 1) {
   console.log(`[${index + 1}/${candidates.length}] ${row.meta.sourcePackId}/${row.meta.key} @ ${dt}`);
   const result = spawnSync('npx', command, { cwd: ROOT, stdio: 'inherit' });
   if (result.status !== 0) throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: Business Suite 予約失敗`);
+  if (commit) await recordScheduled(row);
 }
 console.log(`[ig-video-pack-reels] ${commit ? '予約投入' : 'dry-run'} 完了 ${candidates.length}本`);

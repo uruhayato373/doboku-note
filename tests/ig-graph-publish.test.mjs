@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import {
   createIgPublisher, buildCarouselPayloads, buildReelPayload, buildStoryPayload, mapGraphError, GraphApiError,
 } from '../scripts/lib/ig-graph-publish.mjs';
-import { run } from '../scripts/ig-graph-publish.mjs';
+import { assertLedgerNotPosted, run } from '../scripts/ig-graph-publish.mjs';
 
 // ─── 純関数 ─────────────────────────────────────────────
 test('buildCarouselPayloads: 2-10 枚は通り、1 枚/11 枚は拒否する', () => {
@@ -162,6 +162,79 @@ test('run(): --commit 無しは plan のみで exit 0・ステージングも投
     assert.equal(code, 0);
     assert.equal(stageCalled, false);
     assert.ok(logs.some((m) => /plan/.test(m)));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ─── 台帳への記録（DN-0611） ─────────────────────────────
+test('run(): 公開したら recordLedger に permalink と投稿 ID を渡す。台帳が書けなければ exit 1（黙って成功にしない）', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ig-graph-publish-test-'));
+  try {
+    mkdirSync(join(dir, 'carousel', 'img'), { recursive: true });
+    for (const n of ['01.png', '02.png']) writeFileSync(join(dir, 'carousel', 'img', n), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+    writeFileSync(join(dir, 'carousel', 'caption.txt'), 'キャプション本文');
+    const base = {
+      argv: ['--pack', dir, '--format', 'carousel', '--commit'],
+      env: { IG_GRAPH_ACCESS_TOKEN: 't', IG_BUSINESS_ACCOUNT_ID: 'u' },
+      stage: async () => ({ files: [{ url: 'u1', file: '01.png' }, { url: 'u2', file: '02.png' }] }),
+      cleanup: async () => ({ deleted: 0 }),
+      createPublisher: () => ({
+        createCarousel: async () => ({ mediaId: 'M123' }),
+        getPermalink: async () => ({ permalink: 'https://www.instagram.com/p/ABC/' }),
+      }),
+      log: () => {},
+      errorLog: () => {},
+    };
+    const calls = [];
+    const ok = await run({ ...base, recordLedger: async (...a) => { calls.push(a.slice(1, 4)); } });
+    assert.equal(ok, 0);
+    assert.deepEqual(calls, [['carousel', 'https://www.instagram.com/p/ABC/', 'M123']]);
+    rmSync(join(dir, 'posted.json'), { force: true });
+    const ng = await run({ ...base, recordLedger: async () => { throw new Error('台帳に書けない'); } });
+    assert.equal(ng, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+// ─── 台帳による二重投稿の防止・書き込み失敗時の後片付け（DN-0611） ──
+test('assertLedgerNotPosted: published / scheduled は exit 2。行なし・approved は通る', () => {
+  for (const status of ['published', 'scheduled']) {
+    assert.throws(() => assertLedgerNotPosted({ id: 'x', status }, 'carousel'), (e) => e.exitCode === 2 && /IG_GRAPH_ALREADY_POSTED/.test(e.message));
+  }
+  assert.doesNotThrow(() => assertLedgerNotPosted(null, 'carousel'));
+  assert.doesNotThrow(() => assertLedgerNotPosted({ id: 'x', status: 'approved' }, 'carousel'));
+});
+
+test('run(): 台帳が scheduled なら投稿せず exit 2。台帳書き込み失敗でも cleanup は走り復旧コマンドを出す', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ig-graph-publish-test-'));
+  try {
+    mkdirSync(join(dir, 'carousel', 'img'), { recursive: true });
+    for (const n of ['01.png', '02.png']) writeFileSync(join(dir, 'carousel', 'img', n), Buffer.from([0x89, 0x50, 0x4e, 0x47]));
+    writeFileSync(join(dir, 'carousel', 'caption.txt'), 'キャプション本文');
+    let cleaned = 0;
+    let staged = 0;
+    const errors = [];
+    const base = {
+      argv: ['--pack', dir, '--format', 'carousel', '--commit'],
+      env: { IG_GRAPH_ACCESS_TOKEN: 't', IG_BUSINESS_ACCOUNT_ID: 'u' },
+      stage: async () => { staged++; return { files: [{ url: 'u1', file: '01.png' }, { url: 'u2', file: '02.png' }] }; },
+      cleanup: async () => { cleaned++; return { deleted: 0 }; },
+      createPublisher: () => ({
+        createCarousel: async () => ({ mediaId: 'M123' }),
+        getPermalink: async () => ({ permalink: 'https://www.instagram.com/p/ABC/' }),
+      }),
+      log: () => {},
+      errorLog: (m) => errors.push(m),
+    };
+    const blocked = await run({ ...base, readLedger: async () => ({ id: 'x', status: 'scheduled' }) });
+    assert.equal(blocked, 2);
+    assert.equal(staged, 0);
+    const ng = await run({ ...base, readLedger: async () => null, recordLedger: async () => { throw new Error('台帳に書けない'); } });
+    assert.equal(ng, 1);
+    assert.equal(cleaned, 1);
+    assert.ok(errors.some((m) => /公開は済んだ・台帳は未更新/.test(m) && /ig-status\.mjs mark .* --url=https:\/\/www\.instagram\.com\/p\/ABC\//.test(m)));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -7,7 +7,7 @@
  * - config の cutover に youtube があれば台帳が正本で、loadVideoState は今の台帳の YouTube の部分を台帳で上書きして返す。
  * - 変換は欠けなく往復する（derivativeToRow → rowToDerivative で元に戻る）。知らない欄は黙って落とさず投げる。
  * - 派生物の無い公開（作っていない Shorts など）は「素の下書き」の行として台帳にだけ置き、今の台帳には書かない。
- * - Instagram の派生（instagramReel）は今の台帳のまま触らない（P5 で移す）。
+ * - Instagram のリール（instagramReel）の状態は台帳（content/registry/publications/instagram）が正本（P5）。今の台帳は作り直すときに instagramReel を落とす。
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -152,6 +152,12 @@ function bareOf(base) {
 export function projectVideoState(file, reg) {
   const out = structuredClone(file ?? { schemaVersion: 1, packs: {} });
   out.packs ??= {};
+  // Instagram のリールの状態は Instagram の台帳が正本。今の台帳には残さない
+  for (const [packId, pack] of Object.entries(out.packs)) {
+    if (!pack?.derivatives || !('instagramReel' in pack.derivatives)) continue;
+    delete pack.derivatives.instagramReel;
+    if (!Object.keys(pack.derivatives).length) delete out.packs[packId];
+  }
   const workById = new Map(reg.works.filter((w) => w.kind === 'video-pack').map((w) => [w.id, w]));
   const pubsByWork = new Map();
   for (const p of reg.publications.filter((x) => x.channel === 'youtube' && workById.has(x.work))) {

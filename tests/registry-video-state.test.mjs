@@ -89,3 +89,13 @@ test('食い違いは欄の名前つきで出す', () => {
   assert.deepEqual(videoStateDrift(state, reg), [{ packId: 'b', what: 'longform: status' }]);
   assert.deepEqual(rowToDerivative(reg.publications[0], reg.works[0]), { status: 'published', videoId: 'v1' });
 });
+
+test('今の台帳を作り直すとき instagramReel を落とす（Instagram の台帳が正本）', () => {
+  const state = { schemaVersion: 1, packs: {
+    only: { derivatives: { instagramReel: [{ key: 'a', status: 'published' }] } },
+    mixed: { derivatives: { xThread: { status: 'draft' }, instagramReel: [{ key: 'a', status: 'rendered' }] } },
+  } };
+  const out = projectVideoState(state, { works: [], publications: [] });
+  assert.deepEqual(out.packs, { mixed: { derivatives: { xThread: { status: 'draft' } } } });
+  assert.ok(state.packs.only, '元は変えない');
+});
