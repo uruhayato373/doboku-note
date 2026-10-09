@@ -4446,7 +4446,7 @@
     "keiken-gaiyo-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "scheduled",
+          "status": "published",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -4460,7 +4460,8 @@
           "videoId": "KYikQB6NJn4",
           "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
           "scheduledAt": "2026-09-05T03:36:15.814Z",
-          "privacyStatus": "private",
+          "publishedAt": "2026-10-09T11:01:02.000Z",
+          "privacyStatus": "public",
           "productionDisclosure": "author-led-ai-assisted",
           "containsSyntheticMedia": false,
           "metadataSyncedAt": "2026-09-05T13:00:39.733Z"

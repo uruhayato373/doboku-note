@@ -856,7 +856,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-09T11:00:00Z",
       "approval": {
         "by": "user",
@@ -867,7 +867,12 @@
       "platform": {
         "id": "KYikQB6NJn4",
         "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-09T11:01:02.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T20:19:34.390Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T03:33:54.864Z",
