@@ -116,6 +116,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer"
         ]
       },
       "appliesTo": [
@@ -378,6 +381,9 @@
             ],
             "section": "高画質再スキャン（年度別 平成29年度 p218〜237）"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer"
         ]
       },
       "appliesTo": [
@@ -498,6 +504,9 @@
             "singlePdfPages": [],
             "section": "分冊10"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-diagnostician"
         ]
       },
       "appliesTo": [
@@ -570,6 +579,10 @@
             "expectedPdfPages": 12,
             "section": "第6章 解体工事"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-construction-2"
         ]
       },
       "appliesTo": [
@@ -651,6 +664,10 @@
             "expectedPdfPages": 50,
             "section": "第7章 関係法規"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-construction-2"
         ]
       },
       "appliesTo": [
@@ -689,6 +706,9 @@
             "expectedPdfPages": 616,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1"
         ]
       },
       "notes": "市販問題解説集。内部参照専用。問題文を記事へ使う場合は実施機関の公式過去問で再照合する。"
@@ -721,6 +741,9 @@
             "expectedPdfPages": 324,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1"
         ]
       },
       "notes": "市販問題解説集。原本画像が180度回転しているため生成時に正立化する。内部参照専用。"
@@ -795,6 +818,9 @@
             "singlePdfPages": [],
             "section": "社会環境管理"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       },
       "notes": "キーワードページ 663 本の裏取りに使う。個々の記事への sources 付与は DN-0178。"
@@ -893,6 +919,9 @@
             "singlePdfPages": [],
             "section": "択一式過去問7"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       }
     },
@@ -952,6 +981,9 @@
             ],
             "section": "総監論文に求められるもの"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       }
     },
@@ -996,6 +1028,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-construction",
+          "pe-construction-guide-required-essay",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-10 に 原資料PDF/教材/技術士論文の書き方/ から登録。同フォルダの『スキャンした書類 2〜6.pdf』（22+15+24+21+17=99p）を結合したものが本 PDF で、分割版は原本として使わない。手持ち撮影の見開き。PDF p.37 は机ごと写った引きの写真で解像度不足、p.54/64 は見開きだが縦長に切れているため single 扱い（1 画像に 2 ページ入る）。文字起こしは内部利用に限定する。"
@@ -1026,6 +1063,9 @@
             "expectedPdfPages": 40,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       },
       "notes": "PDFメタデータの著者は文部科学省。公開利用時は原公開URLを別途確認してtitle-url出典を付ける。"
@@ -1128,6 +1168,10 @@
             },
             "section": "第3編 労働安全衛生マネジメントシステム"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       }
     },
@@ -1184,6 +1228,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1234,6 +1281,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1291,6 +1342,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1348,6 +1402,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "pe-construction",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1405,6 +1464,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "pe-construction",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1437,6 +1501,9 @@
             "expectedPdfPages": 208,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1494,6 +1561,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer",
+          "concrete-engineer"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1551,6 +1622,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1608,6 +1682,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1665,6 +1743,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-2",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1722,6 +1804,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1779,6 +1865,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1836,6 +1925,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1940,6 +2032,10 @@
             "singlePdfPages": [],
             "section": "p42以降 分冊9"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-construction",
+          "pe-construction-guide-required-essay"
         ]
       },
       "notes": "運営者が権利を持つため図の流用も可（image-policy の例外）。現存原本は版面p371の文中で終了し、後続分冊はDrive全体の検索でも未発見（2026-09-07）。OCR・利用範囲はp371までとし、完全な原本とは扱わない。"

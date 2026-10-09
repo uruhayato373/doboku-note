@@ -63,6 +63,20 @@ export const GATES = [
     cmd: () => ['node', 'scripts/check-affiliate-placements.mjs'],
   },
   {
+    id: 'image-assets',
+    // 記事の画像（図の SVG・写真）のサイズ上限と危険なファイル名。2026-10-09 に書籍の網羅の展開で、10KB を超えた図 2 枚が CI で初めて落ち develop を赤くした
+    match: (f) => /^content\/site\/.+\/img\/[^/]+\.(svg|png|jpe?g|webp)$/i.test(f),
+    // 全量（手元 1 秒）。新規の超過と増えた超過だけを止める（既存は baseline）
+    cmd: () => ['node', 'scripts/check-image-assets.mjs', '--ci'],
+  },
+  {
+    id: 'keiken-answer-split',
+    // 1級・2級の経験記述の解答欄の割り振り。2026-10-09 に書籍の網羅の展開で足した 1 文が CI で初めて落ち develop を赤くした（DN-0615）
+    match: (f) => /^content\/(site\/civil-construction-[12]\/.+\.mdx|note\/.+\/article(-[^/]+)?\.md|kindle\/.+\.md)$/.test(f),
+    // 全量（手元 3 秒）
+    cmd: () => ['node', 'scripts/check-keiken-answer-split.mjs'],
+  },
+  {
     id: 'generated-indexes',
     // note 記事カタログの入力（記事の frontmatter・マガジンの正本の生成物・収録の期待値）。カタログ以外の生成物は CI の全量に任せる
     match: (f) =>
