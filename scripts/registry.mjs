@@ -170,7 +170,7 @@ function approve() {
     if (bad.length) throw new Error(`AI 生成の素材に今の画像の判定 ok が無い: ${bad.map((m) => m.id).join(', ')}`);
   }
   const next = pub.status === 'qa_passed' ? 'approved' : pub.status;
-  if (next !== pub.status && !canTransition(cfg, pub.status, next)) throw new Error(`${pub.status} → ${next} は遷移に無い`);
+  if (next !== pub.status && !canTransition(cfg, pub.status, next, pub.channel)) throw new Error(`${pub.status} → ${next} は遷移に無い`);
   if (!requiresApproval(cfg, next) && next === pub.status && !['approved', 'rendered'].includes(next)) {
     throw new Error(`今の状態（${pub.status}）は最終承認の対象ではない（qa_passed・approved・rendered だけ）`);
   }
@@ -184,7 +184,7 @@ function stop() {
   if (!args.pub || !cfg.status.stopReasons.includes(args.reason)) throw new Error(`stop には --pub <公開 ID> --reason ${cfg.status.stopReasons.join('|')} が要る`);
   const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
   if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
-  if (!canTransition(cfg, pub.status, 'stopped')) throw new Error(`${pub.status} → stopped は遷移に無い`);
+  if (!canTransition(cfg, pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
   writePublication(pub, { status: 'stopped', stopReason: args.reason });
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
 }

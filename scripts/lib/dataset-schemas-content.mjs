@@ -41,6 +41,10 @@ export const ConfigContentRegistry = z
       .object({
         values: z.array(z.enum(STATUS)).min(1),
         transitions: z.record(z.enum(STATUS), z.array(z.enum(STATUS))),
+        transitionsByChannel: z
+          .partialRecord(z.string(), z.partialRecord(z.enum(STATUS), z.array(z.enum(STATUS))))
+          .optional()
+          .describe('チャネルだけに足す遷移（Instagram・X は QA と承認の段を持たず、下書きから予約・公開する）'),
         approvalRequiredFrom: z.enum(STATUS),
         setBy: z.partialRecord(z.enum(STATUS), z.array(z.string()).min(1)).describe('その状態へ進められる人・仕組み（書いていない状態は作り手・スクリプト）'),
         stopReasons: z.array(z.enum(STOP_REASONS)).min(1),

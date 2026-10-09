@@ -105,8 +105,10 @@ export function requiresApproval(cfg, status) {
   return statusRank(cfg, status) >= statusRank(cfg, cfg.status.approvalRequiredFrom);
 }
 
-export function canTransition(cfg, from, to) {
-  return (cfg.status.transitions[from] ?? []).includes(to);
+/** 遷移できるか。channel を渡すと、そのチャネルだけに足した遷移（transitionsByChannel）も見る */
+export function canTransition(cfg, from, to, channel = null) {
+  if ((cfg.status.transitions[from] ?? []).includes(to)) return true;
+  return Boolean(channel && (cfg.status.transitionsByChannel?.[channel]?.[from] ?? []).includes(to));
 }
 
 /** 公開の状態 → content-lifecycle の段階（全チャネル共通の 1 本の写像） */

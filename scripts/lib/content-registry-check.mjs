@@ -125,7 +125,7 @@ export function checkRegistry(root, opts = {}) {
           if (b.stopReason !== 'unverified-legacy' || !p.platform?.evidence) issues.push(issue('FAIL', 'R07', p.id, `stopped（${b.stopReason}）から published へ戻せるのは unverified-legacy に証拠（platform.evidence）を付けたときだけ`));
           continue;
         }
-        if (!canTransition(cfg, b.status, p.status)) issues.push(issue('FAIL', 'R07', p.id, `${b.status} → ${p.status} は遷移に無い（コンテンツ台帳の設定の transitions）`));
+        if (!canTransition(cfg, b.status, p.status, p.channel)) issues.push(issue('FAIL', 'R07', p.id, `${b.status} → ${p.status} は遷移に無い（コンテンツ台帳の設定の transitions）`));
       }
     }
   }

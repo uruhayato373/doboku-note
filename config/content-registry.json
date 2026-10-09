@@ -2,48 +2,204 @@
   "_doc": ".claude/knowledge/reference/content-registry.md（コンテンツ台帳の設計・決定事項）。台帳の本体は content/registry/ で、書き手は npm run registry と npm run media だけ。cutover に入ったチャネルは content/registry が正本、入っていないチャネルは今の台帳（.claude/state/video-content-status.json など）が正本で、台帳の行は写し（R09 で一致を見る）。",
   "schemaVersion": 1,
   "channels": {
-    "youtube": { "formats": ["longform", "short"], "accounts": ["youtube:main"] },
-    "instagram": { "formats": ["carousel", "reel", "story", "highlight"], "accounts": ["instagram:main"] },
-    "x": { "formats": ["post", "thread", "article"], "accounts": ["x:main"] },
-    "threads": { "formats": ["post"], "accounts": [], "planned": true },
-    "tiktok": { "formats": ["video"], "accounts": [], "planned": true }
+    "youtube": {
+      "formats": [
+        "longform",
+        "short"
+      ],
+      "accounts": [
+        "youtube:main"
+      ]
+    },
+    "instagram": {
+      "formats": [
+        "carousel",
+        "reel",
+        "story",
+        "highlight"
+      ],
+      "accounts": [
+        "instagram:main"
+      ]
+    },
+    "x": {
+      "formats": [
+        "post",
+        "thread",
+        "article"
+      ],
+      "accounts": [
+        "x:main"
+      ]
+    },
+    "threads": {
+      "formats": [
+        "post"
+      ],
+      "accounts": [],
+      "planned": true
+    },
+    "tiktok": {
+      "formats": [
+        "video"
+      ],
+      "accounts": [],
+      "planned": true
+    }
   },
   "accounts": {
-    "youtube:main": { "channel": "youtube", "config": "config.youtube-formats", "note": "UC… は youtube-formats.json の channel が正本" },
-    "instagram:main": { "channel": "instagram", "config": "config.ig-account" },
-    "x:main": { "channel": "x", "config": "config.x-account" }
+    "youtube:main": {
+      "channel": "youtube",
+      "config": "config.youtube-formats",
+      "note": "UC… は youtube-formats.json の channel が正本"
+    },
+    "instagram:main": {
+      "channel": "instagram",
+      "config": "config.ig-account"
+    },
+    "x:main": {
+      "channel": "x",
+      "config": "config.x-account"
+    }
   },
-  "workKinds": ["video-pack", "ig-pack", "x-thread", "legacy-short"],
+  "workKinds": [
+    "video-pack",
+    "ig-pack",
+    "x-thread",
+    "legacy-short"
+  ],
   "idRules": {
     "work": "^[a-z][a-z0-9-]{2,59}$",
     "variant": "^[a-z0-9][a-z0-9-]{0,59}$",
     "role": "^[a-z][a-z0-9-]{0,39}$",
-    "forbidden": ["\\d{8}", "(?:^|-)20\\d{2}(?:-|$)", "\\d{4}-\\d{2}", "^\\d{3}-", "(?:^|-)pack-\\d+", "-\\d+$"],
+    "forbidden": [
+      "\\d{8}",
+      "(?:^|-)20\\d{2}(?:-|$)",
+      "\\d{4}-\\d{2}",
+      "^\\d{3}-",
+      "(?:^|-)pack-\\d+",
+      "-\\d+$"
+    ],
     "idExceptionMax": 445
   },
   "status": {
-    "values": ["draft", "qa_blocked", "qa_passed", "approved", "rendered", "uploaded_private", "scheduled", "published", "failed", "refresh_due", "stopped"],
+    "values": [
+      "draft",
+      "qa_blocked",
+      "qa_passed",
+      "approved",
+      "rendered",
+      "uploaded_private",
+      "scheduled",
+      "published",
+      "failed",
+      "refresh_due",
+      "stopped"
+    ],
     "transitions": {
-      "draft": ["qa_blocked", "qa_passed", "stopped"],
-      "qa_blocked": ["draft", "qa_passed", "stopped"],
-      "qa_passed": ["approved", "qa_blocked", "stopped"],
-      "approved": ["rendered", "failed", "qa_blocked", "stopped"],
-      "rendered": ["uploaded_private", "scheduled", "published", "failed", "stopped"],
-      "uploaded_private": ["scheduled", "failed", "stopped"],
-      "scheduled": ["published", "failed", "stopped"],
-      "published": ["refresh_due", "stopped"],
-      "failed": ["approved", "rendered", "stopped"],
-      "refresh_due": ["draft", "stopped"],
+      "draft": [
+        "qa_blocked",
+        "qa_passed",
+        "stopped"
+      ],
+      "qa_blocked": [
+        "draft",
+        "qa_passed",
+        "stopped"
+      ],
+      "qa_passed": [
+        "approved",
+        "qa_blocked",
+        "stopped"
+      ],
+      "approved": [
+        "rendered",
+        "failed",
+        "qa_blocked",
+        "stopped"
+      ],
+      "rendered": [
+        "uploaded_private",
+        "scheduled",
+        "published",
+        "failed",
+        "stopped"
+      ],
+      "uploaded_private": [
+        "scheduled",
+        "failed",
+        "stopped"
+      ],
+      "scheduled": [
+        "published",
+        "failed",
+        "stopped"
+      ],
+      "published": [
+        "refresh_due",
+        "stopped"
+      ],
+      "failed": [
+        "approved",
+        "rendered",
+        "stopped"
+      ],
+      "refresh_due": [
+        "draft",
+        "stopped"
+      ],
       "stopped": []
+    },
+    "transitionsByChannel": {
+      "instagram": {
+        "draft": [
+          "scheduled",
+          "published"
+        ],
+        "rendered": [
+          "published"
+        ],
+        "approved": [
+          "published"
+        ]
+      },
+      "x": {
+        "draft": [
+          "scheduled",
+          "published"
+        ],
+        "approved": [
+          "published"
+        ]
+      }
     },
     "approvalRequiredFrom": "approved",
     "setBy": {
-      "approved": ["user"],
-      "stopped": ["user"],
-      "published": ["ci-reconcile", "publisher-live-check", "import"]
+      "approved": [
+        "user"
+      ],
+      "stopped": [
+        "user"
+      ],
+      "published": [
+        "ci-reconcile",
+        "publisher-live-check",
+        "import"
+      ]
     },
-    "stopReasons": ["user-decision", "superseded", "gone", "unverified-legacy"]
+    "stopReasons": [
+      "user-decision",
+      "superseded",
+      "gone",
+      "unverified-legacy"
+    ]
   },
-  "cutover": ["youtube"],
-  "reconcileGraceDays": { "youtube": 1, "x": 1, "instagram": 7 }
+  "cutover": [
+    "youtube"
+  ],
+  "reconcileGraceDays": {
+    "youtube": 1,
+    "x": 1,
+    "instagram": 7
+  }
 }
