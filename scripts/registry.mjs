@@ -7,8 +7,11 @@
  *   npm run registry -- index                      # .tmp/content-registry/index.json（作品・公開・素材・題名・段階を結んだ生成物）
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
+ *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
+ *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *
- * 書き込み（import）は既定で dry-run。状態を進める approve・stop などは P2・P3 で足す（content-registry.md）。
+ * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
+ * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
@@ -20,6 +23,9 @@ import { VIDEO_STATE_PATH, applyVideoRows, planVideoRows, videoPackRows } from '
 import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
+import { approvalState } from './lib/media-review.mjs';
+import { projectVideoState, writeVideoState } from './lib/registry-video-state.mjs';
+import { canTransition, requiresApproval } from './lib/content-registry.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args, positionals } = parseArgs({
@@ -27,6 +33,7 @@ const { values: args, positionals } = parseArgs({
   options: {
     channel: { type: 'string' }, exam: { type: 'string' }, status: { type: 'string' },
     'pack-dir': { type: 'string' }, commit: { type: 'boolean' },
+    pub: { type: 'string' }, stage: { type: 'string' }, expect: { type: 'string' }, reason: { type: 'string' },
   },
 });
 const [command, target] = positionals;
@@ -115,9 +122,74 @@ function report(plan) {
   if (behind) console.log(`→ 公開中なのに published でないもの ${behind} 本は、照合（registry-reconcile）が証拠つきで進める`);
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks };
+// ---- 承認・停止（運営者だけ） ------------------------------------------------------------------------
+
+function operatorOnly(what) {
+  if (process.env.CLAUDECODE === '1') {
+    throw new Error(`${what} は運営者の判断なので、エージェントからは実行しない。管理画面の確認画面のコマンドを、運営者が自分の端末で実行する`);
+  }
+}
+
+/** 公開の行を 1 件書き換え、YouTube なら今の台帳（写し）も作り直す */
+function writePublication(pub, patch) {
+  const row = Object.fromEntries(Object.entries({ ...pub, ...patch }).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
+  upsertPublications(ROOT, pub.channel, pub.exam, [row]);
+  if (pub.channel === 'youtube') writeVideoState(ROOT, projectVideoState(readJsonIf(ROOT, VIDEO_STATE_PATH), loadRegistry(ROOT)));
+  return row;
+}
+
+function approve() {
+  operatorOnly('承認');
+  if (!args.pub || !['visual', 'final'].includes(args.stage) || !/^[0-9a-f]{64}$/.test(args.expect ?? '')) {
+    throw new Error('approve には --pub <公開 ID> --stage visual|final --expect <digest（管理画面の確認画面に出る 64 桁）> が要る');
+  }
+  const cfg = loadRegistryConfig(ROOT);
+  const reg = loadRegistry(ROOT);
+  const pub = reg.publications.find((p) => p.id === args.pub);
+  if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
+  const mediaById = new Map(reg.media.map((m) => [m.id, m]));
+  const state = approvalState(ROOT, pub, mediaById);
+  const at = new Date().toISOString();
+  if (args.stage === 'visual') {
+    if (!state.visual.current) throw new Error('画面確認の素材（表紙・締め・コンタクトシート・プレビュー）が台帳に無い。先に npm run media -- preview');
+    if (state.visual.current !== args.expect) throw new Error(`見た版と今の画面の素材が違う（今の digest ${state.visual.current}）。確認画面を開き直してから承認する`);
+    writePublication(pub, { review: { ...(pub.review ?? {}), visual: { status: 'approved', by: 'user', at, digest: args.expect } } });
+    console.log(`画面確認を承認した: ${pub.id}（digest ${args.expect.slice(0, 12)}…）`);
+    return;
+  }
+  if (state.final.current !== args.expect) throw new Error(`見た版と今の中身（文面・素材・予定）が違う（今の digest ${state.final.current}）。確認画面を開き直してから承認する`);
+  if (pub.channel === 'youtube' && pub.media && Object.keys(pub.media).length && !state.visual.valid) {
+    throw new Error(`画面確認（音声なし）の承認が先（${state.visual.reason}）`);
+  }
+  const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated');
+  if (aiBlocked.length) {
+    const ledger = readJsonIf(ROOT, '.claude/state/quality/ai-image-review-ledger.json');
+    const bad = aiBlocked.filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); });
+    if (bad.length) throw new Error(`AI 生成の素材に今の画像の判定 ok が無い: ${bad.map((m) => m.id).join(', ')}`);
+  }
+  const next = pub.status === 'qa_passed' ? 'approved' : pub.status;
+  if (next !== pub.status && !canTransition(cfg, pub.status, next)) throw new Error(`${pub.status} → ${next} は遷移に無い`);
+  if (!requiresApproval(cfg, next) && next === pub.status && !['approved', 'rendered'].includes(next)) {
+    throw new Error(`今の状態（${pub.status}）は最終承認の対象ではない（qa_passed・approved・rendered だけ）`);
+  }
+  writePublication(pub, { status: next, approval: { by: 'user', at, contentSha256: args.expect } });
+  console.log(`最終承認した: ${pub.id}（${pub.status} → ${next}・digest ${args.expect.slice(0, 12)}…）。中身が変わると承認は無効になり、stage と公開が止まる`);
+}
+
+function stop() {
+  operatorOnly('停止');
+  const cfg = loadRegistryConfig(ROOT);
+  if (!args.pub || !cfg.status.stopReasons.includes(args.reason)) throw new Error(`stop には --pub <公開 ID> --reason ${cfg.status.stopReasons.join('|')} が要る`);
+  const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
+  if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
+  if (!canTransition(cfg, pub.status, 'stopped')) throw new Error(`${pub.status} → stopped は遷移に無い`);
+  writePublication(pub, { status: 'stopped', stopReason: args.reason });
+  console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, approve, stop };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|approve|stop …');
   process.exit(2);
 }
 await commands[command]();

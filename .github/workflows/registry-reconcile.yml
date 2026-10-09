@@ -73,8 +73,15 @@ jobs:
             exit 0
           fi
           git commit -m "chore(registry): reconcile YouTube $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git pull --rebase origin develop
-          git push origin develop
+          # develop は数分おきに積まれるので、rebase と push の間に先を越されたら取り直す（2026-10-09 初回で cannot lock ref）
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin develop
+            if git push origin HEAD:develop; then exit 0; fi
+            echo "push に失敗（${attempt} 回目）。取り直す"
+            sleep $((attempt * 5))
+          done
+          echo "::error::develop への push が 5 回とも失敗した"
+          exit 1
 
       - name: Summarize
         if: always()
