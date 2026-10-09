@@ -1,0 +1,66 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は国土交通省水管理・国土保全局の流水型ダム・ダムの堆砂対策の解説と河川砂防技術基準の洪水調節容量の考え方。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="貯留型ダムと流水型ダムの断面を、平常時と洪水時で比べた図。貯留型は常時満水位まで水を貯め、洪水時は上の洪水調節容量に貯める。流水型は平常時は河床近くの洪水吐から川の水と土砂が通り抜け、洪水時だけせきあげて一時的に貯める。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .w { fill: #e8f0fe; }
+      .sf { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .d { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .sd { fill: #f5f5f5; stroke: #8a8a8a; stroke-dasharray: 3 2; }
+      .lv { stroke: #8a8a8a; stroke-dasharray: 4 3; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="8" width="380" height="238" rx="8"/>
+  <text class="n" x="20" y="32">貯留型ダム（多目的）</text>
+  <text x="366" y="32" text-anchor="end">常時、水を貯める</text>
+  <text class="h" x="20" y="54">平常時</text><text class="h" x="206" y="54">洪水時</text>
+  <g transform="translate(20,62)">
+    <polygon class="w" points="0,62 114,62 114,140 0,140"/>
+    <polygon class="sd" points="0,112 114,112 114,140 0,140"/>
+    <path class="sf" d="M0,62 H114"/>
+    <path class="lv" d="M0,32 H114 M0,112 H114"/>
+    <polygon class="d" points="112,150 118,22 134,22 148,150"/>
+    <path d="M0,140 H112" stroke="#8a8a8a" fill="none"/>
+    <text x="6" y="51">洪水調節容量</text><text x="6" y="92">利水容量</text><text x="6" y="130">堆砂容量</text>
+  </g>
+  <g transform="translate(206,62)">
+    <polygon class="w" points="0,32 114,32 114,140 0,140"/>
+    <polygon class="sd" points="0,112 114,112 114,140 0,140"/>
+    <path class="sf" d="M0,32 H114"/>
+    <path class="lv" d="M0,62 H114"/>
+    <polygon class="d" points="112,150 118,22 134,22 148,150"/>
+    <path d="M0,140 H112" stroke="#8a8a8a" fill="none"/>
+    <text x="6" y="51">洪水を貯める</text><text x="6" y="92">利水容量</text><text x="6" y="130">堆砂容量</text>
+  </g>
+  <text x="20" y="236">堆砂容量は、原則100年分を確保する</text>
+
+  <rect class="p" x="10" y="254" width="380" height="238" rx="8"/>
+  <text class="n" x="20" y="278">流水型ダム（洪水調節専用）</text>
+  <text x="366" y="278" text-anchor="end">常時は貯めない</text>
+  <text class="h" x="20" y="300">平常時</text><text class="h" x="206" y="300">洪水時</text>
+  <g transform="translate(20,308)">
+    <polygon class="w" points="0,136 170,136 170,150 0,150"/>
+    <path class="sf" d="M0,136 H170"/>
+    <polygon class="d" points="94,150 100,30 114,30 126,150"/>
+    <rect class="w" x="102" y="128" width="14" height="22"/>
+    <path class="a" d="M6,143 H162" stroke-width="1.5" marker-end="url(#ah)"/>
+    <text x="6" y="122">水も土砂も通る</text>
+    <text x="128" y="128">洪水吐</text>
+  </g>
+  <g transform="translate(206,308)">
+    <polygon class="w" points="0,60 96,60 96,150 0,150"/>
+    <path class="sf" d="M0,60 H96"/>
+    <polygon class="d" points="94,150 100,30 114,30 126,150"/>
+    <rect class="w" x="102" y="128" width="14" height="22"/>
+    <path class="a" d="M118,143 H164" stroke-width="1.5" marker-end="url(#ah)"/>
+    <text x="6" y="50">せき上げて貯める</text>
+    <text x="126" y="128">洪水吐</text>
+  </g>
+  <text x="20" y="482">洪水吐が流木・土砂でふさがらない対策が別に要る</text>
+</svg>
