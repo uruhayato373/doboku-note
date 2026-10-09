@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T03:12:59.859Z",
+  "generated_at": "2026-10-09T03:13:58.145Z",
   "summary": {
-    "total_mdx_files": 1366,
+    "total_mdx_files": 1367,
     "total_unique_tags": 131,
     "allowlist_size": 330,
     "known_count": 131,
@@ -2815,7 +2815,7 @@
     },
     {
       "name": "関係法規",
-      "count": 78,
+      "count": 79,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2833,6 +2833,7 @@
         "civil-practice-accident-first-response",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
         "civil-practice-pre-construction-process",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
@@ -5079,6 +5080,15 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment"
+      ]
+    },
+    {
       "name": "解体工事",
       "count": 2,
       "inAllowlist": true,
@@ -5141,14 +5151,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-economic-security"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-keishin-bidder-qualification"
       ]
     }
   ],
