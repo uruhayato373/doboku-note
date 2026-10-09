@@ -47,7 +47,6 @@
     "scripts/check-datasets.mjs": 3,
     "scripts/check-dispatch-log.mjs": 1,
     "scripts/check-drive-vault.mjs": 1,
-    "scripts/check-external-write-orphans.mjs": 1,
     "scripts/check-figure-crop-integrity.mjs": 2,
     "scripts/check-git-binary-policy.mjs": 1,
     "scripts/check-handoff-extraction.mjs": 1,
@@ -78,8 +77,9 @@
     "scripts/lib/note-attachments.mjs": 2,
     "scripts/lib/note-republish-hash.mjs": 2,
     "scripts/lib/note-sync-plan.mjs": 2,
+    "scripts/lib/registry-legacy-youtube.mjs": 1,
     "scripts/lib/registry-video-state.mjs": 1,
-    "scripts/lib/schedule-events.mjs": 2,
+    "scripts/lib/schedule-events.mjs": 1,
     "scripts/lib/todo-lifecycle.mjs": 1,
     "scripts/lib/x-frequency-gate.mjs": 3,
     "scripts/lib/x-review.mjs": 1,
@@ -116,16 +116,14 @@
     "scripts/youtube-thumbnail-rollout.mjs": 2,
     "tools/admin-app/src/app/content/video/page.tsx": 1,
     "tools/admin-app/src/app/metrics/video/page.tsx": 1,
-    "tools/admin-app/src/app/schedule/page.tsx": 1,
-    "tools/admin-app/src/app/sns/page.tsx": 1,
     "tools/admin-app/src/lib/figure-sns-board.mjs": 1,
     "tools/admin-app/src/lib/gallery.ts": 1,
     "tools/admin-app/src/lib/ledger.ts": 1,
-    "tools/admin-app/src/lib/lifecycle.ts": 3,
+    "tools/admin-app/src/lib/lifecycle.ts": 1,
     "tools/admin-app/src/lib/lineup.ts": 1,
     "tools/admin-app/src/lib/quality.ts": 3,
     "tools/admin-app/src/lib/todo.ts": 1,
     "tools/admin-app/src/lib/video-outcomes.ts": 2,
-    "tools/admin-app/src/lib/video-sns-join.ts": 2
+    "tools/admin-app/src/lib/video-sns-join.ts": 1
   }
 }
