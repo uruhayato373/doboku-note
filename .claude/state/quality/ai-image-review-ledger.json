@@ -573,7 +573,10 @@
       "sha": "c12f987f41150ad3",
       "promptSha": "82dfc6f05413f46d",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T10:04:26.308Z"
+      "generatedAt": "2026-10-09T10:04:26.308Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 種別は河川沿いのコンクリートブロック積み護岸で、alt と prompt に合う。構造は控え付きブロックが千鳥に積まれ、背面に砕石の裏込め、右にパレット上のブロック仮置き、奥に河川と橋があり、現場として成り立つ。本文は黒板を使った施工状況の撮り方で、白紙の小黒板が木の杭付きでブロックの脇に立ち、構図と矛盾しない。黒板は無地で、文字・ロゴ・看板は無い。ブロックや杭の崩れ、二重の部位も無い。",
+      "reviewedAt": "2026-10-09T10:05:49.712Z"
     },
     "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
       "sha": "3a500c6d40eb9a70",
