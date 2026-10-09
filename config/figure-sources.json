@@ -1754,6 +1754,16 @@
       "tool": "Codex",
       "prompt": "Exterior of a reinforced concrete road bridge pier retrofitted with a steel plate jacket: a cylindrical or rounded-rectangular painted steel plate wraps the full outer circumference of the pier from just above the footing up to a height of a few meters, with vertical weld seams and a few bolt flanges visible. At the bottom edge, a narrow gap between the steel jacket and the concrete footing is filled with grout/mortar, forming a visible joint line. The upper part of the pier above the jacket is plain gray concrete, supporting the underside of a girder. Low side-angle view, shallow depth of field, daylight, riverside or roadside setting. No people, no text, no logos."
     },
+    "civil-practice/flood-control-facilities/img/photo-retarding-basin-overflow-levee": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photograph of a retarding basin (yusuichi) overflow weir in Japan, seen from the river-side embankment crest at a low angle. The river-side embankment is continuous except for one section that is lower: a concrete-faced overflow levee with a flat concrete crest and concrete-lined slope, level with a lower height than the neighboring earth embankment. Behind it on the land side lies a wide, flat, mowed green grass field like a sports ground, surrounded by a taller ring levee (peripheral embankment) visible in the distance. Calm river in foreground blurred, overcast daylight, no people, no vehicles, no text, no signs, shallow depth of field"
+    },
+    "civil-practice/flood-control-facilities/img/photo-underground-discharge-tunnel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photograph of the interior of a large underground flood discharge tunnel (shield tunnel, inner diameter about 10 m), looking straight down the tunnel axis. Circular cross-section with smooth gray cast-in-place concrete lining continuing far into the distance, the vanishing point centered. The invert (floor) is flat, dry and clean concrete, no water. Faint evenly spaced lighting along the crown, no people, no vehicles, no text, no logos, no signs, shallow depth of field"
+    },
     "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1763,6 +1773,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Realistic documentary photo of a river levee (embankment) during a flood, viewed from the landside (protected-side, rear slope) looking toward the levee. Muddy river water is spilling over the levee crest and flowing down the grass-covered rear slope in a sheet, eroding patches of the turf. Near the toe of the slope at the bottom, water is seeping out of the ground and forming small muddy puddles. Farmland and a drainage ditch in the foreground, heavy rain clouds, overcast sky, shallow depth of field, no people, no text"
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of a grass-covered river levee slope (embankment face) seen from the foot of the slope at a slight angle, in daylight, for a routine inspection. On this single slope: a cluster of small animal burrow holes (several round dark holes, 5 to 10 cm across) in the turf near the middle; a long thin crack running diagonally across the slope with a slightly open edge; and patches where the grass has thinned out into bare brown soil. The rest of the slope is ordinary mowed grass. Shallow depth of field, soft overcast light, no people, no vehicles, no signs, no text."
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-toe-drain-channel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Construction site photo of the landward (back-side) toe of a river levee embankment during construction. A grass-covered earthen levee slope rises at the upper part of the frame. At the very foot of the slope, a long horizontal strip of drain layer about 50 cm high is exposed in section: clean crushed stone / coarse gravel wrapped with a white geotextile filter sheet, running parallel to the levee. Directly outside (toward the flat low ground) of the drain strip, a precast concrete U-shaped drainage channel (toe channel) is laid in a straight line, touching the drain, with a few bare soil edges. Low camera angle along the levee toe, shallow depth of field, overcast daylight, no machinery in focus, no people, no text."
     },
     "civil-practice/license-scope-judgment/img/photo-crane-machine-setting": {
       "kind": "ai-generated",

@@ -443,6 +443,18 @@
       "reason": "種別・構造: 河川上の橋脚の下部を塗装鋼板が全周で覆い、縦のボルト継ぎ目が複数見え、下端はフーチングの上面まで達する。上部は無補強の灰色コンクリートで、橋脚の上に鋼桁が載る。実在の鋼板巻立て補強として成り立つ。本文の「橋脚への鋼板などの巻立て」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
       "reviewedAt": "2026-10-09T08:47:04.910Z"
     },
+    "civil-practice/flood-control-facilities/img/photo-retarding-basin-overflow-levee": {
+      "sha": "92c8cdf3612d6ff0",
+      "promptSha": "c66e0cc09dcb8806",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:47:01.127Z"
+    },
+    "civil-practice/flood-control-facilities/img/photo-underground-discharge-tunnel": {
+      "sha": "07c98760af59bbdb",
+      "promptSha": "e08c8c040f1dc095",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:48:04.616Z"
+    },
     "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
       "sha": "ead957f816e82eab",
       "promptSha": "605a611fed7754e5",
@@ -460,6 +472,24 @@
       "verdict": "ok",
       "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
       "reviewedAt": "2026-10-09T09:02:31.742Z"
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
+      "sha": "c102159b23f38a73",
+      "promptSha": "8df14ea240b6f6ed",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:45:14.696Z",
+      "verdict": "ok",
+      "reason": "芝の堤防法面1面に、小動物の穴、斜めに走る亀裂状の筋、芝が薄れて土が露出した裸地が写る。表の「小動物の穴・亀裂・芝の衰退と裸地化」と一致し、人物・看板・文字・崩れた部位もない。",
+      "reviewedAt": "2026-10-09T09:48:31.381Z"
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-toe-drain-channel": {
+      "sha": "a112b5475e09e90a",
+      "promptSha": "215c5f4ad70d5ded",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:43:56.035Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻を確認。草の堤体法面の足元に、白い透水シートで覆った砕石のドレーン層が法尻と平行に走り、その外側に隣接してプレキャストのU型水路が一直線に並ぶ。本文の「ドレーン工と堤脚水路をあわせて設ける」配置と矛盾せず、文字・ロゴ・溶けた部品なし。",
+      "reviewedAt": "2026-10-09T09:48:31.381Z"
     },
     "civil-practice/license-scope-judgment/img/photo-crane-machine-setting": {
       "sha": "a5165cede32747ec",
