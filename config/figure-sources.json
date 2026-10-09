@@ -1439,6 +1439,31 @@
       "page": 10,
       "dpi": 300
     },
+    "civil-construction-1/textbook-coast-port/img/photo-crane-barge-caisson": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A floating crane vessel (crane barge) at a port: a large flat steel barge with a tall fixed A-frame or fixed-boom heavy-lift crane at one end, heavy wire ropes and a big lifting block lifting a huge rectangular reinforced-concrete caisson (a box-shaped concrete block with open top and internal cells, light grey, several meters wide) a short distance above the water surface, lowering it towards a prepared breakwater foundation. Tugboats nearby, calm sea, breakwater construction site in background. Seen from a slight angle at eye level above the water, shallow depth of field."
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-grab-dredger": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A grab dredger working at a port: a flat-deck steel barge (pontoon) carrying a large revolving crane with a lattice boom; from the boom a clamshell grab bucket hangs on wire ropes, partly opened just above the water surface, muddy water around it. Calm sea, a small tugboat and a mud-hauling barge visible in the distance. Seen from a slight angle at eye level above the water, shallow depth of field."
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-reclamation-slurry-discharge": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A land reclamation construction site at the sea: a sea area enclosed by a perimeter seawall revetment (rock and concrete embankment) forming a reclamation basin. In the foreground, a large-diameter steel discharge pipe (slurry pipeline) runs along the top of the embankment and its open end discharges a strong jet of muddy sand-and-water mixture into the enclosed basin, forming a brown fan of sediment and a sandy beach-like slope. Beyond, the enclosing revetment and open sea behind it, with a spillway outlet structure at the far edge. Slightly elevated viewpoint, shallow depth of field, no people."
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-scp-vessel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A sand compaction pile (SCP) vessel at sea: a large flat steel work barge carrying several tall vertical lattice-steel leader towers (very tall, like pile-driver masts, higher than any superstructure), each with a vibratory hammer unit mounted at the upper part of the mast and a long vertical steel casing pipe running down the mast and into the water. A sand hopper and a cabin on the deck, anchor wires leading to the sea. The vessel is stationary, casing pipes lowered into the seabed. Calm sea, hazy distant shoreline, seen from a slight angle at eye level above the water, shallow depth of field."
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-wave-dissipating-block-breakwater": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A composite breakwater whose sea-side front is covered by a thick armor layer of wave-dissipating concrete blocks (grey four-legged tetrapod-type interlocking blocks piled in a sloping mass, in several layers, reaching nearly to the top). Behind and slightly above the blocks, the flat top of a concrete caisson superstructure (parapet crest) is visible running along the breakwater. Viewed from the sea side at a low angle along the breakwater, waves breaking gently on the blocks, calm weather, shallow depth of field."
+    },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
@@ -1688,6 +1713,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Exterior of a reinforced concrete road bridge pier retrofitted with a steel plate jacket: a cylindrical or rounded-rectangular painted steel plate wraps the full outer circumference of the pier from just above the footing up to a height of a few meters, with vertical weld seams and a few bolt flanges visible. At the bottom edge, a narrow gap between the steel jacket and the concrete footing is filled with grout/mortar, forming a visible joint line. The upper part of the pier above the jacket is plain gray concrete, supporting the underside of a girder. Low side-angle view, shallow depth of field, daylight, riverside or roadside setting. No people, no text, no logos."
+    },
+    "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Realistic documentary photo of a river bridge pier right after a flood, seen from the riverbank at low water level. The riverbed around the base of the concrete pier has been scoured away, leaving the top surface of the footing exposed above the muddy gravel bed. On the upstream side of the pier, a pile of tree trunks, branches and debris is lodged against the pier and caught on it. Brown muddy water, wet riverbed gravel, overcast sky, shallow depth of field, no people, no text"
+    },
+    "civil-practice/flood-season-river-work/img/photo-levee-overtopping-landside": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Realistic documentary photo of a river levee (embankment) during a flood, viewed from the landside (protected-side, rear slope) looking toward the levee. Muddy river water is spilling over the levee crest and flowing down the grass-covered rear slope in a sheet, eroding patches of the turf. Near the toe of the slope at the bottom, water is seeping out of the ground and forming small muddy puddles. Farmland and a drainage ditch in the foreground, heavy rain clouds, overcast sky, shallow depth of field, no people, no text"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "kind": "ai-generated",

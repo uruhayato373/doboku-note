@@ -29,6 +29,51 @@
       "reason": "確認した部位: 防音カバー付きの角形エンジン発電機で、架台の上に載っている。上部に排気管（マフラー）、側面に点検扉、側面の端子ボックスに太い黒ケーブルが接続されている。砕石敷きの地面に泥のついた電動工具とオレンジの延長コードがある。文字・ロゴや崩れた部品は無く、本文の仮設発電機と alt に合う。",
       "reviewedAt": "2026-10-09T08:46:09.039Z"
     },
+    "civil-construction-1/textbook-coast-port/img/photo-crane-barge-caisson": {
+      "sha": "29fae6242f47990f",
+      "promptSha": "496fe796b4eef45a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:52:58.683Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 台船端に固定ブーム式の大型起重機（二本脚のブームと後方の支持フレーム、多数のワイヤ）があり、スプレッダ梁と吊りワイヤで上面が開いた隔室付きの矩形コンクリート製ケーソンを水面すぐ上に吊っている。背景の防波堤の捨石とテトラポッド、周囲の曳船も実在の据付け場面として成り立つ。文字や崩れは見当たらない。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-grab-dredger": {
+      "sha": "ccad91cd5c2dea9c",
+      "promptSha": "861ad9cc491bb764",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:50:43.985Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 平らな鋼製台船の上に旋回台と運転室付きの格子ブームのクレーンが載る。ブーム先端から垂れた複数本のワイヤでクレーシェル式グラブが吊られ、水面直上で刃先が開いて濁水を落としている。本文の「台船上の旋回クレーンでグラブを吊る浚渫船」と一致し、遠景の押船と土砂満載の台船も指示どおり。文字や部品の崩れもない。",
+      "reviewedAt": "2026-10-09T09:01:35.941Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-reclamation-slurry-discharge": {
+      "sha": "06131257b5b18518",
+      "promptSha": "c7b1081229312a57",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:57:35.747Z",
+      "verdict": "ok",
+      "reason": "本文・構造: 捨石の護岸天端にコンクリート支持台とフランジ付きの大径排砂管が通り、管の開口端から土砂混じりの水が弧を描いて区画へ噴出している。区画内に茶色の砂の扇状堆積があり、外周護岸（捨石とコンクリート堤）の向こうに外海、奥に余水吐の構造物が見える。本文の「外周護岸で囲んだ区画に排砂管から吐く」と一致し、文字や崩れも無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-scp-vessel": {
+      "sha": "1006672e69187007",
+      "promptSha": "baf27696f52af0e1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:54:40.976Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 台船上に格子状のリーダー（櫓）が3本立ち、各櫓の上部に黄色い振動機、櫓に沿って縦長のケーシングパイプがある。中央に砂ホッパと操舵室があり、係留ワイヤが海へ伸びる。SCP船の外形と本文の「台船上の高い櫓、鋼管、砂」に合う。櫓や部品の二重化・溶けは無く、読めない銘板も無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-wave-dissipating-block-breakwater": {
+      "sha": "fe3c4a83f8724e58",
+      "promptSha": "d61f9cddcd66dc62",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:55:56.922Z",
+      "verdict": "ok",
+      "reason": "本文・構造: 前面を四脚型（テトラポッド型）の消波ブロックが厚く斜めに積み重なって被覆し、背後に直線状のコンクリート上部工（パラペットの天端）が連続して見える。本文の「混成堤の前面に消波ブロックを積んだ被覆堤」と一致する。ブロックの形状は概ね四脚型で、読み手を誤らせるほどの崩れや文字は無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
       "sha": "f6ca7b337b1478d5",
       "promptSha": "a98dc5ef590326e7",
@@ -325,6 +370,18 @@
       "verdict": "ok",
       "reason": "種別・構造: 河川上の橋脚の下部を塗装鋼板が全周で覆い、縦のボルト継ぎ目が複数見え、下端はフーチングの上面まで達する。上部は無補強の灰色コンクリートで、橋脚の上に鋼桁が載る。実在の鋼板巻立て補強として成り立つ。本文の「橋脚への鋼板などの巻立て」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
       "reviewedAt": "2026-10-09T08:47:04.910Z"
+    },
+    "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
+      "sha": "ead957f816e82eab",
+      "promptSha": "605a611fed7754e5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:59:28.460Z"
+    },
+    "civil-practice/flood-season-river-work/img/photo-levee-overtopping-landside": {
+      "sha": "87f07ca4dd222e61",
+      "promptSha": "82df394bc6254b20",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:00:59.369Z"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
