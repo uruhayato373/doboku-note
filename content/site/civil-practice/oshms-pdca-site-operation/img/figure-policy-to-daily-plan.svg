@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="方針、目標、計画の骨格、細部の計画を上から順に並べ、各段階の確認の問いと、実績を次期の目標へ戻す矢印を示した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<g fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"><rect x="20" y="20" width="340" height="78" rx="6"/><rect x="20" y="122" width="340" height="78" rx="6"/></g>
+<g fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"><rect x="20" y="224" width="340" height="78" rx="6"/><rect x="20" y="326" width="340" height="78" rx="6"/></g>
+<g fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#a)"><path d="M190 100V120"/><path d="M190 202V222"/><path d="M190 304V324"/><path d="M360 365H378V161H362"/></g>
+<g font-size="14" font-weight="700" fill="#222"><text x="34" y="44">方針（第5条第2項）</text><text x="34" y="146">目標（第11条）</text><text x="34" y="248">計画の骨格（第12条第2項）</text><text x="34" y="350">細部の計画</text></g>
+<g font-size="12" font-weight="400" fill="#1a3a5c"><text x="34" y="66">災害防止・労働者の協力・法令遵守・仕組みの実施</text><text x="34" y="168">期間内に達する到達点（結果と行動の対）</text><text x="34" y="270">措置・日常活動・健康・教育・協力会社・期間・見直し</text><text x="34" y="372">工種・週・日ごとに、誰が・いつ・何で確かめる</text></g>
+<g font-size="11" font-weight="400" fill="#555"><text x="34" y="86">問い4：目標は方針の一文と結びつくか</text><text x="34" y="188">問い2・3：何を根拠にしたか。到達点と期間を言えるか</text><text x="34" y="290">指針の七項目。二層に分けるのは運用上の工夫</text><text x="34" y="392">問い1：この実施事項は、どの目標を動かすか</text><text x="20" y="472">右の矢印：実績を次期の目標へ戻す（第11条第2号）</text><text x="20" y="490">点検の結果は次回の計画にも反映する（第15条第2項）</text></g>
+<g stroke-width="1.5"><rect x="20" y="424" width="12" height="12" rx="3" fill="#e8f0fe" stroke="#2e6da4"/><rect x="20" y="442" width="12" height="12" rx="3" fill="#d0e8d0" stroke="#3a7d44"/></g>
+<g font-size="11" font-weight="400" fill="#555"><text x="40" y="434">青：何を目指すか（方針と目標）</text><text x="40" y="452">緑：どう実行するか（計画）</text></g>
+</svg>
