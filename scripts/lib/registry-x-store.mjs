@@ -6,6 +6,7 @@
  */
 import { canTransition, loadRegistry, loadRegistryConfig } from './content-registry.mjs';
 import { X_ROOT } from './registry-x-state.mjs';
+import { X_HANDLE } from './site-identity.mjs';
 
 /** 台帳の X の公開を、下書きフォルダの相対パス（content/sns/x/ の下）と鍵（"1"…）で引く Map */
 export function xPublicationIndex(root, reg = loadRegistry(root)) {
@@ -44,8 +45,7 @@ export async function recordX(root, folder, key, event, data = {}) {
     if (!data.id || !data.evidence) throw new Error('published には id と evidence が要る');
     const fromUnverified = row.status === 'stopped' && row.stopReason === 'unverified-legacy';
     if (!fromUnverified && !can('published')) throw new Error(`${row.status} → published は遷移に無い（${row.id}）`);
-    Object.assign(row, { status: 'published', approval: grand, platform: { id: String(data.id), url: data.url ?? cur.platform?.url, privacy: 'public', evidence: data.evidence } });
-    if (!row.platform.url) delete row.platform.url;
+    Object.assign(row, { status: 'published', approval: grand, platform: { id: String(data.id), url: data.url ?? `https://x.com/${X_HANDLE}/status/${data.id}`, privacy: 'public', evidence: data.evidence } });
     delete row.stopReason; delete row.reason;
   } else if (event === 'scheduled') {
     if (!data.publishAt) throw new Error('scheduled には publishAt が要る');
