@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T02:43:25.044Z",
+  "generated_at": "2026-10-09T03:00:52.267Z",
   "summary": {
-    "total_mdx_files": 1364,
-    "total_unique_tags": 130,
+    "total_mdx_files": 1365,
+    "total_unique_tags": 131,
     "allowlist_size": 330,
-    "known_count": 130,
+    "known_count": 131,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 216,
+      "count": 217,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1205,6 +1205,7 @@
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
+        "civil-practice-keishin-bidder-qualification",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-oshms-pdca-site-operation",
@@ -2812,7 +2813,7 @@
     },
     {
       "name": "関係法規",
-      "count": 76,
+      "count": 77,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-law-key-points",
@@ -2828,6 +2829,7 @@
         "civil-construction-2-guide-law-key-points",
         "civil-practice-accident-first-response",
         "civil-practice-environmental-impact-assessment-flow",
+        "civil-practice-keishin-bidder-qualification",
         "civil-practice-pre-construction-process",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
@@ -5136,6 +5138,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-economic-security"
+      ]
+    },
+    {
+      "name": "行政手続き",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-keishin-bidder-qualification"
       ]
     }
   ],
