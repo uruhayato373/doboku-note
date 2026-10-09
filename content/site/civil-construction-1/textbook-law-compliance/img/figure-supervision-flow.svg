@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="違反の疑いを知ってから公表までの流れ。駆け込みホットラインや下請取引等実態調査で端緒を得て、建設Gメンの調査や立入検査で確かめ、指導や勧告を行い、指示、営業停止、許可取消しの処分に進み（重大な事由は指示・営業停止を経ずに取消し）、公告や監督処分簿で公表する。令和7年度の件数つき">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .lead { fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .sub { fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#m); }
+    </style>
+    <marker id="m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="lead" x="200" y="18" text-anchor="middle">件数は令和7年度（国土交通省の活動結果）</text>
+
+  <rect class="b" x="20" y="28" width="360" height="68" rx="6"/>
+  <text class="h" x="34" y="50">1　違反の疑いを知る</text>
+  <text x="34" y="68">駆け込みホットライン、下請取引等実態調査</text>
+  <text class="sub" x="34" y="85">疑義情報 3,558件（ホットライン経由は1,946件）</text>
+
+  <path class="a" d="M200 96V112"/>
+
+  <rect class="b" x="20" y="114" width="360" height="84" rx="6"/>
+  <text class="h" x="34" y="136">2　事実を確かめる</text>
+  <text x="34" y="154">建設Gメンの調査・指導（法第40条の4）</text>
+  <text x="34" y="171">報告徴収・立入検査（法第31条）</text>
+  <text class="sub" x="34" y="188">調査等 1,318件（1,152事業者）</text>
+
+  <path class="a" d="M200 198V214"/>
+
+  <rect class="w" x="20" y="216" width="360" height="68" rx="6"/>
+  <text class="h" x="34" y="238">3　改善を求める</text>
+  <text x="34" y="256">指導・助言・勧告（法第41条）、文書指導</text>
+  <text class="sub" x="34" y="273">勧告・文書指導等 768業者</text>
+
+  <path class="a" d="M200 284V300"/>
+
+  <rect class="d" x="20" y="302" width="360" height="84" rx="6"/>
+  <text class="h" x="34" y="324">4　処分する（法第28条・第29条）</text>
+  <text x="34" y="342">指示 → 営業停止（1年以内）→ 許可取消し</text>
+  <text x="34" y="359">重大な事由は指示・営業停止を経ず取消し（法第29条）</text>
+  <text class="sub" x="34" y="376">大臣許可業者：取消し1・営業停止14・指示4（業者）</text>
+
+  <path class="a" d="M200 386V402"/>
+
+  <rect class="g" x="20" y="404" width="360" height="72" rx="6"/>
+  <text class="h" x="34" y="426">5　公開する</text>
+  <text x="34" y="444">公告、監督処分簿の閲覧（法第29条の5）</text>
+  <text x="34" y="461">国土交通省のネガティブ情報等検索サイト</text>
+</svg>
