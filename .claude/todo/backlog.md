@@ -84,7 +84,7 @@
 
 2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2。記事の追記・新規は約 200 本、写真 52 枚を追加）。進み具合の正本は `.claude/state/book-coverage.json`、一覧は `npm run audit-reference-book-coverage -- --status`（PR #927 のマージまでは PR の作業ツリーから）。手順は `.claude/knowledge/reference/book-coverage-judging.md`（判定）・`book-coverage-expansion.md`（展開・写真）。Mac の道具は `.tmp/book-coverage/`（commit-article.sh・tools/ の workflow）。
 残り:
-1. pe-cem-essay-guide（総監の論文の本・18 ページ）を pdf-to-mdx --scanned で文字起こしし、候補表 → 判定 → 展開。論文の答案例は note 商品の領域なので、展開は書き方の一般論だけになる見込み。
+1. pe-cem-essay-guide（総監の論文の本・18 ページ）を pdf-to-mdx --scanned で文字起こしし（memory project_book_to_guide_expansion: 16 版面中 9 で指の隠れがあり再スキャンが要る）、候補表 → 判定 → 展開。論文の答案例は note 商品の領域なので、展開は書き方の一般論だけになる見込み。
 2. コンクリート 5 冊を `--rejudge` で判定し直し、網羅を確かめる（展開前の判定のままなので）。
 完了条件: `--status` で 27 冊すべてが「展開済み」か「判定済み（展開不要）」。
 
