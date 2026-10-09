@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="VRとARの共通の流れ。見る人の頭の位置と向きを測り、その視点の画を演算し、画面に提示することを繰り返す。VRは画のすべてがモデルで、ARは現実の映像に重ねるため位置合わせが要る">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:13px;fill:#222}.h{font-size:15px;font-weight:bold;fill:#1a3a5c}.k{font-weight:bold}.s{font-size:12px;fill:#555}.bx{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.wx{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.ar{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#a)}</style>
+<marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#fff"/>
+<rect x="60" y="16" width="290" height="52" rx="8" class="bx"/>
+<text class="h" x="205" y="38" text-anchor="middle">計測</text>
+<text x="205" y="58" text-anchor="middle">見る人の頭の位置と向きを測る</text>
+<path class="ar" d="M205 70V82"/>
+<rect x="60" y="84" width="290" height="52" rx="8" class="bx"/>
+<text class="h" x="205" y="106" text-anchor="middle">演算</text>
+<text x="205" y="126" text-anchor="middle">その視点から見える画をモデルから作る</text>
+<path class="ar" d="M205 138V150"/>
+<rect x="60" y="152" width="290" height="52" rx="8" class="bx"/>
+<text class="h" x="205" y="174" text-anchor="middle">提示</text>
+<text x="205" y="194" text-anchor="middle">ゴーグルや画面にその画を映す</text>
+<path class="ar" d="M60 178H28V42H58"/>
+<text class="s" x="205" y="224" text-anchor="middle">頭が動くたびに繰り返し、遅れると違和感が出る</text>
+<rect x="15" y="240" width="180" height="62" rx="8" class="bx"/>
+<text class="h" x="105" y="263" text-anchor="middle">VR</text>
+<text x="105" y="287" text-anchor="middle">画のすべてがモデル</text>
+<rect x="205" y="240" width="180" height="62" rx="8" class="wx"/>
+<text class="h" x="295" y="263" text-anchor="middle">AR</text>
+<text x="295" y="287" text-anchor="middle">現実の映像に重ねる</text>
+<rect x="15" y="312" width="180" height="92" rx="8" class="bx"/>
+<text class="k" x="105" y="334" text-anchor="middle">現地との位置合わせ</text>
+<text x="105" y="362" text-anchor="middle">不要</text>
+<text x="105" y="384" text-anchor="middle">頭の動きだけ追う</text>
+<rect x="205" y="312" width="180" height="92" rx="8" class="wx"/>
+<text class="k" x="295" y="334" text-anchor="middle">位置合わせの手段</text>
+<text x="295" y="356" text-anchor="middle">屋外の広い範囲：GNSS</text>
+<text x="295" y="376" text-anchor="middle">屋内・狭い場所：特徴点</text>
+<text x="295" y="396" text-anchor="middle">固定したい箇所：目印</text>
+<rect x="15" y="414" width="180" height="76" rx="8" class="bx"/>
+<text class="k" x="105" y="436" text-anchor="middle">向く場面</text>
+<text x="105" y="460" text-anchor="middle">施工前の取り合い</text>
+<text x="105" y="480" text-anchor="middle">作業者目線の安全教育</text>
+<rect x="205" y="414" width="180" height="76" rx="8" class="wx"/>
+<text class="k" x="295" y="436" text-anchor="middle">向く場面</text>
+<text x="295" y="460" text-anchor="middle">施工前の取り合い確認</text>
+<text x="295" y="480" text-anchor="middle">配筋・型枠の見比べ</text>
+</svg>

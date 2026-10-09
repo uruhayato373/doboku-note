@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="同じ法面を含む地形を、等間隔の格子と、折れ線に点を集めた三角網で表した比較。格子では法肩と法尻の線が近い格子点に寄って階段状になり、三角網は線に沿って辺が通る">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}.h{font-size:13px;font-weight:bold}.s{font-size:11px;fill:#555}.sl{fill:#fff3cd}.g{stroke:#2e6da4;fill:none;stroke-width:1}.t{stroke:#3a7d44;fill:none;stroke-width:1}.e{stroke:#b22234;stroke-width:1.5;fill:none;stroke-dasharray:5 3}.r{stroke:#222;stroke-width:2.5;fill:none}</style></defs>
+<rect width="400" height="500" fill="#fff"/>
+<text class="h" x="20" y="24">格子（DEM）</text>
+<rect x="20" y="36" width="360" height="150" fill="#f5f5f5" stroke="#d7d7d7"/>
+<polygon class="sl" points="195,36 285,36 250,186 160,186"/>
+<path class="g" d="M20 36V186M50 36V186M80 36V186M110 36V186M140 36V186M170 36V186M200 36V186M230 36V186M260 36V186M290 36V186M320 36V186M350 36V186M380 36V186M20 36H380M20 66H380M20 96H380M20 126H380M20 156H380M20 186H380"/>
+<path class="e" d="M195 36L160 186M285 36L250 186"/>
+<path class="r" d="M200 36V81H170V186M290 36V81H260V186"/>
+<rect x="26" y="42" width="40" height="17" fill="#f5f5f5"/><text class="s" x="30" y="55">高い面</text>
+<rect x="326" y="42" width="40" height="17" fill="#f5f5f5"/><text class="s" x="362" y="55" text-anchor="end">低い面</text>
+<text class="s" x="20" y="206">等間隔の点。折れ線は近い格子点へ寄り、階段状になる</text>
+<text class="h" x="20" y="238">三角網（TIN）</text>
+<rect x="20" y="250" width="360" height="150" fill="#f5f5f5" stroke="#d7d7d7"/>
+<polygon class="sl" points="195,250 285,250 250,400 160,400"/>
+<path class="t" d="M20 250L100 250L60 290ZM20 250L20 325L60 290ZM20 400L100 400L60 365ZM20 400L20 325L60 365ZM20 325L60 290L60 365ZM380 250L330 250L345 290ZM380 250L380 325L345 290ZM380 400L330 400L345 365ZM380 400L380 325L345 365ZM100 250L150 250L100 325ZM100 250L60 290L100 325ZM60 290L60 365L100 325ZM100 400L60 365L100 325ZM380 325L345 290L330 325ZM380 325L345 365L330 325ZM150 250L195 250L188 280ZM330 250L345 290L278 280ZM330 250L285 250L278 280ZM345 290L330 325L278 280ZM195 250L285 250L278 280ZM195 250L188 280L278 280ZM150 250L100 325L181 310ZM150 250L188 280L181 310ZM330 325L278 280L271 310ZM188 280L278 280L271 310ZM188 280L181 310L271 310ZM100 325L181 310L174 340ZM345 365L330 325L264 340ZM330 325L271 310L264 340ZM181 310L271 310L264 340ZM181 310L174 340L264 340ZM100 400L100 325L167 370ZM100 325L174 340L167 370ZM330 400L345 365L257 370ZM345 365L264 340L257 370ZM174 340L264 340L257 370ZM174 340L167 370L257 370ZM100 400L167 370L160 400ZM330 400L257 370L250 400ZM167 370L257 370L250 400ZM167 370L160 400L250 400Z"/>
+<path class="e" d="M195 250L160 400M285 250L250 400"/>
+<text class="s" x="20" y="420">平らな所は大きく、折れ線のそばは細かい三角形になる</text>
+<path class="e" d="M24 436H54"/><text class="s" x="62" y="440">法肩・法尻の折れ線</text>
+<rect x="214" y="430" width="24" height="12" class="sl" stroke="#d4a017"/><text class="s" x="246" y="440">法面</text>
+<path class="r" d="M24 452H54"/><text class="s" x="62" y="456">格子に寄せた線</text>
+<rect x="20" y="464" width="360" height="30" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="h" x="200" y="484" text-anchor="middle">差を取るなら格子、形を残すなら三角網</text>
+</svg>
