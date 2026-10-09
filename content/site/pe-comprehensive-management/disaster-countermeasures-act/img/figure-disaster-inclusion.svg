@@ -1,0 +1,29 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="災害の入れ子の図。外側が災害対策基本法の災害、その内側が自然災害、さらにその内側が気象災害で、地震・津波などは自然災害のうち気象災害の外に置く">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif}
+.a{font-size:12px;fill:#222}.ab{font-size:12px;font-weight:bold;fill:#1a3a5c}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{font-size:11px;fill:#555}
+.ac{font-size:12px;fill:#222;text-anchor:middle}.abc{font-size:12px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.hc{font-size:13px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.sc{font-size:11px;fill:#555;text-anchor:middle}.se{font-size:11px;fill:#555;text-anchor:end}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.bx{fill:#fff;stroke:#2e6da4;stroke-width:1.5}
+</style>
+<marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/></marker></defs>
+<rect class="bs" x="14" y="14" width="372" height="472" rx="8"/>
+<text class="h" x="28" y="38">災害（第2条第1号の定義）</text>
+<text class="s" x="28" y="56">異常な自然現象と、それに類する原因による被害</text>
+<rect class="bb" x="28" y="70" width="344" height="270" rx="8"/>
+<text class="h" x="42" y="94">自然災害（異常な自然現象）</text>
+<rect class="bp" x="42" y="106" width="316" height="112" rx="6"/>
+<text class="ab" x="56" y="130">気象災害（大気の現象が引き金）</text>
+<text class="a" x="56" y="152">暴風・竜巻・豪雨・豪雪</text>
+<text class="a" x="56" y="172">豪雨や台風に伴う洪水・高潮</text>
+<text class="s" x="56" y="194">崖崩れなどの土砂災害も、豪雨が引き金ならここ</text>
+<rect class="bx" x="42" y="230" width="316" height="98" rx="6"/>
+<text class="ab" x="56" y="254">気象災害に含まれない自然災害</text>
+<text class="a" x="56" y="276">地震・津波・地盤の液状化・噴火</text>
+<text class="s" x="56" y="298">崖崩れなどの土砂災害も、地震が引き金ならここ</text>
+<rect class="bw" x="28" y="354" width="344" height="118" rx="8"/>
+<text class="h" x="42" y="378">自然現象以外の原因による被害</text>
+<text class="a" x="42" y="402">大規模な火事・爆発（条文に明記）</text>
+<text class="a" x="42" y="424">政令：放射性物質の大量の放出</text>
+<text class="a" x="42" y="446">政令：多数の遭難を伴う船舶の沈没など</text>
+</svg>
