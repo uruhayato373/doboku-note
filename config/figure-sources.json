@@ -1195,6 +1195,16 @@
       "tool": "Codex",
       "prompt": "Close-up inside a newly installed precast concrete box culvert, showing the joint between two adjacent box culvert segments. The inner concrete wall surfaces of both segments are flush with no step or misalignment, and a thin straight vertical joint line runs across the wall with a continuous grey sealant strip filling the joint without gaps. Beside the joint, a small rectangular recess pocket in the inner wall holds one single thick solid round steel bar (PC steel bar with a coarse rolled thread along its whole length) sticking out of the concrete perpendicular to the pocket back face, with a square steel bearing plate against the concrete and one large hex nut tightened on the bar against the plate, and only a short stub of threaded bar protruding past the nut. Only the single plain threaded steel bar, plate and nut are visible: no twisted wire strands, no cables, no wedges, no bolts of other kinds. Clean light-grey factory-made concrete, daylight from the culvert opening, shallow depth of field, no people, no text, no logos."
     },
+    "civil-construction-1/guide-construction-plan/img/photo-hv-cubicle-substation": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A high-voltage cubicle-type power receiving unit (kyubikuru) at an outdoor construction site: a gray steel box-shaped switchgear enclosure with louvered ventilation panels and a hinged double door, set directly on a gravel and compacted soil ground, surrounded by a galvanized wire-mesh fence with a closed gate. Behind it a utility pole carries overhead lines with an electrical cable running down the pole in a conduit toward the enclosure. Plain unmarked surfaces, no signs, no text, no logos, no people. Shallow depth of field with the fence slightly blurred in the foreground, overcast daylight."
+    },
+    "civil-construction-1/guide-construction-plan/img/photo-soundproof-generator": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A canopy-type soundproof diesel engine generator set at a construction site: a compact rectangular steel soundproof enclosure on a skid base, with a vertical exhaust pipe (muffler stack) rising from the top, a hinged maintenance access door on the side, and a power output terminal box on the side with a thick black power cable connected. The unit stands on a bed of crushed stone gravel. Nearby on the gravel lie a mud-stained portable electric power tool and a coiled orange extension cord. Plain unmarked panels, no text, no logos, no people. Shallow depth of field with the background blurred, overcast daylight."
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
       "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
       "page": 536,
@@ -1668,6 +1678,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Side view of a bridge abutment top and girder end: a steel I-girder end rests on a bearing (rubber or steel bearing shoe) set on the concrete bridge seat (bridge seat ledge) of the abutment parapet wall. The girder end does not touch the abutment wall; a narrow gap lies between them. A fall-prevention device is visible: a heavy steel plate or steel bracket link anchored with bolts on the abutment seat and connected to the girder end, bridging the gap. The wide concrete bridge seat extends in front of the bearing, showing the girder seating length (edge distance). Shot from the side and slightly below under the bridge, shallow depth of field, daylight. No people, no text, no logos."
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-steel-jacketed-bridge-pier": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Exterior of a reinforced concrete road bridge pier retrofitted with a steel plate jacket: a cylindrical or rounded-rectangular painted steel plate wraps the full outer circumference of the pier from just above the footing up to a height of a few meters, with vertical weld seams and a few bolt flanges visible. At the bottom edge, a narrow gap between the steel jacket and the concrete footing is filled with grout/mortar, forming a visible joint line. The upper part of the pier above the jacket is plain gray concrete, supporting the underside of a girder. Low side-angle view, shallow depth of field, daylight, riverside or roadside setting. No people, no text, no logos."
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "kind": "ai-generated",

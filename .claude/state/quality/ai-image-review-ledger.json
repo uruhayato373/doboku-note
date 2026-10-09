@@ -11,6 +11,24 @@
       "reason": "種別・構造: 箱型カルバート内壁の縦目地が上から下まで連続し、両側の壁面に段差はない。目地の灰色帯は止水材として途切れずに通っている。右側の矩形ポケット内に、角形の支圧板、ナット1個、ねじ節の太い単一の鋼棒が壁面に直角に出ていて、縦締めの定着部として成り立つ。ナットから出る余長も短い。本文: 本文の「止水材の連続性」「縦締めのPC鋼棒の定着部」と矛盾しない。破綻: 文字・ロゴ・人物・ワイヤやくさびなど別種の緊張材はなく、部品の崩れも見えない。ねじ山はやや細かい。ナットは棒径に比べて小さめだが、教材として誤解を招く程度ではない。",
       "reviewedAt": "2026-10-09T08:38:08.420Z"
     },
+    "civil-construction-1/guide-construction-plan/img/photo-hv-cubicle-substation": {
+      "sha": "b4b6ce7ad9df7145",
+      "promptSha": "5fa7e0d108c37887",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:40:12.492Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 灰色鋼板の箱形キュービクルに通風ルーバーと扉があり、砕石敷きの地面に据えられている。周囲は亜鉛めっきの金網フェンスと閉じた門扉。引込み柱から電線管が降り、架空線も写る。文字・ロゴの破綻やありえない構造は無く、本文の高圧受電設備と alt に合う。",
+      "reviewedAt": "2026-10-09T08:46:09.039Z"
+    },
+    "civil-construction-1/guide-construction-plan/img/photo-soundproof-generator": {
+      "sha": "ae28522bdc29cde1",
+      "promptSha": "584011de2d238fa6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:41:38.417Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 防音カバー付きの角形エンジン発電機で、架台の上に載っている。上部に排気管（マフラー）、側面に点検扉、側面の端子ボックスに太い黒ケーブルが接続されている。砕石敷きの地面に泥のついた電動工具とオレンジの延長コードがある。文字・ロゴや崩れた部品は無く、本文の仮設発電機と alt に合う。",
+      "reviewedAt": "2026-10-09T08:46:09.039Z"
+    },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
       "sha": "f6ca7b337b1478d5",
       "promptSha": "a98dc5ef590326e7",
@@ -289,6 +307,18 @@
       "verdict": "ok",
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
+      "sha": "60d6b7e293f6af53",
+      "promptSha": "80801a1eba416cb4",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:45:40.176Z"
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-steel-jacketed-bridge-pier": {
+      "sha": "193c352526207241",
+      "promptSha": "dfbd872f71750c36",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:43:56.369Z"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
