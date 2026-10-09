@@ -36,7 +36,7 @@ import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileC
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
-import { datasetPath } from "./lib/datasets.mjs";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -167,7 +167,7 @@ const cats = reconcileCore(packs, liveData);
 
 const driftCount = driftCountCore(cats);
 const snapshot = buildSnapshot({ account: account.handle, cats, liveData, source: "playwright" });
-const snapDir = join(ROOT, ".claude/state/ig-reconcile");
+const snapDir = join(ROOT, datasetDir("state.ig-reconcile"));
 mkdirSync(snapDir, { recursive: true });
 writeFileSync(join(snapDir, "snapshot.json"), JSON.stringify(snapshot, null, 2) + "\n", "utf8");
 

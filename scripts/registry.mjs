@@ -26,6 +26,7 @@ import { VIDEO_STATE_PATH, applyVideoRows, planVideoRows, videoPackRows } from '
 import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { approvalState } from './lib/media-review.mjs';
 import { projectVideoState, writeVideoState } from './lib/registry-video-state.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
@@ -166,7 +167,7 @@ function approve() {
   }
   const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated');
   if (aiBlocked.length) {
-    const ledger = readJsonIf(ROOT, '.claude/state/quality/ai-image-review-ledger.json');
+    const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
     const bad = aiBlocked.filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); });
     if (bad.length) throw new Error(`AI 生成の素材に今の画像の判定 ok が無い: ${bad.map((m) => m.id).join(', ')}`);
   }
@@ -223,7 +224,7 @@ async function importInstagram() {
   const { instagramRows } = await import('./lib/registry-ig-state.mjs');
   const cfg = loadRegistryConfig(ROOT);
   const reg = loadRegistry(ROOT);
-  const snapshot = readJsonIf(ROOT, '.claude/state/ig-reconcile/snapshot.json');
+  const snapshot = readJsonIf(ROOT, datasetPath('state.ig-reconcile', { name: 'snapshot' }));
   const rows = instagramRows(ROOT, { snapshot, videoPackIds: new Set(discoverVideoPacks(ROOT).keys()), rules: cfg.idRules, regWorks: reg.works });
   const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
   const same = (a, b) => JSON.stringify(strip(a)) === JSON.stringify(strip(b));
