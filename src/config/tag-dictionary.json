@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T03:13:58.145Z",
+  "generated_at": "2026-10-09T04:14:32.760Z",
   "summary": {
-    "total_mdx_files": 1367,
+    "total_mdx_files": 1368,
     "total_unique_tags": 131,
     "allowlist_size": 330,
     "known_count": 131,
@@ -2815,7 +2815,7 @@
     },
     {
       "name": "関係法規",
-      "count": 79,
+      "count": 80,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2831,6 +2831,7 @@
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
         "civil-practice-accident-first-response",
+        "civil-practice-construction-industry-structure",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-license-scope-judgment",
@@ -4133,6 +4134,48 @@
       ]
     },
     {
+      "name": "ゼネコン",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-construction-industry-structure",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h24-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h26-essay-general-contractor",
+        "pe-comprehensive-management-h27-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "建設コンサル",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-construction-industry-structure",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
       "name": "過去問分析",
       "count": 14,
       "inAllowlist": true,
@@ -4171,46 +4214,6 @@
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "ゼネコン",
-      "count": 13,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h21-essay-general-contractor",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h24-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h26-essay-general-contractor",
-        "pe-comprehensive-management-h27-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "建設コンサル",
-      "count": 13,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-h21-essay-river-consultant",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant"
       ]
     },
     {
@@ -4941,6 +4944,16 @@
       ]
     },
     {
+      "name": "担い手確保",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-construction-industry-structure",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "生産性向上",
       "count": 3,
       "inAllowlist": true,
@@ -5059,15 +5072,6 @@
       "usedIn": [
         "concrete-diagnostician-guide-study-method",
         "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "担い手確保",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
