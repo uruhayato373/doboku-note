@@ -1604,6 +1604,11 @@
       "tool": "Codex",
       "prompt": "A residential street in a Japanese suburban neighborhood right after an earthquake, asphalt road surface with several cracks from which wet gray silty sand and muddy water has welled up and spread in irregular patches and small mounds on the pavement, a side gutter partially filled with gray sand, low concrete block wall and plain houses blurred in the background, overcast daylight, wet sand texture in sharp focus, shallow depth of field, no people, no signs or text"
     },
+    "civil-construction-1/textbook-steel-structures/img/photo-girder-end-bearing": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Realistic documentary photograph of the end of a highway steel plate girder bridge seen from the side at abutment level, shallow depth of field. A concrete abutment (bridge seat) top supports a rectangular rubber bearing pad (elastomeric bearing) on a steel sole plate; the bottom flange of the steel I-girder rests directly on top of the bearing. Behind the girder end, a vertical concrete parapet wall (breast wall) rises, with a narrow expansion gap between the girder end and the parapet wall, and a steel finger-type expansion joint device visible at the deck level above. Gray concrete, slightly weathered gray-painted steel, overcast daylight, no people, no text, no logos."
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
@@ -1763,6 +1768,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Wide view of a Japanese river floodplain with a dense stand of tall black locust (Robinia pseudoacacia) trees, multi-stemmed trunks with deeply furrowed dark bark and pinnate compound leaves, forming a thick woodland on the riverbed. In the foreground a grassy levee slope (embankment) and a low-flow channel with calm water and gravel bar; far background shows the broad floodplain and hills under overcast daylight. Shallow depth of field, no people, no text, no signs, no logos, no structures."
+    },
+    "civil-practice/pre-construction-process/img/photo-right-of-way-boundary-stakes": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Wide shot of a planned road corridor on the boundary between farmland and a residential area in Japan: a straight line of square wooden boundary stakes with red-painted tops (haba-kui) driven into the ground at regular intervals across a harvested field, receding toward the distance, with the first stake in sharp focus in the foreground and the rest softly blurred. Houses and a utility pole blurred in the background, overcast daylight, shallow depth of field. No people, no text, no signs."
+    },
+    "civil-practice/pre-construction-process/img/photo-site-office-drawings-specs": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close view of a desk in a temporary construction site office: large rolled and unrolled civil engineering drawing sheets spread on the table, a stack of bound specification booklets with plain covers, a few thick binder files with blank spines, a hard hat and a scale ruler beside them. The paper content is unreadable, softly blurred, no legible text or logos. Window light from the side, shallow depth of field, focus on the bound specifications in the foreground. No people."
     },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "kind": "ai-generated",

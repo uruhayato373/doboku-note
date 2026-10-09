@@ -326,6 +326,15 @@
       "reason": "種別・本文: 舗装の割れ目のまわりに灰色の砂泥が小山状・不定形に広がり、水たまりが伴う。左の縁石脇の側溝にも砂泥がたまっており、噴砂の段落（割れ目や側溝から水と砂が噴き出す）と一致する。構造: 縁石、側溝、ブロック塀、電柱、住宅の配置は自然に成り立つ。破綻: 文字・看板・人物はなく、砂や亀裂の質感も崩れていない。prompt どおり。",
       "reviewedAt": "2026-10-09T09:22:29.100Z"
     },
+    "civil-construction-1/textbook-steel-structures/img/photo-girder-end-bearing": {
+      "sha": "f6715be32f79eaa5",
+      "promptSha": "8787353db6231fa1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:25:17.189Z",
+      "verdict": "ok",
+      "reason": "確認した部位は、橋台天端の沓座コンクリートの上のゴム支承（黒色パッド）と鋼製ソールプレート、その上に載る鋼I桁の下フランジ端部、桁端の垂直補剛材（ボルト列つき）、桁端と背面の胸壁コンクリートのあいだの暗い遊間、デッキ上端の鋼製フィンガー型伸縮装置。構造のつながりが実在の道路橋の桁端部として成り立ち、本文の「桁の端と胸壁のあいだに遊間が残る」とも矛盾しない。文字・ロゴ・人物はなく、溶けた部品や二重の部位もない。",
+      "reviewedAt": "2026-10-09T09:28:24.823Z"
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "sha": "344d34816879ded1",
       "promptSha": "2db65000b407e399",
@@ -460,6 +469,18 @@
       "verdict": "ok",
       "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
       "reviewedAt": "2026-10-09T09:16:25.721Z"
+    },
+    "civil-practice/pre-construction-process/img/photo-right-of-way-boundary-stakes": {
+      "sha": "49e4a9bcd5b9a4a3",
+      "promptSha": "2cf6c330a08021a5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:26:55.668Z"
+    },
+    "civil-practice/pre-construction-process/img/photo-site-office-drawings-specs": {
+      "sha": "ff2359c4fe31d4b3",
+      "promptSha": "6c0d5a0945669dc0",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:28:03.632Z"
     },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "sha": "4bc232c69cb21435",
