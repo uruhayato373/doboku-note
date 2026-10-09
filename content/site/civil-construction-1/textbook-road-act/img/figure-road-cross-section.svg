@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="4車線道路の幅員構成の例。左から路肩1.25メートル、車線3.5メートル2本、中央帯1.75メートル、車線3.5メートル2本、路肩1.25メートルで、歩道を除く合計は18.25メートル。下段は計画交通量で道路の区分を決め、設計基準交通量と比べて車線数を決め、区分ごとの幅員を足し合わせる3段の順序">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; text-anchor: middle; }
+      .n { fill: #1a3a5c; }
+      .v { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .l { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .m { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ar { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+<g text-anchor="middle">
+  <g>
+  <rect x="20.0" y="92" width="24.7" height="22" class="s"/>
+  <rect x="44.7" y="92" width="69.0" height="22" class="l"/>
+  <rect x="113.7" y="92" width="69.0" height="22" class="l"/>
+  <rect x="182.7" y="92" width="34.5" height="22" class="m"/>
+  <rect x="217.3" y="92" width="69.0" height="22" class="l"/>
+  <rect x="286.3" y="92" width="69.0" height="22" class="l"/>
+  <rect x="355.3" y="92" width="24.7" height="22" class="s"/>
+  </g>
+  <text class="n" x="32.3" y="84">路肩</text>
+  <text class="v" x="32.3" y="132">1.25</text>
+  <text class="n" x="79.2" y="84">車線</text>
+  <text class="v" x="79.2" y="132">3.5</text>
+  <text class="n" x="148.2" y="84">車線</text>
+  <text class="v" x="148.2" y="132">3.5</text>
+  <text class="n" x="200.0" y="84">中央帯</text>
+  <text class="v" x="200.0" y="132">1.75</text>
+  <text class="n" x="251.8" y="84">車線</text>
+  <text class="v" x="251.8" y="132">3.5</text>
+  <text class="n" x="320.8" y="84">車線</text>
+  <text class="v" x="320.8" y="132">3.5</text>
+  <text class="n" x="367.7" y="84">路肩</text>
+  <text class="v" x="367.7" y="132">1.25</text>
+  <line x1="20" y1="148" x2="380" y2="148" stroke="#555" stroke-width="1"/>
+  <line x1="20" y1="143" x2="20" y2="153" stroke="#555" stroke-width="1"/>
+  <line x1="380" y1="143" x2="380" y2="153" stroke="#555" stroke-width="1"/>
+  <text x="200" y="168">計 18.25 m（歩道を除く・単位 m）</text>
+  <text x="200" y="186" fill="#555" style="fill:#555">第3種第1級の普通道路で規定の下限値を並べた例</text>
+
+  <rect class="b" x="30" y="214" width="340" height="68" rx="6"/>
+  <text class="t" x="200" y="238">1  計画交通量から道路の区分を決める</text>
+  <text x="200" y="258">地域・高速道路か否か・地形・道路の種類で</text>
+  <text x="200" y="274">第1種〜第4種と級が決まる</text>
+  <line class="ar" x1="200" y1="284" x2="200" y2="304" marker-end="url(#ah)"/>
+
+  <rect class="g" x="30" y="308" width="340" height="68" rx="6"/>
+  <text class="t" x="200" y="332">2  設計基準交通量と比べて車線数を決める</text>
+  <text x="200" y="352">計画交通量が表の値以下なら2車線</text>
+  <text x="200" y="368">超えるなら1車線当たりの値との割合で増やす</text>
+  <line class="ar" x1="200" y1="378" x2="200" y2="398" marker-end="url(#ah)"/>
+
+  <rect class="w" x="30" y="402" width="340" height="68" rx="6"/>
+  <text class="t" x="200" y="426">3  区分ごとの幅員を足し合わせる</text>
+  <text x="200" y="446">車線・路肩・中央帯の値を表から拾い</text>
+  <text x="200" y="462">断面に積み上げて全幅を出す</text>
+</g>
+</svg>

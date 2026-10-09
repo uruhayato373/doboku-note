@@ -100,3 +100,14 @@ export function jstDayTime(value) {
   const jst = new Date(ms + JST_OFFSET_MS).toISOString();
   return { date: jst.slice(0, 10), time: jst.slice(11, 16) };
 }
+
+/**
+ * 画面表示用の JST ラベル「YYYY-MM-DD HH:MM」。日付だけの値は日付のまま。空は ''、読めない値は元の文字列。
+ * @param {string | null | undefined} value
+ * @returns {string}
+ */
+export function jstLabel(value) {
+  if (!value) return '';
+  const d = jstDayTime(value);
+  return d ? (d.time ? `${d.date} ${d.time}` : d.date) : value;
+}

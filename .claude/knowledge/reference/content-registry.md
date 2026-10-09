@@ -57,7 +57,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 `config/content-registry.json` の `status` が全チャネル共通の語彙。
 
-| status | 誰が動かすか | 必須の欄（**太字**は検査済み。他は承認の CLI と一緒に P3 で強制） |
+| status | 誰が動かすか | 必須の欄（**太字**は検査済み） |
 |---|---|---|
 | `draft` | 作り手 | — |
 | `qa_blocked`・`qa_passed` | QA | `qa`（作品側） |
@@ -82,6 +82,15 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - `approval.contentSha256`（最終）: 完成版の素材の `role:sha256` に、アカウント・形式・`publishAt`・解決した文面（題名・概要欄・タグ／キャプション／本文）を足したもの。
 - どれかが変わると承認は無効になる。未公開なら検査と stage が止め、公開済みなら「要同期」として出す（概要欄の表記漏れなどを機械で見つけるため）。
 - ハッシュの無い承認は `grandfathered: true`・`contentSha256: null`。今の台帳の `approvedBy: user` を写したもの（過去の承認と、ハッシュつきの承認 CLI（P3）ができるまでの `prepare-youtube-longforms --schedule`）がこれになる。
+
+## 確認画面と承認（P3・2026-10-09）
+
+- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・締め・画面確認の数値・コンタクトシート・無音プレビュー → 完成動画・字幕）。
+- 素材は手元（`/media/cmedia/…`）か Drive のマウント（`/media/vault/…`・名前の sha8 と台帳の bytes が一致するときだけ）から配信する。配信は Range（206・416）と HEAD に対応し、全配信元で realpath を検査する。判定は `scripts/lib/media-serve.mjs`・`http-range.mjs`。Drive の手元に落ちていない素材は 409「要復元」で、画面は pull のコマンドを出す。Drive の絶対パス（メールアドレスを含む）は画面にも応答にも出さない。
+- 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（長尺は `contact-sheet-2` 以降）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
+- 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`。
+- ハッシュつきの最終承認は、`publish-video-pack.cjs`（longform・thumbnail）と `stage-youtube-renders-r2.mjs` が今の中身と照らし、違えば止める（`finalApprovalGate`。ハッシュの無い承認は今どおり通す）。
+- 検査 R07 は比較元（`--base`・CI は PR の base か直前のコミット＝`REGISTRY_BASE`）から状態が変わった行の遷移を見る。`stopped(unverified-legacy)→published` は証拠つきだけ。
 
 ## 素材の置き場
 
@@ -119,7 +128,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
 | R05 | `video-pack.json` の `outputs` と公開の数の一致（Shorts が 1 本も無いのは未作成の INFO） |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
-| R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移（`transitions`・`setBy`）の検査は approve・stop の CLI と一緒に P3 で足す |
+| R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移は比較元から変わった行だけ見る（P3） |
 | R08 | 外部 ID の重複・Shorts の関連動画 |
 | R09 | 今の台帳（`video-content-status.json`）の YouTube の部分が、台帳から作り直したものと全欄で一致。切り替えの前後とも FAIL（前は台帳を写し直す・後は書き手で書く）。今の台帳にだけあるパックは切り替え前 INFO・後 FAIL |
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |

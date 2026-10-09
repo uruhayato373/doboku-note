@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="海外案件の案件形成・調査設計・施工・運営の各段階で、国が入る手段を右に並べ、資金面は全段階で併用することを下に示した図" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:13px;text-anchor:middle}
+.h{font-weight:bold;font-size:14px}.s{font-size:11px;fill:#555}
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}
+.a{stroke:#555;stroke-width:1.5;fill:none}
+</style>
+<marker id="m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker></defs>
+<text text-anchor="middle" x="80" y="30" class="s">案件の段階</text><text text-anchor="middle" x="268" y="30" class="s">国が入る手段の例</text>
+<rect x="20" y="42" width="120" height="84" rx="6" class="b"/><text text-anchor="middle" x="80" y="90" class="h">案件形成</text>
+<rect x="156" y="42" width="224" height="84" rx="6" class="g"/><text text-anchor="middle" x="268" y="78">トップセールス・政府間対話</text><text text-anchor="middle" x="268" y="102">援助要請計画の作成支援</text>
+<line x1="80" y1="126" x2="80" y2="152" class="a" marker-end="url(#m)"/>
+<rect x="20" y="154" width="120" height="84" rx="6" class="b"/><text text-anchor="middle" x="80" y="202" class="h">調査・設計</text>
+<rect x="156" y="154" width="224" height="84" rx="6" class="g"/><text text-anchor="middle" x="268" y="190">プルーフエンジニアリング</text><text text-anchor="middle" x="268" y="214">スペックイン（仕様へ反映）</text>
+<line x1="80" y1="238" x2="80" y2="264" class="a" marker-end="url(#m)"/>
+<rect x="20" y="266" width="120" height="84" rx="6" class="b"/><text text-anchor="middle" x="80" y="314" class="h">施工</text>
+<rect x="156" y="266" width="224" height="84" rx="6" class="g"/><text text-anchor="middle" x="268" y="302">相談ホットライン</text><text text-anchor="middle" x="268" y="326">未払い時のトップクレーム</text>
+<line x1="80" y1="350" x2="80" y2="376" class="a" marker-end="url(#m)"/>
+<rect x="20" y="378" width="120" height="64" rx="6" class="b"/><text text-anchor="middle" x="80" y="415" class="h">運営・維持管理</text>
+<rect x="156" y="378" width="224" height="64" rx="6" class="g"/><text text-anchor="middle" x="268" y="404">O&amp;Mパッケージ型の案件形成</text><text text-anchor="middle" x="268" y="428">整備後の維持管理状況の把握</text>
+<rect x="20" y="452" width="360" height="42" rx="6" class="w"/><text text-anchor="middle" x="200" y="470" class="h">資金面は全段階で併用</text><text text-anchor="middle" x="200" y="487">円借款・JBIC・NEXI・JOIN</text>
+</svg>
