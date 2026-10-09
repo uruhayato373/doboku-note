@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="直轄工事の週休2日工事の実施率が平成28年度の20.0%から令和5年度の100%へ上がった推移" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:13px}
+.h{font-weight:bold}.s{font-size:12px;fill:#555}
+.b{fill:#2e6da4}.g{fill:#3a7d44}.l{stroke:#d7d7d7;stroke-width:1}
+</style></defs>
+<text x="20" y="34" class="s">直轄工事・工期全体の週休2日工事の実施率</text>
+<line x1="80" y1="52" x2="80" y2="372" class="l"/>
+<text x="20" y="86">H28年度</text><rect x="80" y="66" width="48.0" height="30" rx="3" class="b"/><text x="134.0" y="86" class="h">20.0%</text>
+<text x="20" y="138">H30年度</text><rect x="80" y="118" width="108.2" height="30" rx="3" class="b"/><text x="194.2" y="138" class="h">45.1%</text>
+<text x="20" y="190">R2年度</text><rect x="80" y="170" width="212.4" height="30" rx="3" class="b"/><text x="298.4" y="190" class="h">88.5%</text>
+<text x="20" y="242">R3年度</text><rect x="80" y="222" width="233.8" height="30" rx="3" class="b"/><text x="319.8" y="242" class="h">97.4%</text>
+<text x="20" y="294">R4年度</text><rect x="80" y="274" width="239.0" height="30" rx="3" class="b"/><text x="325.0" y="294" class="h">99.6%</text>
+<text x="20" y="346">R5年度</text><rect x="80" y="326" width="240.0" height="30" rx="3" class="g"/><text x="326.0" y="346" class="h">100%</text>
+</svg>
