@@ -2273,6 +2273,71 @@
       "commit": "c03501968ea2",
       "verification": "node --test tests/longform-render.test.mjs tests/video-subtitles.test.mjs",
       "note": "通常動画の字幕を video-subtitles の subtitleChunks（語の途中・句読点の前で切らず「。」「、」の直後を優先）に統一し、Shorts の字幕も同じ区切りにした。2級の総まとめ452行で行頭の句読点0件。公開済みの動画は字幕が映像に焼き込まれているため、直すには再アップロードが要る（作り直しはしていない）"
+    },
+    {
+      "id": "DN-0613",
+      "at": "2026-10-10",
+      "task": "コンテンツ台帳 P7: Codex 画像の生成と監査を素材の台帳に結び、Threads・TikTok を入れて旧台帳を片付ける",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8fd1368e5b5c",
+      "verification": "node --test tests/*.test.mjs・check-content-registry・check-information-architecture 緑",
+      "note": "P7 を PR #948 でマージ（a33cc853a）。codex-image.mjs・media plate・record-ai の media: 鍵・監査の文字軸・Gemini 撤去・写しの video-content-status.json と youtube-schedule.json を削除。IG・X の status.json・posted.json の写しの削除は DN-0629"
+    },
+    {
+      "id": "DN-0610",
+      "at": "2026-10-10",
+      "task": "コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8fd1368e5b5c",
+      "verification": "check-content-registry 緑・取り込みの2回目は差分0",
+      "note": "P4 をマージ。旧 YouTube Shorts 3 台帳を取り込み、公開の証拠があるものだけ published・残りは理由つき stopped。content/sns/schedule.json と youtube-schedule.json を削除し管理画面を台帳へ切り替え"
+    },
+    {
+      "id": "DN-0607",
+      "at": "2026-10-10",
+      "task": "YouTube の採用表紙・締め画像の置き場を日付フォルダ・連番名から資格とパック ID の名前へ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8fd1368e5b5c",
+      "verification": "check-youtube-cover-handoff 347件不整合0・check-video-content 157件PASS",
+      "note": "P2 で採用表紙・締め画像を ID の置き場（.tmp/media/{pubId}）へ移し、cover-design.json・cta-design.json は旧日付パスを指さない。Drive の旧日付フォルダ（youtube-covers-20260909 の 346 枚）の削除は DN-0629"
+    },
+    {
+      "id": "DN-0611",
+      "at": "2026-10-10",
+      "task": "コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8fd1368e5b5c",
+      "verification": "check-content-registry 緑・2回目の取り込みは差分0・node --test 緑",
+      "note": "P5 をマージ。IG 730 件を台帳へ取り込み（カルーセル 101・リール 17 が published、143 が stopped(unverified-legacy)）、publish-ig-bs・ig-status・verify-ig-status・リール投稿を台帳の入口へ切り替え、sync-instagram-video-pack-reels-state.mjs を廃止。範囲を絞った：status.json・posted.json の写しの削除は DN-0629"
+    },
+    {
+      "id": "DN-0612",
+      "at": "2026-10-10",
+      "task": "コンテンツ台帳 P6: X の下書き・投稿を台帳へ移し、連番の鍵と本文の二重持ちをなくす",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8fd1368e5b5c",
+      "verification": "check-content-registry 緑・2回目の取り込みは差分0・node --test 緑",
+      "note": "P6 をマージ。X 879 件を台帳へ取り込み（151 published・439 gone・87 unverified-legacy）、publish-x・x-sync-status・x-frequency-gate を台帳へ切り替え。前提の誤り：予約 432 件は凍結した旧アカウントのもので結べないため gone。範囲を絞った：status.json の写しの削除は DN-0629"
     }
   ]
 }
