@@ -107,7 +107,8 @@ function writeSummary(sources) {
     const verdict = readDatasetIf(REPO_ROOT, 'vault.book-coverage-verdict', coverageValues(source));
     const old = rows[source.id];
     const judgedAt = verdict ? (old?.judgedAt ?? todayJst()) : null;
-    const plan = verdict?.plan ?? [];
+    // 追記の無い計画の行（ほかの記事へ振り分けた残り）は展開の対象に数えない
+    const plan = (verdict?.plan ?? []).filter((p) => p.additions?.length);
     const v = verdict?.counts ?? {};
     rows[source.id] = {
       candidates: { generatedAt: cand.generatedAt, units: cand.book.units, textUnits: cand.book.textUnits, examUnits: cand.book.examUnits, ...cand.counts },
