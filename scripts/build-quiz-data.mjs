@@ -14,10 +14,7 @@ import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { dirname, resolve, basename, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
-import katex from 'katex';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkHtml from 'remark-html';
+import { renderQuizMarkdown, stripMarkdown } from './lib/quiz-markdown.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -29,7 +26,7 @@ const OUT_DIR = outDirArg >= 0 ? resolve(process.argv[outDirArg + 1]) : resolve(
 /** frontmatter の日付（YAML は Date に解釈される）を JST の YYYY-MM-DD に揃える。String(Date) は実行環境のロケールで表記が変わり、並べても日付順にならない */
 const toJstDate = (v) => (v instanceof Date ? jstDayOf(v) : String(v));
 
-const SOURCES = [
+export const SOURCES = [
   {
     exam: 'civil-1',
     examLabel: '1級土木施工管理技士 第一次検定',
@@ -41,6 +38,15 @@ const SOURCES = [
     examLabel: '技術士第一次試験（建設部門・上下水道部門）',
     kind: 'pe-first-stage-mdx',
     srcPath: 'content/site/pe-first-stage',
+  },
+  // 総監の択一。Web 演習は未公開なので public/quiz へは書かない（web: false）。
+  // iOS アプリの書き出し（scripts/build-ios-quiz-bundle.mjs）だけが使う（docs/products/07_iOS択一アプリ試作方針.md）
+  {
+    exam: 'cem',
+    examLabel: '技術士第二次試験 総合技術監理部門 択一式',
+    kind: 'cem-json',
+    srcPath: 'src/config/exam-questions.json',
+    web: false,
   },
 ];
 
@@ -143,47 +149,83 @@ function buildJsonDataset({ exam, examLabel, srcPath }) {
   };
 }
 
-function stripMarkdown(value) {
-  return String(value || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\*\*|__|`/g, '')
-    .replace(/\$+/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+
+const CIRCLED = { '①': 1, '②': 2, '③': 3, '④': 4, '⑤': 5 };
+
+/**
+ * 組合せ問題で本文の表にしか無い選択肢（行が `| 1. | ア | イ |`・`| (1) | … |`・`| ① | … |`、または列の見出しが ①〜⑤）を取り出す。
+ * 1 から連番で 2 つ以上そろったときだけ返し、そろわなければ空配列（呼び出し側がその問題を落として数える）。
+ */
+export function optionsFromTable(body) {
+  const out = [];
+  for (const line of String(body || '').split('\n')) {
+    const m = /^\|\s*(?:\(?([1-5])[.)．）]?|([①-⑤]))\s*\|(.+)\|$/u.exec(line.trim());
+    if (!m) continue;
+    const cells = m[3].split('|').map((c) => stripMarkdown(c)).filter(Boolean);
+    out.push({ num: m[1] ? Number(m[1]) : CIRCLED[m[2]], text: cells.join(' ／ ') });
+  }
+  if (out.length >= 2 && out.every((o, i) => o.num === i + 1)) return out;
+  // 選択肢が列になっている表（見出し行が ① ② ③ …）は「表の①」などを選択肢にする
+  for (const line of String(body || '').split('\n')) {
+    const heads = line.trim().startsWith('|') ? line.split('|').map((c) => c.trim()).filter(Boolean) : [];
+    const nums = heads.map((c) => CIRCLED[c]);
+    if (nums.length >= 2 && nums.every((n, i) => n === i + 1)) return heads.map((c, i) => ({ num: i + 1, text: `表の${c}` }));
+  }
+  return [];
 }
 
-function renderQuizMarkdown(value) {
-  const htmlTokens = [];
-  const token = (html) => {
-    const key = `QUIZHTMLTOKEN${htmlTokens.length}END`;
-    htmlTokens.push(html);
-    return key;
-  };
+/** 総監の択一（src/config/exam-questions.json）を共通スキーマへ。判定（judgments）を選択肢ごとの解説にする */
+function buildCemDataset({ exam, examLabel, srcPath }) {
+  const src = JSON.parse(readFileSync(resolve(ROOT, srcPath), 'utf8'));
+  const years = [];
+  const questions = [];
+  const skipped = [];
+  for (const y of src.years || []) {
+    let count = 0;
+    for (const raw of y.questions || []) {
+      const markdown = String(raw.body || '').trim();
+      const options = (raw.options || []).length
+        ? raw.options.map((o) => ({ num: o.num, text: String(o.text || '').trim() }))
+        : optionsFromTable(markdown);
+      if (!markdown || raw.correct == null || options.length === 0) {
+        skipped.push(raw.id);
+        continue;
+      }
+      const judgments = new Map((raw.judgments || []).map((j) => [j.num, j]));
+      questions.push({
+        id: raw.id,
+        year: y.year,
+        yearLabel: toYearLabel(y.year),
+        part: raw.label || '',
+        body: stripMarkdown(markdown),
+        bodyHtml: renderQuizMarkdown(markdown),
+        options: options.map((o) => ({ ...o, html: renderQuizMarkdown(o.text) })),
+        correct: raw.correct,
+        explanations: options.map((o) => {
+          const j = judgments.get(o.num);
+          return {
+            num: o.num,
+            text: j ? stripMarkdown(j.text) : '',
+            ...(j ? { html: renderQuizMarkdown(j.text) } : {}),
+            correct: o.num === raw.correct,
+          };
+        }),
+        examPoint: raw.examPoint || null,
+      });
+      count += 1;
+    }
+    years.push({ year: y.year, yearLabel: toYearLabel(y.year), parts: [], count });
+  }
+  // 選択肢を取り出せない問題が出たら、黙って減らさずに止める（検査ゼロを PASS と呼ばない）
+  if (skipped.length) throw new Error(`${exam}: 選択肢か正答を取り出せない問題 ${skipped.length} 問（${skipped.slice(0, 5).join(', ')}）`);
+  return { exam, examLabel, generatedAt: src.generatedAt || new Date().toISOString(), years, questions };
+}
 
-  let source = String(value || '').trim();
-  source = source.replace(/<ArticleImage\s+([\s\S]*?)\/>/g, (_, props) => {
-    const src = (props.match(/src="([^"]+)"/) || [])[1] || '';
-    const alt = (props.match(/alt="([^"]*)"/) || [])[1] || '';
-    if (!src.startsWith('/posts/')) return '';
-    return token(
-      `<figure class="quiz-figure"><img src="${src}" alt="${alt.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" loading="lazy" /></figure>`,
-    );
-  });
-  source = source.replace(/\$\$([\s\S]+?)\$\$/g, (_, math) =>
-    token(katex.renderToString(math.trim(), { displayMode: true, throwOnError: false })),
-  );
-  source = source.replace(/\$([^$\n]+?)\$/g, (_, math) =>
-    token(katex.renderToString(math.trim(), { displayMode: false, throwOnError: false })),
-  );
-
-  let html = String(
-    remark()
-      .use(remarkGfm)
-      .use(remarkHtml, { sanitize: false })
-      .processSync(source),
-  ).trim();
-  html = html.replace(/QUIZHTMLTOKEN(\d+)END/g, (_, i) => htmlTokens[Number(i)] || '');
-  return html;
+/** 1 資格分の共通スキーマのデータセットを作る（ファイルは書かない） */
+export function buildDataset(source) {
+  if (source.kind === 'pe-first-stage-mdx') return buildPeFirstStageDataset(source);
+  if (source.kind === 'cem-json') return buildCemDataset(source);
+  return buildJsonDataset(source);
 }
 
 function splitQuestionSections(body) {
@@ -431,19 +473,22 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   };
 }
 
-let totalQ = 0;
-for (const source of SOURCES) {
-  const dataset = source.kind === 'pe-first-stage-mdx'
-    ? buildPeFirstStageDataset(source)
-    : buildJsonDataset(source);
-  const outPath = resolve(OUT_DIR, `${source.exam}.json`);
-  mkdirSync(dirname(outPath), { recursive: true });
-  // 決定的な出力（改行は LF）。生成物なので pre-commit の対象外だが LF で統一。
-  writeFileSync(outPath, JSON.stringify(dataset) + '\n', 'utf8');
-  totalQ += dataset.questions.length;
-  const bytes = Buffer.byteLength(JSON.stringify(dataset));
-  console.log(
-    `[build-quiz-data] ${source.exam}: ${dataset.questions.length}問 / ${dataset.years.length}年 -> ${relative(ROOT, outPath)} (${(bytes / 1024).toFixed(0)}KB)`,
-  );
+function main() {
+  let totalQ = 0;
+  for (const source of SOURCES.filter((s) => s.web !== false)) {
+    const dataset = buildDataset(source);
+    const outPath = resolve(OUT_DIR, `${source.exam}.json`);
+    mkdirSync(dirname(outPath), { recursive: true });
+    // 決定的な出力（改行は LF）。生成物なので pre-commit の対象外だが LF で統一。
+    writeFileSync(outPath, JSON.stringify(dataset) + '\n', 'utf8');
+    totalQ += dataset.questions.length;
+    const bytes = Buffer.byteLength(JSON.stringify(dataset));
+    console.log(
+      `[build-quiz-data] ${source.exam}: ${dataset.questions.length}問 / ${dataset.years.length}年 -> ${relative(ROOT, outPath)} (${(bytes / 1024).toFixed(0)}KB)`,
+    );
+  }
+  console.log(`[build-quiz-data] 合計 ${totalQ} 問を生成`);
 }
-console.log(`[build-quiz-data] 合計 ${totalQ} 問を生成`);
+
+// iOS の書き出しが import して使うので、直接実行されたときだけ public/quiz を書く
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
