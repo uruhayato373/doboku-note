@@ -27,6 +27,8 @@
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
+- [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
+- [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
 - [新ツール配線](feedback_new_tool_doc_wiring.md) — doc-sync・handoff抽出
 - [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認
 - [総監スコープ規律](feedback_no_pe_construction_application.md) — 教材外H2禁止・新規作らない
