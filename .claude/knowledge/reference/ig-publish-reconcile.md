@@ -3,7 +3,8 @@
 Instagram カルーセルの「実際に公開されているか（現状確認）」と「未公開パックの予約投稿」を**反復運用**するための真実源。手動投稿後の SoT ドリフトを定期的に検出・是正し、未公開を安全に予約まで運ぶ。
 
 - 実行スキル: **`/ig-reconcile`**（`.claude/skills/social/ig-reconcile/`）
-- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・read-only）。CI 週次は `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が同じスクリプトを回す。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は使わない（2026-09-23 ユーザー決定）
+- **公開の状態の正本はコンテンツ台帳**（`content/registry/publications/instagram/{exam}.json`・設計 [content-registry.md](content-registry.md)）。作品フォルダの `posted.json`・`status.json` は P7 で消す旧い写しで、書き手は移行のあいだ今までどおり書いてよいが、「予約したか・公開したか」の判断は台帳を読み、状態が変わったら台帳にも書く（`scripts/lib/registry-ig-store.mjs` の `recordIg`）。
+- 照合エンジン: **`npm run verify-ig-status`**（`scripts/verify-ig-status.mjs`・既定は read-only）。`--registry` を付けると照合のあと、公開中の投稿に 1 件だけ結び付いたカルーセルと、公開中のリールにキャプション先頭が 1 件だけ一致したリールを台帳で `published`（証拠 `ig-snapshot`）にする（台帳が published・stopped(unverified-legacy 以外) の行は触らず、台帳が published なのに投稿が削除済みの後戻りは所見に出すだけ）。CI 週次は `login-collectors.yml`（encrypted-state・`verify-ig-status --no-planner`・PR #549） が同じスクリプトを回す。Graph API 版（`fetch-ig-insights.mjs --reconcile`）は使わない（2026-09-23 ユーザー決定）
 - 公開可否ゲート/異常検出: **`ig-publish-auditor`**（Evaluator・`.claude/agents/`）
 - 投稿エンジン: **`publish-ig-bs`**（既存・予約投稿）
 - アカウント SSOT: **`config/ig-account.json`**
@@ -12,7 +13,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 実 IG アカウントは **`@dobokunotecom`**。アカウントとプロフィール表示値の機械可読SSOTは `config/ig-account.json`。`content/sns/instagram/profile.md` は設計理由・変更履歴であり、実値と競合した場合はconfigを正とする。Xは別アカウント `@doboku373`（`config/x-account.json`）。スクリプトがハンドルを誤ると空振りするため、必ずconfig経由で参照する。
 
-## 2. SoT スキーマ（3 種）
+## 2. 旧い写しのスキーマ（3 種・P7 で消す。正本は台帳）
 
 | ファイル | スキーマ | 意味 |
 |---|---|---|
@@ -27,7 +28,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 | 分類 | 意味 | 是正 |
 |---|---|---|
 | `published_recorded` | 記録 URL が生存・かつ**型がカルーセル**（整合） | 不要 |
-| `published_UNrecorded` ★ | ライブのカルーセルに一致するが posted.json が無い | posted.json を backfill |
+| `published_UNrecorded` ★ | ライブのカルーセルに一致するが記録（台帳・posted.json）が無い | `verify-ig-status --registry` で台帳を published に（写しの posted.json は今までどおり backfill してよい） |
 | `draft_misrecorded` ★ | status.json が draft だが実投稿済み | status.json を是正 |
 | `recorded_but_gone` ★ | 記録 URL が削除済み（存在チェックで確定） | 新 URL へ更新 or 孤児記録 |
 | `type_mismatch` ★ | **posted.json の carousel が実はリールを指す＝カルーセル実質なし** | カルーセルを貼り直し＋posted.json 是正（reels へ移す） |
@@ -86,7 +87,7 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 
 ## 6. 安全弁
 
-- **報告＋提案が既定**。posted.json 編集・予約投稿は **operator 確認後のみ**。
+- **報告＋提案が既定**。台帳への反映（`--registry`）・posted.json 編集・予約投稿は **operator 確認後のみ**。
 - **公開済み投稿の削除は本仕組みの対象外**（不可逆。黒背景の貼り直し等は個別判断で手動）。
 - **鉄則: リール≠カルーセル。同テーマのリールが存在することはカルーセル削除の根拠にならない。** 重複判定・削除判断の前に必ず投稿の型を確認する（`/p/`=カルーセル・`/reel/`=リール・投稿ページの「オリジナル音源」「リール動画を宣伝」表示）。カルーセルとリールは**両方出す設計**なので併存は正常。`verify-ig-status` の `type_mismatch`／型考慮 `anomaly` が機械側ガード（2026-06-25 rio 事故の再発防止）。
 - 削除直後の存在チェックは**キャッシュ誤検知**あり（消えていても一時的に「存在」と出る）→ 数秒後に再確認。

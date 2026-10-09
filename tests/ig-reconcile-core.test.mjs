@@ -17,6 +17,8 @@ import {
   reconcile,
   driftCount,
   buildSnapshot,
+  planRegistryPublished,
+  registryRowTouchable,
 } from "../scripts/lib/ig-reconcile-core.mjs";
 
 // ─── fixture ヘルパー ───────────────────────────────────────────
@@ -217,4 +219,114 @@ test("buildSnapshot: account/at/counts/live/cats/source を組み立てる", () 
   assert.deepEqual(snap.live, { posts: 3, scheduledByDay: { "1日": ["09:00"] }, list: [{ shortcode: "a", head: "見出し", type: "reel" }] });
   assert.equal(snap.cats, cats);
   assert.equal(snap.source, "graph-api");
+});
+
+// ─── 台帳への反映の計画（planRegistryPublished）──────────────────────
+const REF = ".claude/state/ig-reconcile/snapshot.json@2026-10-09T00:00:00.000Z";
+const rowsOf = (map) => (folder, format) => map[`${folder}|${format}`] ?? null;
+const row = (id, status, extra = {}) => ({ id, status, ...extra });
+
+test("registryRowTouchable: published と stopped(unverified-legacy 以外) は触らない", () => {
+  assert.equal(registryRowTouchable(null), false);
+  assert.equal(registryRowTouchable(row("a", "published")), false);
+  assert.equal(registryRowTouchable(row("a", "stopped", { stopReason: "gone" })), false);
+  assert.equal(registryRowTouchable(row("a", "stopped", { stopReason: "unverified-legacy" })), true);
+  for (const st of ["draft", "rendered", "approved", "scheduled"]) assert.equal(registryRowTouchable(row("a", st)), true);
+});
+
+test("planRegistryPublished: カルーセルは 1 件だけ結び付き衝突の無いものだけ published にする", () => {
+  const cats = { published_UNrecorded: [
+    { rel: "cem/a", matched: ["SC1"] },
+    { rel: "cem/b", matched: ["SC2"], ambiguous: true },
+    { rel: "cem/c", matched: ["SC3", "SC4"] },
+    { rel: "cem/d", matched: ["SC5"] },
+    { rel: "cem/e", matched: ["SC6"] },
+    { rel: "cem/f", matched: ["SC7"] },
+  ] };
+  const rowOf = rowsOf({
+    "cem/a|carousel": row("x/a", "scheduled"),
+    "cem/b|carousel": row("x/b", "approved"),
+    "cem/c|carousel": row("x/c", "approved"),
+    "cem/d|carousel": row("x/d", "published"),
+    "cem/e|carousel": row("x/e", "stopped", { stopReason: "unverified-legacy" }),
+    "cem/f|carousel": row("x/f", "stopped", { stopReason: "gone" }),
+  });
+  const r = planRegistryPublished({ cats, liveList: [], reelCandidates: [], rowOf, snapRef: REF });
+  assert.deepEqual(r.updates.map((u) => [u.folder, u.id, u.url]), [
+    ["cem/a", "x/a", "https://www.instagram.com/p/SC1/"],
+    ["cem/e", "x/e", "https://www.instagram.com/p/SC6/"],
+  ]);
+  assert.deepEqual(r.updates[0].evidence, { kind: "ig-snapshot", ref: REF });
+  assert.deepEqual(r.skipped.map((s) => s.folder).sort(), ["cem/b", "cem/c"]);
+  assert.equal(r.skipped.find((s) => s.folder === "cem/c").format, "carousel");
+});
+
+test("planRegistryPublished: 台帳に行が無いカルーセルは見送りに出す", () => {
+  const r = planRegistryPublished({ cats: { published_UNrecorded: [{ rel: "cem/z", matched: ["S"] }] }, liveList: [], reelCandidates: [], rowOf: rowsOf({}), snapRef: REF });
+  assert.deepEqual(r.updates, []);
+  assert.deepEqual(r.skipped, [{ folder: "cem/z", format: "carousel", reason: "台帳に行が無い" }]);
+});
+
+test("planRegistryPublished: リールは公開中のリールに先頭が 1 件だけ一致したときだけ published にする", () => {
+  const liveList = [
+    { shortcode: "R1", head: "ひとつだけ", type: "reel" },
+    { shortcode: "R2", head: "ふたつ", type: "reel" },
+    { shortcode: "R3", head: "ふたつ", type: "reel" },
+    { shortcode: "C1", head: "かるせる", type: "carousel" },
+    { shortcode: "R4", head: "かぶり", type: "reel" },
+  ];
+  const reelCandidates = [
+    { folder: "v/one", head: "ひとつだけ" },
+    { folder: "v/two", head: "ふたつ" },
+    { folder: "v/car", head: "かるせる" },
+    { folder: "v/dup1", head: "かぶり" },
+    { folder: "v/dup2", head: "かぶり" },
+    { folder: "v/done", head: "ひとつだけ" },
+    { folder: "v/none", head: "ない" },
+  ];
+  const rowOf = rowsOf({
+    "v/one|reel": row("r/one", "rendered"), "v/two|reel": row("r/two", "approved"), "v/car|reel": row("r/car", "approved"),
+    "v/dup1|reel": row("r/d1", "approved"), "v/dup2|reel": row("r/d2", "approved"), "v/done|reel": row("r/done", "published"),
+    "v/none|reel": row("r/none", "approved"),
+  });
+  const r = planRegistryPublished({ cats: {}, liveList, reelCandidates, rowOf, snapRef: REF });
+  // v/one は同じ先頭の v/done（published）も候補だが、触る側の候補としては v/one だけ。v/done は触らない。
+  assert.deepEqual(r.updates.map((u) => [u.folder, u.url]), []);
+  assert.deepEqual(r.skipped.map((s) => s.folder).sort(), ["v/dup1", "v/dup2", "v/one", "v/two"]);
+});
+
+test("planRegistryPublished: リールが 1 件だけ一致し、先頭を持つフォルダも 1 つなら published にする", () => {
+  const r = planRegistryPublished({
+    cats: {}, liveList: [{ shortcode: "R1", head: "ひとつだけ", type: "reel" }],
+    reelCandidates: [{ folder: "v/one", head: "ひとつだけ" }], rowOf: rowsOf({ "v/one|reel": row("r/one", "rendered") }), snapRef: REF,
+  });
+  assert.deepEqual(r.updates, [{ folder: "v/one", format: "reel", id: "r/one", url: "https://www.instagram.com/reel/R1/", evidence: { kind: "ig-snapshot", ref: REF } }]);
+});
+
+test("planRegistryPublished: 台帳が published で投稿が削除済みなら後戻りの所見に出す（台帳は触らない）", () => {
+  const r = planRegistryPublished({
+    cats: {}, liveList: [], reelCandidates: [], rowOf: rowsOf({}), snapRef: REF,
+    publishedRows: [{ id: "a", shortcode: "GONE" }, { id: "b", shortcode: "ALIVE" }, { id: "c", shortcode: "UNKNOWN" }, { id: "d", shortcode: null }],
+    recordedInfo: { GONE: { exists: false }, ALIVE: { exists: true }, UNKNOWN: { exists: null } },
+  });
+  assert.deepEqual(r.regressions.map((x) => x.id), ["a"]);
+  assert.deepEqual(r.updates, []);
+});
+
+test("planRegistryPublished: 台帳のほかの行がすでに使っている shortcode は候補から外し、今回付ける分も重ねない", () => {
+  const cats = { published_UNrecorded: [
+    { rel: "cem/a", matched: ["USED"] },
+    { rel: "cem/b", matched: ["NEW"] },
+    { rel: "cem/c", matched: ["NEW"] },
+  ] };
+  const rowOf = rowsOf({
+    "cem/a|carousel": row("x/a", "approved"), "cem/b|carousel": row("x/b", "approved"), "cem/c|carousel": row("x/c", "approved"),
+    "v/r|reel": row("r/r", "approved"),
+  });
+  const r = planRegistryPublished({
+    cats, liveList: [{ shortcode: "USED", head: "り", type: "reel" }], reelCandidates: [{ folder: "v/r", head: "り" }], rowOf,
+    publishedRows: [{ id: "other", shortcode: "USED" }], snapRef: REF,
+  });
+  assert.deepEqual(r.updates.map((u) => [u.folder, u.url]), [["cem/b", "https://www.instagram.com/p/NEW/"]]);
+  assert.deepEqual(r.skipped.map((s) => s.folder).sort(), ["cem/a", "cem/c", "v/r"]);
 });

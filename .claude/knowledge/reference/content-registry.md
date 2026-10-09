@@ -94,7 +94,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## YouTube の切り替え（P2・2026-10-09）
 
-- `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。`.claude/state/video-content-status.json` の YouTube の部分（`derivatives.longform`・`derivatives.shorts`）は台帳から作り直す写しで、手で直さない。`instagramReel` は P5 まで今の台帳が正本。
+- `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。`.claude/state/video-content-status.json` の YouTube の部分（`derivatives.longform`・`derivatives.shorts`）は台帳から作り直す写しで、手で直さない。Instagram（動画パックのリールを含む）は台帳が正本で、今の動画の台帳から `instagramReel` は外した（P5）。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
 - 書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState` で読み、`saveVideoState` で書く。台帳の行を先に書き、写しを作り直して書く。読むだけのスクリプトと管理画面は今のまま写しを読んでよい（R09 が一致を保証する）。
 - 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。

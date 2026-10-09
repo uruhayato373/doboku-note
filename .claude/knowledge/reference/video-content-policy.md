@@ -14,7 +14,7 @@ title: 動画コンテンツ運用ポリシー
 |---|---|---|
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
-| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。`.claude/state/video-content-status.json` の YouTube の部分は台帳から作り直す写しで、書き手は `scripts/lib/registry-video-state.mjs` の入口だけを通す（R09 がずれを止める。IG リールは P5 まで今の台帳が正本。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
+| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。`.claude/state/video-content-status.json` の YouTube の部分は台帳から作り直す写しで、書き手は `scripts/lib/registry-video-state.mjs` の入口だけを通す（R09 がずれを止める。Instagram のリールの状態は Instagram の台帳（`content/registry/publications/instagram/`）が正本で、今の台帳は作り直すときに `instagramReel` を落とす。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 | 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
