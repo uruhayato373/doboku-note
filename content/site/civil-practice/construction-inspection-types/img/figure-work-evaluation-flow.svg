@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工事成績評定が65点を出発点に加減点で決まり、通知と説明請求を経て次の入札の点数に届く流れを示した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="20" y="14" width="360" height="36" rx="6" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="20" y="60" width="360" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="20" y="118" width="360" height="50" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="20" y="176" width="360" height="50" rx="6" fill="#f8d7da" stroke="#b22234"/>
+<rect x="20" y="250" width="360" height="86" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="20" y="356" width="360" height="50" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="20" y="426" width="360" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+</g>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)">
+<line x1="200" y1="228" x2="200" y2="248"/>
+<line x1="200" y1="338" x2="200" y2="354"/>
+<line x1="200" y1="408" x2="200" y2="424"/>
+</g>
+<g fill="#222" font-size="13" font-weight="700" text-anchor="middle">
+<text x="200" y="37">出発点は65点。ここへ加減点を足し引きする</text>
+<text x="200" y="273">評定点合計（整数）＝ 加重和 − 法令遵守等</text>
+<text x="200" y="378">請負者へ通知</text>
+<text x="200" y="448">次の入札へ</text>
+</g>
+<g fill="#1a3a5c" font-size="13" font-weight="700" text-anchor="middle">
+<text x="200" y="80">加点も減点もある項目</text>
+<text x="200" y="138">加点だけの項目</text>
+<text x="200" y="196">減点だけの項目</text>
+</g>
+<g fill="#222" font-size="12" text-anchor="middle">
+<text x="200" y="99">施工体制・施工状況・出来形及び品質・出来ばえ</text>
+<text x="200" y="157">工事特性・創意工夫・社会性等</text>
+<text x="200" y="215">法令遵守等（指名停止や注意の重さで減点）</text>
+<text x="200" y="294">主任技術評価官 0.4 ／ 総括技術評価官 0.2</text>
+<text x="200" y="312">中間技術検査 0.2 ／ 完成技術検査 0.2</text>
+<text x="200" y="396">疑問があれば14日以内に書面で説明を求める</text>
+<text x="200" y="466">完成後4年間、格付けの点数の元になる</text>
+</g>
+<g fill="#555" font-size="11" text-anchor="middle">
+<text x="200" y="329">中間技術検査がない工事は 0.4・0.2・0.4</text>
+<text x="200" y="494">国の直轄工事（地方整備局）の様式による</text>
+</g>
+</svg>
