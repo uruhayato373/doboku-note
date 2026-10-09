@@ -362,6 +362,15 @@
       "reason": "ラグ付きのゴムクローラ（転輪・遊動輪・起動輪）の上に、前に運転室、後ろにダンプ式荷台。本文の「ゴムクローラの走行装置上に運転室と荷台」と合う",
       "reviewedAt": "2026-10-07T12:10:51.842Z"
     },
+    "civil-construction-2/guide-road-pavement-key-points/img/photo-roadside-gutter-grating": {
+      "sha": "ca3d386ef9d75e29",
+      "promptSha": "9593698070de50db",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:10:10.342Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 路面端のコンクリート側溝の上に、亜鉛めっき調の鋼製グレーチング蓋（平鋼の格子）が舗装面と面一で連続して並び、路肩側は砕石と草。本文（路面の水は横断勾配で路肩の側溝へ寄る）と一致し、濡れた舗装面が縁へ向かう様子も見える。破綻: 格子の平鋼の交差は整い、蓋の継ぎ目も連続していて、溶けた部品や二重化は無い。文字・ロゴ・人物も無い。遠景の車と外側線は自然。",
+      "reviewedAt": "2026-10-09T09:11:07.208Z"
+    },
     "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
       "sha": "39f471b54ef86064",
       "promptSha": "244bca8db81b6643",
