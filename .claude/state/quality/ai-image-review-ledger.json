@@ -312,13 +312,19 @@
       "sha": "60d6b7e293f6af53",
       "promptSha": "80801a1eba416cb4",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T08:45:40.176Z"
+      "generatedAt": "2026-10-09T08:45:40.176Z",
+      "verdict": "ok",
+      "reason": "構造: 鋼桁の端部が積層ゴム状の支承に載り、支承は橋座コンクリートの上にある。橋座は支承の前に張り出してけたかかり長が見える。桁端の補剛材のブラケットと、橋台壁にボルト固定した受け板を、鋼製の連結材がつないでいる。実在の落橋防止構造として成り立つ。本文の「けたかかり長の確保と落橋防止構造の設置」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T08:47:04.911Z"
     },
     "civil-practice/earthquake-tsunami-site-response/img/photo-steel-jacketed-bridge-pier": {
       "sha": "193c352526207241",
       "promptSha": "dfbd872f71750c36",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T08:43:56.369Z"
+      "generatedAt": "2026-10-09T08:43:56.369Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 河川上の橋脚の下部を塗装鋼板が全周で覆い、縦のボルト継ぎ目が複数見え、下端はフーチングの上面まで達する。上部は無補強の灰色コンクリートで、橋脚の上に鋼桁が載る。実在の鋼板巻立て補強として成り立つ。本文の「橋脚への鋼板などの巻立て」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T08:47:04.910Z"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
