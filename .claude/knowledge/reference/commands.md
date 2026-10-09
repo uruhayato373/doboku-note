@@ -68,7 +68,7 @@ npm run check-git-binary-policy # 生成物・著作権物・巨大blob・拡張
 npm run asset-offload         # 追跡アセットを R2 へ退避（既定 dry-run・--commit で実行。upload 後に bytes と sha256 を R2 から読み直して検証してから manifest へ記録。ローカル削除と untrack はしない。**--verify** で追跡解除前の全件照合〔ローカル実体・manifest・R2 の 3 者一致〕を行い、--out に untrack できる一覧を書く。1 件でも欠ければ exit 1）
 npm run asset-hydrate         # 退避したアセットを取り戻す（ローカル→cache→R2→generator の順・--offline で cache のみ・--path で部分取得）
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
-npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--from-vault＝vault にだけある原本をその場で読んで台帳へ登録・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
+npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--from-vault＝vault にだけある原本をその場で読んで台帳へ登録・--verify [--deep --cloud]（--deep --cloud --commit で 3 者が一致した行に Drive のファイル ID を書く）・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only（Drive 管轄ファイルの再追跡を検知。`coexistWithGit: true` の group＝kindle-dist は Git が正本なので対象外・2026-09-17）＋ quality:audit
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェット・図の原典（vaultCopies が Drive 台帳にあるか・図の出典の書籍が記事の sources にあるか・流用不可の書籍の図 figureReuseDebt）を検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
@@ -191,7 +191,16 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
+npm run brand-video-pack        # 動画パック1本の表紙（cover-design.json）と締め画像をブランドのロゴ・背景で描き、ID ごとの置き場（.tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/{cover|cta}.{sha8}.png）へ書く（--pack-dir 必須・既定 dry-run・--commit で design json も更新）。画像は git に入れず npm run media -- sync で Drive へ
+npm run registry               # コンテンツ台帳（content/registry・content-registry.md）の CLI: list / show <ID> / index（.tmp/content-registry/index.json）/ import-video-pack --pack-dir … / import-video-packs（全動画パック・own-videos と件数を突き合わせる）。取り込みは既定 dry-run・--commit
+npm run registry-reconcile     # 台帳の YouTube の外部 ID を videos.list で観測し、予約→公開だけを証拠つきで進める（後戻りは所見・.claude/state/registry-reconcile/）。認証は CI 供給で、手元は exit 2（検査不成立・何も書かない）。--dry は書かない。毎日の registry-reconcile.yml が動かす
+npm run media                  # 素材の CLI: promote --pub <公開ID>（作業場の成果物を .tmp/media/{exam}/{work}/… へ sha 入りの名前で取り込み台帳へ）/ sync・verify・pull --work <exam>/<work>（Drive の group content-media・書き換えない）/ adopt-video-brand（日付フォルダの採用表紙・締め画像を ID の置き場へ・DN-0607）。promote・sync・pull・adopt-video-brand は既定 dry-run
+npm run check-content-registry # コンテンツ台帳の検査 R01〜R10（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・今の台帳（写し）との全欄の一致・AI 素材の判定）。FAIL で exit 1
+npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
+npm run youtube-own-metrics   # 自社 YouTube の動画ごとの再生数・尺を一覧（yt-dlp）から取り data/youtube/own-videos/YYYY-MM-DD.json へ（月次・動画パックと型を videoId で照合・`--dry-run`）。視聴維持率・クリック率は取れない（Analytics が要る）。罠: 日本語表示の一覧は「万」の再生数を null にするので英語表示と結合している
+npm run scout-youtube-competitors # config/competitors.json の youtube の各チャンネルの通常動画（新しい順100本）の再生・尺・題名の語ごとの中央値を data/youtube/competitors/YYYY-MM-DD.json へ（四半期・前回比 drift・`--handle UC…` は .tmp/）。一覧だけ読み、動画の再生用 API と映像は触らない（クラウドの IP でロボット確認・403 になるため）
 npm run x-own-metrics     # 自投稿の反応（いいね/RT）を採取→型×時間帯×導線の表（data/x/own-posts/・**中央値で読む**。impressions/replies は CLI が返さず取得不可）
 npm run check-x-posted-live  # 投稿済み X の生存確認。posted_url を持つものだけログイン不要の oEmbed で照合（DN-0276・週次 link-audit.yml）。404=凍結/削除の疑い、posted_url が無い投稿済みの件数も出す（検査ゼロを PASS にしない）。posted_url は publish-x.ts が投稿直後にベストエフォートで書く
 ```

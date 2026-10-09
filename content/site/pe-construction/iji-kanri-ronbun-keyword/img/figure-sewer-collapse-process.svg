@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="下水道管の損傷から路面の陥没に至る4段階と、標準耐用年数50年を超える管の割合が約7%から約45%へ増える見通し" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:12px} /* ink-strong */
+.h{font-size:14px;font-weight:bold}.v{font-size:14px;font-weight:bold;text-anchor:middle}.m{text-anchor:middle}.k{font-weight:bold}.s{font-size:11px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.d{fill:#f8d7da;stroke:#b22234;stroke-width:1.5} /* danger */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<g class="m">
+<rect x="40" y="12" width="320" height="50" rx="8" class="b"/><text x="200" y="34" class="h m">管の腐食・破損</text><text x="200" y="52">硫化水素で内面が痩せ、ひび割れが入る</text>
+<path d="M200 62 V78" class="a"/>
+<rect x="40" y="80" width="320" height="50" rx="8" class="w"/><text x="200" y="102" class="h m">土砂の流入</text><text x="200" y="120">地下水とともに周りの土が管内へ流れ込む</text>
+<path d="M200 130 V146" class="a"/>
+<rect x="40" y="148" width="320" height="50" rx="8" class="w"/><text x="200" y="170" class="h m">地中の空洞</text><text x="200" y="188">路面の下で広がり、外から見えない</text>
+<path d="M200 198 V214" class="a"/>
+<rect x="40" y="216" width="320" height="50" rx="8" class="d"/><text x="200" y="238" class="h m">路面の陥没</text><text x="200" y="256">空洞が上の荷重を支えきれなくなる</text>
+</g>
+<text x="20" y="292" class="k">標準耐用年数50年を超えた下水道管の割合</text><text x="20" y="308" class="s">総延長は約50万km（都市下水路を除く）</text>
+<path d="M30 440 H370" stroke="#d7d7d7" stroke-width="1"/>
+<rect x="68" y="422" width="64" height="18" class="b"/><text x="100" y="416" class="v">約7%</text>
+<rect x="168" y="384" width="64" height="56" class="w"/><text x="200" y="378" class="v">約22%</text>
+<rect x="268" y="326" width="64" height="114" class="d"/><text x="300" y="320" class="v">約45%</text>
+<g class="m"><text x="100" y="458">令和6年度末</text><text x="200" y="458">令和16年度末</text><text x="300" y="458">令和26年度末</text></g>
+<g class="m s"><text x="100" y="476" class="s">約4万km</text><text x="200" y="476" class="s">約11万km</text><text x="300" y="476" class="s">約23万km</text></g>
+</svg>

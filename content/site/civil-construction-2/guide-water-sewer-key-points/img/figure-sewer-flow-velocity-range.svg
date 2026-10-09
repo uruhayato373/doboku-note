@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="下水管の縦断面。流速が小さいと固形物が管底に堆積し、大きいと管の内面が傷む。流速の範囲は汚水管が0.6から3.0 m/s、雨水管と合流管が0.8から3.0 m/s">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }                       /* ink-body */
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-item { font-size: 11px; fill: #222; }                       /* ink-strong */
+      .t-note { font-size: 11px; fill: #555; }                       /* ink-body */
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-row  { font-size: 12px; fill: #222; }                       /* ink-strong */
+      .t-tick { font-size: 11px; fill: #555; }                       /* ink-body */
+      .t-warn { font-size: 11px; font-weight: bold; fill: #b22234; } /* danger */
+      .t-slow { font-size: 11px; font-weight: bold; fill: #2e6da4; } /* brand */
+      .panel  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface */
+      .wall   { stroke: #555; stroke-width: 3; fill: none; }          /* ink-body */
+      .water  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }    /* brand-fill / brand */
+      .flow   { stroke: #2e6da4; stroke-width: 2.5; fill: none; }     /* brand */
+      .deposit { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1; }   /* token-border / ink-muted */
+      .wear   { stroke: #b22234; stroke-width: 2; fill: none; }       /* danger */
+      .bar-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
+      .bar-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .axis   { stroke: #555; stroke-width: 1.5; fill: none; }        /* ink-body */
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }                   /* token-border */
+    </style>
+    <marker id="sv-ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">流速は、小さすぎても大きすぎても不具合が出る</text>
+
+  <!-- 上段: 流速が小さすぎる場合 -->
+  <rect class="panel" x="20" y="28" width="360" height="148" rx="6"/>
+  <text class="t-sec" x="36" y="49">流速が小さすぎる場合</text>
+  <rect class="water" x="36" y="102" width="328" height="28"/>
+  <path class="deposit" d="M 150,130 C 170,117 190,110 215,110 C 245,110 265,117 285,130 Z"/>
+  <circle cx="70" cy="125" r="3" fill="#8a8a8a"/>
+  <circle cx="96" cy="126" r="3" fill="#8a8a8a"/>
+  <circle cx="122" cy="125" r="3" fill="#8a8a8a"/>
+  <circle cx="312" cy="125" r="3" fill="#8a8a8a"/>
+  <circle cx="338" cy="126" r="3" fill="#8a8a8a"/>
+  <line class="wall" x1="36" y1="72" x2="364" y2="72"/>
+  <line class="wall" x1="36" y1="131" x2="364" y2="131"/>
+  <line class="flow" x1="48" y1="114" x2="96" y2="114" marker-end="url(#sv-ar)"/>
+  <text class="t-slow" x="44" y="92">流れが遅い</text>
+  <text class="t-item" x="36" y="153">固形物が底に沈み、少しずつ堆積する</text>
+  <text class="t-note" x="36" y="169">詰まりの原因になり、清掃の手間も増える</text>
+
+  <!-- 中段: 流速が大きすぎる場合 -->
+  <rect class="panel" x="20" y="184" width="360" height="148" rx="6"/>
+  <text class="t-sec" x="36" y="205">流速が大きすぎる場合</text>
+  <rect class="water" x="36" y="250" width="328" height="36"/>
+  <line class="wall" x1="36" y1="224" x2="364" y2="224"/>
+  <line class="wall" x1="36" y1="287" x2="364" y2="287"/>
+  <line class="flow" x1="48" y1="268" x2="236" y2="268" marker-end="url(#sv-ar)"/>
+  <text class="t-slow" x="44" y="244">流れが速い</text>
+  <path class="wear" d="M 262,286 L 270,279 L 278,286 L 286,278 L 294,286 L 302,279 L 310,286 L 318,278 L 326,286 L 334,280 L 342,286"/>
+  <text class="t-warn" x="262" y="270">内面が削られる</text>
+  <text class="t-item" x="36" y="309">管の内面やマンホールが傷み、耐用年数が縮む</text>
+  <text class="t-note" x="36" y="325">急な区間は段差などで勾配を緩めて流速を落とす</text>
+
+  <!-- 下段: 流速の範囲 -->
+  <rect class="panel" x="20" y="340" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="36" y="360">流速の範囲（計画下水量に対して・原則）</text>
+  <line class="rule" x1="36" y1="368" x2="364" y2="368"/>
+  <text class="t-row" x="30" y="391">汚水管</text>
+  <rect class="bar-pos" x="100" y="376" width="240" height="22" rx="3"/>
+  <text class="t-bar" x="220" y="391" text-anchor="middle">0.6 〜 3.0 m/s</text>
+  <text class="t-row" x="30" y="421">雨水・合流管</text>
+  <rect class="bar-brand" x="120" y="406" width="220" height="22" rx="3"/>
+  <text class="t-bar" x="230" y="421" text-anchor="middle">0.8 〜 3.0 m/s</text>
+  <line class="axis" x1="40" y1="440" x2="360" y2="440"/>
+  <line class="axis" x1="40" y1="436" x2="40" y2="444"/>
+  <line class="axis" x1="140" y1="436" x2="140" y2="444"/>
+  <line class="axis" x1="240" y1="436" x2="240" y2="444"/>
+  <line class="axis" x1="340" y1="436" x2="340" y2="444"/>
+  <text class="t-tick" x="40" y="457" text-anchor="middle">0</text>
+  <text class="t-tick" x="140" y="457" text-anchor="middle">1</text>
+  <text class="t-tick" x="240" y="457" text-anchor="middle">2</text>
+  <text class="t-tick" x="340" y="457" text-anchor="middle">3 m/s</text>
+  <text class="t-note" x="200" y="480" text-anchor="middle">下限は沈殿を防ぎ、上限は管の損傷を防ぐ</text>
+</svg>

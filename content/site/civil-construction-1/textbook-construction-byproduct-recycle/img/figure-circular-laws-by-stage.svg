@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="循環型社会の法律を物の一生の順に並べた図。環境基本法と循環型社会形成推進基本法が枠組みを示し、生産・設計は資源有効利用促進法、購入・使用はグリーン購入法、回収・再資源化は容器包装・家電・食品・建設・自動車・小型家電の個別リサイクル法、最終処理は廃棄物処理法が担う">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="14" y="14" width="372" height="52" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="200" y="36" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">環境基本法 ／ 循環型社会形成推進基本法</text>
+<text x="200" y="54" text-anchor="middle" font-size="11" fill="#555">全体の枠組みと、扱いの優先順位を定める</text>
+<rect x="14" y="78" width="108" height="78" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="68" y="115.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">生産・設計</text>
+<text x="68" y="133.0" text-anchor="middle" font-size="11" fill="#555">つくる段階</text>
+<rect x="128" y="78" width="258" height="78" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="140" y="100" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">資源有効利用促進法</text>
+<text x="140" y="120" text-anchor="start" font-size="11" fill="#222">設計の工夫、副産物の発生抑制、</text>
+<text x="140" y="136" text-anchor="start" font-size="11" fill="#222">再生資源の利用を事業者に求める</text>
+<rect x="14" y="170" width="108" height="78" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="68" y="207.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">購入・使用</text>
+<text x="68" y="225.0" text-anchor="middle" font-size="11" fill="#555">買って使う段階</text>
+<rect x="128" y="170" width="258" height="78" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="140" y="192" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">グリーン購入法</text>
+<text x="140" y="212" text-anchor="start" font-size="11" fill="#222">国等が環境物品を率先して調達</text>
+<text x="140" y="228" text-anchor="start" font-size="11" fill="#222">（公共工事の資材も品目に含む）</text>
+<rect x="14" y="262" width="108" height="112" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="68" y="316.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">回収・再資源化</text>
+<text x="68" y="334.0" text-anchor="middle" font-size="11" fill="#555">集めて戻す段階</text>
+<rect x="128" y="262" width="258" height="112" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="140" y="284" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">個別リサイクル法</text>
+<text x="140" y="304" text-anchor="start" font-size="11" fill="#222">容器包装・家電・食品・自動車・小型家電</text>
+<rect x="140" y="326" width="234" height="36" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="257" y="342" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設リサイクル法</text>
+<text x="257" y="356" text-anchor="middle" font-size="11" fill="#555">建設工事の分別解体と再資源化</text>
+<rect x="14" y="388" width="108" height="78" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="68" y="425.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">最終処理</text>
+<text x="68" y="443.0" text-anchor="middle" font-size="11" fill="#555">捨てる段階</text>
+<rect x="128" y="388" width="258" height="78" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="140" y="410" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">廃棄物処理法</text>
+<text x="140" y="430" text-anchor="start" font-size="11" fill="#222">収集・運搬・処分の基準、</text>
+<text x="140" y="446" text-anchor="start" font-size="11" fill="#222">排出事業者責任、委託とマニフェスト</text>
+<line x1="200" y1="156" x2="200" y2="164" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M200 170 l-5 -7 h10 z" fill="#8a8a8a"/>
+<line x1="200" y1="248" x2="200" y2="256" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M200 262 l-5 -7 h10 z" fill="#8a8a8a"/>
+<line x1="200" y1="374" x2="200" y2="382" stroke="#8a8a8a" stroke-width="1.5"/>
+<path d="M200 388 l-5 -7 h10 z" fill="#8a8a8a"/>
+<text x="14" y="490" text-anchor="start" font-size="11" fill="#555">黄＝建設工事に直接かかわる個別のリサイクル法</text>
+</svg>

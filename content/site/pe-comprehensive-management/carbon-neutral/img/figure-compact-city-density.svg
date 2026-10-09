@@ -1,0 +1,95 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="同じ8世帯でも、分散した市街地では道路・水道管が長く移動距離も長いが、集約すると延長と距離が短くなり農地・緑地も残ることを対比した模式図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-lab   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-in    { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sm    { font-size: 11px; fill: #555; }
+      .t-arrow { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .panel   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .hub     { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .house   { fill: #ffffff; stroke: #555; stroke-width: 1.5; stroke-linejoin: round; }
+      .road-long  { stroke: #b22234; stroke-width: 1.5; }
+      .road-short { stroke: #3a7d44; stroke-width: 1.5; }
+      .green   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bar-bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bar-good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- 上段: 分散した市街地 (panel / ink-body) -->
+  <rect class="panel" x="12" y="8" width="376" height="222" rx="8"/>
+  <text class="t-lab" x="24" y="30">分散した市街地</text>
+
+  <!-- 拠点から各世帯への道路・水道管（長い）-->
+  <line class="road-long" x1="200" y1="100" x2="48" y2="64"/>
+  <line class="road-long" x1="200" y1="100" x2="118" y2="50"/>
+  <line class="road-long" x1="200" y1="100" x2="290" y2="52"/>
+  <line class="road-long" x1="200" y1="100" x2="352" y2="72"/>
+  <line class="road-long" x1="200" y1="100" x2="42" y2="134"/>
+  <line class="road-long" x1="200" y1="100" x2="120" y2="152"/>
+  <line class="road-long" x1="200" y1="100" x2="296" y2="148"/>
+  <line class="road-long" x1="200" y1="100" x2="354" y2="130"/>
+  <rect class="hub" x="142" y="87" width="116" height="26" rx="6"/>
+  <text class="t-in" x="200" y="104" text-anchor="middle">生活サービス拠点</text>
+  <path class="house" d="M40,71 V61 L48,53 L56,61 V71 Z"/>
+  <path class="house" d="M110,57 V47 L118,39 L126,47 V57 Z"/>
+  <path class="house" d="M282,59 V49 L290,41 L298,49 V59 Z"/>
+  <path class="house" d="M344,79 V69 L352,61 L360,69 V79 Z"/>
+  <path class="house" d="M34,141 V131 L42,123 L50,131 V141 Z"/>
+  <path class="house" d="M112,159 V149 L120,141 L128,149 V159 Z"/>
+  <path class="house" d="M288,155 V145 L296,137 L304,145 V155 Z"/>
+  <path class="house" d="M346,137 V127 L354,119 L362,127 V137 Z"/>
+
+  <!-- 指標バー（相対イメージ）-->
+  <text class="t-sm" x="24" y="184">平均の移動距離</text>
+  <rect class="bar-bad" x="150" y="174" width="210" height="12" rx="3"/>
+  <text class="t-sm" x="24" y="210">インフラ延長・維持費</text>
+  <rect class="bar-bad" x="150" y="200" width="210" height="12" rx="3"/>
+
+  <!-- 集約の矢印 -->
+  <line x1="200" y1="236" x2="200" y2="258" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text class="t-arrow" x="214" y="251">集約（世帯数は同じ）</text>
+
+  <!-- 下段: 集約した市街地 -->
+  <rect class="panel" x="12" y="264" width="376" height="228" rx="8"/>
+  <text class="t-lab" x="24" y="286">集約した市街地</text>
+
+  <rect class="green" x="24" y="302" width="72" height="92" rx="6"/>
+  <text class="t-in" x="60" y="352" text-anchor="middle">農地・緑地</text>
+  <rect class="green" x="304" y="302" width="72" height="92" rx="6"/>
+  <text class="t-in" x="340" y="352" text-anchor="middle">農地・緑地</text>
+
+  <line class="road-short" x1="200" y1="348" x2="156" y2="314"/>
+  <line class="road-short" x1="200" y1="348" x2="200" y2="310"/>
+  <line class="road-short" x1="200" y1="348" x2="244" y2="314"/>
+  <line class="road-short" x1="200" y1="348" x2="116" y2="348"/>
+  <line class="road-short" x1="200" y1="348" x2="284" y2="348"/>
+  <line class="road-short" x1="200" y1="348" x2="156" y2="384"/>
+  <line class="road-short" x1="200" y1="348" x2="200" y2="388"/>
+  <line class="road-short" x1="200" y1="348" x2="244" y2="384"/>
+  <rect class="hub" x="142" y="335" width="116" height="26" rx="6"/>
+  <text class="t-in" x="200" y="352" text-anchor="middle">生活サービス拠点</text>
+  <path class="house" d="M148,321 V311 L156,303 L164,311 V321 Z"/>
+  <path class="house" d="M192,317 V307 L200,299 L208,307 V317 Z"/>
+  <path class="house" d="M236,321 V311 L244,303 L252,311 V321 Z"/>
+  <path class="house" d="M108,355 V345 L116,337 L124,345 V355 Z"/>
+  <path class="house" d="M276,355 V345 L284,337 L292,345 V355 Z"/>
+  <path class="house" d="M148,391 V381 L156,373 L164,381 V391 Z"/>
+  <path class="house" d="M192,395 V385 L200,377 L208,385 V395 Z"/>
+  <path class="house" d="M236,391 V381 L244,373 L252,381 V391 Z"/>
+
+  <text class="t-sm" x="24" y="424">平均の移動距離</text>
+  <rect class="bar-good" x="150" y="414" width="62" height="12" rx="3"/>
+  <text class="t-sm" x="24" y="450">インフラ延長・維持費</text>
+  <rect class="bar-good" x="150" y="440" width="84" height="12" rx="3"/>
+
+  <text class="t-sm" x="24" y="480">棒の長さと配置は模式図であり、実際の数値ではない</text>
+</svg>

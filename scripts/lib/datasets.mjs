@@ -18,6 +18,8 @@ import { join } from 'node:path';
 export const AREAS = {
   config: { dir: 'config', label: '設定' },
   data: { dir: 'data', label: 'データ' },
+  // 公開の事実の正本（content-registry.md）。書き手は npm run registry・npm run media だけ
+  registry: { dir: 'content/registry', label: 'コンテンツ台帳' },
 };
 
 export const KINDS = {
@@ -128,6 +130,16 @@ export const DATASETS = [
   d('config.video-content', 'config/video-content.json', 'config', 'sns', '動画パックの契約', { schema: 'ConfigVideoContent' }),
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）', { schema: 'ConfigYoutubeProductionDisclosure' }),
+  d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
+  d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
+  // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md
+  d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks' }),
+  d('registry.youtube', 'content/registry/publications/youtube/{name}', 'config', 'sns', 'コンテンツ台帳: YouTube の公開（資格ごと）', { schema: 'RegistryPublications' }),
+  d('registry.instagram', 'content/registry/publications/instagram/{name}', 'config', 'sns', 'コンテンツ台帳: Instagram の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.threads', 'content/registry/publications/threads/{name}', 'config', 'sns', 'コンテンツ台帳: Threads の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.tiktok', 'content/registry/publications/tiktok/{name}', 'config', 'sns', 'コンテンツ台帳: TikTok の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
   // 管理
@@ -170,6 +182,8 @@ export const DATASETS = [
   d('instagram.competitors', 'data/instagram/competitors/{date}.json', 'series', 'strategy', 'Instagram の競合アカウント（全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'InstagramCompetitors' }),
   d('instagram.insights', 'data/instagram/insights/{date}.json', 'series', 'sns', 'Instagram のインサイト', { planned: true, retain: { family: 'instagram', maxAgeDays: 180 }, freshness: { failDays: 10 } }),
   d('youtube.posted', 'data/youtube/posted.jsonl', 'ledger', 'sns', 'YouTube に投稿した動画', { schema: 'YoutubePosted' }),
+  d('youtube.own-videos', 'data/youtube/own-videos/{date}.json', 'series', 'sns', '自社 YouTube の動画ごとの再生数・尺（月次）', { retain: { family: 'youtube', keepAll: true }, freshness: { warnDays: 35 }, schema: 'YoutubeOwnVideos' }),
+  d('youtube.competitors', 'data/youtube/competitors/{date}.json', 'series', 'strategy', 'YouTube の競合チャンネルの再生数・尺（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'YoutubeCompetitors' }),
   // A8・アフィリエイト
   d('a8.report-log', 'data/a8/report-log.json', 'ledger', 'affiliate', 'A8 の月次レポート（成果・報酬）', { schema: 'A8ReportLog' }),
   d('a8.catalog', 'data/a8/catalog.json', 'state', 'affiliate', 'A8 の提携案件の一覧', { schema: 'A8Catalog' }),
@@ -258,7 +272,8 @@ export function patternOf(path) {
   return compiled.get(path);
 }
 
-export const areaOf = (dataset) => dataset.path.split('/')[0];
+/** データセットの置き場（AREAS のキー）。content/registry のように 2 階層の置き場もあるので dir の前方一致で引く */
+export const areaOf = (dataset) => Object.entries(AREAS).find(([, a]) => dataset.path.startsWith(`${a.dir}/`))?.[0] ?? dataset.path.split('/')[0];
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
 /**
@@ -412,6 +427,7 @@ export const areaDomainIds = (area, domainIds) => domainIds.filter((id) => DATAS
 export function pathMatchesId(dataset) {
   const source = dataset.id.split('.')[0];
   if (source === 'config') return dataset.path.startsWith('config/');
+  if (source === 'registry') return dataset.path.startsWith(`${AREAS.registry.dir}/`);
   return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
 }
 

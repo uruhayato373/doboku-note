@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "exam": "concrete-engineer",
+  "works": [
+    {
+      "id": "gishi-12week-plan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-12week-plan",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-construction-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-environment-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-haigou-keisan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-jis-handan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-jis-handan",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-jukenshikaku-2026",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026",
+      "idException": "imported-before-cutover",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-materials-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-mix-design-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-production-qc-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-properties-testing-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-shiken-zentaizou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gishi-shunin-dochira",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

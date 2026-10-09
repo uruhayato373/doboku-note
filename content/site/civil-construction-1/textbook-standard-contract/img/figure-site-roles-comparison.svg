@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="現場の三者を置く義務の根拠で3段に分ける。法律で置く義務があるのは、建設業法第26条の主任技術者・監理技術者で受注者の側。現場代理人は約款第10条にもとづく契約上の義務で受注者の側。監督員は約款第9条にもとづき発注者が置くかどうかを決める任意で、発注者の側">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .k { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 12px; fill: #222; }
+      .c { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">置く義務の根拠で3段に分ける（青：発注者の側／緑：受注者の側）</text>
+
+  <rect class="c" x="20" y="28" width="360" height="146" rx="6"/>
+  <rect class="t2" x="20" y="28" width="360" height="36" rx="6"/>
+  <text class="h" x="34" y="51">① 法律で置く義務</text>
+  <text class="k" x="366" y="51" text-anchor="end">受注者の側</text>
+  <text class="n" x="34" y="90">主任技術者・監理技術者</text>
+  <text class="s" x="34" y="116">建設業法第26条にもとづき、建設業者が置く</text>
+  <text class="s" x="34" y="136">国家資格や実務経験などの要件を満たす者から選ぶ</text>
+  <text class="s" x="34" y="156">約款第10条で、発注者への通知も求められる</text>
+
+  <rect class="c" x="20" y="184" width="360" height="146" rx="6"/>
+  <rect class="t2" x="20" y="184" width="360" height="36" rx="6"/>
+  <text class="h" x="34" y="207">② 契約で置く義務</text>
+  <text class="k" x="366" y="207" text-anchor="end">受注者の側</text>
+  <text class="n" x="34" y="246">現場代理人</text>
+  <text class="s" x="34" y="272">約款第10条にもとづき、受注者が定めて置く</text>
+  <text class="s" x="34" y="292">置いたら氏名などを発注者へ通知する</text>
+  <text class="s" x="34" y="312">法律の義務ではなく、資格の定めもない</text>
+
+  <rect class="c" x="20" y="340" width="360" height="146" rx="6"/>
+  <rect class="t1" x="20" y="340" width="360" height="36" rx="6"/>
+  <text class="h" x="34" y="363">③ 任意（置くかは発注者が決める）</text>
+  <text class="k" x="366" y="363" text-anchor="end">発注者の側</text>
+  <text class="n" x="34" y="402">監督員</text>
+  <text class="s" x="34" y="428">約款第9条にもとづき、発注者が置くかを決める</text>
+  <text class="s" x="34" y="448">置いたときは氏名を受注者へ通知する</text>
+  <text class="s" x="34" y="468">資格を定めた法令はない</text>
+</svg>

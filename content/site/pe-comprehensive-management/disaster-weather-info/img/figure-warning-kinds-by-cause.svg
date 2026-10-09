@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="警報・注意報の種類を災害の原因別に整理した図。水の災害は氾濫・大雨・土砂災害・高潮の4つに分かれてレベル2〜5に対応し、暴風・大雪などと津波は警戒レベルに相当しない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .s { fill: #555; text-anchor: middle; }
+      .red { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .blue { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .gray { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .body { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="h" x="14" y="20">水の災害は、水の出どころで4つに分かれる</text>
+  <g font-size="11">
+    <text x="14" y="37">どれも注意報・警報・危険警報・特別警報の4段階（レベル2〜5）</text>
+  </g>
+
+  <rect class="body" x="14" y="46" width="168" height="44" rx="6"/>
+  <text class="b" x="98" y="65">大河川の氾濫</text>
+  <text class="s" x="98" y="82">洪水予報河川（441河川）</text>
+  <line class="ln" x1="184" y1="68" x2="212" y2="68" marker-end="url(#arr)"/>
+  <rect class="red" x="216" y="46" width="170" height="44" rx="6"/>
+  <text class="b" x="301" y="65">氾濫</text>
+  <text class="s" x="301" y="82">河川ごとに発表</text>
+
+  <rect class="body" x="14" y="98" width="168" height="44" rx="6"/>
+  <text class="b" x="98" y="117">内水・中小河川の氾濫</text>
+  <text class="s" x="98" y="134">低地の浸水を含む</text>
+  <line class="ln" x1="184" y1="120" x2="212" y2="120" marker-end="url(#arr)"/>
+  <rect class="red" x="216" y="98" width="170" height="44" rx="6"/>
+  <text class="b" x="301" y="117">大雨</text>
+  <text class="s" x="301" y="134">市町村ごとに発表</text>
+
+  <rect class="body" x="14" y="150" width="168" height="44" rx="6"/>
+  <text class="b" x="98" y="169">がけ崩れ・土石流</text>
+  <text class="s" x="98" y="186">急傾斜地の斜面災害</text>
+  <line class="ln" x1="184" y1="172" x2="212" y2="172" marker-end="url(#arr)"/>
+  <rect class="red" x="216" y="150" width="170" height="44" rx="6"/>
+  <text class="b" x="301" y="169">土砂災害</text>
+  <text class="s" x="301" y="186">60分雨量と土壌雨量指数</text>
+
+  <rect class="body" x="14" y="202" width="168" height="44" rx="6"/>
+  <text class="b" x="98" y="221">海面の上昇・波の打上げ</text>
+  <text class="s" x="98" y="238">沿岸の浸水</text>
+  <line class="ln" x1="184" y1="224" x2="212" y2="224" marker-end="url(#arr)"/>
+  <rect class="red" x="216" y="202" width="170" height="44" rx="6"/>
+  <text class="b" x="301" y="221">高潮</text>
+  <text class="s" x="301" y="238">潮位（一部は打上げ高も）</text>
+
+  <rect class="body" x="14" y="254" width="168" height="44" rx="6"/>
+  <text class="b" x="98" y="273">津波</text>
+  <text class="s" x="98" y="290">地震などによる海面の変動</text>
+  <line class="ln" x1="184" y1="276" x2="212" y2="276" marker-end="url(#arr)"/>
+  <rect class="gray" x="216" y="254" width="170" height="44" rx="6"/>
+  <text class="b" x="301" y="273">津波警報等</text>
+  <text class="s" x="301" y="290">警戒レベル相当情報ではない</text>
+
+  <text class="h" x="14" y="326">風・波・雪などは、警戒レベルに相当しない</text>
+
+  <rect class="blue" x="14" y="336" width="372" height="48" rx="6"/>
+  <text class="b" x="200" y="356">特別警報・警報（4種類）</text>
+  <text class="s" x="200" y="373">暴風・暴風雪・大雪・波浪</text>
+
+  <rect class="blue" x="14" y="392" width="372" height="68" rx="6"/>
+  <text class="b" x="200" y="412">注意報（13種類）</text>
+  <text class="s" x="200" y="430">強風・風雪・大雪・波浪・雷・濃霧</text>
+  <text class="s" x="200" y="447">乾燥・なだれ・着氷・着雪・霜・低温・融雪</text>
+
+  <g font-size="11">
+    <text x="14" y="480">ホームページ上の黒（特別警報）・赤（警報）の表示は</text>
+    <text x="14" y="496">警戒レベル5・3を意味しない</text>
+  </g>
+</svg>

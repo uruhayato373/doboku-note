@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="作業員名簿と再下請負通知書が施工体制台帳に入り、台帳から施工体系図を作る流れと、名簿から転記する元請の届出の関係を示した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker><marker id="b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#d4a017"/></marker></defs>
+<g stroke-width="1.5"><rect x="30" y="28" width="165" height="60" rx="8" fill="#d0e8d0" stroke="#3a7d44"/><rect x="215" y="28" width="165" height="60" rx="8" fill="#e8f0fe" stroke="#2e6da4"/><rect x="30" y="118" width="350" height="68" rx="8" fill="#e8f0fe" stroke="#2e6da4"/><rect x="30" y="216" width="350" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4"/><rect x="30" y="316" width="350" height="128" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/></g>
+<g fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#a)"><path d="M112 88V116"/><path d="M297 88V116"/><path d="M205 186V214"/></g>
+<path d="M30 58H14V380H28" fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M205 324V436M38 380H372" stroke="#d7d7d7"/>
+<g text-anchor="middle" fill="#222" font-weight="700"><g font-size="14"><text x="112" y="54">作業員名簿</text><text x="297" y="54">再下請負通知書</text><text x="205" y="146">施工体制台帳</text><text x="205" y="242">施工体系図</text></g><text x="205" y="468" font-size="13">同じ事実は一か所を正にして、ほかは写す</text></g>
+<g text-anchor="middle" font-size="11" fill="#1a3a5c"><text x="112" y="74">人の情報の正本</text><text x="297" y="74">下請が元請へ提出</text><text x="205" y="168" font-size="12">会社・契約・技術者・従事者を一冊にまとめる</text><text x="205" y="262" font-size="12">台帳から分担関係を写して掲示</text></g>
+<g font-size="11" fill="#555"><text x="30" y="18">法令に基づく書類</text><text x="30" y="306">元請が現場で定める書類（名簿から転記）</text><text x="200" y="488" text-anchor="middle">直すときも、正の書類から直して写し直す</text></g>
+<g font-size="12" font-weight="700" fill="#222"><text x="42" y="346">持込機械等使用届</text><text x="217" y="346">新規入場者教育報告書</text><text x="42" y="406">作業間連絡調整書</text><text x="217" y="406">火気使用届</text></g>
+<g font-size="11" fill="#555"><text x="42" y="364">運転者の氏名と資格</text><text x="217" y="364">受講者と受講日</text><text x="42" y="424">各社の責任者</text><text x="217" y="424">作業者と責任者</text></g>
+</svg>

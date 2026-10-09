@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="分野別に、点検で最も低い側の区分（Ⅲ・Ⅳ相当）とされた割合。港湾の係留施設が51.5%で最も高く、下水道管路は4.5%" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:12px} /* ink-strong */
+.k{font-weight:bold}.v{font-size:13px;font-weight:bold}.s{font-size:11px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+</style></defs>
+<text x="20" y="30" class="k">最も低い側の区分（Ⅲ・Ⅳ相当）の割合</text>
+<path d="M138 46 V430" stroke="#d7d7d7" stroke-width="1"/>
+<text x="20" y="74">港湾 係留施設</text><rect x="138" y="58" width="171.7" height="24" class="b"/><text x="315.7" y="75" class="v">51.5%</text>
+<text x="20" y="114">海岸 堤防・護岸</text><rect x="138" y="98" width="109.7" height="24" class="b"/><text x="253.7" y="115" class="v">32.9%</text>
+<text x="20" y="154">海岸 水門・樋門</text><rect x="138" y="138" width="93.3" height="24" class="b"/><text x="237.3" y="155" class="v">28.0%</text>
+<text x="20" y="194">道路 トンネル</text><rect x="138" y="178" width="93.0" height="24" class="b"/><text x="237.0" y="195" class="v">27.9%</text>
+<text x="20" y="234">河川 国の構造物</text><rect x="138" y="218" width="91.0" height="24" class="b"/><text x="235.0" y="235" class="v">27.3%</text>
+<text x="20" y="274">ダム</text><rect x="138" y="258" width="38.7" height="24" class="b"/><text x="182.7" y="275" class="v">11.6%</text>
+<text x="20" y="314">道路 橋梁</text><rect x="138" y="298" width="24.7" height="24" class="b"/><text x="168.7" y="315" class="v">7.4%</text>
+<text x="20" y="354">砂防設備</text><rect x="138" y="338" width="24.3" height="24" class="b"/><text x="168.3" y="355" class="v">7.3%</text>
+<text x="20" y="394">下水道 管路</text><rect x="138" y="378" width="15.0" height="24" class="b"/><text x="159.0" y="395" class="v">4.5%</text>
+<text x="20" y="438" class="s">※区分の定義は分野ごとに異なる（比較のため換算）</text>
+<text x="20" y="456" class="s">※単位は海岸の堤防・護岸等と下水道管路が延長、他は施設数</text>
+<text x="20" y="474" class="s">※砂防設備は令和6年3月末、他は令和7年3月時点</text>
+</svg>

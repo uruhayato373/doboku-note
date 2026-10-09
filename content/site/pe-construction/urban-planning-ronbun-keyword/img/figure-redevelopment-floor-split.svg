@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="細分化された敷地が、再開発後の建物で権利床と保留床に分かれる仕組みの図" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:13px} /* ink-strong */
+.h{font-size:14px;font-weight:bold}.s{font-size:12px;fill:#555}.m{text-anchor:middle} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.g{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1} /* surface */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<text x="20" y="28" class="h">事業前</text><text x="220" y="28" class="h">事業後</text>
+<rect x="20" y="42" width="130" height="88" rx="6" class="g"/><text x="85" y="92" class="m">敷地A</text>
+<rect x="20" y="140" width="130" height="88" rx="6" class="g"/><text x="85" y="190" class="m">敷地B</text>
+<rect x="20" y="238" width="130" height="88" rx="6" class="g"/><text x="85" y="288" class="m">敷地C</text>
+<text x="85" y="348" class="m s">小さく分かれた敷地</text>
+<path d="M156 184 H210" class="a"/>
+<rect x="220" y="42" width="150" height="118" class="w"/>
+<text x="295" y="92" class="m h">保留床</text><text x="295" y="114" class="m s">事業者などへ売却</text>
+<rect x="220" y="160" width="150" height="166" class="b"/>
+<text x="295" y="236" class="m h">権利床</text><text x="295" y="258" class="m s">元の地権者が取得</text>
+<text x="295" y="348" class="m s">共同化した1棟の建物</text>
+<rect x="20" y="370" width="360" height="52" rx="8" class="w"/>
+<text x="200" y="392" class="m h">保留床の売却収入は、</text>
+<text x="200" y="412" class="m">工事費など事業費の財源になる</text>
+<rect x="20" y="434" width="360" height="52" rx="8" class="g"/>
+<text x="200" y="456" class="m">権利床は従前の権利の価額に</text>
+<text x="200" y="476" class="m">見合う床へ置き換える（権利変換）</text>
+</svg>

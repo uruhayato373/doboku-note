@@ -117,7 +117,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 | スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
 | Shorts 生成 | `yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT 専用再描画・4 問全展開・`--ig-mode`） | 実装済 |
-| Shorts 投稿 | legacy=`youtube-schedule.json`、動画パック=`youtube.json`＋`video-content-status.json` | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
+| Shorts 投稿 | legacy=`youtube-schedule.json`、動画パック=`youtube.json`（計画）＋`content/registry/`（状態。写しは `video-content-status.json`） | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
 | 台帳検証 | `validate-schedule.mjs`（publishAt 重複・perDay 超過・videoId 重複） | 実装済 |
 | タイトル | `yt-shorts-title-writer`（Generator・論点ベース 40 字以内） | 実装済（200 本入力済み） |
 | 品質採点 | `yt-shorts-publisher-qa`（Evaluator・4 軸ルーブリック） | 実装済 |

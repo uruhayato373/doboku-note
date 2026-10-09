@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="共同企業体の甲型（共同施工方式）と乙型（分担施工方式）の比較。甲型は工事全体を一体で施工し出資比率で配当し、乙型は工区に分けて各構成員が施工し工区ごとに精算する。どちらも構成員は発注者に連帯して責任を負う" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="14" y="14" width="176" height="32" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="210" y="14" width="176" height="32" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="24" y="60" width="156" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="24" y="104" width="93.6" height="26" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="117.6" y="104" width="62.4" height="26" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="220" y="60" width="78" height="36" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="298" y="60" width="78" height="36" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="220" y="104" width="78" height="26" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="298" y="104" width="78" height="26" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="160" width="176" height="170" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="160" width="176" height="170" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="350" width="372" height="120" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+</g>
+<g stroke="#d7d7d7" stroke-width="1">
+<line x1="24" y1="218" x2="180" y2="218"/><line x1="24" y1="270" x2="180" y2="270"/>
+<line x1="220" y1="218" x2="376" y2="218"/><line x1="220" y1="270" x2="376" y2="270"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="13" font-weight="700">
+<text x="102" y="35">甲型（共同施工方式）</text>
+<text x="298" y="35">乙型（分担施工方式）</text>
+</g>
+<g fill="#222" text-anchor="middle" font-size="12">
+<text x="102" y="82">工事全体を一体で施工</text>
+<text x="70" y="121">A社</text>
+<text x="149" y="121">B社</text>
+<text x="259" y="82">工区1</text>
+<text x="337" y="82">工区2</text>
+<text x="259" y="121">A社が施工</text>
+<text x="337" y="121">B社が施工</text>
+</g>
+<g fill="#555" text-anchor="middle" font-size="11">
+<text x="102" y="148">資金・人員・機械を出資比率で拠出</text>
+<text x="298" y="148">工事を分けて各社が担当する</text>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="24" y="180">利益と欠損</text>
+<text x="24" y="236">途中での脱退</text>
+<text x="24" y="288">構成員の破綻</text>
+<text x="220" y="180">利益と欠損</text>
+<text x="220" y="236">途中での脱退</text>
+<text x="220" y="288">構成員の破綻</text>
+<text x="26" y="372">どちらの型も</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="24" y="196">出資比率に応じて配当し、</text>
+<text x="24" y="210">欠損も負担する</text>
+<text x="24" y="252">発注者と構成員全員の承認</text>
+<text x="24" y="304">残る構成員が連帯して</text>
+<text x="24" y="318">工事を完成する</text>
+<text x="220" y="196">工区ごとに精算し、</text>
+<text x="220" y="210">利益は配分しない</text>
+<text x="220" y="252">完成する日まで脱退できない</text>
+<text x="220" y="304">残る構成員が、その</text>
+<text x="220" y="318">分担工事を完成する</text>
+</g>
+<g fill="#222" font-size="12">
+<text x="26" y="396">構成員は発注者に対して連帯して責任を負う</text>
+<text x="26" y="416">解散した後の契約不適合も共同連帯の責任</text>
+<text x="26" y="436">代表者は発注者との折衝、請負代金の請求と</text>
+<text x="26" y="456">受領、企業体の財産の管理を行う権限を持つ</text>
+</g>
+</svg>

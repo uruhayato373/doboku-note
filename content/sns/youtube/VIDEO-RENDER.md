@@ -9,11 +9,11 @@
 Gitの作業ブランチ `codex/character-framing` を最新にし、依存関係を `npm ci --legacy-peer-deps` で用意する。Google Driveアプリでdoboku-noteのvaultを同期してから、リポジトリ直下で実行する。
 
 ```bash
-npm run drive-vault-sync -- --pull --group youtube-approved-cover
+npm run drive-vault-sync -- --pull --group content-media
 npm run check-youtube-cover-handoff -- --local
 ```
 
-現在のA案はDriveの `制作物/動画レンダー/採用カバー/youtube-covers-a-rollout-20260909/` に保存し、`.tmp/video-render/youtube-covers-a-rollout-20260909/` へ復元する。旧 `youtube-covers-20260909/` の原版も保持する。台帳が欠けた画像やハッシュが違う画像は正常扱いにしない。動画生成時にも欠けた採用PNGはDriveから自動pullを試し、取得できなければ停止する。
+採用表紙と締め画像は、2026-10-09 に日付フォルダ・連番名から ID ごとの置き場へ移した（DN-0607・画素は同じ）。Driveの `制作物/コンテンツ/{資格}/{パック}/youtube.{longform|short.{鍵}}/{cover|cta}.{sha8}.png` に保存し、`.tmp/media/` の同じ相対パスへ復元する（[content-registry.md](../../../.claude/knowledge/reference/content-registry.md)「素材の置き場」）。各 `cover-design.json`・`cta-design.json` のパスも新しい置き場を指す。台帳が欠けた画像やハッシュが違う画像は正常扱いにしない。動画生成時にも欠けた採用PNGはDriveから自動pullを試し、取得できなければ停止する。
 
 マウントがない端末ではDriveコネクターを確認する。個別ファイルIDは `.claude/state/assets/drive-manifest.json` の `driveFileId` にある。取得後は上記ローカル検査を通す。
 
@@ -50,4 +50,4 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 
 2026-09-09採用のA案（橋＋ノートのロゴ）は、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
 
-共通素材は `.tmp/video-render/youtube-cta-20260909/`、各動画用の締め画像は `.tmp/video-render/youtube-cta-a-rollout-20260909/`。これらもDrive vaultから復元する。各 `cta-design.json` が締め画像の入力とSHA-256を持つ。確認版の「工事概要7項目」は採用時のCTA画像を保持する。動画パックのShortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。画像の全展開と動画本体・YouTubeの移行完了は別で、適用状況は更新状態の `preparation.ctaDesign` と `migration` で確認する。
+ブランド共通の素材（ロゴ・通常動画の背景・Shorts の締め画像）は `.tmp/media/_brand/bridge-notebook-a/`（`config/video-brand.json` が指す）、各動画用の締め画像は各パックの `youtube.longform/cta.{sha8}.png`。これらもDrive vault（group content-media）から復元する。各 `cta-design.json` が締め画像の入力とSHA-256を持つ。確認版の「工事概要7項目」は採用時のCTA画像を保持する。動画パックのShortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。画像の全展開と動画本体・YouTubeの移行完了は別で、適用状況は更新状態の `preparation.ctaDesign` と `migration` で確認する。

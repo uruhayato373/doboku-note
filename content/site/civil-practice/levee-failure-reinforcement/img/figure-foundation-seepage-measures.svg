@@ -1,0 +1,105 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は河川砂防技術基準の浸透に対する強化（パイピング対策・断面拡大）を再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="基礎地盤の漏水対策4種の断面比較。断面拡大は裏腹付けで浸透路を長くして押えにもなり、川表遮水は止水矢板で透水層への入口をふさぎ、ブランケットは高水敷を覆って浸透路を長くし、堤内基盤排水は裏法尻のドレーンで水を抜く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tl { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tn { font-weight: bold; fill: #1a3a5c; }
+      .tm { fill: #8a8a8a; }
+      .tk { fill: #222; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .w { fill: #e8f0fe; }
+      .ws { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .lv { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-linejoin: round; }
+      .sd { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .im { fill: #d7d7d7; }
+      .m { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .ad { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <g transform="translate(0,6)">
+    <rect class="p" x="10" y="0" width="380" height="116" rx="8"/>
+    <circle class="b" cx="28" cy="16" r="8"/><text class="tn" x="28" y="20" text-anchor="middle">1</text>
+    <text class="tl" x="42" y="20">断面拡大（裏腹付け）</text>
+    <polygon class="w" points="20,56 81,56 60,70 20,70"/>
+    <line class="ws" x1="20" y1="56" x2="81" y2="56"/>
+    <rect class="sd" x="12" y="70" width="228" height="22"/>
+    <rect class="im" x="12" y="92" width="228" height="16"/>
+    <text x="172" y="88">透水層</text>
+    <text class="tk" x="172" y="101">不透水層</text>
+    <polygon class="lv" points="60,70 96,46 116,46 152,70"/>
+    <polygon class="m" points="116,46 190,70 152,70"/>
+    <line x1="116" y1="46" x2="152" y2="70" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+    <line class="ar" x1="24" y1="76" x2="221" y2="76" marker-end="url(#ah)"/>
+    <text x="252" y="36" class="tn">足元を厚くする</text>
+    <text x="252" y="52">断面を広げて</text>
+    <text x="252" y="68">浸透路を長く、</text>
+    <text x="252" y="84">押えにもなる</text>
+  </g>
+
+  <g transform="translate(0,128)">
+    <rect class="p" x="10" y="0" width="380" height="116" rx="8"/>
+    <circle class="b" cx="28" cy="16" r="8"/><text class="tn" x="28" y="20" text-anchor="middle">2</text>
+    <text class="tl" x="42" y="20">川表遮水工法（止水矢板）</text>
+    <polygon class="w" points="20,56 81,56 60,70 20,70"/>
+    <line class="ws" x1="20" y1="56" x2="81" y2="56"/>
+    <rect class="sd" x="12" y="70" width="228" height="22"/>
+    <rect class="im" x="12" y="92" width="228" height="16"/>
+    <text x="172" y="88">透水層</text>
+    <text class="tk" x="172" y="101">不透水層</text>
+    <polygon class="lv" points="60,70 96,46 116,46 152,70"/>
+    <text class="tm" x="24" y="50">川側</text>
+    <text class="tm" x="160" y="50">堤内地</text>
+    <rect class="m" x="58" y="64" width="5" height="28"/>
+    <line class="ar" x1="22" y1="76" x2="54" y2="76" marker-end="url(#ah)"/>
+    <line class="ad" x1="67" y1="76" x2="222" y2="76" marker-end="url(#ah)"/>
+    <text x="252" y="36" class="tn">入口をふさぐ</text>
+    <text x="252" y="52">止水矢板で</text>
+    <text x="252" y="68">透水層に入る</text>
+    <text x="252" y="84">水量を減らす</text>
+  </g>
+
+  <g transform="translate(0,250)">
+    <rect class="p" x="10" y="0" width="380" height="116" rx="8"/>
+    <circle class="b" cx="28" cy="16" r="8"/><text class="tn" x="28" y="20" text-anchor="middle">3</text>
+    <text class="tl" x="42" y="20">ブランケット工法（高水敷の被覆）</text>
+    <polygon class="w" points="20,56 81,56 60,70 20,70"/>
+    <line class="ws" x1="20" y1="56" x2="81" y2="56"/>
+    <rect class="sd" x="12" y="70" width="228" height="22"/>
+    <rect class="im" x="12" y="92" width="228" height="16"/>
+    <text x="172" y="88">透水層</text>
+    <text class="tk" x="172" y="101">不透水層</text>
+    <polygon class="lv" points="60,70 96,46 116,46 152,70"/>
+    <rect class="m" x="36" y="65" width="24" height="5"/>
+    <polyline class="ar" points="28,60 28,76 221,76" marker-end="url(#ah)"/>
+    <text x="252" y="36" class="tn">距離をかせぐ</text>
+    <text x="252" y="52">高水敷を覆い</text>
+    <text x="252" y="68">浸透路を長くして</text>
+    <text x="252" y="84">圧力を下げる</text>
+  </g>
+
+  <g transform="translate(0,372)">
+    <rect class="p" x="10" y="0" width="380" height="116" rx="8"/>
+    <circle class="b" cx="28" cy="16" r="8"/><text class="tn" x="28" y="20" text-anchor="middle">4</text>
+    <text class="tl" x="42" y="20">堤内基盤排水工法（裏法尻のドレーン）</text>
+    <polygon class="w" points="20,56 81,56 60,70 20,70"/>
+    <line class="ws" x1="20" y1="56" x2="81" y2="56"/>
+    <rect class="sd" x="12" y="70" width="228" height="22"/>
+    <rect class="im" x="12" y="92" width="228" height="16"/>
+    <text x="172" y="88">透水層</text>
+    <text class="tk" x="172" y="101">不透水層</text>
+    <polygon class="lv" points="60,70 96,46 116,46 152,70"/>
+    <rect class="m" x="156" y="66" width="5" height="24"/>
+    <line class="ar" x1="24" y1="76" x2="150" y2="76" marker-end="url(#ah)"/>
+    <line class="ar" x1="158" y1="62" x2="158" y2="50" marker-end="url(#ah)"/>
+    <text x="168" y="62">排水</text>
+    <text x="252" y="36" class="tn">出口で抜く</text>
+    <text x="252" y="52">裏法尻のドレーン</text>
+    <text x="252" y="68">で水を抜き、</text>
+    <text x="252" y="84">圧力を下げる</text>
+  </g>
+</svg>

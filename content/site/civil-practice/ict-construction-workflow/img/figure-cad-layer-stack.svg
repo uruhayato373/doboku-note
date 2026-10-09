@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="二次元CADの図面を、線形、構造物、寸法、図枠の四枚のレイヤに分けて重ね、一枚の図面にまとめる様子。SXFで渡るものと、変換後に確かめるものを下に示す">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<polygon class="r g" points="56,14 266,14 226,68 16,68"/>
+<polygon points="59.6,20.5 252.8,20.5 222.4,61.5 29.2,61.5" fill="none" stroke="#555" stroke-width="1"/>
+<text class="h" x="288" y="46">図枠・表題</text>
+<polygon class="r w" points="56,84 266,84 226,138 16,138"/>
+<path d="M63.2 108.3 L222.8 108.3 M71.2 97.5 L55.2 119.1 M230.8 97.5 L214.8 119.1" stroke="#555" stroke-width="1" fill="none"/><path d="M86.2 128.3 L149.2 128.3" stroke="#8a8a8a" stroke-width="3" fill="none"/>
+<text class="h" x="288" y="116">寸法・文字</text>
+<polygon class="r p" points="56,154 266,154 226,208 16,208"/>
+<polygon points="109.0,167.5 193.0,167.5 173.0,194.5 89.0,194.5" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><path d="M99.0 181.0 L183.0 181.0" stroke="#3a7d44" stroke-width="1" fill="none"/>
+<text class="h" x="288" y="186">構造物</text>
+<polygon class="r n" points="56,224 266,224 226,278 16,278"/>
+<path d="M40.6 261.8 C125.5 229.4 144.0 275.3 237.4 245.6" stroke="#2e6da4" stroke-width="2" fill="none"/>
+<text class="h" x="288" y="256">線形・地形</text>
+<path class="a" d="M124 282 h12 l-6 12 z"/>
+<polygon class="r g" points="56,300 266,300 226,354 16,354"/>
+<polygon points="59.6,306.5 252.8,306.5 222.4,347.5 29.2,347.5" fill="none" stroke="#555" stroke-width="1"/>
+<path d="M63.2 324.3 L222.8 324.3 M71.2 313.5 L55.2 335.1 M230.8 313.5 L214.8 335.1" stroke="#555" stroke-width="1" fill="none"/><path d="M86.2 344.3 L149.2 344.3" stroke="#8a8a8a" stroke-width="3" fill="none"/>
+<polygon points="109.0,313.5 193.0,313.5 173.0,340.5 89.0,340.5" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><path d="M99.0 327.0 L183.0 327.0" stroke="#3a7d44" stroke-width="1" fill="none"/>
+<path d="M40.6 337.8 C125.5 305.4 144.0 351.3 237.4 321.6" stroke="#2e6da4" stroke-width="2" fill="none"/>
+<text class="h" x="288" y="332">一枚の図面</text>
+<text class="s" x="288" y="350">重ねて印刷</text>
+<rect class="r p" x="15" y="388" width="178" height="98" rx="8"/>
+<text class="h" x="27" y="412">SXFで渡るもの</text>
+<text x="27" y="434">図形（線・円・文字）</text><text x="27" y="454">レイヤ名</text><text x="27" y="474">表示・非表示</text>
+<rect class="r w" x="207" y="388" width="178" height="98" rx="8"/>
+<text class="h" x="219" y="412">変換後に確かめる</text>
+<text x="219" y="434">レイヤごとの線種・色</text><text x="219" y="454">極端に短い線</text><text x="219" y="474">OLEで貼った表</text>
+</svg>

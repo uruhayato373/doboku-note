@@ -1,0 +1,57 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は防災基本計画と土木学会提言の二段階の地震動の考え方を再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地震の強さと起きやすさの関係を示す曲線に、レベル1とレベル2の位置を置き、それぞれに許す被害と計算の流儀を並べた図。レベル1はよく起きる地震で機能を保ち弾性範囲で照査し、レベル2はめったに起きない巨大地震で傷は出ても倒壊させず塑性変形を見込んで照査する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tn { font-size: 12px; fill: #222; }
+      .tm { fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .cv { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .gd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .c1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .c2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sm { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="8" width="380" height="232" rx="8"/>
+  <line class="ax" x1="50" y1="200" x2="368" y2="200" marker-end="url(#ah)"/>
+  <line class="ax" x1="50" y1="200" x2="50" y2="28" marker-end="url(#ah)"/>
+  <text x="58" y="36">起きやすさ</text>
+  <text x="366" y="220" text-anchor="end">地震の強さ</text>
+  <path class="cv" d="M60 70 C100 150 200 185 360 192"/>
+  <line class="gd" x1="91" y1="113" x2="91" y2="200"/>
+  <line class="gd" x1="292" y1="187" x2="292" y2="200"/>
+  <circle cx="91" cy="113" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="292" cy="187" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text class="tl" x="112" y="76">レベル1</text>
+  <text x="112" y="92">供用期間に1〜2度程度</text>
+  <text class="tl" x="236" y="146">レベル2</text>
+  <text x="236" y="162">確率は低い巨大地震</text>
+
+  <rect class="c1" x="10" y="252" width="185" height="190" rx="8"/>
+  <text class="tl" x="22" y="274">レベル1の照査</text>
+  <text class="tm" x="22" y="298">許す被害</text>
+  <text class="tn" x="22" y="316">ほぼ無被害で機能を保つ</text>
+  <text class="tn" x="22" y="334">地震後もそのまま使う</text>
+  <text class="tm" x="22" y="362">計算の流儀</text>
+  <text class="tn" x="22" y="380">弾性の範囲に収める</text>
+  <text class="tm" x="22" y="408">代表的な設計法</text>
+  <text class="tn" x="22" y="426">震度法（許容応力度で照査）</text>
+
+  <rect class="c2" x="205" y="252" width="185" height="190" rx="8"/>
+  <text class="tl" x="217" y="274">レベル2の照査</text>
+  <text class="tm" x="217" y="298">許す被害</text>
+  <text class="tn" x="217" y="316">傷は出ても人命を守る</text>
+  <text class="tn" x="217" y="334">重要な橋は速やかな回復</text>
+  <text class="tm" x="217" y="362">計算の流儀</text>
+  <text class="tn" x="217" y="380">塑性変形を見込む</text>
+  <text class="tm" x="217" y="408">代表的な設計法</text>
+  <text class="tn" x="217" y="426">保有水平耐力法・動的解析</text>
+
+  <rect class="sm" x="10" y="454" width="380" height="36" rx="6"/>
+  <text class="tn" x="200" y="477" text-anchor="middle">水準が上がると、許す被害と計算の流儀が切り替わる</text>
+</svg>

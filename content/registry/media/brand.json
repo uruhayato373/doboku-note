@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scope": "brand",
+  "media": [
+    {
+      "id": "brand/bridge-notebook-a/background-longform",
+      "role": "background-longform",
+      "type": "image/png",
+      "sha256": "dc0b07b9dd9013a93ebc9dc0cc8720298999a157b51426fd6b4119c3a6d3a91a",
+      "bytes": 1907303,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/_brand/bridge-notebook-a/background-longform.dc0b07b9.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "config/video-brand.json#longformBackground"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-20260909/background-longform-a.png"
+      ]
+    },
+    {
+      "id": "brand/bridge-notebook-a/cta-shorts",
+      "role": "cta-shorts",
+      "type": "image/png",
+      "sha256": "68cae2be6a0ab494ea1a9a6fd1753eacbb781dfc53d307d0fd7db4902ca442c8",
+      "bytes": 2128875,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/_brand/bridge-notebook-a/cta-shorts.68cae2be.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "config/video-brand.json#shorts"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-20260909/cta-shorts-a.png"
+      ]
+    },
+    {
+      "id": "brand/bridge-notebook-a/logo",
+      "role": "logo",
+      "type": "image/png",
+      "sha256": "a670dee38dcdd41953a0d67f48d28ca24716afacc3a08549c4c1984709339c04",
+      "bytes": 494837,
+      "width": 2172,
+      "height": 724,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/_brand/bridge-notebook-a/logo.a670dee3.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "config/video-brand.json#logo"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-20260909/logo-a-transparent.png"
+      ]
+    }
+  ]
+}

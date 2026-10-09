@@ -12,6 +12,7 @@
 //   node scripts/drive-vault-sync.mjs --group textbook-source-pdf --from-r2 --dedupe-by-sha --commit
 //                                                                                   # R2 にしか無いものを vault へ。既に vault にある同一 sha256 は採用（adopt）
 //   node scripts/drive-vault-sync.mjs --group X --verify [--deep] [--cloud] --out .tmp/x-ok.txt
+//   node scripts/drive-vault-sync.mjs --group X --verify --deep --cloud --commit   # 3 者が一致した行に Drive のファイル ID（driveFileId）と verifiedAt を書く
 //                                                                                   # local ↔ 台帳 ↔ vault（--cloud で Drive API の md5 も）
 //   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/'  # vault → repo
 //   node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit
@@ -27,8 +28,7 @@ import { dirname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, vaultAbsFor,
-  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault,
-} from './lib/drive-vault.mjs';
+  realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault, immutableConflict } from './lib/drive-vault.mjs';
 import { loadManifest as loadR2Manifest, loadConfig as loadR2Config, loadEnvLocal, makeS3, hasR2Credentials, imageSize } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -144,6 +144,8 @@ function listVaultTargets(cfg, group, mount) {
 // ------------------------------------------------------------------ push（repo/R2 → vault）
 
 async function push(cfg, group, mount, manifest) {
+  // 書き換えない group（immutable）は、名前に中身の sha を入れて別名で置く前提。上書きの経路を作らない（DN-0589 の再発防止）
+  if (FORCE && group?.immutable) die('--force は書き換えない group（' + group.id + '）では使えない。描き直したものは別名（sha 入り）で置く');
   let targets = FROM_R2 ? listR2Targets(cfg, group) : FROM_VAULT ? listVaultTargets(cfg, group, mount) : listLocalTargets(cfg, group);
   const totalCount = targets.length;
   if (totalCount === 0) {
@@ -244,6 +246,8 @@ async function push(cfg, group, mount, manifest) {
     else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
 
     const cur = manifest.entries[r.rel];
+    const conflict = immutableConflict(r.group, r.rel, expected.sha256, cur);
+    if (conflict) { failures.push({ rel: r.rel, stage: 'immutable', msg: conflict }); return; }
     if (!FORCE && cur && cur.sha256 === expected.sha256 && existsSync(vaultAbsFor(mount.root, cur.vaultPath))) { unchanged++; return; }
     if (cur?.adopted && expected.sha256 !== cur.sha256) throw new Error(r.rel + ': 正本への別名参照から内容を変更できない。正本キーを使うこと');
 
@@ -278,6 +282,7 @@ async function push(cfg, group, mount, manifest) {
         unchanged++;
         return;
       }
+      if (r.group?.immutable) { failures.push({ rel: r.rel, stage: 'immutable', msg: 'vault に別の中身がある。書き換えない group なので上書きしない' }); return; }
     }
 
     mkdirSync(dirname(dst), { recursive: true });
@@ -357,7 +362,7 @@ async function verify(cfg, group, mount, manifest) {
       if (r.status !== 0) die('rclone lsjson が失敗: ' + d + ' — ' + String(r.stderr).slice(0, 200));
       for (const o of JSON.parse(r.stdout || '[]')) {
         const md5 = o.Hashes?.md5 || o.Hashes?.MD5;
-        if (md5) cloudMd5.set(toVaultRel(d + '/' + o.Path), { md5, size: o.Size });
+        if (md5) cloudMd5.set(toVaultRel(d + '/' + o.Path), { md5, size: o.Size, id: o.ID });
       }
       console.log('  cloud: ' + d + ' — ' + cloudMd5.size + ' オブジェクトのハッシュを取得（累計）');
     }
@@ -366,6 +371,7 @@ async function verify(cfg, group, mount, manifest) {
   const step = DEEP ? 1 : Math.max(1, Math.floor(entries.length / SAMPLE));
   const ok = [];
   const bad = [];
+  const cloudIds = new Map();
   let hashed = 0;
   for (let i = 0; i < entries.length; i++) {
     const [rel, e] = entries[i];
@@ -376,6 +382,7 @@ async function verify(cfg, group, mount, manifest) {
       if (!c) { bad.push([rel, 'クラウド側に無い（まだ同期されていない）: ' + e.vaultPath]); continue; }
       if (c.md5 !== e.md5) { bad.push([rel, 'クラウド側の md5 が台帳と違う']); continue; }
       if (c.size !== e.bytes) { bad.push([rel, 'クラウド側の bytes が台帳と違う']); continue; }
+      if (c.id) cloudIds.set(rel, c.id);
     }
     if (i % step === 0) {
       hashed++;
@@ -395,6 +402,22 @@ async function verify(cfg, group, mount, manifest) {
   if (OUT_LIST) { writeFileSync(OUT_LIST, ok.join('\n') + '\n'); console.log('  一致した一覧 → ' + OUT_LIST); }
   if (bad.length) { console.error('[' + NAME + ' --verify] FAIL: 1 件でも欠けたら R2 側の削除もローカル削除もしない。'); process.exit(1); }
   console.log('[' + NAME + ' --verify] ✓ ' + (cloudMd5 ? '台帳・vault・クラウドの 3 者が一致' : '台帳と vault が一致（クラウド到達は --cloud で確認）'));
+  // Drive のファイル ID は、全件の sha256 を vault で照合し（--deep）、クラウドの md5・bytes も一致した行にだけ書く
+  if (COMMIT && cloudMd5 && DEEP) {
+    const now = new Date().toISOString();
+    let recorded = 0;
+    for (const [rel, id] of cloudIds) {
+      const e = manifest.entries[rel];
+      if (e.driveFileId && e.driveFileId !== id) { console.error('    Drive のファイル ID が台帳と違う（書き換えない）: ' + rel); process.exitCode = 1; continue; }
+      e.driveFileId = id;
+      e.verifiedAt = now;
+      recorded++;
+    }
+    writeDriveManifestAtomic(manifest);
+    console.log('  Drive のファイル ID と verifiedAt を ' + recorded + ' 件書いた（台帳）');
+  } else if (COMMIT) {
+    console.log('  --commit は --deep --cloud と一緒のときだけ台帳に書く（今回は書いていない）');
+  }
 }
 
 // ------------------------------------------------------------------ pull（vault → repo）

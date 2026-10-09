@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="建設現場への派遣の可否。現場で直接作業する人は禁止、現場事務所の事務職員は事務だけなら当然には禁止でない、施工管理は派遣の対象、専任の主任技術者・監理技術者は派遣の対象にならない">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h14{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.t13{font-size:13px}
+.b13{font-size:13px;font-weight:bold}
+.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}
+.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}
+.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}</style></defs>
+<text class="s" x="200" y="18" text-anchor="middle">建設現場へ派遣できる人、できない人</text>
+<rect class="bd" x="12" y="30" width="376" height="107" rx="6"/>
+<text class="h14" x="24" y="60">現場で直接作業する人</text>
+<text class="b13" x="376" y="60" text-anchor="end">禁止</text>
+<text class="t13" x="24" y="88">土木・建築などの作業や、その準備の作業。</text>
+<text class="t13" x="24" y="110">建設業務に当たり、派遣できない</text>
+<rect class="bw" x="12" y="147" width="376" height="107" rx="6"/>
+<text class="h14" x="24" y="177">現場事務所の事務職員</text>
+<text class="b13" x="376" y="177" text-anchor="end">実態で判断</text>
+<text class="t13" x="24" y="205">事務だけなら当然には禁止されない。</text>
+<text class="t13" x="24" y="227">建設業務を一部でも行えば、派遣全体が違法になる</text>
+<rect class="bp" x="12" y="264" width="376" height="107" rx="6"/>
+<text class="h14" x="24" y="294">施工管理を行う人</text>
+<text class="b13" x="376" y="294" text-anchor="end">派遣できる</text>
+<text class="t13" x="24" y="322">施工計画・工程・品質・安全の管理。</text>
+<text class="t13" x="24" y="344">建設業務には当たらない</text>
+<rect class="bd" x="12" y="381" width="376" height="107" rx="6"/>
+<text class="h14" x="24" y="411">専任の主任・監理技術者</text>
+<text class="b13" x="376" y="411" text-anchor="end">対象外</text>
+<text class="t13" x="24" y="439">直接的かつ恒常的な雇用関係が必要なため、</text>
+<text class="t13" x="24" y="461">施工管理が派遣できても、この席には充てられない</text>
+</svg>

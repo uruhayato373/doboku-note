@@ -1,0 +1,79 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「鉄道・地下構造物」の軌間の区分。特定の書籍図の複製・トレースではない。軌間の値は鉄道に関する技術上の基準を定める省令等の解釈基準（第12条関係）による -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="狭軌1,067mmと標準軌1,435mmについて、左右レール頭部の内側どうしの最短距離として軌間を測る位置を断面の模式図で示し、両者の差368mmを帯で比べた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-role { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-frame { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dim   { stroke: #b22234; stroke-width: 1.5; }
+      .dim-head { fill: #b22234; }
+      .bracket { stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">軌間＝左右レール頭部の内側どうしの最短距離（模式図）</text>
+
+  <!-- 狭軌 1,067mm -->
+  <rect class="box-frame" x="20" y="28" width="360" height="170" rx="6"/>
+  <text class="t-name" x="35" y="48">狭軌　1,067mm</text>
+  <text class="t-role" x="366" y="48" text-anchor="end">国内の在来線（JR）</text>
+
+  <rect class="box-b" x="88.34" y="84" width="8" height="24"/>
+  <rect class="box-b" x="75.34" y="108" width="34" height="6" rx="2"/>
+  <rect class="box-b" x="81.34" y="72" width="22" height="12" rx="3"/>
+  <rect class="box-b" x="303.66" y="84" width="8" height="24"/>
+  <rect class="box-b" x="290.66" y="108" width="34" height="6" rx="2"/>
+  <rect class="box-b" x="296.66" y="72" width="22" height="12" rx="3"/>
+
+  <line class="dim" x1="111.34" y1="78" x2="288.66" y2="78"/>
+  <polygon class="dim-head" points="103.34,78 111.34,74.5 111.34,81.5"/>
+  <polygon class="dim-head" points="296.66,78 288.66,74.5 288.66,81.5"/>
+  <text class="t-name" x="200" y="104" text-anchor="middle">軌間 1,067mm</text>
+
+  <text class="t-desc" x="35" y="140">レール頭部の内側側面どうしの最短距離を測る</text>
+  <text class="t-desc" x="35" y="158">標準軌（1,435mm）より狭い軌間は、すべて狭軌</text>
+  <text class="t-desc" x="35" y="176">1,372mm・762mmの鉄道も区分の上では狭軌</text>
+
+  <!-- 標準軌 1,435mm -->
+  <rect class="box-frame" x="20" y="208" width="360" height="170" rx="6"/>
+  <text class="t-name" x="35" y="228">標準軌　1,435mm</text>
+  <text class="t-role" x="366" y="228" text-anchor="end">新幹線・一部の私鉄</text>
+
+  <rect class="box-b" x="55" y="264" width="8" height="24"/>
+  <rect class="box-b" x="42" y="288" width="34" height="6" rx="2"/>
+  <rect class="box-b" x="48" y="252" width="22" height="12" rx="3"/>
+  <rect class="box-b" x="337" y="264" width="8" height="24"/>
+  <rect class="box-b" x="324" y="288" width="34" height="6" rx="2"/>
+  <rect class="box-b" x="330" y="252" width="22" height="12" rx="3"/>
+
+  <line class="dim" x1="78" y1="258" x2="322" y2="258"/>
+  <polygon class="dim-head" points="70,258 78,254.5 78,261.5"/>
+  <polygon class="dim-head" points="330,258 322,254.5 322,261.5"/>
+  <text class="t-name" x="200" y="284" text-anchor="middle">軌間 1,435mm</text>
+
+  <text class="t-desc" x="35" y="320">軌間の区分の基準になる値</text>
+  <text class="t-desc" x="35" y="338">これより広いものが広軌（国内では採用なし）</text>
+  <text class="t-desc" x="35" y="356">新幹線は標準軌であり、広軌ではない</text>
+
+  <!-- 差 -->
+  <rect class="box-frame" x="20" y="388" width="360" height="102" rx="6"/>
+  <text class="t-name" x="35" y="408">標準軌と狭軌の差（縮尺は上の図と同じ）</text>
+
+  <rect class="box-b" x="70" y="420" width="193.32" height="26"/>
+  <rect class="box-w" x="263.32" y="420" width="66.68" height="26"/>
+  <text class="t-role" x="166.66" y="437" text-anchor="middle">1,067mm（狭軌）</text>
+  <text class="t-role" x="296.66" y="437" text-anchor="middle">368mm</text>
+
+  <line class="bracket" x1="70" y1="456" x2="330" y2="456"/>
+  <line class="bracket" x1="70" y1="452" x2="70" y2="460"/>
+  <line class="bracket" x1="330" y1="452" x2="330" y2="460"/>
+  <text class="t-role" x="200" y="476" text-anchor="middle">標準軌 1,435mm ＝ 狭軌 1,067mm ＋ 368mm</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="スマートフォンのLiDARを出来形管理に使えるかの判断順。要領の対象か、精度確認試験を満たすか、点の細かさが足りるかを順に確かめ、満たさなければ進捗確認や概算に限る">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<rect class="r n" x="15" y="14" width="210" height="76" rx="8"/>
+<text class="h" x="27" y="42">工種と規模は要領の対象か</text>
+<text x="27" y="64">土工1,000m³未満・床掘工など</text>
+<text class="s" x="27" y="81">小規模土工編の監督・検査要領</text>
+<path class="a" d="M230 50 v12 l10 -6 z"/>
+<text class="s" x="228" y="44">いいえ</text>
+<rect class="r d" x="270" y="22" width="115" height="60" rx="8"/>
+<text class="c" x="327" y="48">別の方式を</text>
+<text class="c" x="327" y="66">選ぶ</text>
+<path class="a" d="M129 91 h12 l-6 12 z"/>
+<text class="s" x="146" y="107">はい</text>
+<rect class="r n" x="15" y="124" width="210" height="76" rx="8"/>
+<text class="h" x="27" y="152">精度確認試験で</text>
+<text x="27" y="174">出来形の±50mm以内を示せるか</text>
+<text class="s" x="27" y="191">モバイル端末の精度確認試験</text>
+<path class="a" d="M230 160 v12 l10 -6 z"/>
+<text class="s" x="228" y="154">いいえ</text>
+<rect class="r d" x="270" y="132" width="115" height="60" rx="8"/>
+<text class="c" x="327" y="158">条件を変えて</text>
+<text class="c" x="327" y="176">再試験</text>
+<path class="a" d="M129 201 h12 l-6 12 z"/>
+<text class="s" x="146" y="217">はい</text>
+<rect class="r n" x="15" y="234" width="210" height="76" rx="8"/>
+<text class="h" x="27" y="262">点の細かさは足りるか</text>
+<text x="27" y="284">要領の密度（0.1m四方に1点以上）</text>
+<text class="s" x="27" y="301">多点管理の値（単点は0.05m四方）</text>
+<path class="a" d="M230 270 v12 l10 -6 z"/>
+<text class="s" x="228" y="264">いいえ</text>
+<rect class="r d" x="270" y="242" width="115" height="60" rx="8"/>
+<text class="c" x="327" y="268">計測し直す</text>
+<path class="a" d="M129 311 h12 l-6 12 z"/>
+<text class="s" x="146" y="327">はい</text>
+<rect class="r p" x="15" y="334" width="370" height="62" rx="8"/>
+<text class="h" x="27" y="358">出来形計測に使える</text>
+<text x="27" y="378">施工計画書に機種・アプリ・検証方法を記載</text>
+<rect class="r g" x="15" y="412" width="370" height="76" rx="8"/>
+<text class="k" x="27" y="436">対象外・未確認のときは用途を限る</text>
+<text x="27" y="456">進捗の確認、土量の概算に使う</text>
+<text x="27" y="474">出来形や数量の根拠として提出しない</text>
+</svg>

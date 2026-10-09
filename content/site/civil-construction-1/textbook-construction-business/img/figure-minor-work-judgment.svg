@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軽微な建設工事の判定。税込の請負代金に注文者が提供する材料の市場価格と運送賃を加えた額が500万円未満なら許可不要、建築一式工事は1500万円未満。許可が必要かどうかは着工時ではなく請負契約を締結する時点で決まる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-big { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">許可が要るかは、次の合計額で数える</text>
+
+  <rect class="bb" x="20" y="26" width="360" height="56" rx="6"/>
+  <text class="t-h" x="200" y="50" text-anchor="middle">請負代金の額（税込）</text>
+  <text class="t-s" x="200" y="68" text-anchor="middle">消費税・地方消費税を含めて数える</text>
+
+  <text class="t-big" x="200" y="104" text-anchor="middle">＋</text>
+
+  <rect class="bw" x="20" y="114" width="360" height="56" rx="6"/>
+  <text class="t-h" x="200" y="138" text-anchor="middle">注文者が提供する材料</text>
+  <text class="t-s" x="200" y="156" text-anchor="middle">市場価格（運送賃がかかるときは運送賃も）</text>
+
+  <line class="ln" x1="200" y1="174" x2="200" y2="196" marker-end="url(#a)"/>
+
+  <rect class="bs" x="20" y="200" width="360" height="52" rx="6"/>
+  <text class="t-h" x="200" y="222" text-anchor="middle">合計額で判定する</text>
+  <text class="t-s" x="200" y="240" text-anchor="middle">契約を分けても、正当な理由がなければ合算する</text>
+
+  <line class="ln" x1="110" y1="256" x2="110" y2="278" marker-end="url(#a)"/>
+  <line class="ln" x1="290" y1="256" x2="290" y2="278" marker-end="url(#a)"/>
+
+  <rect class="bp" x="20" y="282" width="180" height="82" rx="6"/>
+  <text class="t-h" x="110" y="306" text-anchor="middle">500万円未満</text>
+  <text class="t-s" x="110" y="324" text-anchor="middle">建築一式は1,500万円未満</text>
+  <text class="t-h" x="110" y="348" text-anchor="middle">許可は不要</text>
+
+  <rect class="bd" x="212" y="282" width="168" height="82" rx="6"/>
+  <text class="t-h" x="296" y="306" text-anchor="middle">500万円以上</text>
+  <text class="t-s" x="296" y="324" text-anchor="middle">建築一式は1,500万円以上</text>
+  <text class="t-h" x="296" y="348" text-anchor="middle">許可が必要</text>
+
+  <rect class="bs" x="20" y="384" width="360" height="104" rx="6"/>
+  <text class="t-h" x="200" y="408" text-anchor="middle">許可が要る時点は契約の締結</text>
+  <line class="ln" x1="50" y1="450" x2="350" y2="450" marker-end="url(#a)"/>
+  <circle cx="80" cy="450" r="6" fill="#b22234"/>
+  <circle cx="200" cy="450" r="5" fill="#8a8a8a"/>
+  <circle cx="310" cy="450" r="5" fill="#8a8a8a"/>
+  <text class="t-s" x="80" y="436" text-anchor="middle">契約締結</text>
+  <text class="t-s" x="200" y="436" text-anchor="middle">着工</text>
+  <text class="t-s" x="310" y="436" text-anchor="middle">完成</text>
+  <text class="t-s" x="80" y="474" text-anchor="middle">ここで許可が必要</text>
+</svg>

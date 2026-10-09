@@ -1,0 +1,551 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 5,
+      "narration": "工事概要の7項目、上から順に埋めていませんか。",
+      "caption": "工事概要7項目を記入シートで確認",
+      "visual": {
+        "kind": "cover",
+        "heading": "工事概要7項目は「順番」で決まる",
+        "items": [
+          "1級土木 第2次検定・施工経験記述"
+        ]
+      }
+    },
+    {
+      "sceneId": "ng-sheet",
+      "start": 5,
+      "end": 16,
+      "narration": "よくある書き方がこれです。工期は月だけ、工種は道路工のひとことだけ、施工量は工種名の繰り返し。どれも悪い例です。",
+      "caption": "月だけの工期・粗い工種は悪い例",
+      "visual": {
+        "kind": "sheet",
+        "heading": "よくある工事概要（悪い例）",
+        "sheetTitle": "〔設問1〕工事概要",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "○○地区○○道路改良工事"
+          },
+          {
+            "label": "発注者名",
+            "value": "○○県",
+            "state": "ng"
+          },
+          {
+            "label": "工事場所",
+            "value": "○○県○○郡",
+            "state": "ng"
+          },
+          {
+            "label": "工期",
+            "value": "12月〜3月",
+            "state": "ng"
+          },
+          {
+            "label": "主な工種",
+            "value": "道路工",
+            "state": "ng"
+          },
+          {
+            "label": "施工量",
+            "value": "舗装工",
+            "state": "ng"
+          },
+          {
+            "label": "現場での立場",
+            "value": "工事部長",
+            "state": "ng"
+          }
+        ],
+        "character": {
+          "pose": "red-pen",
+          "say": "本文の前に\n気づかれます"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise-1",
+      "start": 16,
+      "end": 26,
+      "narration": "採点者が見るのは、項目どうしのつじつまです。まず、工期と施工量。この期間で、この量を施工できるのか。",
+      "caption": "工期と施工量のつじつま",
+      "visual": {
+        "heading": "工事概要は「項目どうしの整合」で見られる",
+        "items": [
+          "工期 × 施工量：この期間で施工できるか",
+          "工種 × 数量：対応する数量を書いているか"
+        ],
+        "reveal": 1,
+        "character": {
+          "pose": "explaining",
+          "say": "まず\nつじつま"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "premise-2",
+      "start": 26,
+      "end": 37,
+      "narration": "次に、主な工種と施工量。挙げた工種ごとに、対応する数量が書かれているか。この二つの矛盾は、概要だけで見つかります。",
+      "caption": "工種と数量の対応",
+      "visual": {
+        "heading": "工事概要は「項目どうしの整合」で見られる",
+        "items": [
+          "工期 × 施工量：この期間で施工できるか",
+          "工種 × 数量：対応する数量を書いているか"
+        ],
+        "focus": 1,
+        "character": {
+          "pose": "pointing",
+          "say": "概要だけで\n見抜かれる"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "order",
+      "start": 37,
+      "end": 49,
+      "narration": "だから上から順に埋めません。番号の順に決めます。1番は主な工種と施工量、2番が工期、3番が場所、発注者、立場、工事名です。",
+      "caption": "工種・施工量 → 工期 → その他",
+      "visual": {
+        "kind": "sheet",
+        "heading": "埋める順番（番号の順）",
+        "sheetTitle": "〔設問1〕工事概要",
+        "rows": [
+          {
+            "label": "工事名",
+            "order": 3
+          },
+          {
+            "label": "発注者名",
+            "order": 3
+          },
+          {
+            "label": "工事場所",
+            "order": 3
+          },
+          {
+            "label": "工期",
+            "order": 2
+          },
+          {
+            "label": "主な工種",
+            "order": 1
+          },
+          {
+            "label": "施工量",
+            "order": 1
+          },
+          {
+            "label": "現場での立場",
+            "order": 3
+          }
+        ],
+        "character": {
+          "pose": "pointing",
+          "say": "上から順に\n埋めない"
+        }
+      }
+    },
+    {
+      "sceneId": "step1-sheet",
+      "start": 49,
+      "end": 60.5,
+      "narration": "1番。本文で書く施工部分から逆算して、主な工種を挙げます。そして、その工種に対応する数量を、単位つきで施工量に書きます。",
+      "caption": "工種を挙げ、対応する数量を単位つきで",
+      "visual": {
+        "kind": "sheet",
+        "heading": "STEP 1　工種と施工量を対で決める",
+        "sheetTitle": "〔設問1〕工事概要",
+        "rows": [
+          {
+            "label": "工事名",
+            "order": 3
+          },
+          {
+            "label": "発注者名",
+            "order": 3
+          },
+          {
+            "label": "工事場所",
+            "order": 3
+          },
+          {
+            "label": "工期",
+            "order": 2
+          },
+          {
+            "label": "主な工種",
+            "order": 1,
+            "value": "道路土工、排水構造物工",
+            "state": "focus"
+          },
+          {
+            "label": "施工量",
+            "order": 1,
+            "value": "掘削○○m³、盛土○○m³、側溝 L=○○m",
+            "state": "focus"
+          },
+          {
+            "label": "現場での立場",
+            "order": 3
+          }
+        ],
+        "character": {
+          "pose": "explaining",
+          "say": "本文から\n逆算する"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step1-compare",
+      "start": 60.5,
+      "end": 73.5,
+      "narration": "道路工のような粗い書き方では、数量と対応がとれません。道路土工、排水構造物工のように分け、施工量は工種名ではなく、面積や体積で書きます。",
+      "caption": "工種は分けて、数量は面積・体積で",
+      "visual": {
+        "kind": "compare",
+        "heading": "主な工種・施工量の書き方",
+        "rows": [
+          {
+            "label": "主な工種",
+            "ng": "道路工",
+            "ok": "道路土工、\n排水構造物工"
+          },
+          {
+            "label": "施工量",
+            "ng": "舗装工",
+            "ok": "アスファルト舗装\n○○○○m²"
+          }
+        ],
+        "character": {
+          "pose": "red-pen",
+          "say": "工種名だけは\nNG"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step2-sheet",
+      "start": 73.5,
+      "end": 87,
+      "narration": "2番は工期です。年号から年月日まで正確に書きます。書いたら、1番の施工量と見比べて、この数量をこの工期で施工できたと説明できるかを確かめます。",
+      "caption": "工期は年月日まで・数量と見比べる",
+      "visual": {
+        "kind": "sheet",
+        "heading": "STEP 2　工期を数量と突き合わせる",
+        "sheetTitle": "〔設問1〕工事概要",
+        "rows": [
+          {
+            "label": "工事名",
+            "order": 3
+          },
+          {
+            "label": "発注者名",
+            "order": 3
+          },
+          {
+            "label": "工事場所",
+            "order": 3
+          },
+          {
+            "label": "工期",
+            "order": 2,
+            "value": "平成30年12月1日〜令和元年3月10日",
+            "state": "focus"
+          },
+          {
+            "label": "主な工種",
+            "order": 1,
+            "value": "道路土工、排水構造物工"
+          },
+          {
+            "label": "施工量",
+            "order": 1,
+            "value": "掘削○○m³、盛土○○m³、側溝 L=○○m"
+          },
+          {
+            "label": "現場での立場",
+            "order": 3
+          }
+        ],
+        "character": {
+          "pose": "thinking",
+          "say": "この量を\nこの期間で？"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step2-compare",
+      "start": 87,
+      "end": 99.5,
+      "narration": "月だけ、年号の略記だけ、という書き方は避けます。平成30年12月1日から令和元年3月10日まで、のように年号と日付まで入れます。",
+      "caption": "年号と日付まで書く",
+      "visual": {
+        "kind": "compare",
+        "heading": "工期の書き方",
+        "rows": [
+          {
+            "ng": "12月〜3月",
+            "ok": "平成30年12月1日〜令和元年3月10日"
+          },
+          {
+            "ng": "30年5月〜2年7月",
+            "ok": "平成30年5月7日〜令和2年7月31日"
+          }
+        ],
+        "character": {
+          "pose": "pointing",
+          "say": "年号と日付\nまで"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step2-guide",
+      "start": 99.5,
+      "end": 113,
+      "narration": "どの工事を選ぶかの目安もあります。工期2か月以上、完成後おおむね1年から5年の工事です。これは題材選びの目安で、受検の必須条件ではありません。",
+      "caption": "題材選びの目安（必須条件ではない）",
+      "visual": {
+        "heading": "題材選びの目安（受検の必須条件ではない）",
+        "items": [
+          "工期2か月以上（小規模・軽微な工事は評価が低くなるおそれ）",
+          "完成後おおむね1〜5年（施工中・10年以上前は避ける）"
+        ],
+        "character": {
+          "pose": "thinking",
+          "say": "迷ったら\n目安で選ぶ"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step3-place",
+      "start": 113,
+      "end": 121,
+      "narration": "3番。工事場所は、都道府県と市や郡だけで止めず、町名や地先、丁目まで書きます。",
+      "caption": "工事場所は町名・地先まで",
+      "visual": {
+        "kind": "compare",
+        "heading": "STEP 3　工事場所は町名・地先まで",
+        "rows": [
+          {
+            "ng": "○○県○○郡",
+            "ok": "○○県○○郡\n○○町○○地先"
+          },
+          {
+            "ng": "○○県○○市○○町",
+            "ok": "○○県○○市\n○○町○丁目"
+          }
+        ],
+        "character": {
+          "pose": "explaining",
+          "say": "なるべく\n詳しく"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step3-name",
+      "start": 121,
+      "end": 131.5,
+      "narration": "発注者名も同じです。県や省の名前だけで終わらせず、土木事務所や国道事務所の単位まで、正確な名称で書きます。",
+      "caption": "発注者名は事務所の単位まで",
+      "visual": {
+        "kind": "compare",
+        "heading": "発注者名は事務所の単位まで",
+        "rows": [
+          {
+            "ng": "○○県",
+            "ok": "○○県\n○○土木事務所"
+          },
+          {
+            "ng": "国土交通省",
+            "ok": "国土交通省○○地方整備局\n○○国道事務所"
+          }
+        ],
+        "character": {
+          "pose": "pointing",
+          "say": "正式な名称で"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step3-orderer",
+      "start": 131.5,
+      "end": 143.5,
+      "narration": "発注者名は、自社へ直接工事を注文した相手です。元請なら発注機関、一次下請なら元請会社、二次下請なら一次下請会社を書きます。",
+      "caption": "発注者名は自社へ直接注文した相手",
+      "visual": {
+        "kind": "figure",
+        "src": "content/site/civil-construction-1/secondary-experience-writing-guide/img/figure-direct-orderer.svg",
+        "flow": [
+          "発注機関",
+          "元請会社",
+          "一次下請会社",
+          "二次下請会社"
+        ],
+        "heading": "発注者名は「自社へ直接注文した相手」",
+        "items": [
+          "元請：発注機関",
+          "一次下請：元請会社",
+          "二次下請：一次下請会社"
+        ],
+        "character": {
+          "pose": "pointing",
+          "say": "直接の\n注文者"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step3-role",
+      "start": 143.5,
+      "end": 155,
+      "narration": "立場は、会社の役職ではなく現場での立場です。受注者なら現場代理人や現場主任など、発注機関の職員なら監督員などを書きます。",
+      "caption": "立場は会社の役職でなく現場の立場",
+      "visual": {
+        "kind": "compare",
+        "heading": "現場での立場",
+        "okLabel": "現場での立場",
+        "ngLabel": "会社の役職",
+        "rows": [
+          {
+            "label": "受注者側",
+            "ng": "工事部長・課長",
+            "ok": "現場代理人・現場主任"
+          },
+          {
+            "label": "発注者側",
+            "ng": "技師・主査",
+            "ok": "監督員・主任監督員"
+          }
+        ],
+        "character": {
+          "pose": "explaining",
+          "say": "現場での\n立場を書く"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check",
+      "start": 155,
+      "end": 166.5,
+      "narration": "最後に一貫チェックです。本文に書く現場状況や技術的課題が、概要の工種、数量、工期から自然に出てくるかを読み返します。",
+      "caption": "本文の課題は概要から出てくるか",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仕上げ　概要と本文の一貫チェック",
+        "sheetTitle": "〔設問1〕工事概要（記入イメージ）",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "○○地区○○道路改良工事",
+            "state": "ok"
+          },
+          {
+            "label": "発注者名",
+            "value": "○○県○○土木事務所",
+            "state": "ok"
+          },
+          {
+            "label": "工事場所",
+            "value": "○○県○○郡○○町○○地先",
+            "state": "ok"
+          },
+          {
+            "label": "工期",
+            "value": "平成30年12月1日〜令和元年3月10日",
+            "state": "ok"
+          },
+          {
+            "label": "主な工種",
+            "value": "道路土工、排水構造物工",
+            "state": "ok"
+          },
+          {
+            "label": "施工量",
+            "value": "掘削○○m³、盛土○○m³、側溝 L=○○m",
+            "state": "ok"
+          },
+          {
+            "label": "現場での立場",
+            "value": "現場代理人",
+            "state": "ok"
+          }
+        ],
+        "character": {
+          "pose": "reading",
+          "say": "本文と概要を\n往復する"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check-2",
+      "start": 166.5,
+      "end": 173.5,
+      "narration": "概要に無い工種が本文に出てきたら、概要側に足して、両方をそろえます。",
+      "caption": "本文にだけ出る工種は概要へ足す",
+      "visual": {
+        "heading": "仕上げ　概要と本文の一貫チェック",
+        "items": [
+          "本文の課題は、概要の工種・数量・工期から出てくるか",
+          "本文にだけ出る工種は、概要へ足す"
+        ],
+        "focus": 1,
+        "character": {
+          "pose": "good-sign",
+          "say": "概要側に\n足す"
+        }
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 173.5,
+      "end": 186,
+      "narration": "まとめます。工種と施工量、工期、場所と発注者と立場、そして本文との一貫チェック。7項目は暗記ではなく、矛盾を消す順番の問題です。",
+      "caption": "暗記ではなく、矛盾を消す順番",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 工種と施工量を\n対で決める",
+          "② 工期を数量と\n突き合わせる",
+          "③ 場所・発注者・\n立場を詳しく",
+          "④ 概要と本文の\n一貫チェック"
+        ],
+        "character": {
+          "pose": "good-sign",
+          "say": "順番で\n矛盾を消す"
+        }
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 186,
+      "end": 198.5,
+      "narration": "7項目を埋めた完成答案の形で確認したい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": [
+          "経験記述 完全パック（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}

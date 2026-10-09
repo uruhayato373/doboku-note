@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ハザード・曝露・脆弱性が重なって被害になり、対策は三要素のどれに効くかで選ぶ。外力が施設の能力を超えるとソフト対策の比重が増す" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif" font-size="12">
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <g stroke-width="1.5" text-anchor="middle">
+    <!-- danger-fill / danger: ハザード（外力） -->
+    <rect x="20" y="20" width="170" height="100" rx="6" fill="#f8d7da" stroke="#b22234"/>
+    <text x="105" y="44" font-size="14" font-weight="700" fill="#1a3a5c">ハザード（外力）</text>
+    <text x="105" y="66" font-size="13" fill="#222">＝ 災害を起こす力</text>
+    <text x="105" y="88" fill="#555">地震・豪雨・津波など</text>
+    <text x="105" y="106" fill="#555">頻度と強さで決まる</text>
+    <!-- brand-fill / brand: 地域の条件 -->
+    <rect x="210" y="20" width="170" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <text x="295" y="44" font-size="14" font-weight="700" fill="#1a3a5c">地域の条件</text>
+    <text x="295" y="66" font-size="13" fill="#222">曝露：人や資産の量</text>
+    <text x="295" y="86" font-size="13" fill="#222">脆弱性：壊れやすさ</text>
+    <text x="295" y="106" fill="#555">逃げにくさ・回復の遅さ</text>
+    <text x="200" y="76" font-size="16" font-weight="700" fill="#222">×</text>
+    <g fill="none" stroke="#555">
+      <path d="M105,122 L160,150" marker-end="url(#ah)"/>
+      <path d="M295,122 L240,150" marker-end="url(#ah)"/>
+    </g>
+    <!-- warn-fill / warn: 重なって被害 -->
+    <rect x="90" y="152" width="220" height="54" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+    <text x="200" y="176" font-size="14" font-weight="700" fill="#1a3a5c">重なると被害になる</text>
+    <text x="200" y="196" fill="#555">曝露がなければ被害は生じない</text>
+    <path d="M200,208 L200,236" fill="none" stroke="#555" marker-end="url(#ah)"/>
+    <text x="20" y="252" font-weight="700" fill="#555" text-anchor="start">対策が効く要素</text>
+    <!-- 対策の三行 -->
+    <rect x="20" y="260" width="360" height="46" rx="6" fill="#f8d7da" stroke="#b22234"/>
+    <text x="200" y="280" font-size="13" font-weight="700" fill="#1a3a5c">ハザードに効く：外力を抑える</text>
+    <text x="200" y="298" fill="#555">堤防・ダム・砂防施設</text>
+    <rect x="20" y="314" width="360" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <text x="200" y="334" font-size="13" font-weight="700" fill="#1a3a5c">曝露に効く：被害対象を減らす</text>
+    <text x="200" y="352" fill="#555">土地利用の規制・居住の誘導</text>
+    <rect x="20" y="368" width="360" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <text x="200" y="388" font-size="13" font-weight="700" fill="#1a3a5c">脆弱性に効く：壊れにくく、早く戻す</text>
+    <text x="200" y="406" fill="#555">耐震化・避難体制・早期の復旧</text>
+    <rect x="20" y="428" width="360" height="56" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+    <text x="200" y="452" font-size="13" fill="#222">外力が施設の能力を超えるほど</text>
+    <text x="200" y="472" font-size="13" font-weight="700" fill="#1a3a5c">曝露・脆弱性に効く対策の比重が増す</text>
+  </g>
+</svg>

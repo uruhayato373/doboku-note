@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="土工機械の音と振動を出どころ別に整理。エンジン、作業装置（掘削・積込み）、足回り、運搬路で増やす操作と抑える運転の対応表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-col { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-row { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-box { font-size: 12px; fill: #222; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/> <!-- ink-muted -->
+    </marker>
+  </defs>
+
+  <!-- 列見出し -->
+  <text class="t-col" x="104" y="22" text-anchor="middle">音と振動を増やす操作</text>
+  <text class="t-col" x="282" y="22" text-anchor="middle">抑える運転</text>
+
+  <!-- 1 エンジン -->
+  <text class="t-row" x="24" y="48">エンジン（待機・押土）</text>
+  <rect x="24" y="56" width="160" height="54" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text class="t-box" x="36" y="77">空ぶかし・アイドリング</text>
+  <text class="t-box" x="36" y="98">能力を超える量を押す</text>
+  <line x1="188" y1="83" x2="200" y2="83" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="204" y="56" width="156" height="54" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text class="t-box" x="216" y="77">作業待ちは停止</text>
+  <text class="t-box" x="216" y="98">押土量を能力内に</text>
+  <!-- 2 作業装置・掘削 -->
+  <text class="t-row" x="24" y="136">作業装置（掘削）</text>
+  <rect x="24" y="144" width="160" height="54" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text class="t-box" x="36" y="165">衝撃で爪を食込ませる</text>
+  <text class="t-box" x="36" y="186">硬い地盤を力ずくで掘る</text>
+  <line x1="188" y1="171" x2="200" y2="171" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="204" y="144" width="156" height="54" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text class="t-box" x="216" y="165">爪をシャープに保つ</text>
+  <text class="t-box" x="216" y="186">必要なら機種を替える</text>
+  <!-- 3 作業装置・積込み -->
+  <text class="t-row" x="24" y="224">作業装置（積込み）</text>
+  <rect x="24" y="232" width="160" height="54" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text class="t-box" x="36" y="253">高い位置から落とす</text>
+  <text class="t-box" x="36" y="274">バケットをしゃくる</text>
+  <line x1="188" y1="259" x2="200" y2="259" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="204" y="232" width="156" height="54" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text class="t-box" x="216" y="253">落下高さを低くする</text>
+  <text class="t-box" x="216" y="274">付着土は人力で除く</text>
+  <!-- 4 足回り -->
+  <text class="t-row" x="24" y="312">足回り（走行）</text>
+  <rect x="24" y="320" width="160" height="54" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text class="t-box" x="36" y="341">高速走行</text>
+  <text class="t-box" x="36" y="362">特に後進時の高速走行</text>
+  <line x1="188" y1="347" x2="200" y2="347" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="204" y="320" width="156" height="54" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text class="t-box" x="216" y="341">速度を抑える</text>
+  <text class="t-box" x="216" y="362">ゴムクローラ化も</text>
+  <!-- 5 運搬路 -->
+  <text class="t-row" x="24" y="400">運搬路（機械の外）</text>
+  <rect x="24" y="408" width="160" height="54" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger-fill / danger -->
+  <text class="t-box" x="36" y="429">路面の不陸・段差</text>
+  <text class="t-box" x="36" y="450">加減速のくり返し</text>
+  <line x1="188" y1="435" x2="200" y2="435" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="204" y="408" width="156" height="54" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
+  <text class="t-box" x="216" y="429">不陸を補修する</text>
+  <text class="t-box" x="216" y="450">速度を一定に保つ</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="盛土造成地の対策工の配置図。水路工・暗渠と横ボーリング・集水井・押え盛土の抑制工と、抑止杭・アンカーの抑止工を、すべり面と水位に対して示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 11px; font-weight: bold; text-anchor: middle; }
+      .gr { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .fl { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .cb { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .cr { fill: #fff; stroke: #b22234; stroke-width: 1.5; }
+      .lb { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+  <text class="s" x="15" y="30">水の出口をつくり、すべり面を構造物で貫いて止める。</text>
+  <g transform="translate(0,-12)">
+    <polygon class="gr" points="15,150 300,225 385,240 385,262 15,262"/>
+    <polygon class="fl" points="16,110 300,110 300,225 16,150"/>
+    <polygon points="17,127 300,156 300,225 17,150.3" fill="#e8f0fe"/>
+    <path d="M17,127 L300,156" class="lb" stroke-dasharray="6 3"/>
+    <path d="M105,172 L298,223" stroke="#b22234" stroke-width="2" stroke-dasharray="7 3" fill="none"/>
+    <rect x="300" y="110" width="10" height="118" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+    <rect x="40" y="106" width="28" height="6" fill="#2e6da4"/>
+    <rect x="105" y="106" width="14" height="66" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+    <path class="lb" d="M105,164 L64,158 M119,164 L170,170 M300,214 L258,205" stroke-width="2.5"/>
+    <polygon points="310,192 310,227 356,235" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <rect x="176" y="110" width="8" height="152" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+    <path d="M300,140 L236,212" stroke="#b22234" stroke-width="1.5" fill="none"/>
+    <path d="M242,205 L234,214" stroke="#b22234" stroke-width="5" fill="none"/>
+    <rect x="296" y="134" width="4" height="12" fill="#b22234"/>
+    <text class="s" x="192" y="163">地下水位</text>
+    <text class="s" x="318" y="124">擁壁</text>
+    <circle class="cb" cx="54" cy="92" r="8"/><text class="n" x="54" y="96">①</text>
+    <circle class="cb" cx="276" cy="190" r="8"/><text class="n" x="276" y="194">②</text>
+    <circle class="cb" cx="112" cy="92" r="8"/><text class="n" x="112" y="96">③</text>
+    <circle class="cb" cx="338" cy="182" r="8"/><text class="n" x="338" y="186">④</text>
+    <circle class="cr" cx="180" cy="94" r="8"/><text class="n" x="180" y="98">⑤</text>
+    <circle class="cr" cx="262" cy="152" r="8"/><text class="n" x="262" y="156">⑥</text>
+  </g>
+  <rect x="15" y="275" width="370" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="b" x="27" y="297">抑制工：水と地形を変える</text>
+  <text x="27" y="317">① 水路工　② 暗渠工・横ボーリング工</text>
+  <text x="27" y="333">③ 集水井工　④ 押え盛土・排土</text>
+  <rect x="15" y="349" width="370" height="64" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="b" x="27" y="371">抑止工：構造物の抵抗で止める</text>
+  <text x="27" y="391">⑤ 抑止杭工　⑥ グラウンドアンカー工</text>
+  <text x="27" y="407">固結工・鉄筋挿入工・鋼矢板工もこの側</text>
+  <rect x="15" y="423" width="370" height="64" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="b" x="27" y="445">選び方：地下水位が高いとき</text>
+  <text x="27" y="465">水の排除を原則入れ、不足分を他工法と組み合わせる</text>
+  <text x="27" y="481">杭や固結工は、地下水の流れを遮らない配置にする</text>
+</svg>

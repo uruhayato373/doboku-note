@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="土留め壁の背面に働く水平土圧は、地表で0、深さとともに直線的に増える三角形の分布になる。合力は三角形の面積に等しく、作用点は地表から高さの3分の2の深さにある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .note { font-size: 11px; fill: #555; }
+      .key { font-weight: bold; fill: #b22234; }
+      .res { font-weight: bold; font-size: 13px; }
+      .dim { stroke: #555; stroke-width: 1; fill: none; }
+      .soil { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .wall { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .dist { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-earth-pressure-triangle-mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-earth-pressure-triangle-mk" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#222"/></marker>
+  </defs>
+  <text class="note" x="16" y="24">均質な地盤で、地表に上載荷重がない場合</text>
+  <text class="note" x="16" y="40">K は K<tspan dy="3" font-size="11">0</tspan><tspan dy="-3">（静止）または K</tspan><tspan dy="3" font-size="11">a</tspan><tspan dy="-3">（主働）</tspan></text>
+  <rect class="soil" x="120" y="90" width="264" height="300"/>
+  <rect class="wall" x="108" y="64" width="12" height="326"/>
+  <polygon class="dist" points="120,90 120,390 300,390"/>
+  <g stroke="#b22234" stroke-width="1.5" marker-end="url(#figure-earth-pressure-triangle-mr)">
+    <line x1="144" y1="130" x2="125" y2="130"/>
+    <line x1="168" y1="170" x2="125" y2="170"/>
+    <line x1="192" y1="210" x2="125" y2="210"/>
+    <line x1="216" y1="250" x2="125" y2="250"/>
+    <line x1="264" y1="330" x2="125" y2="330"/>
+    <line x1="288" y1="370" x2="125" y2="370"/>
+  </g>
+  <line x1="350" y1="290" x2="125" y2="290" stroke="#222" stroke-width="3" marker-end="url(#figure-earth-pressure-triangle-mk)"/>
+  <path class="dim" d="M92 90V390M86 90H98M86 290H98M86 390H98"/>
+  <text class="note" x="84" y="76" text-anchor="end">深さ z</text>
+  <text class="note" x="84" y="94" text-anchor="end">0</text>
+  <text x="84" y="294" text-anchor="end" font-weight="bold">2H/3</text>
+  <text x="84" y="394" text-anchor="end" font-weight="bold">H</text>
+  <text class="note" x="114" y="54" text-anchor="middle">土留め壁</text>
+  <text class="note" x="130" y="84">地表面</text>
+  <text class="key" x="176" y="114">水平土圧 σ<tspan dy="3" font-size="11">h</tspan></text>
+  <text class="note" x="176" y="130">深さに比例して増える</text>
+  <text class="res" x="298" y="280">合力 P</text>
+  <text class="note" x="276" y="312">作用点は地表から</text>
+  <text class="note" x="276" y="326">2H/3 の深さ</text>
+  <text x="306" y="384">K·γ·H</text>
+  <rect class="box" x="16" y="418" width="368" height="72" rx="6"/>
+  <text x="30" y="440">鉛直土圧　σ<tspan dy="3" font-size="11">v</tspan><tspan dy="-3"> = γ·z</tspan></text>
+  <text x="30" y="460">水平土圧　σ<tspan dy="3" font-size="11">h</tspan><tspan dy="-3"> = K·σ</tspan><tspan dy="3" font-size="11">v</tspan><tspan dy="-3"> = K·γ·z</tspan></text>
+  <text x="30" y="480">合力　P = ½·K·γ·H²（壁の延長 1 m あたり）</text>
+</svg>

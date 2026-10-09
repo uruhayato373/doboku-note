@@ -1,0 +1,75 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は河川砂防技術基準 施設配置等計画編の貯水池（ダム）・遊水地等・捷水路及び放水路の考え方。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="洪水のピークを下げる4つの施設の効き方を並べた図。ダムは谷をせき止めて深く貯める。遊水地は川の脇の低地へ越流堤から横に入れて貯める。地下調節池は市街地の地下に洪水の一部を取り込む。放水路は途中で分岐して海や他の川へ流す。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .w { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; }
+      .d { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .lv { stroke: #8a8a8a; stroke-width: 4; fill: none; }
+      .ch { stroke-linecap: butt; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="8" width="380" height="116" rx="8"/>
+  <polygon class="g" points="20,116 20,104 200,108 200,116"/>
+  <polygon class="w" points="28,52 111,52 108,104 28,104"/>
+  <polygon class="d" points="108,104 114,40 128,40 144,104"/>
+  <path class="a" d="M68,56V102" stroke-width="1.5" marker-start="url(#at)" marker-end="url(#at)" style="stroke:#555"/>
+  <text x="74" y="82">深い</text>
+  <text x="28" y="32">流入</text>
+  <path class="a" d="M28,40H64" marker-end="url(#ah)"/>
+  <text x="156" y="88">放流</text>
+  <path class="a" d="M148,96H190" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="214" y="20" width="46" height="18" rx="9" class="w"/><text class="t" x="237" y="33" text-anchor="middle">貯める</text>
+  <text class="n" x="214" y="58">ダム</text>
+  <text x="214" y="76">谷をせき止めて</text><text x="214" y="91">深く貯める</text>
+  <text class="t" x="214" y="110">効く範囲：ダムより下流</text>
+
+  <rect class="p" x="10" y="130" width="380" height="116" rx="8"/>
+  <rect class="w" x="20" y="142" width="180" height="24"/>
+  <path class="a" d="M30,154H76" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="170" y="158">川</text>
+  <rect class="w" x="34" y="184" width="152" height="48" style="stroke:#8a8a8a;stroke-width:3"/>
+  <path d="M80,184H128" style="stroke:#d4a017;stroke-width:4" fill="none"/>
+  <path class="a" d="M104,164V206" marker-end="url(#ah)"/>
+  <text x="132" y="178">越流堤</text>
+  <text x="44" y="224">広く浅く貯める</text>
+  <rect x="214" y="142" width="46" height="18" rx="9" class="w"/><text class="t" x="237" y="155" text-anchor="middle">貯める</text>
+  <text class="n" x="214" y="180">遊水地</text>
+  <text x="214" y="198">川の脇の低地へ</text><text x="214" y="213">横から越流させて貯める</text>
+  <text class="t" x="214" y="232">効く範囲：遊水地より下流</text>
+
+  <rect class="p" x="10" y="252" width="380" height="116" rx="8"/>
+  <polygon class="g" points="20,284 200,284 200,360 20,360"/>
+  <polygon class="w" points="20,264 200,264 200,284 20,284"/>
+  <polygon class="w" points="54,284 66,284 66,318 54,318"/>
+  <polygon class="w" points="154,284 166,284 166,318 154,318"/>
+  <polygon class="w" points="44,318 176,318 176,354 44,354"/>
+  <path class="a" d="M60,288V314" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path class="a" d="M160,314V288" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="70" y="304">取水</text><text x="170" y="304">排水</text>
+  <text class="t" x="110" y="340" text-anchor="middle">地下調節池</text>
+  <rect x="214" y="264" width="46" height="18" rx="9" class="w"/><text class="t" x="237" y="277" text-anchor="middle">貯める</text>
+  <text class="n" x="214" y="302">地下調節池</text>
+  <text x="214" y="320">市街地の地下に</text><text x="214" y="335">洪水の一部を取り込む</text>
+  <text class="t" x="214" y="354">効く範囲：調節池より下流</text>
+
+  <rect class="p" x="10" y="374" width="380" height="118" rx="8"/>
+  <g class="ch"><path d="M20,412H200M84,412C104,412 112,456 136,456H200" style="stroke:#2e6da4;stroke-width:14"/><path d="M20,412H200M84,412C104,412 112,456 136,456H200" style="stroke:#e8f0fe;stroke-width:11"/></g>
+  <text x="150" y="401">本川</text>
+  <text x="144" y="445">放水路</text>
+  <path d="M64,430L82,416" stroke="#8a8a8a" fill="none"/>
+  <text x="34" y="440">分流点</text>
+  <text x="124" y="478">海・他の川へ</text>
+  <rect x="214" y="386" width="46" height="18" rx="9" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/><text class="t" x="237" y="399" text-anchor="middle">分ける</text>
+  <text class="n" x="214" y="424">放水路（分水路）</text>
+  <text x="214" y="442">途中で分岐して</text><text x="214" y="457">海・他の川・本川へ流す</text>
+  <text class="t" x="214" y="476">効く範囲：分流点より下流</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="答案用紙に図表を置くときの悪い例と良い例の対比。悪い例は題名と番号がなく、本文で触れず、枠からはみ出す。良い例は図の下と表の上に題名と番号を付け、本文から参照し、枠の中に収める。">
+<defs>
+<style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.lb{font-size:13px;font-weight:bold;fill:#1a3a5c}
+.s{font-size:11px}
+.sb{font-size:11px;fill:#555} /* ink-body */
+.bad{fill:#b22234;font-size:11px;font-weight:bold} /* danger */
+.ok{fill:#3a7d44;font-size:11px;font-weight:bold} /* positive */
+.sheet{fill:#ffffff;stroke:#d7d7d7;stroke-width:1.5} /* token-border */
+.bar{fill:none;stroke:#d7d7d7;stroke-width:4;stroke-linecap:round} /* token-border */
+.fig{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.node{fill:#ffffff;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.link{fill:none;stroke:#2e6da4;stroke-width:1.5}
+</style>
+</defs>
+<rect x="18" y="14" width="170" height="26" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/><!-- danger -->
+<text x="103" y="32" text-anchor="middle" class="lb">悪い例</text>
+<rect x="212" y="14" width="170" height="26" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/><!-- positive -->
+<text x="297" y="32" text-anchor="middle" class="lb">良い例</text>
+
+<rect x="18" y="50" width="170" height="330" rx="4" class="sheet"/>
+<path class="bar" d="M28 64H178M28 74H178M28 84H124"/>
+<rect x="44" y="98" width="156" height="62" rx="4" class="fig"/>
+<rect x="54" y="119" width="34" height="20" rx="3" class="node"/>
+<rect x="101" y="119" width="34" height="20" rx="3" class="node"/>
+<rect x="148" y="119" width="34" height="20" rx="3" class="node"/>
+<path class="link" d="M88 129H101M135 129H148"/>
+<rect x="44" y="168" width="104" height="16" rx="3" fill="none" stroke="#b22234" stroke-width="1" stroke-dasharray="3 3"/><!-- danger -->
+<text x="50" y="180" class="bad">題名・番号なし</text>
+<path class="bar" d="M28 198H178M28 208H178M28 218H150M28 228H178M28 238H178M28 248H110M28 258H178M28 268H178M28 278H140"/>
+<text x="28" y="324" class="bad">×</text><text x="42" y="324" class="s">題名と番号がない</text>
+<text x="28" y="346" class="bad">×</text><text x="42" y="346" class="s">本文で触れていない</text>
+<text x="28" y="368" class="bad">×</text><text x="42" y="368" class="s">枠からはみ出す</text>
+
+<rect x="212" y="50" width="170" height="330" rx="4" class="sheet"/>
+<text x="222" y="72" class="sb">…は図-1に示す流れで…</text>
+<path class="bar" d="M222 82H372M222 92H330"/>
+<rect x="222" y="102" width="150" height="62" rx="4" class="fig"/>
+<rect x="230" y="123" width="34" height="20" rx="3" class="node"/>
+<rect x="283" y="123" width="34" height="20" rx="3" class="node"/>
+<rect x="336" y="123" width="30" height="20" rx="3" class="node"/>
+<path class="link" d="M264 133H283M317 133H336"/>
+<text x="222" y="180" class="s">図-1 点検結果の活用</text>
+<path class="bar" d="M222 194H372M222 204H372M222 214H300"/>
+<text x="222" y="236" class="s">表-1 工法の比較</text>
+<rect x="222" y="242" width="75" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<rect x="297" y="242" width="75" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<rect x="222" y="258" width="75" height="18" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+<rect x="297" y="258" width="75" height="18" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+<path class="bar" d="M222 290H372M222 300H318"/>
+<text x="222" y="324" class="ok">○</text><text x="236" y="324" class="s">図は下・表は上に題名</text>
+<text x="222" y="346" class="ok">○</text><text x="236" y="346" class="s">本文から図-1と参照</text>
+<text x="222" y="368" class="ok">○</text><text x="236" y="368" class="s">枠とマスの中に収める</text>
+
+<rect x="18" y="396" width="364" height="84" rx="8" class="sheet" style="fill:#f5f5f5"/>
+<text x="200" y="428" text-anchor="middle" style="font-size:14px;font-weight:bold;fill:#1a3a5c">図表は、主張を支える証拠として置く</text>
+<text x="200" y="454" text-anchor="middle" style="font-size:13px;fill:#555">題名・番号・本文からの参照をそろえる</text>
+</svg>

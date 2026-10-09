@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "exam": "pe-construction",
+  "works": [
+    {
+      "id": "competency-r8-taiou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/competency-r8-taiou",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakushuu-schedule-gyakusan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/gakushuu-schedule-gyakusan",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-bosai-kyoujinka",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-bosai-kyoujinka",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-carbon-neutral",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-carbon-neutral",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-infra-roukyuuka",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-kensetsu-dx",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-kokudo-chiiki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-kokudo-chiiki",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-ninaite-seisansei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-ninaite-seisansei",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hissu1-theme-map",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/hissu1-theme-map",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kaitourei-tsukaikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keirekihyo-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/keirekihyo-kakikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kensetsu-pe-career-kachi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/kensetsu-pe-career-kachi",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "nanido-goukakuritsu-shindan",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/nanido-goukakuritsu-shindan",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "r8-yosou-dashikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/r8-yosou-dashikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "secondary-study-houhou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/secondary-study-houhou",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-construction-planning-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-construction-planning-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-environment-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-geotechnical-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-kakiwake-3type",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-kakiwake-3type",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-port-airport-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-port-airport-yomikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-power-civil-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-power-civil-yomikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-railway-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-river-coast-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-river-coast-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-road-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-road-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-steel-concrete-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-steel-concrete-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-tunnel-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sentaku-urban-planning-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/sentaku-urban-planning-yomikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "toan-kousei-template",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-construction/toan-kousei-template",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="問題B 35問の分野別の問数。安全管理が11問（知識7・応用能力4）、品質管理が7問（知識3・応用能力4）、施工計画が5問（知識1・応用能力4）、工程管理が4問（知識1・応用能力3）、共通分野が4問（知識4）、環境保全が2問、副産物・廃棄物が2問（いずれも知識）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }      /* ink-body */
+      .t-leg   { font-size: 11px; fill: #222; }      /* ink-strong */
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-total { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item  { font-size: 12px; fill: #222; }
+      .seg-k   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand */
+      .seg-a   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn */
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">問題B 全35問の分野別の問数（令和3〜8年度で同じ配分）</text>
+
+  <rect class="seg-k" x="20" y="32" width="14" height="12" rx="2"/>
+  <text class="t-leg" x="40" y="42">No.1〜20（知識）</text>
+  <rect class="seg-a" x="170" y="32" width="14" height="12" rx="2"/>
+  <text class="t-leg" x="190" y="42">No.21〜35（応用能力）</text>
+
+  <!-- 安全管理 7+4 -->
+  <text class="t-name" x="106" y="81" text-anchor="end">安全管理</text>
+  <rect class="seg-k" x="116" y="62" width="133" height="28"/>
+  <rect class="seg-a" x="249" y="62" width="76" height="28"/>
+  <text class="t-num" x="182.5" y="81" text-anchor="middle">7</text>
+  <text class="t-num" x="287" y="81" text-anchor="middle">4</text>
+  <text class="t-total" x="333" y="81">11問</text>
+
+  <!-- 品質管理 3+4 -->
+  <text class="t-name" x="106" y="125" text-anchor="end">品質管理</text>
+  <rect class="seg-k" x="116" y="106" width="57" height="28"/>
+  <rect class="seg-a" x="173" y="106" width="76" height="28"/>
+  <text class="t-num" x="144.5" y="125" text-anchor="middle">3</text>
+  <text class="t-num" x="211" y="125" text-anchor="middle">4</text>
+  <text class="t-total" x="257" y="125">7問</text>
+
+  <!-- 施工計画 1+4 -->
+  <text class="t-name" x="106" y="169" text-anchor="end">施工計画</text>
+  <rect class="seg-k" x="116" y="150" width="19" height="28"/>
+  <rect class="seg-a" x="135" y="150" width="76" height="28"/>
+  <text class="t-num" x="125.5" y="169" text-anchor="middle">1</text>
+  <text class="t-num" x="173" y="169" text-anchor="middle">4</text>
+  <text class="t-total" x="219" y="169">5問</text>
+
+  <!-- 工程管理 1+3 -->
+  <text class="t-name" x="106" y="213" text-anchor="end">工程管理</text>
+  <rect class="seg-k" x="116" y="194" width="19" height="28"/>
+  <rect class="seg-a" x="135" y="194" width="57" height="28"/>
+  <text class="t-num" x="125.5" y="213" text-anchor="middle">1</text>
+  <text class="t-num" x="163.5" y="213" text-anchor="middle">3</text>
+  <text class="t-total" x="200" y="213">4問</text>
+
+  <!-- 共通分野 4 -->
+  <text class="t-name" x="106" y="257" text-anchor="end">共通分野</text>
+  <rect class="seg-k" x="116" y="238" width="76" height="28"/>
+  <text class="t-num" x="154" y="257" text-anchor="middle">4</text>
+  <text class="t-total" x="200" y="257">4問</text>
+
+  <!-- 環境保全 2 -->
+  <text class="t-name" x="106" y="301" text-anchor="end">環境保全</text>
+  <rect class="seg-k" x="116" y="282" width="38" height="28"/>
+  <text class="t-num" x="135" y="301" text-anchor="middle">2</text>
+  <text class="t-total" x="162" y="301">2問</text>
+
+  <!-- 副産物・廃棄物 2 -->
+  <text class="t-name" x="106" y="345" text-anchor="end">副産物・廃棄物</text>
+  <rect class="seg-k" x="116" y="326" width="38" height="28"/>
+  <text class="t-num" x="135" y="345" text-anchor="middle">2</text>
+  <text class="t-total" x="162" y="345">2問</text>
+
+  <rect class="box-surf" x="20" y="378" width="360" height="106" rx="6"/>
+  <text class="t-sec" x="200" y="400" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="409" x2="364" y2="409"/>
+  <text class="t-item" x="40" y="432">安全 11 + 品質 7 = 18問で、全体の過半</text>
+  <text class="t-item" x="40" y="454">応用能力の15問は施工計画4・工程3・安全4・品質4</text>
+  <text class="t-item" x="40" y="476">環境保全と副産物・廃棄物は合わせて4問</text>
+</svg>

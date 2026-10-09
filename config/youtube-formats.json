@@ -1,0 +1,100 @@
+{
+  "_doc": "docs/marketing/06_動画コンテンツ運用設計.md（横断の方針）・docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md（根拠）",
+  "schemaVersion": 1,
+  "updated": "2026-10-08",
+  "description": "YouTube の動画の型（何を・何分で・どこへ送るか）と採否の状態の正本。status は active（公開中）・trial（試作・比較中）・proposed（提案・未承認）・paused（止めた）・rejected（やらない）。採否はユーザーが決め、decision の backlog カードで判断し、ここの status を書き換える。根拠は evidence の文書。動画パックの契約は config/video-content.json、パックごとの公開状態はコンテンツ台帳 content/registry（.claude/state/video-content-status.json は写し）。数値の記録は data/youtube/own-videos（自社・月次）と data/youtube/competitors（競合・四半期）で、取得は npm run youtube-own-metrics・npm run scout-youtube-competitors。titleSignals は題名で型を見分ける語（両スクリプトが再生中央値を集計する）。",
+  "channel": {
+    "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+    "handle": "@doboku-note",
+    "title": "doboku-note"
+  },
+  "titleSignals": ["聞き流し", "一問一答", "総まとめ", "まとめ", "過去問", "経験記述", "解答速報", "予想", "模擬", "図解"],
+  "formats": [
+    {
+      "id": "single-topic-text",
+      "label": "単論点の解説（文字カード）",
+      "status": "active",
+      "role": "理解",
+      "lengthMinutes": { "min": 2, "max": 6 },
+      "ctaKinds": ["note-magazine", "coconala-service", "site-article", "links-hub"],
+      "producedBy": "動画パック（content/sns/video-packs）を render-longform で描く現行の形",
+      "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
+      "decision": "DN-0601",
+      "note": "2026-09〜10 に公開した土木の通常動画の型。2026-10-08 時点で公開70本の再生中央値4回・尺の中央値2.5分。図解版との比較で置き換えるかを決める"
+    },
+    {
+      "id": "single-topic-zukai",
+      "label": "単論点の図解（先生の常駐・解答用紙・悪い例と良い例）",
+      "status": "trial",
+      "role": "理解",
+      "lengthMinutes": { "min": 3, "max": 8 },
+      "ctaKinds": ["note-magazine", "coconala-service", "site-article", "links-hub"],
+      "producedBy": "render-longform の visual.character・compare・sheet（video-content-policy §4）",
+      "packIds": ["koji-gaiyo-sheet-zukai"],
+      "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
+      "decision": "DN-0601",
+      "note": "試作1本（未公開・音声なし）。Mac で音声付きにして1本公開し、旧版 koji-gaiyo-7items と28日の再生・視聴維持を比べる（実行は DN-0601）。2026-10-08 の判断: 比べる視聴維持を DN-0597 で取れるようになってから公開する"
+    },
+    {
+      "id": "compilation",
+      "label": "総まとめ・聞き流し（承認済みパックの連結）",
+      "status": "trial",
+      "role": "発見",
+      "lengthMinutes": { "min": 20, "max": 60 },
+      "ctaKinds": ["note-magazine", "links-hub"],
+      "producedBy": "compilation.json（章立てと冒頭・章の区切り・締めの語り）→ npm run build-video-compilation が承認済みパックの場面から storyboard.json を生成 → render-longform（新しい台本は書かない）",
+      "packIds": ["matome-2kyu-chokuzen"],
+      "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
+      "decision": "DN-0599",
+      "note": "競合の土木の動画321本で、30〜60分は再生中央値21,000回、題名に「聞き流し」を含む19本は30,000回（2026-10-08）。2026-10-08 にユーザーが試作に採用。最初の1本は2級の直前総まとめ（15章・設計尺26分・2級の試験 10/25 の前に公開予定）。音声付きの描画・承認・公開は DN-0599"
+    },
+    {
+      "id": "quiz-tts",
+      "label": "一問一答（読み上げ）",
+      "status": "proposed",
+      "role": "発見",
+      "lengthMinutes": { "min": 20, "max": 90 },
+      "ctaKinds": ["note-magazine", "site-article"],
+      "producedBy": "未実装。過去問データから穴埋めの問題と答えのカードを作り、VOICEVOX で読み上げる",
+      "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
+      "decision": "DN-0600",
+      "note": "建設資格データ研究所が同じ型（VOICEVOX）で90分・24,735回。日建学院の「一問一答」10本は再生中央値51,500回。作る仕組みは DN-0600。2026-10-08 の判断: 2027年1〜3月に着手（2級前期・1級一次の前）"
+    },
+    {
+      "id": "tensaku-demo",
+      "label": "添削の見本（架空の答案に先生が赤ペン）",
+      "status": "proposed",
+      "role": "送客",
+      "lengthMinutes": { "min": 5, "max": 12 },
+      "ctaKinds": ["coconala-service"],
+      "producedBy": "render-longform の sheet・compare と red-pen の先生",
+      "evidence": ["docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md", "docs/marketing/07b_販売動線分析_ちゃんさと_2026-09.md"],
+      "decision": null,
+      "note": "伏せ字の架空答案だけを使い、実在の受検者の答案は同意なしに使わない。2026-10-08 の判断では見送り（総まとめを先に進める）。進めるときに判断カードを起票する"
+    },
+    {
+      "id": "pack-shorts",
+      "label": "動画パック派生の Shorts",
+      "status": "active",
+      "role": "発見",
+      "lengthMinutes": { "min": 0.5, "max": 1 },
+      "ctaKinds": [],
+      "producedBy": "render-video-pack-shorts。外部リンクではなく関連動画で通常動画へ送る",
+      "evidence": ["docs/marketing/06_動画コンテンツ運用設計.md"],
+      "decision": "DN-0110",
+      "note": "承認済み224本のうち222本が非公開のまま（Studio で関連動画を設定してから予約する工程・2026-10-08）"
+    },
+    {
+      "id": "exam-sokuho",
+      "label": "解答速報（試験当日・直後）",
+      "status": "proposed",
+      "role": "発見",
+      "lengthMinutes": { "min": 20, "max": 40 },
+      "ctaKinds": ["site-article", "note-magazine"],
+      "producedBy": "未検討。正答の確認体制と当日の制作時間が要る",
+      "evidence": ["docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md", "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
+      "decision": "DN-0604",
+      "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回"
+    }
+  ]
+}

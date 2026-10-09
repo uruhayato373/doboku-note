@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="前払金の3者関係。受注者は保証事業会社と保証契約を結んで保証証書を発注者に寄託し、前払金を請求する。発注者は請求から14日以内に支払う。保証事業会社は前払金の使途を監査し、契約が解除されたときは未精算分を発注者に支払う">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 12px; fill: #222; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .t3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+      .n { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .nt { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">前払金は、保証事業会社の保証が付いて初めて支払われる</text>
+
+  <rect class="t1" x="125" y="30" width="150" height="50" rx="6"/>
+  <text class="h" x="200" y="61" text-anchor="middle">発注者</text>
+
+  <rect class="t2" x="20" y="170" width="130" height="56" rx="6"/>
+  <text class="h" x="85" y="194" text-anchor="middle">受注者</text>
+  <text class="s" x="85" y="213" text-anchor="middle">前払金を受け取る</text>
+
+  <rect class="t3" x="250" y="170" width="130" height="56" rx="6"/>
+  <text class="h" x="315" y="194" text-anchor="middle">保証事業会社</text>
+  <text class="s" x="315" y="213" text-anchor="middle">登録を受けた会社</text>
+
+  <line class="ln" x1="150" y1="194" x2="248" y2="194" marker-end="url(#a)"/>
+  <circle class="n" cx="200" cy="176" r="10"/>
+  <text class="nt" x="200" y="180" text-anchor="middle">1</text>
+  <line class="ln" x1="248" y1="210" x2="152" y2="210" marker-end="url(#a)"/>
+  <circle class="n" cx="200" cy="228" r="10"/>
+  <text class="nt" x="200" y="232" text-anchor="middle">4</text>
+
+  <line class="ln" x1="64" y1="170" x2="136" y2="82" marker-end="url(#a)"/>
+  <circle class="n" cx="80" cy="122" r="10"/>
+  <text class="nt" x="80" y="126" text-anchor="middle">2</text>
+  <line class="ln" x1="156" y1="82" x2="112" y2="168" marker-end="url(#a)"/>
+  <circle class="n" cx="158" cy="125" r="10"/>
+  <text class="nt" x="158" y="129" text-anchor="middle">3</text>
+
+  <line class="ln" x1="296" y1="170" x2="262" y2="82" marker-end="url(#a)"/>
+  <circle class="n" cx="302" cy="125" r="10"/>
+  <text class="nt" x="302" y="129" text-anchor="middle">5</text>
+
+  <text class="l" x="20" y="268">矢印の番号と対応</text>
+
+  <circle class="n" cx="34" cy="296" r="10"/>
+  <text class="nt" x="34" y="300" text-anchor="middle">1</text>
+  <text class="s" x="54" y="300">保証契約を結び、保証料を払う</text>
+  <circle class="n" cx="34" cy="338" r="10"/>
+  <text class="nt" x="34" y="342" text-anchor="middle">2</text>
+  <text class="s" x="54" y="342">保証証書を発注者に寄託して前払金を請求</text>
+  <circle class="n" cx="34" cy="380" r="10"/>
+  <text class="nt" x="34" y="384" text-anchor="middle">3</text>
+  <text class="s" x="54" y="384">請求から14日以内に前払金を支払う</text>
+  <circle class="n" cx="34" cy="422" r="10"/>
+  <text class="nt" x="34" y="426" text-anchor="middle">4</text>
+  <text class="s" x="54" y="426">前払金が工事に使われているか監査する</text>
+  <circle class="n" cx="34" cy="464" r="10"/>
+  <text class="nt" x="34" y="468" text-anchor="middle">5</text>
+  <text class="s" x="54" y="468">解除されたときは未精算分を保証金で支払う</text>
+</svg>

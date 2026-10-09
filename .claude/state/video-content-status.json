@@ -8397,6 +8397,19 @@
           }
         }
       }
+    },
+    "matome-2kyu-chokuzen": {
+      "derivatives": {
+        "longform": {
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.33,
+            "blocks": 0,
+            "at": "2026-10-08",
+            "by": "general-purpose (video-content-qa 代行・6軸・改善提案1〜6を反映して再描画)"
+          }
+        }
+      }
     }
   }
 }

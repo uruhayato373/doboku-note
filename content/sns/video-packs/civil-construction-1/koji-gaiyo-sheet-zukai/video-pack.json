@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "koji-gaiyo-sheet-zukai",
+  "exam": "civil-construction-1",
+  "title": "工事概要7項目は「順番」で決まる（記入シート図解版）",
+  "audience": "1級土木の施工経験記述の準備を始めた受検者",
+  "pain": "工事概要の7項目を上から埋めて、工期・工種・施工量の矛盾に気づけない",
+  "promise": "記入シートの上で、7項目を決める順番と悪い例・良い例の違いが目で分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "figure",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/img/figure-direct-orderer.svg"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "koji-gaiyo-sheet-zukai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

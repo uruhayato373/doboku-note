@@ -1,0 +1,76 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="配電線から受電設備、分電盤を経て、大型の電動機械と可搬式の電動工具へ分かれる系統の模式図。可搬式の工具には漏電しゃ断装置を接続し、困難なときは接地する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-side  { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-sub   { font-size: 12px; fill: #222; }               /* ink-strong */
+      .t-note  { font-size: 12px; fill: #1a3a5c; }            /* brand text */
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }   /* surface */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand */
+      .box-pos  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive */
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn */
+      .box-dang { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger */
+      .flow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }          /* brand */
+      .tie  { stroke: #8a8a8a; stroke-width: 1; fill: none; }            /* ink-muted */
+      .split { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; fill: none; } /* ink-muted */
+    </style>
+    <marker id="pw-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 電力会社側 -->
+  <rect class="box-surf" x="110" y="26" width="180" height="44" rx="6"/>
+  <text class="t-title" x="200" y="53" text-anchor="middle">電力会社の配電線</text>
+
+  <!-- 責任分界点 -->
+  <line class="split" x1="24" y1="88" x2="376" y2="88"/>
+  <text class="t-side" x="366" y="83" text-anchor="end">責任分界点</text>
+  <text class="t-side" x="30" y="83">電力会社側</text>
+  <text class="t-side" x="30" y="103">受注者側</text>
+
+  <line class="flow" x1="200" y1="70" x2="200" y2="108" marker-end="url(#pw-a)"/>
+
+  <!-- 受電設備 -->
+  <rect class="box-brand" x="80" y="110" width="240" height="72" rx="6"/>
+  <text class="t-title" x="200" y="137" text-anchor="middle">受電設備（キュービクル）</text>
+  <text class="t-sub" x="200" y="160" text-anchor="middle">開閉器・保護継電器・変圧器</text>
+
+  <line class="flow" x1="200" y1="182" x2="200" y2="226" marker-end="url(#pw-a)"/>
+  <text class="t-side" x="212" y="209">負荷の中心に寄せる</text>
+
+  <!-- 分電盤 -->
+  <rect class="box-pos" x="80" y="228" width="240" height="72" rx="6"/>
+  <text class="t-title" x="200" y="255" text-anchor="middle">分電盤</text>
+  <text class="t-sub" x="200" y="278" text-anchor="middle">配線用遮断器＋漏電遮断器</text>
+
+  <!-- 分岐 -->
+  <line class="flow" x1="140" y1="300" x2="108" y2="344" marker-end="url(#pw-a)"/>
+  <line class="flow" x1="260" y1="300" x2="292" y2="344" marker-end="url(#pw-a)"/>
+
+  <!-- 負荷 -->
+  <rect class="box-surf" x="20" y="346" width="170" height="72" rx="6"/>
+  <text class="t-title" x="105" y="373" text-anchor="middle">大型の電動機械</text>
+  <text class="t-sub" x="105" y="396" text-anchor="middle">コンプレッサ・ポンプ</text>
+
+  <rect class="box-warn" x="210" y="346" width="170" height="72" rx="6"/>
+  <text class="t-title" x="295" y="373" text-anchor="middle">可搬式の電動工具</text>
+  <text class="t-sub" x="295" y="396" text-anchor="middle">水中ポンプ・バイブレータ</text>
+
+  <!-- 補足 -->
+  <line class="tie" x1="105" y1="418" x2="105" y2="436"/>
+  <line class="tie" x1="295" y1="418" x2="295" y2="436"/>
+
+  <rect class="box-surf" x="20" y="436" width="170" height="56" rx="6"/>
+  <text class="t-note" x="105" y="460" text-anchor="middle">照明・小型工具と</text>
+  <text class="t-note" x="105" y="478" text-anchor="middle">系統を分ける</text>
+
+  <rect class="box-dang" x="210" y="436" width="170" height="56" rx="6"/>
+  <text class="t-note" x="295" y="460" text-anchor="middle">感電防止用漏電しゃ断装置</text>
+  <text class="t-note" x="295" y="478" text-anchor="middle">困難なときは外わくを接地</text>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工程能力図の打点の並びを比べる図。基準・段差・傾き・広がり・周期の 5 つの形を、上下限規格値の破線の内側で時間順に示す">
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:11px;fill:#555}.n{font-size:13px;font-weight:bold;fill:#222}.l{font-size:12px}.bg{fill:#f5f5f5;stroke:#d7d7d7}.sp{stroke:#555;stroke-dasharray:5,3;fill:none}.ct{stroke:#8a8a8a;fill:none}.ln{fill:none;stroke:#2e6da4;stroke-width:2}.pt{fill:#2e6da4}</style>
+<g>
+<rect class="bg" x="90" y="14" width="276" height="74" rx="4"/>
+<line class="sp" x1="90" y1="23" x2="366" y2="23"/>
+<line class="sp" x1="90" y1="79" x2="366" y2="79"/>
+<line class="ct" x1="90" y1="51" x2="366" y2="51"/>
+<polyline class="ln" points="104,45 126.9,56 149.8,48 172.7,59 195.6,43 218.5,53 241.4,57 264.3,47 287.2,44 310.1,55 333,49 355.9,58"/>
+<g class="pt"><circle cx="104" cy="45" r="3"/><circle cx="126.9" cy="56" r="3"/><circle cx="149.8" cy="48" r="3"/><circle cx="172.7" cy="59" r="3"/><circle cx="195.6" cy="43" r="3"/><circle cx="218.5" cy="53" r="3"/><circle cx="241.4" cy="57" r="3"/><circle cx="264.3" cy="47" r="3"/><circle cx="287.2" cy="44" r="3"/><circle cx="310.1" cy="55" r="3"/><circle cx="333" cy="49" r="3"/><circle cx="355.9" cy="58" r="3"/></g>
+<text class="n" x="10" y="44">基準</text>
+<text x="10" y="62">均等に散る</text>
+</g>
+<g>
+<rect class="bg" x="90" y="102" width="276" height="74" rx="4"/>
+<line class="sp" x1="90" y1="111" x2="366" y2="111"/>
+<line class="sp" x1="90" y1="167" x2="366" y2="167"/>
+<line class="ct" x1="90" y1="139" x2="366" y2="139"/>
+<line class="ct" x1="229.9" y1="111" x2="229.9" y2="167" stroke-dasharray="2,3"/>
+<text x="225.9" y="123" text-anchor="end">変化点</text>
+<polyline class="ln" points="104,135 126.9,142 149.8,134 172.7,141 195.6,136 218.5,143 241.4,120 264.3,125 287.2,118 310.1,123 333,117 355.9,122"/>
+<g class="pt"><circle cx="104" cy="135" r="3"/><circle cx="126.9" cy="142" r="3"/><circle cx="149.8" cy="134" r="3"/><circle cx="172.7" cy="141" r="3"/><circle cx="195.6" cy="136" r="3"/><circle cx="218.5" cy="143" r="3"/><circle cx="241.4" cy="120" r="3"/><circle cx="264.3" cy="125" r="3"/><circle cx="287.2" cy="118" r="3"/><circle cx="310.1" cy="123" r="3"/><circle cx="333" cy="117" r="3"/><circle cx="355.9" cy="122" r="3"/></g>
+<text class="n" x="10" y="132">段差</text>
+<text x="10" y="150">突然高く・低く</text>
+</g>
+<g>
+<rect class="bg" x="90" y="190" width="276" height="74" rx="4"/>
+<line class="sp" x1="90" y1="199" x2="366" y2="199"/>
+<line class="sp" x1="90" y1="255" x2="366" y2="255"/>
+<line class="ct" x1="90" y1="227" x2="366" y2="227"/>
+<polyline class="ln" points="104,239 126.9,241 149.8,232 172.7,233 195.6,227 218.5,228 241.4,220 264.3,220 287.2,212 310.1,214 333,208 355.9,208"/>
+<g class="pt"><circle cx="104" cy="239" r="3"/><circle cx="126.9" cy="241" r="3"/><circle cx="149.8" cy="232" r="3"/><circle cx="172.7" cy="233" r="3"/><circle cx="195.6" cy="227" r="3"/><circle cx="218.5" cy="228" r="3"/><circle cx="241.4" cy="220" r="3"/><circle cx="264.3" cy="220" r="3"/><circle cx="287.2" cy="212" r="3"/><circle cx="310.1" cy="214" r="3"/><circle cx="333" cy="208" r="3"/><circle cx="355.9" cy="208" r="3"/></g>
+<text class="n" x="10" y="220">傾き</text>
+<text x="10" y="238">次第に上昇</text>
+</g>
+<g>
+<rect class="bg" x="90" y="278" width="276" height="74" rx="4"/>
+<line class="sp" x1="90" y1="287" x2="366" y2="287"/>
+<line class="sp" x1="90" y1="343" x2="366" y2="343"/>
+<line class="ct" x1="90" y1="315" x2="366" y2="315"/>
+<polyline class="ln" points="104,317 126.9,312 149.8,320 172.7,309 195.6,323 218.5,304 241.4,327 264.3,300 287.2,329 310.1,295 333,333 355.9,291"/>
+<g class="pt"><circle cx="104" cy="317" r="3"/><circle cx="126.9" cy="312" r="3"/><circle cx="149.8" cy="320" r="3"/><circle cx="172.7" cy="309" r="3"/><circle cx="195.6" cy="323" r="3"/><circle cx="218.5" cy="304" r="3"/><circle cx="241.4" cy="327" r="3"/><circle cx="264.3" cy="300" r="3"/><circle cx="287.2" cy="329" r="3"/><circle cx="310.1" cy="295" r="3"/><circle cx="333" cy="333" r="3"/><circle cx="355.9" cy="291" r="3"/></g>
+<text class="n" x="10" y="308">広がり</text>
+<text x="10" y="326">ふれ幅の増大</text>
+</g>
+<g>
+<rect class="bg" x="90" y="366" width="276" height="74" rx="4"/>
+<line class="sp" x1="90" y1="375" x2="366" y2="375"/>
+<line class="sp" x1="90" y1="431" x2="366" y2="431"/>
+<line class="ct" x1="90" y1="403" x2="366" y2="403"/>
+<polyline class="ln" points="104,393 126.9,386 149.8,396 172.7,413 195.6,420 218.5,410 241.4,393 264.3,386 287.2,396 310.1,413 333,420 355.9,410"/>
+<g class="pt"><circle cx="104" cy="393" r="3"/><circle cx="126.9" cy="386" r="3"/><circle cx="149.8" cy="396" r="3"/><circle cx="172.7" cy="413" r="3"/><circle cx="195.6" cy="420" r="3"/><circle cx="218.5" cy="410" r="3"/><circle cx="241.4" cy="393" r="3"/><circle cx="264.3" cy="386" r="3"/><circle cx="287.2" cy="396" r="3"/><circle cx="310.1" cy="413" r="3"/><circle cx="333" cy="420" r="3"/><circle cx="355.9" cy="410" r="3"/></g>
+<text class="n" x="10" y="396">周期</text>
+<text x="10" y="414">くり返し</text>
+</g>
+<g><line class="sp" x1="20" y1="472" x2="50" y2="472"/><text class="l" x="56" y="476">上下限規格値</text>
+<line class="ct" x1="170" y1="472" x2="200" y2="472"/><text class="l" x="206" y="476">規格中心</text>
+<line class="ln" x1="276" y1="472" x2="304" y2="472"/><circle class="pt" cx="290" cy="472" r="3"/><text class="l" x="310" y="476">測定値</text>
+<text x="20" y="496">横軸は測定 No. または月日（時間順）</text></g>
+</svg>

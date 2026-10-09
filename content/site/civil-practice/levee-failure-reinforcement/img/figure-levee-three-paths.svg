@@ -1,0 +1,78 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は河川砂防技術基準の堤防の記述（侵食・浸透）と越水の壊れ方を再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="堤防の断面を3コマで示した図。上は水が天端を越えて裏法尻から削られる越水、中は表法面と法尻が流れに削られる侵食、下は浸潤面が上がり基礎地盤を通った水が裏法尻で噴砂になる浸透">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-weight: bold; fill: #2e6da4; }
+      .tn { font-weight: bold; fill: #1a3a5c; }
+      .tm { fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .w { fill: #e8f0fe; }
+      .ws { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .lv { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-linejoin: round; }
+      .g { fill: #d7d7d7; }
+      .e { fill: #f8d7da; stroke: #b22234; stroke-width: 1; stroke-dasharray: 3 2; }
+      .b { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <g transform="translate(0,4)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="20">越える水（越水）</text>
+    <text class="tm" x="24" y="35">川側</text>
+    <text class="tm" x="324" y="46">堤内地</text>
+    <polygon class="w" points="20,40 184,40 184,52 142,52 56,118 20,118"/>
+    <line class="ws" x1="20" y1="40" x2="184" y2="40"/>
+    <text x="24" y="53" class="tn">水位が堤防高を超える</text>
+    <rect class="g" x="11" y="118" width="378" height="14"/>
+    <polygon class="lv" points="56,118 142,52 184,52 270,118"/>
+    <polygon class="e" points="231,88 270,118 244,118 238,104"/>
+    <line class="ar" x1="193" y1="49" x2="262" y2="102" marker-end="url(#ah)"/>
+    <circle class="b" cx="289" cy="108" r="8"/><text class="tn" x="289" y="112" text-anchor="middle">1</text>
+    <circle class="b" cx="258" cy="68" r="8"/><text class="tn" x="258" y="72" text-anchor="middle">2</text>
+    <circle class="b" cx="208" cy="30" r="8"/><text class="tn" x="208" y="34" text-anchor="middle">3</text>
+    <text x="20" y="154">法尻（1）から洗われ、裏法面（2）、天端（3）へ崩れていく</text>
+  </g>
+
+  <g transform="translate(0,170)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="22">削る水（侵食）</text>
+    <polygon class="w" points="20,82 103,82 56,118 20,118"/>
+    <line class="ws" x1="20" y1="82" x2="103" y2="82"/>
+    <circle cx="36" cy="100" r="8" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+    <path d="M31 95L41 105M41 95L31 105" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+    <text x="48" y="104" class="tb">流れ</text>
+    <rect class="g" x="11" y="118" width="378" height="14"/>
+    <polygon class="lv" points="56,118 142,52 184,52 270,118"/>
+    <polygon class="e" points="82,98 56,118 74,118 92,104"/>
+    <polygon class="e" points="36,118 46,128 68,128 78,118"/>
+    <text x="84" y="129" class="tn">洗掘</text>
+    <text x="20" y="154">流れが当たる表法面と法尻が削られ、足元の河床が下がる</text>
+  </g>
+
+  <g transform="translate(0,336)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="22">しみる水（浸透）</text>
+    <text x="24" y="60" class="tb">高い水位が続く</text>
+    <polygon class="w" points="20,66 111,66 56,108 20,108"/>
+    <line class="ws" x1="20" y1="66" x2="111" y2="66"/>
+    <rect class="g" x="11" y="108" width="265" height="8"/>
+    <rect class="g" x="292" y="108" width="97" height="8"/>
+    <rect x="11" y="116" width="378" height="24" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+    <rect x="277" y="108" width="14" height="8" fill="#f5f5f5"/>
+    <text x="96" y="136">透水層</text>
+    <polygon class="lv" points="56,108 142,42 184,42 270,108"/>
+    <polygon fill="#e8f0fe" points="56,108 111,66 184,72 247,90 270,108"/>
+    <polyline points="111,66 184,72 247,90" fill="none" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <polygon points="56,108 142,42 184,42 270,108" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-linejoin="round"/>
+    <text x="146" y="60" class="tb">浸潤面</text>
+    <line class="ar" x1="30" y1="124" x2="281" y2="124" marker-end="url(#ah)"/>
+    <polygon fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" points="277,108 284,96 291,108"/>
+    <line class="ar" x1="285" y1="122" x2="285" y2="112" marker-end="url(#ah)"/>
+    <text x="298" y="104" class="tn">漏水・噴砂</text>
+    <text x="20" y="154">浸潤面が上がり、難透水層の欠けた所から噴砂が出る</text>
+  </g>
+</svg>

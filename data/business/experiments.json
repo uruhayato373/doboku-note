@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T02:31:46.811Z",
+  "updated_at": "2026-10-08T06:01:55.960Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -2137,6 +2137,14 @@
           "note": "運営者のA/B/C展開指示に基づき開始。本番SSR・実表示9条件と広告/noteのイベント発火を確認（検証時のGA4送信と広告遷移は抑止）。本番の実測値は次の取得待ち。A/B/Cを同率配信し、案を再訪でも固定。",
           "commit": "93863fda8474877e7df480feaa4ba89b82fb0561",
           "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37717577722"
+        },
+        {
+          "at": "2026-10-08T05:37:25.288Z",
+          "event": "shared-ui-release",
+          "commit": "27e1261e6a0378e5b2e68e7592f726016b7747d2",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37732697682",
+          "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/930",
+          "note": "過去問の番号一覧を開閉式・44pxボタンへ変更し、冒頭の商品画像をコンパクト化して内容を見る案内を追加。仕様書の版情報・表配色・横スクロール案内も公開。本番2ページ×PC/スマホ×明暗の8条件と外部SSR検査exit 0を確認。共通UI変更はA/B/C全案に適用され、note送客の前後比較に影響し得るため変更時点を記録。訪問者の案別割当・イベント・開始日時・実測値は維持。"
         }
       ],
       "started_at": "2026-10-08T02:31:46.811Z",

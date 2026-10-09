@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スリップフォームの仕組み。ジャッキがジャッキロッドを伝って、型枠・ヨーク・作業床を一体で押し上げる。型枠の内側は打込み直後のコンクリートで、型枠の下端では自立する硬さが要り、その下は硬化したコンクリートになる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lab  { font-size: 11px; fill: #222; }                         /* ink-strong */
+      .t-zone { font-size: 11px; font-weight: bold; fill: #1a3a5c; }   /* brand text */
+      .wall-old { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .wall-new { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn */
+      .form     { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .steel    { fill: #d7d7d7; stroke: #555; stroke-width: 1.5; }
+      .jack     { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive */
+      .rod      { stroke: #222; stroke-width: 3; fill: none; }
+      .rod-in   { stroke: #555; stroke-width: 3; stroke-dasharray: 6 4; fill: none; }
+      .rebar    { stroke: #555; stroke-width: 2; fill: none; }
+      .rail     { stroke: #555; stroke-width: 1.5; fill: none; }
+      .lead     { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dot      { fill: #222; }
+      .rise     { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .brk      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="sf-a" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 硬化したコンクリート（壁） -->
+  <rect class="wall-old" x="145" y="300" width="110" height="170"/>
+  <polyline class="brk" points="145,470 160,476 175,470 190,476 205,470 220,476 235,470 250,476 255,472"/>
+  <!-- 打込み直後のコンクリート -->
+  <rect class="wall-new" x="145" y="225" width="110" height="75"/>
+
+  <!-- ジャッキロッド（壁の中は破線） -->
+  <line class="rod-in" x1="172" y1="225" x2="172" y2="440"/>
+
+  <!-- 型枠 -->
+  <rect class="form" x="137" y="225" width="8" height="75"/>
+  <rect class="form" x="255" y="225" width="8" height="75"/>
+
+  <!-- ヨーク -->
+  <rect class="steel" x="129" y="150" width="142" height="8"/>
+  <rect class="steel" x="129" y="158" width="8" height="78"/>
+  <rect class="steel" x="263" y="158" width="8" height="78"/>
+
+  <!-- 作業床 -->
+  <rect class="steel" x="60" y="222" width="69" height="8"/>
+  <rect class="steel" x="271" y="222" width="69" height="8"/>
+  <polyline class="rail" points="129,196 60,196 60,222"/>
+  <polyline class="rail" points="271,196 340,196 340,222"/>
+
+  <!-- 鉄筋 -->
+  <line class="rebar" x1="150" y1="190" x2="150" y2="455"/>
+  <line class="rebar" x1="250" y1="190" x2="250" y2="455"/>
+
+  <!-- ジャッキとロッド -->
+  <line class="rod" x1="172" y1="36" x2="172" y2="225"/>
+  <rect class="jack" x="158" y="128" width="28" height="22" rx="3"/>
+
+  <!-- 上昇 -->
+  <line class="rise" x1="356" y1="262" x2="356" y2="176" marker-end="url(#sf-a)"/>
+  <text class="t-lab" x="356" y="282" text-anchor="middle">上昇</text>
+
+  <!-- 区分ラベル -->
+  <text class="t-zone" x="212" y="269" text-anchor="middle">打込み直後</text>
+  <text class="t-zone" x="212" y="374" text-anchor="middle">硬化した</text>
+  <text class="t-zone" x="212" y="390" text-anchor="middle">コンクリート</text>
+
+  <!-- 引き出し線とラベル -->
+  <line class="lead" x1="172" y1="80" x2="262" y2="80"/>
+  <circle class="dot" cx="172" cy="80" r="2"/>
+  <text class="t-lab" x="268" y="84">ジャッキロッド</text>
+
+  <line class="lead" x1="186" y1="139" x2="262" y2="139"/>
+  <circle class="dot" cx="186" cy="139" r="2"/>
+  <text class="t-lab" x="268" y="143">ジャッキ</text>
+
+  <line class="lead" x1="50" y1="154" x2="133" y2="154"/>
+  <circle class="dot" cx="133" cy="154" r="2"/>
+  <text class="t-lab" x="14" y="158">ヨーク</text>
+
+  <text class="t-lab" x="154" y="184" text-anchor="middle">鉄筋</text>
+
+  <line class="lead" x1="44" y1="246" x2="90" y2="230"/>
+  <circle class="dot" cx="90" cy="230" r="2"/>
+  <text class="t-lab" x="14" y="254">作業床</text>
+
+  <line class="lead" x1="44" y1="272" x2="141" y2="272"/>
+  <circle class="dot" cx="141" cy="272" r="2"/>
+  <text class="t-lab" x="14" y="276">型枠</text>
+
+  <line class="lead" x1="255" y1="300" x2="282" y2="300"/>
+  <circle class="dot" cx="255" cy="300" r="2"/>
+  <text class="t-lab" x="288" y="304">型枠の下端</text>
+  <text class="t-lab" x="288" y="319">（自立が必要）</text>
+</svg>

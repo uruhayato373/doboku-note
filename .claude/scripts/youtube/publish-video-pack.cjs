@@ -85,14 +85,16 @@ function assertMetadata(item, packId) {
   }
 }
 
-function loadState() {
-  return fs.existsSync(STATE_PATH)
-    ? JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'))
-    : { schemaVersion: 1, packs: {} };
+// 状態の正本はコンテンツ台帳（content/registry）。読み書きは registry-video-state.mjs の入口だけを通し、
+// 今の台帳（STATE_PATH）は台帳から作り直した写しとして一緒に書かれる（content-registry.md「YouTube の切り替え」）。
+const videoStateStore = () => import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/registry-video-state.mjs')).href);
+
+async function loadState() {
+  return (await videoStateStore()).loadVideoState(ROOT);
 }
 
-function writeState(state) {
-  fs.writeFileSync(STATE_PATH, JSON.stringify(state, null, 2) + '\n');
+async function writeState(state) {
+  await (await videoStateStore()).saveVideoState(ROOT, state, { writer: 'publish-video-pack', packIds: [PACK_ID] });
 }
 
 function upsertDerivative(state, packId, kind, value) {
@@ -323,6 +325,19 @@ async function syncAuthorityMetadata(youtube, videoId, item) {
   throw new Error(`${item.key}: 著者表記・AI開示のAPI実査に失敗 ${videoId}`);
 }
 
+/**
+ * 通常動画を YouTube へ上げる前の関門。ユーザー承認（state の approvedBy: user）と、
+ * 5分より先の予約日時が無ければ上げない（publishAt が無いと即時公開になるため）。
+ */
+function assertLongformPublishable(derivative, item, now = Date.now()) {
+  if (derivative?.approvedBy !== 'user' || !['approved', 'rendered'].includes(derivative?.status)) {
+    throw new Error(`${item.key}: ユーザー承認の済んだ通常動画ではありません（status=${derivative?.status ?? 'なし'}・approvedBy=${derivative?.approvedBy ?? 'なし'}）`);
+  }
+  if (!item.publishAt || new Date(item.publishAt).getTime() <= now + 5 * 60 * 1000) {
+    throw new Error(`${item.key}: 5分より先の publishAt が要ります（即時公開はしない）: ${item.publishAt ?? 'なし'}`);
+  }
+}
+
 async function main() {
   if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
@@ -342,6 +357,7 @@ async function main() {
   for (const item of selected) assertMetadata(item, PACK_ID);
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
+  if (PHASE === 'longform') assertLongformPublishable((await loadState()).packs?.[PACK_ID]?.derivatives?.longform, publish.longform);
   if (DRY) return console.log('[dry-run] API/R2/state は変更しません');
   if (PHASE === 'shorts-publish' && !RELATED_CONFIRMED) throw new Error('Shorts公開には --related-confirmed が必要です');
 
@@ -360,7 +376,7 @@ async function main() {
     endpoint: `https://${env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
     credentials: { accessKeyId: env.CLOUDFLARE_R2_ACCESS_KEY_ID, secretAccessKey: env.CLOUDFLARE_R2_SECRET_ACCESS_KEY },
   });
-  const state = loadState();
+  const state = await loadState();
   const now = new Date().toISOString();
 
   if (PHASE === 'longform') {
@@ -437,7 +453,7 @@ async function main() {
         privacyStatus: 'private', relatedVideoId: null, desiredRelatedVideoId: relatedVideoId,
       });
       // 2本目が日次上限などで失敗しても、1本目のvideoIdを失わず再開できるよう即時保存する。
-      writeState(state);
+      await writeState(state);
     }
   } else {
     const longformId = state.packs?.[PACK_ID]?.derivatives?.longform?.videoId;
@@ -458,7 +474,7 @@ async function main() {
       console.log(`${item.key}: scheduled ${actual.status.publishAt} ${entry.videoId}`);
     }
   }
-  writeState(state);
+  await writeState(state);
   console.log(`state updated: ${path.relative(ROOT, STATE_PATH)}`);
 }
 
@@ -470,4 +486,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { videoSnippet, videoStatus };
+module.exports = { videoSnippet, videoStatus, assertLongformPublishable };

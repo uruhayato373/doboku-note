@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="現場条件から計測方式を絞る四つの問い。地表が見えるか、広さ、要求精度の区分、水域かの順に、写真系・レーザ系・音響の候補を示す">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.b{fill:#fff;stroke:#d7d7d7}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+</style></defs>
+<rect class="r g" x="15" y="10" width="370" height="86" rx="8"/>
+<text class="h" x="24" y="30">問1　地表は見えるか</text>
+<text x="24" y="55">地表が見える</text><rect class="r w" x="150" y="40" width="226" height="22" rx="5"/><text x="158" y="55">写真系も候補になる</text>
+<text x="24" y="81">樹木や影で隠れる</text><rect class="r n" x="150" y="66" width="226" height="22" rx="5"/><text x="158" y="81">レーザ系を選ぶ</text>
+<rect class="r g" x="15" y="102" width="370" height="164" rx="8"/>
+<text class="h" x="24" y="122">問2　どのくらいの広さか</text>
+<text x="24" y="147">広い範囲を粗く</text><rect class="r n" x="150" y="132" width="226" height="22" rx="5"/><text x="158" y="147">航空レーザ測量</text>
+<text x="24" y="173">一つの現場を面で</text><rect class="r w" x="150" y="158" width="104" height="22" rx="5"/><text x="158" y="173">UAV写真測量</text><rect class="r n" x="260" y="158" width="116" height="22" rx="5"/><text x="265" y="173">UAV搭載型レーザ</text>
+<text x="24" y="199">法面・構造物のそば</text><rect class="r n" x="150" y="184" width="226" height="22" rx="5"/><text x="158" y="199">据え置き型・位相差方式</text>
+<text x="24" y="225">対岸・谷越しまで</text><rect class="r n" x="150" y="210" width="226" height="22" rx="5"/><text x="158" y="225">据え置き型・TOF方式</text>
+<text x="24" y="251">線状に長い現場</text><rect class="r n" x="150" y="236" width="226" height="22" rx="5"/><text x="158" y="251">地上移動体搭載型</text>
+<rect class="r g" x="15" y="272" width="370" height="78" rx="8"/>
+<text class="h" x="24" y="292">問3　要求精度はどの区分か</text><text class="s" x="214" y="292">（地上移動体搭載型の例）</text>
+<g class="c">
+<rect class="r b" x="22" y="302" width="112" height="40" rx="5"/><text class="s" x="78" y="318">起工測量・岩線計測</text><text class="k" x="78" y="334">±100mm以内</text>
+<rect class="r b" x="141" y="302" width="112" height="40" rx="5"/><text class="s" x="197" y="318">部分払いの出来高</text><text class="k" x="197" y="334">±200mm以内</text>
+<rect class="r b" x="260" y="302" width="112" height="40" rx="5"/><text class="s" x="316" y="318">出来形計測</text><text class="k" x="316" y="334">±50mm以内</text>
+</g>
+<rect class="r g" x="15" y="356" width="370" height="86" rx="8"/>
+<text class="h" x="24" y="376">問4　水域を含むか</text>
+<text x="24" y="401">水底まで測る</text><rect class="r p" x="150" y="386" width="226" height="22" rx="5"/><text x="158" y="401">音響測深（マルチ・シングルビーム）</text>
+<text x="24" y="427">水部を空から</text><rect class="r n" x="150" y="412" width="226" height="22" rx="5"/><text x="158" y="427">航空レーザ測深（緑のレーザ）</text>
+<rect class="r g" x="15" y="450" width="370" height="40" rx="8"/>
+<rect class="n" x="26" y="456" width="10" height="10"/><text class="s" x="40" y="465">レーザ系</text>
+<rect class="w" x="96" y="456" width="10" height="10"/><text class="s" x="110" y="465">写真系</text>
+<rect class="p" x="156" y="456" width="10" height="10"/><text class="s" x="170" y="465">音響</text>
+<text class="k" x="26" y="483">最後の決め手は、要領の精度確認試験の結果</text>
+</svg>

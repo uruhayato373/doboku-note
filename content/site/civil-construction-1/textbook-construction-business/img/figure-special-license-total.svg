@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="特定建設業の許可が必要かの判定。発注者から直接請け負う元請が、一次下請との契約の合計で5000万円以上、建築一式は8000万円以上を下請に出すときに特定が必要。二次以下の下請代金、資材の売買や測量警備などの委託、元請が提供する材料は算入しない。一般建設業でも元請として請け負う金額に上限はない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-f { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">数えるのは、元請が一次下請に出す契約の合計</text>
+
+  <rect class="bs" x="130" y="26" width="140" height="30" rx="6"/>
+  <text class="t-h" x="200" y="46" text-anchor="middle">発注者</text>
+  <line class="ln" x1="200" y1="58" x2="200" y2="76" marker-end="url(#a)"/>
+
+  <rect class="bb" x="60" y="80" width="280" height="40" rx="6"/>
+  <text class="t-h" x="200" y="105" text-anchor="middle">元請（発注者から直接請け負う）</text>
+
+  <line class="ln" x1="108" y1="122" x2="108" y2="142" marker-end="url(#a)"/>
+  <line class="ln" x1="292" y1="122" x2="292" y2="142" marker-end="url(#a)"/>
+
+  <rect class="bp" x="20" y="146" width="176" height="104" rx="6"/>
+  <text class="t-h" x="108" y="170" text-anchor="middle">算入する</text>
+  <text class="t-s" x="108" y="190" text-anchor="middle">一次下請との契約の</text>
+  <text class="t-s" x="108" y="206" text-anchor="middle">合計額</text>
+  <text class="t-f" x="108" y="236" text-anchor="middle">A ＋ B ＋ C</text>
+
+  <rect class="bd" x="204" y="146" width="176" height="104" rx="6"/>
+  <text class="t-h" x="292" y="170" text-anchor="middle">算入しない</text>
+  <text class="t-s" x="292" y="190" text-anchor="middle">二次以下の下請代金</text>
+  <text class="t-s" x="292" y="208" text-anchor="middle">資材の売買、測量、警備</text>
+  <text class="t-s" x="292" y="226" text-anchor="middle">などの委託契約</text>
+  <text class="t-s" x="292" y="244" text-anchor="middle">元請が提供する材料等</text>
+
+  <rect class="bs" x="20" y="266" width="360" height="28" rx="6"/>
+  <text class="t-h" x="200" y="285" text-anchor="middle">合計額で判定する</text>
+
+  <line class="ln" x1="108" y1="296" x2="108" y2="312" marker-end="url(#a)"/>
+  <line class="ln" x1="292" y1="296" x2="292" y2="312" marker-end="url(#a)"/>
+
+  <rect class="bw" x="20" y="316" width="176" height="74" rx="6"/>
+  <text class="t-h" x="108" y="340" text-anchor="middle">5,000万円以上</text>
+  <text class="t-s" x="108" y="358" text-anchor="middle">建築一式は8,000万円以上</text>
+  <text class="t-h" x="108" y="378" text-anchor="middle">特定建設業の許可</text>
+
+  <rect class="bs" x="204" y="316" width="176" height="74" rx="6"/>
+  <text class="t-h" x="292" y="340" text-anchor="middle">5,000万円未満</text>
+  <text class="t-s" x="292" y="358" text-anchor="middle">建築一式は8,000万円未満</text>
+  <text class="t-h" x="292" y="378" text-anchor="middle">一般建設業で足りる</text>
+
+  <rect class="bb" x="20" y="408" width="360" height="80" rx="6"/>
+  <text class="t-h" x="200" y="432" text-anchor="middle">制限がかかるのは下請に出す金額だけ</text>
+  <text class="t-s" x="200" y="454" text-anchor="middle">一般建設業でも、元請として請け負う金額に上限はない</text>
+  <text class="t-s" x="200" y="472" text-anchor="middle">下請として受注する者には、この制限がかからない</text>
+</svg>

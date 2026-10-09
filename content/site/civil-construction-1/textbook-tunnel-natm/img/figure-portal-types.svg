@@ -1,0 +1,68 @@
+<!-- authored 2026-10-09 doboku-note 自作。1級土木「トンネル（山岳工法）」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="トンネル坑門の4形式の模式図。面壁型の重力式とウイング式は平面図、突出型の突出式と竹割式は縦断図で、斜面の切り方と覆工の端面の違いを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-tag  { font-size: 11px; fill: #555; }
+      .gnd  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .lin  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wall { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .wing { fill: none; stroke: #d4a017; stroke-width: 6; }
+      .road { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">黄色が壁、青が覆工。斜面をどこまで切るかで形式が分かれる</text>
+
+  <text class="t-head" x="10" y="40">面壁型 — 壁で土圧を受ける</text>
+  <text class="t-head" x="205" y="40">突出型 — 覆工を突き出す</text>
+
+  <!-- 面壁型・重力式（平面図） -->
+  <polygon class="gnd" points="10,54 195,54 195,214 154,214 132,141 72,141 50,214 10,214"/>
+  <rect class="wall" x="68" y="129" width="68" height="26"/>
+  <rect class="lin" x="89" y="54" width="26" height="101"/>
+  <line class="road" x1="89" y1="155" x2="89" y2="214"/>
+  <line class="road" x1="115" y1="155" x2="115" y2="214"/>
+  <text class="t-tag" x="14" y="70">平面図</text>
+  <text class="t-name" x="10" y="234">重力式</text>
+  <text class="t-desc" x="10" y="250">壁の自重で背面の土圧に</text>
+  <text class="t-desc" x="10" y="264">抵抗する</text>
+
+  <!-- 面壁型・ウイング式（平面図） -->
+  <polygon class="gnd" points="10,282 195,282 195,442 154,442 132,369 72,369 50,442 10,442"/>
+  <line class="wing" x1="72" y1="373" x2="51" y2="440"/>
+  <line class="wing" x1="132" y1="373" x2="153" y2="440"/>
+  <rect class="wall" x="72" y="362" width="60" height="14"/>
+  <rect class="lin" x="89" y="282" width="26" height="94"/>
+  <line class="road" x1="89" y1="376" x2="89" y2="442"/>
+  <line class="road" x1="115" y1="376" x2="115" y2="442"/>
+  <text class="t-tag" x="14" y="298">平面図</text>
+  <text class="t-name" x="10" y="462">ウイング式</text>
+  <text class="t-desc" x="10" y="478">壁の左右に翼壁を広げ、</text>
+  <text class="t-desc" x="10" y="492">切土法面を押さえる</text>
+
+  <!-- 突出型・突出式（縦断図） -->
+  <polygon class="gnd" points="205,57 340,192 340,214 205,214"/>
+  <line class="road" x1="340" y1="192" x2="390" y2="192"/>
+  <rect class="lin" x="225" y="150" width="127" height="42"/>
+  <text class="t-tag" x="209" y="122">縦断図</text>
+  <text class="t-name" x="205" y="234">突出式</text>
+  <text class="t-desc" x="205" y="250">覆工をそのまま延ばす。</text>
+  <text class="t-desc" x="205" y="264">端面は軸に直角に切る</text>
+
+  <!-- 突出型・竹割式（縦断図） -->
+  <polygon class="gnd" points="205,285 340,419 340,442 205,442"/>
+  <line class="road" x1="340" y1="419" x2="390" y2="419"/>
+  <polygon class="lin" points="225,378 299,378 340,419 225,419"/>
+  <text class="t-tag" x="209" y="347">縦断図</text>
+  <text class="t-name" x="205" y="462">竹割式</text>
+  <text class="t-desc" x="205" y="478">覆工の端面を斜面の傾きに</text>
+  <text class="t-desc" x="205" y="492">合わせ、斜めに切り落とす</text>
+</svg>

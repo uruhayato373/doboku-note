@@ -11,12 +11,12 @@ import { fileURLToPath } from 'node:url';
 
 import {
   LONGFORM_W, LONGFORM_H, EXAM_TO_PALETTE,
-  wrapJp, chunkJpBalanced, buildLongformAss, buildSceneNode, planLongformRender,
+  wrapJp, buildLongformAss, buildSceneNode, planLongformRender,
 } from '../scripts/lib/longform-render.mjs';
 import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 
 const SCENES = [
-  { sceneId: 'hook', start: 0, end: 20, narration: 'あ'.repeat(30), caption: '導入' },
+  { sceneId: 'hook', start: 0, end: 20, narration: '土工は範囲が広く見えるけれど、出題は用語と概念の対応が中心。', caption: '導入' },
   { sceneId: 'body', start: 20, end: 80, narration: 'い'.repeat(10), caption: '本論' },
 ];
 
@@ -25,9 +25,13 @@ test('wrapJp: 和文を maxChars で折り返す', () => {
   assert.deepEqual(wrapJp('', 3), []);
 });
 
-test('chunkJpBalanced: 末尾だけ短い字幕を作らない', () => {
-  assert.deepEqual(chunkJpBalanced('あ'.repeat(30), 28).map((s) => s.length), [15, 15]);
-  assert.deepEqual(chunkJpBalanced('', 28), []);
+test('buildLongformAss: 字幕の行頭に句読点を置かず、句読点の直後で切る（DN-0592）', () => {
+  const narration = '工事概要の欄は、工事名から現場での立場までの項目を、本文と食い違わないように書きます。書いたら、1番の施工量と見比べて、この数量をこの期間で施工できるかを確かめます。';
+  const rows = buildLongformAss([{ sceneId: 'a', start: 0, end: 30, narration }]).split('\n')
+    .filter((l) => l.startsWith('Dialogue')).map((l) => l.split(',,0,0,0,,')[1]);
+  assert.equal(rows.join(''), narration);
+  assert.ok(rows.every((r) => !/^[、。]/u.test(r)), rows.join('|'));
+  assert.ok(rows.includes('本文と食い違わないように書きます。書いたら、'), rows.join('|'));
 });
 
 test('buildLongformAss: PlayRes 1920×1080・設計尺で連続タイミング', () => {
@@ -35,7 +39,7 @@ test('buildLongformAss: PlayRes 1920×1080・設計尺で連続タイミング',
   assert.ok(ass.includes(`PlayResX: ${LONGFORM_W}`));
   assert.ok(ass.includes(`PlayResY: ${LONGFORM_H}`));
   assert.ok(ass.includes('Dialogue: 0,0:00:20.00,0:01:20.00'));
-  // 30字ナレーションは15字×2へ時間分割し、1画面に複数行を詰めない。
+  // 30字ナレーションは読点の直後で15字×2へ時間分割し、1画面に複数行を詰めない。
   assert.equal((ass.match(/^Dialogue:/gm) ?? []).length, 3);
   assert.ok(ass.includes('Dialogue: 0,0:00:00.00,0:00:10.00'));
   assert.ok(ass.includes('Dialogue: 0,0:00:10.00,0:00:20.00'));

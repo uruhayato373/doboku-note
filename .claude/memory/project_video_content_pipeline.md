@@ -21,7 +21,7 @@ YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110�
 2. **ユーザー承認**（`approved` はユーザーだけが設定できる契約）→ 公開 → 派生（Shorts 2・IG・X）
 3. 公開後 6 週間で継続/停止判断
 
-**引き継ぎの注意**: mp4/wav は Git に置かない契約なので、別PCで作った動画は pull しても来ない（公開はレンダリングした側か R2 経由）。状態 `.claude/state/video-content-status.json` は Git 管理なので公開後の更新は commit が要る。
+**引き継ぎの注意**: mp4/wav は Git に置かない契約なので、別PCで作った動画は pull しても来ない（公開はレンダリングした側か R2 経由）。状態の正本はコンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え・`video-content-status.json` は写し）。予約→公開は CI の registry-reconcile が develop へ書き戻す。
 
 関連: [[feedback_metrics_cicd_supplied]] / [[feedback_gate_zero_coverage_false_pass]] / [[project_admin_app_consolidation]]
 

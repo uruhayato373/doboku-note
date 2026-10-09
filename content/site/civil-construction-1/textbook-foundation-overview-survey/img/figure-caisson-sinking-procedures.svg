@@ -1,0 +1,109 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="オープンケーソン、ニューマチックケーソン、設置ケーソンの断面の概念と、施工手順の四段階を縦に並べた比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-step { font-size: 12px; fill: #222; }
+      .t-num  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-lyr  { font-size: 11px; fill: #3a7d44; }
+      .t-lbl  { font-size: 11px; fill: #1a3a5c; }
+      .row    { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+      .soil   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .brg    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .strc   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .air    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sea    { fill: #e8f0fe; stroke: none; }
+      .wave   { fill: none; stroke: #2e6da4; stroke-width: 1.2; }
+      .hole   { fill: #ffffff; stroke: none; }
+      .badge  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .arrow  { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ar); }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 行1: オープンケーソン -->
+  <rect class="row" x="10" y="10" width="380" height="154" rx="6"/>
+  <text class="t-name" x="22" y="30">オープンケーソン</text>
+  <text class="t-sub" x="134" y="30">大気圧のまま、井筒の内側から掘る</text>
+  <line class="rule" x1="22" y1="38" x2="378" y2="38"/>
+
+  <rect class="soil" x="26" y="76" width="100" height="80"/>
+  <rect class="brg" x="26" y="134" width="100" height="22"/>
+  <text class="t-lyr" x="92" y="150">支持層</text>
+  <rect class="hole" x="50" y="76" width="34" height="42"/>
+  <path class="wave" d="M50,86 q4,-4 8.5,0 t8.5,0 t8.5,0 t8.5,0" stroke-dasharray="3 2"/>
+  <polygon class="strc" points="36,58 50,58 50,118 42,134 36,134"/>
+  <polygon class="strc" points="98,58 84,58 84,118 92,134 98,134"/>
+  <line class="arrow" x1="67" y1="94" x2="67" y2="116"/>
+  <text class="t-lbl" x="100" y="126">刃口</text>
+
+  <circle class="badge" cx="150" cy="50" r="8"/><text class="t-num" x="150" y="54" text-anchor="middle">1</text>
+  <text class="t-step" x="164" y="54">刃口を据え、ロットを連続打設</text>
+  <circle class="badge" cx="150" cy="76" r="8"/><text class="t-num" x="150" y="80" text-anchor="middle">2</text>
+  <text class="t-step" x="164" y="80">全面を均等に、中央から対称に掘る</text>
+  <circle class="badge" cx="150" cy="102" r="8"/><text class="t-num" x="150" y="106" text-anchor="middle">3</text>
+  <text class="t-step" x="164" y="106">底ざらいし、支持地盤を確認</text>
+  <circle class="badge" cx="150" cy="128" r="8"/><text class="t-num" x="150" y="132" text-anchor="middle">4</text>
+  <text class="t-step" x="164" y="132">底版を打ち、湛水のまま中詰め</text>
+
+  <!-- 行2: ニューマチックケーソン -->
+  <rect class="row" x="10" y="172" width="380" height="154" rx="6"/>
+  <text class="t-name" x="22" y="192">ニューマチックケーソン</text>
+  <text class="t-sub" x="176" y="192">圧気した作業室の中で掘る</text>
+  <line class="rule" x1="22" y1="200" x2="378" y2="200"/>
+
+  <rect class="soil" x="26" y="238" width="100" height="80"/>
+  <rect class="brg" x="26" y="296" width="100" height="22"/>
+  <text class="t-lyr" x="92" y="312">支持層</text>
+  <rect class="strc" x="36" y="226" width="64" height="36"/>
+  <rect class="air" x="42" y="262" width="52" height="26"/>
+  <rect class="strc" x="36" y="262" width="6" height="26"/>
+  <rect class="strc" x="94" y="262" width="6" height="26"/>
+  <polygon class="strc" points="36,288 42,288 39,296"/>
+  <polygon class="strc" points="94,288 100,288 97,296"/>
+  <rect x="64" y="214" width="8" height="48" fill="#ffffff" stroke="#2e6da4" stroke-width="1.2"/>
+  <rect x="60" y="208" width="16" height="7" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-lbl" x="26" y="216">ロック</text>
+  <text class="t-lbl" x="68" y="279" text-anchor="middle">作業室</text>
+
+  <circle class="badge" cx="150" cy="212" r="8"/><text class="t-num" x="150" y="216" text-anchor="middle">1</text>
+  <text class="t-step" x="164" y="216">作業室を圧気し、水を押さえる</text>
+  <circle class="badge" cx="150" cy="238" r="8"/><text class="t-num" x="150" y="242" text-anchor="middle">2</text>
+  <text class="t-step" x="164" y="242">函内で掘り、ロックから排土</text>
+  <circle class="badge" cx="150" cy="264" r="8"/><text class="t-num" x="150" y="268" text-anchor="middle">3</text>
+  <text class="t-step" x="164" y="268">着底後、平板載荷試験で確認</text>
+  <circle class="badge" cx="150" cy="290" r="8"/><text class="t-num" x="150" y="294" text-anchor="middle">4</text>
+  <text class="t-step" x="164" y="294">気圧を保ち、中埋めコンクリート</text>
+
+  <!-- 行3: 設置ケーソン -->
+  <rect class="row" x="10" y="334" width="380" height="154" rx="6"/>
+  <text class="t-name" x="22" y="354">設置ケーソン</text>
+  <text class="t-sub" x="100" y="354">製作して曳航し、整えた海底へ沈める</text>
+  <line class="rule" x1="22" y1="362" x2="378" y2="362"/>
+
+  <rect class="sea" x="26" y="382" width="100" height="52"/>
+  <path class="wave" d="M26,382 q8,-5 16,0 t16,0 t16,0 t16,0 t16,0 t16,0"/>
+  <rect class="soil" x="26" y="434" width="100" height="44"/>
+  <rect class="brg" x="26" y="462" width="100" height="16"/>
+  <text class="t-lyr" x="30" y="474">支持層</text>
+  <rect class="sea" x="48" y="434" width="56" height="28"/>
+  <rect x="52" y="390" width="48" height="72" fill="#ffffff" stroke="#1a3a5c" stroke-width="1.5"/>
+  <line x1="76" y1="390" x2="76" y2="462" stroke="#8a8a8a" stroke-width="1"/>
+  <line class="arrow" x1="114" y1="392" x2="114" y2="428"/>
+
+  <circle class="badge" cx="150" cy="374" r="8"/><text class="t-num" x="150" y="378" text-anchor="middle">1</text>
+  <text class="t-step" x="164" y="378">海底を掘削し、地盤を整える</text>
+  <circle class="badge" cx="150" cy="400" r="8"/><text class="t-num" x="150" y="404" text-anchor="middle">2</text>
+  <text class="t-step" x="164" y="404">製作したケーソンを曳航</text>
+  <circle class="badge" cx="150" cy="426" r="8"/><text class="t-num" x="150" y="430" text-anchor="middle">3</text>
+  <text class="t-step" x="164" y="430">注水して所定の位置へ沈設</text>
+  <circle class="badge" cx="150" cy="452" r="8"/><text class="t-num" x="150" y="456" text-anchor="middle">4</text>
+  <text class="t-step" x="164" y="456">中詰めと洗掘防止を行う</text>
+</svg>

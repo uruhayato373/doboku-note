@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="着工前の五つの段階と、受注者が確かめる書類の対応。事業計画と設計、用地、積算、契約方式、入札契約を、図面、特記仕様書、設計図書と現場説明書、入札説明書、質問回答書に結ぶ図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <g font-size="12" font-weight="700" fill="#555">
+    <text x="16" y="22">発注者の段階</text>
+    <text x="204" y="22">受注者が確かめる書類</text>
+  </g>
+  <g stroke-width="1.5">
+    <g fill="#e8f0fe" stroke="#2e6da4">
+      <rect x="16" y="34" width="170" height="62" rx="6"/>
+      <rect x="16" y="118" width="170" height="62" rx="6"/>
+      <rect x="16" y="202" width="170" height="62" rx="6"/>
+      <rect x="16" y="286" width="170" height="62" rx="6"/>
+      <rect x="16" y="370" width="170" height="62" rx="6"/>
+    </g>
+    <g fill="#fff3cd" stroke="#d4a017">
+      <rect x="204" y="34" width="180" height="62" rx="6"/>
+      <rect x="204" y="118" width="180" height="62" rx="6"/>
+      <rect x="204" y="202" width="180" height="62" rx="6"/>
+      <rect x="204" y="286" width="180" height="62" rx="6"/>
+      <rect x="204" y="370" width="180" height="62" rx="6"/>
+    </g>
+  </g>
+  <rect x="16" y="448" width="368" height="38" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <g font-size="14" font-weight="700" fill="#1a3a5c">
+    <text x="28" y="60">事業計画・調査・設計</text>
+    <text x="28" y="144">用地の取得</text>
+    <text x="28" y="228">積算</text>
+    <text x="28" y="312">契約方式の選択</text>
+    <text x="28" y="396">入札・契約</text>
+  </g>
+  <g font-size="13" font-weight="700" fill="#1a3a5c">
+    <text x="216" y="60">図面・仕様書</text>
+    <text x="216" y="144">特記仕様書</text>
+    <text x="216" y="228">設計図書・現場説明書</text>
+    <text x="216" y="312">入札公告・入札説明書</text>
+    <text x="216" y="396">質問回答書・契約書</text>
+  </g>
+  <g font-size="12" fill="#555">
+    <text x="28" y="80">説明、地質調査、設計</text>
+    <text x="28" y="164">調査・補償・引渡し</text>
+    <text x="28" y="248">数量と単価で予定価格</text>
+    <text x="28" y="332">誰が参加し誰を選ぶか</text>
+    <text x="28" y="416">質問、開札、契約締結</text>
+    <text x="216" y="80">設計・施工条件の根拠</text>
+    <text x="216" y="164">用地引渡し・関連工事</text>
+    <text x="216" y="248">積算の前提を照合する</text>
+    <text x="216" y="332">参加資格・評価項目</text>
+    <text x="216" y="416">設計図書の一部になる</text>
+    <text x="200" y="472" text-anchor="middle">上流の判断が、書類の一文になって届く</text>
+  </g>
+  <g stroke="#2e6da4" stroke-width="1.5" fill="none" marker-end="url(#ar)">
+    <line x1="186" y1="65" x2="202" y2="65"/>
+    <line x1="186" y1="149" x2="202" y2="149"/>
+    <line x1="186" y1="233" x2="202" y2="233"/>
+    <line x1="186" y1="317" x2="202" y2="317"/>
+    <line x1="186" y1="401" x2="202" y2="401"/>
+    <line x1="101" y1="98" x2="101" y2="116"/>
+    <line x1="101" y1="182" x2="101" y2="200"/>
+    <line x1="101" y1="266" x2="101" y2="284"/>
+    <line x1="101" y1="350" x2="101" y2="368"/>
+  </g>
+</svg>

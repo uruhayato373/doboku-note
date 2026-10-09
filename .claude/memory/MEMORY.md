@@ -46,6 +46,7 @@
 - [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
 - [SSOT手書き禁止](feedback_ssot_no_hand_copies_self_verify.md) — 原文照合・仕様は実測
 - [SVG/画像生成の罠](feedback_svg_arrow_marker.md) — 矢印向き・再目視・auto-fit
+- [動画は音声前に画面確認](feedback_video_visual_check_before_audio.md) — 無音プレビュー・10秒シート
 - [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
@@ -100,7 +101,7 @@
 - [売れる型SSOT](reference_note_selling_structures.md) — 9型＋6部品・誠実ガード
 - [サイトCTA配線](reference_site_magazine_cta_firing.md) — 発火条件・career CTA確認
 - [worktree罠](reference_shared_worktree_autostash_hazard.md) — autostash・hook・Turbopack
-- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源・push前の;連結
+- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源・push前の;連結・誤shallow
 - [Win Bash罠](reference_git_show_ref_path_false_pass.md) — git show偽PASS・gh jq
 - [容量・速度](reference_mac_disk_reclaim.md) — check-disk-hygiene・EDRビルド
 - [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延

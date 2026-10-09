@@ -108,3 +108,10 @@ feature ブランチを最新 develop へ載せ直すとき、`git reset --keep 
 - **How to apply:** 載せ直し → 検証 → push は別の呼び出しに分け、push の前に「元の範囲と同じパッチか」（`diff <(git diff <元の base> <元の head>) <(git diff origin/develop HEAD)`）を見てから押す。`| tail` で失敗を飲み込む位置に `&&` を置かない。作業ツリーに他人の変更があると `git rebase` は拒否するので `git reset --keep` + `git cherry-pick <sha...>` を使う（stash は共有なので使わない）。
 3. **commit の失敗も同じ（2026-10-06 3 回目）**: `git commit ... ; echo rc=$?; ... c=$(git rev-parse HEAD); git reset --keep origin/develop && git cherry-pick $c` と書き、lint-ja で commit が止まったのに載せ直しへ進んだ。`c` は既に push 済みの 1 つ前のコミットになり、空の cherry-pick が途中で止まった（ステージした変更はアンステージされ作業ツリーには残った）。後始末は作業ツリーに触れない `git cherry-pick --quit`（`--abort`/`--skip` は reset を伴う）。**載せ直しは commit の成功（rc=0 と新しい sha）を確かめた次の呼び出しで、sha を直書きして行う**。
 
+
+## 共有の .git/shallow が突然できて「unrelated histories」になる（2026-10-09）
+
+- **現象**: PR ブランチへ develop を merge しようとして `fatal: refusing to merge unrelated histories`。`git rev-list --count HEAD` が 1 で、`git rev-parse --is-shallow-repository` が true。共通の `.git/shallow` に PR の先頭コミット 1 行が書かれていた（06:06 作成。作った操作は未特定。自分の Bash 履歴に `--depth` は無く、並行の workflow の担当か、アプリの PR 監視の可能性）。
+- **見分け方**: `git cat-file -p <そのコミット>` の parent が手元にあれば、履歴は失われていない（記録だけが誤り）。
+- **直し方**: `git fetch --unshallow origin <ブランチ>` で `.git/shallow` が消える。ファイルを手で消さない。
+- **How to apply:** merge・rebase が「無関係な履歴」で止まったら、まず `--is-shallow-repository` と `.git/shallow` を見る。履歴を作り直す・force push で直そうとしない。

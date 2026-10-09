@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="洪水予報河川で、水位の段階ごとに警戒レベルと情報名と自治体の避難情報が対応する図。氾濫危険水位がレベル4の氾濫危険警報で避難指示、避難判断水位がレベル3の氾濫警報で高齢者等避難" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+  <!-- 列見出し : ink-body -->
+  <text x="102" y="28" font-size="12" fill="#555" text-anchor="middle">水位の段階</text>
+  <text x="212" y="28" font-size="12" fill="#555" text-anchor="middle">洪水予報の情報名</text>
+  <text x="326" y="14" font-size="12" fill="#555" text-anchor="middle">市町村の</text>
+  <text x="326" y="28" font-size="12" fill="#555" text-anchor="middle">避難情報</text>
+
+  <!-- レベル5 : danger（黒を意識して外枠を濃く） -->
+  <rect x="16" y="38" width="364" height="72" rx="8" fill="#f8d7da" stroke="#222" stroke-width="3"/>
+  <circle cx="35" cy="74" r="12" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+  <text x="35" y="79" font-size="14" font-weight="700" fill="#222" text-anchor="middle">5</text>
+  <text x="104" y="70" font-size="12" font-weight="700" fill="#222" text-anchor="middle">氾濫発生</text>
+  <text x="104" y="88" font-size="11" fill="#555" text-anchor="middle">氾濫が発生</text>
+  <line x1="154" y1="46" x2="154" y2="102" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="212" y="68" font-size="13" font-weight="700" fill="#222" text-anchor="middle">氾濫特別警報</text>
+  <text x="212" y="88" font-size="11" fill="#555" text-anchor="middle">氾濫発生情報と一体</text>
+  <line x1="270" y1="46" x2="270" y2="102" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="326" y="79" font-size="12" font-weight="700" fill="#222" text-anchor="middle">緊急安全確保</text>
+
+  <!-- レベル4 : danger -->
+  <rect x="16" y="116" width="364" height="72" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>
+  <circle cx="35" cy="152" r="12" fill="#ffffff" stroke="#b22234" stroke-width="1.5"/>
+  <text x="35" y="157" font-size="14" font-weight="700" fill="#222" text-anchor="middle">4</text>
+  <text x="104" y="148" font-size="12" font-weight="700" fill="#222" text-anchor="middle">氾濫危険水位</text>
+  <text x="104" y="166" font-size="11" fill="#555" text-anchor="middle">浸水被害の恐れ</text>
+  <line x1="154" y1="124" x2="154" y2="180" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="212" y="146" font-size="13" font-weight="700" fill="#222" text-anchor="middle">氾濫危険警報</text>
+  <text x="212" y="166" font-size="11" fill="#555" text-anchor="middle">旧 氾濫危険情報</text>
+  <line x1="270" y1="124" x2="270" y2="180" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="326" y="157" font-size="12" font-weight="700" fill="#222" text-anchor="middle">避難指示</text>
+
+  <!-- レベル3 : warn -->
+  <rect x="16" y="194" width="364" height="72" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <circle cx="35" cy="230" r="12" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="35" y="235" font-size="14" font-weight="700" fill="#222" text-anchor="middle">3</text>
+  <text x="104" y="226" font-size="12" font-weight="700" fill="#222" text-anchor="middle">避難判断水位</text>
+  <text x="104" y="244" font-size="11" fill="#555" text-anchor="middle">避難判断の目安</text>
+  <line x1="154" y1="202" x2="154" y2="258" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="212" y="224" font-size="13" font-weight="700" fill="#222" text-anchor="middle">氾濫警報</text>
+  <text x="212" y="244" font-size="11" fill="#555" text-anchor="middle">旧 氾濫警戒情報</text>
+  <line x1="270" y1="202" x2="270" y2="258" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="326" y="235" font-size="12" font-weight="700" fill="#222" text-anchor="middle">高齢者等避難</text>
+
+  <!-- レベル2 : brand -->
+  <rect x="16" y="272" width="364" height="72" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="35" cy="308" r="12" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="35" y="313" font-size="14" font-weight="700" fill="#222" text-anchor="middle">2</text>
+  <text x="104" y="304" font-size="12" font-weight="700" fill="#222" text-anchor="middle">氾濫注意水位</text>
+  <text x="104" y="322" font-size="11" fill="#555" text-anchor="middle">出動の目安</text>
+  <line x1="154" y1="280" x2="154" y2="336" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="212" y="302" font-size="13" font-weight="700" fill="#222" text-anchor="middle">氾濫注意報</text>
+  <text x="212" y="322" font-size="11" fill="#555" text-anchor="middle">旧 氾濫注意情報</text>
+  <line x1="270" y1="280" x2="270" y2="336" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="326" y="306" font-size="12" fill="#222" text-anchor="middle">避難行動を</text>
+  <text x="326" y="323" font-size="12" fill="#222" text-anchor="middle">確認する</text>
+
+  <!-- レベル1 : surface -->
+  <rect x="16" y="350" width="364" height="72" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <circle cx="35" cy="386" r="12" fill="#ffffff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="35" y="391" font-size="14" font-weight="700" fill="#222" text-anchor="middle">1</text>
+  <text x="104" y="382" font-size="12" font-weight="700" fill="#222" text-anchor="middle">水防団待機水位</text>
+  <text x="104" y="400" font-size="11" fill="#555" text-anchor="middle">出動の準備</text>
+  <line x1="154" y1="358" x2="154" y2="414" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="212" y="380" font-size="13" font-weight="700" fill="#222" text-anchor="middle">早期注意情報</text>
+  <text x="212" y="400" font-size="11" fill="#555" text-anchor="middle">気象庁が発表</text>
+  <line x1="270" y1="358" x2="270" y2="414" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="326" y="384" font-size="12" fill="#222" text-anchor="middle">災害への</text>
+  <text x="326" y="401" font-size="12" fill="#222" text-anchor="middle">心構えを高める</text>
+
+  <!-- 補足 -->
+  <text x="20" y="438" font-size="11" fill="#555">上の段ほど水位が高く、危険度が高い</text>
+  <text x="20" y="454" font-size="11" fill="#555">色は本サイトの配色で、気象庁の警戒レベル色とは異なる</text>
+  <text x="20" y="470" font-size="11" fill="#555">水位周知河川は従来の情報名にレベルを付けて</text>
+  <text x="20" y="486" font-size="11" fill="#555">「レベル3氾濫警戒情報」のように運用する</text>
+</svg>

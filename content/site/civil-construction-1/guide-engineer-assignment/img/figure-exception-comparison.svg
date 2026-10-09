@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="専任の例外3つの比較。特例1号は主任技術者と監理技術者が対象で2現場まで、特例2号は監理技術者のみで補佐を各現場に専任で置く、密接関連工事は主任技術者のみで現場間は10km程度">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:13px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:11px;font-weight:bold;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}
+.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}
+.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}</style></defs>
+<text class="s" x="200" y="18" text-anchor="middle">専任が必要な工事で、技術者が複数の現場を兼ねられる3つの道</text>
+<rect class="bb" x="12" y="30" width="376" height="157" rx="6"/>
+<text class="h" x="24" y="52">特例1号</text>
+<text class="s" x="376" y="52" text-anchor="end">法第26条第3項第1号</text>
+<text class="k" x="24" y="78">対象</text>
+<text x="62" y="78">主任技術者・監理技術者（下請の主任技術者も可）</text>
+<text class="k" x="24" y="99">兼務</text>
+<text x="62" y="99">2現場まで</text>
+<text class="k" x="24" y="120">条件</text>
+<text x="62" y="120">各工事が1億円未満（建築一式工事は2億円未満）、</text>
+<text x="62" y="136">現場間は片道おおむね2時間以内、下請は3次まで</text>
+<text class="k" x="24" y="157">必要</text>
+<text x="62" y="157">連絡員、施工体制を遠隔で確認する手段、</text>
+<text x="62" y="173">映像・音声の機器、人員配置計画書</text>
+<rect class="bp" x="12" y="197" width="376" height="141" rx="6"/>
+<text class="h" x="24" y="219">特例2号</text>
+<text class="s" x="376" y="219" text-anchor="end">法第26条第3項第2号</text>
+<text class="k" x="24" y="245">対象</text>
+<text x="62" y="245">監理技術者のみ（主任技術者は不可）</text>
+<text class="k" x="24" y="266">兼務</text>
+<text x="62" y="266">2現場まで</text>
+<text class="k" x="24" y="287">条件</text>
+<text x="62" y="287">各現場に監理技術者補佐を専任で置く</text>
+<text class="k" x="24" y="308">補佐</text>
+<text x="62" y="308">1級施工管理技士補、または</text>
+<text x="62" y="324">その工事の監理技術者の資格を持つ人</text>
+<rect class="bw" x="12" y="348" width="376" height="141" rx="6"/>
+<text class="h" x="24" y="370">密接関連工事</text>
+<text class="s" x="376" y="370" text-anchor="end">令第27条第2項</text>
+<text class="k" x="24" y="396">対象</text>
+<text x="62" y="396">主任技術者のみ（専任の監理技術者は不可）</text>
+<text class="k" x="24" y="417">兼務</text>
+<text x="62" y="417">専任が必要な工事を含むとき、原則2件程度</text>
+<text class="k" x="24" y="438">条件</text>
+<text x="62" y="438">一体性・連続性があるか、互いに調整を要する工事で</text>
+<text x="62" y="454">現場の間隔が10km程度</text>
+<text class="k" x="24" y="475">判断</text>
+<text x="62" y="475">難易度や距離を踏まえ、発注者が適切に判断する</text>
+</svg>

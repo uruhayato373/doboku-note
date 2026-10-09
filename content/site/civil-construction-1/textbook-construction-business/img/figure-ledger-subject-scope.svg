@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="施工体制台帳に載せるかを決める3つの問い。問い1は建設工事の請負契約か、はいなら一次から三次以下まで載せ、資材納入、運搬のみ、測量や調査は請負契約でなく法令上の記載義務がない。問い2は相手に許可があるか、許可の有無は結論を変えず、軽微な工事の無許可業者も請負なら載せる。問い3は発注者が仕様書などで記載を求めているか、求めていれば請負契約でなくても載せる。国土交通省発注工事の警備会社が例">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-m { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">台帳に載せるかは、上から順に3つの問いで決まる</text>
+
+  <rect class="bb" x="20" y="28" width="360" height="140" rx="6"/>
+  <text class="t-h" x="200" y="54" text-anchor="middle">問い1　その契約は建設工事の請負契約か</text>
+  <text class="t-s" x="200" y="84" text-anchor="middle">はい：載せる（一次から三次以下まで）</text>
+  <text class="t-s" x="200" y="106" text-anchor="middle">いいえ：法令上の記載義務はない</text>
+  <text class="t-m" x="200" y="134" text-anchor="middle">資材納入・運搬のみ・測量や調査は、</text>
+  <text class="t-m" x="200" y="152" text-anchor="middle">売買や委託で請負契約ではない</text>
+
+  <line class="ln" x1="200" y1="170" x2="200" y2="186" marker-end="url(#a)"/>
+
+  <rect class="bp" x="20" y="190" width="360" height="128" rx="6"/>
+  <text class="t-h" x="200" y="216" text-anchor="middle">問い2　相手に許可はあるか</text>
+  <text class="t-s" x="200" y="246" text-anchor="middle">許可の有無は、結論を変えない</text>
+  <text class="t-s" x="200" y="268" text-anchor="middle">軽微な工事だけの無許可業者も、</text>
+  <text class="t-s" x="200" y="286" text-anchor="middle">請負契約を結んでいれば載せる</text>
+
+  <line class="ln" x1="200" y1="320" x2="200" y2="336" marker-end="url(#a)"/>
+
+  <rect class="bw" x="20" y="340" width="360" height="124" rx="6"/>
+  <text class="t-h" x="200" y="366" text-anchor="middle">問い3　発注者が仕様書などで記載を求めているか</text>
+  <text class="t-s" x="200" y="396" text-anchor="middle">求めているなら、請負契約でなくても載せる</text>
+  <text class="t-s" x="200" y="418" text-anchor="middle">例：国土交通省発注工事の警備会社</text>
+  <text class="t-m" x="200" y="442" text-anchor="middle">共通仕様書が記載を求めている</text>
+</svg>

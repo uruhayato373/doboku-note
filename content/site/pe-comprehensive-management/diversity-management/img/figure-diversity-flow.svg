@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="多様な人材を、職務の要件による配置、個人の成果と能力による評価、時間と場所の制約を減らす働き方の順に進め、最後に定着率や生産性などの指標で確かめる流れを縦に示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-step  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-body  { font-size: 12px; fill: #222; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .box-in   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-step { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-note { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-out  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .arrow    { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 入力: 多様な人材 (brand) -->
+  <rect class="box-in" x="14" y="12" width="372" height="84" rx="6"/>
+  <text class="t-head" x="200" y="38" text-anchor="middle">多様な人材</text>
+  <text class="t-body" x="200" y="58" text-anchor="middle">性別・年齢・国籍・障害の有無</text>
+  <text class="t-body" x="200" y="78" text-anchor="middle">雇用形態・働き方・価値観・経験</text>
+
+  <line class="arrow" x1="70" y1="96" x2="70" y2="114" marker-end="url(#arr)"/>
+
+  <!-- 配置 -->
+  <rect class="box-step" x="14" y="116" width="112" height="74" rx="6"/>
+  <text class="t-step" x="70" y="148" text-anchor="middle">配置</text>
+  <text class="t-sub" x="70" y="168" text-anchor="middle">適材適所</text>
+  <rect class="box-note" x="132" y="116" width="254" height="74" rx="6"/>
+  <text class="t-body" x="142" y="148">属性でなく職務の要件で決める</text>
+  <text class="t-body" x="142" y="168">要件は先に言葉にしておく</text>
+
+  <line class="arrow" x1="70" y1="190" x2="70" y2="208" marker-end="url(#arr)"/>
+
+  <!-- 評価 -->
+  <rect class="box-step" x="14" y="210" width="112" height="74" rx="6"/>
+  <text class="t-step" x="70" y="242" text-anchor="middle">評価</text>
+  <text class="t-sub" x="70" y="262" text-anchor="middle">個人を丁寧に</text>
+  <rect class="box-note" x="132" y="210" width="254" height="74" rx="6"/>
+  <text class="t-body" x="142" y="242">属性のイメージで括らない</text>
+  <text class="t-body" x="142" y="262">求める水準を事前に示す</text>
+
+  <line class="arrow" x1="70" y1="284" x2="70" y2="302" marker-end="url(#arr)"/>
+
+  <!-- 働き方 -->
+  <rect class="box-step" x="14" y="304" width="112" height="74" rx="6"/>
+  <text class="t-step" x="70" y="336" text-anchor="middle">働き方</text>
+  <text class="t-sub" x="70" y="356" text-anchor="middle">制約を減らす</text>
+  <rect class="box-note" x="132" y="304" width="254" height="74" rx="6"/>
+  <text class="t-body" x="142" y="336">長時間労働を前提にしない</text>
+  <text class="t-body" x="142" y="356">ワーク・ライフ・バランスとテレワーク</text>
+
+  <line class="arrow" x1="70" y1="378" x2="70" y2="396" marker-end="url(#arr)"/>
+
+  <!-- 出力: 指標で確かめる (positive) -->
+  <rect class="box-out" x="14" y="398" width="372" height="76" rx="6"/>
+  <text class="t-head" x="200" y="424" text-anchor="middle">指標で確かめる</text>
+  <text class="t-body" x="200" y="446" text-anchor="middle">定着率・生産性・業績などと結びつけ、</text>
+  <text class="t-body" x="200" y="464" text-anchor="middle">結果から配置・評価・働き方を見直す</text>
+
+  <text class="t-leg" x="14" y="492">施策を整理する順序の一例（働き方は配置・評価と並行して整える）</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="作業床を足場の幅方向の断面で見た図。床材どうしのすき間は3cm以下、床材の端と建地のすき間は12cm未満、作業床の幅は40cm以上。床材が片側に寄り、一方の建地ぎわが12cm以上に開き、防網もない例を不適合として示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-chip { font-size: 12px; font-weight: bold; fill: #1a3a5c; }  /* brand text */
+      .t-part { font-size: 11px; fill: #555; }                         /* ink-body */
+      .t-dim  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }   /* brand text */
+      .t-ng   { font-size: 11px; font-weight: bold; fill: #b22234; }   /* danger */
+      .t-note { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand text */
+      .t-sub  { font-size: 11px; fill: #555; }                         /* ink-body */
+      .post   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }        /* ink-muted / ink-body */
+      .deck   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }   /* brand */
+      .chip-ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive */
+      .chip-ng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* danger */
+      .dim-ok { stroke: #2e6da4; stroke-width: 1.2; fill: none; }      /* brand */
+      .dim-ng { stroke: #b22234; stroke-width: 1.2; fill: none; }      /* danger */
+      .ext    { stroke: #8a8a8a; stroke-width: 1; }                    /* ink-muted */
+    </style>
+  </defs>
+
+  <!-- 適合の例 -->
+  <rect class="chip-ok" x="20" y="14" width="96" height="24" rx="6"/>
+  <text class="t-chip" x="68" y="30" text-anchor="middle">適合の例</text>
+
+  <rect class="post" x="42" y="66" width="8" height="82"/>
+  <rect class="post" x="350" y="66" width="8" height="82"/>
+  <text class="t-part" x="46" y="60" text-anchor="middle">建地</text>
+  <text class="t-part" x="354" y="60" text-anchor="middle">建地</text>
+
+  <rect class="deck" x="100" y="108" width="95" height="10"/>
+  <rect class="deck" x="210" y="108" width="95" height="10"/>
+  <text class="t-part" x="147" y="102" text-anchor="middle">床材</text>
+  <text class="t-part" x="257" y="102" text-anchor="middle">床材</text>
+
+  <line class="ext" x1="100" y1="119" x2="100" y2="142"/>
+  <line class="ext" x1="305" y1="119" x2="305" y2="142"/>
+  <line class="ext" x1="100" y1="164" x2="100" y2="192"/>
+  <line class="ext" x1="305" y1="164" x2="305" y2="192"/>
+
+  <line class="ext" x1="195" y1="119" x2="195" y2="142"/>
+  <line class="ext" x1="210" y1="119" x2="210" y2="142"/>
+  <line class="dim-ok" x1="189" y1="136" x2="216" y2="136"/>
+  <polygon points="195,136 189,133 189,139" fill="#2e6da4"/>
+  <polygon points="210,136 216,133 216,139" fill="#2e6da4"/>
+  <text class="t-dim" x="202" y="158" text-anchor="middle">床材間 3cm以下</text>
+
+  <line class="dim-ok" x1="50" y1="136" x2="100" y2="136"/>
+  <polygon points="50,136 56,133 56,139" fill="#2e6da4"/>
+  <polygon points="100,136 94,133 94,139" fill="#2e6da4"/>
+  <text class="t-dim" x="75" y="158" text-anchor="middle">12cm未満</text>
+
+  <line class="dim-ok" x1="305" y1="136" x2="350" y2="136"/>
+  <polygon points="305,136 311,133 311,139" fill="#2e6da4"/>
+  <polygon points="350,136 344,133 344,139" fill="#2e6da4"/>
+  <text class="t-dim" x="327" y="158" text-anchor="middle">12cm未満</text>
+
+  <line class="dim-ok" x1="100" y1="186" x2="305" y2="186"/>
+  <polygon points="100,186 106,183 106,189" fill="#2e6da4"/>
+  <polygon points="305,186 299,183 299,189" fill="#2e6da4"/>
+  <text class="t-dim" x="202" y="208" text-anchor="middle">作業床の幅 40cm以上</text>
+
+  <!-- 不適合の例 -->
+  <rect class="chip-ng" x="20" y="264" width="292" height="24" rx="6"/>
+  <text class="t-chip" x="166" y="280" text-anchor="middle">不適合の例（防網なし・床材が片側に寄った）</text>
+
+  <rect class="post" x="42" y="316" width="8" height="82"/>
+  <rect class="post" x="350" y="316" width="8" height="82"/>
+
+  <rect class="deck" x="130" y="358" width="95" height="10"/>
+  <rect class="deck" x="240" y="358" width="95" height="10"/>
+
+  <line class="ext" x1="130" y1="369" x2="130" y2="392"/>
+  <line class="dim-ng" x1="50" y1="386" x2="130" y2="386"/>
+  <polygon points="50,386 56,383 56,389" fill="#b22234"/>
+  <polygon points="130,386 124,383 124,389" fill="#b22234"/>
+  <text class="t-ng" x="90" y="408" text-anchor="middle">12cm以上</text>
+
+  <!-- 読み方 -->
+  <text class="t-note" x="200" y="440" text-anchor="middle">床材が寄っても、両側とも12cm未満を保てるか</text>
+  <text class="t-sub" x="200" y="460" text-anchor="middle">例外：両側のすき間の合計が24cm未満なら、</text>
+  <text class="t-sub" x="200" y="475" text-anchor="middle">12cm以上の箇所に防網を張れば適用除外</text>
+  <text class="t-sub" x="200" y="491" text-anchor="middle">根拠：労働安全衛生規則 第563条</text>
+</svg>

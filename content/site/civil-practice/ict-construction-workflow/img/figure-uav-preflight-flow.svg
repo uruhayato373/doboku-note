@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="UAV測量の流れを六段で示した図。機体の登録、場所、飛び方、手続きで法令を確かめてから、撮影計画と実飛行の確認に進む">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<rect class="r w" x="15" y="14" width="370" height="62" rx="8"/>
+<circle class="r w" cx="40" cy="45" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="50">1</text>
+<text class="h" x="64" y="34">機体</text>
+<text x="64" y="51">100g以上は無人航空機。登録とリモートIDが前提</text>
+<text x="64" y="67">（機体本体とバッテリーの合計重量）</text>
+<path class="a" d="M194 77 h12 l-6 10 z"/>
+<rect class="r w" x="15" y="88" width="370" height="62" rx="8"/>
+<circle class="r w" cx="40" cy="119" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="124">2</text>
+<text class="h" x="64" y="108">場所</text>
+<text x="64" y="125">許可: 空港周辺・150m以上・人口集中地区</text>
+<text x="64" y="141">緊急用務空域は許可があっても飛行できない</text>
+<path class="a" d="M194 151 h12 l-6 10 z"/>
+<rect class="r w" x="15" y="162" width="370" height="62" rx="8"/>
+<circle class="r w" cx="40" cy="193" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="198">3</text>
+<text class="h" x="64" y="182">飛び方</text>
+<text x="64" y="199">昼間・目視内・30m離す・催し上空を避ける</text>
+<text x="64" y="215">危険物を運ばない・物を投下しない</text>
+<path class="a" d="M194 225 h12 l-6 10 z"/>
+<rect class="r w" x="15" y="236" width="370" height="62" rx="8"/>
+<circle class="r w" cx="40" cy="267" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="272">4</text>
+<text class="h" x="64" y="256">手続き</text>
+<text x="64" y="273">特定飛行は許可・承認の要否を確認</text>
+<text x="64" y="289">飛行計画の通報（DIPS2.0）と飛行日誌</text>
+<path class="a" d="M194 299 h12 l-6 10 z"/>
+<rect class="r n" x="15" y="310" width="370" height="62" rx="8"/>
+<circle class="r n" cx="40" cy="341" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="346">5</text>
+<text class="h" x="64" y="330">撮影計画</text>
+<text x="64" y="347">地上画素寸法から対地高度の上限を出す</text>
+<text x="64" y="363">コース・重複度・飛行マニュアルを記載</text>
+<path class="a" d="M194 373 h12 l-6 10 z"/>
+<rect class="r n" x="15" y="384" width="370" height="62" rx="8"/>
+<circle class="r n" cx="40" cy="415" r="14" style="fill:#fff"/>
+<text class="k c" x="40" y="420">6</text>
+<text class="h" x="64" y="404">実飛行</text>
+<text x="64" y="421">計画した対地高度で飛べたかを確かめる</text>
+<text x="64" y="437">精度確認試験の較差で測定精度を判定</text>
+<rect class="r g" x="15" y="458" width="370" height="32" rx="8"/>
+<rect class="w" x="26" y="468" width="10" height="10"/><text class="s" x="40" y="477">法令</text>
+<rect class="n" x="76" y="468" width="10" height="10"/><text class="s" x="90" y="477">計画・確認</text>
+<text class="k" x="160" y="479">法令が先、撮影計画は後</text>
+</svg>

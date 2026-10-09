@@ -1,0 +1,90 @@
+<!-- authored 2026-10-09 doboku-note 自作。1級土木「トンネル（山岳工法）」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="沈埋工法の手順の模式図。函の製作、曳航、溝への沈設、ゴムガスケットとジャッキによる水中接合と排水の4段階を縦に並べて示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-in   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .frame { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .gnd  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .wat  { fill: #e8f0fe; stroke: none; }
+      .tube { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .part { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .wire { stroke: #555; stroke-width: 1; fill: none; }
+      .arr  { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">函は陸上でつくり、水上を運び、水底の溝へ据えて水中でつなぐ</text>
+
+  <!-- ① 函の製作 -->
+  <rect class="frame" x="10" y="30" width="180" height="92" rx="6"/>
+  <rect class="gnd" x="11" y="92" width="178" height="29"/>
+  <rect class="tube" x="50" y="64" width="100" height="28"/>
+  <rect class="part" x="46" y="62" width="6" height="32"/>
+  <rect class="part" x="148" y="62" width="6" height="32"/>
+  <text class="t-in" x="100" y="82" text-anchor="middle">函</text>
+  <text class="t-name" x="204" y="52">① 函の製作</text>
+  <text class="t-desc" x="204" y="72">ドックや造船所で</text>
+  <text class="t-desc" x="204" y="88">箱状の函をつくり、</text>
+  <text class="t-desc" x="204" y="104">両端を仮壁でふさぐ</text>
+  <line class="arr" x1="100" y1="124" x2="100" y2="144" marker-end="url(#ah)"/>
+
+  <!-- ② 曳航 -->
+  <rect class="frame" x="10" y="148" width="180" height="92" rx="6"/>
+  <rect class="wat" x="11" y="190" width="178" height="49"/>
+  <line x1="11" y1="190" x2="189" y2="190" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="tube" x="76" y="178" width="90" height="26"/>
+  <rect class="part" x="72" y="176" width="6" height="30"/>
+  <rect class="part" x="164" y="176" width="6" height="30"/>
+  <polygon class="part" points="20,190 52,190 47,178 25,178"/>
+  <line class="wire" x1="52" y1="184" x2="72" y2="190"/>
+  <text class="t-name" x="204" y="170">② 曳航</text>
+  <text class="t-desc" x="204" y="190">仮壁で水を防いだ函を</text>
+  <text class="t-desc" x="204" y="206">浮かべ、船で現場まで</text>
+  <text class="t-desc" x="204" y="222">運ぶ</text>
+  <line class="arr" x1="100" y1="242" x2="100" y2="262" marker-end="url(#ah)"/>
+
+  <!-- ③ 沈設 -->
+  <rect class="frame" x="10" y="266" width="180" height="92" rx="6"/>
+  <rect class="wat" x="11" y="282" width="178" height="64"/>
+  <polygon class="gnd" points="11,334 70,334 70,346 130,346 130,334 189,334 189,357 11,357"/>
+  <rect class="part" x="56" y="272" width="88" height="10"/>
+  <line class="wire" x1="72" y1="282" x2="78" y2="314"/>
+  <line class="wire" x1="128" y1="282" x2="122" y2="314"/>
+  <rect class="tube" x="74" y="314" width="52" height="18"/>
+  <text class="t-name" x="204" y="288">③ 沈設</text>
+  <text class="t-desc" x="204" y="308">函に水を入れて重くし、</text>
+  <text class="t-desc" x="204" y="324">浚渫した溝へ位置を</text>
+  <text class="t-desc" x="204" y="340">合わせて沈める</text>
+  <line class="arr" x1="100" y1="360" x2="100" y2="380" marker-end="url(#ah)"/>
+
+  <!-- ④ 水中接合 -->
+  <rect class="frame" x="10" y="384" width="180" height="92" rx="6"/>
+  <rect class="wat" x="11" y="400" width="178" height="62"/>
+  <polygon class="gnd" points="11,440 24,440 24,452 176,452 176,440 189,440 189,475 11,475"/>
+  <rect class="tube" x="28" y="426" width="56" height="26"/>
+  <rect x="90" y="426" width="10" height="26" fill="#ffffff"/>
+  <rect class="part" x="84" y="426" width="6" height="26"/>
+  <rect class="part" x="100" y="426" width="6" height="26"/>
+  <rect class="tube" x="106" y="426" width="60" height="26"/>
+  <rect class="part" x="166" y="426" width="6" height="26"/>
+  <line class="arr" x1="136" y1="414" x2="108" y2="414" marker-end="url(#ah)"/>
+  <text class="t-desc" x="121" y="409" text-anchor="middle">ジャッキ</text>
+  <line class="arr" x1="186" y1="431" x2="175" y2="431" marker-end="url(#ah)"/>
+  <text class="t-desc" x="186" y="422" text-anchor="end">水圧</text>
+  <line class="wire" x1="95" y1="446" x2="95" y2="458"/>
+  <text class="t-desc" x="95" y="470" text-anchor="middle">排水した区画</text>
+  <text class="t-name" x="204" y="406">④ 水中での接合</text>
+  <text class="t-desc" x="204" y="426">ガスケットをジャッキで</text>
+  <text class="t-desc" x="204" y="442">引き寄せ、函の間の水を</text>
+  <text class="t-desc" x="204" y="458">抜いて水圧で圧着する</text>
+</svg>

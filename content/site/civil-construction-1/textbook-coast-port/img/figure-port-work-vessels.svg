@@ -1,0 +1,59 @@
+<!-- authored 2026-10-08 doboku-note 自作。港湾工事の作業船を掘る・運ぶ・据える・改良するの働き別に整理した比較図。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="港湾工事の作業船を働き別に整理した比較表。掘る：各種浚渫船。運ぶ：土運船とガット船。据える：起重機船・水中捨石均し機・水中バックホウ。改良する：SCP船・サンドドレーン船・深層混合処理船・空気圧送船">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-fn { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .t-ship { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-m { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">海上工事は、働き別に作業船を組み合わせた船団で進める</text>
+
+  <!-- 掘る -->
+  <rect class="box-b" x="20" y="30" width="84" height="108" rx="6"/>
+  <text class="t-fn" x="62" y="88" text-anchor="middle">掘る</text>
+  <text class="t-sub" x="62" y="108" text-anchor="middle">浚渫</text>
+  <rect class="box-s" x="110" y="30" width="270" height="108" rx="6"/>
+  <text class="t-ship" x="124" y="62">グラブ・ポンプ・バックホウ</text>
+  <text class="t-ship" x="124" y="82">ドラグサクションの各浚渫船</text>
+  <text class="t-desc" x="124" y="108">航路・泊地・構造物前面の土砂を取る</text>
+
+  <!-- 運ぶ -->
+  <rect class="box-p" x="20" y="144" width="84" height="108" rx="6"/>
+  <text class="t-fn" x="62" y="202" text-anchor="middle">運ぶ</text>
+  <text class="t-sub" x="62" y="222" text-anchor="middle">運搬・投入</text>
+  <rect class="box-s" x="110" y="144" width="270" height="108" rx="6"/>
+  <text class="t-ship" x="124" y="176">土運船（土砂を積む運搬船）</text>
+  <text class="t-ship" x="124" y="196">ガット船（グラブ付き自航運搬船）</text>
+  <text class="t-desc" x="124" y="222">土砂・捨石・中詰め材を運び、投入する</text>
+
+  <!-- 据える -->
+  <rect class="box-w" x="20" y="258" width="84" height="108" rx="6"/>
+  <text class="t-fn" x="62" y="316" text-anchor="middle">据える</text>
+  <text class="t-sub" x="62" y="336" text-anchor="middle">据付・均し</text>
+  <rect class="box-s" x="110" y="258" width="270" height="108" rx="6"/>
+  <text class="t-ship" x="124" y="290">起重機船（ケーソン・ブロックの据付）</text>
+  <text class="t-ship" x="124" y="310">水中捨石均し機・水中バックホウ</text>
+  <text class="t-desc" x="124" y="336">基礎マウンドの均しを機械で受け持つ</text>
+
+  <!-- 改良する -->
+  <rect class="box-m" x="20" y="372" width="84" height="108" rx="6"/>
+  <text class="t-fn" x="62" y="430" text-anchor="middle">改良する</text>
+  <text class="t-sub" x="62" y="450" text-anchor="middle">地盤・土質</text>
+  <rect class="box-s" x="110" y="372" width="270" height="108" rx="6"/>
+  <text class="t-ship" x="124" y="404">SCP船・サンドドレーン船</text>
+  <text class="t-ship" x="124" y="424">深層混合処理船・空気圧送船</text>
+  <text class="t-desc" x="124" y="450">砂杭や固化材で地盤・浚渫土を改良する</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img" aria-label="業務内容の詳細を、概要、課題、解決策、成果の順に並べ、課題で挙げた2つの管理が解決策と成果にも一貫して現れることを示した流れ図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }                    /* ink-muted */
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-count { font-size: 12px; fill: #555; }                       /* ink-body */
+      .t-desc  { font-size: 13px; fill: #222; }                       /* ink-strong */
+      .t-chip  { font-size: 12px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .t-gap   { font-size: 12px; fill: #555; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .chip { fill: #ffffff; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-sub" x="20" y="22">読む順に並べた配分の目安（合計720字以内）</text>
+
+  <!-- 1 概要・立場 -->
+  <rect class="box-surface" x="20" y="34" width="360" height="86" rx="8"/>
+  <text class="t-title" x="36" y="58">概要・立場</text>
+  <text class="t-count" x="364" y="58" text-anchor="end">約100字</text>
+  <text class="t-desc" x="36" y="86">何の事業で、どの立場から関わったか</text>
+  <text class="t-desc" x="36" y="106">5つの管理のどれを見る立場かを示す</text>
+
+  <line x1="200" y1="120" x2="200" y2="146" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-gap" x="214" y="138">問題の所在へ</text>
+
+  <!-- 2 課題 -->
+  <rect class="box-danger" x="20" y="150" width="360" height="86" rx="8"/>
+  <text class="t-title" x="36" y="174">課題</text>
+  <text class="t-count" x="364" y="174" text-anchor="end">約180字</text>
+  <rect class="chip" x="36" y="184" width="56" height="22" rx="4"/>
+  <text class="t-chip" x="64" y="200" text-anchor="middle">経済性</text>
+  <text class="t-desc" x="104" y="200" text-anchor="middle">↔</text>
+  <rect class="chip" x="116" y="184" width="44" height="22" rx="4"/>
+  <text class="t-chip" x="138" y="200" text-anchor="middle">安全</text>
+  <text class="t-desc" x="36" y="226">異なる2つの管理の対立を書く</text>
+
+  <line x1="200" y1="236" x2="200" y2="262" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-gap" x="214" y="254">課題に答える</text>
+
+  <!-- 3 解決策 -->
+  <rect class="box-brand" x="20" y="266" width="360" height="86" rx="8"/>
+  <text class="t-title" x="36" y="290">解決策</text>
+  <text class="t-count" x="364" y="290" text-anchor="end">約300字</text>
+  <rect class="chip" x="36" y="300" width="56" height="22" rx="4"/>
+  <text class="t-chip" x="64" y="316" text-anchor="middle">経済性</text>
+  <text class="t-desc" x="104" y="316" text-anchor="middle">＋</text>
+  <rect class="chip" x="116" y="300" width="44" height="22" rx="4"/>
+  <text class="t-chip" x="138" y="316" text-anchor="middle">安全</text>
+  <text class="t-desc" x="36" y="342">施策を番号で並べ、両側へ手当てする</text>
+
+  <line x1="200" y1="352" x2="200" y2="378" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-gap" x="214" y="370">効果を確かめる</text>
+
+  <!-- 4 成果 -->
+  <rect class="box-positive" x="20" y="382" width="360" height="86" rx="8"/>
+  <text class="t-title" x="36" y="406">成果</text>
+  <text class="t-count" x="364" y="406" text-anchor="end">約120字</text>
+  <rect class="chip" x="36" y="416" width="56" height="22" rx="4"/>
+  <text class="t-chip" x="64" y="432" text-anchor="middle">経済性</text>
+  <text class="t-desc" x="104" y="432" text-anchor="middle">＋</text>
+  <rect class="chip" x="116" y="416" width="44" height="22" rx="4"/>
+  <text class="t-chip" x="138" y="432" text-anchor="middle">安全</text>
+  <text class="t-desc" x="36" y="458">完遂、または到達点を両側の管理で書く</text>
+</svg>

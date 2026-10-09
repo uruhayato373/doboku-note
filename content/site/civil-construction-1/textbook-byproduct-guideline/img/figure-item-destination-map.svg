@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="品目ごとの扱いの対応図。コンクリート塊とアスファルト・コンクリート塊は破砕して再生骨材や路盤材、建設発生木材はチップ化して熱回収もある、CCA処理木材は分別し困難なら全体を処理、建設汚泥は再生利用の制度を活用、廃石膏ボードは安定型処分場に埋めない、アスベストは事前に除去">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<text x="14" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">品目</text>
+<text x="128" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">行き先と要点</text>
+<rect x="14" y="26" width="106" height="58" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="67" y="59.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">コンクリート塊</text>
+<rect x="126" y="26" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="59.0" text-anchor="start" font-size="11" fill="#222">破砕して再生骨材・路盤材に</text>
+<rect x="14" y="90" width="106" height="58" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="67" y="123.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">アスコン塊</text>
+<rect x="126" y="90" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="115.0" text-anchor="start" font-size="11" fill="#222">路盤材・再生骨材のほか、加熱混合して</text>
+<text x="136" y="131.0" text-anchor="start" font-size="11" fill="#222">再生加熱アスファルト混合物に</text>
+<rect x="14" y="154" width="106" height="58" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="67" y="187.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設発生木材</text>
+<rect x="126" y="154" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="179.0" text-anchor="start" font-size="11" fill="#222">チップ化してボードや堆肥の原料に</text>
+<text x="136" y="195.0" text-anchor="start" font-size="11" fill="#222">難しければ熱回収。遠い場合は縮減も可</text>
+<rect x="14" y="218" width="106" height="58" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="67" y="251.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">CCA処理木材</text>
+<rect x="126" y="218" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="243.0" text-anchor="start" font-size="11" fill="#222">他の木材と分ける。分けられないなら</text>
+<text x="136" y="259.0" text-anchor="start" font-size="11" fill="#222">全体をCCA処理木材として焼却か埋立</text>
+<rect x="14" y="282" width="106" height="58" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="67" y="315.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">建設汚泥</text>
+<rect x="126" y="282" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="307.0" text-anchor="start" font-size="11" fill="#222">再生利用の認定・指定制度を活用して</text>
+<text x="136" y="323.0" text-anchor="start" font-size="11" fill="#222">再資源化。処理土の盛土は流出を防ぐ</text>
+<rect x="14" y="346" width="106" height="58" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="67" y="379.5" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">廃石膏ボード</text>
+<rect x="126" y="346" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="371.0" text-anchor="start" font-size="11" fill="#222">安定型処分場には埋められない</text>
+<text x="136" y="387.0" text-anchor="start" font-size="11" fill="#222">分別して石膏ボード原料などに</text>
+<rect x="14" y="410" width="106" height="58" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="67" y="437.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">飛散性</text>
+<text x="67" y="452.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">アスベスト</text>
+<rect x="126" y="410" width="260" height="58" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="435.0" text-anchor="start" font-size="11" fill="#222">解体前に有無を調べ、あれば事前に除去</text>
+<text x="136" y="451.0" text-anchor="start" font-size="11" fill="#222">特別管理産業廃棄物として処理する</text>
+<text x="14" y="486" text-anchor="start" font-size="11" fill="#555">緑＝出口が確立　黄＝条件の確認が要る　赤＝有害物として別扱い</text>
+</svg>

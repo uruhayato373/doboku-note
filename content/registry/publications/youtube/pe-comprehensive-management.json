@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "pe-comprehensive-management",
+  "publications": [
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform",
+      "work": "gokanri-tradeoff",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform",
+      "work": "gyoumu-keirekihyo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-map/youtube.longform",
+      "work": "hakusho-map",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform",
+      "work": "kata-oudan-ryuyo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform",
+      "work": "kikinagashi-sokan-keyword",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/youtube.longform",
+      "work": "monbun-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform",
+      "work": "persona-settei",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/r8-yosou-theme/youtube.longform",
+      "work": "r8-yosou-theme",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sanso-kozo/youtube.longform",
+      "work": "sanso-kozo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform",
+      "work": "setsumon3-shisaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform",
+      "work": "sokan-goukaku-senryaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "work": "sokan-kojutsu-kangaekata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",
+      "work": "takuitsu-keyword",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform",
+      "work": "takuitsu-r07-enshu",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
+}

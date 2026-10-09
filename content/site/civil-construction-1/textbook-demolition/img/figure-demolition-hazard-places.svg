@@ -1,0 +1,81 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="築年から疑う物質を引く年表。昭和32年からの照明安定器のPCB、昭和38年頃からの吹付け石綿、昭和47年以前の目地材のPCB、昭和48年からの石膏ボード、平成18年9月以降の石綿の事前調査。築年によらず疑うフロン類・水銀・CCA処理木材を最下段に示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-date { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-head { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body { font-size: 12px; fill: #555; }
+      .t-act  { font-size: 12px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .c-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .c-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .c-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .c-surf     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .dot  { fill: #2e6da4; }
+    </style>
+  </defs>
+
+  <line class="axis" x1="112" y1="26" x2="112" y2="334"/>
+
+  <!-- 1 昭和32年 安定器 -->
+  <text class="t-date" x="16" y="36">昭和32年1月</text>
+  <text class="t-date" x="16" y="54">〜47年8月</text>
+  <circle class="dot" cx="112" cy="41" r="4"/>
+  <line class="axis" x1="116" y1="41" x2="128" y2="41"/>
+  <rect class="c-brand" x="128" y="10" width="256" height="62" rx="6"/>
+  <text class="t-head" x="140" y="30">PCB　照明の安定器</text>
+  <text class="t-body" x="140" y="48">蛍光灯・水銀灯用の製造品が対象</text>
+  <text class="t-act" x="140" y="65">→ 壊さず所有者・発注者へ知らせる</text>
+
+  <!-- 2 昭和38年頃 吹付け石綿 -->
+  <text class="t-date" x="16" y="106">昭和38年頃</text>
+  <text class="t-date" x="16" y="124">〜50年初頭</text>
+  <circle class="dot" cx="112" cy="111" r="4"/>
+  <line class="axis" x1="116" y1="111" x2="128" y2="111"/>
+  <rect class="c-danger" x="128" y="80" width="256" height="62" rx="6"/>
+  <text class="t-head" x="140" y="100">石綿レベル1　鉄骨の吹付け</text>
+  <text class="t-body" x="140" y="118">柱・エレベーター周りは昭和63年頃まで</text>
+  <text class="t-act" x="140" y="135">→ 知識をもつ者が事前調査する</text>
+
+  <!-- 3 昭和47年以前 目地材 -->
+  <text class="t-date" x="16" y="176">昭和47年</text>
+  <text class="t-date" x="16" y="194">以前の施工</text>
+  <circle class="dot" cx="112" cy="181" r="4"/>
+  <line class="axis" x1="116" y1="181" x2="128" y2="181"/>
+  <rect class="c-brand" x="128" y="150" width="256" height="62" rx="6"/>
+  <text class="t-head" x="140" y="170">PCB　外壁・目地のシーリング材</text>
+  <text class="t-body" x="140" y="188">ポリサルファイド系の一部が該当</text>
+  <text class="t-act" x="140" y="205">→ 試料を分析して確かめる</text>
+
+  <!-- 4 昭和48年 石膏ボード -->
+  <text class="t-date" x="16" y="246">昭和48年</text>
+  <text class="t-date" x="16" y="264">〜平成9年</text>
+  <circle class="dot" cx="112" cy="251" r="4"/>
+  <line class="axis" x1="116" y1="251" x2="128" y2="251"/>
+  <rect class="c-warn" x="128" y="220" width="256" height="62" rx="6"/>
+  <text class="t-head" x="140" y="240">ヒ素・カドミウム　石膏ボード</text>
+  <text class="t-body" x="140" y="258">特定の工場で作られた一部の製品</text>
+  <text class="t-act" x="140" y="275">→ 分けて解体し、戻すか管理型処分</text>
+
+  <!-- 5 平成18年 -->
+  <text class="t-date" x="16" y="316">平成18年</text>
+  <text class="t-date" x="16" y="334">9月以降</text>
+  <circle class="dot" cx="112" cy="321" r="4"/>
+  <line class="axis" x1="116" y1="321" x2="128" y2="321"/>
+  <rect class="c-positive" x="128" y="290" width="256" height="62" rx="6"/>
+  <text class="t-head" x="140" y="310">石綿　新築の着工日を確認</text>
+  <text class="t-body" x="140" y="328">設計図書で着工日が確認できれば</text>
+  <text class="t-act" x="140" y="345">→ その日付の確認で足りる</text>
+
+  <!-- 築年によらない -->
+  <rect class="c-surf" x="16" y="368" width="368" height="118" rx="6"/>
+  <text class="t-sec" x="30" y="392">築年によらず、設備と部位で疑う</text>
+  <text class="t-act" x="30" y="418">・業務用エアコン・冷凍冷蔵機器　フロン類</text>
+  <text class="t-act" x="30" y="444">・蛍光ランプ・水銀灯　水銀</text>
+  <text class="t-act" x="30" y="470">・住宅の土台など　CCA処理木材</text>
+</svg>

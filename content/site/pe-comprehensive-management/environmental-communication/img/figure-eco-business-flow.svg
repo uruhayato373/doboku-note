@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="環境経営、エコブランディング、エシカル消費を、事業者の取組・事業者の戦略・消費者の選択として上から順に並べた関係図" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <!-- 環境経営：事業者の取組（brand） -->
+  <rect x="12" y="14" width="376" height="124" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="26" y="42" font-size="14" font-weight="bold" fill="#1a3a5c">環境経営</text>
+  <rect x="292" y="24" width="84" height="22" rx="4" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="334" y="39" text-anchor="middle" font-size="11" fill="#1a3a5c">事業者の取組</text>
+  <text x="26" y="68" font-size="12" fill="#555">原料調達から廃棄までの全体で、</text>
+  <text x="26" y="88" font-size="12" fill="#555">資源・エネルギーの消費と</text>
+  <text x="26" y="108" font-size="12" fill="#555">環境への負荷を抑える経営</text>
+  <text x="26" y="128" font-size="11" font-weight="bold" fill="#1a3a5c">主語：事業者　目的：負荷を抑える</text>
+
+  <!-- 矢印1 -->
+  <line x1="44" y1="140" x2="44" y2="186" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="58" y="168" font-size="11" fill="#555">整理上の流れ：報告書・ラベルで開示</text>
+
+  <!-- エコブランディング：事業者の戦略（brand） -->
+  <rect x="12" y="188" width="376" height="124" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="26" y="216" font-size="14" font-weight="bold" fill="#1a3a5c">エコブランディング</text>
+  <rect x="292" y="198" width="84" height="22" rx="4" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="334" y="213" text-anchor="middle" font-size="11" fill="#1a3a5c">事業者の戦略</text>
+  <text x="26" y="242" font-size="12" fill="#555">環境問題の解決を軸にした企業戦略。</text>
+  <text x="26" y="262" font-size="12" fill="#555">取組を示してブランド力を築く。</text>
+  <text x="26" y="282" font-size="12" fill="#555">中身となる取組があることが前提</text>
+  <text x="26" y="302" font-size="11" font-weight="bold" fill="#1a3a5c">主語：事業者　目的：価値を示す</text>
+
+  <!-- 矢印2 -->
+  <line x1="44" y1="314" x2="44" y2="360" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="58" y="342" font-size="11" fill="#555">整理上の流れ：評価として届き、選ぶ理由に</text>
+
+  <!-- エシカル消費：消費者の選択（positive） -->
+  <rect x="12" y="362" width="376" height="124" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="26" y="390" font-size="14" font-weight="bold" fill="#1a3a5c">エシカル消費</text>
+  <rect x="292" y="372" width="84" height="22" rx="4" fill="#ffffff" stroke="#3a7d44" stroke-width="1"/>
+  <text x="334" y="387" text-anchor="middle" font-size="11" fill="#1a3a5c">消費者の選択</text>
+  <text x="26" y="416" font-size="12" fill="#555">人・社会・地域・環境に配慮した</text>
+  <text x="26" y="436" font-size="12" fill="#555">商品や、課題に取り組む事業者を</text>
+  <text x="26" y="456" font-size="12" fill="#555">選んで応援する消費者の行動</text>
+  <text x="26" y="476" font-size="11" font-weight="bold" fill="#1a3a5c">主語：消費者　目的：選んで応援する</text>
+</svg>
