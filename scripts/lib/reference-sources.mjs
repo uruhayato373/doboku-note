@@ -291,6 +291,7 @@ export function findVerbatimRuns(articleText, index, { minRun = VERBATIM_MIN_RUN
       hits.push({
         key: doc.key,
         source: doc.source,
+        start: i - best.s,      // 正規化した記事の中の位置（公式の文章の差し引きが使う）
         run: best.run,
         sample: doc.text.slice(best.tpos - best.s, best.tpos - best.s + Math.min(best.run, 60)),
       });
@@ -301,6 +302,123 @@ export function findVerbatimRuns(articleText, index, { minRun = VERBATIM_MIN_RUN
     }
   }
   return hits.sort((x, y) => y.run - x.run);
+}
+
+// ------------------------------------------------------------------ 公式の文章の差し引き（DN-0617）
+//
+// 書籍は過去問の設問・法令や指針の正式名称・公的な定義もそのまま載せる。記事が同じ公式の文章を
+// 引くと、書籍との一致として拾われるが、それは書籍の写しではない（言い換えもできない）。
+// 閾値を上げず（VERBATIM_MIN_RUN の注記）、公式の文章と共通する部分だけを一致から差し引く。
+
+/** 比較から外した名称の跡。文字起こしには現れないので、ここで連続一致が切れる。 */
+export const NAME_MASK = '\u0001';
+
+/** 正式名称として比較から外す最短の長さ。短い名称は 40 字の一致を作れず、外すと写しの検出だけが弱くなる。 */
+export const OFFICIAL_NAME_MIN_LENGTH = 15;
+
+/** 過去問ページの設問の見出し（「問題 No.3」「Ⅰ-1-1」「令和5年度 問題2」「〔設問1〕」「必須科目」など）。 */
+const QUESTION_HEADING_RE = /(問題|No\.?\s*\d|〔設問|^[ⅠⅡⅢIV]+-\d|選択問題|必須|年度)/;
+
+/**
+ * 過去問ページの本文から設問の部分だけを取り出す。設問の見出しから次の見出しまでのうち、
+ * 解答・解説（<details>）を除いた部分。「出題傾向」「模範解答について」などの見出しの節は
+ * 著者の文章なので含めない（含めると、そこに写した書籍の文まで公式扱いになる）。
+ */
+export function officialQuestionText(body) {
+  return String(body)
+    .replace(/<details>[\s\S]*?<\/details>/g, '\n')
+    .split(/^(?=#{2,4}\s)/m)
+    .filter((part) => {
+      const heading = /^#{2,4}\s+(.+)/.exec(part);
+      return heading && QUESTION_HEADING_RE.test(heading[1]);
+    })
+    .join('\n');
+}
+
+/** 法令・指針・規格の正式名称（台帳の external-primary の題名から、末尾の「（厚生労働省）」などを落としたもの）。 */
+export function officialNamesOf(cfg) {
+  const names = (cfg.sources || [])
+    .filter((source) => source.class === 'external-primary')
+    .map((source) => String(source.title).replace(/[（(][^（）()]*[）)]\s*$/, '').trim())
+    .filter((name) => name.length >= OFFICIAL_NAME_MIN_LENGTH);
+  return [...new Set(names)].sort((a, b) => b.length - a.length);
+}
+
+/**
+ * 記事の本文から、比較の対象にしない名称を NAME_MASK に置き換える。
+ *   - 外部へのリンクの文字（[題名](https://…)）＝参考資料に並べた資料の題名
+ *   - 台帳に載る法令・指針・規格の正式名称
+ * 名称の一致は写しではない（VERBATIM_MIN_RUN の注記の方針）。置き換えた件数を返す。
+ */
+export function maskOfficialNames(body, names = []) {
+  let masked = 0;
+  let text = String(body).replace(/\[([^\]\n]+)\]\(https?:\/\/[^)\s]+\)/g, () => {
+    masked += 1;
+    return NAME_MASK;
+  });
+  for (const name of names) {
+    const parts = text.split(name);
+    if (parts.length === 1) continue;
+    masked += parts.length - 1;
+    text = parts.join(NAME_MASK);
+  }
+  return { text, masked };
+}
+
+/**
+ * 公式の文章の索引に、記事の各位置が覆われているかを返す（覆う＝索引と minCover 字以上共通する）。
+ * 索引の種は stride ごとなので、seed+stride-1 字以上の共通部分は取りこぼさない。
+ */
+function officialCoverage(articleNorm, index, minCover) {
+  const covered = new Uint8Array(articleNorm.length);
+  const { seed } = index;
+  for (let i = 0; i + seed <= articleNorm.length; i += 1) {
+    const positions = index.seeds.get(articleNorm.slice(i, i + seed));
+    if (!positions) continue;
+    for (const [di, tpos] of positions) {
+      const t = index.docs[di].text;
+      let s = 0;
+      while (i - s > 0 && tpos - s > 0 && articleNorm[i - s - 1] === t[tpos - s - 1]) s++;
+      let e = seed;
+      while (i + e < articleNorm.length && tpos + e < t.length && articleNorm[i + e] === t[tpos + e]) e++;
+      if (s + e >= minCover) covered.fill(1, i - s, i + e);
+    }
+  }
+  return covered;
+}
+
+/**
+ * 書籍との一致（findVerbatimRuns の結果）から、公式の文章と共通する部分を差し引く。
+ * 一致の中で公式の文章に覆われない最長の区間が minRun 字に届かなければ公式の文章として除き、
+ * 届けばその区間を一致として残す（見本もその区間に差し替える）。
+ * articleText は findVerbatimRuns に渡したものと同じ（正規化前）。
+ */
+export function excludeOfficialRuns(articleText, hits, officialIndex, { minRun = VERBATIM_MIN_RUN } = {}) {
+  if (!officialIndex || hits.length === 0) return { kept: hits, excluded: [] };
+  const a = normalizeForCompare(articleText);
+  const covered = officialCoverage(a, officialIndex, officialIndex.seed + officialIndex.stride);
+  const kept = [];
+  const excluded = [];
+  for (const hit of hits) {
+    let best = { start: hit.start, run: 0 };
+    let runStart = -1;
+    for (let p = hit.start; p <= hit.start + hit.run; p += 1) {
+      const open = p < hit.start + hit.run && !covered[p];
+      if (open && runStart < 0) runStart = p;
+      if (!open && runStart >= 0) {
+        if (p - runStart > best.run) best = { start: runStart, run: p - runStart };
+        runStart = -1;
+      }
+    }
+    if (best.run < minRun) { excluded.push(hit); continue; }
+    kept.push(best.run === hit.run ? hit : {
+      ...hit,
+      start: best.start,
+      run: best.run,
+      sample: a.slice(best.start, best.start + Math.min(best.run, 60)),
+    });
+  }
+  return { kept: kept.sort((x, y) => y.run - x.run), excluded };
 }
 
 // ------------------------------------------------------------------ 文字起こしの見出し
