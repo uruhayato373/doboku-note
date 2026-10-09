@@ -36,7 +36,6 @@
 //   recorded_but_gone / anomaly のいずれかが 1 件以上）。network 失敗は 1。
 
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
@@ -44,6 +43,7 @@ import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileC
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { loadRegistry } from "./lib/content-registry.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
