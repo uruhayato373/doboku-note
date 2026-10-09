@@ -1729,6 +1729,16 @@
       "page": 21,
       "dpi": 300
     },
+    "civil-practice/accident-first-response/img/photo-confined-space-rescue-gear": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Entrance of a round concrete manhole on a construction site, the cover removed and set aside. Beside the opening, neatly laid on the ground: a self-contained breathing apparatus (air tank with face mask and harness), a folded aluminum ladder lying alongside, and a coil of thick fiber rescue rope. A plain red-and-white barrier tape and a blank sign stand nearby. No text, no logos, no people, no faces. Shallow depth of field, soft overcast daylight."
+    },
+    "civil-practice/accident-first-response/img/photo-site-office-aed-first-aid": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Interior wall of a construction site temporary office (prefab cabin), plain light wall. Mounted on the wall at chest height: a white-and-green wall cabinet for an automated external defibrillator (AED) with a blank front, and next to it a white first-aid box with a green cross symbol on a shelf or bracket. Both clean and neatly aligned. No readable text, no logos, no people, no faces. Shallow depth of field, soft indoor light."
+    },
     "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1778,6 +1788,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Close view of a desk in a temporary construction site office: large rolled and unrolled civil engineering drawing sheets spread on the table, a stack of bound specification booklets with plain covers, a few thick binder files with blank spines, a hard hat and a scale ruler beside them. The paper content is unreadable, softly blurred, no legible text or logos. Window light from the side, shallow depth of field, focus on the bound specifications in the foreground. No people."
+    },
+    "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A construction worker seen from the side, in a hard hat and work clothes, bending slightly to lift a stack of cement bags (plain, unlabeled) from the ground at a civil engineering site. He wears a passive wearable waist assist exoskeleton: a padded waist belt around the lower back, connected to rigid frame bars running down the outside of both thighs, with thigh pads strapped to the front of each thigh. The frame is clearly visible over the work trousers. Face turned away or hidden by helmet brim, no text, no logos, no brand marks. Shallow depth of field, blurred earthwork background."
     },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "kind": "ai-generated",

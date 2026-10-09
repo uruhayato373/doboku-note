@@ -398,6 +398,18 @@
       "reason": "種別・構造: 路面端のコンクリート側溝の上に、亜鉛めっき調の鋼製グレーチング蓋（平鋼の格子）が舗装面と面一で連続して並び、路肩側は砕石と草。本文（路面の水は横断勾配で路肩の側溝へ寄る）と一致し、濡れた舗装面が縁へ向かう様子も見える。破綻: 格子の平鋼の交差は整い、蓋の継ぎ目も連続していて、溶けた部品や二重化は無い。文字・ロゴ・人物も無い。遠景の車と外側線は自然。",
       "reviewedAt": "2026-10-09T09:11:07.208Z"
     },
+    "civil-practice/accident-first-response/img/photo-confined-space-rescue-gear": {
+      "sha": "695df838089dc6e3",
+      "promptSha": "c6831b7d48cc72b9",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:34:05.072Z"
+    },
+    "civil-practice/accident-first-response/img/photo-site-office-aed-first-aid": {
+      "sha": "5517463379e8381d",
+      "promptSha": "77c4d134cf053d9c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:35:10.262Z"
+    },
     "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
       "sha": "39f471b54ef86064",
       "promptSha": "244bca8db81b6643",
@@ -487,6 +499,15 @@
       "verdict": "ok",
       "reason": "現場事務所の机に、広げた図面と巻いた図面、無地表紙の仕様書の束、背表紙が空白のファイル4冊、ヘルメット、三角スケール、ペンがある。窓の外に建設現場と重機が見え、現場事務所として成り立つ。図面は判読不能にぼかされ、読める文字やロゴは無い。机・ヘルメット・スケールの形にも崩れは無い。",
       "reviewedAt": "2026-10-09T09:29:15.947Z"
+    },
+    "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
+      "sha": "3a500c6d40eb9a70",
+      "promptSha": "203347751b098922",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:31:34.750Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 黒い腰ベルトが腰に巻かれ、両脚の外側へ剛性のあるフレーム棒が下り、大腿前面の黒いパッドにベルトで固定されている。外部電源や電動部は見えず、本文のパッシブ型の装着型補助具として成り立つ。本文: 腰ベルトと脚部フレームで資材を持ち上げる場面で、alt と一致し本文とも矛盾しない。破綻: 袋は無地で文字・ロゴなし。手袋の手は袋の上に自然に置かれ、指や脚の崩れ、二重の部位は見えない。背景は土工現場でヘルメットも自然。",
+      "reviewedAt": "2026-10-09T09:35:27.276Z"
     },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "sha": "4bc232c69cb21435",
