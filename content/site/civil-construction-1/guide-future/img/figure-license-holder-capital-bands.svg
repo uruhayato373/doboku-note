@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設業許可業者483,700業者の規模別の構成。業者数が多い3つの資本金階層は300万円以上500万円未満が21.3%、500万円以上1,000万円未満が19.8%、1,000万円以上2,000万円未満が19.9%で、合計は61.0%。全体では個人と資本金3億円未満の法人が99.5%を占め、3億円以上は約0.5%。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-b  { font-size: 12px; fill: #222; }
+      .t-v  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s  { font-size: 11px; fill: #555; }
+      .t-r  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .bar  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .tiny { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .lead { stroke: #b22234; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-s" x="30" y="36">令和7年3月末・全体483,700業者・数字は全体に占める割合</text>
+
+  <!-- 上位3階層 -->
+  <text class="t-h" x="30" y="80">業者数が多い3つの資本金階層</text>
+
+  <text class="t-b" x="30" y="108">300万円以上500万円未満</text>
+  <rect class="bar" x="30" y="114" width="234" height="30" rx="3"/>
+  <text class="t-v" x="272" y="134">21.3%</text>
+
+  <text class="t-b" x="30" y="170">500万円以上1,000万円未満</text>
+  <rect class="bar" x="30" y="176" width="218" height="30" rx="3"/>
+  <text class="t-v" x="256" y="196">19.8%</text>
+
+  <text class="t-b" x="30" y="232">1,000万円以上2,000万円未満</text>
+  <rect class="bar" x="30" y="238" width="219" height="30" rx="3"/>
+  <text class="t-v" x="257" y="258">19.9%</text>
+
+  <text class="t-v" x="30" y="296">この3階層の合計は 61.0%</text>
+
+  <line class="rule" x1="30" y1="314" x2="366" y2="314"/>
+
+  <!-- 全体の偏り -->
+  <text class="t-h" x="30" y="342">全体を100%としたときの規模の偏り</text>
+  <rect class="bar" x="30" y="354" width="334.3" height="36" rx="3"/>
+  <rect class="tiny" x="364.3" y="354" width="1.7" height="36"/>
+
+  <text class="t-v" x="30" y="418">個人＋資本金3億円未満の法人 99.5%</text>
+  <text class="t-s" x="30" y="434">481,374業者</text>
+
+  <path class="lead" d="M365,391 V458 H356"/>
+  <text class="t-r" x="348" y="462" text-anchor="end">資本金3億円以上 約0.5%</text>
+  <text class="t-s" x="348" y="478" text-anchor="end">2,326業者（差し引き）</text>
+</svg>

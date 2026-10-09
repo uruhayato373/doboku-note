@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T23:10:23.886Z",
+  "generated_at": "2026-10-09T01:33:20.114Z",
   "summary": {
-    "total_mdx_files": 1359,
+    "total_mdx_files": 1363,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 212,
+      "count": 215,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1179,6 +1179,7 @@
         "civil-construction-2-secondary-grading-and-partial-credit",
         "civil-construction-2-secondary-last-two-weeks-plan",
         "civil-construction-2-secondary-written-questions-guide",
+        "civil-practice-accident-first-response",
         "civil-practice-asphalt-pavement-control",
         "civil-practice-backfill-river-excavation",
         "civil-practice-board-of-audit-inspection",
@@ -1198,6 +1199,7 @@
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
         "civil-practice-environment-neighborhood",
+        "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-material-inspection",
@@ -1209,6 +1211,7 @@
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
+        "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
         "civil-practice-quality-record-site-bcp",
@@ -1492,7 +1495,7 @@
     },
     {
       "name": "安全管理",
-      "count": 152,
+      "count": 153,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -1506,6 +1509,7 @@
         "civil-construction-1-textbook-safety-scaffolding",
         "civil-construction-1-textbook-safety-work-environment",
         "civil-construction-2-guide-safety-management",
+        "civil-practice-accident-first-response",
         "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-earthquake-tsunami-site-response",
         "civil-practice-lifting-equipment-selection",
@@ -2532,7 +2536,7 @@
     },
     {
       "name": "環境保全",
-      "count": 89,
+      "count": 90,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2543,6 +2547,7 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-practice-environment-neighborhood",
+        "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-nature-conservation-mitigation",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
@@ -2887,7 +2892,7 @@
     },
     {
       "name": "関係法規",
-      "count": 72,
+      "count": 75,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-law-key-points",
@@ -2901,6 +2906,9 @@
         "civil-construction-1-textbook-road-act",
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
+        "civil-practice-accident-first-response",
+        "civil-practice-environmental-impact-assessment-flow",
+        "civil-practice-pre-construction-process",
         "civil-practice-safety-health-education-plan",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
@@ -3459,12 +3467,13 @@
     },
     {
       "name": "道路",
-      "count": 30,
+      "count": 31,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
+        "civil-practice-reading-civil-drawings",
         "civil-practice-road-fixtures-precast",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-service-commencement",
@@ -3492,6 +3501,42 @@
         "pe-construction-r08-road",
         "pe-construction-road-exam-themes",
         "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "施工計画",
+      "count": 29,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-practice-ai-document-verification",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-construction-inspection-types",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-earthquake-tsunami-site-response",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-material-selection-receiving",
+        "civil-practice-numerical-model-review",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-pre-construction-process",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-typhoon-forecast-work-planning",
+        "civil-practice-volcanic-hazard-site-planning",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -3527,41 +3572,6 @@
         "civil-practice-soil-improvement-sandbag",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 28,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-practice-ai-document-verification",
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-construction-inspection-types",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-earthquake-tsunami-site-response",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-material-selection-receiving",
-        "civil-practice-numerical-model-review",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-typhoon-forecast-work-planning",
-        "civil-practice-volcanic-hazard-site-planning",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -3659,13 +3669,14 @@
     },
     {
       "name": "河川",
-      "count": 19,
+      "count": 20,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
         "civil-construction-2-guide-river-sabo-key-points",
         "civil-practice-flood-season-river-work",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-reading-civil-drawings",
         "civil-practice-river-park-erosion-control",
         "pe-comprehensive-management-h21-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-river-consultant",
@@ -4649,6 +4660,19 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-reading-civil-drawings"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4670,18 +4694,6 @@
         "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-properties",
         "concrete-engineer-textbook-materials"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation"
       ]
     },
     {
