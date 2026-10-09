@@ -524,6 +524,15 @@
       "reason": "丸太の木口は同心円の年輪で、左の板は木口に年輪が幅方向へ横切る弧（板目）、右の板は年輪が厚さ方向に通る細い平行線（柾目）となり本文の板目と柾目の説明と一致、逆転や溶けた部品も無い",
       "reviewedAt": "2026-10-08T00:50:20.889Z"
     },
+    "civil-practice/monitoring-sensor-selection/img/photo-strain-gauge-tiltmeter": {
+      "sha": "ebca75ebeac19604",
+      "promptSha": "dcf3de0d09af0c3b",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:56:55.980Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 鋼桁の下フランジ下面に、格子状の箔ひずみゲージが保護被覆の塗り跡の中に貼られ、赤白のリード線がテープで固定されて沿っている。ウェブと垂直補剛材、下に支承（ソールプレートとゴム層、ボルト）、橋脚天端に灰色の金属箱（傾斜計）が台板とボルトで固定されケーブルが出ている。本文の「桁のひずみゲージと橋脚・支承の傾斜計」と一致し、構造的な矛盾はない。破綻: 文字・ロゴ・人物はなく、溶けた部品や二重の部位もない。",
+      "reviewedAt": "2026-10-09T09:59:07.649Z"
+    },
     "civil-practice/nature-conservation-mitigation/img/photo-black-locust-riverbed": {
       "sha": "8d68b7bad87d4f16",
       "promptSha": "76fe7749f012509a",
@@ -760,6 +769,12 @@
       "verdict": "ok",
       "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
       "reviewedAt": "2026-10-07T23:10:40.546Z"
+    },
+    "pe-comprehensive-management/liquefaction/img/photo-liquefaction-manhole-uplift": {
+      "sha": "f9ac6c9e44a99f05",
+      "promptSha": "488373b3151bc865",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:58:38.467Z"
     },
     "pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up": {
       "sha": "1a1fd12a080d1683",
