@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="斜面の断面で見る遷急点・流れ盤・地層境界の湧水・風化表層土と、平面で見る谷状に凹んで水が集まる集水地形を並べた見立ての図">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555}
+.b{font-size:13px;font-weight:bold;fill:#222}
+.n{fill:none}
+</style>
+<clipPath id="rk"><polygon points="20,60 150,80 270,164 380,168 380,285 20,285"/></clipPath>
+<marker id="m3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+</defs>
+<text class="b" x="20" y="26">断面で見る</text>
+<polygon fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" points="20,60 150,80 270,164 380,168 380,285 20,285"/>
+<g clip-path="url(#rk)" class="n" stroke="#8a8a8a" stroke-width="1">
+<line x1="20" y1="154" x2="380" y2="250"/>
+<line x1="20" y1="194" x2="380" y2="290"/>
+</g>
+<g clip-path="url(#rk)"><line x1="20" y1="84" x2="380" y2="180" stroke="#2e6da4" stroke-width="2.5"/></g>
+<polyline class="n" stroke="#d4a017" stroke-width="12" opacity="0.5" points="20,67 150,87 270,171 380,175"/>
+<polyline class="n" stroke="#222" stroke-width="2" points="20,60 150,80 270,164 380,168"/>
+<line x1="150" y1="80" x2="150" y2="58" stroke="#555" stroke-width="1"/>
+<text x="156" y="55">遷急点</text>
+<text x="20" y="50">緩い斜面</text>
+<text x="262" y="112">30度以上</text>
+<text x="262" y="126">の急斜面</text>
+<line x1="230" y1="141" x2="258" y2="135" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#m3)" transform="rotate(180 244 138)"/>
+<text x="262" y="150">湧水・濁り</text>
+<text x="272" y="187">風化表層土</text>
+<text x="20" y="276">岩盤（地層が斜面と同じ向きに傾く＝流れ盤）</text>
+<text x="20" y="262">青線は透水性が違う層の境界</text>
+<line x1="20" y1="296" x2="380" y2="296" stroke="#d7d7d7" stroke-width="1"/>
+<text class="b" x="20" y="322">平面で見る</text>
+<text x="300" y="322">山側</text>
+<g class="n" stroke="#8a8a8a" stroke-width="1.5">
+<path d="M90 385 Q200 320 310 385"/>
+<path d="M60 420 Q200 350 340 420"/>
+<path d="M40 455 Q200 380 360 455"/>
+</g>
+<g class="n" stroke="#2e6da4" stroke-width="2">
+<line x1="108" y1="402" x2="178" y2="452" marker-end="url(#m3)"/>
+<line x1="292" y1="402" x2="222" y2="452" marker-end="url(#m3)"/>
+<line x1="200" y1="372" x2="200" y2="440" marker-end="url(#m3)"/>
+</g>
+<text x="20" y="345">等高線が山側へ食い込む</text>
+<text x="20" y="359">谷型の地形は水が集まる</text>
+<text x="300" y="488">谷側</text>
+</svg>
