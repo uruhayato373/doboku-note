@@ -7,6 +7,7 @@ import {
   evaluateXFrequencyGate,
   selectDueTweet,
   loadLedger,
+  overlayRegistryStatus,
   appendPostedLog,
   clampLimits,
   DEFAULT_LIMITS,
@@ -282,4 +283,64 @@ test('appendPostedLog: 追記のみでファイルを壊さない', () => {
   appendPostedLog({ root, entry: { at: NOW, draft: 'd2', key: '1', url: 'https://x.com/2', kind: 'post' } });
   const ledger = loadLedger({ root });
   assert.equal(ledger.length, 2);
+});
+
+// ── 台帳の重ね合わせ（DN-0612）────────────────────────────────────────
+test('overlayRegistryStatus: stopped は stopped・published は posted・行なし/他状態はそのまま', () => {
+  assert.equal(overlayRegistryStatus('queued', { status: 'stopped' }), 'stopped');
+  assert.equal(overlayRegistryStatus('scheduled', { status: 'published' }), 'posted');
+  assert.equal(overlayRegistryStatus('scheduled', null), 'scheduled');
+  assert.equal(overlayRegistryStatus('scheduled', { status: 'approved' }), 'scheduled');
+  assert.equal(overlayRegistryStatus('scheduled', { status: 'scheduled' }), 'scheduled');
+  // approved・scheduled・published・stopped 以外は候補から外す
+  for (const st of ['draft', 'failed', 'refresh_due']) {
+    assert.equal(overlayRegistryStatus('scheduled', { status: st }), 'unapproved');
+  }
+});
+
+test('loadLedger: 台帳が draft の行は候補(selectDueTweet)から外れる', () => {
+  const root = mkdtempSync(join(tmpdir(), 'xg-reg-draft-'));
+  const dir = join(root, 'content/sns/x/draft/001-a');
+  mkdirSync(dir, { recursive: true });
+  const at = (m) => new Date(Date.parse(NOW) - m * 60000).toISOString();
+  writeFileSync(join(dir, 'status.json'), JSON.stringify({ tweets: {
+    1: { title: 'd', text: 'draft one', status: 'queued', scheduled_at: at(5) },
+    2: { title: 'a', text: 'approved one', status: 'queued', scheduled_at: at(6) },
+  } }));
+  const registryIndex = new Map([
+    ['draft/001-a#1', { status: 'draft' }],
+    ['draft/001-a#2', { status: 'approved' }],
+  ]);
+  const ledger = loadLedger({ root, registryIndex });
+  assert.equal(ledger.find((e) => e.key === '1').status, 'unapproved');
+  assert.equal(selectDueTweet(ledger, NOW).key, '2');
+});
+
+test('loadLedger: 台帳が読めなければ握りつぶさず投げる（registryIndex 省略時）', () => {
+  const root = mkdtempSync(join(tmpdir(), 'xg-reg-broken-'));
+  mkdirSync(join(root, 'content/registry/publications/x'), { recursive: true });
+  writeFileSync(join(root, 'content/registry/publications/x/broken.json'), '{ broken');
+  assert.throws(() => loadLedger({ root }));
+});
+
+test('loadLedger: 台帳 stopped のツイートは候補(selectDueTweet)から外れ、published は posted、行なしは status.json のまま', () => {
+  const root = mkdtempSync(join(tmpdir(), 'xg-reg-'));
+  const dir = join(root, 'content/sns/x/draft/001-a');
+  mkdirSync(dir, { recursive: true });
+  const at = (m) => new Date(Date.parse(NOW) - m * 60000).toISOString();
+  writeFileSync(join(dir, 'status.json'), JSON.stringify({ tweets: {
+    1: { title: 's', text: 'stopped one', status: 'queued', scheduled_at: at(5) },
+    2: { title: 'p', text: 'published one', status: 'queued', scheduled_at: at(6) },
+    3: { title: 'n', text: 'no row', status: 'queued', scheduled_at: at(7) },
+  } }));
+  const registryIndex = new Map([
+    ['draft/001-a#1', { status: 'stopped', stopReason: 'unverified-legacy' }],
+    ['draft/001-a#2', { status: 'published' }],
+  ]);
+  const ledger = loadLedger({ root, registryIndex });
+  const by = Object.fromEntries(ledger.map((e) => [e.key, e.status]));
+  assert.deepEqual(by, { 1: 'stopped', 2: 'posted', 3: 'queued' });
+  assert.equal(selectDueTweet(ledger, NOW).key, '3');
+  // 台帳なし(null)なら重ねない
+  assert.equal(loadLedger({ root, registryIndex: null }).find((e) => e.key === '1').status, 'queued');
 });

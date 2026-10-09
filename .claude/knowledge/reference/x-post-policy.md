@@ -292,7 +292,7 @@ content/sns/x/
 
 > **背景（2026-06-21）**: 凍結後に作った新アカウントで再開する際、(a) 古い予約が残ったまま同枠に再予約 → 同時刻二重投稿、(b) 旧アカ status.json の残骸を誤って publish → 凍結文面の再投稿、という二重事故を構造的に防ぐため**機械ゲート**を新設。`§11.1〜11.4` を人/エージェントの規律で守った上で、**予約実行の直前に必ず通す門番**として機能する。
 
-**SSOT**: `content/sns/x/{draft,published}/<NNN>-*/status.json` が「いつ・何を予約/投稿したか」の唯一の台帳。tweet ごとに `status`（`scheduled`/`posted`）・`scheduled_at`・`text` を持つ。予約・投稿の事実はここにしか書かない。
+**SSOT**: X の投稿の状態（投稿してよいか・投稿したか）の正本はコンテンツ台帳（`content/registry/publications/x/{exam}.json`・[content-registry.md](content-registry.md)）。`content/sns/x/{draft,published}/<NNN>-*/status.json` は文面（`text`）と運用の記録（`scheduled_at` など）を持つ旧い写しで、P7 で文面を `tweets.md` へ寄せてから消す。移行のあいだ書き手は status.json も書くが、`loadLedger` は台帳の stopped・published を重ねて候補から外し、`publish-x` は投稿後に台帳へも書く（`scripts/lib/registry-x-store.mjs`）。
 
 **門番**: `npm run x-schedule-guard`（[scripts/x-schedule-guard.mjs](../../../scripts/x-schedule-guard.mjs)）。全 status.json を読み、以下を判定して **BLOCK があれば exit 1**（文字数 280 超・リンク 404 と同格のブロッキング）。
 
