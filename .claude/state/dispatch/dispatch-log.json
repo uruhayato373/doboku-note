@@ -2338,6 +2338,19 @@
       "commit": "8fd1368e5b5c",
       "verification": "check-content-registry 緑・2回目の取り込みは差分0・node --test 緑",
       "note": "P6 をマージ。X 879 件を台帳へ取り込み（151 published・439 gone・87 unverified-legacy）、publish-x・x-sync-status・x-frequency-gate を台帳へ切り替え。前提の誤り：予約 432 件は凍結した旧アカウントのもので結べないため gone。範囲を絞った：status.json の写しの削除は DN-0629"
+    },
+    {
+      "id": "DN-0622",
+      "at": "2026-10-10",
+      "task": "Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/agent-hooks.test.mjs: 素の cd（worktree・プロジェクトの下の階層・変数経由）は exit 2、サブシェル・git -C・bash -c・直下への cd・Codex（CLAUDE_PROJECT_DIR 無し）は通す。13 件 pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

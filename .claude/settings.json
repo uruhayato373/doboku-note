@@ -96,6 +96,10 @@
           {
             "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs check-doc-sync"
+          },
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs check-cd-scope"
           }
         ]
       }
