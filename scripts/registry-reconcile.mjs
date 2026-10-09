@@ -94,7 +94,8 @@ async function main() {
     for (const a of advance) {
       const cur = pubs.find((p) => p.id === a.id);
       const row = Object.fromEntries(Object.entries(cur).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
-      byExam.set(cur.exam, [...(byExam.get(cur.exam) ?? []), { ...row, status: 'published', platform: a.platform }]);
+      const { stopReason: _s, reason: _r, ...rest } = row;
+      byExam.set(cur.exam, [...(byExam.get(cur.exam) ?? []), { ...rest, status: 'published', platform: a.platform }]);
     }
     for (const [exam, rows] of byExam) upsertPublications(ROOT, 'youtube', exam, rows);
     if (advance.length) writeVideoState(ROOT, projectVideoState(readJsonIf(ROOT, VIDEO_STATE_PATH), loadRegistry(ROOT)));
