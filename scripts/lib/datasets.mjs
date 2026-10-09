@@ -62,6 +62,8 @@ const SLOTS = {
  * regen（作り直すコマンド・手順）・
  * planned（置き場は決めたがまだ 1 件も無い）・retain（日付つきファイルの寿命。scripts/prune-state-snapshots.mjs が消す）・
  * freshness（最新の記録の古さの閾値。検査と管理画面が freshnessOf・freshnessDays で引く）
+ * refs（中の値が指す先。[{ at: '場所', to: 'qualification'|'product'|'article' }]。check-datasets が全ファイルで参照先の実在を見る＝外部キー相当。
+ *   場所の書き方と参照先は scripts/lib/dataset-refs.mjs。DN-0586）
  *
  * retain: { family, keepNewest: N }   新しい N 件を残す
  *         { family, maxAgeDays: D }   D 日より古いものを消す（最新 1 件は必ず残す）
@@ -81,7 +83,7 @@ const d = (id, path, kind, domain, doc, opts = {}) => ({ id, path, kind, domain,
 export const DATASETS = [
   // ===== config/: 事業・試験・商品の正本と、スクリプト・CI・サイトの設定 =====
   // 戦略
-  d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection' }),
+  d('config.business-direction', 'config/business-direction.json', 'config', 'strategy', '重点資格・KPI の定義・レビュー周期', { schema: 'ConfigBusinessDirection', refs: [{ at: 'qualifications[].id', to: 'qualification' }] }),
   d('config.qualification-registry', 'config/qualification-registry.json', 'config', 'strategy', '資格の一覧・名前・並び順・展開状態', { schema: 'QualificationRegistry' }),
   d('config.exam-calendar', 'config/exam-calendar.json', 'config', 'strategy', '試験日程', { schema: 'ExamCalendar' }),
   d('config.exam-formats', 'config/exam-formats.json', 'config', 'strategy', '試験区分・出題形式・過去問の公開範囲', { schema: 'ConfigExamFormats' }),
@@ -91,7 +93,7 @@ export const DATASETS = [
   // 計画
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
   // 商品
-  d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts' }),
+  d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
   d('config.product-lineup', 'config/product-lineup.json', 'config', 'product', '商品ラインナップの分類', { schema: 'ProductLineup' }),
   d('config.content-themes', 'config/content-themes.json', 'config', 'product', '制作物のテーマの語彙とチャネル→テーマの写し方', { schema: 'ConfigContentThemes' }),
   d('config.note-funnel', 'config/note-funnel.json', 'config', 'product', 'note 導線（ファネル）の構成', { schema: 'NoteFunnel' }),
@@ -366,7 +368,7 @@ export const DATASETS = [
   d('state.registry-reconcile', '.claude/state/registry-reconcile/{name}.json', 'state', 'sns', 'コンテンツ台帳と公開先の照合の最新（registry-reconcile）'),
   d('state.sns-progress', '.claude/state/sns/{name}.json', 'state', 'sns', 'SNS の品質キャンペーンとカードの描画の進み具合'),
   // 書籍の網羅（要約は git・見出しを含む詳細は Drive vault。content-taxonomy.md §7）
-  d('state.book-coverage', '.claude/state/book-coverage.json', 'state', 'material', '書籍ごとの網羅の要約（判定の件数・判定日・展開した記事とコミット。市販書籍の見出しは持たない）', { schema: 'StateBookCoverage' }),
+  d('state.book-coverage', '.claude/state/book-coverage.json', 'state', 'material', '書籍ごとの網羅の要約（判定の件数・判定日・展開した記事とコミット。市販書籍の見出しは持たない）', { schema: 'StateBookCoverage', refs: [{ at: 'books.*.expansions[].article', to: 'article' }] }),
   d('vault.book-coverage-candidates', 'content/sources/books/{name}/coverage/candidates.json', 'evidence', 'material', '書籍の節とサイトの節の候補表（audit-reference-book-coverage・市販書籍の見出しを含む）', { drive: 'reference-book-coverage', regen: 'npm run audit-reference-book-coverage' }),
   d('vault.book-coverage-verdict', 'content/sources/books/{name}/coverage/verdict.json', 'evidence', 'material', '同上の意味判定と展開の計画（Evaluator が書く・市販書籍の見出しを含む）', { drive: 'reference-book-coverage' }),
 ];

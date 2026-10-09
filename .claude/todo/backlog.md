@@ -107,14 +107,14 @@
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
 
-### [DN-0591] 書籍の網羅の残り: コンクリート 5 冊を判定し直して網羅を確かめる
+### [DN-0591] コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する
 タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08]
 
-2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2）。進み具合は `npm run audit-reference-book-coverage -- --status`、手順は `.claude/knowledge/reference/book-coverage-judging.md`・`book-coverage-expansion.md`。
-総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断）: 総監のテキスト・受験対策・キーワード集の判定で gap は 0、partial は展開済み。論文の本の中身は答案例（note 商品の領域）が中心で、書き方の一般論は論文の書き方の本の展開と記述式ガイドで覆えている。再スキャンからやり直す手間に見合わない。`--status` ではこの 1 冊だけ「未着手」のまま残る。
-残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。展開は、リポジトリへ移した道具（`--briefs`・Workflow `book-coverage-expand`／`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。DN-0621）だけで回し、`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点はその場で道具を直す。
-完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
-
+2026-10-10 に、コンクリート 5 冊（concrete-chief-textbook-2022・2024・concrete-diagnostician-textbook・concrete-basics-5th・construction-materials-basics）の候補表を `--rejudge` で作り直し、展開後のサイトに対して意味判定をやり直した（936 節。`--check` 違反 0・判定は Drive vault に同期済み・要約 `.claude/state/book-coverage.json` の判定日は 2026-10-10）。新しい gap は 9 節（診断士 3・基本 4・建設材料 2）、partial は 154 節で、追記の計画は 123 件（診断士 71・基本 32・建設材料 11・主任技士 2022 7・2024 1）。
+診断士の判定で、サイトの guide-essay・guide-trends の記述式の説明（問題A・問題B・3.5時間）が本の 2020 年版（2019 年度から問題B のみ・3.0 時間）と食い違うと指摘された。最新の試験要項（JCI）で確かめてから直す。
+総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断・`--status` では未着手のまま残る）。
+**やること**: リポジトリの道具（`npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` → `audit-reference-book-coverage --briefs --shelf コンクリート` と `--source-id construction-materials-basics` → Workflow `book-coverage-expand`・`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。手順は book-coverage-expansion.md §0）で展開する。`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点は道具を直す。
+**完了条件**: `--status` で 5 冊が「展開済み」になり、診断士の記述式の説明を一次資料で確かめて直した。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -341,6 +341,14 @@
 
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
+**やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
+**完了条件**: 末尾に別々の記録を足した 2 本のブランチを合わせても衝突しないことをテストで確かめ、driver を登録していない環境では従来どおり衝突として止まる（黙って片方を捨てない）。
+
 
 ### [DN-0634] 1級土木 H29 問題B No.4・No.31 の設問と解説の食い違いを、原本を探して直す（公式 PDF が掲載終了・保存版にも無い）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
@@ -1805,10 +1813,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
 
-### [DN-0586] 台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査にする（外部キー相当）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
-
-段階3（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。各データセットの行に refs（JSON の場所 → qualification・product・article）を宣言し、check-datasets が参照先（qualification-registry.json・products.json・content/site の記事）の実在を検査する。既存の個別検査（check-qualification-ssot など）のうち汎用の検査で置き換えられるものを洗い出す。最初の対象は state.book-coverage の expansions[].article。完了条件: 宣言のある全データセットで参照切れ 0・検査した参照の件数を出力・検査ゼロを PASS にしない。前提: 段階2
 
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
