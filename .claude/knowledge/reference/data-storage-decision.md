@@ -177,7 +177,8 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - git に置けないもの（市販書籍の見出し・用語を含む判定など。公開リポジトリなので）は Drive vault に置き、台帳の行に `drive: <config/drive-vault.json の group>` を付けて宣言する。path は repo 側の写しの置き場（git 管理外）で、実体は `drive-vault-sync --commit` で vault へ、ほかの PC は `--pull` で取り戻す。同期の台帳（`drive-manifest.json`）は git にあるので、どの PC からも何がどこにあるかが分かる。置き場の外（`content/` の下など）のパスは drive のときだけ許し、id は `vault.<データセット>`
 - `local`（git 管理外）は、作り直せる一時出力（`quality:audit` の最新結果・画面から取った CSV など）だけに使い、作り直し方を `regen` に書く（無ければ `check-datasets` が止める）。記録・判定は local にしない
 - 最初の利用者は書籍の網羅（content-taxonomy.md §7）: 見出しを含まない要約 `state.book-coverage`（書籍ごとの判定件数・判定日・展開した記事とコミット・型 `StateBookCoverage`）は git、見出しを含む候補表と意味判定 `vault.book-coverage-*` は Drive vault の `原資料PDF/書籍/<dir>/coverage/`
-- 次の段階（backlog）: 段階 2＝台帳の id で一覧・取得・絞り込みを返す共通の入口（SELECT 相当。管理画面からも）、段階 3＝台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査へ（外部キー相当）
+- 段階 2（2026-10-10 済み・DN-0585）: 台帳の id で一覧・取得・絞り込みを返す共通の入口 `npm run data -- list|get|query`（`scripts/lib/dataset-query.mjs`）。管理画面 `/ops/store` の詳細も同じ関数で行を絞る。行は配列の要素か対応表の各項目（キーは `_key`）
+- 次の段階（backlog）: 段階 3＝台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査へ（外部キー相当）
 
 ## 参考リンク
 
