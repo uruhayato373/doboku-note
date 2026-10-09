@@ -714,6 +714,20 @@ export const ConfigVideoContent = z
       })
       .strict(),
     verbatim: z.object({ windowChars: z.number().int().positive().describe('これだけ連続一致したら逐語転用とみなす字数'), note_: doc() }).strict(),
+    visualCheck: z
+      .object({
+        contactSheetEverySec: z.number().positive().describe('コンタクトシートに 1 コマ取る間隔（秒）'),
+        contactSheetCols: z.number().int().positive(),
+        contactSheetRows: z.number().int().positive(),
+        contactSheetWidth: z.number().int().positive().describe('1 コマの幅（px）'),
+        previewFps: z.number().int().positive().describe('無音プレビューのフレームレート'),
+        maxOpeningCoverSec: z.number().positive().describe('冒頭の表紙の秒数の上限（超えると注意）'),
+        maxRepeatFrameRatio: z.number().min(0).max(1).describe('直前と同じ画面が続く秒数の割合の上限（超えると注意）'),
+        longStaticSec: z.number().positive().describe('同じ画面がこの秒数以上続く箇所を出す'),
+        note_: doc(),
+      })
+      .strict()
+      .describe('音声の前の画面確認（npm run media -- preview・DN-0603）'),
     forbiddenBinaryExtensions: z.array(z.string().regex(/^\.[a-z0-9]+$/, '.mp4 の形')).describe('Git に置かない動画・音声・字幕の拡張子'),
     state: z
       .object({

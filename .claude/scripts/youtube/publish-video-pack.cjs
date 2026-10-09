@@ -338,6 +338,16 @@ function assertLongformPublishable(derivative, item, now = Date.now()) {
   }
 }
 
+/** 最終承認の関門を掛ける段。表紙（thumbnail）は承認の digest に入っているので動画本体と同じく掛ける */
+const FINAL_APPROVAL_PHASES = ['longform', 'thumbnail'];
+
+/** 台帳の最終承認の関門。approval.contentSha256 のある公開は、承認後に中身が変わっていたら上げない（無ければ今の挙動） */
+async function assertRegistryFinalApproval(exam, packId, opts = {}) {
+  const { finalApprovalGate } = await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/media-preview.mjs')).href);
+  const gate = await finalApprovalGate(ROOT, exam, packId, opts);
+  if (!gate.ok) throw new Error(gate.reason);
+}
+
 async function main() {
   if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
@@ -358,6 +368,7 @@ async function main() {
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
   if (PHASE === 'longform') assertLongformPublishable((await loadState()).packs?.[PACK_ID]?.derivatives?.longform, publish.longform);
+  if (FINAL_APPROVAL_PHASES.includes(PHASE)) await assertRegistryFinalApproval(path.basename(path.dirname(pack.dir)), PACK_ID);
   if (DRY) return console.log('[dry-run] API/R2/state は変更しません');
   if (PHASE === 'shorts-publish' && !RELATED_CONFIRMED) throw new Error('Shorts公開には --related-confirmed が必要です');
 
@@ -486,4 +497,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { videoSnippet, videoStatus, assertLongformPublishable };
+module.exports = { videoSnippet, videoStatus, assertLongformPublishable, assertRegistryFinalApproval, FINAL_APPROVAL_PHASES };

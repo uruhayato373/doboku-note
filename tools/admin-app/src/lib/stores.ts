@@ -47,7 +47,7 @@ export function storeNav(): Record<StoreArea, StoreNavItem[]> {
       STORE_AREAS.map((a) => [a, (areaDomainIds(a, domains.map((d) => d.id)) as string[]).map((id) => ({ id, label: label(id) }))]),
     ) as Record<StoreArea, StoreNavItem[]>;
   } catch {
-    return Object.fromEntries(STORE_AREAS.map((a) => [a, []])) as unknown as Record<StoreArea, StoreNavItem[]>;
+    return Object.fromEntries(STORE_AREAS.map((a) => [a, [] as StoreNavItem[]])) as unknown as Record<StoreArea, StoreNavItem[]>;
   }
 }
 

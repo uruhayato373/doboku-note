@@ -8,7 +8,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  CHANNEL_DATASET, approvalHash, approvalParts, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
+  CHANNEL_DATASET, approvalHash, approvalParts, canTransition, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
 } from './content-registry.mjs';
 import { datasetDir } from './datasets.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
@@ -106,7 +106,7 @@ export function checkRegistry(root, opts = {}) {
   // R03: 予約以上の行は消さない・改名しない（--base の時点と比べる）
   if (opts.base || opts.basePublications) {
     const before = opts.basePublications ?? loadRegistryAt(root, opts.base);
-    if (before === null) issues.push(issue('WARN', 'R03', null, `base ${opts.base} を読めない（比較していない）`));
+    if (before === null) issues.push(issue('INFO', 'R03', null, `base ${opts.base} を読めない（削除と遷移を比較していない）`));
     else {
       for (const old of before) {
         const rank = cfg.status.values.indexOf(old.status);
@@ -114,6 +114,18 @@ export function checkRegistry(root, opts = {}) {
         if (!pubById.has(old.id) && !reg.publications.some((p) => p.renamedTo === old.id)) {
           issues.push(issue('FAIL', 'R03', old.id, `予約以上（${old.status}）の公開が消えた・改名された（改名は新しい行と renamedTo で）`));
         }
+      }
+      // R07: 比較元から状態が変わった行は、config の transitions にある遷移だけ（stopped(unverified-legacy)→published は証拠つきだけ）
+      const beforeById = new Map(before.map((b) => [b.id, b]));
+      for (const p of reg.publications) {
+        const b = beforeById.get(p.id);
+        if (!b || b.status === p.status) continue;
+        counts.checkedTransitions = (counts.checkedTransitions ?? 0) + 1;
+        if (b.status === 'stopped' && p.status === 'published') {
+          if (b.stopReason !== 'unverified-legacy' || !p.platform?.evidence) issues.push(issue('FAIL', 'R07', p.id, `stopped（${b.stopReason}）から published へ戻せるのは unverified-legacy に証拠（platform.evidence）を付けたときだけ`));
+          continue;
+        }
+        if (!canTransition(cfg, b.status, p.status)) issues.push(issue('FAIL', 'R07', p.id, `${b.status} → ${p.status} は遷移に無い（コンテンツ台帳の設定の transitions）`));
       }
     }
   }

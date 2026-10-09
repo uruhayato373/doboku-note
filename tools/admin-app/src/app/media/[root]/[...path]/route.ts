@@ -1,12 +1,16 @@
-import { createReadStream, existsSync, statSync } from 'node:fs';
+import { createReadStream, existsSync, realpathSync, statSync } from 'node:fs';
 import { extname, join, resolve, sep } from 'node:path';
-import type { Readable } from 'node:stream';
+import { Readable } from 'node:stream';
 import { repoPath } from '@/lib/repo-root';
+import { servePlan } from '../../../../../../../scripts/lib/media-serve.mjs';
+import { loadDriveManifest, resolveVaultRoot, vaultAbsFor } from '../../../../../../../scripts/lib/drive-vault.mjs';
+import { parseMediaPath } from '../../../../../../../scripts/lib/media-paths.mjs';
 import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
 /**
  * /media/{posts|sns|note|kindle|kindlepub|kindlepreview}/... → リポジトリ内ルートへの static serve。
  * tools/admin/lib/media.mjs の traversal ガード + MIME allowlist を移植。
+ * cmedia（手元の素材）・vault（Drive の素材）は Range・HEAD に対応する（動画・音声のシーク用）。読み取り専用（GET・HEAD のみ）。
  * ローカル専用だが drive-by 読み出しを想定し許可ルート外は 403。
  */
 
@@ -23,7 +27,12 @@ const MEDIA_ROOTS: Record<string, string> = {
   kindlepreview: resolve(repoPath('.tmp', 'kindle-preview')),
   // ココナラの商品画像（承認済み POP 画像・Drive vault から取り戻したもの）。/content/ledger/coconala/<id> の確認用。
   coconala: resolve(repoPath('content', 'coconala', 'assets')),
+  // コンテンツ台帳の素材（手元）。.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}
+  cmedia: resolve(repoPath('.tmp', 'media')),
 };
+
+/** Drive vault の素材（実体が手元に落ちているものだけ配信する）。マウント先は応答に出さない。 */
+const VAULT_SUBDIR = '制作物/コンテンツ';
 
 const MIME: Record<string, string> = {
   '.png': 'image/png',
@@ -33,49 +42,70 @@ const MIME: Record<string, string> = {
   '.gif': 'image/gif',
   '.svg': 'image/svg+xml',
   '.mp4': 'video/mp4',
+  '.m4a': 'audio/mp4',
+  '.ass': 'text/plain; charset=utf-8',
+  '.json': 'application/json',
 };
 
-export async function GET(
-  _req: Request,
-  { params }: { params: Promise<{ root: string; path: string[] }> },
-) {
-  const { root, path: segs } = await params;
-  const base = MEDIA_ROOTS[root];
-  if (!base) return new Response('403 Forbidden', { status: 403 });
+const text = (body: string, status: number) =>
+  new Response(body, { status, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 
-  const rel = segs.map((s) => decodeURIComponent(s)).join('/');
-  const full = resolve(join(base, rel));
-  // traversal ガード: 解決後パスが許可ルート配下であること。
-  if (full !== base && !full.startsWith(base + sep)) {
-    return new Response('403 Forbidden', { status: 403 });
-  }
-  const mime = MIME[extname(full).toLowerCase()];
-  if (!mime) return new Response('403 Forbidden', { status: 403 });
-  if (!existsSync(full) || !statSync(full).isFile()) {
-    return new Response('404 Not Found', { status: 404 });
-  }
-
-  const nodeStream = createReadStream(full);
-  const webStream = toWebStream(nodeStream);
-  return new Response(webStream, {
-    headers: {
-      'Content-Type': mime,
-      'Content-Length': String(statSync(full).size),
-      'Cache-Control': 'no-cache',
-    },
-  });
+function safeRealpath(p: string): string | null {
+  try { return realpathSync(p); } catch { return null; }
 }
 
-/** node Readable → Web ReadableStream。 */
-function toWebStream(nodeStream: Readable): ReadableStream<Uint8Array> {
-  return new ReadableStream<Uint8Array>({
-    start(controller) {
-      nodeStream.on('data', (chunk: Buffer) => controller.enqueue(new Uint8Array(chunk)));
-      nodeStream.on('end', () => controller.close());
-      nodeStream.on('error', (err) => controller.error(err));
-    },
-    cancel() {
-      nodeStream.destroy();
-    },
-  });
+async function serve(req: Request, params: Promise<{ root: string; path: string[] }>, withBody: boolean) {
+  const { root, path: segs } = await params;
+
+  let rel: string;
+  try { rel = segs.map((s) => decodeURIComponent(s)).join('/'); } catch { return text('403 Forbidden', 403); }
+  if (rel.split('/').some((s) => s === '..' || s === '.' || s === '')) return text('403 Forbidden', 403);
+
+  let base: string | undefined;
+  let expectedBytes: number | null = null;
+  if (root === 'vault') {
+    const parsed = parseMediaPath('.tmp/media/' + rel);
+    if (!parsed) return text('403 Forbidden', 403);
+    const vr = resolveVaultRoot();
+    if (!vr.root) return text('404 Drive のマウントが無い', 404);
+    const entry = loadDriveManifest().entries?.['.tmp/media/' + rel];
+    if (!entry) return text('404 Not Found', 404);
+    base = vaultAbsFor(vr.root, VAULT_SUBDIR);
+    expectedBytes = Number(entry.bytes);
+  } else {
+    base = MEDIA_ROOTS[root];
+  }
+  if (!base) return text('403 Forbidden', 403);
+
+  const baseReal = safeRealpath(base);
+  if (!baseReal) return text('404 Not Found', 404);
+  const joined = resolve(join(baseReal, rel));
+  if (joined !== baseReal && !joined.startsWith(baseReal + sep)) return text('403 Forbidden', 403);
+  const mime = MIME[extname(joined).toLowerCase()];
+  if (!mime) return text('403 Forbidden', 403);
+  if (!existsSync(joined)) return text('404 Not Found', 404);
+  // シンボリックリンクで許可ルートの外へ出ていないか。
+  const full = safeRealpath(joined);
+  if (!full || (full !== baseReal && !full.startsWith(baseReal + sep))) return text('403 Forbidden', 403);
+  const st = statSync(full);
+  if (!st.isFile()) return text('404 Not Found', 404);
+  const size = st.size;
+  const plan = servePlan({ size, expectedBytes, rangeHeader: req.headers.get('range'), mime });
+  if (plan.status === 409) return text(plan.body, 409);
+  const { status, headers, start, end } = plan;
+  if (status === 416) return new Response(null, { status, headers });
+
+  if (!withBody || size === 0) return new Response(null, { status, headers });
+  const nodeStream = createReadStream(full, { start, end });
+  return new Response(Readable.toWeb(nodeStream) as ReadableStream<Uint8Array>, { status, headers });
+}
+
+type Ctx = { params: Promise<{ root: string; path: string[] }> };
+
+export async function GET(req: Request, { params }: Ctx) {
+  return serve(req, params, true);
+}
+
+export async function HEAD(req: Request, { params }: Ctx) {
+  return serve(req, params, false);
 }

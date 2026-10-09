@@ -2,6 +2,33 @@
   "schemaVersion": 1,
   "note": "AI 画像の実績（どの指示から作って配置したか＝promptSha・実物どおりかの判定＝verdict）。sha が今の画像と一致する記録だけが効く。手で編集しない（生成と配置は npm run gen-article-photo、判定は node scripts/check-image-origin.mjs record-ai）",
   "figures": {
+    "civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint": {
+      "sha": "acbf939746b5d733",
+      "promptSha": "e71ac7758087580c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:36:55.268Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 箱型カルバート内壁の縦目地が上から下まで連続し、両側の壁面に段差はない。目地の灰色帯は止水材として途切れずに通っている。右側の矩形ポケット内に、角形の支圧板、ナット1個、ねじ節の太い単一の鋼棒が壁面に直角に出ていて、縦締めの定着部として成り立つ。ナットから出る余長も短い。本文: 本文の「止水材の連続性」「縦締めのPC鋼棒の定着部」と矛盾しない。破綻: 文字・ロゴ・人物・ワイヤやくさびなど別種の緊張材はなく、部品の崩れも見えない。ねじ山はやや細かい。ナットは棒径に比べて小さめだが、教材として誤解を招く程度ではない。",
+      "reviewedAt": "2026-10-09T08:38:08.420Z"
+    },
+    "civil-construction-1/guide-construction-plan/img/photo-hv-cubicle-substation": {
+      "sha": "b4b6ce7ad9df7145",
+      "promptSha": "5fa7e0d108c37887",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:40:12.492Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 灰色鋼板の箱形キュービクルに通風ルーバーと扉があり、砕石敷きの地面に据えられている。周囲は亜鉛めっきの金網フェンスと閉じた門扉。引込み柱から電線管が降り、架空線も写る。文字・ロゴの破綻やありえない構造は無く、本文の高圧受電設備と alt に合う。",
+      "reviewedAt": "2026-10-09T08:46:09.039Z"
+    },
+    "civil-construction-1/guide-construction-plan/img/photo-soundproof-generator": {
+      "sha": "ae28522bdc29cde1",
+      "promptSha": "584011de2d238fa6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:41:38.417Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 防音カバー付きの角形エンジン発電機で、架台の上に載っている。上部に排気管（マフラー）、側面に点検扉、側面の端子ボックスに太い黒ケーブルが接続されている。砕石敷きの地面に泥のついた電動工具とオレンジの延長コードがある。文字・ロゴや崩れた部品は無く、本文の仮設発電機と alt に合う。",
+      "reviewedAt": "2026-10-09T08:46:09.039Z"
+    },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
       "sha": "f6ca7b337b1478d5",
       "promptSha": "a98dc5ef590326e7",
@@ -82,6 +109,15 @@
       "verdict": "ok",
       "reason": "三脚の上に整準台とドーム形の GNSS アンテナ、脚にデータコントローラ。3 本脚とも足先まで揃い、圧縮の劣化なし",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella": {
+      "sha": "a37317ff492aa32c",
+      "promptSha": "da3f35744b6d3481",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:18:11.486Z",
+      "verdict": "ok",
+      "reason": "木脚 3 本の三脚が石突きで地面に立ち、器械が据わっている。日傘は三脚の後ろ右の地面に別の直線の支柱で立ち、天蓋が器械の上に張り出す。天蓋の下面は骨だけで、垂れる棒や突起は無い。器械の頂部と天蓋の間に空間があり、接していない。地面には三脚と器械の影が落ちる。器械は望遠鏡・表示部・ハンドルを備えたトータルステーションとして成り立つ。本文の「傘で器械に日陰をつくる」と矛盾せず、文字・ロゴ・崩れた部品も無い。",
+      "reviewedAt": "2026-10-09T08:19:30.098Z"
     },
     "civil-construction-1/textbook-distance-angle/img/theodolite": {
       "sha": "7bc78611942ec168",
@@ -164,6 +200,51 @@
       "reason": "同径の 4 輪・リフトアームとリンクで支えた前部バケット・運転室とエンジンで、ホイール式ローダとして成り立つ。圧縮後も読める",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
     },
+    "civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork": {
+      "sha": "9eec1a0eebcba525",
+      "promptSha": "3494745ba8815b0a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:15:57.436Z",
+      "verdict": "ok",
+      "reason": "種別・構造: オレンジ色のパイプサポートは各本が角材の敷角に底板で載り、上端は合板型枠と角材の根太を受け、伸縮部にピン穴が見える。水平つなぎの鋼管は手前の角の支柱から左右の直交2方向へ2段で延び、ボルト締めの金具で支柱に緊結されている。本文が述べる、敷角に立てて縦横2方向の水平つなぎと金具で緊結した型枠支保工に合っている。破綻: 文字・ロゴ・人物は無く、部品の溶けや二重の部位も無い。拡大して見た金具・敷角・支柱の接合は自然だった。軽微な点として、内側の支柱の水平つなぎはやや省略されて見えるが、教材として誤解を招くほどではない。",
+      "reviewedAt": "2026-10-09T08:18:34.133Z"
+    },
+    "civil-construction-1/textbook-safety-foundation-bridge/img/photo-crawler-pile-driver-steel-plates": {
+      "sha": "1325027d184ec505",
+      "promptSha": "1e1fdf680225961b",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:35:12.176Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻を確認。履帯の上部旋回体、運転室、後部カウンタウェイト、機体前方に鉛直なリーダと杭が立つクローラ式杭打ち機として成り立つ。リーダ頂部から機体後方の油圧シリンダ付き支柱へ控え線が2本張られ、本文の「リーダを鉛直、控え線を後方へ」と一致。履帯は敷鉄板の上にあり、板は平らに並ぶ。文字・ロゴ・人物・溶けた部品は無い。",
+      "reviewedAt": "2026-10-09T08:37:17.205Z"
+    },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace": {
+      "sha": "8de50290a64c2039",
+      "promptSha": "1a9d84edd1bd186f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:24:09.189Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 接地ジャッキ付きの建わくが長手方向に並び、隣り合う建わくの間に交さ筋かいが X 状に入り、作業床（板）の上に下桟相当の横材と上部の横材が通る。本文の「交さ筋かい＋下桟」と矛盾しない。破綻: 文字・ロゴ・人物なし、部材の溶けや二重化も目立たない。細部のクランプ類はやや簡略だが教材として誤解を招かない",
+      "reviewedAt": "2026-10-09T08:28:26.553Z"
+    },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-wire-rope-defects": {
+      "sha": "a153338eb67eb653",
+      "promptSha": "12b8421da3d7bae7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:25:58.482Z",
+      "verdict": "ok",
+      "reason": "本文: 奥のワイヤロープは撚り部分で素線が切れて毛羽立ち、切れた素線が飛び出す素線切断の状態。手前のロープは一箇所が鋭く折れ曲がり、ストランドが歪んで輪状にねじれたキンクの状態で、alt・本文の「素線切断」「キンク」と一致。破綻: 文字・タグ・人物なし、ロープの撚りも連続していて崩れなし",
+      "reviewedAt": "2026-10-09T08:28:26.554Z"
+    },
+    "civil-construction-1/textbook-safety-work-environment/img/photo-ppe-helmet-harness": {
+      "sha": "66e8b4a0b0ef4ce7",
+      "promptSha": "053866ec82acdeb1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:28:01.605Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 背面から白い保護帽（後頭部の調整具と顎ひもが耳側に見える）、背中の肩甲骨間に金属D環を持つフルハーネス型（両肩ベルトがD環で合流して背中中央を下り、腰ベルトのバックルと脚ベルトにつながる）を着用しており、実在の要求性能墜落制止用器具として成り立つ。本文・alt: 保護帽・D環・マスク（耳掛けで首元に下がる使い捨て型）がすべて見え、記事の説明と矛盾しない。ライナーは外から見えないが本文は見えると主張していない。破綻: 顔は写らず、文字・ロゴは無い。手袋の指の本数や服・ベルトの形にも崩れは無い。",
+      "reviewedAt": "2026-10-09T08:29:08.237Z"
+    },
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
       "sha": "1b15e03a581b4380",
       "promptSha": "3a97513936d54a14",
@@ -226,6 +307,24 @@
       "verdict": "ok",
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
+      "sha": "60d6b7e293f6af53",
+      "promptSha": "80801a1eba416cb4",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:45:40.176Z",
+      "verdict": "ok",
+      "reason": "構造: 鋼桁の端部が積層ゴム状の支承に載り、支承は橋座コンクリートの上にある。橋座は支承の前に張り出してけたかかり長が見える。桁端の補剛材のブラケットと、橋台壁にボルト固定した受け板を、鋼製の連結材がつないでいる。実在の落橋防止構造として成り立つ。本文の「けたかかり長の確保と落橋防止構造の設置」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T08:47:04.911Z"
+    },
+    "civil-practice/earthquake-tsunami-site-response/img/photo-steel-jacketed-bridge-pier": {
+      "sha": "193c352526207241",
+      "promptSha": "dfbd872f71750c36",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:43:56.369Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 河川上の橋脚の下部を塗装鋼板が全周で覆い、縦のボルト継ぎ目が複数見え、下端はフーチングの上面まで達する。上部は無補強の灰色コンクリートで、橋脚の上に鋼桁が載る。実在の鋼板巻立て補強として成り立つ。本文の「橋脚への鋼板などの巻立て」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T08:47:04.910Z"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",

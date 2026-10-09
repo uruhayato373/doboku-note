@@ -98,6 +98,7 @@
     "scripts/quality-audit.mjs": 1,
     "scripts/quality-snapshot.mjs": 2,
     "scripts/registry-reconcile.mjs": 1,
+    "scripts/registry.mjs": 1,
     "scripts/render-approved-longforms.mjs": 1,
     "scripts/report-cem-index-consolidation.mjs": 1,
     "scripts/report-defect-learning.mjs": 1,
