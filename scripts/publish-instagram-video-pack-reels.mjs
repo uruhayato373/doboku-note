@@ -32,7 +32,7 @@ function hydrateVideo(videoPath) {
   if (existsSync(videoPath)) return;
   const rel = relative(ROOT, videoPath).replace(/\\/g, '/');
   console.log(`[ig-video-pack-reels] Driveから復元: ${rel}`);
-  const result = spawnSync('node', [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+  const result = spawnSync('node', [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, '--commit'], {
     cwd: ROOT,
     stdio: 'inherit',
   });

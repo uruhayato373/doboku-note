@@ -2338,6 +2338,19 @@
       "commit": "8fd1368e5b5c",
       "verification": "check-content-registry 緑・2回目の取り込みは差分0・node --test 緑",
       "note": "P6 をマージ。X 879 件を台帳へ取り込み（151 published・439 gone・87 unverified-legacy）、publish-x・x-sync-status・x-frequency-gate を台帳へ切り替え。前提の誤り：予約 432 件は凍結した旧アカウントのもので結べないため gone。範囲を絞った：status.json の写しの削除は DN-0629"
+    },
+    {
+      "id": "DN-0631",
+      "at": "2026-10-10",
+      "task": "drive-vault-sync の --pull を既定で dry-run にし、送る側と台帳の約束（sync は既定 dry-run）にそろえる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/drive-vault.test.mjs: --commit なしの --pull は exit 0・mode=DRY-RUN・取り戻す予定 N 件（MiB）を出し手元へ書かない、--commit で取り戻しに行く。check-command-guidance: drive-vault-sync の取り戻しの案内 48 件すべて --commit 付き（無いと壊れとして exit 1）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

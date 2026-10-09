@@ -103,7 +103,7 @@ async function syncArticles(items) {
     const pulled = [];
     for (const item of items.slice(i, i + CHUNK)) {
       if (item.needsPdfPull) {
-        const r = node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`]);
+        const r = node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`, '--commit']);
         if (r.status !== 0) {
           const why = r.out.split('\n').filter((l) => /FAIL|vault に無い|コピー失敗|台帳と違う|マウント/.test(l)).slice(0, 2).join(' / ').trim().slice(0, 300);
           problems.push(`PDF を Drive から取り寄せられない: ${item.path}${why ? `（${why}）` : ''}`);
