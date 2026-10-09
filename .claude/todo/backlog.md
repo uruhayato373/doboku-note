@@ -339,6 +339,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0629] コンテンツ台帳の残り: IG・X の status.json・posted.json の写しと、Drive の旧日付フォルダの表紙を消す
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、コンテンツ台帳 P5〜P7（DN-0611・DN-0612・DN-0607）を締めたときに残ったもの。IG・X の公開状態はもう `content/registry` が正本で、書き手・読み手は台帳の入口（registry-ig-store・registry-x-store）へ切り替わった。ただし旧ファイルが写しとして残っている：`content/sns/**/status.json` 283 件、`posted.json` 79 件。Drive にも、どの台帳からも参照されない旧日付フォルダの表紙が残っている：`制作物/動画レンダー/採用カバー/youtube-covers-20260909` の 346 枚と `youtube-covers-logo-a-20260909`。
+**やること**:
+1. status.json・posted.json を読む残りのコード（`rg "status\.json|posted\.json" scripts tools`）を台帳の入口へ差し替え、写しを削除する。`information-architecture.json` の denyPatterns と RESTRUCTURED_PATHS で復活を止める
+2. Drive の旧日付フォルダは参照 0 を `rg` で確かめ、運営者の了承を得てからマウント上でゴミ箱へ移す
+**完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
+
+
 ### [DN-0628] 土木施工管理技士 iOS アプリ（1級＋2級）を App Store に無料で出す
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
 
