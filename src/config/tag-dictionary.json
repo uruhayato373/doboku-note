@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-08T23:10:23.886Z",
+  "generated_at": "2026-10-09T00:17:51.502Z",
   "summary": {
-    "total_mdx_files": 1359,
+    "total_mdx_files": 1360,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 212,
+      "count": 213,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1198,6 +1198,7 @@
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
         "civil-practice-environment-neighborhood",
+        "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-material-inspection",
@@ -2532,7 +2533,7 @@
     },
     {
       "name": "環境保全",
-      "count": 89,
+      "count": 90,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2543,6 +2544,7 @@
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution",
         "civil-practice-environment-neighborhood",
+        "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-nature-conservation-mitigation",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
@@ -2887,7 +2889,7 @@
     },
     {
       "name": "関係法規",
-      "count": 72,
+      "count": 73,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-law-key-points",
@@ -2901,6 +2903,7 @@
         "civil-construction-1-textbook-road-act",
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
+        "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-safety-health-education-plan",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
