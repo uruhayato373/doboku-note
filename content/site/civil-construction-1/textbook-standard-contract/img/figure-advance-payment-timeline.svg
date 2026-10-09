@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="前払金から中間前払金、部分払・完成払への資金の流れ。契約後に請負代金額の10分の4以内を前払金として請求し、工期の半ばに要件を満たすと10分の2以内の中間前払金を請求できる。部分払や完成払では前払金分を差し引いて精算する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #222; }
+      .st { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .t3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">工期の流れに沿って、着工資金を段階的に受け取る</text>
+
+  <line class="ax" x1="44" y1="44" x2="44" y2="474"/>
+
+  <circle class="t1" cx="44" cy="52" r="9"/>
+  <text class="h" x="68" y="56">契約・保証契約</text>
+  <text class="s" x="68" y="76">保証証書を発注者に寄託して請求する</text>
+
+  <circle class="t2" cx="44" cy="136" r="9"/>
+  <text class="h" x="68" y="140">前払金</text>
+  <text class="s" x="68" y="160">請負代金額の10分の4以内が例</text>
+  <text class="s" x="68" y="178">請求から14日以内に支払われる</text>
+
+  <circle class="t3" cx="44" cy="232" r="9"/>
+  <text class="h" x="68" y="236">工期の半ば — 発注者が確かめること</text>
+  <text class="s" x="68" y="256">当初の前払金は支出済みか</text>
+  <text class="s" x="68" y="274">工期の2分の1が過ぎたか</text>
+  <text class="s" x="68" y="292">予定した作業が行われたか</text>
+  <text class="s" x="68" y="310">出来高は請負金額の2分の1以上か</text>
+
+  <circle class="t2" cx="44" cy="356" r="9"/>
+  <text class="h" x="68" y="360">中間前払金</text>
+  <text class="s" x="68" y="380">10分の2以内が例。前払金と合わせて</text>
+  <text class="s" x="68" y="398">請負代金額の10分の6以内になる</text>
+
+  <circle class="t1" cx="44" cy="438" r="9"/>
+  <text class="h" x="68" y="442">部分払・完成払</text>
+  <text class="s" x="68" y="462">前払金は差し引いて精算する</text>
+  <text class="l" x="68" y="482">割合・要件・併用の可否は発注機関の要領で確認</text>
+</svg>
