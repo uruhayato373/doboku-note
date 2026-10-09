@@ -1,5 +1,5 @@
 {
-  "_doc": ".claude/knowledge/reference/content-registry.md（コンテンツ台帳の設計・決定事項）。台帳の本体は content/registry/ で、書き手は npm run registry と npm run media だけ。cutover に入ったチャネルは content/registry が正本、入っていないチャネルは今の台帳（.claude/state/video-content-status.json など）が正本で、台帳の行は写し（R09 で一致を見る）。",
+  "_doc": ".claude/knowledge/reference/content-registry.md（コンテンツ台帳の設計・決定事項）。台帳の本体は content/registry/ で、書き手は npm run registry と npm run media だけ。cutover に入ったチャネルは content/registry が正本、入っていないチャネルは今の台帳（IG の posted.json など）が正本で、台帳の行は写し。動画の写し video-content-status.json は 2026-10-09 に消えた（YouTube は台帳だけが正本）。",
   "schemaVersion": 1,
   "channels": {
     "youtube": {

@@ -775,7 +775,7 @@ export const YoutubeOwnVideos = z
         ytVideo
           .extend({
             kind: z.enum(['longform', 'short']).describe('通常動画か Shorts か'),
-            packId: z.string().nullable().describe('動画パックの packId（作業状態 state.video-status の content-status の videoId で照合）。当たらなければ null'),
+            packId: z.string().nullable().describe('動画パックの packId（コンテンツ台帳（content/registry）の videoId で照合）。当たらなければ null'),
             format: z.string().nullable().describe('型 id。当たらなければ null'),
           })
           .strict(),

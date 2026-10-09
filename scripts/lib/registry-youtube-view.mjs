@@ -1,6 +1,6 @@
 /**
  * registry-youtube-view.mjs — コンテンツ台帳の YouTube の公開を、読み手（予定の集約・公開中の一覧・サムネイルの展開・管理画面）が
- * 使う平らな形で返す唯一の入口（DN-0610）。旧 Shorts の台帳（.claude/state/youtube-schedule.json）を読んでいた箇所はここへ切り替える。
+ * 使う平らな形で返す唯一の入口（DN-0610）。旧 Shorts の旧台帳（2026-10-09 に削除済み）を読んでいた箇所はここへ切り替える。
  * 依存ゼロ（zod を読まない。管理画面からも import する）。
  */
 import { loadRegistry, publicationStage, resolveCopy } from './content-registry.mjs';

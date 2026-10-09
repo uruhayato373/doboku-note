@@ -43,7 +43,6 @@
 | `improvements/` | PSI 改善候補レポート（`performance-auditor` 出力） | `performance-auditor` エージェント |
 | `assets/` | Git の外へ出したアセット（R2・Drive vault）の台帳 | `asset-offload` / `drive-vault-sync` |
 | `note-published.json` | note 公開状態の生成索引（frontmatter から作る・手で直さない） | `build-note-published-index` |
-| `youtube-schedule.json` | YouTube の投稿予定と投稿済みの実績 | `build-schedule` / `post-from-schedule` |
 | `dispatch/`・`todo-claims.json` | タスクの実行記録と claim | `todo:claim` / `todo:complete` |
 
 ## 消費者

@@ -77,7 +77,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          node scripts/ci-data.mjs add --paths content/registry,.claude/state/video-content-status.json,.claude/state/registry-reconcile,.claude/state/video-publication-verify.json
+          node scripts/ci-data.mjs add --paths content/registry,.claude/state/registry-reconcile,.claude/state/video-publication-verify.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

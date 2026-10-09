@@ -356,7 +356,6 @@ export const DATASETS = [
   d('state.note-swap-banner-done', '.claude/state/note-swap-banner-done.json', 'state', 'product', 'note のバナーの差し替えを終えた記事'),
   d('state.note-update-aborted', '.claude/state/note-update-aborted.json', 'state', 'product', 'note の本文の反映を途中で止めた記事'),
   // SNS・動画
-  d('state.youtube-schedule', '.claude/state/youtube-schedule.json', 'ledger', 'sns', 'YouTube の投稿予定と投稿済みの実績（build-schedule・post-from-schedule）'),
   d('state.youtube-thumbnails', '.claude/state/youtube-thumbnail-{name}.json', 'state', 'sns', 'YouTube のサムネイルの意匠と差し替えの進み具合'),
   d('state.video-status', '.claude/state/video-{name}.json', 'state', 'sns', '動画パックの状態・編集の指摘・公開の照合'),
   d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),

@@ -1,13 +1,13 @@
-import { existsSync, readFileSync } from 'node:fs';
 
 import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
 } from '../../../../scripts/lib/video-content-check.mjs';
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
+import { loadVideoState } from '../../../../scripts/lib/registry-video-state.mjs';
 
 import { igReelDerivatives } from './video-outcomes';
-import { findRepoRoot, repoPath } from './repo-root';
+import { findRepoRoot } from './repo-root';
 
 /**
  * video-sns-join.ts — SNS 投稿状況と動画パックの join（read-only）。
@@ -15,7 +15,7 @@ import { findRepoRoot, repoPath } from './repo-root';
  * なぜ必要か（DN-0110 Phase 3）: Shorts 台帳 `content/registry（kind legacy-short）` は
  * IG 過去問パック由来の既存 200 本を持つが、**動画パック（video-pack）とは無関係**で、
  * 台帳の item には packId も relatedVideoId も無い。一方 DN-0110 以降の派生 Shorts は
- * `.claude/state/video-content-status.json` の `derivatives.shorts[]` に入る。
+ * コンテンツ台帳（loadVideoState）の `derivatives.shorts[]` に入る。
  *
  * 2 つを 1 画面で見るとき、**「パック由来」と「パック外（レガシー）」を混ぜない**。
  * 混ぜると「動画パックの Shorts が 200 本ある」ように見えて実態を誤読する。
@@ -64,14 +64,10 @@ export function videoSnsJoin(): VideoSnsJoin {
   }
 
   let statePacks: Record<string, { derivatives?: Record<string, StateDerivative | StateDerivative[]> }> = {};
-  const statePath = repoPath('.claude', 'state', 'video-content-status.json');
-  if (existsSync(statePath)) {
-    try {
-      statePacks =
-        (JSON.parse(readFileSync(statePath, 'utf8')) as { packs?: typeof statePacks }).packs ?? {};
-    } catch {
-      statePacks = {};
-    }
+  try {
+    statePacks = (loadVideoState(root) as { packs?: typeof statePacks }).packs ?? {};
+  } catch {
+    statePacks = {};
   }
 
   const igReels = igReelDerivatives(findRepoRoot());

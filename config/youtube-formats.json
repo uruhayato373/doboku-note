@@ -2,7 +2,7 @@
   "_doc": "docs/marketing/06_動画コンテンツ運用設計.md（横断の方針）・docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md（根拠）",
   "schemaVersion": 1,
   "updated": "2026-10-08",
-  "description": "YouTube の動画の型（何を・何分で・どこへ送るか）と採否の状態の正本。status は active（公開中）・trial（試作・比較中）・proposed（提案・未承認）・paused（止めた）・rejected（やらない）。採否はユーザーが決め、decision の backlog カードで判断し、ここの status を書き換える。根拠は evidence の文書。動画パックの契約は config/video-content.json、パックごとの公開状態はコンテンツ台帳 content/registry（.claude/state/video-content-status.json は写し）。数値の記録は data/youtube/own-videos（自社・月次）と data/youtube/competitors（競合・四半期）で、取得は npm run youtube-own-metrics・npm run scout-youtube-competitors。titleSignals は題名で型を見分ける語（両スクリプトが再生中央値を集計する）。",
+  "description": "YouTube の動画の型（何を・何分で・どこへ送るか）と採否の状態の正本。status は active（公開中）・trial（試作・比較中）・proposed（提案・未承認）・paused（止めた）・rejected（やらない）。採否はユーザーが決め、decision の backlog カードで判断し、ここの status を書き換える。根拠は evidence の文書。動画パックの契約は config/video-content.json、パックごとの公開状態はコンテンツ台帳 content/registry（写しの video-content-status.json は 2026-10-09 に消えた。読み手は scripts/lib/registry-video-state.mjs の loadVideoState）。数値の記録は data/youtube/own-videos（自社・月次）と data/youtube/competitors（競合・四半期）で、取得は npm run youtube-own-metrics・npm run scout-youtube-competitors。titleSignals は題名で型を見分ける語（両スクリプトが再生中央値を集計する）。",
   "channel": {
     "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
     "handle": "@doboku-note",

@@ -87,7 +87,7 @@ function done(
 
 function videoLifecycle(): ChannelLifecycle {
   const href = '/content/video';
-  const source = 'content/sns/video-packs/**/video-pack.json + .claude/state/video-content-status.json';
+  const source = 'content/sns/video-packs/**/video-pack.json + content/registry';
   try {
     const root = findRepoRoot();
     const rows = loadPackSummaries(root, loadVideoConfig(root)) as { stage: string | null }[];

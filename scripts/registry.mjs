@@ -7,7 +7,6 @@
  *   npm run registry -- index                      # .tmp/content-registry/index.json（作品・公開・素材・題名・段階を結んだ生成物）
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
- *   npm run registry -- import-legacy-youtube [--commit]  # 動画パック以前の旧 Shorts（youtube-schedule.json の 200・作り直した 10）。表紙は ID の置き場へ移す
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
@@ -22,13 +21,12 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { loadRegistry, loadRegistryConfig, publicationStage, resolveCopy } from './lib/content-registry.mjs';
 import { upsertPublications, upsertWorks } from './lib/content-registry-write.mjs';
-import { VIDEO_STATE_PATH, applyVideoRows, planVideoRows, videoPackRows } from './lib/registry-video-state.mjs';
+import { applyVideoRows, loadVideoState, planVideoRows, videoPackRows } from './lib/registry-video-state.mjs';
 import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { approvalState } from './lib/media-review.mjs';
-import { projectVideoState, writeVideoState } from './lib/registry-video-state.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -82,8 +80,8 @@ function importVideoPack() {
   if (!args['pack-dir']) throw new Error('--pack-dir が要る');
   const packDir = relative(ROOT, resolve(ROOT, args['pack-dir'])).split('\\').join('/');
   const cfg = loadRegistryConfig(ROOT);
-  const state = readJsonIf(ROOT, VIDEO_STATE_PATH);
-  const { exam, work, publications } = videoPackRows(ROOT, packDir, { state, rules: cfg.idRules });
+  const state = loadVideoState(ROOT);
+  const { exam, work, publications } = videoPackRows(ROOT, packDir, { state, rules: cfg.idRules, reg: loadRegistry(ROOT) });
   console.log(JSON.stringify({ exam, work, publications }, null, 2));
   if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
   upsertWorks(ROOT, exam, [work]);
@@ -91,10 +89,10 @@ function importVideoPack() {
   console.log(`書いた: 作品 1・公開 ${publications.length}（${exam}）`);
 }
 
-const LEGACY_EVIDENCE = { kind: 'legacy-ledger', ref: 'video-content-status.json' };
+const LEGACY_EVIDENCE = { kind: 'legacy-ledger', ref: 'import-video-packs' };
 
 async function importVideoPacks() {
-  const state = readJsonIf(ROOT, VIDEO_STATE_PATH);
+  const state = loadVideoState(ROOT);
   const packIds = [...discoverVideoPacks(ROOT).keys()].sort();
   const plan = await planVideoRows(ROOT, state, { packIds, evidence: LEGACY_EVIDENCE });
   const c = plan.counts;
@@ -134,11 +132,10 @@ function operatorOnly(what) {
   }
 }
 
-/** 公開の行を 1 件書き換え、YouTube なら今の台帳（写し）も作り直す */
+/** 公開の行を 1 件書き換える */
 function writePublication(pub, patch) {
   const row = Object.fromEntries(Object.entries({ ...pub, ...patch }).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
   upsertPublications(ROOT, pub.channel, pub.exam, [row]);
-  if (pub.channel === 'youtube') writeVideoState(ROOT, projectVideoState(readJsonIf(ROOT, VIDEO_STATE_PATH), loadRegistry(ROOT)));
   return row;
 }
 
@@ -189,35 +186,6 @@ function stop() {
   if (!canTransition(cfg, pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
   writePublication(pub, { status: 'stopped', stopReason: args.reason });
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
-}
-
-async function importLegacyYoutube() {
-  const { LEGACY_EXAM, legacyYoutubeRows } = await import('./lib/registry-legacy-youtube.mjs');
-  const { readFileSync, existsSync } = await import('node:fs');
-  const cfg = loadRegistryConfig(ROOT);
-  const latest = readLatest(ROOT, 'youtube.own-videos');
-  if (!latest) throw new Error('公開中の一覧（youtube.own-videos）が無い。公開の証拠が無いので取り込めない');
-  const rows = legacyYoutubeRows(ROOT, { own: latest.data, ownRef: latest.file, rules: cfg.idRules });
-  const reg = loadRegistry(ROOT);
-  const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
-  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-  const changedWorks = rows.works.filter((w) => { const cur = reg.works.find((x) => x.id === w.id); return !cur || !same(strip(cur), w); });
-  // 台帳の素材の参照（表紙）は残す: 既存の行の media を引き継ぐ
-  const pubs = rows.publications.map((p) => { const cur = reg.publications.find((x) => x.id === p.id); return cur?.media ? { ...p, media: cur.media } : p; });
-  const changedPubs = pubs.filter((p) => { const cur = reg.publications.find((x) => x.id === p.id); return !cur || !same(strip(cur), p); });
-  const r = rows.report;
-  console.log(`旧 Shorts ${r.schedule} 件＋作り直したキーワード ${r.keyword} 件 → 作品 ${rows.works.length}・公開 ${rows.publications.length}（published ${r.published}＝外部 ID ${r.byIdMatch}・題名の完全一致 ${r.byTitleMatch} / stopped(gone) ${r.stoppedGone} / stopped(user-decision) ${r.stoppedRetired}）`);
-  const postedPath = 'data/youtube/posted.jsonl'; // path-literal-ok: 凍結した旧台帳（台帳 id youtube.posted）を件数の突き合わせに読む
-  if (existsSync(join(ROOT, postedPath))) {
-    const posted = readFileSync(join(ROOT, postedPath), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l));
-    const ids = new Set(rows.publications.map((p) => p.platform?.id).filter(Boolean));
-    console.log(`  posted.jsonl ${posted.length} 件のうち台帳の外部 ID と一致 ${posted.filter((p) => ids.has(p.videoId)).length} 件`);
-  }
-  console.log(`  書く行: 作品 ${changedWorks.length}・公開 ${changedPubs.length} / 移す表紙 ${rows.covers.length} 件`);
-  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
-  if (changedWorks.length) upsertWorks(ROOT, LEGACY_EXAM, changedWorks);
-  if (changedPubs.length) upsertPublications(ROOT, 'youtube', LEGACY_EXAM, changedPubs);
-  console.log('書いた。表紙は npm run media -- adopt-legacy-covers --commit で ID の置き場へ移す');
 }
 
 async function importInstagram() {
@@ -280,9 +248,9 @@ async function importX() {
   console.log('書いた');
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, 'import-instagram': importInstagram, 'import-x': importX, approve, stop };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, approve, stop };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|import-instagram|import-x|approve|stop …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|approve|stop …');
   process.exit(2);
 }
 await commands[command]();

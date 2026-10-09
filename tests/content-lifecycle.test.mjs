@@ -14,7 +14,7 @@ import {
   STAGES, STAGE_LABELS, emptyCounts, tally,
   videoStatusToStage, siteDocToStage, noteToStage, coconalaStatusToStage,
   kindleStatusToStage, xTweetStatusToStage,
-  youtubeScheduleStatusToStage, igPackToStage,
+  igPackToStage,
 } from '../scripts/lib/content-lifecycle.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -71,13 +71,7 @@ test('実カタログのネイティブ値を全て写像できる（coconala / 
   }
 });
 
-test('実 state のネイティブ値を全て写像できる（youtube-schedule / x drafts）', () => {
-  const yt = JSON.parse(readFileSync(join(ROOT, '.claude/state/youtube-schedule.json'), 'utf8'));
-  for (const item of yt.items) {
-    assert.ok(youtubeScheduleStatusToStage(item.status) !== null, `未写像の yt status: ${item.status}`);
-  }
-  assert.equal(youtubeScheduleStatusToStage('uploaded'), 'published');
-  assert.equal(youtubeScheduleStatusToStage('what'), null);
+test('実 state のネイティブ値を全て写像できる（x drafts）', () => {
   for (const s of ['queued', 'scheduled', 'posted', 'replaced']) {
     assert.ok(xTweetStatusToStage(s) !== null, `未写像の x status: ${s}`);
   }

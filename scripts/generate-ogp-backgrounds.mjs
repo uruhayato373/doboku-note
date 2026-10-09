@@ -1,7 +1,7 @@
 /**
  * OGP 背景画像ジェネレータ（資格ごとに共有・AI 生成）。
  *
- * Gemini / Imagen API で「文字なしの落ち着いた抽象背景」を資格ごとに 1 枚生成し、
+ * Codex（scripts/lib/codex-image.mjs）で「文字なしの落ち着いた抽象背景」を資格ごとに 1 枚生成し、
  *   config/ogp/backgrounds/<exam-key>.png （1200×630）
  * に保存する。ogp-create.mjs の resolveBackgroundImage がこのパスを拾い、
  * mono-tag テンプレが背景の上に可読性スクリム + 文字 + テーマ色枠を重ねる。
@@ -11,41 +11,28 @@
  *   - 出力は OGP 上で ~82% のオフホワイトスクリムを被るため、彩度・コントラストは控えめに。
  *   - 資格ごとに 1 枚共有（全記事で使い回し）→ 生成は数枚で済み、コスト最小・統一感。
  *
- * 認証: 環境変数 GEMINI_API_KEY（または GOOGLE_API_KEY）。AI Studio で取得。
- *   ※未設定でも --dry-run 同様にプロンプトを表示して終了する（雛形として安全に動く）。
+ * 画像生成は Codex のみ（Gemini は使わない・運営者の決定 2026-10-09）。API キーは不要（codex CLI のログインを使う）。
  *
  * Usage:
- *   node scripts/generate-ogp-backgrounds.mjs --dry-run            # プロンプトのみ表示（API 呼ばない）
+ *   node scripts/generate-ogp-backgrounds.mjs --dry-run            # プロンプトのみ表示（Codex を呼ばない）
  *   node scripts/generate-ogp-backgrounds.mjs --all                # 全資格を生成（既存はスキップ）
  *   node scripts/generate-ogp-backgrounds.mjs --exam civil-1 --force
- *   node scripts/generate-ogp-backgrounds.mjs --all --mode flash   # gemini-2.5-flash-image（Nano Banana）
- *   node scripts/generate-ogp-backgrounds.mjs --all --model imagen-4.0-generate-001
- *
- * モデル:
- *   --mode imagen (既定)  models/imagen-3.0-generate-002:predict        （text→image, aspectRatio 16:9）
- *   --mode flash          models/gemini-2.5-flash-image:generateContent （inlineData 返却）
- *   --model <id>          上記の既定モデル ID を上書き
+ *   node scripts/generate-ogp-backgrounds.mjs --all --model <codex のモデル名>   # 省略時は codex の既定
  */
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import dotenv from 'dotenv';
 import { createRequire } from 'node:module';
 import { coverExamNames } from './lib/note-character-cover.mjs';
 import { datasetDir } from './lib/datasets.mjs';
+import { generateWithCodex } from './lib/codex-image.mjs';
 
 const require = createRequire(import.meta.url);
 const ROOT = process.cwd();
-// .env.local（GEMINI_API_KEY 等）を読み込む。既存スクリプトの慣習に合わせる。
-dotenv.config({ path: path.join(ROOT, '.env.local') });
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));
 const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
 const W = 1200, H = 630;
-const API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || null;
-// 既定モデル（このキーで利用可を ListModels で確認済み, 2026-06-18）。
-//   imagen-4.0-generate-001（標準）/ -fast-（速い・安い）/ -ultra-（高品質）に --model で切替可。
-const DEFAULT_MODEL = { imagen: 'imagen-4.0-generate-001', flash: 'gemini-2.5-flash-image' };
 
 // 資格ごとの背景モチーフ（テーマ色は note-cover-tokens.json の base を参照）。
 const EXAMS = [
@@ -58,14 +45,13 @@ const EXAMS = [
 ];
 
 function parseArgs(argv) {
-  const a = { all: false, exam: null, force: false, dryRun: false, mode: 'imagen', model: null };
+  const a = { all: false, exam: null, force: false, dryRun: false, model: null };
   for (let i = 0; i < argv.length; i++) {
     const t = argv[i];
     if (t === '--all') a.all = true;
     else if (t === '--force') a.force = true;
     else if (t === '--dry-run') a.dryRun = true;
     else if (t === '--exam') a.exam = argv[++i];
-    else if (t === '--mode') a.mode = argv[++i];
     else if (t === '--model') a.model = argv[++i];
   }
   if (!a.all && !a.exam) a.all = true;
@@ -104,39 +90,11 @@ async function withRetry(fn, label, attempts = 4) {
   throw lastErr;
 }
 
-async function callImagen(model, prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:predict?key=${API_KEY}`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      instances: [{ prompt }],
-      parameters: { sampleCount: 1, aspectRatio: '16:9' },
-    }),
-  });
-  if (!res.ok) throw new Error(`imagen ${res.status}: ${(await res.text()).slice(0, 400)}`);
-  const json = await res.json();
-  const b64 = json?.predictions?.[0]?.bytesBase64Encoded;
-  if (!b64) throw new Error(`imagen: 画像データが空（${JSON.stringify(json).slice(0, 300)}）`);
-  return Buffer.from(b64, 'base64');
-}
-
-async function callFlash(model, prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
-  // flash 画像モデルはたまに説明文だけ返す。画像のみを返すよう明示する。
-  const imperative = `${prompt} Output ONLY the generated image. Do not reply with any text.`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ contents: [{ parts: [{ text: imperative }] }] }),
-  });
-  if (!res.ok) throw new Error(`flash ${res.status}: ${(await res.text()).slice(0, 400)}`);
-  const json = await res.json();
-  const parts = json?.candidates?.[0]?.content?.parts || [];
-  const img = parts.find(p => p.inlineData?.data || p.inline_data?.data);
-  const b64 = img?.inlineData?.data || img?.inline_data?.data;
-  if (!b64) throw new Error(`flash: 画像データが空（${JSON.stringify(json).slice(0, 300)}）`);
-  return Buffer.from(b64, 'base64');
+// Codex で 1 枚生成して画像のバイト列を返す（出なければ投げて withRetry に任せる）。
+async function callCodex(model, prompt) {
+  const file = generateWithCodex(prompt, model);
+  if (!file) throw new Error('codex: 画像が出力されなかった');
+  return fs.readFileSync(file);
 }
 
 // AI 出力の明るさは不安定（テーマ色が濃いと地まで濃く返ることがある）。
@@ -160,23 +118,12 @@ async function main() {
     console.error(`[error] 未知の exam-key: ${args.exam}（候補: ${EXAMS.map(e => e.key).join(', ')}）`);
     process.exit(1);
   }
-  const model = args.model || DEFAULT_MODEL[args.mode];
-  if (!model) {
-    console.error(`[error] 未知の --mode: ${args.mode}（imagen | flash）`);
-    process.exit(1);
-  }
+  const model = args.model || null;
 
-  // キー未設定 or --dry-run はプロンプトを表示して終了（API は叩かない）。
-  if (!API_KEY || args.dryRun) {
-    if (!API_KEY) {
-      console.log('[ogp-backgrounds] GEMINI_API_KEY 未設定 → プロンプトのプレビューのみ表示します。\n');
-      console.log('  本生成の準備:');
-      console.log('    1) https://aistudio.google.com/apikey で API キーを取得');
-      console.log('    2) export GEMINI_API_KEY=xxxx');
-      console.log('    3) GCP コンソールで Generative Language API の 1日 Quota を低く設定（コスト上限）\n');
-    }
+  // --dry-run はプロンプトを表示して終了（Codex は呼ばない）。
+  if (args.dryRun) {
     for (const e of targets) {
-      console.log(`# ${e.key}  (model=${model})`);
+      console.log(`# ${e.key}  (model=${model || 'codex 既定'})`);
       console.log(buildPrompt(e));
       console.log('');
     }
@@ -184,15 +131,14 @@ async function main() {
   }
 
   fs.mkdirSync(BACKGROUNDS_DIR, { recursive: true });
-  const callFn = args.mode === 'flash' ? callFlash : callImagen;
   let made = 0, skipped = 0, failed = 0;
   for (const e of targets) {
     const out = path.join(BACKGROUNDS_DIR, `${e.key}.png`);
     if (!args.force && fs.existsSync(out)) { console.log(`[skip] ${e.key}（既存）`); skipped++; continue; }
     const prompt = buildPrompt(e);
-    console.log(`[gen] ${e.key} … (model=${model})`);
+    console.log(`[gen] ${e.key} … (model=${model || 'codex 既定'})`);
     try {
-      const raw = await withRetry(() => callFn(model, prompt), e.key);
+      const raw = await withRetry(() => callCodex(model, prompt), e.key);
       const { mean, lift } = await toBackgroundPng(raw, out);
       console.log(`      → ${path.relative(ROOT, out)}  (raw輝度 ${mean} → 白ブレンド ${lift}%)`);
       made++;

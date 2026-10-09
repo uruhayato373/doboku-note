@@ -4,8 +4,7 @@
   "schemaVersion": 1,
   "updated": "2026-10-08",
   "paths": {
-    "packsRoot": "content/sns/video-packs",
-    "stateFile": ".claude/state/video-content-status.json"
+    "packsRoot": "content/sns/video-packs"
   },
   "manifest": {
     "schemaVersion": 1,

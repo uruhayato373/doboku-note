@@ -131,11 +131,29 @@ export function emptyAiLedger() {
   };
 }
 
-/** 判定 1 件の検査。誤りの説明の配列（空なら正しい） */
-export function validateAiVerdict(v) {
+/** 素材（コンテンツ台帳の media）の判定の鍵。'media:<素材 ID>' */
+export const MEDIA_KEY_RE = /^media:([a-z0-9][a-z0-9/._-]*)$/;
+export function mediaIdOfKey(figKey) {
+  return typeof figKey === 'string' ? (MEDIA_KEY_RE.exec(figKey)?.[1] ?? null) : null;
+}
+
+/**
+ * 判定 1 件の検査。誤りの説明の配列（空なら正しい）。
+ * 鍵は記事の画像（…/img/…）か素材（media:<素材 ID>）。素材は mediaById（素材 ID → 台帳の行）に実在し、
+ * 判定に sha を添えるなら素材の sha256 の先頭 16 桁と一致すること。
+ */
+export function validateAiVerdict(v, mediaById = new Map()) {
   const errs = [];
   if (!v || typeof v !== 'object') return ['判定がオブジェクトでない'];
-  if (typeof v.figKey !== 'string' || !v.figKey.includes('/img/')) errs.push(`figKey が不正: ${v.figKey}`);
+  const mid = mediaIdOfKey(v.figKey);
+  if (mid) {
+    const m = mediaById.get(mid);
+    if (!m) errs.push(`${v.figKey}: 台帳に無い素材 ID`);
+    else {
+      if (m.provenance?.kind !== 'ai-generated') errs.push(`${v.figKey}: 素材の来歴が AI 生成でない（${m.provenance?.kind ?? '記録なし'}）`);
+      if (v.sha != null && v.sha !== String(m.sha256).slice(0, 16)) errs.push(`${v.figKey}: sha が素材の sha256 の先頭 16 桁と違う（${v.sha}）`);
+    }
+  } else if (typeof v.figKey !== 'string' || !v.figKey.includes('/img/')) errs.push(`figKey が不正: ${v.figKey}`);
   if (!AI_VERDICTS.includes(v.verdict)) errs.push(`${v.figKey}: verdict は ${AI_VERDICTS.join(' / ')} のいずれか（${v.verdict}）`);
   if (typeof v.reason !== 'string' || v.reason.trim().length < 8) errs.push(`${v.figKey}: reason（判定の根拠）が無い`);
   return errs;

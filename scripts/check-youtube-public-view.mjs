@@ -13,7 +13,7 @@
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または oEmbed で判定できないものが 20% を超えた（検査不成立）
  * 撮影: CI では YouTube が bot 確認でプレーヤー部分を隠すことがある。タイトル・説明・周辺のレイアウトを見る。
  */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -21,6 +21,7 @@ import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentativ
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
@@ -30,9 +31,8 @@ const REVIEW = argv.includes('--review');
 const OUT = (() => { const i = argv.indexOf('--out'); return i >= 0 ? argv[i + 1] : null; })();
 const REVIEW_DIR = join(ROOT, '.tmp/youtube-public-view/review');
 const BP = loadBreakpointConfig();
-const readJson = (p) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
 
-const videos = collectPublicVideos(youtubePublications(ROOT, { legacyOnly: true }), readJson('.claude/state/video-content-status.json'));
+const videos = collectPublicVideos(youtubePublications(ROOT, { legacyOnly: true }), loadVideoState(ROOT));
 console.log(`[check-youtube-public-view] 台帳で公開の動画 ${videos.length} 本が対象（Shorts ${videos.filter((v) => v.kind === 'shorts').length}・通常 ${videos.filter((v) => v.kind === 'long').length}）`);
 if (videos.length === 0) {
   console.error('[check-youtube-public-view] ✗ 対象 0 本（台帳の読み取りを確認・検査不成立）');

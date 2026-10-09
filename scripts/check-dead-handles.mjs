@@ -48,7 +48,6 @@ const ALLOW = [
   { re: /^\.claude\/knowledge\/reference\/(x-post-policy|measurement-incidents|ig-publish-reconcile)\.md$/, why: '凍結の経緯そのものを記録している SSOT' },
   { re: /^scripts\/check-dead-handles\.mjs$/, why: '本チェッカ自身（禁止パターンを持つ）' },
   { re: /^docs\/todo\//, why: '起票時の経緯記録' },
-  { re: /^\.claude\/state\/youtube-schedule\.json$/, why: '投稿済み動画の当時のメタデータ（ライブ修正の記録は別途）' },
 ];
 
 const isAllowed = (f) => ALLOW.some((a) => a.re.test(f));
