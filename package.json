@@ -59,6 +59,7 @@
     "build-pillar-exam-questions": "node .claude/scripts/build-pillar-exam-questions.mjs",
     "build-popular-pages": "node scripts/build-popular-pages.mjs",
     "build-quiz-data": "node scripts/build-quiz-data.mjs",
+    "build-ios-quiz-bundle": "node scripts/build-ios-quiz-bundle.mjs",
     "build-svg-catalog": "node .claude/scripts/build-svg-catalog.mjs",
     "build-takuitsu-pdf": "node scripts/build-takuitsu-pdf.mjs",
     "character-avatars": "node scripts/build-character-avatars.mjs",
