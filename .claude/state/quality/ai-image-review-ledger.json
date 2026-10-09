@@ -474,13 +474,19 @@
       "sha": "49e4a9bcd5b9a4a3",
       "promptSha": "2cf6c330a08021a5",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:26:55.668Z"
+      "generatedAt": "2026-10-09T09:26:55.668Z",
+      "verdict": "ok",
+      "reason": "手前の杭は角材で頭部だけ赤く塗られ、奥へ同じ形の杭が一定間隔で並ぶ。収穫後の農地と背後の住宅・電柱があり、本文の幅杭と農地・住宅地の境という設定に合う。文字・看板・人物は無く、杭の形の崩れや二重像も無い。",
+      "reviewedAt": "2026-10-09T09:29:15.946Z"
     },
     "civil-practice/pre-construction-process/img/photo-site-office-drawings-specs": {
       "sha": "ff2359c4fe31d4b3",
       "promptSha": "6c0d5a0945669dc0",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:28:03.632Z"
+      "generatedAt": "2026-10-09T09:28:03.632Z",
+      "verdict": "ok",
+      "reason": "現場事務所の机に、広げた図面と巻いた図面、無地表紙の仕様書の束、背表紙が空白のファイル4冊、ヘルメット、三角スケール、ペンがある。窓の外に建設現場と重機が見え、現場事務所として成り立つ。図面は判読不能にぼかされ、読める文字やロゴは無い。机・ヘルメット・スケールの形にも崩れは無い。",
+      "reviewedAt": "2026-10-09T09:29:15.947Z"
     },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "sha": "4bc232c69cb21435",
