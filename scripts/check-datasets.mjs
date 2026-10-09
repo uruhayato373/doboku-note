@@ -21,14 +21,17 @@
  *  10. JSON に同じオブジェクト内の重複キーが無い（JSON.parse は後ろの値で黙って上書きするので型では見えない）
  *  11. .claude/state/ のパスの直書きを増やさない（ファイルごとの件数を .claude/config/state-path-literal-baseline.json と比べるラチェット。
  *      基準線より多い・基準線に無いファイルは違反、減ったら基準線を下げさせる）
+ *  12. refs を宣言したデータセットは、全ファイルで参照（資格 id・商品 id・記事 slug）が参照先に実在する（外部キー相当・DN-0586）。
+ *      宣言の形（at・to）も見る。宣言があるのに参照を 1 件も読めなかったら検査不成立
  * 検査したファイル数を出し、1 件も読めない・git が失敗したときは検査不成立（exit 2）。違反は exit 1。
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { AREAS, DATASETS, KINDS, areaOf, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
+import { AREAS, DATASETS, KINDS, areaOf, datasetFiles, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REF_TARGETS, checkRefs, refResolvers } from './lib/dataset-refs.mjs';
 import { schemaOf, validateFiles } from './lib/dataset-validate.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
@@ -40,7 +43,7 @@ const errors = [];
 const warnings = [];
 
 /** 台帳 1 行に書いてよいキー（d() の位置引数と opts） */
-const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'drive', 'regen', 'planned', 'retain', 'freshness']);
+const DECLARATION_KEYS = new Set(['id', 'path', 'kind', 'domain', 'doc', 'schema', 'immutable', 'local', 'drive', 'regen', 'planned', 'retain', 'freshness', 'refs']);
 /** .claude/state/ の直書きの基準線（ファイル → 件数） */
 const STATE_LITERAL_BASELINE = '.claude/config/state-path-literal-baseline.json';
 /** 台帳のパスの可変部分を、drive の group の pathRegex に当てる見本の値にする */
@@ -184,15 +187,37 @@ for (const f of settingFiles) {
   checkIds(f, source);
 }
 
+// 12. 参照の実在（外部キー相当）
+const refDatasets = DATASETS.filter((x) => x.refs);
+let refsChecked = 0;
+let refsBroken = 0;
+let refFiles = 0;
+const resolvers = refResolvers({ root: ROOT, registry: readDataset(ROOT, 'config.qualification-registry'), products: readDataset(ROOT, 'config.products') });
+for (const x of refDatasets) {
+  const bad = !Array.isArray(x.refs) || x.refs.some((r) => typeof r?.at !== 'string' || !r.at || !REF_TARGETS.includes(r.to));
+  if (bad) { errors.push(`${x.id}: refs は [{ at: '場所', to: '${REF_TARGETS.join("'|'")}' }] で書く`); continue; }
+  const files = datasetFiles(ROOT, x.id).map((file) => ({ file, data: JSON.parse(readFileSync(join(ROOT, file), 'utf8')) }));
+  if (!files.length) { warnings.push(`${x.id}: refs を宣言しているがファイルが手元に無く、参照を検査していない`); continue; }
+  refFiles += files.length;
+  const r = checkRefs(x, files, resolvers);
+  refsChecked += r.checked;
+  if (r.checked === 0) errors.push(`${x.id}: refs（${x.refs.map((ref) => ref.at).join('・')}）の場所に値が 1 件も無い。場所の書き方を確かめる`);
+  for (const b of r.broken) {
+    refsBroken++;
+    errors.push(`${b.file}: ${b.where} の「${b.value}」は ${b.to} に実在しない（参照切れ）`);
+  }
+}
+
 const count = (pred) => DATASETS.filter(pred).length;
 console.log(
-  `[check-datasets] 設定・データ・作業状態 ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・Drive vault ${count((x) => x.drive)}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}・.claude/state/ の直書き ${Object.keys(stateLiterals).length} ファイル ${stateLiteralTotal} 件）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 違反 ${errors.length} 件`,
+  `[check-datasets] 設定・データ・作業状態 ${files.length} ファイル / データセット ${DATASETS.length}（型あり ${typed.length}・Drive vault ${count((x) => x.drive)}・手元だけ ${count((x) => x.local)}・未着手 ${count((x) => x.planned)}）を実検査 / 型の検査 ${validated} ファイル / 重複キーの走査 ${dupScanned} ファイル / 直書きの走査 ${codeFiles.length} ファイル（名前で引ける台帳のファイル名 ${basenames.size}・.claude/state/ の直書き ${Object.keys(stateLiterals).length} ファイル ${stateLiteralTotal} 件）/ id の参照 ${idRefs} 件 / ワークフロー・package.json のパス ${settingPaths} 件 / 参照（refs）${refDatasets.length} データセット・${refFiles} ファイル・${refsChecked} 件（参照切れ ${refsBroken}）/ 違反 ${errors.length} 件`,
 );
 if (files.length === 0) inconclusive('config/・data/・.claude/state/ のファイルを 1 件も読めなかった');
 if (codeFiles.length === 0) inconclusive('直書きを走査するコードを 1 件も読めなかった');
+if (refDatasets.length && refsChecked === 0) inconclusive('refs を宣言したデータセットの参照を 1 件も検査できなかった');
 for (const w of warnings) console.log(`  ! ${w}`);
 if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
   process.exit(1);
 }
-console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに config/・data/ の直書きが無く、引く id が台帳にある）');
+console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに config/・data/ の直書きが無く、引く id が台帳にあり、宣言した参照が実在する）');

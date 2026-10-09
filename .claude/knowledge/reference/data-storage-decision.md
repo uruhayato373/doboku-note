@@ -178,6 +178,8 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - `local`（git 管理外）は、作り直せる一時出力（`quality:audit` の最新結果・画面から取った CSV など）だけに使い、作り直し方を `regen` に書く（無ければ `check-datasets` が止める）。記録・判定は local にしない
 - 最初の利用者は書籍の網羅（content-taxonomy.md §7）: 見出しを含まない要約 `state.book-coverage`（書籍ごとの判定件数・判定日・展開した記事とコミット・型 `StateBookCoverage`）は git、見出しを含む候補表と意味判定 `vault.book-coverage-*` は Drive vault の `原資料PDF/書籍/<dir>/coverage/`
 - 次の段階（backlog）: 段階 2＝台帳の id で一覧・取得・絞り込みを返す共通の入口（SELECT 相当。管理画面からも）、段階 3＝台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査へ（外部キー相当）
+- 段階 3（2026-10-10・DN-0586）: 台帳の行に `refs: [{ at: '場所', to: 'qualification'|'product'|'article' }]` を宣言すると、`check-datasets` が全ファイルで参照先の実在を見る（`scripts/lib/dataset-refs.mjs`。場所は `books.*.expansions[].article` の形）。検査した参照の件数を出し、宣言があるのに 1 件も拾えなければ違反（場所の書き間違い）・全体で 0 件なら検査不成立。最初に宣言したのは `state.book-coverage`（展開した記事）・`config.products`（商品の資格）・`config.business-direction`（重点資格）の 3 つ（537 件）。
+  既存の個別の検査で置き換えられるかの洗い出し: `check-qualification-ssot` は資格 id の照合に加えて名前の写しを見るので残す（id の照合だけは refs と重なる）／`check-category-curriculum` の slug の実在（260 件）は、読む `src/config/category-curriculum.json` が台帳の置き場（AREAS）の外なので、`src/config` を置き場に足すまで個別のまま／`check-products` は生成ブロックとの一致を見るもので、参照の実在ではないので置き換えない。新しく参照を持つデータを足すときは、個別の検査を書く前に refs で宣言する
 
 ## 参考リンク
 
