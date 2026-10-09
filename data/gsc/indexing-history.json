@@ -740,6 +740,47 @@
         "/exam/civil-construction-2/primary/r08-zenki",
         "/exam/concrete-chief-engineer/textbook/products"
       ]
+    },
+    {
+      "runId": "2026-10-09T01-30-12Z",
+      "collectedAt": "2026-10-09T01:30:12.249Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 13,
+      "accepted": 10,
+      "alreadyIndexed": 3,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+        "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+        "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-power-civil",
+        "/exam/pe-construction/past-exams/r02-steel-concrete",
+        "/exam/pe-construction/past-exams/r03-road",
+        "/exam/pe-construction/past-exams/r04-power-civil",
+        "/exam/pe-construction/past-exams/r04-required"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+        "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-power-civil",
+        "/exam/pe-construction/past-exams/r02-steel-concrete",
+        "/exam/pe-construction/past-exams/r03-road",
+        "/exam/pe-construction/past-exams/r04-power-civil",
+        "/exam/pe-construction/past-exams/r04-required"
+      ]
     }
   ]
 }
