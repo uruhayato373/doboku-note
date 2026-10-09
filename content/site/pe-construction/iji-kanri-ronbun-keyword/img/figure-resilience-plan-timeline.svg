@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="国土強靱化基本法から3か年緊急対策、5か年加速化対策、基本法改正、第1次実施中期計画へ続く年表" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:12px} /* ink-strong */
+.h{font-size:14px;font-weight:bold}.y{font-weight:bold;text-anchor:end}
+.s{fill:#555} /* ink-body */
+.g{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5} /* surface */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+</style></defs>
+<path d="M108 30 V470" stroke="#8a8a8a" stroke-width="2"/> <!-- ink-muted -->
+<circle cx="108" cy="54" r="6" class="g"/><text x="94" y="58" class="y">2013年</text>
+<rect x="124" y="19" width="248" height="70" rx="8" class="g"/><text x="136" y="43" class="h">国土強靱化基本法</text><text x="136" y="61">平成25年法律第95号</text><text x="136" y="78" class="s">基本計画は2014年6月に決定</text>
+<circle cx="108" cy="146" r="6" class="w"/><text x="94" y="150" class="y">2018年12月</text>
+<rect x="124" y="111" width="248" height="70" rx="8" class="w"/><text x="136" y="135" class="h">3か年緊急対策</text><text x="136" y="153">2018〜2020年度・おおむね7兆円</text><text x="136" y="170" class="s">緊急点検を踏まえた160項目</text>
+<circle cx="108" cy="238" r="6" class="b"/><text x="94" y="242" class="y">2020年12月</text>
+<rect x="124" y="203" width="248" height="70" rx="8" class="b"/><text x="136" y="227" class="h">5か年加速化対策</text><text x="136" y="245">2021〜2025年度・おおむね15兆円</text><text x="136" y="262" class="s">123対策（老朽化対策は21対策）</text>
+<circle cx="108" cy="330" r="6" class="g"/><text x="94" y="334" class="y">2023年6月</text>
+<rect x="124" y="295" width="248" height="70" rx="8" class="g"/><text x="136" y="319" class="h">基本法の改正</text><text x="136" y="337">実施中期計画の策定を法律で規定</text><text x="136" y="354" class="s">基本法第11条の2</text>
+<circle cx="108" cy="422" r="6" class="p"/><text x="94" y="426" class="y">2025年6月</text>
+<rect x="124" y="387" width="248" height="70" rx="8" class="p"/><text x="136" y="411" class="h">第1次実施中期計画</text><text x="136" y="429">2026〜2030年度・おおむね20兆円強</text><text x="136" y="446" class="s">推進が特に必要な114施策</text>
+</svg>
