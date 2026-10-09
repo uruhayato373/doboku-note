@@ -326,6 +326,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09]
+
+**起点**: 2026-10-09、PR #947 の audit が orphan-ogp で落ちた（content/site/standards-articles/chubu/common/chapters/__test-orphan__/ogp.png）。tests/standards-ogp-guards.test.mjs:112-145 が実リポジトリに一時ファイルを置いて check-orphan-ogp を流し、finally で消す。quality-audit はテストと検査を並行で回すので、その間に走った orphan-ogp が一時ファイルを孤児として数える。PR の変更とは無関係で、再実行で通る。
+**やること**: テストを一時ディレクトリ（ROOT を差し替えられる形）で回すか、quality-audit で orphan-ogp とテストを直列にする。
+**完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
+
+
 ### [DN-0619] 1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
 
