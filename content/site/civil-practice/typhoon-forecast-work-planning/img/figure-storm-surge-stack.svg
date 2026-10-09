@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="実際の潮位は天文潮位に潮位偏差を足したもので、偏差は吸い上げと吹き寄せで生じ、堤防の天端高はこれに波のうちあげ高と余裕高を足して決める断面の模式図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect x="20" y="20" width="360" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <g text-anchor="middle" fill="#1a3a5c">
+    <text x="200" y="46" font-size="13" font-weight="700">実際の潮位 ＝ 天文潮位 ＋ 潮位偏差</text>
+    <text x="200" y="68" font-size="12">偏差は主に吸い上げと吹き寄せで生じる</text>
+  </g>
+  <g stroke-width="1.5">
+    <rect x="20" y="370" width="210" height="100" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="20" y="315" width="210" height="55" fill="#fff3cd" stroke="#d4a017"/>
+    <rect x="20" y="245" width="210" height="70" fill="#fff3cd" stroke="#d4a017"/>
+    <rect x="20" y="175" width="210" height="70" fill="#f8d7da" stroke="#b22234"/>
+    <rect x="20" y="140" width="210" height="35" fill="#f5f5f5" stroke="#d7d7d7"/>
+    <rect x="244" y="140" width="40" height="330" fill="#f5f5f5" stroke="#d7d7d7"/>
+    <rect x="284" y="400" width="96" height="70" fill="#f5f5f5" stroke="#d7d7d7"/>
+  </g>
+  <path d="M284,245 L380,245" fill="none" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <g fill="#1a3a5c" text-anchor="middle">
+    <g font-size="13" font-weight="700">
+      <text x="125" y="410">天文潮位</text>
+      <text x="125" y="337">吸い上げ</text>
+      <text x="125" y="266">吹き寄せ</text>
+      <text x="125" y="203">波のうちあげ高</text>
+      <text x="125" y="162">余裕高</text>
+      <text x="264" y="130">天端高</text>
+    </g>
+    <g font-size="12">
+      <text x="125" y="430">朔望平均満潮位まで</text>
+      <text x="125" y="357">気圧1hPa低下で約1cm上昇</text>
+      <text x="125" y="285">風速の2乗に比例</text>
+      <text x="125" y="302">湾奥ほど大きくなる</text>
+      <text x="125" y="224">高波が堤防を駆け上がる分</text>
+      <text x="264" y="310" fill="#555">堤防</text>
+      <text x="290" y="236" text-anchor="start">高潮時の水位</text>
+      <text x="290" y="432" text-anchor="start" fill="#555">背後地</text>
+      <text x="290" y="450" text-anchor="start" fill="#555">水位より低い</text>
+    </g>
+  </g>
+</svg>
