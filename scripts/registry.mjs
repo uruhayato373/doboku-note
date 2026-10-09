@@ -7,6 +7,7 @@
  *   npm run registry -- index                      # .tmp/content-registry/index.json（作品・公開・素材・題名・段階を結んだ生成物）
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
+ *   npm run registry -- import-legacy-youtube [--commit]  # 動画パック以前の旧 Shorts（youtube-schedule.json の 200・作り直した 10）。表紙は ID の置き場へ移す
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *
@@ -187,9 +188,38 @@ function stop() {
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, approve, stop };
+async function importLegacyYoutube() {
+  const { LEGACY_EXAM, legacyYoutubeRows } = await import('./lib/registry-legacy-youtube.mjs');
+  const { readFileSync, existsSync } = await import('node:fs');
+  const cfg = loadRegistryConfig(ROOT);
+  const latest = readLatest(ROOT, 'youtube.own-videos');
+  if (!latest) throw new Error('公開中の一覧（youtube.own-videos）が無い。公開の証拠が無いので取り込めない');
+  const rows = legacyYoutubeRows(ROOT, { own: latest.data, ownRef: latest.file, rules: cfg.idRules });
+  const reg = loadRegistry(ROOT);
+  const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  const changedWorks = rows.works.filter((w) => { const cur = reg.works.find((x) => x.id === w.id); return !cur || !same(strip(cur), w); });
+  // 台帳の素材の参照（表紙）は残す: 既存の行の media を引き継ぐ
+  const pubs = rows.publications.map((p) => { const cur = reg.publications.find((x) => x.id === p.id); return cur?.media ? { ...p, media: cur.media } : p; });
+  const changedPubs = pubs.filter((p) => { const cur = reg.publications.find((x) => x.id === p.id); return !cur || !same(strip(cur), p); });
+  const r = rows.report;
+  console.log(`旧 Shorts ${r.schedule} 件＋作り直したキーワード ${r.keyword} 件 → 作品 ${rows.works.length}・公開 ${rows.publications.length}（published ${r.published}＝外部 ID ${r.byIdMatch}・題名の完全一致 ${r.byTitleMatch} / stopped(gone) ${r.stoppedGone} / stopped(user-decision) ${r.stoppedRetired}）`);
+  const postedPath = 'data/youtube/posted.jsonl'; // path-literal-ok: 凍結した旧台帳（台帳 id youtube.posted）を件数の突き合わせに読む
+  if (existsSync(join(ROOT, postedPath))) {
+    const posted = readFileSync(join(ROOT, postedPath), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l));
+    const ids = new Set(rows.publications.map((p) => p.platform?.id).filter(Boolean));
+    console.log(`  posted.jsonl ${posted.length} 件のうち台帳の外部 ID と一致 ${posted.filter((p) => ids.has(p.videoId)).length} 件`);
+  }
+  console.log(`  書く行: 作品 ${changedWorks.length}・公開 ${changedPubs.length} / 移す表紙 ${rows.covers.length} 件`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  if (changedWorks.length) upsertWorks(ROOT, LEGACY_EXAM, changedWorks);
+  if (changedPubs.length) upsertPublications(ROOT, 'youtube', LEGACY_EXAM, changedPubs);
+  console.log('書いた。表紙は npm run media -- adopt-legacy-covers --commit で ID の置き場へ移す');
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, approve, stop };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|approve|stop …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|approve|stop …');
   process.exit(2);
 }
 await commands[command]();

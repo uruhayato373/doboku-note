@@ -201,7 +201,9 @@ export function checkRegistry(root, opts = {}) {
   }
   for (const p of reg.publications.filter((x) => x.channel === 'youtube' && x.format === 'short')) {
     const target = p.relatedTo ? pubById.get(p.relatedTo) : null;
-    if (!p.relatedTo) issues.push(issue('WARN', 'R08', p.id, 'Shorts に関連動画（relatedTo）が無い'));
+    // 関連動画を求めるのは、同じ作品に通常動画があるときだけ（動画パック以前の旧 Shorts は通常動画を持たない）
+    const hasLongform = reg.publications.some((x) => x.work === p.work && x.channel === 'youtube' && x.format === 'longform');
+    if (!p.relatedTo && hasLongform) issues.push(issue('WARN', 'R08', p.id, 'Shorts に関連動画（relatedTo）が無い'));
     else if (target && (target.work !== p.work || target.format !== 'longform')) issues.push(issue('FAIL', 'R08', p.id, '関連動画が同じ作品の通常動画ではない'));
   }
 

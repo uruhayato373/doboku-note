@@ -23,7 +23,7 @@ const BRAND_CONFIG = 'config/video-brand.json'; // path-literal-ok: 台帳 id co
 const BRAND_ROLES = { logo: 'logo', longformBackground: 'background-longform', shorts: 'cta-shorts' };
 
 /** 元の画像の中身を読む（手元か Drive のマウント）。どちらにも無ければ null */
-function readSource(root, path, ctx) {
+export function readSource(root, path, ctx) {
   const local = join(root, path);
   if (existsSync(local)) return readFileSync(local);
   if (!ctx.mount) return null;
@@ -90,6 +90,32 @@ export async function planAdoptVideoBrand(root) {
         else items.push({ from: cta.shorts.path, to: null, buf: null, row: null, scope: 'brand', role: 'cta-shorts', rewrite: { file: ctaFile, pointer: ['shorts'], brandRole: 'cta-shorts', brand: brandCfg.design } });
       }
     }
+  }
+  return { items, missing, mismatched, mount: ctx.mount };
+}
+
+/**
+ * 旧 Shorts の表紙（content/sns/youtube/cover-design.json の 10 件・DN-0610）を移す計画。形は planAdoptVideoBrand と同じ。
+ * @param {{ pubId: string, from: string, sha256: string, specSha256?: string, key: string }[]} covers registry-legacy-youtube.mjs の covers
+ */
+export async function planAdoptLegacyCovers(root, covers) {
+  const cfg = loadDriveConfig();
+  const ctx = { cfg, mount: resolveVaultRoot().root ?? null };
+  const reg = loadRegistry(root);
+  const items = [];
+  const missing = [];
+  const mismatched = [];
+  for (const c of covers) {
+    if (parseMediaPath(c.from)) continue;
+    if (!reg.publications.some((p) => p.id === c.pubId)) { missing.push(`${c.from}（台帳に公開 ${c.pubId} が無い）`); continue; }
+    const buf = readSource(root, c.from, ctx);
+    if (!buf) { missing.push(c.from); continue; }
+    if (sha256Of(buf) !== c.sha256) { mismatched.push(c.from); continue; }
+    const to = mediaPath({ pubId: c.pubId, role: 'cover', sha256: c.sha256, ext: 'png' });
+    const meta = await sharp(buf).metadata();
+    const row = { id: mediaIdOf(c.pubId, 'cover'), role: 'cover', type: 'image/png', sha256: c.sha256, bytes: buf.length, width: meta.width, height: meta.height, store: { tier: 'drive', path: to },
+      provenance: { kind: 'template', by: 'apply-video-brand', spec: `content/sns/youtube/cover-design.json#${c.key}`, ...(c.specSha256 ? { specSha256: c.specSha256 } : {}) }, legacyPaths: [c.from] };
+    items.push({ from: c.from, to, buf, row, scope: c.pubId.split('/')[0], pubId: c.pubId, role: 'cover', rewrite: { file: 'content/sns/youtube/cover-design.json', pointer: ['covers', c.key, 'approvedImage'] } });
   }
   return { items, missing, mismatched, mount: ctx.mount };
 }
