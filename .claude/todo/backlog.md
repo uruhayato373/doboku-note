@@ -347,7 +347,8 @@
 **やること**:
 1. `scripts/check-disk-hygiene.mjs` に項目を足す。複製ごとの作成時刻と、起動中の Chrome（`pgrep -f "MacOS/Google Chrome"` の `ps -o lstart=`）の起動時刻を照合し、どの Chrome も使っていない複製を整理候補として数と容量を出す。Chrome が 1 つも動いていなければ全部を候補にする
 2. launchd の日次掃除（`com.doboku-note.disk-hygiene`）で候補を消す。使用中かどうか判定できないときは消さずに WARN を出す（検査不成立を問題なしと言わない）
-3. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
+3. Xcode を入れた後（DN-0453）は、`~/Library/Developer/Xcode/DerivedData` と使っていない iOS シミュレータのランタイム（`xcrun simctl runtime list`）も同じ検査で数え、DerivedData は日次掃除の対象にする。空きは Xcode 導入後に 20GB を切る見込みで、30GB の WARN 線を下回ったままになる
+4. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
 
 **完了条件**: `npm run check-disk-hygiene` が Chrome の複製の数・容量・整理候補を出し、日次掃除の後に使われていない複製が残っていない（起動中の Chrome の複製は残っている）。
 
