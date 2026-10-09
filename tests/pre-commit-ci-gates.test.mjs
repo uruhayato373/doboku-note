@@ -66,3 +66,12 @@ test('planGates: 1級・2級土木の記事と note・Kindle の原稿は経験�
   assert.ok(planGates(['content/note/x/y/article.md']).some((g) => g.id === 'keiken-answer-split'));
   assert.ok(!planGates(['content/site/pe-construction/x/article.mdx']).some((g) => g.id === 'keiken-answer-split'));
 });
+
+test('planGates: スクリプトとワークフローを変えたら、書き方の規約と knip を先に見る（2026-10-10 に CI で初めて落ちた）', () => {
+  for (const f of ['scripts/book-coverage-commit.mjs', '.claude/workflows/book-coverage-expand.js', 'tools/admin-app/src/app/ops/store/dataset-query.tsx', 'scripts/lib/x.mjs']) {
+    const ids = planGates([f]).map((g) => g.id);
+    assert.ok(ids.includes('unit-tests') && ids.includes('knip-ratchet'), f);
+  }
+  assert.ok(!planGates(['src/lib/coconala-services.ts']).some((g) => g.id === 'unit-tests'), 'サイトの src/ は CI の全量に任せる');
+  assert.ok(!planGates(['scripts/kindle-published/catalog.json']).some((g) => g.id === 'unit-tests'), 'コードでない JSON は見ない');
+});
