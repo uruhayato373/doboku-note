@@ -101,17 +101,6 @@
 残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
 完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
 
-### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方・品質管理の過去問に残る、市販書籍との長い一致（最大 552 字）を書き直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
-
-2026-10-09 の書籍の網羅の展開（DN-0591）で、コンクリート・土工・品質管理の基礎 3 本の一致は書き直して 0 になった。残りは、展開の前から本文にあった一致で、記事の `sources` に civil1-secondary-workbook-2021 が入ったことで検査の対象に入ったもの。
-
-- `content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx` 39 件（最大 552 字。「施工計画の目的」「作成時の留意点」「作成の手順」などの段落。2026-10-10 に検査の 1 記事 20 件の打ち切りを外して全件が出た）
-- `content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx` 9 件（最大 456 字。安全管理の対策の列挙、工期・工事場所の記入要領、出題傾向の説明など）。公式の設問との一致 6 件は DN-0617 で検査から外れた
-- `content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx` 1 件（「出題傾向」の節の 49 字）。設問の一致 9 件は DN-0617 で検査から外れた
-
-**やること**: 書籍の文の一致を独自の表現に書き直す（commercial-book は逐語 1 文も不可・reference-sources-policy.md）。公式の文章（受検の手引・設問）だけの一致は残し、出典を公式に寄せる。
-**完了条件**: Drive をマウントして `npm run check-reference-sources:deep` で、上の 3 記事の逐語一致が 0（公式の文章は検査が差し引く）。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
