@@ -1190,6 +1190,11 @@
     }
   ],
   "provenance": {
+    "civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up inside a newly installed precast concrete box culvert, showing the joint between two adjacent box culvert segments. The inner concrete wall surfaces of both segments are flush with no step or misalignment, and a thin straight vertical joint line runs across the wall with a continuous grey sealant strip filling the joint without gaps. Beside the joint, a small rectangular recess pocket in the inner wall holds one single thick solid round steel bar (PC steel bar with a coarse rolled thread along its whole length) sticking out of the concrete perpendicular to the pocket back face, with a square steel bearing plate against the concrete and one large hex nut tightened on the bar against the plate, and only a short stub of threaded bar protruding past the nut. Only the single plain threaded steel bar, plate and nut are visible: no twisted wire strands, no cables, no wedges, no bolts of other kinds. Clean light-grey factory-made concrete, daylight from the culvert opening, shallow depth of field, no people, no text, no logos."
+    },
     "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
       "pdf": "vault:原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
       "page": 536,
@@ -1469,6 +1474,11 @@
       "tool": "Codex（gpt-6-astra）",
       "prompt": "A GNSS (satellite positioning) surveying receiver set up on a tripod: a white dome-shaped GNSS antenna/receiver unit on a tribrach on top of a surveying tripod, with a small handheld data controller clipped to a tripod leg, under clear open sky on a construction site."
     },
+    "civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A surveying total station on a wooden tripod with three legs, set up on dry compacted soil at a civil construction site, side view. A large round dark grey surveyor's umbrella with a smooth flat underside is held by a straight metal pole planted in the ground on the far side behind the tripod, tilted slightly so the canopy extends over the instrument, with a clear empty gap of air between the canopy and the top of the instrument. The underside of the canopy is plain fabric with ribs only; nothing hangs down from the canopy, no spike, no rod, no tip under the canopy, and the canopy does not touch the instrument. The instrument and the tripod head sit inside the cool soft shadow of the canopy, clearly darker than the sunlit ground around them, while the ground outside the shadow is bright. Shallow depth of field, blurred construction site background. No text, no logos, no people."
+    },
     "civil-construction-1/textbook-distance-angle/img/theodolite": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
@@ -1513,6 +1523,31 @@
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
       "prompt": "A wheel loader: articulated frame, four large tires of equal size, a front bucket on lift arms, the cab in the middle and engine at the rear, loading gravel from a stockpile."
+    },
+    "civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Construction site photo of a slab formwork shoring system built with adjustable steel pipe supports (pipe props, painted orange-red, with pin-adjusted telescoping tubes) standing vertically under plywood formwork. Each prop base sits on a timber sleeper plank (shikikaku) laid on the compacted ground. Horizontal bracing tubes (steel pipes) run in two perpendicular directions, X and Y, between the props at roughly every 2 m height, crossing each other and fastened to the props with bolted steel coupler clamps; the splice joint between two prop sections is also secured with a bolted metal fitting. Shallow depth of field, focus on the crossing of the horizontal braces and the bolted coupler joint, background softly blurred. No people, no faces, no text, no logos."
+    },
+    "civil-construction-1/textbook-safety-foundation-bridge/img/photo-crawler-pile-driver-steel-plates": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A crawler-type pile driver (full-swing crawler rig with a tall vertical leader mast standing plumb) positioned on a work platform made of large rectangular steel plates (shikitetsuban) laid side by side on compacted ground at a civil engineering construction site. Two tension guy cables (back-stay wires) run from the top of the leader down diagonally to the rear of the machine body, anchored near the rear. The mast is perfectly vertical, the steel plates are flat and tightly aligned with visible bolt-lug edges and slight dust, crawler tracks fully resting on the plates. Shallow depth of field, side three-quarter view from a low angle, overcast daylight, no people, no text, no logos, no signage."
+    },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Side view of a steel frame scaffold (wakugumi ashiba) on a construction site, photographed from a slight diagonal angle. Vertical steel frames (tatewaku) stacked in tiers, X-shaped cross braces (kosa sujikai) between adjacent frames, and a horizontal lower rail (shitazan) bar at low height above the work deck, plus a toe board. Galvanized steel, grey tone, working platforms with planks. Shallow depth of field, soft overcast light. No people, no text, no logos."
+    },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-wire-rope-defects": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up macro photograph of two steel wire ropes lying on a concrete floor at a construction site. One rope has several broken outer strands, with frayed, splayed wire ends sticking out (broken wires, birdcaging). The other rope has a kink, a sharp permanent bend with the strands distorted and flattened at the fold. Galvanized steel, slightly rusty and oily. Very shallow depth of field, soft natural light. No people, no text, no logos, no tags."
+    },
+    "civil-construction-1/textbook-safety-work-environment/img/photo-ppe-helmet-harness": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Back view of a construction worker from the neck down to the knees standing on a civil engineering site, face not visible, head turned away and cropped at the top of the frame. Wearing a white industrial safety helmet with an inner shock-absorbing liner and chin strap seen from behind, a full-body safety harness with shoulder straps and a back D-ring, a disposable-style dust mask hanging visible at the side of the neck, orange high-visibility vest, work gloves. Plain blurred earthwork site background with shallow depth of field. No text, no logos, no readable markings."
     },
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
       "kind": "ai-generated",

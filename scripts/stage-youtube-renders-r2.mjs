@@ -13,6 +13,7 @@ import { join } from 'node:path';
 import {
   DeleteObjectCommand, GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client,
 } from '@aws-sdk/client-s3';
+import { partitionByFinalApproval } from './lib/media-preview.mjs';
 
 const ROOT = process.cwd();
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
@@ -77,7 +78,7 @@ async function bodyBuffer(body) {
   return Buffer.concat(chunks);
 }
 
-function targets() {
+async function targets() {
   const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
   const rows = [];
   for (const exam of exams) {
@@ -98,6 +99,13 @@ function targets() {
       const video = join(ROOT, '.tmp/video-render', packId, 'video.mp4');
       const thumbnail = join(ROOT, '.tmp/video-render', packId, 'img/00-cover.png');
       if (!deleting) {
+        // 台帳の最終承認（contentSha256 のある公開だけ）が今の中身と合うこと
+        // 止めた動画は理由を出して外す（1 本の古い承認で全部は止めない。0 本になったときだけ main が失敗にする）
+        const { blocked } = await partitionByFinalApproval(ROOT, exam, [packId]);
+        if (blocked.length) {
+          console.error(`[youtube-r2-stage] 除外 ${packId}: ${blocked[0].reason}`);
+          continue;
+        }
         assertReady(video, item.sha256);
         assertReady(thumbnail, item.thumbnailSha256);
       }
@@ -108,7 +116,7 @@ function targets() {
 }
 
 async function main() {
-  const rows = targets();
+  const rows = await targets();
   console.log(`[youtube-r2-stage] ${deleting ? '削除' : '配置'}対象 ${rows.length}本 / ${[...exams].join(',')}`);
   if (rows.length === 0) throw new Error('対象が0本です。state と --exam を確認してください');
   for (const row of rows) console.log(`  ${row.packId}: ${row.item.r2Key}`);

@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-09T00:04:33.977Z",
+  "verifiedAt": "2026-10-09T08:01:59.382Z",
   "ok": true,
   "reason": null,
-  "checked": 2,
+  "checked": 72,
   "findings": [],
   "entries": {
     "koji-gaiyo-7items/longform": {
@@ -21,6 +21,636 @@
       "status": "published",
       "videoId": "8qhSsq9-x6k",
       "url": "https://www.youtube.com/watch?v=8qhSsq9-x6k",
+      "ok": true,
+      "problems": []
+    },
+    "koji-gaiyo-7items/shorts[1]": {
+      "packId": "koji-gaiyo-7items",
+      "derivative": "shorts[1]",
+      "status": "published",
+      "videoId": "HZs3Xls521s",
+      "url": "https://www.youtube.com/watch?v=HZs3Xls521s",
+      "ok": true,
+      "problems": []
+    },
+    "anzen-ippanron-3riyu/longform": {
+      "packId": "anzen-ippanron-3riyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "OcLmhVP5fho",
+      "url": "https://www.youtube.com/watch?v=OcLmhVP5fho",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-taisho-koji/longform": {
+      "packId": "keiken-taisho-koji",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Xi3vpgUopn4",
+      "url": "https://www.youtube.com/watch?v=Xi3vpgUopn4",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-kadai-kakikata/longform": {
+      "packId": "keiken-kadai-kakikata",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "qlcKQVNJGFk",
+      "url": "https://www.youtube.com/watch?v=qlcKQVNJGFk",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-kento-kakikata/longform": {
+      "packId": "keiken-kento-kakikata",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "0Ql8BfxfV9g",
+      "url": "https://www.youtube.com/watch?v=0Ql8BfxfV9g",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-taio-hyoka/longform": {
+      "packId": "keiken-taio-hyoka",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "wXY6ZTm0qdg",
+      "url": "https://www.youtube.com/watch?v=wXY6ZTm0qdg",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-r6-shinkeishiki/longform": {
+      "packId": "keiken-r6-shinkeishiki",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "IJh6o7FbD94",
+      "url": "https://www.youtube.com/watch?v=IJh6o7FbD94",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-kaizen-example/longform": {
+      "packId": "keiken-kaizen-example",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "1EO4uiMFLQ0",
+      "url": "https://www.youtube.com/watch?v=1EO4uiMFLQ0",
+      "ok": true,
+      "problems": []
+    },
+    "niji-junbi-roadmap/longform": {
+      "packId": "niji-junbi-roadmap",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "qphAHRJ73Mo",
+      "url": "https://www.youtube.com/watch?v=qphAHRJ73Mo",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-network-koteihyo/longform": {
+      "packId": "gakka-network-koteihyo",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "gNqsZBc_-sM",
+      "url": "https://www.youtube.com/watch?v=gNqsZBc_-sM",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-morido-shimekatame/longform": {
+      "packId": "gakka-morido-shimekatame",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "22qZhYmxtvA",
+      "url": "https://www.youtube.com/watch?v=22qZhYmxtvA",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-nanjaku-jiban/longform": {
+      "packId": "gakka-nanjaku-jiban",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "DDBHuEsPisE",
+      "url": "https://www.youtube.com/watch?v=DDBHuEsPisE",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-ashiba-kijun/longform": {
+      "packId": "gakka-ashiba-kijun",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "vkdS5O-vSCg",
+      "url": "https://www.youtube.com/watch?v=vkdS5O-vSCg",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-roudou-kijun/longform": {
+      "packId": "gakka-roudou-kijun",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "3xWuFRaEuE8",
+      "url": "https://www.youtube.com/watch?v=3xWuFRaEuE8",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-histogram/longform": {
+      "packId": "gakka-histogram",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "llXxlLJVyTs",
+      "url": "https://www.youtube.com/watch?v=llXxlLJVyTs",
+      "ok": true,
+      "problems": []
+    },
+    "study-plan-1kyu/longform": {
+      "packId": "study-plan-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "HhgKzMD3iLk",
+      "url": "https://www.youtube.com/watch?v=HhgKzMD3iLk",
+      "ok": true,
+      "problems": []
+    },
+    "nikyuu-gaiyo-roadmap/longform": {
+      "packId": "nikyuu-gaiyo-roadmap",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Y3R-39rxwu8",
+      "url": "https://www.youtube.com/watch?v=Y3R-39rxwu8",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-doshitsu-chosa/longform": {
+      "packId": "gakka-doshitsu-chosa",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "QB0k_U8BfTE",
+      "url": "https://www.youtube.com/watch?v=QB0k_U8BfTE",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-nori-hogoko/longform": {
+      "packId": "gakka-nori-hogoko",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "1u84bhpREhQ",
+      "url": "https://www.youtube.com/watch?v=1u84bhpREhQ",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kikai-kiso/longform": {
+      "packId": "gakka-kikai-kiso",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "rbZU7Z0bjcw",
+      "url": "https://www.youtube.com/watch?v=rbZU7Z0bjcw",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kussaku-tsumikomi-kikai/longform": {
+      "packId": "gakka-kussaku-tsumikomi-kikai",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "iWWLLMIYJL4",
+      "url": "https://www.youtube.com/watch?v=iWWLLMIYJL4",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-unpan-shimekatame-kikai/longform": {
+      "packId": "gakka-unpan-shimekatame-kikai",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "LVBdvYH9gps",
+      "url": "https://www.youtube.com/watch?v=LVBdvYH9gps",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-crane-sogo/longform": {
+      "packId": "gakka-crane-sogo",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "7rNk0JGxDSg",
+      "url": "https://www.youtube.com/watch?v=7rNk0JGxDSg",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-sokuryo-3ten/longform": {
+      "packId": "gakka-sokuryo-3ten",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "qIL2YIrhb2w",
+      "url": "https://www.youtube.com/watch?v=qIL2YIrhb2w",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-ukeoi-yakkan/longform": {
+      "packId": "gakka-ukeoi-yakkan",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "xnU5H9V6CwM",
+      "url": "https://www.youtube.com/watch?v=xnU5H9V6CwM",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kensetsugyoho/longform": {
+      "packId": "gakka-kensetsugyoho",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "jG6m425QggM",
+      "url": "https://www.youtube.com/watch?v=jG6m425QggM",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-hoki-kasen-doro/longform": {
+      "packId": "gakka-hoki-kasen-doro",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "0KPHbjQIBMA",
+      "url": "https://www.youtube.com/watch?v=0KPHbjQIBMA",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-hoki-kenchiku-kayaku/longform": {
+      "packId": "gakka-hoki-kenchiku-kayaku",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "t0P1QCqMv8c",
+      "url": "https://www.youtube.com/watch?v=t0P1QCqMv8c",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-sekokeikaku-kiso/longform": {
+      "packId": "gakka-sekokeikaku-kiso",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "9ZUFjsFv-lc",
+      "url": "https://www.youtube.com/watch?v=9ZUFjsFv-lc",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kotei-kanri-kiso/longform": {
+      "packId": "gakka-kotei-kanri-kiso",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "GxlAApDLSxw",
+      "url": "https://www.youtube.com/watch?v=GxlAApDLSxw",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-anzen-taisei/longform": {
+      "packId": "gakka-anzen-taisei",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "ccuJn5GifKY",
+      "url": "https://www.youtube.com/watch?v=ccuJn5GifKY",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-dodome-kussaku/longform": {
+      "packId": "gakka-dodome-kussaku",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "u9VDCoeGzas",
+      "url": "https://www.youtube.com/watch?v=u9VDCoeGzas",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-risk-assessment/longform": {
+      "packId": "gakka-risk-assessment",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "xPSSWdLeGZQ",
+      "url": "https://www.youtube.com/watch?v=xPSSWdLeGZQ",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-hinshitsu-kensa/longform": {
+      "packId": "gakka-hinshitsu-kensa",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "G-17m7ArgU4",
+      "url": "https://www.youtube.com/watch?v=G-17m7ArgU4",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kanrizu/longform": {
+      "packId": "gakka-kanrizu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "joUOf152UjE",
+      "url": "https://www.youtube.com/watch?v=joUOf152UjE",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-kankyo-hozen/longform": {
+      "packId": "gakka-kankyo-hozen",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Ljt1LwUB2Zo",
+      "url": "https://www.youtube.com/watch?v=Ljt1LwUB2Zo",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-haikibutsu-recycle/longform": {
+      "packId": "gakka-haikibutsu-recycle",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "ZMJHcP7H3t8",
+      "url": "https://www.youtube.com/watch?v=ZMJHcP7H3t8",
+      "ok": true,
+      "problems": []
+    },
+    "gakka-2kyu-doko/longform": {
+      "packId": "gakka-2kyu-doko",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "sqkP7vheZ_Q",
+      "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-hinshitsu-1kyu/longform": {
+      "packId": "keiken-hinshitsu-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "0I2T4m0Mt0M",
+      "url": "https://www.youtube.com/watch?v=0I2T4m0Mt0M",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-anzen-1kyu/longform": {
+      "packId": "keiken-anzen-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "ZgATlAXz2NE",
+      "url": "https://www.youtube.com/watch?v=ZgATlAXz2NE",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-kotei-1kyu/longform": {
+      "packId": "keiken-kotei-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "30fO67_VpMU",
+      "url": "https://www.youtube.com/watch?v=30fO67_VpMU",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-sekokeikaku-1kyu/longform": {
+      "packId": "keiken-sekokeikaku-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "iyWpJlLxJ4I",
+      "url": "https://www.youtube.com/watch?v=iyWpJlLxJ4I",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-kankyo-1kyu/longform": {
+      "packId": "keiken-kankyo-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "rS5CvO_X3gs",
+      "url": "https://www.youtube.com/watch?v=rS5CvO_X3gs",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-2theme-heiki/longform": {
+      "packId": "keiken-2theme-heiki",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "znkRLmsGkKY",
+      "url": "https://www.youtube.com/watch?v=znkRLmsGkKY",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-soteikoji-katsuyo/longform": {
+      "packId": "keiken-soteikoji-katsuyo",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Fv6uUeLkGM8",
+      "url": "https://www.youtube.com/watch?v=Fv6uUeLkGM8",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-ai-sekkei/longform": {
+      "packId": "keiken-ai-sekkei",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Hmn8lgiNOco",
+      "url": "https://www.youtube.com/watch?v=Hmn8lgiNOco",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-yosou-renshu/longform": {
+      "packId": "keiken-yosou-renshu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "sAz8gjHtU9w",
+      "url": "https://www.youtube.com/watch?v=sAz8gjHtU9w",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-dokugaku-genkai/longform": {
+      "packId": "keiken-dokugaku-genkai",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "oxnsSi6zwnU",
+      "url": "https://www.youtube.com/watch?v=oxnsSi6zwnU",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-ochiru-toan-1kyu/longform": {
+      "packId": "keiken-ochiru-toan-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "A0_P4nAaf_U",
+      "url": "https://www.youtube.com/watch?v=A0_P4nAaf_U",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-nendo-keiko-1kyu/longform": {
+      "packId": "keiken-nendo-keiko-1kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "Zvl0sc9oXV0",
+      "url": "https://www.youtube.com/watch?v=Zvl0sc9oXV0",
+      "ok": true,
+      "problems": []
+    },
+    "niji-kijutsu-doko/longform": {
+      "packId": "niji-kijutsu-doko",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "ZOmoMAjyQYo",
+      "url": "https://www.youtube.com/watch?v=ZOmoMAjyQYo",
+      "ok": true,
+      "problems": []
+    },
+    "niji-kijutsu-concrete/longform": {
+      "packId": "niji-kijutsu-concrete",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "m4Oac0tURAE",
+      "url": "https://www.youtube.com/watch?v=m4Oac0tURAE",
+      "ok": true,
+      "problems": []
+    },
+    "niji-kijutsu-hinshitsu/longform": {
+      "packId": "niji-kijutsu-hinshitsu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "iVzvIDrHYWE",
+      "url": "https://www.youtube.com/watch?v=iVzvIDrHYWE",
+      "ok": true,
+      "problems": []
+    },
+    "niji-kijutsu-sekokeikaku/longform": {
+      "packId": "niji-kijutsu-sekokeikaku",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "XH-NX1b0hlg",
+      "url": "https://www.youtube.com/watch?v=XH-NX1b0hlg",
+      "ok": true,
+      "problems": []
+    },
+    "roadmap-nanido-goukakuritsu/longform": {
+      "packId": "roadmap-nanido-goukakuritsu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "hoB1VojQrpc",
+      "url": "https://www.youtube.com/watch?v=hoB1VojQrpc",
+      "ok": true,
+      "problems": []
+    },
+    "roadmap-1kyu-vs-2kyu/longform": {
+      "packId": "roadmap-1kyu-vs-2kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "qgFg-Halod4",
+      "url": "https://www.youtube.com/watch?v=qgFg-Halod4",
+      "ok": true,
+      "problems": []
+    },
+    "roadmap-juken-shikaku/longform": {
+      "packId": "roadmap-juken-shikaku",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "ozBaFZAwsGc",
+      "url": "https://www.youtube.com/watch?v=ozBaFZAwsGc",
+      "ok": true,
+      "problems": []
+    },
+    "study-plan-2kyu/longform": {
+      "packId": "study-plan-2kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "agEnqsk8RIQ",
+      "url": "https://www.youtube.com/watch?v=agEnqsk8RIQ",
+      "ok": true,
+      "problems": []
+    },
+    "chokuzen-check-1kyu-niji/longform": {
+      "packId": "chokuzen-check-1kyu-niji",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "VW9MNz-AWSk",
+      "url": "https://www.youtube.com/watch?v=VW9MNz-AWSk",
+      "ok": true,
+      "problems": []
+    },
+    "kikinagashi-anzen-suchi/longform": {
+      "packId": "kikinagashi-anzen-suchi",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "tkVRXXsX-OQ",
+      "url": "https://www.youtube.com/watch?v=tkVRXXsX-OQ",
+      "ok": true,
+      "problems": []
+    },
+    "kikinagashi-doko-suchi/longform": {
+      "packId": "kikinagashi-doko-suchi",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "8JJLbd21itQ",
+      "url": "https://www.youtube.com/watch?v=8JJLbd21itQ",
+      "ok": true,
+      "problems": []
+    },
+    "kikinagashi-hinshitsu-kikaku/longform": {
+      "packId": "kikinagashi-hinshitsu-kikaku",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "nzZ4Qsf2E0E",
+      "url": "https://www.youtube.com/watch?v=nzZ4Qsf2E0E",
+      "ok": true,
+      "problems": []
+    },
+    "kikinagashi-hoki-suchi/longform": {
+      "packId": "kikinagashi-hoki-suchi",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "fjsCQ3eweR4",
+      "url": "https://www.youtube.com/watch?v=fjsCQ3eweR4",
+      "ok": true,
+      "problems": []
+    },
+    "career-tenshoku-timing/longform": {
+      "packId": "career-tenshoku-timing",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "5E0l3Sp2oG4",
+      "url": "https://www.youtube.com/watch?v=5E0l3Sp2oG4",
+      "ok": true,
+      "problems": []
+    },
+    "career-agent-katsuyo/longform": {
+      "packId": "career-agent-katsuyo",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "lRuUWjU4Y-Q",
+      "url": "https://www.youtube.com/watch?v=lRuUWjU4Y-Q",
+      "ok": true,
+      "problems": []
+    },
+    "career-yameru-mae/longform": {
+      "packId": "career-yameru-mae",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "GLG3HqvG68U",
+      "url": "https://www.youtube.com/watch?v=GLG3HqvG68U",
+      "ok": true,
+      "problems": []
+    },
+    "career-nenshu-up/longform": {
+      "packId": "career-nenshu-up",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "je0zaLOdK5Q",
+      "url": "https://www.youtube.com/watch?v=je0zaLOdK5Q",
+      "ok": true,
+      "problems": []
+    },
+    "career-white-kigyo/longform": {
+      "packId": "career-white-kigyo",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "3ekHqQ0K4bg",
+      "url": "https://www.youtube.com/watch?v=3ekHqQ0K4bg",
+      "ok": true,
+      "problems": []
+    },
+    "career-komuin-minkan/longform": {
+      "packId": "career-komuin-minkan",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "u8xbN7c-Fr4",
+      "url": "https://www.youtube.com/watch?v=u8xbN7c-Fr4",
+      "ok": true,
+      "problems": []
+    },
+    "sekokan-shippaidan/longform": {
+      "packId": "sekokan-shippaidan",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "j6nCykloqpw",
+      "url": "https://www.youtube.com/watch?v=j6nCykloqpw",
       "ok": true,
       "problems": []
     }
