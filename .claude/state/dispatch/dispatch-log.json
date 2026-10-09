@@ -2338,6 +2338,19 @@
       "commit": "8fd1368e5b5c",
       "verification": "check-content-registry 緑・2回目の取り込みは差分0・node --test 緑",
       "note": "P6 をマージ。X 879 件を台帳へ取り込み（151 published・439 gone・87 unverified-legacy）、publish-x・x-sync-status・x-frequency-gate を台帳へ切り替え。前提の誤り：予約 432 件は凍結した旧アカウントのもので結べないため gone。範囲を絞った：status.json の写しの削除は DN-0629"
+    },
+    {
+      "id": "DN-0617",
+      "at": "2026-10-10",
+      "task": "逐語一致の検査が、書籍と共通の公式の文章（過去問の設問・受検の手引・法令や指針の正式名称）を書籍の写しとして拾う",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "check-reference-sources --deep: 公式の文章として除いた一致 18 件（コンクリート 2・品質管理 9・経験記述 6・エシカル消費 1）、パワハラ指針の名称はリンクの題名として除外。施工計画の基礎の書籍の文の一致は残る。tests/reference-sources.test.mjs（E）4 件",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
