@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="山地から河口までの地形の並びと、氾濫平野の横断に見る自然堤防・後背湿地・旧河道・現河道の高低関係の模式図">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555;text-anchor:middle}
+.b{font-size:12px;font-weight:bold;fill:#222}
+.s{text-anchor:start}
+.e{text-anchor:end}
+.l{stroke:#8a8a8a}
+</style></defs>
+<text class="s" x="20" y="18">山地から河口へ（縦断の模式）</text>
+<polygon points="20,40 110,95 135,118 215,138 330,150 345,158 380,158 380,195 20,195" fill="#f5f5f5"/>
+<polygon points="135,118 215,138 215,195 135,195" fill="#fff3cd"/>
+<polygon points="215,138 330,150 345,158 345,195 215,195" fill="#d0e8d0"/>
+<polygon points="345,158 380,158 380,195 345,195" fill="#e8f0fe"/>
+<polyline points="20,40 110,95 135,118 215,138 330,150 345,158 380,158" fill="none" stroke="#222" stroke-width="2"/>
+<circle cx="135" cy="118" r="3" fill="#d4a017"/>
+<text class="s" x="143" y="110">谷口</text>
+<text class="b" x="75" y="150">山地</text><text x="75" y="166">土砂の供給源</text>
+<text class="b" x="175" y="160">扇状地</text><text x="175" y="176">土石流に注意</text>
+<text class="b" x="280" y="160">氾濫平野</text><text x="280" y="176">洪水が広がる</text>
+<text class="b" x="362" y="160">海</text><text x="362" y="176">高潮</text>
+<line x1="15" y1="212" x2="385" y2="212" stroke="#d7d7d7"/>
+<text class="s" x="20" y="232">氾濫平野の横断（洪水時）</text>
+<polygon points="20,312 60,314 85,300 100,292 140,292 155,300 165,328 195,328 205,300 220,292 262,292 280,306 292,322 310,322 322,310 340,312 380,314 380,388 20,388" fill="#f5f5f5"/>
+<polygon points="20,305 76,305 60,314 20,312" fill="#e8f0fe"/>
+<polygon points="157,305 203,305 195,328 165,328" fill="#e8f0fe"/>
+<polygon points="279,305 380,305 380,314 340,312 322,310 310,322 292,322" fill="#e8f0fe"/>
+<polyline points="20,312 60,314 85,300 100,292 140,292 155,300 165,328 195,328 205,300 220,292 262,292 280,306 292,322 310,322 322,310 340,312 380,314" fill="none" stroke="#222" stroke-width="2"/>
+<line x1="20" y1="305" x2="380" y2="305" stroke="#2e6da4" stroke-dasharray="4 3"/>
+<text class="e" x="366" y="298" style="fill:#1a3a5c">洪水時の水位</text>
+<text class="b" x="120" y="262">自然堤防</text><text x="120" y="277">砂が積もる微高地</text>
+<text class="b" x="240" y="262">自然堤防</text><text x="240" y="277">砂が積もる微高地</text>
+<line class="l" x1="50" y1="314" x2="50" y2="348"/><line class="l" x1="180" y1="328" x2="180" y2="348"/>
+<line class="l" x1="300" y1="322" x2="300" y2="348"/><line class="l" x1="344" y1="313" x2="344" y2="348"/>
+<text class="b" x="50" y="362">後背湿地</text><text x="50" y="376">泥の低地</text>
+<text class="b" x="180" y="362">現河道</text><text x="180" y="376">いまの流れ</text>
+<text class="b" x="290" y="362">旧河道</text><text x="290" y="376">流路の跡</text>
+<text class="b e" x="366" y="362">後背湿地</text><text class="e" x="366" y="376">泥の低地</text>
+<rect x="20" y="405" width="360" height="80" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text class="s" x="34" y="429">粗い砂・礫は川ぎわに積もり自然堤防になる</text>
+<text class="s" x="34" y="449">細かい泥は遠い低所に沈み後背湿地になる</text>
+<text class="s" x="34" y="469">谷口で勢いが落ち、土砂が扇状に広がる</text>
+</svg>
