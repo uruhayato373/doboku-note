@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="技術職員の6か月ルールの例。審査基準日が12月31日の会社では、同年6月30日までに入社した技術者は数えられ、7月1日や9月1日に入社した技術者は数えられない。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{fill:#1a3a5c}rect{stroke-width:1.5}</style>
+<marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+<marker id="al" markerWidth="8" markerHeight="7" refX="0" refY="3.5" orient="auto"><polygon points="8,0 0,3.5 8,7" fill="#2e6da4"/></marker>
+</defs>
+<!-- positive: 数えられる / danger: 数えられない -->
+<text x="14" y="24">審査基準日が12月31日の会社の例</text>
+<g stroke="#8a8a8a" stroke-dasharray="4 3" fill="none"><path d="M84 66V338"/><path d="M346 66V338"/></g>
+<text x="84" y="58" text-anchor="middle">6/30</text>
+<text x="366" y="58" text-anchor="end">12/31（審査基準日）</text>
+<text class="h" x="14" y="98">技術者A　同年6/30に入社</text>
+<rect x="84" y="108" width="262" height="30" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<text class="s" x="100" y="128">数えられる</text>
+<text class="h" x="14" y="190">技術者B　同年7/1に入社</text>
+<rect x="100" y="200" width="246" height="30" rx="6" fill="#f8d7da" stroke="#b22234"/>
+<text class="s" x="126" y="220">数えられない</text>
+<text class="h" x="14" y="282">技術者C　同年9/1に入社</text>
+<rect x="172" y="292" width="174" height="30" rx="6" fill="#f8d7da" stroke="#b22234"/>
+<text class="s" x="190" y="312">数えられない</text>
+<path d="M88 358H342" stroke="#2e6da4" fill="none" marker-start="url(#al)" marker-end="url(#ar)"/>
+<text x="215" y="376" text-anchor="middle">6/30 から審査基準日まで6か月と1日</text>
+<text x="215" y="392" text-anchor="middle">（6か月を超える）</text>
+<rect x="14" y="414" width="352" height="74" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="30" y="440">6か月前の日（7/1）の前日、6/30までに雇われた</text>
+<text x="30" y="458">常勤の技術者が、名簿の対象になる。</text>
+<text x="30" y="476">1日遅い入社でも、この審査では数えられない</text>
+</svg>
