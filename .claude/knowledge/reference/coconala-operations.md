@@ -511,7 +511,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| `scripts/gen-image-gemini.mjs --out <png> --prompt "..."` | Gemini 画像 API（`gemini-2.5-flash-image`・`.env.local` の `GEMINI_API_KEY`）で背景写真を生成。**API 課金・1呼び出し=1枚**。プロンプトは brand-image-system §5 準拠（明るく低コントラスト・青トーン・文字/人物なし・左に文字余白） |
+| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
 | `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
 素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。

@@ -357,7 +357,6 @@
     "ga4-admin:apply": "node scripts/ga4-admin-setup.mjs --commit",
     "ga4-admin:check": "node scripts/ga4-admin-setup.mjs",
     "ga4-ui:fetch": "node scripts/fetch-ga4-ui-csv.mjs",
-    "gen-image-gemini": "node scripts/gen-image-gemini.mjs",
     "gen-kdp-memo": "node scripts/gen-kdp-memo.mjs",
     "gen-pdf-specs-civil-keiken": "node scripts/gen-pdf-specs-civil-keiken.mjs",
     "generate-anki-pdf": "node scripts/generate-anki-pdf.mjs",

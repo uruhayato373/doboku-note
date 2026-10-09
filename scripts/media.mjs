@@ -12,6 +12,7 @@
  *   npm run media -- preview --pub <公開 ID> [--commit]    # 音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値（DN-0603）
  *   npm run media -- adopt-legacy-covers [--commit]        # 動画パック以前の旧 Shorts の表紙 10 件を ID の置き場へ（DN-0610）
  *   npm run media -- adopt-video-brand [--commit]          # 2026-09-09 の日付フォルダ・連番名の採用表紙・締め画像を ID の置き場へ（DN-0607）
+ *   npm run media -- plate --pub <公開 ID> --role <役割> --prompt-file <指示文> [--model <m>] [--commit]  # Codex で作った画像を素材に結ぶ（来歴＋判定 ok が必須・既定 dry-run）
  *
  * promote・sync・pull は既定で dry-run。置いた素材は書き換えない（描き直したものは別名で置く）。
  */
@@ -31,7 +32,7 @@ import { voicevoxCredit } from './lib/voicevox-credit.mjs';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
-  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' } },
+  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' } },
 });
 const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
 
@@ -140,8 +141,16 @@ async function adoptLegacyCovers() {
   console.log(`写した ${r.copied} 件・素材の行 ${r.mediaRows} 件・公開の行 ${r.publications} 件・書き換えた JSON ${r.rewritten} ファイル。次は Drive へ: node scripts/drive-vault-sync.mjs --group content-media --commit`);
 }
 
+/** Codex で作った画像を公開の役割の素材として台帳に結ぶ（実装は scripts/lib/media-plate.mjs） */
+async function plate() {
+  const { runPlate } = await import('./lib/media-plate.mjs');
+  const r = await runPlate(ROOT, { pub: args.pub, role: args.role, promptFile: args['prompt-file'], model: args.model, commit: Boolean(args.commit) });
+  if (r.code) process.exitCode = r.code;
+}
+
 const commands = {
   promote,
+  plate,
   'adopt-legacy-covers': adoptLegacyCovers,
   preview,
   'adopt-video-brand': adoptVideoBrand,
@@ -151,7 +160,7 @@ const commands = {
 };
 const [command] = positionals;
 if (!commands[command]) {
-  console.error('Usage: npm run media -- promote|preview|sync|verify|pull|adopt-video-brand|adopt-legacy-covers …');
+  console.error('Usage: npm run media -- promote|plate|preview|sync|verify|pull|adopt-video-brand|adopt-legacy-covers …');
   process.exit(2);
 }
 await commands[command]();

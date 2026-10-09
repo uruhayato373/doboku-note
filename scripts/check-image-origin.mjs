@@ -27,19 +27,19 @@
  *
  * 終了コード: 0 = 違反なし / 1 = 違反あり・record の入力が不正 / 2 = 検査不成立（公開記事の画像を 1 枚も読めない）
  */
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import matter from 'gray-matter';
 import sharp from 'sharp';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
-import { datasetPath } from './lib/datasets.mjs';
+import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { parseJson, readJsonIf, writeJson } from './lib/json-io.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { describeFigure, fileSha, listFigureKeys } from './lib/figure-review.mjs';
 import {
   AI_KINDS, AI_LEDGER_FILE, aiPhotoStatus, captionFor, emptyAiLedger, imageTagFor, originFindings, originOf,
-  sourceCommentFor, validateAiVerdict,
+  mediaIdOfKey, sourceCommentFor, validateAiVerdict,
 } from './lib/image-origin.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -145,14 +145,26 @@ async function runAiQueue(argv) {
   return 0;
 }
 
+/** コンテンツ台帳の素材（content/registry/media/*.json）を ID で引く */
+function loadMediaById() {
+  const dir = join(ROOT, datasetDir('registry.media'));
+  const byId = new Map();
+  let files = [];
+  try { files = readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { /* 台帳が無ければ素材の鍵は全部弾く */ }
+  for (const f of files) for (const m of parseJson(readFileSync(join(dir, f), 'utf8'), f).media ?? []) byId.set(m.id, m);
+  return byId;
+}
+
 async function runRecordAi(file) {
   if (!file) { console.error('usage: check-image-origin.mjs record-ai <verdicts.json>'); return 1; }
   const list = parseJson(readFileSync(file, 'utf8'), file);
   if (!Array.isArray(list)) { console.error('✗ 判定は配列で渡す'); return 1; }
-  const errs = list.flatMap(validateAiVerdict);
+  const mediaById = loadMediaById();
+  const errs = list.flatMap((v) => validateAiVerdict(v, mediaById));
   const { rows } = await inspect();
   const byKey = new Map(rows.map((r) => [r.figKey, r]));
   for (const v of list) {
+    if (mediaIdOfKey(v?.figKey)) continue; // 素材は validateAiVerdict で検査済み
     const r = byKey.get(v.figKey);
     if (!r) errs.push(`${v.figKey}: 公開記事で使っている画像ではない`);
     else if (!r.status) errs.push(`${v.figKey}: 台帳の種別が AI 生成でない（${r.origin?.kind ?? '記録なし'}）`);
@@ -161,6 +173,11 @@ async function runRecordAi(file) {
   if (errs.length) { for (const e of errs) console.error(`✗ ${e}`); console.error('台帳は書いていない'); return 1; }
   const ledger = readJsonIf(ROOT, AI_LEDGER_FILE) ?? emptyAiLedger();
   for (const v of list) {
+    const mid = mediaIdOfKey(v.figKey);
+    if (mid) { // 素材: 鍵は media:<素材 ID>、sha は素材の sha256 の先頭 16 桁（R10 が見る形）
+      ledger.figures[v.figKey] = { sha: mediaById.get(mid).sha256.slice(0, 16), verdict: v.verdict, reason: v.reason.trim(), reviewedAt: new Date().toISOString() };
+      continue;
+    }
     const r = byKey.get(v.figKey);
     const prev = ledger.figures[v.figKey]?.sha === r.sha ? ledger.figures[v.figKey] : {}; // 生成の記録（promptSha 等）は残す
     ledger.figures[v.figKey] = { ...prev, sha: r.sha, verdict: v.verdict, reason: v.reason.trim(), reviewedAt: new Date().toISOString() };
