@@ -1,0 +1,75 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="砂浜がある海岸では波が砂浜で弱まり、ない海岸では波が堤防に直接当たって越波と浸水が起きる。砂浜の消失から浜崖の後退、越波、浸水へ連鎖する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .c { text-anchor: middle; }
+      .sea { fill: #e8f0fe; }
+      .sand { fill: #fff3cd; }
+      .wall { fill: #f5f5f5; stroke: #555; stroke-width: 1.5; }
+      .frame { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wv { stroke: #2e6da4; fill: none; stroke-linecap: round; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="wm" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 10,5 0,10" fill="#2e6da4"/>
+    </marker>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <rect class="frame" x="14" y="10" width="372" height="162" rx="6"/>
+  <text class="h" x="24" y="30">砂浜がある海岸</text>
+  <text x="24" y="46">波が砂浜で砕けて勢いを失う</text>
+  <polygon class="sea" points="15,100 270,100 120,152 15,152"/>
+  <polygon class="sand" points="15,152 120,152 270,100 300,88 385,88 385,171 15,171"/>
+  <polyline fill="none" stroke="#d4a017" stroke-width="1.5" points="15,152 120,152 270,100 300,88 385,88"/>
+  <line x1="15" y1="100" x2="270" y2="100" stroke="#2e6da4" stroke-width="1"/>
+  <rect class="wall" x="338" y="66" width="10" height="22"/>
+  <text class="c" x="343" y="60">堤防</text>
+  <g marker-end="url(#wm)">
+    <line class="wv" x1="26" y1="84" x2="86" y2="84" stroke-width="3.5"/>
+    <line class="wv" x1="112" y1="84" x2="166" y2="84" stroke-width="2.5"/>
+    <line class="wv" x1="192" y1="84" x2="236" y2="84" stroke-width="1.5"/>
+  </g>
+  <text class="h c" x="195" y="150">砂浜</text>
+  <text class="c" x="362" y="130">背後地</text>
+
+  <rect class="frame" x="14" y="180" width="372" height="162" rx="6"/>
+  <text class="h" x="24" y="200">砂浜がない海岸</text>
+  <text x="24" y="216">波が堤防に直接当たり、越えて入る</text>
+  <polygon class="sea" points="15,270 296,270 296,322 15,322"/>
+  <rect class="sand" x="15" y="322" width="370" height="19"/>
+  <rect class="sand" x="308" y="258" width="77" height="64"/>
+  <line x1="15" y1="270" x2="296" y2="270" stroke="#2e6da4" stroke-width="1"/>
+  <rect class="wall" x="296" y="238" width="12" height="84"/>
+  <g marker-end="url(#wm)">
+    <line class="wv" x1="26" y1="254" x2="86" y2="254" stroke-width="3.5"/>
+    <line class="wv" x1="112" y1="254" x2="170" y2="254" stroke-width="3.5"/>
+    <line class="wv" x1="196" y1="254" x2="284" y2="254" stroke-width="3.5"/>
+  </g>
+  <path class="wv" d="M286 240 Q304 206 330 236" stroke-width="2.5" marker-end="url(#wm)"/>
+  <text class="c" x="308" y="204">越波</text>
+  <rect x="318" y="250" width="66" height="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="h c" x="352" y="282">浸水</text>
+
+  <rect class="warn" x="14" y="352" width="160" height="30" rx="6"/>
+  <text class="b" x="94" y="372">砂浜の消失</text>
+  <line class="ln" x1="176" y1="367" x2="222" y2="367" marker-end="url(#arr)"/>
+  <rect class="warn" x="226" y="352" width="160" height="30" rx="6"/>
+  <text class="b" x="306" y="372">浜崖の後退</text>
+  <path class="ln" d="M306 384 V393 H94 V402" marker-end="url(#arr)"/>
+  <rect class="danger" x="14" y="404" width="160" height="30" rx="6"/>
+  <text class="b" x="94" y="424">越波</text>
+  <line class="ln" x1="176" y1="419" x2="222" y2="419" marker-end="url(#arr)"/>
+  <rect class="danger" x="226" y="404" width="160" height="30" rx="6"/>
+  <text class="b" x="306" y="424">背後地の浸水</text>
+
+  <text class="h" x="14" y="460">連鎖を断つ手段</text>
+  <text x="14" y="476" font-size="12">波を弱める：離岸堤・人工リーフ</text>
+  <text x="14" y="493" font-size="12">砂を足す・戻す：養浜・流砂系の総合土砂管理</text>
+</svg>

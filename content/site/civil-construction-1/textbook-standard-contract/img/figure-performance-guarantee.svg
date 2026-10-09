@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="契約の保証。受注者は発注者と請負契約を結び、保証人と保証契約を結ぶ。受注者が履行できなくなったとき、金銭的保証は保証金の納付や担保の提供、または保証人・保険会社の支払いで損害を金額で埋め、役務的保証は保証人が選んだ代替の建設業者が工事を完成させる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #222; }
+      .sec { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .t3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">受注者が工事を続けられなくなったときの備え</text>
+
+  <rect class="t1" x="125" y="26" width="150" height="40" rx="6"/>
+  <text class="h" x="200" y="51" text-anchor="middle">発注者</text>
+
+  <rect class="t2" x="20" y="118" width="140" height="46" rx="6"/>
+  <text class="h" x="90" y="139" text-anchor="middle">受注者</text>
+  <text class="s" x="90" y="156" text-anchor="middle">工事を請け負う</text>
+
+  <rect class="t3" x="230" y="118" width="150" height="46" rx="6"/>
+  <text class="h" x="305" y="139" text-anchor="middle">保証人</text>
+  <text class="s" x="305" y="156" text-anchor="middle">金融機関・保証会社等</text>
+
+  <line class="ln" x1="150" y1="66" x2="90" y2="118"/>
+  <text class="l" x="20" y="96">請負契約</text>
+  <line class="ln" x1="250" y1="66" x2="305" y2="118"/>
+  <text class="l" x="292" y="96">保証の約束</text>
+  <line class="ln" x1="160" y1="141" x2="230" y2="141"/>
+  <text class="l" x="195" y="133" text-anchor="middle">保証契約</text>
+  <text class="l" x="195" y="158" text-anchor="middle">保証料</text>
+
+  <text class="sec" x="20" y="204">受注者が履行できなくなったとき</text>
+
+  <rect class="c" x="20" y="214" width="360" height="116" rx="6"/>
+  <rect class="t1" x="20" y="214" width="360" height="30" rx="6"/>
+  <text class="h" x="34" y="234">金銭的保証（約款第4条A）</text>
+  <text class="s" x="34" y="266">契約保証金の納付・有価証券等の提供か、</text>
+  <text class="s" x="34" y="284">保証人・保険会社の支払いで、損害を金額で埋める</text>
+  <text class="s" x="34" y="302">履行保証証券の保証金が支払われた額まで、賠償債務は消える</text>
+  <text class="s" x="34" y="320">保証の額は請負代金額の10分の1以上が例</text>
+
+  <rect class="c" x="20" y="340" width="360" height="116" rx="6"/>
+  <rect class="t2" x="20" y="340" width="360" height="30" rx="6"/>
+  <text class="h" x="34" y="360">役務的保証（約款第4条B）</text>
+  <text class="s" x="34" y="392">保証人が代わりの建設業者を選ぶ</text>
+  <text class="s" x="34" y="410">発注者が適当と認めれば、その業者が受注者の</text>
+  <text class="s" x="34" y="428">権利義務を引き継ぎ、工事を完成させる</text>
+  <text class="s" x="34" y="446">保証の額は請負代金額の10分の3以上が例</text>
+
+  <text class="l" x="20" y="480">履行保証証券か履行保証保険を付ければ、契約保証金の納付は免除</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="重層下請の系統と、現場単位の下請次数の内訳。元請が総合的な管理監督、一次以下の下請が中間的な施工管理・労務の提供・その他の直接施工を担う。平成28年度の108現場では、3次までで完結する現場が86.0%、最大は5次" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="14" y="14" width="372" height="72" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="14" y="118" width="372" height="72" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<line x1="200" y1="86" x2="200" y2="116" stroke="#2e6da4" marker-end="url(#ar)"/>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="28" y="42">元請</text>
+<text x="28" y="146">一次以下の下請</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="28" y="64">工事全体の総合的な管理監督と完成責任</text>
+<text x="28" y="168">中間的な施工管理・労務の提供・その他の直接施工</text>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="20" y="230">現場単位の下請次数（調査時点・108現場）</text>
+</g>
+<g stroke-width="1.5">
+<rect x="20" y="242" width="60.5" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="80.5" y="242" width="111" height="36" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="191.5" y="242" width="137.9" height="36" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="329.4" y="242" width="43.7" height="36" fill="#f8d7da" stroke="#b22234"/>
+<rect x="373.1" y="242" width="6.9" height="36" fill="#f8d7da" stroke="#b22234"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="12" font-weight="700">
+<text x="50" y="265">1次</text>
+<text x="136" y="265">2次</text>
+<text x="260" y="265">3次</text>
+<text x="351" y="265">4次</text>
+</g>
+<g fill="#555" text-anchor="middle" font-size="11">
+<text x="50" y="296">16.8%</text>
+<text x="136" y="296">30.8%</text>
+<text x="260" y="296">38.3%</text>
+<text x="351" y="296">12.1%</text>
+</g>
+<g stroke="#b22234" stroke-width="1">
+<line x1="377" y1="278" x2="377" y2="310"/>
+<line x1="377" y1="310" x2="369" y2="310"/>
+</g>
+<g fill="#555" text-anchor="end" font-size="11">
+<text x="366" y="314">5次 1.9%</text>
+</g>
+<g stroke="#3a7d44" stroke-width="1.5">
+<line x1="20" y1="334" x2="329" y2="334"/>
+<line x1="20" y1="328" x2="20" y2="334"/>
+<line x1="329" y1="328" x2="329" y2="334"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="13" font-weight="700">
+<text x="175" y="356">3次までで完結する現場 86.0%</text>
+</g>
+<rect x="14" y="382" width="372" height="88" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<g fill="#222" font-size="12">
+<text x="26" y="408">最も重層した現場は5次まで。</text>
+<text x="26" y="428">金額の大小と次数に傾向はなく、</text>
+<text x="26" y="448">工期が長い現場に4次・5次が現れた。</text>
+</g>
+</svg>

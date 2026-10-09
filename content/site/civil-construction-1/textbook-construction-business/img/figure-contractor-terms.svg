@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設業法の用語。建設業を営む者の内側に許可を受けた建設業者があり、軽微な工事のみを請け負う者は適法、許可が必要なのに許可を受けない者は違法。発注者、元請負人、下請負人は契約ごとの立場で、一次下請は元請との契約では下請負人、二次下請に出す契約では元請負人になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-m { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">許可の有無と、契約上の立場は別の軸</text>
+
+  <rect class="bs" x="20" y="26" width="360" height="148" rx="8"/>
+  <text class="t-h" x="200" y="48" text-anchor="middle">建設業を営む者（完成を請け負う営業）</text>
+  <rect class="bp" x="34" y="60" width="160" height="102" rx="6"/>
+  <text class="t-h" x="114" y="84" text-anchor="middle">建設業者</text>
+  <text class="t-s" x="114" y="104" text-anchor="middle">法第3条の許可を</text>
+  <text class="t-s" x="114" y="120" text-anchor="middle">受けて営む者</text>
+  <text class="t-m" x="114" y="146" text-anchor="middle">適法</text>
+  <rect class="bw" x="206" y="60" width="160" height="46" rx="6"/>
+  <text class="t-s" x="286" y="80" text-anchor="middle">軽微な工事のみ請け負う者</text>
+  <text class="t-m" x="286" y="97" text-anchor="middle">適法</text>
+  <rect class="bd" x="206" y="116" width="160" height="46" rx="6"/>
+  <text class="t-s" x="286" y="136" text-anchor="middle">許可が必要なのに無許可</text>
+  <text class="t-m" x="286" y="153" text-anchor="middle">違法</text>
+
+  <text class="t-h" x="200" y="200" text-anchor="middle">契約ごとに決まる立場</text>
+
+  <rect class="bs" x="20" y="212" width="72" height="40" rx="6"/>
+  <text class="t-s" x="56" y="236" text-anchor="middle">発注者</text>
+  <rect class="bb" x="116" y="212" width="72" height="40" rx="6"/>
+  <text class="t-s" x="152" y="236" text-anchor="middle">元請</text>
+  <rect class="bb" x="212" y="212" width="72" height="40" rx="6"/>
+  <text class="t-s" x="248" y="236" text-anchor="middle">一次下請</text>
+  <rect class="bb" x="308" y="212" width="72" height="40" rx="6"/>
+  <text class="t-s" x="344" y="236" text-anchor="middle">二次下請</text>
+  <line class="ln" x1="94" y1="232" x2="114" y2="232" marker-end="url(#a)"/>
+  <line class="ln" x1="190" y1="232" x2="210" y2="232" marker-end="url(#a)"/>
+  <line class="ln" x1="286" y1="232" x2="306" y2="232" marker-end="url(#a)"/>
+
+  <rect class="bp" x="20" y="274" width="170" height="64" rx="6"/>
+  <text class="t-h" x="105" y="296" text-anchor="middle">元請負人</text>
+  <text class="t-s" x="105" y="314" text-anchor="middle">下請契約の注文者で</text>
+  <text class="t-s" x="105" y="328" text-anchor="middle">建設業者であるもの</text>
+  <rect class="bb" x="210" y="274" width="170" height="64" rx="6"/>
+  <text class="t-h" x="295" y="296" text-anchor="middle">下請負人</text>
+  <text class="t-s" x="295" y="314" text-anchor="middle">下請契約の</text>
+  <text class="t-s" x="295" y="328" text-anchor="middle">請負人</text>
+
+  <rect class="bw" x="20" y="358" width="360" height="130" rx="6"/>
+  <text class="t-h" x="200" y="382" text-anchor="middle">一次下請の立場は契約によって変わる</text>
+  <text class="t-s" x="200" y="406" text-anchor="middle">元請との契約では下請負人</text>
+  <text class="t-s" x="200" y="424" text-anchor="middle">二次下請に出す契約では元請負人</text>
+  <text class="t-s" x="200" y="448" text-anchor="middle">発注者は他の者から請け負わない</text>
+  <text class="t-s" x="200" y="466" text-anchor="middle">最初の注文者だけを指す</text>
+</svg>

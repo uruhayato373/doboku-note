@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="専任が必要な期間。元請は契約工期が基本で、契約締結後から現場施工の着手前、工場製作のみの期間、全面的な一時中止の期間、検査終了後の事務手続きと後片付けの期間は専任が不要。下請は下請工事が実際に施工されている期間だけ専任が必要">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-c { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-m { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bu { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">上から下へ時間が進む（元請の例）</text>
+  <text class="t-c" x="60" y="38" text-anchor="middle">元請</text>
+  <text class="t-c" x="130" y="38" text-anchor="middle">下請</text>
+
+  <rect class="bs" x="100" y="44" width="60" height="389"/>
+
+  <rect class="bs" x="30" y="44" width="60" height="60"/>
+  <text class="t-m" x="60" y="78" text-anchor="middle">不要</text>
+  <rect class="bs" x="30" y="104" width="60" height="48"/>
+  <text class="t-m" x="60" y="132" text-anchor="middle">不要</text>
+  <rect class="bb" x="30" y="152" width="60" height="84"/>
+  <text class="t-c" x="60" y="198" text-anchor="middle">専任</text>
+  <rect class="bs" x="30" y="236" width="60" height="53"/>
+  <text class="t-m" x="60" y="266" text-anchor="middle">不要</text>
+  <rect class="bb" x="30" y="289" width="60" height="84"/>
+  <text class="t-c" x="60" y="335" text-anchor="middle">専任</text>
+  <rect class="bs" x="30" y="373" width="60" height="60"/>
+  <text class="t-m" x="60" y="407" text-anchor="middle">不要</text>
+
+  <rect class="bu" x="100" y="171" width="60" height="48"/>
+  <text class="t-c" x="130" y="199" text-anchor="middle">専任</text>
+  <rect class="bu" x="100" y="306" width="60" height="46"/>
+  <text class="t-c" x="130" y="333" text-anchor="middle">専任</text>
+
+  <text class="t-s" x="176" y="66">① 契約締結から、現場施</text>
+  <text class="t-s" x="176" y="82">工に着手する前まで</text>
+  <text class="t-s" x="176" y="132">② 工場製作のみの期間</text>
+  <text class="t-s" x="176" y="190">施工中は専任が必要</text>
+  <text class="t-m" x="176" y="206">契約工期が基本となる</text>
+  <text class="t-s" x="176" y="258">③ 全面的な一時中止</text>
+  <text class="t-m" x="176" y="274">用地未確保・災害など</text>
+  <text class="t-s" x="176" y="333">施工中は専任が必要</text>
+  <text class="t-s" x="176" y="399">④ 検査後、事務手続と</text>
+  <text class="t-s" x="176" y="415">後片付けだけの期間</text>
+
+  <text class="t-m" x="30" y="458">下請は、実際に施工している期間だけ専任</text>
+</svg>

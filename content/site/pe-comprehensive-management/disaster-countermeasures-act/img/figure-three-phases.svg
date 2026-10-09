@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="防災の三つの段階。災害予防、災害応急対策、災害復旧・復興の順に、各段階の主な施策を縦に並べた流れ図">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif}
+.a{font-size:12px;fill:#222}.ab{font-size:12px;font-weight:bold;fill:#1a3a5c}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{font-size:11px;fill:#555}
+.ac{font-size:12px;fill:#222;text-anchor:middle}.abc{font-size:12px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.hc{font-size:13px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.sc{font-size:11px;fill:#555;text-anchor:middle}.se{font-size:11px;fill:#555;text-anchor:end}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.bx{fill:#fff;stroke:#2e6da4;stroke-width:1.5}
+</style>
+<marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/></marker></defs>
+<rect class="bs" x="20" y="14" width="360" height="52" rx="8"/>
+<text class="ac" x="200" y="36">災害の発生を完全に防ぐことはできない</text>
+<text class="ac" x="200" y="56">だから被害の最小化と迅速な回復を軸に置く</text>
+<line x1="200" y1="66" x2="200" y2="80" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bb" x="20" y="82" width="360" height="106" rx="8"/>
+<circle class="bx" cx="44" cy="106" r="13"/>
+<text class="abc" x="44" y="111">1</text>
+<text class="h" x="66" y="111">災害予防</text>
+<text class="se" x="364" y="110">平時</text>
+<text class="a" x="40" y="138">ハードとソフトを組み合わせて進める</text>
+<text class="a" x="40" y="157">被害想定と教訓で対策を改善し続ける</text>
+<text class="a" x="40" y="176">復旧・復興の事前準備も平時に行う</text>
+<line x1="200" y1="188" x2="200" y2="212" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bw" x="20" y="214" width="360" height="106" rx="8"/>
+<circle class="bx" cx="44" cy="238" r="13"/>
+<text class="abc" x="44" y="243">2</text>
+<text class="h" x="66" y="243">災害応急対策</text>
+<text class="se" x="364" y="242">発災前後</text>
+<text class="a" x="40" y="270">危険の予測と被害規模の把握を早く</text>
+<text class="a" x="40" y="289">人命を最優先に人材・物資を配分</text>
+<text class="a" x="40" y="308">避難誘導・救助・避難所・応急復旧</text>
+<line x1="200" y1="320" x2="200" y2="344" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bp" x="20" y="346" width="360" height="106" rx="8"/>
+<circle class="bx" cx="44" cy="370" r="13"/>
+<text class="abc" x="44" y="375">3</text>
+<text class="h" x="66" y="375">災害復旧・復興</text>
+<text class="se" x="364" y="374">発災後</text>
+<text class="a" x="40" y="402">被災施設の速やかな復旧</text>
+<text class="a" x="40" y="421">被災者の援護と生活再建の支援</text>
+<text class="a" x="40" y="440">再度災害を防ぐ防災まちづくり</text>
+<rect class="bs" x="20" y="466" width="360" height="26" rx="6"/>
+<text class="sc" x="200" y="483">復旧・復興で得た教訓は、次の災害予防の改善へ戻す</text>
+</svg>

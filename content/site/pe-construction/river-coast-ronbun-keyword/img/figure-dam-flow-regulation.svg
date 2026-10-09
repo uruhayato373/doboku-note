@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="河川流量の季節変動と、ダムの貯留と補給の概念図。流量の多い時期にためて少ない時期に補給すると、安定して取水できる量がダムなしの場合より増える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .c { text-anchor: middle; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+    <clipPath id="up"><rect x="60" y="40" width="330" height="198"/></clipPath>
+    <clipPath id="low"><rect x="60" y="238" width="330" height="92"/></clipPath>
+  </defs>
+
+  <rect x="60" y="238" width="320" height="92" fill="#fff3cd"/>
+  <path d="M60 285 C85 285 100 215 130 215 C155 215 158 300 178 300 C198 300 203 120 225 120 C247 120 247 312 265 312 C283 312 285 160 300 160 C325 160 335 292 380 292 L380 330 L60 330 Z" fill="#f5f5f5" clip-path="url(#low)"/>
+  <path d="M60 285 C85 285 100 215 130 215 C155 215 158 300 178 300 C198 300 203 120 225 120 C247 120 247 312 265 312 C283 312 285 160 300 160 C325 160 335 292 380 292 L380 330 L60 330 Z" fill="#e8f0fe" clip-path="url(#up)"/>
+  <path d="M60 285 C85 285 100 215 130 215 C155 215 158 300 178 300 C198 300 203 120 225 120 C247 120 247 312 265 312 C283 312 285 160 300 160 C325 160 335 292 380 292" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="60" y1="238" x2="380" y2="238" stroke="#3a7d44" stroke-width="2.5"/>
+  <line x1="60" y1="310" x2="380" y2="310" stroke="#555" stroke-width="1.5" stroke-dasharray="5 3"/>
+
+  <line class="ax" x1="60" y1="330" x2="60" y2="42" marker-end="url(#arr)"/>
+  <line class="ax" x1="60" y1="330" x2="390" y2="330" marker-end="url(#arr)"/>
+  <text x="68" y="52">流量（概念図）</text>
+  <text class="c" x="73" y="346">1月</text>
+  <text class="c" x="153" y="346">4月</text>
+  <text class="c" x="233" y="346">7月</text>
+  <text class="c" x="313" y="346">10月</text>
+
+  <text class="c" x="130" y="206">融雪期</text>
+  <text class="c" x="225" y="112">梅雨期</text>
+  <text class="c" x="300" y="152">台風期</text>
+
+  <path d="M54 238 H48 V310 H54" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="44" y="271" text-anchor="end">開発</text>
+  <text x="44" y="285" text-anchor="end">水量</text>
+
+  <rect x="14" y="362" width="14" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="36" y="372">貯留：流量が多い時期に貯水池へためる</text>
+  <rect x="14" y="380" width="14" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="36" y="390">補給：流量が少ない時期に、ためた水を放流する</text>
+  <line x1="14" y1="406" x2="28" y2="406" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="36" y="410">ダムあり：安定して取水できる量</text>
+  <line x1="14" y1="424" x2="28" y2="424" stroke="#555" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="36" y="428">ダムなし：最も少ない流量が取水の上限</text>
+
+  <rect x="14" y="446" width="372" height="42" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="b" x="200" y="464">貯めて補うと流れが均され、</text>
+  <text class="b" x="200" y="480">安定して取れる水量（開発水量）が増える</text>
+</svg>

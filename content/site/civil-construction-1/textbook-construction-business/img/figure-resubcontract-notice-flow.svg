@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="再下請負通知書の流れ。元請が一次下請へ書面で通知し現場にも掲示する。一次下請が再下請に出したら書面の写しを渡して周知し、再下請負通知書を遅滞なく元請あてに提出する。上位の下請を経由して提出してもよい。二次下請がさらに出したときも元請あてに提出する。提出義務は再下請に出した下請だけにある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s { font-size: 11px; fill: #222; }
+      .t-m { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">通知は下へ、提出先は元請</text>
+
+  <rect class="bb" x="20" y="28" width="96" height="34" rx="6"/>
+  <text class="t-h" x="68" y="50" text-anchor="middle">元請</text>
+  <line class="ln" x1="118" y1="45" x2="146" y2="45" marker-end="url(#a)"/>
+  <rect class="bp" x="150" y="28" width="96" height="34" rx="6"/>
+  <text class="t-h" x="198" y="50" text-anchor="middle">一次下請</text>
+  <rect class="bw" x="262" y="28" width="118" height="34" rx="6"/>
+  <text class="t-s" x="321" y="50" text-anchor="middle">① 通知書面</text>
+  <text class="t-m" x="20" y="80">再下請負通知が必要なことと提出先を</text>
+  <text class="t-m" x="20" y="96">書面で知らせ、現場にも掲示する</text>
+
+  <rect class="bp" x="20" y="114" width="96" height="34" rx="6"/>
+  <text class="t-h" x="68" y="136" text-anchor="middle">一次下請</text>
+  <line class="ln" x1="118" y1="131" x2="146" y2="131" marker-end="url(#a)"/>
+  <rect class="bp" x="150" y="114" width="96" height="34" rx="6"/>
+  <text class="t-h" x="198" y="136" text-anchor="middle">二次下請</text>
+  <rect class="bw" x="262" y="114" width="118" height="34" rx="6"/>
+  <text class="t-s" x="321" y="136" text-anchor="middle">② 書面の写し</text>
+  <text class="t-m" x="20" y="166">再下請に出したら同じ書面の写しを渡し、</text>
+  <text class="t-m" x="20" y="182">さらに出したら元請あてに提出するよう伝える</text>
+
+  <rect class="bp" x="20" y="200" width="96" height="34" rx="6"/>
+  <text class="t-h" x="68" y="222" text-anchor="middle">一次下請</text>
+  <line class="ln" x1="118" y1="217" x2="146" y2="217" marker-end="url(#a)"/>
+  <rect class="bb" x="150" y="200" width="96" height="34" rx="6"/>
+  <text class="t-h" x="198" y="222" text-anchor="middle">元請</text>
+  <rect class="bw" x="262" y="200" width="118" height="34" rx="6"/>
+  <text class="t-s" x="321" y="222" text-anchor="middle">③ 再下請負通知書</text>
+  <text class="t-m" x="20" y="252">再下請に出すたびに遅滞なく、元請あてに</text>
+  <text class="t-m" x="20" y="268">提出する。上位の下請を経由してもよい</text>
+
+  <rect class="bp" x="20" y="286" width="96" height="34" rx="6"/>
+  <text class="t-h" x="68" y="308" text-anchor="middle">二次下請</text>
+  <line class="ln" x1="118" y1="303" x2="146" y2="303" marker-end="url(#a)"/>
+  <rect class="bb" x="150" y="286" width="96" height="34" rx="6"/>
+  <text class="t-h" x="198" y="308" text-anchor="middle">元請</text>
+  <rect class="bw" x="262" y="286" width="118" height="34" rx="6"/>
+  <text class="t-s" x="321" y="308" text-anchor="middle">④ 再下請負通知書</text>
+  <text class="t-m" x="20" y="338">三次に出したときは二次も元請あてに提出する</text>
+  <text class="t-m" x="20" y="354">提出義務は、再下請に出した下請だけにある</text>
+
+  <rect class="bs" x="20" y="374" width="360" height="114" rx="6"/>
+  <text class="t-h" x="200" y="396" text-anchor="middle">再下請負通知書に書く3つのまとまり</text>
+  <text class="t-s" x="36" y="418">自社：商号・住所・許可番号</text>
+  <text class="t-s" x="36" y="436">請け負った工事：工事名・注文者・契約年月日</text>
+  <text class="t-s" x="36" y="454">再下請負人と、その工事の内容・工期・技術者など</text>
+  <text class="t-m" x="36" y="474">様式は任意で、必要な事項が載っていればよい</text>
+</svg>

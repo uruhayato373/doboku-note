@@ -3,22 +3,15 @@
 > [!note] 状態
 > 2026-10-08 夜に、サブエージェント（Sonnet）が週の利用上限で止まった。リセットは 2026-10-11 19:00（日本時間）。リセット後にこの手順で再開する。終わったら、残りを DN-0591 に抽出してこのファイルを削除する。
 
-## どこまで済んだか
+## どこまで済んだか（2026-10-09 午後に更新）
 
-- 判定は 26/27 冊で済んでいる。要約は `.claude/state/book-coverage.json`（PR #927 のブランチ）で、一覧は `npm run audit-reference-book-coverage -- --status`。
-- 展開済みの棚:
-  - 技術士: 21 記事。品質確認から develop へのコミットまで済んでいる（trailer `Book-Coverage`）。
-  - コンクリート 4 冊・建設材料 1 冊: 以前に展開済み。
-- 執筆まで済んで、品質確認（QA）の前に止まった 33 記事は、ブランチ `wip/book-coverage-expansion-2026-10-09`（d89df5df0）へ退避した。develop には入れていない（pre-commit も通していない）。
-  - 1級・2級土木: 28 記事。
-  - 土木実務: 3 記事（`textbook-coast-port`・`flood-season-river-work`・`earthquake-tsunami-site-response`）。
-  - 執筆の途中で止まった 2 記事: `civil-construction-1/guide-structural-mechanics-basics`（新規）・`civil-construction-1/secondary-quality-management-basics`。この 2 本は書き直す。
-- 未着手は 109 記事。
-  - 1級・2級土木: 12 記事（`textbook-construction-business` を含む。逐語一致の書き直しだけの 3 本もここ）。
-  - 土木実務: 24 記事。
-  - 防災・業界: 65 記事。
-  - DX・AI: 8 記事。
+- 上限は同日中に解け、Sonnet で再開した。
+- 退避した 33 記事（`wip/book-coverage-expansion-2026-10-09`）は、QA から仕上げて develop へコミット済み。ブランチは不要になった。
+- 1級・2級土木・土木実務の残り 35 記事もコミット済み。新規 9 記事のカリキュラム登録と逆向きのリンクも済んだ（6c24c3ed7）。
+- `civil-construction-1/textbook-construction-business` の追記 42 件は、教科書に 19 件を残し、23 件を主題ごとの実務記事（新規の `civil-practice/subcontract-fair-dealing` を含む）へ判定の計画で振り分けた。
+- 防災・業界・DX・AI の残り 73 記事（新規 21）を workflow 2 本（`tools/batch-r34-a.json`・`batch-r34-b.json`、`tools/expand-wf-v3.js`）で展開中。中断したら、コミットの有無（`git log --grep=書籍の網羅から追記`）で済んだ記事を外して、残りを同じ workflow で回す。
 - 写真（案 46 枚）は未着手。
+- 範囲外の既存の誤りは DN-0606（技術士）・DN-0618（1級土木）、逐語一致の残りは DN-0580、検査の改善は DN-0617。
 
 ## 再開の手順（Mac）
 

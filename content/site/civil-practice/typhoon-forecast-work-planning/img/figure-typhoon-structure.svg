@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="台風の眼の壁・内側降雨帯・外側降雨帯の並びと、北へ進む台風の右側と左側で風向の変わり方と風の強さが違うこと" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="tr" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <text x="20" y="16" font-size="12" fill="#555">台風の雲（上から見た図）</text>
+  <g stroke-width="1.5">
+    <circle cx="118" cy="128" r="104" fill="#e8f0fe" stroke="#2e6da4"/>
+    <circle cx="118" cy="128" r="84" fill="#ffffff" stroke="#2e6da4"/>
+    <circle cx="118" cy="128" r="62" fill="#fff3cd" stroke="#d4a017"/>
+    <circle cx="118" cy="128" r="26" fill="#f8d7da" stroke="#b22234"/>
+    <circle cx="118" cy="128" r="11" fill="#ffffff" stroke="#b22234"/>
+  </g>
+  <g stroke="#555" stroke-width="1" fill="none">
+    <path d="M190,68 L238,60"/>
+    <path d="M162,128 L238,132"/>
+    <path d="M132,140 L238,188"/>
+  </g>
+  <g fill="#1a3a5c">
+    <g font-size="13" font-weight="700">
+      <text x="244" y="46">外側降雨帯</text>
+      <text x="244" y="136">内側降雨帯</text>
+      <text x="244" y="192">眼の壁（壁雲）</text>
+    </g>
+    <g font-size="12">
+      <text x="244" y="64">中心から</text>
+      <text x="244" y="80">200〜600km</text>
+      <text x="244" y="96">断続的な激しい雨</text>
+      <text x="244" y="154">激しい雨が連続</text>
+      <text x="244" y="210">猛烈な暴風雨</text>
+    </g>
+  </g>
+  <path d="M20,244 L380,244" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="264" font-size="12" fill="#555">進路の左右で、風向の変わり方と強さが違う</text>
+  <text x="200" y="288" font-size="11" fill="#555" text-anchor="middle">北へ進む例</text>
+  <path d="M200,486 L200,298" fill="none" stroke="#b22234" stroke-width="2" marker-end="url(#tr)"/>
+  <circle cx="200" cy="420" r="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <circle cx="88" cy="420" r="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="312" cy="420" r="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="212" y="424" font-size="11" fill="#555">台風の中心</text>
+  <g fill="#1a3a5c" text-anchor="middle">
+    <g font-size="13" font-weight="700">
+      <text x="88" y="330">進路の左側（西）</text>
+      <text x="312" y="330">進路の右側（東）</text>
+    </g>
+    <g font-size="12">
+      <text x="88" y="352">中心は東側を通る</text>
+      <text x="88" y="372">風向 東→北→西</text>
+      <text x="88" y="392">（反時計回り）</text>
+      <text x="88" y="454">右側より風は弱い</text>
+      <text x="312" y="352">中心は西側を通る</text>
+      <text x="312" y="372">風向 東→南→西</text>
+      <text x="312" y="392">（時計回り）</text>
+      <text x="312" y="454">台風自身の風と</text>
+      <text x="312" y="472">周りの風が重なる</text>
+    </g>
+  </g>
+</svg>

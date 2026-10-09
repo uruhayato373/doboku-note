@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="危険の予見、見極め、措置、残留リスクの周知の4段階と、各段階で残す記録事項を対応させた流れ図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+  </defs>
+  <g stroke-width="1.5" stroke="#2e6da4" marker-end="url(#ar)">
+    <path d="M96 104V127"/>
+    <path d="M96 210V233"/>
+    <path d="M96 316V339"/>
+    <path d="M176 64H204"/>
+    <path d="M176 170H204"/>
+    <path d="M176 276H204"/>
+    <path d="M176 382H204"/>
+  </g>
+  <g stroke-width="1.5">
+    <!-- 左: 作業の段階 brand-fill / brand、4段目は warn -->
+    <rect x="16" y="24" width="160" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="16" y="130" width="160" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="16" y="236" width="160" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="16" y="342" width="160" height="80" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+    <!-- 右: 残す記録 positive-fill / positive、4段目は warn -->
+    <rect x="206" y="24" width="178" height="80" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+    <rect x="206" y="130" width="178" height="80" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+    <rect x="206" y="236" width="178" height="80" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+    <rect x="206" y="342" width="178" height="80" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+  </g>
+  <g font-size="14" font-weight="700" fill="#222">
+    <text x="30" y="56">危険を予見する</text>
+    <text x="30" y="162">大きさを見極める</text>
+    <text x="30" y="268">回避の措置を講じる</text>
+    <text x="30" y="374">残る危険を伝える</text>
+  </g>
+  <g font-size="11" fill="#555">
+    <text x="30" y="78">作業を場面に分ける</text>
+    <text x="30" y="184">重篤度と可能性で見積もる</text>
+    <text x="30" y="290">設備、手順、教育の順に</text>
+    <text x="30" y="396">職長・次工程・入場者へ</text>
+  </g>
+  <g font-size="13" fill="#1a3a5c">
+    <text x="218" y="58">洗い出した作業</text>
+    <text x="218" y="80">特定した危険性・有害性</text>
+    <text x="218" y="164">見積もったリスク</text>
+    <text x="218" y="186">設定した優先度</text>
+    <text x="218" y="270">実施したリスク低減</text>
+    <text x="218" y="292">措置の内容</text>
+    <text x="218" y="376">誰に・いつ伝えたか</text>
+    <text x="218" y="398">残留リスクと停止条件</text>
+  </g>
+  <rect x="16" y="446" width="14" height="14" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="16" y="468" width="14" height="14" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <g font-size="11" fill="#555">
+    <text x="38" y="458">指針のパンフレットが挙げる記録事項（五つ）</text>
+    <text x="38" y="480">実務で足す記録（朝礼・入場者教育・手順書の履歴）</text>
+  </g>
+</svg>

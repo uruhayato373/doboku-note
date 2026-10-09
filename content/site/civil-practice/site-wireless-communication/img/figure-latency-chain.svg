@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="遠隔操縦の映像が操作者の画面に出るまでの五段階を送信側、回線、受信側に分け、各段階の遅れの要因を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .st { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .hot { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="s" x="15" y="24">映像は、段ごとの遅れを足した分だけ過去のもの</text>
+  <g>
+    <rect class="st" x="15" y="38" width="240" height="52" rx="8"/>
+    <text class="b" x="27" y="60">1　撮像</text>
+    <text class="s" x="27" y="78">カメラが映像を取り込む</text>
+    <text class="s" x="270" y="62">送信側の要因</text>
+    <text class="s" x="270" y="78">取り込み間隔</text>
+    <line x1="135" y1="90" x2="135" y2="110" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+    <rect class="st" x="15" y="112" width="240" height="52" rx="8"/>
+    <text class="b" x="27" y="134">2　符号化</text>
+    <text class="s" x="27" y="152">映像を圧縮して送れる形にする</text>
+    <text class="s" x="270" y="136">送信側の要因</text>
+    <text class="s" x="270" y="152">圧縮の強さ</text>
+    <line x1="135" y1="164" x2="135" y2="184" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+    <rect class="hot" x="15" y="186" width="240" height="52" rx="8"/>
+    <text class="b" x="27" y="208">3　無線と中継</text>
+    <text class="s" x="27" y="226">回線を通り、中継機器を経由する</text>
+    <text class="s" x="270" y="210">回線の要因</text>
+    <text class="s" x="270" y="226">混雑・中継の数</text>
+    <line x1="135" y1="238" x2="135" y2="258" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+    <rect class="st" x="15" y="260" width="240" height="52" rx="8"/>
+    <text class="b" x="27" y="282">4　復号</text>
+    <text class="s" x="27" y="300">圧縮を元の映像へ戻す</text>
+    <text class="s" x="270" y="284">受信側の要因</text>
+    <text class="s" x="270" y="300">受信機の処理</text>
+    <line x1="135" y1="312" x2="135" y2="332" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+    <rect class="st" x="15" y="334" width="240" height="52" rx="8"/>
+    <text class="b" x="27" y="356">5　表示</text>
+    <text class="s" x="27" y="374">操作者の画面に映る</text>
+    <text class="s" x="270" y="358">受信側の要因</text>
+    <text class="s" x="270" y="374">モニタの更新</text>
+  </g>
+  <rect x="15" y="404" width="370" height="84" rx="8" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <text class="b" x="27" y="428">操作信号も、逆向きに通る間に遅れる</text>
+  <text x="27" y="452">見た映像と、機械の今の動きにずれが出る</text>
+  <text x="27" y="474">通信速度の大きさと、遅れの短さは別</text>
+</svg>

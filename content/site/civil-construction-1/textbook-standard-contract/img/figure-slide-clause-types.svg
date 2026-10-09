@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スライド条項の使い分けと請求の流れ。全体スライドは契約から12か月を経過した後に水準が全般に動いたとき、単品スライドは特別な要因で主要な工事材料の価格だけが著しく動いたとき、インフレスライドは急激なインフレーションやデフレーションが起きたときに使う。請求、協議開始日の決定、算定、協議して変更契約の順に進む">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .k { font-size: 11px; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #222; }
+      .b { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .sec { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .t3 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .st { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .n { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .nt { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">動いたものの範囲と速さで、使う項が決まる</text>
+
+  <rect class="c" x="20" y="26" width="360" height="80" rx="6"/>
+  <rect class="t1" x="20" y="26" width="96" height="80" rx="6"/>
+  <text class="h" x="68" y="60" text-anchor="middle">全体</text>
+  <text class="k" x="68" y="80" text-anchor="middle">第1〜4項</text>
+  <text class="s" x="128" y="50">契約から12か月を経過した後に、</text>
+  <text class="s" x="128" y="68">賃金・物価の水準が全般に動いた</text>
+  <text class="b" x="128" y="94">受注者の負担：残工事代金額の1.5%</text>
+
+  <rect class="c" x="20" y="114" width="360" height="80" rx="6"/>
+  <rect class="t2" x="20" y="114" width="96" height="80" rx="6"/>
+  <text class="h" x="68" y="148" text-anchor="middle">単品</text>
+  <text class="k" x="68" y="168" text-anchor="middle">第5項</text>
+  <text class="s" x="128" y="138">特別な要因で、主要な工事材料の</text>
+  <text class="s" x="128" y="156">価格だけが著しく動いた</text>
+  <text class="b" x="128" y="182">受注者の負担：請負代金額の1%</text>
+
+  <rect class="c" x="20" y="202" width="360" height="80" rx="6"/>
+  <rect class="t3" x="20" y="202" width="96" height="80" rx="6"/>
+  <text class="h" x="68" y="236" text-anchor="middle">インフレ</text>
+  <text class="k" x="68" y="256" text-anchor="middle">第6項</text>
+  <text class="s" x="128" y="226">予期できない事情で、工期内に急激な</text>
+  <text class="s" x="128" y="244">インフレーション・デフレーションが起きた</text>
+  <text class="b" x="128" y="270">受注者の負担：残工事代金額の1%</text>
+
+  <text class="l" x="20" y="302">1.5%は約款第26条第2項の定め。1%は国土交通省直轄の運用</text>
+
+  <text class="sec" x="20" y="328">請求から変更まで</text>
+
+  <rect class="st" x="20" y="338" width="360" height="32" rx="6"/>
+  <circle class="n" cx="40" cy="354" r="10"/>
+  <text class="nt" x="40" y="358" text-anchor="middle">1</text>
+  <text class="s" x="62" y="358">書面で請求する（発注者・受注者のどちらからでも）</text>
+
+  <rect class="st" x="20" y="378" width="360" height="32" rx="6"/>
+  <circle class="n" cx="40" cy="394" r="10"/>
+  <text class="nt" x="40" y="398" text-anchor="middle">2</text>
+  <text class="s" x="62" y="398">協議開始日を決める（発注者が受注者の意見を聴く）</text>
+
+  <rect class="st" x="20" y="418" width="360" height="32" rx="6"/>
+  <circle class="n" cx="40" cy="434" r="10"/>
+  <text class="nt" x="40" y="438" text-anchor="middle">3</text>
+  <text class="s" x="62" y="438">変動前後の金額を出し、受注者の負担分を引く</text>
+
+  <rect class="st" x="20" y="458" width="360" height="32" rx="6"/>
+  <circle class="n" cx="40" cy="474" r="10"/>
+  <text class="nt" x="40" y="478" text-anchor="middle">4</text>
+  <text class="s" x="62" y="478">協議して変更契約。整わなければ発注者が定める</text>
+</svg>

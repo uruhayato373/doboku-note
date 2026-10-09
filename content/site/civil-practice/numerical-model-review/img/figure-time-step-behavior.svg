@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="減衰する解に対し、刻み0.25 sの陽解法は符号を変えながら増大し、台形法は増大せず減衰することを示す折れ線の比較">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 12px; fill: #1a3a5c; } /* ink */
+    .t { font-size: 11px; fill: #555; } /* ink-body */
+    .b { font-size: 13px; font-weight: bold; }
+    .l { fill: none; stroke-width: 2; }
+    .g { fill: none; stroke: #d7d7d7; } /* token-border */
+  </style></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="40" y="36" width="330" height="270" rx="6" fill="#f5f5f5" stroke="#d7d7d7" /> <!-- surface -->
+  <g class="g"><path d="M50 36V306M127 36V306M204 36V306M281 36V306M358 36V306" /><path d="M40 194H370" stroke="#8a8a8a" /></g>
+  <polyline class="l" stroke="#8a8a8a" stroke-dasharray="5 3" points="50,166 65.4,177 80.8,183.7 96.2,187.8 111.6,190.2 142.4,192.6 173.2,193.5 204,193.8 281,194 358,194" /> <!-- ink-muted -->
+  <polyline class="l" stroke="#2e6da4" points="50,166 127,197.1 204,193.7 281,194 358,194" /> <!-- brand -->
+  <polyline class="l" stroke="#b22234" points="50,166 127,236 204,131 281,288.5 358,52.2" /> <!-- danger -->
+  <g fill="#2e6da4"><circle cx="50" cy="166" r="3.5" /><circle cx="127" cy="197.1" r="3.5" /><circle cx="204" cy="193.7" r="3.5" /><circle cx="281" cy="194" r="3.5" /><circle cx="358" cy="194" r="3.5" /></g>
+  <g fill="#b22234"><circle cx="127" cy="236" r="3.5" /><circle cx="204" cy="131" r="3.5" /><circle cx="281" cy="288.5" r="3.5" /><circle cx="358" cy="52.2" r="3.5" /></g>
+  <text class="t" x="60" y="154">初期値 1</text>
+  <text class="t" x="366" y="188" text-anchor="end">0</text>
+  <g class="t" text-anchor="middle"><text class="t" x="50" y="324">0</text><text class="t" x="127" y="324">0.25</text><text class="t" x="204" y="324">0.5</text><text class="t" x="281" y="324">0.75</text><text class="t" x="358" y="324">1.0 s</text></g>
+  <path d="M28 353H58" class="l" stroke="#b22234" /><circle cx="43" cy="353" r="3.5" fill="#b22234" />
+  <text x="70" y="357">陽解法 刻み0.25 s：符号を変えて増大</text>
+  <path d="M28 376H58" class="l" stroke="#2e6da4" /><circle cx="43" cy="376" r="3.5" fill="#2e6da4" />
+  <text x="70" y="380">台形法 刻み0.25 s：増大せず減衰</text>
+  <path d="M28 399H58" class="l" stroke="#8a8a8a" stroke-dasharray="5 3" />
+  <text x="70" y="403">厳密解：符号を変えずに減衰</text>
+  <rect x="20" y="420" width="360" height="66" rx="8" fill="#fff3cd" stroke="#d4a017" /> <!-- warn -->
+  <text class="b" x="200" y="447" text-anchor="middle">陽解法は、刻みの上限が安定条件で決まる</text>
+  <text class="b" x="200" y="470" text-anchor="middle">陰解法は、追う現象と精度から刻みを決める</text>
+</svg>

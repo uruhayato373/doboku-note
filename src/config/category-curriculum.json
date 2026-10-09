@@ -25,7 +25,9 @@
         "min": 1,
         "max": 49,
         "introGuides": [
-          "guide-earthwork-key-points"
+          "guide-earthwork-key-points",
+          "guide-structural-mechanics-basics",
+          "guide-hydraulics-basics"
         ]
       },
       {
@@ -588,6 +590,9 @@
           "id": "safety",
           "label": "安全管理（足場・掘削・クレーン・保護具）",
           "slugs": [
+            "accident-first-response",
+            "earthquake-tsunami-site-response",
+            "volcanic-hazard-site-planning",
             "lifting-equipment-selection",
             "oshms-pdca-site-operation",
             "safety-culture-discipline",
@@ -600,14 +605,24 @@
           "id": "management",
           "label": "施工計画・工程・品質・建設機械・環境",
           "slugs": [
+            "pre-construction-process",
+            "reading-civil-drawings",
             "construction-plan-document",
             "cost-and-design-change",
             "quality-record-site-bcp",
+            "construction-inspection-types",
+            "board-of-audit-inspection",
             "reference-values",
             "schedule-and-road-permit",
+            "typhoon-forecast-work-planning",
             "environment-neighborhood",
+            "environmental-impact-assessment-flow",
+            "nature-conservation-mitigation",
             "ict-construction-workflow",
-            "bim-cim-site-practice"
+            "bim-cim-site-practice",
+            "gis-layer-validation",
+            "numerical-model-review",
+            "ai-document-verification"
           ]
         },
         {
@@ -617,6 +632,7 @@
             "asphalt-pavement-control",
             "asphalt-materials-types",
             "steel-material-properties",
+            "material-selection-receiving",
             "river-park-erosion-control",
             "service-commencement",
             "flood-season-river-work",

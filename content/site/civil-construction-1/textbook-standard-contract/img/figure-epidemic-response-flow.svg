@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="感染症など非常事態への対応の流れ。施工が続けられなくなったら受注者の責めによらない事由かを個別に確認し、発注者が一時中止を指示するか受注者が工期延長を請求する。工期・請負代金額・増加費用を協議し、変更契約を結ぶ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .l { font-size: 11px; fill: #555; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 12px; fill: #222; }
+      .t1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .t2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .t3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text class="l" x="200" y="16" text-anchor="middle">損害の負担ではなく、工期と費用の問題として進める</text>
+
+  <rect class="t1" x="20" y="30" width="360" height="64" rx="6"/>
+  <text class="h" x="200" y="58" text-anchor="middle">施工が続けられなくなる</text>
+  <text class="s" x="200" y="78" text-anchor="middle">感染者の発生、技術者・資機材が確保できない など</text>
+
+  <line class="ln" x1="200" y1="94" x2="200" y2="124" marker-end="url(#a)"/>
+
+  <rect class="t3" x="20" y="126" width="360" height="64" rx="6"/>
+  <text class="h" x="200" y="154" text-anchor="middle">受注者の責めによらない事由か、個別に確認</text>
+  <text class="s" x="200" y="174" text-anchor="middle">取組状況・従業員の状況・自治体の自粛要請など</text>
+
+  <line class="ln" x1="106" y1="190" x2="106" y2="220" marker-end="url(#a)"/>
+  <line class="ln" x1="294" y1="190" x2="294" y2="220" marker-end="url(#a)"/>
+
+  <rect class="t2" x="20" y="222" width="172" height="70" rx="6"/>
+  <text class="h" x="106" y="251" text-anchor="middle">一時中止の指示</text>
+  <text class="s" x="106" y="272" text-anchor="middle">発注者が行う（第20条）</text>
+  <rect class="t2" x="208" y="222" width="172" height="70" rx="6"/>
+  <text class="h" x="294" y="251" text-anchor="middle">工期延長の請求</text>
+  <text class="s" x="294" y="272" text-anchor="middle">受注者が行う（第22条）</text>
+
+  <line class="ln" x1="106" y1="292" x2="106" y2="322" marker-end="url(#a)"/>
+  <line class="ln" x1="294" y1="292" x2="294" y2="322" marker-end="url(#a)"/>
+
+  <rect class="t1" x="20" y="324" width="360" height="64" rx="6"/>
+  <text class="h" x="200" y="352" text-anchor="middle">工期・請負代金額・増加費用を協議</text>
+  <text class="s" x="200" y="372" text-anchor="middle">約款第20条第3項・第24条・第25条</text>
+
+  <line class="ln" x1="200" y1="388" x2="200" y2="418" marker-end="url(#a)"/>
+
+  <rect class="t2" x="20" y="420" width="360" height="56" rx="6"/>
+  <text class="h" x="200" y="454" text-anchor="middle">変更契約を結ぶ</text>
+</svg>

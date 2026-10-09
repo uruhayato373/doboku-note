@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設工事紛争審査会の三つの手続の比較。誰が申請できるか、向く争点、相手が応じないとき、決着のあとに要ることを並べる。あっせんと調停は一方の申請でも始められ、成立しても民法上の和解にとどまる。調停は技術的な判断が要る争点に向く。仲裁は仲裁合意書が前提で、判断は確定判決と同一の効力を持つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .v { font-size: 12px; fill: #222; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle">同じ審査会でも、手続によって効力と手間が変わる</text>
+
+  <rect class="bb" x="20" y="26" width="360" height="140" rx="6"/>
+  <text class="h" x="36" y="50">あっせん</text>
+  <text x="112" y="50">歩み寄りを促す</text>
+  <text x="36" y="76">誰が申請</text><text class="v" x="112" y="76">一方の申請でも始められる</text>
+  <text x="36" y="100">向く争点</text><text class="v" x="112" y="100">法律上の判断が中心の争点</text>
+  <text x="36" y="124">応じないとき</text><text class="v" x="112" y="124">出頭は任意。打ち切られることがある</text>
+  <text x="36" y="148">決着のあと</text><text class="v" x="112" y="148">民法上の和解。公正証書か判決が別に要る</text>
+
+  <rect class="bp" x="20" y="176" width="360" height="140" rx="6"/>
+  <text class="h" x="36" y="200">調停</text>
+  <text x="112" y="200">技術面も含めて合意を図る</text>
+  <text x="36" y="226">誰が申請</text><text class="v" x="112" y="226">一方の申請でも始められる</text>
+  <text x="36" y="250">向く争点</text><text class="v" x="112" y="250">工事の瑕疵など技術的な判断が要る争点</text>
+  <text x="36" y="274">応じないとき</text><text class="v" x="112" y="274">出頭は任意。打ち切られることがある</text>
+  <text x="36" y="298">決着のあと</text><text class="v" x="112" y="298">民法上の和解。公正証書か判決が別に要る</text>
+
+  <rect class="bw" x="20" y="326" width="360" height="140" rx="6"/>
+  <text class="h" x="36" y="350">仲裁</text>
+  <text x="112" y="350">裁判に代わる判断を委ねる</text>
+  <text x="36" y="376">誰が申請</text><text class="v" x="112" y="376">仲裁合意書を添えて申請する</text>
+  <text x="36" y="400">向く争点</text><text class="v" x="112" y="400">種類より、判断を委ねる合意が決め手</text>
+  <text x="36" y="424">応じないとき</text><text class="v" x="112" y="424">合意書がなければ始められない</text>
+  <text x="36" y="448">決着のあと</text><text class="v" x="112" y="448">確定判決と同一の効力（執行は裁判所の決定）</text>
+
+  <text x="200" y="488" text-anchor="middle">どの手続も、原則として非公開で行われる</text>
+</svg>

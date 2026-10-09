@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="考え方の例の概念図。平均海面水位の上昇に伴い必要な天端高が上がるため、天端高を段階的に引き上げ、予測の見直しごとに次のかさ上げを決める場合の模式">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .c { text-anchor: middle; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .guide { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <line class="ax" x1="60" y1="380" x2="60" y2="42" marker-end="url(#arr)"/>
+  <line class="ax" x1="60" y1="380" x2="390" y2="380" marker-end="url(#arr)"/>
+  <text x="68" y="52">水位・高さ（考え方の例）</text>
+
+  <line class="guide" x1="180" y1="196" x2="180" y2="380"/>
+  <line class="guide" x1="280" y1="167" x2="280" y2="380"/>
+
+  <line x1="60" y1="330" x2="370" y2="240" stroke="#8a8a8a" stroke-width="2"/>
+  <line x1="60" y1="230" x2="370" y2="140" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="60" y1="230" x2="370" y2="70" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <path d="M60 193 H180 V164 H280 V138 H370" fill="none" stroke="#3a7d44" stroke-width="4"/>
+
+  <text x="176" y="326" text-anchor="end">見直し</text>
+  <text x="276" y="326" text-anchor="end">見直し</text>
+
+  <rect x="96" y="338" width="284" height="34" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="108" y="353" fill="#1a3a5c">基礎・構造は将来の改良を見込んで整備し、</text>
+  <text x="108" y="367" fill="#1a3a5c">天端高は予測の更新に合わせて上げる</text>
+
+  <text class="c" x="120" y="396">当初整備</text>
+  <text class="c" x="230" y="396">かさ上げ①後</text>
+  <text class="c" x="330" y="396">かさ上げ②後</text>
+  <text x="390" y="412" text-anchor="end">時間（施設の耐用年数）</text>
+
+  <line x1="14" y1="432" x2="44" y2="432" stroke="#3a7d44" stroke-width="4"/>
+  <text x="54" y="436">天端高（段階的に上げる場合の例）</text>
+  <line x1="14" y1="450" x2="44" y2="450" stroke="#2e6da4" stroke-width="2"/>
+  <text x="54" y="454">必要な天端高（海面上昇＋潮位偏差・波・余裕高）</text>
+  <line x1="14" y1="468" x2="44" y2="468" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="54" y="472">上位シナリオ（RCP8.5）の参考線</text>
+  <line x1="14" y1="486" x2="44" y2="486" stroke="#8a8a8a" stroke-width="2"/>
+  <text x="54" y="490">平均海面水位（RCP2.6の平均）</text>
+</svg>

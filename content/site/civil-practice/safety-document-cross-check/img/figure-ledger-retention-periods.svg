@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="施工体制台帳の備置きは引渡しまで、営業所の帳簿と添付書類は引渡しから5年、完成図などの図書は引渡しから10年とする期間を並べた図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<path d="M40 54V86M130 54V86M230 54V86M330 54V86M40 150V182M130 150V182M230 150V182M330 150V182M40 246V278M130 246V278M230 246V278M330 246V278" stroke="#d7d7d7" stroke-dasharray="4 4"/>
+<path d="M40 318V334M130 318V334M230 318V334M330 318V334" stroke="#d7d7d7"/>
+<path d="M40 326H340" stroke="#8a8a8a"/>
+<g stroke-width="1.5"><rect x="40" y="58" width="90" height="24" rx="4" fill="#e8f0fe" stroke="#2e6da4"/><rect x="130" y="154" width="100" height="24" rx="4" fill="#fff3cd" stroke="#d4a017"/><rect x="130" y="250" width="200" height="24" rx="4" fill="#d0e8d0" stroke="#3a7d44"/><rect x="30" y="372" width="336" height="84" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/></g>
+<g font-size="12" font-weight="700" fill="#222"><text x="40" y="48">台帳の備置きと体系図の掲示</text><text x="130" y="144">営業所の帳簿と添付書類</text><text x="130" y="240">営業に関する図書</text></g>
+<g font-size="11" fill="#1a3a5c"><text x="40" y="100">現場ごと。引渡しまで</text><text x="130" y="196">引渡しから5年。新築住宅は10年</text><text x="130" y="292">完成図、発注者との打合せ記録、</text><text x="130" y="308">施工体系図（作成建設業者）</text></g>
+<g font-size="11" fill="#555" text-anchor="middle"><text x="40" y="346">下請契約</text><text x="130" y="346">引渡し</text><text x="230" y="346">+5年</text><text x="330" y="346">+10年</text></g>
+<g text-anchor="middle" fill="#222"><text x="198" y="398" font-size="12" font-weight="700">引渡し後に帳簿へ添付するのは、台帳の抜粋部分</text><text x="198" y="420" font-size="11">技術者と下請負人に関する事項が対象になる</text><text x="198" y="440" font-size="11">紙のほか、明確に表示できる電磁的記録でも可</text></g>
+</svg>

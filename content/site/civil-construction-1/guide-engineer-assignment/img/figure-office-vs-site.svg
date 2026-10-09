@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="営業所技術者等は営業所で契約の技術面を支え、主任技術者・監理技術者は現場の施工管理を担う。原則として兼ねないが、建設業法第26条の5の要件を満たせば、営業所技術者は主任技術者を、特定営業所技術者は主任技術者または監理技術者を兼ねられる">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:13px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:11px;font-weight:bold;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.b{font-weight:bold}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}
+.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}
+.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}</style></defs>
+<text class="s" x="200" y="18" text-anchor="middle">営業所と現場で、置く人も置く理由も別</text>
+<rect class="bb" x="12" y="30" width="183" height="124" rx="6"/>
+<text class="h" x="24" y="52">営業所</text>
+<text class="b" x="24" y="74">営業所技術者等</text>
+<text class="s" x="24" y="94">見積り・入札・契約の締結を</text>
+<text class="s" x="24" y="108">技術の面から支える</text>
+<text class="s" x="24" y="126">営業所に常勤し、専らその</text>
+<text class="s" x="24" y="140">職務に従事する（専任）</text>
+<rect class="bp" x="205" y="30" width="183" height="124" rx="6"/>
+<text class="h" x="217" y="52">工事現場</text>
+<text class="b" x="217" y="74">主任技術者・監理技術者</text>
+<text class="s" x="217" y="94">施工の技術上の管理を行う</text>
+<text class="s" x="217" y="126">工事ごとに置く。</text>
+<text class="s" x="217" y="140">金額などにより専任が必要</text>
+<rect class="bd" x="12" y="162" width="376" height="28" rx="6"/>
+<text class="b" x="200" y="181" text-anchor="middle">原則として兼ねない</text>
+<text class="k" x="12" y="212">例外 — 建設業法第26条の5で兼ねられる職務</text>
+<rect class="bb" x="12" y="220" width="183" height="46" rx="6"/>
+<text class="b" x="24" y="239">営業所技術者</text>
+<text x="24" y="257">→ 主任技術者</text>
+<rect class="bb" x="205" y="220" width="183" height="46" rx="6"/>
+<text class="b" x="217" y="239">特定営業所技術者</text>
+<text x="217" y="257">→ 主任・監理技術者</text>
+<text class="k" x="12" y="288">専任が必要な現場を兼ねる要件（すべて満たす）</text>
+<rect class="bs" x="12" y="296" width="376" height="24" rx="6"/>
+<text x="24" y="312">その営業所で請負契約を締結した工事</text>
+<rect class="bs" x="12" y="324" width="376" height="24" rx="6"/>
+<text x="24" y="340">兼ねる現場の数は1つ</text>
+<rect class="bs" x="12" y="352" width="376" height="24" rx="6"/>
+<text x="24" y="368">特例1号と同じ要件（距離は営業所から現場まで）</text>
+<rect class="bs" x="12" y="380" width="376" height="24" rx="6"/>
+<text x="24" y="396">所属建設業者と直接的かつ恒常的な雇用関係</text>
+<text class="k" x="12" y="420">専任が不要な現場を兼ねる場合</text>
+<rect class="bs" x="12" y="428" width="376" height="24" rx="6"/>
+<text class="k" x="24" y="444">近接する</text>
+<text x="90" y="444">常時連絡が取れ、営業所で契約、雇用関係あり</text>
+<rect class="bs" x="12" y="456" width="376" height="24" rx="6"/>
+<text class="k" x="24" y="472">近接しない</text>
+<text x="90" y="472">金額の条件を除く専任現場の要件を満たす</text>
+</svg>

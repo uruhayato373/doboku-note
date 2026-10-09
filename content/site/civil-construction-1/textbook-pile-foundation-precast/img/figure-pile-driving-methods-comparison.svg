@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="打撃・振動・ジェット併用・圧入の4工法を、地盤への力の与え方と騒音・振動の目安で並べた比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .t-head { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag { font-size: 11px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .t-key { font-weight: bold; fill: #555; }
+      .t-axis { font-size: 13px; font-weight: bold; text-anchor: middle; }
+      .t-axis-s { font-size: 11px; fill: #555; text-anchor: middle; }
+      .card { stroke-width: 1.5; }
+      .c-danger { fill: #f8d7da; stroke: #b22234; }
+      .c-warn { fill: #fff3cd; stroke: #d4a017; }
+      .c-positive { fill: #d0e8d0; stroke: #3a7d44; }
+      .chip { fill: #ffffff; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- 左の軸ラベル: 騒音・振動の目安（順位づけはしない） -->
+  <text class="t-axis-s" x="22" y="240" transform="rotate(-90 22 240)">騒音・振動の目安（定性的）</text>
+
+  <!-- 1 打撃 -->
+  <rect class="card c-danger" x="48" y="16" width="318" height="100" rx="6"/> <!-- danger-fill / danger -->
+  <text class="t-head" x="62" y="42">打撃（ディーゼルハンマ）</text>
+  <rect class="chip c-danger" x="244" y="26" width="108" height="22" rx="3"/>
+  <text class="t-tag" x="298" y="41">騒音・振動とも大</text>
+  <text x="62" y="72"><tspan class="t-key">方式</tspan><tspan x="98">落下・爆発の衝撃で打ち込む</tspan></text>
+  <text x="62" y="96"><tspan class="t-key">特徴</tspan><tspan x="98">打止めで支持力を確かめやすい</tspan></text>
+
+  <!-- 2 振動 -->
+  <rect class="card c-danger" x="48" y="128" width="318" height="100" rx="6"/> <!-- danger-fill / danger -->
+  <text class="t-head" x="62" y="154">振動（バイブロハンマ）</text>
+  <rect class="chip c-danger" x="244" y="138" width="108" height="22" rx="3"/>
+  <text class="t-tag" x="298" y="153">特に振動が大</text>
+  <text x="62" y="184"><tspan class="t-key">方式</tspan><tspan x="98">上下の強制振動で沈める</tspan></text>
+  <text x="62" y="208"><tspan class="t-key">特徴</tspan><tspan x="98">打込みも引抜きもできるが市街地では不向き</tspan></text>
+
+  <!-- 3 ジェット -->
+  <rect class="card c-warn" x="48" y="240" width="318" height="100" rx="6"/> <!-- warn-fill / warn -->
+  <text class="t-head" x="62" y="266">ジェット（水圧併用）</text>
+  <rect class="chip c-warn" x="244" y="250" width="108" height="22" rx="3"/>
+  <text class="t-tag" x="298" y="265">併用で振動を抑える</text>
+  <text x="62" y="296"><tspan class="t-key">方式</tspan><tspan x="98">高圧水で先端の地盤をほぐす</tspan></text>
+  <text x="62" y="320"><tspan class="t-key">特徴</tspan><tspan x="98">仮設の矢板・杭は最後に落錘等で打止め</tspan></text>
+
+  <!-- 4 圧入 -->
+  <rect class="card c-positive" x="48" y="352" width="318" height="100" rx="6"/> <!-- positive-fill / positive -->
+  <text class="t-head" x="62" y="378">圧入（油圧ジャッキ）</text>
+  <rect class="chip c-positive" x="244" y="362" width="108" height="22" rx="3"/>
+  <text class="t-tag" x="298" y="377">静的で小さい</text>
+  <text x="62" y="408"><tspan class="t-key">方式</tspan><tspan x="98">油圧ジャッキで静的に押す</tspan></text>
+  <text x="62" y="432"><tspan class="t-key">特徴</tspan><tspan x="98">反力が要る。硬い地盤はジェット併用</tspan></text>
+
+  <text class="t-axis-s" x="207" y="480">力の出どころと地盤の変え方で見分ける</text>
+</svg>

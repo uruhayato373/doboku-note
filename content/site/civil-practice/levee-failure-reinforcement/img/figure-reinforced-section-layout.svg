@@ -1,0 +1,60 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は河川砂防技術基準の強化工法と、危機管理型ハード対策・粘り強い河川堤防の構成要素を再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="補強した堤防の断面と7つの要素の置き場所。川側の表のり遮水シートと川表の止水矢板が水の入口を減らし、天端舗装と裏法面の被覆と法尻のブロック平場が越水に耐え、裏法尻のドレーン工と堤脚水路が水の出口をさばく">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tn { font-weight: bold; fill: #1a3a5c; }
+      .tm { fill: #8a8a8a; }
+      .tk { font-size: 13px; fill: #222; }
+      .th { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .w { fill: #e8f0fe; }
+      .ws { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .lv { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-linejoin: round; }
+      .sd { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .im { fill: #d7d7d7; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .m { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="tm" x="20" y="30">川側</text>
+  <text class="tm" x="322" y="30">堤内地</text>
+  <polygon class="w" points="16,170 100,170 50,230 16,230"/>
+  <line class="ws" x1="16" y1="170" x2="100" y2="170"/>
+  <rect class="sd" x="11" y="230" width="378" height="26"/>
+  <rect class="im" x="11" y="256" width="378" height="24"/>
+  <text x="110" y="248">透水層</text>
+  <text class="tk" style="font-size:11px" x="110" y="272">不透水層</text>
+  <polygon class="lv" points="50,230 150,110 196,110 304,230"/>
+  <polygon class="m" points="236,200 277,200 304,230 236,230"/>
+  <g fill="#3a7d44"><circle cx="248" cy="212" r="1.5"/><circle cx="262" cy="220" r="1.5"/><circle cx="244" cy="224" r="1.5"/><circle cx="270" cy="224" r="1.5"/><circle cx="256" cy="206" r="1.5"/><circle cx="266" cy="211" r="1.5"/></g>
+  <line x1="52" y1="230" x2="151" y2="111" stroke="#2e6da4" stroke-width="3.5" stroke-linecap="round"/>
+  <rect class="b" x="43" y="224" width="7" height="36"/>
+  <rect class="y" x="150" y="105" width="46" height="5"/>
+  <line x1="194" y1="112" x2="300" y2="230" stroke="#d4a017" stroke-width="4" stroke-linecap="round"/>
+  <rect class="y" x="304" y="225" width="40" height="5"/>
+  <path d="M346 224V236H364V224" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+
+  <circle class="b" cx="58" cy="194" r="9"/><text class="tn" x="58" y="198" text-anchor="middle">1</text>
+  <circle class="b" cx="24" cy="214" r="9"/><text class="tn" x="24" y="218" text-anchor="middle">2</text>
+  <circle class="y" cx="173" cy="86" r="9"/><text class="tn" x="173" y="90" text-anchor="middle">3</text>
+  <circle class="y" cx="232" cy="128" r="9"/><text class="tn" x="232" y="132" text-anchor="middle">4</text>
+  <circle class="y" cx="324" cy="204" r="9"/><text class="tn" x="324" y="208" text-anchor="middle">5</text>
+  <circle class="m" cx="216" cy="214" r="9"/><text class="tn" x="216" y="218" text-anchor="middle">6</text>
+  <circle class="m" cx="355" cy="204" r="9"/><text class="tn" x="355" y="208" text-anchor="middle">7</text>
+
+  <rect x="20" y="302" width="4" height="12" fill="#2e6da4"/><text class="th" x="30" y="312">水の入口を減らす</text>
+  <circle class="b" cx="30" cy="334" r="9"/><text class="tn" x="30" y="338" text-anchor="middle">1</text><text class="tk" x="46" y="339">遮水シート（表のり）</text>
+  <circle class="b" cx="30" cy="360" r="9"/><text class="tn" x="30" y="364" text-anchor="middle">2</text><text class="tk" x="46" y="365">止水矢板（川表）</text>
+  <rect x="20" y="388" width="4" height="12" fill="#3a7d44"/><text class="th" x="30" y="398">水の出口をさばく</text>
+  <circle class="m" cx="30" cy="420" r="9"/><text class="tn" x="30" y="424" text-anchor="middle">6</text><text class="tk" x="46" y="425">ドレーン工</text>
+  <circle class="m" cx="30" cy="446" r="9"/><text class="tn" x="30" y="450" text-anchor="middle">7</text><text class="tk" x="46" y="451">堤脚水路</text>
+
+  <rect x="210" y="302" width="4" height="12" fill="#d4a017"/><text class="th" x="220" y="312">越水に耐える</text>
+  <circle class="y" cx="220" cy="334" r="9"/><text class="tn" x="220" y="338" text-anchor="middle">3</text><text class="tk" x="236" y="339">天端舗装</text>
+  <circle class="y" cx="220" cy="360" r="9"/><text class="tn" x="220" y="364" text-anchor="middle">4</text><text class="tk" x="236" y="365">裏法面の被覆</text>
+  <circle class="y" cx="220" cy="386" r="9"/><text class="tn" x="220" y="390" text-anchor="middle">5</text><text class="tk" x="236" y="391">法尻のブロック平場</text>
+
+  <text x="200" y="484" text-anchor="middle">全部を入れるのではなく、壊れ方・用地・費用で選ぶ</text>
+</svg>

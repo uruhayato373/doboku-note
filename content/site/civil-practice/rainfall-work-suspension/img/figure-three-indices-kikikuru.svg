@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="現場の危険ごとに見るキキクルを選ぶ図。土砂キキクルは土壌雨量指数と60分雨量で2〜6時間先、浸水キキクルは表面雨量指数で1時間先、洪水キキクルは流域雨量指数で3時間先まで判定する" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <text x="20" y="26" font-size="12" fill="#555">危険の出る場所ごとに、見る指数と地図を選ぶ</text>
+  <rect x="20" y="40" width="360" height="136" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="66" font-size="14" font-weight="bold" fill="#1a3a5c">土砂キキクル</text>
+  <text x="366" y="66" font-size="12" fill="#555" text-anchor="end">土砂災害</text>
+  <path d="M34 76 H366" stroke="#2e6da4" stroke-width="1" fill="none"/>
+  <text x="34" y="98" font-size="11" font-weight="bold" fill="#1a3a5c">指数</text>
+  <text x="86" y="98" font-size="12" fill="#222">土壌雨量指数と60分雨量</text>
+  <text x="34" y="120" font-size="11" font-weight="bold" fill="#1a3a5c">先読み</text>
+  <text x="86" y="120" font-size="12" fill="#222">黄6時間・赤3時間・紫2時間先</text>
+  <text x="34" y="142" font-size="11" font-weight="bold" fill="#1a3a5c">現場</text>
+  <text x="86" y="142" font-size="12" fill="#222">斜面・のり面・渓流の近く</text>
+  <text x="34" y="164" font-size="11" font-weight="bold" fill="#b22234">注意</text>
+  <text x="86" y="164" font-size="12" fill="#222">建物も定住者もない所は赤・紫・黒が出ない</text>
+  <rect x="20" y="186" width="360" height="136" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="212" font-size="14" font-weight="bold" fill="#1a3a5c">浸水キキクル</text>
+  <text x="366" y="212" font-size="12" fill="#555" text-anchor="end">浸水害</text>
+  <path d="M34 222 H366" stroke="#2e6da4" stroke-width="1" fill="none"/>
+  <text x="34" y="244" font-size="11" font-weight="bold" fill="#1a3a5c">指数</text>
+  <text x="86" y="244" font-size="12" fill="#222">表面雨量指数</text>
+  <text x="34" y="266" font-size="11" font-weight="bold" fill="#1a3a5c">先読み</text>
+  <text x="86" y="266" font-size="12" fill="#222">1時間先まで</text>
+  <text x="34" y="288" font-size="11" font-weight="bold" fill="#1a3a5c">現場</text>
+  <text x="86" y="288" font-size="12" fill="#222">掘削底・地下・低地・アンダーパス</text>
+  <text x="34" y="310" font-size="11" font-weight="bold" fill="#b22234">注意</text>
+  <text x="86" y="310" font-size="12" fill="#222">建物も定住者もない所は赤・紫・黒が出ない</text>
+  <rect x="20" y="332" width="360" height="136" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="358" font-size="14" font-weight="bold" fill="#1a3a5c">洪水キキクル</text>
+  <text x="366" y="358" font-size="12" fill="#555" text-anchor="end">洪水災害</text>
+  <path d="M34 368 H366" stroke="#2e6da4" stroke-width="1" fill="none"/>
+  <text x="34" y="390" font-size="11" font-weight="bold" fill="#1a3a5c">指数</text>
+  <text x="86" y="390" font-size="12" fill="#222">流域雨量指数</text>
+  <text x="34" y="412" font-size="11" font-weight="bold" fill="#1a3a5c">先読み</text>
+  <text x="86" y="412" font-size="12" fill="#222">3時間先まで</text>
+  <text x="34" y="434" font-size="11" font-weight="bold" fill="#1a3a5c">現場</text>
+  <text x="86" y="434" font-size="12" fill="#222">中小河川の近く・河川内の仮設</text>
+  <text x="34" y="456" font-size="11" font-weight="bold" fill="#b22234">注意</text>
+  <text x="86" y="456" font-size="12" fill="#222">大河川は指定河川洪水予報で見る</text>
+</svg>
