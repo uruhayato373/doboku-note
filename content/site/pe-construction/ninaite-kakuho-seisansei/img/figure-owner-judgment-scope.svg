@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="調査・設計・施工の各段階で、外部に任せる作業と発注者に残す判断を左右に対比した図" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:14px;text-anchor:middle}
+.h{font-weight:bold}.s{font-size:13px;fill:#555;text-anchor:start}
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}
+</style></defs>
+<text x="107" y="34" class="h">外部に任せる作業</text><text x="293" y="34" class="h">発注者に残す判断</text>
+<text x="20" y="72" class="s h">調査</text>
+<rect x="20" y="82" width="175" height="78" rx="6" class="b"/><text x="107.5" y="115">測量・地質調査</text><text x="107.5" y="139">の実施</text>
+<rect x="205" y="82" width="175" height="78" rx="6" class="g"/><text x="292.5" y="115">調査範囲の決定</text><text x="292.5" y="139">結果の妥当性確認</text>
+<text x="20" y="194" class="s h">設計</text>
+<rect x="20" y="204" width="175" height="78" rx="6" class="b"/><text x="107.5" y="237">設計図書の作成</text><text x="107.5" y="261">積算の補助</text>
+<rect x="205" y="204" width="175" height="78" rx="6" class="g"/><text x="292.5" y="237">設計条件の承認</text><text x="292.5" y="261">予定価格の決定</text>
+<text x="20" y="316" class="s h">施工</text>
+<rect x="20" y="326" width="175" height="78" rx="6" class="b"/><text x="107.5" y="359">監督・検査の補助</text><text x="107.5" y="383">書類の確認</text>
+<rect x="205" y="326" width="175" height="78" rx="6" class="g"/><text x="292.5" y="359">施工状況の確認</text><text x="292.5" y="383">変更協議の判断</text>
+<rect x="20" y="430" width="360" height="52" rx="8" class="w"/>
+<text x="200" y="461" class="h">手は借りても、判断は手元に残す</text>
+</svg>
