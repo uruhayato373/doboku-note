@@ -2424,6 +2424,57 @@
       "commit": "ce19c06f2542",
       "verification": "tests/dataset-query.test.mjs 4 件（行の取り出し・欄=値/!=/~・入れ子・Drive の案内・別データセットのファイルを拒む）。npm run data -- query state.book-coverage --where verdict.gap=0 で 8 行。管理画面 /ops/store?k=state&f=state.book-coverage&q=verdict.gap=0 で同じ 8 行を表示（worktree から admin を起動して確認）。commands.md・data-storage-decision.md・admin README に記載",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0606",
+      "at": "2026-10-10",
+      "task": "技術士の既存記事の誤りを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "個別の記述の誤り。事実は一次資料で確かめる手順（feedback_factcheck_guide_facts・guide-fact-checker）で拾う。機械で決まる合格条件を作れない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "64306ae8c073",
+      "verification": "6 件を一次資料で判定して直した（受験申込み案内 R8 p.7・p.25・p.22、R02/R05 総監の公式問題 PDF、環境影響評価法施行令別表第一、国交省グリーンインフラ官民連携PF、文科省の合否決定基準）。答案用紙は 24字×25行、Ⅱ-1/Ⅱ-2/Ⅲ の科目名、自動車破砕残さ・事業系の食品ロス、風力の規模 5万/3.75万kW、PF 設立 2020年3月、24問は択一の目安、時計は通信・計算機能付きと大型が不可。あわせて R05 の転記ミス（ならもの 34 か所・ときは・縦覧）と必須科目の記事の答案用紙も直した（ce19c06f2）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0618",
+      "at": "2026-10-10",
+      "task": "1級土木の既存記事の誤り・食い違いを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "個別の記述の誤り。過去問・手引の記述は原本との照合（feedback_exam_pdf_cross_reference）で拾う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "64306ae8c073",
+      "verification": "6 件を一次資料で判定（R5〜R8 問題A・受検の手引 R8・建設副産物適正処理推進要綱・建設省令第19号/第20号）。guide-strategy の法規の出題数と問題A 66問（正しい）、R03-B No.19 の第26・熱回収、環境管理の保存期間 完成後5年、経験記述の認められない工事の表、品質管理 R1 No.3 の設問と答えを直した（f87e06f80）。H29-B No.4・No.31 は原本が無く判定できないので DN-0634 へ",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0595",
+      "at": "2026-10-10",
+      "task": "1級土木のサイトの記述と市販の教本の食い違いを、一次資料で確かめて直す（測量の許容差・分野別出題数・実務経験の可否・二次過去問の設問）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "教本と食い違う記述の確認。一次資料で確かめる手順で拾う。二次過去問の作り直しは DN-0633"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "64306ae8c073",
+      "verification": "測量の許容差（JIS B 7512）・正反観測で消せる誤差は正しい。guide-strategy の分野別出題数と実務経験の表は誤りを直した（f87e06f80）。気差補正→標高補正・24mm も直した。二次過去問（H29 問題2・H30 問題1 など）は設問の食い違いが分野別過去問ページ全体に及ぶので DN-0633 で作り直す",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
