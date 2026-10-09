@@ -24,6 +24,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, appendFileSync } from
 import { join } from 'node:path';
 import { jstDayTime } from './jst-date.mjs';
 import { normalize, trigrams, jaccard } from './x-text-similarity.mjs';
+import { xPublicationIndex, readXPublication, isQueueable } from './registry-x-store.mjs';
 
 export const DEFAULT_LIMITS = Object.freeze({
   maxPerDay: 2,
@@ -276,12 +277,34 @@ function readJsonSafe(fs, file) {
 }
 
 /**
+ * 台帳（コンテンツ台帳）の行の状態を status.json 由来の状態に重ねる純関数（DN-0612）。
+ * 台帳が stopped なら 'stopped'、published なら 'posted'、approved・scheduled 以外（draft など）なら 'unapproved' にして投稿の候補から外す。
+ * 行が無い・approved・scheduled なら status.json の status のまま。
+ * @param {string|undefined} status status.json の status
+ * @param {{status?: string}|null|undefined} pub 台帳の行
+ */
+export function overlayRegistryStatus(status, pub) {
+  if (!pub) return status;
+  if (pub.status === 'stopped') return 'stopped';
+  if (pub.status === 'published') return 'posted';
+  // approved・scheduled 以外（draft・failed・refresh_due など）は候補にしない（selectDueTweet が拾わない値）
+  if (!isQueueable(pub)) return 'unapproved';
+  return status;
+}
+
+/**
  * content/sns/x/{draft,published}/*\/status.json（_archive* 除外）と
  * .claude/state/x-publish/posted-log.jsonl を合成し、url で重複排除した配列を返す。
- * @param {{root: string, fs?: object}} opts fs は node:fs 互換オブジェクトを注入可能
+ * 各ツイートの status には台帳（content/registry）の stopped・published を重ねる（overlayRegistryStatus）。
+ * @param {{root: string, fs?: object, registryIndex?: Map|null}} opts fs は node:fs 互換オブジェクトを注入可能。
+ *   registryIndex は xPublicationIndex の結果（テスト用。省略時は 1 回だけ作り、読めなければ投げる。null を明示したときだけ台帳を重ねない）
  */
-export function loadLedger({ root, fs: fsImpl } = {}) {
+export function loadLedger({ root, fs: fsImpl, registryIndex } = {}) {
   const fs = fsImpl || { existsSync, readFileSync, readdirSync };
+  let regIndex = registryIndex;
+  if (regIndex === undefined) {
+    regIndex = xPublicationIndex(root); // 読めなければ投げる（台帳なしで続行しない＝fail-closed）
+  }
   const entries = [];
   const bases = ['content/sns/x/draft', 'content/sns/x/published'];
   for (const base of bases) {
@@ -311,7 +334,7 @@ export function loadLedger({ root, fs: fsImpl } = {}) {
           key,
           title,
           text,
-          status: t.status,
+          status: overlayRegistryStatus(t.status, regIndex ? readXPublication(root, `${base.split('/').pop()}/${name}`, key, regIndex) : null),
           scheduledAt: t.scheduled_at ?? null,
           postedAt: t.posted_at ?? null,
           url: t.url ?? null,

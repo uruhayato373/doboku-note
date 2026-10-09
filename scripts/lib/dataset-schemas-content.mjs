@@ -70,6 +70,7 @@ const Work = z
       .optional(),
     theme: z.string().optional().describe('コンテンツのテーマの id'),
     idException: idException.optional(),
+    legacyKey: z.string().optional().describe('取り込む前の名前（フォルダ名など）'),
     renamedTo: z.string().optional().describe('改名した先の作品 ID（この行は残す）'),
   })
   .strict();

@@ -145,6 +145,7 @@ node .tmp/count-x-chars.mjs content/sns/x/draft/<NNN>-<name>/tweets.md
 
 - 画像生成: `scripts/gen-x-card.mjs`（[create-x-card](../../../.claude/skills/social/create-x-card/SKILL.md)）
 - 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）— **予約運用は再開済み。現行 S2＝1日3本**（段階と後退条件 → `x-post-policy.md` §11.6）。投入は1週間分ずつ
+- 状態の正本: コンテンツ台帳 `content/registry/publications/x/{exam}.json`（`status.json` は文面と運用の記録・P7 で文面を `tweets.md` へ寄せてから消す）
 - 字数検証: `scripts/check-x-length.mjs`
 - 予約前ゲート: `scripts/x-schedule-guard.mjs`（`npm run x-schedule-guard [--queue] [--max-per-day 2]`）／俯瞰: `x-schedule-view`／キュー突合: `x-sync-status`
 - マガジン CTA A/B: [magazine-ab-test.md](./magazine-ab-test.md)

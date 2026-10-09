@@ -8,6 +8,12 @@
       "definition": "content/sns/instagram/cem/angle-reels/civil-servant-blindspots-experience"
     },
     {
+      "id": "cem-existing-figure-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/103-cem-existing-figure-diagrams",
+      "legacyKey": "103-cem-existing-figure-diagrams"
+    },
+    {
       "id": "cem-kw-access-control",
       "kind": "legacy-short",
       "definition": "content/site/pe-comprehensive-management/access-control"
@@ -1528,6 +1534,12 @@
       "definition": "content/sns/instagram/cem/r08-sokuhou"
     },
     {
+      "id": "cem-textbook-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/098-cem-textbook-diagrams",
+      "legacyKey": "098-cem-textbook-diagrams"
+    },
+    {
       "id": "gokanri-tradeoff",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff",
@@ -1592,6 +1604,60 @@
         "at": "2026-08-28",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "pe-comprehensive-countdown-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/061-pe-comprehensive-countdown-w1",
+      "legacyKey": "061-pe-comprehensive-countdown-w1"
+    },
+    {
+      "id": "pe-comprehensive-countdown-w2",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/063-pe-comprehensive-countdown-w2",
+      "legacyKey": "063-pe-comprehensive-countdown-w2"
+    },
+    {
+      "id": "pe-comprehensive-countdown-w3",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3",
+      "legacyKey": "065-pe-comprehensive-countdown-w3"
+    },
+    {
+      "id": "pe-comprehensive-countdown-w4",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4",
+      "legacyKey": "067-pe-comprehensive-countdown-w4"
+    },
+    {
+      "id": "pe-comprehensive-finalpush-wa",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA",
+      "legacyKey": "069-pe-comprehensive-finalpush-wA"
+    },
+    {
+      "id": "pe-comprehensive-finalpush-wb",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB",
+      "legacyKey": "071-pe-comprehensive-finalpush-wB"
+    },
+    {
+      "id": "pe-comprehensive-r08-hit",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-2026-overdue/080-pe-comprehensive-r08-hit",
+      "legacyKey": "080-pe-comprehensive-r08-hit"
+    },
+    {
+      "id": "pe-comprehensive-r08-model-answer",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/079-pe-comprehensive-r08-model-answer",
+      "legacyKey": "079-pe-comprehensive-r08-model-answer"
+    },
+    {
+      "id": "pe-comprehensive-r08-sokuhou",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/077-pe-comprehensive-r08-sokuhou",
+      "legacyKey": "077-pe-comprehensive-r08-sokuhou"
     },
     {
       "id": "persona-settei",

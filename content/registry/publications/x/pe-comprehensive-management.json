@@ -1,0 +1,1262 @@
+{
+  "schemaVersion": 1,
+  "channel": "x",
+  "exam": "pe-comprehensive-management",
+  "publications": [
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t01",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#1",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/1",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t02",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#2",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/2",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t03",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#3",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/3",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t04",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#4",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/4",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t05",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#5",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/5",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t06",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#6",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/6",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t07",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#7",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/7",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t08",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#8",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/8",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t09",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#9",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/9",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t10",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#10",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t11",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#11",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/11",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t12",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#12",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/12",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t13",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#13",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/13",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t14",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#14",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/14",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-existing-figure-diagrams/x.post.t15",
+      "work": "cem-existing-figure-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t15",
+      "legacyKey": "draft/103-cem-existing-figure-diagrams#15",
+      "copy": "content/sns/x/draft/103-cem-existing-figure-diagrams/status.json#tweets/15",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t01",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/098-cem-textbook-diagrams#1",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/1",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t02",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/098-cem-textbook-diagrams#2",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/2",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t03",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/098-cem-textbook-diagrams#3",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/3",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t04",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/098-cem-textbook-diagrams#4",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/4",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t05",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/098-cem-textbook-diagrams#5",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/5",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t06",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/098-cem-textbook-diagrams#6",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/6",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t07",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/098-cem-textbook-diagrams#7",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/7",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t08",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/098-cem-textbook-diagrams#8",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/8",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t09",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/098-cem-textbook-diagrams#9",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/9",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t10",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/098-cem-textbook-diagrams#10",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t11",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/098-cem-textbook-diagrams#11",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/11",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t12",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/098-cem-textbook-diagrams#12",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/12",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t13",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/098-cem-textbook-diagrams#13",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/13",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t14",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/098-cem-textbook-diagrams#14",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/14",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t15",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t15",
+      "legacyKey": "draft/098-cem-textbook-diagrams#15",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/15",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t16",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t16",
+      "legacyKey": "draft/098-cem-textbook-diagrams#16",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/16",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t17",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t17",
+      "legacyKey": "draft/098-cem-textbook-diagrams#17",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/17",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t18",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t18",
+      "legacyKey": "draft/098-cem-textbook-diagrams#18",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/18",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-textbook-diagrams/x.post.t19",
+      "work": "cem-textbook-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t19",
+      "legacyKey": "draft/098-cem-textbook-diagrams#19",
+      "copy": "content/sns/x/draft/098-cem-textbook-diagrams/status.json#tweets/19",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t01",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#1",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/1",
+      "publishAt": "2026-06-22T19:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2069022588308017283",
+        "url": "https://x.com/doboku373/status/2069022588308017283",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t02",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#2",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/2",
+      "publishAt": "2026-06-23T21:10:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2069392525639704895",
+        "url": "https://x.com/doboku373/status/2069392525639704895",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t03",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#3",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/3",
+      "publishAt": "2026-06-24T20:00:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2069737302847603051",
+        "url": "https://x.com/doboku373/status/2069737302847603051",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t04",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#4",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/4",
+      "publishAt": "2026-06-25T07:30:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2069910942981173663",
+        "url": "https://x.com/doboku373/status/2069910942981173663",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t05",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#5",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/5",
+      "publishAt": "2026-06-26T12:50:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2070353860003303446",
+        "url": "https://x.com/doboku373/status/2070353860003303446",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t06",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#6",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/6",
+      "publishAt": "2026-06-27T19:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2070814394766782703",
+        "url": "https://x.com/doboku373/status/2070814394766782703",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w1/x.post.t07",
+      "work": "pe-comprehensive-countdown-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/061-pe-comprehensive-countdown-w1#7",
+      "copy": "content/sns/x/draft/061-pe-comprehensive-countdown-w1/status.json#tweets/7",
+      "publishAt": "2026-06-28T08:10:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2071008171552879081",
+        "url": "https://x.com/doboku373/status/2071008171552879081",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t01",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#1",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/1",
+      "publishAt": "2026-06-29T19:50:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t02",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#2",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/2",
+      "publishAt": "2026-06-30T07:20:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t03",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#3",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/3",
+      "publishAt": "2026-07-01T21:30:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t04",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#4",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/4",
+      "publishAt": "2026-07-02T12:20:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t05",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#5",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/5",
+      "publishAt": "2026-07-03T18:40:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t06",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#6",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/6",
+      "publishAt": "2026-07-04T20:10:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w2/x.post.t07",
+      "work": "pe-comprehensive-countdown-w2",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/063-pe-comprehensive-countdown-w2#7",
+      "copy": "content/sns/x/draft/063-pe-comprehensive-countdown-w2/status.json#tweets/7",
+      "publishAt": "2026-07-05T07:50:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "status.json に本文が無く、自分の投稿の一覧と結べない"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t01",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#1",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t02",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#2",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t03",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#3",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t04",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#4",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t05",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#5",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t06",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#6",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w3/x.post.t07",
+      "work": "pe-comprehensive-countdown-w3",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/_archive-2026-pe-countdown/065-pe-comprehensive-countdown-w3#7",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t01",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#1",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t02",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#2",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t03",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#3",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t04",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#4",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t05",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#5",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t06",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#6",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-countdown-w4/x.post.t07",
+      "work": "pe-comprehensive-countdown-w4",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/_archive-2026-pe-countdown/067-pe-comprehensive-countdown-w4#7",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t01",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#1",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/1",
+      "publishAt": "2026-07-07T14:10:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2074360259280613407",
+        "url": "https://x.com/doboku373/status/2074360259280613407",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t02",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#2",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/2",
+      "publishAt": "2026-07-07T21:05:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2074464698225873169",
+        "url": "https://x.com/doboku373/status/2074464698225873169",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t03",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#3",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/3",
+      "publishAt": "2026-07-08T12:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2074699997791367374",
+        "url": "https://x.com/doboku373/status/2074699997791367374",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t04",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#4",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/4",
+      "publishAt": "2026-07-09T08:25:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2074998212742484162",
+        "url": "https://x.com/doboku373/status/2074998212742484162",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t05",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#5",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/5",
+      "publishAt": "2026-07-09T21:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2075198281357963555",
+        "url": "https://x.com/doboku373/status/2075198281357963555",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t06",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#6",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/6",
+      "publishAt": "2026-07-10T12:05:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2075415966649864381",
+        "url": "https://x.com/doboku373/status/2075415966649864381",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t07",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#7",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/7",
+      "publishAt": "2026-07-11T08:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2075726763469275586",
+        "url": "https://x.com/doboku373/status/2075726763469275586",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t08",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#8",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/8",
+      "publishAt": "2026-07-11T20:55:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2075911732242133349",
+        "url": "https://x.com/doboku373/status/2075911732242133349",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t09",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#9",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/9",
+      "publishAt": "2026-07-12T12:25:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2076145774455665141",
+        "url": "https://x.com/doboku373/status/2076145774455665141",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t10",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#10",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/10",
+      "publishAt": "2026-07-13T07:45:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2076437698051707253",
+        "url": "https://x.com/doboku373/status/2076437698051707253",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wa/x.post.t11",
+      "work": "pe-comprehensive-finalpush-wa",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/069-pe-comprehensive-finalpush-wA#11",
+      "copy": "content/sns/x/draft/069-pe-comprehensive-finalpush-wA/status.json#tweets/11",
+      "publishAt": "2026-07-13T20:30:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2076630218295660762",
+        "url": "https://x.com/doboku373/status/2076630218295660762",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t01",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#1",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/1",
+      "publishAt": "2026-07-14T08:05:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2076805119279296745",
+        "url": "https://x.com/doboku373/status/2076805119279296745",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t02",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#2",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/2",
+      "publishAt": "2026-07-14T20:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2076995121166311438",
+        "url": "https://x.com/doboku373/status/2076995121166311438",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t03",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#3",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/3",
+      "publishAt": "2026-07-15T13:25:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2077248037450379612",
+        "url": "https://x.com/doboku373/status/2077248037450379612",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t04",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#4",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/4",
+      "publishAt": "2026-07-16T08:30:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2077536187221455055",
+        "url": "https://x.com/doboku373/status/2077536187221455055",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t05",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#5",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/5",
+      "publishAt": "2026-07-16T19:55:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2077708572188668089",
+        "url": "https://x.com/doboku373/status/2077708572188668089",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t06",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#6",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/6",
+      "publishAt": "2026-07-17T13:45:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2077977846287622532",
+        "url": "https://x.com/doboku373/status/2077977846287622532",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-finalpush-wb/x.post.t07",
+      "work": "pe-comprehensive-finalpush-wb",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/071-pe-comprehensive-finalpush-wB#7",
+      "copy": "content/sns/x/draft/071-pe-comprehensive-finalpush-wB/status.json#tweets/7",
+      "publishAt": "2026-07-18T08:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2078258445296574781",
+        "url": "https://x.com/doboku373/status/2078258445296574781",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-r08-hit/x.post.t01",
+      "work": "pe-comprehensive-r08-hit",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/_archive-2026-overdue/080-pe-comprehensive-r08-hit#1",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-r08-model-answer/x.post.t01",
+      "work": "pe-comprehensive-r08-model-answer",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/079-pe-comprehensive-r08-model-answer#1",
+      "copy": "content/sns/x/draft/079-pe-comprehensive-r08-model-answer/status.json#tweets/1",
+      "publishAt": "2026-07-20T07:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2078968121692684632",
+        "url": "https://x.com/doboku373/status/2078968121692684632",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/pe-comprehensive-r08-sokuhou/x.post.t01",
+      "work": "pe-comprehensive-r08-sokuhou",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/077-pe-comprehensive-r08-sokuhou#1",
+      "copy": "content/sns/x/draft/077-pe-comprehensive-r08-sokuhou/status.json#tweets/1",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2078836662294155558",
+        "url": "https://x.com/doboku373/status/2078836662294155558",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    }
+  ]
+}

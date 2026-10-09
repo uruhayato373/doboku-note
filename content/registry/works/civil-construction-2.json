@@ -199,6 +199,60 @@
       "definition": "content/sns/instagram/civil-2/theme-packs/sekokeikaku-planning/pack-01"
     },
     {
+      "id": "character-10-a",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/096-character-2026-10-a",
+      "legacyKey": "096-character-2026-10-a"
+    },
+    {
+      "id": "civil2-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/085-civil2-2026-08-boost",
+      "legacyKey": "085-civil2-2026-08-boost"
+    },
+    {
+      "id": "civil2-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/088-civil2-2026-08-late",
+      "legacyKey": "088-civil2-2026-08-late"
+    },
+    {
+      "id": "civil2-coconala10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/107-civil2-coconala-2026-10",
+      "legacyKey": "107-civil2-coconala-2026-10"
+    },
+    {
+      "id": "civil2-final10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/097-civil2-final-2026-10",
+      "legacyKey": "097-civil2-final-2026-10"
+    },
+    {
+      "id": "civil2-keiken-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/074-civil2-keiken-w1",
+      "legacyKey": "074-civil2-keiken-w1"
+    },
+    {
+      "id": "civil2-lastweek10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/106-civil2-lastweek-2026-10",
+      "legacyKey": "106-civil2-lastweek-2026-10"
+    },
+    {
+      "id": "civil2-pinned10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/105-civil2-pinned-2026-10",
+      "legacyKey": "105-civil2-pinned-2026-10"
+    },
+    {
+      "id": "civil2-shiken-campaign",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign",
+      "legacyKey": "045-civil2-shiken-campaign"
+    },
+    {
       "id": "gakka-2kyu-concrete",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete",
@@ -396,6 +450,12 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "x043-civil2-r05z",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/043-civil2-r05z頻出",
+      "legacyKey": "043-civil2-r05z頻出"
     }
   ]
 }

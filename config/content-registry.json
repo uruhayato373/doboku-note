@@ -80,7 +80,7 @@
       "(?:^|-)pack-\\d+",
       "-\\d+$"
     ],
-    "idExceptionMax": 445
+    "idExceptionMax": 446
   },
   "status": {
     "values": [
@@ -170,6 +170,7 @@
           "published"
         ],
         "approved": [
+          "scheduled",
           "published"
         ]
       }
