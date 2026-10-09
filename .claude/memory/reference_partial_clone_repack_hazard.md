@@ -10,6 +10,8 @@ metadata:
 
 `doboku-note` のローカル `.git` は **`blob:none` の partial clone**（`remote.origin.promisor=true` / `partialclonefilter=blob:none`）。普通の clone と挙動が違い、肥大化を直しに行くと逆に壊す罠が 3 つある。
 
+**中身の差分を見る log は過去の blob を取りに行く（2026-10-10 実測）**: `git log --numstat`・`--stat`・`-p`・`-M` は、差分を出すために手元に無い過去の blob をリモートから取ってくる。「バイナリの変更数を数える」つもりで期間を区切らずに流したら 5 分で終わらず、`.git` が 1.3 → 2.6 GiB に膨らみかけた（止めた後、自動の再パックで 1.3 GiB に戻り、残骸は 16 KB の `tmp_pack_*` だけ）。履歴の容量や中身を調べるときは、blob を読まないコマンド（`git count-objects -vH`・`git log --format=...`・`git rev-list --count`）だけを使う。
+
 **罠1: `git rev-list --objects --all` を素で回すと履歴を再ダウンロードする。**
 欠損 blob を promisor remote から遅延取得しに行くため、`.git` が膨らむ。2026-08-21 の DN-0111 Phase 0 実査で実際に promisor pack を 266 個増やして確認した。履歴走査は必ず **`--missing=allow-any`** を付ける（欠損を欠損のまま数える）。素で回すと 5 分でも終わらないのは「遅い」のではなく「DL している」。
 
