@@ -2385,6 +2385,19 @@
       "commit": "b0367b1e239c",
       "verification": "公式の問題 A は掲載終了・Wayback にも qa.pdf と answer.html が無い。第三者の転記（ads3d.com H26 問題A No54）で原問の選択肢1は『国家資格者又は2年以上の指導監督的な実務経験』で正答1と整合。サイトは選択肢1が正しい文（1級又は大臣認定）、選択肢4が後年の4,000万円に書き換わっていたので原問に戻し、解説を建設業法第15条第2号ただし書・第26条と2025年2月施行の5,000万円で直した",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0622",
+      "at": "2026-10-10",
+      "task": "Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/agent-hooks.test.mjs: 素の cd（worktree・プロジェクトの下の階層・変数経由）は exit 2、サブシェル・git -C・bash -c・直下への cd・Codex（CLAUDE_PROJECT_DIR 無し）は通す。13 件 pass",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

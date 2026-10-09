@@ -1737,10 +1737,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 2026-10-10、網羅の詳細（52 ファイル）を取り戻すつもりで node scripts/drive-vault-sync.mjs --pull --path content/sources/books/ を回し、書籍のページ画像まで 701 枚取り寄せた（10 分の上限を超えて止めた）。送る側は既定が dry-run（--commit で書く）なのに、--pull は既定で実行する（mode=PULL）。config/drive-vault.json の invariants『sync は既定 dry-run』とも食い違う。やること: --pull も既定は対象件数と合計サイズを出す dry-run にし、--commit で取り戻す。使っている箇所（note-sync.sh・各スキル・手順書の --pull の案内）を --commit 付きに直す。完了条件: --commit なしの --pull がファイルを書かないことと、案内している全箇所が --commit 付きであることをテストと check-command-guidance で確かめる
 
 
-### [DN-0622] Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-08〜09 の 1 セッションで、Bash の cd で .claude/worktrees/ に入ったことでセッションの作業ディレクトリが 6 回以上入れ替わった。memory（feedback_multi_session_concurrent_git）に『cd せず git -C と絶対パス、要るならサブシェル』と書いた後も再発した。そのあいだに起動したサブエージェントは相対パスを worktree 側へ書く（2026-10-08 に実害）。記録だけでは止まらないので機械化する。案: .claude/settings.json の PreToolUse（Bash）フックで、コマンドが『cd <…/.claude/worktrees/…>』で始まり、サブシェルの括弧に入っていないときに警告して止める（subshell の ( cd … && … ) と git -C は通す）。完了条件: フックの回帰テストで、素の cd は止まり、サブシェルと git -C は通る
 
 
 ### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする
