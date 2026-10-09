@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T06:12:04.099Z",
+  "generated_at": "2026-10-09T06:13:44.210Z",
   "summary": {
-    "total_mdx_files": 1377,
+    "total_mdx_files": 1378,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -2730,7 +2730,7 @@
     },
     {
       "name": "関係法規",
-      "count": 82,
+      "count": 83,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2746,6 +2746,7 @@
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
         "civil-practice-accident-first-response",
+        "civil-practice-ccus-kentaikyo-site",
         "civil-practice-construction-industry-structure",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-foreign-workers-site-check",
@@ -3840,6 +3841,31 @@
       ]
     },
     {
+      "name": "働き方改革",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "pe-comprehensive-management-childcare-nursing-leave-act",
+        "pe-comprehensive-management-continued-employment-system",
+        "pe-comprehensive-management-discretionary-work-system",
+        "pe-comprehensive-management-flextime-system",
+        "pe-comprehensive-management-highly-professional-system",
+        "pe-comprehensive-management-location-limited-employee",
+        "pe-comprehensive-management-mandatory-management-retirement",
+        "pe-comprehensive-management-part-time-fixed-term-act",
+        "pe-comprehensive-management-positive-action",
+        "pe-comprehensive-management-power-harassment",
+        "pe-comprehensive-management-psychological-safety",
+        "pe-comprehensive-management-reemployment-system",
+        "pe-comprehensive-management-reskilling",
+        "pe-comprehensive-management-return-to-work-support",
+        "pe-comprehensive-management-side-jobs",
+        "pe-comprehensive-management-stress-check-system",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "工程管理",
       "count": 18,
       "inAllowlist": true,
@@ -3935,30 +3961,6 @@
         "pe-first-stage-r03-basic",
         "pe-first-stage-r03-construction",
         "pe-first-stage-r03-water-supply"
-      ]
-    },
-    {
-      "name": "働き方改革",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-childcare-nursing-leave-act",
-        "pe-comprehensive-management-continued-employment-system",
-        "pe-comprehensive-management-discretionary-work-system",
-        "pe-comprehensive-management-flextime-system",
-        "pe-comprehensive-management-highly-professional-system",
-        "pe-comprehensive-management-location-limited-employee",
-        "pe-comprehensive-management-mandatory-management-retirement",
-        "pe-comprehensive-management-part-time-fixed-term-act",
-        "pe-comprehensive-management-positive-action",
-        "pe-comprehensive-management-power-harassment",
-        "pe-comprehensive-management-psychological-safety",
-        "pe-comprehensive-management-reemployment-system",
-        "pe-comprehensive-management-reskilling",
-        "pe-comprehensive-management-return-to-work-support",
-        "pe-comprehensive-management-side-jobs",
-        "pe-comprehensive-management-stress-check-system",
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
@@ -4885,6 +4887,17 @@
       ]
     },
     {
+      "name": "担い手確保",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-construction-industry-structure",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "舗装施工管理技術者",
       "count": 4,
       "inAllowlist": true,
@@ -4893,6 +4906,17 @@
         "pavement-guide-overview",
         "pavement-guide-sentaku-hinshutsu",
         "pavement-guide-study-plan"
+      ]
+    },
+    {
+      "name": "行政手続き",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment"
       ]
     },
     {
@@ -4976,16 +5000,6 @@
       ]
     },
     {
-      "name": "担い手確保",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-construction-industry-structure",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
       "name": "特定技能",
       "count": 3,
       "inAllowlist": true,
@@ -5003,16 +5017,6 @@
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment"
       ]
     },
     {
