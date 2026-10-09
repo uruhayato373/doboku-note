@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="配慮書、方法書、準備書、評価書、報告書の五つの手続きについて、各書類が示す内容と、意見を述べる人を上から順に並べた図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+
+  <g stroke-width="1.5">
+    <rect x="20" y="14" width="360" height="74" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="20" y="106" width="360" height="74" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="20" y="198" width="360" height="74" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="20" y="290" width="360" height="74" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+    <rect x="20" y="382" width="360" height="74" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+  </g>
+
+  <g font-size="14" font-weight="700" fill="#1a3a5c">
+    <text x="36" y="36">1. 配慮書</text>
+    <text x="36" y="128">2. 方法書</text>
+    <text x="36" y="220">3. 準備書</text>
+    <text x="36" y="312">4. 評価書</text>
+    <text x="36" y="404">5. 報告書</text>
+  </g>
+  <g font-size="12" fill="#555">
+    <text x="36" y="52">位置・規模の複数案を比べる</text>
+    <text x="36" y="148">調べる項目と手法を示す</text>
+    <text x="36" y="240">調査結果と環境保全措置を示す</text>
+    <text x="36" y="332">意見を反映して確定する</text>
+    <text x="36" y="424">工事中の調査と措置の結果を示す</text>
+  </g>
+  <g font-size="12" font-weight="700" fill="#222">
+    <text x="36" y="68">意見: 環境大臣・主務大臣</text>
+    <text x="36" y="168">意見: 住民（意見書）・都道府県知事</text>
+    <text x="36" y="260">意見: 住民（意見書）・都道府県知事</text>
+    <text x="36" y="352">意見: 環境大臣・許認可の担当</text>
+    <text x="36" y="444">意見: 環境大臣・許認可の担当</text>
+  </g>
+
+  <g stroke="#2e6da4" stroke-width="1.5" fill="none" marker-end="url(#ar)">
+    <line x1="200" y1="90" x2="200" y2="104"/>
+    <line x1="200" y1="182" x2="200" y2="196"/>
+    <line x1="200" y1="274" x2="200" y2="288"/>
+    <line x1="200" y1="366" x2="200" y2="380"/>
+  </g>
+
+  <g stroke-width="1.5">
+    <rect x="24" y="480" width="12" height="12" rx="3" fill="#e8f0fe" stroke="#2e6da4"/>
+    <rect x="146" y="480" width="12" height="12" rx="3" fill="#d0e8d0" stroke="#3a7d44"/>
+    <rect x="236" y="480" width="12" height="12" rx="3" fill="#fff3cd" stroke="#d4a017"/>
+  </g>
+  <g font-size="11" fill="#555">
+    <text x="36" y="82">住民・自治体への意見聴取は、事業者の努力義務</text>
+    <text x="24" y="471">大臣・許認可の担当の意見は、各段階で必要に応じて述べる</text>
+    <text x="42" y="491">計画づくりの段階</text>
+    <text x="164" y="491">確定する段階</text>
+    <text x="254" y="491">工事の後</text>
+  </g>
+</svg>
