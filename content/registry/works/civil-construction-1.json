@@ -550,6 +550,84 @@
       }
     },
     {
+      "id": "civil-09-a",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/090-civil-2026-09-a",
+      "legacyKey": "090-civil-2026-09-a"
+    },
+    {
+      "id": "civil-09-b",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/091-civil-2026-09-b",
+      "legacyKey": "091-civil-2026-09-b"
+    },
+    {
+      "id": "civil-09-c",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/092-civil-2026-09-c",
+      "legacyKey": "092-civil-2026-09-c"
+    },
+    {
+      "id": "civil-textbook-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/101-civil-textbook-diagrams",
+      "legacyKey": "101-civil-textbook-diagrams"
+    },
+    {
+      "id": "civil1-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/084-civil1-2026-08-boost",
+      "legacyKey": "084-civil1-2026-08-boost"
+    },
+    {
+      "id": "civil1-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/087-civil1-2026-08-late",
+      "legacyKey": "087-civil1-2026-08-late"
+    },
+    {
+      "id": "civil1-construction-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/109-civil1-construction-diagrams",
+      "legacyKey": "109-civil1-construction-diagrams"
+    },
+    {
+      "id": "civil1-diagram-reuse",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/097-civil1-diagram-reuse",
+      "legacyKey": "097-civil1-diagram-reuse"
+    },
+    {
+      "id": "civil1-keiken-w2",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/073-civil1-keiken-w2",
+      "legacyKey": "073-civil1-keiken-w2"
+    },
+    {
+      "id": "civil1-pressure-correction",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/096-civil1-pressure-correction",
+      "legacyKey": "096-civil1-pressure-correction"
+    },
+    {
+      "id": "civil1-prestress-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/108-civil1-prestress-diagrams",
+      "legacyKey": "108-civil1-prestress-diagrams"
+    },
+    {
+      "id": "civil1-secondary-keiken-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/068-civil1-secondary-keiken-w1",
+      "legacyKey": "068-civil1-secondary-keiken-w1"
+    },
+    {
+      "id": "civil1-shiken-campaign",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/044-civil1-shiken-campaign",
+      "legacyKey": "044-civil1-shiken-campaign"
+    },
+    {
       "id": "gakka-anzen-taisei",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei",
@@ -1202,6 +1280,12 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "x042-civil1-r06",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/042-civil1-r06頻出",
+      "legacyKey": "042-civil1-r06頻出"
     }
   ]
 }

@@ -9,6 +9,7 @@
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- import-legacy-youtube [--commit]  # 動画パック以前の旧 Shorts（youtube-schedule.json の 200・作り直した 10）。表紙は ID の置き場へ移す
  *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
+ *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *
@@ -248,9 +249,39 @@ async function importInstagram() {
   console.log('書いた。stopped(unverified-legacy) は管理画面 /content/items の「要確認」で見られる');
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, 'import-instagram': importInstagram, approve, stop };
+async function importX() {
+  const { xRows } = await import('./lib/registry-x-state.mjs');
+  const cfg = loadRegistryConfig(ROOT);
+  const reg = loadRegistry(ROOT);
+  const rows = xRows(ROOT, { rules: cfg.idRules });
+  const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
+  const same = (a, b) => JSON.stringify(strip(a)) === JSON.stringify(strip(b));
+  const worksByExam = new Map();
+  for (const { exam, row } of rows.works) {
+    const cur = reg.works.find((w) => w.id === row.id && w.exam === exam);
+    if (!cur || !same(cur, row)) worksByExam.set(exam, [...(worksByExam.get(exam) ?? []), row]);
+  }
+  const pubsByExam = new Map();
+  for (const p of rows.publications) {
+    const exam = p.id.split('/')[0];
+    const cur = reg.publications.find((x) => x.id === p.id);
+    if (!cur || !same(cur, p)) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), p]);
+  }
+  const n = (m) => [...m.values()].flat().length;
+  const r = rows.report;
+  console.log(`X の下書きフォルダ ${r.folders} 個 → 作品 ${rows.works.length}・公開 ${rows.publications.length}`);
+  console.log(`  状態: ${Object.entries(r.byStatus).sort().map(([k, v]) => `${k} ${v}`).join(' / ')}`);
+  console.log(`  published の証拠: 本文の完全一致 ${r.matchedByText}・先頭 40 字 ${r.matchedByHead}・posted_url ${r.byUrl} / ID の例外 ${r.idExceptions.length}（${r.idExceptions.join(', ')}）`);
+  console.log(`  書く行: 作品 ${n(worksByExam)}・公開 ${n(pubsByExam)}`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  for (const [exam, ws] of worksByExam) upsertWorks(ROOT, exam, ws);
+  for (const [exam, ps] of pubsByExam) upsertPublications(ROOT, 'x', exam, ps);
+  console.log('書いた');
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, 'import-instagram': importInstagram, 'import-x': importX, approve, stop };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|import-instagram|approve|stop …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|import-instagram|import-x|approve|stop …');
   process.exit(2);
 }
 await commands[command]();

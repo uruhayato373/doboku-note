@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "exam": "civil-construction-1-2",
+  "works": [
+    {
+      "id": "civil-08-secondary",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/083-civil-2026-08-secondary",
+      "legacyKey": "083-civil-2026-08-secondary"
+    },
+    {
+      "id": "civil-competitor-format-repurpose",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/081-civil-competitor-format-repurpose",
+      "legacyKey": "081-civil-competitor-format-repurpose"
+    },
+    {
+      "id": "civil-daily06",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/046-civil-daily-06",
+      "legacyKey": "046-civil-daily-06"
+    },
+    {
+      "id": "civil-daily07",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/047-civil-daily-07",
+      "legacyKey": "047-civil-daily-07"
+    },
+    {
+      "id": "civil-daily08",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/048-civil-daily-08",
+      "legacyKey": "048-civil-daily-08"
+    },
+    {
+      "id": "civil-daily09",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/049-civil-daily-09",
+      "legacyKey": "049-civil-daily-09"
+    },
+    {
+      "id": "civil-daily10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/050-civil-daily-10",
+      "legacyKey": "050-civil-daily-10"
+    },
+    {
+      "id": "civil-oxquiz-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/076-civil-oxquiz-w1",
+      "legacyKey": "076-civil-oxquiz-w1"
+    },
+    {
+      "id": "civil-sales-proof",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/075-civil-sales-proof",
+      "legacyKey": "075-civil-sales-proof"
+    }
+  ]
+}

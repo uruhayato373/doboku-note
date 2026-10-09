@@ -3,6 +3,18 @@
   "exam": "pe-first-stage",
   "works": [
     {
+      "id": "pe-first-stage-calculation-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams",
+      "legacyKey": "100-pe-first-stage-calculation-diagrams"
+    },
+    {
+      "id": "pe-first-stage10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/095-pe-first-stage-2026-10",
+      "legacyKey": "095-pe-first-stage-2026-10"
+    },
+    {
       "id": "pe1-kw-balanced-bridge",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge"

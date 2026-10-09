@@ -136,7 +136,7 @@ export const DATASETS = [
   d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks' }),
   d('registry.youtube', 'content/registry/publications/youtube/{name}', 'config', 'sns', 'コンテンツ台帳: YouTube の公開（資格ごと）', { schema: 'RegistryPublications' }),
   d('registry.instagram', 'content/registry/publications/instagram/{name}', 'config', 'sns', 'コンテンツ台帳: Instagram の公開（資格ごと）', { schema: 'RegistryPublications' }),
-  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications' }),
   d('registry.threads', 'content/registry/publications/threads/{name}', 'config', 'sns', 'コンテンツ台帳: Threads の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
   d('registry.tiktok', 'content/registry/publications/tiktok/{name}', 'config', 'sns', 'コンテンツ台帳: TikTok の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),

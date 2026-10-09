@@ -3,6 +3,18 @@
   "exam": "account",
   "works": [
     {
+      "id": "career-longform-pilot",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/094-career-longform-pilot",
+      "legacyKey": "094-career-longform-pilot"
+    },
+    {
+      "id": "concrete-pe-competitor-format-repurpose",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/082-concrete-pe-competitor-format-repurpose",
+      "legacyKey": "082-concrete-pe-competitor-format-repurpose"
+    },
+    {
       "id": "hl-announcement",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/highlights/05_announcement"
@@ -41,6 +53,157 @@
       "id": "hl-reels-roundup",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/highlights/03_reels-roundup"
+    },
+    {
+      "id": "magazine-flow-7days",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/030-magazine-flow-7days",
+      "legacyKey": "030-magazine-flow-7days"
+    },
+    {
+      "id": "pe-wcup-chiiki",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/078-pe-wcup-chiiki",
+      "legacyKey": "078-pe-wcup-chiiki"
+    },
+    {
+      "id": "pinned-profile",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/033-pinned-profile",
+      "legacyKey": "033-pinned-profile"
+    },
+    {
+      "id": "practice-textbook-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/102-practice-textbook-diagrams",
+      "legacyKey": "102-practice-textbook-diagrams"
+    },
+    {
+      "id": "profile-qualification-tree",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/093-profile-qualification-tree",
+      "legacyKey": "093-profile-qualification-tree"
+    },
+    {
+      "id": "x0295",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/029-スレッド-5管理俯瞰",
+      "legacyKey": "029-スレッド-5管理俯瞰"
+    },
+    {
+      "id": "x031-note-r7",
+      "kind": "x-thread",
+      "definition": "content/sns/x/published/_archive-old-account/031-note-公開-白書R7完全対応集",
+      "legacyKey": "031-note-公開-白書R7完全対応集"
+    },
+    {
+      "id": "x032-30days-countdown",
+      "kind": "x-thread",
+      "definition": "content/sns/x/published/_archive-old-account/032-30days-countdown",
+      "legacyKey": "032-30days-countdown"
+    },
+    {
+      "id": "x034",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/034-引っかけ集",
+      "legacyKey": "034-引っかけ集"
+    },
+    {
+      "id": "x035",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/035-暗記フレーズ集",
+      "legacyKey": "035-暗記フレーズ集"
+    },
+    {
+      "id": "x036-11",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/036-1問1答クイズ",
+      "legacyKey": "036-1問1答クイズ",
+      "idException": "imported-before-cutover"
+    },
+    {
+      "id": "x037-r8",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/037-r8予想問題集実績",
+      "legacyKey": "037-r8予想問題集実績"
+    },
+    {
+      "id": "x0385",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/038-売上実績5月",
+      "legacyKey": "038-売上実績5月"
+    },
+    {
+      "id": "x03930",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/039-30日カウントダウン実績",
+      "legacyKey": "039-30日カウントダウン実績"
+    },
+    {
+      "id": "x040",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/040-過去問クイズ",
+      "legacyKey": "040-過去問クイズ"
+    },
+    {
+      "id": "x041-pr30",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/041-記述式PR-30日",
+      "legacyKey": "041-記述式PR-30日"
+    },
+    {
+      "id": "x051-pe6",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/051-pe-トレードオフ6切り口",
+      "legacyKey": "051-pe-トレードオフ6切り口"
+    },
+    {
+      "id": "x052-pe",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/052-pe-キーワードが点にならない理由",
+      "legacyKey": "052-pe-キーワードが点にならない理由"
+    },
+    {
+      "id": "x053-pe",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/053-pe-記述式の書き方",
+      "legacyKey": "053-pe-記述式の書き方"
+    },
+    {
+      "id": "x054-pe",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/054-pe-公務員メリット",
+      "legacyKey": "054-pe-公務員メリット"
+    },
+    {
+      "id": "x055-pe",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/055-pe-一般部門との違い",
+      "legacyKey": "055-pe-一般部門との違い"
+    },
+    {
+      "id": "x056-pe17",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/056-pe-択一17年分",
+      "legacyKey": "056-pe-択一17年分"
+    },
+    {
+      "id": "x057-pe-r7",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/057-pe-白書R7送客",
+      "legacyKey": "057-pe-白書R7送客"
+    },
+    {
+      "id": "x058-pe-r8",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/058-pe-R8予想送客",
+      "legacyKey": "058-pe-R8予想送客"
+    },
+    {
+      "id": "x059-pe-experience",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/059-pe-experience-公務員板挟み",
+      "legacyKey": "059-pe-experience-公務員板挟み"
     }
   ]
 }

@@ -3,6 +3,18 @@
   "exam": "concrete-chief-engineer",
   "works": [
     {
+      "id": "concrete-chief-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/086-concrete-chief-2026-08-boost",
+      "legacyKey": "086-concrete-chief-2026-08-boost"
+    },
+    {
+      "id": "concrete-chief-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/089-concrete-chief-2026-08-late",
+      "legacyKey": "089-concrete-chief-2026-08-late"
+    },
+    {
       "id": "kikinagashi-shunin-suchi",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
