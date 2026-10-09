@@ -68,8 +68,7 @@
     ],
     "ask": [
       "Bash(npm run ogp-backgrounds:*)",
-      "Bash(node scripts/generate-ogp-backgrounds.mjs:*)",
-      "Bash(gemini:*)"
+      "Bash(node scripts/generate-ogp-backgrounds.mjs:*)"
     ],
     "defaultMode": "bypassPermissions"
   },
@@ -97,10 +96,6 @@
           {
             "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs check-doc-sync"
-          },
-          {
-            "type": "command",
-            "command": "node scripts/hooks/agent-hook.mjs check-gemini-cost"
           }
         ]
       }

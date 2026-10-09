@@ -61,20 +61,37 @@ jobs:
           node scripts/registry-reconcile.mjs 2>&1 | tee "$RUNNER_TEMP/reconcile.log"
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
+      # 公開へ進めた動画は、公開実体の照合（verify-video-publication・check-video-publication の V02）にも
+      # 同じ日のうちに載せる。週次の verify-yt-status.yml だけだと、進めた日から次の金曜まで V02 が赤になる（2026-10-09）
+      - name: Verify video pack publication
+        if: steps.reconcile.outputs.exit_code != '2'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: node scripts/verify-video-publication.mjs || true
+
       # 検査不成立（exit 2）は何も書いていないので、書き戻しは 0・1 のときだけ
       - name: Publish to develop
         if: steps.reconcile.outputs.exit_code != '2'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          node scripts/ci-data.mjs add --paths content/registry,.claude/state/video-content-status.json,.claude/state/registry-reconcile
+          node scripts/ci-data.mjs add --paths content/registry,.claude/state/registry-reconcile,.claude/state/video-publication-verify.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
           fi
           git commit -m "chore(registry): reconcile YouTube $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git pull --rebase origin develop
-          git push origin develop
+          # develop は数分おきに積まれるので、rebase と push の間に先を越されたら取り直す（2026-10-09 初回で cannot lock ref）
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin develop
+            if git push origin HEAD:develop; then exit 0; fi
+            echo "push に失敗（${attempt} 回目）。取り直す"
+            sleep $((attempt * 5))
+          done
+          echo "::error::develop への push が 5 回とも失敗した"
+          exit 1
 
       - name: Summarize
         if: always()

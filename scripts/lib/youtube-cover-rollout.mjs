@@ -2,6 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { createHash } from 'node:crypto';
 import { discoverPacks, loadConfig } from './video-content-check.mjs';
+import { loadVideoState } from './registry-video-state.mjs';
 import { validateCoverDesign } from './youtube-cover.mjs';
 import { EXAM_TO_PALETTE } from './longform-render.mjs';
 export const digest = data => createHash('sha256').update(data).digest('hex');
@@ -9,7 +10,7 @@ export const specDigest = spec => digest(JSON.stringify(spec));
 
 /** Read existing production sources; do not copy live private titles/IDs into Git. */
 export function loadCoverSources(root) {
-  const state = JSON.parse(readFileSync(join(root, '.claude/state/video-content-status.json')));
+  const state = loadVideoState(root);
   const sources = [];
   for (const p of discoverPacks(root, loadConfig(root)).packs) {
     const path = join(p.dir, 'cover-design.json');

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="計測センサを選ぶ順番。判断の目的、測る量、必要な分解能と頻度、原理、電源と通信、設置、欠測の確認の順に進み、問題があれば必要な分解能と頻度へ戻る">
+<defs>
+<style>
+text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.b{font-size:14px;font-weight:bold}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#fff"/>
+<g stroke-width="1.5">
+<rect x="30" y="20" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="80" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="140" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="200" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="260" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="320" width="320" height="46" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="30" y="380" width="320" height="46" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+</g>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<path d="M190 66V78"/><path d="M190 126V138"/><path d="M190 186V198"/><path d="M190 246V258"/><path d="M190 306V318"/><path d="M190 366V378"/>
+</g>
+<path d="M350 403H372V163H352" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<g class="b">
+<text x="44" y="40">1 判断</text>
+<text x="44" y="100">2 測る量</text>
+<text x="44" y="160">3 分解能と頻度</text>
+<text x="44" y="220">4 原理</text>
+<text x="44" y="280">5 電源と通信</text>
+<text x="44" y="340">6 設置</text>
+<text x="44" y="400">7 欠測の確認</text>
+</g>
+<g class="s">
+<text x="44" y="57">何を決めるための計測か</text>
+<text x="44" y="117">ひずみ・変位・傾き・加速度</text>
+<text x="44" y="177">判断を変える大きさの1/10〜1/20、振動は10倍</text>
+<text x="44" y="237">ゲージ・加速度・測距・画像</text>
+<text x="44" y="297">電池の寿命と交換の手間</text>
+<text x="44" y="357">温度補償と、機能を妨げない固定</text>
+<text x="44" y="417">計測期間のデータが途切れないか</text>
+</g>
+<text x="30" y="458" class="s">赤い点線は戻る経路</text>
+<text x="30" y="476" class="s">欠測や想定外の変動があれば3へ戻る</text>
+</svg>

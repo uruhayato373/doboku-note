@@ -34,8 +34,15 @@ Turbo キャッシュ 7GB と Codex の Sparkle 残骸 4.6GB は 10 日で再発
 X の `Service Worker/CacheStorage` だけで 1.0 GB あった。
 
 **消してはいけない**: `~/Library/Application Support/Google`（13 GB のうち 6.9 GB。キャッシュでは
-なく実プロファイル）、`voicevox_engine_dl`（render-longform が使う実体）、`.local/cache/`
+なく実プロファイル）、`~/voicevox_engine`（エンジンの実体。2026-10-10 時点で `macos-arm64/run` がここから起動している。
+完全に同じ複製だった `~/voicevox_engine_dl` はゴミ箱へ移した）、`.local/cache/`
 （R2 hydrate のキャッシュ。プロキシ不調時の唯一の頼り）。
+
+**Chrome の自己複製（2026-10-10 実測 11 GB）**: `$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/code_sign_clone.*` は
+Chrome を起動するたびに 1 つ（1.4 GB）できる。Playwright で Chrome を起動する自動化（note・X・KDP・MCP）も 1 回ごとに作り、
+終了しても残る。使っているのは起動中の Chrome と同じ時刻に作られたものだけなので、`ps -o lstart=` と作成時刻を照合して
+それ以外を消す（Chrome を終了すれば全部消してよい）。日次の自動掃除への組み込みは DN-0630。
+`.local/archive/git-history/` の履歴 bundle（2.8 GB）は private R2 に同じものがあるので手元は不要（2026-10-10 にゴミ箱へ）。
 
 **手順の型**（消す前に必ず）: `asset-offload --group X --include-untracked --verify` で
 ローカル・台帳・R2 の 3 者一致を確認 → `--out` の一覧だけを消す → 追跡下は除外 →

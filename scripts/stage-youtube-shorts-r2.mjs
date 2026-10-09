@@ -8,11 +8,12 @@ import { createReadStream, existsSync, readFileSync, readdirSync, statSync } fro
 import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const RENDER_ROOT = join(ROOT, '.tmp/video-render');
-const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
+const STATE = loadVideoState(ROOT);
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const DRIVE_MANIFEST = existsSync(DRIVE_MANIFEST_PATH)
   ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))

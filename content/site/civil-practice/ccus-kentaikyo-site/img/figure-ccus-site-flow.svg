@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="CCUSの現場運用の流れ。技能者が登録してカードを受け取り、元請が現場と契約情報を登録し、下請が施工体制と技能者の立場を登録し、入場のたびにカードをタッチして就業履歴が蓄積され、評価や確認に使われる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="96" width="364" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="178" width="364" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="260" width="364" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="18" y="342" width="364" height="62" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<g stroke="#2e6da4">
+<line x1="200" y1="76" x2="200" y2="94" marker-end="url(#ar)"/>
+<line x1="200" y1="158" x2="200" y2="176" marker-end="url(#ar)"/>
+<line x1="200" y1="240" x2="200" y2="258" marker-end="url(#ar)"/>
+<line x1="200" y1="322" x2="200" y2="340" marker-end="url(#ar)"/>
+</g>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="30" y="34">技能者：本人確認のうえ登録し、カードを受け取る</text>
+<text x="30" y="116">元請：現場と契約情報を登録し、読取機を置く</text>
+<text x="30" y="198">下請：施工体制と、自社の技能者の職種・立場を登録</text>
+<text x="30" y="280">入場のたびにカードをタッチする</text>
+<text x="30" y="362">蓄積された履歴の使い道</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="30" y="52">IDが付いたカードが届く。資格や保険加入も登録できる</text>
+<text x="30" y="68">登録は技能者の本人確認から始まる</text>
+<text x="30" y="134">事業者IDを取得したうえで現場を開設する</text>
+<text x="30" y="150">現場利用料は元請に請求（1人日・現場あたり10円）</text>
+<text x="30" y="216">立場（職長・班長）の入力が、後の評価に効く</text>
+<text x="30" y="232">作業員名簿は元請や上位下請が代理登録できる</text>
+<text x="30" y="298">いつ・どの現場・どの職種・どの立場かが蓄積される</text>
+<text x="30" y="314">技能者は自分の履歴をパソコンから確認できる</text>
+<text x="30" y="380">能力評価、社会保険の加入確認、建退共の掛金充当</text>
+<text x="30" y="396">発注者は、台帳の記載事項をCCUSで確かめられる</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="20" y="430">カードの有効期間は、発行から9年後の最初の誕生日まで</text>
+<text x="20" y="447">技能者登録料は簡略型2,500円・詳細型4,900円（税込）</text>
+<text x="20" y="464">料金は令和8年10月に建設業振興基金が公表している値</text>
+<text x="20" y="481">変更されることがあるため、利用前に公式の案内で確かめる</text>
+</g>
+</svg>

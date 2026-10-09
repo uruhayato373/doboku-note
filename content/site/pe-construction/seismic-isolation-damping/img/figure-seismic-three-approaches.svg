@@ -1,0 +1,52 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="耐震は強さで受け、免震は柔らかい層で揺れを受け流し、制振はダンパーなどで揺れのエネルギーを吸収する違いを並べた比較図">
+<defs>
+<style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; font-size: 13px; }
+.t { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+.s { font-size: 11px; fill: #555; }
+.m { text-anchor: middle; }
+.p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+.gr { fill: #d7d7d7; }
+.bd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+.iso { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+.dm { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+.ar { stroke: #555; stroke-width: 1.5; fill: none; }
+.fr { stroke: #b22234; stroke-width: 1.5; fill: none; }
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+<marker id="r" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+</defs>
+<rect class="p" x="20" y="15" width="360" height="150" rx="8"/>
+<rect class="gr" x="30" y="127" width="120" height="26"/>
+<line class="ar" x1="90" y1="140" x2="42" y2="140" marker-end="url(#a)"/><line class="ar" x1="90" y1="140" x2="138" y2="140" marker-end="url(#a)"/>
+<rect class="bd" x="55" y="43" width="70" height="84"/>
+<line class="ar" x1="55" y1="43" x2="125" y2="127"/><line class="ar" x1="125" y1="43" x2="55" y2="127"/>
+<line class="fr" x1="22" y1="85" x2="53" y2="85" marker-end="url(#r)"/>
+<text class="t" x="165" y="53">耐震：強さで耐える</text>
+<text x="165" y="83">地面の揺れが建物へ伝わる</text>
+<text x="165" y="105">部材の強さと粘りで受ける</text>
+<text class="s" x="165" y="133">損傷を許す設計もある</text>
+<rect class="p" x="20" y="175" width="360" height="150" rx="8"/>
+<rect class="gr" x="30" y="287" width="120" height="26"/>
+<line class="ar" x1="90" y1="300" x2="42" y2="300" marker-end="url(#a)"/><line class="ar" x1="90" y1="300" x2="138" y2="300" marker-end="url(#a)"/>
+<rect class="bd" x="55" y="203" width="70" height="72"/>
+<rect class="iso" x="57" y="275" width="12" height="12" rx="2"/>
+<rect class="iso" x="84" y="275" width="12" height="12" rx="2"/>
+<rect class="iso" x="111" y="275" width="12" height="12" rx="2"/>
+<line class="fr" x1="35" y1="245" x2="53" y2="245" marker-end="url(#r)"/>
+<text class="t" x="165" y="213">免震：受け流す</text>
+<text x="165" y="243">柔らかい層で周期を伸ばし</text>
+<text x="165" y="265">建物へ伝わる力を減らす</text>
+<text class="s" x="165" y="293">代償：層の変位が大きくなる</text>
+<rect class="p" x="20" y="335" width="360" height="150" rx="8"/>
+<rect class="gr" x="30" y="447" width="120" height="26"/>
+<line class="ar" x1="90" y1="460" x2="42" y2="460" marker-end="url(#a)"/><line class="ar" x1="90" y1="460" x2="138" y2="460" marker-end="url(#a)"/>
+<rect class="bd" x="55" y="363" width="70" height="84"/>
+<rect class="dm" x="75" y="347" width="30" height="16" rx="2"/>
+<line x1="55" y1="447" x2="125" y2="391" stroke="#d4a017" stroke-width="4"/>
+<line class="fr" x1="28" y1="405" x2="53" y2="405" marker-end="url(#r)"/>
+<text class="t" x="165" y="373">制振：吸収する</text>
+<text x="165" y="403">ダンパーや付加質量が</text>
+<text x="165" y="425">建物内のエネルギーを吸う</text>
+<text class="s" x="165" y="453">弱点：変形が小さいと効かない</text>
+</svg>

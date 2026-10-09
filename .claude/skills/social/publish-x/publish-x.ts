@@ -21,6 +21,7 @@
  *   --immediate   予約ではなく即時投稿（--tweet と組み合わせ推奨）
  *   --head-only   即時スレッドのヘッドだけ投稿し、リプライを x-thread-replies に引き継ぐ
  *   --dry-run     実投稿せずセレクタ検出まで確認（初回・セレクタ変更後は必須）
+ *   --allow-unverified  台帳が stopped(unverified-legacy) の行を明示して投稿（他の stopped・published・draft は常に中止）
  *
  * ⚠️  初回 / 1 週間以上空いた場合は必ず --dry-run で事前検証すること。
  *      予約モード未確認のまま投稿ボタンを押すと即時投稿が発火する（2026-04-18 事故実績）。
@@ -33,6 +34,7 @@ import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mj
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
+import { isQueueable, readXPublication, recordX } from "../../../../scripts/lib/registry-x-store.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
@@ -49,6 +51,7 @@ const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 
 let IS_DRY_RUN = false;
 let HEAD_ONLY = false;
+let ALLOW_UNVERIFIED = false; // 台帳が stopped(unverified-legacy) の行を明示して投稿する
 
 // ─── screenshot ────────────────────────────────────────
 async function saveScreenshot(page: Page, label: string): Promise<void> {
@@ -193,13 +196,13 @@ interface StatusJson {
   tweets: Record<string, TweetStatus>;
 }
 
-function updateStatus(
+async function updateStatus(
   draftDir: string,
   tweets: TweetBlock[],
   tweetNum: number,
   scheduledDate: Date | null,
   postedUrl?: string | null
-): void {
+): Promise<void> {
   const statusPath = path.join(draftDir, "status.json");
 
   // 既存 status を読むか、全件 pending で初期化
@@ -246,6 +249,65 @@ function updateStatus(
   data.updated_at = nowJst;
   fs.writeFileSync(statusPath, JSON.stringify(data, null, 2) + "\n", "utf-8");
   console.log(`📝 status.json 更新: Tweet ${tweetNum} → ${scheduledDate ? "scheduled" : "posted"}`);
+  if (!IS_DRY_RUN) await recordToRegistry(draftDir, key, scheduledDate, postedUrl);
+}
+
+// 台帳（正本）にも書く。台帳に行が無ければ警告だけ（status.json は書いた後なので今までどおり）。dry-run では呼ばない。
+// 失敗・URL 不明のときは process.exitCode = 1 にして人の確認を促す（台帳を approved/scheduled のまま黙って残さない）。
+async function recordToRegistry(
+  draftDir: string,
+  key: string,
+  scheduledDate: Date | null,
+  postedUrl?: string | null
+): Promise<void> {
+  const folder = path.basename(draftDir);
+  try {
+    if (!readXPublication(PROJECT_ROOT, folder, key)) {
+      console.warn(`⚠️ 台帳に行が無いため台帳は更新しません: draft/${folder}#${key}`);
+      return;
+    }
+    if (scheduledDate) {
+      await recordX(PROJECT_ROOT, folder, key, "scheduled", { publishAt: scheduledDate.toISOString() });
+    } else {
+      const id = postedUrl?.match(/\/status\/(\d+)/)?.[1];
+      if (!id || !postedUrl) {
+        console.error(
+          `❌ 投稿は済んだが URL が取れない。x.com で確かめて node scripts/registry.mjs show の行を人が直す（または後で照合する）: draft/${folder}#${key}（台帳は変更していない）`
+        );
+        process.exitCode = 1;
+        return;
+      }
+      await recordX(PROJECT_ROOT, folder, key, "published", { id, url: postedUrl, evidence: { kind: "publish-x", ref: postedUrl } });
+    }
+    console.log(`📒 台帳更新: draft/${folder}#${key} → ${scheduledDate ? "scheduled" : "published"}`);
+  } catch (e) {
+    console.error(`❌ 台帳の更新に失敗（status.json は更新済み）: ${(e as Error).message}`);
+    process.exitCode = 1;
+  }
+}
+
+// 起動前の台帳チェック。投稿してはいけない行なら理由を返す（null = 続行可）。dry-run では呼ばない。
+function registryBlockReason(job: PostJob): string | null {
+  const folder = path.basename(job.draftDir);
+  const key = String(job.tweet.number);
+  let pub;
+  try {
+    pub = readXPublication(PROJECT_ROOT, folder, key);
+  } catch (e) {
+    return `台帳を読めない（判定不能のため中止）: ${(e as Error).message}`;
+  }
+  const label = `draft/${folder}#${key}`;
+  if (!pub) {
+    console.warn(`⚠️ 台帳に行が無い: ${label}（台帳の確認なしで続行）`);
+    return null;
+  }
+  if (pub.status === "published") return `${label} は台帳で published（投稿済み）`;
+  if (pub.status === "stopped") {
+    if (pub.stopReason === "unverified-legacy" && ALLOW_UNVERIFIED) return null;
+    return `${label} は台帳で stopped${pub.stopReason ? `（${pub.stopReason}）` : ""}${pub.stopReason === "unverified-legacy" ? "。投稿するなら --allow-unverified を明示" : ""}`;
+  }
+  if (!isQueueable(pub)) return `${label} は台帳で ${pub.status}（approved・scheduled ではない）`;
+  return null;
 }
 
 // ─── 引数パース ────────────────────────────────────────
@@ -275,6 +337,8 @@ function parseArgs(): PostJob[] {
       console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
     } else if (args[i] === "--immediate") {
       immediate = true;
+    } else if (args[i] === "--allow-unverified") {
+      ALLOW_UNVERIFIED = true;
     } else if (args[i] === "--head-only") {
       HEAD_ONLY = true;
     } else if (args[i] === "--tweet") {
@@ -783,6 +847,14 @@ async function main() {
   const jobs = parseArgs();
   const hasSchedule = jobs.some((j) => j.scheduledDate !== null);
 
+  if (!IS_DRY_RUN) {
+    const blocks = jobs.map(registryBlockReason).filter((r): r is string => r !== null);
+    if (blocks.length > 0) {
+      for (const r of blocks) console.error(`❌ 中止: ${r}`);
+      process.exit(1);
+    }
+  }
+
   console.log(`🚀 X ${hasSchedule ? "予約" : "即時"}投稿スクリプトを開始します`);
   console.log(`   対象: ${jobs.length} ツイート\n`);
 
@@ -820,7 +892,7 @@ async function main() {
         const postedUrl = jobs[i].scheduledDate
           ? null
           : await findLatestPostedUrl(page, jobs[i].tweet.text);
-        updateStatus(
+        await updateStatus(
           jobs[i].draftDir,
           jobs[i].allTweets,
           jobs[i].tweet.number,

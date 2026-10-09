@@ -8,21 +8,21 @@
  */
 
 /**
- * 2 つの台帳から公開中の動画を集める（videoId で重複を除く）。
- * - .claude/state/youtube-schedule.json: status=uploaded かつ publishAt を過ぎたもの（予約投稿の Shorts）
- * - .claude/state/video-content-status.json: privacyStatus=public のもの（入れ子のどこにあってもよい）
+ * 公開中の動画を集める（videoId で重複を除く）。
+ * - コンテンツ台帳（youtubePublications の legacyOnly の行）: status=published・privacy=public・videoId ありの旧 Shorts
+ * - contentStatus（loadVideoState の動画パックの派生物）: privacyStatus=public のもの（入れ子のどこにあってもよい）
  */
-export function collectPublicVideos(schedule, contentStatus, now = new Date()) {
+export function collectPublicVideos(pubs, contentStatus, now = new Date()) {
   const out = new Map();
-  for (const e of schedule?.items || []) {
-    if (e.status !== 'uploaded' || !e.videoId || !e.publishAt) continue;
-    if (new Date(e.publishAt) > now) continue;
-    out.set(e.videoId, { videoId: e.videoId, title: e.title || '', kind: /#shorts/i.test(e.title || '') ? 'shorts' : 'long', date: String(e.publishAt).slice(0, 10), source: 'youtube-schedule' });
+  for (const e of pubs || []) {
+    if (e.status !== 'published' || e.privacy !== 'public' || !e.videoId) continue;
+    if (e.publishAt && new Date(e.publishAt) > now) continue;
+    out.set(e.videoId, { videoId: e.videoId, title: e.title || '', kind: 'shorts', date: String(e.publishAt || e.publishedAt || '').slice(0, 10), source: 'registry' });
   }
   const walk = (o, path) => {
     if (!o || typeof o !== 'object') return;
     if (o.videoId && o.privacyStatus === 'public' && !out.has(o.videoId)) {
-      out.set(o.videoId, { videoId: o.videoId, title: o.title || o.key || '', kind: /\/shorts(\/|$)/.test(path) ? 'shorts' : 'long', date: String(o.publishedAt || o.uploadedAt || '').slice(0, 10), source: 'video-content-status' });
+      out.set(o.videoId, { videoId: o.videoId, title: o.title || o.key || '', kind: /\/shorts(\/|$)/.test(path) ? 'shorts' : 'long', date: String(o.publishedAt || o.uploadedAt || '').slice(0, 10), source: 'video-pack' });
     }
     for (const [k, v] of Object.entries(o)) walk(v, `${path}/${k}`);
   };

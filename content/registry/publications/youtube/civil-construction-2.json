@@ -9,7 +9,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-07T11:00:00Z",
       "approval": {
         "by": "user",
@@ -20,7 +20,12 @@
       "platform": {
         "id": "OcLmhVP5fho",
         "url": "https://www.youtube.com/watch?v=OcLmhVP5fho",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-07T11:00:12.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T06:40:12.276Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T02:19:26.424Z",
@@ -195,7 +200,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-08T11:00:00Z",
       "approval": {
         "by": "user",
@@ -206,7 +211,12 @@
       "platform": {
         "id": "sqkP7vheZ_Q",
         "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-08T11:00:10.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T06:40:12.276Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:01:43.773Z",
@@ -846,7 +856,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-09T11:00:00Z",
       "approval": {
         "by": "user",
@@ -857,7 +867,12 @@
       "platform": {
         "id": "KYikQB6NJn4",
         "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-09T11:01:02.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T20:19:34.390Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T03:33:54.864Z",
@@ -1496,7 +1511,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-05T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1507,7 +1522,12 @@
       "platform": {
         "id": "Y3R-39rxwu8",
         "url": "https://www.youtube.com/watch?v=Y3R-39rxwu8",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-05T11:00:42.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T06:40:12.276Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:01:43.104Z",
@@ -1589,7 +1609,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-06T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1600,7 +1620,12 @@
       "platform": {
         "id": "agEnqsk8RIQ",
         "url": "https://www.youtube.com/watch?v=agEnqsk8RIQ",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-06T11:00:38.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-09T06:40:12.276Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:21:41.714Z",

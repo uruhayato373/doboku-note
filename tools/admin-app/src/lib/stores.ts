@@ -47,7 +47,7 @@ export function storeNav(): Record<StoreArea, StoreNavItem[]> {
       STORE_AREAS.map((a) => [a, (areaDomainIds(a, domains.map((d) => d.id)) as string[]).map((id) => ({ id, label: label(id) }))]),
     ) as Record<StoreArea, StoreNavItem[]>;
   } catch {
-    return { config: [], data: [] };
+    return Object.fromEntries(STORE_AREAS.map((a) => [a, [] as StoreNavItem[]])) as unknown as Record<StoreArea, StoreNavItem[]>;
   }
 }
 
@@ -83,6 +83,8 @@ export interface StoreDetail {
 export interface StoreView {
   area: StoreArea;
   areaLabel: string;
+  /** 置き場のディレクトリ（config・data・.claude/state） */
+  dir: string;
   domains: { id: string; label: string; datasets: number; files: number }[];
   domain: { id: string; label: string } | null;
   rows: StoreRow[];
@@ -129,7 +131,7 @@ function codeRefs(root: string, token: string): string[] {
 export function loadStoreView(area: StoreArea, domainId?: string, datasetId?: string): StoreView {
   const root = findRepoRoot();
   const { dir, label: areaLabel } = AREAS[area];
-  const empty: StoreView = { area, areaLabel, domains: [], domain: null, rows: [], detail: null, unmatched: [], total: { datasets: 0, files: 0, typed: 0 }, error: null };
+  const empty: StoreView = { area, areaLabel, dir, domains: [], domain: null, rows: [], detail: null, unmatched: [], total: { datasets: 0, files: 0, typed: 0 }, error: null };
   try {
     const domainList = (loadDomains(root) as { domains: { id: string; label: string }[] }).domains;
     const files = listAreaFiles(root, area) as string[];

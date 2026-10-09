@@ -11,7 +11,6 @@ const { google } = require('googleapis');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
 const ROOT = path.resolve(__dirname, '../../..');
-const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
 const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'), // path-literal-ok: CommonJS のモジュール先頭（同期・async 文脈なし）で読み ESM の台帳を引けない（台帳 id: config.youtube-production-disclosure）
@@ -86,7 +85,7 @@ function assertMetadata(item, packId) {
 }
 
 // 状態の正本はコンテンツ台帳（content/registry）。読み書きは registry-video-state.mjs の入口だけを通し、
-// 今の台帳（STATE_PATH）は台帳から作り直した写しとして一緒に書かれる（content-registry.md「YouTube の切り替え」）。
+// 台帳の写しのファイル（video-content-status.json）は 2026-10-09 に消えた（content-registry.md「YouTube の切り替え」）。
 const videoStateStore = () => import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/registry-video-state.mjs')).href);
 
 async function loadState() {
@@ -338,6 +337,16 @@ function assertLongformPublishable(derivative, item, now = Date.now()) {
   }
 }
 
+/** 最終承認の関門を掛ける段。表紙（thumbnail）は承認の digest に入っているので動画本体と同じく掛ける */
+const FINAL_APPROVAL_PHASES = ['longform', 'thumbnail'];
+
+/** 台帳の最終承認の関門。approval.contentSha256 のある公開は、承認後に中身が変わっていたら上げない（無ければ今の挙動） */
+async function assertRegistryFinalApproval(exam, packId, opts = {}) {
+  const { finalApprovalGate } = await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/media-preview.mjs')).href);
+  const gate = await finalApprovalGate(ROOT, exam, packId, opts);
+  if (!gate.ok) throw new Error(gate.reason);
+}
+
 async function main() {
   if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
@@ -358,6 +367,7 @@ async function main() {
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
   if (PHASE === 'longform') assertLongformPublishable((await loadState()).packs?.[PACK_ID]?.derivatives?.longform, publish.longform);
+  if (FINAL_APPROVAL_PHASES.includes(PHASE)) await assertRegistryFinalApproval(path.basename(path.dirname(pack.dir)), PACK_ID);
   if (DRY) return console.log('[dry-run] API/R2/state は変更しません');
   if (PHASE === 'shorts-publish' && !RELATED_CONFIRMED) throw new Error('Shorts公開には --related-confirmed が必要です');
 
@@ -475,7 +485,7 @@ async function main() {
     }
   }
   await writeState(state);
-  console.log(`state updated: ${path.relative(ROOT, STATE_PATH)}`);
+  console.log('state updated: content/registry');
 }
 
 if (require.main === module) {
@@ -486,4 +496,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { videoSnippet, videoStatus, assertLongformPublishable };
+module.exports = { videoSnippet, videoStatus, assertLongformPublishable, assertRegistryFinalApproval, FINAL_APPROVAL_PHASES };

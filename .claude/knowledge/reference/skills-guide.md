@@ -209,7 +209,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 - SNS 流入 breakdown: `fetch-metrics.yml`（金 06:00 JST）が `npm run fetch-ga4-data -- --dimension sourceMedium --sns-only` を回し `ga4.source-medium-sns` を蓄積。週次スナップショット（`weekly-metrics/`）にも SNS 流入（source 別 WoW）が入る
 - 週次レビュー: `/weekly-review` の **Agent F**（SNS 流入・投稿実績）＋ `metrics-analyzer` の **Pattern 6 SNS-Source-Shift**（急落/新規成長 source を surface）
 - X UTM ゲート: `npm run check-x-utm`（pre-commit・X 送客リンクに `utm_source=x`/`utm_medium=social` 必須）
-- YT 公開照合: `npm run verify-yt-status`（`verify-yt-status.yml` 週次・削除/非公開/アップ穴を検知・read-only → `.claude/state/yt-verify/latest.json`）
+- YT 公開照合: 台帳の予約→公開は `registry-reconcile.yml`（毎日）、動画パックの公開実体は `npm run check-video-publication`（`verify-yt-status.yml` 週次が `verify-video-publication` を回す）
 - IG 公開照合: `/ig-reconcile`（CI snapshot＝`login-collectors.yml` の `verify-ig-status`）／型・雛形の索引: `docs/marketing/00_SNS整理マップ.md §型カタログ`
 
 ### PDF を MDX に変換したい

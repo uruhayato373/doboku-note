@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "channel": "x",
+  "exam": "pe-first-stage",
+  "publications": [
+    {
+      "id": "pe-first-stage/pe-first-stage-calculation-diagrams/x.post.t01",
+      "work": "pe-first-stage-calculation-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/100-pe-first-stage-calculation-diagrams#1",
+      "copy": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/status.json#tweets/1",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage-calculation-diagrams/x.post.t02",
+      "work": "pe-first-stage-calculation-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/100-pe-first-stage-calculation-diagrams#2",
+      "copy": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/status.json#tweets/2",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage-calculation-diagrams/x.post.t03",
+      "work": "pe-first-stage-calculation-diagrams",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/100-pe-first-stage-calculation-diagrams#3",
+      "copy": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams/status.json#tweets/3",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t11",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#11",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t12",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#12",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t13",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#13",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t14",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#14",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t15",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t15",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#15",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t16",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t16",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#16",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t17",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t17",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#17",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t18",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t18",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#18",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t19",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t19",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#19",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t20",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t20",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#20",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t21",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t21",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#21",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t22",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t22",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#22",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t23",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t23",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#23",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t24",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t24",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#24",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t25",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t25",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#25",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t26",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t26",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#26",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t27",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t27",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#27",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t28",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t28",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#28",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t29",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t29",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#29",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t30",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t30",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#30",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "pe-first-stage/pe-first-stage10/x.post.t31",
+      "work": "pe-first-stage10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t31",
+      "legacyKey": "draft/095-pe-first-stage-2026-10#31",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    }
+  ]
+}

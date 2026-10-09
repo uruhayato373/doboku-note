@@ -23,7 +23,7 @@ const BRAND_CONFIG = 'config/video-brand.json'; // path-literal-ok: 台帳 id co
 const BRAND_ROLES = { logo: 'logo', longformBackground: 'background-longform', shorts: 'cta-shorts' };
 
 /** 元の画像の中身を読む（手元か Drive のマウント）。どちらにも無ければ null */
-function readSource(root, path, ctx) {
+export function readSource(root, path, ctx) {
   const local = join(root, path);
   if (existsSync(local)) return readFileSync(local);
   if (!ctx.mount) return null;

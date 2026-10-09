@@ -14,13 +14,13 @@ title: 動画コンテンツ運用ポリシー
 |---|---|---|
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
-| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。`.claude/state/video-content-status.json` の YouTube の部分は台帳から作り直す写しで、書き手は `scripts/lib/registry-video-state.mjs` の入口だけを通す（R09 がずれを止める。IG リールは P5 まで今の台帳が正本。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
+| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。写しの `video-content-status.json` は 2026-10-09 に消した。読み手・書き手は `scripts/lib/registry-video-state.mjs` の入口（`loadVideoState`・`saveVideoState`）だけを通す（Instagram のリールの状態は Instagram の台帳（`content/registry/publications/instagram/`）が正本で、`loadVideoState` の派生物の形には `instagramReel` を含めない。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 | 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
 | チャンネルの数値の記録 | `data/youtube/own-videos/{date}.json`（月次・`npm run youtube-own-metrics`）・`data/youtube/competitors/{date}.json`（四半期・`npm run scout-youtube-competitors`） | 動画ごとの累計再生・尺、型ごとの要約、競合の尺・題名の語ごとの再生中央値と前回比 |
 
-制作意図と可変状態を同じJSONに保存しない。既存 `.claude/state/youtube-schedule.json` はShorts投稿台帳として残し、reconcileで共通statusへjoinする。
+制作意図と可変状態を同じJSONに保存しない。公開の状態はコンテンツ台帳（`content/registry/`）が持つ（旧 Shorts の台帳 `youtube-schedule.json` は取り込んで 2026-10-09 に消した）。
 
 企画バンクの一覧は `content/sns/video-packs/README.md`（**生成物**・`npm run build-video-pack-index` で再生成・手編集しない）。運営管理画面の汎用コンテンツブラウザ `/content/content~sns/video-packs` がこれを描画する（Phase 3 の専用ビュー `/content/video` までの暫定管理面）。鮮度は `check-video-content` の R 系検査（R01 欠落／R02 未掲載／R03 孤児行）が守る。manifest だけの「企画のみ」パックは正常な draft であり、script/storyboard の欠落は INFO 扱い（qa_passed 以降で欠けたら FAIL）。
 
@@ -273,7 +273,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 **計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `ga4.campaign` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
 
-**Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`video-content-status.json` の `derivatives.shorts[]` は写し）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
+**旧 Shorts（台帳の kind `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`loadVideoState` の `derivatives.shorts[]` は台帳から作る形）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
 APIへ非公開アップロード済みで関連動画設定待ちのShortsは `uploaded_private` とする。各Shortのアップロード成功直後に状態を書き、同一パックの2本目が日次上限で失敗しても1本目の`videoId`を失わない。
 

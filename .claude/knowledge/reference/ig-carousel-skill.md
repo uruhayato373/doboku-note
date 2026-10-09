@@ -36,7 +36,7 @@ doboku-note の Instagram カルーセル投稿は次の系統で運用する：
 - **cover**: `.claude/scripts/sns/templates/exam-quiz-cover-ig.mjs`（科目ピル＋論点見出し＋頻出度★＋第1問Q＋出題年度）
 - **caption**: `generate-caption.cjs`（`_meta.theme`/`subtopic` で `isThemePack` 分岐）
 - **IG適性フィルタ**: 個数型（選択肢が全て「Nつ」）・解説合計>420字は固定カードで破綻（解答スライドが「ここがポイント」箱に重なる）ため generate 時に除外
-- **予約投稿（波状）**: `node .claude/scripts/sns/schedule-civil-theme-packs.mjs --count 30`（決定的プラン・status.json で予約済skip・**1セッション30件上限＝凍結回避**）。詳細 → .claude/todo/backlog.md「IG 論点パック 残92件」
+- **予約投稿（波状）**: `node .claude/scripts/sns/schedule-civil-theme-packs.mjs --count 30`（決定的プラン・台帳（写しの status.json）で予約済skip・**1セッション30件上限＝凍結回避**）。詳細 → .claude/todo/backlog.md「IG 論点パック 残92件」
 - **実績（2026-07）**: 1級 85パック/39論点、2級 37パック/26論点 = 計122パック（適性フィルタ後）。うち30件予約済
 
 ## 2. 投稿ペース計画
@@ -379,7 +379,7 @@ slide-data.json
 - `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
 - `.claude/skills/social/ig-reel-create/SKILL.md` — Reels 動画生成
 - `.claude/skills/social/publish-ig-bs/SKILL.md` — Business Suite 予約投稿エンジン
-- `.claude/knowledge/reference/ig-publish-reconcile.md` — **公開状態の照合＋未公開の予約投稿の運用 SSOT**（`verify-ig-status` でライブ↔SoT 突合・`/ig-reconcile` スキル・`ig-publish-auditor` ゲート。投稿後の posted.json ドリフトを定期是正）
+- `.claude/knowledge/reference/ig-publish-reconcile.md` — **公開状態の照合＋未公開の予約投稿の運用 SSOT**（`verify-ig-status` でライブ↔SoT 突合・`/ig-reconcile` スキル・`ig-publish-auditor` ゲート。公開の状態の正本は台帳・照合は `verify-ig-status --registry`。投稿後のドリフトを定期是正）
 - `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
 - `.claude/knowledge/design-system/instagram-carousel.md` — デザイン仕様
 - `.claude/knowledge/design-system/instagram-carousel-tokens.json` — トークン真実源

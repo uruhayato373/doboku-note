@@ -60,17 +60,17 @@ mono-tag は **全幅レイアウト**。左右 72px パディング内に、**�
 mono-tag は資格ごとに **AI 生成背景**を最背面に任意で敷ける。文字・ブランド枠は satori が正確に描き、背景は下地。**背景なしは完全後方互換**（従来のオフホワイト+グリッド）。デザイン仕様の真実源は [`ogp-prompts.md`](../../../../.claude/knowledge/reference/ogp-prompts.md)「資格別 AI 背景」。
 
 - **置き場**: `config/ogp/backgrounds/<exam-key>.png|webp|jpg`（資格ごと1枚を全記事で共有）。`resolveBackgroundImage(category)` が解決し、無ければオフホワイトにフォールバック。
-- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。`GEMINI_API_KEY`（`.env.local`）が要る。未設定だとプロンプトのプレビューのみ表示して終了。
+- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。Codex で生成する（`scripts/lib/codex-image.mjs`。API キー不要）。Gemini は使わない（運営者の決定 2026-10-09）。`--dry-run` はプロンプトのプレビューのみ。
 
 ```bash
-npm run ogp-backgrounds -- --all --dry-run   # 6資格のプロンプト確認（API 呼ばない）
-npm run ogp-backgrounds -- --all             # 全資格生成（既定 --mode flash=gemini-2.5-flash-image）
-npm run ogp-backgrounds -- --exam civil-1 --force --mode imagen   # 単一・imagen-4.0
+npm run ogp-backgrounds -- --all --dry-run   # 6資格のプロンプト確認（Codex を呼ばない）
+npm run ogp-backgrounds -- --all             # 全資格を Codex で生成
+npm run ogp-backgrounds -- --exam civil-1 --force   # 単一資格を再生成
 npm run ogp -- --all --force                 # 既存 OGP へ焼き込み（任意。新規記事は通常生成で自動反映）
 ```
 
 - **可読性**: 生成時に平均輝度 ~202 へ正規化（暗い出力だけ白ブレンド）＋描画時にスクリム `C_SCRIM`（既定 0.7）。強すぎ/弱すぎは `ogp-templates.mjs` の `C_SCRIM` alpha で調整。
-- **コスト**: 画像生成は従量課金。AI Studio キーは GCP の Generative Language API に Quota（1日上限）を設定して上限管理（予算アラートは通知のみ）。
+- **コスト**: Codex の利用枠を使う（従量課金の API キーは使わない）。
 
 ## QA: OGP ギャラリー
 

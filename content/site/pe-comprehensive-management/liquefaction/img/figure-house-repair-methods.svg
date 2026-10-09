@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" style="max-width:400px;width:100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="既存住宅の修復工法である耐圧版、注入、アンダーピニングの断面比較図">
+<defs>
+<style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555}
+.t{font-size:13px;font-weight:bold;fill:#222}
+.g{fill:#fff3cd;stroke:#d4a017}
+.c{fill:#f5f5f5;stroke:#d7d7d7}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.h{fill:#e8f0fe;stroke:#2e6da4}
+.a{stroke:#222;stroke-width:1.5;fill:none;marker-end:url(#m)}
+</style>
+<marker id="m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#222"/></marker>
+</defs>
+<g>
+<rect x="12" y="10" width="376" height="150" rx="6" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="t" x="24" y="32">耐圧版工法</text>
+<polygon class="h" points="64,60 100,42 136,60"/><rect class="h" x="70" y="60" width="60" height="24"/>
+<rect class="c" x="24" y="90" width="206" height="14"/><rect class="g" x="24" y="104" width="206" height="18"/><rect class="p" x="24" y="122" width="206" height="12"/>
+<text x="30" y="132">支持層</text><text x="190" y="101">表層</text><text x="170" y="117">液状化層</text>
+<rect x="50" y="84" width="100" height="8" fill="#555" stroke="#222"/>
+<path class="a" d="M66 93V102"/><path class="a" d="M100 93V102"/><path class="a" d="M134 93V102"/>
+<text x="246" y="62">基礎の下に版を設け</text><text x="246" y="80">荷重を面で受ける</text>
+</g>
+<g transform="translate(0,160)">
+<rect x="12" y="10" width="376" height="150" rx="6" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+<text class="t" x="24" y="32">注入工法</text>
+<polygon class="h" points="64,60 100,42 136,60"/><rect class="h" x="70" y="60" width="60" height="24"/>
+<rect class="c" x="24" y="90" width="206" height="14"/><rect class="g" x="24" y="104" width="206" height="18"/><rect class="p" x="24" y="122" width="206" height="12"/>
+<text x="30" y="132">支持層</text><text x="190" y="101">表層</text><text x="170" y="117">液状化層</text>
+<ellipse cx="100" cy="106" rx="48" ry="14" fill="#d0e8d0" stroke="#3a7d44"/>
+<path d="M86 84V108M114 84V108" stroke="#222" stroke-width="2"/>
+<text x="246" y="62">基礎下の地盤へ注入し</text><text x="246" y="80">その地盤を固める</text>
+</g>
+<g transform="translate(0,320)">
+<rect x="12" y="10" width="376" height="150" rx="6" fill="#fff" stroke="#b22234" stroke-width="1.5"/>
+<text class="t" x="24" y="32">アンダーピニング</text>
+<polygon class="h" points="64,60 100,42 136,60"/><rect class="h" x="70" y="60" width="60" height="24"/>
+<rect class="c" x="24" y="90" width="206" height="14"/><rect class="g" x="24" y="104" width="206" height="18"/><rect class="p" x="24" y="122" width="206" height="12"/>
+<text x="30" y="132">支持層</text><text x="190" y="101">表層</text><text x="170" y="117">液状化層</text>
+<rect x="78" y="86" width="8" height="44" fill="#555" stroke="#222"/><rect x="114" y="86" width="8" height="44" fill="#555" stroke="#222"/>
+<text x="246" y="62">基礎の下へ杭を入れ</text><text x="246" y="80">深い層へ荷重を移す</text>
+</g>
+</svg>

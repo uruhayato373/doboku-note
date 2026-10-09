@@ -3,6 +3,476 @@
   "exam": "civil-construction-1",
   "works": [
     {
+      "id": "c1-anzen-crane-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-crane/pack-01"
+    },
+    {
+      "id": "c1-anzen-excavation-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-excavation/pack-01"
+    },
+    {
+      "id": "c1-anzen-excavation-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-excavation/pack-02"
+    },
+    {
+      "id": "c1-anzen-formwork-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-formwork/pack-01"
+    },
+    {
+      "id": "c1-anzen-formwork-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-formwork/pack-02"
+    },
+    {
+      "id": "c1-anzen-general-hazard-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-general_hazard/pack-01"
+    },
+    {
+      "id": "c1-anzen-general-hazard-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-general_hazard/pack-02"
+    },
+    {
+      "id": "c1-anzen-general-hazard-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-general_hazard/pack-03"
+    },
+    {
+      "id": "c1-anzen-health-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-health/pack-01"
+    },
+    {
+      "id": "c1-anzen-health-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-health/pack-02"
+    },
+    {
+      "id": "c1-anzen-machine-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-machine/pack-01"
+    },
+    {
+      "id": "c1-anzen-org-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-01"
+    },
+    {
+      "id": "c1-anzen-org-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-02"
+    },
+    {
+      "id": "c1-anzen-org-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-03"
+    },
+    {
+      "id": "c1-anzen-org-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-04"
+    },
+    {
+      "id": "c1-anzen-org-p05",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-05"
+    },
+    {
+      "id": "c1-anzen-org-p06",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-org/pack-06"
+    },
+    {
+      "id": "c1-anzen-scaffold-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-01"
+    },
+    {
+      "id": "c1-anzen-scaffold-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-02"
+    },
+    {
+      "id": "c1-anzen-scaffold-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-03"
+    },
+    {
+      "id": "c1-anzen-scaffold-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-04"
+    },
+    {
+      "id": "c1-anzen-scaffold-p05",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-scaffold/pack-05"
+    },
+    {
+      "id": "c1-anzen-utility-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/anzen-utility/pack-01"
+    },
+    {
+      "id": "c1-hinshitsu-basic-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-01"
+    },
+    {
+      "id": "c1-hinshitsu-basic-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-02"
+    },
+    {
+      "id": "c1-hinshitsu-basic-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-basic/pack-03"
+    },
+    {
+      "id": "c1-hinshitsu-concrete-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-01"
+    },
+    {
+      "id": "c1-hinshitsu-concrete-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-02"
+    },
+    {
+      "id": "c1-hinshitsu-concrete-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-concrete/pack-03"
+    },
+    {
+      "id": "c1-hinshitsu-ndt-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-ndt/pack-01"
+    },
+    {
+      "id": "c1-hinshitsu-ndt-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-ndt/pack-02"
+    },
+    {
+      "id": "c1-hinshitsu-ndt-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-ndt/pack-03"
+    },
+    {
+      "id": "c1-hinshitsu-pavement-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-pavement/pack-01"
+    },
+    {
+      "id": "c1-hinshitsu-pavement-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-pavement/pack-02"
+    },
+    {
+      "id": "c1-hinshitsu-soil-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hinshitsu-soil/pack-01"
+    },
+    {
+      "id": "c1-hoki-building-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-building/pack-01"
+    },
+    {
+      "id": "c1-hoki-building-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-building/pack-02"
+    },
+    {
+      "id": "c1-hoki-building-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-building/pack-03"
+    },
+    {
+      "id": "c1-hoki-construction-business-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-construction_business/pack-01"
+    },
+    {
+      "id": "c1-hoki-construction-business-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-construction_business/pack-02"
+    },
+    {
+      "id": "c1-hoki-construction-business-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-construction_business/pack-03"
+    },
+    {
+      "id": "c1-hoki-construction-business-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-construction_business/pack-04"
+    },
+    {
+      "id": "c1-hoki-construction-business-p05",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-construction_business/pack-05"
+    },
+    {
+      "id": "c1-hoki-explosive-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-explosive/pack-01"
+    },
+    {
+      "id": "c1-hoki-explosive-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-explosive/pack-02"
+    },
+    {
+      "id": "c1-hoki-labor-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-01"
+    },
+    {
+      "id": "c1-hoki-labor-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-02"
+    },
+    {
+      "id": "c1-hoki-labor-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-03"
+    },
+    {
+      "id": "c1-hoki-labor-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-04"
+    },
+    {
+      "id": "c1-hoki-labor-p05",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-labor/pack-05"
+    },
+    {
+      "id": "c1-hoki-noise-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-noise/pack-01"
+    },
+    {
+      "id": "c1-hoki-noise-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-noise/pack-02"
+    },
+    {
+      "id": "c1-hoki-port-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-port/pack-01"
+    },
+    {
+      "id": "c1-hoki-port-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-port/pack-02"
+    },
+    {
+      "id": "c1-hoki-port-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-port/pack-03"
+    },
+    {
+      "id": "c1-hoki-river-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-river/pack-01"
+    },
+    {
+      "id": "c1-hoki-river-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-river/pack-02"
+    },
+    {
+      "id": "c1-hoki-road-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-road/pack-01"
+    },
+    {
+      "id": "c1-hoki-road-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-road/pack-02"
+    },
+    {
+      "id": "c1-hoki-vibration-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-vibration/pack-01"
+    },
+    {
+      "id": "c1-hoki-vibration-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-vibration/pack-02"
+    },
+    {
+      "id": "c1-hoki-vibration-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-vibration/pack-03"
+    },
+    {
+      "id": "c1-hoki-waste-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-waste/pack-01"
+    },
+    {
+      "id": "c1-hoki-waste-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/hoki-waste/pack-02"
+    },
+    {
+      "id": "c1-kankyo-general-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-general/pack-01"
+    },
+    {
+      "id": "c1-kankyo-general-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-general/pack-02"
+    },
+    {
+      "id": "c1-kankyo-noise-vib-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-noise_vib/pack-01"
+    },
+    {
+      "id": "c1-kankyo-noise-vib-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-noise_vib/pack-02"
+    },
+    {
+      "id": "c1-kankyo-recycle-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-recycle/pack-01"
+    },
+    {
+      "id": "c1-kankyo-soil-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-soil/pack-01"
+    },
+    {
+      "id": "c1-kankyo-soil-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-soil/pack-02"
+    },
+    {
+      "id": "c1-kankyo-water-soil-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-water_soil/pack-01"
+    },
+    {
+      "id": "c1-kankyo-water-soil-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/kankyo-water_soil/pack-02"
+    },
+    {
+      "id": "c1-koutei-basic-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/koutei-basic/pack-01"
+    },
+    {
+      "id": "c1-koutei-basic-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/koutei-basic/pack-02"
+    },
+    {
+      "id": "c1-koutei-chart-types-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/koutei-chart_types/pack-01"
+    },
+    {
+      "id": "c1-koutei-curve-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/koutei-curve/pack-01"
+    },
+    {
+      "id": "c1-koutei-network-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/koutei-network/pack-01"
+    },
+    {
+      "id": "c1-kw-aggregate-moisture",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/aggregate-moisture"
+    },
+    {
+      "id": "c1-kw-compaction-water-content",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/compaction-water-content"
+    },
+    {
+      "id": "c1-kw-leveling-principle",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/leveling-principle"
+    },
+    {
+      "id": "c1-kw-network-floats",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/network-floats"
+    },
+    {
+      "id": "c1-kw-prestress-stress-balance",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/prestress-stress-balance"
+    },
+    {
+      "id": "c1-kw-settlement-bleeding",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/settlement-bleeding"
+    },
+    {
+      "id": "c1-kw-surcharge-preloading",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/surcharge-preloading"
+    },
+    {
+      "id": "c1-kw-thermal-cracking",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/thermal-cracking"
+    },
+    {
+      "id": "c1-kw-wellpoint-dewatering",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/keyword-packs/wellpoint-dewatering"
+    },
+    {
+      "id": "c1-sekokeikaku-cost-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-cost/pack-01"
+    },
+    {
+      "id": "c1-sekokeikaku-machine-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-machine/pack-01"
+    },
+    {
+      "id": "c1-sekokeikaku-machine-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-machine/pack-02"
+    },
+    {
+      "id": "c1-sekokeikaku-planning-other-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-planning_other/pack-01"
+    },
+    {
+      "id": "c1-sekokeikaku-planning-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-planning/pack-01"
+    },
+    {
+      "id": "c1-sekokeikaku-survey-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-survey/pack-01"
+    },
+    {
+      "id": "c1-sekokeikaku-temporary-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-1/theme-packs/sekokeikaku-temporary/pack-01"
+    },
+    {
       "id": "career-agent-katsuyo",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo",
@@ -78,6 +548,84 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "civil-09-a",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/090-civil-2026-09-a",
+      "legacyKey": "090-civil-2026-09-a"
+    },
+    {
+      "id": "civil-09-b",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/091-civil-2026-09-b",
+      "legacyKey": "091-civil-2026-09-b"
+    },
+    {
+      "id": "civil-09-c",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/092-civil-2026-09-c",
+      "legacyKey": "092-civil-2026-09-c"
+    },
+    {
+      "id": "civil-textbook-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/101-civil-textbook-diagrams",
+      "legacyKey": "101-civil-textbook-diagrams"
+    },
+    {
+      "id": "civil1-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/084-civil1-2026-08-boost",
+      "legacyKey": "084-civil1-2026-08-boost"
+    },
+    {
+      "id": "civil1-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/087-civil1-2026-08-late",
+      "legacyKey": "087-civil1-2026-08-late"
+    },
+    {
+      "id": "civil1-construction-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/109-civil1-construction-diagrams",
+      "legacyKey": "109-civil1-construction-diagrams"
+    },
+    {
+      "id": "civil1-diagram-reuse",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/097-civil1-diagram-reuse",
+      "legacyKey": "097-civil1-diagram-reuse"
+    },
+    {
+      "id": "civil1-keiken-w2",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/073-civil1-keiken-w2",
+      "legacyKey": "073-civil1-keiken-w2"
+    },
+    {
+      "id": "civil1-pressure-correction",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/096-civil1-pressure-correction",
+      "legacyKey": "096-civil1-pressure-correction"
+    },
+    {
+      "id": "civil1-prestress-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/108-civil1-prestress-diagrams",
+      "legacyKey": "108-civil1-prestress-diagrams"
+    },
+    {
+      "id": "civil1-secondary-keiken-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/068-civil1-secondary-keiken-w1",
+      "legacyKey": "068-civil1-secondary-keiken-w1"
+    },
+    {
+      "id": "civil1-shiken-campaign",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/044-civil1-shiken-campaign",
+      "legacyKey": "044-civil1-shiken-campaign"
     },
     {
       "id": "gakka-anzen-taisei",
@@ -732,6 +1280,12 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "x042-civil1-r06",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/042-civil1-r06頻出",
+      "legacyKey": "042-civil1-r06頻出"
     }
   ]
 }

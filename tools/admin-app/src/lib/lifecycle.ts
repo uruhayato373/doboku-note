@@ -13,7 +13,6 @@ import {
   coconalaStatusToStage,
   kindleStatusToStage,
   xTweetStatusToStage,
-  youtubeScheduleStatusToStage,
   igPackToStage,
 } from '../../../../scripts/lib/content-lifecycle.mjs';
 import {
@@ -22,6 +21,7 @@ import {
 } from '../../../../scripts/lib/video-content-check.mjs';
 import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
+import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
 import { articlesIndex, magazines, noteArticleCounts } from './content';
 import { loadKindleView } from './kindle';
 import { findRepoRoot, repoPath } from './repo-root';
@@ -87,7 +87,7 @@ function done(
 
 function videoLifecycle(): ChannelLifecycle {
   const href = '/content/video';
-  const source = 'content/sns/video-packs/**/video-pack.json + .claude/state/video-content-status.json';
+  const source = 'content/sns/video-packs/**/video-pack.json + content/registry';
   try {
     const root = findRepoRoot();
     const rows = loadPackSummaries(root, loadVideoConfig(root)) as { stage: string | null }[];
@@ -240,15 +240,12 @@ function xLifecycle(): ChannelLifecycle {
 
 function youtubeShortsLifecycle(): ChannelLifecycle {
   const href = '/sns';
-  const source = '.claude/state/youtube-schedule.json（items[].status）';
+  const source = 'content/registry（旧 Shorts・kind legacy-short）';
   try {
-    const p = repoPath('.claude', 'state', 'youtube-schedule.json');
-    if (!existsSync(p)) return failed('youtube-shorts', 'YouTube Shorts', href, source, '台帳が無い');
-    const j = JSON.parse(readFileSync(p, 'utf8')) as { items?: { status?: string }[] };
-    const items = j.items ?? [];
-    if (items.length === 0) return failed('youtube-shorts', 'YouTube Shorts', href, source, '台帳が空');
+    const items = youtubePublications(findRepoRoot(), { legacyOnly: true }) as { stage: string }[];
+    if (items.length === 0) return failed('youtube-shorts', 'YouTube Shorts', href, source, '台帳に旧 Shorts が 1 件も無い');
     const counts = emptyCounts();
-    for (const i of items) tally(counts, youtubeScheduleStatusToStage(i.status ?? ''));
+    for (const i of items) tally(counts, i.stage);
     return done('youtube-shorts', 'YouTube Shorts', href, source, counts);
   } catch (e) {
     return failed('youtube-shorts', 'YouTube Shorts', href, source, (e as Error).message);

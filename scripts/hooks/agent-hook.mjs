@@ -2,7 +2,6 @@
 // agent-hook — Claude Code と Codex の hook 入口（純 Node・shell 非依存）。
 //
 //   node scripts/hooks/agent-hook.mjs <name>
-//     check-gemini-cost        PreToolUse(Bash)   Gemini 課金コマンドに permissionDecision:ask を返す
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
@@ -23,7 +22,6 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import {
-  GEMINI_ASK_PAYLOAD,
   STRAY_GLOBS,
   captureMarkers,
   captureReason,
@@ -32,7 +30,6 @@ import {
   docSyncMessages,
   finalAssistantText,
   hasReplacementChar,
-  isGeminiBilling,
   isGitCommitCommand,
   isMdxPath,
   needsCapture,
@@ -70,11 +67,6 @@ const err = (lines) => {
 };
 
 const HANDLERS = {
-  'check-gemini-cost'({ command }) {
-    if (isGeminiBilling(command)) process.stdout.write(JSON.stringify(GEMINI_ASK_PAYLOAD));
-    return 0;
-  },
-
   'check-doc-sync'({ command }) {
     if (!isGitCommitCommand(command)) return 0;
     const staged = parseNameStatus(git(['diff', '--cached', '--name-status']));

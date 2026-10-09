@@ -4,7 +4,7 @@
 // 「照合していないのに published のまま」を確実に赤くするかを固定する。
 //
 // 一番危険なのは、公開済みなのに一度も実査しておらず、それでも緑が出続ける状態。
-// state を差し替えたミニ環境で CLI を実行し、exit code と検出コードを検証する。
+// state（台帳の代わり）を差し替えたミニ環境で CLI を実行し、exit code と検出コードを検証する。
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -33,7 +33,13 @@ function runCheck({ state, record }) {
     }
     cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));
     cpSync(join(ROOT, 'config', 'utm-templates.json'), join(root, 'config', 'utm-templates.json'));
-    writeFileSync(join(root, '.claude', 'state', 'video-content-status.json'), JSON.stringify(state));
+    // 本物の loadVideoState は content/registry を読む。ミニ環境では台帳の代わりに差し替えた state を返す入口だけを置く
+    writeFileSync(join(root, '.claude', 'state', 'test-video-state.json'), JSON.stringify(state));
+    writeFileSync(
+      join(root, 'scripts', 'lib', 'registry-video-state.mjs'),
+      "import { readFileSync } from 'node:fs';\nimport { join } from 'node:path';\n"
+        + "export const loadVideoState = (root) => JSON.parse(readFileSync(join(root, '.claude', 'state', 'test-video-state.json'), 'utf8'));\n",
+    );
     if (record) {
       writeFileSync(join(root, '.claude', 'state', 'video-publication-verify.json'), JSON.stringify(record));
     }

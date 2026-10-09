@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="現実の構造物から、センサ、通信と蓄積、自動判定、仮想モデルの更新、措置と計画の見直しへ進む常時監視の流れ。走行車両のセンサは固定センサの横から加わる">
+<defs>
+<style>
+text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.b{font-size:14px;font-weight:bold}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#fff"/>
+<g stroke-width="1.5">
+<rect x="28" y="20" width="210" height="52" rx="6" fill="#f5f5f5" stroke="#555"/>
+<rect x="28" y="94" width="210" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="28" y="168" width="210" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="28" y="242" width="210" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="28" y="316" width="210" height="52" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="28" y="390" width="210" height="52" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="266" y="94" width="100" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+</g>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)" fill="none">
+<path d="M133 72V92"/><path d="M133 146V166"/><path d="M133 220V240"/><path d="M133 294V314"/><path d="M133 368V388"/><path d="M266 120H240"/>
+</g>
+<path d="M238 416H372V46H240" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<g class="b">
+<text x="40" y="41">現実の構造物</text>
+<text x="40" y="115">センサ（多点）</text>
+<text x="40" y="189">通信と蓄積</text>
+<text x="40" y="263">自動判定</text>
+<text x="40" y="337">仮想モデルの更新</text>
+<text x="40" y="411">措置と計画の見直し</text>
+</g>
+<g class="s">
+<text x="40" y="58">温度・荷重・劣化で動く</text>
+<text x="40" y="132">固定して連続して測る</text>
+<text x="40" y="206">欠測を見つけて補う</text>
+<text x="40" y="280">基準値と過去の傾向と比べる</text>
+<text x="40" y="354">実測との差を小さくする</text>
+<text x="40" y="428">測る場所や頻度も直す</text>
+<text x="278" y="115" class="b" style="font-size:13px">走行車両</text>
+<text x="278" y="134">のセンサ</text>
+</g>
+<text x="28" y="470" class="s">緑は実測との差を直す部分</text>
+<text x="28" y="488" class="s">赤い点線は、見直しが計測へ戻る経路</text>
+</svg>

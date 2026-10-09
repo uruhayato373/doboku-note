@@ -14,6 +14,245 @@
       }
     },
     {
+      "id": "c2-anzen-excavation-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-01"
+    },
+    {
+      "id": "c2-anzen-excavation-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-02"
+    },
+    {
+      "id": "c2-anzen-general-hazard-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-general_hazard/pack-01"
+    },
+    {
+      "id": "c2-anzen-machine-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-machine/pack-01"
+    },
+    {
+      "id": "c2-anzen-machine-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-machine/pack-02"
+    },
+    {
+      "id": "c2-anzen-org-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-org/pack-01"
+    },
+    {
+      "id": "c2-anzen-org-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-org/pack-02"
+    },
+    {
+      "id": "c2-anzen-scaffold-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-01"
+    },
+    {
+      "id": "c2-anzen-scaffold-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-02"
+    },
+    {
+      "id": "c2-anzen-scaffold-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-03"
+    },
+    {
+      "id": "c2-hinshitsu-basic-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hinshitsu-basic/pack-01"
+    },
+    {
+      "id": "c2-hinshitsu-concrete-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hinshitsu-concrete/pack-01"
+    },
+    {
+      "id": "c2-hinshitsu-concrete-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hinshitsu-concrete/pack-02"
+    },
+    {
+      "id": "c2-hinshitsu-ndt-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hinshitsu-ndt/pack-01"
+    },
+    {
+      "id": "c2-hinshitsu-ndt-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hinshitsu-ndt/pack-02"
+    },
+    {
+      "id": "c2-hoki-building-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-building/pack-01"
+    },
+    {
+      "id": "c2-hoki-building-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-building/pack-02"
+    },
+    {
+      "id": "c2-hoki-construction-business-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-construction_business/pack-01"
+    },
+    {
+      "id": "c2-hoki-construction-business-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-construction_business/pack-02"
+    },
+    {
+      "id": "c2-hoki-explosive-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-explosive/pack-01"
+    },
+    {
+      "id": "c2-hoki-labor-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-01"
+    },
+    {
+      "id": "c2-hoki-labor-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-02"
+    },
+    {
+      "id": "c2-hoki-labor-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-03"
+    },
+    {
+      "id": "c2-hoki-labor-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-04"
+    },
+    {
+      "id": "c2-hoki-noise-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-noise/pack-01"
+    },
+    {
+      "id": "c2-hoki-port-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-port/pack-01"
+    },
+    {
+      "id": "c2-hoki-port-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-port/pack-02"
+    },
+    {
+      "id": "c2-hoki-river-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-river/pack-01"
+    },
+    {
+      "id": "c2-hoki-road-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-road/pack-01"
+    },
+    {
+      "id": "c2-hoki-road-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-road/pack-02"
+    },
+    {
+      "id": "c2-hoki-vibration-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-vibration/pack-01"
+    },
+    {
+      "id": "c2-hoki-vibration-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/hoki-vibration/pack-02"
+    },
+    {
+      "id": "c2-kankyo-general-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/kankyo-general/pack-01"
+    },
+    {
+      "id": "c2-kankyo-noise-vib-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/kankyo-noise_vib/pack-01"
+    },
+    {
+      "id": "c2-kankyo-recycle-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/kankyo-recycle/pack-01"
+    },
+    {
+      "id": "c2-sekokeikaku-machine-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/sekokeikaku-machine/pack-01"
+    },
+    {
+      "id": "c2-sekokeikaku-planning-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/civil-2/theme-packs/sekokeikaku-planning/pack-01"
+    },
+    {
+      "id": "character-10-a",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/096-character-2026-10-a",
+      "legacyKey": "096-character-2026-10-a"
+    },
+    {
+      "id": "civil2-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/085-civil2-2026-08-boost",
+      "legacyKey": "085-civil2-2026-08-boost"
+    },
+    {
+      "id": "civil2-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/088-civil2-2026-08-late",
+      "legacyKey": "088-civil2-2026-08-late"
+    },
+    {
+      "id": "civil2-coconala10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/107-civil2-coconala-2026-10",
+      "legacyKey": "107-civil2-coconala-2026-10"
+    },
+    {
+      "id": "civil2-final10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/097-civil2-final-2026-10",
+      "legacyKey": "097-civil2-final-2026-10"
+    },
+    {
+      "id": "civil2-keiken-w1",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/074-civil2-keiken-w1",
+      "legacyKey": "074-civil2-keiken-w1"
+    },
+    {
+      "id": "civil2-lastweek10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/106-civil2-lastweek-2026-10",
+      "legacyKey": "106-civil2-lastweek-2026-10"
+    },
+    {
+      "id": "civil2-pinned10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/105-civil2-pinned-2026-10",
+      "legacyKey": "105-civil2-pinned-2026-10"
+    },
+    {
+      "id": "civil2-shiken-campaign",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign",
+      "legacyKey": "045-civil2-shiken-campaign"
+    },
+    {
       "id": "gakka-2kyu-concrete",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete",
@@ -211,6 +450,12 @@
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
       }
+    },
+    {
+      "id": "x043-civil2-r05z",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/_archive-old-account/043-civil2-r05z頻出",
+      "legacyKey": "043-civil2-r05z頻出"
     }
   ]
 }

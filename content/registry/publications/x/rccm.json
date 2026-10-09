@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "channel": "x",
+  "exam": "rccm",
+  "publications": [
+    {
+      "id": "rccm/rccm10/x.post.t01",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/104-rccm-2026-10#1",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/1",
+      "publishAt": "2026-10-23T19:30:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t02",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/104-rccm-2026-10#2",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/2",
+      "publishAt": "2026-10-24T20:50:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t03",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/104-rccm-2026-10#3",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/3",
+      "publishAt": "2026-10-25T19:30:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t04",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/104-rccm-2026-10#4",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/4",
+      "publishAt": "2026-10-26T20:45:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t05",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/104-rccm-2026-10#5",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/5",
+      "publishAt": "2026-10-27T21:05:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t06",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/104-rccm-2026-10#6",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/6",
+      "publishAt": "2026-10-28T21:25:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t07",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/104-rccm-2026-10#7",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/7",
+      "publishAt": "2026-10-29T19:30:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t08",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/104-rccm-2026-10#8",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/8",
+      "publishAt": "2026-10-30T19:30:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "rccm/rccm10/x.post.t09",
+      "work": "rccm10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/104-rccm-2026-10#9",
+      "copy": "content/sns/x/draft/104-rccm-2026-10/status.json#tweets/9",
+      "publishAt": "2026-10-31T20:45:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    }
+  ]
+}

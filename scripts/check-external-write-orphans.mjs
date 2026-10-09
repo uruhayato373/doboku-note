@@ -40,9 +40,11 @@
  * ---------------------------------------------------------------------------
  */
 import { execFileSync } from 'node:child_process';
-import { readFileSync, existsSync, writeSync } from 'node:fs';
+import { existsSync, writeSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { datasetDir } from './lib/datasets.mjs';
+import { youtubePublications } from './lib/registry-youtube-view.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const JSON_OUT = process.argv.includes('--json');
@@ -59,12 +61,9 @@ const JOBS = [
     workflow: 'post-youtube-scheduled.yml',
     // 外部操作の成功マーカー。これが失敗 run のログにあれば orphan（外部に出たが記録は無い）
     externalOk: /✓\s+\S+\s+→\s+https:\/\/youtube\.com\/watch\?v=/,
-    // 台帳と、未処理を数える関数
-    ledger: '.claude/state/youtube-schedule.json',
-    pending: (j) => {
-      const items = Array.isArray(j) ? j : j.items ?? j.videos ?? [];
-      return items.filter((i) => i.status === 'pending').length;
-    },
+    // 台帳（コンテンツ台帳の YouTube の置き場）と、未処理（旧 pending＝公開も停止もしていない旧 Shorts）を数える関数
+    ledger: datasetDir('registry.youtube'),
+    pending: (root) => youtubePublications(root, { legacyOnly: true }).filter((p) => p.status !== 'published' && p.status !== 'stopped').length,
     // 手動投入へ切り替えたので「走っていない＝異常」ではない（2026-08-18 ユーザー決定）。
     // silent-stop は「未処理があるのに誰も回していない」ことの通知に留める。
     manualDispatch: true,
@@ -180,7 +179,7 @@ function main() {
     if (existsSync(ledgerPath)) {
       let pending = null;
       try {
-        pending = job.pending(JSON.parse(readFileSync(ledgerPath, 'utf8')));
+        pending = job.pending(ROOT);
       } catch {
         /* 台帳が読めないなら pending は判定しない */
       }

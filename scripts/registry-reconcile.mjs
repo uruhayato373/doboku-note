@@ -4,7 +4,6 @@
  * 突き合わせる（content-registry.md「照合」・DN-0608）。毎日 .github/workflows/registry-reconcile.yml が動かす。
  *
  * - 予約（scheduled）の動画が public になっていれば published へ進め、証拠（youtube-api）と公開時刻を書く。
- *   今の台帳（.claude/state/video-content-status.json）は台帳から作り直して一緒に書く。
  * - 後戻り（published なのに非公開・消えた）と、期日を過ぎても公開にならない予約は所見として記録するだけ（状態は人が決める）。
  * - 記録は .claude/state/registry-reconcile/youtube.json。認証が無い・API が失敗したときは何も書かずに exit 2（検査不成立）。
  *
@@ -19,8 +18,6 @@ import { fileURLToPath } from 'node:url';
 import { loadRegistry, loadRegistryConfig } from './lib/content-registry.mjs';
 import { upsertPublications } from './lib/content-registry-write.mjs';
 import { reconcileYoutube } from './lib/registry-reconcile.mjs';
-import { VIDEO_STATE_PATH, projectVideoState, writeVideoState } from './lib/registry-video-state.mjs';
-import { readJsonIf } from './lib/json-io.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DRY = process.argv.includes('--dry');
@@ -94,10 +91,10 @@ async function main() {
     for (const a of advance) {
       const cur = pubs.find((p) => p.id === a.id);
       const row = Object.fromEntries(Object.entries(cur).filter(([k]) => !['file', 'exam', 'channel'].includes(k)));
-      byExam.set(cur.exam, [...(byExam.get(cur.exam) ?? []), { ...row, status: 'published', platform: a.platform }]);
+      const { stopReason: _s, reason: _r, ...rest } = row;
+      byExam.set(cur.exam, [...(byExam.get(cur.exam) ?? []), { ...rest, status: 'published', platform: a.platform }]);
     }
     for (const [exam, rows] of byExam) upsertPublications(ROOT, 'youtube', exam, rows);
-    if (advance.length) writeVideoState(ROOT, projectVideoState(readJsonIf(ROOT, VIDEO_STATE_PATH), loadRegistry(ROOT)));
     const record = {
       schemaVersion: 1, checkedAt: checkedAt.toISOString(), channel: 'youtube',
       targets: pubs.length, checked, observed: observed.size,
@@ -105,7 +102,7 @@ async function main() {
     };
     mkdirSync(dirname(join(ROOT, OUT)), { recursive: true });
     writeFileSync(join(ROOT, OUT), `${JSON.stringify(record, null, 2)}\n`);
-    log(`記録: ${OUT}${advance.length ? `・台帳 ${advance.length} 行と今の台帳を更新` : ''}`);
+    log(`記録: ${OUT}${advance.length ? `・台帳 ${advance.length} 行を更新` : ''}`);
   }
   return findings.some((f) => f.severity === 'fail') ? 1 : 0;
 }

@@ -10,13 +10,16 @@ test('planGates: staged のパスに応じて回す検査と対象を決める',
     'content/note/magazines/x/article.md',
     'src/lib/foo.ts',
   ]);
-  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'generated-indexes']);
+  assert.deepEqual(plan.map((g) => g.id), ['katex-warnings', 'note-paid-cta', 'products', 'affiliate-placements', 'keiken-answer-split', 'generated-indexes']);
   const katex = plan.find((g) => g.id === 'katex-warnings');
   assert.equal(katex.files.length, 2);
   assert.deepEqual(katex.cmd(katex.files).slice(0, 3), ['node', 'scripts/audit-katex-warnings.mjs', '--strict']);
   assert.deepEqual(planGates(['content/sns/x/review.json']).map((g) => g.id), ['x-review']);
   assert.deepEqual(planGates(['config/note-funnel.json']).map((g) => g.id), ['note-paid-cta']);
-  assert.deepEqual(planGates(['docs/README.md', 'content/site/a/img/x.svg']), []);
+  assert.deepEqual(planGates(['docs/README.md']), []);
+  // 記事の画像はサイズ上限を先に見る（2026-10-09 に 10KB 超えの図 2 枚が CI で初めて落ちた）
+  assert.deepEqual(planGates(['content/site/a/img/x.svg']).map((g) => g.id), ['image-assets']);
+  assert.deepEqual(planGates(['content/site/a/img/photo-x.webp']).map((g) => g.id), ['image-assets']);
   assert.deepEqual(planGates(['config/products.json']).map((g) => g.id), ['products']);
   assert.deepEqual(planGates(['src/lib/coconala-services.ts', 'scripts/kindle-published/catalog.json']).map((g) => g.id), ['products']);
   // 転職アフィリエイトの配置ルールと、それが突き合わせる正本
@@ -55,4 +58,11 @@ test('pre-commit が毎回呼ぶ pre-commit-mdx の先頭（MDX 無しの早期�
   const gate = main.indexOf('runGates()');
   assert.ok(gate > 0, 'main で runGates を呼んでいない');
   assert.ok(gate < main.indexOf('Nothing to validate'), '早期終了より後に置くと MDX 無しの commit で回らない');
+});
+
+test('planGates: 1級・2級土木の記事と note・Kindle の原稿は経験記述の割り振りを先に見る', () => {
+  assert.ok(planGates(['content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx']).some((g) => g.id === 'keiken-answer-split'));
+  assert.ok(planGates(['content/site/civil-construction-2/guide-x/article.mdx']).some((g) => g.id === 'keiken-answer-split'));
+  assert.ok(planGates(['content/note/x/y/article.md']).some((g) => g.id === 'keiken-answer-split'));
+  assert.ok(!planGates(['content/site/pe-construction/x/article.mdx']).some((g) => g.id === 'keiken-answer-split'));
 });

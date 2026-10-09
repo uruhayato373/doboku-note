@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "pe-first-stage",
+  "publications": [
+    {
+      "id": "pe-first-stage/pe1-kw-balanced-bridge/instagram.carousel",
+      "work": "pe1-kw-balanced-bridge",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/keyword-packs/balanced-bridge",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kw-balanced-bridge/instagram.reel",
+      "work": "pe1-kw-balanced-bridge",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/keyword-packs/balanced-bridge",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kw-newton-method/instagram.carousel",
+      "work": "pe1-kw-newton-method",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/keyword-packs/newton-method",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kw-newton-method/instagram.reel",
+      "work": "pe1-kw-newton-method",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/keyword-packs/newton-method",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kw-vector-projection/instagram.carousel",
+      "work": "pe1-kw-vector-projection",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/keyword-packs/vector-projection",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-kw-vector-projection/instagram.reel",
+      "work": "pe1-kw-vector-projection",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/keyword-packs/vector-projection",
+      "copy": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p01/instagram.carousel",
+      "work": "pe1-r07-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-01",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p01/instagram.reel",
+      "work": "pe1-r07-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-01",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p02/instagram.carousel",
+      "work": "pe1-r07-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-02",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p02/instagram.reel",
+      "work": "pe1-r07-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-02",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p03/instagram.carousel",
+      "work": "pe1-r07-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-03",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p03/instagram.reel",
+      "work": "pe1-r07-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-03",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p04/instagram.carousel",
+      "work": "pe1-r07-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-04",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p04/instagram.reel",
+      "work": "pe1-r07-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-04",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p05/instagram.carousel",
+      "work": "pe1-r07-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-05",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p05/instagram.reel",
+      "work": "pe1-r07-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-05",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p06/instagram.carousel",
+      "work": "pe1-r07-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-06",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p06/instagram.reel",
+      "work": "pe1-r07-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-06",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p07/instagram.carousel",
+      "work": "pe1-r07-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-07",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p07/instagram.reel",
+      "work": "pe1-r07-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-07",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p08/instagram.carousel",
+      "work": "pe1-r07-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-08",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p08/instagram.reel",
+      "work": "pe1-r07-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-08",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p09/instagram.carousel",
+      "work": "pe1-r07-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-09",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p09/instagram.reel",
+      "work": "pe1-r07-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-09",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p10/instagram.carousel",
+      "work": "pe1-r07-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-10",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p10/instagram.reel",
+      "work": "pe1-r07-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-10",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p11/instagram.carousel",
+      "work": "pe1-r07-p11",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-11",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p11/instagram.reel",
+      "work": "pe1-r07-p11",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-11",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p12/instagram.carousel",
+      "work": "pe1-r07-p12",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-12",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p12/instagram.reel",
+      "work": "pe1-r07-p12",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-12",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p13/instagram.carousel",
+      "work": "pe1-r07-p13",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-13",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p13/instagram.reel",
+      "work": "pe1-r07-p13",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-13",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p14/instagram.carousel",
+      "work": "pe1-r07-p14",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-14",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p14/instagram.reel",
+      "work": "pe1-r07-p14",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-14",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p15/instagram.carousel",
+      "work": "pe1-r07-p15",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-15",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-first-stage/pe1-r07-p15/instagram.reel",
+      "work": "pe1-r07-p15",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-first-stage/exam-packs/r07/pack-15",
+      "copy": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/reels/caption.txt",
+      "status": "draft"
+    }
+  ]
+}

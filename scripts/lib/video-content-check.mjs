@@ -17,6 +17,7 @@ import { join } from 'node:path';
 import { videoStatusToStage } from './content-lifecycle.mjs';
 import { channelFamily } from './utm-channels.mjs';
 import { assembleCompilation } from './video-compilation.mjs';
+import { loadVideoState } from './registry-video-state.mjs';
 
 const CONFIG_PATH = 'config/video-content.json'; // path-literal-ok: tests/video-publication-check.test.mjs が lib を単体で tmp にコピーして走らせる（datasets.mjs・zod が解決できない）
 const UTM_TEMPLATES_PATH = 'config/utm-templates.json'; // path-literal-ok: 同上（台帳 id: config.utm-templates）
@@ -137,11 +138,7 @@ export function discoverPacks(root, config) {
 export function loadPackSummaries(root, config, state) {
   const cfg = config ?? loadConfig(root);
   const { packs } = discoverPacks(root, cfg);
-  let st = state;
-  if (!st) {
-    const p = join(root, cfg.paths.stateFile);
-    st = existsSync(p) ? (readJsonSafe(p).data ?? { packs: {} }) : { packs: {} };
-  }
+  const st = state ?? loadVideoState(root);
 
   const rows = [];
   for (const pack of packs) {
@@ -409,18 +406,17 @@ function checkBinaries(pack, id, config, issues) {
   }
 }
 
-/** state ファイルを検査し、packId → 最上位進行 status を返す */
+/** 台帳から作った動画パックの状態を検査し、packId → 最上位進行 status を返す */
 /**
  * 総まとめ（compilation.json）の storyboard.json が、元パックから組み立て直したものと一致するか。
  * 元パックの台本を直したのに再生成し忘れる・未承認のパックを束ねる、を止める。
  */
-function checkCompilation(pack, id, root, config, issues) {
+function checkCompilation(pack, id, st, issues) {
   const { data: spec, error } = readJsonSafe(join(pack.dir, 'compilation.json'));
   if (error) {
     issues.push(issue('FAIL', 'K01', id, `compilation.json の parse 失敗: ${error}`));
     return;
   }
-  const { data: st } = readJsonSafe(join(root, config.paths.stateFile));
   let assembled;
   try {
     assembled = assembleCompilation(spec, (packId) => {
@@ -439,15 +435,9 @@ function checkCompilation(pack, id, root, config, issues) {
   }
 }
 
-function checkState(root, config, knownPackIds, issues) {
-  const statePath = join(root, config.paths.stateFile);
+function checkState(st, config, knownPackIds, issues) {
   const progress = new Map();
-  if (!existsSync(statePath)) return { exists: false, progress };
-  const { data: st, error } = readJsonSafe(statePath);
-  if (error) {
-    issues.push(issue('FAIL', 'T01', null, `${config.paths.stateFile} の parse 失敗（status 取得失敗を PASS にしない）: ${error}`));
-    return { exists: true, progress };
-  }
+  const exists = Object.keys(st?.packs ?? {}).length > 0;
   if (st.schemaVersion !== config.state.schemaVersion) {
     issues.push(issue('FAIL', 'T01', null, `state schemaVersion=${st.schemaVersion}（期待 ${config.state.schemaVersion}）`));
   }
@@ -498,7 +488,7 @@ function checkState(root, config, knownPackIds, issues) {
       });
     }
   }
-  return { exists: true, progress };
+  return { exists, progress };
 }
 
 /**
@@ -506,8 +496,9 @@ function checkState(root, config, knownPackIds, issues) {
  * @returns {{ notStarted: boolean, rootExists: boolean, packCount: number,
  *             checkedCount: number, stateExists: boolean, issues: Array }}
  */
-export function checkAll(root, { config } = {}) {
+export function checkAll(root, { config, state } = {}) {
   const cfg = config ?? loadConfig(root);
+  const st = state ?? loadVideoState(root);
   const issues = [];
   const { rootExists, packs } = discoverPacks(root, cfg);
 
@@ -519,7 +510,7 @@ export function checkAll(root, { config } = {}) {
   }
 
   const knownPackIds = new Set(seenPackIds.keys());
-  const { exists: stateExists, progress } = checkState(root, cfg, knownPackIds, issues);
+  const { exists: stateExists, progress } = checkState(st, cfg, knownPackIds, issues);
 
   // README index（build-video-pack-index の生成物）の鮮度。回し忘れ＝管理画面と実体のずれを止める
   if (packs.length > 0) {
@@ -548,7 +539,7 @@ export function checkAll(root, { config } = {}) {
     const advanced = (progress.get(id) ?? -1) >= qaPassedIdx;
     const compilation = existsSync(join(pack.dir, 'compilation.json'));
     checkStoryboard(pack, id, root, cfg, advanced, issues, compilation);
-    if (compilation) checkCompilation(pack, id, root, cfg, issues);
+    if (compilation) checkCompilation(pack, id, st, issues);
     checkScript(pack, id, root, cfg, advanced, resolvedRefs, issues);
     checkBinaries(pack, id, cfg, issues);
   }

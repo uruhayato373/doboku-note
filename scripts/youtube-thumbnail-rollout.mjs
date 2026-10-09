@@ -10,6 +10,8 @@ import { loadCoverSources, buildCoverPlan, specDigest } from './lib/youtube-cove
 import { renderYoutubeCover } from './lib/youtube-cover.mjs';
 import { fetchThumbnail, compareThumbnail } from './lib/youtube-thumbnail-image.mjs';
 import { updateThumbnailBatch } from './lib/youtube-thumbnail-batch.mjs';
+import { youtubePublications } from './lib/registry-youtube-view.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { mode: { type: 'string', default: 'inventory' },
@@ -74,7 +76,8 @@ async function main() {
     if (value.videoId) knownVideoIds.add(value.videoId);
     for (const v of Object.values(value)) collect(v);
   };
-  for (const path of ['.claude/state/video-content-status.json', '.claude/state/youtube-schedule.json']) collect(JSON.parse(readFileSync(join(root, path))));
+  collect(loadVideoState(root));
+  collect(youtubePublications(root, { legacyOnly: true }));
   const youtube = google.youtube({ version: 'v3', auth });
   const result = await channelInventory(youtube, expected, { knownVideoIds: [...knownVideoIds], record: entry => {
     trace.push(entry);

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="河川整備の計画の流れ。水系ごとに河川整備基本方針を定め、その方針に沿って区間ごとの河川整備計画を定め、計画に沿って河川工事と維持を行う。整備計画は学識経験者、住民、関係自治体の長の意見を踏まえて定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-who  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arr { stroke: #555; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">水系の方針から、区間の計画、実際の工事へ</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="94" rx="6"/>
+  <text class="t-name" x="40" y="54">河川整備基本方針</text>
+  <text class="t-who" x="364" y="54" text-anchor="end">水系ごと</text>
+  <text class="t-desc" x="40" y="78">計画高水流量など、整備の基本となる方針</text>
+  <text class="t-law" x="40" y="100">定めるとき社会資本整備審議会の意見を聴く</text>
+  <text class="t-law" x="40" y="114">（国土交通大臣・法第16条）</text>
+
+  <line class="arr" x1="200" y1="122" x2="200" y2="146" marker-end="url(#ah)"/>
+  <text class="t-lead" x="212" y="139">方針に即して</text>
+
+  <rect class="box-2" x="20" y="148" width="360" height="150" rx="6"/>
+  <text class="t-name" x="40" y="174">河川整備計画</text>
+  <text class="t-who" x="364" y="174" text-anchor="end">区間ごと</text>
+  <text class="t-desc" x="40" y="198">その区間で当面行う整備の内容</text>
+  <text class="t-law" x="40" y="220">案の作成と決定にあたって（法第16条の2）</text>
+  <text class="t-note" x="40" y="241">・学識経験者の意見（必要と認めるとき）</text>
+  <text class="t-note" x="40" y="260">・公聴会など住民意見を反映する措置</text>
+  <text class="t-note" x="40" y="279">・関係都道府県知事・市町村長の意見</text>
+
+  <line class="arr" x1="200" y1="298" x2="200" y2="322" marker-end="url(#ah)"/>
+  <text class="t-lead" x="212" y="315">計画に沿って</text>
+
+  <rect class="box-3" x="20" y="324" width="360" height="66" rx="6"/>
+  <text class="t-name" x="40" y="352">河川工事・河川の維持</text>
+  <text class="t-desc" x="40" y="374">河川管理者が整備計画に沿って実施する</text>
+
+  <rect class="box-surf" x="20" y="406" width="360" height="80" rx="6"/>
+  <text class="t-note" x="40" y="430">1997年（平成9年）の改正</text>
+  <text class="t-desc" x="40" y="450">目的に「河川環境の整備と保全」が加わり、</text>
+  <text class="t-desc" x="40" y="468">計画づくりに住民意見を反映する手続ができた</text>
+</svg>

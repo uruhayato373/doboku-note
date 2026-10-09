@@ -57,7 +57,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 `config/content-registry.json` の `status` が全チャネル共通の語彙。
 
-| status | 誰が動かすか | 必須の欄（**太字**は検査済み。他は承認の CLI と一緒に P3 で強制） |
+| status | 誰が動かすか | 必須の欄（**太字**は検査済み） |
 |---|---|---|
 | `draft` | 作り手 | — |
 | `qa_blocked`・`qa_passed` | QA | `qa`（作品側） |
@@ -83,6 +83,15 @@ config/content-registry.json          チャネル×形式・アカウント・I
 - どれかが変わると承認は無効になる。未公開なら検査と stage が止め、公開済みなら「要同期」として出す（概要欄の表記漏れなどを機械で見つけるため）。
 - ハッシュの無い承認は `grandfathered: true`・`contentSha256: null`。今の台帳の `approvedBy: user` を写したもの（過去の承認と、ハッシュつきの承認 CLI（P3）ができるまでの `prepare-youtube-longforms --schedule`）がこれになる。
 
+## 確認画面と承認（P3・2026-10-09）
+
+- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・締め・画面確認の数値・コンタクトシート・無音プレビュー → 完成動画・字幕）。
+- 素材は手元（`/media/cmedia/…`）か Drive のマウント（`/media/vault/…`・名前の sha8 と台帳の bytes が一致するときだけ）から配信する。配信は Range（206・416）と HEAD に対応し、全配信元で realpath を検査する。判定は `scripts/lib/media-serve.mjs`・`http-range.mjs`。Drive の手元に落ちていない素材は 409「要復元」で、画面は pull のコマンドを出す。Drive の絶対パス（メールアドレスを含む）は画面にも応答にも出さない。
+- 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（長尺は `contact-sheet-2` 以降）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
+- 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`。
+- ハッシュつきの最終承認は、`publish-video-pack.cjs`（longform・thumbnail）と `stage-youtube-renders-r2.mjs` が今の中身と照らし、違えば止める（`finalApprovalGate`。ハッシュの無い承認は今どおり通す）。
+- 検査 R07 は比較元（`--base`・CI は PR の base か直前のコミット＝`REGISTRY_BASE`）から状態が変わった行の遷移を見る。`stopped(unverified-legacy)→published` は証拠つきだけ。
+
 ## 素材の置き場
 
 - 手元 `.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` → Drive `制作物/コンテンツ/` の同じ相対パス（drive-vault の group `content-media`・`immutable`）。ブランド共通は `.tmp/media/_brand/{design}/{role}.{sha8}.{ext}`。
@@ -94,16 +103,16 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## YouTube の切り替え（P2・2026-10-09）
 
-- `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。`.claude/state/video-content-status.json` の YouTube の部分（`derivatives.longform`・`derivatives.shorts`）は台帳から作り直す写しで、手で直さない。`instagramReel` は P5 まで今の台帳が正本。
+- `config/content-registry.json` の `cutover` に `youtube` が入り、動画パックの YouTube の状態の正本は台帳になった。写しだった `.claude/state/video-content-status.json` は 2026-10-09 に消した（P7）。`derivatives.longform`・`derivatives.shorts` の形は台帳から `loadVideoState` が作る。Instagram（動画パックのリールを含む）は台帳が正本で、`instagramReel` は派生物の形に含めない（P5）。
 - 変換は `scripts/lib/registry-video-state.mjs` だけが持つ。派生物の欄と台帳の欄は欠けなく往復し（全パックで往復するテストつき）、知らない欄は投げる。書き手が新しい欄を足すときは、型（`dataset-schemas-content.mjs`）と変換の両方に足す。
-- 書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState` で読み、`saveVideoState` で書く。台帳の行を先に書き、写しを作り直して書く。読むだけのスクリプトと管理画面は今のまま写しを読んでよい（R09 が一致を保証する）。
+- 書き手（`publish-video-pack.cjs`・`prepare-youtube-longforms.mts`）は `loadVideoState`（台帳だけから作る・ファイルは読まない）で読み、`saveVideoState` で台帳の行へ書く。読むだけのスクリプトと管理画面も `loadVideoState` を通す。
 - 派生物の無い公開（Shorts を作る前の動画パック）は行を作らない。Shorts の行は `youtube.json` の `shorts` に鍵を決めたときにできる。台帳にだけある素の下書き（`status: draft` だけの行）は写しに出さない。
 - 一括の取り込みは `npm run registry -- import-video-packs`（既定 dry-run・2 回目は書く行 0）。公開中の一覧（`youtube.own-videos`）と突き合わせ、公開中なのに published でない本数を出す。
 
 ## 照合（registry-reconcile）
 
 - `.github/workflows/registry-reconcile.yml`（毎日 00:43 JST）が `npm run registry-reconcile` を動かし、台帳の外部 ID を `videos.list` で観測する。
-- 予約（`scheduled`）の動画が public なら `published` へ進め、`platform.evidence`（`youtube-api`・`videos.list@時刻`）と `platform.publishedAt` を書く。台帳と写しを develop へ書き戻す（`ci-data add`）。
+- 予約（`scheduled`）の動画が public なら `published` へ進め、`platform.evidence`（`youtube-api`・`videos.list@時刻`）と `platform.publishedAt` を書く。台帳を develop へ書き戻す（`ci-data add`）。
 - published なのに非公開・消えた動画は fail の所見、期日（`publishAt`＋`reconcileGraceDays`）を過ぎても非公開の予約と、予約を経ずに public の動画は warn の所見。所見は `.claude/state/registry-reconcile/youtube.json` に残し、状態は人が決める。
 - exit 0＝照合した・1＝fail の所見あり（automation-failure Issue の channel `registry-reconcile`）・2＝検査不成立（認証が無い・API の失敗。何も書かない）。手元に YouTube の認証は無いので、CI でだけ動く。
 
@@ -119,9 +128,9 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R04 | 参照（公開→作品・作品の定義フォルダ・素材→公開・文面の鍵）と孤児 |
 | R05 | `video-pack.json` の `outputs` と公開の数の一致（Shorts が 1 本も無いのは未作成の INFO） |
 | R06 | 素材の sha と Drive 台帳（`drive-manifest.json`）の一致・置き場の名前の sha8 |
-| R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移（`transitions`・`setBy`）の検査は approve・stop の CLI と一緒に P3 で足す |
+| R07 | 状態の必須欄（状態表の太字）・承認ハッシュ。遷移は比較元から変わった行だけ見る（P3） |
 | R08 | 外部 ID の重複・Shorts の関連動画 |
-| R09 | 今の台帳（`video-content-status.json`）の YouTube の部分が、台帳から作り直したものと全欄で一致。切り替えの前後とも FAIL（前は台帳を写し直す・後は書き手で書く）。今の台帳にだけあるパックは切り替え前 INFO・後 FAIL |
+| R09 | 欠番（写しの video-content-status.json との一致を見ていた検査。写しを 2026-10-09 に消したので廃止） |
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |
 
 ## コマンド

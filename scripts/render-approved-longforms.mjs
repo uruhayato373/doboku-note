@@ -4,9 +4,9 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const OUT_ROOT = join(ROOT, '.tmp/video-render');
 const argv = process.argv.slice(2);
@@ -35,7 +35,7 @@ function complete(packId) {
 }
 
 function packs() {
-  const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+  const state = loadVideoState(ROOT);
   const out = [];
   for (const exam of targetExams) {
     const examRoot = join(PACKS_ROOT, exam);

@@ -77,7 +77,8 @@
     ],
     "denyPatterns": [
       "^content/[^/]+/plans?/",
-      "^content/[^/]+/todo/"
+      "^content/[^/]+/todo/",
+      "^content/sns/schedule\\.json$"
     ]
   },
   "dualSsot": {

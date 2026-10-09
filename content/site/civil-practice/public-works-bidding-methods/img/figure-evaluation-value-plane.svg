@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="入札価格を横軸、技術評価点を縦軸にした平面に4社の入札を置いた図。評価値は点と原点を結ぶ直線の傾きで、落札者は価格が最も安い社でも点が最も高い社でもなく、傾きが最も大きい社になる。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:12px;fill:#555}.h{font-size:13px;font-weight:bold;fill:#222}.s{fill:#1a3a5c}.t{font-size:11px;fill:#8a8a8a}</style>
+</defs>
+<!-- positive-fill: C社より評価値が高い領域 / brand: 他社 / positive: 落札 -->
+<polygon points="56,223 356,41 56,41" fill="#d0e8d0"/>
+<text class="s" x="64" y="62">この領域に入れば、</text>
+<text class="s" x="64" y="78">C社より評価値が高い</text>
+<path d="M56 40V300H356" stroke="#8a8a8a" stroke-width="1" fill="none"/>
+<path d="M56 223L356 41" stroke="#3a7d44" stroke-width="1.5" fill="none"/>
+<text class="t" x="50" y="304" text-anchor="end">100</text>
+<text class="t" x="50" y="174" text-anchor="end">120</text>
+<text class="t" x="50" y="44" text-anchor="end">140</text>
+<text class="t" x="56" y="318" text-anchor="middle">0.80</text>
+<text class="t" x="206" y="318" text-anchor="middle">0.90</text>
+<text class="t" x="352" y="318" text-anchor="middle">1.00</text>
+<text x="206" y="338" text-anchor="middle">入札価格（億円）　左ほど安い</text>
+<text class="t" x="12" y="170" transform="rotate(-90 12 170)" text-anchor="middle">技術評価点（標準点＋加算点）</text>
+<circle cx="131" cy="261" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="s" x="143" y="265">D社 125</text>
+<circle cx="206" cy="235" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="s" x="218" y="239">A社 122</text>
+<circle cx="326" cy="79" r="7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="s" x="326" y="103" text-anchor="middle">B社 137</text>
+<circle cx="251" cy="105" r="8" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+<text class="h s" x="262" y="132">C社 140（落札）</text>
+<rect x="14" y="356" width="352" height="132" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<text class="h" x="30" y="378">評価値 ＝ 技術評価点 ÷ 入札価格</text>
+<text x="30" y="398">緑の線は、C社と同じ評価値になる点の並び。</text>
+<text x="30" y="414">D社は最も安いが、点が低くて届かない。</text>
+<text x="30" y="430">B社は最も高得点だが、価格が高くて届かない。</text>
+<text x="30" y="450">数字は評価値（技術評価点÷価格）。仮の入札例。</text>
+<text x="30" y="466">軸は途中から表示。原点は図の外にあり、</text>
+<text x="30" y="482">緑の線を延ばすと、原点を通る。</text>
+</svg>

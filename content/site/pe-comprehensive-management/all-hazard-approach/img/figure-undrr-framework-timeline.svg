@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="国際防災の10年から仙台防災枠組、UNDRRへの改称までの国連の防災の取り組みの年表">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:12px;fill:#222;text-anchor:start}
+.y{font-weight:bold;text-anchor:end}
+.b{font-size:13px;font-weight:bold}
+.s{font-size:11px;fill:#555}
+.u{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.k{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}
+</style></defs>
+<line x1="78" y1="46" x2="78" y2="446" stroke="#8a8a8a" stroke-width="2"/>
+<rect class="u" x="96" y="14" width="290" height="64" rx="6"/>
+<circle cx="78" cy="46" r="6" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="50">1990–99</text>
+<text class="b" x="108" y="42">国際防災の10年（IDNDR）</text>
+<text class="s" x="108" y="62">国際協調による自然災害軽減の取り組み</text>
+<rect class="u" x="96" y="94" width="290" height="64" rx="6"/>
+<circle cx="78" cy="126" r="6" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="130">1994</text>
+<text class="b" x="108" y="122">横浜戦略</text>
+<text class="s" x="108" y="142">予防・事前準備・被害軽減の指針</text>
+<rect class="u" x="96" y="174" width="290" height="64" rx="6"/>
+<circle cx="78" cy="206" r="6" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="210">1999</text>
+<text class="b" x="108" y="202">国際防災戦略（ISDR）</text>
+<text class="s" x="108" y="222">国連の調整事務局を設置</text>
+<rect class="u" x="96" y="254" width="290" height="64" rx="6"/>
+<circle cx="78" cy="286" r="6" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="290">2005</text>
+<text class="b" x="108" y="282">兵庫行動枠組（神戸）</text>
+<text class="s" x="108" y="302">防災を開発政策へ組み込むと明記</text>
+<rect class="k" x="96" y="334" width="290" height="64" rx="6"/>
+<circle cx="78" cy="366" r="6" fill="#2e6da4" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="370">2015</text>
+<text class="b" x="108" y="362">仙台防災枠組（仙台）</text>
+<text class="s" x="108" y="382">2030年まで。人為・技術的ハザードも対象</text>
+<rect class="u" x="96" y="414" width="290" height="64" rx="6"/>
+<circle cx="78" cy="446" r="6" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+<text class="y" x="66" y="450">2019</text>
+<text class="b" x="108" y="442">UNISDR から UNDRR へ改称</text>
+<text class="s" x="108" y="462">実施の支援と進捗の確認を担う</text>
+</svg>

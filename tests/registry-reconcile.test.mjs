@@ -34,3 +34,15 @@ test('外部 ID の無い行は数えない（検査 0 件を照合済みと呼�
   const r = reconcileYoutube([{ id: 'a', status: 'draft' }], new Map(), opts);
   assert.equal(r.checked, 0);
 });
+
+test('止めた理由が unverified-legacy なら public を観測したとき published へ進め、退役・消失は照合しない', () => {
+  const r = reconcileYoutube([
+    pub('a', 'stopped', { stopReason: 'unverified-legacy' }),
+    pub('b', 'stopped', { stopReason: 'gone' }),
+    pub('c', 'stopped', { stopReason: 'user-decision' }),
+    pub('d', 'stopped', { stopReason: 'unverified-legacy' }),
+  ], seen([['a', 'public']]), opts);
+  assert.equal(r.checked, 2);
+  assert.deepEqual(r.advance.map((x) => x.id), ['a']);
+  assert.deepEqual(r.findings, []);
+});

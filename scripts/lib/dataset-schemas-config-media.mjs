@@ -684,7 +684,7 @@ export const ConfigVideoContent = z
     schemaVersion: schemaVersion1,
     description: doc(),
     updated: jstDate('最終更新日'),
-    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ'), stateFile: repoPath('動画パックの状態ファイル') }).strict(),
+    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ') }).strict(),
     manifest: z
       .object({
         schemaVersion: z.number().int().positive().describe('video-pack.json の版（パック側の schemaVersion と一致が必須）'),
@@ -714,6 +714,20 @@ export const ConfigVideoContent = z
       })
       .strict(),
     verbatim: z.object({ windowChars: z.number().int().positive().describe('これだけ連続一致したら逐語転用とみなす字数'), note_: doc() }).strict(),
+    visualCheck: z
+      .object({
+        contactSheetEverySec: z.number().positive().describe('コンタクトシートに 1 コマ取る間隔（秒）'),
+        contactSheetCols: z.number().int().positive(),
+        contactSheetRows: z.number().int().positive(),
+        contactSheetWidth: z.number().int().positive().describe('1 コマの幅（px）'),
+        previewFps: z.number().int().positive().describe('無音プレビューのフレームレート'),
+        maxOpeningCoverSec: z.number().positive().describe('冒頭の表紙の秒数の上限（超えると注意）'),
+        maxRepeatFrameRatio: z.number().min(0).max(1).describe('直前と同じ画面が続く秒数の割合の上限（超えると注意）'),
+        longStaticSec: z.number().positive().describe('同じ画面がこの秒数以上続く箇所を出す'),
+        note_: doc(),
+      })
+      .strict()
+      .describe('音声の前の画面確認（npm run media -- preview・DN-0603）'),
     forbiddenBinaryExtensions: z.array(z.string().regex(/^\.[a-z0-9]+$/, '.mp4 の形')).describe('Git に置かない動画・音声・字幕の拡張子'),
     state: z
       .object({
@@ -779,6 +793,11 @@ const BookBundle = z
       .array(z.looseObject({ order: z.number().int().positive().describe('並び順'), originalName: z.string().min(1).describe('原本の元のファイル名') }))
       .min(1)
       .describe('原本の PDF（巻ごと）'),
+    coverageSiteDirs: z
+      .array(z.string().regex(/^[a-z0-9-]+$/, '資格ディレクトリ'))
+      .min(1)
+      .optional()
+      .describe('網羅の候補表（audit-reference-book-coverage）で比べるサイトの資格ディレクトリ（content/site/<dir>/）。sources にこの本を書いた記事の資格に足す'),
   })
   .strict();
 

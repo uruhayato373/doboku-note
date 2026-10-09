@@ -1,7 +1,7 @@
 # 動画パック 企画バンク（自動生成）
 
 > このファイルは生成物。手編集せず `npm run build-video-pack-index` で再生成する（パック追加・状態変更後）。
-> 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（状態の写し: `.claude/state/video-content-status.json`）。契約: `.claude/knowledge/reference/video-content-policy.md`
+> 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
 パック数: **157**（更新: 2026-10-09）
