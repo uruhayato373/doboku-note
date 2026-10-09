@@ -46,8 +46,9 @@ const dir = `content/site/${article}`;
 if (!existsSync(join(REPO_ROOT, dir))) { console.error(`[${NAME}] 記事のディレクトリが無い: ${dir}`); process.exit(2); }
 const paths = [dir, ...extra];
 
-const git = (args, opts = {}) => execFileSync('git', ['-C', REPO_ROOT, ...args], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'], ...opts });
-const tryGit = (args, opts) => { try { return { ok: true, out: git(args, opts) }; } catch (e) { return { ok: false, out: `${e.stdout ?? ''}${e.stderr ?? ''}` }; } };
+const gitIn = (dir, args) => execFileSync('git', ['-c', 'core.quotepath=false', '-C', dir, ...args], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'] });
+const git = (args) => gitIn(REPO_ROOT, args);
+const tryGit = (args) => { try { return { ok: true, out: git(args) }; } catch (e) { return { ok: false, out: `${e.stdout ?? ''}${e.stderr ?? ''}` }; } };
 const sleep = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 // 1. 排他
@@ -116,17 +117,17 @@ function refreshIndexes() {
     try { symlinkSync(join(REPO_ROOT, 'node_modules'), join(tmp, 'node_modules'), 'junction'); } catch { /* 既にある */ }
   }
   const head = git(['rev-parse', 'HEAD']).trim();
-  execFileSync('git', ['-C', tmp, 'checkout', '-q', '--detach', head]);
+  gitIn(tmp, ['checkout', '-q', '--detach', head]);
   const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
   const r = spawnSync(npm, ['run', '-s', 'refresh-indexes'], { cwd: tmp, encoding: 'utf8', shell: process.platform === 'win32' });
   if (r.status !== 0) { console.error(`[${NAME}] 警告: refresh-indexes が失敗した（生成物は作り直していない）`); return; }
-  if (!execFileSync('git', ['-C', tmp, 'status', '--porcelain'], { encoding: 'utf8' }).trim()) return;
-  execFileSync('git', ['-C', tmp, 'add', '-A']);
-  execFileSync('git', ['-C', tmp, 'commit', '-q', '-m', 'chore(indexes): 展開した記事に合わせて静的インデックスを作り直す（refresh-indexes）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>'], { stdio: 'ignore' });
-  const generated = execFileSync('git', ['-C', tmp, 'diff', '--name-only', 'HEAD~1', 'HEAD'], { encoding: 'utf8' }).split('\n').filter(Boolean);
+  if (!gitIn(tmp, ['status', '--porcelain']).trim()) return;
+  gitIn(tmp, ['add', '-A']);
+  gitIn(tmp, ['commit', '-q', '-m', 'chore(indexes): 展開した記事に合わせて静的インデックスを作り直す（refresh-indexes）\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>']);
+  const generated = gitIn(tmp, ['diff', '--name-only', 'HEAD~1', 'HEAD']).split('\n').filter(Boolean);
   // 作業中のツリーの同じ生成物に pre-commit が作った手元の変更があると ff できないので、生成物だけコミットの版に戻す
   if (generated.length) tryGit(['checkout', '-q', '--', ...generated]);
-  const ff = tryGit(['merge', '-q', '--ff-only', execFileSync('git', ['-C', tmp, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim()]);
+  const ff = tryGit(['merge', '-q', '--ff-only', gitIn(tmp, ['rev-parse', 'HEAD']).trim()]);
   if (!ff.ok) console.error(`[${NAME}] 警告: 作り直した生成物を取り込めなかった\n${ff.out}`);
 }
 
