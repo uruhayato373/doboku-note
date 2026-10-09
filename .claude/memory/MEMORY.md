@@ -115,6 +115,7 @@
 - [KDP罠](reference_kdp_price_change_gotchas.md) — 価格改定・svg-JPEG・自動化
 - [Drive vault](reference_book_sources_drive_vault.md) — 移設構造・マウントの罠
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — pdf-to-mdx --scanned・OCR罠
+- [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP
