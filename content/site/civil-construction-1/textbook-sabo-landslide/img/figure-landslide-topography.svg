@@ -1,0 +1,71 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「砂防・地すべり」の地すべり地形。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地すべり地形の断面模式図。上部の亀裂、滑落崖、移動体、すべり面、末端部の隆起と湧水の位置関係を番号で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .sec { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .mk { font-size: 11px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+    </style>
+  </defs>
+  <g stroke-width="1.5">
+    <!-- bedrock -->
+    <polygon points="20,80 105,110 140,185 210,232 300,248 325,240 370,262 370,285 20,285" fill="#f5f5f5" stroke="none"/>
+    <!-- moved mass -->
+    <polygon points="105,110 120,145 190,180 260,215 300,238 322,236 325,240 300,248 210,232 140,185" fill="#fff3cd" stroke="none"/>
+    <!-- ground line -->
+    <polyline points="20,80 105,110 120,145 190,180 260,215 300,238 322,236 370,262" fill="none" stroke="#222" stroke-width="2"/>
+    <!-- scarp emphasis -->
+    <polyline points="105,110 120,145" fill="none" stroke="#b22234" stroke-width="3"/>
+    <!-- slip surface -->
+    <polyline points="105,110 140,185 210,232 300,248 325,240" fill="none" stroke="#1a3a5c" stroke-dasharray="4,3"/>
+    <!-- cracks above the scarp -->
+    <polyline points="62,95 66,102 62,108" fill="none" stroke="#b22234"/>
+    <polyline points="82,102 86,109 82,115" fill="none" stroke="#b22234"/>
+    <!-- tilted trees on moved mass -->
+    <line x1="160" y1="170" x2="150" y2="150" stroke="#3a7d44" stroke-width="2"/>
+    <line x1="215" y1="196" x2="204" y2="177" stroke="#3a7d44" stroke-width="2"/>
+    <!-- spring at toe -->
+    <path d="M335 248 Q331 256 335 262 Q339 256 335 248Z" fill="#e8f0fe" stroke="#2e6da4"/>
+    <line x1="326" y1="244" x2="333" y2="249" stroke="#2e6da4"/>
+    <!-- rain / snowmelt -->
+    <line x1="40" y1="46" x2="40" y2="62" stroke="#2e6da4"/>
+    <line x1="58" y1="50" x2="58" y2="66" stroke="#2e6da4"/>
+    <line x1="76" y1="54" x2="76" y2="70" stroke="#2e6da4"/>
+    <text x="96" y="62" stroke="none">降雨・融雪水</text>
+  </g>
+  <g stroke-width="1.5" fill="#fff">
+    <circle cx="74" cy="128" r="9" fill="#f8d7da" stroke="#b22234"/>
+    <circle cx="140" cy="116" r="9" fill="#f8d7da" stroke="#b22234"/>
+    <circle cx="245" cy="188" r="9" fill="#fff3cd" stroke="#d4a017"/>
+    <circle cx="205" cy="252" r="9" fill="#e8f0fe" stroke="#2e6da4"/>
+    <circle cx="350" cy="232" r="9" fill="#d0e8d0" stroke="#3a7d44"/>
+  </g>
+  <g class="mk">
+    <text x="74" y="131">1</text>
+    <text x="140" y="119">2</text>
+    <text x="245" y="191">3</text>
+    <text x="205" y="255">4</text>
+    <text x="350" y="235">5</text>
+  </g>
+  <text class="sec" x="20" y="318">各部の見分け方</text>
+  <g stroke-width="1.5">
+    <circle cx="27" cy="340" r="9" fill="#f8d7da" stroke="#b22234"/>
+    <circle cx="27" cy="364" r="9" fill="#f8d7da" stroke="#b22234"/>
+    <circle cx="27" cy="388" r="9" fill="#fff3cd" stroke="#d4a017"/>
+    <circle cx="27" cy="412" r="9" fill="#e8f0fe" stroke="#2e6da4"/>
+    <circle cx="27" cy="436" r="9" fill="#d0e8d0" stroke="#3a7d44"/>
+  </g>
+  <g class="mk">
+    <text x="27" y="343">1</text>
+    <text x="27" y="367">2</text>
+    <text x="27" y="391">3</text>
+    <text x="27" y="415">4</text>
+    <text x="27" y="439">5</text>
+  </g>
+  <text x="44" y="344">頭部の亀裂・段差：最初に現れる変状</text>
+  <text x="44" y="368">滑落崖：土塊が抜け落ちた急な崖</text>
+  <text x="44" y="392">移動体：下方へ動いた土塊（凹凸・傾いた樹木）</text>
+  <text x="44" y="416">すべり面：土塊と不動地盤の境（地下水が集まる）</text>
+  <text x="44" y="440">末端部：地表が盛り上がり、湧水が出ることがある</text>
+  <text x="20" y="478">降雨・融雪で地下水が増えると、すべり面の抵抗が下がる</text>
+</svg>

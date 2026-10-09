@@ -60,6 +60,19 @@ export function sha8Matches(path, sha256) {
   return Boolean(parsed) && parsed.sha8 === String(sha256).slice(0, 8);
 }
 
+/** 移す前の採用画像の置き場（.tmp/video-render/{フォルダ}/{名前}.png。日付フォルダ・連番名。DN-0607 で移した） */
+const LEGACY_ADOPTED_PNG = /^\.tmp\/video-render\/[a-z0-9-]+\/[a-z0-9-]+\.png$/;
+
+/**
+ * 採用した PNG（表紙・締め画像）のパスとして読んでよいか。素材の置き場（.tmp/media/…/{role}.{sha8}.png）か、移す前の置き場。
+ * 読み手（youtube-approved-cover.mjs・stage-youtube-covers.mjs）はこの 1 か所で判定する。
+ */
+export function isAdoptedPngPath(path) {
+  const parsed = parseMediaPath(path);
+  if (parsed) return parsed.ext === 'png';
+  return LEGACY_ADOPTED_PNG.test(path ?? '');
+}
+
 /** 拡張子 → MIME type（台帳の type 欄） */
 export function mimeOf(ext) {
   const t = MIME[String(ext).toLowerCase()];

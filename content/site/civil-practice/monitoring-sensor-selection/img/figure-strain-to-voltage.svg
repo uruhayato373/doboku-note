@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="部材のひずみがひずみゲージの抵抗変化になり、ブリッジ回路で電圧差として取り出され、増幅と数値化を経て記録されるまでの流れ。温度の影響が混ざる点も示す">
+<defs>
+<style>
+text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.b{font-size:14px;font-weight:bold}
+.bx{stroke-width:1.5}
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#fff"/>
+<rect x="60" y="52" width="280" height="30" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<path d="M156 67h8l4-9 8 18 8-18 8 18 8-18 8 18 8-18 8 18 4-9h8" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)"><path d="M60 67H28"/><path d="M340 67H372"/></g>
+<text x="200" y="40" text-anchor="middle" class="s">部材に貼ったひずみゲージ（引張で伸びる）</text>
+<g class="bx">
+<rect x="34" y="112" width="332" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="34" y="182" width="332" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="34" y="252" width="332" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="34" y="322" width="332" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="34" y="392" width="332" height="50" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+</g>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)"><path d="M200 162V180"/><path d="M200 232V250"/><path d="M200 302V320"/><path d="M200 372V390"/></g>
+<g class="b" text-anchor="middle">
+<text x="200" y="132">ひずみ ε</text>
+<text x="200" y="202">抵抗の変化 ΔR/R = K·ε</text>
+<text x="200" y="272">ブリッジの電圧差</text>
+<text x="200" y="342">増幅とA/D変換</text>
+<text x="200" y="412">記録される値</text>
+</g>
+<g class="s" text-anchor="middle">
+<text x="200" y="150">ゲージも部材と一緒に伸びて、細く長くなる</text>
+<text x="200" y="220">金属箔ゲージのKはほぼ2</text>
+<text x="200" y="290">1ゲージなら E×K×ε÷4</text>
+<text x="200" y="360">mV/Vの小さな信号を数値へ変える</text>
+<text x="200" y="430">温度や接触の影響も混ざる</text>
+</g>
+<text x="200" y="474" text-anchor="middle" class="s">例 ε=1000μ、K=2 のとき 0.5mV/V</text>
+</svg>

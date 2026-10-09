@@ -1,0 +1,58 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="橋脚の鋼板巻立て補強。上は断面で、既設コンクリートを鋼板が囲み隙間にモルタルを充填する。下は側面で、鋼板を基礎に定着し、損傷を橋脚基部の曲げに誘導する">
+<defs>
+<style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; font-size: 13px; }
+.s { font-size: 11px; fill: #555; }
+.b { font-weight: bold; fill: #1a3a5c; }
+.e { text-anchor: end; }
+.ar { stroke: #555; stroke-width: 1.5; fill: none; }
+.ld { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<text class="s e" x="366" y="30">断面</text>
+<rect x="40" y="46" width="130" height="130" fill="#fff3cd" stroke="#2e6da4" stroke-width="5"/>
+<rect x="58" y="64" width="94" height="94" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="63" y="69" width="84" height="84" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+<g fill="#555">
+<circle cx="68" cy="74" r="3.5"/><circle cx="105" cy="74" r="3.5"/><circle cx="142" cy="74" r="3.5"/>
+<circle cx="68" cy="111" r="3.5"/><circle cx="142" cy="111" r="3.5"/>
+<circle cx="68" cy="148" r="3.5"/><circle cx="105" cy="148" r="3.5"/><circle cx="142" cy="148" r="3.5"/>
+</g>
+<g class="ld">
+<line x1="170" y1="70" x2="204" y2="70"/>
+<line x1="161" y1="108" x2="204" y2="108"/>
+<line x1="148" y1="140" x2="204" y2="144"/>
+</g>
+<text class="b" x="210" y="74">鋼板で全周を囲む</text>
+<text x="210" y="112">隙間にモルタルを充填</text>
+<text x="210" y="140">既設の橋脚</text>
+<text class="s" x="210" y="158">主鉄筋と帯鉄筋はそのまま</text>
+<rect x="20" y="190" width="360" height="46" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="b" x="36" y="210">周りから拘束して、せん断破壊を防ぐ</text>
+<text class="s" x="36" y="228">コンクリートの膨らみと、帯鉄筋の外れを抑える</text>
+<line x1="20" y1="250" x2="380" y2="250" stroke="#d7d7d7" stroke-width="1"/>
+<text class="s e" x="366" y="268">側面</text>
+<line class="ar" x1="22" y1="288" x2="58" y2="288" marker-end="url(#a)"/>
+<text class="s" x="22" y="278">水平力</text>
+<rect x="60" y="280" width="130" height="16" fill="#d7d7d7"/>
+<rect x="95" y="296" width="60" height="144" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="88" y="350" width="74" height="90" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/>
+<rect x="100" y="396" width="50" height="30" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<rect x="40" y="440" width="170" height="36" fill="#d7d7d7"/>
+<g stroke="#2e6da4" stroke-width="3">
+<line x1="94" y1="440" x2="94" y2="466"/><line x1="156" y1="440" x2="156" y2="466"/>
+</g>
+<g class="ld">
+<line x1="190" y1="288" x2="216" y2="288"/>
+<line x1="162" y1="368" x2="216" y2="368"/>
+<line x1="150" y1="411" x2="216" y2="411"/>
+<line x1="158" y1="452" x2="216" y2="452"/>
+</g>
+<text x="222" y="292">上部構造</text>
+<text class="b" x="222" y="372">鋼板巻立て</text>
+<text x="222" y="408">損傷を基部の曲げ</text>
+<text x="222" y="426">に誘導する</text>
+<text x="222" y="456">必要なら基礎へ定着</text>
+<text class="s" x="222" y="472">フーチング</text>
+</svg>

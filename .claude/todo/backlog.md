@@ -44,7 +44,7 @@
 
 
 ### [DN-0609] コンテンツ台帳 P3: 画面確認と2段階承認の CLI、管理画面で作品ごとに表紙・動画を目視確認する画面を作る
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: コンテンツ台帳の P3。管理画面の動画まわりは表と状態だけで、表紙・締め・動画を見られない。画像配信のルートは Range 非対応（mp4 のシーク・Safari 再生が壊れる）で realpath 検査も無い。
 **やること**:
@@ -326,6 +326,12 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0619] 1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
+
+2026-10-09、書籍の網羅の展開で textbook-construction-business を QA したとき、リンク先の content/site/civil-construction-1/primary-h26-a/article.mdx 問54 の正答キー（選択肢1が誤り）が、指定建設業の監理技術者の資格（建設業法第26条第2項）と整合しないように見える、と指摘された。未確認。全国建設研修センターの公式の正答と問題 PDF を視覚照合し（memory feedback_exam_pdf_cross_reference・project_civil1_primary_answer_key_errors）、誤りなら正答と解説を直す。完了条件: 公式の正答の出典つきで正誤を決め、誤りなら直してコミット
+
+
 ### [DN-0618] 1級土木の既存記事の誤り・食い違いを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
 
@@ -367,7 +373,7 @@
 
 
 ### [DN-0611] コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: コンテンツ台帳の P5。IG は status.json（予約後も変わらない）・posted.json・照合スナップショットに同じ事実が分かれ、動画パック派生のリールは 3 つの正本が食い違う（sync-instagram-video-pack-reels-state.mjs の回し直し漏れ）。カルーセル 112 本はほぼ状態が無い。
 **やること**: 動画パック派生の 336 本と旧パック（ストーリーズ・ハイライトを含む）を台帳へ取り込み、posted.json・status.json・照合の結果を突き合わせて DN-0339（公開済み未記録 48・異常 45）を証拠つきで解消する。publish-ig-bs・ig-status・ig-reconcile-core・verify-ig-status・publish-instagram-video-pack-reels を台帳の入口へ切り替え、sync-instagram-video-pack-reels-state.mjs を廃止する。旧パックのフォルダ名は変えない。
@@ -375,7 +381,7 @@
 
 
 ### [DN-0610] コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: コンテンツ台帳の P4。旧 YouTube Shorts は台帳が 3 本・キーが 2 系統（youtube-schedule.json の r03-pack-01-q2、legacy-*.json の r03-pfi、data/youtube/posted.jsonl 13 行）で、content/sns/schedule.json（720 行・2030 年まで）が死蔵されたまま管理画面に読まれている。
 **やること**: youtube-schedule.json（200）・posted.jsonl・旧 10 素材を台帳へ取り込む（公開の証拠があるものだけ published、無いものは理由つきの stopped）。文面は content/sns/youtube へ移し旧台帳を削除。content/sns/schedule.json を削除し、tools/admin-app の sns-board.ts を台帳へ切り替える。配信計画の legacy/{key} を台帳の ID と結ぶ。

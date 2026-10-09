@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="津波は深い沖では速く低く、浅い岸近くで遅く高くなる断面図と、湾口から湾奥へ波が集中する平面図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif" font-size="12">
+  <defs>
+    <marker id="wh" markerWidth="10" markerHeight="9" refX="10" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <!-- 断面: 海水（brand-fill）と海底（surface） -->
+  <rect x="20" y="90" width="360" height="154" fill="#e8f0fe"/>
+  <polygon points="20,244 20,206 220,206 346,134 380,84 380,244" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <line x1="20" y1="90" x2="376" y2="90" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+  <g fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5">
+    <path d="M40,90 Q100,64 160,90 Z"/>
+    <path d="M270,90 Q300,34 330,90 Z"/>
+  </g>
+  <g fill="none" stroke="#2e6da4" stroke-width="2">
+    <path d="M60,48 L150,48" marker-end="url(#wh)"/>
+    <path d="M286,44 L322,44" marker-end="url(#wh)"/>
+  </g>
+  <g fill="none" stroke="#8a8a8a">
+    <path d="M100,94 L100,204 M95,94 L105,94 M95,204 L105,204"/>
+    <path d="M330,94 L330,142 M325,94 L335,94 M325,142 L335,142"/>
+  </g>
+  <g fill="#555">
+    <text x="105" y="34" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="700">沖：深く、速い</text>
+    <text x="300" y="34" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="700">岸近く：遅い</text>
+    <text x="108" y="154">深い</text>
+    <text x="338" y="122">浅い</text>
+    <text x="28" y="238" font-size="11" fill="#8a8a8a">横から見た断面</text>
+    <text x="200" y="226" text-anchor="middle" fill="#222" font-size="13">速さ v ＝ √（g × 水深）</text>
+  </g>
+  <!-- 平面: 陸（surface）・海（brand-fill）・V字湾 -->
+  <line x1="20" y1="252" x2="380" y2="252" stroke="#d7d7d7"/>
+  <polygon points="20,262 380,262 380,360 300,360 200,278 100,360 20,360" fill="#f5f5f5"/>
+  <rect x="20" y="360" width="360" height="130" fill="#e8f0fe"/>
+  <polygon points="100,360 300,360 200,278" fill="#e8f0fe"/>
+  <path d="M20,360 L100,360 L200,278 L300,360 L380,360" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <g fill="none" stroke="#2e6da4" stroke-width="2">
+    <path d="M140,470 L178,336" marker-end="url(#wh)"/>
+    <path d="M200,470 L200,320" marker-end="url(#wh)"/>
+    <path d="M260,470 L222,336" marker-end="url(#wh)"/>
+  </g>
+  <g text-anchor="middle" fill="#555">
+    <text x="108" y="298">湾奥：狭く浅い</text>
+    <text x="66" y="380">湾口：広く深い</text>
+    <text x="318" y="304" fill="#1a3a5c" font-weight="700">V字湾の奥ほど</text>
+    <text x="318" y="322" fill="#1a3a5c" font-weight="700">波が集中する</text>
+  </g>
+  <text x="28" y="278" font-size="11" fill="#8a8a8a">上から見た平面</text>
+  <text x="26" y="482" fill="#1a3a5c">沖から来る津波</text>
+</svg>

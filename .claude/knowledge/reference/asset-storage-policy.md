@@ -68,7 +68,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
 | `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
-| `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 確認済みPNGを別端末へ渡す。制作時の書体が必要なため再生成を前提にしない |
+| `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
 | `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
 | `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |

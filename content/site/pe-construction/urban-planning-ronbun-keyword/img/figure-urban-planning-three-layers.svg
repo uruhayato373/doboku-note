@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="都市計画の道具を、規制、事業、誘導の三層に分けて並べた図" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:13px} /* ink-strong */
+.h{font-size:15px;font-weight:bold}.s{font-size:12px;fill:#555}.m{text-anchor:middle} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.g{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1} /* surface */
+.x{font-size:18px;font-weight:bold;text-anchor:middle;fill:#2e6da4}
+</style></defs>
+<rect x="30" y="14" width="340" height="112" rx="8" class="b"/>
+<text x="46" y="42" class="h">規制：どこに何を許すか</text>
+<text x="46" y="72">区域区分：市街化区域と調整区域</text>
+<text x="46" y="96">用途地域：建てられる用途を13種類で規定</text>
+<text x="46" y="116" class="s">都市計画法・建築基準法</text>
+<text x="200" y="148" class="x">+</text>
+<rect x="30" y="158" width="340" height="112" rx="8" class="w"/>
+<text x="46" y="186" class="h">事業：どう作り替えるか</text>
+<text x="46" y="216">土地区画整理：減歩と換地で基盤を整備</text>
+<text x="46" y="240">市街地再開発：権利変換で共同建替え</text>
+<text x="46" y="260" class="s">土地区画整理法・都市再開発法</text>
+<text x="200" y="292" class="x">+</text>
+<rect x="30" y="302" width="340" height="112" rx="8" class="p"/>
+<text x="46" y="330" class="h">誘導：どこへ寄せるか</text>
+<text x="46" y="360">立地適正化計画：二つの誘導区域を設定</text>
+<text x="46" y="384">届出・補助・税制で緩やかに誘導</text>
+<text x="46" y="404" class="s">都市再生特別措置法</text>
+<rect x="30" y="422" width="340" height="70" rx="8" class="g"/>
+<text x="200" y="444" class="m">居住誘導区域は市街化区域の内側に定める</text>
+<text x="200" y="462" class="m">都市機能誘導区域はその内側に重ねる</text>
+<text x="200" y="481" class="m s">3つは順番ではなく、組み合わせて使う</text>
+</svg>

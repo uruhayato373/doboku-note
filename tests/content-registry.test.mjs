@@ -55,7 +55,7 @@ test('R01: 台帳が 0 件なら検査不成立（FAIL）', () => {
 test('R02: ID の重複・行の中身と合わない ID・例外の上限を止める', () => {
   assert.ok(codes(run({ publications: [pub(), pub()] })).includes('R02'));
   assert.ok(codes(run({ publications: [pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short' })] })).includes('R02'));
-  assert.ok(codes(run({ works: [work({ idException: 'imported-before-cutover' })] })).includes('R02'));
+  assert.ok(codes(run({ works: [work({ idException: 'imported-before-cutover' })], c: { ...cfg, idRules: { ...cfg.idRules, idExceptionMax: 0 } } })).includes('R02'));
 });
 
 test('R03: 予約以上の公開を消す・改名するのを止める（改名は renamedTo で許す）', () => {
@@ -93,10 +93,19 @@ test('R08: 外部 ID の重複を止める', () => {
   assert.ok(codes(run({ publications: [a, b], st })).includes('R08'));
 });
 
-test('R09: 切り替え前は行が今の台帳と一致しなければ止める（切り替え後は見ない）', () => {
+test('R09: 今の台帳と台帳が食い違えば、切り替えの前後とも止める', () => {
+  assert.ok(!codes(run()).includes('R09'));
   assert.ok(codes(run({ st: state({ status: 'approved' }) })).includes('R09'));
   assert.ok(codes(run({ st: { packs: {} } })).includes('R09'));
-  assert.ok(!codes(run({ st: state({ status: 'approved' }), c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
+  assert.ok(codes(run({ st: state({ status: 'approved' }), c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
+});
+
+test('R09: 今の台帳にだけある動画パックは、切り替え前は INFO・切り替え後は FAIL', () => {
+  const st = { packs: { ...state().packs, 'other-pack': { derivatives: { longform: { status: 'scheduled', videoId: 'x' } } } } };
+  const before = { ...cfg, cutover: [] };
+  assert.ok(!codes(run({ st, c: before })).includes('R09'));
+  assert.ok(codes(run({ st, c: before }), 'INFO').includes('R09'));
+  assert.ok(codes(run({ st, c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
 });
 
 test('R10: 判定 ok の無い AI 素材を、承認以降の公開が使っていれば止める', () => {

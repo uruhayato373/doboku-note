@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /** 派生 Reels の meta/status/media を video-content-status.json へ集約する。 */
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
+import { loadVideoState, writeVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
-const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const write = process.argv.includes('--write');
 const metaPaths = [];
@@ -20,7 +20,8 @@ function walk(dir) {
   }
 }
 walk(BASE);
-const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, 'utf8')) : { schemaVersion: 1, packs: {} };
+// YouTube の部分は台帳（content/registry）から作り直した写しを読み、そのまま書き戻す（ここが変えるのは instagramReel だけ）
+const state = loadVideoState(ROOT);
 const driveManifest = existsSync(DRIVE_MANIFEST_PATH)
   ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))
   : { entries: {} };
@@ -69,5 +70,5 @@ for (const metaPath of metaPaths) {
   next.sort((a, b) => a.key.localeCompare(b.key));
   packState.derivatives.instagramReel = next;
 }
-if (write) writeFileSync(STATE_PATH, `${JSON.stringify(state, null, 2)}\n`);
+if (write) writeVideoState(ROOT, state);
 console.log(JSON.stringify({ mode: write ? 'write' : 'dry-run', reels: metaPaths.length, approved, rendered, scheduled }, null, 2));

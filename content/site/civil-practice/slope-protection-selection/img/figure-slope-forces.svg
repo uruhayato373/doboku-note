@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="斜面上の土塊に働く重さの分解と、地震時に水平力が加わって合力が斜面の外側へ傾く様子を並べた力の図">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:12px;fill:#555}
+.b{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px}
+.e{text-anchor:end}
+.g{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}
+.k{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}
+.a{fill:none;stroke-width:2.5}
+</style>
+<marker id="m1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#555"/></marker>
+<marker id="m2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#b22234"/></marker>
+<marker id="m3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+<marker id="m4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#3a7d44"/></marker>
+<marker id="m5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#d4a017"/></marker>
+</defs>
+<text class="b" x="20" y="26">平常時</text>
+<polygon class="g" points="40,215 300,65 300,215"/>
+<g transform="translate(161,124) rotate(-30)"><rect class="k" x="-18" y="-18" width="36" height="36"/></g>
+<line class="a" x1="161" y1="124" x2="161" y2="194" stroke="#555" marker-end="url(#m1)"/>
+<line class="a" x1="161" y1="124" x2="131" y2="141" stroke="#b22234" marker-end="url(#m2)"/>
+<line class="a" x1="161" y1="124" x2="191" y2="177" stroke="#2e6da4" marker-end="url(#m3)"/>
+<line class="a" x1="186" y1="131" x2="224" y2="109" stroke="#3a7d44" marker-end="url(#m4)"/>
+<path d="M80 215 A40 40 0 0 0 75 195" fill="none" stroke="#555" stroke-width="1"/>
+<text class="s" x="86" y="207">θ</text>
+<text class="s" x="168" y="208">W（重さ）</text>
+<text class="s e" x="124" y="146">W sinθ</text>
+<text class="s e" x="124" y="160">動かす力</text>
+<text class="s" x="198" y="186">W cosθ</text>
+<text class="s" x="230" y="108">止める力</text>
+<text class="s" x="230" y="122">（粘着力・摩擦）</text>
+<line x1="20" y1="236" x2="380" y2="236" stroke="#d7d7d7" stroke-width="1"/>
+<text class="b" x="20" y="262">地震時</text>
+<polygon class="g" points="40,455 300,305 300,455"/>
+<g transform="translate(161,364) rotate(-30)"><rect class="k" x="-18" y="-18" width="36" height="36"/></g>
+<line class="a" x1="161" y1="364" x2="161" y2="434" stroke="#8a8a8a" stroke-dasharray="4 3" marker-end="url(#m1)"/>
+<line class="a" x1="161" y1="364" x2="126" y2="364" stroke="#d4a017" marker-end="url(#m5)"/>
+<line class="a" x1="161" y1="364" x2="126" y2="434" stroke="#b22234" marker-end="url(#m2)"/>
+<text class="s e" x="122" y="357">kh·W（水平力）</text>
+<text class="s" x="168" y="440">W</text>
+<text class="s" x="132" y="452">合力（見かけの重さ）</text>
+<text class="s" x="262" y="338">水平力は斜面の外へ向く</text>
+<text class="s" x="262" y="352">動かす力は増え、</text>
+<text class="s" x="262" y="366">押さえる力は減る</text>
+<text class="s" x="20" y="282">kh は水平震度（水平の地震力が重さの何割にあたるか）</text>
+</svg>

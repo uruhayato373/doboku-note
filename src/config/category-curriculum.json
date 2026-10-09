@@ -145,7 +145,8 @@
         "min": 400,
         "max": 499,
         "introGuides": [
-          "guide-law-key-points"
+          "guide-law-key-points",
+          "guide-engineer-assignment"
         ]
       }
     ],
@@ -443,7 +444,8 @@
         "nanido-goukakuritsu",
         "gakushuu-jikan-schedule",
         "secondary-study-method",
-        "competency-revision-r8"
+        "competency-revision-r8",
+        "public-servant-merit"
       ]
     },
     "fields": {
@@ -464,6 +466,9 @@
             "sentaku-kamoku-kakiwake",
             "hissu-kamoku-kaitourei",
             "guide-required-essay",
+            "infra-system-overseas",
+            "seismic-damage-lessons",
+            "seismic-isolation-damping",
             "gyoumu-keireki-hyou"
           ]
         }
@@ -547,6 +552,7 @@
             "cast-in-place-pile-methods",
             "earth-retaining-displacement",
             "embankment-quality-control",
+            "large-fill-landslide",
             "excavation-bottom-failure",
             "excavation-pre-survey",
             "pile-bearing-verification",
@@ -597,6 +603,7 @@
             "oshms-pdca-site-operation",
             "safety-culture-discipline",
             "safety-health-education-plan",
+            "safety-document-cross-check",
             "sling-work-wire-rope",
             "stacking-heat-machine-safety"
           ]
@@ -606,6 +613,14 @@
           "label": "施工計画・工程・品質・建設機械・環境",
           "slugs": [
             "pre-construction-process",
+            "license-scope-judgment",
+            "subcontract-instruction-boundary",
+            "construction-industry-structure",
+            "public-works-delivery-methods",
+            "keishin-bidder-qualification",
+            "netis-new-technology-use",
+            "foreign-workers-site-check",
+            "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
             "cost-and-design-change",
@@ -619,8 +634,12 @@
             "environmental-impact-assessment-flow",
             "nature-conservation-mitigation",
             "ict-construction-workflow",
+            "gnss-positioning-basics",
+            "site-wireless-communication",
+            "monitoring-sensor-selection",
             "bim-cim-site-practice",
             "gis-layer-validation",
+            "ledger-data-design",
             "numerical-model-review",
             "ai-document-verification"
           ]
@@ -635,7 +654,10 @@
             "material-selection-receiving",
             "river-park-erosion-control",
             "service-commencement",
+            "seismic-design-levels",
             "flood-season-river-work",
+            "flood-control-facilities",
+            "levee-failure-reinforcement",
             "rainfall-work-suspension"
           ]
         }

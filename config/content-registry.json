@@ -19,7 +19,7 @@
     "variant": "^[a-z0-9][a-z0-9-]{0,59}$",
     "role": "^[a-z][a-z0-9-]{0,39}$",
     "forbidden": ["\\d{8}", "(?:^|-)20\\d{2}(?:-|$)", "\\d{4}-\\d{2}", "^\\d{3}-", "(?:^|-)pack-\\d+", "-\\d+$"],
-    "idExceptionMax": 0
+    "idExceptionMax": 223
   },
   "status": {
     "values": ["draft", "qa_blocked", "qa_passed", "approved", "rendered", "uploaded_private", "scheduled", "published", "failed", "refresh_due", "stopped"],
@@ -44,6 +44,6 @@
     },
     "stopReasons": ["user-decision", "superseded", "gone", "unverified-legacy"]
   },
-  "cutover": [],
+  "cutover": ["youtube"],
   "reconcileGraceDays": { "youtube": 1, "x": 1, "instagram": 7 }
 }

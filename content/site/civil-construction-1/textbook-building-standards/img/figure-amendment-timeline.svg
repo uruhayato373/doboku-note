@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建築基準法と耐震基準の主な改正の年表。1919年市街地建築物法、1924年耐震規定の追加、1950年建築基準法の制定、1971年RC柱の帯筋強化、1981年6月の新耐震設計法、2000年の性能規定化と木造の詳細規定、2025年の省エネ基準適合義務化を、きっかけとなった大地震とともに示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-year { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: end; }
+      .t-ttl { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">基準は大地震のたびに足され、建物は建てた時点の基準で残る</text>
+  <line x1="64" y1="40" x2="64" y2="458" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-year" x="52" y="61">1919</text>
+  <circle cx="64" cy="57" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="b" x="82" y="30" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="53">市街地建築物法</text>
+  <text class="t-sub" x="94" y="73">都市の建築を規制する最初の法律</text>
+  <text class="t-year" x="52" y="125">1924</text>
+  <circle cx="64" cy="121" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="b" x="82" y="94" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="117">耐震規定を初めて追加</text>
+  <text class="t-sub" x="94" y="137">きっかけ: 1923年 関東大震災</text>
+  <text class="t-year" x="52" y="189">1950</text>
+  <circle cx="64" cy="185" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="b" x="82" y="158" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="181">建築基準法を制定</text>
+  <text class="t-sub" x="94" y="201">市街地建築物法を引き継ぐ</text>
+  <text class="t-year" x="52" y="253">1971</text>
+  <circle cx="64" cy="249" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="b" x="82" y="222" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="245">RC柱の帯筋を強化</text>
+  <text class="t-sub" x="94" y="265">きっかけ: 1968年 十勝沖地震</text>
+  <text class="t-year" x="52" y="317">1981</text>
+  <circle cx="64" cy="313" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="w" x="82" y="286" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="309">新耐震設計法（6月1日）</text>
+  <text class="t-sub" x="94" y="329">きっかけ: 1978年 宮城県沖地震</text>
+  <text class="t-year" x="52" y="381">2000</text>
+  <circle cx="64" cy="377" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="b" x="82" y="350" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="373">性能規定化と木造の詳細規定</text>
+  <text class="t-sub" x="94" y="393">きっかけ: 1995年 阪神・淡路大震災</text>
+  <text class="t-year" x="52" y="445">2025</text>
+  <circle cx="64" cy="441" r="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="p" x="82" y="414" width="298" height="54" rx="6"/>
+  <text class="t-ttl" x="94" y="437">省エネ基準への適合を義務化</text>
+  <text class="t-sub" x="94" y="457">新築は原則 建築確認の審査対象</text>
+</svg>

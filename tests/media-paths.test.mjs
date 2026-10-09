@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mediaPath, parseMediaPath, sha8Matches, mimeOf } from '../scripts/lib/media-paths.mjs';
+import { isAdoptedPngPath, mediaPath, parseMediaPath, sha8Matches, mimeOf } from '../scripts/lib/media-paths.mjs';
 
 const SHA = '2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2';
 
@@ -24,4 +24,17 @@ test('日付フォルダ・連番名・大文字・.. は規則に合わない',
     '.tmp/media/civil-construction-2/matome/youtube.longform/243.2a24500d.png',
   ]) assert.equal(parseMediaPath(bad), null, bad);
   assert.throws(() => mediaPath({ pubId: 'civil-construction-2/matome-2kyu-chokuzen/youtube.longform', role: 'cover', sha256: 'short', ext: 'png' }), /sha256/);
+});
+
+test('採用 PNG として読めるのは素材の置き場の png と、移す前の置き場だけ', () => {
+  assert.ok(isAdoptedPngPath('.tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png'));
+  assert.ok(isAdoptedPngPath('.tmp/media/_brand/bridge-notebook-a/cta-shorts.68cae2be.png'));
+  assert.ok(isAdoptedPngPath('.tmp/video-render/youtube-covers-a-rollout-20260909/243.png'));
+  for (const bad of [
+    '.tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.1355361e.mp4',
+    '.tmp/media/civil-construction-2/../youtube.longform/cover.2a24500d.png',
+    '../../secret.png',
+    '.tmp/video-render/a/b/c.png',
+    null,
+  ]) assert.equal(isAdoptedPngPath(bad), false, String(bad));
 });

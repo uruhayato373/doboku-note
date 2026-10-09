@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水害対策の法律の役割分担。河川法は河川管理者による外水対策、下水道法は下水道管理者による内水対策、水防法は浸水想定区域の指定や避難などの備え。特定都市河川浸水被害対策法はこれらをつなぎ、流域水害対策計画、雨水浸透阻害行為の許可、保全調整池の届出で流域全体の対策を進める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-who  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #555; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">水害の場面ごとに、担当する法律が分かれる</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="54">河川法</text>
+  <text class="t-who" x="364" y="54" text-anchor="end">外水（川があふれる）</text>
+  <text class="t-desc" x="40" y="76">河川管理者が堤防・ダム・河道で洪水を流す</text>
+  <text class="t-law" x="40" y="94">河川整備計画にもとづく河川工事</text>
+
+  <rect class="box-2" x="20" y="114" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="140">下水道法</text>
+  <text class="t-who" x="364" y="140" text-anchor="end">内水（排水しきれない）</text>
+  <text class="t-desc" x="40" y="162">下水道管理者が管きょ・ポンプで雨水を排除する</text>
+  <text class="t-law" x="40" y="180">排水区域ごとの雨水対策</text>
+
+  <rect class="box-3" x="20" y="200" width="360" height="76" rx="6"/>
+  <text class="t-name" x="40" y="226">水防法</text>
+  <text class="t-who" x="364" y="226" text-anchor="end">備え（情報・避難）</text>
+  <text class="t-desc" x="40" y="248">浸水想定区域の指定、水防活動、避難の確保</text>
+  <text class="t-law" x="40" y="266">洪水は第14条、雨水出水は第14条の2</text>
+
+  <line class="arr" x1="200" y1="276" x2="200" y2="298" marker-end="url(#ah)"/>
+  <text class="t-lead" x="212" y="293">流域全体でつなぐ</text>
+
+  <rect class="box-4" x="20" y="300" width="360" height="186" rx="6"/>
+  <text class="t-name" x="40" y="326">特定都市河川浸水被害対策法</text>
+  <text class="t-desc" x="40" y="348">河川・下水道の管理者と自治体が共同で計画をつくり、</text>
+  <text class="t-desc" x="40" y="366">民有地の開発にも雨水をためる・しみ込ませる対策を求める</text>
+  <text class="t-note" x="40" y="396">・流域水害対策計画（法第4条）</text>
+  <text class="t-note" x="40" y="418">・雨水浸透阻害行為の許可（法第30条）</text>
+  <text class="t-note" x="40" y="440">・保全調整池の埋立て等の届出（法第46条）</text>
+  <text class="t-law" x="40" y="468">令和3年の改正で、河川法・下水道法も見直された</text>
+</svg>
