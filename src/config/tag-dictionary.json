@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T01:16:21.128Z",
+  "generated_at": "2026-10-09T01:33:20.114Z",
   "summary": {
-    "total_mdx_files": 1362,
+    "total_mdx_files": 1363,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -3467,12 +3467,13 @@
     },
     {
       "name": "道路",
-      "count": 30,
+      "count": 31,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
+        "civil-practice-reading-civil-drawings",
         "civil-practice-road-fixtures-precast",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-service-commencement",
@@ -3668,13 +3669,14 @@
     },
     {
       "name": "河川",
-      "count": 19,
+      "count": 20,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
         "civil-construction-2-guide-river-sabo-key-points",
         "civil-practice-flood-season-river-work",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-reading-civil-drawings",
         "civil-practice-river-park-erosion-control",
         "pe-comprehensive-management-h21-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-river-consultant",
@@ -4658,6 +4660,19 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-reading-civil-drawings"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4679,18 +4694,6 @@
         "concrete-chief-engineer-textbook-materials",
         "concrete-chief-engineer-textbook-properties",
         "concrete-engineer-textbook-materials"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation"
       ]
     },
     {
