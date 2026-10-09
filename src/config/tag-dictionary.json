@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T05:54:00.525Z",
+  "generated_at": "2026-10-09T05:54:36.671Z",
   "summary": {
-    "total_mdx_files": 1374,
+    "total_mdx_files": 1375,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -3659,11 +3659,12 @@
     },
     {
       "name": "河川",
-      "count": 21,
+      "count": 22,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
         "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-control-facilities",
         "civil-practice-flood-season-river-work",
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-nature-conservation-mitigation",
@@ -4633,6 +4634,20 @@
       ]
     },
     {
+      "name": "流域治水",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-flood-control-facilities",
+        "civil-practice-flood-season-river-work",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4682,19 +4697,6 @@
         "pe-comprehensive-management-r04-essay-road-municipality",
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "流域治水",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-flood-season-river-work",
-        "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-sound-water-cycle",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -5056,6 +5058,15 @@
       ]
     },
     {
+      "name": "ダム",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-2-guide-dam-tunnel-key-points",
+        "civil-practice-flood-control-facilities"
+      ]
+    },
+    {
       "name": "トレードオフ",
       "count": 2,
       "inAllowlist": true,
@@ -5124,14 +5135,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "ダム",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-2-guide-dam-tunnel-key-points"
       ]
     },
     {
