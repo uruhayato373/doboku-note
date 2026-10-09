@@ -20,6 +20,7 @@ import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
+import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 
@@ -31,7 +32,7 @@ const REVIEW_DIR = join(ROOT, '.tmp/youtube-public-view/review');
 const BP = loadBreakpointConfig();
 const readJson = (p) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
 
-const videos = collectPublicVideos(readJson('.claude/state/youtube-schedule.json'), readJson('.claude/state/video-content-status.json'));
+const videos = collectPublicVideos(youtubePublications(ROOT, { legacyOnly: true }), readJson('.claude/state/video-content-status.json'));
 console.log(`[check-youtube-public-view] 台帳で公開の動画 ${videos.length} 本が対象（Shorts ${videos.filter((v) => v.kind === 'shorts').length}・通常 ${videos.filter((v) => v.kind === 'long').length}）`);
 if (videos.length === 0) {
   console.error('[check-youtube-public-view] ✗ 対象 0 本（台帳の読み取りを確認・検査不成立）');

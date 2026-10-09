@@ -116,7 +116,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare` → `youtube-shorts:render` → `youtube-shorts:stage -- --commit` |
 | サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ）、または `generate-thumbnails.mjs`（単独実行） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
-| YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（手動 `workflow_dispatch`、`youtube-schedule.json` 台帳管理） |
+| YouTube Data API 投稿（旧台帳駆動・停止中） | `post-from-schedule.cjs`（どのワークフローからも呼ばれない。凍結した旧台帳 `youtube-schedule.json` を読む。旧 Shorts の正本はコンテンツ台帳 `content/registry`（kind `legacy-short`）で、旧台帳とこのスクリプトは P7 で消す） |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
 | 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
 | 投稿済み動画へのサムネイル変更 | 単一IDは `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs`（ともに既定dry-run、詳細はSNS画像ポリシー §0.1） |

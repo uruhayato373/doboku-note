@@ -36,7 +36,7 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 | note マガジン | `src/lib/note-magazines.ts` の `published` | true→published／false かつ noteUrl あり→review／それ以外→draft |
 | Instagram | パック配下 `posted.json` の有無 | あり→published／予約→scheduled／なし→draft |
 | X | `content/sns/x/draft/**/status.json` の tweets[].status | queued→draft／scheduled→scheduled／posted→published／replaced・cancelled→retired |
-| YouTube Shorts | `.claude/state/youtube-schedule.json` の items[].status | pending→scheduled／uploaded→published／retired・skipped→retired／failed→draft |
+| YouTube Shorts | コンテンツ台帳 `content/registry/publications/youtube/` の status（旧 Shorts は作品の kind が `legacy-short`・`youtube-schedule.json` は凍結した旧台帳で P7 で消す） | 旧 uploaded→published／旧 retired→stopped（user-decision）／消失→stopped（gone）。段階は `youtubePublications` の `stage` |
 | ココナラ | `src/lib/coconala-services.ts` の status（＋pauseReason） | draft→draft／listed→published／paused かつ absence→scheduled／paused（retired・理由不明）→retired／archived→retired |
 | Kindle | `scripts/kindle-published/catalog.json` の status | draft→draft／in_review→review／live→published／unpublished→retired |
 

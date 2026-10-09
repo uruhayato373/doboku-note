@@ -12,15 +12,14 @@
  *   --start-date  最初の YT 投稿日 YYYY-MM-DD（省略時: 翌月曜）
  *   --mode        yt | ig | both（デフォルト: both）
  *   --category    カテゴリ（デフォルト: pe-comprehensive-management）
- *   --dry-run     生成せず schedule.json だけ出力
+ *   --dry-run     生成せず計画の一覧だけ表示
  *
  * 出力:
  *   content/sns/youtube/{ytDate}-{slug}/    (yt または both)
  *   content/sns/instagram/{igDate}-{slug}/  (ig または both)
- *   content/sns/schedule.json               (常に出力)
  */
 
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
@@ -177,8 +176,7 @@ schedule.forEach(({ slug, yt_post_date, ig_carousel_date }, i) => {
 console.log('');
 
 if (dryRun) {
-  console.log('[dry-run] 生成はスキップします。schedule.json を出力します。');
-  writeSchedule(schedule);
+  console.log('[dry-run] 生成はスキップします。');
   process.exit(0);
 }
 
@@ -216,14 +214,6 @@ for (const entry of schedule) {
     console.error(`  [ERROR] ${slug}: ${err.message}\n`);
   }
 
-  // schedule.json を逐次更新（中断してもここまでの記録が残る）
-  writeSchedule(schedule);
 }
 
 console.log(`\n完了: ${ok} 件成功 / ${ng} 件エラー`);
-console.log(`スケジュール → content/sns/schedule.json`);
-
-function writeSchedule(data) {
-  const outPath = resolve(ROOT, 'content/sns/schedule.json');
-  writeFileSync(outPath, JSON.stringify(data, null, 2) + '\n');
-}
