@@ -1744,6 +1744,11 @@
       "tool": "Codex",
       "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
     },
+    "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A civil engineer seen from behind and slightly from the side, holding a tablet up at arm's length on an open outdoor construction site with bare graded ground. The tablet screen shows the live camera view of the same site with a translucent 3D model of a concrete retaining wall structure overlaid on the ground, aligned to the terrain. The tablet screen is the sharp focal point; the background site (excavator far away, soil, fence) is softly blurred with shallow depth of field. No faces visible, no text, no logos, no readable letters on screen. Hard hat and high-visibility vest on the person."
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1778,6 +1783,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Realistic documentary photo of a river levee (embankment) during a flood, viewed from the landside (protected-side, rear slope) looking toward the levee. Muddy river water is spilling over the levee crest and flowing down the grass-covered rear slope in a sheet, eroding patches of the turf. Near the toe of the slope at the bottom, water is seeping out of the ground and forming small muddy puddles. Farmland and a drainage ditch in the foreground, heavy rain clouds, overcast sky, shallow depth of field, no people, no text"
+    },
+    "civil-practice/gnss-positioning-basics/img/photo-gnss-antenna-on-control-point": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A geodetic GNSS survey antenna (a flat round dome-shaped antenna on a short pole) mounted on a tripod, centered directly above a survey control point marker (a small metal benchmark disc set in the ground, with a plumb optical alignment visible beneath). Beside the tripod on the ground sits a small rectangular GNSS receiver unit with a cable connecting to the antenna. Open flat site with wide open sky above and no tall obstructions nearby, clear daylight, slightly worn gravel ground. Shallow depth of field focusing on the antenna and benchmark. No text, no logos, no people, no faces."
     },
     "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
       "kind": "ai-generated",

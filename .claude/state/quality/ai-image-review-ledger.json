@@ -425,6 +425,15 @@
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
+    "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
+      "sha": "8e888a6000262ccd",
+      "promptSha": "d766f293ec87f352",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:47:01.023Z",
+      "verdict": "ok",
+      "reason": "屋外の整地された現場で、ヘルメットと反射ベストの作業者が後ろ向きにタブレットを構えている。画面を拡大して確認すると、現地映像の地面に半透明の白い擁壁モデル(控え壁つきの壁体と底版)が地形に沿って重なり、本文のAR確認(新設構造物の取り合いを現地で見る)と合う。顔・文字・ロゴ・読める画面表示は無い。手指やタブレット枠も崩れていない。背景の油圧ショベル(クローラ・ブーム・アーム・バケット)、仮囲い、杭と縄も実物として成立している。軽微な点として、画面内の背景(遠景の水面や橋)は実際の背景と細部が違い、画面が撮影側を向く構図は厳密には不自然だが、教材として誤解を招くほどではない。",
+      "reviewedAt": "2026-10-09T10:48:50.152Z"
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "sha": "4d6cc39631e31cbe",
       "promptSha": "3db4324530a6e0b1",
@@ -487,6 +496,12 @@
       "verdict": "ok",
       "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
       "reviewedAt": "2026-10-09T09:02:31.742Z"
+    },
+    "civil-practice/gnss-positioning-basics/img/photo-gnss-antenna-on-control-point": {
+      "sha": "9daa978e33ea7989",
+      "promptSha": "ea023924ba208260",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:48:27.935Z"
     },
     "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
       "sha": "780e88dae7b55fa9",
