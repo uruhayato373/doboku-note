@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T07:19:32.884Z",
+  "generated_at": "2026-10-09T07:56:36.022Z",
   "summary": {
-    "total_mdx_files": 1384,
+    "total_mdx_files": 1385,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -2742,7 +2742,7 @@
     },
     {
       "name": "関係法規",
-      "count": 84,
+      "count": 85,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2768,6 +2768,7 @@
         "civil-practice-public-works-delivery-methods",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
+        "civil-practice-subcontract-fair-dealing",
         "civil-practice-subcontract-instruction-boundary",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
@@ -4120,6 +4121,28 @@
       ]
     },
     {
+      "name": "ゼネコン",
+      "count": 15,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-construction-industry-structure",
+        "civil-practice-subcontract-fair-dealing",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h24-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h26-essay-general-contractor",
+        "pe-comprehensive-management-h27-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "出題傾向",
       "count": 15,
       "inAllowlist": true,
@@ -4192,27 +4215,6 @@
       "usedIn": [
         "concrete-chief-engineer-textbook-construction",
         "concrete-engineer-textbook-construction",
-        "pe-comprehensive-management-h21-essay-general-contractor",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h24-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h26-essay-general-contractor",
-        "pe-comprehensive-management-h27-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "ゼネコン",
-      "count": 14,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-construction-industry-structure",
         "pe-comprehensive-management-h21-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h23-essay-general-contractor",
