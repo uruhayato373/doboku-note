@@ -1,0 +1,33 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="シールド掘進の縦断面の模式図。切羽から土砂が過剰に流入してチャンバーに取り込まれ、緩み領域が煙突状に上へ広がり、表層の硬質ローム層の下に空洞ができる">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555}
+.b{font-size:12px;font-weight:bold;fill:#222}
+.m{text-anchor:middle}
+</style>
+<marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+<marker id="ak" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect x="20" y="70" width="360" height="60" fill="#fff3cd"/>
+<rect x="20" y="130" width="360" height="270" fill="#e8f0fe"/>
+<rect x="20" y="70" width="360" height="330" fill="none" stroke="#d7d7d7"/>
+<line x1="20" y1="70" x2="380" y2="70" stroke="#222" stroke-width="2"/>
+<text x="26" y="64">地表面</text>
+<text x="26" y="100" style="fill:#1a3a5c">硬質ローム層</text>
+<text x="26" y="195" style="fill:#1a3a5c">細粒分が少ない</text>
+<text x="26" y="211" style="fill:#1a3a5c">単一の砂層</text>
+<polygon points="228,296 272,296 258,140 238,140" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3"/>
+<ellipse cx="248" cy="127" rx="26" ry="14" fill="#fff" stroke="#b22234" stroke-width="1.5"/>
+<text class="b" x="282" y="131" style="fill:#b22234">空洞</text>
+<text x="276" y="215">緩み領域が</text>
+<text x="276" y="231">煙突状に拡大</text>
+<rect x="70" y="300" width="170" height="80" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+<rect x="180" y="305" width="60" height="70" fill="#fff" stroke="#555" stroke-width="1" stroke-dasharray="3 3"/>
+<text class="m" x="210" y="343">チャンバー</text>
+<rect x="240" y="295" width="10" height="90" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+<text class="m" x="125" y="343">シールド機</text>
+<line x1="300" y1="322" x2="256" y2="322" stroke="#b22234" stroke-width="2" marker-end="url(#ar)"/>
+<line x1="300" y1="358" x2="256" y2="358" stroke="#b22234" stroke-width="2" marker-end="url(#ar)"/>
+<text x="306" y="344" style="fill:#b22234">土砂が流入</text>
+<line x1="60" y1="415" x2="140" y2="415" stroke="#555" stroke-width="1.5" marker-end="url(#ak)"/>
+<text x="150" y="419">掘進方向</text>
+</svg>
