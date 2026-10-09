@@ -112,7 +112,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
       ...
 ```
 
-`<pack>/img` + `<pack>/caption.txt`（carousel/ なし）でも可。投稿後 `<pack>/status.json` に `carousel.{status,scheduled_at,...}` を記録。
+`<pack>/img` + `<pack>/caption.txt`（carousel/ なし）でも可。投稿後 `<pack>/status.json` に `carousel.{status,scheduled_at,...}` を記録（旧い写し・P7 で消す。公開の状態の正本は台帳で、予約したら `recordIg` で台帳にも書く）。
 
 ## 実測セレクタ表（2026-06-09 dry-run 検証済み）
 
@@ -153,7 +153,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
 - **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーを指定したパックは、編集 UI やアップロードを確認できなければ停止する。未指定パックだけ Meta 自動サムネを使う。`reels/cover.png` にも対応。
 - **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
-- 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
+- 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡。status.json は P7 で消す旧い写しで、正本は台帳）。
 
 ### リールフローの実測（カルーセルとの差分）
 

@@ -1,0 +1,866 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "concrete-chief-engineer",
+  "publications": [
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/instagram.carousel",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdX5hVLCVvL",
+        "url": "https://www.instagram.com/p/DdX5hVLCVvL/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/instagram.reel.point-tanni-saikotsu-kuuki-2",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2",
+      "variant": "point-tanni-saikotsu-kuuki-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-tanni-saikotsu-kuuki-2/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdVUvVZCbAT",
+        "url": "https://www.instagram.com/reel/DdVUvVZCbAT/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/instagram.reel.point-wc-ratio-1",
+      "work": "kikinagashi-shunin-suchi",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1",
+      "variant": "point-wc-ratio-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdYmLMQlTCa",
+        "url": "https://www.instagram.com/reel/DdYmLMQlTCa/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/instagram.carousel",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/instagram.reel.point-step1-1",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.204Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:07:34.107Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/instagram.reel.point-step2-2",
+      "work": "shunin-chokuzen-senryaku",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.204Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:08:09.847Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/instagram.carousel",
+      "work": "shunin-construction-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-construction-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/instagram.reel.point-overview-1",
+      "work": "shunin-construction-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-construction-ronten-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.198Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:06.816Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/instagram.reel.point-step1-2",
+      "work": "shunin-construction-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-construction-ronten-point-step1-2",
+      "variant": "point-step1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-step1-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-construction-ronten-point-step1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.198Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:15.867Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/instagram.carousel",
+      "work": "shunin-durability-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-durability-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/instagram.reel.point-carbonation-1",
+      "work": "shunin-durability-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-durability-ronten-point-carbonation-1",
+      "variant": "point-carbonation-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-carbonation-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-carbonation-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.198Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:46.565Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/instagram.reel.point-salt-2",
+      "work": "shunin-durability-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-durability-ronten-point-salt-2",
+      "variant": "point-salt-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-salt-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-durability-ronten-point-salt-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.199Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:56.778Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/instagram.carousel",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/instagram.reel.point-overview-1",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.193Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:58:59.460Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/instagram.reel.point-step1-2",
+      "work": "shunin-hinshutsu-yusen",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-step1-2",
+      "variant": "point-step1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-step1-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen-point-step1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.193Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:59:08.624Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/instagram.carousel",
+      "work": "shunin-materials-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-materials-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/instagram.reel.point-cement-types-2",
+      "work": "shunin-materials-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-materials-ronten-point-cement-types-2",
+      "variant": "point-cement-types-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-cement-types-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-cement-types-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.194Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:59:51.178Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/instagram.reel.point-clinker-1",
+      "work": "shunin-materials-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-materials-ronten-point-clinker-1",
+      "variant": "point-clinker-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-clinker-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-materials-ronten-point-clinker-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.193Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:59:38.277Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/instagram.carousel",
+      "work": "shunin-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-mix-design-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/instagram.reel.point-overview-1",
+      "work": "shunin-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.195Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:01:06.126Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/instagram.reel.point-step1-2",
+      "work": "shunin-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-step1-2",
+      "variant": "point-step1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-step1-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-mix-design-ronten-point-step1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.195Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:01:15.601Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/instagram.carousel",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/instagram.reel.point-chusho-2",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-chusho-2",
+      "variant": "point-chusho-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-chusho-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-chusho-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.203Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:49.224Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/instagram.reel.point-ippan-1",
+      "work": "shunin-ochiru-shouronbun",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-ippan-1",
+      "variant": "point-ippan-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-ippan-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun-point-ippan-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.203Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:40.574Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/instagram.carousel",
+      "work": "shunin-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-production-qc-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/instagram.reel.point-overview-1",
+      "work": "shunin-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.196Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:01:51.192Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/instagram.reel.point-step1-2",
+      "work": "shunin-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-step1-2",
+      "variant": "point-step1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-step1-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten-point-step1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.196Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:02:16.324Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/instagram.carousel",
+      "work": "shunin-products-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-products-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/instagram.reel.point-method-match-2",
+      "work": "shunin-products-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-products-ronten-point-method-match-2",
+      "variant": "point-method-match-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-method-match-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-method-match-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.200Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:36.250Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/instagram.reel.point-overview-1",
+      "work": "shunin-products-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-products-ronten-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-products-ronten-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.200Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:27.095Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/instagram.carousel",
+      "work": "shunin-properties-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-properties-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/instagram.reel.point-bingham-2",
+      "work": "shunin-properties-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-properties-ronten-point-bingham-2",
+      "variant": "point-bingham-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-bingham-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-bingham-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.194Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:28.928Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/instagram.reel.point-consistency-1",
+      "work": "shunin-properties-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-properties-ronten-point-consistency-1",
+      "variant": "point-consistency-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-consistency-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-properties-ronten-point-consistency-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.194Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:19.674Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/instagram.carousel",
+      "work": "shunin-r8-juuten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-r8-juuten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/instagram.reel.point-four-tiers-2",
+      "work": "shunin-r8-juuten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-r8-juuten-point-four-tiers-2",
+      "variant": "point-four-tiers-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-four-tiers-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-four-tiers-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.203Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:07:07.492Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/instagram.reel.point-overview-1",
+      "work": "shunin-r8-juuten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-r8-juuten-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-r8-juuten-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.203Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:58.624Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/instagram.carousel",
+      "work": "shunin-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shiken-zentaizou",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/instagram.reel.point-overview-1",
+      "work": "shunin-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.192Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:58:19.129Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/instagram.reel.point-step1-2",
+      "work": "shunin-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-step1-2",
+      "variant": "point-step1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-step1-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou-point-step1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.192Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:58:28.963Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/instagram.carousel",
+      "work": "shunin-shouronbun-kousei",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-kousei",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/instagram.reel.point-kanten-1",
+      "work": "shunin-shouronbun-kousei",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kanten-1",
+      "variant": "point-kanten-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kanten-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kanten-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.202Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:22.671Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/instagram.reel.point-kousei-2",
+      "work": "shunin-shouronbun-kousei",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kousei-2",
+      "variant": "point-kousei-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kousei-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei-point-kousei-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.203Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:32.047Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/instagram.carousel",
+      "work": "shunin-shouronbun-theme",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-theme",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/instagram.reel.point-nendo-1",
+      "work": "shunin-shouronbun-theme",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-nendo-1",
+      "variant": "point-nendo-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-nendo-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-nendo-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.202Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:44.723Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/instagram.reel.point-ryouiki-2",
+      "work": "shunin-shouronbun-theme",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-ryouiki-2",
+      "variant": "point-ryouiki-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-ryouiki-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-shouronbun-theme-point-ryouiki-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.202Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:54.565Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/instagram.carousel",
+      "work": "shunin-structural-design-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-structural-design-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/instagram.reel.point-bending-assumptions-1",
+      "work": "shunin-structural-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-bending-assumptions-1",
+      "variant": "point-bending-assumptions-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-bending-assumptions-1",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-bending-assumptions-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.201Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:06.000Z"
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/instagram.reel.point-shear-capacity-2",
+      "work": "shunin-structural-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-shear-capacity-2",
+      "variant": "point-shear-capacity-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-shear-capacity-2",
+      "copy": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-structural-design-ronten-point-shear-capacity-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.201Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:16.652Z"
+      }
+    }
+  ]
+}

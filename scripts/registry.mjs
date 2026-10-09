@@ -8,6 +8,7 @@
  *   npm run registry -- import-video-pack --pack-dir content/sns/video-packs/{exam}/{packId} [--commit]
  *   npm run registry -- import-video-packs [--commit]   # 全動画パック。2 回目は書く行 0。公開中の一覧（own-videos）と件数を突き合わせる
  *   npm run registry -- import-legacy-youtube [--commit]  # 動画パック以前の旧 Shorts（youtube-schedule.json の 200・作り直した 10）。表紙は ID の置き場へ移す
+ *   npm run registry -- import-instagram [--commit]      # IG の作品フォルダ全部（照合の記録 snapshot.json の live.list が要る・手元で verify-ig-status）
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
  *
@@ -24,6 +25,7 @@ import { VIDEO_STATE_PATH, applyVideoRows, planVideoRows, videoPackRows } from '
 import { discoverVideoPacks } from './lib/content-registry-check.mjs';
 import { readLatest } from './lib/dataset-io.mjs';
 import { readJsonIf } from './lib/json-io.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { approvalState } from './lib/media-review.mjs';
 import { projectVideoState, writeVideoState } from './lib/registry-video-state.mjs';
 import { canTransition, requiresApproval } from './lib/content-registry.mjs';
@@ -164,12 +166,12 @@ function approve() {
   }
   const aiBlocked = Object.values(pub.media ?? {}).map((id) => mediaById.get(id)).filter((m) => m?.provenance?.kind === 'ai-generated');
   if (aiBlocked.length) {
-    const ledger = readJsonIf(ROOT, '.claude/state/quality/ai-image-review-ledger.json');
+    const ledger = readJsonIf(ROOT, datasetPath('state.ai-image-review-ledger'));
     const bad = aiBlocked.filter((m) => { const r = ledger?.figures?.[`media:${m.id}`]; return !(r?.verdict === 'ok' && String(m.sha256).startsWith(r.sha ?? '-')); });
     if (bad.length) throw new Error(`AI 生成の素材に今の画像の判定 ok が無い: ${bad.map((m) => m.id).join(', ')}`);
   }
   const next = pub.status === 'qa_passed' ? 'approved' : pub.status;
-  if (next !== pub.status && !canTransition(cfg, pub.status, next)) throw new Error(`${pub.status} → ${next} は遷移に無い`);
+  if (next !== pub.status && !canTransition(cfg, pub.status, next, pub.channel)) throw new Error(`${pub.status} → ${next} は遷移に無い`);
   if (!requiresApproval(cfg, next) && next === pub.status && !['approved', 'rendered'].includes(next)) {
     throw new Error(`今の状態（${pub.status}）は最終承認の対象ではない（qa_passed・approved・rendered だけ）`);
   }
@@ -183,7 +185,7 @@ function stop() {
   if (!args.pub || !cfg.status.stopReasons.includes(args.reason)) throw new Error(`stop には --pub <公開 ID> --reason ${cfg.status.stopReasons.join('|')} が要る`);
   const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
   if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
-  if (!canTransition(cfg, pub.status, 'stopped')) throw new Error(`${pub.status} → stopped は遷移に無い`);
+  if (!canTransition(cfg, pub.status, 'stopped', pub.channel)) throw new Error(`${pub.status} → stopped は遷移に無い`);
   writePublication(pub, { status: 'stopped', stopReason: args.reason });
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
 }
@@ -217,9 +219,39 @@ async function importLegacyYoutube() {
   console.log('書いた。表紙は npm run media -- adopt-legacy-covers --commit で ID の置き場へ移す');
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, approve, stop };
+async function importInstagram() {
+  const { instagramRows } = await import('./lib/registry-ig-state.mjs');
+  const cfg = loadRegistryConfig(ROOT);
+  const reg = loadRegistry(ROOT);
+  const snapshot = readJsonIf(ROOT, datasetPath('state.ig-reconcile', { name: 'snapshot' }));
+  const rows = instagramRows(ROOT, { snapshot, videoPackIds: new Set(discoverVideoPacks(ROOT).keys()), rules: cfg.idRules, regWorks: reg.works });
+  const strip = (r) => Object.fromEntries(Object.entries(r).filter(([k, v]) => !['file', 'exam', 'channel'].includes(k) && v !== undefined));
+  const same = (a, b) => JSON.stringify(strip(a)) === JSON.stringify(strip(b));
+  const worksByExam = new Map();
+  for (const { exam, row } of rows.works) {
+    const cur = reg.works.find((w) => w.id === row.id && w.exam === exam);
+    if (!cur || !same(cur, row)) worksByExam.set(exam, [...(worksByExam.get(exam) ?? []), row]);
+  }
+  const pubsByExam = new Map();
+  for (const p of rows.publications) {
+    const exam = p.id.split('/')[0];
+    const cur = reg.publications.find((x) => x.id === p.id);
+    const merged = cur?.media ? { ...p, media: cur.media } : p;
+    if (!cur || !same(cur, merged)) pubsByExam.set(exam, [...(pubsByExam.get(exam) ?? []), merged]);
+  }
+  const n = (m) => [...m.values()].flat().length;
+  console.log(`IG の作品フォルダ ${rows.report.folders} 個（対象外 ${rows.report.skipped.length}）/ 照合の記録 ${snapshot?.at}（公開中 ${snapshot?.live?.posts} 件）`);
+  console.log(`  状態: ${Object.entries(rows.report.byStatus).sort().map(([k, v]) => `${k} ${v}`).join(' / ')}`);
+  console.log(`  書く行: 作品 ${n(worksByExam)}・公開 ${n(pubsByExam)}`);
+  if (!args.commit) { console.log('dry-run（台帳へは書いていない）。書くときは --commit'); return; }
+  for (const [exam, ws] of worksByExam) upsertWorks(ROOT, exam, ws);
+  for (const [exam, ps] of pubsByExam) upsertPublications(ROOT, 'instagram', exam, ps);
+  console.log('書いた。stopped(unverified-legacy) は管理画面 /content/items の「要確認」で見られる');
+}
+
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-legacy-youtube': importLegacyYoutube, 'import-instagram': importInstagram, approve, stop };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|approve|stop …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-legacy-youtube|import-instagram|approve|stop …');
   process.exit(2);
 }
 await commands[command]();

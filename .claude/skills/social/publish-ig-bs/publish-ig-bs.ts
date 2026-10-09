@@ -331,7 +331,7 @@ function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
 }
 
 // ─── status.json 更新 ─────────────────────────────────
-function updateStatus(pack: Pack, scheduledDate: Date | null): void {
+async function updateStatus(pack: Pack, scheduledDate: Date | null): Promise<void> {
   // per-problem Reel（<pack>/reels-pp/qN）も、公開状態のSoTは親パックの
   // status.jsonへ集約する。子ディレクトリへ書くと verify-ig-status が
   // 予約済みと認識できず、同じ動画を再送する危険がある。
@@ -365,6 +365,55 @@ function updateStatus(pack: Pack, scheduledDate: Date | null): void {
   };
   fs.writeFileSync(statusPath, JSON.stringify(cur, null, 2) + "\n", "utf-8");
   console.log(`📝 status.json 更新: ${pack.kind} → ${scheduledDate ? "scheduled" : "posted"}`);
+}
+
+// ─── コンテンツ台帳への記録（DN-0611・正本は台帳。status.json は P7 で消す旧い写し）──
+// 予約は 'scheduled'。即時公開は URL が分からないので台帳へ書けない（ig-status mark か照合で published にする）。
+// 台帳に行が無いフォルダは警告だけで今の動きのまま。書き込みが失敗したら投げて止める。
+async function recordLedger(pack: Pack, scheduledDate: Date | null): Promise<void> {
+  if (IS_DRY_RUN) return;
+  const store = await import("../../../../scripts/lib/registry-ig-store.mjs");
+  const row = await store.readIgPublication(PROJECT_ROOT, pack.dir, pack.kind);
+  if (!row) {
+    console.warn(`⚠️  台帳に行が無い（status.json のみ更新）: ${path.relative(PROJECT_ROOT, pack.dir)} [${pack.kind}]`);
+    return;
+  }
+  if (!scheduledDate) {
+    console.warn(`⚠️  即時公開は URL が不明のため台帳を更新しません。公開 URL が分かったら ig-status mark <pack> ${pack.kind === "reel" ? "reels" : "carousel"} --url=… で published にしてください`);
+    return;
+  }
+  const publishAt = jstClock(scheduledDate).toISOString().replace(/\.\d{3}Z$/, "+09:00");
+  await store.recordIg(PROJECT_ROOT, pack.dir, pack.kind, "scheduled", { publishAt });
+  console.log(`📒 台帳更新: ${row.id} → scheduled (${publishAt})`);
+}
+
+// ─── 台帳の事前確認（取り消せない予約・投稿の前。DN-0611）──────────────
+// scheduled・published・stopped、または遷移表で行き先（予約は scheduled・即時は published）へ行けない行は止める（exit 2）。
+// 台帳に行が無いものは警告だけで今のまま進める。
+async function preflightLedger(items: { pack: Pack; when: Date | null }[]): Promise<void> {
+  const store = await import("../../../../scripts/lib/registry-ig-store.mjs");
+  const reg = await import("../../../../scripts/lib/content-registry.mjs");
+  const cfg = reg.loadRegistryConfig(PROJECT_ROOT);
+  const problems: string[] = [];
+  for (const { pack, when } of items) {
+    const rel = path.relative(PROJECT_ROOT, pack.dir);
+    const row = await store.readIgPublication(PROJECT_ROOT, pack.dir, pack.kind);
+    if (!row) {
+      console.warn(`⚠️  台帳に行が無い（事前確認なしで進めます）: ${rel} [${pack.kind}]`);
+      continue;
+    }
+    const to = when ? "scheduled" : "published";
+    if (["scheduled", "published", "stopped"].includes(row.status)) {
+      problems.push(`${row.id}: 台帳の状態が ${row.status}（予約・投稿済みか停止中）`);
+    } else if (!reg.canTransition(cfg, row.status, to, "instagram")) {
+      problems.push(`${row.id}: 台帳の状態 ${row.status} から ${to} へ遷移できない`);
+    }
+  }
+  if (problems.length > 0) {
+    console.error("❌ 台帳の事前確認で止めました（Business Suite には何も予約・投稿していません）:");
+    for (const m of problems) console.error(`   - ${m}`);
+    process.exit(2);
+  }
 }
 
 // ─── ログイン確認 ──────────────────────────────────────
@@ -1290,6 +1339,7 @@ async function main() {
       if (diffMin < 20 || diffMin > (kind === "reel" ? 29 : 75) * 24 * 60) throw new Error(`batch 予約範囲外: ${item.schedule}`);
       return { pack: loadPack(item.packArg, kind), when };
     });
+    await preflightLedger(prepared);
     console.log(`🚀 IG 一括予約 ${prepared.length}件`);
     const { context, page } = await launch();
     try {
@@ -1300,7 +1350,8 @@ async function main() {
           ? await publishReel(page, item.pack, item.when, false)
           : await publish(page, item.pack, item.when, false);
         if (!ok) throw new Error(`一括予約を停止: ${item.pack.slug}`);
-        updateStatus(item.pack, item.when);
+        await updateStatus(item.pack, item.when);
+        await recordLedger(item.pack, item.when);
       }
       console.log(`\n✅ IG 一括予約 完了 ${prepared.length}件`);
     } catch (error) {
@@ -1325,13 +1376,17 @@ async function main() {
       : `   画像: ${pack.images.length} 枚 / caption ${[...pack.caption].length} 文字\n`
   );
 
+  await preflightLedger([{ pack, when: cli.when ?? null }]);
   const { context, page } = await launch();
   try {
     await ensureLogin(page);
     const ok = cli.reel
       ? await publishReel(page, pack, cli.when ?? null, cli.keepFb)
       : await publish(page, pack, cli.when ?? null, cli.keepFb);
-    if (ok && !IS_DRY_RUN) updateStatus(pack, cli.when ?? null);
+    if (ok && !IS_DRY_RUN) {
+      await updateStatus(pack, cli.when ?? null);
+      await recordLedger(pack, cli.when ?? null);
+    }
     console.log(`\n${ok ? "✅ 完了" : "❌ 失敗"}: ${pack.slug}`);
     if (!ok) console.log(`   → ${path.relative(PROJECT_ROOT, DEBUG_DIR)}/ のスクショを確認`);
     process.exitCode = ok ? 0 : 1;

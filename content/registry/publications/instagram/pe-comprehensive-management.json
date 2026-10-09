@@ -1,0 +1,3075 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "pe-comprehensive-management",
+  "publications": [
+    {
+      "id": "pe-comprehensive-management/cem-angle-civil-servant-blindspots-experience/instagram.reel",
+      "work": "cem-angle-civil-servant-blindspots-experience",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/angle-reels/civil-servant-blindspots-experience",
+      "copy": "content/sns/instagram/cem/angle-reels/civil-servant-blindspots-experience/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaFjzyPAaNV",
+        "url": "https://www.instagram.com/reel/DaFjzyPAaNV/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-accident-statistics/instagram.carousel",
+      "work": "cem-kw-accident-statistics",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/accident-statistics",
+      "copy": "content/sns/instagram/cem/keyword-packs/accident-statistics/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJ_Bxnk4AF",
+        "url": "https://www.instagram.com/p/DaJ_Bxnk4AF/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-cash-flow-statement/instagram.carousel",
+      "work": "cem-kw-cash-flow-statement",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/cash-flow-statement",
+      "copy": "content/sns/instagram/cem/keyword-packs/cash-flow-statement/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ8xtZzk0JY",
+        "url": "https://www.instagram.com/p/DZ8xtZzk0JY/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-cash-flow-statement/instagram.reel",
+      "work": "cem-kw-cash-flow-statement",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/cash-flow-statement",
+      "copy": "content/sns/instagram/cem/keyword-packs/cash-flow-statement/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaCIMNxjZMH",
+        "url": "https://www.instagram.com/reel/DaCIMNxjZMH/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-data-analysis-method-selection/instagram.carousel",
+      "work": "cem-kw-data-analysis-method-selection",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/data-analysis-method-selection",
+      "copy": "content/sns/instagram/cem/keyword-packs/data-analysis-method-selection/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaXeg3EjVeH",
+        "url": "https://www.instagram.com/p/DaXeg3EjVeH/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-development-process-models/instagram.carousel",
+      "work": "cem-kw-development-process-models",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/development-process-models",
+      "copy": "content/sns/instagram/cem/keyword-packs/development-process-models/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJvDcVE39n",
+        "url": "https://www.instagram.com/p/DaJvDcVE39n/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-disaster-weather-info/instagram.carousel",
+      "work": "cem-kw-disaster-weather-info",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/disaster-weather-info",
+      "copy": "content/sns/instagram/cem/keyword-packs/disaster-weather-info/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaaDWFPjccI",
+        "url": "https://www.instagram.com/p/DaaDWFPjccI/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-ecrs-principle/instagram.carousel",
+      "work": "cem-kw-ecrs-principle",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/ecrs-principle",
+      "copy": "content/sns/instagram/cem/keyword-packs/ecrs-principle/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-eia-three-classes/instagram.carousel",
+      "work": "cem-kw-eia-three-classes",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/eia-three-classes",
+      "copy": "content/sns/instagram/cem/keyword-packs/eia-three-classes/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaOu6Pfk22X",
+        "url": "https://www.instagram.com/p/DaOu6Pfk22X/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-energy-key-figures/instagram.carousel",
+      "work": "cem-kw-energy-key-figures",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/energy-key-figures",
+      "copy": "content/sns/instagram/cem/keyword-packs/energy-key-figures/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaO_QWJkzjY",
+        "url": "https://www.instagram.com/p/DaO_QWJkzjY/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-environmental-basic-plan/instagram.carousel",
+      "work": "cem-kw-environmental-basic-plan",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/environmental-basic-plan",
+      "copy": "content/sns/instagram/cem/keyword-packs/environmental-basic-plan/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ_X8OLkzr5",
+        "url": "https://www.instagram.com/p/DZ_X8OLkzr5/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-fail-safe/instagram.carousel",
+      "work": "cem-kw-fail-safe",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/fail-safe",
+      "copy": "content/sns/instagram/cem/keyword-packs/fail-safe/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ_cXGTkwPM",
+        "url": "https://www.instagram.com/p/DZ_cXGTkwPM/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-four-p-analysis/instagram.carousel",
+      "work": "cem-kw-four-p-analysis",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/four-p-analysis",
+      "copy": "content/sns/instagram/cem/keyword-packs/four-p-analysis/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DacoIVyjbgb",
+        "url": "https://www.instagram.com/p/DacoIVyjbgb/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-frailty-locomo/instagram.carousel",
+      "work": "cem-kw-frailty-locomo",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/frailty-locomo",
+      "copy": "content/sns/instagram/cem/keyword-packs/frailty-locomo/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-ghg-key-figures/instagram.carousel",
+      "work": "cem-kw-ghg-key-figures",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/ghg-key-figures",
+      "copy": "content/sns/instagram/cem/keyword-packs/ghg-key-figures/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-herzberg-two-factor-theory/instagram.carousel",
+      "work": "cem-kw-herzberg-two-factor-theory",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/herzberg-two-factor-theory",
+      "copy": "content/sns/instagram/cem/keyword-packs/herzberg-two-factor-theory/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaC4KcbGB76",
+        "url": "https://www.instagram.com/p/DaC4KcbGB76/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-herzberg-two-factor-theory/instagram.reel",
+      "work": "cem-kw-herzberg-two-factor-theory",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/herzberg-two-factor-theory",
+      "copy": "content/sns/instagram/cem/keyword-packs/herzberg-two-factor-theory/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaEs8NKAXuf",
+        "url": "https://www.instagram.com/reel/DaEs8NKAXuf/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-infosec-certifications/instagram.carousel",
+      "work": "cem-kw-infosec-certifications",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/infosec-certifications",
+      "copy": "content/sns/instagram/cem/keyword-packs/infosec-certifications/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-iso14000/instagram.carousel",
+      "work": "cem-kw-iso14000",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/iso-14000",
+      "copy": "content/sns/instagram/cem/keyword-packs/iso-14000/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaNLWTtDI4u",
+        "url": "https://www.instagram.com/p/DaNLWTtDI4u/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-job-vs-membership/instagram.carousel",
+      "work": "cem-kw-job-vs-membership",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/job-vs-membership",
+      "copy": "content/sns/instagram/cem/keyword-packs/job-vs-membership/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJwfusk_q5",
+        "url": "https://www.instagram.com/p/DaJwfusk_q5/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-labor-relations-adjustment-act/instagram.carousel",
+      "work": "cem-kw-labor-relations-adjustment-act",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/labor-relations-adjustment-act",
+      "copy": "content/sns/instagram/cem/keyword-packs/labor-relations-adjustment-act/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaAHWq_k0gl",
+        "url": "https://www.instagram.com/p/DaAHWq_k0gl/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-labor-share-ratio/instagram.carousel",
+      "work": "cem-kw-labor-share-ratio",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/labor-share-ratio",
+      "copy": "content/sns/instagram/cem/keyword-packs/labor-share-ratio/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaMKiUMk0Sy",
+        "url": "https://www.instagram.com/p/DaMKiUMk0Sy/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-maintenance-types/instagram.carousel",
+      "work": "cem-kw-maintenance-types",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/maintenance-types",
+      "copy": "content/sns/instagram/cem/keyword-packs/maintenance-types/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaMiSyCE-n6",
+        "url": "https://www.instagram.com/p/DaMiSyCE-n6/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-marketing-frameworks/instagram.carousel",
+      "work": "cem-kw-marketing-frameworks",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/marketing-frameworks",
+      "copy": "content/sns/instagram/cem/keyword-packs/marketing-frameworks/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DafM8mWiFuP",
+        "url": "https://www.instagram.com/p/DafM8mWiFuP/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-maslow-hierarchy-of-needs/instagram.carousel",
+      "work": "cem-kw-maslow-hierarchy-of-needs",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/maslow-hierarchy-of-needs",
+      "copy": "content/sns/instagram/cem/keyword-packs/maslow-hierarchy-of-needs/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaACtxTE2NS",
+        "url": "https://www.instagram.com/p/DaACtxTE2NS/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-maslow-hierarchy-of-needs/instagram.reel",
+      "work": "cem-kw-maslow-hierarchy-of-needs",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/maslow-hierarchy-of-needs",
+      "copy": "content/sns/instagram/cem/keyword-packs/maslow-hierarchy-of-needs/reels/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-25T12:00:00.000+09:00",
+      "reason": "予約（2026-06-25T12:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-mcgregor-xy-theory/instagram.carousel",
+      "work": "cem-kw-mcgregor-xy-theory",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/mcgregor-xy-theory",
+      "copy": "content/sns/instagram/cem/keyword-packs/mcgregor-xy-theory/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ6s6sEE94E",
+        "url": "https://www.instagram.com/p/DZ6s6sEE94E/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-mcgregor-xy-theory/instagram.reel",
+      "work": "cem-kw-mcgregor-xy-theory",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/mcgregor-xy-theory",
+      "copy": "content/sns/instagram/cem/keyword-packs/mcgregor-xy-theory/reels/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中のリール 2 件（DaPAKm1DTFd,DaCqiZgjdlf）に一致して 1 件に決められない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-mtbf-mttr-availability/instagram.carousel",
+      "work": "cem-kw-mtbf-mttr-availability",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/mtbf-mttr-availability",
+      "copy": "content/sns/instagram/cem/keyword-packs/mtbf-mttr-availability/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaKBy0Tk27W",
+        "url": "https://www.instagram.com/p/DaKBy0Tk27W/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-multi-factor-authentication/instagram.carousel",
+      "work": "cem-kw-multi-factor-authentication",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/multi-factor-authentication",
+      "copy": "content/sns/instagram/cem/keyword-packs/multi-factor-authentication/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaPMmvLEyQ8",
+        "url": "https://www.instagram.com/p/DaPMmvLEyQ8/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-new-qc-seven-tools/instagram.carousel",
+      "work": "cem-kw-new-qc-seven-tools",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/new-qc-seven-tools",
+      "copy": "content/sns/instagram/cem/keyword-packs/new-qc-seven-tools/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaIBw4Cgv1h",
+        "url": "https://www.instagram.com/p/DaIBw4Cgv1h/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-new-qc-seven-tools/instagram.reel",
+      "work": "cem-kw-new-qc-seven-tools",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/new-qc-seven-tools",
+      "copy": "content/sns/instagram/cem/keyword-packs/new-qc-seven-tools/reels/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中のリール 2 件（DaRk6KojpuY,DaFPTLhDach）に一致して 1 件に決められない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-npv-net-present-value/instagram.carousel",
+      "work": "cem-kw-npv-net-present-value",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/npv-net-present-value",
+      "copy": "content/sns/instagram/cem/keyword-packs/npv-net-present-value/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaFc-k2gHNH",
+        "url": "https://www.instagram.com/p/DaFc-k2gHNH/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-npv-net-present-value/instagram.reel",
+      "work": "cem-kw-npv-net-present-value",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/npv-net-present-value",
+      "copy": "content/sns/instagram/cem/keyword-packs/npv-net-present-value/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJ2jGWDAE4",
+        "url": "https://www.instagram.com/reel/DaJ2jGWDAE4/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-organization-forms/instagram.carousel",
+      "work": "cem-kw-organization-forms",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/organization-forms",
+      "copy": "content/sns/instagram/cem/keyword-packs/organization-forms/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaMbJfyk2T1",
+        "url": "https://www.instagram.com/p/DaMbJfyk2T1/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-organization-types/instagram.carousel",
+      "work": "cem-kw-organization-types",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/organization-types",
+      "copy": "content/sns/instagram/cem/keyword-packs/organization-types/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJ0M7bk4cs",
+        "url": "https://www.instagram.com/p/DaJ0M7bk4cs/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-organizational-commitment/instagram.carousel",
+      "work": "cem-kw-organizational-commitment",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/organizational-commitment",
+      "copy": "content/sns/instagram/cem/keyword-packs/organizational-commitment/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJ2ltME67K",
+        "url": "https://www.instagram.com/p/DaJ2ltME67K/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-osh-management-system/instagram.carousel",
+      "work": "cem-kw-osh-management-system",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/osh-management-system",
+      "copy": "content/sns/instagram/cem/keyword-packs/osh-management-system/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ_5TDSEy8X",
+        "url": "https://www.instagram.com/p/DZ_5TDSEy8X/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-patent-vs-utility-model/instagram.carousel",
+      "work": "cem-kw-patent-vs-utility-model",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/patent-vs-utility-model",
+      "copy": "content/sns/instagram/cem/keyword-packs/patent-vs-utility-model/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ9looEE436",
+        "url": "https://www.instagram.com/p/DZ9looEE436/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-patent-vs-utility-model/instagram.reel",
+      "work": "cem-kw-patent-vs-utility-model",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/patent-vs-utility-model",
+      "copy": "content/sns/instagram/cem/keyword-packs/patent-vs-utility-model/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaHRzulEyUR",
+        "url": "https://www.instagram.com/reel/DaHRzulEyUR/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-pfi/instagram.carousel",
+      "work": "cem-kw-pfi",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/pfi",
+      "copy": "content/sns/instagram/cem/keyword-packs/pfi/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ_9zDzE-To",
+        "url": "https://www.instagram.com/p/DZ_9zDzE-To/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-ppm-analysis/instagram.carousel",
+      "work": "cem-kw-ppm-analysis",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/ppm-analysis",
+      "copy": "content/sns/instagram/cem/keyword-packs/ppm-analysis/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DahxtXmCDHJ",
+        "url": "https://www.instagram.com/p/DahxtXmCDHJ/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-pull-push-production/instagram.carousel",
+      "work": "cem-kw-pull-push-production",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/pull-push-production",
+      "copy": "content/sns/instagram/cem/keyword-packs/pull-push-production/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaKmjSriJuJ",
+        "url": "https://www.instagram.com/p/DaKmjSriJuJ/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-pull-push-production/instagram.reel",
+      "work": "cem-kw-pull-push-production",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/pull-push-production",
+      "copy": "content/sns/instagram/cem/keyword-packs/pull-push-production/reels/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中のリール 2 件（DaUJyM8Cugz,DaH0HgwgfbN）に一致して 1 件に決められない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-renewable-energy-act/instagram.carousel",
+      "work": "cem-kw-renewable-energy-act",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/renewable-energy-act",
+      "copy": "content/sns/instagram/cem/keyword-packs/renewable-energy-act/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaPwJXlDcE7",
+        "url": "https://www.instagram.com/p/DaPwJXlDcE7/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-rio-declaration/instagram.carousel",
+      "work": "cem-kw-rio-declaration",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/rio-declaration",
+      "copy": "content/sns/instagram/cem/keyword-packs/rio-declaration/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaU5yULDHhr",
+        "url": "https://www.instagram.com/p/DaU5yULDHhr/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-rio-declaration/instagram.reel",
+      "work": "cem-kw-rio-declaration",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/keyword-packs/rio-declaration",
+      "copy": "content/sns/instagram/cem/keyword-packs/rio-declaration/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaAFq59EuIO",
+        "url": "https://www.instagram.com/p/DaAFq59EuIO/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "posted-json",
+          "ref": "content/sns/instagram/cem/keyword-packs/rio-declaration/posted.json"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-risk-perception/instagram.carousel",
+      "work": "cem-kw-risk-perception",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/risk-perception",
+      "copy": "content/sns/instagram/cem/keyword-packs/risk-perception/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ_fvFtky5Y",
+        "url": "https://www.instagram.com/p/DZ_fvFtky5Y/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-safety-health-org-structure/instagram.carousel",
+      "work": "cem-kw-safety-health-org-structure",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/safety-health-org-structure",
+      "copy": "content/sns/instagram/cem/keyword-packs/safety-health-org-structure/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-series-parallel-reliability/instagram.carousel",
+      "work": "cem-kw-series-parallel-reliability",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/series-parallel-reliability",
+      "copy": "content/sns/instagram/cem/keyword-packs/series-parallel-reliability/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-sexual-harassment/instagram.carousel",
+      "work": "cem-kw-sexual-harassment",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/sexual-harassment",
+      "copy": "content/sns/instagram/cem/keyword-packs/sexual-harassment/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaSU7cliVbm",
+        "url": "https://www.instagram.com/p/DaSU7cliVbm/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-swot-analysis/instagram.carousel",
+      "work": "cem-kw-swot-analysis",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/swot-analysis",
+      "copy": "content/sns/instagram/cem/keyword-packs/swot-analysis/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DakWff8DF30",
+        "url": "https://www.instagram.com/p/DakWff8DF30/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-system-safety-methods/instagram.carousel",
+      "work": "cem-kw-system-safety-methods",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/system-safety-methods",
+      "copy": "content/sns/instagram/cem/keyword-packs/system-safety-methods/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Dam7X-tiMcO",
+        "url": "https://www.instagram.com/p/Dam7X-tiMcO/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-three-c-analysis/instagram.carousel",
+      "work": "cem-kw-three-c-analysis",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/three-c-analysis",
+      "copy": "content/sns/instagram/cem/keyword-packs/three-c-analysis/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DapgFjtj8rG",
+        "url": "https://www.instagram.com/p/DapgFjtj8rG/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-unfair-competition/instagram.carousel",
+      "work": "cem-kw-unfair-competition",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/unfair-competition",
+      "copy": "content/sns/instagram/cem/keyword-packs/unfair-competition/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-working-hours-systems/instagram.carousel",
+      "work": "cem-kw-working-hours-systems",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/keyword-packs/working-hours-systems",
+      "copy": "content/sns/instagram/cem/keyword-packs/working-hours-systems/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaMVmzGE17C",
+        "url": "https://www.instagram.com/p/DaMVmzGE17C/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01/instagram.carousel",
+      "work": "cem-r03-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaDF5_GD5TW",
+        "url": "https://www.instagram.com/p/DaDF5_GD5TW/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01/instagram.reel",
+      "work": "cem-r03-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01/instagram.story",
+      "work": "cem-r03-p01",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-01/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02/instagram.carousel",
+      "work": "cem-r03-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-27T07:30:00.000+09:00",
+      "reason": "予約（2026-06-27T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02/instagram.reel",
+      "work": "cem-r03-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02/instagram.story",
+      "work": "cem-r03-p02",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-02/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03/instagram.carousel",
+      "work": "cem-r03-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-03/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaFqycYjYtR",
+        "url": "https://www.instagram.com/p/DaFqycYjYtR/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03/instagram.reel",
+      "work": "cem-r03-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03/instagram.story",
+      "work": "cem-r03-p03",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-03/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04/instagram.carousel",
+      "work": "cem-r03-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-04/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaGyyJgE21K",
+        "url": "https://www.instagram.com/p/DaGyyJgE21K/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04/instagram.reel",
+      "work": "cem-r03-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04/instagram.story",
+      "work": "cem-r03-p04",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-04/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05/instagram.carousel",
+      "work": "cem-r03-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-05/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaIPfztl6Vm",
+        "url": "https://www.instagram.com/p/DaIPfztl6Vm/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05/instagram.reel",
+      "work": "cem-r03-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05/instagram.story",
+      "work": "cem-r03-p05",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-05/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06/instagram.carousel",
+      "work": "cem-r03-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-06/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaJXlOsDVBw",
+        "url": "https://www.instagram.com/p/DaJXlOsDVBw/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06/instagram.reel",
+      "work": "cem-r03-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06/instagram.story",
+      "work": "cem-r03-p06",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-06/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07/instagram.carousel",
+      "work": "cem-r03-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-07/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaK0SXdCBER",
+        "url": "https://www.instagram.com/p/DaK0SXdCBER/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07/instagram.reel",
+      "work": "cem-r03-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07/instagram.story",
+      "work": "cem-r03-p07",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-07/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08/instagram.carousel",
+      "work": "cem-r03-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-08/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaL8YKgE2Jq",
+        "url": "https://www.instagram.com/p/DaL8YKgE2Jq/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08/instagram.reel",
+      "work": "cem-r03-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-08/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08/instagram.story",
+      "work": "cem-r03-p08",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-08/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09/instagram.carousel",
+      "work": "cem-r03-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-09/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaNZE2jHP7r",
+        "url": "https://www.instagram.com/p/DaNZE2jHP7r/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09/instagram.reel",
+      "work": "cem-r03-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-09/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09/instagram.story",
+      "work": "cem-r03-p09",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r03/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r03/pack-09/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10/instagram.carousel",
+      "work": "cem-r03-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10/instagram.reel",
+      "work": "cem-r03-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r03/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-summary/instagram.carousel",
+      "work": "cem-r03-summary",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r03/_summary",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01/instagram.carousel",
+      "work": "cem-r04-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-22T21:00:00.000+09:00",
+      "reason": "予約（2026-06-22T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01/instagram.reel",
+      "work": "cem-r04-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01/instagram.story",
+      "work": "cem-r04-p01",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-01/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02/instagram.carousel",
+      "work": "cem-r04-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-23T07:30:00.000+09:00",
+      "reason": "予約（2026-06-23T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02/instagram.reel",
+      "work": "cem-r04-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02/instagram.story",
+      "work": "cem-r04-p02",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-02/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03/instagram.carousel",
+      "work": "cem-r04-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-03/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-23T21:00:00.000+09:00",
+      "reason": "予約（2026-06-23T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03/instagram.reel",
+      "work": "cem-r04-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03/instagram.story",
+      "work": "cem-r04-p03",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-03/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04/instagram.carousel",
+      "work": "cem-r04-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-04/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-24T07:30:00.000+09:00",
+      "reason": "予約（2026-06-24T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04/instagram.reel",
+      "work": "cem-r04-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04/instagram.story",
+      "work": "cem-r04-p04",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-04/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05/instagram.carousel",
+      "work": "cem-r04-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-05/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-24T21:00:00.000+09:00",
+      "reason": "予約（2026-06-24T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05/instagram.reel",
+      "work": "cem-r04-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05/instagram.story",
+      "work": "cem-r04-p05",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-05/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06/instagram.carousel",
+      "work": "cem-r04-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-06/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-25T07:30:00.000+09:00",
+      "reason": "予約（2026-06-25T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06/instagram.reel",
+      "work": "cem-r04-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06/instagram.story",
+      "work": "cem-r04-p06",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-06/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07/instagram.carousel",
+      "work": "cem-r04-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-07/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaAhJiDD-AZ",
+        "url": "https://www.instagram.com/p/DaAhJiDD-AZ/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07/instagram.reel",
+      "work": "cem-r04-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07/instagram.story",
+      "work": "cem-r04-p07",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-07/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08/instagram.carousel",
+      "work": "cem-r04-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-08/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DaBpMNYDUTP",
+        "url": "https://www.instagram.com/p/DaBpMNYDUTP/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08/instagram.reel",
+      "work": "cem-r04-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-08/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08/instagram.story",
+      "work": "cem-r04-p08",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r04/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r04/pack-08/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09/instagram.carousel",
+      "work": "cem-r04-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-09",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09/instagram.reel",
+      "work": "cem-r04-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-09",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10/instagram.carousel",
+      "work": "cem-r04-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10/instagram.reel",
+      "work": "cem-r04-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r04/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-summary/instagram.carousel",
+      "work": "cem-r04-summary",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r04/_summary",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01/instagram.carousel",
+      "work": "cem-r05-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-19T07:30:00.000+09:00",
+      "reason": "予約（2026-06-19T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01/instagram.reel",
+      "work": "cem-r05-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01/instagram.story",
+      "work": "cem-r05-p01",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-01/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02/instagram.carousel",
+      "work": "cem-r05-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-19T21:00:00.000+09:00",
+      "reason": "予約（2026-06-19T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02/instagram.reel",
+      "work": "cem-r05-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02/instagram.story",
+      "work": "cem-r05-p02",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-02/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03/instagram.carousel",
+      "work": "cem-r05-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-03/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-20T07:30:00.000+09:00",
+      "reason": "予約（2026-06-20T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03/instagram.reel",
+      "work": "cem-r05-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03/instagram.story",
+      "work": "cem-r05-p03",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-03/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04/instagram.carousel",
+      "work": "cem-r05-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-04/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZzpIM3Aeyb",
+        "url": "https://www.instagram.com/p/DZzpIM3Aeyb/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04/instagram.reel",
+      "work": "cem-r05-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04/instagram.story",
+      "work": "cem-r05-p04",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-04/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05/instagram.carousel",
+      "work": "cem-r05-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-05/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ0xNwGD0Jx",
+        "url": "https://www.instagram.com/p/DZ0xNwGD0Jx/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05/instagram.reel",
+      "work": "cem-r05-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05/instagram.story",
+      "work": "cem-r05-p05",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-05/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06/instagram.carousel",
+      "work": "cem-r05-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-06/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ2OC4uD1Fi",
+        "url": "https://www.instagram.com/p/DZ2OC4uD1Fi/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06/instagram.reel",
+      "work": "cem-r05-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06/instagram.story",
+      "work": "cem-r05-p06",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-06/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07/instagram.carousel",
+      "work": "cem-r05-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-07/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZ3WA-gDZ3t",
+        "url": "https://www.instagram.com/p/DZ3WA-gDZ3t/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07/instagram.reel",
+      "work": "cem-r05-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07/instagram.story",
+      "work": "cem-r05-p07",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r05/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r05/pack-07/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08/instagram.carousel",
+      "work": "cem-r05-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-08",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08/instagram.reel",
+      "work": "cem-r05-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-08",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09/instagram.carousel",
+      "work": "cem-r05-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-09",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09/instagram.reel",
+      "work": "cem-r05-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-09",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10/instagram.carousel",
+      "work": "cem-r05-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10/instagram.reel",
+      "work": "cem-r05-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r05/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-summary/instagram.carousel",
+      "work": "cem-r05-summary",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r05/_summary",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01/instagram.carousel",
+      "work": "cem-r06-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-14T21:00:00.000+09:00",
+      "reason": "予約（2026-06-14T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01/instagram.reel",
+      "work": "cem-r06-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01/instagram.story",
+      "work": "cem-r06-p01",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-01/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02/instagram.carousel",
+      "work": "cem-r06-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-15T07:30:00.000+09:00",
+      "reason": "予約（2026-06-15T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02/instagram.reel",
+      "work": "cem-r06-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02/instagram.story",
+      "work": "cem-r06-p02",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-02/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03/instagram.carousel",
+      "work": "cem-r06-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-03/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-15T21:00:00.000+09:00",
+      "reason": "予約（2026-06-15T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03/instagram.reel",
+      "work": "cem-r06-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03/instagram.story",
+      "work": "cem-r06-p03",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-03/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04/instagram.carousel",
+      "work": "cem-r06-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-04/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-16T07:30:00.000+09:00",
+      "reason": "予約（2026-06-16T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04/instagram.reel",
+      "work": "cem-r06-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04/instagram.story",
+      "work": "cem-r06-p04",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-04/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05/instagram.carousel",
+      "work": "cem-r06-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-05/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-16T21:00:00.000+09:00",
+      "reason": "予約（2026-06-16T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05/instagram.reel",
+      "work": "cem-r06-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05/instagram.story",
+      "work": "cem-r06-p05",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-05/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06/instagram.carousel",
+      "work": "cem-r06-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-06/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-17T07:30:00.000+09:00",
+      "reason": "予約（2026-06-17T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06/instagram.reel",
+      "work": "cem-r06-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06/instagram.story",
+      "work": "cem-r06-p06",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-06/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07/instagram.carousel",
+      "work": "cem-r06-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-07/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-17T21:00:00.000+09:00",
+      "reason": "予約（2026-06-17T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07/instagram.reel",
+      "work": "cem-r06-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07/instagram.story",
+      "work": "cem-r06-p07",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-07/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08/instagram.carousel",
+      "work": "cem-r06-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-08/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-18T07:30:00.000+09:00",
+      "reason": "予約（2026-06-18T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08/instagram.reel",
+      "work": "cem-r06-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-08/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08/instagram.story",
+      "work": "cem-r06-p08",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-08/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09/instagram.carousel",
+      "work": "cem-r06-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-09/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-18T21:00:00.000+09:00",
+      "reason": "予約（2026-06-18T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09/instagram.reel",
+      "work": "cem-r06-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-09/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09/instagram.story",
+      "work": "cem-r06-p09",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r06/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r06/pack-09/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10/instagram.carousel",
+      "work": "cem-r06-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10/instagram.reel",
+      "work": "cem-r06-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r06/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-summary/instagram.carousel",
+      "work": "cem-r06-summary",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r06/_summary",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01/instagram.carousel",
+      "work": "cem-r07-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-10T07:30:00.000+09:00",
+      "reason": "予約（2026-06-10T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01/instagram.reel",
+      "work": "cem-r07-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-01/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01/instagram.reel.pp-q1",
+      "work": "cem-r07-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-01/reels-pp/q1",
+      "variant": "pp-q1",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01/reels-pp/q1",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-01/reels-pp/q1/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-10T12:30:00.000+09:00",
+      "reason": "予約（2026-06-10T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01/instagram.reel.pp-q2",
+      "work": "cem-r07-p01",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-01/reels-pp/q2",
+      "variant": "pp-q2",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-01/reels-pp/q2",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-01/reels-pp/q2/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-15T12:30:00.000+09:00",
+      "reason": "予約（2026-06-15T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01/instagram.story",
+      "work": "cem-r07-p01",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-01",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-01/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02/instagram.carousel",
+      "work": "cem-r07-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-10T21:00:00.000+09:00",
+      "reason": "予約（2026-06-10T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02/instagram.reel",
+      "work": "cem-r07-p02",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-02/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02/instagram.story",
+      "work": "cem-r07-p02",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-02",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-02/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03/instagram.carousel",
+      "work": "cem-r07-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-03/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZbBRNwDQMI",
+        "url": "https://www.instagram.com/p/DZbBRNwDQMI/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03/instagram.reel",
+      "work": "cem-r07-p03",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-03/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03/instagram.story",
+      "work": "cem-r07-p03",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-03",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-03/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04/instagram.carousel",
+      "work": "cem-r07-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-04/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZceCk2iFdL",
+        "url": "https://www.instagram.com/p/DZceCk2iFdL/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04/instagram.reel",
+      "work": "cem-r07-p04",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-04/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04/instagram.story",
+      "work": "cem-r07-p04",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-04",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-04/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05/instagram.carousel",
+      "work": "cem-r07-p05",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-05/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-12T07:30:00.000+09:00",
+      "reason": "予約（2026-06-12T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05/instagram.reel",
+      "work": "cem-r07-p05",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-05/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05/instagram.story",
+      "work": "cem-r07-p05",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-05",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-05/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06/instagram.carousel",
+      "work": "cem-r07-p06",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-06/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-12T21:00:00.000+09:00",
+      "reason": "予約（2026-06-12T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06/instagram.reel",
+      "work": "cem-r07-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-06/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06/instagram.reel.pp-q1",
+      "work": "cem-r07-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-06/reels-pp/q1",
+      "variant": "pp-q1",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06/reels-pp/q1",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-06/reels-pp/q1/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-11T12:30:00.000+09:00",
+      "reason": "予約（2026-06-11T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06/instagram.reel.pp-q2",
+      "work": "cem-r07-p06",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-06/reels-pp/q2",
+      "variant": "pp-q2",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-06/reels-pp/q2",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-06/reels-pp/q2/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-16T12:30:00.000+09:00",
+      "reason": "予約（2026-06-16T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06/instagram.story",
+      "work": "cem-r07-p06",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-06",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-06/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07/instagram.carousel",
+      "work": "cem-r07-p07",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DZgK3A5DFLg",
+        "url": "https://www.instagram.com/p/DZgK3A5DFLg/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07/instagram.reel",
+      "work": "cem-r07-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07/instagram.reel.pp-q1",
+      "work": "cem-r07-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-07/reels-pp/q1",
+      "variant": "pp-q1",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07/reels-pp/q1",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/reels-pp/q1/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-12T12:30:00.000+09:00",
+      "reason": "予約（2026-06-12T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07/instagram.reel.pp-q2",
+      "work": "cem-r07-p07",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-07/reels-pp/q2",
+      "variant": "pp-q2",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-07/reels-pp/q2",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/reels-pp/q2/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-17T12:30:00.000+09:00",
+      "reason": "予約（2026-06-17T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07/instagram.story",
+      "work": "cem-r07-p07",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-07",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-07/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08/instagram.carousel",
+      "work": "cem-r07-p08",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-08/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-13T21:00:00.000+09:00",
+      "reason": "予約（2026-06-13T21:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08/instagram.reel",
+      "work": "cem-r07-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-08/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08/instagram.reel.pp-q1",
+      "work": "cem-r07-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-08/reels-pp/q1",
+      "variant": "pp-q1",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08/reels-pp/q1",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-08/reels-pp/q1/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-13T12:30:00.000+09:00",
+      "reason": "予約（2026-06-13T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08/instagram.reel.pp-q2",
+      "work": "cem-r07-p08",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-08/reels-pp/q2",
+      "variant": "pp-q2",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-08/reels-pp/q2",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-08/reels-pp/q2/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-18T12:30:00.000+09:00",
+      "reason": "予約（2026-06-18T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08/instagram.story",
+      "work": "cem-r07-p08",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-08",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-08/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09/instagram.carousel",
+      "work": "cem-r07-p09",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-09/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-14T07:30:00.000+09:00",
+      "reason": "予約（2026-06-14T07:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09/instagram.reel",
+      "work": "cem-r07-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-09/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09/instagram.reel.pp-q1",
+      "work": "cem-r07-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-09/reels-pp/q1",
+      "variant": "pp-q1",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09/reels-pp/q1",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-09/reels-pp/q1/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-14T12:30:00.000+09:00",
+      "reason": "予約（2026-06-14T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09/instagram.reel.pp-q2",
+      "work": "cem-r07-p09",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-09/reels-pp/q2",
+      "variant": "pp-q2",
+      "definition": "content/sns/instagram/cem/exam-packs/r07/pack-09/reels-pp/q2",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-09/reels-pp/q2/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-06-19T12:30:00.000+09:00",
+      "reason": "予約（2026-06-19T12:30:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09/instagram.story",
+      "work": "cem-r07-p09",
+      "account": "instagram:main",
+      "format": "story",
+      "legacyKey": "cem/exam-packs/r07/pack-09",
+      "copy": "content/sns/instagram/cem/exam-packs/r07/pack-09/stories/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10/instagram.carousel",
+      "work": "cem-r07-p10",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10/instagram.reel",
+      "work": "cem-r07-p10",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "cem/exam-packs/r07/pack-10",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-summary/instagram.carousel",
+      "work": "cem-r07-summary",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/exam-packs/r07/_summary",
+      "status": "draft"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r08-sokuhou/instagram.carousel",
+      "work": "cem-r08-sokuhou",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "cem/r08-sokuhou",
+      "copy": "content/sns/instagram/cem/r08-sokuhou/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Da-gaGpEgKO",
+        "url": "https://www.instagram.com/p/Da-gaGpEgKO/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    }
+  ]
+}
