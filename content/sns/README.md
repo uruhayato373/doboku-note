@@ -17,7 +17,7 @@
 
 ## スケジュール管理
 
-`content/sns/schedule.json` — 全チャネル統合スケジュール
+全チャネルの予定は管理画面の計画（`npm run schedule-view` と同じ集約）で見る。旧 `content/sns/schedule.json` は削除済み。
 
 ## ディレクトリ命名規則
 

@@ -149,14 +149,18 @@ test('mapIgStatus: posted_at/scheduled_at どちらも無い object は dateless
 
 // --- mapYoutubeSchedule --------------------------------------------------------------
 
-test('mapYoutubeSchedule: uploaded+未来はreserved、uploaded+過去はoverdue（postedにしない）、pending+未来はplanned', () => {
+test('mapYoutubeSchedule: published+未来はreserved、published+過去はoverdue（postedにしない）、scheduled+未来はplanned、stoppedは予定にしない', () => {
   const now = Date.parse('2026-08-26T09:00:00+09:00');
   const items = [
-    { key: 'a', title: 'A', status: 'uploaded', publishAt: '2026-12-01T07:30:00+09:00' },
-    { key: 'b', title: 'B', status: 'uploaded', publishAt: '2026-01-01T07:30:00+09:00' },
-    { key: 'c', title: 'C', status: 'pending', publishAt: '2026-12-01T07:30:00+09:00' },
+    { id: 'x/a/youtube.short', legacyKey: 'a', title: 'A', status: 'published', publishAt: '2026-12-01T07:30:00+09:00' },
+    { id: 'x/b/youtube.short', legacyKey: 'b', title: 'B', status: 'published', publishAt: '2026-01-01T07:30:00+09:00' },
+    { id: 'x/c/youtube.short', legacyKey: 'c', title: 'C', status: 'scheduled', publishAt: '2026-12-01T07:30:00+09:00' },
+    { id: 'x/d/youtube.short', legacyKey: 'd', title: 'D', status: 'stopped', publishAt: '2026-12-01T07:30:00+09:00' },
+    { id: 'x/e/youtube.short', legacyKey: 'e', title: 'E', status: 'published', publishAt: null },
   ];
-  const { events } = mapYoutubeSchedule({ items }, 'p', now);
+  const { events, skipped } = mapYoutubeSchedule(items, 'p', now);
+  assert.equal(events.length, 3);
+  assert.equal(skipped, 0);
   const byKey = Object.fromEntries(events.map((e) => [e.ref, e]));
   assert.equal(byKey.a.status, 'reserved');
   assert.equal(byKey.b.status, 'overdue');

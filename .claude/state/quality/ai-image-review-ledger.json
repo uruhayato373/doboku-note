@@ -29,6 +29,60 @@
       "reason": "確認した部位: 防音カバー付きの角形エンジン発電機で、架台の上に載っている。上部に排気管（マフラー）、側面に点検扉、側面の端子ボックスに太い黒ケーブルが接続されている。砕石敷きの地面に泥のついた電動工具とオレンジの延長コードがある。文字・ロゴや崩れた部品は無く、本文の仮設発電機と alt に合う。",
       "reviewedAt": "2026-10-09T08:46:09.039Z"
     },
+    "civil-construction-1/guide-structural-mechanics-basics/img/photo-steel-pin-roller-bearing": {
+      "sha": "33a41c0f37a7f01e",
+      "promptSha": "9c7fb49789a8a843",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:04:59.509Z",
+      "verdict": "ok",
+      "reason": "確認した部位: コンクリート橋台上のベースプレートにアンカーボルトとナットで固定した下沓、その上の側壁ブロックに挟まれた水平の円柱ピン（ローラー）、円柱に載る下面が湾曲した上沓、上沓上面の板を鋼桁下フランジにボルトで固定する構成が揃い、本文と alt の鋼製ピンローラー支承（可動支点）として成り立つ。文字・ロゴ・人物なし、部品の溶けや二重化も見られない。",
+      "reviewedAt": "2026-10-09T09:07:08.867Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-crane-barge-caisson": {
+      "sha": "29fae6242f47990f",
+      "promptSha": "496fe796b4eef45a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:52:58.683Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 台船端に固定ブーム式の大型起重機（二本脚のブームと後方の支持フレーム、多数のワイヤ）があり、スプレッダ梁と吊りワイヤで上面が開いた隔室付きの矩形コンクリート製ケーソンを水面すぐ上に吊っている。背景の防波堤の捨石とテトラポッド、周囲の曳船も実在の据付け場面として成り立つ。文字や崩れは見当たらない。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-grab-dredger": {
+      "sha": "ccad91cd5c2dea9c",
+      "promptSha": "861ad9cc491bb764",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:50:43.985Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 平らな鋼製台船の上に旋回台と運転室付きの格子ブームのクレーンが載る。ブーム先端から垂れた複数本のワイヤでクレーシェル式グラブが吊られ、水面直上で刃先が開いて濁水を落としている。本文の「台船上の旋回クレーンでグラブを吊る浚渫船」と一致し、遠景の押船と土砂満載の台船も指示どおり。文字や部品の崩れもない。",
+      "reviewedAt": "2026-10-09T09:01:35.941Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-reclamation-slurry-discharge": {
+      "sha": "06131257b5b18518",
+      "promptSha": "c7b1081229312a57",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:57:35.747Z",
+      "verdict": "ok",
+      "reason": "本文・構造: 捨石の護岸天端にコンクリート支持台とフランジ付きの大径排砂管が通り、管の開口端から土砂混じりの水が弧を描いて区画へ噴出している。区画内に茶色の砂の扇状堆積があり、外周護岸（捨石とコンクリート堤）の向こうに外海、奥に余水吐の構造物が見える。本文の「外周護岸で囲んだ区画に排砂管から吐く」と一致し、文字や崩れも無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-scp-vessel": {
+      "sha": "1006672e69187007",
+      "promptSha": "baf27696f52af0e1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:54:40.976Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 台船上に格子状のリーダー（櫓）が3本立ち、各櫓の上部に黄色い振動機、櫓に沿って縦長のケーシングパイプがある。中央に砂ホッパと操舵室があり、係留ワイヤが海へ伸びる。SCP船の外形と本文の「台船上の高い櫓、鋼管、砂」に合う。櫓や部品の二重化・溶けは無く、読めない銘板も無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
+    "civil-construction-1/textbook-coast-port/img/photo-wave-dissipating-block-breakwater": {
+      "sha": "fe3c4a83f8724e58",
+      "promptSha": "d61f9cddcd66dc62",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:55:56.922Z",
+      "verdict": "ok",
+      "reason": "本文・構造: 前面を四脚型（テトラポッド型）の消波ブロックが厚く斜めに積み重なって被覆し、背後に直線状のコンクリート上部工（パラペットの天端）が連続して見える。本文の「混成堤の前面に消波ブロックを積んだ被覆堤」と一致する。ブロックの形状は概ね四脚型で、読み手を誤らせるほどの崩れや文字は無い。",
+      "reviewedAt": "2026-10-09T09:01:35.942Z"
+    },
     "civil-construction-1/textbook-crane/img/all-terrain-crane": {
       "sha": "f6ca7b337b1478d5",
       "promptSha": "a98dc5ef590326e7",
@@ -263,6 +317,24 @@
       "reason": "途切れない履帯・左右の履帯の間の土を積んだボウル・前部のブレード・後部のラジエータ付きエンジン・ボウル上方の運転席が本文と合う。座席の向きは角度から断定できない",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
     },
+    "civil-construction-1/textbook-soft-ground-drainage/img/photo-sand-boil-road-crack": {
+      "sha": "790a2418a49d1862",
+      "promptSha": "7e82e6b43b586187",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:21:16.298Z",
+      "verdict": "ok",
+      "reason": "種別・本文: 舗装の割れ目のまわりに灰色の砂泥が小山状・不定形に広がり、水たまりが伴う。左の縁石脇の側溝にも砂泥がたまっており、噴砂の段落（割れ目や側溝から水と砂が噴き出す）と一致する。構造: 縁石、側溝、ブロック塀、電柱、住宅の配置は自然に成り立つ。破綻: 文字・看板・人物はなく、砂や亀裂の質感も崩れていない。prompt どおり。",
+      "reviewedAt": "2026-10-09T09:22:29.100Z"
+    },
+    "civil-construction-1/textbook-steel-structures/img/photo-girder-end-bearing": {
+      "sha": "f6715be32f79eaa5",
+      "promptSha": "8787353db6231fa1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:25:17.189Z",
+      "verdict": "ok",
+      "reason": "確認した部位は、橋台天端の沓座コンクリートの上のゴム支承（黒色パッド）と鋼製ソールプレート、その上に載る鋼I桁の下フランジ端部、桁端の垂直補剛材（ボルト列つき）、桁端と背面の胸壁コンクリートのあいだの暗い遊間、デッキ上端の鋼製フィンガー型伸縮装置。構造のつながりが実在の道路橋の桁端部として成り立ち、本文の「桁の端と胸壁のあいだに遊間が残る」とも矛盾しない。文字・ロゴ・人物はなく、溶けた部品や二重の部位もない。",
+      "reviewedAt": "2026-10-09T09:28:24.823Z"
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "sha": "344d34816879ded1",
       "promptSha": "2db65000b407e399",
@@ -290,6 +362,15 @@
       "reason": "運転室と 1 軸の前部車体・屈折ヒンジ・ダンプボディを支える後 2 軸の 6 輪構成で、アーティキュレート式ダンプトラックとして成り立つ",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
     },
+    "civil-construction-1/textbook-transport-machinery/img/photo-conveyor-emergency-stop": {
+      "sha": "48c4f5f20bdc7d6c",
+      "promptSha": "9d0199b180e580f3",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:06:42.062Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻のいずれも問題なし。確かめた部位は次のとおり。(1) 砕石プラント背景のベルトコンベヤ側面フレームに、細い赤白の鋼製ワイヤロープがアイボルトで間隔を置いて張られ、端部の矩形スイッチボックスに接続している。ロープ型非常停止スイッチ（本文）と合う。(2) 鋼製支柱に黄色地・赤キノコ頭の非常停止押しボタンが付いている。「黄色地に赤」の本文と合い、電線管もボックス側へ配線されている。(3) ベルト・トラフ型アイドラローラ・ブラケット・脚とコンクリート基礎の配置は実在の構成として成り立つ。(4) 文字・ロゴ・人物・溶けた部品は無い。ロープがやや低い位置にあるが教材として誤解を招かない。",
+      "reviewedAt": "2026-10-09T09:07:59.470Z"
+    },
     "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
       "sha": "eccb121550657238",
       "promptSha": "a4afc5b404520f56",
@@ -299,6 +380,42 @@
       "reason": "ラグ付きのゴムクローラ（転輪・遊動輪・起動輪）の上に、前に運転室、後ろにダンプ式荷台。本文の「ゴムクローラの走行装置上に運転室と荷台」と合う",
       "reviewedAt": "2026-10-07T12:10:51.842Z"
     },
+    "civil-construction-1/textbook-water-sewer/img/photo-sewage-reaction-tank-clarifier": {
+      "sha": "0dd5e2ff6ce5b1ba",
+      "promptSha": "7776b982c598df39",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:16:00.820Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸を確認した。矩形の反応タンクは全面に曝気の白い泡と茶色い汚泥が見え、片側に送気配管が沿う。隣の円形最終沈殿池は水面が澄み、縁から中心の支柱へ架かる走行橋と、水面の掻き寄せ腕らしい細い線がある。どちらも実在の下水処理場の形で、本文の「反応タンク→最終沈殿池」の組と矛盾しない。看板・読めない文字・溶けた部品・二重の部位は無く、手すりと歩廊も自然に連続している。",
+      "reviewedAt": "2026-10-09T09:17:12.706Z"
+    },
+    "civil-construction-2/guide-road-pavement-key-points/img/photo-roadside-gutter-grating": {
+      "sha": "ca3d386ef9d75e29",
+      "promptSha": "9593698070de50db",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:10:10.342Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 路面端のコンクリート側溝の上に、亜鉛めっき調の鋼製グレーチング蓋（平鋼の格子）が舗装面と面一で連続して並び、路肩側は砕石と草。本文（路面の水は横断勾配で路肩の側溝へ寄る）と一致し、濡れた舗装面が縁へ向かう様子も見える。破綻: 格子の平鋼の交差は整い、蓋の継ぎ目も連続していて、溶けた部品や二重化は無い。文字・ロゴ・人物も無い。遠景の車と外側線は自然。",
+      "reviewedAt": "2026-10-09T09:11:07.208Z"
+    },
+    "civil-practice/accident-first-response/img/photo-confined-space-rescue-gear": {
+      "sha": "695df838089dc6e3",
+      "promptSha": "c6831b7d48cc72b9",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:34:05.072Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 蓋を外した円形マンホール（内壁に足掛け金物）の脇に蓋が置かれ、空気呼吸器（ボンベ、面体、ハーネス、ホース、圧力計）、継ぎ手付きのアルミはしご、金具付きの繊維ロープの束が並び、第15条の備えと一致する。本文: 立入禁止の表示に当たる赤白テープ付きコーンと無地の看板があり矛盾しない。破綻: 読める文字・ロゴ・人物は無く、部品の崩れや二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:36:18.675Z"
+    },
+    "civil-practice/accident-first-response/img/photo-site-office-aed-first-aid": {
+      "sha": "5517463379e8381d",
+      "promptSha": "77c4d134cf053d9c",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:35:10.262Z",
+      "verdict": "ok",
+      "reason": "種別・構造: プレハブ事務所風の無地の壁に、緑枠・白扉の壁掛けキャビネット（蝶番と取っ手付き）と、棚受け金具に載せた緑十字付きの白い救急箱（留め金と持ち手あり）が並び、記事の「AED 収納ボックスと救急箱」と一致する。指示どおり扉は無地。本文は第633条の備付けと AED の所在確認を述べるだけで矛盾しない。破綻: 読める文字・ロゴ・人物は無く、部品の崩れも無い。",
+      "reviewedAt": "2026-10-09T09:36:18.676Z"
+    },
     "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
       "sha": "39f471b54ef86064",
       "promptSha": "244bca8db81b6643",
@@ -307,6 +424,24 @@
       "verdict": "ok",
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
+    },
+    "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
+      "sha": "8e888a6000262ccd",
+      "promptSha": "d766f293ec87f352",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:47:01.023Z",
+      "verdict": "ok",
+      "reason": "屋外の整地された現場で、ヘルメットと反射ベストの作業者が後ろ向きにタブレットを構えている。画面を拡大して確認すると、現地映像の地面に半透明の白い擁壁モデル(控え壁つきの壁体と底版)が地形に沿って重なり、本文のAR確認(新設構造物の取り合いを現地で見る)と合う。顔・文字・ロゴ・読める画面表示は無い。手指やタブレット枠も崩れていない。背景の油圧ショベル(クローラ・ブーム・アーム・バケット)、仮囲い、杭と縄も実物として成立している。軽微な点として、画面内の背景(遠景の水面や橋)は実際の背景と細部が違い、画面が撮影側を向く構図は厳密には不自然だが、教材として誤解を招くほどではない。",
+      "reviewedAt": "2026-10-09T10:48:50.152Z"
+    },
+    "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
+      "sha": "4d6cc39631e31cbe",
+      "promptSha": "3db4324530a6e0b1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:40:56.759Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 白ヘルメット側面に小型のアクションカメラ型ウェアラブルカメラがマウントで付き、あご紐も自然で、作業員は顔が見えない後ろ斜めの構図。鉄筋は節のある異形棒鋼が縦横の格子に組まれ、交点が結束線で縛られており実在の配筋として成り立つ。スケールは鉄筋に当てて間隔を測る姿勢で、白紙の黒枠ボードが鉄筋に立てかけてある。本文: 遠隔臨場の定義（ウェアラブルカメラでの撮影）と配筋確認の場面に一致し矛盾しない。破綻: 読める文字・ロゴは無く、スケールの目盛も判読できる文字になっていない。手指・ヘルメット・鉄筋の崩れや二重化は見当たらない。",
+      "reviewedAt": "2026-10-09T10:42:57.884Z"
     },
     "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
       "sha": "60d6b7e293f6af53",
@@ -326,6 +461,105 @@
       "reason": "種別・構造: 河川上の橋脚の下部を塗装鋼板が全周で覆い、縦のボルト継ぎ目が複数見え、下端はフーチングの上面まで達する。上部は無補強の灰色コンクリートで、橋脚の上に鋼桁が載る。実在の鋼板巻立て補強として成り立つ。本文の「橋脚への鋼板などの巻立て」と合う。文字・ロゴ・人物は無く、部品の崩れも見当たらない。",
       "reviewedAt": "2026-10-09T08:47:04.910Z"
     },
+    "civil-practice/flood-control-facilities/img/photo-retarding-basin-overflow-levee": {
+      "sha": "92c8cdf3612d6ff0",
+      "promptSha": "c66e0cc09dcb8806",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:47:01.127Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。左右の土の堤防の間に、天端に笠コンクリートを持つコンクリート張りの低い越流堤区間があり、両端に袖部が付く。背後には平らな芝の遊水地、遠景に連続する高い周囲堤が見え、本文の「周囲堤・越流堤で囲む型」と合う。文字・看板・人物・車両はなく、部品の崩れもない。",
+      "reviewedAt": "2026-10-09T09:49:24.419Z"
+    },
+    "civil-practice/flood-control-facilities/img/photo-underground-discharge-tunnel": {
+      "sha": "07c98760af59bbdb",
+      "promptSha": "e08c8c040f1dc095",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:48:04.616Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。円形断面で、打設コンクリート風の覆工が消失点中央へ同心円状に続く。底部は平らで乾いたコンクリート、天端に等間隔の照明と配線が1列にある。本文の地下放水路（内径約10m・シールド）の内部として矛盾せず、文字・ロゴ・人物もなく、二重の部位や溶けた部品も見当たらない。",
+      "reviewedAt": "2026-10-09T09:49:24.419Z"
+    },
+    "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
+      "sha": "ead957f816e82eab",
+      "promptSha": "605a611fed7754e5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:59:28.460Z",
+      "verdict": "ok",
+      "reason": "確認: 橋脚の根元の河床が掘られ、フーチング上面が礫の河床面より上に露出している。柱・張出し部・桁・隣の橋脚のつながりは実在の橋として成り立つ。流木・枝が橋脚の脇に引っかかって堆積し、洗掘孔には濁水がたまる。本文のフーチング上面の露出と河床位置、alt の流木堆積と一致し、文字や崩れた部品もない。",
+      "reviewedAt": "2026-10-09T09:02:31.741Z"
+    },
+    "civil-practice/flood-season-river-work/img/photo-levee-overtopping-landside": {
+      "sha": "87f07ca4dd222e61",
+      "promptSha": "82df394bc6254b20",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:00:59.369Z",
+      "verdict": "ok",
+      "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
+      "reviewedAt": "2026-10-09T09:02:31.742Z"
+    },
+    "civil-practice/gnss-positioning-basics/img/photo-gnss-antenna-on-control-point": {
+      "sha": "9daa978e33ea7989",
+      "promptSha": "ea023924ba208260",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:48:27.935Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 丸いドーム状アンテナがポールで三脚上の整準台(整準ネジ付き)に載り、三脚は3本脚で成り立つ。アンテナ直下に金属の基準点標が地面に据えてあり、位置も三脚中心の真下で矛盾しない。アンテナからのケーブルが脚沿いに下りて脇の受信機箱につながる。本文: 空が開けた現場で基準点上に据える説明と一致し、遠景に低い重機があるだけで上空は遮られていない。破綻: 文字・ロゴ・人物なし、部品の崩れや二重化なし。",
+      "reviewedAt": "2026-10-09T10:49:32.278Z"
+    },
+    "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
+      "sha": "780e88dae7b55fa9",
+      "promptSha": "28c0ba3dc95d7e28",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:09:04.806Z",
+      "verdict": "ok",
+      "reason": "アルミ製の小型測量船で、キャビン屋根に短いマスト付きの GNSS アンテナドーム、舷側ガンネルに取り付けた縦ポールと、その下端の水面直下に入る青い送受波器ヘッド、ポール中ほどのセンサ箱とケーブルが見える。alt と本文（水域の音響測深・マルチビーム）に合っている。船外機・窓・手すり・防舷材の数と配置は成り立ち、文字・ロゴ・人物・溶けた部品も無い。",
+      "reviewedAt": "2026-10-09T10:32:33.760Z"
+    },
+    "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
+      "sha": "8e7110695708d428",
+      "promptSha": "56b9d7d0c0e131fc",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:30:46.833Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 吹付け仕上げののり面に、灰色の塩ビ管の口が4本、等間隔で短く突き出し、わずかに外下がりで細い水が流れる。のり尻には金網に石を詰めたじゃかごが横長に置かれ、脇に小さな側溝がある。本文の「横ボーリング工の排水孔」「のり尻のじゃかご」と一致する。破綻: 文字・ロゴ・崩れた部品は見当たらない。",
+      "reviewedAt": "2026-10-09T10:38:15.682Z"
+    },
+    "civil-practice/large-fill-landslide/img/photo-weephole-muddy-water": {
+      "sha": "5d27f2806f08dc82",
+      "promptSha": "37e015bd99fb31ee",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:29:20.302Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 無地のコンクリート擁壁に丸い水抜き孔が1つで、孔から濁った茶色の水が1本の筋になって流れる。孔下の壁面は茶褐色に汚れ、足元の側溝際に土砂がたまっている。本文の「水抜き孔から濁水・土が出る」徴候と一致する。破綻: 文字・ロゴ・二重の部位・崩れた部品は見当たらない。",
+      "reviewedAt": "2026-10-09T10:38:15.681Z"
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
+      "sha": "c102159b23f38a73",
+      "promptSha": "8df14ea240b6f6ed",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:45:14.696Z",
+      "verdict": "ok",
+      "reason": "芝の堤防法面1面に、小動物の穴、斜めに走る亀裂状の筋、芝が薄れて土が露出した裸地が写る。表の「小動物の穴・亀裂・芝の衰退と裸地化」と一致し、人物・看板・文字・崩れた部位もない。",
+      "reviewedAt": "2026-10-09T09:48:31.381Z"
+    },
+    "civil-practice/levee-failure-reinforcement/img/photo-toe-drain-channel": {
+      "sha": "a112b5475e09e90a",
+      "promptSha": "215c5f4ad70d5ded",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:43:56.035Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻を確認。草の堤体法面の足元に、白い透水シートで覆った砕石のドレーン層が法尻と平行に走り、その外側に隣接してプレキャストのU型水路が一直線に並ぶ。本文の「ドレーン工と堤脚水路をあわせて設ける」配置と矛盾せず、文字・ロゴ・溶けた部品なし。",
+      "reviewedAt": "2026-10-09T09:48:31.381Z"
+    },
+    "civil-practice/license-scope-judgment/img/photo-crane-machine-setting": {
+      "sha": "a5165cede32747ec",
+      "promptSha": "55a66c0aff663640",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:38:27.065Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 鋼製フレームの共通架台にモーター（冷却ファンカバー付き）とフランジ付きの渦巻ポンプを載せた据付前の機械ユニットで、実在の形として成り立つ。吊り: フック・吊りブロックから 2 本のワイヤロープが架台上部の吊りラグへ掛かり、機械の上に三角形をなす。基礎: 下のコンクリート基礎から鉛直にアンカーボルトが 4 本立ち、架台底部の穴位置と概ね合う。右上にクレーンのブーム（黄色の連結金具付き）が見える。本文: 重量物をクレーンで所定の位置へ揚重して据える、とび・土工・コンクリート工事の説明と矛盾しない。破綻: 文字・ロゴ・人物は無く、部品の溶けや二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:40:21.079Z"
+    },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
       "promptSha": "140fa911160e9046",
@@ -343,6 +577,105 @@
       "verdict": "ok",
       "reason": "丸太の木口は同心円の年輪で、左の板は木口に年輪が幅方向へ横切る弧（板目）、右の板は年輪が厚さ方向に通る細い平行線（柾目）となり本文の板目と柾目の説明と一致、逆転や溶けた部品も無い",
       "reviewedAt": "2026-10-08T00:50:20.889Z"
+    },
+    "civil-practice/monitoring-sensor-selection/img/photo-strain-gauge-tiltmeter": {
+      "sha": "ebca75ebeac19604",
+      "promptSha": "dcf3de0d09af0c3b",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:56:55.980Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 鋼桁の下フランジ下面に、格子状の箔ひずみゲージが保護被覆の塗り跡の中に貼られ、赤白のリード線がテープで固定されて沿っている。ウェブと垂直補剛材、下に支承（ソールプレートとゴム層、ボルト）、橋脚天端に灰色の金属箱（傾斜計）が台板とボルトで固定されケーブルが出ている。本文の「桁のひずみゲージと橋脚・支承の傾斜計」と一致し、構造的な矛盾はない。破綻: 文字・ロゴ・人物はなく、溶けた部品や二重の部位もない。",
+      "reviewedAt": "2026-10-09T09:59:07.649Z"
+    },
+    "civil-practice/nature-conservation-mitigation/img/photo-black-locust-riverbed": {
+      "sha": "8d68b7bad87d4f16",
+      "promptSha": "76fe7749f012509a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:13:14.107Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:16:25.721Z"
+    },
+    "civil-practice/pre-construction-process/img/photo-right-of-way-boundary-stakes": {
+      "sha": "49e4a9bcd5b9a4a3",
+      "promptSha": "2cf6c330a08021a5",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:26:55.668Z",
+      "verdict": "ok",
+      "reason": "手前の杭は角材で頭部だけ赤く塗られ、奥へ同じ形の杭が一定間隔で並ぶ。収穫後の農地と背後の住宅・電柱があり、本文の幅杭と農地・住宅地の境という設定に合う。文字・看板・人物は無く、杭の形の崩れや二重像も無い。",
+      "reviewedAt": "2026-10-09T09:29:15.946Z"
+    },
+    "civil-practice/pre-construction-process/img/photo-site-office-drawings-specs": {
+      "sha": "ff2359c4fe31d4b3",
+      "promptSha": "6c0d5a0945669dc0",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:28:03.632Z",
+      "verdict": "ok",
+      "reason": "現場事務所の机に、広げた図面と巻いた図面、無地表紙の仕様書の束、背表紙が空白のファイル4冊、ヘルメット、三角スケール、ペンがある。窓の外に建設現場と重機が見え、現場事務所として成り立つ。図面は判読不能にぼかされ、読める文字やロゴは無い。机・ヘルメット・スケールの形にも崩れは無い。",
+      "reviewedAt": "2026-10-09T09:29:15.947Z"
+    },
+    "civil-practice/preventive-maintenance-diagnosis/img/photo-drone-bridge-girder-inspection": {
+      "sha": "1f4981ab7f5dd676",
+      "promptSha": "184e26d56e318e31",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:51:25.681Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 桁下面を見上げる構図で、コンクリート桁、橋脚、遠景の別の橋が実在の橋として成り立つ。ドローンは中央本体から左右へ腕が伸び、各腕の先にモーター（回転で羽根はぼやける）、本体下に脚、前方にカメラ雲台があり、桁下面の近くにホバリングしている。本文: 桁下に回り込む点検、河川敷にいる操縦者が小さく後ろ向きで、白ヘルメットと黄色い反射ベストを着けており、記事の場面と一致する。破綻: 文字・ロゴ・二重の部位・溶けた部品は無く、羽根の描写が薄いのは回転ブレとして許容できる。",
+      "reviewedAt": "2026-10-09T09:53:43.391Z"
+    },
+    "civil-practice/quality-record-site-bcp/img/photo-blackboard-revetment-shot": {
+      "sha": "c12f987f41150ad3",
+      "promptSha": "82dfc6f05413f46d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:04:26.308Z",
+      "verdict": "ok",
+      "reason": "確認した部位: 種別は河川沿いのコンクリートブロック積み護岸で、alt と prompt に合う。構造は控え付きブロックが千鳥に積まれ、背面に砕石の裏込め、右にパレット上のブロック仮置き、奥に河川と橋があり、現場として成り立つ。本文は黒板を使った施工状況の撮り方で、白紙の小黒板が木の杭付きでブロックの脇に立ち、構図と矛盾しない。黒板は無地で、文字・ロゴ・看板は無い。ブロックや杭の崩れ、二重の部位も無い。",
+      "reviewedAt": "2026-10-09T10:05:49.712Z"
+    },
+    "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
+      "sha": "3a500c6d40eb9a70",
+      "promptSha": "203347751b098922",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:31:34.750Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 黒い腰ベルトが腰に巻かれ、両脚の外側へ剛性のあるフレーム棒が下り、大腿前面の黒いパッドにベルトで固定されている。外部電源や電動部は見えず、本文のパッシブ型の装着型補助具として成り立つ。本文: 腰ベルトと脚部フレームで資材を持ち上げる場面で、alt と一致し本文とも矛盾しない。破綻: 袋は無地で文字・ロゴなし。手袋の手は袋の上に自然に置かれ、指や脚の崩れ、二重の部位は見えない。背景は土工現場でヘルメットも自然。",
+      "reviewedAt": "2026-10-09T09:35:27.276Z"
+    },
+    "civil-practice/river-park-erosion-control/img/photo-landslide-warning-sign": {
+      "sha": "539fe096d2e697f3",
+      "promptSha": "f9c75b3631942178",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:51:28.103Z",
+      "verdict": "ok",
+      "reason": "黄色い角板が鋼製の2本支柱にボルト留めされ、基礎足元も成り立つ。絵は落石と流水を描いた赤枠の三角ピクトグラムで、読める文字や偽の銘板は無い。背後に岩の渓流と、水が越流するコンクリート砂防堰堤があり、道路脇のガードレールとも矛盾しない。日本の標準的な警戒標識（菱形）とは形が違うが、本文は区域を説明する雰囲気写真で、特定の標識種別は述べていない。誤解を招く崩れは無い。",
+      "reviewedAt": "2026-10-09T10:53:26.823Z"
+    },
+    "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
+      "sha": "4bc232c69cb21435",
+      "promptSha": "eaa8f12059b37510",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:19:23.242Z",
+      "verdict": "ok",
+      "reason": "4機器とも本文の順に実在の形で並ぶ。照度計は黄色の手持ち型で、上面に白い球状の受光部と液晶表示を備える。検電器はペン型で赤黒の胴・クリップ・透明の先端を持つ。巻尺は黄色ケースにロックボタンがあり、鉤付きのテープが少し出ている。カメラはレンズ付きのコンパクト機で、背景に白いヘルメットと現場の窓外がある。文字・ロゴ・人物・部品の崩れは見当たらない。",
+      "reviewedAt": "2026-10-09T09:21:39.525Z"
+    },
+    "civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper": {
+      "sha": "ae4b74f0c6f52be1",
+      "promptSha": "b869560e2b2c6b12",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:42:36.511Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 一体の黒い円筒シリンダ（右端から細いピストンロッドが出る）が、左のコンクリート壁（橋台側）と右の桁端とのあいだを水平に渡っていた。両端とも鋼製ブラケット板にボルト留めされ、クレビスと大きなピンで取り付く両端ピン接合になっている。ダンパーは1本で、シリンダやロッドが二重・分割になっていない。本文: 橋台側と桁端側のブラケット間に橋軸方向へ渡した円筒形の油圧ダンパーという節の記述と矛盾しない。取付部が見えることも、直後の段落（取付部の損傷）と合う。破綻: 文字・ロゴ・人物はなく、ボルトやピンも崩れていない。構図は指示した見上げではなくほぼ水平の見通しだが、教材として誤解を招かない。",
+      "reviewedAt": "2026-10-09T10:43:56.348Z"
+    },
+    "civil-practice/site-wireless-communication/img/photo-rfid-tag-rebar-reader": {
+      "sha": "4b521d795fe4f366",
+      "promptSha": "b1e0f55d4f589e68",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:40:02.629Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 節とリブのある異形鉄筋の束が角材の上にあり、束ね線に白い長方形タグが結束バンドで付き、背面の黒いスペーサで鉄筋面から浮いている。手袋の手が持つ手持ちリーダは、画面付き本体、グリップ、アンテナ部がつながっていて、実在の UHF 手持ちリーダとして成り立つ。アンテナ部はタグの方を向いている。本文: 金属面との間にスペーサを入れて離す対策と矛盾しない。破綻: 文字・ロゴ・顔は無く、画面は無地で、指や部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T09:41:13.372Z"
     },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "sha": "be28c5582b209cd9",
@@ -517,6 +850,42 @@
       "verdict": "ok",
       "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
       "reviewedAt": "2026-10-07T23:10:40.546Z"
+    },
+    "pe-comprehensive-management/liquefaction/img/photo-liquefaction-manhole-uplift": {
+      "sha": "f9ac6c9e44a99f05",
+      "promptSha": "488373b3151bc865",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:58:38.467Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 路面から約 30 cm 突き出たコンクリート製の円筒状マンホール躯体と円形の蓋が一つだけ描かれ、周囲のアスファルトが割れて持ち上がり、浮上したマンホールとして成り立つ。本文: 周辺の灰褐色の砂（噴砂）と水たまり、舗装のひびと沈下が見え、「路面から突き出し、周辺に沈下や噴砂が伴う」と一致する。破綻: 文字・看板・人物・車両は無く、蓋や縁石、塀に崩れや二重の部位は無い。蓋の表面に鋳出し模様が無い点は教材として誤解を招かない",
+      "reviewedAt": "2026-10-09T09:59:50.076Z"
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/photo-bridge-types-river": {
+      "sha": "fa28ca2960809c5d",
+      "promptSha": "9963adbc497419dc",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:02:31.304Z",
+      "verdict": "ok",
+      "reason": "遠景の吊橋は二本の主塔の間に主ケーブルが垂れ、補剛桁が通る実在の形。中景の斜張橋は単一の主塔から桁へ扇形のステイケーブルが張られ、塔は橋脚上にある。手前のコンクリートアーチ橋は、アーチリブから支柱が桁を支え、両端に橋台と橋脚がある。本文の景観比較表（アーチ・斜張・吊橋）と矛盾せず、文字・ロゴ・人物・車両もなく、部品の崩れも見当たらない。",
+      "reviewedAt": "2026-10-09T10:04:54.598Z"
+    },
+    "pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up": {
+      "sha": "1a1fd12a080d1683",
+      "promptSha": "821c3ee84e905d5d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:53:23.634Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 長方形の船体が四本の格子状トラス脚で海面より高く持ち上がり、脚は船体を貫いて上下に伸び下端は海中に入っており、SEP船として成り立つ。甲板の履帯式クレーンは格子ブーム・フック・ワイヤ・基部が連続して浮きや二重化が無く、鋼管が支持材の上に横積みされ、本文の基礎据付の作業床と矛盾しない。破綻: 文字・ロゴ・人物は無く、溶けた部品も見当たらない。",
+      "reviewedAt": "2026-10-09T09:54:33.043Z"
+    },
+    "pe-construction/seismic-damage-lessons/img/photo-steel-jacket-bridge-pier": {
+      "sha": "dfe01b34f27a118e",
+      "promptSha": "63b84c794b8fe5c9",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:53:04.384Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 橋脚基部を灰色の鋼板が全周で囲み、縦の溶接継目が見える。鋼板の上端に細い充填帯の線があり、下端はベースプレートとボルト・ナットでフーチングに固定されている。鋼板の上は元のコンクリート橋脚が続き、張出し梁の上に支承と橋桁が載る。本文の「周囲を鋼板で囲み、隙間にモルタルを充填し、基礎へ定着する」と矛盾しない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。灰色の充填帯がやや目立たない点は、教材として誤解を招くほどではない。",
+      "reviewedAt": "2026-10-09T10:54:21.093Z"
     }
   }
 }
