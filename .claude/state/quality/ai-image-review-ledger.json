@@ -375,13 +375,19 @@
       "sha": "ead957f816e82eab",
       "promptSha": "605a611fed7754e5",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T08:59:28.460Z"
+      "generatedAt": "2026-10-09T08:59:28.460Z",
+      "verdict": "ok",
+      "reason": "確認: 橋脚の根元の河床が掘られ、フーチング上面が礫の河床面より上に露出している。柱・張出し部・桁・隣の橋脚のつながりは実在の橋として成り立つ。流木・枝が橋脚の脇に引っかかって堆積し、洗掘孔には濁水がたまる。本文のフーチング上面の露出と河床位置、alt の流木堆積と一致し、文字や崩れた部品もない。",
+      "reviewedAt": "2026-10-09T09:02:31.741Z"
     },
     "civil-practice/flood-season-river-work/img/photo-levee-overtopping-landside": {
       "sha": "87f07ca4dd222e61",
       "promptSha": "82df394bc6254b20",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:00:59.369Z"
+      "generatedAt": "2026-10-09T09:00:59.369Z",
+      "verdict": "ok",
+      "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
+      "reviewedAt": "2026-10-09T09:02:31.742Z"
     },
     "civil-practice/material-selection-receiving/img/photo-kenchi-stone-wall": {
       "sha": "f88fc06af1f90597",
