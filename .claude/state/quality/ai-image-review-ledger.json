@@ -479,6 +479,27 @@
       "reason": "確認: 堤内地側から見た堤防で、天端を越えた濁水が裏法面をシート状に流れ下り、芝が削られて土が露出した侵食箇所がある。法尻付近には水のしみ出しと濁った水たまりがあり、手前に水田と排水路が見える。本文の越水が裏法面を削り侵食が広がるという説明と alt の法尻のしみ出しに一致し、文字や構造の破綻もない。",
       "reviewedAt": "2026-10-09T09:02:31.742Z"
     },
+    "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
+      "sha": "780e88dae7b55fa9",
+      "promptSha": "28c0ba3dc95d7e28",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:09:04.806Z",
+      "verdict": "ok",
+      "reason": "アルミ製の小型測量船で、キャビン屋根に短いマスト付きの GNSS アンテナドーム、舷側ガンネルに取り付けた縦ポールと、その下端の水面直下に入る青い送受波器ヘッド、ポール中ほどのセンサ箱とケーブルが見える。alt と本文（水域の音響測深・マルチビーム）に合っている。船外機・窓・手すり・防舷材の数と配置は成り立ち、文字・ロゴ・人物・溶けた部品も無い。",
+      "reviewedAt": "2026-10-09T10:32:33.760Z"
+    },
+    "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
+      "sha": "8e7110695708d428",
+      "promptSha": "56b9d7d0c0e131fc",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:30:46.833Z"
+    },
+    "civil-practice/large-fill-landslide/img/photo-weephole-muddy-water": {
+      "sha": "5d27f2806f08dc82",
+      "promptSha": "37e015bd99fb31ee",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:29:20.302Z"
+    },
     "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
       "sha": "c102159b23f38a73",
       "promptSha": "8df14ea240b6f6ed",

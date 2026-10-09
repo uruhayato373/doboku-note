@@ -1774,6 +1774,21 @@
       "tool": "Codex",
       "prompt": "Realistic documentary photo of a river levee (embankment) during a flood, viewed from the landside (protected-side, rear slope) looking toward the levee. Muddy river water is spilling over the levee crest and flowing down the grass-covered rear slope in a sheet, eroding patches of the turf. Near the toe of the slope at the bottom, water is seeping out of the ground and forming small muddy puddles. Farmland and a drainage ditch in the foreground, heavy rain clouds, overcast sky, shallow depth of field, no people, no text"
     },
+    "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A small aluminum survey boat on a calm river near a harbor quay, side three-quarter view. A GNSS antenna dome on a short mast on the cabin roof, and a vertical side-mount pole bolted to the gunwale carrying a compact multibeam echosounder transducer head partly submerged just below the water surface, with a small motion sensor box on the pole. Neat cables run along the rail. Realistic photograph, shallow depth of field, soft overcast daylight, no text, no logos, no people visible."
+    },
+    "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of the lower part of a residential slope face in a Japanese housing development, smooth grey concrete spray-finished surface with a concrete toe. A neat row of four horizontal drain boring outlets: short grey PVC pipe ends about 10 cm long sticking out of the slope face roughly horizontally with a very slight downward tilt toward the outside, evenly spaced, each with a thin trickle of clear water dripping from its mouth. At the foot of the slope a long wire-mesh gabion (jakago) basket filled with stones lies along the toe next to a small concrete gutter. Soft overcast light, very shallow depth of field with softly blurred background, low texture, no people, no text"
+    },
+    "civil-practice/large-fill-landslide/img/photo-weephole-muddy-water": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of a residential retaining wall of smooth plain grey concrete with a faint horizontal block joint. One small round weep hole (a plastic drain pipe end, flush with the wall face) near the lower part of the wall discharges muddy brown water that runs down in a single streak over the smooth wall. Below the hole the wall is stained dark brown, and silt and soil have collected at the foot of the wall by a small roadside gutter. Soft overcast light after rain, very shallow depth of field with the wall away from the hole and the street background softly blurred, low texture, no people, no text"
+    },
     "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
       "kind": "ai-generated",
       "tool": "Codex",
