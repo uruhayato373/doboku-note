@@ -26,6 +26,7 @@ import { join } from 'node:path';
 import { idShapeIssues, pubIdOf } from './content-registry.mjs';
 import { normHead, shortcodeOf } from './ig-reconcile-core.mjs';
 import { readJsonIf } from './json-io.mjs';
+import { datasetPath } from './datasets.mjs';
 
 export const IG_ROOT = 'content/sns/instagram';
 const EXAM_OF_DIR = { cem: 'pe-comprehensive-management', 'civil-1': 'civil-construction-1', 'civil-2': 'civil-construction-2', 'pe-first-stage': 'pe-first-stage', 'pe-construction': 'pe-construction' };
@@ -99,7 +100,7 @@ const firstFile = (root, dir, names) => names.map((n) => `${dir}/${n}`).find((p)
 export function instagramRows(root, { snapshot, videoPackIds, rules, regWorks = [] }) {
   if (!snapshot?.live?.list) throw new Error('照合の記録に公開中の投稿の一覧（live.list）が無い。先に node scripts/verify-ig-status.mjs を手元で流す');
   const at = snapshot.at;
-  const snapRef = `.claude/state/ig-reconcile/snapshot.json@${at}`;
+  const snapRef = `${datasetPath('state.ig-reconcile', { name: 'snapshot' })}@${at}`;
   const now = Date.parse(at);
   const catOf = new Map();
   for (const [cat, list] of Object.entries(snapshot.cats ?? {})) for (const x of list) if (!['reel_gap', 'reel_built_unposted', 'anomaly'].includes(cat)) catOf.set(x.rel, { cat, ...x });
