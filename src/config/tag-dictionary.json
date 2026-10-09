@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T05:11:00.893Z",
+  "generated_at": "2026-10-09T05:14:26.453Z",
   "summary": {
-    "total_mdx_files": 1371,
+    "total_mdx_files": 1372,
     "total_unique_tags": 131,
     "allowlist_size": 330,
     "known_count": 131,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 219,
+      "count": 220,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1207,6 +1207,7 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-oshms-pdca-site-operation",
@@ -3555,7 +3556,7 @@
     },
     {
       "name": "土工",
-      "count": 28,
+      "count": 29,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-earthwork-key-points",
@@ -3576,6 +3577,7 @@
         "civil-practice-embankment-quality-control",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
+        "civil-practice-large-fill-landslide",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
@@ -4242,6 +4244,26 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-large-fill-landslide",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "トンネル",
       "count": 12,
       "inAllowlist": true,
@@ -4277,25 +4299,6 @@
         "surveyor-primary-r06",
         "surveyor-primary-r07",
         "surveyor-primary-r08"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
