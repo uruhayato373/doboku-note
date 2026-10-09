@@ -492,13 +492,19 @@
       "sha": "8e7110695708d428",
       "promptSha": "56b9d7d0c0e131fc",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T10:30:46.833Z"
+      "generatedAt": "2026-10-09T10:30:46.833Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 吹付け仕上げののり面に、灰色の塩ビ管の口が4本、等間隔で短く突き出し、わずかに外下がりで細い水が流れる。のり尻には金網に石を詰めたじゃかごが横長に置かれ、脇に小さな側溝がある。本文の「横ボーリング工の排水孔」「のり尻のじゃかご」と一致する。破綻: 文字・ロゴ・崩れた部品は見当たらない。",
+      "reviewedAt": "2026-10-09T10:38:15.682Z"
     },
     "civil-practice/large-fill-landslide/img/photo-weephole-muddy-water": {
       "sha": "5d27f2806f08dc82",
       "promptSha": "37e015bd99fb31ee",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T10:29:20.302Z"
+      "generatedAt": "2026-10-09T10:29:20.302Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 無地のコンクリート擁壁に丸い水抜き孔が1つで、孔から濁った茶色の水が1本の筋になって流れる。孔下の壁面は茶褐色に汚れ、足元の側溝際に土砂がたまっている。本文の「水抜き孔から濁水・土が出る」徴候と一致する。破綻: 文字・ロゴ・二重の部位・崩れた部品は見当たらない。",
+      "reviewedAt": "2026-10-09T10:38:15.681Z"
     },
     "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
       "sha": "c102159b23f38a73",
