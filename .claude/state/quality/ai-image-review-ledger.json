@@ -83,6 +83,12 @@
       "reason": "三脚の上に整準台とドーム形の GNSS アンテナ、脚にデータコントローラ。3 本脚とも足先まで揃い、圧縮の劣化なし",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
     },
+    "civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella": {
+      "sha": "a37317ff492aa32c",
+      "promptSha": "da3f35744b6d3481",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:18:11.486Z"
+    },
     "civil-construction-1/textbook-distance-angle/img/theodolite": {
       "sha": "7bc78611942ec168",
       "promptSha": "c21a8404689c7692",
@@ -163,6 +169,15 @@
       "verdict": "ok",
       "reason": "同径の 4 輪・リフトアームとリンクで支えた前部バケット・運転室とエンジンで、ホイール式ローダとして成り立つ。圧縮後も読める",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
+    },
+    "civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork": {
+      "sha": "9eec1a0eebcba525",
+      "promptSha": "3494745ba8815b0a",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:15:57.436Z",
+      "verdict": "ok",
+      "reason": "種別・構造: オレンジ色のパイプサポートは各本が角材の敷角に底板で載り、上端は合板型枠と角材の根太を受け、伸縮部にピン穴が見える。水平つなぎの鋼管は手前の角の支柱から左右の直交2方向へ2段で延び、ボルト締めの金具で支柱に緊結されている。本文が述べる、敷角に立てて縦横2方向の水平つなぎと金具で緊結した型枠支保工に合っている。破綻: 文字・ロゴ・人物は無く、部品の溶けや二重の部位も無い。拡大して見た金具・敷角・支柱の接合は自然だった。軽微な点として、内側の支柱の水平つなぎはやや省略されて見えるが、教材として誤解を招くほどではない。",
+      "reviewedAt": "2026-10-09T08:18:34.133Z"
     },
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
       "sha": "1b15e03a581b4380",
