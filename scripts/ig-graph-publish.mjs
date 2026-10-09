@@ -26,7 +26,7 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
 import { createIgPublisher, GraphApiError, DEFAULT_API_VERSION } from './lib/ig-graph-publish.mjs';
 import { resolvePackDir, resolveMediaFiles, stagePackMedia, cleanupPackMedia } from './stage-ig-media-r2.mjs';
 import { normalizePosted, FORMATS } from './ig-status.mjs';
@@ -76,10 +76,39 @@ function assertNotAlreadyPosted(packDir, format) {
   }
 }
 
+/** 台帳の行が published か scheduled なら二重投稿として止める（exit 2）。行が無ければ通す */
+export function assertLedgerNotPosted(row, format) {
+  if (row && (row.status === 'published' || row.status === 'scheduled')) {
+    throw { exitCode: 2, message: `IG_GRAPH_ALREADY_POSTED: 台帳 ${row.id} が既に ${row.status} です（${format}${row.platform?.url ? `・${row.platform.url}` : ''}）` };
+  }
+}
+
 function writePosted(packDir, format, entry) {
   const cur = normalizePosted(readPostedRaw(packDir)) ?? { carousel: null, reels: null, stories: null };
   cur[format] = entry;
   writeFileSync(join(packDir, 'posted.json'), JSON.stringify(cur, null, 2) + '\n', 'utf8');
+}
+
+/** 台帳の format（posted.json は reels/stories、台帳は reel/story） */
+const LEDGER_FORMAT = { carousel: 'carousel', reels: 'reel', stories: 'story' };
+
+/** 台帳の行を読む（無ければ null）。投稿前の二重投稿確認用 */
+export async function readLedgerRow(packDir, format) {
+  const store = await import('./lib/registry-ig-store.mjs');
+  const root = fileURLToPath(new URL('..', import.meta.url));
+  return store.readIgPublication(root, packDir, LEDGER_FORMAT[format]);
+}
+
+/** 公開したら台帳に published を書く（evidence = graph-api の投稿 ID）。行が無いフォルダは警告のみ・書き込み失敗は投げる */
+export async function recordLedgerPublished(packDir, format, permalink, mediaId, log = console.log) {
+  const store = await import('./lib/registry-ig-store.mjs');
+  const root = fileURLToPath(new URL('..', import.meta.url));
+  const lf = LEDGER_FORMAT[format];
+  const row = await store.readIgPublication(root, packDir, lf);
+  if (!row) { log(`[ig-graph-publish] 警告: 台帳に行が無いので台帳は更新しません: ${packDir}`); return null; }
+  await store.recordIg(root, packDir, lf, 'published', { url: permalink, evidence: { kind: 'graph-api', ref: String(mediaId) } });
+  log(`[ig-graph-publish] 台帳更新: ${row.id} → published`);
+  return row.id;
 }
 
 /**
@@ -100,6 +129,8 @@ export async function run(deps = {}) {
     sleep,
     log = console.log,
     errorLog = console.error,
+    recordLedger = recordLedgerPublished,
+    readLedger = readLedgerRow,
   } = deps;
   const flags = parseArgs(argv);
   if (!flags.pack || !flags.format || !FORMATS.includes(flags.format)) {
@@ -115,6 +146,7 @@ export async function run(deps = {}) {
     const files = resolveMediaFiles(packDir, flags.format);
     const caption = readCaption(packDir, flags.format);
     assertNotAlreadyPosted(packDir, flags.format);
+    assertLedgerNotPosted(await readLedger(packDir, flags.format), flags.format);
 
     if (!commit) {
       log(`[plan] パック ${flags.pack} / format=${flags.format} / メディア ${files.length} 件（${files.map((f) => f.split('/').pop()).join(', ')}）`);
@@ -150,8 +182,22 @@ export async function run(deps = {}) {
     const readySeconds = ((Date.now() - startedAt) / 1000).toFixed(1);
     const { permalink } = await publisher.getPermalink(created.mediaId);
 
-    writePosted(packDir, flags.format, { at: todayJst(), url: permalink, note: 'graph-api' });
-    await cleanup({ pack: flags.pack, format: flags.format });
+    // 台帳が正本。公開は済んでいるので、書き込みが失敗しても R2 の後片付けは必ず走らせ、復旧コマンドを出して失敗として止める
+    let recordError = null;
+    try {
+      writePosted(packDir, flags.format, { at: todayJst(), url: permalink, note: 'graph-api' });
+      if (recordLedger) {
+        await recordLedger(packDir, flags.format, permalink, created.mediaId, log);
+      }
+    } catch (e) {
+      recordError = e;
+    } finally {
+      await cleanup({ pack: flags.pack, format: flags.format });
+    }
+    if (recordError) {
+      errorLog(`[ig-graph-publish] 公開は済んだ・台帳は未更新: ${recordError?.message ?? recordError}\n  復旧: node scripts/ig-status.mjs mark ${flags.pack} ${flags.format} --url=${permalink}`);
+      return 1;
+    }
 
     const summary = `パック ${flags.pack} / ${flags.format} / メディア ${staged.files.length} 件 / container ready in ${readySeconds} 秒 / permalink=${permalink}`;
     if (asJson) log(JSON.stringify({ pack: flags.pack, format: flags.format, mediaId: created.mediaId, permalink }, null, 2));

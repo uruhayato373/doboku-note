@@ -12,7 +12,7 @@ argument-hint: "[--backfill] [--schedule-unpublished] [--exam=cem]"
 domain: sns
 ---
 
-IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。設計の真実源は [.claude/knowledge/reference/ig-publish-reconcile.md](../../../../.claude/knowledge/reference/ig-publish-reconcile.md)。
+IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。公開の状態の正本はコンテンツ台帳（`content/registry/publications/instagram/`。`posted.json`・`status.json` は P7 で消す旧い写し）。設計の真実源は [.claude/knowledge/reference/ig-publish-reconcile.md](../../../../.claude/knowledge/reference/ig-publish-reconcile.md)。
 
 ## 既存予約・公開済み投稿を改修するとき
 
@@ -44,9 +44,9 @@ npm run verify-ig-status -- --json  # 機械処理用
 
 ### 2. ドリフト是正（非破壊・operator 確認のうえ）
 
-- `published_UNrecorded` → 該当パックの `posted.json` をライブ URL/日付で **backfill**（`ig-status mark <pack> carousel --url=... --note=...` か直接編集）。
+- `published_UNrecorded` → operator 確認のうえ `npm run verify-ig-status -- --registry` で台帳を published に（公開中の投稿に 1 件だけ結び付いたカルーセルと、キャプション先頭が 1 件だけ一致したリールだけ。衝突・複数一致は見送りに出る）。写しの `posted.json` も移行のあいだは `ig-status mark <pack> carousel --url=... --note=...` で残してよい。
   **`ambiguous: true` が付いたエントリは backfill しない**（`matched=1` でも複数パックが同じ投稿を主張＝一意対応ではない。未投稿のパックへ「投稿済み」を書き込む事故になる。2026-08-27 実測で 72 件中 48 件が該当）。`ambiguousWith` に衝突相手が入る。
-- `draft_misrecorded` → `status.json` の `carousel:"draft"`/`posted:false` を実態へ是正。
+- `draft_misrecorded` → 台帳は `--registry` の対象外（曖昧になりやすい）。実態を確かめて `recordIg` か、写しの `status.json` の `carousel:"draft"`/`posted:false` を是正。
 - `recorded_but_gone` → 記録 URL が削除済み。白版へ貼り直し済みなら新 URL へ更新、孤児なら note 付きで記録。
 - `anomaly`（重複投稿・逆方向の衝突）→ **自動処理しない**。`ig-publish-auditor` のフラグを人へ提示し判断を仰ぐ。
 
@@ -62,7 +62,7 @@ npm run verify-ig-status -- --json  # 機械処理用
 
 ## 安全弁（必読）
 
-- **報告＋提案が既定**。posted.json 編集・予約投稿・どれも **operator 確認後のみ**実行する。
+- **報告＋提案が既定**。台帳への反映（`--registry`）・posted.json 編集・予約投稿・どれも **operator 確認後のみ**実行する。台帳が published なのに投稿が削除済みの後戻りは所見に出るだけで、台帳は自動では戻さない。
 - **公開済み投稿の削除は本スキル対象外**（不可逆）。黒背景の貼り直し等は個別判断で手動。
 - **鉄則: リール≠カルーセル。同テーマのリールが存在することはカルーセル削除の根拠にならない**。削除・重複判定の前に投稿の型（`/p/`=カルーセル・`/reel/`=リール・「オリジナル音源」表示）を必ず確認する。`verify-ig-status` の `type_mismatch` が機械ガード（rio 事故の再発防止）。
 - **「予約成功モーダル＋status.json」だけを信用しない**。必ずプランナー実体確認（[[publish-ig-bs]] の偽成功検証と同じ規律）。

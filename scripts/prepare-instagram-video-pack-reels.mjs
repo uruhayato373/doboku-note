@@ -6,7 +6,9 @@
  * - output: content/sns/instagram/video-packs/{exam}/{packId}-{key}/reels/{meta.json,caption.txt}
  * - binary は render-instagram-video-pack-reels.mjs が JIT 生成する（Git 追跡外）。
  *
- * 既定 dry-run。--write で派生 SoT と video-pack.json outputs.instagramReel=2 を書く。
+ * 既定 dry-run。--write で reels/{meta.json,caption.txt} と video-pack.json outputs.instagramReel=2 を書く。
+ * 公開の状態の正本はコンテンツ台帳（content/registry/publications/instagram）。予約済み・公開済みの時刻は台帳から読み、
+ * 新しいリールは書いたあと `npm run registry -- import-instagram --commit` で台帳へ取り込む（今の動画の台帳には書かない）。
  */
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -15,6 +17,7 @@ import { parseArgs } from 'node:util';
 import { loadRegistry, qualificationLabel } from './lib/qualification-registry.mjs';
 import { IG_HANDLE as ACCOUNT } from './lib/site-identity.mjs';
 import { todayJst as jstToday } from './lib/jst-date.mjs';
+import { readIgPublication } from './lib/registry-ig-store.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -123,10 +126,16 @@ const occupied = new Set();
 for (const row of rows) {
   row.destDir = join(IG_ROOT, row.exam, `${row.packId}-${row.short.key}`);
   row.caption = captionFor(row);
-  const statusPath = join(row.destDir, 'status.json');
-  const reel = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
-  if (['scheduled', 'posted'].includes(reel?.status) && reel.scheduled_at) {
-    row.publishAt = reel.scheduled_at.replace('.000+09:00', '+09:00');
+  // 予約済み・公開済みの時刻は台帳が正本。台帳にまだ行が無い（取り込み前）か、公開済みで時刻の無い行だけ status.json（P7 で消す旧い写し）を見る
+  const reg = await readIgPublication(ROOT, relative(ROOT, row.destDir).replace(/\\/g, '/'), 'reel');
+  let scheduledAt = ['scheduled', 'published'].includes(reg?.status) ? reg.publishAt : null;
+  if (!reg || (reg.status === 'published' && !scheduledAt)) {
+    const statusPath = join(row.destDir, 'status.json');
+    const reel = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
+    if (['scheduled', 'posted'].includes(reel?.status)) scheduledAt = reel.scheduled_at;
+  }
+  if (scheduledAt) {
+    row.publishAt = scheduledAt.replace('.000+09:00', '+09:00');
     occupied.add(row.publishAt.slice(0, 19));
   }
 }
@@ -197,3 +206,4 @@ console.log(JSON.stringify({
   lastPublishAt: publishTimes.at(-1) ?? null,
   firstTarget: rows[0] ? relative(ROOT, rows[0].destDir).replace(/\\/g, '/') : null,
 }, null, 2));
+if (args.write) console.log('台帳に無い新しいリールは `npm run registry -- import-instagram --commit` で取り込む（公開の状態の正本は台帳）。');

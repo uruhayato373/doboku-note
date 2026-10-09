@@ -6,6 +6,7 @@ import {
 } from '../../../../scripts/lib/video-content-check.mjs';
 import { youtubePublications } from '../../../../scripts/lib/registry-youtube-view.mjs';
 
+import { igReelDerivatives } from './video-outcomes';
 import { findRepoRoot, repoPath } from './repo-root';
 
 /**
@@ -73,11 +74,13 @@ export function videoSnsJoin(): VideoSnsJoin {
     }
   }
 
+  const igReels = igReelDerivatives(findRepoRoot());
   const packDerivatives: PackDerivativeSummary[] = [];
   for (const p of packs) {
     const entries = statePacks[p.packId]?.derivatives ?? {};
     const derivatives: PackDerivativeSummary['derivatives'] = [];
     for (const [key, raw] of Object.entries(entries)) {
+      if (key === 'instagramReel') continue; // IG リールの正本は台帳（igReelDerivatives）
       const list = Array.isArray(raw) ? raw : [raw];
       list.forEach((d, i) => {
         // 企画だけ（draft）の行で画面を埋めない。制作が動いたものだけ出す。
@@ -90,6 +93,9 @@ export function videoSnsJoin(): VideoSnsJoin {
         });
       });
     }
+    (igReels.get(p.packId) ?? []).forEach((d, i) => {
+      derivatives.push({ key: `instagramReel[${i}]`, status: d.status ?? 'unknown', videoId: null, relatedVideoId: null });
+    });
     if (derivatives.length > 0) {
       packDerivatives.push({ packId: p.packId, exam: p.exam, slug: p.slug, title: p.title, derivatives });
     }

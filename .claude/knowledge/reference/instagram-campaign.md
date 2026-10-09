@@ -41,10 +41,10 @@ npm run instagram-campaign -- --schedule
 補充を自動で回す定期処理は無い（2026-10-05 確認: Codex の定期処理 `instagram` は存在せず、launchd にも無い。予約は 9/20 を最後に途切れていた）。Business Suite のログインが切れやすく（`npm run auth:status -- --service instagram`）、再ログインは人が行うため、補充は Mac の対話セッションで次の手順を手で回す。試験の直前期は、その資格のテーマを配信順より前に出してよい（年度・時期の適合確認は下記 3 のとおり）。
 
 1. 全件の `instagram-campaign --check --media` を通し、`--schedule` で現在の設定から日程を作る。
-2. 各候補の `status.json` とライブの予約・公開実体を照合する。 配信記録 `.claude/state/ig-reconcile/campaign-publication-*.json` の `pending` は未予約の引継ぎ候補として確認し、改めて実体と照合する。同じパック・形式の `scheduled` / `posted` は再送しない。不確かな送信結果は読み取りで確認する。
+2. 各候補の台帳の行（`content/registry/publications/instagram/`・正本。`status.json` は P7 で消す旧い写し）とライブの予約・公開実体を照合する。 配信記録 `.claude/state/ig-reconcile/campaign-publication-*.json` の `pending` は未予約の引継ぎ候補として確認し、改めて実体と照合する。同じパック・形式の `scheduled` / `posted` は再送しない。不確かな送信結果は読み取りで確認する。
 3. `timeSensitive` の候補は公開日時に対する年度・試験時期を一次情報で確認する。適用できないものは保留し、日付だけを変更して投稿しない。
 4. `ig-publish-auditor` の公開可否ゲートを通し、`publish-ig-bs` の混在バッチへ `{packArg, kind, schedule}` を渡す。初回・UI変更後はリールとカルーセル両方のdry-runで表紙・投稿先・日時を確認する。
-5. 保存後に投稿内容・形式・日時・アカウント・表紙を実画面で照合し、`status.json` と配信記録を更新してGitへ保存する。時刻だけのカレンダーチップを内容一致の証拠にしない。
+5. 保存後に投稿内容・形式・日時・アカウント・表紙を実画面で照合し、台帳（`recordIg`）と配信記録を更新して（移行のあいだ `status.json` も今までどおり書いてよい）Gitへ保存する。時刻だけのカレンダーチップを内容一致の証拠にしない。
 
 週表示のカレンダーは2026-09-11に週送りと `status: 下書き` の読取を実測した。下書き移動後も古い予約行が「公開できませんでした」として残るため、予約一覧の行数を未停止件数として数えない。日セルをクリックすると新規コンポーザが開くため、既存投稿の詳細確認はコンテンツ一覧の対象行から行う。
 
