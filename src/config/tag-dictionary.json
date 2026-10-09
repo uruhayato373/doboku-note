@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T06:55:10.048Z",
+  "generated_at": "2026-10-09T07:17:30.497Z",
   "summary": {
-    "total_mdx_files": 1382,
+    "total_mdx_files": 1383,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 221,
+      "count": 222,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1210,6 +1210,7 @@
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-netis-new-technology-use",
         "civil-practice-oshms-pdca-site-operation",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
@@ -3531,7 +3532,7 @@
     },
     {
       "name": "施工計画",
-      "count": 30,
+      "count": 31,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-construction-plan",
@@ -3552,6 +3553,7 @@
         "civil-practice-gis-layer-validation",
         "civil-practice-ict-construction-workflow",
         "civil-practice-material-selection-receiving",
+        "civil-practice-netis-new-technology-use",
         "civil-practice-numerical-model-review",
         "civil-practice-oshms-pdca-site-operation",
         "civil-practice-pre-construction-process",
@@ -4923,6 +4925,17 @@
       ]
     },
     {
+      "name": "生産性向上",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-netis-new-technology-use",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "舗装施工管理技術者",
       "count": 4,
       "inAllowlist": true,
@@ -5032,16 +5045,6 @@
         "civil-practice-foreign-workers-site-check",
         "pe-comprehensive-management-foreign-trainee-program",
         "pe-comprehensive-management-immigration-control-act"
-      ]
-    },
-    {
-      "name": "生産性向上",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
