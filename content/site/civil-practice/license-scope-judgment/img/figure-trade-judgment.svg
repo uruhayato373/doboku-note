@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="業種の決まり方。工種が一つなら、その専門工事の業種。主たる工事に必要な従たる工種は、主たる工事の業種で足りる附帯工事。独立した工種が並ぶときは、元請なら総合的な調整が要る場合に一式工事、下請なら工種ごとの専門工事の業種" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="118" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="142" width="364" height="118" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="18" y="270" width="364" height="180" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+</g>
+<g fill="#ffffff" stroke-width="1">
+<rect x="30" y="68" width="340" height="50" rx="6" stroke="#2e6da4"/>
+<rect x="30" y="196" width="340" height="50" rx="6" stroke="#d4a017"/>
+<rect x="30" y="324" width="164" height="112" rx="6" stroke="#2e6da4"/>
+<rect x="206" y="324" width="164" height="112" rx="6" stroke="#2e6da4"/>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="32" y="38">工種が一つ</text>
+<text x="32" y="166">従たる工種がある</text>
+<text x="32" y="294">独立した工種が並ぶ</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="32" y="56">別表の1業種で言い表せる</text>
+<text x="32" y="184">主たる工事に必要で、それだけでは使われない</text>
+<text x="32" y="312">それぞれが別々の使用目的を持つ</text>
+</g>
+<g fill="#1a3a5c" font-size="12" font-weight="700">
+<text x="42" y="90">元請でも下請でも　その専門工事の業種</text>
+<text x="42" y="218">元請でも下請でも　主たる工事の業種で足りる</text>
+<text x="42" y="346">元請の場合</text>
+<text x="218" y="346">下請の場合</text>
+</g>
+<g fill="#222" font-size="11">
+<text x="42" y="108">例：ガードレールの設置 → とび・土工・コンクリート工事</text>
+<text x="42" y="236">附帯工事（法第4条）。詳しくは四つ目の問いで確かめる</text>
+<text x="42" y="366">総合的な企画・指導・</text>
+<text x="42" y="383">調整が要るなら一式工事、</text>
+<text x="42" y="400">要らなければ工種ごとの</text>
+<text x="42" y="417">専門工事の業種</text>
+<text x="218" y="366">一式工事の許可は原則</text>
+<text x="218" y="383">元請の立場の許可。</text>
+<text x="218" y="400">工種ごとの専門工事の</text>
+<text x="218" y="417">業種で見るのが基本</text>
+</g>
+<g fill="#555" font-size="11"><text x="20" y="474">許可は29の業種ごとに受ける。業種が合わない工事は、</text><text x="20" y="490">軽微な工事と附帯工事を除き、請け負えない</text></g>
+</svg>
