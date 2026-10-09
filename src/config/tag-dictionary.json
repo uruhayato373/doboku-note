@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T06:13:44.210Z",
+  "generated_at": "2026-10-09T06:18:55.591Z",
   "summary": {
-    "total_mdx_files": 1378,
+    "total_mdx_files": 1379,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -4057,6 +4057,29 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-seismic-design-levels",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "適性科目",
       "count": 16,
       "inAllowlist": true,
@@ -4165,28 +4188,6 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r06-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4637,6 +4638,20 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-ledger-data-design",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-site-wireless-communication",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "流域治水",
       "count": 7,
       "inAllowlist": true,
@@ -4714,19 +4729,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-ledger-data-design",
-        "civil-practice-site-wireless-communication",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
