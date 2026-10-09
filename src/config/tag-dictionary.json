@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T00:17:51.502Z",
+  "generated_at": "2026-10-09T00:39:45.182Z",
   "summary": {
-    "total_mdx_files": 1360,
+    "total_mdx_files": 1361,
     "total_unique_tags": 130,
     "allowlist_size": 330,
     "known_count": 130,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 213,
+      "count": 214,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1210,6 +1210,7 @@
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
+        "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
         "civil-practice-quality-record-site-bcp",
@@ -2889,7 +2890,7 @@
     },
     {
       "name": "関係法規",
-      "count": 73,
+      "count": 74,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-law-key-points",
@@ -2904,6 +2905,7 @@
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
         "civil-practice-environmental-impact-assessment-flow",
+        "civil-practice-pre-construction-process",
         "civil-practice-safety-health-education-plan",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
@@ -3498,6 +3500,42 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 29,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-practice-ai-document-verification",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-construction-inspection-types",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-earthquake-tsunami-site-response",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-material-selection-receiving",
+        "civil-practice-numerical-model-review",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-pre-construction-process",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-typhoon-forecast-work-planning",
+        "civil-practice-volcanic-hazard-site-planning",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "土工",
       "count": 28,
       "inAllowlist": true,
@@ -3530,41 +3568,6 @@
         "civil-practice-soil-improvement-sandbag",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 28,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-practice-ai-document-verification",
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-construction-inspection-types",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-earthquake-tsunami-site-response",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-material-selection-receiving",
-        "civil-practice-numerical-model-review",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-typhoon-forecast-work-planning",
-        "civil-practice-volcanic-hazard-site-planning",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
