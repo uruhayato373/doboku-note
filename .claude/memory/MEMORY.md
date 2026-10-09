@@ -72,7 +72,7 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
-- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・無料試作
+- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
 - [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合
 - [1級一次キー誤り](project_civil1_primary_answer_key_errors.md) — 転記バグ・H29原典
