@@ -1744,6 +1744,16 @@
       "tool": "Codex",
       "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
     },
+    "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A civil engineer seen from behind and slightly from the side, holding a tablet up at arm's length on an open outdoor construction site with bare graded ground. The tablet screen shows the live camera view of the same site with a translucent 3D model of a concrete retaining wall structure overlaid on the ground, aligned to the terrain. The tablet screen is the sharp focal point; the background site (excavator far away, soil, fence) is softly blurred with shallow depth of field. No faces visible, no text, no logos, no readable letters on screen. Hard hat and high-visibility vest on the person."
+    },
+    "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up photograph of a construction worker seen from the side and slightly behind, wearing a white hard hat with a small wearable camera mounted on the side of the helmet, filming a completed rebar cage assembled in a neat grid pattern tied with binding wire at the crossings. The worker holds a measuring scale (steel tape or ruler) against a rebar to show the spacing, and a small blank survey board without any readable writing stands propped near the bars. Outdoor civil engineering site in daylight, shallow depth of field with the rebar grid in focus and the background blurred. No faces visible, no text, no logos."
+    },
     "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1773,6 +1783,26 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Realistic documentary photo of a river levee (embankment) during a flood, viewed from the landside (protected-side, rear slope) looking toward the levee. Muddy river water is spilling over the levee crest and flowing down the grass-covered rear slope in a sheet, eroding patches of the turf. Near the toe of the slope at the bottom, water is seeping out of the ground and forming small muddy puddles. Farmland and a drainage ditch in the foreground, heavy rain clouds, overcast sky, shallow depth of field, no people, no text"
+    },
+    "civil-practice/gnss-positioning-basics/img/photo-gnss-antenna-on-control-point": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A geodetic GNSS survey antenna (a flat round dome-shaped antenna on a short pole) mounted on a tripod, centered directly above a survey control point marker (a small metal benchmark disc set in the ground, with a plumb optical alignment visible beneath). Beside the tripod on the ground sits a small rectangular GNSS receiver unit with a cable connecting to the antenna. Open flat site with wide open sky above and no tall obstructions nearby, clear daylight, slightly worn gravel ground. Shallow depth of field focusing on the antenna and benchmark. No text, no logos, no people, no faces."
+    },
+    "civil-practice/ict-construction-workflow/img/photo-multibeam-survey-boat": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A small aluminum survey boat on a calm river near a harbor quay, side three-quarter view. A GNSS antenna dome on a short mast on the cabin roof, and a vertical side-mount pole bolted to the gunwale carrying a compact multibeam echosounder transducer head partly submerged just below the water surface, with a small motion sensor box on the pole. Neat cables run along the rail. Realistic photograph, shallow depth of field, soft overcast daylight, no text, no logos, no people visible."
+    },
+    "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of the lower part of a residential slope face in a Japanese housing development, smooth grey concrete spray-finished surface with a concrete toe. A neat row of four horizontal drain boring outlets: short grey PVC pipe ends about 10 cm long sticking out of the slope face roughly horizontally with a very slight downward tilt toward the outside, evenly spaced, each with a thin trickle of clear water dripping from its mouth. At the foot of the slope a long wire-mesh gabion (jakago) basket filled with stones lies along the toe next to a small concrete gutter. Soft overcast light, very shallow depth of field with softly blurred background, low texture, no people, no text"
+    },
+    "civil-practice/large-fill-landslide/img/photo-weephole-muddy-water": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of a residential retaining wall of smooth plain grey concrete with a faint horizontal block joint. One small round weep hole (a plastic drain pipe end, flush with the wall face) near the lower part of the wall discharges muddy brown water that runs down in a single streak over the smooth wall. Below the hole the wall is stained dark brown, and silt and soil have collected at the foot of the wall by a small roadside gutter. Soft overcast light after rain, very shallow depth of field with the wall away from the hole and the street background softly blurred, low texture, no people, no text"
     },
     "civil-practice/levee-failure-reinforcement/img/photo-slope-defects": {
       "kind": "ai-generated",
@@ -1834,10 +1864,20 @@
       "tool": "Codex",
       "prompt": "A construction worker seen from the side, in a hard hat and work clothes, bending slightly to lift a stack of cement bags (plain, unlabeled) from the ground at a civil engineering site. He wears a passive wearable waist assist exoskeleton: a padded waist belt around the lower back, connected to rigid frame bars running down the outside of both thighs, with thigh pads strapped to the front of each thigh. The frame is clearly visible over the work trousers. Face turned away or hidden by helmet brim, no text, no logos, no brand marks. Shallow depth of field, blurred earthwork background."
     },
+    "civil-practice/river-park-erosion-control/img/photo-landslide-warning-sign": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A roadside warning signboard standing beside a narrow mountain road in a steep forested valley in Japan, a rectangular sign on two steel posts, plain yellow and white panel with a simple red triangular warning pictogram of falling rocks and flowing debris, no readable text or letters, slightly weathered, the sign in sharp focus in the foreground, a rocky mountain stream with boulders and a concrete check dam blurred in the background, shallow depth of field, overcast daylight"
+    },
     "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Overhead three-quarter view of a clean wooden workbench in a construction site office, with four inspection instruments neatly laid out side by side: a yellow handheld digital illuminance meter with a small display and a round light sensor on top, a pen-shaped non-contact voltage tester in red and black with a clear tip, a retractable steel tape measure in yellow case with the tape extended slightly, and a compact digital camera with a lens. A white hard hat blurred in the background. Shallow depth of field, soft daylight, no text, no logos, no people, no faces, no legible markings."
+    },
+    "civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Low-angle view looking up diagonally from below at the end of a concrete highway bridge girder next to the abutment. A single horizontal cylindrical hydraulic damper (steel cylinder with a thinner piston rod extending from one end) spans the gap between a steel bracket bolted to the abutment parapet wall and a steel bracket bolted to the girder end, aligned along the bridge axis. Both ends of the damper are pin connections with clevis brackets and large pins. Gray concrete, dark painted steel, clean construction look, overcast daylight, shallow depth of field, no text, no logos, no people."
     },
     "civil-practice/site-wireless-communication/img/photo-rfid-tag-rebar-reader": {
       "kind": "ai-generated",
@@ -2315,6 +2355,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A self-elevating jack-up work platform vessel at sea in calm weather, its several tall lattice steel legs extended down into the water to the seabed, the rectangular hull raised well above the sea surface on the legs. A large crawler crane with lattice boom on the deck, and stacked steel foundation components (large cylindrical steel tubes) lying on the deck. Seen from a slight distance at a low angle over the water, shallow depth of field, hazy horizon. No text, no logos, no people visible."
+    },
+    "pe-construction/seismic-damage-lessons/img/photo-steel-jacket-bridge-pier": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A reinforced concrete road bridge pier retrofitted with a steel jacket: a cylindrical steel plate fully encircles the base of the pier, welded vertical seam visible, the narrow gap between steel plate and old concrete filled with grout, visible at the top edge as a grey grout band. Steel plate has a light grey anti-corrosion paint coating with slight weathering. Anchor bolts and base plate fixed to the concrete footing at the bottom. Above the steel jacket the original concrete pier continues up to a girder bearing seat supporting the bridge girder. Daylight, realistic documentary photo, shallow depth of field, no text, no logos, no people."
     },
     "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
       "pdf": "vault:原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/pages/p0013.jpg",

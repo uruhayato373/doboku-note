@@ -1032,6 +1032,14 @@
               "file": "R01/R01_第一次検定_問題B.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R01/R01_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/191007d_f79dyy/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ]
         },
@@ -1052,6 +1060,322 @@
               "file": "H30/H30_第一次検定_問題B.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H30/H30_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/180817d_72cd68/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2016,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H28/H28_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160704d_6u5d55/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H28/H28_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160817d_f41554/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H28/H28_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160817d_f41554/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H27/H27_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150706d_rcyoij/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H27/H27_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150706d_rcyoij/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H27/H27_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150819d_rpyug4/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H27/H27_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151005d_a49964/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2014,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H26/H26_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/140707d_noejne/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H26/H26_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141006d_h98d56/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H25/H25_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0708d_0u9j94/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H25/H25_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0708d_0u9j94/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H25/H25_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0114d_49dfsa/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2012,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H24/H24_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0815d_aerigu/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H24/H24_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0702d_mhrk44/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H24/H24_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0815d_aerigu/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H24/H24_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0115d_hiuiho/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2010,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H22/H22_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0706d_jipj35/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H22/H22_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0818d_0j99ad/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H22/H22_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0818d_0j99ad/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H22/H22_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1005_1d_9redfh/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2009,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H21/H21_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0707d/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H21/H21_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0707d/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H21/H21_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0819d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H21/H21_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1006_1d/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2008,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H20/H20_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0820d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H20/H20_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0120d/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2007,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H19/H19_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0817d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2006,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H18/H18_学科試験_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0704d/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H18/H18_学科試験_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0704d/qb.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H18/H18_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0818d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H18/H18_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0119d/qa.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ]
         }
@@ -1291,6 +1615,238 @@
               "acquiredAt": "2026-09-05"
             }
           ]
+        },
+        {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験（前期） 正答肢",
+              "file": "R01/R01_学科試験_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/190709d_g17914/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2018,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H30/H30_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/190205d_9ay1uw/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H29/H29_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/180201d_atawet/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2015,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H27/H27_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151026d_jo5yer/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験（土木）",
+              "file": "H27/H27_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151026d_jo5yer/doboku02.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H27/H27_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160204d_m9g8r7/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2014,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H26/H26_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141027d_ihooih/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験（土木）",
+              "file": "H26/H26_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141027d_ihooih/doboku02.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H26/H26_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150205d_pfsazz/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2013,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H25/H25_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/131028d_rtqtet/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験（土木）",
+              "file": "H25/H25_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/131028d_rtqtet/doboku02.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2012,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H24/H24_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0207d_ihoihu/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2010,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "実地試験（土木）",
+              "file": "H22/H22_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1026d_yufgua/doboku02.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2009,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H21/H21_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1027d/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2008,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H20/H20_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1028d/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H20/H20_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0217d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2007,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H19/H19_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0215d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2006,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験（土木）",
+              "file": "H18/H18_学科試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1024d/doboku01.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験（土木）",
+              "file": "H18/H18_実地試験.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1024d/doboku02.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H18/H18_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0216d/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
         }
       ],
       "otherSources": []
@@ -1342,6 +1898,30 @@
               "file": "R07/R07_第二次検定.pdf",
               "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/12/20251208k_mondai.pdf",
               "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R07/R07_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/09/20250908k_mondaia.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R07/R07_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/09/20250908k_mondaib.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R07/R07_第一次検定_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/09/20250908k_seitou.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ],
           "themes": [
@@ -1371,6 +1951,22 @@
               "file": "R06/R06_第二次検定.pdf",
               "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/12/20241202k_mondai.pdf",
               "acquiredAt": "2026-09-29",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題A",
+              "file": "R06/R06_第一次検定_問題A.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/09/20240902k_mondaia.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定 問題B",
+              "file": "R06/R06_第一次検定_問題B.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2024/09/20240902k_mondaib.pdf",
+              "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ],
@@ -1620,6 +2216,14 @@
               "sourceUrl": "https://www.jctc.jp/kentei/150907k_gyusr6/kan02.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H27/H27_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/151008k_fpi561/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         },
@@ -1650,6 +2254,14 @@
               "sourceUrl": "https://www.jctc.jp/kentei/141208k_bodnhj/qa.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H26/H26_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/141009k_heluvd/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         },
@@ -1676,6 +2288,20 @@
           ]
         },
         {
+          "year": 2012,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H24/H24_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1011k_8fg7jo/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
           "year": 2009,
           "official": "removed",
           "files": [
@@ -1694,6 +2320,42 @@
               "sourceUrl": "https://www.jctc.jp/kentei/1015k/kan02.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H21/H21_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1015k/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2008,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H20/H20_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1016k/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2007,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H19/H19_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1018k/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         },
@@ -1724,6 +2386,14 @@
               "sourceUrl": "https://www.jctc.jp/kentei/1205k/qa.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H18/H18_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/1020k/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         }
@@ -1783,6 +2453,22 @@
               "file": "R07/R07_第一次検定_後期_正答.pdf",
               "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/11/20251117k_seitou.pdf",
               "acquiredAt": "2026-09-29"
+            },
+            {
+              "kind": "question",
+              "section": "第一次検定（前期）",
+              "file": "R07/R07_第一次検定_前期.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/06/20250602k_mondai.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定（前期） 正答肢",
+              "file": "R07/R07_第一次検定_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/06/20250602k_seitou.pdf",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
             }
           ],
           "themes": [
@@ -1971,6 +2657,20 @@
           ]
         },
         {
+          "year": 2019,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験（前期） 正答肢",
+              "file": "R01/R01_学科試験_前期_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/190709k_8doa49/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
           "year": 2015,
           "official": "removed",
           "files": [
@@ -1989,6 +2689,14 @@
               "sourceUrl": "https://www.jctc.jp/kentei/151116k_1iuehh/kan02.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H27/H27_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/160226k2_85dd88/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         },
@@ -2003,6 +2711,28 @@
               "sourceUrl": "https://www.jctc.jp/kentei/141117k_h9d6f7/kan01.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H26/H26_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/150227k2_af8949/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2012,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H24/H24_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0227k2_ihowae/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         },
@@ -2053,6 +2783,34 @@
               "sourceUrl": "https://www.jctc.jp/kentei/1118_2k/kan2_g.pdf",
               "acquiredAt": "2026-09-29",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2007,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H19/H19_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0306k_2/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            }
+          ]
+        },
+        {
+          "year": 2006,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H18/H18_学科試験_正答.pdf",
+              "sourceUrl": "https://www.jctc.jp/kentei/0307k_2/answer.html",
+              "acquiredAt": "2026-10-09",
+              "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
             }
           ]
         }

@@ -15,9 +15,8 @@
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readDataset } from './lib/dataset-io.mjs';
+import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
-import { readJsonIf } from './lib/json-io.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
 
@@ -77,7 +76,7 @@ export function buildOwnSnapshot({ fetchedAt, channel, subscriberCount, longform
 
 function main() {
   const config = readDataset(ROOT, 'config.youtube-formats');
-  const status = readJsonIf(ROOT, '.claude/state/video-content-status.json');
+  const status = readDatasetIf(ROOT, 'state.video-status', { values: { name: 'content-status' } });
   const long = listChannel(config.channel.id, 'videos', { limit: LIMIT });
   const short = listChannel(config.channel.id, 'shorts', { limit: LIMIT });
   const snapshot = buildOwnSnapshot({

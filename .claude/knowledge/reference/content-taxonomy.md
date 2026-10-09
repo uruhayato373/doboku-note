@@ -97,11 +97,11 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 
 **commercial-book → guide / textbook の標準手順**（2026-09-10 の建設部門展開で確立・memory `book-to-guide-expansion`）
 
-1. 親が原本の文字起こしを読んで方法を理解する。執筆エージェント（`guide-rewriter` 新規起草モード等）には**原文を渡さず、親の言葉で 30 字以内の語句だけの brief** を渡す。
+1. 着手前に `npm run audit-reference-book-coverage -- --source-id <id>` で章・節ごとの候補表（covered / partial / gap の暫定ヒント・`content/sources/books/<dir>/coverage/candidates.json`）を作り、意味で判定してから gap・partial を展開先に割り当てる（判定は同じ `coverage/verdict.json`。手順は [book-coverage-judging.md](./book-coverage-judging.md)（展開は [book-coverage-expansion.md](./book-coverage-expansion.md)）、判定資料は同じ `coverage/packet.md`、判定の検査は `-- --check`、比べるサイトの資格は reference-sources.json の `bookBundle.coverageSiteDirs`、全書籍の進み具合は `-- --status`）。どちらも市販書籍の見出しを含むので `npm run drive-vault-sync -- --group reference-book-coverage --commit` で Drive vault に置き、ほかの PC は `--pull` で取り戻す。展開を終えたら `npm run audit-reference-book-coverage -- --summary` で git の要約 `.claude/state/book-coverage.json`（判定件数・展開した記事とコミット）を更新する。親が原本の文字起こしを読んで方法を理解する。執筆エージェント（`guide-rewriter` 新規起草モード等）には**原文を渡さず、親の言葉で 30 字以内の語句だけの brief** を渡す。
 2. H2 は原本の章順・項目数・ラベル名をなぞらず、読者の時間軸や失敗パターンで組む。
 3. 例題・出題例は公式過去問（exam-official・サイトの過去問記事）から。原本の例題は使わない。
 4. 図は自作 SVG（[figure-canvas-policy.md](./figure-canvas-policy.md)）。原本の図は題材リストとしてだけ使う。
-5. `guide-qa` → `guide-fact-checker`（制度・数値を一次資料へ）→ Drive をマウントして `npm run check-reference-sources:deep` で 40 字一致 0 → 1 記事 1 コミット。
+5. `guide-qa` → `guide-fact-checker`（制度・数値を一次資料へ）→ Drive をマウントして `npm run check-reference-sources:deep` で 40 字一致 0 → 1 記事 1 コミット。コミットの本文に trailer `Book-Coverage: <書籍 id>`（複数の本からなら「,」区切り）を書く。`audit-reference-book-coverage -- --summary` はこの trailer のあるコミットだけを展開として数える（判定日以降の別の作業の変更を数えない）。
 
 ## 8. site ↔ note の対応
 

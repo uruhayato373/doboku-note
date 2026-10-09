@@ -4,7 +4,7 @@
  */
 import { z } from 'zod';
 import {
-  jstDate, utcTime, offsetTime, month, count, flag, isMonday, uniqueBy, sha256,
+  jstDate, utcTime, offsetTime, month, count, flag, isMonday, uniqueBy, sumEquals, sha256,
 } from './dataset-schema-parts.mjs';
 
 // ---- 共通の小さな部品 ---------------------------------------------------------------------
@@ -686,3 +686,59 @@ export const PastExamInventory = z
   })
   .strict()
   .meta({ title: '過去問の在庫台帳' });
+
+// ---- 書籍の網羅の要約（.claude/state/book-coverage.json。見出しを含む詳細は Drive vault の coverage/） --------------
+
+const articleSlug = z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '<資格>/<記事のディレクトリ>').describe('記事（content/site/ の下）');
+const CoverageCandidates = z
+  .object({
+    generatedAt: utcTime('候補表を作った時刻').nullable().describe('候補表を作った時刻（--stamp を付けないときは null）'),
+    units: count('書籍の節の数'),
+    textUnits: count('実検査した本文の節の数'),
+    examUnits: count('過去問の節の数（対象外）'),
+    covered: count('扱われている候補'),
+    partial: count('一部だけの候補'),
+    gap: count('扱われていない候補'),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    if (!sumEquals([c.covered, c.partial, c.gap], c.textUnits)) flag(ctx, ['textUnits'], `covered+partial+gap（${c.covered + c.partial + c.gap}）が textUnits ${c.textUnits} と合わない`);
+  })
+  .describe('機械の候補表（audit-reference-book-coverage）の件数');
+const CoverageVerdict = z
+  .object({
+    judged: count('意味判定した節の数'),
+    covered: count('扱われている'),
+    partial: count('一部だけ'),
+    gap: count('扱われていない'),
+    outOfScope: count('対象外（前付け・索引・試験の範囲外など）'),
+    additions: count('計画した追記の数'),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    if (!sumEquals([v.covered, v.partial, v.gap, v.outOfScope], v.judged)) flag(ctx, ['judged'], `covered+partial+gap+outOfScope が judged ${v.judged} と合わない`);
+  })
+  .describe('Evaluator の意味判定の件数');
+export const StateBookCoverage = z
+  .object({
+    schemaVersion: z.literal(1),
+    description: z.string().min(1).describe('ファイルの説明'),
+    books: z
+      .record(
+        z.string().regex(/^[a-z0-9-]+$/, '参考文献 id'),
+        z
+          .object({
+            candidates: CoverageCandidates,
+            verdict: CoverageVerdict.nullable().describe('意味判定の件数（まだ判定していなければ null）'),
+            judgedAt: jstDate('意味判定の日').nullable(),
+            expansions: z
+              .array(z.object({ article: articleSlug, commits: z.array(z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA')).describe('展開したコミット（まだなら空）') }).strict())
+              .superRefine(uniqueBy('article', '記事'))
+              .describe('判定から展開した（する）記事'),
+          })
+          .strict(),
+      )
+      .describe('参考文献 id（config.reference-sources の id）ごとの要約'),
+  })
+  .strict()
+  .meta({ title: '書籍の網羅の要約' });
