@@ -93,14 +93,13 @@
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
 
-### [DN-0591] 書籍の網羅の残り: 総監の論文の本（pe-cem-essay-guide）を文字起こしして判定・展開し、コンクリート 5 冊を判定し直す
-タグ: [領域:教材] [時期:2026-10] [種類:制作] [起票:2026-10-08]
+### [DN-0591] 書籍の網羅の残り: コンクリート 5 冊を判定し直して網羅を確かめる
+タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08]
 
-2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2。記事の追記・新規は約 200 本、写真 52 枚を追加）。進み具合の正本は `.claude/state/book-coverage.json`、一覧は `npm run audit-reference-book-coverage -- --status`（PR #927 のマージまでは PR の作業ツリーから）。手順は `.claude/knowledge/reference/book-coverage-judging.md`（判定）・`book-coverage-expansion.md`（展開・写真）。Mac の道具は `.tmp/book-coverage/`（commit-article.sh・tools/ の workflow）。
-残り:
-1. pe-cem-essay-guide（総監の論文の本・18 ページ）を pdf-to-mdx --scanned で文字起こしし（memory project_book_to_guide_expansion: 16 版面中 9 で指の隠れがあり再スキャンが要る）、候補表 → 判定 → 展開。論文の答案例は note 商品の領域なので、展開は書き方の一般論だけになる見込み。
-2. コンクリート 5 冊を `--rejudge` で判定し直し、網羅を確かめる（展開前の判定のままなので）。
-完了条件: `--status` で 27 冊すべてが「展開済み」か「判定済み（展開不要）」。
+2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2）。進み具合は `npm run audit-reference-book-coverage -- --status`、手順は `.claude/knowledge/reference/book-coverage-judging.md`・`book-coverage-expansion.md`。
+総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断）: 総監のテキスト・受験対策・キーワード集の判定で gap は 0、partial は展開済み。論文の本の中身は答案例（note 商品の領域）が中心で、書き方の一般論は論文の書き方の本の展開と記述式ガイドで覆えている。再スキャンからやり直す手間に見合わない。`--status` ではこの 1 冊だけ「未着手」のまま残る。
+残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
+完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
 
 ### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
