@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T03:00:52.267Z",
+  "generated_at": "2026-10-09T03:12:59.859Z",
   "summary": {
-    "total_mdx_files": 1365,
+    "total_mdx_files": 1366,
     "total_unique_tags": 131,
     "allowlist_size": 330,
     "known_count": 131,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 217,
+      "count": 218,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1111,6 +1111,7 @@
         "civil-construction-1-guide-difficulty",
         "civil-construction-1-guide-dx-jobs",
         "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-engineer-assignment",
         "civil-construction-1-guide-environment-management",
         "civil-construction-1-guide-exam-overview",
         "civil-construction-1-guide-foundation",
@@ -2726,7 +2727,7 @@
     },
     {
       "name": "試験対策",
-      "count": 80,
+      "count": 81,
       "inAllowlist": true,
       "usedIn": [
         "building-construction-guide-1kyu-keiken-kijutsu",
@@ -2739,6 +2740,7 @@
         "civil-construction-1-guide-demolition",
         "civil-construction-1-guide-difficulty",
         "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-engineer-assignment",
         "civil-construction-1-guide-environment-management",
         "civil-construction-1-guide-foundation",
         "civil-construction-1-guide-four-management",
@@ -2813,9 +2815,10 @@
     },
     {
       "name": "関係法規",
-      "count": 77,
+      "count": 78,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-1-guide-engineer-assignment",
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-textbook-building-standards",
         "civil-construction-1-textbook-construction-business",
