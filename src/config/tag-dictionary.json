@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T04:14:32.760Z",
+  "generated_at": "2026-10-09T04:30:02.596Z",
   "summary": {
-    "total_mdx_files": 1368,
+    "total_mdx_files": 1369,
     "total_unique_tags": 131,
     "allowlist_size": 330,
     "known_count": 131,
@@ -3515,7 +3515,7 @@
     },
     {
       "name": "施工計画",
-      "count": 29,
+      "count": 30,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-construction-plan",
@@ -3541,6 +3541,7 @@
         "civil-practice-pre-construction-process",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-site-wireless-communication",
         "civil-practice-typhoon-forecast-work-planning",
         "civil-practice-volcanic-hazard-site-planning",
         "pe-comprehensive-management-construction-plan",
@@ -4685,6 +4686,18 @@
       ]
     },
     {
+      "name": "i-Construction",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-site-wireless-communication",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4694,6 +4707,18 @@
         "pe-comprehensive-management-information-management-pillar",
         "pe-comprehensive-management-safety-management-pillar",
         "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "建設DX",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-site-wireless-communication",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4718,17 +4743,6 @@
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4839,17 +4853,6 @@
         "pe-first-stage-h30-basic",
         "pe-first-stage-h30-construction",
         "pe-first-stage-h30-water-supply"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
