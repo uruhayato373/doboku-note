@@ -241,7 +241,7 @@ if (STATUS) {
 if (SUMMARY_ONLY) {
   const n = writeSummary(targets.length ? targets : books);
   console.log(`[${NAME}] 要約 ${datasetPath('state.book-coverage')} を書いた（手元に候補表がある書籍 ${n} 冊を更新）`);
-  if (n === 0) die('手元に候補表がある書籍が 0（drive-vault-sync --pull で取り戻すか、候補表を作る）。検査不成立');
+  if (n === 0) die('手元に候補表がある書籍が 0（drive-vault-sync --pull --group reference-book-coverage --commit で取り戻すか、候補表を作る）。検査不成立');
   process.exit(0);
 }
 
@@ -315,7 +315,7 @@ const isExamUnit = (heading, body) => /〔正解|【正解|正解\s*[（(]\d/.te
 
 function loadBookUnits(source) {
   const dir = path.join(REPO_ROOT, bookRepoRoot(source), 'ocr');
-  const pull = `npm run drive-vault-sync -- --pull --path '${path.relative(REPO_ROOT, dir)}/' で Drive から取得`;
+  const pull = `npm run drive-vault-sync -- --pull --path '${path.relative(REPO_ROOT, dir)}/' --commit で Drive から取得`;
   if (!fs.existsSync(dir)) return { error: `${dir} が無い（${pull}）` };
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'README.md').sort();
   if (!files.length) return { error: `${dir} に文字起こしが無い（${pull}）` };

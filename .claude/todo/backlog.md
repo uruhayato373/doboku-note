@@ -1731,10 +1731,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0631] drive-vault-sync の --pull を既定で dry-run にし、送る側と台帳の約束（sync は既定 dry-run）にそろえる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
-
-2026-10-10、網羅の詳細（52 ファイル）を取り戻すつもりで node scripts/drive-vault-sync.mjs --pull --path content/sources/books/ を回し、書籍のページ画像まで 701 枚取り寄せた（10 分の上限を超えて止めた）。送る側は既定が dry-run（--commit で書く）なのに、--pull は既定で実行する（mode=PULL）。config/drive-vault.json の invariants『sync は既定 dry-run』とも食い違う。やること: --pull も既定は対象件数と合計サイズを出す dry-run にし、--commit で取り戻す。使っている箇所（note-sync.sh・各スキル・手順書の --pull の案内）を --commit 付きに直す。完了条件: --commit なしの --pull がファイルを書かないことと、案内している全箇所が --commit 付きであることをテストと check-command-guidance で確かめる
 
 
 

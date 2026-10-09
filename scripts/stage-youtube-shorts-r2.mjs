@@ -49,7 +49,7 @@ function hydrate(file) {
   if (existsSync(file)) return;
   const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
   console.log(`[youtube-shorts-stage] Driveから復元: ${rel}`);
-  const result = spawnSync(process.execPath, [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+  const result = spawnSync(process.execPath, [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, '--commit'], {
     cwd: ROOT,
     stdio: 'inherit',
   });

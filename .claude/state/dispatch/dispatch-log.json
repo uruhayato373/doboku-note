@@ -2398,6 +2398,19 @@
       "commit": "6acda5a0deb9",
       "verification": "tests/agent-hooks.test.mjs: 素の cd（worktree・プロジェクトの下の階層・変数経由）は exit 2、サブシェル・git -C・bash -c・直下への cd・Codex（CLAUDE_PROJECT_DIR 無し）は通す。13 件 pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0631",
+      "at": "2026-10-10",
+      "task": "drive-vault-sync の --pull を既定で dry-run にし、送る側と台帳の約束（sync は既定 dry-run）にそろえる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/drive-vault.test.mjs: --commit なしの --pull は exit 0・mode=DRY-RUN・取り戻す予定 N 件（MiB）を出し手元へ書かない、--commit で取り戻しに行く。check-command-guidance: drive-vault-sync の取り戻しの案内 48 件すべて --commit 付き（無いと壊れとして exit 1）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

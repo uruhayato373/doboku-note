@@ -9,7 +9,7 @@
 Gitの作業ブランチ `codex/character-framing` を最新にし、依存関係を `npm ci --legacy-peer-deps` で用意する。Google Driveアプリでdoboku-noteのvaultを同期してから、リポジトリ直下で実行する。
 
 ```bash
-npm run drive-vault-sync -- --pull --group content-media
+npm run drive-vault-sync -- --pull --group content-media --commit
 npm run check-youtube-cover-handoff -- --local
 ```
 

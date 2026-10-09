@@ -380,7 +380,7 @@ export function ensureLocalFromVault(absPath) {
   const rel = toVaultRel(absPath.startsWith(REPO_ROOT) ? absPath.slice(REPO_ROOT.length + 1) : absPath);
   const entry = loadDriveManifest().entries?.[rel];
   if (!entry) return false;
-  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, '--commit'], {
     cwd: REPO_ROOT, stdio: 'inherit',
   });
   return r.status === 0 && existsSync(absPath);

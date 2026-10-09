@@ -258,7 +258,7 @@ function hydratePackAssets(dir: string): void {
   if (inDrive.length === 0 && inR2.length === 0) return;
   if (inDrive.length > 0) {
     console.log(`[prep] 画像がローカルに無いので Drive vault から取り寄せます: ${rel}（${inDrive.length} 件）`);
-    const r = spawnSync(process.execPath, ["scripts/drive-vault-sync.mjs", "--pull", "--path", rel + "/"],
+    const r = spawnSync(process.execPath, ["scripts/drive-vault-sync.mjs", "--pull", "--path", rel + "/", "--commit"],
       { cwd: PROJECT_ROOT, stdio: "inherit" });
     if (r.status !== 0) {
       throw new Error(`Drive vault からの取り寄せに失敗しました。Instagram には何も投稿せずに止めます: ${rel}`);
