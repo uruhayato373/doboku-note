@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="著しく短い工期の禁止に違反したときの措置。発注者が違反すると許可行政庁が勧告し、従わなければ公表する。建設業者が違反すると指示処分を受け、従わなければ営業停止となる。受注者への禁止は令和7年12月12日から">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .lead { fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .sec { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .sub { fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#m); }
+    </style>
+    <marker id="m" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="lead" x="200" y="18" text-anchor="middle">誰が違反したかで、措置の道筋が分かれる</text>
+
+  <g text-anchor="middle">
+    <rect class="b" x="20" y="28" width="360" height="56" rx="6"/>
+    <text class="h" x="200" y="50">著しく短い期間を工期とする請負契約</text>
+    <text class="sub" x="200" y="70">物差し：工期に関する基準（中央建設業審議会が勧告）</text>
+
+    <path class="a" d="M106 84V102"/>
+    <path class="a" d="M294 84V102"/>
+
+    <rect class="b" x="20" y="104" width="172" height="44" rx="6"/>
+    <text class="h" x="106" y="124">発注者（注文者）が違反</text>
+    <text class="sub" x="106" y="140">法第19条の5第1項</text>
+    <rect class="b" x="208" y="104" width="172" height="44" rx="6"/>
+    <text class="h" x="294" y="124">建設業者が違反</text>
+    <text class="sub" x="294" y="140">法第19条の5第1項・第2項</text>
+
+    <path class="a" d="M106 148V164"/>
+    <path class="a" d="M294 148V164"/>
+
+    <rect class="w" x="20" y="166" width="172" height="60" rx="6"/>
+    <text class="h" x="106" y="186">許可行政庁が勧告</text>
+    <text x="106" y="203">請負代金500万円以上が対象</text>
+    <text x="106" y="218">（建築一式は1,500万円以上）</text>
+    <rect class="w" x="208" y="166" width="172" height="60" rx="6"/>
+    <text class="h" x="294" y="192">指示処分</text>
+    <text x="294" y="210">法第28条第1項</text>
+
+    <path class="a" d="M106 226V242"/>
+    <path class="a" d="M294 226V242"/>
+
+    <rect class="d" x="20" y="244" width="172" height="44" rx="6"/>
+    <text class="h" x="106" y="264">従わなければ公表</text>
+    <text class="sub" x="106" y="280">法第19条の6第3項</text>
+    <rect class="d" x="208" y="244" width="172" height="44" rx="6"/>
+    <text class="h" x="294" y="264">従わなければ営業停止</text>
+    <text class="sub" x="294" y="280">1年以内（法第28条第3項）</text>
+  </g>
+
+  <rect class="g" x="20" y="302" width="360" height="84" rx="6"/>
+  <text class="sec" x="36" y="322">禁止される範囲</text>
+  <text x="36" y="341">注文者は第1項、受注者は第2項で禁止される</text>
+  <text x="36" y="358">受注者への禁止は令和7年12月12日から</text>
+  <text x="36" y="375">契約変更で著しく短くすることも対象になる</text>
+
+  <rect class="g" x="20" y="396" width="360" height="84" rx="6"/>
+  <text class="sec" x="36" y="416">「著しく短い」の見方</text>
+  <text x="36" y="435">単に日数が少ないのではなく、基準に照らして</text>
+  <text x="36" y="452">不適正に短いか。違法な長時間労働が前提か。</text>
+  <text x="36" y="469">過去の同種工事や下請の見積工期との比較も見る</text>
+</svg>

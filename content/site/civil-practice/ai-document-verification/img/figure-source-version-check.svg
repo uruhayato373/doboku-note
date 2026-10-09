@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="社内資料への質問から、AIの回答、出典と版の確認、担当者の判断までの流れ。出典が付かない回答や旧版の引用は採らず、質問し直す">
+  <defs>
+    <style>
+      text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; font-size: 15px; }
+      .h { font-size: 18px; font-weight: bold; }
+      .s { font-size: 14px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+      .back { fill: none; stroke: #d4a017; stroke-width: 2; marker-end: url(#b); }
+    </style>
+    <!-- brand / warn / positive / ink-body tokens -->
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker>
+    <marker id="b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#d4a017" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="76" y="24" width="302" height="70" rx="8" class="brand" />
+  <text x="227" y="53" text-anchor="middle" class="h">社内資料への質問</text>
+  <text x="227" y="79" text-anchor="middle">対象の工事と資料を限定する</text>
+  <path d="M227 98V128" class="arrow" />
+  <rect x="76" y="137" width="302" height="70" rx="8" class="brand" />
+  <text x="227" y="166" text-anchor="middle" class="h">AIが回答する</text>
+  <text x="227" y="192" text-anchor="middle">資料名・版・箇所を付ける</text>
+  <path d="M227 211V241" class="arrow" />
+  <rect x="76" y="250" width="302" height="70" rx="8" class="warn" />
+  <text x="227" y="279" text-anchor="middle" class="h">人が出典を開く</text>
+  <text x="227" y="305" text-anchor="middle">原文・版・適用範囲を照合</text>
+  <path d="M74 285H28V59H67" class="back" />
+  <text x="40" y="347" class="s">出典なし・旧版は採らず</text>
+  <text x="40" y="367" class="s">質問し直す</text>
+  <path d="M227 324V391" class="arrow" />
+  <text x="248" y="364" class="s">照合が済んだ回答</text>
+  <rect x="76" y="401" width="302" height="74" rx="8" class="positive" />
+  <text x="227" y="432" text-anchor="middle" class="h">担当者が判断する</text>
+  <text x="227" y="458" text-anchor="middle">根拠の版を記録に残す</text>
+</svg>

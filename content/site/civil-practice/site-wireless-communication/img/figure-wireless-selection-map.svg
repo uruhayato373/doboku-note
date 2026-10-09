@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="現場の無線を通信距離と消費電力で整理した図。下段は量が小さく電池向きのBluetooth、ZigBee、920MHz帯、上段は量が大きい無線LANと携帯網">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .low { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .high { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="s" x="15" y="24">上段は量が大きく電源前提、下段は量が小さく電池向き（目安）</text>
+  <rect x="15" y="38" width="370" height="332" rx="8" fill="#fff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <line x1="27" y1="226" x2="373" y2="226" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="4 4"/>
+  <text class="s" x="27" y="58">消費電力 大</text>
+  <text class="s" x="27" y="360">消費電力 小</text>
+  <text x="200" y="172" text-anchor="middle">同じ出力なら、届く距離と回り込みは</text>
+  <text x="200" y="192" text-anchor="middle">920MHz帯 ＞ 2.4GHz帯 ＞ 5・6GHz帯</text>
+  <g>
+    <rect class="high" x="27" y="74" width="108" height="62" rx="6"/>
+    <text class="b" x="37" y="94">無線LAN</text>
+    <text class="s" x="37" y="111">2.4・5・6GHz帯</text>
+    <text class="s" x="37" y="127">運べる量 大</text>
+    <rect class="high" x="265" y="74" width="108" height="62" rx="6"/>
+    <text class="b" x="275" y="94">携帯網</text>
+    <text class="s" x="275" y="111">LTE・5G</text>
+    <text class="s" x="275" y="127">運べる量 大</text>
+  </g>
+  <g>
+    <rect class="low" x="27" y="272" width="108" height="62" rx="6"/>
+    <text class="b" x="37" y="292">Bluetooth</text>
+    <text class="s" x="37" y="309">2.4GHz帯</text>
+    <text class="s" x="37" y="325">運べる量 小</text>
+    <rect class="low" x="146" y="272" width="108" height="62" rx="6"/>
+    <text class="b" x="156" y="292">ZigBee</text>
+    <text class="s" x="156" y="309">端末は電池向き</text>
+    <text class="s" x="156" y="325">中継は外部電源</text>
+    <rect class="low" x="265" y="272" width="108" height="62" rx="6"/>
+    <text class="b" x="275" y="292">920MHz帯</text>
+    <text class="s" x="275" y="309">回り込みやすい</text>
+    <text class="s" x="275" y="325">運べる量 小</text>
+  </g>
+  <line x1="27" y1="392" x2="370" y2="392" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
+  <text class="s" x="15" y="412">通信距離 短い</text>
+  <text class="s" x="366" y="412" text-anchor="end">長い</text>
+  <rect x="15" y="426" width="370" height="62" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text x="27" y="451">映像・大量のデータ：無線LAN、携帯網</text>
+  <text x="27" y="474">遠く・電池長持ち：920MHz帯、ZigBee</text>
+</svg>

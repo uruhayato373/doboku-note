@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="公共工事を元請で受ける会社の点数が等級になる流れ。建設業の許可、経営事項審査、競争参加資格審査、等級の格付けの順に進み、完成工事の成績評定が次の審査に戻る。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-size:11px;fill:#555}.h{font-size:14px;font-weight:bold;fill:#1a3a5c}.s{fill:#1a3a5c}rect{stroke-width:1.5}</style>
+<marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+</defs>
+<!-- surface: 許可 / brand: 経審 / warn: 発注者の審査 / positive: 等級 -->
+<rect x="14" y="14" width="352" height="56" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<text class="h" x="30" y="38" style="fill:#222">建設業の許可</text>
+<text x="30" y="57">公共工事を元請として直接受ける会社の前提</text>
+<path d="M190 70V92" stroke="#2e6da4" fill="none" marker-end="url(#ar)"/>
+<rect x="14" y="94" width="352" height="108" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<text class="h" x="30" y="118">経営事項審査（経審）　毎年</text>
+<text class="s" x="30" y="138">Y 経営状況 → 登録経営状況分析機関</text>
+<text class="s" x="30" y="156">X・Z・W → 許可をした大臣または知事</text>
+<text x="30" y="178">結果は総合評定値P。有効期間は</text>
+<text x="30" y="194">審査基準日から1年7か月</text>
+<path d="M190 202V224" stroke="#2e6da4" fill="none" marker-end="url(#ar)"/>
+<rect x="14" y="226" width="352" height="104" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<text class="h" x="30" y="250">競争参加資格審査（発注者ごと）</text>
+<text class="s" x="30" y="272">客観の点（Pに由来）＋ 発注者の点（工事成績など）</text>
+<text class="s" x="30" y="290">＝ 総合点数</text>
+<text x="30" y="314">国の直轄は2年に1回の定期審査と、随時の審査</text>
+<path d="M190 330V352" stroke="#2e6da4" fill="none" marker-end="url(#ar)"/>
+<rect x="14" y="354" width="352" height="72" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<text class="h" x="30" y="378">等級に格付け（A・B・C・D など）</text>
+<text class="s" x="30" y="398">予定価格の帯ごとに区切り、</text>
+<text class="s" x="30" y="414">原則、自社の等級の工事に参加する</text>
+<rect x="14" y="438" width="352" height="50" rx="8" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+<text x="30" y="458">完成した工事の成績評定は、次の審査で</text>
+<text x="30" y="475">発注者の点に戻る（国は過去4年に完成した工事）</text>
+</svg>

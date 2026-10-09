@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="モニタリング調査で示された七つの不適切事案を三つの場面に分けた整理。見積りと代金の設定が四つ、支払が一つ、現場と施工体制が二つ。通知の趣旨は協議による適正な手順を経た契約の徹底">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .lead { fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .sec { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="lead" x="200" y="18" text-anchor="middle">元請業者の調査で示された七つの事案</text>
+
+  <rect class="b" x="20" y="28" width="360" height="138" rx="6"/>
+  <text class="h" x="36" y="50">見積りと代金の設定（四つ）</text>
+  <text x="36" y="74">・標準見積書の活用を働きかけていない</text>
+  <text x="36" y="96">・法定福利費が見積書に内訳明示されていない</text>
+  <text x="36" y="118">・合理的根拠のない大幅な値引き（指値発注）</text>
+  <text x="36" y="140">・前年度より大幅に安く、賃金上昇を妨げる単価</text>
+
+  <rect class="w" x="20" y="178" width="360" height="68" rx="6"/>
+  <text class="h" x="36" y="200">支払（一つ）</text>
+  <text x="36" y="224">・労務費相当分を現金で支払っていないおそれ</text>
+
+  <rect class="d" x="20" y="258" width="360" height="92" rx="6"/>
+  <text class="h" x="36" y="280">現場・施工体制（二つ）</text>
+  <text x="36" y="304">・社会保険の加入を確認できない作業員を入場させる</text>
+  <text x="36" y="326">・施工体制台帳・作業員名簿の確認が不十分</text>
+
+  <rect class="g" x="20" y="364" width="360" height="116" rx="6"/>
+  <text class="sec" x="36" y="386">通知の趣旨</text>
+  <text x="36" y="406">調査対象の工事に限らず、下請負人の選定に</text>
+  <text x="36" y="423">関わる全員に、見積依頼・提出を踏まえた</text>
+  <text x="36" y="440">双方の協議による適正な手順を経た契約を</text>
+  <text x="36" y="457">徹底するよう求めた（令和4年10月26日付）</text>
+</svg>

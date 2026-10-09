@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="入札前に現場を調べ、積み上げた入札用の積算と下限価格から札の金額を決める。落札後は協力会社の価格と施工方法を確定させ、実行予算にして月次で実績と比べる。二つの積算の間で前提が入れ替わり、そこに差が出る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .k { font-size: 12px; font-weight: bold; fill: #222; }
+      .s { font-size: 12px; fill: #222; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .r { fill: #fff; stroke: #d7d7d7; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle">積算は2回ある。入札用の数字を、落札後に作り直す</text>
+
+  <rect class="bb" x="20" y="28" width="360" height="172" rx="6"/>
+  <text class="h" x="36" y="50">入札前</text>
+  <text x="90" y="50">札の金額を決める</text>
+  <rect class="r" x="32" y="60" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="76">1. 現場を見る</text>
+  <text x="44" y="91">搬入路・埋設物・出水期・搬出先</text>
+  <rect class="r" x="32" y="106" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="122">2. 積み上げる</text>
+  <text x="44" y="137">数量 × 歩掛 × 単価</text>
+  <rect class="r" x="32" y="152" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="168">3. 下限を確かめて札を入れる</text>
+  <text x="44" y="183">最低制限価格・調査基準価格との関係</text>
+
+  <line x1="200" y1="200" x2="200" y2="268" stroke="#b22234" stroke-width="1.5" marker-end="url(#a)"/>
+  <rect class="bd" x="60" y="214" width="280" height="34" rx="6"/>
+  <text class="s" x="200" y="235" text-anchor="middle">ここで差が出る＝落札後に見える赤字の芽</text>
+
+  <rect class="bp" x="20" y="270" width="360" height="172" rx="6"/>
+  <text class="h" x="36" y="292">落札後</text>
+  <text x="90" y="292">原価の基準を作り直す</text>
+  <rect class="r" x="32" y="302" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="318">4. 確定させる</text>
+  <text x="44" y="333">協力会社の本見積・施工方法・数量の精査</text>
+  <rect class="r" x="32" y="348" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="364">5. 実行予算にする</text>
+  <text x="44" y="379">費目ごとに枠を割り振る</text>
+  <rect class="r" x="32" y="394" width="336" height="38" rx="4"/>
+  <text class="k" x="44" y="410">6. 月次で実績と比べる</text>
+  <text x="44" y="425">ズレの原因を費目まで追う</text>
+
+  <rect class="bw" x="20" y="454" width="360" height="34" rx="6"/>
+  <text class="s" x="200" y="475" text-anchor="middle">差を小さくする手段は、入札前の現場の事前調査</text>
+</svg>

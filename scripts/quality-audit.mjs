@@ -140,6 +140,8 @@ const CHECKS = [
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
   { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: `動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ ${datasetPath('config.video-content')}）` },
+  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R10（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
+  { id: 'registry-due', npm: 'check-registry-due', timeout: 30_000, ci: false, ops: true, note: '予約のまま公開の予定を猶予より過ぎた公開（壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue と /weekly-review。照合（registry-reconcile・P2）が公開へ進めるまでの遅れを見張る' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
 

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="対象の性質に応じて、連続体には有限要素法、無限に広がる均質な領域には境界要素法、粒やブロックの集まりには個別要素法を選ぶ分岐">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 13px; fill: #1a3a5c; } /* ink */
+    .h { font-size: 16px; font-weight: bold; }
+    .s { font-size: 12px; fill: #555; } /* ink-body */
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#m); }
+    .c { fill: #f5f5f5; stroke: #d7d7d7; } /* surface */
+  </style><marker id="m" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="20" y="20" width="360" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" /> <!-- brand -->
+  <text class="h" x="200" y="47" text-anchor="middle">対象はどんな性質か</text>
+  <text class="s" x="200" y="67" text-anchor="middle">求める量を置く場所が変わる</text>
+  <path d="M200 78V94H12V365" fill="none" stroke="#2e6da4" stroke-width="2" />
+  <path d="M12 155H30M12 260H30M12 365H30" fill="none" stroke="#2e6da4" stroke-width="2" />
+  <rect class="c" x="30" y="108" width="122" height="94" rx="8" />
+  <text x="91" y="140" text-anchor="middle">形状・材料が</text><text x="91" y="160" text-anchor="middle">場所で変わる</text><text x="91" y="180" text-anchor="middle">連続体</text>
+  <path d="M154 155H178" class="a" />
+  <rect x="180" y="108" width="200" height="94" rx="8" fill="#e8f0fe" stroke="#2e6da4" /> <!-- brand -->
+  <text class="h" x="192" y="134">有限要素法</text><text class="s" x="192" y="158">分ける範囲：領域全体</text><text class="s" x="192" y="180">確認：外縁の位置・構成則</text>
+  <rect class="c" x="30" y="213" width="122" height="94" rx="8" />
+  <text x="91" y="245" text-anchor="middle">無限に広がる</text><text x="91" y="265" text-anchor="middle">均質で線形に</text><text x="91" y="285" text-anchor="middle">近い領域</text>
+  <path d="M154 260H178" class="a" />
+  <rect x="180" y="213" width="200" height="94" rx="8" fill="#d0e8d0" stroke="#3a7d44" /> <!-- positive -->
+  <text class="h" x="192" y="239">境界要素法</text><text class="s" x="192" y="263">分ける範囲：境界だけ</text><text class="s" x="192" y="285">確認：均質とみなせるか</text>
+  <rect class="c" x="30" y="318" width="122" height="94" rx="8" />
+  <text x="91" y="350" text-anchor="middle">粒やブロックが</text><text x="91" y="370" text-anchor="middle">離れ、接触が</text><text x="91" y="390" text-anchor="middle">入れ替わる</text>
+  <path d="M154 365H178" class="a" />
+  <rect x="180" y="318" width="200" height="94" rx="8" fill="#fff3cd" stroke="#d4a017" /> <!-- warn -->
+  <text class="h" x="192" y="344">個別要素法</text><text class="s" x="192" y="368">分ける範囲：粒子ごと</text><text class="s" x="192" y="390">確認：接触の値の根拠</text>
+  <rect x="20" y="432" width="360" height="54" rx="8" fill="#e8f0fe" stroke="#2e6da4" /> <!-- brand -->
+  <text x="200" y="456" text-anchor="middle" style="font-weight:bold">優劣ではなく、対象に合うかで選ぶ</text>
+  <text class="s" x="200" y="475" text-anchor="middle">報告書で離散化の範囲を読み取る</text>
+</svg>

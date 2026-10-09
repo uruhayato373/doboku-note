@@ -385,3 +385,15 @@ export function ensureLocalFromVault(absPath) {
   });
   return r.status === 0 && existsSync(absPath);
 }
+
+/**
+ * 書き換えない group（immutable）で、置こうとしている中身が許されないときの理由（無ければ null）。
+ * 名前の sha8 が中身と違う・台帳に同じ名前で別の中身がある、のどちらも別名（sha 入り）で置き直す（DN-0589 の再発防止）。
+ */
+export function immutableConflict(group, rel, sha256, cur) {
+  if (!group?.immutable) return null;
+  const named = /\.([0-9a-f]{8})\.[a-z0-9]+$/.exec(rel)?.[1];
+  if (named && named !== String(sha256).slice(0, 8)) return '名前の sha8（' + named + '）が中身の sha256 と違う';
+  if (cur && cur.sha256 !== sha256) return '書き換えない group で台帳と中身が違う（別名で置く）';
+  return null;
+}

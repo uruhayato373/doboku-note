@@ -13,7 +13,7 @@ const href = (k: string, d?: string, f?: string) =>
 const Local = () => <StatusBadge tone="neutral" title="手元だけにあり git 管理外（CI からは見えない）">手元のみ</StatusBadge>;
 
 /**
- * /ops/store — 設定（config/）・データ（data/）・作業状態（.claude/state/）の台帳（read-only）。k=config|data|state、d=領域、f=データセット id。
+ * /ops/store — 設定（config/）・データ（data/）・作業状態（.claude/state/）・コンテンツ台帳（content/registry/）の台帳（read-only）。k=config|data|state|registry、d=領域、f=データセット id。
  * 何がどのデータかは scripts/lib/datasets.mjs の台帳が正本。型（zod）のあるものは型の定義と検査結果、
  * 無いものは最新ファイルの実物から読んだ形を出す。書き換えはファイルと PR で行う。
  * 資格の正本（qualification-registry.json）を開いたときは、中身と名前の写しの検査結果を型の上に出す（旧 /ops/ssot）。

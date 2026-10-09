@@ -77,6 +77,15 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
 
+## コンテンツ（公開）の正本（2026-10-09）
+
+YouTube・Shorts・Instagram・X などの公開の事実は `content/registry/`（作品・公開・素材の 3 表）を正本にする。設計は [content-registry.md](content-registry.md)。
+
+- DB サーバーは置かない。型つき JSON（台帳 `scripts/lib/datasets.mjs` の `registry.*`・zod は `dataset-schemas-content.mjs`）が正本で、索引（`npm run registry -- index`）は作り直せる生成物。商品（`config/products.json`）と同じ形。
+- 商品と違い全件 1 ファイルにはせず、チャネル×資格ごとに分ける。CI の照合（予約→公開）と手元の承認が同じ台帳を書くため（「書き手か書く時期が違うものは統合しない」）。作品ごと（約 1,000 ファイル）にしないのは、管理画面がファイル数に比例して遅くなるため。
+- 観測（再生数・一覧・反応）は `data/` に残し、状態を持たせない。CI の照合が書けるのは証拠のある前進（`scheduled→published`）だけ。
+- 切り替え前のチャネルは今の台帳（`.claude/state/video-content-status.json` など）が正本で、台帳の行はその写し（`check-content-registry` の R09 がずれを止める）。
+
 ## 設定・記録の構成と型の正本（2026-10-02）
 
 **決定: `config/`・`data/` の全ファイルを台帳 `scripts/lib/datasets.mjs` で宣言し、型（zod・`scripts/lib/dataset-schemas.mjs`）をそこへ結びつける。JSON Schema は zod から生成する。フォルダの移動とファイルの統合は台帳ができてから、取得元ごとに小分けで行い、統合で JSON ファイルを減らす。**

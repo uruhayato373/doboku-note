@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="情報事故の初動を、気づいた本人、責任者、会社の三段に分けた図。本人が止めて残して一報し、責任者が範囲を特定して連絡し、会社が報告の要否を判断して再発を防ぐ">
+  <defs>
+    <style>
+      text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; font-size: 15px; }
+      .h { font-size: 18px; font-weight: bold; }
+      .t { font-size: 12px; fill: #555; text-anchor: end; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+    </style>
+    <!-- brand / warn / positive / ink-body tokens -->
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="24" y="24" width="352" height="140" rx="8" class="brand" />
+  <text x="44" y="56" class="h">気づいた本人</text>
+  <text x="356" y="55" class="t">直後</text>
+  <text x="44" y="92">止める：取消し・リンクや鍵の無効化</text>
+  <text x="44" y="118">残す：送信履歴と画面はそのまま</text>
+  <text x="44" y="144">一報：すぐ責任者へ連絡</text>
+  <path d="M200 168V196" class="arrow" />
+  <rect x="24" y="200" width="352" height="116" rx="8" class="warn" />
+  <text x="44" y="232" class="h">責任者</text>
+  <text x="356" y="231" class="t">続けて</text>
+  <text x="44" y="268">特定：資料・情報の種類・送信先・件数</text>
+  <text x="44" y="294">連絡：発注者・協力会社・本人の順を決める</text>
+  <path d="M200 320V348" class="arrow" />
+  <rect x="24" y="352" width="352" height="116" rx="8" class="positive" />
+  <text x="44" y="384" class="h">会社</text>
+  <text x="356" y="383" class="t">期限内に</text>
+  <text x="44" y="420">報告：法令上の報告が要るかを判断</text>
+  <text x="44" y="446">再発防止：入れない情報の一覧・権限を直す</text>
+</svg>

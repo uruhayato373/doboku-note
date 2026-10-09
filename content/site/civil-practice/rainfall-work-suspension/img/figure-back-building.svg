@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="バックビルディング型の線状降水帯を上から見た図。風上側で次の積乱雲が育ち続け、先の雲は風下へ流れて衰えるが、雨域の帯は同じ場所に残る" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="wd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="dd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <!-- 上空の風: brand -->
+  <text x="30" y="40" font-size="12" font-weight="bold" fill="#1a3a5c">上空の風</text>
+  <path d="M98 36 H372" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#wd)"/>
+  <g font-size="11" fill="#555">
+    <text x="30" y="90">風上</text>
+    <text x="370" y="90" text-anchor="end">風下</text>
+  </g>
+  <!-- 雨域の帯: danger -->
+  <rect x="30" y="100" width="340" height="84" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <!-- 積乱雲の一生: brand / surface -->
+  <circle cx="62" cy="142" r="12" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="124" cy="142" r="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="202" cy="142" r="27" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/>
+  <circle cx="282" cy="142" r="20" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <circle cx="346" cy="142" r="13" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <g font-size="12" fill="#555" text-anchor="middle">
+    <text x="62" y="208">発生</text>
+    <text x="124" y="208">発達</text>
+    <text x="202" y="208">最盛</text>
+    <text x="282" y="208">衰弱</text>
+    <text x="346" y="208">消滅</text>
+  </g>
+  <!-- 読み取りの要点 -->
+  <g stroke="#d7d7d7" stroke-width="1"><path d="M30 238 H370 M30 296 H370 M30 354 H370 M30 412 H370"/></g>
+  <circle cx="46" cy="267" r="11" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="46" cy="325" r="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="32" y="376" width="28" height="18" rx="5" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M32 441 H60" stroke="#555" stroke-width="1.5" fill="none" marker-start="url(#dd)" marker-end="url(#dd)"/>
+  <g font-size="13" fill="#222">
+    <text x="76" y="272">風上で次の雲が育ち続ける</text>
+    <text x="76" y="330">先にできた雲は風下へ流れて衰える</text>
+    <text x="76" y="386">雲が抜けても、雨域の帯は残る</text>
+    <text x="76" y="446">長さ50〜300km程度・幅20〜50km程度</text>
+  </g>
+</svg>

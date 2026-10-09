@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="緊急地震速報が出るまでの流れ。P波の検知、震源と規模の推定、警報の発表条件、地域名での伝達、S波の到達の順に並べ、情報の限界を添えた">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif}
+.a{font-size:12px;fill:#222}.ab{font-size:12px;font-weight:bold;fill:#1a3a5c}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{font-size:11px;fill:#555}
+.ac{font-size:12px;fill:#222;text-anchor:middle}.abc{font-size:12px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.hc{font-size:13px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.sc{font-size:11px;fill:#555;text-anchor:middle}.se{font-size:11px;fill:#555;text-anchor:end}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.bx{fill:#fff;stroke:#2e6da4;stroke-width:1.5}
+</style>
+<marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/></marker></defs>
+<rect class="bb" x="20" y="14" width="360" height="62" rx="8"/>
+<circle class="bx" cx="46" cy="45" r="13"/>
+<text class="abc" x="46" y="50">1</text>
+<text class="ab" x="70" y="41">震源近くの観測点がP波を検知</text>
+<text class="s" x="70" y="61">先に届くP波（秒速約7km）をとらえる</text>
+<line x1="200" y1="76" x2="200" y2="90" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bb" x="20" y="92" width="360" height="62" rx="8"/>
+<circle class="bx" cx="46" cy="123" r="13"/>
+<text class="abc" x="46" y="128">2</text>
+<text class="ab" x="70" y="119">震源と規模を自動で推定</text>
+<text class="s" x="70" y="139">各地の震度と揺れの到達時刻を予測する</text>
+<line x1="200" y1="154" x2="200" y2="168" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bw" x="20" y="170" width="360" height="62" rx="8"/>
+<circle class="bx" cx="46" cy="201" r="13"/>
+<text class="abc" x="46" y="206">3</text>
+<text class="ab" x="70" y="197">条件を満たせば警報を発表</text>
+<text class="s" x="70" y="217">2点以上で観測し、最大震度5弱以上と予想</text>
+<line x1="200" y1="232" x2="200" y2="246" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bp" x="20" y="248" width="360" height="62" rx="8"/>
+<circle class="bx" cx="46" cy="279" r="13"/>
+<text class="abc" x="46" y="284">4</text>
+<text class="ab" x="70" y="275">地域名で知らせる</text>
+<text class="s" x="70" y="295">予測震度や猶予時間の値は示さない</text>
+<line x1="200" y1="310" x2="200" y2="324" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="bd" x="20" y="326" width="360" height="62" rx="8"/>
+<circle class="bx" cx="46" cy="357" r="13"/>
+<text class="abc" x="46" y="362">5</text>
+<text class="ab" x="70" y="353">強い揺れ（S波）が到達</text>
+<text class="s" x="70" y="373">身を守れる猶予は数秒〜数十秒</text>
+<rect class="bs" x="20" y="406" width="360" height="80" rx="8"/>
+<text class="ab" x="34" y="430">情報の限界</text>
+<text class="s" x="34" y="452">震源に近い地域では強い揺れに間に合わないことがある</text>
+<text class="s" x="34" y="472">予想震度には1階級程度の誤差がある</text>
+</svg>

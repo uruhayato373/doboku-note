@@ -25,6 +25,8 @@ export const AREAS = {
   config: { dir: 'config', label: '設定', strict: true },
   data: { dir: 'data', label: 'データ', strict: true },
   state: { dir: '.claude/state', label: '作業状態', strict: false },
+  // 公開の事実の正本（content-registry.md）。書き手は npm run registry・npm run media だけ
+  registry: { dir: 'content/registry', label: 'コンテンツ台帳', strict: true },
 };
 
 export const KINDS = {
@@ -140,6 +142,15 @@ export const DATASETS = [
   d('config.youtube-delivery', 'config/youtube-delivery.json', 'config', 'sns', 'YouTube 配信の設定', { schema: 'ConfigYoutubeDelivery' }),
   d('config.youtube-production-disclosure', 'config/youtube-production-disclosure.json', 'config', 'sns', 'YouTube の制作の開示（合成メディア）', { schema: 'ConfigYoutubeProductionDisclosure' }),
   d('config.youtube-formats', 'config/youtube-formats.json', 'config', 'sns', 'YouTube の動画の型と採否（商品展開）・自社チャンネル', { schema: 'ConfigYoutubeFormats' }),
+  d('config.content-registry', 'config/content-registry.json', 'config', 'sns', 'コンテンツ台帳の設定（チャネル×形式・ID 規則・状態の語彙と遷移・切り替え済みのチャネル）', { schema: 'ConfigContentRegistry' }),
+  // コンテンツ台帳（content/registry）。資格ごとの 1 ファイル。設計は content-registry.md
+  d('registry.works', 'content/registry/works/{name}', 'config', 'sns', 'コンテンツ台帳: 作品（資格ごと）', { schema: 'RegistryWorks' }),
+  d('registry.youtube', 'content/registry/publications/youtube/{name}', 'config', 'sns', 'コンテンツ台帳: YouTube の公開（資格ごと）', { schema: 'RegistryPublications' }),
+  d('registry.instagram', 'content/registry/publications/instagram/{name}', 'config', 'sns', 'コンテンツ台帳: Instagram の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.x', 'content/registry/publications/x/{name}', 'config', 'sns', 'コンテンツ台帳: X の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.threads', 'content/registry/publications/threads/{name}', 'config', 'sns', 'コンテンツ台帳: Threads の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.tiktok', 'content/registry/publications/tiktok/{name}', 'config', 'sns', 'コンテンツ台帳: TikTok の公開（資格ごと）', { schema: 'RegistryPublications', planned: true }),
+  d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
   // 管理
@@ -375,7 +386,7 @@ export function patternOf(path) {
   return compiled.get(path);
 }
 
-/** データセットの置き場（AREAS のキー）。どの置き場にも無い（Drive vault の写しが content/ にある）ときは null */
+/** データセットの置き場（AREAS のキー）。content/registry のような 2 階層の置き場もあるので dir の前方一致で引く。どの置き場にも無い（Drive vault の写しが content/ にある）ときは null */
 export const areaOf = (dataset) => Object.keys(AREAS).find((k) => dataset.path.startsWith(`${AREAS[k].dir}/`)) ?? null;
 export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
 
@@ -567,6 +578,7 @@ export function pathMatchesId(dataset) {
   const source = dataset.id.split('.')[0];
   if (source === 'config') return dataset.path.startsWith('config/');
   if (source === 'state') return dataset.path.startsWith(`${AREAS.state.dir}/`);
+  if (source === 'registry') return dataset.path.startsWith(`${AREAS.registry.dir}/`);
   if (source === 'vault') return !!dataset.drive && areaOf(dataset) === null;
   return dataset.path.startsWith(`data/${source}/`) || dataset.path.startsWith(`data/${source}.`);
 }

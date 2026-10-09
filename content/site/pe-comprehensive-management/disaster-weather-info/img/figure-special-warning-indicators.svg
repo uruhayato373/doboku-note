@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="特別警報の指標を、雨量の指数・水位と潮位・台風の強度・積雪深・地震と津波と噴火の5系統に仕分けた整理図。氾濫・大雨・土砂災害・高潮の4種は警戒レベル5相当">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .tag { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .sub { fill: #555; text-anchor: middle; }
+      .red { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .blue { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .gray { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .body { fill: #fff; stroke: #d7d7d7; stroke-width: 1; }
+      .k { fill: #222; }
+    </style>
+  </defs>
+
+  <rect class="red" x="14" y="14" width="104" height="78" rx="6"/>
+  <text class="tag" x="66" y="46">雨量の指数</text>
+  <text class="sub" x="66" y="66">大雨・土砂災害</text>
+  <rect class="body" x="122" y="14" width="264" height="78" rx="6"/>
+  <g class="k" font-size="11">
+    <text x="130" y="32">大雨：表面雨量指数で30格子、</text>
+    <text x="130" y="48">　　または流域雨量指数で20格子</text>
+    <text x="130" y="64">土砂：60分雨量と土壌雨量指数で</text>
+    <text x="130" y="80">　　10格子（1km四方・降り続く予想）</text>
+  </g>
+
+  <rect class="red" x="14" y="100" width="104" height="78" rx="6"/>
+  <text class="tag" x="66" y="132">水位・潮位</text>
+  <text class="sub" x="66" y="152">氾濫・高潮</text>
+  <rect class="body" x="122" y="100" width="264" height="78" rx="6"/>
+  <g class="k" font-size="11">
+    <text x="130" y="118">氾濫：水位が著しく危険な値以上</text>
+    <text x="130" y="134">　　が続く予想、または氾濫発生</text>
+    <text x="130" y="150">高潮：潮位・水位が浸水の値以上</text>
+    <text x="130" y="166">　　が続く予想、または浸水発生</text>
+  </g>
+
+  <rect class="blue" x="14" y="186" width="104" height="78" rx="6"/>
+  <text class="tag" x="66" y="214">台風の強度</text>
+  <text class="sub" x="66" y="234">暴風・暴風雪</text>
+  <text class="sub" x="66" y="250">波浪</text>
+  <rect class="body" x="122" y="186" width="264" height="78" rx="6"/>
+  <g class="k" font-size="11">
+    <text x="130" y="204">中心気圧930hPa以下、または最大風速</text>
+    <text x="130" y="220">50m/s以上の台風や同程度の温帯低気圧</text>
+    <text x="130" y="236">暴風・波浪の沖縄・奄美・小笠原は</text>
+    <text x="130" y="252">910hPa以下／60m/s以上</text>
+  </g>
+
+  <rect class="blue" x="14" y="272" width="104" height="78" rx="6"/>
+  <text class="tag" x="66" y="304">積雪深</text>
+  <text class="sub" x="66" y="324">大雪</text>
+  <rect class="body" x="122" y="272" width="264" height="78" rx="6"/>
+  <g class="k" font-size="11">
+    <text x="130" y="290">府県程度の広がりで</text>
+    <text x="130" y="306">50年に一度の積雪深となり、</text>
+    <text x="130" y="322">その後も警報級の降雪が</text>
+    <text x="130" y="338">丸一日程度以上続く予想</text>
+  </g>
+
+  <rect class="gray" x="14" y="358" width="104" height="78" rx="6"/>
+  <text class="tag" x="66" y="390" style="font-size:11px">地震・津波・噴火</text>
+  <text class="sub" x="66" y="410">名称は従来のまま</text>
+  <rect class="body" x="122" y="358" width="264" height="78" rx="6"/>
+  <g class="k" font-size="11">
+    <text x="130" y="376">大津波警報：津波の高さ3m超</text>
+    <text x="130" y="392">緊急地震速報：震度6弱以上、</text>
+    <text x="130" y="408">　　または長周期地震動階級4</text>
+    <text x="130" y="424">噴火警報（居住地域）</text>
+  </g>
+
+  <rect class="red" x="14" y="452" width="12" height="12" rx="2"/>
+  <text x="34" y="462">警戒レベル5相当の特別警報（氾濫・大雨・土砂災害・高潮）</text>
+  <rect class="blue" x="14" y="468" width="12" height="12" rx="2"/>
+  <text x="34" y="478">警戒レベルには相当しない特別警報</text>
+  <rect class="gray" x="14" y="484" width="12" height="12" rx="2"/>
+  <text x="34" y="494">津波・地震動・噴火は警報の名称のまま特別警報に位置づけ</text>
+</svg>

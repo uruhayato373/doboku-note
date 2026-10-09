@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="AIが挙げた危険源を責任者が現場の状況で採る、要確認、捨てるに分け、採る案と確かめた案だけを確定版にする流れ">
+  <defs>
+    <style>
+      text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; fill: #1a3a5c; font-size: 14px; text-anchor: middle; }
+      .h { font-size: 18px; font-weight: bold; }
+      .s { font-size: 12px; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#a); }
+    </style>
+    <!-- brand / warn / positive / surface tokens -->
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="40" y="24" width="320" height="76" rx="8" class="brand" />
+  <text x="200" y="55" class="h" text-anchor="middle">AIが危険源を広く列挙</text>
+  <text x="200" y="82" text-anchor="middle" font-size="14">工種・順序・機械・近接作業を渡す</text>
+  <path d="M200 104V134" class="arrow" />
+  <rect x="40" y="143" width="320" height="76" rx="8" class="warn" />
+  <text x="200" y="174" class="h" text-anchor="middle">責任者が現場の状況で取捨</text>
+  <text x="200" y="201" text-anchor="middle" font-size="14">地形・仮設・人員・隣接作業</text>
+  <path d="M80 223V263" class="arrow" />
+  <path d="M200 223V263" class="arrow" />
+  <path d="M320 223V263" class="arrow" />
+  <rect x="24" y="272" width="112" height="84" rx="8" class="positive" />
+  <text x="80" y="302" class="h" text-anchor="middle">採る</text>
+  <text x="80" y="326" class="s" text-anchor="middle">実行できる形に</text>
+  <text x="80" y="344" class="s" text-anchor="middle">直す</text>
+  <rect x="144" y="272" width="112" height="84" rx="8" class="warn" />
+  <text x="200" y="302" class="h" text-anchor="middle">要確認</text>
+  <text x="200" y="326" class="s" text-anchor="middle">現場で確かめて</text>
+  <text x="200" y="344" class="s" text-anchor="middle">結論を出す</text>
+  <rect x="264" y="272" width="112" height="84" rx="8" class="surface" />
+  <text x="320" y="302" class="h" text-anchor="middle">捨てる</text>
+  <text x="320" y="326" class="s" text-anchor="middle">理由を一行残す</text>
+  <path d="M80 360V400" class="arrow" />
+  <path d="M200 360V400" class="arrow" />
+  <path d="M320 360V400" class="arrow" />
+  <rect x="24" y="409" width="232" height="68" rx="8" class="brand" />
+  <text x="140" y="439" class="h" text-anchor="middle">確定版を責任者が承認</text>
+  <text x="140" y="463" text-anchor="middle" font-size="14">要確認は確かめた結果だけ反映</text>
+  <rect x="264" y="409" width="112" height="68" rx="8" class="surface" />
+  <text x="320" y="439" class="h" text-anchor="middle">記録</text>
+  <text x="320" y="463" class="s" text-anchor="middle">見直しに使う</text>
+</svg>

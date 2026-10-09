@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "civil-construction-2",
+  "publications": [
+    {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
+      "work": "matome-2kyu-chokuzen",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed",
+      "copy": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/youtube.json#longform",
+      "publishAt": "2026-10-23T20:00:00+09:00",
+      "media": {
+        "cover": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover",
+        "cta": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cta",
+        "video": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video",
+        "subtitles": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/subtitles"
+      }
+    }
+  ]
+}

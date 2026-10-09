@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="本激と局激の比較図。対象になる災害、指定の単位、判断の材料、政令の時期、年度末を待たない指定の五つの観点で、本激（激甚災害）と局激（局地激甚災害）を左右に並べた">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif}
+.a{font-size:12px;fill:#222}.ab{font-size:12px;font-weight:bold;fill:#1a3a5c}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{font-size:11px;fill:#555}
+.ac{font-size:12px;fill:#222;text-anchor:middle}.abc{font-size:12px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.hc{font-size:13px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.sc{font-size:11px;fill:#555;text-anchor:middle}.se{font-size:11px;fill:#555;text-anchor:end}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.bx{fill:#fff;stroke:#2e6da4;stroke-width:1.5}
+</style>
+<marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/></marker></defs>
+<rect class="bb" x="14" y="14" width="184" height="36" rx="6"/>
+<text class="hc" x="106" y="37">本激（激甚災害）</text>
+<rect class="bw" x="202" y="14" width="184" height="36" rx="6"/>
+<text class="hc" x="294" y="37">局激（局地激甚災害）</text>
+<text class="sc" x="200" y="66">対象になる災害</text>
+<rect class="bb" x="14" y="72" width="184" height="48" rx="6"/>
+<rect class="bw" x="202" y="72" width="184" height="48" rx="6"/>
+<text class="ab" x="24" y="92">全国規模の指定基準を満たす</text>
+<text class="s" x="24" y="110">A基準・B基準で判断</text>
+<text class="ab" x="212" y="92">本激の基準に満たない災害</text>
+<text class="s" x="212" y="110">市町村ごとの基準で判断</text>
+<text class="sc" x="200" y="134">指定の単位</text>
+<rect class="bb" x="14" y="140" width="184" height="48" rx="6"/>
+<rect class="bw" x="202" y="140" width="184" height="48" rx="6"/>
+<text class="ab" x="24" y="160">災害と措置を指定</text>
+<text class="s" x="24" y="178">対象区域は指定しない</text>
+<text class="ab" x="212" y="160">災害・措置・区域を指定</text>
+<text class="s" x="212" y="178">区域は市町村単位で明示</text>
+<text class="sc" x="200" y="202">判断の材料</text>
+<rect class="bb" x="14" y="208" width="184" height="48" rx="6"/>
+<rect class="bw" x="202" y="208" width="184" height="48" rx="6"/>
+<text class="ab" x="24" y="228">査定見込額で判断</text>
+<text class="s" x="24" y="246">全国・都道府県単位</text>
+<text class="ab" x="212" y="228">査定事業費で判断</text>
+<text class="s" x="212" y="246">市町村ごと</text>
+<text class="sc" x="200" y="270">政令の時期</text>
+<rect class="bb" x="14" y="276" width="184" height="48" rx="6"/>
+<rect class="bw" x="202" y="276" width="184" height="48" rx="6"/>
+<text class="ab" x="24" y="296">災害ごとに政令</text>
+<text class="s" x="24" y="314">発災から1〜2か月が通例</text>
+<text class="ab" x="212" y="296">年度末に一括して政令</text>
+<text class="s" x="212" y="314">例年3月中旬ごろ</text>
+<text class="sc" x="200" y="338">年度末を待たない指定</text>
+<rect class="bs" x="14" y="344" width="184" height="60" rx="6"/>
+<rect class="bw" x="202" y="344" width="184" height="60" rx="6"/>
+<text class="ab" x="24" y="363">もともと災害ごと</text>
+<text class="s" x="24" y="380">年度末を待つ仕組みではない</text>
+<text class="ab" x="212" y="363">早期局激</text>
+<text class="s" x="212" y="380">基準の2倍超と見込まれる</text>
+<text class="s" x="212" y="396">災害は年度途中に指定</text>
+<rect class="bp" x="14" y="416" width="372" height="70" rx="8"/>
+<text class="ab" x="26" y="438">どちらも同じ激甚法の特例措置</text>
+<text class="s" x="26" y="456">国庫補助率のかさ上げなど。同じ措置の二重適用はない</text>
+<text class="s" x="26" y="474">別の種類の措置なら、本激と局激の併用もある</text>
+</svg>

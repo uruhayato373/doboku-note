@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="共同施工方式（甲型）は構成員全員で一つの工事を施工し、全員が技術者を置く。分担施工方式（乙型）は分担工事ごとに監理技術者の要否と専任を判定する">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:13px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:11px;font-weight:bold;fill:#1a3a5c}
+.s{font-size:11px;fill:#555}
+.b{font-weight:bold}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}
+.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}</style></defs>
+<text class="s" x="200" y="18" text-anchor="middle">共同企業体は、構成員ごとに技術者を置く</text>
+<rect class="bb" x="12" y="30" width="183" height="48" rx="6"/>
+<text class="h" x="103" y="52" text-anchor="middle">共同施工方式</text>
+<text class="s" x="103" y="69" text-anchor="middle">（一般に甲型）</text>
+<rect class="bp" x="205" y="30" width="183" height="48" rx="6"/>
+<text class="h" x="297" y="52" text-anchor="middle">分担施工方式</text>
+<text class="s" x="297" y="69" text-anchor="middle">（一般に乙型）</text>
+<rect class="bs" x="12" y="90" width="183" height="176" rx="6"/>
+<rect class="bs" x="205" y="90" width="183" height="176" rx="6"/>
+<text class="b" x="103" y="114" text-anchor="middle">一つの工事を全員で施工</text>
+<text class="b" x="297" y="114" text-anchor="middle">工区を分けて分担</text>
+<rect class="bb" x="24" y="126" width="76" height="66" rx="6"/>
+<text class="b" x="62" y="150" text-anchor="middle">A社</text>
+<text x="62" y="172" text-anchor="middle">監理技術者</text>
+<rect class="bb" x="107" y="126" width="76" height="66" rx="6"/>
+<text class="b" x="145" y="150" text-anchor="middle">B社</text>
+<text x="145" y="172" text-anchor="middle">主任技術者</text>
+<rect class="bp" x="217" y="126" width="76" height="66" rx="6"/>
+<text class="b" x="255" y="150" text-anchor="middle">工区1</text>
+<text x="255" y="172" text-anchor="middle">A社が施工</text>
+<rect class="bp" x="300" y="126" width="76" height="66" rx="6"/>
+<text class="b" x="338" y="150" text-anchor="middle">工区2</text>
+<text x="338" y="172" text-anchor="middle">B社が施工</text>
+<text x="22" y="216">特定建設業者の構成員</text>
+<text x="22" y="234">1社以上が監理技術者、</text>
+<text x="22" y="252">ほかは主任技術者を置く</text>
+<text x="215" y="216">各社が、自分の分担工事</text>
+<text x="215" y="234">について技術者の種類と</text>
+<text x="215" y="252">専任を判定する</text>
+<text class="k" x="12" y="292">金額の基準（建築一式工事は監理技術者8,000万円、専任9,000万円）</text>
+<rect class="bs" x="12" y="302" width="183" height="170" rx="6"/>
+<rect class="bs" x="205" y="302" width="183" height="170" rx="6"/>
+<text class="k" x="22" y="330">監理技術者を置く</text>
+<text x="22" y="352">下請契約の額が</text>
+<text x="22" y="370">5,000万円以上</text>
+<text class="k" x="22" y="410">専任</text>
+<text x="22" y="432">請負金額が</text>
+<text x="22" y="450">4,500万円以上</text>
+<text class="k" x="215" y="330">監理技術者を置く</text>
+<text x="215" y="352">分担工事の下請契約の額が</text>
+<text x="215" y="370">5,000万円以上</text>
+<text class="k" x="215" y="410">専任</text>
+<text x="215" y="432">分担工事の請負金額が</text>
+<text x="215" y="450">4,500万円以上</text>
+</svg>
