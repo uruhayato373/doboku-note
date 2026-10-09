@@ -32,6 +32,7 @@
     "audit-note-funnel": "node scripts/audit-note-funnel.mjs",
     "audit-pe-textbook-keyword-coverage": "node scripts/audit-pe-textbook-keyword-coverage.mjs",
     "audit-reference-book-coverage": "node scripts/audit-reference-book-coverage.mjs",
+    "data": "node scripts/data.mjs",
     "audit-svg": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs",
     "audit-svg:ci": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH",
     "build": "node scripts/clean-build-output.mjs && npm run refresh-indexes && next build && npx pagefind --site out --output-path out/pagefind && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",

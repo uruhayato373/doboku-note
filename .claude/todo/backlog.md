@@ -553,10 +553,6 @@
 2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
 
 
-### [DN-0585] 台帳の id でデータを一覧・取得・絞り込みする共通の入口を作る（npm run data -- list/get/query。管理画面からも）
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
-
-段階2（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。DB を置かずに SELECT 相当を台帳 scripts/lib/datasets.mjs の id で引けるようにする。list <id>（ファイル一覧と件数）・get <id> [--values]（中身）・query <id> --where <欄=値>（JSON の配列・対応表の行を絞る）。Drive vault の写し（drive）が手元に無ければ drive-vault-sync --pull を案内する。管理画面 /ops/store の詳細から同じ関数を呼ぶ。完了条件: 3 つの操作のテスト・commands.md に 1 行・管理画面で 1 データセットを絞り込める。前提: 段階1（PR #927 に積んだ .claude/state の台帳化）がマージ済み
 
 
 
