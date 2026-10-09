@@ -84,12 +84,13 @@ export const RegistryWorks = z
 const Approval = z
   .object({
     by: z.literal('user').describe('承認できるのは運営者だけ'),
-    at: utcTime('承認した時刻'),
-    contentSha256: sha256.nullable().describe('承認した中身のハッシュ（approvalHash）。過去の承認は null'),
-    grandfathered: z.boolean().optional().describe('ハッシュの無い過去の承認を取り込んだもの'),
+    at: utcTime('承認した時刻').optional().describe('承認した時刻（ハッシュの無い承認では記録の無いことがある）'),
+    contentSha256: sha256.nullable().describe('承認した中身のハッシュ（approvalHash）。ハッシュの無い承認は null'),
+    grandfathered: z.boolean().optional().describe('ハッシュの無い承認（今の動画の台帳の approvedBy を写したもの）'),
     scope: z.string().optional().describe('一括承認の範囲（例: campaign:<id>）'),
   })
-  .strict();
+  .strict()
+  .refine((a) => a.at || a.grandfathered, { message: 'ハッシュつきの承認には at が要る' });
 
 const Platform = z
   .object({
@@ -98,6 +99,8 @@ const Platform = z
     url: z.string().url().optional(),
     kind: z.string().optional().describe('外部 ID の種類（例: business-suite）'),
     publishedAt: utcTime('公開を確認した時刻').optional(),
+    relatedVideoId: z.string().min(1).nullable().optional().describe('YouTube 上で今つながっている関連動画（Shorts → 通常動画）。null は未設定を確かめたもの'),
+    desiredRelatedVideoId: z.string().min(1).optional().describe('つなぎたい関連動画の videoId'),
     evidence: z.object({ kind: z.string(), ref: z.string() }).strict().optional().describe('公開・予約を確かめた証拠'),
   })
   .strict();
@@ -124,6 +127,47 @@ const Publication = z
     relatedTo: z.string().optional().describe('関連動画（Shorts → 通常動画）の公開 ID'),
     campaigns: z.array(z.string()).optional(),
     sync: z.object({ syncedSha256: sha256, at: utcTime('同期した時刻') }).strict().optional().describe('外部へ最後に同期した中身'),
+    times: z
+      .object({
+        rendered: utcTime('描いた時刻').optional(),
+        uploaded: utcTime('非公開で上げた時刻').optional(),
+        scheduled: utcTime('予約した時刻').optional(),
+        metadataSynced: utcTime('題名・概要欄・開示の欄を同期した時刻').optional(),
+      })
+      .strict()
+      .optional()
+      .describe('作業の時刻（今の動画の台帳の renderedAt・uploadedAt・scheduledAt・metadataSyncedAt）'),
+    disclosure: z
+      .object({ production: z.string().min(1).optional(), syntheticMedia: z.boolean().optional() })
+      .strict()
+      .optional()
+      .describe('制作の開示（productionDisclosure・containsSyntheticMedia）'),
+    thumbnail: z
+      .object({
+        status: z.enum(['pending', 'set']).optional(),
+        setAt: utcTime('サムネイルを設定した時刻').optional(),
+        update: z
+          .object({
+            verifiedAt: offsetTime('Studio で確かめた時刻'),
+            method: z.string(),
+            designPath: z.string(),
+            coverKey: z.string(),
+            uploadedSha256: sha256,
+            saveConfirmed: z.boolean(),
+            visualVerifiedIn: z.string(),
+            publicFeedVerified: z.boolean(),
+            metadataUnchanged: z.boolean(),
+            videoFileChanged: z.boolean(),
+            privacyBefore: z.string(),
+            privacyAfter: z.string(),
+            relatedVideoIdUnchanged: z.string().optional(),
+          })
+          .strict()
+          .optional()
+          .describe('公開後にサムネイルを差し替えた記録'),
+      })
+      .strict()
+      .optional(),
     stopReason: z.enum(STOP_REASONS).optional(),
     error: z.string().optional(),
     reason: z.string().optional(),

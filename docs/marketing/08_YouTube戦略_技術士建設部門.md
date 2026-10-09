@@ -50,7 +50,7 @@
 
 ## 3. チャネル設計
 
-- 二層構造・制作パイプライン・実行環境分担は 05 §3/§5 と共通（同一チャンネル・同一 TTS 基盤）。建設部門固有の台帳は作らず、公開状態は `.claude/state/video-content-status.json` に一元化
+- 二層構造・制作パイプライン・実行環境分担は 05 §3/§5 と共通（同一チャンネル・同一 TTS 基盤）。建設部門固有の台帳は作らず、公開状態はコンテンツ台帳（`content/registry/`）に一元化
 - UTM: `utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content=longform|shorts`（video-content-policy 準拠）
 - **1動画1主CTA**: 科目別動画→当該科目マガジン／必須Ⅰ系→required マガジン／横断・学習法系→`/links`・無料もくじ（note n7279ca0d926f）。diagnosis 系の受け皿が無い間は links-hub へ送り、悩みの深い視聴者はもくじ経由で誌面へ
 

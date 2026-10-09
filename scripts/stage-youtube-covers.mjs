@@ -9,6 +9,7 @@ import { GetObjectCommand, PutObjectCommand, DeleteObjectCommand, HeadObjectComm
 import { loadEnvLocal, makeS3 } from './lib/asset-storage.mjs';
 import { loadCoverSources } from './lib/youtube-cover-rollout.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
+import { isAdoptedPngPath } from './lib/media-paths.mjs';
 
 const BUCKET = 'doboku-note-archive';
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -18,7 +19,7 @@ export function approvedCoverTransfers(sources) {
   const rows = new Map();
   for (const { spec } of sources) {
     const image = spec.approvedImage;
-    if (!image || !/^\.tmp\/video-render\/[a-z0-9-]+\/[a-z0-9-]+\.png$/.test(image.path ?? '') ||
+    if (!image || !isAdoptedPngPath(image.path) ||
         !/^[a-f0-9]{64}$/.test(image.sha256 ?? '') || image.specSha256 !== coverInputDigest(spec)) {
       throw new Error('Invalid or stale approved cover');
     }

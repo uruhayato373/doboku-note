@@ -10,3 +10,10 @@ test('handoff rejects zero checks, absent Drive registration and changed input',
  assert.ok(checkHandoffEntries([spec],{}).length);
  assert.ok(checkHandoffEntries([{...spec,headline:['変更']}],entries).length);
 });
+test('handoff accepts covers moved to the ID-based content-media group, not other groups',()=>{
+ const spec={headline:['題名']};spec.approvedImage={path:'.tmp/media/civil-construction-2/x-pack/youtube.longform/cover.aaaaaaaa.png',sha256:'a'.repeat(64),specSha256:coverInputDigest(spec)};
+ const entry={sha256:spec.approvedImage.sha256,verifiedAt:'2026-10-09',driveFileId:'id'};
+ assert.equal(checkHandoffEntries([spec],{[spec.approvedImage.path]:{...entry,group:'content-media'}}).length,0);
+ assert.ok(checkHandoffEntries([spec],{[spec.approvedImage.path]:{...entry,group:'video-render-artifact'}}).length);
+ assert.ok(checkHandoffEntries([spec],{[spec.approvedImage.path]:{...entry,group:'content-media',driveFileId:undefined}}).length);
+});

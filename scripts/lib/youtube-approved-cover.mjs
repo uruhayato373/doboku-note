@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { ensureLocalFromVault } from './drive-vault.mjs';
+import { isAdoptedPngPath } from './media-paths.mjs';
 
 export const coverInputDigest = spec => {
   const { approvedImage: _image, ...input } = spec;
@@ -13,7 +14,7 @@ export const coverInputDigest = spec => {
 export async function readApprovedCover(root, spec, layout) {
   const image = spec.approvedImage;
   if (!image) return null;
-  if (!/^\.tmp\/video-render\/[a-z0-9-]+\/[a-z0-9-]+\.png$/.test(image.path ?? '') ||
+  if (!isAdoptedPngPath(image.path) ||
       !/^[a-f0-9]{64}$/.test(image.sha256 ?? '') || image.specSha256 !== coverInputDigest(spec)) {
     throw new Error('approvedImage のパス・hash・入力が不正、または採用後に見出し/ポーズが変更されています');
   }
@@ -26,7 +27,7 @@ export async function readApprovedCover(root, spec, layout) {
 
 /** Full-frame artwork shared by covers and authored CTA cards. */
 export async function readVerifiedVideoPng(root, image, layout) {
-  if (!/^\.tmp\/video-render\/[a-z0-9-]+\/[a-z0-9-]+\.png$/.test(image?.path ?? '') ||
+  if (!isAdoptedPngPath(image?.path) ||
       !/^[a-f0-9]{64}$/.test(image?.sha256 ?? '')) throw new Error('採用画像のパス・hashが不正です');
   const file = resolve(root, image.path);
   if (!existsSync(file) && !ensureLocalFromVault(file)) {

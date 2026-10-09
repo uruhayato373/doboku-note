@@ -54,7 +54,7 @@ jobs:
 
   # 日次キュー（移行対象344本）に入らない新規の承認済みパック（総まとめなど）を1本ずつ手動で予約する。
   # 9/10 に外した pack: 経路の後継。publish-video-pack.cjs が承認（approvedBy: user）と5分より先の
-  # publishAt を確かめてから private で上げて予約し、予約状態を develop の state へ書き戻す。
+  # publishAt を確かめてから private で上げて予約し、予約状態を develop の台帳（content/registry と写しの state）へ書き戻す。
   publish-pack:
     if: github.event_name == 'workflow_dispatch' && inputs.pack_publish != ''
     runs-on: ubuntu-latest
@@ -97,7 +97,8 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
-          git add .claude/state/video-content-status.json
+          # 正本はコンテンツ台帳（content/registry）。今の台帳は写しで、publish-video-pack が一緒に書く
+          node scripts/ci-data.mjs add --paths content/registry,.claude/state/video-content-status.json
           git diff --cached --quiet && exit 0
           git commit -m "chore(youtube): record manually published video pack [skip ci]"
           git pull --rebase origin develop

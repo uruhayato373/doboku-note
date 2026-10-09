@@ -1,0 +1,1104 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "concrete-engineer",
+  "publications": [
+    {
+      "id": "concrete-engineer/gishi-12week-plan/youtube.longform",
+      "work": "gishi-12week-plan",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-25T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "sSNkzP5tzAE",
+        "url": "https://www.youtube.com/watch?v=sSNkzP5tzAE",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:43.150Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-06T12:16:12.387Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-12week-plan/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-12week-plan/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1",
+      "work": "gishi-12week-plan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-12week-plan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "kjmtqlrpcWU",
+        "url": "https://www.youtube.com/watch?v=kjmtqlrpcWU",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "sSNkzP5tzAE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:12.233Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2",
+      "work": "gishi-12week-plan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-12week-plan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "RsRkqW2oZEM",
+        "url": "https://www.youtube.com/watch?v=RsRkqW2oZEM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "sSNkzP5tzAE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:12.233Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/youtube.longform",
+      "work": "gishi-construction-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-04T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "0cAiLdzwJeY",
+        "url": "https://www.youtube.com/watch?v=0cAiLdzwJeY",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:11.982Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-construction-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-construction-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1",
+      "work": "gishi-construction-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-construction-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DMI2P74yvoY",
+        "url": "https://www.youtube.com/watch?v=DMI2P74yvoY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "0cAiLdzwJeY"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:29.257Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2",
+      "work": "gishi-construction-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-construction-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "F4pS3M-kpL0",
+        "url": "https://www.youtube.com/watch?v=F4pS3M-kpL0",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "0cAiLdzwJeY"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:21:29.257Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/youtube.longform",
+      "work": "gishi-environment-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-06T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "YiKmlwVjcs4",
+        "url": "https://www.youtube.com/watch?v=YiKmlwVjcs4",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:18.797Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-environment-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-environment-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1",
+      "work": "gishi-environment-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-environment-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "FahhbpyXYcI",
+        "url": "https://www.youtube.com/watch?v=FahhbpyXYcI",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "YiKmlwVjcs4"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:51.408Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2",
+      "work": "gishi-environment-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-environment-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "-LOKnc_Pt_c",
+        "url": "https://www.youtube.com/watch?v=-LOKnc_Pt_c",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "YiKmlwVjcs4"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:51.408Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/youtube.longform",
+      "work": "gishi-haigou-keisan",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-08T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "u3eGbTQUYjs",
+        "url": "https://www.youtube.com/watch?v=u3eGbTQUYjs",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:26.415Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-haigou-keisan/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-haigou-keisan/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1",
+      "work": "gishi-haigou-keisan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-haigou-keisan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "c6dFnvvoWJE",
+        "url": "https://www.youtube.com/watch?v=c6dFnvvoWJE",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "u3eGbTQUYjs"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:57.459Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2",
+      "work": "gishi-haigou-keisan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-haigou-keisan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "dwiylNhh1vY",
+        "url": "https://www.youtube.com/watch?v=dwiylNhh1vY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "u3eGbTQUYjs"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:57.459Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/youtube.longform",
+      "work": "gishi-jis-handan",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-10T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "fLa5yhSSd-Q",
+        "url": "https://www.youtube.com/watch?v=fLa5yhSSd-Q",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:33.439Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jis-handan/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-jis-handan/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1",
+      "work": "gishi-jis-handan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-jis-handan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "tWSiU8wHmlY",
+        "url": "https://www.youtube.com/watch?v=tWSiU8wHmlY",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "fLa5yhSSd-Q"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:22:19.628Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2",
+      "work": "gishi-jis-handan",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-jis-handan/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "ncuCnS5MpCk",
+        "url": "https://www.youtube.com/watch?v=ncuCnS5MpCk",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "fLa5yhSSd-Q"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:22:19.628Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-12T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "_ol1EDuOhgw",
+        "url": "https://www.youtube.com/watch?v=_ol1EDuOhgw",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:40.922Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "P5uriz-pBxQ",
+        "url": "https://www.youtube.com/watch?v=P5uriz-pBxQ",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_ol1EDuOhgw"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:16.759Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "5YFw5S3CtFM",
+        "url": "https://www.youtube.com/watch?v=5YFw5S3CtFM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_ol1EDuOhgw"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:55:16.759Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/youtube.longform",
+      "work": "gishi-materials-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-27T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "p2TYivAUgEc",
+        "url": "https://www.youtube.com/watch?v=p2TYivAUgEc",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:48.273Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-06T12:16:20.694Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-materials-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-materials-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1",
+      "work": "gishi-materials-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-materials-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "JNd9ivBniII",
+        "url": "https://www.youtube.com/watch?v=JNd9ivBniII",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "p2TYivAUgEc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:16.376Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2",
+      "work": "gishi-materials-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-materials-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "kzmgxdnyB40",
+        "url": "https://www.youtube.com/watch?v=kzmgxdnyB40",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "p2TYivAUgEc"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:16.376Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/youtube.longform",
+      "work": "gishi-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-31T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "6Fe199kKyF8",
+        "url": "https://www.youtube.com/watch?v=6Fe199kKyF8",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:59.694Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-09T12:59:36.296Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-mix-design-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1",
+      "work": "gishi-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-mix-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "kWcjl9Fv0po",
+        "url": "https://www.youtube.com/watch?v=kWcjl9Fv0po",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "6Fe199kKyF8"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:29.456Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2",
+      "work": "gishi-mix-design-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-mix-design-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "CiwP_SN97XQ",
+        "url": "https://www.youtube.com/watch?v=CiwP_SN97XQ",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "6Fe199kKyF8"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:29.456Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/youtube.longform",
+      "work": "gishi-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-02T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "VAY_-JYupQk",
+        "url": "https://www.youtube.com/watch?v=VAY_-JYupQk",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:05.890Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-production-qc-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-production-qc-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1",
+      "work": "gishi-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-qc1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/youtube.json#shorts/point-qc1-1",
+      "relatedTo": "concrete-engineer/gishi-production-qc-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "rHF4f_T64ww",
+        "url": "https://www.youtube.com/watch?v=rHF4f_T64ww",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "VAY_-JYupQk"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:43.312Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2",
+      "work": "gishi-production-qc-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-qc2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/youtube.json#shorts/point-qc2-2",
+      "relatedTo": "concrete-engineer/gishi-production-qc-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "PrcwiF_RQ2Y",
+        "url": "https://www.youtube.com/watch?v=PrcwiF_RQ2Y",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "VAY_-JYupQk"
+      },
+      "times": {
+        "uploaded": "2026-09-08T12:54:43.312Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform",
+      "work": "gishi-properties-testing-ronten",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-29T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "_08FSnE36CE",
+        "url": "https://www.youtube.com/watch?v=_08FSnE36CE",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:52.817Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-09T12:59:26.332Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1",
+      "work": "gishi-properties-testing-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "25x9MoNcVRM",
+        "url": "https://www.youtube.com/watch?v=25x9MoNcVRM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_08FSnE36CE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:44.387Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2",
+      "work": "gishi-properties-testing-ronten",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Uwjz5cAiFys",
+        "url": "https://www.youtube.com/watch?v=Uwjz5cAiFys",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "_08FSnE36CE"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:20:44.387Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform",
+      "work": "gishi-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-10-23T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "NXoSHkdj-s8",
+        "url": "https://www.youtube.com/watch?v=NXoSHkdj-s8",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:14:36.551Z"
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-09-06T12:15:58.641Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1",
+      "work": "gishi-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "njDiI3cDRmA",
+        "url": "https://www.youtube.com/watch?v=njDiI3cDRmA",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "NXoSHkdj-s8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:57.351Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2",
+      "work": "gishi-shiken-zentaizou",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "UW5JlR7buuU",
+        "url": "https://www.youtube.com/watch?v=UW5JlR7buuU",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "NXoSHkdj-s8"
+      },
+      "times": {
+        "uploaded": "2026-09-07T14:19:57.351Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/youtube.longform",
+      "work": "gishi-shunin-dochira",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/youtube.json#longform",
+      "status": "scheduled",
+      "publishAt": "2026-11-14T11:00:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T10:02:10.975Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "zwQ1L3otO6E",
+        "url": "https://www.youtube.com/watch?v=zwQ1L3otO6E",
+        "privacy": "private"
+      },
+      "times": {
+        "rendered": "2026-09-05T11:50:11.884Z",
+        "scheduled": "2026-09-05T12:15:47.848Z"
+      },
+      "thumbnail": {
+        "status": "pending"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shunin-dochira/youtube.longform/cover",
+        "cta": "concrete-engineer/gishi-shunin-dochira/youtube.longform/cta"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1",
+      "work": "gishi-shunin-dochira",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step1-1",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/youtube.json#shorts/point-step1-1",
+      "relatedTo": "concrete-engineer/gishi-shunin-dochira/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Sny0JX8lPSs",
+        "url": "https://www.youtube.com/watch?v=Sny0JX8lPSs",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "zwQ1L3otO6E"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:58:55.637Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2",
+      "work": "gishi-shunin-dochira",
+      "account": "youtube:main",
+      "format": "short",
+      "variant": "point-step2-2",
+      "copy": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/youtube.json#shorts/point-step2-2",
+      "relatedTo": "concrete-engineer/gishi-shunin-dochira/youtube.longform",
+      "idException": "imported-before-cutover",
+      "status": "uploaded_private",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "OT6z37KO_QM",
+        "url": "https://www.youtube.com/watch?v=OT6z37KO_QM",
+        "privacy": "private",
+        "relatedVideoId": null,
+        "desiredRelatedVideoId": "zwQ1L3otO6E"
+      },
+      "times": {
+        "uploaded": "2026-09-09T12:58:55.637Z"
+      },
+      "media": {
+        "cover": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover",
+        "cta": "brand/bridge-notebook-a/cta-shorts"
+      }
+    }
+  ]
+}

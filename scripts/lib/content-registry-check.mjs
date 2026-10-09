@@ -2,22 +2,20 @@
  * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R10（content-registry.md「検査」）の唯一の実装。
  * 型（zod）は check-datasets が見るので、ここはファイルをまたぐ整合だけを見る。
  * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留め、
- * 台帳の行が今の台帳（.claude/state/video-content-status.json・youtube.json）と一致すること（R09）を FAIL で見る。
+ * 今の動画の台帳（.claude/state/video-content-status.json）の YouTube の部分が台帳から作り直したものと同じこと（R09）は、切り替えの前後とも FAIL で見る。
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  CHANNEL_DATASET, approvalHash, approvalParts, idShapeIssues, instant, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
+  CHANNEL_DATASET, approvalHash, approvalParts, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
 } from './content-registry.mjs';
 import { datasetDir } from './datasets.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
 import { readJsonIf } from './json-io.mjs';
+import { VIDEO_STATE_PATH, videoStateDrift, youtubeView } from './registry-video-state.mjs';
 
 const issue = (severity, code, id, message) => ({ severity, code, id, message });
-
-/** 今の台帳の状態語彙 → 台帳の語彙（measured は保存しない） */
-const fromLegacyStatus = (s) => (s === 'measured' ? 'published' : s);
 
 /** 動画パックのフォルダ（video-pack.json のあるもの）を packId → { exam, dir, manifest } で返す */
 export function discoverVideoPacks(root) {
@@ -31,16 +29,6 @@ export function discoverVideoPacks(root) {
     }
   }
   return out;
-}
-
-/** 今の動画の台帳の、公開 1 件に当たる派生物 */
-export function legacyDerivative(state, pub) {
-  const parsed = parsePubId(pub.id);
-  const d = state?.packs?.[pub.work]?.derivatives;
-  if (!parsed || !d) return null;
-  if (parsed.channel === 'youtube' && parsed.format === 'longform') return d.longform ?? null;
-  if (parsed.channel === 'youtube' && parsed.format === 'short') return (d.shorts ?? []).find((s) => s.key === parsed.variant) ?? null;
-  return null;
 }
 
 /** git の ref の時点の台帳（R03 の比較用）。ref に台帳が無ければ空 */
@@ -70,7 +58,7 @@ export function loadRegistryAt(root, ref) {
 export function checkRegistry(root, opts = {}) {
   const cfg = opts.cfg ?? loadRegistryConfig(root);
   const reg = opts.reg ?? loadRegistry(root);
-  const state = opts.state !== undefined ? opts.state : readJsonIf(root, '.claude/state/video-content-status.json');
+  const state = opts.state !== undefined ? opts.state : readJsonIf(root, VIDEO_STATE_PATH);
   const driveManifest = opts.driveManifest !== undefined ? opts.driveManifest : readJsonIf(root, '.claude/state/assets/drive-manifest.json');
   const aiLedger = opts.aiLedger !== undefined ? opts.aiLedger : readJsonIf(root, '.claude/state/quality/ai-image-review-ledger.json');
   const packs = opts.packs ?? discoverVideoPacks(root);
@@ -159,6 +147,8 @@ export function checkRegistry(root, opts = {}) {
     const want = { longform: pack.manifest.outputs?.longform ? 1 : 0, short: Number(pack.manifest.outputs?.shorts) || 0 };
     for (const [format, n] of Object.entries(want)) {
       const got = pubs.filter((p) => p.format === format).length;
+      // Shorts は作る段（youtube.json の shorts に鍵を決めたとき）で行ができる。まだ 1 本も無いのは未作成
+      if (format === 'short' && got === 0 && n > 0) { issues.push(issue('INFO', 'R05', w.id, `Shorts ${n} 本は未作成`)); continue; }
       if (got !== n) issues.push(issue(cutover.has('youtube') ? 'FAIL' : 'WARN', 'R05', w.id, `youtube.${format} が ${got} 件（outputs では ${n} 件）`));
     }
   }
@@ -203,14 +193,16 @@ export function checkRegistry(root, opts = {}) {
     else if (target && (target.work !== p.work || target.format !== 'longform')) issues.push(issue('FAIL', 'R08', p.id, '関連動画が同じ作品の通常動画ではない'));
   }
 
-  // R09: 切り替え前のチャネルは、行が今の台帳と一致すること（写しが勝手に正本にならない）
-  for (const p of reg.publications.filter((x) => x.channel === 'youtube' && !cutover.has('youtube'))) {
-    const d = legacyDerivative(state, p);
-    counts.checkedR09 += 1;
-    if (!d) { issues.push(issue('FAIL', 'R09', p.id, '今の台帳（video-content-status.json）に当たる派生物が無い')); continue; }
-    if (fromLegacyStatus(d.status) !== p.status) issues.push(issue('FAIL', 'R09', p.id, `状態が今の台帳（${d.status}）と違う: ${p.status}`));
-    if ((d.videoId ?? null) !== (p.platform?.id ?? null)) issues.push(issue('FAIL', 'R09', p.id, `外部 ID が今の台帳（${d.videoId ?? 'なし'}）と違う`));
-    if (d.publishAt && instant(d.publishAt) !== instant(p.publishAt)) issues.push(issue('FAIL', 'R09', p.id, `publishAt が今の台帳（${d.publishAt}）と違う`));
+  // R09: 今の動画の台帳（YouTube の部分）と、台帳から作り直したものが同じこと。切り替え前は台帳の行が写しで、
+  // 切り替え後は今の台帳が写し（どちらの向きでも食い違いは FAIL。直し方だけが違う）
+  if (state) {
+    const youtubeWorks = new Set(reg.works.filter((w) => w.kind === 'video-pack').map((w) => w.id));
+    const view = youtubeView(state);
+    counts.checkedR09 = Object.keys(view).length;
+    const fix = cutover.has('youtube') ? '台帳が正本。今の台帳を手で直さず、書き手（saveVideoState）で書く' : '今の台帳が正本。npm run registry -- import-video-packs --commit で写し直す';
+    for (const { packId, what } of videoStateDrift(state, reg)) issues.push(issue('FAIL', 'R09', packId, `今の台帳と台帳が食い違う（${what}）。${fix}`));
+    const missing = Object.keys(view).filter((id) => !youtubeWorks.has(id));
+    if (missing.length) issues.push(issue(cutover.has('youtube') ? 'FAIL' : 'INFO', 'R09', null, `今の台帳にあって台帳に無い動画パック ${missing.length} 本（${missing.slice(0, 3).join(', ')}${missing.length > 3 ? ' ほか' : ''}）`));
   }
 
   // R10: AI 生成の素材は判定 ok が要る（承認以降の公開が参照していれば FAIL）
