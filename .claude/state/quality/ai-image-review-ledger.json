@@ -182,6 +182,30 @@
       "reason": "種別・構造: オレンジ色のパイプサポートは各本が角材の敷角に底板で載り、上端は合板型枠と角材の根太を受け、伸縮部にピン穴が見える。水平つなぎの鋼管は手前の角の支柱から左右の直交2方向へ2段で延び、ボルト締めの金具で支柱に緊結されている。本文が述べる、敷角に立てて縦横2方向の水平つなぎと金具で緊結した型枠支保工に合っている。破綻: 文字・ロゴ・人物は無く、部品の溶けや二重の部位も無い。拡大して見た金具・敷角・支柱の接合は自然だった。軽微な点として、内側の支柱の水平つなぎはやや省略されて見えるが、教材として誤解を招くほどではない。",
       "reviewedAt": "2026-10-09T08:18:34.133Z"
     },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace": {
+      "sha": "8de50290a64c2039",
+      "promptSha": "1a9d84edd1bd186f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:24:09.189Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 接地ジャッキ付きの建わくが長手方向に並び、隣り合う建わくの間に交さ筋かいが X 状に入り、作業床（板）の上に下桟相当の横材と上部の横材が通る。本文の「交さ筋かい＋下桟」と矛盾しない。破綻: 文字・ロゴ・人物なし、部材の溶けや二重化も目立たない。細部のクランプ類はやや簡略だが教材として誤解を招かない",
+      "reviewedAt": "2026-10-09T08:28:26.553Z"
+    },
+    "civil-construction-1/textbook-safety-scaffolding/img/photo-wire-rope-defects": {
+      "sha": "a153338eb67eb653",
+      "promptSha": "12b8421da3d7bae7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:25:58.482Z",
+      "verdict": "ok",
+      "reason": "本文: 奥のワイヤロープは撚り部分で素線が切れて毛羽立ち、切れた素線が飛び出す素線切断の状態。手前のロープは一箇所が鋭く折れ曲がり、ストランドが歪んで輪状にねじれたキンクの状態で、alt・本文の「素線切断」「キンク」と一致。破綻: 文字・タグ・人物なし、ロープの撚りも連続していて崩れなし",
+      "reviewedAt": "2026-10-09T08:28:26.554Z"
+    },
+    "civil-construction-1/textbook-safety-work-environment/img/photo-ppe-helmet-harness": {
+      "sha": "66e8b4a0b0ef4ce7",
+      "promptSha": "053866ec82acdeb1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T08:28:01.605Z"
+    },
     "civil-construction-1/textbook-scraper/img/motor-scraper": {
       "sha": "1b15e03a581b4380",
       "promptSha": "3a97513936d54a14",
