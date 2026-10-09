@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="相続登記の未了から所有者不明土地が生まれ事業が遅れる流れと、発生を止める、手放す、使うの三つの打ち手" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:12px} /* ink-strong */
+.h{font-size:14px;font-weight:bold}.s{fill:#555}.m{text-anchor:middle} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.d{fill:#f8d7da;stroke:#b22234;stroke-width:1.5} /* danger */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.a{fill:none;stroke:#2e6da4;stroke-width:2;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<g class="m">
+<rect x="40" y="14" width="320" height="50" rx="8" class="b"/><text x="200" y="36" class="h">相続しても登記を変えない</text><text x="200" y="54">名義が故人のまま残る</text>
+<path d="M200 64 V76" class="a"/>
+<rect x="40" y="78" width="320" height="50" rx="8" class="w"/><text x="200" y="100" class="h">世代を重ねて共有者が増える</text><text x="200" y="118">所在や連絡先が分からなくなる</text>
+<path d="M200 128 V140" class="a"/>
+<rect x="40" y="142" width="320" height="50" rx="8" class="w"/><text x="200" y="164" class="h">所有者の分からない土地になる</text><text x="200" y="182">同意も売買も交渉できない</text>
+<path d="M200 192 V204" class="a"/>
+<rect x="40" y="206" width="320" height="50" rx="8" class="d"/><text x="200" y="228" class="h">事業の遅れ・低未利用地の残存</text><text x="200" y="246">用地取得が進まず区域内に空きが残る</text>
+</g>
+<text x="20" y="288" class="h">三つの位置から手を打つ</text>
+<rect x="20" y="300" width="360" height="52" rx="8" class="p"/><text x="34" y="322" class="h">発生を止める</text><text x="34" y="341">相続登記の申請義務化（令和6年4月施行）</text>
+<rect x="20" y="362" width="360" height="52" rx="8" class="p"/><text x="34" y="384" class="h">手放す</text><text x="34" y="403">相続土地国庫帰属制度（令和5年4月開始）</text>
+<rect x="20" y="424" width="360" height="52" rx="8" class="p"/><text x="34" y="446" class="h">使う</text><text x="34" y="465">特別措置法の特例、民法の管理制度</text>
+</svg>
