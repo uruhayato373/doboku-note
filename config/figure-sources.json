@@ -1599,6 +1599,11 @@
       "tool": "Codex（gpt-6-astra）",
       "prompt": "A scrape dozer - a Japanese crawler-type earthmoving machine that combines a scraper and a bulldozer. Two CONTINUOUS steel crawler tracks run the full length of the machine on the left and right sides, unbroken from front idler to rear sprocket. A large open scraper BOWL loaded with soil sits in the MIDDLE of the machine, BETWEEN the left and right tracks, where an ordinary bulldozer would have its engine. A straight dozer blade is mounted at the front. The engine compartment with a radiator grille is at the REAR. The operator seat is on a raised platform above the bowl and faces SIDEWAYS (perpendicular to the direction of travel), with hydraulic control levers in front of the seat under a simple canopy. Spreading soil on soft ground. Side view from slightly above so that the full-length track and the bowl between the tracks are both visible."
     },
+    "civil-construction-1/textbook-soft-ground-drainage/img/photo-sand-boil-road-crack": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A residential street in a Japanese suburban neighborhood right after an earthquake, asphalt road surface with several cracks from which wet gray silty sand and muddy water has welled up and spread in irregular patches and small mounds on the pavement, a side gutter partially filled with gray sand, low concrete block wall and plain houses blurred in the background, overcast daylight, wet sand texture in sharp focus, shallow depth of field, no people, no signs or text"
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "kind": "ai-generated",
       "tool": "Codex（gpt-6-astra）",
@@ -1758,6 +1763,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Wide view of a Japanese river floodplain with a dense stand of tall black locust (Robinia pseudoacacia) trees, multi-stemmed trunks with deeply furrowed dark bark and pinnate compound leaves, forming a thick woodland on the riverbed. In the foreground a grassy levee slope (embankment) and a low-flow channel with calm water and gravel bar; far background shows the broad floodplain and hills under overcast daylight. Shallow depth of field, no people, no text, no signs, no logos, no structures."
+    },
+    "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Overhead three-quarter view of a clean wooden workbench in a construction site office, with four inspection instruments neatly laid out side by side: a yellow handheld digital illuminance meter with a small display and a round light sensor on top, a pen-shaped non-contact voltage tester in red and black with a clear tip, a retractable steel tape measure in yellow case with the tape extended slightly, and a compact digital camera with a lens. A white hard hat blurred in the background. Shallow depth of field, soft daylight, no text, no logos, no people, no faces, no legible markings."
     },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "kind": "ai-generated",

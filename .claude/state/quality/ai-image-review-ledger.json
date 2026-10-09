@@ -317,6 +317,12 @@
       "reason": "途切れない履帯・左右の履帯の間の土を積んだボウル・前部のブレード・後部のラジエータ付きエンジン・ボウル上方の運転席が本文と合う。座席の向きは角度から断定できない",
       "reviewedAt": "2026-10-07T12:17:17.063Z"
     },
+    "civil-construction-1/textbook-soft-ground-drainage/img/photo-sand-boil-road-crack": {
+      "sha": "790a2418a49d1862",
+      "promptSha": "7e82e6b43b586187",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:21:16.298Z"
+    },
     "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
       "sha": "344d34816879ded1",
       "promptSha": "2db65000b407e399",
@@ -451,6 +457,15 @@
       "verdict": "ok",
       "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
       "reviewedAt": "2026-10-09T09:16:25.721Z"
+    },
+    "civil-practice/safety-patrol-corrective-action/img/photo-patrol-instruments-workbench": {
+      "sha": "4bc232c69cb21435",
+      "promptSha": "eaa8f12059b37510",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:19:23.242Z",
+      "verdict": "ok",
+      "reason": "4機器とも本文の順に実在の形で並ぶ。照度計は黄色の手持ち型で、上面に白い球状の受光部と液晶表示を備える。検電器はペン型で赤黒の胴・クリップ・透明の先端を持つ。巻尺は黄色ケースにロックボタンがあり、鉤付きのテープが少し出ている。カメラはレンズ付きのコンパクト機で、背景に白いヘルメットと現場の窓外がある。文字・ロゴ・人物・部品の崩れは見当たらない。",
+      "reviewedAt": "2026-10-09T09:21:39.525Z"
     },
     "civil-practice/steel-material-properties/img/photo-charpy-tester": {
       "sha": "be28c5582b209cd9",
