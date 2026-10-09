@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="地下放水路の流れ。越流堤から洪水が自然に流れ込み、立坑、トンネル、調圧水槽を経て、排水機場のポンプで江戸川へ排水する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <rect class="brand" x="14" y="18" width="372" height="56" rx="6"/>
+  <text class="t" x="26" y="40">越流堤（流入施設）</text>
+  <text x="26" y="60">川の水位が堤の高さを超えると自然に流れ込む</text>
+  <line class="ln" x1="200" y1="76" x2="200" y2="94" marker-end="url(#arr)"/>
+
+  <rect class="brand" x="14" y="96" width="372" height="56" rx="6"/>
+  <text class="t" x="26" y="118">立坑（5本）</text>
+  <text x="26" y="138">内径約30m・深さ約70m。水を地下のトンネルへ導く</text>
+  <line class="ln" x1="200" y1="154" x2="200" y2="172" marker-end="url(#arr)"/>
+
+  <rect class="pos" x="14" y="174" width="372" height="56" rx="6"/>
+  <text class="t" x="26" y="196">トンネル</text>
+  <text x="26" y="216">延長約6.3km・内径約10m・地下約50m</text>
+  <line class="ln" x1="200" y1="232" x2="200" y2="250" marker-end="url(#arr)"/>
+
+  <rect class="pos" x="14" y="252" width="372" height="56" rx="6"/>
+  <text class="t" x="26" y="274">調圧水槽</text>
+  <text x="26" y="294">長さ177m×幅78m×高さ18m。流れの勢いを弱める</text>
+  <line class="ln" x1="200" y1="310" x2="200" y2="328" marker-end="url(#arr)"/>
+
+  <rect class="warn" x="14" y="330" width="372" height="56" rx="6"/>
+  <text class="t" x="26" y="352">排水機場</text>
+  <text x="26" y="372">毎秒50m³のポンプ4台で、最大毎秒200m³を排水</text>
+  <line class="ln" x1="200" y1="388" x2="200" y2="404" marker-end="url(#arr)"/>
+  <text x="212" y="402">江戸川へ</text>
+
+  <rect class="brand" x="14" y="420" width="14" height="14" rx="3"/>
+  <text x="38" y="432">取り込む量が決まる：越流堤と立坑</text>
+  <rect class="pos" x="14" y="442" width="14" height="14" rx="3"/>
+  <text x="38" y="454">勢いを抑える：トンネルと調圧水槽</text>
+  <rect class="warn" x="14" y="464" width="14" height="14" rx="3"/>
+  <text x="38" y="476">能力が頭打ちになる：排水機場（汲み上げ）</text>
+</svg>
