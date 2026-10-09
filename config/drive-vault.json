@@ -234,6 +234,24 @@
       "reason": "16:9 動画のレンダー成果物。render-longform を回す CI ワークフローは存在せず、生成も公開も人が手元で行う。"
     },
     {
+      "id": "content-media",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.tmp/media/(?:[a-z0-9-]+/[a-z0-9-]+/(?:[a-z]+\\.[a-z]+(?:\\.[a-z0-9-]+)?|work)|_brand/[a-z0-9-]+)/[a-z][a-z0-9-]*\\.[0-9a-f]{8}\\.(?:png|jpe?g|webp|mp4|m4a|wav|ass|json)$"
+      },
+      "vaultDir": "制作物/コンテンツ",
+      "keyFrom": "stripPrefix:.tmp/media/",
+      "immutable": true,
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/media.mjs",
+        "content/registry/media"
+      ],
+      "reason": "コンテンツ台帳（content-registry.md）の素材の正本。作品の ID ごとのフォルダに中身の sha 入りの名前で置き、一度置いたら書き換えない（同じパスへの描き直しで台帳とずれた DN-0589 の再発防止）。人が採用・確認する素材なので Drive に置く。"
+    },
+    {
       "id": "youtube-approved-cover",
       "status": "active",
       "audience": "human",

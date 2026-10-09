@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "exam": "pe-first-stage",
+  "works": [
+    {
+      "id": "pe1-zentaizou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-first-stage/pe1-zentaizou",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "exam": "civil-construction-2",
+  "works": [
+    {
+      "id": "anzen-ippanron-3riyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-08-28",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-2kyu-concrete",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-2kyu-doko",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-2kyu-hoki",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-2kyu-kiso",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-2kyu-sekokeikaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gakka-kijutsu-2kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-2kyu-level",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-anzen-2kyu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-gaiyo-2kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-genten-kyotsuten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-hinshitsu-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-koji-ga-nai",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-kotei-kakikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-nendo-keiko-2kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-2kyu-matome",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "matome-2kyu-chokuzen",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen",
+      "format": "compilation",
+      "qa": {
+        "avg": 2.33,
+        "blocks": 0,
+        "at": "2026-10-08",
+        "by": "general-purpose (video-content-qa 代行・6軸・改善提案1〜6を反映して再描画)"
+      }
+    },
+    {
+      "id": "nikyuu-gaiyo-roadmap",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "study-plan-2kyu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/study-plan-2kyu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

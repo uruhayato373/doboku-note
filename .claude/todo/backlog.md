@@ -32,7 +32,7 @@
 
 
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
-タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: 2026-10-09 に運営者が「公開済みを含む全コンテンツ（YouTube・Shorts・IG・X・今後の Threads・TikTok）を content/ で ID 管理し、画像・動画は Drive、管理画面で目視確認」と決め、設計を承認した。いまはチャネルごとに台帳が 2〜4 本あり、実際の公開状態とずれている（通常動画は台帳で予約 111・公開 1、実際は公開 70）。この P1〜P7 の一連のカードが設計を段階に分けたもの。
 **決定事項**: 承認は管理画面で見て CLI で行う（画面は読むだけ）／公開前の YouTube 動画 ID は公開リポジトリの台帳に置いてよい／古い投稿も全件取り込む（証拠の無いものは理由つきの stopped）／Codex 画像は動画ごとに使うかを決め、使ったら来歴と ai-image-fidelity-auditor の判定 ok を必須にする（Gemini は使わない）／台帳はチャネル×資格ごとの JSON／素材は Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}`（書き換えない）／DB サーバーは置かず、型つき JSON が正本で SQLite は生成物。
@@ -65,7 +65,7 @@
 3. `registry-reconcile.yml`（毎日・videos.list で予約→公開を証拠つきで前進。後戻りは所見だけ）
 4. 表紙と締め画像を ID の置き場へ移す（画素は変えない・sha 一致。DN-0607 を吸収）
 5. 毎日の配信 CI（post-youtube-scheduled.yml の deliver・ref 固定）には触らない
-**完了条件**: 照合で公開中の動画が published になり実際の公開数と一致。総まとめが予約→公開へ自動で進む。配信 CI が 3 日続けて緑。表紙 346 件の sha が新旧で一致。
+**完了条件**: 照合で公開中の動画が published になり実際の公開数と一致。総まとめが予約→公開へ自動で進む。配信 CI が 3 日続けて緑。表紙 346 件の sha が新旧で一致。「状態は video-content-status.json」と書く文書（docs/marketing/06 §6.2・07・08・09、content-lifecycle.md、tools/admin-app/README.md）を台帳へ書き換える。
 
 
 ### [DN-0605] YouTube の予約・公開済み動画の概要欄に VOICEVOX のクレジット（VOICEVOX:青山龍星）を入れる

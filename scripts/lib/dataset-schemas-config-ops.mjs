@@ -855,6 +855,7 @@ export const ConfigDriveVault = z
             requiredBy: strings,
             reason: text,
             coexistWithGit: z.boolean().optional().describe('Git にも追跡を残すか'),
+            immutable: z.boolean().optional().describe('一度置いたら書き換えない（名前に中身の sha を入れ、上書きと --force を拒否する）'),
           })
           .strict(),
       )

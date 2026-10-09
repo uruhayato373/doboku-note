@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "exam": "pe-comprehensive-management",
+  "works": [
+    {
+      "id": "gokanri-tradeoff",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-08-28",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "gyoumu-keirekihyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keirekihyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "hakusho-map",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/hakusho-map",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kata-oudan-ryuyo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/kata-oudan-ryuyo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "kikinagashi-sokan-keyword",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/kikinagashi-sokan-keyword",
+      "qa": {
+        "avg": 2.5,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "monbun-yomikata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-08-28",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "persona-settei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/persona-settei",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "r8-yosou-theme",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/r8-yosou-theme",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sanso-kozo",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "setsumon3-shisaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sokan-goukaku-senryaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sokan-goukaku-senryaku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "sokan-kojutsu-kangaekata",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "takuitsu-keyword",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/takuitsu-keyword",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "takuitsu-r07-enshu",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/pe-comprehensive-management/takuitsu-r07-enshu",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

@@ -21,10 +21,11 @@ import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { voicevoxCredit } from './lib/voicevox-credit.mjs';
+import { loadVideoState, saveVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
-const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
 const PRODUCTION_DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const TARGET_EXAMS = [
@@ -53,8 +54,6 @@ const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render'))
 const onlyPackId = val('--pack-id', '');
 const scope = val('--scope', 'civil');
 const publishAtArg = val('--publish-at', '');
-// VOICEVOX は話者ごとに「VOICEVOX:キャラクター名」のクレジットが利用条件（エンジンの speaker_info で確認）
-const VOICEVOX_CREDIT: Record<number, string> = { 13: '青山龍星' };
 
 function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -316,8 +315,7 @@ function compilationChapters(dir: string, rendered: any) {
 function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existing: any) {
   const compilation = existsSync(join(dir, 'compilation.json'));
   const artifact = assertMedia(manifest.packId, compilation ? 3600 : 1200);
-  const credit = VOICEVOX_CREDIT[artifact.rendered.speaker];
-  if (!credit) throw new Error(`${manifest.packId}: VOICEVOX 話者 ${artifact.rendered.speaker} のクレジットが未定義`);
+  const credit = voicevoxCredit(artifact.rendered.speaker);
   const exam = examMeta(manifest.exam);
   const link = cta(manifest);
   const title = `【${exam.label}】${manifest.title}`;
@@ -331,7 +329,7 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
     PRODUCTION_DISCLOSURE.authorityNotice, '',
     ...(compilation ? [] : [`▼ ${link.label}`, link.url, '']),
     '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。',
-    `音声：VOICEVOX:${credit}`, '',
+    `音声：${credit}`, '',
     exam.hashtags,
   ].join('\n');
   const intentTags: Record<string, string[]> = {
@@ -353,10 +351,11 @@ function makeYoutube(dir: string, manifest: Manifest, publishAt: string, existin
   };
 }
 
-function main() {
+async function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
   if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete|compilation] [--pack-id ID] [--publish-at ISO] [--render-root PATH]');
-  const state = readJson(STATE_PATH);
+  // 状態の正本はコンテンツ台帳。読み書きは台帳の入口（registry-video-state.mjs）だけを通す
+  const state = loadVideoState(ROOT);
   const schedule = buildSchedule(state);
   const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
   if (onlyPackId && targets.length !== 1) throw new Error(`対象 packId が予約にありません: ${onlyPackId}`);
@@ -396,7 +395,8 @@ function main() {
       updated += 1;
     }
   }
-  writeJson(STATE_PATH, state);
+  const touched = targets.map((t) => t.manifest.packId).filter((id) => state.packs?.[id]?.derivatives?.longform);
+  if (updated) await saveVideoState(ROOT, state, { writer: 'prepare-youtube-longforms', packIds: touched });
   console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${updated}本（state を更新した本数）`);
   if (scope === 'compilation') {
     console.log(`総まとめ: ${targets.map((t) => `${t.manifest.packId} ${t.publishAt}`).join(', ')}`);
@@ -408,4 +408,4 @@ function main() {
   }
 }
 
-main();
+await main();
