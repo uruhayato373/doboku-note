@@ -425,6 +425,15 @@
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
+    "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
+      "sha": "4d6cc39631e31cbe",
+      "promptSha": "3db4324530a6e0b1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:40:56.759Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 白ヘルメット側面に小型のアクションカメラ型ウェアラブルカメラがマウントで付き、あご紐も自然で、作業員は顔が見えない後ろ斜めの構図。鉄筋は節のある異形棒鋼が縦横の格子に組まれ、交点が結束線で縛られており実在の配筋として成り立つ。スケールは鉄筋に当てて間隔を測る姿勢で、白紙の黒枠ボードが鉄筋に立てかけてある。本文: 遠隔臨場の定義（ウェアラブルカメラでの撮影）と配筋確認の場面に一致し矛盾しない。破綻: 読める文字・ロゴは無く、スケールの目盛も判読できる文字になっていない。手指・ヘルメット・鉄筋の崩れや二重化は見当たらない。",
+      "reviewedAt": "2026-10-09T10:42:57.884Z"
+    },
     "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
       "sha": "60d6b7e293f6af53",
       "promptSha": "80801a1eba416cb4",
@@ -622,6 +631,12 @@
       "verdict": "ok",
       "reason": "4機器とも本文の順に実在の形で並ぶ。照度計は黄色の手持ち型で、上面に白い球状の受光部と液晶表示を備える。検電器はペン型で赤黒の胴・クリップ・透明の先端を持つ。巻尺は黄色ケースにロックボタンがあり、鉤付きのテープが少し出ている。カメラはレンズ付きのコンパクト機で、背景に白いヘルメットと現場の窓外がある。文字・ロゴ・人物・部品の崩れは見当たらない。",
       "reviewedAt": "2026-10-09T09:21:39.525Z"
+    },
+    "civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper": {
+      "sha": "ae4b74f0c6f52be1",
+      "promptSha": "b869560e2b2c6b12",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T10:42:36.511Z"
     },
     "civil-practice/site-wireless-communication/img/photo-rfid-tag-rebar-reader": {
       "sha": "4b521d795fe4f366",
