@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="気象庁の雪の情報の関係図。解析積雪深から、増加分を読み取る解析降雪量と、出発点にして6時間先まで計算する降雪短時間予報に分かれ、読み違えやすい条件がその下に続く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t { font-size: 15px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .b { font-size: 12px; fill: #222; } /* ink-strong */
+      .s { font-size: 11px; fill: #222; } /* ink-strong */
+      .k { font-size: 13px; font-weight: bold; fill: #222; }
+      .r { stroke-width: 1.5; }
+      .n { fill: #e8f0fe; stroke: #2e6da4; } /* brand */
+      .p { fill: #d0e8d0; stroke: #3a7d44; } /* positive */
+      .w { fill: #fff3cd; stroke: #d4a017; } /* warn */
+      .a { fill: #2e6da4; } /* brand */
+      .l { stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="r n" x="15" y="24" width="370" height="84" rx="8"/>
+  <text class="t" x="29" y="52">解析積雪深（実況）</text>
+  <text class="b" x="29" y="74">観測値をもとに約5km四方で推定</text>
+  <text class="b" x="29" y="92">1時間ごとの、積雪の深さ</text>
+
+  <line class="l" x1="104" y1="110" x2="104" y2="136"/>
+  <path class="a" d="M104 144 l-5 -9 h10 z"/>
+  <text class="s" x="114" y="130">増加分を読む</text>
+  <line class="l" x1="290" y1="110" x2="290" y2="136"/>
+  <path class="a" d="M290 144 l-5 -9 h10 z"/>
+  <text class="s" x="300" y="130">出発点に使う</text>
+
+  <rect class="r n" x="15" y="150" width="178" height="104" rx="8"/>
+  <text class="t" x="25" y="178">解析降雪量（実況）</text>
+  <text class="b" x="25" y="200">積雪深が1時間に</text>
+  <text class="b" x="25" y="218">増えた量。減ったと</text>
+  <text class="b" x="25" y="236">きは0として扱う</text>
+
+  <rect class="r p" x="207" y="150" width="178" height="104" rx="8"/>
+  <text class="t" x="217" y="178">降雪短時間予報</text>
+  <text class="b" x="217" y="200">降水の予報なども使い</text>
+  <text class="b" x="217" y="218">積雪の変化を計算</text>
+  <text class="b" x="217" y="236">1時間ごと、6時間先まで</text>
+
+  <rect class="r w" x="15" y="282" width="370" height="84" rx="8"/>
+  <text class="t" x="29" y="310">読み違えやすい条件</text>
+  <text class="b" x="29" y="332">降雪量は少なめ、風が強いと雪が流される</text>
+  <text class="b" x="29" y="350">気温1〜3℃は雨雪の判別が難しい</text>
+
+  <rect x="15" y="394" width="370" height="56" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text class="k" x="200" y="418" text-anchor="middle">実況で勢いを見て、予報で先を読み、</text>
+  <text class="k" x="200" y="436" text-anchor="middle">路線の現地情報で補う</text>
+</svg>

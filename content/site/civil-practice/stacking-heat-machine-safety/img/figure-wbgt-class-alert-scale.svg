@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="暑さ指数WBGTの目盛り。25未満の注意、25以上の警戒、28以上の厳重警戒、31以上の危険に、規則の対象の目安28、警戒アラート33、特別警戒アラート35を重ねた縦の目盛り図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .ax { font-size: 12px; fill: #555; } /* ink-body */
+      .nm { font-size: 14px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .rg { font-size: 12px; fill: #555; } /* ink-body */
+      .mk { font-size: 13px; font-weight: bold; fill: #222; } /* ink-strong */
+      .sb { font-size: 12px; fill: #222; } /* ink-strong */
+      .nt { font-size: 11px; fill: #8a8a8a; } /* ink-muted */
+      .s { stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="ax" x="15" y="30">WBGT（℃）</text>
+
+  <!-- 目盛り: 22→y470, 1℃=30px -->
+  <rect class="s" x="130" y="50" width="60" height="150" fill="#f8d7da" stroke="#b22234"/> <!-- danger -->
+  <rect class="s" x="130" y="200" width="60" height="90" fill="#fff3cd" stroke="#d4a017"/> <!-- warn -->
+  <rect class="s" x="130" y="290" width="60" height="90" fill="#d0e8d0" stroke="#3a7d44"/> <!-- positive -->
+  <rect class="s" x="130" y="380" width="60" height="90" fill="#e8f0fe" stroke="#2e6da4"/> <!-- brand -->
+
+  <!-- 階級（左） -->
+  <text class="nm" x="15" y="120">危険</text>
+  <text class="rg" x="15" y="138">31以上</text>
+  <text class="nm" x="15" y="240">厳重警戒</text>
+  <text class="rg" x="15" y="258">28以上31未満</text>
+  <text class="nm" x="15" y="330">警戒</text>
+  <text class="rg" x="15" y="348">25以上28未満</text>
+  <text class="nm" x="15" y="425">注意</text>
+  <text class="rg" x="15" y="443">25未満</text>
+
+  <!-- 目印（右） -->
+  <line x1="190" y1="290" x2="212" y2="290" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="190" y1="140" x2="212" y2="140" stroke="#b22234" stroke-width="1.5"/>
+  <line x1="190" y1="80" x2="212" y2="80" stroke="#b22234" stroke-width="1.5"/>
+  <line x1="212" y1="140" x2="212" y2="290" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <text class="mk" x="222" y="76">35 特別警戒アラート</text>
+  <text class="sb" x="222" y="94">県内の全地点の予測値</text>
+
+  <text class="mk" x="222" y="136">33 警戒アラート</text>
+  <text class="sb" x="222" y="154">県内のどこかの予測値</text>
+
+  <text class="sb" x="222" y="212">アラートが出なくても</text>
+  <text class="sb" x="222" y="230">義務の対象になり得る幅</text>
+
+  <text class="mk" x="222" y="286">28 義務化の対象</text>
+  <text class="sb" x="222" y="304">（または気温31℃以上）</text>
+
+  <text class="nt" x="15" y="490">階級は環境省の日常生活に関する指針</text>
+</svg>

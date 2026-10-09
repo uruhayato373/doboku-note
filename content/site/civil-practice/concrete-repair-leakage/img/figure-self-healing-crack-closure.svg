@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ひび割れ断面が三段階で閉塞される様子。発生直後は水が通り、水がある間に析出物が面に付いて幅が狭まり、やがて閉塞する。細く動かず湿った条件で閉塞しやすい">
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<g font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555">
+<g font-size="13" font-weight="bold" fill="#222">
+<text x="20" y="24">① 発生直後：幅が開き、水が通る</text>
+<text x="20" y="138">② 水がある間：面に析出物が付く</text>
+<text x="20" y="252">③ 閉塞：水の通り道がふさがる</text>
+</g>
+<g fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5">
+<rect x="20" y="32" width="166" height="90"/><rect x="214" y="32" width="166" height="90"/>
+<rect x="20" y="146" width="173" height="90"/><rect x="207" y="146" width="173" height="90"/>
+<rect x="20" y="260" width="173" height="90"/><rect x="207" y="260" width="173" height="90"/>
+</g>
+<g fill="#8a8a8a"><circle cx="181" cy="52" r="3"/><circle cx="179" cy="80" r="3"/><circle cx="181" cy="106" r="3"/><circle cx="219" cy="62" r="3"/><circle cx="221" cy="94" r="3"/></g>
+<line x1="200" y1="40" x2="200" y2="112" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow)"/>
+<g fill="#fff3cd" stroke="#d4a017"><ellipse cx="190" cy="165" rx="6" ry="9"/><ellipse cx="189" cy="195" rx="7" ry="10"/><ellipse cx="190" cy="222" rx="6" ry="9"/><ellipse cx="210" cy="176" rx="6" ry="9"/><ellipse cx="211" cy="208" rx="7" ry="10"/><ellipse cx="210" cy="228" rx="5" ry="6"/></g>
+<rect x="193" y="260" width="14" height="90" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="30" y="80">未水和セメントが</text><text x="30" y="95">ひび割れ面に露出</text>
+<text x="30" y="190">炭酸カルシウム</text><text x="30" y="205">が面に析出</text>
+<text x="30" y="300">析出物で閉塞</text>
+<g fill="#222" font-size="12"><text x="232" y="72">水が通る</text><text x="222" y="190">水があるうちに</text><text x="30" y="318">通水量が減る</text></g>
+<text x="222" y="205">幅が狭まっていく</text>
+<text x="222" y="300">気泡の影響も</text><text x="222" y="315">混じって見える</text>
+<g stroke-width="1.5"><rect x="20" y="370" width="175" height="120" rx="8" fill="#d0e8d0" stroke="#3a7d44"/><rect x="205" y="370" width="175" height="120" rx="8" fill="#f8d7da" stroke="#b22234"/></g>
+<g text-anchor="middle" fill="#1a3a5c" font-size="12">
+<text x="107" y="396" font-size="14" font-weight="bold">閉塞しやすい</text><text x="107" y="424">ひび割れが細い</text><text x="107" y="446">動きが小さい</text><text x="107" y="468">湿った状態が続く</text>
+<text x="292" y="396" font-size="14" font-weight="bold">閉塞しにくい</text><text x="292" y="424">ひび割れが広い</text><text x="292" y="446">目地など動く部位</text><text x="292" y="468">乾いたまま</text>
+</g>
+</g>
+</svg>
