@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T07:17:30.497Z",
+  "generated_at": "2026-10-09T07:19:32.884Z",
   "summary": {
-    "total_mdx_files": 1383,
+    "total_mdx_files": 1384,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1664,7 +1664,7 @@
     },
     {
       "name": "技術士（第二次試験）",
-      "count": 150,
+      "count": 151,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-aimai-hyougen-sahou",
@@ -1803,6 +1803,7 @@
         "pe-construction-road-exam-themes",
         "pe-construction-road-ronbun-keyword",
         "pe-construction-secondary-study-method",
+        "pe-construction-seismic-damage-lessons",
         "pe-construction-seismic-isolation-damping",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-setsumon-bunkai",
@@ -1821,7 +1822,7 @@
     },
     {
       "name": "建設部門",
-      "count": 149,
+      "count": 150,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-aimai-hyougen-sahou",
@@ -1959,6 +1960,7 @@
         "pe-construction-road-exam-themes",
         "pe-construction-road-ronbun-keyword",
         "pe-construction-secondary-study-method",
+        "pe-construction-seismic-damage-lessons",
         "pe-construction-seismic-isolation-damping",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-setsumon-bunkai",
@@ -2647,7 +2649,7 @@
     },
     {
       "name": "記述式対策",
-      "count": 85,
+      "count": 86,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
@@ -2724,6 +2726,7 @@
         "pe-construction-river-coast-ronbun-keyword",
         "pe-construction-road-ronbun-keyword",
         "pe-construction-secondary-study-method",
+        "pe-construction-seismic-damage-lessons",
         "pe-construction-seismic-isolation-damping",
         "pe-construction-sentaku-kamoku-kakiwake",
         "pe-construction-setsumon-bunkai",
@@ -3700,6 +3703,34 @@
       ]
     },
     {
+      "name": "必須科目",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword",
+        "pe-construction-guide-required-essay",
+        "pe-construction-hissu-kamoku-kaitourei",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-system-overseas",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-r01-required",
+        "pe-construction-r02-required",
+        "pe-construction-r03-required",
+        "pe-construction-r04-required",
+        "pe-construction-r05-required",
+        "pe-construction-r06-required",
+        "pe-construction-r07-required",
+        "pe-construction-r08-required",
+        "pe-construction-required-exam-themes",
+        "pe-construction-seismic-damage-lessons",
+        "pe-construction-seismic-isolation-damping",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
       "name": "令和元年度",
       "count": 20,
       "inAllowlist": true,
@@ -3724,33 +3755,6 @@
         "pe-first-stage-r01-retry-construction",
         "pe-first-stage-r01-retry-water-supply",
         "pe-first-stage-r01-water-supply"
-      ]
-    },
-    {
-      "name": "必須科目",
-      "count": 20,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword",
-        "pe-construction-guide-required-essay",
-        "pe-construction-hissu-kamoku-kaitourei",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-system-overseas",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-r01-required",
-        "pe-construction-r02-required",
-        "pe-construction-r03-required",
-        "pe-construction-r04-required",
-        "pe-construction-r05-required",
-        "pe-construction-r06-required",
-        "pe-construction-r07-required",
-        "pe-construction-r08-required",
-        "pe-construction-required-exam-themes",
-        "pe-construction-seismic-isolation-damping",
-        "pe-construction-shakai-shihon-ronbun-keyword"
       ]
     },
     {
@@ -4514,6 +4518,22 @@
       ]
     },
     {
+      "name": "国土強靱化",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-seismic-design-levels",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-seismic-damage-lessons",
+        "pe-construction-seismic-isolation-damping"
+      ]
+    },
+    {
       "name": "施工計画、施工設備及び積算",
       "count": 9,
       "inAllowlist": true,
@@ -4591,21 +4611,6 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "国土強靱化",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-seismic-design-levels",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-seismic-isolation-damping"
       ]
     },
     {
