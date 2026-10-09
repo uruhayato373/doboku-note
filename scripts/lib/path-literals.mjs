@@ -5,14 +5,15 @@
  * 置き場を移したとき、直書きは旧パスのまま残り、読めずに黙って空を返す（2026-10-02 に管理画面のアフィリエイト画面と
  * UTM 生成で実際に起きた）。コードは台帳（scripts/lib/datasets.mjs）から datasetPath・datasetDir・latestFile で引く。
  */
-import { AREAS, DATASETS } from './datasets.mjs';
+import { AREAS, DATASETS, areaOf } from './datasets.mjs';
 
 /**
  * config/・data/ のパスを直書きしてよいファイル。台帳そのものと、追記だけの台帳に残る旧パスを読み替える対応表と、この検出。
  */
 export const PATH_LITERAL_ALLOW = ['scripts/lib/datasets.mjs', 'scripts/lib/repository-paths.mjs', 'scripts/lib/path-literals.mjs'];
 
-const AREA_DIRS = Object.values(AREAS).map((a) => a.dir).join('|');
+/** 直書きを止める置き場（strict。.claude/state/ はラチェットで別に数える＝findStatePathLiterals） */
+const AREA_DIRS = Object.values(AREAS).filter((a) => a.strict).map((a) => a.dir).join('|');
 /**
  * 直書きの形。(1) `'data/note/sales.json'`・`${ROOT}/config/…`・`/^data\/…/`、
  * (2) 分割形 `join(ROOT, 'config', 'x.json')`・`join(HERE, '..', 'config', …)`。
@@ -111,7 +112,7 @@ export function findPathLiterals(source, { basenames } = {}) {
  */
 export function basenameIndex(trackedFiles) {
   const outside = new Set(trackedFiles.filter((f) => !new RegExp(`^(?:${AREA_DIRS})/`).test(f)).map((f) => f.split('/').pop()));
-  const fixed = DATASETS.filter((x) => !x.path.includes('{'));
+  const fixed = DATASETS.filter((x) => !x.path.includes('{') && AREAS[areaOf(x)]?.strict);
   const count = new Map();
   for (const x of fixed) {
     const b = x.path.split('/').pop();
@@ -166,6 +167,24 @@ export function findConfigPaths(source) {
       if (/[{}$]/.test(p)) continue;
       out.push({ path: p, line: i + 1 });
     }
+  });
+  return out;
+}
+
+/** .claude/state/ のパスの直書き（`'.claude/state/…'`・`join(ROOT, '.claude', 'state', …)`）。コメント行と行末の `// ` 以降・path-literal-ok の行は数えない */
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const STATE_LITERAL = new RegExp(`${escapeRegExp(AREAS.state.dir)}/|['"\`]\\.claude['"\`]\\s*,\\s*['"\`]state['"\`]`);
+/**
+ * .claude/state/ のパスを直書きしている行。check-datasets が基準線（.claude/config/state-path-literal-baseline.json）と比べ、
+ * 基準線に無いファイルで増えたら止め、直したファイルは基準線から外させる（一度に直さず段階的に減らす）
+ * @returns {{ line: number, text: string }[]}
+ */
+export function findStatePathLiterals(source) {
+  const out = [];
+  source.replace(/\r\n/g, '\n').split('\n').forEach((line, i) => {
+    if (IS_COMMENT.test(line) || ALLOWED.test(line)) return;
+    const code = line.replace(/\s\/\/\s.*$/, '');
+    if (STATE_LITERAL.test(code)) out.push({ line: i + 1, text: code.trim().slice(0, 60) });
   });
   return out;
 }

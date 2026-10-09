@@ -175,7 +175,7 @@ function NavGroups({ todoLayers = [], ledger = { themes: [], channels: [] }, des
       query: { q: d.id },
     })),
   });
-  // 設定・データは領域ごとの枝で開く（domains.json の項目は /ops/store?k=<config|data>・各領域は &d=<領域 id>）
+  // 設定・データは領域ごとの枝で開く（domains.json の項目は /ops/store?k=<config|data|state>・各領域は &d=<領域 id>）
   const storeTree = (tab: Tab): NavTree => {
     const k = tab.query?.k ?? '';
     return {

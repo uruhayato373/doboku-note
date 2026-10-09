@@ -15,7 +15,7 @@
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readDataset } from './lib/dataset-io.mjs';
+import { readDataset, readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { todayJst } from './lib/jst-date.mjs';

@@ -2,6 +2,7 @@
 /** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 

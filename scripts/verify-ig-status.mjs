@@ -36,6 +36,7 @@
 //   recorded_but_gone / anomaly のいずれかが 1 件以上）。network 失敗は 1。
 
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
@@ -43,7 +44,6 @@ import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileC
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
-import { datasetPath } from "./lib/datasets.mjs";
 import { loadRegistry } from "./lib/content-registry.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -180,7 +180,7 @@ const cats = reconcileCore(packs, liveData);
 
 const driftCount = driftCountCore(cats);
 const snapshot = buildSnapshot({ account: account.handle, cats, liveData, source: "playwright" });
-const snapDir = join(ROOT, ".claude/state/ig-reconcile");
+const snapDir = join(ROOT, datasetDir("state.ig-reconcile"));
 mkdirSync(snapDir, { recursive: true });
 writeFileSync(join(snapDir, "snapshot.json"), JSON.stringify(snapshot, null, 2) + "\n", "utf8");
 
@@ -208,7 +208,7 @@ async function reflectToRegistry() {
   const publishedRows = ledgerPublishedRows;
   const plan = planRegistryPublished({
     cats, liveList: snapshot.live.list, reelCandidates, rowOf: (f, fmt) => rowByKey.get(keyOf(f, fmt)) ?? null,
-    publishedRows, recordedInfo: liveData.recordedInfo, snapRef: `.claude/state/ig-reconcile/snapshot.json@${snapshot.at}`,
+    publishedRows, recordedInfo: liveData.recordedInfo, snapRef: `${datasetPath('state.ig-reconcile', { name: 'snapshot' })}@${snapshot.at}`,
   });
   const written = [];
   const failed = [];

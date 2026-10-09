@@ -10858,26 +10858,20 @@
       ]
     },
     "risk-management-policy": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:24:18.636Z",
+          "date": "2026-05-17T05:07:34.697Z",
           "action": "rewritten",
-          "wave": "G-8-W37",
+          "wave": "G-8-W33",
           "applied_patterns": [
             "G",
             "D"
           ],
-          "before_chars": 2550,
-          "after_chars": 3711,
-          "added_chars": 1161,
+          "before_chars": 2068,
+          "after_chars": 2676,
+          "added_chars": 608,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.348Z",
-          "action": "verified",
-          "weighted": 2.25,
-          "wave": "G-8-reverify"
         }
       ]
     },
@@ -11314,12 +11308,12 @@
       ]
     },
     "pops-convention": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:42:13.133Z",
+          "date": "2026-05-17T04:43:49.950Z",
           "action": "rewritten",
-          "wave": "G-8-W44-recovery",
+          "wave": "G-8-W26",
           "applied_patterns": [
             "G",
             "D"
@@ -11328,22 +11322,16 @@
           "after_chars": 3664,
           "added_chars": 519,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.349Z",
-          "action": "verified",
-          "weighted": 2.55,
-          "wave": "G-8-reverify"
         }
       ]
     },
     "pqcdsme": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:42:13.133Z",
+          "date": "2026-05-17T04:43:49.950Z",
           "action": "rewritten",
-          "wave": "G-8-W44-recovery",
+          "wave": "G-8-W26",
           "applied_patterns": [
             "G",
             "D"
@@ -11352,22 +11340,16 @@
           "after_chars": 3457,
           "added_chars": 817,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.349Z",
-          "action": "verified",
-          "weighted": 2,
-          "wave": "G-8-reverify"
         }
       ]
     },
     "self-development": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:42:13.133Z",
+          "date": "2026-05-17T05:10:23.382Z",
           "action": "rewritten",
-          "wave": "G-8-W44-recovery",
+          "wave": "G-8-W34",
           "applied_patterns": [
             "G",
             "D"
@@ -11376,22 +11358,16 @@
           "after_chars": 2765,
           "added_chars": 821,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.349Z",
-          "action": "verified",
-          "weighted": 2.25,
-          "wave": "G-8-reverify"
         }
       ]
     },
     "skill-standards": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:42:13.133Z",
+          "date": "2026-05-17T05:10:23.382Z",
           "action": "rewritten",
-          "wave": "G-8-W44-recovery",
+          "wave": "G-8-W34",
           "applied_patterns": [
             "G",
             "D"
@@ -11400,22 +11376,16 @@
           "after_chars": 2587,
           "added_chars": 775,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.349Z",
-          "action": "verified",
-          "weighted": 2.55,
-          "wave": "G-8-reverify"
         }
       ]
     },
     "sop": {
-      "status": "verified",
+      "status": "rewritten",
       "history": [
         {
-          "date": "2026-05-17T08:42:13.133Z",
+          "date": "2026-05-17T05:10:23.382Z",
           "action": "rewritten",
-          "wave": "G-8-W44-recovery",
+          "wave": "G-8-W34",
           "applied_patterns": [
             "G",
             "D"
@@ -11424,12 +11394,6 @@
           "after_chars": 2411,
           "added_chars": 774,
           "mojibake": false
-        },
-        {
-          "date": "2026-05-29T05:50:43.349Z",
-          "action": "verified",
-          "weighted": 2.25,
-          "wave": "G-8-reverify"
         }
       ]
     },
@@ -11447,42 +11411,6 @@
           "before_chars": 1784,
           "after_chars": 2543,
           "added_chars": 759,
-          "mojibake": false
-        }
-      ]
-    },
-    "pops-convention": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T04:43:49.950Z",
-          "action": "rewritten",
-          "wave": "G-8-W26",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 3145,
-          "after_chars": 3664,
-          "added_chars": 519,
-          "mojibake": false
-        }
-      ]
-    },
-    "pqcdsme": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T04:43:49.950Z",
-          "action": "rewritten",
-          "wave": "G-8-W26",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 2640,
-          "after_chars": 3457,
-          "added_chars": 817,
           "mojibake": false
         }
       ]
@@ -11829,24 +11757,6 @@
         }
       ]
     },
-    "risk-management-policy": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T05:07:34.697Z",
-          "action": "rewritten",
-          "wave": "G-8-W33",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 2068,
-          "after_chars": 2676,
-          "added_chars": 608,
-          "mojibake": false
-        }
-      ]
-    },
     "safety-case": {
       "status": "rewritten",
       "history": [
@@ -11861,60 +11771,6 @@
           "before_chars": 1707,
           "after_chars": 2680,
           "added_chars": 973,
-          "mojibake": false
-        }
-      ]
-    },
-    "self-development": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T05:10:23.382Z",
-          "action": "rewritten",
-          "wave": "G-8-W34",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 1944,
-          "after_chars": 2765,
-          "added_chars": 821,
-          "mojibake": false
-        }
-      ]
-    },
-    "skill-standards": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T05:10:23.382Z",
-          "action": "rewritten",
-          "wave": "G-8-W34",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 1812,
-          "after_chars": 2587,
-          "added_chars": 775,
-          "mojibake": false
-        }
-      ]
-    },
-    "sop": {
-      "status": "rewritten",
-      "history": [
-        {
-          "date": "2026-05-17T05:10:23.382Z",
-          "action": "rewritten",
-          "wave": "G-8-W34",
-          "applied_patterns": [
-            "G",
-            "D"
-          ],
-          "before_chars": 1637,
-          "after_chars": 2411,
-          "added_chars": 774,
           "mojibake": false
         }
       ]

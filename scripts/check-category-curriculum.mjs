@@ -61,7 +61,7 @@ for (const [category, cfg] of Object.entries(curriculum)) {
       const full = `${category}-${suffix}`;
       const d = guideBySlug.get(full);
       if (!d) {
-        errors.push(`[${spec.where}] slug 不在: "${suffix}"（${full} が doc-meta-index の guide に無い）`);
+        errors.push(`[${spec.where}] slug 不在: "${suffix}"（${full} が doc-meta-index の guide に無い。記事があるなら npm run refresh-indexes で索引を作り直す）`);
         continue;
       }
       if ((d.tags || []).includes('career')) {

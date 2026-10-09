@@ -793,6 +793,11 @@ const BookBundle = z
       .array(z.looseObject({ order: z.number().int().positive().describe('並び順'), originalName: z.string().min(1).describe('原本の元のファイル名') }))
       .min(1)
       .describe('原本の PDF（巻ごと）'),
+    coverageSiteDirs: z
+      .array(z.string().regex(/^[a-z0-9-]+$/, '資格ディレクトリ'))
+      .min(1)
+      .optional()
+      .describe('網羅の候補表（audit-reference-book-coverage）で比べるサイトの資格ディレクトリ（content/site/<dir>/）。sources にこの本を書いた記事の資格に足す'),
   })
   .strict();
 
