@@ -444,50 +444,14 @@
 **完了条件**: 上の 4 記事の公式の文章の一致が出なくなり、書籍の文の一致（DN-0580 の施工計画の基礎など）はこれまでどおり出る（回帰テストつき）
 
 
-### [DN-0613] コンテンツ台帳 P7: Codex 画像の生成と監査を素材の台帳に結び、Threads・TikTok を入れて旧台帳を片付ける
-タグ: [領域:SNS] [時期:2026-11..2026-12] [種類:改善] [起票:2026-10-09] [進行中]
-
-**起点**: コンテンツ台帳の P7（仕上げ）。運営者の決定で、Codex 画像は動画ごとに使うかを決め、どの役割の素材にも使えるようにする（Gemini は使わない）。Threads・TikTok は outputs の旗だけで実体が無い。
-**やること**:
-1. gen-article-photo.mjs の generateWithCodex を scripts/lib/codex-image.mjs へ切り出し、`npm run media -- plate` で SNS・動画の素材を生成する。来歴を素材の行に、判定を AI 台帳（鍵 media:<id>）に記録し、判定 ok でない素材を参照する公開は承認へ進めない。文字入り画像に使うときは文字の誤りも監査する。旧 gen-image-gemini.mjs の新たな import をラチェットのテストで止める
-2. Threads・TikTok を planned の公開として入れる
-3. 移行中の写しを削除し、旧パスを RESTRUCTURED_PATHS に登録する。content-lifecycle の SNS の写像を 1 本にする
-**完了条件**: 判定の無い AI 素材で承認が止まることをテストで固定。旧台帳の復活を check-information-architecture が止める。
 
 
-### [DN-0612] コンテンツ台帳 P6: X の下書き・投稿を台帳へ移し、連番の鍵と本文の二重持ちをなくす
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09] [進行中]
-
-**起点**: コンテンツ台帳の P6。X は投稿済み 178 件のどれにも投稿 ID が無く、下書きの連番に重複（096・097）があり、本文を tweets.md と status.json に二重に持つ。アーカイブ側に未決着の予約 432 件。
-**やること**: 稼働中の下書きは作品 ID から `NNN-` を外し、tweets.md の見出しを鍵にする。アーカイブは名前を変えずに取り込み、予約 432 件は data/x/own-posts と本文ハッシュで結べたものだけ published（tweet ID つき）、残りは stopped（unverified-legacy）。review.json を承認へ移し、campaigns の posts[] を公開 ID に変える。x-publish-scheduled・x-sync-status・x-queue・check-x-*・schedule-events を同じ PR で切り替える（CI の投稿は今は停止中）。
-**完了条件**: status.json が 0 件。`--plan-only` が台帳から同じ候補とハッシュを出す。
 
 
-### [DN-0611] コンテンツ台帳 P5: Instagram の status.json・posted.json を台帳へ移し、食い違いを証拠つきで解消する
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09] [進行中]
-
-**起点**: コンテンツ台帳の P5。IG は status.json（予約後も変わらない）・posted.json・照合スナップショットに同じ事実が分かれ、動画パック派生のリールは 3 つの正本が食い違う（sync-instagram-video-pack-reels-state.mjs の回し直し漏れ）。カルーセル 112 本はほぼ状態が無い。
-**やること**: 動画パック派生の 336 本と旧パック（ストーリーズ・ハイライトを含む）を台帳へ取り込み、posted.json・status.json・照合の結果を突き合わせて DN-0339（公開済み未記録 48・異常 45）を証拠つきで解消する。publish-ig-bs・ig-status・ig-reconcile-core・verify-ig-status・publish-instagram-video-pack-reels を台帳の入口へ切り替え、sync-instagram-video-pack-reels-state.mjs を廃止する。旧パックのフォルダ名は変えない。
-**完了条件**: status.json・posted.json が 0 件。台帳の予約・公開が手元の照合（/ig-reconcile）と一致。
 
 
-### [DN-0610] コンテンツ台帳 P4: 旧 YouTube Shorts の台帳3本を取り込み、死蔵の schedule.json を消す
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-09] [進行中]
-
-**起点**: コンテンツ台帳の P4。旧 YouTube Shorts は台帳が 3 本・キーが 2 系統（youtube-schedule.json の r03-pack-01-q2、legacy-*.json の r03-pfi、data/youtube/posted.jsonl 13 行）で、content/sns/schedule.json（720 行・2030 年まで）が死蔵されたまま管理画面に読まれている。
-**やること**: youtube-schedule.json（200）・posted.jsonl・旧 10 素材を台帳へ取り込む（公開の証拠があるものだけ published、無いものは理由つきの stopped）。文面は content/sns/youtube へ移し旧台帳を削除。content/sns/schedule.json を削除し、tools/admin-app の sns-board.ts を台帳へ切り替える。配信計画の legacy/{key} を台帳の ID と結ぶ。
-**完了条件**: 旧の公開 10 本が published、残りは理由つきの stopped、孤児 0。
 
 
-### [DN-0607] YouTube の採用表紙・締め画像の置き場を日付フォルダ・連番名から資格とパック ID の名前へ移す
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-09]
-
-**起点**: 2026-10-08、ユーザーから「表紙・締め画像の置き場は日付ではなく資格や動画の ID で管理すべき」と指摘された。2026-09-09 の一括適用（`scripts/apply-video-brand.mjs`）は、採用表紙 347 件を `.tmp/video-render/youtube-covers-a-rollout-20260909/{連番}.png`、締め画像をパックごとに `youtube-cta-a-rollout-20260909/{packId}.png` へ置き、各パックの `cover-design.json`・`cta-design.json` がそのパスを持つ（Drive は `制作物/動画レンダー/採用カバー/` と `制作物/動画レンダー/`）。連番では、どのパックのどの表紙か名前から分からない。総まとめ（matome-2kyu-chokuzen）は新しい `npm run brand-video-pack` で `youtube-covers-{exam}/{packId}-{key}.png`・`youtube-cta-{exam}/{packId}-longform.png` に置いた。
-**やること**:
-1. 既存の採用表紙・締め画像を、画素を変えずに ID 名のパスへ写す移行スクリプトを作る（既定 dry-run。sha256 が同じことを確かめ、cover-design.json・cta-design.json・`.claude/state/youtube-thumbnail-designs.json` のパスを書き換える。legacy の `content/sns/youtube/cover-design.json` も対象）
-2. Drive へ新パスで置き（drive-vault-sync）、表紙はクラウドから読み戻して登録する（check-youtube-cover-handoff が通る）。旧パスの台帳を外し、Drive の旧ファイルはマウント上で削除する（ゴミ箱へ）
-3. 画像の中身は変えないので YouTube への再送はしない。読み手（render-longform・youtube-covers・stage-youtube-covers・thumbnail rollout）が新パスで動くことを確かめる
-**完了条件**: 全パックの cover-design.json・cta-design.json が ID 名のパスを指し、check-youtube-cover-handoff・check-drive-vault・check-video-content が通り、Drive に日付フォルダの旧ファイルが残らない。
 
 
 ### [DN-0606] 技術士の既存記事の誤りを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
