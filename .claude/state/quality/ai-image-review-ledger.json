@@ -402,13 +402,19 @@
       "sha": "695df838089dc6e3",
       "promptSha": "c6831b7d48cc72b9",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:34:05.072Z"
+      "generatedAt": "2026-10-09T09:34:05.072Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 蓋を外した円形マンホール（内壁に足掛け金物）の脇に蓋が置かれ、空気呼吸器（ボンベ、面体、ハーネス、ホース、圧力計）、継ぎ手付きのアルミはしご、金具付きの繊維ロープの束が並び、第15条の備えと一致する。本文: 立入禁止の表示に当たる赤白テープ付きコーンと無地の看板があり矛盾しない。破綻: 読める文字・ロゴ・人物は無く、部品の崩れや二重化も見当たらない。",
+      "reviewedAt": "2026-10-09T09:36:18.675Z"
     },
     "civil-practice/accident-first-response/img/photo-site-office-aed-first-aid": {
       "sha": "5517463379e8381d",
       "promptSha": "77c4d134cf053d9c",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:35:10.262Z"
+      "generatedAt": "2026-10-09T09:35:10.262Z",
+      "verdict": "ok",
+      "reason": "種別・構造: プレハブ事務所風の無地の壁に、緑枠・白扉の壁掛けキャビネット（蝶番と取っ手付き）と、棚受け金具に載せた緑十字付きの白い救急箱（留め金と持ち手あり）が並び、記事の「AED 収納ボックスと救急箱」と一致する。指示どおり扉は無地。本文は第633条の備付けと AED の所在確認を述べるだけで矛盾しない。破綻: 読める文字・ロゴ・人物は無く、部品の崩れも無い。",
+      "reviewedAt": "2026-10-09T09:36:18.676Z"
     },
     "civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections": {
       "sha": "39f471b54ef86064",
