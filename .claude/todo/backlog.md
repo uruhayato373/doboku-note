@@ -98,7 +98,7 @@
 
 2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2）。進み具合は `npm run audit-reference-book-coverage -- --status`、手順は `.claude/knowledge/reference/book-coverage-judging.md`・`book-coverage-expansion.md`。
 総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断）: 総監のテキスト・受験対策・キーワード集の判定で gap は 0、partial は展開済み。論文の本の中身は答案例（note 商品の領域）が中心で、書き方の一般論は論文の書き方の本の展開と記述式ガイドで覆えている。再スキャンからやり直す手間に見合わない。`--status` ではこの 1 冊だけ「未着手」のまま残る。
-残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
+残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。展開は、リポジトリへ移した道具（`--briefs`・Workflow `book-coverage-expand`／`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。DN-0621）だけで回し、`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点はその場で道具を直す。
 完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
 
 
@@ -406,10 +406,6 @@
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
 
-### [DN-0621] 書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す
-タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-08〜09 の書籍の網羅の展開（DN-0591）は、brief の生成（判定の計画を記事ごとに束ねる Python）、workflow（expand-wf-v3.js・photo-wf.js）、記事ごとのコミット（commit-article.sh）を、セッションの一時置き場と Mac の .tmp/book-coverage/ に置いて回した。git 管理外なので、ほかの PC では再現できず、セッションの一時置き場は消える（運営者の方針「すべて git か Drive で共有」に反する）。やること: (1) brief の生成を audit-reference-book-coverage に --briefs として足す（新規案の重複の検出も）。(2) workflow を .claude/workflows/ に保存し、記事の置き場の絶対パスを args で受ける。(3) commit-article.sh を scripts/ へ移す（排他・trailer・一時の作業ツリーでの索引の作り直し・図のサイズの検査）。(4) book-coverage-expansion.md から参照する。完了条件: 別の PC で DN-0591 の残り（総監の論文の本）を、この 3 つだけで判定から展開まで回せる
 
 
 ### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる

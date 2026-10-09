@@ -2398,6 +2398,19 @@
       "commit": "6acda5a0deb9",
       "verification": "tests/agent-hooks.test.mjs: 素の cd（worktree・プロジェクトの下の階層・変数経由）は exit 2、サブシェル・git -C・bash -c・直下への cd・Codex（CLAUDE_PROJECT_DIR 無し）は通す。13 件 pass",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0621",
+      "at": "2026-10-10",
+      "task": "書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0494b8533a68",
+      "verification": "--briefs が展開に使った brief と同じ中身を出す（guide-engineer-assignment で差分は新規→既存の 1 行だけ）。tests/book-coverage-briefs.test.mjs 5 件。book-coverage-commit.mjs は引数の不備で exit 2・変更なしで exit 0（排他の lock を残さない）。workflow 2 本を .claude/workflows/ に置き、置き場は args.root。通しの実行（書いて push まで）は DN-0591 で行う（カードに追記）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
