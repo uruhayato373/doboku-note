@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="事故直後の初動を、手を動かす側と連絡する側の二つの流れで並べた図。止める、救い出す、手当する、動かす前の位置を記録すると、呼ぶ、知らせる、集める、報告するを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .lane { font-size: 13px; font-weight: bold; fill: #555; } /* ink-body */
+      .t { font-size: 15px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .b { font-size: 12px; fill: #222; } /* ink-strong */
+      .k { font-size: 13px; font-weight: bold; fill: #222; }
+      .r { stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; } /* danger */
+      .w { fill: #fff3cd; stroke: #d4a017; } /* warn */
+      .n { fill: #e8f0fe; stroke: #2e6da4; } /* brand */
+      .p { fill: #d0e8d0; stroke: #3a7d44; } /* positive */
+      .a { fill: #2e6da4; }
+    </style>
+  </defs>
+
+  <text class="lane" x="15" y="28">手を動かす</text>
+  <text class="lane" x="205" y="28">連絡する</text>
+  <line x1="200" y1="40" x2="200" y2="404" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 左の流れ -->
+  <rect class="r d" x="15" y="40" width="180" height="76" rx="8"/>
+  <text class="t" x="27" y="66">止める</text>
+  <text class="b" x="27" y="88">動力・荷重・地盤・空気</text>
+  <text class="b" x="27" y="106">自分の安全を確かめる</text>
+  <line x1="105" y1="118" x2="105" y2="127" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M105 135 l-4 -8 h8 z"/>
+
+  <rect class="r w" x="15" y="136" width="180" height="76" rx="8"/>
+  <text class="t" x="27" y="162">救い出す</text>
+  <text class="b" x="27" y="184">入らず引ける方法を先に</text>
+  <text class="b" x="27" y="202">酸欠は空気呼吸器で</text>
+  <line x1="105" y1="214" x2="105" y2="223" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M105 231 l-4 -8 h8 z"/>
+
+  <rect class="r w" x="15" y="232" width="180" height="76" rx="8"/>
+  <text class="t" x="27" y="258">手当する</text>
+  <text class="b" x="27" y="280">胸骨圧迫とAEDを続ける</text>
+  <text class="b" x="27" y="298">救急隊に引き継ぐまで</text>
+  <line x1="105" y1="310" x2="105" y2="319" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M105 327 l-4 -8 h8 z"/>
+
+  <rect class="r p" x="15" y="328" width="180" height="76" rx="8"/>
+  <text class="t" x="27" y="354">動かす前の位置を記録</text>
+  <text class="b" x="27" y="376">写真と略図で残す</text>
+  <text class="b" x="27" y="394">危険の残る範囲を囲う</text>
+
+  <!-- 右の流れ -->
+  <rect class="r n" x="205" y="40" width="180" height="76" rx="8"/>
+  <text class="t" x="217" y="66">呼ぶ</text>
+  <text class="b" x="217" y="88">119番と現場責任者へ</text>
+  <text class="b" x="217" y="106">場所・状態・人数を伝える</text>
+  <line x1="295" y1="118" x2="295" y2="127" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M295 135 l-4 -8 h8 z"/>
+
+  <rect class="r n" x="205" y="136" width="180" height="76" rx="8"/>
+  <text class="t" x="217" y="162">知らせる</text>
+  <text class="b" x="217" y="184">発注者の監督職員へ</text>
+  <text class="b" x="217" y="202">警察や道路・河川の管理者</text>
+  <line x1="295" y1="214" x2="295" y2="223" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M295 231 l-4 -8 h8 z"/>
+
+  <rect class="r n" x="205" y="232" width="180" height="76" rx="8"/>
+  <text class="t" x="217" y="258">集める</text>
+  <text class="b" x="217" y="280">指揮者を一人決める</text>
+  <text class="b" x="217" y="298">夜間休日は連絡網で参集</text>
+  <line x1="295" y1="310" x2="295" y2="319" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M295 327 l-4 -8 h8 z"/>
+
+  <rect class="r p" x="205" y="328" width="180" height="76" rx="8"/>
+  <text class="t" x="217" y="354">報告する</text>
+  <text class="b" x="217" y="376">労基署・発注者へ期限内に</text>
+  <text class="b" x="217" y="394">事実と推定を分けて書く</text>
+
+  <!-- 要約 -->
+  <rect x="15" y="420" width="370" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text class="k" x="200" y="447" text-anchor="middle">手当する人と連絡する人は別の人が担う</text>
+  <text class="b" x="200" y="467" text-anchor="middle">指揮者は手を動かさず、全体を見る</text>
+</svg>
