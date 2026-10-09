@@ -2501,6 +2501,23 @@
       "commit": "0494b8533a68",
       "verification": "--briefs が展開に使った brief と同じ中身を出す（guide-engineer-assignment で差分は新規→既存の 1 行だけ）。tests/book-coverage-briefs.test.mjs 5 件。book-coverage-commit.mjs は引数の不備で exit 2・変更なしで exit 0（排他の lock を残さない）。workflow 2 本を .claude/workflows/ に置き、置き場は args.root。通しの実行（書いて push まで）は DN-0591 で行う（カードに追記）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0616",
+      "at": "2026-10-09",
+      "task": "1級土木の textbook に追加した SVG 2 枚が画像サイズの上限（10KB）を超え、develop と全 PR の CI（image-assets）が落ちる",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "check-image-assets が CI ゲートで新規超過を止めており、今回もそれで見つかった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5da7704f9fee",
+      "verification": "node scripts/check-image-assets.mjs（exit 0）",
+      "note": "記事の担当セッションが 2 枚を 9,088B・9,928B に圧縮して develop に入れた。check-image-assets は exit 0"
     }
   ]
 }
