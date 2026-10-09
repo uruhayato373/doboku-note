@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="マシンコントロールを制御の輪で表した図。目標の高さと実測の差を求め、油圧で刃先を動かし、位置を測って差の計算へ戻す。ずれが入る三箇所を下に示す">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:12px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:11px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<rect class="r n" x="15" y="16" width="170" height="60" rx="8"/>
+<text class="h" x="27" y="40">目標の高さ</text><text x="27" y="60">3次元設計データ</text>
+<path class="a" d="M94 84 h12 l-6 12 z"/>
+<rect class="r g" x="15" y="104" width="170" height="64" rx="8"/>
+<text class="h" x="27" y="128">差を求める</text><text x="27" y="148">目標と実測の差</text>
+<path class="a" d="M191 130 v12 l12 -6 z"/>
+<rect class="r d" x="215" y="104" width="170" height="64" rx="8"/>
+<text class="h" x="227" y="128">油圧で動かす</text><text x="227" y="148">差を小さくする向きへ</text>
+<path class="a" d="M294 174 h12 l-6 12 z"/>
+<rect class="r w" x="15" y="198" width="170" height="64" rx="8"/>
+<text class="h" x="27" y="222">位置を測る</text><text x="27" y="242">GNSS・センサー</text>
+<path class="a" d="M209 224 v12 l-12 -6 z"/>
+<rect class="r d" x="215" y="198" width="170" height="64" rx="8"/>
+<text class="h" x="227" y="222">刃先が動く</text><text x="227" y="242">ブレード・バケット</text>
+<path class="a" d="M94 194 h12 l-6 -12 z"/>
+<rect class="r g" x="215" y="16" width="170" height="60" rx="8"/>
+<text class="s" x="227" y="34">MG：差を画面に表示</text>
+<text class="s" x="227" y="50">MC：差を油圧に渡す</text>
+<text class="s" x="227" y="66">差の計算までは共通</text>
+<text class="k" x="15" y="296">ずれが入る三箇所</text>
+<rect class="r n" x="15" y="308" width="118" height="58" rx="8"/>
+<text class="h" x="25" y="332">目標</text><text x="25" y="352">設計データ</text>
+<rect class="r w" x="141" y="308" width="118" height="58" rx="8"/>
+<text class="h" x="151" y="332">測定</text><text x="151" y="352">位置・校正</text>
+<rect class="r d" x="267" y="308" width="118" height="58" rx="8"/>
+<text class="h" x="277" y="332">動作</text><text x="277" y="352">機械の応答</text>
+<rect class="r g" x="15" y="384" width="370" height="100" rx="8"/>
+<text class="k c" x="200" y="414">機械は「測った値」に合わせて直す</text>
+<text class="c" x="200" y="440">測定が狂えば、狂った値に</text>
+<text class="c" x="200" y="460">合わせ続ける</text>
+</svg>

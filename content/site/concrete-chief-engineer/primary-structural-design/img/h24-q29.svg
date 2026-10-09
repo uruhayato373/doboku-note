@@ -1,5 +1,5 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材の正負繰返し水平荷重を受ける柱のひび割れ。既存自作SVGの幾何を保ったまま配色・フォントのみブランド化。書籍図の複製・トレースではない -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 340" style="max-width:560px;width:100%" role="img" aria-label="同一荷重を受ける柱ア・イ・ウの破壊形式（曲げひび割れ・せん断ひび割れ）を比較する図。イは主筋を太径に変更、ウは柱高さを低くした条件違い">
+<!-- authored 2026-09-30 doboku-note 自作。2026-10-05 に原典の問題図と照合し、ア（柱の上下端付近の水平ひび割れ）・イ（上下端の斜めひび割れと主筋に沿う縦ひび割れ）・ウ（高さの低い柱の全高にわたる X 状ひび割れ）の位置と形を原図に合わせて描き直した（原図を目視で再構成。書籍図の複製・トレースではない） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 340" style="max-width:560px;width:100%" role="img" aria-label="正負繰返しの水平荷重を受けた鉄筋コンクリート柱ア・イ・ウのひび割れ図。イは主筋をアより太径にした柱、ウはアより高さの低い柱">
   <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style></defs>
 <g transform="translate(10 0)">
   <text x="45" y="35" text-anchor="end" font-size="12" fill="#1a3a5c">正荷重→</text>
@@ -7,59 +7,51 @@
   <line x1="60" y1="40" x2="60" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
   <line x1="120" y1="40" x2="120" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
   <text x="130.0" y="130.0" text-anchor="start" font-size="12" fill="#1a3a5c">柱</text>
-  <text x="54.0" y="24.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="126.0" y="24.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
-  <text x="54.0" y="250.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="126.0" y="250.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
+  <path d="M45 15 H53 M45 15 V21" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M127 15 H135 M135 15 V21" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M45 241 H53 M45 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M127 241 H135 M135 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
   <text x="90.0" y="270.0" text-anchor="middle" font-size="11" fill="#1a3a5c">はり</text>
-  <text x="48.0" y="235.0" text-anchor="end" font-size="11" fill="#1a3a5c">はり</text>
-  <line x1="68" y1="67.0" x2="112" y2="67.0" stroke="#2e6da4" stroke-width="1"/>
-  <line x1="68" y1="94.0" x2="112" y2="94.0" stroke="#2e6da4" stroke-width="1"/>
-  <line x1="68" y1="121.0" x2="112" y2="121.0" stroke="#2e6da4" stroke-width="1"/>
-  <line x1="68" y1="148.0" x2="112" y2="148.0" stroke="#2e6da4" stroke-width="1"/>
-  <line x1="68" y1="175.0" x2="112" y2="175.0" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 50 Q90 47 119 51" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 58 Q90 56 119 59" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 66 Q90 65 119 67" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 194 Q90 193 119 195" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 202 Q90 200 119 203" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M61 210 Q90 208 119 211" fill="none" stroke="#2e6da4" stroke-width="1"/>
   <text x="90.0" y="290.0" text-anchor="middle" font-size="14" fill="#1a3a5c">ア</text>
-  <text x="90.0" y="310.0" text-anchor="middle" font-size="11" fill="#1a3a5c"></text>
   <text x="285" y="35" text-anchor="end" font-size="12" fill="#1a3a5c">正荷重→</text>
   <text x="375" y="35" font-size="12" fill="#1a3a5c">←…負荷重</text>
   <line x1="300" y1="40" x2="300" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
   <line x1="360" y1="40" x2="360" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
   <text x="370.0" y="130.0" text-anchor="start" font-size="12" fill="#1a3a5c">柱</text>
-  <text x="294.0" y="24.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="366.0" y="24.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
-  <text x="294.0" y="250.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="366.0" y="250.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
+  <path d="M285 15 H293 M285 15 V21" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M367 15 H375 M375 15 V21" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M285 241 H293 M285 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M367 241 H375 M375 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
   <text x="330.0" y="270.0" text-anchor="middle" font-size="11" fill="#1a3a5c">はり</text>
-  <text x="288.0" y="235.0" text-anchor="end" font-size="11" fill="#1a3a5c">はり</text>
-  <path d="M310 50.0 L350 70.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 70.0 L350 50.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 78.0 L350 98.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 98.0 L350 78.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 106.0 L350 126.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 126.0 L350 106.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 134.0 L350 154.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 154.0 L350 134.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 162.0 L350 182.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 182.0 L350 162.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 190.0 L350 210.0" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M310 210.0 L350 190.0" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M303 44 Q330 52 357 66" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M303 66 Q330 54 357 44" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M308 74 l2 7 l-2 7 l2 7 l-2 7 l2 7" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M352 74 l-2 7 l2 7 l-2 7 l2 7 l-2 7" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M308 152 l2 7 l-2 7 l2 7 l-2 7 l2 7" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M352 152 l-2 7 l2 7 l-2 7 l2 7 l-2 7" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M303 196 Q330 206 357 216" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M303 216 Q330 204 357 196" fill="none" stroke="#2e6da4" stroke-width="1"/>
   <text x="330.0" y="290.0" text-anchor="middle" font-size="14" fill="#1a3a5c">イ</text>
   <text x="262.0" y="310.0" text-anchor="start" font-size="11" fill="#1a3a5c">（イの柱の主(鉄)筋には、</text>
   <text x="262.0" y="326.0" text-anchor="start" font-size="11" fill="#1a3a5c">アより太径を使用）</text>
-  <text x="545" y="35" text-anchor="end" font-size="12" fill="#1a3a5c">正荷重→</text>
-  <text x="635" y="35" font-size="12" fill="#1a3a5c">←…負荷重</text>
-  <line x1="560" y1="40" x2="560" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
-  <line x1="620" y1="40" x2="620" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
-  <text x="630.0" y="130.0" text-anchor="start" font-size="12" fill="#1a3a5c">柱</text>
-  <text x="554.0" y="24.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="626.0" y="24.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
-  <text x="554.0" y="250.0" text-anchor="end" font-size="14" fill="#1a3a5c">⌐</text>
-  <text x="626.0" y="250.0" text-anchor="start" font-size="14" fill="#1a3a5c">¬</text>
+  <text x="545" y="95" text-anchor="end" font-size="12" fill="#1a3a5c">正荷重→</text>
+  <text x="635" y="95" font-size="12" fill="#1a3a5c">←…負荷重</text>
+  <line x1="560" y1="100" x2="560" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
+  <line x1="620" y1="100" x2="620" y2="220" stroke="#2e6da4" stroke-width="1.6"/>
+  <text x="630.0" y="165.0" text-anchor="start" font-size="12" fill="#1a3a5c">柱</text>
+  <path d="M545 75 H553 M545 75 V81" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M627 75 H635 M635 75 V81" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M545 241 H553 M545 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
+  <path d="M627 241 H635 M635 241 V247" fill="none" stroke="#1a3a5c" stroke-width="1.4"/>
   <text x="590.0" y="270.0" text-anchor="middle" font-size="11" fill="#1a3a5c">はり</text>
-  <text x="548.0" y="235.0" text-anchor="end" font-size="11" fill="#1a3a5c">はり</text>
-  <path d="M575 72 L605 88" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M575 102 L605 118" stroke="#2e6da4" stroke-width="1"/>
-  <path d="M575 132 L605 148" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M564 104 Q588 150 616 216" fill="none" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M564 216 Q592 150 616 104" fill="none" stroke="#2e6da4" stroke-width="1"/>
   <text x="590.0" y="290.0" text-anchor="middle" font-size="14" fill="#1a3a5c">ウ</text>
   <text x="540.0" y="310.0" text-anchor="start" font-size="11" fill="#1a3a5c">（ウの柱の高さは、</text>
   <text x="540.0" y="326.0" text-anchor="start" font-size="11" fill="#1a3a5c">アより低い）</text>

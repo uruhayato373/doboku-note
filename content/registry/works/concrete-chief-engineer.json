@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "exam": "concrete-chief-engineer",
+  "works": [
+    {
+      "id": "concrete-chief-08-boost",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/086-concrete-chief-2026-08-boost",
+      "legacyKey": "086-concrete-chief-2026-08-boost"
+    },
+    {
+      "id": "concrete-chief-08-late",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/089-concrete-chief-2026-08-late",
+      "legacyKey": "089-concrete-chief-2026-08-late"
+    },
+    {
+      "id": "kikinagashi-shunin-suchi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-chokuzen-senryaku",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-construction-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-durability-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-hinshutsu-yusen",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-materials-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-mix-design-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-ochiru-shouronbun",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-production-qc-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-products-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-properties-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-r8-juuten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-shiken-zentaizou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-shouronbun-kousei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-shouronbun-theme",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "shunin-structural-design-ronten",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "at": "2026-09-01",
+        "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    }
+  ]
+}

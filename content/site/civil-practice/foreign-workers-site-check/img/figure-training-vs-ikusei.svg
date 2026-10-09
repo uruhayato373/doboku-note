@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="技能実習と育成就労の比較。目的は国際貢献から人材の育成と確保へ。期間は最長5年から通算3年へ。転籍は原則不可から条件つきで本人意向も可へ。日本語は段階的に引き上げる。技能実習2号の修了者も育成就労の終了者も特定技能1号につながる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="172" height="46" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="14" width="172" height="46" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="70" width="172" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="70" width="172" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="140" width="172" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="140" width="172" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="210" width="172" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="210" width="172" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="280" width="172" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="210" y="280" width="172" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="374" width="364" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<g stroke="#2e6da4">
+<line x1="104" y1="342" x2="104" y2="372" marker-end="url(#ar)"/>
+<line x1="296" y1="342" x2="296" y2="372" marker-end="url(#ar)"/>
+</g>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="28" y="34">技能実習</text><text x="220" y="34">育成就労</text>
+</g>
+<g fill="#555" font-size="11"><text x="28" y="51">現行の制度</text><text x="220" y="51">令和9年4月1日から</text></g>
+<g fill="#8a8a8a" font-size="11"><text x="28" y="86">目的</text>
+<text x="220" y="86">目的</text>
+<text x="28" y="156">在留期間</text>
+<text x="220" y="156">在留期間</text>
+<text x="28" y="226">転籍</text>
+<text x="220" y="226">転籍</text>
+<text x="28" y="296">日本語</text>
+<text x="220" y="296">日本語</text></g>
+<g fill="#222" font-size="12" font-weight="700"><text x="28" y="105">技能移転による国際貢献</text>
+<text x="220" y="105">人材の育成と確保</text>
+<text x="28" y="175">最長5年</text>
+<text x="220" y="175">通算3年</text>
+<text x="28" y="245">原則できない</text>
+<text x="220" y="245">条件つきで本人意向も可</text>
+<text x="28" y="315">原則として要件なし</text>
+<text x="220" y="315">段階的に引き上げ</text></g>
+<g fill="#555" font-size="11"><text x="28" y="122">需給調整の手段ではない</text>
+<text x="220" y="122">3年で1号の水準の人材にする</text>
+<text x="28" y="192">1年＋2年＋2年の3段階</text>
+<text x="220" y="192">再試験のため最長1年延長</text>
+<text x="28" y="262">やむを得ない事情なら可</text>
+<text x="220" y="262">建設は制限期間が2年</text>
+<text x="28" y="332">（介護分野を除く）</text>
+<text x="220" y="332">A1 → A2.1 → A2.2相当</text></g>
+<g fill="#222" font-size="13" font-weight="700"><text x="30" y="396">特定技能1号（通算5年まで）</text></g>
+<g fill="#555" font-size="11"><text x="30" y="414">実習2号の修了者は試験等が免除。育成就労は終了時に</text><text x="30" y="430">1号と同じ水準の技能と日本語を試験等で確かめる</text></g>
+<g fill="#555" font-size="11">
+<text x="20" y="462">育成就労が始まるまでは技能実習が続く。</text>
+<text x="20" y="478">施行日前に入国した技能実習生は、そのまま続けられる</text>
+</g>
+</svg>

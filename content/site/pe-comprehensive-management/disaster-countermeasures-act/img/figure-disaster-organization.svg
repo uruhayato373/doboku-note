@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="防災体制の組織図。国・都道府県・市町村の三層それぞれに、計画をつくる防災会議と、災害時に置く災害対策本部が並び、地域防災計画は防災基本計画に基づき、市町村計画は都道府県計画に抵触しない">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif}
+.a{font-size:12px;fill:#222}.ab{font-size:12px;font-weight:bold;fill:#1a3a5c}.h{font-size:13px;font-weight:bold;fill:#1a3a5c}.s{font-size:11px;fill:#555}
+.ac{font-size:12px;fill:#222;text-anchor:middle}.abc{font-size:12px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.hc{font-size:13px;font-weight:bold;fill:#1a3a5c;text-anchor:middle}.sc{font-size:11px;fill:#555;text-anchor:middle}.se{font-size:11px;fill:#555;text-anchor:end}
+.bb{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.bp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.bw{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.bd{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}
+.bs{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.bx{fill:#fff;stroke:#2e6da4;stroke-width:1.5}
+</style>
+<marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/></marker></defs>
+<text class="sc" x="112" y="26">計画をつくる（平時）</text>
+<text class="sc" x="292" y="26">災害時に置く</text>
+<rect class="bs" x="14" y="36" width="372" height="130" rx="8"/>
+<text class="ab" x="26" y="56">国</text>
+<rect class="bs" x="14" y="180" width="372" height="102" rx="8"/>
+<text class="ab" x="26" y="200">都道府県</text>
+<rect class="bs" x="14" y="296" width="372" height="102" rx="8"/>
+<text class="ab" x="26" y="316">市町村</text>
+<rect class="bb" x="26" y="62" width="172" height="92" rx="6"/>
+<text class="ab" x="36" y="82">中央防災会議</text>
+<text class="a" x="36" y="102">会長：内閣総理大臣</text>
+<text class="s" x="36" y="122">防災基本計画を作成</text>
+<text class="s" x="36" y="140">毎年検討を加え修正</text>
+<rect class="bw" x="210" y="62" width="164" height="92" rx="6"/>
+<text class="ab" x="220" y="82">国の災害対策本部</text>
+<text class="a" x="220" y="102">特定 → 非常 → 緊急</text>
+<text class="s" x="220" y="122">被害が大きくなる順</text>
+<text class="s" x="220" y="140">内閣総理大臣が設置</text>
+<rect class="bb" x="26" y="206" width="172" height="64" rx="6"/>
+<text class="ab" x="36" y="225">都道府県防災会議</text>
+<text class="a" x="36" y="244">会長：知事</text>
+<text class="s" x="36" y="262">都道府県地域防災計画</text>
+<rect class="bw" x="210" y="206" width="164" height="64" rx="6"/>
+<text class="ab" x="220" y="225">都道府県災害対策本部</text>
+<text class="a" x="220" y="244">本部長：知事</text>
+<text class="s" x="220" y="262">おそれがあれば設置可</text>
+<rect class="bb" x="26" y="322" width="172" height="70" rx="6"/>
+<text class="ab" x="36" y="340">市町村防災会議</text>
+<text class="a" x="36" y="357">共同設置・不設置もある</text>
+<text class="s" x="36" y="373">市町村地域防災計画</text>
+<text class="s" x="36" y="386">防災基本計画にも基づく</text>
+<rect class="bw" x="210" y="322" width="164" height="70" rx="6"/>
+<text class="ab" x="220" y="341">市町村災害対策本部</text>
+<text class="a" x="220" y="360">本部長：市町村長</text>
+<text class="s" x="220" y="378">おそれがあれば設置可</text>
+<line x1="112" y1="154" x2="112" y2="204" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text class="s" x="120" y="192">基づく（防災基本計画）</text>
+<line x1="112" y1="270" x2="112" y2="320" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#ar)"/>
+<text class="s" x="120" y="308">都道府県計画に抵触しない</text>
+<rect class="bp" x="14" y="412" width="372" height="74" rx="8"/>
+<text class="ab" x="26" y="434">相互間地域防災計画</text>
+<text class="s" x="26" y="454">複数の都道府県・市町村にまたがる地域の計画</text>
+<text class="s" x="26" y="472">防災会議の協議会が作成する</text>
+</svg>

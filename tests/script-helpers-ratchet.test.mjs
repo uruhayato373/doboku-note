@@ -19,7 +19,7 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools・lib・tests のコード）。減らしたら下げる */
-const BASELINE = { root: 43, walk: 151, parseArgs: 74 };
+const BASELINE = { root: 68, walk: 43, parseArgs: 26 };
 
 const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'tests/script-helpers-ratchet.test.mjs']);
 

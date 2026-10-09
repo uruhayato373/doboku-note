@@ -4,6 +4,7 @@ import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { isStoreArea, loadStoreView, type StoreView } from '@/lib/stores';
 import { REGISTRY_PATH } from '../../../../../../scripts/lib/qualification-registry.mjs';
+import { DatasetQuery } from './dataset-query';
 import { QualificationSsot } from './qualification-ssot';
 
 export const dynamic = 'force-dynamic';
@@ -13,20 +14,21 @@ const href = (k: string, d?: string, f?: string) =>
 const Local = () => <StatusBadge tone="neutral" title="手元だけにあり git 管理外（CI からは見えない）">手元のみ</StatusBadge>;
 
 /**
- * /ops/store — 設定（config/）とデータ（data/）の台帳（read-only）。k=config|data、d=領域、f=データセット id。
+ * /ops/store — 設定（config/）・データ（data/）・作業状態（.claude/state/）・コンテンツ台帳（content/registry/）の台帳（read-only）。k=config|data|state|registry、d=領域、f=データセット id。
  * 何がどのデータかは scripts/lib/datasets.mjs の台帳が正本。型（zod）のあるものは型の定義と検査結果、
  * 無いものは最新ファイルの実物から読んだ形を出す。書き換えはファイルと PR で行う。
  * 資格の正本（qualification-registry.json）を開いたときは、中身と名前の写しの検査結果を型の上に出す（旧 /ops/ssot）。
+ * 詳細では、JSON のデータセットの行を q=「欄=値」で絞れる（DN-0585・npm run data -- query と同じ関数）。
  */
-export default async function StorePage({ searchParams }: { searchParams: Promise<{ k?: string; d?: string; f?: string }> }) {
-  const { k, d, f } = await searchParams;
+export default async function StorePage({ searchParams }: { searchParams: Promise<{ k?: string; d?: string; f?: string; q?: string }> }) {
+  const { k, d, f, q } = await searchParams;
   const area = isStoreArea(k) ? k : 'config';
   const v = loadStoreView(area, d, f);
   const title = v.domain ? `${v.areaLabel} ＞ ${v.domain.label}` : v.areaLabel;
 
   return (
     <>
-      <PageHead title={title} sub={`${area}/ の ${v.total.files} ファイル・${v.total.datasets} データセット（型あり ${v.total.typed}）。台帳は scripts/lib/datasets.mjs`} />
+      <PageHead title={title} sub={`${v.dir}/ の ${v.total.files} ファイル・${v.total.datasets} データセット（型あり ${v.total.typed}）。台帳は scripts/lib/datasets.mjs`} />
       <Stack>
         {v.error && <p className="project-warning-text text-sm">読めなかった: {v.error}</p>}
 
@@ -38,7 +40,7 @@ export default async function StorePage({ searchParams }: { searchParams: Promis
           </PanelCard>
         )}
 
-        {v.detail ? <Detail v={v} /> : v.domain ? <Rows v={v} /> : <Domains v={v} />}
+        {v.detail ? <Detail v={v} q={q} /> : v.domain ? <Rows v={v} /> : <Domains v={v} />}
       </Stack>
     </>
   );
@@ -102,7 +104,7 @@ function Rows({ v }: { v: StoreView }) {
   );
 }
 
-function Detail({ v }: { v: StoreView }) {
+function Detail({ v, q }: { v: StoreView; q?: string }) {
   const x = v.detail!;
   const fail = x.schema?.errors.length ?? 0;
   return (
@@ -174,6 +176,8 @@ function Detail({ v }: { v: StoreView }) {
           </PanelCard>
         )
       )}
+
+      {x.files.some((file) => /\.jsonl?$/.test(file.path)) && <DatasetQuery id={x.id} area={v.area} domain={v.domain?.id ?? x.domain} q={q} />}
 
       <PanelCard title={`ファイル ${x.files.length + x.more} 件`} description={x.more ? `新しい順に ${x.files.length} 件` : undefined}>
         <TableFrame>

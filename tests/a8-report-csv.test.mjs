@@ -298,3 +298,43 @@ test('sumSiteRows: サイト名は完全一致で合計し、doboku-note が not
   assert.equal(both.revenueYen, 100);
   assert.equal(sumSiteRows(rows, ['無い']), null);
 });
+
+test("normalizeA8Csv[site-summary]: 副サイト（relatedSites）の行も採り、名前が似た他サイトは完全一致で除く（DN-0566）", async () => {
+  const csv = [
+    SITE_CSV.split("\n")[0],
+    '"doboku-note（note）",0,2,"-",0,0,0,0,0,"-",0,0,0,0',
+    '"KAZU（kazu-note）",0,24,"-",0,0,0,0,0,"-",0,0,0,0',
+    '"doboku-note",89016,49,0.06,0,0,0,0,0,"-",0,0,0,0',
+  ].join("\n");
+  const { rows } = normalizeA8Csv(csv, { reportKey: "site-summary", cfg });
+  assert.deepEqual(rows.map((r) => r.site).sort(), ["doboku-note", "doboku-note（note）"]);
+  // 正規化した行は report-log の型を通る（2026-10-04〜06 の CI 書き戻しは note 行で型に落ちていた）
+  const { A8ReportLog } = await import("../scripts/lib/dataset-schemas.mjs");
+  const row = A8ReportLog.shape.siteSummary.element;
+  for (const r of rows) assert.equal(row.safeParse({ ...r, fetchedAt: "2026-10-06T01:50:28.000Z", period: "202609-202609" }).success, true, r.site);
+});
+
+test("siteMonthsFromReportLog: サイト別の単月の行だけを新しい月から返し、累計の期間・他サイトは混ぜない", async () => {
+  const { siteMonthsFromReportLog } = await import("../scripts/lib/a8-report-csv.mjs");
+  const row = (site, period, clicks, extra = {}) => ({ site, period, clicks, conversions: 0, approved: 0, pendingCount: 0, cancelledCount: 0, revenueYen: 0, ...extra });
+  const log = {
+    siteSummary: [
+      row("doboku-note", "202601-202607", 137, { conversions: 1 }), // 累計は混ぜない
+      row("doboku-note", "202607-202607", 56),
+      row("doboku-note", "202608-202608", 71),
+      row("doboku-note", "202609-202609", 49),
+      row("doboku-note（note）", "202609-202609", 2),
+      row("doboku-note", "202610-202610", 20, { conversions: 1, pendingCount: 1 }),
+      row("統計で見る都道府県", "202609-202609", 193), // 他サイトは混ぜない
+    ],
+  };
+  const got = siteMonthsFromReportLog(log, { sites: ["doboku-note", "doboku-note（note）"], months: 3 });
+  assert.deepEqual(got.map((r) => `${r.month} ${r.site} ${r.clicks}`), [
+    "2026-10 doboku-note 20",
+    "2026-09 doboku-note 49",
+    "2026-09 doboku-note（note） 2",
+    "2026-08 doboku-note 71",
+  ]);
+  assert.equal(got[0].pendingCount, 1);
+  assert.deepEqual(siteMonthsFromReportLog({}, { sites: ["doboku-note"] }), []);
+});

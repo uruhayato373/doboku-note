@@ -40,6 +40,47 @@ export function trialFlowAction({ trialLineBottom = false, membershipLock = fals
   return 'abort';
 }
 
+/**
+ * 設定画面の試し読みの状態から次の手を決める（2026-10-05 DN-0542）。
+ * 「試し読みエリアを設定」ボタンが出る場合だけでなく、試し読みラインの画面（「ラインをこの場所に変更」が並ぶ）が
+ * 直接開く場合がある。後者を境界の無い無料記事と扱うと、ラインを引かずに「更新する」を押し、note 側で確定しないまま
+ * 「反映完了」と出ていた（主任技士の出題傾向分析 n39ce3c33eaa8 で実測。画面の出方は実行ごとに変わる）。
+ * @param {{hasTrialButton?: boolean, trialLineButtons?: number, trialLineBottom?: boolean, membershipLock?: boolean}} state
+ * @returns {'none'|'abort'|'line-bottom'|'keep-locked'} none＝試し読みの設定が無い記事
+ */
+export function trialSettingsAction({ hasTrialButton = false, trialLineButtons = 0, trialLineBottom = false, membershipLock = false } = {}) {
+  if (!hasTrialButton && trialLineButtons < 2) return 'none';
+  return trialFlowAction({ trialLineBottom, membershipLock });
+}
+
+/** 試し読みラインの候補ボタン（「ラインをこの場所に変更」）の数。2 つ以上あれば試し読みの画面が開いている。 */
+async function countTrialLineButtons(page) {
+  return page.evaluate(() => [...document.querySelectorAll('button,[role=button]')]
+    .filter((button) => /ラインをこの場所に変更/.test(button.innerText || '')).length).catch(() => 0);
+}
+
+/** 試し読みラインを末尾の 1 つ手前に置き、確定した line を確かめる。置けなければ false（保存しない）。 */
+async function setTrialLineBottom(page, shot, report) {
+  const set = await page.evaluate(() => {
+    const buttons = [...document.querySelectorAll('button,[role=button]')].filter((button) => /ラインをこの場所に変更/.test(button.innerText || ''));
+    if (buttons.length < 2) return { ok: false, count: buttons.length };
+    const selected = buttons[buttons.length - 2];
+    selected.scrollIntoView({ block: 'center' });
+    selected.click();
+    return { ok: true, count: buttons.length };
+  });
+  await sleep(3000);
+  const hasLine = await page.evaluate(() => document.querySelector('.paywall-line') !== null);
+  console.log(`[5b] 試し読みライン設置(末尾-1): buttons=${set.count} 確定line(.paywall-line)=${hasLine}`);
+  await page.screenshot({ path: shot('trialline') });
+  if (!set.ok || !hasLine) {
+    console.error('[5b] ABORT: 試し読みライン設置を確認できず。保存せず中断（会員境界保護）。');
+    report.reason = 'trial-line';
+    return false;
+  }
+  return true;
+}
+
 export async function publishLive(
   page,
   noteId,
@@ -217,41 +258,33 @@ export async function publishLive(
       report.reason = report.reason || 'boundary';
       return false;
     }
-  } else if (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) {
-    if (trialFlowAction({ trialLineBottom, membershipLock }) === 'abort') {
+  } else {
+    const hasTrialButton = (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) > 0;
+    const trialLineButtons = hasTrialButton ? 0 : await countTrialLineButtons(page);
+    const action = trialSettingsAction({ hasTrialButton, trialLineButtons, trialLineBottom, membershipLock });
+    if (action === 'none') {
+      console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
+    } else if (action === 'abort') {
       report.reason = 'trial-guard';
       console.error('[5b] ABORT: この記事はメンバーシップ特典マガジンに入っており、ラインを引かずに更新すると全文が会員限定になる。'
         + '誰でも読める状態を保つなら --trial-line-bottom（ラインを末尾直前に置く）、意図して全文ロックしている記事なら'
         + ' --keep-member-lock で再実行する。保存せず中断。');
       await page.screenshot({ path: shot('trialguard') });
       return false;
-    }
-    console.log('[5b] メンバーシップ試し読みフロー' + (trialLineBottom ? '（ラインを末尾直前に設置＝ほぼ全文プレビュー）' : '（ラインを動かさず更新へ進む）'));
-    await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).first().click();
-    await sleep(4000);
-    if (trialLineBottom) {
-      const set = await page.evaluate(() => {
-        const buttons = [...document.querySelectorAll('button,[role=button]')].filter((button) => /ラインをこの場所に変更/.test(button.innerText || ''));
-        if (buttons.length < 2) return { ok: false, count: buttons.length };
-        const selected = buttons[buttons.length - 2];
-        selected.scrollIntoView({ block: 'center' });
-        selected.click();
-        return { ok: true, count: buttons.length };
-      });
-      await sleep(3000);
-      const hasLine = await page.evaluate(() => document.querySelector('.paywall-line') !== null);
-      console.log(`[5b] 試し読みライン設置(末尾-1): buttons=${set.count} 確定line(.paywall-line)=${hasLine}`);
-      await page.screenshot({ path: shot('trialline') });
-      if (!set.ok || !hasLine) {
-        console.error('[5b] ABORT: 試し読みライン設置を確認できず。保存せず中断（会員境界保護）。');
-        report.reason = 'trial-line';
-        return false;
-      }
     } else {
-      await page.screenshot({ path: shot('trialarea') });
+      console.log('[5b] メンバーシップ試し読みフロー'
+        + (hasTrialButton ? '' : '（試し読みの画面が直接開いた）')
+        + (action === 'line-bottom' ? '（ラインを末尾直前に設置＝ほぼ全文プレビュー）' : '（ラインを動かさず更新へ進む）'));
+      if (hasTrialButton) {
+        await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).first().click();
+        await sleep(4000);
+      }
+      if (action === 'line-bottom') {
+        if (!(await setTrialLineBottom(page, shot, report))) return false;
+      } else {
+        await page.screenshot({ path: shot('trialarea') });
+      }
     }
-  } else {
-    console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
   }
 
   return clickUpdate(page, shot);

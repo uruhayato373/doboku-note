@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="解決策の遂行方策を、計画・資源配分・検証・是正の四段で組む流れ" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:14px;font-weight:bold}
+.q{font-size:12px;fill:#555} /* ink-body */
+.tag{font-size:11px;fill:#555}
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.f{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1} /* surface */
+.a{fill:none;stroke:#2e6da4;stroke-width:1.5;marker-end:url(#arrow)}
+</style><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect x="20" y="16" width="340" height="52" rx="8" class="f"/><text x="34" y="38" class="h">前提｜設問(1)から引き継ぐ</text><text x="34" y="58" class="q">課題と、課題がどの水準まで解ければ成功か</text>
+<path d="M190 68 V88" class="a"/>
+<rect x="20" y="88" width="340" height="80" rx="8" class="g"/><text x="34" y="112" class="h">1｜計画</text><text x="352" y="112" text-anchor="end" class="tag">遂行の計画</text><text x="34" y="136" class="q">段階に分け、順序と時期を決める</text><text x="34" y="156" class="q">関係者への説明と調整の時期も入れる</text>
+<path d="M190 168 V188" class="a"/>
+<rect x="20" y="188" width="340" height="80" rx="8" class="g"/><text x="34" y="212" class="h">2｜資源配分</text><text x="352" y="212" text-anchor="end" class="tag">遂行の計画</text><text x="34" y="236" class="q">人員・設備・金銭・情報を割り当てる</text><text x="34" y="256" class="q">予算の根拠と進める体制が見えるように</text>
+<path d="M190 268 V288" class="a"/>
+<rect x="20" y="288" width="340" height="80" rx="8" class="w"/><text x="34" y="312" class="h">3｜検証</text><text x="352" y="312" text-anchor="end" class="tag">確かめと見直し</text><text x="34" y="336" class="q">何の指標を、いつ測るかを決める</text><text x="34" y="356" class="q">関係者の意見の取り込み方も添える</text>
+<path d="M190 368 V388" class="a"/>
+<rect x="20" y="388" width="340" height="80" rx="8" class="w"/><text x="34" y="412" class="h">4｜是正</text><text x="352" y="412" text-anchor="end" class="tag">確かめと見直し</text><text x="34" y="436" class="q">基準を外れたら何に切り替えるか</text><text x="34" y="456" class="q">一文で足す程度にとどめる</text>
+</svg>

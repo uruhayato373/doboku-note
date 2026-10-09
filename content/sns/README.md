@@ -1,6 +1,8 @@
 # SNS 投稿管理 SSOT
 
-このディレクトリが全 SNS 投稿の唯一の真実源（SSOT）です。
+このディレクトリは SNS 投稿の中身（台本・文面・デザインの指定）の置き場です。公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）は
+コンテンツ台帳 `content/registry/` へ段階的に移します（2026-10-09 決定・[content-registry.md](../../.claude/knowledge/reference/content-registry.md)）。
+切り替え前のチャネルは、下の表の置き場と各状態ファイルが今の正本です。
 
 ## チャネル別 SSOT
 
@@ -8,14 +10,14 @@
 |---|---|---|---|
 | Instagram | `content/sns/instagram/` | `slide-data.json` + `img/` | 半自動（スクリプト生成） |
 | X（Twitter） | `content/sns/x/` | `tweets.md` + `status.json` | 手動 |
-| 動画パック | `content/sns/video-packs/{exam}/{slug}/` | `video-pack.json` + `script.md` + `storyboard.json` | 通常動画を核に各チャネルへ派生（DN-0110・レンダラー=`npm run render-longform`・一覧=`README.md` を `build-video-pack-index` で生成） |
+| 動画パック | `content/sns/video-packs/{exam}/{slug}/` | `video-pack.json` + `script.md` + `storyboard.json`（総まとめは `compilation.json` から storyboard を生成） | 通常動画を核に各チャネルへ派生（DN-0110・レンダラー=`npm run render-longform`・一覧=`README.md` を `build-video-pack-index` で生成） |
 | YouTube Shorts | `content/sns/youtube/` | `meta.json`（mp4はR2） | 生成・投稿経路は資格ごとに異なる |
 
-動画パックは企画・出典・台本・CTAのSSOTであり、Instagram・X・YouTubeの既存SSOTを置き換えない。公開URL・videoId・計測鮮度は `.claude/state/` に置き、制作意図と可変状態を混ぜない。詳細は `.claude/knowledge/reference/video-content-policy.md`。
+動画パックは企画・出典・台本・CTAのSSOTであり、Instagram・X・YouTubeの既存SSOTを置き換えない。YouTube の公開 URL・videoId・状態はコンテンツ台帳 `content/registry/`、計測鮮度などは `.claude/state/` に置き、制作意図と可変状態を混ぜない。詳細は `.claude/knowledge/reference/video-content-policy.md`。
 
 ## スケジュール管理
 
-`content/sns/schedule.json` — 全チャネル統合スケジュール
+全チャネルの予定は管理画面の計画（`npm run schedule-view` と同じ集約）で見る。旧 `content/sns/schedule.json` は削除済み。
 
 ## ディレクトリ命名規則
 

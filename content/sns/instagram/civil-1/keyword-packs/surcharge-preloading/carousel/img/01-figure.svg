@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="サーチャージ工法の沈下曲線。計画盛土の荷重Pに余盛りΔPを加えて載せると沈下が早く進み、余盛りを取り除く時点で目標の沈下に近づくため、除荷後の残留沈下が小さくなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="sc-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="sc-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="sc-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+<rect width="400" height="500" fill="#ffffff"/>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">サーチャージ工法の沈下曲線</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">余盛り荷重で沈下を早め、除荷してから仕上げる</text>
+
+  <path class="ln" d="M50,70 L50,190 L370,190"/>
+  <path class="ln" d="M50,222 L50,350 M50,222 L370,222"/>
+  <text class="t-note" x="16" y="68">荷重</text>
+  <text class="t-note" x="16" y="216">沈下量</text>
+  <path d="M50,190 L50,130 L370,130" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M50,190 L50,95 L250,95 L250,130 L370,130" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <text class="t-key" x="150" y="87" text-anchor="middle">P＋ΔP</text>
+  <text class="t-note" x="150" y="117" text-anchor="middle">ΔP（余盛り）</text>
+  <text class="t-lab" x="330" y="122" text-anchor="middle">P（計画盛土）</text>
+  <line class="dash" x1="250" y1="80" x2="250" y2="350"/>
+  <text class="t-warn" x="250" y="74" text-anchor="middle">除荷</text>
+  <line x1="50" y1="330" x2="370" y2="330" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <path d="M50,222 C90,300 170,328 250,330 C290,331 330,331 370,331" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <path d="M50,222 C110,262 200,300 250,314 C300,326 340,329 370,330" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="262" y1="240" x2="282" y2="240" stroke="#2e6da4" stroke-width="2.5"/>
+  <text class="t-note" x="288" y="244">余盛りあり</text>
+  <line x1="262" y1="262" x2="282" y2="262" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <text class="t-note" x="288" y="266">計画盛土のみ</text>
+  <text class="t-note" x="370" y="346" text-anchor="end">計画盛土の最終沈下</text>
+  <text class="t-note" x="370" y="368" text-anchor="end">時間 →</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">荷重</text>
+  <text class="t-lab" x="104" y="416">計画盛土 P に余盛り ΔP を加えて載荷</text>
+  <text class="t-key" x="30" y="442">沈下</text>
+  <text class="t-lab" x="104" y="442">余盛りがあるほど圧密沈下が早く進む</text>
+  <text class="t-key" x="30" y="468">効果</text>
+  <text class="t-lab" x="104" y="468">除荷後の残留沈下を低減</text>
+</svg>

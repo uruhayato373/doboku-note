@@ -10,7 +10,7 @@
           },
           {
             "type": "command",
-            "command": "node scripts/hooks/agent-hook.mjs check-gemini-cost"
+            "command": "node scripts/hooks/agent-hook.mjs check-cd-scope"
           }
         ]
       }
@@ -46,6 +46,11 @@
             "type": "command",
             "command": "node scripts/hooks/agent-hook.mjs check-disk-hygiene",
             "timeout": 20
+          },
+          {
+            "type": "command",
+            "command": "node scripts/hooks/agent-hook.mjs check-capture",
+            "timeout": 10
           }
         ]
       }

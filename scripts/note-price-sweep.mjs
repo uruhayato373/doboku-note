@@ -15,10 +15,12 @@
  *   node scripts/note-price-sweep.mjs --dir <magazineDir> --from 1980 --to 500 --commit
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
+import { setArticlePrices } from './lib/product-registry.mjs';
+import { fileURLToPath } from 'node:url';
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const getArg = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
 const DIR = getArg('--dir');
@@ -40,12 +42,9 @@ function walk(dir, out = []) {
 }
 const files = walk(abs);
 const re = new RegExp(`^(price:[ \\t]*)${FROM}\\b`, 'm');
-let hit = 0;
-for (const f of files) {
-  const raw = readFileSync(f, 'utf8');
-  if (!re.test(raw)) continue;
-  hit++;
-  if (COMMIT) writeFileSync(f, raw.replace(re, `$1${TO}`));
-}
+const targets = files.filter((f) => re.test(readFileSync(f, 'utf8')));
+const hit = targets.length;
+// 単品価格の正本は config/products.json の articlePrices（frontmatter の price は写し）。両方を同時に書く
+if (COMMIT && hit) setArticlePrices(targets.map((f) => ({ path: relative(ROOT, f), price: Number(TO) })));
 console.log(`[note-price-sweep] ${DIR}: ${files.length} article / price ${FROM}→${TO} 対象 ${hit} 件 ${COMMIT ? '（書込済）' : '（dry・--commit で書込）'}`);
 process.exit(0);

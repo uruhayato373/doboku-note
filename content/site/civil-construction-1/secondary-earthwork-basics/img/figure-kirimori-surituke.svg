@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="切土と盛土の接続部（縦断方向）の比較。すり付けがないと支持力が不連続になり路面に亀裂が生じやすい。すりつけ切土勾配を1対4程度にして良質土で入念に締め固めると、段差をなくせる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">切土と盛土の接続部</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">勾配をつけてすり付け、支持力の段差をなくす</text>
+  <rect class="card" x="16" y="70" width="368" height="146" rx="6"/>
+  <polygon class="ground" points="24,120 190,120 190,180 376,180 376,206 24,206"/>
+  <polygon class="emb" points="190,120 376,120 376,180 190,180"/>
+  <text class="t-note" x="34" y="192">切土部</text>
+  <text class="t-note" x="366" y="170" text-anchor="end">盛土部</text>
+  <text class="t-warn" x="30" y="104">すり付けなし</text>
+  <path class="redl" d="M 190 120 l 5 -8 l -9 -6 l 6 -8"/>
+  <text class="t-warn" x="216" y="94" text-anchor="start">段差で支持力が不連続</text>
+  <text class="t-warn" x="216" y="110" text-anchor="start">路面に亀裂</text>
+  <rect class="card" x="16" y="226" width="368" height="146" rx="6"/>
+  <polygon class="ground" points="24,276 120,276 290,336 376,336 376,362 24,362"/>
+  <polygon class="emb" points="120,276 376,276 376,336 290,336"/>
+  <text class="t-note" x="34" y="348">切土部</text>
+  <text class="t-note" x="366" y="326" text-anchor="end">盛土部</text>
+  <text class="t-pos" x="30" y="260">すり付けあり</text>
+  <text class="t-lab" x="200" y="352" text-anchor="middle">すりつけ切土勾配 1：4 程度</text>
+  <text class="t-note" x="334" y="292" text-anchor="middle">良質土で入念に</text>
+  <text class="t-note" x="334" y="306" text-anchor="middle">締め固める</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="98" rx="6"/>
+  <text class="t-key" x="30" y="416">原因</text>
+  <text class="t-lab" x="104" y="416">切土部と盛土部の支持力の不連続</text>
+  <text class="t-key" x="30" y="442">湧水</text>
+  <text class="t-lab" x="104" y="442">境界付近にトレンチ（排水溝）を設ける</text>
+  <text class="t-key" x="30" y="468">施工</text>
+  <text class="t-lab" x="104" y="468">境界部は本体と別に締固め方法を検討</text>
+</svg>

@@ -1,6 +1,6 @@
 ---
 name: feedback_workflow_orchestration_gotchas
-description: "Workflow/サブエージェント運用の罠: args文字列化・新agentType未解決・重いdoc Readでストール・writerが勝手にcommit・並行2本まで・Bash不可・夜間一括・機械作業は直接処理"
+description: "Workflow/サブエージェント運用の罠: 並列ワーカーの一時パス共有・args文字列化・新agentType未解決・重いdoc Readでストール・writerが勝手にcommit・並行2本まで・Bash不可・夜間一括・機械作業は直接処理"
 metadata:
   type: feedback
 ---
@@ -9,10 +9,12 @@ metadata:
 
 ## Workflow の罠
 - **args は文字列化されて渡る**: 先頭で `const items = typeof args === 'string' ? JSON.parse(args) : args` のガード必須（無いと `items.map is not a function` で即死）。
+- **並列ワーカーに共有の一時パスを書かせない**（2026-10-06）: 図の worker 定義が `$TMPDIR/view.png` に変換して Read させていたため、同時に走った 2 体が互いの画像を読み、gnss-receiver を隣の fig-2-53 の画像で判定した（判定理由に入力と違う図の内容が書かれて発覚）。一時ファイルは入力ごとの専用ディレクトリ（figKey 等から作る）に置かせ、判定前に「読んだ画像が入力か（寸法・alt）」を確かめさせる。親は理由文が入力と合っているかを見る。
 - **セッション途中で作成した agent は agentType で解決できない**（"agent type not found"）: agentType を外しルーブリック/指示をプロンプトに完全埋め込み。次セッションから登録される。
 - **fan-out subagent に重い doc の全 Read を課すとストール**（content-principles 全文1000+行を並列 Read させたら無編集のまま停止）: doc は読ませずルールをプロンプトに埋め込む。civil-textbook-rewriter 等は system prompt に規約を持つので Read 不要で安定。
 - **bulk subagent は必ず Sonnet**: `model:inherit` の Evaluator(guide-qa 等)を親 Opus 下で大量 fan-out すると Opus 実行になりセッション上限直撃（19本で停止）。bulk は `model:'sonnet'` を明示 override、Opus は判断/fact-fix/フラグシップのみ（[[feedback_opus_sonnet_split]]）。
 - **writer/rewriter subagent は指示しなくても `git commit` する**（2026-09-22 実証）: brief に「返答は path と字数だけ」では足りず W4 の5体が develop へ7 commit を勝手に積んだ（未 push で回収）。**全ステージのプロンプト末尾に「git コマンドを一切実行しない（commit/add/push/checkout/stash 禁止）。編集したらそのまま置く」を連結**（明記すると守る）。他セッションの `git add -A` に巻き込まれる話は [[feedback_multi_session_concurrent_git]]。
+- **git 禁止を明記しても `git rm`・`git diff` は使われる**（2026-10-09 コンテンツ台帳 P5〜P7）: commit は防げても index は変わる。各 Build 段の完了後に親が `git status --short` と `git diff --cached --stat` で index を確かめ、意図しない staged を戻してから検査する。固定 worktree の生成インデックス（`src/config/doc-meta-index` 等）は古いことがあり check-category-curriculum を偽で落とす→検査前に `npm run refresh-indexes`。
 - **QA の指摘をそのまま適用させると規約側を壊す**: guide-qa が「想定読者 Callout を削除しリード散文へ溶かせ」と指示し rewriter が従って必須 Callout が消えた（2026-09-22・W4 も同型）。決定的ゲート（個数チェック）を各記事に付ければ次段で捕まる＝QA の助言は絶対視せずゲートで縛る（ゲート未設置の規約は QA の一言で壊れる）。
 - **パイプライン途中のファイル検査は偽 NG**: fix ステージ稼働中に親が gate 相当の grep をすると中間状態を掴む。親の独立検証は workflow 完了通知の後。
 - **並行 Workflow は最大2本**: 3本同時（同時40+ の sonnet + WebSearch）だとエージェントが「no progress 180s × 6回」でストールし記事が未検証のまま pipeline から落ちた（2本に絞ったらストールゼロ・`pe-secondary-exam-factcheck` は WebSearch で1件5〜8分と特に重い）。各科目は full モード後に「ストール＋fact 残存」を gapfill で拾う。`check-note-charlimits`（pre-commit）は QA の python 計測より厳密で III/必須I の1,800字超過を弾くので commit 前提で圧縮が要ることがある。fact 残存（自動 fix で解けない likely_wrong）は factcheck 詳細→該当行 Edit の手動是正が確実。`git add $(node -e 'join(" ")')` はワード分割で失敗しやすい→`xargs`。

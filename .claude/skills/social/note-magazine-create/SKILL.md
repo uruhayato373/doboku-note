@@ -4,7 +4,7 @@ description: >
   note 有料マガジンを `note掲載文.txt` 駆動で新規作成する（/magazines/new・有料単体）。`note-edit-magazine`（編集専用）が扱わない「新規作成」を担う。Use when user says [noteマガジン作成, note有料マガジンを作る, /note-magazine-create].
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--dir <magazineDir> [--commit]"
+argument-hint: "--dir <magazineDir> [--commit] [--allow-duplicate]"
 domain: product
 ---
 
@@ -31,6 +31,7 @@ node scripts/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
 ## 安全弁
 
 - **既定 probe**（フォームをダンプするだけ・作成しない）。実作成は `--commit` 必須。
+- `--commit` 時は作成前に note API で同名マガジンを探し、あれば作らずに止める（exit 4。確認が不成立なら exit 2）。作成はやり直しが効かないため。意図して同名を作るときだけ `--allow-duplicate`（2026-10-03、ログを見落として再実行し空の重複を作った）。
 - 作成前に fill 値を読み戻し検証（title/price 一致を確認）。
 - 作成は**ユーザー起動限定**（`disable-model-invocation: true`）。決定的フローのためサブエージェント化しない（原則5）。
 

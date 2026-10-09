@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="第一次検定と第二次検定の手続きを並べた2系統の流れ。申込、受検票、受験、結果通知、合格証明書の交付申請の順に進む。">
+<defs>
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222}</style>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker>
+</defs>
+<!-- brand / positive fills; ink-strong text -->
+<text x="100" y="32" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">第一次検定の系統</text>
+<text x="292" y="32" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">第二次検定の系統</text>
+
+<rect x="16" y="48" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="76" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">申込</text>
+<text x="100" y="96" font-size="12" text-anchor="middle" fill="#555">年齢だけで申込できる</text>
+<path d="M100 112 L100 136" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="208" y="48" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="292" y="76" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">申込</text>
+<text x="292" y="96" font-size="12" text-anchor="middle" fill="#555">実務経験を登録して申込</text>
+<path d="M292 112 L292 136" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="16" y="138" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="166" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">受検票（ハガキ）</text>
+<text x="100" y="186" font-size="12" text-anchor="middle" fill="#555">試験日の約20日前に発送</text>
+<path d="M100 202 L100 226" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="208" y="138" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="292" y="166" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">受検票（ハガキ）</text>
+<text x="292" y="186" font-size="12" text-anchor="middle" fill="#555">試験日の約20日前に発送</text>
+<path d="M292 202 L292 226" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="16" y="228" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="256" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">受験</text>
+<text x="100" y="276" font-size="12" text-anchor="middle" fill="#555">択一式・マークシート</text>
+<path d="M100 292 L100 316" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="208" y="228" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="292" y="256" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">受験</text>
+<text x="292" y="276" font-size="12" text-anchor="middle" fill="#555">記述式・筆記</text>
+<path d="M292 292 L292 316" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="16" y="318" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="346" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">結果通知</text>
+<text x="100" y="366" font-size="12" text-anchor="middle" fill="#555">合否通知と番号の公表</text>
+<path d="M100 382 L100 406" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="208" y="318" width="168" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="292" y="346" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">結果通知</text>
+<text x="292" y="366" font-size="12" text-anchor="middle" fill="#555">合否通知と番号の公表</text>
+<path d="M292 382 L292 406" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<rect x="16" y="408" width="168" height="64" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="100" y="436" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">交付申請</text>
+<text x="100" y="456" font-size="12" text-anchor="middle" fill="#555">1級技士補の証明書</text>
+<rect x="208" y="408" width="168" height="64" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="292" y="436" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a3a5c">交付申請</text>
+<text x="292" y="456" font-size="12" text-anchor="middle" fill="#555">1級技士の証明書</text>
+</svg>

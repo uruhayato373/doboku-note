@@ -1,0 +1,82 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="択一式40問を、確信で取る20問、絞り込みで拾う14問、捨てる6問に仕分け、得点の見込み18問と6問と0問を足して、目標の24問に届く構成の例。" style="max-width:400px;width:100%">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-sub { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-label { font-size: 12px; fill: #555; }             /* ink-body */
+      .t-strong { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-big { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 凡例 -->
+  <rect x="16" y="27" width="11" height="11" rx="2" fill="#555"/>
+  <text class="t-sub" x="32" y="36">取れる見込み</text>
+  <rect x="128" y="27" width="11" height="11" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+  <text class="t-sub" x="144" y="36">見込みに入れない</text>
+
+  <!-- 層1: 確信で取る 20問 → 18問 -->
+  <rect class="box-positive" x="16" y="48" width="360" height="88" rx="8"/>
+  <text class="t-strong" x="28" y="71">確信で取る 20問</text>
+  <text class="t-strong" x="364" y="71" text-anchor="end">見込み 18問</text>
+  <g fill="#3a7d44">
+    <rect x="28" y="82" width="13" height="13" rx="2"/><rect x="44" y="82" width="13" height="13" rx="2"/>
+    <rect x="60" y="82" width="13" height="13" rx="2"/><rect x="76" y="82" width="13" height="13" rx="2"/>
+    <rect x="92" y="82" width="13" height="13" rx="2"/><rect x="108" y="82" width="13" height="13" rx="2"/>
+    <rect x="124" y="82" width="13" height="13" rx="2"/><rect x="140" y="82" width="13" height="13" rx="2"/>
+    <rect x="156" y="82" width="13" height="13" rx="2"/><rect x="172" y="82" width="13" height="13" rx="2"/>
+    <rect x="188" y="82" width="13" height="13" rx="2"/><rect x="204" y="82" width="13" height="13" rx="2"/>
+    <rect x="220" y="82" width="13" height="13" rx="2"/><rect x="236" y="82" width="13" height="13" rx="2"/>
+    <rect x="252" y="82" width="13" height="13" rx="2"/><rect x="268" y="82" width="13" height="13" rx="2"/>
+    <rect x="284" y="82" width="13" height="13" rx="2"/><rect x="300" y="82" width="13" height="13" rx="2"/>
+  </g>
+  <g fill="#fff" stroke="#3a7d44" stroke-width="1.2">
+    <rect x="316" y="82" width="13" height="13" rx="2"/><rect x="332" y="82" width="13" height="13" rx="2"/>
+  </g>
+  <text class="t-label" x="28" y="116">根拠を言える問題。ミス2問分は引く</text>
+
+  <!-- 層2: 絞り込みで拾う 14問 → 6問 -->
+  <rect class="box-warn" x="16" y="151" width="360" height="88" rx="8"/>
+  <text class="t-strong" x="28" y="174">絞り込みで拾う 14問</text>
+  <text class="t-strong" x="364" y="174" text-anchor="end">見込み 6問</text>
+  <g fill="#d4a017">
+    <rect x="28" y="185" width="13" height="13" rx="2"/><rect x="44" y="185" width="13" height="13" rx="2"/>
+    <rect x="60" y="185" width="13" height="13" rx="2"/><rect x="76" y="185" width="13" height="13" rx="2"/>
+    <rect x="92" y="185" width="13" height="13" rx="2"/><rect x="108" y="185" width="13" height="13" rx="2"/>
+  </g>
+  <g fill="#fff" stroke="#d4a017" stroke-width="1.2">
+    <rect x="124" y="185" width="13" height="13" rx="2"/><rect x="140" y="185" width="13" height="13" rx="2"/>
+    <rect x="156" y="185" width="13" height="13" rx="2"/><rect x="172" y="185" width="13" height="13" rx="2"/>
+    <rect x="188" y="185" width="13" height="13" rx="2"/><rect x="204" y="185" width="13" height="13" rx="2"/>
+    <rect x="220" y="185" width="13" height="13" rx="2"/><rect x="236" y="185" width="13" height="13" rx="2"/>
+  </g>
+  <text class="t-label" x="28" y="219">2〜3肢まで絞り、約4割を拾う</text>
+
+  <!-- 層3: 捨てる 6問 → 0問 -->
+  <rect class="box-surface" x="16" y="254" width="360" height="88" rx="8"/>
+  <text class="t-strong" x="28" y="277">捨てる 6問</text>
+  <text class="t-strong" x="364" y="277" text-anchor="end">見込み 0問</text>
+  <g fill="#fff" stroke="#8a8a8a" stroke-width="1.2">
+    <rect x="28" y="288" width="13" height="13" rx="2"/><rect x="44" y="288" width="13" height="13" rx="2"/>
+    <rect x="60" y="288" width="13" height="13" rx="2"/><rect x="76" y="288" width="13" height="13" rx="2"/>
+    <rect x="92" y="288" width="13" height="13" rx="2"/><rect x="108" y="288" width="13" height="13" rx="2"/>
+  </g>
+  <text class="t-label" x="28" y="322">仮のマークだけ入れて先へ進む</text>
+
+  <!-- 合計 -->
+  <rect class="box-brand" x="16" y="357" width="360" height="129" rx="8"/>
+  <text class="t-label" x="28" y="379">見込みの合計</text>
+  <text class="t-big" x="28" y="405">18 + 6 + 0 = 24問</text>
+  <rect x="28" y="418" width="336" height="16" rx="3" fill="#fff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="28" y="418" width="151.2" height="16" rx="3" fill="#3a7d44"/>
+  <rect x="179.2" y="418" width="50.4" height="16" fill="#d4a017"/>
+  <line x1="229.6" y1="412" x2="229.6" y2="440" stroke="#1a3a5c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text class="t-label" x="28" y="455">0問</text>
+  <text class="t-strong" x="229.6" y="455" text-anchor="middle">目標 24問</text>
+  <text class="t-label" x="364" y="455" text-anchor="end">40問</text>
+  <text class="t-sub" x="28" y="476">全問正解は要らない。目標ライン（24問）に届く組み立てを考える</text>
+</svg>

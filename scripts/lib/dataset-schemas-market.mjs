@@ -2,9 +2,9 @@
  * dataset-schemas-market.mjs — 競合・市場・SNS・ASP の取得記録 の型（zod）。dataset-schemas.mjs が export * で束ね、台帳（datasets.mjs）の schema が名前で引く。
  * 型を足す約束は dataset-schemas.mjs の先頭。部品は dataset-schema-parts.mjs。
  *
- * 競合の時系列（note・ココナラ・X・Instagram）は同じ封筒（fetchedAt・drift・driftBasis・competitors）なので、
+ * 競合の時系列（note・ココナラ・X・Instagram・YouTube）は同じ封筒（fetchedAt・drift・driftBasis・competitors）なので、
  * 封筒と共通の部品（price・drift・handle）をここで 1 回だけ書く（competitorSnapshot）。取得元ごとに違うのは 1 社の行と drift の語彙だけ。
- * 書き手: scripts/scout-{note,coconala,x,ig}-competitors.mjs・scout-coconala-blogs.mjs（競合）、x-own-metrics.mjs、
+ * 書き手: scripts/scout-{note,coconala,x,ig,youtube}-competitors.mjs・scout-coconala-blogs.mjs（競合）、x-own-metrics.mjs、youtube-own-metrics.mjs、
  * coconala-research.mjs（市場調査と要約）、scan-qualification-market.mjs、verify-note-status.mjs、
  * fetch-a8-ui-csv.mjs と .claude/skills/ads/scout-asp/scripts/a8-browser.ts（A8）。
  */
@@ -723,3 +723,103 @@ export const A8UiLastRun = z
     if (r.downloadedUnits > r.totalUnits) flag(ctx, ['downloadedUnits'], '取れた数が取ろうとした数より多い');
   })
   .meta({ title: 'A8 の画面取得の最後の実行' });
+
+// ---- YouTube（自社の動画・競合チャンネル） ----------------------------------------------------
+
+const ytVideoStats = z
+  .object({
+    sampled: count('一覧から取った動画の数'),
+    withViews: count('再生数が取れた動画の数'),
+    totalViews: count('再生数の合計（取れた動画だけ）'),
+    medianViews: orNull(count('再生数の中央値'), '再生数が 1 本も取れなければ null'),
+    medianDurationSec: orNull(count('尺の中央値（秒）'), '尺が 1 本も取れなければ null'),
+  })
+  .strict()
+  .superRefine((s, ctx) => {
+    if (s.withViews > s.sampled) flag(ctx, ['withViews'], '再生数が取れた数が取った数より多い');
+  });
+const ytLengthBuckets = z
+  .array(z.object({ key: z.enum(['under5', '5to15', '15to30', '30to60', 'over60']), videos: count('本数'), medianViews: orNull(count('再生数の中央値'), '0 本なら null') }).strict())
+  .length(5)
+  .describe('尺の区分ごとの本数と再生中央値（scripts/lib/youtube-listing.mjs の LENGTH_BUCKETS）');
+const ytTitleSignals = z
+  .array(z.object({ word: z.string().min(1), videos: count('題名に語を含む本数'), medianViews: orNull(count('再生数の中央値'), '0 本なら null') }).strict())
+  .describe('題名の語ごとの本数と再生中央値（語は台帳 config.youtube-formats の titleSignals）');
+const ytVideo = z
+  .object({
+    id: z.string().min(1).describe('動画 ID'),
+    title: z.string().nullable().describe('題名（日本語表示）'),
+    views: orNull(count('累計の再生数'), '一覧に出なければ null'),
+    durationSec: orNull(count('尺（秒）'), '一覧に出なければ null'),
+  })
+  .strict();
+
+/** 自社チャンネルの動画ごとの再生数・尺（data/youtube/own-videos/<日付>.json）。取得は scripts/youtube-own-metrics.mjs（月次） */
+export const YoutubeOwnVideos = z
+  .object({
+    schemaVersion: z.literal(1),
+    fetchedAt: utcTime('取得時刻'),
+    source: z.string().describe('取得元'),
+    caveat: z.string().describe('取得の限界（再生数は累計・視聴維持率やクリック率は無い）'),
+    channel: z
+      .object({ id: z.string().min(1), handle: z.string().min(1), subscriberCount: orNull(count('登録者数（一覧ページの表示値）'), '取れなければ null') })
+      .strict(),
+    summary: z.object({ longform: ytVideoStats, shorts: ytVideoStats }).strict().describe('通常動画と Shorts の要約'),
+    lengthBuckets: ytLengthBuckets.describe('通常動画の尺の区分'),
+    titleSignals: ytTitleSignals,
+    byFormat: z
+      .array(z.object({ format: z.string().nullable().describe('台帳 config.youtube-formats の型 id。動画パックに当たらない動画は null'), kind: z.enum(['longform', 'short']), stats: ytVideoStats }).strict())
+      .describe('型ごとの要約'),
+    videos: z
+      .array(
+        ytVideo
+          .extend({
+            kind: z.enum(['longform', 'short']).describe('通常動画か Shorts か'),
+            packId: z.string().nullable().describe('動画パックの packId（コンテンツ台帳（content/registry）の videoId で照合）。当たらなければ null'),
+            format: z.string().nullable().describe('型 id。当たらなければ null'),
+          })
+          .strict(),
+      )
+      .superRefine(uniqueBy('id', 'id'))
+      .describe('一覧に出た動画'),
+  })
+  .strict()
+  .superRefine((s, ctx) => {
+    for (const kind of ['longform', 'short']) {
+      const n = s.videos.filter((v) => v.kind === kind).length;
+      const key = kind === 'short' ? 'shorts' : 'longform';
+      if (s.summary[key].sampled !== n) flag(ctx, ['summary', key, 'sampled'], `要約の本数 ${s.summary[key].sampled} が動画の行数 ${n} と合わない`);
+    }
+  })
+  .meta({ title: '自社 YouTube の動画' });
+
+const YoutubeCompetitorRow = z
+  .object({
+    handle: handleField,
+    label: z.string().nullable().describe('表示名'),
+    exams: examsField,
+    note: profileNote,
+    profile: z.object({ title: z.string().nullable().describe('チャンネル名'), subscriberCount: orNull(count('登録者数（一覧ページの表示値）'), '取れなければ null') }).strict().nullable().describe('プロフィール。取得できなければ null（error の行）'),
+    error: z.string().optional().describe('取得に失敗した理由（失敗した行だけ）'),
+    counts: ytVideoStats.optional().describe('一覧（新しい順）から取った通常動画の要約'),
+    cadence: z.null().optional().describe('一覧から投稿日が取れないので null。新しい動画の本数は drift の new-videos で読む'),
+    platformExtra: z
+      .object({
+        lengthBuckets: ytLengthBuckets,
+        titleSignals: ytTitleSignals,
+        recentIds: z.array(z.string().min(1)).max(30).describe('一覧の先頭（新しい順）の動画 ID。次回の new-videos の基準'),
+        top: z.array(ytVideo).max(5).describe('取った範囲で再生数の多い動画'),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict()
+  .superRefine(requireOnSuccess(['counts', 'cadence', 'platformExtra']));
+
+/** YouTube の競合チャンネルの時系列（data/youtube/competitors/<日付>.json）。取得は scripts/scout-youtube-competitors.mjs（四半期） */
+export const YoutubeCompetitors = competitorSnapshot({
+  head: { platform: z.literal('youtube'), source: z.string().describe('取得元'), caveat: z.string().describe('取得の限界') },
+  driftTypes: ['new-entrant', 'dropped', 'subscribers', 'new-videos'],
+  row: YoutubeCompetitorRow,
+  title: 'YouTube の競合チャンネル',
+});

@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="道路の横断面の比較。排水できる場合は水が側溝と地下排水溝へ抜け、できない場合は路盤に水がたまり路床が弱る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-pill  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-layer { font-size: 11px; fill: #222; }
+      .t-water { font-size: 11px; fill: #1a3a5c; }
+      .t-warn  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .t-cap   { font-size: 12px; fill: #222; }
+      .layer-s { fill: #d7d7d7; stroke: #555; stroke-width: 1; }
+      .layer-b { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .layer-g { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1; }
+      .layer-w { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .layer-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ditch   { fill: none; stroke: #555; stroke-width: 3; }
+      .flow    { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .crack   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .block   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .center  { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="pd-arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 上の図: 排水できる場合 -->
+  <rect x="20" y="6" width="124" height="24" rx="12" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-pill" x="82" y="23" text-anchor="middle">排水できる場合</text>
+
+  <line class="center" x1="24" y1="44" x2="24" y2="176"/>
+
+  <polygon class="layer-s" points="24,62 250,76 250,96 24,82"/>
+  <polygon class="layer-b" points="24,82 250,96 250,130 24,116"/>
+  <polygon class="layer-g" points="24,116 250,130 250,176 24,162"/>
+  <text class="t-layer" x="30" y="76">表層・基層</text>
+  <text class="t-layer" x="30" y="103">路盤</text>
+  <text class="t-layer" x="30" y="143">路床</text>
+
+  <text class="t-water" x="70" y="46">路面の水</text>
+  <text class="t-water" x="150" y="52">横断勾配 1.5〜2%</text>
+  <line class="flow" x1="70" y1="56" x2="242" y2="66" marker-end="url(#pd-arrow)"/>
+  <text class="t-water" x="100" y="104">路盤の水</text>
+
+  <rect x="252" y="112" width="32" height="52" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <circle cx="268" cy="140" r="9" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <path class="flow" d="M70,109 L238,119 L261,133" marker-end="url(#pd-arrow)"/>
+  <path class="ditch" d="M252,76 L252,112 L284,112 L284,76"/>
+  <rect x="255" y="98" width="26" height="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-layer" x="292" y="98">側溝</text>
+  <text class="t-layer" x="252" y="182">地下排水溝</text>
+  <text class="t-note" x="24" y="192">道路中心</text>
+
+  <text class="t-cap" x="20" y="216">路面の水は勾配で側溝へ、路盤の水は排水溝へ</text>
+
+  <line class="rule" x1="20" y1="234" x2="380" y2="234"/>
+
+  <!-- 下の図: 排水できない場合 -->
+  <g transform="translate(0,250)">
+    <rect x="20" y="6" width="124" height="24" rx="12" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+    <text class="t-pill" x="82" y="23" text-anchor="middle">排水できない場合</text>
+
+    <line class="center" x1="24" y1="44" x2="24" y2="176"/>
+
+    <polygon class="layer-s" points="24,62 250,76 250,96 24,82"/>
+    <polygon class="layer-w" points="24,82 250,96 250,130 24,116"/>
+    <polygon class="layer-d" points="24,116 250,130 250,176 24,162"/>
+    <text class="t-layer" x="30" y="76">表層・基層</text>
+    <text class="t-layer" x="30" y="103">路盤</text>
+    <text class="t-layer" x="30" y="143">路床</text>
+
+    <polyline class="crack" points="127,68 123,74 130,80 125,88"/>
+    <text class="t-warn" x="140" y="46">ひび割れから浸入</text>
+    <line class="flow" x1="127" y1="50" x2="127" y2="65" marker-end="url(#pd-arrow)"/>
+    <text class="t-water" x="150" y="111">水がたまる</text>
+    <text class="t-warn" x="100" y="148">支持力が低下</text>
+
+    <ellipse cx="226" cy="72" rx="16" ry="3.5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <text class="t-water" x="196" y="58">水が残る</text>
+
+    <path class="ditch" d="M252,76 L252,112 L284,112 L284,76"/>
+    <rect x="255" y="92" width="26" height="17" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+    <line class="block" x1="244" y1="107" x2="256" y2="119"/>
+    <line class="block" x1="256" y1="107" x2="244" y2="119"/>
+    <text class="t-warn" x="292" y="98">土砂で詰まる</text>
+    <text class="t-warn" x="252" y="182">地下排水溝なし</text>
+    <text class="t-note" x="24" y="192">道路中心</text>
+
+    <text class="t-cap" x="20" y="216">抜け道がないと水は路盤にたまり、路床まで弱る</text>
+  </g>
+
+  <text class="t-note" x="20" y="488">勾配は見やすいよう大きめに描いている</text>
+</svg>

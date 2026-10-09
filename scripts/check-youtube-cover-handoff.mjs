@@ -6,13 +6,15 @@ import { listFiles } from './lib/fs-walk.mjs';
 import { loadDriveManifest, realBytesAndHashes } from './lib/drive-vault.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
 
+// 採用表紙の Drive の group。content-media は ID ごとの置き場（.tmp/media/・DN-0607 で移した）、youtube-approved-cover は移す前の日付フォルダ
+const COVER_GROUPS=['content-media','youtube-approved-cover'];
 export function checkHandoffEntries(specs, entries) {
  const problems=[];
  if(!specs.length) problems.push('採用画像0件＝検査不成立');
  for(const spec of specs){
   const image=spec.approvedImage, entry=entries[image.path];
   if(image.specSha256!==coverInputDigest(spec)) problems.push('採用後に入力が変更: '+image.path);
-  if(!entry || entry.group!=='youtube-approved-cover' || entry.sha256!==image.sha256 || !entry.verifiedAt || !entry.driveFileId) problems.push('Drive登録・読み戻し検証が欠落または不一致: '+image.path);
+  if(!entry || !COVER_GROUPS.includes(entry.group) || entry.sha256!==image.sha256 || !entry.verifiedAt || !entry.driveFileId) problems.push('Drive登録・読み戻し検証が欠落または不一致: '+image.path);
  }
  return problems;
 }

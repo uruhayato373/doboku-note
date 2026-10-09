@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="地上解体工法。ロングブーム圧砕機が地上から、建物を上の階から順に解体する。建物の周囲には養生足場を設ける。ブームとアームの長さの合計が12m以上のものは特定解体用機械として規制を受ける">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="cj-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="cj-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="cj-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="cj-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="cj-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">地上解体工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">地上のロングブーム圧砕機で、上から順に壊す</text>
+  <g transform="translate(0,30)">
+  <line class="axis" x1="16" y1="300" x2="384" y2="300"/>
+  <rect class="card" x="34" y="80" width="12" height="220"/><line class="thin" x1="34" y1="80" x2="46" y2="80"/><line class="thin" x1="34" y1="94.7" x2="46" y2="94.7"/><line class="thin" x1="34" y1="109.4" x2="46" y2="109.4"/><line class="thin" x1="34" y1="124.1" x2="46" y2="124.1"/><line class="thin" x1="34" y1="138.8" x2="46" y2="138.8"/><line class="thin" x1="34" y1="153.5" x2="46" y2="153.5"/><line class="thin" x1="34" y1="168.2" x2="46" y2="168.2"/><line class="thin" x1="34" y1="182.89999999999998" x2="46" y2="182.89999999999998"/><line class="thin" x1="34" y1="197.6" x2="46" y2="197.6"/><line class="thin" x1="34" y1="212.29999999999998" x2="46" y2="212.29999999999998"/><line class="thin" x1="34" y1="227" x2="46" y2="227"/><line class="thin" x1="34" y1="241.7" x2="46" y2="241.7"/><line class="thin" x1="34" y1="256.4" x2="46" y2="256.4"/><line class="thin" x1="34" y1="271.1" x2="46" y2="271.1"/><line class="thin" x1="34" y1="285.79999999999995" x2="46" y2="285.79999999999995"/>
+  <text class="t-key" x="16" y="70">養生足場</text>
+  <rect fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="4 3" x="50" y="70" width="102" height="46"/>
+  <text class="t-note" x="101" y="98" text-anchor="middle">解体済み</text>
+  <rect class="brand" x="52" y="116" width="6" height="184"/><rect class="brand" x="98" y="116" width="6" height="184"/><rect class="brand" x="146" y="116" width="6" height="184"/><rect class="brand" x="50" y="116" width="102" height="6"/><rect class="brand" x="50" y="162" width="102" height="6"/><rect class="brand" x="50" y="208" width="102" height="6"/><rect class="brand" x="50" y="254" width="102" height="6"/>
+  <rect class="gry" x="226" y="290" width="70" height="10"/>
+  <rect class="brand" x="240" y="262" width="48" height="28"/>
+  <path class="boom" d="M 262 266 L 224 120 L 164 92"/>
+  <polygon class="dng" points="156,84 172,86 168,102"/>
+  <text class="t-key" x="262" y="150">ロングブーム</text>
+  <text class="t-key" x="262" y="166">圧砕機</text>
+  <line class="ar-r" x1="190" y1="76" x2="190" y2="104" marker-end="url(#cj-r)"/>
+  <text class="t-warn" x="198" y="68">上階から順に</text>
+  </g>
+  <rect class="box" x="16" y="392" width="368" height="94" rx="6"/>
+  <text class="t-key" x="30" y="416">方法</text>
+  <text class="t-lab" x="90" y="416">ロングブーム圧砕機で地上から解体する</text>
+  <text class="t-key" x="30" y="442">規制</text>
+  <text class="t-lab" x="90" y="442">ブーム＋アーム 12 m 以上は特定解体用機械</text>
+  <text class="t-key" x="30" y="468">法令</text>
+  <text class="t-lab" x="90" y="468">労働安全衛生法令上の規制を受ける</text>
+
+</svg>

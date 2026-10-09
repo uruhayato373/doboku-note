@@ -4,7 +4,7 @@
  */
 import { z } from 'zod';
 import {
-  jstDate, utcTime, offsetTime, month, count, flag, isMonday, uniqueBy, sha256,
+  jstDate, utcTime, offsetTime, month, count, flag, isMonday, uniqueBy, sumEquals, sha256,
 } from './dataset-schema-parts.mjs';
 
 // ---- 共通の小さな部品 ---------------------------------------------------------------------
@@ -334,7 +334,7 @@ const careerFunnelShape = (legacy) => {
     windows: z.object({ ga4: OptWindow, gsc: OptWindow, aligned: z.boolean().describe('GA4 と GSC の窓が一致'), usable: z.boolean().describe('両方の窓がある') }).strict(),
     inputs: z
       .object({
-        ga4Label: z.string().nullable(), ga4Placement: z.string().nullable(), ga4Device: z.string().nullable(), ga4Page: z.string().nullable(),
+        ga4Label: z.string().nullable(), ga4Placement: z.string().nullable(), ga4ByPage: z.string().nullable().optional(), ga4Device: z.string().nullable(), ga4Page: z.string().nullable(),
         gscPageQuery: z.string().nullable(), a8: z.string().nullable(), afb: later(z.string().nullable()),
       })
       .strict()
@@ -364,6 +364,62 @@ const careerFunnelShape = (legacy) => {
             totalClicks: count('配置別のクリック合計'),
             ctr: z.number().nullable().describe('クリック ÷ 表示。表示 0 は null'),
             notSet: later(z.array(z.looseObject({ dim: z.enum(['label', 'placement']), param: z.string(), clicks: count('クリック'), impressions: count('表示'), registeredAt: jstDate('カスタムディメンションの作成日').nullable(), kind: z.enum(['unknown', 'wiring-gap', 'pre-registration']), cause: z.string() })).describe('(not set) の原因の切り分け')),
+            byRule: z
+              .array(
+                z
+                  .object({
+                    ruleId: z.string().regex(/^PL-\d{4}$/),
+                    program: z.string().min(1),
+                    slot: z.string().min(1),
+                    experiment: z.string().nullable(),
+                    from: z.string().min(1),
+                    until: z.string().nullable(),
+                    ga4: z
+                      .object({
+                        source: z.enum(['page', 'placement']).optional().describe('page＝ページ別からルールを一意に決めた数字／placement＝面の合計（古い記録は placement）'),
+                        coveredDays: count('窓のうちルールが有効だった日数'),
+                        windowDays: count('窓の日数'),
+                        impressions: count('このルールの表示（placement は面の合計）'),
+                        clicks: count('このルールのクリック（placement は面の合計）'),
+                        impressionsShared: count('閉じて開き直した前後のルールと分けられない表示（page のみ）').optional(),
+                        clicksShared: count('境界の日で分けられないクリック（page のみ）').optional(),
+                        ctr: z.number().nullable(),
+                        sharedWith: z.array(z.string()).describe('数字を分けられないルール（placement は同じ窓・同じ面、page は *Shared の相手）'),
+                      })
+                      .strict(),
+                    a8: z.object({ scope: z.literal('program'), months: z.array(month), conversions: count('発生'), approved: count('確定'), revenueYen: count('確定報酬（円）') }).strict(),
+                  })
+                  .strict(),
+              )
+              .superRefine(uniqueBy('ruleId', 'ルール id'))
+              .optional()
+              .describe('配置ルール（台帳 config.affiliate-placements）ごとの面の数字と A8（2026-10-07〜）'),
+            byRuleWindow: z
+              .strictObject({ start: jstDate('開始日'), end: jstDate('終了日'), source: z.enum(['page', 'placement']) })
+              .optional()
+              .describe('byRule の窓（page＝ページ別の窓・placement＝配置別の窓）'),
+            unattributed: z
+              .strictObject({
+                impressions: count('どのルールにも当たらない表示'),
+                clicks: count('どのルールにも当たらないクリック'),
+                top: z.array(z.strictObject({ page: z.string(), label: z.string(), placement: z.string(), impressions: count('表示'), clicks: count('クリック') })).max(10),
+              })
+              .optional()
+              .describe('ページ別の行のうち配置ルールに当たらないもの（撤去前の面・ラベル未登録・ページ不明）'),
+            clickLog: z
+              .array(
+                z.strictObject({
+                  date: jstDate('クリックの日'),
+                  page: z.string(),
+                  label: z.string(),
+                  placement: z.string(),
+                  program: z.string().nullable().describe('ラベルから引いた案件（catalog の ctaLabels に無ければ null）'),
+                  ruleId: z.string().regex(/^PL-\d{4}$/).nullable().describe('一意に決まった配置ルール（決まらなければ null）'),
+                  clicks: count('クリック'),
+                }),
+              )
+              .optional()
+              .describe('アフィリエイトのクリックを日付・ページ・広告ごとに（成果の発生日と突き合わせる）'),
           })
           .strict(),
         a8: z.object({ window: A8Sum, allTime: A8Sum, monthsInWindow: z.array(month) }).strict(),
@@ -630,3 +686,59 @@ export const PastExamInventory = z
   })
   .strict()
   .meta({ title: '過去問の在庫台帳' });
+
+// ---- 書籍の網羅の要約（.claude/state/book-coverage.json。見出しを含む詳細は Drive vault の coverage/） --------------
+
+const articleSlug = z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '<資格>/<記事のディレクトリ>').describe('記事（content/site/ の下）');
+const CoverageCandidates = z
+  .object({
+    generatedAt: utcTime('候補表を作った時刻').nullable().describe('候補表を作った時刻（--stamp を付けないときは null）'),
+    units: count('書籍の節の数'),
+    textUnits: count('実検査した本文の節の数'),
+    examUnits: count('過去問の節の数（対象外）'),
+    covered: count('扱われている候補'),
+    partial: count('一部だけの候補'),
+    gap: count('扱われていない候補'),
+  })
+  .strict()
+  .superRefine((c, ctx) => {
+    if (!sumEquals([c.covered, c.partial, c.gap], c.textUnits)) flag(ctx, ['textUnits'], `covered+partial+gap（${c.covered + c.partial + c.gap}）が textUnits ${c.textUnits} と合わない`);
+  })
+  .describe('機械の候補表（audit-reference-book-coverage）の件数');
+const CoverageVerdict = z
+  .object({
+    judged: count('意味判定した節の数'),
+    covered: count('扱われている'),
+    partial: count('一部だけ'),
+    gap: count('扱われていない'),
+    outOfScope: count('対象外（前付け・索引・試験の範囲外など）'),
+    additions: count('計画した追記の数'),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    if (!sumEquals([v.covered, v.partial, v.gap, v.outOfScope], v.judged)) flag(ctx, ['judged'], `covered+partial+gap+outOfScope が judged ${v.judged} と合わない`);
+  })
+  .describe('Evaluator の意味判定の件数');
+export const StateBookCoverage = z
+  .object({
+    schemaVersion: z.literal(1),
+    description: z.string().min(1).describe('ファイルの説明'),
+    books: z
+      .record(
+        z.string().regex(/^[a-z0-9-]+$/, '参考文献 id'),
+        z
+          .object({
+            candidates: CoverageCandidates,
+            verdict: CoverageVerdict.nullable().describe('意味判定の件数（まだ判定していなければ null）'),
+            judgedAt: jstDate('意味判定の日').nullable(),
+            expansions: z
+              .array(z.object({ article: articleSlug, commits: z.array(z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA')).describe('展開したコミット（まだなら空）') }).strict())
+              .superRefine(uniqueBy('article', '記事'))
+              .describe('判定から展開した（する）記事'),
+          })
+          .strict(),
+      )
+      .describe('参考文献 id（config.reference-sources の id）ごとの要約'),
+  })
+  .strict()
+  .meta({ title: '書籍の網羅の要約' });

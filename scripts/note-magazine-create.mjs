@@ -13,6 +13,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseNoteText } from './lib/note-meta.mjs';
+import { fetchCreatorMagazines } from './lib/note-api.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
@@ -31,6 +32,15 @@ console.log('[meta]', JSON.stringify({ title: meta.title, setPrice: meta.setPric
 const price = parseInt(String(meta.setPrice || '').replace(/[^0-9]/g, ''), 10) || 0;
 if (!meta.title) { console.error('ABORT: title 解析失敗'); process.exit(1); }
 if (!FREE && !price) { console.error('ABORT: price 解析失敗（無料マガジンなら --free）', price); process.exit(1); }
+
+// 冪等ガード: 同名のマガジンが既にあれば作らない。作成はやり直しが効かず、2026-10-03 にログを見落として
+// 再実行し、同名の空マガジンを二重に作った。意図して同名を作るときだけ --allow-duplicate。
+if (COMMIT && !argv.includes('--allow-duplicate')) {
+  let same;
+  try { same = (await fetchCreatorMagazines('dobokunote')).filter((m) => m.name === meta.title).map((m) => m.key); }
+  catch (e) { console.error(`ABORT: 既存マガジンの確認が不成立（${e.message}）。確認を飛ばすなら --allow-duplicate`); process.exit(2); }
+  if (same.length) { console.error(`ABORT: 同名のマガジンが既にある: ${same.join(', ')}（作り直すなら先に削除する）`); process.exit(4); }
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="河口からの距離と源流の標高を直線で結び、信濃川と利根川の平均勾配が約1/150と約1/180であることを示し、ライン川は全長だけを横軸に重ねたグラフ" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+  <!-- 軸ラベル : ink-body -->
+  <text x="20" y="40" font-size="12" fill="#555">標高（m）</text>
+  <!-- 水平グリッド : token-border -->
+  <line x1="64" y1="124" x2="372" y2="124" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="64" y1="252" x2="372" y2="252" stroke="#d7d7d7" stroke-width="1"/>
+  <!-- 軸線 : ink-muted -->
+  <line x1="64" y1="52" x2="64" y2="380" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="64" y1="380" x2="372" y2="380" stroke="#8a8a8a" stroke-width="1.5"/>
+  <!-- 縦軸の目盛 -->
+  <text x="56" y="384" font-size="11" fill="#555" text-anchor="end">0</text>
+  <text x="56" y="256" font-size="11" fill="#555" text-anchor="end">1,000</text>
+  <text x="56" y="128" font-size="11" fill="#555" text-anchor="end">2,000</text>
+  <!-- 横軸の目盛 -->
+  <line x1="156.3" y1="380" x2="156.3" y2="385" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="248.6" y1="380" x2="248.6" y2="385" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="340.9" y1="380" x2="340.9" y2="385" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="64" y="399" font-size="11" fill="#555" text-anchor="middle">河口</text>
+  <text x="156.3" y="399" font-size="11" fill="#555" text-anchor="middle">400</text>
+  <text x="248.6" y="399" font-size="11" fill="#555" text-anchor="middle">800</text>
+  <text x="340.9" y="399" font-size="11" fill="#555" text-anchor="middle">1,200</text>
+  <text x="366" y="416" font-size="12" fill="#555" text-anchor="end">河口からの距離（km）</text>
+  <!-- ライン川 : brand（全長のみ） -->
+  <line x1="64" y1="364" x2="348.4" y2="364" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="64" y1="357" x2="64" y2="371" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="348.4" y1="357" x2="348.4" y2="371" stroke="#2e6da4" stroke-width="2"/>
+  <text x="348" y="350" font-size="13" font-weight="700" fill="#1a3a5c" text-anchor="end">ライン川の全長（標高は示さない）</text>
+  <!-- 信濃川 : danger -->
+  <line x1="64" y1="380" x2="148.7" y2="63.2" stroke="#b22234" stroke-width="2.5"/>
+  <circle cx="148.7" cy="63.2" r="4.5" fill="#b22234"/>
+  <text x="160" y="68" font-size="13" font-weight="700" fill="#1a3a5c">信濃川</text>
+  <!-- 利根川 : warn -->
+  <line x1="64" y1="380" x2="138.3" y2="145.6" stroke="#d4a017" stroke-width="2.5"/>
+  <circle cx="138.3" cy="145.6" r="4.5" fill="#d4a017"/>
+  <text x="150" y="150" font-size="13" font-weight="700" fill="#1a3a5c">利根川</text>
+  <!-- 凡例 : surface -->
+  <rect x="20" y="424" width="360" height="72" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="118" y="440" font-size="11" fill="#555">延長</text>
+  <text x="196" y="440" font-size="11" fill="#555">源流の標高</text>
+  <text x="280" y="440" font-size="11" fill="#555">平均勾配</text>
+  <line x1="30" y1="454" x2="48" y2="454" stroke="#b22234" stroke-width="3"/>
+  <text x="54" y="458" font-size="12" fill="#222">信濃川</text>
+  <text x="118" y="458" font-size="12" fill="#222">367km</text>
+  <text x="196" y="458" font-size="12" fill="#222">2,475m</text>
+  <text x="280" y="458" font-size="12" fill="#222">約1/150</text>
+  <line x1="30" y1="471" x2="48" y2="471" stroke="#d4a017" stroke-width="3"/>
+  <text x="54" y="475" font-size="12" fill="#222">利根川</text>
+  <text x="118" y="475" font-size="12" fill="#222">322km</text>
+  <text x="196" y="475" font-size="12" fill="#222">1,831m</text>
+  <text x="280" y="475" font-size="12" fill="#222">約1/180</text>
+  <line x1="30" y1="488" x2="48" y2="488" stroke="#2e6da4" stroke-width="3"/>
+  <text x="54" y="492" font-size="12" fill="#222">ライン川</text>
+  <text x="118" y="492" font-size="12" fill="#222">約1,230km</text>
+  <text x="196" y="492" font-size="12" fill="#222">―</text>
+  <text x="280" y="492" font-size="12" fill="#222">―</text>
+</svg>

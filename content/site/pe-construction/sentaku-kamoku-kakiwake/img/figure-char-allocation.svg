@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="答案1枚から3枚までの前置き・本論・結びの字数配分。比率は35・45・20%で共通" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222} /* ink-strong */
+.h{font-size:13px;font-weight:bold}
+.n{font-size:12px;font-weight:bold;fill:#1a3a5c}
+.v{font-size:11px}
+.s{font-size:12px;fill:#555} /* ink-body */
+.m{font-size:11px;fill:#555}
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn */
+.g{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive */
+.f{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1} /* surface */
+.d{stroke:#8a8a8a;stroke-width:1;stroke-dasharray:4 3;fill:none} /* ink-muted */
+</style></defs>
+<rect x="20" y="15" width="14" height="14" rx="3" class="b"/><text x="42" y="27" class="s">前置き 35%｜課題・条件の整理</text>
+<rect x="20" y="37" width="14" height="14" rx="3" class="w"/><text x="42" y="49" class="s">本論 45%｜解決策・手順（いちばん厚く）</text>
+<rect x="20" y="59" width="14" height="14" rx="3" class="g"/><text x="42" y="71" class="s">結び 20%｜効果・リスク・調整</text>
+<text x="20" y="112" class="h">答案1枚｜600字・25行</text>
+<rect x="20" y="120" width="119" height="56" class="b"/><text x="79.5" y="137" text-anchor="middle" class="n">前置き</text><text x="79.5" y="153" text-anchor="middle" class="v">210字</text><text x="79.5" y="168" text-anchor="middle" class="v">9行</text>
+<rect x="139" y="120" width="153" height="56" class="w"/><text x="215.5" y="137" text-anchor="middle" class="n">本論</text><text x="215.5" y="153" text-anchor="middle" class="v">270字</text><text x="215.5" y="168" text-anchor="middle" class="v">11行</text>
+<rect x="292" y="120" width="68" height="56" class="g"/><text x="326" y="137" text-anchor="middle" class="n">結び</text><text x="326" y="153" text-anchor="middle" class="v">120字</text><text x="326" y="168" text-anchor="middle" class="v">5行</text>
+<text x="20" y="204" class="h">答案2枚｜1,200字・50行</text>
+<rect x="20" y="212" width="119" height="56" class="b"/><text x="79.5" y="229" text-anchor="middle" class="n">前置き</text><text x="79.5" y="245" text-anchor="middle" class="v">420字</text><text x="79.5" y="260" text-anchor="middle" class="v">17行</text>
+<rect x="139" y="212" width="153" height="56" class="w"/><text x="215.5" y="229" text-anchor="middle" class="n">本論</text><text x="215.5" y="245" text-anchor="middle" class="v">540字</text><text x="215.5" y="260" text-anchor="middle" class="v">23行</text>
+<rect x="292" y="212" width="68" height="56" class="g"/><text x="326" y="229" text-anchor="middle" class="n">結び</text><text x="326" y="245" text-anchor="middle" class="v">240字</text><text x="326" y="260" text-anchor="middle" class="v">10行</text>
+<text x="20" y="296" class="h">答案3枚｜1,800字・75行</text>
+<rect x="20" y="304" width="119" height="56" class="b"/><text x="79.5" y="321" text-anchor="middle" class="n">前置き</text><text x="79.5" y="337" text-anchor="middle" class="v">630字</text><text x="79.5" y="352" text-anchor="middle" class="v">26行</text>
+<rect x="139" y="304" width="153" height="56" class="w"/><text x="215.5" y="321" text-anchor="middle" class="n">本論</text><text x="215.5" y="337" text-anchor="middle" class="v">810字</text><text x="215.5" y="352" text-anchor="middle" class="v">34行</text>
+<rect x="292" y="304" width="68" height="56" class="g"/><text x="326" y="321" text-anchor="middle" class="n">結び</text><text x="326" y="337" text-anchor="middle" class="v">360字</text><text x="326" y="352" text-anchor="middle" class="v">15行</text>
+<path d="M190 116 V368" class="d"/>
+<text x="190" y="382" text-anchor="middle" class="m">半分の位置｜前置きはこの手前で終える</text>
+<rect x="20" y="402" width="340" height="70" rx="8" class="f"/><text x="190" y="428" text-anchor="middle" class="s">枚数が変わっても比率は同じで、増えるのは各部の字数</text><text x="190" y="452" text-anchor="middle" class="s">本論がいちばん厚く、前置きは半分に届く前に終える</text>
+</svg>

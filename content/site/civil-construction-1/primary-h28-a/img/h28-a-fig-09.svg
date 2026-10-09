@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230" style="max-width:400px;width:100%" role="img" aria-label="接着剤を塗布した上面増厚工法の断面図。左は既存の舗装（厚さ75）と既存コンクリート。右は既存コンクリートを10下げた面に接着材を塗布し、鋼繊維補強コンクリート（60）と舗装（50）を重ねた断面で、合計110。右の路面は左より高くなる。">
+  <defs>
+    <marker id="ar" markerUnits="userSpaceOnUse" viewBox="0 0 7 7" refX="7" refY="3.5" markerWidth="7" markerHeight="7" orient="auto"><polygon points="0,0 7,3.5 0,7" fill="#555"/></marker>
+    <style>
+      text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif}
+      .lb{font-size:13px;fill:#222}
+      .dm{font-size:12px;fill:#555}
+      .edge{stroke:#555;stroke-width:1.5;fill:none}
+      .dim{stroke:#555;stroke-width:1;fill:none}
+      .ext{stroke:#8a8a8a;stroke-width:0.8;fill:none}
+    </style>
+  </defs>
+
+  <!-- 既存コンクリート（右は 10 下げた面） -->
+  <path d="M34,150 H154 V165 H304 V215 H34 Z" fill="#f5f5f5"/>
+  <!-- 左: 既存の舗装（75） -->
+  <rect x="34" y="60" width="120" height="90" fill="#d7d7d7"/>
+  <!-- 右: 舗装（50）・鋼繊維補強コンクリート（60）・接着材 -->
+  <rect x="154" y="30" width="150" height="60" fill="#d7d7d7"/>
+  <rect x="154" y="90" width="150" height="72" fill="#e8f0fe"/>
+  <rect x="154" y="162" width="150" height="3" fill="#222"/>
+
+  <!-- 層の境界と外形 -->
+  <path class="edge" d="M34,215 V60 H154 M154,30 H304 V215 M154,30 V215 M34,150 H154 M154,90 H304"/>
+
+  <!-- 名称 -->
+  <text class="lb" x="94" y="110" text-anchor="middle">舗装</text>
+  <text class="lb" x="229" y="65" text-anchor="middle">舗装</text>
+  <text class="lb" x="229" y="121" text-anchor="middle">鋼繊維補強</text>
+  <text class="lb" x="229" y="138" text-anchor="middle">コンクリート</text>
+  <text class="lb" x="94" y="192" text-anchor="middle">既存コンクリート</text>
+  <path class="dim" d="M200,165 L222,184"/>
+  <text class="lb" x="226" y="191">接着材</text>
+
+  <!-- 寸法の補助線 -->
+  <path class="ext" d="M34,60 H14 M34,150 H14 M304,30 H386 M304,90 H356 M304,150 H326 M304,162 H386"/>
+
+  <!-- 75（左の舗装） -->
+  <line class="dim" x1="20" y1="105" x2="20" y2="60" marker-end="url(#ar)"/>
+  <line class="dim" x1="20" y1="105" x2="20" y2="150" marker-end="url(#ar)"/>
+  <text class="dm" x="15" y="105" text-anchor="middle" transform="rotate(-90 15 105)">75</text>
+
+  <!-- 10（既存コンクリートを下げた量・外側から矢印） -->
+  <line class="dim" x1="320" y1="134" x2="320" y2="150" marker-end="url(#ar)"/>
+  <line class="dim" x1="320" y1="178" x2="320" y2="162" marker-end="url(#ar)"/>
+  <text class="dm" x="320" y="192" text-anchor="middle">10</text>
+
+  <!-- 50（舗装）・60（鋼繊維補強コンクリート） -->
+  <line class="dim" x1="350" y1="60" x2="350" y2="30" marker-end="url(#ar)"/>
+  <line class="dim" x1="350" y1="60" x2="350" y2="90" marker-end="url(#ar)"/>
+  <text class="dm" x="344" y="60" text-anchor="middle" transform="rotate(-90 344 60)">50</text>
+  <line class="dim" x1="350" y1="126" x2="350" y2="90" marker-end="url(#ar)"/>
+  <line class="dim" x1="350" y1="126" x2="350" y2="162" marker-end="url(#ar)"/>
+  <text class="dm" x="344" y="126" text-anchor="middle" transform="rotate(-90 344 126)">60</text>
+
+  <!-- 110（合計） -->
+  <line class="dim" x1="380" y1="96" x2="380" y2="30" marker-end="url(#ar)"/>
+  <line class="dim" x1="380" y1="96" x2="380" y2="162" marker-end="url(#ar)"/>
+  <text class="dm" x="374" y="96" text-anchor="middle" transform="rotate(-90 374 96)">110</text>
+</svg>

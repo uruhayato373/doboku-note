@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="在留カードの確認手順。提示を受け、偽変造と失効を確かめ、表面の就労制限の有無を読む。就労制限なしなら確認は完了。就労不可の人は裏面の許可欄を読み、記載があれば範囲内だけ、なければ就労させない。在留資格または指定書の活動のみ可の人は、予定する作業がその範囲内かを確かめる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="86" width="364" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="158" width="364" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="238" width="116" height="76" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="142" y="238" width="116" height="76" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="266" y="238" width="116" height="76" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="142" y="336" width="116" height="140" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="266" y="336" width="116" height="140" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<g stroke="#2e6da4">
+<line x1="200" y1="70" x2="200" y2="84" marker-end="url(#ar)"/>
+<line x1="200" y1="142" x2="200" y2="156" marker-end="url(#ar)"/>
+<line x1="76" y1="214" x2="76" y2="236" marker-end="url(#ar)"/>
+<line x1="200" y1="214" x2="200" y2="236" marker-end="url(#ar)"/>
+<line x1="324" y1="214" x2="324" y2="236" marker-end="url(#ar)"/>
+<line x1="200" y1="314" x2="200" y2="334" marker-end="url(#ar)"/>
+<line x1="324" y1="314" x2="324" y2="334" marker-end="url(#ar)"/>
+</g>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="30" y="36">1　在留カードの提示を受ける</text>
+<text x="30" y="108">2　偽変造と失効を確かめる</text>
+<text x="30" y="180">3　表面の「就労制限の有無」を読む</text>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="28" y="260">就労制限なし</text>
+<text x="152" y="260">就労不可</text>
+<text x="276" y="260">活動のみ可</text>
+<text x="152" y="358">4　許可欄を読む</text>
+<text x="276" y="358">4　範囲を確認</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="30" y="55">本人の同意を得て、番号と満了日を確かめる</text>
+<text x="30" y="127">読取アプリで券面と照合し、失効情報を照会する</text>
+<text x="30" y="199">主な表示は4種類。技能実習・特定技能は指定書も見る</text>
+<text x="28" y="280">仕事の内容に</text>
+<text x="28" y="296">制限はない。</text>
+<text x="28" y="312">ここで完了</text>
+<text x="152" y="280">原則として雇えない</text>
+<text x="152" y="296">例外は裏面の</text>
+<text x="152" y="312">許可欄で見る</text>
+<text x="276" y="280">在留資格の活動</text>
+<text x="276" y="296">または指定書の</text>
+<text x="276" y="312">活動のみ可</text>
+<text x="152" y="382">記載あり：</text>
+<text x="152" y="398">範囲内だけ。</text>
+<text x="152" y="414">勤務先は合算</text>
+<text x="152" y="438">記載なし：</text>
+<text x="152" y="454">就労させない</text>
+<text x="276" y="382">予定の作業が</text>
+<text x="276" y="398">在留資格の活動</text>
+<text x="276" y="414">か指定書の範囲</text>
+<text x="276" y="430">内かを見る。</text>
+<text x="276" y="454">範囲外なら許可</text>
+<text x="276" y="470">欄の記載を見る</text>
+<text x="24" y="358">確認したら、</text>
+<text x="24" y="374">日付と方法を</text>
+<text x="24" y="390">記録する。</text>
+<text x="24" y="414">雇用の届出も</text>
+<text x="24" y="430">忘れない</text>
+</g>
+</svg>

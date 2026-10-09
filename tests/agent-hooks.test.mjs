@@ -7,16 +7,21 @@ import process from 'node:process';
 import { join } from 'node:path';
 
 import {
+  captureMarkers,
+  cdScopeViolation,
   classifyStaged,
   decisionDocsChanged,
   docSyncMessages,
+  finalAssistantText,
   hasReplacementChar,
-  isGeminiBilling,
   isGitCommitCommand,
   isMdxPath,
+  needsCapture,
   parseHookInput,
   parseNameStatus,
+  shellAssignments,
   strayAtRoot,
+  topLevelCdTargets,
 } from '../scripts/lib/agent-hooks.mjs';
 import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
@@ -33,15 +38,6 @@ test('parseHookInput: stdin JSON を優先し、env と生テキストへフォ�
   assert.equal(parseHookInput('', { CLAUDE_TOOL_INPUT: 'npm run ogp-backgrounds' }).command, 'npm run ogp-backgrounds');
   assert.equal(parseHookInput('not json').command, 'not json');
   assert.equal(parseHookInput('').filePath, '');
-});
-
-test('isGeminiBilling: 課金パターンを拾い --dry-run は素通し', () => {
-  assert.equal(isGeminiBilling('npm run ogp-backgrounds'), true);
-  assert.equal(isGeminiBilling('curl https://generativelanguage.googleapis.com/v1/x:generateContent'), true);
-  assert.equal(isGeminiBilling('gemini -p "hi"'), true);
-  assert.equal(isGeminiBilling('npm run ogp-backgrounds -- --dry-run'), false);
-  assert.equal(isGeminiBilling('git status'), false);
-  assert.equal(isGeminiBilling('cat .claude/knowledge/reference/notebooklm-cli-gotchas.md'), false);
 });
 
 test('check-mojibake: U+FFFD を含む .mdx は exit 2、正常な .mdx と .md は exit 0', () => {
@@ -73,15 +69,6 @@ test('strayAtRoot / decisionDocsChanged', () => {
   assert.deepEqual(changed, ['.claude/knowledge/reference/x.md', 'content/note/技術士総監/noteコンテンツ計画.md']);
 });
 
-test('CLI: check-gemini-cost は ask の JSON を stdout に出し、それ以外は無出力・exit 0', () => {
-  const ask = runHook('check-gemini-cost', JSON.stringify({ tool_input: { command: 'npm run ogp-backgrounds' } }));
-  assert.equal(ask.status, 0);
-  assert.equal(JSON.parse(ask.stdout).hookSpecificOutput.permissionDecision, 'ask');
-  const ok = runHook('check-gemini-cost', JSON.stringify({ tool_input: { command: 'git status' } }));
-  assert.equal(ok.status, 0);
-  assert.equal(ok.stdout, '');
-});
-
 test('CLI: check-mojibake は .mdx の U+FFFD で exit 2（stderr に BLOCK）、無ければ 0', () => {
   const dir = mkdtempSync(join(tmpdir(), 'hook-mojibake-'));
   try {
@@ -104,4 +91,113 @@ test('CLI: check-mojibake は .mdx の U+FFFD で exit 2（stderr に BLOCK）�
 test('CLI: unknown name は usage を出して exit 1、advisory 系は空入力でも exit 0', () => {
   assert.equal(runHook('nope').status, 1);
   for (const n of ['check-stray-files', 'decision-doc-checkpoint', 'check-doc-sync']) assert.equal(runHook(n, '').status, 0, n);
+});
+
+test('needsCapture: 未確認・別途などがあり DN-#### も「起票不要」も無いときだけ促す', () => {
+  assert.equal(needsCapture('Mac 側の原因は未確認です。'), true);
+  assert.deepEqual(captureMarkers('原因は分かっていない。別途調べる'), ['原因は分かっていない', '別途']);
+  assert.equal(needsCapture('原因は未確認です（DN-0567 に起票）。'), false);
+  assert.equal(needsCapture('一部は未確認。起票不要: 次の週次で自動的に分かる'), false);
+  assert.equal(needsCapture('すべて反映しました。'), false);
+  assert.equal(needsCapture(''), false);
+});
+
+test('finalAssistantText: 最後の利用者の発言より後の assistant の文章だけを取る（tool_result は区切りにしない）', () => {
+  const claude = [
+    { type: 'user', message: { role: 'user', content: '前の依頼' } },
+    { type: 'assistant', message: { role: 'assistant', content: [{ type: 'text', text: '古い報告（未確認）' }] } },
+    { type: 'user', message: { role: 'user', content: '次の依頼' } },
+    { type: 'assistant', message: { role: 'assistant', content: [{ type: 'text', text: '着手します' }, { type: 'tool_use', name: 'Bash' }] } },
+    { type: 'user', message: { role: 'user', content: [{ type: 'tool_result', content: 'out' }] } },
+    { type: 'assistant', isSidechain: true, message: { role: 'assistant', content: [{ type: 'text', text: 'サブエージェントの文' }] } },
+    { type: 'assistant', message: { role: 'assistant', content: [{ type: 'text', text: '完了しました' }] } },
+  ].map((o) => JSON.stringify(o)).join('\n');
+  assert.equal(finalAssistantText(claude), '着手します\n完了しました');
+  const codex = [
+    { type: 'response_item', payload: { type: 'message', role: 'user', content: [{ type: 'input_text', text: '依頼' }] } },
+    { type: 'response_item', payload: { type: 'message', role: 'assistant', content: [{ type: 'output_text', text: '原因は未確認' }] } },
+  ].map((o) => JSON.stringify(o)).join('\n');
+  assert.equal(finalAssistantText(codex), '原因は未確認');
+});
+
+test('CLI: check-capture は 1 セッション 1 回だけ decision:block を返し、stop_hook_active では止めない', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'hook-capture-'));
+  const session = `test-${process.pid}-${Date.now()}`;
+  const flag = join(tmpdir(), `doboku-capture-${session}.flag`);
+  try {
+    const transcript = join(dir, 't.jsonl');
+    writeFileSync(transcript, [
+      JSON.stringify({ type: 'user', message: { role: 'user', content: '依頼' } }),
+      JSON.stringify({ type: 'assistant', message: { role: 'assistant', content: [{ type: 'text', text: 'Mac 側の原因は未確認です。' }] } }),
+    ].join('\n'));
+    const input = { session_id: session, transcript_path: transcript, hook_event_name: 'Stop' };
+    assert.equal(runHook('check-capture', JSON.stringify({ ...input, stop_hook_active: true })).stdout, '');
+    const first = runHook('check-capture', JSON.stringify(input));
+    assert.equal(first.status, 0);
+    const out = JSON.parse(first.stdout);
+    assert.equal(out.decision, 'block');
+    assert.match(out.reason, /未確認/);
+    assert.match(out.reason, /todo:add/);
+    assert.equal(runHook('check-capture', JSON.stringify(input)).stdout, '', '2 回目は止めない');
+    const fine = runHook('check-capture', JSON.stringify({ session_id: `${session}-b`, last_assistant_message: '原因は未確認（DN-0567）' }));
+    assert.equal(fine.stdout, '');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+    rmSync(flag, { force: true });
+  }
+});
+
+// ---- check-cd-scope（DN-0622）----------------------------------------------------------------
+const PROJECT = '/Users/me/doboku-note';
+const WT = PROJECT + '/.claude/worktrees/dn-0617';
+
+test('topLevelCdTargets: 括弧と引用符の外の cd だけを拾う', () => {
+  assert.deepEqual(topLevelCdTargets(`cd ${WT} && git status`), [WT]);
+  assert.deepEqual(topLevelCdTargets(`git fetch -q; cd ${WT}`), [WT]);
+  assert.deepEqual(topLevelCdTargets(`echo a | cd "${WT}"`), [WT]);
+  assert.deepEqual(topLevelCdTargets(`( cd ${WT} && npm test )`), [], 'サブシェルは作業ディレクトリを移さない');
+  assert.deepEqual(topLevelCdTargets(`(cd ${WT} && npm test); echo done`), []);
+  assert.deepEqual(topLevelCdTargets(`git -C ${WT} log -1`), []);
+  assert.deepEqual(topLevelCdTargets(`bash -c 'cd ${WT} && ls'`), [], '引用符の中は別のシェル');
+  assert.deepEqual(topLevelCdTargets('echo cd /x'), [], '引数としての cd');
+  assert.deepEqual(topLevelCdTargets('cd'), []);
+  assert.deepEqual(topLevelCdTargets('cd -'), []);
+});
+
+test('cdScopeViolation: worktree とプロジェクトの下の階層は止め、直下とリポジトリの外は通す', () => {
+  const ctx = { cwd: PROJECT, projectDir: PROJECT, home: '/Users/me' };
+  assert.match(cdScopeViolation(WT, ctx), /worktree/);
+  assert.match(cdScopeViolation('.claude/worktrees/dn-0617', ctx), /worktree|下の階層/);
+  assert.match(cdScopeViolation(PROJECT + '/content/site/civil-construction-1', ctx), /下の階層/, '2026-10-10 に実際に起きた形');
+  assert.match(cdScopeViolation('/Users/me/.codex/worktrees/x', ctx), /worktree/);
+  assert.match(cdScopeViolation('~/doboku-note/scripts', ctx), /下の階層/);
+  assert.equal(cdScopeViolation(PROJECT, ctx), null, 'プロジェクトの直下へ戻る');
+  assert.equal(cdScopeViolation(PROJECT + '/', { ...ctx, cwd: WT }), null, 'worktree から直下へ戻る');
+  assert.equal(cdScopeViolation('/private/tmp/scratch', ctx), null, 'リポジトリの外は対象外');
+  assert.equal(cdScopeViolation('$UNKNOWN/x', ctx), null, '解決できない変数は判定しない');
+  assert.equal(cdScopeViolation(WT, { ...ctx, projectDir: '' }), null, 'CLAUDE_PROJECT_DIR が無い呼び手（Codex）');
+  // セッション自身が worktree（アプリが作った worktree のセッション）なら、その直下は通し、下の階層は止める
+  assert.equal(cdScopeViolation(WT, { ...ctx, projectDir: WT }), null);
+  assert.match(cdScopeViolation(WT + '/scripts', { ...ctx, projectDir: WT }), /下の階層/);
+});
+
+test('shellAssignments: 同じコマンドで代入した変数を解決して判定する', () => {
+  const command = `W=${WT}; cd $W && ls`;
+  const vars = shellAssignments(command);
+  assert.equal(vars.W, WT);
+  assert.equal(shellAssignments(`D="${WT}" && cd "$D"`).D, WT);
+  assert.match(cdScopeViolation(topLevelCdTargets(command)[0], { cwd: PROJECT, projectDir: PROJECT, vars }), /worktree/);
+});
+
+test('check-cd-scope hook: 素の cd は exit 2 で止め、サブシェルと git -C は通す', () => {
+  const env = { CLAUDE_PROJECT_DIR: PROJECT };
+  const input = (command) => JSON.stringify({ tool_name: 'Bash', cwd: PROJECT, tool_input: { command } });
+  const blocked = runHook('check-cd-scope', input(`cd ${WT} && python3 x.py`), env);
+  assert.equal(blocked.status, 2);
+  assert.match(blocked.stderr, /BLOCK: 括弧の外の cd/);
+  assert.match(blocked.stderr, /git -C/);
+  assert.equal(runHook('check-cd-scope', input(`( cd ${WT} && python3 x.py )`), env).status, 0);
+  assert.equal(runHook('check-cd-scope', input(`git -C ${WT} status`), env).status, 0);
+  assert.equal(runHook('check-cd-scope', input(`cd ${PROJECT} && git status`), env).status, 0);
+  assert.equal(runHook('check-cd-scope', input(`cd ${WT}`), { CLAUDE_PROJECT_DIR: '' }).status, 0, 'Codex では止めない');
 });

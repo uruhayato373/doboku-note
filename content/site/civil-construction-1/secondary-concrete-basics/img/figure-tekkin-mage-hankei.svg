@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋の曲げ内半径の3場面。折曲鉄筋は5φ以上、ラーメン隅角部の外側は10φ以上。隅角部やハンチの内側は鉄筋を曲げず別の直線鉄筋を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="mh-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="mh-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="mh-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">鉄筋の曲げ加工</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">場面ごとに曲げ内半径を確保する</text>
+  <text class="t-sec" x="16" y="78">(a) 折曲鉄筋</text>
+  <rect class="con" x="20" y="90" width="160" height="76"/>
+  <path class="rod" d="M 30 150 H 70 Q 100 150 114 128 L 150 100"/>
+  <text class="t-key" x="200" y="122">曲げ内半径 5φ 以上</text>
+  <text class="t-note" x="200" y="142">側面から 2φ＋20mm 以内なら</text>
+  <text class="t-warn" x="200" y="160">7.5φ 以上</text>
+  <line class="rule" x1="16" y1="182" x2="384" y2="182"/>
+  <text class="t-sec" x="16" y="202">(b) ラーメン隅角部の外側</text>
+  <rect class="con" x="20" y="214" width="160" height="92"/>
+  <path class="rod" d="M 40 298 V 262 A 36 36 0 0 1 76 226 H 160"/>
+  <text class="t-key" x="200" y="262">曲げ内半径 10φ 以上</text>
+  <text class="t-note" x="200" y="282">外側に沿う鉄筋</text>
+  <line class="rule" x1="16" y1="320" x2="384" y2="320"/>
+  <text class="t-sec" x="16" y="340">(c) 隅角部・ハンチの内側</text>
+  <polygon class="con" points="20,352 180,352 180,370 146,370 108,410 108,432 20,432"/>
+  <line class="rod" x1="88" y1="408" x2="134" y2="364" style="stroke:#3a7d44"/>
+  <text class="t-pos" x="200" y="388">別の直線鉄筋を用いる</text>
+  <text class="t-note" x="200" y="408">引張りを受ける鉄筋を</text>
+  <text class="t-note" x="200" y="424">曲げたものにしない</text>
+  <text class="t-note" x="200" y="466" text-anchor="middle">φ：鉄筋直径（異形鉄筋は公称直径）</text>
+
+</svg>

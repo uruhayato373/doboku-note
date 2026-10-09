@@ -1,0 +1,26 @@
+<!-- Created by doboku-note, 2026-10-08 -->
+<svg style="max-width:640px;width:100%;height:auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" font-family="'Noto Sans JP','Hiragino Sans',sans-serif" fill="#1f2937">
+<rect width="640" height="400" fill="#fff"/>
+<g fill="none" stroke="#1f2937" stroke-width="1.8">
+<path d="M10 90H360M450 90H630"/>
+<g stroke-width="1"><path d="M30 90l-8 10M60 90l-8 10M90 90l-8 10M120 90l-8 10M150 90l-8 10M180 90l-8 10M210 90l-8 10M240 90l-8 10M270 90l-8 10M300 90l-8 10M330 90l-8 10M480 90l-8 10M510 90l-8 10M540 90l-8 10M570 90l-8 10M600 90l-8 10"/></g>
+<path d="M360 90V215M360 325V345H450V90" stroke-width="2.4"/>
+<path d="M360 215H78M360 325H78"/><ellipse cx="78" cy="270" rx="22" ry="55"/>
+<path d="M360 233H112M360 307H112"/><ellipse cx="112" cy="270" rx="16" ry="37"/>
+<g stroke-width="1.2"><path d="M140 233q10 37 0 74M160 233q10 37 0 74M180 233q10 37 0 74M200 233q10 37 0 74M220 233q10 37 0 74M240 233q10 37 0 74M260 233q10 37 0 74M280 233q10 37 0 74M300 233q10 37 0 74M320 233q10 37 0 74M340 233q10 37 0 74"/></g>
+<rect x="372" y="240" width="68" height="62" fill="#fff"/>
+<circle cx="406" cy="271" r="16"/><circle cx="406" cy="271" r="5"/>
+<circle cx="310" cy="58" r="26"/><circle cx="310" cy="58" r="6"/><path d="M290 90l20-26 20 26"/>
+<path d="M395 58H336M395 58V240" stroke-width="5"/>
+<path d="M470 130L400 140M474 205L450 205M474 275L440 271M215 197L190 232M85 350L110 318" stroke-width="1"/>
+</g>
+<g font-size="16" stroke="none">
+<text x="474" y="127">ライニングベルト</text>
+<text x="478" y="210">立坑</text>
+<text x="478" y="280">製管機</text>
+<text x="170" y="192">更生管</text>
+<text x="40" y="366">既設管</text>
+<text x="260" y="20">ベルト供給装置</text>
+<text x="14" y="80">地表</text>
+</g>
+</svg>

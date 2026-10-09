@@ -1,0 +1,16 @@
+[
+  {
+    "tweet": "1",
+    "concept": "なぜコンクリートを先に圧縮する？",
+    "needs": "プレストレスを先に与えると、使用時の引張応力がなぜ小さくなるのか？",
+    "file": "img/tweet-01-prestress-stress-balance.png",
+    "article": {
+      "path": "content/site/civil-construction-1/textbook-concrete-materials/article.mdx",
+      "sha256": "cbaac25513d5f94c3fabec2ce5985774e2d055c2b8de06b9fd9f791b23eeda8c"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/textbook-concrete-materials/img/figure-prestress-stress-balance.svg",
+      "sha256": "83c27f27c347820f06b10f735d3bf77cf16e9d96affe965c1e18003bd0af48ab"
+    }
+  }
+]

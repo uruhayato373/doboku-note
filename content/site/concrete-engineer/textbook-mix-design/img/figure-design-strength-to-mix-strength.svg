@@ -1,0 +1,65 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はコンクリート技士教材の設計基準強度から配合強度までの流れ。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建築での強度の流れ。設計基準強度と耐久設計基準強度の大きい方が品質基準強度、構造体強度補正値を足して調合管理強度、それ以上の区分から呼び強度を選び、製造者の割増しを加えて配合強度になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-name  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-arrow { font-size: 12px; fill: #1a3a5c; }
+      .t-sum   { font-size: 11px; fill: #555; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .line-arrow { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4" />
+    </marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">建築（JASS 5）で足されていく値の順番</text>
+
+  <rect class="box-b" x="16" y="30" width="176" height="52" rx="6" />
+  <text class="t-name" x="104" y="52" text-anchor="middle">設計基準強度</text>
+  <text class="t-sub" x="104" y="70" text-anchor="middle">構造計算で使う値</text>
+  <rect class="box-b" x="208" y="30" width="176" height="52" rx="6" />
+  <text class="t-name" x="296" y="52" text-anchor="middle">耐久設計基準強度</text>
+  <text class="t-sub" x="296" y="70" text-anchor="middle">供用期間の級で決まる下限</text>
+
+  <line class="line-arrow" x1="104" y1="86" x2="170" y2="118" marker-end="url(#ah)" />
+  <line class="line-arrow" x1="296" y1="86" x2="230" y2="118" marker-end="url(#ah)" />
+  <text class="t-arrow" x="200" y="104" text-anchor="middle">大きい方</text>
+
+  <rect class="box-b" x="60" y="124" width="280" height="46" rx="6" />
+  <text class="t-name" x="200" y="145" text-anchor="middle">品質基準強度</text>
+  <text class="t-sub" x="200" y="161" text-anchor="middle">構造体が満たすべき強度</text>
+
+  <line class="line-arrow" x1="200" y1="172" x2="200" y2="204" marker-end="url(#ah)" />
+  <text class="t-arrow" x="212" y="192">＋構造体強度補正値</text>
+
+  <rect class="box-b" x="60" y="208" width="280" height="46" rx="6" />
+  <text class="t-name" x="200" y="229" text-anchor="middle">調合管理強度</text>
+  <text class="t-sub" x="200" y="245" text-anchor="middle">注文する強度の下限</text>
+
+  <line class="line-arrow" x1="200" y1="256" x2="200" y2="288" marker-end="url(#ah)" />
+  <text class="t-arrow" x="212" y="276">それ以上のJIS区分を選ぶ</text>
+
+  <rect class="box-w" x="60" y="292" width="280" height="46" rx="6" />
+  <text class="t-name" x="200" y="313" text-anchor="middle">呼び強度</text>
+  <text class="t-sub" x="200" y="329" text-anchor="middle">購入者が指定する</text>
+
+  <line class="line-arrow" x1="200" y1="340" x2="200" y2="372" marker-end="url(#ah)" />
+  <text class="t-arrow" x="212" y="360">＋製造者のばらつき割増し</text>
+
+  <rect class="box-p" x="60" y="376" width="280" height="46" rx="6" />
+  <text class="t-name" x="200" y="397" text-anchor="middle">配合強度</text>
+  <text class="t-sub" x="200" y="413" text-anchor="middle">工場が実際に狙う強度</text>
+
+  <rect class="box" x="16" y="436" width="368" height="50" rx="6" />
+  <text class="t-sum" x="30" y="457">青は設計・施工側、黄は注文時の指定、緑は工場が決める値</text>
+  <text class="t-sum" x="30" y="476">補正値は設計基準強度36 N/mm²以下で3または6 N/mm²</text>
+</svg>

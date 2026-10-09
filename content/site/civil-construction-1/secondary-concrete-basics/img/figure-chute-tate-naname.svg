@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="シュートの使い方。高いところからは縦シュートが標準で、下端と打込み面の距離は 1.5 m 以下。やむを得ず斜めシュートを使うときは、傾きを水平 2 に対して鉛直 1 程度とし、吐き口に漏斗管やバッフルプレートを付ける。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">シュート使用上の注意</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">縦シュートが標準、斜めは吐き口に漏斗管を付ける</text>
+
+  <rect class="card" x="16" y="64" width="176" height="306" rx="6"/>
+  <rect class="card" x="208" y="64" width="176" height="306" rx="6"/>
+  <text class="t-ok" x="104" y="86" text-anchor="middle">縦シュート（標準）</text>
+  <polygon class="gray" points="46,102 98,102 88,124 56,124"/>
+  <rect class="conc" x="56" y="124" width="32" height="150"/>
+  <text class="t-note" x="96" y="196">シュート</text>
+  <line class="arb" x1="72" y1="274" x2="72" y2="318" marker-end="url(#mb)"/>
+  <rect class="good" x="28" y="322" width="148" height="34"/>
+  <text class="t-note" x="102" y="344" text-anchor="middle">打込み面</text>
+  <line class="lead" x1="118" y1="274" x2="118" y2="322"/>
+  <line class="lead" x1="110" y1="274" x2="126" y2="274"/>
+  <line class="lead" x1="110" y1="322" x2="126" y2="322"/>
+  <text class="t-warn" x="130" y="294">1.5 m</text>
+  <text class="t-warn" x="130" y="310">以下</text>
+  <text class="t-warn" x="296" y="86" text-anchor="middle">斜めシュート（やむを得ず）</text>
+  <polygon class="conc" points="226,114 318,160 318,174 226,128"/>
+  <polygon class="warn" points="306,174 342,174 334,202 314,202"/>
+  <line class="arg" x1="324" y1="202" x2="324" y2="316" marker-end="url(#mg)"/>
+  <rect class="good" x="220" y="322" width="156" height="34"/>
+  <text class="t-note" x="298" y="344" text-anchor="middle">打込み面</text>
+  <polygon points="236,180 236,210 296,210" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.2" transform="translate(0,0)"/>
+  <text class="t-note" x="222" y="228">水平 2 : 鉛直 1</text>
+  <text class="t-note" x="314" y="250" text-anchor="end">吐き口に漏斗管や</text>
+  <text class="t-note" x="314" y="264" text-anchor="end">バッフルプレート</text>
+  <text class="t-note" x="314" y="278" text-anchor="end">を取り付ける</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">標準</text>
+  <text class="t-lab" x="92" y="416">縦シュート。使用前後は水で洗う</text>
+  <text class="t-key" x="30" y="442">斜め</text>
+  <text class="t-lab" x="92" y="442">傾きは水平 2 に対し鉛直 1 程度</text>
+  <text class="t-warn" x="30" y="468">禁止</text>
+  <text class="t-lab" x="92" y="468">流下をよくするため水を増やす</text>
+
+</svg>

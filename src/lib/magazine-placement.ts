@@ -794,6 +794,8 @@ function resolvePlacementRaw(
   //    本文末尾の <MagazineCard id="cce-marugoto-pack">（persona-pack と同じ実績のある機構）が担う。
   //    2026-10-01（DN-0461）: 旧版（模範答案集・実務立場別・立場別/テーマ別パック）を note から削除し、
   //    小論文の導線を令和形式テーマ別（cce-essay-reiwa-pack）へ一本化。本文の <MagazineCard> も同じく差し替え。
+  //    2026-10-03（DN-0523）: cce-essay-reiwa-pack は 1立場×1テーマの全40答案（¥5,980）へ組み替え。立場別5テーマ・
+  //    立場別合格パック（各8誌）は本文で案内し、top は全40答案のまま（8誌から1つを機械的に選べないため）。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
       top: slot('cce-essay-reiwa-pack', slug, 'top'),
@@ -806,6 +808,9 @@ function resolvePlacementRaw(
   //      published:false の間は slot() が空になり、公開前リンクは露出しない。
   //      2026-09-17: 試験概要・傾向の 2 本は 択一 直前パック（予想50問＋配合計算＋暗記ノート ¥2,980）を top に昇格。
   //      分野別過去問は予想50問のまま。体系テキスト 7 章（mix-design 除く）は直前暗記ノートを top に置く。
+  //      2026-10-05（DN-0529）: 分野別の過去問・テキストは択一商品を出す方針を正とし、後段にあった「textbook-production-qc・
+  //      primary-construction の top を小論文 全40答案にする」分岐（ここで先に return するため到達しなかった）を消した。
+  //      小論文の商品は guide-essay と全40答案の誌面で案内する。
   if (slug === 'concrete-chief-engineer-guide-overview' || slug === 'concrete-chief-engineer-guide-trends') {
     return {
       top: slot('cce-takuitsu-chokuzen-pack', slug, 'top'),
@@ -920,25 +925,6 @@ function resolvePlacementRaw(
   }
   if (slug === 'pe-first-stage-guide-overview' || slug === 'pe-first-stage-guide-study-plan') {
     return { top: slot('pe1-chokuzen-pack', slug, 'top'), inline: [] };
-  }
-
-  // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
-  // 上位版 persona-pack ではなく入口を置くのは 9 と同じラダー方針。
-  // テーマ接続: 小論文の 4 テーマは 品質管理／耐久性／環境配慮／施工トラブル。
-  //   - textbook-production-qc（製造・品質管理／検査）→「品質管理」に直結
-  //   - primary-construction（過去問 施工）→「施工トラブル」に接続
-  //   - textbook-mix-design（配合設計）→「耐久性」（W/C 比・かぶり）経由の接続で、上 2 つより弱い
-  if (
-    slug === 'concrete-chief-engineer-textbook-production-qc' ||
-    slug === 'concrete-chief-engineer-primary-construction'
-  ) {
-    // inline は h2>=5 かつ 8,000 字を満たす textbook のみ意味を持つ。
-    // mix-design は h2=4 で発火せず、primary-construction は group が mid 対象外。
-    const midOk = slug === 'concrete-chief-engineer-textbook-production-qc';
-    return {
-      top: slot('cce-essay-reiwa-pack', slug, 'top'),
-      inline: midOk ? [slot('cce-essay-reiwa-pack', slug, 'inline-1')] : [],
-    };
   }
 
   // コンクリート診断士 試験概要（19users・非HUB で商品到達性ゼロだった）→ 記述式 模範答案集。

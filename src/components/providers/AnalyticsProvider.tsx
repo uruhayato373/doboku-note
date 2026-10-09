@@ -3,6 +3,13 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import * as gtag from "@/lib/gtag";
+import { AFFILIATE_EXPERIMENT_ID, affiliateExperimentLabel } from "@/lib/affiliate-experiment.mjs";
+
+function experimentContext(el: HTMLElement): { variant: string; program: string } | null {
+  const owner = el.dataset.cta === "affiliate" ? el : document.querySelector<HTMLElement>(`[data-cta-experiment="${AFFILIATE_EXPERIMENT_ID}"][data-cta-variant]`);
+  if (owner?.dataset.ctaExperiment !== AFFILIATE_EXPERIMENT_ID || !owner.dataset.ctaVariant) return null;
+  return { variant: owner.dataset.ctaVariant, program: el.dataset.cta === "note" ? "note" : owner.dataset.ctaProgram || "(unknown)" };
+}
 
 /**
  * Analytics tracker — standalone component (does NOT wrap children).
@@ -63,6 +70,8 @@ export default function AnalyticsProvider() {
       "qualification-bridge": "qualification-bridge",
     };
     const onClick = (e: MouseEvent) => {
+      // 中クリック（新しいタブで開く）は click ではなく auxclick だけが飛ぶ。右ボタン等は数えない。
+      if (e.type === "auxclick" && e.button !== 1) return;
       const start = e.target as Element | null;
       // 実リンク（<a>）のクリックのみ計上（root に data-cta を付けた nav で見出しクリックを除外）。
       const anchor = start?.closest?.("a") as HTMLAnchorElement | null;
@@ -83,10 +92,23 @@ export default function AnalyticsProvider() {
           cta_placement: el.dataset.ctaPlacement || "(unknown)",
         },
       });
+      const experiment = ["affiliate", "note"].includes(kind) ? experimentContext(el) : null;
+      if (experiment) gtag.event({
+        action: kind === "note" ? "note_experiment_click" : "affiliate_experiment_click",
+        category: "affiliate-design-experiment",
+        label: affiliateExperimentLabel(experiment.variant, experiment.program, el.dataset.ctaPlacement || "(unknown)"),
+        params: { cta_placement: el.dataset.ctaPlacement || "(unknown)" },
+      });
     };
     // capture フェーズ: 子要素が stopPropagation しても確実に拾う。
+    // auxclick: PC で中クリックして開いたリンクは click が飛ばず GA4 に残らない。2026-10-05 のビルドジョブ成果は
+    // A8 にクリックがあるのに GA4 では 0 件で、その取りこぼし経路の 1 つ（measurement-incidents.md 2026-10-07）。
     document.addEventListener("click", onClick, { capture: true });
-    return () => document.removeEventListener("click", onClick, { capture: true });
+    document.addEventListener("auxclick", onClick, { capture: true });
+    return () => {
+      document.removeEventListener("click", onClick, { capture: true });
+      document.removeEventListener("auxclick", onClick, { capture: true });
+    };
   }, []);
 
   // 過去問ページの「解答・解説」（MDX の素の <details>）を開いた回数（2026-10-02 新設）。
@@ -116,7 +138,8 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("toggle", onToggle, { capture: true });
   }, [pathname]);
 
-  // note / アフィリエイト / ココナラ CTA が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
+  // CTA の50%以上が見えた時点を計測。EXP-019 は画像の有無でカードの高さが違うため、
+  // 共通の見出し領域を観測する。案の確定前の SSR 表示は数えない。
   // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
   // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。
   // A8 の 1px ピクセル（ページ読込ベース）とは役割を分ける。
@@ -134,17 +157,19 @@ export default function AnalyticsProvider() {
 
     const observed = new WeakSet<Element>();
     const sent = new WeakSet<Element>();
+    const owners = new WeakMap<Element, HTMLElement>();
+    let assignmentSent = false;
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
-          const el = entry.target as HTMLElement;
+          const el = owners.get(entry.target) ?? entry.target as HTMLElement;
           if (sent.has(el)) continue;
           const kind = el.dataset.cta;
           const event = kind ? IMPRESSION[kind] : undefined;
           if (!event) continue;
           sent.add(el);
-          observer.unobserve(el);
+          observer.unobserve(entry.target);
           gtag.event({
             action: event.action,
             category: event.category,
@@ -153,22 +178,39 @@ export default function AnalyticsProvider() {
               cta_placement: el.dataset.ctaPlacement || "(unknown)",
             },
           });
+          const experiment = ["affiliate", "note"].includes(kind || "") ? experimentContext(el) : null;
+          if (experiment) gtag.event({
+            action: kind === "note" ? "note_experiment_impression" : "affiliate_experiment_impression",
+            category: "affiliate-design-experiment",
+            label: affiliateExperimentLabel(experiment.variant, experiment.program, el.dataset.ctaPlacement || "(unknown)"),
+            params: { cta_placement: el.dataset.ctaPlacement || "(unknown)" },
+          });
         }
       },
       { threshold: 0.5 },
     );
 
     const observeRevenueCtas = () => {
+      const assigned = document.querySelector<HTMLElement>(`[data-cta-experiment="${AFFILIATE_EXPERIMENT_ID}"][data-cta-variant]`);
+      if (assigned && !assignmentSent) {
+        assignmentSent = true;
+        gtag.event({ action: "affiliate_experiment_page_view", category: "affiliate-design-experiment", label: affiliateExperimentLabel(assigned.dataset.ctaVariant!, "page", "all") });
+      }
       document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"], [data-cta="coconala"], [data-cta="qualification-bridge"]').forEach((el) => {
         if (observed.has(el)) return;
+        const root = el as HTMLElement;
+        if (root.dataset.ctaExperiment && !root.dataset.ctaVariant) return;
+        if (root.dataset.cta === "note" && !assigned && document.querySelector('[data-cta-experiment]')) return;
         observed.add(el);
-        observer.observe(el);
+        const target = el.querySelector('[data-cta-exposure="heading"]') ?? el;
+        owners.set(target, root);
+        observer.observe(target);
       });
     };
 
     observeRevenueCtas();
     const mutationObserver = new MutationObserver(observeRevenueCtas);
-    mutationObserver.observe(document.body, { childList: true, subtree: true });
+    mutationObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-cta-variant"] });
 
     return () => {
       mutationObserver.disconnect();

@@ -193,6 +193,9 @@ export const RESTRUCTURED_PATHS = [
   ["data/sns/x-publish-log.csv", "data/x/publish-log.csv"],
   ["data/x-repost/reposted-log.json", "data/x/reposted.json"],
   ["data/yt-posted-log.jsonl", "data/youtube/posted.jsonl"],
+  // 旧 Shorts の台帳と旧い写しはコンテンツ台帳へ（2026-10-09・P7）
+  [".claude/state/youtube-schedule.json", "content/registry/publications/youtube"],
+  ["content/sns/schedule.json", "content/registry"],
   ["data/ads/a8-catalog.json", "data/a8/catalog.json"],
   ["data/ads/affiliate-catalog.json", "data/affiliate/catalog.json"],
   ["data/ads/inventory-latest.json", "data/a8/inventory.json"],
@@ -271,6 +274,8 @@ export const RESTRUCTURED_PATHS = [
   ["config/instagram-campaign.json", "content/sns/instagram/campaign.json"],
   ["config/pe-first-stage-historical-sources.json", "data/pastexams/inventory.json"],
   [/^data\/metrics\/gsc\/rank-watch\/((?:watch|run)-(\d{4}-\d{2})-[0-9T-]+Z-[0-9a-f]{8})\.json$/, "data/gsc/rank-watch/$2.jsonl#$1"],
+  // 2026-10-06: 商品の正本を 1 商品 1 ファイルから全チャネル 1 ファイルへ集約（DN-0492）
+  [/^content\/products\/[a-z]+\/([a-z0-9-]+)\.json$/, "config/products.json#$1"],
 ];
 
 const PATH_MOVES = [...MOVED_PATHS, ...RESTRUCTURED_PATHS];

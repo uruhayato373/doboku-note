@@ -11,12 +11,14 @@
  *   - .claude/state/figure-text-audit.json         … 品質(sharp/soft/blurry)・写り込み(leak/prose/...)
  *   - config/figure-sources.json           … 資格別ソース台帳（元素材・再スキャン要否）
  *   - 各記事 article.mdx                            … published / 図の本文参照(掲載)
+ *   - .claude/state/quality/figure-review-ledger.json … /figure-quality-loop の目視判定（今の画像のハッシュと一致する記録だけ）
  *
  * needs（次アクション）の決め方:
  *   blurry/soft   → 再クロップでは直らない → rescannable で分岐（rescan / rescan-need-source / rescan-or-svg）
  *   leak(答え漏らし) → recrop-urgent（既存から答えテキストを除いて切り直し）
  *   prose/maybe(写り込み) → recrop
  *   それ以外(sharp+clean) → ok
+ *   上書き: manual_needs（手動）→ 判定台帳（ok→ok / needs-source→reextract / source-unavailable→rescan-need-source）
  *
  * Usage: node scripts/build-figure-provenance.mjs [--json | --list <needs>]
  *   --list recrop … 公開×掲載の図のうち needs=recrop のパスを1行1件で出す（対象選び用）
@@ -24,20 +26,21 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
-import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { listFiles } from './lib/fs-walk.mjs';
+import { articleInfo, referencedExt, servedExt, fileSha, validEntry, needsFromVerdict, LEDGER_FILE } from './lib/figure-review.mjs';
 
+const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = path.join(ROOT, ".claude", "state", "figure-provenance.json");
 const quiet = process.argv.includes("--json");
-// 無い・壊れているときは null（任意の入力。無くても出所ヒントなしで進める）
-const readJsonOrNull = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
+const readJson = (p) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return null; } };
 
-const audit = readJsonOrNull(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
-const sourcesDoc = readJsonOrNull(path.join(ROOT, datasetPath("config.figure-sources")));
+const audit = readJson(path.join(ROOT, ".claude", "state", "figure-text-audit.json"));
+const sourcesDoc = readJson(path.join(ROOT, datasetPath("config.figure-sources")));
 const sources = sourcesDoc?.categories || {};
 const manualNeeds = Array.isArray(sourcesDoc?.manual_needs) ? sourcesDoc.manual_needs : [];
+const reviewLedger = readJson(path.join(ROOT, LEDGER_FILE));
 const resolveSrc = (cat) => {
   let s = sources[cat];
   if (s && s._alias) s = sources[s._alias];
@@ -45,31 +48,20 @@ const resolveSrc = (cat) => {
 };
 
 const IMG_RE = /\/img\/[^/]+\.(png|webp|jpg|jpeg)$/i;
-
-// 記事(slug=cat/localSlug)ごとに MDX を 1 回読み published / content をキャッシュ。
-const artCache = new Map();
-const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-function article(slug) {
-  if (artCache.has(slug)) return artCache.get(slug);
-  const cands = [
-    path.join(POSTS, slug, "article.mdx"),
-    path.join(POSTS, slug + ".mdx"),
-    path.join(POSTS, slug.replace(/\//g, "-"), "article.mdx"),
-  ];
-  let info = { found: false, published: false, content: "" };
-  for (const p of cands) {
-    if (!fs.existsSync(p)) continue;
-    try {
-      const { data, content } = matter(fs.readFileSync(p, "utf8"));
-      info = { found: true, published: data.published === true, content };
-    } catch { /* keep */ }
-    break;
+function walk(dir, acc = []) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) walk(full, acc);
+    else acc.push(full);
   }
-  artCache.set(slug, info);
-  return info;
+  return acc;
 }
 
-const all = listFiles(POSTS)
+// 記事(slug=cat/localSlug)ごとに MDX を 1 回読み published / content をキャッシュ（判定は figure-review.mjs と共通）。
+const artCache = new Map();
+const article = (slug) => articleInfo(POSTS, slug, artCache);
+
+const all = walk(POSTS)
   .map((p) => path.relative(POSTS, p).split(path.sep).join("/"))
   .filter((rel) => IMG_RE.test(rel) && !/\/ogp\.(png|webp)$/i.test(rel));
 
@@ -86,9 +78,8 @@ for (const rel of all) {
   const slug = parts.slice(0, 2).join("/");
   const name = baseRel.split("/").pop();
   const art = article(slug);
-  const referenced = art.found
-    ? new RegExp(escRe(name) + "\\.(webp|png|svg|jpg|jpeg)", "i").test(art.content)
-    : false;
+  const refExt = art.found ? referencedExt(art.content, name) : null;
+  const referenced = refExt !== null;
 
   const a = audit?.figures?.[baseRel] || {};
   const quality = a.quality || "unknown";
@@ -117,6 +108,11 @@ for (const rel of all) {
   const manualReason = manual ? manual.reason || null : null;
   if (manual) needs = manual.needs;
 
+  // /figure-quality-loop の目視判定（今の画像のハッシュと一致する記録だけ効く＝差し替え後の画像を素通りさせない）
+  const servedAt = servedExt(path.join(POSTS, baseRel), refExt);
+  const reviewed = servedAt ? validEntry(reviewLedger, baseRel, fileSha(path.join(POSTS, `${baseRel}.${servedAt}`))) : null;
+  if (reviewed) needs = needsFromVerdict(reviewed.verdict) ?? needs;
+
   figures[baseRel] = {
     category,
     slug,
@@ -131,6 +127,7 @@ for (const rel of all) {
     rescannable,
     needs,
     ...(manualReason ? { manualReason } : {}),
+    ...(reviewed ? { reviewVerdict: reviewed.verdict, reviewReason: reviewed.reason } : {}),
   };
   summary[needs] = (summary[needs] || 0) + 1;
 }

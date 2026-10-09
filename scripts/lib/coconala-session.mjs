@@ -17,15 +17,16 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
 import { resolveProfileDir, resolveStatePath } from './playwright-auth-profile.mjs';
 import { leanContextOptions } from './playwright-launch.mjs';
 import { attachCISession } from './playwright-auth-state.mjs';
 import { datasetPath } from './datasets.mjs';
-import { REPO_ROOT as ROOT } from './repository-paths.mjs';
+import { updateCoconalaService } from './product-registry.mjs';
 
-export { ROOT };
+export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // 遅延解決: import 時に resolver を呼ぶと、ブラウザを開かないオフライン検査（check-coconala-blog 等・CI の
 // quality-audit）まで CI 判定で落ちる（2026-09-21 PR #549）。profile が要るのは launch の瞬間だけ。
 export const profileDir = () => resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
@@ -67,22 +68,27 @@ export function resolveImagePath(image) {
 // （CI の公開ページ検査が Playwright を import せずに使えるようにするため）。
 export { readCatalog, readListings } from './coconala-catalog.mjs';
 
-/** カタログ（coconala-services.ts）の該当 service を status:'listed' + serviceUrl + listedAt に書き戻す */
+/**
+ * 出品に成功したサービスを status:'listed' + serviceUrl + listedAt にする。カタログ（coconala-services.ts）は
+ * config/products.json からの生成物なので、正本を updateCoconalaService で書き換えて生成ブロックを作り直す
+ */
 export function writeBackCatalog(id, url, today) {
   try {
-    let ts = readFileSync(CATALOG_PATH, 'utf-8');
     const day = today || todayJst();
-    const idRe = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(\\n\\s*\\},)`);
-    const m = ts.match(idRe);
-    if (!m) return false;
-    let block = m[1];
-    block = block.replace(/status:\s*'[^']*'/, "status: 'listed'");
-    block = block.replace(/serviceUrl:\s*'[^']*'/, `serviceUrl: '${url}'`);
-    if (/listedAt:/.test(block)) block = block.replace(/listedAt:\s*'[^']*'/, `listedAt: '${day}'`);
-    else block = block.replace(/(weeklyCapacity:\s*\d+,)/, `$1\n    listedAt: '${day}',`);
-    ts = ts.replace(idRe, block + m[2]);
-    writeFileSync(CATALOG_PATH, ts);
-    return true;
+    return updateCoconalaService(id, (s) => {
+      s.status = 'listed';
+      s.serviceUrl = url;
+      if ('listedAt' in s) s.listedAt = day;
+      else {
+        // 今までどおり weeklyCapacity の直後に置く（欄の並びを保つ）
+        const entries = Object.entries(s);
+        const at = entries.findIndex(([k]) => k === 'weeklyCapacity');
+        entries.splice(at < 0 ? entries.length : at + 1, 0, ['listedAt', day]);
+        for (const k of Object.keys(s)) delete s[k];
+        Object.assign(s, Object.fromEntries(entries));
+      }
+      return true;
+    }) === true;
   } catch { return false; }
 }
 

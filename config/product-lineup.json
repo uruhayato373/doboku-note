@@ -324,14 +324,27 @@
       ]
     },
     {
-      "id": "ios-pe-cm-takuitsu",
-      "title": "総監 択一アプリ",
+      "id": "ios-gijutsushi",
+      "title": "技術士 過去問（iOS）",
+      "platform": "iOS",
+      "status": "draft",
+      "price": "無料DL＋全年度 ¥1,480（試験ごとの買い切り）",
+      "note": "DN-0453。第一次試験だけで先に出す（審査提出の期限 2026-11-08）。総監はアップデートで足す（DN-0627）。2026-10-10 時点で画面・問題表示・買い切りのコードまで（手元の ~/doboku-quiz-ios）、Xcode プロジェクトは未作成。提出には macOS 15.6 以降と Xcode 26 が要る。方針は docs/products/07_iOS択一アプリ試作方針.md。",
+      "cells": [
+        "pe-first-stage:first",
+        "pe-comprehensive-management:written"
+      ]
+    },
+    {
+      "id": "ios-dobokusekou",
+      "title": "土木施工管理技士 過去問（iOS・1級＋2級）",
       "platform": "iOS",
       "status": "planned",
-      "price": "未定",
-      "note": "構想（未決定）。2026-09-26 の Web 検索では総監専用の択一アプリを確認できず、App Store 内の直接確認は未実施。着手条件は docs/products/06_PWA過去問アプリ設計方針.md を参照。",
+      "price": "無料DL＋全年度 ¥1,480（試験ごとの買い切り）",
+      "note": "DN-0628。技術士アプリと同じエンジンで 2027 年春に出す。公式正答付きの収録を 1級 16 年度以上・2級 14 回にする（DN-0623）。出すかは技術士一次の試験後の振り返り（DN-0624）で決める。",
       "cells": [
-        "pe-comprehensive-management:written"
+        "civil-construction-1:first",
+        "civil-construction-2:first"
       ]
     }
   ]

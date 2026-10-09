@@ -17,6 +17,7 @@ import {
   writeFileSync,
   readFileSync,
   existsSync,
+  rmSync,
 } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { createHash } from "node:crypto";
@@ -115,9 +116,21 @@ export function sha256Buf(buf) {
  * ブラウザ挙動に揃える（`ignoreDefaultArgs`＋`AutomationControlled` 無効化）。ボット偽装や
  * CAPTCHA/2FA の自動突破はしない（人間が完了する）。
  */
+/**
+ * 永続プロファイルのダウンロード履歴（Default/History）を消す。
+ * Playwright は終了時にダウンロードの一時ファイルを消すが、Chrome の履歴には「完了」の記録が残る。
+ * 次に起動したプロファイルでは最初のダウンロードで Chrome が落ちる（crashpad → 強制終了）。落ちた実行は
+ * 「中断」の記録を残して次は通るので、成功と失敗が交互になる。A8 の週次 CI で前月の次に当月が必ず落ちていた
+ * （2026-10-07 実測。履歴を消せば連続で成功）。Cookie は別ファイルなのでログインには影響しない。
+ */
+export function clearDownloadHistory(dir) {
+  for (const f of ["History", "History-journal"]) rmSync(join(dir, "Default", f), { force: true });
+}
+
 export async function launchContext(cfg, { headless } = {}) {
   const dir = profileDir(cfg);
   mkdirSync(dir, { recursive: true });
+  clearDownloadHistory(dir);
   const state = authStatePath(cfg);
   if (state) mkdirSync(dirname(state), { recursive: true });
   const ctx = await chromium.launchPersistentContext(dir, leanContextOptions({

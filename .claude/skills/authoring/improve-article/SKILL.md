@@ -166,7 +166,7 @@ notebooklm CLI が使えない場合（未インストール・ネットワー�
 
 | 修正タイプ | 使うツール |
 |---|---|
-| 構造（見出し・リスト・表） | Edit / Write（CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」遵守：CRLF 維持） |
+| 構造（見出し・リスト・表） | Edit / Write（CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」遵守：CRLF 維持）。表→箇条書き・長文の分割など構造だけを変えたら `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0 を確認し、`npx textlint <file>` を 0 件にする |
 | コンテンツ追記 | Edit / Write |
 | SVG 新規作成 | `/create-svg` スキル（または直接 SVG を Write） |
 | MDX 互換性 | `/check-mdx` スキル |

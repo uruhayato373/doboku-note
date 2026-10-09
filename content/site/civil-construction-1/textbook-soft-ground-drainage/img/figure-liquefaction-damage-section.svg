@@ -1,0 +1,89 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="液状化した砂層の断面。直接基礎の建物は沈下して傾き、支持杭の建物は動かず周囲の地盤が下がって段差ができ、軽い埋設管とマンホールは浮き上がり、水と砂が地表へ噴き出す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sm   { font-size: 11px; fill: #555; }
+      .t-lay  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-num  { font-size: 11px; font-weight: bold; fill: #222; }
+      .t-leg  { font-size: 12px; fill: #222; }
+      .t-gap  { font-size: 11px; font-weight: bold; fill: #b22234; }
+    </style>
+    <marker id="arb" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+    <marker id="arg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">液状化した層の上で、基礎形式ごとに被害の形が分かれる</text>
+
+  <!-- 直接基礎の建物（沈下して傾く。地盤層より先に描いて下側を隠す） -->
+  <polygon points="29.5,76.1 111.1,84.7 102.7,164.2 21.2,155.7" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="26.7" y1="103" x2="108.3" y2="111.5" stroke="#2e6da4" stroke-width="1"/>
+  <line x1="23.9" y1="129.8" x2="105.5" y2="138.4" stroke="#2e6da4" stroke-width="1"/>
+
+  <!-- 地盤 -->
+  <rect x="20" y="150" width="360" height="24" fill="#f5f5f5"/>
+  <rect x="20" y="174" width="360" height="166" fill="#fff3cd"/>
+  <rect x="20" y="340" width="360" height="56" fill="#d7d7d7"/>
+  <line x1="20" y1="150" x2="380" y2="150" stroke="#555" stroke-width="1.5"/>
+  <line x1="20" y1="174" x2="380" y2="174" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="20" y1="340" x2="380" y2="340" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-sm" x="24" y="169">地下水位</text>
+  <text class="t-lay" x="366" y="332" text-anchor="end">液状化した層（緩い飽和砂）</text>
+  <text class="t-lay" x="366" y="372" text-anchor="end">支持層（締まった層）</text>
+
+  <!-- 噴砂：水と砂の上昇 -->
+  <line x1="253" y1="312" x2="253" y2="156" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arb)"/>
+  <line x1="267" y1="312" x2="267" y2="156" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arb)"/>
+  <polygon points="246,150 274,150 260,136" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+
+  <!-- 支持杭の建物（杭は支持層まで届き、建物は元の高さのまま） -->
+  <rect x="136" y="138" width="6" height="240" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="182" y="138" width="6" height="240" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="124" y="74" width="76" height="64" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="124" y1="100" x2="200" y2="100" stroke="#2e6da4" stroke-width="1"/>
+  <line x1="124" y1="118" x2="200" y2="118" stroke="#2e6da4" stroke-width="1"/>
+  <!-- 段差 -->
+  <line x1="209" y1="138" x2="209" y2="150" stroke="#b22234" stroke-width="1.5"/>
+  <line x1="204" y1="138" x2="214" y2="138" stroke="#b22234" stroke-width="1.5"/>
+  <line x1="204" y1="150" x2="214" y2="150" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-gap" x="218" y="147">段差</text>
+
+  <!-- 埋設管とマンホール（元の位置を破線、浮上り後を実線） -->
+  <rect x="286" y="268" width="76" height="18" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <rect x="286" y="236" width="76" height="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="314" y="143" width="20" height="93" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="310" y="138" width="28" height="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="350" y1="282" x2="350" y2="258" stroke="#555" stroke-width="1.5" marker-end="url(#arg)"/>
+
+  <!-- 番号 -->
+  <circle cx="63" cy="60" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="63" y="64" text-anchor="middle">1</text>
+  <circle cx="162" cy="52" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="162" y="56" text-anchor="middle">2</text>
+  <circle cx="298" cy="212" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="298" y="216" text-anchor="middle">3</text>
+  <circle cx="260" cy="116" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="260" y="120" text-anchor="middle">4</text>
+
+  <!-- 凡例 -->
+  <rect x="20" y="408" width="360" height="88" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <circle cx="36" cy="426" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="36" y="430" text-anchor="middle">1</text>
+  <text class="t-leg" x="52" y="430">直接基礎・摩擦杭：支持力を失い沈下・傾斜</text>
+  <circle cx="36" cy="446" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="36" y="450" text-anchor="middle">2</text>
+  <text class="t-leg" x="52" y="450">支持杭：建物は動かず、周囲の地盤が下がり段差</text>
+  <circle cx="36" cy="466" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="36" y="470" text-anchor="middle">3</text>
+  <text class="t-leg" x="52" y="470">埋設管・マンホール：軽いので浮き上がる</text>
+  <circle cx="36" cy="486" r="8" fill="#ffffff" stroke="#222" stroke-width="1.2"/>
+  <text class="t-num" x="36" y="490" text-anchor="middle">4</text>
+  <text class="t-leg" x="52" y="490">噴砂：水と砂が割れ目から地表へ噴き出す</text>
+</svg>

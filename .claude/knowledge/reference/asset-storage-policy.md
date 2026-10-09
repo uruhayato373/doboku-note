@@ -48,7 +48,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 
 コネクターから転送したファイルは `node scripts/drive-connector-register.mjs --receipt <json>` でdry-runし、全件正常なら同じ引数に `--commit` を付ける。receiptはgroup、実査済みfolder（id/vaultPath）、files（repoPath/id/parentId/name/bytes/sha256/verification=`remote-bytes-sha256`/verifiedAt）を持つ。SHA-256はローカル値を転記せず、Driveから取得した実バイトで計算する。コネクターの一時ダウンロードURLや認証値をGitへ入れない。
 
-登録処理はパス逸脱・group違い・親フォルダー違い・重複・サイズだけの検証・SHA不一致を全件検査し、1件でも不正なら台帳を書かない。`driveFileId`も同じ台帳に保持する。マウントのあるMacでは従来の `drive-vault-sync --pull --group <id>`、無い端末ではこのIDでコネクターから取得してハッシュ照合する。ダウンロード手段が無い場合は転送を保留し、別の場所へ勝手に移さない。
+登録処理はパス逸脱・group違い・親フォルダー違い・重複・サイズだけの検証・SHA不一致を全件検査し、1件でも不正なら台帳を書かない。`driveFileId`も同じ台帳に保持する。マウントのあるMacでは従来の `drive-vault-sync --pull --group <id> --commit`、無い端末ではこのIDでコネクターから取得してハッシュ照合する。ダウンロード手段が無い場合は転送を保留し、別の場所へ勝手に移さない。
 
 ### 各 group の行き先（2026-09-05 時点）
 
@@ -68,7 +68,9 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
 | `x-rendered-image` | human | Drive `制作物/Xレンダー/` | サイト図から生成した番号付き `*-diagrams` 下書きの `img/tweet-NN-名前.png`。`images.json` の元図・元記事ハッシュを確認し `node scripts/render-x-figure-drafts.mjs --draft <番号付き下書き名>` で再生成 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
-| `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 確認済みPNGを別端末へ渡す。制作時の書体が必要なため再生成を前提にしない |
+| `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
+| `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
+| `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
@@ -90,7 +92,8 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 マイドライブ/doboku-note/
 ├── README.md                    # 貼り紙。Drive を開いた人が最初に読む
 ├── 原資料PDF/                   # 原本と、その資料に由来する画像・OCR・校正
-│   ├── 白書/ 資格試験/           # 手で整えた既存
+│   ├── 白書/                     # white-paper-source-pdf（台帳あり）
+│   ├── 資格試験/                 # 手で整えた既存（台帳なし）
 │   ├── 書籍/{referenceId}__{短い書名}/
 │   │   ├── source/001.pdf        # 分冊も1冊の下へ集約
 │   │   ├── pages/p0001.jpg       # 書籍全体の通しページ
@@ -154,7 +157,7 @@ Drive のパスは参照しない＝この移動でビルドは壊れない。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
-  `npm run drive-vault-sync -- --group source-transcript --pull`（詳細手順は
+  `npm run drive-vault-sync -- --group source-transcript --pull --commit`（詳細手順は
   `content/sources/textbook/README.md`）
 - **ローカルの読者（`scripts/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
   残るため、この Mac 上では従来どおり動く。CI・fresh clone では実体が無い前提でコードを書く
@@ -193,7 +196,7 @@ vault: 原資料PDF/共通仕様書/{整備局}/{原本PDF名}/pages/p0001.jpg  
 - **沖縄総合事務局は中国地方整備局と原本 sha256 が一致**する。画像は重複生成せず
   `okinawa/common/manifest.json` に `sameAs: "chugoku/common"` を持たせる（catalog も同じ扱い）
 - 生成には Drive vault の原本と poppler が要る。手元に作業コピーが要るときは
-  `npm run drive-vault-sync -- --pull --path content/sources/standards/{agencyId}/`
+  `npm run drive-vault-sync -- --pull --path content/sources/standards/{agencyId}/ --commit`
 - 整合ゲートは `npm run check-standards-page-images`（`quality:audit` 同梱）。実体が無い端末では
   manifest だけを検査し「実体検査 0 件」を緑と言わずその旨を出力する
 
@@ -213,11 +216,11 @@ npm run asset-hydrate -- --path 'content/sources/textbook/{書名}/'    # 前方
 npm run asset-hydrate -- --group note-cover-png --offline             # cache にあるものだけ
 ```
 
-Drive vault 側（human tier）は台帳が別で、取り戻しは `drive-vault-sync --pull`（マウントが要る・ネット不要）:
+Drive vault 側（human tier）は台帳が別で、取り戻しは `drive-vault-sync --pull … --commit`（マウントが要る・ネット不要。`--commit` が無ければ件数と合計サイズを出す dry-run）:
 
 ```bash
-npm run drive-vault-sync -- --pull --group note-delivery-pdf
-npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'
+npm run drive-vault-sync -- --pull --group note-delivery-pdf --commit
+npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/' --commit
 ```
 
 credential が無い端末は `--offline` を付ける（会社 PC からも R2 へは届く・2026-10-01 確認。届かない端末のための逃げ道）。
@@ -436,7 +439,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256�
 | private `note/covers/` | 840（772MiB） | 台帳 `note-cover-png`（全カバー。2026-09-05 DN-0171 で public 複製 823 件を private へ server-side copy → md5 照合 → public 側削除） | `asset-hydrate --group note-cover-png` |
 | public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
-| Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id>` |
+| Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id> --commit` |
 
 **2026-09-05 に Drive へ移したもの（DN-0169 完了）**: 11 group 19,236 件＝共通仕様書ページ 11,898 / 教材 PDF 417
 （うち 63 は Drive に手で置いてあった原本を sha256 で adopt）/ 教材ページ画像 868 / note 配布 PDF 598 / IG レンダー 2,155 /

@@ -175,6 +175,7 @@ frontmatter の他のフィールド（title, seoTitle, category, tags, publishe
 - `<details>` 数 = `## 問題` 数
 - `<ExamPoint items>` 内に句読点を含む文字列が **0 件**
 - 文字化け（U+FFFD）ゼロ
+- `npx textlint <file>` が 0 件（pre-commit の lint-ja はファイル全体を検査し、触っていない既存行の全角数字・prh も commit を止める）。構造だけを変えた箇所は `npm run check-mdx-facts -- <file>` で数値・「」の語の減少 0（content-authoring.md「書き終えたときの決定的ゲート」）
 
 ### Step 7: 書き込み
 

@@ -52,7 +52,7 @@ _minpo_*.png
 
 # Scanned source PDFs (content/sources/textbook) — 実体は Google Drive vault（drive-vault.json の
 # textbook-source-pdf group・台帳 drive-manifest.json）。取り戻しは
-# npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'。
+# npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/' --commit。
 # 詳細: .claude/knowledge/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
 content/sources/textbook/**/*.pdf
 content/sources/textbook/**/*.PDF
@@ -60,6 +60,9 @@ content/sources/textbook/**/*.PDF
 # 在庫は data/pastexams/inventory.json。取得〜退避の手順は .claude/skills/conversion/past-exam-archive。
 content/sources/past-exams/**/*.pdf
 content/sources/past-exams/**/*.PDF
+# 白書・年次報告の原本 PDF（content/sources/white-papers）— 実体は Google Drive vault の white-paper-source-pdf group（原資料PDF/白書）。
+content/sources/white-papers/**/*.pdf
+content/sources/white-papers/**/*.PDF
 # PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。
 # 追跡済みの content/sources/textbook/**/*.md（自前の文字起こし）とは別物なので Text/ だけを外す。
 content/sources/textbook/**/Text/
@@ -198,7 +201,7 @@ public/standards-data/
 
 # YouTube Shorts: content/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
 # mp4 は Google Drive vault（制作物/SNS音声動画/youtube/・drive-vault.json sns-archived-media）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
-# 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
+# 「どの動画をいつ予約したか」の記録はコンテンツ台帳（content/registry）が唯一の真実源。
 # チャネル案内と手書き表紙の元データだけ追跡する（画像・動画・派生metaは追跡しない）。
 content/sns/youtube/*
 !content/sns/youtube/README.md
@@ -306,7 +309,7 @@ content/note/**/img/cover*.svg
 # 追跡していたのは 868 件 571.2 MiB で、Git に置く理由が無い——原本は書籍、
 # 文字起こし .md と真正ベクター .svg が SSOT で、ラスタは OCR / crop の中間物。
 # 取り戻すのは書名単位で
-# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'`。
+# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/' --commit`。
 # .md と .svg は意図的に除外していない（Git に残すのが正）。
 # 2026-08-21・DN-0111 Phase 4-C。2026-09-05 に private R2 から Drive vault へ移設。
 content/sources/textbook/**/*.png
@@ -337,7 +340,7 @@ content/note/**/img/figure-author-authority*.png
 # 台帳 drive-manifest.json）に置く。購入者限定の配布物を含む。
 # 追跡していたのは 586 件 273.0 MiB。生成 spec と商品 ID が原本で、PDF はそこからの成果物。
 # note へ添付するときは note-attach-file が自動で取り寄せる（取れなければ note へ書かずに止まる）。
-# 手で取り戻すのは `npm run drive-vault-sync -- --pull --path 'content/note/{該当パス}/'`。
+# 手で取り戻すのは `npm run drive-vault-sync -- --pull --path 'content/note/{該当パス}/' --commit`。
 # 2026-08-21・DN-0111 Phase 4-D。2026-09-05 に private R2 から Drive vault へ移設。
 content/note/**/*.pdf
 
@@ -356,7 +359,7 @@ content/sns/instagram/**/*.jpeg
 # 教材の原典 PDF は実体を Google Drive vault（drive-vault.json の textbook-source-pdf group・
 # 台帳 drive-manifest.json）に置く。2026-07 に R2 へ出し、2026-08-22 に git 履歴からも除去した
 # （389 件）。2026-09-05 に置き場ルールを「誰が使うか」へ改め、private R2 から Drive vault へ移設した。
-# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'` で docs/textbook/ 配下へ取り戻すが、
+# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/' --commit` で docs/textbook/ 配下へ取り戻すが、
 # **取り戻したものを再びコミットしないこと**（実測でここが素通りだったので明示的に塞ぐ）。
 docs/textbook/
 
@@ -379,7 +382,7 @@ content/site/**/ogp-thumb-*.webp
 # content/note/**/_cover.png（マガジンカバー・2026-09-17 時点 67 件）は実体を Google Drive vault
 # （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。
 # マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
-# 別グループとして分離。復元は node scripts/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/'。
+# 別グループとして分離。復元は node scripts/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。2026-09-17 に magazines/ 直下以外
 # （メンバーシップ特典マガジン `メンバーシップ/予想問題マガジン/_cover.png`）も同じ扱いに広げた。
 content/note/**/_cover.png
@@ -387,7 +390,7 @@ content/note/**/_cover.png
 # content/coconala/assets/（59件・28.3MB）は実体を Google Drive vault
 # （drive-vault.json の coconala-asset group・台帳 drive-manifest.json）に置く。
 # ココナラ出品Playwright自動化はローカル実体を直接参照するので挙動不変。
-# 復元は node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/'。
+# 復元は node scripts/drive-vault-sync.mjs --pull --path 'content/coconala/assets/' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 content/coconala/assets/**
 
@@ -395,7 +398,7 @@ content/coconala/assets/**
 # （drive-vault.json の repo-archive group・台帳 drive-manifest.json）に置く: OCR監査ログ・
 # Kindle表紙デザイン案・キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
 # 読む人はいても読むコードは無い（audience=human）。
-# 復元は node scripts/drive-vault-sync.mjs --pull --path '{対象パス}'。
+# 復元は node scripts/drive-vault-sync.mjs --pull --path '{対象パス}' --commit。
 # 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 .claude/state/ocr-audit/**
 scripts/kindle-published/cover-designs/**
@@ -407,7 +410,7 @@ content/sns/_assets/character/_source/**
 # 実体は Google Drive vault（drive-vault.json の standards-page-image group・
 # 台帳 drive-manifest.json）へ出す（読むのは人と手元の照合作業だけのため）。
 # 再生成は `npm run build-standards-page-images`、取り戻しは
-# `npm run drive-vault-sync -- --pull --path 'content/sources/standards/{agencyId}/'`。
+# `npm run drive-vault-sync -- --pull --path 'content/sources/standards/{agencyId}/' --commit`。
 content/sources/standards/**/pages/*.jpg
 content/sources/standards/**/text/*.txt
 
@@ -431,3 +434,4 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 
 # 管理画面「コンテンツ台帳」の note 記事の索引（scripts/build-content-ledger.mjs が作る生成物・DN-0438）
 .claude/state/content-ledger.json
+

@@ -21,6 +21,8 @@ import { auditSvgFile } from "../.claude/skills/quality/check-mdx/scripts/rules/
 import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scripts/rules/empty-container/detect.mjs";
 import { checkLineEndings } from "./lib/line-endings.mjs";
 import { checkImages } from "./lib/check-mdx-images.mjs";
+import { runGates } from "./pre-commit-ci-gates.mjs";
+import { restageQuiz } from "./lib/quiz-restage.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -174,8 +176,14 @@ function checkBrokenTables(file, content) {
 }
 
 async function main() {
+  // CI の速い ci:true 検査を staged の範囲で先に回す（MDX が無い commit でも note・X は見る）
+  if (runGates().length > 0) process.exit(1);
+
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
+
+  // 演習データの元記事を stage したら、フックの backfill-mdx-dates が進めた dateModified で作り直して stage する（DN-0548）
+  if (!restageQuiz(files).ok) process.exit(1);
 
   if (files.length === 0 && svgFiles.length === 0) {
     process.exit(0); // Nothing to validate

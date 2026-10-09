@@ -1,0 +1,90 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="サンドドレーン工法の施工順序。マンドレルを据え、所定の深さまで打ち込み、管内に砂を投入し、マンドレルを引き抜いて砂の柱を軟弱粘土の中に残す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="sd-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="sd-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="sd-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">サンドドレーン工法の施工順序</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">砂の柱を地中に造り、水の通り道にする</text>
+
+  <rect class="card" x="16" y="64" width="176" height="152" rx="6"/>
+  <rect class="warn" x="17" y="156" width="174" height="52" style="stroke-width:1"/>
+  <circle class="num" cx="34" cy="82" r="10"/>
+  <text class="t-lab" x="34" y="86" text-anchor="middle">1</text>
+  <text class="t-key" x="50" y="86">据える</text>
+  <text class="t-note" x="28" y="108">マンドレルを</text>
+  <text class="t-note" x="28" y="122">所定位置に据える</text>
+  <text class="t-note" x="28" y="180">軟弱粘土</text>
+  <rect class="gray" x="149" y="86" width="14" height="70"/>
+  <rect class="card" x="208" y="64" width="176" height="152" rx="6"/>
+  <rect class="warn" x="209" y="156" width="174" height="52" style="stroke-width:1"/>
+  <circle class="num" cx="226" cy="82" r="10"/>
+  <text class="t-lab" x="226" y="86" text-anchor="middle">2</text>
+  <text class="t-key" x="242" y="86">打ち込む</text>
+  <text class="t-note" x="220" y="108">所定の深さ</text>
+  <text class="t-note" x="220" y="122">まで打ち込む</text>
+  <text class="t-note" x="220" y="180">軟弱粘土</text>
+  <rect class="gray" x="341" y="130" width="14" height="70"/>
+  <line class="aB" x1="370" y1="100" x2="370" y2="150" marker-end="url(#sd-B)"/>
+  <rect class="card" x="16" y="224" width="176" height="152" rx="6"/>
+  <rect class="warn" x="17" y="316" width="174" height="52" style="stroke-width:1"/>
+  <circle class="num" cx="34" cy="242" r="10"/>
+  <text class="t-lab" x="34" y="246" text-anchor="middle">3</text>
+  <text class="t-key" x="50" y="246">砂を入れる</text>
+  <text class="t-note" x="28" y="268">管内に砂を</text>
+  <text class="t-note" x="28" y="282">投入する</text>
+  <text class="t-note" x="28" y="340">軟弱粘土</text>
+  <rect class="gray" x="149" y="290" width="14" height="70"/>
+  <rect x="152" y="292" width="8" height="66" fill="#d0e8d0"/>
+  <line class="aP" x1="156" y1="258" x2="156" y2="286" marker-end="url(#sd-P)"/>
+  <text class="t-note" x="166" y="274">砂</text>
+  <rect class="card" x="208" y="224" width="176" height="152" rx="6"/>
+  <rect class="warn" x="209" y="316" width="174" height="52" style="stroke-width:1"/>
+  <circle class="num" cx="226" cy="242" r="10"/>
+  <text class="t-lab" x="226" y="246" text-anchor="middle">4</text>
+  <text class="t-key" x="242" y="246">引き抜く</text>
+  <text class="t-note" x="220" y="268">引き抜いて</text>
+  <text class="t-note" x="220" y="282">砂柱を残す</text>
+  <text class="t-note" x="220" y="340">軟弱粘土</text>
+  <rect class="pos" x="343" y="316" width="10" height="44" style="stroke-width:1.5"/>
+  <rect class="gray" x="341" y="246" width="14" height="70"/>
+  <line class="aB" x1="370" y1="304" x2="370" y2="260" marker-end="url(#sd-B)"/>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">打設径</text>
+  <text class="t-lab" x="104" y="416">約 40 cm</text>
+  <text class="t-key" x="30" y="442">間隔</text>
+  <text class="t-lab" x="104" y="442">通常 1.5～3.0 m 程度</text>
+  <text class="t-key" x="30" y="468">効果</text>
+  <text class="t-lab" x="104" y="468">砂柱から水が抜け、圧密が早く進む</text>
+</svg>

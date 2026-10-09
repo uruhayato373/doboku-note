@@ -40,13 +40,13 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 |---|---|---|
 | `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note）。**⚠ カスタム paidBoundary を持つ記事の境界を先頭リセット＝全ロック化する**（civil経験記述58本で実損）→ 対象にpaidBoundary持ちが含まれると既定ABORT(exit9)。`--allow-boundary-risk` で上書き時は事後に境界再設定＋実査が必須。**PDF 添付の保存前ゲート付き**（エディタ遷移を3回までリトライ／期待本数を下回れば保存せず skip／保存後に減れば note-attachment-loss.json へ記録） |
 | `note-convert-to-paid.mjs` | **無料で公開済みの記事を有料化**（price+paidBoundary設定→更新→API検証） | `{--list <file>｜--article <path>} --commit`。**背景**: note-publish は `isPaid = notePricing==='paid' && price>0` 判定のため、`price:` 欄が無い paid 記事を**無料公開**する事故がある（2026-07-24、完全攻略パック等21本）。本ツールで既存無料note を有料化（note-publish は noteUrl あると skip＝新規専用のため既存有料化には本ツールが必要）。要 `price:`(>0)+`paidBoundary` frontmatter |
-| `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--commit]` |
+| `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--dry-run]`。**既定で保存する**（`--commit` は無い。試すときは `--dry-run`） |
 
 ### マガジン操作
 
 | スクリプト | 用途 | 引数 |
 |---|---|---|
-| `note-magazine-create.mjs` | マガジン新規作成 | `--txt <note掲載文.txt> [--commit]` |
+| `note-magazine-create.mjs` | マガジン新規作成（同名があれば止める） | `--dir <magazineDir> [--commit] [--allow-duplicate]` |
 | `note-magazine-add-articles.mjs` | 記事をマガジンに収録（収録解除は対象行の「追加済」を再clickでoff） | `--target <key> (--from <key> \\| --notes <key,...>) [--commit]` |
 | `note-magazine-cover.mjs` | マガジンカバー設定 | `--key <key> --cover <path> [--commit]` |
 | `note-attach-magazine-pdfs.mjs` | マガジン収録記事に PDF 添付 | `--key <key> [--commit]` |
@@ -87,7 +87,8 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 **例**: 「建設部門単品を ¥780 に」
 
-1. **対象特定**: `note-magazines.ts` から `pe-construction-*` の published:true を抽出
+0. **正本を先に変える**（2026-10-06〜・DN-0492）: 価格の正本は `config/products.json`（記事の単品価格は `articlePrices`・マガジンは `catalog.price`）。記事は `npm run product -- price <article.md> <円>`（frontmatter も同時に書く）、マガジンは `npm run product -- set <id> catalog.price ...` のあと `npm run product -- gen`（掲載文の機械用の欄と生成物を合わせる）。frontmatter の `price` や `note-magazines.ts` を手で直さない（`check-products` が止める）
+1. **対象特定**: 正本（`npm run product -- list`）から `pe-construction-*` の published:true を抽出
 2. **現状確認**: `verify-note-magazines.mjs --contents` で現在価格を確認
 3. **dry-run**: `note-article-price-sweep.mjs --pattern pe-construction --price 780`（**paidBoundary持ちが含まれるとABORT**。含まれる場合は 3a へ）
    - 3a. **境界破壊回避**: カスタム境界記事を `--exclude` で外す、または `--allow-boundary-risk` を承知の上で付す（後者は 6b 必須）
@@ -96,7 +97,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 6. **検証**: 変更後の価格を note API で確認
    - 6b. **境界実査（--allow-boundary-risk 使用時 必須）**: **まず実査、再設定は壊れていた場合のみ**。`npm run check-note-structure` は会社 PC では Node fetch がプロキシで遮断され全件 FETCH_ERR でも exit 0＝偽 PASS になるため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの paidBoundary 直前の末尾と末尾一致**で突合する（手順 → note-api-verification.md）。壊れていた記事だけ `node scripts/note-update-body.mjs --list <対象> --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
      - 2026-07-28 実測: 完全攻略パック 18 本を `--allow-boundary-risk` で ¥500→¥1,980 に変更したが、境界破壊は **18/18 で再現せず**（無料プレビュー末尾が全件一致）。ただし 07-24 の実損 58 本は事実なので**ガードは維持**し、実査は毎回行う。
-7. **SoT 更新**: `note-magazines.ts` の price 表記を Edit で更新
+7. **正本の確認**: 0 で変えた正本と note のライブが一致することを `npm run verify-note-magazines` と `npm run check-products` で確かめる（`note-magazines.ts` は生成物なので Edit しない）
 
 ### ケース2: マガジン新設
 
@@ -105,7 +106,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 1. **準備確認**:
    - `note掲載文.txt` が存在するか確認
    - 収録対象記事が note 上で公開済みか確認
-2. **マガジン作成**: `note-magazine-create.mjs --txt <path> --commit`
+2. **マガジン作成**: `note-magazine-create.mjs --dir <magazineDir> --commit`
 3. **記事収録**: `note-magazine-add-articles.mjs --target <newKey> --notes <key1,key2,key3> --commit`
 4. **カバー設定**: `note-magazine-cover.mjs --key <newKey> --cover <path> --commit`
 5. **検証**: note API でマガジン構成を確認
@@ -138,7 +139,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 ## 安全弁
 
-1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
+1. **書込みゲート必須**: 全スクリプトは既定 dry-run。公開・更新は`--commit`を明示する。**例外: `note-edit-magazine` は既定で保存し、`--dry-run` で止める**（2026-10-06 に空打ちのつもりで保存された）。`note-attach-file`だけは、公開前下書きへPDFを保存する`--draft-only`も書込みゲートとして認める（`--commit`と排他・保存後にエディタ再読込でPDFカードを検証）
 2. **account ゲート**: 全スクリプトは `dobokunote` アカウントを検証
 3. **検証必須**: 公開側の変更後は note API で実体検証。`note-attach-file --draft-only`は非公開なので、保存後のエディタ再読込でPDFカードを検証
 4. **SoT 整合**: スクリプト実行後は必ず `note-magazines.ts` を更新

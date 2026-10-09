@@ -75,6 +75,12 @@ title: 土木施工管理の転職エージェントの選び方｜工種・勤�
 
 比較の詳しい項目は[土木施工管理の転職サービス選び](https://doboku-note.com/exam/civil-construction-1/guide/career-agents?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=career-agents)へ。ビルドジョブを検討中の方は[公式情報と確認事項を整理した記事](https://note.com/dobokunote/n/na0f42fd52a51)も参照してください。
 
+**PR：ビルドジョブの案内にはアフィリエイト広告を含みます。**
+
+三行がまとまったら、建設業界に特化した相談先で、その条件に合う求人があるかを聞く方法があります。下のリンクはビルドジョブの相談の案内につながります。
+
+https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHED6+5B0Y+NTJWY
+
 順位を一つ覚えるより、自分の条件を説明し、回答を比べられる状態にする。それがサービス選びの出発点です。
 
 土木・建設系資格の学習と仕事選びを[doboku-note](https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=civil-career-agent-comparison&utm_content=site-footer)で発信しています。

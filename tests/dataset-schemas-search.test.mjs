@@ -26,6 +26,8 @@ const assertFails = (schema, value, pattern) => {
   assert.ok(found.some((l) => pattern.test(l)), `${pattern} が出ない: ${JSON.stringify(found.slice(0, 5))}`);
 };
 const clone = (value) => globalThis.structuredClone(value);
+/** 週次・日次の取得で配列が空になる週でも失敗例を作れるよう、最新データが使えないときだけ固定サンプルを元にする（DN-0536） */
+const sample = (name) => JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/dataset-samples', name + '.json'), 'utf8'));
 /** 深いコピーを作って fn で壊す */
 const broken = (value, fn) => {
   const copy = clone(value);
@@ -187,7 +189,10 @@ test('GscIndexingPriority: 実データが通り、件数の不整合・分類�
 test('GscIndexingRequests: 実データが通り、語彙・集計の不整合・dry-run の申請・summary 欠けが落ちる', () => {
   const S = SCHEMAS.GscIndexingRequests;
   assertAllOk(S, 'gsc.indexing-requests');
-  const r = latest('gsc.indexing-requests');
+  const latestRequests = latest('gsc.indexing-requests');
+  assert.deepEqual(issues(S, sample('indexing-requests')), []);
+  // ログインできず中断した run（items も summary も無い）が最新だと失敗例を作れないので、固定サンプルを元にする
+  const r = latestRequests.items?.length > 0 && latestRequests.summary ? latestRequests : sample('indexing-requests');
   assertFails(S, broken(r, (x) => { delete x.mode; }), /mode/);
   assertFails(S, broken(r, (x) => { x.mode = 'live'; }), /mode/);
   assertFails(S, broken(r, (x) => { x.status = 'done'; }), /status/);

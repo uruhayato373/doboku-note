@@ -24,8 +24,8 @@ doboku-note の記事に図・写真を載せるときのルール集。PDF ス�
 2. 何を示すのか？
    ├─ 概念・仕組み・工程・関係（フロー/マトリクス/比較）
    │    → SVG 新規作成（create-svg スキルを使う）
-   ├─ 実機の外観・現場の雰囲気・器材の使用場面
-   │    → 写真（§ 許容ソース から CC/PD 素材を取得）
+   ├─ 実機の外観・現場の雰囲気・器材の使用場面・変状の見た目
+   │    → 写真（§ 写真は AI で生成する。実写は使わない）
    └─ 数式・表で表せる内容
         → 図にせず、本文内で表・箇条書き・数式で表現
 ```
@@ -48,19 +48,28 @@ SVG の方が写真より優れる理由:
 
 SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デザイントークン（brand/positive/warn/danger）、4 つのレイアウトパターンを適用する。
 
-## 許容ソース（写真を使う場合）
+## 写真は AI で生成する（2026-10-07 運営者決定）
 
-写真が本質的に必要な場面（建設機械の外観、現場の雰囲気など）では、以下のソースから取得する。**ライセンス条件を必ず確認**し、商用利用可・改変可のものだけを採用する。
+記事と SNS の写真（機械・器械の外観、変状の見た目、現場の様子）は**すべて AI で生成した画像**にする（SNS は [sns-image-policy.md](./sns-image-policy.md) §0.0）。CC/PD の実写・自前撮影・メーカー画像と、実写を AI で描き直した画像は使わない。比率は **4:3**（配信 960×720 の WebP）にそろえる。比率・配信幅・全写真に共通する生成の指示は `config/image-limits.json` の `aiPhoto` だけが持つ。
 
-### 推奨ソース（優先順）
+> [!warning] なぜ（2026-10-07）
+> 1級土木テキスト 8 記事の機械の写真 23 枚は、Wikimedia Commons の実写を AI で描き直した画像だった。元の出典コメントと caption は消え、出所の記録は無く、描き直したセオドライトは実在しない形の器械になっていた。誰も実物と照らしていなかった。
 
-| ソース | ライセンス | 用途 | 備考 |
-|---|---|---|---|
-| **Wikimedia Commons** | CC-BY / CC-BY-SA / CC0 / Public Domain | 最優先。建設機械・測量器材・構造物外観が豊富 | 画像ページでライセンス種別を必ず確認 |
-| **国交省・省庁系画像ライブラリ** | 政府標準利用規約（ほぼ商用 OK） | 公共工事・災害事例・法令解説 | 出典表記必須、加工可の旨を確認 |
-| **Unsplash / Pexels / Pixabay** | 各サイトライセンス（商用可・出典任意が多い） | 汎用的な風景・作業風景 | 素材が建設特化でない点に注意 |
-| **メーカー公式画像** | 各社利用規約次第 | 特定製品の説明に限定的に | **事前に商用利用可を確認したもののみ**。グレーな場合は使わない |
-| **自前撮影** | 著者に帰属 | 現場写真が必要だが上記で入手不可な場合 | 人物・私有地の写り込みに注意 |
+**手順**（台帳は 2 つ。手で「済」と書く欄は無く、状態は台帳から導く）:
+
+1. **仕様**: `config/figure-sources.json` の `provenance[図キー]` に `{ "kind": "ai-generated", "tool": "…", "prompt": "…" }`。`prompt` は被写体の指示で、本文が説明する部位・台数・形式（車輪の数・フレーム形式・ブームの構造など）を書く
+2. **生成と配置**: `npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>]`。生成 → 中央で 4:3 に切る → `<図キー>.webp` を書く → 記事の src と width/height を合わせる → 実績の台帳（`.claude/state/quality/ai-image-review-ledger.json`）に sha と promptSha を記録する。生成済みの画像は `--from <画像>` で配置だけ行う
+3. **監査**: `node scripts/check-image-origin.mjs --ai-queue --json` の項目を `ai-image-fidelity-auditor` が判定（種別・構造・本文・生成の破綻）→ `node scripts/check-image-origin.mjs record-ai <verdicts.json>`。不合格は `prompt` を直して 2 からやり直す
+4. **検査**: `npm run check-image-origin`（`quality:audit:ci`）が、出所なし・実写・4:3 でない・未生成・未監査・不合格を止める
+
+| 状態 | 意味 |
+|---|---|
+| 未生成 | 仕様の `prompt` から作った記録が今の画像に無い（指示を変えた・手で差し替えた） |
+| 未監査 | 生成・配置したが、実物どおりかの判定が無い |
+| 不合格 | 実物と違う（`prompt` を直して作り直す） |
+| 合格 | 生成・配置・判定が今の画像でそろっている |
+
+写真の MDX に出典コメントと caption は要らない（出所の正本は `provenance`）。書くなら台帳と食い違わないこと（`comment-mismatch`）。
 
 ### 禁止ソース
 
@@ -90,39 +99,21 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 - 特定メーカーの特定機種のシルエットを SVG 化
 - 特定教科書の図版レイアウトをそのまま SVG で再現
 
-判断がつかない場合は「削除して本文のみ」または「別ソースから写真取得」を選ぶ。
+判断がつかない場合は「削除して本文のみ」か、AI で生成した写真（§ 写真は AI で生成する）を選ぶ。
 
 ## 出典表記フォーマット
 
-CC/PD 写真を使うときは、**画像直前の MDX コメント** で出典を明記する。grep 検出と将来の監査を容易にするため、以下の固定フォーマットで書く。
+公的資料・運営者の権利保有書籍の図を使うときは、**画像直前の MDX コメント** で出典を明記する。出所の正本は `config/figure-sources.json` の `provenance`（`public-data`・`own-book-scan`）で、コメントは人が読む注記。公的資料は caption に提供者を出す（`check-image-origin` の `attribution-missing`）。
 
-### 写真（CC/PD ソース）
+### 公的資料（政府機関）
 
 ```mdx
-{/* source: Wikimedia Commons, CC-BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Example.jpg */}
-<img
-  src="/posts/civil-construction-1/textbook-crane/img/crane-external.jpg"
-  alt="オールテレーンクレーンの外観"
-  loading="lazy"
-/>
+{/* source: 国土交通省, 政府標準利用規約 2.0, https://www.mlit.go.jp/... */}
+<ArticleImage src="..." alt="..." caption="出典：国土交通省（政府標準利用規約）" />
 ```
 
 > [!important]
 > `loading="lazy"` は **2 枚目以降**の書き方。**本文 1 枚目（先頭 2,000 文字以内）は `loading="eager" fetchpriority="high"`** にする（フォールド内＝LCP 要素になるため）。機械ゲート `npm run check-lcp-image-hints` が pre-commit / CI で検査する。詳細: [content-authoring.md](./content-authoring.md)「読み込み優先度（LCP ゲート・必読）」
-
-### 写真（政府機関画像ライブラリ）
-
-```mdx
-{/* source: 国土交通省, 政府標準利用規約 2.0, https://www.mlit.go.jp/... */}
-<img ... />
-```
-
-### 写真（自前撮影）
-
-```mdx
-{/* source: own photograph, taken 2026-MM-DD */}
-<img ... />
-```
 
 ### SVG（自前制作）
 
@@ -139,7 +130,7 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 > `<ArticleImage>` の caption は「図の説明」には使わない。ただし、**出典・著作権帰属・機種名などの短い帰属情報**（目安 60 字以内）は caption に書いてよい。
 
 - **NG**: caption で図の内容・構造・関係を説明する（本文と重複する）
-- **OK**: caption で **出典（Wikimedia Commons, CC BY-SA 4.0 等）・機種名（Leica TC305 等）** を短く示す
+- **OK**: caption で **出典（公的資料の提供者と利用規約）** を短く示す（公的資料は必須）
 
 `alt` には簡潔な識別情報（60〜80 字以内）を入れる。機種の詳細説明・図の読み方は **本文** に書く。
 
@@ -148,14 +139,11 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 ```mdx
 #### クローラクレーン
 
-クローラ式走行体で不整地走破性に優れるクレーン。日立 CX900HD のように
-ラチス構造のブームと全油圧駆動が主流。
+全油圧式が主流で、ブームはパイプまたは形鋼のラチス構造で軽量。
 
-{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:Hitachi_CX900HD_crawler_crane_at_IJmuiden,_pic1.JPG */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
-  alt="クローラクレーン（日立 CX900HD）"
-  caption="Wikimedia Commons, CC0"
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.webp"
+  alt="クローラクレーン"
   width={960}
   height={720}
 />
@@ -168,7 +156,7 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 <ArticleImage
   src="..."
   alt="..."
-  caption="日立 CX900HD。ラチス構造のブームとクローラ式走行体が特徴で、不整地走破性に優れる。Wikimedia Commons, CC0"
+  caption="ラチス構造のブームとクローラ式走行体が特徴で、不整地走破性に優れる"
 />
 ```
 
@@ -235,7 +223,7 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 
 - **新規記事・新規画像**: `<ArticleImage>` で統一
 - **既存の生 `<img>` 記事**: リライト時に順次 `<ArticleImage>` へ移行（互換性維持）
-- `{/* source: */}` コメントは両者とも必須（CC/PD 写真の場合）
+- `{/* source: */}` コメントは公的資料・権利保有書籍の図に付ける（写真は不要・出所の正本は `provenance`）
 
 ## 実装ガイドライン
 
@@ -244,8 +232,8 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 ```
 content/site/{slug}/img/
   figure-{n}.svg          # SVG 図版
-  photo-{name}.jpg        # CC 写真（元ファイル名は変えず、ライセンス可読性のため英数字スラグに）
-  photo-{name}.png        # PNG が必要なケースのみ
+  {name}.webp             # 写真（AI 生成・960×720・gen-article-photo が書く）
+  {name}.png / .webp      # PDF・スキャンからの切り出し図
 ```
 
 ### 推奨ファイル形式
@@ -253,26 +241,31 @@ content/site/{slug}/img/
 | 用途 | 形式 | 理由 |
 |---|---|---|
 | 概念・構造・工程図 | **SVG** | ベクタ、モバイル鮮明、修正容易 |
-| 実機外観・現場写真 | **JPG** | 写真圧縮が効率的 |
+| 写真（AI 生成） | **WebP 960×720** | 4:3 にそろえる（`gen-article-photo` が切って書く） |
 | スクリーンショット・UI 図 | **PNG** | 文字エッジがくっきり |
 
 ### ファイルサイズ目安
 
 - SVG: 10KB 以内（過度な装飾を避ける）
 - JPG: 200KB 以内（モバイル回線で 2 秒以内に読める）
+- WebP: 150KB 以内（写真は `gen-article-photo` が画質を下げて収める）
 - PNG: 100KB 以内（重い PNG は WebP 変換も検討）
 
 ## 図クロップの機械検査（`check-figure-crop`）
 
 スキャン過去問・教材から切り出した図クロップ（`content/site/**/img/`）の**画素ジオメトリ**を検査する機械ゲート。既存の図監査は OCR ベース（`audit-figure-text` = 答え/本文テキスト、`build-figure-provenance` = 鮮明度・出所）で「テキストの内容」しか見ないため、クロップ縁の切断・隣接図の写り込みを取りこぼしていた（例: `r07-a-fig-04` 下端に隣接図のルビ写り込みが `textStatus:clean` で素通り）。本ゲートが画素で補完する。
 
-実行: `npm run check-figure-crop`（全走査＋`.claude/state/quality/figure-crop-report.json` 出力）/ `check-figure-crop:ci`（baseline 比の新規のみ exit 1）/ `--file <img>`（1枚検査・figure-recrop の自己検証用）。写真（白率<50%）は自動スキップ。
+実行: `npm run check-figure-crop`（全走査＋`.claude/state/quality/figure-crop-report.json` 出力）/ `check-figure-crop:ci`（baseline 比の新規のみ exit 1）/ `--file <img>`（1枚検査・figure-recrop の自己検証と `/figure-quality-loop` の QA 用）。写真（白率<50%）は自動スキップ。
 
 | ルール | 扱い | 意味 |
 |---|---|---|
-| **STRAY_SLIVER** | **CI ブロッキング（HIGH）** | 上下端の**極薄インク島**（≤6px かつ ≤1%H）が白ギャップで本体から分離＝**隣接図の切れ端＝写り込み**。フルハイトの正当ラベル/軸と分離できる唯一の高精度シグナル（実測 precision ≈ 8/10） |
+| **STRAY_SLIVER** | **CI ブロッキング（HIGH）** | 上下端の**極薄インク島**（≤6px かつ ≤1%H）が白ギャップで本体から分離＝**隣接図の切れ端＝写り込み**（縦の線で本体へ繋がる島＝帰還矢印・軸の矢じりは除く）。フルハイトの正当ラベル/軸と分離できる唯一の高精度シグナル（実測 precision ≈ 8/10） |
 | EDGE_CUT / EDGE_LINE / EDGE_TIGHT | 情報のみ | 縁接触の分類。finished 図では tight-crop（正当な密着・実測 538/643 が該当）と切断を幾何で判別できないため gate にしない |
 | STRAY_LABEL / THIN_MARGIN | 情報のみ | 厚めの分離島（小見出し/軸/写り込みのいずれか・要目視）/ 極薄マージン |
+
+**画素数**: 長辺が `config/image-limits.json` の `figureMinLongSide`（500px）未満の図は `figure-review-queue` の LOW_RES（優先2）。画素数を残していない古い ok の判定は、低解像度なら判定し直す（2026-10-07・DN-0577: 260×280 の図が鮮明度だけで「sharp」と素通りしていた）。
+
+EDGE_CUT・STRAY_LABEL は CI では落とさないが、`/figure-quality-loop` の判定待ち（`npm run figure-review-queue` の優先2・3）が毎回読み、目視判定を台帳に残す（写真は除く）→ [figure-provenance.md](figure-provenance.md)。
 
 **運用**: content-quality-ratchet と同方式。既存債務は `--update-baseline` で `figure-crop-baseline.json` に棚卸し登録し、`--ci` は baseline に無い**新規 STRAY_SLIVER のみ** fail。是正したら再度 `--update-baseline` で刈り込む。CI では `quality:audit:ci` の `figure-crop-integrity` チェックが 0 件を enforce。
 
@@ -282,13 +275,13 @@ content/site/{slug}/img/
 
 `content/site/**/img/` に現存する PNG スキャン（PDF 由来）は、**順次リライトで置換する方針**だが、以下のルールで段階的に移行する。
 
-1. リライト対象記事の PNG スキャン → SVG または CC 写真に **完全置換**
+1. リライト対象記事の PNG スキャン → SVG または AI 生成の写真に **完全置換**
 2. リライト未対象の記事は **現状維持**（段階展開の途中で放置する）
 3. PNG スキャンを残す場合も、著作権侵害の疑いが濃いものは **即削除**（本文のみで理解可能なら削除可）
 
 ### 置換履歴の追跡
 
-置換作業の所要時間・CC ヒット率・削除比率は、パイロット記事（textbook-network-schedule / textbook-crane / textbook-leveling）で実測し、全体展開計画の判断材料とする。
+（2026-07 時点の記録）置換作業の所要時間・CC ヒット率・削除比率は、パイロット記事（textbook-network-schedule / textbook-crane / textbook-leveling）で実測し、全体展開計画の判断材料とする。
 
 ## 政府系サイト（go.jp）の画像を利用する場合
 
@@ -325,8 +318,8 @@ content/site/{slug}/img/
 画像を追加・置換する PR をレビューするときは、以下を確認する。
 
 - [ ] 図の種別判定フローが適切か（SVG でよいものを写真にしていないか、逆もしかり）
-- [ ] CC/PD 写真に出典コメント (`{/* source: ... */}`) が付いているか
-- [ ] ライセンス種別が商用利用可・改変可であることを確認したか
+- [ ] 写真は AI 生成で、`npm run check-image-origin` が通るか（出所・4:3・仕様から生成・実物どおりの判定）
+- [ ] 公的資料は利用条件を確かめ、caption に提供者を出したか
 - [ ] SVG は create-svg スキルの視認性ルール（viewBox ≤ 400px、フォント ≥ 13px）に準拠しているか
 - [ ] alt テキストが具体的か（「画像」「写真」等の一般語は NG）
 - [ ] ファイルサイズが目安以内か

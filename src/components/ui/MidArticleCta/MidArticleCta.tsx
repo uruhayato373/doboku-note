@@ -27,7 +27,7 @@ type MidArticleCtaProps =
     }
   | {
       readonly mode: 'career';
-      /** resolveCareerArticleEndCard / resolvePeConsultingArticleEndCard の解決済みカード。 */
+      /** 配置ルール（article-mid）で解決した案件の本文カード（src/lib/affiliate-placement.ts の card）。 */
       readonly card: CareerArticleEndCard;
     }
   | {

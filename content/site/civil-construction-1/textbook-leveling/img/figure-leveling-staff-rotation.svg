@@ -1,0 +1,83 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="標尺2本の使い方。往路は据付2回で、各標尺が後視と前視を1回ずつ読み、零点のずれが消える。復路は標尺を入れ替える。据付が3回の奇数だと標尺Aの後視が1回多くなり、零点のずれの差が1回分残る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-chip  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-small { font-size: 11px; fill: #555; }
+      .t-role  { font-size: 12px; fill: #222; }
+      .t-note  { font-size: 12px; fill: #1a3a5c; }
+      .panel   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .chip-a  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .chip-b  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .route   { stroke: #555; stroke-width: 1.5; fill: none; }
+      .box-ng  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="st-arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 往路（据付2回） -->
+  <rect class="panel" x="16" y="12" width="368" height="134" rx="6"/>
+  <text class="t-head" x="30" y="34">往路　据付は2回（偶数）</text>
+  <line class="route" x1="44" y1="62" x2="370" y2="62" marker-end="url(#st-arrow)"/>
+  <rect class="chip-a" x="48" y="50" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="76" y="66" text-anchor="middle">標尺A</text>
+  <rect class="chip-b" x="172" y="50" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="200" y="66" text-anchor="middle">標尺B</text>
+  <rect class="chip-a" x="296" y="50" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="324" y="66" text-anchor="middle">標尺A</text>
+  <text class="t-small" x="76" y="92" text-anchor="middle">出発点</text>
+  <text class="t-small" x="138" y="92" text-anchor="middle">据付①</text>
+  <text class="t-small" x="200" y="92" text-anchor="middle">移器点</text>
+  <text class="t-small" x="262" y="92" text-anchor="middle">据付②</text>
+  <text class="t-small" x="324" y="92" text-anchor="middle">到達点</text>
+  <text class="t-role" x="138" y="110" text-anchor="middle">後視A　前視B</text>
+  <text class="t-role" x="262" y="110" text-anchor="middle">後視B　前視A</text>
+  <text class="t-note" x="200" y="134" text-anchor="middle">各標尺が後視・前視を1回ずつ → 零点のずれが消える</text>
+
+  <!-- 復路（標尺を入れ替える） -->
+  <rect class="panel" x="16" y="156" width="368" height="134" rx="6"/>
+  <text class="t-head" x="30" y="178">復路　標尺を入れ替える</text>
+  <line class="route" x1="356" y1="206" x2="30" y2="206" marker-end="url(#st-arrow)"/>
+  <rect class="chip-b" x="296" y="194" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="324" y="210" text-anchor="middle">標尺B</text>
+  <rect class="chip-a" x="172" y="194" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="200" y="210" text-anchor="middle">標尺A</text>
+  <rect class="chip-b" x="48" y="194" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="76" y="210" text-anchor="middle">標尺B</text>
+  <text class="t-small" x="324" y="236" text-anchor="middle">復路の起点</text>
+  <text class="t-small" x="262" y="236" text-anchor="middle">据付①</text>
+  <text class="t-small" x="200" y="236" text-anchor="middle">移器点</text>
+  <text class="t-small" x="138" y="236" text-anchor="middle">据付②</text>
+  <text class="t-small" x="76" y="236" text-anchor="middle">復路の終点</text>
+  <text class="t-role" x="262" y="254" text-anchor="middle">後視B　前視A</text>
+  <text class="t-role" x="138" y="254" text-anchor="middle">後視A　前視B</text>
+  <text class="t-note" x="200" y="278" text-anchor="middle">同じ点を読む標尺が、往路と入れ替わる</text>
+
+  <!-- 奇数回の据付 -->
+  <rect class="panel" x="16" y="300" width="368" height="184" rx="6"/>
+  <text class="t-head" x="30" y="322">据付が3回（奇数）だと偏りが残る</text>
+  <line class="route" x1="30" y1="350" x2="380" y2="350" marker-end="url(#st-arrow)"/>
+  <rect class="chip-a" x="24" y="338" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="52" y="354" text-anchor="middle">標尺A</text>
+  <rect class="chip-b" x="120" y="338" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="148" y="354" text-anchor="middle">標尺B</text>
+  <rect class="chip-a" x="216" y="338" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="244" y="354" text-anchor="middle">標尺A</text>
+  <rect class="chip-b" x="312" y="338" width="56" height="24" rx="3"/>
+  <text class="t-chip" x="340" y="354" text-anchor="middle">標尺B</text>
+  <text class="t-small" x="100" y="380" text-anchor="middle">据付①</text>
+  <text class="t-small" x="196" y="380" text-anchor="middle">据付②</text>
+  <text class="t-small" x="292" y="380" text-anchor="middle">据付③</text>
+  <text class="t-role" x="100" y="398" text-anchor="middle">後視A　前視B</text>
+  <text class="t-role" x="196" y="398" text-anchor="middle">後視B　前視A</text>
+  <text class="t-role" x="292" y="398" text-anchor="middle">後視A　前視B</text>
+  <rect class="box-ng" x="28" y="412" width="344" height="60" rx="6"/>
+  <text class="t-note" x="200" y="435" text-anchor="middle">標尺Aは後視2回・前視1回、Bは後視1回・前視2回</text>
+  <text class="t-note" x="200" y="457" text-anchor="middle">2本の零点のずれの差が、1回分そのまま残る</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="個々のエージェントの行動ルールが相互作用を通じて全体の動きを作り、その全体の状況が各自の次の判断を変える往復の関係">
+  <defs><style>
+    text { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 13px; fill: #1a3a5c; } /* ink */
+    .h { font-size: 16px; font-weight: bold; }
+    .s { font-size: 12px; fill: #555; } /* ink-body */
+    .a { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#m); }
+  </style><marker id="m" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4" /></marker></defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect x="20" y="30" width="300" height="85" rx="8" fill="#e8f0fe" stroke="#2e6da4" /> <!-- brand -->
+  <text class="h" x="170" y="64" text-anchor="middle">個々のエージェント</text>
+  <text class="s" x="170" y="88" text-anchor="middle">見える範囲と、行動を選ぶルール</text>
+  <path d="M170 117V143" class="a" />
+  <rect x="20" y="145" width="300" height="85" rx="8" fill="#fff3cd" stroke="#d4a017" /> <!-- warn -->
+  <text class="h" x="170" y="179" text-anchor="middle">相互作用</text>
+  <text class="s" x="170" y="203" text-anchor="middle">すれ違い・合流・譲り合い</text>
+  <path d="M170 232V258" class="a" />
+  <rect x="20" y="260" width="300" height="85" rx="8" fill="#d0e8d0" stroke="#3a7d44" /> <!-- positive -->
+  <text class="h" x="170" y="294" text-anchor="middle">全体の動き</text>
+  <text class="s" x="170" y="318" text-anchor="middle">混雑・滞留・所要時間</text>
+  <path d="M322 302H352V72H324" class="a" />
+  <text class="s" x="170" y="372" text-anchor="middle">右の矢印：混み具合が次の判断を変える</text>
+  <rect x="20" y="398" width="360" height="72" rx="8" fill="#f5f5f5" stroke="#d7d7d7" /> <!-- surface -->
+  <text x="200" y="426" text-anchor="middle" style="font-weight:bold">結果を使う前に確かめる</text>
+  <text class="s" x="200" y="450" text-anchor="middle">ルールの根拠・複数回の試行・観測との照合</text>
+</svg>

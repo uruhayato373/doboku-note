@@ -63,7 +63,7 @@ export function tally(counts, stage) {
 // 各関数は「そのチャネルのネイティブ状態 → 共通ステージ」。未知は null。
 
 /**
- * 動画パック（DN-0110）。真実源 .claude/state/video-content-status.json の statusEnum。
+ * 動画パック（DN-0110）。真実源 コンテンツ台帳（content/registry）の status。語彙は config/video-content.json の statusEnum。
  * @param status ネイティブ status
  * @param hasBody script.md / storyboard.json の実体があるか（draft を planned と区別する）
  */
@@ -168,23 +168,6 @@ export function xTweetStatusToStage(status) {
     case 'replaced':
     case 'cancelled':
       return 'retired';
-    default:
-      return null;
-  }
-}
-
-/** YouTube Shorts 台帳（.claude/state/youtube-schedule.json の items[].status） */
-export function youtubeScheduleStatusToStage(status) {
-  switch (status) {
-    case 'pending':
-      return 'scheduled';
-    case 'uploaded':
-      return 'published';
-    case 'retired':
-    case 'skipped':
-      return 'retired';
-    case 'failed':
-      return 'draft';
     default:
       return null;
   }

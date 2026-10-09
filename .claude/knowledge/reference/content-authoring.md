@@ -13,7 +13,12 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
 - CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・`writeMdxFile` 経由・絵文字禁止）だけを残し、編集時の詳細は `.claude/rules/content-site.md` が `content/site/**` を開いたときに載せる
 
-`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。
+`refresh-indexes` 後の `public/quiz/pe-first-stage.json` の `generatedAt` は、原記事の最新 `dateModified`（`scripts/build-quiz-data.mjs`）であり実行時刻ではない。問題内容が不変でも更新日の差分はコミットし、`node scripts/check-generated-indexes.mjs` の exit 0 で生成物の一致を確認する。技術士一次の MDX を stage した commit では、pre-commit が dateModified を進めた後に演習データを作り直して stage する（`scripts/lib/quiz-restage.mjs`・DN-0548）。
+
+**書き終えたときの決定的ゲート**（2026-10-06・サブエージェントの整形が pre-commit で 67 件止まった）:
+- `npx textlint <file>` を 0 件にする。pre-commit の `lint-ja --staged` は**ファイル全体**を見るので、触っていない既存行の全角数字・prh も commit を止める。`--fix` は prh と全角数字を直すが、送り仮名の置換が動詞の活用（〜ります・〜て）に当たっていないか diff を見る
+- 表→箇条書き・長文の分割など構造だけを変えた編集は `npm run check-mdx-facts -- <file>` で数値と「」の語の減少 0 を確かめる（減少が説明できるなら commit に理由を書く）
+- サブエージェントに MDX の整形を任せるときは、この 2 つと `node .claude/scripts/lint-mdx-mobile.mjs <file>` の結果を受入れ条件として依頼文に書く
 
 ## ペルソナ・コンテンツ原則
 
@@ -98,7 +103,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 ## 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
-- 図表: SVG（模式図）/ PNG（写真・複雑なイラスト）
+- 図表: SVG（模式図）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）
 - スクリーンショット・図版: `content/site/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/authoring/create-svg/SKILL.md`）を参照
 
@@ -231,18 +236,16 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 新規記事: `<ArticleImage>` を使う
 
 ```mdx
-{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:... */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
-  alt="クローラクレーン（日立 CX900HD）"
-  caption="Wikimedia Commons, CC0"
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.webp"
+  alt="クローラクレーン"
   width={960}
   height={720}
 />
 ```
 
 - `<figure>` セマンティクスと Next.js `<Image>` 最適化が自動で効く
-- **caption の用途は帰属情報のみ**（出典ライセンス・機種名など、60 字以内）
+- **caption の用途は帰属情報のみ**（公的資料の提供者と利用規約など、60 字以内）。写真は AI 生成で caption 不要
 - caption に **図の説明・構造の解説を書くのは禁止**（本文と重複するため）
 - `alt` は簡潔な識別情報のみ、**80 字以内**
 - 機種の詳細・図の読み方は **本文** で説明する
@@ -251,7 +254,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 ### 既存 `<img>` との互換
 
 - 既存の生 `<img>` を使った記事はリライト時に順次 `<ArticleImage>` へ移行
-- 移行が未完了の記事で `<img>` を使う場合も `alt` と `{/* source: */}` コメントは必須
+- 移行が未完了の記事で `<img>` を使う場合も `alt` は必須。出所は `config/figure-sources.json` の `provenance`（`npm run check-image-origin`）
 
 **重要 — 新規 SVG/画像で raw `<img>` を絶対に使わない**:
 
@@ -265,9 +268,9 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
 
-### CC/PD 写真の取得・出典表記
+### 写真（AI 生成）と出所の記録
 
-詳細は [image-policy.md](./image-policy.md) 参照（Wikimedia Commons からの取得、ライセンス判定、出典コメントフォーマット）。
+写真は AI で生成した画像だけを使い、4:3（960×720）にそろえる。仕様（`provenance` の `prompt`）→ `npm run gen-article-photo` → `ai-image-fidelity-auditor` → `check-image-origin record-ai` の順。詳細は [image-policy.md](./image-policy.md)「写真は AI で生成する」。
 
 ## frontmatter テンプレート
 
@@ -339,7 +342,7 @@ faqs:
 - **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<SpecSheetList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
 - **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
-- **図表**: SVG（模式図・フロー）/ PNG（写真・複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
+- **図表**: SVG（模式図・フロー）/ WebP（写真＝AI 生成・960×720）／PNG（複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
 - **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない

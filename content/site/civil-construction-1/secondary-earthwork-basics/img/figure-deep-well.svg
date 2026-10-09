@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="深井戸排水工法。径 600mm 程度の井戸を深く掘って据え、井戸に集まった地下水を水中ポンプでくみ上げて、まわりの地下水位を広く下げる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .wet    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：湿った土・帯水層 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土・構造物 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill */
+      .reinf  { stroke: #3a7d44; stroke-width: 3; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .push   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">深井戸排水工法（ディープウェル）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">深い井戸から水中ポンプでくみ上げ、水位を広く下げる</text>
+  <rect class="wet" x="16" y="96" width="368" height="250"/>
+  <text class="t-note" x="28" y="336">透水性の大きい地盤</text>
+  <line class="wl" x1="16" y1="120" x2="384" y2="120"/>
+  <text class="t-note" x="28" y="114">点線＝もとの地下水位</text>
+  <text class="t-note" x="378" y="114" text-anchor="end">実線＝下がった地下水位</text>
+  <path d="M 16 140 Q 120 150 180 290 M 220 290 Q 280 150 384 140" fill="none" stroke="#2e6da4" stroke-width="2"/>
+    <rect x="186" y="96" width="28" height="226" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="186" y="230" width="28" height="92" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="192" y="292" width="16" height="24" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <line x1="200" y1="292" x2="200" y2="70" stroke="#3a7d44" stroke-width="2.5"/>
+  <line class="water" x1="200" y1="70" x2="260" y2="70" marker-end="url(#aw)"/>
+  <text class="t-lab" x="266" y="74">場外へ排水</text>
+  <line class="water" x1="140" y1="270" x2="182" y2="270" marker-end="url(#aw)"/>
+  <line class="water" x1="260" y1="270" x2="218" y2="270" marker-end="url(#aw)"/>
+  <text class="t-key" x="150" y="210" text-anchor="end">井戸（径 600mm 程度）</text>
+  <line class="lead" x1="152" y1="206" x2="186" y2="200"/>
+  <text class="t-key" x="150" y="252" text-anchor="end">ストレーナ</text>
+  <line class="lead" x1="152" y1="248" x2="186" y2="246"/>
+  <text class="t-key" x="250" y="314" style="fill:#3a7d44">水中ポンプ</text>
+  <line class="lead" x1="248" y1="310" x2="210" y2="304"/>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">使う場面</text>
+  <text class="t-lab" x="104" y="414">広い範囲の水位を下げたい・湧水が多い</text>
+  <text class="t-key" x="30" y="440">設置</text>
+  <text class="t-lab" x="104" y="440">アースドリルなどで深く掘って鋼管を建てる</text>
+  <text class="t-key" x="30" y="466">注意</text>
+  <text class="t-lab" x="104" y="466">まわりの地盤沈下・井戸枯れに気をつける</text>
+</svg>

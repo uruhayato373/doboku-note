@@ -14,7 +14,7 @@ import { getMagazine, buildMagazineUrl } from "@/lib/note-magazines";
 import { mokujiFor } from "@/lib/note-mokuji";
 import ServiceIcon, { type ServiceChannel } from "@/components/icons/ServiceIcon";
 import { externalLinkRel } from "@/lib/external-link-rel";
-import { AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
+import { AFFILIATE_LINK_REFERRER_POLICY, AFFILIATE_LINK_REL, AffiliatePrBadge, TrackingPixel } from "@/components/ui/AffiliateParts";
 import { COCONALA_A8_PIXEL, coconalaAffiliateHref } from "@/config/affiliate-creatives";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { withNoteUtm } from "@/lib/note-utm";
@@ -111,7 +111,7 @@ const EXAM_CARDS: ExamCard[] = [
   {
     key: "civil-2",
     heading: "2級土木施工管理技士",
-    tagline: "受験資格の緩和で増えた若手の初挑戦を支える",
+    tagline: "初めての受検でも、経験記述の答案と一次・二次の過去問で仕上げる",
     site: {
       label: "サイトで無料学習",
       sub: "過去問解説と経験記述の書き方",
@@ -160,6 +160,8 @@ const EXAM_CARDS: ExamCard[] = [
   },
 ];
 
+// 並びは主力商品の順（2026-10-04 に 2級土木を主力へ切り替え、土木を先頭・2級を 1級より前にした）。
+// スマホの 1 画面目に入るのは先頭グループの最初のカードだけなので、ここが SNS から来た人の第一候補になる。
 const EXAM_GROUPS: {
   id: string;
   title: string;
@@ -167,16 +169,16 @@ const EXAM_GROUPS: {
   keys: ExamKey[];
 }[] = [
   {
+    id: "civil-construction",
+    title: "土木施工管理技士",
+    description: "2級・1級の第一次検定と第二次検定を、過去問と経験記述で対策",
+    keys: ["civil-2", "civil-1"],
+  },
+  {
     id: "professional-engineer",
     title: "技術士",
     description: "第一次試験から、建設部門・総合技術監理部門の第二次試験まで",
     keys: ["pe-first-stage", "pe-construction", "tankan"],
-  },
-  {
-    id: "civil-construction",
-    title: "土木施工管理技士",
-    description: "1級・2級の第一次検定と第二次検定を、過去問と経験記述で対策",
-    keys: ["civil-1", "civil-2"],
   },
   {
     id: "concrete",
@@ -279,6 +281,7 @@ function CardRow({
       href={href}
       target="_blank"
       rel={affiliate ? AFFILIATE_LINK_REL : externalLinkRel(href)}
+      referrerPolicy={affiliate ? AFFILIATE_LINK_REFERRER_POLICY : undefined}
       data-cta={cta}
       data-cta-label={ctaLabel}
       data-cta-placement={PLACEMENT}

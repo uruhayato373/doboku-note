@@ -25,13 +25,14 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { fetchCreatorMagazines } from './lib/note-api.mjs';
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
@@ -42,30 +43,22 @@ const KEY = getArg('--key');
 const DIR = getArg('--dir');
 const IMAGE = getArg('--image') || (DIR ? join(ROOT, DIR, '_cover.png') : null);
 if (!KEY) { console.error('--key <magKey> required'); process.exit(1); }
-if (!IMAGE || !existsSync(IMAGE)) { console.error('cover image not found: ' + IMAGE + '（--image か --dir で指定。Drive vault へ退避済みなら node scripts/drive-vault-sync.mjs --pull --group note-magazine-cover-png で復元できる）'); process.exit(1); }
+if (!IMAGE || !existsSync(IMAGE)) { console.error('cover image not found: ' + IMAGE + '（--image か --dir で指定。Drive vault へ退避済みなら node scripts/drive-vault-sync.mjs --pull --group note-magazine-cover-png --commit で復元できる）'); process.exit(1); }
 console.log(`[prep] key=${KEY} image=${IMAGE} mode=${COMMIT ? 'COMMIT(保存)' : 'PROBE'}`);
 
-function curlJson(url) {
-  const r = spawnSync('curl', ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', url], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
-  const b = (r.stdout || '').trim();
-  if (b.startsWith('{') || b.startsWith('[')) { try { return JSON.parse(b); } catch { return null; } }
-  return null;
-}
-// note のデフォルト見出し画像（未設定状態）を「カバー無し」と判定する。
-// 実カバー= assets.st-note.com/production/uploads/...、未設定= cloudfront の default_magazine_header。
-const isDefaultCover = (url) => !url || /\/assets\/default\/default_magazine_header/.test(url);
-function magazineCover(key) {
-  // note の「マガジン画像」は API では cover / coverRectangle フィールド（eyecatch ではない）
-  // マガジン数増加で 4 ページ超過 → 未発見の false negative が出た（2026-07-25 BK-I が page5）。isLastPage まで走査
-  for (let p = 1; p <= 12; p++) {
-    const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);
-    const c = d?.data?.contents ?? [];
-    const hit = c.find((m) => m.key === key);
-    if (hit) { const url = hit.cover || hit.coverRectangle || null; return { name: hit.name, cover: isDefaultCover(url) ? null : url }; }
-    if (d?.data?.isLastPage || c.length === 0) break;
+// 一覧の読み取りは共通の fetchCreatorMagazines（isLastPage まで読み、件数の欠落は投げる）。以前は自前で 12 ページ
+// （1 ページ 6 誌＝72 誌）までしか読まず、73 誌目以降は登録に成功しても「未発見」で exit 6 になっていた（2026-10-07・111 誌）。
+async function magazineCover(key) {
+  try {
+    const hit = (await fetchCreatorMagazines(CREATOR)).find((m) => m.key === key);
+    return hit ? { name: hit.name, cover: hit.cover } : null;
+  } catch (error) {
+    console.error(`  [api] マガジン一覧を読めない: ${error.message}`);
+    return null;
   }
-  return null;
 }
+// 登録前のカバー。保存後は「カバーがある」ではなく「これから変わった」で判定する（もとからカバーのある誌の偽成功を防ぐ）
+const BEFORE = (await magazineCover(KEY))?.cover ?? null;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
@@ -153,8 +146,8 @@ try {
   } else { console.log('[6] 更新ボタン未検出'); }
   // (4b) 反映を API ポーリングで待ってからブラウザを閉じる（送信中クローズによる保存ロスト防止）
   for (let i = 0; i < 12; i++) {
-    const m = magazineCover(KEY);
-    if (m?.cover) { console.log('[6b] API 反映確認 (' + (i + 1) + '回目)'); break; }
+    const m = await magazineCover(KEY);
+    if (m?.cover && m.cover !== BEFORE) { console.log('[6b] API 反映確認 (' + (i + 1) + '回目)'); break; }
     await sleep(2500);
   }
   await page.screenshot({ path: join(ROOT, '.tmp/mag-cover-saved.png'), fullPage: true }).catch(() => {});
@@ -163,9 +156,11 @@ try {
 // 保存後 API 検証
 if (COMMIT && exitCode === 0) {
   console.log('\n[検証] note API で cover 実体確認');
-  const m = magazineCover(KEY);
-  console.log(`  マガジン: ${m?.name} / cover=${m?.cover ? 'SET ✓ ' + m.cover.slice(0, 70) : 'null ✗'}`);
-  if (!m?.cover) { console.error('  ⚠ cover が未反映（保存失敗の疑い）'); exitCode = 6; }
+  const m = await magazineCover(KEY);
+  console.log(`  マガジン: ${m?.name} / cover=${m?.cover ? (m.cover === BEFORE ? '変わらない ✗ ' : 'SET ✓ ') + m.cover.slice(0, 70) : 'null ✗'}`);
+  if (!m) { console.error('  ⚠ マガジンを一覧で見つけられない（検証不成立）'); exitCode = 6; }
+  else if (!m.cover) { console.error('  ⚠ cover が未反映（保存失敗の疑い）'); exitCode = 6; }
+  else if (m.cover === BEFORE) { console.error('  ⚠ cover が登録前と同じ（保存失敗の疑い）'); exitCode = 6; }
 }
 console.log(`\n${exitCode === 0 ? '完了' : 'エラーあり'} (exit ${exitCode})`);
 process.exit(exitCode);

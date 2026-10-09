@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "description": "reference-sources.json の appliesTo に一致するが、移行時点で sources frontmatter が無かった記事。件数を増やさず、原本を確認できた記事から削るラチェット。",
+  "description": "reference-sources.json の appliesTo に一致するが、移行時点で sources frontmatter が無かった記事。件数を増やさず、原本を確認できた記事から削るラチェット。 figureReuseDebt は、流用不可（figureReuse: false）の書籍から試験ページでない記事へ切り出した図の判定台帳キー（2026-10-07 時点。自作の図への置き換えか削除で返済し、増やさない）。",
   "missingSources": [],
-  "_updatedAt": "2026-09-12"
+  "figureReuseDebt": [],
+  "_updatedAt": "2026-10-07"
 }

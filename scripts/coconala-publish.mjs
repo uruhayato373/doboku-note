@@ -21,11 +21,11 @@
  *   node scripts/coconala-publish.mjs --service coconala-tensaku-set --commit  # 公開
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   ROOT, launchContext, waitForLogin, assertAccount, sleep,
-  readCatalog, readListings, CATALOG_PATH, resolveImagePath,
+  readCatalog, readListings, resolveImagePath, writeBackCatalog,
 } from './lib/coconala-session.mjs';
 import { fillServiceForm, submitForm, dismissModal, uploadImage } from './lib/coconala-form.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -149,8 +149,9 @@ try {
       // 公開成功 → カタログへ書き戻し（status:'listed' + serviceUrl + listedAt）
       const pubId = sid || (r.url.match(/\/services\/(\d+)/) || [])[1] || '';
       const publicUrl = pubId ? `https://coconala.com/services/${pubId}` : '';
-      writeBackCatalog(SERVICE, publicUrl);
-      console.log(`[5] カタログ書き戻し: ${SERVICE} → listed / ${publicUrl}`);
+      // 正本（config/products.json）を書き換えて coconala-services.ts の生成ブロックを作り直す
+      if (writeBackCatalog(SERVICE, publicUrl, todayJst())) console.log(`[5] カタログ書き戻し: ${SERVICE} → listed / ${publicUrl}`);
+      else console.log(`[5] ⚠ カタログ書き戻しに失敗（npm run product -- set ${SERVICE} catalog.status '"listed"' と catalog.serviceUrl を手で）`);
       console.log('    ★ account.json の sellerName/profileUrl/listedAt も未設定なら埋めてください（check-coconala-wiring が listed で profileUrl 必須）');
     } else if (COMMIT && !r.ok) {
       console.error('[5] 公開はバリデーションエラーで未完了（上記 errors 参照・.tmp/coconala のスクショ確認）');
@@ -168,23 +169,4 @@ try {
   console.log('RESULT:', JSON.stringify({ service: SERVICE, mode: COMMIT ? 'commit' : 'draft', serviceId: sid }));
 } finally {
   await ctx.close();
-}
-
-/** カタログ（coconala-services.ts）の該当 service を status:'listed' + serviceUrl + listedAt に書き戻す */
-function writeBackCatalog(id, url) {
-  try {
-    let ts = readFileSync(CATALOG_PATH, 'utf-8');
-    const today = todayJst();
-    // 該当 id ブロック（id: 'X' から次の '},' まで）を切り出して置換
-    const idRe = new RegExp(`(id:\\s*'${id}',[\\s\\S]*?)(\\n\\s*\\},)`);
-    const m = ts.match(idRe);
-    if (!m) { console.log('[writeback] id ブロック未検出（手動更新を）'); return; }
-    let block = m[1];
-    block = block.replace(/status:\s*'[^']*'/, "status: 'listed'");
-    block = block.replace(/serviceUrl:\s*'[^']*'/, `serviceUrl: '${url}'`);
-    if (/listedAt:/.test(block)) block = block.replace(/listedAt:\s*'[^']*'/, `listedAt: '${today}'`);
-    else block = block.replace(/(weeklyCapacity:\s*\d+,)/, `$1\n    listedAt: '${today}',`);
-    ts = ts.replace(idRe, block + m[2]);
-    writeFileSync(CATALOG_PATH, ts);
-  } catch (e) { console.log('[writeback] skip:', e.message.split('\n')[0]); }
 }

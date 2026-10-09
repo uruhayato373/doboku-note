@@ -46,7 +46,7 @@
 | **構造** | 20% | frontmatter 必須 6 項目、H2/H3 階層整合、`/check-mdx --rules syntax` OK |
 | **テキスト原則** | 20% | content-principles §1-5,7 準拠（絵文字なし、太字 ≤30 字、1 文 1 段落）|
 | **モバイル視認性** | 30% | lint-mdx-mobile HIGH/MEDIUM ゼロ、4 列以上表なし、3 列表セル ≤15 字 |
-| **図表の適切性** | 15% | `<ArticleImage>` 使用、caption 帰属情報 ≤60 字、alt ≤80 字、出典コメント |
+| **図表の適切性** | 15% | `<ArticleImage>` 使用、caption 帰属情報 ≤60 字、alt ≤80 字、写真は AI 生成で `check-image-origin` が通る（公的資料は出典コメントと caption の提供者） |
 | **参考資料・関連付け** | 15% | `/check-mdx --rules links` OK、公的＋民間両方、e-Gov 法令リンク、過去問バックリンク（guide 時） |
 
 **加重スコア**: `structure×0.20 + principle×0.20 + mobile×0.30 + figures×0.15 + reference×0.15`

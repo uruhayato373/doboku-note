@@ -36,8 +36,9 @@ import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { loadProducts } from './lib/product-registry.mjs';
 
+const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
@@ -60,6 +61,7 @@ if (staged) {
   const relevant = changed.split('\n').some(
     (p) =>
       p.includes('src/lib/coconala-services.ts') ||
+      p.includes(datasetPath('config.products')) ||
       p.includes(`${dirname(datasetPath('coconala.orders'))}/`) ||
       p.includes(datasetPath('config.coconala-account')) ||
       p.includes(datasetPath('config.coconala-listings')) ||
@@ -76,47 +78,35 @@ if (!existsSync(CATALOG_PATH)) {
   process.exit(1);
 }
 
-/** カタログ（SoT）から id / status / serviceUrl / priceYen を抽出。
- *  id → status → serviceUrl の順はファイル規約（verify-note-magazines.mjs の parseSoT 同型）。 */
+/**
+ * カタログを正本（config/products.json の channel coconala）から読む。以前は coconala-services.ts を
+ * 「id → status → serviceUrl が連続する」正規表現で切り出していたため、欄の並びが違う
+ * coconala-cce-full-pdf（id → status → pauseReason → archivedAt → serviceUrl）が黙って検査から外れていた（2026-10-06）。
+ */
 function parseCatalog() {
-  const ts = readFileSync(CATALOG_PATH, 'utf-8');
-  // interface 定義部を除外し、SERVICES_RAW 本体だけを対象にする
-  const rawStart = ts.indexOf('const SERVICES_RAW');
-  const body = rawStart >= 0 ? ts.slice(rawStart) : ts;
-  const re = /id:\s*'([^']+)',\s*status:\s*'([^']+)',\s*serviceUrl:\s*'([^']*)'/g;
-  const hits = [];
-  let m;
-  while ((m = re.exec(body)) !== null) {
-    hits.push({ id: m[1], status: m[2], serviceUrl: m[3], at: m.index });
+  const { products, errors } = loadProducts();
+  if (errors.length) {
+    console.error(`[check-coconala-wiring] ✗ 商品の正本を読めない（npm run check-products）:\n  ${errors.join('\n  ')}`);
+    process.exit(1);
   }
-  return hits.map((cur, i) => {
-    const next = hits[i + 1];
-    const slice = body.slice(cur.at, next ? next.at : body.length);
-    const pm = slice.match(/priceYen:\s*(\d+)/);
-    const lm = slice.match(/listedAt:\s*'([^']*)'/);
-    const rm = slice.match(/pauseReason:\s*'([^']*)'/);
-    const om = slice.match(/resumeOn:\s*'([^']*)'/);
-    // 価格改定の履歴（旧定価と有効最終日）。過去受注を受注日時点の定価で突合するために使う
-    const hm = slice.match(/priceHistory:\s*\[([^\]]*)\]/);
-    const priceHistory = hm
-      ? [...hm[1].matchAll(/priceYen:\s*(\d+),\s*until:\s*'([^']+)'/g)].map((x) => ({ priceYen: parseInt(x[1], 10), until: x[2] }))
-      : [];
-    return {
-      id: cur.id,
-      status: cur.status,
-      serviceUrl: cur.serviceUrl,
-      priceYen: pm ? parseInt(pm[1], 10) : null,
-      listedAt: lm ? lm[1] : null,
-      pauseReason: rm ? rm[1] : null,
-      resumeOn: om ? om[1] : null,
-      priceHistory,
-      notePriceBasis: (slice.match(/notePriceBasis:\s*'([^']*)'/) || [])[1] ?? null,
-      notePriceExempt: (slice.match(/notePriceExempt:\s*'([^']*)'/) || [])[1] ?? null,
-    };
-  });
+  return products
+    .filter((p) => p.channel === 'coconala')
+    .sort((a, b) => a.order - b.order)
+    .map(({ catalog: s }) => ({
+      id: s.id,
+      status: s.status,
+      serviceUrl: s.serviceUrl ?? '',
+      priceYen: s.priceYen ?? null,
+      listedAt: s.listedAt ?? null,
+      pauseReason: s.pauseReason ?? null,
+      resumeOn: s.resumeOn ?? null,
+      priceHistory: (s.priceHistory ?? []).map((h) => ({ priceYen: h.priceYen, until: h.until })),
+      notePriceBasis: s.notePriceBasis ?? null,
+      notePriceExempt: s.notePriceExempt ?? null,
+    }));
 }
 
-function readJsonOrParseError(path) {
+function readJson(path) {
   if (!existsSync(path)) return null;
   try {
     return JSON.parse(readFileSync(path, 'utf-8'));
@@ -168,7 +158,7 @@ for (const o of findOverdueResume(catalog, today)) {
 }
 
 // 5. listed があるなら account SSOT が埋まっていること
-const account = readJsonOrParseError(ACCOUNT_PATH);
+const account = readJson(ACCOUNT_PATH);
 if (listed.length > 0) {
   if (!account || account.__parseError) {
     violations.push(`listed サービスがあるのに ${datasetPath('config.coconala-account')} が読めません`);
@@ -181,7 +171,7 @@ if (listed.length > 0) {
 
 // 7. カバレッジ: 全カタログ product に listings エントリ＋商品画像があること
 //    （商品追加時の配線漏れ＝publish 失敗/画像なしを pre-commit で機械検知）。
-const listingsData = readJsonOrParseError(LISTINGS_PATH);
+const listingsData = readJson(LISTINGS_PATH);
 if (listingsData?.__parseError) violations.push(`coconala-listings.json が JSON として壊れています: ${listingsData.__parseError}`);
 const listings = listingsData?.listings || {};
 // 退避台帳。ローカルに実体が無いときの第二の根拠（asset-storage が唯一の真実源）。
@@ -193,7 +183,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJsonOrParseError(join(ROOT, datasetPath('coconala.thumb-approved')))?.images ?? {};
+const approvedThumbs = readJson(join(ROOT, datasetPath('coconala.thumb-approved')))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
@@ -250,7 +240,7 @@ const priceAt = (svc, date) => {
   const hist = [...(svc.priceHistory ?? [])].sort((a, b) => a.until.localeCompare(b.until));
   return hist.find((h) => typeof date === 'string' && date <= h.until)?.priceYen ?? svc.priceYen;
 };
-const orders = readJsonOrParseError(ORDERS_PATH);
+const orders = readJson(ORDERS_PATH);
 if (orders?.__parseError) violations.push(`${datasetPath('coconala.orders')} が JSON として壊れています: ${orders.__parseError}`);
 else if (orders) {
   for (const [i, o] of (orders.orders ?? []).entries()) {
@@ -287,7 +277,7 @@ else if (orders) {
 }
 
 // 2. kpi.json の serviceId 実在
-const kpi = readJsonOrParseError(KPI_PATH);
+const kpi = readJson(KPI_PATH);
 if (kpi?.__parseError) violations.push(`${datasetPath('coconala.kpi')} が JSON として壊れています: ${kpi.__parseError}`);
 else if (kpi) {
   for (const [i, w] of (kpi.weekly ?? []).entries()) {
@@ -298,7 +288,7 @@ else if (kpi) {
 }
 
 // 4. sales.json の coconala:<id> がカタログに実在
-const sales = readJsonOrParseError(SALES_PATH);
+const sales = readJson(SALES_PATH);
 if (sales && !sales.__parseError) {
   for (const [i, s] of (sales.sales ?? []).entries()) {
     const id = String(s.productId ?? '');

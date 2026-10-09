@@ -1,0 +1,80 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は吹付けコンクリートの乾式・湿式の施工系統。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="吹付けコンクリートの乾式と湿式の施工系統の比較。乾式は乾いた材料を圧送しノズル先端で加水する。湿式は練り混ぜ済みのコンクリートを圧送しノズルで空気を加える。粉じんとはね返りは湿式が少ない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-sec  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-val  { font-size: 12px; fill: #222; }
+      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-sec" x="105" y="30" text-anchor="middle">乾式</text>
+  <text class="t-sec" x="295" y="30" text-anchor="middle">湿式</text>
+
+  <!-- 乾式 -->
+  <rect class="box-b" x="20" y="42" width="170" height="52" rx="6"/>
+  <text class="t-name" x="105" y="64" text-anchor="middle">乾いた材料</text>
+  <text class="t-desc" x="105" y="82" text-anchor="middle">セメント・骨材を混合</text>
+  <line class="arrow" x1="105" y1="96" x2="105" y2="114" marker-end="url(#ah)"/>
+
+  <rect class="box-b" x="20" y="116" width="170" height="52" rx="6"/>
+  <text class="t-name" x="105" y="138" text-anchor="middle">圧縮空気で圧送</text>
+  <text class="t-desc" x="105" y="156" text-anchor="middle">粉体のまま輸送管へ</text>
+  <line class="arrow" x1="105" y1="170" x2="105" y2="188" marker-end="url(#ah)"/>
+
+  <rect class="box-warn" x="20" y="190" width="170" height="52" rx="6"/>
+  <text class="t-name" x="105" y="212" text-anchor="middle">ノズル先端で加水</text>
+  <text class="t-desc" x="105" y="230" text-anchor="middle">水量はノズル手が調整</text>
+  <line class="arrow" x1="105" y1="244" x2="105" y2="262" marker-end="url(#ah)"/>
+
+  <rect class="box-b" x="20" y="264" width="170" height="52" rx="6"/>
+  <text class="t-name" x="105" y="286" text-anchor="middle">吹付け面に付着</text>
+  <text class="t-desc" x="105" y="304" text-anchor="middle">粉じんが舞いやすい</text>
+
+  <!-- 湿式 -->
+  <rect class="box-warn" x="210" y="42" width="170" height="52" rx="6"/>
+  <text class="t-name" x="295" y="64" text-anchor="middle">水を加えて練混ぜ</text>
+  <text class="t-desc" x="295" y="82" text-anchor="middle">プラントで配合どおり</text>
+  <line class="arrow" x1="295" y1="96" x2="295" y2="114" marker-end="url(#ah)"/>
+
+  <rect class="box-b" x="210" y="116" width="170" height="52" rx="6"/>
+  <text class="t-name" x="295" y="138" text-anchor="middle">ポンプで圧送</text>
+  <text class="t-desc" x="295" y="156" text-anchor="middle">生コンの状態で輸送</text>
+  <line class="arrow" x1="295" y1="170" x2="295" y2="188" marker-end="url(#ah)"/>
+
+  <rect class="box-b" x="210" y="190" width="170" height="52" rx="6"/>
+  <text class="t-name" x="295" y="212" text-anchor="middle">ノズルで空気を加える</text>
+  <text class="t-desc" x="295" y="230" text-anchor="middle">急結剤もここで添加</text>
+  <line class="arrow" x1="295" y1="244" x2="295" y2="262" marker-end="url(#ah)"/>
+
+  <rect class="box-b" x="210" y="264" width="170" height="52" rx="6"/>
+  <text class="t-name" x="295" y="286" text-anchor="middle">吹付け面に付着</text>
+  <text class="t-desc" x="295" y="304" text-anchor="middle">はね返りが少ない</text>
+
+  <!-- 比較 -->
+  <rect class="box-sur" x="20" y="336" width="360" height="106" rx="6"/>
+  <text class="t-desc" x="200" y="364" text-anchor="middle">粉じん</text>
+  <text class="t-val" x="85" y="364" text-anchor="middle">多い</text>
+  <text class="t-val" x="315" y="364" text-anchor="middle">少ない</text>
+  <text class="t-desc" x="200" y="394" text-anchor="middle">はね返り</text>
+  <text class="t-val" x="85" y="394" text-anchor="middle">多い</text>
+  <text class="t-val" x="315" y="394" text-anchor="middle">少ない</text>
+  <text class="t-desc" x="200" y="424" text-anchor="middle">品質のばらつき</text>
+  <text class="t-val" x="85" y="424" text-anchor="middle">大きい</text>
+  <text class="t-val" x="315" y="424" text-anchor="middle">小さい</text>
+
+  <rect x="30" y="462" width="14" height="14" class="box-warn"/>
+  <text class="t-desc" x="50" y="473">水が加わる工程</text>
+</svg>

@@ -1,0 +1,83 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="通常の堤防と高規格堤防の断面比較。通常の堤防の堤内側に盛土を足して、高さの約30倍の幅をもつなだらかな断面にし、設計水位以下であれば越水しても破堤させない設計とし、上を宅地や道路として使う">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-navy { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-blue { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-box  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-row  { font-size: 13px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto-start-reverse">
+      <polygon points="0,0 6,2.5 0,5" fill="#1a3a5c"/>
+    </marker>
+    <marker id="aw" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">通常の堤防の背後に盛土して、幅の広い堤防にする</text>
+  <text class="t-sec" x="20" y="42">通常の堤防と高規格堤防の断面（概念図）</text>
+
+  <!-- 計画を超える洪水の水位（堤外側） -->
+  <polygon points="20,104 150,104 140,114 20,174" fill="#e8f0fe"/>
+  <line x1="20" y1="104" x2="150" y2="104" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t-blue" x="24" y="96">計画を超える洪水の水位</text>
+
+  <!-- 盛土を足した部分 -->
+  <polygon points="170,114 360,174 290,174" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" stroke-linejoin="round"/>
+  <!-- 通常の堤防 -->
+  <polygon points="20,174 140,114 170,114 290,174" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- 高規格堤防のなだらかなのり面 -->
+  <line x1="170" y1="114" x2="360" y2="174" stroke="#3a7d44" stroke-width="2.5"/>
+  <!-- 省略記号 -->
+  <line x1="256" y1="138" x2="262" y2="154" stroke="#222" stroke-width="1.5"/>
+  <line x1="262" y1="136" x2="268" y2="152" stroke="#222" stroke-width="1.5"/>
+  <!-- 地盤 -->
+  <line x1="20" y1="174" x2="380" y2="174" stroke="#555" stroke-width="1.5"/>
+
+  <!-- 住宅 -->
+  <polygon points="216,128.5 216,118 224,111 232,118 232,133.6" fill="#ffffff" stroke="#8a8a8a" stroke-width="1"/>
+  <polygon points="296,153.8 296,142 304,135 312,142 312,158.8" fill="#ffffff" stroke="#8a8a8a" stroke-width="1"/>
+
+  <!-- 越水 -->
+  <line x1="150" y1="103" x2="190" y2="114" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#aw)"/>
+  <text class="t-blue" x="196" y="80">越水しても破堤させない設計</text>
+  <text class="t-blue" x="196" y="93">（設計水位以下）</text>
+
+  <text class="t-part" x="96" y="160" text-anchor="middle">通常の堤防</text>
+
+  <!-- 堤防の高さ H -->
+  <line x1="30" y1="115" x2="30" y2="173" stroke="#1a3a5c" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text class="t-navy" x="38" y="148">H</text>
+
+  <!-- 幅の寸法 -->
+  <line x1="170" y1="174" x2="170" y2="202" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="360" y1="174" x2="360" y2="202" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="172" y1="196" x2="358" y2="196" stroke="#1a3a5c" stroke-width="1.5" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <text class="t-navy" x="265" y="216" text-anchor="middle">高さHの約30倍の幅（図は短縮）</text>
+
+  <!-- 凡例 -->
+  <rect x="20" y="236" width="14" height="14" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-part" x="42" y="247">通常の堤防</text>
+  <rect x="150" y="236" width="14" height="14" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="t-part" x="172" y="247">堤内側に足す盛土</text>
+
+  <rect class="box-p" x="20" y="272" width="360" height="40" rx="6"/>
+  <text class="t-row" x="34" y="297">幅は高さの約30倍、のり面はなだらか</text>
+  <rect class="box-p" x="20" y="324" width="360" height="40" rx="6"/>
+  <text class="t-row" x="34" y="349">計画を超える洪水に耐える設計（設計水位以下）</text>
+  <rect class="box-p" x="20" y="376" width="360" height="40" rx="6"/>
+  <text class="t-row" x="34" y="401">上に宅地や道路を載せて通常に使う</text>
+
+  <rect class="box-b" x="20" y="432" width="360" height="44" rx="6"/>
+  <text class="t-box" x="200" y="459" text-anchor="middle">整備は沿川のまちづくりと一体で進める</text>
+</svg>

@@ -116,6 +116,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer"
         ]
       },
       "appliesTo": [
@@ -172,7 +175,215 @@
               91
             ],
             "section": "全巻"
+          },
+          {
+            "order": 2,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 9.pdf",
+            "originalName": "スキャンした書類 9.pdf",
+            "expectedPdfPages": 9,
+            "singlePdfPages": [],
+            "printedPages": {
+              "start": 238,
+              "end": 255
+            },
+            "section": "年度別 平成28年度"
+          },
+          {
+            "order": 3,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 4.pdf",
+            "originalName": "スキャンした書類 4.pdf",
+            "expectedPdfPages": 8,
+            "singlePdfPages": [],
+            "printedPages": {
+              "start": 256,
+              "end": 271
+            },
+            "section": "年度別 平成27年度"
+          },
+          {
+            "order": 4,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 5.pdf",
+            "originalName": "スキャンした書類 5.pdf",
+            "expectedPdfPages": 9,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 1,
+                "reason": "前の分冊の最終見開き（p270〜271）と同じ版面の撮り直し"
+              }
+            ],
+            "printedPages": {
+              "start": 272,
+              "end": 287
+            },
+            "section": "年度別 平成26年度"
+          },
+          {
+            "order": 5,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 6.pdf",
+            "originalName": "スキャンした書類 6.pdf",
+            "expectedPdfPages": 23,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 1,
+                "reason": "前の分冊の最終見開き（p286〜287）と同じ版面の撮り直し"
+              }
+            ],
+            "printedPages": {
+              "start": 288,
+              "end": 331
+            },
+            "section": "小論文対策"
+          },
+          {
+            "order": 6,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 7.pdf",
+            "originalName": "スキャンした書類 7.pdf",
+            "expectedPdfPages": 24,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 1,
+                "reason": "前の分冊の最終見開き（p330〜331）と同じ版面の撮り直し"
+              }
+            ],
+            "printedPages": {
+              "start": 332,
+              "end": 377
+            },
+            "section": "小論文対策"
+          },
+          {
+            "order": 7,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 8.pdf",
+            "originalName": "スキャンした書類 8.pdf",
+            "expectedPdfPages": 11,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 1,
+                "reason": "前の分冊の最終見開き（p376〜377）と同じ版面の撮り直し"
+              }
+            ],
+            "printedPages": {
+              "start": 378,
+              "end": 397
+            },
+            "section": "小論文対策"
+          },
+          {
+            "order": 8,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 14.pdf",
+            "originalName": "スキャンした書類 14.pdf",
+            "expectedPdfPages": 20,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 20,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（項目別 p24〜63）"
+          },
+          {
+            "order": 9,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 15.pdf",
+            "originalName": "スキャンした書類 15.pdf",
+            "expectedPdfPages": 20,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 20,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（項目別）"
+          },
+          {
+            "order": 10,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 16.pdf",
+            "originalName": "スキャンした書類 16.pdf",
+            "expectedPdfPages": 21,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 21,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（項目別）"
+          },
+          {
+            "order": 11,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 17.pdf",
+            "originalName": "スキャンした書類 17.pdf",
+            "expectedPdfPages": 24,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 24,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（項目別）"
+          },
+          {
+            "order": 12,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 18.pdf",
+            "originalName": "スキャンした書類 18.pdf",
+            "expectedPdfPages": 15,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 15,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（項目別 〜p221）"
+          },
+          {
+            "order": 13,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 3.pdf",
+            "originalName": "スキャンした書類 3.pdf",
+            "expectedPdfPages": 10,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 10,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（年度別 平成30年度 p202〜219）"
+          },
+          {
+            "order": 14,
+            "legacyVaultPath": "原資料PDF/教材/コンクリート主任技師2024/スキャンした書類 2.pdf",
+            "originalName": "スキャンした書類 2.pdf",
+            "expectedPdfPages": 10,
+            "singlePdfPages": [],
+            "excludedPdfPageRanges": [
+              {
+                "start": 1,
+                "end": 10,
+                "reason": "s001 と同じ版面の高画質再スキャン（2026-07-10）。ページ画像は作らず、図の切り出し直しと判読の照合用に原本だけ保持"
+              }
+            ],
+            "section": "高画質再スキャン（年度別 平成29年度 p218〜237）"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer"
         ]
       },
       "appliesTo": [
@@ -293,6 +504,9 @@
             "singlePdfPages": [],
             "section": "分冊10"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-diagnostician"
         ]
       },
       "appliesTo": [
@@ -365,6 +579,10 @@
             "expectedPdfPages": 12,
             "section": "第6章 解体工事"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-construction-2"
         ]
       },
       "appliesTo": [
@@ -446,6 +664,10 @@
             "expectedPdfPages": 50,
             "section": "第7章 関係法規"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-construction-2"
         ]
       },
       "appliesTo": [
@@ -484,6 +706,9 @@
             "expectedPdfPages": 616,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1"
         ]
       },
       "notes": "市販問題解説集。内部参照専用。問題文を記事へ使う場合は実施機関の公式過去問で再照合する。"
@@ -516,6 +741,9 @@
             "expectedPdfPages": 324,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1"
         ]
       },
       "notes": "市販問題解説集。原本画像が180度回転しているため生成時に正立化する。内部参照専用。"
@@ -590,6 +818,9 @@
             "singlePdfPages": [],
             "section": "社会環境管理"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       },
       "notes": "キーワードページ 663 本の裏取りに使う。個々の記事への sources 付与は DN-0178。"
@@ -688,6 +919,9 @@
             "singlePdfPages": [],
             "section": "択一式過去問7"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       }
     },
@@ -747,6 +981,9 @@
             ],
             "section": "総監論文に求められるもの"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       }
     },
@@ -791,6 +1028,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-construction",
+          "pe-construction-guide-required-essay",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-10 に 原資料PDF/教材/技術士論文の書き方/ から登録。同フォルダの『スキャンした書類 2〜6.pdf』（22+15+24+21+17=99p）を結合したものが本 PDF で、分割版は原本として使わない。手持ち撮影の見開き。PDF p.37 は机ごと写った引きの写真で解像度不足、p.54/64 は見開きだが縦長に切れているため single 扱い（1 画像に 2 ページ入る）。文字起こしは内部利用に限定する。"
@@ -821,6 +1063,9 @@
             "expectedPdfPages": 40,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-comprehensive-management"
         ]
       },
       "notes": "PDFメタデータの著者は文部科学省。公開利用時は原公開URLを別途確認してtitle-url出典を付ける。"
@@ -923,6 +1168,10 @@
             },
             "section": "第3編 労働安全衛生マネジメントシステム"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       }
     },
@@ -979,6 +1228,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1029,6 +1281,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1086,6 +1342,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1143,6 +1402,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "pe-construction",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1200,6 +1464,11 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "pe-construction",
+          "pe-comprehensive-management"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1232,6 +1501,9 @@
             "expectedPdfPages": 208,
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1289,6 +1561,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "concrete-chief-engineer",
+          "concrete-engineer"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1346,6 +1622,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1403,6 +1682,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-1",
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1460,6 +1743,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-construction-2",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1517,6 +1804,10 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice",
+          "civil-construction-1"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1574,6 +1865,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1631,6 +1925,9 @@
             ],
             "section": "全巻"
           }
+        ],
+        "coverageSiteDirs": [
+          "civil-practice"
         ]
       },
       "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
@@ -1735,6 +2032,10 @@
             "singlePdfPages": [],
             "section": "p42以降 分冊9"
           }
+        ],
+        "coverageSiteDirs": [
+          "pe-construction",
+          "pe-construction-guide-required-essay"
         ]
       },
       "notes": "運営者が権利を持つため図の流用も可（image-policy の例外）。現存原本は版面p371の文中で終了し、後続分冊はDrive全体の検索でも未発見（2026-09-07）。OCR・利用範囲はp371までとし、完全な原本とは扱わない。"
@@ -2426,6 +2727,14 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/statistics/file000004.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/国土交通白書（令和７年度）.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/国土交通白書（令和７年度）関連データ集.pdf"
+        }
+      ],
       "aliases": {
         "国土交通白書": "mlit-white-paper"
       }
@@ -2438,6 +2747,11 @@
         "kind": "external",
         "url": "https://www.soumu.go.jp/johotsusintokei/whitepaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/情報通信白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "情報通信白書": "ict-white-paper"
       }
@@ -2450,10 +2764,30 @@
         "kind": "external",
         "url": "https://www.env.go.jp/policy/hakusyo/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/環境白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "環境・循環型社会・生物多様性白書": "env-white-paper",
         "環境白書": "env-white-paper"
       }
+    },
+    {
+      "id": "caa-ethical-consumption-study",
+      "title": "「倫理的消費」調査研究会 取りまとめ（消費者庁、平成29年4月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.caa.go.jp/policies/policy/consumer_education/consumer_education/ethical_study_group"
+      },
+      "officialTexts": [
+        {
+          "text": "消費者それぞれが、各自にとっての社会的課題の解決を考慮したり、そうした課題に取り組む事業者を応援したりしながら、消費活動を行うこと",
+          "note": "エシカル消費の定義（取りまとめ本文 region_index13_170419_0002.pdf）。総監の標準テキストも同じ文を載せる"
+        }
+      ]
     },
     {
       "id": "bousai-white-paper",
@@ -2463,6 +2797,11 @@
         "kind": "external",
         "url": "https://www.bousai.go.jp/kaigirep/hakusho/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/防災白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "防災白書": "bousai-white-paper"
       }
@@ -2475,6 +2814,11 @@
         "kind": "external",
         "url": "https://www5.cao.go.jp/keizai3/whitepaper.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/経済財政白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "経済財政白書": "keizai-zaisei-white-paper"
       }
@@ -2487,6 +2831,26 @@
         "kind": "external",
         "url": "https://www.meti.go.jp/report/whitepaper/index_mono.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）01.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）02.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）03.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）04.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）/ものづくり白書（令和６年度）05.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/ものづくり白書（令和６年度）01.pdf"
+        }
+      ],
       "aliases": {
         "ものづくり白書": "monodukuri-white-paper",
         "製造基盤白書": "monodukuri-white-paper"
@@ -2500,6 +2864,11 @@
         "kind": "external",
         "url": "https://www.meti.go.jp/report/whitepaper/index_tuhaku.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/通商白書（令和７年度版）.pdf"
+        }
+      ],
       "aliases": {
         "通商白書": "tsusho-white-paper"
       }
@@ -2512,6 +2881,11 @@
         "kind": "external",
         "url": "https://www.enecho.meti.go.jp/about/whitepaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/エネルギー白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "エネルギー白書": "energy-white-paper"
       }
@@ -2524,6 +2898,11 @@
         "kind": "external",
         "url": "https://www.fdma.go.jp/publication/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/消防白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "消防白書": "shobo-white-paper"
       }
@@ -2536,6 +2915,29 @@
         "kind": "external",
         "url": "https://www.mext.go.jp/b_menu/hakusho/html/kagaku.htm"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-4.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-5.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-6.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-7.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-8.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/科学技術・イノベーション白書（令和７年度）/20250528-ope_dev03-000042758-9.pdf"
+        }
+      ],
       "aliases": {
         "科学技術・イノベーション白書": "kagaku-gijutsu-white-paper"
       }
@@ -2548,6 +2950,11 @@
         "kind": "external",
         "url": "https://www.cas.go.jp/jp/seisaku/mizu_junkan/materials/materials/white_paper.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/水循環白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "水循環白書": "mizu-junkan-white-paper"
       }
@@ -2560,6 +2967,11 @@
         "kind": "external",
         "url": "https://www8.cao.go.jp/kourei/whitepaper/index-w.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/高齢社会白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "高齢社会白書": "kourei-shakai-white-paper"
       }
@@ -2572,6 +2984,11 @@
         "kind": "external",
         "url": "https://www8.cao.go.jp/koutu/taisaku/index-t.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/交通安全白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "交通安全白書": "koutsu-anzen-white-paper"
       }
@@ -2584,6 +3001,11 @@
         "kind": "external",
         "url": "https://www.ipa.go.jp/publish/wp-security/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/情報セキュリティ白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "情報セキュリティ白書": "joho-security-white-paper"
       }
@@ -2596,6 +3018,20 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000138529.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586366.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586367.pdf"
+        },
+        {
+          "path": "原資料PDF/白書/過労死等防止対策白書（令和６年度）/001586370.pdf"
+        }
+      ],
       "aliases": {
         "過労死等防止対策白書": "karoushi-white-paper"
       }
@@ -2608,6 +3044,11 @@
         "kind": "external",
         "url": "https://www.maff.go.jp/j/wpaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/食料・農業・農村白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "食料・農業・農村白書": "shokuryo-nogyo-white-paper"
       }
@@ -2620,6 +3061,11 @@
         "kind": "external",
         "url": "https://www.jfa.maff.go.jp/j/kikaku/wpaper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/水産白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "水産白書": "suisan-white-paper"
       }
@@ -2632,6 +3078,11 @@
         "kind": "external",
         "url": "https://www.rinya.maff.go.jp/j/kikaku/hakusyo/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/森林・林業白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "森林・林業白書": "shinrin-ringyo-white-paper"
       }
@@ -2644,6 +3095,11 @@
         "kind": "external",
         "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/地方財政白書（令和８年度）.pdf"
+        }
+      ],
       "aliases": {
         "地方財政白書": "chihou-zaisei-white-paper"
       }
@@ -2656,6 +3112,11 @@
         "kind": "external",
         "url": "https://www.gender.go.jp/about_danjo/whitepaper/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/男女共同参画白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "男女共同参画白書": "danjo-kyodo-white-paper"
       }
@@ -2668,6 +3129,11 @@
         "kind": "external",
         "url": "https://www.chusho.meti.go.jp/koukai/chousa/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/中小企業白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "中小企業白書": "chusho-kigyo-white-paper"
       }
@@ -2680,6 +3146,11 @@
         "kind": "external",
         "url": "https://www.npa.go.jp/publications/whitepaper/index_keisatsu.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/警察白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "警察白書": "keisatsu-white-paper"
       }
@@ -2692,6 +3163,11 @@
         "kind": "external",
         "url": "https://www.cfa.go.jp/resources/white-paper/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/こども白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "こども白書": "kodomo-white-paper"
       }
@@ -2704,6 +3180,11 @@
         "kind": "external",
         "url": "https://www.aec.go.jp/kettei/hakusho/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/原子力白書（令和６年度）.pdf"
+        }
+      ],
       "aliases": {
         "原子力白書": "genshiryoku-white-paper"
       }
@@ -2716,6 +3197,11 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/toukei_hakusho/hakusho/index.html"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/厚生労働白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "厚生労働白書": "kousei-roudou-white-paper"
       }
@@ -2728,6 +3214,11 @@
         "kind": "external",
         "url": "https://www.mhlw.go.jp/wp/hakusyo/roudou/"
       },
+      "vaultCopies": [
+        {
+          "path": "原資料PDF/白書/労働経済白書（令和７年度）.pdf"
+        }
+      ],
       "aliases": {
         "労働経済白書": "roudou-keizai-white-paper"
       }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" role="img" aria-label="建設後50年以上の水道管路の割合が2023年3月の約9%から2040年3月に約41%へ増える折れ線と、法定耐用年数超過の現況25.2%" style="max-width:400px;width:100%">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:12px} /* ink-strong */
+.k{font-weight:bold}.v{font-size:14px;font-weight:bold;text-anchor:middle}.m{text-anchor:middle}.e{text-anchor:end;font-size:11px;fill:#555} /* ink-body */
+.s{font-size:11px;fill:#555}
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:2} /* warn */
+.l{stroke:#d7d7d7;stroke-width:1} /* border */
+</style></defs>
+<text x="20" y="30" class="k">建設後50年以上の水道管路の割合</text><text x="20" y="46" class="s">総延長は約74万km</text>
+<path d="M60 70 H370 M60 128 H370 M60 186 H370 M60 244 H370 M60 302 H370 M60 360 H370" class="l"/>
+<text x="52" y="74" class="e">50%</text><text x="52" y="132" class="e">40%</text><text x="52" y="190" class="e">30%</text><text x="52" y="248" class="e">20%</text><text x="52" y="306" class="e">10%</text><text x="52" y="364" class="e">0%</text>
+<polyline points="110,308 200,238 330,122" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+<circle cx="110" cy="308" r="6" class="w"/><circle cx="200" cy="238" r="6" class="w"/><circle cx="330" cy="122" r="6" class="w"/>
+<text x="110" y="292" class="v">約9%</text><text x="186" y="222" class="v">約21%</text><text x="330" y="106" class="v">約41%</text>
+<g class="m"><text x="110" y="382">2023年3月</text><text x="200" y="382">2030年3月</text><text x="330" y="382">2040年3月</text></g>
+<rect x="20" y="406" width="360" height="74" rx="8" class="b"/>
+<text x="200" y="432" class="v">別の基準：法定耐用年数（40年）超</text>
+<text x="200" y="456" class="m" style="font-size:13px">約18.8万km（25.2%）・令和6年3月末</text>
+</svg>

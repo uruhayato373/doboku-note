@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="周波数帯ごとの届きやすさと運べる量の関係。超短波は遠くへ届き運べる量が小さく、ミリ波は近距離で運べる量が大きい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .row { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .reach { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .amount { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="s" x="15" y="24">下の段ほど遠くへは届かず、多くを運べる（目安）</text>
+  <g>
+    <rect class="row" x="15" y="38" width="370" height="86" rx="8"/>
+    <text class="b" x="27" y="62">超短波（VHF）</text>
+    <text class="s" x="27" y="80">30〜300MHz</text>
+    <text x="27" y="104">防災行政無線・消防無線</text>
+    <text class="s" x="245" y="75">届く</text>
+    <rect class="reach" x="282" y="64" width="84" height="14" rx="3"/>
+    <text class="s" x="245" y="105">運ぶ量</text>
+    <rect class="amount" x="282" y="94" width="21" height="14" rx="3"/>
+  </g>
+  <g>
+    <rect class="row" x="15" y="134" width="370" height="86" rx="8"/>
+    <text class="b" x="27" y="158">極超短波（UHF）</text>
+    <text class="s" x="27" y="176">300MHz〜3GHz</text>
+    <text x="27" y="200">920MHz帯・2.4GHz無線LAN</text>
+    <text class="s" x="245" y="171">届く</text>
+    <rect class="reach" x="282" y="160" width="63" height="14" rx="3"/>
+    <text class="s" x="245" y="201">運ぶ量</text>
+    <rect class="amount" x="282" y="190" width="42" height="14" rx="3"/>
+  </g>
+  <g>
+    <rect class="row" x="15" y="230" width="370" height="86" rx="8"/>
+    <text class="b" x="27" y="254">マイクロ波（SHF）</text>
+    <text class="s" x="27" y="272">3〜30GHz</text>
+    <text x="27" y="296">5・6GHz無線LAN・ローカル5G</text>
+    <text class="s" x="245" y="267">届く</text>
+    <rect class="reach" x="282" y="256" width="42" height="14" rx="3"/>
+    <text class="s" x="245" y="297">運ぶ量</text>
+    <rect class="amount" x="282" y="286" width="63" height="14" rx="3"/>
+  </g>
+  <g>
+    <rect class="row" x="15" y="326" width="370" height="86" rx="8"/>
+    <text class="b" x="27" y="350">ミリ波（EHF）</text>
+    <text class="s" x="27" y="368">30〜300GHz</text>
+    <text x="27" y="392">近距離の画像伝送・レーダー</text>
+    <text class="s" x="245" y="363">届く</text>
+    <rect class="reach" x="282" y="352" width="21" height="14" rx="3"/>
+    <text class="s" x="245" y="393">運ぶ量</text>
+    <rect class="amount" x="282" y="382" width="84" height="14" rx="3"/>
+  </g>
+  <rect x="15" y="426" width="370" height="62" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text x="27" y="451">低い周波数：回り込んで遠くへ届く。量は小さい</text>
+  <text x="27" y="474">高い周波数：直進して近くまで。量は大きい</text>
+</svg>

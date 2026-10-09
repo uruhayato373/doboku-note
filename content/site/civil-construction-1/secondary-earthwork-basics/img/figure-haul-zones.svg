@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="土積図による土量配分。基線を引いて切土と盛土が釣り合う区間を結ぶと、その長さが運搬距離を表す。運搬距離が最も短くなるように配分し、ショベル・ダンプトラック工法区とそれ以外の機械の採算的な運搬距離を比べて工区を分ける。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-haul-zones-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-haul-zones-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-haul-zones-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-haul-zones-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">運搬機械と土積図の工区</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">切土と盛土を結ぶ線の長さが、運搬距離を表す</text>
+  <line x1="30" y1="140" x2="384" y2="140" style="stroke:#8a8a8a;stroke-width:1.2;stroke-dasharray:6 4"/>
+  <text class="t-note" x="378" y="158" text-anchor="end">計画高</text>
+  <text class="t-key" x="24" y="76">縦断</text>
+  <text class="t-key" x="24" y="226">土積図</text>
+  <line x1="16" y1="208" x2="384" y2="208" class="lead" style="stroke:#d7d7d7"/>
+  <polygon points="40,140.0 43,136.5 46,133.1 49,129.6 52,126.3 55,123.0 58,119.8 61,116.7 64,113.7 67,110.9 70,108.2 73,105.7 76,103.3 79,101.2 82,99.2 85,97.5 88,96.0 91,94.7 94,93.7 97,92.9 100,92.3 103,92.1 106,92.0 109,92.2 112,92.7 115,93.4 118,94.3 121,95.5 124,97.0 127,98.6 130,100.5 133,102.6 136,104.9 139,107.3 142,109.9 145,112.7 148,115.7 151,118.7 154,121.9 157,125.2 160,128.5 163,131.9 166,135.4 169,138.8 170,140.0 170,140 40,140" class="soil" style="stroke-width:1.2"/>
+  <polygon points="170,140.0 173,143.5 176,146.9 179,150.4 182,153.7 185,157.0 188,160.2 191,163.3 194,166.3 197,169.1 200,171.8 203,174.3 206,176.7 209,178.8 212,180.8 215,182.5 218,184.0 221,185.3 224,186.3 227,187.1 230,187.7 233,187.9 236,188.0 239,187.8 242,187.3 245,186.6 248,185.7 251,184.5 254,183.0 257,181.4 260,179.5 263,177.4 266,175.1 269,172.7 272,170.1 275,167.3 278,164.3 281,161.3 284,158.1 287,154.8 290,151.5 293,148.1 296,144.6 299,141.2 300,140.0 300,140 170,140" class="brand" style="stroke-width:1.2"/>
+  <polygon points="300,140.0 303,136.5 306,133.1 309,129.6 312,126.3 315,123.0 318,119.8 321,116.7 324,113.7 327,110.9 330,108.2 333,105.7 336,103.3 339,101.2 342,99.2 345,97.5 348,96.0 351,94.7 354,93.7 357,92.9 360,92.3 363,92.1 366,92.0 369,92.2 372,92.7 375,93.4 375,93.4 375,140 300,140" class="soil" style="stroke-width:1.2"/>
+  <path d="M 40.0 140.0 L 43.0 136.5 L 46.0 133.1 L 49.0 129.6 L 52.0 126.3 L 55.0 123.0 L 58.0 119.8 L 61.0 116.7 L 64.0 113.7 L 67.0 110.9 L 70.0 108.2 L 73.0 105.7 L 76.0 103.3 L 79.0 101.2 L 82.0 99.2 L 85.0 97.5 L 88.0 96.0 L 91.0 94.7 L 94.0 93.7 L 97.0 92.9 L 100.0 92.3 L 103.0 92.1 L 106.0 92.0 L 109.0 92.2 L 112.0 92.7 L 115.0 93.4 L 118.0 94.3 L 121.0 95.5 L 124.0 97.0 L 127.0 98.6 L 130.0 100.5 L 133.0 102.6 L 136.0 104.9 L 139.0 107.3 L 142.0 109.9 L 145.0 112.7 L 148.0 115.7 L 151.0 118.7 L 154.0 121.9 L 157.0 125.2 L 160.0 128.5 L 163.0 131.9 L 166.0 135.4 L 169.0 138.8 L 172.0 142.3 L 175.0 145.8 L 178.0 149.2 L 181.0 152.6 L 184.0 155.9 L 187.0 159.2 L 190.0 162.3 L 193.0 165.3 L 196.0 168.2 L 199.0 171.0 L 202.0 173.5 L 205.0 175.9 L 208.0 178.1 L 211.0 180.2 L 214.0 182.0 L 217.0 183.5 L 220.0 184.9 L 223.0 186.0 L 226.0 186.9 L 229.0 187.5 L 232.0 187.9 L 235.0 188.0 L 238.0 187.9 L 241.0 187.5 L 244.0 186.9 L 247.0 186.0 L 250.0 184.9 L 253.0 183.5 L 256.0 182.0 L 259.0 180.2 L 262.0 178.1 L 265.0 175.9 L 268.0 173.5 L 271.0 171.0 L 274.0 168.2 L 277.0 165.3 L 280.0 162.3 L 283.0 159.2 L 286.0 155.9 L 289.0 152.6 L 292.0 149.2 L 295.0 145.8 L 298.0 142.3 L 301.0 138.8 L 304.0 135.4 L 307.0 131.9 L 310.0 128.5 L 313.0 125.2 L 316.0 121.9 L 319.0 118.7 L 322.0 115.7 L 325.0 112.7 L 328.0 109.9 L 331.0 107.3 L 334.0 104.9 L 337.0 102.6 L 340.0 100.5 L 343.0 98.6 L 346.0 97.0 L 349.0 95.5 L 352.0 94.3 L 355.0 93.4 L 358.0 92.7 L 361.0 92.2 L 364.0 92.0 L 367.0 92.1 L 370.0 92.3 L 373.0 92.9 L 375 93.4" style="fill:none;stroke:#555;stroke-width:1.5"/>
+  <text class="t-note" x="104" y="130" text-anchor="middle">切土</text>
+  <text class="t-note" x="235" y="164" text-anchor="middle">盛土</text>
+  <path d="M 40.0 340.0 L 43.0 339.8 L 46.0 339.4 L 49.0 338.6 L 52.0 337.6 L 55.0 336.2 L 58.0 334.6 L 61.0 332.6 L 64.0 330.5 L 67.0 328.0 L 70.0 325.4 L 73.0 322.5 L 76.0 319.4 L 79.0 316.1 L 82.0 312.7 L 85.0 309.1 L 88.0 305.5 L 91.0 301.7 L 94.0 297.8 L 97.0 293.9 L 100.0 290.0 L 103.0 286.1 L 106.0 282.2 L 109.0 278.3 L 112.0 274.5 L 115.0 270.9 L 118.0 267.3 L 121.0 263.9 L 124.0 260.6 L 127.0 257.5 L 130.0 254.6 L 133.0 252.0 L 136.0 249.5 L 139.0 247.4 L 142.0 245.4 L 145.0 243.8 L 148.0 242.4 L 151.0 241.4 L 154.0 240.6 L 157.0 240.2 L 160.0 240.0 L 163.0 240.2 L 166.0 240.7 L 169.0 241.5 L 172.0 242.6 L 175.0 244.1 L 178.0 245.9 L 181.0 247.9 L 184.0 250.3 L 187.0 252.9 L 190.0 255.8 L 193.0 259.0 L 196.0 262.4 L 199.0 266.0 L 202.0 269.8 L 205.0 273.7 L 208.0 277.8 L 211.0 282.1 L 214.0 286.4 L 217.0 290.9 L 220.0 295.4 L 223.0 300.0 L 226.0 304.5 L 229.0 309.1 L 232.0 313.6 L 235.0 318.1 L 238.0 322.5 L 241.0 326.8 L 244.0 330.9 L 247.0 334.9 L 250.0 338.8 L 253.0 342.4 L 256.0 345.9 L 259.0 349.1 L 262.0 352.1 L 265.0 354.8 L 268.0 357.3 L 271.0 359.5 L 274.0 361.3 L 277.0 362.9 L 280.0 364.2 L 283.0 365.1 L 286.0 365.7 L 289.0 366.0 L 292.0 365.9 L 295.0 365.6 L 298.0 365.0 L 301.0 364.2 L 304.0 363.1 L 307.0 361.8 L 310.0 360.3 L 313.0 358.5 L 316.0 356.6 L 319.0 354.5 L 322.0 352.3 L 325.0 350.0 L 328.0 347.6 L 331.0 345.2 L 334.0 342.8 L 337.0 340.4 L 340.0 338.0 L 343.0 335.7 L 346.0 333.5 L 349.0 331.4 L 352.0 329.5 L 355.0 327.7 L 358.0 326.2 L 361.0 324.9 L 364.0 323.8 L 367.0 323.0 L 370.0 322.4 L 373.0 322.1 L 375 322.0" style="fill:none;stroke:#2e6da4;stroke-width:3"/>
+  <line x1="117.4" y1="268" x2="200.6" y2="268" style="stroke:#3a7d44;stroke-width:2.5"/>
+  <circle cx="117.4" cy="268" r="3.5" style="fill:#3a7d44"/><circle cx="200.6" cy="268" r="3.5" style="fill:#3a7d44"/>
+  <line x1="117.4" y1="84" x2="200.6" y2="84" style="stroke:#3a7d44;stroke-width:2.2" marker-end="url(#figure-haul-zones-ag)"/>
+  <line x1="117.4" y1="84" x2="117.4" y2="268" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3"/>
+  <text class="t-key" x="109.4" y="272" text-anchor="end" style="fill:#3a7d44">①</text>
+  <line x1="69.3" y1="326" x2="240.5" y2="326" style="stroke:#b22234;stroke-width:2.5"/>
+  <circle cx="69.3" cy="326" r="3.5" style="fill:#b22234"/><circle cx="240.5" cy="326" r="3.5" style="fill:#b22234"/>
+  <line x1="69.3" y1="68" x2="240.5" y2="68" style="stroke:#b22234;stroke-width:2.2" marker-end="url(#figure-haul-zones-ar)"/>
+  <line x1="69.3" y1="68" x2="69.3" y2="326" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3"/>
+  <text class="t-key" x="61.3" y="330" text-anchor="end" style="fill:#b22234">②</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">①</text>
+  <text class="t-lab" x="104" y="414">山に近い線は短く、運搬距離が短い</text>
+  <text class="t-key" x="30" y="440">②</text>
+  <text class="t-lab" x="104" y="440">下の線ほど長く、遠くへ運ぶ区間</text>
+  <text class="t-key" x="30" y="466">選び方</text>
+  <text class="t-lab" x="104" y="466">機械の採算的な運搬距離で工法区を分ける</text>
+
+</svg>

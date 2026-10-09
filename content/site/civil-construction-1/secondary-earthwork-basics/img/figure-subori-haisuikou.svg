@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水田などの基礎地盤の素掘り排水溝。盛土をする範囲の両側や中に溝を掘って水を集めて外へ流し、表層の含水比を下げて重機が走れるようにする">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .wet    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：湿った土・帯水層 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土・構造物 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill */
+      .reinf  { stroke: #3a7d44; stroke-width: 3; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .push   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">水田などの基礎地盤の処理</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">溝を掘って水を抜き、重機が走れる地盤にする</text>
+  <rect class="wet" x="16" y="150" width="368" height="150"/>
+  <text class="t-note" x="28" y="290">水田・湿地の軟らかい表層</text>
+  <rect x="96" y="132" width="208" height="18" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text class="t-lab" x="200" y="126" text-anchor="middle">盛土をする範囲</text>
+  <polygon points="58,150 92,150 75,190" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="183,150 217,150 200,190" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="308,150 342,150 325,190" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <line class="wl" x1="16" y1="168" x2="384" y2="168"/>
+  <path class="wl" d="M 16 205 Q 75 220 75 192 Q 75 220 140 210 Q 200 222 200 192 Q 200 222 260 210 Q 325 222 325 192 Q 325 220 384 205" style="stroke-dasharray:none"/>
+  <text class="t-note" x="100" y="182">元の地下水位</text>
+  <text class="t-note" x="372" y="236" text-anchor="end">掘った後の地下水位</text>
+  <line class="water" x1="120" y1="200" x2="88" y2="182" marker-end="url(#aw)"/>
+  <line class="water" x1="160" y1="200" x2="190" y2="182" marker-end="url(#aw)"/>
+  <line class="water" x1="280" y1="200" x2="312" y2="182" marker-end="url(#aw)"/>
+  <text class="t-key" x="75" y="108" text-anchor="middle">素掘り排水溝</text>
+  <line class="lead" x1="75" y1="112" x2="75" y2="150"/>
+  <text class="t-note" x="200" y="328" text-anchor="middle">溝に集めた水は、場外の水路へ流す</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">目的</text>
+  <text class="t-lab" x="104" y="414">表層の含水比を下げ、重機が走れるようにする</text>
+  <text class="t-key" x="30" y="440">あわせて</text>
+  <text class="t-lab" x="104" y="440">サンドマットで初期の盛土作業を支える</text>
+  <text class="t-key" x="30" y="466">注意</text>
+  <text class="t-lab" x="104" y="466">盛土の第 1 層は締固めが難しい</text>
+</svg>

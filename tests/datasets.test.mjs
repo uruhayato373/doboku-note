@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { DATASETS, datasetById, datasetsFor, inferShape, matchFiles, pathMatchesId, patternOf, schemaRows } from '../scripts/lib/datasets.mjs';
+import { DATASETS, areaOf, datasetById, datasetFiles, datasetsFor, inferShape, matchFiles, pathMatchesId, patternOf, schemaRows } from '../scripts/lib/datasets.mjs';
 import { jsonSchemaOf, validateFiles } from '../scripts/lib/dataset-validate.mjs';
-import { basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals } from '../scripts/lib/path-literals.mjs';
+import { basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals, findStatePathLiterals } from '../scripts/lib/path-literals.mjs';
 
 const idsFor = (file) => datasetsFor(file).map((x) => x.id);
 
@@ -143,6 +143,7 @@ test('findPathLiterals: 文字列・テンプレート・正規表現・join の
   assert.deepEqual(lines("const a = join(ROOT, 'public/data/x.csv');\nconst u = '/data/x.csv';"), []);
   assert.deepEqual(lines("// data/note/sales.json を読む\n * data/note/sales.json\nf(); // data/note/sales.json"), []);
   assert.deepEqual(lines("const old = 'data/metrics/x.json'; // path-literal-ok: 旧パスの読み替え"), []);
+  assert.deepEqual(lines("f(); // config/seo-meta-config.json\r\nconst a = 'data/note/sales.json';\r\n"), [2], 'CRLF でも行末コメントは読まない・行番号はずれない');
 });
 
 test('findPathLiterals: config/ も拾い、src/config・コマンド引数・gtag の config は拾わない', () => {
@@ -187,3 +188,40 @@ test('findConfigPaths: ワークフロー・package.json の config/・data/ の
   assert.deepEqual(paths('"psi": "node x.mjs --file config/psi-urls.txt"'), ['config/psi-urls.txt']);
 });
 
+
+test('作業状態と Drive vault: .claude/state/ は置き場 state、Drive の写しは置き場の外で drive が要る', () => {
+  assert.equal(areaOf({ path: '.claude/state/todo-claims.json' }), 'state');
+  assert.equal(areaOf({ path: 'data/note/sales.json' }), 'data');
+  assert.equal(areaOf({ path: 'content/sources/books/x/coverage/verdict.json' }), null);
+  assert.ok(pathMatchesId({ id: 'state.x', path: '.claude/state/x.json' }));
+  assert.ok(!pathMatchesId({ id: 'state.x', path: 'data/state/x.json' }));
+  assert.ok(pathMatchesId({ id: 'vault.x', path: 'content/sources/books/{name}/coverage/x.json', drive: 'g' }));
+  assert.ok(!pathMatchesId({ id: 'vault.x', path: 'content/sources/books/{name}/coverage/x.json' }), 'drive の無い vault.* は不可');
+  assert.ok(!pathMatchesId({ id: 'vault.x', path: 'data/vault/x.json', drive: 'g' }), '置き場の中は vault.* にしない');
+  assert.deepEqual(idsFor('.claude/state/pdf-mdx-audit/2026-04-24.json'), ['state.pdf-mdx-audit'], '{suffix} は省略できる');
+  assert.deepEqual(idsFor('.claude/state/pdf-mdx-audit/2026-09-13-r01-retry.json'), ['state.pdf-mdx-audit']);
+  assert.deepEqual(idsFor('content/sources/books/a__b/coverage/verdict.json'), ['vault.book-coverage-verdict']);
+});
+
+test('datasetFiles: 置き場の外の Drive の写しは、可変部分の階層だけ名前で絞って歩く', () => {
+  const root = mkdtempSync(join(tmpdir(), 'datasets-'));
+  try {
+    for (const rel of ['content/sources/books/a__x/coverage/candidates.json', 'content/sources/books/b__y/coverage/candidates.json', 'content/sources/books/b__y/pages/p0001.jpg']) {
+      mkdirSync(join(root, rel, '..'), { recursive: true });
+      writeFileSync(join(root, rel), '{}');
+    }
+    assert.deepEqual(datasetFiles(root, 'vault.book-coverage-candidates'), ['content/sources/books/b__y/coverage/candidates.json', 'content/sources/books/a__x/coverage/candidates.json']);
+    assert.deepEqual(datasetFiles(root, 'vault.book-coverage-verdict'), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('findStatePathLiterals: .claude/state/ の文字列と join の分割形を拾い、コメント・行末コメント・許可印は拾わない', () => {
+  const lines = (src) => findStatePathLiterals(src).map((h) => h.line);
+  assert.deepEqual(lines("const a = join(ROOT, '.claude/state/x.json');"), [1]);
+  assert.deepEqual(lines("const b = join(ROOT, '.claude', 'state', 'x.json');"), [1]);
+  assert.deepEqual(lines('// .claude/state/x.json\n * .claude/state/y\nconst c = 1; // .claude/state/z'), []);
+  assert.deepEqual(lines("const d = '.claude/state/x.json'; // path-literal-ok: 旧パス"), []);
+  assert.deepEqual(lines("const e = join(ROOT, '.claude', 'config', 'x.json');"), []);
+});

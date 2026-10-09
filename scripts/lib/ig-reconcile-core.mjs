@@ -157,8 +157,89 @@ export function buildSnapshot({ account, cats, liveData, source, now = new Date(
   return {
     account, at: now.toISOString(),
     counts: Object.fromEntries(Object.entries(cats).map(([k, v]) => [k, v.length])),
-    live: { posts: liveData.shortcodes.length, scheduledByDay: liveData.scheduled },
+    live: {
+      posts: liveData.shortcodes.length, scheduledByDay: liveData.scheduled,
+      // 公開中の投稿の一覧（shortcode・キャプション先頭・型）。コンテンツ台帳の照合（registry-ig-state.mjs）が
+      // 動画パックのリール（snapshot の cats が見ないフォルダ）を実際の投稿へ結ぶのに使う
+      list: (liveData.live ?? []).map((p) => ({ shortcode: p.shortcode, head: p.head, type: p.type })),
+    },
     cats,
     source,
   };
+}
+
+// ─── コンテンツ台帳への反映の計画（verify-ig-status --registry・純関数）──────────────────
+// 台帳（content/registry/publications/instagram）が公開の正本。照合の結果から「台帳の行を published にしてよいもの」を決める。
+// 書く側（recordIg）はここでは呼ばない（zod を読むので、npm ci をしない CI が読む core には持ち込まない）。
+
+/** 照合が触ってよい台帳の行か。published と stopped(unverified-legacy 以外) は触らない */
+export function registryRowTouchable(row) {
+  if (!row) return false;
+  if (row.status === "published") return false;
+  if (row.status === "stopped" && row.stopReason !== "unverified-legacy") return false;
+  return true;
+}
+
+/**
+ * 照合の結果から、台帳を published にするものと、触らないものの理由、後戻りの所見を決める。
+ * - カルーセル: published_UNrecorded で公開中の投稿に 1 件だけ結び付き、他のパックと衝突しないもの
+ * - リール: 公開中のリールのキャプション先頭が 1 件だけ一致し、同じ先頭を持つリールのフォルダが他に無いもの
+ * - 後戻り: 台帳が published なのに、記録 URL を直接見たら削除済み（recordedInfo の exists が false）
+ * @param {{
+ *   cats: object, liveList: {shortcode:string, head:string, type:string}[],
+ *   reelCandidates: {folder:string, head:string}[],
+ *   rowOf: (folder:string, format:'carousel'|'reel') => object|null,
+ *   publishedRows?: {id:string, shortcode:string|null}[], recordedInfo?: Record<string,{exists:boolean|null}>,
+ *   snapRef: string,
+ * }} args
+ * @returns {{ updates: {folder:string, format:string, id:string, url:string, evidence:{kind:string, ref:string}}[],
+ *   skipped: {folder:string, format:string, reason:string}[], regressions: {id:string, shortcode:string, reason:string}[] }}
+ */
+export function planRegistryPublished({ cats, liveList, reelCandidates, rowOf, publishedRows = [], recordedInfo = {}, snapRef }) {
+  const updates = [];
+  const skipped = [];
+  const evidence = { kind: "ig-snapshot", ref: snapRef };
+  // 台帳のほかの行がすでに使っている shortcode は候補から外す（2 つの行に同じ投稿を付けない）。今回付ける分も加えていく
+  const usedShortcodes = new Set(publishedRows.map((r) => r.shortcode).filter(Boolean));
+  const claim = (folder, format, code) => {
+    if (usedShortcodes.has(code)) { skipped.push({ folder, format, reason: `投稿 ${code} は台帳の別の行がすでに使っている` }); return false; }
+    usedShortcodes.add(code);
+    return true;
+  };
+
+  for (const p of cats.published_UNrecorded ?? []) {
+    const row = rowOf(p.rel, "carousel");
+    if (!row) { skipped.push({ folder: p.rel, format: "carousel", reason: "台帳に行が無い" }); continue; }
+    if (!registryRowTouchable(row)) continue;
+    if (p.ambiguous) { skipped.push({ folder: p.rel, format: "carousel", reason: "他のパックと同じ投稿を主張している" }); continue; }
+    if ((p.matched ?? []).length !== 1) { skipped.push({ folder: p.rel, format: "carousel", reason: `公開中の投稿 ${(p.matched ?? []).length} 件に一致` }); continue; }
+    if (!claim(p.rel, "carousel", p.matched[0])) continue;
+    updates.push({ folder: p.rel, format: "carousel", id: row.id, url: `https://www.instagram.com/p/${p.matched[0]}/`, evidence });
+  }
+
+  const liveReels = new Map();
+  for (const lv of liveList ?? []) {
+    if (lv.type !== "reel" || !lv.head) continue;
+    liveReels.set(lv.head, [...(liveReels.get(lv.head) ?? []), lv.shortcode]);
+  }
+  const headCount = new Map();
+  for (const c of reelCandidates) if (c.head) headCount.set(c.head, (headCount.get(c.head) ?? 0) + 1);
+  for (const c of reelCandidates) {
+    const row = rowOf(c.folder, "reel");
+    if (!row || !registryRowTouchable(row) || !c.head) continue;
+    const hits = liveReels.get(c.head) ?? [];
+    if (hits.length === 0) continue;
+    if (hits.length > 1) { skipped.push({ folder: c.folder, format: "reel", reason: `公開中のリール ${hits.length} 件に一致` }); continue; }
+    if (headCount.get(c.head) > 1) { skipped.push({ folder: c.folder, format: "reel", reason: "同じ先頭のリールのフォルダが他にもある" }); continue; }
+    if (!claim(c.folder, "reel", hits[0])) continue;
+    updates.push({ folder: c.folder, format: "reel", id: row.id, url: `https://www.instagram.com/reel/${hits[0]}/`, evidence });
+  }
+
+  const regressions = [];
+  for (const r of publishedRows) {
+    if (r.shortcode && recordedInfo[r.shortcode]?.exists === false) {
+      regressions.push({ id: r.id, shortcode: r.shortcode, reason: "台帳は published だが、投稿の URL を直接見たら削除済み" });
+    }
+  }
+  return { updates, skipped, regressions };
 }

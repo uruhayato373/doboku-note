@@ -101,9 +101,50 @@ const FigureSourceCategory = z
     figure_origin: z.enum(['question-pdf', 'answer-booklet', 'textbook-scan', 'ai-generated', 'unknown']).describe('図クロップの実際の出所'),
     quality: z.enum(['print-clean', 'scan-low', 'mixed']).describe('元素材の品質'),
     rescannable: z.enum(['true', 'needs-source', 'na']).describe('高解像度の再スキャンで改善できるか（文字列の true / needs-source / na）'),
+    scanReferences: z
+      .array(z.string().regex(/^[a-z0-9][a-z0-9-]*$/))
+      .min(1)
+      .optional()
+      .describe('試験ページの図を切り出す媒体の参考文献 id（公式 PDF に図が無い年度の問題解説集など）。figure-review-queue が原典候補に足す'),
     note: doc('運用メモ'),
   })
   .strict();
+
+/**
+ * 記事のラスター画像の出所の種別（check-image-origin が公開記事の全画像に求める）。2026-10-07（DN-0574）
+ * kind を省いた記録は pdf-crop（pdf から切り出した図）。試験ページの設問の図は記事の sources: の公式問題から導くので書かなくてよい。
+ * 写真は AI で生成した画像だけを使う（CC・自前撮影の実写や、実写を AI で描き直した画像は使わない・2026-10-07 運営者決定）。
+ */
+export const IMAGE_ORIGIN_KINDS = ['pdf-crop', 'exam-official', 'ai-generated', 'public-data', 'own-book-scan'];
+/** 種別ごとに要る欄（出所を辿り直さずに済む最小限） */
+const ORIGIN_REQUIRED = {
+  'pdf-crop': ['pdf'],
+  'exam-official': [],
+  'ai-generated': ['tool'],
+  'public-data': ['license', 'credit'],
+  'own-book-scan': ['ref'],
+};
+
+const FigureProvenance = z
+  .object({
+    kind: z.enum(IMAGE_ORIGIN_KINDS).optional().describe('出所の種別（省略は pdf-crop）'),
+    pdf: z.string().regex(/^(?:vault:原資料PDF\/.+|https:\/\/.+)$/, 'vault:原資料PDF/… か https の URL').optional().describe('図を切り出した原典'),
+    page: z.number().int().min(1).optional().describe('PDF のページ（特定していなければ書かない）'),
+    dpi: z.number().int().min(0).optional().describe('切り出しの解像度（0 は PDF でなく画像から切り出した）'),
+    url: z.string().regex(/^https:\/\/.+/).optional().describe('公的資料の元のページ'),
+    license: z.string().min(1).optional().describe('利用条件（公共データ利用規約 1.0・政府標準利用規約 など）'),
+    credit: z.string().min(1).optional().describe('提供者（caption に出典として出す名前）'),
+    tool: z.string().min(1).optional().describe('生成に使った AI（Codex（gpt-6-astra）・ChatGPT など）'),
+    prompt: z.string().min(1).optional().describe('生成に使った指示（同じ画像を作り直すとき・実物と照らすときに読む）'),
+    ref: z.string().regex(/^[a-z0-9][a-z0-9-]*$/).optional().describe('自社書籍スキャンの参考文献 id（参考文献の台帳）'),
+    note: doc('補足').optional(),
+  })
+  .strict()
+  .superRefine((v, ctx) => {
+    const kind = v.kind ?? 'pdf-crop';
+    for (const k of ORIGIN_REQUIRED[kind]) if (v[k] === undefined) flag(ctx, [k], `${kind} には ${k} が要る`);
+    if (kind !== 'pdf-crop' && kind !== 'exam-official' && (v.page !== undefined || v.dpi !== undefined)) flag(ctx, ['page'], 'page・dpi は PDF から切り出した図（pdf-crop・exam-official）だけに書く');
+  });
 
 export const ConfigFigureSources = z
   .object({
@@ -120,14 +161,17 @@ export const ConfigFigureSources = z
             needs: z.enum(FIGURE_NEEDS).describe('機械監査の判定を上書きする次の作業'),
             reason: z.string().min(1),
             verified: jstDate('目視確認日'),
-            source_pdf: z.string().optional(),
-            page: z.number().int().min(0).optional().describe('PDF のページ（0 は特定していない）'),
-            dpi: z.number().int().min(0).optional().describe('再抽出の解像度（0 は PDF ではなく画像から再抽出）'),
           })
           .strict(),
       )
       .superRefine(uniqueBy('figure', '図'))
       .describe('機械監査で見つけられない図の欠陥の図ごとの上書き'),
+    provenance: z
+      .record(
+        z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/]+$/, '資格/記事/img/名前（拡張子なし）'),
+        FigureProvenance,
+      )
+      .describe('図・写真ごとの出所の正本（切り出した原典 PDF・ページ、または AI 生成・公的資料・自社書籍スキャンなどの種別）。figure-review-queue record が PDF の出典を書き、切り出し直し・参考文献の結線検査・check-image-origin が読む'),
     categories: z
       .record(
         z.string().min(1),
@@ -160,6 +204,16 @@ export const ConfigImageLimits = z
     examDirPattern: regexString('試験の過去問ディレクトリを見分ける正規表現'),
     unreferencedExcludeBasenames: z.array(z.string().min(1)).describe('どの記事からも参照されなくても検査から除くファイル名'),
     unreferencedExcludePattern: regexString('参照されなくても除くファイル名の正規表現'),
+    figureMinLongSide: z.number().int().positive().describe('記事の図（切り出し画像）の長辺の下限 px。下回ると figure-review-queue の LOW_RES（判定待ち）になる（2026-10-07・DN-0577）'),
+    aiPhoto: z
+      .object({
+        aspect: z.tuple([z.number().int().positive(), z.number().int().positive()]).describe('幅:高さ（写真はすべてこの比率）'),
+        tolerance: z.number().min(0).max(0.05).describe('比率の許容差（割合）'),
+        width: z.number().int().positive().describe('配信する幅（px）。gen-article-photo がこの幅に縮める'),
+        style: z.string().min(40).describe('全写真に共通する生成の指示（比率・写実・文字やロゴを入れない・実在の機種の形）。写真ごとの被写体は provenance の prompt'),
+      })
+      .strict()
+      .describe('記事の写真（AI 生成画像）の形。check-image-origin が比率を検査する（2026-10-07・DN-0578）'),
   })
   .strict()
   .meta({ title: '画像アセットの品質ガード' });
@@ -630,7 +684,7 @@ export const ConfigVideoContent = z
     schemaVersion: schemaVersion1,
     description: doc(),
     updated: jstDate('最終更新日'),
-    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ'), stateFile: repoPath('動画パックの状態ファイル') }).strict(),
+    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ') }).strict(),
     manifest: z
       .object({
         schemaVersion: z.number().int().positive().describe('video-pack.json の版（パック側の schemaVersion と一致が必須）'),
@@ -652,6 +706,7 @@ export const ConfigVideoContent = z
         durationSeconds: z
           .object({
             longform: durationRange(),
+            compilation: durationRange().describe('総まとめ（compilation.json を持つ聞き流しパック）の総尺'),
             shorts: durationRange({ recommendedMin: count('推奨の最小秒数'), recommendedMax: count('推奨の最大秒数') }),
           })
           .strict(),
@@ -659,6 +714,20 @@ export const ConfigVideoContent = z
       })
       .strict(),
     verbatim: z.object({ windowChars: z.number().int().positive().describe('これだけ連続一致したら逐語転用とみなす字数'), note_: doc() }).strict(),
+    visualCheck: z
+      .object({
+        contactSheetEverySec: z.number().positive().describe('コンタクトシートに 1 コマ取る間隔（秒）'),
+        contactSheetCols: z.number().int().positive(),
+        contactSheetRows: z.number().int().positive(),
+        contactSheetWidth: z.number().int().positive().describe('1 コマの幅（px）'),
+        previewFps: z.number().int().positive().describe('無音プレビューのフレームレート'),
+        maxOpeningCoverSec: z.number().positive().describe('冒頭の表紙の秒数の上限（超えると注意）'),
+        maxRepeatFrameRatio: z.number().min(0).max(1).describe('直前と同じ画面が続く秒数の割合の上限（超えると注意）'),
+        longStaticSec: z.number().positive().describe('同じ画面がこの秒数以上続く箇所を出す'),
+        note_: doc(),
+      })
+      .strict()
+      .describe('音声の前の画面確認（npm run media -- preview・DN-0603）'),
     forbiddenBinaryExtensions: z.array(z.string().regex(/^\.[a-z0-9]+$/, '.mp4 の形')).describe('Git に置かない動画・音声・字幕の拡張子'),
     state: z
       .object({
@@ -686,6 +755,7 @@ export const ConfigVideoContent = z
     if (!statuses.has(s.approvalRequiredFrom)) flag(ctx, ['state', 'approvalRequiredFrom'], `「${s.approvalRequiredFrom}」が statusEnum に無い`);
     const d = v.storyboard.durationSeconds;
     if (d.longform.min > d.longform.max) flag(ctx, ['storyboard', 'durationSeconds', 'longform'], '最小が最大を超えている');
+    if (d.compilation.min > d.compilation.max) flag(ctx, ['storyboard', 'durationSeconds', 'compilation'], '最小が最大を超えている');
     if (d.shorts.min > d.shorts.max) flag(ctx, ['storyboard', 'durationSeconds', 'shorts'], '最小が最大を超えている');
     if (!(d.shorts.min <= d.shorts.recommendedMin && d.shorts.recommendedMin <= d.shorts.recommendedMax && d.shorts.recommendedMax <= d.shorts.max)) {
       flag(ctx, ['storyboard', 'durationSeconds', 'shorts'], '推奨の範囲が許す範囲（min〜max）に収まっていない');
@@ -723,6 +793,11 @@ const BookBundle = z
       .array(z.looseObject({ order: z.number().int().positive().describe('並び順'), originalName: z.string().min(1).describe('原本の元のファイル名') }))
       .min(1)
       .describe('原本の PDF（巻ごと）'),
+    coverageSiteDirs: z
+      .array(z.string().regex(/^[a-z0-9-]+$/, '資格ディレクトリ'))
+      .min(1)
+      .optional()
+      .describe('網羅の候補表（audit-reference-book-coverage）で比べるサイトの資格ディレクトリ（content/site/<dir>/）。sources にこの本を書いた記事の資格に足す'),
   })
   .strict();
 
@@ -737,8 +812,31 @@ const ReferenceSource = z
     transcriptDir: z.string().startsWith('content/sources/').optional().describe('既存配置の文字起こしの置き場'),
     transcriptVaultDir: z.string().min(1).optional().describe('Drive vault に留める文字起こしの置き場'),
     bookBundle: BookBundle.optional(),
+    vaultCopies: z
+      .array(
+        z
+          .object({
+            path: z.string().startsWith('原資料PDF/').describe('Drive vault の中のパス（台帳 drive-manifest に載っていること。版はファイル名が持つ）'),
+          })
+          .strict(),
+      )
+      .min(1)
+      .optional()
+      .describe('公開元から取得して Drive vault に置いた写し（白書など）。図の切り出し直しの原典候補になる'),
     appliesTo: z.array(z.string().startsWith('content/')).optional().describe('この原本から作った記事の glob。一致する記事は sources が必須'),
     aliases: z.record(z.string().min(1), z.string().min(1)).optional().describe('移行前の書名 → 正しい参照（id か id#詳細）'),
+    officialTexts: z
+      .array(
+        z
+          .object({
+            text: z.string().min(30).describe('公的資料の文（定義など）を原文のまま。書籍も同じ文を載せ、言い換えられないもの'),
+            note: z.string().min(1).optional(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .optional()
+      .describe('書籍との逐語一致から差し引く公式の文章（DN-0617）。この資料を sources に挙げた記事にだけ効く。市販書籍には書かない'),
     notes: z.string().min(1).optional(),
   })
   .strict();
@@ -755,6 +853,46 @@ export const ConfigReferenceSources = z
   .superRefine((v, ctx) => {
     v.sources.forEach((s, i) => {
       if (!(s.class in v.classes)) flag(ctx, ['sources', i, 'class'], `区分「${s.class}」が classes に無い`);
+      if (s.officialTexts && v.classes[s.class]?.verbatim === 'forbidden') flag(ctx, ['sources', i, 'officialTexts'], '逐語禁止の区分の原本に公式の文章は置けない');
     });
   })
   .meta({ title: '参考文献の区分と扱い' });
+
+// ---- YouTube の動画の型 --------------------------------------------------------------------
+
+const youtubeFormat = z
+  .object({
+    id: z.string().regex(/^[a-z0-9-]+$/).describe('型の id（kebab-case）'),
+    label: z.string().min(1).describe('型の名前'),
+    status: z.enum(['active', 'trial', 'proposed', 'paused', 'rejected']).describe('採否の状態（active 公開中・trial 試作・proposed 未承認の提案・paused 止めた・rejected やらない）'),
+    role: z.enum(['発見', '理解', '送客']).describe('ファネルでの役割'),
+    lengthMinutes: z.object({ min: z.number().positive().describe('最短（分）'), max: z.number().positive().describe('最長（分）') }).strict().refine((r) => r.min <= r.max, '最短が最長を超えている').describe('尺の目安（分）'),
+    ctaKinds: z.array(z.string().min(1)).describe('主CTA の種類（台帳 config.video-content の cta.kindEnum）。Shorts のように関連動画で送る型は空'),
+    producedBy: z.string().min(1).describe('作り方（レンダラー・未実装ならその旨）'),
+    packIds: z.array(z.string().min(1)).optional().describe('この型で作った動画パックの packId（試作・置き換えの対象）'),
+    evidence: z.array(repoPath('根拠の文書')).describe('採否の根拠'),
+    decision: z.string().regex(/^DN-\d{4}$/).nullable().describe('採否を決める backlog カード。未起票なら null'),
+    note: z.string().describe('現状の数字と次の判断'),
+  })
+  .strict();
+
+/** YouTube の動画の型と採否・自社チャンネル（config/youtube-formats.json）。読み手は youtube-own-metrics・scout-youtube-competitors */
+export const ConfigYoutubeFormats = z
+  .object({
+    _doc: doc(),
+    schemaVersion: schemaVersion1,
+    updated: jstDate('最終更新日'),
+    description: doc(),
+    channel: z
+      .object({
+        id: z.string().regex(/^UC[A-Za-z0-9_-]{22}$/).describe('自社チャンネルの ID（UC…）'),
+        handle: z.string().regex(/^@/).describe('自社チャンネルのハンドル（@…）'),
+        title: z.string().min(1).describe('チャンネル名'),
+      })
+      .strict()
+      .describe('自社チャンネル'),
+    titleSignals: z.array(z.string().min(1)).min(1).describe('題名で型・題材を見分ける語。取得スクリプトが語ごとの再生中央値を集計する'),
+    formats: z.array(youtubeFormat).min(1).superRefine(uniqueBy('id', 'id')).describe('動画の型'),
+  })
+  .strict()
+  .meta({ title: 'YouTube の動画の型' });

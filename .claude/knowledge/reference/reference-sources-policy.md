@@ -44,6 +44,7 @@
   → reference-sources.json へ登録
   → 文字起こしに source frontmatter を付けて source-transcript group で同期
   → 記事 frontmatter の sources から ID で参照し、class 所定の粒度で出典を書く
+  → 展開の網羅は audit-reference-book-coverage で章・節ごとに確かめる（手元専用。見出しを含む候補表と意味判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/、git には見出しを含まない要約 .claude/state/book-coverage.json だけ）
   → check-reference-sources（通常／staged／deep）で鎖と利用条件を検査
 ```
 
@@ -83,6 +84,14 @@ npm run check-reference-sources -- --deep
 `--deep` は Drive 上の文字起こし frontmatter と原本台帳を突合し、`commercial-book` 由来の記事に
 40 文字以上の逐語一致がないことも確認する。Drive がマウントされていない環境では実体検査 0 件を明示し、
 通常検査だけを行う。
+
+書籍も載せる**公式の文章**は、一致から差し引く（DN-0617。差し引いた件数は `--deep` の出力に出る）。
+
+- **過去問の設問**: `exam-official` の `appliesTo` に当たる過去問ページで、設問の見出しの節から `<details>` を除いた部分。全記事に効く。「出題傾向」などの節は著者の文章なので、差し引きの対象に入らない
+- **公的資料の文**: 台帳の `officialTexts`（定義など。市販書籍には置けない）。その資料を `sources` に挙げた記事にだけ効く
+- **名称**: 外部へのリンクの文字（参考資料の題名）と、`external-primary` の題名（15 字以上）は比較の前に外す
+
+一致の中に公式の文章でない区間が 40 字以上残れば、その区間を一致として出す。設問に続けて書籍の解説を写しても見逃さない。
 
 **40 文字の根拠**（2026-09-08 実測・DN-0181）。真実源は `scripts/lib/reference-sources.mjs` の
 `VERBATIM_MIN_RUN` で、下の測定はそのコメントに残してある。
@@ -130,12 +139,17 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 | 原本 PDF | `原資料PDF/書籍/{referenceId}__{短い書名}/source/` | `reference-sources.json` の `origin` ＋ `reference-book-source-pdf` |
 | 原本ページ画像・クロップ | 同ディレクトリの `pages/`・`crops/` | `reference-book-page-image` ＋ `book-manifest.json` |
 | 文字起こし・校正 | 同ディレクトリの `ocr/` | `source-transcript`（README を除く `.md`）＋ `book-manifest.json` |
+| 白書・年次報告の原本 PDF | `原資料PDF/白書/` | `reference-sources.json` の `vaultCopies`（参考文献 ID → vault のパス）＋ `white-paper-source-pdf`（2026-10-07） |
 
 文字起こしの `source` が参考文献 ID、`sourcePdfs` が原本 PDF の Drive キーを保持する。これにより Drive の
 フォルダ名を人が読める状態に保ちながら、記事までの機械的な追跡は安定した ID で行える。
 従来の `content/sources/textbook/` 論理キーは `transcriptDir` として互換維持し、物理的には原資料の `ocr/` を指す。
 新規 OCR は `bookBundle.transcriptDir` を使う。原本未入手の資料は明示した `transcriptVaultDir` に置き、
 原本があるように装わない。旧 PDF キーは台帳で正本へ向け、同一内容の PDF を複製しない。
+
+白書は公開元が正本（`origin.kind: external`）で、図を切り出した版を `vaultCopies` に置く。`check-reference-sources` は
+`vaultCopies` が Drive 台帳に載っていることを確かめる。vault の実体を台帳へ載せるのは
+`node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit`（vault へは書かない）。
 
 共通仕様書の旧文字起こしは `原資料PDF/共通仕様書/{整備局}/{PDF名}/ocr/` へ統合した。
 公開 `standards-library` / `standards-articles` は repo 側を入力とするため、Drive の物理移動には依存しない。
@@ -149,5 +163,18 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 2026-07-31 のコンクリート診断士では、技報堂のスキャン教材から作ったテキストを独自散文に再構成し、
 原典図 25 枚を自作図等へ置換した。さらに、教材由来の 98 問は論点だけを保った自作演習へ書き換えた。
 これは市販書籍由来コンテンツを公開可能な形へ直した前例であり、構成も含めて独自編集へ転換する際の基準とする。
+
+## 6. 図の原典の結線と、流用不可の図
+
+図・写真ごとの出所の正本は `config/figure-sources.json` の `provenance`（図キー → 種別 `kind` と種別ごとの必須欄。PDF からの切り出しは原典 PDF・ページ。種別の一覧は [figure-provenance.md](./figure-provenance.md) ⑤・[image-policy.md](./image-policy.md)）。`check-reference-sources` は
+次を見る（2026-10-07・DN-0563・DN-0574）。
+
+- 出典が参考文献に当たる図の記事は、その参考文献を `sources:` に書く（宣言もれは FAIL）
+- 試験ページ（公式の設問を含むページ）の**設問側の図**は試験の図で、問題解説集のスキャンは媒体にすぎない。記事が試験の原典（`exam-official`）を
+  `sources:` に書いていればよく、市販の問題解説集からの切り出しも許す。**解答・解説（`<details>`）の中の図は試験の図ではない**（問題解説集・テキストの図）ので、
+  この免除は効かず、次の流用の規則に当たる（2026-10-07: 解説欄の書籍の図 12 枚がページ単位の免除で素通りしていた）
+- 試験ページでない記事か試験ページの解説欄へ `figureReuse: false`（`commercial-book`）の原典から切り出した図は、
+  `.claude/config/reference-sources-baseline.json` の `figureReuseDebt` に載っている既存分だけを許す（増えたら FAIL）。
+  返済は §5 の前例どおり自作の図への置き換えか削除。`figure-review-queue` はこの図を切り出し直しに回さない（解説欄の図も同じ）
 
 展開先（guide・textbook・keyword・practice・primary・past-exam・standards・note）ごとの加工ルール表と、commercial-book → guide/textbook の標準手順（原文を渡さない brief 方式）は [content-taxonomy.md](./content-taxonomy.md) §7 を参照する。

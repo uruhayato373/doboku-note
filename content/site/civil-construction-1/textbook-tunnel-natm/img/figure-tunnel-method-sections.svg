@@ -1,0 +1,71 @@
+<!-- authored 2026-10-09 doboku-note 自作。1級土木「トンネル（山岳工法）」の概念図。原典の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="都市の地下・川や海の底・山地の断面に、開削・シールド・沈埋・山岳の各トンネルを置いた模式図。深さと地上の使い方、水域の有無で工法が分かれることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #8a8a8a; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-in   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .gnd  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .wat  { fill: #e8f0fe; stroke: none; }
+      .lin  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bld  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .cut  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .shp  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">地上の使い方・深さ・水域の有無で、掘る位置と工法が変わる</text>
+
+  <!-- 都市の地盤 -->
+  <rect class="gnd" x="10" y="92" width="130" height="218"/>
+  <rect class="bld" x="22" y="64" width="28" height="28"/>
+  <rect class="bld" x="58" y="50" width="32" height="42"/>
+  <rect class="bld" x="98" y="68" width="30" height="24"/>
+  <!-- 開削 -->
+  <line class="cut" x1="34" y1="92" x2="34" y2="150"/>
+  <line class="cut" x1="116" y1="92" x2="116" y2="150"/>
+  <rect class="lin" x="40" y="112" width="70" height="38"/>
+  <text class="t-in" x="75" y="135" text-anchor="middle">開削</text>
+  <!-- シールド -->
+  <circle class="lin" cx="75" cy="244" r="34"/>
+  <text class="t-in" x="75" y="248" text-anchor="middle">シールド</text>
+
+  <!-- 川・海 -->
+  <rect class="wat" x="140" y="92" width="130" height="80"/>
+  <line x1="140" y1="92" x2="270" y2="92" stroke="#2e6da4" stroke-width="1.5"/>
+  <polygon class="shp" points="186,92 222,92 216,80 192,80"/>
+  <text class="t-desc" x="205" y="132" text-anchor="middle">川・海</text>
+  <!-- 水底の地盤 -->
+  <rect class="gnd" x="140" y="172" width="130" height="138"/>
+  <rect class="cut" x="172" y="172" width="66" height="44"/>
+  <rect class="lin" x="180" y="178" width="50" height="30"/>
+  <text class="t-in" x="205" y="197" text-anchor="middle">沈埋</text>
+
+  <!-- 山地 -->
+  <polygon class="gnd" points="270,92 296,60 340,40 390,60 390,310 270,310"/>
+  <path class="lin" d="M308,270 L308,244 A22,22 0 0 1 352,244 L352,270 Z"/>
+  <text class="t-in" x="330" y="259" text-anchor="middle">山岳</text>
+
+  <!-- 工法ごとの向く条件 -->
+  <rect class="box-s" x="10" y="326" width="380" height="36" rx="6"/>
+  <text class="t-name" x="24" y="348">開削</text>
+  <text class="t-desc" x="110" y="348">浅い位置で、地上を掘り下げられる区間</text>
+
+  <rect class="box-s" x="10" y="370" width="380" height="36" rx="6"/>
+  <text class="t-name" x="24" y="392">シールド</text>
+  <text class="t-desc" x="110" y="392">深く、地上を空けたままにしたい区間</text>
+
+  <rect class="box-s" x="10" y="414" width="380" height="36" rx="6"/>
+  <text class="t-name" x="24" y="436">沈埋</text>
+  <text class="t-desc" x="110" y="436">川や海の底を、浅く横断する区間</text>
+
+  <rect class="box-s" x="10" y="458" width="380" height="36" rx="6"/>
+  <text class="t-name" x="24" y="480">山岳</text>
+  <text class="t-desc" x="110" y="480">地山で切羽を保てる山地の区間</text>
+</svg>

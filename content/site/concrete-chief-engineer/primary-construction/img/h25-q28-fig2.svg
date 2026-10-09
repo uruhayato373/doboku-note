@@ -1,30 +1,29 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のマスコンクリート温度応力。書籍図の複製・トレースではない（既存 h25-q28-fig2.svg の幾何を保持して再スタイル） -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="梁せい3mの断面における応力分布の候補(1)〜(4)。左が引張応力、右が圧縮応力を示す軸に対し、直線・曲線状の分布が描かれている">
+<!-- authored 2026-09-30 doboku-note 自作。2026-10-05 に原典の問題図と照合し、(1)〜(4) の応力分布の形と線種（(1)一点鎖線・(2)点線・(3)実線・(4)破線）を原図に合わせて描き直した（原図を目視で再構成。書籍図の複製・トレースではない） -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="梁せい3 mの x-x′断面における温度応力分布の候補(1)〜(4)。縦軸の左が引張応力、右が圧縮応力">
   <defs><style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
       .t-label { font-size: 12px; fill: #1a3a5c; }
       .t-axis  { font-size: 12px; fill: #555; }
       .ln  { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
       .thin { stroke: #8a8a8a; stroke-width: 1; fill: none; }
-      .dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 2; fill: none; }
       .cur { stroke: #2e6da4; stroke-width: 1.4; fill: none; }
     </style></defs>
-  <line class="ln" x1="80" y1="40" x2="320" y2="40"/>
-  <line class="ln" x1="80" y1="220" x2="320" y2="220"/>
+  <line class="ln" x1="45" y1="40" x2="320" y2="40"/>
+  <line class="ln" x1="45" y1="220" x2="320" y2="220"/>
   <line class="ln" x1="200" y1="40" x2="200" y2="220"/>
-  <text class="t-axis" x="40" y="240">引張応力</text>
-  <text class="t-axis" x="180" y="240" text-anchor="middle">0</text>
-  <text class="t-axis" x="230" y="240">圧縮応力</text>
+  <text class="t-axis" x="60" y="242">引張応力</text>
+  <text class="t-axis" x="200" y="242" text-anchor="middle">0</text>
+  <text class="t-axis" x="232" y="242">圧縮応力</text>
   <text class="t-axis" x="355" y="130" text-anchor="middle" transform="rotate(-90 355 130)">梁せい3 m</text>
-  <line class="thin" x1="330" y1="40" x2="330" y2="220"/>
-  <line class="thin" x1="325" y1="40" x2="335" y2="40"/>
-  <line class="thin" x1="325" y1="220" x2="335" y2="220"/>
-  <line class="cur" x1="120" y1="40" x2="120" y2="220"/>
-  <text class="t-label" x="120" y="30" text-anchor="middle">(1)</text>
-  <path class="cur" d="M90 40 Q160 90 200 130 Q240 170 260 220"/>
-  <text class="t-label" x="90" y="30" text-anchor="middle">(2)</text>
-  <path class="cur" d="M280 40 Q220 90 200 130 Q180 170 120 220" stroke-dasharray="5 3"/>
-  <text class="t-label" x="280" y="30" text-anchor="middle">(3)</text>
-  <path class="cur" d="M200 40 Q170 90 200 130 Q230 170 200 220" stroke-dasharray="2 2"/>
-  <text class="t-label" x="205" y="30">(4)</text>
+  <line class="thin" x1="335" y1="40" x2="335" y2="220"/>
+  <line class="thin" x1="330" y1="40" x2="340" y2="40"/>
+  <line class="thin" x1="330" y1="220" x2="340" y2="220"/>
+  <path class="cur" d="M56 40 C110 90 170 150 198 220" stroke-dasharray="8 3 2 3"/>
+  <text class="t-label" x="86" y="124" text-anchor="end">(1)</text>
+  <path class="cur" d="M166 40 C190 55 280 110 275 155 C272 190 225 210 200 220" stroke-dasharray="2 2"/>
+  <text class="t-label" x="158" y="30" text-anchor="middle">(2)</text>
+  <path class="cur" d="M232 40 C210 60 110 120 121 160 C128 190 180 210 200 220"/>
+  <text class="t-label" x="244" y="30" text-anchor="middle">(3)</text>
+  <path class="cur" d="M63 40 L294 220" stroke-dasharray="6 4"/>
+  <text class="t-label" x="302" y="206">(4)</text>
 </svg>

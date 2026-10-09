@@ -12,7 +12,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 > [!important] 守備範囲の切り分け（重複 SSOT を作らない）
 > - **本書** = 運用（受注フロー・KPI 記録・スキーマ・ドリフト検知・安全弁）
 > - [ココナラ展開キット.md](../../../content/note/1級・2級土木/ココナラ展開キット.md) = **戦略・出品文面**（競合分析・価格設計・出品文面・ヒアリングシート・撤退ライン）
-> - `src/lib/coconala-services.ts` = **価格・状態・URL の機械可読 SoT**（文章側に価格を書かない）
+> - `config/products.json`（channel coconala）= **価格・状態・URL の機械可読 SoT**（文章側に価格を書かない）。`src/lib/coconala-services.ts` はその生成物（`npm run product -- gen`・書き換えは `npm run product -- set <id> catalog.<欄>`、出品・休止スクリプトは `updateCoconalaService`）
 
 **いつ読むか**: ココナラの受注を処理する／KPI を記録する／出品状態を変える／スキーマを触るとき。
 
@@ -34,7 +34,9 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 ## 2. 3スキーマ
 
-### 2.1 カタログ（SoT）: `src/lib/coconala-services.ts`
+### 2.1 カタログ（SoT）: `config/products.json`（channel coconala）→ 生成物 `src/lib/coconala-services.ts`
+
+欄は下表のとおり（`catalog` の中身）。2026-10-06 に TS の直書きから商品の正本へ移した（DN-0492 段階3）。
 
 | フィールド | 用途 |
 |---|---|
@@ -49,11 +51,13 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 
 現行サービス（価格の実値はカタログが真実源。ここでは id と役割のみ）:
 
+> 2026-10-04: 1級の第二次検定（10/4）が終わったため、1級の S 系・PDF はすべて受付休止（`absence`・`resumeOn: 2027-07-01` は目安）。本文に 10/4 向けの期日が残るので、来季の文面へ直してから再開する（DN-0310）。経験記述ブログ 12 本の送客先は 2級の全3テーマ版へ替えた。
+
 | id | 役割 |
 |---|---|
 | `coconala-shindan` | S1 合格診断（1級・2級共通）。レビュー獲得フロント。診断のみ・書き換え案は出さない |
 | `coconala-tensaku-set` | S2【1級】添削（2テーマ・24時間以内・書き直し1回・¥6,000）。主力。2026-09-25 に級別化＋24時間短縮（旧: 1級2級共通・4日） |
-| `coconala-tensaku-4theme` | S2+【1級】添削 上位版（5管理フル・¥15,000・週1枠・48時間以内）。2026-09-25 に「4テーマ」を廃止し1級の5管理（品質・安全・工程・施工計画・環境対策）フルへ作り替え（旧¥12,000）。当日どの2テーマが指定されても書けるよう赤入れ＋書き直し1回（まとめて）。ちゃんさとの4テーマ相当 ¥24,000×155件が根拠。**draft（未出品）** |
+| `coconala-tensaku-4theme` | **経験記述添削の統合商品**（1級・2級・基本2テーマ ¥6,000・納期3日・書き直し1回）。2026-10-05 ユーザー決定で、級・テーマ数・形式で分けていた添削・指導8商品をこの出品（受注実績あり）へ集約。全テーマ（2級 +¥2,500／1級 +¥9,000）・骨子から（テーマ1つ ¥1,000）・24時間（+¥2,000）はオプション（価格の正本は listings の `options`）。旧 ¥15,000（1級5管理フル）は `priceHistory`。**ライブは旧内容のまま休止中**で、反映と旧商品の片付けは DN-0538 |
 | `coconala-2kyu-tensaku` | S2【2級】添削（2テーマ・24時間以内・書き直し1回・¥5,000）。2026-09-25 新設（1級S2の2級版）。**draft（未出品）** |
 | `coconala-2kyu-tensaku-3theme` | S2+【2級】添削 上位版（3管理フル・¥7,500・週1枠・48時間以内）。2026-09-25 新設。2級は3管理（品質・安全・工程）で全出題をカバー。**draft（未出品）** |
 | `coconala-sakusei` | S3【1級】**指導**（2テーマ・骨子/添削とも48時間以内・納期7日・¥8,000・週2枠）。2026-09-25 に2級2テーマ版が運営に「学校の課題の代行」として取り下げられたのを受け、作成系4件すべてを代筆しない**指導**（ヒアリング→骨子シート→本人が書いた答案の添削＋再添削1回）へ作り替えた（id・URL・価格は据え置き）。添削とは「下書きがあるか」で分け、本文の【指導と添削の違い】と FAQ で互いに案内する。骨子シートの納品手順は未整備（`/keiken-tensaku` に骨子モードは無い） |
@@ -78,7 +82,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | `coconala-rccm-takuitsu-pdf` | R2 RCCM 択一 PDF 2冊（予想50問＋一問一答159問・¥3,000）。`--product R2`。試験 CBT 期間（〜10/31）向けの季節商品。判断→[09 §D7](../../../docs/strategy/09_販売チャネル競合分析.md) |
 | `coconala-rccm-mondai1-pdf` | R3 RCCM 問題I テンプレ＋受験部門の記入例2本（¥4,500）。`--product R3`（テンプレ1冊＋6部門）。購入時メッセージで部門を確認してから送る |
 | `coconala-cce-essay-pdf` / `coconala-cce-takuitsu-pdf` | K1 コンクリート主任技士 小論文 PDF5冊（¥3,000）／K2 択一直前パック PDF3冊（¥3,500）。`--product K1`/`K2`。需要未検証の試験出品（本試験 11/29 後に販売実績で継続判断＝backlog DN-0265）。**2026-09-30 に `status:'paused'`・`pauseReason:'retired'`**（販売0のまま、主任技士は「添削＋完全パック」の2件に絞った） |
-| `coconala-cce-full-pdf` | K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＋択一直前パック3冊・¥8,000＝note `cce-essay-reiwa-pack` ¥3,980＋`cce-takuitsu-chokuzen-pack` ¥2,980 の ×1.1 を ¥500 切上げ）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
+| `coconala-cce-full-pdf` | **retired（2026-10-05 ユーザー決定で主任技士の PDF から撤退・ライブの休止とアーカイブは DN-0540）**。K3 コンクリート主任技士 **完全パック** PDF9冊（令和形式の小論文6冊＝note の `00-出題傾向分析`＋テーマ別5冊〔1冊に8立場・原稿は `content/sources/cce-persona-essays/令和形式テーマ別-8立場/`〕、択一直前パック3冊・¥8,000）。¥8,000 は note 旧価格（reiwa ¥3,980＋直前 ¥2,980）の ×1.1 で決めた。2026-10-03 に note をテーマ別から 1立場1本の40本へ組み替え、同じ中身の note 商品が無くなったため価格ルールの対象外（`notePriceExempt`）。旧形式の小論文5冊は入れない。`--product K3`。2026-09-30 出品（services/4426935）。同日 K1/K2 を `coconala-pause` で受付休止済み。出題履歴の SSOT は `config/cce-essay-history.json`、運用は `/cce-essay-cycle` |
 | `coconala-cce-essay-tensaku` | コンクリート主任技士 小論文**添削**（1課題・48時間・書き直し1回込み・¥5,000・週2枠）。2026-09-29 出品。骨子からの相談は別出品にせず有料オプション（+¥3,000・20枠節約）。競合は2件のみ（¥5,000 販売0／¥3,000 ★1.0・09-29 実測）。FAQ・オプションは公開後に一回限りのスクリプトで反映済み。**添削の下書き・QA エージェントは土木の経験記述専用**で主任技士の小論文には未対応（受注時は手作業）。受注時の手順は `content/note/コンクリート主任技士/小論文-添削テンプレ.md`（5観点の判定表・NG→OK・書き直し1回） |
 | （特典）A1/A2 | 1級・2級 二次の直前暗記ノート。単独出品せず、1級の模試・フルパック・プレミアムに A1、2級の模試・フルパックに A2 を同梱（出品本文に明記・2026-09-23〜）。模試は同日に note の直前総仕上げパックより高い価格へ改定したうえで同梱した |
 | `coconala-pe-oral-pdf` | O1 技術士 口頭試験 想定問答 PDF（総監版／建設部門版から購入者の部門に合う1冊・¥3,500）。`--product O1`。購入時メッセージで部門を確認してから送る |
@@ -95,7 +99,7 @@ title: ココナラ運用 SSOT（受注・KPI・カタログ整合）
 | 二次 入門・直前（1級 `secondary-getting-started`／`guide-last-minute-2026`、2級 `secondary-{getting-started,last-two-weeks-plan}`） | 級別の添削＋指導＋`{1kyu,2kyu}-moshi-pdf`（absence 休止中は非表示） |
 | 資格トップ（`civil-construction-1`／`civil-construction-2`） | 級別の添削＋指導 |
 | 文字数チェッカー（`tools-keiken-charcount`） | `coconala-tensaku-4theme`＋`coconala-2kyu-tensaku-3theme` |
-| コンクリート主任技士（資格トップ／`guide-essay`） | `coconala-cce-essay-tensaku`＋`coconala-cce-full-pdf` |
+| コンクリート主任技士（資格トップ／`guide-essay`／`guide-trends`） | `coconala-cce-essay-tensaku` |
 
 総監 記述系は分析 PDF（`coconala-sokan-bunseki-pdf`）が retired のためルールごと外した（2026-09-30）。ルールが retired の出品を指すと `tests/offsite-cta.test.mjs` が落とす（absence は復帰するので許す）。`coconala-2kyu-tensaku`（absence）は 3 テーマ版と同じ添削なので載せない。
 
@@ -471,7 +475,7 @@ exit 2（snapshot 欠落・陳腐化）で commit を止めると、無関係な
 
 `src/app/links/page.tsx` の `CoconalaSection` が `listedCoconalaServices()` を参照し、**listed が0件なら描画しない**（wire-ahead＝出品前に配線だけ済ませておける）。ココナラ側 URL に UTM は付けない（計測がココナラ内で完結せずパラメータが露出するだけのため）。
 
-2026-09-24〜 サイトのココナラ導線（/links のココナラ行・記事末 `OffsiteCta`）は、カタログの `serviceUrl` を `coconalaAffiliateHref()`（`src/config/affiliate-creatives.ts`）で A8 の商品リンクに変換して出す（会員登録 ¥100・PR 表記・rel=sponsored・ピクセル 1 ページ 1 発）。カタログの `serviceUrl` は素の URL のまま保つ。方針と例外の理由は [affiliate-operations.md](affiliate-operations.md) §1。
+2026-09-24〜 サイトのココナラ導線（/links のココナラ行・記事末 `OffsiteCta`）は、カタログの `serviceUrl` を `coconalaAffiliateHref()`（`src/config/affiliate-creatives.ts`）で A8 の商品リンクに変換して出す（会員登録 ¥100・PR 表記・rel=sponsored と対のリファラ方針〔affiliate-operations.md §6 必須ルール 7〕・ピクセル 1 ページ 1 発）。カタログの `serviceUrl` は素の URL のまま保つ。方針と例外の理由は [affiliate-operations.md](affiliate-operations.md) §1。
 
 ## 8. 出品・修正の自動化（`/coconala-publish`・2026-07-18 新設）
 
@@ -507,7 +511,7 @@ note-publish 流儀の決定的 Playwright。ログイン済みプロファイ�
 
 | スクリプト | 役割 |
 |---|---|
-| `scripts/gen-image-gemini.mjs --out <png> --prompt "..."` | Gemini 画像 API（`gemini-2.5-flash-image`・`.env.local` の `GEMINI_API_KEY`）で背景写真を生成。**API 課金・1呼び出し=1枚**。プロンプトは brand-image-system §5 準拠（明るく低コントラスト・青トーン・文字/人物なし・左に文字余白） |
+| 画像生成 | 画像は Codex（`npm run media -- plate`、記事の写真は `scripts/gen-article-photo.mjs`）。Gemini は使わない（運営者の決定 2026-10-09）。使ったら来歴と `ai-image-fidelity-auditor` の判定 ok が要る |
 | `scripts/coconala-thumb.mjs [--service <id>] [--bg <png>]` | data/coconala/thumb-approved.json に登録した商品は原本の SHA-256 を確認してコピー（欠落・不一致は停止、--bg は不可）。未登録の商品は背景＋タイトル/訴求/価格を satori で 1200×900 合成。出力 `content/coconala/assets/thumb-<id>.png` |
 
 素材は `content/coconala/assets/`（`bg-civil.png`＝生成背景の保存・再生成の課金回避／`thumb-*.png`＝合成結果）。

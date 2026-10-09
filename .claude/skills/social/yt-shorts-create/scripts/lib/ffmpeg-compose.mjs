@@ -12,7 +12,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process';
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -195,9 +195,13 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   const durations = [];
   for (const wav of wavPaths) durations.push(await probeDuration(wav));
 
+  // 入力ごとのデコーダと色変換がそれぞれスレッドを持つので、総まとめ（131場面・262入力）では
+  // 1プロセスのスレッド上限（macOS 2048）を超え「Resource temporarily unavailable」で止まった（2026-10-08）。
+  // 場面が多いときだけ、静止画の読み込みと色変換を1スレッドにする（出力は同じ）。
+  const many = pngPaths.length > 40;
   const args = ['-y'];
   for (let i = 0; i < pngPaths.length; i++) {
-    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), '-i', pngPaths[i], '-i', wavPaths[i]);
+    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), ...(many ? ['-threads', '1'] : []), '-i', pngPaths[i], '-i', wavPaths[i]);
   }
 
   const filters = [];
@@ -207,7 +211,7 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     const audioInput = videoInput + 1;
     // 1 fps の静止画入力をそのまま concat すると端数秒が場面ごとに延び、
     // WAV 実尺で組んだ字幕が先行する。映像も同じ実尺で切ってから連結する。
-    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,format=yuv420p,setsar=1[v${i}]`);
+    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,${many ? 'scale=threads=1,' : ''}format=yuv420p,setsar=1[v${i}]`);
     filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
     concatInputs.push(`[v${i}][a${i}]`);
   }
@@ -234,6 +238,14 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
   );
   await runFFmpeg(args);
+  // options.loudnorm: 聞き流し（総まとめ）は移動中に聞くので -16 LUFS へそろえる。既定は従来どおり音量を変えない。
+  // 262入力のグラフに loudnorm を入れると ffmpeg 9.0.1 が途中でシグナル終了したので（2026-10-08）、映像はコピーし音声だけ2回目に直す
+  if (options.loudnorm) {
+    const tmp = `${outPath}.loudnorm.mp4`;
+    await runFFmpeg(['-y', '-i', outPath, '-map', '0:v', '-map', '0:a', '-c:v', 'copy',
+      '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', '-ar', '24000', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', tmp]);
+    renameSync(tmp, outPath);
+  }
   return { mp4Path: outPath, durations };
 }
 
@@ -314,9 +326,9 @@ function runCommand(cmd, args) {
         reject(err);
       }
     });
-    proc.on('close', code => {
+    proc.on('close', (code, signal) => {
       if (code === 0) resolveP({ stdout, stderr });
-      else reject(new Error(`${cmd} exited with code ${code}\n${stderr.slice(-2000)}`));
+      else reject(new Error(`${cmd} exited with code ${code}${signal ? ` (signal ${signal})` : ''}\n${stderr.slice(-2000)}`));
     });
   });
 }

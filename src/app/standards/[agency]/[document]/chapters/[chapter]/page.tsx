@@ -7,12 +7,14 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
+import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import SourceRef from '@/components/standards/SourceRef';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
+import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -100,6 +102,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus] },
   };
   const components = {
+    pre: StandardVerbatimTable,
     // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
@@ -139,6 +142,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             ]}
             label={`第${target.bookNumber}編 ${target.bookTitle}`}
             title={`第${target.chapterNumber}章 ${target.chapterTitle}`}
+            meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter((item): item is string => Boolean(item))}
           />
 
           <div className="mt-6 zenn-desktop:hidden">
@@ -183,6 +187,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           <div className="mt-10">
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
+          {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
+          <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
           <StandardsAttribution document={entry} />
         </SectionCard>
       </TwoColumnShell>

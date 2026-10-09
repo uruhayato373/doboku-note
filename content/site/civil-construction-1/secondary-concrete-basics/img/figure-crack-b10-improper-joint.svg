@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="不適当な打継ぎ処理によるひび割れの出方。古いコンクリートの上面にレイタンスや緩んだ骨材粒が残ったまま新しいコンクリートを打つと、新旧が一体にならず、打継目に沿ってひび割れが入る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">不適当な打継ぎ処理によるひび割れ</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">打継面の汚れが残ると、新旧が一体にならず継目で割れる</text>
+
+  <rect class="card" x="16" y="64" width="368" height="312" rx="6"/>
+  <!-- 旧コンクリート -->
+  <rect class="gray" x="110" y="226" width="180" height="116"/>
+  <text class="t-key" x="200" y="290" text-anchor="middle">旧コンクリート</text>
+  <!-- 新コンクリート -->
+  <rect class="conc" x="110" y="106" width="180" height="112"/>
+  <text class="t-key" x="200" y="166" text-anchor="middle">新コンクリート</text>
+  <!-- 汚れの層 -->
+  <rect class="warn" x="110" y="218" width="180" height="8"/>
+  <path class="crack" d="M 110 222 L 144 217 L 178 224 L 212 218 L 250 225 L 290 220"/>
+  <line class="lead" x1="290" y1="222" x2="306" y2="222"/>
+  <text class="t-warn" x="312" y="212">打継目</text>
+  <text class="t-warn" x="312" y="228">のひび割れ</text>
+  <line class="lead" x1="110" y1="222" x2="92" y2="256"/>
+  <text class="t-note" x="92" y="270" text-anchor="end">レイタンス</text>
+  <text class="t-note" x="92" y="284" text-anchor="end">緩い骨材粒</text>
+  <text class="t-note" x="200" y="362" text-anchor="middle">黄色の帯は、取り除かれなかった汚れの層</text>
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">原因</text>
+  <text class="t-lab" x="92" y="416">打継面のレイタンス等が残っている</text>
+  <text class="t-key" x="30" y="442">影響</text>
+  <text class="t-lab" x="92" y="442">新旧の付着が悪く、継目で割れる</text>
+  <text class="t-key" x="30" y="468">対策</text>
+  <text class="t-lab" x="92" y="468">除去（グリーンカット）・吸水・モルタル敷き</text>
+
+</svg>

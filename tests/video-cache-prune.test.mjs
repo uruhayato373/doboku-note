@@ -77,14 +77,27 @@ test('動画レンダー: Drive台帳とローカルhashを照合し、未公開
   const root = mkdtempSync(join(tmpdir(), 'video-render-prune-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
 
-  const state = {
-    schemaVersion: 1,
-    packs: {
-      scheduled: { derivatives: { longform: { status: 'scheduled' } } },
-      rendered: { derivatives: { longform: { status: 'rendered' } } },
-    },
-  };
-  put(root, '.claude/state/video-content-status.json', JSON.stringify(state));
+  // 状態の正本はコンテンツ台帳（content/registry）。作品 2 本・通常動画の公開 2 件を置く
+  const EXAM = 'civil-construction-1';
+  const put2 = (rel, doc) => put(root, rel, `${JSON.stringify(doc, null, 2)}\n`);
+  put2(`content/registry/works/${EXAM}.json`, {
+    schemaVersion: 1, exam: EXAM,
+    works: ['rendered', 'scheduled'].map((id) => ({ id, kind: 'video-pack', definition: `content/sns/video-packs/${EXAM}/${id}` })),
+  });
+  put2(`content/registry/publications/youtube/${EXAM}.json`, {
+    schemaVersion: 1, channel: 'youtube', exam: EXAM,
+    publications: [
+      {
+        id: `${EXAM}/rendered/youtube.longform`, work: 'rendered', account: 'youtube:main', format: 'longform', status: 'rendered',
+        approval: { by: 'user', at: '2026-10-01T00:00:00.000Z', contentSha256: null, grandfathered: true },
+      },
+      {
+        id: `${EXAM}/scheduled/youtube.longform`, work: 'scheduled', account: 'youtube:main', format: 'longform', status: 'scheduled',
+        approval: { by: 'user', at: '2026-10-01T00:00:00.000Z', contentSha256: null, grandfathered: true },
+        publishAt: '2026-10-20T11:00:00Z', platform: { id: 'vid1', privacy: 'private' },
+      },
+    ],
+  });
 
   const specs = [
     ['.tmp/video-render/scheduled/video.mp4', 'scheduled-video'],

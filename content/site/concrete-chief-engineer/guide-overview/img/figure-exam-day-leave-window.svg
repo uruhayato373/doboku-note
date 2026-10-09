@@ -1,0 +1,52 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材はJCI受験案内の試験当日の注意（退室できる時間帯）。教材原図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="3時間の試験時間軸。開始から1時間と終了前15分は退室できず、その間の105分だけ退室できる。開始30分を過ぎると入室もできない">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-tick  { font-size: 12px; fill: #1a3a5c; font-weight: bold; }
+      .t-band  { font-size: 14px; fill: #1a3a5c; font-weight: bold; }
+      .t-sub   { font-size: 12px; fill: #555; }
+      .t-sub30 { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .box-d   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .axis    { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .tick    { stroke: #555; stroke-width: 1.5; }
+      .cut     { stroke: #b22234; stroke-width: 1; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+
+  <!-- 時間軸 0分=y40, 60分=y180, 165分=y425, 180分=y460 -->
+  <line class="axis" x1="104" y1="40" x2="104" y2="460" />
+
+  <!-- 退室不可（開始〜60分） -->
+  <rect class="box-d" x="116" y="40" width="268" height="140" rx="6" />
+  <text class="t-band" x="250" y="82" text-anchor="middle">退室不可</text>
+  <text class="t-sub" x="250" y="138" text-anchor="middle">30 分を過ぎると入室もできない</text>
+  <line class="cut" x1="116" y1="110" x2="384" y2="110" />
+  <text class="t-sub30" x="124" y="106">30 分</text>
+
+  <!-- 退室可（60分〜165分） -->
+  <rect class="box-p" x="116" y="180" width="268" height="245" rx="6" />
+  <text class="t-band" x="250" y="296" text-anchor="middle">退室できる</text>
+  <text class="t-sub" x="250" y="318" text-anchor="middle">途中で出ると再入室はできない</text>
+
+  <!-- 退室不可（165分〜終了） -->
+  <rect class="box-d" x="116" y="425" width="268" height="35" rx="6" />
+  <text class="t-band" x="250" y="448" text-anchor="middle">退室不可</text>
+
+  <!-- 目盛り -->
+  <line class="tick" x1="98" y1="40" x2="110" y2="40" />
+  <text class="t-tick" x="92" y="44" text-anchor="end">開始</text>
+  <line class="tick" x1="98" y1="180" x2="110" y2="180" />
+  <text class="t-tick" x="92" y="184" text-anchor="end">1 時間後</text>
+  <line class="tick" x1="98" y1="425" x2="110" y2="425" />
+  <text class="t-tick" x="92" y="429" text-anchor="end">15 分前</text>
+  <line class="tick" x1="98" y1="460" x2="110" y2="460" />
+  <text class="t-tick" x="92" y="464" text-anchor="end">終了</text>
+
+  <text class="t-note" x="200" y="488" text-anchor="middle">試験時間 180 分。2026 年度の受験案内に基づく</text>
+</svg>

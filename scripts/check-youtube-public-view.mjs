@@ -15,22 +15,24 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
+import { youtubePublications } from './lib/registry-youtube-view.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { readJson } from './lib/json-io.mjs';
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const REVIEW = argv.includes('--review');
 const OUT = (() => { const i = argv.indexOf('--out'); return i >= 0 ? argv[i + 1] : null; })();
 const REVIEW_DIR = join(ROOT, '.tmp/youtube-public-view/review');
 const BP = loadBreakpointConfig();
 
-const videos = collectPublicVideos(readJson(ROOT, '.claude/state/youtube-schedule.json'), readJson(ROOT, '.claude/state/video-content-status.json'));
+const videos = collectPublicVideos(youtubePublications(ROOT, { legacyOnly: true }), loadVideoState(ROOT));
 console.log(`[check-youtube-public-view] 台帳で公開の動画 ${videos.length} 本が対象（Shorts ${videos.filter((v) => v.kind === 'shorts').length}・通常 ${videos.filter((v) => v.kind === 'long').length}）`);
 if (videos.length === 0) {
   console.error('[check-youtube-public-view] ✗ 対象 0 本（台帳の読み取りを確認・検査不成立）');

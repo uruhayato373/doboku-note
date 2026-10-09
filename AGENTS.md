@@ -62,7 +62,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 | [workflows.md](.claude/knowledge/reference/workflows.md) | 週次 PDCA・PDF→MDX 変換フロー・ブランチ/並行セッション運用 |
 | [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) | 計測データの異常・外部検証の罠・ローカルで API を叩く前 |
 | [tools/admin-app/README.md](tools/admin-app/README.md) / `.claude/config/` | 管理画面の起動・改修／OGP・PSI・自動化ツールのルール・閾値 |
-| [docs/strategy/README.md](docs/strategy/README.md) / `content/note/README.md` | 戦略の入口／note 記事 SSOT 索引（実価格は `src/lib/note-magazines.ts`） |
+| [docs/strategy/README.md](docs/strategy/README.md) / `content/note/README.md` | 戦略の入口／note 記事 SSOT 索引（実価格は `config/products.json`） |
 
 ## 12 原則
 > Karpathy's LLM coding habits — distilled for this project.
@@ -134,7 +134,7 @@ npm run check-claude-md-size   # CLAUDE.md ≤150 行・rules の paths: 必須
 - docs/ の `.md` は Obsidian callout 運用（docs-markdown-style.md）。`docs/**` を開くと docs ルールが載る
 
 ### 12. 失敗や不確実性を隠さない
-- 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する。見つけた不具合をその場で直さないなら同じセッションで `[種類:不具合]` を起票し、報告はカード番号で書く
+- 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する。見つけた不具合をその場で直さないなら同じセッションで `npm run todo:add` で起票し、報告はカード番号で書く
 - **deploy 後 500** は Cloudflare API token 期限切れを仮説 1 番に確認（GitHub Secrets で再発行）
 - 計測データに異常がある場合は measurement-incidents.md を先に確認してから結論を出す
 - **自分の失敗の後処理**: 自分の誤り（誤読・誤操作・偽の完了報告）に気づいたら (1) 同一セッション内で自分で修正する（ユーザーへ差し戻さない）(2) 原因を正典へ記録する（外部検証・CLI の罠→measurement-incidents.md／作業規律→memory の feedback）(3) **実行するコマンドと合格条件が特定できるときだけ**機械ゲート化する（§9。回帰テスト付き。特定できないものは記録まで）
@@ -157,7 +157,7 @@ Codex はファイルを読む・編集する前に、以下の適用パスに�
 
 - [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `config/asset-storage.json`, `config/drive-vault.json`, `.claude/state/assets/**`, `content/coconala/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
 - [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
-- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`
+- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/registry/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
 - [.claude/rules/operations.md](.claude/rules/operations.md) — `config/**`, `data/**`, `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`

@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="盛土内の水平排水層。高含水比の粘性土の高盛土では盛土の中に砂の層を水平に入れ、間隙水圧を下げてのり面の安定を保つ。のり先にはじゃかごを置く">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="hs-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="hs-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="hs-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">盛土内の水平排水層</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">盛土の中の水を、砂の層から外へ逃がす</text>
+
+  <rect class="warn" x="16" y="300" width="368" height="40"/>
+  <polygon class="brand" points="70,300 140,120 260,120 330,300" style="stroke-width:1.5"/>
+  <polygon class="pos" points="103.1,215 296.9,215 301.6,227 98.4,227" style="stroke-width:1.5"/>
+  <rect class="white" x="36" y="276" width="34" height="24" style="stroke:#2e6da4;stroke-width:2"/>
+  <rect class="white" x="330" y="276" width="34" height="24" style="stroke:#2e6da4;stroke-width:2"/>
+  <text class="t-lab" x="200" y="160" text-anchor="middle">盛土</text>
+  <circle class="gray" cx="46" cy="288" r="4" style="stroke-width:1"/>
+  <circle class="gray" cx="58" cy="288" r="4" style="stroke-width:1"/>
+  <circle class="gray" cx="342" cy="288" r="4" style="stroke-width:1"/>
+  <circle class="gray" cx="354" cy="288" r="4" style="stroke-width:1"/>
+  <text class="t-warn" x="200" y="186" text-anchor="middle">間隙水圧が上がりやすい</text>
+  <text class="t-pos" x="200" y="252" text-anchor="middle">砂の水平排水層</text>
+  <text class="t-note" x="200" y="268" text-anchor="middle">厚さ 20～30 cm 以上</text>
+  <text class="t-note" x="24" y="324">基礎地盤</text>
+  <text class="t-note" x="200" y="362" text-anchor="middle">のり先にじゃかごを置き、補強と排水を併用</text>
+  <line class="aB" x1="96" y1="221" x2="56" y2="221" marker-end="url(#hs-B)"/>
+  <line class="aB" x1="304" y1="221" x2="344" y2="221" marker-end="url(#hs-B)"/>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">目的</text>
+  <text class="t-lab" x="104" y="416">間隙水圧を下げ、のり面を安定</text>
+  <text class="t-key" x="30" y="442">有効</text>
+  <text class="t-lab" x="104" y="442">高含水比の粘性土による高盛土</text>
+  <text class="t-key" x="30" y="468">材料</text>
+  <text class="t-lab" x="104" y="468">砂、または高排水性ジオテキスタイル</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ワイヤフレーム、サーフェス、ソリッドの三種類のモデルを並べた比較。線だけ、面の集まり、閉じた立体の順に、できる計算が増える">
+<defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:13px;fill:#222}.h{font-size:15px;font-weight:bold;fill:#1a3a5c}.k{font-weight:bold}.sw{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.sbx{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.spx{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.wl{fill:none;stroke:#2e6da4;stroke-width:1.5}.sb{fill:#ffffff;stroke:#2e6da4;stroke-width:1.5}.sp{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.open{fill:none;stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3}</style></defs>
+<rect width="400" height="500" fill="#fff"/>
+<rect x="15" y="20" width="370" height="118" rx="8" class="sw"/>
+<polyline class="wl" points="32,56 72,56 72,96 32,96 32,56"/>
+<polyline class="wl" points="46,42 86,42 86,82 46,82 46,42"/>
+<line class="wl" x1="32" y1="56" x2="46" y2="42"/>
+<line class="wl" x1="72" y1="56" x2="86" y2="42"/>
+<line class="wl" x1="72" y1="96" x2="86" y2="82"/>
+<line class="wl" x1="32" y1="96" x2="46" y2="82"/>
+<text class="h" x="110" y="50">ワイヤフレーム</text>
+<text x="110" y="76">辺の線だけで形を表す</text>
+<text x="110" y="98">面が無く、奥の線も透けて見える</text>
+<text x="110" y="120">体積や重なりは演算できない</text>
+<rect x="15" y="148" width="370" height="118" rx="8" class="sbx"/>
+<polygon class="sb" points="32,184 72,184 72,224 32,224"/>
+<polygon class="sb" points="72,184 86,170 86,210 72,224"/>
+<polyline class="open" points="32,184 46,170 86,170 72,184"/>
+<text class="h" x="110" y="178">サーフェス</text>
+<text x="110" y="204">面の集まりで形を表す</text>
+<text x="110" y="226">地形の切盛は二つの面の差で出せる</text>
+<text x="110" y="248">面が閉じないと体積は定まらない</text>
+<rect x="15" y="276" width="370" height="118" rx="8" class="spx"/>
+<polygon class="sp" points="32,312 72,312 72,352 32,352"/>
+<polygon class="sp" points="72,312 86,298 86,338 72,352"/>
+<polygon class="sp" points="32,312 72,312 86,298 46,298"/>
+<text class="h" x="110" y="306">ソリッド</text>
+<text x="110" y="332">閉じた立体として中身まで持つ</text>
+<text x="110" y="354">体積と重なりを演算できる</text>
+<text x="110" y="376">干渉チェック・数量算出の基本形</text>
+<rect x="15" y="408" width="370" height="76" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text class="k" x="200" y="437" text-anchor="middle">ソフト間で渡すと、立体が面の集まりに</text>
+<text class="k" x="200" y="461" text-anchor="middle">変わることがある。体積を出して確かめる</text>
+</svg>

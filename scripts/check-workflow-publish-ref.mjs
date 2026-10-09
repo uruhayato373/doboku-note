@@ -18,8 +18,8 @@
  *   **その回避策自体が develop にしか無い**ため main から走る schedule には効かなかった。
  *   根治は「最初から develop を checkout して順序依存を無くす」こと。
  *
- * 検査: `schedule:` を持ち かつ develop へ push する workflow は、
- *       `actions/checkout` に `ref: develop` を持たなければならない。
+ * 検査: `schedule:` を持ち かつ develop へ push する workflow は、push するジョブの
+ *       `actions/checkout` に `ref: develop` を持たなければならない（push しない別ジョブは問わない）。
  *
  * Usage:
  *   node scripts/check-workflow-publish-ref.mjs
@@ -45,23 +45,45 @@ const PUBLISH_BRANCH = 'develop';
  */
 export function auditWorkflow(name, source) {
   const hasSchedule = /^\s*schedule:\s*$/m.test(source);
-  const publishes = new RegExp(`git push\\s+(?:origin\\s+)?(?:HEAD:)?${PUBLISH_BRANCH}\\b`).test(source);
+  const pushRe = new RegExp(`git push\\s+(?:origin\\s+)?(?:HEAD:)?${PUBLISH_BRANCH}\\b`);
+  const publishes = pushRe.test(source);
   if (!hasSchedule || !publishes) {
     return { name, hasSchedule, publishes, applicable: false, ref: null, ok: true };
   }
-  // checkout ステップ直後の with: ref: を探す（複数 checkout があれば最初の 1 つ）。
-  const checkoutIdx = source.search(/uses:\s*actions\/checkout@/);
-  const after = checkoutIdx >= 0 ? source.slice(checkoutIdx, checkoutIdx + 400) : '';
-  const m = /^\s*ref:\s*(\S+)\s*$/m.exec(after);
-  const ref = m ? m[1] : null;
+  // develop へ push するジョブごとに、そのジョブの checkout を見る（2026-10-08）。
+  // 同じ workflow に、push しない別ジョブ（例: 検証済みコードへ ref を固定した日次キュー）があってもよい。
+  const pushing = jobBlocks(source).filter((block) => pushRe.test(block));
+  const refs = (pushing.length ? pushing : [source]).map(checkoutRef);
+  const bad = refs.find((ref) => ref !== PUBLISH_BRANCH);
   return {
     name,
     hasSchedule,
     publishes,
     applicable: true,
-    ref,
-    ok: ref === PUBLISH_BRANCH,
+    ref: bad === undefined ? PUBLISH_BRANCH : bad,
+    ok: bad === undefined,
   };
+}
+
+/** jobs: 配下をジョブごとの文字列に分ける（2 字下げのキーがジョブ名）。jobs: が無ければ全体を 1 つとする */
+function jobBlocks(source) {
+  const lines = source.split('\n');
+  const start = lines.findIndex((line) => /^jobs:\s*$/.test(line));
+  if (start < 0) return [source];
+  const blocks = [];
+  for (const line of lines.slice(start + 1)) {
+    if (/^ {2}[A-Za-z0-9_-]+:\s*$/.test(line)) blocks.push([]);
+    if (blocks.length) blocks.at(-1).push(line);
+  }
+  return blocks.length ? blocks.map((block) => block.join('\n')) : [source];
+}
+
+/** checkout ステップ直後の with: ref: を返す（複数 checkout があれば最初の 1 つ）。無ければ null */
+function checkoutRef(text) {
+  const checkoutIdx = text.search(/uses:\s*actions\/checkout@/);
+  const after = checkoutIdx >= 0 ? text.slice(checkoutIdx, checkoutIdx + 400) : '';
+  const m = /^\s*ref:\s*(\S+)\s*$/m.exec(after);
+  return m ? m[1] : null;
 }
 
 /**

@@ -1,32 +1,15 @@
 import { Check } from "lucide-react";
-import {
-  CIVIL_CAREER_AD,
-  resolveCareerArticleEndCard,
-} from "@/config/affiliate-creatives";
+import { programAssetForHref } from "@/config/affiliate-creatives";
+import CareerAffiliateExperiment from "./CareerAffiliateExperiment";
 import type { CareerNeed } from "@/config/career-pathways";
+import type { ResolvedPlacement } from "@/lib/affiliate-placement";
 import {
+  AFFILIATE_LINK_REFERRER_POLICY,
   AFFILIATE_LINK_REL,
   AffiliateCta,
   AffiliatePrBadge,
   TrackingPixel,
 } from "@/components/ui/AffiliateParts";
-
-/**
- * プリセット案件の href を SSOT（affiliate-creatives.ts）から解決するための対応表。
- * MDX 本文では `href` に mat を直書きせず `program="gks"` を指定する（mat 変更時の
- * 全 MDX 置換を回避＝1 箇所変更で全インラインに反映）。
- *
- * 注意: `program="gks"` は「施工管理/建設の inline 転職枠」を表す**期間連動プリセット**で、
- * 現在は GKS 単体を指さない。campaign 期間（〜2026-08-31）はビルドジョブ（成果 ¥50,000）、
- * 9/8以降はBuildJob通常条件へ集約する。指名記事は期間に関係なく同社に固定。
- * href・コピーは `resolveCareerArticleEndCard` と同じ方針で、ビルド時に確定する。
- * この preset 指定時、MDX の service/description/points/cta は
- * resolver の文言で上書きされ無視される（景表法: 表示コピーと遷移先サービスを常に一致させるため）。
- * 真実源: .claude/knowledge/reference/affiliate-operations.md。
- */
-const CAREER_PRESETS = {
-  gks: CIVIL_CAREER_AD.href,
-} as const;
 
 interface CareerAffiliateProps {
   /** サービス名（例: "RSG建設転職"） */
@@ -36,10 +19,14 @@ interface CareerAffiliateProps {
   /** 補足説明（任意） */
   readonly description?: string;
   /**
-   * プリセット案件キー（任意）。指定すると `href` を SSOT から解決し、MDX に mat を直書きしない。
-   * 現状 `gks`（CIVIL_CAREER_AD）のみ。`href` と併用時は `href` を優先。
+   * 本文中の転職枠の印（任意）。指定すると案件・リンク・文言は配置ルール（config/affiliate-placements.json）の解決結果
+   * `inlineCard` で決め、MDX の service/description/points/cta は使わない（表示コピーと遷移先を常に一致させる＝景表法）。
+   * `"gks"` は歴史的な名前で GKS 案件を指さない（MDX 202 か所を書き換えずに残すための別名）。新しく書くときは `"career"`。
+   * ルールの無いカテゴリでは描画しない（黙って別の案件に倒さない）。
    */
-  readonly program?: keyof typeof CAREER_PRESETS;
+  readonly program?: "career" | "gks";
+  /** 配置ルールで解決した、この面に出す案件（DocPage・診断ツールが渡す）。program 指定時だけ使う */
+  readonly inlineCard?: ResolvedPlacement | null | undefined;
   /** アフィリエイトリンク URL（`program` 指定時は省略可） */
   readonly href?: string;
   /** バナー画像 URL（任意。無い場合はテキスト主体カードで描画） */
@@ -104,26 +91,34 @@ export default function CareerAffiliate({
   slug,
   need,
   emphasis = false,
+  inlineCard,
 }: CareerAffiliateProps) {
-  // 期間連動プリセット（program="gks"）: 施工管理/建設の inline 転職枠を、記事末モバイルカードと
-  // 同じ period 解決（resolveCareerArticleEndCard）で href・コピーごと出し分ける。
-  // 一般記事は期間に連動し、指名記事は同じサービスを維持する。
-  // この preset では MDX の service/description/points/cta は resolver の文言で統一する
-  // （景表法: 表示コピーと遷移先サービスを常に一致させる）。href のみ＝計測ピクセルなし
-  // （インプレッション計測はサイドバー側の 1 発火を唯一の源として維持＝1 ページ 1 ピクセル）。
-  const campaignAware = program === "gks" ? resolveCareerArticleEndCard(slug, need) : null;
-  const effService = campaignAware?.service ?? service;
-  const effCategory = campaignAware?.category ?? category;
-  const effDescription = campaignAware?.description ?? description;
-  const effPoints = campaignAware?.points ?? points;
-  const effCta = campaignAware?.cta ?? cta;
-  const resolvedHref =
-    campaignAware?.href ?? href ?? (program ? CAREER_PRESETS[program] : undefined);
+  // 本文中の転職枠（program 指定）: 案件と文言は配置ルールの解決結果で決める。ルールが無ければ出さない。
+  // href のみ＝計測ピクセルなし（1 ページ 1 ピクセルの発火源は DocPage が決める）。
+  if (program && !inlineCard) return null;
+  const ruled = program && inlineCard ? inlineCard.card(slug, need) : null;
+  const effService = ruled?.service ?? service;
+  const effCategory = ruled?.category ?? category;
+  const effDescription = ruled?.description ?? description;
+  const effPoints = ruled?.points ?? points;
+  const effCta = ruled?.cta ?? cta;
+  const resolvedHref = ruled?.href ?? href;
+  const experiment = programAssetForHref(resolvedHref);
+  if (experiment && resolvedHref) {
+    const card = { service: effService, category: effCategory, description: effDescription ?? "", href: resolvedHref, points: effPoints ?? [], cta: effCta };
+    return (
+      <div className="not-prose my-6">
+        <CareerAffiliateExperiment card={card} banner={experiment.asset.banner} program={experiment.program} trackLabel={effService} placement={placement} />
+        <TrackingPixel src={trackingPixelUrl} />
+      </div>
+    );
+  }
   return (
     <div className="not-prose my-6">
       <a
         href={resolvedHref}
         rel={AFFILIATE_LINK_REL}
+        referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}
         target="_blank"
         data-cta="affiliate"
         data-cta-label={effService}

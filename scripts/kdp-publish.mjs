@@ -30,8 +30,9 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync, statSync } from 'node:fs';
-import { join, basename } from 'node:path';
+import { join, dirname, basename } from 'node:path';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -40,8 +41,9 @@ import { resolveBook, validateBook, getDefaults, hasSpec } from './lib/kdp-commo
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { updateKindleCatalog } from './lib/product-registry.mjs';
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
@@ -103,13 +105,14 @@ if (MODE_UPDATE_COVER) {
 // ── catalog draftAsin ヘルパ（再開性=重複防止）──────────────────────────
 const readCatalog = () => (existsSync(CATALOG) ? JSON.parse(readFileSync(CATALOG, 'utf8')) : null);
 const getDraftAsin = (id) => { const c = readCatalog(); return c?.books?.find((b) => b.id === id)?.draftAsin || null; };
+// catalog.json は config/products.json からの生成物。書き換えは updateKindleCatalog（正本へ戻して作り直す）
 const setDraftAsin = (id, asin) => {
-  const c = readCatalog(); if (!c) return;
-  const b = c.books.find((x) => x.id === id); if (!b) return;
-  if (b.draftAsin === asin) return;
-  b.draftAsin = asin;
-  writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
-  console.log(`[catalog] draftAsin 記録: ${id} = ${asin}`);
+  const wrote = updateKindleCatalog((c) => {
+    const b = c.books.find((x) => x.id === id); if (!b || b.draftAsin === asin) return false;
+    b.draftAsin = asin;
+    return true;
+  });
+  if (wrote) console.log(`[catalog] draftAsin 記録: ${id} = ${asin}`);
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -238,20 +241,24 @@ async function gotoTitleSetup(page, url) {
 
 // 保存に成功した原稿・表紙のハッシュを catalog の uploaded に書く（管理画面の台帳が手元の版とのずれを出す・lib/kindle-uploaded.mjs）。
 const writeCatalogUploaded = (id, files, via) => {
-  const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
-  const at = jstClock().toISOString().slice(0, 19) + '+09:00'; // JST の壁時計（YYYY-MM-DDTHH:mm:ss+09:00）
-  for (const [part, path] of Object.entries(files)) recordUploaded(b, part, fileSha256(path), { at, via });
-  writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
-  console.log(`[catalog] ${id} uploaded 記録（${Object.keys(files).join('・')}・${via}）`);
+  const wrote = updateKindleCatalog((c) => {
+    const b = c.books.find((x) => x.id === id); if (!b) return false;
+    const at = jstClock().toISOString().slice(0, 19) + '+09:00'; // JST の壁時計（YYYY-MM-DDTHH:mm:ss+09:00）
+    for (const [part, path] of Object.entries(files)) recordUploaded(b, part, fileSha256(path), { at, via });
+    return true;
+  });
+  if (wrote) console.log(`[catalog] ${id} uploaded 記録（${Object.keys(files).join('・')}・${via}）`);
 };
 
 // 改定成功時に catalog.priceJpy を書き戻す（spec と catalog の片側残りを作らない・check-kindle-prices）。
 const writeCatalogPrice = (id, price, from) => {
-  const c = readCatalog(); const b = c?.books?.find((x) => x.id === id); if (!b) return;
-  b.priceJpy = price;
-  (b.priceHistory ||= []).push({ date: todayJst(), from: Number(from), to: price });
-  writeFileSync(CATALOG, JSON.stringify(c, null, 2) + '\n');
-  console.log(`[catalog] ${id} priceJpy = ${price}`);
+  const wrote = updateKindleCatalog((c) => {
+    const b = c.books.find((x) => x.id === id); if (!b) return false;
+    b.priceJpy = price;
+    (b.priceHistory ||= []).push({ date: todayJst(), from: Number(from), to: price });
+    return true;
+  });
+  if (wrote) console.log(`[catalog] ${id} priceJpy = ${price}（商品の正本と catalog.json）`);
 };
 const ROYALTY_RADIO = { 0.7: '70_PERCENT', 0.35: '35_PERCENT' };
 

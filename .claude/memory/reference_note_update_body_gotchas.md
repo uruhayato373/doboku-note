@@ -1,6 +1,6 @@
 ---
 name: reference_note_update_body_gotchas
-description: "note 公開済み記事のライブ反映（note-update-body / note-append-cta）の非自明な挙動。複数行blockquote脱落・画像自動アップロード・有料記事の[5e]偽陰性・会員記事の試し読みライン・price-sweep境界破壊・タグ確定・URL見出し化・OGPカード削除不可・doboku-note.comカード化失敗"
+description: "note 公開済み記事のライブ反映（note-update-body / note-append-cta）の非自明な挙動。カード化でURLが切れる・複数行blockquote脱落・画像自動アップロード・有料記事の[5e]偽陰性・会員記事の試し読みライン・price-sweep境界破壊・タグ確定・URL見出し化・OGPカード削除不可・doboku-note.comカード化失敗"
 metadata:
   type: reference
 ---
@@ -57,6 +57,12 @@ note 公開済み記事のライブ反映ツール（`scripts/note-update-body.m
 - **防衛3層（実装済）**: ①`note-article-price-sweep` にガード＝対象noteIdをソース逆引きし paidBoundary持ちが含まれたら既定ABORT(exit9)・`--allow-boundary-risk`で上書き。②`check-note-boundary.mjs`（pre-commit＋CI全量）＝paid published の paidBoundary 解決可能性を事前ゲート（RULE_GAP再発防止）。③`check-note-structure.mjs --ci`（週次/月次・note API）＝ライブ無料本文とソース境界を突合し FULL_LOCK/PAYWALL_LEAK を検出、`.claude/config/note-structure-allow.json` の allowlist でBK/総監の境界定義ズレ偽陽性20本をWAIVED。
 - 修復: 全ロック記事は `note-update-body --commit`（paidBoundary で境界H2再設定・価格は不変）。公開APIの無料テキスト長が0→回復で確認。バナーも全ロックの中に隠れて「PR画像未挿入」に見えるが境界修復で連動復活。
 
+## 2026-10-07 追記: カード化で URL が途中で切れて公開される・冒頭導線の差し込みの罠
+- **切れた URL**: 経験記述の無料記事（n1a0cef1de78b）で、原稿の `https://coconala.com/services/4418735` が公開本文では `https://coconala.com/servi`（素のリンク）になっていた。[5e] は自サイト宛てのリンクしか見ず通っていた。`assertLiveBody` に原稿 URL を渡し、原稿のどれとも一致せず途中で切れた href を FAIL にした（`findTruncatedLinks`・`tests/note-live-truncated-links.test.mjs`。無料 145 本の実走査で誤検出 0）。直し方は全文置換（無料なら `note-update-body --commit`）。見つけたのはコンテンツ台帳の導線照合（`npm run content-ledger -- --refresh-cta` の `missing`）。
+- **`note-append-cta --before-first-h2` は差し込むたびにパックのカード直後へ入る**: 2 段（添削→骨子）にしたいときは **骨子 → 添削 の順に**入れる。古い文面・逆順は `note-update-partial` の `removeBlock` で消してから入れる（2026-09-28 のココナラ導線一括）。
+- **「更新完了」でも公開されていない**: 前回の実行で下書きにだけ入り、次の実行が「既にある」で skip して終わる（上の 4 と同型）。公開 API に無ければ `--save-only --keep-boundary --text x --url <URL> --commit` で下書きを公開する。
+- ページ読み込みが遅いと `account != dobokunote` で止まるが、ログイン切れではない（`node scripts/playwright-auth.mjs status --service note` で確認）。リンクカードの後ろの空段落は note が保存時に自動で足すので、消しても戻る。
+
 ## 2026-09-23 追記: 「CDN確定待ちタイムアウト」の一部は画像消失
 - 確定=2/3 等で毎回 1 枚足りない記事は、待ち時間(480〜720s)を伸ばしても通らなかった。タイムアウト時のエディタ内 img を出すと 3 枚挿入のはずが 1 枚しか無かった＝blob 待ちではなく挿入画像が消えている。**待ちを戻して単発で再実行したら 3/3 で通った**（3 本とも）。延長を重ねず単発再実行を先に試す。分類の改修は DN-0273。
 - 冒頭 CTA の部分更新（replaceTopCta/insertTopCta）は CTA 文を h2 にし、直後の見出しを「R」＋カード＋残りに割ることがある（DN-0272）。ライブ走査は「60字超の h2/h3」「1〜2字の段落の直後にカード」で拾える。
@@ -105,3 +111,8 @@ note のリンクカード(figure 埋め込み)化（2026-06-30 実機検証で�
 - **`note-attach-file --force` はアップロード直後の再公開で境界検証 NG（exit 8）になりやすい**（有料エリア表示が間に合わない・無料漏れ防止で保存しないので公開側は無事）。数分待って `--force` なしで同じコマンドを打つと「既添付→再公開のみ」でアップロードせずに通る（10MB 級は 3〜4 分待つ）。境界の見出しは記事 frontmatter の `paidBoundary` を `--boundary-regex` に渡す（既定は「試験問題|予想問題」で、択一PDF記事の「PDF のダウンロードと使い方」には合わない）。
 - **`--list` で数十本流すと Mac の空きメモリ不足でブラウザが落ち、続く記事が連鎖失敗する**（3 本連続で ABORT）。10 本ずつ起動し直す。落ちた記事は中断記録に載るので、ライブ実査で無事を確かめてから `--force-retry`。中断ゲート（元にPDFがあるのにエディタに添付ゼロなら止める）があるので再試行は安全。
 - アップロード上限: スクリプトの安全上限 90/日は `note-attach-done.json` を数えるが、`note-attach-file` のアップロードはそこに載らないので手で足して管理する。関連 [[feedback_note_article_three_set_dod]]
+
+## 2026-10-05 追記: 会員特典マガジンの無料記事は「完了」でも反映されていないことがある
+- `memberTrial: bottom` の無料記事（is_limited・price 0）で、「公開に進む」の後に「試し読みエリアを設定」が出ず試し読みラインの画面が直接開くことがある。`publishLive` はこれを境界なしの無料記事と扱い、ラインを引かずに「更新する」を押す → note 側は確定せず公開は旧版のまま、なのに `[5e] OK`・`[OK] ライブ反映完了` が出てハッシュも記録される（`[5e]` は構造の崩れしか見ない）。
+- 見分け方: `.tmp/nu-done-<noteId>.png` が試し読み画面（「ラインをこの場所に変更」）のまま。公開 API の本文に、新しい本文にしか無い文字列が入っているかで確かめる。
+- 2026-10-05 に修正済み（DN-0542）: 試し読みの画面が直接開いても `memberTrial` に従ってラインを置くか中断し、反映後に `[5g]` で「新しい原稿の文が公開本文に出たか」を確かめる（出なければ FAIL・ハッシュを記録しない）。`[5g] 公開範囲に新しい文が無い更新` は確かめようのない更新という意味。

@@ -625,6 +625,20 @@
   }
 }
 
+/* 仕様書の逐語表はコードの配色から分離し、原本の空白・改行を保つ。 */
+.prose-blog .standard-verbatim-table pre.standard-verbatim {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 1rem;
+  background: var(--paper);
+  color: var(--ink-body);
+  font-size: var(--font-size-small);
+  line-height: 1.8;
+  white-space: pre;
+  overflow-x: auto;
+}
+
 /* prose-blog のダーク反転。@utility の中で dark:prose-invert（入れ子の &:is(.dark *)）にすると、v4 は後続の
    prose-gray の宣言（@supports(color: lab()) 版）をダーク用セレクタに付けて出力し、反転を打ち消す
    （本文がダークで暗いまま）。@utility の外の通常ルールとして書く。 */
@@ -764,6 +778,10 @@
     --color-brand: #2e6da4;
     --color-brand-fill: #e8f0fe;
     --color-brand-deep: #1a3a5c;
+
+    /* EXP-019: 紺の広告面と白文字はライト／ダーク共通。 */
+    --color-affiliate-panel: #0f2742;
+    --color-affiliate-on-panel: #ffffff;
 
     --color-positive: #3a7d44;
     --color-positive-fill: #d0e8d0;

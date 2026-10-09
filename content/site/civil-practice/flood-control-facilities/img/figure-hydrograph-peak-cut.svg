@@ -1,0 +1,58 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は河川砂防技術基準（基本計画編・施設配置等計画編）のハイドログラフと洪水調節の考え方。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ハイドログラフの図。上段は洪水の流量の時間変化で、河道に流す流量を超えた山の頭の面積を貯め、洪水後に放流する。下段は同じ高さを削っても、上流の細い山より下流の太い山のほうが貯める面積が大きいことを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .gd { stroke: #8a8a8a; stroke-dasharray: 4 3; fill: none; }
+      .in { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ou { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .st { fill: #e8f0fe; }
+    </style>
+    <clipPath id="k1"><rect x="50" y="40" width="320" height="90"/></clipPath>
+    <clipPath id="k2"><rect x="10" y="330" width="380" height="62"/></clipPath>
+    <clipPath id="k3"><rect x="50" y="40" width="63.5" height="210"/></clipPath>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="8" width="380" height="292" rx="8"/>
+  <path d="M113,130 H236 C270,160 300,236 350,244 V250 H113 Z" fill="#d0e8d0"/>
+  <path d="M50,246 C84,244 118,66 160,66 C200,66 232,222 350,244 V250 H50 Z" fill="#fff"/>
+  <path class="st" clip-path="url(#k1)" d="M50,246 C84,244 118,66 160,66 C200,66 232,222 350,244 V250 H50 Z"/>
+  <path class="ax" d="M50,250 V34 M50,250 H362" marker-end="url(#ah)"/>
+  <text x="58" y="40">流量</text>
+  <text x="360" y="266" text-anchor="end">時間</text>
+  <path class="gd" d="M50,66 H358 M50,130 H358"/>
+  <text x="338" y="60" text-anchor="end">ピーク流量</text>
+  <text x="338" y="124" text-anchor="end">河道に流す流量</text>
+  <path class="ax" d="M350,70 V126" marker-start="url(#at)" marker-end="url(#ah)"/>
+  <text x="342" y="102" text-anchor="end">削る高さ</text>
+  <path class="in" d="M50,246 C84,244 118,66 160,66 C200,66 232,222 350,244"/>
+  <path class="ou" clip-path="url(#k3)" d="M50,246 C84,244 118,66 160,66 C200,66 232,222 350,244"/>
+  <path class="ou" d="M113,130 H236 C270,160 300,236 350,244"/>
+  <circle cx="113" cy="130" r="3.5" fill="#2e6da4"/>
+  <text x="118" y="148">調節開始流量</text>
+  <text class="b" x="161" y="96" text-anchor="middle">貯める量</text>
+  <text x="161" y="111" text-anchor="middle">＝面積</text>
+  <path class="in" d="M22,282 h18"/><text x="44" y="286">施設がない場合</text>
+  <path class="ou" d="M130,282 h18"/><text x="152" y="286">調節後</text>
+  <rect x="196" y="275" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4"/><text x="212" y="286">貯める</text>
+  <rect x="256" y="275" width="12" height="12" fill="#d0e8d0" stroke="#3a7d44"/><text x="272" y="286">後で出す</text>
+
+  <rect class="p" x="10" y="308" width="380" height="188" rx="8"/>
+  <text class="b" x="24" y="328">上流（山が細い）</text>
+  <text class="b" x="212" y="328">下流（山が太い）</text>
+  <path class="gd" d="M24,346 H180 M210,346 H366"/>
+  <path class="st" clip-path="url(#k2)" d="M26,456 C62,456 78,346 98,346 C118,346 130,452 170,456 V458 H26 Z"/>
+  <path class="st" clip-path="url(#k2)" d="M212,456 C222,456 230,346 256,346 H316 C336,346 346,452 366,456 V458 H212 Z"/>
+  <path class="ax" d="M24,456 H180 M210,456 H366"/>
+  <path class="gd" d="M24,392 H180 M210,392 H366"/>
+  <path class="in" d="M26,456 C62,456 78,346 98,346 C118,346 130,452 170,456"/>
+  <path class="in" d="M212,456 C222,456 230,346 256,346 H316 C336,346 346,452 366,456"/>
+  <text x="24" y="474">貯める面積は小さい</text>
+  <text x="212" y="474">貯める面積は大きい</text>
+  <text class="b" x="24" y="489">同じ高さを削っても、山が太いほど貯める量は増える</text>
+</svg>

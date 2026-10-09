@@ -20,9 +20,9 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
-const ROOT = join(REPO_ROOT, 'out');
+const ROOT = join(process.cwd(), 'out');
 // dev サーバー（3020）とは別ポートにする。同じにすると Playwright の reuseExistingServer が
 // 起動中の dev を黙って再利用してしまい、静的配信のつもりで dev を検査することになる。
 const PORT = Number(process.env.PORT ?? 3025);
@@ -66,11 +66,18 @@ function loadRedirects() {
   return { exact, prefixes };
 }
 
-function resolveRedirect(pathname, redirects) {
+/**
+ * Cloudflare Pages と同じく、ワイルドカードの残り（`*` に当たった部分）を転送先の `:splat` に入れる。
+ * 2026-10-08 まで置き換えず `…/posts/:splat` へ転送していたため、out/ に無い `/posts/*` の画像の要求が
+ * 存在しない URL へ飛んで失敗を繰り返し、E2E の `networkidle` が来ずに時間切れになった（PR #921・r06）。
+ */
+export function resolveRedirect(pathname, redirects) {
   const hit = redirects.exact.get(pathname);
   if (hit) return hit;
   for (const rule of redirects.prefixes) {
-    if (pathname.startsWith(rule.prefix)) return { to: rule.to, status: rule.status };
+    if (pathname.startsWith(rule.prefix)) {
+      return { to: rule.to.replace(':splat', pathname.slice(rule.prefix.length)), status: rule.status };
+    }
   }
   return null;
 }
@@ -141,4 +148,4 @@ async function main() {
   });
 }
 
-main();
+if (isCliEntry(import.meta.url)) main();

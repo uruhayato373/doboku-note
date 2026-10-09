@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="台風の接近は中心が地点から300km以内、上陸は中心が北海道・本州・四国・九州の海岸に達すること、通過は小さい島や半島を横切って短時間で海上へ出ること" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs>
+    <marker id="tr" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <g stroke="#d7d7d7" stroke-width="1">
+    <path d="M20,168 L380,168"/>
+    <path d="M20,326 L380,326"/>
+  </g>
+  <circle cx="100" cy="89" r="62" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M100,89 L162,89" fill="none" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="100" cy="89" r="4" fill="#222"/>
+  <text x="131" y="82" font-size="12" fill="#1a3a5c" text-anchor="middle">300km</text>
+  <text x="100" y="112" font-size="12" fill="#1a3a5c" text-anchor="middle">地点</text>
+  <path d="M26,160 L50,138" fill="none" stroke="#b22234" stroke-width="2" marker-end="url(#tr)"/>
+  <circle cx="58" cy="131" r="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <rect x="20" y="172" width="160" height="150" fill="#e8f0fe"/>
+  <path d="M112,172 L180,172 L180,322 L120,322 L130,262 L102,218 Z" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="150" y="252" font-size="12" fill="#8a8a8a" text-anchor="middle">陸</text>
+  <path d="M28,292 L96,229" fill="none" stroke="#b22234" stroke-width="2" marker-end="url(#tr)"/>
+  <circle cx="104" cy="222" r="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <rect x="20" y="330" width="160" height="150" fill="#e8f0fe"/>
+  <ellipse cx="100" cy="405" rx="32" ry="20" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <path d="M28,470 L170,350" fill="none" stroke="#b22234" stroke-width="2" marker-end="url(#tr)"/>
+  <circle cx="100" cy="409" r="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <g fill="#1a3a5c">
+    <g font-size="15" font-weight="700">
+      <text x="196" y="62">接近</text>
+      <text x="196" y="222">上陸</text>
+      <text x="196" y="378">通過</text>
+    </g>
+    <g font-size="13">
+      <text x="196" y="88">中心が地点から</text>
+      <text x="196" y="108">300km以内に入る</text>
+      <text x="196" y="248">中心が北海道・本州・</text>
+      <text x="196" y="268">四国・九州の海岸に達する</text>
+      <text x="196" y="404">中心が小さい島や小さい</text>
+      <text x="196" y="424">半島を横切り、短時間で</text>
+      <text x="196" y="444">再び海上へ出る</text>
+    </g>
+  </g>
+</svg>

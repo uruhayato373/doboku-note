@@ -195,7 +195,8 @@ test('NoteStatusSnapshot: 件数の関係・失敗率・検査ゼロの緑・dri
   assertFails(S, mutated(v, (x) => (x.fetchFail = 3)), /fetchFail/);
   assertFails(S, mutated(v, (x) => (x.fetchFailRate = 0.5)), /fetchFailRate/);
   assertFails(S, mutated(v, (x) => (x.fetchFailRate = 1.5)), /fetchFailRate/);
-  assertFails(S, mutated(v, (x) => (x.drift[0].live = 'draft')), /drift\.0\.live/);
+  // drift は実データで 0 件の週もあるので、先頭要素を書き換えず 1 件差し替える（DN-0531）
+  assertFails(S, mutated(v, (x) => (x.drift = [{ rel: 'a.md', noteId: 'n1', status: 'draft', live: 'draft' }])), /drift\.0\.live/);
   assertFails(S, mutated(v, (x) => (x.fixed = 9)), /fixed が drift/);
   assertFails(S, mutated(v, (x) => (x.fetchedAt = '2026-09-30T16:39:46+09:00')), /fetchedAt/);
   assertFails(S, mutated(v, (x) => (x.warn = [{ rel: 'a.md', noteId: 'n1', status: 'publish' }])), /warn\.0\.live/);

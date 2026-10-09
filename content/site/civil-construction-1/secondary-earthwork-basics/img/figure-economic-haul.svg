@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="機械ごとの経済的運搬距離の考え方。運搬距離が長くなるにつれ、ブルドーザ、スクレーパ、ショベル・ダンプトラックの順に施工単価が安い機械が入れ替わる。入れ替わる距離が、各機械の経済的運搬距離となる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-economic-haul-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-economic-haul-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-economic-haul-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-economic-haul-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">機械ごとの経済的運搬距離</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">距離が伸びるほど、有利な機械が入れ替わる</text>
+  <text class="t-note" x="24" y="110">運搬距離が短い</text>
+  <text class="t-note" x="376" y="110" text-anchor="end">長い</text>
+  <line x1="24" y1="122" x2="376" y2="122" style="stroke:#8a8a8a;stroke-width:1.5" marker-end="url(#figure-economic-haul-ak)"/>
+  <rect class="green" x="24" y="150" width="116" height="60" style="stroke-width:1.5"/>
+  <text class="t-key" x="82" y="184" text-anchor="middle">ブルドーザ</text>
+  <rect class="soil" x="140" y="150" width="110" height="60" style="stroke-width:1.5"/>
+  <text class="t-key" x="195" y="184" text-anchor="middle">スクレーパ</text>
+  <rect class="brand" x="250" y="150" width="126" height="60" style="stroke-width:1.5"/>
+  <text class="t-key" x="313" y="176" text-anchor="middle">ショベル・</text>
+  <text class="t-key" x="313" y="194" text-anchor="middle">ダンプトラック</text>
+  <line x1="140" y1="214" x2="140" y2="234" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3"/>
+  <line x1="250" y1="214" x2="250" y2="234" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3"/>
+  <text class="t-warn" x="195" y="248" text-anchor="middle">この距離を超えると、次の機械が安い</text>
+  <text class="t-note" x="195" y="266" text-anchor="middle">（機械を切り替える距離が、経済的運搬距離）</text>
+  <circle cx="40" cy="296" r="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t-key" x="40" y="300" text-anchor="middle">1</text>
+  <text class="t-lab" x="60" y="300">機械ごとに、運搬距離と施工単価の関係を求める</text>
+  <circle cx="40" cy="326" r="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t-key" x="40" y="330" text-anchor="middle">2</text>
+  <text class="t-lab" x="60" y="330">関係を重ね、単価が安い機械を距離ごとに見る</text>
+  <circle cx="40" cy="356" r="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t-key" x="40" y="360" text-anchor="middle">3</text>
+  <text class="t-lab" x="60" y="360">機械が入れ替わる距離を読み取る</text>
+  <rect class="box" x="16" y="392" width="368" height="66" rx="6"/>
+  <text class="t-key" x="30" y="414">ねらい</text>
+  <text class="t-lab" x="104" y="414">運搬距離に応じ、最も経済的な機械を選ぶ</text>
+  <text class="t-key" x="30" y="440">目安</text>
+  <text class="t-lab" x="104" y="440">施工単価（円/m³）が最も安い機械</text>
+
+</svg>

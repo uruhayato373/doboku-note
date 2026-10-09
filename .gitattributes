@@ -7,7 +7,7 @@ tests/fixtures/google-console/*.csv -text -whitespace
 content/site/standards-library/**/*.md -whitespace
 
 # 商品の正本（DN-0492）: Windows / Mac で改行をそろえる（product CLI は LF で書く）
-content/products/**/*.json text eol=lf
+config/products.json text eol=lf
 
 # public/_redirects は生成スクリプトが LF で書く。autocrlf の PC で改行差だけの変更が毎回出るのを防ぐ
 public/_redirects text eol=lf

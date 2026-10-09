@@ -84,6 +84,23 @@
       "reason": "試験実施機関が公開する過去問の原本（公式の問題・正答・解答例）。市販教材（textbook-source-pdf）とは出所と再利用条件（reference-sources.json の exam-official）が違うので別に持つ。{資格}/{年度}/ で並べ、在庫は data/pastexams/inventory.json が持つ。公式の掲載は直近数年度だけのことが多く取り直せないので regenerable=false。第三者の解答・解説は教材側（原資料PDF/教材/{資格}/過去問解説/）に置く。"
     },
     {
+      "id": "white-paper-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/white-papers/.+\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/白書",
+      "keyFrom": "stripPrefix:content/sources/white-papers/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "config/reference-sources.json の vaultCopies（白書の手元の写し）",
+        "scripts/figure-review-queue.mjs（図の切り出し直しの原典候補）"
+      ],
+      "reason": "省庁が公開する白書・年次報告の原本 PDF。公開元から取り直せるが年度ごとに差し替わり、図を切り出した版が消えるので regenerable=false。人と手元のスクリプト（図の切り出し直し・論文対策の根拠確認）だけが読む。2026-10-07 まで台帳に無く、図の原典探しが白書をネットから取得した（DN-0564）。"
+    },
+    {
       "id": "textbook-source-pdf",
       "status": "active",
       "audience": "human",
@@ -152,6 +169,23 @@
       "reason": "参考文献 ID 単位の通しページ画像と最終図クロップ。原本 PDF と同じ書籍ディレクトリに置き、OCR・原典照合・再クロップをページ単位で再実行できるようにする。"
     },
     {
+      "id": "reference-book-coverage",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/books/[^/]+/coverage/(candidates|verdict)\\.json$"
+      },
+      "vaultDir": "原資料PDF/書籍",
+      "keyFrom": "stripPrefix:content/sources/books/",
+      "regenerable": false,
+      "generator": "npm run audit-reference-book-coverage（候補表）・Evaluator（意味判定）",
+      "requiredBy": [
+        "scripts/audit-reference-book-coverage.mjs（--summary が要約を作る）",
+        "書籍→サイト展開の Writer・QA への指示（人）"
+      ],
+      "reason": "書籍の節とサイトの節の候補表と意味判定。市販書籍の見出し・用語を含むので Git と公開サイトに置かず、原本と同じ書籍ディレクトリの coverage/ に置く。git には見出しを含まない要約（.claude/state/book-coverage.json）だけを置く。意味判定は作り直せないので regenerable=false。"
+    },
+    {
       "id": "note-delivery-pdf",
       "status": "active",
       "audience": "human",
@@ -215,6 +249,24 @@
         "YouTube へのアップロード（人）"
       ],
       "reason": "16:9 動画のレンダー成果物。render-longform を回す CI ワークフローは存在せず、生成も公開も人が手元で行う。"
+    },
+    {
+      "id": "content-media",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^\\.tmp/media/(?:[a-z0-9-]+/[a-z0-9-]+/(?:[a-z]+\\.[a-z]+(?:\\.[a-z0-9-]+)?|work)|_brand/[a-z0-9-]+)/[a-z][a-z0-9-]*\\.[0-9a-f]{8}\\.(?:png|jpe?g|webp|mp4|m4a|wav|ass|json)$"
+      },
+      "vaultDir": "制作物/コンテンツ",
+      "keyFrom": "stripPrefix:.tmp/media/",
+      "immutable": true,
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/media.mjs",
+        "content/registry/media"
+      ],
+      "reason": "コンテンツ台帳（content-registry.md）の素材の正本。作品の ID ごとのフォルダに中身の sha 入りの名前で置き、一度置いたら書き換えない（同じパスへの描き直しで台帳とずれた DN-0589 の再発防止）。人が採用・確認する素材なので Drive に置く。"
     },
     {
       "id": "youtube-approved-cover",

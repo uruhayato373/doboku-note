@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="元請負人の行為ごとに違反のおそれがある主な条文を対応させた表。指値発注は第18条と第19条の3第1項、赤伝処理は第19条の3第1項、やり直し工事の費用押し付けは第19条第2項、資材の購入強制は第19条の4、支払保留は第24条の3と第24条の6、長期手形は第24条の6第3項">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .lead { fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .r { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .r2 { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="lead" x="200" y="18" text-anchor="middle">行為ごとに、違反のおそれがある条文が対応する</text>
+
+  <rect class="hd" x="20" y="28" width="130" height="30"/>
+  <rect class="hd" x="150" y="28" width="230" height="30"/>
+  <text class="h" x="85" y="48" text-anchor="middle">行為</text>
+  <text class="h" x="265" y="48" text-anchor="middle">違反のおそれがある主な条文</text>
+
+  <rect class="r" x="20" y="58" width="130" height="50"/>
+  <rect class="r" x="150" y="58" width="230" height="50"/>
+  <text class="k" x="30" y="87">指値発注</text>
+  <text x="160" y="79">法第18条（対等な合意の原則）</text>
+  <text x="160" y="97">法第19条の3第1項（原価割れ）</text>
+
+  <rect class="r2" x="20" y="108" width="130" height="50"/>
+  <rect class="r2" x="150" y="108" width="230" height="50"/>
+  <text class="k" x="30" y="137">赤伝処理</text>
+  <text x="160" y="129">法第19条の3第1項（原価割れ）</text>
+  <text x="160" y="147">明示を欠けば第19条・第20条第3項</text>
+
+  <rect class="r" x="20" y="158" width="130" height="50"/>
+  <rect class="r" x="150" y="158" width="230" height="50"/>
+  <text class="k" x="30" y="179">やり直し工事の</text>
+  <text class="k" x="30" y="196">費用の押し付け</text>
+  <text x="160" y="179">法第19条第2項（契約変更を怠る）</text>
+  <text x="160" y="197">法第19条の3第1項（原価割れ）</text>
+
+  <rect class="r2" x="20" y="208" width="130" height="50"/>
+  <rect class="r2" x="150" y="208" width="230" height="50"/>
+  <text class="k" x="30" y="229">資材の購入強制</text>
+  <text class="k" x="30" y="246">（契約締結後）</text>
+  <text x="160" y="237">法第19条の4</text>
+
+  <rect class="r" x="20" y="258" width="130" height="50"/>
+  <rect class="r" x="150" y="258" width="230" height="50"/>
+  <text class="k" x="30" y="287">支払保留</text>
+  <text x="160" y="279">法第24条の3（受領から1月以内）</text>
+  <text x="160" y="297">法第24条の6（特定建設業者は50日）</text>
+
+  <rect class="r2" x="20" y="308" width="130" height="50"/>
+  <rect class="r2" x="150" y="308" width="230" height="50"/>
+  <text class="k" x="30" y="337">長期手形</text>
+  <text x="160" y="329">法第24条の6第3項</text>
+  <text x="160" y="347">特定建設業者が出す割引困難な手形</text>
+
+  <rect class="w" x="20" y="374" width="360" height="106" rx="6"/>
+  <text class="h" x="36" y="396">あわせて問われるおそれ</text>
+  <text x="36" y="416">指値発注・赤伝処理・やり直し工事は、情状によって</text>
+  <text x="36" y="433">法第28条第1項第2号（請負契約に関する不誠実な</text>
+  <text x="36" y="450">行為）に当たるおそれがある。違反が重ければ指示や</text>
+  <text x="36" y="467">営業停止の対象になる。</text>
+</svg>

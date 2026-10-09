@@ -77,7 +77,7 @@ node scripts/drive-vault-sync.mjs --group source-transcript --verify --deep --cl
 npm run check-reference-sources -- --deep
 
 # 必要なときに取り戻す（vault → repo。書名単位でパス指定）
-node scripts/drive-vault-sync.mjs --pull --path 'content/sources/textbook/技術士（総監）/'
+node scripts/drive-vault-sync.mjs --pull --path 'content/sources/textbook/技術士（総監）/' --commit
 
 # 台帳を経由せず Drive 上を一覧（容量を食わずに確認）
 rclone ls doboku-gdrive:doboku-note/原資料PDF/教材 | head

@@ -30,13 +30,13 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 
 | チャネル | ネイティブ状態の真実源 | 写像 |
 |---|---|---|
-| 動画パック | `.claude/state/video-content-status.json` の statusEnum | `draft`＝本文有無で planned/draft、`qa_blocked`/`failed`→draft、`qa_passed`/`approved`→review、`rendered`/`scheduled`→scheduled、`published`/`measured`/`refresh_due`→published、`stopped`→retired |
+| 動画パック | コンテンツ台帳 `content/registry/` の公開の status（写しの video-content-status.json は 2026-10-09 に消えた。写像は `scripts/lib/content-registry.mjs` の `publicationStage`） | `draft`＝本文有無で planned/draft、`qa_blocked`/`failed`→draft、`qa_passed`/`approved`→review、`rendered`/`scheduled`→scheduled、`published`/`measured`/`refresh_due`→published、`stopped`→retired |
 | サイト記事 | MDX frontmatter `published` | true→published／false→draft／統合済み 301→retired |
 | note 記事 | `content/note/**/article*.md` の `noteUrl` | あり→published／なし→draft |
 | note マガジン | `src/lib/note-magazines.ts` の `published` | true→published／false かつ noteUrl あり→review／それ以外→draft |
 | Instagram | パック配下 `posted.json` の有無 | あり→published／予約→scheduled／なし→draft |
 | X | `content/sns/x/draft/**/status.json` の tweets[].status | queued→draft／scheduled→scheduled／posted→published／replaced・cancelled→retired |
-| YouTube Shorts | `.claude/state/youtube-schedule.json` の items[].status | pending→scheduled／uploaded→published／retired・skipped→retired／failed→draft |
+| YouTube Shorts | コンテンツ台帳 `content/registry/publications/youtube/` の status（旧 Shorts は作品の kind が `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した） | 旧 uploaded→published／旧 retired→stopped（user-decision）／消失→stopped（gone）。段階は `youtubePublications` の `stage` |
 | ココナラ | `src/lib/coconala-services.ts` の status（＋pauseReason） | draft→draft／listed→published／paused かつ absence→scheduled／paused（retired・理由不明）→retired／archived→retired |
 | Kindle | `scripts/kindle-published/catalog.json` の status | draft→draft／in_review→review／live→published／unpublished→retired |
 

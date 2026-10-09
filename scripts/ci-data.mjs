@@ -14,6 +14,8 @@
  *       paths は実在する（作業ツリーか index にある）ものだけを git add -A、datasets は当たる変更ファイルだけを add する。
  *       無いパスは飛ばす。git の失敗は隠さない（exit 1）。stage した記録のうち型（zod）のあるデータセットのファイルを型で検査し、
  *       違反があれば exit 1（push の前に止める。書き戻しのコミットは [skip ci] なので、ここで止めないと次の人の PR で初めて赤くなる）
+ *   validate <dir>   save で退避した記録のうち型（zod）のあるデータセットのファイルを型で検査する。違反があれば exit 1
+ *                    （collect ジョブで使う。publish の add で初めて落ちると collector が緑のまま記録が入らない）
  *   latest <id>      データセットの最新ファイルのパス（無ければ exit 1）。GA4・GSC のレポートの種類（ga4.page など）なら
  *                    最新の「ファイル#枠」（scripts/lib/metric-reports.mjs）
  *   path <id>        データセットのパス（日時などの可変部分があれば、その手前のディレクトリ）
@@ -149,6 +151,33 @@ export function validateStaged(root) {
   return { checked, errors };
 }
 
+/**
+ * save で退避した記録のうち、型のあるデータセットのファイルを型で検査する（collect ジョブで使う）。
+ * publish の add でも同じ検査が走るが、そこで落ちると collector は緑のまま Issue も閉じてしまう
+ * （2026-10-04〜06 の a8: 取得・正規化は成功、書き戻しだけが型で落ち、9 月分が一度も commit されなかった・DN-0566）。
+ * 退避した時点で検査して、違反を collector の失敗として扱えるようにする。
+ */
+export function validateSaved(dir) {
+  const errors = [];
+  let checked = 0;
+  let files = 0;
+  if (!existsSync(dir)) return { files, checked, errors };
+  const filesRoot = join(dir, 'files');
+  for (const m of readdirSync(dir).filter((n) => /^manifest-.+\.json$/.test(n)).sort()) {
+    const man = JSON.parse(readFileSync(join(dir, m), 'utf8'));
+    for (const file of man.files) {
+      files++;
+      for (const x of datasetsFor(file)) {
+        if (!x.schema) continue;
+        const r = validateFiles(filesRoot, x, [file]);
+        checked += r.checked;
+        for (const e of r.errors) errors.push(`${e.file}: 型（${x.id}）に合わない — ${e.message}`);
+      }
+    }
+  }
+  return { files, checked, errors };
+}
+
 // ---- CLI ---------------------------------------------------------------------------------
 
 function parse(argv) {
@@ -192,6 +221,15 @@ function main() {
       console.error('[ci-data] 型に合わない記録を書き戻そうとした。書き手か型（scripts/lib/dataset-schemas.mjs）を直す');
       process.exit(1);
     }
+  } else if (cmd === 'validate') {
+    need(o._[0], 'validate <dir> が要る');
+    const v = validateSaved(o._[0]);
+    console.log(`[ci-data] validate: 退避 ${v.files} ファイル・型の検査 ${v.checked} ファイル・違反 ${v.errors.length} 件`);
+    if (v.errors.length) {
+      for (const e of v.errors) console.error(`[ci-data]   ✗ ${e}`);
+      console.error('[ci-data] 型に合わない記録を退避した。このままでは publish で落ちて記録に入らない。書き手か型（scripts/lib/dataset-schemas.mjs）を直す');
+      process.exit(1);
+    }
   } else if (cmd === 'latest') {
     need(o._[0], 'latest <id> が要る');
     const p = o._[0] in REPORT_KINDS ? latestReportRef(root, o._[0]) : (dataset(o._[0]), latestFile(root, o._[0]));
@@ -208,7 +246,7 @@ function main() {
     copyFileSync(o._[1], join(root, x.path));
     console.log(`[ci-data] put: ${o._[1]} → ${x.path}`);
   } else {
-    console.error(`使い方: node scripts/ci-data.mjs <save|restore|add|latest|path|put> …（${Object.keys(AREAS).join('・')} の台帳は scripts/lib/datasets.mjs）`);
+    console.error(`使い方: node scripts/ci-data.mjs <save|restore|add|validate|latest|path|put> …（${Object.keys(AREAS).join('・')} の台帳は scripts/lib/datasets.mjs）`);
     process.exit(2);
   }
 }

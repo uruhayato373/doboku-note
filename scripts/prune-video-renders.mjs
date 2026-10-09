@@ -12,10 +12,10 @@ import { join, relative, resolve } from 'node:path';
 import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 import { sha256File as sha256 } from './lib/asset-storage.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const BASE = join(ROOT, '.tmp/video-render');
-const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const DRIVE_CONFIG = join(ROOT, datasetPath('config.drive-vault'));
 const argv = process.argv.slice(2);
@@ -36,11 +36,10 @@ function removeEmptyDirs(dir) {
   if (dir !== BASE && readdirSync(dir).length === 0) rmdirSync(dir);
 }
 
-if (!existsSync(STATE_PATH)) throw new Error('動画公開台帳がありません');
 if (!existsSync(DRIVE_MANIFEST)) throw new Error('Drive台帳がありません');
 if (!verifyCloud && !existsSync(verifiedListPath)) throw new Error(`クラウド照合済み一覧がありません: ${verifiedListPath}`);
 
-const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+const state = loadVideoState(ROOT);
 const manifest = JSON.parse(readFileSync(DRIVE_MANIFEST, 'utf8'));
 const archived = Object.entries(manifest.entries ?? {})
   .filter(([rel, entry]) => rel.startsWith('.tmp/video-render/') && entry.group === 'video-render-artifact');

@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="谷埋め盛土の縦断面。旧谷底に沿ってすべり、盛土内の水位が高いと動きやすい。原因は水位の高さ、旧谷底の弱さ、排水の目詰まりの三つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .r { font-size: 11px; fill: #b22234; }
+      .gr { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .fl { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .hs { fill: #fff; stroke: #555; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+  </defs>
+  <text class="s" x="15" y="30">地震の揺れで、水を含んだ盛土が旧谷底に沿ってすべる。</text>
+  <g transform="translate(0,-12)">
+    <polygon class="gr" points="15,150 300,225 385,240 385,262 15,262"/>
+    <polygon class="fl" points="16,110 300,110 300,225 16,150"/>
+    <polygon points="17,127 300,156 300,225 17,150.3" fill="#e8f0fe"/>
+    <path d="M17,127 L300,156" stroke="#2e6da4" stroke-width="2" stroke-dasharray="6 3" fill="none"/>
+    <path d="M105,172 L298,223" stroke="#b22234" stroke-width="3" stroke-dasharray="7 3" fill="none"/>
+    <rect x="300" y="110" width="10" height="118" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+    <rect x="300" y="188" width="10" height="4" fill="#2e6da4"/>
+    <rect x="300" y="206" width="10" height="4" fill="#2e6da4"/>
+    <rect class="hs" x="60" y="94" width="32" height="16"/>
+    <polygon class="hs" points="56,94 76,80 96,94"/>
+    <rect class="hs" x="200" y="94" width="32" height="16"/>
+    <polygon class="hs" points="196,94 216,80 236,94"/>
+    <text class="b" x="150" y="130">盛土</text>
+    <text class="s" x="84" y="150">地下水位</text>
+    <text class="s" x="30" y="204">旧地盤（谷底）</text>
+    <path d="M135,221 V181" stroke="#b22234" stroke-width="1" fill="none"/>
+    <text class="r" x="105" y="236">すべり面</text>
+    <text class="s" x="318" y="124">擁壁</text>
+    <text class="s" x="318" y="144">動く向き</text>
+    <path d="M316,152 L364,170" stroke="#b22234" stroke-width="2.5" fill="none" marker-end="url(#ar)"/>
+    <text class="s" x="318" y="204">水抜き孔</text>
+  </g>
+  <rect x="15" y="285" width="370" height="60" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="b" x="27" y="309">水位が高い</text>
+  <text x="27" y="330">揺れで間隙水圧が上がり、盛土が流れるように崩れる</text>
+  <rect x="15" y="355" width="370" height="60" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="b" x="27" y="379">旧谷底が弱い</text>
+  <text x="27" y="400">盛土の下の軟らかい土層や谷底が、すべり面になる</text>
+  <rect x="15" y="425" width="370" height="60" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="b" x="27" y="449">排水が詰まる</text>
+  <text x="27" y="470">暗渠や水抜き孔が古くなり、水位が下がらなくなる</text>
+</svg>

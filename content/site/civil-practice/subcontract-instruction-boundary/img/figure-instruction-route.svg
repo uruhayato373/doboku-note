@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="元請から下請への指示の通り道。要求は下請の事業主へ伝え、作業員への手順や配置の直接指示は偽装請負と判断される。安全衛生法令に基づく指導と緊急時の安全指示は例外" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="g" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker><marker id="r" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<line x1="103" y1="76" x2="103" y2="138" stroke="#3a7d44" marker-end="url(#g)"/>
+<line x1="297" y1="76" x2="297" y2="138" stroke="#b22234" stroke-dasharray="5 4" marker-end="url(#r)"/>
+<rect x="18" y="140" width="170" height="66" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="212" y="140" width="170" height="66" rx="8" fill="#f8d7da" stroke="#b22234"/>
+<line x1="190" y1="173" x2="208" y2="173" stroke="#3a7d44" marker-end="url(#g)"/>
+<rect x="18" y="338" width="364" height="102" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="13" font-weight="700">
+<text x="200" y="40">元請・発注者の技術者</text>
+<text x="103" y="168">下請の事業主</text>
+<text x="297" y="168">下請の作業員</text>
+</g>
+<g fill="#555" text-anchor="middle" font-size="11">
+<text x="200" y="59">要求は契約の相手方である事業主へ向ける</text>
+<text x="103" y="186">現場代理人・職長</text>
+<text x="297" y="186">配置も手順も事業主が決める</text>
+</g>
+<g fill="#1a3a5c" font-size="11" font-weight="700">
+<text x="113" y="113">注文・要求</text>
+<text x="307" y="113">直接指示</text>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="20" y="232">事業主に伝えてよいこと</text>
+<text x="214" y="232">作業員に直接しないこと</text>
+<text x="30" y="358" font-size="13">例外として直接できる指示</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="20" y="252">・仕様と品質の基準</text>
+<text x="20" y="270">・工期と全体の工程</text>
+<text x="20" y="288">・出来形の確認と是正</text>
+<text x="20" y="306">・貸与機械の操作説明</text>
+<text x="20" y="322">　（事業主の監督の下で）</text>
+<text x="214" y="252">・作業の順序と方法</text>
+<text x="214" y="270">・一人ごとの配置と割付</text>
+<text x="214" y="288">・始業終業や残業の指定</text>
+<text x="214" y="306">・服装など服務の指示</text>
+<text x="30" y="380">・労働安全衛生法第29条に基づく指導と指示</text>
+<text x="30" y="398">・災害時など緊急の安全と健康の確保</text>
+<text x="30" y="416">・どちらも安全に必要な範囲にとどめる</text>
+<text x="20" y="466">線引きの出発点は、指示の相手を取り違えないこと</text>
+<text x="20" y="484">作業の中身は、受注した側が自ら決める</text>
+</g>
+</svg>

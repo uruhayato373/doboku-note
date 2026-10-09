@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "pe-construction",
+  "publications": [
+    {
+      "id": "pe-construction/competency-r8-taiou/youtube.longform",
+      "work": "competency-r8-taiou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/gakushuu-schedule-gyakusan/youtube.longform",
+      "work": "gakushuu-schedule-gyakusan",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-bosai-kyoujinka/youtube.longform",
+      "work": "hissu1-bosai-kyoujinka",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-carbon-neutral/youtube.longform",
+      "work": "hissu1-carbon-neutral",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform",
+      "work": "hissu1-infra-roukyuuka",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform",
+      "work": "hissu1-kensetsu-dx",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform",
+      "work": "hissu1-kokudo-chiiki",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-ninaite-seisansei/youtube.longform",
+      "work": "hissu1-ninaite-seisansei",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/hissu1-theme-map/youtube.longform",
+      "work": "hissu1-theme-map",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform",
+      "work": "kaitourei-tsukaikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/keirekihyo-kakikata/youtube.longform",
+      "work": "keirekihyo-kakikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/kensetsu-pe-career-kachi/youtube.longform",
+      "work": "kensetsu-pe-career-kachi",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/nanido-goukakuritsu-shindan/youtube.longform",
+      "work": "nanido-goukakuritsu-shindan",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/r8-yosou-dashikata/youtube.longform",
+      "work": "r8-yosou-dashikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/secondary-study-houhou/youtube.longform",
+      "work": "secondary-study-houhou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-construction-planning-yomikata/youtube.longform",
+      "work": "sentaku-construction-planning-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform",
+      "work": "sentaku-environment-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform",
+      "work": "sentaku-geotechnical-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-kakiwake-3type/youtube.longform",
+      "work": "sentaku-kakiwake-3type",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-port-airport-yomikata/youtube.longform",
+      "work": "sentaku-port-airport-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-power-civil-yomikata/youtube.longform",
+      "work": "sentaku-power-civil-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform",
+      "work": "sentaku-railway-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-river-coast-yomikata/youtube.longform",
+      "work": "sentaku-river-coast-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-road-yomikata/youtube.longform",
+      "work": "sentaku-road-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-steel-concrete-yomikata/youtube.longform",
+      "work": "sentaku-steel-concrete-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform",
+      "work": "sentaku-tunnel-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform",
+      "work": "sentaku-urban-planning-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.longform",
+      "work": "toan-kousei-template",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
+}

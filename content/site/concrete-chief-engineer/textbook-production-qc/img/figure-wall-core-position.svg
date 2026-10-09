@@ -1,0 +1,60 @@
+<!-- authored 2026-10-08 doboku-note 自作。題材は主任技士テキスト「production-qc」の構造体コア採取の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="壁の立面で上部が低強度・下部が高強度になる傾向と、打設高さの中間付近からコアを採る位置、およびコア径・高さ直径比・避ける箇所の3つの条件を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-zone { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .t-rule { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .z-top  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .z-mid  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .z-bot  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .core   { fill: #ffffff; stroke: #222; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .guide  { stroke: #d7d7d7; stroke-width: 1; }
+      .rule   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 壁の立面 -->
+  <rect class="z-top" x="24" y="32" width="120" height="80" />
+  <rect class="z-mid" x="24" y="112" width="120" height="110" />
+  <rect class="z-bot" x="24" y="222" width="120" height="80" />
+  <text class="t-zone" x="84" y="76" text-anchor="middle">上部</text>
+  <text class="t-zone" x="84" y="134" text-anchor="middle">中間</text>
+  <text class="t-zone" x="84" y="266" text-anchor="middle">下部</text>
+  <circle class="core" cx="84" cy="180" r="20" />
+  <text class="t-note" x="84" y="184" text-anchor="middle">コア</text>
+
+  <!-- 高さ方向の区切り線 -->
+  <line class="guide" x1="144" y1="112" x2="390" y2="112" />
+  <line class="guide" x1="144" y1="222" x2="390" y2="222" />
+
+  <!-- 右の読み方 -->
+  <text class="t-head" x="160" y="68">強度は低めに出やすい</text>
+  <text class="t-note" x="160" y="88">ブリーディングで水が上へ移る</text>
+
+  <text class="t-head" x="160" y="156">ここから採る</text>
+  <text class="t-note" x="160" y="176">打設高さの中間付近を選ぶ</text>
+  <text class="t-note" x="160" y="194">異なる側面にも分けて採る</text>
+
+  <text class="t-head" x="160" y="258">強度は高めに出やすい</text>
+  <text class="t-note" x="160" y="278">水が上へ移った後の層</text>
+
+  <!-- 採取条件 -->
+  <rect class="rule" x="14" y="320" width="372" height="48" rx="6" />
+  <text class="t-rule" x="200" y="341" text-anchor="middle">コア径は粗骨材最大寸法の3倍以上</text>
+  <text class="t-sub" x="200" y="358" text-anchor="middle">最大寸法25 mm なら 75 mm 以上</text>
+
+  <rect class="rule" x="14" y="376" width="372" height="48" rx="6" />
+  <text class="t-rule" x="200" y="397" text-anchor="middle">高さ÷直径は 1.90〜2.10 が原則</text>
+  <text class="t-sub" x="200" y="414" text-anchor="middle">1.90 未満は補正係数、1.00 未満は不可</text>
+
+  <rect class="rule" x="14" y="432" width="372" height="48" rx="6" />
+  <text class="t-rule" x="200" y="453" text-anchor="middle">鉄筋・打継ぎ面・型枠際を避ける</text>
+  <text class="t-sub" x="200" y="470" text-anchor="middle">探査で鉄筋のない位置を確かめてから採る</text>
+</svg>

@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "description": "obsidian の mail-triage（毎日 cron）がメールから拾ったイベント。売上の正本ではない——正本は各リポのスクレイパーが取るログ。辞書は obsidian .claude/mail-rules.json",
+  "updatedAt": "2026-10-07T01:33:25.538Z",
+  "events": [
+    {
+      "id": "1a10e9ee230bf3cf",
+      "receivedAt": "2026-10-06T00:30:56.000Z",
+      "account": "kazu",
+      "kind": "search-console-monthly",
+      "label": "Search Console 月次レポート",
+      "month": "9",
+      "clicks": "729",
+      "impressions": "24.7K"
+    },
+    {
+      "id": "1a109219d448e94c",
+      "receivedAt": "2026-10-04T22:56:00.000Z",
+      "account": "kazu",
+      "kind": "search-console-milestone",
+      "label": "Search Console クリック数の到達",
+      "clicks": "700"
+    },
+    {
+      "id": "1a0f951b259b47cd",
+      "receivedAt": "2026-10-01T21:14:34.000Z",
+      "account": "doboku",
+      "kind": "note-payout",
+      "label": "note 振込依頼（月次の出金）",
+      "amountYen": 89132,
+      "acceptedAt": "2026/10/02",
+      "payDate": "2026年10月末予定"
+    },
+    {
+      "id": "1a0f6d5c7ab9560a",
+      "receivedAt": "2026-10-01T09:39:59.000Z",
+      "account": "doboku",
+      "kind": "coconala-monthly",
+      "label": "ココナラ 月次の出品レポート",
+      "month": "2026年9月",
+      "views": 1323,
+      "sold": 1
+    },
+    {
+      "id": "1a0e6275d5acb6d6",
+      "receivedAt": "2026-09-28T03:55:33.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e338ce18d3919",
+      "receivedAt": "2026-09-27T14:15:45.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e307e2f9a327a",
+      "receivedAt": "2026-09-27T13:22:19.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e21df4ee21fe0",
+      "receivedAt": "2026-09-27T09:06:48.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e13ba424f902a",
+      "receivedAt": "2026-09-27T04:59:37.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e13a311dc9ab0",
+      "receivedAt": "2026-09-27T04:58:01.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e138cad84114a",
+      "receivedAt": "2026-09-27T04:56:30.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e1361bbd68ac0",
+      "receivedAt": "2026-09-27T04:53:34.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0e135815f37e48",
+      "receivedAt": "2026-09-27T04:52:54.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0dcdbbd3e42cf2",
+      "receivedAt": "2026-09-26T08:36:22.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0dc3d0f13da125",
+      "receivedAt": "2026-09-26T05:43:03.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0d8b95015c3fee",
+      "receivedAt": "2026-09-25T13:20:18.000Z",
+      "account": "doboku",
+      "kind": "coconala-rating",
+      "label": "ココナラ 評価"
+    },
+    {
+      "id": "1a0d8727bc50cae4",
+      "receivedAt": "2026-09-25T12:02:55.000Z",
+      "account": "doboku",
+      "kind": "coconala-rating",
+      "label": "ココナラ 評価"
+    },
+    {
+      "id": "1a0d862d166dd9b0",
+      "receivedAt": "2026-09-25T11:45:49.000Z",
+      "account": "doboku",
+      "kind": "coconala-accepted",
+      "label": "ココナラ 納品の承諾",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d852e5b75cfc1",
+      "receivedAt": "2026-09-25T11:28:25.000Z",
+      "account": "doboku",
+      "kind": "coconala-tip",
+      "label": "ココナラ 追加支払い（おひねり）",
+      "amountYen": 9000,
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d85015f7e5e82",
+      "receivedAt": "2026-09-25T11:25:21.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d83192e9d899c",
+      "receivedAt": "2026-09-25T10:52:02.000Z",
+      "account": "kazu",
+      "kind": "search-console-milestone",
+      "label": "Search Console クリック数の到達",
+      "clicks": "400"
+    },
+    {
+      "id": "1a0d7b0390cdc640",
+      "receivedAt": "2026-09-25T08:30:44.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）"
+    },
+    {
+      "id": "1a0d7affafc4fb87",
+      "receivedAt": "2026-09-25T08:30:28.000Z",
+      "account": "doboku",
+      "kind": "coconala-takedown",
+      "label": "ココナラ 出品取り下げ"
+    },
+    {
+      "id": "1a0d77277e88937b",
+      "receivedAt": "2026-09-25T07:23:16.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d697962e27da4",
+      "receivedAt": "2026-09-25T03:24:13.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d694e20f9f80f",
+      "receivedAt": "2026-09-25T03:21:16.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d457c04701e4d",
+      "receivedAt": "2026-09-24T16:55:14.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d43f000af444f",
+      "receivedAt": "2026-09-24T16:28:12.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d43d2de8f3bfa",
+      "receivedAt": "2026-09-24T16:26:13.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d43b566956c1b",
+      "receivedAt": "2026-09-24T16:24:12.000Z",
+      "account": "doboku",
+      "kind": "coconala-message",
+      "label": "ココナラ 購入者からの連絡（要返信）",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0d437c7dbc2c77",
+      "receivedAt": "2026-09-24T16:20:20.000Z",
+      "account": "doboku",
+      "kind": "coconala-order",
+      "label": "ココナラ 新規購入",
+      "talkroomId": "18351970"
+    },
+    {
+      "id": "1a0b0af29c512f82",
+      "receivedAt": "2026-09-17T18:44:24.000Z",
+      "account": "kazu",
+      "kind": "search-console-milestone",
+      "label": "Search Console クリック数の到達",
+      "clicks": "300"
+    },
+    {
+      "id": "1a089b0073bd33f0",
+      "receivedAt": "2026-09-10T05:00:08.000Z",
+      "account": "doboku",
+      "kind": "coconala-accepted",
+      "label": "ココナラ 納品の承諾",
+      "talkroomId": "18194267"
+    },
+    {
+      "id": "1a089b006f027c39",
+      "receivedAt": "2026-09-10T05:00:08.000Z",
+      "account": "doboku",
+      "kind": "coconala-rating",
+      "label": "ココナラ 評価"
+    },
+    {
+      "id": "1a07e6820f8c7590",
+      "receivedAt": "2026-09-08T00:25:48.000Z",
+      "account": "kazu",
+      "kind": "search-console-monthly",
+      "label": "Search Console 月次レポート",
+      "month": "8",
+      "clicks": "113",
+      "impressions": "4.18K"
+    }
+  ]
+}

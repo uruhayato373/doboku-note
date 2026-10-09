@@ -43,6 +43,11 @@ on:
         options:
           - collect
           - probe-only
+      month:
+        description: "a8 の対象月 YYYY-MM（空＝前月と当月・JST）"
+        type: string
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -198,6 +203,8 @@ jobs:
         id: collect_a8
         if: matrix.service == 'a8' && steps.auth.outputs.status == 'authenticated' && matrix.mode != 'probe-only'
         continue-on-error: true
+        env:
+          MONTH_INPUT: ${{ inputs.month }}
         run: |
           set +e
           # fetch の exit 2 = 部分取得（例: period-daily の期間入力欄が headless で見つからない・2026-09-21 run 35600802709 は 3/4）。
@@ -205,15 +212,36 @@ jobs:
           # ただし rc は 2 のまま返して run を赤にし、欠けたレポート名を Issue に残す（部分取得を緑と呼ばない）。
           # period-daily は headless で期間入力欄（placeholder="開始月"）が見つからず取れない（2026-09-21 run 35606444641）。
           # CI では 3 レポートに絞って status=ok で完走させ、period-daily は月次のローカル儀式（a8-report）に残す。
-          npm run a8-ui:fetch -- --month "$(date -u -d 'last month' +%Y-%m)" --reports site-summary,program-detail,period-monthly
-          frc=$?
-          nrc=0
-          if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then
-            npm run a8-ui:normalize
-            nrc=$?
+          # result-detail（成果別・1 成果 1 行・クリックしたページ付き）も取る。期間は URL で指定でき、成果 0 件の月は 0 件で正常（2026-10-07〜）。
+          # 対象月は JST の前月と当月（成果の確定は発生月へ遡って反映されるので、前月も毎週取り直す。upsert は期間×サイト／案件で冪等）。
+          # 当月を後に回して report-log の period を当月にする。手動実行は month 入力で任意の 1 か月。
+          if [ -n "$MONTH_INPUT" ]; then
+            if ! [[ "$MONTH_INPUT" =~ ^[0-9]{4}-(0[1-9]|1[0-2])$ ]]; then
+              echo "::error::month は YYYY-MM で指定する（受け取った値: ${MONTH_INPUT}）"
+              echo "rc=2" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            months="$MONTH_INPUT"
+          else
+            prev=$(TZ=Asia/Tokyo date -d "$(TZ=Asia/Tokyo date +%Y-%m-01) -1 day" +%Y-%m)
+            cur=$(TZ=Asia/Tokyo date +%Y-%m)
+            months="$prev $cur"
           fi
-          if [ "$frc" -eq 0 ]; then rc=$nrc; else rc=$frc; fi
-          [ "$frc" -eq 2 ] && echo "::warning::a8 は部分取得（fetch rc=2）。取れた分は normalize 済み。欠けたレポートは fetch ログ参照"
+          rc=0
+          for m in $months; do
+            echo "::group::a8 ${m}"
+            npm run a8-ui:fetch -- --month "$m" --reports site-summary,program-detail,period-monthly,result-detail
+            frc=$?
+            nrc=0
+            if [ "$frc" -eq 0 ] || [ "$frc" -eq 2 ]; then
+              npm run a8-ui:normalize
+              nrc=$?
+            fi
+            if [ "$frc" -eq 0 ]; then mrc=$nrc; else mrc=$frc; fi
+            [ "$frc" -eq 2 ] && echo "::warning::a8 ${m} は部分取得（fetch rc=2）。取れた分は normalize 済み。欠けたレポートは fetch ログ参照"
+            [ "$mrc" -gt "$rc" ] && rc=$mrc
+            echo "::endgroup::"
+          done
           echo "rc=${rc}" >> "$GITHUB_OUTPUT"
 
       - name: "kdp: report"
@@ -408,6 +436,16 @@ jobs:
             echo "::warning::collect モードなのに data/・.claude/state に変更がありません（collector が何も書いていない・または書き先が違う）"
           fi
 
+      # 退避した記録を型で検査する。publish の ci-data add でも検査されるが、そこで初めて落ちると collector は緑のまま
+      # Issue も閉じ、記録は入らない（2026-10-04〜06 の a8 で 9 月分が 3 回捨てられた・DN-0566）。ここで落として collector の失敗にする。
+      - name: Validate staged outputs
+        id: validate_staged
+        if: always()
+        run: |
+          set +e
+          node scripts/ci-data.mjs validate "${RUNNER_TEMP}/out"
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+
       - name: Upload staged state
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -420,7 +458,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Report failure (automation-failure Issue)
-        if: always() && (steps.auth.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0' || steps.writeback.outcome == 'failure')
+        if: always() && (steps.auth.outputs.status != 'authenticated' || steps.collect_rc.outputs.rc != '0' || steps.validate_staged.outputs.rc != '0' || steps.writeback.outcome == 'failure')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -431,6 +469,7 @@ jobs:
             echo "- restore status: \`${{ steps.restore.outputs.status }}\`"
             echo "- re-login (Secrets): \`${{ steps.relogin.outputs.status || 'not-run' }}\`"
             echo "- collector rc: \`${{ steps.collect_rc.outputs.rc }}\`"
+            echo "- staged outputs type check rc: \`${{ steps.validate_staged.outputs.rc }}\`（1 = 型に合わない記録。publish で落ちて記録に入らない）"
             echo
             echo "Mac 側の復旧手順:"
             echo '1. `npm run auth:login -- --service ${{ matrix.service }}`'
@@ -438,11 +477,11 @@ jobs:
           } > /tmp/auth-state-body.md
           node scripts/report-automation-failure.mjs \
             --channel "auth-state-${{ matrix.service }}" \
-            --title "login collector ${{ matrix.service }}: ${{ steps.restore.outputs.status }} / rc=${{ steps.collect_rc.outputs.rc }}" \
+            --title "login collector ${{ matrix.service }}: ${{ steps.restore.outputs.status }} / rc=${{ steps.collect_rc.outputs.rc }} / type=${{ steps.validate_staged.outputs.rc }}" \
             --body-file /tmp/auth-state-body.md
 
       - name: Resolve automation-failure Issue（成功）
-        if: always() && steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome != 'failure'
+        if: always() && steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.validate_staged.outputs.rc == '0' && steps.writeback.outcome != 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -466,6 +505,12 @@ jobs:
           echo "::error::${{ matrix.service }} の collector が rc=${{ steps.collect_rc.outputs.rc }} で失敗しました。"
           exit 1
 
+      - name: Fail on staged outputs type error
+        if: steps.auth.outputs.status == 'authenticated' && steps.validate_staged.outputs.rc != '0'
+        run: |
+          echo "::error::${{ matrix.service }} の記録が型に合いません（ci-data validate rc=${{ steps.validate_staged.outputs.rc }}）。publish で落ちて記録に入らないので、書き手か型を直す。"
+          exit 1
+
       - name: Fail on writeback error（R2 障害）
         if: steps.auth.outputs.status == 'authenticated' && steps.collect_rc.outputs.rc == '0' && steps.writeback.outcome == 'failure'
         run: |
@@ -482,6 +527,7 @@ jobs:
       cancel-in-progress: false
     permissions:
       contents: write
+      issues: write
     steps:
       - name: Checkout develop
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -512,6 +558,7 @@ jobs:
       # note-live-audit.yml の Publish snapshots と同じ書式（develop の in-place dirty を避け、
       # origin/develop 先頭へ hard reset してからステージ済み成果物を復元する）。
       - name: Publish snapshots to develop (data/・.claude/state/)
+        id: publish
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -530,3 +577,25 @@ jobs:
           fi
           git commit -m "chore(auth-state): login collectors $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
+
+      # 書き戻しの失敗（型・push の競合など）は collector の Issue とは別の channel に載せる。collect が緑でも記録に入っていない状態を沈黙させない（DN-0566）。
+      - name: Report publish failure (automation-failure Issue)
+        if: failure() && steps.publish.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 取得は終わったが develop への書き戻しが失敗した。記録（data/）には入っていない"
+            echo "- ログの「Publish snapshots to develop」で ci-data add の型違反か push の失敗かを確かめる"
+          } > /tmp/publish-body.md
+          node scripts/report-automation-failure.mjs             --channel "login-collectors-publish"             --title "login collectors: develop への書き戻しが失敗"             --body-file /tmp/publish-body.md
+
+      - name: Resolve publish Issue（成功）
+        if: success() && steps.publish.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel "login-collectors-publish"             --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

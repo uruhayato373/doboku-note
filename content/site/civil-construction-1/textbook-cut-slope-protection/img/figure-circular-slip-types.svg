@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="円弧すべりの3タイプの断面比較。すべり面が斜面先を通る斜面先破壊、斜面先より上の法面の途中に出る斜面内破壊、斜面先より下を通って前方の地盤に出る底部破壊">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #222; }
+      .frame { fill: none; stroke: #d7d7d7; stroke-width: 1; }
+      .soil { fill: #f5f5f5; stroke: none; }
+      .hard { fill: #d7d7d7; stroke: none; }
+      .ground { fill: none; stroke: #555; stroke-width: 2; stroke-linejoin: round; }
+      .mass { fill: #f8d7da; stroke: none; }
+      .slip { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 3; }
+    </style>
+  </defs>
+
+  <!-- 凡例 -->
+  <rect class="mass" x="20" y="5" width="16" height="10" rx="2"/> <!-- danger-fill -->
+  <text class="t-lead" x="42" y="14">すべる土塊</text>
+  <line class="slip" x1="130" y1="10" x2="158" y2="10"/> <!-- danger -->
+  <text class="t-lead" x="164" y="14">すべり面（円弧）</text>
+
+  <g id="panel1">
+    <rect class="frame" x="20" y="20" width="360" height="152" rx="6"/>
+    <path class="soil" d="M 21,122 L 140,122 L 160,82 L 379,82 L 379,168 L 21,168 Z"/>
+    <path class="mass" d="M 328.2,82 A 108.0,108.0 0 0 1 140.0,122 L 160,82 Z"/>
+    <path class="ground" d="M 21,122 L 140,122 L 160,82 L 379,82"/>
+    <path class="slip" d="M 328.2,82 A 108.0,108.0 0 0 1 140.0,122"/>
+    <circle cx="140" cy="122" r="3.5" fill="#222"/>
+    <text class="t-note" x="100" y="114">斜面先</text>
+    <text class="t-name" x="32" y="40">① 斜面先破壊</text>
+    <text class="t-desc" x="140" y="40">すべり面が斜面先（法尻）を通る</text>
+    <text class="t-desc" x="32" y="66">急勾配</text>
+    <text class="t-desc" x="36" y="152">土質がほぼ一様</text>
+  </g>
+
+  <g id="panel2">
+    <rect class="frame" x="20" y="178" width="360" height="152" rx="6"/>
+    <path class="soil" d="M 21,280 L 140,280 L 160,240 L 379,240 L 379,326 L 21,326 Z"/>
+    <rect class="hard" x="21" y="280" width="358" height="46"/>
+    <path class="mass" d="M 272.5,240 A 84.0,84.0 0 0 1 149.0,262 L 160,240 Z"/>
+    <path class="ground" d="M 21,280 L 140,280 L 160,240 L 379,240"/>
+    <path class="slip" d="M 272.5,240 A 84.0,84.0 0 0 1 149.0,262"/>
+    <circle cx="140" cy="280" r="3.5" fill="#222"/>
+    <text class="t-note" x="100" y="272">斜面先</text>
+    <text class="t-name" x="32" y="198">② 斜面内破壊</text>
+    <text class="t-desc" x="140" y="198">斜面先より上の、法面の途中に出る</text>
+    <text class="t-desc" x="32" y="224">急勾配</text>
+    <text class="t-desc" x="36" y="308">硬い層</text>
+  </g>
+
+  <g id="panel3">
+    <rect class="frame" x="20" y="336" width="360" height="152" rx="6"/>
+    <path class="soil" d="M 21,438 L 172,438 L 252,398 L 379,398 L 379,484 L 21,484 Z"/>
+    <path class="mass" d="M 328.1,398 A 112.0,112.0 0 0 1 139.7,438 L 172,438 L 252,398 Z"/>
+    <path class="ground" d="M 21,438 L 172,438 L 252,398 L 379,398"/>
+    <path class="slip" d="M 328.1,398 A 112.0,112.0 0 0 1 139.7,438"/>
+    <circle cx="172" cy="438" r="3.5" fill="#222"/>
+    <text class="t-note" x="132" y="430">斜面先</text>
+    <text class="t-name" x="32" y="356">③ 底部破壊</text>
+    <text class="t-desc" x="140" y="356">斜面先より下を通り、前方の地盤に出る</text>
+    <text class="t-desc" x="32" y="382">緩い勾配</text>
+    <text class="t-desc" x="36" y="468">軟らかい層</text>
+  </g>
+
+</svg>

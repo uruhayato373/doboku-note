@@ -6,7 +6,6 @@ import { DocSection } from '@/components/category/CategorySections';
 import { resolveCurriculum, resolveKeywordSection, resolveTextbookChapters } from '@/lib/category-curriculum';
 import { CurriculumSection, CurriculumList, CareerSection } from '@/components/category/CurriculumSections';
 import { KeywordSection } from '@/components/category/KeywordSections';
-import { resolveCareerSmallBanner } from '@/config/affiliate-creatives';
 
 /** civil-construction-1: 受験ガイド＋分野別＋テキスト章目次をリスト化、過去問はテーブル維持 */
 export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
@@ -73,7 +72,6 @@ export function CivilConstruction1View({ groups, mobileCareerAds = [] }: { group
         featured={curriculum.career.featured}
         rest={curriculum.career.rest}
         description="年収・転職・キャリアパス・働き方の実務ガイド"
-        smallBanner={resolveCareerSmallBanner()}
       />
     </>
   );

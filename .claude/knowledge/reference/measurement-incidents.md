@@ -8,6 +8,58 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-08 — UI撮影の合格条件に番号ジャンプの成立が含まれていなかった
+
+- 現象: 一時撮影スクリプトが8条件成功を表示したが、一部の問1クリックはhashが空で、見出しも初期位置のままだった。
+- 原因: 見出し位置が0以上という条件だけを見て、hashと移動後の画面内位置を確認していなかった。HMR中の撮影結果を独立監査が発見した。
+- 対策: hashの付与と見出し位置0–200pxを撮影の合格条件に追加。番号リンクはnativeアンカーへ揃え、`e2e/article-reading.spec.ts`で問1移動・開閉・JavaScriptなしのNo.66移動を検査する。PC/スマホの6件と再撮影8条件が成功した。
+- 教訓: クリックを実行した記録だけでは操作成功にしない。遷移先または結果の変化を確認する。
+
+## 2026-10-07 — SVG単図監査の引数区切りを誤り全件走査になった
+
+- 現象: `--file <path> --out <path>` を渡したが、単図レポートが作られず916枚の全件監査になった。
+- 原因: このCLIは `--file=<path>` の形式だけを解析し、`--out` は未対応。
+- 対策: 自分の実行が更新した全件レポートを戻し、`--file=content/site/civil-construction-1/textbook-concrete-materials/img/figure-prestress-stress-balance.svg --fail-on=HIGH` と標準出力の保存で再実行した。走査1枚・所見0件を確認した。
+
+## 2026-10-07 — 管理画面でSVG検査器を静的importして500になった
+
+- 現象: 図解素材の管理画面で `@resvg/resvg-js` のネイティブ拡張がTurbopackへ取り込まれ、`non-ecmascript placeable asset` で `/sns` が500になった。
+- 原因: 既存の画像生成スクリプトを静的importした。型検査だけでは、実行時のネイティブ拡張のバンドル失敗は検出できなかった。
+- 検出・対策: 起動後のHTTP検査で発見し、既存のSNS集計と同様に `turbopackIgnore` 付きdynamic importでNode側から検査器を読む構成へ修正した。
+- 再発検査: `npx playwright test --config playwright.admin.config.ts sns-figures.spec.ts --workers=1` で、管理画面のHTTP 200、図解素材の表示、元SVGの取得成功を確認する。
+- 教訓: ネイティブ拡張を含むスクリプトの再利用は、型検査に加えて実際のページ表示で確かめる。
+
+## 2026-10-07 — SNS試作の生成失敗後に文字数検査0件が表示された
+
+- 現象: X下書きの生成が失敗した後も後続コマンドが走り、文字数検査が「0 tweets / 0 violations」、シェルの終了コードが0になった。
+- 原因: 同一シェルで依存する処理を改行で連結し、先行エラーで停止させていなかった。UTMのキーを台帳にない `x` と推測したことが最初の生成エラーだった。
+- 検出・対策: ログの例外と検査件数を確認し、依存する処理に `set -e` を付けた。`config/utm-templates.json` の `x.post` を使って再生成し、X本文1件と画像入力1件の検査成功を確認した。IGテンプレの説明コメントに残る `{{...}}` も未置換判定に掛かるため、コピー先の説明コメントを除いた。
+- 教訓: 台帳のキーを推測しない。先行処理が失敗した検査0件を成功として扱わず、生成・検査の終了コードと実件数を確認する。
+
+## 2026-10-07 — A8 の週次 CI で当月（2 か月目）の取得が必ず Chrome ごと落ちる（ダウンロード履歴が原因）
+
+- 現象: login-collectors の a8 は前月→当月の順に `fetch-a8-ui-csv` を 2 回起動する。前月は全レポート取れるが、当月は最初のダウンロードで `download.saveAs: Target page, context or browser has been closed`、以後の再試行は `browserContext.newPage` が同じ理由で全滅し、当月分が記録されない。手元でも起動のたびに成功と失敗が交互になった。
+- 原因: 永続プロファイル（`playwright-a8-profile`）の `Default/History` に、前回のダウンロードが「完了」で残る。Playwright は終了時に一時ファイルを消すので、記録だけが消えたファイルを指す。次の起動の最初のダウンロードで Chrome が落ちる（crashpad の警告の直後に強制終了）。落ちた実行は「中断」の記録を残し、その次は通る。同梱の Chromium でも同じだった。
+- 検出経緯: 成果別（result-detail）を足したあと CI を手動実行して当月が全滅し、手元で 2 か月を続けて取ると再現した。`sqlite3 History` で完了の記録を確認し、消してから 2 回続けて取ると 2 回とも通った。
+- 対策: 共通の起動関数 `launchContext`（`scripts/lib/google-console-browser.mjs`・A8 と GSC・GA4 の UI 取得が使う）が起動前に `Default/History` を消す（`clearDownloadHistory`・Cookie は別ファイルなのでログインは保たれる）。修正後、手元で 3 回続けて取得して全部成功。`tests/browser-download-history.test.mjs`。
+- 教訓: 「再試行で直らない」失敗は、ページではなくブラウザが落ちている。永続プロファイルは前回の実行の副産物（履歴）を持ち越すので、交互に成功・失敗するときは実行間に残る状態を疑う。
+
+## 2026-10-07 — A8 の成果 1 件がどのページから出たか分からない（A8 のリファラはドメインだけ・GA4 はクリックを取りこぼし）
+
+- 現象: ビルドジョブの発生 1 件（¥13,534・未確定）について、どの広告から出たかを調べた。A8 の成果別レポート（`/report/result`）には、クリック 2026/10/05 10:37:13・申込 10:38:03・PC が出ていた。ただし「リファラ」は `https://doboku-note.com/` だけだった。GA4 の `affiliate_cta_click`（`data/ga4/reports/2026-10-07.json` の affiliate-by-page）は 10/04〜10/06 が 0 件で、このクリック自体が残っていない。広告の表示（impression）の行は窓の合計で日付が無く、その日に広告を出したページからも絞れない。
+- 原因: (1) サイト既定の Referrer-Policy（`public/_headers` の `strict-origin-when-cross-origin`）により、他ドメインへのリンクではドメインまでしか送られない。広告リンクにも同じ方針が効いていた。(2) GA4 の取りこぼし。経路は特定できない。候補は、広告ブロッカー等でタグが動かない訪問者と、中クリックで開いたリンク（`click` が発火せず `auxclick` だけが飛ぶのに、計測が `click` しか聞いていなかった）。
+- 検出経緯: 引き継ぎの「A8 の発生日時と GA4 の clickLog を日付で突き合わせる」を実行し、A8 の日時に対応する GA4 の行が無いことで分かった。時間帯別の GA4 を取りに行こうとしたが、この Mac にはサービスアカウント鍵の設定が無く、打ち切った。
+- 対策: 広告リンクに `referrerPolicy="no-referrer-when-downgrade"` を付けた（`AFFILIATE_LINK_REFERRER_POLICY`。rel と対で付けることを `tests/affiliate-link-referrer.test.mjs` が止める）。デプロイ以後のクリックは、A8 の成果別レポートにページの URL が残る。クリック計測は `auxclick`（中ボタン）も拾う。成果の帰属は A8 のリファラを正とし、GA4 は配置判断の分母として使う（affiliate-operations.md 裁定ログ 2026-10-07）。成果別レポートは週次 CI で自動取得して `report-log` の `conversions` に残し（誰かが A8 を開かなくても記録される）、URL を渡すようになった後の成果でページが取れなければ `report-career-funnel` が警告する。
+- 教訓: GA4 は「ASP が数えたクリック」を全部は持っていない（9/26 の時点で A8 のサイト別クリックが GA4 より大きかったのと同じ根）。成果をページへ帰属させる情報は、成果を数える側（ASP）に残るように作る。サイト全体のプライバシー方針を変えずに、外へ出すリンクの種類ごとに方針を決める。
+
+## 2026-10-07 — A8 の 9 月分が CI の型検査で 3 回捨てられ、会社 PC では CSV の download が時間切れになる（DN-0566）
+
+- 現象: A8 で成果 1 件（10 月）を確かめたが、`data/a8/report-log.json` は 8 月分で止まっていた。`login-collectors`（a8）は 10/4〜10/6 に 9 月分を 3/3 取得・正規化していたが、publish の `ci-data add` が `siteSummary.6.site: expected "doboku-note"` で落ち、一度も commit されていなかった。会社 PC で `fetch-a8-ui-csv.mjs` を走らせると、ログインと口座確認は通るが `waitForEvent("download")` が 30 秒で時間切れになった。
+- 原因: (1) 2026-09-26 に note を A8 の副サイト（`relatedSites`）として登録し、サイト別レポートに `doboku-note（note）` の行が増えた。正規化はこの行を採る作りだったが、10/3 に足した型は `site` を `doboku-note` だけに固定していた。(2) A8 の CSV ボタンは押したときに S3（`a8mc-public`）から生成用 JS を動的 import する。会社 PC の社内プロキシは HTTPS を中継していて（応答に `Proxy-Connection`）、この JS が時々 CORS ヘッダー抜きで返る。import が失敗すると download は来ない。同じ URL を curl で取ると CORS ヘッダーは付いていた。プロキシを通らない CI では起きない。
+- 検出経緯: 管理画面 `/affiliate` が 8 月のままだったので、CI のログ（run 37400895490）の publish を読んで型エラーを見つけた。ローカルは CDP で `Network.loadingFailed` と `pageerror`（`Failed to fetch dynamically imported module`）を取って切り分けた。調査中、0 本しか取れていない run を正規化して SSOT を上書きした（期間が null・当期外の行が消えた）ので、git から戻した。
+- 対策: 型の `site` を targetSite と relatedSites の 2 値にし、サイト名の照合を部分一致から完全一致にした（`tests/a8-report-csv.test.mjs` が副サイトの採用・似た名前の除外・型の通過を検証）。fetch は import の失敗を検知したら待たずに打ち切り、ページを開き直して最大 3 回試す。normalize は取得できたレポートが 0 本なら書き込まずに exit 1。
+- 教訓: 型を足すときは、直近の設定変更（副サイトの追加など）で増えた値を実データで通してから入れる。CI の collect が緑でも publish が赤なら、記録には何も入っていない。会社 PC の A8 取得は当てにせず、CI の `login-collectors` を正とする。
+
 ## 2026-10-03 — 収益導線レポートが旧URLだけを照合して流入ページを落とす
 
 - 現象: GA4に1,196 URLの記録がある一方、収益導線レポートでは流入のあるページが5件だけだった。
@@ -1010,3 +1062,18 @@ DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth
   - `note-update-cover` の「新カバー未確認」は**中断＝安全ではない**。出た記事は公開 API（`fetchNoteDetails`）で `eyecatch` を確かめ、同じ記事を再実行する（CLI ヘッダに明記）。load 確認の待ち時間は 12 秒→45 秒へ延長。
   - 長時間の逐次実行は `caffeinate -i -w <pid>` と AC 給電で回す（スリープ復帰直後のページは遅く、確認が落ちる）。
   - 公開反映の完了判定は CLI の `ok=` ではなく、前後スナップショットの `eyecatch` 変化・`price`/`status`/`is_limited` 不変で行う（[note-cover-character-v5.md](../design-system/note-cover-character-v5.md)）。
+
+## 2026-10-06 — Actions の実行一覧の先頭を「最新」と読み、develop の CI を赤と誤報した
+
+PR を 3 本マージした後、`GET /repos/uruhayato373/doboku-note/actions/workflows/ci.yml/runs?branch=develop&per_page=6` の結果を
+上から並べて「その後の 6 コミットが failure」と報告した。並んでいたのは 2026-09-11〜12 の古い実行で、自分の push
+（`4526bdf28`）の実行は success、その後に develop へ入ったのは `[skip ci]` の台帳 1 件だけだった。数分前に同じ
+エンドポイントを `per_page=5` で引いたときは最新の実行が含まれていて、同じ URL でも順序をあてにできなかった
+（原因は未特定。クラウドのプロキシ経由・未認証の API）。
+
+**教訓**:
+
+- CI の成否は**確かめたい commit の `head_sha` で実行を特定して**読む。一覧の先頭を最新とみなさない。並べて見せるときは
+  `created_at` を必ず一緒に出し、確かめたい push より古い行が混ざっていないかを見る。
+- 「その後のコミット」を語る前に `git log <確かめた SHA>..origin/develop` で実在を確かめる（今回は 1 件で `[skip ci]` だった）。
+- 誤報に気づいたら同じターンで訂正し、どの数字が誤りだったかを書く（§12）。

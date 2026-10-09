@@ -18,7 +18,7 @@ ogp:
   title: "専門科目（建設部門）"
   subtitle: "令和7年度 過去問"
 created: 2026-06-04
-dateModified: 2026-10-03
+dateModified: 2026-10-06
 sources:
   - ipej-past-exams#令和7年度
   - construction-recycling-act
@@ -37,7 +37,7 @@ sources:
 
 下図は、定水位透水試験の模式図である。容器Ⅰの中に長さ$L$、断面積$A$の円筒形の砂供試体を作製し、容器Ⅰ上部の水面を一定位置に保ちながら給水を行う。砂供試体を通過した水を、パイプを通して容器Ⅱに導き、容器Ⅱの水位を一定に保ちながら、容器Ⅰからあふれ出た水の量を測定する（このとき、水頭差$h$は一定に保たれる）。容器Ⅰからあふれないように給水し、定常状態になったときに、容器Ⅱからあふれ出た水の量を測定すると、単位時間当たりの流量が$Q$であった。ダルシーの法則が成り立つとき、この砂供試体の透水係数$k$と$Q$、$h$、$L$、$A$の関係を表している式として、最も適切なものはどれか。
 
-<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q01-fig.webp" alt="定水位透水試験の模式図。容器Ⅰ内に長さL・断面積Aの砂供試体を入れ上部から給水し、金網・パイプを介して容器Ⅱへ導く。容器ⅠとⅡの水位差がh、容器Ⅱからの流量がQ" width={895} height={1023} />
+<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q01-fig.webp" alt="定水位透水試験の模式図。容器Ⅰ内に長さL・断面積Aの砂供試体を入れ上部から給水し、金網・パイプを介して容器Ⅱへ導く。容器ⅠとⅡの水位差がh、容器Ⅱからの流量がQ" width={617} height={565} />
 
 1. $QA = k\dfrac{L}{h}$
 
@@ -56,7 +56,9 @@ sources:
 
 ダルシーの法則は、流量$Q$、透水係数$k$、動水勾配$i=h/L$、断面積$A$を用いて
 
-$$Q = k\,i\,A = k\,\frac{h}{L}\,A$$
+$$
+Q = k\,i\,A = k\,\frac{h}{L}\,A
+$$
 
 と表される。両辺を$A$で割れば、流速（ダルシー流速）$v=\dfrac{Q}{A}=k\dfrac{h}{L}$ が得られる。動水勾配$i$は水頭差$h$を浸透距離$L$で割った$h/L$である点が要点。
 
@@ -101,15 +103,21 @@ $$Q = k\,i\,A = k\,\frac{h}{L}\,A$$
 
 全鉛直応力：
 
-$$\sigma_v = 20\times 10 + 18\times 6 = 200 + 108 = 308\ \mathrm{kN/m^2}$$
+$$
+\sigma_v = 20\times 10 + 18\times 6 = 200 + 108 = 308\ \mathrm{kN/m^2}
+$$
 
 間隙水圧（静水圧、地下水位は地表面と一致）：
 
-$$u = 10\times 16 = 160\ \mathrm{kN/m^2}$$
+$$
+u = 10\times 16 = 160\ \mathrm{kN/m^2}
+$$
 
 鉛直有効応力：
 
-$$\sigma_v' = \sigma_v - u = 308 - 160 = 148\ \mathrm{kN/m^2}$$
+$$
+\sigma_v' = \sigma_v - u = 308 - 160 = 148\ \mathrm{kN/m^2}
+$$
 
 水平有効応力：$\sigma_h' = K_0\,\sigma_v' = 0.5\times 148 = 74\ \mathrm{kN/m^2}$
 
@@ -213,7 +221,7 @@ $$\sigma_v' = \sigma_v - u = 308 - 160 = 148\ \mathrm{kN/m^2}$$
 
 長さ$L$ [mm]の片持ちばりにおいて、固定端から距離$a$ [mm]の位置に集中荷重$P$ [N]が鉛直下向きに静的に作用している。集中荷重$P$ [N]は弾性変形を生じさせるのに十分に大きい正の値とする。はりの断面二次モーメントは$I$ [mm⁴]、ヤング率は$E$ [N/mm²]であり、長手方向に一定とする。せん断変形を無視した場合、この片持ちばりの先端のたわみ$\delta$ [mm]として、最も適切なものはどれか。ただし、距離$a$ [mm]は正の値である。
 
-<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q05-fig.webp" alt="片持ちばりの図。固定端から距離aの位置に集中荷重Pが鉛直下向きに作用し、固定端から先端までの全長がL" width={972} height={674} />
+<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q05-fig.webp" alt="片持ちばりの図。固定端から距離aの位置に集中荷重Pが鉛直下向きに作用し、固定端から先端までの全長がL" width={1344} height={498} />
 
 1. $\dfrac{Pa^2}{6EI}(3L-a)$
 
@@ -234,11 +242,15 @@ $$\sigma_v' = \sigma_v - u = 308 - 160 = 148\ \mathrm{kN/m^2}$$
 
 荷重点（$x=a$）でのたわみと回転角は
 
-$$\delta_a = \frac{Pa^3}{3EI},\qquad \theta_a = \frac{Pa^2}{2EI}$$
+$$
+\delta_a = \frac{Pa^3}{3EI},\qquad \theta_a = \frac{Pa^2}{2EI}
+$$
 
 先端まで距離$(L-a)$の直線延長を加えて
 
-$$\delta = \delta_a + \theta_a (L-a) = \frac{Pa^3}{3EI} + \frac{Pa^2}{2EI}(L-a) = \frac{Pa^2}{6EI}(3L-a)$$
+$$
+\delta = \delta_a + \theta_a (L-a) = \frac{Pa^3}{3EI} + \frac{Pa^2}{2EI}(L-a) = \frac{Pa^2}{6EI}(3L-a)
+$$
 
 1. $\dfrac{Pa^2}{6EI}(3L-a)$で正しい ✅
 2. 荷重が先端に作用する場合（$a=L$）の形に近いが一般の$a$には対応せず誤り ❌
@@ -262,7 +274,7 @@ $$\delta = \delta_a + \theta_a (L-a) = \frac{Pa^3}{3EI} + \frac{Pa^2}{2EI}(L-a) 
 
 長さ$L$ [mm]の単純ばりに対して、支点Bに反時計回りにモーメント荷重$M$ [N·mm]が静的かつ弾性内で作用している。この単純ばりの支点Aの鉛直反力$V_A$ [N]と支点Bの鉛直反力$V_B$ [N]の組合せのうち、最も適切なものはどれか。
 
-<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q06-fig.webp" alt="単純ばりの図。左の支点A・右の支点Bで支持され、支点Bに反時計回りのモーメント荷重Mが作用する。支間長はL、各支点に上向きの鉛直反力VA・VB" width={981} height={404} />
+<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q06-fig.webp" alt="単純ばりの図。左の支点A・右の支点Bで支持され、支点Bに反時計回りのモーメント荷重Mが作用する。支間長はL、各支点に上向きの鉛直反力VA・VB" width={998} height={408} />
 
 1. $V_A = 0$、$V_B = 0$
 
@@ -283,11 +295,15 @@ $$\delta = \delta_a + \theta_a (L-a) = \frac{Pa^3}{3EI} + \frac{Pa^2}{2EI}(L-a) 
 
 支点Aまわりのモーメントのつり合いから、
 
-$$V_B \cdot L + M = 0 \quad\Rightarrow\quad V_B = -\frac{M}{L}$$
+$$
+V_B \cdot L + M = 0 \quad\Rightarrow\quad V_B = -\frac{M}{L}
+$$
 
 鉛直方向のつり合い$V_A + V_B = 0$より、
 
-$$V_A = -V_B = \frac{M}{L}$$
+$$
+V_A = -V_B = \frac{M}{L}
+$$
 
 したがって$V_A=\dfrac{M}{L}$、$V_B=-\dfrac{M}{L}$となる（大きさ$M/L$の偶力で互いに逆向き）。
 
@@ -683,13 +699,15 @@ $$V_A = -V_B = \frac{M}{L}$$
 
 非圧縮性完全流体の定常流れでは、流線上で次式のベルヌーイの定理が成立する。
 
-$$\frac{v^2}{2g} + z + \frac{p}{\rho\,g} = \text{一定}$$
+$$
+\frac{v^2}{2g} + z + \frac{p}{\rho\,g} = \text{一定}
+$$
 
 ここで、$g$は重力加速度、$\rho$は水の密度、$v$は高さ$z$の点における流速、$p$は高さ$z$の点における水の圧力である。
 
 下図のように、水面の水位変化が無視できる十分広い水槽から、水槽に鉛直に取り付けられた断面積一定の細い管路で排水する場合、点Bと点Cの流速は等しくなる。このとき管路中心線上の点Bにおける水の圧力を、ベルヌーイの定理を適用して算出すると、最も適切なものはどれか。
 
-<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q17-fig.webp" alt="水槽から鉛直の管路で排水する模式図。水槽水面が点A、管路途中が点B、管路出口が点C。基準面からの高さが点BでzB、点AでzA" width={933} height={1185} />
+<ArticleImage src="/posts/pe-first-stage/r07-construction/img/q17-fig.webp" alt="水槽から鉛直の管路で排水する模式図。水槽水面が点A、管路途中が点B、管路出口が点C。基準面からの高さが点BでzB、点AでzA" width={838} height={622} />
 
 1. $\rho\cdot g\cdot z_B$
 
@@ -710,15 +728,21 @@ $$\frac{v^2}{2g} + z + \frac{p}{\rho\,g} = \text{一定}$$
 
 水面Aと出口Cの間で（$v_A\approx 0$、$p_A=p_C=0$）、出口流速$v_C$は
 
-$$z_A = \frac{v_C^2}{2g} + z_C \quad\Rightarrow\quad \frac{v_C^2}{2g} = z_A - z_C$$
+$$
+z_A = \frac{v_C^2}{2g} + z_C \quad\Rightarrow\quad \frac{v_C^2}{2g} = z_A - z_C
+$$
 
 点Bと点Cは断面積一定の同じ管路上で流速が等しい（$v_B=v_C$）。点Bと点Cの間でベルヌーイの定理を適用すると、
 
-$$\frac{v_B^2}{2g} + z_B + \frac{p_B}{\rho g} = \frac{v_C^2}{2g} + z_C + \frac{p_C}{\rho g}$$
+$$
+\frac{v_B^2}{2g} + z_B + \frac{p_B}{\rho g} = \frac{v_C^2}{2g} + z_C + \frac{p_C}{\rho g}
+$$
 
 $v_B=v_C$、$p_C=0$より、
 
-$$\frac{p_B}{\rho g} = z_C - z_B \;(<0)$$
+$$
+\frac{p_B}{\rho g} = z_C - z_B \;(<0)
+$$
 
 $p_B = \rho\,g\,(z_C - z_B)$ となる。$z_C < z_B$（点Bは点Cより高い位置）のため $p_B < 0$、すなわち管路途中の点Bは負圧（大気圧以下）となる。
 
@@ -807,7 +831,7 @@ $p_B = \rho\,g\,(z_C - z_B)$ となる。$z_C < z_B$（点Bは点Cより高い�
 <ExamPoint
   summary="限界水深は比エネルギー曲線の頂点（最小比エネルギー）に対応する水深"
   items={[
-    "フルード数 Fr<1 常流、Fr=1 限界流、Fr>1 射流",
+    "フルード数 Fr<1 常流／Fr=1 限界流／Fr>1 射流",
     "比エネルギー曲線の最小点が限界水深",
     "水路床の隆起で常流は水面低下、射流は水面上昇",
   ]}

@@ -7,12 +7,14 @@ import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentativ
 
 const now = new Date('2026-09-23T12:00:00Z');
 
-test('台帳から公開中の動画を集める: 予約は publishAt 経過分だけ、制作台帳は public だけ、videoId で重複除去', () => {
-  const schedule = { items: [
-    { status: 'uploaded', videoId: 'A', title: '総監 択一 #Shorts', publishAt: '2026-06-09T07:30:00+09:00' },
-    { status: 'uploaded', videoId: 'B', title: 'まだ #Shorts', publishAt: '2026-10-01T07:30:00+09:00' },
-    { status: 'retired', videoId: 'C', title: 'x', publishAt: '2026-06-01T00:00:00Z' },
-  ] };
+test('台帳から公開中の動画を集める: 旧 Shorts は published・public・videoId ありで publishAt 経過分だけ、制作台帳は public だけ、videoId で重複除去', () => {
+  const schedule = [
+    { status: 'published', privacy: 'public', videoId: 'A', title: '総監 択一', publishAt: '2026-06-09T07:30:00+09:00' },
+    { status: 'published', privacy: 'public', videoId: 'B', title: 'まだ', publishAt: '2026-10-01T07:30:00+09:00' },
+    { status: 'stopped', privacy: null, videoId: 'C', title: 'x', publishAt: '2026-06-01T00:00:00Z' },
+    { status: 'published', privacy: 'private', videoId: 'D', title: 'y', publishAt: null },
+    { status: 'published', privacy: 'public', videoId: null, title: 'z', publishAt: null },
+  ];
   const content = { packs: { p: { derivatives: {
     longform: { videoId: 'L', privacyStatus: 'public', publishedAt: '2026-09-05T00:40:57Z' },
     shorts: [{ key: 's1', videoId: 'S', privacyStatus: 'public', uploadedAt: '2026-09-05T00:42:30Z' }, { videoId: 'P', privacyStatus: 'private' }, { videoId: 'A', privacyStatus: 'public' }],

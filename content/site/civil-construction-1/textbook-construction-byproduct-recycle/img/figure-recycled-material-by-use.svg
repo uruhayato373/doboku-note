@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="再生骨材等の使い道を、使う場所の側から並べた図。表層・基層には再生加熱アスファルト混合物、上層路盤には再生加熱アスファルト安定処理混合物、路盤にはセメント・石灰安定処理路盤材、下層路盤と構造物の裏込めには再生クラッシャラン、工作物の埋戻しには再生コンクリート砂を使う">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<text x="14" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">使う場所</text>
+<text x="136" y="18" text-anchor="start" font-size="11" font-weight="bold" fill="#555">使える再生材と原料</text>
+<rect x="14" y="26" width="106" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="67" y="61.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">表層・基層</text>
+<rect x="126" y="26" width="260" height="62" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="53.0" text-anchor="start" font-size="11" fill="#222">表層基層用再生加熱アスファルト混合物</text>
+<text x="136" y="69.0" text-anchor="start" font-size="11" fill="#555">原料：アスコン塊のみ</text>
+<rect x="14" y="94" width="106" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="67" y="129.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">上層路盤</text>
+<rect x="126" y="94" width="260" height="62" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="113.0" text-anchor="start" font-size="11" fill="#222">再生加熱アスファルト安定処理混合物</text>
+<text x="136" y="129.0" text-anchor="start" font-size="11" fill="#555">原料：アスコン塊のみ</text>
+<text x="136" y="145.0" text-anchor="start" font-size="11" fill="#555">再生粒度調整砕石は「その他舗装」だけ</text>
+<rect x="14" y="162" width="106" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="67" y="190.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">路盤全般</text>
+<text x="67" y="206.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">（上層・下層）</text>
+<rect x="126" y="162" width="260" height="62" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="181.0" text-anchor="start" font-size="11" fill="#222">再生セメント安定処理路盤材</text>
+<text x="136" y="197.0" text-anchor="start" font-size="11" fill="#222">再生石灰安定処理路盤材</text>
+<text x="136" y="213.0" text-anchor="start" font-size="11" fill="#555">原料：コンクリート塊・アスコン塊</text>
+<rect x="14" y="230" width="106" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="67" y="265.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">下層路盤</text>
+<rect x="126" y="230" width="260" height="62" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="136" y="257.0" text-anchor="start" font-size="11" fill="#222">再生クラッシャラン</text>
+<text x="136" y="273.0" text-anchor="start" font-size="11" fill="#555">原料：コンクリート塊・アスコン塊</text>
+<rect x="14" y="298" width="106" height="62" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="67" y="326.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">構造物の</text>
+<text x="67" y="342.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">裏込め・基礎</text>
+<rect x="126" y="298" width="260" height="62" rx="6" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="136" y="325.0" text-anchor="start" font-size="11" fill="#222">再生クラッシャラン</text>
+<text x="136" y="341.0" text-anchor="start" font-size="11" fill="#555">原料：コンクリート塊・アスコン塊</text>
+<rect x="14" y="366" width="106" height="62" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="67" y="394.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">工作物の</text>
+<text x="67" y="410.0" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">埋戻し・基礎</text>
+<rect x="126" y="366" width="260" height="62" rx="6" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="136" y="393.0" text-anchor="start" font-size="11" fill="#222">再生コンクリート砂</text>
+<text x="136" y="409.0" text-anchor="start" font-size="11" fill="#555">原料：コンクリート塊のみ</text>
+<text x="14" y="448" text-anchor="start" font-size="11" fill="#555">青＝舗装に使う　緑＝裏込め・基礎・埋戻しに使う</text>
+<text x="14" y="466" text-anchor="start" font-size="11" fill="#555">「その他舗装」＝駐車場や建築物等の敷地内の舗装</text>
+<text x="14" y="484" text-anchor="start" font-size="11" fill="#555">道路舗装に使うときは強度・耐久性の確認が前提</text>
+</svg>

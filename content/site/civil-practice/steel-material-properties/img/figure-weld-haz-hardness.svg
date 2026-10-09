@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="溶接金属と熱影響部と母材の断面、およびその硬さ分布で、予熱なしだと熱影響部が硬化し予熱ありだと抑えられることを示す概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .big { font-size: 24px; font-weight: bold; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .guide { fill: none; stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="20" y="26" class="s">溶接線に直交する断面と硬さの分布</text>
+  <rect class="surface" x="30" y="56" width="100" height="64" />
+  <rect class="danger" x="130" y="56" width="24" height="64" />
+  <rect class="warn" x="154" y="56" width="92" height="64" />
+  <rect class="danger" x="246" y="56" width="24" height="64" />
+  <rect class="surface" x="270" y="56" width="100" height="64" />
+  <text x="80" y="48" class="m">母材</text>
+  <text x="142" y="48" class="m">HAZ</text>
+  <text x="200" y="48" class="m">溶接金属</text>
+  <text x="258" y="48" class="m">HAZ</text>
+  <text x="320" y="48" class="m">母材</text>
+  <text x="200" y="140" class="s m">HAZ（熱影響部）は溶けないが、熱で組織が変わる部分</text>
+  <path class="guide" d="M130,120 V128" />
+  <path class="guide" d="M130,156 V370.0" />
+  <path class="guide" d="M154,120 V128" />
+  <path class="guide" d="M154,156 V370.0" />
+  <path class="guide" d="M246,120 V128" />
+  <path class="guide" d="M246,156 V370.0" />
+  <path class="guide" d="M270,120 V128" />
+  <path class="guide" d="M270,156 V370.0" />
+  <path class="axis" d="M30,156 V370.0 H372" />
+  <text x="36" y="172" class="s">硬さ</text>
+  <text x="372" y="390.0" class="s e">溶接線に直交する位置</text>
+  <path d="M30,274.0 H372" fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="6 4" />
+  <text x="326" y="250.0" class="s m">仕様で定める</text>
+  <text x="326" y="265.0" class="s m">硬さの上限</text>
+  <path d="M30,370.0 C43.7,370.0 95.3,377.5 112,370.0 C128.7,362.5 124.3,348.5 130,325.0 C135.7,301.5 142.0,240.0 146,229.0 C150.0,218.0 150.3,247.5 154,259.0 C157.7,270.5 155.0,291.5 168,298.0 C181.0,304.5 219.0,304.5 232,298.0 C245.0,291.5 242.3,270.5 246,259.0 C249.7,247.5 250.0,218.0 254,229.0 C258.0,240.0 264.3,301.5 270,325.0 C275.7,348.5 271.0,362.5 288,370.0 C305.0,377.5 358.0,370.0 372,370.0" fill="none" stroke="#b22234" stroke-width="2.5" />
+  <path d="M30,370.0 C43.7,370.0 95.3,374.0 112,370.0 C128.7,366.0 124.3,357.5 130,346.0 C135.7,334.5 142.0,309.0 146,301.0 C150.0,293.0 150.3,297.0 154,298.0 C157.7,299.0 155.0,305.5 168,307.0 C181.0,308.5 219.0,308.5 232,307.0 C245.0,305.5 242.3,299.0 246,298.0 C249.7,297.0 250.0,293.0 254,301.0 C258.0,309.0 264.3,334.5 270,346.0 C275.7,357.5 271.0,366.0 288,370.0 C305.0,374.0 358.0,370.0 372,370.0" fill="none" stroke="#3a7d44" stroke-width="2.5" />
+  <path d="M20,426.0 H46" stroke="#b22234" stroke-width="2.5" />
+  <text x="54" y="430.0" class="">予熱なし・急冷：HAZが硬化し割れやすい</text>
+  <path d="M20,450.0 H46" stroke="#3a7d44" stroke-width="2.5" />
+  <text x="54" y="454.0" class="">予熱あり・徐冷：硬化が抑えられ水素が抜ける</text>
+</svg>

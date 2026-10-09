@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
-import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
-import { cn } from '@/lib/cn';
+import { DataTable as AdminDataTable } from '@/components/admin';
 import type { SnapshotFile } from '@/lib/snapshots';
 import { ageInDays } from '@/lib/snapshots';
 
@@ -105,40 +104,39 @@ export type Col<Row> = {
   render?: (row: Row) => React.ReactNode;
 };
 
-/** 汎用データテーブル。 */
+/**
+ * 汎用データテーブル（サーバー側の入口）。render 関数はここで描いて、
+ * shadcn の Data Table（components/admin の DataTable・クライアント）へ直列化できる形で渡す。
+ * 並べ替えは列の生の値（row[key] が数値・文字列のとき）で行う。
+ */
 export function DataTable<Row>({
   cols,
   rows,
+  filter,
+  pageSize,
 }: {
   cols: Col<Row>[];
   rows: Row[];
+  filter?: string;
+  pageSize?: number;
 }) {
-  if (rows.length === 0) return <p className="text-sm text-muted-foreground">データなし</p>;
+  const raw = (row: Row, key: string) => {
+    const v = (row as Record<string, unknown>)[key];
+    return typeof v === 'number' || typeof v === 'string' ? v : null;
+  };
   return (
-    <TableFrame>
-      <TableHeader>
-        <TableRow>
-          {cols.map((c) => (
-            <TableHead key={c.key} className={c.num ? numCol : undefined}>
-              {c.label}
-            </TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {rows.map((row, ri) => (
-          <TableRow key={ri}>
-            {cols.map((c) => (
-              <TableCell key={c.key} className={cn(c.num && numCol, c.wrap && 'whitespace-normal')}>
-                {c.render
-                  ? c.render(row)
-                  : String((row as Record<string, unknown>)[c.key] ?? '')}
-              </TableCell>
-            ))}
-          </TableRow>
-        ))}
-      </TableBody>
-    </TableFrame>
+    <AdminDataTable
+      columns={cols.map((c) => ({ key: c.key, label: c.label, num: c.num, wrap: c.wrap }))}
+      rows={rows.map((row, i) => ({
+        id: String(i),
+        values: Object.fromEntries(cols.map((c) => [c.key, raw(row, c.key)])),
+        cells: Object.fromEntries(
+          cols.map((c) => [c.key, c.render ? c.render(row) : String((row as Record<string, unknown>)[c.key] ?? '')]),
+        ),
+      }))}
+      filter={filter}
+      pageSize={pageSize}
+    />
   );
 }
 

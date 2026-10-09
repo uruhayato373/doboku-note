@@ -70,7 +70,7 @@
 
 > **どちらの経路を使うか（優先度・障害時の扱い）**: 総監legacy Shortsは **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。**経路A＝`yt-shorts-create --from-reels` はIG Reelsを先に作ったパックの補助**。一方、2026-09-05承認済みの1級・2級土木・コンクリートは、この2経路ではなく通常動画へ1:1接続する動画パック直結経路を使う。
 
-台帳は `.claude/state/youtube-schedule.json`（実items 200本、uploaded 13／retired 187）の履歴SSOTとして凍結し、再投入しない。`post-youtube-scheduled.yml` の日次cronは2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacy台帳を対象にしない。
+旧 Shorts は台帳（`content/registry/`・kind `legacy-short`・uploaded 13／retired 187）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプトを消した。`post-youtube-scheduled.yml` の日次cronは2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacyを対象にしない。
 
 > [!warning] 2026-06-17〜08-18 に 2 か月停止していた（2026-08-18 是正）
 > 日次 cron は 6/10〜6/16 に install の ERESOLVE で全滅し（PR #258 で解消）、6/17 は アップ 6 本に成功したが
@@ -117,8 +117,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 | スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
 | Shorts 生成 | `yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT 専用再描画・4 問全展開・`--ig-mode`） | 実装済 |
-| Shorts 投稿 | legacy=`youtube-schedule.json`、動画パック=`youtube.json`＋`video-content-status.json` | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
-| 台帳検証 | `validate-schedule.mjs`（publishAt 重複・perDay 超過・videoId 重複） | 実装済 |
+| Shorts 投稿 | legacy=台帳（kind `legacy-short`）、動画パック=`youtube.json`（計画）＋`content/registry/`（状態） | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
 | タイトル | `yt-shorts-title-writer`（Generator・論点ベース 40 字以内） | 実装済（200 本入力済み） |
 | 品質採点 | `yt-shorts-publisher-qa`（Evaluator・4 軸ルーブリック） | 実装済 |
 
@@ -228,7 +227,7 @@ DoD: ① 6 ヶ月 KPI で Tier 2 継続/縮小を判定 ② 最終合格発表�
 ## 11. 未確定事項・是正タスク
 
 - **試験日の内部/外部不一致**: 内部 SoT（noteコンテンツ計画）は 07-13 想定、外部情報（アガルート等）は R8 筆記 7/19-20。公式（engineer.or.jp）で確定し §6 と noteコンテンツ計画の両方を補正する
-- **legacy台帳**: `.claude/state/youtube-schedule.json` の200件はuploaded 13／retired 187として凍結。動画パック派生と統合しない
+- **legacy台帳**: 台帳の kind `legacy-short` の200件はuploaded 13／retired 187として凍結（旧台帳 `youtube-schedule.json` は2026-10-09に消した）。動画パック派生と統合しない
 - **YouTube 収益化審査の閾値**: TTS 量産が「繰り返しコンテンツ」と判定される実閾値は未確認。Phase A-B で実観測し §8 を更新
 - **総監14パックの公開判断**: レンダラーと専用workflowは実装済みだが、公開は今回の非総監112パック承認の対象外
 - **E-01〜E-04 の実 magazine ID**: note 計画上の論理 ID であり、発売後に `src/lib/note-magazines.ts` へ登録された実 ID を §6 に反映する

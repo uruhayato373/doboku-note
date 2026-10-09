@@ -24,23 +24,33 @@
 //   node scripts/verify-ig-status.mjs --exam=cem    # 試験で絞る（cem / civil-1 / civil-2 ...）
 //   node scripts/verify-ig-status.mjs --no-planner  # プランナー読取をスキップ（高速・予約確認なし）
 //   node scripts/verify-ig-status.mjs --max=60      # ライブ caption を取得する最大投稿数（既定 60）
+//   node scripts/verify-ig-status.mjs --registry    # 照合のあと、コンテンツ台帳の行を published にする（既定は書かない）
+//
+// 台帳（content/registry/publications/instagram）が Instagram の公開の正本。posted.json・status.json は P7 で消す旧い写し。
+// --registry は「公開中の投稿に 1 件だけ結び付いたカルーセル」と「公開中のリールのキャプション先頭が 1 件だけ一致したリール」を
+// recordIg 'published'（証拠 ig-snapshot）にする。台帳が published・stopped(unverified-legacy 以外) の行は触らない。
+// 台帳が published なのに投稿が削除済みの後戻りは所見に出すだけ。判定は ig-reconcile-core.mjs の planRegistryPublished（純関数）。
+// 台帳を書くので zod が要る（npm ci 済みのローカル用。CI の --no-planner 照合は --registry を付けない）。
 //
 // exit code: 0 = ドリフトなし / 2 = ドリフトあり（published_UNrecorded / draft_misrecorded /
 //   recorded_but_gone / anomaly のいずれかが 1 件以上）。network 失敗は 1。
 
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
-import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot } from "./lib/ig-reconcile-core.mjs";
+import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot, planRegistryPublished } from "./lib/ig-reconcile-core.mjs";
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
-import { datasetPath } from "./lib/datasets.mjs";
-import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { datasetDir, datasetPath } from "./lib/datasets.mjs";
+import { loadRegistry } from "./lib/content-registry.mjs";
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes("--json");
 const NO_PLANNER = argv.includes("--no-planner");
+const REGISTRY = argv.includes("--registry");
 const EXAM = (argv.find((a) => a.startsWith("--exam=")) || "").split("=")[1] || null;
 const MAX = Number((argv.find((a) => a.startsWith("--max=")) || "").split("=")[1]) || 60;
 const log = (...a) => { if (!JSON_OUT) console.log(...a); };
@@ -158,7 +168,11 @@ async function readPlanner(page, account) {
 const account = loadAccount();
 const packs = localPacks();
 log(`[verify-ig-status] アカウント @${account.handle} / ローカル ${packs.length} パックを照合…`);
-const recordedShortcodes = packs.map((p) => p.recordedShortcode).filter(Boolean);
+// 台帳が published の行の shortcode（kind が shortcode のもの）。後戻り（投稿が削除済み）の確認と、同じ投稿を 2 行に付けない判定に使う
+const ledgerPublishedRows = loadRegistry(ROOT).publications
+  .filter((p) => p.channel === "instagram" && p.status === "published" && p.platform?.id && p.platform.kind === "shortcode")
+  .map((p) => ({ id: p.id, shortcode: p.platform.id }));
+const recordedShortcodes = [...new Set([...packs.map((p) => p.recordedShortcode).filter(Boolean), ...ledgerPublishedRows.map((r) => r.shortcode)])];
 let liveData;
 try { liveData = await readLive(account, recordedShortcodes); }
 catch (e) { console.error("[verify-ig-status] ライブ取得失敗:", String(e)); process.exit(1); }
@@ -166,11 +180,51 @@ const cats = reconcileCore(packs, liveData);
 
 const driftCount = driftCountCore(cats);
 const snapshot = buildSnapshot({ account: account.handle, cats, liveData, source: "playwright" });
-const snapDir = join(ROOT, ".claude/state/ig-reconcile");
+const snapDir = join(ROOT, datasetDir("state.ig-reconcile"));
 mkdirSync(snapDir, { recursive: true });
 writeFileSync(join(snapDir, "snapshot.json"), JSON.stringify(snapshot, null, 2) + "\n", "utf8");
 
-if (JSON_OUT) { console.log(JSON.stringify(snapshot, null, 2)); }
+// ─── 台帳への反映（--registry のときだけ書く）─────────────────
+async function reflectToRegistry() {
+  const store = await import("./lib/registry-ig-store.mjs");
+  const { igFolders } = await import("./lib/registry-ig-state.mjs");
+  const IGREL = "content/sns/instagram";
+  const rowByKey = new Map();
+  const keyOf = (folder, format) => `${folder}|${format}`;
+  const load = async (folder, format) => {
+    const k = keyOf(folder, format);
+    if (!rowByKey.has(k)) rowByKey.set(k, await store.readIgPublication(ROOT, folder, format));
+    return rowByKey.get(k);
+  };
+  const reelCandidates = [];
+  for (const f of igFolders(ROOT)) {
+    if (EXAM && f.rel.split("/")[0] !== EXAM) continue;
+    const cap = ["reels/caption.txt", "caption.txt"].map((n) => join(ROOT, IGREL, f.rel, n)).find((p) => existsSync(p));
+    if (!f.reels || !cap) continue;
+    reelCandidates.push({ folder: f.rel, head: normHead(readFileSync(cap, "utf8")) });
+  }
+  for (const p of cats.published_UNrecorded) await load(p.rel, "carousel");
+  for (const c of reelCandidates) await load(c.folder, "reel");
+  const publishedRows = ledgerPublishedRows;
+  const plan = planRegistryPublished({
+    cats, liveList: snapshot.live.list, reelCandidates, rowOf: (f, fmt) => rowByKey.get(keyOf(f, fmt)) ?? null,
+    publishedRows, recordedInfo: liveData.recordedInfo, snapRef: `${datasetPath('state.ig-reconcile', { name: 'snapshot' })}@${snapshot.at}`,
+  });
+  const written = [];
+  const failed = [];
+  for (const u of plan.updates) {
+    try { await store.recordIg(ROOT, u.folder, u.format, "published", { url: u.url, evidence: u.evidence }); written.push(u); }
+    catch (e) { failed.push({ ...u, error: String(e.message ?? e) }); }
+  }
+  return { written, failed, skipped: plan.skipped, regressions: plan.regressions };
+}
+let registryResult = null;
+if (REGISTRY) {
+  try { registryResult = await reflectToRegistry(); }
+  catch (e) { console.error("[verify-ig-status] 台帳への反映に失敗:", String(e)); process.exit(1); }
+}
+
+if (JSON_OUT) { console.log(JSON.stringify(registryResult ? { ...snapshot, registry: registryResult } : snapshot, null, 2)); }
 else {
   const nlIndent = "\n      ";
   const show = (label, arr, fn = (p) => p.rel) => { if (arr.length) { console.log(`\n■ ${label}: ${arr.length}`); for (const p of arr) console.log("  " + fn(p)); } };
@@ -191,8 +245,17 @@ else {
     const sched = Object.entries(liveData.scheduled).filter(([, t]) => t.length).map(([d, t]) => `${d}:${[...new Set(t)].sort().join("/")}`);
     if (sched.length) console.log(`\nプランナー予約スロット（月ビュー実体）: ${sched.join("  ")}`);
   }
+  if (registryResult) {
+    console.log(`\n■ 台帳（--registry）: published にした ${registryResult.written.length} 件 / 書けなかった ${registryResult.failed.length} 件 / 触らず見送り ${registryResult.skipped.length} 件`);
+    for (const u of registryResult.written) console.log(`  ✓ ${u.id}  ← ${u.url}`);
+    for (const u of registryResult.failed) console.log(`  ✗ ${u.id}  (${u.error})`);
+    for (const u of registryResult.skipped) console.log(`  - ${u.folder} [${u.format}]: ${u.reason}`);
+    for (const r of registryResult.regressions) console.log(`  ★後戻り ${r.id} (${r.shortcode}): ${r.reason}（台帳は触らない・人が判断）`);
+  } else {
+    console.log("\n（台帳へ反映するには --registry を付ける。既定は書かない）");
+  }
   console.log(`\nドリフト合計 ${driftCount} 件（SoT 整合）／リールギャップ ${cats.reel_gap.length} 件・素材未投稿 ${cats.reel_built_unposted.length} 件（リール軸）。snapshot → .claude/state/ig-reconcile/snapshot.json`);
-  if (driftCount) console.log("→ SoT 是正は `/ig-reconcile`（operator 確認のうえ posted.json backfill / 未公開を予約）");
+  if (driftCount) console.log("→ SoT 是正は `/ig-reconcile`（operator 確認のうえ `verify-ig-status --registry` で台帳へ反映 / 未公開を予約）");
   else console.log("✓ SoT ドリフトなし");
   if (cats.reel_gap.length) console.log("→ リールギャップは figure-reel-create.mjs でナレーション付きリール生成 → publish-ig-bs --reel で予約");
 }

@@ -1,16 +1,24 @@
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import test from 'node:test';
-import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
-import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
+const ROOT = resolve(import.meta.dirname, '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const disclosure = JSON.parse(readFileSync(join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'));
 
+function walk(dir, out = []) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) walk(path, out);
+    else if (entry.name === 'youtube.json') out.push(path);
+  }
+  return out;
+}
+
 test('全YouTubeメタデータが著者主体・AI制作補助の表記を持つ', () => {
-  const files = listFiles(PACKS_ROOT, { match: (_p, name) => name === 'youtube.json' });
-  assert.equal(files.length, 112);
+  const files = walk(PACKS_ROOT);
+  assert.equal(files.length, 113); // DN-0110 の112パック＋総まとめ1本（matome-2kyu-chokuzen・Shorts なし）
   let videos = 0;
   for (const path of files) {
     const data = JSON.parse(readFileSync(path, 'utf8'));
@@ -19,6 +27,6 @@ test('全YouTubeメタデータが著者主体・AI制作補助の表記を持�
       assert.ok(item.description.includes(disclosure.authorityNotice), path);
     }
   }
-  assert.equal(videos, 336); // 112 longform + 112 packs × 2 Shorts
+  assert.equal(videos, 337); // 113 longform + 112 packs × 2 Shorts
   assert.equal(disclosure.containsSyntheticMedia, false);
 });

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="中心にプレストレスを導入した梁の中央断面。外荷重の曲げ、一様な圧縮、それらの重ね合わせによる下縁の引張応力低減を示す">
+  <!-- Created by doboku-note, 2026-10-07. brand=圧縮、danger=引張、ink=荷重・部材 -->
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill:#222; }
+      .heading { font-size:15px; font-weight:bold; fill:#1a3a5c; }
+      .body { font-size:13px; }
+      .label { font-size:12px; fill:#555; }
+      .blue { fill:#2e6da4; }
+      .red { fill:#b22234; }
+      .axis { stroke:#555; stroke-width:1; stroke-dasharray:3 3; }
+      .beam { fill:#f5f5f5; stroke:#222; stroke-width:1.5; }
+      .support { fill:#ffffff; stroke:#222; stroke-width:1.5; }
+      .load { stroke:#222; stroke-width:2; marker-end:url(#load-arrow); }
+      .prestress { stroke:#2e6da4; stroke-width:2.5; marker-end:url(#pc-arrow); }
+    </style>
+    <marker id="load-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#222"/></marker>
+    <marker id="pc-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <text x="20" y="24" class="label">梁に作用する力</text>
+  <text x="234" y="24" class="label">中央断面：</text>
+  <text x="301" y="24" class="label blue">圧縮</text>
+  <text x="341" y="24" class="label red">引張</text>
+
+  <!-- 1：正の曲げ。ひび割れ前の弾性応力を比較する -->
+  <rect x="12" y="40" width="376" height="125" rx="8" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="25" y="63" class="heading">1　外荷重による曲げ</text>
+  <rect x="43" y="105" width="157" height="22" class="beam"/>
+  <line x1="65" y1="80" x2="65" y2="103" class="load"/>
+  <line x1="102" y1="80" x2="102" y2="103" class="load"/>
+  <line x1="139" y1="80" x2="139" y2="103" class="load"/>
+  <line x1="177" y1="80" x2="177" y2="103" class="load"/>
+  <path d="M48 129L40 141L56 141Z" class="support"/>
+  <circle cx="194" cy="135" r="6" class="support"/>
+  <line x1="184" y1="143" x2="204" y2="143" stroke="#222" stroke-width="1.5"/>
+  <text x="238" y="89" class="label">上縁</text>
+  <text x="238" y="139" class="label">下縁</text>
+  <line x1="283" y1="85" x2="369" y2="85" class="axis"/>
+  <line x1="283" y1="135" x2="369" y2="135" class="axis"/>
+  <path d="M328 85H304L328 110Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M328 110L352 135H328Z" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <line x1="328" y1="77" x2="328" y2="143" class="axis"/>
+  <text x="25" y="155" class="body red">下縁に引張応力が生じる</text>
+  <text x="328" y="155" text-anchor="middle" class="label">0</text>
+
+  <!-- 2：PC鋼材は断面の図心に配置。偏心モーメントを含めない -->
+  <rect x="12" y="176" width="376" height="125" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="25" y="199" class="heading">2　中心にプレストレスを導入</text>
+  <rect x="43" y="241" width="157" height="22" class="beam"/>
+  <line x1="43" y1="252" x2="200" y2="252" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="21" y1="252" x2="42" y2="252" class="prestress"/>
+  <line x1="222" y1="252" x2="201" y2="252" class="prestress"/>
+  <text x="121" y="232" text-anchor="middle" class="label blue">PC鋼材（図心位置）</text>
+  <path d="M48 265L40 277L56 277Z" class="support"/>
+  <circle cx="194" cy="271" r="6" class="support"/>
+  <line x1="184" y1="279" x2="204" y2="279" stroke="#222" stroke-width="1.5"/>
+  <text x="238" y="225" class="label">上縁</text>
+  <text x="238" y="275" class="label">下縁</text>
+  <line x1="283" y1="221" x2="369" y2="221" class="axis"/>
+  <line x1="283" y1="271" x2="369" y2="271" class="axis"/>
+  <rect x="304" y="221" width="24" height="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="328" y1="213" x2="328" y2="279" class="axis"/>
+  <text x="25" y="291" class="body blue">断面全体に一様な圧縮応力</text>
+  <text x="328" y="291" text-anchor="middle" class="label">0</text>
+
+  <!-- 3：同じ応力尺度で1と2を重ねる。下縁がちょうど0になる例 -->
+  <rect x="12" y="312" width="376" height="125" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="25" y="335" class="heading">3　外荷重とプレストレス</text>
+  <rect x="43" y="377" width="157" height="22" class="beam"/>
+  <line x1="43" y1="388" x2="200" y2="388" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="65" y1="352" x2="65" y2="375" class="load"/>
+  <line x1="102" y1="352" x2="102" y2="375" class="load"/>
+  <line x1="139" y1="352" x2="139" y2="375" class="load"/>
+  <line x1="177" y1="352" x2="177" y2="375" class="load"/>
+  <line x1="21" y1="388" x2="42" y2="388" class="prestress"/>
+  <line x1="222" y1="388" x2="201" y2="388" class="prestress"/>
+  <path d="M48 401L40 413L56 413Z" class="support"/>
+  <circle cx="194" cy="407" r="6" class="support"/>
+  <line x1="184" y1="415" x2="204" y2="415" stroke="#222" stroke-width="1.5"/>
+  <text x="238" y="361" class="label">上縁</text>
+  <text x="238" y="411" class="label">下縁</text>
+  <line x1="275" y1="357" x2="369" y2="357" class="axis"/>
+  <line x1="275" y1="407" x2="369" y2="407" class="axis"/>
+  <path d="M328 357H280L328 407Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="328" y1="349" x2="328" y2="415" class="axis"/>
+  <circle cx="328" cy="407" r="3" fill="#3a7d44"/>
+  <text x="25" y="427" class="body">この例では下縁の引張応力が0</text>
+  <text x="328" y="427" text-anchor="middle" class="label">0</text>
+
+  <rect x="12" y="451" width="376" height="37" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+  <text x="200" y="475" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">先に圧縮を与え、使用時の引張応力を抑える</text>
+</svg>

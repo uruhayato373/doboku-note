@@ -1,0 +1,109 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="氾濫・大雨・土砂災害・高潮の4現象とレベル1〜5の対応表。レベル2は注意報、3は警報、4は危険警報、5は特別警報で、キキクルは黄・赤・紫・黒に対応する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .bd { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .hdr { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .idx { fill: #fff; stroke: #d7d7d7; stroke-width: 1; }
+      .l5 { fill: #f8d7da; stroke: #b22234; stroke-width: 2.5; }
+      .l4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .l3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .l2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .l1 { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .tag { fill: #fff; stroke: #b22234; stroke-width: 1; }
+      .st { text-anchor: start; }
+    </style>
+  </defs>
+
+  <g text-anchor="middle" font-size="11">
+  <rect class="hdr" x="14" y="14" width="64" height="46" rx="6"/>
+  <text class="h" x="46" y="34">レベルと</text>
+  <text x="46" y="51">キキクル色</text>
+  <rect class="hdr" x="82" y="14" width="72" height="46" rx="6"/>
+  <text class="h" x="118" y="34">河川氾濫</text>
+  <text x="118" y="51">洪水予報河川</text>
+  <rect class="hdr" x="158" y="14" width="72" height="46" rx="6"/>
+  <text class="h" x="194" y="34">大雨</text>
+  <text x="194" y="51">低地の浸水等</text>
+  <rect class="hdr" x="234" y="14" width="72" height="46" rx="6"/>
+  <text class="h" x="270" y="34">土砂災害</text>
+  <text x="270" y="51">がけ崩れ等</text>
+  <rect class="hdr" x="310" y="14" width="72" height="46" rx="6"/>
+  <text class="h" x="346" y="34">高潮</text>
+  <text x="346" y="51">海面上昇等</text>
+  <rect class="idx" x="14" y="64" width="64" height="50" rx="6"/>
+  <text class="h" x="46" y="93">指標</text>
+  <rect class="idx" x="82" y="64" width="72" height="50" rx="6"/>
+  <text x="118" y="93">水位</text>
+  <rect class="idx" x="158" y="64" width="72" height="50" rx="6"/>
+  <text x="194" y="85">表面・流域</text>
+  <text x="194" y="103">雨量指数</text>
+  <rect class="idx" x="234" y="64" width="72" height="50" rx="6"/>
+  <text x="270" y="85">60分雨量と</text>
+  <text x="270" y="103">土壌雨量指数</text>
+  <rect class="idx" x="310" y="64" width="72" height="50" rx="6"/>
+  <text x="346" y="85">潮位（一部は</text>
+  <text x="346" y="103">打上げ高も）</text>
+  <rect class="l5" x="14" y="118" width="64" height="58" rx="6"/>
+  <text class="h" x="46" y="143">レベル5</text>
+  <text x="46" y="162">黒</text>
+  <rect class="l5" x="82" y="118" width="72" height="58" rx="6"/>
+  <text class="n" x="118" y="152">特別警報</text>
+  <rect class="l5" x="158" y="118" width="72" height="58" rx="6"/>
+  <text class="n" x="194" y="152">特別警報</text>
+  <rect class="l5" x="234" y="118" width="72" height="58" rx="6"/>
+  <text class="n" x="270" y="152">特別警報</text>
+  <rect class="l5" x="310" y="118" width="72" height="58" rx="6"/>
+  <text class="n" x="346" y="152">特別警報</text>
+  <rect class="l4" x="14" y="180" width="64" height="58" rx="6"/>
+  <text class="h" x="46" y="205">レベル4</text>
+  <text x="46" y="224">紫</text>
+  <rect class="l4" x="82" y="180" width="72" height="58" rx="6"/>
+  <text class="n" x="118" y="214">危険警報</text>
+  <rect class="l4" x="158" y="180" width="72" height="58" rx="6"/>
+  <text class="n" x="194" y="205">危険警報</text>
+  <rect class="tag" x="178" y="213" width="32" height="16" rx="3"/>
+  <text class="bd" x="194" y="225">新設</text>
+  <rect class="l4" x="234" y="180" width="72" height="58" rx="6"/>
+  <text class="n" x="270" y="214">危険警報</text>
+  <rect class="l4" x="310" y="180" width="72" height="58" rx="6"/>
+  <text class="n" x="346" y="214">危険警報</text>
+  <rect class="l3" x="14" y="242" width="64" height="58" rx="6"/>
+  <text class="h" x="46" y="267">レベル3</text>
+  <text x="46" y="286">赤</text>
+  <rect class="l3" x="82" y="242" width="72" height="58" rx="6"/>
+  <text class="n" x="118" y="276">警報</text>
+  <rect class="l3" x="158" y="242" width="72" height="58" rx="6"/>
+  <text class="n" x="194" y="276">警報</text>
+  <rect class="l3" x="234" y="242" width="72" height="58" rx="6"/>
+  <text class="n" x="270" y="276">警報</text>
+  <rect class="l3" x="310" y="242" width="72" height="58" rx="6"/>
+  <text class="n" x="346" y="276">警報</text>
+  <rect class="l2" x="14" y="304" width="64" height="58" rx="6"/>
+  <text class="h" x="46" y="329">レベル2</text>
+  <text x="46" y="348">黄</text>
+  <rect class="l2" x="82" y="304" width="72" height="58" rx="6"/>
+  <text class="n" x="118" y="338">注意報</text>
+  <rect class="l2" x="158" y="304" width="72" height="58" rx="6"/>
+  <text class="n" x="194" y="338">注意報</text>
+  <rect class="l2" x="234" y="304" width="72" height="58" rx="6"/>
+  <text class="n" x="270" y="338">注意報</text>
+  <rect class="l2" x="310" y="304" width="72" height="58" rx="6"/>
+  <text class="n" x="346" y="338">注意報</text>
+  <rect class="l1" x="14" y="366" width="64" height="48" rx="6"/>
+  <text class="h" x="46" y="387">レベル1</text>
+  <text x="46" y="405">なし</text>
+  <rect class="l1" x="82" y="366" width="300" height="48" rx="6"/>
+  <text class="h" x="232" y="387">早期注意情報（警報級の可能性）</text>
+  <text x="232" y="405">大雨・土砂災害・高潮の［高］［中］が対象</text>
+  </g>
+
+  <g class="st" font-size="11">
+    <text x="14" y="438">新設：旧体系にはレベル4相当の浸水害の情報がなかった</text>
+    <text x="14" y="454">氾濫は洪水予報河川ごとに発表し、洪水警報は廃止</text>
+    <text x="14" y="470">水位周知河川は従来どおり水位の情報（氾濫危険情報等）</text>
+    <text x="14" y="486">2026年5月29日から名称にレベルの数字を冠記</text>
+  </g>
+</svg>

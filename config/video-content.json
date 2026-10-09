@@ -2,10 +2,9 @@
   "$schema": "https://doboku-note.com/schema/video-content.json",
   "description": "動画パック（DN-0110）の機械可読契約。人間向け真実源は .claude/knowledge/reference/video-content-policy.md、戦略は docs/marketing/06_動画コンテンツ運用設計.md。checker(check-video-content)・fixture(tests/fixtures/video-content)・将来の admin parser が参照する。",
   "schemaVersion": 1,
-  "updated": "2026-09-06",
+  "updated": "2026-10-08",
   "paths": {
-    "packsRoot": "content/sns/video-packs",
-    "stateFile": ".claude/state/video-content-status.json"
+    "packsRoot": "content/sns/video-packs"
   },
   "manifest": {
     "schemaVersion": 1,
@@ -70,13 +69,25 @@
     "captionMaxChars": 60,
     "durationSeconds": {
       "longform": { "min": 60, "max": 1200 },
+      "compilation": { "min": 1200, "max": 3600 },
       "shorts": { "min": 15, "max": 180, "recommendedMin": 30, "recommendedMax": 60 }
     },
-    "note_": "shorts の 180 秒はプラットフォーム成立条件・30-60 秒はプロジェクト推奨尺（真実源 yt-shorts-publisher-policy.md §3）。longform の min/max は sanity bound であり品質基準ではない。"
+    "note_": "shorts の 180 秒はプラットフォーム成立条件・30-60 秒はプロジェクト推奨尺（真実源 yt-shorts-publisher-policy.md §3）。longform の min/max は sanity bound であり品質基準ではない。compilation は compilation.json を持つ総まとめ（聞き流し）パックの範囲（config/youtube-formats.json の compilation）。"
   },
   "verbatim": {
     "windowChars": 80,
     "note_": "正規化（空白除去）した script 本文が sourceRef 本文と windowChars 連続一致したら逐語転用として FAIL（docs/marketing/06 §10「サイトや有料 note 本文の逐語転用」禁止の機械化）。"
+  },
+  "visualCheck": {
+    "contactSheetEverySec": 10,
+    "contactSheetCols": 4,
+    "contactSheetRows": 6,
+    "contactSheetWidth": 480,
+    "previewFps": 10,
+    "maxOpeningCoverSec": 3,
+    "maxRepeatFrameRatio": 0.3,
+    "longStaticSec": 20,
+    "note_": "音声の前に画面だけを確かめる（DN-0603・npm run media -- preview）。無音プレビュー（previewFps）と、contactSheetEverySec 秒ごとのコンタクトシート（cols×rows 枚で 1 枚・幅 contactSheetWidth・長尺は複数枚）を作る。数値は render-manifest の場面から出す: 冒頭の表紙の秒数（最初の場面の実尺が maxOpeningCoverSec を超えると注意）・直前と同じ画面の割合（同じ PNG が続く場面の秒数の割合が maxRepeatFrameRatio を超えると注意）・同じ画面が longStaticSec 秒以上続く箇所。注意は承認を止めない（人が画面で判断する）。"
   },
   "forbiddenBinaryExtensions": [".mp4", ".mov", ".wav", ".m4a", ".mp3", ".ass", ".srt", ".mkv"],
   "state": {
@@ -116,7 +127,6 @@
       "longform",
       "shorts",
       "instagramCarousel",
-      "instagramReel",
       "xThread",
       "threadsBrief"
     ],

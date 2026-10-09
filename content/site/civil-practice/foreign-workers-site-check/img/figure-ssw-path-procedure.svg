@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設分野の特定技能の道筋と手続。外国人は試験に合格して特定技能1号、班長の経験と2号の試験を経て特定技能2号へ進む。受入れ会社は建設業許可、CCUS登録、団体への所属、受入計画の認定を経て、契約と在留申請に進む" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g fill="#222" font-size="13" font-weight="700"><text x="18" y="26">外国人の道筋</text><text x="210" y="26">受け入れる会社の手続</text></g>
+<g stroke-width="1.5">
+<rect x="18" y="40" width="172" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="134" width="172" height="64" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="18" y="228" width="172" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="322" width="172" height="64" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="210" y="40" width="172" height="54" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="210" y="113" width="172" height="54" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="210" y="186" width="172" height="54" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="210" y="259" width="172" height="54" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="210" y="332" width="172" height="54" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<g stroke="#2e6da4">
+<line x1="104.0" y1="104" x2="104.0" y2="132" marker-end="url(#ar)"/>
+<line x1="104.0" y1="198" x2="104.0" y2="226" marker-end="url(#ar)"/>
+<line x1="104.0" y1="292" x2="104.0" y2="320" marker-end="url(#ar)"/>
+<line x1="296.0" y1="94" x2="296.0" y2="111" marker-end="url(#ar)"/>
+<line x1="296.0" y1="167" x2="296.0" y2="184" marker-end="url(#ar)"/>
+<line x1="296.0" y1="240" x2="296.0" y2="257" marker-end="url(#ar)"/>
+<line x1="296.0" y1="313" x2="296.0" y2="330" marker-end="url(#ar)"/>
+</g>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="28" y="60">技能と日本語の試験</text>
+<text x="28" y="154">特定技能1号</text>
+<text x="28" y="248">2号の試験と班長経験</text>
+<text x="28" y="342">特定技能2号</text>
+<text x="220" y="64">建設業許可を受ける</text>
+<text x="220" y="137">CCUSに登録する</text>
+<text x="220" y="210">受入れ団体に所属する</text>
+<text x="220" y="283">受入計画の認定を受ける</text>
+<text x="220" y="356">契約・支援計画・在留申請</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="28" y="77">日本語はA2.2相当以上</text>
+<text x="28" y="93">実習2号の修了者は免除</text>
+<text x="28" y="171">通算5年まで</text>
+<text x="28" y="187">家族の帯同は基本的に不可</text>
+<text x="28" y="265">複数の技能者を指導し、</text>
+<text x="28" y="281">工程を管理した経験が要る</text>
+<text x="28" y="359">更新の回数に上限なし</text>
+<text x="28" y="375">要件を満たせば家族帯同可</text>
+<text x="220" y="81">5年以内に監督処分なし</text>
+<text x="220" y="154">会社と外国人の双方</text>
+<text x="220" y="227">JACの共同ルールに従う</text>
+<text x="220" y="300">国土交通大臣（地方整備局）</text>
+<text x="220" y="373">受入れ後は講習と履行確認</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="20" y="424">1号には生活面の支援が要り、2号は支援の対象外になる</text>
+<text x="20" y="441">1号の人数は、会社の常勤職員の数までに限られる</text>
+<text x="20" y="458">下請が受け入れるときは、元請が在留資格と従事の状況を確かめる</text>
+<text x="20" y="475">制度は改正が続くため、受入れ時点の資料で確かめる</text>
+</g>
+</svg>

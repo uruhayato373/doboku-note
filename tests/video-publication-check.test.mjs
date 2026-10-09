@@ -4,16 +4,18 @@
 // 「照合していないのに published のまま」を確実に赤くするかを固定する。
 //
 // 一番危険なのは、公開済みなのに一度も実査しておらず、それでも緑が出続ける状態。
-// state を差し替えたミニ環境で CLI を実行し、exit code と検出コードを検証する。
+// state（台帳の代わり）を差し替えたミニ環境で CLI を実行し、exit code と検出コードを検証する。
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import process from 'node:process';
-import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
  * scripts/ と .claude/config を持つ最小環境を作り、state と record を差し替えて CLI を走らせる。
@@ -26,12 +28,18 @@ function runCheck({ state, record }) {
     mkdirSync(join(root, '.claude', 'config'), { recursive: true });
     mkdirSync(join(root, '.claude', 'state'), { recursive: true });
     cpSync(join(ROOT, 'scripts', 'check-video-publication.mjs'), join(root, 'scripts', 'check-video-publication.mjs'));
-    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'repository-paths.mjs']) {
+    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'video-compilation.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
     }
     cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));
     cpSync(join(ROOT, 'config', 'utm-templates.json'), join(root, 'config', 'utm-templates.json'));
-    writeFileSync(join(root, '.claude', 'state', 'video-content-status.json'), JSON.stringify(state));
+    // 本物の loadVideoState は content/registry を読む。ミニ環境では台帳の代わりに差し替えた state を返す入口だけを置く
+    writeFileSync(join(root, '.claude', 'state', 'test-video-state.json'), JSON.stringify(state));
+    writeFileSync(
+      join(root, 'scripts', 'lib', 'registry-video-state.mjs'),
+      "import { readFileSync } from 'node:fs';\nimport { join } from 'node:path';\n"
+        + "export const loadVideoState = (root) => JSON.parse(readFileSync(join(root, '.claude', 'state', 'test-video-state.json'), 'utf8'));\n",
+    );
     if (record) {
       writeFileSync(join(root, '.claude', 'state', 'video-publication-verify.json'), JSON.stringify(record));
     }

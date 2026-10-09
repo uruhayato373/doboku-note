@@ -4,7 +4,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { resolveWindow, pickByLabelSnapshot } from '../.claude/scripts/lib/ga4-snapshot.mjs';
-import { writeReport } from '../scripts/lib/metric-reports.mjs';
+import { latestReportRef, writeReport } from '../scripts/lib/metric-reports.mjs';
 
 /**
  * GA4 スナップショットの窓契約（DN-0062）。
@@ -102,4 +102,20 @@ test('pickByLabelSnapshot: 壊れた日のファイルがあっても選択は�
 test('pickByLabelSnapshot: 候補が無ければ null（空を成功と呼ばない）', () => {
   assert.equal(pickByLabelSnapshot(mkdtempSync(join(tmpdir(), 'ga4-snap-'))), null);
   assert.equal(pickByLabelSnapshot(join(tmpdir(), 'ga4-snap-does-not-exist')), null);
+});
+
+test('latestReportRef: windowKind を指定すると、後から書かれた暦月の枠ではなく 28 日窓を返す（配置別と並べる読み手・2026-10-07）', () => {
+  const root = snapshotRoot([
+    ['2026-10-02T00-21-30', { windowKind: 'days' }],
+    ['2026-10-02T00-21-36', { windowKind: 'month' }],
+  ]);
+  assert.equal(latestReportRef(root, 'ga4.cta-clicks-by-label'), 'data/ga4/reports/2026-10-02.json#cta-clicks-by-label:month', '指定しなければ従来どおり最新（暦月）');
+  assert.equal(latestReportRef(root, 'ga4.cta-clicks-by-label', { windowKind: 'days' }), 'data/ga4/reports/2026-10-02.json#cta-clicks-by-label');
+  assert.equal(latestReportRef(root, 'ga4.cta-clicks-by-label', { windowKind: 'month' }), 'data/ga4/reports/2026-10-02.json#cta-clicks-by-label:month');
+});
+
+test('latestReportRef: windowKind 未設定の既存レポートは days として選ばれる', () => {
+  const root = snapshotRoot([['2026-09-27T11-52-30', {}]]);
+  assert.equal(latestReportRef(root, 'ga4.cta-clicks-by-label', { windowKind: 'days' }), 'data/ga4/reports/2026-09-27.json#cta-clicks-by-label');
+  assert.equal(latestReportRef(root, 'ga4.cta-clicks-by-label', { windowKind: 'month' }), null);
 });

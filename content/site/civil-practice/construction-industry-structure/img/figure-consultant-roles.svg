@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="事業の段階ごとの役割分担。調査・計画、設計、施工、維持管理の四段階で、発注者、建設コンサルタント、施工者がそれぞれ何を担うかを示す。設計と施工を分けて発注する場合、施工者は設計段階に参加しない" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="14" y="14" width="372" height="92" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="128" width="372" height="92" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="242" width="372" height="92" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="356" width="372" height="92" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+</g>
+<g stroke-width="1">
+<rect x="26" y="45" width="10" height="10" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="26" y="63" width="10" height="10" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="26" y="81" width="10" height="10" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="26" y="159" width="10" height="10" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="26" y="177" width="10" height="10" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="26" y="195" width="10" height="10" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="26" y="273" width="10" height="10" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="26" y="291" width="10" height="10" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="26" y="309" width="10" height="10" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="26" y="387" width="10" height="10" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="26" y="405" width="10" height="10" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="26" y="423" width="10" height="10" fill="#d0e8d0" stroke="#3a7d44"/>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="26" y="34">調査・計画</text>
+<text x="26" y="148">設計</text>
+<text x="26" y="262">施工</text>
+<text x="26" y="376">維持管理</text>
+</g>
+<g fill="#222" font-size="11" font-weight="700">
+<text x="42" y="54">発注者</text><text x="42" y="72">コンサル</text><text x="42" y="90">施工者</text>
+<text x="42" y="168">発注者</text><text x="42" y="186">コンサル</text><text x="42" y="204">施工者</text>
+<text x="42" y="282">発注者</text><text x="42" y="300">コンサル</text><text x="42" y="318">施工者</text>
+<text x="42" y="396">発注者</text><text x="42" y="414">コンサル</text><text x="42" y="432">施工者</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="100" y="54">事業の必要性を判断し発注する</text>
+<text x="100" y="72">測量・地質調査・計画を検討する</text>
+<text x="100" y="90">まだ選ばれていない</text>
+<text x="100" y="168">設計条件を示し、成果を検査する</text>
+<text x="100" y="186">予備設計・詳細設計・数量を出す</text>
+<text x="100" y="204">原則は未参加（ECIは技術協力）</text>
+<text x="100" y="282">監督・検査・変更の協議をする</text>
+<text x="100" y="300">発注者支援やCMを担うこともある</text>
+<text x="100" y="318">施工し、完成に責任を負う</text>
+<text x="100" y="396">点検結果から補修を判断する</text>
+<text x="100" y="414">点検・診断・補修の設計をする</text>
+<text x="100" y="432">補修工事を施工する</text>
+</g>
+<g fill="#222" font-size="12">
+<text x="20" y="480">上流の成果が、下流の契約条件になる</text>
+</g>
+</svg>

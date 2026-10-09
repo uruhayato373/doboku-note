@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="土量の変化。地山の土量を基準に、ほぐした土量は地山より多くL＞1.0、締め固めた土量は地山より少なくC＜1.0となる。Lは運搬計画、Cは配分計画に使う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-soil-volume-change-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-soil-volume-change-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-soil-volume-change-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-soil-volume-change-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">土量の変化</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">地山を掘ると増え、盛土して締め固めると減る</text>
+  <rect class="weak" x="40" y="80" width="120" height="44" rx="4" style="stroke-width:1.5"/>
+  <text class="t-key" x="100" y="107" text-anchor="middle">地山</text>
+  <text class="t-note" x="170" y="107">基準 1.0</text>
+  <rect class="bad" x="40" y="176" width="170" height="44" rx="4" style="stroke-width:1.5"/>
+  <text class="t-key" x="125" y="203" text-anchor="middle">ほぐした土</text>
+  <text class="t-note" x="220" y="203">L ＞ 1.0</text>
+  <rect class="green" x="40" y="272" width="100" height="44" rx="4" style="stroke-width:1.5"/>
+  <text class="t-key" x="90" y="299" text-anchor="middle">締め固めた土</text>
+  <text class="t-note" x="150" y="299">C ＜ 1.0</text>
+  <line class="water" x1="60" y1="126" x2="60" y2="172" marker-end="url(#figure-soil-volume-change-ab)"/>
+  <text class="t-note" x="70" y="154">掘削してほぐす</text>
+  <line class="water" x1="360" y1="126" x2="360" y2="268" marker-end="url(#figure-soil-volume-change-ag)" style="stroke:#3a7d44"/>
+  <text class="t-note" x="350" y="236" text-anchor="end">盛土して締め固める</text>
+  <text class="t-note" x="28" y="72">体積の大きさ（イメージ）</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">L</text>
+  <text class="t-lab" x="104" y="414">ほぐした土量 ÷ 地山の土量（運搬計画）</text>
+  <text class="t-key" x="30" y="440">C</text>
+  <text class="t-lab" x="104" y="440">締め固めた土量 ÷ 地山の土量（配分計画）</text>
+  <text class="t-warn" x="30" y="466">注意</text>
+  <text class="t-lab" x="104" y="466">C は施工条件で変わり、把握が難しい</text>
+
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="湿原・干潟・藻場の3つの湿地を、場所の見分け方と主な働きで並べて整理した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="0" y="0" width="400" height="500" fill="#ffffff"/>
+
+  <!-- 湿原 : positive (上端 y=20) -->
+  <rect x="20" y="20" width="360" height="132" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <!-- 絵 : 草と水を含んだ地面 -->
+  <rect x="34" y="36" width="116" height="100" rx="4" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="34" y="84" width="116" height="52" fill="#f5f5f5"/>
+  <rect x="34" y="102" width="116" height="34" fill="#e8f0fe"/>
+  <line x1="34" y1="102" x2="150" y2="102" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M 52 84 l -4 -16 M 52 84 l 3 -12 M 76 84 l -4 -14 M 76 84 l 4 -16 M 100 84 l -3 -14 M 100 84 l 4 -12 M 124 84 l -4 -16 M 124 84 l 3 -12" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="34" y1="84" x2="150" y2="84" stroke="#555" stroke-width="1.5"/>
+  <text x="92" y="124" font-size="11" fill="#222" text-anchor="middle">水を含む地面</text>
+  <!-- 文字 -->
+  <text x="166" y="46" font-size="14" font-weight="700" fill="#1a3a5c">湿原</text>
+  <text x="166" y="68" font-size="11" fill="#555">場所</text>
+  <text x="198" y="68" font-size="12" fill="#222">枯れた植物が泥炭に</text>
+  <text x="198" y="85" font-size="12" fill="#222">なってたまる草地</text>
+  <text x="166" y="112" font-size="11" fill="#555">働き</text>
+  <text x="198" y="112" font-size="12" fill="#222">水をため、ゆっくり流す</text>
+  <text x="198" y="129" font-size="12" fill="#222">水を浄化する</text>
+
+  <!-- 干潟 : warn (上端 y=164) -->
+  <rect x="20" y="164" width="360" height="132" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="34" y="180" width="116" height="100" rx="4" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <!-- 満潮時に水をかぶる範囲 -->
+  <polygon points="58,222 150,222 150,252" fill="#e8f0fe"/>
+  <!-- 砂泥の斜面 -->
+  <polygon points="34,214 150,252 150,280 34,280" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <!-- 干上がる範囲 -->
+  <line x1="58" y1="222" x2="132" y2="246" stroke="#d4a017" stroke-width="4" stroke-linecap="round"/>
+  <!-- 満潮と干潮の水位 -->
+  <line x1="34" y1="222" x2="150" y2="222" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="34" y1="246" x2="150" y2="246" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="146" y="218" font-size="11" fill="#222" text-anchor="end">満潮</text>
+  <text x="146" y="242" font-size="11" fill="#222" text-anchor="end">干潮</text>
+  <line x1="92" y1="208" x2="94" y2="232" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="92" y="204" font-size="11" fill="#222" text-anchor="middle">干上がる範囲</text>
+  <text x="76" y="272" font-size="11" fill="#222" text-anchor="middle">砂・泥</text>
+  <!-- 文字 -->
+  <text x="166" y="190" font-size="14" font-weight="700" fill="#1a3a5c">干潟</text>
+  <text x="166" y="212" font-size="11" fill="#555">場所</text>
+  <text x="198" y="212" font-size="12" fill="#222">潮の干満で干上がる</text>
+  <text x="198" y="229" font-size="12" fill="#222">砂や泥の浅場</text>
+  <text x="166" y="256" font-size="11" fill="#555">働き</text>
+  <text x="198" y="256" font-size="12" fill="#222">有機物を分解して浄化</text>
+  <text x="198" y="273" font-size="12" fill="#222">鳥の餌場・稚魚の場</text>
+
+  <!-- 藻場 : brand (上端 y=308) -->
+  <rect x="20" y="308" width="360" height="132" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="34" y="324" width="116" height="100" rx="4" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="34" y="324" width="116" height="100" rx="4" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="34" y="404" width="116" height="20" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <path d="M 52 404 q -8 -14 0 -28 q 8 -14 0 -28" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 78 404 q -8 -12 0 -24 q 8 -12 0 -24" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 104 404 q -8 -14 0 -28 q 8 -14 0 -28" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 130 404 q -8 -12 0 -24 q 8 -12 0 -24" fill="none" stroke="#3a7d44" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="92" y="419" font-size="11" fill="#222" text-anchor="middle">海底</text>
+  <!-- 文字 -->
+  <text x="166" y="334" font-size="14" font-weight="700" fill="#1a3a5c">藻場</text>
+  <text x="166" y="356" font-size="11" fill="#555">場所</text>
+  <text x="198" y="356" font-size="12" fill="#222">浅い海で海草や海藻</text>
+  <text x="198" y="373" font-size="12" fill="#222">が群落をつくる</text>
+  <text x="166" y="400" font-size="11" fill="#555">働き</text>
+  <text x="198" y="400" font-size="12" fill="#222">産卵場・幼稚仔の保育場</text>
+  <text x="198" y="417" font-size="12" fill="#222">水質の浄化・底質の安定</text>
+
+  <!-- まとめ : surface -->
+  <rect x="20" y="452" width="360" height="36" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="36" y="475" font-size="13" font-weight="700" fill="#222">どれも埋立てや造成で失いやすく、戻しにくい</text>
+</svg>

@@ -7,8 +7,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
-const ROOT = path.resolve(__dirname, '../../..'); // root-ok: CJS（ファイルの場所から決めている）
-const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
+const ROOT = path.resolve(__dirname, '../../..');
+
+// 状態の正本はコンテンツ台帳（content/registry）。registry-video-state.mjs の loadVideoState だけを通して読む（ESM なので動的 import）。
+const loadState = async () => (await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/registry-video-state.mjs')).href)).loadVideoState(ROOT);
 const PACKS_ROOT = path.join(ROOT, 'content/sns/video-packs');
 
 function arg(name, fallback = null) {
@@ -34,8 +36,8 @@ function walk(dir, out = []) {
   return out;
 }
 
-function candidates() {
-  const state = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
+async function candidates() {
+  const state = await loadState();
   return walk(PACKS_ROOT)
     .map((manifestPath) => {
       const dir = path.dirname(manifestPath);
@@ -86,7 +88,7 @@ function isRetryableProcessingError(detail) {
 }
 
 async function main() {
-  const targets = candidates();
+  const targets = await candidates();
   console.log(`batch target: ${targets.length}本 / phase=${phase} / max=${max} / exams=${[...exams].join(',')}`);
   for (const item of targets) console.log(`  ${item.publishAt} ${item.packId}`);
   if (dry || targets.length === 0) return;
@@ -122,8 +124,8 @@ async function main() {
     }
   }
 
+  const current = await loadState();
   const unresolved = failed.filter(({ item }) => {
-    const current = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
     const derivative = current.packs?.[item.packId]?.derivatives?.longform;
     if (phase === 'longform') return derivative?.status !== 'scheduled';
     if (phase === 'thumbnail') return derivative?.thumbnailStatus !== 'set';
@@ -135,7 +137,7 @@ async function main() {
     return derivative?.productionDisclosure !== 'author-led-ai-assisted'
       || derivative?.containsSyntheticMedia !== false;
   });
-  console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${candidates().length}`);
+  console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${(await candidates()).length}`);
   if (unresolved.length) process.exitCode = 1;
 }
 

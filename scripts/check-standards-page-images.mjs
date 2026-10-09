@@ -171,7 +171,7 @@ if (fails.length) {
   process.exit(1)
 }
 if (docsWithLocalBytes === 0) {
-  console.log('[check-standards-page-images] ✓ manifest は健全（この端末に画像の実体は無い＝実体検査 0 件。実体は Drive vault。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/）')
+  console.log('[check-standards-page-images] ✓ manifest は健全（この端末に画像の実体は無い＝実体検査 0 件。実体は Drive vault。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/<機関>/ --commit）')
 } else {
   console.log('[check-standards-page-images] ✓ manifest と画像実体は整合')
 }

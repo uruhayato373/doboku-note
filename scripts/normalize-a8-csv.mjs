@@ -31,6 +31,7 @@ import {
   keepProgramRows,
   resultsFromReportLog,
   REPORT_LOG_NOTES,
+  normalizeA8ResultCsv,
 } from "./lib/a8-report-csv.mjs";
 
 const STATE_DIR = datasetDir("a8.ui-raw");
@@ -98,6 +99,7 @@ function emptyReportLog(site) {
     monthly: [],
     daily: [],
     programPeriod: [],
+    conversions: [],
     crossCheck: null,
     notAttributable: [],
   };
@@ -117,6 +119,13 @@ function main() {
     process.exit(5);
   }
 
+  // 1 本も取れていない run を取り込むと、期間が null になり当期外の行が消えた SSOT で上書きしてしまう
+  // （2026-10-07 実測・DN-0566）。何も書かずに止める。
+  if (!(manifest.units || []).some((u) => u.status === "downloaded")) {
+    console.error(`取得できたレポートが 0 本（${(manifest.units || []).map((u) => `${u.reportKey}=${u.status}`).join(", ") || "units なし"}）。SSOT は書き換えません。`);
+    process.exit(1);
+  }
+
   const outDir = join(runDir, "normalized");
   mkdirSync(outDir, { recursive: true });
 
@@ -131,6 +140,24 @@ function main() {
   for (const unit of manifest.units || []) {
     if (unit.status !== "downloaded") {
       console.log(`  skip ${unit.reportKey}（status=${unit.status}）`);
+      continue;
+    }
+    // 成果別（1 成果 1 行・ページ付き）は形が違うので専用の正規化で conversions へ upsert する
+    if (unit.reportKey === "result-detail") {
+      // 成果の無い期間は CSV が無い（unit.noData・0 件の取得）
+      const resR = unit.noData
+        ? { rows: [], rejects: [], headers: [], fatal: null }
+        : normalizeA8ResultCsv(decodeCsvBuffer(readFileSync(unit.rawFile), cfg.a8.csvEncoding).text, { cfg, fetchedAt: manifest.collectedAt });
+      writeFileSync(join(outDir, "result-detail.json"), JSON.stringify({ reportKey: unit.reportKey, headers: resR.headers, rows: resR.rows }, null, 2), "utf-8");
+      totalRejects += resR.rejects.length;
+      if (resR.fatal) {
+        console.error(`  result-detail: FATAL ${resR.fatal}（列名が変わった・SSOT へは入れない）`);
+        perReport.push({ reportKey: unit.reportKey, rows: 0, rejects: resR.rejects.length, fatal: resR.fatal });
+        continue;
+      }
+      log.conversions = upsertBy(log.conversions ?? [], resR.rows, KEY.conversions);
+      perReport.push({ reportKey: unit.reportKey, rows: resR.rows.length, rejects: resR.rejects.length, fatal: null });
+      console.log(`  result-detail: 成果 ${resR.rows.length} 件 upsert（このサイト分・reject ${resR.rejects.length}）`);
       continue;
     }
     const bucket = BUCKET[unit.reportKey];
@@ -172,7 +199,17 @@ function main() {
   // 期間: 月次 rollup の根拠は **program-detail の期間**（unit 順に依存させない）。
   // 無ければ site-summary → 任意の順で拾う。
   const unitPeriod = (key) => (manifest.units || []).find((u) => u.reportKey === key)?.period ?? null;
-  const period = unitPeriod("program-detail") || unitPeriod("site-summary") || (manifest.units || []).map((u) => u.period).find(Boolean) || null;
+  // 成果別（result-detail）は日単位の期間で、集計レポートの期間とは別物なので period の根拠にしない
+  const aggregateUnits = (manifest.units || []).filter((u) => u.reportKey !== "result-detail");
+  const period = unitPeriod("program-detail") || unitPeriod("site-summary") || aggregateUnits.map((u) => u.period).find(Boolean) || null;
+  // 成果別だけの run（集計レポートを取っていない）は、期間・突合を前回のまま残して conversions だけを書く
+  if (!aggregateUnits.some((u) => u.status === "downloaded")) {
+    log.updatedAt = new Date().toISOString();
+    log.lastRun = manifest.runId;
+    if (!opts.dryRun) writeFileSync(REPORT_LOG, JSON.stringify(log, null, 2) + "\n", "utf-8");
+    console.log(`\nSSOT: ${REPORT_LOG}（成果別だけを更新・conversions=${(log.conversions ?? []).length}）${opts.dryRun ? " [dry-run・書き込まない]" : ""}`);
+    return;
+  }
   log.period = period;
 
   // ★ 期間を揃える。SSOT は累計 run と単月 run の行が **併存**するため（upsert のキーに期間が入る）、

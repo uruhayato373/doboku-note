@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="管の中心に染料を流したときの見え方。レイノルズ数が2000以下の層流では染料が1本の筋のまま、2000から4000の遷移域では筋が揺れ、4000を超える乱流では染料が混ざって断面全体に広がる。下段にレイノルズ数の式と計算例を示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-b  { font-size: 12px; fill: #222; }
+      .t-bb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-s  { font-size: 11px; fill: #555; }
+      .t-r  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .pipe { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .dye  { stroke: #b22234; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+      .dye-thin { stroke: #b22234; stroke-width: 1.5; fill: none; stroke-linecap: round; }
+      .dye-cloud { fill: #f8d7da; stroke: #b22234; stroke-width: 1.2; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln-ink { stroke: #222; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah-ink" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#222"/></marker>
+  </defs>
+
+  <!-- 層流 -->
+  <text class="t-h" x="30" y="26">層流（Re が 2000 以下）</text>
+  <text class="t-s" x="30" y="42">染料は 1 本の筋のまま流れる</text>
+  <rect class="pipe" x="30" y="50" width="336" height="56" rx="6"/>
+  <line class="dye" x1="42" y1="82" x2="358" y2="82"/>
+  <line class="ln-ink" x1="296" y1="64" x2="350" y2="64" marker-end="url(#ah-ink)"/>
+
+  <!-- 遷移域 -->
+  <text class="t-h" x="30" y="141">遷移域（Re が 2000〜4000）</text>
+  <text class="t-s" x="30" y="157">筋が揺れ、ところどころで乱れる</text>
+  <rect class="pipe" x="30" y="165" width="336" height="56" rx="6"/>
+  <path class="dye" d="M42,193 L120,193 C150,193 160,181 185,181 C210,181 215,205 240,205 C265,205 270,184 295,184 C320,184 330,201 358,197"/>
+
+  <!-- 乱流 -->
+  <text class="t-h" x="30" y="256">乱流（Re が 4000 超）</text>
+  <text class="t-s" x="30" y="272">染料が渦で混ざり、断面全体に広がる</text>
+  <rect class="pipe" x="30" y="280" width="336" height="56" rx="6"/>
+  <clipPath id="clip-turb"><rect x="30" y="280" width="336" height="56" rx="6"/></clipPath>
+  <g clip-path="url(#clip-turb)">
+    <path class="dye-cloud" d="M42,308 C90,304 120,298 160,293 C200,288 230,286 270,287 C310,288 340,286 380,286 L380,330 C340,331 310,332 270,330 C230,328 200,330 160,325 C120,320 90,312 42,308 Z"/>
+    <path class="dye-thin" d="M42,308 C80,300 100,313 130,302 C160,291 180,321 215,307 C250,293 270,319 310,303 C335,294 355,310 380,304"/>
+    <path class="dye-thin" d="M42,308 C80,315 110,297 140,311 C170,325 190,297 225,313 C260,327 285,299 320,315 C340,322 360,306 380,314"/>
+    <path class="dye-thin" d="M150,300 C165,288 185,294 190,304 C195,316 178,322 170,314 C164,308 172,302 178,306"/>
+    <path class="dye-thin" d="M250,318 C262,330 284,326 286,314 C288,302 270,298 264,306 C260,312 268,316 274,312"/>
+    <path class="dye-thin" d="M318,300 C328,290 346,294 348,306 C350,318 334,322 328,314 C324,308 332,303 337,307"/>
+  </g>
+
+  <line class="rule" x1="20" y1="356" x2="380" y2="356"/>
+
+  <text class="t-bb" x="20" y="376">Re = ρvD/μ = vD/ν</text>
+  <text class="t-s" x="20" y="392">v: 流速　D: 管の内径　赤い線: 管の中心から入れた染料</text>
+  <text class="t-s" x="20" y="408">ν: 動粘性係数（水 20℃で約 1.0×10⁻⁶ m²/s）</text>
+
+  <text class="t-b" x="20" y="434">例: 内径 D = 0.3 m の管で流速 v = 1.0 m/s</text>
+  <text class="t-r" x="20" y="452">Re = 1.0 × 0.3 ÷ 1.0×10⁻⁶ = 3×10⁵ → 乱流</text>
+  <text class="t-s" x="20" y="470">実務の管路・水路の流れは、ほとんどが乱流</text>
+  <text class="t-s" x="20" y="488">層流になるのは、土中の浸透流など流速が極めて小さいとき</text>
+</svg>

@@ -1,6 +1,473 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-07T07:56:08.059Z",
+      "finishedAt": "2026-10-07T08:19:00.131Z",
+      "plan": {
+        "synced": 0,
+        "ready": 0,
+        "blocked": 0,
+        "blockers": {},
+        "magazinesOnly": true
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 17,
+        "updated": [
+          {
+            "key": "magazine:cce-essay-reiwa-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-namacon-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-precast-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-civil-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-maintenance-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-owner-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-building-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-design-consultant-pack"
+          },
+          {
+            "key": "magazine:cce-reiwa-testing-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-namacon-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-precast-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-civil-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-maintenance-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-owner-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-building-contractor-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-design-consultant-pack"
+          },
+          {
+            "key": "magazine:cce-goukaku-testing-pack"
+          }
+        ],
+        "failed": []
+      },
+      "problems": [
+        "マガジンカバーを Drive へ保存できなかった（drive-vault-sync）"
+      ]
+    },
+    {
+      "startedAt": "2026-10-07T06:28:24.124Z",
+      "finishedAt": "2026-10-07T06:38:40.929Z",
+      "plan": {
+        "synced": 0,
+        "ready": 0,
+        "blocked": 0,
+        "blockers": {},
+        "magazinesOnly": true
+      },
+      "articles": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 55,
+        "updated": [],
+        "failed": [
+          {
+            "key": "magazine:procurement-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:standards-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:river-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:sewage-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:sabo-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:park-municipality",
+            "reason": "登録失敗（exit 6）"
+          },
+          {
+            "key": "magazine:water-municipality",
+            "reason": "登録失敗（exit 6）"
+          }
+        ]
+      },
+      "problems": [
+        "note にログインできていない（account gate で停止）"
+      ]
+    },
+    {
+      "startedAt": "2026-10-07T04:06:59.032Z",
+      "finishedAt": "2026-10-07T05:01:06.202Z",
+      "plan": {
+        "synced": 0,
+        "ready": 40,
+        "blocked": 0,
+        "blockers": {},
+        "only": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-0"
+      },
+      "articles": {
+        "attempted": 40,
+        "updated": [
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/01-環境負荷低減/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/02-耐久性の向上/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/03-生産性向上DX/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/04-気候変動と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "body",
+              "cover"
+            ]
+          }
+        ],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "記事カバーを R2 へ保存できなかった（asset-offload）"
+      ]
+    },
+    {
+      "startedAt": "2026-10-07T03:23:34.751Z",
+      "finishedAt": "2026-10-07T03:35:53.596Z",
+      "plan": {
+        "synced": 551,
+        "ready": 340,
+        "blocked": 43,
+        "blockers": {
+          "meta": 40,
+          "aborted": 3
+        }
+      },
+      "articles": {
+        "attempted": 1,
+        "updated": [
+          {
+            "path": "content/note/コンクリート主任技士/コンクリート資格もくじ/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": []
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "PDF を Drive から取り寄せられない: content/note/コンクリート主任技士/コンクリート資格もくじ/article.md"
+      ]
+    },
+    {
       "startedAt": "2026-10-03T18:00:09.791Z",
       "finishedAt": "2026-10-03T18:39:59.265Z",
       "plan": {
@@ -482,98 +949,6 @@
     {
       "startedAt": "2026-10-01T17:04:30.629Z",
       "finishedAt": "2026-10-01T17:11:09.283Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T16:57:37.279Z",
-      "finishedAt": "2026-10-01T17:04:17.899Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T16:50:45.893Z",
-      "finishedAt": "2026-10-01T16:57:24.410Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T16:43:51.641Z",
-      "finishedAt": "2026-10-01T16:50:32.282Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T16:36:59.211Z",
-      "finishedAt": "2026-10-01T16:43:38.373Z",
       "plan": {
         "synced": 611,
         "ready": 283,

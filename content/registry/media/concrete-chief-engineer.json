@@ -1,0 +1,1398 @@
+{
+  "schemaVersion": 1,
+  "scope": "concrete-chief-engineer",
+  "media": [
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "94c3f22781dc3d6b2e216d67e287e386d5f9962066318925f55b02baea67b905",
+      "bytes": 211295,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cover.94c3f227.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json#longform",
+        "specSha256": "0102e62ec59cdb2aa6a57e1557614f5a6b18c1ac3ae470e94df0ccd61cdb2a6b"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/252.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "f3eb2eb34355768947db657240c007921348420913125a72112dd3582dc113c2",
+      "bytes": 605222,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cta.f3eb2eb3.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/kikinagashi-shunin-suchi.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "8c7cd624f5db5f1147e5c1b4ae8920ad276a517a76b697e29dc09a1c47715a7f",
+      "bytes": 189372,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2/cover.8c7cd624.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json#point-tanni-saikotsu-kuuki-2",
+        "specSha256": "801a1557c9e85a669b36fab4ecc9c59fb0ffefbe3adc60b4c4a4a4864f3f0a02"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/254.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-wc-ratio-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "e28d5b8a5f0999b4231f985b4da052f165422b9b79086ec677bfca9330d0db33",
+      "bytes": 179183,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-wc-ratio-1/cover.e28d5b8a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json#point-wc-ratio-1",
+        "specSha256": "0c9585484d842c3e0bafeb7749ab7902ebd63c9811660facafac16dda3fb9678"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/253.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "fd3bb0397ac3c96ddbb62d05d66523907377ffc47a6f4e6d6df7219358fe5115",
+      "bytes": 231190,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.fd3bb039.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json#longform",
+        "specSha256": "3ad0f7b0bb4c85943654c2436ef6d74a5f7d48e53871a2d8914065fee89b16c3"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/255.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "19b64805f08adb3207ceaa2d6c6b6f1a89cfd6580ad19b0941a17696fa8efdf8",
+      "bytes": 603209,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cta.19b64805.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-chokuzen-senryaku.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2bd33e01a1d6f0059913f1f79c9285271f8194d43e663c89a2e952d3d44e82ee",
+      "bytes": 179038,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1/cover.2bd33e01.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json#point-step1-1",
+        "specSha256": "0e9e954706ecc42c87be0351bfab1595f7d7252ad8cae869c689d181576e71c7"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/256.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step2-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "c4a876e220a8ed132b7860ebb033808592e703a88f3174071312da3168f5cb3c",
+      "bytes": 178771,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step2-2/cover.c4a876e2.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json#point-step2-2",
+        "specSha256": "c2b1031670f365e658ba5e429d5d8d0e8c41bd5adb1a5d024f597335e120af83"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/257.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "de23202380463e2d3d48b33080816580201b37855500d7ade193777542a04e32",
+      "bytes": 231159,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cover.de232023.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json#longform",
+        "specSha256": "2678b816144fc5e18388ad47900a131387d0d75d385c287ed762d0cb2857dded"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/258.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "6fa711ab15f2aeb2e8910716dfe81f8ac899cca606884bfa686db45085719615",
+      "bytes": 603944,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cta.6fa711ab.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-construction-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2795871ba230d06b939b380fc5285b5383d0f62672b90c967d84c2345b08d64a",
+      "bytes": 177398,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-overview-1/cover.2795871b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json#point-overview-1",
+        "specSha256": "0e7819e5392455aae8634feef973a0c8aef1189289df7f9ad8b33c41ff12efbe"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/259.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-step1-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "7edb2268b8635af033c8ae65c023d2fb635043e0fa875159f78c5a25b1cf0e41",
+      "bytes": 182254,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-step1-2/cover.7edb2268.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json#point-step1-2",
+        "specSha256": "b3ead6ecf896aa7cfcdd647fba2de0de4dc5ba9e3a54613cc07509124156741d"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/260.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "50f9feb0a247514b6996cef9189620307d21dc6a4e83681ed9e0c220052bfcb7",
+      "bytes": 236478,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cover.50f9feb0.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json#longform",
+        "specSha256": "0e9797b763d7b954a70d9d2ca6917f6c08d5b98c98f4877c48da12f85c11dd00"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/261.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "87da571e018ea28bce0f1a84be14f8eb5f8d2db77d798525e29902fa4535cc84",
+      "bytes": 598266,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cta.87da571e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-durability-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-carbonation-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "9c4475e69ece984e017988287fff026e919f87c7d5f7689d6b8f1efbccfe5994",
+      "bytes": 188707,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-carbonation-1/cover.9c4475e6.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json#point-carbonation-1",
+        "specSha256": "35bc915141c9e382b17e640c896945dcb2332c20ee2b7eb69fc162142cf19c44"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/262.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-salt-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "78151580e3f7008c3947620e8153fe7abc6bb4ec15596b13f5fa50aea68200d3",
+      "bytes": 182714,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-salt-2/cover.78151580.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json#point-salt-2",
+        "specSha256": "f2095079d5e2bc04212c1268733c9dc4cc795ab257264e7d6ff984e894feab60"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/263.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d4cb36592900a7de048d929355fc56cc15859a3b17f2e8120c9a6d11cef461c7",
+      "bytes": 227256,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover.d4cb3659.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json#longform",
+        "specSha256": "b20f8cb044b513bcfb7ba8612d6de4a7997727be26a11adabfb8bea8b475e9f3"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/264.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "51ab57d89044c2cd41caeb14089a28e30632edd34fd22b1ad49062fe57ad1dac",
+      "bytes": 586977,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cta.51ab57d8.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-hinshutsu-yusen.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "7447e07989c9be125c67823cf4d483881d608f6295556b51e41a1f74897442f2",
+      "bytes": 186301,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1/cover.7447e079.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json#point-overview-1",
+        "specSha256": "ed7c5fcf4bc7251bd2a825923bcce68ee9bb439fed4cc0fa758b713427856874"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/265.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-step1-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "21e6cc2a79e17ef21b2247c18969ccc3db421d229ed69658207356eec0204805",
+      "bytes": 174042,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-step1-2/cover.21e6cc2a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json#point-step1-2",
+        "specSha256": "1014bbb49ef7a5b181f13b216a843cc8ebf4a24db2b461c443410b9f7e6b81de"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/266.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "9d13093a6128e1ebf845883c25f138435fcc4d92f81a43f615f964009db72e00",
+      "bytes": 227630,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover.9d13093a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json#longform",
+        "specSha256": "5b106446e3abf2cd6e75cec2ecc7f93fb32254f76aad53c0a6e2fe93651f196a"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/267.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "87da571e018ea28bce0f1a84be14f8eb5f8d2db77d798525e29902fa4535cc84",
+      "bytes": 598266,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cta.87da571e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-materials-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-cement-types-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "cd301597338621a1f82f330f18c18116dd41c9425af8f1311fc04a7954e7560c",
+      "bytes": 164651,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-cement-types-2/cover.cd301597.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json#point-cement-types-2",
+        "specSha256": "8119359984a171b28b534a4526a58fa1d5b1e899278067a11a4195fe91b7c3bc"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/269.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-clinker-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1446a474c887fa120923cabde6be649ca2004e60718a8826d1ed7cb63e4738d4",
+      "bytes": 176636,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-clinker-1/cover.1446a474.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json#point-clinker-1",
+        "specSha256": "4fe6c26120e2dfc540b430827ad6602e08406e42df19f17d63acbed67b0540d5"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/268.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "74446f8e11a6171819515f7d1734739acb5fab36251e779b6f7a9d685c27850b",
+      "bytes": 228177,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cover.74446f8e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json#longform",
+        "specSha256": "fa32d7b0072a7351933926d172e524bb1f18ff3ee6269ea8e66f96432ae8b0a6"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/270.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "3abc5d80b2e8d3aa5d340d1e58476a0df08b71a516d749c2aafb7949c6dc2722",
+      "bytes": 583700,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cta.3abc5d80.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-mix-design-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "375b62d059b5935085258678dca9a3d3bae2ef267a74854bf99c7a389c9b65a5",
+      "bytes": 184142,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-overview-1/cover.375b62d0.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json#point-overview-1",
+        "specSha256": "5083abc7d37eb9d74819d39ddd4a07d1bf7feba446e2cda86e87e8ed84523e6b"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/271.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-step1-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0838512773f5baa51d4533375f46042968c2c6889b42202aa903f0baf5ec894e",
+      "bytes": 157443,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-step1-2/cover.08385127.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json#point-step1-2",
+        "specSha256": "99f7baba55b0e1d83bd3047064b6e041c23448c570ca6d5487b8f55b2d5cfb2d"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/272.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "673c3a7454c257e85dbd696d6ccd4e2e1afb090c72b9ac4f272b6de281e3e98e",
+      "bytes": 198084,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover.673c3a74.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json#longform",
+        "specSha256": "a60033851dc679c1e1d0012b1eb1fee4ab7021cd504fdf0ef9394a937bf86212"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/273.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "1f46183b1878d3010e8422132f9fe20b347e7820395d21562fffae69fccaed88",
+      "bytes": 580583,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cta.1f46183b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-ochiru-shouronbun.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-chusho-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "53bcd86bab51a5eea9adcffe3bfa29903f2b2ac26bfed83b7777a89d48d742dd",
+      "bytes": 174081,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-chusho-2/cover.53bcd86b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json#point-chusho-2",
+        "specSha256": "d7750f6a49d447b6e9ba40feb7afb5efbfe2b450c422a71155691eb3a549977a"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/275.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-ippan-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "7f005b6d4efb974d6109bea2a69169e710aaf04340f14d58410fc3caed025d1a",
+      "bytes": 168404,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-ippan-1/cover.7f005b6d.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json#point-ippan-1",
+        "specSha256": "5708dd7d21e5d4d9ac9875b1e6aee7c7eace8273dd5f7fea996ad6509de2d775"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/274.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0650ff323e6ab5870c85531775f4dac67702c7a2647800ffd6d6ffd26b80b1df",
+      "bytes": 236265,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cover.0650ff32.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json#longform",
+        "specSha256": "e806bd490e70568db83421e2573a2f350ba287db0717bbd50054c6a2391cc452"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/276.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "6fa711ab15f2aeb2e8910716dfe81f8ac899cca606884bfa686db45085719615",
+      "bytes": 603944,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cta.6fa711ab.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-production-qc-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "21bc86136ef42cc38a04d3856a78d1e961f985904af1aab8d595bd9dbdf70947",
+      "bytes": 187335,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-overview-1/cover.21bc8613.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json#point-overview-1",
+        "specSha256": "f9684d20d0976afbba36b375c8df378af36924e4be47fdf92f014aebbf8b1d4e"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/277.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-step1-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "43d468a91cd32232b18b2360e24cc63d506b2eed71ea5537a84396d65f2d55fc",
+      "bytes": 177232,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-step1-2/cover.43d468a9.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json#point-step1-2",
+        "specSha256": "d237cbab332c1de28a3165b0daa2cee99dd9ead9e631a8efdc2a38a1d323b5b1"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/278.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d6e4e6236998bf45d597430085b0404d9614ece33652d88f5d2d3a7ddcffb99f",
+      "bytes": 232376,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-products-ronten/youtube.longform/cover.d6e4e623.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json#longform",
+        "specSha256": "c0b6247b5760bdee3d0cee4e6be00b8def1f8530f145a69cea53bcf3d9f7c858"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/279.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "b11b99a2f268afd7a090a0a2d9217ccbeb74fc09e39e60f9d30dcd175e203dc9",
+      "bytes": 588136,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-products-ronten/youtube.longform/cta.b11b99a2.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-products-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.short.point-method-match-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "15e5dfc20867b516b8574a0b5351a3396ff2db4ad5df0aeab8204241bc3657c4",
+      "bytes": 179141,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-products-ronten/youtube.short.point-method-match-2/cover.15e5dfc2.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json#point-method-match-2",
+        "specSha256": "276f4ec40b98085baa33ead5870cdf07d83fd131de2effeab412a2f9a2aaff39"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/281.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-products-ronten/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2465f72bd0f19fa64c90440c2dc8aa7a4dcbd57c1998cabfd5d903234851bf19",
+      "bytes": 181366,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-products-ronten/youtube.short.point-overview-1/cover.2465f72b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json#point-overview-1",
+        "specSha256": "009fc92dfc6b173768bcdb25e1ed1ef5f6825221004f45d1a4e3d56e859f7e58"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/280.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "07125e8e1b0973ffed7e216134f1609a40bda9546d87d7735effbe636a74e825",
+      "bytes": 231839,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover.07125e8e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#longform",
+        "specSha256": "1efc59e59750ca43d9dbc5038669eba9d5240bacb245ca01f061a5fe043a1fb5"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/282.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "87da571e018ea28bce0f1a84be14f8eb5f8d2db77d798525e29902fa4535cc84",
+      "bytes": 598266,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cta.87da571e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-properties-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "3ba99a69f7d4884dbf5bde3b0c10c332668359c8bdcac8d23f3a30b193a80dbf",
+      "bytes": 181502,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover.3ba99a69.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#point-bingham-2",
+        "specSha256": "be219e6548b5b856926d15bab3493739cfc310d76bcd48f38ea6e24a8c319516"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/284.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "479803dbe058b246a674d12e03c5fce467bb363aa1cb773d645ce7d9b159309e",
+      "bytes": 179303,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.479803db.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#point-consistency-1",
+        "specSha256": "240ad8b4a336927b3e3c07c9b584e03f5ac2ed7e986c8cdc2ccab22c8bffa327"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/283.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "518811c502245c639355f9b5d7a534955ccebf678862638249fc03acdc4f0ed7",
+      "bytes": 213478,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover.518811c5.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json#longform",
+        "specSha256": "d1236be7aa95b7e221f4080a33a772cac495a597454470525801ab366dc1bfee"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/285.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "2e5a90bca29cc7cc9329368e603a0245baaf0985772c979ed8be0e953c0383fb",
+      "bytes": 599587,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cta.2e5a90bc.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-r8-juuten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2e17f17a3d92b98627117010d4f6b9b3ff440724526ef4764223abcca5a13b05",
+      "bytes": 182921,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2/cover.2e17f17a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json#point-four-tiers-2",
+        "specSha256": "3228afe2a6e2a0223b0976f05bb869fd7cbb9591f87c19eb7ebacfa3544f367b"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/287.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "81dfb5b0e2570c3173cebf744d2de0d29d1b9b26c31acf12d37d8fc1e08b1d8e",
+      "bytes": 176985,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-overview-1/cover.81dfb5b0.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json#point-overview-1",
+        "specSha256": "d044ac6a1c8c6151dbe7a2428add4eaf2ff5df1171644b0206c31c19fcef97ab"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/286.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "033e2a242326d4aaca8b3e82c72686276c7226c0a05a31f6e7abc7500b2e5cc6",
+      "bytes": 235839,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.033e2a24.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json#longform",
+        "specSha256": "971bccf64dc883a55b4f619e4b6b17b2c9fb90116148144dec617c0aa0173fd2"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/288.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "762264b64d66635f1fe8c3126c00f0882d16605f22f77b7bced005d34a7d6c53",
+      "bytes": 566050,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cta.762264b6.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-shiken-zentaizou.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d9ec861b25179692f004ee63486895d79e7034092c01eb64c03d60f48f8ecc44",
+      "bytes": 180380,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1/cover.d9ec861b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json#point-overview-1",
+        "specSha256": "b38e49b1caeb97c8e847a3d6b8368bc82f090608de73d6445a98842b82492f77"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/289.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "cef517dfe021fd872783aa0567d69cae1266f3eb1cdeee2548a2f945669c0c89",
+      "bytes": 179032,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover.cef517df.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json#point-step1-2",
+        "specSha256": "fad78702e65a89293e4d43789ed8f8a3bc1ea280b8b3161367ea4b7947ed6fd5"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/290.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1fa3ced8ba149f08c8f62d0f5345926bc895ffe180c287e6c9eac44026ab4cf5",
+      "bytes": 202318,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cover.1fa3ced8.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json#longform",
+        "specSha256": "d8a94aacece1e2dbef6f2ea4442cf876a4a11e0634dae1eae8047c114d8eea9e"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/291.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "e5af2b896bf923742523c685bca9ee5be0603a98f90baaa40a0417ca03be3ece",
+      "bytes": 598324,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cta.e5af2b89.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-shouronbun-kousei.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kanten-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "b9a985ee26037d2fb85099bed403b29a243b744a0a26c9013f8bb8621fac813f",
+      "bytes": 183923,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kanten-1/cover.b9a985ee.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json#point-kanten-1",
+        "specSha256": "dd398dcb551e1ec5fe651945520bc6f2b8c14be66923aa582b7422725ed6071c"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/292.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kousei-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "eb5786c19e3e33cc1b3a36cf7e816e761c5ebe0d4f71440ae54bd243261364d8",
+      "bytes": 178658,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kousei-2/cover.eb5786c1.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json#point-kousei-2",
+        "specSha256": "24fc924404c0e07051179cae8e851861a89293baabc90848c2092a53fb9d69c9"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/293.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2a42fafb8ed401e5157010c879d487979d337f920392503724c3db925429fffc",
+      "bytes": 198517,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cover.2a42fafb.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json#longform",
+        "specSha256": "7f793c19a6cf525580026aa5643db51bc8c4e692ff463e2f3290d251d1cf16f2"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/294.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "a6e139f0aabfde820a8e422d3683a8ba4a431f4218cea54971e949e219453547",
+      "bytes": 591938,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cta.a6e139f0.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-shouronbun-theme.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "5cd6529f9a9f44686fae32122ecb9e9ed7711ea19e877b32bb0f890eeeaa2d7c",
+      "bytes": 163553,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1/cover.5cd6529f.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json#point-nendo-1",
+        "specSha256": "f8ed0caaab112365e9b578a21833d5bb1857ca3657314bd1fce9b6cde5222d1e"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/295.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-ryouiki-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "520129f911049a6ab9714a7c328a94edb4b9a28225622547a6444235271eb79b",
+      "bytes": 180351,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-ryouiki-2/cover.520129f9.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json#point-ryouiki-2",
+        "specSha256": "9725c15e344844c31caba22a97aad0a47b6fb46c058e48da011c7b48ac340eb9"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/296.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2acb107d1e02aedf176a50dc5cf066c38ee8edc3e3190794af698fc1b57bb248",
+      "bytes": 198299,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cover.2acb107d.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json#longform",
+        "specSha256": "98cca0212c87af51260976b911c92e4036fc227aea65bb2b6da2aa93a4332bf4"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/297.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "bead2a9ac3f5a2277bb338c5df4e5d555aecd159e4b6bd44ae166b6a8fd11e1c",
+      "bytes": 596571,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cta.bead2a9a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cta-design.json#longform"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/shunin-structural-design-ronten.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-bending-assumptions-1/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "39e94d1e0fdc8d8078e279bafa95774621d1d533fa699204011cf8e8bd6ee423",
+      "bytes": 180833,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-bending-assumptions-1/cover.39e94d1e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json#point-bending-assumptions-1",
+        "specSha256": "c19b44ffc52d9274735f77b90fb610ce83a91be8fe61c65d23729b42f35e7916"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/298.png"
+      ]
+    },
+    {
+      "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-shear-capacity-2/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "f88e46e7fdb7f65db33c4e60b8123b7bc1a7d72d381f3f4e245379a9ed0346e5",
+      "bytes": 178490,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-shear-capacity-2/cover.f88e46e7.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "apply-video-brand",
+        "spec": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json#point-shear-capacity-2",
+        "specSha256": "771824c471f0457fb5effa585de9246f69b8eb3c55f495df97baae1b10cc971a"
+      },
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/299.png"
+      ]
+    }
+  ]
+}

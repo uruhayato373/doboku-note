@@ -2,17 +2,16 @@
 /**
  * check-a8-report-due.mjs
  * ---------------------------------------------------------------------------
- * A8 成果レポートの取り込み（`/a8-report`）が月次サイクル（既定30日）に対して
- * 期限切れかを機械判定する surfacer。
+ * A8 成果レポートの取り込みが止まっていないかを機械判定する surfacer。
  *
- * なぜ surfacer か: A8 は公開 API が無く、取得は Playwright + A8 ログイン必須の
- * **ローカル専用・人間 in the loop** ＝ CI cron 化できない。よって「自動で回る」のではなく
- * **手動の月次儀式**にするしかなく、放置防止のため weekly-review（唯一稼働のクラウド PDCA）
- * から「そろそろ A8 成果の取り込み時期」を思い出させる。新規 cron は作らない。
- * （`check-gsc-ui-due.mjs` と同じ思想・同じ形）
+ * 取得は `login-collectors.yml`（週次・火 06:20 JST・JST の前月と当月）が CI で回し、手動の `/a8-report`
+ * と workflow の `month` 入力が補う。A8 は公開 API が無く Playwright＋暗号化したログイン状態で取るので、
+ * 取得・正規化・書き戻しのどこかが黙って止まりうる。日次の ops 点検（quality-audit の ops:true）がこれを読む。
  *
  * 判定: `data/a8/ui-last-run.json`（committed マーカー）の
- *       collectedAt から経過日数 >= しきい値で DUE。マーカー無ければ DUE(初回/未実施)。
+ *       collectedAt から経過日数 >= しきい値（台帳 a8.ui-last-run の freshness.warnDays）で DUE。マーカー無ければ DUE(初回/未実施)。
+ *       加えて、取得の後に台帳（report-log）が進んでいない＝正規化か書き戻しが止まった状態（collectPublishGap）と、
+ *       最新の取得が ok でないことを [要対応] に出す（2026-10-04〜06 は取得が成功し書き戻しだけ落ちた・DN-0566）。
  *
  * 追加で surface するもの（A8 固有・放置すると静かに壊れる）:
  *   - `crossCheck.hasShortfall`＝サイト別を allowlist で説明しきれていない＝未登録プログラムの疑い
@@ -34,13 +33,13 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { classifyCrossCheck } from "./lib/report-honesty.mjs";
+import { classifyCrossCheck, collectPublishGap } from "./lib/report-honesty.mjs";
 import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
 const LOG = join(ROOT, datasetPath("a8.report-log"));
-const REVIEW = "/a8-report（ローカル・要 A8 ログイン）";
+const REVIEW = "gh workflow run login-collectors.yml -f service=a8（CI）か /a8-report（ローカル・要 A8 ログイン）";
 
 const args = process.argv.slice(2);
 const WANT_JSON = args.includes("--json");
@@ -75,6 +74,16 @@ const shortfall = log?.crossCheck?.hasShortfall === true;
 const exceeded = log?.crossCheck?.exceeded === true;
 
 const issues = [];
+const pub = collectPublishGap(marker, log);
+if (pub.gap) {
+  issues.push(
+    `取得（${pub.markerAt}）の後に台帳 report-log が進んでいない（最終更新 ${pub.logAt ?? "なし"}）＝正規化か develop への書き戻しが止まった。` +
+      "login-collectors の publish ジョブと automation-failure Issue を確かめる",
+  );
+}
+if (marker && !pub.lastRunOk) {
+  issues.push(`最新の取得が ok でない（status=${pub.lastStatus ?? "不明"}・取れたレポート ${marker.downloadedUnits ?? "-"}/${marker.totalUnits ?? "-"}）`);
+}
 if (shortfall) {
   const sf = log?.crossCheck?.shortfall ?? {};
   issues.push(
@@ -115,10 +124,12 @@ const result = {
   crossCheckExcessClicks: exceeded ? excessClicks : 0,
   crossCheckExcessRatio: excessRatio,
   crossCheckExcessAbnormal: excessAbnormal,
+  publishGap: pub.gap,
+  lastStatus: pub.lastStatus,
   issues,
   notes,
   review: REVIEW,
-  note: "ローカル専用・要 A8 ログイン。A8 は公開 API 無しでクラウド週次では実行不可＝surface のみ。",
+  note: "取得は login-collectors.yml（週次・前月と当月）。手動は workflow の month 入力か /a8-report。surface のみ。",
 };
 
 if (WANT_JSON) {

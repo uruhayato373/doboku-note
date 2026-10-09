@@ -186,6 +186,23 @@ export function vaultRelFor(repoRelPath, group, { readManifest = defaultStandard
 }
 
 /**
+ * vaultRelFor の逆。vault にだけある原本（白書など）を台帳へ登録するとき、repo 側のキーを導く。
+ * 逆に引けるのは stripPrefix と repoRelative だけ。導いたキーが同じ group に戻らなければ null。
+ */
+export function repoRelForVault(vaultRel, group, cfg) {
+  const v = toVaultRel(vaultRel);
+  const dir = toVaultRel(group.vaultDir).replace(/\/+$/, '');
+  if (!v.startsWith(dir + '/')) return null;
+  const rest = v.slice(dir.length + 1);
+  const kf = group.keyFrom || 'repoRelative';
+  let rel = null;
+  if (kf === 'repoRelative') rel = rest;
+  else if (kf.startsWith('stripPrefix:')) rel = kf.slice('stripPrefix:'.length) + rest;
+  if (!rel) return null;
+  return driveGroupFor(rel, cfg, { includePending: false })?.id === group.id ? rel : null;
+}
+
+/**
  * 1 つの repo パスがどの tier の group に一致するかを列挙する（衝突検査の純関数）。
  * R2 側（asset-storage.json）と Drive 側（drive-vault.json）を同時に見る。
  * 期待される正常形は「R2 1 件」か「Drive active 1 件」か「どれにも一致しない」のいずれか。
@@ -363,8 +380,20 @@ export function ensureLocalFromVault(absPath) {
   const rel = toVaultRel(absPath.startsWith(REPO_ROOT) ? absPath.slice(REPO_ROOT.length + 1) : absPath);
   const entry = loadDriveManifest().entries?.[rel];
   if (!entry) return false;
-  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+  const r = spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, '--commit'], {
     cwd: REPO_ROOT, stdio: 'inherit',
   });
   return r.status === 0 && existsSync(absPath);
+}
+
+/**
+ * 書き換えない group（immutable）で、置こうとしている中身が許されないときの理由（無ければ null）。
+ * 名前の sha8 が中身と違う・台帳に同じ名前で別の中身がある、のどちらも別名（sha 入り）で置き直す（DN-0589 の再発防止）。
+ */
+export function immutableConflict(group, rel, sha256, cur) {
+  if (!group?.immutable) return null;
+  const named = /\.([0-9a-f]{8})\.[a-z0-9]+$/.exec(rel)?.[1];
+  if (named && named !== String(sha256).slice(0, 8)) return '名前の sha8（' + named + '）が中身の sha256 と違う';
+  if (cur && cur.sha256 !== sha256) return '書き換えない group で台帳と中身が違う（別名で置く）';
+  return null;
 }

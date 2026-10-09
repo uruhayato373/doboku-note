@@ -1,0 +1,87 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「河川工事」の論点。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="植生系の護岸の断面概念図。柳枝工は水際に近い法面に枝を挿して根づかせる。植生マットは法面の表面を覆い、植生ロールは水際の土を留めて植物の足がかりになる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-part { font-size: 11px; fill: #555; }
+      .t-navy { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-grn  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-box  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">植物と資材の力で、水際の土を留める</text>
+
+  <!-- A：柳枝工 -->
+  <text class="t-sec" x="20" y="40">柳枝工（枝を挿して根づかせる）</text>
+  <polygon points="20,68 210,148 250,180 20,180" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-linejoin="round"/>
+  <polygon points="210,148 380,148 380,180 250,180" fill="#e8f0fe"/>
+  <line x1="210" y1="148" x2="380" y2="148" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="20" y1="180" x2="380" y2="180" stroke="#555" stroke-width="1.5"/>
+  <line x1="43.0" y1="97.2" x2="34.0" y2="113.2" stroke="#555" stroke-width="1"/>
+  <line x1="43.0" y1="97.2" x2="44.0" y2="116.2" stroke="#555" stroke-width="1"/>
+  <line x1="43.0" y1="97.2" x2="39.0" y2="109.2" stroke="#555" stroke-width="1"/>
+  <line x1="78.0" y1="112.0" x2="69.0" y2="128.0" stroke="#555" stroke-width="1"/>
+  <line x1="78.0" y1="112.0" x2="79.0" y2="131.0" stroke="#555" stroke-width="1"/>
+  <line x1="78.0" y1="112.0" x2="74.0" y2="124.0" stroke="#555" stroke-width="1"/>
+  <line x1="113.0" y1="126.7" x2="104.0" y2="142.7" stroke="#555" stroke-width="1"/>
+  <line x1="113.0" y1="126.7" x2="114.0" y2="145.7" stroke="#555" stroke-width="1"/>
+  <line x1="113.0" y1="126.7" x2="109.0" y2="138.7" stroke="#555" stroke-width="1"/>
+  <line x1="148.0" y1="141.4" x2="139.0" y2="157.4" stroke="#555" stroke-width="1"/>
+  <line x1="148.0" y1="141.4" x2="149.0" y2="160.4" stroke="#555" stroke-width="1"/>
+  <line x1="148.0" y1="141.4" x2="144.0" y2="153.4" stroke="#555" stroke-width="1"/>
+  <line x1="183.0" y1="156.2" x2="174.0" y2="172.2" stroke="#555" stroke-width="1"/>
+  <line x1="183.0" y1="156.2" x2="184.0" y2="175.2" stroke="#555" stroke-width="1"/>
+  <line x1="183.0" y1="156.2" x2="179.0" y2="168.2" stroke="#555" stroke-width="1"/>
+  <line x1="43.0" y1="97.2" x2="59.3" y2="58.5" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+  <line x1="78.0" y1="112.0" x2="94.3" y2="73.2" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+  <line x1="113.0" y1="126.7" x2="129.3" y2="88.0" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+  <line x1="148.0" y1="141.4" x2="164.3" y2="102.7" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+  <line x1="183.0" y1="156.2" x2="199.3" y2="117.4" stroke="#3a7d44" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="59.3" cy="57.5" rx="7" ry="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" transform="rotate(-25 59.3 57.5)"/>
+  <ellipse cx="94.3" cy="72.2" rx="7" ry="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" transform="rotate(-25 94.3 72.2)"/>
+  <ellipse cx="129.3" cy="87.0" rx="7" ry="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" transform="rotate(-25 129.3 87.0)"/>
+  <ellipse cx="164.3" cy="101.7" rx="7" ry="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" transform="rotate(-25 164.3 101.7)"/>
+  <ellipse cx="199.3" cy="116.4" rx="7" ry="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" transform="rotate(-25 199.3 116.4)"/>
+  <circle cx="208" cy="152" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="224" cy="161" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="240" cy="170" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="t-grn" x="232" y="84">水際の法面に挿した枝</text>
+  <line x1="230" y1="80" x2="204" y2="108" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-navy" x="30" y="172">根づく範囲（地中）</text>
+  <text class="t-part" x="252" y="140">水際は石などで支える</text>
+
+  <!-- B：植生マット・植生ロール -->
+  <text class="t-sec" x="20" y="252">植生マット・植生ロール（資材で土を留める）</text>
+  <polygon points="20,282 210,358 250,392 20,392" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-linejoin="round"/>
+  <polygon points="210,358 380,358 380,392 250,392" fill="#e8f0fe"/>
+  <line x1="210" y1="358" x2="380" y2="358" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="20" y1="392" x2="380" y2="392" stroke="#555" stroke-width="1.5"/>
+  <line x1="20" y1="279" x2="190" y2="347" stroke="#3a7d44" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="35" y1="285.0" x2="35" y2="276.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="55" y1="293.0" x2="55" y2="284.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="75" y1="301.0" x2="75" y2="292.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="95" y1="309.0" x2="95" y2="300.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="115" y1="317.0" x2="115" y2="308.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="135" y1="325.0" x2="135" y2="316.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="155" y1="333.0" x2="155" y2="324.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="175" y1="341.0" x2="175" y2="332.0" stroke="#3a7d44" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="206" cy="356" r="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="206" cy="356" r="5" fill="none" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="t-grn" x="232" y="296">植生マット・ネット</text>
+  <text class="t-part" x="232" y="309">芽生えるまで表面を覆う</text>
+  <line x1="230" y1="300" x2="130" y2="322" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-navy" x="236" y="338">植生ロール</text>
+  <text class="t-part" x="236" y="351">水際の土を留める</text>
+  <text class="t-part" x="30" y="384">土（法面）</text>
+
+  <rect class="box-b" x="20" y="418" width="360" height="56" rx="8"/>
+  <text class="t-box" x="200" y="442" text-anchor="middle">根づくまでは護岸の役を果たせない</text>
+  <text class="t-box" x="200" y="462" text-anchor="middle">流水に洗われない時期と位置を選ぶ</text>
+</svg>

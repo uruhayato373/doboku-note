@@ -2,11 +2,12 @@
  * affiliate-placements.mjs — アフィリエイトリンクの掲載先（サイト／note／SNS）の棚卸し。
  *
  * 正本は各掲載先の原稿そのもの（src・content/site・content/note・content/sns）で、ここは a8mat= を
- * 数えて案件（src/config/affiliate-mats.json）へ引くだけ。成果は掲載先ごとに分かれていない
+ * 数えて案件（config/affiliate-mats.json）へ引くだけ。成果は掲載先ごとに分かれていない
  * （A8 の登録サイトが1つ＝サイトと note の合算）ので、ここではリンクの所在だけを出す。
  */
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import { datasetPath } from './datasets.mjs';
 
 export const SURFACES = [
   { id: 'site', label: 'サイト', roots: ['src', 'content/site'], ext: /\.(tsx?|mdx)$/ },
@@ -37,7 +38,7 @@ function frontmatterValue(text, key) {
 
 /** 掲載先ごとの a8mat の所在。scanned は実際に読んだファイル数（0 件と未検査を区別する）。 */
 export function affiliatePlacements(root) {
-  const mats = JSON.parse(readFileSync(join(root, 'src/config/affiliate-mats.json'), 'utf8')).mats;
+  const mats = JSON.parse(readFileSync(join(root, datasetPath('config.affiliate-mats')), 'utf8')).mats;
   const byMat = new Map(mats.map((m) => [m.mat, m]));
   return SURFACES.map((s) => {
     const files = s.roots.flatMap((r) => walk(join(root, r), s.ext, []));

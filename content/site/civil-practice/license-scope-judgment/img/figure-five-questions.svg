@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設業許可の要否を確かめる五つの問い。建設工事か、軽微な工事か、どの業種か、附帯工事か、どの許可区分かを上から順に答える" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="74" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<circle cx="43" cy="51" r="14" fill="#ffffff" stroke="#2e6da4"/>
+<line x1="43" y1="88" x2="43" y2="103" stroke="#2e6da4" marker-end="url(#ar)"/>
+<rect x="18" y="104" width="364" height="74" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<circle cx="43" cy="141" r="14" fill="#ffffff" stroke="#d4a017"/>
+<line x1="43" y1="178" x2="43" y2="193" stroke="#2e6da4" marker-end="url(#ar)"/>
+<rect x="18" y="194" width="364" height="74" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<circle cx="43" cy="231" r="14" fill="#ffffff" stroke="#2e6da4"/>
+<line x1="43" y1="268" x2="43" y2="283" stroke="#2e6da4" marker-end="url(#ar)"/>
+<rect x="18" y="284" width="364" height="74" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<circle cx="43" cy="321" r="14" fill="#ffffff" stroke="#2e6da4"/>
+<line x1="43" y1="358" x2="43" y2="373" stroke="#2e6da4" marker-end="url(#ar)"/>
+<rect x="18" y="374" width="364" height="74" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<circle cx="43" cy="411" r="14" fill="#ffffff" stroke="#3a7d44"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="14" font-weight="700">
+<text x="43" y="56">1</text>
+<text x="43" y="146">2</text>
+<text x="43" y="236">3</text>
+<text x="43" y="326">4</text>
+<text x="43" y="416">5</text>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="70" y="39">建設工事に当たるか</text>
+<text x="70" y="129">軽微な工事に収まるか</text>
+<text x="70" y="219">どの業種の工事か</text>
+<text x="70" y="309">附帯工事として請け負えるか</text>
+<text x="70" y="399">どの許可区分が要るか</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="70" y="58">保守点検・測量・除草・運搬のみなら対象外</text>
+<text x="70" y="75">補修・改造・解体を含む工事は次の問いへ</text>
+<text x="70" y="148">税込500万円未満（支給材料の市場価格を加算）</text>
+<text x="70" y="165">契約を分けても、合計で判断する</text>
+<text x="70" y="238">工事名ではなく、仕様書の工種を別表に当てはめる</text>
+<text x="70" y="255">立場と、工種が独立しているかで一式か専門かを見る</text>
+<text x="70" y="328">許可業種の工事に付随する従たる工事なら可</text>
+<text x="70" y="345">専門技術者を置くか、許可業者に下請させる</text>
+<text x="70" y="418">営業所が複数県なら大臣、1県なら知事</text>
+<text x="70" y="435">下請総額5,000万円以上は特定建設業</text>
+</g>
+<g fill="#555" font-size="11"><text x="20" y="470">上から順に答えると、許可の要否と区分が決まる</text><text x="20" y="486">金額の基準は、判断する時点の条文で確かめる</text></g>
+</svg>

@@ -91,18 +91,18 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 - EXP-001: 統合ハウスキーピング（経過 14 日）→ /nsm-experiment measure EXP-001 推奨
 ```
 
-### Phase 3.5: アフィリエイト面の週次チェック（BuildJob キャンペーン監視）
+### Phase 3.5: アフィリエイト面の週次チェック（配置ルール別）
 
-転職アフィリ（現在 BuildJob が主力・GKS / 建設JOBs 併存）のクリック実績と期間施策を週次で確認する。この Phase は親が直接実行する（単純な JSON 読み + 算術のため metrics-analyzer には委譲しない）。
+転職アフィリ（BuildJob・建設JOBs〔2級の学習ページと資格トップ〕・総監のハイクラス DX・コンサル）のクリック実績を週次で確認する。どの面に何を出すかは配置ルール `config/affiliate-placements.json` が正（2026-10-07〜）。この Phase は親が直接実行する（単純な JSON 読み + 算術のため metrics-analyzer には委譲しない）。
 
-1. **by-label CTR を読む**: `ga4.cta-clicks-by-label`（最新）から `affiliate_cta_click` を label 別に集計。主要 label = `BuildJob-sidebar`（全 docs サイドバー）/ `BuildJob-midtext`（career 記事の本文中間テキスト）/ `BuildJob-hubcareer`（カテゴリ hub 小バナー）/ `KensetsuJobs-sidebar`（記事 A/B の arm B）。ページ別流入（`ga4.page`）を分母に CTR を出す。
-   - GA4 カスタムディメンション `event_label`／`event_category`（イベントスコープ）は **2026-07-07 登録済み**（遡及なし＝それ以前の窓は空が正常）。登録直後は伝播〜48h。本番クリックが蓄積するまで 0 件も正常。ファイルが無ければ by-label fetch 失敗（伝播待ち or fetch エラー）を 1 行残す。
-2. **BuildJob 期限（2026-08-31）**: 無料キャリア面談 ¥50,000 の増額キャンペーンは 8/31 まで。**残り週数を表示**し、9/1（= 8/31 15:00 UTC）で全 BuildJob 面が GKS へ自動復帰する（SSG・ビルド時刻で確定）ことを想起する。**9 月最初の本番ビルド後は本 Phase で「BuildJob 面が消えて GKS へ戻ったか」を curl で 1 回検証**（万一再ビルドが無ければ creative 定数を手動 revert）。
-3. **EPC 判定への布石**: A8 成果（`data/a8/report-log.json` の単月の期間から導く月×案件。`/a8-report` で自動収集）÷ GA4 クリックで案件別 EPC を出し、BuildJob vs 建設JOBs vs GKS の勝者を ~2026-09 に判定（backlog P5）。本 Phase は「クリックの推移を追う」までで、成果転記と EPC 確定は月次で行う。
+1. **配置ルール別に読む**: `data/analysis/career-funnel.json` の `funnel.affiliateCta`（fetch-metrics が週次で生成）。`byRule` がルールごとの表示・クリック（窓の中でルールを閉じて開き直したページの表示は `*Shared` に入り、推測で分けない）、`clickLog` が日付つきのクリック。新しいルールで表示 1,000 以上・クリック 0 が 2 窓続いたら、その面を閉じる候補として挙げる（EXP-017 の target_delta）。
+   - 面（GA4 の `cta_placement`）は `article-inline`・`article-mid`・`article-end`・`category-sidebar`・`category-mobile`・`standards-end`・`standards-list-end`・`topic-end`・`home-section`・`tool-inline`・`tool-end`・`career-tool`。名前と 1 ページ 1 ピクセルの優先順は `config/cta-placements.json`。記事サイドバーは 2026-09-26 に撤去済み。
+2. **成果の出どころ**: 同じ `funnel.affiliateCta.conversions`（A8 の成果別・週次 CI）に成果ごとのクリックしたページと候補の配置ルールが入る（2026-10-07 20:00 以降のクリック）。`warnings` に「ページが取れない」が出たら広告リンクのリファラ方針の退行を疑う。GA4 はクリックを取りこぼすことがあるので（measurement-incidents.md 2026-10-07）、帰属は A8 のリファラを正とする。
+3. **EPC 判定への布石**: A8 成果（`data/a8/report-log.json` の単月の期間から導く月×案件。`/a8-report` で自動収集）÷ GA4 クリックで案件別 EPC を出す。本 Phase は「クリックの推移を追う」までで、成果転記と EPC 確定は月次で行う。
    - **判定基準は `affiliate-operations.md` §6.5「成果ドリブンの見直し基準」に従う**。特に
      (a) ASP 公開 EPC（市場平均）と自サイト実測 EPC を混同しない
-     (b) **確定成果 3 件未満は判定不能＝据え置き**（2026-07 時点で全案件が未達・累計 137click/確定 0 円）
-     (c) 9/1 以降の A/B の対戦相手は BuildJob ではなく **GKS**（キャンペーン終了で自動切替されるため）
+     (b) **確定成果 3 件未満は判定不能＝据え置き**（案件の勝敗は EXP-008・EXP-017 で、確定 3 件まで決めない）
+     (c) ルールを閉じて開き直した前後の窓を混ぜない（`byRule` の閉じた前後を別に読む）
    - 判定不能なら「判定不能で据え置き」と §6.5 の裁定ログに 1 行残す（残さないと毎月同じ検討を繰り返す）
 
 配置・ラベル規約・A8 月次成果の運用・EPC 判断マトリクスの真実源: `.claude/knowledge/reference/affiliate-operations.md`。

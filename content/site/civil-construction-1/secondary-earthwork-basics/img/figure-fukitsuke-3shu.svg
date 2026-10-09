@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="散布工・吹付工の比較。種子散布工は緩勾配で透水性のよい安定したのり面に、客土吹付工と植生基材吹付工は切土のり面や急勾配ののり面に用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">吹き付けて緑化する3つの工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">のり面の勾配と土質で、吹き付ける材料を選ぶ</text>
+  <rect class="card" x="16" y="64" width="368" height="100" rx="6"/>
+  <polygon class="ground" points="28,86 124,148 124,156 28,156"/>
+  <polygon class="green" points="28,82 124,144 124,148 28,86"/>
+  <line class="water" x1="128" y1="74" x2="98" y2="102" marker-end="url(#aw)"/>
+  <text class="t-key" x="140" y="88">種子散布工</text>
+  <text class="t-lab" x="140" y="108">肥料・ファイバーを水に混ぜ</text>
+  <text class="t-lab" x="140" y="126">ポンプや吹付ガンで吹き付ける</text>
+  <text class="t-pos" x="140" y="148">緩勾配で透水性のよい安定のり面</text>
+  <rect class="card" x="16" y="170" width="368" height="100" rx="6"/>
+  <polygon class="ground" points="28,192 124,254 124,262 28,262"/>
+  <polygon class="green" points="28,184 124,246 124,254 28,192"/>
+  <line class="water" x1="128" y1="180" x2="98" y2="208" marker-end="url(#aw)"/>
+  <text class="t-key" x="140" y="194">客土吹付工</text>
+  <text class="t-lab" x="140" y="214">種子肥料・土を水で泥状にし、</text>
+  <text class="t-lab" x="140" y="232">圧縮空気でモルタルガン吹付</text>
+  <text class="t-pos" x="140" y="254">切土のり面・急勾配も施工可</text>
+  <rect class="card" x="16" y="276" width="368" height="100" rx="6"/>
+  <polygon class="ground" points="28,298 124,360 124,368 28,368"/>
+  <polygon class="green" points="28,284 124,346 124,360 28,298"/>
+  <line class="water" x1="128" y1="286" x2="98" y2="314" marker-end="url(#aw)"/>
+  <text class="t-key" x="140" y="300">植生基材吹付工（厚層）</text>
+  <text class="t-lab" x="140" y="320">基盤材・肥料・接合材・種子を</text>
+  <text class="t-lab" x="140" y="338">水と混ぜモルタルガンで吹付</text>
+  <text class="t-pos" x="140" y="360">切土のり面・急勾配も施工可</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="72" rx="6"/>
+  <text class="t-key" x="30" y="416">共通</text>
+  <text class="t-lab" x="104" y="416">混ぜた材料をのり面に吹き付けて植物を育てる</text>
+  <text class="t-key" x="30" y="442">選び方</text>
+  <text class="t-lab" x="104" y="442">緩く安定なら散布、切土・急勾配なら吹付</text>
+</svg>

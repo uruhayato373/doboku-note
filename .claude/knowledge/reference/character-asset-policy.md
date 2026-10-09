@@ -12,7 +12,7 @@ POP表紙・商品サムネイルでは [共通制作方針](./pop-image-policy.
 
 ## SNS 表紙への適用
 
-YouTube・Instagram・X の表紙と動画冒頭は [SNS 投稿画像ポリシー §0](./sns-image-policy.md) に従う。人物は表紙で大きく、解説中は内容の面積を優先する。実装済み範囲と制作上の目標を区別する。
+YouTube・Instagram・X の表紙と動画冒頭は [SNS 投稿画像ポリシー §0](./sns-image-policy.md) に従う。人物は表紙で大きく、解説中は内容の面積を優先する。実装済み範囲と制作上の目標を区別する。16:9 通常動画の解説画面は、scene の `visual.character` を指定したときだけ右列に腰上の人物と吹き出しを置き、本文・図はその左に収める（仕様は [動画コンテンツ運用ポリシー §4](./video-content-policy.md)）。
 
 ## 1. アイデンティティ（崩してはいけない不変条件）
 
@@ -62,7 +62,7 @@ npm run character-frames -- --all --commit                      # 使用可能�
 
 派生PNGと来歴（原本/出力sha256・切り取り座標・実寸）は `.tmp/character-frames/run-*/` の一時生成物。原画像は複製・上書きせず、Gitには設定とコードだけ追加する。成果物の恒久保存が必要な投稿では既存の投稿素材ディレクトリへ採用し、[アセット置き場](./asset-storage-policy.md)に従う。CLIは要求数・生成数・適用不可と理由・失敗を分けて報告し、失敗または生成0件ならexit 1。
 
-投稿レンダラーは `scripts/lib/character-framing.mjs` の `renderCharacterFrame(root, { pose, frame, width })` を使える。管理画面の「投稿用設定をコピー」はこの入力JSONで、媒体別の配置・見出しは含まない。YouTube動画パックの `cover-design.json` はこの素材を使う共通表紙へ接続済み（[SNS画像ポリシー §0.1](./sns-image-policy.md)）。Xはドラフトの `cards.json` を指定した番号だけ `gen-x-card` から利用する（[X投稿ポリシー §7](./x-post-policy.md)）。設定のないパック・legacy YouTube・IG・円形アイコンへは自動適用しない。
+投稿レンダラーは `scripts/lib/character-framing.mjs` の `renderCharacterFrame(root, { pose, frame, width })` を使える。管理画面の「投稿用設定をコピー」はこの入力JSONで、媒体別の配置・見出しは含まない。YouTube動画パックの `cover-design.json` はこの素材を使う共通表紙へ接続済み（[SNS画像ポリシー §0.1](./sns-image-policy.md)）。通常動画の解説画面も `render-longform` が `visual.character` の pose を同じ関数で切り出す（`quality: ready` のポーズだけ・幅440px）。Xはドラフトの `cards.json` を指定した番号だけ `gen-x-card` から利用する（[X投稿ポリシー §7](./x-post-policy.md)）。設定のないパック・legacy YouTube・IG・円形アイコンへは自動適用しない。
 
 ## 3. 生成 → 抽出ワークフロー（ポーズを足すとき）
 

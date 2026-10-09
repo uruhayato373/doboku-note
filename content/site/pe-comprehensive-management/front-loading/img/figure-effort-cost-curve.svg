@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="事業の時間軸と作業量の関係。変更コストは施工に近づくほど急に増える。従来は作業量の山が実施設計にあり、前倒しすると基本設計に山が移る">
+<g font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555">
+<text x="14" y="188" text-anchor="middle" transform="rotate(-90 14 188)">作業量・変更コスト</text>
+<g stroke="#d7d7d7" stroke-width="1">
+<line x1="130" y1="50" x2="130" y2="340"/>
+<line x1="210" y1="50" x2="210" y2="340"/>
+<line x1="290" y1="50" x2="290" y2="340"/>
+</g>
+<g stroke="#222" stroke-width="1.5">
+<line x1="50" y1="340" x2="370" y2="340"/>
+<line x1="50" y1="40" x2="50" y2="340"/>
+</g>
+<g text-anchor="middle" fill="#222">
+<text x="90" y="360">企画・基本</text>
+<text x="170" y="360">実施設計</text>
+<text x="250" y="360">施工</text>
+<text x="330" y="360">供用後</text>
+</g>
+<g fill="none" stroke-width="3">
+<path d="M50,332 C100,330 130,190 175,150 C220,115 255,250 295,316 C315,330 345,335 370,335" stroke="#8a8a8a"/>
+<path d="M50,332 C75,300 90,130 115,112 C150,92 190,200 230,270 S320,320 370,334" stroke="#2e6da4"/>
+<path d="M50,328 C140,324 220,290 280,170 S350,80 370,70" stroke="#b22234"/>
+</g>
+<g stroke-width="3">
+<line x1="28" y1="392" x2="68" y2="392" stroke="#b22234"/>
+<line x1="28" y1="420" x2="68" y2="420" stroke="#8a8a8a"/>
+<line x1="28" y1="448" x2="68" y2="448" stroke="#2e6da4"/>
+</g>
+<g font-size="12" fill="#222">
+<text x="78" y="396">設計変更のコスト（後ほど急増）</text>
+<text x="78" y="424">従来の作業量（山は実施設計）</text>
+<text x="78" y="452">前倒し後の作業量（山は基本設計）</text>
+</g>
+<rect x="20" y="466" width="360" height="26" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="200" y="483" text-anchor="middle" font-size="12" fill="#1a3a5c">作業量の山を、変更が安い左側へ寄せる</text>
+</g>
+</svg>

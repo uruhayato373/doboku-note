@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-02T12:39:01.182Z",
+  "updatedAt": "2026-10-06T05:40:26.570Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -51,7 +51,7 @@
       "noteMagazine": null,
       "magazines": [],
       "utmCampaign": "c1-essay-fail",
-      "title": "【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型"
+      "title": "【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 元発注者の視点で見た4つの型"
     },
     {
       "slug": "1級・2級土木/1級土木/1級経験記述を自分の現場に置換",
@@ -5864,7 +5864,7 @@
       "noteMagazine": null,
       "magazines": [],
       "utmCampaign": "2c-essay-fail",
-      "title": "2級土木 施工経験記述｜落ちる答案の共通点 — 添削する側から見た4つの型"
+      "title": "2級土木 施工経験記述｜落ちる答案の共通点 — 元発注者の視点で見た4つの型"
     },
     {
       "slug": "1級・2級土木/2級土木/第一次検定の独学突破",
@@ -5899,6 +5899,23 @@
       "magazines": [],
       "utmCampaign": "civil-career-young-next-role",
       "title": "2級土木施工管理技士の転職｜年収と一緒に確かめたい「次に任される仕事」"
+    },
+    {
+      "slug": "1級・2級土木/R8二次-自己採点と合格発表まで-1級-無料",
+      "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-1級-無料/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": "https://note.com/dobokunote/n/n90feba1be8ae",
+      "noteId": "n90feba1be8ae",
+      "status": "published",
+      "publishedAt": "2026-10-06",
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": null,
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "civil1-niji-postexam-r8",
+      "title": "1級土木 R8第二次検定を終えたら｜自己採点の目安と、合格発表（1/8）までにやること【無料】"
     },
     {
       "slug": "1級・2級土木/RCCMを持つ人の次の職場-無料",
@@ -7194,7 +7211,7 @@
       "status": "published",
       "publishedAt": "2026-09-04",
       "pricing": "free",
-      "price": 4980,
+      "price": 7980,
       "contentType": "product",
       "series": "コンクリート主任技士-まるごとパック",
       "noteMagazine": "コンクリート主任技士-まるごとパック",
@@ -7225,106 +7242,6 @@
       "title": "コンクリート主任技士 小論文の出題傾向｜令和2〜7年度のテーマと1,000字形式の答え方"
     },
     {
-      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/01-環境負荷低減",
-      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/01-環境負荷低減/article.md",
-      "exam": "コンクリート主任技士",
-      "magazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "noteUrl": "https://note.com/dobokunote/n/na25bfcb7de24",
-      "noteId": "na25bfcb7de24",
-      "status": "published",
-      "publishedAt": "2026-10-01",
-      "pricing": "paid",
-      "price": 1480,
-      "contentType": "product",
-      "series": "コンクリート主任技士-小論文テーマ別",
-      "noteMagazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "magazines": [
-        "cce-essay-reiwa-pack"
-      ],
-      "utmCampaign": "cce-theme-environment-reiwa",
-      "title": "コンクリート主任技士 小論文 模範答案｜環境負荷低減｜令和形式・8立場"
-    },
-    {
-      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/02-耐久性の向上",
-      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/02-耐久性の向上/article.md",
-      "exam": "コンクリート主任技士",
-      "magazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "noteUrl": "https://note.com/dobokunote/n/n1ee271fc0696",
-      "noteId": "n1ee271fc0696",
-      "status": "published",
-      "publishedAt": "2026-10-01",
-      "pricing": "paid",
-      "price": 1480,
-      "contentType": "product",
-      "series": "コンクリート主任技士-小論文テーマ別",
-      "noteMagazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "magazines": [
-        "cce-essay-reiwa-pack"
-      ],
-      "utmCampaign": "cce-theme-durability-reiwa",
-      "title": "コンクリート主任技士 小論文 模範答案｜耐久性の向上・維持管理｜令和形式・8立場"
-    },
-    {
-      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/03-生産性向上DX",
-      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/03-生産性向上DX/article.md",
-      "exam": "コンクリート主任技士",
-      "magazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "noteUrl": "https://note.com/dobokunote/n/nc653f78e53a0",
-      "noteId": "nc653f78e53a0",
-      "status": "published",
-      "publishedAt": "2026-10-01",
-      "pricing": "paid",
-      "price": 1480,
-      "contentType": "product",
-      "series": "コンクリート主任技士-小論文テーマ別",
-      "noteMagazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "magazines": [
-        "cce-essay-reiwa-pack"
-      ],
-      "utmCampaign": "cce-theme-productivity-reiwa",
-      "title": "コンクリート主任技士 小論文 模範答案｜生産性向上・DX｜令和形式・8立場"
-    },
-    {
-      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/04-気候変動と品質確保",
-      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/04-気候変動と品質確保/article.md",
-      "exam": "コンクリート主任技士",
-      "magazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "noteUrl": "https://note.com/dobokunote/n/n949330dc6720",
-      "noteId": "n949330dc6720",
-      "status": "published",
-      "publishedAt": "2026-10-01",
-      "pricing": "paid",
-      "price": 1480,
-      "contentType": "product",
-      "series": "コンクリート主任技士-小論文テーマ別",
-      "noteMagazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "magazines": [
-        "cce-essay-reiwa-pack"
-      ],
-      "utmCampaign": "cce-theme-climate-quality-reiwa",
-      "title": "コンクリート主任技士 小論文 模範答案｜気候変動と品質確保｜令和形式・8立場"
-    },
-    {
-      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/05-担い手不足と品質確保",
-      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/05-担い手不足と品質確保/article.md",
-      "exam": "コンクリート主任技士",
-      "magazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "noteUrl": "https://note.com/dobokunote/n/n3abbb17381a4",
-      "noteId": "n3abbb17381a4",
-      "status": "published",
-      "publishedAt": "2026-10-01",
-      "pricing": "paid",
-      "price": 1480,
-      "contentType": "product",
-      "series": "コンクリート主任技士-小論文テーマ別",
-      "noteMagazine": "コンクリート主任技士-小論文テーマ別-令和形式",
-      "magazines": [
-        "cce-essay-reiwa-pack"
-      ],
-      "utmCampaign": "cce-theme-workforce-reiwa",
-      "title": "コンクリート主任技士 小論文 模範答案｜担い手不足と品質確保｜令和形式・8立場"
-    },
-    {
       "slug": "コンクリート主任技士/magazines/コンクリート主任技士-直前暗記ノート",
       "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-直前暗記ノート/article.md",
       "exam": "コンクリート主任技士",
@@ -7341,6 +7258,846 @@
       "magazines": [],
       "utmCampaign": "cce-anki-note",
       "title": "コンクリート主任技士｜四肢択一 直前暗記ノート（一問一答157問・8分野の数値と定義）"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-01-生コン工場",
+      "noteUrl": "https://note.com/dobokunote/n/n99f0e9f86c22",
+      "noteId": "n99f0e9f86c22",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-生コン工場",
+      "magazines": [
+        "cce-reiwa-namacon-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-namacon-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-01-生コン工場",
+      "noteUrl": "https://note.com/dobokunote/n/nabd35b3a3ea6",
+      "noteId": "nabd35b3a3ea6",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-生コン工場",
+      "magazines": [
+        "cce-reiwa-namacon-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-namacon-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-01-生コン工場",
+      "noteUrl": "https://note.com/dobokunote/n/n0a5828644cf4",
+      "noteId": "n0a5828644cf4",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-生コン工場",
+      "magazines": [
+        "cce-reiwa-namacon-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-namacon-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-01-生コン工場",
+      "noteUrl": "https://note.com/dobokunote/n/n4e6f6afb458f",
+      "noteId": "n4e6f6afb458f",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-生コン工場",
+      "magazines": [
+        "cce-reiwa-namacon-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-namacon-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-01-生コン工場/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-01-生コン工場",
+      "noteUrl": "https://note.com/dobokunote/n/n132a222b6165",
+      "noteId": "n132a222b6165",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-生コン工場",
+      "magazines": [
+        "cce-reiwa-namacon-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-namacon-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜生コン工場｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-02-プレキャスト工場",
+      "noteUrl": "https://note.com/dobokunote/n/n178d81567130",
+      "noteId": "n178d81567130",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-プレキャスト工場",
+      "magazines": [
+        "cce-reiwa-precast-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-precast-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜プレキャスト工場｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-02-プレキャスト工場",
+      "noteUrl": "https://note.com/dobokunote/n/nfa847133fbd4",
+      "noteId": "nfa847133fbd4",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-プレキャスト工場",
+      "magazines": [
+        "cce-reiwa-precast-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-precast-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜プレキャスト工場｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-02-プレキャスト工場",
+      "noteUrl": "https://note.com/dobokunote/n/nd7b4b28d9eb0",
+      "noteId": "nd7b4b28d9eb0",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-プレキャスト工場",
+      "magazines": [
+        "cce-reiwa-precast-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-precast-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜プレキャスト工場｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-02-プレキャスト工場",
+      "noteUrl": "https://note.com/dobokunote/n/nc0d8143cc931",
+      "noteId": "nc0d8143cc931",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-プレキャスト工場",
+      "magazines": [
+        "cce-reiwa-precast-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-precast-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜プレキャスト工場｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-02-プレキャスト工場",
+      "noteUrl": "https://note.com/dobokunote/n/n6a2786ace30d",
+      "noteId": "n6a2786ace30d",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-プレキャスト工場",
+      "magazines": [
+        "cce-reiwa-precast-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-precast-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜プレキャスト工場｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+      "noteUrl": "https://note.com/dobokunote/n/n1e9532d38e0f",
+      "noteId": "n1e9532d38e0f",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン土木施工",
+      "magazines": [
+        "cce-reiwa-civil-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-civil-contractor-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+      "noteUrl": "https://note.com/dobokunote/n/n02f4a96e736a",
+      "noteId": "n02f4a96e736a",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン土木施工",
+      "magazines": [
+        "cce-reiwa-civil-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-civil-contractor-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+      "noteUrl": "https://note.com/dobokunote/n/n727ee9f7b79e",
+      "noteId": "n727ee9f7b79e",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン土木施工",
+      "magazines": [
+        "cce-reiwa-civil-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-civil-contractor-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+      "noteUrl": "https://note.com/dobokunote/n/n74ef04a0d19f",
+      "noteId": "n74ef04a0d19f",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン土木施工",
+      "magazines": [
+        "cce-reiwa-civil-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-civil-contractor-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-03-ゼネコン土木施工/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-03-ゼネコン土木施工",
+      "noteUrl": "https://note.com/dobokunote/n/nc4a10d6a8186",
+      "noteId": "nc4a10d6a8186",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン土木施工",
+      "magazines": [
+        "cce-reiwa-civil-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-civil-contractor-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン土木施工｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-04-維持管理補修",
+      "noteUrl": "https://note.com/dobokunote/n/nc535117e1e0d",
+      "noteId": "nc535117e1e0d",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-維持管理補修",
+      "magazines": [
+        "cce-reiwa-maintenance-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-maintenance-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜維持管理・補修｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-04-維持管理補修",
+      "noteUrl": "https://note.com/dobokunote/n/n83cc78cb4d99",
+      "noteId": "n83cc78cb4d99",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-維持管理補修",
+      "magazines": [
+        "cce-reiwa-maintenance-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-maintenance-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜維持管理・補修｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-04-維持管理補修",
+      "noteUrl": "https://note.com/dobokunote/n/nb6ddd9a0d066",
+      "noteId": "nb6ddd9a0d066",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-維持管理補修",
+      "magazines": [
+        "cce-reiwa-maintenance-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-maintenance-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜維持管理・補修｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-04-維持管理補修",
+      "noteUrl": "https://note.com/dobokunote/n/n988fb682bde9",
+      "noteId": "n988fb682bde9",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-維持管理補修",
+      "magazines": [
+        "cce-reiwa-maintenance-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-maintenance-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜維持管理・補修｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-04-維持管理補修/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-04-維持管理補修",
+      "noteUrl": "https://note.com/dobokunote/n/n0bf515c197a0",
+      "noteId": "n0bf515c197a0",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-維持管理補修",
+      "magazines": [
+        "cce-reiwa-maintenance-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-maintenance-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜維持管理・補修｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-05-発注者監督員",
+      "noteUrl": "https://note.com/dobokunote/n/nb4c971781445",
+      "noteId": "nb4c971781445",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-発注者監督員",
+      "magazines": [
+        "cce-reiwa-owner-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-owner-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-05-発注者監督員",
+      "noteUrl": "https://note.com/dobokunote/n/nee43d106727d",
+      "noteId": "nee43d106727d",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-発注者監督員",
+      "magazines": [
+        "cce-reiwa-owner-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-owner-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-05-発注者監督員",
+      "noteUrl": "https://note.com/dobokunote/n/n3fe06d94e604",
+      "noteId": "n3fe06d94e604",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-発注者監督員",
+      "magazines": [
+        "cce-reiwa-owner-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-owner-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-05-発注者監督員",
+      "noteUrl": "https://note.com/dobokunote/n/nd4bdcb67bc22",
+      "noteId": "nd4bdcb67bc22",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-発注者監督員",
+      "magazines": [
+        "cce-reiwa-owner-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-owner-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-05-発注者監督員/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-05-発注者監督員",
+      "noteUrl": "https://note.com/dobokunote/n/na96caae87a0b",
+      "noteId": "na96caae87a0b",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-発注者監督員",
+      "magazines": [
+        "cce-reiwa-owner-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-owner-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜発注者・監督員｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+      "noteUrl": "https://note.com/dobokunote/n/nfe75c08fbcf0",
+      "noteId": "nfe75c08fbcf0",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン建築施工",
+      "magazines": [
+        "cce-reiwa-building-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-building-contractor-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+      "noteUrl": "https://note.com/dobokunote/n/na0a09cbf3992",
+      "noteId": "na0a09cbf3992",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン建築施工",
+      "magazines": [
+        "cce-reiwa-building-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-building-contractor-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+      "noteUrl": "https://note.com/dobokunote/n/nee8585d46630",
+      "noteId": "nee8585d46630",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン建築施工",
+      "magazines": [
+        "cce-reiwa-building-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-building-contractor-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+      "noteUrl": "https://note.com/dobokunote/n/nfda4a31df8ad",
+      "noteId": "nfda4a31df8ad",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン建築施工",
+      "magazines": [
+        "cce-reiwa-building-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-building-contractor-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-06-ゼネコン建築施工/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-06-ゼネコン建築施工",
+      "noteUrl": "https://note.com/dobokunote/n/n0c0ea143e9c9",
+      "noteId": "n0c0ea143e9c9",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-ゼネコン建築施工",
+      "magazines": [
+        "cce-reiwa-building-contractor-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-building-contractor-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜ゼネコン建築施工｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-07-設計コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n33cbd2c05d3f",
+      "noteId": "n33cbd2c05d3f",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-設計コンサル",
+      "magazines": [
+        "cce-reiwa-design-consultant-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-design-consultant-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜設計コンサルタント｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-07-設計コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n8da7d24954da",
+      "noteId": "n8da7d24954da",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-設計コンサル",
+      "magazines": [
+        "cce-reiwa-design-consultant-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-design-consultant-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜設計コンサルタント｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-07-設計コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/nfb3459731640",
+      "noteId": "nfb3459731640",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-設計コンサル",
+      "magazines": [
+        "cce-reiwa-design-consultant-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-design-consultant-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜設計コンサルタント｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-07-設計コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/nfa4c4249dc4c",
+      "noteId": "nfa4c4249dc4c",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-設計コンサル",
+      "magazines": [
+        "cce-reiwa-design-consultant-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-design-consultant-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜設計コンサルタント｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-07-設計コンサル/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-07-設計コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n1c80be3a4d83",
+      "noteId": "n1c80be3a4d83",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-設計コンサル",
+      "magazines": [
+        "cce-reiwa-design-consultant-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-design-consultant-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜設計コンサルタント｜担い手不足と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/01-環境負荷低減",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/01-環境負荷低減/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-08-試験検査機関",
+      "noteUrl": "https://note.com/dobokunote/n/n5255c9fd74ed",
+      "noteId": "n5255c9fd74ed",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-試験検査機関",
+      "magazines": [
+        "cce-reiwa-testing-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-testing-environment",
+      "title": "コンクリート主任技士 小論文 模範答案｜試験・検査機関｜環境負荷低減｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/02-耐久性の向上",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/02-耐久性の向上/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-08-試験検査機関",
+      "noteUrl": "https://note.com/dobokunote/n/n48af15b98de1",
+      "noteId": "n48af15b98de1",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-試験検査機関",
+      "magazines": [
+        "cce-reiwa-testing-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-testing-durability",
+      "title": "コンクリート主任技士 小論文 模範答案｜試験・検査機関｜耐久性の向上・維持管理｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/03-生産性向上DX",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/03-生産性向上DX/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-08-試験検査機関",
+      "noteUrl": "https://note.com/dobokunote/n/n3f25479cd052",
+      "noteId": "n3f25479cd052",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-試験検査機関",
+      "magazines": [
+        "cce-reiwa-testing-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-testing-productivity",
+      "title": "コンクリート主任技士 小論文 模範答案｜試験・検査機関｜生産性向上・DX｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/04-気候変動と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/04-気候変動と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-08-試験検査機関",
+      "noteUrl": "https://note.com/dobokunote/n/n454587eaf246",
+      "noteId": "n454587eaf246",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-試験検査機関",
+      "magazines": [
+        "cce-reiwa-testing-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-testing-climate-quality",
+      "title": "コンクリート主任技士 小論文 模範答案｜試験・検査機関｜気候変動と品質確保｜令和形式"
+    },
+    {
+      "slug": "コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/05-担い手不足と品質確保",
+      "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-08-試験検査機関/05-担い手不足と品質確保/article.md",
+      "exam": "コンクリート主任技士",
+      "magazine": "コンクリート主任技士-令和形式-08-試験検査機関",
+      "noteUrl": "https://note.com/dobokunote/n/n5048a0531415",
+      "noteId": "n5048a0531415",
+      "status": "published",
+      "publishedAt": "2026-10-03",
+      "pricing": "paid",
+      "price": 1480,
+      "contentType": "product",
+      "series": "コンクリート主任技士-令和形式-立場別",
+      "noteMagazine": "コンクリート主任技士-令和形式-試験検査機関",
+      "magazines": [
+        "cce-reiwa-testing-pack",
+        "cce-essay-reiwa-pack"
+      ],
+      "utmCampaign": "cce-reiwa-testing-workforce",
+      "title": "コンクリート主任技士 小論文 模範答案｜試験・検査機関｜担い手不足と品質確保｜令和形式"
     },
     {
       "slug": "コンクリート主任技士/コンクリート資格もくじ",
@@ -7374,7 +8131,7 @@
       "noteMagazine": null,
       "magazines": [],
       "utmCampaign": "cce-r8-mc-50",
-      "title": "コンクリート主任技士｜令和8年度 四肢択一 予想50問（8分野・全選択肢解説）"
+      "title": "コンクリート主任技士｜令和8年度 四肢択一 予想50問＋施工14問（8分野・全選択肢解説）"
     },
     {
       "slug": "コンクリート主任技士/配合計算-実戦演習",
@@ -17697,8 +18454,8 @@
   ],
   "unpublished": [
     {
-      "slug": "1級・2級土木/R8二次-自己採点と合格発表まで-1級-無料",
-      "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-1級-無料/article.md",
+      "slug": "1級・2級土木/2級土木/R8二次の出題予想",
+      "path": "content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md",
       "exam": "1級・2級土木",
       "noteUrl": null,
       "noteId": null,
@@ -17707,11 +18464,28 @@
       "pricing": "free",
       "price": null,
       "contentType": "learning",
-      "series": null,
+      "series": "受験ガイド",
       "noteMagazine": null,
       "magazines": [],
-      "utmCampaign": "civil1-niji-postexam-r8",
-      "title": "1級土木 R8第二次検定を終えたら｜自己採点の目安と、合格発表（1/8）までにやること【無料】"
+      "utmCampaign": "2c-r8-yosou",
+      "title": "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
+    },
+    {
+      "slug": "1級・2級土木/2級土木/経験記述を残り3週間で仕上げる",
+      "path": "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": null,
+      "noteId": null,
+      "status": "draft",
+      "publishedAt": null,
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": "施工経験記述",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "2c-essay-3weeks",
+      "title": "2級土木 施工経験記述｜二次まで残り3週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
     },
     {
       "slug": "1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料",
@@ -18073,15 +18847,71 @@
     {
       "id": "cce-essay-reiwa-pack",
       "key": "m97a0049a10de",
-      "title": "コンクリート主任技士 小論文｜令和形式 テーマ別模範答案（5テーマ×8立場）",
-      "price": "¥3,980（6記事セット・有料5記事＋無料1記事）",
+      "title": "コンクリート主任技士 小論文｜令和形式 全40答案（5テーマ×8立場）",
+      "price": "¥5,980（41記事セット・有料40記事＋無料1記事・単品合計¥59,200）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-building-contractor-pack",
+      "key": "m8cc3e86d9862",
+      "title": "コンクリート主任技士 合格パック｜ゼネコン建築施工（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-civil-contractor-pack",
+      "key": "ma8f11487f4cc",
+      "title": "コンクリート主任技士 合格パック｜ゼネコン土木施工（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-design-consultant-pack",
+      "key": "m4452b47516ca",
+      "title": "コンクリート主任技士 合格パック｜設計コンサルタント（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-maintenance-pack",
+      "key": "mc91d56e58449",
+      "title": "コンクリート主任技士 合格パック｜維持管理・補修（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-namacon-pack",
+      "key": "mcb9747146a71",
+      "title": "コンクリート主任技士 合格パック｜生コン工場（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-owner-pack",
+      "key": "mb6f1286cfb21",
+      "title": "コンクリート主任技士 合格パック｜発注者・監督員（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-precast-pack",
+      "key": "m3daa98f03bef",
+      "title": "コンクリート主任技士 合格パック｜プレキャスト工場（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
+      "published": true
+    },
+    {
+      "id": "cce-goukaku-testing-pack",
+      "key": "m9f64a8b08855",
+      "title": "コンクリート主任技士 合格パック｜試験・検査機関（択一直前3点＋小論文5テーマ）",
+      "price": "¥3,980（9記事セット・択一3点＋小論文5テーマ＋無料1記事・単品合計¥11,840）",
       "published": true
     },
     {
       "id": "cce-marugoto-pack",
       "key": "m09d20bfd9738",
       "title": "コンクリート主任技士 まるごとパック（択一＋小論文＋配合計算＋直前暗記）",
-      "price": "¥4,980（10記事セット・単品合計¥11,840）",
+      "price": "¥7,980（45記事セット・単品合計¥63,640）",
       "published": true
     },
     {
@@ -18150,8 +18980,64 @@
     {
       "id": "cce-r8-mc-50",
       "key": null,
-      "title": "コンクリート主任技士｜令和8年度 四肢択一 予想50問（8分野・全選択肢解説）",
+      "title": "コンクリート主任技士｜令和8年度 四肢択一 予想50問＋施工14問（8分野・全選択肢解説）",
       "price": "¥1,980",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-building-contractor-pack",
+      "key": "m0595b4b179e0",
+      "title": "コンクリート主任技士 小論文｜ゼネコン建築施工の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-civil-contractor-pack",
+      "key": "m1b555fe40131",
+      "title": "コンクリート主任技士 小論文｜ゼネコン土木施工の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-design-consultant-pack",
+      "key": "m0dff629807db",
+      "title": "コンクリート主任技士 小論文｜設計コンサルタントの令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-maintenance-pack",
+      "key": "m155421580ea3",
+      "title": "コンクリート主任技士 小論文｜維持管理・補修の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-namacon-pack",
+      "key": "m02a55d302f25",
+      "title": "コンクリート主任技士 小論文｜生コン工場の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-owner-pack",
+      "key": "ma1d6fcf577bc",
+      "title": "コンクリート主任技士 小論文｜発注者・監督員の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-precast-pack",
+      "key": "m7937821e86a7",
+      "title": "コンクリート主任技士 小論文｜プレキャスト工場の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
+      "published": true
+    },
+    {
+      "id": "cce-reiwa-testing-pack",
+      "key": "m43992b2f5503",
+      "title": "コンクリート主任技士 小論文｜試験・検査機関の令和形式 5テーマ模範答案",
+      "price": "¥2,480（6記事セット・有料5記事＋無料1記事・単品合計¥7,400）",
       "published": true
     },
     {
@@ -18417,7 +19303,7 @@
       "id": "civil-2-experience-essay",
       "key": "m1881a9578027",
       "title": "2級土木 施工経験記述｜工種×テーマ別 完成答案集（安全・品質・工程）",
-      "price": "¥2,480（3本セット）",
+      "price": "¥2,980（3本セット）",
       "published": true
     },
     {
@@ -18508,21 +19394,21 @@
       "id": "civil-2-koji-bank",
       "key": "m8554e87ca6ec",
       "title": "2級土木 施工経験記述｜想定工事バンク（工種×5管理フル）",
-      "price": "¥5,480（72工事フル）",
+      "price": "¥6,980（72工事フル）",
       "published": true
     },
     {
       "id": "civil-2-niji-marugoto-pack",
       "key": "m2d9a069b6f87",
       "title": "2級土木 二次検定まるごとパック（経験記述＋学科記述＋直前対策）",
-      "price": "¥8,800（二次まるごと・単品合計¥18,040）",
+      "price": "¥8,800（二次まるごと・単品合計¥20,540）",
       "published": true
     },
     {
       "id": "civil-2-pastexam-essay",
       "key": "md3aa0f9a37d7",
       "title": "2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）",
-      "price": "¥2,480（5本セット）",
+      "price": "¥2,980（5本セット）",
       "published": true
     },
     {

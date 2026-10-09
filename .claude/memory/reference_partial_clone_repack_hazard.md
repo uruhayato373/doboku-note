@@ -1,10 +1,16 @@
 ---
 name: reference_partial_clone_repack_hazard
-description: "git の重い/壊れる操作の罠。blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）"
+description: git の重い/壊れる操作の罠。push を失敗しうる手順に ; で繋ぐ・zsh の単語分割、blob:none partial clone の rev-list/log -M/repack -a、gc --prune=now 中の commit 破損、日付をgit履歴から導出しない（frontmatter真実源）
 metadata:
+  node_type: memory
   type: reference
+  originSessionId: dbedeb81-cdb5-44da-b970-0513ad32e184
+  modified: 2026-10-06T11:35:29.325Z
 ---
+
 `doboku-note` のローカル `.git` は **`blob:none` の partial clone**（`remote.origin.promisor=true` / `partialclonefilter=blob:none`）。普通の clone と挙動が違い、肥大化を直しに行くと逆に壊す罠が 3 つある。
+
+**中身の差分を見る log は過去の blob を取りに行く（2026-10-10 実測）**: `git log --numstat`・`--stat`・`-p`・`-M` は、差分を出すために手元に無い過去の blob をリモートから取ってくる。「バイナリの変更数を数える」つもりで期間を区切らずに流したら 5 分で終わらず、`.git` が 1.3 → 2.6 GiB に膨らみかけた（止めた後、自動の再パックで 1.3 GiB に戻り、残骸は 16 KB の `tmp_pack_*` だけ）。履歴の容量や中身を調べるときは、blob を読まないコマンド（`git count-objects -vH`・`git log --format=...`・`git rev-list --count`）だけを使う。
 
 **罠1: `git rev-list --objects --all` を素で回すと履歴を再ダウンロードする。**
 欠損 blob を promisor remote から遅延取得しに行くため、`.git` が膨らむ。2026-08-21 の DN-0111 Phase 0 実査で実際に promisor pack を 266 個増やして確認した。履歴走査は必ず **`--missing=allow-any`** を付ける（欠損を欠損のまま数える）。素で回すと 5 分でも終わらないのは「遅い」のではなく「DL している」。
@@ -96,3 +102,18 @@ metadata:
 書式が全ページで変わる。日付キーは `.slice(0, 10)` で `YYYY-MM-DD` に揃えること。
 
 関連: [[reference_quality_audit_system]] / [[reference_partial_clone_repack_hazard]] / [[project_asset_audience_routing]]
+
+## push を失敗しうる手順に `;` で繋がない（2026-10-06）
+feature ブランチを最新 develop へ載せ直すとき、`git reset --keep origin/develop && git cherry-pick $C ...; git push --force-with-lease ...` と書いて 2 回事故った。
+1. **zsh は未クォート変数を単語分割しない**: `C=$(git rev-list ... | tr '\n' ' ')` を `git cherry-pick $C` に渡すと SHA 4 本が 1 引数になり `fatal: bad revision`。bash の感覚で書かない（SHA は直書きするか `${=C}`）。
+2. **`;` の後の push は前の失敗を無視して走る**: cherry-pick が失敗したまま、ブランチが develop と同じ状態で force push した → GitHub は head＝base になった PR を**自動で閉じる**（`gh pr reopen` で戻る）。1 回目も `git rebase`（作業ツリーの他人の変更で拒否）の失敗後に `&&` の手前で `| tail -1` を挟んだため、tail の成功で push まで進んだ。
+- **How to apply:** 載せ直し → 検証 → push は別の呼び出しに分け、push の前に「元の範囲と同じパッチか」（`diff <(git diff <元の base> <元の head>) <(git diff origin/develop HEAD)`）を見てから押す。`| tail` で失敗を飲み込む位置に `&&` を置かない。作業ツリーに他人の変更があると `git rebase` は拒否するので `git reset --keep` + `git cherry-pick <sha...>` を使う（stash は共有なので使わない）。
+3. **commit の失敗も同じ（2026-10-06 3 回目）**: `git commit ... ; echo rc=$?; ... c=$(git rev-parse HEAD); git reset --keep origin/develop && git cherry-pick $c` と書き、lint-ja で commit が止まったのに載せ直しへ進んだ。`c` は既に push 済みの 1 つ前のコミットになり、空の cherry-pick が途中で止まった（ステージした変更はアンステージされ作業ツリーには残った）。後始末は作業ツリーに触れない `git cherry-pick --quit`（`--abort`/`--skip` は reset を伴う）。**載せ直しは commit の成功（rc=0 と新しい sha）を確かめた次の呼び出しで、sha を直書きして行う**。
+
+
+## 共有の .git/shallow が突然できて「unrelated histories」になる（2026-10-09）
+
+- **現象**: PR ブランチへ develop を merge しようとして `fatal: refusing to merge unrelated histories`。`git rev-list --count HEAD` が 1 で、`git rev-parse --is-shallow-repository` が true。共通の `.git/shallow` に PR の先頭コミット 1 行が書かれていた（06:06 作成。作った操作は未特定。自分の Bash 履歴に `--depth` は無く、並行の workflow の担当か、アプリの PR 監視の可能性）。
+- **見分け方**: `git cat-file -p <そのコミット>` の parent が手元にあれば、履歴は失われていない（記録だけが誤り）。
+- **直し方**: `git fetch --unshallow origin <ブランチ>` で `.git/shallow` が消える。ファイルを手で消さない。
+- **How to apply:** merge・rebase が「無関係な履歴」で止まったら、まず `--is-shallow-repository` と `.git/shallow` を見る。履歴を作り直す・force push で直そうとしない。

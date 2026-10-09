@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="乾燥収縮によるひび割れの出方。柱にはさまれた壁が乾いて縮もうとするが、両側の柱が動かないので、壁の中央付近に縦のひび割れが入る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-ok    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .conc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }       /* brand：コンクリート */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }     /* 既設・支持部材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn：注意の層・反応生成物 */
+      .good  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }       /* positive */
+      .bad   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger */
+      .crack { fill: none; stroke: #b22234; stroke-width: 2.5; stroke-linejoin: round; }
+      .dash  { fill: none; stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; }
+      .lead  { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .arb   { fill: none; stroke: #2e6da4; stroke-width: 2; }
+      .arr   { fill: none; stroke: #b22234; stroke-width: 2; }
+      .arg   { fill: none; stroke: #3a7d44; stroke-width: 2.5; }
+      .bar   { fill: #8a8a8a; stroke: #555; stroke-width: 1; }
+    </style>
+    <marker id="mb" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="mr" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="mg" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">乾燥収縮によるひび割れ</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">水分が抜けて縮む壁を、両側の柱が止めている</text>
+
+  <rect class="card" x="16" y="64" width="368" height="312" rx="6"/>
+  <!-- 両側の柱 -->
+  <rect class="gray" x="56" y="96" width="44" height="250"/>
+  <rect class="gray" x="300" y="96" width="44" height="250"/>
+  <text class="t-note" x="78" y="366" text-anchor="middle">柱</text>
+  <text class="t-note" x="322" y="366" text-anchor="middle">柱</text>
+  <!-- 壁 -->
+  <rect class="conc" x="100" y="96" width="200" height="250"/>
+  <path class="crack" d="M 190 96 L 196 140 L 186 186 L 194 236 L 188 290 L 194 346"/>
+  <path class="crack" d="M 224 96 L 220 120 L 226 148"/>
+  <!-- 縮む向き -->
+  <line class="arb" x1="108" y1="224" x2="152" y2="224" marker-end="url(#mb)"/>
+  <line class="arb" x1="292" y1="224" x2="248" y2="224" marker-end="url(#mb)"/>
+  <text class="t-note" x="130" y="246" text-anchor="middle">縮む</text>
+  <text class="t-note" x="270" y="246" text-anchor="middle">縮む</text>
+  <text class="t-warn" x="200" y="84" text-anchor="middle">ひび割れ</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">原因</text>
+  <text class="t-lab" x="92" y="416">水分の乾燥で体積が減る</text>
+  <text class="t-key" x="30" y="442">出やすい</text>
+  <text class="t-lab" x="92" y="442">単位水量が多い・型枠を早く外す</text>
+  <text class="t-key" x="30" y="468">対策</text>
+  <text class="t-lab" x="92" y="468">湿潤養生を 5 日間以上行う</text>
+
+</svg>

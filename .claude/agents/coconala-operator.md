@@ -27,7 +27,7 @@ domain: product
 
 | 何を見るか | ファイル |
 |---|---|
-| サービスの価格・状態・URL・受付枠 | `src/lib/coconala-services.ts`（カタログ SoT） |
+| サービスの価格・状態・URL・受付枠 | 正本 `config/products.json`（channel coconala・書き換えは `npm run product -- set <id> catalog.<欄> <json値>`）。`src/lib/coconala-services.ts` は生成物（読むのはこちらでよい・手で直さない） |
 | 競合の市場実測（価格帯・上位競合） | `data/coconala/market-summary.json`（軽量 SSOT・まずこれ／深掘りは `market-research.json`） |
 | アカウント（sellerName / profileUrl） | `config/coconala-account.json` |
 | 受注実績（こちらの記録） | `data/coconala/orders.json`（v2・`talkroomId` 必須） |
@@ -139,7 +139,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 
 1. **捏造禁止（Red Line #2・2026-07-18 再定義）** — 経験していない工事・事実・数値を創作しない。添削の書き換え案も指導（S3）の骨子シートも、顧客が回答していない経験・工事・エピソードを作り足さない。骨子シートは**ヒアリング回答の引用だけ**で組み、**答案の文章は書かない（代筆しない）**。欠落は `〇〇` と確認の質問で埋める（創作しない）。宣誓を必須にする。
 2. **外部誘導禁止（ココナラ規約）** — ココナラ向け文面に note・doboku-note.com の URL や「他サイトで販売中」等を書かない。導線は逆向き（サイト/note → ココナラ）のみ。
-3. **価格・受付枠の直書き禁止** — 真実源はカタログ（`coconala-services.ts`）。文面に価格を書く必要がある場合はカタログの `price` を読んで転記し、変更時はカタログを先に直す。
+3. **価格・受付枠の直書き禁止** — 真実源は商品の正本 `config/products.json`（生成物 `coconala-services.ts`）。文面に価格を書く必要がある場合はカタログの `price` を読んで転記し、変更時は `npm run product -- set` で正本を先に直す。
 4. **AI 下書き注記の残存禁止** — 添削下書き.md 末尾の「このドラフトは AI 下書きです」注記が残った文面を納品文面として出さない。
 5. **公開は draft-first＋--commit gate＋account assert** — 出品・修正は自動化するが、既定は下書き保存で実公開は `--commit` 明示時のみ。account assert（sellerName=dobokunote）不一致は即中断。**トークルームの返信送信は運営者**（「送信しました」と報告しない）。バリデーションエラー（記入エラー）時は「公開した」と言わない。
 6. **個人情報の非コミット** — 購入者名・提出原稿・トークルーム本文を orders.json やリポジトリに書かない。事例化は匿名化して `content/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/` へ。
@@ -163,7 +163,7 @@ C1/C2（`provision_format=3`・PDF 納品）は**ヒアリング不要**。購�
 
 - スキル: `.claude/skills/management/coconala-publish/SKILL.md`（出品・修正）/ `coconala-order/SKILL.md`（受注）/ `coconala-status/SKILL.md`（KPI）
 - 出品スクリプト: `scripts/coconala-publish.mjs`（`--image` で公開時に画像も。**bare 名は `content/coconala/assets/` に解決**＝フルパス不要・存在は fail-fast 検査）/ `coconala-edit.mjs` / `coconala-delete-draft.mjs`（空の下書き掃除・4重ガード）/ `coconala-discover.mjs` / 共有 `scripts/lib/coconala-{session,form}.mjs`
-- 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`gen-image-gemini.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
+- 商品画像/コンテンツ: `scripts/coconala-thumb.mjs`・`build-coconala-content-pdf.mjs`（＋`lib/strip-note-funnel.mjs`）
 - プロフィール: `scripts/coconala-profile.mjs`（自己紹介）・`coconala-cover.mjs`（カバー）／SoT=`coconala-account.json` の `profile`・資格は `src/config/author.ts`
 - 購入者評価: `scripts/coconala-rate-buyer.mjs`（`/ratings/provider_add/{talkroomId}`・星は `img[alt]` クリック・確認画面の二段構え）。**公開・取消不可なので既定は入力までで停止**、送信は `--submit`。星は5固定なので5をつけたくない取引では使わない。未送信と期限切迫は `check-coconala-orders` が surface する
 - 投入 SoT: `config/coconala-listings.json`（本文/カテゴリ/納期/genreFacets/provisionFormat）／アカウント: `config/coconala-account.json`

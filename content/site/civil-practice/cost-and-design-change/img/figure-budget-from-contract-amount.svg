@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="請負金額から本支店の経費と目標利益を引いて現場に許される原価の枠を決め、費目別に割り振って、積み上げた原価が枠に収まるかを確かめる。協力会社との交渉が終わった費目から確定額に差し替え、毎月の実績と比べる。進捗度で収益を計上する場合は最新の実行予算が分母になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 12px; fill: #222; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle">請負金額から逆算し、確定した価格で差し替えていく</text>
+
+  <rect class="bb" x="20" y="28" width="360" height="58" rx="6"/>
+  <text class="h" x="36" y="52">請負金額（税抜）</text>
+  <text x="36" y="72">契約で決まっている出発点</text>
+
+  <g stroke="#555" stroke-width="1.5">
+    <line x1="60" y1="86" x2="60" y2="112" marker-end="url(#a)"/>
+    <line x1="60" y1="170" x2="60" y2="196" marker-end="url(#a)"/>
+    <line x1="60" y1="268" x2="60" y2="294" marker-end="url(#a)"/>
+    <line x1="60" y1="352" x2="60" y2="378" marker-end="url(#a)"/>
+  </g>
+  <text x="76" y="104">本支店の経費と目標利益を引く</text>
+  <text x="76" y="188">直接工事費・共通仮設費・現場管理費へ割り振る</text>
+  <text x="76" y="286">協力会社と交渉し、決まった費目から差し替える</text>
+  <text x="76" y="370">毎月</text>
+
+  <rect class="bw" x="20" y="112" width="360" height="58" rx="6"/>
+  <text class="h" x="36" y="136">現場に許される原価の枠</text>
+  <text x="36" y="156">これが実行予算の上限になる</text>
+
+  <rect class="bb" x="20" y="196" width="360" height="72" rx="6"/>
+  <text class="h" x="36" y="220">費目別の実行予算</text>
+  <text x="36" y="240">数量 × 自社の施工に合わせた歩掛 × 単価</text>
+  <text x="36" y="258">積み上げた原価が枠に収まるか確かめる</text>
+
+  <rect class="bp" x="20" y="294" width="360" height="58" rx="6"/>
+  <text class="h" x="36" y="318">確定額で差し替える</text>
+  <text x="36" y="338">暫定の単価と差し替えた日付、差額を残す</text>
+
+  <rect class="bp" x="20" y="378" width="360" height="58" rx="6"/>
+  <text class="h" x="36" y="402">実績と比べる</text>
+  <text x="36" y="422">ズレの原因を費目まで追い、予算を更新する</text>
+
+  <rect class="bw" x="20" y="462" width="360" height="30" rx="6"/>
+  <text class="s" x="200" y="482" text-anchor="middle">進捗度で収益を計上するなら、最新の予算が分母になる</text>
+</svg>

@@ -59,7 +59,7 @@ export default async function VideoPackBoard({
     <>
       <PageHead
         title="動画パック"
-        sub={`${board.rows.length} 件 · content/sns/video-packs/**/video-pack.json + .claude/state/video-content-status.json（表示中 ${filtered.length}）`}
+        sub={`${board.rows.length} 件 · content/sns/video-packs/**/video-pack.json + content/registry（表示中 ${filtered.length}）`}
       />
 
       <nav className="project-crumbs" aria-label="パンくず">

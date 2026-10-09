@@ -57,6 +57,13 @@ test('ConfigFigureSources: 実データが通り、語彙・別名・重複・�
   assertFails(S, broken(v, (d) => { d.manual_needs[0].verified = '2026/07/09'; }), /manual_needs\.0\.verified/);
   assertFails(S, broken(v, (d) => { d.categories['civil-construction-1'].source_kind = 'photo'; }), /categories\.civil-construction-1/);
   assertFails(S, broken(v, (d) => { d.categories['concrete-diagnostician-jci']._alias = 'nowhere'; }), /_alias.*nowhere/);
+  // 図ごとの出典の正本（2026-10-07・DN-0555）: 機械に依存するパス・ページ 0・別の欄を入れない
+  const fig = Object.keys(v.provenance)[0];
+  assertFails(S, broken(v, (d) => { d.provenance[fig].pdf = '/Users/x/Library/CloudStorage/原資料PDF/a.pdf'; }), /provenance/);
+  assertFails(S, broken(v, (d) => { d.provenance[fig].page = 0; }), /provenance/);
+  assertFails(S, broken(v, (d) => { d.provenance[fig].cropBox = '1,2,3,4'; }), /provenance/);
+  assertFails(S, broken(v, (d) => { d.provenance['civil-construction-1/no-img-segment'] = { pdf: 'vault:原資料PDF/a.pdf' }; }), /provenance/);
+  assertFails(S, broken(v, (d) => { d.manual_needs[0].source_pdf = 'content/sources/x.pdf'; }), /manual_needs\.0/);
   assertFails(S, broken(v, (d) => { delete d.categories['civil-construction-2'].rescannable; }), /categories\.civil-construction-2/);
 });
 

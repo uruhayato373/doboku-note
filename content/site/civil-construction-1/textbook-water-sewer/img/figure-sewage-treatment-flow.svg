@@ -1,0 +1,87 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「上下水道」の論点（標準的な活性汚泥法の水処理と汚泥の流れ）。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="下水処理場の標準的な処理の流れ。流入した汚水は沈砂池、最初沈殿池、反応タンク、最終沈殿池、消毒設備を順に通って放流される。最初沈殿池の生汚泥と最終沈殿池の余剰汚泥は汚泥処理へ送られ、最終沈殿池の汚泥の一部は返送汚泥として反応タンクへ戻る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-step { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-lbl { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-end { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-inner { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+      .a-blue { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .a-amber { stroke: #d4a017; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-amber" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <text class="t-desc" x="104" y="15" text-anchor="middle">流入した汚水</text>
+
+  <!-- 水処理の本線 -->
+  <rect class="box-brand" x="12" y="34" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="56" text-anchor="middle">沈砂池</text>
+  <text class="t-desc" x="104" y="74" text-anchor="middle">ごみ・石・砂を沈める</text>
+
+  <rect class="box-brand" x="12" y="108" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="130" text-anchor="middle">最初沈殿池</text>
+  <text class="t-desc" x="104" y="148" text-anchor="middle">沈む汚れ（SS）を分ける</text>
+
+  <rect class="box-brand" x="12" y="182" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="204" text-anchor="middle">反応タンク（活性汚泥）</text>
+  <text class="t-desc" x="104" y="222" text-anchor="middle">溶けた汚れ（BOD）を分解</text>
+
+  <rect class="box-brand" x="12" y="256" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="278" text-anchor="middle">最終沈殿池</text>
+  <text class="t-desc" x="104" y="296" text-anchor="middle">活性汚泥を沈めて分ける</text>
+
+  <rect class="box-brand" x="12" y="330" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="352" text-anchor="middle">消毒設備</text>
+  <text class="t-desc" x="104" y="370" text-anchor="middle">上澄み水を消毒する</text>
+
+  <rect class="box-end" x="12" y="404" width="184" height="54" rx="6"/>
+  <text class="t-name" x="104" y="426" text-anchor="middle">放流</text>
+  <text class="t-desc" x="104" y="444" text-anchor="middle">河川・海へ（基準に適合）</text>
+
+  <!-- 汚泥処理 -->
+  <rect class="box-warn" x="276" y="108" width="110" height="208" rx="6"/>
+  <text class="t-name" x="331" y="128" text-anchor="middle">汚泥処理</text>
+  <rect class="box-inner" x="288" y="140" width="86" height="32" rx="4"/>
+  <text class="t-step" x="331" y="160" text-anchor="middle">濃縮</text>
+  <rect class="box-inner" x="288" y="184" width="86" height="32" rx="4"/>
+  <text class="t-step" x="331" y="204" text-anchor="middle">消化</text>
+  <rect class="box-inner" x="288" y="228" width="86" height="32" rx="4"/>
+  <text class="t-step" x="331" y="248" text-anchor="middle">脱水</text>
+  <rect class="box-inner" x="288" y="272" width="86" height="32" rx="4"/>
+  <text class="t-step" x="331" y="292" text-anchor="middle">焼却・資源化</text>
+  <polygon points="327,174 335,174 331,182" fill="#d4a017"/>
+  <polygon points="327,218 335,218 331,226" fill="#d4a017"/>
+  <polygon points="327,262 335,262 331,270" fill="#d4a017"/>
+
+  <!-- ラベル -->
+  <text class="t-lbl" x="236" y="129" text-anchor="middle">生汚泥</text>
+  <text class="t-lbl" x="236" y="292" text-anchor="middle">余剰汚泥</text>
+  <text class="t-lbl" x="220" y="246">返送汚泥</text>
+
+  <text class="t-desc" x="200" y="484" text-anchor="middle">SSは沈殿で分け、BODは微生物で分解して減らす</text>
+
+  <!-- 矢印（箱の上に重ねる） -->
+  <line class="a-blue" x1="104" y1="19" x2="104" y2="34" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="104" y1="88" x2="104" y2="108" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="104" y1="162" x2="104" y2="182" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="104" y1="236" x2="104" y2="256" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="104" y1="310" x2="104" y2="330" marker-end="url(#arrow)"/>
+  <line class="a-blue" x1="104" y1="384" x2="104" y2="404" marker-end="url(#arrow)"/>
+  <line class="a-amber" x1="196" y1="135" x2="276" y2="135" marker-end="url(#arrow-amber)"/>
+  <line class="a-amber" x1="196" y1="298" x2="276" y2="298" marker-end="url(#arrow-amber)"/>
+  <path class="a-amber" d="M196,280 H214 V209 H197" marker-end="url(#arrow-amber)"/>
+</svg>

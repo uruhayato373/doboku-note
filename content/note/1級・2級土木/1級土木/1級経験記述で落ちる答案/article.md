@@ -5,7 +5,7 @@ noteContentType: learning
 utmCampaign: c1-essay-fail
 noteUrl: "https://note.com/dobokunote/n/nfea4a39cf108"
 noteId: "nfea4a39cf108"
-title: "【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型"
+title: "【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 元発注者の視点で見た4つの型"
 notePublishedAt: "2026-06-23"
 coverTitle:
   - 1級 施工経験記述で
@@ -19,7 +19,7 @@ cover:
   hiSuffix: "の型"
   benefit: "元発注者の目で分かる"
 ---
-# 【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 添削する側から見た4つの型
+# 【1級土木施工管理技士】施工経験記述で落ちる答案の共通点 — 元発注者の視点で見た4つの型
 
 ![](img/figure-author-authority-pop.png)
 
@@ -59,7 +59,9 @@ https://coconala.com/services/4418735
 https://coconala.com/services/4350199
 
 <!-- cta:pack-top -->
-想定工事150件から自分の工事に近いものを選び、5管理の完成答案を書き分けられる買い切りパックもあります。
+まず工種×テーマ別の完成答案で書き方の型を固めるなら、1級の施工経験記述 完成答案集から始められます。想定工事150件から自分の工事に近いものを広く探したい場合は、完全攻略パックへ進めます。
+
+https://note.com/dobokunote/m/m150c9db08902
 
 https://note.com/dobokunote/m/m8290970a7f05
 

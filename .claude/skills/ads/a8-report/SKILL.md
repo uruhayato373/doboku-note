@@ -8,7 +8,7 @@ description: >
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
   **初回 or UI 変更後は必ず `--dry-run --probe-isolation` で分離方式とセレクタを確定すること**.
 disable-model-invocation: true
-argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily] [--dry-run] [--probe-isolation] [--probe-period] [--headed]"
+argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily,result-detail] [--dry-run] [--probe-isolation] [--probe-period] [--headed]"
 domain: affiliate
 ---
 
@@ -106,6 +106,7 @@ npm run report-buildjob-affiliate
 ```
 
 正規化 JSON と併せて読み、プログラム別 EPC・面別クリックの伸び・撤退候補を surface する。
+成果が出たら、どのページの広告からかを `report-log` の `conversions`（成果別 `result-detail`・`page`）で確かめる（2026-10-07 20:00 以降のクリック。それ以前はドメインだけ・a8-affiliate-pipeline.md「サイト帰属」）。
 **判断（伸ばす/畳む/価格改定）はユーザー**。「数値がこう動いた」と「だから何をすべきか」を分けて出す。
 
 ### 6. finalize

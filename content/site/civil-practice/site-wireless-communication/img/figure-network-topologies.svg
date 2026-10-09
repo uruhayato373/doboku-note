@@ -1,0 +1,41 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="スター型は親機に直接つなぎ、ツリー型は中継機を足して延ばし、メッシュ型は隣どうしで中継して一箇所が切れても迂回できることを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .l { stroke: #555; stroke-width: 1.5; fill: none; }
+      .n { fill: #f5f5f5; stroke: #555; stroke-width: 1.5; }
+      .p { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+    </style>
+  </defs>
+  <text class="s" x="15" y="24">青が親機、灰色が子機や中継機</text>
+  <g>
+    <g class="l"><path d="M95 85L45 45M95 85L145 45M95 85L45 125M95 85L145 125"/></g>
+    <circle class="p" cx="95" cy="85" r="11"/>
+    <g class="n"><circle cx="45" cy="45" r="9"/><circle cx="145" cy="45" r="9"/><circle cx="45" cy="125" r="9"/><circle cx="145" cy="125" r="9"/></g>
+    <text class="b" x="195" y="72">スター型</text>
+    <text x="195" y="94">親機に直接つなぐ</text>
+    <text x="195" y="114">親機の陰は圏外になる</text>
+  </g>
+  <line x1="15" y1="162" x2="385" y2="162" stroke="#d7d7d7" stroke-width="1"/>
+  <g>
+    <g class="l"><path d="M95 192L50 232M95 192L140 232M50 232L30 272M50 232L70 272M140 232L120 272M140 232L160 272"/></g>
+    <circle class="p" cx="95" cy="192" r="11"/>
+    <g class="n"><circle cx="50" cy="232" r="9"/><circle cx="140" cy="232" r="9"/><circle cx="30" cy="272" r="8"/><circle cx="70" cy="272" r="8"/><circle cx="120" cy="272" r="8"/><circle cx="160" cy="272" r="8"/></g>
+    <text class="b" x="195" y="226">ツリー型</text>
+    <text x="195" y="248">中継機を足して延ばす</text>
+    <text x="195" y="268">中継が止まると先が切れる</text>
+  </g>
+  <line x1="15" y1="306" x2="385" y2="306" stroke="#d7d7d7" stroke-width="1"/>
+  <g>
+    <g class="l"><path d="M35 346L95 338M95 338L155 346M35 416L95 424M95 424L155 416M35 346L35 416M155 346L155 416M35 346L95 424M155 346L95 424"/></g>
+    <path d="M95 338L95 424" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+    <circle class="p" cx="95" cy="338" r="11"/>
+    <g class="n"><circle cx="35" cy="346" r="9"/><circle cx="155" cy="346" r="9"/><circle cx="35" cy="416" r="9"/><circle cx="95" cy="424" r="9"/><circle cx="155" cy="416" r="9"/></g>
+    <text class="b" x="195" y="372">メッシュ型</text>
+    <text x="195" y="394">隣どうしで中継する</text>
+    <text x="195" y="414">一箇所切れても迂回できる</text>
+  </g>
+  <text class="s" x="15" y="474">赤い点線は切れた経路（メッシュでは別の経路を通る）</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="コンベヤの危険ごとの備えと点検規定の対応。巻き込まれには回転部の覆い・囲いと非常停止装置、停電時の逸走・逆走には逸走等防止装置を備える。原動機とプーリーの機能を含む4項目が第151条の82の始業前点検の対象。荷の落下を防ぐ覆い・囲いと感電防止用漏電しゃ断装置はこの4項目の外で、漏電しゃ断装置は別規定（第352条）で使用前に作動状態を点検する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-head { font-size: 11px; font-weight: bold; fill: #555; } /* ink-body */
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #555; } /* ink-body */
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-desc { font-size: 11px; fill: #555; }               /* ink-body */
+      .t-chk  { font-size: 11px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .box-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger */
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn */
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface */
+      .box-ok      { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive */
+      .box-off     { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; stroke-dasharray: 4 3; } /* token-border */
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="20" text-anchor="middle">危険ごとの備えが、どの点検規定に入るかを見分ける</text>
+
+  <text class="t-head" x="20" y="44">危険と、それを防ぐ備え</text>
+  <text class="t-head" x="262" y="44">第151条の82の4項目</text>
+
+  <!-- 1 回転部の覆い・囲い -->
+  <rect class="box-danger" x="20" y="52" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="69">巻き込まれ</text>
+  <text class="t-name" x="32" y="87">回転部の覆い・囲い</text>
+  <text class="t-desc" x="32" y="103">プーリー・ベルト・歯車（第101条）</text>
+  <rect class="box-ok" x="262" y="52" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="74">始業前に点検</text>
+  <text class="t-desc" x="274" y="90">覆い・囲い等の</text>
+  <text class="t-desc" x="274" y="104">異常の有無</text>
+
+  <!-- 2 非常停止装置 -->
+  <rect class="box-danger" x="20" y="118" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="135">巻き込まれ</text>
+  <text class="t-name" x="32" y="153">非常停止装置</text>
+  <text class="t-desc" x="32" y="169">直ちに運転を止める（第151条の78）</text>
+  <rect class="box-ok" x="262" y="118" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="140">始業前に点検</text>
+  <text class="t-desc" x="274" y="156">非常停止装置の</text>
+  <text class="t-desc" x="274" y="170">機能</text>
+
+  <!-- 3 逸走等防止装置 -->
+  <rect class="box-warn" x="20" y="184" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="201">停電・電圧降下</text>
+  <text class="t-name" x="32" y="219">逸走等防止装置</text>
+  <text class="t-desc" x="32" y="235">荷の逸走・逆走を防ぐ（第151条の77）</text>
+  <rect class="box-ok" x="262" y="184" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="206">始業前に点検</text>
+  <text class="t-desc" x="274" y="222">逸走等防止装置</text>
+  <text class="t-desc" x="274" y="236">の機能</text>
+
+  <!-- 4 原動機・プーリー -->
+  <rect class="box-brand" x="20" y="250" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="267">動力の伝達</text>
+  <text class="t-name" x="32" y="285">原動機・プーリー</text>
+  <text class="t-desc" x="32" y="301">駆動側の働き（第151条の82）</text>
+  <rect class="box-ok" x="262" y="250" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="272">始業前に点検</text>
+  <text class="t-desc" x="274" y="288">原動機・プーリー</text>
+  <text class="t-desc" x="274" y="302">の機能</text>
+
+  <!-- 5 荷の落下防止 -->
+  <rect class="box-surface" x="20" y="316" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="333">荷の落下</text>
+  <text class="t-name" x="32" y="351">落下防止の覆い・囲い</text>
+  <text class="t-desc" x="32" y="367">荷が落ちる側に設ける（第151条の79）</text>
+  <rect class="box-off" x="262" y="316" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="338">4項目の外</text>
+  <text class="t-desc" x="274" y="354">4項目目は回転部</text>
+  <text class="t-desc" x="274" y="368">の覆いが対象</text>
+
+  <!-- 6 漏電しゃ断装置 -->
+  <rect class="box-surface" x="20" y="382" width="232" height="60" rx="6"/>
+  <text class="t-tag" x="32" y="399">漏電による感電</text>
+  <text class="t-name" x="32" y="417">感電防止用漏電しゃ断装置</text>
+  <text class="t-desc" x="32" y="433">移動式・可搬式の機械（第333条）</text>
+  <rect class="box-off" x="262" y="382" width="118" height="60" rx="6"/>
+  <text class="t-chk" x="274" y="404">4項目の外</text>
+  <text class="t-desc" x="274" y="420">使用前に別規定で</text>
+  <text class="t-desc" x="274" y="434">点検（第352条）</text>
+
+  <rect class="box-surface" x="20" y="452" width="360" height="40" rx="6"/>
+  <text class="t-desc" x="32" y="469">第151条の82の4項目は、その日の作業を始める前に確かめる。</text>
+  <text class="t-desc" x="32" y="484">異常は直ちに補修などの措置を講じる（第151条の83）。</text>
+</svg>

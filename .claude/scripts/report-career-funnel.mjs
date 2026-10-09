@@ -24,23 +24,32 @@
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
  * 評価サイクル: data/business/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
-import { resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
-import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
-import { listFiles } from "../../scripts/lib/fs-walk.mjs";
+import { REFERRER_FULL_SINCE, resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
+import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
+import { slugFromKey } from "../../scripts/lib/url-normalization.mjs";
+import { matchesPage } from "../../src/lib/affiliate-placement-core.mjs";
 
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 
+const readJson = (p) => readJsonOrReport(ROOT, p);
 const toPosix = (p) => p.split("\\").join("/");
-const relative = (p) => toPosix(p).slice(toPosix(ROOT).length + 1);
+/** リポジトリ相対のパス。既に相対（GA4・GSC の「ファイル#枠」の参照など）ならそのまま返す（先頭を切ると 2026-10-02 以降の参照が「son#…」に壊れていた） */
+const relative = (p) => {
+  const posix = toPosix(p);
+  const root = toPosix(ROOT);
+  return posix.startsWith(`${root}/`) ? posix.slice(root.length + 1) : posix;
+};
 
 /** 種類の最新レポートの参照（「ファイル#枠」）。GA4・GSC は日ごとの 1 ファイルに入っている */
-export const latestSnapshot = (id) => latestReportRef(ROOT, id);
+export const latestSnapshot = (id, opts) => latestReportRef(ROOT, id, opts);
 
 // ---- 純関数（テストから使う）------------------------------------------------
 
@@ -122,6 +131,236 @@ export function summarizeAfb(afb) {
 }
 
 /** A8 レコード配列を合算する。 */
+const DAY_MS = 86400000;
+
+/**
+ * 配置ルール（config/affiliate-placements.json）を GA4 の配置別の窓と A8 の月×案件へ結ぶ（ルール単位の結果）。
+ * ページ別（ga4.affiliate-by-page）が無い窓のフォールバック。ある窓は attributeByPage がルールを一意に決める。
+ *
+ * GA4 の配置別（cta_placement）には案件・ページの次元が無いので、数字は「面 × 窓」の合計しか取れない。
+ * - 同じ窓に同じ面のルールが他にもあれば sharedWith に並べる（その面の数字はそれらの合計で、このルールだけには分けられない）
+ * - ルールの期間が窓の一部だけなら coveredDays < windowDays（窓の残りの日の数字も混ざる）
+ * A8 は面を分けられない（scope: program）。窓と半分以上重なる月のその案件の合計。
+ * @param {object[]} rules 配置ルール
+ * @param {{start: string, end: string}|null} win GA4 の窓（JST の日付・両端含む）
+ * @param {Map<string, {impressions: number, clicks: number}>} byPlacement
+ * @param {{month: string, program: string, conversions?: number, approved?: number, revenueYen?: number}[]} a8Records
+ */
+export function joinRulesToWindow(rules, win, byPlacement, a8Records) {
+  if (!win) return [];
+  const winStart = Date.parse(`${win.start}T00:00:00+09:00`);
+  const winEnd = Date.parse(`${win.end}T00:00:00+09:00`) + DAY_MS;
+  const windowDays = Math.round((winEnd - winStart) / DAY_MS);
+  const active = rules
+    .map((r) => {
+      const from = Math.max(Date.parse(r.period.from), winStart);
+      const until = Math.min(r.period.until ? Date.parse(r.period.until) : Infinity, winEnd);
+      return { r, days: until > from ? Math.round((until - from) / DAY_MS) : 0 };
+    })
+    .filter((x) => x.days > 0);
+  const months = monthsHalfInWindow(win);
+  return active.map(({ r, days }) => {
+    const g = byPlacement.get(r.slot) ?? { impressions: 0, clicks: 0 };
+    const a8Rows = a8Records.filter((x) => x.program === r.program && months.includes(x.month));
+    return {
+      ruleId: r.id,
+      program: r.program,
+      slot: r.slot,
+      experiment: r.experiment ?? null,
+      from: r.period.from,
+      until: r.period.until,
+      ga4: {
+        source: 'placement',
+        coveredDays: days,
+        windowDays,
+        impressions: g.impressions,
+        clicks: g.clicks,
+        impressionsShared: 0,
+        clicksShared: 0,
+        ctr: g.impressions ? g.clicks / g.impressions : null,
+        sharedWith: active.filter((x) => x.r.slot === r.slot && x.r.id !== r.id).map((x) => x.r.id),
+      },
+      a8: a8Of(a8Rows),
+    };
+  });
+}
+
+/**
+ * GA4 のページパス → 配置ルールの照合に使うページの文脈（affiliate-placement-core の matchesPage が読む形）。
+ * 記事は doc-meta-index のカテゴリとキャリア記事か、資格トップ・実務トップはカテゴリ、ツールは tool、公的基準の章は standards・章以外は standards-list、トピックは topic、トップは home。分からないページは null。
+ * @param {string} path GA4 の pagePath
+ * @param {{docs: Record<string, {category?: string, tags?: string[]}>}} index doc-meta-index
+ * @param {(path: string) => string|null} slugOf 公開パス → 記事 slug（scripts/lib/url-normalization.mjs の slugFromKey）
+ */
+export function pageContextOf(path, index, slugOf) {
+  const slug = slugOf(path);
+  const meta = slug ? index.docs?.[slug] : null;
+  if (meta) return { pageKind: "doc", category: meta.category ?? null, isCareerDoc: (meta.tags ?? []).includes("career") };
+  const p = path.replace(/[?#].*$/, "").replace(/\/+$/, "") || "/";
+  const exam = /^\/exam\/([^/]+)$/.exec(p);
+  if (exam) return { pageKind: "category", category: exam[1], isCareerDoc: false };
+  if (p === "/practice") return { pageKind: "category", category: "civil-practice", isCareerDoc: false };
+  if (p.startsWith("/tools/")) return { pageKind: "tool", category: null, isCareerDoc: false };
+  if (/^\/standards\/[^/]+\/[^/]+\/chapters\//.test(p)) return { pageKind: "standards", category: null, isCareerDoc: false };
+  if (p === "/standards" || p.startsWith("/standards/")) return { pageKind: "standards-list", category: null, isCareerDoc: false };
+  if (p === "/topics" || p.startsWith("/topics/")) return { pageKind: "topic", category: null, isCareerDoc: false };
+  if (p === "/tools") return { pageKind: "tool", category: null, isCareerDoc: false };
+  if (p === "/") return { pageKind: "home", category: null, isCareerDoc: false };
+  return null;
+}
+
+const jstDayStart = (d) => Date.parse(`${d}T00:00:00+09:00`);
+
+/**
+ * A8 の成果別（report-log の conversions・1 成果 1 行）を、クリックしたページと案件で配置ルールへ寄せる（2026-10-07〜）。
+ * A8 はページまでしか分からず面は分からないので、そのページ・案件・クリック時刻で有効だったルールを候補として全部並べる
+ * （1 つなら面まで決まる）。page が null（ページの URL を渡す前のクリック）は候補を出さない。
+ * @param {object[]} conversions
+ * @param {object[]} rules 配置ルール
+ * @param {(path: string) => object|null} pageCtx
+ * @param {{matchesPage: Function}} core
+ */
+export function attributeConversions(conversions, rules, pageCtx, { matchesPage }) {
+  return (conversions ?? [])
+    .map((c) => {
+      const ctx = c.page ? pageCtx(c.page) : null;
+      const at = Date.parse(c.clickedAt);
+      const candidates = ctx
+        ? rules.filter((r) => r.program === c.program && matchesPage(r, ctx) && Date.parse(r.period.from) <= at && (!r.period.until || Date.parse(r.period.until) > at)).map((r) => ({ ruleId: r.id, slot: r.slot }))
+        : [];
+      return {
+        clickedAt: c.clickedAt,
+        program: c.program,
+        status: c.status,
+        grossRevenueYen: c.grossRevenueYen,
+        revenueYen: c.revenueYen,
+        device: c.device,
+        site: c.site,
+        page: c.page,
+        pageKnown: c.page != null,
+        candidates,
+        ruleId: candidates.length === 1 ? candidates[0].ruleId : null,
+      };
+    })
+    .sort((x, y) => y.clickedAt.localeCompare(x.clickedAt));
+}
+
+/**
+ * GA4 のページ × ラベル × 面（クリックは日付も）を配置ルールへ割り当てる（ルール単位の結果・2026-10-07〜）。
+ *
+ * ページの文脈・面・ラベルの案件・日付でルールが 1 つに決まる（同じ面・期間・対象が重なるルールは型と検査が止めている）。
+ * 決まらないのは、窓の中でルールを閉じて開き直したページの表示（表示は窓の合計で日付が無い）と、境界の日のクリックだけ。
+ * それは推測で分けず、両方のルールの *Shared に入れて sharedWith に並べる。どのルールにも当たらない行は unattributed へ。
+ * A8 は面を分けられない（scope: program）。窓と半分以上重なる月のその案件の合計（joinRulesToWindow と同じ）。
+ * @param {object[]} rules 配置ルール
+ * @param {{start: string, end: string}} win ページ別の窓（JST の日付・両端含む）
+ * @param {{page: string, label: string, placement: string, date: string|null, eventName: string, eventCount: number}[]} rows
+ * @param {(path: string) => object|null} pageCtx pageContextOf を束ねたもの
+ * @param {Map<string, string>} labelProgram ラベル → 案件 id
+ * @param {object[]} a8Records
+ * @param {{matchesPage: Function}} core
+ */
+export function attributeByPage(rules, win, rows, pageCtx, labelProgram, a8Records, { matchesPage }) {
+  const winStart = jstDayStart(win.start);
+  const winEnd = jstDayStart(win.end) + DAY_MS;
+  const span = (r) => [Math.max(Date.parse(r.period.from), winStart), Math.min(r.period.until ? Date.parse(r.period.until) : Infinity, winEnd)];
+  const inWindow = rules.filter((r) => {
+    const [a, b] = span(r);
+    return b > a;
+  });
+  const byRule = new Map(inWindow.map((r) => [r.id, { impressions: 0, clicks: 0, impressionsShared: 0, clicksShared: 0, sharedWith: new Set() }]));
+  const unattributed = new Map();
+  const clickLog = [];
+  for (const row of rows) {
+    const isClick = row.eventName === "affiliate_cta_click";
+    const ctx = pageCtx(row.page);
+    const program = labelProgram.get(row.label) ?? null;
+    let hits = ctx && program ? inWindow.filter((r) => r.slot === row.placement && r.program === program && matchesPage(r, ctx)) : [];
+    if (isClick && row.date) {
+      // その日のどこかで有効だったルール（境界の日は 2 つ当たりうる）
+      const d0 = jstDayStart(row.date);
+      hits = hits.filter((r) => Date.parse(r.period.from) < d0 + DAY_MS && (!r.period.until || Date.parse(r.period.until) > d0));
+    }
+    if (isClick) clickLog.push({ date: row.date, page: row.page, label: row.label, placement: row.placement, program, ruleId: hits.length === 1 ? hits[0].id : null, clicks: row.eventCount });
+    if (hits.length === 0) {
+      const key = `${row.page}\u0000${row.label}\u0000${row.placement}`;
+      const u = unattributed.get(key) ?? { page: row.page, label: row.label, placement: row.placement, impressions: 0, clicks: 0 };
+      u[isClick ? "clicks" : "impressions"] += row.eventCount;
+      unattributed.set(key, u);
+      continue;
+    }
+    for (const r of hits) {
+      const e = byRule.get(r.id);
+      if (hits.length === 1) e[isClick ? "clicks" : "impressions"] += row.eventCount;
+      else {
+        e[isClick ? "clicksShared" : "impressionsShared"] += row.eventCount;
+        for (const o of hits) if (o.id !== r.id) e.sharedWith.add(o.id);
+      }
+    }
+  }
+  const windowDays = Math.round((winEnd - winStart) / DAY_MS);
+  const months = monthsHalfInWindow(win);
+  const unat = [...unattributed.values()];
+  return {
+    window: { start: win.start, end: win.end },
+    byRule: inWindow.map((r) => {
+      const [a, b] = span(r);
+      const e = byRule.get(r.id);
+      const a8Rows = a8Records.filter((x) => x.program === r.program && months.includes(x.month));
+      return {
+        ruleId: r.id,
+        program: r.program,
+        slot: r.slot,
+        experiment: r.experiment ?? null,
+        from: r.period.from,
+        until: r.period.until,
+        ga4: {
+          source: "page",
+          coveredDays: Math.round((b - a) / DAY_MS),
+          windowDays,
+          impressions: e.impressions,
+          clicks: e.clicks,
+          impressionsShared: e.impressionsShared,
+          clicksShared: e.clicksShared,
+          ctr: e.impressions && !e.impressionsShared && !e.clicksShared ? e.clicks / e.impressions : null,
+          sharedWith: [...e.sharedWith].sort(),
+        },
+        a8: a8Of(a8Rows),
+      };
+    }),
+    unattributed: {
+      impressions: unat.reduce((s, u) => s + u.impressions, 0),
+      clicks: unat.reduce((s, u) => s + u.clicks, 0),
+      top: unat.sort((x, y) => y.clicks - x.clicks || y.impressions - x.impressions).slice(0, 10),
+    },
+    clickLog: clickLog.sort((x, y) => (y.date ?? "").localeCompare(x.date ?? "") || x.page.localeCompare(y.page)),
+  };
+}
+
+/** A8 は月単位。窓と半分以上重なる月だけを数える（28 日窓の端の 1 日で翌月の成果を丸ごと拾わない） */
+function monthsHalfInWindow(win) {
+  const winStart = jstDayStart(win.start);
+  const winEnd = jstDayStart(win.end) + DAY_MS;
+  const months = [];
+  for (let m = win.start.slice(0, 7); m <= win.end.slice(0, 7); ) {
+    const [y, mo] = m.split("-").map(Number);
+    const next = mo === 12 ? `${y + 1}-01` : `${y}-${String(mo + 1).padStart(2, "0")}`;
+    const mStart = Date.parse(`${m}-01T00:00:00+09:00`);
+    const mEnd = Date.parse(`${next}-01T00:00:00+09:00`);
+    if ((Math.min(mEnd, winEnd) - Math.max(mStart, winStart)) * 2 >= mEnd - mStart) months.push(m);
+    m = next;
+  }
+  return months;
+}
+
+const a8Of = (rows) => ({
+  scope: "program",
+  months: [...new Set(rows.map((x) => x.month))].sort(),
+  conversions: rows.reduce((a, x) => a + (x.conversions ?? 0), 0),
+  approved: rows.reduce((a, x) => a + (x.approved ?? 0), 0),
+  revenueYen: rows.reduce((a, x) => a + (x.revenueYen ?? 0), 0),
+});
+
 export function sumA8(rows) {
   return rows.reduce(
     (acc, r) => ({
@@ -137,7 +376,7 @@ export function sumA8(rows) {
 // ---- 収集 -------------------------------------------------------------------
 
 function collectCareerDocs(cfg) {
-  const index = readJsonOrReport(ROOT, join(ROOT, "src/config/doc-meta-index.json"));
+  const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
   const docs = [];
   for (const [slug, m] of Object.entries(index.docs)) {
     if (!(m.tags ?? []).includes("career")) continue;
@@ -166,7 +405,15 @@ const EXTRA_LINK_SOURCES = ["src/config/career-pathways.ts"];
 
 /** content/site の全 MDX を読み、career slug への literal 内部リンクと CareerAffiliate 出現を数える。 */
 function scanSiteSources(careerSlugs) {
-  const files = listFiles(SITE_DIR, { ext: ".mdx" });
+  const files = [];
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) walk(p);
+      else if (e.name.endsWith(".mdx")) files.push(p);
+    }
+  };
+  walk(SITE_DIR);
 
   const inboundLinks = new Map(careerSlugs.map((s) => [s, 0]));
   const affiliateBySlug = new Map(careerSlugs.map((s) => [s, { careerAffiliate: 0, placements: [] }]));
@@ -218,20 +465,27 @@ function collectNoteCareer(cfg) {
     const m = new RegExp(`^${key}:\\s*"?([^"\\r\\n]+)"?`, "m").exec(head);
     return m ? m[1].trim() : null;
   };
-  // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
-  for (const p of listFiles(NOTE_DIR, { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
-    const head = readFileSync(p, "utf8").slice(0, 2000);
-    const utm = field(head, "utmCampaign");
-    if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
-    out.push({
-      path: relative(p),
-      utmCampaign: utm,
-      noteId: field(head, "noteId"),
-      noteUrl: field(head, "noteUrl"),
-      noteStatus: field(head, "noteStatus"),
-      notePricing: field(head, "notePricing"),
-    });
-  }
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) walk(p);
+      // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
+      else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) {
+        const head = readFileSync(p, "utf8").slice(0, 2000);
+        const utm = field(head, "utmCampaign");
+        if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
+        out.push({
+          path: relative(p),
+          utmCampaign: utm,
+          noteId: field(head, "noteId"),
+          noteUrl: field(head, "noteUrl"),
+          noteStatus: field(head, "noteStatus"),
+          notePricing: field(head, "notePricing"),
+        });
+      }
+    }
+  };
+  walk(NOTE_DIR);
   out.sort((a, b) => a.utmCampaign.localeCompare(b.utmCampaign));
   return out;
 }
@@ -245,11 +499,13 @@ function main() {
   const say = jsonOut ? console.error : console.log;
   const warnings = [];
 
-  const cfg = readJsonOrReport(ROOT, CONFIG);
+  const cfg = readJson(CONFIG);
 
   const inputs = {
-    ga4Label: latestSnapshot("ga4.cta-clicks-by-label"),
+    // by-label は同じ日に 28 日窓と暦月の 2 枠がある。配置別（28 日窓）と並べるので 28 日窓を選ぶ（暦月の方が後に書かれて先頭に来る）
+    ga4Label: latestSnapshot("ga4.cta-clicks-by-label", { windowKind: "days" }),
     ga4Placement: latestSnapshot("ga4.cta-clicks-by-placement"),
+    ga4ByPage: latestSnapshot("ga4.affiliate-by-page"),
     ga4Device: latestSnapshot("ga4.cta-clicks-by-device"),
     ga4Page: latestSnapshot("ga4.page"),
     gscPageQuery: latestSnapshot("gsc.page-query"),
@@ -267,14 +523,21 @@ function main() {
     process.exit(2);
   }
 
-  const ga4Label = readJsonOrReport(ROOT, inputs.ga4Label);
-  const ga4Placement = inputs.ga4Placement ? readJsonOrReport(ROOT, inputs.ga4Placement) : { meta: null, rows: [] };
-  const ga4Page = inputs.ga4Page ? readJsonOrReport(ROOT, inputs.ga4Page) : { meta: null, rows: [] };
-  const gscPageQuery = readJsonOrReport(ROOT, inputs.gscPageQuery);
-  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJsonOrReport(ROOT, inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
-  const afb = inputs.afb ? readJsonOrReport(ROOT, inputs.afb) : null;
+  const ga4Label = readJson(inputs.ga4Label);
+  const ga4Placement = inputs.ga4Placement ? readJson(inputs.ga4Placement) : { meta: null, rows: [] };
+  const ga4Page = inputs.ga4Page ? readJson(inputs.ga4Page) : { meta: null, rows: [] };
+  const ga4ByPage = inputs.ga4ByPage ? readJson(inputs.ga4ByPage) : null;
+  const gscPageQuery = readJson(inputs.gscPageQuery);
+  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
+  const afb = inputs.afb ? readJson(inputs.afb) : null;
 
-  const windows = checkWindows(ga4Label.meta, gscPageQuery.meta);
+  // GA4 の窓は配置別の窓（管理画面が配置別の表と並べて出す）。ラベル別の窓が違えば WARN（同じ run で取るので普通は一致する）
+  const windows = checkWindows(ga4Placement.meta ?? ga4Label.meta, gscPageQuery.meta);
+  if (ga4Placement.meta && ga4Label.meta && (ga4Placement.meta.startDate !== ga4Label.meta.startDate || ga4Placement.meta.endDate !== ga4Label.meta.endDate)) {
+    warnings.push(
+      `GA4 のラベル別（${ga4Label.meta.startDate}〜${ga4Label.meta.endDate}）と配置別（${ga4Placement.meta.startDate}〜${ga4Placement.meta.endDate}）の窓が違う。ラベル別の数字を配置別と並べて割らない`,
+    );
+  }
   if (!windows.aligned) {
     warnings.push(
       `窓が不一致（GA4 ${windows.ga4.start}〜${windows.ga4.end} / GSC ${windows.gsc.start}〜${windows.gsc.end}）。` +
@@ -381,6 +644,19 @@ function main() {
   const totalImpr = [...byPlacement.map.values()].reduce((s, v) => s + v.impressions, 0);
   const totalClicks = [...byPlacement.map.values()].reduce((s, v) => s + v.clicks, 0);
 
+  // 配置の語彙（台帳 config.cta-placements）と照らす。語彙に無い配置は数字を残したまま WARN（落とすと凍結した基線との合計がずれる）。
+  // 撤去済みの配置に表示があるのは、窓が撤去日をまたいでいるだけなので異常ではない（窓が撤去日を過ぎれば消える）
+  const vocab = readJson(join(ROOT, datasetPath("config.cta-placements"))).affiliate;
+  for (const [placement, v] of byPlacement.map.entries()) {
+    if (placement === "(not set)" || placement === "") continue;
+    const known = vocab[placement];
+    if (!known) {
+      warnings.push(`配置の語彙（${datasetPath("config.cta-placements")}）に無い placement: ${placement}（表示 ${v.impressions} / クリック ${v.clicks}）。新しい配置なら語彙に足す`);
+    } else if (known.status === "retired" && v.impressions + v.clicks > 0) {
+      say(`  INFO 撤去済みの配置 ${placement}（${known.label}${known.retiredAt ? `・${known.retiredAt} 撤去` : ""}）に窓内の表示 ${v.impressions} / クリック ${v.clicks}（窓が撤去日をまたいでいる）`);
+    }
+  }
+
   // (not set) は label / placement の**両方**を見る。片方だけ見ると、
   // 「表示には placement が付くがクリックには付かない」面（= クリックの帰属が丸ごと消える）を見逃す。
   //
@@ -421,7 +697,13 @@ function main() {
   const a8InWindow = a8All.filter((r) => r.month >= startMonth && r.month <= endMonth);
 
   // --- 起票時基線との比較 ---
-  const base = cfg.reportedBaseline;
+  // 基線は凍結ファイル（config の baseline が指す日）から読む。数字を config に写さない
+  const frozenBase = readJson(join(ROOT, datasetPath(cfg.baseline.dataset, { date: cfg.baseline.date })));
+  const base = {
+    affiliateImpressions: frozenBase.funnel.affiliateCta.totalImpressions,
+    affiliateClicks: frozenBase.funnel.affiliateCta.totalClicks,
+    highIntentQueryImpressions: frozenBase.funnel.highIntentQuery.impressions,
+  };
   const drift = [];
   const cmp = (name, now, was) => {
     if (!was) return;
@@ -444,6 +726,46 @@ function main() {
   }
 
   const noteCareer = collectNoteCareer(cfg);
+
+  // 配置ルール単位: ページ別があればルールを一意に決めて数え、無ければ面の合計（面を共有するルールは分けられない）
+  const placementRules = readJson(join(ROOT, datasetPath("config.affiliate-placements"))).rules;
+  let byRuleSection;
+  if (ga4ByPage?.meta) {
+    const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+    const attributed = attributeByPage(
+      placementRules,
+      { start: ga4ByPage.meta.startDate, end: ga4ByPage.meta.endDate },
+      ga4ByPage.rows ?? [],
+      (path) => pageContextOf(path, index, slugFromKey),
+      readLabelProgramMap(ROOT),
+      a8All,
+      { matchesPage },
+    );
+    byRuleSection = { byRule: attributed.byRule, byRuleWindow: { ...attributed.window, source: "page" }, unattributed: attributed.unattributed, clickLog: attributed.clickLog };
+    if (attributed.unattributed.clicks > 0) {
+      warnings.push(`ページ別のクリック ${attributed.unattributed.clicks} 件がどの配置ルールにも当たらない（撤去前の面・ラベル未登録・ページ不明。unattributed.top を見る）`);
+    }
+  } else {
+    byRuleSection = {
+      byRule: joinRulesToWindow(
+        placementRules,
+        ga4Placement.meta ? { start: ga4Placement.meta.startDate, end: ga4Placement.meta.endDate } : null,
+        byPlacement.map,
+        a8All,
+      ),
+      ...(ga4Placement.meta ? { byRuleWindow: { start: ga4Placement.meta.startDate, end: ga4Placement.meta.endDate, source: "placement" } } : {}),
+    };
+  }
+
+  // A8 の成果別（1 成果 1 行）をページと案件で配置ルールへ寄せる。成果の出どころの真実源（GA4 の clickLog は取りこぼす）
+  {
+    const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+    const reportLog = inputs.a8 ? readJson(inputs.a8) : {};
+    byRuleSection.conversions = attributeConversions(reportLog.conversions ?? [], placementRules, (path) => pageContextOf(path, index, slugFromKey), { matchesPage });
+    // 広告リンクがページの URL を渡すようになった後の成果でページが取れないのは、リファラ方針の退行か他サイト経由
+    const lost = byRuleSection.conversions.filter((c) => !c.pageKnown && Date.parse(c.clickedAt) >= Date.parse(REFERRER_FULL_SINCE));
+    if (lost.length > 0) warnings.push(`A8 の成果 ${lost.length} 件でクリックしたページが取れない（${REFERRER_FULL_SINCE} 以降のクリック）。広告リンクの referrerPolicy が外れていないか（tests/affiliate-link-referrer.test.mjs）・リファラが他サイトでないかを見る`);
+  }
 
   const result = {
     schemaVersion: 1,
@@ -472,6 +794,7 @@ function main() {
         totalClicks: totalClicks,
         ctr: totalImpr ? totalClicks / totalImpr : null,
         notSet: notSetFindings,
+        ...byRuleSection,
       },
       a8: {
         window: sumA8(a8InWindow),
@@ -591,8 +914,29 @@ function renderMarkdown(r, cfg) {
     L.push(`| ${k} | ${v.impressions} | ${v.clicks} |`);
   }
   L.push("");
+  const rw = r.funnel.affiliateCta.byRuleWindow;
+  if (rw) {
+    L.push(`配置ルール別（${rw.start}〜${rw.end}・${rw.source === "page" ? "ページ別からルールを一意に決めた数字" : "面の合計（同じ面のルールは分けられない）"}）`, "");
+    L.push("| ルール | 案件 | 面 | 表示 | クリック | 分けられない表示/クリック |", "|---|---|---|---|---|---|");
+    for (const x of r.funnel.affiliateCta.byRule ?? []) {
+      L.push(`| ${x.ruleId} | ${x.program} | ${x.slot} | ${x.ga4.impressions} | ${x.ga4.clicks} | ${x.ga4.impressionsShared ?? 0}/${x.ga4.clicksShared ?? 0} |`);
+    }
+    L.push("");
+  }
+  const log = r.funnel.affiliateCta.clickLog ?? [];
+  if (log.length) {
+    L.push("クリックの出どころ（A8 の発生日と突き合わせる）", "", "| 日付 | ページ | 案件 | 面 | ルール | クリック |", "|---|---|---|---|---|---|");
+    for (const c of log) L.push(`| ${c.date} | ${c.page} | ${c.program ?? c.label} | ${c.placement} | ${c.ruleId ?? "—"} | ${c.clicks} |`);
+    L.push("");
+  }
 
   L.push("### 5. A8 成果", "");
+  const conv = r.funnel.affiliateCta.conversions ?? [];
+  if (conv.length) {
+    L.push("成果の出どころ（A8 の成果別・1 成果 1 行。ページはクリックしたページ）", "", "| クリック | 案件 | 状態 | 発生額 | ページ | 候補ルール |", "|---|---|---|---|---|---|");
+    for (const c of conv) L.push(`| ${c.clickedAt.slice(0, 16).replace("T", " ")} | ${c.program ?? "—"} | ${c.status} | ¥${c.grossRevenueYen} | ${c.page ?? "（不明・ページの URL を渡す前）"} | ${c.candidates.map((x) => `${x.ruleId}（${x.slot}）`).join("・") || "—"} |`);
+    L.push("");
+  }
   const w = r.funnel.a8.window;
   const a = r.funnel.a8.allTime;
   L.push(

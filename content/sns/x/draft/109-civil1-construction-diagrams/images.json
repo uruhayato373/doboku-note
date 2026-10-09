@@ -1,0 +1,72 @@
+[
+  {
+    "tweet": "1",
+    "concept": "温度ひび割れなぜ起きる？",
+    "needs": "温度が下がると、なぜ壁にひび割れが生じるのか？",
+    "file": "img/tweet-01-thermal-cracking.png",
+    "article": {
+      "path": "content/site/civil-construction-1/secondary-concrete-basics/article.mdx",
+      "sha256": "0b95ec9da91d115bb3a2666153a62a03e83a367382d462caa302bc9b1dc592a7"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a2-hydration-heat.svg",
+      "sha256": "772ffc0621a53513fb51812f368bad034be32cbf83c066ea90a5263827f4c45c"
+    }
+  },
+  {
+    "tweet": "2",
+    "concept": "沈みひび割れ鉄筋の真上？",
+    "needs": "なぜ上側の鉄筋の真上に沈みひび割れが生じるのか？",
+    "file": "img/tweet-02-settlement-bleeding.png",
+    "article": {
+      "path": "content/site/civil-construction-1/secondary-concrete-basics/article.mdx",
+      "sha256": "0b95ec9da91d115bb3a2666153a62a03e83a367382d462caa302bc9b1dc592a7"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-crack-a8-settlement-bleeding.svg",
+      "sha256": "0a1deb8107b73d66d16f4877d6cb37b37a5a80213f0b191c0060dba85553e9ad"
+    }
+  },
+  {
+    "tweet": "3",
+    "concept": "水を増やせばよく締まる？",
+    "needs": "水を増やせば土はよく締まるのか？",
+    "file": "img/tweet-03-compaction-water-content.png",
+    "article": {
+      "path": "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx",
+      "sha256": "af636573ef78be034b03c296ea7bf9f6a4b5e98613a79e686b70161bc134207d"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/secondary-quality-management-basics/img/figure-compaction-water-content.svg",
+      "sha256": "7c3296e95831d91ff6c66dc829eed88b86228d985757c292ba828307b18c4a78"
+    }
+  },
+  {
+    "tweet": "4",
+    "concept": "余盛りはなぜ撤去する？",
+    "needs": "余盛りを載せてから取り除くのは、なぜか？",
+    "file": "img/tweet-04-surcharge-preloading.png",
+    "article": {
+      "path": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx",
+      "sha256": "0d387632e087b1757fa6ec216c3e19e603c93b87fa3cb7565b56c02ec3155996"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-surcharge-chinka.svg",
+      "sha256": "4039ea5722536a6f55f5838155d2544858f8b5a5702fab62405072b75e51da59"
+    }
+  },
+  {
+    "tweet": "5",
+    "concept": "掘る前に水位を下げる",
+    "needs": "ウェルポイントは、どこから水を集めて地下水位を下げるのか？",
+    "file": "img/tweet-05-wellpoint-dewatering.png",
+    "article": {
+      "path": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx",
+      "sha256": "0d387632e087b1757fa6ec216c3e19e603c93b87fa3cb7565b56c02ec3155996"
+    },
+    "figure": {
+      "path": "content/site/civil-construction-1/secondary-earthwork-basics/img/figure-wellpoint.svg",
+      "sha256": "55006e9807ccbcdfe7d371ddecb4509816ecb45cbf8319be84e650584f30121a"
+    }
+  }
+]

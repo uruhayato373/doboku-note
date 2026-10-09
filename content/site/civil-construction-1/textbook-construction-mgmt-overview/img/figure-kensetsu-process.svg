@@ -1,0 +1,83 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設事業は調査・計画、設計・積算、発注・契約・監督、供用・維持管理の4段階で進む。第3段階では発注者が監督・検査を行い、請負者が施工計画から施工、内部検査までを担い、この請負者側の管理技術が施工管理">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="kp-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="kp-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="kp-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="kp-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="kp-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">建設事業のプロセスと施工管理</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">施工管理は第3段階で請負者が担う</text>
+  <rect class="gry" x="16" y="62" width="368" height="34" rx="6"/>
+  <text class="t-key" x="30" y="84">① 調査・計画</text>
+  <polygon points="190,97 210,97 200,107" fill="#8a8a8a"/>
+  <rect class="gry" x="16" y="108" width="368" height="34" rx="6"/>
+  <text class="t-key" x="30" y="130">② 設計・積算</text>
+  <polygon points="190,143 210,143 200,153" fill="#8a8a8a"/>
+
+  <rect class="brand" x="16" y="154" width="368" height="186" rx="6"/>
+  <text class="t-key" x="30" y="176">③ 発注・契約・監督</text>
+  <text class="t-note" x="30" y="192">施工・内部検査・竣工検査を含む</text>
+  <rect class="card" x="28" y="202" width="344" height="40" rx="5"/>
+  <text class="t-key" x="40" y="226">発注者</text>
+  <text class="t-lab" x="112" y="226">工事の監督・検査を行う</text>
+  <rect class="pos" x="28" y="252" width="344" height="76" rx="5"/>
+  <text class="t-pos" x="40" y="272">請負者（施工者）</text>
+  <text class="t-pos" x="360" y="272" text-anchor="end">＝ 施工管理</text>
+  <rect class="card" x="40" y="284" width="96" height="34" rx="5"/>
+  <text class="t-lab" x="88" y="306" text-anchor="middle">施工計画</text>
+  <rect class="card" x="152" y="284" width="96" height="34" rx="5"/>
+  <text class="t-lab" x="200" y="306" text-anchor="middle">施工</text>
+  <rect class="card" x="264" y="284" width="96" height="34" rx="5"/>
+  <text class="t-lab" x="312" y="306" text-anchor="middle">内部検査</text>
+
+  <line class="ar-g" x1="138" y1="301" x2="150" y2="301" marker-end="url(#kp-g)"/><line class="ar-g" x1="250" y1="301" x2="262" y2="301" marker-end="url(#kp-g)"/>
+  <polygon points="190,341 210,341 200,351" fill="#8a8a8a"/>
+  <rect class="gry" x="16" y="352" width="368" height="34" rx="6"/>
+  <text class="t-key" x="30" y="374">④ 供用・維持管理</text>
+
+  <rect class="box" x="16" y="396" width="368" height="68" rx="6"/>
+  <text class="t-key" x="30" y="420">施工管理</text>
+  <text class="t-lab" x="104" y="420">請負者が所定品質で引き渡すための管理技術</text>
+  <text class="t-key" x="30" y="446">担当</text>
+  <text class="t-lab" x="104" y="446">施工計画から内部検査までを請負者が担う</text>
+
+</svg>

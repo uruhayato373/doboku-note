@@ -4,7 +4,10 @@ paths:
   - "content/sns/**"
   - "content/kindle/**"
   - "content/coconala/**"
+  - "content/registry/**"
 ---
+
+- 公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）の正本はコンテンツ台帳 `content/registry/`（[content-registry.md](../knowledge/reference/content-registry.md)）。書き手は `npm run registry`・`npm run media` だけで、手で編集しない
 
 表紙・商品サムネイルの新規制作／改修は [キャラクターPOP画像方針](../knowledge/reference/pop-image-policy.md) と `/create-pop-image` を使う。媒体の安全域と公開手順は各正典に従う。
 
@@ -15,7 +18,7 @@ paths:
 
 ## note（content/note/**）
 
-- 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（2級土木は `content/products/note/` が正本で `npm run product` で書き換える・DN-0492。サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
+- 索引と戦略の入口 → `content/note/README.md`（試験別構造・戦略 SSOT 体系）。戦略・Red Line・価格企画の真実源は各試験の `noteコンテンツ計画.md`、**実価格・noteUrl は `src/lib/note-magazines.ts`**（2級土木は `config/products.json` が正本で `npm run product` で書き換える・DN-0492。サイト側 CTA の配線は `src/lib/magazine-placement.ts`）
 - 記事を公開レベルへ引き上げる 10 工程（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） → [note-publish-enhancement.md](../knowledge/reference/note-publish-enhancement.md)
 - 記事**内部**の構成テンプレ（売れる 9 型＋5 ステップ骨格） → [note-selling-structures.md](../knowledge/reference/note-selling-structures.md)
 - 記事**間**の導線（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA） → [note-funnel-architecture.md](../knowledge/reference/note-funnel-architecture.md)。機械可読は `config/note-funnel.json`、監査は `audit-note-funnel` スキル／`npm run check-note-funnel`／`note-funnel-auditor`

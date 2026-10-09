@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="公共事業の七つの段階を縦に並べ、発注者、コンサルなど、施工者が各段階で担う役割を示した図。調査・設計は業務委託、施工は工事請負で契約が切り替わる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<rect width="400" height="500" fill="#ffffff"/>
+<g fill="#222" font-size="12" font-weight="700" text-anchor="middle">
+<text x="165" y="40">発注者</text>
+<text x="255" y="40">コンサルなど</text>
+<text x="345" y="40">施工者</text>
+</g>
+<g stroke="#d7d7d7" stroke-width="1">
+<line x1="14" y1="60" x2="386" y2="60"/>
+<line x1="14" y1="114" x2="386" y2="114"/>
+<line x1="14" y1="168" x2="386" y2="168"/>
+<line x1="14" y1="222" x2="386" y2="222"/>
+<line x1="14" y1="276" x2="386" y2="276"/>
+<line x1="14" y1="330" x2="386" y2="330"/>
+<line x1="14" y1="384" x2="386" y2="384"/>
+<line x1="14" y1="438" x2="386" y2="438"/>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="14" y="91">計画・事業評価</text>
+<text x="14" y="145">調査・設計</text>
+<text x="14" y="199">用地取得</text>
+<text x="14" y="253">積算・入札契約</text>
+<text x="14" y="307">施工</text>
+<text x="14" y="361">検査・引渡し</text>
+<text x="14" y="415">供用・維持管理</text>
+</g>
+<g stroke-width="1.5">
+<g fill="#e8f0fe" stroke="#2e6da4">
+<rect x="124" y="67" width="82" height="40" rx="6"/>
+<rect x="124" y="121" width="82" height="40" rx="6"/>
+<rect x="124" y="175" width="82" height="40" rx="6"/>
+<rect x="124" y="229" width="82" height="40" rx="6"/>
+<rect x="124" y="283" width="82" height="40" rx="6"/>
+<rect x="124" y="337" width="82" height="40" rx="6"/>
+<rect x="124" y="391" width="82" height="40" rx="6"/>
+</g>
+<g fill="#fff3cd" stroke="#d4a017">
+<rect x="214" y="67" width="82" height="40" rx="6"/>
+<rect x="214" y="121" width="82" height="40" rx="6"/>
+<rect x="214" y="391" width="82" height="40" rx="6"/>
+</g>
+<g fill="#d0e8d0" stroke="#3a7d44">
+<rect x="304" y="283" width="82" height="40" rx="6"/>
+<rect x="304" y="337" width="82" height="40" rx="6"/>
+</g>
+</g>
+<g fill="#222" font-size="12" text-anchor="middle">
+<text x="165" y="92">判断・評価</text>
+<text x="165" y="146">成果の確認</text>
+<text x="165" y="200">補償・契約</text>
+<text x="165" y="254">積算・契約</text>
+<text x="165" y="308">監督・協議</text>
+<text x="165" y="362">検査</text>
+<text x="165" y="416">供用・管理</text>
+<text x="255" y="87" font-weight="700">調査・検討</text>
+<text x="255" y="141" font-weight="700">調査・設計</text>
+<text x="255" y="416">点検・診断</text>
+<text x="345" y="303" font-weight="700">施工</text>
+<text x="345" y="362">引渡し</text>
+</g>
+<g fill="#555" font-size="11" text-anchor="middle">
+<text x="255" y="101">委託の場合も</text>
+<text x="255" y="155">業務委託</text>
+<text x="345" y="317">工事請負</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="14" y="463">調査・設計は業務委託、施工は工事請負で契約が切り替わる</text>
+<text x="14" y="482">用地の確保は施工の前提条件</text>
+</g>
+</svg>

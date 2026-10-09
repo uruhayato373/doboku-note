@@ -13,8 +13,9 @@ import { resolve } from 'node:path'
 import { homedir } from 'node:os'
 import { todayJst } from './lib/jst-date.mjs'
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs'
-import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
+import { updateKindleCatalog } from './lib/product-registry.mjs'
 
+const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 const PROFILE = resolveProfileDir('kdp', { cwd: REPO, repoRoot: REPO })
@@ -55,19 +56,15 @@ const cleanProfile = () => {
 }
 
 const readCatalog = () => JSON.parse(readFileSync(CATALOG, 'utf8'))
-const markInReview = (id, draftAsin) => {
-  const raw = readFileSync(CATALOG, 'utf8')
-  const crlf = raw.includes('\r\n')
-  const c = JSON.parse(raw)
-  const b = c.books.find((x) => x.id === id)
-  if (!b) return
-  b.status = 'in_review'
-  b.versionHistory = b.versionHistory || []
-  b.versionHistory.push({ version: b.version || '1.0', date: TODAY, change: `KDP出版申請（審査中）・draft ${draftAsin}` })
-  let out = JSON.stringify(c, null, 2) + '\n'
-  if (crlf) out = out.replace(/\n/g, '\r\n')
-  writeFileSync(CATALOG, out)
-}
+// catalog.json は config/products.json からの生成物。書き換えは updateKindleCatalog（正本へ戻して作り直す）
+const markInReview = (id, draftAsin) =>
+  updateKindleCatalog((c) => {
+    const b = c.books.find((x) => x.id === id)
+    if (!b) return
+    b.status = 'in_review'
+    b.versionHistory = b.versionHistory || []
+    b.versionHistory.push({ version: b.version || '1.0', date: TODAY, change: `KDP出版申請（審査中）・draft ${draftAsin}` })
+  })
 
 // kdp-publish.mjs を実行し、ログ全文と exit code を返す（出力は都度ファイルにも残す）。
 const runStep = (id, extra, logName) => {

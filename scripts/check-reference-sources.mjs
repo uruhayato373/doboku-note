@@ -21,16 +21,22 @@ import {
   checkCitationEvidence,
   classRuleOf,
   evaluateMissingSourcesRatchet,
+  excludeOfficialRuns,
   findVerbatimRuns,
   loadReferenceBaseline,
   loadReferenceSources,
   loadStandardsCatalog,
+  maskOfficialNames,
+  officialNamesOf,
+  officialQuestionText,
   parseTranscriptHeader,
   resolveSourceRef,
   sourcesRequiringArticle,
   transcriptDirsForSource,
   VERBATIM_MIN_RUN,
 } from './lib/reference-sources.mjs';
+import { figureSourceFindings, figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 
@@ -202,8 +208,14 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
     bySource.set(resolved.id, entries);
   }
 
+  // 書籍も載せる公式の文章（DN-0617）。過去問ページの設問と、記事が出典に挙げた公的資料の officialTexts を
+  // 書籍との一致から差し引き、法令・指針の正式名称と参考資料の題名は比較の前に外す。
+  const official = buildOfficialTexts({ cfg, index, articles });
+  const officialNames = officialNamesOf(cfg);
   let verbatimPairs = 0;
   let verbatimHits = 0;
+  let officialExcluded = 0;
+  let namesMasked = 0;
   for (const source of cfg.sources.filter((item) => cfg.classes[item.class]?.verbatim === 'forbidden')) {
     const transcripts = bySource.get(source.id) || [];
     if (transcripts.length === 0) continue;
@@ -212,7 +224,14 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
       || article.resolvedSources.some((item) => item.id === source.id));
     for (const article of derivedArticles) {
       verbatimPairs += 1;
-      const hits = findVerbatimRuns(article.body, transcriptIndex, { minRun: VERBATIM_MIN_RUN });
+      const { text, masked } = maskOfficialNames(article.body, officialNames);
+      namesMasked += masked;
+      let hits = findVerbatimRuns(text, transcriptIndex, { minRun: VERBATIM_MIN_RUN, maxHits: 200 });
+      for (const officialIndex of [official.questions, official.citedBy(article)]) {
+        const result = excludeOfficialRuns(text, hits, officialIndex, { minRun: VERBATIM_MIN_RUN });
+        officialExcluded += result.excluded.length;
+        hits = result.kept;
+      }
       for (const hit of hits) {
         verbatimHits += 1;
         fail('verbatim', article.relPath, `${source.id} / ${hit.key}: 一致 ${hit.run} 字「${hit.sample}」`);
@@ -221,7 +240,83 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   }
 
   console.log(`  deep: 文字起こし対象 ${targets.length} 件 / 実体 ${files.length} 件 / frontmatter 実検査 ${transcriptHeaders} 件 / commercial-book 記事×原本 ${verbatimPairs} 組 / 逐語一致 ${verbatimHits} 件`);
-  return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits };
+  console.log(`  deep: 公式の文章 過去問ページ ${official.questionPages} 本の設問 ${official.questionChars} 字・公的資料の文 ${official.textCount} 件 / 公式の文章として除いた一致 ${officialExcluded} 件 / 比較から外した名称 ${namesMasked} 件`);
+  if (official.questionPages === 0) fail('official-texts', datasetPath('config.reference-sources'), '過去問ページの設問が 0 件で、公式の文章を差し引けない（検査不成立）');
+  return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits, officialExcluded };
+}
+
+/**
+ * 公式の文章の索引。過去問ページ（question-only の原本の appliesTo に当たる記事）の設問は全記事に効く。
+ * 公的資料の officialTexts は、その資料を sources に挙げた記事にだけ効かせる（出典を書かずに引いた文は除かない）。
+ */
+function buildOfficialTexts({ cfg, index, articles }) {
+  const questionArticles = articles.filter((article) => article.requiredBy
+    .some((source) => classRuleOf(source, index)?.verbatim === 'question-only'));
+  const entries = questionArticles
+    .map((article) => ({ key: article.relPath, source: 'official-question', text: officialQuestionText(article.body) }))
+    .filter((entry) => entry.text.trim());
+  const textSources = cfg.sources.filter((source) => source.officialTexts?.length);
+  const cache = new Map();
+  return {
+    questions: entries.length ? buildTranscriptIndex(entries) : null,
+    questionPages: entries.length,
+    questionChars: entries.reduce((sum, entry) => sum + entry.text.length, 0),
+    textCount: textSources.reduce((sum, source) => sum + source.officialTexts.length, 0),
+    citedBy(article) {
+      const cited = textSources.filter((source) => article.resolvedSources.some((item) => item.id === source.id));
+      if (cited.length === 0) return null;
+      const key = cited.map((source) => source.id).join(',');
+      if (!cache.has(key)) {
+        cache.set(key, buildTranscriptIndex(cited.flatMap((source) => source.officialTexts
+          .map((item, i) => ({ key: `${source.id}#${i + 1}`, source: source.id, text: item.text })))));
+      }
+      return cache.get(key);
+    },
+  };
+}
+
+/**
+ * 図の原典の結線（DN-0563・DN-0564）。
+ *   - 白書などの vaultCopies が Drive 台帳に載っているか
+ *   - 原典から切り出した図（config/figure-sources.json の provenance）の記事が、その原典を sources に書いているか
+ *   - 流用不可（figureReuse: false）の書籍から、試験ページでない記事へ切り出した図（baseline ラチェット）
+ */
+function checkFigureWiring({ cfg, manifest, inputs, baseline }) {
+  const vaultPaths = new Set(Object.values(manifest.entries || {}).map((e) => String(e.vaultPath || '').normalize('NFC')));
+  let vaultCopies = 0;
+  for (const s of cfg.sources || []) {
+    for (const c of s.vaultCopies || []) {
+      vaultCopies += 1;
+      if (!vaultPaths.has(c.path.normalize('NFC'))) fail('vault-copy-unregistered', s.id, `${c.path} が drive-manifest に無い（drive-vault-sync --group white-paper-source-pdf --from-vault で登録する）`);
+    }
+  }
+  const sourcesRel = datasetPath('config.figure-sources');
+  const sourcesAbs = join(REPO_ROOT, sourcesRel);
+  if (!existsSync(sourcesAbs)) {
+    fail('figure-provenance', sourcesRel, '図の出典の台帳が無く、図の原典の結線を検査できない');
+    return { vaultCopies, figureChecks: 0, reuseDebt: 0 };
+  }
+  const provenance = JSON.parse(readFileSync(sourcesAbs, 'utf8')).provenance || {};
+  const articleSources = new Map();
+  const explanationFigs = new Set();
+  for (const { relPath, raw } of inputs) {
+    const m = /^content\/site\/(.+)\/article\.mdx$/.exec(relPath);
+    if (!m) continue;
+    let data = {};
+    try { data = matter(raw).data; } catch { continue; }
+    articleSources.set(m[1], sourceIdsOf(data.sources));
+    for (const name of figuresInExplanation(raw)) explanationFigs.add(`${m[1]}/img/${name}`);
+  }
+  const { checked, findings } = figureSourceFindings({ provenance, cfg, articleSources, explanationFigs });
+  const debt = [];
+  for (const f of findings) {
+    if (f.kind === 'figure-reuse-forbidden') { debt.push(f.figKey); continue; }
+    fail(f.kind, `content/site/${f.articleDir}/article.mdx`, `${f.figKey}: ${f.detail}`);
+  }
+  const ratchet = evaluateMissingSourcesRatchet(debt, baseline.figureReuseDebt || []);
+  for (const figKey of ratchet.increased) fail('figure-reuse-forbidden', figKey, '流用不可（figureReuse: false）の書籍から、試験ページでない記事か試験ページの解説欄へ図を切り出した。切り出し直さず、自作の図への置き換えか削除にする（baseline にも無い）');
+  for (const figKey of ratchet.repaid) warn('figure-reuse-repaid', figKey, '流用不可の書籍の図が出典の台帳から消えた。reference-sources-baseline.json の figureReuseDebt から削る');
+  return { vaultCopies, figureChecks: checked, reuseDebt: debt.length };
 }
 
 function printProblems() {
@@ -273,8 +368,10 @@ function main() {
   const checked = checkArticles(inputs, { cfg, index, manifest, checkMissing: !STAGED });
 
   let baselineCount = 0;
+  let wiring = null;
   if (!STAGED) {
     const baseline = loadReferenceBaseline();
+    wiring = checkFigureWiring({ cfg, manifest, inputs, baseline });
     baselineCount = Array.isArray(baseline.missingSources) ? baseline.missingSources.length : 0;
     const ratchet = evaluateMissingSourcesRatchet(checked.currentMissing, baseline.missingSources || []);
     for (const path of ratchet.increased) fail('baseline-increased', path, 'appliesTo に一致するのに sources が無く、baseline にも無い');
@@ -285,6 +382,7 @@ function main() {
   if (DEEP) deep = checkDeepTranscripts({ cfg, index, manifest, articles: checked.articles });
 
   console.log(`[${NAME}${STAGED ? ' --staged' : DEEP ? ' --deep' : ''}] 台帳 ${registryEntries} 件 / 記事 ${checked.parsedArticles} 件を実検査 / sources ${checked.sourceRefs} 参照 / citation ${checked.citationChecks} 件 / 漏洩 ${checked.leakChecks} 組 / baseline ${baselineCount} 件`);
+  if (wiring) console.log(`  図の原典: 白書などの vault の写し ${wiring.vaultCopies} 件 / 出典のある図×記事 ${wiring.figureChecks} 件を実検査 / 流用不可の書籍の図 ${wiring.reuseDebt} 件（baseline 管理）`);
   if (DEEP && deep?.transcriptFiles === 0) console.log('  deep 実体検査 0 件（CI/別端末許容）');
   printProblems();
   if (failures.length > 0) {

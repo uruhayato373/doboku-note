@@ -26,13 +26,15 @@
 
 ## 1. 設計の前提（doboku-note 固有）
 
+転職広告の意匠はEXP-019（2026-10-08の運営者指示）でA/B/Cを比較する。`CareerAffiliateExperiment`が3px枠・大見出し・52px以上の相談入口を共用し、Aは文章、Bは支給バナーを添え、Cは紺の背景を使う。紺・白はテーマ共通の`--color-affiliate-panel` / `--color-affiliate-on-panel`、角丸・影は既存トークン。既存の案件・面・noteの順序を維持し、案は訪問者単位で固定する。本文カード・記事末・資格トップ・公的基準・ツール等の既存広告面が対象。末尾のnoteとの並置は目的別見出しを付け、PCは横、スマホは縦。共通の見出し領域で表示を測り、SSRの仮のAは実験表示に数えない。
+
 トップのヒーローはdoboku先生のイラストと「doboku-note」「土木・建設資格の学習ノート」、資格選択・検索の2導線で構成する。表示高さはスマホ280px・PC320px。資格入口は画像・試験日・説明を重ねず、資格色の左線・資格名・矢印のみ。スマホ2列・PC3列、最小高さ88px・76pxで、資格の正本から名称と順序を解決する。検索ゼロステートも同じ資格カードを使う。
 
 コンクリート技士の資格トップ右列は、学習・復習→note教材1点→関連ツール・資格→既存ルールで選定した広告1枠→運営者紹介の順。教材は商品台帳から公開状態・価格・URLを解決する。スマホでは教材と関連リンクを一覧末尾に置き、広告は既存の本文内配置を使用する。
 
 主任技士・診断士・一次のトップにも公開教材を1点表示する（`sidebar-discovery.ts`）。記事の個別教材は既存 `magazine-placement` の主教材に合わせ、HUB教材と重ねない。記事の運営者紹介は開閉式、教材・広告は通常フロー、目次・復習・無料ツールのみ末尾の追従クラスタに置く。6カテゴリの新しい復習ナビは同分野／科目・同年度を優先し、スマホでは末尾の開閉ナビで共用。基準章の実務リンクは章名が対応する分野に限る。
 
-個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。通常は画像のみ、`compact`では商品名だけを併記する。価格は改定が多いため完成画像CTAへ表示せず、リンク先で確認する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
+個別教材カードは `NoteProductCard` で共通化する。`note-cta-images.ts` が商品専用または資格×教材形式の完成R2画像を選び、本文2:1・サイドバー6:5の比率を保って `NoteImageCta` で表示する。通常は画像のみ、`compact`では商品名を併記し、`actionLabel`指定時は内容を見る案内を添える。価格は改定が多いため完成画像CTAへ表示せず、リンク先で確認する。画像未登録時のみ `exam-brand.ts` の `previewImage`／`ctaBg`＋HTML意匠へフォールバックする。note上の実表紙とは区別し、商品URL・配置別UTM・クリック計測は共用する。
 
 1. **ドキュメントサイト** — ダッシュボードやデータ可視化ではなく、長文テキスト・数式・図表・過去問の閲覧が主目的。
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
@@ -155,8 +157,9 @@
 |---|---|---|
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
 | `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
-| `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、文書ページ＝同機関の文書＋分冊、文字起こしページ＝分冊＋当該 PDF ページアンカーへ文脈に応じて切替。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。広告・著者情報は置かず、公共資料の閲覧ナビに限定する | `agencyId` / `currentDocument?` / `currentPart?` / `pageNumbers?` / `variant`（sidebar/mobile） |
-| `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・逐語文字起こし用の記事内ヘッダー。通常記事と同じゴシック見出しを使い、章記事では編ラベル＋章名だけに絞る（文書名・構造説明・原本ページ・分冊内部名の反復は禁止）。原本情報は記事末尾の出典欄へ集約し、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?` |
+| `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、文書ページ＝同機関の文書＋分冊、文字起こしページ＝分冊＋当該 PDF ページアンカーへ文脈に応じて切替。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。ナビ欄には広告・著者情報を置かず、公共資料の閲覧ナビに限定する（転職広告は本文末に `AffiliateSlot` で 1 枠。章ページは `standards-end`、章以外は `standards-list-end`・2026-10-07〜） | `agencyId` / `currentDocument?` / `currentPart?` / `pageNumbers?` / `variant`（sidebar/mobile） |
+| `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・逐語文字起こし用の記事内ヘッダー。編ラベル＋章名を見出しとし、機関名・版・原本PDFページを13pxのメタ情報に併記する。配列のmetaは項目の途中で折り返さない。文書名・構造説明・分冊内部名は反復しない。詳細な原本情報は末尾の出典欄に置き、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?（文字列または文字列配列）` |
+| `StandardVerbatimTable`（`standards/StandardVerbatimTable.tsx`） | 章記事の逐語表を原文の空白・改行のまま表示する。背景`--paper`・文字`--ink-body`。横に続く表だけスクロール案内を表示し、キーボードでも読める | `pre`のprops |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -172,9 +175,9 @@
 | `NextStepNav`（`ui/NextStepNav/NextStepNav.tsx`） | guide（要点）記事末の「次のステップ」導線。読者を演習（過去問）・テキスト・分野へ送り行き止まりを解消（リンク先はカテゴリ hub の `sec-*` アンカー＝季節 note CTA と同居）。解決は `src/lib/next-step.ts`（カテゴリ別・純関数）。`MetaCard` の `trackNav` で回遊クリックが `internal_nav_click` 計測に乗る。キャリア記事では非描画（転職導線と非競合）。回遊ナビの GA4 計測は `data-cta="nav"`＋`MetaCard trackNav`／`AnalyticsProvider` の `nav` 種別 | `category` |
 | `QualificationBridge`（`ui/QualificationBridge/QualificationBridge.tsx`） | 実務記事（`civil-practice`）の記事末と共通仕様書の章末に置く「業務経験 → 資格」カード。資格を意識していない読者に立場 3 択（発注者／施工会社／迷っている）で既存の資格ページへの入口を示す。本文に試験文脈を入れない規約は維持し、本文の外に 1 枚だけ置く。対象・文言・遷移先は `src/config/qualification-bridge.ts`。GA4 は root の `data-cta="qualification-bridge"` で表示（`qualification_bridge_impression`）、各リンクの `data-cta-label`（立場）でクリック（`qualification_bridge_click`）。EXP-012 | `placement` |
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | 資格別6:5の完成画像を使う教材導線。カテゴリhub、記事末尾、サイドバーで共用し、直前期は商品画像、平時は資格共通画像を表示する。画像未登録時は背景イラスト＋HTML意匠。既存の季節判定・L2もくじURL・UTMを維持する | `cta` / `placement` |
-| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名だけを横並びにする。説明文・価格は表示しない。収録範囲の誤認を防ぐ `scopeNotice` がある場合だけ、画像の直前に短い注記を表示する。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` / `className?` / `scopeNotice?` |
+| `NoteImageCta`（`ui/NoteImageCta/`） | 承認済みの完成R2画像を伸長・クロップせず表示する。商品専用画像、資格×教材形式の本文2:1画像、資格共通6:5タイルを `note-cta-images.ts` で選ぶ。通常は画像のみ、`compact`は画像と識別用の商品名を横並びにし、`actionLabel`指定時は案内を添える。説明文・価格は表示しない。収録範囲の誤認を防ぐ `scopeNotice` がある場合だけ、画像の直前に短い注記を表示する。共用画像の記録は `content/site/_shared/pop-image.json`、一次PDF専用画像は `content/site/pe-first-stage/_shared/pop-image.json`。GA4のラベル・配置を保持 | `href` / `image` / `trackLabel` / `placement` / `compact?` / `actionLabel?` / `className?` / `scopeNotice?` |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | 記事中間・MDX本文の強CTA。完成画像を `NoteImageCta` で表示し、未登録時は資格背景＋円形アバターのHTML意匠へフォールバックする。複数商品の列挙は `variant="inline"`＝`MagazineInlineCard` のcompact表示を使う。公開判定は `getMagazine()`、GA4は商品ID入りラベル・配置・表示インプレッションを共用 | `id`（`MagazineId`）/ `utmContent` / `placement` |
-| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。完成画像のみの表示を優先し、未登録時は短縮タイトル・価格の1行HTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` |
+| `MagazineTopBanner`（`ui/MagazineTopBanner/`） | 記事冒頭の個別教材CTA。通常は完成画像のみを優先し、多問の過去問では`compact`で小さな画像・短縮タイトル・内容を見る案内を横並びにする。画像未登録時は短縮タイトル・価格のHTML意匠を表示する。`resolvePlacement().top` と `getMagazine()` で対象・公開可否を決め、既存GA4ラベル・配置を保持する | `magazineId` / `url` / `title` / `price?` / `badge` / `trackLabel` / `compact?` |
 
 **共通フッター**: 資格・実務リンクは既存カテゴリ索引から解決し、PCでは最大3列で表示、スマホでは native `<details>` に折りたたむ。サイト案内は横並び・折り返しとし、紹介文は1行に絞る。広告表記・著作権表示を残し、技術構成の表示は置かない。リンクの操作領域は44px以上を維持する。
 
@@ -225,7 +228,7 @@
 **上端揃え（docs/category/standards 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-07 改訂）:
-1. **通常フロー（追従させない）**: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル（`HubCtaBanner`・転職枠直下に 1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
+1. **通常フロー（追従させない）**: note もくじタイル（`HubCtaBanner`・1 枚・utm `-docs-sb`。転職アフィリ枠は 2026-09-26 に撤去。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
 2. **sticky クラスタ（列の最終要素・読中に追従）**: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。`sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto`。ナビゲーションだけ追従させ長記事でも導線を視界に残す。
 
 > sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
@@ -251,6 +254,7 @@
 - **リンク**: `color: var(--accent)` + 半透明 accent アンダーライン（offset 4px、hover で濃く）。
 - **表**: soft border（`--rule-soft`）+ thead 背景 `--accent-fill` + th はモノスペース・大文字・11px・letter-spacing。`rounded-card-content`。最初列（ラベル列慣習）は `white-space: nowrap`。
 - **details / blockquote / code / pre**: editorial soft rule（`--rule-soft`）。インラインコードは `--accent-fill` 背景 + `--accent` 文字。
+- **多問の過去問**: 本文前に問1へ直行するリンクと閉じた番号一覧を置く。番号は本文・右ナビとも44px以上。native `details`でJavaScriptなしでも番号を選べる。
 - **モバイル（≤576px）**: 本文 16px、見出しは em 比例で縮小、table/blockquote/pre はフルブリード化（左右 margin 0）。details（設問カード）は `--article-gutter-sp` を負マージンで相殺して記事カード端まで真の全幅化＋内側同値 padding の単層構成（table 等の単純 margin 0 とは別メカニズム・詳細 → §3.2）。
 - **KaTeX**: 本文サイズに揃える（`.katex { font-size: inherit }`）。display 式は `--color-surface` 背景 + `overflow-x: auto`。長い式は横スクロール。
 
@@ -344,10 +348,10 @@ CLAUDE.md §7 と一致:
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
 | note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間/本文末尾 CTA・MDX 内 MagazineCard に集約。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
-| 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥3 かつ 2,500字（未満は 0 枠。**2026-08-24 に h2≥4 から緩和**＝GA4 実測で本文中間の imp 当たりクリックがサイドバーの約4倍〔sidebar 5,900imp/5click・article-mid 1,546imp/5click〕なのに、4,000字以上あるのに 0 枠の published 記事が 47 本あったため。h2=2 に下げないのは位置式 min(max(1,…), h2-2) が 0 に潰れて「先頭セクション直後は避ける」を破るから）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは affiliate 対象カテゴリ（civil-1/2・pe-construction・concrete-*・pe-first-stage）＋総監（DXコンサル）で、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
+| 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥3 かつ 2,500字（未満は 0 枠。**2026-08-24 に h2≥4 から緩和**＝GA4 実測で本文中間の imp 当たりクリックがサイドバーの約4倍〔sidebar 5,900imp/5click・article-mid 1,546imp/5click〕なのに、4,000字以上あるのに 0 枠の published 記事が 47 本あったため。h2=2 に下げないのは位置式 min(max(1,…), h2-2) が 0 に潰れて「先頭セクション直後は避ける」を破るから）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは配置ルール（`config/affiliate-placements.json` の `article-mid`）が対象と案件を決め（2026-10-07 から実務・コンクリート技士・RCCM を含む。2級の学習ページは建設JOBs）、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
 
-> **アフィリ ピクセル計数の注意**: 素朴な substring カウント（`px.a8.net`・`0.gif` の出現数）は Next.js の RSC ペイロード（props の JSON 直列化）で ~2 倍に膨らむため使わない。check-cta-density は**レンダリング済み `<img>` タグだけ**をパースして a8mat を数える（href の `px.a8.net/svt/ejp`・banner の `bgt`・RSC payload は無視）。docs 記事は サイドバー枠の 1 ピクセルのみ発火（モバイル記事末カードは href のみ＝ピクセルなし）で 1 ページ 1 ピクセルを維持済み。
+> **アフィリ ピクセル計数の注意**: 素朴な substring カウント（`px.a8.net`・`0.gif` の出現数）は Next.js の RSC ペイロード（props の JSON 直列化）で ~2 倍に膨らむため使わない。check-cta-density は**レンダリング済み `<img>` タグだけ**をパースして a8mat を数える（href の `px.a8.net/svt/ejp`・banner の `bgt`・RSC payload は無視）。記事は `DocPage` が発火源を決める（本文に転職広告があれば本文側、無ければ記事末バナーで 1 発・2026-09-26〜）。公的基準の章末・トップ・ツールは `AffiliateSlot` が 1 発（2026-10-07〜）。どちらも同じ mat は 1 ページ 1 発。
 
 **個別教材の自動配置**（2026-10-03）: 択一過去問（`primary`）は h2≥3・本文≥2,500字で冒頭の商品を中間にも表示する。手置き `article-mid` がある記事では重複させない。guide/pillar/textbook/civil-secondary の note 中間枠は h2≥5・8,000字で冒頭と異なる inline 商品を選ぶ。本文末尾は、参考資料抽出後の本文に公開商品の `<MagazineCard>` がない場合に限り冒頭商品を再掲する。判定は `resolveArticleMidNoteSlot` / `resolveEndNoteSlot` を描画と検査で共用する。
 

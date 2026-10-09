@@ -560,6 +560,227 @@
         "/exam/concrete-engineer/primary/construction",
         "/exam/concrete-engineer/primary/mix-design"
       ]
+    },
+    {
+      "runId": "2026-10-04T01-30-09Z",
+      "collectedAt": "2026-10-04T01:30:09.948Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 16,
+      "accepted": 10,
+      "alreadyIndexed": 6,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/concrete-engineer/primary/production-qc",
+        "/exam/concrete-engineer/primary/properties-testing",
+        "/exam/concrete-engineer/textbook/construction",
+        "/exam/concrete-engineer/textbook/materials",
+        "/exam/concrete-engineer/textbook/mix-design",
+        "/exam/concrete-engineer/textbook/production-qc",
+        "/exam/concrete-engineer/textbook/properties-testing",
+        "/exam/pavement/guide/study-plan",
+        "/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-engineer/primary/production-qc",
+        "/exam/concrete-engineer/primary/properties-testing",
+        "/exam/concrete-engineer/textbook/construction",
+        "/exam/concrete-engineer/textbook/materials",
+        "/exam/concrete-engineer/textbook/mix-design",
+        "/exam/concrete-engineer/textbook/production-qc",
+        "/exam/concrete-engineer/textbook/properties-testing",
+        "/exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application",
+        "/exam/pe-comprehensive-management/keywords/authenticity",
+        "/exam/pe-comprehensive-management/keywords/competency-hr"
+      ]
+    },
+    {
+      "runId": "2026-10-05T01-30-06Z",
+      "collectedAt": "2026-10-05T01:30:06.726Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 18,
+      "accepted": 10,
+      "alreadyIndexed": 7,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/pavement/guide/study-plan",
+        "/exam/pe-comprehensive-management/keywords/eco-action-21",
+        "/exam/pe-comprehensive-management/keywords/hierarchical-training",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/jit-production",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/exam/pe-comprehensive-management/keywords/job-execution-ability",
+        "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+        "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+        "/exam/pe-comprehensive-management/keywords/redundancy-safety",
+        "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/keywords/eco-action-21",
+        "/exam/pe-comprehensive-management/keywords/hierarchical-training",
+        "/exam/pe-comprehensive-management/keywords/jit-production",
+        "/exam/pe-comprehensive-management/keywords/job-analysis",
+        "/exam/pe-comprehensive-management/keywords/job-execution-ability",
+        "/exam/pe-comprehensive-management/keywords/labor-tribunal-act",
+        "/exam/pe-comprehensive-management/keywords/pollution-control-manager",
+        "/exam/pe-comprehensive-management/keywords/probabilistic-risk-assessment",
+        "/exam/pe-comprehensive-management/keywords/sexual-harassment",
+        "/exam/pe-comprehensive-management/past-exams/h21-secondary"
+      ]
+    },
+    {
+      "runId": "2026-10-07T01-30-12Z",
+      "collectedAt": "2026-10-07T01:30:12.150Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 20,
+      "accepted": 10,
+      "alreadyIndexed": 10,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-comprehensive-management/keywords/end-of-pipe",
+        "/exam/pe-comprehensive-management/keywords/citizen-participation",
+        "/exam/pe-comprehensive-management/keywords/flat-organization",
+        "/exam/pe-comprehensive-management/keywords/dioxin-countermeasures-act",
+        "/exam/pe-construction/keywords/railway-exam-themes",
+        "/exam/pavement/guide/study-plan",
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-comprehensive-management/keywords/redundancy-safety",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/guide/aimai-hyougen-sahou",
+        "/exam/pe-construction/guide/keyword-note-tsukurikata",
+        "/exam/pe-construction/guide/setsumon-bunkai",
+        "/exam/pe-construction/guide/shiken-toujitsu-tejun",
+        "/exam/pe-construction/guide/suikou-checklist",
+        "/exam/pe-construction/guide/toan-kousei-template",
+        "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+        "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+        "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+        "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+        "/exam/pe-construction/keywords/infra-roukyuuka-iji"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-comprehensive-management/keywords/initial-investment",
+        "/exam/pe-construction/guide/keyword-note-tsukurikata",
+        "/exam/pe-construction/guide/setsumon-bunkai",
+        "/exam/pe-construction/guide/shiken-toujitsu-tejun",
+        "/exam/pe-construction/guide/toan-kousei-template",
+        "/exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword",
+        "/exam/pe-construction/keywords/chiiki-dukuri-ronbun-keyword",
+        "/exam/pe-construction/keywords/datsutanso-kankyo-ronbun-keyword",
+        "/exam/pe-construction/keywords/iji-kanri-ronbun-keyword",
+        "/exam/pe-construction/keywords/infra-roukyuuka-iji"
+      ]
+    },
+    {
+      "runId": "2026-10-08T01-30-11Z",
+      "collectedAt": "2026-10-08T01:30:11.333Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 14,
+      "accepted": 10,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/pe-construction/past-exams/r04-river-coast",
+        "/exam/building-construction",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/civil-construction-2/guide/structures-key-points",
+        "/exam/civil-construction-2/guide/water-sewer-key-points",
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/concrete-chief-engineer/textbook/products"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/secondary/getting-started",
+        "/exam/civil-construction-1/guide/vs-pe",
+        "/exam/pe-first-stage/primary/r06-basic",
+        "/exam/pe-construction/keywords/steel-concrete-exam-themes",
+        "/exam/pe-construction/past-exams/r04-river-coast",
+        "/exam/building-construction",
+        "/exam/civil-construction-2/guide/structures-key-points",
+        "/exam/civil-construction-2/guide/water-sewer-key-points",
+        "/exam/civil-construction-2/primary/r08-zenki",
+        "/exam/concrete-chief-engineer/textbook/products"
+      ]
+    },
+    {
+      "runId": "2026-10-09T01-30-12Z",
+      "collectedAt": "2026-10-09T01:30:12.249Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 13,
+      "accepted": 10,
+      "alreadyIndexed": 3,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+        "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+        "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-power-civil",
+        "/exam/pe-construction/past-exams/r02-steel-concrete",
+        "/exam/pe-construction/past-exams/r03-road",
+        "/exam/pe-construction/past-exams/r04-power-civil",
+        "/exam/pe-construction/past-exams/r04-required"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/keywords/urban-planning-exam-themes",
+        "/exam/civil-construction-2/guide/road-pavement-key-points",
+        "/exam/pe-comprehensive-management/past-exams/h24-secondary",
+        "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
+        "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r01-power-civil",
+        "/exam/pe-construction/past-exams/r02-steel-concrete",
+        "/exam/pe-construction/past-exams/r03-road",
+        "/exam/pe-construction/past-exams/r04-power-civil",
+        "/exam/pe-construction/past-exams/r04-required"
+      ]
     }
   ]
 }

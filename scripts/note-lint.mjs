@@ -23,7 +23,7 @@
  *   9. 複数行 blockquote — `>` 連続2行以上は note paste で中身脱落（回避: SKIP_NOTE_BQ=1）
  *  10. 同じ画像の重複 — 2 枚目が note の CDN 確定に至らず全文更新が中断する（lib/note-duplicate-images.mjs）
  *  11. インラインのバッククォート — note は `〇〇` を記号のまま出す。目印は【〇〇】（lib/note-inline-code.mjs）
- *  12. 同じココナラ出品の重複 — 導線は冒頭（有料ラインの前）の 1 か所に寄せる（lib/note-duplicate-coconala.mjs）
+ *  12. 同じココナラ出品の重複 — 導線は冒頭（有料ラインの前）の 1 か所に寄せる。有料ラインより後ろの cta:coconala-buyer（購入者向け）だけは例外（lib/note-duplicate-coconala.mjs）
  *   8. 段落長（無料記事のみ） — notePricing: free の地の文段落が表示 200 字以上でブロック
  *      （B5 基準 = 1段落2-3文。模範論文など有料は散文答案が仕様のため対象外。SKIP_NOTE_PARA=1 で回避）
  *
@@ -291,11 +291,11 @@ function checkInlineCode(content) {
     msg: `インラインのバッククォート ${h.text} は note で記号のまま表示される。目印は【〇〇】、数値・式はバッククォートを外す（DN-0277）`,
   }));
 }
-// 12. 同じココナラ出品の重複。有料記事の末尾は購入者にしか見えないので冒頭の 1 か所に寄せる。
+// 12. 同じココナラ出品の重複。冒頭の 1 か所に寄せる。有料ラインより後ろの購入者向け導線（cta:coconala-buyer）は数えない。
 function checkDuplicateCoconala(content) {
   return findDuplicateCoconala(content).map((d) => ({
     line: d.line,
-    msg: `同じココナラ出品（services/${d.id}）を重複して載せている（初出 ${d.firstLine} 行目）。導線は冒頭（有料ラインの前）の 1 か所に寄せ、この行の導線を削除`,
+    msg: `同じココナラ出品（services/${d.id}）を重複して載せている（初出 ${d.firstLine} 行目）。導線は冒頭（有料ラインの前）の 1 か所に寄せ、この行の導線を削除（購入者向けに末尾へ置くなら有料ラインより後ろで <!-- cta:coconala-buyer --> を付ける）`,
   }));
 }
 // ツール呼び出しXMLの残骸（生成時にエージェントの function-call 断片が本文へ混入）。

@@ -24,7 +24,7 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 - **プロダクト**: 土木工学・施工管理・河川・道路・法律の技術ノートを無料提供
 - **ユーザー**: 土木系技術者、施工管理技士受験者、技術士受験者、公務員試験受験者、行政書士受験者、土木系学生
-- **現在の収益（3 本柱）**: ① **note 有料記事**（実証済みの主エンジン・月¥114k 規模・高 CTR＝学習意図の財布を自社・高粗利で独占）／② **Google AdSense**（ページ別 RPM に最適化余地）／③ **転職アフィリ一本**（建設・施工管理特化＝BuildJob・GKS・建設JOBs。講座/教材/添削/書籍は 2026-06-25 廃止＝note とカニバるため。真実源: `.claude/knowledge/reference/affiliate-operations.md`・[[affiliate-career-only]]）。**将来**: PWA 過去問アプリ（買い切り・Web 月¥15k 達成後に着手 [[project_ios_app_design]]）
+- **現在の収益**: ① **note 有料記事**（実証済みの主エンジン・学習意図の財布を自社・高粗利で独占）／② **ココナラ・KDP**（添削・答案作成・電子書籍）／③ **転職アフィリ一本**（建設・施工管理特化。2026-10-07 時点の配置は BuildJob・建設JOBs（2級の学習ページと資格トップだけ・2026-10-07 17:00 から・EXP-017）・総監向けハイクラス DX・コンサルの 3 案件。講座/教材/添削/書籍は 2026-06-25 廃止＝note とカニバるため。真実源: `.claude/knowledge/reference/affiliate-operations.md`・[[affiliate-career-only]]）。**Google AdSense は 2026-08 に撤退済み**（実装も削除。`docs/strategy/04_収益化戦略.md`）。月の数字は推測で書かず `data/` の記録（note 売上・A8 の台帳・事業の計測記録）から取る。**将来**: PWA 過去問アプリ（買い切り・Web 月¥15k 達成後に着手 [[project_ios_app_design]]）
 - **トラフィック**: SEO 経由（検索流入が主）＋ note/SNS 送客
 - **技術基盤**: Next.js 16 + next-mdx-remote + Cloudflare Pages（サーバーコスト極小）
 - **運営**: 個人開発
@@ -33,17 +33,16 @@ doboku-note は土木工学に関するドキュメントサイト（Next.js 16 
 
 ## 収益 KPI の定義（現行モデル・数値で判断する）
 
-施策の評価は勘でなくこの 4 KPI で行う。計測は **CI/CD 供給が正**（会社 PC は社内プロキシで Google API 遮断＝ローカル fetch 不可。真実源 [[feedback_metrics_cicd_supplied]]）。
+施策の評価は勘でなくこの 3 KPI で行う。計測は **CI/CD 供給が正**（会社 PC は社内プロキシで Google API 遮断＝ローカル fetch 不可。真実源 [[feedback_metrics_cicd_supplied]]）。
 
 | KPI | 定義 | 分子 ÷ 分母 | 取得元 |
 |---|---|---|---|
-| **RPM**（広告） | 1,000 PV あたり AdSense 収益 | 収益 ÷ PV × 1000 | AdSense（ページ別取り込みは measurement-infra #13＝**未実装**・現状は手動概算） |
-| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 成果報酬 ÷ アフィリクリック | A8 の月次の成果（`a8-report-log.json` の単月の期間から導く。`/a8-report` で自動取込）÷ GA4 `affiliate_cta_click` by-label（`fetch-ga4-cta-clicks --by-label`・カスタムディメンション `event_label` 登録済 2026-07-07） |
+| **EPC**（アフィリ） | 1 クリックあたり報酬 | A8 確定報酬 ÷ アフィリクリック | A8 の月次の成果（`data/a8/report-log.json` の単月の期間から導く。取得は `login-collectors.yml` 週次・前月と当月）÷ GA4 `affiliate_cta_click`（配置別・ラベル別は `data/analysis/career-funnel.json`・fetch-metrics が週次で生成）。**案件ごとに確定 3 件まで EPC で勝敗を決めない**（affiliate-operations.md §6.5） |
 | **CTA 転換率** | 収益 CTA のクリック率 | CTA クリック ÷ ページ流入 | GA4 `affiliate_cta_click`/`note_cta_click` ÷ `ga4-page`（`report-monetization-coverage`・週次 CI） |
 | **note ファネル効率** | note 送客 → 購入の期間診断 | 同期間のマガジン売上件数 ÷ 商品ID付き`note_cta_click` | `npm run report-note-funnel-efficiency`。購入者単位で結合していないためCVR・因果attributionとは呼ばない |
 
-- **EPC で案件を選ぶ**: 転職アフィリは BuildJob（無料面談 ¥50,000〜8/31 増額）/ GKS（¥25,000）/ 建設JOBs（登録 ¥4,500）が **EPC＝報酬 × 成約率**で優劣が決まる。低摩擦・低単価が高 EPC のこともある。~2026-09 に判定（backlog P5・[[project_buildjob_impressions_campaign]]）。
-- **カニバリ境界（不可侵）**: 学習・受験意図は **note（自社・高粗利）が独占**、キャリア意図は**転職アフィリ**。両者は財布が別＝競合しない。この境界を崩す施策（学習導線への外部講座/教材送客等）は**提案しない**（[[affiliate-career-only]]）。
+- **EPC で案件を選ぶ**: 2026-09-08 検証の条件は BuildJob（無料面談 ¥13,534・60 歳未満・申込後 30 日以内の面談完了）／建設JOBs（登録 ¥4,500・2026-09-08 に一般配置を止め、2026-10-07 から 2級の学習ページ・資格トップだけ再開）。GKS は 2026-09-28 で終了。**EPC＝報酬 × 成約率**で優劣が決まり、低摩擦・低単価が高 EPC のこともある。判定は EXP-008（2026-10-20）・EXP-017（28 日・確定 3 件まで勝敗を決めない）と affiliate-operations.md §6.5 の裁定ログで行い、ここに結論を書かない。
+- **カニバリ境界（不可侵）**: 学習の商品は **note（自社・高粗利）が独占**（外部の講座・教材・添削・書籍は置かない）。転職アフィリはキャリア意図が本拠で、2026-10-07 から学習・実務・公的基準・トップ・ツールの面にも出す（EXP-017）。両者は財布が別＝競合しない。この境界を崩す施策（学習導線への外部講座/教材送客等）は**提案しない**（[[affiliate-career-only]]）。
 
 ## 手順
 
@@ -59,7 +58,7 @@ doboku-note に適した収益化モデルを 3-5 案生成する。以下のカ
 
 | カテゴリ | doboku-note での例 |
 |---|---|
-| **広告** | Google AdSense の配置最適化、記事内ネイティブ広告 |
+| **広告** | 2026-08 に AdSense を撤退済み（再導入は撤退理由を覆す根拠があるときだけ提案する） |
 | **アフィリエイト** | 転職サービス一本（2026-06-25 に書籍/教材/講座/添削アフィリは note とカニバるため完全廃止。学習導線に再提案しないこと。真実源: memory `affiliate-career-only`） |
 | **資格試験対策** | 施工管理技士・技術士の問題集・模試（有料） |
 | **スポンサー** | 建設会社・コンサル会社からの記事スポンサー |

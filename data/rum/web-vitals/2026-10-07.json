@@ -1,0 +1,5946 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-07T08:27:52.409Z",
+  "status": "ok",
+  "window": {
+    "startDate": "2026-09-09",
+    "endDate": "2026-10-06",
+    "days": 28
+  },
+  "limited": false,
+  "truncated": false,
+  "summary": {
+    "rows": [
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1784,
+          "needs-improvement": 65,
+          "poor": 14
+        },
+        "n": 1863,
+        "status": "good",
+        "goodShare": 0.958
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1829,
+          "needs-improvement": 19,
+          "poor": 6
+        },
+        "n": 1854,
+        "status": "good",
+        "goodShare": 0.987
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1519,
+          "needs-improvement": 12,
+          "poor": 2
+        },
+        "n": 1533,
+        "status": "good",
+        "goodShare": 0.991
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1451,
+          "needs-improvement": 63,
+          "poor": 16
+        },
+        "n": 1530,
+        "status": "good",
+        "goodShare": 0.948
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1126,
+          "needs-improvement": 30,
+          "poor": 5
+        },
+        "n": 1161,
+        "status": "good",
+        "goodShare": 0.97
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 828,
+          "needs-improvement": 17,
+          "poor": 4
+        },
+        "n": 849,
+        "status": "good",
+        "goodShare": 0.975
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 457,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 458,
+        "status": "good",
+        "goodShare": 0.998
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 428,
+          "needs-improvement": 21,
+          "poor": 7
+        },
+        "n": 456,
+        "status": "good",
+        "goodShare": 0.939
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 324,
+          "needs-improvement": 5,
+          "poor": 1
+        },
+        "n": 330,
+        "status": "good",
+        "goodShare": 0.982
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 318,
+          "needs-improvement": 7,
+          "poor": 5
+        },
+        "n": 330,
+        "status": "good",
+        "goodShare": 0.964
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 286,
+          "needs-improvement": 19,
+          "poor": 2
+        },
+        "n": 307,
+        "status": "good",
+        "goodShare": 0.932
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 296,
+          "needs-improvement": 11,
+          "poor": 0
+        },
+        "n": 307,
+        "status": "good",
+        "goodShare": 0.964
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 289,
+          "needs-improvement": 3,
+          "poor": 2
+        },
+        "n": 294,
+        "status": "good",
+        "goodShare": 0.983
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 272,
+          "needs-improvement": 17,
+          "poor": 3
+        },
+        "n": 292,
+        "status": "good",
+        "goodShare": 0.932
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 217,
+          "needs-improvement": 3,
+          "poor": 1
+        },
+        "n": 221,
+        "status": "good",
+        "goodShare": 0.982
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 181,
+          "needs-improvement": 1,
+          "poor": 2
+        },
+        "n": 184,
+        "status": "good",
+        "goodShare": 0.984
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 172,
+          "needs-improvement": 8,
+          "poor": 3
+        },
+        "n": 183,
+        "status": "good",
+        "goodShare": 0.94
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 175,
+          "needs-improvement": 4,
+          "poor": 1
+        },
+        "n": 180,
+        "status": "good",
+        "goodShare": 0.972
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 163,
+          "needs-improvement": 15,
+          "poor": 1
+        },
+        "n": 179,
+        "status": "good",
+        "goodShare": 0.911
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 158,
+          "needs-improvement": 3,
+          "poor": 1
+        },
+        "n": 162,
+        "status": "good",
+        "goodShare": 0.975
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 135,
+          "needs-improvement": 9,
+          "poor": 7
+        },
+        "n": 151,
+        "status": "good",
+        "goodShare": 0.894
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 150,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 150,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 142,
+          "needs-improvement": 4,
+          "poor": 3
+        },
+        "n": 149,
+        "status": "good",
+        "goodShare": 0.953
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 145,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 145,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 139,
+          "needs-improvement": 4,
+          "poor": 1
+        },
+        "n": 144,
+        "status": "good",
+        "goodShare": 0.965
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 107,
+          "needs-improvement": 4,
+          "poor": 3
+        },
+        "n": 114,
+        "status": "good",
+        "goodShare": 0.939
+      },
+      {
+        "template": "/practice/formwork-removal-timing",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 106,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 107,
+        "status": "good",
+        "goodShare": 0.991
+      },
+      {
+        "template": "/practice/formwork-removal-timing",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 100,
+          "needs-improvement": 5,
+          "poor": 2
+        },
+        "n": 107,
+        "status": "good",
+        "goodShare": 0.935
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 104,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 104,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 96,
+          "needs-improvement": 7,
+          "poor": 0
+        },
+        "n": 103,
+        "status": "good",
+        "goodShare": 0.932
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 101,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 101,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 94,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 94,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-first-stage/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 82,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 82,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-first-stage/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 74,
+          "needs-improvement": 8,
+          "poor": 0
+        },
+        "n": 82,
+        "status": "good",
+        "goodShare": 0.902
+      },
+      {
+        "template": "/practice/asphalt-pavement-control",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 82,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 82,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/practice/asphalt-pavement-control",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 76,
+          "needs-improvement": 2,
+          "poor": 2
+        },
+        "n": 80,
+        "status": "good",
+        "goodShare": 0.95
+      },
+      {
+        "template": "/exam/civil-construction-2/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 71,
+          "needs-improvement": 3,
+          "poor": 3
+        },
+        "n": 77,
+        "status": "good",
+        "goodShare": 0.922
+      },
+      {
+        "template": "/exam/civil-construction-2/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 61,
+          "needs-improvement": 14,
+          "poor": 0
+        },
+        "n": 75,
+        "status": "good",
+        "goodShare": 0.813
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 67,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 68,
+        "status": "good",
+        "goodShare": 0.985
+      },
+      {
+        "template": "/exam/civil-construction-2/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 58,
+          "needs-improvement": 3,
+          "poor": 3
+        },
+        "n": 64,
+        "status": "good",
+        "goodShare": 0.906
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 64,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 64,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 63,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 64,
+        "status": "good",
+        "goodShare": 0.984
+      },
+      {
+        "template": "/practice/subbase-subgrade-control",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 62,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 64,
+        "status": "good",
+        "goodShare": 0.969
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 62,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 63,
+        "status": "good",
+        "goodShare": 0.984
+      },
+      {
+        "template": "/practice/subbase-subgrade-control",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 63,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 63,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 62,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 62,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 59,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 61,
+        "status": "good",
+        "goodShare": 0.967
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 51,
+          "needs-improvement": 10,
+          "poor": 0
+        },
+        "n": 61,
+        "status": "good",
+        "goodShare": 0.836
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 54,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 54,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 52,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 54,
+        "status": "good",
+        "goodShare": 0.963
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 53,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 54,
+        "status": "good",
+        "goodShare": 0.981
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 48,
+          "needs-improvement": 4,
+          "poor": 2
+        },
+        "n": 54,
+        "status": "good",
+        "goodShare": 0.889
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 53,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 54,
+        "status": "good",
+        "goodShare": 0.981
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 52,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 53,
+        "status": "good",
+        "goodShare": 0.981
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 51,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 51,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/standards/tohoku",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 45,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 45,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/standards/tohoku",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 44,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 45,
+        "status": "good",
+        "goodShare": 0.978
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 44,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 45,
+        "status": "good",
+        "goodShare": 0.978
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 39,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 41,
+        "status": "good",
+        "goodShare": 0.951
+      },
+      {
+        "template": "/standards/chugoku",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 40,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 40,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 39,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 39,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/standards/chugoku",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 39,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 39,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 38,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 38,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 2,
+          "poor": 1
+        },
+        "n": 36,
+        "status": "good",
+        "goodShare": 0.917
+      },
+      {
+        "template": "/exam/civil-construction-1",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 35,
+        "status": "good",
+        "goodShare": 0.943
+      },
+      {
+        "template": "/exam/pe-first-stage/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 35,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 35,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/civil-construction-1",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 34,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/civil-construction-1",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 0.971
+      },
+      {
+        "template": "/exam/concrete-engineer/textbook",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 30,
+          "needs-improvement": 4,
+          "poor": 0
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 0.882
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 34,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 0.971
+      },
+      {
+        "template": "/tools/juken-shikaku",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 34,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 34,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 32,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 33,
+        "status": "good",
+        "goodShare": 0.97
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 28,
+          "needs-improvement": 5,
+          "poor": 0
+        },
+        "n": 33,
+        "status": "good",
+        "goodShare": 0.848
+      },
+      {
+        "template": "/exam/concrete-engineer/textbook",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 33,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/tools/juken-shikaku",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 33,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 33,
+        "status": "good",
+        "goodShare": 1
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 27,
+          "needs-improvement": 1,
+          "poor": 4
+        },
+        "n": 32,
+        "status": "good",
+        "goodShare": 0.844
+      },
+      {
+        "template": "/tools/juken-shikaku",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 28,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 29,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 25,
+          "needs-improvement": 3,
+          "poor": 0
+        },
+        "n": 28,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 28,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 28,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 26,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 27,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kinki",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 27,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 27,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kinki",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 26,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 27,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/formwork-removal-timing",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 26,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 26,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/sling-work-wire-rope",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 26,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 26,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/sling-work-wire-rope",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 24,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 25,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 24,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 22,
+          "needs-improvement": 0,
+          "poor": 2
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 5,
+          "poor": 0
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 24,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/construction-inspection-types",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 24,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/construction-inspection-types",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 3,
+          "poor": 3
+        },
+        "n": 24,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 23,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 23,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 23,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 23,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-splice-selection",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 23,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 23,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-splice-selection",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 22,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 23,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 22,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 22,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 4,
+          "poor": 0
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 21,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/excavation-bottom-failure",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 21,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/excavation-bottom-failure",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rainfall-work-suspension",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rainfall-work-suspension",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 21,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 2,
+          "poor": 0
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/textbook",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/textbook",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/chugoku",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kyushu",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 20,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kyushu",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 2,
+          "poor": 0
+        },
+        "n": 20,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-order",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-order",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/chubu",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/chubu",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/okinawa",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 19,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 19,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 18,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/subbase-subgrade-control",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 18,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/okinawa",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 18,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/tohoku",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 18,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 18,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/textbook",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/textbook",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 16,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pavement/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pavement/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-concrete-head-treatment",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 17,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-concrete-head-treatment",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 16,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 17,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 4,
+          "poor": 0
+        },
+        "n": 16,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/board-of-audit-inspection",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 16,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 16,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/board-of-audit-inspection",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 16,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 14,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-pump-capacity",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-pump-capacity",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 14,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/risk-assessment-construction-workflow",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/risk-assessment-construction-workflow",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/service-commencement",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 15,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/service-commencement",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 14,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 15,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 14,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 14,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 3,
+          "poor": 1
+        },
+        "n": 14,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/asphalt-pavement-control",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 14,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/cast-in-place-pile-methods",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/cast-in-place-pile-methods",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/trench-excavation-safety",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 2
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/kakomon-quiz",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/sling-tension",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/sling-tension",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 13,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 13,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-compaction-numbers",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-compaction-numbers",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/safety-patrol-corrective-action",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/trench-excavation-safety",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 12,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 12,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-crack-causes",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-crack-causes",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earth-retaining-displacement",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earth-retaining-displacement",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/safety-patrol-corrective-action",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kinki",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/okinawa",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-pump-plan",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-pump-plan",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/kakomon-quiz",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 11,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/kakomon-quiz",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 11,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/excavation-pre-survey",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/slope-protection-selection",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/slope-protection-selection",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 10,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 10,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/textbook",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-mix-acceptance",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-mix-acceptance",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-timing",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-timing",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/excavation-pre-survey",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kanto",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kanto",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 9,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 9,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 7,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/excavation-bottom-failure",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokuriku",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kyushu",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/sling-tension",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 8,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 8,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/guide",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/guide",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 2,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/cast-in-place-pile-methods",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/flood-season-river-work",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/flood-season-river-work",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/precast-pile-methods",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/precast-pile-methods",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rainfall-work-suspension",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-splice-selection",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/sling-work-wire-rope",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokkaido",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokkaido",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokuriku",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-maturity",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-maturity",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 7,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 7,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/textbook",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/past-exams",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-corrosion-handling",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/chubu",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/kanto",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 6,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 6,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/about",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/textbook",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pavement/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-crack-causes",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-pump-capacity",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/gis-layer-validation",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/gis-layer-validation",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-bearing-verification",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-bearing-verification",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pipe-jacking-methods",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pipe-jacking-methods",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-corrosion-handling",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-cover-placement",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-cover-placement",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-maturity",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 5,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 5,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/about",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/about",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 1,
+          "poor": 1
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/primary",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/pillar",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/pillar",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/backfill-river-excavation",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/backfill-river-excavation",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 1
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/board-of-audit-inspection",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-order",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earthquake-tsunami-site-response",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earthquake-tsunami-site-response",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/formwork-waterstop-details",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/formwork-waterstop-details",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/shikoku",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/shikoku",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-pump-plan",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 4,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 4,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/docs/road-management",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/docs/road-management",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/primary",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/textbook",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/primary",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/secondary",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/textbook",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/textbook",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/primary",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/primary",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/pillar",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/links",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-finishing-curing",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-finishing-curing",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-mix-acceptance",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/construction-inspection-types",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/construction-plan-document",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/construction-plan-document",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/ict-construction-workflow",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/ict-construction-workflow",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/oshms-pdca-site-operation",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/oshms-pdca-site-operation",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-cover-placement",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-splice-selection",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/reference-values",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/reference-values",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/risk-assessment-construction-workflow",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/service-commencement",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/trench-excavation-safety",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/search",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokkaido",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/hokuriku",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 3,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 3,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/docs/road-management",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/building-construction/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management/keywords",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/surveyor",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/links",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/asphalt-pavement-control",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/backfill-river-excavation",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-compaction-numbers",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-timing",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earthquake-tsunami-site-response",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/gis-layer-validation",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/material-selection-receiving",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/material-selection-receiving",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/precast-pile-methods",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/preventive-maintenance-diagnosis",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/preventive-maintenance-diagnosis",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/rebar-corrosion-handling",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/safety-patrol-corrective-action",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/slope-drainage-monitoring",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/slope-drainage-monitoring",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/search",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/search",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/data",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/data",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/standards/data",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-time-check",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/concrete-time-check",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/cost-structure",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/cost-structure",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/kakomon-quiz",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "tablet",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/rebar-splice-check",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/rebar-splice-check",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/rebar-splice-check",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/water-content",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/water-content",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 2,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 2,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/docs/reference-materials-floodgate",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/docs/reference-materials-floodgate",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-1/secondary",
+        "device": "tablet",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/civil-construction-2/guide",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/guide",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 0,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-chief-engineer/primary",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-diagnostician/guide",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/concrete-engineer/primary",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-comprehensive-management",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/guide",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/keywords",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-construction/past-exams",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/pe-first-stage/primary",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/exam/rccm/guide",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/asphalt-pavement-control",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/backfill-river-excavation",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/c2FmZXR5LX",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/c2FmZXR5LX",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 0,
+          "needs-improvement": 1,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/checklist-shoring-buoyancy",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/checklist-shoring-buoyancy",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/concrete-placement-order",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/cost-and-design-change",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/cost-and-design-change",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/earth-retaining-displacement",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/embankment-quality-control",
+        "device": "tablet",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/environment-neighborhood",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/environment-neighborhood",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/flood-season-river-work",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/flood-season-river-work",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/formwork-removal-timing",
+        "device": "mobile",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/lifting-equipment-selection",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/lifting-equipment-selection",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-bearing-verification",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/pile-concrete-head-treatment",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/preventive-maintenance-diagnosis",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/river-park-erosion-control",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/river-park-erosion-control",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/river-park-erosion-control",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/safety-culture-discipline",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/safety-culture-discipline",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/schedule-and-road-permit",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/schedule-and-road-permit",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/schedule-and-road-permit",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/slope-protection-selection",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/soil-improvement-sandbag",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/soil-improvement-sandbag",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/stacking-heat-machine-safety",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/stacking-heat-machine-safety",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/trench-excavation-safety",
+        "device": "mobile",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/trench-excavation-safety",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/volcanic-hazard-site-planning",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/volcanic-hazard-site-planning",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/practice/volcanic-hazard-site-planning",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/sitemap-keywords",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/sitemap-keywords",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/sitemap-keywords",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/career-check",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/career-check",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/career-check",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/cost-structure",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/keiken-charcount",
+        "device": "tablet",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/trench-legal-check",
+        "device": "desktop",
+        "metric": "CLS",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/trench-legal-check",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/trench-legal-check",
+        "device": "desktop",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/water-content",
+        "device": "desktop",
+        "metric": "INP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      },
+      {
+        "template": "/tools/water-content",
+        "device": "mobile",
+        "metric": "LCP",
+        "counts": {
+          "good": 1,
+          "needs-improvement": 0,
+          "poor": 0
+        },
+        "n": 1,
+        "status": "insufficient",
+        "goodShare": null
+      }
+    ],
+    "events": 19089,
+    "dropped": 10
+  }
+}

@@ -17,7 +17,7 @@ domain: site
 
 > [!warning] このスキルが直せないもの
 > - **画質不足（ボケ/低解像度）**は切り直しでは直らない → `figure-provenance` の needs=rescan（要再スキャン）。
-> - **元クロップ時点で図が見切れ**ているものは復元不可 → 再スキャン or SVG。
+> - **元クロップ時点で図が見切れ**ているものは切り直しでは直らない → `/figure-quality-loop`（元 PDF のページから切り出し直し。原典が無ければ再スキャン）。
 > - **過去問データグラフの SVG 化は禁止**（幾何が答え＝誤答誘発）。真実源 [figure-provenance.md](../../../../.claude/knowledge/reference/figure-provenance.md)。
 
 ## 対象の選び方
@@ -76,9 +76,11 @@ npm run audit-figures                              # 監査/provenance を最新
 - **ImageMagick 前提（環境）**: figure-recrop.mjs は `magick`（ImageMagick）を PATH に要求。無い環境（新規 Windows 等）では `winget install ImageMagick.ImageMagick`（GitHub DL・admin 要）で導入、または上記 Pillow（`from PIL import Image`）で代替（crop/webp とも可・node_modules 不要）。Step① の `sips` は Mac 専用＝Windows は `magick <webp> x.png` か Pillow で png 化して Read。会社PCプロキシは GitHub DL は通るが winget の msstore ソースは証明書エラー→`--source winget` を明示。
 - **periods は万能でない**: 化学構造式・図の点はOCRで句点として誤カウントされる（q42 で periods:10 だが写り込み無し）。残テキストの真偽は **必ず目視**で判定。図に残す凡例に句点があれば periods は0にならない（q-I2-5 の ● 凡例）→ その場合は再監査後 `manual_needs` の `needs:ok` で確定させる。
 - **1 ページ 1 commit**・明示 pathspec（`git add -A` 禁止）。
-- 見切れ/画質不足は本スキール対象外 → provenance の rescan / `manual_needs` へ。
+- 見切れは本スキルの対象外 → `/figure-quality-loop`（元 PDF から切り出し直し）。画質不足 → provenance の rescan。
 
 ## 大量処理（並列 workflow）モード
+
+> [!note] 判定を残して継続運用するなら `/figure-quality-loop`（判定台帳に画像のハッシュつきで記録・同じ worker と workflow を使う）。本節の `manual_needs` へ記録する手順は、台帳ができる前（2026-07）の一括処理の記録。
 
 recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わりに**並列 workflow**で回す（2026-07-09 確立。civil-1 94→0＋他資格 48 図を計 4 本の workflow で処理）。**視覚判定はサブエージェント `figure-crop-worker`（Generator・sonnet）が各図で実行し、親（メイン）が全 crop 図を最終目視 QA してから MDX 寸法・台帳を直列適用する**。
 
@@ -89,7 +91,7 @@ recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わり
 1. **worklist を作る**（`figure-provenance.json` の `needs=recrop-review` を対象）。各図 `{figKey, name, img(相対 .png|.webp), kind, imgSize:[w,h]}`。**除外**: `published:false` ドラフト（例 concrete-diagnostician＝著作権凍結）／機材写真 `.jpg`（OCR 偽陽性＝別途 `manual_needs:ok`）。webp-only 図も対象（worker が sharp extract で直接クロップ）。
 2. **workflow 起動**: `Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs", args: <worklist> })`。各図を `figure-crop-worker` が並列にクロップ→自己検証→`{action, cropBox, newWidth/Height, removed, reason, selfVerify}` を返す。
 3. **機械ゲート → 目視 QA の順で絞る**。まず全 crop 図に `node scripts/check-figure-crop-integrity.mjs` を通し（STRAY_SLIVER 等を全数機械検出）、**目視（Read）は「機械が fail させた図」＋「worker の selfVerify が怪しい図」に集中**する。ただし機械が拾えない**切り過ぎ（画素欠損）**は目視でしか分からないため、`removed` が大きい図は fail していなくても確認する（下記「QA で捕捉した実例」）。needs-source は疑わしいものをスポット確認。
-4. **MDX 寸法＋台帳を直列適用**（親）。crop 後の実寸を読み、記事ごとに `<img width/height>` を置換（`<ArticleImage>` は寸法属性なし＝更新不要）。`figure-sources.json` の `manual_needs` に crop→`ok`／ok→`ok`／needs-source→`rescan-need-source` を記録し、provenance/text-audit も同期。**MDX は `newline=''` で読み書き**して CRLF/LF を保存（混在を作らない）。
+4. **MDX 寸法＋台帳を直列適用**（親）。crop 後の実寸を読み、記事ごとに `<img width/height>` を置換（`<ArticleImage>` は寸法属性なし＝更新不要）。`figure-sources.json` の `manual_needs` に crop→`ok`／ok→`ok` を記録し、needs-source は `/figure-quality-loop` の切り出し直しへ回す（`rescan-need-source` を書くのは原典が無いと確かめた図だけ。書くとループは原典なしとして扱い、切り出し直しに回さない）し、provenance/text-audit も同期。**MDX は `newline=''` で読み書き**して CRLF/LF を保存（混在を作らない）。
 5. **commit（明示 pathspec・`git add -A` 禁止）** → 完了後 `figure-provenance.md` の census が陳腐化するので更新（SSOT）。
 
 ### QA で捕捉した実例（親目視ゲートの価値）
@@ -105,4 +107,5 @@ recrop-review が数十件ある時は、逐次 `figure-recrop.mjs` の代わり
 - 対象選定＝`figure-provenance.json`（needs）／品質＝`figure-text-audit.json`。真実源 [figure-provenance.md](../../../../.claude/knowledge/reference/figure-provenance.md)。
 - 機械化ヘルパ＝`scripts/figure-recrop.mjs`（逐次・crop+webp+MDX+OCR）／並列ワーカー＝`figure-crop-worker`（`scripts/figure-crop-batch.workflow.mjs` が spawn）。
 - 別物＝`civil-figure-rework`（問題PDFから抽出・過去問では図なしで不成立）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査）。
+- 継続運用＝`/figure-quality-loop`（画素検査＋OCR の判定待ちを 1 周ずつ回し、判定を画像のハッシュつき台帳に残す。縁で切れた図の元 PDF からの切り出し直しもこちら）。本スキルは 1 枚を手で切り直すときの手順。
 - 大量処理時は本スキルの手順を `civil-exam-figure-auditor` 等の Evaluator で採点させながら回してもよい（Generator/Evaluator 分離）。

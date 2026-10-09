@@ -29,11 +29,13 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
-import { join, relative } from "path";
-import { pathToFileURL } from "url";
+import { join, relative, dirname } from "path";
+import { fileURLToPath, pathToFileURL } from "url";
 import { todayJst } from "./lib/jst-date.mjs";
-import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { canTransition, loadRegistryConfig } from "./lib/content-registry.mjs";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = join(__dirname, "..");
 export const IG_DIR = join(ROOT, "content/sns/instagram");
 
 const EXCLUDE_DIRS = new Set(["_dev", "highlights", "stories", "img", "carousel", "reels"]);
@@ -259,7 +261,27 @@ function resolveFormat(arg) {
   return arg;
 }
 
-function doMark(packDir) {
+// ─── コンテンツ台帳（DN-0611・正本）への記録 ───────────────────
+// posted.json の format（carousel/reels/stories）→ 台帳の format（carousel/reel/story）
+export const LEDGER_FORMAT = { carousel: "carousel", reels: "reel", stories: "story" };
+
+/** 台帳の行が「これから予約してよい」状態か（遷移表で scheduled へ行ける状態。stopped・scheduled・published・行なしは不可）。cfg は省略時に読む */
+export function isSchedulableLedgerRow(row, cfg = loadRegistryConfig(ROOT)) {
+  return !!row && canTransition(cfg, row.status, "scheduled", "instagram");
+}
+
+/** mark の台帳への書き込み。行が無い／URL が無いときは書かずに理由を返す（旧い写しだけ書いたと分かるようにする）。失敗は投げる */
+export async function recordMarkToLedger(root, packDir, format, entry) {
+  const store = await import("./lib/registry-ig-store.mjs");
+  const lf = LEDGER_FORMAT[format];
+  const row = await store.readIgPublication(root, packDir, lf);
+  if (!row) return { recorded: false, reason: "台帳に行が無い" };
+  if (!entry.url) return { recorded: false, reason: "--url が無いので published にできない" };
+  await store.recordIg(root, packDir, lf, "published", { url: entry.url, evidence: { kind: "ig-status-mark", ref: "manual" } });
+  return { recorded: true, id: row.id };
+}
+
+async function doMark(packDir) {
   const format = resolveFormat(formatArg);
   const p = join(packDir, "posted.json");
   const cur = readPosted(packDir) || { carousel: null, reels: null, stories: null };
@@ -267,6 +289,9 @@ function doMark(packDir) {
   if (flags.url) entry.url = String(flags.url).split("?")[0]; // クエリ除去（shortcode のみ）
   if (flags.note) entry.note = String(flags.note);
   cur[format] = entry;
+  // 台帳が正本。先に台帳へ書き、失敗したら旧い写し（posted.json）も書かずに止める
+  const led = await recordMarkToLedger(ROOT, packDir, format, entry);
+  console.log(led.recorded ? `台帳更新: ${led.id} → published` : `警告: 台帳は更新しません（${led.reason}）`);
   writeFileSync(p, JSON.stringify(cur, null, 2) + "\n", "utf8");
   console.log(
     `marked ${format}: ${relative(IG_DIR, packDir).replace(/\\/g, "/")}  at=${entry.at}` +
@@ -275,6 +300,7 @@ function doMark(packDir) {
 }
 
 function doUnmark(packDir) {
+  console.log("注意: 台帳（Instagram の公開の台帳）は変えません。台帳は npm run registry -- stop で人が直してください");
   const p = join(packDir, "posted.json");
   if (!existsSync(p)) {
     console.log("posted.json がありません（未投稿）");
@@ -316,7 +342,7 @@ function doMigrate() {
 const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMain) {
   if (command === "mark") {
-    doMark(resolvePackDir(targetArg));
+    doMark(resolvePackDir(targetArg)).catch((e) => { console.error(`mark 失敗（posted.json は書いていません）: ${e.message}`); process.exit(1); });
   } else if (command === "unmark") {
     doUnmark(resolvePackDir(targetArg));
   } else if (command === "migrate") {

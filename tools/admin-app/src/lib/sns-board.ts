@@ -8,7 +8,6 @@ import { SNS_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
  * sns-board.ts — SNS 投稿状態板（読み取り専用）。tools/admin/lib/sot.mjs を移植。
  *
  * 読む SoT:
- *   content/sns/schedule.json          全チャネル統合スケジュール
  *   IG posted.json                  scripts/ig-status.mjs の walkPacks/packInfo を再利用
  *   X draft の status.json           ツイート別 scheduled/posted/draft
  *
@@ -138,7 +137,10 @@ export function xBoard(): XBoard {
       postedAt: t.posted_at ?? null,
     }));
     const counts: Record<string, number> = { draft: 0, scheduled: 0, queued: 0, posted: 0, other: 0 };
-    for (const t of tweets) t.status in counts ? counts[t.status]!++ : counts.other!++;
+    for (const t of tweets) {
+      if (t.status in counts) counts[t.status]!++;
+      else counts.other!++;
+    }
     drafts.push({
       name,
       rel: `x/draft/${name}`,
@@ -156,21 +158,18 @@ export function xBoard(): XBoard {
   return { drafts, totals };
 }
 
-export interface ScheduleRow {
-  slug: string;
-  [k: string]: unknown;
-}
-
-export function readSchedule(): ScheduleRow[] {
-  return readJson<ScheduleRow[]>(join(SNS_CONTENT_ROOT, 'schedule.json')) ?? [];
-}
-
 export interface SnsBoard {
   ig: IgBoard;
   x: XBoard;
-  schedule: ScheduleRow[];
 }
 
 export async function snsBoard(): Promise<SnsBoard> {
-  return { ig: await igBoard(), x: xBoard(), schedule: readSchedule() };
+  return { ig: await igBoard(), x: xBoard() };
+}
+
+export async function figureBoard() {
+  // 既存のSVG検査器が使うネイティブレンダラーをTurbopackへバンドルしない。
+  const url = pathToFileURL(repoPath('tools', 'admin-app', 'src', 'lib', 'figure-sns-board.mjs')).href;
+  const module = await import(/* turbopackIgnore: true */ url) as typeof import('./figure-sns-board.mjs');
+  return module.figureSnsBoard(repoPath());
 }

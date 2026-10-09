@@ -110,6 +110,8 @@ FATAL ... Symlink [project]/node_modules is invalid, it points out of the filesy
 
 補足: junction を消すときは必ず `cmd /c rmdir <link>`（reparse point だけ削除）。`rm -rf` や `git worktree remove` が junction を辿ると**親リポの node_modules 本体を消す危険**があるため、worktree 削除前に junction を先に外す。
 
+2026-10-08: Codex の `archive_worktree` 後にも、共有先の親リポ `node_modules` が空になり、`npm ci` で復元した。管理ツール経由でも先に共有junctionを外す。PowerShellでは対象が `Junction` で参照先が親リポの `node_modules` と一致することを確認し、`Remove-Item -LiteralPath <link> -Force`（`-Recurse` なし）でリンクだけを削除して、参照先の主要パッケージが残ることを確認してからarchiveする。
+
 関連: [[feedback_multi_session_concurrent_git]]（複数セッション常態下では admin 作業も worktree 隔離が安全）
 
 ---

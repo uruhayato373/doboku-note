@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 3,
+  "generated_at": "2026-09-29T02:48:08.719Z",
+  "base_url": "out/ (static export)",
+  "mode": "out",
+  "summary": {
+    "urls_checked": 1571,
+    "doc_urls_collected": 1261,
+    "published_total": 1261,
+    "urls_with_violations": 1,
+    "by_severity": {
+      "HIGH": 0,
+      "MEDIUM": 1,
+      "LOW": 0
+    },
+    "by_type": {
+      "ssr_thin_body": 1
+    },
+    "duration_ms": 31586
+  },
+  "results_note": "違反のある URL の行だけ（全 URL の結果は npm run check-seo-meta -- --json）",
+  "results": [
+    {
+      "url": "/search",
+      "title": {
+        "value": "サイト内検索 | doboku-note",
+        "length": 20
+      },
+      "description": {
+        "value": "doboku-note のサイト内検索。1級土木施工管理技士・技術士の過去問解説・キーワードページをキーワードで探せます。",
+        "length": 61
+      },
+      "canonical": "https://doboku-note.com/search",
+      "og_url": "https://doboku-note.com/search",
+      "robots": "noindex, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": [
+        {
+          "type": "ssr_thin_body",
+          "severity": "MEDIUM",
+          "message": "本文テキストが 47 字（最低目安 200 字）"
+        }
+      ]
+    }
+  ],
+  "violations_by_type": {
+    "ssr_thin_body": [
+      "/search"
+    ]
+  }
+}

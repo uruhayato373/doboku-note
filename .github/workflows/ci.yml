@@ -62,6 +62,19 @@ jobs:
       # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
       # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
       # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。
+      # コンテンツ台帳の検査（check-content-registry の R03・R07）が、予約以上の行の削除と状態の遷移を
+      # 比較元と比べるための 1 コミット分。PR は base ブランチ、develop への push は直前のコミット。取れなければ比べない（INFO）
+      - name: Fetch registry comparison base
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            git fetch --no-tags --depth=1 origin "$BASE_REF" && echo "REGISTRY_BASE=origin/$BASE_REF" >> "$GITHUB_ENV" || true
+          elif [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ]; then
+            git fetch --no-tags --depth=1 origin "$BEFORE" && echo "REGISTRY_BASE=$BEFORE" >> "$GITHUB_ENV" || true
+          fi
+
       - name: Quality audit (ci gate)
         run: npm run quality:audit:ci
 
@@ -88,6 +101,16 @@ jobs:
       # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
       - name: Build doc meta index
         run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      # Next.js のビルドキャッシュ（Turbopack のファイルシステムキャッシュ）を実行間で引き継ぐ。
+      # 形は node_modules/next/dist/docs/01-app/02-guides/ci-build-caching.md の GitHub Actions 例。
+      - name: Cache Next.js build
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx', 'src/**/*.mjs', 'next.config.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
 
       - name: Build
         run: npm run build

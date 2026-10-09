@@ -8,7 +8,7 @@ description: >
   Use when user says "A8レポート", "アフィリ成果を取り込む", "A8のCSVを取得", "EPCを更新", "a8-report".
   **初回 or UI 変更後は必ず `--dry-run --probe-isolation` で分離方式とセレクタを確定すること**.
 disable-model-invocation: true
-argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily] [--dry-run] [--probe-isolation] [--probe-period] [--headed]"
+argument-hint: "[--reports all|site-summary,program-detail,period-monthly,period-daily,result-detail] [--dry-run] [--probe-isolation] [--probe-period] [--headed]"
 domain: affiliate
 ---
 

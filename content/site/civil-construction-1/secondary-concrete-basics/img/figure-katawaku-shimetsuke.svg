@@ -1,0 +1,65 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="型枠締付け金物の取付け例。対向するせき板をセパレータでつなぎ、外側のフォームタイで締め付けて型枠の位置を固定する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .con  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill / brand：コンクリート */
+      .old  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }     /* surface：旧コンクリート・型枠 */
+      .good { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill / positive */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .bad  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }   /* danger-fill / danger */
+      .bar  { fill: #1a3a5c; stroke: none; }                          /* 鉄筋断面 */
+      .rod  { fill: none; stroke: #1a3a5c; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+      .dim  { fill: none; stroke: #555; stroke-width: 1.5; }
+      .ext  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; }
+      .crack{ fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+      .box  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ks-a" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+    <marker id="ks-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
+    </marker>
+    <marker id="ks-s" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse">
+      <polygon points="0,0 9,4 0,8" fill="#555"/>
+    </marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">型枠締付け金物の取付け</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">せき板どうしを金物でつなぎ、締めて固定する</text>
+  <rect class="old" x="112" y="90" width="10" height="250"/>
+  <rect class="old" x="278" y="90" width="10" height="250"/>
+  <rect class="con" x="122" y="90" width="156" height="250"/>
+  <line class="rod" x1="100" y1="160" x2="300" y2="160" style="stroke-width:3"/>
+  <line class="rod" x1="100" y1="240" x2="300" y2="240" style="stroke-width:3"/>
+  <line class="rod" x1="100" y1="318" x2="300" y2="318" style="stroke-width:3"/>
+  <rect class="good" x="94" y="152" width="12" height="16"/><rect class="good" x="294" y="152" width="12" height="16"/>
+  <rect class="good" x="94" y="232" width="12" height="16"/><rect class="good" x="294" y="232" width="12" height="16"/>
+  <rect class="good" x="94" y="310" width="12" height="16"/><rect class="good" x="294" y="310" width="12" height="16"/>
+  <text class="t-note" x="117" y="82" text-anchor="middle">せき板</text>
+  <text class="t-note" x="283" y="82" text-anchor="middle">せき板</text>
+  <text class="t-key" x="200" y="148" text-anchor="middle">セパレータ</text>
+  <text class="t-pos" x="16" y="198">フォームタイ</text>
+  <line class="rule" x1="60" y1="190" x2="94" y2="162"/>
+  <text class="t-note" x="318" y="198">外側で</text>
+  <text class="t-note" x="318" y="213">締め付ける</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">固定</text>
+  <text class="t-lab" x="104" y="416">結合部が正確な位置になるよう固定する</text>
+  <text class="t-key" x="30" y="442">清掃</text>
+  <text class="t-lab" x="104" y="442">内外面を清掃し、はく離剤を塗布する</text>
+  <text class="t-key" x="30" y="468">再利用</text>
+  <text class="t-lab" x="104" y="468">フォームタイ・セパレータ等の処理を確認</text>
+
+</svg>

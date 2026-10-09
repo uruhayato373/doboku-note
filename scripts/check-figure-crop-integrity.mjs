@@ -9,12 +9,13 @@
  * が needs:ok / textStatus:clean のまま素通りしていた。本スクリプトは画素レベルで検出する。
  *
  * ルール（★=CI ブロッキング / それ以外は情報のみ・baseline 追跡はするが CI は落とさない）:
- *   ★ STRAY_SLIVER (HIGH) … 上下端の極薄インク島（≤6px かつ ≤1%H）が白ギャップで本体から分離＝
+ *   ★ STRAY_SLIVER (HIGH) … 上下端の極薄インク島（≤6px かつ ≤1%H）が白ギャップで本体から分離（縦の線で本体へ繋がる島は除く）＝
  *                          隣接図の切れ端＝写り込み。フルハイトの正当ラベル/軸と分離できる唯一の
  *                          高精度シグナル（fig-04=5px/fig13=3px を捕捉、15-38px の正当ラベルを落とす）。
  *   EDGE_CUT (HIGH表示)    … margin=0 で縁2行/内側4行の密度比≥0.5＝ストローク中割りの疑い。ただし
  *                          finished 図では tight-crop（正当な密着）と幾何で判別不能（実測 538/643 が
- *                          縁接触＝旧常態）。**情報のみ**。真価は下記の予防フックで発揮する。
+ *                          縁接触＝旧常態）。CI では**情報のみ**。真価は下記の予防フックと、
+ *                          figure-review-queue.mjs（/figure-quality-loop の判定待ち・目視判定を台帳に残す）が読むこと。
  *   EDGE_LINE / EDGE_TIGHT (LOW) … 縁の直線（罫線/軸/枠）/ 先細り接触（端点タイトトリム）。正当。
  *   STRAY_LABEL (LOW)     … スライバーより厚い分離島（小見出し/軸/写り込みのいずれか・要目視）。
  *   THIN_MARGIN (LOW)     … 白マージンが 4px 未満の辺。切断予備軍の注意喚起。
@@ -37,13 +38,13 @@
  *   node scripts/check-figure-crop-integrity.mjs --update-baseline
  *   node scripts/check-figure-crop-integrity.mjs --file <img>     # 1枚だけ検査（figure-recrop の自己検証用）
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, relative, dirname } from 'node:path';
 import sharp from 'sharp';
-import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
-import { listFiles } from './lib/fs-walk.mjs';
-import { parseCliArgs } from './lib/cli-args.mjs';
+import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry } from './lib/cli-run.mjs';
 
+const ROOT = resolve(import.meta.dirname, '..');
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const BASELINE = join(ROOT, '.claude', 'state', 'quality', 'figure-crop-baseline.json');
 const REPORT = join(ROOT, '.claude', 'state', 'quality', 'figure-crop-report.json');
@@ -67,25 +68,32 @@ const EDGE_CUT_TAPER = 0.5;     // margin=0 で 縁2行/内側4行 の密度比�
 const EDGE_LINE_FRAC = 0.6;     // 縁行のインクが内容スパンのこの比以上＝罫線/軸/枠の bbox 一致(LOW)
 
 function parseArgs() {
-  const { ci, updateBaseline, file } = parseCliArgs({
-    ci: { type: 'boolean' },
-    'update-baseline': { type: 'boolean' },
-    file: { type: 'string' },
-  });
-  return { ci, updateBaseline, file };
+  const a = process.argv.slice(2);
+  return {
+    ci: a.includes('--ci'),
+    updateBaseline: a.includes('--update-baseline'),
+    file: a.includes('--file') ? a[a.indexOf('--file') + 1] : null,
+  };
 }
 
 /** 対象画像を列挙（png を正典とし webp ペアは重複走査しない。jpg/jpeg も対象）。 */
 function listTargets() {
-  return listFiles(POSTS_DIR, {
-    match: (p, name) => {
-      if (!/\/img\/|\\img\\/.test(p)) return false;
-      if (/\.png$/i.test(name)) return true;
-      if (/\.(jpe?g)$/i.test(name)) return true;
-      // png ペアが無い webp のみ対象（ペアがあれば png 側で1回だけ検査）
-      return /\.webp$/i.test(name) && !existsSync(p.replace(/\.webp$/i, '.png'));
-    },
-  });
+  const out = [];
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) { walk(p); continue; }
+      if (!/\/img\/|\\img\\/.test(p)) continue;
+      if (/\.png$/i.test(e.name)) out.push(p);
+      else if (/\.(jpe?g)$/i.test(e.name)) out.push(p);
+      else if (/\.webp$/i.test(e.name)) {
+        // png ペアが無い webp のみ対象（ペアがあれば png 側で1回だけ検査）
+        if (!existsSync(p.replace(/\.webp$/i, '.png'))) out.push(p);
+      }
+    }
+  };
+  walk(POSTS_DIR);
+  return out;
 }
 
 /** 1枚を解析して violations / 分類を返す。 */
@@ -165,12 +173,23 @@ export async function analyzeImage(absPath) {
       if (edgeLineFrac >= EDGE_LINE_FRAC) {
         violations.push({ rule: 'EDGE_LINE', severity: 'LOW', side, detail: `${side}縁の直線が内容スパンの${(edgeLineFrac * 100).toFixed(0)}%＝罫線/軸/枠の bbox 一致（内容は完全）` });
       } else if (taper >= EDGE_CUT_TAPER) {
-        violations.push({ rule: 'EDGE_CUT', severity: 'HIGH', side, detail: `${side}縁でストローク中割りの疑い（縁2行/内側4行の密度比 ${(taper * 100).toFixed(0)}%≥${EDGE_CUT_TAPER * 100}%・縁幅 ${(edgeLineFrac * 100).toFixed(0)}%）` });
+        violations.push({ rule: 'EDGE_CUT', severity: 'HIGH', side, edgeFrac: Number(edgeLineFrac.toFixed(3)), detail: `${side}縁でストローク中割りの疑い（縁2行/内側4行の密度比 ${(taper * 100).toFixed(0)}%≥${EDGE_CUT_TAPER * 100}%・縁幅 ${(edgeLineFrac * 100).toFixed(0)}%）` });
       } else {
         violations.push({ rule: 'EDGE_TIGHT', severity: 'LOW', side, detail: `${side}縁で先細り接触＝端点タイトトリム（密度比 ${(taper * 100).toFixed(0)}%<${EDGE_CUT_TAPER * 100}%）` });
       }
     }
   }
+
+  // 行 from〜to（縁から数えた位置・両端を含む）を、ある列（±1px の傾きまで）のインクが途切れずに通るか
+  const isInk = (x, y) => x >= 0 && x < W && data[y * W + x] < INK_THRESHOLD;
+  const strokeCrossesGap = (from, to, idx) => {
+    for (let x = 0; x < W; x++) {
+      let k = from;
+      while (k <= to && (isInk(x, idx(k)) || isInk(x - 1, idx(k)) || isInk(x + 1, idx(k)))) k++;
+      if (k > to) return true;
+    }
+    return false;
+  };
 
   // 断片写り込み（上端・下端）: 縁側の小インク島が白ギャップで本体と分離
   const strayCheck = (fromTop) => {
@@ -189,6 +208,9 @@ export async function analyzeImage(absPath) {
     const inkFrac = blockInk / totalInk;
     const gapOk = gap >= Math.max(STRAY_MIN_GAP_PX, blockH * 1.2);
     const side = fromTop ? 'top' : 'bottom';
+    // 島から本体まで縦の線が途切れずに通っていれば図の一部（ギャップの行は細い縦線だけなので白ラインに数えられる）。
+    // 2026-10-07: 図5.4 の上端の帰還矢印（横線が左の縦線と下向き矢印で本体に繋がる）を切れ端と誤判定した
+    if (gapOk && strokeCrossesGap(blockEnd - 1, blockEnd + gap, idx)) return null;
     // 極薄スライバー（高精度・CI ブロッキング）: 隣接図の切れ端
     if (blockH <= Math.max(SLIVER_MAX_H_PX, H * SLIVER_MAX_H_FRAC) && inkFrac <= SLIVER_MAX_INK_FRAC && gapOk) {
       return { rule: 'STRAY_SLIVER', severity: 'HIGH', side,
@@ -282,4 +304,5 @@ async function main() {
   }
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// import（figure-recrop.mjs・figure-review-queue.mjs が analyzeImage を使う）では全件走査とレポート上書きを走らせない
+if (isCliEntry(import.meta.url)) main().catch((e) => { console.error(e); process.exit(1); });

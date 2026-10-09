@@ -36,7 +36,7 @@ note の段階投下は `content/note/技術士総監/noteコンテンツ計画.
 2. **収益化親戦略**: `docs/strategy/04_収益化戦略.md`・`content/note/技術士総監/noteコンテンツ計画.md` の参照先
 3. **magazine 在庫**: `content/note/magazines/総監模範論文-{属性}/R0X/` と `content/note/magazines/総監テキスト精読ガイド/5管理-*/` の存在状況（どの属性 × 年度・どの管理が公開済み/未着手か）
 4. **単体 note 記事**: `content/note/*/article.md` の `notePricing` / `notePublishedAt` / `noteUrl`（公開済みか・無料か有料か）
-5. **価格**: `src/lib/note-magazines.ts` の各エントリ `price`（マガジン/セット価格の真実源）＋各記事 `article.md` frontmatter `price:`（単品）。**模範論文ペルソナ別マガジンに `_meta.yaml` は無い**（2026-06-09 廃止）。精読ガイド等で価格 yaml を持つ商品は `project_paid_note_pricing` メモ参照
+5. **価格**: 正本は `config/products.json`（マガジン/セット価格は `catalog.price`・単品は `articlePrices`。`note-magazines.ts` と記事の frontmatter `price:` はその写し）。**模範論文ペルソナ別マガジンに `_meta.yaml` は無い**（2026-06-09 廃止）。精読ガイド等で価格 yaml を持つ商品は `project_paid_note_pricing` メモ参照
 6. **過去問カバレッジ**: `content/site/pe-comprehensive-management/{r0X-essay-*,pattern-essay-*}/` — 模範論文ページが揃っている属性 × 年度
 
 ### Step 2: ギャップを突き合わせる

@@ -1,7 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="公共測量における水準測量の等級別基準。視準距離は1級2級が最大50メートル、3級4級が最大70メートル、簡易が最大100メートル。読定単位は1級0.01ミリメートル、2級0.1ミリメートル、3級以下1ミリメートル。往復較差の許容範囲は1級2.5、2級5、3級10、4級20ミリメートルにルートSを乗じた値">
+  aria-label="公共測量における水準測量の等級別基準。視準距離は1級が最大50メートル、2級が最大60メートル、3級4級が最大70メートル、簡易が最大80メートル。読定単位は1級0.1ミリメートル、2級以下1ミリメートル。往復較差の許容範囲は1級2.5、2級5、3級10、4級20ミリメートルにルートSを乗じた値">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -28,11 +28,11 @@
 
   <text class="t-row" x="40" y="106">1級水準測量</text>
   <text class="t-val" x="252" y="106" text-anchor="end">最大 50 m</text>
-  <text class="t-val" x="360" y="106" text-anchor="end">0.01 mm</text>
+  <text class="t-val" x="360" y="106" text-anchor="end">0.1 mm</text>
 
   <text class="t-row" x="40" y="130">2級水準測量</text>
-  <text class="t-val" x="252" y="130" text-anchor="end">最大 50 m</text>
-  <text class="t-val" x="360" y="130" text-anchor="end">0.1 mm</text>
+  <text class="t-val" x="252" y="130" text-anchor="end">最大 60 m</text>
+  <text class="t-val" x="360" y="130" text-anchor="end">1 mm</text>
 
   <text class="t-row" x="40" y="154">3級水準測量</text>
   <text class="t-val" x="252" y="154" text-anchor="end">最大 70 m</text>
@@ -43,7 +43,7 @@
   <text class="t-val" x="360" y="178" text-anchor="end">1 mm</text>
 
   <text class="t-row" x="40" y="202">簡易水準測量</text>
-  <text class="t-val" x="252" y="202" text-anchor="end">最大 100 m</text>
+  <text class="t-val" x="252" y="202" text-anchor="end">最大 80 m</text>
   <text class="t-val" x="360" y="202" text-anchor="end">1 mm</text>
 
   <rect class="box-w" x="20" y="246" width="360" height="152" rx="6"/>
@@ -71,5 +71,5 @@
   <rect class="box-surf" x="20" y="412" width="360" height="70" rx="6"/>
   <text class="t-note" x="200" y="436" text-anchor="middle">往復観測を行い、較差が許容範囲内であることを確認する</text>
   <text class="t-note" x="200" y="458" text-anchor="middle">前視と後視の視準距離の差も制限値以内にする</text>
-  <text class="t-note" x="200" y="476" text-anchor="middle">1測点の標尺の読みは2回以上行う</text>
+  <text class="t-note" x="200" y="476" text-anchor="middle">観測は1視準1読定とする</text>
 </svg>

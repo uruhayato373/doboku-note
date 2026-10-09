@@ -1,0 +1,76 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="横線式工程表の例。基礎工事の作業を上から順に並べ、本文の条件の所要日数を横棒で示す。掘削工3日、砕石基礎工3日、鉄筋工＋型枠工4日、コンクリート打設工2日、養生工3日、型枠脱型工5日、埋戻し工2日">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand-fill / brand */
+      .b-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive-fill / positive */
+      .b-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill / warn */
+      .b-gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface */
+      .frame   { fill: none; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 4; }   /* brand dashed */
+      .dash    { fill: none; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .arr     { stroke: #2e6da4; stroke-width: 2; fill: none; }   /* brand */
+      .ln      { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .rule    { stroke: #d7d7d7; stroke-width: 1; }
+      .box     { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">横線式工程表の例（基礎工事）</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">作業ごとの所要日数を、横棒で並べる</text>
+  <text class="t-key" x="16" y="86">作業</text>
+  <text class="t-note" x="164" y="86" text-anchor="middle">0</text>
+  <line class="rule" x1="164" y1="92" x2="164" y2="98"/>
+  <text class="t-note" x="214" y="86" text-anchor="middle">5</text>
+  <line class="rule" x1="214" y1="92" x2="214" y2="98"/>
+  <text class="t-note" x="264" y="86" text-anchor="middle">10</text>
+  <line class="rule" x1="264" y1="92" x2="264" y2="98"/>
+  <text class="t-note" x="314" y="86" text-anchor="middle">15</text>
+  <line class="rule" x1="314" y1="92" x2="314" y2="98"/>
+  <text class="t-note" x="364" y="86" text-anchor="middle">20</text>
+  <line class="rule" x1="364" y1="92" x2="364" y2="98"/>
+  <text class="t-note" x="150" y="86" text-anchor="end">経過日数</text>
+  <line class="rule" x1="16" y1="100" x2="384" y2="100"/>
+  <text class="t-lab" x="16" y="121">掘削工</text>
+  <rect class="b-brand" x="164" y="108" width="30" height="18" rx="2"/>
+  <text class="t-note" x="200" y="121">3日</text>
+  <line class="rule" x1="16" y1="134" x2="384" y2="134"/>
+  <text class="t-lab" x="16" y="155">砕石基礎工</text>
+  <rect class="b-brand" x="194" y="142" width="30" height="18" rx="2"/>
+  <text class="t-note" x="230" y="155">3日</text>
+  <line class="rule" x1="16" y1="168" x2="384" y2="168"/>
+  <text class="t-lab" x="16" y="189">鉄筋工＋型枠工</text>
+  <rect class="b-brand" x="224" y="176" width="40" height="18" rx="2"/>
+  <text class="t-note" x="270" y="189">4日</text>
+  <line class="rule" x1="16" y1="202" x2="384" y2="202"/>
+  <text class="t-lab" x="16" y="223">コンクリート打設工</text>
+  <rect class="b-brand" x="264" y="210" width="20" height="18" rx="2"/>
+  <text class="t-note" x="290" y="223">2日</text>
+  <line class="rule" x1="16" y1="236" x2="384" y2="236"/>
+  <text class="t-lab" x="16" y="257">養生工</text>
+  <rect class="b-brand" x="284" y="244" width="30" height="18" rx="2"/>
+  <text class="t-note" x="320" y="257">3日</text>
+  <line class="rule" x1="16" y1="270" x2="384" y2="270"/>
+  <text class="t-lab" x="16" y="291">型枠脱型工</text>
+  <rect class="b-brand" x="314" y="278" width="50" height="18" rx="2"/>
+  <text class="t-note" x="308" y="291" text-anchor="end">5日</text>
+  <line class="rule" x1="16" y1="304" x2="384" y2="304"/>
+  <text class="t-lab" x="16" y="325">埋戻し工</text>
+  <rect class="b-brand" x="364" y="312" width="20" height="18" rx="2"/>
+  <text class="t-note" x="358" y="325" text-anchor="end">2日</text>
+  <line class="rule" x1="16" y1="338" x2="384" y2="338"/>
+  <rect class="box" x="16" y="366" width="368" height="92" rx="6"/><text class="t-key" x="30" y="394">読み方</text><text class="t-lab" x="104" y="394">棒の左端が着手、右端が完了</text><text class="t-key" x="30" y="418">条件</text><text class="t-lab" x="104" y="418">連なる5つの工事を、作業班1班で施工する</text><text class="t-key" x="30" y="442">日数</text><text class="t-lab" x="104" y="442">本文の条件の数値だけを並べた例</text>
+</svg>

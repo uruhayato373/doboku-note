@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="矢板土留め工の構成。断面では両側の矢板に腹起しを当て、切ばりで支える。中間杭は切ばりの自重と施工時の荷重を支え、座屈や滑動を防ぐ。平面では腹起しと切ばり、隅角部の火打ちの配置を示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-sheet-pile-layout-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-sheet-pile-layout-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-sheet-pile-layout-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-sheet-pile-layout-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">矢板土留め工の構成と中間杭</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">矢板・腹起し・切ばり・火打ちと、それを支える中間杭</text>
+  <text class="t-key" x="24" y="72">断面</text>
+  <rect class="soil" x="16" y="96" width="54" height="154"/>
+  <rect class="soil" x="330" y="96" width="54" height="154"/>
+  <rect class="soil" x="76" y="214" width="248" height="36"/>
+  <rect class="brand" x="70" y="84" width="6" height="166"/>
+  <rect class="brand" x="324" y="84" width="6" height="166"/>
+  <text class="t-key" x="73" y="78" text-anchor="middle">矢板</text>
+  <text class="t-key" x="327" y="78" text-anchor="middle">矢板</text>
+  <rect class="green" x="76" y="123" width="10" height="10"/>
+  <rect class="green" x="314" y="123" width="10" height="10"/>
+  <line x1="86" y1="128" x2="314" y2="128" style="stroke:#2e6da4;stroke-width:4"/>
+  <rect class="green" x="76" y="169" width="10" height="10"/>
+  <rect class="green" x="314" y="169" width="10" height="10"/>
+  <line x1="86" y1="174" x2="314" y2="174" style="stroke:#2e6da4;stroke-width:4"/>
+  <line x1="200" y1="84" x2="200" y2="236" style="stroke:#3a7d44;stroke-width:6"/>
+  <text class="t-pos" x="210" y="204">中間杭</text>
+  <text class="t-key" x="120" y="120" style="fill:#2e6da4">切ばり</text>
+  <text class="t-pos" x="96" y="196">腹起し</text>
+  <text class="t-note" x="200" y="236" style="display:none"></text>
+  <text class="t-key" x="24" y="268">平面</text>
+  <rect x="104" y="274" width="192" height="92" style="fill:#ffffff;stroke:#2e6da4;stroke-width:6"/>
+  <rect x="112" y="282" width="176" height="76" style="fill:none;stroke:#3a7d44;stroke-width:4"/>
+  <line x1="112" y1="304" x2="288" y2="304" style="stroke:#2e6da4;stroke-width:3"/>
+  <line x1="112" y1="336" x2="288" y2="336" style="stroke:#2e6da4;stroke-width:3"/>
+  <circle cx="200" cy="304" r="5" style="fill:#3a7d44"/>
+  <circle cx="200" cy="336" r="5" style="fill:#3a7d44"/>
+  <line x1="134" y1="282" x2="112" y2="304" style="stroke:#d4a017;stroke-width:3"/>
+  <line x1="266" y1="282" x2="288" y2="304" style="stroke:#d4a017;stroke-width:3"/>
+  <line x1="134" y1="358" x2="112" y2="336" style="stroke:#d4a017;stroke-width:3"/>
+  <line x1="266" y1="358" x2="288" y2="336" style="stroke:#d4a017;stroke-width:3"/>
+  <text class="t-warn" x="24" y="300" style="fill:#d4a017">火打ち</text>
+  <line class="lead" x1="64" y1="296" x2="120" y2="290"/>
+  <text class="t-key" x="310" y="298" style="fill:#2e6da4">切ばり</text>
+  <text class="t-pos" x="310" y="352">中間杭</text>
+  <text class="t-note" x="310" y="318">腹起し・矢板は</text>
+  <text class="t-note" x="310" y="332">外周を囲む</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">役割</text>
+  <text class="t-lab" x="104" y="414">支保工の自重・施工時の荷重を支える</text>
+  <text class="t-key" x="30" y="440">あわせて</text>
+  <text class="t-lab" x="104" y="440">切ばりの座屈・滑動を防ぐ</text>
+  <text class="t-key" x="30" y="466">火打ち</text>
+  <text class="t-lab" x="104" y="466">長いときは中間杭で浮き上がりを防ぐ</text>
+
+</svg>

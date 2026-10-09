@@ -12,7 +12,7 @@ metadata:
 
 ## backlog 操作の罠
 - **挿入位置**: 凡例表に `| ## 🔴 高 |` `| ## 🟣 判断待ち |` のように見出しと同じ文字列が入っている。`s.index('## 🟣 判断待ち')` で位置を取ると凡例表の中にカードが入り表が壊れる（2026-09-27 に2回）。`'\n## 🟣 判断待ち — ユーザーの意思決定が必要'` のように改行始まりの完全な見出しで取り、書いた後 `sed -n 16,21p` で凡例を確認（check-backlog-schema は表の破損を止めない）。
-- **二重採番**: `node scripts/backlog-edit.mjs --next-id` は作業ツリーの backlog.md（develop）だけを見る。2026-09-27、PR #672（未マージ）内で DN-0414 を起票した直後に develop で別カードへ同じ DN-0414 を振った（DN-0415 へ振り直し）。起票は develop へ直接 push が基本。やむなく PR に入れたら番号を控え、次の起票前に `git grep -h -o 'DN-0[0-9]*' $(git branch -r --list 'origin/feature/*')` で未マージ側の最大番号も確認。
+- **二重採番**: 2026-09-27、PR #672（未マージ）内で DN-0414 を起票した直後に develop で別カードへ同じ DN-0414 を振った（DN-0415 へ振り直し）。その後 `--next-id` は全ブランチの履歴（`git log --all`）を見るようになった（DN-0340）。起票は `npm run todo:add`（origin/develop へ直接 push・2026-10-07〜）が基本で、PR に入れない。
 - **カード削除前に docs 参照**: 完了削除の前に `grep -rn "DN-XXXX" docs` で参照を探し、同じ commit で「完了（日付・PR番号）」へ置換。2026-09-30、DN-0405・DN-0365 削除直後に docs/editorial/07 と docs/strategy/13 の参照が dangling-id になり develop の CI（project-task-refs・unit-tests）が赤化（`backlog-edit.mjs --delete` は参照を見ない）。削除前に `node scripts/check-project-task-refs.mjs` で error 0 を確認。`--delete` は `--commit` を付けないと書き戻さない（dry-run が既定）。
 
 ## 月間のカード数は絞らない・翌月へ roll-over

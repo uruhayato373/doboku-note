@@ -3,10 +3,10 @@
  * check-competitor-scan-due.mjs
  * ---------------------------------------------------------------------------
  * 競合の再取得（scout-*-competitors）が四半期サイクル（既定90日）に対して期限切れかを
- * 全チャネル（note / coconala / x / ig）と、資格キーワードでの市場スキャン（market）で機械判定する surfacer。
+ * 全チャネル（note / coconala / x / ig / youtube）と、資格キーワードでの市場スキャン（market）で機械判定する surfacer。
  * note / coconala / ig は competitor-scan.yml が四半期に自動取得し、本 surfacer は
  * その失敗・停止の backstop。X はログイン済み個人セッションが
- * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。
+ * 必要なため、weekly-review-guard / weekly-review から手動期限を通知する。YouTube も手動（npm run scout-youtube-competitors）。
  *
  * 判定: 各チャネルの時系列（台帳 <取得元>.competitors・market は analysis.qualification-market）の最新の日付から経過日数
  *       >= しきい値（既定90日）で DUE。履歴が無ければ DUE(初回)。
@@ -30,6 +30,8 @@ const PLATFORMS = {
   coconala: { dataset: 'coconala.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform coconala で意味分析' },
   x: { dataset: 'x.competitors', review: '/competitor-review --platform x' },
   ig: { dataset: 'instagram.competitors', automation: 'ci', review: 'competitor-scan.yml の失敗を確認。取得済みなら /competitor-review --platform ig で意味分析' },
+  // YouTube は一覧（yt-dlp）を手元で取る。分析の文章は docs/marketing/07c（画面・尺・型）
+  youtube: { dataset: 'youtube.competitors', review: 'npm run scout-youtube-competitors → docs/marketing/07c の再取得手順で前回と比べる' },
   // 資格ごとの混み具合（YouTube・note・ココナラの検索）。展開の判断（npm run qualification-market）が読む
   market: { dataset: 'analysis.qualification-market', review: 'npm run scan-qualification-market -- --coconala → /competitor-review で展開の判断を見直す' },
 };

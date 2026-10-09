@@ -1,0 +1,130 @@
+name: 🗂️ Reconcile content registry with YouTube (daily)
+
+# コンテンツ台帳（content/registry）の YouTube の公開を videos.list の観測と突き合わせる（DN-0608・content-registry.md「照合」）。
+# 予約の動画が public になっていれば published へ進め（証拠つき）、台帳と写しの今の台帳を develop へ書き戻す。
+# 後戻り・消えた動画は所見として .claude/state/registry-reconcile/ に残し、automation-failure Issue（channel: registry-reconcile）で知らせる。
+# 状態を戻す・止めるのは人が決める（このワークフローは前進しか書かない）。
+# 実装: scripts/registry-reconcile.mjs（判定は scripts/lib/registry-reconcile.mjs）
+#
+# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
+
+on:
+  schedule:
+    - cron: "43 15 * * *" # 毎日 00:43 JST（UTC 15:43）。20:00 JST の公開の後
+  workflow_dispatch:
+
+# develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ（DN-0109）
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write # automation-failure Issue の起票・自動クローズ（限定例外）
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # npm ci（--ignore-scripts なし）は prepare で pre-commit フックを入れる。フックが読む
+      # src/config/doc-meta-index.json は git 追跡外の生成物なので、ここで作らないと commit の瞬間に落ちる。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      - name: Reconcile
+        id: reconcile
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
+          set +e
+          node scripts/registry-reconcile.mjs 2>&1 | tee "$RUNNER_TEMP/reconcile.log"
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      # 公開へ進めた動画は、公開実体の照合（verify-video-publication・check-video-publication の V02）にも
+      # 同じ日のうちに載せる。週次の verify-yt-status.yml だけだと、進めた日から次の金曜まで V02 が赤になる（2026-10-09）
+      - name: Verify video pack publication
+        if: steps.reconcile.outputs.exit_code != '2'
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: node scripts/verify-video-publication.mjs || true
+
+      # 検査不成立（exit 2）は何も書いていないので、書き戻しは 0・1 のときだけ
+      - name: Publish to develop
+        if: steps.reconcile.outputs.exit_code != '2'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          node scripts/ci-data.mjs add --paths content/registry,.claude/state/registry-reconcile,.claude/state/video-publication-verify.json
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(registry): reconcile YouTube $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          # develop は数分おきに積まれるので、rebase と push の間に先を越されたら取り直す（2026-10-09 初回で cannot lock ref）
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin develop
+            if git push origin HEAD:develop; then exit 0; fi
+            echo "push に失敗（${attempt} 回目）。取り直す"
+            sleep $((attempt * 5))
+          done
+          echo "::error::develop への push が 5 回とも失敗した"
+          exit 1
+
+      - name: Summarize
+        if: always()
+        run: |
+          {
+            echo "## content registry reconcile（$(date -u +%Y-%m-%dT%H:%MZ)・exit ${{ steps.reconcile.outputs.exit_code }}）"
+            echo '```'
+            tail -20 "$RUNNER_TEMP/reconcile.log" 2>/dev/null || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report - drift or inconclusive (automation-failure Issue)
+        if: steps.reconcile.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs \
+            --channel registry-reconcile \
+            --title "コンテンツ台帳の照合（rc=${{ steps.reconcile.outputs.exit_code }}・1=後戻り/消えた動画・2=検査不成立）" \
+            --body-file "$RUNNER_TEMP/reconcile.log"
+
+      - name: Resolve - close registry-reconcile Issue on recovery
+        if: steps.reconcile.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel registry-reconcile \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail on drift or inconclusive
+        if: steps.reconcile.outputs.exit_code != '0'
+        run: |
+          echo "::error::registry-reconcile が rc=${{ steps.reconcile.outputs.exit_code }} で終わりました。.claude/state/registry-reconcile/youtube.json と automation-failure Issue（channel: registry-reconcile）を参照。"
+          exit 1

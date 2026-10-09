@@ -20,6 +20,7 @@
   ],
   "ignoreBinaries": [
     "cmd.exe",
+    "codex",
     "du",
     "ffmpeg",
     "ffprobe",
@@ -50,6 +51,7 @@
     "@radix-ui/react-dialog",
     "@radix-ui/react-separator",
     "@radix-ui/react-tooltip",
+    "@tanstack/react-table",
     "textlint"
   ]
 }

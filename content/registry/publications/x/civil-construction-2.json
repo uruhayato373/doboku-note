@@ -1,0 +1,1197 @@
+{
+  "schemaVersion": 1,
+  "channel": "x",
+  "exam": "civil-construction-2",
+  "publications": [
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t01",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/096-character-2026-10-a#1",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/1",
+      "publishAt": "2026-10-20T12:10:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t02",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/096-character-2026-10-a#2",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/2",
+      "publishAt": "2026-10-26T12:22:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t03",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/096-character-2026-10-a#3",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/3",
+      "publishAt": "2026-10-21T07:22:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t04",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/096-character-2026-10-a#4",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/4",
+      "publishAt": "2026-10-10T08:00:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t05",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/096-character-2026-10-a#5",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/5",
+      "publishAt": "2026-10-21T12:23:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t06",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/096-character-2026-10-a#6",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/6",
+      "publishAt": "2026-10-04T20:51:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "予約（2026-10-04T20:51:00.000+09:00）を過ぎたが、投稿の記録が無い（X の CI 投稿は停止中）"
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t07",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/096-character-2026-10-a#7",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/7",
+      "publishAt": "2026-10-10T12:30:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t08",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/096-character-2026-10-a#8",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/8",
+      "publishAt": "2026-10-28T12:14:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t09",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/096-character-2026-10-a#9",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/9",
+      "publishAt": "2026-10-11T08:17:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t10",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/096-character-2026-10-a#10",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/10",
+      "publishAt": "2026-10-11T12:43:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t11",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/096-character-2026-10-a#11",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/11",
+      "publishAt": "2026-10-22T07:39:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t12",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/096-character-2026-10-a#12",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/12",
+      "publishAt": "2026-10-05T19:35:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "予約（2026-10-05T19:35:00.000+09:00）を過ぎたが、投稿の記録が無い（X の CI 投稿は停止中）"
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t13",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/096-character-2026-10-a#13",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/13",
+      "publishAt": "2026-10-12T07:19:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t14",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/096-character-2026-10-a#14",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/14",
+      "publishAt": "2026-10-22T12:36:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t15",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t15",
+      "legacyKey": "draft/096-character-2026-10-a#15",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/15",
+      "publishAt": "2026-10-12T12:16:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t16",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t16",
+      "legacyKey": "draft/096-character-2026-10-a#16",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/16",
+      "publishAt": "2026-10-13T07:36:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t17",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t17",
+      "legacyKey": "draft/096-character-2026-10-a#17",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/17",
+      "publishAt": "2026-10-30T12:31:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/character-10-a/x.post.t18",
+      "work": "character-10-a",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t18",
+      "legacyKey": "draft/096-character-2026-10-a#18",
+      "copy": "content/sns/x/draft/096-character-2026-10-a/status.json#tweets/18",
+      "publishAt": "2026-10-08T20:32:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "予約（2026-10-08T20:32:00.000+09:00）を過ぎたが、投稿の記録が無い（X の CI 投稿は停止中）"
+    },
+    {
+      "id": "civil-construction-2/civil2-08-boost/x.post.t01",
+      "work": "civil2-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/085-civil2-2026-08-boost#1",
+      "copy": "content/sns/x/draft/085-civil2-2026-08-boost/status.json#tweets/1",
+      "publishAt": "2026-08-17T12:35:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2089194254560358726",
+        "url": "https://x.com/doboku373/status/2089194254560358726",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-boost/x.post.t02",
+      "work": "civil2-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/085-civil2-2026-08-boost#2",
+      "copy": "content/sns/x/draft/085-civil2-2026-08-boost/status.json#tweets/2",
+      "publishAt": "2026-08-20T07:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2090207178523373967",
+        "url": "https://x.com/doboku373/status/2090207178523373967",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-boost/x.post.t03",
+      "work": "civil2-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/085-civil2-2026-08-boost#3",
+      "copy": "content/sns/x/draft/085-civil2-2026-08-boost/status.json#tweets/3",
+      "publishAt": "2026-08-20T12:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2090282676066419144",
+        "url": "https://x.com/doboku373/status/2090282676066419144",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-late/x.post.t01",
+      "work": "civil2-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/088-civil2-2026-08-late#1",
+      "copy": "content/sns/x/draft/088-civil2-2026-08-late/status.json#tweets/1",
+      "publishAt": "2026-08-26T12:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2092457003268583492",
+        "url": "https://x.com/doboku373/status/2092457003268583492",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-late/x.post.t02",
+      "work": "civil2-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/088-civil2-2026-08-late#2",
+      "copy": "content/sns/x/draft/088-civil2-2026-08-late/status.json#tweets/2",
+      "publishAt": "2026-08-26T19:45:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2092563958234230937",
+        "url": "https://x.com/doboku373/status/2092563958234230937",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-late/x.post.t03",
+      "work": "civil2-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/088-civil2-2026-08-late#3",
+      "copy": "content/sns/x/draft/088-civil2-2026-08-late/status.json#tweets/3",
+      "publishAt": "2026-08-29T08:15:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2093477477720957015",
+        "url": "https://x.com/doboku373/status/2093477477720957015",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-08-late/x.post.t04",
+      "work": "civil2-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/088-civil2-2026-08-late#4",
+      "copy": "content/sns/x/draft/088-civil2-2026-08-late/status.json#tweets/4",
+      "publishAt": "2026-08-29T12:35:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2093542908976582682",
+        "url": "https://x.com/doboku373/status/2093542908976582682",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-coconala10/x.post.t01",
+      "work": "civil2-coconala10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/107-civil2-coconala-2026-10#1",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "civil-construction-2/civil2-coconala10/x.post.t02",
+      "work": "civil2-coconala10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/107-civil2-coconala-2026-10#2",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t01",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/097-civil2-final-2026-10#1",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/1",
+      "publishAt": "2026-10-13T12:19:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t02",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/097-civil2-final-2026-10#2",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/2",
+      "publishAt": "2026-10-09T20:51:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t03",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/097-civil2-final-2026-10#3",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/3",
+      "publishAt": "2026-10-14T07:53:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t04",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/097-civil2-final-2026-10#4",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/4",
+      "publishAt": "2026-10-10T19:35:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t05",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/097-civil2-final-2026-10#5",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/5",
+      "publishAt": "2026-10-14T12:32:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t06",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/097-civil2-final-2026-10#6",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/6",
+      "publishAt": "2026-10-06T12:28:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "予約（2026-10-06T12:28:00.000+09:00）を過ぎたが、投稿の記録が無い（X の CI 投稿は停止中）"
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t07",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/097-civil2-final-2026-10#7",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/7",
+      "publishAt": "2026-10-14T20:51:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t08",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/097-civil2-final-2026-10#8",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/8",
+      "publishAt": "2026-10-11T19:54:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t09",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/097-civil2-final-2026-10#9",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/9",
+      "publishAt": "2026-10-15T08:10:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t10",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/097-civil2-final-2026-10#10",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/10",
+      "publishAt": "2026-10-12T20:13:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t11",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/097-civil2-final-2026-10#11",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/11",
+      "publishAt": "2026-10-15T12:45:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t12",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/097-civil2-final-2026-10#12",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/12",
+      "publishAt": "2026-10-13T20:32:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t13",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t13",
+      "legacyKey": "draft/097-civil2-final-2026-10#13",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/13",
+      "publishAt": "2026-10-23T12:54:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-final10/x.post.t14",
+      "work": "civil2-final10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t14",
+      "legacyKey": "draft/097-civil2-final-2026-10#14",
+      "copy": "content/sns/x/draft/097-civil2-final-2026-10/status.json#tweets/14",
+      "publishAt": "2026-10-24T19:48:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t01",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/074-civil2-keiken-w1#1",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/1",
+      "publishAt": "2026-07-19T19:40:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2078791960811430137",
+        "url": "https://x.com/doboku373/status/2078791960811430137",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t02",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/074-civil2-keiken-w1#2",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/2",
+      "publishAt": "2026-07-20T20:10:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2079161898432360772",
+        "url": "https://x.com/doboku373/status/2079161898432360772",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t03",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/074-civil2-keiken-w1#3",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/3",
+      "publishAt": "2026-07-21T21:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2079541903154958408",
+        "url": "https://x.com/doboku373/status/2079541903154958408",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t04",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/074-civil2-keiken-w1#4",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/4",
+      "publishAt": "2026-07-22T08:05:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2079704222262562818",
+        "url": "https://x.com/doboku373/status/2079704222262562818",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t05",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/074-civil2-keiken-w1#5",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/5",
+      "publishAt": "2026-07-23T20:35:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "自分の投稿の一覧と本文で 1 件に結び付かない"
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t06",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/074-civil2-keiken-w1#6",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/6",
+      "publishAt": "2026-07-24T21:15:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2080627808116900228",
+        "url": "https://x.com/doboku373/status/2080627808116900228",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-keiken-w1/x.post.t07",
+      "work": "civil2-keiken-w1",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/074-civil2-keiken-w1#7",
+      "copy": "content/sns/x/draft/074-civil2-keiken-w1/status.json#tweets/7",
+      "publishAt": "2026-07-26T09:30:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2081175164344275433",
+        "url": "https://x.com/doboku373/status/2081175164344275433",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t01",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#1",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/1",
+      "publishAt": "2026-10-16T20:06:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t02",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#2",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/2",
+      "publishAt": "2026-10-17T20:24:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t03",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#3",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/3",
+      "publishAt": "2026-10-18T19:47:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t04",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#4",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/4",
+      "publishAt": "2026-10-19T21:02:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t05",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#5",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/5",
+      "publishAt": "2026-10-20T20:38:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t06",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#6",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/6",
+      "publishAt": "2026-10-21T19:41:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-lastweek10/x.post.t07",
+      "work": "civil2-lastweek10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/106-civil2-lastweek-2026-10#7",
+      "copy": "content/sns/x/draft/106-civil2-lastweek-2026-10/status.json#tweets/7",
+      "publishAt": "2026-10-22T20:19:00.000+09:00",
+      "status": "approved",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-pinned10/x.post.t01",
+      "work": "civil2-pinned10",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/105-civil2-pinned-2026-10#1",
+      "copy": "content/sns/x/draft/105-civil2-pinned-2026-10/status.json#tweets/1",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2106490904156750098",
+        "url": "https://x.com/doboku373/status/2106490904156750098",
+        "privacy": "public",
+        "evidence": {
+          "kind": "posted-url",
+          "ref": "status.json"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t01",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#1",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/1",
+      "publishAt": "2026-06-04T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t02",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#2",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/2",
+      "publishAt": "2026-06-05T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t03",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#3",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/3",
+      "publishAt": "2026-06-06T18:30:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t04",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#4",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/4",
+      "publishAt": "2026-09-20T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t05",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#5",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/5",
+      "publishAt": "2026-09-27T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t06",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t06",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#6",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/6",
+      "publishAt": "2026-10-04T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t07",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t07",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#7",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/7",
+      "publishAt": "2026-10-11T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t08",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t08",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#8",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/8",
+      "publishAt": "2026-10-15T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t09",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t09",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#9",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/9",
+      "publishAt": "2026-10-20T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t10",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t10",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#10",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/10",
+      "publishAt": "2026-10-18T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t11",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t11",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#11",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/11",
+      "publishAt": "2026-10-21T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/civil2-shiken-campaign/x.post.t12",
+      "work": "civil2-shiken-campaign",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t12",
+      "legacyKey": "draft/_archive-old-account/045-civil2-shiken-campaign#12",
+      "copy": "content/sns/x/draft/_archive-old-account/045-civil2-shiken-campaign/status.json#tweets/12",
+      "publishAt": "2026-10-23T07:00:00.000+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "凍結した旧アカウント（@dobokunotecom）の投稿・予約"
+    },
+    {
+      "id": "civil-construction-2/x043-civil2-r05z/x.post.t01",
+      "work": "x043-civil2-r05z",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/_archive-old-account/043-civil2-r05z頻出#1",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "civil-construction-2/x043-civil2-r05z/x.post.t02",
+      "work": "x043-civil2-r05z",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/_archive-old-account/043-civil2-r05z頻出#2",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "civil-construction-2/x043-civil2-r05z/x.post.t03",
+      "work": "x043-civil2-r05z",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/_archive-old-account/043-civil2-r05z頻出#3",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    },
+    {
+      "id": "civil-construction-2/x043-civil2-r05z/x.post.t04",
+      "work": "x043-civil2-r05z",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/_archive-old-account/043-civil2-r05z頻出#4",
+      "status": "draft",
+      "reason": "tweets.md にだけある（status.json に鍵が無い）"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="工程と原価の関係は谷型で、施工を早めると原価は下がるがさらに早めると上昇に転じ、採算面で最適な速度が存在する。品質を良くすると原価は高くなり、施工速度は遅くなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-sec   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand-fill / brand */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }   /* positive-fill / positive */
+      .wrn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .dng   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .gry   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface */
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis  { stroke: #555; stroke-width: 1.5; fill: none; }
+      .thin  { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .dash  { stroke: #8a8a8a; stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+      .c-brand { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .c-pos   { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .c-wrn   { stroke: #d4a017; stroke-width: 3; fill: none; }
+      .c-dng   { stroke: #b22234; stroke-width: 3; fill: none; }
+      .c-dngd  { stroke: #b22234; stroke-width: 2.5; stroke-dasharray: 6 4; fill: none; }
+      .ar-b { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar-g { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ar-r { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ar-k { stroke: #555; stroke-width: 1.5; fill: none; }
+      .boom  { stroke: #8a8a8a; stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wire  { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .dot-b { fill: #2e6da4; }
+      .dot-g { fill: #3a7d44; }
+      .dot-r { fill: #b22234; }
+    </style>
+    <marker id="sk-b" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="sk-g" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="sk-r" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="sk-k" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+    <marker id="sk-ks" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">工程・品質・原価の相互関係</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">「早く・良く・安く」は同時には成り立たない</text>
+  <line class="axis" x1="56" y1="240" x2="372" y2="240"/>
+  <line class="axis" x1="56" y1="240" x2="56" y2="78"/>
+  <text class="t-note" x="62" y="80">原価</text>
+  <text class="t-note" x="372" y="232" text-anchor="end">施工速度</text>
+  <text class="t-note" x="62" y="258">遅い</text>
+  <text class="t-note" x="372" y="258" text-anchor="end">早い</text>
+  <path class="c-brand" d="M 70 100 Q 200 340 330 100"/>
+  <line class="dash" x1="200" y1="220" x2="200" y2="240"/>
+  <circle class="dot-g" cx="200" cy="220" r="5"/>
+  <text class="t-pos" x="200" y="262" text-anchor="middle">最適工期</text>
+  <text class="t-note" x="200" y="134" text-anchor="middle">採算面で最適な</text>
+  <text class="t-note" x="200" y="150" text-anchor="middle">施工速度が存在</text>
+  <text class="t-note" x="62" y="204">早めると</text><text class="t-note" x="62" y="218">原価は下がる</text>
+  <text class="t-warn" x="296" y="190">さらに早めると</text><text class="t-warn" x="296" y="206">原価は上昇</text>
+  <rect class="card" x="16" y="278" width="368" height="50" rx="6"/>
+  <text class="t-key" x="28" y="299">品質を良くすると、原価は高くなる</text>
+  <text class="t-note" x="28" y="317">例：強度を上げるにはセメント量を増やす</text>
+  <rect class="card" x="16" y="334" width="368" height="50" rx="6"/>
+  <text class="t-key" x="28" y="355">品質を良くすると、施工速度は遅くなる</text>
+  <text class="t-note" x="28" y="373">例：出来形の精度向上には型枠組立に時間がかかる</text>
+
+  <rect class="box" x="16" y="396" width="368" height="40" rx="6"/>
+  <text class="t-key" x="30" y="420">注意</text>
+  <text class="t-lab" x="104" y="420">工期を早めれば常に原価が上がる、は誤り</text>
+
+</svg>

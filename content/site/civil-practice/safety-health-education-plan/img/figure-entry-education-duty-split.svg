@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="元請が協力会社へ場所と資料を提供し、協力会社が作業者へ教育する流れと、元請が自ら周知する場合、それぞれの扱う内容を示した役割図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker><marker id="b" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#d4a017"/></marker></defs>
+<g stroke-width="1.5"><rect x="44" y="20" width="312" height="64" rx="8" fill="#e8f0fe" stroke="#2e6da4"/><rect x="44" y="130" width="312" height="64" rx="8" fill="#d0e8d0" stroke="#3a7d44"/><rect x="44" y="240" width="312" height="56" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/><rect x="20" y="336" width="170" height="130" rx="6" fill="#e8f0fe" stroke="#2e6da4"/><rect x="210" y="336" width="170" height="130" rx="6" fill="#d0e8d0" stroke="#3a7d44"/></g>
+<g fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#a)"><path d="M200 84V128"/><path d="M200 194V238"/></g>
+<path d="M44 52H24V268H42" fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<g text-anchor="middle" fill="#222" font-weight="700"><text x="200" y="47" font-size="14">元請（特定元方事業者）</text><text x="200" y="157" font-size="14">協力会社（雇用主）</text><text x="200" y="273" font-size="14">新たに入場する作業者</text></g>
+<g text-anchor="middle" font-size="11" fill="#1a3a5c"><text x="200" y="68">法第30条第1項第4号・則第638条・第642条の3</text><text x="200" y="178">雇入れ時・作業内容変更時の教育（則第35条）</text></g>
+<g font-size="11" fill="#555"><text x="212" y="108">場所・資料の提供</text><text x="212" y="121">教育の指導・援助</text><text x="212" y="214">教育を実施</text><text x="212" y="227">場所の状況を周知</text><text x="44" y="318">点線は、元請が自ら周知する場合（ただし書）</text></g>
+<g font-size="12" font-weight="700" fill="#222"><text x="30" y="358">元請が示す（場所）</text><text x="220" y="358">雇用主が行う（人）</text></g>
+<g font-size="12" fill="#1a3a5c"><text x="30" y="384">立入禁止範囲と動線</text><text x="30" y="404">危険箇所の位置</text><text x="30" y="424">他工種との関係</text><text x="30" y="444">緊急連絡と避難場所</text><text x="220" y="384">担当業務の機械</text><text x="220" y="404">保護具の取扱い</text><text x="220" y="424">作業手順と始業点検</text><text x="220" y="444">応急措置と退避</text></g>
+<text x="200" y="488" font-size="12" font-weight="700" fill="#222" text-anchor="middle">記録には、どちらの根拠で行ったかを書き分ける</text>
+</svg>

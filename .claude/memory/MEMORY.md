@@ -10,12 +10,15 @@
 - [管理画面UI](feedback_admin_ui_for_humans.md) — 人が見る画面、必要値のみ
 - [アフィリ転職のみ](feedback_affiliate_career_only.md) — 講座廃止・同一matピクセル監査
 - [自動化の置き場](feedback_cloud_routines_minimized.md) — ルーティン0・CIはIssue通知
+- [マガジン再収録](feedback_magazine_atomic_recollection.md) — 1答案1記事・切り口を消さない
 - [記事構成規約](feedback_content_structure.md) — 図・太字・3000字・価格直書き禁止
 - [デプロイ規律](feedback_deploy_discipline.md) — 性質別ブランチ・昇格手順・3点commit
 - [総監論文執筆規約](feedback_essay_char_limit.md) — 600字・散文・一般レベル
 - [総監ペルソナ採否](feedback_essay_persona_authentic_seat.md) — 経験座限定・ADRが真実源
 - [キーワードサイクル](feedback_exam_keyword_cycle_completeness.md) — 全RelatedKeywords処理
 - [過去問PDF突合](feedback_exam_pdf_cross_reference.md) — 全問を原典と視覚照合
+- [noteカタログ再生成](feedback_note_catalog_regen.md) — note原稿を変えたらbuild-note-catalog
+- [MDX整形の委任](feedback_subagent_mdx_acceptance.md) — textlint・lint・facts照合を受入れ条件に
 - [事実の一次照合](feedback_factcheck_guide_facts.md) — 制度・白書・URL・科目外
 - [ゲート偽PASS](feedback_gate_zero_coverage_false_pass.md) — 検査0件の緑・否定の単発判定
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
@@ -43,8 +46,9 @@
 - [/docs/URLフラットslug](feedback_sns_docs_url_flat_slug.md) — 接頭辞必須・pre-commit検証
 - [SSOT手書き禁止](feedback_ssot_no_hand_copies_self_verify.md) — 原文照合・仕様は実測
 - [SVG/画像生成の罠](feedback_svg_arrow_marker.md) — 矢印向き・再目視・auto-fit
+- [動画は音声前に画面確認](feedback_video_visual_check_before_audio.md) — 無音プレビュー・10秒シート
 - [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
-- [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記
+- [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
 
@@ -68,13 +72,13 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
-- [iOSアプリ](project_ios_app_spec_v1_1.md) — ¥1,800凍結・PWA優先
+- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
 - [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合
 - [1級一次キー誤り](project_civil1_primary_answer_key_errors.md) — 転記バグ・H29原典
 - [1級図の答え漏れ](project_civil1_figure_answer_leak.md) — 再抽出パイプライン
 - [土木guide展開](project_civil1_textbook_to_guide_expansion.md) — 非公開textbook根拠
-- [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊
+- [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊・brief見出しの罠・workflow一括展開
 - [土木経験記述note](project_civil1_flagship_pack.md) — 旗艦100工事・字数ゲート
 - [土木会員ラボ](project_civil_membership_design.md) — FLOWを買切りに出さない
 - [二次学科記述](project_civil_niji_gakka_line.md) — 5SKU公開・エディタ罠
@@ -89,7 +93,7 @@
 - [RCCM展開](project_rccm_launch_2026_09.md) — note5商品・サイト稼働
 
 ## Reference
-- [note実機反映](reference_note_update_body_gotchas.md) — blockquote脱落・境界・カード不可
+- [note実機反映](reference_note_update_body_gotchas.md) — blockquote脱落・境界・カード不可・会員記事の偽完了
 - [note live修復](reference_note_live_audit_gotchas_2026_09.md) — 偽陽性・CDN待ち・一括反映
 - [note公開手順](reference_note_publish_price_field.md) — price必須・会員限定・PDF・バンドル
 - [note照合系](reference_note_status_reconciler.md) — ステータス/再公開ドリフト/タグ
@@ -97,7 +101,7 @@
 - [売れる型SSOT](reference_note_selling_structures.md) — 9型＋6部品・誠実ガード
 - [サイトCTA配線](reference_site_magazine_cta_firing.md) — 発火条件・career CTA確認
 - [worktree罠](reference_shared_worktree_autostash_hazard.md) — autostash・hook・Turbopack
-- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源
+- [git重操作罠](reference_partial_clone_repack_hazard.md) — partial clone・gc・日付真実源・push前の;連結・誤shallow
 - [Win Bash罠](reference_git_show_ref_path_false_pass.md) — git show偽PASS・gh jq
 - [容量・速度](reference_mac_disk_reclaim.md) — check-disk-hygiene・EDRビルド
 - [長時間ジョブ](reference_background_jobs_die_with_session.md) — launchctl submit・スリープ遅延
@@ -111,6 +115,7 @@
 - [KDP罠](reference_kdp_price_change_gotchas.md) — 価格改定・svg-JPEG・自動化
 - [Drive vault](reference_book_sources_drive_vault.md) — 移設構造・マウントの罠
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — pdf-to-mdx --scanned・OCR罠
+- [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
 - [競合調査](reference_competitors_civil.md) — 土木・総監・pejp・YT解析
 - [アフィリ/Gmail](reference_affiliate_status_mail_vs_playwright.md) — 二経路確認・Gmail MCP

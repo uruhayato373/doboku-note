@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="深層混合処理工法の施工順序。位置決めの後、安定処理材を吐出しながら撹拌して貫入し、引き上げながら軟弱土と混合して、固結した安定処理杭をつくる。支持杭または摩擦杭として使う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .soil   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：土・地盤 */
+      .brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：構造物・機械 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：改良部・杭 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .weak   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .wl     { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="figure-deep-mixing-ab" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="figure-deep-mixing-ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="figure-deep-mixing-ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+    <marker id="figure-deep-mixing-ak" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="t-title" x="200" y="28" text-anchor="middle">深層混合処理工法</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">深い軟弱土を処理材と撹拌混合し、固めた杭にする</text>
+  <rect class="card" x="16" y="64" width="176" height="150" rx="6"/>
+  <rect class="card" x="208" y="64" width="176" height="150" rx="6"/>
+  <rect class="card" x="16" y="224" width="176" height="150" rx="6"/>
+  <rect class="card" x="208" y="224" width="176" height="150" rx="6"/>
+  <rect class="soil" x="24" y="136" width="160" height="68"/>
+  <text class="t-key" x="28" y="86">1 位置決め</text>
+  <rect class="brand" x="100" y="98" width="8" height="36"/>
+  <rect class="brand" x="86" y="126" width="36" height="8"/>
+  <text class="t-note" x="128" y="118">撹拌翼つき</text>
+  <rect class="soil" x="216" y="136" width="160" height="68"/>
+  <text class="t-key" x="220" y="86">2 吐出しながら貫入</text>
+  <rect x="290" y="136" width="12" height="42" style="fill:#d0e8d0;stroke:none"/>
+  <rect class="brand" x="292" y="98" width="8" height="88"/>
+  <rect class="brand" x="278" y="178" width="36" height="8"/>
+  <text class="t-note" x="320" y="132">安定処理材</text>
+  <line class="water" x1="320" y1="138" x2="304" y2="162" marker-end="url(#figure-deep-mixing-ag)" style="stroke:#3a7d44"/>
+  <rect class="soil" x="24" y="296" width="160" height="68"/>
+  <text class="t-key" x="28" y="246">3 引き上げて混合</text>
+  <rect class="green" x="92" y="320" width="24" height="40"/>
+  <rect class="brand" x="100" y="258" width="8" height="62"/>
+  <rect class="brand" x="86" y="312" width="36" height="8"/>
+  <line class="water" x1="76" y1="320" x2="76" y2="284" marker-end="url(#figure-deep-mixing-ab)"/>
+  <rect class="soil" x="216" y="296" width="160" height="68"/>
+  <text class="t-key" x="220" y="246">4 安定処理杭の完成</text>
+  <rect class="green" x="284" y="296" width="24" height="64"/>
+  <text class="t-note" x="296" y="284" text-anchor="middle">固結した杭</text>
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="414">材料</text>
+  <text class="t-lab" x="104" y="414">セメント系または石灰系の処理材</text>
+  <text class="t-key" x="30" y="440">原理</text>
+  <text class="t-lab" x="104" y="440">軟弱土と強制撹拌し、化学的に固結</text>
+  <text class="t-key" x="30" y="466">利用</text>
+  <text class="t-lab" x="104" y="466">支持杭または摩擦杭として使う</text>
+
+</svg>

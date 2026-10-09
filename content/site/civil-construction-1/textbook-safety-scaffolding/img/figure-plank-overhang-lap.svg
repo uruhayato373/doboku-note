@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="足場板の掛け渡し。3以上の支持物に掛け、突出しは10cm以上かつ板長の18分の1以下、継ぐときは支点の上で20cm以上重ねる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+    </style>
+  </defs>
+
+  <!-- 上段：3支点と突出し -->
+  <text x="200" y="28" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">3以上の支持物に掛け渡す</text>
+
+  <!-- 突出し寸法（左右） -->
+  <text x="200" y="64" text-anchor="middle" font-size="12" fill="#222">支点からの突出し：10cm以上、かつ板長の1/18以下</text>
+  <line x1="52" y1="96" x2="83" y2="96" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M52 96 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M83 96 l-6 -3 v6 z" fill="#2e6da4"/>
+  <line x1="317" y1="96" x2="348" y2="96" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M317 96 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M348 96 l-6 -3 v6 z" fill="#2e6da4"/>
+  <line x1="52" y1="90" x2="52" y2="118" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="83" y1="90" x2="83" y2="130" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="317" y1="90" x2="317" y2="130" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="348" y1="90" x2="348" y2="118" stroke="#8a8a8a" stroke-width="1"/>
+
+  <!-- 足場板 -->
+  <rect x="52" y="118" width="296" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 支持物 -->
+  <rect x="83" y="130" width="14" height="38" fill="#555"/>
+  <rect x="193" y="130" width="14" height="38" fill="#555"/>
+  <rect x="303" y="130" width="14" height="38" fill="#555"/>
+  <text x="90" y="188" text-anchor="middle" font-size="11" fill="#555">支持物</text>
+  <text x="200" y="188" text-anchor="middle" font-size="11" fill="#555">支持物</text>
+  <text x="310" y="188" text-anchor="middle" font-size="11" fill="#555">支持物</text>
+
+  <text x="200" y="216" text-anchor="middle" font-size="12" fill="#222">対象：幅20cm以上・厚さ3.5cm以上・長さ3.6m以上の板</text>
+
+  <line x1="30" y1="238" x2="370" y2="238" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 下段：重ね -->
+  <text x="200" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">継ぐときは支点の上で重ねる</text>
+
+  <!-- 板A・板B -->
+  <rect x="44" y="320" width="192" height="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="164" y="320" width="192" height="10" fill="#d0e8d0" fill-opacity="0.85" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="164" y="312" width="72" height="26" fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+  <!-- 支持物（5本） -->
+  <rect x="54" y="330" width="12" height="34" fill="#555"/>
+  <rect x="124" y="330" width="12" height="34" fill="#555"/>
+  <rect x="194" y="330" width="12" height="34" fill="#555"/>
+  <rect x="264" y="330" width="12" height="34" fill="#555"/>
+  <rect x="334" y="330" width="12" height="34" fill="#555"/>
+
+  <text x="140" y="302" text-anchor="middle" font-size="11" fill="#555">板A</text>
+  <text x="300" y="302" text-anchor="middle" font-size="11" fill="#555">板B</text>
+
+  <!-- 重ね寸法 -->
+  <line x1="164" y1="340" x2="164" y2="388" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="236" y1="340" x2="236" y2="388" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="164" y1="382" x2="236" y2="382" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M164 382 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M236 382 l-6 -3 v6 z" fill="#2e6da4"/>
+  <text x="200" y="408" text-anchor="middle" font-size="12" fill="#222">重ねの長さ：20cm以上</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="432" width="340" height="52" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="454" text-anchor="middle" font-size="12" fill="#222">例：長さ3.6mの板は 3.6÷18＝0.2m</text>
+  <text x="200" y="472" text-anchor="middle" font-size="12" fill="#222">突出しは10〜20cmに収まる</text>
+</svg>

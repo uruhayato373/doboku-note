@@ -56,7 +56,7 @@ const CATALOG_PATH = path.join(PROJECT_ROOT, datasetPath("a8.catalog"));
 const INVENTORY_PATH = path.join(PROJECT_ROOT, datasetPath("a8.inventory"));
 // doboku の creative SSOT (dedup / placed 判定の突合先)。stats47 の AFFILIATE_ADS[] とは形が違う。
 const CREATIVES_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-creatives.ts");
-const MATS_PATH = path.join(PROJECT_ROOT, "src/config/affiliate-mats.json");
+const MATS_PATH = path.join(PROJECT_ROOT, datasetPath("config.affiliate-mats"));
 
 let IS_DRY_RUN = false;
 

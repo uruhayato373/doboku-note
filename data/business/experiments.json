@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T05:17:25.788Z",
+  "updated_at": "2026-10-08T06:01:55.960Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1047,7 +1047,7 @@
         "measured_at": "2026-08-21",
         "window_ga4": "2026-07-16〜2026-08-12",
         "window_gsc": "2026-07-13〜2026-08-10",
-        "frozen_file": "data/metrics/affiliate/career-funnel-baseline-2026-08-12.json",
+        "frozen_file": "data/analysis/career-funnel-baseline/2026-08-12.json",
         "career_articles": 38,
         "gsc_clicks_all_career": 0,
         "gsc_impressions_all_career": 14,
@@ -1122,7 +1122,8 @@
         "2026-08-21: 本番 deploy 完了（main 42deb5f2a / run 32456590522）。28 日クロック開始＝再計測は 2026-09-18",
         "2026-09-22: wave-2 反映開始（基線 career-funnel-baseline-2026-09-16.json を凍結）。測定は展開後に実施（ユーザー判断で展開優先）",
         "2026-09-26: 中間観察（career-funnel 2026-08-20〜09-16）。広告 表示23,154・クリック11（CTR 0.05%）。記事サイドバー 12,673・0、記事末 3,413・0、本文中 3,546・7。A8 は発生1・確定0で判定不能。サイドバーはA8ピクセルの唯一の発火源のため、存廃は DN-0322 で判断（判定は予定どおり 10/20）",
-        "2026-09-26: 記事サイドバーの転職広告を撤去（DN-0322・ユーザー決定）。A8ピクセルは本文の転職広告、無ければ記事末バナーで1ページ1発。本番でGA4クリック送信とピクセルのリクエストを確認。記事末の存廃は10/20の判定で決める"
+        "2026-09-26: 記事サイドバーの転職広告を撤去（DN-0322・ユーザー決定）。A8ピクセルは本文の転職広告、無ければ記事末バナーで1ページ1発。本番でGA4クリック送信とピクセルのリクエストを確認。記事末の存廃は10/20の判定で決める",
+        "2026-10-07: 2級を建設JOBs へ替えるため、2級を含むビルドジョブのルール PL-0001・0003・0004・0006・0007 を閉じ、2級を除いて PL-0013〜0017 で続けた（2級のキャリア記事は PL-0018・0019 でビルドジョブのまま）。10/20 の判定は閉じた前後の窓を混ぜずに読む（ルール別の数字は report-career-funnel の byRule）"
       ],
       "pending_user_actions": [
         {
@@ -1231,6 +1232,28 @@
           },
           "complete": false,
           "salesLedgerThrough": "2026-09-27",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.132Z",
+          "specHash": "5ad8dbe14f9d",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-19",
+            "endDate": "2026-09-15",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-16",
+            "endDate": "2026-10-03",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
           "deltaPct": null,
           "verdictHint": "in-progress"
         }
@@ -1394,6 +1417,28 @@
           "salesLedgerThrough": "2026-09-27",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.134Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-10-03",
+            "value": 5940,
+            "volume": 3
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1491,7 +1536,29 @@
       ],
       "next_check_date": "2026-10-23",
       "resume_criteria": null,
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:24.755Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-10-03",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-09-25T00:00:00.000Z",
@@ -1535,14 +1602,14 @@
         "minVolume": 1,
         "note": "10/02 の販売は旧価格のため anchor を 10/03 にする。事後窓は試験日 10/25 まで"
       },
-      "status": "running",
+      "status": "abandoned",
       "created_at": "2026-10-02T12:08:19.546Z",
       "started_at": "2026-10-02T12:08:19.546Z",
       "paused_at": null,
       "paused_reason": null,
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "中止（2026-10-06）。事後窓（10/03〜10/25）の途中で運営者の指示により ¥2,480 → ¥2,980 へ再値上げを決めたため、¥2,480 の効果は測れない。10/03〜10/06 の ¥2,480 での販売は sales.json 未取得。値上げの評価は EXP-015 に引き継ぐ",
+      "learnings": "測定窓の途中で同じ商品の価格を動かすと、その実験は判定不能になる。続けて価格を変える場合は新しい実験として起票し直す",
+      "closed_at": "2026-10-06T01:59:43.321Z",
       "actions": [
         "2026-10-02: note マガジン m1881a9578027 のセット価格を ¥2,480 に変更（オーナー承認・API 確認済）。content/products・note掲載文.txt・note-magazines.ts を同期",
         "2026-10-02: 同日起票の EXP-014 で 2級 経験記述の書き方・例文の冒頭 CTA が完成答案集になり、事後窓（10/03〜10/25）でサイト露出が増える。販売件数の増減を値上げだけに帰属させない（裁定時に EXP-014 の冒頭クリック数と併記する）"
@@ -1555,6 +1622,11 @@
           "at": "2026-10-02T12:08:19.546Z",
           "event": "propose→start",
           "note": "試験翌日 2026-10-26 に判定"
+        },
+        {
+          "at": "2026-10-06T01:59:43.321Z",
+          "event": "running→abandoned",
+          "note": "DN-0545 で ¥2,980 へ再値上げ（運営者指示「全部今やる」）。EXP-015 へ引き継ぎ"
         }
       ]
     },
@@ -1601,11 +1673,35 @@
       "closed_at": null,
       "actions": [
         "2026-10-02: PR #841（feat/civil2-funnel）で magazine-placement の 2級二次冒頭を差し替え（resolveCivil2SecondaryLead で試験翌日に二次まるごとへ自動復帰）、MagazineTopBanner の価格を先頭金額のみに、CTA ゼロだった記事 7 本を配線、ページ単位の CTA ゼロ検査を追加",
-        "2026-10-02: PR #841 を develop へマージ（11428fe）し main へ昇格、cloudflare-deploy run 37012387601 成功・check-production-ssr exit 0。本番で 2級 R7 の冒頭＝直前パック・中間＝二次まるごと、書き方の冒頭＝完成答案集、直前2週間ページの冒頭バナーが高さ 92px・タイトル幅 293px・価格「¥2,480」に是正されたことを確認。反映は 10/02 22:20 JST なので anchor は 2026-10-03 のまま"
+        "2026-10-02: PR #841 を develop へマージ（11428fe）し main へ昇格、cloudflare-deploy run 37012387601 成功・check-production-ssr exit 0。本番で 2級 R7 の冒頭＝直前パック・中間＝二次まるごと、書き方の冒頭＝完成答案集、直前2週間ページの冒頭バナーが高さ 92px・タイトル幅 293px・価格「¥2,480」に是正されたことを確認。反映は 10/02 22:20 JST なので anchor は 2026-10-03 のまま",
+        "2026-10-06: 交絡の記録。クラウドのセッションで 2級二次の過去問ページ secondary-r03〜r07 の表と重複見出しをモバイル向けに整形（解答表の長文セル→箇条書き・見出しに問題番号）。冒頭 CTA（-top）と本文の CTA カードの配置・文言は変えていない。develop 反映のみで本番は運営者の /deploy 後。判定時は本番反映日以降の本文 CTA のクリックに整形の影響があり得ることを考慮する",
+        "2026-10-06: 交絡の追記。同じ整形を 2級二次の経験記述ガイド（secondary-experience-writing-guide）にも行った（年度別表の箇条書き化・本文を担う Callout 4 つを地の文へ・表の導入文）。MagazineCard 3 枚・CTA・CareerAffiliate の配置と文言は不変"
       ],
       "next_check_date": "2026-10-26",
       "resume_criteria": null,
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-07T08:28:25.252Z",
+          "specHash": "a9136128862a",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-05",
+            "endDate": "2026-10-02",
+            "value": 186,
+            "volume": 186
+          },
+          "post": {
+            "startDate": "2026-10-03",
+            "endDate": "2026-10-03",
+            "value": 6,
+            "volume": 6
+          },
+          "complete": false,
+          "deltaPct": -9.7,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-10-02T13:02:16.547Z",
@@ -1613,6 +1709,452 @@
           "note": "本番反映後に anchor を確定。試験翌日 2026-10-26 に判定"
         }
       ]
+    },
+    {
+      "id": "EXP-015",
+      "title": "2級土木 二次の経験記述3商品（想定工事バンク ¥5,480→¥6,980・過去問模範答案集 ¥2,480→¥2,980・完成答案集 ¥2,480→¥2,980）を試験直前に値上げし、販売額が落ちないかを見る",
+      "hypothesis": "3商品とも単品合計に対する割引が深く（バンク 72工事で単品合計 ¥120,960 の約4.5%・過去問5本と完成答案集3本が同額）、直前期の需要は価格に鈍い。¥6,980／¥2,980 でも件数は保たれ、1件あたりの受取が増えて販売額が増える",
+      "target_metric": "civil-2-koji-bank・civil-2-pastexam-essay・civil-2-experience-essay の note 売上合計（事後窓＝note 反映日〜2026-10-25）",
+      "target_delta": "事後窓の3商品合計が、反映前 28 日の合計（2026-10-06 時点で 3 件 ¥6,440・9/12 過去問 ¥2,480・10/1 と 10/2 完成答案集 ¥1,980×2）以上なら維持。下回れば試験後に価格を戻すか判断する。件数が少なく季節・EXP-014 の冒頭 CTA と分離できない点は裁定時に明記する",
+      "baseline": {
+        "measured_at": "2026-10-06",
+        "note": "sales.json は 2026-10-02 まで。反映前 28 日（9/8〜10/5）の3商品は 3 件 ¥6,440。バンクの直近販売は 2026-09-04（¥5,480）。原稿の価格は 2026-10-06 に変更し、note のライブ価格は運営者が反映するまで旧価格のまま",
+        "source": "data/note/sales.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "2級2次検定の施工経験記述で、自分の工事・テーマに置き換えられる完成答案を直前期にまとめて手に入れたい",
+        "verifiedGap": "工事バンクは 36工事のときに設計幅（¥5,480〜6,980）の下限で決め、72工事へ倍増しても据え置き。過去問模範答案集（5本）と完成答案集（3本）が同額の ¥2,480（content/products/note・2026-10-06）",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "sales.revenue",
+        "scope": {
+          "productIds": [
+            "civil-2-koji-bank",
+            "civil-2-pastexam-essay",
+            "civil-2-experience-essay"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 20,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 6440,
+        "minVolume": 1,
+        "note": "anchor は note 反映日 2026-10-06。事後窓は試験日まで（20 日）",
+        "anchor": "2026-10-06"
+      },
+      "status": "running",
+      "created_at": "2026-10-06T01:59:43.321Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-10-26",
+      "pending_user_actions": [],
+      "actions": [
+        "2026-10-06: 原稿（content/products/note・note掲載文.txt・note-magazines.ts）の価格を変更。DN-0545",
+        "2026-10-06: 値上げは週次・月次レビューの外で運営者の指示により決めた（対象資格 civil-construction-2 は重点資格外のため businessContext は all）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
+        "2026-10-06: note へ反映（エージェントが note-edit-magazine で4誌＝想定工事バンク ¥6,980・過去問模範答案集 ¥2,980・完成答案集 ¥2,980・二次まるごとの掲載文。保存後の note API で価格一致を確認）。DN-0546"
+      ],
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-06T01:59:43.321Z",
+          "event": "propose",
+          "note": "運営者指示で試験後判定（DN-0545）を前倒し。note 反映で start"
+        },
+        {
+          "at": "2026-10-06T04:15:00.522Z",
+          "event": "start",
+          "note": "note 反映（2026-10-06）で開始。反映日の当日分は旧価格の時間帯を含む"
+        }
+      ],
+      "started_at": "2026-10-06"
+    },
+    {
+      "id": "EXP-016",
+      "title": "コンクリート主任技士 小論文の立場別単品40本を ¥980→¥1,480 にし（セット価格は据え置き）、単品とセットの販売額が増えるかを見る",
+      "hypothesis": "単品は実売が少なく、主にセットの単品合計（比較の基準）として効く。¥1,480 にすると立場別 ¥2,480 の単品合計が ¥4,900→¥7,400、合格パック ¥3,980 が ¥9,340→¥11,840 になり、セットが割安に見えてセットの販売が増える。単品の販売件数は大きく落ちない",
+      "target_metric": "主任技士の小論文単品（article:cce-reiwa-*）とセット18誌（立場別8・合格パック8・全40答案・まるごと）の note 売上合計（事後窓＝note 反映日〜2026-11-29）",
+      "target_delta": "新構成（2026-10-03 公開）の反映前の販売実績が無いため前後比較はできない。事後窓の合計 ¥20,000 以上を目安に、セットと単品の件数の内訳で読む。単品の販売が0件でもセットが売れていれば維持。試験後（12/1 以降）に判定する",
+      "baseline": {
+        "measured_at": "2026-10-06",
+        "note": "sales.json は 2026-10-02 まで。新構成は 10/03 公開で販売記録が無い（0件ではなく未記録）。旧構成の主任技士の販売は通算 3 件 ¥3,440（2026-09-01〜09-05）。単品の本文量は旧 ¥1,480 単品の中央値 5,754 字に対し新単品 5,073 字",
+        "source": "data/note/sales.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "コンクリート主任技士の小論文で、自分の立場（生コン工場・ゼネコン・発注者など）で書いた令和形式の模範答案を試験前に手に入れたい",
+        "verifiedGap": "2026-09-05 に記述系単品を ¥1,480 と決めたが、10/03 の再公開で ¥980 になり理由の記録が無い（コミット 64be3c2a9）。分量の差は約12%で価格差を説明できない",
+        "metricId": "noteRevenue",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "sales.revenue",
+        "scope": {
+          "productPrefix": "article:cce-reiwa-",
+          "productIds": [
+            "cce-reiwa-namacon-pack",
+            "cce-goukaku-namacon-pack",
+            "cce-reiwa-precast-pack",
+            "cce-goukaku-precast-pack",
+            "cce-reiwa-civil-contractor-pack",
+            "cce-goukaku-civil-contractor-pack",
+            "cce-reiwa-maintenance-pack",
+            "cce-goukaku-maintenance-pack",
+            "cce-reiwa-owner-pack",
+            "cce-goukaku-owner-pack",
+            "cce-reiwa-building-contractor-pack",
+            "cce-goukaku-building-contractor-pack",
+            "cce-reiwa-design-consultant-pack",
+            "cce-goukaku-design-consultant-pack",
+            "cce-reiwa-testing-pack",
+            "cce-goukaku-testing-pack",
+            "cce-essay-reiwa-pack",
+            "cce-marugoto-pack"
+          ]
+        },
+        "preDays": 28,
+        "postDays": 55,
+        "lagDays": 0,
+        "direction": "increase",
+        "target": 20000,
+        "minVolume": 1,
+        "note": "anchor は note 反映日 2026-10-06。事後窓は試験日まで（55 日）",
+        "anchor": "2026-10-06"
+      },
+      "status": "running",
+      "created_at": "2026-10-06T01:59:43.321Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-12-01",
+      "pending_user_actions": [],
+      "actions": [
+        "2026-10-06: 原稿（40記事の frontmatter・18誌の content/products と note掲載文.txt・note-magazines.ts）の価格を変更。DN-0545",
+        "2026-10-06: 値上げは週次・月次レビューの外で運営者の指示により決めた（対象資格 concrete-chief-engineer は重点資格外のため businessContext は all）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
+        "2026-10-06: note へ反映（エージェントが note-article-price-sweep で40記事を ¥980→¥1,480・API で 40/40 一致、note-reanchor-boundary で40記事の有料境界を「模範答案」へ再設定、note-edit-magazine で18誌の掲載文）。DN-0546"
+      ],
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-06T01:59:43.321Z",
+          "event": "propose",
+          "note": "運営者指示で試験後判定（DN-0545）を前倒し。note 反映で start"
+        },
+        {
+          "at": "2026-10-06T04:15:00.522Z",
+          "event": "start",
+          "note": "note 反映（2026-10-06）で開始。反映日の当日分は旧価格の時間帯を含む"
+        }
+      ],
+      "started_at": "2026-10-06"
+    },
+    {
+      "id": "EXP-017",
+      "title": "転職アフィリエイトを、アクセスがあるのに広告の無い面（実務・公的基準・ツール・トップ・経験記述の書き方）へ広げ、2級は建設JOBs に替えて、クリックと発生が増えるかを見る",
+      "hypothesis": "アフィリエイトのクリックは二次試験の年度別ページの本文カードに集まり（2026-09-04〜10-01 で 16 件中 9 件）、10 月にビルドジョブの発生 1 件が出た。アクセスがあるのに広告の無い面（/practice 1,214・経験記述の書き方と例文 2,452・ツール 643・/standards 437・トップ 232 セッション）へ出すと、サイト全体のクリックと発生が増える。2級の学習ページは受験者が若く二次の受験者は実務経験があるので、建設JOBs（20〜30代・経験者・登録 ¥4,500・期待 CVR 10.4%）が条件に合い、確定 3 件に早く届く",
+      "target_metric": "GA4 の affiliate_cta_click（サイト全体・28 日）と、配置ルール別のクリック（report-career-funnel の byRule・ページ別）。成果は A8 のサイト別×案件の発生・確定（月次）",
+      "target_delta": "サイト全体のクリックが事前 28 日より増えること。面ごとには、新しいルールで表示 1,000 以上・クリック 0 が 2 窓続いたら閉じる（面の問題）。案件の勝敗は確定 3 件まで決めない（affiliate-operations.md §6.5）",
+      "baseline": {
+        "measured_at": "2026-10-07",
+        "note": "GA4 2026-09-04〜10-01: アフィリエイトの表示 24,472（うち撤去済みの記事サイドバー 11,504）・クリック 16（本文中 手書き 10・本文中間 4・記事サイドバー 2・記事末 0・カテゴリ 0）。A8 サイト別: 9 月 doboku-note 49 click・発生 0、10 月（10/7 時点）15 click・発生 1（ビルドジョブ ¥13,534・未確定）",
+        "source": "data/ga4/reports/2026-10-02.json・data/a8/report-log.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "施工管理の経験を生かせる職場を探したい（資格を取った先のキャリアの悩み）",
+        "verifiedGap": "アクセスの多い実務・公的基準・ツール・トップに転職の導線が無く、経験記述の書き方ページは r07 と同じ読者層なのに本文カードが無い。2級は建設JOBs の条件に合う読者がいるのに 2026-09-08 から一般配置を止めていた",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:affiliate_cta_click",
+        "scope": {
+          "pagePrefix": "/"
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 0,
+        "direction": "increase",
+        "minVolume": 10,
+        "note": "anchor は本番デプロイ日（started_at）。2級の試験（10/25）前後で流入が動くので、増減は配置ルール別（byRule）と並べて読む"
+      },
+      "status": "running",
+      "created_at": "2026-10-07T08:13:49.576Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-11-04",
+      "pending_user_actions": [
+        {
+          "action": "（任意）A8 にサイトを 2 つ登録して面ごとの月次成果を分ける（PR-3）。2026-10-07 に広告リンクのリファラ方針を直し、デプロイ後の成果は A8 の成果別レポートの「リファラ」でページまで分かるようになったので、成果の帰属には不要。面の合計を A8 のサイト別で見たいときだけ"
+        }
+      ],
+      "actions": [
+        "2026-10-07: 配置ルール PL-0018〜PL-0034 を追加（2級の学習ページは建設JOBs・実務・抜けていた枠・公的基準の章末・トップ・ツール）。2級を含むビルドジョブのルール PL-0001・0003・0004・0006・0007 を閉じ、2級を除いて PL-0013〜0017 で続けた",
+        "2026-10-07: 経験記述の書き方・例文 4 ページに本文カード（program=\"career\"）を追加（develop 03f957a80）。転職系の無料 note 3 本にビルドジョブの note 用リンク（develop 97d6f605a）",
+        "2026-10-07: アフィリエイトのページ別の計測（fetch-ga4-cta-clicks --by-page・PR #910）。どの面のどの広告から成果が出たかは clickLog と A8 の発生日で絞る",
+        "2026-10-07: 展開は週次・月次レビューの外で運営者の指示により決めた（A8 の発生 1 件を機に）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
+        "2026-10-07: 10 月の 1 件は A8 の成果別レポートでクリック 10/05 10:37・PC・リファラ https://doboku-note.com/（ドメインだけ）。GA4 は 10/04〜06 のクリック 0 件で取りこぼし、ページは特定できない。再発防止として広告リンクに referrerPolicy=no-referrer-when-downgrade（A8 にページの URL が残る）と、クリック計測に中クリック（auxclick）を足した（#911）",
+        "2026-10-07: 本番へデプロイ（run 37608403630）。本番で中クリック（auxclick）が affiliate_cta_click として送られることを window.gtag の差し替えで確認（GA4 には送っていない）"
+      ],
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-07T08:13:49.576Z",
+          "event": "propose",
+          "note": "A8 の発生 1 件（2026-10）を機に、運営者の指示で展開（2026-10-07）"
+        },
+        {
+          "at": "2026-10-07T10:41:52.177Z",
+          "event": "start",
+          "note": "本番デプロイ（cloudflare-deploy run 37608403630・main da252f501）。check-production-ssr 合格、本番 HTML で広告枠・リファラ方針・ピクセル 1 発を確認"
+        }
+      ],
+      "started_at": "2026-10-07T10:35:24.000Z"
+    },
+    {
+      "id": "EXP-018",
+      "title": "転職アフィリエイトの残りの面（公的基準の章以外・トピック・実務ツール・測量士・舗装・建築）へ広げ、サイト全体のクリックと発生が増えるかを見る",
+      "hypothesis": "2026-10-07 の本番実測で、1,622 ページのうち転職広告が無いのは 272 ページ（公的基準の章以外 218・トピック 16・測量士・舗装・建築 19・ツール 11・運営ページ 8）。運営ページを除く 264 ページは土木の実務者が読む面で、ビルドジョブ（建設業界特化）の対象に合う。出すとサイト全体のクリックと発生が増える",
+      "target_metric": "配置ルール別のクリック（report-career-funnel の byRule・PL-0035〜0041）と、A8 の成果別（report-log の conversions・クリックしたページ）",
+      "target_delta": "面ごとに、表示 1,000 以上・クリック 0 が 2 窓続いたら閉じる（面の問題）。案件の勝敗は確定 3 件まで決めない（affiliate-operations.md §6.5）",
+      "baseline": {
+        "measured_at": "2026-10-07",
+        "note": "本番 1,622 ページ中、転職広告ありは 1,350。新しい面（PL-0035〜0041）の対象ページは表示・クリックとも 0（広告が無かった）",
+        "source": "本番の全ページ取得（2026-10-07・sitemap.xml）"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "施工管理の経験を生かせる職場を探したい（資格を取った先のキャリアの悩み）",
+        "verifiedGap": "公的基準の章以外・トピック・実務ツール・測量士・舗装・建築に転職の導線が無かった（2026-10-07 の本番実測）",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "ga4.event:affiliate_cta_click",
+        "scope": {
+          "pagePrefix": "/standards"
+        },
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 0,
+        "direction": "increase",
+        "minVolume": 10,
+        "note": "新しい面の最大は公的基準の章以外（218 ページ）。ほかの面（トピック・ツール・測量士・舗装・建築）は byRule の PL-0035〜0041 で読む。anchor は本番デプロイ日"
+      },
+      "status": "running",
+      "created_at": "2026-10-07T11:08:02.348Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-11-04",
+      "pending_user_actions": [],
+      "actions": [
+        "2026-10-07: 配置ルール PL-0035〜PL-0041 を追加（面 standards-list-end・topic-end・tool-end、測量士・舗装・建築の記事と資格トップ）。EXP-017 のルールとは面・カテゴリを分け、数字を混ぜない（運営者の指示）"
+      ],
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-07T11:08:02.348Z",
+          "event": "propose",
+          "note": "運営者の指示で残りの面へ展開（2026-10-07）"
+        },
+        {
+          "at": "2026-10-07T11:47:04.180Z",
+          "event": "start",
+          "note": "本番デプロイ（cloudflare-deploy run 37615478580）。check-production-ssr 合格。本番の全 1,622 ページ中 1,614 に転職広告（残りは運営ページ 6・/exam・キャリア診断〔結果画面でクライアント描画〕）"
+        }
+      ],
+      "started_at": "2026-10-07T11:44:23.000Z"
+    },
+    {
+      "id": "EXP-019",
+      "title": "転職アフィリエイトのA/B/C意匠を訪問者単位で比較し、キャリア記事の改善につなげる",
+      "designProposalKey": "affiliate-card-2026-10-08",
+      "hypothesis": "資格・工事経験と働き方を結ぶ大見出し・太枠・相談入口を共用し、文章のA、同じ導入に支給バナーを添えるB、紺の面と短い訴求のCで、適合する読者の相談クリックを比較する。BはAとの画像差、Cは文言と配色をまとめた意匠差として評価する。noteは目的を別表示し、掲載・順序を固定して影響を測る。",
+      "target_metric": "affiliate_experiment_click / affiliate_experiment_impression、対象ページ閲覧あたりクリック。案×案件×面×ページ×端末×日別に読む。note_experimentの表示・クリックを併記し、A8成果は案件・ページで確認（案別帰属は不可）。",
+      "target_delta": "同じ対象でA/B/Cを比較する。28日で再検討するが、少数で勝敗を決めない。各案20クリック・1,000表示は人によるレビューの目安で統計的勝利条件ではない。note送客を損なわず、適合する相談クリックが増えるか確認する。",
+      "baseline": {
+        "measured_at": "2026-10-08",
+        "source": "data/ga4/reports/2026-10-07.json#cta-clicks-by-placement",
+        "window": {
+          "start": "2026-09-09",
+          "end": "2026-10-06"
+        },
+        "aggregateReferenceOnly": true,
+        "images": {
+          "impressions": 13880,
+          "clicks": 2,
+          "ctr": 0.00014409221902017292
+        },
+        "text": {
+          "impressions": 9147,
+          "clicks": 13,
+          "ctr": 0.0014212310047009948
+        },
+        "note": [
+          {
+            "placement": "article-mid",
+            "impressions": 3618,
+            "clicks": 34
+          },
+          {
+            "placement": "article-footer",
+            "impressions": 3682,
+            "clicks": 12
+          }
+        ],
+        "noteText": "画像集計は撤去済み記事サイドバーを含む。位置・案件・読者が違うので、画像の因果効果の基準値にはしない。開始時に対象ページ・面の基準値を再取得する。"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "資格や工事経験が待遇・休日・勤務地にどう活きるかを知り、仕事の選択肢を相談したい（A:転職・成長、M:待遇）",
+        "verifiedGap": "2026-10-08の本番9ページ・12掲載例を48画面で確認。文章カードはサービス名が見出し、文字リンクが本文と同じ青系。公的基準・ツール末尾には転職へつなぐ導入がない。画像よりnoteに流れる原因は未検証。",
+        "metricId": "a8ConfirmedYen",
+        "reviewRecord": "data/business/records/review-2026-10-01T06-45-46-827Z-32027a75-8673-4253-90b2-a16aadb455a1.json"
+      },
+      "status": "running",
+      "created_at": "2026-10-08T01:01:51.918Z",
+      "closed_at": null,
+      "result": null,
+      "learnings": null,
+      "next_check_date": "2026-10-15",
+      "pending_user_actions": [],
+      "actions": [
+        "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
+        "GA4の専用イベントを案×案件×面×ページ×端末×日でCI取得。週次measure-experimentsが保存済みレポートを台帳へ追記する。",
+        "本番公開・SSR・3案件×A/B/Cの実表示と送信待ちイベントを確認。週次CIが案別実測を取得・記録する。",
+        "公開7日後に取得・配分・表示を確認、28日後にCTR・note送客・A8発生/確定を再検討。少数なら判定保留。",
+        "キャリア記事は訴求設計の10月計画（相談→待遇→転身→若手/PE）に沿って週2本以内の既存記事改稿を行う。改稿URLと日時を履歴に残す。"
+      ],
+      "variants": [
+        {
+          "id": "A",
+          "format": "text",
+          "framePx": 3,
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        },
+        {
+          "id": "B",
+          "format": "supplied-banner-and-editorial-intro",
+          "framePx": 3,
+          "creativeRef": "src/config/affiliate-creatives.ts:PROGRAM_ASSETS.buildjob.banner",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        },
+        {
+          "id": "C",
+          "format": "dark-editorial-card",
+          "framePx": 3,
+          "role": "第1ラウンドの同率配信案",
+          "headlineSource": "src/components/ui/CareerAffiliate/CareerAffiliateExperiment.tsx:HEADLINES",
+          "ctaSource": "src/config/affiliate-creatives.ts（案件・悩み別の既存コピー）",
+          "programs": [
+            "buildjob",
+            "kensetsu-jobs",
+            "dx-consulting"
+          ]
+        }
+      ],
+      "measurementPlan": {
+        "kind": "affiliate-design",
+        "status": "observing-awaiting-data",
+        "firstRound": [
+          "A",
+          "B",
+          "C"
+        ],
+        "assignment": "訪問者を約1/3ずつ。localStorageで再訪も固定。保存不可時はページ内で固定",
+        "dimensions": [
+          "experiment",
+          "variant",
+          "page",
+          "placement",
+          "program",
+          "device",
+          "date"
+        ],
+        "reportId": "ga4.affiliate-experiment",
+        "events": [
+          "affiliate_experiment_page_view",
+          "affiliate_experiment_impression",
+          "affiliate_experiment_click",
+          "note_experiment_impression",
+          "note_experiment_click"
+        ],
+        "exposure": "共通の見出し領域50%。割当前SSRのAを数えない",
+        "reviewDays": 28,
+        "minClicksPerVariant": 20,
+        "minImpressionsPerVariant": 1000,
+        "noteGuardrail": "案別note表示・クリックと全経路売上を併記。案別のA8成果帰属は未取得。CTRと前後の売上の因果を断定しない",
+        "concurrentExperimentException": "運営者がA/B/C展開と実験開始を明示。本件だけ上限の例外。EXP-017/018は配置展開の観察として残し、前後比較を本実験の意匠差に使わない。",
+        "startDate": "2026-10-08",
+        "firstCheckDate": "2026-10-15",
+        "reviewDate": "2026-11-05"
+      },
+      "priorityAssessment": {
+        "impact": 3,
+        "effort": 1,
+        "learning": 3,
+        "certainty": 1,
+        "weighted": 2.2,
+        "basis": "表示9,147/13,880件は実測。クリック増分は未予測。計測配線と許可確認を含むため工数を軽く見積もらない。"
+      },
+      "measurements": [],
+      "history": [
+        {
+          "at": "2026-10-08T01:01:51.918Z",
+          "event": "propose",
+          "note": "運営者の指示でキャッチーな見出し・太枠・画像の改善案とnote並置を画面化。まずA/Bを同一条件で比較する候補として保存。本番配信・計測は未開始。"
+        },
+        {
+          "at": "2026-10-08T01:25:03.834Z",
+          "event": "implement",
+          "note": "運営者の追加指示でA/BからA/B/Cの3案同率へ変更。案別計測とCI取得・週次記録、キャリア記事計画を実装。公開前のためstatusはproposed。"
+        },
+        {
+          "at": "2026-10-08T02:31:46.811Z",
+          "event": "start",
+          "note": "運営者のA/B/C展開指示に基づき開始。本番SSR・実表示9条件と広告/noteのイベント発火を確認（検証時のGA4送信と広告遷移は抑止）。本番の実測値は次の取得待ち。A/B/Cを同率配信し、案を再訪でも固定。",
+          "commit": "93863fda8474877e7df480feaa4ba89b82fb0561",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37717577722"
+        },
+        {
+          "at": "2026-10-08T05:37:25.288Z",
+          "event": "shared-ui-release",
+          "commit": "27e1261e6a0378e5b2e68e7592f726016b7747d2",
+          "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37732697682",
+          "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/930",
+          "note": "過去問の番号一覧を開閉式・44pxボタンへ変更し、冒頭の商品画像をコンパクト化して内容を見る案内を追加。仕様書の版情報・表配色・横スクロール案内も公開。本番2ページ×PC/スマホ×明暗の8条件と外部SSR検査exit 0を確認。共通UI変更はA/B/C全案に適用され、note送客の前後比較に影響し得るため変更時点を記録。訪問者の案別割当・イベント・開始日時・実測値は維持。"
+        }
+      ],
+      "started_at": "2026-10-08T02:31:46.811Z",
+      "deployment": {
+        "commit": "93863fda8474877e7df480feaa4ba89b82fb0561",
+        "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37717577722",
+        "verifiedAt": "2026-10-08T02:31:46.811Z",
+        "productionBrowserCases": 9,
+        "localBrowserCases": 36
+      }
     }
   ]
 }

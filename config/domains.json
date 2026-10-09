@@ -105,6 +105,12 @@
           ]
         },
         {
+          "label": "作品と公開",
+          "href": "/content/items",
+          "kind": "inventory",
+          "match": "/content/items"
+        },
+        {
           "label": "売上",
           "href": "/sales",
           "kind": "results",
@@ -279,6 +285,15 @@
           }
         },
         {
+          "label": "作業状態",
+          "href": "/ops/store?k=state",
+          "kind": "inventory",
+          "match": "/ops/store",
+          "query": {
+            "k": "state"
+          }
+        },
+        {
           "label": "ナレッジ",
           "href": "/knowledge",
           "kind": "policy",
@@ -333,6 +348,7 @@
     ".claude/knowledge/reference/content-expansion.md": "material",
     ".claude/knowledge/reference/content-lifecycle.md": "product",
     ".claude/knowledge/reference/content-principles.md": "site",
+    ".claude/knowledge/reference/content-registry.md": "sns",
     ".claude/knowledge/reference/content-taxonomy.md": "site",
     ".claude/knowledge/reference/data-storage-decision.md": "ops",
     ".claude/knowledge/reference/disk-hygiene.md": "ops",
@@ -370,6 +386,8 @@
     ".claude/knowledge/reference/pop-image-policy.md": "product",
     ".claude/knowledge/reference/reference-sites.md": "strategy",
     ".claude/knowledge/reference/reference-sources-policy.md": "material",
+    ".claude/knowledge/reference/book-coverage-judging.md": "material",
+    ".claude/knowledge/reference/book-coverage-expansion.md": "material",
     ".claude/knowledge/reference/sales-tracking.md": "product",
     ".claude/knowledge/reference/seo-rank-watch.md": "site",
     ".claude/knowledge/reference/skills-design-guide.md": "ops",

@@ -1,0 +1,104 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="環境影響評価法の対象事業の規模要件。事業ごとの第一種と第二種の数値を、長さ・面積・出力・規模を問わないの4群で比較する（2026年10月時点）">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .h  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }  /* brand text */
+      .g  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* band label */
+      .c  { font-size: 12px; fill: #222; }                        /* ink-strong */
+      .cm { font-size: 12px; fill: #555; }                        /* ink-body */
+      .n  { font-size: 11px; fill: #555; }                        /* ink-body */
+    </style>
+  </defs>
+
+  <!-- header -->
+  <rect x="10" y="8" width="380" height="26" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>  <!-- brand-fill / brand -->
+  <text class="h" x="18" y="25" text-anchor="start">事業（物差し）</text>
+  <text class="h" x="176" y="25" text-anchor="start">第一種</text>
+  <text class="h" x="276" y="25" text-anchor="start">第二種</text>
+  <!-- 長さで測る -->
+  <rect x="10" y="34" width="380" height="17" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="g" x="18" y="46" text-anchor="start">長さで測る</text>
+  <line x1="10" y1="71" x2="390" y2="71" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="65" text-anchor="start">一般国道（4車線以上）</text>
+  <text class="c" x="176" y="65" text-anchor="start">10km以上</text>
+  <text class="c" x="276" y="65" text-anchor="start">7.5〜10km</text>
+  <line x1="10" y1="91" x2="390" y2="91" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="85" text-anchor="start">鉄道・軌道</text>
+  <text class="c" x="176" y="85" text-anchor="start">10km以上</text>
+  <text class="c" x="276" y="85" text-anchor="start">7.5〜10km</text>
+  <line x1="10" y1="111" x2="390" y2="111" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="105" text-anchor="start">林道（幅員6.5m以上）</text>
+  <text class="c" x="176" y="105" text-anchor="start">20km以上</text>
+  <text class="c" x="276" y="105" text-anchor="start">15〜20km</text>
+  <line x1="10" y1="131" x2="390" y2="131" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="125" text-anchor="start">飛行場（滑走路長）</text>
+  <text class="c" x="176" y="125" text-anchor="start">2,500m以上</text>
+  <text class="c" x="276" y="125" text-anchor="start">1,875〜2,500m</text>
+  <!-- 面積で測る -->
+  <rect x="10" y="131" width="380" height="17" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="g" x="18" y="143" text-anchor="start">面積で測る</text>
+  <line x1="10" y1="168" x2="390" y2="168" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="162" text-anchor="start">ダム・堰（湛水面積）</text>
+  <text class="c" x="176" y="162" text-anchor="start">100ha以上</text>
+  <text class="c" x="276" y="162" text-anchor="start">75〜100ha</text>
+  <line x1="10" y1="188" x2="390" y2="188" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="182" text-anchor="start">廃棄物最終処分場</text>
+  <text class="c" x="176" y="182" text-anchor="start">30ha以上</text>
+  <text class="c" x="276" y="182" text-anchor="start">25〜30ha</text>
+  <line x1="10" y1="208" x2="390" y2="208" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="202" text-anchor="start">埋立て・干拓</text>
+  <text class="c" x="176" y="202" text-anchor="start">50ha超</text>
+  <text class="c" x="276" y="202" text-anchor="start">40〜50ha</text>
+  <line x1="10" y1="228" x2="390" y2="228" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="222" text-anchor="start">面整備6事業</text>
+  <text class="c" x="176" y="222" text-anchor="start">100ha以上</text>
+  <text class="c" x="276" y="222" text-anchor="start">75〜100ha</text>
+  <!-- 出力で測る -->
+  <rect x="10" y="228" width="380" height="17" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="g" x="18" y="240" text-anchor="start">出力で測る</text>
+  <line x1="10" y1="265" x2="390" y2="265" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="259" text-anchor="start">水力発電所</text>
+  <text class="c" x="176" y="259" text-anchor="start">3万kW以上</text>
+  <text class="c" x="276" y="259" text-anchor="start">2.25〜3万kW</text>
+  <line x1="10" y1="285" x2="390" y2="285" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="279" text-anchor="start">火力発電所（地熱除く）</text>
+  <text class="c" x="176" y="279" text-anchor="start">15万kW以上</text>
+  <text class="c" x="276" y="279" text-anchor="start">11.25〜15万kW</text>
+  <line x1="10" y1="305" x2="390" y2="305" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="299" text-anchor="start">地熱発電所</text>
+  <text class="c" x="176" y="299" text-anchor="start">1万kW以上</text>
+  <text class="c" x="276" y="299" text-anchor="start">7,500〜1万kW</text>
+  <rect x="10" y="305" width="380" height="20" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>  <!-- warn-fill / warn -->
+  <text class="c" x="18" y="319" text-anchor="start">太陽電池発電所※</text>
+  <text class="c" x="176" y="319" text-anchor="start">4万kW以上</text>
+  <text class="c" x="276" y="319" text-anchor="start">3〜4万kW</text>
+  <line x1="10" y1="345" x2="390" y2="345" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="339" text-anchor="start">風力発電所</text>
+  <text class="c" x="176" y="339" text-anchor="start">5万kW以上</text>
+  <text class="c" x="276" y="339" text-anchor="start">3.75〜5万kW</text>
+  <!-- 規模を問わない -->
+  <rect x="10" y="345" width="380" height="17" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text class="g" x="18" y="357" text-anchor="start">規模を問わない</text>
+  <line x1="10" y1="382" x2="390" y2="382" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="376" text-anchor="start">高速自動車国道（新設）</text>
+  <text class="c" x="176" y="376" text-anchor="start">すべて</text>
+  <text class="cm" x="276" y="376" text-anchor="start">なし</text>
+  <line x1="10" y1="402" x2="390" y2="402" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="396" text-anchor="start">新幹線鉄道</text>
+  <text class="c" x="176" y="396" text-anchor="start">すべて</text>
+  <text class="cm" x="276" y="396" text-anchor="start">なし</text>
+  <line x1="10" y1="422" x2="390" y2="422" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="c" x="18" y="416" text-anchor="start">原子力発電所</text>
+  <text class="c" x="176" y="416" text-anchor="start">すべて</text>
+  <text class="cm" x="276" y="416" text-anchor="start">なし</text>
+  <!-- column dividers -->
+  <line x1="168" y1="34" x2="168" y2="422" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="268" y1="34" x2="268" y2="422" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="10" y="8" width="380" height="414" fill="none" stroke="#d7d7d7" stroke-width="1"/>
+  <!-- notes -->
+  <text class="n" x="18" y="440" text-anchor="start">※太陽電池は2027年4月1日から第一種2万kW以上、</text>
+  <text class="n" x="18" y="454" text-anchor="start">　第二種1.5万kW以上2万kW未満に引き下げられる。</text>
+  <text class="n" x="18" y="468" text-anchor="start">第二種は第一種の数値未満（埋立て・干拓は50ha以下）。</text>
+  <text class="n" x="18" y="482" text-anchor="start">数値は2026年10月時点の施行令別表第一による。</text>
+</svg>

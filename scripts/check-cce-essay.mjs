@@ -8,6 +8,8 @@
 //   H1 cceEssayTheme が SSOT themes に実在 / H2 cceSourceYears が SSOT の出題年と一致
 //   H3 `## 模範答案` と (1)〜(4) の `###` / H4 各パートの字数帯 / H5 (3) に 8 立場の `####`
 //   H6 各立場で組み立てた答案の総字数 / H7 問題文の再現節なし / H8 価格直書きなし / H9 paidBoundary 実在
+//   立場別記事（cceEssayPersona あり・1立場×1テーマ）: H5 は立場が SSOT にあり (3) に立場見出しが無いこと、
+//   H10 は answerModel.personaArticle.requiredH2、H12 は同じテーマの他の立場と (1)・(4) が同じ文面でないこと
 // B. 出題履歴ブロック = content/site/concrete-chief-engineer/** と content/note/コンクリート主任技士/** で
 //   `cce-essay-history:start` マーカーを持つファイル。マーカー間が SSOT の生成結果と一致すること（--fix で書き換え）。
 //
@@ -20,7 +22,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
-import { evaluateCceEssay, extractHistoryBlocks, syncHistoryBlock } from './lib/cce-essay.mjs';
+import { evaluateCceEssay, extractAnswerParts, extractHistoryBlocks, findSharedPersonaParts, syncHistoryBlock } from './lib/cce-essay.mjs';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
@@ -55,6 +57,18 @@ if (missing.length) {
   process.exit(2);
 }
 
+// 立場別記事（cceEssayPersona）の (1)・(4) を同じテーマの他の立場と突き合わせるため、検査対象に関わらず全件を読む
+const personaEntries = ROOTS.flatMap((r) => walk(r)).flatMap((file) => {
+  const { data, content } = matter(readFileSync(file, 'utf8'));
+  if (data.cceEssayPersona === undefined || data.cceEssayTheme === undefined) return [];
+  return [{ file, theme: data.cceEssayTheme, persona: data.cceEssayPersona, parts: extractAnswerParts(content, history) }];
+});
+const sharedByFile = new Map();
+for (const hit of findSharedPersonaParts(personaEntries, history)) {
+  if (!sharedByFile.has(hit.file)) sharedByFile.set(hit.file, []);
+  sharedByFile.get(hit.file).push(hit);
+}
+
 let essays = 0;
 let blocks = 0;
 let violations = 0;
@@ -65,9 +79,11 @@ for (const file of files) {
   if (data.cceEssayTheme !== undefined) {
     essays++;
     const r = evaluateCceEssay(content, data, history);
-    const persona = Object.values(r.counts.work || {});
-    const range = persona.length ? `(3) ${Math.min(...persona)}〜${Math.max(...persona)} 字` : '(3) -';
-    console.log(`${r.errors.length ? '✗' : '✓'} ${file} — ${data.cceEssayTheme} / (2) ${r.counts.situation ?? '-'} 字 / ${range} / (4) ${r.counts.action ?? '-'} 字`);
+    for (const hit of sharedByFile.get(file) || []) r.errors.push(`H12: ${hit.key === 'title' ? '(1) 表題' : '(4) 今後の技術的対策・展望'}が同じテーマの ${hit.other} と同じ文面（立場ごとに書く）`);
+    const work = typeof r.counts.work === 'number' ? [r.counts.work] : Object.values(r.counts.work || {});
+    const range = work.length ? `(3) ${Math.min(...work)}〜${Math.max(...work)} 字` : '(3) -';
+    const label = data.cceEssayPersona ? `${data.cceEssayTheme}／${data.cceEssayPersona}` : data.cceEssayTheme;
+    console.log(`${r.errors.length ? '✗' : '✓'} ${file} — ${label} / (2) ${r.counts.situation ?? '-'} 字 / ${range} / (4) ${r.counts.action ?? '-'} 字`);
     for (const e of r.errors) console.log(`    ✗ ${e}`);
     if (r.errors.length) violations++;
   }
@@ -87,5 +103,5 @@ if (essays + blocks === 0) {
   console.log(`[check-cce-essay] 対象 0 件（${mode}・cceEssayTheme 記事も出題履歴ブロックも無い）— 検査していない`);
   process.exit(mode === '全件' ? 2 : 0);
 }
-console.log(`[check-cce-essay] ${violations ? '✗' : '✓'} ${mode}: テーマ別教材 ${essays} 件・出題履歴ブロック ${blocks} 件を実検査 / 違反 ${violations} 件`);
+console.log(`[check-cce-essay] ${violations ? '✗' : '✓'} ${mode}: 小論文教材 ${essays} 件・出題履歴ブロック ${blocks} 件を実検査 / 違反 ${violations} 件`);
 process.exitCode = violations ? 1 : 0;

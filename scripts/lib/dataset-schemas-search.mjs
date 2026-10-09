@@ -170,6 +170,42 @@ const Ga4Sections = z.strictObject({
         .superRefine(uniqueBy('page', 'page')),
     })
     .optional(),
+  'affiliate-by-page': z
+    .strictObject({
+      stamp: reportStamp,
+      meta: z
+        .looseObject({
+          ...dateRange,
+          windowKind: z.enum(['days', 'month', 'explicit']),
+          mode: z.literal('affiliate-by-page'),
+          japanOnly: z.boolean(),
+          propertyId: GA4_PROPERTY,
+          rowCount: count('API が返した総行数（クリックと表示の合計）'),
+          truncated: z.boolean().describe('上限で打ち切ったか'),
+        })
+        .superRefine(rangeOrdered),
+      rows: z
+        .array(
+          z.strictObject({
+            page: z.string(),
+            label: z.string().describe('event_label（広告のラベル。案件は catalog の ctaLabels で引く）'),
+            placement: z.string().describe('cta_placement（面）'),
+            date: jstDate('クリックの日（表示は窓の合計なので null）').nullable(),
+            eventName: z.enum(['affiliate_cta_click', 'affiliate_cta_impression']),
+            eventCount: count('イベント件数'),
+          }),
+        )
+        .superRefine(uniqueBy((r) => [r.page, r.label, r.placement, r.date ?? '', r.eventName].join('\u0000'), 'page×label×placement×date×eventName')),
+    })
+    .superRefine((r, ctx) => {
+      r.rows.forEach((row, i) => {
+        // クリックは日付まで、表示は窓の合計（日付なし）
+        if ((row.eventName === 'affiliate_cta_click') !== (row.date !== null)) flag(ctx, ['rows', i, 'date'], `${row.eventName} の date=${row.date}（クリックは日付あり・表示は null）`);
+        if (row.date && (row.date < r.meta.startDate || row.date > r.meta.endDate)) flag(ctx, ['rows', i, 'date'], `date ${row.date} が窓 ${r.meta.startDate}〜${r.meta.endDate} の外`);
+      });
+    })
+    .optional()
+    .describe('アフィリエイトの表示・クリックをページ × ラベル × 面で（クリックは日付も。2026-10-07〜）'),
   'quiz-funnel': z
     .strictObject({
       stamp: reportStamp,
@@ -191,6 +227,16 @@ const Ga4Sections = z.strictObject({
       if (r.meta.placementStatus !== 'available' && r.placementRows.length > 0) flag(ctx, ['placementRows'], `placementStatus が ${r.meta.placementStatus} なのに配置別の行がある`);
     })
     .optional(),
+  'affiliate-experiment': z.strictObject({
+    stamp: reportStamp,
+    meta: z.looseObject({ ...dateRange, windowKind: z.enum(['days', 'month', 'explicit']), japanOnly: z.boolean(), propertyId: GA4_PROPERTY,
+      rowCount: count('API 行数'), truncated: z.boolean(), limited: z.boolean(), status: z.enum(['available', 'awaiting-data']) }).superRefine(rangeOrdered),
+    rows: z.array(z.strictObject({ experiment: z.literal('EXP-019'), variant: z.enum(['A', 'B', 'C']), program: z.string().min(1), placement: z.string().min(1),
+      page: z.string(), device: z.string(), date: jstDate('イベントの日'), eventName: z.enum(['affiliate_experiment_page_view', 'affiliate_experiment_impression', 'affiliate_experiment_click', 'note_experiment_impression', 'note_experiment_click']), eventCount: count('イベント回数') }))
+      .superRefine(uniqueBy(r => [r.variant, r.program, r.placement, r.page, r.device, r.date, r.eventName].join('\u0000'), '案×案件×面×ページ×端末×日×イベント')),
+    summary: z.array(z.strictObject({ variant: z.enum(['A', 'B', 'C']), impressions: count('見出し表示'), clicks: count('広告クリック'), pageViews: count('対象ページ閲覧'),
+      noteImpressions: count('note表示'), noteClicks: count('noteクリック'), ctr: z.number().nonnegative().nullable(), clicksPerPageView: z.number().nonnegative().nullable(), noteCtr: z.number().nonnegative().nullable(), evidence: z.enum(['review-required', 'insufficient-data']) })).superRefine(uniqueBy('variant', '案')),
+  }).optional(),
   'bot-audit': z
     .strictObject({
       stamp: reportStamp,

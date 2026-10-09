@@ -2,6 +2,8 @@
 
 建設・施工管理の**転職サービス**のアフィリエイトリンクを統一カードで表示するコンポーネント。doboku-note で唯一稼働しているアフィリエイト（講座/教材/添削・書籍は 2026-06-25 に完全廃止＝note 有料商品とのカニバリ回避）。
 
+EXP-019 では、素材カタログの登録済み3案件を `CareerAffiliateExperiment` で表示する。Aは文章主体、Bは同じ文章に公式バナーを追加、Cは紺の面と短い見出し。訪問者ごとに約1/3ずつ割り当て、再訪でも同じ案を使う。案件・リンク・計測ピクセルは配置ルールの解決結果を引き継ぐ。実験の判断と計測は `docs/marketing/転職アフィリエイト訴求設計.md` §7。
+
 ## 特徴
 
 | 観点 | 仕様 |
@@ -14,6 +16,16 @@
 転職案件は ASP が分散する（A8.net / バリューコマース / アクセストレード / レントラックス）。各 ASP で計測ピクセルの配信ドメインが異なるため、mat 値ではなく**発行された 1x1 ピクセル URL をそのまま渡す**設計にしている。
 
 ## 使い方
+
+MDX 本文の転職枠は `program="career"` だけを書く。案件・リンク・文言・ピクセルは配置ルール（`config/affiliate-placements.json`）の解決結果で決まり、ルールの無いカテゴリでは描画しない（MDX に mat を直書きしない＝`check-affiliate-mats`）。
+
+```mdx
+<CareerAffiliate program="career" />
+```
+
+面が 1 つだけのページ（公的基準・トピック・トップ・ツール）は `src/components/ui/AffiliateSlot/AffiliateSlot.tsx` を使う（ルールを引いてこのカードを描き、その面でピクセルを 1 発出す）。記事・カテゴリの面は DocPage・CategoryPage が並べる。
+
+以下は配置ルールを通さず直接渡す旧来の形（新しく書かない）。
 
 ```mdx
 <CareerAffiliate
@@ -33,16 +45,20 @@
 |---|---|---|
 | `service` | 必須 | サービス名（例: "RSG建設転職"） |
 | `category` | 必須 | カテゴリ・職種ラベル（例: "施工管理 転職エージェント"） |
-| `href` | 必須 | アフィリエイトリンク URL |
+| `program` | 任意 | `"career"`（`"gks"` は歴史的な別名）。指定すると案件・リンク・文言は `inlineCard` で決まる |
+| `inlineCard` | 任意 | 配置ルールで解決した、この面に出す案件（DocPage・AffiliateSlot・診断ツールが渡す） |
+| `placement` | 任意 | GA4 の `cta_placement`（MDX 直書きは article-inline） |
+| `href` | `program` なしで必須 | アフィリエイトリンク URL |
 | `description` | 任意 | 補足説明 |
-| `imageSrc` | 任意 | バナー画像 URL。無い場合はテキスト主体カードで描画 |
+| `imageSrc` | 任意 | 旧来のカード用バナー画像 URL。EXP-019 の登録済み案件ではB案だけ素材カタログの公式バナーを表示する |
 | `trackingPixelUrl` | 任意 | 計測ピクセルの**完全 URL**（ASP ごとに配信ドメインが異なるため） |
 | `points` | 任意 | 訴求ポイントの箇条書き（最大 3 件目安） |
 | `cta` | 任意 | CTA ボタンテキスト（デフォルト「無料で相談する」） |
 
 ## 自動付与される属性
 
-- `rel="nofollow sponsored noopener"` — SEO 的に正しい挙動、ステマ規制対応
+- `rel`（`AFFILIATE_LINK_REL`＝`nofollow sponsored noopener`）— SEO 的に正しい挙動、ステマ規制対応
+- `referrerPolicy`（`AFFILIATE_LINK_REFERRER_POLICY`＝`no-referrer-when-downgrade`）— A8 の成果別レポートの「リファラ」にクリックしたページの URL を残す。rel と対で付ける（`src/components/ui/AffiliateParts.tsx`・`tests/affiliate-link-referrer.test.mjs`）
 - `target="_blank"` — 外部リンクは新タブで開く
 - 「PR」バッジ — 消費者庁ステマ規制 2023-10〜 で広告表示は法的義務
 - 画像・ピクセルとも `loading="lazy"` 相当（ピクセルは画面外配置）
@@ -50,8 +66,7 @@
 ## 配置原則
 
 - doboku-note のメイン導線は「ここだけで合格できる」体験。アフィは**補完ポジション**で配置
-- **記事末の CTA・年収/キャリア文脈の Callout 内**に使う
+- どのページのどの面に出すかは配置ルールが決める（2026-10-07 から学習・実務・公的基準・トップ・ツールにも面がある・EXP-017）。方針は `.claude/knowledge/reference/affiliate-operations.md` §6
 - **ファーストビュー（記事冒頭）禁止** — メイン導線と矛盾するため
-- 配置対象は「年収・キャリア・転職」を扱うガイド記事を優先（受験対策本文に押し込まない）
 
 詳細: `.claude/knowledge/reference/affiliate-operations.md`

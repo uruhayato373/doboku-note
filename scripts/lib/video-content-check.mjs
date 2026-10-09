@@ -16,6 +16,8 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { videoStatusToStage } from './content-lifecycle.mjs';
 import { channelFamily } from './utm-channels.mjs';
+import { assembleCompilation } from './video-compilation.mjs';
+import { loadVideoState } from './registry-video-state.mjs';
 
 const CONFIG_PATH = 'config/video-content.json'; // path-literal-ok: tests/video-publication-check.test.mjs が lib を単体で tmp にコピーして走らせる（datasets.mjs・zod が解決できない）
 const UTM_TEMPLATES_PATH = 'config/utm-templates.json'; // path-literal-ok: 同上（台帳 id: config.utm-templates）
@@ -136,11 +138,7 @@ export function discoverPacks(root, config) {
 export function loadPackSummaries(root, config, state) {
   const cfg = config ?? loadConfig(root);
   const { packs } = discoverPacks(root, cfg);
-  let st = state;
-  if (!st) {
-    const p = join(root, cfg.paths.stateFile);
-    st = existsSync(p) ? (readJsonSafe(p).data ?? { packs: {} }) : { packs: {} };
-  }
+  const st = state ?? loadVideoState(root);
 
   const rows = [];
   for (const pack of packs) {
@@ -319,7 +317,7 @@ function checkCta(m, id, root, config, issues) {
   }
 }
 
-function checkStoryboard(pack, id, root, config, required, issues) {
+function checkStoryboard(pack, id, root, config, required, issues, compilation = false) {
   const sbPath = join(pack.dir, 'storyboard.json');
   if (!existsSync(sbPath)) {
     // draft（企画のみ）の欠落は INFO＝正常な未着手。qa_passed 以降で無いのは契約違反。
@@ -373,7 +371,7 @@ function checkStoryboard(pack, id, root, config, required, issues) {
   });
   const bounds = sb.format === 'vertical-9x16'
     ? config.storyboard.durationSeconds.shorts
-    : config.storyboard.durationSeconds.longform;
+    : config.storyboard.durationSeconds[compilation ? 'compilation' : 'longform'];
   if (prevEnd < bounds.min || prevEnd > bounds.max) {
     issues.push(issue('FAIL', 'B05', id, `総尺 ${prevEnd}s が ${sb.format} の範囲 [${bounds.min}, ${bounds.max}] 外`));
   }
@@ -408,16 +406,38 @@ function checkBinaries(pack, id, config, issues) {
   }
 }
 
-/** state ファイルを検査し、packId → 最上位進行 status を返す */
-function checkState(root, config, knownPackIds, issues) {
-  const statePath = join(root, config.paths.stateFile);
-  const progress = new Map();
-  if (!existsSync(statePath)) return { exists: false, progress };
-  const { data: st, error } = readJsonSafe(statePath);
+/** 台帳から作った動画パックの状態を検査し、packId → 最上位進行 status を返す */
+/**
+ * 総まとめ（compilation.json）の storyboard.json が、元パックから組み立て直したものと一致するか。
+ * 元パックの台本を直したのに再生成し忘れる・未承認のパックを束ねる、を止める。
+ */
+function checkCompilation(pack, id, st, issues) {
+  const { data: spec, error } = readJsonSafe(join(pack.dir, 'compilation.json'));
   if (error) {
-    issues.push(issue('FAIL', 'T01', null, `${config.paths.stateFile} の parse 失敗（status 取得失敗を PASS にしない）: ${error}`));
-    return { exists: true, progress };
+    issues.push(issue('FAIL', 'K01', id, `compilation.json の parse 失敗: ${error}`));
+    return;
   }
+  let assembled;
+  try {
+    assembled = assembleCompilation(spec, (packId) => {
+      const { data: sb, error: sbError } = readJsonSafe(join(pack.dir, '..', packId, 'storyboard.json'));
+      if (sbError) throw new Error(`元パック ${packId} の storyboard.json を読めない: ${sbError}`);
+      return { storyboard: sb, longform: st?.packs?.[packId]?.derivatives?.longform };
+    }).storyboard;
+  } catch (e) {
+    issues.push(issue('FAIL', 'K01', id, `総まとめを組み立てられない: ${e.message}`));
+    return;
+  }
+  const sbPath = join(pack.dir, 'storyboard.json');
+  const current = existsSync(sbPath) ? readFileSync(sbPath, 'utf8') : null;
+  if (current !== JSON.stringify(assembled, null, 2) + '\n') {
+    issues.push(issue('FAIL', 'K02', id, 'storyboard.json が compilation.json・元パックと一致しない（npm run build-video-compilation で再生成）'));
+  }
+}
+
+function checkState(st, config, knownPackIds, issues) {
+  const progress = new Map();
+  const exists = Object.keys(st?.packs ?? {}).length > 0;
   if (st.schemaVersion !== config.state.schemaVersion) {
     issues.push(issue('FAIL', 'T01', null, `state schemaVersion=${st.schemaVersion}（期待 ${config.state.schemaVersion}）`));
   }
@@ -468,7 +488,7 @@ function checkState(root, config, knownPackIds, issues) {
       });
     }
   }
-  return { exists: true, progress };
+  return { exists, progress };
 }
 
 /**
@@ -476,8 +496,9 @@ function checkState(root, config, knownPackIds, issues) {
  * @returns {{ notStarted: boolean, rootExists: boolean, packCount: number,
  *             checkedCount: number, stateExists: boolean, issues: Array }}
  */
-export function checkAll(root, { config } = {}) {
+export function checkAll(root, { config, state } = {}) {
   const cfg = config ?? loadConfig(root);
+  const st = state ?? loadVideoState(root);
   const issues = [];
   const { rootExists, packs } = discoverPacks(root, cfg);
 
@@ -489,7 +510,7 @@ export function checkAll(root, { config } = {}) {
   }
 
   const knownPackIds = new Set(seenPackIds.keys());
-  const { exists: stateExists, progress } = checkState(root, cfg, knownPackIds, issues);
+  const { exists: stateExists, progress } = checkState(st, cfg, knownPackIds, issues);
 
   // README index（build-video-pack-index の生成物）の鮮度。回し忘れ＝管理画面と実体のずれを止める
   if (packs.length > 0) {
@@ -516,7 +537,9 @@ export function checkAll(root, { config } = {}) {
     const resolvedRefs = checkSourceRefs(m, id, root, cfg, issues);
     checkCta(m, id, root, cfg, issues);
     const advanced = (progress.get(id) ?? -1) >= qaPassedIdx;
-    checkStoryboard(pack, id, root, cfg, advanced, issues);
+    const compilation = existsSync(join(pack.dir, 'compilation.json'));
+    checkStoryboard(pack, id, root, cfg, advanced, issues, compilation);
+    if (compilation) checkCompilation(pack, id, st, issues);
     checkScript(pack, id, root, cfg, advanced, resolvedRefs, issues);
     checkBinaries(pack, id, cfg, issues);
   }

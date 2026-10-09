@@ -18,7 +18,7 @@ import { readJson as watchReadJson } from '../scripts/lib/seo-rank-watch.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools の本番コード。tests は数えない）。減らしたら下げる */
-const BASELINE = 29;
+const BASELINE = 10;
 
 /** `const readJson =`・`function readJson(` の定義（再公開 `export { readJson }` と import は数えない） */
 const DEFINES_READ_JSON = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+readJson\s*=|(?:async\s+)?function\s+readJson\s*\()/m;

@@ -401,6 +401,10 @@
           "title": "財務会計",
           "keywords": [
             {
+              "slug": "accounting-principles",
+              "title": "企業会計原則"
+            },
+            {
               "slug": "cash-flow-statement",
               "title": "キャッシュ・フロー計算書（C/F）"
             },
@@ -947,6 +951,10 @@
             {
               "slug": "second-career",
               "title": "セカンドキャリア"
+            },
+            {
+              "slug": "diversity-management",
+              "title": "ダイバーシティ・マネジメント"
             },
             {
               "slug": "talent-management",

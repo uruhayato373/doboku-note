@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="温度が下がると吸収エネルギーが急に低下し脆性破面率が増える遷移曲線。試験温度では規定値を満たしても使用最低温度では下回りうることを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .big { font-size: 24px; font-weight: bold; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.5; }
+      .guide { fill: none; stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .arrow { fill: none; stroke: #2e6da4; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="50" y="26" class="h">実線：吸収エネルギー（J）</text>
+  <text x="360" y="26" class="h e">破線：脆性破面率（%）</text>
+  <path class="axis" d="M50,40 V378.0 H364" />
+  <path d="M50,248.0 H360" fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="6 4" />
+  <text x="360" y="241.0" class="s e">規定値</text>
+  <path d="M130,60.8 V378.0" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="3 3" />
+  <path d="M230,60.8 V378.0" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="3 3" />
+  <text x="130" y="52" class="m">使用最低温度</text>
+  <text x="230" y="52" class="m">試験温度</text>
+  <path d="M50,79.2 C51.7,79.2 56.7,79.3 60,79.4 C63.3,79.5 66.7,79.5 70,79.6 C73.3,79.7 76.7,79.8 80,79.9 C83.3,80.1 86.7,80.3 90,80.5 C93.3,80.7 96.7,81.0 100,81.3 C103.3,81.6 106.7,82.0 110,82.6 C113.3,83.1 116.7,83.8 120,84.6 C123.3,85.4 126.7,86.4 130,87.7 C133.3,89.0 136.7,90.5 140,92.5 C143.3,94.5 146.7,96.7 150,99.7 C153.3,102.7 156.7,106.0 160,110.3 C163.3,114.5 166.7,119.4 170,125.2 C173.3,131.0 176.7,137.7 180,145.3 C183.3,152.9 186.7,161.6 190,170.7 C193.3,179.8 196.7,190.1 200,200.1 C203.3,210.1 206.7,220.9 210,230.9 C213.3,240.9 216.7,251.2 220,260.3 C223.3,269.4 226.7,278.1 230,285.7 C233.3,293.3 236.7,300.0 240,305.8 C243.3,311.6 246.7,316.4 250,320.7 C253.3,324.9 256.7,328.3 260,331.3 C263.3,334.3 266.7,336.5 270,338.5 C273.3,340.5 276.7,342.0 280,343.3 C283.3,344.6 286.7,345.5 290,346.4 C293.3,347.2 296.7,347.8 300,348.4 C303.3,348.9 306.7,349.3 310,349.7 C313.3,350.1 316.7,350.3 320,350.5 C323.3,350.7 326.7,351.0 330,351.1 C333.3,351.2 336.7,351.3 340,351.4 C343.3,351.5 346.7,351.5 350,351.6 C353.3,351.7 358.3,351.8 360,351.8" fill="none" stroke="#555" stroke-width="2" stroke-dasharray="6 4" />
+  <path d="M50,351.8 C51.7,351.8 56.7,351.7 60,351.6 C63.3,351.5 66.7,351.5 70,351.4 C73.3,351.3 76.7,351.2 80,351.1 C83.3,351.0 86.7,350.7 90,350.5 C93.3,350.3 96.7,350.1 100,349.7 C103.3,349.3 106.7,348.9 110,348.4 C113.3,347.8 116.7,347.2 120,346.4 C123.3,345.5 126.7,344.6 130,343.3 C133.3,342.0 136.7,340.5 140,338.5 C143.3,336.5 146.7,334.3 150,331.3 C153.3,328.3 156.7,324.9 160,320.7 C163.3,316.4 166.7,311.6 170,305.8 C173.3,300.0 176.7,293.3 180,285.7 C183.3,278.1 186.7,269.4 190,260.3 C193.3,251.2 196.7,240.9 200,230.9 C203.3,220.9 206.7,210.1 210,200.1 C213.3,190.1 216.7,179.8 220,170.7 C223.3,161.6 226.7,152.9 230,145.3 C233.3,137.7 236.7,131.0 240,125.2 C243.3,119.4 246.7,114.5 250,110.3 C253.3,106.0 256.7,102.7 260,99.7 C263.3,96.7 266.7,94.5 270,92.5 C273.3,90.5 276.7,89.0 280,87.7 C283.3,86.4 286.7,85.4 290,84.6 C293.3,83.8 296.7,83.1 300,82.6 C303.3,82.0 306.7,81.6 310,81.3 C313.3,81.0 316.7,80.7 320,80.5 C323.3,80.3 326.7,80.1 330,79.9 C333.3,79.8 336.7,79.7 340,79.6 C343.3,79.5 346.7,79.5 350,79.4 C353.3,79.3 358.3,79.2 360,79.2" fill="none" stroke="#2e6da4" stroke-width="3" />
+  <circle cx="130" cy="343.3" r="5" fill="#b22234" />
+  <circle cx="230" cy="145.3" r="5" fill="#3a7d44" />
+  <circle cx="205" cy="215.5" r="4" fill="#ffffff" stroke="#222" stroke-width="1.5" />
+  <text x="330" y="71.0" class="s m">上部棚</text>
+  <text x="90" y="344.0" class="s m">下部棚</text>
+  <text x="76" y="71.0" class="s m">100%</text>
+  <text x="334" y="342.0" class="s m">0%</text>
+  <text x="205" y="398.0" class="h m">遷移温度</text>
+  <text x="207" y="420.0" class="s m">低温　←　温度　→　高温</text>
+  <rect class="brand" x="20" y="438" width="360" height="50" rx="6" />
+  <text x="34" y="458" class="s">破面遷移温度：脆性破面率が50%になる温度</text>
+  <text x="34" y="477" class="s">エネルギー遷移温度：上部棚の半分になる温度</text>
+</svg>

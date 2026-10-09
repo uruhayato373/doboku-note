@@ -1,11 +1,13 @@
 import { readFileSync } from 'node:fs';
 import { repoPath } from './repo-root';
-import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
+import { datasetPath, freshnessDays } from '../../../../scripts/lib/datasets.mjs';
+import { siteMonthsFromReportLog } from '../../../../scripts/lib/a8-report-csv.mjs';
+import { classifyCrossCheck } from '../../../../scripts/lib/report-honesty.mjs';
 
 /**
  * affiliate.ts — A8 アフィリ成果（読み取り専用）。
  * data/a8/report-log.json を読む。
- * データ供給は /a8-report（npm run a8-ui:fetch → a8-ui:normalize）。
+ * データ供給は login-collectors.yml（週次・JST の前月と当月）。手動は workflow の month 入力か /a8-report。
  *
  * ★ 表示上の最重要ルール: A8 のこの口座は stats47（統計で見る都道府県）と共用で、
  *   **doboku-note に分離できるのはサイト別レポート（siteSummary）だけ**。
@@ -49,23 +51,28 @@ export interface ProgramRow {
   revenueYen: number | null;
   epc: number | null;
 }
-export interface MonthRow {
+/** サイト別（doboku-note に分離できる唯一の実績）の単月の行。掲載先はサイトか note */
+export interface SiteMonthRow {
   month: string;
+  label: string;
   clicks: number | null;
   conversions: number | null;
-  grossRevenueYen: number | null;
+  approved: number | null;
+  pendingCount: number | null;
+  cancelledCount: number | null;
   revenueYen: number | null;
-}
-export interface DayRow {
-  date: string;
-  clicks: number | null;
-  conversions: number | null;
-  grossRevenueYen: number | null;
 }
 export interface CrossCheck {
   comparable: boolean;
   exceeded?: boolean;
+  hasShortfall?: boolean;
+  shortfall?: { clicks?: number; revenueYen?: number };
   deltas?: Record<string, { site: number | null; picked: number; delta: number | null }>;
+}
+/** 検算（サイト別とプログラム別の突き合わせ）で人が見るべきときだけ出す */
+export interface CrossCheckBadge {
+  tone: 'warn' | 'bad' | 'info';
+  text: string;
 }
 export interface AffiliateSummary {
   collected: boolean;
@@ -77,9 +84,9 @@ export interface AffiliateSummary {
   /** A8 のサイト別レポートを掲載先（サイト／note）ごとに。note は a8-report-automation.json の relatedSites */
   surfaceTotals: { label: string; site: string; clicks: number | null; conversions: number | null; approved: number | null; revenueYen: number | null; collected: boolean }[];
   programs: ProgramRow[];
-  accountWideMonths: MonthRow[];
-  accountWideDays: DayRow[];
-  crossCheck: CrossCheck | null;
+  /** 直近 3 か月の単月（サイト・note） */
+  siteMonths: SiteMonthRow[];
+  crossCheckBadge: CrossCheckBadge | null;
   /** サイト別を説明しきれないときだけ出る取りこぼし候補（他サイト分を除く）。report-log の missingProgramCandidates */
   missingPrograms: { programId: string | null; programRaw: string }[];
   notAttributable: number;
@@ -127,9 +134,8 @@ const EMPTY: AffiliateSummary = {
   siteTotals: null,
   surfaceTotals: [],
   programs: [],
-  accountWideMonths: [],
-  accountWideDays: [],
-  crossCheck: null,
+  siteMonths: [],
+  crossCheckBadge: null,
   missingPrograms: [],
   notAttributable: 0,
 };
@@ -199,22 +205,25 @@ export function affiliateSummary(): AffiliateSummary {
     }))
     .sort((a, b) => n(b.clicks) - n(a.clicks));
 
-  const accountWideMonths: MonthRow[] = (log.monthly ?? [])
-    .map((r) => ({
-      month: r.month ?? '',
-      clicks: r.clicks ?? null,
-      conversions: r.conversions ?? null,
-      grossRevenueYen: r.grossRevenueYen ?? null,
-      revenueYen: r.revenueYen ?? null,
-    }))
-    .filter((r) => r.month)
-    .sort((a, b) => (a.month < b.month ? -1 : 1));
+  // 単月の行は対象期間（log.period）に限らず直近 3 か月を出す（確定は発生月へ遡って反映されるので、前月の確定・取消を見る）
+  const siteMonths: SiteMonthRow[] = siteMonthsFromReportLog(log, { sites: [target, ...related], months: 3 }).map((r) => ({
+    month: r.month,
+    label: r.site === target ? 'サイト' : 'note',
+    clicks: r.clicks,
+    conversions: r.conversions,
+    approved: r.approved,
+    pendingCount: r.pendingCount,
+    cancelledCount: r.cancelledCount,
+    revenueYen: r.revenueYen,
+  }));
 
-  const accountWideDays: DayRow[] = (log.daily ?? [])
-    .map((r) => ({ date: r.date ?? '', clicks: r.clicks ?? null, conversions: r.conversions ?? null, grossRevenueYen: r.grossRevenueYen ?? null }))
-    .filter((r) => r.date)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
-    .slice(0, 31);
+  // 検算: 不足（allowlist で説明しきれない＝未登録の案件の疑い）と想定を超える超過だけを出す。想定内の超過（stats47 分）は出さない
+  const cc = classifyCrossCheck((log.crossCheck ?? null) as Parameters<typeof classifyCrossCheck>[0]);
+  const crossCheckBadge: CrossCheckBadge | null = cc.shortfall
+    ? { tone: 'warn', text: `検算 不足 ${log.crossCheck?.shortfall?.clicks ?? '?'} click` }
+    : cc.abnormal
+      ? { tone: 'bad', text: `検算 超過 ${cc.excessRatio != null ? Math.round(cc.excessRatio * 100) : '?'}%` }
+      : null;
 
   return {
     collected: true,
@@ -225,19 +234,39 @@ export function affiliateSummary(): AffiliateSummary {
     siteTotals,
     surfaceTotals,
     programs,
-    accountWideMonths,
-    accountWideDays,
-    crossCheck: log.crossCheck ?? null,
+    siteMonths,
+    crossCheckBadge,
     missingPrograms: (log.missingProgramCandidates ?? []).map((u) => ({ programId: u.programId ?? null, programRaw: u.programRaw ?? '' })),
     notAttributable: (log.notAttributable ?? []).length,
   };
 }
 
-/** サイト内の広告クリック（GA4・配置別）。data/analysis/career-funnel.json（npm run report-career-funnel）を読むだけ。 */
+/**
+ * サイト内の広告クリック（GA4・配置別）。data/analysis/career-funnel.json（fetch-metrics が週次で作る）を読むだけ。
+ * 配置の名前と撤去は config/cta-placements.json（語彙）。窓は配置別の 28 日窓。
+ */
+export interface PlacementRow {
+  placement: string;
+  label: string;
+  impressions: number;
+  clicks: number;
+  /** 撤去済み（GA4 の窓に過去の表示が残っているだけ）。日付が分かれば retiredAt */
+  retired: boolean;
+  retiredAt: string | null;
+}
 export interface PlacementView {
   window: { start: string; end: string } | null;
   generatedAt: string | null;
-  rows: { placement: string; impressions: number; clicks: number }[];
+  /** 生成から台帳の鮮度（analysis.career-funnel の warnDays）を超えた */
+  stale: boolean;
+  rows: PlacementRow[];
+}
+function readPlacementVocab(): Record<string, { label: string; status: string; retiredAt?: string }> {
+  try {
+    return JSON.parse(readFileSync(repoPath(datasetPath('config.cta-placements')), 'utf8')).affiliate ?? {};
+  } catch {
+    return {};
+  }
 }
 export function affiliatePlacements(): PlacementView {
   try {
@@ -246,13 +275,117 @@ export function affiliatePlacements(): PlacementView {
       windows?: { ga4?: { start: string; end: string } };
       funnel?: { affiliateCta?: { byPlacement?: Record<string, { impressions?: number; clicks?: number }> } };
     };
+    const vocab = readPlacementVocab();
     const rows = Object.entries(j.funnel?.affiliateCta?.byPlacement ?? {})
-      .map(([placement, v]) => ({ placement, impressions: v.impressions ?? 0, clicks: v.clicks ?? 0 }))
-      .sort((a, b) => b.impressions - a.impressions);
-    return { window: j.windows?.ga4 ?? null, generatedAt: j.generatedAt ?? null, rows };
+      .map(([placement, v]) => {
+        const known = vocab[placement];
+        return {
+          placement,
+          label: known?.label ?? placement,
+          impressions: v.impressions ?? 0,
+          clicks: v.clicks ?? 0,
+          retired: known?.status === 'retired',
+          retiredAt: known?.retiredAt ?? null,
+        };
+      })
+      .sort((a, b) => Number(a.retired) - Number(b.retired) || b.impressions - a.impressions);
+    const generatedAt = j.generatedAt ?? null;
+    const ageDays = generatedAt ? (Date.now() - Date.parse(generatedAt)) / 86400000 : Infinity;
+    return { window: j.windows?.ga4 ?? null, generatedAt, stale: ageDays > freshnessDays('analysis.career-funnel', 'warnDays'), rows };
   } catch {
-    return { window: null, generatedAt: null, rows: [] };
+    return { window: null, generatedAt: null, stale: false, rows: [] };
   }
+}
+
+/** 配置ルール（config/affiliate-placements.json）ごとの面の数字（data/analysis/career-funnel.json の byRule） */
+export interface RuleRow {
+  ruleId: string;
+  program: string;
+  slotLabel: string;
+  open: boolean;
+  impressions: number;
+  clicks: number;
+  /** 前後のルールと分けられない表示・クリック（ページ別のときだけ。閉じて開き直した窓） */
+  impressionsShared: number;
+  clicksShared: number;
+  /** 窓の一部だけ有効（面の合計のときは窓の残りの日の数字も混ざる） */
+  partial: boolean;
+  /** 数字を分けられないルール */
+  sharedWith: string[];
+}
+
+/** クリックの出どころ（日付・ページ・広告・ルール） */
+export interface ClickLogRow {
+  date: string;
+  page: string;
+  program: string | null;
+  slotLabel: string;
+  ruleId: string | null;
+  clicks: number;
+}
+
+interface FunnelAffiliate {
+  byRule?: { ruleId: string; program: string; slot: string; until: string | null; ga4: { coveredDays: number; windowDays: number; impressions: number; clicks: number; impressionsShared?: number; clicksShared?: number; sharedWith: string[] } }[];
+  byRuleWindow?: { start: string; end: string; source: 'page' | 'placement' };
+  unattributed?: { impressions: number; clicks: number };
+  clickLog?: { date: string; page: string; label: string; placement: string; program: string | null; ruleId: string | null; clicks: number }[];
+  conversions?: { clickedAt: string; program: string | null; status: string; grossRevenueYen: number; revenueYen: number; device: string | null; page: string | null; candidates: { ruleId: string; slot: string }[] }[];
+}
+
+function readFunnelAffiliate(): FunnelAffiliate | null {
+  try {
+    const j = JSON.parse(readFileSync(repoPath(datasetPath('analysis.career-funnel')), 'utf8')) as { funnel?: { affiliateCta?: FunnelAffiliate } };
+    return j.funnel?.affiliateCta ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function affiliateRules(): { rows: RuleRow[]; window: FunnelAffiliate['byRuleWindow'] | null; unattributed: FunnelAffiliate['unattributed'] | null } {
+  const a = readFunnelAffiliate();
+  const vocab = readPlacementVocab();
+  return {
+    rows: (a?.byRule ?? []).map((r) => ({
+      ruleId: r.ruleId,
+      program: r.program,
+      slotLabel: vocab[r.slot]?.label ?? r.slot,
+      open: r.until == null,
+      impressions: r.ga4.impressions,
+      clicks: r.ga4.clicks,
+      impressionsShared: r.ga4.impressionsShared ?? 0,
+      clicksShared: r.ga4.clicksShared ?? 0,
+      partial: r.ga4.coveredDays < r.ga4.windowDays,
+      sharedWith: r.ga4.sharedWith,
+    })),
+    window: a?.byRuleWindow ?? null,
+    unattributed: a?.unattributed ?? null,
+  };
+}
+
+export function affiliateClickLog(): ClickLogRow[] {
+  const vocab = readPlacementVocab();
+  return (readFunnelAffiliate()?.clickLog ?? []).map((c) => ({
+    date: c.date,
+    page: c.page,
+    program: c.program,
+    slotLabel: vocab[c.placement]?.label ?? c.placement,
+    ruleId: c.ruleId,
+    clicks: c.clicks,
+  }));
+}
+
+/** A8 の成果別（1 成果 1 行）をクリックしたページと候補の配置ルールで（report-career-funnel が寄せた結果）。 */
+export function affiliateConversions(): { clickedAt: string; program: string | null; status: string; grossRevenueYen: number; device: string | null; page: string | null; rules: string }[] {
+  const vocab = readPlacementVocab();
+  return (readFunnelAffiliate()?.conversions ?? []).map((c) => ({
+    clickedAt: c.clickedAt,
+    program: c.program,
+    status: c.status,
+    grossRevenueYen: c.grossRevenueYen,
+    device: c.device,
+    page: c.page,
+    rules: c.candidates.map((x) => `${x.ruleId}（${vocab[x.slot]?.label ?? x.slot}）`).join('・'),
+  }));
 }
 
 /** アフィリエイトに関わる実行中の実験と次の判定日（data/business/experiments.json）。 */
@@ -271,7 +404,7 @@ export function affiliateExperiments(): { id: string; title: string; nextCheck: 
 /** 掲載先（サイト／note／SNS）ごとのアフィリエイトリンク。数えるのは scripts/lib/affiliate-placements.mjs。 */
 export { affiliatePlacements as affiliateSurfaces } from '../../../../scripts/lib/affiliate-placements.mjs';
 
-/** 提携・案件（data/affiliate/catalog.json）＋リンクの期限（src/config/affiliate-mats.json）。 */
+/** 提携・案件（data/affiliate/catalog.json）＋リンクの期限（config/affiliate-mats.json）。 */
 export interface ProgramCatalogRow {
   id: string;
   label: string;
@@ -284,7 +417,7 @@ export function affiliateCatalog(): ProgramCatalogRow[] {
     const c = JSON.parse(readFileSync(repoPath(datasetPath('affiliate.catalog')), 'utf8')) as {
       programs: Record<string, { label: string; placement: string; asps?: Record<string, { status?: string; rewardYen?: number | null }> }>;
     };
-    const mats = JSON.parse(readFileSync(repoPath('src', 'config', 'affiliate-mats.json'), 'utf8')).mats as { program: string; expiresAt: string | null }[];
+    const mats = JSON.parse(readFileSync(repoPath(datasetPath('config.affiliate-mats')), 'utf8')).mats as { program: string; expiresAt: string | null }[];
     return Object.entries(c.programs).map(([id, p]) => {
       const dates = mats.filter((m) => m.program === id).map((m) => m.expiresAt);
       return {

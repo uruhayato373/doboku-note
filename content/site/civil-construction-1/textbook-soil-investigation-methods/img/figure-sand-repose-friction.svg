@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="砂の斜面上の粒子に働く重さ・垂直抗力・摩擦力の分解。すべり出す限界で斜面角と内部摩擦角が等しくなる。"><defs><style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#222;font-size:13px}.head{font-size:16px;font-weight:bold;fill:#1a3a5c}.sub{fill:#555;font-size:12px}.small{fill:#555;font-size:11px}.lbl{font-weight:bold}.red{fill:#b22234}.green{fill:#3a7d44}.blue{fill:#2e6da4}.sand{fill:#fff3cd;stroke:none}.surface{fill:none;stroke:#d4a017;stroke-width:2}.grain{fill:none;stroke:#d4a017;stroke-width:1}.w{fill:none;stroke:#222;stroke-width:2.5}.fs{fill:none;stroke:#b22234;stroke-width:2.5}.fr{fill:none;stroke:#3a7d44;stroke-width:2.5}.fn{fill:none;stroke:#2e6da4;stroke-width:2.5}.fc{fill:none;stroke:#555;stroke-width:2;stroke-dasharray:6 4}.guide{fill:none;stroke:#8a8a8a;stroke-width:1;stroke-dasharray:4 3}.box{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}</style>
+<marker id="aInk" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 11,4.5 0,9" fill="#222"/></marker>
+<marker id="aRed" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 11,4.5 0,9" fill="#b22234"/></marker>
+<marker id="aGreen" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 11,4.5 0,9" fill="#3a7d44"/></marker>
+<marker id="aBlue" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 11,4.5 0,9" fill="#2e6da4"/></marker>
+<marker id="aGray" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 11,4.5 0,9" fill="#555"/></marker>
+</defs><!-- tokens: ink-strong, ink-body, ink-muted, brand, positive, warn, danger -->
+<text class="head" x="200" y="30" text-anchor="middle">止まる限界は、分力と摩擦力のつり合い</text>
+<polygon class="sand" points="25.0 75.0 375.0 293.7 375.0 385.0 25.0 385.0"/>
+<circle class="grain" cx="70" cy="190" r="4"/><circle class="grain" cx="110" cy="240" r="4"/><circle class="grain" cx="60" cy="300" r="4"/><circle class="grain" cx="130" cy="330" r="4"/><circle class="grain" cx="200" cy="350" r="4"/><circle class="grain" cx="310" cy="340" r="4"/><circle class="grain" cx="350" cy="365" r="4"/><circle class="grain" cx="90" cy="365" r="4"/><circle class="grain" cx="330" cy="300" r="4"/><circle class="grain" cx="45" cy="240" r="4"/>
+<path class="surface" d="M25.0 75.0 L375.0 293.7"/>
+<path class="guide" d="M25.0 75.0 H160"/>
+<text class="small" x="162" y="79">水平</text>
+<path fill="none" stroke="#2e6da4" stroke-width="1.5" d="M91.0 75.0 A66 66 0 0 1 81.0 110.0"/>
+<text class="lbl blue" x="104" y="104">安息角 θ</text>
+<path class="guide" d="M291.8 224.0 L243.3 301.7 M194.7 271.4 L243.3 301.7"/>
+<path class="w" d="M243.3 193.7 L243.3 301.7" marker-end="url(#aInk)"/>
+<path class="fs" d="M243.3 193.7 L291.8 224.0" marker-end="url(#aRed)"/>
+<path class="fc" d="M243.3 193.7 L194.7 271.4" marker-end="url(#aGray)"/>
+<path class="fn" d="M243.3 193.7 L291.8 116.0" marker-end="url(#aBlue)"/>
+<path class="fr" d="M243.3 193.7 L194.7 163.4" marker-end="url(#aGreen)"/>
+<circle cx="243.3" cy="193.7" r="15" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+<text class="lbl" x="251.3" y="305.7">重さ W</text>
+<text class="lbl red" x="299.8" y="228.0">W sinθ</text>
+<text class="lbl" x="186.7" y="285.4" text-anchor="end" style="fill:#555">W cosθ</text>
+<text class="lbl blue" x="291.8" y="106.0" text-anchor="middle">垂直抗力 N</text>
+<text class="lbl green" x="190.7" y="151.4" text-anchor="middle">摩擦力 F</text>
+<rect class="box" x="20" y="402" width="360" height="86" rx="6"/>
+<text x="200" y="426" text-anchor="middle">限界で　W sinθ ＝ W cosθ · tanφ</text>
+<text class="lbl" x="200" y="450" text-anchor="middle" style="fill:#1a3a5c">よって　θ ＝ φ（内部摩擦角）</text>
+<text class="small" x="200" y="467" text-anchor="middle">黒＝重さ　灰（点線）＝重さの垂直成分</text>
+<text class="small" x="200" y="482" text-anchor="middle">赤＝すべらせる分力　緑＝摩擦力　青＝垂直抗力</text>
+</svg>

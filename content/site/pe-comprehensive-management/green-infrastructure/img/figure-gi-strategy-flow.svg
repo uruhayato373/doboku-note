@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="背景の圧力から、特徴が事業に求める要求、活用場面の束へと進む三段の流れ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
+      .lab { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hd  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tag { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .sm  { font-size: 11px; fill: #555; }
+      .tx  { font-size: 13px; fill: #222; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <!-- brand: 背景の段 / positive: 特徴の段 / warn: 活用場面の段 / ink: 本文 -->
+
+  <!-- 段1 背景 -->
+  <rect x="20" y="12" width="360" height="150" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="lab" x="34" y="33">背景：自然の機能に頼る理由</text>
+  <rect x="34" y="44" width="160" height="50" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="hd" x="114" y="65" text-anchor="middle">外力の変化</text>
+  <text class="sm" x="114" y="83" text-anchor="middle">強雨・暑熱が増える</text>
+  <rect x="206" y="44" width="160" height="50" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="hd" x="286" y="65" text-anchor="middle">担い手と財源の減少</text>
+  <text class="sm" x="286" y="83" text-anchor="middle">低未利用地・施設の老朽化</text>
+  <rect x="34" y="104" width="160" height="50" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="hd" x="114" y="125" text-anchor="middle">選ばれる条件の変化</text>
+  <text class="sm" x="114" y="143" text-anchor="middle">都市間競争・ESG投資</text>
+  <rect x="206" y="104" width="160" height="50" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="hd" x="286" y="125" text-anchor="middle">引き継ぐ基盤</text>
+  <text class="sm" x="286" y="143" text-anchor="middle">自然共生・地域の自然資本</text>
+
+  <path d="M200 165 V188" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 段2 特徴 -->
+  <rect x="20" y="190" width="360" height="136" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="lab" x="34" y="211">特徴が事業に求めること</text>
+  <rect x="34" y="224" width="88" height="22" rx="4" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="tag" x="78" y="239" text-anchor="middle">機能が多様</text>
+  <text class="tx" x="132" y="240">エリア全体で効果を設計する</text>
+  <rect x="34" y="258" width="88" height="22" rx="4" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="tag" x="78" y="273" text-anchor="middle">担い手が多様</text>
+  <text class="tx" x="132" y="274">役割分担を維持管理まで決める</text>
+  <rect x="34" y="292" width="88" height="22" rx="4" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="tag" x="78" y="307" text-anchor="middle">時間で変化</text>
+  <text class="tx" x="132" y="308">点検で確かめ、順応的に管理</text>
+
+  <path d="M200 329 V352" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 段3 活用場面 -->
+  <rect x="20" y="354" width="360" height="136" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="lab" x="34" y="375">活用場面の三つの束</text>
+  <rect x="34" y="388" width="88" height="22" rx="4" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="tag" x="78" y="403" text-anchor="middle">安全に効かせる</text>
+  <text class="tx" x="132" y="404">気候変動対応・国土の管理</text>
+  <rect x="34" y="422" width="88" height="22" rx="4" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="tag" x="78" y="437" text-anchor="middle">空き地を活かす</text>
+  <text class="tx" x="132" y="438">低未利用地・生態系ネットワーク</text>
+  <rect x="34" y="456" width="88" height="22" rx="4" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="tag" x="78" y="471" text-anchor="middle">価値を上げる</text>
+  <text class="tx" x="132" y="472">都市空間・オフィス・生活空間</text>
+</svg>

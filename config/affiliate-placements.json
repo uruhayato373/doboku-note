@@ -1,0 +1,747 @@
+{
+  "schemaVersion": 1,
+  "$comment": "どの転職案件をどのページのどの面（GA4 の cta_placement）にいつ出すかの正本。ここは「選択」だけを持ち、バナー画像・カードの文言・悩み別の CTA は src/config/affiliate-creatives.ts の PROGRAM_ASSETS（案件 id で引く）。解決は src/lib/affiliate-placement.ts（純関数は src/lib/affiliate-placement-core.mjs）。面の名前・ピクセルの優先順は config/cta-placements.json、案件の配置可否・Red Line は data/affiliate/catalog.json。配置を変えるときはルールを足すか until を入れて閉じる（消さない＝GA4 の窓と結ぶための履歴）。SSG なので境界の日時を過ぎても本番の再ビルドまで切り替わらない。2026-09-08 より前の配置（増額キャンペーン・slug ハッシュの A/B）は表さない（affiliate-operations.md §6 と git 履歴）。検査は npm run check-affiliate-placements。",
+  "rules": [
+    {
+      "id": "PL-0001",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "civil-construction-2",
+          "pe-construction",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-10-07T17:00:00+09:00"
+      },
+      "experiment": "EXP-008",
+      "note": "本文中間のネイティブカード。記事の長さ（h2・字数）と枠数の判断は DocPage が持つ。2026-09-08 に通常条件の BuildJob へ集約 2026-10-07 に閉じた（2級を建設JOBs へ替えるため。2級を除いて PL-0013 で続ける）"
+    },
+    {
+      "id": "PL-0002",
+      "program": "dx-consulting",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "総監はシニア技術者・管理職層なので施工管理系を出さない"
+    },
+    {
+      "id": "PL-0003",
+      "program": "buildjob",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "civil-construction-2",
+          "pe-construction",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-10-07T17:00:00+09:00"
+      },
+      "experiment": "EXP-008",
+      "note": "MDX 本文に手書きした <CareerAffiliate program=\"gks\">（案件の指定ではなく本文中の転職枠の印）。ルールの無いカテゴリでは描画しない 2026-10-07 に閉じた（2級を建設JOBs へ替えるため。2級を除いて PL-0014 で続ける）"
+    },
+    {
+      "id": "PL-0004",
+      "program": "buildjob",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "civil-construction-2",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage",
+          "rccm"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-10-07T17:00:00+09:00"
+      },
+      "experiment": "EXP-008",
+      "note": "記事末 300×250。キャリア記事の記事末は内部導線（2026-08-21）。非キャリア記事の存廃は EXP-008（2026-10-20）で決める 2026-10-07 に閉じた（2級を建設JOBs へ替えるため。2級を除いて PL-0015 で続ける）"
+    },
+    {
+      "id": "PL-0005",
+      "program": "dx-consulting",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null
+    },
+    {
+      "id": "PL-0006",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-1",
+          "civil-construction-2",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-10-07T17:00:00+09:00"
+      },
+      "experiment": null,
+      "note": "資格トップの右サイドバー（PC）。hub は 1 枠（2026-09-08） 2026-10-07 に閉じた（2級を建設JOBs へ替えるため。2級を除いて PL-0016 で続ける）"
+    },
+    {
+      "id": "PL-0007",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-1",
+          "civil-construction-2",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-10-07T17:00:00+09:00"
+      },
+      "experiment": null,
+      "note": "資格トップのモバイル本文中（ピクセルは PC サイドバー側だけ） 2026-10-07 に閉じた（2級を建設JOBs へ替えるため。2級を除いて PL-0017 で続ける）"
+    },
+    {
+      "id": "PL-0008",
+      "program": "dx-consulting",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "pe-comprehensive-management"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null
+    },
+    {
+      "id": "PL-0009",
+      "program": "dx-consulting",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "pe-comprehensive-management"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": null
+    },
+    {
+      "id": "PL-0010",
+      "program": "buildjob",
+      "slot": "career-tool",
+      "target": {
+        "pageKind": "tool"
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "/tools/career-check の結果の後に 1 枚（緊急性のある悩みでは出さない判断はツール側）"
+    },
+    {
+      "id": "PL-0011",
+      "program": "buildjob",
+      "slot": "sidebar",
+      "target": {
+        "pageKind": "doc",
+        "excludeCategories": [
+          "pe-comprehensive-management"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-09-26T00:00:00+09:00"
+      },
+      "experiment": "EXP-008",
+      "note": "記事サイドバー（PC）。DN-0322 で撤去（GA4 4 週で表示 12,673・クリック 0）。閉じたルール＝履歴"
+    },
+    {
+      "id": "PL-0012",
+      "program": "dx-consulting",
+      "slot": "sidebar",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "pe-comprehensive-management"
+        ]
+      },
+      "period": {
+        "from": "2026-09-08T00:00:00+09:00",
+        "until": "2026-09-26T00:00:00+09:00"
+      },
+      "experiment": null,
+      "note": "総監の記事サイドバー。PL-0011 と同日に撤去"
+    },
+    {
+      "id": "PL-0013",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "PL-0001 の続き（2級を除く）。"
+    },
+    {
+      "id": "PL-0014",
+      "program": "buildjob",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "PL-0003 の続き（2級を除く）。"
+    },
+    {
+      "id": "PL-0015",
+      "program": "buildjob",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage",
+          "rccm"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "PL-0004 の続き（2級を除く）。"
+    },
+    {
+      "id": "PL-0016",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "PL-0006 の続き（2級を除く）。"
+    },
+    {
+      "id": "PL-0017",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-1",
+          "pe-construction",
+          "concrete-engineer",
+          "concrete-chief-engineer",
+          "concrete-diagnostician",
+          "pe-first-stage"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": null,
+      "note": "PL-0007 の続き（2級を除く）。"
+    },
+    {
+      "id": "PL-0018",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "2級のキャリア記事はビルドジョブのまま（指名・比較記事があるため）。"
+    },
+    {
+      "id": "PL-0019",
+      "program": "buildjob",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "only"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-008",
+      "note": "2級のキャリア記事はビルドジョブのまま（指名・比較記事があるため）。"
+    },
+    {
+      "id": "PL-0020",
+      "program": "kensetsu-jobs",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "2級の学習ページを建設JOBs に（EXP-017）。"
+    },
+    {
+      "id": "PL-0021",
+      "program": "kensetsu-jobs",
+      "slot": "article-inline",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "2級の学習ページを建設JOBs に（EXP-017）。"
+    },
+    {
+      "id": "PL-0022",
+      "program": "kensetsu-jobs",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-construction-2"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "2級の学習ページを建設JOBs に（EXP-017）。"
+    },
+    {
+      "id": "PL-0023",
+      "program": "kensetsu-jobs",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-2"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "2級の資格トップを建設JOBs に（EXP-017）。"
+    },
+    {
+      "id": "PL-0024",
+      "program": "kensetsu-jobs",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-construction-2"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "2級の資格トップを建設JOBs に（EXP-017）。"
+    },
+    {
+      "id": "PL-0025",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "実務記事へ展開（EXP-017）。"
+    },
+    {
+      "id": "PL-0026",
+      "program": "buildjob",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "civil-practice"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "実務記事へ展開（EXP-017）。"
+    },
+    {
+      "id": "PL-0027",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "実務トップへ展開（EXP-017）。"
+    },
+    {
+      "id": "PL-0028",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "civil-practice"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "実務トップへ展開（EXP-017）。"
+    },
+    {
+      "id": "PL-0029",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "concrete-engineer",
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "コンクリート技士・RCCM の本文中間（抜けていた枠・EXP-017）。"
+    },
+    {
+      "id": "PL-0030",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。"
+    },
+    {
+      "id": "PL-0031",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "rccm"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "RCCM の資格トップ（抜けていた枠・EXP-017）。"
+    },
+    {
+      "id": "PL-0032",
+      "program": "buildjob",
+      "slot": "standards-end",
+      "target": {
+        "pageKind": "standards"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "公的基準の章ページの本文末（右のナビ欄には置かない・EXP-017）。"
+    },
+    {
+      "id": "PL-0033",
+      "program": "buildjob",
+      "slot": "home-section",
+      "target": {
+        "pageKind": "home"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "トップのファーストビューより下（EXP-017）。"
+    },
+    {
+      "id": "PL-0034",
+      "program": "buildjob",
+      "slot": "tool-inline",
+      "target": {
+        "pageKind": "tool"
+      },
+      "period": {
+        "from": "2026-10-07T17:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-017",
+      "note": "ツールの結果の下（字数チェック・受験資格チェック・EXP-017）。"
+    },
+    {
+      "id": "PL-0035",
+      "program": "buildjob",
+      "slot": "standards-list-end",
+      "target": {
+        "pageKind": "standards-list"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "公的基準の章以外（一覧・地域・文書・分冊・比較・データ）の本文末（EXP-018）。章ページは PL-0032（EXP-017）。"
+    },
+    {
+      "id": "PL-0036",
+      "program": "buildjob",
+      "slot": "topic-end",
+      "target": {
+        "pageKind": "topic"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "横断トピック（一覧と各トピック）の末尾（EXP-018）。"
+    },
+    {
+      "id": "PL-0037",
+      "program": "buildjob",
+      "slot": "tool-end",
+      "target": {
+        "pageKind": "tool"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "実務ツール 8 本・ツール一覧・過去問クイズのページ末（EXP-018）。字数チェック・受験資格チェックは tool-inline（PL-0034・EXP-017）。"
+    },
+    {
+      "id": "PL-0038",
+      "program": "buildjob",
+      "slot": "article-mid",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の記事の本文中間（抜けていた資格・EXP-018）。"
+    },
+    {
+      "id": "PL-0039",
+      "program": "buildjob",
+      "slot": "article-end",
+      "target": {
+        "pageKind": "doc",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ],
+        "careerDoc": "exclude"
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の記事末（EXP-018）。"
+    },
+    {
+      "id": "PL-0040",
+      "program": "buildjob",
+      "slot": "category-sidebar",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の資格トップ（EXP-018）。"
+    },
+    {
+      "id": "PL-0041",
+      "program": "buildjob",
+      "slot": "category-mobile",
+      "target": {
+        "pageKind": "category",
+        "categories": [
+          "surveyor",
+          "pavement",
+          "building-construction"
+        ]
+      },
+      "period": {
+        "from": "2026-10-07T20:00:00+09:00",
+        "until": null
+      },
+      "experiment": "EXP-018",
+      "note": "測量士・舗装・建築の資格トップ（モバイル・EXP-018）。"
+    }
+  ]
+}

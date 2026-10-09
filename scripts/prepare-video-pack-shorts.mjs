@@ -12,11 +12,12 @@ import { parseArgs } from 'node:util';
 import { loadRegistry, qualificationShortLabel } from './lib/qualification-registry.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
-import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
+const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
-const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
+const STATE = loadVideoState(ROOT);
 const SLOT_TIMES = ['07:30:00', '12:30:00', '20:00:00'];
 
 // 対応する試験。名前は registry の短い名前、試験日は exam-calendar.json のその年最後の試験日（どちらも写さない）

@@ -1,0 +1,59 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="敷均しの比較。水平の層に薄く敷均して均等に締め固める施工と、一度に高く盛る高まきでは中が締まらない。ブルドーザ作業では敷均し厚さが把握しにくく高まきになりやすい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .ground { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }   /* surface：地山・基礎地盤 */
+      .soft   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn-fill：軟弱・高含水比 */
+      .emb    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }     /* brand-fill：盛土 */
+      .green  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }     /* positive-fill：対策・植生 */
+      .bad    { fill: #f8d7da; stroke: #b22234; stroke-width: 2; }     /* danger-fill */
+      .gline  { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .water  { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .redl   { stroke: #b22234; stroke-width: 2; fill: none; }
+      .redd   { stroke: #b22234; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .bluedd { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 6 4; }
+      .lead   { stroke: #555; stroke-width: 1; fill: none; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="aw" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">敷均しは薄く水平に</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">高まきを避け、均等に締め固める</text>
+  <rect class="card" x="16" y="66" width="368" height="150" rx="6"/>
+  <text class="t-pos" x="30" y="88">水平の層に薄く敷均す</text>
+  <rect class="green" x="50" y="166" width="230" height="30"/>
+  <rect class="emb" x="50" y="136" width="230" height="30"/>
+  <rect class="green" x="50" y="106" width="230" height="30"/>
+  <text class="t-note" x="296" y="128" text-anchor="start">層ごとに</text>
+  <text class="t-note" x="296" y="144" text-anchor="start">均等に締固め</text>
+  <line class="gline" x1="50" y1="196" x2="280" y2="196"/>
+  <rect class="card" x="16" y="226" width="368" height="150" rx="6"/>
+  <text class="t-warn" x="30" y="248">高まき（避ける）</text>
+  <polygon class="bad" points="60,364 130,274 220,274 290,364"/>
+  <polygon class="soft" points="115,364 150,306 200,306 235,364"/>
+  <text class="t-note" x="175" y="346" text-anchor="middle">締固め不足</text>
+  <text class="t-note" x="296" y="300" text-anchor="start">ブルドーザ作業</text>
+  <text class="t-note" x="296" y="316" text-anchor="start">で起きやすい</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="72" rx="6"/>
+  <text class="t-key" x="30" y="416">路体</text>
+  <text class="t-lab" x="104" y="416">敷均し 35〜45 cm 以下 → 仕上り 30 cm 以下</text>
+  <text class="t-key" x="30" y="442">路床</text>
+  <text class="t-lab" x="104" y="442">敷均し 25〜30 cm 以下 → 仕上り 20 cm 以下</text>
+</svg>

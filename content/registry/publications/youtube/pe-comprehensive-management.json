@@ -1,0 +1,2530 @@
+{
+  "schemaVersion": 1,
+  "channel": "youtube",
+  "exam": "pe-comprehensive-management",
+  "publications": [
+    {
+      "id": "pe-comprehensive-management/cem-kw-access-control/youtube.short",
+      "work": "cem-kw-access-control",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "access-control",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/access-control",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "znUgWDyct_o",
+        "url": "https://www.youtube.com/watch?v=znUgWDyct_o",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json#title"
+        }
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-kw-access-control/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short",
+      "work": "cem-kw-multisource-evaluation",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "multisource-evaluation",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/multisource-evaluation",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "9fa5ax8DNmo",
+        "url": "https://www.youtube.com/watch?v=9fa5ax8DNmo",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json#title"
+        }
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01-q1/youtube.short",
+      "work": "cem-r03-p01-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-01-q1",
+      "publishAt": "2026-06-09T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "pJE0G113lWE",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01-q2/youtube.short",
+      "work": "cem-r03-p01-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-01-q2",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-pfi",
+      "publishAt": "2026-06-09T12:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "LcUzdZBd5qk",
+        "url": "https://www.youtube.com/watch?v=LcUzdZBd5qk",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:01.368Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short",
+      "work": "cem-r03-p01-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-01-q3",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-quality",
+      "publishAt": "2026-06-09T20:00:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "GcA2C8yFFzk",
+        "url": "https://www.youtube.com/watch?v=GcA2C8yFFzk",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:04.495Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short",
+      "work": "cem-r03-p01-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-01-q4",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-critical-path",
+      "publishAt": "2026-06-10T07:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "465dt6TbPA0",
+        "url": "https://www.youtube.com/watch?v=465dt6TbPA0",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:07.722Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short",
+      "work": "cem-r03-p02-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-02-q1",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-decoupling",
+      "publishAt": "2026-06-10T12:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "bFapmbl1aok",
+        "url": "https://www.youtube.com/watch?v=bFapmbl1aok",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:11.145Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short",
+      "work": "cem-r03-p02-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-02-q2",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-break-even",
+      "publishAt": "2026-06-10T20:00:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "ScF0Qz7pHdQ",
+        "url": "https://www.youtube.com/watch?v=ScF0Qz7pHdQ",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:14.313Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short",
+      "work": "cem-r03-p02-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-02-q3",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-cash-flow",
+      "publishAt": "2026-06-11T07:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "RnIFVpo-nhU",
+        "url": "https://www.youtube.com/watch?v=RnIFVpo-nhU",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-08T11:15:16.557Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short",
+      "work": "cem-r03-p02-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-02-q4",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-maintenance",
+      "publishAt": "2026-06-11T12:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "crKjyiEBmbw",
+        "url": "https://www.youtube.com/watch?v=crKjyiEBmbw",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json"
+        }
+      },
+      "times": {
+        "uploaded": "2026-06-17T19:49:21.573Z"
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03-q1/youtube.short",
+      "work": "cem-r03-p03-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-03-q1",
+      "publishAt": "2026-06-11T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "v78PwwNo_fQ",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03-q2/youtube.short",
+      "work": "cem-r03-p03-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-03-q2",
+      "publishAt": "2026-06-12T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "l-aSQXfwOq8",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03-q3/youtube.short",
+      "work": "cem-r03-p03-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-03-q3",
+      "publishAt": "2026-06-12T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "AxGWdocgSZ0",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p03-q4/youtube.short",
+      "work": "cem-r03-p03-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-03-q4",
+      "publishAt": "2026-06-12T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "GZzG6IqyXyI",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04-q1/youtube.short",
+      "work": "cem-r03-p04-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-04-q1",
+      "publishAt": "2026-06-13T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "gone",
+      "reason": "2026-09-24 ユーザー決定で台帳を停止済みにそろえた。YouTube 上で消失（oEmbed 404・verify-yt-status recorded_but_gone。2026-08-27 の退役時点で 06-09〜06-13 公開分の連続 404 として把握済みだったが、この 6 本だけ uploaded のまま残っていた）。元の動画 ID は lostVideoId",
+      "platform": {
+        "id": "V9iQe4iQcI0",
+        "privacy": "gone"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04-q2/youtube.short",
+      "work": "cem-r03-p04-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-04-q2",
+      "publishAt": "2026-06-13T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04-q3/youtube.short",
+      "work": "cem-r03-p04-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-04-q3",
+      "publishAt": "2026-06-13T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p04-q4/youtube.short",
+      "work": "cem-r03-p04-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-04-q4",
+      "publishAt": "2026-06-14T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05-q1/youtube.short",
+      "work": "cem-r03-p05-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-05-q1",
+      "publishAt": "2026-06-14T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05-q2/youtube.short",
+      "work": "cem-r03-p05-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-05-q2",
+      "publishAt": "2026-06-14T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05-q3/youtube.short",
+      "work": "cem-r03-p05-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-05-q3",
+      "publishAt": "2026-06-15T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p05-q4/youtube.short",
+      "work": "cem-r03-p05-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-05-q4",
+      "publishAt": "2026-06-15T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06-q1/youtube.short",
+      "work": "cem-r03-p06-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-06-q1",
+      "publishAt": "2026-06-15T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06-q2/youtube.short",
+      "work": "cem-r03-p06-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-06-q2",
+      "publishAt": "2026-06-16T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06-q3/youtube.short",
+      "work": "cem-r03-p06-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-06-q3",
+      "publishAt": "2026-06-16T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p06-q4/youtube.short",
+      "work": "cem-r03-p06-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-06-q4",
+      "publishAt": "2026-06-16T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07-q1/youtube.short",
+      "work": "cem-r03-p07-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-07-q1",
+      "publishAt": "2026-06-17T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07-q2/youtube.short",
+      "work": "cem-r03-p07-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-07-q2",
+      "publishAt": "2026-06-17T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07-q3/youtube.short",
+      "work": "cem-r03-p07-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-07-q3",
+      "publishAt": "2026-06-17T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p07-q4/youtube.short",
+      "work": "cem-r03-p07-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-07-q4",
+      "publishAt": "2026-06-18T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08-q1/youtube.short",
+      "work": "cem-r03-p08-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-08-q1",
+      "publishAt": "2026-06-18T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08-q2/youtube.short",
+      "work": "cem-r03-p08-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-08-q2",
+      "publishAt": "2026-06-18T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08-q3/youtube.short",
+      "work": "cem-r03-p08-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-08-q3",
+      "publishAt": "2026-06-19T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p08-q4/youtube.short",
+      "work": "cem-r03-p08-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-08-q4",
+      "publishAt": "2026-06-19T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09-q1/youtube.short",
+      "work": "cem-r03-p09-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-09-q1",
+      "publishAt": "2026-06-19T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09-q2/youtube.short",
+      "work": "cem-r03-p09-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-09-q2",
+      "publishAt": "2026-06-20T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09-q3/youtube.short",
+      "work": "cem-r03-p09-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-09-q3",
+      "publishAt": "2026-06-20T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p09-q4/youtube.short",
+      "work": "cem-r03-p09-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-09-q4",
+      "publishAt": "2026-06-20T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10-q1/youtube.short",
+      "work": "cem-r03-p10-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-10-q1",
+      "publishAt": "2026-08-04T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10-q2/youtube.short",
+      "work": "cem-r03-p10-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-10-q2",
+      "publishAt": "2026-08-04T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10-q3/youtube.short",
+      "work": "cem-r03-p10-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-10-q3",
+      "publishAt": "2026-08-04T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r03-p10-q4/youtube.short",
+      "work": "cem-r03-p10-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r03-pack-10-q4",
+      "publishAt": "2026-08-05T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01-q1/youtube.short",
+      "work": "cem-r04-p01-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-01-q1",
+      "publishAt": "2026-06-21T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01-q2/youtube.short",
+      "work": "cem-r04-p01-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-01-q2",
+      "publishAt": "2026-06-21T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01-q3/youtube.short",
+      "work": "cem-r04-p01-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-01-q3",
+      "publishAt": "2026-06-21T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p01-q4/youtube.short",
+      "work": "cem-r04-p01-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-01-q4",
+      "publishAt": "2026-06-22T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02-q1/youtube.short",
+      "work": "cem-r04-p02-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-02-q1",
+      "publishAt": "2026-06-22T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02-q2/youtube.short",
+      "work": "cem-r04-p02-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-02-q2",
+      "publishAt": "2026-06-22T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02-q3/youtube.short",
+      "work": "cem-r04-p02-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-02-q3",
+      "publishAt": "2026-06-23T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p02-q4/youtube.short",
+      "work": "cem-r04-p02-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-02-q4",
+      "publishAt": "2026-06-23T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03-q1/youtube.short",
+      "work": "cem-r04-p03-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-03-q1",
+      "publishAt": "2026-06-23T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03-q2/youtube.short",
+      "work": "cem-r04-p03-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-03-q2",
+      "publishAt": "2026-06-24T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03-q3/youtube.short",
+      "work": "cem-r04-p03-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-03-q3",
+      "publishAt": "2026-06-24T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p03-q4/youtube.short",
+      "work": "cem-r04-p03-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-03-q4",
+      "publishAt": "2026-06-24T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04-q1/youtube.short",
+      "work": "cem-r04-p04-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-04-q1",
+      "publishAt": "2026-06-25T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04-q2/youtube.short",
+      "work": "cem-r04-p04-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-04-q2",
+      "publishAt": "2026-06-25T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04-q3/youtube.short",
+      "work": "cem-r04-p04-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-04-q3",
+      "publishAt": "2026-06-25T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p04-q4/youtube.short",
+      "work": "cem-r04-p04-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-04-q4",
+      "publishAt": "2026-06-26T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05-q1/youtube.short",
+      "work": "cem-r04-p05-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-05-q1",
+      "publishAt": "2026-06-26T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05-q2/youtube.short",
+      "work": "cem-r04-p05-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-05-q2",
+      "publishAt": "2026-06-26T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05-q3/youtube.short",
+      "work": "cem-r04-p05-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-05-q3",
+      "publishAt": "2026-06-27T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p05-q4/youtube.short",
+      "work": "cem-r04-p05-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-05-q4",
+      "publishAt": "2026-06-27T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06-q1/youtube.short",
+      "work": "cem-r04-p06-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-06-q1",
+      "publishAt": "2026-06-27T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06-q2/youtube.short",
+      "work": "cem-r04-p06-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-06-q2",
+      "publishAt": "2026-06-28T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06-q3/youtube.short",
+      "work": "cem-r04-p06-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-06-q3",
+      "publishAt": "2026-06-28T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p06-q4/youtube.short",
+      "work": "cem-r04-p06-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-06-q4",
+      "publishAt": "2026-06-28T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07-q1/youtube.short",
+      "work": "cem-r04-p07-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-07-q1",
+      "publishAt": "2026-06-29T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07-q2/youtube.short",
+      "work": "cem-r04-p07-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-07-q2",
+      "publishAt": "2026-06-29T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07-q3/youtube.short",
+      "work": "cem-r04-p07-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-07-q3",
+      "publishAt": "2026-06-29T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p07-q4/youtube.short",
+      "work": "cem-r04-p07-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-07-q4",
+      "publishAt": "2026-06-30T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08-q1/youtube.short",
+      "work": "cem-r04-p08-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-08-q1",
+      "publishAt": "2026-06-30T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08-q2/youtube.short",
+      "work": "cem-r04-p08-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-08-q2",
+      "publishAt": "2026-06-30T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08-q3/youtube.short",
+      "work": "cem-r04-p08-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-08-q3",
+      "publishAt": "2026-07-01T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p08-q4/youtube.short",
+      "work": "cem-r04-p08-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-08-q4",
+      "publishAt": "2026-07-01T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09-q1/youtube.short",
+      "work": "cem-r04-p09-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-09-q1",
+      "publishAt": "2026-08-05T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09-q2/youtube.short",
+      "work": "cem-r04-p09-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-09-q2",
+      "publishAt": "2026-08-05T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09-q3/youtube.short",
+      "work": "cem-r04-p09-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-09-q3",
+      "publishAt": "2026-08-06T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p09-q4/youtube.short",
+      "work": "cem-r04-p09-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-09-q4",
+      "publishAt": "2026-08-06T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10-q1/youtube.short",
+      "work": "cem-r04-p10-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-10-q1",
+      "publishAt": "2026-08-06T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10-q2/youtube.short",
+      "work": "cem-r04-p10-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-10-q2",
+      "publishAt": "2026-08-07T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10-q3/youtube.short",
+      "work": "cem-r04-p10-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-10-q3",
+      "publishAt": "2026-08-07T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r04-p10-q4/youtube.short",
+      "work": "cem-r04-p10-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r04-pack-10-q4",
+      "publishAt": "2026-08-07T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01-q1/youtube.short",
+      "work": "cem-r05-p01-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-01-q1",
+      "publishAt": "2026-07-01T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01-q2/youtube.short",
+      "work": "cem-r05-p01-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-01-q2",
+      "publishAt": "2026-07-02T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01-q3/youtube.short",
+      "work": "cem-r05-p01-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-01-q3",
+      "publishAt": "2026-07-02T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p01-q4/youtube.short",
+      "work": "cem-r05-p01-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-01-q4",
+      "publishAt": "2026-07-02T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02-q1/youtube.short",
+      "work": "cem-r05-p02-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-02-q1",
+      "publishAt": "2026-07-03T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02-q2/youtube.short",
+      "work": "cem-r05-p02-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-02-q2",
+      "publishAt": "2026-07-03T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02-q3/youtube.short",
+      "work": "cem-r05-p02-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-02-q3",
+      "publishAt": "2026-07-03T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p02-q4/youtube.short",
+      "work": "cem-r05-p02-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-02-q4",
+      "publishAt": "2026-07-04T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03-q1/youtube.short",
+      "work": "cem-r05-p03-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-03-q1",
+      "publishAt": "2026-07-04T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03-q2/youtube.short",
+      "work": "cem-r05-p03-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-03-q2",
+      "publishAt": "2026-07-04T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03-q3/youtube.short",
+      "work": "cem-r05-p03-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-03-q3",
+      "publishAt": "2026-07-05T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p03-q4/youtube.short",
+      "work": "cem-r05-p03-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-03-q4",
+      "publishAt": "2026-07-05T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04-q1/youtube.short",
+      "work": "cem-r05-p04-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-04-q1",
+      "publishAt": "2026-07-05T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04-q2/youtube.short",
+      "work": "cem-r05-p04-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-04-q2",
+      "publishAt": "2026-07-06T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04-q3/youtube.short",
+      "work": "cem-r05-p04-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-04-q3",
+      "publishAt": "2026-07-06T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p04-q4/youtube.short",
+      "work": "cem-r05-p04-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-04-q4",
+      "publishAt": "2026-07-06T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05-q1/youtube.short",
+      "work": "cem-r05-p05-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-05-q1",
+      "publishAt": "2026-07-07T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05-q2/youtube.short",
+      "work": "cem-r05-p05-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-05-q2",
+      "publishAt": "2026-07-07T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05-q3/youtube.short",
+      "work": "cem-r05-p05-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-05-q3",
+      "publishAt": "2026-07-07T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p05-q4/youtube.short",
+      "work": "cem-r05-p05-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-05-q4",
+      "publishAt": "2026-07-08T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06-q1/youtube.short",
+      "work": "cem-r05-p06-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-06-q1",
+      "publishAt": "2026-07-08T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06-q2/youtube.short",
+      "work": "cem-r05-p06-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-06-q2",
+      "publishAt": "2026-07-08T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06-q3/youtube.short",
+      "work": "cem-r05-p06-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-06-q3",
+      "publishAt": "2026-07-09T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p06-q4/youtube.short",
+      "work": "cem-r05-p06-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-06-q4",
+      "publishAt": "2026-07-09T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07-q1/youtube.short",
+      "work": "cem-r05-p07-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-07-q1",
+      "publishAt": "2026-07-09T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07-q2/youtube.short",
+      "work": "cem-r05-p07-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-07-q2",
+      "publishAt": "2026-07-10T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07-q3/youtube.short",
+      "work": "cem-r05-p07-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-07-q3",
+      "publishAt": "2026-07-10T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p07-q4/youtube.short",
+      "work": "cem-r05-p07-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-07-q4",
+      "publishAt": "2026-07-10T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08-q1/youtube.short",
+      "work": "cem-r05-p08-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-08-q1",
+      "publishAt": "2026-08-08T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08-q2/youtube.short",
+      "work": "cem-r05-p08-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-08-q2",
+      "publishAt": "2026-08-08T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08-q3/youtube.short",
+      "work": "cem-r05-p08-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-08-q3",
+      "publishAt": "2026-08-08T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p08-q4/youtube.short",
+      "work": "cem-r05-p08-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-08-q4",
+      "publishAt": "2026-08-09T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09-q1/youtube.short",
+      "work": "cem-r05-p09-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-09-q1",
+      "publishAt": "2026-08-09T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09-q2/youtube.short",
+      "work": "cem-r05-p09-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-09-q2",
+      "publishAt": "2026-08-09T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09-q3/youtube.short",
+      "work": "cem-r05-p09-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-09-q3",
+      "publishAt": "2026-08-10T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p09-q4/youtube.short",
+      "work": "cem-r05-p09-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-09-q4",
+      "publishAt": "2026-08-10T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10-q1/youtube.short",
+      "work": "cem-r05-p10-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-10-q1",
+      "publishAt": "2026-08-10T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10-q2/youtube.short",
+      "work": "cem-r05-p10-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-10-q2",
+      "publishAt": "2026-08-11T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10-q3/youtube.short",
+      "work": "cem-r05-p10-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-10-q3",
+      "publishAt": "2026-08-11T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r05-p10-q4/youtube.short",
+      "work": "cem-r05-p10-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r05-pack-10-q4",
+      "publishAt": "2026-08-11T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01-q1/youtube.short",
+      "work": "cem-r06-p01-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-01-q1",
+      "publishAt": "2026-07-11T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01-q2/youtube.short",
+      "work": "cem-r06-p01-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-01-q2",
+      "publishAt": "2026-07-11T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01-q3/youtube.short",
+      "work": "cem-r06-p01-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-01-q3",
+      "publishAt": "2026-07-11T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p01-q4/youtube.short",
+      "work": "cem-r06-p01-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-01-q4",
+      "publishAt": "2026-07-12T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02-q1/youtube.short",
+      "work": "cem-r06-p02-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-02-q1",
+      "publishAt": "2026-07-12T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02-q2/youtube.short",
+      "work": "cem-r06-p02-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-02-q2",
+      "publishAt": "2026-07-12T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02-q3/youtube.short",
+      "work": "cem-r06-p02-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-02-q3",
+      "publishAt": "2026-07-13T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p02-q4/youtube.short",
+      "work": "cem-r06-p02-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-02-q4",
+      "publishAt": "2026-07-13T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03-q1/youtube.short",
+      "work": "cem-r06-p03-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-03-q1",
+      "publishAt": "2026-07-13T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03-q2/youtube.short",
+      "work": "cem-r06-p03-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-03-q2",
+      "publishAt": "2026-07-14T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03-q3/youtube.short",
+      "work": "cem-r06-p03-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-03-q3",
+      "publishAt": "2026-07-14T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p03-q4/youtube.short",
+      "work": "cem-r06-p03-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-03-q4",
+      "publishAt": "2026-07-14T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04-q1/youtube.short",
+      "work": "cem-r06-p04-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-04-q1",
+      "publishAt": "2026-07-15T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04-q2/youtube.short",
+      "work": "cem-r06-p04-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-04-q2",
+      "publishAt": "2026-07-15T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04-q3/youtube.short",
+      "work": "cem-r06-p04-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-04-q3",
+      "publishAt": "2026-07-15T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p04-q4/youtube.short",
+      "work": "cem-r06-p04-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-04-q4",
+      "publishAt": "2026-07-16T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05-q1/youtube.short",
+      "work": "cem-r06-p05-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-05-q1",
+      "publishAt": "2026-07-16T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05-q2/youtube.short",
+      "work": "cem-r06-p05-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-05-q2",
+      "publishAt": "2026-07-16T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05-q3/youtube.short",
+      "work": "cem-r06-p05-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-05-q3",
+      "publishAt": "2026-07-17T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p05-q4/youtube.short",
+      "work": "cem-r06-p05-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-05-q4",
+      "publishAt": "2026-07-17T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06-q1/youtube.short",
+      "work": "cem-r06-p06-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-06-q1",
+      "publishAt": "2026-07-17T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06-q2/youtube.short",
+      "work": "cem-r06-p06-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-06-q2",
+      "publishAt": "2026-07-18T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06-q3/youtube.short",
+      "work": "cem-r06-p06-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-06-q3",
+      "publishAt": "2026-07-18T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p06-q4/youtube.short",
+      "work": "cem-r06-p06-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-06-q4",
+      "publishAt": "2026-07-18T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07-q1/youtube.short",
+      "work": "cem-r06-p07-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-07-q1",
+      "publishAt": "2026-07-19T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07-q2/youtube.short",
+      "work": "cem-r06-p07-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-07-q2",
+      "publishAt": "2026-07-19T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07-q3/youtube.short",
+      "work": "cem-r06-p07-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-07-q3",
+      "publishAt": "2026-07-19T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p07-q4/youtube.short",
+      "work": "cem-r06-p07-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-07-q4",
+      "publishAt": "2026-07-20T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08-q1/youtube.short",
+      "work": "cem-r06-p08-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-08-q1",
+      "publishAt": "2026-07-20T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08-q2/youtube.short",
+      "work": "cem-r06-p08-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-08-q2",
+      "publishAt": "2026-07-20T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08-q3/youtube.short",
+      "work": "cem-r06-p08-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-08-q3",
+      "publishAt": "2026-07-21T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p08-q4/youtube.short",
+      "work": "cem-r06-p08-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-08-q4",
+      "publishAt": "2026-07-21T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09-q1/youtube.short",
+      "work": "cem-r06-p09-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-09-q1",
+      "publishAt": "2026-07-21T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09-q2/youtube.short",
+      "work": "cem-r06-p09-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-09-q2",
+      "publishAt": "2026-07-22T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09-q3/youtube.short",
+      "work": "cem-r06-p09-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-09-q3",
+      "publishAt": "2026-07-22T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p09-q4/youtube.short",
+      "work": "cem-r06-p09-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-09-q4",
+      "publishAt": "2026-07-22T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10-q1/youtube.short",
+      "work": "cem-r06-p10-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-10-q1",
+      "publishAt": "2026-08-12T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10-q2/youtube.short",
+      "work": "cem-r06-p10-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-10-q2",
+      "publishAt": "2026-08-12T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10-q3/youtube.short",
+      "work": "cem-r06-p10-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-10-q3",
+      "publishAt": "2026-08-12T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r06-p10-q4/youtube.short",
+      "work": "cem-r06-p10-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r06-pack-10-q4",
+      "publishAt": "2026-08-13T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01-q1/youtube.short",
+      "work": "cem-r07-p01-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-01-q1",
+      "copy": "content/sns/youtube/legacy-metadata.json#entries/r07-quality",
+      "publishAt": "2026-07-23T07:30:00+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "3H9vbgiJAbU",
+        "url": "https://www.youtube.com/watch?v=3H9vbgiJAbU",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-videos",
+          "ref": "data/youtube/own-videos/2026-10-08.json#title"
+        }
+      },
+      "media": {
+        "cover": "pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover"
+      }
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01-q2/youtube.short",
+      "work": "cem-r07-p01-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-01-q2",
+      "publishAt": "2026-07-23T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01-q3/youtube.short",
+      "work": "cem-r07-p01-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-01-q3",
+      "publishAt": "2026-07-23T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p01-q4/youtube.short",
+      "work": "cem-r07-p01-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-01-q4",
+      "publishAt": "2026-07-24T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02-q1/youtube.short",
+      "work": "cem-r07-p02-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-02-q1",
+      "publishAt": "2026-07-24T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02-q2/youtube.short",
+      "work": "cem-r07-p02-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-02-q2",
+      "publishAt": "2026-07-24T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02-q3/youtube.short",
+      "work": "cem-r07-p02-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-02-q3",
+      "publishAt": "2026-07-25T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p02-q4/youtube.short",
+      "work": "cem-r07-p02-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-02-q4",
+      "publishAt": "2026-07-25T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03-q1/youtube.short",
+      "work": "cem-r07-p03-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-03-q1",
+      "publishAt": "2026-07-25T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03-q2/youtube.short",
+      "work": "cem-r07-p03-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-03-q2",
+      "publishAt": "2026-07-26T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03-q3/youtube.short",
+      "work": "cem-r07-p03-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-03-q3",
+      "publishAt": "2026-07-26T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p03-q4/youtube.short",
+      "work": "cem-r07-p03-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-03-q4",
+      "publishAt": "2026-07-26T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04-q1/youtube.short",
+      "work": "cem-r07-p04-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-04-q1",
+      "publishAt": "2026-07-27T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04-q2/youtube.short",
+      "work": "cem-r07-p04-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-04-q2",
+      "publishAt": "2026-07-27T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04-q3/youtube.short",
+      "work": "cem-r07-p04-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-04-q3",
+      "publishAt": "2026-07-27T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p04-q4/youtube.short",
+      "work": "cem-r07-p04-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-04-q4",
+      "publishAt": "2026-07-28T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05-q1/youtube.short",
+      "work": "cem-r07-p05-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-05-q1",
+      "publishAt": "2026-07-28T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05-q2/youtube.short",
+      "work": "cem-r07-p05-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-05-q2",
+      "publishAt": "2026-07-28T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05-q3/youtube.short",
+      "work": "cem-r07-p05-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-05-q3",
+      "publishAt": "2026-07-29T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p05-q4/youtube.short",
+      "work": "cem-r07-p05-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-05-q4",
+      "publishAt": "2026-07-29T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06-q1/youtube.short",
+      "work": "cem-r07-p06-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-06-q1",
+      "publishAt": "2026-07-29T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06-q2/youtube.short",
+      "work": "cem-r07-p06-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-06-q2",
+      "publishAt": "2026-07-30T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06-q3/youtube.short",
+      "work": "cem-r07-p06-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-06-q3",
+      "publishAt": "2026-07-30T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p06-q4/youtube.short",
+      "work": "cem-r07-p06-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-06-q4",
+      "publishAt": "2026-07-30T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07-q1/youtube.short",
+      "work": "cem-r07-p07-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-07-q1",
+      "publishAt": "2026-07-31T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07-q2/youtube.short",
+      "work": "cem-r07-p07-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-07-q2",
+      "publishAt": "2026-07-31T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07-q3/youtube.short",
+      "work": "cem-r07-p07-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-07-q3",
+      "publishAt": "2026-07-31T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p07-q4/youtube.short",
+      "work": "cem-r07-p07-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-07-q4",
+      "publishAt": "2026-08-01T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08-q1/youtube.short",
+      "work": "cem-r07-p08-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-08-q1",
+      "publishAt": "2026-08-01T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08-q2/youtube.short",
+      "work": "cem-r07-p08-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-08-q2",
+      "publishAt": "2026-08-01T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08-q3/youtube.short",
+      "work": "cem-r07-p08-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-08-q3",
+      "publishAt": "2026-08-02T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p08-q4/youtube.short",
+      "work": "cem-r07-p08-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-08-q4",
+      "publishAt": "2026-08-02T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09-q1/youtube.short",
+      "work": "cem-r07-p09-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-09-q1",
+      "publishAt": "2026-08-02T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09-q2/youtube.short",
+      "work": "cem-r07-p09-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-09-q2",
+      "publishAt": "2026-08-03T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09-q3/youtube.short",
+      "work": "cem-r07-p09-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-09-q3",
+      "publishAt": "2026-08-03T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p09-q4/youtube.short",
+      "work": "cem-r07-p09-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-09-q4",
+      "publishAt": "2026-08-03T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10-q1/youtube.short",
+      "work": "cem-r07-p10-q1",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-10-q1",
+      "publishAt": "2026-08-13T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10-q2/youtube.short",
+      "work": "cem-r07-p10-q2",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-10-q2",
+      "publishAt": "2026-08-13T20:00:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10-q3/youtube.short",
+      "work": "cem-r07-p10-q3",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-10-q3",
+      "publishAt": "2026-08-14T07:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/cem-r07-p10-q4/youtube.short",
+      "work": "cem-r07-p10-q4",
+      "account": "youtube:main",
+      "format": "short",
+      "legacyKey": "r07-pack-10-q4",
+      "publishAt": "2026-08-14T12:30:00+09:00",
+      "status": "stopped",
+      "stopReason": "user-decision",
+      "reason": "2026-08-27 ユーザー決定で退役。68日投入停止・直前6本(06-09〜06-13公開分)が連続404で消失(規約処置の疑い・DN-0131で08-25実測)・再開判断はDN-0110の動画基盤設計で仕切り直す"
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform",
+      "work": "gokanri-tradeoff",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform",
+      "work": "gyoumu-keirekihyo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-map/youtube.longform",
+      "work": "hakusho-map",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform",
+      "work": "kata-oudan-ryuyo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform",
+      "work": "kikinagashi-sokan-keyword",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/youtube.longform",
+      "work": "monbun-yomikata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform",
+      "work": "persona-settei",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/r8-yosou-theme/youtube.longform",
+      "work": "r8-yosou-theme",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sanso-kozo/youtube.longform",
+      "work": "sanso-kozo",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform",
+      "work": "setsumon3-shisaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform",
+      "work": "sokan-goukaku-senryaku",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "work": "sokan-kojutsu-kangaekata",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",
+      "work": "takuitsu-keyword",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform",
+      "work": "takuitsu-r07-enshu",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "qa_passed"
+    }
+  ]
+}

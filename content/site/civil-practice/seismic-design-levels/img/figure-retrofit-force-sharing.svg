@@ -1,0 +1,83 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は既設橋の耐震補強の考え方（水平力の分担とダンパー）を国総研・土研の技術資料から再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="橋の側面図で補強前後を比べた図。補強前は固定支承の1か所が橋軸方向の水平力を一手に受け、補強後は4つの支点が水平力を分け合い、橋台と桁の間のダンパーが揺れ幅を抑える">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tn { fill: #222; }
+      .tm { fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .g { fill: #d7d7d7; }
+      .st { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .bd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fx { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .mv { fill: #fff; stroke: #555; stroke-width: 1.5; }
+      .rb { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .dp { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .rd { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .bh { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .bg { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .bz { stroke: #8a8a8a; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <g transform="translate(0,3)">
+    <rect class="p" x="10" y="0" width="380" height="244" rx="8"/>
+    <text class="tl" x="20" y="22">補強前</text>
+    <text class="tm" x="82" y="22">各支点が受け持つ水平力</text>
+    <line class="bz" x1="20" y1="92" x2="372" y2="92"/>
+    <rect class="bh" x="120" y="36" width="24" height="56"/>
+    <line class="bz" x1="26" y1="91" x2="44" y2="91"/>
+    <line class="bz" x1="210" y1="91" x2="234" y2="91"/>
+    <line class="bz" x1="300" y1="91" x2="322" y2="91"/>
+    <rect class="bd" x="40" y="98" width="278" height="16" rx="2"/>
+    <rect class="st" x="20" y="122" width="30" height="46"/>
+    <rect class="st" x="120" y="122" width="24" height="46"/>
+    <rect class="st" x="210" y="122" width="24" height="46"/>
+    <polygon class="st" points="296,122 326,122 326,152 352,152 352,92 366,92 366,168 296,168"/>
+    <circle class="mv" cx="35" cy="118" r="4"/>
+    <polygon class="fx" points="124,122 132,114 140,122"/>
+    <circle class="mv" cx="222" cy="118" r="4"/>
+    <circle class="mv" cx="311" cy="118" r="4"/>
+    <text class="tn" x="132" y="147" text-anchor="middle">固定</text>
+    <text class="tm" x="20" y="206">可動支承は水平力をほぼ伝えない</text>
+    <rect class="g" x="11" y="168" width="378" height="16"/>
+    <text x="35" y="180" text-anchor="middle">橋台</text>
+    <text x="132" y="180" text-anchor="middle">橋脚</text>
+    <text x="222" y="180" text-anchor="middle">橋脚</text>
+    <text x="311" y="180" text-anchor="middle">橋台</text>
+    <text class="tn" x="20" y="238">固定支承の1か所が水平力を一手に受ける</text>
+  </g>
+
+  <g transform="translate(0,253)">
+    <rect class="p" x="10" y="0" width="380" height="244" rx="8"/>
+    <text class="tl" x="20" y="22">補強後</text>
+    <text class="tm" x="82" y="22">各支点が受け持つ水平力</text>
+    <line class="bz" x1="20" y1="92" x2="372" y2="92"/>
+    <rect class="bg" x="24" y="78" width="22" height="14"/>
+    <rect class="bg" x="121" y="78" width="22" height="14"/>
+    <rect class="bg" x="211" y="78" width="22" height="14"/>
+    <rect class="bg" x="298" y="78" width="20" height="14"/>
+    <rect class="bd" x="40" y="98" width="278" height="16" rx="2"/>
+    <rect class="st" x="20" y="122" width="30" height="46"/>
+    <rect class="st" x="120" y="122" width="24" height="46"/>
+    <rect class="st" x="210" y="122" width="24" height="46"/>
+    <polygon class="st" points="296,122 326,122 326,152 352,152 352,92 366,92 366,168 296,168"/>
+    <rect class="rb" x="24" y="114" width="22" height="8" rx="1"/>
+    <rect class="rb" x="121" y="114" width="22" height="8" rx="1"/>
+    <rect class="rb" x="211" y="114" width="22" height="8" rx="1"/>
+    <rect class="rb" x="300" y="114" width="22" height="8" rx="1"/>
+    <line class="rd" x1="318" y1="106" x2="326" y2="106"/>
+    <rect class="dp" x="326" y="100" width="18" height="12" rx="2"/>
+    <line class="rd" x1="344" y1="106" x2="352" y2="106"/>
+    <text class="tn" x="322" y="88">ダンパー</text>
+    <text class="tn" x="132" y="147" text-anchor="middle">ゴム</text>
+    <text class="tm" x="20" y="206">ゴム支承が4つの支点に力を配る</text>
+    <rect class="g" x="11" y="168" width="378" height="16"/>
+    <text x="35" y="180" text-anchor="middle">橋台</text>
+    <text x="132" y="180" text-anchor="middle">橋脚</text>
+    <text x="222" y="180" text-anchor="middle">橋脚</text>
+    <text x="311" y="180" text-anchor="middle">橋台</text>
+    <text class="tn" x="20" y="238">水平力を分け合い、揺れ幅はダンパーが抑える</text>
+  </g>
+</svg>

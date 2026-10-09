@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="現場の撮影から配信、監督職員の確認までの流れと、通信が切れたときの手当て、記録の扱いを示した図" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="20" y="14" width="360" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="20" y="108" width="360" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="20" y="202" width="360" height="72" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="20" y="304" width="174" height="104" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="206" y="304" width="174" height="104" rx="6" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="20" y="424" width="360" height="52" rx="6" fill="#f8d7da" stroke="#b22234"/>
+</g>
+<g stroke="#555" stroke-width="1.5" marker-end="url(#a)">
+<line x1="200" y1="88" x2="200" y2="106"/>
+<line x1="200" y1="182" x2="200" y2="200"/>
+<line x1="107" y1="276" x2="107" y2="302"/>
+<line x1="293" y1="276" x2="293" y2="302"/>
+</g>
+<g fill="#222" font-size="13" font-weight="700" text-anchor="middle">
+<text x="200" y="36">現場（受注者が機器を用意）</text>
+<text x="200" y="130">配信（Web会議システム）</text>
+<text x="200" y="224">監督職員が確認</text>
+<text x="107" y="326">通信が途切れたら</text>
+<text x="293" y="326">記録の残し方</text>
+<text x="200" y="446">映像で判断できない確認は現場臨場</text>
+</g>
+<g fill="#222" font-size="12" text-anchor="middle">
+<text x="200" y="57">ウェアラブルカメラと黒板</text>
+<text x="200" y="75">工事名・工種・設計値・測定値を映す</text>
+<text x="200" y="151">映像と音声をリアルタイムで送る</text>
+<text x="200" y="169">回線の参考値は上り5Mbps以上</text>
+<text x="200" y="245">冒頭と終了時の読み上げで確かめる</text>
+<text x="200" y="263">足りなければ機器を調整する</text>
+<text x="107" y="348">画像・映像を共有し</text>
+<text x="107" y="366">監督職員が机上で確認</text>
+<text x="107" y="384">別日に現場臨場も可</text>
+<text x="293" y="348">受注者は配信のみ</text>
+<text x="293" y="366">録画・保存は不要</text>
+<text x="293" y="384">現場技術員が確認した</text>
+<text x="293" y="402">ときは画面を静止画で提出</text>
+<text x="200" y="465">例：支持地盤・土（岩）質・プルーフローリング</text>
+</g>
+<g fill="#555" font-size="11" text-anchor="middle">
+<text x="200" y="494">対象は段階確認・材料確認・立会（国の直轄土木工事）</text>
+</g>
+</svg>

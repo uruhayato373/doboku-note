@@ -2,7 +2,7 @@
 
 1級・2級土木施工管理技士に特化した YouTube チャネルの設計・運用・判定を定める SSOT。[05_YouTube戦略_技術士総監.md](./05_YouTube戦略_技術士総監.md)（総監の独立 SSOT）と対になる資格別差分文書であり、多資格共通の動画パック運用・KPI・段階実装は [06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md) が真実源。
 
-**最終更新**: 2026-09-05（v1.1 通常動画84本＋Shorts168本の公開承認）
+**最終更新**: 2026-10-08（§5・§11 に図解版の試作と画面分析 07c を追記）／v1.1 は 2026-09-05（通常動画84本＋Shorts168本の公開承認）
 **親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（チャネル配分）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（動画パック・役割・管理・KPI・段階実装）。本ファイルは 1級・2級土木固有のテーマ・競合方針・季節運用・Red Line だけを上書きする
 **作業契約**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（schema・状態・ゲート）
 **商品・価格の真実源**: [noteコンテンツ計画.md](../../content/note/1級・2級土木/noteコンテンツ計画.md)（メンバーシップ「土木セコカン合格ラボ」は 2026-09-30 撤退・現行は買い切り）／[ココナラ展開キット.md](../../content/note/1級・2級土木/ココナラ展開キット.md)（S1 診断・S2 添削・S3 作成）／実価格は `src/lib/note-magazines.ts`・`src/lib/coconala-services.ts`
@@ -79,11 +79,11 @@
 | 層 | 中身 | 制作系統 | 稼働 |
 |---|---|---|---|
 | **Tier 1** | Shorts（9:16・30-60 秒） | 承認済み動画パックから各2本を直接生成。既存IG Reels派生は別系統 | 168本を段階投入 |
-| **Tier 2** | 通常動画（16:9・5-15 分） | 動画パック一次制作（`content/sns/video-packs/civil-construction-{1,2}/`） | 84本をAPI予約済み／日次同期中 |
+| **Tier 2** | 通常動画（16:9・5-15 分。総まとめ型は 20-60 分） | 動画パック一次制作（`content/sns/video-packs/civil-construction-{1,2}/`） | 84本をAPI予約済み／日次同期中 |
 
 - Shorts は外部 URL へ直接送らず、**YouTube の関連動画で該当通常動画へ**送る（06 §2.2）
 - 通常動画のクリック可能な概要欄から送客する。UTM は `utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content=longform|shorts`（video-content-policy 準拠）
-- 総監の Shorts 台帳（`.claude/state/youtube-schedule.json`）は総監専用であり、土木の台帳を混ぜない。土木の公開状態は `.claude/state/video-content-status.json` に一元化する
+- 総監の旧 Shorts（台帳の kind `legacy-short`）は凍結した別系統で、土木の動画と混ぜない。土木の公開状態はコンテンツ台帳（`content/registry/`）に一元化する（写しの video-content-status.json は 2026-10-09 に消した）
 
 ### 1動画1主CTA（06 §2.3 の対応表を土木で具体化）
 
@@ -120,7 +120,7 @@
 - レンダリング: `npm run render-longform`（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4）。**会社 PC は `--skip-tts` で PNG/ASS まで、mp4 生成・アップロードは Mac または GitHub Actions**（確立済み分担）
 - Shorts 派生: `youtube-shorts:prepare → youtube-shorts:render → youtube-shorts:stage` で各通常動画から2本を直接生成し、private upload後にStudioで関連通常動画を設定してAPI予約する
 - 品質: 機械ゲート `npm run check-video-content` ＋ 意味評価 `video-content-qa`（6 軸 avg 2.0 以上・BLOCK なし）。公開は**ユーザー承認後のみ**（06 §10）
-- 既存SVG図版をsceneへ埋め込まないパックは、文字中心の論点整理としてQA済み。今後の追加パックで図版が理解に必須なら別途renderer拡張を判断する
+- 既存SVG図版をsceneへ埋め込まないパックは、文字中心の論点整理としてQA済み。2026-10-08 に renderer へ先生の常駐・悪い例と良い例の対比・解答用紙の記入イメージを足した（作業契約は video-content-policy §4）。試作 `koji-gaiyo-sheet-zukai` と競合の画面分析は [07c](./07c_YouTube競合動画の画面分析_2026-10.md)。公開済みパックの作り直しは試作1本の視聴維持を見てから決める
 
 ## 6. 投稿カデンス・季節カレンダー
 
@@ -184,7 +184,7 @@ KPI 体系は 06 §9 を継承し二重定義しない。土木固有の主 KPI 
 ## 11. 未確定事項
 
 - ~~経験記述特化チャンネルの不在~~ → **2026-09-01 の 07a 実地調査で解消**。GET研究所（34,600 人）が経験記述 howto を先行占有していると判明し、§2 のポジショニングを「診断・添削の商品接続型」へ再定義した。次回の定点観測は 07a §7 の再取得手順で行う
-- **P3（学科図解）の追加改善**: 現在の文字中心レンダーは公開可。公開後の維持率が弱い論点だけSVG scene埋め込みを検討する
+- **P3（学科図解）の追加改善**: 現在の文字中心レンダーは公開可。公開後の維持率が弱い論点だけSVG scene埋め込みを検討する。2026-10-08 の調査で、公開70本の再生中央値が4回・尺の中央値2.5分と分かった。図解版・総まとめ（聞き流し）・一問一答の3案は [07c](./07c_YouTube競合動画の画面分析_2026-10.md) §4。2026-10-08 にユーザーが決めた: 総まとめは試作に採用（1本目は2級の直前総まとめ・DN-0599）、図解版の比較公開は視聴維持を取れてから（DN-0597・DN-0601）、一問一答は2027年1〜3月（DN-0600）。型の状態は `config/youtube-formats.json` が正本
 - **1級二次の合格発表日**: exam-calendar.json に未収載（発表され次第追記し §6 を具体化する）
 - **既存IG Reels派生の再利用範囲**: 動画パック直結168本とは別系統。重複タイトル・同一論点の連投を避けて判断する
 

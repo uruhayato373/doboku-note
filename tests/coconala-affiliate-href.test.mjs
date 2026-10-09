@@ -43,7 +43,7 @@ test('listed の全サービスで、a8ejpredirect を戻すと元のサービ�
 
 test('リンクとピクセルの mat は affiliate-mats.json に program=coconala で登録されている', async () => {
   const { coconalaAffiliateHref, COCONALA_A8_PIXEL } = await loadCreatives();
-  const { mats } = JSON.parse(readFileSync('src/config/affiliate-mats.json', 'utf8'));
+  const { mats } = JSON.parse(readFileSync('config/affiliate-mats.json', 'utf8'));
   const registered = new Set(mats.filter((m) => m.program === 'coconala').map((m) => m.mat));
   const matOf = (u) => /a8mat=([^&]+)/.exec(u)?.[1];
   assert.ok(registered.has(matOf(coconalaAffiliateHref('https://coconala.com/services/1'))));

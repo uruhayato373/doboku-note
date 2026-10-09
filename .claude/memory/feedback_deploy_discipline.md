@@ -24,6 +24,7 @@ metadata:
 - **ff 昇格はリモート ref 同士で**: `git push origin origin/develop:refs/heads/main`（origin/main が origin/develop の祖先＝ff のときのみ）。作業ツリーに触れない。
 - **並行稼働中の固定スナップショット**: `git worktree add --detach <dir> <origin/develop>` → 新規コミットだけ `git cherry-pick <last-dup>..<HEAD>` → `git push origin HEAD:develop` & `:main`。重複は patch-id で skip。worktree 物理削除が権限で失敗しがち→`git worktree prune`（無害な leftover）。
 - **ローカルビルド検証は当てにしない**: `next dev -p 3020` 並行中は `.next` 競合で `npm run build` がハング（16分+/出力0B）。**CI build を権威ゲート**（失敗時は Cloudflare deploy step が走らず本番は前バージョン）。
+- **develop の Pre-merge が並行 push で取り消され続けるとき**（2026-10-09〜10・concurrency で新しい push が前の run を cancel し、緑の run がなかなか出ない）: 待ち続けず、`gh run list --branch develop --workflow "Pre-merge check (quality audit + build)" --json conclusion,headSha` で最後に success の sha を取り、出したい変更の祖先か `git merge-base --is-ancestor` で確かめ、`git worktree add --detach .claude/worktrees/deploy-tmp origin/main` → `git merge <sha>` → `git push origin HEAD:main` → worktree を即 remove。緑の確認が無い develop の先頭は出さない。
 - **CI deploy が Checkout でハング**する前例（18分）→ `gh run cancel` → `gh run rerun`。
 - `gh run watch --exit-status` の exit code を信用せず、`gh run view <id> --json conclusion` と本番 `.pages.dev` の HTTP 実査で確認（watch が exit 0 でも failure のことがあった）。deploy 後は `npm run check-production-ssr`。
 

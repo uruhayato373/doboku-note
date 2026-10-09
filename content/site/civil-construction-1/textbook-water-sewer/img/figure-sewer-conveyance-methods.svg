@@ -1,0 +1,80 @@
+<!-- authored 2026-10-09 doboku-note 自作。題材は1級土木 専門土木テキスト「上下水道」の論点（下水の流下方式を地形で比較）。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="下水の流下方式3種を地形別に比べた概念図。自然流下式は勾配に沿って流し深くなる区間に中継ポンプ場を置く。圧力式は各戸のポンプで圧送し、一般に起伏のある地形向き。真空式は真空ステーションで吸引し、一般に平坦な地盤向きで浅い管を使う">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-lbl { font-size: 11px; fill: #555; }
+      .card { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .pipe { stroke: #2e6da4; stroke-width: 3; fill: none; }
+      .house { fill: #ffffff; stroke: #555; stroke-width: 1.2; }
+      .link { stroke: #555; stroke-width: 1; }
+      .pump { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .station { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .divider { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <rect class="card" x="12" y="14" width="376" height="146" rx="6"/>
+  <line class="divider" x1="212" y1="26" x2="212" y2="148"/>
+  <text class="t-name" x="222" y="48">自然流下式</text>
+  <text class="t-desc" x="222" y="74">勾配に沿って流す</text>
+  <text class="t-desc" x="222" y="96">地形の影響を受けやすい</text>
+  <text class="t-desc" x="222" y="118">深くなる区間は中継ポンプ場</text>
+  <!-- 自然流下式の断面 -->
+  <line class="ground" x1="24" y1="58" x2="204" y2="58"/>
+  <text class="t-lbl" x="24" y="52">地表</text>
+  <line class="pipe" x1="28" y1="74" x2="114" y2="120" marker-end="url(#arrow)"/>
+  <rect class="pump" x="118" y="110" width="30" height="24" rx="4"/>
+  <path class="pipe" d="M148,118 L170,82 L202,96" marker-end="url(#arrow)"/>
+  <text class="t-lbl" x="133" y="152" text-anchor="middle">中継ポンプ場</text>
+  <rect class="card" x="12" y="172" width="376" height="146" rx="6"/>
+  <line class="divider" x1="212" y1="184" x2="212" y2="306"/>
+  <text class="t-name" x="222" y="206">圧力式</text>
+  <text class="t-desc" x="222" y="232">各戸のポンプで圧送する</text>
+  <text class="t-desc" x="222" y="254">一般に起伏のある地形向き</text>
+  <text class="t-desc" x="222" y="276">勾配の制約が小さい</text>
+  <!-- 圧力式の断面 -->
+  <polyline class="ground" points="24,226 64,210 104,234 144,210 204,224"/>
+  <polyline class="pipe" points="24,242 64,226 104,250 144,226 202,240" marker-end="url(#arrow)"/>
+  <rect class="house" x="37" y="206.0" width="14" height="10"/>
+  <line class="link" x1="44" y1="216.0" x2="44" y2="229.0"/>
+  <circle class="pump" cx="44" cy="234.0" r="5"/>
+  <rect class="house" x="97" y="222.0" width="14" height="10"/>
+  <line class="link" x1="104" y1="232.0" x2="104" y2="245.0"/>
+  <circle class="pump" cx="104" cy="250.0" r="5"/>
+  <rect class="house" x="157" y="202.7" width="14" height="10"/>
+  <line class="link" x1="164" y1="212.7" x2="164" y2="225.8"/>
+  <circle class="pump" cx="164" cy="230.8" r="5"/>
+  <text class="t-lbl" x="24" y="304">○は各戸の小型ポンプ</text>
+  <rect class="card" x="12" y="330" width="376" height="146" rx="6"/>
+  <line class="divider" x1="212" y1="342" x2="212" y2="464"/>
+  <text class="t-name" x="222" y="364">真空式</text>
+  <text class="t-desc" x="222" y="390">真空ステーションで吸引</text>
+  <text class="t-desc" x="222" y="412">一般に平坦な地盤向き</text>
+  <text class="t-desc" x="222" y="434">浅く細い管で足りる</text>
+  <!-- 真空式の断面 -->
+  <line class="ground" x1="24" y1="378" x2="204" y2="378"/>
+  <line class="pipe" x1="24" y1="398" x2="166" y2="398" marker-end="url(#arrow)"/>
+  <rect class="house" x="37" y="366" width="14" height="10"/>
+  <line class="link" x1="44" y1="378" x2="44" y2="393"/>
+  <rect class="pump" x="40" y="394" width="8" height="8"/>
+  <rect class="house" x="87" y="366" width="14" height="10"/>
+  <line class="link" x1="94" y1="378" x2="94" y2="393"/>
+  <rect class="pump" x="90" y="394" width="8" height="8"/>
+  <rect class="house" x="137" y="366" width="14" height="10"/>
+  <line class="link" x1="144" y1="378" x2="144" y2="393"/>
+  <rect class="pump" x="140" y="394" width="8" height="8"/>
+  <rect class="station" x="170" y="382" width="34" height="32" rx="4"/>
+  <text class="t-lbl" x="187" y="402" text-anchor="middle">吸引</text>
+  <text class="t-lbl" x="204" y="434" text-anchor="end">真空ステーション</text>
+  <text class="t-lbl" x="24" y="462">□は各戸の真空弁ユニット</text>
+</svg>

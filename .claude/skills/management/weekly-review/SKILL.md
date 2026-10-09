@@ -298,9 +298,8 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
 - 週次スナップショット: `data/business/weekly/` の最新 YYYY-Www.json の `sns` セクション
   （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
-- YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
-  counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
-  いずれも 0 なら「YT 公開状態ドリフトなし」）。
+- YT 公開照合: `.claude/state/video-publication-verify.json`（verify-yt-status.yml が週次で commit）の
+  結果を 1〜2 行で（ドリフト 0 なら「YT 公開状態ドリフトなし」）。台帳の予約→公開は registry-reconcile が毎日見る。
 
 分析項目:
 - source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）
@@ -451,7 +450,7 @@ npm run growth-triage -- list             # この週の未処分（Phase 2.5 �
 4. **学び**: 発見・改善点
 5. **backlog 消化サマリ**（下記）
 
-#### backlog 消化サマリ（4 行・親が直接集計）
+#### backlog 消化サマリ（親が直接集計）
 
 `/backlog-sweep` の実績を読む。**この節が dispatch-log の唯一の読み手**なので、省略すると記録が誰にも読まれないログになる（§9「読む人がいない検査は無いのと同じ」）。
 
@@ -459,15 +458,17 @@ npm run growth-triage -- list             # この週の未処分（Phase 2.5 �
 node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
 node scripts/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
 node scripts/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
+node scripts/report-defect-learning.mjs --since <今週月曜>  # 起票・完了した不具合と再発防止（検査 / memory / 正典 / 残すもの無し）の内訳
 node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.at>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
 ```
 
-レビューには次の 4 行で書く:
+レビューには次の各行で書く:
 
 - **消化**: done N 件 / 掃除（swept＝実査したら既に完了）M 件
 - **残量**: カード総数 X 件（🔴/🟡/🟢）・前週比 ±Y
 - **分類率**: `[種類:]` 付与済み A / 全体 B（旧 `[実行:]` 軸は 2026-08-26 廃止。未分類は選定順序〔不具合優先〕に乗らない）
 - **モデル別**: executor 別の件数と失敗/手戻り（Phase C のモデル分業を見直す材料）
+- **再発防止**: `report-defect-learning` の起票した不具合 N 件 / 閉じた不具合 M 件（検査・memory・正典・残すもの無し の内訳）。「残すもの無し」が続く種類の不具合は、検査にできないかを次週のカードにする
 - **期日と時期**: `check-backlog-health` の S14（期日超過）と S15（`[時期:]` の月を過ぎたまま）。S14 はそのレビューで片付けるか期日を直す。S15 は終わっていれば削除、残りは月初の `npm run roll-backlog-when -- --write` で翌月へ回す。月次レビューの未実施は日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `monthly-review-due` と SessionStart が知らせる
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 

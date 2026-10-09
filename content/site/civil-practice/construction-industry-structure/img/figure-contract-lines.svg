@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="発注者から見た契約の線。発注者は建設コンサルタントと業務委託契約、元請と請負契約を結び、元請から一次下請、二次以下の下請へ下請契約がつながる。発注者と一次下請の間に直接の契約はない" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="100" y="14" width="200" height="52" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="14" y="116" width="176" height="62" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="210" y="116" width="176" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="210" y="216" width="176" height="62" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="210" y="316" width="176" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="216" width="176" height="162" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<rect x="14" y="398" width="372" height="88" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<g stroke="#2e6da4" fill="none" marker-end="url(#ar)">
+<line x1="150" y1="66" x2="104" y2="114"/>
+<line x1="250" y1="66" x2="296" y2="114"/>
+<line x1="298" y1="178" x2="298" y2="214"/>
+<line x1="298" y1="278" x2="298" y2="314"/>
+</g>
+</g>
+<g fill="#222" text-anchor="middle" font-size="13" font-weight="700">
+<text x="200" y="38">発注者</text>
+<text x="102" y="142">建設コンサルタント</text>
+<text x="298" y="142">元請</text>
+<text x="298" y="242">一次下請</text>
+<text x="298" y="342">二次以下の下請</text>
+</g>
+<g fill="#555" text-anchor="middle" font-size="11">
+<text x="200" y="55">国・自治体・民間</text>
+<text x="102" y="162">調査・計画・設計・点検</text>
+<text x="298" y="162">完成までの責任の窓口</text>
+<text x="298" y="262">発注者との直接契約なし</text>
+<text x="298" y="362">施工体系図に載る</text>
+</g>
+<g fill="#2e6da4" font-size="11">
+<text x="24" y="96">業務委託契約</text>
+<text x="290" y="96">請負契約</text>
+<text x="306" y="200">下請契約</text>
+<text x="306" y="300">再下請契約</text>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="26" y="236">制度の枠</text>
+<text x="26" y="258">測量業</text>
+<text x="26" y="290">地質調査業</text>
+<text x="26" y="322">建設コンサルタント</text>
+<text x="26" y="354">建設業（元請・下請）</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="26" y="274">測量法の登録（義務）</text>
+<text x="26" y="306">登録規程の登録（任意）</text>
+<text x="26" y="338">登録規程の登録（任意）</text>
+<text x="26" y="370">建設業法の許可</text>
+</g>
+<g fill="#222" font-size="12">
+<text x="26" y="424">契約の線は発注者から一次下請へ引かれない。</text>
+<text x="26" y="444">発注者が相手にするのは元請で、現場の責任は</text>
+<text x="26" y="464">元請から下請へ施工体制の順につながる。</text>
+</g>
+</svg>

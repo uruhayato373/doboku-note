@@ -10,8 +10,9 @@
 |---|---|
 | 総監 note 戦略・進捗・価格企画 | `技術士総監/noteコンテンツ計画.md`（マガジン構成の決定記録は `技術士総監/総監マガジン構成_決定2026.md`） |
 | 建設部門 note 戦略・価格企画 | `技術士建設部門/noteコンテンツ計画.md` |
+| コンクリート主任技士 note 商品構成（立場別の再収録） | `コンクリート主任技士/noteコンテンツ計画.md` |
 | 1級・2級土木 note 戦略（メンバーシップ含む） | `1級・2級土木/noteコンテンツ計画.md`（買い切りマガジンの実装詳細は各級プランへ委譲） |
-| 実価格・noteUrl・公開状態 | `src/lib/note-magazines.ts`（照合は `npm run verify-note-magazines`） |
+| 実価格・noteUrl・公開状態 | `config/products.json`（`npm run product -- set` で書き、`src/lib/note-magazines.ts` へ `gen` で生成。照合は `npm run verify-note-magazines`） |
 | 全記事を横断して引く（URL・ID・状態・価格・所属マガジン） | `.claude/state/note-published.json`（frontmatter と note-magazines.ts から生成。`npm run build-note-catalog`） |
 | 記事・マガジンへの回遊/購入導線（資格別 3 層） | `.claude/knowledge/reference/note-funnel-architecture.md`（監査は `npm run audit-note-funnel`、機械可読は `config/note-funnel.json`） |
 | 両資格リリース計画 | `技術士総監/noteコンテンツ計画.md` の「📅 統合リリースカレンダー 2026-07〜12」 |
@@ -100,8 +101,9 @@ content/note/
 
 ### コンクリート主任技士（`コンクリート主任技士/`）
 
-- **有料**（`コンクリート主任技士/`）: 小論文 令和形式テーマ別答案（`cce-essay-reiwa-pack`・¥3,980。旧版の模範答案集・実務立場別は 2026-10-01 に削除）／四肢択一 R8予想50問（`cce-r8-mc-50`・¥1,980）／配合計算 実戦演習（`cce-mix-calculation-practice`・¥1,480）／直前暗記ノート（`cce-anki-note`・¥980・2026-09-17）／択一 直前パック（`cce-takuitsu-chokuzen-pack`・¥2,980・2026-09-17）／まるごとパック（`cce-marugoto-pack`・¥9,800・42 記事）。L2 は `コンクリート資格もくじ`（技士・主任技士・診断士 共用）
-- **立場別4テーマセット**: 生コン工場・プレキャスト工場・土木施工・維持管理補修・発注者・建築施工・設計コンサル・試験検査機関の8セット（各¥2,980・2026-09-19公開）。各4答案＋無料ガイド。全32答案集とまるごとパックに含まれる同一記事を再収録。
+- **小論文**（`コンクリート主任技士/magazines/`）: 1立場×1テーマの令和形式答案40本（単品）を、立場別5テーマ（`cce-reiwa-{立場}-pack`・8誌）・立場別合格パック（`cce-goukaku-{立場}-pack`・択一直前3点を足した8誌）・全40答案（`cce-essay-reiwa-pack`）・まるごとパック（`cce-marugoto-pack`）へ再収録する（2026-10-03 DN-0523）。無料の出題傾向分析は全マガジンに入る。構成の判断理由と立場の対応表は `コンクリート主任技士/noteコンテンツ計画.md`
+- **択一**: 四肢択一 R8予想50問（`cce-r8-mc-50`）／配合計算 実戦演習（`cce-mix-calculation-practice`）／直前暗記ノート（`cce-anki-note`）／択一 直前パック（`cce-takuitsu-chokuzen-pack`）。L2 は `コンクリート資格もくじ`（技士・主任技士・診断士 共用）
+- 実価格と URL は `config/products.json`（生成先 `src/lib/note-magazines.ts`）。旧版（模範答案集・実務立場別・立場別4テーマ・テーマ別8立場）は 2026-10-01、テーマ別5本（1本に8立場）は 2026-10-03 に note から削除した
 - **サイト側の宿題**: 商品拡充が実現した時点で L2 もくじ（concrete 系の資格別もくじ）をサイトへ新設する（旧 backlog DN-0041 P7 を撤収）
 
 ### コンクリート診断士（`コンクリート診断士/`）
@@ -127,7 +129,7 @@ utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
 
-題名と価格の正本は frontmatter の `title` / `price`（見出し 1 は `title` と同じにする）。マガジンは `src/lib/note-magazines.ts` の `noteTitle` / `price`。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
+題名の正本は frontmatter の `title`（見出し 1 は `title` と同じにする）。単品価格の正本は `config/products.json` の `articlePrices`（frontmatter の `price` はその写しで、変えるときは `npm run product -- price <article.md> <円>`）。マガジンは `config/products.json` の `catalog.noteTitle` / `catalog.price`（`note-magazines.ts` は生成物）。**原稿が正**で、note 側を直接直さない（2026-10-01 に公開中 886 本を一度だけ note に合わせて整理し、以後は原稿から note へ反映する）。
 
 - 題名・価格を変える: 原稿を直して commit する。題名は週次の Mac `note-sync-routine` が自動で note へ反映する。価格は同期画面に「止まっている」と出るので `note-article-price-sweep` で反映する
 - note 側で直接変わった（ずれた）: 週次 CI（`note-live-audit.yml`）の `note-reconcile-title-price` が見つけて「note へ未反映」に戻し、上と同じ経路で原稿の値に戻る
@@ -167,7 +169,7 @@ published: true | false   # 単発記事。マガジン記事は noteUrl の有�
 
 ## 関連ツール（パス前提）
 
-- 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査）
+- 記事カタログ: `npm run build-note-catalog` → `.claude/state/note-published.json`（全記事の URL・ID・状態・価格・所属マガジンを 1 ファイルで引ける**読み取り専用の生成物**。正本は各記事 frontmatter と `src/lib/note-magazines.ts`。手で編集しない。refresh-indexes に含まれ、鮮度は CI の check-generated-indexes が検査。記事を stage した commit では pre-commit も `build-note-published-index.mjs --check --staged` で作り直し漏れと stage 漏れを止める。題名は本文の H1 から取るので、H1 を変えたら作り直す）
 - 紙用 PDF 変換: `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`
 - カバー画像生成: `node scripts/generate-note-covers.mjs [slug部分一致]`（再帰走査・試験別構造に自動対応）
 - UTM 付与: `node scripts/add-note-utm.mjs <slug|prefix>`

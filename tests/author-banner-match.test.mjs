@@ -20,3 +20,13 @@ test("H2 より前にある 16:9 の本文図は旧バナーと判定しない�
   assert.equal(result.variant, "unknown");
   assert.ok(result.distances.legacy >= 25, `legacy distance=${result.distances.legacy}`);
 });
+
+test("コンクリートの標準版と POP 版も自分の版に一致し、土木の版と取り違えない", async () => {
+  const concrete = await match(`${REFERENCE_DIR}/figure-author-authority-concrete.png`);
+  const concretePop = await match(`${REFERENCE_DIR}/figure-author-authority-concrete-pop.png`);
+  assert.equal(concrete.variant, "concrete");
+  assert.equal(concretePop.variant, "concrete-pop");
+  // 土木 POP 版と構図が同じなので差は小さい（約18）。照合は最も近い版を選ぶため、自分の版との差より十分離れていればよい
+  assert.ok(concretePop.distances.pop - concretePop.distances["concrete-pop"] >= 10, `civil pop distance=${concretePop.distances.pop}`);
+  assert.equal((await match(`${REFERENCE_DIR}/figure-author-authority-pop.png`)).variant, "pop");
+});

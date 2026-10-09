@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建退共の掛金納付の二つの方式の比較。証紙貼付方式は証紙を買い、手帳に貼って消印し、受払簿に記録する。電子ポイント方式はポイントを買い、月に一度就労日数を入力し、掛金充当書で確認する" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g fill="#222" font-size="13" font-weight="700"><text x="18" y="26">証紙貼付方式</text><text x="210" y="26">電子ポイント方式</text></g>
+<g stroke-width="1.5">
+<g fill="#e8f0fe" stroke="#2e6da4">
+<rect x="18" y="40" width="172" height="80" rx="8"/>
+<rect x="18" y="136" width="172" height="80" rx="8"/>
+<rect x="18" y="232" width="172" height="80" rx="8"/>
+</g>
+<g fill="#d0e8d0" stroke="#3a7d44">
+<rect x="210" y="40" width="172" height="80" rx="8"/>
+<rect x="210" y="136" width="172" height="80" rx="8"/>
+<rect x="210" y="232" width="172" height="80" rx="8"/>
+</g>
+<rect x="18" y="328" width="364" height="64" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<g stroke="#2e6da4">
+<line x1="104" y1="120" x2="104" y2="134" marker-end="url(#ar)"/>
+<line x1="104" y1="216" x2="104" y2="230" marker-end="url(#ar)"/>
+<line x1="296" y1="120" x2="296" y2="134" marker-end="url(#ar)"/>
+<line x1="296" y1="216" x2="296" y2="230" marker-end="url(#ar)"/>
+</g>
+</g>
+<g fill="#222" font-size="12" font-weight="700">
+<text x="28" y="60">証紙を買う</text>
+<text x="28" y="156">手帳に貼って消印</text>
+<text x="28" y="252">受払簿に記録</text>
+<text x="220" y="60">ポイントを買う</text>
+<text x="220" y="156">就労日数を入力</text>
+<text x="220" y="252">掛金充当書で確認</text>
+<text x="28" y="348">どちらの方式でも</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="28" y="77">金融機関の窓口で</text>
+<text x="28" y="93">契約者証の原本を示す</text>
+<text x="28" y="109">1日券は320円</text>
+<text x="28" y="173">賃金を払う都度、</text>
+<text x="28" y="189">少なくとも月1回、</text>
+<text x="28" y="205">働いた日数分を貼る</text>
+<text x="28" y="269">購入した枚数と、</text>
+<text x="28" y="285">下請へ渡した枚数、</text>
+<text x="28" y="301">貼った枚数を合わせる</text>
+<text x="220" y="77">専用サイトで申請し、</text>
+<text x="220" y="93">ペイジーか口座振替</text>
+<text x="220" y="109">3,000円分から10円単位</text>
+<text x="220" y="173">月に1回、被共済者</text>
+<text x="220" y="189">ごとの日数を報告する</text>
+<text x="220" y="205">CCUSの履歴を連携できる</text>
+<text x="220" y="269">賃金支払月の翌月末日</text>
+<text x="220" y="285">までに充当を済ませ、</text>
+<text x="220" y="301">申請との相違を確かめる</text>
+<text x="28" y="364">掛金日額は320円。公共・民間を問わず、働いた日数分</text>
+<text x="28" y="380">公共工事では、元請が下請の被共済者分もまとめて購入</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="20" y="420">休日や欠勤日は納付できず、有給休暇の日は納付する</text>
+<text x="20" y="437">1日8時間を超えた分は、8時間を単位に1日を加算する</text>
+<text x="20" y="454">掛金助成は、新しい手帳の初回分50日を国が補う</text>
+<text x="20" y="471">電子ポイントの手続きは、電子申請専用サイトで行う</text>
+</g>
+</svg>

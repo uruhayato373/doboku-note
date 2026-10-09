@@ -21,6 +21,8 @@
  *                                                #   → ga4-cta-clicks-by-label-*.json。要 GA4 カスタムディメンション
  *                                                #     （イベントスコープ・パラメータ event_label）を先に管理画面で登録。
  *                                                #     未登録なら API がエラー→登録手順を表示して exit 0（CI 非破壊）。
+ *   npm run fetch-ga4-cta-clicks -- --by-page    # アフィリエイトだけ。クリックは pagePath × event_label × cta_placement × date、
+ *                                                #   表示は日付なしの窓の合計（どのページのどの広告が押されたか。A8 の発生日と突き合わせる）
  *   npm run fetch-ga4-cta-clicks -- --key-events # pagePath × sessions / keyEvents / sessionKeyEventRate（標準指標）
  *                                                #   → ga4-key-events-by-page-*.json。イベント名では絞らない（キーイベント定義は
  *                                                #     GA4 側＝ga4-admin-desired-state.json）。0 行はサイト全体 0 セッションで異常のため exit 1。
@@ -32,7 +34,6 @@
 import { writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
-import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 import dotenv from "dotenv";
 import { resolveWindow } from "./lib/ga4-snapshot.mjs";
 import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-client.mjs";
@@ -41,6 +42,12 @@ import {
   parseKeyEventsByPageRows,
   summarizeKeyEvents,
 } from "./lib/ga4-key-events.mjs";
+import {
+  buildAffiliateByPageRequests,
+  parseAffiliateByPageRows,
+  summarizeAffiliateByPage,
+} from "./lib/ga4-affiliate-by-page.mjs";
+import { buildAffiliateExperimentRequest, parseAffiliateExperimentRows, summarizeAffiliateExperiment } from "../../scripts/lib/affiliate-experiment-report.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -77,41 +84,72 @@ const EVENT_NAMES = [
 ];
 
 function parseArgs() {
-  const a = parseCliArgs({
-    days: { type: "integer", default: DEFAULT_DAYS },
+  const args = process.argv.slice(2);
+  const opts = {
+    days: DEFAULT_DAYS,
+    japanOnly: true,
+    byDevice: false,
+    byLabel: false,
+    byPlacement: false,
+    keyEvents: false,
+    byPage: false,
+    byExperiment: false,
     // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
     // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
     // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
-    // 例: --month 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）
-    month: { type: "string" },
-    start: { type: "string", key: "startDate" },
-    end: { type: "string", key: "endDate" },
-    "no-japan-only": { type: "boolean" },
-    // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
-    // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
-    // downstream（report-monetization-coverage = page 別）は非破壊。
-    "by-device": { type: "boolean" },
-    // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
-    // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
-    // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
-    "by-label": { type: "boolean" },
-    // アフィリエイトの可視 impression / click を配置別に取得する。
-    // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
-    "by-placement": { type: "boolean" },
-    // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
-    "key-events": { type: "boolean" },
-  });
-  return {
-    days: a.days,
-    japanOnly: !a.noJapanOnly,
-    byDevice: a.byDevice,
-    byLabel: a.byLabel,
-    byPlacement: a.byPlacement,
-    keyEvents: a.keyEvents,
-    month: a.month,
-    startDate: a.startDate,
-    endDate: a.endDate,
+    month: null,
+    startDate: null,
+    endDate: null,
   };
+  for (let i = 0; i < args.length; i++) {
+    switch (args[i]) {
+      case "--days":
+        opts.days = parseInt(args[++i], 10);
+        break;
+      case "--month":
+        // 例: --month 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）
+        opts.month = args[++i];
+        break;
+      case "--start":
+        opts.startDate = args[++i];
+        break;
+      case "--end":
+        opts.endDate = args[++i];
+        break;
+      case "--no-japan-only":
+        opts.japanOnly = false;
+        break;
+      case "--by-device":
+        // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
+        // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
+        // downstream（report-monetization-coverage = page 別）は非破壊。
+        opts.byDevice = true;
+        break;
+      case "--by-label":
+        // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
+        // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
+        // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
+        opts.byLabel = true;
+        break;
+      case "--by-placement":
+        // アフィリエイトの可視 impression / click を配置別に取得する。
+        // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
+        opts.byPlacement = true;
+        break;
+      case "--by-page":
+        // アフィリエイトの表示・クリックをページ × ラベル × 面（クリックは日付も）で取る。
+        opts.byPage = true;
+        break;
+      case "--by-experiment":
+        opts.byExperiment = true;
+        break;
+      case "--key-events":
+        // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
+        opts.keyEvents = true;
+        break;
+    }
+  }
+  return opts;
 }
 
 async function fetchCtaClicks(client, propertyId, opts) {
@@ -232,12 +270,60 @@ async function mainKeyEvents(client, propertyId, opts, stamp) {
   console.log(`出力: ${outPath}`);
 }
 
+async function mainAffiliateByPage(client, propertyId, opts, stamp) {
+  const { startDate, endDate, windowKind } = resolveWindow(opts);
+  const req = buildAffiliateByPageRequests({ propertyId, startDate, endDate, japanOnly: opts.japanOnly });
+  const clicks = await runReportAll(client, req.clicks);
+  const impressions = await runReportAll(client, req.impressions);
+  const rows = parseAffiliateByPageRows(clicks.rows, impressions.rows);
+  const data = {
+    meta: {
+      startDate,
+      endDate,
+      windowKind,
+      mode: "affiliate-by-page",
+      japanOnly: opts.japanOnly,
+      propertyId,
+      rowCount: clicks.rowCount + impressions.rowCount,
+      truncated: clicks.truncated || impressions.truncated,
+    },
+    rows,
+  };
+  const sum = summarizeAffiliateByPage(rows);
+  console.log(`
+期間: ${startDate} 〜 ${endDate}（アフィリエイト・ページ × ラベル × 面）`);
+  console.log(`件数: ${rows.length} 行 / クリック ${sum.clicks}（${sum.clickPages} ページ）/ 表示 ${sum.impressions}${data.meta.truncated ? "（上限で打ち切り）" : ""}`);
+  if (sum.impressions === 0) {
+    // 全サイトで表示 0 は広告が 1 枚も出ていないか取得の異常。0 と記録しない（検査ゼロを PASS と呼ばない）
+    console.error("[fetch-ga4-cta-clicks] by-page: 表示が 0 件。広告の計測か取得の異常。出力しない。");
+    process.exitCode = 1;
+    return;
+  }
+  const outPath = writeReport(".", "ga4.affiliate-by-page", data, { stamp }).ref;
+  console.log(`出力: ${outPath}`);
+}
+
 async function main() {
   const opts = parseArgs();
   const { client, property: propertyId } = ga4FromEnv();
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  if (opts.byExperiment) {
+    const { startDate, endDate, windowKind } = resolveWindow(opts);
+    const response = await runReportAll(client, buildAffiliateExperimentRequest({ propertyId, startDate, endDate, japanOnly: opts.japanOnly }));
+    const rows = parseAffiliateExperimentRows(response.rows);
+    const data = { meta: { startDate, endDate, windowKind, japanOnly: opts.japanOnly, propertyId, rowCount: response.rowCount, truncated: response.truncated, limited: isLimited(response.metadata), status: rows.length ? "available" : "awaiting-data" }, rows, summary: summarizeAffiliateExperiment(rows) };
+    const out = writeReport(".", "ga4.affiliate-experiment", data, { stamp });
+    console.log(`[affiliate-experiment] API ${response.rowCount} 行 / 実集計 ${rows.length} 行 / ${data.meta.status} / ${out.ref}`);
+    console.log(JSON.stringify(data.summary));
+    if (data.meta.truncated || data.meta.limited) process.exitCode = 1;
+    return;
+  }
   if (opts.keyEvents) {
     await mainKeyEvents(client, propertyId, opts, stamp);
+    return;
+  }
+  if (opts.byPage) {
+    await mainAffiliateByPage(client, propertyId, opts, stamp);
     return;
   }
   const data = await fetchCtaClicks(client, propertyId, opts);
@@ -284,8 +370,8 @@ main().catch((e) => {
   // その場合は登録手順を示して exit 0（CI の他 step を止めない・continue-on-error 前提だが明示）。
   const msg = String(e?.message || e);
   // カスタムディメンション未登録の救済は by-label / by-placement だけ。標準指標の --key-events の失敗は exit 1。
-  if (!process.argv.includes("--key-events") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
-    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : "event_label";
+  if (!process.argv.includes("--key-events") && !process.argv.includes("--by-experiment") && /customEvent:(event_label|cta_placement)|not.*valid.*dimension|did not match/i.test(msg)) {
+    const parameter = process.argv.includes("--by-placement") ? "cta_placement" : process.argv.includes("--by-page") ? "event_label・cta_placement" : "event_label";
     console.warn(
       `[fetch-ga4-cta-clicks] ${parameter} は GA4 カスタムディメンション未登録のためスキップ。\n` +
         "  GA4 管理画面 → 管理 → データ表示 → カスタム定義 → カスタムディメンション作成:\n" +

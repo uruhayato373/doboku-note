@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="再生資源利用計画と再生資源利用促進計画の作成基準の比較。搬入する土砂500立方メートル以上・砕石500トン以上・加熱アスファルト混合物200トン以上で利用計画、搬出する建設発生土500立方メートル以上またはコンクリート塊・アスコン塊・建設発生木材の合計200トン以上で促進計画を作る。掲示・記録・5年保存・現場責任者は共通">
+<style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }</style>
+<rect x="14" y="14" width="372" height="150" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="28" y="38" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">再生資源利用計画（資材を搬入する工事）</text>
+<text x="28" y="62" text-anchor="start" font-size="12" fill="#222">土砂</text>
+<text x="364" y="62" text-anchor="end" font-size="12" font-weight="bold" fill="#1a3a5c">500m³以上</text>
+<text x="28" y="82" text-anchor="start" font-size="12" fill="#222">砕石</text>
+<text x="364" y="82" text-anchor="end" font-size="12" font-weight="bold" fill="#1a3a5c">500t以上</text>
+<text x="28" y="102" text-anchor="start" font-size="12" fill="#222">加熱アスファルト混合物</text>
+<text x="364" y="102" text-anchor="end" font-size="12" font-weight="bold" fill="#1a3a5c">200t以上</text>
+<line x1="28" y1="114" x2="372" y2="114" stroke="#2e6da4" stroke-width="1"/>
+<text x="28" y="132" text-anchor="start" font-size="11" fill="#555">書く中心：資材ごとの利用量、再生資源の種類と</text>
+<text x="28" y="148" text-anchor="start" font-size="11" fill="#555">搬入元、再生資源利用率</text>
+<rect x="14" y="176" width="372" height="170" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="28" y="200" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">再生資源利用促進計画（副産物を搬出する工事）</text>
+<text x="28" y="224" text-anchor="start" font-size="12" fill="#222">建設発生土</text>
+<text x="364" y="224" text-anchor="end" font-size="12" font-weight="bold" fill="#1a3a5c">500m³以上</text>
+<text x="28" y="244" text-anchor="start" font-size="11" fill="#555">または</text>
+<text x="28" y="262" text-anchor="start" font-size="12" fill="#222">コンクリート塊・アスコン塊・建設発生木材</text>
+<text x="28" y="282" text-anchor="start" font-size="12" fill="#222">（3品目の重量の合計）</text>
+<text x="364" y="282" text-anchor="end" font-size="12" font-weight="bold" fill="#1a3a5c">200t以上</text>
+<line x1="28" y1="294" x2="372" y2="294" stroke="#3a7d44" stroke-width="1"/>
+<text x="28" y="312" text-anchor="start" font-size="11" fill="#555">書く中心：現場内の利用量と搬出量、搬出先、</text>
+<text x="28" y="328" text-anchor="start" font-size="11" fill="#555">再生資源利用促進率</text>
+<rect x="14" y="358" width="372" height="132" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="28" y="382" text-anchor="start" font-size="12" font-weight="bold" fill="#1a3a5c">2つの計画に共通するルール</text>
+<text x="28" y="406" text-anchor="start" font-size="12" fill="#222">基準のうち1つでも満たせば作成する</text>
+<text x="28" y="426" text-anchor="start" font-size="12" fill="#222">作成するのは元請業者等。現場に責任者を置く</text>
+<text x="28" y="446" text-anchor="start" font-size="12" fill="#222">現場の見やすい場所に掲示する</text>
+<text x="28" y="466" text-anchor="start" font-size="12" fill="#222">完成後に実施状況を記録し、5年間保存する</text>
+</svg>

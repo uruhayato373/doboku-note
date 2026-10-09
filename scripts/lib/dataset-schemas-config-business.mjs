@@ -7,7 +7,7 @@
  * 既存の check-*（check-exam-calendar・check-qualification-market・check-magazine-membership ほか）に残し、型は形と 1 ファイル内の不変条件だけを持つ。
  */
 import { z } from 'zod';
-import { jstDate, month, yen, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, month, yen, flag, uniqueBy, BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
 
 /** 資格・ファミリー・テーマなどの id（英小文字・数字・ハイフン） */
 const QID = z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ');
@@ -18,7 +18,7 @@ const strList = z.array(text);
 // ---- 事業方針（config/business-direction.json） ----------------------------------------------
 
 const DIRECTION_STAGES = ['集客', '学習', '送客', '販売', '運営', '品質'];
-const DIRECTION_CHANNELS = ['GA4', 'GSC', 'note', 'KDP', 'coconala', 'operations', 'instagram', 'cloudflare'];
+const DIRECTION_CHANNELS = BUSINESS_CHANNELS;
 const DIRECTION_UNITS = ['人', '回', '件', '円', '分', '人日'];
 
 /** 事業方針（重点資格・北極星・指標の定義・レビュー周期）。判定（資格 id の重複・appliesTo の実在）は scripts/lib/business-direction.mjs の direction() が見る */
@@ -453,6 +453,7 @@ const introVariant = z
       })
       .strict(),
     magazines: z.record(text, introMagazine).describe('マガジン id → 導線の url・題名・説明'),
+    entryLead: z.record(text, text).optional().describe('入口商品（rules[].entry）ごとの案内文。入口→上位パックの順に 1 つの案内として出す'),
     rules: z
       .array(
         z
@@ -460,6 +461,7 @@ const introVariant = z
             match: z.string().describe('記事のパスに含まれる文字列。上から順に最初の一致（空文字は全記事に一致）'),
             home: z.string().nullable().describe('この記事が収録されているマガジン id（無ければ null）'),
             upper: z.string().nullable().describe('上位の束ね商品のマガジン id（無ければ null）'),
+            entry: z.string().optional().describe('上位パックより先に案内する入口の商品のマガジン id（低価格先出し。upper と一緒に 1 つの案内にする）'),
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
             _why: text.optional(),
@@ -473,6 +475,12 @@ const introVariant = z
     v.rules.forEach((r, i) => {
       for (const k of ['home', 'upper']) if (r[k] !== null && !(r[k] in v.magazines)) flag(ctx, ['rules', i, k], `magazines に無いマガジン id「${r[k]}」`);
       if (r.coconalaLead !== undefined && !(r.coconalaLead in v.coconala.lead)) flag(ctx, ['rules', i, 'coconalaLead'], `coconala.lead に無いキー「${r.coconalaLead}」`);
+      if (r.entry !== undefined) {
+        if (!(r.entry in v.magazines)) flag(ctx, ['rules', i, 'entry'], `magazines に無いマガジン id「${r.entry}」`);
+        if (!v.entryLead || !(r.entry in v.entryLead)) flag(ctx, ['rules', i, 'entry'], `entryLead に「${r.entry}」の案内文が無い`);
+        if (r.upper === null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は上位パック（upper）と組で使う');
+        if (r.home !== null) flag(ctx, ['rules', i, 'entry'], '入口の商品（entry）は収録元マガジン（home）の無い記事にだけ使う');
+      }
     });
   });
 
@@ -777,6 +785,15 @@ export const ConfigCceEssayHistory = z
           .superRefine(uniqueBy('key')),
         totalChars: cceRange.describe('組み立てた答案全体の字数帯'),
         requiredH2: strList.min(1).describe('記事に必須の H2'),
+        personaArticle: z
+          .object({
+            _doc: text,
+            requiredH2: strList.min(1).describe('立場別記事（1立場×1テーマ）に必須の H2'),
+            distinctParts: strList.min(1).describe('同じテーマの立場別記事どうしで文面が一致してはいけない parts の key'),
+          })
+          .strict()
+          .optional()
+          .describe('立場別記事（frontmatter cceEssayPersona）の型'),
         personas: strList.min(1).superRefine(uniqueBy((p) => p, '立場')).describe('書き分ける立場'),
       })
       .strict(),
@@ -788,6 +805,8 @@ export const ConfigCceEssayHistory = z
       for (const t of [...y.options.map((o) => o.theme), ...(y.optionThemes ?? [])]) if (t !== null && !(t in c.themes)) flag(ctx, ['years', i], `themes に無いテーマ「${t}」`);
     });
     if (c.answerModel.parts.filter((p) => p.scope === 'persona').length !== 1) flag(ctx, ['answerModel', 'parts'], 'persona の部分はちょうど 1 つ（立場ごとに書き分ける設問）');
+    const keys = new Set(c.answerModel.parts.map((p) => p.key));
+    for (const k of c.answerModel.personaArticle?.distinctParts ?? []) if (!keys.has(k)) flag(ctx, ['answerModel', 'personaArticle', 'distinctParts'], `parts に無い key「${k}」`);
   })
   .meta({ title: 'コンクリート主任技士 小論文の出題履歴' });
 
@@ -825,3 +844,131 @@ export const ConfigContentRules = z
     }
   })
   .meta({ title: '記事の機械品質ルール' });
+
+// ---- 商品の正本（config/products.json・DN-0492） ----------------------------------------------
+
+/** note-magazines.ts の 1 エントリ（キーの並びは保持する。id / published / noteUrl の順は読み手との契約） */
+const productCatalogValue = z.union([z.string(), z.number(), z.boolean(), z.null()]);
+const productCatalog = z
+  .object({ id: z.string(), published: z.boolean(), noteUrl: z.string() })
+  .catchall(z.union([productCatalogValue, z.array(productCatalogValue), z.record(z.string(), productCatalogValue)]));
+
+/** note の 1 商品（マガジン・パック・単品 SKU・会員） */
+export const NoteProduct = z
+  .object({
+    id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/, '英小文字・数字・ハイフンだけ'),
+    channel: z.literal('note'),
+    qualification: z.string(),
+    stage: z.string(),
+    /** 系列: 経験記述・学科記述・横断・一次 など */
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    /** 設計上の層 */
+    tier: z.enum(['pack', 'magazine', 'single', 'membership']),
+    persona: z.string().nullable().default(null),
+    /** note-magazines.ts の該当エントリ（そのまま書き出す） */
+    catalog: productCatalog,
+    /**
+     * note 上で収録すべき記事（リポジトリ相対の article.md パス）。原稿の noteId と結び付かない note 上の記事は
+     * `note:<noteId>`（同じ題名の別 ID が収録されているなど。check-products が件数を出す）
+     */
+    members: z.array(z.string()).default([]),
+    /** 丸ごと含む商品の id（パックが含むマガジン・単品） */
+    includes: z.array(z.string()).default([]),
+    /** 経緯のメモ（旧 note-magazines.ts のコメント） */
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/**
+ * Kindle の 1 冊の行（scripts/kindle-published/catalog.json の books[] へそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物のキー順を変えない）
+ */
+const kindleBook = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((b, ctx) => {
+    if (b.priceJpy !== undefined && !(Number.isInteger(b.priceJpy) && b.priceJpy > 0)) flag(ctx, ['priceJpy'], 'priceJpy は正の整数（円）');
+  });
+
+/** Kindle の 1 冊（id は kindle-<書籍 id の小文字>） */
+export const KindleProduct = z
+  .object({
+    id: z.string().regex(/^kindle-[a-z0-9-]+$/, 'kindle- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('kindle'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('book'),
+    persona: z.string().nullable().default(null),
+    /** catalog.json の books[] の並び（人が決めた順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: kindleBook,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/**
+ * ココナラの 1 サービスの行（src/lib/coconala-services.ts の SERVICES_RAW の生成ブロックへそのまま書き出す）。
+ * 型で宣言するのは先頭キーの id だけにして、ほかの欄は入力の並びのまま通す（生成物の欄の順を変えない）
+ */
+const coconalaService = z
+  .object({ id: z.string().min(1) })
+  .catchall(z.unknown())
+  .superRefine((s, ctx) => {
+    if (!(Number.isInteger(s.priceYen) && s.priceYen > 0)) flag(ctx, ['priceYen'], 'priceYen は正の整数（円）。ココナラの価格の正本');
+  });
+
+/** ココナラの 1 サービス（id は catalog.id と同じ coconala-…） */
+export const CoconalaProduct = z
+  .object({
+    id: z.string().regex(/^coconala-[a-z0-9-]+$/, 'coconala- ＋英小文字・数字・ハイフン'),
+    channel: z.literal('coconala'),
+    qualification: z.string(),
+    stage: z.string(),
+    series: z.enum(['keiken', 'gakka', 'cross', 'first', 'other']),
+    tier: z.literal('service'),
+    persona: z.string().nullable().default(null),
+    /** SERVICES_RAW の並び（サイトの表示順を保つ） */
+    order: z.number().int().nonnegative(),
+    catalog: coconalaService,
+    members: z.array(z.string()).default([]),
+    includes: z.array(z.string()).default([]),
+    /** 経緯のメモ（旧 coconala-services.ts のエントリのコメント） */
+    memo: z.array(z.string()).default([]),
+  })
+  .strict();
+
+/** 1 商品（読み書きの実装は scripts/lib/product-registry.mjs） */
+export const Product = z.discriminatedUnion('channel', [NoteProduct, KindleProduct, CoconalaProduct]);
+
+/** チャネルごとの生成物の付帯情報（商品の行に属さない欄） */
+const productChannels = z
+  .object({
+    kindle: z
+      .object({ catalogComment: text, catalogSchemaVersion: z.number().int(), updatedAt: text })
+      .strict()
+      .describe('scripts/kindle-published/catalog.json の先頭の欄（_comment・schemaVersion・updatedAt）'),
+  })
+  .partial()
+  .strict();
+
+/** 全チャネルの商品を 1 ファイルに集めた正本（並びは channel → id。書き換えは npm run product） */
+export const ConfigProducts = z
+  .object({
+    schemaVersion: z.literal(1),
+    _doc: text,
+    channels: productChannels.optional(),
+    products: z.array(Product).superRefine(uniqueBy('id', '商品 id')),
+    /**
+     * note の記事 1 本ごとの単品価格（円）。キーはリポジトリ相対の article.md パス。記事の frontmatter の price は
+     * ここからの写し（npm run product -- gen が書く）。新しい記事の price は gen がここへ取り込む
+     */
+    articlePrices: z
+      .record(z.string().regex(/^content\/note\/.+\/article(-[^/]+)?\.md$/, 'content/note/…/article.md'), z.number().int().nonnegative())
+      .optional()
+      .describe('note の記事ごとの単品価格（キーは記事のパス・値は円）'),
+  })
+  .strict()
+  .meta({ title: '商品の正本' });

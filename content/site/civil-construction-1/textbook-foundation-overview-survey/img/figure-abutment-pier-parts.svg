@@ -1,0 +1,95 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="橋台の胸壁、橋座、竪壁、翼壁、フーチングと、橋脚の梁部、柱部、フーチングを断面で示し、その下に基礎が付く部位名称の概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 12px; fill: #222; }
+      .panel  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+      .lead   { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .soil   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .strc   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pile   { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .girder { fill: #ffffff; stroke: #1a3a5c; stroke-width: 1.5; }
+      .brgng  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .ghost  { fill: none; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .arrow  { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ar); }
+      .bx-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bx-w   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- 橋台 -->
+  <rect class="panel" x="10" y="10" width="185" height="260" rx="6"/>
+  <text class="t-head" x="22" y="30">橋台</text>
+  <text class="t-sub" x="52" y="30">荷重と背面の土を受ける</text>
+  <line class="rule" x1="22" y1="38" x2="183" y2="38"/>
+  <rect class="soil" x="18" y="196" width="170" height="64"/>
+  <rect class="soil" x="104" y="84" width="84" height="112"/>
+  <rect class="ghost" x="104" y="84" width="74" height="112"/>
+  <text class="t-lbl" x="110" y="172">翼壁</text>
+  <text class="t-sub" x="110" y="188">（断面の奥）</text>
+  <polygon class="strc" points="80,196 80,108 94,108 94,84 104,84 104,196"/>
+  <rect class="strc" x="48" y="196" width="96" height="16"/>
+  <text class="t-lbl" x="96" y="208" text-anchor="middle">フーチング</text>
+  <rect class="pile" x="62" y="212" width="8" height="28"/>
+  <rect class="pile" x="122" y="212" width="8" height="28"/>
+  <rect class="girder" x="20" y="84" width="72" height="12"/>
+  <rect class="brgng" x="81" y="96" width="12" height="12"/>
+  <line class="arrow" x1="180" y1="100" x2="108" y2="100"/>
+  <line class="arrow" x1="180" y1="150" x2="108" y2="150"/>
+  <text class="t-lbl" x="150" y="128">土圧</text>
+  <text class="t-lbl" x="99" y="62" text-anchor="middle">胸壁（パラペット）</text>
+  <line class="lead" x1="99" y1="66" x2="99" y2="83"/>
+  <text class="t-lbl" x="24" y="112">支承</text>
+  <line class="lead" x1="48" y1="108" x2="80" y2="103"/>
+  <text class="t-lbl" x="24" y="80">桁</text>
+  <text class="t-lbl" x="24" y="132">橋座</text>
+  <line class="lead" x1="48" y1="129" x2="79" y2="110"/>
+  <text class="t-lbl" x="24" y="166">竪壁</text>
+  <line class="lead" x1="48" y1="163" x2="79" y2="163"/>
+  <text class="t-lbl" x="96" y="258" text-anchor="middle">基礎（杭など）</text>
+
+  <!-- 橋脚 -->
+  <rect class="panel" x="205" y="10" width="185" height="260" rx="6"/>
+  <text class="t-head" x="217" y="30">橋脚</text>
+  <text class="t-sub" x="247" y="30">荷重を柱から基礎へ流す</text>
+  <line class="rule" x1="217" y1="38" x2="378" y2="38"/>
+  <rect class="soil" x="213" y="190" width="169" height="70"/>
+  <rect class="strc" x="252" y="190" width="90" height="16"/>
+  <text class="t-lbl" x="297" y="202" text-anchor="middle">フーチング</text>
+  <rect class="pile" x="262" y="206" width="8" height="34"/>
+  <rect class="pile" x="293" y="206" width="8" height="34"/>
+  <rect class="pile" x="324" y="206" width="8" height="34"/>
+  <rect class="strc" x="282" y="122" width="30" height="68"/>
+  <rect class="strc" x="244" y="100" width="106" height="22"/>
+  <rect class="brgng" x="250" y="84" width="12" height="16"/>
+  <rect class="brgng" x="318" y="84" width="12" height="16"/>
+  <rect class="girder" x="221" y="72" width="152" height="12"/>
+  <text class="t-lbl" x="214" y="115">梁部</text>
+  <text class="t-lbl" x="326" y="160">柱部</text>
+  <line class="lead" x1="313" y1="157" x2="324" y2="157"/>
+  <text class="t-lbl" x="336" y="97">支承</text>
+  <text class="t-lbl" x="297" y="258" text-anchor="middle">基礎（杭など）</text>
+
+  <!-- 要約 -->
+  <rect class="bx-b" x="14" y="284" width="372" height="58" rx="6"/>
+  <text class="t-name" x="30" y="318">橋台</text>
+  <text class="t-desc" x="84" y="318">上部構造の荷重に加え、背面の土圧を受ける</text>
+  <rect class="bx-b" x="14" y="352" width="372" height="58" rx="6"/>
+  <text class="t-name" x="30" y="386">橋脚</text>
+  <text class="t-desc" x="84" y="386">上部構造の荷重を、梁部と柱部から基礎へ流す</text>
+  <rect class="bx-w" x="14" y="420" width="372" height="58" rx="6"/>
+  <text class="t-name" x="30" y="446">基礎</text>
+  <text class="t-desc" x="84" y="442">支持層が浅ければ直接基礎</text>
+  <text class="t-desc" x="84" y="462">深ければ杭やケーソンを選ぶ</text>
+</svg>

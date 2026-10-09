@@ -9,6 +9,8 @@
  *        weekly-review の集計が常に 0 件だった再発防止）
  *   3. at > LEGACY_CUTOFF のエントリは id（DN-####）必須。以前の11件は legacy として許容し件数を出す
  *   4. outcome は done|swept|blocked|fail
+ *   5. kind が「不具合」で done のエントリは prevention（type: gate|memory|doc|none・ref）必須（2026-10-07〜。
+ *      todo-complete が --prevention を記録する。直した不具合が学びに変わったかを週次で数えるため）
  * exit: 0 PASS / 1 違反 / 2 検査不成立
  */
 import { readFileSync } from 'node:fs';
@@ -21,6 +23,7 @@ export const LEGACY_CUTOFF = '2026-08-18';
 const OUTCOMES = new Set(['done', 'swept', 'blocked', 'fail']);
 const ID_RE = /^DN-\d{4}$/;
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+const PREVENTION_TYPES = new Set(['gate', 'memory', 'doc', 'none']);
 
 /** 純関数（テストから直接呼ぶ）。@returns {{violations:string[], legacy:number, checked:number}} */
 export function validateDispatchLog(json, { legacyCutoff = LEGACY_CUTOFF } = {}) {
@@ -32,6 +35,9 @@ export function validateDispatchLog(json, { legacyCutoff = LEGACY_CUTOFF } = {})
     if ('date' in e) violations.push(`${tag}: date キーは禁止（at を使う）`);
     if (!DATE_RE.test(e.at ?? '')) violations.push(`${tag}: at が YYYY-MM-DD でない (${e.at})`);
     if (e.outcome && !OUTCOMES.has(e.outcome)) violations.push(`${tag}: outcome 語彙外 (${e.outcome})`);
+    if (e.kind === '不具合' && e.outcome === 'done' && !(PREVENTION_TYPES.has(e.prevention?.type) && String(e.prevention?.ref ?? '').trim())) {
+      violations.push(`${tag}: 不具合の完了に prevention（gate|memory|doc|none と ref）が無い`);
+    }
     if ((e.at ?? '') <= legacyCutoff && !e.id) { legacy += 1; return; }
     if (!ID_RE.test(e.id ?? '')) violations.push(`${tag}: id (DN-####) が必須 (at=${e.at})`);
   });
@@ -46,5 +52,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   if (!r) { console.error('[check-dispatch-log] 検査不成立: entries 配列が無い'); process.exit(2); }
   console.log(`[check-dispatch-log] ${r.checked} 件を実検査（legacy id無し ${r.legacy} 件を許容）`);
   if (r.violations.length) { r.violations.forEach((v) => console.error('  FAIL ' + v)); process.exit(1); }
-  console.log('[check-dispatch-log] ✓ id 必須・at キー・outcome 語彙はすべて健全');
+  console.log('[check-dispatch-log] ✓ id 必須・at キー・outcome 語彙・不具合の再発防止はすべて健全');
 }

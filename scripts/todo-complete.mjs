@@ -22,23 +22,26 @@
  * Usage:
  *   node scripts/todo-complete.mjs DN-####                          # dry-run（チェックリスト表示のみ）
  *   node scripts/todo-complete.mjs DN-#### --confirm-conditions --commit --note "..." --verify "..."
+ *   [種類:不具合] は --prevention gate:<検査> / memory:<名前> / doc:<パス> / none:<理由> が必須（直した不具合を学びに変える。
+ *   dispatch-log に kind と prevention を残し、週次レビューが report-defect-learning で数える）
  *
  * exit: 0 成功（dry-runの表示含む）/ 1 commit条件未達・カード不在 / 2 引数不正
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { join, relative } from 'node:path';
-import { checkCompleteReadiness, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { checkCompleteReadiness, parsePrevention, readClaimsStore, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
 import { deleteCard } from './backlog-edit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
 import { liveDocsReferencing, readProjectDocs } from './check-project-task-refs.mjs';
-import { REPO_ROOT as ROOT, STATE_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
-const BACKLOG = join(TODO_ROOT, 'backlog.md');
-const MONTHLY = join(TODO_ROOT, 'monthly.md');
-const WEEKLY = join(TODO_ROOT, 'weekly.md');
-const DISPATCH_LOG = join(STATE_ROOT, 'dispatch/dispatch-log.json');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const BACKLOG = '.claude/todo/backlog.md';
+const MONTHLY = '.claude/todo/monthly.md';
+const WEEKLY = '.claude/todo/weekly.md';
+const DISPATCH_LOG = '.claude/state/dispatch/dispatch-log.json';
 
 const argv = process.argv.slice(2);
 const id = argv[0];
@@ -48,16 +51,19 @@ const arg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : nu
 const note = arg('--note') || '';
 const owner = arg('--owner') || 'claude-code';
 const verify = arg('--verify');
+const preventionRaw = arg('--prevention');
 
 if (!id || !/^DN-\d{4}$/.test(id)) {
-  console.error('使い方: node scripts/todo-complete.mjs <DN-####> [--confirm-conditions --commit --note "..." --verify "..."]');
+  console.error('使い方: node scripts/todo-complete.mjs <DN-####> [--confirm-conditions --commit --note "..." --verify "..." --prevention gate:…|memory:…|doc:…|none:…]');
   process.exit(2);
 }
 
 const backlogText = readFileSync(BACKLOG, 'utf8');
 const claimsRaw = existsSync(CLAIMS_PATH) ? readFileSync(CLAIMS_PATH, 'utf8') : null;
 
-const readiness = checkCompleteReadiness(backlogText, claimsRaw, id);
+const npmScripts = new Set(Object.keys(JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')).scripts ?? {}));
+const prevention = preventionRaw == null ? null : parsePrevention(preventionRaw, { npmScripts, pathExists: (p) => existsSync(join(ROOT, p)) });
+const readiness = checkCompleteReadiness(backlogText, claimsRaw, id, { prevention });
 console.log(`[todo-complete] ${id} readiness check`);
 for (const c of readiness.checks) {
   const mark = c.pass === true ? '✓' : c.pass === false ? '✗' : '?';
@@ -96,7 +102,7 @@ for (const path of [MONTHLY, WEEKLY]) {
   const kept = lines.filter((l) => !l.includes(id));
   if (kept.length !== lines.length) {
     writeFileSync(path, kept.join(eol), 'utf8');
-    console.log(`[todo-complete] ${relative(ROOT, path).split('\\').join('/')} から ${id} を含む行を ${lines.length - kept.length} 行削除`);
+    console.log(`[todo-complete] ${path} から ${id} を含む行を ${lines.length - kept.length} 行削除`);
   }
 }
 
@@ -133,6 +139,8 @@ dispatch.entries.push({
   at: todayJst(),
   task: card.title,
   tier: card.tier,
+  ...(card.kind ? { kind: card.kind } : {}),
+  ...(prevention?.ok ? { prevention: { type: prevention.type, ref: prevention.ref } } : {}),
   executor: owner,
   outcome: 'done',
   plan: planUnit?.path ?? null,

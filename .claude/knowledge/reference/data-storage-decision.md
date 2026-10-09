@@ -67,14 +67,24 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 上の決定はサイト記事（MDX）についてのもの。商品（note・ココナラ・Kindle の商品カタログ）は別に決めた。
 
-**決定: 正本は Git 上の 1 商品 1 ファイルの JSON（`content/products/<channel>/<id>.json`）。SQLite（`npm run product:db` → `.tmp/products.db`）は検索・集計用の生成物で、正本ではない。**
+**決定: 正本は Git 上の JSON 1 ファイル `config/products.json`（全チャネルの全商品・台帳 `config.products`・型は `dataset-schemas-config-business.mjs` の `ConfigProducts`）。SQLite（`npm run product:db` → `.tmp/products.db`）は検索・集計用の生成物で、正本ではない。**
 
 - **なぜ DB を正本にしないか**: PR の差分に CI のゲート（`check-products`・収録の三軸照合）を掛けられなくなる／全セッションに Cloudflare の API トークンが要る（エージェントは資格情報を読まない方針）／worktree ごとの並行作業を PR でまとめる運用と合わない。会社 PC から R2 へは届く（ネットワークは理由ではない。D1 の API へ届くかは未確認）
-- **なぜ 1 商品 1 ファイルか**: 並行セッションの衝突を減らす。書き換えは `npm run product`（型の検査・キー順・字下げ 2・LF）で行い、手で書かない
-- **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `content/products/**/*.json` を LF 固定
-- **段階1**: 2級土木の note 商品を移し、`src/lib/note-magazines.ts` の該当エントリは正本から生成する（`// <generated:products civil-construction-2>` ブロック・読み手は変えない）。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他資格・他チャネル、読み手の JSON 直読み）は段階2以降
+- **なぜ 1 ファイルか（2026-10-06 に運営者が決定）**: 2026-10-01 の当初は並行セッションの衝突を減らすため 1 商品 1 ファイル（`content/products/<channel>/<id>.json`）にしたが、価格を変えるたびに置き場が散って追いにくく、運営者が「商品データは 1 ファイルに集約する」と決めた。並びを channel → id に固定し、書き換えは `npm run product`（型の検査・並び・キー順・字下げ 2・LF）だけで行うので、別々の商品を触る並行セッションの差分は別の行に出る。同じ商品を同時に触ったときは Git の衝突として表に出る（黙って上書きされない）。旧パスは `repository-paths.mjs` の移動表で `config/products.json#<id>` に読み替える
+- **全チャネル**: note（段階1・2026-10-04 に全 159 件）、Kindle（段階2・2026-10-06 に 72 冊。id は `kindle-<書籍id の小文字>`・並びは `order`・`scripts/kindle-published/catalog.json` は `npm run product -- gen` の生成物で、KDP スクリプトは `updateKindleCatalog` で正本へ書く）。ココナラ（段階3・2026-10-06 に 34 件。id は catalog.id と同じ・並びは `order`・`src/lib/coconala-services.ts` の SERVICES_RAW は生成ブロックで、出品・休止スクリプトは `updateCoconalaService`、`check-coconala-wiring` は正本を直接読む）。note の記事の単品価格（段階4・2026-10-06 に 804 本）は `articlePrices`（キーは記事のパス）に持ち、記事の frontmatter の `price` はその写し（`npm run product -- gen` が書く・新しい記事の price は gen が取り込む）。価格を変えるのは `npm run product -- price <article.md> <円>` と、それを呼ぶ note-price-sweep・note-reconcile-title-price・backfill-note-article-meta だけ。マガジンの掲載文（note掲載文.txt）の機械用の欄（セット価格・単品価格）も gen が正本から書く。`check-products` は pre-commit（pre-commit-ci-gates）と CI で、これらのずれを止める
+- **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `config/products.json` を LF 固定
+- **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他チャネル、読み手の JSON 直読み）は段階2以降
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
+
+## コンテンツ（公開）の正本（2026-10-09）
+
+YouTube・Shorts・Instagram・X などの公開の事実は `content/registry/`（作品・公開・素材の 3 表）を正本にする。設計は [content-registry.md](content-registry.md)。
+
+- DB サーバーは置かない。型つき JSON（台帳 `scripts/lib/datasets.mjs` の `registry.*`・zod は `dataset-schemas-content.mjs`）が正本で、索引（`npm run registry -- index`）は作り直せる生成物。商品（`config/products.json`）と同じ形。
+- 商品と違い全件 1 ファイルにはせず、チャネル×資格ごとに分ける。CI の照合（予約→公開）と手元の承認が同じ台帳を書くため（「書き手か書く時期が違うものは統合しない」）。作品ごと（約 1,000 ファイル）にしないのは、管理画面がファイル数に比例して遅くなるため。
+- 観測（再生数・一覧・反応）は `data/` に残し、状態を持たせない。CI の照合が書けるのは証拠のある前進（`scheduled→published`）だけ。
+- 切り替え前のチャネルは今の台帳（IG の `posted.json` など）が正本で、台帳の行はその写し。YouTube は 2026-10-09 に切り替え、写しだった `video-content-status.json` は同日に消した（読み手は `loadVideoState` で台帳から作る）。
 
 ## 設定・記録の構成と型の正本（2026-10-02）
 
@@ -90,10 +100,10 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 
 ### 台帳
 
-- 1 データセット＝パス（`{ts}`・`{date}` などの型）・種類（設定・台帳・時系列・最新状態・レポート・根拠・生データ）・領域・説明・型（任意）・中身を変えないか・手元だけか・寿命（`retain`）・鮮度（`freshness`）。id は「取得元.データセット」で、置き場を移しても変えない
-- git 管理下の全ファイルがちょうど 1 つのデータセットに当たること・置き場が id の取得元と合うこと・型のあるものが型に合うこと・コードが `config/`・`data/` のパスを直書きせず台帳から `datasetPath`・`datasetDir` で引くこと・コードと YAML が引く id が台帳にあることを `npm run check-datasets`（CI ゲート＋pre-commit）が止める。CI の書き戻しは `ci-data add` が stage した記録を型で検査し、違反なら push の前に止める。管理画面 管理＞設定／データ はこの台帳を並べる
+- 1 データセット＝パス（`{ts}`・`{date}` などの型）・種類（設定・台帳・時系列・最新状態・レポート・根拠・生データ）・領域・説明・型（任意）・中身を変えないか・手元だけか（local は作り直せる一時出力だけで regen 必須）・実体が Drive vault か（drive）・寿命（`retain`）・鮮度（`freshness`）。id は「取得元.データセット」で、置き場を移しても変えない
+- git 管理下の全ファイルがちょうど 1 つのデータセットに当たること・置き場が id の取得元と合うこと・型のあるものが型に合うこと・コードが `config/`・`data/` のパスを直書きせず台帳から `datasetPath`・`datasetDir` で引くこと（`.claude/state/` はラチェットで減らす。下の「台帳を 1 本にして DB のように扱う」）・コードと YAML が引く id が台帳にあることを `npm run check-datasets`（CI ゲート＋pre-commit）が止める。CI の書き戻しは `ci-data add` が stage した記録を型で検査し、違反なら push の前に止める。管理画面 管理＞設定／データ はこの台帳を並べる
 - 設定・データの領域は台帳が持つ（`domains.json` の `documents` は文書だけ）。寿命は `retain`、鮮度の閾値は `freshness` として台帳に寄せた（下）。書き手は段階 2 以降に台帳へ寄せる
-- 鮮度の閾値（最新の記録が何日古いと注意・失敗か）は台帳の行の `freshness: { warnDays, failDays }`（片方だけでもよい）が正本（2026-10-03）。スクリプトの定数・関数の既定値・管理画面の写し（コメントで人手同期）に散っていた 20 データセット分を寄せ、検査と管理画面は `freshnessOf`・`freshnessDays`（宣言が無ければ投げる）で読む。「超えたら」か「以上」か・日数の数え方は検査ごとに決める（値は変えていない）。台帳の外（`.claude/state` の記録・docs・backlog）の鮮度と、設定ファイルの中の閾値（`workflow-health.json`・`growth-cycle.json`）は寄せない（その設定ファイルが正本）
+- 鮮度の閾値（最新の記録が何日古いと注意・失敗か）は台帳の行の `freshness: { warnDays, failDays }`（片方だけでもよい）が正本（2026-10-03）。スクリプトの定数・関数の既定値・管理画面の写し（コメントで人手同期）に散っていた 20 データセット分を寄せ、検査と管理画面は `freshnessOf`・`freshnessDays`（宣言が無ければ投げる）で読む。「超えたら」か「以上」か・日数の数え方は検査ごとに決める（値は変えていない）。台帳の外（docs・backlog）の鮮度と、`.claude/state/` の記録の鮮度（2026-10-08 に台帳へ宣言したが freshness はまだ持たない。寄せるときは行に足す）と、設定ファイルの中の閾値（`workflow-health.json`・`growth-cycle.json`）は寄せない（その設定ファイルが正本）
 - 設定・記録の読み書きは共通部品に寄せた（2026-10-03）: 依存ゼロの `scripts/lib/json-io.mjs`（`readJson`・`readJsonIf`・`writeJson`＝字下げ 2・LF・末尾改行で、中身が同じなら書かない）と `scripts/lib/dataset-io.mjs`（台帳の id で読む `readDataset`・`readDatasetIf`・`readLatest`。壊れていれば場所つきで投げる）。型の検査を持つ `scripts/lib/dataset-write.mjs`（`writeDataset`・`appendDataset`＝型を検査してから書き、immutable の既存ファイルは上書きしない）は zod を読むので、npm ci をしないワークフローが（間接にも）読むファイルからは使わない（GA4・GSC の取得の書き込み `metric-reports.mjs` は `writeJson`）。`readJson` を各スクリプトが定義するのを増やさない（`tests/read-json-ratchet.test.mjs`）。`.gitattributes` が config/・data/ の JSON を LF に固定する
 
 ### 型の正本は zod
@@ -118,7 +128,7 @@ data/analysis/<データセット>/   記録から計算した結果・文書が
 - 取得元を軸にする: 書き手（取得スクリプト）が取得元ごとに 1 つで、データは複数の領域から使われるため。領域は台帳が持つ
 - 1 データセット＝1 フォルダ（または 1 ファイル）。時系列はファイル名を時刻だけにし、種類は名前で表す（時系列は `<時刻>.json`、最新状態は `latest.json`、追記の台帳は `.jsonl`）
 - 人が読む md は `analysis/` だけ、手書きのメモは `docs/`。手元だけの生データは `<取得元>/ui/` で git 管理外
-- `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify` と投稿キュー `youtube-schedule.json`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02）
+- `.claude/state/` に残る外部サービスの記録（X の公開照合 `x-posted-live`・YouTube の公開検証 `yt-verify`・Instagram の照合 `ig-reconcile`・Cloudflare の設定ドリフト）は、見直した結果、監査結果と自動化の作業状態なので `.claude/state/` に残す（2026-10-02。旧 Shorts の投稿キュー `youtube-schedule.json` はコンテンツ台帳へ移して 2026-10-09 に消した）
 - config/ に紛れた計画・作業記録は段階 4 で見直した（2026-10-02）: X の月次計画は `content/sns/x/campaigns/`、X 原稿の確認台帳は `content/sns/x/review.json`（計画と同じ列挙に入らないよう外に置く）、ココナラのサムネイル承認は `data/coconala/thumb-approved.json`。`r2-delete-list.txt`（R2 の削除の作業記録）は `data/r2/delete-list.txt`、`past-exam-inventory`（取得スクリプトが書き換える台帳）は `data/pastexams/inventory.json`、Instagram の 112 テーマの計画 `instagram-campaign` は `content/sns/instagram/campaign.json` へ移した（2026-10-02・段階 4 の続き。当初は「main のワークフローが読む入力・取得スクリプトの対象一覧」として config/ に残したが、どちらも人が決める設定でなく作業の記録・計画なので改めた。`r2-delete.yml` の既定の入力も新しい置き場に直した。データの id の取得元は 1 語（ハイフン不可）なので過去問は `pastexams`）
 
 ### 統合の基準（JSON ファイルを減らす）
@@ -158,6 +168,18 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
    続き（2026-10-02）: 読み手のいない設定キーの削除（PSI の schedule・notify など、SEO meta の severity、business-direction の metrics[].target など）・商品 id→資格の対応表を `product-lineup.json` の 1 つに（business-direction の salesAttribution・kindleAttribution を廃止）・価格の写しの廃止（ココナラの `price` は `priceYen` から作る）・A8 の接続設定の二重を解消（`affiliate-asp.json` の a8 は `a8-report-automation.json` から合成）・競合リストの観測値の削除（実測は `data/*/competitors/`）・`pe-first-stage-historical-sources` を在庫台帳へ統合（files[] の sha256・pages）。旧パスは `RESTRUCTURED_PATHS` に 1 行足せば `information-architecture.json` に書かなくても禁止ルート・旧パス走査へ入る（check-information-architecture が移動表から組み立てる）。config/ に残したもの: `youtube-delivery`（`enabled`・`planSha256` は人が決める設定で、実行の状態は private R2 の delivery-state.json）・`x-account` の `pinnedPost`（プロフィールの宣言値。読み書きは人）・`figure-sources`（人が書く判断の正本で、スクリプトは読むだけ）
 5. 読み手のいない記録・止まった記録・重複を消し、保持を読み手の必要量にそろえる（2026-10-02 済み）: 消した記録は、月次の控え（GA4・GSC の 1 週間の窓を全月に貼っていて月の値にならなかった。月次の数値は KPI 台帳が持つ）・週次の索引（ファイル一覧の写し）・GA4×GSC の突き合わせと note 導線の効率（読み手のいない週次出力。スクリプトは標準出力だけに出し、手で回す）・X の予約投稿の記録（2026-04-29 で停止）・PSI の単発と GSC 未登録の診断（単発の出力は `.tmp/` へ）・A8 の成果の要約（report-log から導ける派生。読み手が単月の期間から導く）。保持は読み手の必要量にした（成長パックは最新＋減衰判定の過去 3 週の 4 本・導線の網羅は最新 1 本・URL 検査は新しい 2 回分）。決めたこと: 派生物は持たず読み手が導く／資格別のインデックス率は URL 検査のバッチを開かず履歴 `gsc.index-coverage-history` の `by_qualification` が持つ（バッチが消えると 0 に化けた）／KPI のスナップショットは直前と同じ内容なら書かない／ココナラの市場調査は URL で一意にして語を `queries` に持ち、読まれない欄（説明の抜粋・null の詳細）を持たない／URL 検査のバッチと GSC 画面取得の行から読まれない欄（mobile・amp・参照元・comparisonKey など）を書き手が落とす／週のラベルは窓（確定した月〜日）がそろうようにする（`business.weekly`）
 
+## 台帳を 1 本にして DB のように扱う（2026-10-08）
+
+**決定: DB は置かない（D1 不採用は維持）が、データは台帳 `scripts/lib/datasets.mjs` の 1 本で引く。置き場（`config/`・`data/`・`.claude/state/`）は格納場所にすぎず、何がどのデータか・種類・型・鮮度は台帳だけが持つ。すべて git か Google Drive vault で共有し、複数の PC で同じものを引けるようにする。手元だけの記録・判定は作らない。**
+
+- 運営者の要望: 「DB レスだが、DB を利用しているような運用」。`.claude/state/` を `data/` へ物理的に寄せる案は採らない（書き手が 120 余りのファイルでパスを持ち、移動の割に得るものが無い）。台帳を広げて、置き場が違っても同じ仕組みで引く
+- 台帳の置き場（`AREAS`）は `config`・`data`・`state`（`.claude/state/`）。`strict` の置き場（config・data）は JSON の型が必須でパスの直書きを止める。`state` は型を任意にし、直書きはラチェット（`.claude/config/state-path-literal-baseline.json`・ファイルごとの件数。増やさず、直したら下げる）で減らす。id は `state.<データセット>`
+- git に置けないもの（市販書籍の見出し・用語を含む判定など。公開リポジトリなので）は Drive vault に置き、台帳の行に `drive: <config/drive-vault.json の group>` を付けて宣言する。path は repo 側の写しの置き場（git 管理外）で、実体は `drive-vault-sync --commit` で vault へ、ほかの PC は `--pull` で取り戻す。同期の台帳（`drive-manifest.json`）は git にあるので、どの PC からも何がどこにあるかが分かる。置き場の外（`content/` の下など）のパスは drive のときだけ許し、id は `vault.<データセット>`
+- `local`（git 管理外）は、作り直せる一時出力（`quality:audit` の最新結果・画面から取った CSV など）だけに使い、作り直し方を `regen` に書く（無ければ `check-datasets` が止める）。記録・判定は local にしない
+- 最初の利用者は書籍の網羅（content-taxonomy.md §7）: 見出しを含まない要約 `state.book-coverage`（書籍ごとの判定件数・判定日・展開した記事とコミット・型 `StateBookCoverage`）は git、見出しを含む候補表と意味判定 `vault.book-coverage-*` は Drive vault の `原資料PDF/書籍/<dir>/coverage/`
+- 段階 2（2026-10-10 済み・DN-0585）: 台帳の id で一覧・取得・絞り込みを返す共通の入口 `npm run data -- list|get|query`（`scripts/lib/dataset-query.mjs`）。管理画面 `/ops/store` の詳細も同じ関数で行を絞る。行は配列の要素か対応表の各項目（キーは `_key`）
+- 次の段階（backlog）: 段階 3＝台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査へ（外部キー相当）
+
 ## 参考リンク
 
 - Cloudflare D1: https://developers.cloudflare.com/d1/
@@ -170,3 +192,4 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 2026-04-27: ADR を圧縮し本ファイルへ移管。元ファイル削除。詳細経緯は git history 参照
 - 2026-10-02: 「設定・記録の構成と型の正本」を追加（台帳 `datasets.mjs`・型の正本 zod・フォルダの原則・統合の基準）
 - 2026-10-03: 台帳に `freshness`（鮮度の閾値）を追加し、設定・記録の読み書きの共通部品（`json-io`・`dataset-io`・`dataset-write`）と、JST の日付の出し方（`jst-date.mjs`）・取得失敗の上限（`inconclusive-gate.mjs`）を 1 か所にした
+- 2026-10-08: 「台帳を 1 本にして DB のように扱う」を追加（置き場 `.claude/state/` を台帳へ・Drive vault の宣言 `drive`・`local` は作り直せる一時出力だけ・直書きのラチェット）

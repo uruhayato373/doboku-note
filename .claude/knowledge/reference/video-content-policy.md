@@ -14,11 +14,13 @@ title: 動画コンテンツ運用ポリシー
 |---|---|---|
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
-| 公開・照合状態 | `.claude/state/video-content-status.json` | URL、videoId、status、計測鮮度 |
+| 公開・照合状態 | コンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え済みの正本）。写しの `video-content-status.json` は 2026-10-09 に消した。読み手・書き手は `scripts/lib/registry-video-state.mjs` の入口（`loadVideoState`・`saveVideoState`）だけを通す（Instagram のリールの状態は Instagram の台帳（`content/registry/publications/instagram/`）が正本で、`loadVideoState` の派生物の形には `instagramReel` を含めない。[content-registry.md](content-registry.md)） | URL、videoId、status、計測鮮度 |
 | 再生成可能バイナリ | Google Drive vault `制作物/動画レンダー/`（`video-render-artifact`。人しか使わない＝サイトも CI も読まない。真実源 [asset-storage-policy.md](asset-storage-policy.md) §1） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
+| 動画の型と採否・自社チャンネル | `config/youtube-formats.json`（台帳 `config.youtube-formats`） | 型（単論点・図解・総まとめ・一問一答 等）の status・尺・送り先・根拠・判断カード |
+| チャンネルの数値の記録 | `data/youtube/own-videos/{date}.json`（月次・`npm run youtube-own-metrics`）・`data/youtube/competitors/{date}.json`（四半期・`npm run scout-youtube-competitors`） | 動画ごとの累計再生・尺、型ごとの要約、競合の尺・題名の語ごとの再生中央値と前回比 |
 
-制作意図と可変状態を同じJSONに保存しない。既存 `.claude/state/youtube-schedule.json` はShorts投稿台帳として残し、reconcileで共通statusへjoinする。
+制作意図と可変状態を同じJSONに保存しない。公開の状態はコンテンツ台帳（`content/registry/`）が持つ（旧 Shorts の台帳 `youtube-schedule.json` は取り込んで 2026-10-09 に消した）。
 
 企画バンクの一覧は `content/sns/video-packs/README.md`（**生成物**・`npm run build-video-pack-index` で再生成・手編集しない）。運営管理画面の汎用コンテンツブラウザ `/content/content~sns/video-packs` がこれを描画する（Phase 3 の専用ビュー `/content/video` までの暫定管理面）。鮮度は `check-video-content` の R 系検査（R01 欠落／R02 未掲載／R03 孤児行）が守る。manifest だけの「企画のみ」パックは正常な draft であり、script/storyboard の欠落は INFO 扱い（qa_passed 以降で欠けたら FAIL）。
 
@@ -95,11 +97,31 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src?, flow? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
 通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
-通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
+16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。
+
+| フィールド | 中身 | 使い所 |
+|---|---|---|
+| `visual.character` | `{pose, frame?, say?}`。`pose` は `config/character-poses.json` の `quality: ready` だけ、`frame` 既定は `waist`、`say` は吹き出し（12字×2行目安・`\n` で改行） | 右列に先生を立たせ、場面の役割を一言で言わせる |
+| `visual.reveal` | 先頭から表示する項目数（points・figure の items）。配置は全項目分で固定 | 1場面を約10秒の段階表示に分ける |
+| `visual.focus` | 強調する項目（compare は行）の添字。他は薄く表示。sheet は行の `state: 'focus'` を使う | いま話している項目を示す |
+| `kind: 'compare'` | `rows: [{label?, ng, ok?}]`（1〜4行）・`ngLabel`/`okLabel` | 記事の「悪い例／良い例」の表 |
+| `kind: 'sheet'` | `rows: [{label, value?, state?, order?}]`（1〜8行）・`sheetTitle`。`state` は `todo/done/focus/ng/ok` | 解答用紙（工事概要など）の記入イメージ |
+
+compare の本文は 36px 未満にしない（収まらなければ例外で止める。下限は sheet の記入欄・ラベル 24px、compare のラベル 26px、吹き出し 30px）。スマホで読めないので、下限近くまで縮むときは文字を縮めず場面を分ける。改行は全場面で、「、」「：」「・」「〜」「／」「→」と全角空白の後ろ、「（」「「」の前を優先し、無ければ語の切れ目で行う（英数字の並び「1,500m3」は分けない）。行頭に句読点と「・」を置かない（2026-10-08 に全場面へ広げた。それまでの character・compare・sheet 以外は文字数での改行で「リ/スク」「1,500m/3」が出ていた）。語の切れ目ではどの文字サイズでも収まらない狭い枠だけ、文字数での改行に戻す（描画できていた画面を止めない）。文字の小さい既存SVGは `figure` で縮小表示せず `flow[]` で組み直す。
+
+公開前の画面確認は、`--skip-tts` の PNG と字幕から設計尺どおりの無音プレビューを作り、10秒ごとに1枚切り出したコンタクトシートで行う（下のコマンド。`<dir>` は `.tmp/video-render/{packId}`。設計尺は台本の長さからの見積もりで、音声付きの実尺とは異なる。Mac の Homebrew 版 ffmpeg は libass を持たず `ass` フィルタが無いので、`/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg` を使う）。見るのは、冒頭10秒以内に表紙から本題へ移るか、同じ画面が20秒以上続かないか、文字のはみ出し・語の途中での改行・吹き出しと人物の重なりがないか。試作の比較（10秒ごとの比較で直前と同じ画面だった回数は、旧形式40回中32回、図解版19回中2回）と競合の画面分析は [07c](../../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md)。
+
+```bash
+node -e 'const d=process.argv[1],m=require(`./${d}/render-manifest.json`),L=m.scenes.map(s=>`file img/${s.png}\nduration ${s.designSec}`);L.push(`file img/${m.scenes.at(-1).png}`);console.log(L.join("\n"))' <dir> > <dir>/preview.txt
+ffmpeg -f concat -safe 0 -i <dir>/preview.txt -vf "fps=10,ass=<dir>/subtitles.ass:fontsdir=.claude/skills/conversion/ogp-create/assets/fonts,format=yuv420p" <dir>/preview.mp4
+ffmpeg -i <dir>/preview.mp4 -vf "fps=1/10,scale=480:-1,tile=4x6" -frames:v 1 <dir>/preview-10s.jpg
+```
+
+通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。字幕の区切りは通常動画・Shorts・Reels とも `scripts/lib/video-subtitles.mjs` の `subtitleChunks` で、語の途中と句読点の前で切らず、「。」「、」の直後を優先する（2026-10-08）。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
 
 通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
 
@@ -108,7 +130,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact
 npm run drive-vault-sync -- --group video-render-artifact --commit
-npm run drive-vault-sync -- --pull --group video-render-artifact
+npm run drive-vault-sync -- --pull --group video-render-artifact --commit
 npm run youtube-renders:prune -- --cloud                         # dry-run
 npm run youtube-renders:prune -- --cloud --commit                # Drive一致＋公開済み派生物だけ削除
 ```
@@ -118,6 +140,19 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 `scheduled` / `published` のパックと再生成可能な派生物だけを削除し、QA 待ち・`rendered` の通常動画と
 サムネイルは作業セットとして保持する。台帳外・クラウド未到達・ローカル hash 不一致は削除せず停止する。
 安全ゲートは `tests/video-cache-prune.test.mjs` で機械検証する。
+
+### 総まとめ（聞き流し）パック
+
+承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。
+
+- 元パックは通常動画をユーザーが承認したもの（state の `longform.approvedBy: 'user'`）だけ
+- 場面は `c{NN}-{元の sceneId}` と `from: {packId, sceneId}` を持ち、ラベル（押さえるポイント・まとめ）は元の sceneId で決まる
+- 設計尺は語りの字数を1秒5.77字（2026-09-09 版の実尺）で割った見積もりで、無音プレビューが実尺に近い。描画は `render-longform` のまま、音声は今の読み辞書で読み直す（Drive の元パックの wav は版がずれていることがある）
+- `check-video-content` は再生成し忘れ（K02）と、未承認・組み立て不能（K01）を止め、総尺は `durationSeconds.compilation` で見る
+- 長い動画のコンタクトシートは `-frames:v 1` を外し、出力名を `preview-10s-%02d.jpg` にして複数枚に出す
+- 表紙と締め画像は `npm run brand-video-pack -- --pack-dir <パック> --commit` で描き、公開 ID と中身の sha で引ける置き場（`.tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/{cover|cta}.{sha8}.png`）へ書く。画像は git に入れず Drive（group content-media）へ置き、`--verify --deep --cloud --commit` で Drive のファイル ID を記録する（`check-youtube-cover-handoff`）。2026-09-09 の一括適用の日付フォルダ・連番名（`youtube-covers-a-rollout-20260909/243.png`）は、2026-10-09 に `npm run media -- adopt-video-brand` で同じ画素のまま ID の置き場へ移した（DN-0607）
+- 合成時に音量を -16 LUFS へそろえる（移動中の聞き流し用途。単体の通常動画は従来どおり）。章ごとの前置きは `chapters[].intro`、後半の頭は `parts[].intro`
+- 概要欄は、リンクをチャプターより前に置く（チャプターが長くリンクが折りたたみの下に隠れるため）。チャプターは 0:00 始まり・各10秒以上（YouTube の表示条件）
 
 ### 人物付き表紙（パック単位で採用）
 
@@ -205,6 +240,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 - mp4/wavのGit混入
 - statusの孤児、videoId重複、公開URL不整合、鮮度
 - ShortのrelatedVideoIdと通常動画公開状態
+- 総まとめ（compilation.json）: storyboard.json が元パックからの再組み立てと一致し、元パックはユーザー承認済み
 
 完成動画の機械検査はffprobe等で、解像度、尺、音声stream、無音、黒画面、末尾切れ、字幕範囲を確認する。
 
@@ -237,7 +273,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 **計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `ga4.campaign` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
 
-**Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、`video-content-status.json` の `derivatives.shorts[]` が実行状態を持つ。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
+**旧 Shorts（台帳の kind `legacy-short`・旧台帳 `youtube-schedule.json` は 2026-10-09 に消した）は動画パックと別系統**。IG 過去問パック由来のlegacy 200本（13 uploaded・187 retired）で、再開しない。DN-0110の承認済み112パックから派生する224本は各 `youtube.json.shorts[]` が計画、コンテンツ台帳（`content/registry/`）が実行状態の正本（`loadVideoState` の `derivatives.shorts[]` は台帳から作る形）。`prepare → render → private R2 stage → API private upload → Studioで関連動画設定 → API予約` の順で進め、画面でも2系統を混ぜない。
 
 APIへ非公開アップロード済みで関連動画設定待ちのShortsは `uploaded_private` とする。各Shortのアップロード成功直後に状態を書き、同一パックの2本目が日次上限で失敗しても1本目の`videoId`を失わない。
 
@@ -267,11 +303,13 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 再生確認、Shorts関連動画、依存リンク更新は、証拠がない間は待機理由として残す。CIはこれらの確認済みフラグを自作しない。削除前のAPI・サムネ実査は毎回CIが実行して証拠を保存するため、手書きの削除監査記録は不要。手動字幕がある対象は `captionVerification.tracks[]` の `oldId/newId/contentMatched/newLastUpdated` と実トラックを照合し、旧字幕の更新や未保存があれば停止する。旧版削除済みの未予約Shortsは、関連先IDの確認記録と公開/限定公開の実体を確認し、各 `youtube.json` の未来の日時へ予約する。過ぎた枠を一斉公開に読み替えず `expired-publication-slot` として停止する。移行中の公開Git台帳には旧IDが残るため、private台帳との参照更新を済ませるまでは依存リンク確認を完了扱いにしない。
 
+日次キューに入らない新規の承認済みパック（総まとめなど）は、同じ workflow を手動で `pack_publish=<packId>:<longform|thumbnail>[:PUBLISH]` を付けて起動する（`gh workflow run post-youtube-scheduled.yml --ref develop -f pack_publish=…`）。PUBLISH なしは試運転。別ジョブ `publish-pack` が develop を checkout し、`publish-video-pack.cjs` が台帳の承認（`approvedBy: user`・`approved|rendered`。読み書きは `registry-video-state.mjs` の入口）と5分より先の `publishAt` を確かめてから private で上げて予約し、予約状態を develop の台帳（`content/registry` と写しの state）へ書き戻す（publishAt の無い即時公開はしない）。前段は `youtube-longform:prepare --schedule`（承認後）→ `--metadata` → `youtube-longform:stage --exam <試験> --commit`。総まとめは `--scope compilation --pack-id <id> --publish-at <ISO>` で、概要欄に章の開始時刻（チャプター）を入れる。概要欄には VOICEVOX の利用条件のクレジット（`音声：VOICEVOX:青山龍星`）を入れる（既存動画への反映は DN-0605）。
+
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
 撤去完了の検査は `npm run check-youtube-delivery -- --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
+**公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える

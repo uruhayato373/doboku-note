@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="緩速載荷工法の断面。盛土を1段目、2段目、3段目と段階的に盛り、各段のあいだに休止して軟弱地盤の過剰間隙水圧が消えるのを待つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-lab   { font-size: 12px; fill: #222; }
+      .t-key   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-pos   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-warn  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }      /* brand-fill / brand：構造物・盛土 */
+      .pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }      /* positive-fill / positive：補強・排水材 */
+      .warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }    /* warn-fill / warn：軟弱な土 */
+      .gray  { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }    /* surface：地盤・部材 */
+      .white { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }    /* 白抜き：溝・かご */
+      .slip  { fill: none; stroke: #b22234; stroke-width: 2; stroke-dasharray: 6 4; }  /* danger：すべり面 */
+      .aB { stroke: #2e6da4; stroke-width: 2.2; fill: none; }          /* brand：水・力の向き */
+      .aP { stroke: #3a7d44; stroke-width: 2.2; fill: none; }          /* positive */
+      .aD { stroke: #b22234; stroke-width: 2.5; fill: none; }          /* danger：滑動力・荷重 */
+      .rP { stroke: #3a7d44; stroke-width: 3.5; fill: none; }          /* positive：補強材・ドレーン */
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }          /* 引出線・軸 */
+      .dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5 4; }
+      .card  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .num   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="ks-B" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ks-P" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
+    <marker id="ks-D" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+
+  <text class="t-title" x="200" y="28" text-anchor="middle">緩速載荷工法の断面</text>
+  <text class="t-lead" x="200" y="50" text-anchor="middle">休止をはさみ、段階的にゆっくり盛る</text>
+
+  <rect class="warn" x="16" y="300" width="368" height="60"/>
+  <polygon class="brand" points="60,300 340,300 310,246 90,246" style="stroke-width:1.5"/>
+  <polygon class="brand" points="90,246 310,246 280,192 120,192" style="stroke-width:1.5"/>
+  <polygon class="brand" points="120,192 280,192 250,138 150,138" style="stroke-width:1.5"/>
+  <text class="t-lab" x="200" y="278" text-anchor="middle">1段目</text>
+  <text class="t-lab" x="200" y="224" text-anchor="middle">2段目</text>
+  <text class="t-lab" x="200" y="170" text-anchor="middle">3段目</text>
+  <text class="t-pos" x="322" y="262">休止</text>
+  <text class="t-pos" x="292" y="208">休止</text>
+  <line class="aB" x1="96" y1="350" x2="96" y2="318" marker-end="url(#ks-B)"/>
+  <line class="aB" x1="126" y1="350" x2="126" y2="318" marker-end="url(#ks-B)"/>
+  <line class="aB" x1="274" y1="350" x2="274" y2="318" marker-end="url(#ks-B)"/>
+  <line class="aB" x1="304" y1="350" x2="304" y2="318" marker-end="url(#ks-B)"/>
+  <text class="t-note" x="200" y="338" text-anchor="middle">過剰間隙水圧が消える</text>
+  <text class="t-note" x="24" y="324">軟弱地盤</text>
+
+  <!-- 要点 -->
+  <rect class="box" x="16" y="392" width="368" height="92" rx="6"/>
+  <text class="t-key" x="30" y="416">方法</text>
+  <text class="t-lab" x="104" y="416">載荷速度と休止期間を適切に設定</text>
+  <text class="t-key" x="30" y="442">狙い</text>
+  <text class="t-lab" x="104" y="442">圧密に伴う強度増加を見込む</text>
+  <text class="t-key" x="30" y="468">特徴</text>
+  <text class="t-lab" x="104" y="468">軟弱地盤で最も一般的な工法</text>
+</svg>
