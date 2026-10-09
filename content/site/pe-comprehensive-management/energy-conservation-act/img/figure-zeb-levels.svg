@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ZEBの実現順序と段階。パッシブ、アクティブ、創エネの順に組み、省エネ50%以上でZEB Ready、創エネ込み75%以上でNearly ZEB、100%以上でZEBとなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .lb { font-weight: bold; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- 組む順序（縦3段） -->
+  <rect class="box-b" x="20" y="16" width="360" height="50" rx="6"/>
+  <text class="h" x="34" y="36">1 パッシブ: 需要を減らす</text>
+  <text x="34" y="54">断熱・日射遮蔽・自然採光</text>
+  <line x1="200" y1="66" x2="200" y2="80" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect class="box-p" x="20" y="82" width="360" height="50" rx="6"/>
+  <text class="h" x="34" y="102">2 アクティブ: 無駄なく使う</text>
+  <text x="34" y="120">高効率の空調・照明・換気と制御</text>
+  <line x1="200" y1="132" x2="200" y2="146" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect class="box-w" x="20" y="148" width="360" height="50" rx="6"/>
+  <text class="h" x="34" y="168">3 創エネ: 残りを敷地内でまかなう</text>
+  <text x="34" y="186">太陽光発電など（敷地内に限る）</text>
+
+  <!-- 段階の比較 -->
+  <text class="h" x="20" y="226">基準の一次エネルギー消費量を100%とした下限</text>
+
+  <text class="lb" x="20" y="258">基準</text>
+  <rect class="box-s" x="105" y="243" width="270" height="22"/>
+  <text x="240" y="258" text-anchor="middle">100%</text>
+
+  <text class="lb" x="20" y="308">ZEB Ready</text>
+  <rect class="box-p" x="105" y="293" width="135" height="22"/>
+  <text x="172" y="308" text-anchor="middle">省エネ 50%以上</text>
+  <rect class="box-s" x="240" y="293" width="135" height="22"/>
+  <text x="307" y="308" text-anchor="middle">残り 50%以下</text>
+
+  <text class="lb" x="20" y="358">Nearly ZEB</text>
+  <rect class="box-p" x="105" y="343" width="135" height="22"/>
+  <text x="172" y="358" text-anchor="middle">省エネ 50%以上</text>
+  <rect class="box-w" x="240" y="343" width="68" height="22"/>
+  <text x="274" y="358" text-anchor="middle">創エネ</text>
+  <rect class="box-s" x="308" y="343" width="67" height="22"/>
+  <text x="341" y="358" text-anchor="middle">25%以下</text>
+
+  <text class="lb" x="20" y="408">ZEB</text>
+  <rect class="box-p" x="105" y="393" width="135" height="22"/>
+  <text x="172" y="408" text-anchor="middle">省エネ 50%以上</text>
+  <rect class="box-w" x="240" y="393" width="135" height="22"/>
+  <text x="307" y="408" text-anchor="middle">創エネで残りを相殺</text>
+
+  <!-- 凡例 -->
+  <rect class="box-p" x="20" y="446" width="14" height="12"/>
+  <text x="40" y="456">省エネ（1と2）による削減</text>
+  <rect class="box-w" x="200" y="446" width="14" height="12"/>
+  <text x="220" y="456">創エネによる削減</text>
+  <text x="20" y="482">削減率は設計一次エネルギー消費量の基準比（BEI）で判定する</text>
+</svg>

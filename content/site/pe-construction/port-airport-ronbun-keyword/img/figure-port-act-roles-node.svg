@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="国が基本方針と技術基準を示し、港湾管理者が港湾計画をつくって施設を維持し、港湾は海上輸送と陸上輸送の荷をのせかえる結節点になるという役割の流れを示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t { font-size: 15px; font-weight: bold; fill: #1a3a5c; } /* brand text */
+      .b { font-size: 12px; fill: #222; } /* ink-strong */
+      .g { font-size: 11px; fill: #555; text-anchor: end; } /* ink-body */
+      .r { stroke-width: 1.5; }
+      .n { fill: #e8f0fe; stroke: #2e6da4; } /* brand */
+      .p { fill: #d0e8d0; stroke: #3a7d44; } /* positive */
+      .w { fill: #fff3cd; stroke: #d4a017; } /* warn */
+      .a { fill: #2e6da4; } /* brand */
+    </style>
+  </defs>
+  <rect class="r n" x="24" y="24" width="352" height="116" rx="8"/>
+  <text class="t" x="36" y="52">国（国土交通大臣）</text>
+  <text class="g" x="366" y="52">方向づけ</text>
+  <text class="b" x="36" y="82">港湾の開発・利用・保全の基本方針を定める</text>
+  <text class="b" x="36" y="110">施設の技術上の基準を省令で示す</text>
+  <line x1="200" y1="142" x2="200" y2="158" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M200 171 l-5 -11 h10 z"/>
+  <rect class="r p" x="24" y="172" width="352" height="116" rx="8"/>
+  <text class="t" x="36" y="200">港湾管理者</text>
+  <text class="g" x="366" y="200">計画と維持</text>
+  <text class="b" x="36" y="230">港務局または地方公共団体</text>
+  <text class="b" x="36" y="258">港湾計画をつくり、施設を基準に沿って維持する</text>
+  <line x1="200" y1="290" x2="200" y2="306" stroke="#2e6da4" stroke-width="1.5"/>
+  <path class="a" d="M200 319 l-5 -11 h10 z"/>
+  <rect class="r w" x="24" y="320" width="352" height="156" rx="8"/>
+  <text class="t" x="36" y="348">港湾（結節点）</text>
+  <text class="g" x="366" y="348">のせかえる場</text>
+  <text class="b" x="36" y="380">海上輸送: 外航船・内航船</text>
+  <text class="b" x="36" y="408">陸上輸送: トラック・鉄道</text>
+  <text class="b" x="36" y="448">岸壁・荷さばき地・臨港道路がつなぐ</text>
+</svg>
