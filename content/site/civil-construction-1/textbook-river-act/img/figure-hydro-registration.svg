@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="通常の水力発電と従属発電の比較。通常の水力発電は河川から新たに取水して放流するため取水口から放水口までに減水区間が生じ、許可が必要。従属発電は許可を受けた既存の取水路の流水だけを使うため新たな減水区間が生じず、登録で足りる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-who  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 11px; fill: #8a8a8a; }
+      .t-lbl  { font-size: 11px; fill: #222; }
+      .t-dng  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .box-3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .riv { stroke: #2e6da4; stroke-width: 4; fill: none; }
+      .cut { stroke: #b22234; stroke-width: 4; stroke-dasharray: 6 5; fill: none; }
+      .can { stroke: #3a7d44; stroke-width: 3; fill: none; }
+      .pipe { stroke: #555; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="10" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">川から新たに取るか、すでに取った水を使うか</text>
+
+  <rect class="box-surf" x="20" y="28" width="360" height="212" rx="6"/>
+  <text class="t-name" x="36" y="54">通常の水力発電</text>
+  <text class="t-who" x="364" y="54" text-anchor="end">許可（法第23条）</text>
+  <text class="t-lbl" x="36" y="92">河川</text>
+  <line class="riv" x1="36" y1="104" x2="100" y2="104"/>
+  <line class="cut" x1="100" y1="104" x2="300" y2="104"/>
+  <line class="riv" x1="300" y1="104" x2="360" y2="104" marker-end="url(#ah)"/>
+  <text class="t-dng" x="200" y="94" text-anchor="middle">減水区間</text>
+  <polyline class="pipe" points="100,104 100,160 150,160"/>
+  <polyline class="pipe" points="250,160 300,160 300,106"/>
+  <rect class="box-3" x="150" y="142" width="100" height="36" rx="6"/>
+  <text class="t-lbl" x="200" y="165" text-anchor="middle">発電所</text>
+  <text class="t-lbl" x="106" y="134">取水口</text>
+  <text class="t-lbl" x="306" y="134">放水口</text>
+  <text class="t-desc" x="36" y="204">取水口から放水口までの区間で、川の流量が減る</text>
+  <text class="t-law" x="36" y="224">新たに川から取水するので、許可を受ける</text>
+
+  <rect class="box-surf" x="20" y="256" width="360" height="230" rx="6"/>
+  <text class="t-name" x="36" y="282">従属発電</text>
+  <text class="t-who" x="364" y="282" text-anchor="end">登録（法第23条の2）</text>
+  <text class="t-lbl" x="36" y="320">河川</text>
+  <line class="riv" x1="36" y1="332" x2="360" y2="332" marker-end="url(#ah)"/>
+  <polyline class="can" points="100,332 100,388 360,388" marker-end="url(#ag)"/>
+  <text class="t-lbl" x="108" y="362">既存の取水</text>
+  <rect class="box-3" x="170" y="370" width="100" height="36" rx="6"/>
+  <text class="t-lbl" x="220" y="393" text-anchor="middle">発電所</text>
+  <text class="t-lbl" x="364" y="376" text-anchor="end">利水先へ</text>
+  <text class="t-desc" x="36" y="436">許可を受けた取水の流水だけを使って発電する</text>
+  <text class="t-desc" x="36" y="456">新たな取水も、新たな減水区間も生じない</text>
+  <text class="t-law" x="36" y="476">ダムの維持放流などの利用も対象（令第14条の2）</text>
+</svg>
