@@ -551,6 +551,15 @@
       "reason": "現場事務所の机に、広げた図面と巻いた図面、無地表紙の仕様書の束、背表紙が空白のファイル4冊、ヘルメット、三角スケール、ペンがある。窓の外に建設現場と重機が見え、現場事務所として成り立つ。図面は判読不能にぼかされ、読める文字やロゴは無い。机・ヘルメット・スケールの形にも崩れは無い。",
       "reviewedAt": "2026-10-09T09:29:15.947Z"
     },
+    "civil-practice/preventive-maintenance-diagnosis/img/photo-drone-bridge-girder-inspection": {
+      "sha": "1f4981ab7f5dd676",
+      "promptSha": "184e26d56e318e31",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:51:25.681Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 桁下面を見上げる構図で、コンクリート桁、橋脚、遠景の別の橋が実在の橋として成り立つ。ドローンは中央本体から左右へ腕が伸び、各腕の先にモーター（回転で羽根はぼやける）、本体下に脚、前方にカメラ雲台があり、桁下面の近くにホバリングしている。本文: 桁下に回り込む点検、河川敷にいる操縦者が小さく後ろ向きで、白ヘルメットと黄色い反射ベストを着けており、記事の場面と一致する。破綻: 文字・ロゴ・二重の部位・溶けた部品は無く、羽根の描写が薄いのは回転ブレとして許容できる。",
+      "reviewedAt": "2026-10-09T09:53:43.391Z"
+    },
     "civil-practice/risk-assessment-construction-workflow/img/photo-assist-suit-lifting": {
       "sha": "3a500c6d40eb9a70",
       "promptSha": "203347751b098922",
@@ -751,6 +760,12 @@
       "verdict": "ok",
       "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
       "reviewedAt": "2026-10-07T23:10:40.546Z"
+    },
+    "pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up": {
+      "sha": "1a1fd12a080d1683",
+      "promptSha": "821c3ee84e905d5d",
+      "tool": "Codex",
+      "generatedAt": "2026-10-09T09:53:23.634Z"
     }
   }
 }
