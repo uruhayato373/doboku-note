@@ -4,7 +4,10 @@ paths:
   - "content/sns/**"
   - "content/kindle/**"
   - "content/coconala/**"
+  - "content/registry/**"
 ---
+
+- 公開の事実（ID・状態・予定・外部 ID・承認・素材の参照）の正本はコンテンツ台帳 `content/registry/`（[content-registry.md](../knowledge/reference/content-registry.md)）。書き手は `npm run registry`・`npm run media` だけで、手で編集しない
 
 表紙・商品サムネイルの新規制作／改修は [キャラクターPOP画像方針](../knowledge/reference/pop-image-policy.md) と `/create-pop-image` を使う。媒体の安全域と公開手順は各正典に従う。
 

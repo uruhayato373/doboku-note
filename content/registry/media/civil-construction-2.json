@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "scope": "civil-construction-2",
+  "media": [
+    {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2",
+      "bytes": 154343,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "brand-video-pack",
+        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/cover-design.json#longform",
+        "specSha256": "556f1358a82ead9927b0b97ca83031e8a593ecd99e3b1382fe6d29a591468277"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/video-render/youtube-covers-civil-construction-2/matome-2kyu-chokuzen-longform.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "6c1a01e8c78917a1cb380ba9e86563491a5ed29c41031abd79a59d9d8bc07288",
+      "bytes": 591430,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cta.6c1a01e8.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "brand-video-pack",
+        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#cta"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/video-render/youtube-cta-civil-construction-2/matome-2kyu-chokuzen-longform.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "f6868670a9af7a1f1e25ca47a2f356bfa5cb2372617a8336b54e166229591f45",
+      "bytes": 50167,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/subtitles.f6868670.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json"
+      }
+    },
+    {
+      "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "1355361ef58a14a30e2200079a00f8a2d694437d903b0646cfef1e76d5759734",
+      "bytes": 95534342,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.1355361e.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 1595.433
+    }
+  ]
+}

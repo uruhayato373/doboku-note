@@ -157,7 +157,7 @@ Codex はファイルを読む・編集する前に、以下の適用パスに�
 
 - [.claude/rules/assets-images.md](.claude/rules/assets-images.md) — `**/img/**`, `content/**/*.svg`, `content/**/*.png`, `content/**/*.webp`, `config/asset-storage.json`, `config/drive-vault.json`, `.claude/state/assets/**`, `content/coconala/assets/**`, `.github/workflows/r2-*.yml`, `.github/workflows/ogp-supply.yml`
 - [.claude/rules/code.md](.claude/rules/code.md) — `src/**`, `scripts/**`, `.claude/scripts/**`, `tools/**`, `tests/**`, `package.json`, `.github/workflows/**`
-- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`
+- [.claude/rules/content-channels.md](.claude/rules/content-channels.md) — `content/note/**`, `content/sns/**`, `content/kindle/**`, `content/coconala/**`, `content/registry/**`
 - [.claude/rules/content-site.md](.claude/rules/content-site.md) — `content/site/**`
 - [.claude/rules/docs.md](.claude/rules/docs.md) — `docs/**`, `.claude/knowledge/**`
 - [.claude/rules/operations.md](.claude/rules/operations.md) — `config/**`, `data/**`, `.claude/state/**`, `.claude/config/**`, `src/lib/note-magazines.ts`, `src/lib/magazine-placement.ts`, `src/lib/coconala-services.ts`
