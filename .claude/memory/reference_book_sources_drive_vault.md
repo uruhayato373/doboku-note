@@ -63,3 +63,5 @@ rclone リモート `doboku-gdrive` は drive.readonly スコープなので代�
 Drive MCP `create_file` はバイナリに `base64Content` が要るが、filesystem MCP の読み出し上限が約 25K chars のため PNG 等（IG カルーセル 1080×1350 で 57〜152KB＝76K〜203K chars）は context に載せられず送れない。テキストは `textContent` 経由で可（caption.txt 等）。
 
 代替: ①ブラウザで drive.google.com へ手動ドラッグ＆ドロップ ②OAuth スクリプト（`C:\tmp\upload-to-drive.mjs`・gemini-cli の公開 installed-app 資格を流用・drive.file スコープ・REST マルチパート。**client_id/secret の値はリポジトリにも memory にも書かない**＝GitHub push protection が止める）③git 管理のまま Mac 側で使う。確立済み運用: PNG は git commit で保持、caption.txt のみ MCP で Drive へ。
+
+**取り戻し（--pull）の範囲（2026-10-10）**: `--pull` は送る側と違い既定で実行される（dry-run ではない）。`--pull --path content/sources/books/` のように接頭辞を広く取ると、書籍のページ画像まで数百枚取り寄せる（701 枚で止めた）。group 単位で取り戻すなら `--pull --group <group id>`（例: `reference-book-coverage`）で絞り、件数が多そうなら先に `--dry-run` で対象件数を見る。
