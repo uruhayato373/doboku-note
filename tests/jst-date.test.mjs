@@ -74,3 +74,13 @@ test('jstDayTime: 従来どおり（日付だけはそのまま・時刻つき�
   assert.equal(jstDayTime('garbage'), null);
   assert.equal(jstDayTime(''), null);
 });
+
+test('jstLabel: UTC の ISO を JST の「YYYY-MM-DD HH:MM」にし、日付だけ・空・読めない値は壊さない', async () => {
+  const { jstLabel } = await import('../scripts/lib/jst-date.mjs');
+  assert.equal(jstLabel('2026-10-08T20:30:00Z'), '2026-10-09 05:30');
+  assert.equal(jstLabel('2026-10-09T05:30:00+09:00'), '2026-10-09 05:30');
+  assert.equal(jstLabel('2026-10-09'), '2026-10-09');
+  assert.equal(jstLabel(''), '');
+  assert.equal(jstLabel(null), '');
+  assert.equal(jstLabel('not-a-date'), 'not-a-date');
+});

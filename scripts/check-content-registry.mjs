@@ -14,7 +14,8 @@ import { checkRegistry } from './lib/content-registry-check.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { base: { type: 'string' }, json: { type: 'boolean' }, verbose: { type: 'boolean' } } });
-const { issues, counts } = checkRegistry(ROOT, { base: args.base ?? null });
+// 比較元: --base か、CI が用意する REGISTRY_BASE（PR は base ブランチ・develop への push は直前のコミット。.github/workflows/ci.yml）
+const { issues, counts } = checkRegistry(ROOT, { base: args.base ?? process.env.REGISTRY_BASE ?? null });
 const by = (sev) => issues.filter((i) => i.severity === sev);
 if (args.json) {
   process.stdout.write(JSON.stringify({ counts, issues }, null, 2) + '\n');

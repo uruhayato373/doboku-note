@@ -19,6 +19,8 @@ const WARM_UP_PATHS = [
   '/content',
   '/content/kindle',
   '/content/content~kindle',
+  '/content/items',
+  '/content/items/civil-construction-2/matome-2kyu-chokuzen',
   '/docs',
   '/docs/strategy/13_土木公務員SEO戦略2026-08',
   '/plans',
