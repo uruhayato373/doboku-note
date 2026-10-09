@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T07:19:32.884Z",
+  "generated_at": "2026-10-09T08:06:16.328Z",
   "summary": {
-    "total_mdx_files": 1384,
+    "total_mdx_files": 1386,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 222,
+      "count": 223,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1218,6 +1218,7 @@
         "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-rebar-corrosion-handling",
@@ -2742,7 +2743,7 @@
     },
     {
       "name": "関係法規",
-      "count": 84,
+      "count": 86,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2765,9 +2766,11 @@
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-license-scope-judgment",
         "civil-practice-pre-construction-process",
+        "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
+        "civil-practice-subcontract-fair-dealing",
         "civil-practice-subcontract-instruction-boundary",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
@@ -4120,6 +4123,28 @@
       ]
     },
     {
+      "name": "ゼネコン",
+      "count": 15,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-construction-industry-structure",
+        "civil-practice-subcontract-fair-dealing",
+        "pe-comprehensive-management-h21-essay-general-contractor",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h24-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h26-essay-general-contractor",
+        "pe-comprehensive-management-h27-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "出題傾向",
       "count": 15,
       "inAllowlist": true,
@@ -4192,27 +4217,6 @@
       "usedIn": [
         "concrete-chief-engineer-textbook-construction",
         "concrete-engineer-textbook-construction",
-        "pe-comprehensive-management-h21-essay-general-contractor",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h24-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h26-essay-general-contractor",
-        "pe-comprehensive-management-h27-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "ゼネコン",
-      "count": 14,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-construction-industry-structure",
         "pe-comprehensive-management-h21-essay-general-contractor",
         "pe-comprehensive-management-h22-essay-general-contractor",
         "pe-comprehensive-management-h23-essay-general-contractor",
@@ -4763,6 +4767,18 @@
       ]
     },
     {
+      "name": "担い手確保",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-construction-industry-structure",
+        "civil-practice-public-works-bidding-methods",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "材料",
       "count": 5,
       "inAllowlist": true,
@@ -4784,6 +4800,18 @@
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "行政手続き",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-public-works-bidding-methods"
       ]
     },
     {
@@ -4919,17 +4947,6 @@
       ]
     },
     {
-      "name": "担い手確保",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-construction-industry-structure",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
       "name": "生産性向上",
       "count": 4,
       "inAllowlist": true,
@@ -4949,17 +4966,6 @@
         "pavement-guide-overview",
         "pavement-guide-sentaku-hinshutsu",
         "pavement-guide-study-plan"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment"
       ]
     },
     {
