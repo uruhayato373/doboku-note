@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-09T05:14:26.453Z",
+  "generated_at": "2026-10-09T05:14:58.757Z",
   "summary": {
-    "total_mdx_files": 1372,
-    "total_unique_tags": 131,
+    "total_mdx_files": 1373,
+    "total_unique_tags": 132,
     "allowlist_size": 330,
-    "known_count": 131,
+    "known_count": 132,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -3657,6 +3657,34 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-nature-conservation-mitigation",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "令和元年度",
       "count": 20,
       "inAllowlist": true,
@@ -3681,33 +3709,6 @@
         "pe-first-stage-r01-retry-construction",
         "pe-first-stage-r01-retry-water-supply",
         "pe-first-stage-r01-water-supply"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 20,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-nature-conservation-mitigation",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-h21-essay-river-consultant",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4183,6 +4184,27 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "過去問分析",
       "count": 14,
       "inAllowlist": true,
@@ -4241,26 +4263,6 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 13,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-large-fill-landslide",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -5143,6 +5145,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "河川構造物",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-levee-failure-reinforcement"
       ]
     },
     {
