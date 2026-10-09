@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="一括下請負かどうかを判断する順番。契約1件ごとに、他社に出した範囲、元請の実質的関与を確かめ、該当すれば禁止。例外は公共工事なし、共同住宅の新築は承諾でも不可、その他の民間工事は発注者の事前の書面承諾" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<g stroke-width="1.5">
+<rect x="18" y="14" width="364" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="18" y="98" width="364" height="64" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="18" y="190" width="364" height="64" rx="8" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="18" y="282" width="364" height="58" rx="8" fill="#f8d7da" stroke="#b22234"/>
+<rect x="18" y="368" width="364" height="100" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
+<g stroke="#555" marker-end="url(#a)">
+<line x1="110" y1="72" x2="110" y2="96"/>
+<line x1="110" y1="162" x2="110" y2="188"/>
+<line x1="110" y1="254" x2="110" y2="280"/>
+<line x1="110" y1="340" x2="110" y2="366"/>
+</g>
+</g>
+<g fill="#222" font-size="13" font-weight="700">
+<text x="30" y="38">1　見る単位</text>
+<text x="30" y="122">2　他社に出した範囲</text>
+<text x="30" y="214">3　元請の関与</text>
+<text x="30" y="306">一括下請負に当たる</text>
+<text x="30" y="390">4　例外が使えるか</text>
+</g>
+<g fill="#555" font-size="11">
+<text x="30" y="58">請負契約1件ごとに判断する</text>
+<text x="30" y="142">全部、主たる部分、独立して機能する部分か</text>
+<text x="30" y="156">いずれでもなければ、該当しない</text>
+<text x="30" y="234">計画・工程・品質・安全・技術指導を自ら行うか</text>
+<text x="30" y="248">行っていれば、該当しない</text>
+<text x="30" y="326">出す側と受ける側の、両方が禁止される</text>
+<text x="30" y="410">公共工事は、例外なし</text>
+<text x="30" y="428">民間の共同住宅の新築は、承諾しても不可</text>
+<text x="30" y="446">民間のその他は、発注者の事前の書面承諾</text>
+</g>
+<g fill="#1a3a5c" font-size="11" font-weight="700">
+<text x="124" y="88">範囲を見る</text>
+<text x="124" y="180">関与を見る</text>
+<text x="124" y="272">禁止に当たる</text>
+<text x="124" y="358">例外を見る</text>
+</g>
+<text x="20" y="490" fill="#222" font-size="12" font-weight="700">承諾を得ても、技術者の配置は省けない</text>
+</svg>

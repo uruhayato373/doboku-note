@@ -105,6 +105,12 @@
           ]
         },
         {
+          "label": "作品と公開",
+          "href": "/content/items",
+          "kind": "inventory",
+          "match": "/content/items"
+        },
+        {
           "label": "売上",
           "href": "/sales",
           "kind": "results",

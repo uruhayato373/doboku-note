@@ -72,13 +72,13 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
-- [iOSアプリ](project_ios_app_spec_v1_1.md) — ¥1,800凍結・PWA優先
+- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・無料試作
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
 - [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合
 - [1級一次キー誤り](project_civil1_primary_answer_key_errors.md) — 転記バグ・H29原典
 - [1級図の答え漏れ](project_civil1_figure_answer_leak.md) — 再抽出パイプライン
 - [土木guide展開](project_civil1_textbook_to_guide_expansion.md) — 非公開textbook根拠
-- [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊・brief見出しの罠
+- [書籍→ガイド](project_book_to_guide_expansion.md) — 逐語断ち手順・OCR27冊・brief見出しの罠・workflow一括展開
 - [土木経験記述note](project_civil1_flagship_pack.md) — 旗艦100工事・字数ゲート
 - [土木会員ラボ](project_civil_membership_design.md) — FLOWを買切りに出さない
 - [二次学科記述](project_civil_niji_gakka_line.md) — 5SKU公開・エディタ罠

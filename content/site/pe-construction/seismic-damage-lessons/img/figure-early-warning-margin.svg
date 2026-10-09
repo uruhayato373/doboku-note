@@ -1,0 +1,33 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="震源距離が100km、40km、20kmのとき、P波が届いてからS波が届くまでの時間を試算した棒グラフ。距離が近いほど猶予が短く、推定に最短1秒を使うと残りはわずか">
+<defs>
+<style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; font-size: 13px; }
+.s { font-size: 11px; fill: #555; }
+.b { font-weight: bold; fill: #1a3a5c; }
+</style>
+</defs>
+<text class="b" x="30" y="36">震源距離 100km　P波からS波まで約10.7秒</text>
+<rect x="30" y="46" width="30" height="34" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<rect x="60" y="46" width="291" height="34" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="76" y="68">残り約9.7秒</text>
+<text class="b" x="30" y="120">震源距離 40km　約4.3秒</text>
+<rect x="30" y="130" width="30" height="34" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<rect x="60" y="130" width="99" height="34" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="168" y="152">残り約3.3秒</text>
+<text class="b" x="30" y="204">震源距離 20km　約2.1秒</text>
+<rect x="30" y="214" width="30" height="34" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<rect x="60" y="214" width="34" height="34" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="103" y="236">残り約1.1秒</text>
+<rect x="30" y="274" width="16" height="16" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="54" y="287">地震計が規模と位置を推定（最短1秒）</text>
+<rect x="30" y="300" width="16" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="54" y="313">送電停止と非常ブレーキに使える時間</text>
+<text class="s" x="30" y="338">棒の右端がS波（強い揺れ）の到達</text>
+<rect x="20" y="356" width="360" height="56" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text class="b" x="36" y="380">遠い・深い地震</text>
+<text class="s" x="36" y="400">差が大きく、減速に間に合いやすい</text>
+<rect x="20" y="424" width="360" height="56" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text class="b" x="36" y="448">浅い直下型</text>
+<text class="s" x="36" y="468">差が小さく、推定だけで使い切りかねない</text>
+<text class="s" x="30" y="496">P波7km/s・S波4km/sの概算。列車と地震計が同じ場所とした見積り</text>
+</svg>
