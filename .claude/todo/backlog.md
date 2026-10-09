@@ -451,10 +451,6 @@
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
 
-### [DN-0621] 書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す
-タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-08〜09 の書籍の網羅の展開（DN-0591）は、brief の生成（判定の計画を記事ごとに束ねる Python）、workflow（expand-wf-v3.js・photo-wf.js）、記事ごとのコミット（commit-article.sh）を、セッションの一時置き場と Mac の .tmp/book-coverage/ に置いて回した。git 管理外なので、ほかの PC では再現できず、セッションの一時置き場は消える（運営者の方針「すべて git か Drive で共有」に反する）。やること: (1) brief の生成を audit-reference-book-coverage に --briefs として足す（新規案の重複の検出も）。(2) workflow を .claude/workflows/ に保存し、記事の置き場の絶対パスを args で受ける。(3) commit-article.sh を scripts/ へ移す（排他・trailer・一時の作業ツリーでの索引の作り直し・図のサイズの検査）。(4) book-coverage-expansion.md から参照する。完了条件: 別の PC で DN-0591 の残り（総監の論文の本）を、この 3 つだけで判定から展開まで回せる
 
 
 ### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる

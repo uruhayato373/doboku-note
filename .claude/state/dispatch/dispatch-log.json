@@ -2488,6 +2488,19 @@
       "commit": "f1f397bf4aa3",
       "verification": "check-datasets: 参照（refs）3 データセット・3 ファイル・537 件（参照切れ 0）。book-coverage の記事 slug を壊すと参照切れ 1 件・違反として止まる。tests/dataset-refs.test.mjs 4 件（場所の書き方・参照切れ・実在の資格/商品/記事・台帳の宣言）。宣言があって 0 件なら違反、全体 0 件なら検査不成立",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0621",
+      "at": "2026-10-10",
+      "task": "書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0494b8533a68",
+      "verification": "--briefs が展開に使った brief と同じ中身を出す（guide-engineer-assignment で差分は新規→既存の 1 行だけ）。tests/book-coverage-briefs.test.mjs 5 件。book-coverage-commit.mjs は引数の不備で exit 2・変更なしで exit 0（排他の lock を残さない）。workflow 2 本を .claude/workflows/ に置き、置き場は args.root。通しの実行（書いて push まで）は DN-0591 で行う（カードに追記）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

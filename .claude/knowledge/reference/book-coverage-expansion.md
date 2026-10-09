@@ -10,8 +10,15 @@ title: 書籍の網羅をサイトへ展開する（Writer・QA・写真の手�
 
 ## 0. 親が展開の前にすること
 
-- 判定の計画は本ごとに出るので、記事ごとに束ねてから brief を作る（同じ記事に効く複数の本の追記を 1 回で書く）。
-- 新しい記事の案を並べ、同じ主題の案を 1 本にまとめる（2026-10-09 に、経営事項審査の新規案が 3 冊から別々に出ていた）。まとめたら判定の計画（verdict.json）の記事名も合わせ、`--check` を通す。
+道具はリポジトリにある（DN-0621）。どの PC でも、判定と候補表を Drive から取り戻せば同じ手順で回せる。
+
+1. `npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` で判定（verdict.json）と候補表を手元へ取り戻す。
+2. `node scripts/audit-reference-book-coverage.mjs --briefs [--source-id <id> | --shelf <棚>] [--alias <json>]` で、判定の計画を記事ごとの brief に束ねる。書き出し先は `.tmp/book-coverage/briefs/`（市販書籍の見出しを含むので git 管理外）。同じ記事に効く複数の本の追記は 1 本の brief になる。`items.json` が workflow に渡す記事の一覧。
+3. 出力の「要確認」を読む。新しい記事の案が既にある記事・同じ資格で題名の近い案・既存記事に近い案を挙げる。同じ主題の案は 1 本にまとめ、`{"<案の slug>": "<寄せる先>"}`（題名も変えるなら `{"to": "…", "title": "…"}`）の JSON を `--alias` に渡して作り直す（2026-10-09 に、経営事項審査の新規案が 3 冊から別々に出ていた）。
+4. Workflow `book-coverage-expand`（`.claude/workflows/book-coverage-expand.js`）を、args `{ root: "<リポジトリの絶対パス>", items: <items.json の中身> }` で回す。Writer → QA → 修正 → コミットを記事ごとに進め、コミットは `node scripts/book-coverage-commit.mjs` が 1 本ずつ行う（排他・trailer `Book-Coverage:`・図のサイズの検査・一時の作業ツリーでの静的インデックスの作り直し・develop への push）。QA から再開する記事は item に `"startAt": "qa"` を足す。
+5. 写真は、展開の結果の `photosWanted` から `{ article, file, photos: [{ afterHeading, subject }] }` を作り、Workflow `book-coverage-photos` を args `{ root, items }` で回す（§3）。
+
+- 新しい記事の案をまとめたら、判定の計画（verdict.json）の記事名も合わせ、`--check` を通す。
 - 1 記事に追記が 30 件を超えたら、主題で別の記事へ分ける。分けたら、どの workflow の対象にも入っているかを `--status` の「展開中」で確かめる（振り分けで対象から漏れた記事が 2 本あった）。
 
 ## 1. Writer（追記を書く）
