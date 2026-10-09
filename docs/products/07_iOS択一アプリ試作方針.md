@@ -187,7 +187,7 @@ iOS リポジトリ（別・非公開）
 
 > [!important] 運営者が決めること・やること（Claude Code では代われない）
 > - **Apple Developer Program の登録**（年 $99）。個人で登録すると App Store の販売者名に本名が出る。法人で登録するには D-U-N-S 番号が要り、日数がかかる
-> - **Xcode の導入**。2026-10-09 時点でこの Mac は Command Line Tools だけで、`xcodebuild` とシミュレータが動かない。2026-10-10 に空きを 30GB まで空けた（Xcode 本体と iOS シミュレータで約 20GB。iOS 以外のプラットフォームは入れない）。導入後の `sudo xcode-select -s /Applications/Xcode.app` はパスワードが要る
+> - **macOS の更新と Xcode 26**。2026-04-28 以降、App Store Connect へは Xcode 26（iOS 26 SDK）で組み立てたものしか上げられない。Xcode 26.0〜26.1 は macOS 15.6 以降が要り、この Mac は 15.3.2。2026-10-10 に Xcode 16.4 を入れた（開発とシミュレータには使えるが提出はできない）ので、提出までに macOS を上げて Xcode 26 に入れ替える。iOS 以外のプラットフォームは入れない
 > - **有料アプリ契約**（App Store Connect の Paid Apps Agreement）・銀行口座・税務情報の登録と、小規模事業者プログラムの申請。審査に出す前に済んでいる必要がある
 > - **実機確認**。TestFlight の内部テスト（App Store Connect のメンバー 100 人まで）は審査なしで自分の iPhone に入れられる
 > - **過去問の転載条件の確認**（**未確認**）。日本技術士会・全国建設研修センターの過去問をアプリで配布してよいか。サイト掲載と同じ扱いで作り始めるが、App Store へ公開する前に出題元の利用条件を読む

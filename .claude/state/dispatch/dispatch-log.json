@@ -2413,6 +2413,19 @@
       "note": "todo-complete.mjs 経由で完了処理"
     },
     {
+      "id": "DN-0585",
+      "at": "2026-10-10",
+      "task": "台帳の id でデータを一覧・取得・絞り込みする共通の入口を作る（npm run data -- list/get/query。管理画面からも）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce19c06f2542",
+      "verification": "tests/dataset-query.test.mjs 4 件（行の取り出し・欄=値/!=/~・入れ子・Drive の案内・別データセットのファイルを拒む）。npm run data -- query state.book-coverage --where verdict.gap=0 で 8 行。管理画面 /ops/store?k=state&f=state.book-coverage&q=verdict.gap=0 で同じ 8 行を表示（worktree から admin を起動して確認）。commands.md・data-storage-decision.md・admin README に記載",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
       "id": "DN-0621",
       "at": "2026-10-10",
       "task": "書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す",

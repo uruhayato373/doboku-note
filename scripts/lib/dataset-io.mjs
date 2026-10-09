@@ -28,6 +28,11 @@ function parseFile(root, file) {
   });
 }
 
+/** データセットのファイル 1 つを読む（リポジトリ相対。.json は JSON、.jsonl は行の配列、ほかは文字列） */
+export function readDatasetFile(root, file) {
+  return parseFile(root, file);
+}
+
 /**
  * データセットを読む。ファイルが無いときは投げる。
  * @param {string} root リポジトリのルート
