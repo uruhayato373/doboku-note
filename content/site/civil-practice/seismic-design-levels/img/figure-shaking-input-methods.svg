@@ -1,0 +1,71 @@
+<!-- authored 2026-10-09 doboku-note 自作。論点は震度法・応答変位法・時刻歴応答解析が構造物へ揺れを与える形の違いを再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="構造物へ揺れを与える三つの形を3コマで示した図。上は橋脚と桁に重さに比例した横向きの力を静的に与える震度法と保有水平耐力法、中は地中の管に地盤ばねを通して地盤の変位を与える応答変位法、下は地震波形を時間の順に入力する動的解析">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .tl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-weight: bold; fill: #2e6da4; }
+      .tn { fill: #222; }
+      .tm { fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .g { fill: #d7d7d7; }
+      .st { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .bd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ar { stroke: #b22234; stroke-width: 3; fill: none; }
+      .ln { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .sp { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto"><polygon points="0,0 10,4.5 0,9" fill="#b22234"/></marker>
+    <marker id="ab" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <g transform="translate(0,3)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="22">力で与える</text>
+    <text class="tb" x="100" y="22">震度法・保有水平耐力法</text>
+    <rect class="g" x="11" y="120" width="378" height="14"/>
+    <text class="tm" x="20" y="131">地盤の揺れ</text>
+    <rect class="st" x="172" y="66" width="24" height="54"/>
+    <rect class="bd" x="100" y="46" width="168" height="20" rx="3"/>
+    <text class="tn" x="184" y="60" text-anchor="middle">桁（重さ W）</text>
+    <line class="ar" x1="276" y1="56" x2="338" y2="56" marker-end="url(#ah)"/>
+    <text x="262" y="40">F = 震度 × W</text>
+    <text x="20" y="154">自分の重さに比例した横向きの力を、静的に与える</text>
+  </g>
+
+  <g transform="translate(0,170)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="22">変位で与える</text>
+    <text class="tb" x="112" y="22">応答変位法</text>
+    <rect x="11" y="34" width="378" height="92" fill="#f5f5f5"/>
+    <rect class="bd" x="30" y="90" width="320" height="14" rx="3"/>
+    <path class="ln" stroke-dasharray="5 3" d="M30 62 C70 40 110 84 150 62 S230 40 270 62 S330 84 350 62"/>
+    <line class="sp" x1="50" y1="52" x2="50" y2="90"/>
+    <line class="sp" x1="110" y1="74" x2="110" y2="90"/>
+    <line class="sp" x1="190" y1="52" x2="190" y2="90"/>
+    <line class="sp" x1="250" y1="46" x2="250" y2="90"/>
+    <line class="sp" x1="310" y1="72" x2="310" y2="90"/>
+    <text class="tb" x="24" y="46">地盤の変位</text>
+    <text x="196" y="84">地盤ばね</text>
+    <text class="tn" x="190" y="118" text-anchor="middle">地中の管・トンネル</text>
+    <text x="20" y="154">周りの地盤の変形を、地盤ばねを通して与える</text>
+  </g>
+
+  <g transform="translate(0,337)">
+    <rect class="p" x="10" y="0" width="380" height="162" rx="8"/>
+    <text class="tl" x="20" y="22">波形で与える</text>
+    <text class="tb" x="112" y="22">動的解析（時刻歴）</text>
+    <line class="sp" x1="24" y1="84" x2="206" y2="84"/>
+    <polyline class="ln" stroke-linejoin="round" points="24,84 40,80 50,92 62,70 74,98 88,62 100,104 114,56 126,108 140,70 152,96 164,76 176,90 188,80 200,86"/>
+    <text class="tb" x="24" y="48">入力する地震波</text>
+    <text class="tm" x="206" y="104" text-anchor="end">時間</text>
+    <line class="ln" x1="218" y1="84" x2="254" y2="84" marker-end="url(#ab)"/>
+    <rect class="g" x="262" y="120" width="116" height="14"/>
+    <rect class="st" x="314" y="76" width="12" height="44"/>
+    <rect class="bd" x="296" y="56" width="48" height="20" rx="3"/>
+    <line class="ln" x1="320" y1="46" x2="288" y2="46" marker-end="url(#ab)"/>
+    <line class="ln" x1="320" y1="46" x2="352" y2="46" marker-end="url(#ab)"/>
+    <text x="262" y="36">応答を追う</text>
+    <text x="20" y="154">地震波を時間の順に入力し、構造物の応答を追う</text>
+  </g>
+</svg>
