@@ -107,14 +107,14 @@
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
 
-### [DN-0591] 書籍の網羅の残り: コンクリート 5 冊を判定し直して網羅を確かめる
+### [DN-0591] コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する
 タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08]
 
-2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2）。進み具合は `npm run audit-reference-book-coverage -- --status`、手順は `.claude/knowledge/reference/book-coverage-judging.md`・`book-coverage-expansion.md`。
-総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断）: 総監のテキスト・受験対策・キーワード集の判定で gap は 0、partial は展開済み。論文の本の中身は答案例（note 商品の領域）が中心で、書き方の一般論は論文の書き方の本の展開と記述式ガイドで覆えている。再スキャンからやり直す手間に見合わない。`--status` ではこの 1 冊だけ「未着手」のまま残る。
-残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
-完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
-
+2026-10-10 に、コンクリート 5 冊（concrete-chief-textbook-2022・2024・concrete-diagnostician-textbook・concrete-basics-5th・construction-materials-basics）の候補表を `--rejudge` で作り直し、展開後のサイトに対して意味判定をやり直した（936 節。`--check` 違反 0・判定は Drive vault に同期済み・要約 `.claude/state/book-coverage.json` の判定日は 2026-10-10）。新しい gap は 9 節（診断士 3・基本 4・建設材料 2）、partial は 154 節で、追記の計画は 123 件（診断士 71・基本 32・建設材料 11・主任技士 2022 7・2024 1）。
+診断士の判定で、サイトの guide-essay・guide-trends の記述式の説明（問題A・問題B・3.5時間）が本の 2020 年版（2019 年度から問題B のみ・3.0 時間）と食い違うと指摘された。最新の試験要項（JCI）で確かめてから直す。
+総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断・`--status` では未着手のまま残る）。
+**やること**: リポジトリの道具（`npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` → `audit-reference-book-coverage --briefs --shelf コンクリート` と `--source-id construction-materials-basics` → Workflow `book-coverage-expand`・`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。手順は book-coverage-expansion.md §0）で展開する。`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点は道具を直す。
+**完了条件**: `--status` で 5 冊が「展開済み」になり、診断士の記述式の説明を一次資料で確かめて直した。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
