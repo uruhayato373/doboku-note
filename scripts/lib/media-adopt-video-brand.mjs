@@ -95,32 +95,6 @@ export async function planAdoptVideoBrand(root) {
 }
 
 /**
- * 旧 Shorts の表紙（content/sns/youtube/cover-design.json の 10 件・DN-0610）を移す計画。形は planAdoptVideoBrand と同じ。
- * @param {{ pubId: string, from: string, sha256: string, specSha256?: string, key: string }[]} covers registry-legacy-youtube.mjs の covers
- */
-export async function planAdoptLegacyCovers(root, covers) {
-  const cfg = loadDriveConfig();
-  const ctx = { cfg, mount: resolveVaultRoot().root ?? null };
-  const reg = loadRegistry(root);
-  const items = [];
-  const missing = [];
-  const mismatched = [];
-  for (const c of covers) {
-    if (parseMediaPath(c.from)) continue;
-    if (!reg.publications.some((p) => p.id === c.pubId)) { missing.push(`${c.from}（台帳に公開 ${c.pubId} が無い）`); continue; }
-    const buf = readSource(root, c.from, ctx);
-    if (!buf) { missing.push(c.from); continue; }
-    if (sha256Of(buf) !== c.sha256) { mismatched.push(c.from); continue; }
-    const to = mediaPath({ pubId: c.pubId, role: 'cover', sha256: c.sha256, ext: 'png' });
-    const meta = await sharp(buf).metadata();
-    const row = { id: mediaIdOf(c.pubId, 'cover'), role: 'cover', type: 'image/png', sha256: c.sha256, bytes: buf.length, width: meta.width, height: meta.height, store: { tier: 'drive', path: to },
-      provenance: { kind: 'template', by: 'apply-video-brand', spec: `content/sns/youtube/cover-design.json#${c.key}`, ...(c.specSha256 ? { specSha256: c.specSha256 } : {}) }, legacyPaths: [c.from] };
-    items.push({ from: c.from, to, buf, row, scope: c.pubId.split('/')[0], pubId: c.pubId, role: 'cover', rewrite: { file: 'content/sns/youtube/cover-design.json', pointer: ['covers', c.key, 'approvedImage'] } });
-  }
-  return { items, missing, mismatched, mount: ctx.mount };
-}
-
-/**
  * 計画を書く。置き場へ写し、素材と公開の行を書き、作品フォルダの JSON のパスを書き換える。
  * @returns {{ copied: number, rewritten: number, mediaRows: number }}
  */

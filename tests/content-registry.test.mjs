@@ -20,9 +20,8 @@ const media = (over = {}) => ({
   id: `${PUB}/cover`, role: 'cover', type: 'image/png', sha256: SHA, scope: 'civil-construction-2', file: 'm.json',
   store: { tier: 'drive', path: `.tmp/media/${PUB}/cover.${SHA.slice(0, 8)}.png` }, provenance: { kind: 'template', by: 'brand-video-pack' }, ...over,
 });
-const state = (longform = { status: 'qa_passed' }) => ({ packs: { 'matome-2kyu-chokuzen': { derivatives: { longform } } } });
-const run = ({ works = [work()], publications = [pub()], mediaRows = [], st = state(), drive = { entries: {} }, ai = { figures: {} }, c = cfg } = {}) =>
-  checkRegistry(ROOT, { cfg: c, reg: { works, publications, media: mediaRows }, state: st, driveManifest: drive, aiLedger: ai, packs: new Map() });
+const run = ({ works = [work()], publications = [pub()], mediaRows = [], drive = { entries: {} }, ai = { figures: {} }, c = cfg } = {}) =>
+  checkRegistry(ROOT, { cfg: c, reg: { works, publications, media: mediaRows }, driveManifest: drive, aiLedger: ai, packs: new Map() });
 const codes = (r, sev = 'FAIL') => r.issues.filter((i) => i.severity === sev).map((i) => i.code);
 
 test('公開 ID の組み立てと分解が往復する', () => {
@@ -59,7 +58,7 @@ test('R02: ID の重複・行の中身と合わない ID・例外の上限を止
 });
 
 test('R03: 予約以上の公開を消す・改名するのを止める（改名は renamedTo で許す）', () => {
-  const r = (publications, basePublications) => checkRegistry(ROOT, { cfg, reg: { works: [work()], publications, media: [] }, state: state(), driveManifest: { entries: {} }, aiLedger: { figures: {} }, packs: new Map(), basePublications });
+  const r = (publications, basePublications) => checkRegistry(ROOT, { cfg, reg: { works: [work()], publications, media: [] }, driveManifest: { entries: {} }, aiLedger: { figures: {} }, packs: new Map(), basePublications });
   const old = pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short.point-old', format: 'short', variant: 'point-old', status: 'scheduled' });
   assert.ok(codes(r([pub()], [old])).includes('R03'));
   assert.ok(!codes(r([pub()], [{ ...old, status: 'draft' }])).includes('R03'));
@@ -80,42 +79,24 @@ test('R06: 置き場の名前の sha8 が違えば止め、Drive 台帳に無け
 });
 
 test('R07: 承認・停止の理由・公開の証拠が無い状態を止める', () => {
-  const st = state({ status: 'scheduled', publishAt: '2026-10-23T20:00:00+09:00', videoId: 'v1' });
-  assert.ok(codes(run({ publications: [pub({ status: 'scheduled', publishAt: '2026-10-23T20:00:00+09:00', platform: { id: 'v1' } })], st })).includes('R07'));
-  assert.ok(codes(run({ publications: [pub({ status: 'stopped' })], st: state({ status: 'stopped' }) })).includes('R07'));
-  assert.ok(codes(run({ publications: [pub({ status: 'published', platform: { id: 'v1' } })], st: state({ status: 'published', videoId: 'v1' }) })).includes('R07'));
+  assert.ok(codes(run({ publications: [pub({ status: 'scheduled', publishAt: '2026-10-23T20:00:00+09:00', platform: { id: 'v1' } })] })).includes('R07'));
+  assert.ok(codes(run({ publications: [pub({ status: 'stopped' })] })).includes('R07'));
+  assert.ok(codes(run({ publications: [pub({ status: 'published', platform: { id: 'v1' } })] })).includes('R07'));
 });
 
 test('R08: 外部 ID の重複を止める', () => {
   const a = pub({ status: 'qa_passed', platform: { id: 'dup' } });
   const b = pub({ id: 'civil-construction-2/matome-2kyu-chokuzen/youtube.short.point-a', format: 'short', variant: 'point-a', platform: { id: 'dup' }, relatedTo: PUB });
-  const st = { packs: { 'matome-2kyu-chokuzen': { derivatives: { longform: { status: 'qa_passed', videoId: 'dup' }, shorts: [{ key: 'point-a', status: 'qa_passed', videoId: 'dup' }] } } } };
-  assert.ok(codes(run({ publications: [a, b], st })).includes('R08'));
-});
-
-test('R09: 今の台帳と台帳が食い違えば、切り替えの前後とも止める', () => {
-  assert.ok(!codes(run()).includes('R09'));
-  assert.ok(codes(run({ st: state({ status: 'approved' }) })).includes('R09'));
-  assert.ok(codes(run({ st: { packs: {} } })).includes('R09'));
-  assert.ok(codes(run({ st: state({ status: 'approved' }), c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
-});
-
-test('R09: 今の台帳にだけある動画パックは、切り替え前は INFO・切り替え後は FAIL', () => {
-  const st = { packs: { ...state().packs, 'other-pack': { derivatives: { longform: { status: 'scheduled', videoId: 'x' } } } } };
-  const before = { ...cfg, cutover: [] };
-  assert.ok(!codes(run({ st, c: before })).includes('R09'));
-  assert.ok(codes(run({ st, c: before }), 'INFO').includes('R09'));
-  assert.ok(codes(run({ st, c: { ...cfg, cutover: ['youtube'] } })).includes('R09'));
+  assert.ok(codes(run({ publications: [a, b] })).includes('R08'));
 });
 
 test('R10: 判定 ok の無い AI 素材を、承認以降の公開が使っていれば止める', () => {
   const ai = media({ provenance: { kind: 'ai-generated', tool: 'Codex', prompt: 'p', promptSha256: SHA, generatedAt: '2026-10-09T00:00:00Z' } });
   const drive = { entries: { [ai.store.path]: { sha256: SHA } } };
   const approved = pub({ status: 'approved', approval: { by: 'user', at: '2026-10-09T00:00:00Z', contentSha256: null, grandfathered: true }, media: { cover: ai.id } });
-  const st = state({ status: 'approved' });
-  assert.ok(codes(run({ publications: [approved], mediaRows: [ai], drive, st })).includes('R10'));
+  assert.ok(codes(run({ publications: [approved], mediaRows: [ai], drive })).includes('R10'));
   const okLedger = { figures: { [`media:${ai.id}`]: { sha: SHA.slice(0, 16), verdict: 'ok' } } };
-  assert.ok(!codes(run({ publications: [approved], mediaRows: [ai], drive, st, ai: okLedger })).includes('R10'));
+  assert.ok(!codes(run({ publications: [approved], mediaRows: [ai], drive, ai: okLedger })).includes('R10'));
 });
 
 test('書き換えない group は、名前の sha8 と台帳の中身が違えば置かない', () => {

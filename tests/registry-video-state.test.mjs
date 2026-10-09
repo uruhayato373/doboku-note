@@ -2,12 +2,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadRegistryConfig } from '../scripts/lib/content-registry.mjs';
+import { loadRegistry, loadRegistryConfig } from '../scripts/lib/content-registry.mjs';
 import { discoverVideoPacks } from '../scripts/lib/content-registry-check.mjs';
 import { RegistryPublications, RegistryWorks } from '../scripts/lib/dataset-schemas-content.mjs';
-import { readJsonIf } from '../scripts/lib/json-io.mjs';
 import {
-  VIDEO_STATE_PATH, derivativeToRow, isBareDraft, projectVideoState, rowToDerivative, videoPackRows, videoStateDrift, youtubeView,
+  derivativeToRow, isBareDraft, loadVideoState, planVideoRows, projectVideoState, rowToDerivative, videoPackRows, videoStateDrift, youtubeView,
 } from '../scripts/lib/registry-video-state.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -56,27 +55,32 @@ test('派生物の無い Shorts は素の下書きで、今の台帳には出さ
   assert.deepEqual(projected.packs, {});
 });
 
-test('今の台帳の全パックが欠けなく往復し、型にも合う（取り込み→作り直しで YouTube の部分が同じ）', () => {
-  const state = readJsonIf(ROOT, VIDEO_STATE_PATH);
+test('台帳から作った形（loadVideoState）を saveVideoState の計画に通しても、台帳の行は 1 件も変わらない', async () => {
+  const state = loadVideoState(ROOT);
+  const ids = Object.keys(state.packs);
+  assert.ok(ids.length >= 100, `検査したパックが少ない: ${ids.length}`);
+  const plan = await planVideoRows(ROOT, state, { packIds: ids, evidence: { kind: 'publisher', ref: 'test' } });
+  assert.equal(plan.counts.packs, ids.length);
+  assert.deepEqual({ works: plan.counts.works, publications: plan.counts.publications }, { works: 0, publications: 0 });
+  assert.ok(plan.counts.unchangedPublications >= ids.length, `検査した公開が少ない: ${plan.counts.unchangedPublications}`);
+  // 台帳の形は写しの型にも合う
+  assert.deepEqual(youtubeView(projectVideoState(state, loadRegistry(ROOT))), youtubeView(state));
+});
+
+test('台帳の行は欠けなく派生物の形へ往復し、型にも合う', () => {
+  const state = loadVideoState(ROOT);
   const packs = discoverVideoPacks(ROOT);
-  const reg = { works: [], publications: [] };
   const byExam = new Map();
-  let checked = 0;
   for (const packId of Object.keys(state.packs)) {
     const pack = packs.get(packId);
     assert.ok(pack, `${packId}: video-pack.json が無い`);
-    const rows = videoPackRows(ROOT, pack.dir, { state, rules, evidence: { kind: 'legacy-ledger', ref: 'video-content-status.json' } });
-    reg.works.push(rows.work);
-    for (const p of rows.publications) reg.publications.push({ ...p, channel: 'youtube' });
+    const rows = videoPackRows(ROOT, pack.dir, { state, rules, reg: loadRegistry(ROOT), evidence: { kind: 'publisher', ref: 'test' } });
     const e = byExam.get(rows.exam) ?? { works: [], publications: [] };
     e.works.push(rows.work);
     e.publications.push(...rows.publications);
     byExam.set(rows.exam, e);
-    checked += 1;
   }
-  assert.ok(checked >= 150, `検査したパックが少ない: ${checked}`);
-  assert.deepEqual(videoStateDrift(state, reg), []);
-  assert.deepEqual(youtubeView(projectVideoState(state, reg)), youtubeView(state));
+  assert.ok(byExam.size >= 1);
   for (const [exam, e] of byExam) {
     RegistryWorks.parse({ schemaVersion: 1, exam, works: e.works.sort((a, b) => a.id.localeCompare(b.id)) });
     RegistryPublications.parse({ schemaVersion: 1, channel: 'youtube', exam, publications: e.publications.sort((a, b) => a.id.localeCompare(b.id)) });

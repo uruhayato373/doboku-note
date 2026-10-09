@@ -298,9 +298,8 @@ sales.json が 34 日止まっていたことに誰も気づかず、下流の�
   未生成（fetch-metrics 次回金曜で生成）」と 1 行。
 - 週次スナップショット: `data/business/weekly/` の最新 YYYY-Www.json の `sns` セクション
   （source 別 WoW・合計）も併記できる（上と同じ CI 由来）。
-- YT 公開照合: `.claude/state/yt-verify/latest.json`（verify-yt-status.yml が週次で commit）の
-  counts を 1〜2 行で（recorded_but_gone / not_public_after_publishAt / pending_overdue が
-  いずれも 0 なら「YT 公開状態ドリフトなし」）。
+- YT 公開照合: `.claude/state/video-publication-verify.json`（verify-yt-status.yml が週次で commit）の
+  結果を 1〜2 行で（ドリフト 0 なら「YT 公開状態ドリフトなし」）。台帳の予約→公開は registry-reconcile が毎日見る。
 
 分析項目:
 - source 別の週次増減（急落 source・新規に伸びた source を 1 行ずつ）

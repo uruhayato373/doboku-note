@@ -28,6 +28,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from './lib/video-content-check.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -36,21 +37,19 @@ const maxAgeIdx = argv.indexOf('--max-age-days');
 const MAX_AGE_DAYS = maxAgeIdx >= 0 ? Number(argv[maxAgeIdx + 1]) : 14;
 
 const config = loadConfig(ROOT);
-const STATE_PATH = join(ROOT, config.paths.stateFile);
 const RECORD_PATH = join(ROOT, '.claude/state/video-publication-verify.json');
 const LIVE_STATUSES = ['published', 'measured', 'refresh_due'];
 
 const issues = [];
 const add = (code, message) => issues.push({ code, message });
 
-/** state の published 相当派生物（照合されるべき対象）を列挙 */
+/** 台帳の published 相当派生物（照合されるべき対象）を列挙 */
 function liveTargets() {
-  if (!existsSync(STATE_PATH)) return [];
   let state;
   try {
-    state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+    state = loadVideoState(ROOT);
   } catch (e) {
-    add('V00', `state が壊れている: ${e.message}`);
+    add('V00', `台帳（content/registry）を読めない: ${e.message}`);
     return [];
   }
   const out = [];

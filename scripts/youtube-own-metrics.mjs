@@ -2,7 +2,7 @@
 /**
  * youtube-own-metrics.mjs — 自社 YouTube チャンネルの動画ごとの再生数・尺を一覧から取り、月次の時系列に残す（read-only）。
  *
- * チャンネルは config/youtube-formats.json の channel。動画パックとの対応は .claude/state/video-content-status.json の
+ * チャンネルは config/youtube-formats.json の channel。動画パックとの対応はコンテンツ台帳（content/registry）の
  * videoId で取り、型は youtube-formats の packIds（試作など）→ 動画パック由来の Shorts は pack-shorts → 残りの通常動画は
  * single-topic-text とする。取得の仕組みと限界は scripts/lib/youtube-listing.mjs。
  * 出力: data/youtube/own-videos/<JST の日付>.json（台帳 youtube.own-videos）。同じ日にもう一度回すと上書きする。
@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readDataset } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
-import { readJsonIf } from './lib/json-io.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { lengthBuckets, listChannel, summarize, titleSignals } from './lib/youtube-listing.mjs';
 
@@ -77,7 +77,7 @@ export function buildOwnSnapshot({ fetchedAt, channel, subscriberCount, longform
 
 function main() {
   const config = readDataset(ROOT, 'config.youtube-formats');
-  const status = readJsonIf(ROOT, '.claude/state/video-content-status.json');
+  const status = loadVideoState(ROOT);
   const long = listChannel(config.channel.id, 'videos', { limit: LIMIT });
   const short = listChannel(config.channel.id, 'shorts', { limit: LIMIT });
   const snapshot = buildOwnSnapshot({

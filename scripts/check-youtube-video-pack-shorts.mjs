@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { utmChannel } from './lib/utm-contract.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -23,7 +24,7 @@ const slots = new Map();
 const daily = new Map();
 const pendingSlots = [];
 const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published']);
-const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
+const STATE = loadVideoState(ROOT);
 let packCount = 0;
 let shortsCount = 0;
 

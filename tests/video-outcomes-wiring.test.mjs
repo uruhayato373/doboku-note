@@ -59,9 +59,9 @@ test('動画成果ビューが読むスナップショット prefix と fetcher 
 
 test('SNS join: レガシー Shorts 台帳と動画パック派生を混ぜない', () => {
   const src = read('tools/admin-app/src/lib/video-sns-join.ts');
-  // 台帳（content/registry 経由の youtubePublications）と派生（video-content-status.json）を別フィールドで返すこと
+  // 台帳（content/registry 経由の youtubePublications）と派生（loadVideoState）を別フィールドで返すこと
   assert.match(src, /legacyShorts/);
   assert.match(src, /packDerivatives/);
   assert.match(src, /youtubePublications/);
-  assert.match(src, /video-content-status\.json/);
+  assert.match(src, /loadVideoState/);
 });

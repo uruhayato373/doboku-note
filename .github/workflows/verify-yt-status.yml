@@ -1,8 +1,8 @@
 name: 🔎 Verify YouTube publish status (weekly)
 
-# .claude/state/youtube-schedule.json の videoId を持つ item を YouTube API(videos.list) と照合し、
-# 「台帳は uploaded だが実際は削除/非公開」「publishAt を過ぎたのに未公開」を検知する read-only reconciler。
-# 是正はしない（検知・報告のみ）。実装パターン: fetch-metrics.yml（Publish ステップの git 書式を流用）。
+# 動画パックの公開実体を YouTube API と照合する read-only reconciler（verify-video-publication）。
+# 台帳の予約→公開の照合は registry-reconcile.yml が毎日やる。旧 Shorts の台帳（youtube-schedule.json）と
+# その照合 verify-yt-status.mjs は 2026-10-09 に消した。
 #
 # 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
 
@@ -48,22 +48,8 @@ jobs:
         run: node .claude/scripts/build-doc-meta-index.mjs --ci
 
 
-      - name: Verify YouTube publish status
-        id: verify
-        continue-on-error: true
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: |
-          set -o pipefail
-          # bash -e のままだと非 0 で step が終わり exit_code が出力されない（2026-09 発覚）
-          set +e
-          node .claude/scripts/youtube/verify-yt-status.mjs 2>&1 | tee /tmp/yt-verify.log
-          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
-
       # 動画パック（DN-0110）の派生物照合。Shorts 台帳とは対象が別（台帳＝IG 過去問由来のレガシー、
-      # こちら＝video-content-status.json の派生物）。creds 不足・API 失敗は exit 2＝検査不成立で、
+      # こちら＝台帳 content/registry の動画パックの派生物）。creds 不足・API 失敗は exit 2＝検査不成立で、
       # 記録を書き換えない（偽の緑を残さない）。対象 0 件（公開前）は checked:0 を記録して正常終了。
       - name: Verify video pack publication
         id: verify_packs
@@ -90,22 +76,9 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore(youtube): verify-yt-status weekly audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git commit -m "chore(youtube): verify-video-publication weekly audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git pull --rebase origin develop
           git push origin develop
-
-      - name: Fail on drift (アラート)
-        if: steps.verify.outputs.exit_code == '2'
-        run: |
-          echo "::error::YouTube 公開状態ドリフトを検出（verify-yt-status.mjs）。.claude/state/yt-verify/latest.json を確認してください。"
-          exit 1
-
-      - name: Fail on auth/network error
-        if: steps.verify.outputs.exit_code == '1'
-        run: |
-          echo "::error::verify-yt-status.mjs が認証/ネットワークエラーで失敗しました。/tmp/yt-verify.log を確認してください"
-          tail -40 /tmp/yt-verify.log || true
-          exit 1
 
       - name: Fail on video pack drift
         if: steps.verify_packs.outputs.exit_code == '1'

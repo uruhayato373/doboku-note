@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 import { assembleCompilation } from './lib/video-compilation.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 import { readJson } from './lib/json-io.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -33,7 +34,7 @@ if (!existsSync(specPath)) {
   process.exit(1);
 }
 const config = readJson(ROOT, datasetPath('config.video-content'));
-const state = readJson(ROOT, config.paths.stateFile);
+const state = loadVideoState(ROOT);
 const examDir = dirname(packDir);
 
 const { storyboard, chapters } = assembleCompilation(readJson(packDir, 'compilation.json'), (packId) => {

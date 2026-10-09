@@ -684,7 +684,7 @@ export const ConfigVideoContent = z
     schemaVersion: schemaVersion1,
     description: doc(),
     updated: jstDate('最終更新日'),
-    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ'), stateFile: repoPath('動画パックの状態ファイル') }).strict(),
+    paths: z.object({ packsRoot: repoPath('動画パックを置くディレクトリ') }).strict(),
     manifest: z
       .object({
         schemaVersion: z.number().int().positive().describe('video-pack.json の版（パック側の schemaVersion と一致が必須）'),

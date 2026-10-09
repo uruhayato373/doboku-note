@@ -30,7 +30,7 @@ title: コンテンツ ライフサイクル（全チャネル共通ステージ
 
 | チャネル | ネイティブ状態の真実源 | 写像 |
 |---|---|---|
-| 動画パック | コンテンツ台帳 `content/registry/` の公開の status（写しの `.claude/state/video-content-status.json` も同じ値。写像は `scripts/lib/content-registry.mjs` の `publicationStage`） | `draft`＝本文有無で planned/draft、`qa_blocked`/`failed`→draft、`qa_passed`/`approved`→review、`rendered`/`scheduled`→scheduled、`published`/`measured`/`refresh_due`→published、`stopped`→retired |
+| 動画パック | コンテンツ台帳 `content/registry/` の公開の status（写しの video-content-status.json は 2026-10-09 に消えた。写像は `scripts/lib/content-registry.mjs` の `publicationStage`） | `draft`＝本文有無で planned/draft、`qa_blocked`/`failed`→draft、`qa_passed`/`approved`→review、`rendered`/`scheduled`→scheduled、`published`/`measured`/`refresh_due`→published、`stopped`→retired |
 | サイト記事 | MDX frontmatter `published` | true→published／false→draft／統合済み 301→retired |
 | note 記事 | `content/note/**/article*.md` の `noteUrl` | あり→published／なし→draft |
 | note マガジン | `src/lib/note-magazines.ts` の `published` | true→published／false かつ noteUrl あり→review／それ以外→draft |

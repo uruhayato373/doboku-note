@@ -84,7 +84,7 @@ YouTube・Shorts・Instagram・X などの公開の事実は `content/registry/`
 - DB サーバーは置かない。型つき JSON（台帳 `scripts/lib/datasets.mjs` の `registry.*`・zod は `dataset-schemas-content.mjs`）が正本で、索引（`npm run registry -- index`）は作り直せる生成物。商品（`config/products.json`）と同じ形。
 - 商品と違い全件 1 ファイルにはせず、チャネル×資格ごとに分ける。CI の照合（予約→公開）と手元の承認が同じ台帳を書くため（「書き手か書く時期が違うものは統合しない」）。作品ごと（約 1,000 ファイル）にしないのは、管理画面がファイル数に比例して遅くなるため。
 - 観測（再生数・一覧・反応）は `data/` に残し、状態を持たせない。CI の照合が書けるのは証拠のある前進（`scheduled→published`）だけ。
-- 切り替え前のチャネルは今の台帳（IG の `posted.json` など）が正本で、台帳の行はその写し。YouTube は 2026-10-09 に切り替え、`.claude/state/video-content-status.json` の YouTube の部分のほうが台帳から作り直す写しになった（どちらの向きでも `check-content-registry` の R09 がずれを止める）。
+- 切り替え前のチャネルは今の台帳（IG の `posted.json` など）が正本で、台帳の行はその写し。YouTube は 2026-10-09 に切り替え、写しだった `video-content-status.json` は同日に消した（読み手は `loadVideoState` で台帳から作る）。
 
 ## 設定・記録の構成と型の正本（2026-10-02）
 

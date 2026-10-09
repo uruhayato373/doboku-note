@@ -488,7 +488,6 @@
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
     "verify-note-status": "node scripts/verify-note-status.mjs",
     "note-reconcile-title-price": "node scripts/note-reconcile-title-price.mjs",
-    "verify-yt-status": "node .claude/scripts/youtube/verify-yt-status.mjs",
     "wire-note-funnel-cta": "node scripts/wire-note-funnel-cta.mjs",
     "wire-note-paid-cta": "node scripts/wire-note-paid-cta.mjs",
     "x-own-metrics": "node scripts/x-own-metrics.mjs",

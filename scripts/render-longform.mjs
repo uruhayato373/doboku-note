@@ -5,7 +5,7 @@
  * 経路: storyboard.json → 1920×1080 PNG（satori）＋ VOICEVOX TTS wav ＋ ASS 字幕 → ffmpeg mp4
  *
  * 出力は .tmp/video-render/{packId}/（パックディレクトリには書かない＝mp4/wav の Git 混入防止。
- * 完成 mp4/wav は Google Drive vault へ、状態は .claude/state/video-content-status.json へ）。
+ * 完成 mp4/wav は Google Drive vault へ、状態はコンテンツ台帳（content/registry）へ）。
  *
  * 会社PC（VOICEVOX/ffmpeg なし）では --skip-tts で PNG + ASS + render-manifest.json まで生成し、
  * mp4 合成は Mac または GitHub Actions で同コマンドを完走させる（戦略 06 §5.3）。

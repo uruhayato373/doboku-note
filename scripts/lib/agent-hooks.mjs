@@ -20,24 +20,6 @@ export function parseHookInput(raw, env = {}) {
   return { json, command, filePath, event: json?.hook_event_name ?? '', toolName: json?.tool_name ?? '' };
 }
 
-// ---- check-gemini-cost -------------------------------------------------------------------------
-
-const GEMINI_BILLING = /ogp-backgrounds|generate-ogp-backgrounds|:generateContent|:predict|generativelanguage\.googleapis\.com|(^|[^a-zA-Z-])gemini[\s]/;
-
-/** Gemini の課金が発生しうるコマンドか（--dry-run は無料の確認系なので素通し） */
-export function isGeminiBilling(command) {
-  if (!command || command.includes('--dry-run')) return false;
-  return GEMINI_BILLING.test(command);
-}
-
-export const GEMINI_ASK_PAYLOAD = {
-  hookSpecificOutput: {
-    hookEventName: 'PreToolUse',
-    permissionDecision: 'ask',
-    permissionDecisionReason: 'Gemini は従量課金（画像 1 枚 ~$0.03-0.04）です。実行前にユーザー確認が必要（memory: gemini-cost-confirm）。--dry-run なら確認不要。',
-  },
-};
-
 // ---- check-mojibake ----------------------------------------------------------------------------
 
 export function isMdxPath(p) {

@@ -11,7 +11,6 @@ const { google } = require('googleapis');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
 const ROOT = path.resolve(__dirname, '../../..');
-const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
 const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'), // path-literal-ok: CommonJS のモジュール先頭（同期・async 文脈なし）で読み ESM の台帳を引けない（台帳 id: config.youtube-production-disclosure）
@@ -86,7 +85,7 @@ function assertMetadata(item, packId) {
 }
 
 // 状態の正本はコンテンツ台帳（content/registry）。読み書きは registry-video-state.mjs の入口だけを通し、
-// 今の台帳（STATE_PATH）は台帳から作り直した写しとして一緒に書かれる（content-registry.md「YouTube の切り替え」）。
+// 台帳の写しのファイル（video-content-status.json）は 2026-10-09 に消えた（content-registry.md「YouTube の切り替え」）。
 const videoStateStore = () => import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/registry-video-state.mjs')).href);
 
 async function loadState() {
@@ -475,7 +474,7 @@ async function main() {
     }
   }
   await writeState(state);
-  console.log(`state updated: ${path.relative(ROOT, STATE_PATH)}`);
+  console.log('state updated: content/registry');
 }
 
 if (require.main === module) {

@@ -1,8 +1,8 @@
 /**
- * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R10（content-registry.md「検査」）の唯一の実装。
+ * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R10（R09 は欠番・content-registry.md「検査」）の唯一の実装。
  * 型（zod）は check-datasets が見るので、ここはファイルをまたぐ整合だけを見る。
- * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留め、
- * 今の動画の台帳（.claude/state/video-content-status.json）の YouTube の部分が台帳から作り直したものと同じこと（R09）は、切り替えの前後とも FAIL で見る。
+ * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留める。
+ * （R09 は動画の台帳の写し .claude/state/video-content-status.json の照合だった。写しは 2026-10-09 に消えたので欠番）
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
@@ -13,7 +13,6 @@ import {
 import { datasetDir } from './datasets.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
 import { readJsonIf } from './json-io.mjs';
-import { VIDEO_STATE_PATH, videoStateDrift, youtubeView } from './registry-video-state.mjs';
 
 const issue = (severity, code, id, message) => ({ severity, code, id, message });
 
@@ -51,20 +50,19 @@ export function loadRegistryAt(root, ref) {
 
 /**
  * @param {string} root
- * @param {{ cfg?: object, reg?: object, state?: object|null, driveManifest?: object|null, aiLedger?: object|null, packs?: Map, base?: string|null, basePublications?: object[] }} [opts]
+ * @param {{ cfg?: object, reg?: object, driveManifest?: object|null, aiLedger?: object|null, packs?: Map, base?: string|null, basePublications?: object[] }} [opts]
  *   basePublications: R03 の比較元の公開（テスト用。無ければ base の git ref から読む）
  * @returns {{ issues: object[], counts: object }}
  */
 export function checkRegistry(root, opts = {}) {
   const cfg = opts.cfg ?? loadRegistryConfig(root);
   const reg = opts.reg ?? loadRegistry(root);
-  const state = opts.state !== undefined ? opts.state : readJsonIf(root, VIDEO_STATE_PATH);
   const driveManifest = opts.driveManifest !== undefined ? opts.driveManifest : readJsonIf(root, '.claude/state/assets/drive-manifest.json');
   const aiLedger = opts.aiLedger !== undefined ? opts.aiLedger : readJsonIf(root, '.claude/state/quality/ai-image-review-ledger.json');
   const packs = opts.packs ?? discoverVideoPacks(root);
   const cutover = new Set(cfg.cutover);
   const issues = [];
-  const counts = { works: reg.works.length, publications: reg.publications.length, media: reg.media.length, byChannel: {}, checkedR09: 0 };
+  const counts = { works: reg.works.length, publications: reg.publications.length, media: reg.media.length, byChannel: {} };
   for (const p of reg.publications) counts.byChannel[p.channel] = (counts.byChannel[p.channel] ?? 0) + 1;
 
   // R01: 件数。台帳が空、または切り替え済みのチャネルが 0 件なら検査不成立
@@ -205,18 +203,6 @@ export function checkRegistry(root, opts = {}) {
     const hasLongform = reg.publications.some((x) => x.work === p.work && x.channel === 'youtube' && x.format === 'longform');
     if (!p.relatedTo && hasLongform) issues.push(issue('WARN', 'R08', p.id, 'Shorts に関連動画（relatedTo）が無い'));
     else if (target && (target.work !== p.work || target.format !== 'longform')) issues.push(issue('FAIL', 'R08', p.id, '関連動画が同じ作品の通常動画ではない'));
-  }
-
-  // R09: 今の動画の台帳（YouTube の部分）と、台帳から作り直したものが同じこと。切り替え前は台帳の行が写しで、
-  // 切り替え後は今の台帳が写し（どちらの向きでも食い違いは FAIL。直し方だけが違う）
-  if (state) {
-    const youtubeWorks = new Set(reg.works.filter((w) => w.kind === 'video-pack').map((w) => w.id));
-    const view = youtubeView(state);
-    counts.checkedR09 = Object.keys(view).length;
-    const fix = cutover.has('youtube') ? '台帳が正本。今の台帳を手で直さず、書き手（saveVideoState）で書く' : '今の台帳が正本。npm run registry -- import-video-packs --commit で写し直す';
-    for (const { packId, what } of videoStateDrift(state, reg)) issues.push(issue('FAIL', 'R09', packId, `今の台帳と台帳が食い違う（${what}）。${fix}`));
-    const missing = Object.keys(view).filter((id) => !youtubeWorks.has(id));
-    if (missing.length) issues.push(issue(cutover.has('youtube') ? 'FAIL' : 'INFO', 'R09', null, `今の台帳にあって台帳に無い動画パック ${missing.length} 本（${missing.slice(0, 3).join(', ')}${missing.length > 3 ? ' ほか' : ''}）`));
   }
 
   // R10: AI 生成の素材は判定 ok が要る（承認以降の公開が参照していれば FAIL）

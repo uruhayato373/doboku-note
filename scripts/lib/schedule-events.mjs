@@ -20,7 +20,7 @@
  *   - backlog         … .claude/todo/backlog.md の `[期日:]`（タスク期日）
  *
  * 不採用ソース（触らない・読み込まない。理由を明記する）:
- *   - content/sns/schedule.json … 2026-05 世代の古い計画・実績系（DN-0610 で削除済み）。ig-status/x-status と
+ *   - 旧 content/sns/schedule（json）… 2026-05 世代の古い計画・実績系（DN-0610 で削除済み）。ig-status/x-status と
  *     重複しており真実源が二重化していた。
  *   - .github/workflows の cron 定義 … 「いつ実行されるか」であって「いつ何が公開されるか」の
  *     予定表ではない。集約対象のドメインが異なる。
@@ -42,6 +42,7 @@ import { jstDayTime, todayJst } from './jst-date.mjs';
 import { parseBacklog } from './backlog-lib.mjs';
 import { datasetDir, datasetPath } from './datasets.mjs';
 import { youtubePublications } from './registry-youtube-view.mjs';
+import { loadVideoState } from './registry-video-state.mjs';
 import domainsConfig from '../../config/domains.json' with { type: 'json' };
 
 /**
@@ -498,7 +499,7 @@ export function mapCoconalaCatalog(catalog, relPath) {
   return events;
 }
 
-/** video-content-status.json → 動画パック派生物の公開予定・公開実績（SNS）。 */
+/** コンテンツ台帳（loadVideoState）→ 動画パック派生物の公開予定・公開実績（SNS）。 */
 export function mapVideoStatus(json, relPath, todayKey) {
   const events = [];
   for (const [packId, pack] of Object.entries(json?.packs ?? {})) {
@@ -789,8 +790,8 @@ async function readCoconalaCatalog(rootDir) {
 }
 
 function readVideoStatus(rootDir, todayKey) {
-  const relPath = '.claude/state/video-content-status.json';
-  return readSource('video-status', 'video', relPath, () => mapVideoStatus(readJsonFile(join(rootDir, relPath)), relPath, todayKey));
+  const relPath = 'content/registry';
+  return readSource('video-status', 'video', relPath, () => mapVideoStatus(loadVideoState(rootDir), relPath, todayKey));
 }
 
 function readExperiments(rootDir, todayKey) {
