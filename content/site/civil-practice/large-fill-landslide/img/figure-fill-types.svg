@@ -1,0 +1,36 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="大規模盛土造成地の二つの型を断面で示した図。谷埋め型は盛土面積3,000平方メートル以上、腹付け型はもとの傾斜20度以上かつ盛土高さ5メートル以上">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #222; }
+      .b { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .fr { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .gr { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .fl { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dm { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+  <rect class="fr" x="15" y="15" width="370" height="225"/>
+  <text class="b" x="27" y="37">谷埋め型</text>
+  <text class="s" x="95" y="37">谷や沢を埋めた盛土（谷筋を横切る断面）</text>
+  <polygon class="gr" points="16,90 100,178 300,178 384,90 384,239 16,239"/>
+  <polygon class="fl" points="16,90 384,90 300,178 100,178"/>
+  <text class="b" x="200" y="138" text-anchor="middle">盛土</text>
+  <text class="s" x="200" y="212" text-anchor="middle">もとの地盤（谷）</text>
+  <text class="b" x="200" y="80" text-anchor="middle">盛土の面積 3,000m²以上</text>
+  <text class="s" x="200" y="60" text-anchor="middle">面積は平面の広がりで測る</text>
+  <rect class="fr" x="15" y="255" width="370" height="225"/>
+  <text class="b" x="27" y="277">腹付け型</text>
+  <text class="s" x="95" y="277">斜面に盛り足した盛土（傾斜方向の断面）</text>
+  <polygon class="gr" points="16,320 384,470 384,479 16,479"/>
+  <polygon class="fl" points="114,360 250,360 330,448"/>
+  <text class="b" x="190" y="384" text-anchor="middle">盛土</text>
+  <text class="s" x="60" y="440">もとの地盤</text>
+  <path d="M16,320 H130" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
+  <path class="dm" d="M76,320 A60,60 0 0 1 71.6,342.7"/>
+  <text class="s" x="27" y="304">もとの地盤の傾斜（水平面から）</text>
+  <text class="b" x="84" y="336">20度以上</text>
+  <text class="b" x="256" y="336">盛土の高さ</text>
+  <text class="b" x="256" y="352">5m以上</text>
+  <path class="dm" d="M240,360 V411 M234,360 H246 M234,411 H246"/>
+</svg>
