@@ -364,6 +364,7 @@ export const DATASETS = [
   d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
   d('state.instagram', '.claude/state/instagram-{name}.json', 'state', 'sns', 'Instagram のキャンペーンと編集の品質確認'),
   d('state.ig-reconcile', '.claude/state/ig-reconcile/{name}.json', 'state', 'sns', 'Instagram の照合結果（verify-ig-status）'),
+  d('state.registry-reconcile', '.claude/state/registry-reconcile/{name}.json', 'state', 'sns', 'コンテンツ台帳と公開先の照合の最新（registry-reconcile）'),
   d('state.sns-progress', '.claude/state/sns/{name}.json', 'state', 'sns', 'SNS の品質キャンペーンとカードの描画の進み具合'),
   // 書籍の網羅（要約は git・見出しを含む詳細は Drive vault。content-taxonomy.md §7）
   d('state.book-coverage', '.claude/state/book-coverage.json', 'state', 'material', '書籍ごとの網羅の要約（判定の件数・判定日・展開した記事とコミット。市販書籍の見出しは持たない）', { schema: 'StateBookCoverage' }),
