@@ -1738,6 +1738,63 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、10/04 から止まっていたスクリプト共通化のリファクタ（refactor/script-shared-helpers・PR #957）を develop へ入れた。develop と衝突した 48 ファイルは develop の版（いま動いている挙動）を採ったので、そのファイルはまだ自前のルート計算・walk・parseArgs・readJson を持つ。ラチェットの基準値は root 68・walk 43・parseArgs 26・readJson 10（tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs）。
+**対象（衝突で develop の版を採ったファイル）**:
+- `.claude/scripts/fetch-ga4-cta-clicks.mjs`
+- `.claude/scripts/lint-mdx-mobile.mjs`
+- `.claude/scripts/report-career-funnel.mjs`
+- `.claude/scripts/youtube/publish-video-batch.cjs`
+- `.claude/scripts/youtube/publish-video-pack.cjs`
+- `.claude/skills/social/publish-x/publish-x.ts`
+- `scripts/audit-figure-text.mjs`
+- `scripts/build-figure-provenance.mjs`
+- `scripts/check-affiliate-mats.mjs`
+- `scripts/check-affiliate-wiring.mjs`
+- `scripts/check-coconala-wiring.mjs`
+- `scripts/check-datasets.mjs`
+- `scripts/check-external-write-orphans.mjs`
+- `scripts/check-figure-crop-integrity.mjs`
+- `scripts/check-note-live-headings.mjs`
+- `scripts/check-video-publication.mjs`
+- `scripts/check-youtube-public-view.mjs`
+- `scripts/check-youtube-video-pack-shorts.mjs`
+- `scripts/generate-guide-covers.mjs`
+- `scripts/generate-ogp-backgrounds.mjs`
+- `scripts/ig-status.mjs`
+- `scripts/kdp-batch.mjs`
+- `scripts/kdp-publish.mjs`
+- `scripts/lib/coconala-session.mjs`
+- `scripts/lib/product-registry.mjs`
+- `scripts/note-magazine-cover.mjs`
+- `scripts/note-price-sweep.mjs`
+- `scripts/note-reconcile-title-price.mjs`
+- `scripts/note-swap-author-banner.mjs`
+- `scripts/prepare-instagram-video-pack-reels.mjs`
+- `scripts/prepare-video-pack-shorts.mjs`
+- `scripts/prepare-youtube-longforms.mts`
+- `scripts/publish-instagram-video-pack-reels.mjs`
+- `scripts/render-approved-longforms.mjs`
+- `scripts/render-longform.mjs`
+- `scripts/render-x-figure-drafts.mjs`
+- `scripts/stage-youtube-covers.mjs`
+- `scripts/stage-youtube-renders-r2.mjs`
+- `scripts/stage-youtube-shorts-r2.mjs`
+- `scripts/static-server.mjs`
+- `scripts/todo-complete.mjs`
+- `scripts/verify-ig-status.mjs`
+- `scripts/verify-video-publication.mjs`
+- `scripts/youtube-thumbnail-rollout.mjs`
+- `tests/career-funnel-report.test.mjs`
+- `tests/video-content-check.test.mjs`
+- `tests/video-publication-check.test.mjs`
+- `tests/youtube-authority-metadata.test.mjs`
+**やること**: 各ファイルのリポジトリのルートを `scripts/lib/repository-paths.mjs` の REPO_ROOT、再帰の走査を `scripts/lib/fs-walk.mjs` の listFiles、引数を `scripts/lib/cli-args.mjs` の parseCliArgs、JSON の読み込みを `scripts/lib/json-io.mjs` の readJson に置き換え（code ルールの共通部品の項）、減った分だけラチェットの基準値を下げる。挙動を変えないこと（各スクリプトの既存のテスト・--help・dry-run で確かめる）。
+**完了条件**: 上のファイルの自前の定義が 0（root-ok の行を除く）になり、ラチェットの基準値を下げた。全テスト緑。
+
+
 
 
 
