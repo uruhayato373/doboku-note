@@ -3,6 +3,7 @@
 //
 //   node scripts/hooks/agent-hook.mjs <name>
 //     check-doc-sync           PreToolUse(Bash)   `git commit` のとき台帳/決定文書/新ツールの同期を促す＋check-policy-anchors --staged
+//     check-cd-scope           PreToolUse(Bash)   括弧の外の cd で worktree・プロジェクトの下の階層へ移るなら exit 2（Claude Code だけ）
 //     check-mojibake           PostToolUse(Write|Edit)  .mdx に U+FFFD があれば exit 2（stderr がモデルへ返る）
 //     check-stray-files        Stop               リポジトリ直下の一時ファイルを警告
 //     check-disk-hygiene       Stop               check-disk-hygiene.mjs --quick --stop を stderr へ
@@ -11,7 +12,7 @@
 //
 // 入力は stdin の JSON（tool_input.command / tool_input.file_path）。env（CLAUDE_TOOL_INPUT / TOOL_INPUT_FILE_PATH）は
 // フォールバック。リポジトリルートはこのファイルの位置から決める（cwd や git に依存しない＝worktree でも正しい）。
-// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake（exit 2）と
+// 判定は scripts/lib/agent-hooks.mjs（純粋）。advisory は常に exit 0、ブロックするのは check-mojibake・check-cd-scope（exit 2）と
 // check-capture（stdout の decision:block・1 セッション 1 回）だけ。
 //
 // 呼び手: .claude/settings.json（正典）と .codex/hooks.json（sync-codex-compat が生成）。両方とも相対パスで呼ぶ。
@@ -25,6 +26,8 @@ import {
   STRAY_GLOBS,
   captureMarkers,
   captureReason,
+  cdScopeMessage,
+  cdScopeViolation,
   classifyStaged,
   decisionDocsChanged,
   docSyncMessages,
@@ -35,7 +38,9 @@ import {
   needsCapture,
   parseHookInput,
   parseNameStatus,
+  shellAssignments,
   strayAtRoot,
+  topLevelCdTargets,
 } from '../lib/agent-hooks.mjs';
 
 const ROOT = fileURLToPath(new URL('../..', import.meta.url)).replace(/[\\/]$/, '');
@@ -77,6 +82,21 @@ const HANDLERS = {
     if (lines.length) process.stdout.write('\n' + lines.join('\n') + '\n\n');
     // ポリシークラスタ（決定が複数文書に散在）の横展開もれを決定的に提示する
     spawnSync(process.execPath, [join(ROOT, 'scripts', 'check-policy-anchors.mjs'), '--staged'], { cwd: ROOT, stdio: ['ignore', 'inherit', 'ignore'] });
+    return 0;
+  },
+
+  'check-cd-scope'({ command, cwd }) {
+    // 作業ディレクトリが Bash の呼び出しをまたいで残るのは Claude Code。CLAUDE_PROJECT_DIR が無い呼び手（Codex）では止めない
+    const projectDir = process.env.CLAUDE_PROJECT_DIR;
+    if (!projectDir) return 0;
+    const vars = shellAssignments(command);
+    for (const target of topLevelCdTargets(command)) {
+      const reason = cdScopeViolation(target, { cwd: cwd || process.cwd(), projectDir, home: process.env.HOME || '', vars });
+      if (reason) {
+        err([cdScopeMessage(target, reason, projectDir)]);
+        return 2;
+      }
+    }
     return 0;
   },
 

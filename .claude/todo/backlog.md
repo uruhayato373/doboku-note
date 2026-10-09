@@ -101,17 +101,6 @@
 残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
 完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
 
-### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
-
-2026-10-09 の書籍の網羅の展開（DN-0591）で、コンクリート・土工・品質管理の基礎 3 本の一致は書き直して 0 になった。残りは、展開の前から本文にあった一致で、記事の `sources` に civil1-secondary-workbook-2021 が入ったことで検査の対象に入ったもの。
-
-- `content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx` 20 件（最大 552 字。「施工計画の目的」「作成時の留意点」「作成の手順」などの段落）
-- `content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx` 15 件（最大 456 字。安全管理の対策の列挙、工期・工事場所の記入要領など）。受検の手引・設問の公式文と重なる部分は書き換えず、公式の出典に寄せる
-- 過去問の記事（secondary-quality-management-past-problems 10 件・secondary-concrete-past-problems 2 件）は公式の設問文の一致。書き換えず、検査の扱いを DN-0617 で直す
-
-**やること**: 書籍の文の一致を独自の表現に書き直す（commercial-book は逐語 1 文も不可・reference-sources-policy.md）。公式の文章（受検の手引・設問）だけの一致は残し、出典を公式に寄せる。
-**完了条件**: Drive をマウントして `npm run check-reference-sources:deep` で、上の 2 記事の書籍の文の一致が 0（公式の文章だけが残る）。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -431,10 +420,6 @@
 **完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
 
 
-### [DN-0619] 1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
-
-2026-10-09、書籍の網羅の展開で textbook-construction-business を QA したとき、リンク先の content/site/civil-construction-1/primary-h26-a/article.mdx 問54 の正答キー（選択肢1が誤り）が、指定建設業の監理技術者の資格（建設業法第26条第2項）と整合しないように見える、と指摘された。未確認。全国建設研修センターの公式の正答と問題 PDF を視覚照合し（memory feedback_exam_pdf_cross_reference・project_civil1_primary_answer_key_errors）、誤りなら正答と解説を直す。完了条件: 公式の正答の出典つきで正誤を決め、誤りなら直してコミット
 
 
 ### [DN-0618] 1級土木の既存記事の誤り・食い違いを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
@@ -450,12 +435,6 @@
 完了条件: 6 件それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
 
 
-### [DN-0617] 逐語一致の検査が、書籍と共通の公式の文章（過去問の設問・受検の手引・法令や指針の正式名称）を書籍の写しとして拾う
-タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-09、書籍の網羅の展開（DN-0591）で記事の sources に書籍の id を足したところ、check-reference-sources --deep が公式の文章の一致を書籍の写しとして拾った。例: 過去問の設問文（secondary-quality-management-past-problems 10 件・最大 272 字、secondary-concrete-past-problems 2 件）、パワハラ防止指針の正式名称（power-harassment 54 字）、エシカル消費の定義（environmental-communication 47 字）。書籍も同じ公式の文章を載せているための一致で、言い換えられない。scripts/lib/reference-sources.mjs の VERBATIM_MIN_RUN の注記にある方針（閾値を上げず、規格名・法令名を比較対象から外す）に沿って直す。
-**やること**: (1) 公式の過去問の文字起こし（exam-official の原本）や公式資料に同じ連続文字列があれば、書籍との一致から除く（共通部分の差し引き）。(2) 法令・指針・規格の正式名称を除く。(3) 除いた件数を出力し、検査ゼロを PASS と呼ばない。
-**完了条件**: 上の 4 記事の公式の文章の一致が出なくなり、書籍の文の一致（DN-0580 の施工計画の基礎など）はこれまでどおり出る（回帰テストつき）
 
 
 
@@ -1754,10 +1733,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0622] Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-08〜09 の 1 セッションで、Bash の cd で .claude/worktrees/ に入ったことでセッションの作業ディレクトリが 6 回以上入れ替わった。memory（feedback_multi_session_concurrent_git）に『cd せず git -C と絶対パス、要るならサブシェル』と書いた後も再発した。そのあいだに起動したサブエージェントは相対パスを worktree 側へ書く（2026-10-08 に実害）。記録だけでは止まらないので機械化する。案: .claude/settings.json の PreToolUse（Bash）フックで、コマンドが『cd <…/.claude/worktrees/…>』で始まり、サブシェルの括弧に入っていないときに警告して止める（subshell の ( cd … && … ) と git -C は通す）。完了条件: フックの回帰テストで、素の cd は止まり、サブシェルと git -C は通る
 
 
 ### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする

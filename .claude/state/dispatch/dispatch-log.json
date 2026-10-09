@@ -2340,6 +2340,66 @@
       "note": "P6 をマージ。X 879 件を台帳へ取り込み（151 published・439 gone・87 unverified-legacy）、publish-x・x-sync-status・x-frequency-gate を台帳へ切り替え。前提の誤り：予約 432 件は凍結した旧アカウントのもので結べないため gone。範囲を絞った：status.json の写しの削除は DN-0629"
     },
     {
+      "id": "DN-0617",
+      "at": "2026-10-10",
+      "task": "逐語一致の検査が、書籍と共通の公式の文章（過去問の設問・受検の手引・法令や指針の正式名称）を書籍の写しとして拾う",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "check-reference-sources --deep: 公式の文章として除いた一致 18 件（コンクリート 2・品質管理 9・経験記述 6・エシカル消費 1）、パワハラ指針の名称はリンクの題名として除外。施工計画の基礎の書籍の文の一致は残る。tests/reference-sources.test.mjs（E）4 件",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0580",
+      "at": "2026-10-10",
+      "task": "1級土木 第二次の施工計画の基礎・経験記述の書き方・品質管理の過去問に残る、市販書籍との長い一致（最大 552 字）を書き直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-reference-sources:deep"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "904de3d73da4",
+      "verification": "check-reference-sources --deep: 逐語一致 0 件（サイト全体・commercial-book 記事×原本 532 組）。施工計画の基礎 39→0・経験記述の書き方 9→0・品質管理の過去問 1→0。textlint・keiken-answer-split 通過",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0619",
+      "at": "2026-10-10",
+      "task": "1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "過去問の転記の書き換えは原本 PDF との照合（feedback_exam_pdf_cross_reference）で拾う。H26 問題A は原本が残っておらず機械ゲートにできない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b0367b1e239c",
+      "verification": "公式の問題 A は掲載終了・Wayback にも qa.pdf と answer.html が無い。第三者の転記（ads3d.com H26 問題A No54）で原問の選択肢1は『国家資格者又は2年以上の指導監督的な実務経験』で正答1と整合。サイトは選択肢1が正しい文（1級又は大臣認定）、選択肢4が後年の4,000万円に書き換わっていたので原問に戻し、解説を建設業法第15条第2号ただし書・第26条と2025年2月施行の5,000万円で直した",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0622",
+      "at": "2026-10-10",
+      "task": "Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6acda5a0deb9",
+      "verification": "tests/agent-hooks.test.mjs: 素の cd（worktree・プロジェクトの下の階層・変数経由）は exit 2、サブシェル・git -C・bash -c・直下への cd・Codex（CLAUDE_PROJECT_DIR 無し）は通す。13 件 pass",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
       "id": "DN-0631",
       "at": "2026-10-10",
       "task": "drive-vault-sync の --pull を既定で dry-run にし、送る側と台帳の約束（sync は既定 dry-run）にそろえる",
