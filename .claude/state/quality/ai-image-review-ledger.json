@@ -447,13 +447,19 @@
       "sha": "92c8cdf3612d6ff0",
       "promptSha": "c66e0cc09dcb8806",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:47:01.127Z"
+      "generatedAt": "2026-10-09T09:47:01.127Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。左右の土の堤防の間に、天端に笠コンクリートを持つコンクリート張りの低い越流堤区間があり、両端に袖部が付く。背後には平らな芝の遊水地、遠景に連続する高い周囲堤が見え、本文の「周囲堤・越流堤で囲む型」と合う。文字・看板・人物・車両はなく、部品の崩れもない。",
+      "reviewedAt": "2026-10-09T09:49:24.419Z"
     },
     "civil-practice/flood-control-facilities/img/photo-underground-discharge-tunnel": {
       "sha": "07c98760af59bbdb",
       "promptSha": "e08c8c040f1dc095",
       "tool": "Codex",
-      "generatedAt": "2026-10-09T09:48:04.616Z"
+      "generatedAt": "2026-10-09T09:48:04.616Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻の4軸とも問題なし。円形断面で、打設コンクリート風の覆工が消失点中央へ同心円状に続く。底部は平らで乾いたコンクリート、天端に等間隔の照明と配線が1列にある。本文の地下放水路（内径約10m・シールド）の内部として矛盾せず、文字・ロゴ・人物もなく、二重の部位や溶けた部品も見当たらない。",
+      "reviewedAt": "2026-10-09T09:49:24.419Z"
     },
     "civil-practice/flood-season-river-work/img/photo-bridge-pier-scour-driftwood": {
       "sha": "ead957f816e82eab",
