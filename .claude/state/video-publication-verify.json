@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-09T08:01:59.382Z",
+  "verifiedAt": "2026-10-09T20:35:24.792Z",
   "ok": true,
   "reason": null,
-  "checked": 72,
+  "checked": 73,
   "findings": [],
   "entries": {
     "koji-gaiyo-7items/longform": {
@@ -471,6 +471,15 @@
       "status": "published",
       "videoId": "Zvl0sc9oXV0",
       "url": "https://www.youtube.com/watch?v=Zvl0sc9oXV0",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-gaiyo-2kyu/longform": {
+      "packId": "keiken-gaiyo-2kyu",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "KYikQB6NJn4",
+      "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
       "ok": true,
       "problems": []
     },

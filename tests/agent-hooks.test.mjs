@@ -14,7 +14,6 @@ import {
   docSyncMessages,
   finalAssistantText,
   hasReplacementChar,
-  isGeminiBilling,
   isGitCommitCommand,
   isMdxPath,
   needsCapture,
@@ -37,15 +36,6 @@ test('parseHookInput: stdin JSON を優先し、env と生テキストへフォ�
   assert.equal(parseHookInput('', { CLAUDE_TOOL_INPUT: 'npm run ogp-backgrounds' }).command, 'npm run ogp-backgrounds');
   assert.equal(parseHookInput('not json').command, 'not json');
   assert.equal(parseHookInput('').filePath, '');
-});
-
-test('isGeminiBilling: 課金パターンを拾い --dry-run は素通し', () => {
-  assert.equal(isGeminiBilling('npm run ogp-backgrounds'), true);
-  assert.equal(isGeminiBilling('curl https://generativelanguage.googleapis.com/v1/x:generateContent'), true);
-  assert.equal(isGeminiBilling('gemini -p "hi"'), true);
-  assert.equal(isGeminiBilling('npm run ogp-backgrounds -- --dry-run'), false);
-  assert.equal(isGeminiBilling('git status'), false);
-  assert.equal(isGeminiBilling('cat .claude/knowledge/reference/notebooklm-cli-gotchas.md'), false);
 });
 
 test('check-mojibake: U+FFFD を含む .mdx は exit 2、正常な .mdx と .md は exit 0', () => {
@@ -75,15 +65,6 @@ test('strayAtRoot / decisionDocsChanged', () => {
   assert.deepEqual(strayAtRoot(['shot.png', 'docs/a.png', '', 'x.tmp', 'shot.png']), ['shot.png', 'x.tmp']);
   const changed = decisionDocsChanged(' M .claude/knowledge/reference/x.md\n?? scripts/y.mjs\nR  a.md -> content/note/技術士総監/noteコンテンツ計画.md\n');
   assert.deepEqual(changed, ['.claude/knowledge/reference/x.md', 'content/note/技術士総監/noteコンテンツ計画.md']);
-});
-
-test('CLI: check-gemini-cost は ask の JSON を stdout に出し、それ以外は無出力・exit 0', () => {
-  const ask = runHook('check-gemini-cost', JSON.stringify({ tool_input: { command: 'npm run ogp-backgrounds' } }));
-  assert.equal(ask.status, 0);
-  assert.equal(JSON.parse(ask.stdout).hookSpecificOutput.permissionDecision, 'ask');
-  const ok = runHook('check-gemini-cost', JSON.stringify({ tool_input: { command: 'git status' } }));
-  assert.equal(ok.status, 0);
-  assert.equal(ok.stdout, '');
 });
 
 test('CLI: check-mojibake は .mdx の U+FFFD で exit 2（stderr に BLOCK）、無ければ 0', () => {

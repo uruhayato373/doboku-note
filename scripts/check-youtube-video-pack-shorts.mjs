@@ -4,6 +4,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
@@ -24,7 +25,7 @@ const slots = new Map();
 const daily = new Map();
 const pendingSlots = [];
 const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published']);
-const STATE = readDataset(ROOT, 'state.video-status', { values: { name: 'content-status' } });
+const STATE = loadVideoState(ROOT);
 let packCount = 0;
 let shortsCount = 0;
 

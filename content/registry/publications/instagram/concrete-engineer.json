@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "concrete-engineer",
+  "publications": [
+    {
+      "id": "concrete-engineer/gishi-12week-plan/instagram.carousel",
+      "work": "gishi-12week-plan",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-12week-plan",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DddDGIHDM61",
+        "url": "https://www.instagram.com/p/DddDGIHDM61/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-12week-plan/instagram.reel.point-step1-1",
+      "work": "gishi-12week-plan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-12week-plan-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step1-1/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdaeWofjNGr",
+        "url": "https://www.instagram.com/reel/DdaeWofjNGr/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-12week-plan/instagram.reel.point-step2-2",
+      "work": "gishi-12week-plan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-12week-plan-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-12week-plan-point-step2-2/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Dddv162iF9N",
+        "url": "https://www.instagram.com/reel/Dddv162iF9N/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/instagram.carousel",
+      "work": "gishi-construction-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-construction-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/instagram.reel.point-step1-1",
+      "work": "gishi-construction-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-construction-ronten-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.197Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:02:39.540Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-construction-ronten/instagram.reel.point-step2-2",
+      "work": "gishi-construction-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-construction-ronten-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-construction-ronten-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.197Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:02:55.365Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/instagram.carousel",
+      "work": "gishi-environment-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-environment-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/instagram.reel.point-step1-1",
+      "work": "gishi-environment-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-environment-ronten-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.198Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:25.473Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-environment-ronten/instagram.reel.point-step2-2",
+      "work": "gishi-environment-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-environment-ronten-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-environment-ronten-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.198Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:03:37.060Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/instagram.carousel",
+      "work": "gishi-haigou-keisan",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-haigou-keisan",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/instagram.reel.point-step1-1",
+      "work": "gishi-haigou-keisan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-haigou-keisan-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.199Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:06.957Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-haigou-keisan/instagram.reel.point-step2-2",
+      "work": "gishi-haigou-keisan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-haigou-keisan-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.200Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:16.850Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/instagram.carousel",
+      "work": "gishi-jis-handan",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jis-handan",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/instagram.reel.point-step1-1",
+      "work": "gishi-jis-handan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jis-handan-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.200Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:45.858Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jis-handan/instagram.reel.point-step2-2",
+      "work": "gishi-jis-handan",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jis-handan-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.201Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:04:55.449Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/instagram.carousel",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jukenshikaku-2026",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/instagram.reel.point-step1-1",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.201Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:26.346Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-jukenshikaku-2026/instagram.reel.point-step2-2",
+      "work": "gishi-jukenshikaku-2026",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.201Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:05:35.809Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/instagram.carousel",
+      "work": "gishi-materials-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-materials-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/instagram.reel.point-step1-1",
+      "work": "gishi-materials-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-materials-ronten-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.193Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:59:17.696Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-materials-ronten/instagram.reel.point-step2-2",
+      "work": "gishi-materials-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-materials-ronten-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-materials-ronten-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.193Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:59:27.576Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/instagram.carousel",
+      "work": "gishi-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-mix-design-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/instagram.reel.point-step1-1",
+      "work": "gishi-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-mix-design-ronten-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.195Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:38.798Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-mix-design-ronten/instagram.reel.point-step2-2",
+      "work": "gishi-mix-design-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-mix-design-ronten-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.195Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:52.272Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/instagram.carousel",
+      "work": "gishi-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-production-qc-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/instagram.reel.point-qc1-1",
+      "work": "gishi-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc1-1",
+      "variant": "point-qc1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.196Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:01:25.140Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-production-qc-ronten/instagram.reel.point-qc2-2",
+      "work": "gishi-production-qc-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc2-2",
+      "variant": "point-qc2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-production-qc-ronten-point-qc2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.196Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:01:37.276Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/instagram.carousel",
+      "work": "gishi-properties-testing-ronten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-properties-testing-ronten",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/instagram.reel.point-step1-1",
+      "work": "gishi-properties-testing-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.194Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:00.465Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-properties-testing-ronten/instagram.reel.point-step2-2",
+      "work": "gishi-properties-testing-ronten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.194Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:00:09.900Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/instagram.carousel",
+      "work": "gishi-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shiken-zentaizou",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/instagram.reel.point-step1-1",
+      "work": "gishi-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:54.572Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shiken-zentaizou/instagram.reel.point-step2-2",
+      "work": "gishi-shiken-zentaizou",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:58:06.895Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/instagram.carousel",
+      "work": "gishi-shunin-dochira",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shunin-dochira",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/instagram.reel.point-step1-1",
+      "work": "gishi-shunin-dochira",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shunin-dochira-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.202Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:04.013Z"
+      }
+    },
+    {
+      "id": "concrete-engineer/gishi-shunin-dochira/instagram.reel.point-step2-2",
+      "work": "gishi-shunin-dochira",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/concrete-engineer/gishi-shunin-dochira-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/concrete-engineer/gishi-shunin-dochira-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.202Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T11:06:12.991Z"
+      }
+    }
+  ]
+}

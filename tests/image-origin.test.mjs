@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import sharp from 'sharp';
 import { figureSourceFindings, figuresInExplanation, sourceCandidatesFor } from '../scripts/lib/figure-source-wiring.mjs';
 import {
-  aiPhotoStatus, aspectOk, captionFor, commentKind, originFindings, originOf, promptSha, sourceCommentFor,
+  aiPhotoStatus, aspectOk, captionFor, commentKind, originFindings, originOf, promptSha, sourceCommentFor, validateAiVerdict, mediaIdOfKey,
 } from '../scripts/lib/image-origin.mjs';
 import { fitPhoto } from '../scripts/gen-article-photo.mjs';
 
@@ -114,4 +114,23 @@ test('切り出し直しの原典候補: 試験ページの解説欄の図は流
   const exp = sourceCandidatesFor({ ...base, inExplanation: true });
   assert.equal(exp.exam, false);
   assert.ok(!exp.candidates.some((c) => c.id === 'workbook'), '解説欄の図は問題解説集から切り出さない');
+});
+
+test('判定の鍵: 記事の画像に加えて media:<素材 ID> を受ける（実在・AI 生成・sha 一致を見る）', () => {
+  const sha256 = 'ab'.repeat(32);
+  const mediaById = new Map([
+    ['x/y/work/thumb', { id: 'x/y/work/thumb', sha256, provenance: { kind: 'ai-generated' } }],
+    ['x/y/work/tpl', { id: 'x/y/work/tpl', sha256, provenance: { kind: 'template' } }],
+  ]);
+  const base = { verdict: 'ok', reason: '文字も部位も実物どおり' };
+  assert.equal(mediaIdOfKey('media:x/y/work/thumb'), 'x/y/work/thumb');
+  assert.equal(mediaIdOfKey('a/b/img/c'), null);
+  assert.deepEqual(validateAiVerdict({ ...base, figKey: 'media:x/y/work/thumb' }, mediaById), []);
+  assert.deepEqual(validateAiVerdict({ ...base, figKey: 'media:x/y/work/thumb', sha: sha256.slice(0, 16) }, mediaById), []);
+  assert.equal(validateAiVerdict({ ...base, figKey: 'media:x/y/work/thumb', sha: '0'.repeat(16) }, mediaById).length, 1);
+  assert.equal(validateAiVerdict({ ...base, figKey: 'media:nope' }, mediaById).length, 1);
+  assert.equal(validateAiVerdict({ ...base, figKey: 'media:x/y/work/tpl' }, mediaById).length, 1);
+  assert.equal(validateAiVerdict({ ...base, figKey: 'media:x/y/work/thumb' }).length, 1, '素材の一覧が無ければ弾く');
+  assert.deepEqual(validateAiVerdict({ ...base, figKey: 'a/b/img/c' }), []);
+  assert.equal(validateAiVerdict({ ...base, figKey: 'a/b/c' }).length, 1);
 });

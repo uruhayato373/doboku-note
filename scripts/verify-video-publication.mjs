@@ -2,7 +2,7 @@
 /**
  * verify-video-publication.mjs — 動画パック派生物の「公開実体」照合（DN-0110 Phase 3）。
  *
- * 何を解くか: `.claude/state/video-content-status.json` は published と書けてしまうが、
+ * 何を解くか: 台帳（content/registry）は published と書けてしまうが、
  *   実際にその動画が公開されているか・消えていないか・概要欄の CTA と UTM が生きているか・
  *   Short に関連動画が設定されているかは、**誰も確かめていなかった**。台帳と実体のドリフトは
  *   次に人が見るまで表面化しない（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。
@@ -28,6 +28,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { loadConfig, discoverPacks } from './lib/video-content-check.mjs';
+import { loadVideoState } from './lib/registry-video-state.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = new Set(process.argv.slice(2));
@@ -36,7 +37,6 @@ const JSON_OUT = argv.has('--json');
 const log = (...a) => { if (!JSON_OUT) console.log(...a); };
 
 const config = loadConfig(ROOT);
-const STATE_PATH = join(ROOT, config.paths.stateFile);
 const OUT_PATH = join(ROOT, '.claude/state/video-publication-verify.json');
 
 /** published 相当＝外部実体を持つはずの状態 */
@@ -56,8 +56,7 @@ function loadEnv() {
 
 /** state から「照合すべき派生物」を列挙する（manifest と突き合わせて孤児も検出できるようにする） */
 function collectTargets() {
-  if (!existsSync(STATE_PATH)) return { stateExists: false, targets: [] };
-  const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+  const state = loadVideoState(ROOT);
   const known = new Set(
     discoverPacks(ROOT, config).packs
       .map((p) => {
@@ -88,7 +87,7 @@ function collectTargets() {
       });
     }
   }
-  return { stateExists: true, targets };
+  return { stateExists: Object.keys(state.packs ?? {}).length > 0, targets };
 }
 
 /** 外部 URL の到達性。fetch ではなく curl（会社プロキシと失効チェックの罠 → measurement-incidents.md） */
@@ -107,7 +106,7 @@ function httpStatus(url) {
 }
 
 const { stateExists, targets } = collectTargets();
-log(`[verify-video-publication] 照合対象 ${targets.length} 件（state: ${stateExists ? 'あり' : 'なし'}）`);
+log(`[verify-video-publication] 照合対象 ${targets.length} 件（台帳の動画パック: ${stateExists ? 'あり' : 'なし'}）`);
 
 if (targets.length === 0) {
   // 「対象 0 件」は正常（まだ公開していない）だが、**異常 0 件と区別して記録する**。
@@ -115,7 +114,7 @@ if (targets.length === 0) {
     schemaVersion: 1,
     verifiedAt: new Date().toISOString(),
     ok: true,
-    reason: stateExists ? '公開済みの派生物がまだ無い（対象0件）' : 'state ファイルが無い',
+    reason: stateExists ? '公開済みの派生物がまだ無い（対象0件）' : '台帳に動画パックが無い',
     checked: 0,
     findings: [],
     entries: {},

@@ -18,8 +18,7 @@
  *
  * 終了コード: 0 = 配置した / 1 = 入力・仕様の不備 / 3 = 生成に失敗（画像が出てこない）
  */
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import sharp from 'sharp';
@@ -30,6 +29,7 @@ import { writeDataset } from './lib/dataset-write.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { describeFigure, fileSha, syncImageDims } from './lib/figure-review.mjs';
 import { AI_LEDGER_FILE, emptyAiLedger, promptSha } from './lib/image-origin.mjs';
+import { generateWithCodex } from './lib/codex-image.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -37,16 +37,6 @@ const ROOT = resolve(import.meta.dirname, '..');
 function arg(argv, name) {
   const i = argv.indexOf(name);
   return i >= 0 ? argv[i + 1] : null;
-}
-
-/** codex exec の画像生成で 1 枚作り、作業ディレクトリに出た画像のパスを返す（出なければ null） */
-function generateWithCodex(fullPrompt, model) {
-  const dir = mkdtempSync(join(tmpdir(), 'gen-article-photo-'));
-  const args = ['exec', '--skip-git-repo-check', '--sandbox', 'workspace-write', '-C', dir, ...(model ? ['-m', model] : []),
-    `Use your image generation tool. ${fullPrompt} After generating, copy the generated image file into the current working directory as out.png. Reply with only the saved path.`];
-  try { execFileSync('codex', args, { stdio: ['ignore', 'ignore', 'inherit'], timeout: 15 * 60 * 1000 }); } catch { /* 画像が出たかで判断する */ }
-  const out = readdirSync(dir).find((f) => /\.(png|jpe?g|webp)$/i.test(f));
-  return out ? join(dir, out) : null;
 }
 
 /**

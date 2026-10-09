@@ -1,28 +1,28 @@
 {
   "meta": {
-    "generated_at": "2026-10-08T00:29:55.312Z",
+    "generated_at": "2026-10-09T10:42:14.320Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 961,
-    "matched_files": 961,
+    "scanned_files": 1313,
+    "matched_files": 1313,
     "parse_errors": 0,
     "exam_crops_high_only": 24,
-    "files_with_issues": 131,
-    "total_findings": 299,
+    "files_with_issues": 145,
+    "total_findings": 323,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 126,
-      "LOW": 173
+      "MEDIUM": 146,
+      "LOW": 177
     },
     "by_pattern": {
+      "P9-text-rect-overflow": 79,
       "P11-concept-title": 37,
       "P4-tiny-font": 133,
-      "P9-text-rect-overflow": 64,
       "P5-wide-viewbox": 44,
-      "P2-text-overlap": 14,
+      "P2-text-overlap": 23,
       "P9-text-shape-overlap": 2,
       "P7-missing-font-family": 1,
       "P3-missing-role": 1,
@@ -32,11 +32,35 @@
   },
   "findings": [
     {
+      "file": "content/site/pe-construction/tunnel-ronbun-keyword/img/figure-shield-loosening.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「空洞」が rect(y=70,h=60) 下端 y=130 を超過（text 下端 y=132.8）"
+    },
+    {
       "file": "content/site/pe-construction/steel-concrete-exam-themes/img/figure-deterioration-diagnosis.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "ひび割れの見た目だけで原因を決めない",
       "detail": "最上部中央の大見出し「ひび割れの見た目だけで原因を決めない」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/pe-construction/ninaite-kakuho-seisansei/img/figure-owner-judgment-scope.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「結果の妥当性確認」が rect(x=205,w=175) 右端 x=380 を超過（bbox 右端 x=398）"
+    },
+    {
+      "file": "content/site/pe-construction/ninaite-kakuho-seisansei/img/figure-owner-judgment-scope.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「監督・検査の補助」が rect(x=20,w=175) 右端 x=195 を超過（bbox 右端 x=213）"
+    },
+    {
+      "file": "content/site/pe-construction/ninaite-kakuho-seisansei/img/figure-owner-judgment-scope.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「手は借りても、判断は手元に残す」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=398）"
     },
     {
       "file": "content/site/pe-comprehensive-management/utility-model-rights/img/figure-patent-vs-utility-model.svg",
@@ -342,6 +366,18 @@
       "severity": "LOW",
       "text": "出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）",
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/liquefaction/img/figure-liquefaction-damage-forms.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「水平に動く」が rect(x=8,w=50) 右端 x=58 を超過（bbox 右端 x=92）"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/liquefaction/img/figure-liquefaction-damage-forms.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「水平に動く」が rect(y=6,h=18) 下端 y=24 を超過（text 下端 y=30.8）"
     },
     {
       "file": "content/site/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg",
@@ -723,6 +759,12 @@
       "severity": "MEDIUM",
       "text": "FMEA の手順と RPN 算出",
       "detail": "最上部中央の大見出し「FMEA の手順と RPN 算出」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/exam-passing-strategy/img/figure-mcq-three-tiers.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「全問正解は要らない。目標ライン」が rect(x=16,w=360) 右端 x=376 を超過（bbox 右端 x=392）"
     },
     {
       "file": "content/site/pe-comprehensive-management/environmental-impact-assessment/img/figure-eia-target-categories.svg",
@@ -1693,11 +1735,77 @@
       "detail": "「実線：吸収エネルギー（J）」と「破線：脆性破面率（%）」の bbox が重複"
     },
     {
+      "file": "content/site/civil-practice/seismic-design-levels/img/figure-shaking-input-methods.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「地盤の揺れ」が rect(y=120,h=14) 下端 y=134 を超過（text 下端 y=135.8）"
+    },
+    {
+      "file": "content/site/civil-practice/river-park-erosion-control/img/figure-river-landform.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「旧河道」と「後背湿地」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/river-park-erosion-control/img/figure-river-landform.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「流路の跡」と「泥の低地」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-mobile-lidar-decision.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「要領の密度（0.1m四方に1点」が rect(x=15,w=210) 右端 x=225 を超過（bbox 右端 x=235）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「問3　要求精度はどの区分か」と「（地上移動体搭載型の例）」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「音響測深（マルチ・シングルビー」が rect(x=150,w=226) 右端 x=376 を超過（bbox 右端 x=382）"
+    },
+    {
+      "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「応じないとき」と「出頭は任意。打ち切られることが」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「応じないとき」と「出頭は任意。打ち切られることが」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「応じないとき」と「合意書がなければ始められない」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「確定判決と同一の効力（執行は裁」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=389）"
+    },
+    {
       "file": "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "その場の判定と、後日の強度確認を分ける",
       "detail": "最上部中央の大見出し「その場の判定と、後日の強度確認を分ける」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-tunnel-natm/img/figure-immersed-tube-steps.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「排水した区画」が rect(y=400,h=62) 下端 y=462 を超過（text 下端 y=471.6）"
     },
     {
       "file": "content/site/civil-construction-1/textbook-tractor-bulldozer/img/figure-travel-device.svg",
@@ -1856,11 +1964,35 @@
       "detail": "最上部中央の大見出し「工事費曲線と最適工期」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
+      "file": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/img/figure-contract-layers.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「危険箇所の場面」と「元方事業者（法29条の2）」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/img/figure-contract-layers.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「契約・発注の場面」と「注文者・発注者」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/img/figure-contract-layers.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「混在作業の場面」と「特定元方事業者（法30条）」の bbox が重複"
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-road-earthwork-subbase/img/figure-pavement-load-path.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
       "text": "舗装が荷重を広げ、路床が受け止める",
       "detail": "最上部中央の大見出し「舗装が荷重を広げ、路床が受け止める」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-river-works/img/figure-river-profile-comparison.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「大きいほど洪水が大きく渇水も起」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=388）"
     },
     {
       "file": "content/site/civil-construction-1/textbook-port-regulations/img/figure-7-6.svg",
@@ -1903,6 +2035,12 @@
       "severity": "LOW",
       "text": "被えい航物件",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-noise-vibration-regulation/img/figure-noise-work-type-measures.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「油圧ジャッキ式はH形鋼に不向き」が rect(x=40,w=320) 右端 x=360 を超過（bbox 右端 x=365）"
     },
     {
       "file": "content/site/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg",
@@ -1964,6 +2102,12 @@
       "severity": "MEDIUM",
       "text": "土砂の出口と孔壁の支え方を比べる",
       "detail": "最上部中央の大見出し「土砂の出口と孔壁の支え方を比べる」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
+    },
+    {
+      "file": "content/site/civil-construction-1/secondary-concrete-basics/img/figure-aki-kakuho.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「40 mm、粗骨材の最大寸法の」が rect(x=16,w=368) 右端 x=384 を超過（bbox 右端 x=390）"
     },
     {
       "file": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-02.svg",

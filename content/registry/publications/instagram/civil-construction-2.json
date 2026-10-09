@@ -1,0 +1,1664 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "civil-construction-2",
+  "publications": [
+    {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/instagram.carousel",
+      "work": "anzen-ippanron-3riyu",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/anzen-ippanron-3riyu",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdSv6ZgkUcD",
+        "url": "https://www.instagram.com/p/DdSv6ZgkUcD/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/instagram.reel.point-cause1-1",
+      "work": "anzen-ippanron-3riyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1",
+      "variant": "point-cause1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause1-1/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdQLLDZiCVX",
+        "url": "https://www.instagram.com/reel/DdQLLDZiCVX/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-ippanron-3riyu/instagram.reel.point-cause2-2",
+      "work": "anzen-ippanron-3riyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2",
+      "variant": "point-cause2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2/reels/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DdTcmL-jxhA",
+        "url": "https://www.instagram.com/reel/DdTcmL-jxhA/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#live-reel-head"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-excavation-p01/instagram.carousel",
+      "work": "c2-anzen-excavation-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-excavation/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DckWLOwj9bU",
+        "url": "https://www.instagram.com/p/DckWLOwj9bU/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-excavation-p02/instagram.carousel",
+      "work": "c2-anzen-excavation-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-excavation/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 2 件（Dcm6_OGjbZ4,DckWLOwj9bU）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-general-hazard-p01/instagram.carousel",
+      "work": "c2-anzen-general-hazard-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-general_hazard/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-general_hazard/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 4 件（DdD_z_Dj8f8,DdBbCJsDebs,Dcm6-wgjU_E,DcihensgaMx）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-machine-p01/instagram.carousel",
+      "work": "c2-anzen-machine-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-machine/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-machine/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 2 件（Dc-GMyNDB97,Dc7hYT6gbSq）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-machine-p02/instagram.carousel",
+      "work": "c2-anzen-machine-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-machine/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-machine/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 2 件（Dc-GMyNDB97,Dc7hYT6gbSq）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-org-p01/instagram.carousel",
+      "work": "c2-anzen-org-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-org/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-org/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbKOXrnDEry",
+        "url": "https://www.instagram.com/p/DbKOXrnDEry/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-org-p02/instagram.carousel",
+      "work": "c2-anzen-org-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-org/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-org/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbMzKkvmzgT",
+        "url": "https://www.instagram.com/p/DbMzKkvmzgT/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-scaffold-p01/instagram.carousel",
+      "work": "c2-anzen-scaffold-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-scaffold/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 7 件（DdBa-7rDx8B,Dc-2Mlpia6P,Dc-GLZ8CJ0Z,Dc8RdQOGY8c,Dc48lRZiX-m,Dc2Xv7gm_Jo,Dczy9oUAcAF）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-scaffold-p02/instagram.carousel",
+      "work": "c2-anzen-scaffold-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-scaffold/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 7 件（DdBa-7rDx8B,Dc-2Mlpia6P,Dc-GLZ8CJ0Z,Dc8RdQOGY8c,Dc48lRZiX-m,Dc2Xv7gm_Jo,Dczy9oUAcAF）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-anzen-scaffold-p03/instagram.carousel",
+      "work": "c2-anzen-scaffold-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/anzen-scaffold/pack-03",
+      "copy": "content/sns/instagram/civil-2/theme-packs/anzen-scaffold/pack-03/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 7 件（DdBa-7rDx8B,Dc-2Mlpia6P,Dc-GLZ8CJ0Z,Dc8RdQOGY8c,Dc48lRZiX-m,Dc2Xv7gm_Jo,Dczy9oUAcAF）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hinshitsu-basic-p01/instagram.carousel",
+      "work": "c2-hinshitsu-basic-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hinshitsu-basic/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hinshitsu-basic/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 4 件（DcxOJxmCauv,DbVRpcTjyZW,DbSszv1lE9y,DbQIDU9DK3u）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hinshitsu-concrete-p01/instagram.carousel",
+      "work": "c2-hinshitsu-concrete-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hinshitsu-concrete/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hinshitsu-concrete/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Da6xnCaguSN",
+        "url": "https://www.instagram.com/p/Da6xnCaguSN/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hinshitsu-concrete-p02/instagram.carousel",
+      "work": "c2-hinshitsu-concrete-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hinshitsu-concrete/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hinshitsu-concrete/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Da9WaFGDw-h",
+        "url": "https://www.instagram.com/p/Da9WaFGDw-h/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hinshitsu-ndt-p01/instagram.carousel",
+      "work": "c2-hinshitsu-ndt-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hinshitsu-ndt/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hinshitsu-ndt/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DchxZHygVtO",
+        "url": "https://www.instagram.com/p/DchxZHygVtO/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hinshitsu-ndt-p02/instagram.carousel",
+      "work": "c2-hinshitsu-ndt-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hinshitsu-ndt/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hinshitsu-ndt/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DckWMTmIIwt",
+        "url": "https://www.instagram.com/p/DckWMTmIIwt/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-building-p01/instagram.carousel",
+      "work": "c2-hoki-building-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-building/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-building/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbPX8prjL3N",
+        "url": "https://www.instagram.com/p/DbPX8prjL3N/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-building-p02/instagram.carousel",
+      "work": "c2-hoki-building-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-building/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-building/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbR8vKZGZM6",
+        "url": "https://www.instagram.com/p/DbR8vKZGZM6/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-construction-business-p01/instagram.carousel",
+      "work": "c2-hoki-construction-business-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-construction_business/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-construction_business/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbXGUyLDF9b",
+        "url": "https://www.instagram.com/p/DbXGUyLDF9b/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-construction-business-p02/instagram.carousel",
+      "work": "c2-hoki-construction-business-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-construction_business/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-construction_business/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbZrIRHDYt0",
+        "url": "https://www.instagram.com/p/DbZrIRHDYt0/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-explosive-p01/instagram.carousel",
+      "work": "c2-hoki-explosive-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-explosive/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-explosive/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 3 件（Dc7hXnjlCO8,Dc5soQvCQA0,DcxOKVWlUMW）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-labor-p01/instagram.carousel",
+      "work": "c2-hoki-labor-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-labor/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Da_7OTsjfTe",
+        "url": "https://www.instagram.com/p/Da_7OTsjfTe/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-labor-p02/instagram.carousel",
+      "work": "c2-hoki-labor-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-labor/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbCf_C1CSJb",
+        "url": "https://www.instagram.com/p/DbCf_C1CSJb/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-labor-p03/instagram.carousel",
+      "work": "c2-hoki-labor-p03",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-labor/pack-03",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-03/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbFExclj-yl",
+        "url": "https://www.instagram.com/p/DbFExclj-yl/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-labor-p04/instagram.carousel",
+      "work": "c2-hoki-labor-p04",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-labor/pack-04",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-labor/pack-04/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbHpl9IiPtv",
+        "url": "https://www.instagram.com/p/DbHpl9IiPtv/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-noise-p01/instagram.carousel",
+      "work": "c2-hoki-noise-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-noise/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-noise/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DcupXf8me2a",
+        "url": "https://www.instagram.com/p/DcupXf8me2a/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-port-p01/instagram.carousel",
+      "work": "c2-hoki-port-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-port/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-port/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 5 件（Dc48kVjlYyM,Dc3H1cQDRJ_,Dc2XvZfidXi,DcupaDbDOBn,DcsElMEjKQ8）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-port-p02/instagram.carousel",
+      "work": "c2-hoki-port-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-port/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-port/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 5 件（Dc48kVjlYyM,Dc3H1cQDRJ_,Dc2XvZfidXi,DcupaDbDOBn,DcsElMEjKQ8）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-river-p01/instagram.carousel",
+      "work": "c2-hoki-river-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-river/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-river/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 3 件（Dc0jAuMAbP9,Dczy9wbgYC5,DcpfxAIGTcr）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-road-p01/instagram.carousel",
+      "work": "c2-hoki-road-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-road/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-road/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 4 件（DdD_0T1Ad4D,DdDPv0YAfof,DdDPvunD8XI,DdAq6iflBKW）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-road-p02/instagram.carousel",
+      "work": "c2-hoki-road-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-road/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-road/pack-02/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "公開中の投稿 4 件（DdD_0T1Ad4D,DdDPv0YAfof,DdDPvunD8XI,DdAq6iflBKW）に一致して 1 件に決められない"
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-vibration-p01/instagram.carousel",
+      "work": "c2-hoki-vibration-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-vibration/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-vibration/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "Dbe0u3tDDnw",
+        "url": "https://www.instagram.com/p/Dbe0u3tDDnw/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-hoki-vibration-p02/instagram.carousel",
+      "work": "c2-hoki-vibration-p02",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/hoki-vibration/pack-02",
+      "copy": "content/sns/instagram/civil-2/theme-packs/hoki-vibration/pack-02/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DcfMnBvjUT7",
+        "url": "https://www.instagram.com/p/DcfMnBvjUT7/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-kankyo-general-p01/instagram.carousel",
+      "work": "c2-kankyo-general-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/kankyo-general/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/kankyo-general/pack-01/carousel/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "publishAt": "2026-08-30T12:00:00.000+09:00",
+      "reason": "予約（2026-08-30T12:00:00.000+09:00）を過ぎたが、照合（2026-10-09T08:00:58.311Z）の公開中の一覧に見つからない"
+    },
+    {
+      "id": "civil-construction-2/c2-kankyo-noise-vib-p01/instagram.carousel",
+      "work": "c2-kankyo-noise-vib-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/kankyo-noise_vib/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/kankyo-noise_vib/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DcsEk4RnJFX",
+        "url": "https://www.instagram.com/p/DcsEk4RnJFX/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#unrecorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-kankyo-recycle-p01/instagram.carousel",
+      "work": "c2-kankyo-recycle-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/kankyo-recycle/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/kankyo-recycle/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbUhifcGoKH",
+        "url": "https://www.instagram.com/p/DbUhifcGoKH/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-sekokeikaku-machine-p01/instagram.carousel",
+      "work": "c2-sekokeikaku-machine-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/sekokeikaku-machine/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/sekokeikaku-machine/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DbcP7OOkcNk",
+        "url": "https://www.instagram.com/p/DbcP7OOkcNk/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/c2-sekokeikaku-planning-p01/instagram.carousel",
+      "work": "c2-sekokeikaku-planning-p01",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "civil-2/theme-packs/sekokeikaku-planning/pack-01",
+      "copy": "content/sns/instagram/civil-2/theme-packs/sekokeikaku-planning/pack-01/carousel/caption.txt",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "DchxZ5iiUD5",
+        "url": "https://www.instagram.com/p/DchxZ5iiUD5/",
+        "privacy": "public",
+        "kind": "shortcode",
+        "evidence": {
+          "kind": "ig-snapshot",
+          "ref": ".claude/state/ig-reconcile/snapshot.json@2026-10-09T08:00:58.311Z#recorded"
+        }
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/instagram.carousel",
+      "work": "gakka-2kyu-concrete",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-concrete",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/instagram.reel.point-block1-2",
+      "work": "gakka-2kyu-concrete",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-concrete-point-block1-2",
+      "variant": "point-block1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-block1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-block1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:49:34.954Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-concrete/instagram.reel.point-overview-1",
+      "work": "gakka-2kyu-concrete",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-concrete-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-concrete-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:49:03.013Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/instagram.carousel",
+      "work": "gakka-2kyu-doko",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-doko",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/instagram.reel.point-block1-2",
+      "work": "gakka-2kyu-doko",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-doko-point-block1-2",
+      "variant": "point-block1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-block1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-block1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.186Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:47:16.325Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1",
+      "work": "gakka-2kyu-doko",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-doko-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.186Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:46:36.230Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/instagram.carousel",
+      "work": "gakka-2kyu-hoki",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-hoki",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/instagram.reel.point-block1-2",
+      "work": "gakka-2kyu-hoki",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-hoki-point-block1-2",
+      "variant": "point-block1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-block1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-block1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:54:17.812Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-hoki/instagram.reel.point-overview-1",
+      "work": "gakka-2kyu-hoki",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-hoki-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-hoki-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:53:52.445Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/instagram.carousel",
+      "work": "gakka-2kyu-kiso",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-kiso",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/instagram.reel.point-block1-2",
+      "work": "gakka-2kyu-kiso",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-kiso-point-block1-2",
+      "variant": "point-block1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-block1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-block1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:52:04.438Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-kiso/instagram.reel.point-overview-1",
+      "work": "gakka-2kyu-kiso",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-kiso-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-kiso-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:51:44.623Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/instagram.carousel",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-sekokeikaku",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/instagram.reel.point-block1-2",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-block1-2",
+      "variant": "point-block1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-block1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-block1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.188Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:53:07.074Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-sekokeikaku/instagram.reel.point-overview-1",
+      "work": "gakka-2kyu-sekokeikaku",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-overview-1",
+      "variant": "point-overview-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-overview-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku-point-overview-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.188Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:52:48.003Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/instagram.carousel",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-kijutsu-2kyu",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/instagram.reel.point-fields-1",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-fields-1",
+      "variant": "point-fields-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-fields-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-fields-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:54:29.034Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-kijutsu-2kyu/instagram.reel.point-pattern1-2",
+      "work": "gakka-kijutsu-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-pattern1-2",
+      "variant": "point-pattern1-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-pattern1-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/gakka-kijutsu-2kyu-point-pattern1-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:55:02.851Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/instagram.carousel",
+      "work": "keiken-2kyu-level",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-2kyu-level",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/instagram.reel.point-kata-2",
+      "work": "keiken-2kyu-level",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-2kyu-level-point-kata-2",
+      "variant": "point-kata-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-kata-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-kata-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.190Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:55:34.358Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-2kyu-level/instagram.reel.point-level-1",
+      "work": "keiken-2kyu-level",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-2kyu-level-point-level-1",
+      "variant": "point-level-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-level-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-2kyu-level-point-level-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:55:13.372Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/instagram.carousel",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/instagram.reel.point-step1-1",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:50:16.053Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/instagram.reel.point-step2-2",
+      "work": "keiken-anzen-2kyu-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.187Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:51:31.977Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/instagram.carousel",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-gaiyo-2kyu",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/instagram.reel.point-step1-1",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.186Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:47:42.386Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-gaiyo-2kyu/instagram.reel.point-step2-2",
+      "work": "keiken-gaiyo-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-gaiyo-2kyu-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.186Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:48:49.343Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/instagram.carousel",
+      "work": "keiken-genten-kyotsuten",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-genten-kyotsuten",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/instagram.reel.point-kaigyo-2",
+      "work": "keiken-genten-kyotsuten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-genten-kyotsuten-point-kaigyo-2",
+      "variant": "point-kaigyo-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-kaigyo-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-kaigyo-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.190Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:56:39.052Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-genten-kyotsuten/instagram.reel.point-taisai-1",
+      "work": "keiken-genten-kyotsuten",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-genten-kyotsuten-point-taisai-1",
+      "variant": "point-taisai-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-taisai-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-genten-kyotsuten-point-taisai-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.190Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:56:19.755Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/instagram.carousel",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-hinshitsu-kakikata",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/instagram.reel.point-kadai-2",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-kadai-2",
+      "variant": "point-kadai-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-kadai-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-kadai-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.188Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:52:38.536Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-hinshitsu-kakikata/instagram.reel.point-nagare-1",
+      "work": "keiken-hinshitsu-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-nagare-1",
+      "variant": "point-nagare-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-nagare-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-hinshitsu-kakikata-point-nagare-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.188Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:52:15.256Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/instagram.carousel",
+      "work": "keiken-koji-ga-nai",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-koji-ga-nai",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/instagram.reel.point-taisho-1",
+      "work": "keiken-koji-ga-nai",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-koji-ga-nai-point-taisho-1",
+      "variant": "point-taisho-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taisho-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taisho-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.190Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:55:44.853Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-koji-ga-nai/instagram.reel.point-taishogai-2",
+      "work": "keiken-koji-ga-nai",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-koji-ga-nai-point-taishogai-2",
+      "variant": "point-taishogai-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taishogai-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-koji-ga-nai-point-taishogai-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.190Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:56:08.786Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/instagram.carousel",
+      "work": "keiken-kotei-kakikata",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-kotei-kakikata",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/instagram.reel.point-nagare-1",
+      "work": "keiken-kotei-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-kotei-kakikata-point-nagare-1",
+      "variant": "point-nagare-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-nagare-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-nagare-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.188Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:53:19.185Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-kotei-kakikata/instagram.reel.point-tenko-2",
+      "work": "keiken-kotei-kakikata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-kotei-kakikata-point-tenko-2",
+      "variant": "point-tenko-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-tenko-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-kotei-kakikata-point-tenko-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.189Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:53:40.125Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/instagram.carousel",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-nendo-keiko-2kyu",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/instagram.reel.point-gakka-fields-2",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-gakka-fields-2",
+      "variant": "point-gakka-fields-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-gakka-fields-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-gakka-fields-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:16.246Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/keiken-nendo-keiko-2kyu/instagram.reel.point-theme-shift-1",
+      "work": "keiken-nendo-keiko-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-theme-shift-1",
+      "variant": "point-theme-shift-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-theme-shift-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu-point-theme-shift-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:56:49.424Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/instagram.carousel",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/kikinagashi-2kyu-matome",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/instagram.reel.point-soil-tests-1",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-tests-1",
+      "variant": "point-soil-tests-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-tests-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-tests-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:26.415Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kikinagashi-2kyu-matome/instagram.reel.point-soil-volume-2",
+      "work": "kikinagashi-2kyu-matome",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-volume-2",
+      "variant": "point-soil-volume-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-volume-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/kikinagashi-2kyu-matome-point-soil-volume-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.191Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:44.983Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/instagram.carousel",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/nikyuu-gaiyo-roadmap",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/instagram.reel.point-qualification-2",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-qualification-2",
+      "variant": "point-qualification-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-qualification-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-qualification-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.185Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:03.486Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/nikyuu-gaiyo-roadmap/instagram.reel.point-stage-1",
+      "work": "nikyuu-gaiyo-roadmap",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-stage-1",
+      "variant": "point-stage-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-stage-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap-point-stage-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.184Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:55:57.660Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/instagram.carousel",
+      "work": "study-plan-2kyu",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "video-packs/civil-construction-2/study-plan-2kyu",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu/carousel/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/instagram.reel.point-step1-1",
+      "work": "study-plan-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/study-plan-2kyu-point-step1-1",
+      "variant": "point-step1-1",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step1-1",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step1-1/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.185Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:57:35.883Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/study-plan-2kyu/instagram.reel.point-step2-2",
+      "work": "study-plan-2kyu",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "video-packs/civil-construction-2/study-plan-2kyu-point-step2-2",
+      "variant": "point-step2-2",
+      "idException": "imported-before-cutover",
+      "definition": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step2-2",
+      "copy": "content/sns/instagram/video-packs/civil-construction-2/study-plan-2kyu-point-step2-2/reels/caption.txt",
+      "status": "rendered",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true,
+        "at": "2026-09-05T23:09:47.185Z"
+      },
+      "times": {
+        "rendered": "2026-09-10T10:43:59.446Z"
+      }
+    }
+  ]
+}

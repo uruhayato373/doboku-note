@@ -1,20 +1,18 @@
 /**
- * registry-video-state.mjs — 動画パックの YouTube の状態を、コンテンツ台帳（content/registry）と今の動画の台帳
- * （.claude/state/video-content-status.json）の間で写す唯一の実装（content-registry.md「YouTube の切り替え」）。
+ * registry-video-state.mjs — 動画パックの YouTube の状態を、コンテンツ台帳（content/registry）と
+ * 派生物の形（{ packs: { [packId]: { derivatives: { longform, shorts } } } }）の間で写す唯一の実装（content-registry.md「YouTube の切り替え」）。
  *
- * - 書き手（publish-video-pack.cjs・prepare-youtube-longforms など）は loadVideoState で読み、saveVideoState で書く。
- *   saveVideoState は台帳の行を先に書き、今の台帳（YouTube の部分）を台帳から作り直して書く。
- * - config の cutover に youtube があれば台帳が正本で、loadVideoState は今の台帳の YouTube の部分を台帳で上書きして返す。
+ * - 写しのファイル（.claude/state/video-content-status.json）は 2026-10-09 に消した。台帳（content/registry）だけが正本。
+ * - 読み手・書き手（publish-video-pack.cjs・prepare-youtube-longforms など）は loadVideoState（台帳だけから作る）で読み、
+ *   saveVideoState で台帳の行へ書く。ファイルは読まない・書かない。
  * - 変換は欠けなく往復する（derivativeToRow → rowToDerivative で元に戻る）。知らない欄は黙って落とさず投げる。
  * - 派生物の無い公開（作っていない Shorts など）は「素の下書き」の行として台帳にだけ置き、今の台帳には書かない。
- * - Instagram の派生（instagramReel）は今の台帳のまま触らない（P5 で移す）。
+ * - Instagram のリール（instagramReel）の状態は台帳（content/registry/publications/instagram）が正本（P5）。今の台帳は作り直すときに instagramReel を落とす。
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { canonicalJson, idShapeIssues, loadRegistry, loadRegistryConfig, pubIdOf } from './content-registry.mjs';
 import { readJsonIf } from './json-io.mjs';
-
-export const VIDEO_STATE_PATH = '.claude/state/video-content-status.json';
 
 /** 今の台帳の派生物の欄（この並びで書き出す）。ここに無い欄が来たら投げる */
 const DERIVATIVE_KEYS = [
@@ -152,6 +150,12 @@ function bareOf(base) {
 export function projectVideoState(file, reg) {
   const out = structuredClone(file ?? { schemaVersion: 1, packs: {} });
   out.packs ??= {};
+  // Instagram のリールの状態は Instagram の台帳が正本。今の台帳には残さない
+  for (const [packId, pack] of Object.entries(out.packs)) {
+    if (!pack?.derivatives || !('instagramReel' in pack.derivatives)) continue;
+    delete pack.derivatives.instagramReel;
+    if (!Object.keys(pack.derivatives).length) delete out.packs[packId];
+  }
   const workById = new Map(reg.works.filter((w) => w.kind === 'video-pack').map((w) => [w.id, w]));
   const pubsByWork = new Map();
   for (const p of reg.publications.filter((x) => x.channel === 'youtube' && workById.has(x.work))) {
@@ -223,12 +227,9 @@ function diffKeys(x, y) {
 
 // ---- 書き手の入口 ------------------------------------------------------------------------------------
 
-/** 書き手が読む今の台帳。youtube が切り替え済みなら YouTube の部分を台帳から作る */
+/** 読み手・書き手が読む動画パックの派生物の形。台帳（content/registry）だけから作る（ファイルは読まない） */
 export function loadVideoState(root) {
-  const file = readJsonIf(root, VIDEO_STATE_PATH) ?? { schemaVersion: 1, packs: {} };
-  const cfg = loadRegistryConfig(root);
-  if (!cfg.cutover.includes('youtube')) return file;
-  return projectVideoState(file, loadRegistry(root));
+  return projectVideoState(null, loadRegistry(root));
 }
 
 /**
@@ -271,7 +272,7 @@ export async function applyVideoRows(root, plan) {
 }
 
 /**
- * 書き手が書く。state の YouTube の派生物を台帳の行へ写して書き（変わった行だけ）、今の台帳を台帳から作り直して書く。
+ * 書き手が書く。state の YouTube の派生物を台帳の行へ写して書く（変わった行だけ。ファイルは書かない）。
  * 台帳の型（zod）を読むので、書き込み側（dataset-write.mjs）は呼んだときに読み込む。
  * @param {string} root
  * @param {object} state 書き手が変えた今の台帳
@@ -286,17 +287,7 @@ export async function saveVideoState(root, state, { writer, packIds } = {}) {
   });
   const plan = await planVideoRows(root, state, { packIds: targets, evidence: { kind: 'publisher', ref: writer } });
   await applyVideoRows(root, plan);
-  writeVideoState(root, projectVideoState(state, loadRegistry(root)));
   return { works: plan.counts.works, publications: plan.counts.publications };
 }
 
 const strip = (row) => Object.fromEntries(Object.entries(row).filter(([k]) => !['file', 'exam', 'channel', 'scope'].includes(k)));
-
-/** 今の台帳を書く（字下げ 2・末尾改行。同じ中身なら書かない） */
-export function writeVideoState(root, state) {
-  const abs = join(root, VIDEO_STATE_PATH);
-  const text = `${JSON.stringify(state, null, 2)}\n`;
-  if (existsSync(abs) && readFileSync(abs, 'utf8') === text) return false;
-  writeFileSync(abs, text);
-  return true;
-}

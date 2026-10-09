@@ -135,7 +135,7 @@ export default async function SnsBoardPage() {
       <div id="video" className="mb-4">
       <PanelCard
         title="動画パック 派生物"
-        description={`video-content-status.json · 企画 ${join.packTotal} 件中 制作が動いたもの ${join.packDerivatives.length} 件`}
+        description={`content/registry · 企画 ${join.packTotal} 件中 制作が動いたもの ${join.packDerivatives.length} 件`}
       >
         {join.packDerivatives.length === 0 ? (
           <p className="text-sm text-muted-foreground">

@@ -8,7 +8,7 @@
  *   本ジェネレータは復活用に温存。再開するなら: プロンプト厳格化で再生成 →
  *   card-image.ts 相当のセレクタ + page.tsx の image 解決を戻す。
  *
- * Gemini / Imagen API で「文字なしのプロフェッショナルな土木/建設シーン写真」を資格ごとに
+ * Codex（scripts/lib/codex-image.mjs）で「文字なしのプロフェッショナルな土木/建設シーン写真」を資格ごとに
  * 複数枚生成し、
  *   public/images/guide-covers/<category-slug>/<n>.webp （16:9・1024×576）
  * に保存する。DocCard（ガイド記事）が slug ハッシュでプールから1枚選んでカバー表示する。
@@ -18,28 +18,22 @@
  *   - 文字は焼かない（カードのタイトルは別途 DOM で描く）。人物の顔は避ける。
  *   - 1 資格 ~5 枚プール → カテゴリ内で写真が変化（単調回避）。
  *
- * 認証: 環境変数 GEMINI_API_KEY（または GOOGLE_API_KEY）。.env.local から読む。
- *   ※未設定 or --dry-run ではプロンプトのみ表示して終了（API 呼ばない＝課金なし）。
+ * 画像生成は Codex のみ（Gemini は使わない・運営者の決定 2026-10-09）。API キーは不要。
  *
  * Usage:
- *   node scripts/generate-guide-covers.mjs --dry-run              # プロンプトのみ（課金なし）
+ *   node scripts/generate-guide-covers.mjs --dry-run              # プロンプトのみ（Codex を呼ばない）
  *   node scripts/generate-guide-covers.mjs --all                  # 全資格生成（既存スキップ）
  *   node scripts/generate-guide-covers.mjs --category civil-construction-1 --force
- *   node scripts/generate-guide-covers.mjs --all --mode flash     # gemini-2.5-flash-image
- *
- * モデル: --mode imagen（既定 imagen-4.0-generate-001）/ --mode flash（gemini-2.5-flash-image）
+ *   node scripts/generate-guide-covers.mjs --all --model <codex のモデル名>   # 省略時は codex の既定
  */
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import dotenv from 'dotenv';
+import { generateWithCodex } from './lib/codex-image.mjs';
 
 const ROOT = process.cwd();
-dotenv.config({ path: path.join(ROOT, '.env.local') });
 const OUT_ROOT = path.join(ROOT, 'public', 'images', 'guide-covers');
 const W = 1024, H = 576;
-const API_KEY = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY || null;
-const DEFAULT_MODEL = { imagen: 'imagen-4.0-generate-001', flash: 'gemini-2.5-flash-image' };
 
 const STYLE =
   'Professional editorial photograph, clean composition, soft natural daylight, muted realistic ' +
@@ -100,14 +94,13 @@ const COVERS = {
 };
 
 function parseArgs(argv) {
-  const a = { all: false, category: null, force: false, dryRun: false, mode: 'imagen', model: null };
+  const a = { all: false, category: null, force: false, dryRun: false, model: null };
   for (let i = 0; i < argv.length; i++) {
     const t = argv[i];
     if (t === '--all') a.all = true;
     else if (t === '--force') a.force = true;
     else if (t === '--dry-run') a.dryRun = true;
     else if (t === '--category') a.category = argv[++i];
-    else if (t === '--mode') a.mode = argv[++i];
     else if (t === '--model') a.model = argv[++i];
   }
   if (!a.all && !a.category) a.all = true;
@@ -118,35 +111,10 @@ function buildPrompt(motif) {
   return `${motif}. ${STYLE}`;
 }
 
-async function callImagen(model, prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:predict?key=${API_KEY}`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ instances: [{ prompt }], parameters: { sampleCount: 1, aspectRatio: '16:9' } }),
-  });
-  if (!res.ok) throw new Error(`imagen ${res.status}: ${(await res.text()).slice(0, 400)}`);
-  const json = await res.json();
-  const b64 = json?.predictions?.[0]?.bytesBase64Encoded;
-  if (!b64) throw new Error(`imagen: 画像データが空（${JSON.stringify(json).slice(0, 300)}）`);
-  return Buffer.from(b64, 'base64');
-}
-
-async function callFlash(model, prompt) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
-  const imperative = `${prompt} Output ONLY the generated image. Do not reply with any text.`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ contents: [{ parts: [{ text: imperative }] }] }),
-  });
-  if (!res.ok) throw new Error(`flash ${res.status}: ${(await res.text()).slice(0, 400)}`);
-  const json = await res.json();
-  const parts = json?.candidates?.[0]?.content?.parts || [];
-  const img = parts.find((p) => p.inlineData?.data || p.inline_data?.data);
-  const b64 = img?.inlineData?.data || img?.inline_data?.data;
-  if (!b64) throw new Error(`flash: 画像データが空（${JSON.stringify(json).slice(0, 300)}）`);
-  return Buffer.from(b64, 'base64');
+async function callCodex(model, prompt) {
+  const file = generateWithCodex(prompt, model);
+  if (!file) throw new Error('codex: 画像が出力されなかった');
+  return fs.readFileSync(file);
 }
 
 async function withRetry(fn, label, tries = 3) {
@@ -172,21 +140,18 @@ async function main() {
     process.exit(1);
   }
 
-  const mode = args.mode === 'flash' ? 'flash' : 'imagen';
-  const model = args.model || DEFAULT_MODEL[mode];
-  const callFn = mode === 'flash' ? callFlash : callImagen;
+  const model = args.model || null;
 
   const total = cats.reduce((n, c) => n + COVERS[c].length, 0);
-  console.log(`[guide-covers] ${cats.length} カテゴリ・計 ${total} 枚（mode=${mode}, model=${model}）\n`);
+  console.log(`[guide-covers] ${cats.length} カテゴリ・計 ${total} 枚（codex, model=${model || '既定'}）\n`);
 
-  if (args.dryRun || !API_KEY) {
-    if (!API_KEY && !args.dryRun) console.log('[note] GEMINI_API_KEY 未設定 → dry-run と同じくプロンプト表示のみ\n');
+  if (args.dryRun) {
     for (const cat of cats) {
       console.log(`# ${cat}`);
       COVERS[cat].forEach((motif, i) => console.log(`  [${i + 1}] ${buildPrompt(motif)}`));
       console.log('');
     }
-    console.log('[dry-run] API 呼び出しなし・課金なし。本生成は --all（--dry-run なし）で実行。');
+    console.log('[dry-run] Codex 呼び出しなし。本生成は --all（--dry-run なし）で実行。');
     return;
   }
 
@@ -200,7 +165,7 @@ async function main() {
         continue;
       }
       const prompt = buildPrompt(COVERS[cat][i]);
-      const raw = await withRetry(() => callFn(model, prompt), `${cat}/${i + 1}`);
+      const raw = await withRetry(() => callCodex(model, prompt), `${cat}/${i + 1}`);
       await sharp(raw).resize(W, H, { fit: 'cover', position: 'centre' }).webp({ quality: 80 }).toFile(out);
       console.log(`  ✓ ${cat}/${i + 1}.webp`);
     }

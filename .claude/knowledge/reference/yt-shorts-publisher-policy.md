@@ -114,11 +114,10 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | IG Reels script.json / caption.txt の執筆 | `ig-reels-writer`（上流） |
 | YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
 | 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare` → `youtube-shorts:render` → `youtube-shorts:stage -- --commit` |
-| サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ）、または `generate-thumbnails.mjs`（単独実行） |
+| サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
-| YouTube Data API 投稿（旧台帳駆動・停止中） | `post-from-schedule.cjs`（どのワークフローからも呼ばれない。凍結した旧台帳 `youtube-schedule.json` を読む。旧 Shorts の正本はコンテンツ台帳 `content/registry`（kind `legacy-short`）で、旧台帳とこのスクリプトは P7 で消す） |
+| 旧 Shorts の台帳 | 旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）。2026-10-09 に旧台帳 `youtube-schedule.json` と旧スクリプト（post-from-schedule 等）を消した |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
-| 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
 | 投稿済み動画へのサムネイル変更 | 単一IDは `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs`（ともに既定dry-run、詳細はSNS画像ポリシー §0.1） |
 
 ## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
@@ -138,13 +137,14 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 
 ## 7. 偽成功検証（予約アップロード）
 
-- `post-from-schedule.cjs` のログ「公開設定: unlisted」は**表示バグ**（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
+- 旧投稿スクリプトのログ「公開設定: unlisted」は表示バグだった（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
 - **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに縦/正方形・`durationSeconds ≤ 180`を確認する。related videoはData APIで設定・取得できないため、Studioでの保存確認と公開後の運用照合を組み合わせる。
 - これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。
 - サムネイル設定（`thumbnails.set`）の確認: `videos.list(part=snippet,status,contentDetails)` で前後の動画情報を照合し、Studio/公開画面で実画像を確認する。`thumbnails.list` というAPIは存在しない。`snippet.thumbnails` のURLが存在するだけでは旧画像との区別が付かないため、API受理と実表示確認を分ける。Shortsのカスタム画像編集は段階的提供のためアカウントの編集欄を実査する。
 
 ## 改訂履歴
 
+- v5（2026-10-09）: 旧台帳 `youtube-schedule.json` と旧スクリプト（build-schedule・post-from-schedule・generate-thumbnails・validate-schedule・sync-descriptions・verify-yt-status）を消した。旧 Shorts は台帳の kind `legacy-short`。
 - v4（2026-09-05）: 動画パック112件からのShorts224本を追加。字幕必須、36字タイトル、著者主体/AI制作補助表記、日次private upload、Studio関連動画設定後のAPI予約を明文化。legacy187本はretiredのまま。
 
 - v3（2026-08-21）: 現行YouTube仕様へ同期。縦/正方形Shortsは最長3分、外部URLは非クリック、関連動画はクリック可。30-60秒はプラットフォーム条件でなくプロジェクト推奨尺へ変更。cron廃止・手動dispatchも反映。

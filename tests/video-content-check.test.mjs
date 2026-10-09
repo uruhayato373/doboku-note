@@ -23,6 +23,9 @@ const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FIXTURES = join(REPO_ROOT, 'tests', 'fixtures', 'video-content');
 const config = loadConfig(REPO_ROOT);
 
+/** fixture が持つ動画パックの派生物（台帳から作る形）。台帳の代わりに checkAll へ渡す */
+const stateOf = (root) => JSON.parse(readFileSync(join(root, '.claude', 'state', 'video-content-status.json'), 'utf8'));
+
 const codesOf = (result) =>
   new Set(result.issues.filter((i) => i.severity === 'FAIL').map((i) => i.code));
 
@@ -35,7 +38,7 @@ test('実リポジトリの config が parse でき、契約キーを持つ', ()
 });
 
 test('valid fixture: FAIL 0 件・検査対象数が実検査数と一致', () => {
-  const r = checkAll(join(FIXTURES, 'valid'), { config });
+  const r = checkAll(join(FIXTURES, 'valid'), { config, state: stateOf(join(FIXTURES, 'valid')) });
   assert.equal(r.notStarted, false);
   assert.equal(r.packCount, 1);
   assert.equal(r.checkedCount, 1);
@@ -45,7 +48,7 @@ test('valid fixture: FAIL 0 件・検査対象数が実検査数と一致', () =
 });
 
 test('invalid fixture: 各違反コードが検出される', () => {
-  const r = checkAll(join(FIXTURES, 'invalid'), { config });
+  const r = checkAll(join(FIXTURES, 'invalid'), { config, state: stateOf(join(FIXTURES, 'invalid')) });
   assert.equal(r.packCount, 4);
   // broken-json は parse 不能なので checked は 3
   assert.equal(r.checkedCount, 3);
@@ -114,16 +117,10 @@ test('packs root も state も無い → notStarted（Phase 1 未着手を明示
   }
 });
 
-test('state の parse 失敗は FAIL（status 取得失敗を PASS にしない）', () => {
-  const root = mkdtempSync(join(tmpdir(), 'vc-badstate-'));
-  try {
-    cpSync(join(FIXTURES, 'valid'), root, { recursive: true });
-    writeFileSync(join(root, '.claude', 'state', 'video-content-status.json'), '{ broken');
-    const r = checkAll(root, { config });
-    assert.ok(codesOf(r).has('T01'));
-  } finally {
-    rmSync(root, { recursive: true, force: true });
-  }
+test('state の schemaVersion 違いは FAIL（T01）', () => {
+  const state = { ...stateOf(join(FIXTURES, 'valid')), schemaVersion: 99 };
+  const r = checkAll(join(FIXTURES, 'valid'), { config, state });
+  assert.ok(codesOf(r).has('T01'));
 });
 
 test('総まとめ: 再組み立てと一致すれば K 系なし、ずれは K02、未承認の元パックは K01', () => {
@@ -131,10 +128,8 @@ test('総まとめ: 再組み立てと一致すれば K 系なし、ずれは K0
   try {
     cpSync(join(FIXTURES, 'valid'), root, { recursive: true });
     const examDir = join(root, 'content', 'sns', 'video-packs', 'civil-construction-1');
-    const statePath = join(root, '.claude', 'state', 'video-content-status.json');
-    const state = JSON.parse(readFileSync(statePath, 'utf8'));
+    const state = stateOf(root);
     state.packs['demo-keiken-overview'].derivatives.longform = { status: 'approved', approvedBy: 'user', approvedAt: '2026-10-08T00:00:00.000Z' };
-    writeFileSync(statePath, JSON.stringify(state));
     const dir = join(examDir, 'demo-matome');
     mkdirSync(dir);
     const manifest = JSON.parse(readFileSync(join(examDir, 'demo-keiken-overview', 'video-pack.json'), 'utf8'));
@@ -149,13 +144,12 @@ test('総まとめ: 再組み立てと一致すれば K 系なし、ずれは K0
     const readSource = (id) => ({ storyboard: JSON.parse(readFileSync(join(examDir, id, 'storyboard.json'), 'utf8')), longform: state.packs[id]?.derivatives?.longform });
     const built = JSON.stringify(assembleCompilation(spec, readSource).storyboard, null, 2) + '\n';
     writeFileSync(join(dir, 'storyboard.json'), built);
-    const kCodes = () => [...codesOf(checkAll(root, { config }))].filter((c) => c.startsWith('K'));
+    const kCodes = () => [...codesOf(checkAll(root, { config, state }))].filter((c) => c.startsWith('K'));
     assert.deepEqual(kCodes(), []);
     writeFileSync(join(dir, 'storyboard.json'), built.replace('総まとめです。', '総まとめだよ。'));
     assert.deepEqual(kCodes(), ['K02']);
     writeFileSync(join(dir, 'storyboard.json'), built);
     state.packs['demo-keiken-overview'].derivatives.longform = { status: 'draft' };
-    writeFileSync(statePath, JSON.stringify(state));
     assert.deepEqual(kCodes(), ['K01']);
   } finally {
     rmSync(root, { recursive: true, force: true });
@@ -201,7 +195,7 @@ test('README index の鮮度: 未掲載パック→R02・孤児行→R03', () =>
     const readmePath = join(root, 'content', 'sns', 'video-packs', 'README.md');
     // 孤児行を足し、実在パックの行を消す
     writeFileSync(readmePath, '| packId |\n|---|\n| `ghost-listed-pack` |\n');
-    const r = checkAll(root, { config });
+    const r = checkAll(root, { config, state: stateOf(root) });
     const codes = codesOf(r);
     assert.ok(codes.has('R02'), 'R02（未掲載）が出ていない');
     assert.ok(codes.has('R03'), 'R03（孤児行）が出ていない');

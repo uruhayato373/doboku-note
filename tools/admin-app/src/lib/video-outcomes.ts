@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 
 import { STAGE_LABELS } from '../../../../scripts/lib/content-lifecycle.mjs';
+import { loadRegistry } from '../../../../scripts/lib/content-registry.mjs';
 import { datasetDir } from '../../../../scripts/lib/datasets.mjs';
+import { loadVideoState } from '../../../../scripts/lib/registry-video-state.mjs';
 import {
   loadConfig as loadVideoConfig,
   loadPackSummaries,
@@ -100,16 +102,53 @@ export function derivativeLabel(key: string): string {
 }
 
 function readState(): Record<string, { derivatives?: Record<string, StateDerivative | StateDerivative[]> }> {
-  const p = repoPath('.claude', 'state', 'video-content-status.json');
-  if (!existsSync(p)) return {};
   try {
-    const j = JSON.parse(readFileSync(p, 'utf8')) as {
+    const j = loadVideoState(findRepoRoot()) as {
       packs?: Record<string, { derivatives?: Record<string, StateDerivative | StateDerivative[]> }>;
     };
     return j.packs ?? {};
   } catch {
     return {};
   }
+}
+
+interface RegistryIgRow {
+  work: string;
+  channel: string;
+  format: string;
+  variant?: string;
+  status: string;
+  approval?: { by?: string };
+  platform?: { url?: string };
+}
+
+/**
+ * 動画パック派生の Instagram リールの状態。正本は台帳（content/registry/publications/instagram）で、
+ * 動画パックの派生物（loadVideoState）には持たない。下書きは出さない（承認して以降の行だけ）。
+ * 台帳が読めないときは空を返す（0 件と区別したい呼び手は reason を見る）。
+ */
+export function igReelDerivatives(root: string): Map<string, (StateDerivative & { variant: string })[]> {
+  const out = new Map<string, (StateDerivative & { variant: string })[]>();
+  let rows: RegistryIgRow[] = [];
+  try {
+    rows = (loadRegistry(root).publications as RegistryIgRow[]).filter(
+      (p) => p.channel === 'instagram' && p.format === 'reel' && p.status !== 'draft',
+    );
+  } catch {
+    return out;
+  }
+  for (const r of rows) {
+    const list = out.get(r.work) ?? [];
+    list.push({
+      variant: r.variant ?? '',
+      status: r.status,
+      url: r.platform?.url,
+      approvedBy: r.approval?.by,
+    });
+    out.set(r.work, list);
+  }
+  for (const list of out.values()) list.sort((a, b) => a.variant.localeCompare(b.variant));
+  return out;
 }
 
 interface VerifyRecord {
@@ -148,6 +187,7 @@ export function videoOutcomes(): VideoOutcomes {
     packId: string; exam: string; slug: string; title: string; stage: string | null; cta: string | null;
   }[];
   const state = readState();
+  const igReels = igReelDerivatives(root);
 
   // ── 2) 計測 snapshot（CI 供給・未取得は 0 にしない）──
   const snap = latestSnapshot('ga4.campaign');
@@ -186,6 +226,7 @@ export function videoOutcomes(): VideoOutcomes {
   for (const p of packs) {
     const derivatives: DerivativeState[] = [];
     for (const [key, raw] of Object.entries(state[p.packId]?.derivatives ?? {})) {
+      if (key === 'instagramReel') continue; // IG リールの正本は台帳（igReelDerivatives）
       const list = Array.isArray(raw) ? raw : [raw];
       list.forEach((d, i) => {
         derivatives.push({
@@ -200,6 +241,18 @@ export function videoOutcomes(): VideoOutcomes {
         });
       });
     }
+    (igReels.get(p.packId) ?? []).forEach((d, i) => {
+      derivatives.push({
+        key: `instagramReel[${i}]`,
+        status: d.status ?? 'unknown',
+        stageLabel: null,
+        url: d.url ?? null,
+        videoId: null,
+        relatedVideoId: null,
+        approvedBy: d.approvedBy ?? null,
+        measuredAt: null,
+      });
+    });
     const hit = byCampaign.get(p.packId);
     rows.push({
       packId: p.packId,

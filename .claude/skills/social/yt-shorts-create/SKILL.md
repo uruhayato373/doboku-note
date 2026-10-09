@@ -181,12 +181,7 @@ ls content/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 ## 投稿運用（2026-06-08 更新 / 真実源 policy §5-7）
 
 - **必ずこの `shorts.mp4`（≤60 秒）をアップロードする**。IG Reels のフル `video.mp4`（≈145 秒）を直アップすると **YouTube が「通常動画」扱い**にし Shorts フィードに乗らない（実機確認）。
-- **予約投稿フロー（台帳 CI 運用）**:
-  1. `upload-shorts-to-r2.mjs` で `shorts.mp4` + `thumbnail.png` を Cloudflare R2 へアップ
-  2. `youtube-schedule.json`（台帳）に `r2Key` / `publishAt` / `status=pending` エントリを追加
-  3. GitHub Actions の日次 cron（`post-youtube-scheduled.yml`、UTC 19:00 = JST 04:00）が `post-from-schedule.cjs` を実行して自動投稿 + `thumbnails.set`
-- **カーデンス**: 1 日 3 本・JST 07:30 / 12:30 / 20:00（policy §5）。quota は約 6 本/日が上限。leadDays=4 で 4 日先まで先行アップ。
-- **重複防止**: 台帳追加前に `validate-schedule.mjs` で publishAt 重複・perDay 超過・videoId 重複を検証する。CI の pre-check にも組み込まれている。
+- **予約投稿フロー**: `upload-shorts-to-r2.mjs` で `shorts.mp4` + `thumbnail.png` を R2 へアップする。旧 Shorts は台帳（`content/registry/`・kind `legacy-short`）で、2026-10-09 に旧台帳 `youtube-schedule.json` と旧投稿スクリプトを消した。新規の公開は動画パックの経路（policy §4）。
 - **タイトル**: **`yt-shorts-title-writer`（Generator）が論点タイトルを自動生成**して既定タイトルを上書き（policy §2）。親が featured 設問文を抽出して渡す（agent は Bash 不可）。`yt-shorts-publisher-qa` が規約適合を採点。
 - **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。CI ログ「公開設定: unlisted」は表示バグで実値は private。
 
@@ -204,7 +199,7 @@ ls content/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 
 ## 改訂履歴
 
-- v4（2026-06-08）: 投稿運用を `upload.js`/`post.js` → 台帳 CI 運用（`upload-shorts-to-r2.mjs` + `post-from-schedule.cjs` + `post-youtube-scheduled.yml`）に更新。重複防止（`validate-schedule.mjs`）・サムネイル設定（`thumbnails.set`）・関連スクリプト（`generate-thumbnails.mjs`, `set-thumbnail-uploaded.mjs`）を追加。`media-uploader.mjs` 言及を削除。
+- v4（2026-06-08）: 投稿運用を `upload.js`/`post.js` → 台帳 CI 運用（`upload-shorts-to-r2.mjs` + `post-youtube-scheduled.yml`。post-from-schedule は 2026-10-09 に削除）に更新。サムネイル設定（`thumbnails.set`）・関連スクリプト（`set-thumbnail-uploaded.mjs`）を追加。`media-uploader.mjs` 言及を削除。
 - v3（2026-06-06）: `per-problem-shorts.mjs`（1パック4問の全問展開）新設。YT 専用描画 `ytMode`（`quiz-slides.mjs` / `exam-cover-ig.mjs`）で IG 固有チャーム（N/10・PROBLEM 1/4・スワイプ CTA）を抑止し、IG mp4 流用をやめて TTS wav 再利用で再合成する設計に。カバーは年度共通汎用ナレ＋問別論点表示。
 - v2（2026-05-28）: 戦略 v7 化に伴い `--slug` 廃止 → `--from-reels` 一本化。IG Reels mp4 から ffmpeg concat で派生する設計に再構築。
 - v1（2026-05-02）: 初版。MDX 直結で TTS + 字幕焼き込み（v6 まで）。

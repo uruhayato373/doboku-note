@@ -3,6 +3,108 @@
   "exam": "pe-first-stage",
   "works": [
     {
+      "id": "pe-first-stage-calculation-diagrams",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/100-pe-first-stage-calculation-diagrams",
+      "legacyKey": "100-pe-first-stage-calculation-diagrams"
+    },
+    {
+      "id": "pe-first-stage10",
+      "kind": "x-thread",
+      "definition": "content/sns/x/draft/095-pe-first-stage-2026-10",
+      "legacyKey": "095-pe-first-stage-2026-10"
+    },
+    {
+      "id": "pe1-kw-balanced-bridge",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/keyword-packs/balanced-bridge"
+    },
+    {
+      "id": "pe1-kw-newton-method",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/keyword-packs/newton-method"
+    },
+    {
+      "id": "pe1-kw-vector-projection",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/keyword-packs/vector-projection"
+    },
+    {
+      "id": "pe1-r07-p01",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01"
+    },
+    {
+      "id": "pe1-r07-p02",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02"
+    },
+    {
+      "id": "pe1-r07-p03",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03"
+    },
+    {
+      "id": "pe1-r07-p04",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04"
+    },
+    {
+      "id": "pe1-r07-p05",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05"
+    },
+    {
+      "id": "pe1-r07-p06",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06"
+    },
+    {
+      "id": "pe1-r07-p07",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07"
+    },
+    {
+      "id": "pe1-r07-p08",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08"
+    },
+    {
+      "id": "pe1-r07-p09",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09"
+    },
+    {
+      "id": "pe1-r07-p10",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10"
+    },
+    {
+      "id": "pe1-r07-p11",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11"
+    },
+    {
+      "id": "pe1-r07-p12",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12"
+    },
+    {
+      "id": "pe1-r07-p13",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13"
+    },
+    {
+      "id": "pe1-r07-p14",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14"
+    },
+    {
+      "id": "pe1-r07-p15",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15"
+    },
+    {
       "id": "pe1-zentaizou",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/pe-first-stage/pe1-zentaizou",

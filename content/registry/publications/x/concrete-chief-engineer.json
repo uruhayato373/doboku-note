@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "channel": "x",
+  "exam": "concrete-chief-engineer",
+  "publications": [
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-boost/x.post.t01",
+      "work": "concrete-chief-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/086-concrete-chief-2026-08-boost#1",
+      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/1",
+      "publishAt": "2026-08-19T12:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2089915255186936108",
+        "url": "https://x.com/doboku373/status/2089915255186936108",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-boost/x.post.t02",
+      "work": "concrete-chief-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/086-concrete-chief-2026-08-boost#2",
+      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/2",
+      "publishAt": "2026-08-21T21:00:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2090770907044225143",
+        "url": "https://x.com/doboku373/status/2090770907044225143",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-boost/x.post.t03",
+      "work": "concrete-chief-08-boost",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/086-concrete-chief-2026-08-boost#3",
+      "copy": "content/sns/x/draft/086-concrete-chief-2026-08-boost/status.json#tweets/3",
+      "publishAt": "2026-08-22T12:15:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2091001160408649776",
+        "url": "https://x.com/doboku373/status/2091001160408649776",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-late/x.post.t01",
+      "work": "concrete-chief-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t01",
+      "legacyKey": "draft/089-concrete-chief-2026-08-late#1",
+      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/1",
+      "publishAt": "2026-08-23T12:35:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2091368581598413242",
+        "url": "https://x.com/doboku373/status/2091368581598413242",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-late/x.post.t02",
+      "work": "concrete-chief-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t02",
+      "legacyKey": "draft/089-concrete-chief-2026-08-late#2",
+      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/2",
+      "publishAt": "2026-08-27T07:30:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2092741378937885051",
+        "url": "https://x.com/doboku373/status/2092741378937885051",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-late/x.post.t03",
+      "work": "concrete-chief-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t03",
+      "legacyKey": "draft/089-concrete-chief-2026-08-late#3",
+      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/3",
+      "publishAt": "2026-08-27T12:25:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2092815616637857833",
+        "url": "https://x.com/doboku373/status/2092815616637857833",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-late/x.post.t04",
+      "work": "concrete-chief-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t04",
+      "legacyKey": "draft/089-concrete-chief-2026-08-late#4",
+      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/4",
+      "publishAt": "2026-08-31T07:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2094188412110880926",
+        "url": "https://x.com/doboku373/status/2094188412110880926",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#text"
+        }
+      }
+    },
+    {
+      "id": "concrete-chief-engineer/concrete-chief-08-late/x.post.t05",
+      "work": "concrete-chief-08-late",
+      "account": "x:main",
+      "format": "post",
+      "variant": "t05",
+      "legacyKey": "draft/089-concrete-chief-2026-08-late#5",
+      "copy": "content/sns/x/draft/089-concrete-chief-2026-08-late/status.json#tweets/5",
+      "publishAt": "2026-08-31T12:20:00.000+09:00",
+      "status": "published",
+      "approval": {
+        "by": "user",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "platform": {
+        "id": "2094263909448319175",
+        "url": "https://x.com/doboku373/status/2094263909448319175",
+        "privacy": "public",
+        "evidence": {
+          "kind": "own-posts",
+          "ref": "data/x/own-posts/（3 ファイル）#head40"
+        }
+      }
+    }
+  ]
+}
