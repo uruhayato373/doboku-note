@@ -2368,6 +2368,23 @@
       "commit": "904de3d73da4",
       "verification": "check-reference-sources --deep: 逐語一致 0 件（サイト全体・commercial-book 記事×原本 532 組）。施工計画の基礎 39→0・経験記述の書き方 9→0・品質管理の過去問 1→0。textlint・keiken-answer-split 通過",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0619",
+      "at": "2026-10-10",
+      "task": "1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "過去問の転記の書き換えは原本 PDF との照合（feedback_exam_pdf_cross_reference）で拾う。H26 問題A は原本が残っておらず機械ゲートにできない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b0367b1e239c",
+      "verification": "公式の問題 A は掲載終了・Wayback にも qa.pdf と answer.html が無い。第三者の転記（ads3d.com H26 問題A No54）で原問の選択肢1は『国家資格者又は2年以上の指導監督的な実務経験』で正答1と整合。サイトは選択肢1が正しい文（1級又は大臣認定）、選択肢4が後年の4,000万円に書き換わっていたので原問に戻し、解説を建設業法第15条第2号ただし書・第26条と2025年2月施行の5,000万円で直した",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
