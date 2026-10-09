@@ -79,14 +79,14 @@
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
 
-### [DN-0591] 書籍 27 冊の網羅を判定し、棚ごとに優先順でサイトへ展開する（進み具合は state.book-coverage と --status）
+### [DN-0591] 書籍の網羅の残り: 総監の論文の本（pe-cem-essay-guide）を文字起こしして判定・展開し、コンクリート 5 冊を判定し直す
 タグ: [領域:教材] [時期:2026-10] [種類:制作] [起票:2026-10-08]
 
-2026-10-08 開始。進み具合の正本は .claude/state/book-coverage.json（台帳 state.book-coverage・書籍ごとの候補表・判定の件数・展開した記事とコミット）で、一覧は npm run audit-reference-book-coverage -- --status（PR #927 のマージまでは PR の作業ツリーから）。見出しを含む候補表・判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/（drive-vault-sync --group reference-book-coverage）。判定の手順は .claude/knowledge/reference/book-coverage-judging.md、展開は content-taxonomy.md §7。
-段取り: (1) 判定 21 冊を workflow で一括（コンクリート 4 冊＋建設材料 1 冊は判定・展開済み）。(2) 展開は棚ごとに重点資格の順: 1級・2級土木（5 冊・DN-0580 の逐語一致 80 件も同じ記事群で直す）→ 技術士（6 冊）→ 土木実務（3 冊）→ 防災・業界・DX・AI（8 冊・判定を見て展開するか決める）。同じ記事に効く複数の本の計画は、棚の中で記事ごとにまとめてから 1 記事 1 回で展開する。(3) 最後にコンクリート 5 冊を --rejudge で判定し直し、網羅を確かめる。
-前提: pe-cem-essay-guide（総監の論文の本・18 ページ）は文字起こしが未着手（book-manifest で pending 18）。判定の前に pdf-to-mdx --scanned で文字起こしする。
-完了条件: --status で全 27 冊が「判定済み（展開不要）」か「展開済み」・展開した記事は sources 宣言と check-reference-sources:deep の逐語一致 0
-
+2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2。記事の追記・新規は約 200 本、写真 52 枚を追加）。進み具合の正本は `.claude/state/book-coverage.json`、一覧は `npm run audit-reference-book-coverage -- --status`（PR #927 のマージまでは PR の作業ツリーから）。手順は `.claude/knowledge/reference/book-coverage-judging.md`（判定）・`book-coverage-expansion.md`（展開・写真）。Mac の道具は `.tmp/book-coverage/`（commit-article.sh・tools/ の workflow）。
+残り:
+1. pe-cem-essay-guide（総監の論文の本・18 ページ）を pdf-to-mdx --scanned で文字起こしし、候補表 → 判定 → 展開。論文の答案例は note 商品の領域なので、展開は書き方の一般論だけになる見込み。
+2. コンクリート 5 冊を `--rejudge` で判定し直し、網羅を確かめる（展開前の判定のままなので）。
+完了条件: `--status` で 27 冊すべてが「展開済み」か「判定済み（展開不要）」。
 
 ### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
