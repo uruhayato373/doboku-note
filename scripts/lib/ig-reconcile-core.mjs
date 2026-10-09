@@ -157,7 +157,12 @@ export function buildSnapshot({ account, cats, liveData, source, now = new Date(
   return {
     account, at: now.toISOString(),
     counts: Object.fromEntries(Object.entries(cats).map(([k, v]) => [k, v.length])),
-    live: { posts: liveData.shortcodes.length, scheduledByDay: liveData.scheduled },
+    live: {
+      posts: liveData.shortcodes.length, scheduledByDay: liveData.scheduled,
+      // 公開中の投稿の一覧（shortcode・キャプション先頭・型）。コンテンツ台帳の照合（registry-ig-state.mjs）が
+      // 動画パックのリール（snapshot の cats が見ないフォルダ）を実際の投稿へ結ぶのに使う
+      list: (liveData.live ?? []).map((p) => ({ shortcode: p.shortcode, head: p.head, type: p.type })),
+    },
     cats,
     source,
   };

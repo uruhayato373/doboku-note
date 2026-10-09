@@ -207,14 +207,14 @@ test("buildSnapshot: account/at/counts/live/cats/source を組み立てる", () 
   const snap = buildSnapshot({
     account: "dobokunotecom",
     cats,
-    liveData: { shortcodes: ["a", "b", "c"], scheduled: { "1日": ["09:00"] } },
+    liveData: { shortcodes: ["a", "b", "c"], scheduled: { "1日": ["09:00"] }, live: [{ shortcode: "a", head: "見出し", type: "reel", extra: 1 }] },
     source: "graph-api",
     now,
   });
   assert.equal(snap.account, "dobokunotecom");
   assert.equal(snap.at, now.toISOString());
   assert.deepEqual(snap.counts, { published_recorded: 2, published_UNrecorded: 0 });
-  assert.deepEqual(snap.live, { posts: 3, scheduledByDay: { "1日": ["09:00"] } });
+  assert.deepEqual(snap.live, { posts: 3, scheduledByDay: { "1日": ["09:00"] }, list: [{ shortcode: "a", head: "見出し", type: "reel" }] });
   assert.equal(snap.cats, cats);
   assert.equal(snap.source, "graph-api");
 });

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "exam": "account",
+  "works": [
+    {
+      "id": "hl-announcement",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/05_announcement"
+    },
+    {
+      "id": "hl-carousel-index",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/02_carousel-index"
+    },
+    {
+      "id": "hl-civil1",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/07_civil-1"
+    },
+    {
+      "id": "hl-civil2",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/08_civil-2"
+    },
+    {
+      "id": "hl-faq",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/04_faq"
+    },
+    {
+      "id": "hl-intro",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/01_intro"
+    },
+    {
+      "id": "hl-materials",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/06_materials"
+    },
+    {
+      "id": "hl-reels-roundup",
+      "kind": "ig-pack",
+      "definition": "content/sns/instagram/highlights/03_reels-roundup"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "pe-construction",
+  "publications": [
+    {
+      "id": "pe-construction/pec-hissu-kata/instagram.reel",
+      "work": "pec-hissu-kata",
+      "account": "instagram:main",
+      "format": "reel",
+      "legacyKey": "pe-construction/2026-06-10-hissu-kata",
+      "copy": "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/caption.txt",
+      "status": "draft"
+    },
+    {
+      "id": "pe-construction/pec-r08-prediction/instagram.carousel",
+      "work": "pec-r08-prediction",
+      "account": "instagram:main",
+      "format": "carousel",
+      "legacyKey": "pe-construction/2026-06-10-r08-prediction",
+      "copy": "content/sns/instagram/pe-construction/2026-06-10-r08-prediction/caption.txt",
+      "status": "draft"
+    }
+  ]
+}

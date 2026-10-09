@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "channel": "instagram",
+  "exam": "account",
+  "publications": [
+    {
+      "id": "account/hl-announcement/instagram.highlight",
+      "work": "hl-announcement",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/05_announcement",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-carousel-index/instagram.highlight",
+      "work": "hl-carousel-index",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/02_carousel-index",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-civil1/instagram.highlight",
+      "work": "hl-civil1",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/07_civil-1",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-civil2/instagram.highlight",
+      "work": "hl-civil2",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/08_civil-2",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-faq/instagram.highlight",
+      "work": "hl-faq",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/04_faq",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-intro/instagram.highlight",
+      "work": "hl-intro",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/01_intro",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-materials/instagram.highlight",
+      "work": "hl-materials",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/06_materials",
+      "copy": "content/sns/instagram/highlights/06_materials/caption.txt",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    },
+    {
+      "id": "account/hl-reels-roundup/instagram.highlight",
+      "work": "hl-reels-roundup",
+      "account": "instagram:main",
+      "format": "highlight",
+      "legacyKey": "highlights/03_reels-roundup",
+      "status": "stopped",
+      "stopReason": "unverified-legacy",
+      "reason": "ハイライト・ストーリーは公開の記録が無い（照合の対象外）"
+    }
+  ]
+}
