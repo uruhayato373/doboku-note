@@ -770,6 +770,33 @@
       "reason": "桁下面の隅でかぶりが大きく剥落し、主鉄筋とスターラップが露出して激しく腐食している。配筋の配置が実在の RC 桁として成り立ち、解説の IV と一致する",
       "reviewedAt": "2026-10-07T12:06:51.905Z"
     },
+    "concrete-diagnostician/textbook-assessment/img/photo-deck-slab-grid-cracks": {
+      "sha": "afdc582a93153dcd",
+      "promptSha": "a40ff19cea59a319",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:26:27.419Z",
+      "verdict": "ok",
+      "reason": "構造: 両側に鋼桁のフランジ・補剛材が見え、その間のRC床版下面になっている。互いに直交する方向のひび割れが格子状に走り、ひび割れ沿いに白い遊離石灰と暗い湿潤のにじみが出ており、本文・alt の特徴に一致。文字・足場・塗装などの破綻は無し。",
+      "reviewedAt": "2026-10-10T15:29:21.761Z"
+    },
+    "concrete-diagnostician/textbook-assessment/img/photo-frost-scaling-popout": {
+      "sha": "8f765df692bbe89b",
+      "promptSha": "90fbe6290f7728e7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:25:13.598Z",
+      "verdict": "ok",
+      "reason": "種別・本文: 表面モルタルが不規則にはく離して粗骨材が露出するスケーリングが広がり、円形の浅い欠損の底に黒い骨材片が残るポップアウトが3か所見える。alt と本文（スケーリングとポップアウト）に一致。文字・ロゴ・崩れた部品は無し。",
+      "reviewedAt": "2026-10-10T15:29:21.761Z"
+    },
+    "concrete-diagnostician/textbook-assessment/img/photo-leaching-efflorescence-icicle": {
+      "sha": "468a7b39153f6658",
+      "promptSha": "09c8514a29371a80",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:27:29.299Z",
+      "verdict": "ok",
+      "reason": "本文: 縦ひび割れ沿いの湿った壁面に白い析出物が堆積し、下縁から長さの異なる白いつらら状析出物が複数垂れ、先端に水滴が付いている。漏水部が暗く離れるほど乾いた色になっており、エフロレッセンスとつららの記述に一致。文字や崩れた部位は無し。",
+      "reviewedAt": "2026-10-10T15:29:21.761Z"
+    },
     "concrete-diagnostician/textbook-deterioration/img/figure-03": {
       "sha": "d0054a4348ff21b4",
       "verdict": "ok",
@@ -817,6 +844,12 @@
       "verdict": "ok",
       "reason": "切削・研掃後の床版上面として、粗骨材が点在して露出した一様に粗い灰色の面、切削目の筋、地覆と高欄の支柱、車線を横切る目地線、遠方のコーンが見え、本文の床版上面増厚の下地と矛盾せず、読める文字や溶けた部品も無い",
       "reviewedAt": "2026-10-07T23:16:54.059Z"
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-deck-underside-cfrp": {
+      "sha": "a1abc0c0756a66e8",
+      "promptSha": "896c9963e68fdc89",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:29:02.167Z"
     },
     "concrete-diagnostician/textbook-repair/img/photo-steel-jacket-pier-base": {
       "sha": "750de481137c71eb",

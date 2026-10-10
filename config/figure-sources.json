@@ -2102,6 +2102,21 @@
       "kind": "ai-generated",
       "tool": "ChatGPT"
     },
+    "concrete-diagnostician/textbook-assessment/img/photo-deck-slab-grid-cracks": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Documentary photo looking straight up at the underside of a reinforced concrete road bridge deck slab panel, seen between two parallel steel I-girder flanges at the panel edges. The gray concrete soffit shows a clear grid pattern of fine cracks running in two perpendicular directions, forming roughly square cells about 20 to 30 cm wide. Along many of the cracks there is whitish lime seepage and dark damp water staining bleeding out of the cracks (efflorescence and moisture marks). Surface is otherwise dry, flat, slightly rough concrete. Shallow depth of field, even diffuse lighting, no people, no text, no markings, no paint, no scaffolding."
+    },
+    "concrete-diagnostician/textbook-assessment/img/photo-frost-scaling-popout": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up documentary photo of a weathered gray concrete wall surface damaged by freeze-thaw. Across the surface the thin skin of cement mortar has flaked off in irregular scale-like patches a few millimetres deep, exposing rough coarse aggregate underneath (scaling). In the same area there are several small popouts: round, shallow conical craters about 3 to 5 cm across with a split broken aggregate stone sitting at the bottom of each crater. Surrounding surface is intact smooth concrete with slight damp staining. Shallow depth of field, soft overcast daylight, no people, no text, no markings, no tools."
+    },
+    "concrete-diagnostician/textbook-assessment/img/photo-leaching-efflorescence-icicle": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Documentary photo of a gray concrete wall or tunnel lining surface with a vertical joint crack from which water is seeping. Along the crack and joint, white calcium carbonate efflorescence deposits have built up as crusty white patches and streaks on the damp wall surface, and from the lower edge of the deposit hang several stalactite-like white mineral icicles of varied length, dripping water at the tips. The surrounding concrete is dark and wet near the seep and drier further away. Shallow depth of field, even diffuse lighting, no people, no text, no markings, no ice, no snow."
+    },
     "concrete-diagnostician/textbook-deterioration/img/figure-03": {
       "kind": "ai-generated",
       "tool": "Codex"
@@ -2129,6 +2144,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Top surface of a reinforced concrete road bridge deck slab after the asphalt pavement has been removed and the concrete surface has been milled and shot-blasted for an overlay: a uniformly rough grey concrete surface with exposed coarse aggregate across the whole lane width, slightly dusty, with the raised concrete curb (wheel guard) and railing posts along one edge and a straight construction joint line across the lane. Traffic cones in the distance on the closed lane, no machines in the foreground. Daylight, no people, no text, no logos."
+    },
+    "concrete-diagnostician/textbook-repair/img/photo-deck-underside-cfrp": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo taken from below on a road bridge inspection walkway, looking up at the underside of a reinforced concrete deck slab between two parallel steel I-girders. The concrete slab underside between the girders is covered with a regular grid pattern of bonded carbon fiber sheets: dark black-grey strips running in two perpendicular directions (bridge-transverse strips side by side, narrower longitudinal strips crossing over them), with a smooth resin-coated glossy surface and slightly overlapping edges. The surrounding exposed concrete slab is grey with faint old hairline cracks and light efflorescence stains. Steel girder flanges visible on both sides, shallow depth of field, soft overcast light from the side, no people, no text, no logos."
     },
     "concrete-diagnostician/textbook-repair/img/photo-steel-jacket-pier-base": {
       "kind": "ai-generated",
