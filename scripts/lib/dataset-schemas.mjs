@@ -419,6 +419,20 @@ const AutoMeasurement = z
   })
   .strict();
 
+/** 意匠実験（measurementPlan.kind: affiliate-design）の自動計測の 1 行。affiliate-experiment-report.mjs が保存済みレポートから足す。前後の窓は持たない */
+const AffiliateDesignMeasurement = z
+  .object({
+    source: z.literal('auto'),
+    measuredAt: utcTime('計測時刻'),
+    sourceReport: z.string().min(1).describe('元のレポート（ref:stamp）。同じ取得を重ねて記録しないのに使う'),
+    metric: z.literal('affiliate-design'),
+    window: z.object({ startDate: jstDate('開始日'), endDate: jstDate('終了日') }).strict(),
+    variants: z.array(z.looseObject({ variant: z.string() })).describe('案ごとのイベント回数（summarizeAffiliateExperiment）'),
+    verdictHint: z.string(),
+    note: z.string().optional(),
+  })
+  .strict();
+
 /**
  * 実験の measure 仕様（running / measuring の実験に付けると CI が前後の窓で自動計測する）。任意: 前後比較できない実験（EXP-008・010 など）には付けない。
  * 仕様の語彙・範囲（metric の種類・scope の組み合わせ・preDays の下限）の検査は experiment-measure.mjs の specErrors が持つ
@@ -481,7 +495,7 @@ const Experiment = z
     }
     (e.measurements ?? []).forEach((m, i) => {
       if (m.source !== 'auto') return;
-      const r = AutoMeasurement.safeParse(m);
+      const r = (m.metric === 'affiliate-design' ? AffiliateDesignMeasurement : AutoMeasurement).safeParse(m);
       if (!r.success) for (const issue of r.error.issues) flag(ctx, ['measurements', i, ...issue.path], issue.message);
     });
   });
