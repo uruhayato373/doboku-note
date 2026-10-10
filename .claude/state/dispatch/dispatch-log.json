@@ -2659,6 +2659,36 @@
       "commit": "e8296ddfd1a9",
       "verification": "原因は vault に直接置いたファイルの Drive 台帳への未登録（マウントの取り寄せがタイムアウト）。drive-vault-sync --from-vault --cloud で 2,635 件を登録し、check-past-exam-inventory FAIL 2,112→0・WARN 0",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0659",
+      "at": "2026-10-11",
+      "task": "書籍の網羅の --status が、判定し直す前の展開コミットを「展開済み」に数える",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/book-coverage-commits.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d4eff652a30",
+      "verification": "node --test tests/book-coverage-commits.test.mjs（2 件 pass）・--status で concrete-basics-5th が展開待ち 9 記事→展開後に展開済み",
+      "note": "判定日を付けたときの HEAD（judgedHead）より後の Book-Coverage コミットだけを数える（PR #970・c99448103）"
+    },
+    {
+      "id": "DN-0591",
+      "at": "2026-10-11",
+      "task": "コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d4eff652a30",
+      "verification": "audit-reference-book-coverage --status で 5 冊とも展開済み（範囲内 26 冊が展開済み 24・展開不要 2）・check-reference-sources --deep 逐語一致 0・develop の Pre-merge check success（afa1c8bb6）",
+      "note": "コンクリート 5 冊の追記 122 件を 23 記事へ展開（新規 0・写真 13 枚）。診断士の記述式の形式（問題A 廃止・3 時間）を 10 記事で直した（a05dabaa3）。note の有料記事は DN-0661"
     }
   ]
 }

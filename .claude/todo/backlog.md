@@ -126,14 +126,6 @@
 3. 公開画面の概要欄でクレジットが出ていることを数本で確かめる
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
-### [DN-0591] コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する
-タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08] [進行中]
-
-2026-10-10 に、コンクリート 5 冊（concrete-chief-textbook-2022・2024・concrete-diagnostician-textbook・concrete-basics-5th・construction-materials-basics）の候補表を `--rejudge` で作り直し、展開後のサイトに対して意味判定をやり直した（936 節。`--check` 違反 0・判定は Drive vault に同期済み・要約 `.claude/state/book-coverage.json` の判定日は 2026-10-10）。新しい gap は 9 節（診断士 3・基本 4・建設材料 2）、partial は 154 節で、追記の計画は 123 件（診断士 71・基本 32・建設材料 11・主任技士 2022 7・2024 1）。
-診断士の判定で、サイトの guide-essay・guide-trends の記述式の説明（問題A・問題B・3.5時間）が本の 2020 年版（2019 年度から問題B のみ・3.0 時間）と食い違うと指摘された。最新の試験要項（JCI）で確かめてから直す。
-総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断・`--status` では未着手のまま残る）。
-**やること**: リポジトリの道具（`npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` → `audit-reference-book-coverage --briefs --shelf コンクリート` と `--source-id construction-materials-basics` → Workflow `book-coverage-expand`・`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。手順は book-coverage-expansion.md §0）で展開する。`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点は道具を直す。
-**完了条件**: `--status` で 5 冊が「展開済み」になり、診断士の記述式の説明を一次資料で確かめて直した。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -397,12 +389,6 @@
 
 **関門（月次レビュー 2026-09・2026-10-10）**: 2級二次（10/25）前の 10/23 目安の制作なので 🟢 から 🟡 に上げた（運営者判断）。
 
-### [DN-0659] 書籍の網羅の --status が、判定し直す前の展開コミットを「展開済み」に数える
-タグ: [領域:教材] [時期:2026-11] [種類:不具合] [起票:2026-10-10] [進行中]
-
-**起点**: 2026-10-10、`audit-reference-book-coverage --status` で concrete-basics-5th が「展開中 5/9 記事」と出た。数えている 5 記事のコミット（b3e4ca6be・7027b4e9e・89252f297・c1b2382ab・7c5c26bc3）はすべて 2026-10-08 のもので、同じ日（10-10）の判定のし直し（1fa8ff29e・DN-0591）より前。新しい計画の追記はまだ 1 件も入っていないのに進んだように見える。原因は `scripts/audit-reference-book-coverage.mjs` の `writeSummary` が、前の行の `expansions[].commits` を `kept` として引き継ぎ、`commitsOf` も判定日（`judgedAt`）より後のコミットに絞っていないこと。このままだと DN-0591 の完了条件（`--status` で 5 冊が「展開済み」）が、展開し直していない記事を含んだまま通る。
-**やること**: 展開済みと数えるコミットを、その書籍の判定日以降のもの（`--rejudge` で判定し直したときは古いコミットを捨てる）に限る。回帰テストを足す。直したあと `--summary` で要約を作り直し、concrete-basics-5th が「展開待ち 9 記事」相当になることを確かめる。
-**完了条件**: 判定日より前の `Book-Coverage:` コミットだけの記事が `--status` で未展開に数えられ、テストが通る。
 
 ### [DN-0657] 総監の港湾・空港ペルソナを1年度A・Bで試作し、新5候補の拡充順を決める
 タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-10]
