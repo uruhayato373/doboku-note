@@ -975,6 +975,7 @@
         "additions": 32
       },
       "judgedAt": "2026-10-10",
+      "judgedHead": "1fa8ff29e",
       "expansions": [
         {
           "article": "concrete-engineer/textbook-construction",
@@ -986,9 +987,7 @@
         },
         {
           "article": "concrete-engineer/textbook-materials",
-          "commits": [
-            "b3e4ca6be"
-          ]
+          "commits": []
         },
         {
           "article": "concrete-chief-engineer/textbook-mix-design",
@@ -996,22 +995,15 @@
         },
         {
           "article": "concrete-engineer/textbook-production-qc",
-          "commits": [
-            "b3e4ca6be"
-          ]
+          "commits": []
         },
         {
           "article": "concrete-chief-engineer/textbook-construction",
-          "commits": [
-            "c1b2382ab",
-            "7c5c26bc3"
-          ]
+          "commits": []
         },
         {
           "article": "concrete-chief-engineer/textbook-durability",
-          "commits": [
-            "7027b4e9e"
-          ]
+          "commits": []
         },
         {
           "article": "concrete-chief-engineer/textbook-properties",
@@ -1019,9 +1011,7 @@
         },
         {
           "article": "concrete-chief-engineer/textbook-production-qc",
-          "commits": [
-            "89252f297"
-          ]
+          "commits": []
         }
       ]
     },
@@ -1044,6 +1034,7 @@
         "additions": 7
       },
       "judgedAt": "2026-10-10",
+      "judgedHead": "1fa8ff29e",
       "expansions": [
         {
           "article": "concrete-chief-engineer/textbook-mix-design",
@@ -1082,6 +1073,7 @@
         "additions": 1
       },
       "judgedAt": "2026-10-10",
+      "judgedHead": "1fa8ff29e",
       "expansions": [
         {
           "article": "concrete-chief-engineer/textbook-materials",
@@ -1108,6 +1100,7 @@
         "additions": 71
       },
       "judgedAt": "2026-10-10",
+      "judgedHead": "1fa8ff29e",
       "expansions": [
         {
           "article": "concrete-diagnostician/guide-overview",
@@ -1596,6 +1589,7 @@
         "additions": 11
       },
       "judgedAt": "2026-10-10",
+      "judgedHead": "1fa8ff29e",
       "expansions": [
         {
           "article": "civil-practice/material-selection-receiving",
