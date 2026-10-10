@@ -355,6 +355,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0656] Drive 台帳（drive-manifest.json）にロックが無く、drive-vault-sync を 2 本同時に回すと互いの登録を消し合う
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
+
+**起点**: 2026-10-10、過去問 PDF の Drive 台帳への登録（--from-vault・資格ごとのループ）と、kindle-dist ほかの未登録分の写し（--path・ファイルごと）を同時に走らせたところ、両方が drive-manifest.json を読み込んでから checkpoint で丸ごと書き戻す作りのため、後から書いた側が先の側の登録を消しうると気づいて片方を止めた。asset-offload の manifest は「複数書込みはロックで排他する」（business-review.md）だが、Drive 側には無い。
+
+**やること**: scripts/lib/drive-vault.mjs の writeDriveManifestAtomic で、書く直前に台帳を読み直して自分の変更だけを重ねる（または lock ファイルで排他し、取れなければ待つ）。tests/ に「2 つの書き手が別々の行を足しても両方残る」回帰テストを足す。
+
+**完了条件**: 2 本の drive-vault-sync を同時に --commit しても両方の行が台帳に残ることをテストで確かめ、npm test で通る。
+
+
 
 
 ### [DN-0654] pre-commit の check-relative-links が、削除したファイルを指す他の文書のリンクを見ていない
