@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="高分子の応力-ひずみ曲線を、初期の傾きと破断までの伸びで四つに分けた図。右下の型ほど温度が高くゆっくり引いた状態に近い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 12px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { fill: none; stroke: #555; stroke-width: 1.2; }
+      .c { fill: none; stroke: #2e6da4; stroke-width: 2.5; stroke-linejoin: round; }
+      .x { fill: none; stroke: #b22234; stroke-width: 2; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <g class="box">
+    <rect x="20" y="16" width="170" height="200" rx="6" />
+    <rect x="210" y="16" width="170" height="200" rx="6" />
+    <rect x="20" y="226" width="170" height="200" rx="6" />
+    <rect x="210" y="226" width="170" height="200" rx="6" />
+  </g>
+  <g class="axis">
+    <path d="M36,152 V50 M36,152 H176" />
+    <path d="M226,152 V50 M226,152 H366" />
+    <path d="M36,362 V260 M36,362 H176" />
+    <path d="M226,362 V260 M226,362 H366" />
+  </g>
+  <g class="c">
+    <path d="M36,152 L70,52" />
+    <path d="M226,152 L242,72 L252,80 L330,82 L348,62" />
+    <path d="M36,362 L84,332" />
+    <path d="M226,362 C282,350 322,334 346,272" />
+  </g>
+  <g class="x">
+    <path d="M66,48 L74,56 M74,48 L66,56" />
+    <path d="M344,58 L352,66 M352,58 L344,66" />
+    <path d="M80,328 L88,336 M88,328 L80,336" />
+    <path d="M342,268 L350,276 M350,268 L342,276" />
+  </g>
+  <text x="30" y="36" class="h">硬い・伸びない</text>
+  <text x="220" y="36" class="h">硬い・伸びる</text>
+  <text x="30" y="246" class="h">軟らかい・伸びない</text>
+  <text x="220" y="246" class="h">軟らかい・伸びる</text>
+  <text x="30" y="180" class="s">降伏せず割れる</text>
+  <text x="30" y="198" class="s">ポリスチレン・アクリル</text>
+  <text x="220" y="180" class="s">くびれながら延伸</text>
+  <text x="220" y="198" class="s">高密度PE・ナイロン</text>
+  <text x="30" y="390" class="s">傾きも伸びも小さい</text>
+  <text x="30" y="408" class="s">代表例は少ない</text>
+  <text x="220" y="390" class="s">除荷でほぼ戻る</text>
+  <text x="220" y="408" class="s">ゴム・軟質塩化ビニル</text>
+  <text x="20" y="454">温度が高い・ゆっくり引く：右下の型へ</text>
+  <text x="20" y="476">低温・衝撃：左上の型へ</text>
+</svg>
