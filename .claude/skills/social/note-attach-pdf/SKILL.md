@@ -43,7 +43,7 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 
 1. account=dobokunote ゲート（**ページ描画遅延に強い polling**・偽 ABORT 防止）
 2. `editor.note.com/notes/{key}/edit` → 挿入位置へ caret 移動（既定＝本文末尾を JS で選択／`--anchor` 指定時は当該段落の直後・未検出は ABORT）→ Enter →「+」（aria-label「メニューを開く」）→「ファイル」→ native filechooser で PDF
-3. アップロード成功検証（埋め込み数増 or `.pdf` 出現）
+3. アップロード成功検証（埋め込み数増、または出典URLを除いたPDFファイル名の件数増）
 4. `--draft-only`: 「下書き保存」→エディタを再読込し、PDFカードが残ることを検証して終了
 5. `--commit`: 「公開に進む」→「有料エリア設定」→ **有料エリアビューの描画待ち**→ 既存境界を**非破壊検証**（試験問題/予想問題直前=between0・崩れたら中断）→「更新する」
 6. `--commit` の偽成功ガード: 公開ページを curl して**有料維持**（`購入手続き` 等）を実体確認
@@ -63,7 +63,8 @@ node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実�
 
 ## 冪等・安全弁
 
-- **冪等**: 本文に `.pdf`（添付カード）が既にあれば再添付しない。`--draft-only` は下書き保存、`--commit` は再公開のみ実行する。バッチは done-log でスキップ・**失敗で停止→再実行で再開**。
+- **冪等**: 出典URLを除いたPDFファイル名が既にあれば再添付しない。`--draft-only` は下書き保存、`--commit` は再公開のみ実行する。バッチは done-log でスキップ・**失敗で停止→再実行で再開**。
+- `--boundary-regex "<H2先頭一致>"` で記事の `paidBoundary` に合わせる（既定は「試験問題|予想問題」）。口頭教材などは固有の見出しを指定する。
 - **境界が崩れたら再公開しない**（無料漏れ防止のゲート）。
 - **ユーザー起動限定**（`disable-model-invocation`）＋サブエージェント化しない（決定的フロー＝原則5）。
 - 実績: BK-02 河川砂防・BK-03 都市計画 各18記事を添付（公開ページで有料維持＋ダウンロードカード実在を全件実査）。
