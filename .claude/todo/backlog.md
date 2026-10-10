@@ -1757,7 +1757,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 ### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は false。
+**起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は 2026-10-10 にオンにした（PR のリモートのブランチはマージで消える。ローカルのブランチ・PR を経ないブランチ・worktree は残る）。
 **やること**: `check-disk-hygiene`（または新しい `check-branch-hygiene`）に、(1) 中身が develop に入り済みのブランチ（ローカル・リモート。tree が同じか、PR のマージのコミットが develop にある）、(2) N 日以上動いていない未マージのブランチ、(3) 未コミットの変更を持ったまま N 日以上動いていない worktree、を出す。週次レビューで読む（または SessionStart で件数だけ出す）。
 **完了条件**: 3 種類それぞれをテストの見本で検出し、squash でマージ済みのブランチを「未マージ」と誤って挙げない。
 
