@@ -699,13 +699,19 @@
       "sha": "d81d272d5cd3145f",
       "promptSha": "f2750286156b88c7",
       "tool": "Codex",
-      "generatedAt": "2026-10-10T15:20:21.972Z"
+      "generatedAt": "2026-10-10T15:20:21.972Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 長い木柄の先に金具で平らな木板を取り付けた押え板が、打設直後の床スラブ表面に平置きされ、作業員が片手で柄を持って加圧している。柄と板の接合部、ゴム長靴、ヘルメット、背面からの姿勢に破綻が無い。本文: 手前に配筋とスペーサ(サイコロ状)、足場板の歩み板があり、薄く広い床スラブの表層を押えで加圧する説明と矛盾しない。破綻: 文字・ロゴ・顔の崩れ・二重の部位は無い。",
+      "reviewedAt": "2026-10-10T15:23:03.161Z"
     },
     "concrete-chief-engineer/textbook-construction/img/photo-wall-wet-curing": {
       "sha": "ee2d3ff9c2a8dfb6",
       "promptSha": "9c8e4a94f44bbb34",
       "tool": "Codex",
-      "generatedAt": "2026-10-10T15:21:25.395Z"
+      "generatedAt": "2026-10-10T15:21:25.395Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 脱型後の壁面(右端の柱部にセパレータ穴跡が並ぶ)に透明寄りの養生シートが上端から掛かり、左側でホースのノズルが散水している。シートの下部は濃く湿り、壁面とシートの位置関係に矛盾が無い。本文: 『面に散水されシートが密着しているか』に対応し、右端がやや浮く点は点検の観点として許容できる。破綻: 文字・ロゴ・人物の崩れ・溶けた部品は無い。",
+      "reviewedAt": "2026-10-10T15:23:03.168Z"
     },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "sha": "1c6acb88729ce5a0",
