@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-09-22T23:48:43.576Z",
-  "fetchedOnJst": "2026-09-23",
+  "fetchedAt": "2026-10-10T11:49:58.354Z",
+  "fetchedOnJst": "2026-10-10",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,37 +11,37 @@
   ],
   "period": {
     "services": {
-      "from": "2026-08-24",
-      "to": "2026-09-22",
+      "from": "2026-09-10",
+      "to": "2026-10-09",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-08-25",
-      "to": "2026-09-23",
+      "from": "2026-09-11",
+      "to": "2026-10-10",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 324,
+    "views": 1521,
     "orders": 1,
-    "salesYen": 2500,
-    "favorites": 0,
+    "salesYen": 17500,
+    "favorites": 1,
     "masked": [
       "impressions"
     ]
   },
   "services": [
     {
-      "serviceId": "coconala-shindan",
-      "numericId": "4317349",
+      "serviceId": "coconala-2kyu-tensaku-3theme",
+      "numericId": "4418778",
       "catalogStatus": "listed",
-      "title": "1・2級土木の経験記述を元発注者が診断します",
+      "title": "2級経験記述 全3テーマを24時間で添削します",
       "ok": true,
       "impressions": null,
-      "views": 17,
+      "views": 103,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -49,13 +49,13 @@
       ]
     },
     {
-      "serviceId": "coconala-tensaku-set",
-      "numericId": "4317375",
+      "serviceId": "coconala-2kyu-sakusei-3theme",
+      "numericId": "4418785",
       "catalogStatus": "listed",
-      "title": "新形式対応 土木経験記述を元発注者が添削します",
+      "title": "2級経験記述の全3テーマ骨子を24時間で設計します",
       "ok": true,
       "impressions": null,
-      "views": 40,
+      "views": 95,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -63,195 +63,13 @@
       ]
     },
     {
-      "serviceId": "coconala-sakusei",
-      "numericId": "4317796",
+      "serviceId": "coconala-cce-essay-tensaku",
+      "numericId": "4425046",
       "catalogStatus": "listed",
-      "title": "土木経験記述をヒアリングで構成します",
+      "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 15,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-sakusei-4theme",
-      "numericId": "4350199",
-      "catalogStatus": "listed",
-      "title": "土木経験記述を4テーマ分構成します",
-      "ok": true,
-      "impressions": null,
-      "views": 23,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-kanseitoan-pdf",
-      "numericId": "4317580",
-      "catalogStatus": "listed",
-      "title": "1級土木 経験記述の模範答案セットを送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 12,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-2kyu-kanseitoan-pdf",
-      "numericId": "4317722",
-      "catalogStatus": "listed",
-      "title": "2級土木 経験記述の模範答案セットを送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 18,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-1kyu-moshi-pdf",
-      "numericId": "4317886",
-      "catalogStatus": "listed",
-      "title": "R8対応 1級土木二次の予想模試3回分を送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 49,
-      "orders": 1,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-2kyu-moshi-pdf",
-      "numericId": "4317889",
-      "catalogStatus": "listed",
-      "title": "R8対応 2級土木二次の予想模試3回分を送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 14,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-1kyu-full-pdf",
-      "numericId": "4341188",
-      "catalogStatus": "listed",
-      "title": "R8対応 1級土木二次の教材フルパックを送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 44,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-2kyu-full-pdf",
-      "numericId": "4341191",
-      "catalogStatus": "listed",
-      "title": "R8対応 2級土木二次の教材フルパックを送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 19,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-1kyu-premium",
-      "numericId": "4341335",
-      "catalogStatus": "listed",
-      "title": "1級土木二次 教材一式と経験記述添削をします",
-      "ok": true,
-      "impressions": null,
-      "views": 11,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-civil-keiken-kit",
-      "numericId": "4322659",
-      "catalogStatus": "listed",
-      "title": "施工経験記述を自作するAI設計キットを渡します",
-      "ok": true,
-      "impressions": null,
-      "views": 13,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-sokan-bunseki-pdf",
-      "numericId": "4322661",
-      "catalogStatus": "listed",
-      "title": "技術士総監 記述式の出題テーマ分析を送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 24,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-rccm-mondai3-tensaku",
-      "numericId": "4403575",
-      "catalogStatus": "listed",
-      "title": "RCCM問題III 管理技術力の論文を添削します",
-      "ok": true,
-      "impressions": null,
-      "views": 7,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-rccm-mondai1-shindan",
-      "numericId": "4403577",
-      "catalogStatus": "listed",
-      "title": "RCCM業務経験論文の減点箇所を診断します",
-      "ok": true,
-      "impressions": null,
-      "views": 5,
-      "orders": 0,
-      "favorites": 0,
-      "masked": [
-        "impressions"
-      ]
-    },
-    {
-      "serviceId": "coconala-rccm-mondai3-pdf",
-      "numericId": "4403588",
-      "catalogStatus": "listed",
-      "title": "RCCM問題III 模範論文6本のPDFを送ります",
-      "ok": true,
-      "impressions": null,
-      "views": 6,
+      "views": 76,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -261,7 +79,61 @@
   ],
   "skipped": [
     {
+      "serviceId": "coconala-shindan",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-tensaku-set",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-tensaku-4theme",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-sakusei",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-sakusei-4theme",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-2kyu-tensaku",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-2kyu-sakusei",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
       "serviceId": "coconala-bunseki-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-kanseitoan-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-2kyu-kanseitoan-pdf",
       "catalogStatus": "paused",
       "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
@@ -289,57 +161,215 @@
       "catalogStatus": "paused",
       "pauseReason": "retired",
       "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-2kyu-moshi-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-1kyu-full-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-2kyu-full-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-1kyu-premium",
+      "catalogStatus": "paused",
+      "pauseReason": "absence",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-civil-keiken-kit",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-sokan-bunseki-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-rccm-mondai3-tensaku",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-rccm-mondai1-shindan",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-rccm-mondai3-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-rccm-takuitsu-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-rccm-mondai1-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-pe-oral-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-pe-oral-qa",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-cce-essay-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-cce-takuitsu-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
+    },
+    {
+      "serviceId": "coconala-cce-full-pdf",
+      "catalogStatus": "paused",
+      "pauseReason": "retired",
+      "reason": "公開中でないため分析ページが存在しない"
     }
   ],
   "blogs": [
     {
-      "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
+      "title": "経験記述が書けないとき｜人に借りていいのは骨子と赤入れまで",
       "kind": "記事",
       "status": "公開中",
-      "postedOn": "2026-09-06",
+      "postedOn": "2026-09-25",
+      "views": 15
+    },
+    {
+      "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
       "views": 16
+    },
+    {
+      "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 14
+    },
+    {
+      "title": "経験記述の技術的課題「珍しい工事」でなくていい理由",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 13
+    },
+    {
+      "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 24
+    },
+    {
+      "title": "2級 二次 予想模試の使い方｜丸付けで終わらせない3段階",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 15
+    },
+    {
+      "title": "1級土木二次 直前2週間の過ごし方｜経験記述と学科記述",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 17
     },
     {
       "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
       "kind": "記事",
       "status": "公開中",
-      "postedOn": "2026-08-22",
-      "views": 12
-    },
-    {
-      "title": "総合技術監理 記述式の出題テーマに共通する型",
-      "kind": "記事",
-      "status": "公開中",
-      "postedOn": "2026-08-18",
-      "views": 6
+      "postedOn": "2026-09-25",
+      "views": 19
     },
     {
       "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
       "kind": "記事",
       "status": "公開中",
-      "postedOn": "2026-08-17",
-      "views": 11
+      "postedOn": "2026-09-25",
+      "views": 20
+    },
+    {
+      "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-25",
+      "views": 21
+    },
+    {
+      "title": "2級の経験記述はどこまで書けば通る？1級との基準の違い",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-24",
+      "views": 19
+    },
+    {
+      "title": "2級土木 二次 予想模試の中身を見本公開｜設問1問と教材構成",
+      "kind": "記事",
+      "status": "公開中",
+      "postedOn": "2026-09-23",
+      "views": 13
     },
     {
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 8
+      "views": 10
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-13",
-      "views": 9
+      "views": 15
     },
     {
       "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-12",
-      "views": 10
+      "views": 17
     }
   ],
   "scan": {
@@ -350,17 +380,17 @@
         "url": "https://coconala.com/mypage/analytics?ref=menu",
         "ok": true,
         "cards": 5,
-        "blogs": 7,
-        "serviceCards": 16
+        "blogs": 15,
+        "serviceCards": 14
       },
       {
         "key": "services",
         "label": "サービス別",
         "url": "https://coconala.com/mypage/analytics/{id}",
         "ok": true,
-        "rows": 16,
-        "expected": 16,
-        "skipped": 5
+        "rows": 3,
+        "expected": 3,
+        "skipped": 31
       }
     ],
     "ok": 2,

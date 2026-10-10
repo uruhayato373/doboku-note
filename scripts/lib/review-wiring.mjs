@@ -6,6 +6,7 @@
  * 読み手: npm run check-review-wiring（CI）・tools/admin-app の /metrics/business。
  * ---------------------------------------------------------------------------
  */
+import { isoWeekKey, reviewWeekOfWindow } from './review-week.mjs';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
@@ -143,15 +144,8 @@ export function buildReviewView(root, { reviews = [], due = [] } = {}) {
   });
 }
 
-/** 日付（YYYY-MM-DD）の ISO 週（YYYY-Www）。 */
-export function isoWeekOf(date) {
-  const d = new Date(`${date}T00:00:00Z`);
-  const day = d.getUTCDay() || 7;
-  d.setUTCDate(d.getUTCDate() + 4 - day);
-  const y = d.getUTCFullYear();
-  const w = Math.ceil(((d - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7);
-  return `${y}-W${String(w).padStart(2, '0')}`;
-}
+/** 日付（YYYY-MM-DD）の ISO 週（YYYY-Www）。実装は review-week.mjs（呼び名だけ残す） */
+export const isoWeekOf = isoWeekKey;
 
 /** スキル本文「## 出力フォーマット」以降のフェンス内にある H2（レポートに必ず書く節）。 */
 export function formatSections(skillText) {
@@ -333,8 +327,7 @@ export function runKeyOfReport(name) {
  */
 export function runKeyOfPeriod(cadenceId, period) {
   if (cadenceId === 'monthly') return String(period.startDate).slice(0, 7);
-  const next = new Date(Date.parse(`${period.endDate}T00:00:00Z`) + 86400000).toISOString().slice(0, 10);
-  return isoWeekOf(next);
+  return reviewWeekOfWindow(period);
 }
 
 

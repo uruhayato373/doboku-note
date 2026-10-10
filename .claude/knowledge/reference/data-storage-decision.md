@@ -181,6 +181,17 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 段階 3（2026-10-10・DN-0586）: 台帳の行に `refs: [{ at: '場所', to: 'qualification'|'product'|'article' }]` を宣言すると、`check-datasets` が全ファイルで参照先の実在を見る（`scripts/lib/dataset-refs.mjs`。場所は `books.*.expansions[].article` の形）。検査した参照の件数を出し、宣言があるのに 1 件も拾えなければ違反（場所の書き間違い）・全体で 0 件なら検査不成立。最初に宣言したのは `state.book-coverage`（展開した記事）・`config.products`（商品の資格）・`config.business-direction`（重点資格）の 3 つ（537 件）。
   既存の個別の検査で置き換えられるかの洗い出し: `check-qualification-ssot` は資格 id の照合に加えて名前の写しを見るので残す（id の照合だけは refs と重なる）／`check-category-curriculum` の slug の実在（260 件）は、読む `src/config/category-curriculum.json` が台帳の置き場（AREAS）の外なので、`src/config` を置き場に足すまで個別のまま／`check-products` は生成ブロックとの一致を見るもので、参照の実在ではないので置き換えない。新しく参照を持つデータを足すときは、個別の検査を書く前に refs で宣言する
 
+## 全体の棚卸し（2026-10-10）
+
+台帳 251 データセット・git 管理 963 ファイルを、台帳の宣言と実物・コードの参照・最終更新・中身のハッシュで突き合わせた（調査の道具は `.tmp/` の一回きり）。台帳の構造（宣言・型・直書き・重なり・参照）は `check-datasets` が既に止めていて違反 0。残っていたずれと処置:
+
+- **読み手のいない記録**: コード・スキル・文書のどこからも引かれず 2026-08 から止まっていた `.claude/state/` の 3 種（`resurrection-candidates`・`exam-keyword-cycles/logs-archive-2026-04` の 286 ファイル・`figure-audit-visual`）を台帳の行ごと消した（中身は git 履歴）。スキルが書く・文書が根拠に引くものは残した
+- **鮮度の直書き**: data/ の鮮度は 23 データセットとも台帳の `freshness` から読んでいた。残っていた直書きは `.claude/state/` を読む 2 本（動画の公開照合 14 日・note の添付の実査 14 日）と、手順書の文中だけにあった note の同期の 8 日。ファイル名を `{name}` でまとめた行（`state.video-status`・`state.note-attachments`）をファイルごとの行に分けて freshness を持たせ、検査を台帳から読むようにした。note の同期は `note.sync-log` に freshness を宣言し、日次の ops 点検 `note-sync-freshness` を足した（10/4 に Mac の同期が Google Drive の停止で失敗していたのに、CI からは反映待ちとしか見えなかった）
+- **週の換算**: 週次レビューの回と振り返り期間の換算が 7 か所に別実装だったのを `scripts/lib/review-week.mjs`（依存ゼロ）にまとめた（#968）
+- **時点の記録**: 月次レビュー（`docs/reviews/monthly/`）も週次と同じく完了して消えたカードへの参照を warning にした（`check-project-task-refs`）
+
+残したもの（理由つき）: 寿命の無い `.claude/state/` の作業記録（`link-audit` 26・`pe-first-stage-audit` 63・`pe-essay-review` 40・`improvements` 32）は手元のスキルが書いて読むもので、寿命の仕組み（prune）は data/ の CI の書き手が呼ぶ作りなので宣言しても効かない（減らすなら書き手の側で消す）／事業の台帳（`business.measurement`・`business.snapshot`）は追記だけの記録なので統合も削除もしない／data/ の series・ledger の鮮度の未宣言 35 種は、読む検査が鮮度で判定していない（取得の途中結果・人が書く台帳）ので宣言しない。運営者に決めてもらうもの: `config/ogp/backgrounds/`（AI で作った一点物の画像 9.6MB。config/ は設定の置き場で、CI が読む素材は private R2 が原則）・`data/inbox/mail-events.json`（別のリポジトリが書き、このリポジトリに読み手がいない）
+
 ## 参考リンク
 
 - Cloudflare D1: https://developers.cloudflare.com/d1/
@@ -194,3 +205,4 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 2026-10-02: 「設定・記録の構成と型の正本」を追加（台帳 `datasets.mjs`・型の正本 zod・フォルダの原則・統合の基準）
 - 2026-10-03: 台帳に `freshness`（鮮度の閾値）を追加し、設定・記録の読み書きの共通部品（`json-io`・`dataset-io`・`dataset-write`）と、JST の日付の出し方（`jst-date.mjs`）・取得失敗の上限（`inconclusive-gate.mjs`）を 1 か所にした
 - 2026-10-08: 「台帳を 1 本にして DB のように扱う」を追加（置き場 `.claude/state/` を台帳へ・Drive vault の宣言 `drive`・`local` は作り直せる一時出力だけ・直書きのラチェット）
+- 2026-10-10: 「全体の棚卸し」を追加（読み手のいない記録 3 種の削除・`.claude/state/` の鮮度を台帳へ・note の同期の停止の検査・週の換算の一本化・月次レビューを時点の記録に）

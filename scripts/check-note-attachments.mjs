@@ -38,6 +38,7 @@ import { NOTE_BASE } from './lib/site-identity.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
 
 const BASE = join(ROOT, 'content/note');
 
@@ -227,7 +228,7 @@ console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.le
 // 欠落リストを state に残す（.tmp は git 管理外で、過去の添付 done-log はこれで失われている）。
 if (!ONLY) {
   const { writeFileSync, mkdirSync } = await import('node:fs');
-  const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
+  const outPath = join(ROOT, datasetPath('state.note-attachments-missing'));
   mkdirSync(dirname(outPath), { recursive: true });
   // 既存を丸ごと置き換えると、人が手で足した注記（過去の偽陰性の根拠など）が黙って消える。
   // 計算した項目だけを上書きし、知らないキーはそのまま残す。
@@ -242,7 +243,7 @@ if (!ONLY) {
     missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),
   }, null, 2) + '\n');
-  console.log(`\n欠落リスト: .claude/state/note-attachments-missing.json（${short.length} 件）`);
+  console.log(`\n欠落リスト: ${datasetPath('state.note-attachments-missing')}（${short.length} 件）`);
 }
 if (short.length) {
   console.error('\n✗ ライブに PDF が添付されていない（購入者が受け取れない）:');

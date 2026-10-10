@@ -29,15 +29,17 @@ import { fileURLToPath } from 'node:url';
 
 import { loadConfig } from './lib/video-content-check.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
 const maxAgeIdx = argv.indexOf('--max-age-days');
-const MAX_AGE_DAYS = maxAgeIdx >= 0 ? Number(argv[maxAgeIdx + 1]) : 14;
+// 既定は台帳 state.video-publication-verify の freshness.failDays（--max-age-days で一時的に変えられる）
+const MAX_AGE_DAYS = maxAgeIdx >= 0 ? Number(argv[maxAgeIdx + 1]) : freshnessDays('state.video-publication-verify', 'failDays');
 
 const config = loadConfig(ROOT);
-const RECORD_PATH = join(ROOT, '.claude/state/video-publication-verify.json');
+const RECORD_PATH = join(ROOT, datasetPath('state.video-publication-verify'));
 const LIVE_STATUSES = ['published', 'measured', 'refresh_due'];
 
 const issues = [];
