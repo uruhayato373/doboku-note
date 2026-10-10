@@ -72,6 +72,8 @@ if (!mount.root) warnings.push(`Drive mount 無し（${mount.reason}）。実体
 let checkedManifests = 0;
 let checkedSources = 0;
 let checkedPages = 0;
+let vaultReads = 0;
+let vaultUnreadable = 0;
 let checkedOcrArtifacts = 0;
 let checkedCrops = 0;
 for (const source of targets) {
@@ -153,12 +155,23 @@ for (const source of targets) {
   if (!fs.existsSync(cropsDir) || !fs.statSync(cropsDir).isDirectory()) fail(label, 'Drive crops/ が無い');
   if (!fs.existsSync(ocrDir) || !fs.statSync(ocrDir).isDirectory()) fail(label, 'Drive ocr/ が無い');
 
+  // ストリーミングマウント（Google Drive）は本体アプリが止まっていると read を ETIMEDOUT で切る（2026-10-10 に実測）。
+  // 1 件の読み損ねで落とさず読めなかった数を数え、全部読めなければ最後に検査不成立（exit 2）にする（check-drive-vault と同じ）。
+  const readVault = async (file) => {
+    vaultReads += 1;
+    try { return await realBytesAndHashes(file); } catch (err) {
+      vaultUnreadable += 1;
+      warnings.push(`${label}: ${file} を読めなかった（${err.code || err.message}）。Google Drive の本体アプリが動いているか確かめて再検査`);
+      return null;
+    }
+  };
   for (const recorded of manifest.sourceFiles || []) {
     const entry = driveManifest.entries[recorded.repoPath];
     if (!entry?.vaultPath) continue;
     const file = vaultAbsFor(mount.root, entry.vaultPath);
     if (!fs.existsSync(file)) { fail(label, `${entry.vaultPath} が Drive に無い`); continue; }
-    const actual = await realBytesAndHashes(file);
+    const actual = await readVault(file);
+    if (!actual) continue;
     checkedSources += 1;
     if (actual.sha256 !== recorded.sha256 || actual.bytes !== recorded.bytes) fail(label, `${entry.vaultPath} の原本 bytes/sha256 が不一致`);
   }
@@ -172,7 +185,8 @@ for (const source of targets) {
     if (!entry?.vaultPath) continue;
     const file = vaultAbsFor(mount.root, entry.vaultPath);
     if (!fs.existsSync(file)) { fail(label, `${entry.vaultPath} が Drive に無い`); continue; }
-    const actual = await realBytesAndHashes(file);
+    const actual = await readVault(file);
+    if (!actual) continue;
     checkedPages += 1;
     if (actual.sha256 !== recorded.sha256 || actual.bytes !== recorded.bytes) fail(label, `${entry.vaultPath} のページ画像 bytes/sha256 が不一致`);
   }
@@ -182,7 +196,8 @@ for (const source of targets) {
     if (!entry?.vaultPath) continue;
     const file = vaultAbsFor(mount.root, entry.vaultPath);
     if (!fs.existsSync(file)) { fail(label, `${entry.vaultPath} が Drive に無い`); continue; }
-    const actual = await realBytesAndHashes(file);
+    const actual = await readVault(file);
+    if (!actual) continue;
     checkedOcrArtifacts += 1;
     if (actual.sha256 !== recorded.sha256 || actual.bytes !== recorded.bytes) fail(label, `${entry.vaultPath} の OCR bytes/sha256 が不一致`);
   }
@@ -191,7 +206,8 @@ for (const source of targets) {
     if (!entry?.vaultPath) continue;
     const file = vaultAbsFor(mount.root, entry.vaultPath);
     if (!fs.existsSync(file)) { fail(label, `${entry.vaultPath} が Drive に無い`); continue; }
-    const actual = await realBytesAndHashes(file);
+    const actual = await readVault(file);
+    if (!actual) continue;
     checkedCrops += 1;
     if (actual.sha256 !== recorded.sha256 || actual.bytes !== recorded.bytes) fail(label, `${entry.vaultPath} の crop bytes/sha256 が不一致`);
   }
@@ -207,6 +223,10 @@ for (const source of targets) {
 console.log(`[${NAME}] 対象 ${targets.length} 冊 / manifest ${checkedManifests} 冊`);
 console.log(`[${NAME}] Drive 実体照合: 原本 ${checkedSources} ファイル / ページ画像 ${checkedPages} 枚${DEEP ? '（全件）' : `（各冊 約${SAMPLE} 枚）`} / OCR ${checkedOcrArtifacts} / crop ${checkedCrops}`);
 for (const warning of warnings) console.warn(`  ! ${warning}`);
+if (vaultReads > 0 && vaultUnreadable === vaultReads) {
+  console.error(`[${NAME}] 検査不成立: Drive の実体 ${vaultReads} 件をすべて読めなかった（マウントが止まっているか同期中）。Google Drive の本体アプリを起動して再検査`);
+  process.exit(2);
+}
 if (checkedManifests === 0) {
   console.error(`[${NAME}] ✗ manifest を1件も検査していない。検査不成立`);
   process.exit(2);
