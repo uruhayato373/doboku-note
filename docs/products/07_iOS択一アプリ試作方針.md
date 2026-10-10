@@ -122,7 +122,7 @@
 
 ```
 doboku-note（このリポジトリ）
-  scripts/build-quiz-data.mjs        … 既存の正規化（総監は cem で追加済み・Web には書かない。2級土木はここへ足す）
+  scripts/build-quiz-data.mjs        … 既存の正規化（総監 cem・2級土木 civil-2 は Web には書かない。組合せ問題は本文の表の行を選択肢にする）
   scripts/lib/quiz-markdown.mjs      … 本文の Markdown・KaTeX を HTML にする（Web と共用）
   scripts/build-ios-quiz-bundle.mjs  … 正規化済み JSON に図・KaTeX・manifest を添え、ID と問題台帳の照合を検査して渡す
         │（JSON と図をアプリへ同梱）

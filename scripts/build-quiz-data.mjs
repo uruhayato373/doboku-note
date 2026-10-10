@@ -32,6 +32,14 @@ export const SOURCES = [
     kind: 'json',
     srcPath: 'src/config/civil-1-exam-questions.json',
   },
+  // 2級土木の第一次検定。Web 演習は未公開なので public/quiz へは書かない（iOS の土木施工管理技士アプリだけが使う・DN-0628）
+  {
+    exam: 'civil-2',
+    examLabel: '2級土木施工管理技士 第一次検定',
+    kind: 'json',
+    srcPath: 'src/config/civil-2-exam-questions.json',
+    web: false,
+  },
   {
     exam: 'pe-first-stage',
     examLabel: '技術士第一次試験（建設部門・上下水道部門）',
@@ -61,14 +69,15 @@ const PE1_SUBJECTS = {
   'water-supply': { label: '専門科目（上下水道部門）', order: 4, expectedPerYear: 35 },
 };
 
-/** "h26" -> "平成26年度", "r01" -> "令和元年度", "r07" -> "令和7年度" */
-function toYearLabel(year) {
-  const m = /^([hr])0*(\d+)(-retry)?$/.exec(String(year).toLowerCase());
+/** "h26" -> "平成26年度", "r01" -> "令和元年度", "r07" -> "令和7年度", "r03z" -> "令和3年度（前期）"（2級土木は前期 z・後期 k） */
+export function toYearLabel(year) {
+  const m = /^([hr])0*(\d+)(-retry|z|k)?$/.exec(String(year).toLowerCase());
   if (!m) return String(year);
   const era = m[1] === 'h' ? '平成' : '令和';
   const n = Number(m[2]);
   const num = n === 1 ? '元' : String(n);
-  return `${era}${num}年度${m[3] ? "（再試験）" : ""}`;
+  const suffix = { '-retry': '（再試験）', z: '（前期）', k: '（後期）' }[m[3]] ?? '';
+  return `${era}${num}年度${suffix}`;
 }
 
 /** 和暦コードを西暦相当の通し番号へ変換し、新しい年度から並べるために使う。 */
@@ -80,7 +89,10 @@ function peYearRank(year) {
 
 /** 生の 1 問を共通スキーマへ正規化する（civil-1 系スキーマ） */
 function normalizeQuestion(raw, year) {
-  const options = (raw.options || []).map((o) => ({
+  // 組合せ問題は選択肢が本文の表の行にしかない（| (1) | … | や | (1) 掘削 | … |）。そのときは表の行を選択肢にする
+  const fromTable = !(raw.options || []).length;
+  const rawOptions = fromTable ? optionsFromTable(raw.body || raw.question || '') : raw.options;
+  const options = rawOptions.map((o) => ({
     num: o.num,
     text: String(o.text || '').trim(),
   }));
@@ -111,6 +123,8 @@ function normalizeQuestion(raw, year) {
     yearLabel: toYearLabel(year),
     part: raw.part || '',
     body: String(raw.body || raw.question || '').trim(),
+    // 選択肢を表から取った組合せ問題は、本文の表を表として見せる（Web はプレーンテキストだと | がそのまま出る）
+    ...(fromTable ? { bodyHtml: renderQuizMarkdown(String(raw.body || raw.question || '').trim()) } : {}),
     options,
     correct,
     explanations,
@@ -125,9 +139,10 @@ function buildJsonDataset({ exam, examLabel, srcPath }) {
     const parts = new Set();
     let count = 0;
     for (const raw of y.questions || []) {
-      if (!raw || !Array.isArray(raw.options) || raw.options.length === 0) continue;
+      if (!raw) continue;
       const q = normalizeQuestion(raw, y.year);
-      if (q.correct == null || !q.body) continue;
+      // 選択肢（表の行からの補完を含む）・正答・本文のどれかが無い問題は出題しない
+      if (q.options.length === 0 || q.correct == null || !q.body) continue;
       questions.push(q);
       if (q.part) parts.add(q.part);
       count += 1;
@@ -164,6 +179,15 @@ export function optionsFromTable(body) {
     out.push({ num: m[1] ? Number(m[1]) : CIRCLED[m[2]], text: cells.join(' ／ ') });
   }
   if (out.length >= 2 && out.every((o, i) => o.num === i + 1)) return out;
+  // 番号と 1 列目の語が同じセルにある表（| (1) 掘削・積込み | バックホウ |・2級土木に多い）
+  const inline = [];
+  for (const line of String(body || '').split('\n')) {
+    const m = /^\|\s*(?:\(([1-5])\)|([①-⑤]))\s*([^|]+)\|(.*)\|$/u.exec(line.trim());
+    if (!m) continue;
+    const cells = [m[3], ...m[4].split('|')].map((c) => stripMarkdown(c)).filter(Boolean);
+    inline.push({ num: m[1] ? Number(m[1]) : CIRCLED[m[2]], text: cells.join(' ／ ') });
+  }
+  if (inline.length >= 2 && inline.every((o, i) => o.num === i + 1)) return inline;
   // 選択肢が列になっている表（見出し行が ① ② ③ …）は「表の①」などを選択肢にする
   for (const line of String(body || '').split('\n')) {
     const heads = line.trim().startsWith('|') ? line.split('|').map((c) => c.trim()).filter(Boolean) : [];
