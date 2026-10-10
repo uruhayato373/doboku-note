@@ -13475,15 +13475,21 @@
       "no": "1",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13492,15 +13498,22 @@
       "no": "2",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問い方の語句（3年目以降・とで）"
       }
     },
     {
@@ -13509,15 +13522,22 @@
       "no": "3",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "文言と表題を原典に"
       }
     },
     {
@@ -13526,15 +13546,22 @@
       "no": "4",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "空欄補充の問い方・ア表記を原典に"
       }
     },
     {
@@ -13543,15 +13570,22 @@
       "no": "5",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1を必要がない、4・5の文言を原典に"
       }
     },
     {
@@ -13560,15 +13594,21 @@
       "no": "6",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13577,15 +13617,21 @@
       "no": "7",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13594,15 +13640,22 @@
       "no": "8",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の文言"
       }
     },
     {
@@ -13611,15 +13664,21 @@
       "no": "9",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13628,15 +13687,22 @@
       "no": "10",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5の文言"
       }
     },
     {
@@ -13645,15 +13711,22 @@
       "no": "11",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3・4の文言"
       }
     },
     {
@@ -13662,15 +13735,21 @@
       "no": "12",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13679,15 +13758,22 @@
       "no": "13",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の誤記"
       }
     },
     {
@@ -13696,15 +13782,22 @@
       "no": "14",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3・4の文言"
       }
     },
     {
@@ -13713,15 +13806,22 @@
       "no": "15",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢1・4の文言"
       }
     },
     {
@@ -13730,15 +13830,22 @@
       "no": "16",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "テイラーの誤記"
       }
     },
     {
@@ -13747,15 +13854,21 @@
       "no": "17",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13764,15 +13877,21 @@
       "no": "18",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13781,15 +13900,22 @@
       "no": "19",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の誤記"
       }
     },
     {
@@ -13798,15 +13924,22 @@
       "no": "20",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2・4の文言"
       }
     },
     {
@@ -13815,15 +13948,22 @@
       "no": "21",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3・4の文言"
       }
     },
     {
@@ -13832,15 +13972,21 @@
       "no": "22",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13849,15 +13995,22 @@
       "no": "23",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の文言"
       }
     },
     {
@@ -13866,15 +14019,22 @@
       "no": "24",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3〜5の文言"
       }
     },
     {
@@ -13883,15 +14043,22 @@
       "no": "25",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・事例アの文言"
       }
     },
     {
@@ -13900,15 +14067,22 @@
       "no": "26",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1・2・4の文言"
       }
     },
     {
@@ -13917,15 +14091,22 @@
       "no": "27",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "区分D・内容ウの文言"
       }
     },
     {
@@ -13934,15 +14115,22 @@
       "no": "28",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1の文言"
       }
     },
     {
@@ -13951,15 +14139,22 @@
       "no": "29",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1の文言"
       }
     },
     {
@@ -13968,15 +14163,21 @@
       "no": "30",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -13985,15 +14186,21 @@
       "no": "31",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -14002,15 +14209,22 @@
       "no": "32",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4に「等」"
       }
     },
     {
@@ -14019,15 +14233,22 @@
       "no": "33",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "空欄の表記を原典に"
       }
     },
     {
@@ -14036,15 +14257,21 @@
       "no": "34",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -14053,15 +14280,22 @@
       "no": "35",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5の文言"
       }
     },
     {
@@ -14070,15 +14304,22 @@
       "no": "36",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢1（再使用）、解説も追従"
       }
     },
     {
@@ -14087,15 +14328,22 @@
       "no": "37",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5を原典の文に"
       }
     },
     {
@@ -14104,15 +14352,21 @@
       "no": "38",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -14121,15 +14375,22 @@
       "no": "39",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1・2・4の文言"
       }
     },
     {
@@ -14138,15 +14399,22 @@
       "no": "40",
       "source": {
         "question": "R06/R06_試験問題_択一式.pdf",
-        "page": null,
+        "page": 25,
         "answer": "R06/R06_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "空欄周辺の文言"
       }
     },
     {
