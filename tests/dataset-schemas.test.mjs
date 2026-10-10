@@ -512,6 +512,16 @@ test('business.experiments: 自動計測（source: auto）の行は型を持ち�
   assertFails(E, ledger([exp({ measurements: [noHint] })]), /measurements\.0\.verdictHint/);
 });
 
+test('business.experiments: 意匠実験の自動計測（metric: affiliate-design）は前後の窓でなく取得窓と案別の集計を持つ', () => {
+  const E = SCHEMAS.Experiments;
+  const design = (o = {}) => ({ source: 'auto', measuredAt: '2026-10-09T00:51:59.000Z', sourceReport: 'ga4.affiliate-experiment:2026-10-09',
+    metric: 'affiliate-design', window: { startDate: '2026-10-08', endDate: '2026-10-08' },
+    variants: [{ variant: 'A', impressions: 10, clicks: 0 }], verdictHint: 'review-required', note: '足し合わせない', ...o });
+  assertOk(E, ledger([exp({ measurements: [design()] })]));
+  assertFails(E, ledger([exp({ measurements: [design({ window: { startDate: '2026-10-08' } })] })]), /measurements\.0\.window/);
+  assertFails(E, ledger([exp({ measurements: [design({ extra: 1 })] })]), /measurements\.0/);
+});
+
 test('business.experiments: 履歴の行は date か at のどちらかに日時を持つ', () => {
   const E = SCHEMAS.Experiments;
   assertOk(E, ledger([exp({ history: [{ date: '2026-06-26T22:57:03.390Z', action: 'closed', summary: 's' }, { at: '2026-09-16T00:30:00.000Z', event: 'proposed', note: 'n' }] })]));
