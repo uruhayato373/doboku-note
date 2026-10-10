@@ -10573,7 +10573,7 @@
       "no": "B-1",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10581,12 +10581,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢の読点を原典どおりに補った"
       }
     },
     {
@@ -10595,7 +10597,7 @@
       "no": "B-2",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10603,12 +10605,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1を原典の瑕疵の通知の文に戻し解説を書き直した"
       }
     },
     {
@@ -10617,7 +10621,7 @@
       "no": "B-3",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10625,12 +10629,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10639,7 +10644,7 @@
       "no": "B-4",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10647,12 +10652,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10661,7 +10667,7 @@
       "no": "B-5",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10669,12 +10675,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1の読点"
       }
     },
     {
@@ -10683,7 +10691,7 @@
       "no": "B-6",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10691,12 +10699,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1・4の読点"
       }
     },
     {
@@ -10705,7 +10715,7 @@
       "no": "B-7",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10713,12 +10723,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10727,7 +10738,7 @@
       "no": "B-8",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10735,12 +10746,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10749,7 +10761,7 @@
       "no": "B-9",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10757,12 +10769,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3の読点"
       }
     },
     {
@@ -10771,7 +10785,7 @@
       "no": "B-10",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10779,12 +10793,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10793,7 +10808,7 @@
       "no": "B-11",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10801,12 +10816,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ハ)を各工種に修正"
       }
     },
     {
@@ -10815,7 +10832,7 @@
       "no": "B-12",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10823,12 +10840,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10837,7 +10855,7 @@
       "no": "B-13",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10845,12 +10863,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10859,7 +10878,7 @@
       "no": "B-14",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10867,12 +10886,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4を原典どおり負わないに修正し解説を合わせた"
       }
     },
     {
@@ -10881,7 +10902,7 @@
       "no": "B-15",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10889,12 +10910,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10903,7 +10925,7 @@
       "no": "B-16",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10911,12 +10933,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10925,7 +10948,7 @@
       "no": "B-17",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10933,12 +10956,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10947,7 +10971,7 @@
       "no": "B-18",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10955,12 +10979,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1・3を修正（安全帯・読点）"
       }
     },
     {
@@ -10969,7 +10995,7 @@
       "no": "B-19",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10977,12 +11003,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10991,7 +11018,7 @@
       "no": "B-20",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -10999,12 +11026,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11013,7 +11041,7 @@
       "no": "B-21",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11021,12 +11049,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11035,7 +11064,7 @@
       "no": "B-22",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11043,12 +11072,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11057,7 +11087,7 @@
       "no": "B-23",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11065,12 +11095,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の区切りを中黒に修正"
       }
     },
     {
@@ -11079,7 +11111,7 @@
       "no": "B-24",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11087,12 +11119,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3の読点"
       }
     },
     {
@@ -11101,7 +11135,7 @@
       "no": "B-25",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11109,12 +11143,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の読点"
       }
     },
     {
@@ -11123,7 +11159,7 @@
       "no": "B-26",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11131,12 +11167,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11145,7 +11182,7 @@
       "no": "B-27",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11153,12 +11190,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11167,7 +11205,7 @@
       "no": "B-28",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11175,12 +11213,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11189,7 +11228,7 @@
       "no": "B-29",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11197,12 +11236,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11211,7 +11251,7 @@
       "no": "B-30",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11219,12 +11259,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1の読点"
       }
     },
     {
@@ -11233,7 +11275,7 @@
       "no": "B-31",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11241,12 +11283,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11255,7 +11298,7 @@
       "no": "B-32",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11263,12 +11306,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11277,7 +11321,7 @@
       "no": "B-33",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11285,12 +11329,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11299,7 +11344,7 @@
       "no": "B-34",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11307,12 +11352,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11321,7 +11367,7 @@
       "no": "B-35",
       "source": {
         "question": "H30/H30_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_学科試験_正答.pdf"
       },
       "answer": {
@@ -11329,12 +11375,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
