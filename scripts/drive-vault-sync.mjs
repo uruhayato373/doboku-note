@@ -244,8 +244,11 @@ async function push(cfg, group, mount, manifest) {
   async function processOne(r) {
     // 期待値（sha256/bytes）。ローカル源は実測、R2 源は R2 台帳の値。
     let expected;
-    if (r.source === 'local' || r.source === 'vault') expected = await realBytesAndHashes(r.abs);
-    else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
+    if (r.source === 'local' || r.source === 'vault') {
+      // マウントの読みは 1 件ずつ失敗しうる（クラウドにしか無いファイルの取り寄せのタイムアウト）。全体を止めず失敗として数える
+      try { expected = await realBytesAndHashes(r.abs); }
+      catch (e) { failures.push({ rel: r.rel, stage: 'read', msg: String(e.code || e.message).slice(0, 120) }); return; }
+    } else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
 
     const cur = manifest.entries[r.rel];
     const conflict = immutableConflict(r.group, r.rel, expected.sha256, cur);

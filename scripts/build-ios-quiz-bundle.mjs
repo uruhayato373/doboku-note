@@ -9,6 +9,8 @@
  * 3. KaTeX の CSS と woff2 フォントを katex/ に置く（描画済みの数式 HTML を JavaScript なしで表示するため）
  * 4. 問題 ID を検査する。試験の中で重複していれば止める。前回の manifest.json から消えた ID があれば止める
  *    （アプリの学習履歴は「試験 + 問題 ID」に紐づくので、ID が消えると履歴が消える。意図して消すときだけ --allow-removed に並べる）
+ * 5. 問題台帳（data/pastexams/questions・DN-0647）で、転記を原典と照合していない問題・正答が公式と違う問題があれば止める。
+ *    開発中の試し書き出しだけ --allow-unverified で通す（正答の不一致は通さない）
  *
  * 出力（既定 .tmp/ios-bundle/<app>/。iOS リポジトリの Resources を --out に渡す）:
  *   manifest.json・<試験>.json・images/・katex/
@@ -23,6 +25,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { R2_PUBLIC_ORIGIN } from './lib/site-identity.mjs';
 import { renderQuizMarkdown } from './lib/quiz-markdown.mjs';
 import { SOURCES, buildDataset } from './build-quiz-data.mjs';
+import { qualificationOfQuizExam, readLedger, unreadyForApp } from './lib/past-exam-ledger.mjs';
 
 const NAME = 'build-ios-quiz-bundle';
 
@@ -145,6 +148,23 @@ function main() {
     console.error(`[${NAME}] 重複 ${duplicates.length} / 消えた ID ${removed.length} / 同梱できない画像 ${unsupported.length}。書き出さない`);
     process.exit(1);
   }
+
+  // 問題台帳: 未照合の問題・公式正答と違う問題を出さない（DN-0647）
+  const allowUnverified = process.argv.includes('--allow-unverified');
+  let blocked = 0;
+  for (const ds of datasets) {
+    const qualification = qualificationOfQuizExam(ds.exam);
+    const ledger = qualification ? readLedger(qualification) : null;
+    const { unverified, mismatch } = unreadyForApp(ledger, ds.questions);
+    console.log(`[${NAME}] ${ds.exam}: ${ds.questions.length} 問中 転記の照合が未了 ${unverified.length}・公式正答と不一致 ${mismatch.length}${ledger ? '' : '（問題台帳なし）'}`);
+    for (const id of mismatch.slice(0, 10)) console.error(`  公式正答と不一致 ${ds.exam}/${id}`);
+    blocked += mismatch.length + (allowUnverified ? 0 : unverified.length);
+  }
+  if (blocked) {
+    console.error(`[${NAME}] 照合が済んでいない問題があるので書き出さない（npm run check-past-exam-ledger。試し書き出しは --allow-unverified）`);
+    process.exit(1);
+  }
+  if (allowUnverified) console.warn(`[${NAME}] --allow-unverified: 未照合の問題を含めて書き出す（提出用には使わない）`);
 
   // 画像（キャッシュに無いものだけ R2 から取る）
   const srcs = [...new Set(datasets.flatMap((ds) => ds.questions.flatMap((q) => collectImageSrcs(rawHtmlOf(q)))))].sort();
