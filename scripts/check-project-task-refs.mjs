@@ -17,14 +17,14 @@
  * （履歴のために死んだパスを持てる層を残すと、そこが検査の穴になる）。
  * `content/` へ出ていくチャネル素材（note/sns/textbook/coconala-blog）は恒久文書ではないので除外する。
  *
- * **日付つき週次レビュー（`docs/reviews/weekly/**`）だけは dangling-id を warning にする**（2026-08-25）。
+ * **日付つき週次・月次レビュー（`docs/reviews/weekly/**`・`docs/reviews/monthly/**`）だけは dangling-id を warning にする**（2026-08-25・月次は 2026-10-10）。
  *   この台帳は「完了＝カードごと削除」で完了を表すので、レビューが「DN-XXXX 完了」と実績を ID で
  *   書くたび、その ID は翌週には必ず消える。つまり**仕事を片付けるほどゲートが赤くなる**構造で、
  *   実際 319d266d6（DN-0116）と本日（DN-0126 / DN-0127）の 2 度、完了を記録しただけで CI が赤くなった。
  *   偽赤は偽緑と同じくらい信号を殺すので降格する。ただし**件数は必ず出す**（黙って消さない）。
  *   降格するのは日付つきスナップショットに限る——`docs/reviews/2026-07-11-static-ui-codebase-audit.md`
  *   のような「作業指示書として今も参照される文書」は日付を持っていても live なので error のまま。
- *   区別はディレクトリ（`reviews/weekly/`）で行い、ファイル名の日付では判定しない。
+ *   区別はディレクトリ（`reviews/weekly/`・`reviews/monthly/`）で行い、ファイル名の日付では判定しない。
  *
  * Usage:
  *   node scripts/check-project-task-refs.mjs          全量
@@ -63,7 +63,8 @@ const toPosix = (v) => v.split(sep).join('/');
  * 週次レビューは「DN-XXXX 完了」を実績として書くが、この台帳は完了＝カード削除なので
  * ID は必ず消える。live 文書の参照切れ（読者を存在しないタスクへ案内する実害）とは別物。
  */
-export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/');
+// 月次レビュー（docs/reviews/monthly/）も同じ時点の記録（2026-10-10。月次が完了して消したカードを書いた回で CI が赤くなった）
+export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/') || rel.startsWith('docs/reviews/monthly/');
 
 /** 1 文書を検査して {errors, warnings} を返す（純関数・テストから使う）。 */
 export function auditProjectDoc(rel, content, knownIds) {

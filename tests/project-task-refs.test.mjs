@@ -57,7 +57,12 @@ test('週次スナップショットの参照切れは warning、live 文書は 
   assert.deepEqual(snap.errors, [], '週次スナップショットで error にしない');
   assert.deepEqual(snap.warnings.map((w) => w.rule), ['dangling-id']);
 
-  // 同じ reviews/ でも weekly/ の外は live 扱い（例: 作業指示書として参照され続ける静的監査）
+  // 月次レビューも同じ時点の記録（2026-10-10）
+  const monthly = auditProjectDoc('docs/reviews/monthly/2026-09-review.md', md, IDS);
+  assert.deepEqual(monthly.errors, [], '月次スナップショットで error にしない');
+  assert.deepEqual(monthly.warnings.map((w) => w.rule), ['dangling-id']);
+
+  // 同じ reviews/ でも weekly/・monthly/ の外は live 扱い（例: 作業指示書として参照され続ける静的監査）
   const live = auditProjectDoc('docs/reviews/2026-07-11-static-ui-codebase-audit.md', md, IDS);
   assert.deepEqual(live.errors.map((e) => e.rule), ['dangling-id']);
 

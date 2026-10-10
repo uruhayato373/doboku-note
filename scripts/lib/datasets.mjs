@@ -171,7 +171,7 @@ export const DATASETS = [
   d('note.sales', 'data/note/sales.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: 'NoteSalesLog', freshness: { warnDays: 10, failDays: 21 } }),
   d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）', { schema: 'NoteMagazines', freshness: { failDays: 9 } }),
   d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）', { freshness: { failDays: 9 }, schema: 'NoteStatusSnapshot' }),
-  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog' }),
+  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog', freshness: { failDays: 8 } }),
   d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV', { schema: 'NoteArticlesPv' }),
   d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元', { schema: 'NoteReferrers' }),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'NoteCompetitors' }),
@@ -289,13 +289,11 @@ export const DATASETS = [
   d('state.broken-explanations', '.claude/state/broken-explanations.json', 'evidence', 'site', '壊れた過去問解説の検出結果'),
   d('state.primary-answer-distribution', '.claude/state/primary-answer-distribution.json', 'state', 'site', '択一過去問の正答番号の分布'),
   d('state.content-expansion', '.claude/state/content-expansion.json', 'state', 'site', '記事の拡充の進み具合'),
-  d('state.resurrection-candidates', '.claude/state/resurrection-candidates/{date}.md', 'report', 'site', '復活候補ページ（/resurrect-content）'),
   d('state.proofread-learnings', '.claude/state/proofread-learnings/{date}.md', 'report', 'site', '校正の学びの蒸留（/distill-proofread-learnings）'),
   d('state.pdf-mdx-audit', '.claude/state/pdf-mdx-audit/{date}{suffix}.json', 'evidence', 'site', 'PDF→MDX 変換の監査結果'),
   d('state.civil-figure-rework-failures', '.claude/state/civil-figure-rework/failures.log', 'evidence', 'site', '1級土木の図の作り直しで失敗したものの記録'),
   // 過去問起点のキーワード校正（技術士総監）
   d('state.exam-keyword-cycles-progress', '.claude/state/exam-keyword-cycles/progress.json', 'state', 'site', '過去問起点の校正サイクルの進み具合（/exam-keyword-cycle）'),
-  d('state.exam-keyword-cycles-archive', '.claude/state/exam-keyword-cycles/logs-archive-2026-04/{**}', 'evidence', 'site', '同上の 2026-04 までのログ（凍結）'),
   d('state.exam-keyword-umbrella-drafts', '.claude/state/exam-keyword-cycles/umbrella-drafts/{name}.md', 'raw', 'site', '同上の親キーワードの下書き', { local: true, regen: '/exam-keyword-cycle が作り直す' }),
   d('state.exam-keyword-audits', '.claude/state/exam-keyword-audits/{name}/{**}', 'evidence', 'site', '過去問とキーワードの紐づけ監査（/audit-exam-mapping）'),
   d('state.exam-keyword-map', '.claude/state/exam-keyword-map.json', 'state', 'site', '過去問→キーワードの対応（生成索引）'),
@@ -307,7 +305,6 @@ export const DATASETS = [
   d('state.pe-essay-review', '.claude/state/pe-essay-review/{name}.md', 'report', 'site', '技術士総監の記述式答案のレビュー'),
   // 図版
   d('state.figure-audit', '.claude/state/figure-audit/{date}.json', 'evidence', 'site', '図版の監査結果'),
-  d('state.figure-audit-visual', '.claude/state/figure-audit-visual/{name}.json', 'evidence', 'site', '過去問の図の目視監査（年度ごと）'),
   d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
   d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
   d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
@@ -353,14 +350,17 @@ export const DATASETS = [
   d('state.note-republish', '.claude/state/note-republish/{**}', 'state', 'product', 'note の再公開の進み具合と対象の一覧'),
   d('state.note-publish-lists', '.claude/state/note-publish/{name}.txt', 'state', 'product', 'note の公開の対象の一覧'),
   d('state.note-cover-v4', '.claude/state/note-cover-v4-{name}', 'state', 'product', 'note カバー V4 の差し替えの進み具合（記事・マガジン・目視の一覧）'),
-  d('state.note-attachments', '.claude/state/note-attach{name}.json', 'state', 'product', 'note の PDF 添付の反映・欠落の記録'),
+  d('state.note-attachments-missing', '.claude/state/note-attachments-missing.json', 'state', 'product', 'note の PDF 添付の live 実査で見つけた欠落（check-note-attachments --live が書き、note-attach-batch と check-note-delivery-due が読む）', { freshness: { failDays: 14 } }),
+  d('state.note-attachment-loss', '.claude/state/note-attachment-loss.json', 'state', 'product', 'note の添付を捨てたまま（再添付待ち）の記録'),
+  d('state.note-attach-done', '.claude/state/note-attach-done.json', 'state', 'product', 'note の PDF 添付の反映済みの記録'),
   d('state.note-remaining-lists', '.claude/state/note-{name}.txt', 'state', 'product', 'note の一括反映で残っている記事の一覧（タグ・UTM・タグ同期）'),
   d('state.note-republish-hashes', '.claude/state/note-republish-hashes.json', 'state', 'product', 'note の再公開で反映した本文のハッシュ'),
   d('state.note-swap-banner-done', '.claude/state/note-swap-banner-done.json', 'state', 'product', 'note のバナーの差し替えを終えた記事'),
   d('state.note-update-aborted', '.claude/state/note-update-aborted.json', 'state', 'product', 'note の本文の反映を途中で止めた記事'),
   // SNS・動画
   d('state.youtube-thumbnails', '.claude/state/youtube-thumbnail-{name}.json', 'state', 'sns', 'YouTube のサムネイルの意匠と差し替えの進み具合'),
-  d('state.video-status', '.claude/state/video-{name}.json', 'state', 'sns', '動画パックの状態・編集の指摘・公開の照合'),
+  d('state.video-publication-verify', '.claude/state/video-publication-verify.json', 'state', 'sns', '動画パックの公開の照合（verify-video-publication・verify-yt-status.yml が週次で書き、check-video-publication が読む）', { freshness: { failDays: 14 } }),
+  d('state.video-editorial-findings', '.claude/state/video-editorial-findings.json', 'state', 'sns', '動画パックの編集の指摘'),
   d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),
   d('state.x-posted-live', '.claude/state/x-posted-live/latest.json', 'state', 'sns', 'X の投稿の照合の最新'),
   d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
@@ -398,6 +398,9 @@ export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
  * 古い id を渡しても止まらないよう、消した id はここへ移して後継に読み替える（tests/ci-data.test.mjs が YAML の id を検査）。
  */
 export const RETIRED_IDS = {
+  // 2026-10-10 data/ 全体の SSOT 見直し: ファイル名でまとめていた行をファイルごとに分け、鮮度を持たせた
+  'state.note-attachments': 'state.note-attachments-missing',
+  'state.video-status': 'state.video-publication-verify',
   'note.competitors-latest': 'note.competitors',
   'coconala.competitors-latest': 'coconala.competitors',
   'coconala.blog-competitors-latest': 'coconala.blog-competitors',
