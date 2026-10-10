@@ -87,14 +87,14 @@
     {
       "id": "exam-sokuho",
       "label": "解答速報（試験当日・直後）",
-      "status": "proposed",
+      "status": "paused",
       "role": "発見",
       "lengthMinutes": { "min": 20, "max": 40 },
       "ctaKinds": ["site-article", "note-magazine"],
-      "producedBy": "未検討。正答の確認体制と当日の制作時間が要る",
+      "producedBy": "未実装。2027 年の 1 級一次から、正答公表前は「速報・暫定」と明示し訂正の出し方を決めた形で始める（DN-0604）",
       "evidence": ["docs/marketing/07a_YouTube競合分析_土木施工管理技士_2026-09.md", "docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md"],
       "decision": "DN-0604",
-      "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回"
+      "note": "07a §3 で試験直後の窓として指摘。ひげごろーの1級二次の解答速報（ライブ）は24,205回。2026-10-10 の運営者判断で 2026 年はやらない（10/25 の 2 級二次を含む）"
     }
   ]
 }
