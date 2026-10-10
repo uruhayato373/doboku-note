@@ -14,12 +14,13 @@ import { qualificationKey } from './sales-by-qualification.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { writeDataset } from './dataset-write.mjs';
 import { BUSINESS_CHANNELS } from './dataset-schema-parts.mjs';
+import { addDays, isoWeekKey as weekOfDay, reviewWindowOfWeek } from './review-week.mjs';
 
 export const DIRECTION = datasetPath('config.business-direction');
 export const RECORDS = datasetDir('business.measurement');
 export const hash = (value) => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 export { jst };
-export const addDays = (day, n) => new Date(Date.parse(`${day}T00:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
+export { addDays } from './review-week.mjs';
 export { readJson };
 const required = (ok, message) => { if (!ok) throw new Error(message); };
 const validDay = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s ?? '') && !Number.isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
@@ -42,9 +43,8 @@ export function reviewPeriod(cadence, today = jst()) {
     const endDate = addDays(`${today.slice(0, 7)}-01`, -1);
     return { startDate: `${endDate.slice(0, 7)}-01`, endDate };
   }
-  const weekday = new Date(`${today}T00:00:00Z`).getUTCDay();
-  const endDate = addDays(today, -((weekday + 6) % 7) - 1);
-  return { startDate: addDays(endDate, -6), endDate };
+  // 週次は今日を含む回（レビューの週）が振り返る前の完了週（review-week.mjs が唯一の換算）
+  return reviewWindowOfWeek(weekOfDay(today));
 }
 /**
  * GSC の確定データは終了日から4日未満だと揃わない。取得対象の期間はここだけで決める。
@@ -61,24 +61,8 @@ export function duePeriods(cadences, today = jst()) {
   }
   return { due, skipped };
 }
-/** ISO 8601 の週キー（'2026-09-14' → '2026-W38'）。週次の期間（月〜日）と成長ダイジェストのファイル名が使う。 */
-export function isoWeekKey(day) {
-  required(validDay(day), '日付が不正です');
-  const t = new Date(`${day}T00:00:00Z`);
-  t.setUTCDate(t.getUTCDate() + 4 - (t.getUTCDay() || 7));
-  const y = t.getUTCFullYear();
-  const w = Math.ceil(((t - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7);
-  return `${y}-W${String(w).padStart(2, '0')}`;
-}
-/** 週キーの月〜日（'2026-W38' → { startDate: '2026-09-14', endDate: '2026-09-20' }）。 */
-export function weekPeriod(key) {
-  const m = /^(\d{4})-W(\d{2})$/.exec(String(key));
-  required(m, '週キーが不正です（YYYY-Www）');
-  const jan4 = new Date(Date.UTC(+m[1], 0, 4));
-  const monday = new Date(jan4.getTime() - ((jan4.getUTCDay() || 7) - 1) * 86400000 + (+m[2] - 1) * 7 * 86400000);
-  const startDate = monday.toISOString().slice(0, 10);
-  return { startDate, endDate: addDays(startDate, 6) };
-}
+/** 週キー・週の期間の換算は review-week.mjs が唯一の実装（ここは再公開だけ） */
+export { isoWeekKey, weekPeriod } from './review-week.mjs';
 export const samePeriod = (a, b) => a?.startDate === b?.startDate && a?.endDate === b?.endDate;
 // 記録は追記のみで中身を書き換えない。2026-10-02 以前の記録は旧パス（.claude/state/…）で他の記録・計測を指しているので、
 // 読み込み時に参照パス（file・snapshot・source・supersedes）だけを移動後の位置へ読み替える（ファイルとハッシュは不変）

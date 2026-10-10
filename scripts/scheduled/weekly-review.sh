@@ -32,7 +32,8 @@ mkdir -p "$LOG_DIR"
   echo "=== $(date -Iseconds) [weekly-review] start ==="
 } >> "$LOG_FILE"
 
-week="$(node -e "import('$REPO/scripts/lib/business-direction.mjs').then(m=>import('$REPO/scripts/lib/jst-date.mjs').then(j=>console.log(m.isoWeekKey(j.todayJst()))))")"
+# 今日を含む回（レビューの週）。換算は scripts/lib/review-week.mjs が唯一の実装
+week="$(node -e "import('$REPO/scripts/lib/review-week.mjs').then(m=>import('$REPO/scripts/lib/jst-date.mjs').then(j=>console.log(m.reviewWeekOfDay(j.todayJst()))))")"
 review="docs/reviews/weekly/${week}-review.md"
 
 rc=0
