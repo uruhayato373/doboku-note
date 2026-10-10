@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0643] Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-14]
+
+**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#571（ops 区分 FAIL: note-delivery-due・coconala-analytics・sales-freshness・monthly-review-due・cloudflare-metrics-freshness・afb-outcomes-freshness）が 9/22 から、#746 coconala（9/30〜）・#862 afb・#863 moshimo の login collector が期限切れ。ココナラの orders snapshot は 12.6 日前で評価未送信の検査が不成立。
+
+**やること**: Mac で npm run auth:login -- --service coconala（afb・moshimo も）→ auth:export。続けて npm run coconala-orders・npm run coconala-analytics -- --append-kpi・npm run note-sales-fetch・npm run note-traffic-fetch -- --month 2026-09 --commit を回す。note の添付実査（check-note-attachments --live）が 14 日を超えていればそれも回す。9 月の月次レビュー（/monthly-review）はこの取得のあとに行う。
+
+**完了条件**: #571・#746・#862・#863 が自動クローズし、npm run check-coconala-orders -- --json が inconclusive:false を返す。
+
+
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17]
 
