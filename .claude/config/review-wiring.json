@@ -216,6 +216,24 @@
           "label": "重要 workflow が赤いまま・動いていない",
           "stage": "基盤の点検",
           "role": "点検"
+        },
+        {
+          "command": "weekly-review:draft",
+          "label": "機械の節の下書き（金曜 CI と同じ）",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "node:build-weekly-review-draft",
+          "label": "下書きの作り直し（--print）",
+          "stage": "計画・運用",
+          "role": "点検"
+        },
+        {
+          "command": "weekly-review:install",
+          "label": "土曜の Mac 自動実行（launchd）",
+          "stage": "計画・運用",
+          "role": "点検"
         }
       ],
       "procedure": [
