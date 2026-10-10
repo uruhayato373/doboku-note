@@ -36,7 +36,7 @@ import { fetchNoteRaw } from './lib/note-live-check.mjs';
 import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives, extractImageUrls, classifyImageStatus } from './lib/note-public-view.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
+import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
@@ -205,13 +205,15 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
     const page = await context.newPage();
     const r = results.get(t.noteId);
     try {
-      const { status, ready } = await openAndSettle(page, t.url, { readySelector: BODY });
-      const v = evaluateRendered({ status, bodyFound: ready, locked: limitedIds.has(t.noteId), ...(await page.evaluate(MEASURE)) });
-      r.bad.push(...v.bad.map((x) => `[${baseVp.width}px] ${x}`)); r.warn.push(...v.warn);
-      if (v.bad.length) {
-        await page.evaluate(SCROLL_TO_PROBLEM);
-        await page.screenshot({ path: join(SHOT_DIR, `${t.noteId}.png`) }).catch(() => {});
-      }
+      await withPageBudget(page, t.noteId, async () => {
+        const { status, ready } = await openAndSettle(page, t.url, { readySelector: BODY });
+        const v = evaluateRendered({ status, bodyFound: ready, locked: limitedIds.has(t.noteId), ...(await page.evaluate(MEASURE)) });
+        r.bad.push(...v.bad.map((x) => `[${baseVp.width}px] ${x}`)); r.warn.push(...v.warn);
+        if (v.bad.length) {
+          await page.evaluate(SCROLL_TO_PROBLEM);
+          await page.screenshot({ path: join(SHOT_DIR, `${t.noteId}.png`) }).catch(() => {});
+        }
+      });
     } catch (e) {
       viewFail++;
       r.warn.push(`ブラウザで開けない: ${noteOpenFailure(e).slice(0, 80)}`);
@@ -239,18 +241,20 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
         let entry = index.find((e) => e.noteId === t.noteId);
         if (!entry) { entry = { noteId: t.noteId, group: t.group, path: t.path, url: t.url, pricing: t.src.pricing, price: t.src.price, shots: [] }; index.push(entry); }
         try {
-          const { status, ready } = await openAndSettle(page, t.url, { readySelector: BODY });
-          const v = evaluateRendered({ status, bodyFound: ready, locked: limitedIds.has(t.noteId), ...(await page.evaluate(MEASURE)) });
-          r.bad.push(...v.bad.map((x) => `[${vp.width}px] ${x}`));
-          for (const file of await shootTopAndEnd(page, REVIEW_DIR, `${t.noteId}-${vp.name}`, ['.m-paywallHeader', `${BODY} > :last-child`])) {
-            entry.shots.push({ viewport: vp.name, width: vp.width, file });
-          }
-          // 切り替わり幅の数え直し（いちばん広い画面幅で 1 回だけ）
-          if (!bpReport && vp === BP.note.viewports.at(-1)) {
-            const { counts, unreadable } = await page.evaluate(countMediaQueriesInPage);
-            const measured = significantBreakpoints(counts, { minRules: BP.significantRuleCount, minWidth: BP.minDeviceWidth });
-            bpReport = { measuredOn: t.url, measured, unreadable, drift: breakpointDrift(BP.note.breakpoints, measured) };
-          }
+          await withPageBudget(page, `${t.noteId}@${vp.width}px`, async () => {
+            const { status, ready } = await openAndSettle(page, t.url, { readySelector: BODY });
+            const v = evaluateRendered({ status, bodyFound: ready, locked: limitedIds.has(t.noteId), ...(await page.evaluate(MEASURE)) });
+            r.bad.push(...v.bad.map((x) => `[${vp.width}px] ${x}`));
+            for (const file of await shootTopAndEnd(page, REVIEW_DIR, `${t.noteId}-${vp.name}`, ['.m-paywallHeader', `${BODY} > :last-child`])) {
+              entry.shots.push({ viewport: vp.name, width: vp.width, file });
+            }
+            // 切り替わり幅の数え直し（いちばん広い画面幅で 1 回だけ）
+            if (!bpReport && vp === BP.note.viewports.at(-1)) {
+              const { counts, unreadable } = await page.evaluate(countMediaQueriesInPage);
+              const measured = significantBreakpoints(counts, { minRules: BP.significantRuleCount, minWidth: BP.minDeviceWidth });
+              bpReport = { measuredOn: t.url, measured, unreadable, drift: breakpointDrift(BP.note.breakpoints, measured) };
+            }
+          });
         } catch (e) {
           repFail++;
           r.warn.push(`[${vp.width}px] ブラウザで開けない: ${noteOpenFailure(e).slice(0, 60)}`);
@@ -258,8 +262,11 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
           await page.close().catch(() => {});
         }
       };
+      const t0 = Date.now(), failBefore = repFail;
       for (let i = 0; i < reps.length; i += CONCURRENCY) await Promise.all(reps.slice(i, i + CONCURRENCY).map(shootOne));
       await ctx.close();
+      // 画面幅ごとの進捗（止まったときにどこまで進んだかをログで追えるように）
+      console.log(`  代表ページ ${vp.width}px: ${reps.length} 本（開けない ${repFail - failBefore}・${Math.round((Date.now() - t0) / 1000)} 秒）`);
     }
     writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'note', viewports: BP.note.viewports, breakpoints: bpReport, pages: index }, null, 2) + '\n');
     const shots = index.reduce((n, e) => n + e.shots.length, 0);

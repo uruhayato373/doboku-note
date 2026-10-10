@@ -123,16 +123,14 @@ jobs:
             --title "weekly-review-guard が止まっています" \
             --body-file "$RUNNER_TEMP/guard-health-body.md"
 
-      # rc≠0 は job も赤にする（Issue が主経路・赤は workflow-health の連続失敗カウント用）。
-      # rc=2 は検査不成立（ops:true が 0 件 or フラグ構成の破損）＝「遅れなし」ではないので緑にしない。
-      - name: Fail on ops alerts / 検査不成立
-        if: steps.ops.outputs.rc != '0'
+      # rc=1（遅れあり）は Issue（channel: ops）だけが経路で、job は緑のまま（2026-10-10 に変更）。
+      # 遅れはログインの要る取得が終わるまで何週間も続くので、赤にすると workflow-health が「壊れた」と
+      # 「遅れを見つけた」を区別できず、赤が読まれなくなる（DN-0642・19 連続の赤）。
+      # rc=2 は検査不成立（ops:true が 0 件 or フラグ構成の破損）＝「遅れなし」ではないので赤にする。
+      - name: Fail on 検査不成立
+        if: steps.ops.outputs.rc != '0' && steps.ops.outputs.rc != '1'
         env:
           RC: ${{ steps.ops.outputs.rc }}
         run: |
-          if [ "$RC" = "1" ]; then
-            echo "::error::ops 区分に遅れがあります。automation-failure Issue（channel: ops）を参照。"
-          else
-            echo "::error::ops 区分の検査が不成立（rc=$RC）。scripts/quality-audit.mjs の ops フラグ構成を確認。"
-          fi
+          echo "::error::ops 区分の検査が不成立（rc=$RC）。scripts/quality-audit.mjs の ops フラグ構成を確認。"
           exit 1

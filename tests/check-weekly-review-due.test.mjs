@@ -33,3 +33,16 @@ test('月〜金は先週分を見る（今週分はまだ問わない）', () =>
 test('JST 境界: 土曜 00:00 JST（金曜 15:00 UTC）は土曜として扱うが 09:00 前なので null', () => {
   assert.equal(dueWeek(Date.UTC(2026, 8, 18, 15, 0), () => false), null);
 });
+
+test('諮問待ちの印: 最新の週次レビューにだけ印があればそのファイル名を返す（ヘッドレスの土曜実行が残す）', async () => {
+  const { mkdtempSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { pendingQuestionsReview, PENDING_MARK } = await import('../scripts/check-weekly-review-due.mjs');
+  const dir = mkdtempSync(join(tmpdir(), 'wr-'));
+  assert.equal(pendingQuestionsReview(dir), null);
+  writeFileSync(join(dir, '2026-W41-review.md'), `# x\n${PENDING_MARK}\n`);
+  assert.equal(pendingQuestionsReview(dir), '2026-W41-review.md');
+  writeFileSync(join(dir, '2026-W42-review.md'), '# 諮った後\n');
+  assert.equal(pendingQuestionsReview(dir), null);
+});
