@@ -39,6 +39,7 @@ npm run check-mdx-facts -- <file...> [--base <rev>] # 構造だけを変えた�
 npm run lint:ja               # 日本語校正（textlint + prh）。staged の content/site/**/*.mdx だけの表記ゆれ・全角英数を検出（pre-commit と quality:audit:ci に同梱・DN-0239）。辞書は prh.yml、ルール定義は .textlintrc.json。過去問（技術士一次・建設部門・総監・土木の第1次/第2次検定・1級土木 二次の分野別過去問・測量士）の公式問題の逐語と、解説で選択肢の原文を引いた部分は対象外（`scripts/lib/official-question-text.mjs`。lint-mdx-mobile の 15-x と同じ判定）
 npm run pre-commit:ci-gates    # CI（quality:audit:ci）の速い検査を staged の範囲で先に回す（katex-warnings＝staged の MDX だけ・note-paid-cta・x-review・products〔商品の正本と記事・掲載文・生成物〕は該当パスを stage したときだけ全量）。note の原稿・note-magazines.ts・収録の期待値を stage したときは generated-indexes のうち note 記事カタログだけを回す（`build-note-published-index.mjs --check --staged`＝作り直し漏れと stage 漏れ）。pre-commit では pre-commit-mdx.mjs の先頭が呼ぶ（フック本体を変えると共有フックの入れ直しが要るため相乗り）。develop 直 push で CI を赤くしてきた検査を手元で止めるためのもので、unit-tests と generated-indexes の残り（refresh-indexes 全体）は遅いので CI に残す
 npm run lint:ja:all           # 全件 report（1,280 ファイルを 100 件ずつバッチ実行・OOM 回避。ゲートしない。件数を減らしたいときは辞書 prh.yml に語を足す）
+node scripts/lint-ja.mjs --files <a.mdx> …  # 指定した MDX だけを staged と同じ判定で検査（違反で exit 1）。コミット前・サブエージェントの自己確認用（stage できない担当でも pre-commit と同じ結果を見られる）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・サイト MDX と note 記事が対象・quality:audit に同梱）
 npm run check-note-duplicate-images # note 記事で同じ画像を 2 回使っていないか（2 枚目は CDN 確定せず全文更新が中断する・pre-commit の note-lint 規則 10 と同じ判定・quality:audit ci）
 npm run check-note-inline-code      # note 記事の本文にインラインのバッククォートが無いか（note は `〇〇` を記号のまま出す・目印は【〇〇】・pre-commit の note-lint 規則 11 と同じ判定・quality:audit ci）

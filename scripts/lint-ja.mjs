@@ -13,10 +13,11 @@
 // 使い方:
 //   node scripts/lint-ja.mjs --staged   # pre-commit / CI 用（staged の content/site/**/*.mdx のみ・違反で exit 1）
 //   node scripts/lint-ja.mjs --all      # 全件 report（content/site/**/*.mdx・違反があっても exit 0）
+//   node scripts/lint-ja.mjs --files a.mdx b.mdx  # 指定した MDX だけ（staged と同じ判定・違反で exit 1。コミット前に作業中の記事を確かめる）
 
 import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
 import { createRequire } from 'node:module';
 import { OFFICIAL_QUESTION_PAGE, officialTextRanges } from './lib/official-question-text.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -26,7 +27,8 @@ const TEXTLINT_BIN = createRequire(import.meta.url).resolve('textlint/bin/textli
 const SCAN_DIR = join(ROOT, 'content', 'site');
 const SCAN_EXT = /\.mdx$/;
 
-const mode = process.argv.includes('--all') ? 'all' : 'staged';
+const mode = process.argv.includes('--all') ? 'all' : process.argv.includes('--files') ? 'files' : 'staged';
+const listedFiles = () => process.argv.slice(process.argv.indexOf('--files') + 1).filter((a) => !a.startsWith('--')).map((f) => relative(ROOT, resolve(f)).split(sep).join('/'));
 
 function stagedMdxFiles() {
   const out = execFileSync(
@@ -57,7 +59,7 @@ function allMdxFiles(dir) {
   return results;
 }
 
-const files = mode === 'staged' ? stagedMdxFiles() : allMdxFiles(SCAN_DIR);
+const files = mode === 'staged' ? stagedMdxFiles() : mode === 'files' ? listedFiles() : allMdxFiles(SCAN_DIR);
 
 if (files.length === 0) {
   console.log(`[lint-ja --${mode}] 対象 0 件（該当する MDX の変更なし）`);
@@ -140,9 +142,9 @@ if (failedBatches > 0) {
   process.exit(2);
 }
 
-if (mode === 'staged' && totalErrors > 0) {
+if ((mode === 'staged' || mode === 'files') && totalErrors > 0) {
   console.error(
-    `\n[lint-ja --staged] ${totalErrors} 件の表記ゆれ/校正指摘があります。'npx textlint --fix <file>' で機械修正可能な項目は自動修正されます。`,
+    `\n[lint-ja --${mode}] ${totalErrors} 件の表記ゆれ/校正指摘があります。'npx textlint --fix <file>' で機械修正可能な項目は自動修正されます。`,
   );
   process.exit(1);
 }
