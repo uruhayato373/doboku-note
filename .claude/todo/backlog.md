@@ -1752,6 +1752,15 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **やること**: ココナラの売上管理（売上履歴）のページの URL と DOM を確かめ、月別の手数料控除後の合計を read-only で読む処理を `scripts/lib/net-receipts.mjs` と `record-net-receipts.mjs` に足す（CI の encrypted-state でココナラは取得できる。ローカルはプロファイルの再ログインが要る）。`--coconala` を渡さなくても組み立てられるようにする。
 
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
+
+### [DN-0641] CTA クリック率がサイト平均を下回る 3 ページ（2級 exam-overview・1級 leveling・1級 secondary getting-started）の導線を本文の読む流れに合わせる
+タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+
+**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W39.json）の OPP-8028130bb4: /exam/civil-construction-2/guide/exam-overview の CTA クリック率 0.25%（サイト平均 0.68%）（期待効果 1 ctaClicks/週）
+
+**やること**: W39 ダイジェストの 35 日 CTA クリック率: /exam/civil-construction-2/guide/exam-overview 0.25%（表示1,177・クリック3）、/exam/civil-construction-1/textbook/leveling 0%、/exam/civil-construction-1/secondary/getting-started 0.18%（サイト平均0.68%）。各ページの現物でカードの位置と送客先を確かめ、読者の次の行動（2級は二次 10/25 前の経験記述・直前パック、1級二次は試験後のため合格発表までの学習導線）に合う商品へ差し替えるか本文内の位置を前へ移す。DN-0417 で 1級 exam-overview に入れた形を参考にする。
+
+**完了条件**: 3 ページの CTA の位置・送客先の変更が公開され、反映 28 日後の同ページの CTA クリック率を変更前と比べた記録が本カードの完了記録にある（少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
 ### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
@@ -2452,6 +2461,15 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **やること**: 06 §4 の責務分担どおり、`/create-skill` で `/video-content`（薄いオーケストレーター）と 2 つのエージェントを作り、skills-guide・agents-registry を更新する。
 
 **完了条件**: `npm run check-doc-coupling` が通り、動画パック 1 本をこの入口で作って `npm run check-video-content` が通る。
+
+### [DN-0640] 総監キーワード「コストドライバー」のtitle・description・リードを「コストドライバーとは」に答える形にする
+タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+
+**起点**: 週次トリアージ（data/analysis/growth/digest-2026-W39.json）の OPP-57ad840c93: 「コストドライバーとは」は平均 8.8 位なのに CTR 0%（期待 2.5%）（期待効果 0.4 searchClicks/週）。原稿: `content/site/pe-comprehensive-management/cost-driver/article.mdx`
+
+**やること**: GSC で「コストドライバーとは」（35日 表示72・クリック0・平均8.8位）の着地ページ /exam/pe-comprehensive-management/keywords/cost-driver の表示タイトルを確認し、content/site/pe-comprehensive-management/cost-driver/article.mdx の seoTitle・description・リード文の冒頭で定義（原価を変動させる要因）と総監での問われ方に答える。本文に無い定義は足さない。変更後は refresh-indexes。
+
+**完了条件**: seoTitle・description・リードが定義に答える形で公開され、公開日から28日後の同クエリの CTR を変更前（0%）と比べた記録が本カードの完了記録にある。
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
