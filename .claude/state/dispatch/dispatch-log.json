@@ -2518,6 +2518,32 @@
       "commit": "5da7704f9fee",
       "verification": "node scripts/check-image-assets.mjs（exit 0）",
       "note": "記事の担当セッションが 2 枚を 9,088B・9,928B に圧縮して develop に入れた。check-image-assets は exit 0"
+    },
+    {
+      "id": "DN-0344",
+      "at": "2026-10-10",
+      "task": "技術士 口頭試験対策を全部門共通で使える形にする（筆記合格発表 11/4 の前日まで）",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2784cb2901fc",
+      "verification": "note n1fcaf65dc75b公開・価格1980円・有料境界直前・ライブPDF1件確認、check-x-campaign-plan実検査261件exit0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0655",
+      "at": "2026-10-10",
+      "task": "総監の口頭試験記事の冒頭案内を筆記合格者の準備段階に合わせる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2784cb2901fc",
+      "verification": "冒頭CTAを部分更新しPDF1件完全保持、audit-note-funnel --live --ci実検査117件ドリフト0・exit0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
