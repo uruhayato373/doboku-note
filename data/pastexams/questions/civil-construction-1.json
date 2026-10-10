@@ -15851,7 +15851,7 @@
       "no": "A-1",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15859,12 +15859,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -15873,7 +15874,7 @@
       "no": "A-2",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15881,12 +15882,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -15895,7 +15898,7 @@
       "no": "A-3",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15903,12 +15906,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -15917,7 +15922,7 @@
       "no": "A-4",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15925,12 +15930,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -15939,7 +15946,7 @@
       "no": "A-5",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15947,12 +15954,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -15961,7 +15970,7 @@
       "no": "A-6",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15969,12 +15978,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -15983,7 +15993,7 @@
       "no": "A-7",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -15991,12 +16001,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16005,7 +16016,7 @@
       "no": "A-8",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16013,12 +16024,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16027,7 +16039,7 @@
       "no": "A-9",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16035,12 +16047,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16049,7 +16062,7 @@
       "no": "A-10",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16057,12 +16070,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16071,7 +16086,7 @@
       "no": "A-11",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16079,12 +16094,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16093,7 +16110,7 @@
       "no": "A-12",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16101,12 +16118,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16115,7 +16134,7 @@
       "no": "A-13",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16123,12 +16142,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16137,7 +16157,7 @@
       "no": "A-14",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16145,12 +16165,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16159,7 +16181,7 @@
       "no": "A-15",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16167,12 +16189,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16181,7 +16204,7 @@
       "no": "A-16",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16189,12 +16212,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16203,7 +16227,7 @@
       "no": "A-17",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16211,12 +16235,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16225,7 +16250,7 @@
       "no": "A-18",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16233,12 +16258,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16247,7 +16274,7 @@
       "no": "A-19",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16255,12 +16282,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16269,7 +16298,7 @@
       "no": "A-20",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16277,12 +16306,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16291,7 +16321,7 @@
       "no": "A-21",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16299,12 +16329,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16313,7 +16344,7 @@
       "no": "A-22",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16321,12 +16352,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16335,7 +16368,7 @@
       "no": "A-23",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16343,12 +16376,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16357,7 +16392,7 @@
       "no": "A-24",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16365,12 +16400,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16379,7 +16415,7 @@
       "no": "A-25",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16387,12 +16423,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16401,7 +16438,7 @@
       "no": "A-26",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16409,12 +16446,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16423,7 +16462,7 @@
       "no": "A-27",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16431,12 +16470,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16445,7 +16485,7 @@
       "no": "A-28",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16453,12 +16493,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16467,7 +16508,7 @@
       "no": "A-29",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16475,12 +16516,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16489,7 +16532,7 @@
       "no": "A-30",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16497,12 +16540,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16511,7 +16555,7 @@
       "no": "A-31",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16519,12 +16563,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16533,7 +16578,7 @@
       "no": "A-32",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16541,12 +16586,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16555,7 +16601,7 @@
       "no": "A-33",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16563,12 +16609,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16577,7 +16625,7 @@
       "no": "A-34",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16585,12 +16633,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16599,7 +16649,7 @@
       "no": "A-35",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16607,12 +16657,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16621,7 +16673,7 @@
       "no": "A-36",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16629,12 +16681,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16643,7 +16696,7 @@
       "no": "A-37",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16651,12 +16704,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16665,7 +16720,7 @@
       "no": "A-38",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16673,12 +16728,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16687,7 +16744,7 @@
       "no": "A-39",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16695,12 +16752,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16709,7 +16768,7 @@
       "no": "A-40",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16717,12 +16776,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16731,7 +16792,7 @@
       "no": "A-41",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16739,12 +16800,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16753,7 +16815,7 @@
       "no": "A-42",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16761,12 +16823,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16775,7 +16838,7 @@
       "no": "A-43",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16783,12 +16846,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16797,7 +16862,7 @@
       "no": "A-44",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16805,12 +16870,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16819,7 +16885,7 @@
       "no": "A-45",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16827,12 +16893,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16841,7 +16909,7 @@
       "no": "A-46",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16849,12 +16917,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16863,7 +16933,7 @@
       "no": "A-47",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16871,12 +16941,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16885,7 +16957,7 @@
       "no": "A-48",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16893,12 +16965,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16907,7 +16980,7 @@
       "no": "A-49",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16915,12 +16988,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16929,7 +17004,7 @@
       "no": "A-50",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16937,12 +17012,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -16951,7 +17028,7 @@
       "no": "A-51",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16959,12 +17036,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16973,7 +17051,7 @@
       "no": "A-52",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -16981,12 +17059,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -16995,7 +17074,7 @@
       "no": "A-53",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17003,12 +17082,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -17017,7 +17098,7 @@
       "no": "A-54",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17025,12 +17106,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17039,7 +17121,7 @@
       "no": "A-55",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17047,12 +17129,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -17061,7 +17145,7 @@
       "no": "A-56",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17069,12 +17153,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17083,7 +17168,7 @@
       "no": "A-57",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17091,12 +17176,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -17105,7 +17192,7 @@
       "no": "A-58",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17113,12 +17200,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -17127,7 +17216,7 @@
       "no": "A-59",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17135,12 +17224,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢の文言を原典どおりに修正（解説の食い違い・欠落も整理）"
       }
     },
     {
@@ -17149,7 +17240,7 @@
       "no": "A-60",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17157,12 +17248,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17171,7 +17263,7 @@
       "no": "A-61",
       "source": {
         "question": "R03/R03_第一次検定_問題A.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17179,12 +17271,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17193,7 +17286,7 @@
       "no": "B-1",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17201,12 +17294,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17215,7 +17309,7 @@
       "no": "B-2",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17223,12 +17317,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17237,7 +17332,7 @@
       "no": "B-3",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17245,12 +17340,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17259,7 +17355,7 @@
       "no": "B-4",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17267,12 +17363,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17281,7 +17378,7 @@
       "no": "B-5",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17289,12 +17386,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17303,7 +17401,7 @@
       "no": "B-6",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17311,12 +17409,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17325,7 +17424,7 @@
       "no": "B-7",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17333,12 +17432,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3を原典の文（充たり，元方安全衛生管理者の指揮を行う）に修正"
       }
     },
     {
@@ -17347,7 +17448,7 @@
       "no": "B-8",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17355,12 +17456,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3「入念に」の脱字を修正"
       }
     },
     {
@@ -17369,7 +17472,7 @@
       "no": "B-9",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17377,12 +17480,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2を「組立，解体時」に修正"
       }
     },
     {
@@ -17391,7 +17496,7 @@
       "no": "B-10",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17399,12 +17504,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17413,7 +17519,7 @@
       "no": "B-11",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17421,12 +17527,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17435,7 +17542,7 @@
       "no": "B-12",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17443,12 +17550,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2「立入りの措置」・選択肢3「地山の掘削作業主任者」に修正"
       }
     },
     {
@@ -17457,7 +17566,7 @@
       "no": "B-13",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17465,12 +17574,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3「講じる」に修正"
       }
     },
     {
@@ -17479,7 +17590,7 @@
       "no": "B-14",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17487,12 +17598,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17501,7 +17613,7 @@
       "no": "B-15",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17509,12 +17621,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17523,7 +17636,7 @@
       "no": "B-16",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17531,12 +17644,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2「品質の変化」に修正"
       }
     },
     {
@@ -17545,7 +17660,7 @@
       "no": "B-17",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17553,12 +17668,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17567,7 +17683,7 @@
       "no": "B-18",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17575,12 +17691,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17589,7 +17706,7 @@
       "no": "B-19",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17597,12 +17714,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17611,7 +17729,7 @@
       "no": "B-20",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17619,12 +17737,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17633,7 +17752,7 @@
       "no": "B-21",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17641,12 +17760,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17655,7 +17775,7 @@
       "no": "B-22",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17663,12 +17783,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "請負った・他の建設業を営む者・作成建設業者に関する，の語句を修正"
       }
     },
     {
@@ -17677,7 +17799,7 @@
       "no": "B-23",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17685,12 +17807,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "「こととなる」に修正"
       }
     },
     {
@@ -17699,7 +17823,7 @@
       "no": "B-24",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17707,12 +17831,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17721,7 +17846,7 @@
       "no": "B-25",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17729,12 +17854,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "「評価，欠陥や」に修正"
       }
     },
     {
@@ -17743,7 +17870,7 @@
       "no": "B-26",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17751,12 +17878,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "（ロ）「直感的に」を追記"
       }
     },
     {
@@ -17765,7 +17894,7 @@
       "no": "B-27",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17773,12 +17902,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "（ニ）「辿って」に修正"
       }
     },
     {
@@ -17787,7 +17918,7 @@
       "no": "B-28",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17795,12 +17926,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17809,7 +17941,7 @@
       "no": "B-29",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17817,12 +17949,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17831,7 +17964,7 @@
       "no": "B-30",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17839,12 +17972,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17853,7 +17987,7 @@
       "no": "B-31",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17861,12 +17995,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17875,7 +18010,7 @@
       "no": "B-32",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17883,12 +18018,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "（イ）「施工段階」・（ハ）「重要な影響」に修正"
       }
     },
     {
@@ -17897,7 +18034,7 @@
       "no": "B-33",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17905,12 +18042,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文「締固めに関する」に修正"
       }
     },
     {
@@ -17919,7 +18058,7 @@
       "no": "B-34",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17927,12 +18066,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -17941,7 +18081,7 @@
       "no": "B-35",
       "source": {
         "question": "R03/R03_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R03/R03_第一次検定_正答.pdf"
       },
       "answer": {
@@ -17949,12 +18089,13 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
