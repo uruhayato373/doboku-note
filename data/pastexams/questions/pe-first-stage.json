@@ -6619,15 +6619,22 @@
       "no": "Ⅱ-1",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "イ・ウの設問文を原典どおりに修正、オの解説を整理"
       }
     },
     {
@@ -6636,15 +6643,21 @@
       "no": "Ⅱ-2",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6653,15 +6666,21 @@
       "no": "Ⅱ-3",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6670,15 +6689,21 @@
       "no": "Ⅱ-4",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6687,15 +6712,22 @@
       "no": "Ⅱ-5",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "カの「自己意識」を原典どおりに修正"
       }
     },
     {
@@ -6704,15 +6736,22 @@
       "no": "Ⅱ-6",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の「最低の」を原典どおりに修正"
       }
     },
     {
@@ -6721,15 +6760,22 @@
       "no": "Ⅱ-7",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "本文の文言を原典どおりに全面修正、選択肢4のアを最大利潤に修正、解説の誤記修正"
       }
     },
     {
@@ -6738,15 +6784,22 @@
       "no": "Ⅱ-8",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・（イ）（ウ）（エ）を原典どおりに修正、解説整理"
       }
     },
     {
@@ -6755,15 +6808,21 @@
       "no": "Ⅱ-9",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6772,15 +6831,22 @@
       "no": "Ⅱ-10",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3を原典（○×○×）に修正"
       }
     },
     {
@@ -6789,15 +6855,22 @@
       "no": "Ⅱ-11",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "（イ）住居、（カ）湾を修正、解説に（ク）を追加"
       }
     },
     {
@@ -6806,15 +6879,22 @@
       "no": "Ⅱ-12",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "（イ）の「認識させ」を原典どおりに修正"
       }
     },
     {
@@ -6823,15 +6903,22 @@
       "no": "Ⅱ-13",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・イ・ウ・オを原典どおりに修正、選択肢1の解説修正"
       }
     },
     {
@@ -6840,15 +6927,22 @@
       "no": "Ⅱ-14",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "イ・カを原典どおりに修正"
       }
     },
     {
@@ -6857,15 +6951,22 @@
       "no": "Ⅱ-15",
       "source": {
         "question": "R04/R04_適性科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問は原典どおり。エの解説のみ事実に絞って調整"
       }
     },
     {
