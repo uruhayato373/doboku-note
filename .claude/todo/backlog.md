@@ -342,6 +342,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
+
+**起点**: 2026-10-10、#957（スクリプトの共通化のリファクタ）の CodeQL が 22 件の「新しい警告」（high 18・medium 4）を出した。調べると、どれも main にすでに開いている既存の警告（18 件）と同じファイル・同じ規則で、差分が大きいために出し直されたものだった。既存の警告は手当てされずに残っている。中身: 管理画面の stored XSS（tools/admin-app/src/components/DocRootView.tsx・DocDetailView.tsx・app/knowledge/page.tsx）、コマンド引数から組み立てた正規表現（note-update-body・note-reanchor-boundary・note-publish・note-attach-file・note-article-price-sweep・lib/note-live-check）、不完全な HTML 除去（parse-exam-questions・note-update-body・note-reanchor-boundary・note-publish・keiken-charcount）、絶対パスに依る shell（ogp-gallery）。
+**やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
+**完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
+
+
 ### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
