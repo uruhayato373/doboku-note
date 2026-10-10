@@ -2518,6 +2518,23 @@
       "commit": "5da7704f9fee",
       "verification": "node scripts/check-image-assets.mjs（exit 0）",
       "note": "記事の担当セッションが 2 枚を 9,088B・9,928B に圧縮して develop に入れた。check-image-assets は exit 0"
+    },
+    {
+      "id": "DN-0552",
+      "at": "2026-10-10",
+      "task": "1級土木 一次の過去問演習データへ、記事の図の修正を反映する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "build-exam-question-data"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ec14eef291c",
+      "verification": "parse-civil-1/2・parse-exam-questions を refresh-indexes に配線（build-exam-question-data・中身が変わったときだけ書く）。civil-1 の JSON を記事から作り直し H30 No.10 の図が 1 枚・check-figure-embed-dims 不一致 0。参照の切れた h30-a-fig-11・h29-a-fig-02/03 を削除し R2 削除リストへ",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
