@@ -5,6 +5,7 @@ import { PageHead } from '@/components/ui';
 import LineChart from '@/components/charts/LineChart';
 import { qualitySummary, qualityCensus, type Severity } from '@/lib/quality';
 import type { Tone } from '@/components/admin';
+import PastExamLedgerPanel from './PastExamLedgerPanel';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,6 +34,8 @@ export default function QualityPage() {
       />
 
       <Stack>
+      <PastExamLedgerPanel />
+
       <PanelCard
         title="品質サイクル進捗（総監キーワード）"
         description="キーワードページごとの採点・弱い軸・リライト状況・検索の順位"

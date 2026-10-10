@@ -83,7 +83,7 @@ node scripts/figure-review-queue.mjs record .tmp/figure-loop/verdicts.json
 npm run check-image-assets:ci               # 画像サイズの上限（config/image-limits.json・webp 150KB 等）。超えたら縮小して record し直す（CI の audit がここで落ちる）
 npm run refresh-indexes                     # MDX の寸法を変えたときだけ
 grep -c "�" <変えた MDX>                     # 文字化け 0
-git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json config/figure-sources.json   # 明示指定（git add -A 禁止）。出典は figure-sources.json の provenance に入る
+git add <書き換えた png/webp> <変えた MDX> .claude/state/quality/figure-review-ledger.json config/figure-sources.json <refresh-indexes で変わった src/config/*-exam-questions.json・public/quiz/*.json>   # 明示指定（git add -A 禁止）。出典は figure-sources.json の provenance に入る
 git commit -m "content(figures): 図クロップ品質ループ N 枚（ok a・切り直し b・切り出し直し c・要切り出し直し d・原典なし e）"
 git fetch -q && git rev-list --count HEAD..origin/develop   # 0 でなければ下の載せ直しをしてから
 git push origin develop                     # 載せ直し・検証とは別の呼び出しにする

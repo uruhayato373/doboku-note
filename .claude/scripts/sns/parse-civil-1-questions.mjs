@@ -1,5 +1,5 @@
 /**
- * parse-civil-1-questions.mjs — 1級土木 第一次検定 過去問 MDX → 試験別問題JSON（追加のみ）
+ * parse-civil-1-questions.mjs — 1級土木 第一次検定 過去問 MDX → 試験別問題JSON（全年度を記事から作り直す・中身が変わったときだけ書く・refresh-indexes の build-exam-question-data）
  *
  * 入力: content/site/civil-construction-1/primary-{年度}-{a|b}/article.mdx
  * 出力: src/config/civil-1-exam-questions.json
@@ -11,6 +11,7 @@
  * 設計: docs/marketing/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { writeGeneratedJson } from '../../../scripts/lib/generated-json.mjs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
@@ -101,7 +102,7 @@ for (const d of dirs) {
 }
 const years = Object.keys(byYear).sort().map((year) => ({ year, questions: byYear[year].sort((a, b) => a.part.localeCompare(b.part) || a.no - b.no) }));
 const result = { generatedAt: new Date().toISOString().slice(0, 19) + 'Z', exam: 'civil-1', years };
-writeFileSync(OUT, JSON.stringify(result, null, 2));
+if (!writeGeneratedJson(OUT, result, { newline: false })) console.log('変更なし（書かない）');
 
 // サマリ
 const tot = years.reduce((s, y) => s + y.questions.length, 0);

@@ -55,7 +55,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 - **生成時ハルシネーション対策**: PDF→MDX 生成（特に一次選択式の画像ベース PDF）は**問題文・選択肢を捏造しやすい**。2級土木 過去問15本の初稿で約240箇所の相違（問題文取り違え・設問極性逆転・選択肢の意味反転・別問題混入）が発生
 - **正解番号一致は品質保証にならない**: 正解番号が正答PDFと一致していても問題文・選択肢が捏造されているケースが多発。content-qa 構造採点（3.0満点でも問題文4問捏造の実例）・verify-pdf-mdx 網羅率でも検出不可
-- **唯一の防御 = 全問原典視覚突合**: 生成後に問題 PDF を PyMuPDF で 250-300dpi 画像化し、問題文・選択肢・設問極性（適当な/適当でない）・正解・❌/✅ を1問ずつ照合。OCR品質に関わらず必須（公式PDFの R07 でも46問捏造）。詳細手順は `exam-questions-import/SKILL.md` Step 5.7、memory `feedback_exam_pdf_cross_reference`
+- **唯一の防御 = 全問原典視覚突合**: 生成後に問題 PDF を PyMuPDF で 250-300dpi 画像化し、問題文・選択肢・設問極性（適当な/適当でない）・正解・❌/✅ を1問ずつ照合。OCR品質に関わらず必須（公式PDFの R07 でも46問捏造）。詳細手順は `exam-questions-import/SKILL.md` Step 5.7、memory `feedback_exam_pdf_cross_reference`。照合の結果は問題台帳 `data/pastexams/questions/{資格}.json` に 1 問ずつ記録し（Step 5.8・`npm run check-past-exam-ledger` が CI で正答の不一致と ID の過不足を止める）
 - **PDF 取得時の年度確認**: 再配布サイト取得 PDF はファイル名と表紙年度の入替りがあり得る（2級R05/R06事例）。import 前に表紙年度を視覚確認。memory `feedback_pdf_filename_year_verify`
 
 #### 1級土木 primary（`group: primary`、一次過去問）
@@ -131,7 +131,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 過去問（primary）で**単一正答が成立しない／複数正答に見える**ときは、`past-exam-qa` の内部照合（条文・統計ロジック）だけで断定せず、**必ず原典（実際の試験問題PDF）と照合**する。転記ミスは正答キーだけでなく、**設問文・全選択肢の本文そのものが別問題に化けている**ことがある（答え番号は合っているのに本文が別物＝civil-1 `primary-h27-a`/`primary-h28-a` の No.61 港則法で実証、2026-07-10）。`past-exam-rewriter` は本文化けを直せない（統計・条文推測での書き直しは捏造）ので、**親が原典照合して本文を差し替える**。
 
-- **原典（civil-1 一次）**: `content/sources/past-exams/１級土木施工管理技士/` は **H30〜R07 のみ**。H26〜H29 の問題A/B原本と**公式正答肢表**は touhokugiken.com が無料公開（問題=`/answer/{h27|h28…}/…-1doboku-a.pdf`〔H27は`h27-1doboku-a.pdf`・H28は`1doboku-a.pdf`と命名ゆれ〕、正答=`…-kaitou.pdf`、索引=`/answer.html`）。
+- **原典（civil-1 一次）**: 2026-10-10 に全年度（H26〜R08）の問題A/B と公式正答肢が Drive vault（`原資料PDF/過去問/１級土木施工管理技士/`）にそろった（掲載終了分は JCTC の Wayback 保存版と、許諾を明記した再配布 dobokujira.com）。1 問ごとの原典ファイル・ページ・公式正答は問題台帳 `data/pastexams/questions/civil-construction-1.json` の `source`・`answer` が正本。在庫は `data/pastexams/inventory.json`。
 - **PDFの読み方**: WebFetch はPDFバイナリを読めない → 保存された PDF を `pdftotext -layout` で直読み。**正答肢表は画像テーブル** → `pdftoppm -png` で PNG 化して目視。
 - **条文の許可/届出**: e-Gov はSPAで WebFetch 不可 → `hourei.net` / `lawplayer.com` の静的ミラーで条番号を確認。
 - 詳細な失敗モードと入手経路は memory [[civil1-primary-answer-key-errors]]、進捗は `.claude/todo/backlog.md`「全資格 品質採点カバレッジ トラック」Phase2分類1。

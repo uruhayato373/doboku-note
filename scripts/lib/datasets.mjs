@@ -237,6 +237,7 @@ export const DATASETS = [
   d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true, retain: { family: 'cloudflare', maxAgeDays: 120 }, freshness: { failDays: 3 } }),
   // 過去問・R2（人とスクリプトが書く作業の台帳。config/ から移した。設定ではなく、取得・削除の進み具合の記録）
   d('pastexams.inventory', 'data/pastexams/inventory.json', 'ledger', 'product', '過去問の年度の在庫（公式の掲載状態・取得日・PDF の SHA-256 とページ数。取得スクリプトが書き換える）', { schema: 'PastExamInventory' }),
+  d('pastexams.question-ledger', 'data/pastexams/questions/{name}.json', 'ledger', 'product', '過去問の問題台帳（1 問ごとの原典・ページ・公式正答・転記の照合。キーは演習データの問題 ID。検査は check-past-exam-ledger）', { schema: 'PastExamQuestionLedger', refs: [{ at: 'qualification', to: 'qualification' }, { at: 'questions[].article', to: 'article' }] }),
   d('r2.delete-list', 'data/r2/delete-list.txt', 'ledger', 'ops', 'R2 から消すオブジェクトの一覧（1 行 1 キー。削除済みはコメント行で残す）'),
 
   // ===== data/: 自社で発生した記録 =====
@@ -324,8 +325,6 @@ export const DATASETS = [
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
   d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
-  d('state.civil-1-primary-official-keys', '.claude/state/quality/civil-1-primary-official-keys.json', 'evidence', 'site', '1級土木 第一次検定の公式正答（照合用）'),
-  d('state.civil-1-primary-tools', '.claude/state/quality/civil-1-primary-tools/{name}.mjs', 'evidence', 'site', '同上の照合に使った使い捨てのスクリプト'),
   d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
   d('state.playwright-auth-wiring', '.claude/state/quality/playwright-auth-wiring-last.json', 'state', 'ops', 'Playwright の認証の配線検査の最新'),
   d('state.repo-assets-baseline', '.claude/state/repo-assets/baseline.json', 'config', 'ops', 'リポジトリのアセットの基準線'),

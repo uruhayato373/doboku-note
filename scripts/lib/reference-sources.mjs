@@ -197,7 +197,7 @@ export function checkCitationEvidence({ citation, source, ref, articleText = '' 
   }
 
   if (citation === 'section') {
-    const inBody = /(?:第\s*[0-9０-９一二三四五六七八九十]+\s*(?:条|章|節|項|号|問)|(?:問|問題)\s*[0-9０-９]+|<SourceRef\b)/.test(text);
+    const inBody = /(?:第\s*[0-9０-９一二三四五六七八九十]+\s*(?:条|章|節|項|号|問)|(?:問|問題)\s*(?:No\.?\s*)?[0-9０-９]+|<SourceRef\b)/.test(text);
     return detail || inBody
       ? { ok: true, evidence: detail ? 'ref-detail' : 'article-section' }
       : { ok: false, reason: 'citation=section だが条・章・節・問などの箇所指定が無い' };

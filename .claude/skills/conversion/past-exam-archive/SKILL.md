@@ -18,8 +18,9 @@ domain: material
 | 原本 PDF（手元・Git 管理外） | `content/sources/past-exams/{資格}/{年度}/` |
 | 原本 PDF（正本） | Drive `原資料PDF/過去問/{資格}/{年度}/`（drive-vault group `past-exam-source-pdf`） |
 | Drive 台帳 | `.claude/state/assets/drive-manifest.json` |
+| 問題台帳（1 問ごとの原典ファイル・ページ・公式正答・転記の照合。キーは演習データの問題 ID） | `data/pastexams/questions/{資格}.json`（台帳 id `pastexams.question-ledger`・検査 `check-past-exam-ledger`） |
 
-対象は**試験実施機関が公開する公式の問題・正答・解答例だけ**。第三者の模範解答・解説・模擬試験は教材側
+対象は**試験実施機関が公開する公式の問題・正答・解答例だけ**。掲載が終わった公式の問題は、Wayback の保存版か、実施機関の許諾を明記した再配布・年度別の過去問掲載から取ってよい（`sourceUrl` は公式の URL か null、`note` に取得元と「表紙で年度・試験を確かめた」ことを書く）。正答が HTML のページだけのときは PDF に印刷して原本にする。第三者の模範解答・解説・模擬試験は教材側
 （`content/sources/textbook/{資格}/過去問解説/`・group `textbook-source-pdf`）に置き、在庫台帳には載せない。
 
 ## 手順
@@ -42,8 +43,10 @@ domain: material
 8. **読み戻して照合**: `node scripts/drive-browser-transfer.mjs verify --plan .tmp/past-exam-plan.json --listing .tmp/past-exam-listing.json --out .tmp/past-exam-receipts`。
    全件一致したフォルダだけ receipt ができる。
 9. **台帳に登録**: 各 receipt を `node scripts/drive-connector-register.mjs --receipt <file>` で dry-run し、全件通ったら同じ引数に `--commit`。
-10. **合格条件**: `npm run check-past-exam-inventory` で FAIL 0・対象の「Drive 未退避」0、`npm run check-drive-vault` が整合。
-    在庫台帳と Drive 台帳を同じ commit にする（`git add` はこの 2 ファイルだけ）。
+   マウントの Drive フォルダへ直接置いたファイルは、`node scripts/drive-vault-sync.mjs --group past-exam-source-pdf --from-vault --cloud --commit` で Drive API のハッシュから登録する（アップロードが終わるまで「Drive 未退避」の WARN が残る）。
+10. **問題台帳を配線し直す**: 演習データのある資格（1級・2級土木・技術士一次・総監）は `npm run sync-past-exam-ledger -- --write` で、足した問題・正答の原典を問題台帳の行へ結ぶ（照合・正答の記録は消えない）。
+11. **合格条件**: `npm run check-past-exam-inventory` で FAIL 0・対象の「Drive 未退避」0、`npm run check-drive-vault` が整合。
+    在庫台帳と Drive 台帳（と配線し直した問題台帳）を同じ commit にする（`git add` はこれらのファイルだけ）。
 
 ## 大量に送るとき（新しい資格・部門を丸ごと）
 
@@ -54,7 +57,7 @@ domain: material
    `node scripts/drive-browser-transfer.mjs upload-tree --units .tmp/units.json`。既存の資格に年度だけ足すときは `parentId` を資格フォルダにして `dir` を年度フォルダにする。
 3. Drive MCP で `mimeType = 'application/vnd.google-apps.folder' and createdTime > '<開始時刻>'` を取り `.tmp/folders.json` に保存し（既存フォルダも辿るなら資格フォルダも含める）、
    `node scripts/drive-browser-transfer.mjs resolve --plan .tmp/past-exam-plan.json --folders .tmp/folders.json --root-id <原資料PDF/過去問 の ID> --root-path 原資料PDF/過去問`。
-4. 以降は手順 7〜10 と同じ（listing は PDF の createdTime で取り、ページを全部たどる）。
+4. 以降は手順 7〜11 と同じ（listing は PDF の createdTime で取り、ページを全部たどる）。
 
 資格台帳に無い試験（技術士の他部門・都道府県の採用試験など）は、在庫台帳に `registry: false` と `label` を付けて載せる。
 

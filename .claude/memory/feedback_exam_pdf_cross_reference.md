@@ -16,6 +16,7 @@ metadata:
 3. **2026-09-30、2級土木 一次前期 r03〜r06 を公式問題と照合**: 4年度で数百行の転記崩れ。「適当なもの／適当でないもの」の取り違え、「堆積させなければならない」→「させてはならない」（正答と矛盾）、表の中身が別内容など。正答表との不一致は0＝**正答だけ照合しても設問の崩れは見つからない**。解説・ExamPoint を書いても設問文が誤りなら読者は誤知識を覚える。残る年度の照合は backlog DN-0475。関連: [[feedback_workflow_orchestration_gotchas]] [[project_civil1_primary_answer_key_errors]]
 
 **How to apply:**
+- 照合の結果は問題台帳（`data/pastexams/questions/{資格}.json`）に 1 問ずつ記録する（`npm run sync-past-exam-ledger -- --apply`）。記録の無い問題は iOS の書き出しが止める。2026-10-10 の全件照合（workflow・Sonnet）では 1級 H28 問題A の 61 問中 51 問が別の問題に化けていた。
 - 原典 PDF は `docs/textbook/{資格名}/過去問/RXX/`。pdftotext は CID 埋込フォントで日本語抽出不能なことが多い→PyMuPDF で 250-300dpi 画像化して Read で視覚転記: `python -c "import fitz; d=fitz.open(...); d[p].get_pixmap(dpi=250).save(...)"`。PDF のテキスト層が崩れている年度（数字が別字に化ける等）は画像で読む。jctc 現行ページが404なら Wayback Machine。
 - 正答 PDF とは別に問題 PDF の本文を視覚転記し、問題文・選択肢・設問極性を1問ずつ照合。生成直後の品質ゲートに「全問原典視覚突合」を含め、正解番号の機械突合だけで合格としない。
 

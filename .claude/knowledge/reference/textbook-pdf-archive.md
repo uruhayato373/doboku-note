@@ -32,7 +32,7 @@
 許可済みの完全一致コピーだけを削除する。生成器は登録済み正本を優先して読むため、旧配置を残す必要はない。
 
 > [!note] Drive はストリーミングマウント
-> `stat`/Finder のサイズは cloud-only ファイルで 16MiB のプレースホルダになる。実サイズは読んで測る（`drive-vault-sync` は常にファイルを読んで sha256/バイト数を確認する）。
+> `stat`/Finder のサイズは cloud-only ファイルで 16MiB のプレースホルダになる。実サイズは読んで測る（`drive-vault-sync` は通常ファイルを読んで sha256/バイト数を確認する。`--from-vault --cloud` だけは Drive API のハッシュで登録する）。
 
 ## rclone リモート設定
 

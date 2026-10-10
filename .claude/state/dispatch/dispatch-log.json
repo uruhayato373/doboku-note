@@ -2535,6 +2535,130 @@
       "commit": "390af99df428",
       "verification": "node --test tests/drive-vault.test.mjs（22 pass）",
       "note": "PR #963（a0adfff6c）: writeDriveManifestAtomic を lock で排他し、読み直した台帳に自分の変更だけを重ねる。2 書き手の回帰テストを追加"
+    },
+    {
+      "id": "DN-0552",
+      "at": "2026-10-10",
+      "task": "1級土木 一次の過去問演習データへ、記事の図の修正を反映する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "build-exam-question-data"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6ec14eef291c",
+      "verification": "parse-civil-1/2・parse-exam-questions を refresh-indexes に配線（build-exam-question-data・中身が変わったときだけ書く）。civil-1 の JSON を記事から作り直し H30 No.10 の図が 1 枚・check-figure-embed-dims 不一致 0。参照の切れた h30-a-fig-11・h29-a-fig-02/03 を削除し R2 削除リストへ",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0647",
+      "at": "2026-10-10",
+      "task": "過去問の問題台帳（data/pastexams）を SSOT にし、原典・公式正答・転記照合を問題 ID で結んで CI と iOS 書き出しで止める",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "check-past-exam-ledger: 4 資格 4,408 問を検査・FAIL 0・転記の照合 100%・公式正答の確認 100%。iOS 書き出しの関門（ios-quiz-bundle テスト・past-exam-ledger テスト 8 件）。管理画面 品質に照合率を表示。在庫の FAIL 2,112→0（DN-0487）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0475",
+      "at": "2026-10-10",
+      "task": "2級土木 一次の残り 6 年度分（前期 r07・後期 r03〜r07）と 1級土木 一次の設問文の転記ずれを公式問題と照合する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-past-exam-ledger"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "1級一次 24 本・2級一次 11 本の全 1,858 問を公式の問題・正答 PDF と照合（設問を直した 1級 584 問・2級 247 問、正答を直した 1級 46 問・2級 4 問）。check-past-exam-ledger の不一致 0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0634",
+      "at": "2026-10-10",
+      "task": "1級土木 H29 問題B No.4・No.31 の設問と解説の食い違いを、原本を探して直す（公式 PDF が掲載終了・保存版にも無い）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-past-exam-ledger"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "H29 問題B の原典（許諾明記の再配布・表紙で確認）を入手し、No.4・No.31 を含む 35 問を原典で照合して設問・解説を直した。No.22 の正答を公式の 4 に直した。check-past-exam-ledger 不一致 0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0551",
+      "at": "2026-10-10",
+      "task": "技術士一次 H27・H28 の ExamPoint「対比点は「A」と「B」の違い」約 80 項目を、違いの要点（体言止め）で書き直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "6 本の 9-11 が 80→0、「対比点は「」117→0、lint-ja 検知 0、数値の減少は h28-basic の 1 項目（a1・a2 の成分を外した分・選択肢に残る）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0561",
+      "at": "2026-10-10",
+      "task": "1級土木 一次 H27・H28 の問題 PDF（原典）を入手し、原典が無くて直せない図 2 枚を切り出し直す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "h27-a-fig-02・h28-a-fig-13 は 2026-10-08 に SVG で描き直し済み（判定台帳 原典なし 0）。今回 H27・H28 の原典を入手し、h27-a-fig-02 は原典 p8 と要素・比率が一致。h28-a-fig-13 は公式の問題に無い参考図なので設問から解説へ移した",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0633",
+      "at": "2026-10-10",
+      "task": "1級土木 第二次の分野別過去問ページ 4 本の設問を、公式の問題 PDF と照合し直して作り直す（別の年度の問題・存在しない問題・違う選択肢が混ざっている）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "memory",
+        "ref": "feedback_exam_pdf_cross_reference"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "4 ページ 58 問を年度別の実地試験 PDF（H23〜R02・H23/H28/H29/H30/R02 は今回取得）と照合：原典どおり 14・設問を直した 37・年度を移した 4・削除 3。H27 問題4・問題6 の図を原典から切り出して差し替え。concrete-secondary-facts テスト pass",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0487",
+      "at": "2026-10-10",
+      "task": "過去問の年度在庫で「取得済みなのに Drive 台帳にも手元にも無い」2,112 件を、実在に合わせて直すか取得し直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/skills/conversion/past-exam-archive/SKILL.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e8296ddfd1a9",
+      "verification": "原因は vault に直接置いたファイルの Drive 台帳への未登録（マウントの取り寄せがタイムアウト）。drive-vault-sync --from-vault --cloud で 2,635 件を登録し、check-past-exam-inventory FAIL 2,112→0・WARN 0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
