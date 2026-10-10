@@ -1396,6 +1396,22 @@
           ]
         },
         {
+          "year": 2011,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H23/H23_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の qa.pdf は掲載終了・Wayback にも無い。全国建設研修センターの許諾を明記した dobokujira.com の再配布（wp-content/uploads/2021/05/h23_1doboku_jitti_doboku.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "a6cba59fb08591aea1310093ff873fc42c23fc030dc93e0722245a35ea775fab",
+              "pages": 8
+            }
+          ]
+        },
+        {
           "year": 2010,
           "official": "removed",
           "files": [
