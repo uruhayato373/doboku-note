@@ -43,3 +43,13 @@ test('やり直す価値のあるステータス: 5xx と、アクセス制限�
   for (const s of [500, 503, 403, 429]) assert.equal(isRetryableStatus(s), true, String(s));
   for (const s of [200, 301, 404, 410]) assert.equal(isRetryableStatus(s), false, String(s));
 });
+
+test('1 ページの上限: 終わらない処理は打ち切って page を閉じ、間に合った処理は値を返す（2026-10-05 の 84 分停止）', async () => {
+  const { withPageBudget } = await import('../scripts/lib/public-view-browser.mjs');
+  let closed = 0;
+  const page = { close: async () => { closed++; } };
+  await assert.rejects(withPageBudget(page, 'n1@375px', () => new Promise(() => {}), 50), /n1@375px: 0 秒で打ち切り/);
+  assert.equal(closed, 1);
+  assert.equal(await withPageBudget(page, 'n2', async () => 'ok', 1000), 'ok');
+  assert.equal(closed, 1);
+});

@@ -15,9 +15,17 @@ domain: strategy
 
 **配線の正本**: このスキルが実行するコマンドは `.claude/config/review-wiring.json` の weekly に段（KPI ツリー）と役割（判断／点検）付きで載せる（CI の check-review-wiring が食い違いを止める。管理画面 戦略 ＞ レビュー が配線図と実行状況を出す）。**このレビューから起票したカードは本文の起点を「週次レビュー（開始日〜終了日）」で始める**（例: 週次レビュー（2026-09-21〜2026-09-27））。管理画面はこの文字列でレビュー由来のカードを数える。
 
-## 実行主体（2026-09-19〜）
+## 実行主体（2026-10-10〜）
 
-**ローカルの対話セッションで土曜に実行する**（クラウドルーティンは退役・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）。忘れは SessionStart の `check-weekly-review-due`（土曜 09:00 JST 以降に今週分が無ければ 1 行）と月曜の `weekly-review-guard.yml`（先週分の実在）が拾う。Playwright・ログイン依存の検査（`check-note-attachments:live`・`check-x-queue-health`。IG 照合は CI snapshot を読み `verify-ig-status` はフォールバック）はローカルだからこそ全部回せる。機械で決まる surfacer は CI 側（quality-audit の ops/report 区分・weekly-review-guard の job summary）が先に回しているので、本スキルは**その結果を読む**ことを優先し、同じ検査を二重に叩かない。
+3 段で回す（2026-W40 が抜けた反省・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）:
+
+1. **金曜 13:00 JST・CI** `weekly-review-draft.yml` が機械で決まる節を `.claude/state/weekly-review/draft.json` に書く（`npm run weekly-review:draft`）。前週のダイジェスト・KPI が欠けていれば automation-failure Issue（channel: weekly-review-draft）
+2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` がヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push する（`npm run weekly-review:install`）。今週分が既にあれば何もしない。入らなければ Issue（channel: weekly-review-local）
+3. **対話セッション** はヘッドレスが残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。SessionStart の `check-weekly-review-due` が印と未作成を 1 行で知らせ、月曜の `weekly-review-guard.yml` が先週分の実在を見る
+
+**最初に下書きを読む**: `.claude/state/weekly-review/draft.json` の `markdown`（`week` が今週・`generatedAt` が今週金曜以降のもの）を読み、機械の節はそこから写す。無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。下の Phase 1 の各コマンドは、下書きに無い節と、下書きで欠け・失敗になった材料だけを回す。
+
+**ヘッドレスで回すとき**（launchd の起動プロンプトがそう伝える）: AskUserQuestion は使えないので、Phase 3.5 の判断待ちは「## バックログの関門」に背景・選択肢・おすすめを 1 件ずつ書き、行頭に `<!-- weekly-review:pending-questions -->` を置く（台帳の 🟣 は残す）。次の対話セッションで諮り、答えで台帳を直してから印を消す。外部への公開・投稿・送信・購入はしない。Playwright・ログイン依存の検査（`check-note-attachments:live`・`check-x-queue-health`。IG 照合は CI snapshot を読み `verify-ig-status` はフォールバック）はローカルだからこそ全部回せる。機械で決まる surfacer は CI 側（quality-audit の ops/report 区分・weekly-review-guard の job summary）が先に回しているので、本スキルは**その結果を読む**ことを優先し、同じ検査を二重に叩かない。
 
 ## 引数
 

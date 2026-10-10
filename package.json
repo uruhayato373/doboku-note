@@ -401,6 +401,8 @@
     "note-character-covers": "node scripts/generate-note-character-covers.mjs",
     "note-sync-routine": "node scripts/note-sync-routine.mjs",
     "note-sync:install": "node scripts/install-note-sync-launchd.mjs",
+    "weekly-review:install": "node scripts/install-weekly-review-launchd.mjs",
+    "weekly-review:draft": "node scripts/build-weekly-review-draft.mjs",
     "note-sync-plan": "node scripts/note-sync-plan.mjs",
     "note-delete-note": "node scripts/note-delete-note.mjs",
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",

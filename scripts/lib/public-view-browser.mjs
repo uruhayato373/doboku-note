@@ -103,6 +103,30 @@ export async function launchPublicBrowser() {
  * サーバー側の一時的な失敗（5xx）やアクセス制限（403・429）。読者から見た不整合ではないので、
  * 呼び出し側は「開けない」に数える。throttled=true なら短時間に開きすぎたので、しばらく休む。
  */
+export const MAX_SCROLL_STEPS = 200;
+/** 1 ページの検査・撮影の上限（ミリ秒）。goto 45 秒×2・待ち 20 秒×2・スクロール約 30 秒・撮影を足しても収まる */
+export const PAGE_BUDGET_MS = 180_000;
+
+/**
+ * 1 ページ分の処理を時間の上限で打ち切る。上限を超えたら page を閉じて投げる（呼び出し側は「開けない」として数える）。
+ * なぜ: 2026-10-05 の note-public-view が代表ページの撮影の途中で 84 分止まり、ジョブの上限（90 分）で取り消された。
+ * page.evaluate には既定の上限が無く、どこか 1 ページで止まると後ろの全ページとレポートが失われる。
+ */
+export async function withPageBudget(page, label, fn, ms = PAGE_BUDGET_MS) {
+  let timer;
+  const budget = new Promise((_, reject) => {
+    timer = setTimeout(() => {
+      page.close().catch(() => {});
+      reject(new Error(`${label}: ${Math.round(ms / 1000)} 秒で打ち切り`));
+    }, ms);
+  });
+  try {
+    return await Promise.race([fn(), budget]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export class TransientServerError extends Error {
   constructor(message, { throttled = false } = {}) { super(message); this.throttled = throttled; }
 }
@@ -131,9 +155,10 @@ export async function openAndSettle(page, url, { readySelector = null } = {}) {
   const ready = readySelector
     ? await page.waitForSelector(readySelector, { timeout: 20_000 }).then(() => true).catch(() => false)
     : true;
-  await page.evaluate(async () => {
-    for (let y = 0; y < document.body.scrollHeight; y += 600) { window.scrollTo(0, y); await new Promise((res) => setTimeout(res, 150)); }
-  });
+  // 読み込みに応じて伸び続けるページでも終わるよう、回数で打ち切る（600px × 200 回＝12 万 px）
+  await page.evaluate(async (maxSteps) => {
+    for (let y = 0, n = 0; y < document.body.scrollHeight && n < maxSteps; y += 600, n++) { window.scrollTo(0, y); await new Promise((res) => setTimeout(res, 150)); }
+  }, MAX_SCROLL_STEPS);
   await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
   return { status: resp?.status() ?? 0, ready };
 }

@@ -1,0 +1,128 @@
+name: Weekly review draft (週次レビューの下書き)
+
+# 金曜の fetch-metrics（06:00 JST）と gsc-auto-review（12:00 JST）の後に、週次レビューのうち機械で決まる節
+# （資格別 KPI・計測ダイジェスト・未処分・実験の期限・点検と Issue・関門・検索候補・PSI・note 同期・X キュー・売上）を
+# 集めて .claude/state/weekly-review/draft.json に書く（scripts/build-weekly-review-draft.mjs）。
+#
+# なぜ: 2026-W40 の週次レビューが抜け、fetch-metrics の書き戻しが 10/7 から止まっていたことにも土曜まで誰も気づかなかった。
+# 材料の欠け（前週のダイジェストが無い・自然検索が欠測）はここで automation-failure Issue（channel: weekly-review-draft）に
+# し、そろえば自動クローズする。土曜のレビュー（Mac の launchd か対話セッション）は判断の節だけを書く。
+
+on:
+  schedule:
+    - cron: "0 4 * * 5" # 毎週金曜 13:00 JST（fetch-metrics 06:00・gsc-auto-review 12:00 の後）
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "対象週（例 2026-W42）。空なら今週"
+        required: false
+        default: ""
+
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write # 材料の欠けを automation-failure Issue に記録する（限定例外）。review-checks が開いている Issue も読む
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      - name: Build the draft
+        id: draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WEEK: ${{ github.event.inputs.week }}
+        run: |
+          set +e
+          if [ -n "$WEEK" ]; then
+            node scripts/build-weekly-review-draft.mjs --week "$WEEK" 2> "$RUNNER_TEMP/draft.log"
+          else
+            node scripts/build-weekly-review-draft.mjs 2> "$RUNNER_TEMP/draft.log"
+          fi
+          rc=$?
+          set -e
+          cat "$RUNNER_TEMP/draft.log"
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          {
+            echo "## 週次レビューの下書き（rc=$rc）"
+            echo '```'
+            cat "$RUNNER_TEMP/draft.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish draft to develop (.claude/state/weekly-review/)
+        if: steps.draft.outputs.rc == '0' || steps.draft.outputs.rc == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .claude/state/weekly-review/draft.json
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(review): 週次レビューの下書き $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase origin develop
+            if git push origin HEAD:develop; then exit 0; fi
+            echo "push に失敗（${attempt} 回目）。取り直す"
+            sleep $((attempt * 5))
+          done
+          echo "::error::develop への push が 5 回とも失敗した"
+          exit 1
+
+      - name: Report - missing inputs (automation-failure Issue)
+        if: steps.draft.outputs.rc == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "週次レビューの材料が欠けています（土曜のレビューの前に直す）。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo ""
+            echo '```'
+            grep -E '✗|材料' "$RUNNER_TEMP/draft.log" | head -20
+            echo '```'
+            echo ""
+            echo "- ダイジェストや KPI が無いときは、まず fetch-metrics の直近 run の publish（ci-data の型違反・push 失敗）を見る"
+            echo "- 再現: \`node scripts/build-weekly-review-draft.mjs --print\`"
+          } > "$RUNNER_TEMP/draft-body.md"
+          node scripts/report-automation-failure.mjs --channel weekly-review-draft \
+            --title "週次レビューの材料が欠けています" \
+            --body-file "$RUNNER_TEMP/draft-body.md"
+
+      - name: Resolve - inputs complete
+        if: steps.draft.outputs.rc == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/report-automation-failure.mjs --resolve --channel weekly-review-draft \
+            --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail on 検査不成立
+        if: steps.draft.outputs.rc != '0' && steps.draft.outputs.rc != '1'
+        run: |
+          echo "::error::下書きの生成が検査不成立（rc=${{ steps.draft.outputs.rc }}）。引数・週の指定を確認。"
+          exit 1
