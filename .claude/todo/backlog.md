@@ -50,6 +50,8 @@
 
 **やること**: Mac で npm run auth:login -- --service coconala（afb・moshimo も）→ auth:export。続けて npm run coconala-orders・npm run coconala-analytics -- --append-kpi・npm run note-sales-fetch・npm run note-traffic-fetch -- --month 2026-09 --commit を回す。note の添付実査（check-note-attachments --live）が 14 日を超えていればそれも回す。9 月の月次レビュー（/monthly-review）はこの取得のあとに行う。
 
+**9 月の受取額（NSM）**: 同じ日にオーナーが npm run record-net-receipts -- --month 2026-09 --coconala 13650 --commit を回す（note の売上管理はパスワード再確認が出るのでエージェントからは取れない・2026-10-11 実測。ココナラ ¥13,650 は売上履歴のクローズ日 9 月分の控除後）。KDP の 9 月分は login-collectors の 10/16 06:40 の定期実行が確定値で取るので、その後に note の値を --note-net で渡して同じコマンドを回せば complete になる。complete になったら 2026-09 の月次の記録を supersedes で確定版にする。
+
 **完了条件**: #571・#746・#862・#863 が自動クローズし、npm run check-coconala-orders -- --json が inconclusive:false を返す。
 
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
