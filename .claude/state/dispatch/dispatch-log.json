@@ -2520,6 +2520,23 @@
       "note": "記事の担当セッションが 2 枚を 9,088B・9,928B に圧縮して develop に入れた。check-image-assets は exit 0"
     },
     {
+      "id": "DN-0656",
+      "at": "2026-10-10",
+      "task": "Drive 台帳（drive-manifest.json）にロックが無く、drive-vault-sync を 2 本同時に回すと互いの登録を消し合う",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/drive-vault.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "390af99df428",
+      "verification": "node --test tests/drive-vault.test.mjs（22 pass）",
+      "note": "PR #963（a0adfff6c）: writeDriveManifestAtomic を lock で排他し、読み直した台帳に自分の変更だけを重ねる。2 書き手の回帰テストを追加"
+    },
+    {
       "id": "DN-0552",
       "at": "2026-10-10",
       "task": "1級土木 一次の過去問演習データへ、記事の図の修正を反映する",

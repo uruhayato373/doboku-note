@@ -394,6 +394,24 @@ const careerFunnelShape = (legacy) => {
               .superRefine(uniqueBy('ruleId', 'ルール id'))
               .optional()
               .describe('配置ルール（台帳 config.affiliate-placements）ごとの面の数字と A8（2026-10-07〜）'),
+            conversions: z
+              .array(
+                z.strictObject({
+                  clickedAt: z.string().min(1).describe('A8 のクリック日時'),
+                  program: z.string().min(1),
+                  status: z.string().nullable().optional(),
+                  grossRevenueYen: z.number().nullable().optional(),
+                  revenueYen: z.number().nullable().optional(),
+                  device: z.string().nullable().optional(),
+                  site: z.string().nullable().optional(),
+                  page: z.string().nullable().describe('クリックしたページ（リファラが無ければ null）'),
+                  pageKnown: z.boolean(),
+                  candidates: z.array(z.strictObject({ ruleId: z.string(), slot: z.string() })).describe('そのページ・案件・時刻で有効だった配置ルール'),
+                  ruleId: z.string().nullable().describe('候補が 1 つのときだけ決まる'),
+                }),
+              )
+              .optional()
+              .describe('A8 の成果別（1 成果 1 行）を配置ルールへ寄せたもの（attributeConversions・2026-10-07〜）'),
             byRuleWindow: z
               .strictObject({ start: jstDate('開始日'), end: jstDate('終了日'), source: z.enum(['page', 'placement']) })
               .optional()

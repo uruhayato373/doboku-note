@@ -234,6 +234,71 @@
       "action": "bundle",
       "at": "2026-10-10T01:45:57.957Z",
       "ref": "DN-0641"
+    },
+    {
+      "id": "OPP-976251646b",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "defer",
+      "at": "2026-10-10T02:06:36.352Z",
+      "reason": "EXP-017 の要人手は任意（A8 のサイト分割）で、成果の帰属は 10/7 のリファラ方針変更で不要になった。判定は next_check_date の 11/4",
+      "until": "2026-11-04"
+    },
+    {
+      "id": "OPP-c878fd373e",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "backlog",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0649"
+    },
+    {
+      "id": "OPP-1f4f58eee3",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "bundle",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0649"
+    },
+    {
+      "id": "OPP-ce7bc263b8",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "bundle",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0649"
+    },
+    {
+      "id": "OPP-2a23ae57dc",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "backlog",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0650"
+    },
+    {
+      "id": "OPP-390b8d7ce6",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "bundle",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0650"
+    },
+    {
+      "id": "OPP-7befa328e8",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "backlog",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0651"
+    },
+    {
+      "id": "OPP-887e734e01",
+      "week": "2026-W40",
+      "weekStart": "2026-09-28",
+      "action": "bundle",
+      "at": "2026-10-10T02:06:36.352Z",
+      "ref": "DN-0651"
     }
   ]
 }

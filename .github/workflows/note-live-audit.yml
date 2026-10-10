@@ -28,6 +28,7 @@ permissions:
   # snapshot（data/）を develop へ commit back するため write が要る。
   # read のままだと artifact にしか残らず、2026-06-12 の snapshot が 73 日腐り続けた。
   contents: write
+  issues: write # 検査の異常を automation-failure Issue（channel: note-live-audit）に記録する（限定例外）
 
 jobs:
   audit:
@@ -85,15 +86,21 @@ jobs:
 
 
       - name: Audit note live structure
+        id: structure
         if: always()
+        continue-on-error: true
         run: node scripts/check-note-structure.mjs --ci
 
       - name: Audit note live hashtags
+        id: tags
         if: always()
+        continue-on-error: true
         run: node scripts/check-note-live-tags.mjs
 
       - name: Audit note live body (URL headings / empty quotes / images)
+        id: headings
         if: always()
+        continue-on-error: true
         run: node scripts/check-note-live-headings.mjs
 
       # audit-note-cards は 2026-07-28 の「article.md 固定で型別ファイルを落とす」事故の当事者で、
@@ -101,17 +108,23 @@ jobs:
       # ライブ本文を curl で取りに行くので quality:audit（ローカル・オフライン前提）には置けない。
       # この workflow は冒頭で note API 疎通を確認しており、live 取得系の正しい置き場。
       - name: Audit note live link cards (単独URL段落の未カード / OGP 到達)
+        id: cards
         if: always()
+        continue-on-error: true
         run: node scripts/audit-note-cards.mjs
 
       - name: Reconcile noteStatus with live status
+        id: status
         if: always()
+        continue-on-error: true
         run: |
           set -o pipefail
           node scripts/verify-note-status.mjs --ci --json --snapshot | tee .tmp/note-status.json
 
       - name: Reconcile magazines with source-of-truth
+        id: magazines
         if: always()
+        continue-on-error: true
         run: |
           set -o pipefail
           # --contents を渡さないと magazines[].notes[] が入らない＝収録リストが取れず、
@@ -121,11 +134,15 @@ jobs:
       # snapshot 再生成の直後に回す。ライブ実体に対して三軸（repo 実数 ↔ SoT の price 件数 ↔
       # ライブ収録数）を突合できるのは週次のここだけ（pre-commit は軸 A↔B のみ）。
       - name: Verify magazine membership (repo x SoT x live)
+        id: membership
         if: always()
+        continue-on-error: true
         run: node scripts/check-magazine-membership.mjs --ci
 
       - name: Audit note funnel live reflection (D5)
+        id: funnel
         if: always()
+        continue-on-error: true
         run: |
           set -o pipefail
           node scripts/audit-note-funnel.mjs --live --ci | tee .tmp/note-funnel-live.log
@@ -189,6 +206,43 @@ jobs:
           fi
           git commit -m "chore(note): 題名・価格の note とのずれを未反映に戻す $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
+
+      # 2026-10-10: 各検査の異常は Issue へ書き、job は緑のまま（DN-0642）。赤にすると、ログインの要る修復が終わるまで
+      # 何週も赤が続き、workflow-health が「壊れた」と「異常を見つけた」を区別できなかった（21 日・4 連続の赤）。
+      # 赤のままにするのは、冒頭の note API 疎通確認と snapshot の書き戻し（ここが落ちると記録が残らない）だけ。
+      - name: Report - live audit findings (automation-failure Issue)
+        id: findings
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          failed=()
+          [ "${{ steps.structure.outcome }}" = "failure" ] && failed+=("Audit note live structure")
+          [ "${{ steps.tags.outcome }}" = "failure" ] && failed+=("Audit note live hashtags")
+          [ "${{ steps.headings.outcome }}" = "failure" ] && failed+=("Audit note live body (URL headings / empty quotes / images)")
+          [ "${{ steps.cards.outcome }}" = "failure" ] && failed+=("Audit note live link cards (単独URL段落の未カード / OGP 到達)")
+          [ "${{ steps.status.outcome }}" = "failure" ] && failed+=("Reconcile noteStatus with live status")
+          [ "${{ steps.magazines.outcome }}" = "failure" ] && failed+=("Reconcile magazines with source-of-truth")
+          [ "${{ steps.membership.outcome }}" = "failure" ] && failed+=("Verify magazine membership (repo x SoT x live)")
+          [ "${{ steps.funnel.outcome }}" = "failure" ] && failed+=("Audit note funnel live reflection (D5)")
+          if [ "${#failed[@]}" -eq 0 ]; then
+            node scripts/report-automation-failure.mjs --resolve --channel note-live-audit \
+              --body "復旧 run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            exit 0
+          fi
+          {
+            echo "note のライブ監査で異常が見つかりました（${#failed[@]} 検査）。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo ""
+            for f in "${failed[@]}"; do echo "- $f"; done
+            echo ""
+            echo "各検査の ✗ 行は run ログと artifact（note-live-audit）にある。修復はログインした Mac で"
+            echo "\`note-update-body --article <path> --commit\`（本文）・タグの再反映・マガジン収録の照合を行い、次の週次 run で自動クローズされる。"
+          } > "$RUNNER_TEMP/note-live-body.md"
+          node scripts/report-automation-failure.mjs --channel note-live-audit \
+            --title "note のライブ監査で異常があります" \
+            --body-file "$RUNNER_TEMP/note-live-body.md"
 
       - name: Upload reports
         if: always()

@@ -1,96 +1,72 @@
 ## 収益カバレッジ ダッシュボード
 
-- GA4入力 1167 URL / 記事・資格トップ・ホームへの照合 1047 URL / その集計対象外 120 URL（ツール・検索・教材一覧等を含む）
+- GA4入力 1044 URL / 記事・資格トップ・ホームへの照合 925 URL / その集計対象外 119 URL（ツール・検索・教材一覧等を含む）
 
-> 流入: `2026-09-09〜2026-10-06`（2026-10-07.json#page） / クリック: `2026-09-09〜2026-10-06`
+> 流入: `2026-09-12〜2026-10-09`（2026-10-10.json#page） / クリック: `2026-09-12〜2026-10-09`
 
-- 流入のあるページ: **1044**　/　高流入(≥15users)で**収益導線ゼロ**: **28**　/　**note 導線ゼロ**（アフィリのみ）: **0**
+- 流入のあるページ: **922**　/　高流入(≥15users)で**収益導線ゼロ**: **0**　/　**note 導線ゼロ**（アフィリのみ）: **0**
 
 ### 要対応ギャップ（高流入 × 無導線）
 
-| ページ | users | category | group |
-|---|--:|---|---|
-| `civil-practice-formwork-removal-timing` | 157 | civil-practice | guide |
-| `civil-practice-asphalt-pavement-control` | 156 | civil-practice | guide |
-| `civil-practice-subbase-subgrade-control` | 88 | civil-practice | guide |
-| `civil-practice-embankment-quality-control` | 69 | civil-practice | guide |
-| `civil-practice-rebar-splice-selection` | 58 | civil-practice | guide |
-| `civil-practice-cast-in-place-pile-methods` | 42 | civil-practice | guide |
-| `civil-practice-sling-work-wire-rope` | 42 | civil-practice | guide |
-| `civil-practice-concrete-placement-order` | 40 | civil-practice | guide |
-| `civil-practice-rainfall-work-suspension` | 35 | civil-practice | guide |
-| `civil-practice-pile-concrete-head-treatment` | 31 | civil-practice | guide |
-| `civil-practice-excavation-bottom-failure` | 30 | civil-practice | guide |
-| `civil-practice-ict-construction-workflow` | 30 | civil-practice | guide |
-| `civil-practice-service-commencement` | 30 | civil-practice | guide |
-| `civil-practice-concrete-crack-causes` | 25 | civil-practice | guide |
-| `civil-practice-trench-excavation-safety` | 25 | civil-practice | guide |
-| `civil-practice-risk-assessment-construction-workflow` | 24 | civil-practice | guide |
-| `civil-practice-flood-season-river-work` | 23 | civil-practice | guide |
-| `civil-practice-concrete-mix-acceptance` | 22 | civil-practice | guide |
-| `civil-practice-construction-inspection-types` | 22 | civil-practice | guide |
-| `civil-practice-concrete-pump-capacity` | 20 | civil-practice | guide |
-| `civil-practice-earth-retaining-displacement` | 20 | civil-practice | guide |
-| `civil-practice-safety-patrol-corrective-action` | 20 | civil-practice | guide |
-| `civil-practice-concrete-compaction-numbers` | 19 | civil-practice | guide |
-| `civil-practice-excavation-pre-survey` | 19 | civil-practice | guide |
-| `civil-practice-concrete-placement-timing` | 18 | civil-practice | guide |
-| `civil-practice-pile-bearing-verification` | 18 | civil-practice | guide |
-| `civil-practice-board-of-audit-inspection` | 17 | civil-practice | guide |
-| `pavement-guide-overview` | 15 | pavement | guide |
+- なし（≥15users のページはすべて何らかの収益導線あり）
 
 ### 上位 25 ページ × 収益カバレッジ
 
 | # | ページ | users | note CTA | アフィリ | noteCTR | affCTR |
 |--:|---|--:|---|---|--:|--:|
-| 1 | `civil-construction-1-secondary-r07` | 1363 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 5.0% | 0.3% |
-| 2 | `civil-construction-2-secondary-r07` | 769 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | BuildJob | 8.5% | 0.3% |
-| 3 | `civil-construction-2-secondary-experience-writing-guide` | 566 | civil-2-experience-essay+civil-2-koji-bank+civil-2-pastexam-essay+civil-2-gakka-kijutsu+category-civil-construction-2-hub-seasonal | BuildJob | 7.6% | 0.0% |
-| 4 | `civil-construction-1-secondary-experience-writing-guide` | 485 | civil-1-keiken-complete-pack+civil-1-experience-essay+civil-1-combo-essay+category-civil-construction-1-hub-mokuji | BuildJob | 5.4% | 0.0% |
-| 5 | `civil-construction-1-guide-exam-overview` | 386 | civil-1-reading-guide+civil-1-niji-marugoto-pack+civil-1-ichiji-ronten+category-civil-construction-1-hub-mokuji | BuildJob | 1.0% | 0.0% |
-| 6 | `civil-construction-2-guide-exam-overview` | 365 | civil-2-reading-guide+civil-2-takuitsu-pdf+category-civil-construction-2-hub-seasonal | BuildJob | 1.6% | 0.0% |
-| 7 | `civil-construction-2-secondary-experience-writing-examples` | 359 | civil-2-experience-essay+civil-2-pastexam-essay+civil-2-keiken-local-road-pack+civil-2-keiken-paving-pack+civil-2-keiken-water-drainage-pack+civil-2-keiken-river-disaster-pack+civil-2-keiken-earthwork-slope-pack+civil-2-keiken-concrete-foundation-pack+civil-2-keiken-agri-forest-pack+civil-2-keiken-bridge-repair-pack+civil-2-keiken-port-coast-pack+civil-2-keiken-park-private-pack+civil-2-small-infra-4+category-civil-construction-2-hub-seasonal | BuildJob | 12.5% | 0.0% |
-| 8 | `civil-construction-1-secondary-r06` | 322 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 2.2% | 0.0% |
-| 9 | `civil-construction-1-secondary-experience-writing-examples` | 267 | civil-1-keiken-complete-pack+civil-1-experience-essay+civil-1-combo-essay+civil-1-keiken-bridge-maintenance-pack+civil-1-keiken-road-tunnel-pack+civil-1-keiken-river-disaster-pack+civil-1-keiken-water-treatment-pack+category-civil-construction-1-hub-mokuji | BuildJob | 2.2% | 0.0% |
-| 10 | `civil-construction-2-guide-overview` | 255 | civil-2-reading-guide+category-civil-construction-2-hub-seasonal | BuildJob | 1.6% | 0.0% |
-| 11 | `civil-construction-2-secondary-r06` | 207 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | BuildJob | 1.4% | 0.0% |
-| 12 | `civil-construction-2-secondary-r05` | 172 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | BuildJob | 2.9% | 0.0% |
-| 13 | `civil-practice-formwork-removal-timing` | 157 | — | — | 0.0% | 0.0% |
-| 14 | `civil-practice-asphalt-pavement-control` | 156 | — | — | 0.0% | 0.0% |
-| 15 | `civil-construction-2-secondary-r04` | 149 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | BuildJob | 5.4% | 0.7% |
-| 16 | `civil-construction-1-textbook-leveling` | 132 | civil-1-reading-guide+category-civil-construction-1-hub-mokuji | BuildJob | 0.0% | 0.0% |
-| 17 | `pe-first-stage-guide-overview` | 125 | pe1-chokuzen-pack+pe1-takuitsu-pdf | BuildJob | 2.4% | 0.0% |
-| 18 | `/` | 104 | home-links-hub | — | 4.8% | 0.0% |
-| 19 | `civil-construction-1-secondary-r04` | 102 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 1.0% | 0.0% |
-| 20 | `civil-construction-1-secondary-r05` | 88 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 0.0% | 1.1% |
-| 21 | `civil-practice-subbase-subgrade-control` | 88 | — | — | 0.0% | 0.0% |
-| 22 | `pe-comprehensive-management-root-cause-analysis` | 80 | tankan-reading-guide+category-pe-comprehensive-management-hub-mokuji | DXConsulting | 0.0% | 0.0% |
-| 23 | `pe-first-stage-r07-basic` | 78 | pe1-takuitsu-pdf | BuildJob | 3.8% | 0.0% |
-| 24 | `/exam/pe-comprehensive-management` | 77 | category-pe-comprehensive-management-hub-mokuji | DXConsulting | 33.8% | 0.0% |
-| 25 | `rccm-guide-overview` | 72 | rccm-marugoto-pack+rccm-mondai3-magazine | BuildJob | 1.4% | 0.0% |
+| 1 | `civil-construction-1-secondary-r07` | 1244 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 4.9% | 0.3% |
+| 2 | `civil-construction-2-secondary-r07` | 833 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | KensetsuJobs | 8.3% | 0.2% |
+| 3 | `civil-construction-2-secondary-experience-writing-guide` | 607 | civil-2-experience-essay+civil-2-koji-bank+civil-2-pastexam-essay+civil-2-gakka-kijutsu+category-civil-construction-2-hub-seasonal | KensetsuJobs | 6.9% | 0.0% |
+| 4 | `civil-construction-1-secondary-experience-writing-guide` | 434 | civil-1-keiken-complete-pack+civil-1-experience-essay+civil-1-combo-essay+category-civil-construction-1-hub-mokuji | BuildJob | 4.4% | 0.0% |
+| 5 | `civil-construction-2-secondary-experience-writing-examples` | 376 | civil-2-experience-essay+civil-2-pastexam-essay+civil-2-keiken-local-road-pack+civil-2-keiken-paving-pack+civil-2-keiken-water-drainage-pack+civil-2-keiken-river-disaster-pack+civil-2-keiken-earthwork-slope-pack+civil-2-keiken-concrete-foundation-pack+civil-2-keiken-agri-forest-pack+civil-2-keiken-bridge-repair-pack+civil-2-keiken-port-coast-pack+civil-2-keiken-park-private-pack+civil-2-small-infra-4+category-civil-construction-2-hub-seasonal | KensetsuJobs | 12.5% | 0.0% |
+| 6 | `civil-construction-2-guide-exam-overview` | 360 | civil-2-reading-guide+civil-2-takuitsu-pdf+category-civil-construction-2-hub-seasonal | KensetsuJobs | 1.7% | 0.0% |
+| 7 | `civil-construction-1-guide-exam-overview` | 354 | civil-1-reading-guide+civil-1-experience-essay+civil-1-niji-marugoto-pack+civil-1-ichiji-ronten+category-civil-construction-1-hub-mokuji | BuildJob | 0.3% | 0.0% |
+| 8 | `civil-construction-1-secondary-r06` | 332 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 2.1% | 0.0% |
+| 9 | `civil-construction-1-secondary-experience-writing-examples` | 246 | civil-1-keiken-complete-pack+civil-1-experience-essay+civil-1-combo-essay+civil-1-keiken-bridge-maintenance-pack+civil-1-keiken-road-tunnel-pack+civil-1-keiken-river-disaster-pack+civil-1-keiken-water-treatment-pack+category-civil-construction-1-hub-mokuji | BuildJob | 2.4% | 0.0% |
+| 10 | `civil-construction-2-guide-overview` | 238 | civil-2-reading-guide+category-civil-construction-2-hub-seasonal | KensetsuJobs | 1.7% | 0.0% |
+| 11 | `civil-construction-2-secondary-r05` | 204 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | KensetsuJobs | 2.5% | 0.0% |
+| 12 | `civil-construction-2-secondary-r06` | 202 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | KensetsuJobs | 2.0% | 0.0% |
+| 13 | `civil-practice-formwork-removal-timing` | 173 | — | BuildJob | 0.0% | 0.0% |
+| 14 | `civil-construction-2-secondary-r04` | 162 | civil-2-chokuzen-pack+civil-2-niji-marugoto-pack+civil-2-pastexam-essay+category-civil-construction-2-hub-seasonal | KensetsuJobs | 4.9% | 0.6% |
+| 15 | `civil-practice-asphalt-pavement-control` | 155 | — | BuildJob | 0.0% | 0.0% |
+| 16 | `pe-first-stage-guide-overview` | 114 | pe1-chokuzen-pack+pe1-takuitsu-pdf | BuildJob | 4.4% | 0.0% |
+| 17 | `civil-practice-subbase-subgrade-control` | 112 | — | BuildJob | 0.0% | 0.0% |
+| 18 | `civil-construction-1-textbook-leveling` | 108 | civil-1-reading-guide+category-civil-construction-1-hub-mokuji | BuildJob | 0.0% | 0.0% |
+| 19 | `civil-construction-1-secondary-r04` | 103 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 1.0% | 0.0% |
+| 20 | `/` | 97 | home-links-hub | — | 5.2% | 0.0% |
+| 21 | `rccm-guide-overview` | 94 | rccm-marugoto-pack+rccm-mondai3-magazine | BuildJob | 1.1% | 0.0% |
+| 22 | `civil-construction-1-secondary-r05` | 87 | civil-1-niji-marugoto-pack+civil-1-chokuzen-pack+civil-1-pastexam-essay+category-civil-construction-1-hub-mokuji | BuildJob | 0.0% | 1.1% |
+| 23 | `pe-first-stage-r07-basic` | 85 | pe1-takuitsu-pdf | BuildJob | 3.5% | 0.0% |
+| 24 | `pe-comprehensive-management-root-cause-analysis` | 79 | tankan-reading-guide+category-pe-comprehensive-management-hub-mokuji | DXConsulting | 0.0% | 0.0% |
+| 25 | `civil-practice-embankment-quality-control` | 77 | — | BuildJob | 0.0% | 0.0% |
 
 > note CTA: 配置済み live マガジン id（`(/links)`=教材ハブ送り）。アフィリ: 転職creativeの導出（SoT=DocPage.tsx）。CTR は users 比、`n.d.`=クリック未取得。
 
 ### 配置別 CTA CTR
 
-> 期間: `2026-09-09〜2026-10-06`（2026-10-07.json#cta-clicks-by-placement）。impression/click は note・アフィリ両 CTA の合算。
+> 期間: `2026-09-12〜2026-10-09`（2026-10-10.json#cta-clicks-by-placement）。impression/click は note・アフィリ両 CTA の合算。
 
 | placement | impressions | clicks | CTR% |
 |---|--:|--:|--:|
-| article-sidebar | 15595 | 20 | 0.13% |
-| article-top | 12408 | 44 | 0.35% |
-| sidebar | 9039 | 2 | 0.02% |
-| article-mid | 6618 | 38 | 0.57% |
-| article-inline | 6147 | 9 | 0.15% |
-| article-body | 5055 | 292 | 5.78% |
-| article-end | 4543 | 9 | 0.2% |
-| article-footer | 3682 | 12 | 0.33% |
-| category-sidebar | 1278 | 2 | 0.16% |
-| tools-keiken-charcount | 268 | 13 | 4.85% |
-| category-mobile | 219 | 2 | 0.91% |
-| links-hub | 158 | 23 | 14.56% |
-| tools-kakomon-quiz-pe-first-stage | 20 | 1 | 5% |
-| home-hero | 16 | 0 | 0% |
+| article-sidebar | 14857 | 22 | 0.15% |
+| article-top | 13089 | 42 | 0.32% |
+| article-mid | 6865 | 32 | 0.47% |
+| sidebar | 6605 | 2 | 0.03% |
+| article-inline | 6129 | 9 | 0.15% |
+| article-body | 5289 | 284 | 5.37% |
+| article-end | 4809 | 12 | 0.25% |
+| article-footer | 3553 | 12 | 0.34% |
+| category-sidebar | 1279 | 2 | 0.16% |
+| tools-keiken-charcount | 314 | 16 | 5.1% |
+| category-mobile | 237 | 3 | 1.27% |
+| links-hub | 181 | 23 | 12.71% |
+| standards-list-end | 59 | 0 | 0% |
+| tools-kakomon-quiz-pe-first-stage | 28 | 1 | 3.57% |
+| home-hero | 18 | 0 | 0% |
+| tool-inline | 14 | 0 | 0% |
+| tool-end | 12 | 0 | 0% |
+| home-section | 2 | 0 | 0% |
+| standards-end | 1 | 0 | 0% |
 
 ### note CTA label × 同期間の商品売上（ID付きのみ）
 > 期間: 2026-09-01〜2026-09-30。売上は全流入経路の商品合計で、CTA別購入の帰属ではない。同じ商品の複数ラベルに同じ合計を表示するため、行の売上を合算しない。

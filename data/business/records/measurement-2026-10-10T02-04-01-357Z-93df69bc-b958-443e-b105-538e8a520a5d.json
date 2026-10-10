@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-04"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。",
+  "values": {
+    "gscClicks": 421
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T02:04:01.357Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}

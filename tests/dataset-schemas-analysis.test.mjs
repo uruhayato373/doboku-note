@@ -130,6 +130,10 @@ test('CareerFunnel: 実データが通り、集計の食い違いと欠けが落
   assertFails(S, broken(c, (x) => { x.generatedAt = '2026-09-28T14:21:03+09:00'; }), /generatedAt/);
   assertFails(S, broken(c, (x) => { x.windows.ga4.start = '28/08/2026'; }), /start/);
   assertFails(S, broken(c, (x) => { x.ledger[0].pillar = 3; }), /pillar/);
+  // A8 の成果別（attributeConversions の出力）。2026-10-10 まで型に無く、fetch-metrics の publish が止まっていた
+  const conv = { clickedAt: '2026-10-08T12:00:00+09:00', program: 'buildjob', status: 'pending', grossRevenueYen: 0, revenueYen: 0, device: 'pc', site: 'doboku-note', page: '/exam/x', pageKnown: true, candidates: [{ ruleId: 'PL-0001', slot: 'article-footer' }], ruleId: 'PL-0001' };
+  assertOk(S, broken(c, (x) => { x.funnel.affiliateCta.conversions = [conv]; }));
+  assertFails(S, broken(c, (x) => { x.funnel.affiliateCta.conversions = [{ ...conv, extra: 1 }]; }), /conversions/);
   // 基準線は同じ形。書き手が後から足した欄（afb・notSet・extraLinkSourcesScanned）が無い古い写しも通す。現行の型は通さない
   const legacy = broken(c, (x) => { delete x.inputs.afb; delete x.funnel.afb; delete x.funnel.affiliateCta.notSet; delete x.coverage.extraLinkSourcesScanned; });
   assertOk(SCHEMAS.CareerFunnelBaseline, legacy);

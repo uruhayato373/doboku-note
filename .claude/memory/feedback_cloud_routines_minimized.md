@@ -1,12 +1,12 @@
 ---
 name: feedback_cloud_routines_minimized
-description: "自動化の置き場: クラウドルーティン0本(週次はローカル土曜)・list不可/updateでevents消滅・CI赤はIssue(自動クローズ)で拾う・ログイン要る処理のCI化前にauth notesを読む(googleはhosted不可)"
+description: "自動化の置き場: クラウドルーティン0本(週次は土曜Mac launchd＋金曜CI下書き)・list不可/updateでevents消滅・CI赤はIssue(自動クローズ)で拾う・ログイン要る処理のCI化前にauth notesを読む(googleはhosted不可)"
 metadata:
   type: feedback
 ---
 
 ## クラウドルーティンは全停止（2026-06-27 棚卸し→2026-09-19 最終）
-2026-06-27 にクラウドルーティン（claude.ai RemoteTrigger）を棚卸しし「できるだけ利用しない方向」へ削減。**最終状態（2026-09-19）: 稼働(enabled:true)は0本**。`doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`・cron `0 0 * * 6`）も enabled:false で退役し、週次レビューは**ローカルの対話セッションで土曜に `/weekly-review`**（催促＝SessionStart の check-weekly-review-due・backstop＝月曜 guard）。退役理由: サンドボックスでは `.claude/` 配下の書き込みが許可プロンプトで止まり数日沈黙（09-18 は W38 欠落）、Playwright/tsx 依存の検査が動かず材料が欠ける。本文は保持してあるので再開は `update {enabled:true}`。
+2026-06-27 にクラウドルーティン（claude.ai RemoteTrigger）を棚卸しし「できるだけ利用しない方向」へ削減。**最終状態（2026-09-19）: 稼働(enabled:true)は0本**。`doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`・cron `0 0 * * 6`）も enabled:false で退役し、週次レビューは**ローカルで土曜に `/weekly-review`**。2026-10-10 から金曜 CI が下書き（weekly-review-draft.yml）・土曜 9:30 に Mac の launchd がヘッドレスで回し、対話セッションは諮問待ちの判断だけ（workflows.md「実行主体」。催促＝SessionStart の check-weekly-review-due・backstop＝月曜 guard）。退役理由: サンドボックスでは `.claude/` 配下の書き込みが許可プロンプトで止まり数日沈黙（09-18 は W38 欠落）、Playwright/tsx 依存の検査が動かず材料が欠ける。本文は保持してあるので再開は `update {enabled:true}`。
 - **停止した(enabled:false)もの**: doboku: daily-doboku-progress-sync / doboku-todo-weekly-refresh / cem-qa monthly / note-funnel monthly（note-funnel は2026-08-16時点で404＝UI削除済み）。stats47: weekly-blog-10-articles / weekly CWV PR / weekly PDCA（3本とも停止）。
 - **Why**: ルーティンは毎回 compute/トークンを消費し、大半は on-demand スキルで代替できる。
 

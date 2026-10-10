@@ -1,0 +1,146 @@
+{
+  "cadence": "weekly",
+  "runKey": "2026-W41",
+  "ranAt": "2026-10-10T02:07:04.938Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 6 本が不健全",
+      "seconds": 20
+    },
+    {
+      "command": "node:check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 223 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 1
+    }
+  ],
+  "issues": [
+    {
+      "number": 478,
+      "title": "[auto] workflow-health: 重要 workflow が赤いまま/動いていません",
+      "createdAt": "2026-08-31T08:38:00Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 571,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-09-22T01:08:28Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 636,
+      "title": "[auto] cloudflare-metrics: Cloudflare zone analytics 取得失敗（rc=1）",
+      "createdAt": "2026-09-24T23:16:16Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 695,
+      "title": "[auto] growth-triage: 計測ダイジェストが週次レビューで処分・反映されていません",
+      "createdAt": "2026-09-28T08:41:31Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 709,
+      "title": "[auto] cloudflare-config: Cloudflare zone config 取得失敗",
+      "createdAt": "2026-09-29T01:16:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 746,
+      "title": "[auto] auth-state-coconala: login collector coconala: expired / rc=0",
+      "createdAt": "2026-09-30T00:42:12Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 862,
+      "title": "[auto] auth-state-afb: login collector afb: expired / rc=5",
+      "createdAt": "2026-10-04T02:09:52Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 863,
+      "title": "[auto] auth-state-moshimo: login collector moshimo: authenticated / rc=4",
+      "createdAt": "2026-10-04T08:51:18Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 864,
+      "title": "[auto] note-sync: note の反映残り（rc=1）",
+      "createdAt": "2026-10-05T03:10:38Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 867,
+      "title": "[auto] report-checks: quality-audit の report 区分に FAIL があります",
+      "createdAt": "2026-10-05T09:04:31Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 923,
+      "title": "[auto] login-collectors-publish: login collectors: develop への書き戻しが失敗",
+      "createdAt": "2026-10-07T12:41:50Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 940,
+      "title": "[auto] workflow-health-guard: weekly-review-guard が止まっています",
+      "createdAt": "2026-10-09T02:33:36Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 943,
+      "title": "[auto] seo-rank-watch: SEO Rank Watchの日次処理が失敗",
+      "createdAt": "2026-10-09T06:10:02Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 960,
+      "title": "[auto] pre-merge: Pre-merge check が赤（develop）",
+      "createdAt": "2026-10-10T02:02:06Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 96,
+      "severity": "medium",
+      "package": "sprintf-js",
+      "summary": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "createdAt": "2026-10-06T04:24:08Z"
+    }
+  ]
+}

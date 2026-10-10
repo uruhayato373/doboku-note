@@ -2,26 +2,26 @@
   "week_id": "2026-W40",
   "year": 2026,
   "week": 40,
-  "generated_at": "2026-10-02T00:21:56.652Z",
+  "generated_at": "2026-10-10T02:04:49.280Z",
   "ranges": {
     "ga4": {
       "this": {
-        "start": "2026-09-25",
-        "end": "2026-10-01"
+        "start": "2026-09-28",
+        "end": "2026-10-04"
       },
       "prev": {
-        "start": "2026-09-18",
-        "end": "2026-09-24"
+        "start": "2026-09-21",
+        "end": "2026-09-27"
       }
     },
     "gsc": {
       "this": {
-        "start": "2026-09-23",
-        "end": "2026-09-29"
+        "start": "2026-09-28",
+        "end": "2026-10-04"
       },
       "prev": {
-        "start": "2026-09-16",
-        "end": "2026-09-22"
+        "start": "2026-09-21",
+        "end": "2026-09-27"
       }
     }
   },
@@ -29,222 +29,222 @@
     "channels": [
       {
         "channel": "Organic Search",
-        "thisUsers": 3015,
-        "prevUsers": 1378,
-        "userDelta": 1637,
-        "userDeltaPct": 118.79535558780843,
-        "thisSessions": 4594,
-        "prevSessions": 2015,
-        "thisEngagementRate": 0.739878101872007
+        "thisUsers": 3349,
+        "prevUsers": 1638,
+        "userDelta": 1711,
+        "userDeltaPct": 104.45665445665446,
+        "thisSessions": 5123,
+        "prevSessions": 2465,
+        "thisEngagementRate": 0.7517079836033574
       },
       {
         "channel": "Direct",
-        "thisUsers": 387,
-        "prevUsers": 1629,
-        "userDelta": -1242,
-        "userDeltaPct": -76.24309392265194,
-        "thisSessions": 452,
-        "prevSessions": 1670,
-        "thisEngagementRate": 0.22123893805309736
-      },
-      {
-        "channel": "Referral",
-        "thisUsers": 83,
-        "prevUsers": 352,
-        "userDelta": -269,
-        "userDeltaPct": -76.42045454545455,
-        "thisSessions": 187,
-        "prevSessions": 448,
-        "thisEngagementRate": 0.5187165775401069
-      },
-      {
-        "channel": "AI Assistant",
-        "thisUsers": 17,
-        "prevUsers": 19,
-        "userDelta": -2,
-        "userDeltaPct": -10.526315789473683,
-        "thisSessions": 21,
-        "prevSessions": 22,
-        "thisEngagementRate": 0.5714285714285714
+        "thisUsers": 167,
+        "prevUsers": 1600,
+        "userDelta": -1433,
+        "userDeltaPct": -89.5625,
+        "thisSessions": 242,
+        "prevSessions": 1648,
+        "thisEngagementRate": 0.5330578512396694
       },
       {
         "channel": "Organic Social",
-        "thisUsers": 17,
-        "prevUsers": 17,
-        "userDelta": 0,
-        "userDeltaPct": 0,
-        "thisSessions": 17,
-        "prevSessions": 18,
-        "thisEngagementRate": 0.8235294117647058
+        "thisUsers": 53,
+        "prevUsers": 23,
+        "userDelta": 30,
+        "userDeltaPct": 130.43478260869566,
+        "thisSessions": 58,
+        "prevSessions": 23,
+        "thisEngagementRate": 0.8275862068965517
       },
       {
-        "channel": "Unassigned",
+        "channel": "Referral",
+        "thisUsers": 51,
+        "prevUsers": 343,
+        "userDelta": -292,
+        "userDeltaPct": -85.13119533527697,
+        "thisSessions": 134,
+        "prevSessions": 467,
+        "thisEngagementRate": 0.6791044776119403
+      },
+      {
+        "channel": "AI Assistant",
         "thisUsers": 14,
-        "prevUsers": 37,
-        "userDelta": -23,
-        "userDeltaPct": -62.16216216216216,
-        "thisSessions": 21,
-        "prevSessions": 48,
-        "thisEngagementRate": 0.19047619047619047
+        "prevUsers": 15,
+        "userDelta": -1,
+        "userDeltaPct": -6.666666666666667,
+        "thisSessions": 16,
+        "prevSessions": 20,
+        "thisEngagementRate": 0.875
       },
       {
         "channel": "Organic Video",
-        "thisUsers": 14,
-        "prevUsers": 1,
-        "userDelta": 13,
-        "userDeltaPct": 1300,
-        "thisSessions": 14,
-        "prevSessions": 1,
+        "thisUsers": 10,
+        "prevUsers": 5,
+        "userDelta": 5,
+        "userDeltaPct": 100,
+        "thisSessions": 10,
+        "prevSessions": 5,
         "thisEngagementRate": 0
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 9,
+        "prevUsers": 39,
+        "userDelta": -30,
+        "userDeltaPct": -76.92307692307693,
+        "thisSessions": 17,
+        "prevSessions": 49,
+        "thisEngagementRate": 0.35294117647058826
       }
     ],
     "total": {
-      "thisUsers": 3547,
-      "prevUsers": 3433,
-      "thisSessions": 5306,
-      "prevSessions": 4222,
-      "userDelta": 114,
-      "userDeltaPct": 3.3207107486163707
+      "thisUsers": 3653,
+      "prevUsers": 3663,
+      "thisSessions": 5600,
+      "prevSessions": 4677,
+      "userDelta": -10,
+      "userDeltaPct": -0.273000273000273
     },
     "organic": {
       "channel": "Organic Search",
-      "thisUsers": 3015,
-      "prevUsers": 1378,
-      "userDelta": 1637,
-      "userDeltaPct": 118.79535558780843,
-      "thisSessions": 4594,
-      "prevSessions": 2015,
-      "thisEngagementRate": 0.739878101872007
+      "thisUsers": 3349,
+      "prevUsers": 1638,
+      "userDelta": 1711,
+      "userDeltaPct": 104.45665445665446,
+      "thisSessions": 5123,
+      "prevSessions": 2465,
+      "thisEngagementRate": 0.7517079836033574
     }
   },
   "ga4_jp": {
     "channels": [
       {
         "channel": "Organic Search",
-        "thisUsers": 3005,
-        "prevUsers": 1373,
-        "userDelta": 1632,
-        "userDeltaPct": 118.8638018936635,
-        "thisSessions": 4573,
-        "prevSessions": 2009,
-        "thisEngagementRate": 0.7404329761644435
+        "thisUsers": 3300,
+        "prevUsers": 1631,
+        "userDelta": 1669,
+        "userDeltaPct": 102.32985898221949,
+        "thisSessions": 5068,
+        "prevSessions": 2457,
+        "thisEngagementRate": 0.7563141278610892
       },
       {
         "channel": "Direct",
-        "thisUsers": 345,
-        "prevUsers": 59,
-        "userDelta": 286,
-        "userDeltaPct": 484.7457627118645,
-        "thisSessions": 410,
-        "prevSessions": 98,
-        "thisEngagementRate": 0.2097560975609756
-      },
-      {
-        "channel": "Referral",
-        "thisUsers": 46,
-        "prevUsers": 39,
-        "userDelta": 7,
-        "userDeltaPct": 17.94871794871795,
-        "thisSessions": 150,
-        "prevSessions": 135,
-        "thisEngagementRate": 0.6333333333333333
-      },
-      {
-        "channel": "AI Assistant",
-        "thisUsers": 17,
-        "prevUsers": 19,
-        "userDelta": -2,
-        "userDeltaPct": -10.526315789473683,
-        "thisSessions": 21,
-        "prevSessions": 22,
-        "thisEngagementRate": 0.5714285714285714
+        "thisUsers": 86,
+        "prevUsers": 336,
+        "userDelta": -250,
+        "userDeltaPct": -74.40476190476191,
+        "thisSessions": 161,
+        "prevSessions": 386,
+        "thisEngagementRate": 0.639751552795031
       },
       {
         "channel": "Organic Social",
-        "thisUsers": 16,
-        "prevUsers": 16,
-        "userDelta": 0,
-        "userDeltaPct": 0,
+        "thisUsers": 53,
+        "prevUsers": 21,
+        "userDelta": 32,
+        "userDeltaPct": 152.38095238095238,
+        "thisSessions": 58,
+        "prevSessions": 21,
+        "thisEngagementRate": 0.8275862068965517
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 43,
+        "prevUsers": 48,
+        "userDelta": -5,
+        "userDeltaPct": -10.416666666666668,
+        "thisSessions": 126,
+        "prevSessions": 172,
+        "thisEngagementRate": 0.7222222222222222
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 14,
+        "prevUsers": 15,
+        "userDelta": -1,
+        "userDeltaPct": -6.666666666666667,
         "thisSessions": 16,
-        "prevSessions": 17,
-        "thisEngagementRate": 0.8125
+        "prevSessions": 20,
+        "thisEngagementRate": 0.875
       },
       {
         "channel": "Organic Video",
-        "thisUsers": 14,
-        "prevUsers": 1,
-        "userDelta": 13,
-        "userDeltaPct": 1300,
-        "thisSessions": 14,
-        "prevSessions": 1,
+        "thisUsers": 10,
+        "prevUsers": 5,
+        "userDelta": 5,
+        "userDeltaPct": 100,
+        "thisSessions": 10,
+        "prevSessions": 5,
         "thisEngagementRate": 0
       },
       {
         "channel": "Unassigned",
-        "thisUsers": 12,
-        "prevUsers": 7,
-        "userDelta": 5,
-        "userDeltaPct": 71.42857142857143,
-        "thisSessions": 19,
+        "thisUsers": 9,
+        "prevUsers": 8,
+        "userDelta": 1,
+        "userDeltaPct": 12.5,
+        "thisSessions": 17,
         "prevSessions": 18,
-        "thisEngagementRate": 0.21052631578947367
+        "thisEngagementRate": 0.35294117647058826
       }
     ],
     "total": {
-      "thisUsers": 3455,
-      "prevUsers": 1514,
-      "thisSessions": 5203,
-      "prevSessions": 2300,
-      "userDelta": 1941,
-      "userDeltaPct": 128.20343461030384
+      "thisUsers": 3515,
+      "prevUsers": 2064,
+      "thisSessions": 5456,
+      "prevSessions": 3079,
+      "userDelta": 1451,
+      "userDeltaPct": 70.30038759689923
     },
     "organic": {
       "channel": "Organic Search",
-      "thisUsers": 3005,
-      "prevUsers": 1373,
-      "userDelta": 1632,
-      "userDeltaPct": 118.8638018936635,
-      "thisSessions": 4573,
-      "prevSessions": 2009,
-      "thisEngagementRate": 0.7404329761644435
+      "thisUsers": 3300,
+      "prevUsers": 1631,
+      "userDelta": 1669,
+      "userDeltaPct": 102.32985898221949,
+      "thisSessions": 5068,
+      "prevSessions": 2457,
+      "thisEngagementRate": 0.7563141278610892
     }
   },
   "sns": {
     "sources": [
       {
-        "source": "note",
-        "thisUsers": 40,
-        "prevUsers": 31,
-        "userDelta": 9,
-        "userDeltaPct": 29.03225806451613,
-        "thisSessions": 86,
-        "prevSessions": 64
+        "source": "x",
+        "thisUsers": 50,
+        "prevUsers": 18,
+        "userDelta": 32,
+        "userDeltaPct": 177.77777777777777,
+        "thisSessions": 55,
+        "prevSessions": 18
       },
       {
-        "source": "x",
-        "thisUsers": 14,
-        "prevUsers": 13,
-        "userDelta": 1,
-        "userDeltaPct": 7.6923076923076925,
-        "thisSessions": 14,
-        "prevSessions": 14
+        "source": "note",
+        "thisUsers": 36,
+        "prevUsers": 41,
+        "userDelta": -5,
+        "userDeltaPct": -12.195121951219512,
+        "thisSessions": 76,
+        "prevSessions": 87
       },
       {
         "source": "youtube",
-        "thisUsers": 14,
-        "prevUsers": 0,
-        "userDelta": 14,
-        "userDeltaPct": null,
-        "thisSessions": 14,
-        "prevSessions": 0
+        "thisUsers": 10,
+        "prevUsers": 4,
+        "userDelta": 6,
+        "userDeltaPct": 150,
+        "thisSessions": 10,
+        "prevSessions": 4
       }
     ],
     "total": {
-      "thisUsers": 68,
-      "prevUsers": 44,
-      "thisSessions": 114,
-      "userDelta": 24,
-      "userDeltaPct": 54.54545454545454
+      "thisUsers": 96,
+      "prevUsers": 63,
+      "thisSessions": 141,
+      "userDelta": 33,
+      "userDeltaPct": 52.38095238095239
     },
     "snsSources": [
       "x",
@@ -257,54 +257,75 @@
     "url": "https://doboku-note.com/",
     "strategy": "mobile",
     "scores": {
-      "performance": 73,
+      "performance": 60,
       "accessibility": 100,
       "best_practices": 100,
       "seo": 100
     },
     "lab_data": {
-      "LCP_ms": 5850.023381727879,
-      "TBT_ms": 82,
-      "CLS": 0.005852800994288143,
-      "FCP_ms": 2948.020484758319,
-      "TTI_ms": 5955.143576789242
+      "LCP_ms": 8326.65702929657,
+      "TBT_ms": 239,
+      "CLS": 0,
+      "FCP_ms": 3204.050972535322,
+      "TTI_ms": 8379.161327619071
     }
   },
   "gsc": {
     "total": {
-      "thisClicks": 182,
-      "prevClicks": 115,
-      "clickDelta": 67,
-      "clickDeltaPct": 58.26086956521739,
-      "thisImpressions": 6286,
-      "prevImpressions": 3415,
-      "impressionDelta": 2871,
-      "thisCtr": 0.028953229398663696,
-      "prevCtr": 0.03367496339677892,
-      "thisPosition": 11.042634425707922,
-      "prevPosition": 15.885212298682283
+      "thisClicks": 422,
+      "prevClicks": 179,
+      "clickDelta": 243,
+      "clickDeltaPct": 135.75418994413408,
+      "thisImpressions": 10193,
+      "prevImpressions": 5802,
+      "impressionDelta": 4391,
+      "thisCtr": 0.041400961444128324,
+      "prevCtr": 0.03085143054119269,
+      "thisPosition": 9.048170312959874,
+      "prevPosition": 12.238193726301276
     },
     "topQueries": [
       {
         "query": "1級土木施工管理技士 2次試験 解答例 令和6年",
-        "clicks": 2,
-        "impressions": 19,
-        "ctr": 0.10526315789473684,
-        "position": 7.526315789473684
+        "clicks": 10,
+        "impressions": 235,
+        "ctr": 0.0425531914893617,
+        "position": 7.468085106382978
+      },
+      {
+        "query": "1級土木施工管理技士 2次試験 解答 例 令和4 年",
+        "clicks": 4,
+        "impressions": 82,
+        "ctr": 0.04878048780487805,
+        "position": 8.817073170731707
       },
       {
         "query": "2級土木施工管理技士 実地試験 解答例 令和6 年",
-        "clicks": 2,
-        "impressions": 56,
-        "ctr": 0.03571428571428571,
-        "position": 8.678571428571429
+        "clicks": 4,
+        "impressions": 131,
+        "ctr": 0.030534351145038167,
+        "position": 7.587786259541985
       },
       {
-        "query": "品質規定方式",
+        "query": "1級土木施工管理技士 2次試験 経験記述 文字数",
+        "clicks": 3,
+        "impressions": 20,
+        "ctr": 0.15,
+        "position": 5
+      },
+      {
+        "query": "1級土木 経験記述 文字数",
         "clicks": 2,
-        "impressions": 19,
-        "ctr": 0.10526315789473684,
-        "position": 8.789473684210527
+        "impressions": 20,
+        "ctr": 0.1,
+        "position": 6.1
+      },
+      {
+        "query": "1級土木施工管理技士 経験記述 文字数",
+        "clicks": 2,
+        "impressions": 31,
+        "ctr": 0.06451612903225806,
+        "position": 6.387096774193548
       },
       {
         "query": "1級土木施工管理技士 2 次試験 経験記述 予想",
@@ -314,51 +335,30 @@
         "position": 30
       },
       {
-        "query": "1級土木施工管理技士 経験記述 文字数",
+        "query": "2級土木 経験記述 例文 品質管理",
         "clicks": 1,
-        "impressions": 20,
-        "ctr": 0.05,
-        "position": 7.4
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 16.5
       },
       {
-        "query": "pqcdsme",
+        "query": "コンクリート主任技士",
         "clicks": 1,
-        "impressions": 8,
-        "ctr": 0.125,
-        "position": 27.25
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 16
       },
       {
-        "query": "rccm",
+        "query": "コンクリート技士 問題数",
         "clicks": 1,
-        "impressions": 1,
-        "ctr": 1,
-        "position": 2
-      },
-      {
-        "query": "テクニカルスキルとノンテクニカルスキル",
-        "clicks": 1,
-        "impressions": 1,
-        "ctr": 1,
-        "position": 19
-      },
-      {
-        "query": "一級土木施工管理技士 経験記述 文字数",
-        "clicks": 1,
-        "impressions": 8,
-        "ctr": 0.125,
-        "position": 6.75
-      },
-      {
-        "query": "技術士二次試験",
-        "clicks": 1,
-        "impressions": 4,
-        "ctr": 0.25,
-        "position": 31.25
+        "impressions": 7,
+        "ctr": 0.14285714285714285,
+        "position": 9.714285714285714
       }
     ]
   },
   "notes": [
-    "GSC データは 3 日遅延のため、直近期間は 2026-09-23 〜 2026-09-29 を採用",
+    "窓は確定した月〜日（今週 2026-09-28 〜 2026-10-04）。GA4 と GSC は同じ窓（事業レビュー・成長パックと同じ）",
     "NSM = Organic Search の activeUsers (definition.md 準拠)",
     "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
     "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",

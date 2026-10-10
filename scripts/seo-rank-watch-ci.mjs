@@ -97,8 +97,15 @@ async function main() {
     git(['diff', '--cached', '--check']);
     git(['commit', '-m', `chore(seo): rank watch ${dateJst()} [skip ci]`]);
     // No force push: a conflicting human write fails visibly and is retried on the next run.
-    git(['pull', '--rebase', 'origin', 'develop']);
-    git(['push', 'origin', 'HEAD:develop']);
+    // 同時刻の別 workflow の push と競合すると "cannot lock ref" で落ちる（2026-10-09）。registry-reconcile と同じく取り直して 5 回まで
+    for (let attempt = 1; ; attempt++) {
+      git(['pull', '--rebase', 'origin', 'develop']);
+      try { git(['push', 'origin', 'HEAD:develop']); break; } catch (e) {
+        if (attempt >= 5) throw e;
+        console.error(`push に失敗（${attempt} 回目）。取り直す`);
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, attempt * 5000);
+      }
+    }
     return;
   }
   const view = report(root), lines = ['## SEO Rank Watch', '', `- 監視 ${view.rows.length}件 / 改善候補 ${view.selected?.keyword ?? 'なし'}`, `- ${waitingReason(view)}`, '', '| キーワード | 順位・前期差 | 状態・レビュー |', '|---|---|---|',

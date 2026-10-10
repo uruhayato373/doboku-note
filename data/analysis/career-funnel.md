@@ -1,10 +1,10 @@
 # キャリアファネル基線レポート
 
-生成: 2026-10-07T08:28:14.064Z
+生成: 2026-10-10T02:04:50.929Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
-> GA4 2026-09-09〜2026-10-06 ／ GSC 2026-09-07〜2026-10-04
+> GA4 2026-09-12〜2026-10-09 ／ GSC 2026-09-09〜2026-10-06
 
 ## 実検査の内訳
 
@@ -12,49 +12,48 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 
 | 対象 | 件数 |
 |---|---|
-| docMetaIndexTotal | 1310 |
+| docMetaIndexTotal | 1346 |
 | careerArticles | 45 |
-| siteMdxScanned | 1350 |
+| siteMdxScanned | 1386 |
 | extraLinkSourcesScanned | 1 |
 | gscRowsTotal | 1489 |
 | gscRowsMatchedCareer | 0 |
-| ga4LabelRowsMatched | 11 |
-| ga4PlacementRowsMatched | 9 |
+| ga4LabelRowsMatched | 13 |
+| ga4PlacementRowsMatched | 14 |
 | careerArticlesInGa4Top | 0 |
 | noteCareerArticles | 24 |
 
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
-- 窓が不一致（GA4 2026-09-09〜2026-10-06 / GSC 2026-09-07〜2026-10-04）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
+- 窓が不一致（GA4 2026-09-12〜2026-10-09 / GSC 2026-09-09〜2026-10-06）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
 - GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない
-- ページ別のクリック 8 件がどの配置ルールにも当たらない（撤去前の面・ラベル未登録・ページ不明。unattributed.top を見る）
 
 ## 漏斗
 
 ### 1. 高意図 query（GSC 窓）
 
-表示 133 ／ クリック 2
+表示 144 ／ クリック 2
 
 語彙: 転職・辞めたい・やめたい・年収・市場価値・評判・口コミ・エージェント・求人・ホワイト・公務員・発注者支援
 
 | query | 表示 | クリック | 順位 |
 |---|---|---|---|
-| 施工管理から転職 | 13 | 0 | 20.6 |
-| 土木施工管理技士 年収 | 13 | 0 | 5.8 |
-| 公務員 土木 資格 おすすめ | 10 | 0 | 8.8 |
-| 土木公務員 資格 | 8 | 1 | 11.9 |
+| 施工管理から転職 | 15 | 0 | 20.5 |
+| 土木施工管理技士 年収 | 14 | 0 | 5.8 |
+| 土木公務員 資格 | 12 | 1 | 10.3 |
+| 公務員 土木 資格 おすすめ | 11 | 0 | 8.8 |
+| 公務員 土木職 資格 | 9 | 0 | 8.0 |
 | 土木施工管理技士年収 | 8 | 0 | 6.3 |
-| 公務員 土木職 資格 | 8 | 0 | 8.0 |
 | 施工管理 転職エージェント | 7 | 0 | 17.3 |
-| rccm 公務員 | 5 | 0 | 11.6 |
+| rccm 公務員 | 6 | 0 | 11.2 |
 | 土木 公務員 資格 | 5 | 0 | 16.2 |
 | 公務員 土木 資格 | 4 | 0 | 9.3 |
 | 施工管理が転職エージェントを活用する方法 | 3 | 0 | 8.0 |
 | 技術士総合技術監理部門年収 | 3 | 0 | 29.3 |
-| 技術士転職 | 3 | 0 | 66.0 |
 | rccm 受験資格 公務員 | 2 | 1 | 12.5 |
-| 土木施工管理 年収 | 2 | 0 | 96.0 |
+| 施工管理 から 転職 | 2 | 0 | 18.5 |
+| 施工管理転職エージェント | 2 | 0 | 19.5 |
 
 ### 2. キャリアページの流入（GA4 窓）
 
@@ -74,43 +73,79 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 ### 4. affiliate CTA（GA4 窓）
 
-表示 23027 ／ クリック 15 ／ CTR 0.07%
+表示 20914 ／ クリック 15 ／ CTR 0.07%
 
 | placement | 表示 | クリック | CTR |
 |---|---|---|---|
-| sidebar | 9039 | 2 | 0.02% |
-| article-inline | 6147 | 9 | 0.15% |
-| article-end | 4128 | 0 | 0.00% |
-| article-mid | 3000 | 4 | 0.13% |
-| category-sidebar | 611 | 0 | 0.00% |
+| sidebar | 6605 | 2 | 0.03% |
+| article-inline | 6129 | 9 | 0.15% |
+| article-end | 4161 | 0 | 0.00% |
+| article-mid | 3204 | 4 | 0.12% |
+| category-sidebar | 625 | 0 | 0.00% |
 | category-mobile | 102 | 0 | 0.00% |
+| standards-list-end | 59 | 0 | 0.00% |
+| tool-inline | 14 | 0 | 0.00% |
+| tool-end | 12 | 0 | 0.00% |
+| home-section | 2 | 0 | 0.00% |
+| standards-end | 1 | 0 | 0.00% |
 
 | label | 表示 | クリック |
 |---|---|---|
-| ビルドジョブ | 8156 | 9 |
-| BuildJob-sidebar | 7464 | 1 |
-| BuildJob-endbanner | 3502 | 0 |
-| DXConsulting-sidebar | 2286 | 1 |
-| ハイクラス DX・コンサル転職 | 991 | 4 |
-| DXConsulting-endbanner | 626 | 0 |
-| KensetsuJobs-sidebar | 2 | 0 |
+| ビルドジョブ | 8033 | 9 |
+| BuildJob-sidebar | 5828 | 1 |
+| BuildJob-endbanner | 3462 | 0 |
+| DXConsulting-sidebar | 1488 | 1 |
+| ハイクラス DX・コンサル転職 | 911 | 4 |
+| DXConsulting-endbanner | 545 | 0 |
+| 建設JOBs | 477 | 0 |
+| KensetsuJobs-endbanner | 154 | 0 |
+| KensetsuJobs-sidebar | 16 | 0 |
 
-配置ルール別（2026-08-23〜2026-10-06・ページ別からルールを一意に決めた数字）
+配置ルール別（2026-09-12〜2026-10-09・ページ別からルールを一意に決めた数字）
 
 | ルール | 案件 | 面 | 表示 | クリック | 分けられない表示/クリック |
 |---|---|---|---|---|---|
-| PL-0001 | buildjob | article-mid | 2345 | 0 | 0/0 |
-| PL-0002 | dx-consulting | article-mid | 1611 | 4 | 0/0 |
-| PL-0003 | buildjob | article-inline | 6919 | 9 | 0/0 |
-| PL-0004 | buildjob | article-end | 4185 | 0 | 0/0 |
-| PL-0005 | dx-consulting | article-end | 1007 | 0 | 0/0 |
-| PL-0006 | buildjob | category-sidebar | 116 | 0 | 0/0 |
-| PL-0007 | buildjob | category-mobile | 59 | 0 | 0/0 |
-| PL-0008 | dx-consulting | category-sidebar | 157 | 0 | 0/0 |
-| PL-0009 | dx-consulting | category-mobile | 1 | 0 | 0/0 |
+| PL-0001 | buildjob | article-mid | 895 | 0 | 1009/0 |
+| PL-0002 | dx-consulting | article-mid | 822 | 4 | 0/0 |
+| PL-0003 | buildjob | article-inline | 2309 | 9 | 3294/0 |
+| PL-0004 | buildjob | article-end | 1577 | 0 | 1664/0 |
+| PL-0005 | dx-consulting | article-end | 487 | 0 | 0/0 |
+| PL-0006 | buildjob | category-sidebar | 15 | 0 | 94/0 |
+| PL-0007 | buildjob | category-mobile | 2 | 0 | 53/0 |
+| PL-0008 | dx-consulting | category-sidebar | 114 | 0 | 0/0 |
+| PL-0009 | dx-consulting | category-mobile | 0 | 0 | 0/0 |
 | PL-0010 | buildjob | career-tool | 0 | 0 | 0/0 |
-| PL-0011 | buildjob | sidebar | 9505 | 1 | 0/0 |
-| PL-0012 | dx-consulting | sidebar | 3463 | 1 | 0/0 |
+| PL-0011 | buildjob | sidebar | 5202 | 1 | 0/0 |
+| PL-0012 | dx-consulting | sidebar | 1180 | 1 | 0/0 |
+| PL-0013 | buildjob | article-mid | 0 | 0 | 1009/0 |
+| PL-0014 | buildjob | article-inline | 0 | 0 | 3285/0 |
+| PL-0015 | buildjob | article-end | 0 | 0 | 1664/0 |
+| PL-0016 | buildjob | category-sidebar | 0 | 0 | 94/0 |
+| PL-0017 | buildjob | category-mobile | 0 | 0 | 53/0 |
+| PL-0018 | buildjob | article-mid | 0 | 0 | 0/0 |
+| PL-0019 | buildjob | article-inline | 0 | 0 | 9/0 |
+| PL-0020 | kensetsu-jobs | article-mid | 56 | 0 | 0/0 |
+| PL-0021 | kensetsu-jobs | article-inline | 415 | 0 | 0/0 |
+| PL-0022 | kensetsu-jobs | article-end | 154 | 0 | 0/0 |
+| PL-0023 | kensetsu-jobs | category-sidebar | 4 | 0 | 0/0 |
+| PL-0024 | kensetsu-jobs | category-mobile | 0 | 0 | 0/0 |
+| PL-0025 | buildjob | article-mid | 142 | 0 | 0/0 |
+| PL-0026 | buildjob | article-end | 81 | 0 | 0/0 |
+| PL-0027 | buildjob | category-sidebar | 0 | 0 | 0/0 |
+| PL-0028 | buildjob | category-mobile | 0 | 0 | 0/0 |
+| PL-0029 | buildjob | article-mid | 43 | 0 | 0/0 |
+| PL-0030 | buildjob | category-sidebar | 0 | 0 | 0/0 |
+| PL-0031 | buildjob | category-mobile | 0 | 0 | 0/0 |
+| PL-0032 | buildjob | standards-end | 0 | 0 | 0/0 |
+| PL-0033 | buildjob | home-section | 1 | 0 | 0/0 |
+| PL-0034 | buildjob | tool-inline | 14 | 0 | 0/0 |
+| PL-0035 | buildjob | standards-list-end | 59 | 0 | 0/0 |
+| PL-0036 | buildjob | topic-end | 0 | 0 | 0/0 |
+| PL-0037 | buildjob | tool-end | 7 | 0 | 0/0 |
+| PL-0038 | buildjob | article-mid | 25 | 0 | 0/0 |
+| PL-0039 | buildjob | article-end | 23 | 0 | 0/0 |
+| PL-0040 | buildjob | category-sidebar | 0 | 0 | 0/0 |
+| PL-0041 | buildjob | category-mobile | 1 | 0 | 0/0 |
 
 クリックの出どころ（A8 の発生日と突き合わせる）
 
@@ -131,16 +166,14 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 | 2026-09-17 | /exam/pe-comprehensive-management/past-exams/r08-primary | dx-consulting | sidebar | PL-0012 | 1 |
 | 2026-09-16 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | PL-0003 | 1 |
 | 2026-09-12 | /exam/pe-comprehensive-management/guide/course-selection-guide | dx-consulting | article-mid | PL-0002 | 1 |
-| 2026-09-07 | /exam/civil-construction-1 | kensetsu-jobs | article-inline | — | 1 |
-| 2026-09-07 | /exam/civil-construction-1/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
-| 2026-09-04 | /exam/civil-construction-1/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
-| 2026-09-04 | /exam/concrete-chief-engineer | kensetsu-jobs | article-mid | — | 1 |
-| 2026-09-01 | /exam/civil-construction-2/secondary/r07 | kensetsu-jobs | article-inline | — | 1 |
-| 2026-08-31 | /exam/civil-construction-1/secondary/r07 | buildjob | article-inline | — | 1 |
-| 2026-08-28 | /docs/civil-construction-2-guide-study-plan | buildjob | article-inline | — | 1 |
-| 2026-08-28 | /docs/concrete-chief-engineer-guide-overview | buildjob | article-mid | — | 1 |
 
 ### 5. A8 成果
+
+成果の出どころ（A8 の成果別・1 成果 1 行。ページはクリックしたページ）
+
+| クリック | 案件 | 状態 | 発生額 | ページ | 候補ルール |
+|---|---|---|---|---|---|
+| 2026-10-05 10:37 | buildjob | 未確定 | ¥13534 | （不明・ページの URL を渡す前） | — |
 
 窓内（2026-09・2026-10）: 発生 1 ／ 確定 0 ／ 確定報酬 ¥0
 累計: 発生 2 ／ 確定 0 ／ 確定報酬 ¥0
@@ -153,8 +186,8 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 ## 起票時基線からのずれ（±30% 超）
 
-- affiliate 表示: 起票時 7370 → 今回 23027（312%）
-- 高意図 query 表示: 起票時 7 → 今回 133（1900%）
+- affiliate 表示: 起票時 7370 → 今回 20914（284%）
+- 高意図 query 表示: 起票時 7 → 今回 144（2057%）
 
 ## 記事台帳
 
