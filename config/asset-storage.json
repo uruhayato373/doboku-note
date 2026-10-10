@@ -107,6 +107,26 @@
       ],
       "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。",
       "phase": "site-ogp-thumbnails"
+    },
+    {
+      "id": "ogp-background",
+      "audience": "ci",
+      "match": {
+        "pathRegex": "^config/ogp/backgrounds/[^/]+\\.png$"
+      },
+      "bucket": "private",
+      "keyPrefix": "ogp/backgrounds/",
+      "keyFrom": "stripPrefix:config/ogp/backgrounds/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": "scripts/generate-ogp-backgrounds.mjs",
+      "requiredBy": [
+        ".claude/skills/conversion/ogp-create/scripts/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
+        "scripts/coconala-thumb.mjs（ココナラのサムネイル）",
+        ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に asset-hydrate で取り戻す）"
+      ],
+      "reason": "資格別の OGP 背景（AI で作った一点物・7 枚 9.6MB）。config/ は人が決める設定の置き場で、CI が読む素材は private R2 が原則なので 2026-10-10 に git から外した（data/ の SSOT 見直し）。Codex の画像生成は同じ画素を再現しないので、再生成ではなく保管する。手元・CI とも使う直前に asset-hydrate で取り戻し、無ければ requireLocalAsset が止める",
+      "phase": "4-B"
     }
   ]
 }

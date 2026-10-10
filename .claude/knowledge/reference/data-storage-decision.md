@@ -190,7 +190,7 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - **週の換算**: 週次レビューの回と振り返り期間の換算が 7 か所に別実装だったのを `scripts/lib/review-week.mjs`（依存ゼロ）にまとめた（#968）
 - **時点の記録**: 月次レビュー（`docs/reviews/monthly/`）も週次と同じく完了して消えたカードへの参照を warning にした（`check-project-task-refs`）
 
-残したもの（理由つき）: 寿命の無い `.claude/state/` の作業記録（`link-audit` 26・`pe-first-stage-audit` 63・`pe-essay-review` 40・`improvements` 32）は手元のスキルが書いて読むもので、寿命の仕組み（prune）は data/ の CI の書き手が呼ぶ作りなので宣言しても効かない（減らすなら書き手の側で消す）／事業の台帳（`business.measurement`・`business.snapshot`）は追記だけの記録なので統合も削除もしない／data/ の series・ledger の鮮度の未宣言 35 種は、読む検査が鮮度で判定していない（取得の途中結果・人が書く台帳）ので宣言しない。運営者に決めてもらうもの: `config/ogp/backgrounds/`（AI で作った一点物の画像 9.6MB。config/ は設定の置き場で、CI が読む素材は private R2 が原則）・`data/inbox/mail-events.json`（別のリポジトリが書き、このリポジトリに読み手がいない）
+残したもの（理由つき）: 寿命の無い `.claude/state/` の作業記録（`link-audit` 26・`pe-first-stage-audit` 63・`pe-essay-review` 40・`improvements` 32）は手元のスキルが書いて読むもので、寿命の仕組み（prune）は data/ の CI の書き手が呼ぶ作りなので宣言しても効かない（減らすなら書き手の側で消す）／事業の台帳（`business.measurement`・`business.snapshot`）は追記だけの記録なので統合も削除もしない／data/ の series・ledger の鮮度の未宣言 35 種は、読む検査が鮮度で判定していない（取得の途中結果・人が書く台帳）ので宣言しない。運営者の判断（2026-10-10）: `config/ogp/backgrounds/`（AI で作った一点物の画像 9.6MB）は private R2 へ移した（素材の group `ogp-background`・git では追跡しない・使う直前に asset-hydrate）。`data/inbox/mail-events.json`（Obsidian の mail-triage が書き、このリポジトリに読み手がいない）は受け箱として残す
 
 ## 参考リンク
 
