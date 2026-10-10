@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-23",
+  "updatedAt": "2026-10-10",
   "source": "ココナラ「サービス・ブログ分析」を npm run coconala-analytics（Playwright・read-only）で収集し、--append-kpi で upsert する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。手動貼付も引き続き可。",
   "howToUpdate": "npm run coconala-analytics -- --append-kpi → weekly / blogsWeekly を weekOf 単位で upsert → npm run check-coconala-analytics で鮮度・欠測・整合を確認 → /coconala-status で撤退ライン判定。",
   "weekly": [
@@ -815,6 +815,48 @@
       "windowDays": 30,
       "cumulative": true,
       "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "serviceId": "coconala-2kyu-sakusei-3theme",
+      "views": 95,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-09-10",
+        "to": "2026-10-09"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "serviceId": "coconala-2kyu-tensaku-3theme",
+      "views": 103,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-09-10",
+        "to": "2026-10-09"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "serviceId": "coconala-cce-essay-tensaku",
+      "views": 76,
+      "favorites": 0,
+      "orders": 0,
+      "period": {
+        "from": "2026-09-10",
+        "to": "2026-10-09"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
     }
   ],
   "milestones": [
@@ -1195,6 +1237,231 @@
       "period": {
         "from": "2026-08-25",
         "to": "2026-09-23"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "2kyu-doko-made-kaku",
+      "blogId": "814642",
+      "title": "2級の経験記述はどこまで書けば通る？1級との基準の違い",
+      "views": 19,
+      "postedOn": "2026-09-24",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "2kyu-moshi-mihon",
+      "blogId": "813777",
+      "title": "2級土木 二次 予想模試の中身を見本公開｜設問1問と教材構成",
+      "views": 13,
+      "postedOn": "2026-09-23",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "2kyu-moshi-tsukaikata",
+      "blogId": "815113",
+      "title": "2級 二次 予想模試の使い方｜丸付けで終わらせない3段階",
+      "views": 15,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "anzen-kanri-kakikata",
+      "blogId": "815072",
+      "title": "【第5回】経験記述の安全管理、品質管理と同じ手順で書く",
+      "views": 19,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "chokuzen-2shukan-roadmap",
+      "blogId": "815110",
+      "title": "1級土木二次 直前2週間の過ごし方｜経験記述と学科記述",
+      "views": 17,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "dokugaku-tensaku-genkai",
+      "blogId": "791954",
+      "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
+      "views": 15,
+      "postedOn": "2026-08-13",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "gijutsuteki-kadai-gokai",
+      "blogId": "815118",
+      "title": "経験記述の技術的課題「珍しい工事」でなくていい理由",
+      "views": 13,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "hinshitsu-kanri-kakikata",
+      "blogId": "815069",
+      "title": "【第4回】経験記述の品質管理、設問1〜評価まで書く手順",
+      "views": 20,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "jibun-de-kaku-ka-tsukuru-ka",
+      "blogId": "815126",
+      "title": "経験記述が書けないとき｜人に借りていいのは骨子と赤入れまで",
+      "views": 15,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "koji-gaiyou-de-otosu",
+      "blogId": "815121",
+      "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
+      "views": 14,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "koutei-kanri-kakikata",
+      "blogId": "815116",
+      "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
+      "views": 24,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "ochiru-keiken-kijutsu-3-pattern",
+      "blogId": "791576",
+      "title": "【第1回】経験記述で落ちる答案に共通する3つの型｜1級・2級土木",
+      "views": 17,
+      "postedOn": "2026-08-12",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "suuchi-no-irekata",
+      "blogId": "815124",
+      "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
+      "views": 16,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "tensaku-akaire-3",
+      "blogId": "815068",
+      "title": "経験記述の直しは効く順番から｜添削で最初に見る4点",
+      "views": 21,
+      "postedOn": "2026-09-25",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
+      },
+      "windowDays": 30,
+      "cumulative": true,
+      "source": "analytics-auto"
+    },
+    {
+      "weekOf": "2026-10-05",
+      "slug": "yosou-mondai-kaku-renshu",
+      "blogId": "794012",
+      "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
+      "views": 10,
+      "postedOn": "2026-08-17",
+      "period": {
+        "from": "2026-09-11",
+        "to": "2026-10-10"
       },
       "windowDays": 30,
       "cumulative": true,
