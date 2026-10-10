@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen",
+  "channel": "youtube",
+  "format": {
+    "width": 1672,
+    "height": 941
+  },
+  "purpose": "2級土木の直前総まとめ動画に向けたPOPサムネイル試作。公開・予約素材へは未採用。",
+  "copy": {
+    "examLabel": "2級土木",
+    "headline": "耳で総復習",
+    "benefit": "一次＋二次・26分",
+    "authority": "総監が制作"
+  },
+  "evidence": [
+    {
+      "field": "examLabel,headline,benefit",
+      "path": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/compilation.json",
+      "note": "第一次5分野の頻出点と第二次の記述を聞き流しで復習する15章。"
+    },
+    {
+      "field": "benefit",
+      "path": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/youtube.json",
+      "note": "既存動画 1355361ef58a14a30e2200079a00f8a2d694437d903b0646cfef1e76d5759734 をffprobeで確認済み。1595.433秒（26分35秒）を分単位で表現。"
+    },
+    {
+      "field": "authority",
+      "path": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/youtube.json",
+      "note": "概要欄の制作説明。技術士（総合技術監理部門）取得者の企画・監修、音声はVOICEVOX。"
+    }
+  ],
+  "references": [
+    {
+      "role": "approved-style-and-character",
+      "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+      "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6",
+      "catalog": "data/coconala/thumb-approved.json"
+    },
+    {
+      "role": "existing-youtube-cover",
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png",
+      "sha256": "2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2"
+    }
+  ],
+  "prompt": "Use case: ads-marketing.\n添付画像1は承認済みココナラの2級土木POPデザイン（意匠・キャラクターの参照）。添付画像2は今回差し替えを検討しているYouTube表紙（動画の対象の参照）。画像1の強い文字階層、緑・白・黄色、同じ40代男性の先生を用いて、まったく新しい16:9のYouTubeサムネイルを制作。ココナラの「添削」やサービス文言はコピーしない。\n出力は1920×1080、16:9の一枚の完成サムネイル。試験直前の2級土木受検者がスマホ一覧で一目で対象と利点を読める、キャッチーだが信頼できる教材デザイン。\n背景は深いエメラルドグリーンから明るいミントへの斜めの色面、さりげない斜線と光のアクセント。土木現場のシルエットは極めて薄く、文字を邪魔しない。\n左側の約65%を太い日本語見出しに使う。最上段に非常に大きく「2級土木」を白い極太文字、濃緑の輪郭と控えめな影で。中央に「耳で総復習」を黄色の極太文字、濃緑の輪郭で、1行で大きく表示。資格名と主題が同程度に大きい。長文は置かない。左下に白い帯で「一次＋二次・26分」を濃緑の太字、聞き流しが分かる小さなヘッドホンのアイコンを添える。帯の下に小さめの黄色の強調帯で「総監が制作」。\n文字列は指定の4つだけを正確に描く：「2級土木」「耳で総復習」「一次＋二次・26分」「総監が制作」。ブランド名、URL、値段、ロゴ、添削、合格保証、実績、数字の追加は禁止。\n右側約35%に、画像1と完全に同じ先生を大きく配置。白い無地ヘルメット、黒い短髪、黒縁メガネ、軽いひげ、40代の大人の顔、紺の作業服、白シャツ、紺ネクタイ、黄色の反射ベストを保つ。親しみのある自信ある笑顔。胸上〜腰上の構図で、左手のひらを上向きに開き、見出しへ視線を誘導する自然な解説ポーズ。赤ペンは不要。自然な手・指、顔の同一性を厳守。顔と帽子は画面内に完全に収める。\n周囲は左右上下5%の安全域。見出しと顔は切らない、人物は文字に重ねない。右下の時刻オーバーレイに備え、右下12%×12%には文字や顔を置かない。参照を引き伸ばさず16:9に構成し直す。スマホの幅360pxでも4つの文字列が判読できる。",
+  "generation": {
+    "tool": "built-in image_gen",
+    "mode": "reference-based generation"
+  },
+  "output": {
+    "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+    "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb",
+    "bytes": 1893449,
+    "variant": "palm",
+    "recommendedForPreview": true
+  },
+  "review": {
+    "date": "2026-10-10",
+    "status": "preview-checked",
+    "reviewer": "Codex",
+    "views": [
+      "原寸",
+      "幅360px"
+    ],
+    "copy": "「2級土木」「耳で総復習」「一次＋二次・26分」「総監が制作」を指定どおり判読。誤字・文字切れなし。",
+    "character": "承認済み参照と同じヘルメット・メガネ・短髪・ひげ・服装。手のひら版は見出しに重ならない。",
+    "facts": "26分35秒の音声中心の動画、一次＋二次の範囲、総監取得者の企画・監修に整合。",
+    "adoptionRequired": [
+      "原寸は生成ツールの1672×941。実制作への採用時は1920×1080の出力へ統一。",
+      "手のひら版は帽子上の余白が約1%。採用時は5%の安全域を確保。",
+      "未投稿動画の表紙として採用する場合は冒頭フレームとサムネイルを同期し、メディア台帳のSHA・承認を更新。"
+    ]
+  },
+  "storage": {
+    "group": "video-render-artifact",
+    "manifest": ".claude/state/assets/drive-manifest.json",
+    "status": "vault-and-cloud-verified",
+    "vaultDir": "制作物/動画レンダー/pop-matome-2kyu-20261010/",
+    "verifiedAt": "2026-10-10T06:56:51.923Z",
+    "verification": "2点ともvault全バイト読み戻しSHA-256とクラウドMD5が台帳と一致。",
+    "files": [
+      {
+        "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+        "driveFileId": "17VCpha1AxJ4sCyhBxPEvptai90hW-6EH",
+        "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+      },
+      {
+        "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-pointing-v1.png",
+        "driveFileId": "1XSaSsyz_dwa6j_qEOh14K51VlTqL6GtS",
+        "sha256": "0dfc3254f0eaf1c436de6e409302082469862757d891a9e553583d7c8ca76314"
+      }
+    ]
+  },
+  "publication": {
+    "status": "未公開試作",
+    "integratedWithRenderer": false,
+    "note": "既存cover-design、youtube.json、コンテンツ台帳は従来版。動画冒頭と同期する採用工程は未実施。"
+  },
+  "intendedFormat": {
+    "width": 1920,
+    "height": 1080
+  },
+  "alternatives": [
+    {
+      "variant": "pointing",
+      "prompt": "Use case: identity-preserve / ads-marketing.\n画像1のYouTubeサムネイルを、同じ文字と同じ構図のまま先生のポーズを比較するB案へ編集してください。画像2は先生の顔の同一性の参照です。\n絶対に保つ文字は「2級土木」「耳で総復習」「一次＋二次・26分」「総監が制作」の4つだけ。文字サイズ、極太書体、見出しの位置、緑・白・黄色の色調、ヘッドホンのアイコン、背景を保つ。ブランド名や他の文言を追加しない。横長16:9、一枚のサムネイル。\n変更1：右の同じ40代の先生を、手のひらで解説するポーズから、自然な人差し指1本で左の「耳で総復習」を指すポーズに変更。指と手は自然な5本指と骨格。口元は親しみのある笑顔。黒縁メガネ・短髪・軽いひげ・無地白ヘルメット・紺の作業服・ネクタイ・黄色の反射ベストは不変。\n変更2：先生をわずかに縮小し、帽子の上から上端まで高さの5%の余白を確保。顔と帽子を完全に画面内に収め、文字や補足に手を重ねない。右下の時刻表示と重なる領域には顔や文字を置かない。\nその他は変更しない。総監が直接ナレーションしていると誤認させる言葉、合格保証、添削訴求は加えない。",
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb",
+          "role": "edit-target"
+        },
+        {
+          "role": "approved-style-and-character",
+          "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+          "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6",
+          "catalog": "data/coconala/thumb-approved.json"
+        }
+      ],
+      "output": {
+        "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-pointing-v1.png",
+        "sha256": "0dfc3254f0eaf1c436de6e409302082469862757d891a9e553583d7c8ca76314",
+        "bytes": 1835362,
+        "width": 1672,
+        "height": 941
+      },
+      "review": {
+        "date": "2026-10-10",
+        "views": [
+          "原寸",
+          "幅360px"
+        ],
+        "copy": "指定4文字列を判読。誤字・文字切れなし。",
+        "character": "参照のヘルメット・メガネ・ひげ・作業服を保持。",
+        "note": "指先が「習」の下端に接する。文字への重なりを避ける点では手のひら版を推奨。"
+      }
+    }
+  ]
+}
