@@ -695,6 +695,18 @@
       "reason": "確認: 受入れホッパ付き台車・多関節ブーム・先端ノズル・ホースの構成が実物どおりで、ノズルの噴流は灰色の粉塵を伴い、金網と鋼製支保の面に灰色の厚い付着層とはね返りが見え、前回の白い霧の描写は解消している",
       "reviewedAt": "2026-10-08T00:27:47.822Z"
     },
+    "concrete-chief-engineer/textbook-construction/img/photo-slab-surface-tamping": {
+      "sha": "d81d272d5cd3145f",
+      "promptSha": "f2750286156b88c7",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:20:21.972Z"
+    },
+    "concrete-chief-engineer/textbook-construction/img/photo-wall-wet-curing": {
+      "sha": "ee2d3ff9c2a8dfb6",
+      "promptSha": "9c8e4a94f44bbb34",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:21:25.395Z"
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "sha": "1c6acb88729ce5a0",
       "promptSha": "5efbbbb4c241e82c",
@@ -763,6 +775,24 @@
       "verdict": "ok",
       "reason": "SEM らしい白黒像で、滑らかな骨材面と界面、繊維状・板状の水和物が絡むマトリクスと大小の空隙が見え、alt・本文（骨材界面・反応生成物の形態観察）と一致する",
       "reviewedAt": "2026-10-07T12:06:51.905Z"
+    },
+    "concrete-diagnostician/textbook-investigation/img/photo-half-cell-potential-measurement": {
+      "sha": "1d80beef58580a26",
+      "promptSha": "669e36346edb7910",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:17:35.667Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 青い硫酸銅液入りの透明筒と先端の白い多孔質栓の照合電極を、湿らせた壁面に手袋の手で当てている。電極からの青いリード線は地面の携帯電位差計（表示はぼかし）へ、計器から赤いリード線が、斫り窓から露出した異形鉄筋のクリップへつながり、電極・電位差計・鉄筋の回路が成り立つ。本文の手順（表面湿潤・電位差計・鉄筋導通・測点の格子）と一致し、壁面にチョークの格子も見える。文字・ロゴ・顔・崩れた部品は無い。",
+      "reviewedAt": "2026-10-10T15:21:56.296Z"
+    },
+    "concrete-diagnostician/textbook-investigation/img/photo-laser-vehicle-tunnel": {
+      "sha": "b3d1e376ec0ffc47",
+      "promptSha": "1f9d5af5312ffe96",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:18:55.877Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 白いバンの屋根に低い金属ラックがあり、複数のレーザスキャナ状ユニット・投光器・黄色回転灯が載る。2車線のトンネル内を後方から低速走行する構図で、覆工面にひび割れが見え、天井灯が奥へ続く。本文の「トンネル内を低速で走行し覆工面をレーザで走査する計測車」と矛盾しない。ナンバー・文字・ロゴは無く、車体や部品の崩れも無い。",
+      "reviewedAt": "2026-10-10T15:21:56.302Z"
     },
     "concrete-diagnostician/textbook-investigation/img/photo-phenolphthalein-core": {
       "sha": "ac67ea19ad4030f5",

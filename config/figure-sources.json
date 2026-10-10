@@ -2057,6 +2057,16 @@
       "tool": "Codex",
       "prompt": "Inside a mountain road tunnel under construction (NATM), at the excavation face, lit by work lights: a wet-mix shotcrete spraying machine with a long hydraulic boom holds a nozzle about 1.5 m from the tunnel arch. A thick, dense, dark-grey stream of wet concrete shoots from the nozzle and splatters onto the rock surface, visibly building a rough grey concrete layer over steel arch ribs and wire mesh; the freshly sprayed area is wet dark grey while unsprayed rock is lighter brown-grey. A little rebound material falling below the spray point and some dust haze, but the concrete jet itself is clearly a heavy grey material, not white mist or water. The operator is small and distant at the controls, helmet on, face not visible. No text, no logos."
     },
+    "concrete-chief-engineer/textbook-construction/img/photo-slab-surface-tamping": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Construction site, freshly placed concrete floor slab with exposed rebar mesh edges, a worker in a helmet and rubber boots wearing a work jacket, seen from behind and slightly above, pressing the fresh concrete surface down with a long-handled wooden tamping board / wooden screed, a flat leveled wet concrete surface with fine rebar spacer chairs below, plank walkway boards laid over the rebar, shallow depth of field, daylight, no text, no logos, no visible face"
+    },
+    "concrete-chief-engineer/textbook-construction/img/photo-wall-wet-curing": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Construction site, a freshly stripped (formwork removed) reinforced concrete wall surface, grey concrete with faint form-tie hole marks, covered with a curing sheet (white-grey nonwoven or blue-green plastic sheet) hung from the top and held tight against the wall surface, the lower part of the sheet visibly dark and damp, a hose or sprinkler nozzle spraying a fine water mist onto the sheet, water droplets running down, no people or only hands, shallow depth of field, overcast daylight, no text, no logos, no faces"
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -2099,6 +2109,16 @@
     "concrete-diagnostician/textbook-investigation/img/figure-05": {
       "kind": "ai-generated",
       "tool": "Codex"
+    },
+    "concrete-diagnostician/textbook-investigation/img/photo-half-cell-potential-measurement": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a half-cell potential survey on a vertical concrete wall of a bridge pier. A slim cylindrical reference electrode (copper/copper sulfate half-cell, a clear tube with a blue copper sulfate solution inside and a white porous plug at its tip, with a small wet sponge pad at the tip) is held by a gloved hand and pressed against the dampened concrete surface. A thin insulated lead wire runs from the top of the electrode to a handheld digital high-impedance voltmeter resting on the ground in the foreground, with its display unreadable and blurred. A second lead wire from the voltmeter runs to a small clip attached to an exposed steel rebar end at the edge of a chipped-out window in the concrete. A faint chalk grid of measurement points is drawn on the wall. Shallow depth of field, background blurred, no faces, no text, no logos."
+    },
+    "concrete-diagnostician/textbook-investigation/img/photo-laser-vehicle-tunnel": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A white inspection van driving slowly inside a two-lane road tunnel with a plain concrete lining, seen from behind at a slight angle. On the roof, a low rigid metal rack carries a row of laser scanner units and line-scan cameras with a few bright work lights, all aimed upward and sideways at the arched lining surface. Amber hazard lights flash on the van's roof. Thin fine cracks are faintly visible on the grey lining wall, lit by the vehicle's lights. Tunnel ceiling lamps recede into the distance. Shallow depth of field, soft background, no people, no text, no logos, no license plate lettering."
     },
     "concrete-diagnostician/textbook-investigation/img/photo-phenolphthalein-core": {
       "kind": "ai-generated",
