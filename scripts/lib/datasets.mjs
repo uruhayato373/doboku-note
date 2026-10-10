@@ -134,7 +134,7 @@ export const DATASETS = [
   d('config.public-view-breakpoints', 'config/public-view-breakpoints.json', 'config', 'site', '公開ページの見え方検査の画面幅', { schema: 'ConfigPublicViewBreakpoints' }),
   d('config.standards-structure', 'config/standards-structure.json', 'config', 'site', '土木工事共通仕様書の構造化の設定', { schema: 'ConfigStandardsStructure' }),
   d('config.ogp-settings', 'config/ogp/settings.json', 'config', 'site', 'OGP の設定（テンプレートの自動選定・定義＝note カバー共通・タイトルの改行と字の大きさ）', { schema: 'ConfigOgpSettings' }),
-  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像'),
+  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定', { schema: 'ConfigXRepost' }),
