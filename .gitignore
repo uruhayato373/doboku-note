@@ -435,3 +435,7 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 # 管理画面「コンテンツ台帳」の note 記事の索引（scripts/build-content-ledger.mjs が作る生成物・DN-0438）
 .claude/state/content-ledger.json
 
+
+# Drive 台帳の書き込み中の一時ファイルと排他の lock（scripts/lib/drive-vault.mjs・DN-0656）
+.claude/state/assets/drive-manifest.json.tmp
+.claude/state/assets/drive-manifest.json.lock/
